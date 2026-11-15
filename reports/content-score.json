@@ -1,5 +1,5 @@
 {
- "total": 69.4,
+ "total": 69.9,
  "areas": {
   "vocab": {
    "name": "Kho từ",
@@ -147,8 +147,8 @@
   },
   "comm": {
    "name": "Giao tiếp",
-   "score": 77.3,
-   "coverage": 77.3,
+   "score": 81.3,
+   "coverage": 81.3,
    "pass": 100,
    "errors": 0,
    "parts": [
@@ -175,7 +175,7 @@
     },
     {
      "k": "mục gold (giải thích cách dùng)",
-     "have": 284,
+     "have": 484,
      "std": 1000,
      "w": 20,
      "future": false
@@ -470,7 +470,7 @@
     },
     {
      "k": "Bộ từ",
-     "have": 74.1,
+     "have": 74.2,
      "std": 100,
      "w": 25,
      "future": false

@@ -2,7 +2,7 @@
 import fs from 'node:fs'; import vm from 'node:vm'; import assert from 'node:assert/strict';
 const c = { localStorage: null }; vm.createContext(c); c.self = c;
 vm.runInContext(fs.readFileSync('web/js/pron/pairs.js', 'utf8'), c);
-vm.runInContext(fs.readFileSync('web/cpack/pron/skills.js', 'utf8') + fs.readFileSync('web/js/pron/sounds.js', 'utf8'), c);
+vm.runInContext(fs.readFileSync('web/cpack/pron/skills.js', 'utf8') + fs.readFileSync('web/cpack/pron/sounds.js', 'utf8'), c);
 const P = c.PronPairs; let n = 0; const ok = (v, m) => { assert.ok(v, m || "lỗi"); n++; }; const eq = (a, b, m) => { assert.equal(JSON.stringify(a), JSON.stringify(b), m || JSON.stringify(a)); n++; };
 // 1. Chấm
 eq(P.decide(['think'], 'think', 'sink').res, 'target');

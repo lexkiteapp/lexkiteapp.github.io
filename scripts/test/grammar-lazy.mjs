@@ -60,11 +60,13 @@ async function boot(fail) {
   const log = [], view = { innerHTML: '', querySelectorAll: () => [], querySelector: () => null };
     c.t = (s, v) => (v ? s.replace(/\{(\w+)\}/g, (m, k) => (v[k] != null ? v[k] : m)) : s);
   c.I18N = { lang: () => 'vi' }; c.Kit = undefined; c.Sfx = stub; c.WordArrange = stub;
-  c.document = { getElementById: () => ({}), createElement: () => ({}), head: { appendChild() {} }, querySelector: () => null, querySelectorAll: () => [] };
+  c.document = { body: { classList: { remove() {} } }, getElementById: () => ({}), createElement: () => ({}), head: { appendChild() {} }, querySelector: () => null, querySelectorAll: () => [] };
   c.UI = new Proxy({ esc: s => String(s == null ? '' : s).replace(/[&<>"]/g, ch => `&#${ch.charCodeAt(0)};`), $: () => null, $$: () => [], shuffle: a => a, toast: m => log.push('toast:' + m) }, { get: (o, k) => (k in o ? o[k] : stub) });
   const state = { game: {}, settings: {} }, routes = {}, seq = { n: 0 }; let bundleOk = !fail;
   const need = async n => { if (/^grammar/.test(n)) log.push('need:' + n); if (bundleOk) { const L = LAZY.find(l => l.bundle === n); if (!c.GRAMMAR.some(x => x.lazy === n)) return; run(c, 'cpack/grammar/' + L.src); } };
   c.App = { state, routes, view, bindCommon() {}, lazy: (...n) => Promise.all(n.map(need)), reneed: n => { log.push('reneed:' + n); bundleOk = true; return need(n); }, reward() {} };
+  run(c, 'js/st/v2/grammar.js'); // hub Ngữ pháp = khung Stitch sinh sẵn: vẽ thật vào view (không dùng runtime/CSS), trả gốc giả đủ cho trình xử lý bấm
+  c.ST2.mount = (v, k, d) => { v.innerHTML = c.ST2[k](d, c.t, c.UI.esc).main; return { addEventListener() {}, querySelectorAll: () => [], querySelector: () => null }; };
   run(c, 'js/grammar.js');
   return { c, log, view, routes };
 }

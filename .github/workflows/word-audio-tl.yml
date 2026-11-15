@@ -1,3 +1,4 @@
+# ci-policy: heavy-gate – việc nặng trên PR chờ npm test xanh (job `gate`, luật 11)
 # Giọng từ đơn ngôn ngữ đích (pt-BR, es-419 …) – lượt MẪU 20 từ (chạy tay hoặc gắn nhãn word-audio-<tl> vào PR). Không đẩy gì vào repo, không dựng cả bộ.
 # Bảng giọng: scripts/word-audio/tl-voices.json (thêm ngôn ngữ = thêm dòng + nhãn ở đây). Spec: docs/specs/target-language.md §Giọng, docs/specs/spanish-course.md §3/§5.3.
 # Dò kokoro-js có tự đọc TL không → Kokoro-82M + âm vị espeak (misaki EspeakG2P, tl_g2p.py), giọng Ama/Carlos của bảng → −16 LUFS + Whisper đa ngôn ngữ nghe lại (+ seseo cho es) (tl_gate.py).
@@ -14,8 +15,26 @@ on:
 permissions: { contents: read }
 concurrency: { group: 'word-audio-tl-${{ github.ref }}-${{ github.event.inputs.tl || github.event.label.name }}', cancel-in-progress: true }
 jobs:
+  # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha (hoặc PR có nhãn `ready`) – đỏ/chưa xong thì mọi job dưới là skipped
+  # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions: { contents: read, checks: read }
+    outputs: { go: '${{ steps.g.outputs.go }}' }
+    steps:
+      - id: g
+        env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}', READY: '${{ contains(github.event.pull_request.labels.*.name, ''ready'') }}' }
+        run: |
+          go=true
+          if [ "$EV" = pull_request ] && [ "$READY" != true ]; then
+            n=$(gh api "repos/$REPO/commits/$SHA/check-runs?check_name=npm%20test&per_page=20" --jq '[.check_runs[] | select(.conclusion == "success")] | length' 2>/dev/null) || n=1
+            [ "${n:-1}" -ge 1 ] || go=false
+          fi
+          echo "go=$go" >> "$GITHUB_OUTPUT"; echo "npm test xanh cùng sha (hoặc nhãn ready) → go=$go"
   sample:
-    if: ${{ github.event_name == 'workflow_dispatch' || github.event.label.name == 'word-audio-pt' || github.event.label.name == 'word-audio-es' }}
+    needs: gate
+    if: needs.gate.outputs.go == 'true' && (github.event_name == 'workflow_dispatch' || github.event.label.name == 'word-audio-pt' || github.event.label.name == 'word-audio-es')
     runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 60
     env:

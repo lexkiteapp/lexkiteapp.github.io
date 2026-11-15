@@ -2,13 +2,13 @@
 
 Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipeline/score.budget.json` · kế hoạch `docs/CONTENT-WORLD-PLAN.md` §3.5. Điểm = độ phủ so với chuẩn × tỉ lệ qua cổng.
 
-**Tổng: 69.4 / 100**
+**Tổng: 69.9 / 100**
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
 | Kho từ | **58.6** | 58.5 | 58.6% | 100% | 0 |
 | Ngữ pháp | **72.8** | 72.8 | 72.8% | 100% | 0 |
-| Giao tiếp | **77.3** | 68.3 | 77.3% | 100% | 0 |
+| Giao tiếp | **81.3** | 68.3 | 81.3% | 100% | 0 |
 | 4 kỹ năng | **62.9** | 62.9 | 62.9% | 100% | 0 |
 | Đề thi | **47.8** | 31.7 | 47.8% | 100% | 0 |
 | Khung Can-do | **81.3** | 81.3 | 81.3% | 100% | 0 |
@@ -50,7 +50,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | cuộc gọi Ama/Carlos | 35 / 60 | 58% | 20 |
 | roleplay | 60 / 60 | 100% | 20 |
 | tình huống Play & Speak | 40 / 40 | 100% | 20 |
-| mục gold (giải thích cách dùng) | 284 / 1000 | 28% | 20 |
+| mục gold (giải thích cách dùng) | 484 / 1000 | 48% | 20 |
 | sổ mẫu câu theo chức năng (chưa làm) | 100 / 100 | 100% | 20 |
 
 ## 4 kỹ năng
@@ -107,7 +107,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 |---|---|---|---|
 | Ngữ pháp | 96.9 / 100 | 97% | 25 |
 | Bài lộ trình | 100 / 100 | 100% | 25 |
-| Bộ từ | 74.1 / 100 | 74% | 25 |
+| Bộ từ | 74.2 / 100 | 74% | 25 |
 | Kỹ năng | 95.7 / 100 | 96% | 25 |
 
 ## i18n
