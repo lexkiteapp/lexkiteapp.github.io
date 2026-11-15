@@ -57,17 +57,17 @@ groups: [
 items: [
 { n: 1, text: 'Customer name: Sandra ___', a: ['Prescott'], cue: 'P, R, E, S, C, O, T, T', explain: 'Họ được đánh vần P-R-E-S-C-O-T-T. Câu nghe được: “P, R, E, S, C, O, T, T.”' },
 { n: 2, text: 'Address: 48 ___ Road', a: ['Linden'], cue: 'Linden is spelled L, I, N, D, E, N.', explain: 'Tên đường được đánh vần L-I-N-D-E-N. Câu nghe được: “Linden is spelled L, I, N, D, E, N.”' },
-{ n: 3, text: 'Mobile: 07700 900 ___', a: ['413'], cue: 'The full number is 07700 900 413.', explain: 'Ba số cuối của số di động là 413. Câu nghe được: “The full number is 07700 900 413.”' },
+{ n: 3, text: 'Mobile: 07700 900 ___', a: ['413'], cue: 'The full number is 07700 900 413.', explain: '3 số cuối của số di động là 413. Câu nghe được: “The full number is 07700 900 413.”' },
 { n: 4, text: 'Connection cuts out every ___', a: ['evening', 'evenings'], cue: 'it cuts out every evening', explain: 'Ban ngày mạng vẫn ổn, nhưng cứ buổi tối là mất kết nối. Câu nghe được: “it cuts out every evening.”' },
-{ n: 5, text: 'Fault began ___ days ago', a: ['5', 'five'], cue: 'that makes it five days', explain: 'Bẫy tự sửa: chị ấy nói “four days” rồi nhận ra hôm nay là thứ Hai nên là năm ngày. Câu nghe được: “that makes it five days.”' },
+{ n: 5, text: 'Fault began ___ days ago', a: ['5', 'five'], cue: 'that makes it five days', explain: 'Bẫy tự sửa: chị ấy nói “four days” rồi nhận ra hôm nay là thứ 2 nên là 5 ngày. Câu nghe được: “that makes it five days.”' },
 { n: 6, text: 'Light on router: flashing ___', a: ['orange'], cue: "flashing orange", explain: 'Đèn xanh lục là bình thường; đèn nhấp nháy màu cam báo tín hiệu không ổn định. Câu nghe được: “flashing orange.”' },
 ] },
 { type: 'note', title: 'Engineer visit', instr: g.LTI[4], limit: 2,
 items: [
-{ n: 7, text: 'Day of visit: ___', a: ['Thursday'], cue: 'Thursday is fine.', explain: 'Bẫy: thứ Tư được đề nghị trước nhưng chị ấy có hẹn nha sĩ nên chọn thứ Năm.' },
+{ n: 7, text: 'Day of visit: ___', a: ['Thursday'], cue: 'Thursday is fine.', explain: 'Bẫy: thứ 4 được đề nghị trước nhưng chị ấy có hẹn nha sĩ nên chọn thứ 5.' },
 { n: 8, text: 'Arrival time: between ten and ___ in the morning', a: ['12', 'twelve'], cue: 'from ten until twelve', explain: 'Khung 8–10 giờ quá sớm nên chị chọn khung từ 10 đến 12 giờ. Câu nghe được: “from ten until twelve.”' },
 { n: 9, text: 'Engineer’s name: Mr ___', a: ['Brennan'], cue: 'B, R, E, N, N, A, N', explain: 'Tên kỹ thuật viên được đánh vần B-R-E-N-N-A-N.' },
-{ n: 10, text: 'Fault reference: TS ___', a: ['90417'], cue: 'nine, zero, four, one, seven', explain: 'Mã số sự cố là TS rồi các chữ số chín, không, bốn, một, bảy, tức 90417.' },
+{ n: 10, text: 'Fault reference: TS ___', a: ['90417'], cue: 'nine, zero, four, one, seven', explain: 'Mã số sự cố là TS rồi các chữ số 9, 0, 4, 1, 7, tức 90417.' },
 ] },
 ],
 vocab: [
@@ -131,7 +131,7 @@ options: ['A dragonflies', 'B remains of an old building', 'C picnic tables', 'D
 items: [
 { n: 16, text: 'Mill Pond', a: 'B', cue: 'you can still see the old stone foundations', explain: 'Bãi nền đá của cối xay cũ còn lại; bàn picnic (C) chỉ dùng cho bữa trưa cuối buổi.' },
 { n: 17, text: 'Willow Bridge', a: 'F', cue: 'we have a good chance of seeing an otter', explain: 'Nếu đứng yên lặng có thể thấy rái cá. Chuồn chuồn (A) chỉ có ở đầm lầy, nơi nhóm không đến.' },
-{ n: 18, text: 'Heron Hide', a: 'D', cue: 'wild orchids come into flower there', explain: 'Cạnh chòi quan sát là đồng cỏ có hoa lan dại quý hiếm nở vào tháng Sáu.' },
+{ n: 18, text: 'Heron Hide', a: 'D', cue: 'wild orchids come into flower there', explain: 'Cạnh chòi quan sát là đồng cỏ có hoa lan dại quý hiếm nở vào tháng 6.' },
 { n: 19, text: 'Quarry Ledge', a: 'G', cue: 'There is an information board here that explains how the rocks were formed', explain: 'Mỏ đá bỏ hoang có bảng thông tin giải thích sự hình thành các tầng đá.' },
 { n: 20, text: 'Beacon Hill', a: 'E', cue: 'you can see right across the estuary to the sea', explain: 'Đồi Beacon là điểm cao nhất, nhìn xuyên qua cửa sông ra biển.' },
 ] },
@@ -215,8 +215,8 @@ script: [
 groups: [
 { type: 'mcq', instr: g.LTI[0],
 items: [
-{ n: 21, q: 'Why do the students choose Tarn Valley rather than Cliffmoor?', options: ['It is closer to the university.', 'It has three kinds of rock close together.', 'It is recommended in their textbook.'], a: 1, cue: 'you can see sedimentary, igneous and metamorphic rocks all within a couple of kilometres', explain: 'Cliffmoor gần hơn nhưng chỉ có một loại đá; Tarn Valley có cả ba loại trong vài km.' },
-{ n: 22, q: 'How will the group travel to the site?', options: ['by train', 'in private cars', 'by minibus'], a: 2, cue: 'The department has a minibus that we can borrow for the weekend.', explain: 'Ý định ban đầu là đi tàu nhưng ga cách địa điểm đầu tiên tám km nên đổi sang xe buýt nhỏ của khoa.' },
+{ n: 21, q: 'Why do the students choose Tarn Valley rather than Cliffmoor?', options: ['It is closer to the university.', 'It has three kinds of rock close together.', 'It is recommended in their textbook.'], a: 1, cue: 'you can see sedimentary, igneous and metamorphic rocks all within a couple of kilometres', explain: 'Cliffmoor gần hơn nhưng chỉ có 1 loại đá; Tarn Valley có cả 3 loại trong vài km.' },
+{ n: 22, q: 'How will the group travel to the site?', options: ['by train', 'in private cars', 'by minibus'], a: 2, cue: 'The department has a minibus that we can borrow for the weekend.', explain: 'Ý định ban đầu là đi tàu nhưng ga cách địa điểm đầu tiên 8 km nên đổi sang xe buýt nhỏ của khoa.' },
 { n: 23, q: 'What is Dr Hall’s opinion of the students’ decision to stay in the youth hostel?', options: ['She thinks it is a sensible choice.', 'She is worried about the cost.', 'She would still prefer a campsite.'], a: 0, cue: 'That sounds wise.', explain: 'Cô Hall đồng tình: “That sounds wise.” Cắm trại bị loại vì dự báo mưa to và lạnh; chỉ B&B mới bị cô cho là quá đắt.' },
 { n: 24, q: 'How does Dr Hall regard the risk assessment?', options: ['as a formality that can wait', 'as the most important requirement', 'as something the department will complete'], a: 1, cue: "It's the most important thing, actually.", explain: 'Cô nói thẳng đây là điều quan trọng nhất: “It’s the most important thing, actually.” Bảo hiểm và xe do khoa lo, sinh viên chỉ cần nộp bản đánh giá rủi ro trước cuối tuần sau.' },
 ] },
@@ -226,8 +226,8 @@ explain: 'Búa bị cấm ở khu bảo vệ; mũ cứng do khoa cung cấp; đi
 { type: 'match', instr: 'What will the students do at each stage of the trip? Choose FOUR answers from the box and write the correct letter, A–G, next to questions 27–30.',
 options: ['A map the fault line', 'B collect samples from the stream bed', 'C sketch the cliff section', 'D measure the rock layers', 'E photograph fossils', 'F interview a ranger', 'G visit a museum'],
 items: [
-{ n: 27, text: 'Saturday morning', a: 'D', cue: 'we\'ll start by measuring the rock layers in the quarry', explain: 'Sáng thứ Bảy đo độ dày và góc nghiêng các lớp đá ở mỏ đá.' },
-{ n: 28, text: 'Saturday afternoon', a: 'B', cue: 'we\'ll collect samples from the stream bed instead', explain: 'Bẫy: Jake định vẽ phác vách đá, nhưng thứ Bảy có dự báo tốt nhất và vẽ phác làm được cả khi mưa nên chiều thu mẫu ở lòng suối.' },
+{ n: 27, text: 'Saturday morning', a: 'D', cue: 'we\'ll start by measuring the rock layers in the quarry', explain: 'Sáng thứ 7 đo độ dày và góc nghiêng các lớp đá ở mỏ đá.' },
+{ n: 28, text: 'Saturday afternoon', a: 'B', cue: 'we\'ll collect samples from the stream bed instead', explain: 'Bẫy: Jake định vẽ phác vách đá, nhưng thứ 7 có dự báo tốt nhất và vẽ phác làm được cả khi mưa nên chiều thu mẫu ở lòng suối.' },
 { n: 29, text: 'Sunday morning', a: 'A', cue: 'we\'ll walk to the fault line and map it', explain: 'Sáng Chủ nhật đi bộ đến đường đứt gãy và vẽ bản đồ bằng la bàn.' },
 { n: 30, text: 'Sunday afternoon', a: 'C', cue: 'Instead we plan to sketch the cliff section', explain: 'Việc chụp ảnh hóa thạch bị bỏ vì thiếu thời gian; buổi chiều vẽ phác vách đá vì việc này làm được cả khi trời mưa.' },
 ] },
@@ -278,8 +278,8 @@ groups: [
 { type: 'note', title: 'Octopus intelligence', instr: g.LTI[2], limit: 1,
 items: [
 { n: 31, text: 'The octopus brain contains around half a billion ___', a: ['neurons', 'nerve cells'], cue: 'roughly five hundred million neurons', explain: 'Bạch tuộc có khoảng 500 triệu tế bào thần kinh, ngang loài chó. Câu nghe được: “roughly five hundred million neurons.”' },
-{ n: 32, text: 'The majority of its nerve cells are located in its ___', a: ['arms'], cue: 'Around two thirds are in the arms.', explain: 'Chỉ khoảng một phần ba nằm trong não trung tâm; hai phần ba nằm ở các cánh tay.' },
-{ n: 33, text: 'The typical lifespan of an octopus is roughly ___ years', a: ['two', '2'], cue: 'most octopuses live for only about two years', explain: 'Tuổi thọ ngắn, khoảng hai năm, nên con non không có cha mẹ dạy.' },
+{ n: 32, text: 'The majority of its nerve cells are located in its ___', a: ['arms'], cue: 'Around two thirds are in the arms.', explain: 'Chỉ khoảng 1/3 nằm trong não trung tâm; 2/3 nằm ở các cánh tay.' },
+{ n: 33, text: 'The typical lifespan of an octopus is roughly ___ years', a: ['two', '2'], cue: 'most octopuses live for only about two years', explain: 'Tuổi thọ ngắn, khoảng 2 năm, nên con non không có cha mẹ dạy.' },
 { n: 34, text: 'Young octopuses cannot be taught by their ___', a: ['mother', 'parents', 'mothers'], cue: 'Baby octopuses never do.', explain: 'Bạch tuộc mẹ đẻ trứng rồi chết ngay sau khi trứng nở nên con non tự học một mình. Câu nghe được: “The mother lays her eggs, guards them for months without eating, and dies soon after they hatch.”' },
 { n: 35, text: 'Octopuses learn to open a ___ with a screw-top lid to reach a crab', a: ['jar'], cue: 'a jar with a screw-top lid', explain: 'Thí nghiệm nổi tiếng là cái lọ (jar) có nắp vặn, bên trong có con cua; chỗ trống là vật chứa chứ không phải cái nắp. Câu nghe được: “a jar with a screw-top lid.”' },
 { n: 36, text: 'Animals of the same species display distinct ___', a: ['personalities', 'personality'], cue: 'each animal has something like a personality', explain: 'Mỗi con có tính cách riêng ổn định theo thời gian: con bạo dạn, con nhút nhát.' },

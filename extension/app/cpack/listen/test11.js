@@ -56,11 +56,11 @@ groups: [
 { type: 'form', title: 'Riverside Swimming Club – Junior registration', instr: g.LTI[1], limit: 2,
 items: [
 { n: 1, text: "Child's name: Tobias ___", a: ['Brannigan'], cue: 'B, R, A, N, N, I, G, A, N.', explain: 'Họ được đánh vần B-R-A-N-N-I-G-A-N. Câu nghe được: “B, R, A, N, N, I, G, A, N.”' },
-{ n: 2, text: 'Age: ___', a: ['8', 'eight'], cue: "He's eight at the moment.", explain: 'Bẫy: bé sắp chín tuổi vào tháng Mười hai, nhưng hiện tại là tám. Câu nghe được: “He\'s eight at the moment.”' },
+{ n: 2, text: 'Age: ___', a: ['8', 'eight'], cue: "He's eight at the moment.", explain: 'Bẫy: bé sắp 9 tuổi vào tháng 12, nhưng hiện tại là 8. Câu nghe được: “He\'s eight at the moment.”' },
 { n: 3, text: 'Address: 27 ___ Road, Hartley', a: ['Wexcombe'], cue: 'W, E, X, C, O, M, B, E.', explain: 'Tên đường được đánh vần W-E-X-C-O-M-B-E. Câu nghe được: “W, E, X, C, O, M, B, E.”' },
 { n: 4, text: 'Mobile: 07700 904 ___', a: ['215'], cue: "It's nine oh four, two one five.", explain: 'Bẫy tự sửa: ban đầu chị đọc “one two five” rồi sửa lại. Câu nghe được: “It\'s nine oh four, two one five.”' },
 { n: 5, text: 'Swimming group: ___', a: ['improvers', 'improver'], cue: "I'd say Tobias belongs in our improvers group.", explain: 'Tobias không phải người mới (beginners) cũng chưa đủ trình độ nâng cao (advanced). Câu nghe được: “I\'d say Tobias belongs in our improvers group.”' },
-{ n: 6, text: 'Session: Thursday at ___ pm', a: ['5.30', '5:30', '530', 'half past five', 'five thirty', '5.30pm', '5:30pm'], cue: 'half past five, please.', explain: 'Thứ Hai kín chỗ, thứ Tư bé tập bóng đá; buổi 6 giờ rưỡi quá muộn nên chọn 5 giờ rưỡi. Câu nghe được: “half past five, please.”' },
+{ n: 6, text: 'Session: Thursday at ___ pm', a: ['5.30', '5:30', '530', 'half past five', 'five thirty', '5.30pm', '5:30pm'], cue: 'half past five, please.', explain: 'Thứ 2 kín chỗ, thứ 4 bé tập bóng đá; buổi 6 giờ rưỡi quá muộn nên chọn 5 giờ rưỡi. Câu nghe được: “half past five, please.”' },
 ] },
 { type: 'note', title: 'Other information', instr: g.LTI[4], limit: 2,
 items: [
@@ -115,20 +115,20 @@ script: [
 groups: [
 { type: 'mcq', instr: g.LTI[0],
 items: [
-{ n: 11, q: 'On which day is the museum now closed?', options: ['Tuesdays', 'Mondays', 'Sundays'], a: 1, cue: 'we are now closed on Mondays instead', explain: 'Bẫy: trước đây bảo tàng đóng cửa thứ Ba, nhưng từ mùa xuân đã đổi sang thứ Hai. Câu nghe được: “we are now closed on Mondays instead.” → B' },
-{ n: 12, q: 'When is the museum quietest?', options: ['before ten o’clock', 'between ten and twelve', 'after two o’clock'], a: 2, cue: "I'd recommend coming after two o'clock", explain: 'Khoảng mười đến mười hai giờ là lúc các đoàn học sinh đến đông nhất; buổi chiều muộn yên tĩnh hơn.' },
-{ n: 13, q: 'What is true about the lockers?', options: ['A pound coin is needed, but it is returned.', 'The reception staff keep the keys.', 'There is a fee of two pounds.'], a: 0, cue: 'you get the coin back when you unlock it', explain: 'Tủ khóa cần đồng một bảng nhưng được trả lại khi mở tủ, nên không mất tiền.' },
+{ n: 11, q: 'On which day is the museum now closed?', options: ['Tuesdays', 'Mondays', 'Sundays'], a: 1, cue: 'we are now closed on Mondays instead', explain: 'Bẫy: trước đây bảo tàng đóng cửa thứ 3, nhưng từ mùa xuân đã đổi sang thứ 2. Câu nghe được: “we are now closed on Mondays instead.” → B' },
+{ n: 12, q: 'When is the museum quietest?', options: ['before ten o’clock', 'between ten and twelve', 'after two o’clock'], a: 2, cue: "I'd recommend coming after two o'clock", explain: 'Khoảng 10 đến 12 giờ là lúc các đoàn học sinh đến đông nhất; buổi chiều muộn yên tĩnh hơn.' },
+{ n: 13, q: 'What is true about the lockers?', options: ['A pound coin is needed, but it is returned.', 'The reception staff keep the keys.', 'There is a fee of two pounds.'], a: 0, cue: 'you get the coin back when you unlock it', explain: 'Tủ khóa cần đồng 1 bảng nhưng được trả lại khi mở tủ, nên không mất tiền.' },
 { n: 14, q: 'Where is the café now?', options: ['on the ground floor', 'on the top floor', 'on the first floor'], a: 1, cue: 'it has moved to the top floor', explain: 'Bẫy: quán cà phê trước đây ở tầng trệt cạnh cửa hàng, nhưng đã chuyển lên tầng cao nhất. Câu nghe được: “it has moved to the top floor.” → B' },
 { n: 15, q: 'What is the rule about photography?', options: ['Photographs may be taken without flash.', 'No photographs are allowed.', 'Photographs are allowed only in the entrance hall.'], a: 0, cue: 'All I ask is that you switch off the flash', explain: 'Khách được chụp ảnh cá nhân, chỉ cần tắt đèn flash vì có thể làm hỏng hiện vật cũ. → A' },
 ] },
 { type: 'match', instr: 'What is available in each gallery? Choose FIVE answers from the box and write the correct letter, A–G, next to questions 16–20.',
 options: ['A a live demonstration', 'B free workshops for under-tens', 'C virtual reality headsets', 'D a time slot that must be booked', 'E a quiet area for resting', 'F an audio guide in six languages', 'G a chance to keep what you make'],
 items: [
-{ n: 16, text: 'Energy Hall', a: 'A', cue: 'one of our presenters gives a live demonstration', explain: 'Mỗi ngày lúc mười hai giờ và ba giờ có buổi trình diễn trực tiếp. Câu nghe được: “one of our presenters gives a live demonstration.”' },
+{ n: 16, text: 'Energy Hall', a: 'A', cue: 'one of our presenters gives a live demonstration', explain: 'Mỗi ngày lúc 12 giờ và 3 giờ có buổi trình diễn trực tiếp. Câu nghe được: “one of our presenters gives a live demonstration.”' },
 { n: 17, text: 'Ocean Lab', a: 'C', cue: 'you can try our new virtual reality headsets', explain: 'Ở Ocean Lab khách đeo kính thực tế ảo để “lặn” xuống đáy biển.' },
-{ n: 18, text: 'Body Zone', a: 'B', cue: 'free workshops for children under ten every day', explain: 'Body Zone dành cho gia đình, có workshop miễn phí cho trẻ dưới mười tuổi.' },
-{ n: 19, text: 'Space Room', a: 'D', cue: 'you need to book a time slot at the desk by the door', explain: 'Mái vòm chỉ có bốn mươi chỗ nên phải đặt giờ trước tại quầy cạnh cửa.' },
-{ n: 20, text: "Inventors' Workshop", a: 'G', cue: "you're allowed to take whatever you make home with you", explain: 'Khách tự lắp một cỗ máy nhỏ và được mang về nhà. Bẫy: phòng yên tĩnh (E) và audio guide (F) không thuộc phòng trưng bày nào.' },
+{ n: 18, text: 'Body Zone', a: 'B', cue: 'free workshops for children under ten every day', explain: 'Body Zone dành cho gia đình, có workshop miễn phí cho trẻ dưới 10 tuổi.' },
+{ n: 19, text: 'Space Room', a: 'D', cue: 'you need to book a time slot at the desk by the door', explain: 'Mái vòm chỉ có 40 chỗ nên phải đặt giờ trước tại quầy cạnh cửa.' },
+{ n: 20, text: "Inventors' Workshop", a: 'G', cue: "you're allowed to take whatever you make home with you", explain: 'Khách tự lắp 1 cỗ máy nhỏ và được mang về nhà. Bẫy: phòng yên tĩnh (E) và audio guide (F) không thuộc phòng trưng bày nào.' },
 ] },
 ],
 vocab: [
@@ -202,8 +202,8 @@ groups: [
 { type: 'mcq', instr: g.LTI[0],
 items: [
 { n: 21, q: 'What first made Maya interested in the topic?', options: ['a documentary she had seen', 'letters found by a relative', 'a book on the module reading list'], a: 1, cue: 'My aunt found a bundle of old letters in her loft', explain: 'Maya tưởng chủ đề đến từ danh sách đọc của môn học, nhưng thực ra là chồng thư cũ dì cô tìm thấy trên gác mái. Câu nghe được: “My aunt found a bundle of old letters in her loft.” → B' },
-{ n: 22, q: 'What is the tutor’s main concern about the working title?', options: ['It is too similar to a published book.', 'It depends on too few sources.', 'It covers too long a period.'], a: 2, cue: "it's simply too wide", explain: 'Tutor nói một trăm năm là quá nhiều cho mười nghìn từ. Câu nghe được: “it\'s simply too wide.” → C' },
-{ n: 23, q: 'What is Daniel’s main difficulty with the archive material?', options: ['The handwriting is hard to read.', 'The archive is a long way away.', 'The archive has limited opening hours.'], a: 0, cue: 'The problem is the handwriting.', explain: 'Bẫy: kho lưu trữ cách xa năm mươi dặm nhưng tài liệu đã được số hóa nên không cần đi nữa; khó khăn thật sự là chữ viết tay. → A' },
+{ n: 22, q: 'What is the tutor’s main concern about the working title?', options: ['It is too similar to a published book.', 'It depends on too few sources.', 'It covers too long a period.'], a: 2, cue: "it's simply too wide", explain: 'Tutor nói 100 là quá nhiều cho 10 000 từ. Câu nghe được: “it\'s simply too wide.” → C' },
+{ n: 23, q: 'What is Daniel’s main difficulty with the archive material?', options: ['The handwriting is hard to read.', 'The archive is a long way away.', 'The archive has limited opening hours.'], a: 0, cue: 'The problem is the handwriting.', explain: 'Bẫy: kho lưu trữ cách xa 50 dặm nhưng tài liệu đã được số hóa nên không cần đi nữa; khó khăn thật sự là chữ viết tay. → A' },
 { n: 24, q: 'What is the tutor’s attitude to adding a section on the railways?', options: ['She thinks it would be the strongest part of the project.', 'She thinks it is tempting but beyond the scope of the project.', 'She thinks it should replace the section on canals.'], a: 1, cue: "That's tempting, but it falls outside your dates", explain: 'Tutor thừa nhận ý tưởng hấp dẫn nhưng nằm ngoài khoảng thời gian nghiên cứu nên nên để cho dự án khác. Câu nghe được: “That\'s tempting, but it falls outside your dates.” → B' },
 { n: 25, q: 'What is the tutor’s opinion of Maya’s use of a spreadsheet?', options: ['It is acceptable for now, but reference software would be better.', 'It is the best method for a project of this size.', 'It is unsuitable and must be stopped immediately.'], a: 0, cue: 'A spreadsheet is workable for now', explain: 'Tutor cho rằng bảng tính tạm dùng được nhưng khuyên chuyển sang phần mềm quản lý tài liệu tham khảo ngay từ đầu. Câu nghe được: “A spreadsheet is workable for now.” → A' },
 ] },
@@ -215,7 +215,7 @@ options: ['A Many issues are missing.', 'B It shows only one point of view.', 'C
 items: [
 { n: 28, text: 'Canal company minute books', a: 'B', cue: "they only show the owners' point of view", explain: 'Sổ biên bản do các giám đốc viết nên chỉ phản ánh góc nhìn của chủ.' },
 { n: 29, text: 'Marlow Gazette', a: 'A', cue: 'there are whole months missing', explain: 'Một vụ cháy năm 1826 làm mất nhiều số báo nên thiếu cả nhiều tháng.' },
-{ n: 30, text: "Workers' memoirs", a: 'C', cue: 'They were remembering events that had happened fifty years before', explain: 'Hồi ký xuất bản thập niên 1880, tác giả đã già và nhớ lại chuyện từ năm mươi năm trước.' },
+{ n: 30, text: "Workers' memoirs", a: 'C', cue: 'They were remembering events that had happened fifty years before', explain: 'Hồi ký xuất bản thập niên 1880, tác giả đã già và nhớ lại chuyện từ 50 năm trước.' },
 ] },
 ],
 vocab: [
@@ -273,7 +273,7 @@ items: [
 ] },
 { type: 'summary', title: 'Results and criticisms', instr: g.LTI[8], limit: 1,
 items: [
-{ n: 37, text: 'In Norvik, cod ___ had recovered to a safe level within fifteen years, much faster than scientists predicted.', a: ['stocks', 'stock'], cue: "cod stocks in Norvik's waters had returned to a safe level", explain: 'Bẫy số liệu: dự đoán là hai mươi lăm năm, nhưng thực tế chỉ mười lăm năm. Câu nghe được: “cod stocks in Norvik\'s waters had returned to a safe level.”' },
+{ n: 37, text: 'In Norvik, cod ___ had recovered to a safe level within fifteen years, much faster than scientists predicted.', a: ['stocks', 'stock'], cue: "cod stocks in Norvik's waters had returned to a safe level", explain: 'Bẫy số liệu: dự đoán là 25 năm, nhưng thực tế chỉ 15 năm. Câu nghe được: “cod stocks in Norvik\'s waters had returned to a safe level.”' },
 { n: 38, text: 'Critics say that quotas ended up in the hands of a few large ___, so small family-run boats lost out.', a: ['companies', 'company'], cue: 'the quotas ended up in the hands of a few large companies', explain: 'Các tàu gia đình không đủ tiền mua lại hạn ngạch đã bán. Câu nghe được: “the quotas ended up in the hands of a few large companies.”' },
 { n: 39, text: 'Some states protect coastal villages by setting aside a share of the catch limit for ___ vessels.', a: ['small'], cue: 'reserve a proportion of the total quota for small boats', explain: 'Phần hạn ngạch dành riêng này không được bán cho các hãng lớn. Câu nghe được: “reserve a proportion of the total quota for small boats.”' },
 { n: 40, text: 'Many economists would prefer quotas to be sold through an ___ rather than handed out free.', a: ['auction', 'auctions'], cue: 'quotas should be sold at auction', explain: 'Cho không hạn ngạch là tặng tài sản quý cho chủ cũ; nhiều nhà kinh tế muốn bán đấu giá. Câu nghe được: “quotas should be sold at auction.”' },
