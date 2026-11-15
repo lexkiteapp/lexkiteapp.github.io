@@ -1,7 +1,7 @@
 /* Bài mẫu Task 2 bổ sung, phần 7 (p91–p100, tự biên soạn) – nạp sau models.js. Cú pháp giống models.js: [[cụm từ|nghĩa]], {{từ nối}}, <<Nhãn>>. */
 (function (g) {
   g.MODELS = (g.MODELS || []).concat([
-    { id: 't2-p91', task: 2, ref: 'p91', band: '8.0', words: 289,
+    { id: 't2-p111', task: 2, ref: 'p111', band: '8.0', words: 289,
       text: `<<Mở bài>> As tourism grows into one of the world's largest industries, [[much of the money spent by visitors|phần lớn số tiền du khách chi tiêu]] ends up with foreign companies rather than local people. I largely agree that governments should [[steer tourists towards|hướng du khách tới]] locally owned businesses, although this is best done through incentives rather than compulsion.
 
 <<Thân bài 1>> <<Câu chủ đề>> The strongest justification for this policy is economic. <<Giải thích>> When a traveller books a room in an international chain, [[a large share of the profit|một phần lớn lợi nhuận]] is transferred abroad, leaving the destination with [[low-paid seasonal work|công việc thời vụ lương thấp]]. Family-run guesthouses and restaurants, {{by contrast}}, [[keep income within the community|giữ nguồn thu trong cộng đồng]], where it is spent on local suppliers, schools and housing. <<Ví dụ>> {{For instance}}, a homestay scheme run by households in a fishing village could allow dozens of families to earn a stable living without leaving the area.
@@ -50,7 +50,7 @@ In conclusion, I agree that the government should encourage tourists to use loca
         GRA: 'Đa dạng và chính xác: cụm phân từ (“leaving the destination with low-paid seasonal work”), mệnh đề quan hệ không xác định (“where it is spent on local suppliers, schools and housing”), so sánh kèm quan hệ (“Visitors who eat regional dishes and talk with their hosts learn far more about a culture than those who remain inside”), mục đích (“so that tourists can choose them with confidence”) và điều kiện (“provided that visitors keep the freedom to choose”). Band 8 vì hầu hết câu không lỗi; chưa 9 vì thiếu cấu trúc hiếm như đảo ngữ.'
       } },
 
-    { id: 't2-p92', task: 2, ref: 'p92', band: '8.0', words: 286,
+    { id: 't2-p112', task: 2, ref: 'p112', band: '8.0', words: 286,
       text: `<<Mở bài>> Every minute, enormous amounts of material are uploaded to websites and social networks, some of it [[deeply offensive or dangerous|cực kỳ xúc phạm hoặc nguy hiểm]]. Although I accept that platforms have [[a duty to act|nghĩa vụ phải hành động]], I disagree that harmful content should be deleted automatically, because the risks to [[freedom of expression|quyền tự do ngôn luận]] are too great.
 
 <<Thân bài 1>> <<Câu chủ đề>> There is a genuine case for rapid removal. <<Giải thích>> Content that [[incites violence|kích động bạo lực]], spreads instructions for self-harm or targets children can cause real damage within hours, long before a human reviewer is able to [[intervene|can thiệp]]. {{In addition}}, automated filters can process [[a volume of material|một khối lượng nội dung]] that no team of employees could ever check manually. <<Ví dụ>> {{For example}}, filters already help to block images of child abuse before they are widely seen, a use that few people would criticise.
@@ -99,7 +99,7 @@ In conclusion, I do not think the content should be deleted automatically becaus
         GRA: 'Cấu trúc đa dạng: mệnh đề quan hệ (“Content that incites violence, spreads instructions for self-harm or targets children can cause real damage within hours”), nguyên nhân kèm kết quả (“Because companies fear heavy fines, they tend to err on the side of deletion, which gradually narrows the range of opinions”), tương phản (“whereas trained moderators examine borderline material”). Band 8 vì chính xác và có nhiều cấu trúc nâng cao; chưa 9 vì không có đảo ngữ.'
       } },
 
-    { id: 't2-p93', task: 2, ref: 'p93', band: '8.0', words: 295,
+    { id: 't2-p113', task: 2, ref: 'p113', band: '8.0', words: 295,
       text: `<<Mở bài>> Floods, earthquakes and storms are becoming more frequent and costly in many regions, and governments must decide how to spend limited funds. {{While}} some argue that money should go to [[preparing for disasters in advance|chuẩn bị cho thảm hoạ từ trước]], others believe the priority should be [[helping victims afterwards|giúp đỡ nạn nhân sau đó]]. In my view, prevention deserves the larger share, but emergency relief cannot be neglected.
 
 <<Thân bài 1>> <<Câu chủ đề>> Supporters of relief spending [[make a compelling humanitarian case|đưa ra lập luận nhân đạo thuyết phục]]. <<Giải thích>> When a disaster strikes, families lose homes, food and clean water, and they need help within hours rather than years. A prepared stock of tents, medicine and trained rescuers can [[save lives|cứu sống nhiều người]] in the critical first days. {{Furthermore}}, it is impossible to predict exactly where and when the next earthquake will occur, so money spent on defences in one place may never be needed. <<Ví dụ>> {{For instance}}, a region struck by an unexpected flood depends on rapid government aid to rebuild schools and clinics.
@@ -148,7 +148,7 @@ In conclusion, both views have good points, but I think preparing before is more
         GRA: 'Cấu trúc đa dạng: câu giả định “it is impossible to predict exactly where and when the next earthquake will occur”, so sánh “cost a fraction of the sums needed for reconstruction”, mệnh đề nguyên nhân “because even the best defences can be overwhelmed by extreme events”, mệnh đề quan hệ “which costs little but builds resilience”. Band 8 vì chính xác cao; chưa 9 vì thiếu đảo ngữ hay mệnh đề phân từ phức.'
       } },
 
-    { id: 't2-p94', task: 2, ref: 'p94', band: '8.0', words: 272,
+    { id: 't2-p114', task: 2, ref: 'p114', band: '8.0', words: 272,
       text: `<<Mở bài>> Cities increasingly commission murals, sculptures and installations for squares and train stations, yet critics question whether this [[is a sensible use of public funds|là cách dùng ngân sách công hợp lý]]. {{Although}} spending on essential services is undoubtedly urgent, I believe public art deserves [[a modest but secure share|một phần khiêm tốn nhưng ổn định]] of the budget.
 
 <<Thân bài 1>> <<Câu chủ đề>> Opponents argue that basic needs must come first. <<Giải thích>> Hospitals, schools and public transport affect people's health and prospects directly, and many cities cannot even maintain existing roads or [[provide enough social housing|cung cấp đủ nhà ở xã hội]]. In such circumstances, spending large sums on a statue may appear [[frivolous|phù phiếm]] and even [[insensitive|thiếu tế nhị]] to families who are struggling. <<Ví dụ>> A costly sculpture in a district without a reliable bus service, {{for example}}, would understandably cause resentment.
@@ -197,7 +197,7 @@ In conclusion, both sides have good points, but I believe that essential service
         GRA: 'Cấu trúc đa dạng: nhượng bộ “Although spending on essential services is undoubtedly urgent, I believe public art deserves a modest but secure share of the budget”, mệnh đề rút gọn “unlike a gallery ticket”, quan hệ “who are struggling”, tương phản “It is also free to enjoy, unlike a gallery ticket, so it reaches people who would never visit a museum.” Band 8 vì chính xác cao; chưa 9 vì thiếu đảo ngữ.'
       } },
 
-    { id: 't2-p95', task: 2, ref: 'p95', band: '8.0', words: 271,
+    { id: 't2-p115', task: 2, ref: 'p115', band: '8.0', words: 271,
       text: `<<Mở bài>> It has become common for people from poorer countries to spend several years working abroad, [[sending money home|gửi tiền về nhà]] to their families. {{Although}} this trend brings clear financial benefits, I believe its disadvantages for the countries that people leave are, on balance, [[slightly greater|nhỉnh hơn một chút]].
 
 <<Thân bài 1>> <<Câu chủ đề>> The most obvious advantage is the money that migrants send back. <<Giải thích>> These [[remittances|kiều hối]] often exceed foreign aid and help families to pay for food, healthcare and education, which can [[lift households out of poverty|đưa các hộ gia đình thoát nghèo]]. {{In addition}}, workers return with new skills, savings and international contacts, which they may use to [[start businesses|khởi nghiệp]] at home. <<Ví dụ>> {{For instance}}, a returned electrician or builder may open a small firm that employs neighbours.
@@ -246,7 +246,7 @@ In conclusion, working abroad has both advantages and disadvantages but I think 
         GRA: 'Cấu trúc đa dạng: cụm phân từ “sending money home to their families”, tương phản “whereas the loss of nurses, teachers and engineers weakens a country\'s ability to develop”, mệnh đề quan hệ “The people who leave are frequently young and well educated”, cụm “a problem known as brain drain”. Band 8 vì chính xác và đa dạng; chưa 9 vì thiếu đảo ngữ.'
       } },
 
-    { id: 't2-p96', task: 2, ref: 'p96', band: '8.0', words: 284,
+    { id: 't2-p116', task: 2, ref: 'p116', band: '8.0', words: 284,
       text: `<<Mở bài>> Vegetables are now being grown on office rooftops, in neighbourhood gardens and on empty plots in many cities, a trend often called [[urban farming|nông nghiệp đô thị]]. In my view, the advantages of this movement outweigh its drawbacks, {{provided that}} it is developed with realistic expectations.
 
 <<Thân bài 1>> <<Câu chủ đề>> The benefits are both practical and social. <<Giải thích>> Food grown close to where it is eaten requires [[little transport and packaging|ít vận chuyển và bao bì]], so it is fresher and produces fewer emissions. Residents, especially those in low-income districts with [[limited access to fresh produce|khả năng tiếp cận rau quả tươi hạn chế]], can improve their diets at low cost. {{In addition}}, community gardens bring neighbours together and give children [[hands-on knowledge|kiến thức thực hành]] of where food comes from. <<Ví dụ>> {{For instance}}, a rooftop greenhouse above a supermarket can supply the shop's salad leaves within hours of harvest.
@@ -295,7 +295,7 @@ In conclusion, I believe urban farming has more advantages than disadvantages be
         GRA: 'Đa dạng: câu phức với mệnh đề quan hệ (“which can cancel out their environmental advantages”), bị động (“it is developed with realistic expectations”), so sánh (“cannot feed more than a small proportion of the population”), điều kiện/nhượng bộ (“unless they are carefully tested”). Band 8 vì chính xác cao; chưa 9 vì thiếu đảo ngữ.'
       } },
 
-    { id: 't2-p97', task: 2, ref: 'p97', band: '8.0', words: 282,
+    { id: 't2-p117', task: 2, ref: 'p117', band: '8.0', words: 282,
       text: `<<Mở bài>> In many countries, parents and coaches push young children into [[intensive training|huấn luyện cường độ cao]] in one sport, hoping to produce a future professional. Although a few succeed, this approach creates several serious problems for children, which can be reduced through better regulation and support.
 
 <<Thân bài 1>> <<Câu chủ đề>> The first problem is the physical and psychological damage caused by early specialisation. <<Giải thích>> Children who repeat the same movements for hours each day are at risk of [[overuse injuries|chấn thương do vận động quá mức]] that can end their careers before they begin. {{In addition}}, constant pressure to win may lead to [[anxiety and burnout|lo âu và kiệt sức]], and a young person who has been defined only as an athlete may feel [[a loss of identity|mất bản sắc]] if they fail. <<Ví dụ>> {{For example}}, some teenage gymnasts and tennis players may quit the sport entirely by eighteen, exhausted and resentful.
@@ -344,7 +344,7 @@ In conclusion, training in one sport too young causes problems for the health an
         GRA: 'Đa dạng: mệnh đề quan hệ (“that can end their careers before they begin”), nguyên nhân (“since varied activity develops general fitness and reduces injury risk”), mục đích (“so that talented pupils do not fall behind”), tương phản (“while clubs should employ qualified coaches”), phân từ “Children who repeat the same movements for hours each day are at risk of overuse injuries”. Band 8 vì chính xác cao; chưa 9 vì thiếu đảo ngữ.'
       } },
 
-    { id: 't2-p98', task: 2, ref: 'p98', band: '8.0', words: 263,
+    { id: 't2-p118', task: 2, ref: 'p118', band: '8.0', words: 263,
       text: `<<Mở bài>> Cities around the world are becoming noisier as traffic, building work and nightlife expand. Although many people regard noise as a minor irritation, it causes [[serious harm to health and wellbeing|tác hại nghiêm trọng đến sức khoẻ và sự an lạc]], and I believe that planning, regulation and technology can together reduce it.
 
 <<Thân bài 1>> <<Câu chủ đề>> The most serious problem is the effect on physical and mental health. <<Giải thích>> Constant exposure to loud sound raises [[stress levels|mức độ căng thẳng]] and blood pressure, and it has been linked to heart disease. {{In addition}}, [[sleep disturbance|rối loạn giấc ngủ]] caused by night traffic or loud music leaves residents tired and less productive the next day. <<Ví dụ>> {{For instance}}, a family living beside a busy road may find that the children struggle to concentrate on their homework because of the traffic outside.
@@ -393,7 +393,7 @@ In conclusion, noise damages the health of people and makes the city a worse pla
         GRA: 'Đa dạng: bị động hoàn thành “it has been linked to heart disease”, mệnh đề quan hệ không xác định “who cannot afford to move”, tương phản “while cities can encourage electric vehicles and quieter road surfaces, which reduce engine and tyre noise”, cụm phân từ “restricting work to daytime hours”. Band 8 vì chính xác cao; chưa 9 vì thiếu cấu trúc hiếm như đảo ngữ.'
       } },
 
-    { id: 't2-p99', task: 2, ref: 'p99', band: '8.0', words: 295,
+    { id: 't2-p119', task: 2, ref: 'p119', band: '8.0', words: 295,
       text: `<<Mở bài>> A small but growing number of cities provide services such as buses, libraries and swimming pools [[free of charge|miễn phí]] to all residents. This approach is [[driven by|được thúc đẩy bởi]] social and environmental goals, and I believe the cost can be covered fairly through taxation and carefully chosen levies.
 
 <<Thân bài 1>> <<Câu chủ đề>> Governments offer free services chiefly to promote fairness and the public good. <<Giải thích>> When a service is free, even the poorest residents can use it, which [[narrows the gap|thu hẹp khoảng cách]] between rich and poor and ensures that nobody is excluded from education, recreation or mobility. Free libraries, for example, give children without books at home [[equal access to learning|cơ hội học tập bình đẳng]]. Free transport can also [[reduce traffic congestion|giảm ùn tắc giao thông]] and pollution by persuading drivers to leave their cars at home, and it saves the cost of collecting fares. <<Ví dụ>> A town that abolished bus fares might find that more residents travel to work and shops, which in turn supports local businesses.
@@ -442,7 +442,7 @@ In conclusion, free services are good for the poor and the city, and the cost ca
         GRA: 'Đa dạng: giả định “A town that abolished bus fares might find that…”, mệnh đề quan hệ “which in turn supports local businesses”, phân từ “persuading drivers to leave their cars at home”, mục đích “so that free services do not become overcrowded or poorly maintained”, so sánh có điều kiện. Band 8 vì chính xác cao; chưa 9 vì thiếu đảo ngữ.'
       } },
 
-    { id: 't2-p100', task: 2, ref: 'p100', band: '8.0', words: 270,
+    { id: 't2-p120', task: 2, ref: 'p120', band: '8.0', words: 270,
       text: `<<Mở bài>> In many countries, children now learn to type before they master a pen, and some schools have [[all but abandoned|gần như bỏ hẳn]] handwriting lessons. In my view, this development is more negative than positive, although typing skills are undeniably useful.
 
 <<Thân bài 1>> <<Câu chủ đề>> Those who welcome the change point to efficiency. <<Giải thích>> Typing is generally faster than writing by hand and produces [[clear, editable text|văn bản rõ ràng, dễ chỉnh sửa]], which allows pupils to redraft their work easily. {{For example}}, a pupil can send a finished essay to a teacher in seconds and receive feedback the same day. Digital skills are also essential in modern workplaces, so it makes sense for children to learn them early. {{In addition}}, tablets can help pupils with [[poor motor control|khả năng kiểm soát vận động kém]] or learning difficulties to express their ideas more comfortably.
