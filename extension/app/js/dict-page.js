@@ -16,11 +16,11 @@
     const sample = ['resilient', 'mitigate', 'phenomenon', 'detrimental', 'ubiquitous', 'paradigm'], href = x => '#/dict/' + encodeURIComponent(x);
     // Khung Stitch v2 dict (brand/stitch/v2/bind/dict.json): đầu trang + ô tìm + Gần đây + Khám phá nhanh; #result (thẻ kết quả/khung chờ/không thấy) và thẻ add-on nằm ngay dưới – còn khung cũ
     ST2.mount(view, 'dict', {
-      title: t('Từ điển Anh – Việt'), back: '#/vocab', backL: t('Quay lại'), langChip: 'EN ⇄ ' + String((I18N.meanLang && I18N.meanLang()) || 'vi').toUpperCase(), langHref: '#/settings',
-      sub: `<p class="pb-1 text-[13px] [color:var(--muted)]">${esc(t('Định nghĩa Oxford Languages · phiên âm UK/US · câu song ngữ · collocation · từ liên quan'))}</p>`,
-      ph: t('Nhập từ tiếng Anh, ví dụ: sustainable'), q, goL: t('Tra từ'), clearL: t('Xóa'),
+      title: I18N.meanLang && I18N.meanLang() === 'vi' ? t('Từ điển Anh – Việt') : t('Từ điển'), back: '#/vocab', backL: t('Quay lại'), langChip: 'EN ⇄ ' + String((I18N.meanLang && I18N.meanLang()) || 'vi').toUpperCase(), langHref: '#/settings',
+      sub: `<p class="px-4 pb-1 text-[13px] [color:var(--muted)]">${esc(t('Định nghĩa Oxford Languages · phiên âm UK/US · câu song ngữ · collocation · từ liên quan'))}</p>`,
+      ph: t('Nhập từ tiếng Anh, ví dụ: sustainable'), q, goL: t('Tra từ'), clearL: t('Xóa chữ đã nhập'), recClearL: t('Xóa'),
       recentL: t('Gần đây:').replace(/\s*[:：]\s*$/, ''), recentBlk: recent.length ? [{ items: recent.map(w => ({ w, href: href(w) })) }] : [],
-      browseBlk: q ? [] : [{ title: t('Tra bất kỳ từ tiếng Anh nào'), items: sample.map(w => ({ w, href: href(w) })) }],
+      browseBlk: q ? [] : [{ title: t('Khám phá'), items: sample.map(w => ({ w, href: href(w) })) }],
       res: `<div id="result" class="mt-5${q ? ' dict-res' : ''}"></div>
         <div class="ext-card" data-ext-cta="app" hidden><div><b>🧩 ${t('Tra từ ngay trên mọi trang web')}</b><p class="small muted">${t('Bấm đúp vào bất kỳ từ nào khi đọc để xem nghĩa, phiên âm và lưu vào flashcard – với add-on Lexkite cho Chrome.')}</p></div><a class="btn sm primary" data-ext-cta="app" hidden>${t('Thêm vào Chrome')}</a></div>`,
     }, null);

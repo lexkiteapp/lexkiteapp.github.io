@@ -97,6 +97,7 @@
 "XP nhận được":"Kazanılan XP",
 "Xem thư viện":"Kütüphaneyi gör",
 "Xem từ vựng của ngày":"Kelime listesini gör",
+"Xóa chữ đã nhập":"Aramayı temizle",
 "nhận diện → ghép → nghe → dùng trong câu → nói.":"tanı → eşleştir → dinle → kullan → konuş",
 "Ôn ngắt quãng đang bật":"Aralıklı tekrar açık",
 "Ôn tập hằng ngày":"Günlük tekrar",

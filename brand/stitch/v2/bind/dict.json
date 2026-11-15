@@ -63,11 +63,12 @@
   }
  },
  "addClass": {
-  ":scope > main > header > h1": "min-w-0 flex-1 [font-family:var(--font-display)]",
+  ":scope > main > header > h1": "min-w-0 flex-1 [font-family:var(--font-display)] text-[18px] leading-[24px] sm:text-[20px] [text-wrap:balance]",
   ":scope > main > header > button:nth-child(3)": "shrink-0",
   ":scope > main > header": "gap-2 px-0",
   ":scope > main > div > div:nth-child(1) > div:nth-child(1) > span": "min-w-[44px] min-h-[44px] justify-center left-0 cursor-pointer",
-  ":scope > main > div > div:nth-child(1) > div:nth-child(1) > input": "[font-size:16px]"
+  ":scope > main > div > div:nth-child(1) > div:nth-child(1) > input": "[font-size:16px] [text-overflow:ellipsis]",
+  ":scope > main > header > button:nth-child(1) > span": "ms-flip"
  },
  "repeat": [
   {
@@ -112,13 +113,21 @@
      ],
      "html": {
       ":scope > div:nth-child(1) > div > h2": "e(d.recentL)",
-      ":scope > div:nth-child(1) > button": "e(d.clearL)"
+      ":scope > div:nth-child(1) > button": "e(d.recClearL)"
      },
      "attr": {
       ":scope > div:nth-child(1) > button": {
        "id": "'recClear'",
        "type": "'button'"
       }
+     },
+     "cls": {
+      ":scope > div:nth-child(2)": {
+       "gap-1.5": "''"
+      }
+     },
+     "addClass": {
+      ":scope > div:nth-child(2)": "gap-3"
      }
     }
    }
@@ -166,7 +175,15 @@
         }
        }
       }
-     ]
+     ],
+     "cls": {
+      ":scope > div:nth-child(2)": {
+       "gap-1.5": "''"
+      }
+     },
+     "addClass": {
+      ":scope > div:nth-child(2)": "gap-3"
+     }
     }
    }
   }
@@ -206,8 +223,15 @@
    "text-[20px]": "''",
    "leading-[28px]": "''",
    "font-[600]": "'font-bold'"
+  },
+  ":scope > main > div > div:nth-child(1) > div:nth-child(1) > span": {
+   "left-3.5": "''",
+   "pointer-events-none": "''"
   }
  },
  "styles": true,
- "rootClass": "![font-family:inherit]"
+ "rootClass": "![font-family:inherit]",
+ "keys": {
+  "Xóa chữ đã nhập": "Clear search"
+ }
 }

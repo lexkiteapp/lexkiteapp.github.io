@@ -41569,5 +41569,20 @@
     "ar": "أزل العلامة عن السؤال {n}",
     "ru": "Снять отметку с вопроса {n}",
     "tr": "{n}. sorunun işaretini kaldır"
+  },
+  "Xóa chữ đã nhập": {
+    "es": "Borrar búsqueda",
+    "pt": "Limpar busca",
+    "fr": "Effacer la recherche",
+    "de": "Suche löschen",
+    "id": "Hapus pencarian",
+    "th": "ล้างการค้นหา",
+    "zh": "清除搜索",
+    "ja": "検索をクリア",
+    "ko": "검색어 지우기",
+    "ru": "Очистить поиск",
+    "ar": "مسح البحث",
+    "hi": "खोज साफ़ करें",
+    "tr": "Aramayı temizle"
   }
 }

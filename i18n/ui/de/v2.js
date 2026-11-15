@@ -97,6 +97,7 @@
 "XP nhận được":"ERHALTENE XP",
 "Xem thư viện":"Bibliothek ansehen",
 "Xem từ vựng của ngày":"Wortliste ansehen",
+"Xóa chữ đã nhập":"Suche löschen",
 "nhận diện → ghép → nghe → dùng trong câu → nói.":"erkennen → zuordnen → hören → anwenden → sprechen",
 "Ôn ngắt quãng đang bật":"Intervallwiederholung aktiv",
 "Ôn tập hằng ngày":"Tägliche Wiederholung",
