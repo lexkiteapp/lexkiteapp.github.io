@@ -74,11 +74,14 @@
     return { route: h.slice(0, 120), lang: I ? I.lang() : '', ver: await version(), plat: plat(), vw: innerWidth + 'x' + innerHeight, dpr: w.devicePixelRatio || 1, ua: navigator.userAgent.slice(0, 300), sandbox: sandbox(), cid: cid.slice(0, 120), dom: o.dom || '', tz, online: navigator.onLine };
   }
   const device = () => { try { const v = localStorage.getItem('lk.vid') || ''; return /^[A-Za-z0-9_-]{16,64}$/.test(v) ? v : ''; } catch (e) { return ''; } };
-  async function post(body, auth) {
+  async function post(body, auth, again) {
     const h = { 'Content-Type': 'application/json' }, dv = device(); if (dv) h['X-Lexkite-Device'] = dv;
     try { const u = auth && w.Sync && Sync.user; if (u && u.getIdToken) h.Authorization = 'Bearer ' + await u.getIdToken(); } catch (e) { /* khách */ }
+    if (body.op === 'create' && !h.Authorization && w.UI && UI.human) { const H = await UI.human(); if (H) { await H.ticket(!!again); H.headers(h); } } // khách: vé người thật (máy chủ bắt buộc – docs/HUMAN.md)
     const r = await fetch(API, { method: 'POST', headers: h, body: JSON.stringify(body) });
-    const j = await r.json().catch(() => ({})); j._s = r.status; return j;
+    const j = await r.json().catch(() => ({})); j._s = r.status;
+    if (r.status === 403 && j.error === 'human' && !again) return post(body, auth, true); // vé hết hạn/sai thiết bị → xác minh lại 1 lần
+    return j;
   }
 
   // ---------- Ảnh chụp: người dùng đính kèm/dán ảnh → nén WebP/JPEG ≤ 300 KB ngay trên máy ----------
@@ -164,7 +167,7 @@
       const go = $('#lkrGo'); go.disabled = true; go.textContent = t('Đang gửi…');
       let r; try { r = await post({ op: 'create', cat: (dlg.querySelector('input[name=cat]:checked') || {}).value, msg, notify, email, ctx: await ctxP, errs: (w.__lkErrs || []).slice(-20), shot, pid: devId(), hp: dlg.querySelector('input[name=website]').value, ms: Date.now() - ms0 }, true); } catch (x) { r = { _s: 0 }; }
       go.disabled = false; go.textContent = t('Gửi');
-      if (!r.ok) { err(r._s === 429 ? t('Bạn gửi hơi nhiều – thử lại sau ít phút.') : r.error === 'email' ? t('Email không hợp lệ.') : r.error === 'short' ? t('Hãy mô tả ít nhất 10 ký tự.') : r.error === 'shot' ? t('Ảnh quá lớn hoặc không đọc được.') : t('Không gửi được. Kiểm tra kết nối rồi thử lại.')); return; }
+      if (!r.ok) { err(r._s === 429 ? t('Bạn gửi hơi nhiều – thử lại sau ít phút.') : r.error === 'email' ? t('Email không hợp lệ.') : r.error === 'short' ? t('Hãy mô tả ít nhất 10 ký tự.') : r.error === 'shot' ? t('Ảnh quá lớn hoặc không đọc được.') : r.error === 'human' || r.error === 'turnstile' ? t('Chưa xác minh được bạn là người thật – hãy thử lại sau ít phút.') : t('Không gửi được. Kiểm tra kết nối rồi thử lại.')); return; }
       lastSent = Date.now(); ls.set('lk.rpl', lastSent);
       if (r.token) { const a = mine().filter(x => x.t !== r.token); a.push({ t: r.token, id: r.id, at: Date.now(), upd: Date.now(), st: 'new', cat: (dlg.querySelector('input[name=cat]:checked') || {}).value }); ls.set(KEY, a.slice(-20)); syncRep(a.slice(-20)); }
       done(r, notify);

@@ -56,5 +56,7 @@
 "Đội ngũ sẽ xem xét đề xuất – bạn sẽ được báo nếu tính năng được làm.":"سيراجع فريقنا اقتراحك – وسنُعلمك إذا تم تنفيذ الميزة.",
 "Ảnh chụp màn hình (không bắt buộc)":"لقطة شاشة (اختياري)",
 "Ảnh quá lớn hoặc không đọc được.":"الصورة كبيرة جدًا أو تعذّرت قراءتها.",
+"Chưa xác minh được bạn là người thật – hãy thử lại sau ít phút.":"تعذّر التأكد من أنك شخص حقيقي. حاول مرة أخرى بعد بضع دقائق.",
+"Xác minh nhanh để tiếp tục":"تحقق سريع للمتابعة",
 });
 })(typeof self !== 'undefined' ? self : this);

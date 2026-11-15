@@ -56,5 +56,7 @@
 "Đội ngũ sẽ xem xét đề xuất – bạn sẽ được báo nếu tính năng được làm.":"हमारी टीम आपके सुझाव की समीक्षा करेगी – फ़ीचर बनने पर आपको सूचित किया जाएगा।",
 "Ảnh chụp màn hình (không bắt buộc)":"स्क्रीनशॉट (वैकल्पिक)",
 "Ảnh quá lớn hoặc không đọc được.":"छवि बहुत बड़ी है या पढ़ी नहीं जा सकी।",
+"Chưa xác minh được bạn là người thật – hãy thử lại sau ít phút.":"हम पुष्टि नहीं कर पाए कि आप असली व्यक्ति हैं। कुछ मिनट बाद फिर कोशिश करें।",
+"Xác minh nhanh để tiếp tục":"जारी रखने के लिए त्वरित जाँच",
 });
 })(typeof self !== 'undefined' ? self : this);

@@ -56,5 +56,7 @@
 "Đội ngũ sẽ xem xét đề xuất – bạn sẽ được báo nếu tính năng được làm.":"Notre équipe étudiera votre suggestion – vous serez prévenu si la fonctionnalité est réalisée.",
 "Ảnh chụp màn hình (không bắt buộc)":"Capture d'écran (facultatif)",
 "Ảnh quá lớn hoặc không đọc được.":"L'image est trop lourde ou illisible.",
+"Chưa xác minh được bạn là người thật – hãy thử lại sau ít phút.":"Nous n'avons pas pu confirmer que vous êtes une personne réelle. Réessayez dans quelques minutes.",
+"Xác minh nhanh để tiếp tục":"Vérification rapide pour continuer",
 });
 })(typeof self !== 'undefined' ? self : this);

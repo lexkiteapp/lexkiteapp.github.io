@@ -56,5 +56,7 @@
 "Đội ngũ sẽ xem xét đề xuất – bạn sẽ được báo nếu tính năng được làm.":"팀에서 제안을 검토합니다. 기능이 만들어지면 알려 드릴게요.",
 "Ảnh chụp màn hình (không bắt buộc)":"스크린샷 (선택)",
 "Ảnh quá lớn hoặc không đọc được.":"이미지가 너무 크거나 읽을 수 없습니다.",
+"Chưa xác minh được bạn là người thật – hãy thử lại sau ít phút.":"실제 사용자인지 확인하지 못했어요. 몇 분 후에 다시 시도해 주세요.",
+"Xác minh nhanh để tiếp tục":"계속하려면 간단한 확인이 필요해요",
 });
 })(typeof self !== 'undefined' ? self : this);

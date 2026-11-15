@@ -422,3 +422,9 @@ node scripts/test/social-stats-ui.mjs
 node scripts/test/l1-notes.mjs
 node scripts/test/qwk.mjs
 node scripts/test/es-native-bundle.mjs
+node scripts/test/lexai-oidc.mjs
+node scripts/test/firestore-rules.mjs
+node scripts/test/ext-imgdata.mjs
+node scripts/test/league-xp.mjs
+node scripts/test/body-limit.mjs
+node scripts/test/ai-task.mjs

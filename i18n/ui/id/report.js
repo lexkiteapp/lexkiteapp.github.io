@@ -56,5 +56,7 @@
 "Đội ngũ sẽ xem xét đề xuất – bạn sẽ được báo nếu tính năng được làm.":"Tim kami akan meninjau saran Anda – Anda akan diberi tahu jika fitur itu dibuat.",
 "Ảnh chụp màn hình (không bắt buộc)":"Tangkapan layar (opsional)",
 "Ảnh quá lớn hoặc không đọc được.":"Gambar terlalu besar atau tidak dapat dibaca.",
+"Chưa xác minh được bạn là người thật – hãy thử lại sau ít phút.":"Kami belum bisa memastikan kamu manusia sungguhan. Coba lagi beberapa menit lagi.",
+"Xác minh nhanh để tiếp tục":"Verifikasi singkat untuk melanjutkan",
 });
 })(typeof self !== 'undefined' ? self : this);

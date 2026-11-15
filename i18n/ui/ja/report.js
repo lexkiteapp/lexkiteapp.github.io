@@ -56,5 +56,7 @@
 "Đội ngũ sẽ xem xét đề xuất – bạn sẽ được báo nếu tính năng được làm.":"チームが提案を検討します。機能が実装されたらお知らせします。",
 "Ảnh chụp màn hình (không bắt buộc)":"スクリーンショット（任意）",
 "Ảnh quá lớn hoặc không đọc được.":"画像が大きすぎるか、読み込めませんでした。",
+"Chưa xác minh được bạn là người thật – hãy thử lại sau ít phút.":"本人確認ができませんでした。数分後にもう一度お試しください。",
+"Xác minh nhanh để tiếp tục":"続けるには簡単な確認が必要です",
 });
 })(typeof self !== 'undefined' ? self : this);

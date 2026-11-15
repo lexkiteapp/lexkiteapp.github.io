@@ -56,5 +56,7 @@
 "Đội ngũ sẽ xem xét đề xuất – bạn sẽ được báo nếu tính năng được làm.":"Ekibimiz önerinizi inceleyecek – özellik yapılırsa size haber verilecek.",
 "Ảnh chụp màn hình (không bắt buộc)":"Ekran görüntüsü (isteğe bağlı)",
 "Ảnh quá lớn hoặc không đọc được.":"Görsel çok büyük ya da okunamadı.",
+"Chưa xác minh được bạn là người thật – hãy thử lại sau ít phút.":"Gerçek bir kişi olduğunu doğrulayamadık. Birkaç dakika sonra tekrar dene.",
+"Xác minh nhanh để tiếp tục":"Devam etmek için hızlı doğrulama",
 });
 })(typeof self !== 'undefined' ? self : this);
