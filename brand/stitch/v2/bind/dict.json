@@ -189,7 +189,8 @@
   "dk:#006a64": "color:var(--accent-text)",
   "lt:#1c1c18": "color:var(--text)",
   "lt:#f1ede7": "color:var(--surface-2)",
-  "#0f3d3e": "color:var(--text)"
+  "#0f3d3e": "color:var(--text)",
+  "lt:#2ba39a": "color:var(--accent-text)"
  },
  "cls": {
   ":scope > main": {
