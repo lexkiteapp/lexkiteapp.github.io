@@ -1,3 +1,4 @@
+# ci-policy: heavy-gate – việc nặng trên PR chờ npm test xanh (job `gate`, luật 11)
 # 🏁 Màn "Hoàn thành bài học" (Stitch v2.1): hình học thật + số liệu nhất quán – chặn tái phát lỗi chủ báo 12/11
 # (chip sai cấp, vòng không nhãn, Ama lệch/bị cắt, ′, TỔNG XP, vòng focus bằng chuột, icon replay, ✕ bị cắt, số liệu lệch).
 # Ma trận 375/320/1280 · sáng/tối · vi/en/de/ar(RTL). Hermetic (web/ trên lk.test), 0 lượt chạm prod. Ảnh từng ca ở artifact lesson-complete.
@@ -7,12 +8,33 @@ on:
     paths: ['web/js/lesson/**', 'web/js/st/v2/lesson-complete.js', 'web/css/st-v2-lesson-complete.css', 'web/css/st-lesson.css', 'web/js/app.js', 'web/app/index.html', 'brand/stitch/v2/lesson-complete-*.html', 'brand/stitch/v2/bind/lesson-complete.json', 'scripts/test/lesson-complete-geometry.mjs', 'scripts/test/stitch-screens.mjs', '.github/workflows/lesson-complete.yml']
   workflow_dispatch:
 permissions:
+  actions: write   # fast-lane: huỷ lượt nặng khi npm test cùng sha đã đỏ
+  checks: read
   contents: read
 concurrency:
   group: lesson-complete-${{ github.ref }}
   cancel-in-progress: true
 jobs:
+  # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha – đỏ/chưa xong thì mọi job dưới là skipped
+  # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions: { contents: read, checks: read }
+    outputs: { go: '${{ steps.g.outputs.go }}' }
+    steps:
+      - id: g
+        env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}', READY: '${{ contains(github.event.pull_request.labels.*.name, ''ready'') }}' }
+        run: |
+          go=true
+          if [ "$EV" = pull_request ] && [ "$READY" != true ]; then
+            n=$(gh api "repos/$REPO/commits/$SHA/check-runs?check_name=npm%20test&per_page=20" --jq '[.check_runs[] | select(.conclusion == "success")] | length' 2>/dev/null) || n=1
+            [ "${n:-1}" -ge 1 ] || go=false
+          fi
+          echo "go=$go" >> "$GITHUB_OUTPUT"; echo "npm test xanh cùng sha → go=$go"
   geometry:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
     runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 15
     steps:

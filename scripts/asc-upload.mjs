@@ -129,7 +129,7 @@ const changes = [], errors = [];
 function plan(desc) { changes.push(desc); console.log(`  ${DRY ? '[dry-run]' : '✎'} ${desc}`); return !DRY; }
 async function write(desc, method, p, body) { return plan(desc) ? api(method, p, body) : null; }
 const diff = (cur, want) => Object.fromEntries(Object.entries(want).filter(([k, v]) => (cur?.[k] ?? '') !== v));
-const EDITABLE = ['PREPARE_FOR_SUBMISSION'];
+const EDITABLE = ['PREPARE_FOR_SUBMISSION', 'READY_FOR_REVIEW']; // READY_FOR_REVIEW = đã gắn vào submission nhưng chưa gửi: vẫn sửa được, chạy lại idempotent
 
 async function syncText(app, ver) {
   // Danh mục + tên/phụ đề/URL chính sách (appInfo đang sửa được)

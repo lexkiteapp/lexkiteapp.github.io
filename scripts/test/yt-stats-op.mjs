@@ -35,6 +35,16 @@ ok(B && B.missing === true, 'video không còn trên YouTube → missing (cảnh
 ok(r.j.analytics === false, 'chưa có scope Analytics → analytics=false');
 ok(sql.prepare("SELECT views FROM yt_stats WHERE day = date('now') AND video_id = 'AAAAAAAAAAA'").get().views === 250, 'snapshot ghi D1');
 ok(calls.filter(u => u.includes('/youtube/v3/')).length === 2, 'hạn mức: 1 channels.list + 1 videos.list');
+const M = sql.prepare("SELECT * FROM soc_metrics WHERE k = 'youtube:AAAAAAAAAAA'").get();
+ok(M && M.views === 250 && M.likes === 9 && M.platform === 'youtube' && M.account_id === 'UCchan0000001', 'số liệu YouTube vào soc_metrics (bảng Phân tích)');
+ok(sql.prepare("SELECT missing FROM yt_vmeta WHERE video_id = 'BBBBBBBBBBB'").get().missing === 1 && !sql.prepare("SELECT 1 FROM soc_metrics WHERE k = 'youtube:BBBBBBBBBBB'").get(), 'video bị gỡ: yt_vmeta.missing, không có dòng số liệu');
+const MG = await import('../../functions/api/_social_mgr.js'); const gm = await MG.opFor('GET', 'lk/metrics')({ db: DB });
+ok(gm.vmeta.length === 2 && gm.growth.find(g => g.video_id === 'AAAAAAAAAAA').d7 === 50, 'GET metrics trả vmeta + tăng trưởng 7 ngày');
+ok(r.j.zero3.length === 0 && r.j.alerts.map(a => a.k).join() === 'yt-gone', 'kênh còn view tăng → không báo 0 view; video gỡ → cảnh báo');
+sql.prepare("INSERT INTO yt_stats VALUES (date('now','-4 day'), 'AAAAAAAAAAA', 'UCchan0000001', 250, 5, 1)").run();
+r = await api('stats'); ok(r.j.zero3.join() === 'UCchan0000001' && r.j.alerts.some(a => a.k === 'yt-zero3:UCchan0000001'), 'snapshot 4 ngày trước = hiện tại → kênh 0 view 3 ngày');
+ok((await MG.opFor('GET', 'lk/metrics')({ db: DB })).alerts.length === 2, 'cảnh báo lưu D1 → Quản trị đọc qua GET metrics');
+const A3 = MG.analyticsAlerts({ channels: [], videos: [], zero3: [], quota: { used: 50000, limit: 60000 } }); ok(A3.length === 1 && A3[0].k === 'yt-quota' && !MG.analyticsAlerts({ quota: { used: 100, limit: 60000 } }).length, 'quota ≥ 80 % → cảnh báo; thấp → không');
 ok((await api('stats', { snapshot: false })).s === 200, 'snapshot:false vẫn chạy');
 sql.prepare("INSERT OR REPLACE INTO yt_quota (day, units) VALUES (?, 50000)").run(Y.quotaDay ? Y.quotaDay(Date.now()) : new Date().toISOString().slice(0, 10));
 r = await api('stats'); ok(r.s === 429 && r.j.error === 'quota-breaker', 'đã dùng ≥ 80 % hạn mức → cầu dao 429');

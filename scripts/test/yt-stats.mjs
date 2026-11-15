@@ -1,5 +1,5 @@
 // Test scripts/social/yt-stats.mjs: tổng hợp số liệu, kênh 0 view, video bị gỡ, thiếu quyền Analytics, không suy đoán số thiếu.
-import { summarize, table } from '../social/yt-stats.mjs';
+import { summarize, table, raise } from '../social/yt-stats.mjs';
 let fails = 0; const ok = (c, m) => { if (!c) { fails++; console.log('✗', m); } };
 const v = (id, ch, views, extra = {}) => ({ video_id: id, clip: 'c-' + id, channel_id: ch, views, likes: 1, comments: 0, ...extra });
 const res = { day: '2026-11-13', analytics: false, channels: [{ channel_id: 'A', title: 'A', subs: 10 }, { channel_id: 'B', title: 'B', subs: null }],
@@ -15,4 +15,9 @@ ok(summarize({ videos: [v('1', 'A', 3)], channels: [] }).d7 === null, 'thiếu s
 ok(s.gaps.some(g => /yt-analytics/.test(g)), 'báo thiếu scope Analytics');
 ok(summarize({ ...res, analytics: true }).gaps.length === 0, 'có scope → không báo thiếu');
 ok(/0 VIEW/.test(table(s)) && /Bị gỡ/.test(table(s)), 'bảng nêu 0 view + bị gỡ');
+const calls = []; const fx = async (u, i = {}) => { calls.push([String(u), i.method || 'GET', i.body]); return { ok: true, json: async () => (String(u).includes('state=open') ? [{ number: 7, title: '📉 Social analytics: video bị gỡ/hạn chế' }] : {}) }; };
+await raise({ k: 'yt-gone', title: 'video bị gỡ/hạn chế', text: 'x' }, { GITHUB_TOKEN: 't', GITHUB_REPOSITORY: 'o/r' }, fx);
+ok(calls.some(c => c[0].endsWith('/issues/7/comments') && c[1] === 'POST'), 'trùng issue đang mở → bình luận, không tạo mới');
+await raise({ k: 'yt-zero3:B', title: 'kênh 0 view mới 3 ngày', text: 'x' }, { GITHUB_TOKEN: 't', GITHUB_REPOSITORY: 'o/r' }, fx);
+ok(calls.some(c => c[0].endsWith('/issues') && c[1] === 'POST' && /social-alert/.test(c[2])), 'issue mới nhãn social-alert');
 if (fails) process.exit(1); console.log('yt-stats ok');

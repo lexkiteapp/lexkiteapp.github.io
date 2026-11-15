@@ -296,6 +296,23 @@
      "motion": "steam curls up from the coffee machine and the cup, warm sunlight shimmers softly on the wall, the plant leaves sway a little",
      "model": "kling-video-v4_0",
      "uses": 0
+    },
+    {
+     "id": "cafe_amb_p_2",
+     "src": "cafe/inserts/cafe_amb_p_2.mp4",
+     "plate": "cafe_p_2",
+     "aspect": "16:9",
+     "light": "day",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "steam curls up from the coffee machine and the small cups, the plant leaves sway a little, soft sunlight patches and gentle shadows drift slowly across the walls and floor",
+     "model": "kling-video-v4_0 (web, bonus credits)",
+     "uses": 0,
+     "qc": "insqc PASS + eye 90 (13/11)"
     }
    ]
   },
@@ -823,6 +840,23 @@
      "motion": "the sun glows and clouds drift slowly outside the big windows, warm sunlight shifts softly across the floor",
      "model": "kling-video-v4_0",
      "uses": 0
+    },
+    {
+     "id": "airport-checkin_amb_p_2",
+     "src": "airport-checkin/inserts/airport-checkin_amb_p_2.mp4",
+     "plate": "airport-checkin_p_2",
+     "aspect": "16:9",
+     "light": "day",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "white clouds drift slowly across the blue sky outside the big window, soft sunlight patches and gentle shadows drift slowly across the walls and floor",
+     "model": "kling-video-v4_0 (web, bonus credits)",
+     "uses": 0,
+     "qc": "insqc PASS + eye 90 (13/11)"
     }
    ]
   },
@@ -1118,6 +1152,23 @@
      "motion": "clouds drift across the sky, a gentle breeze moves the shop awnings, sunlight moves softly over the street",
      "model": "kling-video-v4_0",
      "uses": 0
+    },
+    {
+     "id": "ask-directions_amb_p_1",
+     "src": "ask-directions/inserts/ask-directions_amb_p_1.mp4",
+     "plate": "ask-directions_p_1",
+     "aspect": "16:9",
+     "light": "day",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "white clouds drift slowly across the blue sky, the shop awnings flutter gently in a light breeze, sunlight and shadows shift softly over the street",
+     "model": "kling-video-v4_0 (web, bonus credits)",
+     "uses": 0,
+     "qc": "insqc PASS + eye 90 (13/11)"
     }
    ]
   },
@@ -1686,6 +1737,23 @@
      "motion": "clouds drift, soft sunlight glints move over the yellow taxi, leaves move in a light breeze",
      "model": "kling-video-v4_0",
      "uses": 0
+    },
+    {
+     "id": "taxi_amb_p_2",
+     "src": "taxi/inserts/taxi_amb_p_2.mp4",
+     "plate": "taxi_p_2",
+     "aspect": "16:9",
+     "light": "day",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "sunlight glints and soft shadows glide slowly over the yellow taxi and the building, a light breeze",
+     "model": "kling-video-v4_0 (web, bonus credits)",
+     "uses": 0,
+     "qc": "insqc PASS + eye 90 (13/11)"
     }
    ]
   },
@@ -2928,6 +2996,23 @@
      "motion": "clouds drift slowly past the window, soft light shifts gently across the floor",
      "model": "kling-video-v4_0",
      "uses": 0
+    },
+    {
+     "id": "bank_amb_p_2",
+     "src": "bank/inserts/bank_amb_p_2.mp4",
+     "plate": "bank_p_2",
+     "aspect": "16:9",
+     "light": "day",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "clouds drift slowly past the tall window, the small plant leaves sway a little, soft sunlight patches and gentle shadows drift slowly across the walls and floor",
+     "model": "kling-video-v4_0 (web, bonus credits)",
+     "uses": 0,
+     "qc": "insqc PASS + eye 90 (13/11)"
     }
    ]
   },
@@ -3216,6 +3301,23 @@
      "motion": "clouds and soft light move over the city skyline behind the glass, sunlight shifts on the table",
      "model": "kling-video-v4_0",
      "uses": 0
+    },
+    {
+     "id": "job-interview_amb_p_1",
+     "src": "job-interview/inserts/job-interview_amb_p_1.mp4",
+     "plate": "job-interview_p_1",
+     "aspect": "16:9",
+     "light": "day",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "clouds and soft light move slowly over the city skyline behind the glass, the plant leaves sway a little, sunlight shifts softly across the table and floor",
+     "model": "kling-video-v4_0 (web, bonus credits)",
+     "uses": 0,
+     "qc": "insqc PASS + eye 90 (13/11)"
     }
    ]
   },
@@ -3511,6 +3613,36 @@
       },
       "zones": "cine/scenes/office-intro/zones/office-intro_vn_3.zones.json"
      }
+    },
+    {
+     "id": "office-intro_v_5",
+     "src": "office-intro/plates/office-intro_v_5.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "note": "13/11 richer plate (big window + trees + plant) made for a loopable insert; fit not yet measured (scene_fit on CI)"
+    }
+   ],
+   "inserts": [
+    {
+     "id": "office-intro_amb_v_5",
+     "src": "office-intro/inserts/office-intro_amb_v_5.mp4",
+     "plate": "office-intro_v_5",
+     "aspect": "9:16",
+     "light": "day",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "clouds drift slowly across the blue sky outside the big window, the green trees outside the window sway gently in a light breeze, the big plant leaves beside the window sway a little, soft sunlight shifts slightly on the floor",
+     "model": "kling-video-v4_0",
+     "uses": 0,
+     "qc": "insqc PASS seam 0.32 maxstep 0.70 drift 1.81 + eye 90"
     }
    ]
   },
@@ -3765,6 +3897,23 @@
      "motion": "trees sway outside the window, sunlight shifts on the table, a laptop screen glows",
      "model": "kling-video-v4_0",
      "uses": 0
+    },
+    {
+     "id": "team-meeting_amb_p_2",
+     "src": "team-meeting/inserts/team-meeting_amb_p_2.mp4",
+     "plate": "team-meeting_p_2",
+     "aspect": "16:9",
+     "light": "day",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 4,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "the trees outside the window sway gently, the plant leaves sway a little, sunlight shifts softly across the table",
+     "model": "kling-video-v4_0 (web, bonus credits)",
+     "uses": 0,
+     "qc": "insqc PASS + eye 90 (13/11)"
     }
    ]
   },
@@ -4096,6 +4245,23 @@
      "motion": "sunlight shifts slowly across the wooden floor and walls, tiny dust motes float in the light",
      "model": "kling-video-v4_0",
      "uses": 0
+    },
+    {
+     "id": "flat-viewing_amb_p_1",
+     "src": "flat-viewing/inserts/flat-viewing_amb_p_1.mp4",
+     "plate": "flat-viewing_p_1",
+     "aspect": "16:9",
+     "light": "day",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "the sheer white curtains at the window sway gently in a breeze, tiny dust motes float in the light, soft sunlight patches and gentle shadows drift slowly across the walls and floor",
+     "model": "kling-video-v4_0 (web, bonus credits)",
+     "uses": 0,
+     "qc": "insqc PASS + eye 90 (13/11)"
     }
    ]
   },
@@ -4347,6 +4513,23 @@
      "motion": "the phone screens on the wall glow and change colours softly, light shimmers on the glass counters",
      "model": "kling-video-v4_0",
      "uses": 0
+    },
+    {
+     "id": "phone-plan_amb_p_1",
+     "src": "phone-plan/inserts/phone-plan_amb_p_1.mp4",
+     "plate": "phone-plan_p_1",
+     "aspect": "16:9",
+     "light": "day",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "soft light reflections glide slowly over the glass counters and the phone cases, soft sunlight patches and gentle shadows drift slowly across the walls and floor",
+     "model": "kling-video-v4_0 (web, bonus credits)",
+     "uses": 0,
+     "qc": "insqc PASS + eye 90 (13/11)"
     }
    ]
   },
@@ -4644,6 +4827,23 @@
      "motion": "the baggage carousel turns slowly, a plane moves far away outside the window, clouds drift",
      "model": "kling-video-v4_0",
      "uses": 0
+    },
+    {
+     "id": "lost-luggage_amb_p_1",
+     "src": "lost-luggage/inserts/lost-luggage_amb_p_1.mp4",
+     "plate": "lost-luggage_p_1",
+     "aspect": "16:9",
+     "light": "day",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "the baggage carousel belt turns slowly, clouds drift slowly in the sky outside the window, soft sunlight patches and gentle shadows drift slowly across the walls and floor",
+     "model": "kling-video-v4_0 (web, bonus credits)",
+     "uses": 0,
+     "qc": "insqc PASS + eye 90 (13/11)"
     }
    ]
   },
@@ -4959,6 +5159,23 @@
      "motion": "popcorn pops and bubbles in the machine, marquee lights twinkle softly, warm light glows",
      "model": "kling-video-v4_0",
      "uses": 0
+    },
+    {
+     "id": "cinema-tickets_amb_p_1",
+     "src": "cinema-tickets/inserts/cinema-tickets_amb_p_1.mp4",
+     "plate": "cinema-tickets_p_1",
+     "aspect": "16:9",
+     "light": "day",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "popcorn pops and bubbles inside the popcorn machine, warm light glows and shimmers softly on the counter and the red walls",
+     "model": "kling-video-v4_0 (web, bonus credits)",
+     "uses": 0,
+     "qc": "insqc PASS + eye 90 (13/11)"
     }
    ]
   },
@@ -5181,6 +5398,23 @@
      "motion": "balloons bob gently in the breeze, leaves move, soft clouds drift over the park",
      "model": "kling-video-v4_0",
      "uses": 0
+    },
+    {
+     "id": "party-invite_amb_p_4",
+     "src": "party-invite/inserts/party-invite_amb_p_4.mp4",
+     "plate": "party-invite_p_4",
+     "aspect": "16:9",
+     "light": "day",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "the trees sway gently in a light breeze, white clouds drift slowly across the blue sky, the grass ripples softly, sunlight and leaf shadows shift on the grass",
+     "model": "kling-video-v4_0 (web, bonus credits)",
+     "uses": 0,
+     "qc": "insqc PASS + eye 90 (13/11)"
     }
    ]
   },

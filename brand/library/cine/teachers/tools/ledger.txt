@@ -187,3 +187,18 @@ bank clip gc11_listen_c kling-video-v4_0-loop 75 cr (3006->2931) n=1
 bank clip ga11_explain_c kling-video-v4_0-loop 75 cr (2931->2856) n=1
 bank clip gc11_explain_c kling-video-v4_0-loop 75 cr (2856->2781) n=1
 VERDICT 3rd takes (v4 hold loop from locked ref): ga11_listen_c PASS 90 · gc11_listen_c PASS 90 · ga11_explain_c PASS 91 (open-hand explain, side gesture) → BANKED · gc11_explain_c FAIL eye 85 (hands on hips, winks in 2/6 samples) – not retried (Carlos already has explain + explain_b). Spend so far 12/11: 6839 -> 2781 = 4,058 cr.
+TICKET 13/11 (owner: use all credits before plan expiry): 3 new gesture stills × Ama/Carlos – question (palms-up shrug), listen_ear (hand cupped behind ear), welcome (open arms) – Nano Banana Pro i2i from locked o3 refs, 20 cr each (cap 160 incl. retries), qc_green still + eye; clips later on Kling web (bonus) first=locked → keyframe=still → tail=locked.
+img ga11_question gemini-3-pro-image 20 cr (227->207) n=1
+VERDICT ga11_question s1 PASS 90 (qc_green PASS; palms-up shrug both sides, 5 fingers, closed smile, eyes open) → BANKED (canvas 1536x2752 vs ref 2720: still_img fits).
+img gc11_question gemini-3-pro-image 20 cr (207->187) n=1
+img ga11_listen_ear gemini-3-pro-image 20 cr (187->167) n=1
+VERDICT gc11_question PASS 90 (palms up waist height, 5 fingers) · ga11_listen_ear PASS 90 (hand cupped behind ear, face clear) → BANKED.
+img gc11_listen_ear gemini-3-pro-image 20 cr (167->147) n=1
+img ga11_welcome gemini-3-pro-image 20 cr (147->127) n=1
+img gc11_welcome gemini-3-pro-image 20 cr (127->107) n=1
+VERDICT ga11_welcome PASS 90 (open arms, 5 fingers; faint green-on-green ghost marks top bg → 0-cr flatten to key green) · gc11_listen_ear FAIL #1 (qc: head scale 368→341 + stray 251, body shifted left) · gc11_welcome FAIL #1 eye (white teeth grin; rubric: mouth = locked ref). Retry both once with the mouth/framing sentence stronger.
+img gc11_listen_ear gemini-3-pro-image 20 cr (107->87) n=1
+img gc11_welcome gemini-3-pro-image 20 cr (87->67) n=1
+VERDICT gc11_listen_ear try2 PASS 90 (qc PASS, cupped ear, closed mouth) → BANKED · gc11_welcome FAIL #2 (teeth grin again + qc FAIL) → DROP (Ama keeps welcome; Carlos uses happy/wave). Stills banked 5/6.
+WEB gesture clips (Kling 4.0 web, first=locked → middle=still → last=locked, 75 cr each, bonus): ga11_question PASS 90 (gate PASS, palms-up shrug and back) · ga11_listen_ear PASS 90 (one crisp blink) · ga11_welcome take a PASS 90 · take b (duplicate submit after a JS timeout, 75 cr) eye 86 half-closed eyes → not banked · gc11_question FAIL #1 (gate mouth open 7 frames, orange mouth opens) · gc11_listen_ear FAIL #1 eye 85 (hand sweeps across the face, wink). Retry both Carlos once: mouth = first frame, hand rises at the side of the head only, no wink.
+VERDICT Carlos retries: gc11_question #2 FAIL (gate mouth open 2 frames + wink) → DROP (2 fails) · gc11_listen_ear #2 gate PASS but eye 86 (forearm sweeps horizontally across the chest before rising, blink-wink) → DROP (2 fails). Carlos keeps the approved stills (rig Chars.still) for question/listen_ear. Lesson: Carlos v4 keyframe clips fail on mouth/wink far more than Ama; for him prefer hold-loops (first = tail = pose still) next time.

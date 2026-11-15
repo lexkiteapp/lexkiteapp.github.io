@@ -147,6 +147,8 @@
 "vòm miệng":"硬腭音",
 "vô thanh (không rung)":"清音（不振动）",
 "xem sau khi đã tự trả lời":"自己回答后查看",
+"{done}/{n} bài đã đạt":"已通过 {done}/{n} 节课",
+"{n} bài học trực quan":"{n} 节图解课程",
 "{n} bài học trực quan: dòng thời gian, công thức tô màu, sơ đồ biến đổi câu, lỗi người Việt hay mắc và bài tập chấm điểm ngay.":"{n} 视觉课程：时间线、颜色编码公式、句子转换图、常见学习者错误和即时评分练习。",
 "{right}/{total} câu đúng ({pct}%)":"{right}/{total} 正确 ({pct}%)",
 "{score}% giống mẫu":"{score}% 匹配",

@@ -1,8 +1,4 @@
 {
  "_doc": "Lệch spec đã biết của đề hiện có (01/11/2026, P0-A). CHỈ được xoá dòng khi đã sửa nội dung đề cho khớp spec – không thêm dòng để làm xanh (no-cuts). Lệch mới → exam-format-check đỏ. Sửa theo hàng chờ ở docs/CONTENT-QA.md §6.",
- "known": {
-  "ielts-reading-ac/rt7/words": "tổng độ dài 2836 từ ngoài khoảng 2150–2750",
-  "ielts-reading-ac/rt8/words": "tổng độ dài 2752 từ ngoài khoảng 2150–2750",
-  "ielts-reading-ac/rt9/words": "tổng độ dài 2822 từ ngoài khoảng 2150–2750"
- }
+ "known": {}
 }

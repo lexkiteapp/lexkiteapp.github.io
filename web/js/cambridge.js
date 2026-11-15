@@ -7,7 +7,7 @@
   const App = window.App, { state, routes } = App, view = App.view;
   const LEVELS = [['a2', 'A2 Key'], ['b1', 'B1 Preliminary'], ['b2', 'B2 First'], ['c1', 'C1 Advanced'], ['c2', 'C2 Proficiency']];
   const SPKN = { interview: 'Interview', 'long-turn': 'Long turn', collaborative: 'Collaborative task', discussion: 'Discussion' };
-  const WR = new Set(['email', 'story', 'article', 'essay', 'report', 'review', 'letter']); // phần viết sản sinh
+  const WR = new Set(['email', 'story', 'article', 'essay', 'report', 'review', 'letter', 'proposal']); // phần viết sản sinh
   const PAPERS = { rw: ['📖', 'Reading & Writing'], listening: ['🎧', 'Listening'], speaking: ['🗣️', 'Speaking'] };
   const tests = () => self.CAMBRIDGE || [];
   const rub = l => (self.CAMBRIDGE_RUBRIC || {})[l] || { writing: [], speaking: [], linkers: [] };
@@ -20,6 +20,7 @@
   App.cambridge = { wc, pointHits, linkersUsed, build: (T, p) => build(T, p) };
   const passage = tx => (Array.isArray(tx) ? tx : String(tx || '').split('\n')).map(p => `<p style="margin:.35rem 0;white-space:pre-wrap">${esc(p).replace(/\((\d{1,2})\)/g, '<b class="qn">$1</b>')}</p>`).join('');
   const QTYPE = {
+    'cross-text': 'mcq',
     'gap': 'form',
     'gapped-text': 'match',
     'matching': 'match',
@@ -76,9 +77,9 @@
     if (WR.has(x.type)) return `${x.points ? `<ul class="small">${x.points.map(s => `<li>${esc(s)}</li>`).join('')}</ul>` : ''}${x.pictures ? `<div class="grid g3">${x.pictures.map((pc, i) => `<div class="card" style="margin:0;text-align:center"><div style="font-size:2.4rem" aria-hidden="true">${pc.ic}</div><div class="tiny muted">${i + 1}. ${esc(pc.alt)}</div></div>`).join('')}</div>` : ''}
       <p class="small"><b>${esc(x.prompt)}</b> <span class="muted">${t('Viết {n} từ trở lên.', { n: x.min_words })}</span></p>
       <textarea class="input" data-w="${k}" style="min-height:160px;line-height:1.6" spellcheck="false" aria-label="Part ${x.n}"></textarea><div class="tiny muted" data-wc="${k}">${t('{n} từ', { n: 0 })}</div><div data-wfb="${k}"></div>`;
-    if (p === 'listening') return x.units.map((u, j) => { const g = groupOf(x, u.items); groups.push([k, j, g]);
+    if (p === 'listening') return x.units.map((u, j) => { const g = groupOf(u.options ? { ...x, options: u.options } : x, u.items); groups.push([k, j, g]);
       return `<div class="toeic-u" data-u="${k}-${j}">${u.title ? `<b>${esc(u.title)}</b>` : ''}<div class="row nowrap" style="margin:.4rem 0"><button class="btn sm primary" data-play="${k}-${j}">▶ ${t('Nghe')}</button><span class="tiny muted" data-now="${k}-${j}"></span></div>
-        ${x.type === 'matching' && j === 0 ? `<div class="lq-box">${x.options.map(o => `<span>${esc(o)}</span>`).join('')}</div>` : ''}<div class="lq-wrap" data-g="${k}-${j}">${QE.questionsHtml({ groups: [g] })}</div>
+        ${x.type === 'matching' && (u.options || j === 0) && !(g.options || []).some(o => QE.label(o)) ? `<div class="lq-box">${(u.options || x.options).map(o => `<span>${esc(o)}</span>`).join('')}</div>` : ''}<div class="lq-wrap" data-g="${k}-${j}">${QE.questionsHtml({ groups: [g] })}</div>
         <details data-tr="${k}-${j}" hidden><summary class="small"><b>📜 ${t('Lời thoại (transcript)')}</b></summary>${u.script.filter(l => l.t).map(l => `<div class="small"><b>${esc((u.speakers[l.s] || {}).name || l.s)}:</b> ${esc(l.t)}</div>`).join('')}</details></div>`; }).join('');
     const lead = x.texts ? x.texts.map(y => `<div class="card" style="margin:.4rem 0"><b>${y.code} · ${esc(y.title)}</b>${passage(y.text)}</div>`).join('')
       : x.text ? `${x.title ? `<h4 style="margin:.2rem 0">${esc(x.title)}</h4>` : ''}${x.by ? `<div class="tiny muted">${esc(x.by)}</div>` : ''}${passage(x.text)}` : '';
@@ -97,17 +98,18 @@
     }));
   }
   function submit(T, p, P, groups, body) {
-    let right = 0, total = 0;
+    let right = 0, total = 0; const all = {}, kind = p === 'listening' ? 'listening' : 'reading';
     for (const [k, j, g] of groups) {
       const root = $(`[data-g="${k}-${j}"]`, body); if (!root) continue; const res = QE.collect({ groups: [g] }, root);
       QE.mark(root, res);
-      for (const it of g.items) { total++; if (res[it.n] && res[it.n].ok) right++; const fb = $(`[data-item="${it.n}"] .lq-fb`, root); if (fb && it.explain) fb.insertAdjacentHTML('beforeend', `<div class="tiny muted" style="margin-top:.2rem">💡 ${esc(QE.exT(it.explain))}</div>`); }
+      for (const it of g.items) { total++; if (res[it.n]) all[k + '-' + j + '-' + it.n] = res[it.n]; if (res[it.n] && res[it.n].ok) right++; else if (App.logMistake) App.logMistake({ kind, q: I18N.tk('Test {t} – Câu {n}: {q}', { t: T.title, n: it.n, q: (res[it.n] && res[it.n].q) || it.q || '' }), answer: res[it.n] ? res[it.n].answer : '', given: (res[it.n] && res[it.n].given) || I18N.tk('(bỏ trống)'), explain: it.explain ? QE.exT(it.explain) : '', ref: T.id }); const fb = $(`[data-item="${it.n}"] .lq-fb`, root); if (fb && it.explain) fb.insertAdjacentHTML('beforeend', `<div class="tiny muted" style="margin-top:.2rem">💡 ${esc(QE.exT(it.explain))}</div>`); }
     }
     $$('details[data-tr]', body).forEach(d => { d.hidden = false; });
     P.forEach((x, k) => { if (WR.has(x.type)) writeFb(T, x, k, body); });
     const pct = total ? Math.round(100 * right / total) : 0, b = best(), key = T.id + ':' + p;
     if (b[key] == null || pct > b[key]) b[key] = pct;
     $('#camRes').innerHTML = `<div class="card"><h3 style="margin-top:0">${t('Kết quả: {a}/{b} câu đúng ({p}%)', { a: right, b: total, p: pct })}</h3><p class="small muted" style="margin:0">${t('Xem lời giải dưới từng câu. Phần viết có nhận xét riêng ngay dưới bài.')}</p></div>`;
+    if (window.QT) QT.record('cb', all, p === 'listening' ? null : $('.lq-wrap', body));
     App.reward({ quizzes: 1, xp: 10 + right });
   }
   // Phản hồi viết: số từ, ý bắt buộc, từ nối, tiêu chí cấp, bài mẫu, AI (tùy chọn)

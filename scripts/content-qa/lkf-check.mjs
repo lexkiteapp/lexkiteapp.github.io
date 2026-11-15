@@ -61,7 +61,7 @@ for (const s of SKILLS) for (const b of BASES) {
 
 // ---------- 2. Mục nội dung hiện có (khoá ổn định + cấp) ----------
 const C = loadContent();
-const vmFiles = (dir, re, name) => { const g = {}; for (const f of fs.readdirSync(P(dir)).filter(f => re.test(f)).sort((a, b) => (a.includes('-') - b.includes('-')) || (a < b ? -1 : 1)) /* calls.js gán mảng, calls-exam.js nối thêm – nạp đúng thứ tự app */) { try { new Function('self', 'window', rd(`${dir}/${f}`))(g, g); } catch (e) { E(`nạp ${dir}/${f}: ${e.message}`); } } return g[name] || []; };
+const vmFiles = (dirs, re, name) => { const g = {}; for (const dir of [].concat(dirs)) if (fs.existsSync(P(dir))) for (const f of fs.readdirSync(P(dir)).filter(f => re.test(f)).sort((a, b) => (a.includes('-') - b.includes('-')) || (a < b ? -1 : 1)) /* calls.js gán mảng, calls-exam.js nối thêm – nạp đúng thứ tự app */) { try { new Function('self', 'window', rd(`${dir}/${f}`))(g, g); } catch (e) { E(`nạp ${dir}/${f}: ${e.message}`); } } return g[name] || []; };
 const jsonDir = d => (ex(d) ? fs.readdirSync(P(d)).filter(f => f.endsWith('.json')).sort().map(f => JSON.parse(rd(`${d}/${f}`))) : []);
 const slug = s => String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').split('-').filter(Boolean).slice(0, 8).join('-');
 const TOEFL_B2 = new Set(['academic', 'talk', 'discussion']);
@@ -83,7 +83,7 @@ const items = { // nhóm → [{id, level, ...thuộc tính cho luật gợi ý}]
   story: (ex('content/lesson/stories.json') ? JSON.parse(rd('content/lesson/stories.json')).items : []).map(s => ({ id: s.id, level: s.cefr, kind: s.kind })),
   situation: jsonDir('content/situations').map(s => ({ id: s.id, level: s.cefr })),
   call: vmFiles('web/js/call', /^calls.*\.js$/, 'CALLS').map(c => ({ id: c.id, level: c.lv, exam: c.exam || '' })),
-  roleplay: vmFiles('web/js/roleplay', /^data-.*\.js$/, 'ROLEPLAY').map(r => ({ id: r.id, level: Array.isArray(r.lv) ? r.lv[1] || r.lv[0] : 'B2' })), // công sở: mỗi lượt 3 bậc B1/B2/C1 → lấy giữa; đời sống: level [A1,A2,B1] → giữa
+  roleplay: vmFiles(['web/js/roleplay', 'web/cpack/roleplay'], /^data-.*\.js$/, 'ROLEPLAY').map(r => ({ id: r.id, level: Array.isArray(r.lv) ? r.lv[1] || r.lv[0] : 'B2' })), // công sở: mỗi lượt 3 bậc B1/B2/C1 → lấy giữa; đời sống: level [A1,A2,B1] → giữa
 };
 for (const [col, list] of Object.entries(items)) { const s = new Set(); for (const it of list) { if (s.has(it.id)) E(`${col}/${it.id}: khoá trùng – không gắn lo được`); s.add(it.id); } }
 

@@ -117,7 +117,7 @@ if (found) {
   ok(!$('#fb .sheet'), 'chạm ngay khi vừa hiện câu (chạm đúp từ màn trước) bị bỏ qua');
   await tick(300); click(opts[0]); await tick(40);
   ok($('#fb .sheet'), 'chạm sau đó → hiện bảng phản hồi');
-  ok($('.study-wrap').style.getPropertyValue('--sheet-h') && /\.study-wrap:has\(\.sheet\) \{ padding-bottom: calc\(var\(--sheet-h/.test(css), 'chừa đáy bằng đúng chiều cao bảng phản hồi');
+  ok($('.study-wrap').style.getPropertyValue('--sheet-h') && /\.study-wrap:has\(\.sheet-up\) \{ padding-bottom: calc\(var\(--sheet-h/.test(css) && $('#fb .sheet').classList.contains('sheet-up'), 'chừa đáy bằng đúng chiều cao bảng phản hồi (gắn .sheet-up sau lần vẽ – INP)');
   // ✕ giữa chừng → hỏi lại
   await tick(300); const x = $('.study-top a.icon-btn'), before = w.location.hash; click($('#nextQ')); await tick(400);
   click($('.study-top a.icon-btn')); await tick(40);
@@ -222,7 +222,7 @@ ok((await w.App.todayPlan()).some(x => x.href === '#/placement') && w.App.pathCu
   // Nội dung đích của mọi bước (đọc thẳng file dữ liệu – không cần nạp từng gói)
   const src = (...fs) => fs.map(f => fs0(f)).join('\n'), fs0 = f => { try { return fs.readFileSync(path.join(WEB, 'js', f), 'utf8'); } catch (e) { return ''; } };
   const dir = d => fs.readdirSync(path.join(WEB, 'js', d)).map(f => d + '/' + f);
-  const C = { roleplay: src(...dir('roleplay')), call: src('call/calls.js', 'call/calls-exam.js'), listen: src(...dir('listen'), ...dir('../cpack/listen'), ...dir('toeic')), task1: src('task1.js'), write: src('write.js'), letters: src('write/gt-letters.js'),
+  const C = { roleplay: src(...dir('roleplay'), ...dir('../cpack/roleplay')), call: src('call/calls.js', 'call/calls-exam.js'), listen: src(...dir('listen'), ...dir('../cpack/listen'), ...dir('toeic')), task1: src('task1.js'), write: src('write.js'), letters: src('write/gt-letters.js'),
     rtype: src('rtype.js'), toefl: src('toefl.js'), toeic: src('toeic.js'), treading: src(...dir('toeic')), grammar: src(...dir('grammar'), ...dir('../cpack/grammar')) };
   const has = (txt, id) => new RegExp(`id: '${id}'|T\\('${id}'`).test(txt);
   const exists = h => { const [, r, a = '', q = ''] = /^#\/([a-z0-9-]+)\/?([^?]*)\??(.*)$/.exec(h) || [];
