@@ -2,17 +2,17 @@
 
 Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipeline/score.budget.json` · kế hoạch `docs/CONTENT-WORLD-PLAN.md` §3.5. Điểm = độ phủ so với chuẩn × tỉ lệ qua cổng.
 
-**Tổng: 68.3 / 100**
+**Tổng: 70.8 / 100**
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
 | Kho từ | **58.6** | 58.5 | 58.6% | 100% | 0 |
 | Ngữ pháp | **72.8** | 72.8 | 72.8% | 100% | 0 |
 | Giao tiếp | **72.3** | 68.3 | 72.3% | 100% | 0 |
-| 4 kỹ năng | **62.9** | 62.9 | 62.9% | 100% | 0 |
-| Đề thi | **43.8** | 31.7 | 43.8% | 100% | 0 |
-| Khung Can-do | **81.3** | 81.3 | 81.3% | 100% | 0 |
-| Dễ học – dễ nhớ | **91.7** | 91.7 | 91.7% | 100% | 0 |
+| 4 kỹ năng | **78.3** | 62.9 | 78.3% | 100% | 0 |
+| Đề thi | **47.8** | 31.7 | 47.8% | 100% | 0 |
+| Khung Can-do | **81.7** | 81.3 | 81.7% | 100% | 0 |
+| Dễ học – dễ nhớ | **91.9** | 91.7 | 91.9% | 100% | 0 |
 | i18n | **62.7** | 62.7 | 62.7% | 100% | 0 |
 
 ## Kho từ
@@ -58,15 +58,15 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
 | Nghe: bộ bài | 40 / 80 | 50% | 15 |
-| Đọc: bài | 342 / 600 | 57% | 15 |
-| Đọc ngắn A1 (chưa làm) | 0 / 80 | 0% | 3 |
+| Đọc: bài | 486 / 600 | 81% | 15 |
+| Đọc ngắn A1 (chưa làm) | 128 / 80 | 100% | 3 |
 | Đọc ngắn A2 | 65 / 80 | 81% | 3 |
 | Đọc ngắn B1 | 75 / 80 | 94% | 3 |
 | Đọc ngắn B2 | 75 / 80 | 94% | 3 |
 | Đọc ngắn C1 | 70 / 80 | 88% | 3 |
 | Đọc ngắn C2 (chưa làm) | 0 / 80 | 0% | 3 |
-| Nói: chủ đề | 32 / 60 | 53% | 10 |
-| Nói: câu trả lời mẫu | 343 / 600 | 57% | 10 |
+| Nói: chủ đề | 60 / 60 | 100% | 10 |
+| Nói: câu trả lời mẫu | 594 / 600 | 99% | 10 |
 | Viết: bài mẫu | 246 / 400 | 62% | 18 |
 | trung gian (mediation) (chưa làm) | 30 / 30 | 100% | 14 |
 
@@ -86,11 +86,11 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | TOEFL Listening | 282 / 400 | 71% | 5 |
 | TOEFL Writing | 104 / 200 | 52% | 5 |
 | TOEFL Speaking | 183 / 300 | 61% | 5 |
-| Cambridge A2 (chưa làm) | 1 / 6 | 17% | 8 |
+| Cambridge A2 (chưa làm) | 3 / 6 | 50% | 8 |
 | Cambridge B1 (chưa làm) | 3 / 6 | 50% | 8 |
 | Cambridge B2 (chưa làm) | 3 / 6 | 50% | 8 |
 | Cambridge C1 (chưa làm) | 1 / 6 | 17% | 8 |
-| Cambridge C2 (chưa làm) | 0 / 6 | 0% | 8 |
+| Cambridge C2 (chưa làm) | 1 / 6 | 17% | 8 |
 
 ## Khung Can-do
 
@@ -98,8 +98,8 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 |---|---|---|---|
 | mục tiêu LKF tự soạn | 585 / 600 | 98% | 25 |
 | ô kỹ năng × cấp đủ ≥ 15 | 36 / 36 | 100% | 15 |
-| nội dung có lo hợp lệ | 11142 / 11142 | 100% | 35 |
-| mục tiêu đã có nội dung luyện | 167 / 600 | 28% | 25 |
+| nội dung có lo hợp lệ | 11186 / 11186 | 100% | 35 |
+| mục tiêu đã có nội dung luyện | 176 / 600 | 29% | 25 |
 
 ## Dễ học – dễ nhớ
 
@@ -108,7 +108,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | Ngữ pháp | 96.9 / 100 | 97% | 25 |
 | Bài lộ trình | 100 / 100 | 100% | 25 |
 | Bộ từ | 74.2 / 100 | 74% | 25 |
-| Kỹ năng | 95.7 / 100 | 96% | 25 |
+| Kỹ năng | 96.5 / 100 | 97% | 25 |
 
 ## i18n
 
