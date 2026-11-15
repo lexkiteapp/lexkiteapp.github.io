@@ -18,7 +18,8 @@
     "_note": "Tải lần đầu theo gói (JS BUNDLES + CSS BCSS, gzip chuẩn) – chỉ được giảm. 3/11 ux1 (Home/Hôm nay): mốc main 32c7194bd = 122044 B (JS 56295 + CSS 65749).",
     "ux1": 122044
   },
-  "cpackTotal": 8100000,
+  "cpackTotal": 8500000,
+  "_cpackNote5": "15/11 (budget-self-decide, điều phối OK trần lazy-pack): cpackTotal 8 100 000 → 8 500 000 B – chỉ trần gói nội dung tải lười theo route (#1368 đọc ngắn C2, IELTS Writing, TOEFL Writing/Speaking, Cambridge C1/C2 t2; đo 8 367 695 B); ngân sách tải đầu, web/js, SLACK, LCP/INP/CLS không đổi.",
   "_cpackNote4": "15/11 (chủ duyệt trực tiếp \"OK nâng 8,1 MB\", budget-self-decide): cpackTotal 7 900 000 → 8 100 000 B – chỉ trần lazy-pack nội dung (#1306 gold, #1315 IELTS Speaking, #1316 nhập vai; đo 7 966 xxx B), tải lười theo route, không precache nền; ngân sách tải đầu, web/js, SLACK, LCP/INP/CLS không đổi.",
   "_cpackNote3": "13/11 ghi chú lỗi theo tiếng mẹ đẻ (whyL1): web/js/grammar/l1 → web/cpack/grammar-l1/<lang>.js (tải lười chỉ file của ngôn ngữ giao diện, không precache); đo 6 766 033 B với id 85 + vi 179 + hi 193 mục; trần 6 700 000 → 7 900 000 B chừa chỗ cho 12 ngôn ngữ còn lại (~100 KB/ngôn ngữ); CHỈ trần lazy-pack nội dung, không đụng ngân sách tải lần đầu (điều phối duyệt, budget-self-decide).",
   "_cpackNote2": "13/11 đề thi live (GT gt1–5 đủ 2150+ từ, TOEFL bộ 1–6 đủ 47 L/50 R, Cambridge B1 t1): cpackTotal 6 500 000 → 6 700 000 B – chỉ trần lazy-pack nội dung đề, không đụng ngân sách tải lần đầu.",
