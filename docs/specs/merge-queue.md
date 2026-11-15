@@ -37,11 +37,13 @@ Trước khi chủ bấm: workflow đã có sẵn, không ảnh hưởng gì (ch
 | `web/js/i18n/<lang≠en>`, `web/cpack/lesson/pn-*` | `i18n-pack.mjs` | lấy main + sinh lại |
 | `extension/app/**` | `build-extension.sh` | lấy main + sinh lại |
 | `web/css/st-*.css` | `build-stitch-css.mjs` | lấy main + sinh lại |
+| `web/<lang>/{privacy,terms,schools,credits}.html` | `build-legal.mjs` | lấy main + sinh lại |
+| `scripts/i18n-fixed.json` | người/bot dịch | gộp 3 bên theo khóa rồi theo ngôn ngữ (`merge3Fixed`); cùng ô khác giá trị → người gỡ |
 | `scripts/test/suite.txt`, `docs/INDEX.md` | người, chỉ thêm dòng | union + khử trùng |
 | `i18n/ui/**` | người/bot dịch | gộp 3 bên theo khóa (`merge3`); cùng sửa một khóa → người gỡ |
 | registry (`REGISTRIES`) | người | giữ dòng mục cả hai phía; trùng khóa → người gỡ |
 
-Chưa tự gỡ (xung đột hiếm, cần người): `content/pipeline/score.budget.json`, `targets.json` (sàn chỉ tăng). Tệp sinh mới → thêm vào `TAKE_MAIN`/`REGEN`/`GENERATED` cùng PR.
+Chưa tự gỡ (xung đột hiếm, cần người): `content/pipeline/score.budget.json`, `targets.json` (sàn chỉ tăng). Tệp sinh mới → thêm vào `TAKE_MAIN`/`REGEN`/`GENERATED` cùng PR. Người/phiên pr-fixer dùng `scripts/ci/regen-conflicts.mjs` (cùng luật, chạy cục bộ).
 
 ## Rủi ro
 - Hàng đợi dừng nếu `npm test` chập chờn → lỗi chập chờn phải sửa gốc (ci-triage), không tắt queue.
