@@ -4,7 +4,7 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { evaluate, rerunCancelled, MAX_AUTO_RERUN, prCapable, checkWorkflow, dirtyShas, run, paceDue, PACED, chainAlive, CHAIN_CHECK_MS, CHAIN_RETRIES, CONTEXT, SELF_JOB, SELF_PATH } from '../ci/required-gate.mjs';
+import { evaluate, gateDrift, applyDrift, rerunCancelled, MAX_AUTO_RERUN, prCapable, checkWorkflow, dirtyShas, run, paceDue, PACED, chainAlive, CHAIN_CHECK_MS, CHAIN_RETRIES, CONTEXT, SELF_JOB, SELF_PATH } from '../ci/required-gate.mjs';
 let fails = 0, n = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log('✗', m); } };
 
 const cr = (name, status, conclusion, id = 1) => ({ name, status, conclusion, id });
@@ -219,6 +219,38 @@ ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 
   ok(/timeout-minutes: (8|9|10)\b/.test(pre), 'preqc timeout-minutes >= 8');
   for (const need of ['teach2d-gen.py', 'teach2d-autopub.py', 'teach2d-store.py', 'mix.py --check', 'teach2d-mix.py', 'native-qa.mjs --online', 'publish.py --check']) ok(pre.includes(need), 'preqc vẫn chạy ' + need);
   ok(/wait "\$\{pids\[\$i\]\}"/.test(pre) && /\[ "\$bad" = 0 \] \|\| exit 1/.test(pre), 'preqc đợi mọi nhóm song song và đỏ nếu bất kỳ nhóm nào đỏ');
+}
+
+// ---------- 1d) main đổi tệp cổng sau lần gộp main cuối của PR (15/11, #1316 lọt cổng Sie) → gate xanh phải CHỜ ----------
+{
+  const F = (filename, status = 'modified') => ({ filename, status });
+  ok(gateDrift([F('scripts/i18n-qa.mjs')]).length === 1 && gateDrift([F('scripts/lib/i18n-rules.mjs')]).length === 1 && gateDrift([F('.github/workflows/npm-test.yml', 'added')]).length === 1, 'i18n-qa / bộ luật / workflow đổi → cổng đổi (mọi trạng thái)');
+  ok(gateDrift([F('scripts/test/ci-policy.mjs')]).length === 1 && gateDrift([F('scripts/test/old.mjs', 'removed')]).length === 1 && gateDrift([F('scripts/test/x.mjs', 'renamed')]).length === 1, 'test SỬA/XOÁ/ĐỔI TÊN → cổng đổi');
+  ok(gateDrift([F('scripts/test/brand-new.mjs', 'added'), F('web/js/app.js'), F('docs/CODEMAP.md')]).length === 0, 'test MỚI thêm + mã/tài liệu thường → không đổi cổng');
+  const green = { state: 'success', description: 'Xanh: 5 check đều đạt', failed: [], pending: [], total: 5, cancelled: [] };
+  const w = applyDrift(green, ['scripts/i18n-qa.mjs', 'scripts/lib/i18n-rules.mjs', '.github/workflows/a.yml']);
+  ok(w.state === 'pending' && /gộp lại main/.test(w.description) && w.description.length <= 140 && /\+1/.test(w.description), 'xanh + cổng đổi → CHỜ, mô tả ≤140 ký tự: ' + w.description);
+  ok(applyDrift(green, []).state === 'success' && applyDrift({ ...green, state: 'failure' }, ['scripts/i18n-qa.mjs']).state === 'failure' && applyDrift({ ...green, state: 'pending' }, ['x']).state === 'pending', 'không đổi cổng → vẫn xanh; đỏ/chờ không bị đụng');
+  // --sha: đăng pending khi cổng đổi; lỗi đo → mở cổng (xanh)
+  const posted = [], base = { gather: async () => ({ workflowRuns: [wr('npm-test', 'completed', 'success', 3)] }), post: async (sha, r) => posted.push(r.state) };
+  await run(['--sha', 'abc'], {}, { ...base, drift: async () => ['scripts/i18n-qa.mjs'] }, () => {});
+  await run(['--sha', 'abc'], {}, { ...base, drift: async () => { throw new Error('502'); } }, () => {});
+  await run(['--sha', 'abc'], {}, { ...base, drift: async () => [] }, () => {});
+  ok(posted.join() === 'pending,success,success', 'cổng đổi → pending; lỗi API đo → xanh (không chặn oan); không đổi → xanh: ' + posted.join());
+}
+
+// ---------- 1e) bộ canh KHÔNG chết khi API lỗi 1 lần (15/11: #1355/#1376 kẹt pending, phải dispatch tay) ----------
+{
+  let t = 0, openFail = 1, gatherFail = 1; const posted = [], logs = [];
+  const A = {
+    openPrs: async () => { if (openFail-- > 0) throw new Error('GET /pulls → 502'); return [{ number: 7, head: { sha: 'h7' }, updated_at: new Date(0).toISOString() }]; },
+    gateState: async () => undefined, recentRuns: async () => [],
+    gather: async () => { if (gatherFail-- > 0) throw new Error('GET commits → 502'); return { workflowRuns: [wr('npm-test', 'completed', 'success', 1, { head_sha: 'h7' })] }; },
+    post: async (sha, r) => posted.push(r.state),
+  };
+  await run(['--watch', '8'], {}, A, m => logs.push(m), { now: () => t, sleep: async ms => { t += ms; } });
+  ok(posted.includes('success'), 'sau 1 lỗi liệt kê PR + 1 lỗi gather, bộ canh vẫn đánh giá và đăng gate: ' + posted.join() + ' | ' + logs.filter(l => /::warning::/.test(l)).join(' ; '));
+  ok(logs.filter(l => /lỗi API/.test(l)).length >= 2, 'lỗi API được ghi cảnh báo (không im lặng)');
 }
 
 console.log(fails ? `✗ required-gate: ${fails}/${n} lỗi` : `✓ required-gate: ${n} kiểm tra đạt`);
