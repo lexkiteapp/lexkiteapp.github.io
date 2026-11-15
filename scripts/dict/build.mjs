@@ -49,7 +49,8 @@ export function loadSources(blogLangs = ENABLED) {
   for (const k of U.KINDS) for (const e of U.load(k)) for (const x of e.items || []) for (const q of x.ex || []) addS(U.example(q).text);
   for (const a of corpus.values()) a.sort((x, y) => x.length - y.length || x.localeCompare(y));
   const wn = fs.existsSync('content/dict/wordnet.json') ? J('content/dict/wordnet.json').words : {}; // Open English WordNet (CC BY 4.0) – scripts/dict/wordnet.mjs
-  return { INDEX, audioKey, notes, U, usage, blog, corpus, wn };
+  const addF = n => (fs.existsSync(`content/dict/add/${n}.json`) ? J(`content/dict/add/${n}.json`) : {}), add = { w: addF('words'), en: addF('en'), vi: addF('vi') }; // bổ sung tự viết cho từ chưa đạt ngưỡng (docs §12)
+  return { INDEX, audioKey, notes, U, usage, blog, corpus, wn, add };
 }
 
 // ---------- Chọn từ: từ đơn thông dụng (NGSL/A1–B1) có đủ dữ liệu tự soạn ----------
@@ -87,19 +88,22 @@ export function enrich(src, e, l, phrases) {
   for (const p of phrases.get(k) || []) { if (col.length < 10 && !col.includes(p.word)) col.push(p.word); addEx(p.ex); }
   for (const t of [k, k + 's', k + 'es', k + 'ed', k + 'd', k + 'ing']) for (const s of src.corpus.get(t) || []) addEx(s); // câu tự soạn khác của app có chứa từ
   const wn = (src.wn[k] && src.wn[k][pos]) || {};
-  const syn = [...new Set([...(e.syn || []), ...(wn.syn || [])])].slice(0, 8);
+  const aw = (src.add && src.add.w[k]) || {}, at = (src.add && src.add[l === 'vi' ? 'vi' : 'en'][k]) || {}; // dữ liệu bổ sung: trung tính (col/syn/IPA Mỹ) + theo ngôn ngữ (lỗi hay gặp, ghi chú)
+  for (const c of aw.col || []) if (!col.includes(c)) col.push(c);
+  for (const x of at.mis || []) if (mistakes.length < 3 && !mistakes.some(y => y.w === x.w)) mistakes.push(x);
+  const syn = [...new Set([...(e.syn || []), ...(aw.syn || []), ...(wn.syn || [])])].slice(0, 8);
   const wnS = (wn.s || []).filter(([g]) => g && g.toLowerCase() !== String(e.def).toLowerCase()).map(([g, x]) => ({ g, x }));
   // Bài blog liên quan: tiêu đề/từ khoá/thẻ nhắc từ, hoặc thân bài nhấn *từ* (đang bàn về chính từ này)
   const re = new RegExp(`(^|[^a-z])${k}([^a-z]|$)`);
   const blogs = (blog[l] || []).map(b => ({ b, s: (re.test(b.t.toLowerCase()) || re.test(b.kw) ? 3 : 0) + (b.tags.includes(k) ? 2 : 0) + (b.body.includes(`*${k}*`) ? 1 : 0) })).filter(x => x.s).sort((a, b) => b.s - a.s || a.b.slug.localeCompare(b.b.slug)).slice(0, 3).map(({ b }) => ({ t: b.t, href: `/${l}/blog/${b.slug}/` }));
-  return { examples, patterns, confus, mistakes, col, syn, ant: wn.ant || [], fam: wn.der || [], wnS, ipaUS: (src.wn[k] && src.wn[k].us) || '', blogs };
+  return { examples, patterns, confus, mistakes, col, syn, ant: wn.ant || [], fam: wn.der || [], wnS, ipaUS: aw.ipaUS || (src.wn[k] && src.wn[k].us) || '', noteU: at.u || '', blogs };
 }
 
 function entryJson(src, e, l, ctx) {
   const { notes, audioKey } = src, w = e.word, k = w.toLowerCase(), pos = gpos(e.pos), rnd = seeded(l + w);
   const inSet = ctx.bySlug, href = x => { const s = slugOf(x); return inSet.has(s) ? wordPath(l, s) : ''; };
   const meaning = l === 'vi' ? e.vi : e.def;
-  const { examples, patterns, confus, mistakes, col, syn: synW, ant, fam, wnS, blogs } = enrich(src, e, l, ctx.phrases), chip = x => ({ w: x, href: href(x) });
+  const { examples, patterns, confus, mistakes, col, syn: synW, ant, fam, wnS, blogs, noteU, ipaUS: ipaX } = enrich(src, e, l, ctx.phrases), chip = x => ({ w: x, href: href(x) });
   const syn = synW.map(chip);
   const ts = toolStrings(l), lvU = String(e.level || '').toUpperCase();
   const tools = ts ? [ts.levels && ts.levels[lvU] && [toolPath(l, 'test', lvU), fill(ts.level.h1, { lv: lvU, name: ts.levels[lvU].name })], [toolPath(l, 'test'), ts.nav.levelTest], [toolPath(l, 'toeic'), ts.nav.toeic]].filter(Boolean).map(([href, t]) => ({ href, t })) : [];
@@ -114,10 +118,11 @@ function entryJson(src, e, l, ctx) {
   const gap = examples.map(s => [s, s.match(new RegExp(`\\b(${k}s?)\\b`, 'i'))]).find(([, mm]) => mm);
   if (gap) { const [s, mm] = gap, form = mm[1].toLowerCase(), suf = form.slice(k.length), o = shuffle([form, ...shuffle(pool, rnd).slice(0, 3).map(x => x.word + suf)], rnd); quiz.push({ q: T[l].qGap, s: s.replace(mm[0], '_____'), o, a: o.indexOf(form), oEn: true }); }
   if (mistakes[0]) { const o = shuffle([mistakes[0].r, mistakes[0].w], rnd); quiz.push({ q: T[l].qRight, o, a: o.indexOf(mistakes[0].r), oEn: true }); }
-  const note = l === 'vi' && notes[k] ? Object.fromEntries(['m', 'e', 'u', 'f'].filter(q => notes[k][q]).map(q => [q, notes[k][q]])) : null;
+  let note = l === 'vi' && notes[k] ? Object.fromEntries(['m', 'e', 'u', 'f'].filter(q => notes[k][q]).map(q => [q, notes[k][q]])) : null;
+  if (!note && noteU) note = { u: noteU }; // ghi chú cách dùng tự viết (en + 13 ngôn ngữ: tiếng Anh; vi: tiếng Việt)
   // trang web mở sẵn mọi mục (đọc đủ + máy tìm kiếm thấy hết); app mặc định chỉ mở "Mẹo nhớ"
-  const noteHtml = note ? wordCard().notes(notes[k], w).replace(/<details class="(wc-sec[^"]*)" data-wc="(\w)">/g, '<details class="$1" data-wc="$2" open>') : '';
-  const d = { v: 1, lang: l, slug: slugOf(w), word: w, pos, level: e.level, emoji: e.emoji || '', usage: src.usage.has(k), ipa: e.ipa, ipaUS: e.ipaUS || (src.wn[k] && src.wn[k].us) || '', audio: audioKey(w), meaning, def: e.def, examples, col: col.slice(0, 10), patterns: patterns.slice(0, 6), syn, ant: ant.map(chip), fam: fam.map(chip), wn: wnS, tools, confus: confus.slice(0, 2).map(c => ({ ...c, items: c.items.map(x => ({ ...x, href: x.h.split(/[\s(]/)[0].toLowerCase() === k ? '' : cHref(x.h) })) })), mistakes, note, noteHtml, quiz, blog: blogs, related: related.map(x => ({ w: x.word, href: wordPath(l, slugOf(x.word)) })), app: `${appHref(l)}#/dict/${encodeURIComponent(w)}`, lastmod: ctx.lastmod };
+  const noteHtml = note && l === 'vi' && notes[k] ? wordCard().notes(notes[k], w).replace(/<details class="(wc-sec[^"]*)" data-wc="(\w)">/g, '<details class="$1" data-wc="$2" open>') : '';
+  const d = { v: 1, lang: l, slug: slugOf(w), word: w, pos, level: e.level, emoji: e.emoji || '', usage: src.usage.has(k), ipa: e.ipa, ipaUS: e.ipaUS || ipaX, audio: audioKey(w), meaning, def: e.def, examples, col: col.slice(0, 10), patterns: patterns.slice(0, 6), syn, ant: ant.map(chip), fam: fam.map(chip), wn: wnS, tools, confus: confus.slice(0, 2).map(c => ({ ...c, items: c.items.map(x => ({ ...x, href: x.h.split(/[\s(]/)[0].toLowerCase() === k ? '' : cHref(x.h) })) })), mistakes, note, noteHtml, quiz, blog: blogs, related: related.map(x => ({ w: x.word, href: wordPath(l, slugOf(x.word)) })), app: `${appHref(l)}#/dict/${encodeURIComponent(w)}`, lastmod: ctx.lastmod };
   d.quality = quality(d);
   return d;
 }
