@@ -425,3 +425,4 @@ node scripts/test/qengine-flag.mjs
 node scripts/test/qwk.mjs
 node scripts/test/es-native-bundle.mjs
 node scripts/test/video-junk.mjs
+node scripts/test/dict-add.mjs
