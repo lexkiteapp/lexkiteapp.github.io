@@ -178,6 +178,8 @@ Mark the stressed syllable.
 7. eco-**NO**-mic: stress before *-ic*.
 8. four-**TEEN**: *-teen* is stressed when the number stands alone.
 
+To apply stress in a speaking task, see [PTE read aloud pronunciation tips](/en/blog/pte-read-aloud-pronunciation/), which works for any read-aloud practice.
+
 ## Frequently asked questions
 
 ### Is there a rule that works for every word?
