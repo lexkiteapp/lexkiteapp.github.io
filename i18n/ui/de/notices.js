@@ -4,7 +4,7 @@
 "Chưa đọc":"Ungelesen",
 "Chạm để xem trạng thái mới nhất.":"Tippe, um den aktuellen Stand zu sehen.",
 "Có cập nhật cho báo lỗi {id}":"Neues zu Meldung {id}",
-"Cảm ơn bạn đã báo. Tải lại app để dùng bản mới.":"Danke für die Meldung. Lade die App neu für die neue Version.",
+"Cảm ơn bạn đã báo. Tải lại app để dùng bản mới.":"Danke für die Meldung. Laden Sie die App neu für die neue Version.",
 "Cảm ơn bạn – Lexkite sẽ báo tiến độ ngay tại đây.":"Danke! Lexkite informiert Sie genau hier über den Stand.",
 "Thông báo quan trọng":"Wichtige Mitteilung",
 "Vừa xong":"Gerade eben",
