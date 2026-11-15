@@ -115,6 +115,8 @@ To guarantee flawless readability across legacy and modern screening software al
 - **Font sizing:** Maintain a clear visual hierarchy. Use 10 to 12 points for body text and bullet points, and 14 to 16 points in bold for your name and main section headers.
 - **Margin widths:** Set uniform margins between 0.5 inches (minimum) and 1.0 inch (maximum) on all four sides. Extremely narrow margins risk clipping when documents are converted or printed by hiring teams.
 
+Turn your resume into a spoken story with [Tell me about yourself](/en/blog/tell-me-about-yourself-answer-in-english/).
+
 ## Frequently Asked Questions (FAQ)
 
 ### Should I submit my resume in PDF or Word format?
