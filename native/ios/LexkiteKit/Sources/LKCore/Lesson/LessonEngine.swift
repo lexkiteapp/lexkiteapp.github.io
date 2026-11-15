@@ -151,10 +151,11 @@ public enum LessonEngine {
     public struct BuildOptions {
         public var seed: Double, pool: [LessonCard], off: LessonOff, perWord: Int, only: [String]?, calm: Bool, match: Bool
         public var hasImg: ((String, String) -> Bool)?, gloss: ((LessonCard, String) -> String)?, mean: ((LessonCard) -> String)?
+        public var viOk: Bool // x.vi chỉ dùng khi người học dùng tiếng Việt (khớp web engine.js)
         public init(seed: Double, pool: [LessonCard] = [], off: LessonOff = LessonOff(), perWord: Int = 2, only: [String]? = nil, calm: Bool = false, match: Bool = true,
-                    hasImg: ((String, String) -> Bool)? = nil, gloss: ((LessonCard, String) -> String)? = nil, mean: ((LessonCard) -> String)? = nil) {
+                    hasImg: ((String, String) -> Bool)? = nil, gloss: ((LessonCard, String) -> String)? = nil, mean: ((LessonCard) -> String)? = nil, viOk: Bool = false) {
             self.seed = seed == 0 ? Date().timeIntervalSince1970 * 1000 : seed; self.pool = pool; self.off = off; self.perWord = perWord; self.only = only; self.calm = calm
-            self.match = match; self.hasImg = hasImg; self.gloss = gloss; self.mean = mean
+            self.match = match; self.hasImg = hasImg; self.gloss = gloss; self.mean = mean; self.viOk = viOk
         }
     }
 
@@ -185,10 +186,13 @@ public enum LessonEngine {
             let c = p.card
             var s = sentenceOf(c), types: [String] = []
             var pair: LessonSentenceHit?
-            for x in c.sentences where !x.en.isEmpty && !x.vi.isEmpty {
+            for x in c.sentences where !x.en.isEmpty {
+                var tr = o.gloss?(c, x.en) ?? ""
+                if tr.isEmpty && o.viOk { tr = x.vi }
+                if tr.isEmpty { continue }
                 if let f = findWord(x.en, c.word) {
                     let n = toks(x.en).count
-                    if n >= 3 && n <= 10 { pair = LessonSentenceHit(text: x.en, tr: x.vi, own: false, at: f); break }
+                    if n >= 3 && n <= 10 { pair = LessonSentenceHit(text: x.en, tr: tr, own: false, at: f); break }
                 }
             }
             if var ss = s, (ss.tr ?? "").isEmpty, let g = o.gloss { ss.tr = g(c, ss.text); s = ss }
