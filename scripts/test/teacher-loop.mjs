@@ -1,4 +1,4 @@
-// 🔁 Vòng vẽ mặt vẽ (web/js/lesson/teacher.js face()) – bắt "0 fps" NGAY trong npm test, không đợi call-qa (3/11: chú thích nuốt
+// 🔁 Vòng vẽ mặt vẽ (web/js/teacher-rig.js, qua web/js/lesson/teacher.js face()) – bắt "0 fps" NGAY trong npm test, không đợi call-qa (3/11: chú thích nuốt
 // `raf = requestAnimationFrame(frame)` → vòng chết sau khung đầu). jsdom + canvas/ảnh/rAF giả: chạy N khung, mỗi khung phải xin rAF lại,
 // canvas phải được vẽ (đầu trơn + lớp mặt), đổi cỡ (ResizeObserver) xong vẫn vẽ lại. Dùng: node scripts/test/teacher-loop.mjs
 import { createRequire } from 'node:module'; import fs from 'node:fs'; import assert from 'node:assert/strict';
@@ -16,7 +16,7 @@ w.ResizeObserver = class { constructor(cb) { ro.push(cb); } observe() {} disconn
 w.matchMedia = () => ({ matches: false, addEventListener() {} });
 // mặt vẽ đã nạp sẵn → lipLoad() chèn <script> thì báo onload ngay (jsdom không tải)
 const ap = w.HTMLHeadElement.prototype.appendChild; w.HTMLHeadElement.prototype.appendChild = function (n) { if (n.tagName === 'SCRIPT') { setTimeout(() => n.onload && n.onload(), 0); return n; } return ap.call(this, n); };
-for (const f of ['characters', 'call/lipsync', 'call/mouths', 'call/face', 'call/paint', 'lesson/teacher']) w.eval(fs.readFileSync(`web/js/${f}.js`, 'utf8'));
+for (const f of ['characters', 'call/lipsync', 'call/mouths', 'call/face', 'call/paint', 'teacher-rig', 'lesson/teacher']) w.eval(fs.readFileSync(`web/js/${f}.js`, 'utf8'));
 assert.ok(w.LessonTeacher && w.LipFace && w.LipPaint, 'nạp module');
 const t = w.LessonTeacher.mount(D.getElementById('t'), 'ama', { lip: true });
 for (let i = 0; i < 50 && !q.length; i++) await new Promise(r => setTimeout(r, 5));

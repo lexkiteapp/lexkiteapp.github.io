@@ -4,7 +4,7 @@ name: teacher-rig
 # + trình duyệt thật: fps CPU 1×/4×, so khung lúc chuyển trạng thái, alpha nền sạch, giảm chuyển động, 0 lỗi JS. Ảnh từng trạng thái → artifact.
 on:
   pull_request:
-    paths: ['web/js/teacher-rig.js', 'web/js/call/**', 'web/js/characters.js', 'web/teach/**', 'scripts/test/teacher-rig.mjs', 'scripts/test/teacher-rig-browser.mjs', '.github/workflows/teacher-rig.yml']
+    paths: ['web/js/teacher-rig.js', 'web/js/lesson/teacher.js', 'web/js/call.js', 'web/js/call/**', 'web/js/characters.js', 'web/teach/**', 'scripts/test/teacher-rig.mjs', 'scripts/test/teacher-rig-browser.mjs', '.github/workflows/teacher-rig.yml']
   workflow_dispatch:
 permissions: { contents: read }
 concurrency:
