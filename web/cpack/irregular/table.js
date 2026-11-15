@@ -43,7 +43,7 @@
   const ROOT = 'st v2 v2-irregular antialiased';
   const COL = 'w-full flex flex-col relative pb-6';
   const BTN = 'w-11 h-11 shrink-0 rounded-2xl border-2 flex items-center justify-center active:translate-y-[2px] transition-all lt:bg-[#ffffff] lt:border-[#EDE3D8] lt:shadow-[0_3px_0_0_#E2D5C7] lt:text-[#141819] dk:bg-[#10252B] dk:border-[var(--line-2)] dk:shadow-[0_3px_0_0_#051013] dk:text-[#E2E8F0]';
-  const CHIP_ON = 'min-h-[44px] shrink-0 inline-flex items-center px-4 py-2 rounded-full border-[1.5px] font-extrabold text-xs active:translate-y-[1px] transition-transform lt:bg-[var(--accent)] lt:border-[var(--accent)] lt:text-[#ffffff] lt:shadow-[0_2px_0_0_#0D4844] dk:bg-[var(--accent)] dk:border-[var(--accent-text)] dk:text-[#ffffff] dk:shadow-[0_2px_0_0_#051013]';
+  const CHIP_ON = 'min-h-[44px] shrink-0 inline-flex items-center px-4 py-2 rounded-full border-[1.5px] font-extrabold text-xs active:translate-y-[1px] transition-transform lt:bg-[var(--accent)] lt:border-[var(--accent)] lt:text-[#ffffff] lt:shadow-[0_2px_0_0_#0D4844] dk:bg-[var(--teal-1)] dk:border-[var(--accent-text)] dk:text-[#ffffff] dk:shadow-[0_2px_0_0_#051013]';
   const CHIP_OFF = 'min-h-[44px] shrink-0 inline-flex items-center px-4 py-2 rounded-full border-[1.5px] font-bold text-xs active:translate-y-[1px] transition-transform lt:bg-[#ffffff] lt:border-[#EDE3D8] lt:text-[var(--text)] lt:shadow-[0_2px_0_0_#E2D5C7] lt:hover:bg-[#FAF3EB] dk:bg-[#10252B] dk:border-[var(--line-2)] dk:text-[#E2E8F0] dk:shadow-[0_2px_0_0_#051013]';
   const SEG_ON = 'flex-1 min-h-[44px] px-1 rounded-xl font-extrabold text-xs flex items-center justify-center relative text-center transition-all lt:bg-[#ffffff] lt:text-[var(--accent-text)] lt:shadow-[0_2px_0_0_#D5C4B2] dk:bg-[#142E35] dk:text-[var(--accent-text)] dk:border dk:border-[var(--line-2)] dk:shadow-[0_2px_0_0_#051013]';
   const SEG_OFF = 'flex-1 min-h-[44px] px-1 rounded-xl font-bold text-xs flex items-center justify-center relative text-center transition-all lt:text-[#5A4E45] dk:text-[#A5B4C0]';
@@ -79,7 +79,7 @@
     view.innerHTML = `<div class="v2s-irregular"><div class="${ROOT}" data-irv="table"><div class="${COL}">
       <header class="w-full h-14 flex items-center justify-between gap-2 border-b border-[var(--line)]">
         <button type="button" data-href="${esc(back)}" aria-label="${esc(t('Quay về'))}" class="${BTN}">${ms('arrow_back', 'text-[22px] rtl:-scale-x-100')}</button>
-        <h1 class="tk-display text-[23px] font-extrabold text-center min-w-0 break-words leading-tight">${esc(t('Động từ bất quy tắc'))}</h1>
+        <h1 class="tk-display text-[23px] lg:text-[28px] font-extrabold text-center min-w-0 break-words leading-tight">${esc(t('Động từ bất quy tắc'))}</h1>
         <button type="button" id="irvAcc" class="${BTN} text-xs font-extrabold" aria-label="${esc(t('Giọng Anh') + ' / ' + t('Giọng Mỹ'))}"><span lang="en" translate="no" id="irvAccT"></span></button></header>
       <div class="pt-3 space-y-4">
         <section aria-label="${esc(t('Động từ bất quy tắc'))}"><div class="relative flex items-center rounded-2xl border-2 ps-3.5 pe-1 py-1 transition-all lt:bg-[#ffffff] lt:border-[#EDE3D8] lt:shadow-[0_3px_0_0_#E2D5C7] lt:focus-within:border-[var(--accent)] dk:bg-[#0E1E22] dk:border-[var(--line-2)] dk:shadow-[0_3px_0_0_#051013] dk:focus-within:border-[var(--accent-text)]">
