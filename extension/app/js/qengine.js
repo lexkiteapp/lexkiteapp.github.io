@@ -148,7 +148,7 @@
       b.type = 'button'; b.className = 'qe-flag'; b.textContent = '🚩';
       const sync = () => { const on = item.classList.contains('qe-flagged'); b.setAttribute('aria-pressed', on); b.setAttribute('aria-label', t(on ? 'Bỏ đánh dấu câu {n}' : 'Đánh dấu câu {n} để xem lại', { n })); b.title = t('Xem lại sau'); };
       b.onclick = () => { item.classList.toggle('qe-flagged'); sync(); reviewBar(root); };
-      sync(); item.appendChild(b);
+      sync(); if (!item.style.position) item.style.position = 'relative'; item.appendChild(b); // cờ đặt tuyệt đối trong câu (không thêm luật .lq-item vào CSS lười)
     });
     const upd = () => reviewBar(root);
     root.addEventListener('change', upd); root.addEventListener('input', upd);
