@@ -213,3 +213,5 @@ Ask directly: *Are there any fees for this account?* and *Could you send me the 
 State the facts first (*There's a charge I don't recognise, on 3 March for 45 dollars*), then ask the bank to investigate and ask what the next step is.
 
 Lexkite is a practice tool for English learners; it is not a bank and does not give financial advice.
+
+If you are new to the country, our guide to [job interview English for newcomers](/en/blog/job-interview-english-newcomers/) covers the language for the interview itself.

@@ -132,3 +132,4 @@ Avoid culturally localized idioms or slang whenever possible. International team
 
 Many meeting phrases rely on phrasal verbs such as *bring up* and *wrap up*; see [phrasal verbs for work](/en/blog/phrasal-verbs-for-work-meanings/) for meanings and examples.
 
+To sound courteous in every message, use our [polite English phrases for work](/en/blog/polite-english-at-work/).

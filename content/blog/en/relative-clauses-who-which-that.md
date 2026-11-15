@@ -213,3 +213,5 @@ Yes, in defining clauses: *the woman that I met* is standard English. *Who* is s
 ### How do I know if a clause needs commas?
 
 Ask whether the clause identifies the noun or just adds information. If the reader already knows exactly who or what you mean (a name, *my mother*, *the sun*), use commas. If the clause tells the reader which one you mean, leave the commas out.
+
+Next, see our guide to [order of adjectives in English](/en/blog/order-of-adjectives/).
