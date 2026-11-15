@@ -139,35 +139,23 @@
       box-shadow: 0 3px 0 #1B7F77;
     }
   </style>
-</head>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 500,'GRAD' 0,'opsz' 24;display:inline-block;vertical-align:middle;line-height:1}</style></head>
 <body class="min-h-screen flex flex-col items-center" style="background-color: #10191B; color: #E8F1F0; font-family: 'Plus Jakarta Sans', sans-serif; -webkit-font-smoothing: antialiased; padding-bottom: calc(76px + env(safe-area-inset-bottom, 16px));">
 <!-- Mobile Screen Container (390px native layout) -->
-<main class="w-full max-w-[390px] min-h-screen flex flex-col px-4 pt-3 pb-8 relative">
-<!-- Top App Bar (56px) -->
-<header class="w-full h-14 flex items-center justify-between py-2 mb-3">
-<!-- App Brand Logo -->
-<div class="flex items-center gap-2">
-<div class="w-9 h-9 rounded-xl bg-[#2BA39A] border-2 border-[#5FD0C4] shadow-[0_2px_0_#0C1416] flex items-center justify-center text-[#0E191C]">
-<svg fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="22">
-<polygon fill="#E6F6F5" points="12 2 19 9 12 22 5 9 12 2" stroke="#10191B"></polygon>
-<line stroke="#10191B" x1="12" x2="12" y1="2" y2="22"></line>
-<line stroke="#10191B" x1="5" x2="19" y1="9" y2="9"></line>
-</svg>
-</div>
-<span class="text-xl font-extrabold tracking-tight text-[#EAF2F2]">Lexkite</span>
-</div>
-<!-- Header Pills: Streak + XP -->
-<div class="flex items-center gap-2">
-<div class="h-9 px-3 rounded-full bg-[#1D2F33] border-2 border-[#33494F] shadow-[0_2px_0_#101B1E] flex items-center gap-1.5" title="Study Streak">
-<span class="material-symbols-rounded text-lg text-[#F2553B]">local_fire_department</span>
-<span class="text-sm font-extrabold text-[#EAF2F2]">14</span>
-</div>
-<div class="h-9 px-3 rounded-full bg-[#1D2F33] border-2 border-[#33494F] shadow-[0_2px_0_#101B1E] flex items-center gap-1.5" title="Experience Points">
-<span class="material-symbols-rounded text-lg text-[#FFB054]">bolt</span>
-<span class="text-sm font-extrabold text-[#EAF2F2]">820</span>
-</div>
-</div>
+<header class="sticky top-0 z-40 h-[56px] w-full px-4 flex items-center justify-between bg-[#091518] border-b-2 border-[#2b373a] shadow-[0_4px_0_0_#051013]">
+<button aria-label="Go back" class="w-10 h-10 rounded-full bg-[#162125] border-2 border-[#3d4947] shadow-[0_3px_0_0_#051013] flex items-center justify-center text-[#6bd8ce] active:translate-y-0.5 transition-transform duration-100 hover:bg-[#202c2f]">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="text-[19px] font-extrabold tracking-tight text-[#f1f8f7]">
+        Irregular Verbs
+      </h1>
+<button aria-label="Bookmark" class="w-10 h-10 rounded-full bg-[#162125] border-2 border-[#3d4947] shadow-[0_3px_0_0_#051013] flex items-center justify-center text-[#6bd8ce] active:translate-y-0.5 transition-transform duration-100 hover:bg-[#202c2f]">
+<span class="material-symbols-outlined" data-icon="bookmark">bookmark</span>
+</button>
 </header>
+<main class="w-full max-w-[390px] min-h-screen flex flex-col px-4 pt-4 pb-24 relative">
+<!-- Top App Bar (56px) -->
+
 <!-- User Header Profile Card -->
 <section class="bg-[#162528] border-2 border-[#2A3F44] shadow-[0_4px_0_#0C1416] rounded-2xl p-4 mb-4">
 <div class="flex items-center justify-between gap-3">
@@ -421,7 +409,7 @@
 <div class="flex flex-col items-center gap-1">
 <span class="text-[11px] font-bold text-[#A3B9B7]">M</span>
 <div class="w-10 h-11 rounded-xl bg-[#1D2F33] border-2 border-[#FFB4A6]/40 shadow-[0_2px_0_#101B1E] flex flex-col items-center justify-center">
-<span class="text-[11px] font-extrabold text-[#F2553B]">09</span>
+<span class="text-[11px] font-extrabold text-[#FF8F7A]">09</span>
 <span class="material-symbols-rounded text-xs text-[#F2553B] -mt-1">local_fire_department</span>
 </div>
 </div>
@@ -429,7 +417,7 @@
 <div class="flex flex-col items-center gap-1">
 <span class="text-[11px] font-bold text-[#A3B9B7]">T</span>
 <div class="w-10 h-11 rounded-xl bg-[#1D2F33] border-2 border-[#FFB4A6]/40 shadow-[0_2px_0_#101B1E] flex flex-col items-center justify-center">
-<span class="text-[11px] font-extrabold text-[#F2553B]">10</span>
+<span class="text-[11px] font-extrabold text-[#FF8F7A]">10</span>
 <span class="material-symbols-rounded text-xs text-[#F2553B] -mt-1">local_fire_department</span>
 </div>
 </div>
@@ -437,7 +425,7 @@
 <div class="flex flex-col items-center gap-1">
 <span class="text-[11px] font-bold text-[#A3B9B7]">W</span>
 <div class="w-10 h-11 rounded-xl bg-[#1D2F33] border-2 border-[#FFB4A6]/40 shadow-[0_2px_0_#101B1E] flex flex-col items-center justify-center">
-<span class="text-[11px] font-extrabold text-[#F2553B]">11</span>
+<span class="text-[11px] font-extrabold text-[#FF8F7A]">11</span>
 <span class="material-symbols-rounded text-xs text-[#F2553B] -mt-1">local_fire_department</span>
 </div>
 </div>
@@ -453,7 +441,7 @@
 <div class="flex flex-col items-center gap-1">
 <span class="text-[11px] font-bold text-[#A3B9B7]">F</span>
 <div class="w-10 h-11 rounded-xl bg-[#1D2F33] border-2 border-[#FFB4A6]/40 shadow-[0_2px_0_#101B1E] flex flex-col items-center justify-center">
-<span class="text-[11px] font-extrabold text-[#F2553B]">13</span>
+<span class="text-[11px] font-extrabold text-[#FF8F7A]">13</span>
 <span class="material-symbols-rounded text-xs text-[#F2553B] -mt-1">local_fire_department</span>
 </div>
 </div>
@@ -548,7 +536,7 @@
 </div>
 <div class="min-w-0">
 <h3 class="text-xs font-extrabold text-[#A3B9B7] leading-tight break-words">30-Day Flame</h3>
-<p class="text-[10px] font-semibold text-[#A3B9B7]/80 leading-tight mt-0.5 break-words">Day 30 Unlock</p>
+<p class="text-[10px] font-semibold text-[#A3B9B7] leading-tight mt-0.5 break-words">Day 30 Unlock</p>
 </div>
 </div>
 <!-- Badge 7 (Locked): Lexicon Titan -->
@@ -558,7 +546,7 @@
 </div>
 <div class="min-w-0">
 <h3 class="text-xs font-extrabold text-[#A3B9B7] leading-tight break-words">Lexicon Titan</h3>
-<p class="text-[10px] font-semibold text-[#A3B9B7]/80 leading-tight mt-0.5 break-words">Master 500 Wds</p>
+<p class="text-[10px] font-semibold text-[#A3B9B7] leading-tight mt-0.5 break-words">Master 500 Wds</p>
 </div>
 </div>
 <!-- Badge 8 (Locked): Flawless 100 -->
@@ -568,7 +556,7 @@
 </div>
 <div class="min-w-0">
 <h3 class="text-xs font-extrabold text-[#A3B9B7] leading-tight break-words">Flawless 100</h3>
-<p class="text-[10px] font-semibold text-[#A3B9B7]/80 leading-tight mt-0.5 break-words">100% on 3 Tests</p>
+<p class="text-[10px] font-semibold text-[#A3B9B7] leading-tight mt-0.5 break-words">100% on 3 Tests</p>
 </div>
 </div>
 </div>
@@ -585,34 +573,41 @@
       </p>
 </div>
 <!-- Fixed Docked 5-Tab Navigation Bar -->
-<nav class="fixed bottom-0 left-0 w-full z-50 bg-[#162528] border-t-2 border-[#2A3F44] shadow-[0_-3px_12px_rgba(0,0,0,0.4)] flex justify-around items-center h-16 max-w-[390px] mx-auto inset-x-0 pb-safe">
-<!-- 1. Today -->
-<a class="flex flex-col items-center justify-center flex-1 h-full text-[#A3B9B7] hover:text-[#5FD0C4] transition-colors py-1" href="#">
-<span class="material-symbols-rounded text-2xl">calendar_today</span>
-<span class="text-[11px] font-bold mt-0.5">Today</span>
-</a>
-<!-- 2. Vocab -->
-<a class="flex flex-col items-center justify-center flex-1 h-full text-[#A3B9B7] hover:text-[#5FD0C4] transition-colors py-1" href="#">
-<span class="material-symbols-rounded text-2xl">menu_book</span>
-<span class="text-[11px] font-bold mt-0.5">Vocab</span>
-</a>
-<!-- 3. Skills -->
-<a class="flex flex-col items-center justify-center flex-1 h-full text-[#A3B9B7] hover:text-[#5FD0C4] transition-colors py-1" href="#">
-<span class="material-symbols-rounded text-2xl">psychology</span>
-<span class="text-[11px] font-bold mt-0.5">Skills</span>
-</a>
-<!-- 4. Tests -->
-<a class="flex flex-col items-center justify-center flex-1 h-full text-[#A3B9B7] hover:text-[#5FD0C4] transition-colors py-1" href="#">
-<span class="material-symbols-rounded text-2xl">quiz</span>
-<span class="text-[11px] font-bold mt-0.5">Tests</span>
-</a>
-<!-- 5. Me (Active) -->
-<a class="flex flex-col items-center justify-center flex-1 h-full py-1" href="#">
-<div class="px-3 py-1 rounded-xl flex flex-col items-center justify-center text-[#5FD0C4] bg-[#1D2F33] border-2 border-[#2BA39A] shadow-[0_2px_0_#0C1416]">
-<span class="material-symbols-rounded text-2xl">person</span>
-<span class="text-[11px] font-extrabold mt-0.5">Me</span>
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] h-16 z-50 bg-[#051013] border-t-2 border-[#2b373a] shadow-[0_-4px_0_0_#051013] flex items-center justify-around px-2">
+
+<button class="flex flex-col items-center justify-center flex-1 py-1 text-[#bcc9c7] hover:text-[#d8e5e9] transition-colors active:translate-y-0.5">
+<span class="material-symbols-outlined text-xl" data-icon="today">today</span>
+<span class="text-[11px] font-extrabold tracking-wide mt-0.5">Today</span>
+</button>
+
+<button class="flex flex-col items-center justify-center flex-1 py-1 text-[#bcc9c7] hover:text-[#d8e5e9] transition-colors active:translate-y-0.5">
+<span class="material-symbols-outlined text-xl" data-icon="menu_book">menu_book</span>
+<span class="text-[11px] font-extrabold tracking-wide mt-0.5">Vocab</span>
+</button>
+
+<button class="flex flex-col items-center justify-center flex-1 py-1 text-[#bcc9c7] hover:text-[#d8e5e9] transition-colors active:translate-y-0.5">
+<span class="material-symbols-outlined text-xl" data-icon="psychology">psychology</span>
+<span class="text-[11px] font-extrabold tracking-wide mt-0.5">Skills</span>
+</button>
+
+<button class="flex flex-col items-center justify-center flex-1 py-1 text-[#bcc9c7] hover:text-[#d8e5e9] transition-colors active:translate-y-0.5">
+<span class="material-symbols-outlined text-xl" data-icon="assignment">assignment</span>
+<span class="text-[11px] font-extrabold tracking-wide mt-0.5">Tests</span>
+</button>
+
+<button class="relative flex flex-col items-center justify-center flex-1 py-1 text-[#6bd8ce] active:translate-y-0.5">
+
+<div class="px-3.5 py-0.5 rounded-full bg-[#2ba39a]/25 border border-[#6bd8ce]/50 shadow-[0_2px_0_0_#00322e] flex flex-col items-center">
+<div class="relative flex items-center justify-center">
+<span class="material-symbols-outlined text-xl" data-icon="person" data-weight="fill" style="font-variation-settings: 'FILL' 1;">person</span>
+
+
 </div>
-</a>
+<span class="text-[11px] font-extrabold tracking-wide mt-0.5 text-[#6bd8ce]">Me</span>
+</div>
+</button>
+
+
 </nav>
 </main>
 </body>

@@ -61,31 +61,21 @@
       font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
     }
   </style>
-</head>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 500,'GRAD' 0,'opsz' 24;display:inline-block;vertical-align:middle;line-height:1}</style></head>
 <body class="bg-[#0E191C] text-[#EAF2F2] min-h-screen flex justify-center selection:bg-[#5FD0C4]/20 selection:text-[#6BD8CE]">
 <!-- 390px Native Mobile Viewport (No device frame) -->
 <main class="w-full max-w-[390px] min-h-screen bg-[#0E191C] flex flex-col relative pb-28">
 <!-- Top App Bar -->
-<header class="sticky top-0 z-40 bg-[#0E191C]/95 backdrop-blur-md px-4 py-3 flex items-center justify-between border-b-2 border-[#1D2F33] shadow-[0_4px_0_0_#0A1012]">
-<div class="flex items-center gap-2.5">
-<button aria-label="Go back" class="min-w-[44px] min-h-[44px] rounded-2xl bg-[#162528] border-2 border-[#263A3F] shadow-[0_3px_0_0_#0A1012] active:translate-y-0.5 active:shadow-none flex items-center justify-center text-[#EAF2F2] hover:text-[#5FD0C4] transition-all" type="button"><span class="material-symbols-outlined text-[22px]">arrow_back</span></button>
-<div class="flex flex-col">
-<h1 class="text-[17px] font-extrabold text-[#EAF2F2] leading-tight tracking-tight">Vocabulary Hub</h1>
-<span class="text-[11px] font-semibold text-[#A3B9B7]">IELTS &amp; TOEIC Core</span>
-</div>
-</div>
-<div class="flex items-center gap-2">
-<!-- Streak Chip -->
-<div class="flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-[#162528] border-2 border-[#263A3F] shadow-[0_2px_0_0_#0A1012]">
-<span class="material-symbols-outlined text-[16px] text-amber-500 fill-1">local_fire_department</span>
-<span class="text-[12px] font-bold text-[#EAF2F2]">14</span>
-</div>
-<!-- XP Chip -->
-<div class="flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-[#162528] border-2 border-[#263A3F] shadow-[0_2px_0_0_#0A1012]">
-<span class="material-symbols-outlined text-[16px] text-amber-400 fill-1">bolt</span>
-<span class="text-[12px] font-extrabold text-[#EAF2F2]">820 XP</span>
-</div>
-</div>
+<header class="sticky top-0 z-40 h-[56px] w-full px-4 flex items-center justify-between bg-[#091518] border-b-2 border-[#2b373a] shadow-[0_4px_0_0_#051013]">
+<button aria-label="Go back" class="w-10 h-10 rounded-full bg-[#162125] border-2 border-[#3d4947] shadow-[0_3px_0_0_#051013] flex items-center justify-center text-[#6bd8ce] active:translate-y-0.5 transition-transform duration-100 hover:bg-[#202c2f]">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="text-[19px] font-extrabold tracking-tight text-[#f1f8f7]">
+        Irregular Verbs
+      </h1>
+<button aria-label="Bookmark" class="w-10 h-10 rounded-full bg-[#162125] border-2 border-[#3d4947] shadow-[0_3px_0_0_#051013] flex items-center justify-center text-[#6bd8ce] active:translate-y-0.5 transition-transform duration-100 hover:bg-[#202c2f]">
+<span class="material-symbols-outlined" data-icon="bookmark">bookmark</span>
+</button>
 </header>
 <!-- Content Area -->
 <div class="px-4 pt-3.5 flex flex-col gap-3.5">
@@ -240,32 +230,39 @@
 </article>
 </div>
 <!-- Canonical Lexkite Bottom Navigation Bar (Docked bottom, 64px, 5 destinations) -->
-<nav aria-label="Bottom Navigation" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-3 py-2 bg-[#162528] border-t-2 border-[#263A3F] max-w-[390px] mx-auto h-16 shadow-[0_-4px_0_0_#0A1012]">
-<!-- Tab 1: Learn -->
-<a class="flex flex-col items-center justify-center text-[#A3B9B7] hover:text-[#5FD0C4] px-2 py-1 min-w-[44px] min-h-[44px] transition-colors active:scale-95" href="#learn">
-<span class="material-symbols-outlined text-[22px]">school</span>
-<span class="text-[11px] font-bold mt-0.5">Learn</span>
-</a>
-<!-- Tab 2: Vocab (Active tab with tactile amber-orange pill) -->
-<a class="flex flex-col items-center justify-center bg-[#F59E0B] text-[#1A0E0B] rounded-2xl px-3 py-1 shadow-[0_3px_0_0_#7a4000] active:translate-y-0.5 active:shadow-none min-w-[44px] min-h-[44px] transition-all" href="#vocab">
-<span class="material-symbols-outlined text-[22px] fill-1 text-[#1A0E0B]">menu_book</span>
-<span class="text-[11px] font-extrabold text-[#1A0E0B] mt-0.5">Vocab</span>
-</a>
-<!-- Tab 3: Practice -->
-<a class="flex flex-col items-center justify-center text-[#A3B9B7] hover:text-[#5FD0C4] px-2 py-1 min-w-[44px] min-h-[44px] transition-colors active:scale-95" href="#practice">
-<span class="material-symbols-outlined text-[22px]">fitness_center</span>
-<span class="text-[11px] font-bold mt-0.5">Practice</span>
-</a>
-<!-- Tab 4: Stats -->
-<a class="flex flex-col items-center justify-center text-[#A3B9B7] hover:text-[#5FD0C4] px-2 py-1 min-w-[44px] min-h-[44px] transition-colors active:scale-95" href="#stats">
-<span class="material-symbols-outlined text-[22px]">bar_chart</span>
-<span class="text-[11px] font-bold mt-0.5">Stats</span>
-</a>
-<!-- Tab 5: Profile -->
-<a class="flex flex-col items-center justify-center text-[#A3B9B7] hover:text-[#5FD0C4] px-2 py-1 min-w-[44px] min-h-[44px] transition-colors active:scale-95" href="#profile">
-<span class="material-symbols-outlined text-[22px]">person</span>
-<span class="text-[11px] font-bold mt-0.5">Profile</span>
-</a>
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] h-16 z-50 bg-[#051013] border-t-2 border-[#2b373a] shadow-[0_-4px_0_0_#051013] flex items-center justify-around px-2">
+
+<button class="flex flex-col items-center justify-center flex-1 py-1 text-[#bcc9c7] hover:text-[#d8e5e9] transition-colors active:translate-y-0.5">
+<span class="material-symbols-outlined text-xl" data-icon="today">today</span>
+<span class="text-[11px] font-extrabold tracking-wide mt-0.5">Today</span>
+</button>
+
+<button class="relative flex flex-col items-center justify-center flex-1 py-1 text-[#6bd8ce] active:translate-y-0.5">
+
+<div class="px-3.5 py-0.5 rounded-full bg-[#2ba39a]/25 border border-[#6bd8ce]/50 shadow-[0_2px_0_0_#00322e] flex flex-col items-center">
+<div class="relative flex items-center justify-center">
+<span class="material-symbols-outlined text-xl" data-icon="menu_book" data-weight="fill" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+
+<span class="absolute -top-1 -right-1.5 w-2 h-2 rounded-full bg-[#981201] ring-1 ring-[#091518]"></span>
+</div>
+<span class="text-[11px] font-extrabold tracking-wide mt-0.5 text-[#6bd8ce]">Vocab</span>
+</div>
+</button>
+
+<button class="flex flex-col items-center justify-center flex-1 py-1 text-[#bcc9c7] hover:text-[#d8e5e9] transition-colors active:translate-y-0.5">
+<span class="material-symbols-outlined text-xl" data-icon="psychology">psychology</span>
+<span class="text-[11px] font-extrabold tracking-wide mt-0.5">Skills</span>
+</button>
+
+<button class="flex flex-col items-center justify-center flex-1 py-1 text-[#bcc9c7] hover:text-[#d8e5e9] transition-colors active:translate-y-0.5">
+<span class="material-symbols-outlined text-xl" data-icon="assignment">assignment</span>
+<span class="text-[11px] font-extrabold tracking-wide mt-0.5">Tests</span>
+</button>
+
+<button class="flex flex-col items-center justify-center flex-1 py-1 text-[#bcc9c7] hover:text-[#d8e5e9] transition-colors active:translate-y-0.5">
+<span class="material-symbols-outlined text-xl" data-icon="person">person</span>
+<span class="text-[11px] font-extrabold tracking-wide mt-0.5">Me</span>
+</button>
 </nav>
 </main>
 </body>
