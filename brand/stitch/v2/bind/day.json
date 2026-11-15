@@ -134,7 +134,8 @@
       "1. Learn new words": "r.t",
       "Flashcards & từ vựng mới": "r.s",
       "3 min": "r.m",
-      "Đã xong": "r.tag"
+      "Đã xong": "r.tag",
+      "+3 XP": "r.xp"
      }
     },
     "next": {
@@ -158,13 +159,14 @@
      },
      "html": {
       ":scope > div:nth-child(1) > div:nth-child(1) > span": "r.ico",
-      ":scope > div:nth-child(2) > span:nth-child(2)": "r.go"
+      ":scope > div:nth-child(2) > span:nth-child(3)": "r.go"
      },
      "text": {
       "3. Multiple choice": "r.t",
       "Chọn đáp án đúng theo ngữ cảnh": "r.s",
       "2 min": "r.m",
-      "TIẾP THEO": "r.tag"
+      "TIẾP THEO": "r.tag",
+      "+3 XP": "r.xp"
      }
     },
     "todo": {
@@ -185,12 +187,13 @@
      },
      "html": {
       ":scope > div:nth-child(1) > div:nth-child(1) > span": "r.ico",
-      ":scope > div:nth-child(2) > span:nth-child(2)": "r.go"
+      ":scope > div:nth-child(2) > span:nth-child(3)": "r.go"
      },
      "text": {
       "4. Fill the blank": "r.t",
       "Điền từ vào chỗ trống câu thoại": "r.s",
-      "2 min": "r.m"
+      "2 min": "r.m",
+      "+2 XP": "r.xp"
      }
     }
    }
