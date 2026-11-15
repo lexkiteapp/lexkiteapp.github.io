@@ -196,8 +196,8 @@
       if (f.pose && !poses[f.pose]) loadPose(f.pose);
       const pi = f.pose && typeof poses[f.pose] === 'object' ? poses[f.pose] : null;
       // khóa khung xương (toàn canvas) tách khỏi khóa mặt (chỉ vùng mắt/miệng) → nói/chớp không vẽ lại cả người
-      // hơi thở: bước 1/3000 tỉ lệ (~0,1–0,3 px) – mịn hơn thì vẽ lại CẢ người gần như mọi khung (toàn 144/147) mà mắt không thấy; thô thế này → ~1 lần/6 khung, miệng/mắt vẫn vẽ vùng nhỏ
-      const kT = [f.tilt / 10, f.nod / 10, f.sway / 10, f.breath * 30, f.poseW, f.pose, pi ? 1 : 0, cv.width].map(v => (typeof v === 'number' ? Math.round(v * 100) : v || 0)).join();
+      const qs = cv.width / 1108 / 30; // nod/sway (px poster) và hơi thở theo bước ~0,3 px CANVAS: mịn hơn mắt không thấy mà vẽ lại cả người mỗi khung
+      const kT = [f.tilt / 10, f.nod * qs, f.sway * qs, f.breath * cv.height / 35, f.poseW, f.pose, pi ? 1 : 0, cv.width].map(v => (typeof v === 'number' ? Math.round(v * 100) : v || 0)).join();
       const P = f.faceW > 0 ? g.LipFace.parts(who, s, 'tr' + who) : [];
       const key = kT + '|' + P.join('');
       if (key !== lastK) {

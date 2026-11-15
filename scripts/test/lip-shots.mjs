@@ -94,7 +94,7 @@ for (const sc of SCREENS) for (const theme of ['light', 'dark']) for (const w of
     const o = await open({ vp: { width: w, height: w === 375 ? 812 : 800 }, theme, who: sc.pre });
     ctx = o.ctx; const { page, errs } = o; pg = page;
     await sc.run(page);
-    await page.waitForSelector('.tch-rig canvas.tch-face', { timeout: 6000 }).catch(() => {});
+    await page.waitForSelector('.tch-rig canvas.tch-face.trig-cv', { timeout: 15000 }).catch(() => {}); // lõi rig tải ảnh đầu + tư thế (runner tải nặng > 6 s)
     await page.waitForTimeout(1200); // giữa câu
     await page.screenshot({ path: path.join(OUT, name + '.png') });
     report[name] = await page.evaluate(() => ({
