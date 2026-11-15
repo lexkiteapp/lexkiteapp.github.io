@@ -754,7 +754,7 @@ async function dictPageCases() {
     const dsb = { console, Math, JSON, Promise, Object, Array, Map, Set, Error, RegExp, URL, TextEncoder, AbortController, encodeURIComponent, decodeURIComponent, Date: P.E.sb.Date, setTimeout: f => { setImmediate(f); return 0; }, clearTimeout() {}, localStorage: P.E.ls, navigator: { onLine: true }, location: P.E.sb.location, t, I18N: P.E.I18N, Core: P.E.Core, IELTS_DATA: P.E.data, App: { state: { settings: { aiLocal: false } } } };
     dsb.fetch = async url => { url = String(url); if (net && /src=gtx/.test(url) && /dt=bd/.test(url)) return J(200, net.gtx); if (net && /src=dapi/.test(url)) return J(200, net.dapi); if (/\/api\/img/.test(url)) return J(200, (net && net.img) || { none: 1 }); if (net && /tatoeba/.test(url)) return J(200, net.tato); return J(200, null); };
     dsb.self = dsb; dsb.window = dsb; vm.createContext(dsb); for (const f of ['web/js/verbs-core.js', 'web/js/lex.js', 'web/js/dictionary.js']) vm.runInContext(rd(f), dsb, { filename: f });
-    P.E.sb.Dict = dsb.Dict; P.E.sb.Lex = undefined;
+    P.E.sb.Dict = dsb.Dict; P.E.sb.Lex = undefined; P.E.sb.ST2 = { mount: (v, name, d) => { P.E.sb._dictD = d; return {}; } }; // khung Stitch dict (đầu trang + ô tìm + Gần đây + Khám phá nhanh): vector đọc d, #result vẫn do dict-page.js vẽ
     vm.runInContext('1', P.E.sb); P.E.load('web/js/dict-page.js');
     await P.A.routes.dict(w); await settle(30);
     const h = P.E.dom.$('#result').innerHTML, r = { empty: /class="card empty"/.test(h), resultHtmlLength: undefined };
@@ -768,7 +768,7 @@ async function dictPageCases() {
     r.bilingual = h.split('class="meaning"').slice(1).filter(x => /data-use-sent/.test(x)).map(x => ({ en: (/<div>(.*?) <button/.exec(x) || [])[1], vi: (/<div class="muted small">(.*?) <span/.exec(x) || [])[1] }));
     r.actions = { quickSave: /id="quickSave"/.test(h), saved: /entry-saved/.test(h), practiceSpeak: (/href="(#\/practice\/speak[^"]*)"/.exec(h) || [])[1] || null, verb: (/href="(#\/verb\/[^"]*)"/.exec(h) || [])[1] || null, usage: (/href="(#\/usage\/[^"]*)"/.exec(h) || [])[1] || null, saveCard: /id="saveCard"/.test(h) };
     r.recent = await P.E.Core.Store.get('recent', []); r.lookupReward = rewards;
-    r.samples = [...h.matchAll(/href="#\/dict\/(\w+)"/g)].map(m => m[1]);
+    r.samples = [...h.matchAll(/href="#\/dict\/(\w+)"/g)].map(m => m[1]).concat(((P.E.sb._dictD || {}).browseBlk || []).flatMap(x => x.items).map(x => x.w)); // blank: 6 từ mẫu nay nằm ở khung (Khám phá nhanh)
     if (r.actions.quickSave || r.actions.saveCard) { P.E.dom.$('#ctx').value = 'My own sentence with ' + w + '.'; await P.E.dom.$('#saveWord').onclick(); await settle(40); const c = (await P.E.Core.Cards.all())[w]; r.afterSave = c && { word: c.word, vi: c.vi, pos: c.pos, ex: c.ex, contexts: c.contexts.map(x => ({ text: x.text, title: x.title, source: x.source })), image: c.image, audio: c.audio, ipaUS: c.ipaUS, topic: c.topic }; }
     delete r.resultHtmlLength;
     out.push({ id: w || 'blank', why, input: { query: w, meanLang: ml }, out: r });

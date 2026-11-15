@@ -147,6 +147,8 @@ Another pair that confuses learners at every level is covered in [make vs do](/e
 
 {{youtube: | Video idea: ten commonly confused pairs, each with a one-line memory trick and an original example sentence}}
 
+For one pair in depth, see our guide to the [affect vs effect meaning](/en/blog/confusing-words-affect-effect-meaning/), with three quick tests and the rare exceptions.
+
 ## Frequently asked questions
 
 ### Should I learn confusing pairs from a list or in context?
