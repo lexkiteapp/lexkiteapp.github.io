@@ -10,7 +10,7 @@ const BASE = (process.argv[2] || 'https://lexkite.com').replace(/\/$/, ''), OUT 
 fs.mkdirSync(OUT, { recursive: true });
 const ORIGIN = new URL(BASE).origin, CI = process.env.LEXKITE_CI_HEADER ? process.env.LEXKITE_CI_HEADER.trim() : '';
 const FPS_MIN = { 1: 55, 4: 50 }, LAG_MAX = 33, AGREE_MIN = 0.8; // ngưỡng KHÔNG hạ (scripts/test/ci-policy.mjs)
-const IGNORE = /favicon|\/cdn-cgi\/|\/api\/hit/;
+const IGNORE = /favicon|\/cdn-cgi\/|\/api\/hit|\[Report Only\]|report-only policy|Content Security Policy/; // CSP ở chế độ report-only (header bản live) in ra console như 'error' nhưng không chặn gì – không phải lỗi JS của rig
 const APP = `${BASE}/app/?sandbox=1&hl=en`;
 const lines = [], fails = [], ok = (c, m) => { lines.push((c ? '✅ ' : '❌ ') + m); if (!c) fails.push(m); };
 const info = m => lines.push('• ' + m);
