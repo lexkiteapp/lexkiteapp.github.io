@@ -52,7 +52,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 
 ## 2b. Chống xung đột PR (chi tiết: `docs/specs/merge-queue.md`)
 - Nguồn dịch `i18n/ui` + registry (`REGISTRIES` ở `scripts/lib/fmt-registry.mjs`): mỗi mục một dòng, sắp xếp – `node scripts/fmt-stable.mjs` (prepush chạy).
-- Không sửa tay tệp sinh (`web/js/i18n/<lang>`, `extension/app`, `st-*.css`, CODEMAP); PR dirty ở đó → bot `pr-unconflict` gỡ + dựng lại. Gác: `fmt-stable.mjs`, `gen-guard.mjs`.
+- Không sửa tay tệp sinh (`web/js/i18n/<lang>`, `extension/app`, `st-*.css`, CODEMAP) hay `i18n-fixed.json`/trang pháp lý: PR dirty → bot `pr-unconflict` hoặc `node scripts/ci/regen-conflicts.mjs` (`docs/specs/merge-queue.md`). Gác: `fmt-stable.mjs`, `gen-guard.mjs`.
 
 ## 3. Ngân sách dung lượng
 - Khung app (SHELL ∪ file nạp ngay của /app/) ≤ 374 KB gz chuẩn (`scripts/lib/gz-canon.mjs`, máy = CI; không nâng) → tính năng mới tải lười; khóa: `shell-lazy.mjs`. Từng module + Δ so với main: `node scripts/test/shell-size.mjs` (tóm tắt CI npm test); khóa i18n chỉ trang lười dùng → `--move` sang `en/lazyui.js` (gói i18nl). `web/js` ≤ `totalJs` trong `scripts/test/budget.json` (không tính `admin-*.js` và nguồn dựng en.js – `scripts/lib/js-budget.mjs`).
