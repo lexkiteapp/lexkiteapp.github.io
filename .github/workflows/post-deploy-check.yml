@@ -21,7 +21,7 @@ jobs:
   check:
     if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
-    timeout-minutes: 15
+    timeout-minutes: 45
     env:
       LEXKITE_CI_HEADER: ${{ secrets.LEXKITE_CI_HEADER }}
       BASE: ${{ inputs.base_url || 'https://lexkite.com' }}
@@ -45,6 +45,11 @@ jobs:
         if: ${{ !cancelled() }}
         timeout-minutes: 8
         run: node scripts/test/icon-blank.mjs "$BASE" --strict --max=25 --shots=out/post-deploy/icons
+      - name: Rig giáo viên trên bản live (rig-live.mjs, Call + câu hỏi bài học, Chromium + WebKit, 390/1280, sáng/tối, fps, khớp miệng, giảm chuyển động)
+        id: rig
+        if: ${{ !cancelled() }}
+        timeout-minutes: 25
+        run: node scripts/test/rig-live.mjs "$BASE" out/post-deploy
       - name: Tương phản màu (contrast.mjs, màn chính)
         id: contrast
         if: ${{ !cancelled() }}
