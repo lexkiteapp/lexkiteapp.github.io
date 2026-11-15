@@ -10,9 +10,21 @@ export const offenders = files => files.filter(isGenerated);
 // Nguồn của bản sinh: PR đổi các đường này thì workflow serve web/ phải dựng lại (action .github/actions/gen-if-needed). `ext` = thêm extension/app.
 export const needsRegen = (files, ext = false) => files.some(f => !isGenerated(f) && (/^(i18n\/ui\/|scripts\/(lib\/)?i18n-pack\.mjs$|scripts\/lib\/i18n-pack\.mjs$)/.test(f)
   || (ext && /^(web\/|extension\/|scripts\/build-extension\.sh$)/.test(f))));
-// Workflow chạy trên PR mà dựng/serve web/ từ cây làm việc nhưng không chạy `npm ci|i|install` (postinstall sinh lại), build-web, regen-generated → phải gọi gen-if-needed.
-export const SERVES_WEB = /http\.server|npx (-y )?serve|playwright|lighthouse|wrangler|webkit|chromium/;
-const NPM_RUN = /(npm|npm-retry\.sh) (ci|i|install)\b/;   // chạy postinstall → regen-generated --if-ci (trừ khi --ignore-scripts)
-export const hasGen = src => /build-web\.sh|regen-generated|gen-if-needed/.test(src) || (NPM_RUN.test(src) && !/ignore-scripts/.test(src));
+// Workflow chạy trên PR: job ĐỌC/serve web/ (node scripts/test/…, http.server, playwright test…) mà chưa có bước sinh TRƯỚC đó (npm ci|i|install không --ignore-scripts → postinstall,
+// build-web, regen-generated, gen-if-needed) thì thấy bản sinh cũ của main. Workflow không đọc bản sinh ghi `# ci-policy: no-gen – <lý do>`.
+const NPM_RUN = /(npm|npm-retry\.sh) (ci|i|install)\b(?![^\n]*ignore-scripts)/;
+export const hasGen = t => NPM_RUN.test(t) || /build-web\.sh|regen-generated|gen-if-needed/.test(t);
+export const READS_WEB = /node scripts\/test\/|http\.server|npx (-y )?serve|playwright test|node scripts\/[\w/.-]*(shots|e2e|probe)/;
 export const onPR = src => /^on:[ \t]*\n[\s\S]*?^  pull_request(_target)?:/m.test(src) || /^on:.*\bpull_request\b/m.test(src);
-export const mustGen = src => onPR(src) && SERVES_WEB.test(src) && !hasGen(src.replace(/^\s*#.*$/gm, ''));
+/** Tên các job vi phạm (đọc trước khi sinh). */
+export function genViolations(src) {
+  if (!onPR(src) || /^# ci-policy: no-gen\b/m.test(src)) return [];
+  const jm = src.match(/^jobs:[ \t]*\n([\s\S]*)$/m); if (!jm) return [];
+  const bad = [];
+  for (const j of jm[1].split(/^  (?=[\w-]+:[ \t]*(?:#.*)?\n)/m)) {
+    const steps = j.split(/^      - /m).slice(1).map(x => x.replace(/^\s*#.*$/gm, '')); let g = -1, r = -1;
+    steps.forEach((t, i) => { if (g < 0 && hasGen(t)) g = i; if (r < 0 && READS_WEB.test(t)) r = i; });
+    if (r >= 0 && (g < 0 || r < g)) bad.push(j.split('\n')[0].trim().replace(/:.*/, ''));
+  }
+  return bad;
+}

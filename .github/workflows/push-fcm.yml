@@ -1,3 +1,4 @@
+# ci-policy: no-gen – chỉ thử đẩy FCM (luật 17)
 # Báo đẩy app gốc FCM (docs/REMINDERS.md §2/§5): test chặn ≤ 1/ngày, giờ yên lặng, công tắc tắt, bản app thiếu plugin
 # + dry-run FCM HTTP v1 (validate_only: true – không gửi cho ai) mọi câu 15 ngôn ngữ bằng secret FCM_SA; thiếu secret → ::notice:: bỏ qua, không đỏ.
 name: push-fcm

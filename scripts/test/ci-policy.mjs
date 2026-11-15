@@ -324,13 +324,14 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     const calls = [], mk = existing => async (m, p, b) => { calls.push(m); return m === 'GET' ? existing : { id: 7 }; };
     await M.upsertComment(mk([{ id: 5, body: 'x' }, { id: 9, body: M.MARKER + ' cũ' }]), 'o/r', 1, 'b'); ok(calls.join() === 'GET,PATCH', 'luật 16: có bình luận cũ → PATCH (không đăng mới)');
     calls.length = 0; await M.upsertComment(mk([{ id: 5, body: 'x' }]), 'o/r', 1, 'b'); ok(calls.join() === 'GET,POST', 'luật 16: chưa có → đăng đúng một bình luận'); }
-  { // luật 17 (15/11): bản sinh (gói dịch, pn-*, extension/app) không commit trong PR → workflow PR serve web/ mà không `npm ci` (postinstall sinh lại) phải gọi action gen-if-needed, không thì e2e/ảnh chạy trên bản sinh cũ của main (xanh/đỏ giả)
+  { // luật 17 (15/11): bản sinh (gói dịch, pn-*, extension/app) không commit trong PR → job PR đọc/serve web/ phải có bước sinh TRƯỚC (npm ci|i, build-web, gen-if-needed), không thì chạy trên bản sinh cũ của main (xanh/đỏ giả, vd. teacher-bubble --static đứng trước npm i)
     const G = await import('../lib/generated.mjs');
-    ok(G.mustGen('on:\n  pull_request:\njobs:\n  a:\n    steps:\n      - run: python3 -m http.server') && !G.mustGen('on:\n  pull_request:\n  x:\n      - run: npm ci\n      - run: npx playwright test')
-      && !G.mustGen('on:\n  pull_request:\n      - uses: ./.github/actions/gen-if-needed\n      - run: playwright') && G.mustGen('on:\n  pull_request:\n      - run: npm ci --ignore-scripts\n      - run: playwright')
-      && G.mustGen('on:\n  pull_request:\n      - run: playwright\n      # npm ci') && !G.mustGen('on:\n  push:\n      - run: playwright'), 'luật 17: mustGen nhận đúng workflow serve web/ thiếu bước sinh');
+    const J = t => 'on:\n  pull_request:\njobs:\n  a:\n    steps:\n      - uses: actions/checkout@v4\n' + t;
+    ok(G.genViolations(J('      - run: node scripts/test/x.mjs --static\n      - run: npm i --no-save p')).join() === 'a' && G.genViolations(J('      - run: npm ci\n      - run: node scripts/test/x.mjs')).length === 0
+      && G.genViolations(J('      - uses: ./.github/actions/gen-if-needed\n      - run: python3 -m http.server')).length === 0 && G.genViolations(J('      - run: npm ci --ignore-scripts\n      - run: playwright test')).join() === 'a'
+      && G.genViolations('# ci-policy: no-gen – x\n' + J('      - run: node scripts/test/x.mjs')).length === 0 && G.genViolations('on:\n  push:\njobs:\n  a:\n    steps:\n      - run: node scripts/test/x.mjs\n').length === 0, 'luật 17: genViolations bắt job đọc trước khi sinh');
     ok(G.needsRegen(['i18n/ui/vi/a.json']) && !G.needsRegen(['web/js/i18n/de.js', 'README.md']) && G.needsRegen(['web/app/x.js'], true) && !G.needsRegen(['web/app/x.js']) && !G.needsRegen(['extension/app/a.js'], true), 'luật 17: needsRegen chỉ theo NGUỒN bản sinh');
-    for (const [f, src] of srcs) if (G.mustGen(src)) ok(/uses: \.\/\.github\/actions\/gen-if-needed/.test(src.replace(/^\s*#.*$/gm, '')), `${f}: chạy trên PR, serve web/ mà không npm ci/build-web → thêm "- uses: ./.github/actions/gen-if-needed" sau checkout (luật 17)`);
+    for (const [f, src] of srcs) for (const j of G.genViolations(src)) ok(false, `${f} job ${j}: đọc/serve web/ trước khi có bản sinh khớp nguồn PR (bản sinh không commit trong PR) → thêm "- uses: ./.github/actions/gen-if-needed" ngay sau checkout, hoặc "# ci-policy: no-gen – <lý do>" nếu không đọc bản sinh (luật 17)`);
     ok(/--needed/.test(fs.readFileSync(path.join(ROOT, '.github/actions/gen-if-needed/action.yml'), 'utf8')), 'luật 17: action gen-if-needed gọi regen-generated --needed'); }
   for (const c of chainCycles(srcs)) ok(false, `vòng workflow_run: ${c}`);
   for (const k of ciParity(fs.readFileSync(path.join(WF, 'ci.yml'), 'utf8'), fs.readFileSync(path.join(ROOT, 'scripts/test/suite.txt'), 'utf8'))) ok(false, `ci.yml chạy "${k}" nhưng suite.txt (cổng PR) không có → PR xanh vẫn làm main đỏ`);
