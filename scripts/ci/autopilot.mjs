@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* ci-autopilot (12/11, chủ giận: CI nhàn rỗi trong khi 65 PR chất đống): mỗi 10 phút duyệt MỌI PR mở không draft và làm đúng 4 việc, dùng lại hạ tầng có sẵn
  * (pr-unconflict.fix để gộp main bằng khoá deploy → CI của PR chạy lại; filler.measure/countJobs đo runner; ngân sách 40 runner giữ ≥16 trống):
- *   1. PR tụt sau main, không xung đột → gộp main vào nhánh (bắt xung đột ẩn sớm). Có ngân sách: chỉ khi busy < 24/40, số PR ≤ min(6, floor((24 − busy) / 4)), và CHỈ PR ưu tiên (isPriority: không draft, động tĩnh ≤ 24 h, check bắt buộc xanh hoặc lượt trước chỉ hỏng hạ tầng); PR cũ/nhàn rỗi không bao giờ bị đụng.
+ *   1. (15/11: TẮT bằng UPDATE_BEHIND=false – mỗi lần đẩy chạy lại ~40 workflow) PR tụt sau main, không xung đột → gộp main vào nhánh (bắt xung đột ẩn sớm). Có ngân sách: chỉ khi busy < 24/40, số PR ≤ min(6, floor((24 − busy) / 4)), và CHỈ PR ưu tiên (isPriority: không draft, động tĩnh ≤ 24 h, check bắt buộc xanh hoặc lượt trước chỉ hỏng hạ tầng); PR cũ/nhàn rỗi không bao giờ bị đụng.
  *   2. Xung đột → nhãn needs-rebase + 1 bình luận nêu tên tệp (có nhãn rồi thì im; hết xung đột thì gỡ nhãn).
  *   3. Check đỏ vì hạ tầng (runner mất, cài đặt/mạng/apt/playwright treo, bị huỷ) → chạy lại job hỏng, tối đa 2 lần/lượt (run_attempt ≤ 2).
  *   4. Check bắt buộc required-gate xanh + gộp được + không nhãn chặn → squash-merge. KHÔNG bao giờ gộp khi đỏ/đang chạy/thiếu status; không bỏ check nào.
@@ -15,6 +15,8 @@ import { retry5xx } from '../lib/retry5xx.mjs';
 import { TAKE_MAIN } from '../pr-unconflict.mjs';
 
 export const TOTAL = 40, KEEP_FREE = 16, BUSY_MAX = TOTAL - KEEP_FREE;   // 24: dưới mức này mới nạp thêm việc
+// 15/11 (hàng đợi 332 lượt): TẮT gộp main vào PR chỉ 'tụt' (mergeable, không xung đột) – mỗi lần đẩy chạy lại ~40 workflow từ đầu. Chỉ PR xung đột thật (act 'conflict') mới bị đẩy nhánh. Bật lại cần OK của owner + hàng đợi ngắn.
+export const UPDATE_BEHIND = false;
 export const QUEUE_MAX = 30, UPDATE_GAP_H = 3;   // 12/11 bão CI: hàng chờ > 30 → ngừng đẩy nhánh; mỗi PR tối đa 1 lần đẩy/3 giờ
 export const PER_PR = 4, MAX_UPDATES = 6, PRIORITY_H = 24, MAX_MERGES = 3, MAX_RERUN_ATTEMPT = 2, STUCK_H = 24, WINDOW_H = 24;
 export const HOLD_LABELS = ['do-not-merge', 'frozen', 'hold', 'wip', 'blocked'];
@@ -166,7 +168,7 @@ export async function main({ dry = process.argv.includes('--dry') } = {}) {
         }
       } else if (pr.labels.includes(L_REBASE) && d.act !== 'conflict' && !dry) await call(token, 'DELETE', `/repos/${REPO}/issues/${n}/labels/${L_REBASE}`);
       if (d.act === 'triage-red' && left > 0 && isRecent(pr, now)) { const k = await rerunInfra(token, pr, dry); if (k) { left--; pr.infra = true; mark('rerun', n); log.push(`#${n}: chạy lại ${k} lượt (hạ tầng)`); } }
-      if (d.act === 'update' && left > 0 && !pr.fork && isPriority(pr, now) && !updatedRecently([...prev, ...events], n, now)) { const r = dry ? 'dry' : uc.fix({ number: n, head: { ref: pr.branch } }, false); if (r === 'fixed') { left--; mark('update', n); log.push(`#${n}: gộp main vào nhánh`); } }
+      if (UPDATE_BEHIND && d.act === 'update' && left > 0 && !pr.fork && isPriority(pr, now) && !updatedRecently([...prev, ...events], n, now)) { const r = dry ? 'dry' : uc.fix({ number: n, head: { ref: pr.branch } }, false); if (r === 'fixed') { left--; mark('update', n); log.push(`#${n}: gộp main vào nhánh`); } }
     }
     if (now - Date.parse(pr.createdAt) > STUCK_H * 3600e3 && !(d.act === 'merge' && !ready.includes(n))) stuck.push({ n, age: Math.round((now - Date.parse(pr.createdAt)) / 3600e3), reason: stuckReason(pr, d) });
   }
