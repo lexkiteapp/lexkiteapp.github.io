@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Ops — Video Studio Console</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": { "primary": "#6bd8ce", "on-primary": "#00201e" },
+          "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+          "fontFamily": {
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-sm": ["18px", { lineHeight: "24px", fontWeight: "700" }],
+            "headline-md": ["22px", { lineHeight: "30px", letterSpacing: "-0.01em", fontWeight: "700" }],
+            "body-sm": ["12px", { lineHeight: "18px", fontWeight: "500" }],
+            "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.05em", fontWeight: "800" }],
+            "label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.02em", fontWeight: "700" }],
+            "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.03em", fontWeight: "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .material-symbols-outlined { font-family: 'Material Symbols Outlined'; font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24; display: inline-block; vertical-align: middle; line-height: 1; }
+    .tactile-card { background: #111E22; border: 2px solid #284149; box-shadow: 0 5px 0 0 #071012; }
+    .tactile-card-selected { background: #16262B; border: 2.5px solid #6bd8ce; box-shadow: 0 5px 0 0 #071012; }
+    .tactile-btn-coral { background: linear-gradient(180deg, #FFB054 0%, #FA7C39 100%); color: #150502; box-shadow: 0 5px 0 0 #B53A22; }
+    .tactile-btn-coral:active { transform: translateY(4px); box-shadow: 0 1px 0 0 #B53A22; }
+    .tactile-btn-teal { background: #2BA39A; color: #00201e; box-shadow: 0 5px 0 0 #003733; }
+    .tactile-btn-teal:active { transform: translateY(4px); box-shadow: 0 1px 0 0 #003733; }
+    .tactile-btn-dark { background: #16262B; color: #EEF6F7; border: 2px solid #284149; box-shadow: 0 4px 0 0 #071012; }
+    .recessed-well { background-color: #0A1619; border: 1.5px solid #284149; box-shadow: inset 0 3px 6px 0 rgba(0,0,0,0.4); }
+    .teacher-slot { border: 2px dashed #879391; background: #0E1A1E; color: #A9BFC1; }
+  </style>
+</head>
+<body class="bg-[#0A1517] text-[#EAF2F2] antialiased min-h-screen flex overflow-x-hidden">
+<aside class="fixed left-0 top-0 h-screen w-64 border-r-2 border-[#2A3F44] bg-[#0E191C] flex flex-col justify-between p-4 z-40">
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-3 px-2 pt-2">
+<div class="w-10 h-10 rounded-xl bg-[#2BA39A] flex items-center justify-center text-[#00201e] shadow-[0_3px_0_0_#003733] shrink-0">
+<span class="material-symbols-outlined text-2xl font-bold">movie</span>
+</div>
+<div>
+<div class="text-headline-sm font-headline-sm text-[#6bd8ce] tracking-tight leading-none font-bold">Lexkite Ops</div>
+<div class="font-label-sm text-label-sm text-[#A3B9B7] tracking-wide mt-1 font-semibold">Studio Console</div>
+</div>
+</div>
+<button class="tactile-btn-coral w-full py-2.5 px-4 rounded-xl font-label-lg text-label-lg flex items-center justify-center gap-2 font-extrabold">
+<span class="material-symbols-outlined text-lg">add_circle</span><span>New video</span>
+</button>
+<nav aria-label="Studio Console Navigation" class="flex flex-col gap-1.5">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#A3B9B7] hover:bg-[#162528] font-medium" href="#"><span class="material-symbols-outlined text-xl text-[#6bd8ce]">dashboard</span><span class="font-label-lg text-label-lg">Overview</span></a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#A3B9B7] hover:bg-[#162528] font-medium" href="#"><span class="material-symbols-outlined text-xl text-[#6bd8ce]">pie_chart</span><span class="font-label-lg text-label-lg">Quota</span></a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#A3B9B7] hover:bg-[#162528] font-medium" href="#"><span class="material-symbols-outlined text-xl text-[#6bd8ce]">bar_chart</span><span class="font-label-lg text-label-lg">Reports</span></a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#A3B9B7] hover:bg-[#162528] font-medium" href="#"><span class="material-symbols-outlined text-xl text-[#6bd8ce]">campaign</span><span class="font-label-lg text-label-lg">Notices</span></a>
+<a aria-current="page" class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-[#2BA39A] text-[#00201e] font-black shadow-[0_3px_0_0_#003733]" href="#">
+<span class="material-symbols-outlined text-xl text-[#00201e]" style="font-variation-settings: 'FILL' 1;">movie</span>
+<span class="font-label-lg text-label-lg tracking-wide">Video Studio</span>
+</a>
+</nav>
+</div>
+<div class="flex flex-col gap-1 pt-3 border-t border-[#2A3F44]">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-[#A3B9B7] hover:bg-[#162528] font-medium text-body-sm" href="#"><span class="material-symbols-outlined text-lg">settings</span><span>Settings</span></a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-[#A3B9B7] hover:bg-[#162528] font-medium text-body-sm" href="#"><span class="material-symbols-outlined text-lg">help</span><span>Documentation</span></a>
+</div>
+</aside>
+<main class="ml-64 flex-1 flex flex-col min-h-screen">
+<header class="px-6 py-4 bg-[#0E191C] border-b-2 border-[#2A3F44] shadow-[0_4px_0_0_#071012] flex items-center justify-between sticky top-0 z-30">
+<div class="flex items-center gap-6">
+<div>
+<h1 class="text-headline-md font-headline-md text-[#EAF2F2] font-extrabold tracking-tight leading-none">Video Studio</h1>
+<p class="text-body-sm font-body-sm text-[#A3B9B7] mt-0.5">Automated lesson video pipeline &amp; QC</p>
+</div>
+<div class="h-8 w-px bg-[#2A3F44] hidden lg:block"></div>
+<div class="hidden lg:flex items-center gap-2">
+<div class="px-3 py-1 rounded-full bg-[#162528] border border-[#2A3F44] flex items-center gap-1.5 font-label-md text-label-md text-[#EAF2F2] font-bold"><span class="w-2 h-2 rounded-full bg-[#6bd8ce]"></span><span>Queue: 14 Active</span></div>
+<div class="px-3 py-1 rounded-full bg-[#FFB054] text-[#261a00] border border-[#B78900] flex items-center gap-1.5 font-label-md text-label-md font-extrabold"><span class="w-2 h-2 rounded-full bg-[#6B4A00]"></span><span>4 Rendering</span></div>
+<div class="px-3 py-1 rounded-full bg-[#FA5B40] text-[#1A0E0B] border border-[#B53A22] flex items-center gap-1.5 font-label-md text-label-md font-extrabold"><span class="material-symbols-outlined text-sm">flag</span><span>3 In Review</span></div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="relative hidden xl:block">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-[#A3B9B7] text-lg">search</span>
+<input class="pl-9 pr-4 py-2 bg-[#122023] border-2 border-[#2A3F44] rounded-xl text-body-sm text-[#EAF2F2] placeholder-[#7E9599] focus:outline-none focus:border-[#6bd8ce] w-64" placeholder="Search lessons, tags, IDs..." type="text"/>
+</div>
+<button class="tactile-btn-dark w-10 h-10 rounded-xl flex items-center justify-center"><span class="material-symbols-outlined text-xl">notifications</span></button>
+<button class="tactile-btn-dark w-10 h-10 rounded-xl flex items-center justify-center"><span class="material-symbols-outlined text-xl">tune</span></button>
+<button class="tactile-btn-coral py-2 px-4 rounded-xl font-label-lg text-label-lg flex items-center gap-2 font-extrabold"><span class="material-symbols-outlined text-lg">add</span><span>New video</span></button>
+</div>
+</header>
+<div class="p-6 grid grid-cols-12 gap-6 items-start">
+<section class="col-span-12 lg:col-span-7 flex flex-col gap-4">
+<div class="flex items-center justify-between flex-wrap gap-2">
+<div class="flex items-center gap-1.5 p-1 bg-[#122023] rounded-xl border border-[#2A3F44]">
+<button class="px-3 py-1.5 rounded-lg bg-[#2BA39A] text-[#00201e] font-label-md text-label-md font-extrabold">All (14)</button>
+<button class="px-3 py-1.5 rounded-lg text-[#A3B9B7] font-label-md text-label-md font-semibold">Queued (4)</button>
+<button class="px-3 py-1.5 rounded-lg text-[#A3B9B7] font-label-md text-label-md font-semibold">Rendering (3)</button>
+<button class="px-3 py-1.5 rounded-lg bg-[#FA5B40] text-[#1A0E0B] font-label-md text-label-md font-extrabold">Needs Review (4)</button>
+<button class="px-3 py-1.5 rounded-lg text-[#A3B9B7] font-label-md text-label-md font-semibold">Published (3)</button>
+</div>
+<button class="tactile-btn-dark px-3 py-1.5 rounded-lg text-body-sm font-body-sm flex items-center gap-1 font-bold"><span class="material-symbols-outlined text-base text-[#6bd8ce]">swap_vert</span><span>Recent</span></button>
+</div>
+<div class="flex flex-col gap-3">
+<article class="tactile-card-selected rounded-2xl p-4 relative cursor-pointer">
+<div class="absolute -left-1 top-4 w-2 h-8 rounded-r-md bg-[#FA5B40]"></div>
+<div class="flex items-start justify-between gap-4">
+<div class="flex gap-3.5">
+<div class="teacher-slot w-20 h-24 rounded-xl relative shrink-0 flex items-center justify-center text-[10px] font-bold text-center px-1">Teacher slot
+<span class="absolute bottom-1 right-1 bg-[#071215] text-[#EAF2F2] text-[10px] font-bold px-1.5 py-0.5 rounded border border-[#2A3F44]">0:58</span>
+</div>
+<div class="flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 flex-wrap">
+<span class="px-2 py-0.5 rounded-md bg-[#0E191C] font-label-sm text-label-sm text-[#6bd8ce] font-extrabold border border-[#2A3F44]">Teacher Short 9:16</span>
+<span class="px-2 py-0.5 rounded-md bg-[#0E191C] font-label-sm text-label-sm text-[#A3B9B7] font-semibold border border-[#2A3F44]">English (UK)</span>
+<span class="text-body-sm text-[#A3B9B7] font-bold">#VID-284</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-[#EAF2F2] mt-1.5 leading-snug font-bold">IELTS Speaking Part 2 — Idioms for High Band</h2>
+</div>
+<div class="flex items-center gap-1 mt-2 text-body-sm text-[#A3B9B7]"><span class="material-symbols-outlined text-base text-[#6bd8ce]">schedule</span><span>2m ago</span></div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-3 shrink-0">
+<span class="px-3 py-1 rounded-full bg-[#FA5B40] text-[#1A0E0B] font-label-md text-label-md font-extrabold flex items-center gap-1.5 border border-[#B53A22]"><span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">error</span><span>Needs Review</span></span>
+<span class="font-label-sm text-label-sm font-extrabold text-[#6bd8ce] flex items-center gap-0.5"><span>Selected</span><span class="material-symbols-outlined text-base">chevron_right</span></span>
+</div>
+</div>
+</article>
+<article class="tactile-card rounded-2xl p-4 cursor-pointer">
+<div class="flex items-start justify-between gap-4">
+<div class="flex gap-3.5">
+<div class="teacher-slot w-20 h-24 rounded-xl relative shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-[#6bd8ce] animate-spin">sync</span>
+<span class="absolute bottom-1 right-1 bg-[#071215] text-[#EAF2F2] text-[10px] font-bold px-1.5 py-0.5 rounded border border-[#2A3F44]">1:15</span>
+</div>
+<div class="flex flex-col justify-between flex-1">
+<div>
+<div class="flex items-center gap-2 flex-wrap">
+<span class="px-2 py-0.5 rounded-md bg-[#0E191C] font-label-sm text-label-sm text-[#A3B9B7] font-bold border border-[#2A3F44]">Quiz Drill</span>
+<span class="px-2 py-0.5 rounded-md bg-[#0E191C] font-label-sm text-label-sm text-[#A3B9B7] font-medium border border-[#2A3F44]">Tiếng Việt</span>
+<span class="text-body-sm text-[#A3B9B7]">#VID-283</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-[#EAF2F2] mt-1.5 leading-snug font-bold">TOEIC Part 5 — Future Tense Clues</h2>
+</div>
+<div class="mt-2">
+<div class="flex justify-between items-center text-body-sm mb-1">
+<span class="font-bold text-[#6bd8ce] flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#FFB054] animate-pulse"></span>Rendering 68% • ~1m left</span>
+<span class="text-[#A3B9B7] font-label-sm text-label-sm font-semibold">Frame 1,224 / 1,800</span>
+</div>
+<div class="recessed-well h-3 rounded-full overflow-hidden p-0.5"><div class="bg-[#2BA39A] h-full rounded-full" style="width: 68%;"></div></div>
+</div>
+</div>
+</div>
+<span class="px-3 py-1 rounded-full bg-[#FFB054] text-[#261a00] font-label-md text-label-md font-extrabold flex items-center gap-1.5 border border-[#B78900] shrink-0"><span class="material-symbols-outlined text-sm">timelapse</span><span>Rendering</span></span>
+</div>
+</article>
+<article class="tactile-card rounded-2xl p-4 cursor-pointer">
+<div class="flex items-start justify-between gap-4">
+<div class="flex gap-3.5">
+<div class="w-20 h-24 rounded-xl bg-[#162528] relative shrink-0 border-2 border-[#2A3F44] flex items-center justify-center text-[#A3B9B7]">
+<span class="material-symbols-outlined text-3xl">hourglass_empty</span>
+<span class="absolute bottom-1 right-1 bg-[#071215] text-[#EAF2F2] text-[10px] font-bold px-1.5 py-0.5 rounded border border-[#2A3F44]">0:45</span>
+</div>
+<div class="flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 flex-wrap">
+<span class="px-2 py-0.5 rounded-md bg-[#0E191C] font-label-sm text-label-sm text-[#A3B9B7] font-bold border border-[#2A3F44]">Mistake Fix</span>
+<span class="px-2 py-0.5 rounded-md bg-[#0E191C] font-label-sm text-label-sm text-[#A3B9B7] font-medium border border-[#2A3F44]">English (US)</span>
+<span class="text-body-sm text-[#A3B9B7]">#VID-282</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-[#EAF2F2] mt-1.5 leading-snug font-bold">Stop Saying Discuss About</h2>
+</div>
+<div class="flex items-center gap-1 mt-2 text-body-sm text-[#A3B9B7]"><span class="material-symbols-outlined text-base text-[#6bd8ce]">schedule</span><span>Next in batch (Pos #2)</span></div>
+</div>
+</div>
+<span class="px-3 py-1 rounded-full bg-[#1D2F33] text-[#A3B9B7] font-label-md text-label-md font-extrabold flex items-center gap-1.5 border border-[#2A3F44] shrink-0"><span class="material-symbols-outlined text-sm text-[#6bd8ce]">schedule</span><span>Queued</span></span>
+</div>
+</article>
+<article class="tactile-card rounded-2xl p-4 cursor-pointer">
+<div class="flex items-start justify-between gap-4">
+<div class="flex gap-3.5">
+<div class="teacher-slot w-20 h-24 rounded-xl relative shrink-0 flex items-center justify-center">
+<span class="absolute bottom-1 right-1 bg-[#071215] text-[#EAF2F2] text-[10px] font-bold px-1.5 py-0.5 rounded border border-[#2A3F44]">0:32</span>
+</div>
+<div class="flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 flex-wrap">
+<span class="px-2 py-0.5 rounded-md bg-[#0E191C] font-label-sm text-label-sm text-[#A3B9B7] font-bold border border-[#2A3F44]">Verb Ladder</span>
+<span class="px-2 py-0.5 rounded-md bg-[#0E191C] font-label-sm text-label-sm text-[#A3B9B7] font-medium border border-[#2A3F44]">Global EN</span>
+<span class="text-body-sm text-[#A3B9B7]">#VID-281</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-[#EAF2F2] mt-1.5 leading-snug font-bold">Three Forms of Break — Candy Tiles</h2>
+</div>
+<div class="flex items-center gap-1 mt-2 text-body-sm text-[#6bd8ce] font-bold"><span class="material-symbols-outlined text-base">cloud_done</span><span>Published to TikTok &amp; IG</span></div>
+</div>
+</div>
+<span class="px-3 py-1 rounded-full bg-[#2BA39A] text-[#00201e] font-label-md text-label-md font-extrabold flex items-center gap-1.5 border border-[#2A7D7A] shrink-0"><span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span><span>Published</span></span>
+</div>
+</article>
+<article class="tactile-card rounded-2xl p-4 cursor-pointer">
+<div class="flex items-start justify-between gap-4">
+<div class="flex gap-3.5">
+<div class="w-20 h-24 rounded-xl bg-[#162528] relative shrink-0 border-2 border-[#2A3F44] flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl text-[#6bd8ce] animate-spin">autorenew</span>
+<span class="absolute bottom-1 right-1 bg-[#071215] text-[#EAF2F2] text-[10px] font-bold px-1.5 py-0.5 rounded border border-[#2A3F44]">2:04</span>
+</div>
+<div class="flex flex-col justify-between flex-1">
+<div>
+<div class="flex items-center gap-2 flex-wrap">
+<span class="px-2 py-0.5 rounded-md bg-[#0E191C] font-label-sm text-label-sm text-[#A3B9B7] font-bold border border-[#2A3F44]">Model Answer</span>
+<span class="px-2 py-0.5 rounded-md bg-[#0E191C] font-label-sm text-label-sm text-[#A3B9B7] font-medium border border-[#2A3F44]">English (UK)</span>
+<span class="text-body-sm text-[#A3B9B7]">#VID-280</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-[#EAF2F2] mt-1.5 leading-snug font-bold">Weather Changed Plans — Sample Long Turn</h2>
+</div>
+<div class="mt-2">
+<div class="text-body-sm mb-1 font-bold text-[#FFB054]">Rendering 34% • ~3m left</div>
+<div class="recessed-well h-3 rounded-full overflow-hidden p-0.5"><div class="bg-[#FFB054] h-full rounded-full" style="width: 34%;"></div></div>
+</div>
+</div>
+</div>
+<span class="px-3 py-1 rounded-full bg-[#FFB054] text-[#261a00] font-label-md text-label-md font-extrabold flex items-center gap-1.5 border border-[#B78900] shrink-0"><span class="material-symbols-outlined text-sm">timelapse</span><span>Rendering</span></span>
+</div>
+</article>
+</div>
+</section>
+<aside class="col-span-12 lg:col-span-5 flex flex-col gap-4 sticky top-24">
+<div class="tactile-card rounded-2xl p-5 flex flex-col gap-4">
+<div class="flex items-center justify-between pb-3 border-b-2 border-[#2A3F44]">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-[#FA5B40] animate-pulse"></span>
+<h3 class="font-headline-sm text-headline-sm text-[#EAF2F2] font-bold">Selected Video</h3>
+<span class="font-label-sm text-label-sm bg-[#162528] border border-[#2A3F44] px-2 py-0.5 rounded text-[#6bd8ce] font-extrabold">#VID-284</span>
+</div>
+<div class="flex items-center gap-1 text-[#A3B9B7]">
+<button class="p-1" title="Expand"><span class="material-symbols-outlined text-lg">open_in_full</span></button>
+<button class="p-1" title="Close"><span class="material-symbols-outlined text-lg">close</span></button>
+</div>
+</div>
+<div class="bg-[#0A1517] rounded-xl p-3 border-2 border-[#2A3F44] shadow-[0_4px_0_0_#071012] flex flex-col gap-2.5">
+<div class="teacher-slot relative w-full aspect-[9/12] max-h-[380px] rounded-lg overflow-hidden flex items-center justify-center mx-auto">
+<span class="font-bold text-sm">Teacher slot</span>
+<button class="absolute inset-0 m-auto w-14 h-14 rounded-full bg-[#122023] text-[#6bd8ce] flex items-center justify-center shadow-[0_4px_0_0_#071012] active:translate-y-1 border-2 border-[#2A3F44]">
+<span class="material-symbols-outlined text-3xl font-bold ml-1" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<div class="absolute top-2.5 left-2.5 flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded bg-[#071215] text-[#EAF2F2] font-label-sm text-label-sm font-extrabold flex items-center gap-1 border border-[#2A3F44]"><span class="w-1.5 h-1.5 rounded-full bg-[#FA5B40]"></span>9:16 Short</span>
+<span class="px-2 py-0.5 rounded bg-[#071215] text-[#EAF2F2] font-label-sm text-label-sm font-extrabold border border-[#2A3F44]">1080x1920</span>
+</div>
+<div class="absolute bottom-3 inset-x-3 bg-[#0A1517] text-[#EAF2F2] px-3 py-1.5 rounded-lg border border-[#2A3F44] text-center font-label-md text-label-md font-bold">
+"It cost an <span class="text-[#FFB054] font-black underline">arm and a leg</span>, to be honest."
+</div>
+</div>
+<div class="recessed-well rounded-lg p-2.5 flex flex-col gap-1.5">
+<div class="flex items-center justify-between text-[11px] font-bold"><span class="text-[#6bd8ce]">0:42</span><span class="text-[#A3B9B7]">0:58 Total</span></div>
+<div class="relative w-full h-3 bg-[#162528] rounded-full flex items-center border border-[#2A3F44]">
+<div class="absolute left-0 top-0 bottom-0 bg-[#2A3F44] rounded-full" style="width: 85%;"></div>
+<div class="absolute left-0 top-0 bottom-0 bg-[#FA5B40] rounded-full" style="width: 72%;"></div>
+<div class="absolute w-4 h-4 rounded-full bg-[#FA5B40] shadow-[0_2px_0_0_#7A1708] border-2 border-[#1A0E0B] -ml-2" style="left: 72%;"></div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2 text-[#A3B9B7]">
+<button><span class="material-symbols-outlined text-lg">replay_10</span></button>
+<button class="text-[#6bd8ce]"><span class="material-symbols-outlined text-lg">play_arrow</span></button>
+<button><span class="material-symbols-outlined text-lg">forward_10</span></button>
+</div>
+<div class="flex items-center gap-1.5 text-[#EAF2F2] font-label-sm text-label-sm font-bold"><span>1.0x</span><span class="material-symbols-outlined text-base text-[#6bd8ce]">volume_up</span></div>
+</div>
+</div>
+</div>
+<div class="bg-[#162528] rounded-xl p-3.5 flex flex-col gap-2 border-2 border-[#2A3F44]">
+<div class="flex justify-between items-start">
+<div>
+<span class="font-label-sm text-label-sm text-[#A3B9B7] font-extrabold">TITLE</span>
+<h4 class="font-label-lg text-label-lg font-extrabold text-[#EAF2F2]">IELTS Speaking Part 2 — Idioms</h4>
+</div>
+<span class="px-2 py-0.5 rounded bg-[#FFB054] text-[#261a00] font-label-sm text-label-sm font-black border border-[#B78900]">Band 8.0 Target</span>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-extrabold text-[#EAF2F2]">Quality Control (QC)</span>
+<span class="font-label-sm text-label-sm text-[#6bd8ce] font-extrabold">Ready for Signoff</span>
+</div>
+<div class="flex flex-col gap-2.5 pt-2">
+<button class="tactile-btn-teal w-full py-3.5 px-5 rounded-xl font-headline-sm text-headline-sm font-black flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span><span>Approve &amp; Publish</span>
+</button>
+<button class="tactile-btn-dark py-2.5 px-3 rounded-xl font-label-lg text-label-lg font-bold flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-lg text-[#6bd8ce]">refresh</span><span>Re-render</span>
+</button>
+</div>
+</div>
+</aside>
+</div>
+</main>
+</body></html>
