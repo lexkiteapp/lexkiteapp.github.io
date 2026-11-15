@@ -322,7 +322,6 @@ ${window.Sync && Sync.renderBox ? `<section class="card me-acct" id="meAcct" ari
     if (SKILL_OF[name]) return ['skills', 'skill-' + SKILL_OF[name]];
     if (name === 'toefl-p') return ['skills', 'skill-' + (TOEFL_SK[arg] || 'reading')];
     if (['skills', 'grammar', 'pron', 'toeic', 'toefl'].includes(name)) return ['skills', name];
-    if (name === 'irregular') return ['skills', 'grammar']; // bảng động từ bất quy tắc: mở từ hub Ngữ pháp
     if (['tests', 'mock', 'listen-test', 'toeic-test', 'cambridge', 'placement'].includes(name)) return ['tests', name === 'placement' ? 'placement' : 'tests'];
     if (['me', 'goal', 'stats', 'league', 'class', 'mistakes', 'settings', 'method', 'resources', 'outcome'].includes(name)) return ['me', name];
     return [null, null];
