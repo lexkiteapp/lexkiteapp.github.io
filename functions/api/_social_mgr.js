@@ -7,6 +7,7 @@
  * caption-templates, accounts/{id}/check → kết nối kênh mở GrabCast (popup), số liệu lấy từ nguồn khác (web, nhập tay, YouTube khi có). */
 import { manifest, signed } from './admin-shorts.js';
 import { withInstall } from './_install_links.js';
+import { BIO_ONLY } from './_role_meta.js';
 import { field } from './_clip_logic.js';
 import { runModel } from './ai.js';
 import { normCfg, allowed, schedule, SOCIAL_DAY_MAX } from './_distribution.js';
@@ -183,10 +184,11 @@ async function approvedClips(env) {
   return m.items.filter(it => it && CLIP.test(String(it.id)) && q.has(it.id) && !(rv.get(it.id) || {}).deleted && !['rejected', 'paused'].includes((rv.get(it.id) || {}).state) && !it.rejected)
     .map(it => ({ id: it.id, title: it.title || it.lesson || it.id, description: it.description || '', hashtags: Array.isArray(it.hashtags) ? it.hashtags.slice(0, 10) : [], template: it.template || '', hook: field(it, 'hook'), cefr: field(it, 'diff') || it.cefr || '', duration: +it.duration || 0, created: it.created || '', video: it.video, cover: it.cover, _it: it }));
 }
-// Caption kèm link cài đo theo nền tảng (infra/install-links.json, luật docs/VIDEO.md); trần threads 500, còn lại 2200
-const capOf = (clip, p) => withInstall(str([clip.description || clip.title, (clip.hashtags || []).map(h => '#' + String(h).replace(/^#/, '')).join(' ')].filter(Boolean).join('\n\n'), 2200), p, clip.id, p === 'threads' ? 500 : 2200);
+// Caption gốc (hashtag cuối, trần 2200). Kênh BIO_ONLY (IG/TikTok) giữ nguyên "link in bio", không dán link; kênh khác kèm link cài đo theo nền tảng (infra/install-links.json, docs/VIDEO.md), threads trần 500.
+const capBase = clip => str([clip.description || clip.title, (clip.hashtags || []).map(h => '#' + String(h).replace(/^#/, '')).join(' ')].filter(Boolean).join('\n\n'), 2200);
+const capOf = (clip, p) => BIO_ONLY.includes(p) ? capBase(clip) : withInstall(capBase(clip), p, clip.id, p === 'threads' ? 500 : 2200);
 export const bodyFor = (clip, mediaId, accs, per = {}, tz = 'America/New_York') => ({
-  title: str(clip.title, 100), caption: capOf(clip, 'social'), media_ids: [mediaId], timezone: tz,
+  title: str(clip.title, 100), caption: capBase(clip), media_ids: [mediaId], timezone: tz,
   targets: accs.map(a => ({ account_id: a.id, kind: a.kind || (PLAT[a.p] || {}).kind || 'video', options: a.p === 'tiktok' ? { privacy_level: 'PUBLIC_TO_EVERYONE', allow_comment: true, allow_duet: false, allow_stitch: false, commercial_content: false, is_aigc: true } : a.p === 'youtube' ? { privacy_status: 'public', made_for_kids: false, contains_synthetic_media: true, category_id: '27' } : {}, caption_override: capOf(clip, a.p), ...(per[a.p] || {}) })),
 });
 export async function pushClip(env, clip, gc, origin) {

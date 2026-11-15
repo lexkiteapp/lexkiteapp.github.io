@@ -44,3 +44,6 @@ export function withInstall(caption, platform, clip = '', limit = 0, D = INSTALL
   const room = limit ? Math.max(0, limit - tail.length - 2) : Infinity, head = parts.join('\n\n').slice(0, room).trim();
   return [head, tail].filter(Boolean).join('\n\n');
 }
+/** Link cửa hàng của nút "Cài" trên web (landing, chân trang): cùng khuôn với href() của js/get-app.js; scripts/test/install-links.mjs đối chiếu. */
+export const storeHref = (ch, place, D = INSTALL) => { const S = `utm_source=lexkite.com&utm_medium=get_app&utm_campaign=${place}`, q = ch.url + (ch.url.includes('?') ? '&' : '?');
+  return ch.id === 'play' ? q + 'referrer=' + encodeURIComponent(S) : ch.id === 'ios' ? q + 'ct=get_app_' + place : q + S; };

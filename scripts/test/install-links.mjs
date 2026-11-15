@@ -130,7 +130,7 @@ ok(!socialMeta(clip, 'youtube').description.includes('microsoftedge'), 'mô tả
 { const once = withInstall('Hook\n\n#a #b', 'tiktok', 'c1'); ok(once === `Hook\n\nGet the app free: ${shortUrl('tiktok', 'c1')}\n\n#a #b`, 'link đứng trước hashtag'); ok(withInstall(once, 'tiktok', 'c1') === once, 'không gắn đôi');
   const big = withInstall('x'.repeat(600) + '\n\n#tag', 'threads', 'c1', 500); ok(big.length <= 500 && big.includes('/get?src=threads') && big.endsWith('#tag'), 'cắt phần thân, giữ link + hashtag trong trần'); }
 { const b = bodyFor({ id: 'c9', title: 'T', description: 'D', hashtags: ['a'] }, 'm1', [{ id: 1, p: 'tiktok' }, { id: 2, p: 'youtube' }]);
-  ok(b.caption.includes('/get?src=social') && b.targets[0].caption_override.includes('/get?src=tiktok&c=c9') && b.targets[1].caption_override.includes('utm_source%3Dyoutube'), 'bodyFor: caption riêng từng kênh có nguồn đo'); }
+  ok(!b.caption.includes('https://') && !b.targets[0].caption_override.includes('https://') && b.targets[1].caption_override.includes('utm_source%3Dyoutube'), 'bodyFor: caption chung + TikTok/IG không link (link in bio); kênh khác có link cài đo theo nền tảng'); }
 { const t = packTexts('clip-a1', { title: 'T', description: 'Lesson' }); ok(t.description.includes(D.channels.ios.url) && /lk:clip-a1\s*$/.test(t.description), 'gói YouTube: có link cài, giữ dấu lk:'); }
 { const a = buildAss({ w: 1080, h: 1920, lines: [], words: [], cta: { start: 1, end: 2 } }); ok(a.includes(ctaLabel()) && !/play\.google|apps\.apple|chromewebstore/.test(a), 'CTA trong hình: chỉ trang cài ngắn'); }
 ok(ctaLabel().length <= 20, 'nhãn CTA ngắn');

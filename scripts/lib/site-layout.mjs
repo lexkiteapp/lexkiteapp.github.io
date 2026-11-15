@@ -8,7 +8,7 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 import { createHash } from 'node:crypto';
 import { toolFoot } from './tools-links.mjs';
-import { INSTALL, liveChannels } from '../../functions/api/_install_links.js'; // link cài: infra/install-links.json
+import { INSTALL, liveChannels, storeHref } from '../../functions/api/_install_links.js'; // link cài: infra/install-links.json
 import { authFoot, authAbout } from './authority-links.mjs'; // trang Giới thiệu / chính sách biên tập / nghiên cứu (docs/SEO-AUTHORITY.md)
 import { S as SP } from './seo-pages-i18n.mjs';
 import { art, scrollBtns, VIS_CSS, VIS_JS } from './samples-visual.mjs'; // lớp lướt bằng mắt của họ trang thư viện (docs/specs/samples-visual.md)
@@ -336,7 +336,7 @@ export const footGroups = (lang, extra = [], coExtra = []) => {
 // Icon "cài trên điện thoại" của Lexkite Kit (khu Cài landing, /get dùng chung). Chữ nút là tên riêng cửa hàng, không logo/huy hiệu tự vẽ (quy định thương hiệu Apple, Google).
 export const PHONE_ICON = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M12 6.5v7m-3-3 3 3 3-3M10.5 18h3"/></svg>';
 // App Store và Google Play luôn là HAI nút riêng ghi rõ tên (scripts/test/install-links.mjs đỏ nếu thiếu một). Link gốc, không tham số (như nút Chrome cạnh đó): chân trang này có ở 85.000 trang từ điển, trang lớn nhất sát trần 16 KB gzip (dict-pages)
-const footStores = label => `<span>${esc(label)}</span>` + liveChannels().filter(c => c.id !== 'cws').map(c => `<a class="fbtn" href="${esc(c.url)}" target="_blank" rel="noopener" aria-label="${esc(label)}: ${c.name}">${PHONE_ICON}${c.name}</a>`).join('');
+const footStores = label => `<span>${esc(label)}</span>` + liveChannels().filter(c => c.id !== 'cws').map(c => `<a class="fbtn" href="${esc(storeHref(c, 'foot'))}" target="_blank" rel="noopener" data-install data-ch="${c.id}" data-from="foot" aria-label="${esc(label)}: ${c.name}">${PHONE_ICON}${c.name}</a>`).join('');
 export const LEGAL_RE = /\/(privacy|terms)(#|$)/; // Quyền riêng tư · Điều khoản · Cookie · Xóa dữ liệu → hàng đáy (gọn, vẫn là <a> cho bot)
 export const siteFooter = ({ lang = 'en', text = '', tm = '', year = new Date().getFullYear(), extra = [], langHref, getApp = '', coExtra = [] }) => {
   const { cur, f, product, learn, tools, co } = footGroups(lang, extra, coExtra), app = appHref(lang), fe = i => f[i] || FOOT.en[i];
