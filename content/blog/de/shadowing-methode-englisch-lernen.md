@@ -161,6 +161,8 @@ Ein großes Hindernis beim autodidaktischen Sprachenlernen ist die Ungewissheit,
 
 {{cta: /#/practice/speak | Starten Sie jetzt Ihr Aussprachetraining im Lexkite Übungsbereich und erhalten Sie direktes Feedback}}
 
+Die Methode in zwölf Alltagssituationen angewendet siehst du in [Selbstbewusst Englisch sprechen](/de/blog/selbstbewusst-englisch-sprechen-alltag/).
+
 ## Häufig gestellte Fragen (FAQ)
 
 ### Eignet sich Shadowing auch für absolute Anfänger?
