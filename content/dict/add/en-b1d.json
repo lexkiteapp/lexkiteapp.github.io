@@ -1,0 +1,752 @@
+{
+ "deduction": {
+  "mis": [
+   {
+    "w": "The company made a deduction of my salary for the late days.",
+    "r": "The company made a deduction from my salary for the late days.",
+    "why": "Use deduction from (a total or pay), not deduction of the person's pay as a direct object."
+   },
+   {
+    "w": "I checked my pay slip and saw many deduction.",
+    "r": "I checked my pay slip and saw many deductions.",
+    "why": "In the money sense it is a countable noun, so several items need the plural form."
+   }
+  ],
+  "u": "Deduction has two unrelated senses. In payroll and accounting it means an amount subtracted, such as tax, insurance or pension contributions, and it is countable: three deductions appear on a pay slip. In logic it means a conclusion reached from evidence, as in a detective's deduction, which is uncountable or singular. Take a deduction from a total; 'tax deduction' is money you may subtract before tax is calculated, which differs from a rebate or refund. Formal and common in business English."
+ },
+ "delegate": {
+  "mis": [
+   {
+    "w": "The manager delegated me to prepare the report.",
+    "r": "The manager delegated the report to me.",
+    "why": "As a verb, delegate takes the task as its object and gives it to a person with to."
+   },
+   {
+    "w": "She was delegated to the meeting by her manager.",
+    "r": "She was sent as a delegate to the meeting by her manager.",
+    "why": "Delegate as a verb passes a task to someone; to name a person sent as representative, use the noun delegate."
+   }
+  ],
+  "u": "Delegate is both a noun and a verb with different pronunciation: the noun ends in a weak vowel, the verb in a full diphthong. As a noun it is a person chosen to represent others at a meeting or conference. As a verb it means to hand part of your work or power to someone else: you delegate a task to a colleague. Good managers delegate; poor ones micromanage. It is neutral to formal, widespread in workplaces, and differs from assign because it implies passing on authority as well as the job."
+ },
+ "delicate": {
+  "mis": [
+   {
+    "w": "This is a delicate for children's skin.",
+    "r": "This product is delicate on children's skin.",
+    "why": "Delicate is an adjective, not a noun, so it needs a noun or a linking verb to complete the sentence."
+   },
+   {
+    "w": "The wine has a delicate flavour of fruity.",
+    "r": "The wine has a delicate fruity flavor.",
+    "why": "Put the adjective directly before the noun instead of using of plus another adjective."
+   }
+  ],
+  "u": "Delicate covers three ideas: physically easily damaged (delicate lace, glassware), subtle and light (a delicate flavour, a delicate scent), and tricky to handle without causing offence (a delicate matter, a delicate negotiation). It is mildly positive for taste and appearance, but about a person's health it suggests weakness. Compared with fragile, delicate also sounds attractive; fragile focuses on breaking easily. On laundry labels you see 'delicate cycle'. The stress falls on the first syllable, and the second vowel is reduced."
+ },
+ "depart": {
+  "mis": [
+   {
+    "w": "The flight departs to Tokyo at nine.",
+    "r": "The flight departs for Tokyo at nine.",
+    "why": "Use depart for a destination and depart from a starting place; to is not used."
+   },
+   {
+    "w": "We will depart the airport at five.",
+    "r": "We will depart from the airport at five.",
+    "why": "In everyday English depart takes from before the place you leave; leave can take the place directly."
+   }
+  ],
+  "u": "Depart is a formal word for leave, mostly used for trains, flights, buses and ships, and on timetables and boards: Departures. It is followed by from for the place and for the destination. In speech you would normally say leave or set off. It also appears in the figurative phrase depart from the plan, meaning to do something different from what was agreed, and in the polite euphemism depart this life. The noun is departure, and the opposite is arrive."
+ },
+ "departmental": {
+  "mis": [
+   {
+    "w": "The departmental of finance sent a notice.",
+    "r": "The finance department sent a notice.",
+    "why": "Departmental is an adjective; the noun is department, which cannot be replaced by the adjective."
+   },
+   {
+    "w": "We hold a department meeting every Monday.",
+    "r": "We hold a departmental meeting every Monday.",
+    "why": "Use the adjective departmental in front of a noun to mean belonging to the department."
+   }
+  ],
+  "u": "Departmental is an adjective for things that belong to or are managed by a single department of a company, school or government: a departmental meeting, budget, head or policy. It is formal and mostly written, so you see it in memos and reports rather than casual talk. In speech people often use the noun department as a modifier, such as the sales department budget. Be careful with departmental store, an older British phrase for department store. It is wider in meaning than sectional and narrower than company-wide."
+ },
+ "dependable": {
+  "mis": [
+   {
+    "w": "He is a dependable on his friends.",
+    "r": "His friends can depend on him; he is dependable.",
+    "why": "Dependable describes someone others can rely on, and it is not used with on to show who he relies on."
+   },
+   {
+    "w": "This car is dependent and never breaks down.",
+    "r": "This car is dependable and never breaks down.",
+    "why": "Dependent means relying on something, not trustworthy; dependable means reliable."
+   }
+  ],
+  "u": "Dependable is a warm, practical word for people, machines or services that you can count on to work or turn up every time. It is very close to reliable, but dependable sounds slightly more personal, often used for colleagues, cars and appliances, and in job references and adverts. Do not confuse it with dependent (relying on someone) or dependant (a person supported financially). The forms are easy to mix up in spelling. Typical contrast: a dependable worker, a dependent child. Used in both UK and US English."
+ },
+ "designate": {
+  "mis": [
+   {
+    "w": "They designated him to be the new manager.",
+    "r": "They designated him as the new manager.",
+    "why": "Designate commonly takes as before the role you give someone, rather than to be."
+   },
+   {
+    "w": "Smoking is allowed in the designate area.",
+    "r": "Smoking is allowed in the designated area.",
+    "why": "Use the past participle designated as the adjective before a noun."
+   }
+  ],
+  "u": "Designate means to officially choose someone or something for a particular role or purpose, or to label an area for a defined use: designate a representative, a designated parking area, a designated driver. It is formal and common in rules, contracts and public notices. As an adjective you almost always see designated. Compared with appoint, designate often applies to places and things as well as people. The verb is pronounced with a full diphthong at the end, and the adjective designated keeps that vowel before the d."
+ },
+ "desirable": {
+  "mis": [
+   {
+    "w": "It is desirable that he comes early.",
+    "r": "It is desirable that he come early.",
+    "why": "After desirable in a formal that clause, a bare form of the verb is often used."
+   },
+   {
+    "w": "A desirable of the job is good teamwork.",
+    "r": "A desirable quality for the job is good teamwork.",
+    "why": "Desirable is an adjective and needs a noun to modify."
+   }
+  ],
+  "u": "Desirable describes something worth wanting because it is useful, attractive or beneficial: a desirable location, a desirable outcome. In job adverts it separates nice-to-have skills from essential ones: 'Experience is desirable but not essential.' It can also mean sexually attractive, so with people be careful about context. Desirable sounds formal and slightly more evaluative than wanted. Its opposite is undesirable. Stress falls on the second syllable, with a diphthong; the US version has a short second ending sound."
+ },
+ "desperate": {
+  "mis": [
+   {
+    "w": "I am desperate of a new job.",
+    "r": "I am desperate for a new job.",
+    "why": "Desperate takes for with a noun, or to with a verb, not of."
+   },
+   {
+    "w": "She is desperately for help.",
+    "r": "She is desperate for help.",
+    "why": "After be use the adjective desperate; the adverb desperately modifies another word."
+   }
+  ],
+  "u": "Desperate describes a state where you need something so much that you will take extreme steps: desperate for money, a desperate attempt. It can sound dramatic or even negative: a desperate person may seem willing to try anything. In casual speech people exaggerate: I'm desperate for a coffee. It is followed by for plus a noun or to plus a verb. The adverb desperately often strengthens verbs such as need or want. Unlike urgent, desperate focuses on the feeling of hopelessness. A reduced middle vowel is common in US speech."
+ },
+ "deteriorate": {
+  "mis": [
+   {
+    "w": "The weather deteriorated to a storm.",
+    "r": "The weather deteriorated into a storm.",
+    "why": "Use deteriorate into to show the worse state something becomes."
+   },
+   {
+    "w": "His health is deteriorating by the day more.",
+    "r": "His health is deteriorating day by day.",
+    "why": "Day by day is the usual fixed phrase for gradual change."
+   }
+  ],
+  "u": "Deteriorate is an intransitive verb meaning to become worse over time, often gradually: health, weather, relationships, the economy, buildings and machines can all deteriorate. It has no passive form and takes no object, so you cannot deteriorate something; use damage or worsen instead. It is formal, common in news, medical and business writing. The noun is deterioration. Compared with get worse, deteriorate suggests a clear and often serious decline. Four syllables stress the second, and the middle sounds are often reduced in rapid speech."
+ },
+ "developer": {
+  "mis": [
+   {
+    "w": "He is a developer of software, who works at a bank.",
+    "r": "He is a software developer who works at a bank.",
+    "why": "Put the field before developer as a noun modifier instead of using of."
+   },
+   {
+    "w": "The development is looking for a job.",
+    "r": "The developer is looking for a job.",
+    "why": "The person is a developer; development is the process or a housing estate."
+   }
+  ],
+  "u": "A developer is a person or organisation that develops something, and context decides the meaning. In tech it means a programmer who builds software or apps; in property it is a company that buys land and builds housing or offices, often with a negative image among local residents; in photography it is the chemical solution for film. It is usually countable and takes a modifier: front-end developer, property developer. The related noun development means the process or the new housing scheme itself. Stress falls on the second syllable."
+ },
+ "diagnose": {
+  "mis": [
+   {
+    "w": "The doctor diagnosed me with flu.",
+    "r": "The doctor diagnosed me as having flu.",
+    "why": "In active voice, diagnose takes the illness as object or as having; with is used in the passive."
+   },
+   {
+    "w": "She was diagnosed flu last week.",
+    "r": "She was diagnosed with flu last week.",
+    "why": "In the passive the illness needs with after diagnosed."
+   }
+  ],
+  "u": "Diagnose means to identify what is wrong, either with a patient or with a machine, system or business. The doctor diagnoses the illness, and the patient is diagnosed with it. In the passive the pattern be diagnosed with is the most common. For engineers and IT staff it means to find the cause of a fault: diagnose a network problem. The noun is diagnosis, plural diagnoses, and the adjective is diagnostic. It is neutral to formal. Diagnosing is different from treating, and from curing the problem."
+ },
+ "diagnostic": {
+  "mis": [
+   {
+    "w": "The technician used a diagnostic of the engine.",
+    "r": "The technician ran a diagnostic test on the engine.",
+    "why": "Diagnostic is mainly an adjective, so it needs a noun such as test or tool."
+   },
+   {
+    "w": "The hospital has a new diagnosis machine.",
+    "r": "The hospital has a new diagnostic machine.",
+    "why": "Use the adjective diagnostic, not the noun diagnosis, before another noun."
+   }
+  ],
+  "u": "Diagnostic is an adjective for anything used to find the cause of a problem or illness: diagnostic test, diagnostic tool, diagnostic imaging. In medicine it can refer to a feature that clearly signals a condition. In computing a diagnostic is also used as a noun for a program or report that checks a system, usually in the plural diagnostics. Do not confuse it with diagnosis, the result, or diagnose, the verb. It is technical and more formal than check-up. The US ending usually has a short, clear vowel before the final consonants."
+ },
+ "diner": {
+  "mis": [
+   {
+    "w": "We ate at a famous diner of the city.",
+    "r": "We ate at a famous diner in the city.",
+    "why": "Use in for a place inside a city, not of."
+   },
+   {
+    "w": "The dinner asked for the menu.",
+    "r": "The diner asked for the menu.",
+    "why": "The person eating is a diner, while dinner is the meal."
+   }
+  ],
+  "u": "Diner has two meanings. It can be a person eating in a restaurant, common in service writing: 'Diners should book ahead.' In American English it is also a casual, inexpensive restaurant, often with a counter and booths, open long hours and serving breakfast all day, burgers and pie. This second sense is strongly US and has little equivalent in Britain, where people say cafe or greasy spoon. Do not confuse it with dinner, the meal. Pronounced with the same vowel as dine and a final r sound in US English."
+ },
+ "directory": {
+  "mis": [
+   {
+    "w": "I found his number in the telephone directory book of.",
+    "r": "I found his number in the telephone directory.",
+    "why": "Directory already means the list, so no extra book word or of is needed."
+   },
+   {
+    "w": "Please save the file in the directory root of the drive.",
+    "r": "Please save the file in the root directory of the drive.",
+    "why": "The standard order is root directory, with the modifier before the noun."
+   }
+  ],
+  "u": "A directory is an organised list of names, addresses, telephone numbers or businesses, such as a phone directory or staff directory. Online, directory sites list companies by category. In computing it means a folder in a file system, and the top level is the root directory. Directory assistance is the US term for a phone service giving numbers, while British speakers say directory enquiries. It is neutral and formal enough for offices. Do not confuse it with director, a person who leads a company or film."
+ },
+ "disable": {
+  "mis": [
+   {
+    "w": "Please disable of the alarm.",
+    "r": "Please disable the alarm.",
+    "why": "Disable is transitive; the object follows directly without a preposition."
+   },
+   {
+    "w": "He is disable and cannot walk.",
+    "r": "He is disabled and cannot walk.",
+    "why": "Use the participle disabled as an adjective describing a person."
+   }
+  ],
+  "u": "Disable has two senses. In technology and security it means to turn off or make a function stop working: disable the alarm, the firewall, an account, notifications. It is the opposite of enable and is neutral. For people, disabled is the adjective for someone with a physical or mental impairment, but many speakers prefer 'person with a disability' or 'disabled people' depending on style guidance, so use care. The noun is disability. Do not use the verb for describing people; the passive be disabled sounds more like machines."
+ },
+ "discard": {
+  "mis": [
+   {
+    "w": "Please discard away the empty bottles.",
+    "r": "Please discard the empty bottles.",
+    "why": "Discard already contains the meaning of away, so it needs no particle."
+   },
+   {
+    "w": "He discarded to the trash can.",
+    "r": "He discarded it in the trash can.",
+    "why": "Discard needs a direct object; the place takes in or into."
+   }
+  ],
+  "u": "Discard means to throw something away because it is no longer wanted or useful, or in card games to put a card from your hand onto the pile. It is more formal than throw away and appears in instructions, safety notices and reports: discard used needles safely, discard expired food. It can also be figurative: discard an idea, discard a theory. As a noun, a discard is the thing thrown away, with stress on the first syllable. The verb stresses the second syllable. Compare dispose of, which is also formal but suggests a proper method."
+ },
+ "discontinue": {
+  "mis": [
+   {
+    "w": "The shop discontinues to sell this model.",
+    "r": "The shop has discontinued this model.",
+    "why": "Discontinue takes a noun object; it is not followed by to plus a verb in this sense."
+   },
+   {
+    "w": "Please discontinue to use the medicine if you feel dizzy.",
+    "r": "Please discontinue using the medicine if you feel dizzy.",
+    "why": "After discontinue the gerund is used for the stopped action."
+   }
+  ],
+  "u": "Discontinue is a formal verb meaning to stop making, providing or doing something, especially a product, service or habit. Companies discontinue models, lines and services, and doctors tell patients to discontinue a drug. It is mostly used in the passive or in present perfect in announcements: This item has been discontinued. A discontinued product may still be available until stock runs out. It is stronger and more final than pause or suspend. In everyday speech people say stop or no longer make."
+ },
+ "disposal": {
+  "mis": [
+   {
+    "w": "I will put the car at your disposition.",
+    "r": "I will put the car at your disposal.",
+    "why": "The fixed idiom is at someone's disposal; disposition means a person's nature."
+   },
+   {
+    "w": "The disposal of waste are expensive.",
+    "r": "The disposal of waste is expensive.",
+    "why": "The subject is disposal, singular, so the verb must be singular too."
+   }
+  ],
+  "u": "Disposal has two common senses. It means the process of getting rid of something safely: waste disposal, bomb disposal, disposal of old computers. It also appears in the fixed phrase at your disposal, meaning available for you to use: We have a conference room at your disposal. In American kitchens a garbage disposal is a device in the sink. The verb phrase is dispose of, not dispose. It is formal and appears in rules, contracts and customer service. It is mostly uncountable."
+ },
+ "disruption": {
+  "mis": [
+   {
+    "w": "The snow caused disruption of the trains.",
+    "r": "The snow caused disruption to the trains.",
+    "why": "Disruption is followed by to for the thing that is affected."
+   },
+   {
+    "w": "There were many disruption this week.",
+    "r": "There were many disruptions this week.",
+    "why": "When you count separate incidents, the noun needs a plural form."
+   }
+  ],
+  "u": "Disruption is a problem that interrupts a process or normal service: disruption to flights, to supplies or to a meeting. It is uncountable when general (cause disruption) and countable when separate events are counted (two disruptions). In business, disruption can also be positive: a company that disrupts an industry with new technology is called a disruptor. Typical collocations: minimise disruption, widespread disruption. It is stronger than inconvenience and often used in transport, news and project management. The verb is disrupt."
+ },
+ "dissatisfy": {
+  "mis": [
+   {
+    "w": "The customers are dissatisfy with the service.",
+    "r": "The customers are dissatisfied with the service.",
+    "why": "Use the participle dissatisfied as an adjective after be."
+   },
+   {
+    "w": "She was dissatisfied about the room.",
+    "r": "She was dissatisfied with the room.",
+    "why": "Dissatisfied takes with, not about, before the thing that disappointed you."
+   }
+  ],
+  "u": "Dissatisfy is a rare formal verb meaning to fail to please someone. In practice you will see the adjective dissatisfied far more often, especially in customer feedback: dissatisfied customers, dissatisfied with the service. The preposition is with. The noun is dissatisfaction, and the opposite is satisfy. Unsatisfied is a close alternative, though it often means a need not met, while dissatisfied suggests unhappiness about quality. Dissatisfied sounds milder than furious but stronger than not satisfied. The double s is pronounced with a full s in the stressed syllable."
+ },
+ "donation": {
+  "mis": [
+   {
+    "w": "He gave a donation for the hospital.",
+    "r": "He gave a donation to the hospital.",
+    "why": "The recipient follows to after donation, not for."
+   },
+   {
+    "w": "She made many donate to charity.",
+    "r": "She made many donations to charity.",
+    "why": "Donation is the noun; donate is the verb and cannot follow made."
+   }
+  ],
+  "u": "A donation is something, usually money, food, clothing or blood, given freely to help a charity, hospital or cause. It is countable: make a donation, accept donations. The recipient follows to, while the purpose follows for: a donation to the school for new books. Compared with gift, donation suggests a formal organisation and sometimes a tax receipt. Contribution is wider and can mean payment or effort. You also say blood donation and organ donation. The verb donate stresses the first syllable, but donation stresses the second."
+ },
+ "downtown": {
+  "mis": [
+   {
+    "w": "I will go to downtown tomorrow.",
+    "r": "I will go downtown tomorrow.",
+    "why": "As an adverb, downtown does not need to before it."
+   },
+   {
+    "w": "The hotel is downtown from the airport.",
+    "r": "The hotel is downtown, about ten miles from the airport.",
+    "why": "Downtown names the central area, not a direction away from something."
+   }
+  ],
+  "u": "Downtown refers to the central business and shopping district of a city, and it is mainly American English. As an adverb it needs no preposition: go downtown, work downtown. As an adjective it comes before a noun: a downtown hotel, the downtown area. As a noun, you can say in the downtown or in downtown Seattle. British English prefers city centre or town centre, and uptown means the opposite in some US cities. The word has a lively urban feel, and the adverb stress shifts to the second syllable."
+ },
+ "drastically": {
+  "mis": [
+   {
+    "w": "Prices decreased drastic last year.",
+    "r": "Prices decreased drastically last year.",
+    "why": "An adverb is needed to modify the verb decreased."
+   },
+   {
+    "w": "We must reduce costs drastically by the amount of ten percent.",
+    "r": "We must reduce costs drastically, by ten percent.",
+    "why": "Drastically already implies a big change; give the exact figure with by."
+   }
+  ],
+  "u": "Drastically is an adverb meaning in an extreme way, usually describing a sudden or severe change: prices fall drastically, drastically reduce spending. It often has a slightly negative tone because the change is shocking or forced, whereas dramatically is more neutral and can be positive. It goes before a verb or adjective: drastically different. Drastic measures are extreme actions taken in a crisis. Use it in news and business writing, but avoid it for small changes, as in 'drastically cleaned the desk'. Stress is on the first syllable."
+ },
+ "drawback": {
+  "mis": [
+   {
+    "w": "The drawback of this plan is expensive.",
+    "r": "The drawback of this plan is its cost.",
+    "why": "After is the sentence needs a noun, not an adjective, to name the problem."
+   },
+   {
+    "w": "One drawback to live in the city is noise.",
+    "r": "One drawback of living in the city is noise.",
+    "why": "Drawback takes of followed by a gerund."
+   }
+  ],
+  "u": "A drawback is a disadvantage or problem that makes something less attractive: the main drawback of the plan is its cost. It is countable and usually follows an advantage: advantages and drawbacks. The common pattern is drawback of or drawback to followed by a noun or gerund. It is neutral to formal and fits both spoken and written English. Downside is more casual, while shortcoming often refers to a person's or a system's flaw. In business it is also a tax term for a refund of duty, which is rare."
+ },
+ "duplicate": {
+  "mis": [
+   {
+    "w": "Please send the form on duplicate.",
+    "r": "Please send the form in duplicate.",
+    "why": "The fixed phrase is in duplicate, meaning two identical copies."
+   },
+   {
+    "w": "I duplicated of the file.",
+    "r": "I duplicated the file.",
+    "why": "Duplicate as a verb takes a direct object with no preposition."
+   }
+  ],
+  "u": "Duplicate can be a noun, adjective or verb, and the ending changes: the noun and adjective end with a weak vowel, while the verb ends with a clear diphthong. As a noun it means an exact copy: keep a duplicate of the receipt. As a verb it means to make an exact copy, or to repeat work unnecessarily: duplicated effort. In office writing in duplicate means two identical copies. Duplicate is formal compared with copy, and often neutral in IT. Do not confuse it with replica, which suggests a model of a physical object."
+ },
+ "eager": {
+  "mis": [
+   {
+    "w": "She is eager for learn English.",
+    "r": "She is eager to learn English.",
+    "why": "Eager is followed by to plus a verb, or for plus a noun."
+   },
+   {
+    "w": "We are eager of your reply.",
+    "r": "We are eager for your reply.",
+    "why": "Use for, not of, after eager when a noun follows."
+   }
+  ],
+  "u": "Eager describes wanting to do or have something very much, with active excitement: eager to start, eager for news. It is more energetic than interested and can imply impatience, as in an eager crowd waiting at the doors. In business emails, I am eager to hear from you sounds warm and slightly formal. Keen is a very close British alternative. Eager beaver is an informal phrase, sometimes mildly critical, for someone who works hard to impress. Eagerly is the adverb, and eagerness is the noun."
+ },
+ "economical": {
+  "mis": [
+   {
+    "w": "The economical of this country is growing.",
+    "r": "The economy of this country is growing.",
+    "why": "Economical is an adjective meaning saving money; the noun for the system is economy."
+   },
+   {
+    "w": "We need an economic car for long trips.",
+    "r": "We need an economical car for long trips.",
+    "why": "Economical means saving money; economic relates to the economy."
+   }
+  ],
+  "u": "Economical means using money, fuel or resources carefully, giving good value without waste: an economical car, an economical way to travel. It differs from economic, which concerns the economy (economic growth) or profit. Economical can describe people who are careful, but frugal and thrifty are better for personal habits. In style it can also mean using few words. The phrase economical with the truth is a polite British idiom meaning not entirely honest. The opposite is wasteful or uneconomical."
+ },
+ "economically": {
+  "mis": [
+   {
+    "w": "The plan is economic viable.",
+    "r": "The plan is economically viable.",
+    "why": "An adverb is needed before the adjective viable."
+   },
+   {
+    "w": "We used the budget economically on the trip.",
+    "r": "We used the budget carefully on the trip.",
+    "why": "In normal speech economically about money sounds stiff; use carefully for personal spending."
+   }
+  ],
+  "u": "Economically has two uses. With economy, it means in terms of the economy: economically viable, economically active, economically disadvantaged, as in policy and news writing. With money-saving, it means in a thrifty way: use resources economically. The first meaning is more common in formal English. It modifies adjectives or verbs and the commonest pairs are viable, sound and efficient. Compared with financially, economically is broader and relates to systems or society. Avoid it in casual talk about your own spending. The stress is on the third syllable in the full form."
+ },
+ "economist": {
+  "mis": [
+   {
+    "w": "He is an economic at the university.",
+    "r": "He is an economist at the university.",
+    "why": "The person is an economist; economic is an adjective."
+   },
+   {
+    "w": "She works as economist for the bank.",
+    "r": "She works as an economist for the bank.",
+    "why": "Singular job titles need a or an after as."
+   }
+  ],
+  "u": "An economist is an expert who studies how money, resources, production and trade work, and who often advises governments, banks or companies. The word is neutral and countable, and it takes an article: she is an economist. Typical contexts include reports and news: economists predict, economists warn, chief economist. Do not mix it up with economy, the system, or economics, the subject. It can also be used with a type: environmental economist. The stress falls on the second syllable, which starts with a reduced vowel in everyday speech."
+ },
+ "economize": {
+  "mis": [
+   {
+    "w": "We must economize the energy.",
+    "r": "We must economize on energy.",
+    "why": "Economize usually takes on before what is saved or reduced."
+   },
+   {
+    "w": "They economized their money for a new house.",
+    "r": "They saved money for a new house.",
+    "why": "Economize means spend less, not accumulate money to buy something."
+   }
+  ],
+  "u": "Economize is a fairly formal verb meaning to spend less money or use less of something, usually by being careful: economize on fuel, travel and heating. It is intransitive and almost always takes on before the thing reduced. British spelling is economise. It sounds more formal than save or cut back and slightly old-fashioned in daily talk, but it is common in business and household finance. Economize does not mean to save for a goal; use save up for that. The noun is economy, and the adjective is economical."
+ },
+ "effectiveness": {
+  "mis": [
+   {
+    "w": "We tested the effective of the new drug.",
+    "r": "We tested the effectiveness of the new drug.",
+    "why": "Use the noun effectiveness after the; effective is an adjective."
+   },
+   {
+    "w": "The effectiveness for the campaign was high.",
+    "r": "The effectiveness of the campaign was high.",
+    "why": "Effectiveness takes of to show what it belongs to."
+   }
+  ],
+  "u": "Effectiveness is the degree to which something produces the result you want: the effectiveness of a vaccine, a campaign or a training course. It is uncountable and followed by of. Do not confuse it with efficiency, which is about doing something without wasting time, money or effort; a method can be effective but not efficient. Effectiveness is common in management, medicine and advertising, with measure, improve and evaluate as typical verbs. It is formal. Cost effectiveness compares benefit with price, and efficacy is a more scientific word."
+ },
+ "efficiently": {
+  "mis": [
+   {
+    "w": "She works very efficient.",
+    "r": "She works very efficiently.",
+    "why": "An adverb is needed to modify the verb works."
+   },
+   {
+    "w": "The old machine runs efficient but slow.",
+    "r": "The old machine runs smoothly but slowly.",
+    "why": "Efficiently implies little waste or high speed, so it conflicts with slow."
+   }
+  ],
+  "u": "Efficiently describes doing something well with little waste of time, money or energy: process orders efficiently, use resources efficiently. It often pairs with effectively, though they differ: efficiently is about the method, effectively is about the result. It is neutral and common in business, engineering and everyday praise. The adjective efficient also describes people and machines. The stress is on the second syllable, and the middle sound is often silent in fast speech. Compare productively, which relates to the amount produced."
+ },
+ "electronically": {
+  "mis": [
+   {
+    "w": "Please send the form by electronic.",
+    "r": "Please send the form electronically.",
+    "why": "Use the adverb electronically, or by email, rather than the adjective after by."
+   },
+   {
+    "w": "The invoice was send electronically yesterday.",
+    "r": "The invoice was sent electronically yesterday.",
+    "why": "The passive needs the past participle sent."
+   }
+  ],
+  "u": "Electronically means by electronic means, usually using computers, email or online systems: submit a form electronically, sign electronically, store records electronically. It is more formal than online and often appears in contracts, instructions and government forms. It modifies verbs, as in file electronically, or past participles, as in electronically signed. Electronic is the adjective, as in an electronic signature. Digitally emphasises the data format, while electronically emphasises the method of transfer. The word is long, and the stress falls on the third syllable."
+ },
+ "eligible": {
+  "mis": [
+   {
+    "w": "You are eligible to a refund.",
+    "r": "You are eligible for a refund.",
+    "why": "Eligible takes for plus a noun, and to plus a verb."
+   },
+   {
+    "w": "She is eligible of vote.",
+    "r": "She is eligible to vote.",
+    "why": "After eligible use to plus an infinitive for an action."
+   }
+  ],
+  "u": "Eligible means qualified or allowed to do something or receive something according to rules: eligible for a loan, eligible to vote, eligible employees. It is formal and common in applications, insurance and government forms. It is followed by for with a noun or to with a verb. Do not confuse it with legible, which means readable. The opposite is ineligible. In an older social phrase, an eligible bachelor is a single man considered a desirable partner. Eligible is about meeting criteria, while entitled stresses a right."
+ },
+ "enclose": {
+  "mis": [
+   {
+    "w": "I enclose the file in this email.",
+    "r": "I attach the file to this email.",
+    "why": "Enclose is for paper in an envelope; use attach for email files."
+   },
+   {
+    "w": "Please find enclose my CV.",
+    "r": "Please find enclosed my CV.",
+    "why": "The fixed phrase uses the participle enclosed."
+   }
+  ],
+  "u": "Enclose has two meanings. In letters it means to put something inside the same envelope or package: I enclose a cheque, please find enclosed the form. In emails people usually say attach instead. It also means to surround an area with a wall or fence: the garden is enclosed. The noun is enclosure, which in business letters is abbreviated Enc. at the bottom. Please find enclosed is formal, and some writers prefer I have enclosed. American English uses check, while British English uses cheque."
+ },
+ "energy": {
+  "mis": [
+   {
+    "w": "I don't have many energy today.",
+    "r": "I don't have much energy today.",
+    "why": "Energy is uncountable, so use much, not many."
+   },
+   {
+    "w": "We need to find a new energy of power.",
+    "r": "We need to find a new source of energy.",
+    "why": "The common phrase is source of energy."
+   }
+  ],
+  "u": "Energy has two main meanings: physical power used to run machines and cities, such as solar or nuclear energy, and the strength and enthusiasm a person feels, as in full of energy. In the first sense it is uncountable, though the plural energies appears in formal contexts for physical or mental efforts. Typical phrases include renewable energy, energy bill, save energy and energy efficient. Power is more about the rate of supply, while energy is the quantity. An energy drink is a US and UK term for caffeinated beverage. The US pronunciation has a flap sound in the middle."
+ },
+ "enjoyable": {
+  "mis": [
+   {
+    "w": "The party was very enjoy.",
+    "r": "The party was very enjoyable.",
+    "why": "After be you need the adjective enjoyable, not the verb enjoy."
+   },
+   {
+    "w": "I felt enjoyable at the concert.",
+    "r": "I enjoyed the concert.",
+    "why": "Enjoyable describes the event, not your feeling."
+   }
+  ],
+  "u": "Enjoyable describes something that gives you pleasure: an enjoyable evening, an enjoyable book, a highly enjoyable trip. It describes the thing, not the person: the film was enjoyable, but you enjoyed the film. It is warm and neutral, slightly more formal than fun, and often used in thank-you notes and reviews. Pleasant is gentler, while entertaining suggests amusement. The adverb is enjoyably and the noun is enjoyment. Do not say I am enjoyable to mean you are having a good time; say I am enjoying myself."
+ },
+ "enormous": {
+  "mis": [
+   {
+    "w": "The room was very enormous.",
+    "r": "The room was absolutely enormous.",
+    "why": "Enormous is already extreme, so use absolutely or simply enormous instead of very."
+   },
+   {
+    "w": "It was an enormous of money.",
+    "r": "It was an enormous amount of money.",
+    "why": "Enormous needs a noun such as amount; it cannot stand with of directly."
+   }
+  ],
+  "u": "Enormous means extremely large in size, amount or degree: an enormous building, enormous pressure, an enormous success. It is a strong adjective, so very is unusual; absolutely or truly fit better. Unlike huge, which is plain, enormous feels slightly more formal. It can describe both physical and abstract things. Enormously is the adverb, as in enormously popular. Do not mix it up with enormity, which traditionally means great wickedness rather than large size. In casual speech people often say massive or giant."
+ },
+ "enroll": {
+  "mis": [
+   {
+    "w": "I enrolled to a French class.",
+    "r": "I enrolled in a French class.",
+    "why": "Enroll takes in for a course and at for a school."
+   },
+   {
+    "w": "The school enrolled in 300 students.",
+    "r": "The school enrolled 300 students.",
+    "why": "Enroll can take a direct object when the school accepts students."
+   }
+  ],
+  "u": "Enroll means to officially register as a student or member, or to register someone else: enroll in a course, enroll at a university, enroll your child. It is American spelling; British English uses enrol. It is formal and used with schools, programmes and clubs. The preposition is in for a course and at for an institution. The passive is common: She was enrolled in the program. Sign up is informal and works for classes and events, whereas enroll suggests official records. The related noun is enrollment or enrolment."
+ },
+ "enrollment": {
+  "mis": [
+   {
+    "w": "Enrollment of the course closes soon.",
+    "r": "Enrollment in the course closes soon.",
+    "why": "The usual pattern is enrollment in a course, with in not of."
+   },
+   {
+    "w": "Enrollments is rising every year.",
+    "r": "Enrollment is rising every year.",
+    "why": "In the general sense, enrollment is uncountable and takes a singular verb."
+   }
+  ],
+  "u": "Enrollment is the act or process of officially registering for a course, school, program or insurance plan, and also the number of people registered: total enrollment fell by five percent. It is mostly uncountable, though the plural is used for separate periods. Open enrollment is a US term for a set time when people can join a health insurance plan. American spelling is enrollment; British spelling is enrolment. Registration is similar but also covers events, while admission stresses acceptance by an institution."
+ },
+ "enthusiasm": {
+  "mis": [
+   {
+    "w": "She has a big enthusiasm of music.",
+    "r": "She has a great enthusiasm for music.",
+    "why": "Enthusiasm takes for before the subject, and great is the usual modifier."
+   },
+   {
+    "w": "Her enthusiastic about the project is clear.",
+    "r": "Her enthusiasm about the project is clear.",
+    "why": "The noun enthusiasm, not the adjective, is needed after her."
+   }
+  ],
+  "u": "Enthusiasm is strong excitement and interest in something: enthusiasm for a project, lack of enthusiasm. It is normally uncountable, but the plural can mean particular interests: his enthusiasms include chess and cycling. It takes for or about before the topic. Employers praise it: show enthusiasm in an interview. Passion is deeper and longer lasting, whereas eagerness suggests wanting to begin soon. Enthusiasm is warm, mildly formal and not negative, unlike obsession. The adjective is enthusiastic, and the verb enthuse is fairly formal. The US form has a long u sound after th."
+ },
+ "enthusiastic": {
+  "mis": [
+   {
+    "w": "He is enthusiasm about the new job.",
+    "r": "He is enthusiastic about the new job.",
+    "why": "After be use the adjective enthusiastic, not the noun enthusiasm."
+   },
+   {
+    "w": "She was enthusiastic of the idea.",
+    "r": "She was enthusiastic about the idea.",
+    "why": "Enthusiastic is followed by about or sometimes over, not of."
+   }
+  ],
+  "u": "Enthusiastic describes someone showing strong, visible interest or excitement, or an action that shows it: an enthusiastic fan, an enthusiastic welcome. It takes about before the topic: enthusiastic about the plan. In job adverts it is a common requirement, which can sound vague. Less than enthusiastic is a polite way to hint at a negative reaction. It is warmer than interested and weaker than fanatical. The adverb is enthusiastically; the noun is enthusiasm. The stress is on the fourth syllable, and the u has a long sound in US speech."
+ },
+ "enthusiastically": {
+  "mis": [
+   {
+    "w": "They clapped enthusiastic after the show.",
+    "r": "They clapped enthusiastically after the show.",
+    "why": "An adverb is needed to modify the verb clapped."
+   },
+   {
+    "w": "She answered enthusiastically but quiet.",
+    "r": "She answered enthusiastically but quietly.",
+    "why": "Both adverbs must be in adverb form when they modify the same verb."
+   }
+  ],
+  "u": "Enthusiastically is the adverb of enthusiastic: with strong, visible excitement. It usually follows verbs of reaction or support: respond, welcome, applaud, nod, receive, endorse. It can open a sentence for emphasis, as in Enthusiastically, they agreed. It is common in news and reviews, for example the book was enthusiastically received. Eagerly suggests wanting something to happen, while enthusiastically suggests showing energy. It is a long word with a weak middle, and in speech people may shorten it to eagerly. It is never used with a negative verb unless ironic."
+ },
+ "environmentally": {
+  "mis": [
+   {
+    "w": "This is an environmental friendly product.",
+    "r": "This is an environmentally friendly product.",
+    "why": "An adverb modifies the adjective friendly, so use environmentally."
+   },
+   {
+    "w": "We care environmentally about the planet.",
+    "r": "We care about the planet's environment.",
+    "why": "The adverb does not describe the verb care this way; use a phrase about the environment."
+   }
+  ],
+  "u": "Environmentally is an adverb that connects an action or product to the natural environment, most often before an adjective: environmentally friendly, environmentally harmful, environmentally conscious. It is common in marketing, policy and news. Be careful that environmentally friendly can be used loosely in advertising, so the claim does not always mean evidence-based. It is more specific than green, which is informal and wide. The stress is on the fourth syllable. Environmental is the adjective, and environmentalist is a person who campaigns for protection."
+ },
+ "escort": {
+  "mis": [
+   {
+    "w": "The guard escorted to the visitors.",
+    "r": "The guard escorted the visitors.",
+    "why": "Escort is transitive; the person follows directly without to."
+   },
+   {
+    "w": "He escorted me to out of the building.",
+    "r": "He escorted me out of the building.",
+    "why": "Use a single direction word after the object: out of, to, into."
+   }
+  ],
+  "u": "Escort has a verb and a noun form that are stressed differently: the verb stresses the second syllable, the noun the first. As a verb it means to accompany someone to guide, protect or ensure they leave or arrive: a guard will escort visitors to reception. As a noun it means the person or group that does so, or in some contexts a paid companion. Police escort and armed escort are common. Escort is formal and slightly authoritative, unlike walk someone, which is informal. It is often used with to, out of or through."
+ },
+ "evacuate": {
+  "mis": [
+   {
+    "w": "Everyone evacuated to the fire.",
+    "r": "Everyone evacuated because of the fire.",
+    "why": "To is not used for the cause; use because of or due to."
+   },
+   {
+    "w": "They evacuated of the building.",
+    "r": "They evacuated the building.",
+    "why": "Evacuate takes the place as a direct object, without of."
+   }
+  ],
+  "u": "Evacuate means to move people out of a dangerous place, or to leave it yourself, usually in an emergency: evacuate the building, evacuate residents before the flood. It can take either the place or the people as the direct object: evacuate the town; evacuate the injured. It is formal and dramatic, often used in news, safety instructions and fire drills. The noun is evacuation, and an evacuee is a person who has been moved. Evacuate also has a medical sense related to emptying the bowels, but that is rare in daily use."
+ },
+ "exceptional": {
+  "mis": [
+   {
+    "w": "It was a very exceptional day.",
+    "r": "It was an exceptional day.",
+    "why": "Exceptional already means unusually good, so very is unnecessary."
+   },
+   {
+    "w": "The student is exceptional in math.",
+    "r": "The student is exceptionally good at math.",
+    "why": "Use the adverb exceptionally before good; exceptional describes the whole student."
+   }
+  ],
+  "u": "Exceptional has two meanings: unusually good, as in exceptional service, and unusual or out of the ordinary, as in exceptional circumstances. Context tells you which. It is strong and positive when about quality, so it appears in reviews and references: an exceptional employee. In rules, exceptional can mean allowed only in rare cases: only in exceptional circumstances. Do not confuse it with exceptionable, which means open to objection. Outstanding is close in the first sense, while extraordinary is even more striking. The noun is exception."
+ },
+ "exclusive": {
+  "mis": [
+   {
+    "w": "This offer is exclusive for members.",
+    "r": "This offer is exclusive to members.",
+    "why": "Exclusive takes to for the group that has the right."
+   },
+   {
+    "w": "The price is exclusive tax.",
+    "r": "The price is exclusive of tax.",
+    "why": "The phrase is exclusive of, meaning not including."
+   }
+  ],
+  "u": "Exclusive has several meanings. It can mean available only to one person or group: exclusive rights, exclusive to members. It can mean high-class and expensive: an exclusive club, an exclusive neighbourhood. In news it means a story published first by one outlet. In prices, exclusive of tax means not including tax. Context matters, because exclusive can sound positive in marketing and negative if it implies keeping people out. The opposite in the first sense is shared; in the second, inclusive. The noun is exclusivity, and the adverb is exclusively."
+ },
+ "exclusively": {
+  "mis": [
+   {
+    "w": "The shop sells exclusive shoes only.",
+    "r": "The shop sells shoes exclusively.",
+    "why": "Use the adverb exclusively; exclusive is an adjective and doubles only."
+   },
+   {
+    "w": "We work exclusive on this project.",
+    "r": "We work exclusively on this project.",
+    "why": "An adverb is needed to modify the verb work."
+   }
+  ],
+  "u": "Exclusively means only, without including anything else: available exclusively online, a club for women exclusively. It is more formal and emphatic than only, and it often modifies a prepositional phrase or verb: focus exclusively on, sold exclusively through. In ads it signals a limited offer. The placement matters: exclusively for members places the limit on members, while members exclusively can sound stiff. Solely is a close synonym, while entirely and wholly stress completeness. It is the adverb of exclusive."
+ }
+}

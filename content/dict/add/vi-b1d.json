@@ -1,0 +1,752 @@
+{
+ "deduction": {
+  "mis": [
+   {
+    "w": "The company made a deduction of my salary for the late days.",
+    "r": "The company made a deduction from my salary for the late days.",
+    "why": "Dùng deduction from + khoản tiền bị trừ; không nối trực tiếp bằng of như tiếng Việt 'khấu trừ lương của tôi'."
+   },
+   {
+    "w": "I checked my pay slip and saw many deduction.",
+    "r": "I checked my pay slip and saw many deductions.",
+    "why": "Với nghĩa khoản bị trừ, đây là danh từ đếm được nên nhiều khoản phải thêm s."
+   }
+  ],
+  "u": "Deduction có hai nghĩa khác hẳn nhau. Trong kế toán, bảng lương, nó là khoản bị trừ như thuế, bảo hiểm, đóng góp hưu trí, và là danh từ đếm được: phiếu lương có thể liệt kê ba khoản deduction. Trong logic, nó là sự suy luận rút ra kết luận từ bằng chứng, như suy luận của thám tử. Hãy dùng cấu trúc deduction from + tổng số tiền. Tax deduction là khoản được trừ trước khi tính thuế, không phải tiền hoàn thuế. Từ này mang sắc thái trang trọng, hay gặp trong kinh doanh."
+ },
+ "delegate": {
+  "mis": [
+   {
+    "w": "The manager delegated me to prepare the report.",
+    "r": "The manager delegated the report to me.",
+    "why": "Với động từ, tân ngữ trực tiếp là công việc, người nhận đi sau to; không nói 'delegate someone' như 'giao cho ai'."
+   },
+   {
+    "w": "She was delegated to the meeting by her manager.",
+    "r": "She was sent as a delegate to the meeting by her manager.",
+    "why": "Động từ delegate là giao việc; muốn nói ai được cử làm đại biểu thì dùng danh từ delegate."
+   }
+  ],
+  "u": "Delegate vừa là danh từ vừa là động từ, phát âm khác nhau: danh từ kết thúc bằng âm yếu, động từ bằng nguyên âm đôi rõ. Danh từ chỉ người được chọn đại diện cho người khác tại hội nghị. Động từ nghĩa là giao một phần việc hay quyền hạn cho người khác: delegate a task to a colleague. Người Việt hay nói ngược thành 'delegate someone'. Từ này trung tính đến trang trọng, rất phổ biến nơi công sở; khác assign ở chỗ delegate hàm ý trao cả quyền quyết định lẫn công việc."
+ },
+ "delicate": {
+  "mis": [
+   {
+    "w": "This is a delicate for children's skin.",
+    "r": "This product is delicate on children's skin.",
+    "why": "Delicate là tính từ, không đứng một mình như danh từ; cần danh từ hoặc động từ nối đi kèm."
+   },
+   {
+    "w": "The wine has a delicate flavour of fruity.",
+    "r": "The wine has a delicate fruity flavor.",
+    "why": "Hai tính từ đứng liền trước danh từ; không dùng of giữa chúng."
+   }
+  ],
+  "u": "Delicate gồm ba ý: dễ hỏng về vật chất (vải ren, đồ thủy tinh), tinh tế nhẹ nhàng (vị, mùi hương) và tế nhị khó xử lý (vấn đề nhạy cảm, đàm phán). Với vị và hình thức, từ mang sắc thái dễ chịu; nói về sức khỏe người thì ngụ ý yếu ớt. So với fragile, delicate còn nghe đẹp, còn fragile chỉ sự dễ vỡ. Trên nhãn giặt có chế độ delicate cycle. Trọng âm rơi vào âm tiết đầu, người Việt hay đọc rõ âm thứ hai quá mức."
+ },
+ "depart": {
+  "mis": [
+   {
+    "w": "The flight departs to Tokyo at nine.",
+    "r": "The flight departs for Tokyo at nine.",
+    "why": "Điểm đến dùng for, nơi xuất phát dùng from; không dùng to."
+   },
+   {
+    "w": "We will depart the airport at five.",
+    "r": "We will depart from the airport at five.",
+    "why": "Khi nói nơi rời đi, depart thường cần from; còn leave có thể dùng trực tiếp tân ngữ."
+   }
+  ],
+  "u": "Depart là từ trang trọng thay cho leave, chủ yếu dùng với tàu, máy bay, xe buýt, tàu thủy và trên bảng giờ như Departures. Sau depart là from cho nơi đi và for cho nơi đến. Trong nói chuyện thường ngày người bản ngữ dùng leave hoặc set off. Còn có nghĩa bóng depart from the plan là làm khác kế hoạch đã thống nhất, và cách nói giảm depart this life là qua đời. Danh từ là departure, từ trái nghĩa là arrive. Người Việt hay quên from sau depart."
+ },
+ "departmental": {
+  "mis": [
+   {
+    "w": "The departmental of finance sent a notice.",
+    "r": "The finance department sent a notice.",
+    "why": "Departmental là tính từ; danh từ phải là department."
+   },
+   {
+    "w": "We hold a department meeting every Monday.",
+    "r": "We hold a departmental meeting every Monday.",
+    "why": "Dùng tính từ departmental trước danh từ để nói thuộc về phòng ban, không đặt danh từ department làm định ngữ."
+   }
+  ],
+  "u": "Departmental là tính từ chỉ thứ thuộc về hoặc do một phòng ban của công ty, trường học hay cơ quan quản lý: họp phòng, ngân sách phòng, trưởng phòng, quy định phòng. Từ trang trọng, thường xuất hiện trong thư nội bộ và báo cáo hơn là hội thoại. Trong lời nói người ta hay dùng luôn danh từ department làm định ngữ, như sales department budget. Cụm departmental store là cách nói cũ của Anh, hiện nay dùng department store. Người Việt hay nhầm giữa tính từ và danh từ."
+ },
+ "dependable": {
+  "mis": [
+   {
+    "w": "He is a dependable on his friends.",
+    "r": "His friends can depend on him; he is dependable.",
+    "why": "Dependable chỉ người mà người khác có thể tin cậy; không dùng on để chỉ người mà anh ta dựa vào."
+   },
+   {
+    "w": "This car is dependent and never breaks down.",
+    "r": "This car is dependable and never breaks down.",
+    "why": "Dependent nghĩa là phụ thuộc, còn đáng tin cậy là dependable."
+   }
+  ],
+  "u": "Dependable là từ gần gũi, thực tế dùng cho người, máy móc hay dịch vụ mà bạn có thể trông cậy, lần nào cũng chạy tốt hoặc có mặt đúng hẹn. Nghĩa rất gần reliable, nhưng dependable nghe cá nhân hơn, hay thấy ở thư giới thiệu, quảng cáo tuyển dụng, đánh giá xe và đồ gia dụng. Đừng nhầm với dependent (phụ thuộc vào ai) hay dependant (người được cấp dưỡng, cách viết Anh). Ví dụ đối lập: dependable worker là người đáng tin, dependent child là đứa trẻ phụ thuộc. Dùng ở cả Anh lẫn Mỹ."
+ },
+ "designate": {
+  "mis": [
+   {
+    "w": "They designated him to be the new manager.",
+    "r": "They designated him as the new manager.",
+    "why": "Designate thường đi với as trước vai trò được chỉ định, hiếm khi dùng to be."
+   },
+   {
+    "w": "Smoking is allowed in the designate area.",
+    "r": "Smoking is allowed in the designated area.",
+    "why": "Phải dùng dạng quá khứ phân từ designated làm tính từ trước danh từ."
+   }
+  ],
+  "u": "Designate nghĩa là chính thức chọn người hay vật cho một vai trò, mục đích nhất định, hoặc quy định một khu vực cho việc cụ thể: chỉ định đại diện, khu đỗ xe quy định, tài xế được chỉ định không uống rượu. Từ trang trọng, hay gặp trong nội quy, hợp đồng, thông báo công cộng. Dạng tính từ hầu như luôn là designated. So với appoint, designate dùng được cả cho nơi chốn và đồ vật. Cấu trúc hay gặp là designate someone as something. Người Việt hay quên đuôi -ed khi làm tính từ."
+ },
+ "desirable": {
+  "mis": [
+   {
+    "w": "It is desirable that he comes early.",
+    "r": "It is desirable that he come early.",
+    "why": "Sau desirable trong mệnh đề that trang trọng thường dùng động từ nguyên mẫu không chia."
+   },
+   {
+    "w": "A desirable of the job is good teamwork.",
+    "r": "A desirable quality for the job is good teamwork.",
+    "why": "Desirable là tính từ nên cần danh từ đi kèm."
+   }
+  ],
+  "u": "Desirable chỉ điều đáng mong muốn vì hữu ích, hấp dẫn hay có lợi: vị trí đắc địa, kết quả tốt đẹp. Trong tin tuyển dụng, từ này phân biệt kỹ năng nên có với kỹ năng bắt buộc: Experience is desirable but not essential. Với người, desirable có thể mang nghĩa quyến rũ, nên cần chú ý ngữ cảnh. Từ nghe trang trọng và mang tính đánh giá hơn wanted. Trái nghĩa là undesirable. Trọng âm rơi vào âm tiết thứ hai. Người Việt hay nhầm với desired, vốn chỉ điều đang được muốn."
+ },
+ "desperate": {
+  "mis": [
+   {
+    "w": "I am desperate of a new job.",
+    "r": "I am desperate for a new job.",
+    "why": "Desperate đi với for + danh từ hoặc to + động từ, không dùng of."
+   },
+   {
+    "w": "She is desperately for help.",
+    "r": "She is desperate for help.",
+    "why": "Sau be dùng tính từ desperate; trạng từ desperately phải bổ nghĩa cho từ khác."
+   }
+  ],
+  "u": "Desperate mô tả trạng thái cần điều gì đó đến mức sẵn sàng làm điều cực đoan: khát tiền, nỗ lực tuyệt vọng. Từ có thể nghe kịch tính, thậm chí tiêu cực vì người desperate dường như thử bất cứ cách nào. Trong nói chuyện người ta cường điệu: I'm desperate for a coffee. Sau desperate là for + danh từ hoặc to + động từ, không phải of. Trạng từ desperately hay nhấn mạnh need, want. Khác urgent, desperate nhấn cảm giác bế tắc. Người Việt hay đọc thừa nguyên âm ở giữa từ."
+ },
+ "deteriorate": {
+  "mis": [
+   {
+    "w": "The weather deteriorated to a storm.",
+    "r": "The weather deteriorated into a storm.",
+    "why": "Dùng deteriorate into để nói trạng thái xấu hơn mà vật chuyển thành."
+   },
+   {
+    "w": "His health is deteriorating by the day more.",
+    "r": "His health is deteriorating day by day.",
+    "why": "Day by day là cụm cố định chỉ sự thay đổi dần dần."
+   }
+  ],
+  "u": "Deteriorate là nội động từ nghĩa là trở nên tệ đi theo thời gian, thường dần dần: sức khỏe, thời tiết, quan hệ, nền kinh tế, tòa nhà hay máy móc đều có thể deteriorate. Từ không có bị động và không có tân ngữ, nên không nói deteriorate something; hãy dùng damage hoặc worsen. Từ trang trọng, hay gặp trong tin tức, y khoa, kinh doanh. Danh từ là deterioration. So với get worse, deteriorate gợi sự suy giảm rõ rệt và thường nghiêm trọng. Trọng âm ở âm tiết thứ hai."
+ },
+ "developer": {
+  "mis": [
+   {
+    "w": "He is a developer of software, who works at a bank.",
+    "r": "He is a software developer who works at a bank.",
+    "why": "Đặt lĩnh vực trước developer làm danh từ bổ nghĩa, không dùng of."
+   },
+   {
+    "w": "The development is looking for a job.",
+    "r": "The developer is looking for a job.",
+    "why": "Người làm là developer; development là quá trình hoặc khu nhà."
+   }
+  ],
+  "u": "Developer là người hoặc tổ chức phát triển một thứ gì đó, và ngữ cảnh quyết định nghĩa. Trong công nghệ, đó là lập trình viên xây dựng phần mềm, ứng dụng; trong bất động sản, đó là công ty mua đất và xây nhà ở, văn phòng, đôi khi mang hình ảnh không tốt với dân địa phương; trong nhiếp ảnh, đó là dung dịch rửa phim. Từ đếm được và thường có từ đứng trước: front-end developer, property developer. Danh từ development là quá trình hoặc khu nhà mới. Trọng âm rơi vào âm tiết thứ hai."
+ },
+ "diagnose": {
+  "mis": [
+   {
+    "w": "The doctor diagnosed me with flu.",
+    "r": "The doctor diagnosed me as having flu.",
+    "why": "Ở thể chủ động dùng diagnose + bệnh hoặc as having; with chỉ dùng ở thể bị động."
+   },
+   {
+    "w": "She was diagnosed flu last week.",
+    "r": "She was diagnosed with flu last week.",
+    "why": "Ở thể bị động, bệnh theo sau cần with."
+   }
+  ],
+  "u": "Diagnose nghĩa là xác định điều gì đang sai, ở bệnh nhân, máy móc, hệ thống hay doanh nghiệp. Bác sĩ diagnose căn bệnh, còn bệnh nhân be diagnosed with căn bệnh đó. Ở bị động mẫu be diagnosed with phổ biến nhất. Kỹ sư và nhân viên IT dùng nghĩa tìm nguyên nhân sự cố: diagnose a network problem. Danh từ là diagnosis, số nhiều diagnoses, tính từ là diagnostic. Từ trung tính đến trang trọng. Diagnose khác treat (điều trị) và cure (chữa khỏi). Người Việt hay quên with."
+ },
+ "diagnostic": {
+  "mis": [
+   {
+    "w": "The technician used a diagnostic of the engine.",
+    "r": "The technician ran a diagnostic test on the engine.",
+    "why": "Diagnostic chủ yếu là tính từ nên cần danh từ như test hay tool."
+   },
+   {
+    "w": "The hospital has a new diagnosis machine.",
+    "r": "The hospital has a new diagnostic machine.",
+    "why": "Phải dùng tính từ diagnostic, không dùng danh từ diagnosis, trước danh từ khác."
+   }
+  ],
+  "u": "Diagnostic là tính từ chỉ thứ dùng để tìm nguyên nhân của sự cố hay bệnh: xét nghiệm chẩn đoán, công cụ chẩn đoán, chẩn đoán hình ảnh. Trong y học còn chỉ dấu hiệu đặc trưng cho một bệnh. Trong máy tính, diagnostic cũng là danh từ chỉ chương trình hay báo cáo kiểm tra hệ thống, thường dạng số nhiều diagnostics. Đừng nhầm với diagnosis (kết quả chẩn đoán) hay diagnose (động từ). Từ mang tính kỹ thuật, trang trọng hơn check-up. Người Việt hay dùng diagnosis thay cho diagnostic trước danh từ."
+ },
+ "diner": {
+  "mis": [
+   {
+    "w": "We ate at a famous diner of the city.",
+    "r": "We ate at a famous diner in the city.",
+    "why": "Dùng in cho nơi chốn trong thành phố, không dùng of."
+   },
+   {
+    "w": "The dinner asked for the menu.",
+    "r": "The diner asked for the menu.",
+    "why": "Người ăn là diner, còn dinner là bữa ăn."
+   }
+  ],
+  "u": "Diner có hai nghĩa. Một là người đang ăn trong nhà hàng, hay dùng trong văn phong dịch vụ: Diners should book ahead. Hai là, trong tiếng Anh Mỹ, quán ăn bình dân, thường có quầy dài và ghế bọc, mở lâu, bán bữa sáng cả ngày, bánh mì kẹp thịt và bánh ngọt. Nghĩa thứ hai đậm chất Mỹ, ở Anh người ta nói cafe hoặc greasy spoon. Đừng nhầm với dinner là bữa tối. Người Việt hay viết thiếu chữ n hoặc nhầm hai từ này vì phát âm gần giống."
+ },
+ "directory": {
+  "mis": [
+   {
+    "w": "I found his number in the telephone directory book of.",
+    "r": "I found his number in the telephone directory.",
+    "why": "Directory đã có nghĩa là danh bạ nên không cần thêm book hay of."
+   },
+   {
+    "w": "Please save the file in the directory root of the drive.",
+    "r": "Please save the file in the root directory of the drive.",
+    "why": "Thứ tự chuẩn là root directory, từ bổ nghĩa đứng trước danh từ."
+   }
+  ],
+  "u": "Directory là danh sách có tổ chức về tên, địa chỉ, số điện thoại hay doanh nghiệp, như danh bạ điện thoại hoặc danh bạ nhân viên. Trên mạng, trang directory xếp công ty theo ngành. Trong máy tính nghĩa là thư mục, và cấp cao nhất là root directory. Directory assistance là cách nói Mỹ cho dịch vụ tra số, người Anh nói directory enquiries. Từ trung tính, đủ trang trọng cho văn phòng. Đừng nhầm với director là người điều hành công ty hay đạo diễn phim. Người Việt hay viết sai thành director."
+ },
+ "disable": {
+  "mis": [
+   {
+    "w": "Please disable of the alarm.",
+    "r": "Please disable the alarm.",
+    "why": "Disable là ngoại động từ nên tân ngữ theo trực tiếp, không cần giới từ."
+   },
+   {
+    "w": "He is disable and cannot walk.",
+    "r": "He is disabled and cannot walk.",
+    "why": "Dùng quá khứ phân từ disabled làm tính từ mô tả người."
+   }
+  ],
+  "u": "Disable có hai nghĩa. Trong công nghệ và an ninh, nghĩa là tắt hay làm cho một chức năng ngừng hoạt động: tắt báo động, tường lửa, khóa tài khoản, tắt thông báo. Đây là từ trái nghĩa của enable và mang tính trung tính. Với người, tính từ disabled chỉ người bị khuyết tật, nhưng nhiều người thích nói person with a disability hoặc disabled people tùy hướng dẫn văn phong, nên cần thận trọng. Danh từ là disability. Người Việt hay quên đuôi -ed khi dùng làm tính từ."
+ },
+ "discard": {
+  "mis": [
+   {
+    "w": "Please discard away the empty bottles.",
+    "r": "Please discard the empty bottles.",
+    "why": "Discard đã bao hàm nghĩa away nên không cần thêm."
+   },
+   {
+    "w": "He discarded to the trash can.",
+    "r": "He discarded it in the trash can.",
+    "why": "Discard cần tân ngữ trực tiếp; nơi chốn dùng in hoặc into."
+   }
+  ],
+  "u": "Discard nghĩa là vứt bỏ thứ không còn cần hoặc không còn dùng được, hoặc trong chơi bài là đánh một lá khỏi tay xuống chồng bài bỏ. Từ trang trọng hơn throw away, thấy trong hướng dẫn, thông báo an toàn, báo cáo: discard used needles safely, discard expired food. Cũng dùng nghĩa bóng: discard an idea, discard a theory. Danh từ discard là thứ bị vứt, trọng âm ở âm đầu; động từ có trọng âm ở âm sau. So với dispose of, discard ít gợi cách xử lý đúng quy trình."
+ },
+ "discontinue": {
+  "mis": [
+   {
+    "w": "The shop discontinues to sell this model.",
+    "r": "The shop has discontinued this model.",
+    "why": "Discontinue đi với danh từ làm tân ngữ; nghĩa này không dùng to + động từ."
+   },
+   {
+    "w": "Please discontinue to use the medicine if you feel dizzy.",
+    "r": "Please discontinue using the medicine if you feel dizzy.",
+    "why": "Sau discontinue dùng danh động từ cho hành động bị dừng."
+   }
+  ],
+  "u": "Discontinue là động từ trang trọng nghĩa là ngừng sản xuất, cung cấp hay làm việc gì, nhất là sản phẩm, dịch vụ hoặc thói quen. Công ty ngừng bán mẫu, dòng hàng, dịch vụ, còn bác sĩ dặn bệnh nhân ngừng dùng thuốc. Trong thông báo hay dùng bị động hoặc hiện tại hoàn thành: This item has been discontinued. Hàng ngừng sản xuất có thể vẫn còn bán đến khi hết kho. Từ mạnh và dứt khoát hơn pause hay suspend. Trong giao tiếp thường ngày người ta nói stop hoặc no longer make."
+ },
+ "disposal": {
+  "mis": [
+   {
+    "w": "I will put the car at your disposition.",
+    "r": "I will put the car at your disposal.",
+    "why": "Thành ngữ cố định là at someone's disposal; disposition nghĩa là tính cách."
+   },
+   {
+    "w": "The disposal of waste are expensive.",
+    "r": "The disposal of waste is expensive.",
+    "why": "Chủ ngữ là disposal (số ít) nên động từ phải số ít."
+   }
+  ],
+  "u": "Disposal có hai nghĩa thường gặp. Một là quá trình vứt bỏ, xử lý an toàn: xử lý rác, xử lý bom, vứt máy tính cũ. Hai là trong cụm cố định at your disposal, nghĩa là sẵn sàng cho bạn sử dụng: We have a conference room at your disposal. Trong nhà bếp kiểu Mỹ, garbage disposal là máy nghiền rác ở bồn rửa. Động từ tương ứng là dispose of, không phải dispose đứng một mình. Từ trang trọng, hay xuất hiện trong quy định, hợp đồng, dịch vụ khách hàng. Phần lớn là danh từ không đếm được."
+ },
+ "disruption": {
+  "mis": [
+   {
+    "w": "The snow caused disruption of the trains.",
+    "r": "The snow caused disruption to the trains.",
+    "why": "Disruption đi với to để chỉ thứ bị ảnh hưởng."
+   },
+   {
+    "w": "There were many disruption this week.",
+    "r": "There were many disruptions this week.",
+    "why": "Khi đếm từng sự cố riêng thì danh từ phải ở số nhiều."
+   }
+  ],
+  "u": "Disruption là sự cố làm gián đoạn một quy trình hoặc hoạt động bình thường: chuyến bay bị ảnh hưởng, nguồn cung bị đứt, cuộc họp bị xáo trộn. Khi nói chung là không đếm được (cause disruption), khi đếm từng sự việc thì đếm được (two disruptions). Trong kinh doanh, disruption còn có thể là tích cực: công ty phá vỡ ngành bằng công nghệ mới gọi là disruptor. Hay đi với minimise disruption, widespread disruption. Mạnh hơn inconvenience và hay thấy trong giao thông, tin tức, quản lý dự án. Động từ là disrupt."
+ },
+ "dissatisfy": {
+  "mis": [
+   {
+    "w": "The customers are dissatisfy with the service.",
+    "r": "The customers are dissatisfied with the service.",
+    "why": "Sau be dùng quá khứ phân từ dissatisfied làm tính từ."
+   },
+   {
+    "w": "She was dissatisfied about the room.",
+    "r": "She was dissatisfied with the room.",
+    "why": "Dissatisfied đi với with chứ không phải about."
+   }
+  ],
+  "u": "Dissatisfy là động từ hiếm, trang trọng, nghĩa là không làm ai hài lòng. Thực tế bạn gặp tính từ dissatisfied nhiều hơn, nhất là trong phản hồi khách hàng: khách hàng không hài lòng, không hài lòng với dịch vụ. Giới từ đi kèm là with. Danh từ là dissatisfaction, từ trái nghĩa là satisfy. Unsatisfied gần nghĩa, nhưng thường chỉ nhu cầu chưa được đáp ứng, còn dissatisfied nghiêng về sự không vừa lòng với chất lượng. Mức độ nhẹ hơn furious. Người Việt hay bỏ đuôi -ed hoặc dùng about thay cho with."
+ },
+ "donation": {
+  "mis": [
+   {
+    "w": "He gave a donation for the hospital.",
+    "r": "He gave a donation to the hospital.",
+    "why": "Người hoặc tổ chức nhận đi sau donation với to, không phải for."
+   },
+   {
+    "w": "She made many donate to charity.",
+    "r": "She made many donations to charity.",
+    "why": "Donation là danh từ; donate là động từ, không đi sau made."
+   }
+  ],
+  "u": "Donation là thứ gì đó, thường là tiền, thực phẩm, quần áo hay máu, được cho đi tự nguyện để giúp tổ chức từ thiện, bệnh viện hoặc mục đích nào đó. Từ đếm được: make a donation, accept donations. Người nhận đi sau to, mục đích đi sau for: a donation to the school for new books. So với gift, donation gợi tổ chức chính thức và đôi khi có biên nhận thuế. Contribution rộng hơn, có thể là tiền hoặc công sức. Cũng nói blood donation, organ donation. Động từ là donate."
+ },
+ "downtown": {
+  "mis": [
+   {
+    "w": "I will go to downtown tomorrow.",
+    "r": "I will go downtown tomorrow.",
+    "why": "Là trạng từ, downtown không cần to đứng trước."
+   },
+   {
+    "w": "The hotel is downtown from the airport.",
+    "r": "The hotel is downtown, about ten miles from the airport.",
+    "why": "Downtown chỉ khu trung tâm, không chỉ hướng cách xa nơi nào."
+   }
+  ],
+  "u": "Downtown chỉ khu trung tâm kinh doanh, mua sắm của thành phố, chủ yếu trong tiếng Anh Mỹ. Là trạng từ thì không cần giới từ: go downtown, work downtown. Là tính từ thì đứng trước danh từ: a downtown hotel, the downtown area. Là danh từ có thể nói in downtown Seattle. Tiếng Anh Anh thích dùng city centre hoặc town centre, còn uptown ở một số thành phố Mỹ có nghĩa ngược lại. Từ mang cảm giác đô thị sôi động. Người Việt hay thêm to thừa sau go."
+ },
+ "drastically": {
+  "mis": [
+   {
+    "w": "Prices decreased drastic last year.",
+    "r": "Prices decreased drastically last year.",
+    "why": "Cần trạng từ để bổ nghĩa cho động từ decreased."
+   },
+   {
+    "w": "We must reduce costs drastically by the amount of ten percent.",
+    "r": "We must reduce costs drastically, by ten percent.",
+    "why": "Drastically đã hàm ý thay đổi lớn; nêu số cụ thể bằng by."
+   }
+  ],
+  "u": "Drastically là trạng từ nghĩa là một cách cực đoan, thường mô tả thay đổi đột ngột hoặc nghiêm trọng: giá giảm mạnh, cắt giảm chi tiêu quyết liệt. Từ thường mang sắc thái hơi tiêu cực vì thay đổi gây sốc hoặc bị ép buộc, còn dramatically trung tính hơn và có thể tích cực. Đứng trước động từ hoặc tính từ: drastically different. Drastic measures là biện pháp mạnh trong khủng hoảng. Dùng nhiều trong tin tức và kinh doanh; tránh dùng cho thay đổi nhỏ. Người Việt hay bỏ đuôi -ally."
+ },
+ "drawback": {
+  "mis": [
+   {
+    "w": "The drawback of this plan is expensive.",
+    "r": "The drawback of this plan is its cost.",
+    "why": "Sau is cần danh từ để gọi tên vấn đề, không phải tính từ."
+   },
+   {
+    "w": "One drawback to live in the city is noise.",
+    "r": "One drawback of living in the city is noise.",
+    "why": "Drawback đi với of + danh động từ."
+   }
+  ],
+  "u": "Drawback là điểm bất lợi hay vấn đề làm cho thứ gì kém hấp dẫn: nhược điểm chính của kế hoạch là chi phí. Danh từ đếm được và thường đi sau ưu điểm: advantages and drawbacks. Mẫu phổ biến là drawback of hoặc drawback to + danh từ hay danh động từ. Từ trung tính đến trang trọng, dùng được cả nói và viết. Downside thân mật hơn, còn shortcoming thường chỉ khiếm khuyết của người hoặc hệ thống. Trong thuế còn có nghĩa hoàn thuế nhập khẩu, nghĩa này hiếm. Sau is cần danh từ, không phải tính từ."
+ },
+ "duplicate": {
+  "mis": [
+   {
+    "w": "Please send the form on duplicate.",
+    "r": "Please send the form in duplicate.",
+    "why": "Cụm cố định là in duplicate, nghĩa là hai bản giống hệt nhau."
+   },
+   {
+    "w": "I duplicated of the file.",
+    "r": "I duplicated the file.",
+    "why": "Với vai trò động từ, duplicate có tân ngữ trực tiếp, không cần giới từ."
+   }
+  ],
+  "u": "Duplicate có thể là danh từ, tính từ hoặc động từ, và phần cuối đọc khác nhau: danh từ và tính từ kết thúc bằng âm yếu, động từ bằng nguyên âm đôi rõ. Danh từ nghĩa là bản sao y hệt: keep a duplicate of the receipt. Động từ nghĩa là tạo bản sao chính xác, hoặc lặp lại công việc không cần thiết: duplicated effort. Trong văn phòng, in duplicate nghĩa là hai bản giống nhau. Duplicate trang trọng hơn copy, và trung tính trong công nghệ thông tin. Không nhầm với replica, thường là mô hình của vật thể."
+ },
+ "eager": {
+  "mis": [
+   {
+    "w": "She is eager for learn English.",
+    "r": "She is eager to learn English.",
+    "why": "Eager đi với to + động từ hoặc for + danh từ."
+   },
+   {
+    "w": "We are eager of your reply.",
+    "r": "We are eager for your reply.",
+    "why": "Dùng for chứ không phải of sau eager khi theo sau là danh từ."
+   }
+  ],
+  "u": "Eager mô tả việc rất muốn làm hay có điều gì đó với sự hào hứng chủ động: háo hức bắt đầu, nóng lòng chờ tin. Từ năng động hơn interested và có thể ngụ ý sốt ruột, như đám đông háo hức chờ ở cửa. Trong email công việc, I am eager to hear from you nghe thân thiện và hơi trang trọng. Keen là từ thay thế rất gần trong tiếng Anh Anh. Eager beaver là cách nói thân mật, đôi khi hơi chê, chỉ người làm việc cật lực để gây ấn tượng. Trạng từ là eagerly, danh từ là eagerness."
+ },
+ "economical": {
+  "mis": [
+   {
+    "w": "The economical of this country is growing.",
+    "r": "The economy of this country is growing.",
+    "why": "Economical là tính từ nghĩa tiết kiệm; danh từ chỉ nền kinh tế là economy."
+   },
+   {
+    "w": "We need an economic car for long trips.",
+    "r": "We need an economical car for long trips.",
+    "why": "Economical là tiết kiệm; economic là liên quan đến kinh tế."
+   }
+  ],
+  "u": "Economical nghĩa là dùng tiền, nhiên liệu hay tài nguyên cẩn thận, đem lại giá trị tốt mà không lãng phí: xe tiết kiệm, cách đi lại rẻ. Khác với economic, vốn liên quan đến nền kinh tế (tăng trưởng kinh tế) hoặc lợi nhuận. Economical có thể mô tả người biết tính toán, nhưng frugal và thrifty hợp hơn cho thói quen cá nhân. Về văn phong còn có nghĩa dùng ít chữ. Cụm economical with the truth là cách nói Anh lịch sự cho không hoàn toàn trung thực. Từ trái nghĩa là wasteful hoặc uneconomical."
+ },
+ "economically": {
+  "mis": [
+   {
+    "w": "The plan is economic viable.",
+    "r": "The plan is economically viable.",
+    "why": "Cần trạng từ trước tính từ viable."
+   },
+   {
+    "w": "We used the budget economically on the trip.",
+    "r": "We used the budget carefully on the trip.",
+    "why": "Trong lời nói thường ngày, dùng economically cho chi tiêu cá nhân nghe cứng; dùng carefully."
+   }
+  ],
+  "u": "Economically có hai cách dùng. Liên quan đến nền kinh tế, nó nghĩa là xét về kinh tế: khả thi về kinh tế, hoạt động kinh tế, thiệt thòi về kinh tế, thường gặp trong chính sách và tin tức. Liên quan đến tiết kiệm, nó nghĩa là một cách tiết kiệm: dùng tài nguyên tiết kiệm. Nghĩa thứ nhất phổ biến hơn trong văn trang trọng. Từ bổ nghĩa cho tính từ hoặc động từ, hay đi với viable, sound, efficient. So với financially, economically rộng hơn, gắn với hệ thống hoặc xã hội. Tránh dùng trong chuyện chi tiêu cá nhân thường ngày."
+ },
+ "economist": {
+  "mis": [
+   {
+    "w": "He is an economic at the university.",
+    "r": "He is an economist at the university.",
+    "why": "Người làm nghề là economist; economic là tính từ."
+   },
+   {
+    "w": "She works as economist for the bank.",
+    "r": "She works as an economist for the bank.",
+    "why": "Chức danh số ít sau as cần a hoặc an."
+   }
+  ],
+  "u": "Economist là chuyên gia nghiên cứu cách tiền, tài nguyên, sản xuất và thương mại vận hành, và thường tư vấn cho chính phủ, ngân hàng hoặc công ty. Từ trung tính, đếm được, cần mạo từ: she is an economist. Thường gặp trong báo cáo và tin tức: economists predict, economists warn, chief economist. Đừng nhầm với economy (nền kinh tế) hay economics (môn kinh tế học). Có thể thêm loại chuyên môn: environmental economist. Trọng âm rơi vào âm tiết thứ hai. Người Việt hay quên mạo từ sau as."
+ },
+ "economize": {
+  "mis": [
+   {
+    "w": "We must economize the energy.",
+    "r": "We must economize on energy.",
+    "why": "Economize thường đi với on trước thứ cần tiết kiệm."
+   },
+   {
+    "w": "They economized their money for a new house.",
+    "r": "They saved money for a new house.",
+    "why": "Economize nghĩa là chi ít đi, không phải để dành tiền mua thứ gì."
+   }
+  ],
+  "u": "Economize là động từ khá trang trọng nghĩa là chi ít hơn hoặc dùng ít hơn bằng cách cẩn thận: tiết kiệm nhiên liệu, đi lại, sưởi ấm. Đây là nội động từ và hầu như luôn đi với on trước thứ bị cắt giảm. Cách viết Anh là economise. Nghe trang trọng hơn save hay cut back và hơi cổ trong hội thoại, nhưng phổ biến trong kinh doanh và tài chính gia đình. Economize không có nghĩa là để dành cho mục tiêu; dùng save up cho nghĩa đó. Danh từ là economy, tính từ là economical."
+ },
+ "effectiveness": {
+  "mis": [
+   {
+    "w": "We tested the effective of the new drug.",
+    "r": "We tested the effectiveness of the new drug.",
+    "why": "Sau the cần danh từ effectiveness; effective là tính từ."
+   },
+   {
+    "w": "The effectiveness for the campaign was high.",
+    "r": "The effectiveness of the campaign was high.",
+    "why": "Effectiveness dùng of để chỉ thứ sở hữu."
+   }
+  ],
+  "u": "Effectiveness là mức độ một thứ tạo ra kết quả mong muốn: hiệu quả của vắc xin, chiến dịch hay khóa đào tạo. Danh từ không đếm được, theo sau là of. Đừng nhầm với efficiency, nói về làm việc mà không lãng phí thời gian, tiền hay công sức; một phương pháp có thể hiệu quả nhưng không tiết kiệm. Effectiveness phổ biến trong quản lý, y tế, quảng cáo, đi với các động từ measure, improve, evaluate. Từ trang trọng. Cost effectiveness so sánh lợi ích với chi phí; efficacy là từ khoa học hơn."
+ },
+ "efficiently": {
+  "mis": [
+   {
+    "w": "She works very efficient.",
+    "r": "She works very efficiently.",
+    "why": "Cần trạng từ để bổ nghĩa cho động từ works."
+   },
+   {
+    "w": "The old machine runs efficient but slow.",
+    "r": "The old machine runs smoothly but slowly.",
+    "why": "Efficiently hàm ý ít lãng phí hoặc nhanh, nên mâu thuẫn với chậm."
+   }
+  ],
+  "u": "Efficiently mô tả việc làm tốt với ít lãng phí thời gian, tiền bạc hay năng lượng: xử lý đơn hàng hiệu quả, dùng tài nguyên hợp lý. Thường đi cùng effectively nhưng khác: efficiently nói về cách làm, effectively nói về kết quả. Từ trung tính, phổ biến trong kinh doanh, kỹ thuật và lời khen thường ngày. Tính từ efficient cũng mô tả người và máy móc. Trọng âm ở âm tiết thứ hai, âm giữa hay bị nuốt khi nói nhanh. So với productively, efficiently không nói đến số lượng tạo ra."
+ },
+ "electronically": {
+  "mis": [
+   {
+    "w": "Please send the form by electronic.",
+    "r": "Please send the form electronically.",
+    "why": "Dùng trạng từ electronically hoặc by email, không dùng tính từ sau by."
+   },
+   {
+    "w": "The invoice was send electronically yesterday.",
+    "r": "The invoice was sent electronically yesterday.",
+    "why": "Bị động cần quá khứ phân từ sent."
+   }
+  ],
+  "u": "Electronically nghĩa là bằng phương tiện điện tử, thường là máy tính, email hay hệ thống trực tuyến: nộp biểu mẫu điện tử, ký điện tử, lưu hồ sơ điện tử. Trang trọng hơn online và thường thấy trong hợp đồng, hướng dẫn, mẫu đơn của cơ quan nhà nước. Bổ nghĩa cho động từ, như file electronically, hoặc phân từ, như electronically signed. Electronic là tính từ, như electronic signature. Digitally nhấn vào định dạng dữ liệu, còn electronically nhấn vào cách chuyển. Từ dài, trọng âm ở âm tiết thứ ba."
+ },
+ "eligible": {
+  "mis": [
+   {
+    "w": "You are eligible to a refund.",
+    "r": "You are eligible for a refund.",
+    "why": "Eligible đi với for + danh từ, và to + động từ."
+   },
+   {
+    "w": "She is eligible of vote.",
+    "r": "She is eligible to vote.",
+    "why": "Sau eligible dùng to + động từ nguyên mẫu cho hành động."
+   }
+  ],
+  "u": "Eligible nghĩa là đủ điều kiện hoặc được phép làm hay nhận điều gì theo quy định: đủ điều kiện vay, đủ điều kiện bỏ phiếu, nhân viên đủ điều kiện. Từ trang trọng, phổ biến trong đơn từ, bảo hiểm, giấy tờ nhà nước. Theo sau là for + danh từ hoặc to + động từ. Đừng nhầm với legible là dễ đọc. Trái nghĩa là ineligible. Trong cách nói xưa, eligible bachelor là người đàn ông độc thân được xem là đối tượng kết hôn lý tưởng. Eligible nói về đáp ứng tiêu chí, còn entitled nhấn vào quyền."
+ },
+ "enclose": {
+  "mis": [
+   {
+    "w": "I enclose the file in this email.",
+    "r": "I attach the file to this email.",
+    "why": "Enclose dùng cho giấy tờ trong phong bì; với file trong email dùng attach."
+   },
+   {
+    "w": "Please find enclose my CV.",
+    "r": "Please find enclosed my CV.",
+    "why": "Cụm cố định dùng quá khứ phân từ enclosed."
+   }
+  ],
+  "u": "Enclose có hai nghĩa. Trong thư từ, nghĩa là bỏ thứ gì đó vào cùng phong bì hoặc gói: I enclose a cheque, please find enclosed the form. Trong email, người ta thường nói attach. Còn có nghĩa bao quanh một khu bằng tường hoặc hàng rào: khu vườn được bao quanh. Danh từ là enclosure, trong thư công việc viết tắt là Enc. ở cuối thư. Please find enclosed là cách nói trang trọng, một số người thích I have enclosed hơn. Người Việt hay dùng enclose cho file email thay vì attach."
+ },
+ "energy": {
+  "mis": [
+   {
+    "w": "I don't have many energy today.",
+    "r": "I don't have much energy today.",
+    "why": "Energy không đếm được nên dùng much, không dùng many."
+   },
+   {
+    "w": "We need to find a new energy of power.",
+    "r": "We need to find a new source of energy.",
+    "why": "Cụm thông dụng là source of energy."
+   }
+  ],
+  "u": "Energy có hai nghĩa chính: sức mạnh vật lý dùng để vận hành máy móc và thành phố, như năng lượng mặt trời hay hạt nhân, và sức lực cùng nhiệt huyết của con người, như tràn đầy năng lượng. Ở nghĩa đầu, từ không đếm được, dù dạng số nhiều energies đôi khi xuất hiện trong văn trang trọng. Cụm hay gặp: renewable energy, energy bill, save energy, energy efficient. Power thiên về tốc độ cung cấp, còn energy là lượng. Người Việt hay dùng many thay cho much với từ này."
+ },
+ "enjoyable": {
+  "mis": [
+   {
+    "w": "The party was very enjoy.",
+    "r": "The party was very enjoyable.",
+    "why": "Sau be cần tính từ enjoyable, không phải động từ enjoy."
+   },
+   {
+    "w": "I felt enjoyable at the concert.",
+    "r": "I enjoyed the concert.",
+    "why": "Enjoyable mô tả sự kiện, không mô tả cảm giác của bạn."
+   }
+  ],
+  "u": "Enjoyable mô tả thứ đem lại niềm vui: buổi tối thú vị, cuốn sách hay, chuyến đi rất vui. Từ mô tả sự việc, không mô tả người: bộ phim thú vị, còn bạn thì enjoyed bộ phim. Từ ấm áp, trung tính, hơi trang trọng hơn fun, hay dùng trong thư cảm ơn và bài đánh giá. Pleasant nhẹ nhàng hơn, entertaining gợi sự giải trí. Trạng từ là enjoyably, danh từ là enjoyment. Đừng nói I am enjoyable để chỉ mình đang vui; hãy nói I am enjoying myself. Người Việt hay nhầm enjoy và enjoyable."
+ },
+ "enormous": {
+  "mis": [
+   {
+    "w": "The room was very enormous.",
+    "r": "The room was absolutely enormous.",
+    "why": "Enormous vốn đã rất cực đoan nên dùng absolutely hoặc để nguyên, không dùng very."
+   },
+   {
+    "w": "It was an enormous of money.",
+    "r": "It was an enormous amount of money.",
+    "why": "Enormous cần danh từ như amount; không đi trực tiếp với of."
+   }
+  ],
+  "u": "Enormous nghĩa là cực kỳ lớn về kích thước, số lượng hay mức độ: tòa nhà khổng lồ, áp lực rất lớn, thành công vang dội. Đây là tính từ mạnh nên very hiếm đi cùng; absolutely hợp hơn. Khác huge ở chỗ enormous nghe hơi trang trọng hơn. Dùng được cho cả vật thể và điều trừu tượng. Trạng từ là enormously, như enormously popular. Đừng nhầm với enormity, vốn truyền thống nghĩa là sự tàn ác lớn chứ không phải kích thước. Trong văn nói thường dùng massive hay giant. Người Việt hay dùng very enormous."
+ },
+ "enroll": {
+  "mis": [
+   {
+    "w": "I enrolled to a French class.",
+    "r": "I enrolled in a French class.",
+    "why": "Enroll dùng in cho khóa học và at cho trường."
+   },
+   {
+    "w": "The school enrolled in 300 students.",
+    "r": "The school enrolled 300 students.",
+    "why": "Enroll có thể có tân ngữ trực tiếp khi trường nhận học sinh."
+   }
+  ],
+  "u": "Enroll nghĩa là chính thức đăng ký làm học viên hoặc thành viên, hoặc đăng ký cho người khác: enroll in a course, enroll at a university, enroll your child. Đây là chính tả Mỹ; tiếng Anh Anh viết enrol. Từ trang trọng, dùng với trường, chương trình, câu lạc bộ. Giới từ là in cho khóa học và at cho tổ chức. Bị động rất phổ biến: She was enrolled in the program. Sign up thân mật, dùng cho lớp học và sự kiện, còn enroll gợi hồ sơ chính thức. Danh từ là enrollment hoặc enrolment."
+ },
+ "enrollment": {
+  "mis": [
+   {
+    "w": "Enrollment of the course closes soon.",
+    "r": "Enrollment in the course closes soon.",
+    "why": "Mẫu thông dụng là enrollment in a course, dùng in chứ không phải of."
+   },
+   {
+    "w": "Enrollments is rising every year.",
+    "r": "Enrollment is rising every year.",
+    "why": "Nghĩa chung của enrollment là không đếm được nên động từ số ít."
+   }
+  ],
+  "u": "Enrollment là hành động hoặc quá trình chính thức đăng ký vào khóa học, trường, chương trình hay gói bảo hiểm, và cũng là số người đã đăng ký: tổng số học viên giảm năm phần trăm. Từ phần lớn không đếm được, dù số nhiều dùng khi nói các đợt riêng. Open enrollment là thuật ngữ Mỹ chỉ khoảng thời gian cố định để mọi người tham gia bảo hiểm y tế. Chính tả Mỹ là enrollment, chính tả Anh là enrolment. Registration giống nhưng cũng dùng cho sự kiện; admission nhấn vào việc được trường nhận."
+ },
+ "enthusiasm": {
+  "mis": [
+   {
+    "w": "She has a big enthusiasm of music.",
+    "r": "She has a great enthusiasm for music.",
+    "why": "Enthusiasm đi với for trước chủ đề; great là từ bổ nghĩa thông dụng."
+   },
+   {
+    "w": "Her enthusiastic about the project is clear.",
+    "r": "Her enthusiasm about the project is clear.",
+    "why": "Sau her cần danh từ enthusiasm, không phải tính từ."
+   }
+  ],
+  "u": "Enthusiasm là sự hào hứng, quan tâm mạnh mẽ đối với điều gì: nhiệt tình với dự án, thiếu nhiệt huyết. Thường không đếm được, nhưng số nhiều chỉ các sở thích riêng: his enthusiasms include chess and cycling. Đi với for hoặc about trước chủ đề. Nhà tuyển dụng đánh giá cao: show enthusiasm in an interview. Passion sâu và lâu dài hơn, còn eagerness gợi sự muốn bắt đầu sớm. Enthusiasm ấm áp, hơi trang trọng, không tiêu cực như obsession. Tính từ là enthusiastic. Người Việt hay nhầm đuôi -ism và -ic."
+ },
+ "enthusiastic": {
+  "mis": [
+   {
+    "w": "He is enthusiasm about the new job.",
+    "r": "He is enthusiastic about the new job.",
+    "why": "Sau be dùng tính từ enthusiastic, không dùng danh từ enthusiasm."
+   },
+   {
+    "w": "She was enthusiastic of the idea.",
+    "r": "She was enthusiastic about the idea.",
+    "why": "Enthusiastic đi với about, hoặc đôi khi over, không phải of."
+   }
+  ],
+  "u": "Enthusiastic mô tả người thể hiện hứng thú hoặc hào hứng mạnh mẽ, hay hành động thể hiện điều đó: người hâm mộ nhiệt tình, sự chào đón nồng nhiệt. Đi với about trước chủ đề: enthusiastic about the plan. Trong tin tuyển dụng, đây là yêu cầu phổ biến nhưng hơi mơ hồ. Less than enthusiastic là cách lịch sự để ngụ ý phản ứng không tốt. Ấm hơn interested và nhẹ hơn fanatical. Trạng từ là enthusiastically, danh từ là enthusiasm. Trọng âm rơi vào âm tiết thứ tư. Người Việt hay dùng sai giữa enthusiasm và enthusiastic."
+ },
+ "enthusiastically": {
+  "mis": [
+   {
+    "w": "They clapped enthusiastic after the show.",
+    "r": "They clapped enthusiastically after the show.",
+    "why": "Cần trạng từ để bổ nghĩa cho động từ clapped."
+   },
+   {
+    "w": "She answered enthusiastically but quiet.",
+    "r": "She answered enthusiastically but quietly.",
+    "why": "Khi cùng bổ nghĩa cho một động từ, cả hai trạng từ phải ở dạng trạng từ."
+   }
+  ],
+  "u": "Enthusiastically là trạng từ của enthusiastic: với sự hào hứng mạnh mẽ, dễ thấy. Thường đứng sau động từ phản ứng hoặc ủng hộ: respond, welcome, applaud, nod, receive, endorse. Có thể đứng đầu câu để nhấn mạnh: Enthusiastically, they agreed. Phổ biến trong tin tức và bài đánh giá, ví dụ cuốn sách được đón nhận nhiệt tình. Eagerly gợi mong muốn điều gì xảy ra, còn enthusiastically gợi sự thể hiện năng lượng. Từ dài, âm giữa yếu. Hiếm đi với động từ tiêu cực trừ khi mỉa mai. Người Việt hay thiếu đuôi -ally."
+ },
+ "environmentally": {
+  "mis": [
+   {
+    "w": "This is an environmental friendly product.",
+    "r": "This is an environmentally friendly product.",
+    "why": "Cần trạng từ bổ nghĩa cho tính từ friendly nên dùng environmentally."
+   },
+   {
+    "w": "We care environmentally about the planet.",
+    "r": "We care about the planet's environment.",
+    "why": "Trạng từ này không bổ nghĩa cho động từ care theo cách đó; dùng cụm về môi trường."
+   }
+  ],
+  "u": "Environmentally là trạng từ gắn hành động hoặc sản phẩm với môi trường tự nhiên, thường đứng trước tính từ: thân thiện với môi trường, gây hại môi trường, có ý thức về môi trường. Phổ biến trong tiếp thị, chính sách và tin tức. Lưu ý environmentally friendly đôi khi dùng lỏng lẻo trong quảng cáo, nên lời khẳng định chưa chắc có bằng chứng. Cụ thể hơn green, vốn thân mật và rộng. Trọng âm rơi vào âm tiết thứ tư. Environmental là tính từ, environmentalist là người vận động bảo vệ môi trường. Người Việt hay nhầm hai dạng này."
+ },
+ "escort": {
+  "mis": [
+   {
+    "w": "The guard escorted to the visitors.",
+    "r": "The guard escorted the visitors.",
+    "why": "Escort là ngoại động từ; người theo sau trực tiếp, không có to."
+   },
+   {
+    "w": "He escorted me to out of the building.",
+    "r": "He escorted me out of the building.",
+    "why": "Sau tân ngữ chỉ dùng một từ chỉ hướng: out of, to, into."
+   }
+  ],
+  "u": "Escort có dạng động từ và danh từ với trọng âm khác nhau: động từ nhấn âm tiết thứ hai, danh từ nhấn âm đầu. Là động từ, nghĩa là đi cùng ai để dẫn đường, bảo vệ hoặc đảm bảo họ đến hay rời đi: bảo vệ sẽ dẫn khách đến quầy lễ tân. Là danh từ, nghĩa là người hoặc nhóm làm việc đó, hoặc trong một số ngữ cảnh là người đi cùng được trả tiền. Hay gặp police escort, armed escort. Escort trang trọng và có phần quyền lực, khác với walk someone thân mật. Thường đi với to, out of, through."
+ },
+ "evacuate": {
+  "mis": [
+   {
+    "w": "Everyone evacuated to the fire.",
+    "r": "Everyone evacuated because of the fire.",
+    "why": "To không dùng cho nguyên nhân; dùng because of hoặc due to."
+   },
+   {
+    "w": "They evacuated of the building.",
+    "r": "They evacuated the building.",
+    "why": "Evacuate nhận nơi chốn làm tân ngữ trực tiếp, không có of."
+   }
+  ],
+  "u": "Evacuate nghĩa là đưa người ra khỏi nơi nguy hiểm, hoặc tự rời đi, thường trong tình huống khẩn cấp: sơ tán tòa nhà, sơ tán cư dân trước lũ. Tân ngữ có thể là nơi chốn hoặc người: evacuate the town; evacuate the injured. Từ trang trọng, kịch tính, hay thấy trong tin tức, hướng dẫn an toàn và diễn tập cứu hỏa. Danh từ là evacuation, evacuee là người được sơ tán. Evacuate còn có nghĩa y khoa liên quan đến đại tiện nhưng hiếm gặp. Người Việt hay thêm of sau evacuate."
+ },
+ "exceptional": {
+  "mis": [
+   {
+    "w": "It was a very exceptional day.",
+    "r": "It was an exceptional day.",
+    "why": "Exceptional vốn đã nghĩa là cực tốt nên không cần very."
+   },
+   {
+    "w": "The student is exceptional in math.",
+    "r": "The student is exceptionally good at math.",
+    "why": "Dùng trạng từ exceptionally trước good; exceptional mô tả cả học sinh."
+   }
+  ],
+  "u": "Exceptional có hai nghĩa: cực kỳ tốt, như dịch vụ xuất sắc, và khác thường, ngoài lệ thông thường, như hoàn cảnh đặc biệt. Ngữ cảnh cho biết nghĩa nào. Khi nói chất lượng, từ mạnh và tích cực nên hay thấy trong đánh giá, thư giới thiệu: nhân viên xuất sắc. Trong quy định, exceptional nghĩa là chỉ cho phép trong trường hợp hiếm: only in exceptional circumstances. Đừng nhầm với exceptionable (đáng bị phản đối). Outstanding gần nghĩa ở nghĩa đầu, extraordinary còn nổi bật hơn. Danh từ là exception."
+ },
+ "exclusive": {
+  "mis": [
+   {
+    "w": "This offer is exclusive for members.",
+    "r": "This offer is exclusive to members.",
+    "why": "Exclusive đi với to cho nhóm được hưởng quyền."
+   },
+   {
+    "w": "The price is exclusive tax.",
+    "r": "The price is exclusive of tax.",
+    "why": "Cụm là exclusive of, nghĩa là chưa bao gồm."
+   }
+  ],
+  "u": "Exclusive có nhiều nghĩa. Có thể là chỉ dành riêng cho một người hay nhóm: độc quyền, chỉ dành cho hội viên. Có thể là sang trọng, đắt tiền: câu lạc bộ, khu dân cư cao cấp. Trong tin tức, đó là bài được một cơ quan đăng đầu tiên. Về giá, exclusive of tax nghĩa là chưa gồm thuế. Ngữ cảnh rất quan trọng vì exclusive nghe tích cực trong tiếp thị nhưng có thể tiêu cực nếu ngụ ý loại người khác ra. Trái nghĩa ở nghĩa thứ hai là inclusive. Danh từ là exclusivity, trạng từ là exclusively."
+ },
+ "exclusively": {
+  "mis": [
+   {
+    "w": "The shop sells exclusive shoes only.",
+    "r": "The shop sells shoes exclusively.",
+    "why": "Dùng trạng từ exclusively; exclusive là tính từ và lặp nghĩa với only."
+   },
+   {
+    "w": "We work exclusive on this project.",
+    "r": "We work exclusively on this project.",
+    "why": "Cần trạng từ để bổ nghĩa cho động từ work."
+   }
+  ],
+  "u": "Exclusively nghĩa là chỉ, không bao gồm thứ gì khác: chỉ bán trực tuyến, câu lạc bộ chỉ dành cho nữ. Trang trọng và nhấn mạnh hơn only, thường bổ nghĩa cho cụm giới từ hoặc động từ: focus exclusively on, sold exclusively through. Trong quảng cáo, từ báo hiệu ưu đãi giới hạn. Vị trí quan trọng: exclusively for members đặt giới hạn lên hội viên, còn members exclusively nghe cứng. Solely là từ đồng nghĩa gần, còn entirely và wholly nhấn vào sự trọn vẹn. Đây là trạng từ của exclusive."
+ }
+}

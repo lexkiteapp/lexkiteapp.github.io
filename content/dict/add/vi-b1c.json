@@ -1,0 +1,752 @@
+{
+ "biography": {
+  "mis": [
+   {
+    "w": "She wrote a biography about herself.",
+    "r": "She wrote an autobiography about herself.",
+    "why": "Biography là tiểu sử do người khác viết; tự viết về đời mình phải dùng autobiography."
+   },
+   {
+    "w": "I read a biography on Einstein.",
+    "r": "I read a biography of Einstein.",
+    "why": "Sau biography dùng giới từ of để chỉ người được viết về, không dùng on."
+   }
+  ],
+  "u": "Biography là tiểu sử, do một người khác viết về cuộc đời ai đó. Nếu tự viết về mình thì gọi là autobiography, còn memoir chỉ kể những giai đoạn chọn lọc. Trong môi trường công sở, biography (thường gọi tắt là bio) là đoạn giới thiệu ngắn về diễn giả hay nhân viên mới, rất hay gặp trong thư mời hội thảo. Danh từ đếm được, người được viết đi sau of: a biography of Lincoln. Tính từ là biographical."
+ },
+ "blanket": {
+  "mis": [
+   {
+    "w": "I need a blanket for sleep.",
+    "r": "I need a blanket to sleep under.",
+    "why": "Muốn nêu mục đích dùng to + động từ; không viết for sleep sau blanket."
+   },
+   {
+    "w": "The nurse gave me a blankets.",
+    "r": "The nurse gave me a blanket.",
+    "why": "Blanket là danh từ đếm được số ít nên đi với a, không thêm s."
+   }
+  ],
+  "u": "Blanket là danh từ đếm được chỉ chiếc chăn dày, hay gặp trên máy bay và khách sạn: ask for an extra blanket. Nó còn là tính từ nghĩa là áp dụng cho tất cả, không ngoại lệ: a blanket ban (lệnh cấm toàn diện). Cụm a blanket of snow là lớp tuyết phủ dày đều. Đừng nhầm với duvet hay comforter (chăn bông có ruột) và sheet (ga mỏng). Người Việt hay quên mạo từ a khi nói số ít."
+ },
+ "boardroom": {
+  "mis": [
+   {
+    "w": "The meeting is at the boardroom.",
+    "r": "The meeting is in the boardroom.",
+    "why": "Phòng họp là không gian kín nên dùng in, không dùng at."
+   },
+   {
+    "w": "She was promoted to the boardroom.",
+    "r": "She was promoted to the board.",
+    "why": "Board là hội đồng quản trị; boardroom chỉ là căn phòng, không phải nhóm người."
+   }
+  ],
+  "u": "Boardroom là phòng họp trang trọng nơi hội đồng quản trị họp, thường có bàn dài. Vì gắn với ban lãnh đạo cấp cao nên từ này còn mang nghĩa quyền lực công ty: boardroom politics, a boardroom battle. Họp nhóm bình thường thì dùng meeting room, còn conference room là cách gọi chung phổ biến ở văn phòng Mỹ. Đừng nhầm với board là hội đồng quản trị: boardroom chỉ là căn phòng, và đi với in the boardroom."
+ },
+ "brainstorm": {
+  "mis": [
+   {
+    "w": "Let's brainstorm about new ideas.",
+    "r": "Let's brainstorm new ideas.",
+    "why": "Brainstorm đi thẳng với tân ngữ, không cần about."
+   },
+   {
+    "w": "We did a brainstorming for the campaign.",
+    "r": "We held a brainstorming session for the campaign.",
+    "why": "Không nói a brainstorming; phải nói a brainstorming session."
+   }
+  ],
+  "u": "Động từ brainstorm nghĩa là cả nhóm đưa ra thật nhiều ý tưởng trước khi đánh giá, và đi thẳng với tân ngữ: brainstorm slogans, brainstorm solutions. Danh từ chỉ hoạt động là brainstorming, thường nằm trong cụm a brainstorming session. Trong tiếng Anh Mỹ, a brainstorm còn có thể là một ý hay chợt nảy ra, người Anh gọi là brainwave. Người Việt hay thêm about sau brainstorm, đây là lỗi thường gặp."
+ },
+ "broaden": {
+  "mis": [
+   {
+    "w": "The trip broadened my horizon.",
+    "r": "The trip broadened my horizons.",
+    "why": "Cụm cố định là broaden your horizons, dùng số nhiều."
+   },
+   {
+    "w": "We must broad our customer base.",
+    "r": "We must broaden our customer base.",
+    "why": "Broad là tính từ; động từ phải là broaden."
+   }
+  ],
+  "u": "Broaden là động từ nghĩa là mở rộng phạm vi, nên hay đi với danh từ trừu tượng: broaden your horizons (mở mang tầm nhìn), the scope, the appeal, the customer base. Widen dùng rộng hơn và còn nói về đường hay khoảng cách vật lý, còn expand nhấn mạnh tăng quy mô. Câu quen thuộc: travel broadens the mind. Tính từ là broad, danh từ là breadth. Người học hay viết broad làm động từ, thiếu đuôi en."
+ },
+ "broker": {
+  "mis": [
+   {
+    "w": "He is a stock brokerage at a large bank.",
+    "r": "He is a stockbroker at a large bank.",
+    "why": "Broker là người môi giới; brokerage là công ty hoặc phí môi giới."
+   },
+   {
+    "w": "The UN brokered with both sides.",
+    "r": "The UN brokered a deal between both sides.",
+    "why": "Broker là ngoại động từ, tân ngữ là thỏa thuận, không đi với with."
+   }
+  ],
+  "u": "Broker là cá nhân hoặc công ty trung gian sắp xếp mua bán hay hợp đồng giữa hai bên và hưởng hoa hồng: mortgage broker, insurance broker. Hoạt động này gọi là brokerage. Dùng như động từ, broker nghĩa là môi giới để đạt thỏa thuận giữa các bên đối lập, rất hay gặp trong tin chính trị: broker a ceasefire. Khác với agent chỉ đại diện một khách hàng, và dealer thì bán từ hàng của chính mình. Người học hay nhầm broker với brokerage."
+ },
+ "by-law": {
+  "mis": [
+   {
+    "w": "The company by-law say we must meet yearly.",
+    "r": "The company by-laws say we must meet yearly.",
+    "why": "Bộ quy chế thường ở số nhiều by-laws nên động từ là say."
+   },
+   {
+    "w": "It is against the by-law of the country.",
+    "r": "It is against the law of the country.",
+    "why": "By-law do địa phương hay tổ chức ban hành, không phải luật quốc gia."
+   }
+  ],
+  "u": "By-law là quy định do một tổ chức hoặc chính quyền địa phương đặt ra, cấp thấp hơn luật quốc gia. Công ty dùng by-laws (điều lệ) để quy định họp cổ đông và nhiệm vụ giám đốc; hội đồng thành phố ban hành by-law về tiếng ồn, đỗ xe, nuôi chó. Cũng viết bylaw, và dạng số nhiều by-laws thường chỉ cả bộ quy chế. Luật quốc gia dùng law hay statute, còn quy định của cơ quan chính phủ là regulation."
+ },
+ "cabin": {
+  "mis": [
+   {
+    "w": "Please keep your seat belt on in the cabin crew.",
+    "r": "Please keep your seat belt on in the cabin.",
+    "why": "Cabin là khoang hành khách; cabin crew là phi hành đoàn phục vụ trong đó."
+   },
+   {
+    "w": "We stayed in a cabin on the sea.",
+    "r": "We stayed in a cabin by the sea.",
+    "why": "Nơi ở gần biển dùng by the sea, không dùng on the sea."
+   }
+  ],
+  "u": "Cabin có vài nghĩa: khoang hành khách trên máy bay (cabin crew, cabin pressure), phòng riêng trên tàu thủy, và căn nhà gỗ nhỏ trong rừng, nhất là log cabin. Trên chuyến bay, cabin baggage là hành lý xách tay để trong khoang phía trên đầu, người Anh còn nói hand luggage. Khoang hạng nhất là first-class cabin, tách biệt với cockpit là buồng lái. Đừng nhầm cabin (khoang) với cabin crew (phi hành đoàn)."
+ },
+ "calculation": {
+  "mis": [
+   {
+    "w": "I did a mistake in my calculation.",
+    "r": "I made a mistake in my calculation.",
+    "why": "Với lỗi sai dùng make a mistake, không dùng do."
+   },
+   {
+    "w": "The calculation of the cost are simple.",
+    "r": "The calculation of the cost is simple.",
+    "why": "Chủ ngữ là calculation số ít nên động từ là is."
+   }
+  ],
+  "u": "Calculation chỉ quá trình hoặc kết quả tính toán số liệu: make a calculation, do the calculations, a rough calculation (tính nhẩm sơ bộ). Danh từ đếm được, hay dùng số nhiều vì một bài toán thường có nhiều bước. Nghĩa rộng là sự cân nhắc kỹ rủi ro: a cold calculation. Từ này trang trọng hơn sum. Động từ là calculate, tính từ calculated nghĩa là có tính toán trước, như a calculated risk."
+ },
+ "cargo": {
+  "mis": [
+   {
+    "w": "Many cargos arrived at the port.",
+    "r": "Much cargo arrived at the port.",
+    "why": "Cargo thường là danh từ không đếm được, nên dùng much cargo."
+   },
+   {
+    "w": "The cargo of the passengers was heavy.",
+    "r": "The luggage of the passengers was heavy.",
+    "why": "Cargo là hàng hóa vận chuyển thương mại, không phải hành lý hành khách."
+   }
+  ],
+  "u": "Cargo là hàng hóa chở bằng tàu, máy bay hoặc xe tải, thường là danh từ không đếm được: the cargo was unloaded. Dạng số nhiều cargoes (Mỹ còn viết cargos) có thể dùng nhưng hiếm. Cargo là khối hàng, còn freight nhấn mạnh việc vận chuyển và cước phí, shipment là một lô hàng gửi cùng lúc. Không dùng cargo cho đồ đạc của hành khách, những thứ đó gọi là baggage hoặc luggage."
+ },
+ "carrier": {
+  "mis": [
+   {
+    "w": "Which carrier is your phone?",
+    "r": "Which carrier is your phone on?",
+    "why": "Nhà mạng điện thoại dùng với on: Which carrier is your phone on?"
+   },
+   {
+    "w": "She is a carrier of the bad news.",
+    "r": "She is the bearer of the bad news.",
+    "why": "Thành ngữ đúng là bearer of bad news; carrier dùng cho hàng, bệnh hoặc công ty."
+   }
+  ],
+  "u": "Carrier là công ty vận chuyển hàng hóa hoặc hành khách, như airline carrier hay freight carrier; ở Mỹ nó còn là nhà mạng di động cung cấp dịch vụ cho bạn. Hãng bay giá rẻ hay gọi là budget carrier. Carrier bag là cách người Anh gọi túi ni lông đi chợ. Trong y học, carrier là người mang mầm bệnh và có thể lây mà không có triệu chứng. Nghĩa của từ thay đổi nhiều theo ngữ cảnh nên cần để ý danh từ đi kèm."
+ },
+ "cartridge": {
+  "mis": [
+   {
+    "w": "The printer needs a new ink cartridges.",
+    "r": "The printer needs a new ink cartridge.",
+    "why": "A new cần danh từ số ít: a new ink cartridge."
+   },
+   {
+    "w": "I bought a cartridge for ink.",
+    "r": "I bought an ink cartridge.",
+    "why": "Chất bên trong đặt trước danh từ: ink cartridge, không nói cartridge for ink."
+   }
+  ],
+  "u": "Cartridge là hộp kín chứa vật tư tiêu hao và được lắp vào máy: ink cartridge (hộp mực in phun), toner cartridge (hộp mực in laser). Trong văn phòng, replace the cartridge là việc quen thuộc, và máy in rẻ thường tốn kém vì hộp mực đắt. Từ này còn chỉ đạn súng nên cần nhìn ngữ cảnh. Toner là bột mực trong hộp máy laser, còn ink là mực lỏng của máy in phun. Danh từ đếm được nên nhớ mạo từ a."
+ },
+ "cater": {
+  "mis": [
+   {
+    "w": "The company caters to a wedding every week.",
+    "r": "The company caters weddings every week.",
+    "why": "Cater không giới từ là cung cấp đồ ăn; cater to là đáp ứng nhu cầu."
+   },
+   {
+    "w": "This hotel caters for young people's needs.",
+    "r": "This hotel caters to young people's needs.",
+    "why": "Cater to là dạng chuẩn khi phục vụ nhóm khách; cater for chủ yếu là Anh-Anh."
+   }
+  ],
+  "u": "Cater có hai cách dùng. Không giới từ nghĩa là cung cấp đồ ăn thức uống cho sự kiện: a local firm will cater the party. Đi với to hoặc for nghĩa là đáp ứng nhu cầu của một nhóm: the hotel caters to business travellers. Cater to phổ biến ở Mỹ, người Anh còn nói cater for. Cater to đôi khi hơi tiêu cực, nghĩa là chiều chuộng quá mức: catering to every whim. Người Việt hay thêm to sau cater khi chỉ cần tân ngữ."
+ },
+ "caterer": {
+  "mis": [
+   {
+    "w": "We employed a catering for the party.",
+    "r": "We hired a caterer for the party.",
+    "why": "Caterer là người hoặc công ty; catering là dịch vụ, không đếm được."
+   },
+   {
+    "w": "The caterer cooked at our home for the wedding.",
+    "r": "The caterer prepared the food at our home for the wedding.",
+    "why": "Dùng prepared hoặc provided cho dịch vụ tổ chức tiệc, tự nhiên hơn cooked."
+   }
+  ],
+  "u": "Caterer là người hoặc doanh nghiệp cung cấp đồ ăn thức uống cho sự kiện như đám cưới, tiệc công ty, thường giao và phục vụ tại chỗ. Dịch vụ gọi là catering, không đếm được: we booked the catering. Ta nói hire hoặc book a caterer. Động từ tương ứng là cater. Caterer khác nhà hàng ở chỗ món ăn được chuẩn bị riêng cho một sự kiện, thường tại địa điểm của khách. Người học hay nhầm caterer với catering."
+ },
+ "caution": {
+  "mis": [
+   {
+    "w": "Please be caution on the wet floor.",
+    "r": "Please be cautious on the wet floor.",
+    "why": "Caution là danh từ; sau be dùng tính từ cautious."
+   },
+   {
+    "w": "Use a caution when you drive.",
+    "r": "Use caution when you drive.",
+    "why": "Caution nghĩa là sự thận trọng, không đếm được nên không dùng a."
+   }
+  ],
+  "u": "Caution là danh từ không đếm được khi nghĩa là sự thận trọng để tránh nguy hiểm: proceed with caution, use caution. Dạng đếm được nghĩa là lời cảnh cáo, nhất là ở Anh: the police gave him a caution. Làm động từ nó đi với against hoặc mệnh đề: caution against overspending. Tính từ là cautious, trạng từ cautiously. Caution trang trọng hơn care và hay thấy trên biển báo vàng. Người Việt hay dùng caution thay cho cautious."
+ },
+ "certificate": {
+  "mis": [
+   {
+    "w": "I got a certificate of English at the school.",
+    "r": "I got a certificate in English from the school.",
+    "why": "Môn học dùng in, nơi cấp dùng from."
+   },
+   {
+    "w": "Please show your certification of birth.",
+    "r": "Please show your birth certificate.",
+    "why": "Giấy tờ là certificate; certification là quá trình hoặc tình trạng được chứng nhận."
+   }
+  ],
+  "u": "Certificate là giấy tờ chính thức chứng minh một sự thật hoặc trình độ: a birth certificate, a training certificate. Đếm được, và ta receive hoặc award một chứng chỉ. Ở Mỹ gift certificate là phiếu quà tặng mua sắm, người Anh gọi là gift voucher. Đừng nhầm với certification là quá trình hoặc trạng thái được chứng nhận, hay diploma thường chỉ bằng của một khóa học dài hơn. Môn học đi với in: a certificate in English."
+ },
+ "certification": {
+  "mis": [
+   {
+    "w": "I have three certifications papers.",
+    "r": "I have three certificates.",
+    "why": "Certification là quá trình hoặc trạng thái; tờ giấy là certificate."
+   },
+   {
+    "w": "She is certification as a nurse.",
+    "r": "She is certified as a nurse.",
+    "why": "Sau be dùng tính từ certified, không dùng danh từ certification."
+   }
+  ],
+  "u": "Certification là sự xác nhận chính thức rằng một người, sản phẩm hoặc quy trình đạt chuẩn, bao gồm cả quá trình và tình trạng được chứng nhận. Số ít thường không đếm được, nhưng một người có thể có nhiều certifications, ví dụ về quản lý dự án hay điện toán đám mây. Accreditation cấp cho tổ chức và khóa học, còn certification thường cấp cho cá nhân và sản phẩm. Tờ giấy chứng nhận thì gọi là certificate."
+ },
+ "certify": {
+  "mis": [
+   {
+    "w": "The doctor certified me to be sick.",
+    "r": "The doctor certified that I was sick.",
+    "why": "Certify đi với mệnh đề that hoặc tân ngữ, không đi với to be + tính từ."
+   },
+   {
+    "w": "He is certificated as a teacher.",
+    "r": "He is certified as a teacher.",
+    "why": "Quá khứ phân từ của certify là certified."
+   }
+  ],
+  "u": "Certify nghĩa là xác nhận chính thức, thường bằng văn bản, rằng điều gì đó đúng hoặc đạt chuẩn. Nó đi với mệnh đề that (I certify that the information is correct), tân ngữ (certify a copy) hoặc as + vai trò (certified as a nurse). Ở Mỹ, certified thường đứng trước nghề: certified public accountant. Đây là từ trang trọng; trong đời thường dùng confirm hay verify. Danh từ liên quan là certification và certificate."
+ },
+ "chairperson": {
+  "mis": [
+   {
+    "w": "She is the chairperson of the meeting yesterday.",
+    "r": "She chaired the meeting yesterday.",
+    "why": "Dùng động từ chair để chỉ việc điều hành cuộc họp."
+   },
+   {
+    "w": "Mr. Lee is the chairperson in our company.",
+    "r": "Mr. Lee is the chairperson of our company.",
+    "why": "Tổ chức mà người đó đứng đầu đi với of."
+   }
+  ],
+  "u": "Chairperson là từ trung tính về giới chỉ người điều hành cuộc họp, ủy ban hoặc hội đồng; thường rút gọn thành chair trong lời nói. Các từ cũ chairman và chairwoman vẫn dùng, nhưng nhiều tổ chức ưa cách gọi trung tính. Động từ chair nghĩa là chủ trì cuộc họp: she chairs the weekly review. Chairperson của công ty giám sát hội đồng quản trị, không điều hành công việc hằng ngày; vị trí đó thuộc về CEO. Tổ chức đi với of."
+ },
+ "cheer": {
+  "mis": [
+   {
+    "w": "The crowd cheered to the team.",
+    "r": "The crowd cheered for the team.",
+    "why": "Cheer for chỉ đối tượng được cổ vũ; không dùng to."
+   },
+   {
+    "w": "Cheer up! I will cheer for you the exam.",
+    "r": "Cheer up! I will cheer you on in the exam.",
+    "why": "Muốn cổ vũ ai trong một sự kiện, dùng cheer someone on."
+   }
+  ],
+  "u": "Động từ cheer nghĩa là la hét cổ vũ hoặc tán thưởng; cheer for a team hay cheer on a runner cho biết bạn cổ vũ ai. Cheer up nghĩa là vui lên hoặc làm ai vui lên, và có thể dùng như lời động viên: cheer up! Danh từ a cheer là tiếng hò reo, còn cheers là lời nâng ly thân mật hoặc cách người Anh nói cảm ơn. Cheer thường là cổ vũ ồn ào, không dùng cho sự khích lệ lặng lẽ."
+ },
+ "circulate": {
+  "mis": [
+   {
+    "w": "Please circulate to all staff this memo.",
+    "r": "Please circulate this memo to all staff.",
+    "why": "Tân ngữ đặt ngay sau circulate, rồi mới đến người nhận với to."
+   },
+   {
+    "w": "The company circulated with the new rules.",
+    "r": "The company circulated the new rules.",
+    "why": "Ở nghĩa này circulate nhận tân ngữ trực tiếp, không dùng with."
+   }
+  ],
+  "u": "Circulate dùng theo hai cách. Có tân ngữ, nó nghĩa là chuyển một thứ như bản ghi nhớ hay báo cáo đến cả nhóm: circulate the agenda before Friday. Không có tân ngữ, nghĩa là lưu thông tự do: blood circulates, rumors circulate. Circulate trang trọng hơn pass around và hợp văn phong công sở. Danh từ circulation còn là số bản báo bán ra. Người học hay đặt người nhận ngay sau circulate."
+ },
+ "classify": {
+  "mis": [
+   {
+    "w": "We classify the books by to subject.",
+    "r": "We classify the books by subject.",
+    "why": "By đi thẳng với tiêu chí phân loại."
+   },
+   {
+    "w": "The report is classified into two part.",
+    "r": "The report is classified into two parts.",
+    "why": "Sau two cần danh từ số nhiều."
+   }
+  ],
+  "u": "Classify nghĩa là xếp vào nhóm theo đặc điểm chung, với các mẫu classify X by Y, classify X as Z và classify X into groups. Classified còn là tính từ nghĩa là tuyệt mật: classified information; classified ad là mục rao vặt trên báo. Classify trang trọng và mang tính kỹ thuật hơn sort, còn categorize gần như đồng nghĩa. Hay gặp trong lưu trữ hồ sơ, khoa học và an ninh."
+ },
+ "clerk": {
+  "mis": [
+   {
+    "w": "He works as a clerk in the bank branch.",
+    "r": "He works as a clerk at the bank branch.",
+    "why": "Nơi làm việc dùng at; in dùng cho bộ phận."
+   },
+   {
+    "w": "I asked the clerk of the shop where.",
+    "r": "I asked the sales clerk where it was.",
+    "why": "Ở Mỹ là sales clerk, ở Anh là shop assistant."
+   }
+  ],
+  "u": "Clerk là người làm công việc văn phòng thường ngày như giữ hồ sơ, hoặc phục vụ khách ở cửa hàng, khách sạn: a bank clerk, a file clerk, a hotel desk clerk. Tiếng Anh Mỹ gọi nhân viên bán hàng là sales clerk; người Anh dùng shop assistant. Cách phát âm Anh vần với dark, còn Mỹ đọc như clerk có r. Ở Mỹ, court clerk là thư ký tòa. Nơi làm việc dùng at: a clerk at the bank."
+ },
+ "closure": {
+  "mis": [
+   {
+    "w": "The closure of the road is cause delays.",
+    "r": "The road closure is causing delays.",
+    "why": "Closure là danh từ; phải dùng động từ chia đúng thì."
+   },
+   {
+    "w": "Closure hours of the shop are at nine.",
+    "r": "The closing time of the shop is nine.",
+    "why": "Closure là hành động đóng; giờ đóng cửa là closing time."
+   }
+  ],
+  "u": "Closure là việc đóng cửa hoặc ngừng hoạt động, vĩnh viễn hay tạm thời: a road closure, a factory closure, school closures. Thường dùng cho đường, doanh nghiệp, cơ quan, còn closing time là giờ đóng cửa tiệm cuối ngày. Trong tâm lý, closure là sự khép lại về cảm xúc, như finding closure after a loss. Động từ là close. Người Việt hay dùng closure để nói giờ đóng cửa, đây là lỗi thường gặp."
+ },
+ "collector": {
+  "mis": [
+   {
+    "w": "He is a collect of old coins.",
+    "r": "He is a collector of old coins.",
+    "why": "Danh từ chỉ người có đuôi -or, không dùng dạng động từ."
+   },
+   {
+    "w": "She collects of stamps.",
+    "r": "She collects stamps.",
+    "why": "Collect là ngoại động từ; of chỉ đi với danh từ collector."
+   }
+  ],
+  "u": "Collector là người sưu tầm đồ vật như một thú vui hoặc nghề, ví dụ art collector, stamp collector, và cũng là người có việc thu thập thứ gì đó: tax collector (người thu thuế), ticket collector (soát vé tàu). Đối tượng đi sau of: a collector of rare books. Private collector thường sở hữu tác phẩm quý và có thể cho bảo tàng mượn. Collection là bộ sưu tập. Động từ collect là ngoại động từ nên không thêm of."
+ },
+ "commonly": {
+  "mis": [
+   {
+    "w": "This word is common used in speech.",
+    "r": "This word is commonly used in speech.",
+    "why": "Dùng trạng từ commonly để bổ nghĩa cho used."
+   },
+   {
+    "w": "He commonly is late.",
+    "r": "He is commonly late.",
+    "why": "Trạng từ tần suất đứng sau be."
+   }
+  ],
+  "u": "Commonly là trạng từ nghĩa là thường hoặc được nhiều người thừa nhận. Nó hay đứng trước phân từ: commonly used, commonly known, commonly referred to as. Vị trí: sau be nhưng trước động từ thường: he is commonly seen, it commonly happens. Commonly nói điều phổ biến, frequently nhấn mạnh sự lặp lại, widely nhấn mạnh phạm vi rộng. Từ hơi trang trọng, hợp văn bản báo cáo. Đừng viết common used mà thiếu đuôi ly."
+ },
+ "communicate": {
+  "mis": [
+   {
+    "w": "I communicate to my manager by email.",
+    "r": "I communicate with my manager by email.",
+    "why": "With chỉ trao đổi hai chiều; to là truyền một chiều."
+   },
+   {
+    "w": "We need more communicate.",
+    "r": "We need more communication.",
+    "why": "Sau more cần danh từ communication."
+   }
+  ],
+  "u": "Communicate nghĩa là chia sẻ thông tin, ý tưởng hay cảm xúc. Đi với with là trao đổi hai chiều (communicate with colleagues), đi với to là truyền đạt cho ai (communicate the decision to staff). Danh từ là communication, tính từ communicative. Từ này trung tính; convey nhấn mạnh truyền ý đến người nghe, còn interact là tương tác với người khác. Người Việt hay dùng communicate làm danh từ, cần đổi thành communication sau more hay good."
+ },
+ "compartment": {
+  "mis": [
+   {
+    "w": "Put your bag on the overhead compartments.",
+    "r": "Put your bag in the overhead compartment.",
+    "why": "Hành lý đặt trong khoang kín nên dùng in."
+   },
+   {
+    "w": "The train has a compartment of the first class.",
+    "r": "The train has a first-class compartment.",
+    "why": "Loại khoang đặt trước danh từ, không dùng of."
+   }
+  ],
+  "u": "Compartment là ngăn hoặc khoang tách biệt trong một vật chứa, phương tiện hay không gian lớn hơn: overhead compartment trên máy bay, glove compartment trong ô tô, storage compartment. Trên tàu cũ còn nghĩa là buồng nhỏ riêng cho hành khách. Ý chính là tách các thứ ra, nên compartment gợi vách ngăn, còn locker là tủ khóa. Động từ compartmentalize nghĩa là chia tách thành phần. Hành lý để trong khoang: in the overhead compartment."
+ },
+ "completion": {
+  "mis": [
+   {
+    "w": "After completion the course, you get a certificate.",
+    "r": "After completion of the course, you get a certificate.",
+    "why": "Completion đi với of trước thứ được hoàn thành."
+   },
+   {
+    "w": "The completion of the work are expected in May.",
+    "r": "The completion of the work is expected in May.",
+    "why": "Chủ ngữ completion số ít nên dùng is."
+   }
+  ],
+  "u": "Completion là hành động hoàn thành hoặc trạng thái đã xong. Phổ biến trong văn trang trọng và quản lý dự án: on completion, upon completion, the completion date. Cái được hoàn thành đi sau of: completion of the course. Thường không đếm được. Trong bất động sản, completion là giai đoạn cuối khi chuyển quyền sở hữu. Văn nói dùng finish đơn giản hơn; completion hợp với hợp đồng và báo cáo. Nhớ giữ động từ số ít."
+ },
+ "complimentary": {
+  "mis": [
+   {
+    "w": "The hotel gives a complementary breakfast.",
+    "r": "The hotel gives a complimentary breakfast.",
+    "why": "Complimentary là miễn phí hoặc khen ngợi; complementary là bổ sung cho nhau."
+   },
+   {
+    "w": "He was complimentary at the dress.",
+    "r": "He was complimentary about the dress.",
+    "why": "Khen điều gì dùng complimentary about."
+   }
+  ],
+  "u": "Complimentary có hai nghĩa: được tặng miễn phí như một sự ưu đãi (a complimentary breakfast) và mang tính khen ngợi (complimentary remarks). Từ này hay bị nhầm với complementary, nghĩa là bổ sung, hợp nhau. Khách sạn và hãng bay dùng complimentary cho đồ tặng kèm, còn freebie là từ thân mật. Khi khen điều gì, ta nói complimentary about. Chính tả là điểm khó với người Việt: i trong complimentary, e trong complementary."
+ },
+ "comprehension": {
+  "mis": [
+   {
+    "w": "I have a poor comprehend of English.",
+    "r": "I have a poor comprehension of English.",
+    "why": "Sau poor dùng danh từ comprehension."
+   },
+   {
+    "w": "This idea is beyond my comprehend.",
+    "r": "This idea is beyond my comprehension.",
+    "why": "Sau beyond phải là danh từ."
+   }
+  ],
+  "u": "Comprehension là khả năng hiểu điều gì, thường là ngôn ngữ viết hoặc nói. Trong thi cử nó là tên phần bài: reading comprehension, listening comprehension. Cụm cố định beyond comprehension nghĩa là không thể hiểu nổi. Danh từ không đếm được, trang trọng hơn understanding. Động từ là comprehend, tính từ comprehensible. Comprehensive nghĩa là toàn diện, là từ khác, hay bị người học nhầm."
+ },
+ "confidential": {
+  "mis": [
+   {
+    "w": "The salary is a confidence information.",
+    "r": "The salary is confidential information.",
+    "why": "Tính từ là confidential, không dùng danh từ confidence."
+   },
+   {
+    "w": "Please keep this confidential to others.",
+    "r": "Please keep this confidential.",
+    "why": "Keep confidential không cần thêm to others."
+   }
+  ],
+  "u": "Confidential mô tả thông tin cần giữ kín giữa những người nhất định: strictly confidential, keep it confidential. Trong công việc, nghĩa mạnh hơn private; tài liệu được đóng dấu confidential. Danh từ là confidentiality, trạng từ confidentially, còn confidence nghĩa là sự tin tưởng hay tự tin, không phải bí mật. Người Việt hay viết confidence information thay vì confidential information. Báo cáo confidential chỉ một số người được đọc."
+ },
+ "congratulate": {
+  "mis": [
+   {
+    "w": "I congratulate you for your promotion.",
+    "r": "I congratulate you on your promotion.",
+    "why": "Congratulate đi với on, không dùng for."
+   },
+   {
+    "w": "Congratulation for your success!",
+    "r": "Congratulations on your success!",
+    "why": "Lời chúc là Congratulations, số nhiều, đi với on."
+   }
+  ],
+  "u": "Congratulate nghĩa là bày tỏ niềm vui trước thành công của ai, và đi với on: congratulate her on the new job. Danh từ dùng khi chúc là congratulations, luôn số nhiều. Người nhận là tân ngữ: congratulate the team. Trong văn trang trọng có thể warmly congratulate hoặc heartily congratulate; trong lời nói thường chỉ nói well done. Người Việt hay dùng for thay cho on, vì dịch là chúc mừng vì."
+ },
+ "consecutive": {
+  "mis": [
+   {
+    "w": "It rained for three consecutive day.",
+    "r": "It rained for three consecutive days.",
+    "why": "Sau three danh từ phải ở số nhiều."
+   },
+   {
+    "w": "We won the match three times consecutive.",
+    "r": "We won three consecutive matches.",
+    "why": "Consecutive là tính từ đứng trước danh từ, không phải trạng từ."
+   }
+  ],
+  "u": "Consecutive là tính từ chỉ những thứ nối tiếp nhau liên tục, không ngắt quãng: three consecutive days, the fifth consecutive year. Đứng trước danh từ số nhiều hoặc số thứ tự như third consecutive. Successive gần nghĩa nhưng cho phép khoảng trống nhỏ; cách nói thân mật là in a row: three days in a row. Trạng từ là consecutively. Consecutive interpretation là phiên dịch nối tiếp, dịch sau khi người nói dừng."
+ },
+ "context": {
+  "mis": [
+   {
+    "w": "In the context of the globalization, prices rise.",
+    "r": "In the context of globalization, prices rise.",
+    "why": "Danh từ trừu tượng dùng chung không cần mạo từ."
+   },
+   {
+    "w": "The quote was taken out the context.",
+    "r": "The quote was taken out of context.",
+    "why": "Cụm cố định là out of context, không có mạo từ."
+   }
+  ],
+  "u": "Context là tình huống hoặc văn cảnh xung quanh làm cho một điều có ý nghĩa: social context, historical context, in this context. Cụm out of context nghĩa là trích mà bỏ phần xung quanh. Context clues là gợi ý từ các từ gần đó giúp đoán từ mới. Đếm được nhưng thường dùng số ít. Background là bối cảnh lịch sử, setting là nơi chốn hoặc thời gian; context rộng hơn cả hai. Cụm cố định không có mạo từ: out of context."
+ },
+ "contractor": {
+  "mis": [
+   {
+    "w": "He is a contract of the company.",
+    "r": "He is a contractor for the company.",
+    "why": "Người được thuê là contractor; contract là hợp đồng."
+   },
+   {
+    "w": "The contractor gave a bad work.",
+    "r": "The contractor did poor work.",
+    "why": "Work là danh từ không đếm được, nên không dùng a."
+   }
+  ],
+  "u": "Contractor là cá nhân hoặc công ty được thuê làm một công việc cụ thể theo hợp đồng, như xây dựng, sửa chữa hay dịch vụ: a building contractor, an independent contractor. Khác với nhân viên, contractor làm cho chính mình và thường tự đóng thuế. General contractor quản lý cả dự án và thuê subcontractor. Đừng nhầm contractor với contract là bản hợp đồng. Nhớ rằng work ở nghĩa công việc là danh từ không đếm được."
+ },
+ "convenience": {
+  "mis": [
+   {
+    "w": "Please call me at your convenient.",
+    "r": "Please call me at your convenience.",
+    "why": "Sau your dùng danh từ convenience."
+   },
+   {
+    "w": "It is a convenience to buy online.",
+    "r": "It is convenient to buy online.",
+    "why": "Sau It is dùng tính từ convenient."
+   }
+  ],
+  "u": "Convenience là sự thuận tiện, dễ dàng, tiết kiệm thời gian. Phổ biến trong cụm dịch vụ: for your convenience, at your earliest convenience (khi nào anh tiện nhất). Convenience store là cửa hàng nhỏ mở nhiều giờ. Số nhiều conveniences nghĩa là tiện nghi hiện đại như máy rửa bát. Tính từ là convenient, trái nghĩa là inconvenience. Người Việt hay dùng convenience khi cần tính từ convenient."
+ },
+ "coordinator": {
+  "mis": [
+   {
+    "w": "She is the coordinator the project.",
+    "r": "She is the coordinator of the project.",
+    "why": "Nối người với dự án bằng of."
+   },
+   {
+    "w": "He is a coordinate of the event.",
+    "r": "He is a coordinator of the event.",
+    "why": "Danh từ chỉ người là coordinator; coordinate là động từ."
+   }
+  ],
+  "u": "Coordinator là người tổ chức con người, công việc hay sự kiện để mọi thứ phối hợp với nhau: event coordinator, project coordinator. Đây là chức danh ở trường học, bệnh viện, công ty và thường thấp hơn manager. Thứ được điều phối đi sau of hoặc đặt trước làm danh từ ghép: coordinator of the volunteers. Động từ là coordinate, danh từ chỉ hoạt động là coordination. Đừng viết coordinate khi cần danh từ chỉ người."
+ },
+ "correspondence": {
+  "mis": [
+   {
+    "w": "I have many correspondences to answer.",
+    "r": "I have a lot of correspondence to answer.",
+    "why": "Correspondence là danh từ không đếm được."
+   },
+   {
+    "w": "She is in correspondence to him.",
+    "r": "She is in correspondence with him.",
+    "why": "Trao đổi thư từ dùng with."
+   }
+  ],
+  "u": "Correspondence là việc trao đổi thư từ hoặc email, hoặc chính các thư đó: business correspondence, email correspondence. Danh từ không đếm được: a lot of correspondence, không nói many correspondences. Số nhiều correspondences chỉ sự tương ứng giữa hai thứ. Correspondence trang trọng; một thư riêng lẻ là a letter hay an email. Correspondence course là khóa học qua thư hoặc trực tuyến. Trao đổi với ai dùng with."
+ },
+ "cosmetic": {
+  "mis": [
+   {
+    "w": "She bought many cosmetic.",
+    "r": "She bought many cosmetics.",
+    "why": "Danh từ cosmetics luôn có s."
+   },
+   {
+    "w": "The cosmetic of the car is good.",
+    "r": "The car's appearance is good.",
+    "why": "Cosmetic là tính từ; danh từ là appearance."
+   }
+  ],
+  "u": "Cosmetic là tính từ chỉ mỹ phẩm hoặc những thay đổi chỉ cải thiện vẻ ngoài: cosmetic surgery, purely cosmetic damage. Khi mang ý chê, nó nghĩa là hời hợt: only cosmetic reforms. Danh từ cosmetics luôn số nhiều, nghĩa là đồ trang điểm. Trong công ty, a cosmetic change chỉ ảnh hưởng hình thức, không đổi chức năng. Người Việt hay quên s khi dùng danh từ cosmetics."
+ },
+ "costly": {
+  "mis": [
+   {
+    "w": "The mistake was costly for to us.",
+    "r": "The mistake was costly for us.",
+    "why": "For đi thẳng với người chịu ảnh hưởng."
+   },
+   {
+    "w": "She spoke costly to me.",
+    "r": "She spoke expensively to me.",
+    "why": "Costly là tính từ, không phải trạng từ."
+   }
+  ],
+  "u": "Costly là tính từ nghĩa là đắt, nhưng thường mô tả thứ gây tổn thất, tốn công hay thiệt hại: a costly mistake, costly repairs, a costly delay. Trang trọng hơn pricey và hợp với báo cáo. Từ kết thúc bằng ly nhưng không phải trạng từ, nên không nói speak costly. Với hàng hóa thông thường dùng expensive; costly gợi ý cái giá có thể không đáng."
+ },
+ "counselor": {
+  "mis": [
+   {
+    "w": "The counsellor give me advices.",
+    "r": "The counselor gave me advice.",
+    "why": "Advice không đếm được và động từ phải chia đúng thì."
+   },
+   {
+    "w": "I counsel with my teacher.",
+    "r": "I consult my teacher.",
+    "why": "Counsel không cần with; dùng consult cho nghĩa hỏi ý kiến."
+   }
+  ],
+  "u": "Counselor là người được đào tạo để tư vấn và hỗ trợ về vấn đề cá nhân, nghề nghiệp hoặc tài chính: school counselor, career counselor. Anh Mỹ viết counselor, Anh Anh viết counsellor. Ở Mỹ, counselor ở trại hè là người trông trẻ, còn legal counsel là luật sư. Không nên nhầm với consultant, người tư vấn doanh nghiệp về chuyên môn và thường lấy phí. Advice là danh từ không đếm được."
+ },
+ "courier": {
+  "mis": [
+   {
+    "w": "I sent it by a courier.",
+    "r": "I sent it by courier.",
+    "why": "Sau by chỉ phương tiện không cần mạo từ."
+   },
+   {
+    "w": "The courier delivered me the parcel.",
+    "r": "The courier delivered the parcel to me.",
+    "why": "Deliver đi với tân ngữ rồi mới đến to + người."
+   }
+  ],
+  "u": "Courier là người hoặc công ty giao tài liệu và bưu kiện nhanh, thường trong ngày: courier service, send by courier. Trong tiếng Anh Anh, courier còn là người hướng dẫn đoàn khách. Courier khác bưu điện vì là dịch vụ tư nhân, thường nhanh và có theo dõi. Trong kinh doanh, motorbike courier hay gặp khi gửi hợp đồng gấp. Sau by dùng courier không có mạo từ."
+ },
+ "courtesy": {
+  "mis": [
+   {
+    "w": "Thank you for your courteous.",
+    "r": "Thank you for your courtesy.",
+    "why": "Sau your dùng danh từ courtesy."
+   },
+   {
+    "w": "The photo is courtesy to the museum.",
+    "r": "The photo is courtesy of the museum.",
+    "why": "Cụm cố định là courtesy of."
+   }
+  ],
+  "u": "Courtesy là cách cư xử lịch sự và tôn trọng người khác: common courtesy, treat staff with courtesy. Còn chỉ thứ được cung cấp miễn phí như thiện chí: a courtesy shuttle, a courtesy call. Cụm courtesy of ghi nguồn: photo courtesy of the museum. As a courtesy là làm vì thiện chí, không bắt buộc. Tính từ là courteous, trái nghĩa discourtesy. Sau your dùng danh từ courtesy, không dùng courteous."
+ },
+ "credit": {
+  "mis": [
+   {
+    "w": "He took the credit of my idea.",
+    "r": "He took the credit for my idea.",
+    "why": "Credit đi với for khi nêu việc được ghi công."
+   },
+   {
+    "w": "I paid by credit.",
+    "r": "I paid by credit card.",
+    "why": "Trả bằng credit không rõ; nói credit card."
+   }
+  ],
+  "u": "Credit có hai nghĩa chính. Trong tài chính, nó là tiền vay hoặc hình thức trả chậm: buy on credit, a credit card, access to credit. Trong đời thường, nó là lời khen hoặc sự ghi công: give credit, take credit for something. Cả hai thường không đếm được. A credit cũng có thể là một tín chỉ của khóa học hoặc khoản tiền vào tài khoản. Loan là một khoản vay cụ thể."
+ },
+ "culinary": {
+  "mis": [
+   {
+    "w": "She studies culinary in Paris.",
+    "r": "She studies the culinary arts in Paris.",
+    "why": "Culinary là tính từ nên cần danh từ đi sau."
+   },
+   {
+    "w": "He has a culinary of skills.",
+    "r": "He has culinary skills.",
+    "why": "Culinary đứng thẳng trước danh từ, không dùng of."
+   }
+  ],
+  "u": "Culinary là tính từ liên quan đến nấu nướng hoặc bếp. Xuất hiện trong ngữ cảnh trang trọng, chuyên nghiệp hay quảng cáo: culinary school, culinary skills, a culinary tour of Italy. Nghe sang hơn cooking nên thực đơn và brochure du lịch hay dùng. Danh từ liên quan là cuisine, chỉ phong cách ẩm thực, còn culinary arts là lĩnh vực nấu ăn chuyên nghiệp. Culinary luôn cần danh từ đi sau."
+ },
+ "cumulative": {
+  "mis": [
+   {
+    "w": "The cumulative of sales rose.",
+    "r": "The cumulative total of sales rose.",
+    "why": "Cumulative là tính từ, cần danh từ như total."
+   },
+   {
+    "w": "It is an accumulative effect.",
+    "r": "It is a cumulative effect.",
+    "why": "Tính từ chuẩn là cumulative."
+   }
+  ],
+  "u": "Cumulative là tính từ nghĩa là tăng dần về lượng hoặc tác động khi cộng thêm theo thời gian: the cumulative effect of small delays, the cumulative total. Phổ biến trong tài chính, giáo dục (cumulative GPA) và khoa học. Nó nhấn mạnh sự cộng dồn từng bước, khác total chỉ là tổng. Động từ là accumulate, danh từ accumulation. Accumulative hiếm dùng, nên chọn cumulative."
+ },
+ "dealership": {
+  "mis": [
+   {
+    "w": "I bought it from a car dealer ship.",
+    "r": "I bought it from a car dealership.",
+    "why": "Dealership viết liền một từ."
+   },
+   {
+    "w": "He is the dealership of the company.",
+    "r": "He owns the dealership.",
+    "why": "Dealership là doanh nghiệp, không phải người."
+   }
+  ],
+  "u": "Dealership là doanh nghiệp, thường là đại lý nhượng quyền, bán xe hoặc sản phẩm cho nhà sản xuất và thường có sửa chữa: a car dealership, an authorized dealership. Người bán là dealer hoặc salesperson. Dealership gợi sự liên kết chính thức với hãng, khác với bãi xe cũ. Từ còn chỉ quyền bán hợp pháp, như granted a dealership. Viết liền một từ."
+ },
+ "decoration": {
+  "mis": [
+   {
+    "w": "The office has many decoration.",
+    "r": "The office has many decorations.",
+    "why": "Decorations là đồ trang trí đếm được nên dùng số nhiều."
+   },
+   {
+    "w": "I made a decoration of my room.",
+    "r": "I decorated my room.",
+    "why": "Dùng động từ decorate cho hành động."
+   }
+  ],
+  "u": "Decoration là thứ thêm vào để làm nơi chốn đẹp hơn, như Christmas decorations, hoặc hành động trang trí: interior decoration. Số nhiều decorations dùng cho đồ vật; decoration nghĩa quá trình thì không đếm được. Còn có nghĩa là huân chương vinh danh sự dũng cảm. Động từ là decorate, người làm là decorator. Ornament là một món đồ trang trí riêng lẻ."
+ },
+ "dedication": {
+  "mis": [
+   {
+    "w": "I admire your dedication on work.",
+    "r": "I admire your dedication to work.",
+    "why": "Dedication đi với to."
+   },
+   {
+    "w": "He is a dedication person.",
+    "r": "He is a dedicated person.",
+    "why": "Trước danh từ dùng tính từ dedicated."
+   }
+  ],
+  "u": "Dedication là sự tận tâm mạnh mẽ với công việc, mục tiêu hay người: hard work and dedication, dedication to duty. Luôn đi với to. Tính từ là dedicated, động từ dedicate. A dedication còn là lời đề tặng ở đầu sách hoặc bài hát: a dedication to her parents. Commitment nghĩa chung hơn, còn devotion mang sắc thái cảm xúc và tôn giáo. Người Việt hay dùng on thay cho to."
+ }
+}

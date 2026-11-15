@@ -1,0 +1,752 @@
+{
+ "biography": {
+  "mis": [
+   {
+    "w": "She wrote a biography about herself.",
+    "r": "She wrote an autobiography about herself.",
+    "why": "A biography is written by someone else; your own life story is an autobiography."
+   },
+   {
+    "w": "I read a biography on Einstein.",
+    "r": "I read a biography of Einstein.",
+    "why": "Biography takes of before the person it describes, not on."
+   }
+  ],
+  "u": "A biography is a full account of someone's life written by another person; if the author writes about their own life, the word is autobiography, and a memoir covers only selected parts of it. In business English, a short biography (often called a bio) is a paragraph introducing a speaker or new employee. It is countable, and the person comes after of: a biography of Mandela. The adjective is biographical."
+ },
+ "blanket": {
+  "mis": [
+   {
+    "w": "I need a blanket for sleep.",
+    "r": "I need a blanket to sleep under.",
+    "why": "A purpose needs to plus verb; for plus a bare verb is not natural here."
+   },
+   {
+    "w": "The nurse gave me a blankets.",
+    "r": "The nurse gave me a blanket.",
+    "why": "Blanket is a singular countable noun, so a cannot be used with the plural form."
+   }
+  ],
+  "u": "Blanket is a countable noun for a thick bed cover, and airlines and hotels give out blankets on request. It is also used as an adjective meaning covering everything without exception: a blanket ban, blanket coverage. A figurative blanket of snow or fog describes a thick even layer. Do not confuse it with duvet or comforter, which are filled quilts, or sheet, which is the thin layer."
+ },
+ "boardroom": {
+  "mis": [
+   {
+    "w": "The meeting is at the boardroom.",
+    "r": "The meeting is in the boardroom.",
+    "why": "A room is treated as an enclosed space, so in is used rather than at."
+   },
+   {
+    "w": "She was promoted to the boardroom.",
+    "r": "She was promoted to the board.",
+    "why": "The board is the group of directors; boardroom is only the physical room."
+   }
+  ],
+  "u": "A boardroom is the formal room where a company's directors meet, usually with a long table. Because it suggests top management, the word is also used for corporate power itself: boardroom politics, a boardroom battle. For an ordinary team meeting use meeting room, and conference room is the common general term in American offices. Unlike board, which means the group of directors, boardroom names only the place."
+ },
+ "brainstorm": {
+  "mis": [
+   {
+    "w": "Let's brainstorm about new ideas.",
+    "r": "Let's brainstorm new ideas.",
+    "why": "Brainstorm is followed directly by its object; about is not needed."
+   },
+   {
+    "w": "We did a brainstorming for the campaign.",
+    "r": "We held a brainstorming session for the campaign.",
+    "why": "Brainstorming is not usually counted as a noun; say a brainstorming session."
+   }
+  ],
+  "u": "As a verb, brainstorm means to produce as many ideas as possible in a group before judging them, and it takes a direct object: brainstorm slogans, brainstorm solutions. The noun for the activity is brainstorming, usually inside a brainstorming session; in American English a brainstorm can also mean one sudden good idea, which British speakers call a brainwave. Past forms are regular: brainstormed."
+ },
+ "broaden": {
+  "mis": [
+   {
+    "w": "The trip broadened my horizon.",
+    "r": "The trip broadened my horizons.",
+    "why": "Horizons is almost always plural in the fixed phrase broaden your horizons."
+   },
+   {
+    "w": "We must broad our customer base.",
+    "r": "We must broaden our customer base.",
+    "why": "Broad is the adjective; the verb needs the -en ending."
+   }
+  ],
+  "u": "Broaden is a verb meaning to make something wider in scope rather than physical width, so it pairs with abstract nouns: broaden your horizons, the scope, the appeal, the customer base. Widen is more general and also works for roads and gaps, while expand stresses growth in size. The phrase travel broadens the mind is a common saying. The adjective is broad and the noun is breadth."
+ },
+ "broker": {
+  "mis": [
+   {
+    "w": "He is a stock brokerage at a large bank.",
+    "r": "He is a stockbroker at a large bank.",
+    "why": "A broker is the person; brokerage is the firm or the fee."
+   },
+   {
+    "w": "The UN brokered with both sides.",
+    "r": "The UN brokered a deal between both sides.",
+    "why": "As a verb, broker takes the agreement as its object, not with."
+   }
+  ],
+  "u": "A broker is an independent person or firm that arranges sales or contracts between others and earns a commission: a mortgage broker, an insurance broker. The business is a brokerage. As a verb, broker means to arrange an agreement between opposing sides, common in news about politics: broker a ceasefire. A broker differs from an agent, who acts for one client, and a dealer, who trades from their own stock."
+ },
+ "by-law": {
+  "mis": [
+   {
+    "w": "The company by-law say we must meet yearly.",
+    "r": "The company by-laws say we must meet yearly.",
+    "why": "By-laws is plural when it means the full set of rules, so the verb is say."
+   },
+   {
+    "w": "It is against the by-law of the country.",
+    "r": "It is against the law of the country.",
+    "why": "By-laws are made by local bodies or organizations, not national governments."
+   }
+  ],
+  "u": "A by-law is a rule made by an organization or a local council, below the level of national law. Companies write by-laws to govern shareholder meetings and director duties, and councils pass them about noise, parking or dogs. It is also spelled bylaw, and in American usage the plural by-laws or bylaws often means the whole rulebook. Use law or statute for national rules, and regulation for rules made by government agencies."
+ },
+ "cabin": {
+  "mis": [
+   {
+    "w": "Please keep your seat belt on in the cabin crew.",
+    "r": "Please keep your seat belt on in the cabin.",
+    "why": "Cabin is the passenger area; cabin crew are the staff who work there."
+   },
+   {
+    "w": "We stayed in a cabin on the sea.",
+    "r": "We stayed in a cabin by the sea.",
+    "why": "A location near water is by or on the shore, not on the sea."
+   }
+  ],
+  "u": "Cabin has several meanings: the passenger area of a plane (cabin crew, cabin pressure), a private room on a ship, and a small wooden house in the woods, especially a log cabin. On flights, cabin baggage or cabin bag is carry-on luggage that fits in the overhead locker, and the British term is hand luggage. The airline phrase first-class cabin is separate from the cockpit, where the pilots sit."
+ },
+ "calculation": {
+  "mis": [
+   {
+    "w": "I did a mistake in my calculation.",
+    "r": "I made a mistake in my calculation.",
+    "why": "The verb for errors is make, not do."
+   },
+   {
+    "w": "The calculation of the cost are simple.",
+    "r": "The calculation of the cost is simple.",
+    "why": "The subject is calculation, which is singular, so the verb must be is."
+   }
+  ],
+  "u": "Calculation names the process or result of working out numbers: make a calculation, do the calculations, a rough calculation. It is countable, and the plural is common because most tasks involve several steps. In a looser sense it means a careful judgement about risks: a cold calculation. It is more formal than sum. The verb is calculate, and the adjective calculated means deliberate, as in a calculated risk."
+ },
+ "cargo": {
+  "mis": [
+   {
+    "w": "Many cargos arrived at the port.",
+    "r": "Much cargo arrived at the port.",
+    "why": "Cargo is usually treated as uncountable; the plural cargoes is rare and refers to separate loads."
+   },
+   {
+    "w": "The cargo of the passengers was heavy.",
+    "r": "The luggage of the passengers was heavy.",
+    "why": "Cargo means goods being transported commercially, not passengers' bags."
+   }
+  ],
+  "u": "Cargo is the goods carried by ship, aircraft or truck, and it is normally uncountable: the cargo was unloaded. The plural cargoes (or cargos in American English) is possible but rare. Cargo is the load itself, while freight stresses the transport and the cost of carrying it, and shipment is one batch sent together. Cargo is never used for the bags of passengers, which are baggage or luggage."
+ },
+ "carrier": {
+  "mis": [
+   {
+    "w": "Which carrier is your phone?",
+    "r": "Which carrier is your phone on?",
+    "why": "A phone is on a carrier network; the preposition on is needed here."
+   },
+   {
+    "w": "She is a carrier of the bad news.",
+    "r": "She is the bearer of the bad news.",
+    "why": "The idiom is bearer of bad news; carrier is used for goods, diseases or companies."
+   }
+  ],
+  "u": "A carrier is a company that transports goods or passengers, such as an airline carrier or a freight carrier, and in the US it is also the mobile phone company that provides your service. Low-cost airlines are often called budget carriers. A carrier bag is a British term for a plastic shopping bag. In medicine, a carrier is a person who carries and can pass on a disease without symptoms."
+ },
+ "cartridge": {
+  "mis": [
+   {
+    "w": "The printer needs a new ink cartridges.",
+    "r": "The printer needs a new ink cartridge.",
+    "why": "A new needs a singular noun; use cartridges only without the article or with a number."
+   },
+   {
+    "w": "I bought a cartridge for ink.",
+    "r": "I bought an ink cartridge.",
+    "why": "Name the contents before the noun as a compound, rather than using for."
+   }
+  ],
+  "u": "A cartridge is a sealed container that holds something consumable and is inserted into a machine: an ink cartridge, a toner cartridge. In offices, replace the cartridge is a routine task, and cheap printers often cost more to run because of expensive cartridges. The word also covers a gun cartridge holding ammunition, so context matters. Toner is the powder inside a laser printer cartridge, while ink is the liquid in an inkjet one."
+ },
+ "cater": {
+  "mis": [
+   {
+    "w": "The company caters to a wedding every week.",
+    "r": "The company caters weddings every week.",
+    "why": "Cater without a preposition means to supply food; cater to means to meet needs."
+   },
+   {
+    "w": "This hotel caters for young people's needs.",
+    "r": "This hotel caters to young people's needs.",
+    "why": "Cater to is the usual form for serving a type of customer; cater for is mostly British."
+   }
+  ],
+  "u": "Cater has two uses. Without a preposition it means to supply food and drink for an event: a local firm will cater the party. With to or for it means to provide what a group needs: the hotel caters to business travellers. Cater to is the common American form; British speakers also say cater for. Cater to can also be mildly negative, meaning to indulge: catering to every whim."
+ },
+ "caterer": {
+  "mis": [
+   {
+    "w": "We employed a catering for the party.",
+    "r": "We hired a caterer for the party.",
+    "why": "A caterer is the person or company; catering is the service and is uncountable."
+   },
+   {
+    "w": "The caterer cooked at our home for the wedding.",
+    "r": "The caterer prepared the food at our home for the wedding.",
+    "why": "Caterers supply and serve food, so use prepared or provided rather than cooked when the work is organised."
+   }
+  ],
+  "u": "A caterer is a person or business that supplies food and drink for events such as weddings and office parties, usually delivering and serving it on site. The service is catering, which is uncountable: we booked the catering. You hire or book a caterer, or use the verb cater for the action. A caterer differs from a restaurant because the food is prepared for a specific event, often at the client's venue."
+ },
+ "caution": {
+  "mis": [
+   {
+    "w": "Please be caution on the wet floor.",
+    "r": "Please be cautious on the wet floor.",
+    "why": "Caution is a noun; the adjective after be is cautious."
+   },
+   {
+    "w": "Use a caution when you drive.",
+    "r": "Use caution when you drive.",
+    "why": "Caution in this sense is uncountable, so it takes no article."
+   }
+  ],
+  "u": "Caution is uncountable when it means care to avoid danger: proceed with caution, use caution. As a countable noun it means a warning, especially in the UK: the police gave him a caution. As a verb it takes against or a clause: caution against overspending. The adjective is cautious and the adverb cautiously. Caution is more formal and official than care, and you see it on yellow warning signs."
+ },
+ "certificate": {
+  "mis": [
+   {
+    "w": "I got a certificate of English at the school.",
+    "r": "I got a certificate in English from the school.",
+    "why": "A subject uses in, and the issuer uses from, not of or at."
+   },
+   {
+    "w": "Please show your certification of birth.",
+    "r": "Please show your birth certificate.",
+    "why": "The document is a certificate; certification is the process or status."
+   }
+  ],
+  "u": "A certificate is an official document proving a fact or qualification: a birth certificate, a training certificate. It is countable, and you receive or award one. A gift certificate in American English is a voucher for shopping, called a gift voucher in Britain. Do not confuse it with certification, which is the process or state of being certified, or with a diploma, which usually marks a longer course of study."
+ },
+ "certification": {
+  "mis": [
+   {
+    "w": "I have three certifications papers.",
+    "r": "I have three certificates.",
+    "why": "Certification is the process or status; the paper itself is a certificate."
+   },
+   {
+    "w": "She is certification as a nurse.",
+    "r": "She is certified as a nurse.",
+    "why": "Use the adjective certified after be, not the noun."
+   }
+  ],
+  "u": "Certification is official confirmation that a person, product or process meets a standard, and the word covers both the process and the status you gain. It is mostly uncountable in the singular, but a person can hold several certifications, such as in project management or cloud computing. Accreditation is given to organizations and courses, while certification usually goes to individuals and products. The document itself is a certificate."
+ },
+ "certify": {
+  "mis": [
+   {
+    "w": "The doctor certified me to be sick.",
+    "r": "The doctor certified that I was sick.",
+    "why": "Certify takes a that clause or a direct object, not to be plus adjective."
+   },
+   {
+    "w": "He is certificated as a teacher.",
+    "r": "He is certified as a teacher.",
+    "why": "The past participle of certify is certified; certificated is rare and formal."
+   }
+  ],
+  "u": "Certify means to state officially, usually in writing, that something is true or meets a standard. It takes a that clause (I certify that the information is correct), a direct object (certify a copy), or as plus a role (certified as a nurse). In American English, certified is often used before a profession: certified public accountant. It is formal; for ordinary use say confirm or verify."
+ },
+ "chairperson": {
+  "mis": [
+   {
+    "w": "She is the chairperson of the meeting yesterday.",
+    "r": "She chaired the meeting yesterday.",
+    "why": "Use the verb chair for leading a meeting; a noun with a past time sounds awkward."
+   },
+   {
+    "w": "Mr. Lee is the chairperson in our company.",
+    "r": "Mr. Lee is the chairperson of our company.",
+    "why": "The group a person leads follows of, not in."
+   }
+  ],
+  "u": "Chairperson is a gender-neutral word for the person who leads a meeting, committee or board; it is often shortened to chair, which is common in speech. Older forms chairman and chairwoman are still used, but many organizations prefer neutral wording. The verb chair means to lead a meeting: she chairs the weekly review. It is the role of leading, not of owning; a chairperson of a company oversees the board, not daily operations."
+ },
+ "cheer": {
+  "mis": [
+   {
+    "w": "The crowd cheered to the team.",
+    "r": "The crowd cheered for the team.",
+    "why": "Cheer for shows who you support; to is not used."
+   },
+   {
+    "w": "Cheer up! I will cheer for you the exam.",
+    "r": "Cheer up! I will cheer you on in the exam.",
+    "why": "To encourage someone through an event, use cheer someone on."
+   }
+  ],
+  "u": "Cheer as a verb means to shout in support or approval, and cheer for a team or cheer on a runner shows who you encourage. Cheer up means to become happier or to make someone happier, and it can be an imperative: cheer up! As a noun, a cheer is a shout of approval, and cheers is also a casual toast or, in British English, thank you. Do not use cheer for quiet encouragement."
+ },
+ "circulate": {
+  "mis": [
+   {
+    "w": "Please circulate to all staff this memo.",
+    "r": "Please circulate this memo to all staff.",
+    "why": "Put the object right after circulate, then the recipients with to."
+   },
+   {
+    "w": "The company circulated with the new rules.",
+    "r": "The company circulated the new rules.",
+    "why": "Circulate takes a direct object here; with is not used."
+   }
+  ],
+  "u": "Circulate works in two ways. Used with an object, it means to pass something such as a memo or report round to a group: circulate the agenda before Friday. Without an object, it means to move freely around: blood circulates, rumors circulate. It is more formal than pass around and suits office writing. The noun circulation also means the number of copies a newspaper sells."
+ },
+ "classify": {
+  "mis": [
+   {
+    "w": "We classify the books by to subject.",
+    "r": "We classify the books by subject.",
+    "why": "By is followed directly by the sorting basis."
+   },
+   {
+    "w": "The report is classified into two part.",
+    "r": "The report is classified into two parts.",
+    "why": "After two you need a plural noun."
+   }
+  ],
+  "u": "Classify means to arrange things into groups by shared features, and it appears in the patterns classify X by Y, classify X as Z and classify X into groups. Classified is also an adjective meaning officially secret: classified information, or in British English a classified ad is a small newspaper advertisement. Classify is more formal and technical than sort, and categorize is nearly the same."
+ },
+ "clerk": {
+  "mis": [
+   {
+    "w": "He works as a clerk in the bank branch.",
+    "r": "He works as a clerk at the bank branch.",
+    "why": "Use at for a workplace, or in for a department."
+   },
+   {
+    "w": "I asked the clerk of the shop where.",
+    "r": "I asked the sales clerk where it was.",
+    "why": "The role is sales clerk in American English, and shop assistant in British."
+   }
+  ],
+  "u": "A clerk is a person who does routine office work such as keeping records, or who serves customers in a store or hotel: a bank clerk, a file clerk, a hotel desk clerk. In American English, store workers are sales clerks; British English prefers shop assistant. The British pronunciation rhymes with dark. In US law, a court clerk handles legal paperwork."
+ },
+ "closure": {
+  "mis": [
+   {
+    "w": "The closure of the road is cause delays.",
+    "r": "The road closure is causing delays.",
+    "why": "Closure is the noun; the verb needs a proper tense and the pair noun phrase is smoother."
+   },
+   {
+    "w": "Closure hours of the shop are at nine.",
+    "r": "The closing time of the shop is nine.",
+    "why": "Closure is the act of closing, not the time; use closing time."
+   }
+  ],
+  "u": "Closure is the act or fact of shutting something, for good or for a period: a road closure, a factory closure, school closures. It is usually used for roads, businesses and institutions, while closing is the process of shutting a shop at the end of the day. Psychologists also use closure for emotional resolution, as in finding closure after a loss. The verb is close."
+ },
+ "collector": {
+  "mis": [
+   {
+    "w": "He is a collect of old coins.",
+    "r": "He is a collector of old coins.",
+    "why": "The person noun ends in -or, not the base verb form."
+   },
+   {
+    "w": "She collects of stamps.",
+    "r": "She collects stamps.",
+    "why": "Collect is transitive; of belongs to the noun collector, not the verb."
+   }
+  ],
+  "u": "A collector is a person who collects things as a hobby or business, such as an art collector or a stamp collector, and also someone whose job is collecting something: a tax collector, a ticket collector on a train. The object follows of: a collector of rare books. A private collector often owns valuable works and may lend them to museums. Collection is the group of things collected."
+ },
+ "commonly": {
+  "mis": [
+   {
+    "w": "This word is common used in speech.",
+    "r": "This word is commonly used in speech.",
+    "why": "Use the adverb commonly to modify the participle used."
+   },
+   {
+    "w": "He commonly is late.",
+    "r": "He is commonly late.",
+    "why": "Adverbs of frequency come after be but before other verbs."
+   }
+  ],
+  "u": "Commonly is an adverb meaning usually or by many people. It often sits before a participle: commonly used, commonly known, commonly referred to as. Place it after be but before ordinary verbs: he is commonly seen, it commonly happens. It describes what is widespread, while frequently stresses repetition and widely stresses geography or audience. It is slightly formal, in written reports."
+ },
+ "communicate": {
+  "mis": [
+   {
+    "w": "I communicate to my manager by email.",
+    "r": "I communicate with my manager by email.",
+    "why": "With shows two-way exchange; to suggests one-way delivery."
+   },
+   {
+    "w": "We need more communicate.",
+    "r": "We need more communication.",
+    "why": "After more you need a noun, so use communication."
+   }
+  ],
+  "u": "Communicate means to share information, ideas or feelings. With with it describes a two-way exchange (communicate with colleagues), while with to it sends a message to someone (communicate the decision to staff). The noun is communication, the adjective is communicative or communicable in some contexts. It is general and neutral; convey stresses getting a message across, and interact is about dealing with people."
+ },
+ "compartment": {
+  "mis": [
+   {
+    "w": "Put your bag on the overhead compartments.",
+    "r": "Put your bag in the overhead compartment.",
+    "why": "Bags go inside an enclosed space, so in is used."
+   },
+   {
+    "w": "The train has a compartment of the first class.",
+    "r": "The train has a first-class compartment.",
+    "why": "Describe the type before the noun instead of using of."
+   }
+  ],
+  "u": "A compartment is a separate section of a larger container, vehicle or space: the overhead compartment on a plane, the glove compartment in a car, a storage compartment. On older trains it also means a small private room for passengers. The idea is to keep things apart, so compartment suggests dividers, whereas locker implies something that closes. The verb compartmentalize means to separate into parts."
+ },
+ "completion": {
+  "mis": [
+   {
+    "w": "After completion the course, you get a certificate.",
+    "r": "After completion of the course, you get a certificate.",
+    "why": "Completion takes of before the thing completed."
+   },
+   {
+    "w": "The completion of the work are expected in May.",
+    "r": "The completion of the work is expected in May.",
+    "why": "The subject is completion, which is singular."
+   }
+  ],
+  "u": "Completion is the act of finishing something or the state of being finished. It is common in formal and project language: on completion, upon completion, the completion date. The thing finished comes after of: completion of the course. It is normally uncountable. In real estate, completion is the final stage when ownership transfers. Finish is simpler in speech; completion fits contracts and reports."
+ },
+ "complimentary": {
+  "mis": [
+   {
+    "w": "The hotel gives a complementary breakfast.",
+    "r": "The hotel gives a complimentary breakfast.",
+    "why": "Complimentary (free, praising) is different from complementary (completing each other)."
+   },
+   {
+    "w": "He was complimentary at the dress.",
+    "r": "He was complimentary about the dress.",
+    "why": "Say complimentary about something when praising it."
+   }
+  ],
+  "u": "Complimentary has two meanings: given free as a courtesy (a complimentary breakfast) and expressing praise (complimentary remarks). It is often confused with complementary, which means completing or going well with something. Hotels and airlines use complimentary for free extras, while freebie is informal. When you praise something, you are complimentary about it."
+ },
+ "comprehension": {
+  "mis": [
+   {
+    "w": "I have a poor comprehend of English.",
+    "r": "I have a poor comprehension of English.",
+    "why": "After poor use the noun comprehension, not the verb."
+   },
+   {
+    "w": "This idea is beyond my comprehend.",
+    "r": "This idea is beyond my comprehension.",
+    "why": "Beyond takes a noun, so comprehension is needed."
+   }
+  ],
+  "u": "Comprehension is the ability to understand something, usually written or spoken language. In exams it names a task: reading comprehension, listening comprehension. The fixed phrase beyond comprehension means impossible to understand. Comprehension is uncountable and more formal than understanding. The verb is comprehend and the adjective is comprehensible; comprehensive means complete, a different word."
+ },
+ "confidential": {
+  "mis": [
+   {
+    "w": "The salary is a confidence information.",
+    "r": "The salary is confidential information.",
+    "why": "The adjective is confidential, not the noun confidence."
+   },
+   {
+    "w": "Please keep this confidential to others.",
+    "r": "Please keep this confidential.",
+    "why": "Keep confidential needs no extra to-phrase; say from others if needed."
+   }
+  ],
+  "u": "Confidential describes information meant to be kept secret between particular people: strictly confidential, keep it confidential. It is stronger in a business setting than private; documents are marked confidential. The noun is confidentiality, the adverb is confidentially, and confidence refers to trust or self-belief, not secrecy. A confidential report may be read only by named people."
+ },
+ "congratulate": {
+  "mis": [
+   {
+    "w": "I congratulate you for your promotion.",
+    "r": "I congratulate you on your promotion.",
+    "why": "Congratulate is followed by on, not for."
+   },
+   {
+    "w": "Congratulation for your success!",
+    "r": "Congratulations on your success!",
+    "why": "The exclamation is plural and uses on."
+   }
+  ],
+  "u": "Congratulate means to tell someone you are pleased about their success, and it uses on: congratulate her on the new job. The congratulation is expressed in the plural noun congratulations, which is also the greeting. The person is the object: congratulate the team, not congratulate for the team. In formal writing, you may warmly or heartily congratulate someone; in speech people just say well done."
+ },
+ "consecutive": {
+  "mis": [
+   {
+    "w": "It rained for three consecutive day.",
+    "r": "It rained for three consecutive days.",
+    "why": "After three the noun must be plural."
+   },
+   {
+    "w": "We won the match three times consecutive.",
+    "r": "We won three consecutive matches.",
+    "why": "Consecutive is an adjective before a noun, not an adverb."
+   }
+  ],
+  "u": "Consecutive is an adjective for things that follow one after another without a break: three consecutive days, the fifth consecutive year. It goes before a plural noun or an ordinal such as third consecutive. Successive is close but allows small gaps, while in a row is the casual alternative: three days in a row. The adverb is consecutively. Consecutive interpretation means translating after the speaker finishes."
+ },
+ "context": {
+  "mis": [
+   {
+    "w": "In the context of the globalization, prices rise.",
+    "r": "In the context of globalization, prices rise.",
+    "why": "Abstract nouns used generally take no article."
+   },
+   {
+    "w": "The quote was taken out the context.",
+    "r": "The quote was taken out of context.",
+    "why": "The fixed phrase is out of context, with no article."
+   }
+  ],
+  "u": "Context means the situation or text surrounding something and giving it meaning: social context, historical context, in this context. Phrases like out of context mean quoted without the surrounding parts. Context clues are hints from nearby words that help you guess a new word. It is countable but mostly singular. Background is the history behind a situation, while setting is the place or time; context is wider than both."
+ },
+ "contractor": {
+  "mis": [
+   {
+    "w": "He is a contract of the company.",
+    "r": "He is a contractor for the company.",
+    "why": "A person hired for a task is a contractor; contract is the agreement."
+   },
+   {
+    "w": "The contractor gave a bad work.",
+    "r": "The contractor did poor work.",
+    "why": "Work in the sense of results is uncountable, and bad is replaced by poor."
+   }
+  ],
+  "u": "A contractor is a person or company hired to do a specific job under a contract, such as building, repairs or services: a building contractor, an independent contractor. Unlike an employee, a contractor works for themselves and usually pays their own taxes. A general contractor manages a whole project and hires subcontractors. Do not confuse contractor with contract, the agreement itself."
+ },
+ "convenience": {
+  "mis": [
+   {
+    "w": "Please call me at your convenient.",
+    "r": "Please call me at your convenience.",
+    "why": "After your use the noun convenience, not the adjective."
+   },
+   {
+    "w": "It is a convenience to buy online.",
+    "r": "It is convenient to buy online.",
+    "why": "Use the adjective after it is; convenience is for the idea itself."
+   }
+  ],
+  "u": "Convenience is the quality of being easy, useful or time-saving. It is common in service phrases: for your convenience, at your earliest convenience. A convenience store is a small shop open long hours. In the plural, conveniences are modern comforts such as a dishwasher. The adjective is convenient, and inconvenience is the opposite. Do not write convenience where an adjective is needed."
+ },
+ "coordinator": {
+  "mis": [
+   {
+    "w": "She is the coordinator the project.",
+    "r": "She is the coordinator of the project.",
+    "why": "Link the person to the thing with of."
+   },
+   {
+    "w": "He is a coordinate of the event.",
+    "r": "He is a coordinator of the event.",
+    "why": "The person noun is coordinator; coordinate is a verb."
+   }
+  ],
+  "u": "A coordinator is a person who organizes people, tasks or events so that they work together: an event coordinator, a project coordinator. It is a job title in schools, hospitals and companies and sits below manager in many teams. The thing managed follows of or comes first as a noun: coordinator of the volunteers. The verb coordinate is stressed on the first syllable of its noun, coordination."
+ },
+ "correspondence": {
+  "mis": [
+   {
+    "w": "I have many correspondences to answer.",
+    "r": "I have a lot of correspondence to answer.",
+    "why": "Correspondence is uncountable and has no ordinary plural."
+   },
+   {
+    "w": "She is in correspondence to him.",
+    "r": "She is in correspondence with him.",
+    "why": "Correspondence goes with with for exchanges."
+   }
+  ],
+  "u": "Correspondence is the exchange of letters or emails, or the letters themselves: business correspondence, email correspondence. It is uncountable: a lot of correspondence, not many correspondences. In the plural, correspondences refer to similarities, as in a correspondence between two systems. Correspondence is formal; for a single message say a letter or an email. A correspondence course is a course taken by mail or online."
+ },
+ "cosmetic": {
+  "mis": [
+   {
+    "w": "She bought many cosmetic.",
+    "r": "She bought many cosmetics.",
+    "why": "As a noun, cosmetics is plural and always with -s."
+   },
+   {
+    "w": "The cosmetic of the car is good.",
+    "r": "The car's appearance is good.",
+    "why": "Cosmetic is an adjective; the noun is appearance or looks."
+   }
+  ],
+  "u": "Cosmetic is an adjective for beauty products or for changes that only improve appearance: cosmetic surgery, purely cosmetic damage. When used critically, it means superficial, as in only cosmetic reforms. The noun cosmetics is plural and means make-up. In a company, a cosmetic change affects the looks and not the function. The word comes from the same root as cosmos."
+ },
+ "costly": {
+  "mis": [
+   {
+    "w": "The mistake was costly for to us.",
+    "r": "The mistake was costly for us.",
+    "why": "For is followed directly by the person affected."
+   },
+   {
+    "w": "She spoke costly to me.",
+    "r": "She spoke expensively to me.",
+    "why": "Costly is an adjective, not an adverb, so this sentence is wrong."
+   }
+  ],
+  "u": "Costly is an adjective meaning expensive, but it usually describes things that cause losses, effort or damage: a costly mistake, costly repairs, a costly delay. It is more formal than pricey and works well in reports. It ends in -ly but is not an adverb, so you cannot say speak costly. For ordinary goods people say expensive; costly suggests that the price may not be worth it."
+ },
+ "counselor": {
+  "mis": [
+   {
+    "w": "The counsellor give me advices.",
+    "r": "The counselor gave me advice.",
+    "why": "Advice is uncountable and the verb needs past tense."
+   },
+   {
+    "w": "I counsel with my teacher.",
+    "r": "I consult my teacher.",
+    "why": "Counsel takes advice or a person as object; with is not needed."
+   }
+  ],
+  "u": "A counselor is a trained person who gives advice and support on personal, career or financial problems: a school counselor, a career counselor. American English spells it counselor; British English uses counsellor. In the US, a counselor at a summer camp supervises children, and a legal counsel is a lawyer. It is not the same as a consultant, who advises businesses on technical matters for pay."
+ },
+ "courier": {
+  "mis": [
+   {
+    "w": "I sent it by a courier.",
+    "r": "I sent it by courier.",
+    "why": "After by, transport means take no article."
+   },
+   {
+    "w": "The courier delivered me the parcel.",
+    "r": "The courier delivered the parcel to me.",
+    "why": "Deliver takes the item first, then to the person."
+   }
+  ],
+  "u": "A courier is a person or company that delivers documents and packages quickly, often the same day: a courier service, send by courier. In British English, couriers may also guide tourists on a tour. Courier differs from postal service because it is private and usually faster and tracked. In business, a motorbike courier is common for urgent contracts. After by, use courier without an article."
+ },
+ "courtesy": {
+  "mis": [
+   {
+    "w": "Thank you for your courteous.",
+    "r": "Thank you for your courtesy.",
+    "why": "After your use the noun courtesy, not the adjective."
+   },
+   {
+    "w": "The photo is courtesy to the museum.",
+    "r": "The photo is courtesy of the museum.",
+    "why": "Courtesy of is the fixed credit phrase."
+   }
+  ],
+  "u": "Courtesy is polite behavior and respect for others: common courtesy, treat staff with courtesy. It also describes something provided free as a favor: a courtesy shuttle, a courtesy call. The phrase courtesy of credits the source: photo courtesy of the museum. As a courtesy means as a gesture, not an obligation. The adjective is courteous, and the opposite is discourtesy."
+ },
+ "credit": {
+  "mis": [
+   {
+    "w": "He took the credit of my idea.",
+    "r": "He took the credit for my idea.",
+    "why": "Credit goes with for when it names what you are praised for."
+   },
+   {
+    "w": "I paid by credit.",
+    "r": "I paid by credit card.",
+    "why": "Paying by credit alone is unclear; name the card."
+   }
+  ],
+  "u": "Credit has two main senses. In finance it is borrowed money or a system of delayed payment: buy on credit, a credit card, access to credit. In everyday talk it means praise or recognition: give credit, take credit for something, credit for the idea. It is uncountable in both. A credit can also be a unit in a course, or a deposit on a bank statement. Loan is a specific sum borrowed."
+ },
+ "culinary": {
+  "mis": [
+   {
+    "w": "She studies culinary in Paris.",
+    "r": "She studies the culinary arts in Paris.",
+    "why": "Culinary is an adjective and needs a noun after it."
+   },
+   {
+    "w": "He has a culinary of skills.",
+    "r": "He has culinary skills.",
+    "why": "Use culinary directly before a noun, no of."
+   }
+  ],
+  "u": "Culinary is an adjective meaning related to cooking or the kitchen. It appears in formal, professional or promotional contexts: culinary school, culinary skills, a culinary tour of Italy. It sounds more refined than cooking, which is why menus and travel brochures use it. The related noun is cuisine for a style of cooking, and culinary arts is the field of professional cookery."
+ },
+ "cumulative": {
+  "mis": [
+   {
+    "w": "The cumulative of sales rose.",
+    "r": "The cumulative total of sales rose.",
+    "why": "Cumulative is an adjective; it needs a noun such as total."
+   },
+   {
+    "w": "It is an accumulative effect.",
+    "r": "It is a cumulative effect.",
+    "why": "The standard adjective is cumulative; accumulative is rare."
+   }
+  ],
+  "u": "Cumulative is an adjective meaning increasing in size or effect as more is added over time: the cumulative effect of small delays, the cumulative total. It is common in finance, education (cumulative GPA) and science. It stresses addition step by step, unlike total, which is simply the sum. The verb is accumulate and the noun is accumulation. Accumulative is rare."
+ },
+ "dealership": {
+  "mis": [
+   {
+    "w": "I bought it from a car dealer ship.",
+    "r": "I bought it from a car dealership.",
+    "why": "Dealership is one word."
+   },
+   {
+    "w": "He is the dealership of the company.",
+    "r": "He owns the dealership.",
+    "why": "A dealership is a business, not a person."
+   }
+  ],
+  "u": "A dealership is a business, often a franchise, that sells vehicles or other products for a manufacturer and usually offers repairs: a car dealership, an authorized dealership. The person who sells is a dealer or salesperson. Dealership suggests a formal link with the manufacturer, unlike a used-car lot. The word also covers the legal right to sell, as in granted a dealership."
+ },
+ "decoration": {
+  "mis": [
+   {
+    "w": "The office has many decoration.",
+    "r": "The office has many decorations.",
+    "why": "As countable objects, decorations needs the plural."
+   },
+   {
+    "w": "I made a decoration of my room.",
+    "r": "I decorated my room.",
+    "why": "Use the verb decorate for the action."
+   }
+  ],
+  "u": "Decoration is something added to make a place attractive, such as Christmas decorations, or the act of decorating: interior decoration. The plural decorations is common for physical items; decoration alone is uncountable when it means the process. It can also be a medal honoring bravery. The verb is decorate and the person is a decorator. Ornament is a single decorative object."
+ },
+ "dedication": {
+  "mis": [
+   {
+    "w": "I admire your dedication on work.",
+    "r": "I admire your dedication to work.",
+    "why": "Dedication takes to, not on."
+   },
+   {
+    "w": "He is a dedication person.",
+    "r": "He is a dedicated person.",
+    "why": "Use the adjective dedicated before a noun."
+   }
+  ],
+  "u": "Dedication is strong commitment to a task, cause or person: hard work and dedication, dedication to duty. It always takes to. The adjective is dedicated, the verb is dedicate. A dedication can also be a short message in the front of a book or a song: a dedication to her parents. Commitment is more general, while devotion is more emotional and often religious."
+ }
+}
