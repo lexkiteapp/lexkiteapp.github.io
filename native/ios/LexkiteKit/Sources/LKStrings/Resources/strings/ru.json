@@ -896,6 +896,8 @@
   "verb.typeAVerbE": "Введите глагол, например. go, went, studies",
   "verb.searchForAVerb": "Поиск глагола",
   "verb.conjugate": "Сопряженный",
+  "verb.irregularVerbs": "Неправильные глаголы",
+  "verb.openIrregularTable": "Открыть таблицу неправильных глаголов",
   "verb.verbSuggestions": "Предложения по глаголам",
   "verb.irregular": "Нерегулярный",
   "verb.englishVerbConjugator": "Спряжение английского глагола",

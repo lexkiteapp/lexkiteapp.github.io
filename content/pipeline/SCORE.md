@@ -13,7 +13,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | Đề thi | **47.8** | 31.7 | 47.8% | 100% | 0 |
 | Khung Can-do | **81.7** | 81.3 | 81.7% | 100% | 0 |
 | Dễ học – dễ nhớ | **91.8** | 91.7 | 91.8% | 100% | 0 |
-| i18n | **62.7** | 62.7 | 62.7% | 100% | 0 |
+| i18n | **62.6** | 62.7 | 62.6% | 100% | 0 |
 
 ## Kho từ
 
@@ -115,6 +115,6 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
 | ngôn ngữ đạt i18n-qa | 13 / 13 | 100% | 45 |
-| nhãn ngắn dịch tay | 12.3 / 13 | 95% | 10 |
+| nhãn ngắn dịch tay | 12.4 / 13 | 95% | 10 |
 | gói nghĩa từ theo ngôn ngữ | 5.3 / 13 | 41% | 20 |
 | điểm bản xứ (native-score/5) (chưa làm) | 0 / 5 | 0% | 25 |
