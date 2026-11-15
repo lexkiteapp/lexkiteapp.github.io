@@ -77,7 +77,7 @@
 "{w} đứng đầu câu, trước {b}.":"{w} comes first in the sentence, before {b}.",
 "{w} – không có trong nghĩa câu.":"{w} – this meaning is not in the sentence.",
 "Ôn lỗi":"Corriger ses erreurs",
-"Ôn lỗi trước bài mới":"Revoir vos erreurs",
+"Ôn lỗi trước bài mới":"Revoir d’abord les mots fragiles",
 "Đang nghe bạn nói…":"Je vous écoute…",
 "Đáp án của bạn":"Ta réponse",
 "Đây là gì?":"Qu'est-ce que c'est ?",
