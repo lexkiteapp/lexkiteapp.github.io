@@ -22,7 +22,8 @@
   {"id":"lesson-sheets","area":"app","name":"Thoát giữa chừng · gợi ý · hết giờ · lên cấp","routes":[],"status":"ref","batch":"A1","refs":{"lsn-hint":["b848e9b9","8d912380"],"lsn-timeup":["2b3d9336","82d13d8d"],"lsn-levelup":["cda38453","497d9d1c"]}},
   {"id":"welcome","area":"app","name":"Chào mừng / thiết lập","routes":["welcome"],"status":"stitch","stitch":["d2c0773b","de3f3ff3"],"gate":"diff:welcome","batch":"-"},
   {"id":"placement","area":"app","name":"Kiểm tra trình độ","routes":["placement"],"status":"ref","batch":"A1","stitch":["ec75f4c0","ca9d4b84"],"ref":"brand/stitch/v3/app/placement"},
-  {"id":"vocab-path","area":"app","name":"Lộ trình từ vựng / ngày / phần thưởng","routes":["path","day","tracks"],"status":"ref","batch":"A1","refs":{"vpath":["67867976","9eafa7ce"],"vday":["7c66c343","685ac34b"],"vreward":["03538f51","3dcadfd0"]}},
+  {"id":"vocab-path","area":"app","name":"Lộ trình từ vựng / phần thưởng","routes":["path","tracks"],"status":"ref","batch":"A1","refs":{"vpath":["67867976","9eafa7ce"],"vreward":["03538f51","3dcadfd0"]}},
+  {"id":"day-lesson","area":"app","name":"Buổi học theo ngày","routes":["day"],"status":"stitch","stitch":["ef162f57","e30cad6c"],"gate":"diff:day","batch":"-"},
 
   {"id":"hub-vocab","area":"app","name":"Hub Từ vựng","routes":["vocab"],"status":"stitch","stitch":["66a8a4f8","95826e15"],"gate":"diff:vocab-hub","batch":"-"},
   {"id":"hub-skills","area":"app","name":"Hub Kỹ năng","routes":["skills","skill"],"status":"ref","batch":"A2","stitch":["cb5fe88d","de674fc1"],"ref":"brand/stitch/v3/app/hub-skills"},
@@ -40,12 +41,12 @@
   {"id":"reading","area":"app","name":"Đọc","routes":["reading","read"],"status":"ref","batch":"A4","stitch":["eab4c092","8d816d50"],"ref":"brand/stitch/v3/app/reading"},
   {"id":"writing","area":"app","name":"Viết (editor, task1, sửa văn)","routes":["write","task1","style","paraphrase","criteria","fix"],"status":"ref","batch":"A4","refs":{"task1":["99cefd7c","1252e9b7"],"rewrite":["c3d3a2d8","2db49dba"]}},
   {"id":"speaking","area":"app","name":"Nói + nhập vai","routes":["speaking","roleplay"],"status":"ref","batch":"A4","refs":{"roleplay":["8f65ebb7","4559fec2"]}},
-  {"id":"pron","area":"app","name":"Phát âm","routes":["pron"],"status":"ref","batch":"A4","stitch":["247f2e03","b32b9414"],"ref":"brand/stitch/v3/app/pron"},
+  {"id":"pron","area":"app","name":"Phát âm: thư viện (bài #/pron/<id> còn khung cũ)","routes":["pron"],"status":"stitch","stitch":["pron-hub-light","pron-hub-dark"],"gate":"diff:pron-hub","batch":"-","note":"hub đã port; bài từng âm (pron-sound/pairs/rhythm/result) chưa port"},
 
   {"id":"games","area":"app","name":"Trò chơi từ vựng","routes":["reflex","rtype"],"status":"ref","batch":"A5","stitch":["7444e407","a4a0f014"],"ref":"brand/stitch/v3/app/games"},
   {"id":"stats","area":"app","name":"Thống kê + huy hiệu","routes":["stats","qstats"],"status":"ref","batch":"A5","stitch":["3a35d2a5","9afe9189"],"ref":"brand/stitch/v3/app/stats"},
   {"id":"confidence","area":"app","name":"Độ tự tin","routes":["confidence"],"status":"ref","batch":"A5","refs":{"confidence":["9f9e1b57","1d808baa"]}},
-  {"id":"grammar","area":"app","name":"Ngữ pháp","routes":["grammar"],"status":"ref","batch":"A5","stitch":["9e62a2e8","e5fec5b8"],"ref":"brand/stitch/v3/app/grammar"},
+  {"id":"grammar","area":"app","name":"Hub Ngữ pháp","routes":["grammar"],"status":"stitch","stitch":["9e62a2e8","e5fec5b8"],"gate":"diff:grammar","batch":"-"},
   {"id":"courses","area":"app","name":"Khóa học + lớp","routes":["courses","course","class"],"status":"ref","batch":"A5","refs":{"courses":["d38a9685","7e887c16"]}},
 
   {"id":"mock","area":"app","name":"Thi thử IELTS / quick","routes":["mock","quick"],"status":"ref","batch":"A6","stitch":["3a6a64d0","fa723816"],"ref":"brand/stitch/v3/app/mock"},

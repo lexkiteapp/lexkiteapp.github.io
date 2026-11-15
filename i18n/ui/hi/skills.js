@@ -147,6 +147,8 @@
 "vòm miệng":"तालव्य",
 "vô thanh (không rung)":"अघोष (कंपन नहीं)",
 "xem sau khi đã tự trả lời":"स्वयं उत्तर देने के बाद इसे देखें",
+"{done}/{n} bài đã đạt":"{done}/{n} पाठ पास",
+"{n} bài học trực quan":"{n} दृश्य पाठ",
 "{n} bài học trực quan: dòng thời gian, công thức tô màu, sơ đồ biến đổi câu, lỗi người Việt hay mắc và bài tập chấm điểm ngay.":"{n} दृश्य पाठ: समयरेखा, रंग-कोडित सूत्र, वाक्य परिवर्तन आरेख, सामान्य शिक्षार्थी गलतियाँ और तुरंत वर्गीकृत अभ्यास।",
 "{right}/{total} câu đúng ({pct}%)":"{right}/{total} सही ({pct}%)",
 "{score}% giống mẫu":"{score}% मिलान",

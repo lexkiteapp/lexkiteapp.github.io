@@ -518,7 +518,7 @@
 "Phần quảng cáo chưa tải xong – thử lại sau vài giây.":"As configurações de anúncios ainda estão carregando. Tente novamente em alguns segundos.",
 "Phỏng vấn Senior Developer":"Entrevista para Senior Developer",
 "Phỏng vấn vị trí Marketing":"Entrevista para uma vaga de marketing",
-"Phổ biến":"Popular",
+"Phổ biến":"Populares",
 "QUÁ KHỨ":"PASSADO",
 "Quen (4–20 ngày)":"Familiares (4–20 dias)",
 "Quảng cáo cá nhân hóa, cookie quảng cáo và quyền “không bán/chia sẻ dữ liệu” – đổi hoặc rút lại bất cứ lúc nào.":"Anúncios personalizados, cookies publicitários e a sua escolha de “não vender nem partilhar” – altere ou retire a qualquer momento.",

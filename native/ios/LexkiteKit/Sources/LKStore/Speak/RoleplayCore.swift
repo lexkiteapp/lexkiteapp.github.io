@@ -141,7 +141,7 @@ public enum Roleplay {
         let turns = s.list("turns"), next = i + 1 < turns.count ? turns[i + 1] : nil
         let beat = next.map { $0.list("a")[L].string ?? "" } ?? (s.list("end")[L].string ?? "")
         let point = next != nil ? "Next point you must cover (say it in your own words, same meaning): \"\(beat)\"" : "This is the end: close the conversation politely, similar to: \"\(beat)\""
-        return "Conversation so far:\n\(transcript(hist, s))\n\n\(point)\nIf the learner's last reply is unclear, off-topic or too short to understand, ask them to clarify instead and set \"advance\" to false (only once per point).\nJSON: {\"reply\": string (what \(s["ai"]?.s("name") ?? "") says next, under 45 words), \"advance\": boolean}"
+        return "Conversation so far:\n\(transcript(hist, s))\n\n\(point)\nIf the learner's last reply is unclear, off-topic, too short to understand, or does not actually answer your last question (e.g. just \"yes\" to a choice question), do NOT move on: kindly ask your last question again in simpler words and set \"advance\" to false (only once per point).\nJSON: {\"reply\": string (what \(s["ai"]?.s("name") ?? "") says next, under 45 words), \"advance\": boolean}"
     }
     public static func scorePrompt(_ s: JSON, level L: Int, hist: [Bubble], rules: RoleplayRules, language: String) -> String {
         let lv = levels(s, rules), better = lv[min(2, L + 1)]

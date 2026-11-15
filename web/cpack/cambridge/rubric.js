@@ -46,4 +46,34 @@ self.CAMBRIDGE_RUBRIC = {
     ],
     linkers: ['however', 'although', 'whereas', 'as a result', 'therefore', 'in addition', 'moreover', 'despite', 'on the other hand', 'for example', 'while', 'because', 'so', 'but', 'and'],
   },
+  c1: {
+    writing: [
+      { id: 'content', name: 'Content', b5: 'All content is relevant and the target reader is fully informed; points are developed with evidence or examples, and the task is addressed in full.', b3: 'Most content is relevant; one point is thin or loosely developed.', b1: 'Much of the text is irrelevant or the task is only partly answered.' },
+      { id: 'communicative', name: 'Communicative achievement', b5: 'Register, tone and layout are fully suited to the text type and reader; ideas are argued persuasively.', b3: 'Mostly the right register, but tone or conventions slip in places.', b1: 'Register and text type are often wrong for the reader.' },
+      { id: 'organisation', name: 'Organisation', b5: 'Well-structured paragraphs with a variety of cohesive devices, so the text reads as one coherent whole.', b3: 'Logical order, but linking is repetitive or paragraphs are uneven.', b1: 'Ideas are hard to follow; few links.' },
+      { id: 'language', name: 'Language', b5: 'A wide range of vocabulary (collocation, idiom, less common words) and complex grammar used flexibly and accurately; only rare slips.', b3: 'Good range, but some errors or awkward choices slow the reader.', b1: 'Limited range; frequent mistakes make parts hard to follow.' },
+    ],
+    speaking: [
+      { id: 'grammar-vocabulary', name: 'Grammar and vocabulary', b5: 'Uses a wide range of structures and vocabulary with flexibility; errors are rare and self-corrected.', b3: 'Good control of everyday and some complex language; some searching for words.', b1: 'Limited range; mistakes get in the way of meaning.' },
+      { id: 'discourse', name: 'Discourse management', b5: 'Contributions are extended, relevant and coherent; ideas are developed and linked smoothly.', b3: 'Relevant, but sometimes short or loosely organised.', b1: 'Very short answers; ideas not connected.' },
+      { id: 'pronunciation', name: 'Pronunciation', b5: 'Clear sounds, stress and intonation that carry meaning; easy to follow throughout.', b3: 'Generally clear; some features need effort from the listener.', b1: 'Often hard to understand.' },
+      { id: 'interaction', name: 'Interaction', b5: 'Starts and responds to the partner, develops the discussion and moves it towards an outcome without prompting.', b3: 'Responds to the partner, but rarely develops the discussion.', b1: 'Little response to the partner; needs prompting.' },
+    ],
+    linkers: ['however', 'nevertheless', 'whereas', 'consequently', 'furthermore', 'moreover', 'in addition', 'as a result', 'on the other hand', 'despite', 'although', 'while', 'for instance', 'therefore', 'because', 'but', 'and'],
+  },
+  c2: {
+    writing: [
+      { id: 'content', name: 'Content', b5: 'All content is relevant and the target reader is fully informed; points are developed with evidence or examples, and the two input texts are summarised and evaluated, not merely repeated.', b3: 'Most content is relevant; one point is thin or loosely developed.', b1: 'Much of the text is irrelevant or the task is only partly answered.' },
+      { id: 'communicative', name: 'Communicative achievement', b5: 'Register, tone and layout are fully suited to the text type and reader; the writer controls nuance, irony or emphasis to hold the reader.', b3: 'Mostly the right register, but tone or conventions slip in places.', b1: 'Register and text type are often wrong for the reader.' },
+      { id: 'organisation', name: 'Organisation', b5: 'Well-structured paragraphs with sophisticated cohesive devices and signposting, so the text reads as one coherent whole.', b3: 'Logical order, but linking is repetitive or paragraphs are uneven.', b1: 'Ideas are hard to follow; few links.' },
+      { id: 'language', name: 'Language', b5: 'A wide range of vocabulary (precise, idiomatic and sometimes figurative language) and complex grammar used flexibly and accurately; only rare slips.', b3: 'Good range, but some errors or awkward choices slow the reader.', b1: 'Limited range; frequent mistakes make parts hard to follow.' },
+    ],
+    speaking: [
+      { id: 'grammar-vocabulary', name: 'Grammar and vocabulary', b5: 'Uses a wide range of structures and vocabulary with precision, nuance and idiomatic ease; errors are rare and self-corrected.', b3: 'Good control of everyday and some complex language; some searching for words.', b1: 'Limited range; mistakes get in the way of meaning.' },
+      { id: 'discourse', name: 'Discourse management', b5: 'Contributions are extended, relevant and coherent; ideas are developed and linked with natural, sophisticated cohesion.', b3: 'Relevant, but sometimes short or loosely organised.', b1: 'Very short answers; ideas not connected.' },
+      { id: 'pronunciation', name: 'Pronunciation', b5: 'Clear sounds, stress and intonation that carry meaning; easy to follow throughout.', b3: 'Generally clear; some features need effort from the listener.', b1: 'Often hard to understand.' },
+      { id: 'interaction', name: 'Interaction', b5: 'Starts and responds to the partner, develops the discussion and moves it towards an outcome without prompting.', b3: 'Responds to the partner, but rarely develops the discussion.', b1: 'Little response to the partner; needs prompting.' },
+    ],
+    linkers: ['however', 'nevertheless', 'whereas', 'consequently', 'furthermore', 'moreover', 'in addition', 'as a result', 'on the other hand', 'despite', 'although', 'while', 'for instance', 'therefore', 'because', 'but', 'and'],
+  },
 };

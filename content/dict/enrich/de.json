@@ -273,7 +273,7 @@
   ]
  },
  "coincide": {
-  "n": "Coincide steht für zeitliches Zusammentreffen oder inhaltliche Übereinstimmung. Wird das zweite Element genannt, folgt with: coincide with the holidays; ohne Ergänzung steht es allein: our views coincide. Als intransitives Verb hat es kein Passiv. Das verwandte Substantiv coincidence bedeutet meist Zufall, also ein zufälliges Zusammentreffen, wie in what a coincidence. Das Adjektiv dazu ist coincidental.",
+  "n": "Coincide steht für zeitliches Zusammentreffen oder inhaltliche Übereinstimmung. Wird das zweite Element genannt, folgt with: coincide with the holidays; ohne Ergänzung steht es allein: our views coincide. Als intransitives Verb hat es kein Passiv. Das verwandte Substantiv coincidence bedeutet meist Zufall, also ein zufälliges Zusammentreffen, wie in what a coincidence. Mit purely coincidental betont man, dass etwas rein zufällig zusammenfällt.",
   "x": [
    [
     "The festival coincides with the start of the school holidays.",
@@ -403,7 +403,7 @@
   ]
  },
  "consequent": {
-  "n": "Consequent ist ein formelles Adjektiv für etwas, das sich als Folge aus einem Ereignis ergibt: the strike and the consequent delays. Anders als das deutsche konsequent, das folgerichtig oder unbeirrt heißt, hat es nichts mit Charakterstärke zu tun; dafür sagt man consistent oder determined. Im Alltag verwendet man eher resulting. Das Adverb ist consequently.",
+  "n": "Consequent ist ein formelles Adjektiv für etwas, das sich als Folge aus einem Ereignis ergibt: the strike and the consequent delays. Anders als das deutsche konsequent, das folgerichtig oder unbeirrt heißt, hat es nichts mit Charakterstärke zu tun; dafür sagt man consistent oder determined. Im Alltag verwendet man eher resulting. Im Fließtext leitet consequently eine Folge ein, etwa consequently, the flight was cancelled, also folglich.",
   "x": [
    [
     "The factory fire and the consequent loss of jobs shocked the town.",
@@ -1556,6 +1556,786 @@
    [
     "The new manager will occupy the corner office on the third floor.",
     "Der neue Manager wird das Eckbüro im dritten Stock beziehen."
+   ]
+  ]
+ },
+ "offset": {
+  "n": "Kosten, die durch Einsparungen ausgeglichen werden, beschreibt man im Englischen meist im Passiv: costs were partly offset by savings. Offset heißt also aufwiegen oder kompensieren, eine Wirkung neutralisiert eine gegenläufige. Die drei Verbformen sind identisch (offset, offset, offset), ein offsetted gibt es nicht. Häufig sind offset losses und offset the impact; im Klimabereich spricht man von offset emissions, und das Nomen carbon offset entspricht der deutschen CO2-Kompensation.",
+  "x": [
+   [
+    "Cheaper imports could offset the rise in energy prices.",
+    "Billigere Importe könnten den Anstieg der Energiepreise ausgleichen."
+   ],
+   [
+    "Many airlines let passengers offset their flight emissions by paying extra.",
+    "Viele Fluggesellschaften lassen Passagiere ihre Flugemissionen gegen Aufpreis kompensieren."
+   ]
+  ]
+ },
+ "overlap": {
+  "n": "Zwei Bereiche überlappen sich: Das Verb overlap braucht kein Reflexivpronomen, anders als das deutsche sich überlappen. Man sagt A overlaps B oder A and B overlap, und mit with, wenn der Partner nachgestellt ist: the course overlaps with another. Auch zeitlich möglich: meetings that overlap. Typische Verbindungen sind partially overlap und overlap considerably. Es kann auch ein Nomen sein: there is some overlap.",
+  "x": [
+   [
+    "Our opening hours overlap with those of the nearby library.",
+    "Unsere Öffnungszeiten überschneiden sich mit denen der nahen Bibliothek."
+   ],
+   [
+    "The two roof tiles must overlap by at least five centimetres.",
+    "Die beiden Dachziegel müssen sich um mindestens fünf Zentimeter überlappen."
+   ]
+  ]
+ },
+ "overseas": {
+  "n": "Wer im Ausland studiert, ist auf Englisch oft an overseas student. Vor dem Nomen ist overseas Adjektiv: overseas markets, an overseas branch. Als Adverb braucht es keine Präposition: she works overseas, nicht in overseas. Abroad ist allgemeiner und gilt für jedes andere Land, auch ein Nachbarland; overseas betont eher die Entfernung über das Meer. Das deutsche Übersee trifft den Kern, ist aber deutlich seltener als das englische Wort.",
+  "x": [
+   [
+    "The company plans to open an overseas office next year.",
+    "Das Unternehmen plant, nächstes Jahr ein Büro im Ausland zu eröffnen."
+   ],
+   [
+    "Her brother has been living overseas for nearly a decade.",
+    "Ihr Bruder lebt seit fast zehn Jahren im Ausland."
+   ]
+  ]
+ },
+ "perceive": {
+  "n": "Im Deutschen sagt man oft, etwas werde als riskant empfunden oder aufgefasst. Genau dafür steht perceive X as Y, im Passiv X is perceived as Y: the risk is widely perceived as low. Es geht also um Deutung, nicht nur ums Sehen. Perceive ist gehobener als see und typisch für Studien, Umfragen und Berichte; für bloßes Bemerken reicht notice. Das zugehörige Nomen perception entspricht Wahrnehmung, etwa public perception.",
+  "x": [
+   [
+    "Customers tend to perceive higher prices as a sign of quality.",
+    "Kunden neigen dazu, höhere Preise als Zeichen von Qualität zu sehen."
+   ],
+   [
+    "Many people perceive the new law as unfair.",
+    "Viele Menschen empfinden das neue Gesetz als ungerecht."
+   ]
+  ]
+ },
+ "persist": {
+  "n": "Persist hat zwei Gesichter: Etwas hält an (problems persist, symptoms persist) oder jemand macht trotz Widerstand weiter (persist in doing something, persist with a plan). Nach persist in folgt die -ing-Form. Es klingt förmlicher als carry on oder keep going und hat bei Personen oft einen Beiklang von Sturheit. Das Adjektiv persistent und das Nomen persistence sind verwandt. Deutsch passt je nach Satz anhalten, fortbestehen oder beharren.",
+  "x": [
+   [
+    "If the symptoms persist for more than a week, you should see a doctor.",
+    "Wenn die Beschwerden länger als eine Woche anhalten, sollten Sie zum Arzt gehen."
+   ],
+   [
+    "Some farmers persist in using methods that harm the soil.",
+    "Manche Landwirte halten hartnäckig an Methoden fest, die dem Boden schaden."
+   ]
+  ]
+ },
+ "philosophy": {
+  "n": "Als Studienfach ist philosophy nicht zählbar und steht ohne Artikel: she studied philosophy, nicht the philosophy. Zählbar wird es, wenn eine Grundhaltung gemeint ist, etwa die Leitlinie einer Firma oder die eigene Lebenseinstellung: a company's philosophy, my philosophy of life, different philosophies. Typisch sind auch moral philosophy und guiding philosophy. Im Deutschen deckt Philosophie beide Bedeutungen ab, doch im zweiten Sinn klingen Grundsatz oder Einstellung oft natürlicher.",
+  "x": [
+   [
+    "He studied philosophy and economics at university.",
+    "Er studierte an der Universität Philosophie und Wirtschaft."
+   ],
+   [
+    "The restaurant's philosophy is to use only local ingredients.",
+    "Die Philosophie des Restaurants ist, nur regionale Zutaten zu verwenden."
+   ]
+  ]
+ },
+ "portion": {
+  "n": "Beim Essen entspricht portion der deutschen Portion: a small portion of fries, generous portions. Ebenso oft meint es aber einen Teil oder Anteil eines größeren Ganzen, und hier liegt die Falle für Deutschsprachige: a large portion of the budget, a significant portion of the population. Portion ist zählbar und klingt in diesem Sinn etwas formeller als part. Share betont dagegen, dass jemandem ein Teil zusteht: your share of the profits.",
+  "x": [
+   [
+    "Only a small portion of the funding came from private donors.",
+    "Nur ein kleiner Teil der Mittel stammte von privaten Spendern."
+   ],
+   [
+    "The portion at the café was too big for me to finish.",
+    "Die Portion im Café war zu groß, als dass ich sie hätte aufessen können."
+   ]
+  ]
+ },
+ "pose": {
+  "n": "Pose steht in zwei festen Mustern: pose a threat/risk/problem (eine Gefahr oder ein Problem darstellen) und pose a question (eine Frage aufwerfen oder stellen). Es ist formell und gehört in Texte über Gefahren und Debatten. Das Subjekt ist meist eine Sache, kein Mensch: Pollution poses a risk. Intransitiv heißt es posieren: to pose for a photo. Das deutsche stellen passt nur zur Frage, bei Gefahren sagt man darstellen.",
+  "x": [
+   [
+    "Plastic waste continues to pose a risk to marine life.",
+    "Plastikmüll stellt weiterhin eine Gefahr für Meerestiere dar."
+   ],
+   [
+    "The students were asked to pose questions to the guest speaker.",
+    "Die Studierenden sollten dem Gastredner Fragen stellen."
+   ]
+  ]
+ },
+ "practitioner": {
+  "n": "Ein practitioner übt einen Beruf oder eine Fertigkeit praktisch aus, im Unterschied zu jemandem, der nur darüber forscht oder lehrt. Besonders üblich ist das Wort in Medizin, Recht und Therapie: medical practitioner, legal practitioner, healthcare practitioner. Ein general practitioner, kurz GP, ist vor allem im britischen Englisch der Hausarzt. Auch wer Yoga oder eine Kampfkunst ernsthaft betreibt, ist a practitioner. Das Nomen ist zählbar und eher förmlich; im Alltag nennt man lieber den konkreten Beruf wie doctor oder lawyer. Im Deutschen passen je nach Kontext Praktiker, Fachkraft oder Behandelnde.",
+  "x": [
+   [
+    "Each medical practitioner at the health centre sees about twenty patients a day.",
+    "Jeder Arzt im Gesundheitszentrum behandelt etwa zwanzig Patienten am Tag."
+   ],
+   [
+    "Theory is useful, but every practitioner knows that real cases are messier.",
+    "Theorie ist nützlich, aber jeder Praktiker weiß, dass echte Fälle unübersichtlicher sind."
+   ]
+  ]
+ },
+ "preliminary": {
+  "n": "Preliminary results sind vorläufige Ergebnisse, die noch bestätigt werden müssen; preliminary talks sind Vorgespräche vor den eigentlichen Verhandlungen. Das Adjektiv markiert also, was einer Hauptsache vorausgeht, und steht fast immer vor dem Nomen: a preliminary study, a preliminary report. Gegenüber first oder initial klingt es formeller und passt zu Wissenschaft, Politik und Recht. Im Deutschen hilft oft die Vorsilbe Vor-, etwa Vorstudie. Im Plural bezeichnet preliminaries Vorbereitungen oder Vorrunden.",
+  "x": [
+   [
+    "The preliminary findings were published before the full report.",
+    "Die vorläufigen Ergebnisse wurden vor dem vollständigen Bericht veröffentlicht."
+   ],
+   [
+    "The two leaders held preliminary talks in Geneva.",
+    "Die beiden Staatschefs führten in Genf Vorgespräche."
+   ]
+  ]
+ },
+ "presume": {
+  "n": "Wer presume sagt, nimmt etwas als gegeben an, weil die Umstände dafür sprechen, auch ohne es geprüft zu haben. Neben assume klingt es formeller und oft höflich-distanziert, etwa I presume this is your bag. Typisch sind presume that, it is presumed that und das Passiv be presumed dead. Juristisch kennt man presumed innocent, also die Unschuldsvermutung. Deutsche Entsprechungen sind annehmen, vermuten oder davon ausgehen. Vorsicht beim Nomen presumption: Es heißt Vermutung, kann aber auch Anmaßung bedeuten, ähnlich wie das Adjektiv presumptuous.",
+  "x": [
+   [
+    "I presume you have already read the instructions.",
+    "Ich nehme an, Sie haben die Anleitung bereits gelesen."
+   ],
+   [
+    "Never presume that a quiet student has nothing to say.",
+    "Man sollte nie annehmen, dass ein stiller Schüler nichts zu sagen hat."
+   ]
+  ]
+ },
+ "prior": {
+  "n": "Prior to the meeting klingt wie before the meeting, nur deutlich formeller; die feste Verbindung prior to steht vor einem Nomen oder einer -ing-Form. Ein häufiger Lernfehler ist prior than, richtig ist nur prior to. Als Adjektiv vor dem Nomen entspricht prior dem deutschen vorherig oder früher: prior experience, prior knowledge, a prior agreement. In Stellenanzeigen liest man oft no prior experience required, also keine Vorerfahrung nötig.",
+  "x": [
+   [
+    "Prior knowledge of the subject is helpful but not essential.",
+    "Vorkenntnisse in dem Fach sind hilfreich, aber nicht zwingend erforderlich."
+   ],
+   [
+    "Visitors must register prior to arrival.",
+    "Besucher müssen sich vor der Ankunft anmelden."
+   ]
+  ]
+ },
+ "priority": {
+  "n": "Wer Prioritäten setzt, sagt auf Englisch set priorities; der Plural ist hier normal, denn priority ist zählbar: my priorities have changed. Für das Wichtigste stehen top priority und a high priority, für Nebensächliches a low priority. Vorrang haben heißt take priority over, Vorrang geben give priority to. Das Verb dazu schreibt man im britischen Englisch prioritise oder prioritize, im amerikanischen nur prioritize.",
+  "x": [
+   [
+    "Reducing waiting times is our top priority this year.",
+    "Die Verkürzung der Wartezeiten ist in diesem Jahr unsere oberste Priorität."
+   ],
+   [
+    "Emergency vehicles take priority over all other traffic.",
+    "Einsatzfahrzeuge haben Vorrang vor dem gesamten übrigen Verkehr."
+   ]
+  ]
+ },
+ "prospect": {
+  "n": "Im Plural meint prospects Zukunftschancen, vor allem beruflich: job prospects, career prospects. Im Singular ist es eine Aussicht auf etwas Künftiges, im Deutschen Aussicht oder Perspektive, und steht meist mit of: the prospect of winning, the prospect of war. Diese Aussicht kann Hoffnung oder Furcht tragen, etwa a daunting prospect. Für den Blick aus dem Fenster sagt man dagegen view; prospect in diesem Sinn ist selten und literarisch.",
+  "x": [
+   [
+    "The prospect of moving abroad both excites and frightens her.",
+    "Die Aussicht auf einen Umzug ins Ausland begeistert und ängstigt sie zugleich."
+   ],
+   [
+    "For many young people in the region, the prospect of a stable job seems remote.",
+    "Für viele junge Menschen in der Region scheint die Aussicht auf eine feste Stelle in weiter Ferne."
+   ]
+  ]
+ },
+ "protocol": {
+  "n": "Protocol ist ein festgelegtes Verfahren oder Regelwerk: a safety protocol, a treatment protocol, diplomatic protocol. Man sagt follow protocol oder breach protocol. In der Informatik steht es für Kommunikationsregeln wie HTTP. Wichtig: Das deutsche Protokoll im Sinn von Sitzungsmitschrift heißt im Englischen minutes, nicht protocol. Wer also nach einer Besprechung das Protokoll schreibt, takes the minutes.",
+  "x": [
+   [
+    "Staff must follow the cleaning protocol before every operation.",
+    "Das Personal muss vor jeder Operation das Reinigungsprotokoll befolgen."
+   ],
+   [
+    "Computers use a common protocol to send data across the network.",
+    "Computer nutzen ein gemeinsames Protokoll, um Daten über das Netzwerk zu senden."
+   ]
+  ]
+ },
+ "psychology": {
+  "n": "Psychology ist das Fach und zugleich die Denk- und Verhaltensweise einer Gruppe oder Situation: child psychology, the psychology of fear, consumer psychology. Es ist nicht zählbar und wird mit Singularverb gebraucht. Die Person heißt psychologist, das Adjektiv psychological. Das deutsche Psychologie deckt beides ab; für die Psyche eines einzelnen Menschen sagt man im Englischen eher mind oder psyche.",
+  "x": [
+   [
+    "She is studying psychology at the University of Leeds.",
+    "Sie studiert Psychologie an der Universität Leeds."
+   ],
+   [
+    "The psychology of saving money is more complex than most people think.",
+    "Die Psychologie des Sparens ist komplexer, als die meisten Menschen denken."
+   ]
+  ]
+ },
+ "pursue": {
+  "n": "Einer Karriere nachgehen, ein Ziel verfolgen, ein Studium anstreben: Für all das steht pursue, etwa pursue a career, pursue a goal, pursue a degree. Das Objekt folgt direkt, ohne Präposition; pursue after ist falsch. Daneben gibt es die wörtliche Verfolgung: police pursued the car. Insgesamt klingt pursue formeller und zielstrebiger als follow. Das Nomen pursuit erscheint oft in in pursuit of, im Streben nach oder auf der Jagd nach.",
+  "x": [
+   [
+    "She decided to pursue a career in medicine.",
+    "Sie entschied sich, eine Laufbahn in der Medizin anzustreben."
+   ],
+   [
+    "The company will pursue legal action against the supplier.",
+    "Das Unternehmen wird rechtlich gegen den Lieferanten vorgehen."
+   ]
+  ]
+ },
+ "radical": {
+  "n": "Vorsicht bei der Übersetzung: Das deutsche radikal klingt oft nach Extremismus, das englische radical dagegen kann ausdrücklich lobend sein, etwa a radical new design. Im Kern geht es um Grundlegendes: a radical change greift tief ein, a radical rethink stellt alles auf den Prüfstand. Politisch gemeint ist es in radical views oder radical groups. Als zählbares Nomen ist a radical ein Mensch mit extremen Ansichten. Oft passen grundlegend oder tiefgreifend besser als radikal.",
+  "x": [
+   [
+    "The company introduced a radical new approach to teaching.",
+    "Das Unternehmen führte einen radikal neuen Ansatz im Unterricht ein."
+   ],
+   [
+    "The minister called for radical reform of the tax system.",
+    "Der Minister forderte eine grundlegende Reform des Steuersystems."
+   ]
+  ]
+ },
+ "ratio": {
+  "n": "Ratio vergleicht zwei Zahlen miteinander und steht dabei mit of und to, etwa the ratio of men to women oder a ratio of three to one. Im Deutschen ist das fast immer ein Verhältnis; bei Schülern pro Lehrkraft spricht man auch vom Betreuungsschlüssel (student-teacher ratio). Ratio ist zählbar (ratios) und klingt fachlich, typisch für Statistik und Finanzen. Nicht verwechseln mit rate: Sie misst, wie oft oder wie schnell etwas geschieht, etwa birth rate oder interest rate.",
+  "x": [
+   [
+    "The ratio of boys to girls in the class is about two to one.",
+    "Das Verhältnis von Jungen zu Mädchen in der Klasse beträgt etwa zwei zu eins."
+   ],
+   [
+    "Banks look closely at your debt-to-income ratio before lending.",
+    "Banken prüfen vor einer Kreditvergabe genau Ihr Verhältnis von Schulden zu Einkommen."
+   ]
+  ]
+ },
+ "rational": {
+  "n": "A rational decision ist von Logik geleitet, nicht von Gefühl; das Gegenteil heißt irrational. Neben Entscheidungen beschreibt rational auch Menschen und Erklärungen: a rational person, a rational explanation. Leicht verwechselt wird es mit reasonable: Rational betont das logische Denken, reasonable eher das Angemessene oder Faire, etwa a reasonable price. Im Deutschen deckt rational vieles ab, oft klingen vernünftig oder sachlich natürlicher.",
+  "x": [
+   [
+    "It is hard to stay rational when you are under so much pressure.",
+    "Es ist schwer, rational zu bleiben, wenn man unter so großem Druck steht."
+   ],
+   [
+    "There must be a rational explanation for the strange noise.",
+    "Für das seltsame Geräusch muss es eine vernünftige Erklärung geben."
+   ]
+  ]
+ },
+ "regime": {
+  "n": "In Nachrichten erscheint regime meist abwertend für eine Regierung oder Machtordnung: a military regime, an authoritarian regime, the former regime. Neutral benennt es dagegen ein Regelwerk oder System: a tax regime, a new inspection regime. Auch ein fester Plan für Training oder Pflege kann so heißen, etwa an exercise regime oder a skincare regime. Regime ist zählbar. Das deutsche Regime passt nur zur politischen Bedeutung; beim Steuerrecht trifft System, beim Sport Programm oder Plan besser.",
+  "x": [
+   [
+    "The old regime collapsed after months of protests.",
+    "Das alte Regime brach nach monatelangen Protesten zusammen."
+   ],
+   [
+    "A stricter inspection regime was introduced for food factories.",
+    "Für Lebensmittelfabriken wurde ein strengeres Kontrollsystem eingeführt."
+   ]
+  ]
+ },
+ "register": {
+  "n": "Register for a course, register a birth, register to vote: Überall geht es darum, sich oder etwas offiziell eintragen zu lassen, also anmelden oder registrieren. Mit for folgt der Kurs oder die Veranstaltung, mit with die Stelle selbst: register with a doctor, sich bei einer Arztpraxis anmelden. Register wirkt amtlicher als sign up. Überraschend für Lernende ist der Gebrauch mit Gefühlen: his face registered surprise, sein Gesicht zeigte Überraschung.",
+  "x": [
+   [
+    "You need to register for the exam by the end of March.",
+    "Sie müssen sich bis Ende März für die Prüfung anmelden."
+   ],
+   [
+    "New residents must register with the local authority.",
+    "Neue Einwohner müssen sich bei der Gemeindeverwaltung anmelden."
+   ]
+  ]
+ },
+ "regulate": {
+  "n": "Hinter regulate stehen meist Gesetze oder Behörden, die etwas von außen steuern; oft erscheint es im Passiv, etwa heavily regulated industries. Aktiv sagt man regulate the market oder regulate prices. Daneben gibt es einen körperlichen Sinn: the body regulates temperature. Gegenüber control klingt das Verb formeller und sachlicher. Im Deutschen passen regeln und regulieren, mit kritischem Unterton auch reglementieren. In Wirtschaftsnachrichten liest man oft new regulations und the financial regulator, also neue Vorschriften und die Finanzaufsicht.",
+  "x": [
+   [
+    "The government plans to regulate online gambling more strictly.",
+    "Die Regierung plant, Online-Glücksspiel strenger zu regulieren."
+   ],
+   [
+    "Sweating helps the body regulate its temperature.",
+    "Schwitzen hilft dem Körper, seine Temperatur zu regulieren."
+   ]
+  ]
+ },
+ "reinforce": {
+  "n": "Reinforced concrete ist Stahlbeton, ein guter Merkanker, denn reinforce heißt, etwas schon Vorhandenes zu verstärken oder zu festigen. Übertragen gilt das für Ideen und Gefühle: reinforce a message, reinforce learning, reinforce stereotypes. Anders als create setzt das Verb ein bestehendes Fundament voraus. Bei Vorurteilen oder schlechten Gewohnheiten hat es einen negativen Beiklang. Im Deutschen passen verstärken, untermauern oder bekräftigen, im Bauwesen bewehren.",
+  "x": [
+   [
+    "Repeating new words helps to reinforce what students have learned.",
+    "Das Wiederholen neuer Wörter hilft, das Gelernte zu festigen."
+   ],
+   [
+    "Engineers had to reinforce the old bridge with steel beams.",
+    "Ingenieure mussten die alte Brücke mit Stahlträgern verstärken."
+   ]
+  ]
+ },
+ "resolve": {
+  "n": "Bei Konflikten und Streitfällen ist resolve das passende Verb: resolve a conflict, resolve a dispute, resolve an issue, also beilegen oder klären. Solve passt dagegen eher zu Rätseln und Aufgaben, bei denen man eine Lösung findet. Mit to und Infinitiv wird daraus ein Entschluss: she resolved to quit, sie beschloss aufzuhören. Als nicht zählbares Nomen heißt resolve Entschlossenheit, etwa in strengthen our resolve.",
+  "x": [
+   [
+    "Both sides met to resolve the dispute over fishing rights.",
+    "Beide Seiten trafen sich, um den Streit um die Fischereirechte beizulegen."
+   ],
+   [
+    "The IT team needed only an hour to resolve the login problem.",
+    "Das IT-Team brauchte nur eine Stunde, um das Anmeldeproblem zu beheben."
+   ]
+  ]
+ },
+ "reverse": {
+  "n": "Eine Entscheidung rückgängig machen, einen Trend umkehren: reverse a decision, reverse the trend, reverse the damage. Beim Auto heißt reverse rückwärtsfahren, etwa reverse into a parking space. Als Nomen steht es für den Rückwärtsgang (put the car in reverse) und für das Gegenteil: the reverse is true, das Gegenteil trifft zu. Nicht verwechseln mit revise: Revise heißt überarbeiten, reverse dagegen ins Gegenteil kehren.",
+  "x": [
+   [
+    "The court may reverse the original decision on appeal.",
+    "Das Gericht kann die ursprüngliche Entscheidung in der Berufung aufheben."
+   ],
+   [
+    "It took her three tries to reverse the van into the narrow space.",
+    "Sie brauchte drei Versuche, um den Lieferwagen in die enge Lücke zurückzusetzen."
+   ]
+  ]
+ },
+ "rigid": {
+  "n": "A rigid schedule lässt keinen Spielraum, a rigid structure gibt kaum nach: Rigid gilt für Material ebenso wie für Regeln und Menschen. Im Deutschen entspricht das starr oder unbeugsam. Bei Personen klingt es kritisch, ähnlich wie inflexible; das Gegenteil ist flexible. Für einen steifen Nacken oder steife Muskeln sagt man eher stiff als rigid. Typisch sind auch rigid rules und a rigid hierarchy. Kritik an Bürokratie richtet sich oft gegen the rigidity of the system, also gegen seine Starrheit.",
+  "x": [
+   [
+    "The company has a rigid hierarchy that slows decisions down.",
+    "Das Unternehmen hat eine starre Hierarchie, die Entscheidungen verlangsamt."
+   ],
+   [
+    "The box is made of a light but rigid plastic.",
+    "Die Kiste besteht aus einem leichten, aber steifen Kunststoff."
+   ]
+  ]
+ },
+ "scenario": {
+  "n": "Im worst-case scenario rechnet man mit dem Schlimmsten, im best-case scenario mit dem Besten. Ein scenario ist also ein denkbarer Ablauf, im Deutschen meist Szenario oder einfach Fall. Es wirkt nüchterner als story und gehört in Planung, Risikoanalyse und Beratung. Häufig sind auch a likely scenario und a realistic scenario. Mit einer Theaterkulisse hat es nichts zu tun, die heißt scenery oder set. Ein Drehbuch ist ein script oder screenplay.",
+  "x": [
+   [
+    "In the best-case scenario, the project will finish a month early.",
+    "Im besten Fall wird das Projekt einen Monat früher fertig."
+   ],
+   [
+    "The fire drill was based on a realistic scenario in the school kitchen.",
+    "Die Brandschutzübung beruhte auf einem realistischen Szenario in der Schulküche."
+   ]
+  ]
+ },
+ "scope": {
+  "n": "Scope ist die Reichweite oder der Umfang eines Themas oder Vorhabens. In Fachtexten heißt beyond the scope of this study, dass eine Frage über den Rahmen der Arbeit hinausgeht; in Projekten heißt out of scope, dass etwas ausdrücklich nicht dazugehört. Mit for bedeutet es Spielraum: there is scope for improvement. In diesem Sinn steht es meist ohne a, oft mit some, little oder considerable: little scope for change. Im Deutschen passen Umfang, Rahmen oder Spielraum.",
+  "x": [
+   [
+    "The new law widens the scope of the data protection rules.",
+    "Das neue Gesetz erweitert den Geltungsbereich der Datenschutzregeln."
+   ],
+   [
+    "There is still scope for improvement in the way we train staff.",
+    "Bei der Schulung des Personals gibt es noch Spielraum für Verbesserungen."
+   ]
+  ]
+ },
+ "sector": {
+  "n": "The public sector und the private sector sind die häufigsten Verbindungen, dazu the banking sector oder the service sector. Ein sector ist ein Teil der Wirtschaft oder Gesellschaft und steht meist mit the und einer näheren Bestimmung. Für Deutschsprachige liegt eine Falle bei Branche: Das englische branch heißt Filiale oder Zweig, nicht Wirtschaftszweig. Für die Branche sagt man sector oder industry, etwa the tourism industry. Sektor oder Bereich sind die direkten Entsprechungen.",
+  "x": [
+   [
+    "More than half of the country's workers are in the private sector.",
+    "Mehr als die Hälfte der Beschäftigten des Landes arbeitet im Privatsektor."
+   ],
+   [
+    "The technology sector has grown faster than any other this decade.",
+    "Die Technologiebranche ist in diesem Jahrzehnt schneller gewachsen als jede andere."
+   ]
+  ]
+ },
+ "secure": {
+  "n": "Feel secure heißt sich sicher oder geborgen fühlen. Im Unterschied zu safe betont secure den Schutz vor Eindringen, Verlust oder Unsicherheit: a secure password ist schwer zu knacken, a secure job dagegen sicher im Sinn von stabil. Auch financially secure gehört hierher, also finanziell abgesichert. Daneben gibt es das Verb: secure a loan, secure a place, sich etwas sichern oder etwas erreichen. Im Deutschen deckt sicher die meisten Fälle, gesichert oder geschützt präzisieren.",
+  "x": [
+   [
+    "Please choose a secure password that nobody can easily guess.",
+    "Bitte wählen Sie ein sicheres Passwort, das niemand leicht erraten kann."
+   ],
+   [
+    "Children need to feel secure in their home.",
+    "Kinder müssen sich in ihrem Zuhause sicher fühlen."
+   ]
+  ]
+ },
+ "select": {
+  "n": "Aus einer Liste, einem Menü oder einem Bewerberfeld wählt man mit select aus: select a candidate, select an option. Gegenüber choose oder pick klingt das formeller und nach geregeltem Verfahren, daher randomly selected und carefully selected. Im Passiv folgt from für die Gruppe und by für die Auswählenden: selected from a list, selected by a jury. Als Adjektiv bedeutet a select group eine erlesene, exklusive Gruppe.",
+  "x": [
+   [
+    "Teachers will select the best pieces for the school exhibition.",
+    "Die Lehrkräfte wählen die besten Arbeiten für die Schulausstellung aus."
+   ],
+   [
+    "The panel will select three candidates for the final interview.",
+    "Die Kommission wird drei Kandidaten für das abschließende Vorstellungsgespräch auswählen."
+   ]
+  ]
+ },
+ "simulate": {
+  "n": "Flugsimulatoren zeigen den Kern: Simulate heißt, Bedingungen künstlich nachzubilden, ob für Forschung oder Training: simulate conditions, simulate an earthquake, computer-simulated models. Im Deutschen passt meist simulieren oder nachbilden. Seltener und formell bedeutet es vortäuschen, etwa simulate illness; im Alltag sagt man dafür fake oder pretend. Das Nomen ist simulation, das Gerät a simulator.",
+  "x": [
+   [
+    "Engineers use software to simulate how a bridge reacts to strong winds.",
+    "Ingenieure nutzen Software, um zu simulieren, wie eine Brücke auf starken Wind reagiert."
+   ],
+   [
+    "The training centre can simulate emergency situations in a safe setting.",
+    "Das Trainingszentrum kann Notfallsituationen in einer sicheren Umgebung simulieren."
+   ]
+  ]
+ },
+ "so-called": {
+  "n": "So-called steht vor einem Nomen und hat zwei Gebrauchsweisen. Neutral führt es einen Fachbegriff oder eine übliche Bezeichnung ein: the so-called greenhouse effect. Mindestens ebenso oft signalisiert es Zweifel daran, dass die Bezeichnung zutrifft: the so-called experts. Das deutsche sogenannt kennt beide Töne genauso, deshalb lässt es sich meist direkt übertragen; ist der Spott deutlich, passt auch angeblich oder vermeintlich. Wer jeden skeptischen Beiklang vermeiden will, wählt known as: a process known as osmosis. Prädikativ nach be ist so-called unüblich.",
+  "x": [
+   [
+    "The so-called solution only made the problem worse.",
+    "Die sogenannte Lösung machte das Problem nur schlimmer."
+   ],
+   [
+    "Some so-called friends refused to help him.",
+    "Einige angebliche Freunde weigerten sich, ihm zu helfen."
+   ]
+  ]
+ },
+ "sole": {
+  "n": "Sole betont, dass es nur einen gibt und nichts geteilt wird, etwa the sole survivor, the sole purpose oder sole responsibility; es ist stärker und formeller als only. Es steht vor dem Nomen, fast immer mit the oder einem Possessivwort. In Recht und Wirtschaft sind sole owner und sole heir geläufig, also Alleininhaber und Alleinerbe. Gleich geschrieben sind die Nomen für Fußsohle und Seezunge, die mit diesem Adjektiv nichts zu tun haben. Im Deutschen trifft alleinig oder einzig den Sinn.",
+  "x": [
+   [
+    "The sole purpose of the meeting is to agree on a budget.",
+    "Der einzige Zweck des Treffens ist, sich auf ein Budget zu einigen."
+   ],
+   [
+    "She is the sole owner of the small bakery.",
+    "Sie ist die alleinige Inhaberin der kleinen Bäckerei."
+   ]
+  ]
+ },
+ "somewhat": {
+  "n": "Wer vorsichtig abschwächen will, greift zu somewhat: somewhat different, somewhat surprising, somewhat higher. Im Deutschen entspricht das etwas oder einigermaßen, je nach Satz. Somewhat steht vor Adjektiven und Vergleichsformen und klingt sachlicher als a bit, daher passt es gut in Berichte und wissenschaftliche Texte. Vor sehr starken Adjektiven wie terrible wirkt es meist seltsam. Vor einem Nomen ist something of a die übliche Wahl: it came as something of a surprise.",
+  "x": [
+   [
+    "The second experiment gave somewhat different results from the first.",
+    "Das zweite Experiment lieferte etwas andere Ergebnisse als das erste."
+   ],
+   [
+    "I was somewhat disappointed by the quality of the food.",
+    "Ich war von der Qualität des Essens etwas enttäuscht."
+   ]
+  ]
+ },
+ "specify": {
+  "n": "Unless otherwise specified, also sofern nicht anders angegeben, steht in vielen Verträgen und Anleitungen. Specify heißt, etwas genau angeben oder ausdrücklich festlegen: the contract specifies the hours, please specify the size you need. Es folgt ein direktes Objekt, ein that-Satz oder ein Fragewort wie which oder how. Gegenüber say oder state wirkt es präziser und formeller. In Formularen steht neben Other oft please specify, also bitte angeben.",
+  "x": [
+   [
+    "Please specify which date you would like to book.",
+    "Bitte geben Sie an, für welches Datum Sie buchen möchten."
+   ],
+   [
+    "The rules clearly specify who can vote in the election.",
+    "Die Regeln legen genau fest, wer bei der Wahl stimmberechtigt ist."
+   ]
+  ]
+ },
+ "sphere": {
+  "n": "The public sphere, the private sphere, a sphere of influence: In Texten über Politik und Gesellschaft meint sphere einen Lebens- oder Einflussbereich, deutsch Sphäre oder Bereich. Daneben bleibt die geometrische Bedeutung Kugel, etwa in Mathematik und Physik. Zählbar ist es in beiden Fällen. Für Beruf oder Fachgebiet sagt man häufiger field oder area, sphere klingt gehobener. Das Wort steckt auch in atmosphere und hemisphere.",
+  "x": [
+   [
+    "Social media has changed the nature of the public sphere.",
+    "Soziale Medien haben das Wesen der Öffentlichkeit verändert."
+   ],
+   [
+    "Each of the great powers tried to expand its sphere of influence.",
+    "Jede der Großmächte versuchte, ihren Einflussbereich auszuweiten."
+   ]
+  ]
+ },
+ "straightforward": {
+  "n": "Straightforward beschreibt etwas, das ohne Komplikationen oder Umwege funktioniert oder verständlich ist: a straightforward process, a straightforward question, fairly straightforward. Oft steht es verneint, wenn sich eine Sache als heikler herausstellt: it is not that straightforward. Es steht vor dem Nomen oder nach be und lässt sich mit more steigern. Bei Personen bedeutet es ehrlich und direkt, deutsch geradlinig oder offen. Gegenüber simple betont es weniger die geringe Schwierigkeit als das Fehlen von Hindernissen. Im Deutschen passen unkompliziert, einfach oder eindeutig.",
+  "x": [
+   [
+    "Applying for the visa was surprisingly straightforward.",
+    "Das Visum zu beantragen war überraschend unkompliziert."
+   ],
+   [
+    "He gave a straightforward answer without avoiding the question.",
+    "Er gab eine geradlinige Antwort, ohne der Frage auszuweichen."
+   ]
+  ]
+ },
+ "subsequent": {
+  "n": "In subsequent years, subsequent events oder a subsequent study steckt immer die Idee von etwas, das später folgt, zeitlich oder logisch. Anders als next muss es nicht das unmittelbar Nächste sein. Das Adjektiv steht vor dem Nomen und lässt sich nicht steigern. Subsequent to ist eine sehr formelle Alternative zu after. Im Deutschen passen nachfolgend oder später; das Adverb subsequently entspricht anschließend oder in der Folge.",
+  "x": [
+   [
+    "She published several subsequent studies on the same topic.",
+    "Sie veröffentlichte mehrere spätere Studien zum selben Thema."
+   ],
+   [
+    "The company was sold, and subsequent owners changed its name.",
+    "Das Unternehmen wurde verkauft, und nachfolgende Eigentümer änderten seinen Namen."
+   ]
+  ]
+ },
+ "successor": {
+  "n": "Den Nachfolger im Amt nennt man im Englischen etwa his successor as manager oder the successor to the throne; meist steht to oder as, auch of. Gegenstück ist predecessor, der Vorgänger. Für die Wahl eines Nachfolgers sind appoint a successor und name a successor üblich. Bei Produkten ist das Wort ganz neutral: a successor to the older model. Anders als im Deutschen gibt es keine eigene weibliche Form, successor gilt für alle.",
+  "x": [
+   [
+    "The manager is retiring, and a successor will be chosen in June.",
+    "Der Manager geht in den Ruhestand, und im Juni wird ein Nachfolger bestimmt."
+   ],
+   [
+    "The new phone is the successor to last year's model.",
+    "Das neue Telefon ist der Nachfolger des Modells vom letzten Jahr."
+   ]
+  ]
+ },
+ "sufficient": {
+  "n": "Sufficient enough ist ein typischer Lernfehler, denn beide Wörter sagen dasselbe. Sufficient heißt ausreichend für einen bestimmten Zweck: sufficient evidence, sufficient funds, sufficient time. Danach folgt oft to und Verb oder for: sufficient to cover the costs. Es klingt formeller als enough, das im Alltag üblicher ist. Das Gegenteil insufficient entspricht unzureichend.",
+  "x": [
+   [
+    "Do we have sufficient time to finish the report today?",
+    "Haben wir genug Zeit, den Bericht noch heute fertigzustellen?"
+   ],
+   [
+    "A single test is not sufficient to prove the theory.",
+    "Ein einzelner Test reicht nicht aus, um die Theorie zu beweisen."
+   ]
+  ]
+ },
+ "supplement": {
+  "n": "Wer sein Einkommen aufbessert, supplements his income; wer seine Ernährung ergänzt, supplements his diet. Das Hinzugefügte nennt with: supplement lessons with videos. Im Unterschied zu replace bleibt das Bestehende erhalten. Als gleichlautendes Nomen ist a supplement eine Ergänzung, ein Nahrungsergänzungsmittel, eine Zeitungsbeilage oder ein Aufpreis, etwa a single supplement im Hotel, also der Einzelzimmerzuschlag.",
+  "x": [
+   [
+    "Many farmers supplement their earnings by renting out rooms.",
+    "Viele Landwirte stocken ihr Einkommen auf, indem sie Zimmer vermieten."
+   ],
+   [
+    "You can supplement the main course with a simple green salad.",
+    "Man kann das Hauptgericht mit einem einfachen grünen Salat ergänzen."
+   ]
+  ]
+ },
+ "temporary": {
+  "n": "Ein befristeter Vertrag ist a temporary contract, eine Übergangslösung a temporary measure. Temporary heißt zeitlich begrenzt, im Gegensatz zu permanent, und steht vor dem Nomen oder nach be. Je nach Fall passen im Deutschen vorübergehend, befristet oder provisorisch. Umgangssprachlich heißt eine Aushilfskraft a temp. Vorsicht vor der Verwechslung mit contemporary, das zeitgenössisch bedeutet.",
+  "x": [
+   [
+    "The shop hired extra staff on temporary contracts for the holidays.",
+    "Das Geschäft stellte für die Feiertage zusätzliches Personal mit befristeten Verträgen ein."
+   ],
+   [
+    "The road closure is only temporary, so traffic should be back to normal soon.",
+    "Die Straßensperrung ist nur vorübergehend, der Verkehr dürfte also bald wieder normal fließen."
+   ]
+  ]
+ },
+ "terminate": {
+  "n": "Im Vertragsrecht steht terminate oft für kündigen: terminate a contract, terminate employment. Das Verb klingt amtlich und formell; im Alltag sagt man end oder cancel. Es kann auch intransitiv stehen: the contract terminates on 1 May, der Vertrag endet am 1. Mai. Im Verkehr hört man this train terminates here, der Zug endet hier. Medizinisch heißt terminate a pregnancy eine Schwangerschaft abbrechen.",
+  "x": [
+   [
+    "The landlord can terminate the lease with three months' notice.",
+    "Der Vermieter kann den Mietvertrag mit einer Frist von drei Monaten kündigen."
+   ],
+   [
+    "The program will terminate automatically if it detects an error.",
+    "Das Programm wird automatisch beendet, wenn es einen Fehler erkennt."
+   ]
+  ]
+ },
+ "thereby": {
+  "n": "Thereby nennt die Folge einer eben beschriebenen Handlung, ähnlich wie dadurch oder auf diese Weise. Typisch steht es nach einem Komma vor einer -ing-Form: the council raised parking fees, thereby reducing traffic. Es ist formell und gehört in wissenschaftliche Texte, Berichte und Verträge. Im Gespräch klingt es steif; dort sagt man eher and so. Für eine logische Schlussfolgerung, also folglich, nimmt man therefore oder thus, nicht thereby.",
+  "x": [
+   [
+    "The firm cut its prices, thereby attracting thousands of new customers.",
+    "Die Firma senkte ihre Preise und gewann dadurch Tausende neue Kunden."
+   ],
+   [
+    "Solar panels produce their own power, thereby lowering electricity bills.",
+    "Solarmodule erzeugen ihren eigenen Strom und senken dadurch die Stromrechnung."
+   ]
+  ]
+ },
+ "thesis": {
+  "n": "Thesis bezeichnet eine längere schriftliche Abschlussarbeit, etwa a master's thesis oder a doctoral thesis, und außerdem die zentrale Behauptung eines Textes: the central thesis of the book. Der Plural lautet theses. Ob eine Arbeit thesis oder dissertation heißt, hängt von Land und Hochschule ab; beide Wörter bezeichnen eine wissenschaftliche Abschlussarbeit. Für Deutschsprachige wichtig: These meint nur die Behauptung, während thesis auch die Arbeit selbst abdeckt.",
+  "x": [
+   [
+    "He is writing a thesis on renewable energy in rural areas.",
+    "Er schreibt eine Abschlussarbeit über erneuerbare Energien in ländlichen Gebieten."
+   ],
+   [
+    "The author's central thesis is that cities shape human behaviour.",
+    "Die zentrale These des Autors lautet, dass Städte das menschliche Verhalten prägen."
+   ]
+  ]
+ },
+ "transfer": {
+  "n": "Geld überweisen, Wissen übertragen, die Schule wechseln: Transfer deckt jede Verlagerung von A nach B ab, oft mit from und to: transfer funds, transfer knowledge, transfer to another school. Das Verb ist transitiv oder intransitiv. Im Beruf heißt be transferred versetzt werden. Beim Reisen kann transfer umsteigen bedeuten, vor allem bei Flügen: transfer at Frankfurt; für Bus und Bahn ist change üblich, etwa change trains. Das gleichlautende Nomen kann eine Überweisung, einen Spielerwechsel oder einen Shuttle vom Flughafen zum Hotel bezeichnen.",
+  "x": [
+   [
+    "Please transfer the money to my account by Friday.",
+    "Bitte überweisen Sie das Geld bis Freitag auf mein Konto."
+   ],
+   [
+    "She decided to transfer to a different university after her first year.",
+    "Sie entschied sich, nach dem ersten Jahr an eine andere Universität zu wechseln."
+   ]
+  ]
+ },
+ "transform": {
+  "n": "Transform beschreibt keinen kleinen Schritt, sondern einen tiefgreifenden Wandel, etwa wenn das Internet den Einkauf verändert hat: the internet has transformed shopping. Transform ist deutlich stärker als change und betont das Ausmaß, oft mit completely oder radically. Mit into nennt man das Ergebnis: transform a garage into a studio, also verwandeln oder umgestalten. Das Nomen transformation kennt man auch im Deutschen, doch im Alltag klingt grundlegend verändern natürlicher als transformieren.",
+  "x": [
+   [
+    "Artificial intelligence may transform the way people work in offices.",
+    "Künstliche Intelligenz könnte die Arbeitsweise in Büros grundlegend verändern."
+   ],
+   [
+    "The town hopes to transform the old factory into a modern art gallery.",
+    "Die Stadt hofft, die alte Fabrik in eine moderne Kunstgalerie umzuwandeln."
+   ]
+  ]
+ },
+ "trigger": {
+  "n": "Ein Geräusch kann eine Erinnerung auslösen, ein Fehler einen Alarm: trigger a memory, trigger an alarm, trigger a reaction. Trigger nimmt ein direktes Objekt ohne Präposition; trigger off bedeutet dasselbe und ist seltener. Gegenüber spark, das Plötzlichkeit betont, wirkt es neutraler. Als Nomen ist a trigger der Abzug einer Waffe oder ein Auslöser, etwa a trigger for migraines. Im Deutschen passt auslösen fast immer, hervorrufen klingt gehobener.",
+  "x": [
+   [
+    "Certain foods can trigger headaches in some people.",
+    "Manche Lebensmittel können bei manchen Menschen Kopfschmerzen auslösen."
+   ],
+   [
+    "Any sudden movement will trigger the alarm.",
+    "Jede plötzliche Bewegung wird den Alarm auslösen."
+   ]
+  ]
+ },
+ "ultimate": {
+  "n": "Ultimate hat zwei Hauptsinne. Zum einen bezeichnet es das, was am Ende eines Prozesses steht: the ultimate goal, the ultimate aim, the ultimate decision, also letztendlich oder endgültig. Zum anderen meint es das Äußerste seiner Art, das Beste oder Größte: the ultimate challenge, the ultimate luxury; in der Werbung wirkt das schnell übertrieben. Es steht vor dem Nomen. Eine Falle ist das deutsche ultimativ, das an ein Ultimatum denken lässt; diesen drohenden Klang hat ultimate nicht. Am Satzanfang fasst ultimately zusammen: Ultimately, it is your choice, also letztlich.",
+  "x": [
+   [
+    "The ultimate decision rests with the head of the committee.",
+    "Die endgültige Entscheidung liegt beim Vorsitzenden des Ausschusses."
+   ],
+   [
+    "For many climbers, this mountain is the ultimate challenge.",
+    "Für viele Bergsteiger ist dieser Berg die größte Herausforderung überhaupt."
+   ]
+  ]
+ },
+ "undergo": {
+  "n": "Undergo surgery heißt sich einer Operation unterziehen; ebenso sagt man undergo tests, undergo training oder undergo change. Subjekt ist die Person oder Sache, an der etwas geschieht, nicht der Handelnde. Das Verb ist unregelmäßig: undergo, underwent, undergone. Es klingt formeller als go through und passt zu Medizin, Technik und Berichten. Im Deutschen entsprechen je nach Kontext durchlaufen, erfahren oder durchmachen.",
+  "x": [
+   [
+    "The patient will undergo surgery early next week.",
+    "Der Patient wird sich Anfang nächster Woche einer Operation unterziehen."
+   ],
+   [
+    "All new drivers must undergo a medical check before starting work.",
+    "Alle neuen Fahrer müssen sich vor Arbeitsbeginn einer ärztlichen Untersuchung unterziehen."
+   ]
+  ]
+ },
+ "undertake": {
+  "n": "In Berichten liest man undertake research oder undertake a project, wo man im Alltag do oder take on sagen würde. Das Verb bedeutet, eine Aufgabe zu übernehmen oder durchzuführen. Mit to und Infinitiv wird daraus eine Verpflichtung: undertake to repay the loan, sich verpflichten, den Kredit zurückzuzahlen. Die Formen lauten undertake, undertook, undertaken. Das Nomen undertaking heißt Unterfangen oder Vorhaben. Ein undertaker ist allerdings ein Bestatter, kein Unternehmer.",
+  "x": [
+   [
+    "The team will undertake a survey of local businesses this autumn.",
+    "Das Team wird diesen Herbst eine Befragung örtlicher Unternehmen durchführen."
+   ],
+   [
+    "She agreed to undertake the translation of the whole manual.",
+    "Sie erklärte sich bereit, die Übersetzung des gesamten Handbuchs zu übernehmen."
+   ]
+  ]
+ },
+ "unify": {
+  "n": "Unify heißt, Getrenntes zu einem einheitlichen Ganzen zu machen, deutsch vereinheitlichen, vereinigen oder einen. Typische Objekte sind Länder, Parteien, Systeme oder Regeln: unify a nation, unify the party, unify standards. Das Verb ist eher formell; im Alltag hört man häufiger bring together oder combine. Sehr verbreitet ist das Partizip als Adjektiv, etwa a unified approach oder a unified system. Unite steht dagegen oft ohne Objekt, wenn Menschen sich zusammenschließen: people unite against a common threat. In Geschichtstexten begegnet man unification, etwa the unification of Germany in 1871.",
+  "x": [
+   [
+    "The new leader promised to unify the divided country.",
+    "Der neue Staatschef versprach, das gespaltene Land zu einen."
+   ],
+   [
+    "The company wants to unify its three separate databases.",
+    "Das Unternehmen will seine drei getrennten Datenbanken vereinheitlichen."
+   ]
+  ]
+ },
+ "vary": {
+  "n": "Meist steht vary ohne Objekt und beschreibt Unterschiede nach Ort, Zeit oder Umständen, etwa opinions vary widely; deutsch schwanken oder unterschiedlich sein. Gern folgen from X to Y oder according to: prices vary from region to region. Mit Objekt heißt es abwechslungsreich gestalten: vary your diet. Eine Speisekarte mit viel Auswahl ist a varied menu, und a variety of options bietet verschiedene Möglichkeiten. Nicht verwechseln mit various, das verschiedene bedeutet.",
+  "x": [
+   [
+    "Prices can vary a great deal from one shop to another.",
+    "Die Preise können von Geschäft zu Geschäft stark schwanken."
+   ],
+   [
+    "Doctors advise people to vary their diet as much as possible.",
+    "Ärzte raten, die Ernährung möglichst abwechslungsreich zu gestalten."
+   ]
+  ]
+ },
+ "virtual": {
+  "n": "Im Computerzusammenhang deckt sich virtual mit dem deutschen virtuell: virtual reality, a virtual meeting, a virtual assistant. Daneben gibt es eine zweite Bedeutung, die Lernende oft überrascht: so gut wie, praktisch. A virtual monopoly ist ein faktisches Monopol, a virtual stranger fast ein Fremder. Hier passt virtuell nicht, besser sind faktisch oder quasi. Das Adverb virtually trägt meist diesen zweiten Sinn: virtually impossible. Als Adjektiv steht virtual vor dem Nomen.",
+  "x": [
+   [
+    "The museum offers a virtual tour of its main galleries.",
+    "Das Museum bietet eine virtuelle Tour durch seine Hauptgalerien an."
+   ],
+   [
+    "The company holds a virtual monopoly in the region.",
+    "Das Unternehmen hat in der Region ein faktisches Monopol."
+   ]
+  ]
+ },
+ "visual": {
+  "n": "Visual aids, visual impact, visual arts: Visual bezieht sich auf das Sehen und steht fast immer vor dem Nomen. Ein visual learner lernt am besten mit Bildern. Im Plural meint visuals die Bilder oder Grafiken einer Präsentation. Optical betrifft dagegen eher Licht und Technik, etwa an optical lens; im Deutschen wirken visuell und optisch oft austauschbar, im Englischen nicht. In Kritiken liest man oft visually stunning, also optisch beeindruckend.",
+  "x": [
+   [
+    "The teacher used visual aids to explain the water cycle.",
+    "Die Lehrerin erklärte den Wasserkreislauf mit visuellen Hilfsmitteln."
+   ],
+   [
+    "The film has a strong visual impact even without sound.",
+    "Der Film hat auch ohne Ton eine starke visuelle Wirkung."
+   ]
+  ]
+ },
+ "volume": {
+  "n": "Bei volume denken viele zuerst an die Lautstärke, etwa turn up the volume, doch das ist nur eine von vier Bedeutungen. Volume steht auch für Menge (the volume of traffic, sales volume), für Rauminhalt oder Volumen (a volume of five litres) und für einen Buchband: the first volume of a series. Als Band ist es zählbar, als Lautstärke meist nicht. Bei Lautstärke steht oft at full volume. Im Deutschen hilft der Kontext: Umfang beim Handel, Band im Regal.",
+  "x": [
+   [
+    "The volume of online orders has grown sharply this year.",
+    "Das Volumen der Online-Bestellungen ist in diesem Jahr stark gewachsen."
+   ],
+   [
+    "Could you turn down the volume? I am trying to work.",
+    "Könntest du die Lautstärke runterdrehen? Ich versuche zu arbeiten."
+   ]
+  ]
+ },
+ "voluntary": {
+  "n": "Freiwillige Arbeit ist voluntary work, auf freiwilliger Basis heißt on a voluntary basis. Das Gegenteil ist compulsory oder mandatory. Für Organisationen ohne Gewinnabsicht verwendet man the voluntary sector, deutsch etwa der gemeinnützige Bereich. Ein häufiger Fehler betrifft die Person: Wer freiwillig hilft, ist a volunteer, nicht a voluntary. Kündigt jemand aus eigenem Entschluss, heißt es he left voluntarily.",
+  "x": [
+   [
+    "Attendance at the workshop is voluntary, but strongly recommended.",
+    "Die Teilnahme am Workshop ist freiwillig, wird aber dringend empfohlen."
+   ],
+   [
+    "She does voluntary work at a local animal shelter every weekend.",
+    "Sie arbeitet jedes Wochenende ehrenamtlich in einem örtlichen Tierheim."
+   ]
+  ]
+ },
+ "abstract": {
+  "n": "Als Adjektiv beschreibt abstract das Gedankliche und Allgemeine, etwa abstract art, abstract concepts oder abstract thinking; das Gegenteil ist concrete. Im Deutschen passt fast immer abstrakt. Überraschender ist das Nomen: An abstract ist die Kurzfassung eines wissenschaftlichen Aufsatzes, im Studium sehr gängig, deutsch Zusammenfassung oder ebenfalls Abstract. In the abstract heißt theoretisch betrachtet, losgelöst vom konkreten Fall.",
+  "x": [
+   [
+    "Freedom is an abstract idea that is hard to define.",
+    "Freiheit ist ein abstrakter Gedanke, der sich schwer definieren lässt."
+   ],
+   [
+    "The gallery has a room devoted to abstract paintings.",
+    "Die Galerie hat einen Raum für abstrakte Gemälde."
    ]
   ]
  }

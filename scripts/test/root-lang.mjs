@@ -34,7 +34,7 @@ eq(G.headers.get('location'), B.headers.get('location'), 'Googlebot cùng luật
   ok(i18n.includes('set(l, 1);') && /if \(auto !== 1\) document\.cookie = 'lk_lang='/.test(i18n), 'i18n.js: đoán theo nước không ghi cookie, người dùng chọn thì ghi'); }
 const src = fs.readFileSync('functions/index.js', 'utf8') + fs.readFileSync('functions/api/_rootlang.js', 'utf8');
 ok(!/user-agent|<script|location\.(href|replace)/i.test(src.replace(/\/\*[\s\S]*?\*\//g, '')), 'không dựa User-Agent, không redirect JS');
-const routes = JSON.parse(fs.readFileSync('web/_routes.json', 'utf8')); ok(routes.include.includes('/') && routes.include.includes('/api/*') && routes.include.length === 2, 'Functions chỉ cho / và /api/*');
+const routes = JSON.parse(fs.readFileSync('web/_routes.json', 'utf8')); ok(routes.include.includes('/') && routes.include.includes('/api/*') && routes.include.every(r => ['/', '/api/*'].includes(r) || /^\/[a-z]{2}\/words\/\*$/.test(r)), 'Functions chỉ cho /, /api/* và /<lang>/words/* (trang từ R2)');
 ok(!fs.readFileSync('web/_redirects', 'utf8').split('\n').some(l => /^\/vi(\/|\/index\.html)?\s/.test(l)), '_redirects không còn /vi → /');
 for (const l of LANDING) ok(fs.existsSync(`web/${l}/index.html`), `có web/${l}/index.html`);
 if (fails) { console.error(`✗ root-lang: ${fails}/${n} lỗi`); process.exit(1); }

@@ -9,7 +9,8 @@ import { d1Usage, D1_LIMITS } from './_d1guard.js';
 import { coordDb, coordKey } from './_d1b.js';
 import { setupJobs, timeline } from './_jobs.js';
 import { adminGate, adminAudit, adminCors } from './admin.js';
-import { geminiKeys } from './ai.js';
+import { poolCount } from './_keys.js';
+import { aiMix } from './_aimix.js';
 import { DEFAULTS, PROVIDERS, BREAKER, budget, validConfig, normId, setupQuota, resetState, dayKey } from './_quota.js';
 
 const json = (req, status, data) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...adminCors(req) } });
@@ -38,10 +39,11 @@ async function snapshot(db, env) {
     const arr = top[f] = top[f] || []; if (arr.length < 10) { arr.push({ id, n: r.n }); if (id.startsWith('u:')) uids.add(id.slice(2)); }
   }
   if (uids.size) try { const m = new Map((await all(db, `SELECT uid, email FROM users WHERE uid IN (${[...uids].map(() => '?').join(',')})`, ...uids)).map(r => [r.uid, r.email])); for (const arr of Object.values(top)) for (const x of arr) if (x.id.startsWith('u:')) x.email = m.get(x.id.slice(2)) || ''; } catch (e) { /* chưa có bảng users */ }
-  let nKeys = 1; try { nKeys = Math.max(1, (await geminiKeys(env)).length); } catch (e) { /* bỏ qua */ }
-  const providers = Object.entries(PROVIDERS).map(([p, P]) => { const cap = P.day * (P.perKey ? nKeys : 1), used = prov[p] || 0; return { p, infra: P.infra, unit: P.unit, used, cap, breaker: Math.floor(cap * BREAKER), pct: Math.round(used / cap * 100) }; });
+  const nk = {}; for (const p of Object.keys(PROVIDERS)) if (PROVIDERS[p].perKey) { try { nk[p] = Math.max(1, await poolCount(env, p)); } catch (e) { nk[p] = 1; } } // trần theo số khóa CỦA nhà cung cấp đó
+  const providers = Object.entries(PROVIDERS).map(([p, P]) => { const cap = P.day * (P.perKey ? nk[p] : 1), used = prov[p] || 0; return { p, infra: P.infra, unit: P.unit, used, cap, breaker: Math.floor(cap * BREAKER), pct: Math.round(used / cap * 100) }; });
   let d1 = null; try { const u = await d1Usage(env, db); d1 = { reads: u.reads, writes: u.writes, source: u.source, limit: u.limit, ratio: u.ratio, alert: u.alert, block: u.block, limitReads: D1_LIMITS.reads, limitWrites: D1_LIMITS.writes, plan: u.plan, period: u.period, mReads: u.mReads, mWrites: u.mWrites, projReads: u.projReads, projWrites: u.projWrites, spend: !!u.spend }; } catch (e) { d1 = null; }
-  return { day, features, top, providers, allow, blocks, flags, audit, breaker: BREAKER, d1 };
+  const [m1, m24] = await Promise.all([aiMix(db, 3600e3), aiMix(db, 86400e3)]); // tỉ lệ model phục vụ AI người dùng (_aimix.js)
+  return { day, features, top, providers, mix: { h1: m1, h24: m24 }, allow, blocks, flags, audit, breaker: BREAKER, d1 };
 }
 
 const OPS = {
