@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""web/js/ms-paths.js = đường vẽ SVG của icon Material Symbols, cắt từ CHÍNH hai phông web/fonts/msym.woff2 (Outlined) + msymr.woff2 (Rounded).
+"""web/fonts/ms-paths.js = đường vẽ SVG của icon Material Symbols, cắt từ CHÍNH hai phông web/fonts/msym.woff2 (Outlined) + msymr.woff2 (Rounded).
 Vì sao (P0 15/11): trên iPhone Safari ô icon trống – ligature của phông icon không ra hình. Icon vẽ bằng SVG thì mọi engine giống nhau; phông chỉ còn là dự phòng.
 Chỉ cắt icon ĐANG DÙNG (tên trong web/fonts/msym.json): kiểu nào (Rounded/Outlined, rỗng/đặc) mà mã nguồn gọi thì có kiểu đó; mọi tên có cả Outlined + Rounded (rỗng).
 Dùng:  pip install fonttools brotli && python3 scripts/build-ms-icons.py        (chạy lại khi đổi web/fonts/msym.json hoặc phông: node scripts/build-stitch-css.mjs --fonts)
@@ -11,7 +11,7 @@ from fontTools.pens.svgPathPen import SVGPathPen
 from fontTools.pens.transformPen import TransformPen
 
 names = json.load(open('web/fonts/msym.json'))
-files = [p for p in glob.glob('web/js/**/*.js', recursive=True) if not p.endswith('ms-paths.js')] + glob.glob('web/app/*.html') + glob.glob('web/*.html')
+files = [p for p in glob.glob('web/js/**/*.js', recursive=True) if not False] + glob.glob('web/app/*.html') + glob.glob('web/*.html')
 use = set()  # (họ r|o, tên, đặc)
 for p in files:
     t = open(p, encoding='utf8', errors='ignore').read()
@@ -41,4 +41,4 @@ for fam, fn in (('r', 'web/fonts/msymr.woff2'), ('o', 'web/fonts/msym.woff2')):
             d[n] = re.sub(r'(?<=\d) (?=-)', '', pen.getCommands().replace(' ', ' '))
         print(fam, 'đặc' if fill else 'rỗng', len(d[n if want else ''] if False else d), 'icon')
 js = '/* SINH TỰ ĐỘNG bởi scripts/build-ms-icons.py từ web/fonts/msym*.woff2 – KHÔNG sửa tay. viewBox 0 -960 960 960. Nạp lười bởi js/ms-icons.js */\nwindow.MSP=' + json.dumps(out, separators=(',', ':'), sort_keys=True) + ';\n'
-open('web/js/ms-paths.js', 'w').write(js); print('web/js/ms-paths.js', len(js), 'byte')
+open('web/fonts/ms-paths.js', 'w').write(js); print('web/fonts/ms-paths.js', len(js), 'byte')

@@ -167,7 +167,6 @@
 
 // core.js – review interval previews
 '{n} phút': '{n} min',
-'{a}/{b} bài': '{a}/{b} lessons',
 '1 ngày': '1 day',
 '{n} ngày': '{n} days',
 '{n} tháng': '{n} mo',
@@ -446,7 +445,7 @@
 
 /* English UI – khóa của nhóm tải lười verbs, exams, skills mà khung app, add-on hoặc dữ liệu dùng chung cần ngay → giữ trong en.js. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D.en = Object.assign(D.en || {}, {
-  'Mức sẵn sàng thi': 'Exam readiness', 'Mục tiêu hôm nay': "Today's goal", // khung (shell.js) dùng – không chuyển lazy
+  // khung (shell.js) dùng – không chuyển lazy
 // ---------- từ en/verbs.js (khung app / add-on / trang tĩnh dùng) ----------
 'Chia': 'Conjugate',
 'Bất quy tắc': 'Irregular',
