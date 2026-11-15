@@ -1,6 +1,7 @@
 // Tóm tắt phễu hằng ngày → 1 comment vào issue "Phễu tăng trưởng – hằng ngày" (nhãn growth-funnel; chủ nhận qua thông báo GitHub như ci-queue-report).
 // Mỗi ngày đúng 1 tin (dấu ngày <!-- fd:YYYY-MM-DD --> chống trùng khi chạy lại), gửi lúc 08:05 giờ VN (ngoài giờ yên lặng). Chỉ số đếm tổng hợp.
 // node scripts/growth/funnel-digest.mjs [--dry]   (cần STUDIO_CALLBACK_SECRET, LEXKITE_CI_HEADER)
+import { isMain } from '../lib/is-main.mjs';
 const arrow = (a, b) => (b > 0 ? (a >= b ? '▲' : '▼') + ' ' + Math.abs(Math.round(((a - b) / b) * 100)) + '%' : (a > 0 ? '▲ mới' : '–'));
 const pct = (a, b) => (b > 0 ? Math.round((a / b) * 1000) / 10 + '%' : '–');
 export function format(d) {
@@ -28,4 +29,4 @@ async function main() {
   if (seen) return console.log('đã đăng ngày này');
   await gh('POST', `/issues/${issue.number}/comments`, { body: md });
 }
-if (import.meta.url === `file://${process.argv[1]}`) main().catch(e => { console.error(e.message); process.exit(1); });
+if (isMain(import.meta.url)) main().catch(e => { console.error(e.message); process.exit(1); });

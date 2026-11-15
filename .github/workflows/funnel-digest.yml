@@ -18,6 +18,7 @@ jobs:
           sparse-checkout: |
             scripts/growth
             scripts/ci
+            scripts/lib
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Lấy số + đăng
