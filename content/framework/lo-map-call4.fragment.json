@@ -1,0 +1,14 @@
+{
+ "cover-my-shift": ["I.B1p.03", "I.B1p.05"],
+ "market-bargain": ["I.A2.03", "I.A2.07"],
+ "hair-appointment": "I.A2.09",
+ "lost-wallet-police": ["I.B1.02", "I.B1p.01"],
+ "landlord-heating": ["I.B2.03", "I.B1p.01"],
+ "conference-intro": ["I.B2.04", "I.C1.07"],
+ "give-team-feedback": ["I.C1.15", "I.C1.07"],
+ "decline-invitation": ["I.A2.01", "I.B1.03"],
+ "delay-to-client": ["I.B2.09", "I.B1.10"],
+ "travel-insurance-claim": ["I.B2.03", "I.B1.02"],
+ "professor-extension": ["I.B1p.01", "I.B1p.05"],
+ "billing-mistake-phone": ["I.B2.03", "I.B1.05"]
+}
