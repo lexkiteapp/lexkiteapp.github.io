@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-surface" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite Admin - Hộp thư báo lỗi &amp; góp ý</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "secondary-fixed": "#ffdad3",
+            "on-tertiary": "#ffffff",
+            "on-error-container": "#93000a",
+            "on-surface": "#1e1b14",
+            "primary-container": "#2ba39a",
+            "surface-bright": "#fff8f0",
+            "error-container": "#ffdad6",
+            "surface-container-low": "#fbf3e6",
+            "tertiary-container": "#709a9b",
+            "surface-container-highest": "#e9e2d5",
+            "surface-container-high": "#efe7db",
+            "primary-fixed-dim": "#6bd8ce",
+            "outline": "#6d7a78",
+            "outline-variant": "#bcc9c7",
+            "on-primary-container": "#00322e",
+            "on-tertiary-container": "#003132",
+            "on-background": "#1e1b14",
+            "on-secondary-fixed-variant": "#900f00",
+            "error": "#ba1a1a",
+            "inverse-primary": "#6bd8ce",
+            "on-tertiary-fixed-variant": "#224d4e",
+            "tertiary-fixed-dim": "#a3cfcf",
+            "surface-tint": "#006a64",
+            "on-secondary-fixed": "#3f0300",
+            "inverse-surface": "#343028",
+            "on-secondary-container": "#5e0700",
+            "surface-dim": "#e1d9cd",
+            "surface-variant": "#e9e2d5",
+            "on-tertiary-fixed": "#002020",
+            "on-primary": "#ffffff",
+            "on-surface-variant": "#3d4947",
+            "surface": "#fff8f0",
+            "tertiary-fixed": "#beebeb",
+            "secondary-container": "#fe5d42",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary": "#ffffff",
+            "background": "#fff8f0",
+            "secondary-fixed-dim": "#ffb4a6",
+            "surface-container": "#f5ede0",
+            "secondary": "#b42814",
+            "primary-fixed": "#88f5ea",
+            "primary": "#006a64",
+            "on-primary-fixed-variant": "#00504b",
+            "tertiary": "#3b6566",
+            "inverse-on-surface": "#f8f0e3",
+            "on-primary-fixed": "#00201e",
+            "on-error": "#ffffff"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-lg": "1.5rem",
+            "space-sm": "0.5rem",
+            "gutter": "1.5rem",
+            "margin": "2rem",
+            "margin-mobile": "1rem",
+            "gutter-mobile": "1rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2.5rem",
+            "space-md": "1rem"
+          },
+          fontFamily: {
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            "body-md": ["16px", { lineHeight: "24px", fontWeight: "500" }],
+            "headline-xl-mobile": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "800" }],
+            "headline-sm": ["20px", { lineHeight: "28px", fontWeight: "700" }],
+            "headline-md": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "700" }],
+            "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "800" }],
+            "label-md": ["13px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "700" }],
+            "headline-lg-mobile": ["26px", { lineHeight: "34px", letterSpacing: "-0.01em", fontWeight: "750" }],
+            "body-lg": ["18px", { lineHeight: "28px", fontWeight: "500" }],
+            "label-lg": ["16px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "700" }],
+            "body-sm": ["14px", { lineHeight: "20px", fontWeight: "500" }],
+            "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.04em", fontWeight: "800" }],
+            "headline-xl": ["44px", { lineHeight: "52px", letterSpacing: "-0.03em", fontWeight: "800" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+      user-select: none;
+    }
+    
+    /* Tactile 3D Ledge Shadows */
+    .card-ledge {
+      box-shadow: 0 4px 0 #D8CFBC;
+    }
+    .card-ledge:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #D8CFBC;
+    }
+    
+    .btn-teal-ledge {
+      box-shadow: 0 3px 0 #00504b;
+    }
+    .btn-teal-ledge:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #00504b;
+    }
+
+    .btn-ghost-ledge {
+      box-shadow: 0 3px 0 #e2d9cd;
+    }
+    .btn-ghost-ledge:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #e2d9cd;
+    }
+
+    .toast-ledge {
+      box-shadow: 0 4px 0 #00322e;
+    }
+
+    /* Prevent scrolling rubberband on iOS safari */
+    body {
+      overscroll-behavior-y: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="h-full bg-surface text-on-surface flex justify-center selection:bg-primary-fixed selection:text-on-primary-fixed antialiased font-body-md text-body-md">
+<!-- 390px Native Mobile Shell Container -->
+<div class="w-full max-w-[390px] min-h-screen bg-surface flex flex-col relative pb-32">
+<!-- 1. Top App Bar -->
+<header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-md px-4 py-3 flex items-center justify-between border-b border-surface-variant/70 shadow-sm">
+<div class="flex items-center gap-3">
+<!-- Back Arrow Button (min 44x44) -->
+<button aria-label="Quay lại" class="w-11 h-11 flex items-center justify-center rounded-xl bg-surface-container-lowest border-2 border-surface-variant btn-ghost-ledge text-on-surface active:translate-y-0.5 transition-transform">
+<span class="material-symbols-outlined text-[22px]">arrow_back</span>
+</button>
+<div>
+<div class="flex items-center gap-2">
+<h1 class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none">Báo lỗi &amp; Góp ý</h1>
+<!-- Live Pulse Dot -->
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary"></span>
+</span>
+</div>
+<!-- Sub-badge -->
+<div class="flex items-center gap-1.5 mt-1">
+<span class="inline-flex items-center px-1.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-label-sm tracking-wide uppercase">
+              18 cần xử lý
+            </span>
+<span class="text-outline font-label-sm text-label-sm">• Triage ưu tiên</span>
+</div>
+</div>
+</div>
+<!-- Quick Refresh Button (min 44x44) -->
+<button class="h-11 px-2.5 flex items-center gap-1.5 rounded-xl bg-surface-container-lowest border-2 border-surface-variant btn-ghost-ledge text-on-surface-variant active:translate-y-0.5 transition-transform" title="Làm mới">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+<span class="font-label-sm text-label-sm text-on-surface whitespace-nowrap">Vừa cập nhật</span>
+</button>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 px-4 pt-3 space-y-3">
+<!-- 2. Compact Status Filter Tabs -->
+<div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1">
+<!-- Active Tab: 'Mở 12' -->
+<button class="flex items-center gap-1.5 px-3.5 h-11 rounded-xl bg-primary text-on-primary font-label-md text-label-md whitespace-nowrap btn-teal-ledge transition-all">
+<span class="material-symbols-outlined text-[17px]">inbox</span>
+<span>Mở 12</span>
+</button>
+<!-- Tab: 'Mới 4' with coral dot -->
+<button class="flex items-center gap-1.5 px-3 h-11 rounded-xl bg-surface-container-lowest border-2 border-surface-variant font-label-md text-label-md text-on-surface-variant btn-ghost-ledge active:translate-y-0.5 transition-all">
+<span class="h-2 w-2 rounded-full bg-secondary"></span>
+<span>Mới 4</span>
+</button>
+<!-- Tab: 'Đang xử lý 2' -->
+<button class="flex items-center gap-1.5 px-3 h-11 rounded-xl bg-surface-container-lowest border-2 border-surface-variant font-label-md text-label-md text-on-surface-variant btn-ghost-ledge active:translate-y-0.5 transition-all">
+<span class="material-symbols-outlined text-[16px] text-tertiary">autorenew</span>
+<span>Đang xử lý 2</span>
+</button>
+<!-- Tab: 'Đã sửa 18' -->
+<button class="flex items-center gap-1.5 px-3 h-11 rounded-xl bg-surface-container-lowest border-2 border-surface-variant font-label-md text-label-md text-on-surface-variant btn-ghost-ledge active:translate-y-0.5 transition-all">
+<span class="material-symbols-outlined text-[16px] text-primary">check</span>
+<span>Đã sửa 18</span>
+</button>
+</div>
+<!-- 3. Search & Filter Bar -->
+<div class="flex items-center gap-2 pt-0.5">
+<!-- Search Input -->
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-[20px] pointer-events-none">search</span>
+<input class="w-full h-11 pl-10 pr-3.5 bg-surface-container-lowest border-2 border-surface-variant rounded-xl font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:border-primary focus:ring-0 shadow-[0_2px_0_#D8CFBC] transition-all" placeholder="Tìm mã lỗi, email học viên, từ khóa..." type="text"/>
+</div>
+<!-- Filter Button (44px) -->
+<button aria-label="Bộ lọc" class="h-11 px-3 flex items-center justify-center gap-1.5 rounded-xl bg-surface-container-lowest border-2 border-surface-variant btn-ghost-ledge text-on-surface font-label-md text-label-md active:translate-y-0.5 transition-transform">
+<span class="material-symbols-outlined text-[20px] text-primary">filter_list</span>
+<span class="font-label-md text-label-md">(2)</span>
+</button>
+</div>
+<!-- 4. Reports Ticket List -->
+<div class="space-y-3 pt-1">
+<!-- Ticket 1 (P1 Urgent) -->
+<article class="bg-surface-container-lowest rounded-2xl border-2 border-surface-variant p-3.5 card-ledge flex flex-col gap-2.5 transition-all">
+<!-- Header Meta -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded-md bg-secondary text-on-secondary font-label-sm text-label-sm font-extrabold uppercase">
+                P1
+              </span>
+<span class="font-label-md text-label-md text-primary font-bold tracking-tight">LX-1001</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-label-sm">
+                Mới
+              </span>
+</div>
+<div class="flex items-center gap-1 text-outline font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<span>3 phút trước</span>
+</div>
+</div>
+<!-- Title & Summary -->
+<div>
+<h2 class="font-headline-sm text-[16px] leading-snug text-on-surface font-bold">
+              Lỗi phát âm audio âm /θ/ bài 14 bị đứng sau khi bấm nghe lại lần 2.
+            </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Phát âm IELTS • iOS 18.2 Safari • nguyenthao@gmail.com
+            </p>
+</div>
+<!-- Tactile Action Bar (min-height: 44px) -->
+<div class="grid grid-cols-3 gap-1.5 pt-1 border-t border-surface-container">
+<button class="h-11 flex items-center justify-center gap-1 rounded-xl bg-primary text-on-primary font-label-md text-label-md btn-teal-ledge active:translate-y-0.5 transition-transform" onclick="triggerResolve('LX-1001')">
+<span class="material-symbols-outlined text-[17px]">check</span>
+<span>Đã sửa</span>
+</button>
+<button class="h-11 flex items-center justify-center gap-1 rounded-xl bg-surface-container-lowest border-2 border-surface-variant font-label-md text-label-md text-on-surface btn-ghost-ledge active:translate-y-0.5 transition-transform">
+<span class="material-symbols-outlined text-[17px] text-secondary">favorite</span>
+<span>Cảm ơn</span>
+</button>
+<button class="h-11 flex items-center justify-center gap-1 rounded-xl bg-surface-container-lowest border-2 border-surface-variant font-label-md text-label-md text-on-surface-variant btn-ghost-ledge active:translate-y-0.5 transition-transform">
+<span class="material-symbols-outlined text-[17px] text-tertiary">autorenew</span>
+<span>Đang xử lý</span>
+</button>
+</div>
+</article>
+<!-- Ticket 2 (P2 In Progress) -->
+<article class="bg-surface-container-lowest rounded-2xl border-2 border-surface-variant p-3.5 card-ledge flex flex-col gap-2.5 transition-all">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded-md bg-tertiary text-on-tertiary font-label-sm text-label-sm font-extrabold uppercase">
+                P2
+              </span>
+<span class="font-label-md text-label-md text-primary font-bold tracking-tight">LX-1004</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
+                Đang xử lý
+              </span>
+</div>
+<div class="flex items-center gap-1 text-outline font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<span>28 phút trước</span>
+</div>
+</div>
+<div>
+<h2 class="font-headline-sm text-[16px] leading-snug text-on-surface font-bold">
+              Thẻ từ vựng flashcard FSRS không cập nhật trạng thái "Ghi nhớ" khi mất kết nối mạng tạm thời.
+            </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Từ vựng B2 • Android 15 Chrome • hoang.le@outlook.com
+            </p>
+</div>
+<div class="grid grid-cols-3 gap-1.5 pt-1 border-t border-surface-container">
+<button class="h-11 flex items-center justify-center gap-1 rounded-xl bg-surface-container-lowest border-2 border-surface-variant font-label-md text-label-md text-on-surface btn-ghost-ledge active:translate-y-0.5 transition-transform" onclick="triggerResolve('LX-1004')">
+<span class="material-symbols-outlined text-[17px] text-primary">check</span>
+<span>Đã sửa</span>
+</button>
+<button class="h-11 flex items-center justify-center gap-1 rounded-xl bg-surface-container-lowest border-2 border-surface-variant font-label-md text-label-md text-on-surface btn-ghost-ledge active:translate-y-0.5 transition-transform">
+<span class="material-symbols-outlined text-[17px] text-secondary">favorite</span>
+<span>Cảm ơn</span>
+</button>
+<button class="h-11 flex items-center justify-center gap-1 rounded-xl bg-surface-container-high border-2 border-tertiary-container font-label-md text-label-md text-on-primary-container shadow-sm active:translate-y-0.5 transition-transform">
+<span class="material-symbols-outlined text-[17px] text-primary">autorenew</span>
+<span>Đang xử lý</span>
+</button>
+</div>
+</article>
+<!-- Ticket 3 (P3 Open Suggestion) -->
+<article class="bg-surface-container-lowest rounded-2xl border-2 border-surface-variant p-3.5 card-ledge flex flex-col gap-2.5 transition-all">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded-md bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm font-extrabold uppercase">
+                P3
+              </span>
+<span class="font-label-md text-label-md text-primary font-bold tracking-tight">LX-0998</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm border border-surface-variant">
+                Mở
+              </span>
+</div>
+<div class="flex items-center gap-1 text-outline font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<span>1 giờ trước</span>
+</div>
+</div>
+<div>
+<h2 class="font-headline-sm text-[16px] leading-snug text-on-surface font-bold">
+              Đề xuất thêm tính năng gõ phím ảo cho bài tập Arrange the Sentence trên tablet.
+            </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Góp ý tính năng • iPadOS 18 • minh.tran@vnu.edu.vn
+            </p>
+</div>
+<div class="grid grid-cols-3 gap-1.5 pt-1 border-t border-surface-container">
+<button class="h-11 flex items-center justify-center gap-1 rounded-xl bg-surface-container-lowest border-2 border-surface-variant font-label-md text-label-md text-on-surface btn-ghost-ledge active:translate-y-0.5 transition-transform" onclick="triggerResolve('LX-0998')">
+<span class="material-symbols-outlined text-[17px] text-primary">check</span>
+<span>Đã sửa</span>
+</button>
+<button class="h-11 flex items-center justify-center gap-1 rounded-xl bg-surface-container-lowest border-2 border-surface-variant font-label-md text-label-md text-on-surface btn-ghost-ledge active:translate-y-0.5 transition-transform">
+<span class="material-symbols-outlined text-[17px] text-secondary">favorite</span>
+<span>Cảm ơn</span>
+</button>
+<button class="h-11 flex items-center justify-center gap-1 rounded-xl bg-surface-container-lowest border-2 border-surface-variant font-label-md text-label-md text-on-surface-variant btn-ghost-ledge active:translate-y-0.5 transition-transform">
+<span class="material-symbols-outlined text-[17px] text-tertiary">autorenew</span>
+<span>Đang xử lý</span>
+</button>
+</div>
+</article>
+<!-- Ticket 4 (P1 Urgent) -->
+<article class="bg-surface-container-lowest rounded-2xl border-2 border-surface-variant p-3.5 card-ledge flex flex-col gap-2.5 transition-all">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded-md bg-secondary text-on-secondary font-label-sm text-label-sm font-extrabold uppercase">
+                P1
+              </span>
+<span class="font-label-md text-label-md text-primary font-bold tracking-tight">LX-0995</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
+                Đang xử lý
+              </span>
+</div>
+<div class="flex items-center gap-1 text-outline font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<span>2 giờ trước</span>
+</div>
+</div>
+<div>
+<h2 class="font-headline-sm text-[16px] leading-snug text-on-surface font-bold">
+              Không nạp được kết quả bài thi thử Cambridge Reading Part 5 khi nộp bài.
+            </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Thi thử TOEIC/IELTS • Web Desktop Chrome • kien.vu@gmail.com
+            </p>
+</div>
+<div class="grid grid-cols-3 gap-1.5 pt-1 border-t border-surface-container">
+<button class="h-11 flex items-center justify-center gap-1 rounded-xl bg-primary text-on-primary font-label-md text-label-md btn-teal-ledge active:translate-y-0.5 transition-transform" onclick="triggerResolve('LX-0995')">
+<span class="material-symbols-outlined text-[17px]">check</span>
+<span>Đã sửa</span>
+</button>
+<button class="h-11 flex items-center justify-center gap-1 rounded-xl bg-surface-container-lowest border-2 border-surface-variant font-label-md text-label-md text-on-surface btn-ghost-ledge active:translate-y-0.5 transition-transform">
+<span class="material-symbols-outlined text-[17px] text-secondary">favorite</span>
+<span>Cảm ơn</span>
+</button>
+<button class="h-11 flex items-center justify-center gap-1 rounded-xl bg-surface-container-lowest border-2 border-surface-variant font-label-md text-label-md text-on-surface-variant btn-ghost-ledge active:translate-y-0.5 transition-transform">
+<span class="material-symbols-outlined text-[17px] text-tertiary">autorenew</span>
+<span>Đang xử lý</span>
+</button>
+</div>
+</article>
+</div>
+</main>
+<!-- 5. Slim Triage Toast Notification (Floating above bottom navigation) -->
+<div class="fixed bottom-20 left-1/2 -translate-x-1/2 w-[calc(390px-2rem)] z-50 transition-all duration-300 transform opacity-100 translate-y-0" id="triageToast">
+<div class="bg-primary text-on-primary rounded-2xl px-3.5 py-2 flex items-center justify-between border-2 border-on-primary-fixed-variant toast-ledge">
+<div class="flex items-center gap-2 overflow-hidden">
+<span class="material-symbols-outlined text-primary-fixed text-[20px] shrink-0">check_circle</span>
+<span class="font-body-sm text-body-sm text-on-primary font-medium truncate" id="toastMessage">
+            ✓ Đã sửa LX-1001 · sẽ báo người dùng
+          </span>
+</div>
+<!-- 44px Interactive Undo Button -->
+<button class="h-11 px-3 shrink-0 flex items-center gap-1 bg-surface-container-lowest text-primary rounded-xl font-label-md text-label-md border border-surface-variant active:scale-95 transition-transform" onclick="undoAction()">
+<span class="material-symbols-outlined text-[18px]">undo</span>
+<span>Hoàn tác</span>
+</button>
+</div>
+</div>
+<!-- 6. Bottom Navigation Bar (Lexkite Admin Mobile 5 tabs) -->
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] z-40 bg-surface-container-lowest border-t-2 border-surface-variant shadow-[0_-4px_0_0_#dfd9d1] px-2 py-1.5 flex items-center justify-around">
+<!-- Tab 1: Tổng quan -->
+<a class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] text-on-surface-variant active:translate-y-0.5 transition-transform" href="#overview">
+<span class="material-symbols-outlined text-[22px]">dns</span>
+<span class="font-label-sm text-label-sm mt-0.5">Tổng quan</span>
+</a>
+<!-- Tab 2: Học viên -->
+<a class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] text-on-surface-variant active:translate-y-0.5 transition-transform" href="#students">
+<span class="material-symbols-outlined text-[22px]">sync</span>
+<span class="font-label-sm text-label-sm mt-0.5">Học viên</span>
+</a>
+<!-- Tab 3: Hộp thư (Active selected with deep teal badge & ledge) -->
+<a class="flex flex-col items-center justify-center min-w-[56px] min-h-[48px] bg-primary text-on-primary rounded-xl px-2 py-1 shadow-[0_3px_0_0_#00504b] active:translate-y-0.5 transition-transform" href="#inbox">
+<span class="material-symbols-outlined text-[22px]">inbox</span>
+<span class="font-label-sm text-label-sm mt-0.5 font-bold">Hộp thư</span>
+</a>
+<!-- Tab 4: Hệ thống -->
+<a class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] text-on-surface-variant active:translate-y-0.5 transition-transform" href="#system">
+<span class="material-symbols-outlined text-[22px]">terminal</span>
+<span class="font-label-sm text-label-sm mt-0.5">Hệ thống</span>
+</a>
+<!-- Tab 5: Cài đặt -->
+<a class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] text-on-surface-variant active:translate-y-0.5 transition-transform" href="#settings">
+<span class="material-symbols-outlined text-[22px]">bug_report</span>
+<span class="font-label-sm text-label-sm mt-0.5">Cài đặt</span>
+</a>
+</nav>
+</div>
+<!-- Micro-interactions Script -->
+<script>
+    function triggerResolve(ticketId) {
+      const toast = document.getElementById('triageToast');
+      const msg = document.getElementById('toastMessage');
+      if (toast && msg) {
+        msg.textContent = `✓ Đã sửa ${ticketId} · sẽ báo người dùng`;
+        toast.classList.remove('opacity-0', 'translate-y-8');
+        toast.classList.add('opacity-100', 'translate-y-0');
+      }
+    }
+
+    function undoAction() {
+      const toast = document.getElementById('triageToast');
+      if (toast) {
+        toast.classList.add('opacity-0', 'translate-y-8');
+        setTimeout(() => {
+          toast.classList.add('hidden');
+        }, 300);
+      }
+    }
+  </script>
+</body></html>
