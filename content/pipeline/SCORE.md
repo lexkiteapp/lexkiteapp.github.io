@@ -2,31 +2,31 @@
 
 Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipeline/score.budget.json` · kế hoạch `docs/CONTENT-WORLD-PLAN.md` §3.5. Điểm = độ phủ so với chuẩn × tỉ lệ qua cổng.
 
-**Tổng: 70.8 / 100**
+**Tổng: 74.2 / 100**
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
-| Kho từ | **58.6** | 58.5 | 58.6% | 100% | 0 |
+| Kho từ | **59.1** | 58.5 | 59.1% | 100% | 0 |
 | Ngữ pháp | **72.8** | 72.8 | 72.8% | 100% | 0 |
-| Giao tiếp | **81.3** | 68.3 | 81.3% | 100% | 0 |
+| Giao tiếp | **89.7** | 68.3 | 89.7% | 100% | 0 |
 | 4 kỹ năng | **69.5** | 62.9 | 69.5% | 100% | 0 |
 | Đề thi | **47.8** | 31.7 | 47.8% | 100% | 0 |
-| Khung Can-do | **81.7** | 81.3 | 81.7% | 100% | 0 |
+| Khung Can-do | **82** | 81.3 | 82% | 100% | 0 |
 | Dễ học – dễ nhớ | **91.8** | 91.7 | 91.8% | 100% | 0 |
-| i18n | **62.7** | 62.7 | 62.7% | 100% | 0 |
+| i18n | **81** | 62.7 | 81% | 100% | 0 |
 
 ## Kho từ
 
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
-| từ#loại duy nhất | 10201 / 20000 | 51% | 25 |
-| IPA·nghĩa·định nghĩa·ví dụ·CEFR | 10201 / 10201 | 100% | 20 |
-| collocation | 4979 / 20000 | 25% | 12 |
-| đồng nghĩa | 3081 / 20000 | 15% | 8 |
-| IPA Mỹ | 6822 / 20000 | 34% | 5 |
-| ảnh theo nghĩa | 7920 / 20000 | 40% | 15 |
-| C2 | 969 / 1000 | 97% | 10 |
-| A1 | 868 / 1000 | 87% | 5 |
+| từ#loại duy nhất | 10287 / 20000 | 51% | 25 |
+| IPA·nghĩa·định nghĩa·ví dụ·CEFR | 10287 / 10287 | 100% | 20 |
+| collocation | 5019 / 20000 | 25% | 12 |
+| đồng nghĩa | 3106 / 20000 | 16% | 8 |
+| IPA Mỹ | 6884 / 20000 | 34% | 5 |
+| ảnh theo nghĩa | 7931 / 20000 | 40% | 15 |
+| C2 | 1022 / 1000 | 100% | 10 |
+| A1 | 869 / 1000 | 87% | 5 |
 
 ## Ngữ pháp
 
@@ -47,7 +47,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
-| cuộc gọi Ama/Carlos | 35 / 60 | 58% | 20 |
+| cuộc gọi Ama/Carlos | 60 / 60 | 100% | 20 |
 | roleplay | 60 / 60 | 100% | 20 |
 | tình huống Play & Speak | 40 / 40 | 100% | 20 |
 | mục gold (giải thích cách dùng) | 484 / 1000 | 48% | 20 |
@@ -98,8 +98,8 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 |---|---|---|---|
 | mục tiêu LKF tự soạn | 585 / 600 | 98% | 25 |
 | ô kỹ năng × cấp đủ ≥ 15 | 36 / 36 | 100% | 15 |
-| nội dung có lo hợp lệ | 11185 / 11185 | 100% | 35 |
-| mục tiêu đã có nội dung luyện | 176 / 600 | 29% | 25 |
+| nội dung có lo hợp lệ | 11296 / 11296 | 100% | 35 |
+| mục tiêu đã có nội dung luyện | 184 / 600 | 31% | 25 |
 
 ## Dễ học – dễ nhớ
 
@@ -107,7 +107,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 |---|---|---|---|
 | Ngữ pháp | 96.9 / 100 | 97% | 25 |
 | Bài lộ trình | 100 / 100 | 100% | 25 |
-| Bộ từ | 74.2 / 100 | 74% | 25 |
+| Bộ từ | 74.1 / 100 | 74% | 25 |
 | Kỹ năng | 96.1 / 100 | 96% | 25 |
 
 ## i18n
@@ -117,4 +117,4 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | ngôn ngữ đạt i18n-qa | 13 / 13 | 100% | 45 |
 | nhãn ngắn dịch tay | 12.3 / 13 | 95% | 10 |
 | gói nghĩa từ theo ngôn ngữ | 5.3 / 13 | 41% | 20 |
-| điểm bản xứ (native-score/5) (chưa làm) | 0 / 5 | 0% | 25 |
+| điểm bản xứ (native-score/5) (chưa làm) | 3.7 / 5 | 74% | 25 |
