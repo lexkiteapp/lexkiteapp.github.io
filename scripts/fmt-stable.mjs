@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 // Định dạng chống xung đột (docs/METHODS.md › Chống xung đột): nguồn dịch i18n/ui (mỗi khóa một dòng, sắp xếp – scripts/lib/i18n-pack.mjs srcText)
+// + scripts/i18n-fixed.json (sắp, mỗi khóa một dòng – scripts/lib/fixed-json.mjs)
 // + registry dài (mỗi mục một dòng – scripts/lib/fmt-registry.mjs REGISTRIES).
 //   node scripts/fmt-stable.mjs          → viết lại tệp lệch định dạng (không đổi nội dung: cùng khóa, cùng giá trị)
 //   node scripts/fmt-stable.mjs --check  → chỉ kiểm, thoát 1 nếu lệch (npm test qua scripts/test/fmt-stable.mjs)
@@ -8,6 +9,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { ROOT, LANGS, srcPath, srcText, loadDictFile } from './lib/i18n-pack.mjs';
 import { REGISTRIES, formatFile } from './lib/fmt-registry.mjs';
+import { fixedText } from './lib/fixed-json.mjs';
 
 /** Mọi tệp nguồn dịch hiện có: [{ lang, group, file }] (group '' = lõi). */
 export function i18nSources() {
@@ -27,6 +29,8 @@ export function drift() {
     const cur = fs.readFileSync(path.join(ROOT, file), 'utf8'), want = srcText(lang, group, loadDictFile(file));
     if (cur !== want) bad.push({ file, want });
   }
+  const FIXED = 'scripts/i18n-fixed.json', cur0 = fs.readFileSync(path.join(ROOT, FIXED), 'utf8'), want0 = fixedText(JSON.parse(cur0)); // bản dịch tay: sắp + một dòng/khóa
+  if (cur0 !== want0) bad.push({ file: FIXED, want: want0 });
   const byFile = new Map();
   for (const r of REGISTRIES) byFile.set(r.file, [...(byFile.get(r.file) || []), r]);
   for (const [file, regs] of byFile) {

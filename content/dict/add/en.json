@@ -1,0 +1,818 @@
+{
+ "_note": "Lỗi hay gặp + ghi chú cách dùng bằng tiếng Anh cho các từ chưa đạt ngưỡng trang từ điển (en và 13 ngôn ngữ chưa có bản riêng). Tự viết. mis = [{w: câu sai, r: câu đúng, why}], u = ghi chú cách dùng.",
+ "afraid": {
+  "mis": [
+   {
+    "w": "I am afraid to the dark.",
+    "r": "I am afraid of the dark.",
+    "why": "Afraid is followed by of + noun or -ing, or by to + verb for an action you avoid."
+   },
+   {
+    "w": "He is an afraid man.",
+    "r": "He is afraid.",
+    "why": "Afraid is only used after a verb such as be or feel; before a noun use scared or frightened."
+   }
+  ],
+  "u": "Afraid is a predicate adjective: it follows be, feel or look, so you say \"the child is afraid\" but \"a frightened child\". Afraid of describes a fear; afraid to describes something you avoid doing. Native speakers also say \"I'm afraid that…\" as a polite way to deliver bad news, with no real fear."
+ },
+ "alive": {
+  "mis": [
+   {
+    "w": "My grandfather is a still alive man.",
+    "r": "My grandfather is still alive.",
+    "why": "Alive normally stays after the verb; before a noun use living."
+   },
+   {
+    "w": "The alive fish was in the bucket.",
+    "r": "The live fish was in the bucket.",
+    "why": "Before a noun, live or living replaces alive."
+   }
+  ],
+  "u": "Alive tells you something has not died, and like asleep and afraid it normally appears after be, stay or keep. Use living before a noun: a living language, living creatures. It also works figuratively, as in \"the city comes alive at night\", meaning it becomes full of energy. Alive and well is a fixed phrase that reassures people."
+ },
+ "also": {
+  "mis": [
+   {
+    "w": "I also am a student.",
+    "r": "I am also a student.",
+    "why": "Also sits after be and before the main verb: I am also, I also like."
+   },
+   {
+    "w": "She likes tea. Also coffee.",
+    "r": "She likes tea and also coffee.",
+    "why": "Also rarely starts a short reply; in speech use too or as well at the end instead."
+   }
+  ],
+  "u": "Also adds information and sits in the middle of a sentence: after be, before other main verbs, after the first auxiliary. At the end of a sentence use too or as well, because \"also\" there sounds unnatural. Do not start a clause with \"Also\" in formal essays when you mean in addition; use Moreover, In addition or Furthermore for a stronger link."
+ },
+ "always": {
+  "mis": [
+   {
+    "w": "I go always to school by bus.",
+    "r": "I always go to school by bus.",
+    "why": "Frequency adverbs go before the main verb but after be: He is always late."
+   },
+   {
+    "w": "I am always agree with you.",
+    "r": "I always agree with you.",
+    "why": "Do not combine be with a plain verb; use always + the verb."
+   }
+  ],
+  "u": "Always is a frequency adverb placed before the main verb and after be or the first auxiliary: \"She always smiles\", \"I have always liked it\". Pair it with the present continuous to express irritation: \"You're always losing your keys\". For exams, remember that always + not changes meaning: \"not always\" means sometimes, while \"never\" is absolute."
+ },
+ "badly": {
+  "mis": [
+   {
+    "w": "She sings bad.",
+    "r": "She sings badly.",
+    "why": "A verb is described by an adverb, so use badly, not the adjective bad."
+   },
+   {
+    "w": "I feel badly about the news.",
+    "r": "I feel bad about the news.",
+    "why": "After feel, use the adjective bad when you describe emotion."
+   }
+  ],
+  "u": "Badly is the adverb of bad, so use it with action verbs: play badly, behave badly, badly damaged. It also means very much in two common patterns: \"badly need\" and \"badly want\". After linking verbs like feel, look and seem, keep the adjective bad. \"Feel badly\" is common in American speech but many teachers mark it as a mistake in exams."
+ },
+ "both": {
+  "mis": [
+   {
+    "w": "Both of the students is here.",
+    "r": "Both of the students are here.",
+    "why": "Both is always plural, so the verb is plural."
+   },
+   {
+    "w": "I like both tea and to drink coffee.",
+    "r": "I like both tea and coffee.",
+    "why": "Both … and joins parts of the same type: noun with noun, verb with verb."
+   }
+  ],
+  "u": "Both refers to exactly two things and takes a plural verb. You can say both students, both of the students, both of us, or use it after the subject: \"We both agree\". In negatives, use neither or not both, not \"both … not\". With both … and, keep the grammar parallel, otherwise the sentence sounds clumsy in IELTS writing."
+ },
+ "carefully": {
+  "mis": [
+   {
+    "w": "Drive careful!",
+    "r": "Drive carefully!",
+    "why": "Use the adverb carefully to describe how you drive."
+   },
+   {
+    "w": "Carefully, I read the whole question.",
+    "r": "I read the whole question carefully.",
+    "why": "Manner adverbs usually come after the verb or object, not at the start."
+   }
+  ],
+  "u": "Carefully is the adverb for careful: listen carefully, choose carefully, think carefully. It usually follows the verb or the verb's object: \"She wrapped the glass carefully\". Putting it before the verb adds emphasis: \"He carefully avoided the question\". Do not confuse it with cautiously, which suggests fear of risk, while carefully means giving full attention."
+ },
+ "certainly": {
+  "mis": [
+   {
+    "w": "She is right certainly.",
+    "r": "She is certainly right.",
+    "why": "Certainly goes after be or before the main verb, not at the end."
+   },
+   {
+    "w": "He certainly will to come.",
+    "r": "He will certainly come.",
+    "why": "Place certainly after the modal will and before the verb."
+   }
+  ],
+  "u": "Certainly expresses strong confidence or polite agreement. As a short answer it is formal and helpful: \"Can I sit here?\" \"Certainly.\" Inside a sentence it goes after be or a modal: \"It is certainly true\", \"She will certainly pass\". For a negative reply use certainly not or of course not. Do not use it with very: certainly is already strong."
+ },
+ "clearly": {
+  "mis": [
+   {
+    "w": "Speak clear, please.",
+    "r": "Speak clearly, please.",
+    "why": "An adverb is needed to describe the verb speak."
+   },
+   {
+    "w": "I can see clear the board.",
+    "r": "I can see the board clearly.",
+    "why": "Clearly follows the object, or the verb when there is no object."
+   }
+  ],
+  "u": "Clearly has two main uses. Describing how you do something: speak clearly, think clearly, see clearly. And as an opinion adverb meaning obviously: \"Clearly, the plan has failed\". In essays it signals a conclusion drawn from evidence. Avoid overusing it to sound strong; choose evidently or apparently when you are less sure."
+ },
+ "completely": {
+  "mis": [
+   {
+    "w": "I am completely agree.",
+    "r": "I completely agree.",
+    "why": "Completely modifies a verb or adjective; do not add be before a verb."
+   },
+   {
+    "w": "She is completely good at maths.",
+    "r": "She is very good at maths.",
+    "why": "Completely suits absolute ideas, not gradable adjectives like good."
+   }
+  ],
+  "u": "Completely means totally and goes with absolute or extreme ideas: completely different, completely forgotten, completely wrong. It does not usually combine with gradable adjectives such as good or tall, so avoid \"completely tall\". In negative sentences the meaning shifts: \"I'm not completely sure\" means I have some doubt. Fully, entirely and totally work as close substitutes."
+ },
+ "crazy": {
+  "mis": [
+   {
+    "w": "He is crazy of football.",
+    "r": "He is crazy about football.",
+    "why": "The preposition after crazy for enthusiasm is about."
+   },
+   {
+    "w": "I am going crazily.",
+    "r": "I am going crazy.",
+    "why": "Go crazy uses the adjective, like go mad or go blind."
+   }
+  ],
+  "u": "Crazy has two registers. Informally it means very enthusiastic (crazy about football) or silly (a crazy idea). Rudely it describes mental illness, so avoid it about real people. Drive someone crazy and go crazy are common idioms for annoyance or stress. \"Like crazy\" means very fast or very much, as in \"We worked like crazy to finish\"."
+ },
+ "daily": {
+  "mis": [
+   {
+    "w": "I read the news every daily.",
+    "r": "I read the news daily.",
+    "why": "Daily already means every day; do not add every."
+   },
+   {
+    "w": "I use the app everyday.",
+    "r": "I use the app every day.",
+    "why": "Everyday is an adjective; as a time phrase write every day as two words."
+   }
+  ],
+  "u": "Daily works as an adjective (a daily routine, a daily newspaper) and an adverb (the shop opens daily). It means every day. Do not confuse it with everyday, written as one word before a noun, meaning ordinary: everyday objects, everyday English. \"Daily basis\" appears in formal writing: \"I use it on a daily basis\". Twice daily is the standard pattern for medicine labels."
+ },
+ "deep": {
+  "mis": [
+   {
+    "w": "The river is deep of three metres.",
+    "r": "The river is three metres deep.",
+    "why": "Put the measurement before deep, or use depth: the depth of the river is three metres."
+   },
+   {
+    "w": "She took a deeply breath.",
+    "r": "She took a deep breath.",
+    "why": "Before a noun use the adjective deep, not the adverb deeply."
+   }
+  ],
+  "u": "Deep describes distance from the surface or edge: deep water, a deep cut, deep in the forest. It also describes strong feelings and thoughts: a deep voice, deep sleep, deep thoughts. As an adverb it keeps the same form in physical meaning: dig deep, deep inside. The adverb deeply is used for emotions: deeply moved, deeply sorry."
+ },
+ "definitely": {
+  "mis": [
+   {
+    "w": "I will go definitely.",
+    "r": "I will definitely go.",
+    "why": "Definitely normally sits before the main verb or after be."
+   },
+   {
+    "w": "Definately, I agree.",
+    "r": "Definitely, I agree.",
+    "why": "The spelling is definitely, with an i in the middle; learners often write a."
+   }
+  ],
+  "u": "Definitely is one of the most commonly misspelt English words: remember the word finite inside it, de-finite-ly. It expresses certainty and goes after be and modals: \"It is definitely worth seeing\", \"She will definitely come\". As a one-word answer it is informal and enthusiastic: \"Are you coming?\" \"Definitely!\". With a negative, put it before the negative: \"I definitely don't want that\"."
+ },
+ "direct": {
+  "mis": [
+   {
+    "w": "I will direct to the office.",
+    "r": "I will go directly to the office.",
+    "why": "Direct as a verb needs an object; as an adverb use directly."
+   },
+   {
+    "w": "The flight is direct to Paris.",
+    "r": "It is a direct flight to Paris.",
+    "why": "Direct is an adjective that comes before the noun in this meaning."
+   }
+  ],
+  "u": "Direct is an adjective (a direct flight, a direct answer), a verb (to direct a film, to direct someone to the station) and, informally, an adverb (fly direct). In personality descriptions it means honest and straightforward, which is positive in the UK and the US but can seem rude in some cultures. The related direct object and direct speech are grammar terms worth knowing."
+ },
+ "discover": {
+  "mis": [
+   {
+    "w": "Columbus discovered to America.",
+    "r": "Columbus discovered America.",
+    "why": "Discover is transitive and needs no preposition."
+   },
+   {
+    "w": "Scientists invented a new planet.",
+    "r": "Scientists discovered a new planet.",
+    "why": "Discover is for something that already existed."
+   }
+  ],
+  "u": "Discover means to find or learn about something that already existed: discover a cure, discover the truth, discover that the key was missing. Do not mix it up with invent, which creates something new, or find out, which is the common spoken equivalent for learning a fact. The noun is discovery and the person is a discoverer, though explorer is more natural."
+ },
+ "early": {
+  "mis": [
+   {
+    "w": "I wake up earlily.",
+    "r": "I wake up early.",
+    "why": "Early is both adjective and adverb; there is no form earlily."
+   },
+   {
+    "w": "I arrived at the airport too much early.",
+    "r": "I arrived at the airport too early.",
+    "why": "Use too + adjective or adverb, never too much."
+   }
+  ],
+  "u": "Early can be an adjective (an early flight) or an adverb (arrive early) with the same spelling. It means before the expected or usual time, or near the start of a period: early May, in the early 1990s. The opposite is late. For being on time, use punctual or on time; \"early bird\" refers to someone who gets up or starts first."
+ },
+ "easily": {
+  "mis": [
+   {
+    "w": "It is easily to learn.",
+    "r": "It is easy to learn.",
+    "why": "After be use the adjective easy; easily modifies verbs."
+   },
+   {
+    "w": "She won easy.",
+    "r": "She won easily.",
+    "why": "Use the adverb easily after the verb win."
+   }
+  ],
+  "u": "Easily is the adverb of easy and normally follows the verb: learn easily, win easily, breaks easily. It also strengthens superlatives, as in \"easily the best film of the year\", and works with can to mean possibly: \"This could easily go wrong\". Do not use it with adjectives: write \"very easy\", not \"easily easy\"."
+ },
+ "enjoy": {
+  "mis": [
+   {
+    "w": "I enjoy to swim.",
+    "r": "I enjoy swimming.",
+    "why": "Enjoy takes a noun or an -ing form, not to + verb."
+   },
+   {
+    "w": "We enjoyed very much the film.",
+    "r": "We enjoyed the film very much.",
+    "why": "Do not put an adverb between the verb and its object."
+   }
+  ],
+  "u": "Enjoy needs an object. You can enjoy something (enjoy the party), enjoy doing something (enjoy cooking) or enjoy yourself, which means have a good time. Without a reflexive pronoun, \"I enjoyed\" feels incomplete, so say \"I enjoyed it\" or \"I enjoyed myself\". As an order, \"Enjoy!\" is friendly and short, common in restaurants. The adjective is enjoyable."
+ },
+ "even": {
+  "mis": [
+   {
+    "w": "Even I was tired, I went out.",
+    "r": "Even though I was tired, I went out.",
+    "why": "Even cannot join two clauses; use even though or although."
+   },
+   {
+    "w": "I even don't like pizza.",
+    "r": "I don't even like pizza.",
+    "why": "In a negative sentence even goes after don't and before the main verb."
+   }
+  ],
+  "u": "Even shows something is surprising or extreme: \"Even a child can do it\". It has three common partners. Even if talks about a possible situation; even though states a fact that conflicts with the main clause; even so means nevertheless. With comparatives it adds emphasis: even better, even more. Place it just before the word it stresses, because moving it changes the meaning."
+ },
+ "ever": {
+  "mis": [
+   {
+    "w": "I have ever been to Japan.",
+    "r": "I have never been to Japan.",
+    "why": "Ever is for questions, negatives and comparisons; use never in a positive statement with this meaning."
+   },
+   {
+    "w": "Did you go ever to London?",
+    "r": "Have you ever been to London?",
+    "why": "Ever goes before the past participle in present perfect questions."
+   }
+  ],
+  "u": "Ever means at any time. It appears in questions (Have you ever tried sushi?), in negatives (nobody ever called), and with superlatives (the best meal I have ever eaten). In ordinary positive statements it is incorrect: say always or sometimes. Common fixed phrases include ever since, hardly ever and forever. Ever so is informal British English meaning very."
+ },
+ "except": {
+  "mis": [
+   {
+    "w": "Everyone came, except of John.",
+    "r": "Everyone came except John.",
+    "why": "Except is not followed by of."
+   },
+   {
+    "w": "I like all fruits expect apples.",
+    "r": "I like all fruits except apples.",
+    "why": "Except and expect are different words: expect means to think something will happen."
+   }
+  ],
+  "u": "Except means not including: \"Open every day except Sunday\". It is followed directly by a noun, pronoun or -ing form, with no of. After a verb you can use except to, as in \"He did nothing except complain\". Except for is used when the excluded item opens the sentence: \"Except for the price, it was perfect\". Keep it separate from expect and accept, which sound similar."
+ },
+ "extremely": {
+  "mis": [
+   {
+    "w": "The test was extremely very hard.",
+    "r": "The test was extremely hard.",
+    "why": "Extremely already means to a very high degree, so do not add very."
+   },
+   {
+    "w": "I am extremely agree.",
+    "r": "I completely agree.",
+    "why": "Extremely modifies adjectives and adverbs, not a verb like agree."
+   }
+  ],
+  "u": "Extremely is a strong intensifier used with gradable adjectives: extremely important, extremely rare, extremely cold. It is stronger than very and fits both formal and informal writing. It cannot go with absolute adjectives such as perfect or dead; for those use absolutely. In IELTS, extremely often appears in descriptions of graphs: \"extremely high levels of pollution\"."
+ },
+ "fail": {
+  "mis": [
+   {
+    "w": "I failed to the exam.",
+    "r": "I failed the exam.",
+    "why": "Fail an exam takes no preposition; fail to + verb means be unable to do something."
+   },
+   {
+    "w": "He failed passing the test.",
+    "r": "He failed to pass the test.",
+    "why": "Fail is followed by to + infinitive, not an -ing form."
+   }
+  ],
+  "u": "Fail has two main uses: fail an exam or course (the opposite of pass) and fail to do something, meaning you did not manage it. Machines and plans also fail: the brakes failed, the plan failed. Never fail to is a polite way to stress a promise, and without fail means every time. Do not mix it up with lose, which is about competitions."
+ },
+ "fair": {
+  "mis": [
+   {
+    "w": "It is not fairly.",
+    "r": "It is not fair.",
+    "why": "After be use the adjective fair, not the adverb fairly."
+   },
+   {
+    "w": "The test result is fair high.",
+    "r": "The test result is fairly high.",
+    "why": "To modify an adjective use the adverb fairly, which means quite."
+   }
+  ],
+  "u": "Fair has several meanings: just and reasonable (a fair price, fair treatment), average (in fair condition), light-coloured (fair hair), and pleasant weather. As a noun it can be a funfair or trade fair. Fair enough is a common spoken way to accept a point. Do not use fairly and fair as the same word: fairly is an adverb meaning quite."
+ },
+ "famous": {
+  "mis": [
+   {
+    "w": "Paris is famous with its museums.",
+    "r": "Paris is famous for its museums.",
+    "why": "The preposition after famous is for."
+   },
+   {
+    "w": "She is famous person.",
+    "r": "She is a famous person.",
+    "why": "A singular countable noun needs an article."
+   }
+  ],
+  "u": "Famous describes someone or something known by many people: a famous actor, a famous bridge. The normal pattern is famous for (the reason) or famous as (the role): \"He is famous as a chef\". Do not mix it up with notorious, which means known for something bad. Well-known is a plainer synonym, and world-famous makes the scale clear."
+ },
+ "fast": {
+  "mis": [
+   {
+    "w": "She runs fastly.",
+    "r": "She runs fast.",
+    "why": "Fast is both adjective and adverb; there is no word fastly."
+   },
+   {
+    "w": "He speaks very fast English.",
+    "r": "He speaks English very fast.",
+    "why": "Place the adverb after the verb and its object."
+   }
+  ],
+  "u": "Fast can be an adjective (a fast car) or an adverb (drive fast) without changing form. As an adjective it also means a clock is ahead of the correct time. Fast food and fast asleep are fixed phrases, and \"to fast\" means to stop eating for a period. Quick and fast are close, but quick often describes actions and fast describes speed."
+ },
+ "feel": {
+  "mis": [
+   {
+    "w": "I feel me happy.",
+    "r": "I feel happy.",
+    "why": "After feel use an adjective, not a reflexive pronoun."
+   },
+   {
+    "w": "I am feeling like to sleep.",
+    "r": "I feel like sleeping.",
+    "why": "Feel like is followed by a noun or an -ing form."
+   }
+  ],
+  "u": "Feel links a person to an emotion or sensation: feel tired, feel better, feel cold. The same word describes touching an object (feel the fabric) and giving an opinion (I feel that we should wait). Feel like + noun means something resembles it, while feel like + -ing means you want to do it. Feel free to is a polite way to give permission."
+ },
+ "finally": {
+  "mis": [
+   {
+    "w": "Finally of all, I would like to thank you.",
+    "r": "Finally, I would like to thank you.",
+    "why": "Use Finally alone with a comma; finally of all is wrong."
+   },
+   {
+    "w": "In finally, we agreed.",
+    "r": "In the end, we agreed.",
+    "why": "Finally is an adverb on its own; the phrase for a result is in the end."
+   }
+  ],
+  "u": "Finally has two jobs. It marks the last item in a sequence (First, Next, Finally), and it shows that something happened after a long wait: \"The bus finally arrived\". It sits before the main verb or after be. At last is more emotional, usually expressing relief, whereas in the end describes a result. Eventually is close in meaning but is not used for a list."
+ },
+ "find": {
+  "mis": [
+   {
+    "w": "I find difficult to learn English.",
+    "r": "I find it difficult to learn English.",
+    "why": "Find needs an object (it) before the adjective."
+   },
+   {
+    "w": "I found out my keys under the sofa.",
+    "r": "I found my keys under the sofa.",
+    "why": "Find out means to learn a fact; to locate something, use find."
+   }
+  ],
+  "u": "Find means to discover by looking or by chance: find a job, find the keys. The pattern find + it + adjective + to-verb expresses opinion: \"I find it hard to concentrate\". The phrasal verb find out is for learning facts, while find yourself in a place means to be there unexpectedly. Past forms found and found are irregular; do not confuse them with found meaning to start a company."
+ },
+ "forget": {
+  "mis": [
+   {
+    "w": "Don't forget closing the door.",
+    "r": "Don't forget to close the door.",
+    "why": "Forget + to-verb is for a duty; forget + -ing is about a past event."
+   }
+  ],
+  "u": "Forget is irregular: forgot and forgotten. It takes either to + verb (forget to lock the door, a missed duty) or -ing (I'll never forget meeting her, an event you remember). It also takes about: forget about it. You forget a fact, but you leave a physical object somewhere, which is a common exam trap. Forget it! can mean it does not matter or I refuse."
+ },
+ "give": {
+  "mis": [
+   {
+    "w": "She gave to me a gift.",
+    "r": "She gave me a gift.",
+    "why": "With two objects, the person comes first and no to is needed."
+   },
+   {
+    "w": "Please give me an advice.",
+    "r": "Please give me some advice.",
+    "why": "Advice is uncountable, so no article and no plural."
+   }
+  ],
+  "u": "Give is one of the most flexible verbs. It follows two patterns: give someone something (she gave me a book) or give something to someone (she gave a book to me). It forms many phrases that replace a stronger verb: give advice, give a talk, give permission. Phrasal verbs change the meaning: give up means stop, give back means return, give away means offer for free."
+ },
+ "high": {
+  "mis": [
+   {
+    "w": "The mountain is very high of 3,000 metres.",
+    "r": "The mountain is 3,000 metres high.",
+    "why": "Place the measurement before high."
+   },
+   {
+    "w": "He jumped highly.",
+    "r": "He jumped high.",
+    "why": "Highly is not the adverb of height; high is used for physical position."
+   }
+  ],
+  "u": "High describes physical height above the ground (a high wall) and a large amount or level (high prices, high speed). Tall is preferred for people and narrow objects, while high suits mountains, buildings and levels. The adverb is high, but highly means very much, as in highly recommended. Compare: she jumped high, she is highly skilled."
+ },
+ "imagine": {
+  "mis": [
+   {
+    "w": "I can't imagine to live without music.",
+    "r": "I can't imagine living without music.",
+    "why": "Imagine is followed by an -ing form."
+   },
+   {
+    "w": "Imagine you to be rich.",
+    "r": "Imagine being rich.",
+    "why": "Use -ing for the idea, or imagine that + clause: imagine that you are rich."
+   }
+  ],
+  "u": "Imagine means to form a picture in your mind: imagine a world without cars. It takes -ing or a that clause, not to + verb. In conversation, I imagine so softly means probably, and Imagine that! shows surprise. The noun is imagination, and the adjective imaginary means not real, while imaginative means creative."
+ },
+ "impossible": {
+  "mis": [
+   {
+    "w": "It is impossible for me understand it.",
+    "r": "It is impossible for me to understand it.",
+    "why": "After impossible for someone, use to + infinitive."
+   },
+   {
+    "w": "It is not impossible but too difficult.",
+    "r": "It is not impossible, but very difficult.",
+    "why": "Impossible is absolute; do not use too to compare it."
+   }
+  ],
+  "u": "Impossible means cannot happen or be done. The common pattern is it is impossible to do something or impossible for someone to do something. It is an absolute adjective, so avoid very impossible; use almost impossible or virtually impossible instead. The opposite is possible, and the noun is impossibility. Mission Impossible is a famous film title using it."
+ },
+ "increase": {
+  "mis": [
+   {
+    "w": "The price increased by 20 percent to 20 percent.",
+    "r": "The price increased by 20 percent.",
+    "why": "Increase by gives the size of the change; increase to gives the final figure."
+   },
+   {
+    "w": "There was an increase of the number of students.",
+    "r": "There was an increase in the number of students.",
+    "why": "Use increase in for what changes."
+   }
+  ],
+  "u": "Increase works as a verb (stress on the second syllable, in-CREASE) and as a noun (stress on the first, IN-crease). For graph descriptions use increase by for the amount (by 10%) and increase to for the final figure (to 50). Say an increase in prices or on the increase. Rise and grow are close synonyms, but increase is the most neutral and formal."
+ },
+ "instead": {
+  "mis": [
+   {
+    "w": "I drank tea instead coffee.",
+    "r": "I drank tea instead of coffee.",
+    "why": "Before a noun use instead of; instead alone ends or starts the clause."
+   },
+   {
+    "w": "Instead of to go, we stayed.",
+    "r": "Instead of going, we stayed.",
+    "why": "After instead of, use an -ing form or a noun."
+   }
+  ],
+  "u": "Instead is used alone at the end or start of a sentence to name the replacement: \"I didn't call; I wrote instead\". Instead of needs a noun or -ing after it: \"Instead of calling, I wrote\". Do not use both together. In writing, rather than and in place of are more formal alternatives. A common exam error is leaving out of."
+ },
+ "invent": {
+  "mis": [
+   {
+    "w": "Edison discovered the light bulb.",
+    "r": "Edison invented the light bulb.",
+    "why": "Invent means to create something new; discover is for something that already existed."
+   },
+   {
+    "w": "She invented to tell a story.",
+    "r": "She invented a story.",
+    "why": "Invent takes an object directly."
+   }
+  ],
+  "u": "Invent means to design or create something that did not exist before: invent a machine, invent a game. It can also mean to make up a false story: invent an excuse. The person is an inventor and the thing is an invention. Remember the contrast: Columbus discovered America, Bell invented the telephone."
+ },
+ "invite": {
+  "mis": [
+   {
+    "w": "She invited me for her birthday.",
+    "r": "She invited me to her birthday party.",
+    "why": "Invite someone to an event; invite someone for dinner or coffee."
+   },
+   {
+    "w": "They invited that I come.",
+    "r": "They invited me to come.",
+    "why": "Invite uses a person + to-verb."
+   }
+  ],
+  "u": "Invite is followed by a person and then to: invite her to the party. For meals use for: invite them for dinner. The to-infinitive pattern is common: \"He invited us to stay\". Invite can also mean to ask for something: invite questions, invite suggestions, and invite trouble means to cause it. The noun invitation uses to as well."
+ },
+ "joke": {
+  "mis": [
+   {
+    "w": "He said me a funny joke.",
+    "r": "He told me a funny joke.",
+    "why": "The standard verb is tell a joke."
+   },
+   {
+    "w": "I make a joke with my brother.",
+    "r": "I play jokes on my brother.",
+    "why": "Play a joke on someone means to trick them; joke with someone means to chat humorously."
+   }
+  ],
+  "u": "Joke works as a noun (tell a joke, crack a joke) and a verb (joke about something). Make a joke about means to say something funny about a topic, while play a joke on someone means to trick them. If you say \"I'm joking\" or \"Just kidding\", you mean the words were not serious. \"No joke\" can also emphasise that something is serious."
+ },
+ "just": {
+  "mis": [
+   {
+    "w": "I have just finished yesterday.",
+    "r": "I have just finished.",
+    "why": "Just with the present perfect cannot go with a past time like yesterday."
+   },
+   {
+    "w": "Just I want a coffee.",
+    "r": "I just want a coffee.",
+    "why": "Just goes before the word or verb it modifies."
+   }
+  ],
+  "u": "Just is a common little word with many jobs. It means exactly (just right), very recently (I've just arrived), only (just a moment) and at that moment (just as it started). In American English, just is often used with the simple past: \"I just ate\". Just in time and just about are common phrases. The adjective just means fair, but it is formal and rare."
+ },
+ "kind": {
+  "mis": [
+   {
+    "w": "What kind of a music do you like?",
+    "r": "What kind of music do you like?",
+    "why": "After kind of, do not use an article with an uncountable noun."
+   },
+   {
+    "w": "She is very kind with me.",
+    "r": "She is very kind to me.",
+    "why": "The preposition after kind is to; kind of is used for it was kind of you."
+   }
+  ],
+  "u": "Kind can be a noun meaning type (this kind of food) or an adjective meaning friendly (a kind person). With the adjective use kind to someone and \"It was kind of you to help\". With the noun, use these kinds of or all kinds of. Informally, kind of means somewhat: \"I'm kind of tired\". Kind regards is a polite way to end an email."
+ },
+ "loud": {
+  "mis": [
+   {
+    "w": "He speaks very loud.",
+    "r": "He speaks very loudly.",
+    "why": "In formal English the adverb loudly goes with speak."
+   },
+   {
+    "w": "Read it loudly in class.",
+    "r": "Read it out loud in class.",
+    "why": "Out loud is the fixed phrase for reading or speaking so others can hear."
+   }
+  ],
+  "u": "Loud describes high volume: a loud noise, loud music. The adverb is loudly in formal writing, but loud itself is also used as an adverb after talk or laugh in speech, and in the phrases loud and clear and out loud. For colours or clothes, loud means too bright and attracts attention. Noisy describes a place or a person causing noise."
+ },
+ "manage": {
+  "mis": [
+   {
+    "w": "I managed passing the test.",
+    "r": "I managed to pass the test.",
+    "why": "Manage is followed by to + infinitive."
+   }
+  ],
+  "u": "Manage has two main meanings. It means to succeed in doing something difficult (I managed to open the door) and to control or run something (manage a team, manage money). With a negative, couldn't manage often means failed or cannot cope. Manage without means cope when something is missing. The nouns are management and manager."
+ },
+ "marry": {
+  "mis": [
+   {
+    "w": "She married with a doctor.",
+    "r": "She married a doctor.",
+    "why": "Marry is transitive; use no preposition."
+   },
+   {
+    "w": "They are married since 2010.",
+    "r": "They have been married since 2010.",
+    "why": "Use present perfect with since."
+   }
+  ],
+  "u": "Marry is a transitive verb, so you marry someone, with no preposition: \"She married her classmate\". With get married, you can use to: \"She got married to a doctor\", and plain \"They got married in June\". Be married to describes a state. In more formal language, wed is a literary synonym and engaged means promised to marry."
+ },
+ "mostly": {
+  "mis": [
+   {
+    "w": "Mostly of the students came.",
+    "r": "Most of the students came.",
+    "why": "Use most of + determiner + noun; mostly is an adverb meaning mainly."
+   },
+   {
+    "w": "Mostly students like it.",
+    "r": "Most students like it.",
+    "why": "Use most before a noun; mostly is an adverb meaning mainly."
+   }
+  ],
+  "u": "Mostly is an adverb meaning mainly or in most cases: \"The audience was mostly women\". It does not come directly before a plain noun, so use most students, not mostly students. It sits near the part of the sentence it describes: mostly because, mostly in summer. Mainly and largely are close alternatives that fit formal writing."
+ },
+ "near": {
+  "mis": [
+   {
+    "w": "I live near to the school.",
+    "r": "I live near the school.",
+    "why": "Near does not need to; near to is used only for comparisons."
+   },
+   {
+    "w": "The shop is nearly the station.",
+    "r": "The shop is near the station.",
+    "why": "Nearly is an adverb meaning almost; near is the preposition of place."
+   }
+  ],
+  "u": "Near is a preposition (near the station), an adjective (the near future) and a verb (the end is nearing). It is followed directly by a noun without to. Do not mix it up with nearly, which means almost. In the comparative nearer and the superlative nearest are regular. Nearby is the single-word adverb: \"There is a cafe nearby\"."
+ },
+ "nearly": {
+  "mis": [
+   {
+    "w": "I nearly always am late.",
+    "r": "I am nearly always late.",
+    "why": "After be the adverb follows the verb."
+   },
+   {
+    "w": "It was nearly the station.",
+    "r": "It was near the station.",
+    "why": "Nearly is not a preposition of place."
+   }
+  ],
+  "u": "Nearly means almost but not completely: nearly finished, nearly every day. It also describes a near miss: \"I nearly fell\" means I did not fall. In negatives, not nearly means much less than: \"It's not nearly enough\". Do not confuse it with near and nearby, which talk about distance."
+ },
+ "neither": {
+  "mis": [
+   {
+    "w": "Neither of them are here.",
+    "r": "Neither of them is here.",
+    "why": "Neither is singular in formal grammar, though plural is heard in speech."
+   },
+   {
+    "w": "Neither I don't like it.",
+    "r": "Neither do I.",
+    "why": "Neither already makes the sentence negative; do not add not."
+   }
+  ],
+  "u": "Neither means not one and not the other of two. In pairs it works as neither … nor …: \"Neither Tom nor Anna knows\". As an agreement short answer, use inversion: \"I don't like it.\" \"Neither do I.\" Neither carries its own negative, so no not is added. For more than two people use none. Me neither is an informal reply."
+ },
+ "never": {
+  "mis": [
+   {
+    "w": "I don't never go there.",
+    "r": "I never go there.",
+    "why": "Never is already negative; a second negative is wrong."
+   },
+   {
+    "w": "I never have seen it.",
+    "r": "I have never seen it.",
+    "why": "Never goes between the auxiliary and the main verb."
+   }
+  ],
+  "u": "Never means at no time. It is a negative word, so the verb stays positive: \"I never eat meat\", not \"I don't never\". It stands after be and the first auxiliary: \"He has never visited\". For emphasis it can start a sentence with inversion: \"Never have I seen such a view\". Never mind means do not worry."
+ },
+ "normally": {
+  "mis": [
+   {
+    "w": "I go normally to school by bus.",
+    "r": "I normally go to school by bus.",
+    "why": "Frequency adverbs go before the main verb."
+   },
+   {
+    "w": "Normal, I wake up at six.",
+    "r": "Normally, I wake up at six.",
+    "why": "Use the adverb normally, not the adjective normal."
+   }
+  ],
+  "u": "Normally means usually, in most cases, or in the standard way. It can sit before the verb or at the start: \"Normally I walk to work\". It can also mean in a standard manner: the machine works normally. Typically, usually and generally are close synonyms. In IELTS Task 1 you can say \"Sales normally peak in December\"."
+ },
+ "notice": {
+  "mis": [
+   {
+    "w": "I noticed to see him.",
+    "r": "I noticed him.",
+    "why": "Notice takes an object directly."
+   },
+   {
+    "w": "I didn't notice about the change.",
+    "r": "I didn't notice the change.",
+    "why": "Notice does not take about."
+   }
+  ],
+  "u": "Notice means to see, hear or become aware of something: notice a change, notice that the door was open. It does not take a preposition. As a noun it means a sign or warning (a notice on the door), formal warning (short notice) or attention (take no notice of). Do not mix it up with realise, which is about understanding rather than perceiving."
+ },
+ "offer": {
+  "mis": [
+   {
+    "w": "She offered me to help.",
+    "r": "She offered to help me.",
+    "why": "Offer + to-verb has the giver as subject."
+   },
+   {
+    "w": "They offered me for a job.",
+    "r": "They offered me a job.",
+    "why": "Offer takes two objects without a preposition."
+   }
+  ],
+  "u": "Offer is both a verb and a noun. As a verb: offer help, offer someone a drink, offer to do something. As a noun: a job offer, a special offer, on offer in shops. When someone offers something you can accept it or turn it down. Do not confuse it with propose, which suggests an idea, or present, which is formal giving."
+ },
+ "often": {
+  "mis": [
+   {
+    "w": "I go often to the gym.",
+    "r": "I often go to the gym.",
+    "why": "Often goes before the main verb."
+   },
+   {
+    "w": "How much often do you travel?",
+    "r": "How often do you travel?",
+    "why": "Ask about frequency with how often."
+   }
+  ],
+  "u": "Often answers the question how often. It stands before the main verb and after be: \"She often visits\", \"He is often late\". At the end of a sentence it needs very or quite: \"We go there quite often\". The t may be silent or pronounced, both are accepted. Opposites are rarely, seldom and never. More often than not means usually."
+ },
+ "only": {
+  "mis": [
+   {
+    "w": "Only I have one brother.",
+    "r": "I have only one brother.",
+    "why": "Only goes just before the word it limits."
+   },
+   {
+    "w": "Only I saw him yesterday.",
+    "r": "I saw only him yesterday.",
+    "why": "Where only sits changes the meaning of the sentence."
+   }
+  ],
+  "u": "Only restricts meaning, so its position matters: \"I only ate fruit\" and \"I ate only fruit\" are close, while \"Only I ate fruit\" says nobody else did. As an adjective it means sole: the only child, the only answer. Only just means barely. If only expresses a wish. In writing, put only directly before the item it limits."
+ }
+}
