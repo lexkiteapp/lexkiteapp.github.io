@@ -19,7 +19,7 @@
 "Trọng tâm:":"Priorité :",
 "Tối thiểu":"Min.",
 "Tối đa":"Max.",
-"{n} chọn cho bạn":"Choisi par {n}",
+"{n} chọn cho bạn":"Choisi pour vous par {n}",
 "{p}% sẵn sàng":"Prêt à {p} %",
 "~{h} giờ luyện còn lại":"~{h} h d’entraînement restantes",
 "Điểm ước tính":"Score estimé",
