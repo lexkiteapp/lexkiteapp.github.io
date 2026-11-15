@@ -1038,5 +1038,330 @@
     "นายจ้างควรจ้างคนที่มีความหลากหลาย"
    ]
   ]
+ },
+ "domain": {
+  "n": "domain แปลว่า \"ขอบเขต\" หรือ \"แวดวง\" เช่น the domain of science เป็นคำนามนับได้ นอกจากนี้ยังใช้ในความหมาย \"โดเมน\" ของเว็บไซต์ (domain name) ในภาษาเขียนมักเจอ in the domain of หรือ public domain ออกเสียงเน้นพยางค์ที่สอง /dəʊˈmeɪn/ ไม่ใช่เน้นพยางค์แรกแบบ \"โด-เมน\"",
+  "x": [
+   [
+    "Cooking was once seen as the domain of women, but that view is changing.",
+    "การทำอาหารเคยถูกมองว่าเป็นขอบเขตของผู้หญิง แต่มุมมองนี้กำลังเปลี่ยนไป"
+   ],
+   [
+    "Her research lies in the domain of cognitive psychology.",
+    "งานวิจัยของเธออยู่ในแวดวงจิตวิทยาการรู้คิด"
+   ]
+  ]
+ },
+ "dominate": {
+  "n": "dominate เป็นกริยาที่มีกรรมตามหลังโดยตรง ไม่ต้องมีบุพบท เช่น dominate the market ไม่ใช่ dominate on the market คำนามคือ domination ส่วนคำคุณศัพท์คือ dominant ซึ่งเน้นพยางค์แรก รูป passive พบบ่อยในข่าว เช่น a male-dominated industry",
+  "x": [
+   [
+    "One or two voices tend to dominate every group discussion.",
+    "เสียงหนึ่งหรือสองเสียงมักครอบงำการอภิปรายกลุ่มทุกครั้ง"
+   ],
+   [
+    "The film industry is still dominated by a few big studios.",
+    "อุตสาหกรรมภาพยนตร์ยังถูกครอบงำโดยสตูดิโอใหญ่ไม่กี่แห่ง"
+   ]
+  ]
+ },
+ "duration": {
+  "n": "duration เป็นคำนามนับไม่ได้ในความหมายทั่วไป มักอยู่ในโครงสร้าง the duration of + นาม เช่น the duration of the flight และสำนวน for the duration แปลว่า \"ตลอดช่วงนั้น\" เป็นภาษาค่อนข้างทางการ ในบทสนทนาทั่วไปคนมักถามว่า How long is it? มากกว่า",
+  "x": [
+   [
+    "The duration of the flight from Bangkok to London is about thirteen hours.",
+    "ระยะเวลาของเที่ยวบินจากกรุงเทพฯ ไปลอนดอนประมาณสิบสามชั่วโมง"
+   ],
+   [
+    "Please stay seated for the duration of the show.",
+    "กรุณานั่งอยู่กับที่ตลอดการแสดง"
+   ]
+  ]
+ },
+ "eliminate": {
+  "n": "eliminate แปลว่า \"กำจัดให้หมดสิ้น\" แรงกว่า reduce ที่แปลว่าลดลง คนไทยมักใช้สลับกัน ใช้กับสิ่งไม่ดีเป็นหลัก เช่น eliminate errors หรือ eliminate waste ในกีฬา be eliminated หมายถึงตกรอบ ออกเสียงเน้นพยางค์ที่สอง /ɪˈlɪmɪneɪt/ และมี m เพียงตัวเดียวในการสะกด",
+  "x": [
+   [
+    "The new system should eliminate most of the paperwork.",
+    "ระบบใหม่น่าจะกำจัดงานเอกสารส่วนใหญ่ได้หมด"
+   ],
+   [
+    "Our team was eliminated in the first round.",
+    "ทีมของเราตกรอบตั้งแต่รอบแรก"
+   ]
+  ]
+ },
+ "encounter": {
+  "n": "encounter เป็นกริยาที่มีกรรมตรง ไม่ต้องมี with เช่น encounter a problem ส่วนใหญ่หมายถึงพบเจอปัญหาหรืออุปสรรคโดยไม่ตั้งใจ จึงไม่ใช้กับการนัดพบเพื่อน (ใช้ meet) คำนาม an encounter ก็สะกดเหมือนกัน และทั้งกริยาและนามเน้นพยางค์ที่สอง /ɪnˈkaʊntə/",
+  "x": [
+   [
+    "Hikers in this area may encounter wild elephants.",
+    "นักเดินป่าในบริเวณนี้อาจเจอช้างป่า"
+   ],
+   [
+    "We did not encounter any serious problems during the trip.",
+    "เราไม่เจอปัญหาร้ายแรงใดๆ ระหว่างการเดินทาง"
+   ]
+  ]
+ },
+ "enhance": {
+  "n": "enhance แปลว่า \"ทำให้ดีขึ้นหรือเด่นขึ้น\" จึงใช้กับสิ่งที่มีค่าอยู่แล้ว เช่น enhance flavour หรือ enhance your skills ไม่ใช้กับสิ่งไม่ดี เช่นไม่พูดว่า enhance pollution ซึ่งต้องใช้ increase คำนามคือ enhancement ในบทสนทนาทั่วไป improve เป็นคำที่ง่ายกว่า",
+  "x": [
+   [
+    "A little lemon juice can enhance the taste of the soup.",
+    "น้ำมะนาวนิดหน่อยช่วยเสริมรสชาติของซุปได้"
+   ],
+   [
+    "The course aims to enhance students' writing skills.",
+    "หลักสูตรนี้มุ่งยกระดับทักษะการเขียนของนักเรียน"
+   ]
+  ]
+ },
+ "equate": {
+  "n": "equate เป็นกริยาค่อนข้างทางการ ใช้โครงสร้าง equate A with B แปลว่า \"มองว่า A เท่ากับ B\" มักเป็นการเทียบที่อาจไม่ถูกต้อง เช่น equate money with happiness ในทางคณิตศาสตร์ใช้ x equates to y แปลว่า x มีค่าเท่ากับ y ต่างจาก equal ที่ไม่ต้องมีบุพบท",
+  "x": [
+   [
+    "Don't equate a high price with good quality.",
+    "อย่าเอาราคาสูงไปเท่ากับคุณภาพดี"
+   ],
+   [
+    "Some people equate being busy with being important.",
+    "บางคนมองว่าการยุ่งเท่ากับการสำคัญ"
+   ]
+  ]
+ },
+ "erode": {
+  "n": "erode ใช้ได้ทั้งแบบมีกรรมและไม่มีกรรม เช่น Floods eroded the soil แปลว่า \"กัดเซาะ\" ในความหมายตรง และ \"ค่อยๆ บั่นทอน\" ในความหมายนามธรรม เช่น erode trust จุดสำคัญคือกระบวนการช้าและต่อเนื่อง คำนามคือ erosion ในข่าวสิ่งแวดล้อมมักเจอ soil erosion",
+  "x": [
+   [
+    "Years of heavy rain have eroded the river bank.",
+    "ฝนที่ตกหนักหลายปีกัดเซาะตลิ่งแม่น้ำ"
+   ],
+   [
+    "Constant criticism can erode a child's self-esteem.",
+    "การวิจารณ์อยู่ตลอดเวลาอาจค่อยๆ บั่นทอนความภูมิใจในตัวเองของเด็ก"
+   ]
+  ]
+ },
+ "eventual": {
+  "n": "eventual แปลว่า \"ในท้ายที่สุด\" คือสิ่งที่เกิดขึ้นจริงหลังผ่านกระบวนการหนึ่ง เช่น the eventual winner คนไทยมักเข้าใจผิดว่าแปลว่า \"อาจเกิดขึ้น\" ซึ่งต้องใช้ possible ส่วน eventually แปลว่า \"ในที่สุด\" ไม่ใช่ \"บางที\"",
+  "x": [
+   [
+    "The eventual cost of the repairs was far higher than we had planned.",
+    "ค่าซ่อมจริงในที่สุดสูงกว่าที่เราวางแผนไว้มาก"
+   ],
+   [
+    "Nobody expected him to be the eventual champion.",
+    "ไม่มีใครคาดว่าเขาจะเป็นแชมป์ในท้ายที่สุด"
+   ]
+  ]
+ },
+ "evident": {
+  "n": "evident เป็นคำคุณศัพท์ ใช้หลัง be หรือ become และตามด้วย that ได้ เช่น It was evident that he was tired เป็นทางการกว่า obvious เสียงเน้นพยางค์แรก /ˈevɪdənt/ อย่าสับสนกับ evidence ซึ่งเป็นคำนามนับไม่ได้แปลว่า \"หลักฐาน\" และห้ามเติม s",
+  "x": [
+   [
+    "It soon became evident that the plan would not work.",
+    "ไม่นานก็เห็นได้ชัดว่าแผนนี้ใช้ไม่ได้"
+   ],
+   [
+    "Her disappointment was evident from the look on her face.",
+    "ความผิดหวังของเธอเห็นได้ชัดจากสีหน้า"
+   ]
+  ]
+ },
+ "evolve": {
+  "n": "evolve มักไม่มีกรรมตามหลัง และตามด้วย into หรือ from เช่น evolve from apes ใช้ได้ทั้งในชีววิทยาและกับสิ่งที่ค่อยๆ พัฒนา เช่น ภาษาหรือเทคโนโลยี ต่างจาก develop ตรงที่เน้นการเปลี่ยนแปลงช้าๆ ตามกาลเวลา คำนามคือ evolution",
+  "x": [
+   [
+    "The small shop evolved into a successful national chain.",
+    "ร้านเล็กๆ ค่อยๆ พัฒนาเป็นเครือข่ายที่ประสบความสำเร็จทั่วประเทศ"
+   ],
+   [
+    "Birds are believed to have evolved from dinosaurs.",
+    "เชื่อกันว่านกวิวัฒนาการมาจากไดโนเสาร์"
+   ]
+  ]
+ },
+ "exclude": {
+  "n": "exclude เป็นกริยามีกรรมตรง และใช้ from เมื่อบอกว่ากันออกจากอะไร เช่น exclude someone from a group คำตรงข้ามคือ include อย่าสับสนกับ except ที่เป็นบุพบทแปลว่า \"ยกเว้น\" ส่วน exclusive มักแปลว่า \"เฉพาะ\" เช่น an exclusive club ไม่ใช่ \"ไม่รวม\" ออกเสียงเน้นพยางค์ที่สอง",
+  "x": [
+   [
+    "The price excludes tax and service charges.",
+    "ราคานี้ไม่รวมภาษีและค่าบริการ"
+   ],
+   [
+    "No child should be excluded from school because of poverty.",
+    "เด็กทุกคนไม่ควรถูกกันออกจากโรงเรียนเพราะความยากจน"
+   ]
+  ]
+ },
+ "explicit": {
+  "n": "explicit แปลว่า \"บอกไว้ชัดเจนตรงๆ\" ตรงข้ามกับ implicit ที่เป็นนัยโดยไม่ได้พูดออกมา เช่น explicit instructions หรือ explicit permission ในบางบริบทหมายถึงเนื้อหาโจ่งแจ้ง เช่น explicit lyrics ที่ไม่เหมาะกับเด็ก จึงต้องดูบริบท",
+  "x": [
+   [
+    "She gave us explicit instructions not to touch anything.",
+    "เธอสั่งเราชัดเจนว่าห้ามแตะต้องอะไรเลย"
+   ],
+   [
+    "The contract is explicit about who pays for repairs.",
+    "สัญญาระบุไว้ชัดเจนว่าใครเป็นผู้จ่ายค่าซ่อม"
+   ]
+  ]
+ },
+ "external": {
+  "n": "external เป็นคำคุณศัพท์ ใช้นำหน้านาม เช่น external factors หรือ external links ตรงข้ามคือ internal เป็นภาษาทางการหรือวิชาการ ไม่ได้แปลว่า \"ต่างประเทศ\" ซึ่งต้องใช้ foreign หรือ overseas ถ้าพูดถึงด้านนอกของอาคาร ใช้ exterior หรือ outside ก็ได้",
+  "x": [
+   [
+    "The project was delayed by external factors beyond our control.",
+    "โครงการล่าช้าเพราะปัจจัยภายนอกที่เราควบคุมไม่ได้"
+   ],
+   [
+    "Please use an external hard drive to back up your files.",
+    "กรุณาใช้ฮาร์ดไดรฟ์ภายนอกสำรองไฟล์ของคุณ"
+   ]
+  ]
+ },
+ "facilitate": {
+  "n": "facilitate เป็นกริยาทางการ แปลว่า \"ทำให้ง่ายขึ้น\" กรรมมักเป็นกระบวนการหรือสิ่งของ เช่น facilitate learning ไม่ใช้กับคนเป็นกรรมในความหมายนี้ ผู้ทำหน้าที่ดำเนินการเรียกว่า facilitator ออกเสียงเน้นพยางค์ที่สอง /fəˈsɪlɪteɪt/ ส่วนคำนาม facility แปลว่า \"สิ่งอำนวยความสะดวก\"",
+  "x": [
+   [
+    "Online tools can facilitate communication between teachers and parents.",
+    "เครื่องมือออนไลน์ช่วยให้การสื่อสารระหว่างครูกับผู้ปกครองง่ายขึ้น"
+   ],
+   [
+    "A good teacher should facilitate discussion rather than lecture all the time.",
+    "ครูที่ดีควรช่วยให้การอภิปรายราบรื่น แทนที่จะบรรยายตลอดเวลา"
+   ]
+  ]
+ },
+ "format": {
+  "n": "format เป็นได้ทั้งคำนามและกริยา คำนามแปลว่า \"รูปแบบ\" เช่น in PDF format ส่วนกริยาแปลว่า \"จัดรูปแบบ\" และในคอมพิวเตอร์ แปลว่า \"ฟอร์แมต\" ไดรฟ์ เมื่อเติม -ed หรือ -ing จะมี t สองตัว คือ formatted และ formatting",
+  "x": [
+   [
+    "The report must follow the standard format set by the department.",
+    "รายงานต้องเป็นไปตามรูปแบบมาตรฐานที่แผนกกำหนด"
+   ],
+   [
+    "I accidentally formatted the wrong USB drive.",
+    "ฉันเผลอฟอร์แมตแฟลชไดรฟ์ผิดอัน"
+   ]
+  ]
+ },
+ "formula": {
+  "n": "formula เป็นคำนามนับได้ พหูพจน์คือ formulas หรือ formulae ซึ่งแบบหลังพบในงานวิชาการ ใช้ได้ทั้งสูตรคณิตศาสตร์หรือเคมี และ \"สูตรสำเร็จ\" ในเชิงอุปมา เช่น a formula for success ต่างจาก recipe ที่ใช้กับสูตรอาหาร และ formula ยังหมายถึงนมผงสำหรับทารกด้วย (baby formula)",
+  "x": [
+   [
+    "There is no magic formula for learning a language quickly.",
+    "ไม่มีสูตรวิเศษสำหรับเรียนภาษาให้เร็ว"
+   ],
+   [
+    "Use this formula to calculate the area of a circle.",
+    "ใช้สูตรนี้คำนวณพื้นที่ของวงกลม"
+   ]
+  ]
+ },
+ "forthcoming": {
+  "n": "forthcoming ที่พบบ่อยที่สุดแปลว่า \"ที่กำลังจะมาถึง\" ใช้นำหน้านาม เช่น the forthcoming election เป็นทางการกว่า upcoming อีกความหมายคือ \"ได้มาเมื่อต้องการ\" มักใช้ในรูปปฏิเสธตามหลัง be เช่น Help was not forthcoming ควรอ่านบริบทให้ดี เพราะแปลไทยต่างกันมาก",
+  "x": [
+   [
+    "The author is promoting her forthcoming novel on social media.",
+    "ผู้เขียนกำลังโปรโมตนิยายเรื่องใหม่ที่กำลังจะออกทางโซเชียลมีเดีย"
+   ],
+   [
+    "The promised funding was not forthcoming.",
+    "เงินทุนที่สัญญาไว้ไม่มาตามที่ตกลง"
+   ]
+  ]
+ },
+ "framework": {
+  "n": "framework เป็นคำนามนับได้ แปลว่า \"กรอบ\" หรือ \"โครงสร้าง\" ทั้งเชิงรูปธรรมและนามธรรม เช่น a legal framework หรือ a framework for discussion ในวงการไอที หมายถึงชุดโครงสร้างสำหรับเขียนโปรแกรม เช่น a web framework สำนวน within the framework of แปลว่า \"ภายใต้กรอบของ\"",
+  "x": [
+   [
+    "The company built its strategy within a clear ethical framework.",
+    "บริษัทวางกลยุทธ์ภายใต้กรอบจริยธรรมที่ชัดเจน"
+   ],
+   [
+    "This web framework makes it easier to build small apps.",
+    "เฟรมเวิร์กเว็บตัวนี้ทำให้สร้างแอปขนาดเล็กได้ง่ายขึ้น"
+   ]
+  ]
+ },
+ "gender": {
+  "n": "gender เน้นบทบาทและอัตลักษณ์ทางสังคม ส่วน sex เน้นลักษณะทางชีววิทยา ในแบบฟอร์มและสถิติปัจจุบันมักใช้ gender เป็นคำนามนับไม่ได้ เช่น gender equality และ gender gap ออกเสียง /ˈdʒendə/ เน้นพยางค์แรก",
+  "x": [
+   [
+    "The company is working to close the gender gap in leadership roles.",
+    "บริษัทพยายามลดช่องว่างระหว่างเพศในตำแหน่งผู้นำ"
+   ],
+   [
+    "Applicants must not be treated differently because of their gender.",
+    "ผู้สมัครต้องไม่ถูกปฏิบัติต่างกันเพราะเพศของตน"
+   ]
+  ]
+ },
+ "globe": {
+  "n": "globe แปลว่า \"โลก\" ในความหมายที่เน้นทั้งใบ และหมายถึงลูกโลกจำลองได้ด้วย ใช้ในสำนวน across the globe หรือ around the globe แปลว่า \"ทั่วโลก\" ซึ่งฟังเป็นภาษาเขียนมากกว่า all over the world คำคุณศัพท์คือ global และคำนามต่อเนื่องคือ globalization",
+  "x": [
+   [
+    "Fans from across the globe came to watch the final.",
+    "แฟนบอลจากทั่วโลกมาชมนัดชิงชนะเลิศ"
+   ],
+   [
+    "She keeps an old globe on her desk.",
+    "เธอวางลูกโลกเก่าๆ ไว้บนโต๊ะทำงาน"
+   ]
+  ]
+ },
+ "guarantee": {
+  "n": "guarantee เป็นได้ทั้งกริยาและนาม แปลว่า \"รับรอง\" หรือ \"การรับประกัน\" เช่น a money-back guarantee สะกดมี ua และ ee ท้ายคำ ซึ่งคนไทยมักสะกดผิด ออกเสียงเน้นพยางค์สุดท้าย /ˌɡærənˈtiː/ แรงกว่า promise และมักใช้กับสัญญาหรือสินค้า",
+  "x": [
+   [
+    "We cannot guarantee that every flight will leave on time.",
+    "เราไม่อาจรับรองได้ว่าทุกเที่ยวบินจะออกตรงเวลา"
+   ],
+   [
+    "The laptop comes with a two-year guarantee.",
+    "แล็ปท็อปเครื่องนี้มีการรับประกันสองปี"
+   ]
+  ]
+ },
+ "hierarchy": {
+  "n": "hierarchy ออกเสียงเน้นพยางค์แรก /ˈhaɪərɑːki/ เป็นคำนามนับได้ พหูพจน์คือ hierarchies แปลว่า \"ลำดับชั้น\" ใช้ได้ทั้งกับองค์กรและแนวคิด เช่น a social hierarchy หรือ the hierarchy of needs คำคุณศัพท์คือ hierarchical ซึ่งลงท้ายด้วย -ical",
+  "x": [
+   [
+    "There is a clear hierarchy of command in the army.",
+    "กองทัพมีลำดับชั้นการบังคับบัญชาที่ชัดเจน"
+   ],
+   [
+    "Many startups avoid a rigid hierarchy and let teams decide for themselves.",
+    "สตาร์ตอัปหลายแห่งหลีกเลี่ยงลำดับชั้นที่ตายตัวและให้ทีมตัดสินใจเอง"
+   ]
+  ]
+ },
+ "ideology": {
+  "n": "ideology แปลว่า \"อุดมการณ์\" หรือชุดความเชื่อที่เป็นระบบ ส่วนมากเกี่ยวกับการเมืองหรือเศรษฐกิจ เช่น a political ideology คำคุณศัพท์คือ ideological บางครั้งมีนัยลบเล็กน้อย เมื่อบอกว่าใครเชื่อโดยไม่ดูข้อเท็จจริง ออกเสียงเน้นพยางค์ที่สาม /ˌaɪdiˈɒlədʒi/",
+  "x": [
+   [
+    "The party's ideology has changed little over the past fifty years.",
+    "อุดมการณ์ของพรรคเปลี่ยนไปเพียงเล็กน้อยในรอบห้าสิบปีที่ผ่านมา"
+   ],
+   [
+    "He accused the government of putting ideology before evidence.",
+    "เขากล่าวหาว่ารัฐบาลเอาอุดมการณ์มาก่อนหลักฐาน"
+   ]
+  ]
+ },
+ "incidence": {
+  "n": "incidence ใช้ในภาษาวิชาการหรือสถิติ แปลว่า \"อัตราการเกิด\" ของสิ่งหนึ่ง โดยเฉพาะโรคหรืออาชญากรรม โครงสร้างที่พบบ่อยคือ the incidence of + นาม เช่น the incidence of heart disease อย่าสับสนกับ incident ซึ่งหมายถึง \"เหตุการณ์\" ครั้งเดียว",
+  "x": [
+   [
+    "The incidence of asthma is higher in cities with heavy traffic.",
+    "อัตราการเกิดโรคหอบหืดสูงกว่าในเมืองที่การจราจรหนาแน่น"
+   ],
+   [
+    "Researchers noticed a sharp fall in the incidence of burglary.",
+    "นักวิจัยสังเกตเห็นว่าการเกิดคดีงัดแงะลดลงอย่างมาก"
+   ]
+  ]
  }
 }
