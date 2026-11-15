@@ -124,7 +124,7 @@ const testsByArea = {}; for (const t of tests) (testsByArea[t.area] ||= []).push
 const top = {}; for (const f of files) { const k = f.includes('/') ? f.split('/')[0] : '(root)'; top[k] = (top[k] || 0) + 1; }
 const apiNames = files.filter(f => /^functions\/api\/[^_][^/]*\.js$/.test(f)).map(f => path.basename(f, '.js')).sort();
 const AREAS = [
-  ['web/', 'App (SPA) + landing: shell web/app/index.html nạp web/js/*.js bằng <script> (toàn cục App/UI/Chars, KHÔNG import); lazy bundle: BUNDLES trong web/js/app.js; css web/css; trang tĩnh sinh bởi scripts/build-*.mjs → dist'],
+  ['web/', 'App (SPA) + landing: shell web/app/index.html nạp web/js/*.js bằng <script> (toàn cục App/UI/Chars, KHÔNG import); lazy bundle: BUNDLES trong web/js/bundles.js (nạp lười); css web/css; trang tĩnh sinh bởi scripts/build-*.mjs → dist'],
   ['extension/', 'Add-on Chrome/Edge (background/content/popup/newtab). extension/app là BẢN SAO dựng từ web/ (scripts/build-extension.sh) – KHÔNG sửa tay, bị bỏ khỏi map'],
   ['functions/', 'Cloudflare Pages Functions = backend /api/* (file _*.js là helper dùng chung)'],
   ['workers/', 'Cloudflare Workers riêng: audio, dict, gemini (AI), mail, media; workers/lib dùng chung'],
@@ -145,7 +145,7 @@ const WHERE = [
   ['Từ điển / từ vựng', 'web/js/dictionary.js (route #/dict), lexis.js, lex.js, wordcard.js, vocab-img.js; dữ liệu sinh: scripts/build-lexicon.mjs, scripts/lexicon/, scripts/dict/, workers/dict; docs/LEXICON.md'],
   ['Cổng Stitch v2', 'scripts/stitch-v2-convert.mjs (HTML Stitch → module) → web/js/st/v2/*.js + web/css/st-v2-*.css; ref brand/stitch/v2; docs/STITCH-V2-PORT.md; CI so ảnh (workflow nav-render, dist-ui)'],
   ['Pipeline video', 'scripts/video/{render,auto,synth,motion}.mjs + remotion/ + motion/; cảnh cine scripts/cine; footage scripts/footage; kho brand/library/cine; docs/VIDEO.md, docs/VIDEO-MOTION.md, docs/CREDIT-RULES.md (tiêu credit: đọc trước); workflow cine-render, footage-*'],
-  ['Route / màn hình app', 'routes.<tên> = … rải ở web/js/*.js (bảng Routes dưới); alias + lazy bundle ở web/js/app.js (ROUTE_ALIAS, ROUTE_BUNDLE, BUNDLES); thêm script toàn cục → web/app/index.html'],
+  ['Route / màn hình app', 'routes.<tên> = … rải ở web/js/*.js (bảng Routes dưới); alias + route→gói ở web/js/app.js (ROUTE_ALIAS, ROUTE_BUNDLE), đăng ký gói ở web/js/bundles.js (BUNDLES); thêm script toàn cục → web/app/index.html'],
   ['API backend', 'functions/api/<tên>.js = /api/<tên>; helper functions/api/_*.js (quota, abuse…)'],
   ['Add-on', 'extension/{manifest.json,background.js,content.js,popup.js,newtab.js}; build scripts/build-extension.sh (web → extension/app)'],
   ['Blog / SEO', 'content/blog + scripts/blog-pipeline.mjs, build-blog.mjs, build-seo.mjs; workflow blog-daily; docs/BLOG-RUNBOOK.md'],
