@@ -1,0 +1,2732 @@
+{
+ "at": "2026-11-15",
+ "avg": 3.66,
+ "min": 1,
+ "n": 1600,
+ "total": 9165,
+ "keys": 705,
+ "byLang": {
+  "ar": {
+   "n": 705,
+   "min": 1,
+   "avg": 3.89
+  },
+  "de": {
+   "n": 705,
+   "min": 1,
+   "avg": 3.4
+  },
+  "es": {
+   "n": 190,
+   "min": 1,
+   "avg": 3.78
+  }
+ },
+ "missing": {},
+ "low": [
+  {
+   "lang": "ar",
+   "vi": "\"may\" cho thấy kết luận còn dè dặt; \"proves\" khẳng định chắc chắn nên mâu thuẫn → suggests.",
+   "en": "\"May\" shows the conclusion is tentative; \"proves\" expresses certainty and contradicts it → suggests.",
+   "l1": "\"مايو\" يظهر أن النتيجة مؤقتة. «يثبت» يعبر عن اليقين وينقضه → يوحي.",
+   "back": "\"May\" appears that the result is temporary. «يثبت» expresses certainty and contradicts it → suggests.",
+   "s": 1,
+   "why": "\"May\" mistranslated as the month مايو; tentative mistranslated as مؤقتة."
+  },
+  {
+   "lang": "ar",
+   "vi": "Bị động khách quan: S + is said + to have been V3 (sự việc trong quá khứ). \"is said founding\" sai dạng; \"It says\" là chủ động; \"The town says\" sai chủ thể.",
+   "en": "Impersonal passive: S + is said + to have been + past participle (for a past event). \"Is said founding\" is the wrong form; \"It says\" is active; \"The town says\" has the wrong subject.",
+   "l1": "المبني للمجهول غير الشخصي: يقال S + + كان + النعت الماضي (لحدث الماضي). \"ويقال تأسيسا\" هو صيغة خاطئة؛ \"تقول\" نشيط؛ \"تقول المدينة\" لها موضوع خاطئ.",
+   "back": "Impersonal passive: it is said S ++ was + past participle (for a past event). \"ويقول تأسيسا\" is an incorrect form; \"تقول\" is active; \"تقول المدينة\" has a wrong subject.",
+   "s": 1,
+   "why": "Garbled grammar formula, wrong terms ('نشيط' for active, 'موضوع' for subject)."
+  },
+  {
+   "lang": "ar",
+   "vi": "Câu chính dùng động từ thường ở quá khứ → đuôi didn't.",
+   "en": "The main clause has an ordinary verb in the past → the tag is didn't.",
+   "l1": "الجملة الرئيسية لها فعل عادي في الماضي → العلامة لم تكن كذلك.",
+   "back": "The main clause has a regular verb in the past → the marker was not like that.",
+   "s": 1,
+   "why": "Completely mistranslated 'the tag is didn't' into Arabic."
+  },
+  {
+   "lang": "ar",
+   "vi": "Câu chính khẳng định với have (have booked) → câu hỏi đuôi phủ định cùng trợ động từ: haven't you? didn't/don't sai trợ động từ; have you không đổi sang phủ định.",
+   "en": "A positive main clause with have (have booked) → negative tag with the same auxiliary: haven't you? Didn't/don't use the wrong auxiliary; \"have you\" doesn't switch to negative.",
+   "l1": "جملة رئيسية إيجابية مع يكون (لقد حجزت) → علامة سلبية مع نفس المساعد: أليس كذلك؟ لم/لا تستخدم المساعد الخاطئ؛ \"هل لديك\" لا تتحول إلى سلبية.",
+   "back": "Positive main clause with be (I have booked) → negative tag with the same auxiliary: right? do/does not use the wrong auxiliary; \"Do you have\" does not turn into negative.",
+   "s": 1,
+   "why": "English grammar terms translated completely wrong (have -> يكون, haven't you -> أليس كذلك)."
+  },
+  {
+   "lang": "ar",
+   "vi": "Câu hiện tại đơn dùng do/does cho đuôi: You like…, don't you? He works…, doesn't he?",
+   "en": "Present simple sentences use do/does in the tag: You like…, don't you? He works…, doesn't he?",
+   "l1": "تقديم جمل بسيطة تستخدم do/dos في العلامة: أنت تحب...، أليس كذلك؟ إنه يعمل... أليس كذلك؟",
+   "back": "Introduce simple sentences using do/dos in the tag: you like..., right? he works... right?",
+   "s": 1,
+   "why": "Mangled grammar terminology; mistranslated 'present simple' as verb 'تقديم'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Câu hỏi dùng is → trả lời phủ định No, it isn't.",
+   "en": "The question uses is → negative answer: No, it isn't.",
+   "l1": "يستخدم السؤال → الإجابة السلبية: لا، ليس كذلك.",
+   "back": "The question uses → the negative answer: No, it is not so.",
+   "s": 1,
+   "why": "Omitted the word 'is' and translated 'negative' literally into 'سلبي'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Câu hỏi dùng is → trả lời phủ định No, it isn't. aren't dành cho số nhiều; not thiếu động từ; doesn't chỉ dùng khi câu hỏi có does.",
+   "en": "The question uses is → the negative answer is \"No, it isn't.\" Aren't is for plurals, not alone has no verb, and doesn't is only for questions with does.",
+   "l1": "السؤال المستخدم هو → الإجابة السلبية هي \"لا، ليس كذلك.\" لا يوجد فعل بصيغة الجمع، وليس بمفرد، ولا يُستخدم فقط للأسئلة التي تحتوي على فعل.",
+   "back": "The question used is → the negative answer is \"No, it isn’t.\" There is no verb in plural form, nor singular, and it is not used only for questions that contain a verb.",
+   "s": 1,
+   "why": "Completely butchered the grammatical explanation and English target words."
+  },
+  {
+   "lang": "ar",
+   "vi": "Câu hỏi: đưa be lên trước chủ ngữ; your brother là số ít → Is.",
+   "en": "Questions: put be before the subject; \"your brother\" is singular → Is.",
+   "l1": "الأسئلة: توضع قبل الموضوع؛ \"أخيك\" مفرد → هو.",
+   "back": "Questions: placed before the subject; \"your brother\" singular → he.",
+   "s": 1,
+   "why": "Omitted 'be' and 'Is', mistranslated subject as topic/موضوع."
+  },
+  {
+   "lang": "ar",
+   "vi": "Cấu trúc rào đón There appears/seems to be + N (dường như có…) → There appears to be a link. Sau appear dùng to be, không dùng being; appear là nội động từ nên không có bị động.",
+   "en": "The hedge There appears/seems to be + noun (= it seems there is…) → There appears to be a link. After appear use \"to be\", not \"being\"; appear is intransitive, so it has no passive.",
+   "l1": "التحوط يظهر/يبدو أنه + اسم (= يبدو أن هناك...) → يبدو أن هناك رابطًا. بعد الظهور، استخدم \"ليكون\"، وليس \"يجري\"؛ يظهر أمر ضروري، لذلك ليس لديه سلبي.",
+   "back": "Hedging appears/it seems that + noun (= it seems that there is...) → It seems that there is a link. After appearing, use \"to be\", not \"is happening\"; it appears as a necessity, so there is no negative.",
+   "s": 1,
+   "why": "Complete gibberish; 'hedge' mistranslated as 'hedge', grammar terms nonsensical."
+  },
+  {
+   "lang": "ar",
+   "vi": "Hai người làm chủ ngữ → số nhiều → are + danh từ số nhiều farmers.",
+   "en": "Two people as the subject → plural → are + the plural noun farmers.",
+   "l1": "شخصان كموضوع → الجمع → هم + المزارعين اسم الجمع.",
+   "back": "Two people as a subject → plural → they + farmers (plural noun).",
+   "s": 1,
+   "why": "English grammar terms and words translated literally into garbled Arabic."
+  },
+  {
+   "lang": "ar",
+   "vi": "Have bất quy tắc: she has. have chỉ đi với I / you / we / they; is have và haves đều sai. → câu đúng: She has a big family.",
+   "en": "Have is irregular: she has. Have only goes with I / you / we / they; is have and haves are both wrong. → Correct sentence: She has a big family.",
+   "l1": "لقد غير منتظم: لديها. لقد ذهبت فقط مع أنا / أنت / نحن / هم؛ ما يملك وما يملك كلاهما خاطئ. → الجملة الصحيحة: لديها عائلة كبيرة.",
+   "back": "It is irregular: has. It only went with I / you / we / they; what possesses and what both possess are both wrong. → The correct sentence: She has a large family.",
+   "s": 1,
+   "why": "Garbled translation; 'Have' mistranslated as 'It went'."
+  },
+  {
+   "lang": "ar",
+   "vi": "He + do → does (thêm -es sau o). do dành cho I / you / we / they; is do và doing sai cấu trúc.",
+   "en": "He + do → does (add -es after o). Do is for I / you / we / they; is do and doing are wrongly formed.",
+   "l1": "هو + يفعل → يفعل (أضف -es بعد o). افعل ذلك من أجل أنا / أنت / نحن / هم؛ هو القيام والقيام بشكل خاطئ.",
+   "back": "He + does → does (add -es after o). Do that for I/you/we/they; he does and does incorrectly.",
+   "s": 1,
+   "why": "Grammar rules translated verbatim resulting in nonsensical Arabic."
+  },
+  {
+   "lang": "ar",
+   "vi": "I đi với am → I am hungry. is và are không đi với I; \"đói\" trong tiếng Anh là be hungry, không dùng have.",
+   "en": "\"I\" takes am → I am hungry. Is and are never go with I, and in English you \"are hungry\" – you don't \"have hunger\".",
+   "l1": "\"أنا\" تأخذ أنا → أنا جائع. هل ولا تذهب معي أبدًا، وفي اللغة الإنجليزية أنت \"جائع\" - ليس لديك \"جوع\".",
+   "back": "\"I\" takes I → I am hungry. Do not ever go with me, and in English you are \"hungry\" - you don't have \"hunger\".",
+   "s": 1,
+   "why": "Catastrophic machine translation: translated English grammar words literally into Arabic nonsense."
+  },
+  {
+   "lang": "ar",
+   "vi": "Khẳng định: S + am / is / are + …",
+   "en": "Positive: S + am / is / are + …",
+   "l1": "إيجابي: S + صباحا / هو / هي + ...",
+   "back": "Positive: S + morning / he / she + ...",
+   "s": 1,
+   "why": "English verbs 'am/is/are' mistranslated as 'morning / he / she'."
+  },
+  {
+   "lang": "ar",
+   "vi": "My brother = he → thêm -s: plays. play là dạng cho I / you / we / they; playing và is play không dùng trong hiện tại đơn.",
+   "en": "My brother = he → add -s: plays. Play is the form for I / you / we / they; playing and is play are not used in the present simple.",
+   "l1": "أخي = هو → أضف -s: مسرحيات. اللعب هو شكل أنا / أنت / نحن / هم؛ اللعب و هو اللعب لا تستخدم في المضارع البسيط.",
+   "back": "My brother = he → add -s: plays. Play is a form I / you / we / they; play and is play not used in the simple present.",
+   "s": 1,
+   "why": "Complete mistranslation of 'plays' as 'plays (theater)'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Nghề nghiệp số ít cần a / an; nurse bắt đầu bằng âm phụ âm /n/ → a nurse. Thiếu mạo từ là sai; an chỉ đứng trước âm nguyên âm; nurses là số nhiều, không hợp với my aunt.",
+   "en": "A singular job needs a / an; nurse starts with the consonant sound /n/ → a nurse. Leaving out the article is wrong; an is only used before a vowel sound; nurses is plural, so it doesn't fit my aunt.",
+   "l1": "الوظيفة المفردة تحتاج إلى/an؛ تبدأ الممرضة بالصوت الساكن /n/ → ممرضة. ترك المقال خطأ؛ يتم استخدام an فقط قبل صوت حرف العلة؛ \"الممرضات\" جمع، لذا فهي لا تناسب عمتي.",
+   "back": "A singular noun needs a/an; the nurse starts with the consonant sound /n/ → ممرضة. Leaving the article wrong; an is used only before a vowel sound; \"الممرضات\" is plural, so it does not suit my aunt.",
+   "s": 1,
+   "why": "English words 'nurse/article' translated, corrupting linguistic explanation."
+  },
+  {
+   "lang": "ar",
+   "vi": "On no account + trợ động từ + S + V: should the door be left. does / is / will not không đi được với be left theo cấu trúc này.",
+   "en": "On no account + auxiliary + S + V: should the door be left. Does / is / will not can't be used with be left in this structure.",
+   "l1": "بلا حساب + مساعد + S + V : يجب ترك الباب . هل / هو / لن لا يمكن استخدامه مع تركه في هذا الهيكل.",
+   "back": "Without subject + auxiliary + S + V: the door must be left. Whether / he / will not can be used with leaving it in this structure.",
+   "s": 1,
+   "why": "Gibberish translation; 'On no account' mistranslated as 'Without subject'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Phần nào sai? \"Particularly worrying (A) are (B) the lack (C) of funds (D).\"",
+   "en": "Which part is wrong? \"Particularly worrying (A) are (B) the lack (C) of funds (D).\"",
+   "l1": "أي جزء هو الخطأ؟ \"ما يثير القلق بشكل خاص (أ) هو (ب) نقص (ج) الأموال (د).\"",
+   "back": "Which part is wrong? \"What is particularly concerning (A) is (B) the lack (C) of money (D).\"",
+   "s": 1,
+   "why": "English quiz sentence was translated into Arabic, altering the grammar test."
+  },
+  {
+   "lang": "ar",
+   "vi": "Phần nào sai? \"Tom and Anna (A) goes (B) to the gym (C) on Fridays (D).\"",
+   "en": "Which part is wrong? \"Tom and Anna (A) goes (B) to the gym (C) on Fridays (D).\"",
+   "l1": "أي جزء هو الخطأ؟ \"يذهب توم وآنا (أ) (ب) إلى صالة الألعاب الرياضية (ج) يوم الجمعة (د).\"",
+   "back": "Which part is wrong? \"Tom and Anna (A) (B) go to the gym (C) on Friday (D).\"",
+   "s": 1,
+   "why": "The English sentence should remain in English; letters are misplaced."
+  },
+  {
+   "lang": "ar",
+   "vi": "Phủ định + đuôi khẳng định",
+   "en": "Negative + positive tag",
+   "l1": "علامة سلبية + إيجابية",
+   "back": "Negative sign + positive",
+   "s": 1,
+   "why": "'tag' mistranslated as sign/mark instead of question tag (سؤال مذيل)."
+  },
+  {
+   "lang": "ar",
+   "vi": "Phủ định với chủ ngữ số ít: is not, rút gọn isn't.",
+   "en": "Negative with a singular subject: is not, short form isn't.",
+   "l1": "سلبي مع موضوع مفرد: ليس كذلك، الشكل القصير ليس كذلك.",
+   "back": "Negative with a singular subject: Not so, the short form is not so.",
+   "s": 1,
+   "why": "Nonsensical translation of grammar terms: 'موضوع مفرد' for singular subject, 'ليس كذلك'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Quá khứ → than did wages (đảo sau than, trang trọng). do và are là hiện tại; have cần phân từ phía sau.",
+   "en": "Past tense → than did wages (inversion after than, formal). Do and are are present tense; have needs a past participle after it.",
+   "l1": "الزمن الماضي → من فعل الأجور (الانعكاس بعد من، رسمي). Do و are مضارع؛ وقد يحتاج النعت الماضي بعد ذلك.",
+   "back": "Past tense → from the verb of wages (reflexive after from, formal). Do and are are present; and may need the past participle after that.",
+   "s": 1,
+   "why": "Complete gibberish; 'than' translated as 'from', 'wages' as 'verb'."
+  },
+  {
+   "lang": "ar",
+   "vi": "So + adj + be + S: was. Câu hoàn chỉnh: So rapid was the change that many firms failed.",
+   "en": "So + adj + be + S: was. Complete sentence: So rapid was the change that many firms failed.",
+   "l1": "إذن + صفة + كن + س : كان . الجملة الكاملة: كان التغيير سريعًا جدًا لدرجة أن العديد من الشركات فشلت.",
+   "back": "So + adjective + be + s: was. Full sentence: The change was so fast that many companies failed.",
+   "s": 1,
+   "why": "Grammar formula absurdly translated (be -> كن, S -> س, So -> إذن)."
+  },
+  {
+   "lang": "ar",
+   "vi": "Số nhiều bất quy tắc của child là children. child là số ít, không đi với three; childs và childrens không tồn tại.",
+   "en": "The irregular plural of child is children. Child is singular, so it can't go with three; childs and childrens don't exist.",
+   "l1": "الجمع غير النظامي للطفل هو الأطفال. الطفل مفرد، لذلك لا يمكن أن يأتي مع ثلاثة؛ الأطفال والأطفال غير موجودين.",
+   "back": "The irregular plural of child is children. Child is singular, so it cannot be used with three; children and childs do not exist.",
+   "s": 1,
+   "why": "English words child, children, childs, childrens wrongly translated into Arabic."
+  },
+  {
+   "lang": "ar",
+   "vi": "Số nhiều bất quy tắc: foot → feet.",
+   "en": "Irregular plural: foot → feet.",
+   "l1": "الجمع غير النظامي: قدم → قدم.",
+   "back": "Irregular plural: قدم → قدم.",
+   "s": 1,
+   "why": "Arabic translation of 'feet' is identical to 'foot', losing the plural meaning."
+  },
+  {
+   "lang": "ar",
+   "vi": "Ta ‘talk to’ người ‘about’ một chủ đề. ‘Speak you’ là sai.",
+   "en": "We 'talk to' people 'about' a subject. 'Speak you' is incorrect.",
+   "l1": "نحن \"نتحدث مع\" الناس \"حول\" موضوع ما. عبارة \"تحدث إليك\" غير صحيحة.",
+   "back": "We 'talk with' people 'about' a topic. The phrase 'talk to you' is incorrect.",
+   "s": 1,
+   "why": "English grammar forms 'talk to', 'about', and 'speak you' must stay in English."
+  },
+  {
+   "lang": "ar",
+   "vi": "The bus = it (ngôi thứ ba số ít) → leave + s = leaves.",
+   "en": "The bus = it (third person singular) → leave + s = leaves.",
+   "l1": "الحافلة = it (ضمير الغائب المفرد) ← ترك + s = أوراق.",
+   "back": "The bus = it (third‑person singular pronoun) ← leave + s = أوراق.",
+   "s": 1,
+   "why": "Arabic translation of 'leaves' is 'papers', completely wrong word."
+  },
+  {
+   "lang": "ar",
+   "vi": "Thêm câu hỏi đuôi để xác nhận hoặc mời người nghe đồng ý, và dùng câu trả lời ngắn như Yes, I do / So do I / Neither do I để phản hồi tự nhiên.",
+   "en": "Add a question tag to check something or invite the listener to agree, and use short answers like \"Yes, I do\", \"So do I\" or \"Neither do I\" to respond naturally.",
+   "l1": "أضف علامة استفهام للتحقق من شيء ما أو قم بدعوة المستمع للموافقة، واستخدم إجابات قصيرة مثل \"نعم، أوافق\" أو \"أنا كذلك\" أو \"ولا أنا\" للرد بشكل طبيعي.",
+   "back": "Add a question mark to check something or invite the listener to agree, and use short answers like \"Yes, I agree\" or \"Me too\" or \"Neither do I\" to respond naturally.",
+   "s": 1,
+   "why": "Mistranslated 'question tag' as 'علامة استفهام' (question mark); examples translated."
+  },
+  {
+   "lang": "ar",
+   "vi": "Trong bài viết band 8–9, một câu đảo ngữ ở mở bài hoặc kết luận nhấn ý chính. Dùng đúng loại (so / such, hoặc Not only…) sẽ nổi bật hơn là dùng nhiều lần.",
+   "en": "In a band 8–9 essay, one inverted sentence in the introduction or conclusion highlights your main point. Using the right type (so / such, or Not only…) once stands out more than using it many times.",
+   "l1": "في المقالة من 8 إلى 9، هناك جملة واحدة مقلوبة في المقدمة أو الخاتمة تسلط الضوء على النقطة الرئيسية. إن استخدام النوع الصحيح (هكذا / كذا، أو ليس فقط…) يبرز مرة واحدة أكثر من استخدامه عدة مرات.",
+   "back": "In the article from 8 to 9, there is one inverted sentence in the introduction or conclusion that highlights the main point. Using the correct type (this / that, or not just…) stands out once more than using it several times.",
+   "s": 1,
+   "why": "Translated English target grammar words 'so / such' into Arabic words."
+  },
+  {
+   "lang": "ar",
+   "vi": "Trước tính từ phải có be; thiếu am thì câu không có động từ.",
+   "en": "An adjective needs be in front of it; without am, the sentence has no verb.",
+   "l1": "يجب أن تكون الصفة أمامها؛ بدون صباحا، الجملة ليس لها فعل.",
+   "back": "The adjective must be placed before it; without \\\"morning\\\", the sentence has no verb.",
+   "s": 1,
+   "why": "'am' mistranslated as 'morning', completely wrong."
+  },
+  {
+   "lang": "ar",
+   "vi": "Trạng từ tần suất đứng sau be: Lan is never late. never is đặt sai vị trí; does never và never does không có động từ chính nào.",
+   "en": "A frequency adverb goes after be: Lan is never late. Never is is in the wrong position; does never and never does have no main verb.",
+   "l1": "يتبع ظرف التردد be: Lan لم يتأخر أبدًا. لا يوجد أبدًا في الوضع الخاطئ؛ لا يوجد أبدًا ولا يوجد به فعل رئيسي.",
+   "back": "The frequency adverb follows be: Lan never was late. Never is never in the wrong position; never is never and there is no main verb with it.",
+   "s": 1,
+   "why": "Completely garbled and nonsensical translation of the grammar explanation."
+  },
+  {
+   "lang": "ar",
+   "vi": "Trả lời ngắn khẳng định không rút gọn: Yes, I am.",
+   "en": "A positive short answer isn't contracted: Yes, I am.",
+   "l1": "الإجابة القصيرة الإيجابية غير متعاقد عليها: نعم، أنا كذلك.",
+   "back": "The short positive answer is not contractually stipulated: Yes, I am.",
+   "s": 1,
+   "why": "Completely mistranslated 'contracted' (abbreviated) as 'contractual' (متعاقد عليها)."
+  },
+  {
+   "lang": "ar",
+   "vi": "Umbrella bắt đầu bằng âm nguyên âm /ʌ/ → an umbrella. a chỉ dùng trước âm phụ âm; many và two cần danh từ số nhiều (umbrellas), không đi với umbrella.",
+   "en": "Umbrella starts with the vowel sound /ʌ/ → an umbrella. A is only used before a consonant sound; many and two need a plural noun (umbrellas), so they don't go with umbrella.",
+   "l1": "تبدأ المظلة بحرف العلة /ʌ/ → مظلة. يتم استخدام A فقط قبل الصوت الساكن؛ يحتاج العديد واثنان إلى اسم جمع (مظلات)، لذلك لا يذهبون مع المظلة.",
+   "back": "The umbrella starts with the vowel /ʌ/ → umbrella. A is used only before a consonant sound; many and two need a plural noun (umbrellas), so they do not go with the umbrella.",
+   "s": 1,
+   "why": "English target words umbrella/an umbrella were translated, ruining grammar rule."
+  },
+  {
+   "lang": "ar",
+   "vi": "Văn học thuật tránh khẳng định tuyệt đối. Dùng tend to, may well, it appears that, to some extent… để đưa ra nhận định chính xác, khách quan và khó bị bác bỏ.",
+   "en": "Academic writing avoids absolute claims. Use tend to, may well, it appears that, to some extent… to make claims that are precise, objective and hard to refute.",
+   "l1": "الكتابة الأكاديمية تتجنب الادعاءات المطلقة. يميل الاستخدام، ربما يبدو، إلى حد ما، إلى تقديم ادعاءات دقيقة وموضوعية ويصعب دحضها.",
+   "back": "Academic writing avoids absolute claims. Usage tends, perhaps it seems, somewhat, to present precise and objective claims that are hard to refute.",
+   "s": 1,
+   "why": "English hedging expressions were garbled into Arabic instead of kept as examples."
+  },
+  {
+   "lang": "ar",
+   "vi": "Watch tận cùng ch → thêm -es: watches. watch thiếu đuôi, watchs sai chính tả, is watch sai cấu trúc.",
+   "en": "Watch ends in ch → add -es: watches. Watch is missing the ending, watchs is misspelled, and is watch is wrongly formed.",
+   "l1": "تنتهي المشاهدة بـ ch → add -es: الساعات. Watch تفتقد النهاية، وهناك خطأ إملائي في watchs، وقد تم تشكيل watch بشكل خاطئ.",
+   "back": "Viewing ends with ch → add -es: hours. Watch lacks the ending, there is a spelling error in watchs, and watch has been formed incorrectly.",
+   "s": 1,
+   "why": "The English verb watch was mistranslated as noun المشاهدة and watches as الساعات."
+  },
+  {
+   "lang": "ar",
+   "vi": "We đi với are. is dành cho he, she, it và danh từ số ít; am chỉ dành cho I; be là nguyên mẫu nên không dùng ở đây.",
+   "en": "\"We\" takes are. Is is for he, she, it and singular nouns; am is only for I; be is the base form, so it doesn't fit here.",
+   "l1": "\"نحن\" تأخذ هي. هو هو، هي، هو والأسماء المفردة؛ أنا فقط بالنسبة لي. be هو النموذج الأساسي، لذا فهو غير مناسب هنا.",
+   "back": "\\\"We\\\" takes she. He is, she, he and singular nouns; I only for me. be is the basic model, so it is not suitable here.",
+   "s": 1,
+   "why": "Grammar words like 'are', 'is', 'am' were translated into nonsensical Arabic."
+  },
+  {
+   "lang": "ar",
+   "vi": "We đi với động từ nguyên mẫu → have. has chỉ dùng cho he / she / it; haves không tồn tại.",
+   "en": "We takes the base verb → have. Has is only for he / she / it; haves doesn't exist.",
+   "l1": "نحن نأخذ الفعل الأساسي → لديك. لديه فقط له / هي / لها؛ يملك غير موجود.",
+   "back": "We take the base verb → you have. He/she only has him / she / her; \"to own\" is not present.",
+   "s": 1,
+   "why": "Completely wrong translation of grammar terms."
+  },
+  {
+   "lang": "ar",
+   "vi": "Woman → women (bất quy tắc); động từ đổi is → are.",
+   "en": "Woman → women (irregular); the verb changes is → are.",
+   "l1": "امرأة → النساء (غير النظامية)؛ تغييرات الفعل هي → هي.",
+   "back": "Woman → women (irregular); verb changes are → she.",
+   "s": 1,
+   "why": "Completely mistranslates 'is' and 'are' as 'she'."
+  },
+  {
+   "lang": "ar",
+   "vi": "a / an + tính từ + danh từ: chọn theo âm của tính từ",
+   "en": "a / an + adjective + noun: choose by the sound of the adjective",
+   "l1": "أ / أن + الصفة + الاسم : يختار حسب صوت الصفة",
+   "back": "A / that + adjective + noun: selects according to the adjective's sound.",
+   "s": 1,
+   "why": "Articles 'a / an' were mistranslated into Arabic letters/words أ / أن."
+  },
+  {
+   "lang": "ar",
+   "vi": "an + âm nguyên âm",
+   "en": "an + vowel sound",
+   "l1": "صوت + حرف علة",
+   "back": "vowel + vowel letter",
+   "s": 1,
+   "why": "Completely inverted and mistranslated: 'an' became 'صوت'."
+  },
+  {
+   "lang": "ar",
+   "vi": "appear là nội động từ: It appears that…, không dùng bị động.",
+   "en": "Appear is intransitive: It appears that…, never in the passive.",
+   "l1": "الظهور لازم: يبدو أن…، أبدًا في صيغة المبني للمجهول.",
+   "back": "Appearance required: seems that…, never in passive voice.",
+   "s": 1,
+   "why": "Mistranslated verb 'appear' as noun and 'never' grammar is broken."
+  },
+  {
+   "lang": "ar",
+   "vi": "are (you & số nhiều)",
+   "en": "are (you & plurals)",
+   "l1": "هي (أنت والجمع)",
+   "back": "she (you and the plural)",
+   "s": 1,
+   "why": "Mistranslated 'are' as 'هي' (she)."
+  },
+  {
+   "lang": "ar",
+   "vi": "be hoặc động từ ở trạng thái, hòa hợp với S đứng SAU",
+   "en": "be or a stative verb, agreeing with the S that comes AFTER it",
+   "l1": "يكون أو فعلًا مرفوعًا يوافق حرف السين الذي يليه",
+   "back": "be or a nominative verb that agrees with the preceding س",
+   "s": 1,
+   "why": "Nonsensical translation of 'stative verb' and grammatical abbreviation 'S'."
+  },
+  {
+   "lang": "ar",
+   "vi": "be likely to + V thay cho will tuyệt đối.",
+   "en": "be likely to + verb instead of an absolute will.",
+   "l1": "من المحتمل أن يكون + فعل بدلاً من الإرادة المطلقة.",
+   "back": "It is likely to be + verb instead of absolute will.",
+   "s": 1,
+   "why": "Mistranslated modal 'will' as noun 'will' (إرادة) and botched structure."
+  },
+  {
+   "lang": "ar",
+   "vi": "be likely to + V → is likely to fall. \"is tend\" sai (tend là động từ, không đứng sau is); possible không đi với to V theo cách này (phải là It is possible that…); probably là trạng từ.",
+   "en": "be likely to + verb → is likely to fall. \"Is tend\" is wrong (tend is a verb and can't follow is); possible isn't used with \"to + verb\" like this (you need \"It is possible that…\"); probably is an adverb.",
+   "l1": "من المحتمل أن + الفعل → من المرجح أن يسقط. \"هل يميل\" خطأ (يميل هو فعل ولا يمكن أن يتبعه)؛ \"ممكن\" لا يُستخدم مع \"to + الفعل\" مثل هذا (تحتاج إلى \"من الممكن أن...\")؛ ربما هو ظرف.",
+   "back": "likely + verb → it is likely to fall. \"هل يميل\" is wrong (يميل is a verb and cannot be followed by it); \"ممكن\" is not used with \"to + verb\" like this (you need \"من الممكن أن...\"); perhaps is an adverb.",
+   "s": 1,
+   "why": "English verbs translated literally; 'is' translated as interrogative 'هل'."
+  },
+  {
+   "lang": "ar",
+   "vi": "câu mệnh lệnh",
+   "en": "imperative",
+   "l1": "حتمية",
+   "back": "necessity",
+   "s": 1,
+   "why": "Wrong translation; 'imperative' is 'أمر' or 'صيغة الأمر', not 'حتمية'."
+  },
+  {
+   "lang": "ar",
+   "vi": "may + be + V3 (bị động dè dặt). Không viết \"may is caused\" – sau may phải là V nguyên mẫu \"be\".",
+   "en": "may + be + past participle (a cautious passive). Don't write \"may is caused\" – after may you need the base form be.",
+   "l1": "قد + يكون + النعت الماضي (المبني للمجهول الحذر). لا تكتب \"قد يكون السبب\" - بعد ذلك قد تحتاج إلى أن يكون النموذج الأساسي.",
+   "back": "may + be + past participle (the cautious passive construction). Do not write \"قد يكون السبب\" – afterwards you may need the basic model.",
+   "s": 1,
+   "why": "English grammar terms and target forms wrongly translated into Arabic."
+  },
+  {
+   "lang": "ar",
+   "vi": "may well + V = rất có thể → may well continue. are, tend và likely không đứng trước well + V nguyên mẫu (likely phải là are likely to).",
+   "en": "may well + verb = quite possibly → may well continue. Are, tend and likely can't come before \"well + base verb\" (likely needs \"are likely to\").",
+   "l1": "قد يكون جيدا + فعل = من المحتمل جدا → قد يستمر. هل، تميل ومن المحتمل ألا تأتي قبل \"حسنًا + الفعل الأساسي\" (من المحتمل أن تكون الاحتياجات \"من المحتمل أن\").",
+   "back": "May be good + verb = very likely → may continue. Whether, tends and is unlikely to come before \"well + the main verb\" (the likely needs are \"likely to\").",
+   "s": 1,
+   "why": "Complete mistranslation of 'may well' and 'likely'."
+  },
+  {
+   "lang": "ar",
+   "vi": "ngoại lệ: không dùng amn't",
+   "en": "exception: we don't say amn't",
+   "l1": "استثناء: لا نقول لا",
+   "back": "Exception: we do not say no",
+   "s": 1,
+   "why": "Mistranslated 'amn't' as 'لا' (no). Completely wrong."
+  },
+  {
+   "lang": "ar",
+   "vi": "trợ động từ trước S; thì đơn cần do / does / did",
+   "en": "auxiliary before S; the simple tenses need do / does / did",
+   "l1": "مساعد قبل S؛ الأزمنة البسيطة تحتاج إلى فعل / فعل / فعل",
+   "back": "auxiliary before S; simple tenses need verb / verb / verb",
+   "s": 1,
+   "why": "Translated 'do / does / did' into 'فعل / فعل / فعل'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Đảo ngữ trọn bộ: so, such, as, nơi chốn, bổ ngữ",
+   "en": "The Full Range of Inversion: so, such, as, place and fronted complements",
+   "l1": "النطاق الكامل للانعكاس: لذا، مثل، مكملات المكان والمقدمة",
+   "back": "The full scope of reflection: therefore, like, place complements and the preposition",
+   "s": 1,
+   "why": "Grammar terms and target words (so, such, as) wrongly translated into Arabic."
+  },
+  {
+   "lang": "ar",
+   "vi": "Đổi sang câu hỏi: đưa is lên trước chủ ngữ she.",
+   "en": "To make a question, move is in front of the subject she.",
+   "l1": "لطرح سؤال، التحرك أمام الموضوع هي.",
+   "back": "To ask a question, moving ahead of the topic is.",
+   "s": 1,
+   "why": "Incomprehensible machine translation; lost verb 'move' and word 'is'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Động từ be: am / is / are",
+   "en": "The Verb \"be\": am / is / are",
+   "l1": "الفعل \"يكون\": صباحا / هو / هي",
+   "back": "The verb \"be\": morning / he / she",
+   "s": 1,
+   "why": "Translates 'am/is/are' as 'morning/he/she', completely wrong."
+  },
+  {
+   "lang": "ar",
+   "vi": "‘I prefer X to Y’ so sánh hai thứ. ‘I’d rather’ đi với động từ nguyên mẫu và không có ‘to’.",
+   "en": "'I prefer X to Y' compares two things. 'I'd rather' is followed by the base verb and has no 'to'.",
+   "l1": "\"أفضل X على Y\" يقارن بين شيئين. \"أُفضل\" يتبعه الفعل الأساسي ولا يحتوي على \"إلى\".",
+   "back": "\"أفضل X على Y\" compares two things. \"أُفضل\" is followed by the main verb and does not contain \"to\".",
+   "s": 1,
+   "why": "English grammar keywords 'I'd rather' and 'to' were translated into Arabic."
+  },
+  {
+   "lang": "ar",
+   "vi": "‘It is sure that’ không phải cấu trúc tự nhiên. Hãy dùng ‘He is sure to’ hoặc ‘It is certain that’.",
+   "en": "'It is sure that' is not a natural pattern. Use 'He is sure to' or 'It is certain that'.",
+   "l1": "\"من المؤكد أن\" ليس نمطًا طبيعيًا. استخدم \"إنه متأكد من ذلك\" أو \"من المؤكد أن\".",
+   "back": "\"من المؤكد أن\" is not a natural pattern. Use \"إنه متأكد من ذلك\" or \"من المؤكد أن\".",
+   "s": 1,
+   "why": "English phrases must stay in English; translated phrases destroy the grammar contrast."
+  },
+  {
+   "lang": "ar",
+   "vi": "‘Prefer’ đi với ‘to’, không đi với ‘than’. ‘Than’ dùng với cấu trúc ‘rather’ và so sánh hơn.",
+   "en": "'Prefer' goes with 'to', not 'than'. Use 'than' with 'rather' structures and comparatives.",
+   "l1": "\"تفضل\" تأتي مع \"إلى\" وليس \"من\". استخدم \"من\" مع الهياكل والمقارنات \"بالأحرى\".",
+   "back": "\"تفضل\" comes with \"إلى\" not \"من\". Use \"من\" with structures and comparisons \"بالأحرى\".",
+   "s": 1,
+   "why": "English prepositions/grammar keywords must remain in English, not translated."
+  },
+  {
+   "lang": "ar",
+   "vi": "‘Propose’ đi với ‘that’ + mệnh đề, không đi với ‘you to’.",
+   "en": "'Propose' is followed by 'that' plus a clause, not by 'you to'.",
+   "l1": "\"اقتراح\" يتبعها \"هذا\" بالإضافة إلى عبارة، وليس \"أنت ل\".",
+   "back": "\"Suggest\" is followed by \"this\" plus a phrase, not \"you l\".",
+   "s": 1,
+   "why": "Complete mistranslation of grammar terms and structure."
+  },
+  {
+   "lang": "ar",
+   "vi": "‘Tell’ đi thẳng với người nhận. Không nói ‘say him’; hãy nói ‘tell him’.",
+   "en": "'Tell' takes a person directly. We do not say 'say him'.",
+   "l1": "\"أخبر\" يأخذ الشخص مباشرة. ولا نقول \"قل له\".",
+   "back": "\"أخبر\" takes the person directly. And we don't say \"قل له\".",
+   "s": 1,
+   "why": "English verbs 'tell' and 'say him' should not be translated into Arabic."
+  },
+  {
+   "lang": "de",
+   "vi": "\"may\" cho thấy kết luận còn dè dặt; \"proves\" khẳng định chắc chắn nên mâu thuẫn → suggests.",
+   "en": "\"May\" shows the conclusion is tentative; \"proves\" expresses certainty and contradicts it → suggests.",
+   "l1": "„Mai“ zeigt, dass die Schlussfolgerung vorläufig ist; „beweist“ drückt Gewissheit aus und widerspricht ihr → suggeriert.",
+   "back": "„Mai“ shows that the conclusion is provisional; „beweist“ expresses certainty and contradicts it → suggests.",
+   "s": 1,
+   "why": "Wrong translation of 'May' as 'Mai' (month)."
+  },
+  {
+   "lang": "de",
+   "vi": "A hay an? Nghe âm đầu, đừng nhìn chữ cái",
+   "en": "A or an? Listen to the first sound, not the first letter",
+   "l1": "Ein oder ein? Hören Sie auf den ersten Ton, nicht auf den ersten Buchstaben",
+   "back": "Ein or ein? Listen to the first sound, not the first letter",
+   "s": 1,
+   "why": "Translating 'A or an' to 'Ein oder ein' ruins the English grammar rule."
+  },
+  {
+   "lang": "de",
+   "vi": "Box tận cùng -x → thêm es: five boxes, nên phần sai là (B). There are, on the table và in the kitchen đều đúng.",
+   "en": "Box ends in -x → add es: five boxes, so the wrong part is (B). There are, on the table and in the kitchen are all correct.",
+   "l1": "Box endet mit -x → füge es hinzu: fünf Boxen, also ist der falsche Teil (B). Es gibt, auf dem Tisch und in der Küche ist alles richtig.",
+   "back": "Box ends with -x → add it: five boxes, so the wrong part is (B). There is, on the table and in the kitchen everything is correct.",
+   "s": 1,
+   "why": "'add es' translated to German 'füge es hinzu' ('add it'); grammar destroyed."
+  },
+  {
+   "lang": "de",
+   "vi": "Bị động khách quan: It is widely believed that… believe là động từ nguyên mẫu; believing sai dạng; belief là danh từ.",
+   "en": "Impersonal passive: It is widely believed that… \"Believe\" is the base form, \"believing\" is the wrong form, and \"belief\" is a noun.",
+   "l1": "Unpersönliches Passiv: Es wird allgemein angenommen, dass ... „glauben“ die Grundform ist, „glauben“ die falsche Form und „glauben“ ein Substantiv ist.",
+   "back": "Impersonal passive: It is generally assumed that ... „glauben“ is the base form, „glauben“ the wrong form and „glauben“ a noun.",
+   "s": 1,
+   "why": "All three forms translated identically as 'glauben'."
+  },
+  {
+   "lang": "de",
+   "vi": "Bị động khách quan: S + is said + to have been V3 (sự việc trong quá khứ). \"is said founding\" sai dạng; \"It says\" là chủ động; \"The town says\" sai chủ thể.",
+   "en": "Impersonal passive: S + is said + to have been + past participle (for a past event). \"Is said founding\" is the wrong form; \"It says\" is active; \"The town says\" has the wrong subject.",
+   "l1": "Unpersönliches Passiv: S + soll + Partizip Perfekt gewesen sein (für ein vergangenes Ereignis). „Ist gesagt, Gründung“ ist die falsche Form; „Es heißt“ ist aktiv; „Die Stadt sagt“ hat das falsche Thema.",
+   "back": "Impersonal passive: S + should + past participle have been (for a past event). „Ist gesagt, Gründung“ is the wrong form; „Es heißt“ is active; „Die Stadt sagt“ has the wrong subject.",
+   "s": 1,
+   "why": "English grammar terms and option quotes incorrectly translated into German nonsense."
+  },
+  {
+   "lang": "de",
+   "vi": "Chồng chất quá nhiều từ thận trọng làm câu yếu và rườm rà. Một từ là đủ.",
+   "en": "Piling up hedges makes a sentence weak and wordy. One is enough.",
+   "l1": "Das Aufhäufen von Hecken macht einen Satz schwach und wortreich. Einer reicht.",
+   "back": "Stacking hedges makes a sentence weak and wordy. One is enough.",
+   "s": 1,
+   "why": "'Hedges' mistranslated literally as garden hedges ('Hecken') instead of linguistic hedging."
+  },
+  {
+   "lang": "de",
+   "vi": "Chủ ngữ I luôn đi với am.",
+   "en": "The subject I always takes am.",
+   "l1": "Das Thema, das ich immer nehme, ist.",
+   "back": "The topic I always take is.",
+   "s": 1,
+   "why": "Complete mistranslation of the grammar rule 'I always takes am'."
+  },
+  {
+   "lang": "de",
+   "vi": "Chủ ngữ a man (số ít) → was. were sai hòa hợp; did sit và sat were sai cấu trúc.",
+   "en": "The subject a man (singular) → was. Were doesn't agree; did sit and sat were are wrongly formed.",
+   "l1": "Das Subjekt war ein Mann (Singular) →. Wer stimmt nicht zu; saßen und saßen, wo sie falsch geformt waren.",
+   "back": "The subject was a man (Singular) →. Who does not agree; sat and sat, where they were incorrectly formed.",
+   "s": 1,
+   "why": "Complete mistranslation of grammar explanation."
+  },
+  {
+   "lang": "de",
+   "vi": "Chủ ngữ thật là the lack (số ít) → is. Phần sai là (B).",
+   "en": "The real subject is the lack (singular) → is. The wrong part is (B).",
+   "l1": "Das eigentliche Thema ist der Mangel (Singular) → ist. Der falsche Teil ist (B).",
+   "back": "The actual topic is the shortage (Singular) → is. The wrong part is (B).",
+   "s": 1,
+   "why": "'Subject' mistranslated as 'Thema', and target verb 'is' mistranslated to 'ist'."
+  },
+  {
+   "lang": "de",
+   "vi": "Câu chính khẳng định với have (have booked) → câu hỏi đuôi phủ định cùng trợ động từ: haven't you? didn't/don't sai trợ động từ; have you không đổi sang phủ định.",
+   "en": "A positive main clause with have (have booked) → negative tag with the same auxiliary: haven't you? Didn't/don't use the wrong auxiliary; \"have you\" doesn't switch to negative.",
+   "l1": "Ein positiver Hauptsatz mit have (have booking) → negativem Tag mit dem gleichen Hilfssatz: haven't you? Habe nicht/nicht das falsche Hilfsmittel verwendet; „have you“ wechselt nicht ins Negative.",
+   "back": "A positive main clause with have (have booking) → negative Tag with the same Hilfssatz: haven't you? Haven't used/not the wrong Hilfsmittel; “have you” does not switch to the negative.",
+   "s": 1,
+   "why": "Severe mistranslations: 'Hilfssatz', 'Hilfsmittel', and English terms altered into incorrect German."
+  },
+  {
+   "lang": "de",
+   "vi": "Câu hiện tại đơn dùng do/does cho đuôi: You like…, don't you? He works…, doesn't he?",
+   "en": "Present simple sentences use do/does in the tag: You like…, don't you? He works…, doesn't he?",
+   "l1": "Präsens einfache Sätze verwenden do/does im Tag: Du magst..., nicht wahr? Er arbeitet..., nicht wahr?",
+   "back": "Use present simple sentences do/does in the Tag: Du magst..., nicht wahr? Er arbeitet..., nicht wahr?",
+   "s": 1,
+   "why": "English example sentences translated into German; 'Präsens einfache Sätze' is ungrammatical."
+  },
+  {
+   "lang": "de",
+   "vi": "Câu hỏi dùng is → trả lời phủ định No, it isn't.",
+   "en": "The question uses is → negative answer: No, it isn't.",
+   "l1": "Die verwendete Frage ist → negative Antwort: Nein, ist es nicht.",
+   "back": "The used question is → negative Antwort: Nein, ist es nicht.",
+   "s": 1,
+   "why": "Complete mistranslation of 'uses is' and English forms were translated."
+  },
+  {
+   "lang": "de",
+   "vi": "Câu hỏi dùng is → trả lời phủ định No, it isn't. aren't dành cho số nhiều; not thiếu động từ; doesn't chỉ dùng khi câu hỏi có does.",
+   "en": "The question uses is → the negative answer is \"No, it isn't.\" Aren't is for plurals, not alone has no verb, and doesn't is only for questions with does.",
+   "l1": "Die Frage lautet → Die negative Antwort lautet „Nein, das ist nicht der Fall.“ Aren't steht für Pluralformen, not alone hat kein Verb und don't steht nur für Fragen mit dos.",
+   "back": "The question is → The negative answer is \"No, that is not the case.\" Aren't is used for plural forms, not alone has no verb and don't is only for questions with dos.",
+   "s": 1,
+   "why": "Mistranslates grammar elements, changes 'doesn't'/'does' to 'don't'/'dos', translates answer."
+  },
+  {
+   "lang": "de",
+   "vi": "Câu hỏi đuôi dùng đại từ it thay cho this → isn't it?, nên phần sai là (D). This, is your first IELTS test, isn't đều đúng.",
+   "en": "The tag uses the pronoun it instead of this → isn't it?, so (D) is wrong. \"This\", \"is your first IELTS test\" and \"isn't\" are all correct.",
+   "l1": "Das Tag verwendet das Pronomen it anstelle von this → isn't it?, also ist (D) falsch. „Dies“, „ist Ihr erster IELTS-Test“ und „ist nicht“ sind alle richtig.",
+   "back": "The Tag uses the pronoun it instead of this → isn't it?, so (D) is wrong. “Dies”, “ist Ihr erster IELTS-Test” and “ist nicht” are all correct.",
+   "s": 1,
+   "why": "English target words and example fragments were translated into German."
+  },
+  {
+   "lang": "de",
+   "vi": "Câu hỏi: đưa be lên trước chủ ngữ; your brother là số ít → Is.",
+   "en": "Questions: put be before the subject; \"your brother\" is singular → Is.",
+   "l1": "Fragen: vor dem Thema stellen; „dein Bruder“ ist Singular → Is.",
+   "back": "Questions: place before the topic; “dein Bruder” is singular → Is.",
+   "s": 1,
+   "why": "'Subject' mistranslated as 'Thema'; sentence structure broken."
+  },
+  {
+   "lang": "de",
+   "vi": "Câu trước có never (phủ định) → đồng ý dùng neither do (động từ thường use). so do dùng cho câu khẳng định; \"neither don't\" là phủ định kép; \"so don't\" sai.",
+   "en": "The first sentence has never (negative) → agree with \"neither do\" (ordinary verb use). \"So do\" is for positive statements; \"neither don't\" is a double negative; \"so don't\" is wrong.",
+   "l1": "Der erste Satz hat nie (negativ) → stimmt mit „neither do“ (gewöhnlicher Verbgebrauch) überein. „So do“ steht für positive Aussagen; „weder nicht“ ist eine doppelte Verneinung; „also nicht“ ist falsch.",
+   "back": "The first sentence never (negative) → matches “neither do” (common verb usage). “So do” is used for positive statements; “weder nicht” is a double negation; “also nicht” is wrong.",
+   "s": 1,
+   "why": "English grammar options 'neither don't' and 'so don't' were translated."
+  },
+  {
+   "lang": "de",
+   "vi": "Cấu trúc be likely to + V. \"probably/possibly/perhaps\" là trạng từ, không đi với \"are … to rise\" theo cấu trúc này (phải nói \"will probably rise\").",
+   "en": "The structure is be likely to + verb. Probably, possibly and perhaps are adverbs and don't fit \"are … to rise\" (you'd say \"will probably rise\").",
+   "l1": "Die Struktur ist wahrscheinlich + Verb. „Wahrscheinlich“, „möglicherweise“ und „vielleicht“ sind Adverbien und passen nicht auf „are … to Rise“ (man würde sagen: „wird wahrscheinlich aufsteigen“).",
+   "back": "The structure is probably + verb. “Wahrscheinlich”, “möglicherweise” and “vielleicht” are adverbs and do not fit “are … to Rise” (one would say: “wird wahrscheinlich aufsteigen”).",
+   "s": 1,
+   "why": "Translates the grammatical target structure 'be likely to' and adverb options."
+  },
+  {
+   "lang": "de",
+   "vi": "Cấu trúc rào đón There appears/seems to be + N (dường như có…) → There appears to be a link. Sau appear dùng to be, không dùng being; appear là nội động từ nên không có bị động.",
+   "en": "The hedge There appears/seems to be + noun (= it seems there is…) → There appears to be a link. After appear use \"to be\", not \"being\"; appear is intransitive, so it has no passive.",
+   "l1": "Die Hecke Es scheint/scheint zu sein + Substantiv (= es scheint, dass es… gibt) → Es scheint einen Link zu geben. Verwenden Sie nach dem Erscheinen „to be“, nicht „being“; Erscheinung ist intransitiv, hat also kein Passiv.",
+   "back": "The hedge It seems/to seem to be + noun (= it seems that there is…) → It seems there to be a link. Use \"to be\" after \"seems\", not \"being\"; \"Erscheinung\" is intransitive, so it has no passive.",
+   "s": 1,
+   "why": "Catastrophic machine translation ('hedge' -> 'Hecke', target forms translated)."
+  },
+  {
+   "lang": "de",
+   "vi": "Cụm cố định: to some extent / to a certain extent. any, an, many không đi với extent trong cụm cố định này.",
+   "en": "Fixed phrase: to some extent / to a certain extent. Any, an and many don't go with extent in this phrase.",
+   "l1": "Fester Satz: bis zu einem gewissen Grad / bis zu einem gewissen Grad. Einige, und viele gehen in diesem Satz nicht mit der Dimension einher.",
+   "back": "Fester Satz: up to a certain degree / up to a certain degree. Some, and many, do not go along with the dimension in this sentence.",
+   "s": 1,
+   "why": "English words translated; duplicate phrase; 'extent' mistranslated as 'Dimension'."
+  },
+  {
+   "lang": "de",
+   "vi": "Danh từ số nhiều KHÔNG đi với a / an",
+   "en": "Plural nouns do NOT go with a / an",
+   "l1": "Nomen im Plural passen NICHT zu einem / an",
+   "back": "Nouns in the plural do NOT fit a / to",
+   "s": 1,
+   "why": "The English words 'a' and 'an' were mistranslated as German words."
+  },
+  {
+   "lang": "de",
+   "vi": "Dùng một tín hiệu ngắn như ‘Can I just add…’ để chen vào. Để giữ lượt, nói ‘Let me finish’ rồi tiếp tục với nhịp đều.",
+   "en": "Use a short signal like 'Can I just add...' to enter. To keep your turn, say 'Let me finish' and carry on at an even pace.",
+   "l1": "Verwenden Sie zum Betreten ein kurzes Signal wie „Kann ich einfach hinzufügen…“. Um an der Reihe zu bleiben, sagen Sie „Lass mich ausreden“ und fahren Sie in einem gleichmäßigen Tempo fort.",
+   "back": "Use a brief cue such as “Can I just add…” when entering. To stay in turn, say “Let me finish” and continue at a steady pace.",
+   "s": 1,
+   "why": "English phrases translated; 'zum Betreten' is a mistranslation of entering conversation."
+  },
+  {
+   "lang": "de",
+   "vi": "Dùng ‘Good morning’ trước 12 giờ trưa và ‘Good afternoon’ sau đó. ‘Hi’ là lời chào thân mật phổ biến nhất.",
+   "en": "Use 'Good morning' before 12:00 and 'Good afternoon' after 12:00. 'Hi' is the most common casual greeting.",
+   "l1": "Verwenden Sie „Guten Morgen“ vor 12:00 Uhr und „Guten Tag“ nach 12:00 Uhr. „Hallo“ ist die häufigste lockere Begrüßung.",
+   "back": "Use “Good morning” before 12:00 and “Good day” after 12:00. “Hello” is the most common informal greeting.",
+   "s": 1,
+   "why": "English greeting terms to be taught were translated into German."
+  },
+  {
+   "lang": "de",
+   "vi": "Dùng ‘I am sorry’ cho lỗi thường ngày, dành ‘I apologise’ cho tình huống nghiêm trọng hơn.",
+   "en": "Use 'I am sorry' for everyday mistakes, and save 'I apologise' for more serious situations.",
+   "l1": "Verwenden Sie „Es tut mir leid“ für alltägliche Fehler und sparen Sie „Ich entschuldige mich“ für ernstere Situationen.",
+   "back": "Use “I’m sorry” for everyday mistakes and reserve “I apologize” for more serious situations.",
+   "s": 1,
+   "why": "English target phrases were incorrectly translated into German."
+  },
+  {
+   "lang": "de",
+   "vi": "Dùng ‘can’ hoặc ‘shall’ để đặt câu hỏi về kế hoạch tương lai.",
+   "en": "Use 'can' or 'shall' to make a question for future plans.",
+   "l1": "Verwenden Sie „kann“ oder „soll“, um eine Frage für zukünftige Pläne zu stellen.",
+   "back": "Use “can” or “should” to ask a question about future plans.",
+   "s": 1,
+   "why": "English modal verbs 'can' and 'shall' were translated into German."
+  },
+  {
+   "lang": "de",
+   "vi": "Dùng ‘is this’ cho một món và ‘are these’ cho nhiều món.",
+   "en": "Use 'is this' for one thing and 'are these' for multiple items.",
+   "l1": "Verwenden Sie „ist das“ für eine Sache und „sind diese“ für mehrere Elemente.",
+   "back": "Use “is that” for a single thing and “are these” for multiple items.",
+   "s": 1,
+   "why": "Target English grammatical forms must not be translated into German."
+  },
+  {
+   "lang": "de",
+   "vi": "Giành và giữ lượt nói",
+   "en": "Taking and holding the turn",
+   "l1": "Den Zug nehmen und halten",
+   "back": "Take the train and hold",
+   "s": 1,
+   "why": "Gross mistranslation; 'turn' (conversation turn) translated as train/move."
+  },
+  {
+   "lang": "de",
+   "vi": "Go tận cùng bằng o → thêm -es: goes. gos sai chính tả; go dành cho I / you / we / they; going không phải hiện tại đơn.",
+   "en": "Go ends in o → add -es: goes. Gos is misspelled; go is for I / you / we / they; going is not the present simple.",
+   "l1": "Go endet mit o → add -es: goes. Gos ist falsch geschrieben; gehen ist für mich / euch / wir / sie; Gehen ist nicht die Gegenwart einfach.",
+   "back": "Go ends with o → add -es: goes. Gos is misspelled; gehen is for me / you (plural) / we / they; Gehen is not the simple present.",
+   "s": 1,
+   "why": "Nonsensical translation of English grammar terms and target words."
+  },
+  {
+   "lang": "de",
+   "vi": "Hardly mang nghĩa phủ định → đuôi khẳng định: does he?, nên phần sai là (C). He hardly, ever studies và he đều đúng.",
+   "en": "Hardly is negative in meaning → positive tag: does he?, so (C) is wrong. \"He hardly\", \"ever studies\" and \"he\" are all correct.",
+   "l1": "Hat kaum eine negative Bedeutung → positives Tag: tut er?, also ist (C) falsch. „Er kaum“, „studiert jemals“ und „er“ sind alle richtig.",
+   "back": "Has hardly any negative meaning → positive tag: does he?, so (C) is wrong. “Er kaum”, “studiert jemals” and “er” are all correct.",
+   "s": 1,
+   "why": "English words translated into German, completely destroying the grammar explanation."
+  },
+  {
+   "lang": "de",
+   "vi": "He + do → does (thêm -es sau o). do dành cho I / you / we / they; is do và doing sai cấu trúc.",
+   "en": "He + do → does (add -es after o). Do is for I / you / we / they; is do and doing are wrongly formed.",
+   "l1": "Er + tun → tut (fügen Sie -es nach o hinzu). Do ist für mich / euch / wir / sie; Das heißt, tun und tun sind falsch geformt.",
+   "back": "Er + tun → tut (add -es after o). Do is for me / you / we / they; That means, tun and tun are incorrectly formed.",
+   "s": 1,
+   "why": "English forms translated into German and garbled ('is do' -> 'Das heißt')."
+  },
+  {
+   "lang": "de",
+   "vi": "Hãy mô tả điều bạn thấy bằng sự việc. Những nhãn như ‘lười’ gợi ra sự phòng thủ chứ không phải giải pháp.",
+   "en": "'Discuss' takes a direct object, so do not add 'about'. You can 'talk about' something, but you 'discuss' it.",
+   "l1": "„Diskutieren“ nimmt ein direktes Objekt an, also fügen Sie nicht „über“ hinzu. Man kann über etwas „reden“, aber man „diskutiert“ es.",
+   "back": "\"Discuss\" takes a direct object, so do not add \"about\". You can \"talk\" about something, but you \"discuss\" it.",
+   "s": 1,
+   "why": "Translated English target verbs into German, invalidating the English grammar explanation."
+  },
+  {
+   "lang": "de",
+   "vi": "Hướng + động từ chính + S. Câu hoàn chỉnh: Into the room walked a stranger.",
+   "en": "Direction + main verb + S. Complete sentence: Into the room walked a stranger.",
+   "l1": "Richtung + Hauptverb + S. Vollständiger Satz: Ein Fremder betrat den Raum.",
+   "back": "Direction + main verb + S. Complete sentence: A stranger entered the room.",
+   "s": 1,
+   "why": "The English example sentence was translated into German."
+  },
+  {
+   "lang": "de",
+   "vi": "Hỏi về tiền và giá thì dùng ‘much’, không dùng ‘many’.",
+   "en": "Use 'much' for money and price, not 'many'.",
+   "l1": "Verwenden Sie „viel“ für Geld und Preis, nicht „viele“.",
+   "back": "Use “much” for money and price, not “many”.",
+   "s": 1,
+   "why": "English grammar words 'much' and 'many' should not be translated into German."
+  },
+  {
+   "lang": "de",
+   "vi": "It ___ be argued that remote work increases productivity. (chọn cách nói rào đón)",
+   "en": "It ___ be argued that remote work increases productivity. (choose the hedge)",
+   "l1": "Es kann argumentiert werden, dass Remote-Arbeit die Produktivität steigert. (wähle die Hecke)",
+   "back": "It can be argued that remote work increases productivity. (choose the hedge)",
+   "s": 1,
+   "why": "Fill-in-the-blank replaced by 'kann'; 'hedge' translated literally as 'Hecke'."
+  },
+  {
+   "lang": "de",
+   "vi": "It ___ be argued that social media has improved political participation. (chọn cách nói rào đón)",
+   "en": "It ___ be argued that social media has improved political participation. (choose the hedge)",
+   "l1": "Es kann argumentiert werden, dass soziale Medien die politische Teilhabe verbessert haben. (wähle die Hecke)",
+   "back": "It can be argued that social media have improved political participation. (choose the hedge)",
+   "s": 1,
+   "why": "The fill-in-the-blank prompt was resolved and 'hedge' mistranslated literally as 'Hecke'."
+  },
+  {
+   "lang": "de",
+   "vi": "It appears that + mệnh đề: kết luận dè dặt, bỏ clearly.",
+   "en": "It appears that + clause: a cautious conclusion – drop clearly.",
+   "l1": "Es scheint, dass +-Klausel: eine vorsichtige Schlussfolgerung – deutlich fallen.",
+   "back": "It seems that +-clause: a cautious conclusion – falls clearly.",
+   "s": 1,
+   "why": "Nonsensical translation: 'drop clearly' translated as 'deutlich fallen'."
+  },
+  {
+   "lang": "de",
+   "vi": "Key: nguyên âm e + y → chỉ thêm s: keys. a không đi với danh từ số nhiều; keies sai chính tả; an key sai vì key bắt đầu bằng âm phụ âm.",
+   "en": "Key: vowel e + y → just add s: keys. A doesn't go with a plural noun; keies is misspelled; an key is wrong because key starts with a consonant sound.",
+   "l1": "Schlüssel: Vokal e + y → einfach s hinzufügen: Schlüssel. A passt nicht zu einem Substantiv im Plural; keies ist falsch geschrieben; Eine Tonart ist falsch, weil die Tonart mit einem Konsonantenton beginnt.",
+   "back": "Key: vowel e + y → simply add s: key. A does not fit a noun in the plural; keies is misspelled; a key signature is wrong because the key signature starts with a consonant tone.",
+   "s": 1,
+   "why": "English target words translated, resulting in nonsense ('Eine Tonart', 'Konsonantenton')."
+  },
+  {
+   "lang": "de",
+   "vi": "Khi giới thiệu người, dùng ‘this is’ chứ không dùng ‘here is’.",
+   "en": "Use 'this is' rather than 'here is' when introducing people.",
+   "l1": "Verwenden Sie „das ist“ statt „hier ist“, wenn Sie Personen vorstellen.",
+   "back": "Use \"that is\" instead of \"here is\" when introducing people.",
+   "s": 1,
+   "why": "Target English phrases 'this is'/'here is' were translated into German."
+  },
+  {
+   "lang": "de",
+   "vi": "Khi đảo ngữ, động từ hòa hợp với chủ ngữ đứng SAU nó, không phải với bổ ngữ ở đầu câu: Among the guests were two prime ministers (số nhiều), nhưng Among the guests was a prime minister. Đây là chỗ người học trình độ cao hay sai.",
+   "en": "When you invert, the verb agrees with the subject that comes after it, not with the fronted element at the start: Among the guests were two prime ministers (plural), but Among the guests was a prime minister. Advanced learners often get this wrong.",
+   "l1": "Bei der Umkehrung stimmt das Verb mit dem darauf folgenden Subjekt überein, nicht mit dem vorangestellten Element am Anfang: Unter den Gästen waren zwei Premierminister (Plural), aber unter den Gästen war ein Premierminister. Fortgeschrittene Lernende verstehen das oft falsch.",
+   "back": "In inversion, the verb agrees with the subject that follows, not with the fronted element at the beginning: Under the guests were two prime ministers (plural), but under the guests was a prime minister. Advanced learners often get this wrong.",
+   "s": 1,
+   "why": "English examples were translated into German instead of remaining unchanged."
+  },
+  {
+   "lang": "de",
+   "vi": "Most researchers ___ that climate change affects bird migration. (chọn cách nói rào đón)",
+   "en": "Most researchers ___ that climate change affects bird migration. (choose the hedge)",
+   "l1": "Die meisten Forscher gehen davon aus, dass der Klimawandel den Vogelzug beeinflusst. (wähle die Hecke)",
+   "back": "Most researchers assume that climate change influences bird migration. (choose the hedge)",
+   "s": 1,
+   "why": "Answers the blank, translates the English sentence, and translates 'hedge' literally."
+  },
+  {
+   "lang": "de",
+   "vi": "My brother = he → thêm -s: plays. play là dạng cho I / you / we / they; playing và is play không dùng trong hiện tại đơn.",
+   "en": "My brother = he → add -s: plays. Play is the form for I / you / we / they; playing and is play are not used in the present simple.",
+   "l1": "Mein Bruder = er → add -s: spielt. Spiel ist die Form für mich / euch / wir / sie; playing und is play werden im Present Simple nicht verwendet.",
+   "back": "My brother = he → add -s: spielt. Spiel is the form for me / you / we / they; playing and is play are not used in the Present Simple.",
+   "s": 1,
+   "why": "English grammar target forms ('plays', 'play') were incorrectly translated into German."
+  },
+  {
+   "lang": "de",
+   "vi": "My brother and I = we (số nhiều) → phải dùng are, nên phần sai là (C). My brother, and I và at the cinema đều đúng.",
+   "en": "\"My brother and I\" = we (plural) → it must be are, so (C) is wrong. \"My brother\", \"and I\" and \"at the cinema\" are all correct.",
+   "l1": "„Mein Bruder und ich“ = wir (Plural) → es muss sein, also ist (C) falsch. „Mein Bruder“, „und ich“ und „im Kino“ sind alle richtig.",
+   "back": "\"My brother and I\" = we (plural) → it must be, so (C) is wrong. \"My brother\", \"and I\" and \"in the cinema\" are all correct.",
+   "s": 1,
+   "why": "English forms translated; 'it must be are' mistranslated as 'es muss sein'."
+  },
+  {
+   "lang": "de",
+   "vi": "My father = he nên phải là works, phần sai là (B). Các phần còn lại đúng.",
+   "en": "My father = he, so it must be works; the wrong part is (B). The other parts are correct.",
+   "l1": "Mein Vater = er, also müssen es Werke sein; Der falsche Teil ist (B). Die anderen Teile sind korrekt.",
+   "back": "My father = he, so it must be works; The incorrect part is (B). The other parts are correct.",
+   "s": 1,
+   "why": "Translated the English verb 'works' into the German noun 'Werke'."
+  },
+  {
+   "lang": "de",
+   "vi": "My sister là một người (ngôi thứ ba số ít) → is. am chỉ đi với I; are đi với you, we, they và danh từ số nhiều; be là nguyên mẫu, không đứng ngay sau chủ ngữ.",
+   "en": "\"My sister\" is one person (third person singular) → is. Am goes only with I; are goes with you, we, they and plural nouns; be is the base form and never comes straight after a subject.",
+   "l1": "„Meine Schwester“ ist eine Person (dritte Person Singular) → ist. Bin geht nur mit Ich; are goes with you, we, they und Pluralnomen; be ist die Grundform und steht niemals direkt nach einem Subjekt.",
+   "back": "\"My sister\" is a person (third‑person singular) → is. Bin only goes with I; are goes with you, we, they and plural nouns; be is the base form and never stands directly after a subject.",
+   "s": 1,
+   "why": "English forms 'is', 'am', 'I' translated into German; 'are goes with' untranslated."
+  },
+  {
+   "lang": "de",
+   "vi": "Mở đầu bằng ‘I am afraid’ hoặc ‘Excuse me’ để báo sự cố lịch sự, không nghe như đang giận.",
+   "en": "Start with 'I am afraid' or 'Excuse me' to report problems politely without sounding angry.",
+   "l1": "Beginnen Sie mit „Ich habe Angst“ oder „Entschuldigung“, um Probleme höflich zu melden, ohne wütend zu klingen.",
+   "back": "Start with „I’m scared“ or „Excuse me“ to report problems politely without sounding angry.",
+   "s": 1,
+   "why": "Translated English target phrase 'I am afraid' to German 'Ich habe Angst'."
+  },
+  {
+   "lang": "de",
+   "vi": "Neither + aux + S: \"tôi cũng không\" (phủ định)",
+   "en": "Neither + aux + S: \"me neither\" (negative)",
+   "l1": "Weder + Aux + S: „ich weder“ (negativ)",
+   "back": "Neither + Aux + S: „ich weder“ (negative)",
+   "s": 1,
+   "why": "English formula and target phrase 'me neither' translated into nonsensical German."
+  },
+  {
+   "lang": "de",
+   "vi": "Never đứng trước động từ thường: I never get up late. am never dùng khi sau đó là tính từ; never am và don't never sai.",
+   "en": "Never goes before a main verb: I never get up late. Am never is used when an adjective follows; never am and don't never are wrong.",
+   "l1": "Niemals steht vor einem Hauptverb: Ich stehe nie spät auf. Am wird nie verwendet, wenn ein Adjektiv folgt; nie liegen und nie falsch liegen.",
+   "back": "Never is placed before a main verb: Ich stehe nie spät auf. Am is never used when an adjective follows; nie liegen und nie falsch liegen.",
+   "s": 1,
+   "why": "English grammar terms and examples completely mistranslated and garbled."
+  },
+  {
+   "lang": "de",
+   "vi": "Ngoại lệ: I am → câu hỏi đuôi là aren't I? \"amn't I\" và \"am not I\" không dùng; isn't it sai chủ ngữ.",
+   "en": "Exception: I am → the tag is aren't I? We don't say \"amn't I\" or \"am not I\"; \"isn't it\" has the wrong subject.",
+   "l1": "Ausnahme: Ich bin → das Tag lautet nicht wahr? Wir sagen nicht „bin ich nicht“ oder „bin ich nicht“; „ist es nicht“ hat das falsche Thema.",
+   "back": "Exception: I am → the day does not read true? We do not say “am I not” or “am I not”; “is it not” has the wrong subject.",
+   "s": 1,
+   "why": "Complete mistranslation of 'tag' and 'subject'."
+  },
+  {
+   "lang": "de",
+   "vi": "Người bản xứ hiếm khi nói ‘I introduce myself’; hãy nói ‘I’m…’ hoặc ‘My name is…’.",
+   "en": "We rarely say 'I introduce myself' in natural spoken English.",
+   "l1": "„Ich stelle mich vor“ sagen wir selten in natürlichem gesprochenem Englisch.",
+   "back": "„I introduce myself“ we say rarely in natural spoken English.",
+   "s": 1,
+   "why": "Target English phrase 'I introduce myself' translated into German."
+  },
+  {
+   "lang": "de",
+   "vi": "Nhượng bộ một điểm một cách tinh tế",
+   "en": "Conceding a point gracefully",
+   "l1": "Würdevoll einen Punkt kassieren",
+   "back": "Dignifiedly earn a point",
+   "s": 1,
+   "why": "Gross mistranslation: 'kassieren' means to collect/concede a goal negatively."
+  },
+  {
+   "lang": "de",
+   "vi": "Nobody mang nghĩa phủ định → đuôi khẳng định, dùng they. \"didn't they\" sai vì nobody đã phủ định; \"did he\" sai chủ ngữ; \"noticed they\" sai cấu trúc.",
+   "en": "Nobody is negative in meaning → positive tag with they. \"didn't they\" is wrong because nobody is already negative; \"did he\" has the wrong subject; \"noticed they\" has the wrong structure.",
+   "l1": "Niemand hat eine negative Bedeutung → positives Markieren mit ihnen. „Haben sie es nicht?“ ist falsch, weil niemand bereits negativ ist; „hat er“ hat das falsche Subjekt; „bemerkte sie“ hat die falsche Struktur.",
+   "back": "Nobody has a negative meaning → mark positives with them. „Haben sie es nicht?“ is wrong because nobody is already negative; „hat er“ has the wrong subject; „bemerkte sie“ has the wrong structure.",
+   "s": 1,
+   "why": "English grammar tags were translated into German; technical terms mistranslated."
+  },
+  {
+   "lang": "de",
+   "vi": "Nowhere + be + there → is there. there is giữ trật tự thường; does there và has there sai trợ động từ.",
+   "en": "Nowhere + be + there → is there. There is keeps normal word order; does there and has there use the wrong auxiliary.",
+   "l1": "Nirgendwo + sein + da → ist da. Es bleibt die normale Wortreihenfolge erhalten; tut da und hat dort das falsche Hilfsmittel verwendet.",
+   "back": "Nowhere + be + there → is there. The normal word order remains; does there and has there used the wrong tool.",
+   "s": 1,
+   "why": "Translated English target forms ('rose'/'da') and wrong grammar terms ('Hilfsmittel')."
+  },
+  {
+   "lang": "de",
+   "vi": "Nói hướng thay đổi (rose), tốc độ (sharply hay slowly) và mức thay đổi (by ten percent). ‘Rise’ không có tân ngữ, còn ‘raise’ thì có.",
+   "en": "Say the direction (rose), the speed (sharply or slowly) and the size (by ten percent). 'Rise' has no object; 'raise' does.",
+   "l1": "Sagen Sie die Richtung (Rose), die Geschwindigkeit (stark oder langsam) und die Größe (um zehn Prozent). „Aufstieg“ hat keinen Zweck; 'raise' tut es.",
+   "back": "State the direction (Rose), the speed (fast or slow) and the size (by ten percent). “Aufstieg” serves no purpose; 'raise' does.",
+   "s": 1,
+   "why": "Nonsensical translation: 'rose' as flower, 'object' as 'Zweck', translated targets."
+  },
+  {
+   "lang": "de",
+   "vi": "Nói rằng mình không hiểu",
+   "en": "Saying you do not understand",
+   "l1": "Ich sage, dass du es nicht verstehst",
+   "back": "I say that you do not understand it.",
+   "s": 1,
+   "why": "Completely wrong meaning: 'Ich sage, dass du es nicht verstehst'."
+  },
+  {
+   "lang": "de",
+   "vi": "Nói thời tiết dùng it + is.",
+   "en": "For the weather, use it + is.",
+   "l1": "Für das Wetter verwenden Sie es + ist.",
+   "back": "For the weather, use it + is.",
+   "s": 1,
+   "why": "English grammar components 'it + is' were translated into German."
+  },
+  {
+   "lang": "de",
+   "vi": "Nói tuổi dùng be: My little sister is five years old.",
+   "en": "Use be for age: My little sister is five years old.",
+   "l1": "Bitte beachten Sie das Alter: Meine kleine Schwester ist fünf Jahre alt.",
+   "back": "Please note the age: My little sister is five years old.",
+   "s": 1,
+   "why": "Target verb 'be' mistranslated as 'Bitte beachten'; example also translated."
+  },
+  {
+   "lang": "de",
+   "vi": "Nói ‘sorry to hear’ cho tin buồn. ‘Sorry for’ dùng cho việc chính bạn đã làm.",
+   "en": "We say 'sorry to hear' for bad news. 'Sorry for' is used for something you did.",
+   "l1": "Wir entschuldigen uns für die schlechten Nachrichten. „Entschuldigung“ wird für etwas verwendet, das Sie getan haben.",
+   "back": "We apologize for the bad news. “Sorry” is used for something you have done.",
+   "s": 1,
+   "why": "Completely mistranslates the English phrases taught; lost 'sorry to hear'."
+  },
+  {
+   "lang": "de",
+   "vi": "Nói ‘thanks’ hoặc ‘thank you’, không ghép hai từ lại và thêm ‘s’ vào sau ‘thank’ khi đã có ‘you’.",
+   "en": "Say either 'thanks' or 'thank you', never combine them with an 's'.",
+   "l1": "Sagen Sie entweder „Danke“ oder „Danke“ und kombinieren Sie sie niemals mit einem „s“.",
+   "back": "Say either \"Danke\" or \"Danke\" and never combine them with an \"s\".",
+   "s": 1,
+   "why": "English words must not be translated here; lost all teaching value."
+  },
+  {
+   "lang": "de",
+   "vi": "On no account + trợ động từ + S + V: should the door be left. does / is / will not không đi được với be left theo cấu trúc này.",
+   "en": "On no account + auxiliary + S + V: should the door be left. Does / is / will not can't be used with be left in this structure.",
+   "l1": "Auf keinen Fall + Hilfs + S + V: sollte die Tür verlassen werden. Kann/ist/wird nicht in dieser Struktur verwendet werden?",
+   "back": "Never + Auxiliary + S + V: should the door be left. Can/is/will not be used in this structure?",
+   "s": 1,
+   "why": "Severe mistranslations of rule, grammatical terms, and examples throughout."
+  },
+  {
+   "lang": "de",
+   "vi": "Online learning ___ to be more popular among working adults than among teenagers. (chọn cách nói rào đón)",
+   "en": "Online learning ___ to be more popular among working adults than among teenagers. (choose the hedge)",
+   "l1": "Online-Lernen ___ dürfte bei berufstätigen Erwachsenen beliebter sein als bei Teenagern. (wähle die Hecke)",
+   "back": "Online learning ___ is likely to be more popular among working adults than among teenagers. (choose the hedge)",
+   "s": 1,
+   "why": "Nonsense literal translation ('Hecke' for linguistic hedge); sentence translated incorrectly."
+  },
+  {
+   "lang": "de",
+   "vi": "People là số nhiều thông dụng của person, đi với are. person là số ít; peoples nghĩa là \"các dân tộc\"; persons chỉ gặp trong văn bản pháp lý, trang trọng.",
+   "en": "People is the usual plural of person, and it takes are. Person is singular; peoples means \"nations\" or \"ethnic groups\"; persons is only found in formal legal writing.",
+   "l1": "„Menschen“ ist der übliche Plural von „Person“ und erfordert „sind“. Person ist einzigartig; Völker bedeutet „Nationen“ oder „ethnische Gruppen“; Personen finden sich nur in formalen juristischen Schriften.",
+   "back": "“People” is the usual plural of “person” and requires “are”. Person is singular; peoples means “nations” or “ethnic groups”; persons appear only in formal legal writings.",
+   "s": 1,
+   "why": "Translated English words to German ('Menschen', 'einzigartig' for singular). Completely wrong."
+  },
+  {
+   "lang": "de",
+   "vi": "Phần nào sai? \"I (A) am not (B) hungry, but my friends (C) is hungry (D).\"",
+   "en": "Which part is wrong? \"I (A) am not (B) hungry, but my friends (C) is hungry (D).\"",
+   "l1": "Welcher Teil ist falsch? „Ich (A) habe keinen Hunger (B), aber mein Freund (C) hat Hunger (D).“",
+   "back": "Which part is wrong? “I (A) am not hungry (B), but my friend (C) is hungry (D).”",
+   "s": 1,
+   "why": "English exercise sentence was translated into German, destroying the grammar task."
+  },
+  {
+   "lang": "de",
+   "vi": "Phần nào sai? \"I haven't (A) seen that film. – So (B) have (C) I (D).\"",
+   "en": "Which part is wrong? \"I haven't (A) seen that film. – So (B) have (C) I (D).\"",
+   "l1": "Welcher Teil ist falsch? „Ich habe (A) diesen Film nicht gesehen. – (B) also (C) und ich (D).“",
+   "back": "Which part is wrong? \"Ich habe (A) diesen Film nicht gesehen. – (B) also (C) und ich (D).\"",
+   "s": 1,
+   "why": "English test items must not be translated into German."
+  },
+  {
+   "lang": "de",
+   "vi": "Phần nào sai? \"My brother (A) and I (B) is (C) at the cinema (D).\"",
+   "en": "Which part is wrong? \"My brother (A) and I (B) is (C) at the cinema (D).\"",
+   "l1": "Welcher Teil ist falsch? „Mein Bruder (A) und ich (B) sind (C) im Kino (D).“",
+   "back": "Which part is wrong? \"My brother (A) and I (B) are (C) at the cinema (D).\"",
+   "s": 1,
+   "why": "English test sentence must not be translated into German."
+  },
+  {
+   "lang": "de",
+   "vi": "Phần nào sai? \"Particularly worrying (A) are (B) the lack (C) of funds (D).\"",
+   "en": "Which part is wrong? \"Particularly worrying (A) are (B) the lack (C) of funds (D).\"",
+   "l1": "Welcher Teil ist falsch? „Besonders besorgniserregend (A) sind (B) der Mangel (C) an finanziellen Mitteln (D).“",
+   "back": "Which part is wrong? “Especially concerning (A) are (B) the lack (C) of financial resources (D).”",
+   "s": 1,
+   "why": "English sentence must remain in English unchanged."
+  },
+  {
+   "lang": "de",
+   "vi": "Phần nào sai? \"Rarely (A) did (B) she (C) complained (D).\"",
+   "en": "Which part is wrong? \"Rarely (A) did (B) she (C) complained (D).\"",
+   "l1": "Welcher Teil ist falsch? „Selten (A) hat (B) sie (C) sich beschwert (D).“",
+   "back": "Which part is wrong? \"Selten (A) hat (B) sie (C) sich beschwert (D).\"",
+   "s": 1,
+   "why": "English test sentence must not be translated into German."
+  },
+  {
+   "lang": "de",
+   "vi": "Phần nào sai? \"There are (A) five box (B) on the table (C) in the kitchen (D).\"",
+   "en": "Which part is wrong? \"There are (A) five box (B) on the table (C) in the kitchen (D).\"",
+   "l1": "Welcher Teil ist falsch? „Es liegen (A) fünf Kisten (B) auf dem Tisch (C) in der Küche (D).“",
+   "back": "Which part is wrong? \"There are (A) five boxes (B) on the table (C) in the kitchen (D).\"",
+   "s": 1,
+   "why": "English test sentence must not be translated into German."
+  },
+  {
+   "lang": "de",
+   "vi": "Phần nào sai? \"Tom and Anna (A) goes (B) to the gym (C) on Fridays (D).\"",
+   "en": "Which part is wrong? \"Tom and Anna (A) goes (B) to the gym (C) on Fridays (D).\"",
+   "l1": "Welcher Teil ist falsch? „Tom und Anna (A) gehen (B) freitags (D) ins Fitnessstudio (C).“",
+   "back": "Which part is wrong? “Tom and Anna (A) go (B) on Fridays (D) to the gym (C).”",
+   "s": 1,
+   "why": "English sentence must remain in English unchanged; error removed."
+  },
+  {
+   "lang": "de",
+   "vi": "Phần nào sai? \"Two woman (A) are waiting (B) for the bus (C) outside the school (D).\"",
+   "en": "Which part is wrong? \"Two woman (A) are waiting (B) for the bus (C) outside the school (D).\"",
+   "l1": "Welcher Teil ist falsch? „Zwei Frauen (A) warten (B) vor der Schule (D) auf den Bus (C).“",
+   "back": "Which part is wrong? \"Zwei Frauen (A) warten (B) vor der Schule (D) auf den Bus (C).\"",
+   "s": 1,
+   "why": "English test sentence must remain in English, error disappeared."
+  },
+  {
+   "lang": "de",
+   "vi": "Phụ âm b + y → ies: babies.",
+   "en": "Consonant b + y → ies: babies.",
+   "l1": "Konsonant b + y → ies: Babys.",
+   "back": "Consonant b + y → ies: Babys.",
+   "s": 1,
+   "why": "Target English example 'babies' was translated into German 'Babys'."
+  },
+  {
+   "lang": "de",
+   "vi": "Phủ định với I: am not (rút gọn I'm not; không có dạng amn't).",
+   "en": "Negative with I: am not (short form I'm not – there is no \"amn't\").",
+   "l1": "Negativ mit Ich: bin nicht (Kurzform ich bin nicht – es gibt kein „bin nicht“).",
+   "back": "Negative with I: am not (short form I am not – there is no “am not”).",
+   "s": 1,
+   "why": "English grammar forms were translated to German, destroying the grammar explanation."
+  },
+  {
+   "lang": "de",
+   "vi": "Phủ định với chủ ngữ số ít: is not, rút gọn isn't.",
+   "en": "Negative with a singular subject: is not, short form isn't.",
+   "l1": "Negativ mit einem einzelnen Subjekt: ist nicht, Kurzform ist nicht.",
+   "back": "Negative with a single subject: is not, short form is not.",
+   "s": 1,
+   "why": "English forms 'is not' and 'isn't' were translated into German."
+  },
+  {
+   "lang": "de",
+   "vi": "Phủ định với we: are not, rút gọn aren't.",
+   "en": "Negative with we: are not, short form aren't.",
+   "l1": "Negativ bei wir: sind nicht, Kurzform sind nicht.",
+   "back": "Negative with we: are not, short form are not.",
+   "s": 1,
+   "why": "English forms 'are not' and 'aren't' were translated into German."
+  },
+  {
+   "lang": "de",
+   "vi": "Phủ định: thêm not ngay sau are.",
+   "en": "Negative: add not right after are.",
+   "l1": "Negativ: Nicht direkt nach „are“ hinzufügen.",
+   "back": "Negative: Do not add \"not\" directly after \"are\".",
+   "s": 1,
+   "why": "Meaning inverted; says do not add not."
+  },
+  {
+   "lang": "de",
+   "vi": "Probably will → be likely to + V (bị động: to be finished). \"tends to finish\" mang nghĩa thói quen; \"appears finishing\" sai dạng; \"likely finishing\" sai dạng.",
+   "en": "Probably will → be likely to + verb (passive: to be finished). \"Tends to finish\" describes a habit; \"appears finishing\" and \"likely finishing\" are the wrong forms.",
+   "l1": "Wahrscheinlich wird → wahrscheinlich sein + Verb (Passiv: fertig werden). „Neigt dazu, fertig zu werden“ beschreibt eine Gewohnheit; „erscheint im Endstadium“ und „wahrscheinlich im Endstadium“ sind die falschen Formen.",
+   "back": "Probably will → probably be + verb (passive: become finished). “Tends to become finished” describes a habit; “appears in the final stage” and “probably in the final stage” are the wrong forms.",
+   "s": 1,
+   "why": "English grammar patterns and options translated instead of kept unchanged."
+  },
+  {
+   "lang": "de",
+   "vi": "Quá khứ → than did wages (đảo sau than, trang trọng). do và are là hiện tại; have cần phân từ phía sau.",
+   "en": "Past tense → than did wages (inversion after than, formal). Do and are are present tense; have needs a past participle after it.",
+   "l1": "Vergangenheitsform → als Lohn (Umkehrung nach als, formal). Do und Are sind im Präsens; have braucht danach ein Partizip Perfekt.",
+   "back": "Past tense → as wage (reversal after as, formal). Do and Are are in the present; have needs a past participle afterwards.",
+   "s": 1,
+   "why": "Crucial English target phrase 'than did wages' was translated into German."
+  },
+  {
+   "lang": "de",
+   "vi": "Sandwich tận cùng -ch → thêm es: sandwiches. Số ít sai sau two; chỉ thêm s là thiếu; -ies chỉ dùng cho phụ âm + y.",
+   "en": "Sandwich ends in -ch → add es: sandwiches. The singular is wrong after two; adding only s is not enough; -ies is only for consonant + y.",
+   "l1": "Sandwich endet mit -ch → fügt es hinzu: Sandwiches. Der Singular ist nach zwei falsch; Es reicht nicht aus, nur s hinzuzufügen. -ies gilt nur für Konsonant + y.",
+   "back": "Sandwich ends with -ch → add it: Sandwiches. The singular is wrong after two; it is not enough to just add s. -ies applies only to consonant + y.",
+   "s": 1,
+   "why": "'add es' mistranslated as 'fügt es hinzu' (add it)."
+  },
+  {
+   "lang": "de",
+   "vi": "Sau did là nguyên mẫu: complain. Phần sai là (D).",
+   "en": "After did, use the base form: complain. The wrong part is (D).",
+   "l1": "Verwenden Sie anschließend die Grundform: beschweren. Der falsche Teil ist (D).",
+   "back": "Then use the base form: complain. The wrong part is (D).",
+   "s": 1,
+   "why": "Mistranslated 'After did' as 'anschließend' and English verb was translated."
+  },
+  {
+   "lang": "de",
+   "vi": "Sau ‘What do you mean by’ đặt thẳng điều bạn hỏi, không thêm động từ ‘is’ mới.",
+   "en": "After 'What do you mean by', put the thing, not a new verb 'is'.",
+   "l1": "Setzen Sie nach „Was meinen Sie mit“ das Ding und nicht ein neues Verb „ist“.",
+   "back": "After “What do you mean by” put the thing and not a new verb “is”.",
+   "s": 1,
+   "why": "Target English phrases were translated into German."
+  },
+  {
+   "lang": "de",
+   "vi": "So + adj + be + S: was. Câu hoàn chỉnh: So rapid was the change that many firms failed.",
+   "en": "So + adj + be + S: was. Complete sentence: So rapid was the change that many firms failed.",
+   "l1": "Also + adj + be + S: war. Vollständiger Satz: Der Wandel vollzog sich so schnell, dass viele Unternehmen scheiterten.",
+   "back": "Also + adj + be + S: was. Full sentence: The change unfolded so quickly that many companies failed.",
+   "s": 1,
+   "why": "English formula and target sentence were translated into German."
+  },
+  {
+   "lang": "de",
+   "vi": "Study tận cùng phụ âm + y → bỏ y, thêm -ies: studies. studyes và studys sai quy tắc; study thiếu -s vì my sister = she.",
+   "en": "Study ends in consonant + y → drop the y and add -ies: studies. Studyes and studys break the rule; study is missing the -s because my sister = she.",
+   "l1": "Studie endet mit Konsonant + y → y weglassen und -ies hinzufügen: Studien. Studierende und Studien verstoßen gegen die Regel; In der Studie fehlt das -s, weil meine Schwester = sie.",
+   "back": "Study ends with consonant + y → drop y and add -ies: Studien. Studierende und Studien violate the rule; In der Studie the -s is missing, because my sister = she.",
+   "s": 1,
+   "why": "English target words were completely mistranslated into German nouns."
+  },
+  {
+   "lang": "de",
+   "vi": "Such was his anger… (be trước S).",
+   "en": "Such was his anger… (be before S).",
+   "l1": "So groß war seine Wut... (vor S sein).",
+   "back": "So great was his anger... (before S be).",
+   "s": 1,
+   "why": "English example sentence was translated into German; parenthetical explanation garbled."
+  },
+  {
+   "lang": "de",
+   "vi": "Số nhiều bất quy tắc của child là children. child là số ít, không đi với three; childs và childrens không tồn tại.",
+   "en": "The irregular plural of child is children. Child is singular, so it can't go with three; childs and childrens don't exist.",
+   "l1": "Der unregelmäßige Plural von Kind ist Kinder. „Kind“ ist singulär, daher kann es nicht mit drei zusammenpassen; Kinder und Kinder existieren nicht.",
+   "back": "The irregular plural of child is children. “Child” is singular, therefore it cannot go with three; children and children do not exist.",
+   "s": 1,
+   "why": "Target English forms translated into German, ruining the explanation."
+  },
+  {
+   "lang": "de",
+   "vi": "Số nhiều bất quy tắc: foot → feet.",
+   "en": "Irregular plural: foot → feet.",
+   "l1": "Unregelmäßiger Plural: Fuß → Füße.",
+   "back": "Irregular plural: foot → feet.",
+   "s": 1,
+   "why": "English words foot and feet were translated instead of kept unchanged."
+  },
+  {
+   "lang": "de",
+   "vi": "Số nhiều bất quy tắc: man → men.",
+   "en": "Irregular plural: man → men.",
+   "l1": "Unregelmäßiger Plural: Mann → Männer.",
+   "back": "Irregular plural: man → men.",
+   "s": 1,
+   "why": "English grammar target words were translated into German."
+  },
+  {
+   "lang": "de",
+   "vi": "Số ít",
+   "en": "Singular",
+   "l1": "Einzigartig",
+   "back": "Unique",
+   "s": 1,
+   "why": "Wrong meaning: singular in grammar is Singular or Einzahl, not einzigartig."
+  },
+  {
+   "lang": "de",
+   "vi": "Sự ấm áp đến từ những từ như ‘glad’, ‘lovely’ và ‘just let me know’. Khoảng cách đến từ dạng bị động, vô nhân xưng như ‘it is not possible’.",
+   "en": "Warmth comes from words such as 'glad', 'lovely' and 'just let me know'. Distance comes from passive, impersonal forms like 'it is not possible'.",
+   "l1": "Wärme kommt von Wörtern wie „froh“, „schön“ und „lass es mich einfach wissen“. Distanz kommt von passiven, unpersönlichen Formen wie „es ist nicht möglich“.",
+   "back": "Warmth comes from words like \"happy\", \"beautiful\" and \"just let me know\". Distance comes from passive, impersonal forms like \"it is not possible\".",
+   "s": 1,
+   "why": "English example phrases should not be translated into German."
+  },
+  {
+   "lang": "de",
+   "vi": "The bus = it (ngôi thứ ba số ít) → leave + s = leaves.",
+   "en": "The bus = it (third person singular) → leave + s = leaves.",
+   "l1": "Der Bus = es (dritte Person Singular) → gehen + s = geht.",
+   "back": "The bus = it (third person singular) → go + s = goes.",
+   "s": 1,
+   "why": "English grammar rule and verbs were translated into German incorrectly."
+  },
+  {
+   "lang": "de",
+   "vi": "The data ___ to suggest that older drivers are safer. (khuynh hướng)",
+   "en": "The data ___ to suggest that older drivers are safer. (a tendency)",
+   "l1": "Die Daten deuten darauf hin, dass ältere Fahrer sicherer sind. (eine Tendenz)",
+   "back": "The data suggest that older drivers are safer. (a tendency)",
+   "s": 1,
+   "why": "Gap '___' was removed; exercises must keep English structure."
+  },
+  {
+   "lang": "de",
+   "vi": "There is ___ evidence that the new policy has reduced crime. (chọn cách nói rào đón)",
+   "en": "There is ___ evidence that the new policy has reduced crime. (choose the hedge)",
+   "l1": "Es gibt ___ Beweise dafür, dass die neue Richtlinie die Kriminalität reduziert hat. (wähle die Hecke)",
+   "back": "There are ___ pieces of evidence that the new policy has reduced crime. (choose the hedge)",
+   "s": 1,
+   "why": "Hedge in linguistics mistranslated literally as garden hedge (Hecke)."
+  },
+  {
+   "lang": "de",
+   "vi": "This approach ___ not be suitable for very small companies. (chọn cách nói rào đón)",
+   "en": "This approach ___ not be suitable for very small companies. (choose the hedge)",
+   "l1": "Dieser Ansatz ist für sehr kleine Unternehmen nicht geeignet. (wähle die Hecke)",
+   "back": "This approach is not suitable for very small businesses. (choose the hedge)",
+   "s": 1,
+   "why": "Lost the gap; 'hedge' translated literally as 'Hecke' (bush)."
+  },
+  {
+   "lang": "de",
+   "vi": "Thêm câu hỏi đuôi để xác nhận hoặc mời người nghe đồng ý, và dùng câu trả lời ngắn như Yes, I do / So do I / Neither do I để phản hồi tự nhiên.",
+   "en": "Add a question tag to check something or invite the listener to agree, and use short answers like \"Yes, I do\", \"So do I\" or \"Neither do I\" to respond naturally.",
+   "l1": "Fügen Sie ein Frage-Tag hinzu, um etwas zu überprüfen oder den Zuhörer einzuladen, zuzustimmen, und verwenden Sie kurze Antworten wie „Ja, das tue ich“, „Das tue ich auch“ oder „Das tue ich auch nicht“, um natürlich zu antworten.",
+   "back": "Add a question tag to verify something or invite the listener to agree, and use short responses such as 'Yes, I do', 'I do too', or 'I don't either', to answer naturally.",
+   "s": 1,
+   "why": "English example phrases and terms were translated into German."
+  },
+  {
+   "lang": "de",
+   "vi": "Tiếng Việt hay bỏ \"là\" trước tính từ (\"Tôi mệt\"), nhưng tiếng Anh luôn cần be: I am tired, không nói I tired.",
+   "en": "Many languages leave out a verb before adjectives, but English always needs be: say \"I am tired\", never \"I tired\".",
+   "l1": "Viele Sprachen lassen ein Verb vor Adjektiven weg, aber im Englischen muss immer gesagt werden: „Ich bin müde“, niemals „Ich bin müde“.",
+   "back": "Many languages omit a verb before adjectives, but in English you always have to say: \"I am tired\", never \"I am tired\".",
+   "s": 1,
+   "why": "English example phrases translated, completely breaking the contrast and explanation."
+  },
+  {
+   "lang": "de",
+   "vi": "Trong câu hỏi, trợ động từ ‘don’t’ đứng trước ‘we’.",
+   "en": "In a question, the helper verb 'don't' comes before 'we'.",
+   "l1": "In einer Frage steht das Hilfsverb „nicht“ vor „wir“.",
+   "back": "In a question, the auxiliary verb \"nicht\" stands before \"wir\".",
+   "s": 1,
+   "why": "Translates 'don't' as 'nicht' (not), losing the verb."
+  },
+  {
+   "lang": "de",
+   "vi": "Trong giao tiếp thân mật có thể nói Me too / Me neither thay cho So do I / Neither do I.",
+   "en": "In casual conversation you can say \"Me too\" / \"Me neither\" instead of \"So do I\" / \"Neither do I\".",
+   "l1": "In lockeren Gesprächen können Sie „Ich auch“ / „Ich auch nicht“ anstelle von „Ich auch“ / „Ich auch nicht“ sagen.",
+   "back": "In informal conversations you can say “Ich auch” / “Ich auch nicht” instead of “Ich auch” / “Ich auch nicht”.",
+   "s": 1,
+   "why": "English target phrases were translated into German, ruining the comparison entirely."
+  },
+  {
+   "lang": "de",
+   "vi": "Trạng từ đứng trước động từ, và she cần goes.",
+   "en": "The adverb goes before the verb, and she needs goes.",
+   "l1": "Das Adverb steht vor dem Verb, und sie muss gehen.",
+   "back": "The adverb stands before the verb, and she must go.",
+   "s": 1,
+   "why": "Grammar rule completely lost: 'she needs goes' translated as 'she must go'."
+  },
+  {
+   "lang": "de",
+   "vi": "appear + to V là cách nói dè dặt (có vẻ). \"is certainly\" và \"always is\" khẳng định tuyệt đối; \"definitely seems\" đúng ngữ pháp nhưng definitely làm mất tính rào đón.",
+   "en": "appear + to + verb is a cautious way to say \"seems\". \"Is certainly\" and \"always is\" are absolute; \"definitely seems\" is grammatical, but definitely cancels out the hedge.",
+   "l1": "Das Verb „erscheinen + bis +“ ist eine vorsichtige Art, „scheint“ zu sagen. „Ist sicherlich“ und „Ist immer“ sind absolut; „auf jeden Fall scheint“ ist grammatikalisch, hebt aber definitiv die Absicherung auf.",
+   "back": "The verb “erscheinen + bis +” is a cautious way to say “scheint”. “Ist sicherlich” and “Ist immer” are absolute; “auf jeden Fall scheint” is grammatical, but definitely removes the assurance.",
+   "s": 1,
+   "why": "Garbled translation; 'erscheinen + bis' is nonsense."
+  },
+  {
+   "lang": "de",
+   "vi": "are (you & số nhiều)",
+   "en": "are (you & plurals)",
+   "l1": "bist (du & Plural)",
+   "back": "are (you & plural)",
+   "s": 1,
+   "why": "Wrong verb: 'bist' is singular, not plural."
+  },
+  {
+   "lang": "de",
+   "vi": "as / than + trợ động từ + S (so sánh, đồng điệu)",
+   "en": "as / than + auxiliary + S (comparison, agreement)",
+   "l1": "als / als + Hilfsmittel + S (Vergleich, Übereinstimmung)",
+   "back": "as / as + tool + S (comparison, agreement)",
+   "s": 1,
+   "why": "Hilfsmittel means 'tool', not 'auxiliary verb'."
+  },
+  {
+   "lang": "de",
+   "vi": "Đổi sang câu hỏi: đưa is lên trước chủ ngữ she.",
+   "en": "To make a question, move is in front of the subject she.",
+   "l1": "Um eine Frage zu stellen, bewegen Sie sich vor das Thema, das sie stellt.",
+   "back": "To ask a question, move yourself in front of the topic that it poses.",
+   "s": 1,
+   "why": "Completely wrong meaning; mistranslates grammar instruction."
+  },
+  {
+   "lang": "de",
+   "vi": "‘It is sure that’ không phải cấu trúc tự nhiên. Hãy dùng ‘He is sure to’ hoặc ‘It is certain that’.",
+   "en": "'It is sure that' is not a natural pattern. Use 'He is sure to' or 'It is certain that'.",
+   "l1": "„Das ist sicher“ ist kein natürliches Muster. Verwenden Sie „Er ist sicher“ oder „Das ist sicher“.",
+   "back": "„Das ist sicher“ is not a natural pattern. Use \"Er ist sicher\" or \"Das ist sicher\".",
+   "s": 1,
+   "why": "Translates English grammar patterns into German, losing meaning."
+  },
+  {
+   "lang": "de",
+   "vi": "‘Prefer’ đi với ‘to’, không đi với ‘than’. ‘Than’ dùng với cấu trúc ‘rather’ và so sánh hơn.",
+   "en": "'Prefer' goes with 'to', not 'than'. Use 'than' with 'rather' structures and comparatives.",
+   "l1": "„Bevorzugen“ gehört zu „bis“, nicht zu „als“. Verwenden Sie „than“ mit „eher“-Strukturen und Komparativen.",
+   "back": "„Bevorzugen“ belongs with \"bis\", not with \"als\". Use \"than\" with \"eher\" structures and comparatives.",
+   "s": 1,
+   "why": "Translates 'to' as 'bis', completely wrong meaning."
+  },
+  {
+   "lang": "de",
+   "vi": "↓ Không có trợ động từ? Mượn do / does / did",
+   "en": "↓ No auxiliary? Borrow do / does / did",
+   "l1": "↓ Kein Hilfsmittel? Ausleihen tun / tut / tat",
+   "back": "↓ No tool? Ausleihen tun / tut / tat",
+   "s": 1,
+   "why": "Translates 'auxiliary' as 'Hilfsmittel' (tool) and 'Borrow' as 'Ausleihen' (lend/borrow)."
+  },
+  {
+   "lang": "es",
+   "vi": "Anh-Mỹ dùng likely như trạng từ ngay sau will: Prices will likely rise next year (= will probably rise). Anh-Anh ưu tiên will probably hoặc are likely to rise. Cả hai đều chuẩn, nhưng không viết “Prices are likely rise” (thiếu to).",
+   "en": "American English often uses likely as an adverb right after will: Prices will likely rise next year (= will probably rise). British English prefers \"will probably\" or \"are likely to rise\". Both are standard, but never write \"Prices are likely rise\" (to is missing).",
+   "l1": "El inglés americano suele utilizar probable como adverbio justo después de voluntad: Los precios probablemente subirán el próximo año (= probablemente subirán). El inglés británico prefiere \"probablemente\" o \"es probable que aumente\". Ambos son estándar, pero nunca escriba \"Es probable que los precios aumenten\" (falta).",
+   "back": "American English usually uses probable as an adverb right after will: Prices will probably rise next year (= probably will rise). British English prefers \"probably\" or \"it is likely that it will increase\". Both are standard, but never write \"It is likely that prices will increase\" (missing).",
+   "s": 1,
+   "why": "Translates English examples into Spanish, violating the constraint."
+  },
+  {
+   "lang": "es",
+   "vi": "Bị động khách quan: It is widely believed that… believe là động từ nguyên mẫu; believing sai dạng; belief là danh từ.",
+   "en": "Impersonal passive: It is widely believed that… \"Believe\" is the base form, \"believing\" is the wrong form, and \"belief\" is a noun.",
+   "l1": "Pasivo impersonal: Se cree ampliamente que... \"Creer\" es la forma básica, \"creer\" es la forma incorrecta y \"creer\" es un sustantivo.",
+   "back": "Impersonal passive: It is widely believed that... \\\"Creer\\\" is the basic form, \\\"creer\\\" is the incorrect form and \\\"creer\\\" is a noun.",
+   "s": 1,
+   "why": "All English forms translated to Spanish 'creer', losing the specific word forms."
+  },
+  {
+   "lang": "es",
+   "vi": "Child có số nhiều bất quy tắc là children.",
+   "en": "The irregular plural of child is children.",
+   "l1": "El plural irregular de niño es niños.",
+   "back": "The irregular plural of niño is niños.",
+   "s": 1,
+   "why": "Wrong example; 'niños' is regular, not the irregular plural of 'child'."
+  },
+  {
+   "lang": "es",
+   "vi": "Chủ ngữ I luôn đi với am.",
+   "en": "The subject I always takes am.",
+   "l1": "El tema que siempre tomo es.",
+   "back": "The topic I always take is.",
+   "s": 1,
+   "why": "Wrong translation; 'subject' means 'sujeto', not 'tema'."
+  },
+  {
+   "lang": "es",
+   "vi": "Chủ ngữ a man (số ít) → was. were sai hòa hợp; did sit và sat were sai cấu trúc.",
+   "en": "The subject a man (singular) → was. Were doesn't agree; did sit and sat were are wrongly formed.",
+   "l1": "El sujeto un hombre (singular) → era. No estamos de acuerdo; se sentaron y se sentaron estaban mal formados.",
+   "back": "The subject a man (singular) → was. We do not agree; they sat down and they sat down were malformed.",
+   "s": 1,
+   "why": "Complete mistranslation of grammar explanation and examples."
+  },
+  {
+   "lang": "es",
+   "vi": "Câu chính khẳng định với have (have booked) → câu hỏi đuôi phủ định cùng trợ động từ: haven't you? didn't/don't sai trợ động từ; have you không đổi sang phủ định.",
+   "en": "A positive main clause with have (have booked) → negative tag with the same auxiliary: haven't you? Didn't/don't use the wrong auxiliary; \"have you\" doesn't switch to negative.",
+   "l1": "Una cláusula principal positiva con have (have booking) → etiqueta negativa con el mismo auxiliar: ¿no es así? No usó/no usó el auxiliar incorrecto; \"Te tengo\" no cambia a negativo.",
+   "back": "A positive main clause with have (have booking) → negative tag with the same auxiliary: isn’t it? Did not use/did not use the wrong auxiliary; \"Te tengo\" does not change to negative.",
+   "s": 1,
+   "why": "Wrong example, wrong tag translation, and mistranslated phrase."
+  },
+  {
+   "lang": "es",
+   "vi": "Câu chính phủ định, chủ ngữ there → đuôi are there. \"aren't there\" không đổi sang khẳng định; \"are they\" sai chủ ngữ; \"isn't it\" sai hoàn toàn.",
+   "en": "Negative main clause with there as the subject → tag \"are there\". \"Aren't there\" doesn't switch to positive; \"are they\" has the wrong subject; \"isn't it\" is completely wrong.",
+   "l1": "Cláusula principal negativa con allí como asunto → etiqueta \"están allí\". \"No están ahí\" no cambia a positivo; \"son ellos\" tiene el tema equivocado; \"¿No es así?\" está completamente equivocado.",
+   "back": "Main clause negative with allí as subject → label \"they are there\". \"They are not there\" does not change to positive; \"they are\" has the wrong topic; \"Isn't that so?\" is completely wrong.",
+   "s": 1,
+   "why": "Translates English tag options into Spanish, violating constraints."
+  },
+  {
+   "lang": "es",
+   "vi": "Câu rủ rê bắt đầu bằng Let's… luôn dùng câu hỏi đuôi shall we? will we, don't we và do we không dùng sau Let's.",
+   "en": "A suggestion starting with Let's… always takes the tag shall we? \"Will we\", \"don't we\" and \"do we\" aren't used after Let's.",
+   "l1": "Una sugerencia que comienza con Let's… siempre lleva la etiqueta, ¿de acuerdo? \"Lo haremos\", \"no lo haremos\" y \"lo haremos\" no se utilizan después de Let's.",
+   "back": "A suggestion that starts with Let's… always takes the tag, okay? \"We'll do it\", \"we won't do it\" and \"we'll do it\" are not used after Let's.",
+   "s": 1,
+   "why": "Translates the required English tag 'shall we?' into Spanish."
+  },
+  {
+   "lang": "es",
+   "vi": "Dùng a trước âm phụ âm, an trước âm nguyên âm khi nói về một người, một vật; thêm -s, -es hoặc đổi y → ies khi có từ hai trở lên, và nhớ các dạng bất quy tắc hay gặp: men, women, children, people, feet, teeth.",
+   "en": "Use a before a consonant sound and an before a vowel sound when you talk about one person or thing. Add -s, -es or change y → ies when there are two or more, and learn the common irregular forms: men, women, children, people, feet, teeth.",
+   "l1": "Utilice un sonido antes de una consonante y un sonido antes de una vocal cuando hable de una persona o cosa. Agregue -s, -es o cambie y → ies cuando haya dos o más y aprenda las formas irregulares comunes: hombres, mujeres, niños, personas, pies, dientes.",
+   "back": "Use a sound before a consonant and a sound before a vowel when talking about a person or thing. Add -s, -es or change and → ies when there are two or more and learn the common irregular forms: hombres, mujeres, niños, personas, pies, dientes.",
+   "s": 1,
+   "why": "Articles 'a' and 'an' omitted, making rule nonsensical."
+  },
+  {
+   "lang": "es",
+   "vi": "Dùng ‘I am sorry’ cho lỗi thường ngày, dành ‘I apologise’ cho tình huống nghiêm trọng hơn.",
+   "en": "Use 'I am sorry' for everyday mistakes, and save 'I apologise' for more serious situations.",
+   "l1": "Utilice \"lo siento\" para los errores cotidianos y guarde \"lo siento\" para situaciones más graves.",
+   "back": "Use \"lo siento\" for everyday mistakes and reserve \"lo siento\" for more serious situations.",
+   "s": 1,
+   "why": "Translates 'I apologise' as 'lo siento', losing the distinction from 'I am sorry'."
+  },
+  {
+   "lang": "es",
+   "vi": "Dùng ‘without’ cho thứ bạn không muốn, và ‘Could I have’ để nhờ lịch sự.",
+   "en": "Use 'without' for something you do not want, and 'Could I have' for a polite request.",
+   "l1": "Utilice \"sin\" para algo que no desea y \"Podría haberlo hecho\" para una solicitud cortés.",
+   "back": "Use \"without\" for something you don't want and \"Could have done it\" for a polite request.",
+   "s": 1,
+   "why": "'Could I have' mistranslated as 'Could have done it'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Bạn ‘lose’ đồ như hành lý, nhưng ‘miss’ phương tiện (lỡ chuyến).",
+   "en": "You 'lose' things, such as luggage, but you 'miss' transport.",
+   "l1": "\"تفقد\" الأشياء، مثل الأمتعة، لكنك \"تفتقد\" وسائل النقل.",
+   "back": "\"Check\" things, like luggage, but you \"miss\" transportation.",
+   "s": 2,
+   "why": "English words 'lose' and 'miss' should remain untranslated; misleading in Arabic."
+  },
+  {
+   "lang": "ar",
+   "vi": "Chủ ngữ nào đi với am, is hay are?",
+   "en": "Which subjects go with am, is or are?",
+   "l1": "ما هي المواضيع التي تتوافق مع am أو is أو are؟",
+   "back": "What topics correspond with am, is, or are?",
+   "s": 2,
+   "why": "Mistranslated grammar 'subjects' (فاعلون/ضمائر الفاعل) as topics (المواضيع)."
+  },
+  {
+   "lang": "ar",
+   "vi": "City: phụ âm t + y → đổi y thành ies: cities. Sau many phải là số nhiều nên city sai; citys và cityes sai chính tả.",
+   "en": "City: consonant t + y → change y to ies: cities. After many you need a plural, so city is wrong; citys and cityes are misspelled.",
+   "l1": "المدينة: الحرف الساكن t + y → تغيير y إلى ies: المدن. بعد العديد تحتاج إلى الجمع، لذا فإن المدينة خاطئة؛ المدن والمدن بها أخطاء إملائية.",
+   "back": "City: the consonant t + y → change y to ies: cities. After many need plural, so city is wrong; cities and cities have spelling errors.",
+   "s": 2,
+   "why": "Misspelled examples 'citys' and 'cityes' lost in translation."
+  },
+  {
+   "lang": "ar",
+   "vi": "Câu chính phủ định, chủ ngữ there → đuôi are there. \"aren't there\" không đổi sang khẳng định; \"are they\" sai chủ ngữ; \"isn't it\" sai hoàn toàn.",
+   "en": "Negative main clause with there as the subject → tag \"are there\". \"Aren't there\" doesn't switch to positive; \"are they\" has the wrong subject; \"isn't it\" is completely wrong.",
+   "l1": "الجملة الرئيسية السلبية مع وجود الموضوع → علامة \"هل هناك\". \"أليس هناك\" لا يتحول إلى إيجابي؛ \"هل هم\" يحتوي على موضوع خاطئ؛ \"أليس كذلك\" خطأ تماما.",
+   "back": "Negative main clause with a subject → marker \"Is there\". \"Isn't there\" does not turn into positive; \"Are they\" contains an incorrect subject; \"Isn't it\" is completely wrong.",
+   "s": 2,
+   "why": "Translates English tag examples into Arabic instead of keeping them."
+  },
+  {
+   "lang": "ar",
+   "vi": "Câu hỏi với be: từ để hỏi + be + chủ ngữ → Where are your keys? Keys là số nhiều nên dùng are, không dùng is; hai câu còn lại sai trật tự hoặc thiếu be.",
+   "en": "Questions with be: question word + be + subject → Where are your keys? \"Keys\" is plural, so it's are, not is; the other two sentences have the wrong word order or no be.",
+   "l1": "الأسئلة التي تحتوي على be: كلمة استفهام + be + موضوع → أين مفاتيحك؟ \"المفاتيح\" جمع، فهي ليست كذلك؛ الجملتان الأخريان لهما ترتيب كلمات خاطئ أو لا يكون.",
+   "back": "Questions containing be: interrogative word + be + subject → Where are your keys? \"Keys\" is plural, so it is not so; the other two sentences have incorrect word order or are not formed.",
+   "s": 2,
+   "why": "Translates English example sentence into Arabic; 'so it is not so' is wrong."
+  },
+  {
+   "lang": "ar",
+   "vi": "Câu hỏi đuôi dùng đại từ it thay cho this → isn't it?, nên phần sai là (D). This, is your first IELTS test, isn't đều đúng.",
+   "en": "The tag uses the pronoun it instead of this → isn't it?, so (D) is wrong. \"This\", \"is your first IELTS test\" and \"isn't\" are all correct.",
+   "l1": "تستخدم العلامة الضمير it بدلاً من هذا → أليس كذلك؟ لذا فإن (D) خطأ. \"هذا\" و\"هذا هو أول اختبار لك في اختبار IELTS\" و\"ليس كذلك\" كلها صحيحة.",
+   "back": "The tag uses the pronoun it instead of this → right? So (D) is wrong. \"This\" and \"This is your first test in the IELTS test\" and \"right?\" are all correct.",
+   "s": 2,
+   "why": "English forms were translated into Arabic instead of being preserved."
+  },
+  {
+   "lang": "ar",
+   "vi": "Câu hỏi đuôi: khẳng định → đuôi phủ định (isn't it?), phủ định → đuôi khẳng định (is it?).",
+   "en": "Question tags: positive sentence → negative tag (isn't it?), negative sentence → positive tag (is it?).",
+   "l1": "علامات الاستفهام: جملة إيجابية ← علامة سلبية (أليس كذلك؟)، جملة سلبية ← علامة إيجابية (أليس كذلك؟).",
+   "back": "Question marks: positive sentence ← negative marker (Isn't it?), negative sentence ← positive marker (Isn't it?).",
+   "s": 2,
+   "why": "Translates English tag examples into Arabic; 'Question marks' is wrong for 'tags'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Cấu trúc: So + tính từ + was + chủ ngữ + that… → So deep was the silence that you could hear a pin drop.",
+   "en": "Structure: So + adjective + was + subject + that… → So deep was the silence that you could hear a pin drop.",
+   "l1": "البنية: إذن + الصفة + كان + الفاعل + ذلك... → كان الصمت عميقًا جدًا بحيث يمكنك سماع صوت سقوط الدبوس.",
+   "back": "Structure: إذن + adjective + كان + subject + that... → The silence was so deep that you could hear the sound of a pin dropping.",
+   "s": 2,
+   "why": "Translates 'So' as ' إذن' (Then) instead of 'So' (degree)."
+  },
+  {
+   "lang": "ar",
+   "vi": "Danh từ đếm được số ít như ‘hotel’ cần mạo từ như ‘the’ hoặc ‘a’.",
+   "en": "Singular countable nouns like hotel need an article such as the or a.",
+   "l1": "الأسماء المفردة المعدودة مثل فندق تحتاج إلى مقال مثل أو.",
+   "back": "Countable singular nouns such as hotel need an article like a or.",
+   "s": 2,
+   "why": "Missing the English word 'the' in the example list."
+  },
+  {
+   "lang": "ar",
+   "vi": "Dùng a trước âm phụ âm, an trước âm nguyên âm khi nói về một người, một vật; thêm -s, -es hoặc đổi y → ies khi có từ hai trở lên, và nhớ các dạng bất quy tắc hay gặp: men, women, children, people, feet, teeth.",
+   "en": "Use a before a consonant sound and an before a vowel sound when you talk about one person or thing. Add -s, -es or change y → ies when there are two or more, and learn the common irregular forms: men, women, children, people, feet, teeth.",
+   "l1": "استخدم قبل الصوت الساكن و قبل حرف العلة عندما تتحدث عن شخص أو شيء واحد. أضف -s، -es أو قم بتغيير y → ies عندما يكون هناك اثنان أو أكثر، وتعلم الأشكال غير المنتظمة الشائعة: الرجال والنساء والأطفال والأشخاص والأقدام والأسنان.",
+   "back": "Use before the consonant sound and before the vowel letter when referring to a single person or thing. Add -s, -es or change y → ies when there are two or more, and learn the common irregular forms: men, women, children, people, feet, and teeth.",
+   "s": 2,
+   "why": "Missing the English words 'a' and 'an' in the text."
+  },
+  {
+   "lang": "ar",
+   "vi": "Dùng dạng phủ định ‘is not working’ để nói một thứ bị hỏng.",
+   "en": "Use the negative verb 'is not working' to describe a broken item.",
+   "l1": "استخدم الفعل السلبي \"لا يعمل\" لوصف العنصر المكسور.",
+   "back": "Use the negative verb \"doesn't work\" to describe the broken item.",
+   "s": 2,
+   "why": "Translated the English verb phrase instead of keeping it in English."
+  },
+  {
+   "lang": "ar",
+   "vi": "Dùng quá khứ đơn chủ động ‘increased’ cho thay đổi đã xảy ra. Dạng bị động ở đây là sai.",
+   "en": "Use the active past simple, 'increased', for a change that already happened. The passive form is wrong here.",
+   "l1": "استخدم الماضي النشط البسيط \"زيادة\" للتغيير الذي حدث بالفعل. النموذج السلبي خاطئ هنا.",
+   "back": "Use the simple active past \"increased\" for a change that already occurred. The passive form is wrong here.",
+   "s": 2,
+   "why": "Translated the English verb 'increased' instead of keeping it in English."
+  },
+  {
+   "lang": "ar",
+   "vi": "Dùng ‘May I’ với thầy cô, quản lý hoặc người lạ trong tình huống trang trọng.",
+   "en": "Use 'May I' with teachers, managers, or strangers in formal situations.",
+   "l1": "استخدم \"هل لي\" مع المعلمين أو المديرين أو الغرباء في المواقف الرسمية.",
+   "back": "Use \"May I\" with teachers, managers, or strangers in formal situations.",
+   "s": 2,
+   "why": "Translated the English phrase 'May I' instead of keeping it in English."
+  },
+  {
+   "lang": "ar",
+   "vi": "Dùng ‘congratulations’ ở số nhiều và giới từ ‘on’.",
+   "en": "We use the plural 'congratulations' and the preposition 'on'.",
+   "l1": "نحن نستخدم الجمع \"تهانينا\" وحرف الجر \"على\".",
+   "back": "We use the plural \"congratulations\" and the preposition \"on\".",
+   "s": 2,
+   "why": "Translated the English word 'congratulations' instead of keeping it in English."
+  },
+  {
+   "lang": "ar",
+   "vi": "Dùng ‘sorry’ cho những va vấp thường ngày. Giữ giọng nhẹ nhàng để người kia biết đây không phải chuyện nghiêm trọng.",
+   "en": "Use 'sorry' for everyday accidents. Keep your voice light so the other person knows it is not a serious problem.",
+   "l1": "استخدم \"آسف\" للحوادث اليومية. أبقِ صوتك خفيفًا حتى يعرف الشخص الآخر أن الأمر ليس مشكلة خطيرة.",
+   "back": "Use \"sorry\" for everyday incidents. Keep your tone light so the other person knows it's not a serious problem.",
+   "s": 2,
+   "why": "Translated the English word 'sorry' instead of keeping it in English."
+  },
+  {
+   "lang": "ar",
+   "vi": "Egg bắt đầu bằng âm nguyên âm → an.",
+   "en": "Egg starts with a vowel sound → an.",
+   "l1": "تبدأ البيضة بصوت متحرك → an.",
+   "back": "The word egg begins with a vowel sound → an.",
+   "s": 2,
+   "why": "Translated the English word 'Egg' instead of keeping it in English."
+  },
+  {
+   "lang": "ar",
+   "vi": "Go tận cùng bằng o → thêm -es: goes. gos sai chính tả; go dành cho I / you / we / they; going không phải hiện tại đơn.",
+   "en": "Go ends in o → add -es: goes. Gos is misspelled; go is for I / you / we / they; going is not the present simple.",
+   "l1": "Go ينتهي بـ o → add -es: يذهب. هناك خطأ إملائي في Gos؛ الذهاب هو أنا / أنت / نحن / هم؛ الذهاب ليس المضارع البسيط.",
+   "back": "Go ends with o → add -es: goes. There is a spelling error in Gos; the verb go is I / you / we / they; go is not the simple present.",
+   "s": 2,
+   "why": "Translates 'goes' as 'goes' (verb) instead of the form 'goes'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Go tận cùng o → thêm -es: goes (tương tự does, watches).",
+   "en": "Go ends in o → add -es: goes (the same is true of does and watches).",
+   "l1": "ينتهي Go بـ o → add -es: يذهب (وينطبق الشيء نفسه على ما يفعله ويشاهده).",
+   "back": "Go ends with o → add -es: goes (the same applies to what it does and sees).",
+   "s": 2,
+   "why": "Translates 'does' and 'watches' as verbs, not nouns."
+  },
+  {
+   "lang": "ar",
+   "vi": "Gone are the days (when…) là cụm cố định; the days số nhiều → are. is sai hòa hợp; hai dạng còn lại sai cấu trúc.",
+   "en": "Gone are the days (when…) is a fixed phrase; the days is plural → are. Is doesn't agree; the other two forms are wrongly formed.",
+   "l1": "لقد ولت الأيام (عندما…) عبارة ثابتة؛ الأيام بصيغة الجمع → هي. هل لا يوافق؛ تم تشكيل النموذجين الآخرين بشكل خاطئ.",
+   "back": "The phrase \"the days have passed (when…)\" is a fixed expression; days in the plural → are. Does not agree; the other two forms were formed incorrectly.",
+   "s": 2,
+   "why": "Misinterprets 'Is doesn't agree' as 'Does not agree'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Hardly mang nghĩa phủ định → đuôi khẳng định: does he?, nên phần sai là (C). He hardly, ever studies và he đều đúng.",
+   "en": "Hardly is negative in meaning → positive tag: does he?, so (C) is wrong. \"He hardly\", \"ever studies\" and \"he\" are all correct.",
+   "l1": "لا يكاد يكون سلبيا في المعنى → علامة إيجابية: هل هو؟، إذن (ج) خطأ. \"إنه بالكاد\" و\"يدرس على الإطلاق\" و\"هو\" كلها صحيحة.",
+   "back": "It is hardly negative in meaning → positive marker: Is it? then (c) is wrong. \"He barely\" and \"studies at all\" and \"he\" are all correct.",
+   "s": 2,
+   "why": "Translates 'does he?' as 'Is it?' and 'hardly' as 'barely'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Have bất quy tắc: she has. Câu hoàn chỉnh: Ana has two cats.",
+   "en": "Have is irregular: she has. Complete sentence: Ana has two cats.",
+   "l1": "لقد غير منتظم: لديها. الجملة الكاملة: آنا لديها قطتان.",
+   "back": "It changed irregularly: has. Full sentence: Anna has two cats.",
+   "s": 2,
+   "why": "Translates 'irregular' as 'changed' and 'Ana' as 'Anna'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Hòa giải căng thẳng trong nhóm",
+   "en": "Mediating tension in a group",
+   "l1": "وساطة التوتر في المجموعة",
+   "back": "Stress mediation in the group",
+   "s": 2,
+   "why": "Translates 'Mediating' as 'Stress' (noun) instead of verb."
+  },
+  {
+   "lang": "ar",
+   "vi": "Hỏi về tiền và giá thì dùng ‘much’, không dùng ‘many’.",
+   "en": "Use 'much' for money and price, not 'many'.",
+   "l1": "استخدم \"كثير\" للإشارة إلى المال والسعر، وليس \"كثير\".",
+   "back": "Use \"a lot\" to refer to money and price, not \"many\".",
+   "s": 2,
+   "why": "Fails to distinguish 'much' and 'many' in Arabic."
+  },
+  {
+   "lang": "ar",
+   "vi": "It ___ be argued that remote work increases productivity. (chọn cách nói rào đón)",
+   "en": "It ___ be argued that remote work increases productivity. (choose the hedge)",
+   "l1": "___ يقال أن العمل عن بعد يزيد من الإنتاجية. (اختر التحوط)",
+   "back": "___ It is said that remote work increases productivity. (choose the hedge)",
+   "s": 2,
+   "why": "Changed 'It ___ be argued' to '___ يقال'."
+  },
+  {
+   "lang": "ar",
+   "vi": "It appears that + mệnh đề (dường như) → It appears that… appear là nội động từ nên không có bị động (is appeared sai); appearing thiếu động từ chính; is appearing sai thì.",
+   "en": "It appears that + clause (= it seems) → It appears that… Appear is intransitive, so it has no passive (\"is appeared\" is wrong); \"appearing\" leaves no main verb; \"is appearing\" is the wrong tense.",
+   "l1": "يبدو أن + جملة (= يبدو) → يبدو أن… يبدو ضروريًا، لذلك ليس له مبني للمجهول (\"ظهر\" خطأ)؛ \"الظهور\" لا يترك أي فعل رئيسي؛ \"يظهر\" هو الزمن الخطأ.",
+   "back": "It seems that + clause (= seems) → it seems that… seems necessary, so it has no passive voice (\"appeared\" is wrong); \"appearance\" leaves no main verb; \"appears\" is the wrong tense.",
+   "s": 2,
+   "why": "Wrong translation of 'intransitive' and 'appearing'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Key: nguyên âm e + y → chỉ thêm s: keys. a không đi với danh từ số nhiều; keies sai chính tả; an key sai vì key bắt đầu bằng âm phụ âm.",
+   "en": "Key: vowel e + y → just add s: keys. A doesn't go with a plural noun; keies is misspelled; an key is wrong because key starts with a consonant sound.",
+   "l1": "المفتاح: حرف العلة e + y → فقط أضف s: المفاتيح. لا يأتي مع اسم الجمع؛ المفاتيح بها خطأ إملائي؛ المفتاح خاطئ لأن المفتاح يبدأ بصوت ساكن.",
+   "back": "Key: vowel e + y → just add s: keys. It does not come with a plural noun; the keys have a spelling error; the key is wrong because the key starts with a consonant sound.",
+   "s": 2,
+   "why": "Translated English examples 'keys' and 'an key' into Arabic."
+  },
+  {
+   "lang": "ar",
+   "vi": "Không dùng do với đảo nơi chốn: Into the room walked a stranger.",
+   "en": "Don't use do with place inversion: Into the room walked a stranger.",
+   "l1": "لا تستخدم do مع قلب المكان: دخل شخص غريب إلى الغرفة.",
+   "back": "Do not use do with a place inversion: a stranger entered the room.",
+   "s": 2,
+   "why": "Translated English example sentence into Arabic instead of keeping it."
+  },
+  {
+   "lang": "ar",
+   "vi": "Không dùng ‘to’ sau động từ khuyết thiếu như ‘may’, ‘can’, ‘could’.",
+   "en": "Never use 'to' after modal verbs like 'may', 'can', or 'could'.",
+   "l1": "لا تستخدم أبدًا \"to\" بعد الأفعال الشرطية مثل \"may\" أو \"can\" أو \"can\".",
+   "back": "Never use \"to\" after modal verbs such as \"may\" or \"can\" or \"can\".",
+   "s": 2,
+   "why": "Wrong translation of 'modal verbs' as 'conditional verbs'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Khẳng định với can → câu hỏi đuôi phủ định can't she? \"can she\" không đổi sang phủ định; doesn't và isn't sai trợ động từ.",
+   "en": "Positive with can → negative tag can't she? \"Can she\" doesn't switch to negative; doesn't and isn't are the wrong auxiliaries.",
+   "l1": "إيجابية مع يمكن → علامة سلبية أليس كذلك؟ \"هل يمكنها\" لا تتحول إلى سلبية؛ \"لا\" و \"ليست\" هي العناصر المساعدة الخاطئة.",
+   "back": "Positive with can → negative marker, isn’t it? \"Can it\" does not become negative; \"no\" and \"not\" are the incorrect auxiliary elements.",
+   "s": 2,
+   "why": "Wrong translation of 'tag' and 'auxiliaries'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Lắp câu hỏi đuôi: đảo dấu, giữ trợ động từ",
+   "en": "Building a question tag: flip positive/negative, keep the auxiliary",
+   "l1": "إنشاء علامة استفهام: اقلب إيجابيًا/سلبيًا، واحتفظ بالمساعد",
+   "back": "Create a question mark: flip positive/negative, and keep the assistant",
+   "s": 2,
+   "why": "Wrong term: 'question mark' instead of 'question tag'."
+  },
+  {
+   "lang": "ar",
+   "vi": "My best friend là một người → is.",
+   "en": "\"My best friend\" is one person → is.",
+   "l1": "\"أفضل صديق لي\" هو شخص واحد → هو.",
+   "back": "\"My best friend\" is one person → he.",
+   "s": 2,
+   "why": "Wrong translation: 'he' instead of 'is'."
+  },
+  {
+   "lang": "ar",
+   "vi": "My brother = he; teach tận cùng ch → teaches.",
+   "en": "My brother = he; teach ends in ch → teaches.",
+   "l1": "أخي = هو؛ تعليم ينتهي في الفصل → يعلم.",
+   "back": "My brother = he; education ends in the class → teaches.",
+   "s": 2,
+   "why": "'فصل' means class/section, not ending."
+  },
+  {
+   "lang": "ar",
+   "vi": "My brother and I = we (số nhiều) → phải dùng are, nên phần sai là (C). My brother, and I và at the cinema đều đúng.",
+   "en": "\"My brother and I\" = we (plural) → it must be are, so (C) is wrong. \"My brother\", \"and I\" and \"at the cinema\" are all correct.",
+   "l1": "\"أنا وأخي\" = نحن (الجمع) ← يجب أن يكون كذلك، لذا (ج) خطأ. \"أخي\" و\"أنا\" و\"في السينما\" كلها صحيحة.",
+   "back": "\"Me and my brother\" = we (plural) ← it should be so, therefore (ج) is wrong. \"My brother\" and \"I\" and \"in the cinema\" are all correct.",
+   "s": 2,
+   "why": "Target verb 'are' translated as 'كذلك', obscuring grammar rule."
+  },
+  {
+   "lang": "ar",
+   "vi": "My father = he nên phải là works, phần sai là (B). Các phần còn lại đúng.",
+   "en": "My father = he, so it must be works; the wrong part is (B). The other parts are correct.",
+   "l1": "أبي = هو، فلا بد من الأعمال؛ الجزء الخطأ هو (ب). والأجزاء الأخرى صحيحة.",
+   "back": "Dad = he, so there must be actions; the wrong part is (b). The other parts are correct.",
+   "s": 2,
+   "why": "Wrong translation: 'actions' instead of 'works'."
+  },
+  {
+   "lang": "ar",
+   "vi": "My sister = she → walk thêm -s thành walks.",
+   "en": "My sister = she → walk takes -s and becomes walks.",
+   "l1": "أختي = هي → المشي يأخذ -s ويصبح يمشي.",
+   "back": "My sister = she → walking takes -s and becomes walks.",
+   "s": 2,
+   "why": "Target English words 'walk' and 'walks' must stay in English."
+  },
+  {
+   "lang": "ar",
+   "vi": "My sister là một người (ngôi thứ ba số ít) → is. am chỉ đi với I; are đi với you, we, they và danh từ số nhiều; be là nguyên mẫu, không đứng ngay sau chủ ngữ.",
+   "en": "\"My sister\" is one person (third person singular) → is. Am goes only with I; are goes with you, we, they and plural nouns; be is the base form and never comes straight after a subject.",
+   "l1": "\"أختي\" هي شخص واحد (ضمير الغائب المفرد) → هو. أنا أذهب معي فقط؛ يذهب معك، نحن، هم وأسماء الجمع؛ be هو النموذج الأساسي ولا يأتي مباشرة بعد الموضوع.",
+   "back": "\"My sister\" is a single person (third‑person singular pronoun) → he. I go with myself only; goes with you, we, they and plural nouns; be is the basic form and does not come directly after the subject.",
+   "s": 2,
+   "why": "Mistranslates 'is' as 'he' and 'am' as 'I go'."
+  },
+  {
+   "lang": "ar",
+   "vi": "My uncle = he (ngôi thứ ba số ít) → live + s = lives.",
+   "en": "My uncle = he (third person singular) → live + s = lives.",
+   "l1": "عمي = هو (ضمير الغائب) ← يعيش + s = يعيش.",
+   "back": "My uncle = he (third‑person pronoun) ← lives + s = lives.",
+   "s": 2,
+   "why": "Confuses 'live' with 'lives' in explanation."
+  },
+  {
+   "lang": "ar",
+   "vi": "Mệnh đề giới thiệu",
+   "en": "Introductory clauses",
+   "l1": "بنود تمهيدية",
+   "back": "Preliminary items",
+   "s": 2,
+   "why": "Wrong term: 'items' instead of 'clauses'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Never đứng trước động từ thường: I never get up late. am never dùng khi sau đó là tính từ; never am và don't never sai.",
+   "en": "Never goes before a main verb: I never get up late. Am never is used when an adjective follows; never am and don't never are wrong.",
+   "l1": "لا يسبق الفعل الرئيسي أبدًا: لم أستيقظ متأخرًا أبدًا. لا يتم استخدام am أبدًا عندما تتبع الصفة؛ لا أكون أبدًا ولا أخطئ أبدًا.",
+   "back": "The main verb is never preceded: لم أستيقظ متأخرًا أبدًا. \"am\" is never used when followed by an adjective; never be, never make a mistake.",
+   "s": 2,
+   "why": "Misinterprets 'don't never' as 'don't make a mistake'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Nghề nghiệp số ít cần a / an; engineer bắt đầu bằng âm nguyên âm → an engineer.",
+   "en": "A singular job needs a / an; engineer starts with a vowel sound → an engineer.",
+   "l1": "الوظيفة المفردة تحتاج إلى/an؛ يبدأ المهندس بصوت متحرك → مهندس.",
+   "back": "The singular function needs to/an; the engineer starts with a moving voice → engineer.",
+   "s": 2,
+   "why": "Misleading translation of 'vowel sound' as 'moving voice'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Nghề nghiệp số ít cần a / an; engineer bắt đầu bằng âm nguyên âm → an.",
+   "en": "A singular job needs a / an; engineer starts with a vowel sound → an.",
+   "l1": "الوظيفة المفردة تحتاج إلى/an؛ يبدأ المهندس بصوت متحرك → an.",
+   "back": "The singular noun needs a/an; the engineer begins with a vowel sound → an.",
+   "s": 2,
+   "why": "Wrong word 'engineer' instead of 'job'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Ngoại lệ: I am → câu hỏi đuôi là aren't I? \"amn't I\" và \"am not I\" không dùng; isn't it sai chủ ngữ.",
+   "en": "Exception: I am → the tag is aren't I? We don't say \"amn't I\" or \"am not I\"; \"isn't it\" has the wrong subject.",
+   "l1": "استثناء: أنا → العلامة أليس كذلك؟ نحن لا نقول \"ألست أنا\" أو \"لست أنا\"؛ \"أليس كذلك\" يحتوي على موضوع خاطئ.",
+   "back": "Exception: I → the tag, isn’t it? We don’t say \"Am I not\" or \"I am not\"; \"isn’t it\" contains a wrong subject.",
+   "s": 2,
+   "why": "Wrong tag translation 'isn't it' instead of 'aren't I'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Nguyên âm o + y → chỉ thêm s: toys.",
+   "en": "Vowel o + y → just add s: toys.",
+   "l1": "حرف العلة o + y → فقط أضف s: اللعب.",
+   "back": "Vowel o + y → just add s: اللعب.",
+   "s": 2,
+   "why": "Translates 'toys' as 'play' instead of 'toys'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Ngôn ngữ rào đón → may/might, tend to, it is likely that để tránh khẳng định tuyệt đối.",
+   "en": "Hedging language → may/might, tend to, it is likely that to avoid absolute claims.",
+   "l1": "لغة التحوط → قد / قد تميل إلى ذلك، فمن المحتمل تجنب المطالبات المطلقة.",
+   "back": "Hedging language → may / might tend to that, likely to avoid absolute claims.",
+   "s": 2,
+   "why": "Grammatically broken and confusing translation of the hedging examples."
+  },
+  {
+   "lang": "ar",
+   "vi": "Nobody mang nghĩa phủ định → đuôi khẳng định, dùng they. \"didn't they\" sai vì nobody đã phủ định; \"did he\" sai chủ ngữ; \"noticed they\" sai cấu trúc.",
+   "en": "Nobody is negative in meaning → positive tag with they. \"didn't they\" is wrong because nobody is already negative; \"did he\" has the wrong subject; \"noticed they\" has the wrong structure.",
+   "l1": "لا أحد سلبي في المعنى → علامة إيجابية معهم. \"ألم يفعلوا\" خطأ لأن لا أحد سلبي بالفعل؛ \"هل هو\" لديه موضوع خاطئ؛ \"لاحظوا\" أن لها بنية خاطئة.",
+   "back": "No one is negative in meaning → a positive sign with them. \"Did they not\" is wrong because no one is actually negative; \"Is he\" has an incorrect subject; \"Notice\" that it has an incorrect construction.",
+   "s": 2,
+   "why": "Translates English grammar terms into Arabic, violating the 'stay in English' rule."
+  },
+  {
+   "lang": "ar",
+   "vi": "Nowhere + be + there → is there. there is giữ trật tự thường; does there và has there sai trợ động từ.",
+   "en": "Nowhere + be + there → is there. There is keeps normal word order; does there and has there use the wrong auxiliary.",
+   "l1": "لا مكان + يكون + هناك → هناك. هناك يحافظ على ترتيب الكلمات الطبيعي؛ هل هناك وهل هناك استخدام مساعد خاطئ.",
+   "back": "No place + be + there → there. There maintains the natural word order; is there and is there a wrong auxiliary usage.",
+   "s": 2,
+   "why": "Confuses 'is there' with 'does/has there' in Arabic."
+  },
+  {
+   "lang": "ar",
+   "vi": "Nói hướng thay đổi (rose), tốc độ (sharply hay slowly) và mức thay đổi (by ten percent). ‘Rise’ không có tân ngữ, còn ‘raise’ thì có.",
+   "en": "Say the direction (rose), the speed (sharply or slowly) and the size (by ten percent). 'Rise' has no object; 'raise' does.",
+   "l1": "قل الاتجاه (الارتفاع)، والسرعة (بشكل حاد أو بطيء) والحجم (بنسبة عشرة بالمائة). \"الصعود\" ليس له أي غرض؛ \"رفع\" يفعل.",
+   "back": "State the direction (rise), the speed (sharp or slow) and the magnitude (by ten percent). \"Climb\" has no purpose; \"raise\" does.",
+   "s": 2,
+   "why": "Translates 'object' as 'purpose' and 'rise' as 'climb'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Nói tuổi: be + số + years old → She is 25 years old. has là sai động từ; câu thứ ba thiếu be; are không đi với she.",
+   "en": "Age: be + number + years old → She is 25 years old. Has is the wrong verb, the third sentence is missing be, and are doesn't go with she.",
+   "l1": "العمر: يكون + الرقم + سنة → عمرها 25 سنة. Has هو الفعل الخاطئ، والجملة الثالثة مفقودة، ولا تتناسب مع she.",
+   "back": "Age: be + number + year → She is 25 years old. Has is the wrong verb, the third sentence is missing, and it doesn't fit with she.",
+   "s": 2,
+   "why": "Omits 'be' in the error description for the third sentence."
+  },
+  {
+   "lang": "ar",
+   "vi": "Nơi chốn + động từ chính quá khứ hung + S.",
+   "en": "Place + main verb in the past (hung) + S.",
+   "l1": "مكان + الفعل الرئيسي في الماضي (علق) + S.",
+   "back": "Place + main verb in past (comment) + S.",
+   "s": 2,
+   "why": "Arabic gloss 'علق' means 'comment', not 'hung'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Nối hai động từ cùng chủ ngữ bằng and; cả hai đều thêm -s / -es. → Lan gets up early and goes jogging.",
+   "en": "Join two verbs with the same subject using and; both take -s / -es. → Lan gets up early and goes jogging.",
+   "l1": "قم بربط فعلين لهما نفس الموضوع باستخدام و؛ كلاهما يأخذ -s / -es. → يستيقظ لان مبكرًا ويذهب للركض.",
+   "back": "Connect two verbs with the same subject using and; both take -s / -es. → He wakes up early and goes running.",
+   "s": 2,
+   "why": "Example sentence translated to Arabic, violating English retention rule."
+  },
+  {
+   "lang": "ar",
+   "vi": "Phần nào sai? \"I haven't (A) seen that film. – So (B) have (C) I (D).\"",
+   "en": "Which part is wrong? \"I haven't (A) seen that film. – So (B) have (C) I (D).\"",
+   "l1": "أي جزء هو الخطأ؟ \"لم أشاهد (أ) هذا الفيلم. - إذن (ب) لديه (ج) أنا (د).\"",
+   "back": "Which part is wrong? \"I didn't watch (A) this movie. - So (B) he has (C) I (D).\"",
+   "s": 2,
+   "why": "Example sentence mistranslated; 'So have I' becomes 'So he has I'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Phần nào sai? \"My brother (A) and I (B) is (C) at the cinema (D).\"",
+   "en": "Which part is wrong? \"My brother (A) and I (B) is (C) at the cinema (D).\"",
+   "l1": "أي جزء هو الخطأ؟ \"أخي (أ) وأنا (ب) موجود (ج) في السينما (د).\"",
+   "back": "Which part is wrong? \"My brother (A) and I (B) am (C) at the cinema (D).\"",
+   "s": 2,
+   "why": "Arabic 'موجود' implies 'am', changing the error from 'is'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Phần nào sai? \"Rarely (A) did (B) she (C) complained (D).\"",
+   "en": "Which part is wrong? \"Rarely (A) did (B) she (C) complained (D).\"",
+   "l1": "أي جزء هو الخطأ؟ \"نادرًا ما فعلت (أ) (ب) اشتكت (ج) (د).\"",
+   "back": "Which part is wrong? \"I rarely did (A) (B) complained (C) (D).\"",
+   "s": 2,
+   "why": "Example sentence mistranslated; 'she' becomes 'I' and word order is lost."
+  },
+  {
+   "lang": "ar",
+   "vi": "Phần nào sai? \"There are (A) five box (B) on the table (C) in the kitchen (D).\"",
+   "en": "Which part is wrong? \"There are (A) five box (B) on the table (C) in the kitchen (D).\"",
+   "l1": "أي جزء هو الخطأ؟ \"يوجد (أ) خمسة صناديق (ب) على الطاولة (ج) في المطبخ (د).\"",
+   "back": "Which part is wrong? \"There are (A) five boxes (B) on the table (C) in the kitchen (D).\"",
+   "s": 2,
+   "why": "Arabic 'صناديق' is plural, masking the singular error 'box'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Phần nào sai? \"Two woman (A) are waiting (B) for the bus (C) outside the school (D).\"",
+   "en": "Which part is wrong? \"Two woman (A) are waiting (B) for the bus (C) outside the school (D).\"",
+   "l1": "أي جزء هو الخطأ؟ \"امرأتان (أ) تنتظران (ب) الحافلة (ج) خارج المدرسة (د).\"",
+   "back": "Which part is wrong? \"Two women (A) are waiting (B) the bus (C) outside the school (D).\"",
+   "s": 2,
+   "why": "Example sentence mistranslated; 'Two woman' becomes 'Two women' (correcting the error)."
+  },
+  {
+   "lang": "ar",
+   "vi": "Phụ âm + y → -ies: studies. Câu hoàn chỉnh: He studies in the library after class.",
+   "en": "Consonant + y → -ies: studies. Complete sentence: He studies in the library after class.",
+   "l1": "ساكن + y → -ies: دراسات. الجملة الكاملة: يدرس في المكتبة بعد الفصل.",
+   "back": "Noun ending in y → -ies: studies. Full sentence: He studies in the library after class.",
+   "s": 2,
+   "why": "Example sentence translated to Arabic, violating English retention rule."
+  },
+  {
+   "lang": "ar",
+   "vi": "Phụ âm b + y → ies: babies.",
+   "en": "Consonant b + y → ies: babies.",
+   "l1": "الحرف الساكن b + y → ies: الأطفال.",
+   "back": "Consonant b + y → ies: children.",
+   "s": 2,
+   "why": "Example 'babies' mistranslated as 'children' (الأطفال) instead of 'babies'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Phủ định với I: am not (rút gọn I'm not; không có dạng amn't).",
+   "en": "Negative with I: am not (short form I'm not – there is no \"amn't\").",
+   "l1": "نفي مع I: لست (بصيغة مختصرة I'm not - لا يوجد \"لست\").",
+   "back": "Negation with I: am not (short form I'm not – there is no \"am not\").",
+   "s": 2,
+   "why": "Translation of 'amn't' is wrong; should be 'amn't' not 'لست'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Phủ định với be: S + is + not → My phone is not on the desk. not phải đứng sau is; does not không đi với be; are không đi với my phone (số ít).",
+   "en": "Negative with be: S + is + not → My phone is not on the desk. Not must come after is; does not doesn't go with be; are doesn't fit \"my phone\" (singular).",
+   "l1": "سلبي مع be: S + is + not → هاتفي ليس على المكتب. لا يجب أن يأتي بعد ذلك؛ لا يذهب مع يكون؛ لا تناسب \"هاتفي\" (المفرد).",
+   "back": "Negative with be: S + is + not → My phone is not on the desk. It should not come after that; it does not go with be; \"my phone\" (singular) does not fit.",
+   "s": 2,
+   "why": "Translation of 'Not must come after is' is completely wrong."
+  },
+  {
+   "lang": "ar",
+   "vi": "Phủ định với we: are not, rút gọn aren't.",
+   "en": "Negative with we: are not, short form aren't.",
+   "l1": "سلبية مع نحن: ليست، صيغة قصيرة ليست كذلك.",
+   "back": "Negation with we: not, the short form is not like that.",
+   "s": 2,
+   "why": "Wrong translation of 'aren't' as 'not like that'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Probably will → be likely to + V (bị động: to be finished). \"tends to finish\" mang nghĩa thói quen; \"appears finishing\" sai dạng; \"likely finishing\" sai dạng.",
+   "en": "Probably will → be likely to + verb (passive: to be finished). \"Tends to finish\" describes a habit; \"appears finishing\" and \"likely finishing\" are the wrong forms.",
+   "l1": "ربما سوف → من المرجح أن + الفعل (المبني للمجهول: على وشك الانتهاء). \"يميل إلى الانتهاء\" يصف عادة؛ \"يبدو الانتهاء\" و\"التشطيب المحتمل\" هما الأشكال الخاطئة.",
+   "back": "Perhaps will → likely to + verb (passive: about to be finished). \\\"Tends to finish\\\" usually describes; \\\"seems to finish\\\" and \\\"potential finishing\\\" are the wrong forms.",
+   "s": 2,
+   "why": "English forms translated into Arabic incorrectly; passive form completely mistranslated."
+  },
+  {
+   "lang": "ar",
+   "vi": "Sau did là nguyên mẫu: complain. Phần sai là (D).",
+   "en": "After did, use the base form: complain. The wrong part is (D).",
+   "l1": "بعد فعل ذلك، استخدم النموذج الأساسي: شكوى. الجزء الخطأ هو (د).",
+   "back": "After doing that, use the base form: complain. The wrong part is (d).",
+   "s": 2,
+   "why": "Misinterprets 'did' as 'doing that' instead of auxiliary."
+  },
+  {
+   "lang": "ar",
+   "vi": "Sau ‘What do you mean by’ đặt thẳng điều bạn hỏi, không thêm động từ ‘is’ mới.",
+   "en": "After 'What do you mean by', put the thing, not a new verb 'is'.",
+   "l1": "بعد \"ماذا تقصد بـ\"، ضع الشيء، وليس الفعل الجديد \"هو\".",
+   "back": "After \\\"What do you mean by\\\", put the thing, not the new verb \\\"is\\\".",
+   "s": 2,
+   "why": "English target words 'What do you mean by' and 'is' translated to Arabic."
+  },
+  {
+   "lang": "ar",
+   "vi": "Sau ‘Why don’t we’, ‘Shall we’ và ‘Let’s’ dùng động từ nguyên mẫu: Why don’t we go? Let’s go.",
+   "en": "After 'Why don't we', 'Shall we' and 'Let's', use the base verb: Why don't we go? Let's go.",
+   "l1": "بعد \"لماذا لا نفعل\"، \"يجب علينا\"، و\"دعونا\"، استخدم الفعل الأساسي: لماذا لا نذهب؟ دعنا نذهب.",
+   "back": "After \"why don’t we\", \"we should\", and \"let’s\", use the base verb: why don’t we go? let’s go.",
+   "s": 2,
+   "why": "Translates 'Shall we' as 'we should', changing meaning."
+  },
+  {
+   "lang": "ar",
+   "vi": "So + tính từ / Such + be + danh từ → be + S",
+   "en": "So + adjective / Such + be + noun → be + S",
+   "l1": "لذا + صفة / مثل + كن + اسم → كن + س",
+   "back": "Thus + adjective / like + be + noun → be + s",
+   "s": 2,
+   "why": "Garbled translation; 'Such' as 'like', 'be' as 'kn', 'S' as 's'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Study tận cùng phụ âm + y → bỏ y, thêm -ies: studies. studyes và studys sai quy tắc; study thiếu -s vì my sister = she.",
+   "en": "Study ends in consonant + y → drop the y and add -ies: studies. Studyes and studys break the rule; study is missing the -s because my sister = she.",
+   "l1": "تنتهي الدراسة بالحرف الساكن + y → أسقط y وأضف -ies: دراسات. دراسات ودراسات تكسر القاعدة؛ الدراسة تفتقد حرف -s لأن أختي = هي.",
+   "back": "Study ends with a consonant + y → drop y and add -ies: studies. Studies and studies break the rule; the study lacks the -s because my sister = she.",
+   "s": 2,
+   "why": "Translates 'study' as 'research' instead of the verb."
+  },
+  {
+   "lang": "ar",
+   "vi": "Such was his anger… (be trước S).",
+   "en": "Such was his anger… (be before S).",
+   "l1": "هكذا كان غضبه... (يكون قبل ق).",
+   "back": "Thus was his anger... (be before q).",
+   "s": 2,
+   "why": "Garbled translation; 'be' as 'kn', 'S' as 'q'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Số nhiều bất quy tắc: man → men.",
+   "en": "Irregular plural: man → men.",
+   "l1": "الجمع غير المنتظم: رجل → رجال.",
+   "back": "Irregular plural: man → men.",
+   "s": 2,
+   "why": "English words man → men must stay in English unchanged."
+  },
+  {
+   "lang": "ar",
+   "vi": "The data ___ to suggest that older drivers are safer. (khuynh hướng)",
+   "en": "The data ___ to suggest that older drivers are safer. (a tendency)",
+   "l1": "تشير البيانات ___ إلى أن السائقين الأكبر سنًا أكثر أمانًا. (ميل)",
+   "back": "The data ___ indicate that older drivers are safer. (trend)",
+   "s": 2,
+   "why": "Translated 'suggest' into the main text, altering the fill-in sentence structure."
+  },
+  {
+   "lang": "ar",
+   "vi": "These findings ___ indicate that sleep quality affects exam performance. (có thể – mức dè dặt)",
+   "en": "These findings ___ indicate that sleep quality affects exam performance. (possibly – a tentative claim)",
+   "l1": "تشير هذه النتائج ___ إلى أن جودة النوم تؤثر على أداء الامتحان. (ربما – مطالبة مبدئية)",
+   "back": "These results ___ suggest that sleep quality affects exam performance. (perhaps – tentative claim)",
+   "s": 2,
+   "why": "Translated 'indicate' into the main sentence, ruining the blank structure."
+  },
+  {
+   "lang": "ar",
+   "vi": "They đi với dạng nguyên mẫu have.",
+   "en": "They takes the base form have.",
+   "l1": "أنها تأخذ النموذج الأساسي لها.",
+   "back": "It takes its basic form.",
+   "s": 2,
+   "why": "Missing 'have' in the translation."
+  },
+  {
+   "lang": "ar",
+   "vi": "Tiếng Anh không dùng ‘resume’ để kết luận. Hãy dùng ‘to sum up’ hoặc ‘to summarise’.",
+   "en": "'Resume' is not used to conclude in English. Use 'to sum up' or 'to summarise'.",
+   "l1": "لا يتم استخدام \"السيرة الذاتية\" في الختام باللغة الإنجليزية. استخدم \"للتلخيص\" أو \"للتلخيص\".",
+   "back": "The term \"CV\" is not used in the closing in English. Use \"to summarize\" or \"in summary\".",
+   "s": 2,
+   "why": "Wrong word choice for 'Resume' (CV vs verb)."
+  },
+  {
+   "lang": "ar",
+   "vi": "Tiếng Việt hay bỏ \"là\" trước tính từ (\"Tôi mệt\"), nhưng tiếng Anh luôn cần be: I am tired, không nói I tired.",
+   "en": "Many languages leave out a verb before adjectives, but English always needs be: say \"I am tired\", never \"I tired\".",
+   "l1": "تتجاهل العديد من اللغات الفعل قبل الصفات، لكن اللغة الإنجليزية تحتاج دائمًا إلى أن تقول: \"أنا متعب\"، وليس \"أنا متعب\" أبدًا.",
+   "back": "Many languages ignore the verb before adjectives, but English always needs you to say: \"I am tired\", not \"I am tired\" ever.",
+   "s": 2,
+   "why": "Example 'I am tired' repeated twice, failing to show the incorrect 'I tired'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Tom = he → get thêm -s: gets.",
+   "en": "Tom = he → get takes -s: gets.",
+   "l1": "توم = هو → الحصول على يأخذ -s: يحصل.",
+   "back": "Tom = he → get takes -s: gets.",
+   "s": 2,
+   "why": "Literal translation of 'get' is unnatural."
+  },
+  {
+   "lang": "ar",
+   "vi": "Tom là một người → is not = isn't. aren't dành cho số nhiều; not đứng một mình thì thiếu động từ; don't không dùng với be.",
+   "en": "\"Tom\" is one person → is not = isn't. Aren't is for plurals; not on its own leaves the sentence without a verb; don't is never used with be.",
+   "l1": "\"توم\" هو شخص واحد → ليس = ليس كذلك. ليست للجمع؛ وليس من تلقاء نفسه يترك الجملة بلا فعل؛ لا تستخدم أبدا مع be.",
+   "back": "\"Tom\" is a single person → not = not so. Not for plural; and it does not by itself leave the sentence without a verb; never use with be.",
+   "s": 2,
+   "why": "Misleading translation of 'isn't' and 'not' as 'ليس'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Tomato thuộc nhóm -o thêm es: tomatoes.",
+   "en": "Tomato is one of the -o words that add es: tomatoes.",
+   "l1": "الطماطم هي إحدى الكلمات -o التي تضيف es: الطماطم.",
+   "back": "Tomatoes are one of the -o words that add es: tomatoes.",
+   "s": 2,
+   "why": "Plural 'tomatoes' translated to Arabic instead of keeping English word."
+  },
+  {
+   "lang": "ar",
+   "vi": "Trong IELTS Listening, thiếu đuôi -s ở đáp án số nhiều bị tính là SAI. Nghe kỹ âm cuối và kiểm lại xem chỗ trống cần một hay nhiều.",
+   "en": "In IELTS Listening, a missing -s on a plural answer is marked WRONG. Listen carefully to the final sound and check whether the gap needs one thing or more than one.",
+   "l1": "في اختبار IELTS للاستماع، يتم وضع علامة \"خطأ\" على علامة \"-\" المفقودة في إجابة الجمع. استمع جيدًا إلى الصوت النهائي وتحقق مما إذا كانت الفجوة تحتاج إلى شيء واحد أو أكثر.",
+   "back": "In the IELTS listening test, a \"mistake\" mark is placed on the missing \"-\" in the plural answer. Listen carefully to the final audio and verify whether the gap needs one thing or more.",
+   "s": 2,
+   "why": "Misinterprets 'missing -s' as a missing dash."
+  },
+  {
+   "lang": "ar",
+   "vi": "Trong Speaking, không cần dùng câu hỏi đuôi với giám khảo, nhưng câu trả lời ngắn + mở rộng (Yes, I do – actually I…) giúp mở đầu tự nhiên. Trong Listening Section 1, câu hỏi đuôi thường dùng để xác nhận thông tin – cẩn thận với đáp án bị sửa lại.",
+   "en": "In Speaking you don't need question tags with the examiner, but a short answer plus more detail (\"Yes, I do – actually, I…\") is a natural way to start. In Listening Section 1, tags are often used to confirm details – watch out for answers that get corrected.",
+   "l1": "في المحادثة، لا تحتاج إلى علامات استفهام مع الممتحن، ولكن الإجابة القصيرة بالإضافة إلى المزيد من التفاصيل (\"نعم، أفعل - في الواقع، أنا...\") هي طريقة طبيعية للبدء. في قسم الاستماع 1، غالبًا ما تُستخدم العلامات لتأكيد التفاصيل - انتبه للإجابات التي يتم تصحيحها.",
+   "back": "In conversation, you don't need question marks with the examiner, but a short answer plus more detail (\\\"yes, I do - actually, I ...\\\") is a natural way to start. In Listening Section 1, markers are often used to confirm details - watch out for answers that are corrected.",
+   "s": 2,
+   "why": "'Question tags' mistranslated as 'question marks'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Trong câu hỏi, trợ động từ ‘don’t’ đứng trước ‘we’.",
+   "en": "In a question, the helper verb 'don't' comes before 'we'.",
+   "l1": "في السؤال يأتي الفعل المساعد \"لا\" قبل \"نحن\".",
+   "back": "In the question, the auxiliary verb \"لا\" comes before \"we\".",
+   "s": 2,
+   "why": "Translates 'don't' as 'لا' instead of keeping the English form."
+  },
+  {
+   "lang": "ar",
+   "vi": "Trong giao tiếp thân mật có thể nói Me too / Me neither thay cho So do I / Neither do I.",
+   "en": "In casual conversation you can say \"Me too\" / \"Me neither\" instead of \"So do I\" / \"Neither do I\".",
+   "l1": "في المحادثة غير الرسمية، يمكنك أن تقول \"أنا أيضًا\" أو \"أنا أيضًا\" بدلاً من \"أنا أيضًا\" أو \"ولا أنا\".",
+   "back": "In informal conversation, you can say \\\"I also\\\" or \\\"me too\\\" instead of \\\"I also\\\" or \\\"not me\\\".",
+   "s": 2,
+   "why": "English examples replaced with Arabic, violating format rules."
+  },
+  {
+   "lang": "ar",
+   "vi": "Trạng từ tần suất đứng trước động từ thường goes. → never.",
+   "en": "A frequency adverb goes before the main verb goes. → never.",
+   "l1": "ظرف التردد يذهب قبل أن يذهب الفعل الرئيسي. → أبدا.",
+   "back": "The adverb of frequency goes before the main verb. → never.",
+   "s": 2,
+   "why": "Literal translation of 'goes' makes it nonsensical."
+  },
+  {
+   "lang": "ar",
+   "vi": "Trạng từ đứng trước động từ, và she cần goes.",
+   "en": "The adverb goes before the verb, and she needs goes.",
+   "l1": "يأتي الظرف قبل الفعل، وتحتاج إلى الذهاب.",
+   "back": "The adverb comes before the verb, and you need to go.",
+   "s": 2,
+   "why": "'goes' mistranslated as 'to go', losing grammar point."
+  },
+  {
+   "lang": "ar",
+   "vi": "Trả lời ngắn khẳng định không rút gọn → Yes, I am. Dạng rút gọn 'm không đứng cuối câu; are và is không đi với I.",
+   "en": "A positive short answer is never contracted → Yes, I am. The short form 'm can't end a sentence, and are and is don't go with I.",
+   "l1": "الإجابة القصيرة الإيجابية لا يتم التعاقد عليها مطلقًا → نعم، أنا كذلك. لا يمكن للصيغة القصيرة \"m\" إنهاء الجملة، كما أنها لا تتوافق مع I.",
+   "back": "The short positive answer is never contracted → yes, I am. The short form \"m\" cannot end the sentence, and it does not agree with I.",
+   "s": 2,
+   "why": "Misinterprets 'are/is don't go with I' as agreement."
+  },
+  {
+   "lang": "ar",
+   "vi": "Trả lời ngắn: Yes / No + S + be",
+   "en": "Short answer: Yes / No + S + be",
+   "l1": "الإجابة المختصرة: نعم / لا + س + كن",
+   "back": "Short answer: yes / no + will + be",
+   "s": 2,
+   "why": "'be' mistranslated as 'will'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Tận cùng -x → thêm es: boxes.",
+   "en": "Ending in -x → add es: boxes.",
+   "l1": "تنتهي بـ -x → أضف es: صناديق.",
+   "back": "Ends with -x → add es: boxes.",
+   "s": 2,
+   "why": "Boxes was translated to صناديق instead of keeping the English example."
+  },
+  {
+   "lang": "ar",
+   "vi": "Tận cùng ch → thêm -es: watches.",
+   "en": "Ending in ch → add -es: watches.",
+   "l1": "تنتهي بـ ch → add -es: الساعات.",
+   "back": "Ends with ch → add -es: hours.",
+   "s": 2,
+   "why": "English example word 'watches' was wrongly translated instead of kept in English."
+  },
+  {
+   "lang": "ar",
+   "vi": "Từ hai trở lên → danh từ thêm s: sisters.",
+   "en": "Two or more → the noun takes s: sisters.",
+   "l1": "اثنان أو أكثر → الاسم يأخذ s: الأخوات.",
+   "back": "Two or more → the noun takes s: sisters.",
+   "s": 2,
+   "why": "English example word 'sisters' was wrongly translated into Arabic."
+  },
+  {
+   "lang": "ar",
+   "vi": "Uniform đọc /ˈjuː-/ – âm đầu là phụ âm /j/ → a.",
+   "en": "Uniform is pronounced /ˈjuː-/ – it starts with the consonant sound /j/ → a.",
+   "l1": "يتم نطق الزي الموحد /ˈjuː-/ - ويبدأ بالصوت الساكن /j/ → a.",
+   "back": "The uniform prefix is pronounced /ˈjuː-/ - and starts with the consonant sound /j/ → a.",
+   "s": 2,
+   "why": "The target English word 'Uniform' was translated into Arabic instead of kept."
+  },
+  {
+   "lang": "ar",
+   "vi": "an + danh từ số ít (âm đầu là nguyên âm)",
+   "en": "an + singular noun (starts with a vowel sound)",
+   "l1": "+ اسم مفرد (يبدأ بحرف متحرك)",
+   "back": "+ singular noun (starts with a vowel letter)",
+   "s": 2,
+   "why": "Missing 'an' at start; vowel sound translated as vowel letter."
+  },
+  {
+   "lang": "ar",
+   "vi": "appear + to V là cách nói dè dặt (có vẻ). \"is certainly\" và \"always is\" khẳng định tuyệt đối; \"definitely seems\" đúng ngữ pháp nhưng definitely làm mất tính rào đón.",
+   "en": "appear + to + verb is a cautious way to say \"seems\". \"Is certainly\" and \"always is\" are absolute; \"definitely seems\" is grammatical, but definitely cancels out the hedge.",
+   "l1": "الظهور + to + الفعل هو طريقة حذرة لقول \"يبدو\". \"هو بالتأكيد\" و\"يوجد دائمًا\" مطلقان؛ \"يبدو بالتأكيد\" هو أمر نحوي، لكنه يلغي التحوط بالتأكيد.",
+   "back": "appearance + to + verb is a cautious way to say \"seems\". \"He certainly\" and \"there is always\" are absolute; \"certainly seems\" is grammatical, but it negates the cautiousness of certainly.",
+   "s": 2,
+   "why": "Translates 'appear' as 'الظهور' (noun) instead of verb; 'Is certainly' mistranslated."
+  },
+  {
+   "lang": "ar",
+   "vi": "appear + to be + tính từ (dường như…) là cách rào đón trang trọng.",
+   "en": "appear + to be + adjective (= seems…) is a formal hedge.",
+   "l1": "يبدو + أن يكون + الصفة (= يبدو…) تحوط شكلي.",
+   "back": "Seems + to be + adjective (= seems…) encloses a form.",
+   "s": 2,
+   "why": "Arabic translation of 'hedge' is incorrect and confusing."
+  },
+  {
+   "lang": "ar",
+   "vi": "as + does + S (trang trọng). → She speaks French fluently, as does her sister.",
+   "en": "as + does + S (formal). → She speaks French fluently, as does her sister.",
+   "l1": "كما يفعل + + S (رسمي). → تتحدث الفرنسية بطلاقة، كما تفعل أختها.",
+   "back": "as does + + S (formal). → You speak French fluently, as does your sister.",
+   "s": 2,
+   "why": "Translates 'as does' as 'كما يفعل' (verb) instead of keeping structure; example changed."
+  },
+  {
+   "lang": "ar",
+   "vi": "be (hoặc trợ động từ) trước S",
+   "en": "be (or an auxiliary) before S",
+   "l1": "يكون (أو مساعدًا) قبل S",
+   "back": "Be (or auxiliary) before S",
+   "s": 2,
+   "why": "Verb 'be' translated as conjugated verb instead of keeping English base."
+  },
+  {
+   "lang": "ar",
+   "vi": "be likely + to V (có khả năng sẽ…) → are likely to rise. rose, rising, rise không đi sau be likely.",
+   "en": "be likely + to + verb (= will probably…) → are likely to rise. Rose, rising and rise can't follow \"be likely\".",
+   "l1": "من المحتمل + إلى + فعل (= سوف على الأرجح...) → من المرجح أن يرتفع. روز، والصعود، والصعود لا يمكن أن يتبعا \"محتمل\".",
+   "back": "likely + to + verb (= will probably...) → likely to rise. Rose, and the ascent, and the ascent cannot follow \"likely\".",
+   "s": 2,
+   "why": "Translates 'Rose' (verb form) as 'روز' (name); 'rising' as 'الصعود' (noun)."
+  },
+  {
+   "lang": "ar",
+   "vi": "can be + for some students giới hạn phạm vi khẳng định. always và must khẳng định tuyệt đối, không thận trọng hơn câu gốc.",
+   "en": "\"Can be\" + \"for some students\" limits the scope of the claim. Always and must are absolute, so they are no more cautious than the original.",
+   "l1": "\"يمكن\" + \"لبعض الطلاب\" يحد من نطاق المطالبة. دائما ويجب أن تكون مطلقة، لذلك فهي ليست أكثر حذرا من الأصل.",
+   "back": "\"can\" + \"for some students\" limits the scope of the claim. It should always be absolute, therefore it is not more cautious than the original.",
+   "s": 2,
+   "why": "Key English target words translated; 'claim' translated as legal claim."
+  },
+  {
+   "lang": "ar",
+   "vi": "indicate (cho thấy) là động từ báo cáo dè dặt. Các phương án còn lại khẳng định tuyệt đối, không phù hợp với văn học thuật thận trọng.",
+   "en": "Indicate is a cautious reporting verb. The other options make absolute claims, which don't suit cautious academic writing.",
+   "l1": "الإشارة هي فعل إبلاغ حذر. الخيارات الأخرى تقدم ادعاءات مطلقة، والتي لا تناسب الكتابة الأكاديمية الحذرة.",
+   "back": "The reference is a cautious reporting verb. The other options present absolute claims, which do not suit cautious academic writing.",
+   "s": 2,
+   "why": "Target verb 'indicate' mistranslated as a noun 'الإشارة'."
+  },
+  {
+   "lang": "ar",
+   "vi": "may be + V3 kết hợp partly tạo kết luận dè dặt. \"is surely\", \"must always be\", \"is completely\" quá chắc chắn và mâu thuẫn với partly (một phần).",
+   "en": "\"May be\" + past participle together with partly makes a tentative conclusion. \"Is surely\", \"must always be\" and \"is completely\" are too certain and contradict partly.",
+   "l1": "\"قد يكون\" + النعت الماضي ويصل جزئيًا إلى نتيجة مبدئية. \"هل بالتأكيد\" و\"يجب أن يكون دائمًا\" و\"هو تمامًا\" مؤكدة للغاية ومتناقضة جزئيًا.",
+   "back": "\"might be\" + past participle and reaches partially a preliminary result. \"Is certainly\" and \"must always be\" and \"is exactly\" are highly certain and partially contradictory.",
+   "s": 2,
+   "why": "Mistranslates 'partly' as 'يصل جزئيًا' (reaches partially); 'Is surely' as 'هل'."
+  },
+  {
+   "lang": "ar",
+   "vi": "phụ âm + y → ies",
+   "en": "consonant + y → ies",
+   "l1": "ساكن + ص → ies",
+   "back": "Resident + adj → ies",
+   "s": 2,
+   "why": "Arabic letter 'ص' is wrong for English 'y'."
+  },
+  {
+   "lang": "ar",
+   "vi": "seem + to V; và \"prove\" quá chắc chắn, mâu thuẫn với \"seem\". Dùng: seem to suggest.",
+   "en": "seem + to + verb; \"prove\" is too certain and contradicts \"seem\". Use: seem to suggest.",
+   "l1": "يبدو + إلى + فعل؛ \"يثبت\" مؤكد للغاية ويتناقض مع \"يبدو\". الاستخدام: يبدو أنه يوحي.",
+   "back": "seems + to + verb; \"يثبت\" is too definite and contradicts \"seems\". Usage: it seems that it suggests.",
+   "s": 2,
+   "why": "English target words translated into Arabic, ruining grammar rule explanation."
+  },
+  {
+   "lang": "ar",
+   "vi": "seem + to be + tính từ (dường như…) → seem to be less willing. \"seem be\" thiếu to; \"are seem\" sai vì seem đã là động từ chính.",
+   "en": "seem + to be + adjective (= appears to be…) → seem to be less willing. \"Seem be\" is missing to; \"are seem\" is wrong because seem is already the main verb.",
+   "l1": "يبدو + أن يكون + صفة (= يبدو أن...) → يبدو أقل استعدادا. \"يبدو\" مفقود ل؛ \"are يبدو\" خطأ لأن يبدو هو الفعل الرئيسي بالفعل.",
+   "back": "seems + to be + adjective (= seems that...) → seems less prepared. \"Seems\" missing l; \"are seems\" is wrong because seems is already the main verb.",
+   "s": 2,
+   "why": "Translates 'to' as 'ل' (for); 'Seem be' explanation is garbled."
+  },
+  {
+   "lang": "ar",
+   "vi": "tend to + V làm nhận định bớt tuyệt đối.",
+   "en": "tend to + verb makes the claim less absolute.",
+   "l1": "تميل إلى + الفعل يجعل المطالبة أقل مطلقة.",
+   "back": "tends to + verb makes the claim less absolute.",
+   "s": 2,
+   "why": "Ungrammatical Arabic (أقل مطلقة) and 'tend to' translated as feminine verb."
+  },
+  {
+   "lang": "ar",
+   "vi": "tend to + V nguyên mẫu (to ở đây là một phần của động từ nguyên mẫu, không phải giới từ).",
+   "en": "tend to + base verb (here to is part of the infinitive, not a preposition).",
+   "l1": "تميل إلى + الفعل الأساسي (هنا جزء من صيغة المصدر، وليس حرف الجر).",
+   "back": "tends to + base verb (here part of the infinitive form, not a preposition).",
+   "s": 2,
+   "why": "English keywords 'tend to' translated into Arabic verb form."
+  },
+  {
+   "lang": "ar",
+   "vi": "tend to + V, chủ ngữ Men số nhiều → tend. tending thiếu động từ chính; \"are tend\" sai; tends chia số ít.",
+   "en": "tend to + verb, and \"Men\" is plural → tend. \"Tending\" leaves no main verb; \"are tend\" is wrong; \"tends\" is singular.",
+   "l1": "تميل إلى + فعل، و\"الرجال\" جمع → يميل. \"الاهتمام\" لا يترك أي فعل رئيسي؛ \"تميل\" خطأ؛ \"يميل\" مفرد.",
+   "back": "tends to + verb, and \"men\" is plural → tends. \"interest\" does not leave any main verb; \"tends\" is wrong; \"tends\" singular.",
+   "s": 2,
+   "why": "Wrong verb forms and confusing translation of 'tending'."
+  },
+  {
+   "lang": "ar",
+   "vi": "tend/seem/appear + to V để làm nhẹ mức khẳng định; data có thể coi là số ít (tends) hoặc số nhiều trong văn học thuật (tend).",
+   "en": "tend/seem/appear + to + verb softens a claim; in academic writing, data can be treated as singular (tends) or plural (tend).",
+   "l1": "تميل/تبدو/تظهر + to + فعل يخفف من المطالبة؛ في الكتابة الأكاديمية، يمكن التعامل مع البيانات على أنها مفرد (اتجاهات) أو جمع (اتجاه).",
+   "back": "tends/appears/shows + to + verb mitigates the claim; in academic writing, data can be treated as singular (trend) or plural (trends).",
+   "s": 2,
+   "why": "Confuses 'data' with 'trend' in parentheses."
+  },
+  {
+   "lang": "ar",
+   "vi": "there giữ nguyên",
+   "en": "there stays there",
+   "l1": "هناك يبقى هناك",
+   "back": "There stays there.",
+   "s": 2,
+   "why": "Grammar rule translated literally; English grammatical 'there' should remain in English."
+  },
+  {
+   "lang": "ar",
+   "vi": "Đuôi luôn dùng ĐẠI TỪ: this/that → it, these/those → they, nobody → they",
+   "en": "Tags always use a PRONOUN: this/that → it, these/those → they, nobody → they",
+   "l1": "تستخدم العلامات دائمًا ضميرًا: هذا/هذا → هذا، هؤلاء/أولئك → هم، لا أحد → هم",
+   "back": "markers always use a pronoun: this/this → this, these/those → they, no one → they",
+   "s": 2,
+   "why": "Translates 'this/that' incorrectly as 'this/this'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Đuôi số nhiều phải đọc thành tiếng: books /s/, dogs /z/, buses /ɪz/. Nuốt mất âm cuối thì người nghe tưởng bạn nói số ít.",
+   "en": "Say the plural ending out loud: books /s/, dogs /z/, buses /ɪz/. If you swallow the last sound, listeners will think you said the singular.",
+   "l1": "انطق صيغة الجمع بصوت عالٍ: الكتب /s/، الكلاب /z/، الحافلات /ɪz/. إذا ابتلعت الصوت الأخير، فسيعتقد المستمعون أنك قلت المفرد.",
+   "back": "Pronounce the plural loudly: books /s/, dogs /z/, buses /ɪz/. If you swallow the final sound, listeners will think you said the singular.",
+   "s": 2,
+   "why": "English example words (books, dogs, buses) were translated instead of kept unchanged."
+  },
+  {
+   "lang": "ar",
+   "vi": "Đánh cả hàm răng → số nhiều bất quy tắc teeth. tooth là một chiếc răng; tooths và teeths không tồn tại.",
+   "en": "A whole set of teeth → the irregular plural teeth. Tooth means one tooth; tooths and teeths don't exist.",
+   "l1": "مجموعة كاملة من الأسنان → مجموعة الأسنان غير المنتظمة. السن يعني سن واحد؛ الأسنان والأسنان غير موجودة.",
+   "back": "a full set of teeth → irregular set of teeth. tooth means a single tooth; teeth and teeth do not exist.",
+   "s": 2,
+   "why": "Confuses 'irregular plural' with 'irregular set of teeth'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Đảo nơi chốn là đảo động từ chính (không có do). Do chỉ xuất hiện với trạng từ phủ định: Never did he return.",
+   "en": "Inversion after a place adverbial moves the main verb (there is no do). Do only appears with negative adverbs: Never did he return.",
+   "l1": "الانقلاب بعد مكان الظرف يحرك الفعل الرئيسي (لا يوجد فعل). لا يظهر إلا مع الظروف السلبية: لم يعد أبدًا.",
+   "back": "Inversion after the adverbial position moves the main verb (no verb). It appears only with negative adverbs: never again.",
+   "s": 2,
+   "why": "Misinterprets 'no do' as 'no verb' and mistranslates example."
+  },
+  {
+   "lang": "ar",
+   "vi": "Đảo sau Nowhere / Not once / On no account",
+   "en": "Inversion after Nowhere / Not once / On no account",
+   "l1": "الانقلاب بعد لا مكان / ليس مرة واحدة / بدون حساب",
+   "back": "the flip after no place / not once / without counting",
+   "s": 2,
+   "why": "Mistranslates 'On no account' as 'without counting'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Đồng ý có kèm điều kiện",
+   "en": "Agreeing with reservations",
+   "l1": "الموافقة على التحفظات",
+   "back": "Agreeing to reservations",
+   "s": 2,
+   "why": "Mistranslates 'with reservations' as 'agreeing to reservations' instead of 'مع تحفظات'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Đồng ý với câu khẳng định thì quá khứ (passed) → So did I. \"So I did\" sai trật tự; Neither dùng cho câu phủ định; \"So was I\" sai trợ động từ.",
+   "en": "Agreeing with a positive past statement (passed) → So did I. \"So I did\" has the wrong word order; Neither is for negative statements; \"So was I\" uses the wrong auxiliary.",
+   "l1": "الموافقة على عبارة ماضية إيجابية (تم النجاح) → وكذلك فعلت أنا. \"وهكذا فعلت\" بها ترتيب خاطئ للكلمات؛ ولا يتعلق الأمر بالتصريحات السلبية. \"وهكذا كنت\" تستخدم أداة مساعدة خاطئة.",
+   "back": "Agreeing to a positive past statement (was successful) → and so did I. \"And so I did\" has incorrect word order; and it does not concern negative statements. \"And so I was\" uses the wrong auxiliary verb.",
+   "s": 2,
+   "why": "Translates grammar tokens literally into Arabic instead of keeping English forms."
+  },
+  {
+   "lang": "ar",
+   "vi": "Đồng ý với câu phủ định (haven't) → Neither have I, nên phần sai là (B) So. I haven't, have, I đều đúng.",
+   "en": "Agreeing with a negative statement (haven't) → Neither have I, so (B) So is wrong. \"I haven't\", \"have\" and \"I\" are all correct.",
+   "l1": "الموافقة على العبارة السلبية (لم أفعل) ← ولا أنا، لذا (ب) هذا خطأ. \"ليس لدي\" و\"لدي\" و\"أنا\" كلها صحيحة.",
+   "back": "Agreeing to the negative phrase (I didn't) ← not me, so (b) this is wrong. \"I don't have\" and \"I have\" and \"I am\" are all correct.",
+   "s": 2,
+   "why": "Translates 'I haven't' as 'I don't have', changing meaning."
+  },
+  {
+   "lang": "ar",
+   "vi": "Đồng ý với câu phủ định dùng Neither.",
+   "en": "To agree with a negative statement, use Neither.",
+   "l1": "للموافقة على عبارة سلبية، استخدم لا.",
+   "back": "To agree with a negative statement, use no.",
+   "s": 2,
+   "why": "Wrong word: 'لا' means 'no', not 'Neither'."
+  },
+  {
+   "lang": "ar",
+   "vi": "Đồng điệu với and: so + be + S → so is her brother. as is dùng sau dấu phẩy mà không có and; so does cần động từ thường; is so sai trật tự.",
+   "en": "Agreeing with and: so + be + S → so is her brother. As is is used after a comma without and; so does needs a main verb; is so has the wrong word order.",
+   "l1": "متفقة مع و: هكذا + كن + س → كذلك أخوها. كما يتم استخدامه بعد الفاصلة بدون و؛ وكذلك الأمر يحتاج إلى فعل رئيسي؛ هو كذلك ترتيب الكلمات الخاطئ.",
+   "back": "Agree with and: like this + be + s → likewise her brother. It is also used after a comma without and; likewise the matter needs a main verb; it is also the wrong word order.",
+   "s": 2,
+   "why": "Translates 'so is her brother' as 'likewise her brother', losing grammar."
+  },
+  {
+   "lang": "ar",
+   "vi": "Động từ khuyết thiếu",
+   "en": "Modal verbs",
+   "l1": "الأفعال الشرطية",
+   "back": "Conditional verbs",
+   "s": 2,
+   "why": "'Modal verbs' are الأفعال الناقصة/المساعدة, not conditional verbs (الشرطية)."
+  },
+  {
+   "lang": "ar",
+   "vi": "Động từ khuyết thiếu may + V nguyên mẫu → may be (có thể là), dùng để rào đón. \"may been\", \"may being\", \"may to be\" đều sai dạng sau may.",
+   "en": "Modal may + base verb → may be (= might be), used to hedge. \"May been\", \"may being\" and \"may to be\" are all the wrong form after may.",
+   "l1": "Modal may + الفعل الأساسي → may be (= may be)، يستخدم للتحوط. \"May be\" و\"may be\" و\"may to be\" كلها أشكال خاطئة بعد may.",
+   "back": "Modal may + base verb → may be (= may be), used for hedging. \"May be\" and \"may be\" and \"may to be\" are all incorrect forms after may.",
+   "s": 2,
+   "why": "Wrong English examples; 'May been' changed to 'May be'."
+  },
+  {
+   "lang": "ar",
+   "vi": "động từ chính trước S; KHÔNG dùng do; S là đại từ thì không đảo",
+   "en": "main verb before S; NO do; if S is a pronoun, no inversion",
+   "l1": "الفعل الرئيسي قبل S؛ لا تفعل؛ إذا كان S ضميرًا، فلا يوجد انعكاس",
+   "back": "The main verb before S; do not do; if S is a pronoun, there is no reflexive.",
+   "s": 2,
+   "why": "Translates 'NO do' as 'do not do', confusing the rule."
+  },
+  {
+   "lang": "ar",
+   "vi": "Ở đây ‘reserve’ là động từ, và ‘I want’ nghe quá thẳng khi nói chuyện điện thoại.",
+   "en": "'Reserve' is a verb here, and 'I want' sounds too direct on the phone.",
+   "l1": "كلمة \"احتياطي\" هي فعل هنا، وكلمة \"أريد\" تبدو مباشرة جدًا على الهاتف.",
+   "back": "The word \"reserve\" is a verb here, and the word \"I want\" sounds too direct on the phone.",
+   "s": 2,
+   "why": "Wrong translation; 'Reserve' translated as 'reserve' (noun) not verb."
+  },
+  {
+   "lang": "ar",
+   "vi": "‘Advice’ không có số nhiều. Nói ‘some advice’ hoặc ‘a piece of advice’, không bao giờ nói ‘advices’.",
+   "en": "'Advice' has no plural. Say 'some advice' or 'a piece of advice', never 'advices'.",
+   "l1": "\"النصيحة\" ليس لها جمع. قل \"بعض النصائح\" أو \"نصيحة\"، وليس \"نصائح\" أبدًا.",
+   "back": "\"Advice\" has no plural. Say \"some advice\" or \"advice\", never \"advices\".",
+   "s": 2,
+   "why": "Translates 'a piece of advice' as just 'advice', losing detail."
+  },
+  {
+   "lang": "ar",
+   "vi": "‘Advice’ là danh từ còn ‘advise’ là động từ. Nói ‘give advice’ hoặc ‘advise me’.",
+   "en": "'Advice' is a noun, and 'advise' is the verb. Say 'give advice' or 'advise me'.",
+   "l1": "\"النصيحة\" اسم، و \"المشورة\" هو الفعل. قل \"أعطني نصيحة\" أو \"انصحني\".",
+   "back": "\"Advice\" is a noun, and \"consult\" is the verb. Say \"Give me advice\" or \"Advise me\".",
+   "s": 2,
+   "why": "Wrong word: 'المشورة' is a noun, not the verb 'advise'."
+  },
+  {
+   "lang": "ar",
+   "vi": "‘Against’ không đi với ‘with’ và nghe rất gay gắt khi tranh luận. Dùng ‘not convinced’ để nói nhẹ nhàng và chính xác hơn.",
+   "en": "'Against' does not take 'with', and it sounds extreme in a debate. Use 'not convinced' for a softer, more precise statement.",
+   "l1": "كلمة \"ضد\" لا تعني \"مع\"، وهي تبدو متطرفة في النقاش. استخدم \"غير مقتنع\" للحصول على عبارة أكثر ليونة ودقة.",
+   "back": "The word \"against\" does not mean \"with\", and it appears extreme in a discussion. Use \"unconvinced\" to get a softer and more precise phrase.",
+   "s": 2,
+   "why": "'does not take with' mistranslated as 'لا تعني مع' (does not mean)."
+  },
+  {
+   "lang": "ar",
+   "vi": "‘Agree’ là động từ nên phủ định bằng ‘don’t’: ‘I don’t agree’.",
+   "en": "'Agree' is a verb, so make it negative with 'don't'.",
+   "l1": "\"أوافق\" هو ​​فعل، لذا اجعله منفيًا بـ \"لا تفعل\".",
+   "back": "\"I agree\" is a verb, so make it negative with \"do not\".",
+   "s": 2,
+   "why": "Translates 'don't' as 'do not', which is a verb, not a negative marker."
+  },
+  {
+   "lang": "ar",
+   "vi": "‘Apologise’ là động từ nên không dùng ‘am’ trước nó.",
+   "en": "'Apologise' is a verb, so do not use 'am' before it.",
+   "l1": "\"الاعتذار\" هو فعل، لذا لا تستخدم \"am\" قبله.",
+   "back": "\"Apology\" is a verb, so do not use \"am\" before it.",
+   "s": 2,
+   "why": "Wrong word: 'الاعتذار' is a noun, not the verb 'apologise'."
+  },
+  {
+   "lang": "ar",
+   "vi": "‘Bye’ thân thiện và an toàn trong hầu hết tình huống hằng ngày. ‘Goodbye’ nghe trang trọng và có phần dứt khoát hơn.",
+   "en": "'Bye' is friendly and safe in almost every everyday situation. 'Goodbye' sounds slightly more final or polite.",
+   "l1": "كلمة \"وداعا\" ودية وآمنة في كل المواقف اليومية تقريبًا. تبدو كلمة \"وداعا\" أكثر نهائية أو مهذبة قليلاً.",
+   "back": "The word \"goodbye\" is friendly and safe in almost all everyday situations. The word \"goodbye\" seems more final or slightly more polite.",
+   "s": 2,
+   "why": "Both quotes translated as 'goodbye', losing the 'Bye' distinction."
+  },
+  {
+   "lang": "ar",
+   "vi": "‘Cancel’ nghĩa là hủy hẳn. Muốn đổi ngày thì dùng ‘move’ hoặc ‘change’.",
+   "en": "'Cancel' means stop it completely. To change the day, use 'move' or 'change'.",
+   "l1": "\"\"إلغاء\"\" يعني إيقافه تمامًا. لتغيير اليوم، استخدم \"نقل\" أو \"تغيير\".",
+   "back": "\\\"\\\"إلغاء\\\"\\\" means stop it completely. To change the day, use \\\"نقل\\\" or \\\"تغيير\\\".",
+   "s": 2,
+   "why": "Arabic words used instead of required English terms 'move' and 'change'."
+  },
+  {
+   "lang": "ar",
+   "vi": "‘Finish’ nghe như kết thúc một công việc. Hãy nói ‘I should get going’ hoặc ‘I have to go’.",
+   "en": "'Finish' sounds like ending a task. Use 'I should get going' or 'I have to go'.",
+   "l1": "تبدو كلمة \"إنهاء\" بمثابة إنهاء مهمة. استخدم \"يجب أن أذهب\" أو \"يجب أن أذهب\".",
+   "back": "The word \"finish\" sounds like finishing a task. Use \"I have to go\" or \"I must go\".",
+   "s": 2,
+   "why": "Both English examples translated identically, losing 'I should get going'."
+  },
+  {
+   "lang": "ar",
+   "vi": "‘Good night’ chỉ dùng khi chia tay hoặc đi ngủ, không dùng để chào lúc gặp.",
+   "en": "Use 'good night' only when leaving or going to sleep.",
+   "l1": "استخدم \"ليلة سعيدة\" فقط عند المغادرة أو النوم.",
+   "back": "Use \\\"Good night\\\" only when leaving or sleeping.",
+   "s": 2,
+   "why": "Arabic translation used instead of required English phrase 'good night'."
+  },
+  {
+   "lang": "ar",
+   "vi": "‘I like’ nói về sở thích chung; để nhận lời mời hãy dùng ‘I would love to’.",
+   "en": "'I like' talks about general hobbies; use 'I would love to' to accept an offer.",
+   "l1": "كلمة \"أحب\" تتحدث عن الهوايات العامة؛ استخدم \"أود أن\" لقبول العرض.",
+   "back": "The word \"love\" talks about general hobbies; use \"I would like to\" to accept an offer.",
+   "s": 2,
+   "why": "Translates 'I like' as 'love' and 'I would love to' as 'I would like to'."
+  }
+ ],
+ "gate": {
+  "avg": 4.3,
+  "min": 3.5
+ }
+}

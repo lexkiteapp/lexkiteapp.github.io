@@ -3,6 +3,7 @@
  * Chỉ đụng 3 workflow trong danh sách cố định; chỉ dispatch khi lượt mới nhất của workflow đã quá ngưỡng cron-watch và không có lượt đang chờ/chạy.
  * Bí mật (không bao giờ trả về/ghi log): CRON_KICK_SECRET, GH_DISPATCH_TOKEN (PAT Actions RW – đã có cho Video Studio). */
 import { REPO, BODY_MAX, HOURLY_MAX, verify, parseWfs, plan } from './_cronkick.js';
+import { readText, bodyFail } from './_body.js';
 
 const json = (status, data, extra = {}) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...extra } });
 const gh = (tok, path, init = {}) => fetch(`https://api.github.com/repos/${REPO}/actions/workflows/${path}`, { ...init, headers: { Authorization: 'Bearer ' + tok, Accept: 'application/vnd.github+json', 'User-Agent': 'lexkite-cron-kick', 'X-GitHub-Api-Version': '2022-11-28', 'Content-Type': 'application/json' } });
@@ -12,7 +13,7 @@ export async function kick(request, env, deps = {}) {
   const now = deps.now || Date.now(), limit = deps.limit, ghf = deps.fetchGh || gh;
   if (request.method !== 'POST') return json(405, { error: 'method' }, { Allow: 'POST' });
   if (+(request.headers.get('Content-Length') || 0) > BODY_MAX) return json(413, { error: 'big' });
-  const text = await request.text(); if (text.length > BODY_MAX) return json(413, { error: 'big' });
+  let text; try { text = await readText(request, BODY_MAX); } catch (e) { const f = bodyFail(e, 'big'); return json(f.status, { error: f.error }); }
   if (!env.CRON_KICK_SECRET || String(env.CRON_KICK_SECRET).length < 32) return json(503, { error: 'not-configured' });
   const sig = request.headers.get('X-Kick-Sig') || '', v = await verify(env.CRON_KICK_SECRET, request.headers.get('X-Kick-Ts') || '', text, sig, now);
   if (v !== 'ok') return json(401, { error: v === 'stale' ? 'stale' : 'auth' });
