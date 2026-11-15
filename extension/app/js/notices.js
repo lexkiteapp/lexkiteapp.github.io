@@ -89,6 +89,23 @@
     return window.t ? t('{n} ngày trước', { n: Math.floor(d / 86400) }) : `${Math.floor(d / 86400)}d`;
   }
 
+  // Thông báo báo lỗi của chính máy này (web/js/report.js, 'lk.rpn'): lưu khóa loại + mã phiếu, dịch lúc vẽ; chỉ nằm trên máy, không gọi máy chủ
+  const RP_COPY = {
+    ack: () => [t('Đã nhận báo lỗi {id}'), t('Cảm ơn bạn – Lexkite sẽ báo tiến độ ngay tại đây.')],
+    fixed: () => [t('Đã sửa xong báo lỗi {id}'), t('Cảm ơn bạn đã báo. Tải lại app để dùng bản mới.')],
+    upd: () => [t('Có cập nhật cho báo lỗi {id}'), t('Chạm để xem trạng thái mới nhất.')],
+  };
+  function reportNotices() {
+    let a = []; try { a = JSON.parse(localStorage.getItem('lk.rpn') || '[]'); } catch (e) { return []; }
+    if (!Array.isArray(a) || !window.t) return [];
+    return a.filter(x => x && Object.prototype.hasOwnProperty.call(RP_COPY, x.k) && /^LX-\d+$/.test(x.id || '') && /^[A-Za-z0-9_-]{24}$/.test(x.t || '') && /^rp:[\w:-]+$/.test(x.n || '')).map(x => {
+      const [title, body] = RP_COPY[x.k]();
+      return { id: x.n, local: true, kind: 'info', title: title.replace('{id}', x.id), body, cta_label: t('Xem báo lỗi'), cta_url: '#/report/' + x.t, at: +x.at || 0, read: !!x.r };
+    });
+  }
+  let server = [];
+  function mergeNotices() { notices = [...server, ...reportNotices()].sort((a, b) => (b.at || 0) - (a.at || 0)); }
+
   function updateBadge() {
     const badge = document.getElementById('notifBadge');
     if (!badge) return;
@@ -160,6 +177,7 @@
     updateBadge();
     drawList();
 
+    if (n.local) return; // báo lỗi của máy này: chỉ nhớ trên máy
     try {
       const h = await authHeader();
       if (!h.Authorization) return; // khách: chỉ nhớ trên máy (localStorage)
@@ -251,7 +269,7 @@
       if (!res.ok) { if (res.body) res.body.cancel().catch(() => {}); return; }
       const data = await res.json();
       if (data && data.ok && Array.isArray(data.notices)) {
-        notices = data.notices; loaded = true;
+        server = data.notices; mergeNotices(); loaded = true;
         updateBadge();
         drawList();
         checkImportantPopup();
@@ -264,6 +282,8 @@
       injectStyle();
       appState = state;
       ensurePanel();
+      mergeNotices(); updateBadge(); // báo lỗi của máy này hiện ngay, kể cả khi mạng lỗi
+      document.addEventListener('lk:rpn', () => { mergeNotices(); updateBadge(); drawList(); });
 
       const btn = document.getElementById('notifBtn');
       if (btn && !initialized) {
@@ -276,6 +296,7 @@
 
     toggle() {
       injectStyle();
+      mergeNotices();
       if (!loaded) fetchNotices();
       setOpen(ensurePanel().hidden);
     },

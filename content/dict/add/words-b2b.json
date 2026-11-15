@@ -1,0 +1,841 @@
+{
+  "opt": {
+    "ipaUS": "/ɑːpt/",
+    "col": [
+      "opt for",
+      "opt out of",
+      "opt in",
+      "opt to stay",
+      "opt for the cheaper plan",
+      "opt for early retirement"
+    ],
+    "syn": [
+      "choose",
+      "select",
+      "decide on",
+      "pick"
+    ]
+  },
+  "optimistic": {
+    "ipaUS": "/ˌɑːptəˈmɪstɪk/",
+    "col": [
+      "optimistic about",
+      "cautiously optimistic",
+      "optimistic outlook",
+      "remain optimistic",
+      "optimistic forecast",
+      "optimistic that"
+    ],
+    "syn": [
+      "hopeful",
+      "positive",
+      "upbeat",
+      "confident"
+    ]
+  },
+  "orchestra": {
+    "ipaUS": "/ˈɔːrkɪstrə/",
+    "col": [
+      "symphony orchestra",
+      "orchestra pit",
+      "orchestra seats",
+      "conduct an orchestra",
+      "play in an orchestra",
+      "orchestra rehearsal"
+    ],
+    "syn": [
+      "ensemble",
+      "symphony",
+      "band"
+    ]
+  },
+  "organizational": {
+    "ipaUS": "/ˌɔːrɡənəˈzeɪʃənl/",
+    "col": [
+      "organizational skills",
+      "organizational structure",
+      "organizational culture",
+      "organizational change",
+      "organizational chart",
+      "organizational goals"
+    ],
+    "syn": [
+      "structural",
+      "administrative",
+      "managerial"
+    ]
+  },
+  "outage": {
+    "ipaUS": "/ˈaʊtɪdʒ/",
+    "col": [
+      "power outage",
+      "network outage",
+      "service outage",
+      "outage report",
+      "widespread outage",
+      "an outage affecting"
+    ],
+    "syn": [
+      "blackout",
+      "failure",
+      "breakdown",
+      "downtime"
+    ]
+  },
+  "outdated": {
+    "ipaUS": "/ˌaʊtˈdeɪtɪd/",
+    "col": [
+      "outdated equipment",
+      "outdated information",
+      "outdated technology",
+      "look outdated",
+      "hopelessly outdated",
+      "outdated software"
+    ],
+    "syn": [
+      "obsolete",
+      "old-fashioned",
+      "out of date",
+      "antiquated"
+    ]
+  },
+  "outlook": {
+    "ipaUS": "/ˈaʊtlʊk/",
+    "col": [
+      "economic outlook",
+      "business outlook",
+      "positive outlook",
+      "outlook for the year",
+      "outlook on life",
+      "a bleak outlook"
+    ],
+    "syn": [
+      "prospects",
+      "forecast",
+      "perspective",
+      "attitude"
+    ]
+  },
+  "overcharge": {
+    "ipaUS": "/ˌoʊvərˈtʃɑːrdʒ/",
+    "col": [
+      "overcharge customers",
+      "overcharge for",
+      "be overcharged",
+      "overcharge by",
+      "accidentally overcharge",
+      "overcharged on the bill"
+    ],
+    "syn": [
+      "rip off",
+      "cheat",
+      "bill too much",
+      "gouge"
+    ]
+  },
+  "overcrowd": {
+    "ipaUS": "/ˌoʊvərˈkraʊd/",
+    "col": [
+      "overcrowded city",
+      "overcrowded room",
+      "overcrowded classroom",
+      "overcrowded trains",
+      "badly overcrowded",
+      "overcrowded with tourists"
+    ],
+    "syn": [
+      "pack",
+      "cram",
+      "fill to excess",
+      "congest"
+    ]
+  },
+  "overdue": {
+    "ipaUS": "/ˌoʊvərˈduː/",
+    "col": [
+      "overdue payment",
+      "overdue invoice",
+      "long overdue",
+      "overdue library book",
+      "overdue for a checkup",
+      "overdue notice"
+    ],
+    "syn": [
+      "late",
+      "outstanding",
+      "delayed",
+      "past due"
+    ]
+  },
+  "overhead": {
+    "ipaUS": "/ˈoʊvərhed/",
+    "col": [
+      "overhead costs",
+      "reduce overhead",
+      "overhead compartment",
+      "overhead projector",
+      "high overhead",
+      "overhead expenses"
+    ],
+    "syn": [
+      "running costs",
+      "operating costs",
+      "expenses"
+    ]
+  },
+  "overlook": {
+    "ipaUS": "/ˌoʊvərˈlʊk/",
+    "col": [
+      "overlook a detail",
+      "overlook an error",
+      "overlook the sea",
+      "easily overlooked",
+      "overlook the fact that",
+      "overlook the harbor"
+    ],
+    "syn": [
+      "miss",
+      "neglect",
+      "ignore",
+      "disregard"
+    ]
+  },
+  "overnight": {
+    "ipaUS": "/ˌoʊvərˈnaɪt/",
+    "col": [
+      "overnight delivery",
+      "stay overnight",
+      "overnight flight",
+      "overnight shipping",
+      "overnight success",
+      "leave it overnight"
+    ],
+    "syn": [
+      "through the night",
+      "nightlong",
+      "next-day"
+    ]
+  },
+  "overpay": {
+    "ipaUS": "/ˌoʊvərˈpeɪ/",
+    "col": [
+      "overpay taxes",
+      "overpay for",
+      "be overpaid",
+      "overpay an invoice",
+      "overpay by mistake",
+      "overpay staff"
+    ],
+    "syn": [
+      "pay too much",
+      "overcompensate",
+      "overspend"
+    ]
+  },
+  "oversee": {
+    "ipaUS": "/ˌoʊvərˈsiː/",
+    "col": [
+      "oversee a project",
+      "oversee operations",
+      "oversee the process",
+      "oversee a team",
+      "directly oversee",
+      "oversee production"
+    ],
+    "syn": [
+      "supervise",
+      "manage",
+      "direct",
+      "monitor"
+    ]
+  },
+  "overview": {
+    "ipaUS": "/ˈoʊvərvjuː/",
+    "col": [
+      "brief overview",
+      "give an overview",
+      "overview of",
+      "a general overview",
+      "provide an overview",
+      "overview of the market"
+    ],
+    "syn": [
+      "summary",
+      "outline",
+      "survey",
+      "synopsis"
+    ]
+  },
+  "packet": {
+    "ipaUS": "/ˈpækɪt/",
+    "col": [
+      "information packet",
+      "sugar packet",
+      "packet of",
+      "a packet of cigarettes",
+      "welcome packet",
+      "packet of seeds"
+    ],
+    "syn": [
+      "pack",
+      "parcel",
+      "envelope",
+      "bundle"
+    ]
+  },
+  "pamphlet": {
+    "ipaUS": "/ˈpæmflət/",
+    "col": [
+      "information pamphlet",
+      "distribute pamphlets",
+      "pamphlet on",
+      "health pamphlet",
+      "read a pamphlet",
+      "pamphlet about"
+    ],
+    "syn": [
+      "leaflet",
+      "booklet",
+      "brochure",
+      "flyer"
+    ]
+  },
+  "paraphrase": {
+    "ipaUS": "/ˈperəfreɪz/",
+    "col": [
+      "paraphrase a sentence",
+      "paraphrase the text",
+      "paraphrase in your own words",
+      "paraphrase a quote",
+      "paraphrase the main points",
+      "closely paraphrase"
+    ],
+    "syn": [
+      "reword",
+      "rephrase",
+      "restate",
+      "summarize"
+    ]
+  },
+  "partial": {
+    "ipaUS": "/ˈpɑːrʃl/",
+    "col": [
+      "partial refund",
+      "partial payment",
+      "partial view",
+      "partial success",
+      "partial solution",
+      "partial to"
+    ],
+    "syn": [
+      "incomplete",
+      "limited",
+      "part",
+      "fractional"
+    ]
+  },
+  "partially": {
+    "ipaUS": "/ˈpɑːrʃəli/",
+    "col": [
+      "partially closed",
+      "partially responsible",
+      "partially completed",
+      "partially covered",
+      "partially true",
+      "partially blocked"
+    ],
+    "syn": [
+      "partly",
+      "in part",
+      "to some extent",
+      "somewhat"
+    ]
+  },
+  "password": {
+    "ipaUS": "/ˈpæswɜːrd/",
+    "col": [
+      "enter a password",
+      "reset a password",
+      "forgot my password",
+      "strong password",
+      "change your password",
+      "password protected"
+    ],
+    "syn": [
+      "passcode",
+      "login code",
+      "PIN"
+    ]
+  },
+  "payroll": {
+    "ipaUS": "/ˈpeɪroʊl/",
+    "col": [
+      "payroll department",
+      "on the payroll",
+      "payroll system",
+      "run payroll",
+      "payroll tax",
+      "payroll manager"
+    ],
+    "syn": [
+      "wage bill",
+      "salary list",
+      "pay system"
+    ]
+  },
+  "penalize": {
+    "ipaUS": "/ˈpiːnəlaɪz/",
+    "col": [
+      "penalize late payment",
+      "be penalized for",
+      "penalize heavily",
+      "unfairly penalized",
+      "penalize customers",
+      "penalize a player"
+    ],
+    "syn": [
+      "punish",
+      "fine",
+      "sanction",
+      "discipline"
+    ]
+  },
+  "periodical": {
+    "ipaUS": "/ˌpɪriˈɑːdɪkl/",
+    "col": [
+      "academic periodical",
+      "monthly periodical",
+      "scientific periodical",
+      "subscribe to a periodical",
+      "periodical section",
+      "trade periodical"
+    ],
+    "syn": [
+      "journal",
+      "magazine",
+      "publication",
+      "serial"
+    ]
+  },
+  "periodically": {
+    "ipaUS": "/ˌpɪriˈɑːdɪkli/",
+    "col": [
+      "check periodically",
+      "update periodically",
+      "review periodically",
+      "periodically inspected",
+      "backup periodically",
+      "periodically revised"
+    ],
+    "syn": [
+      "regularly",
+      "at intervals",
+      "from time to time",
+      "occasionally"
+    ]
+  },
+  "permanently": {
+    "ipaUS": "/ˈpɜːrmənəntli/",
+    "col": [
+      "permanently closed",
+      "permanently employed",
+      "permanently delete",
+      "permanently damaged",
+      "permanently live",
+      "permanently banned"
+    ],
+    "syn": [
+      "for good",
+      "forever",
+      "indefinitely",
+      "for ever"
+    ]
+  },
+  "personalize": {
+    "ipaUS": "/ˈpɜːrsənəlaɪz/",
+    "col": [
+      "personalized service",
+      "personalize a gift",
+      "personalize your account",
+      "personalized email",
+      "personalize the experience",
+      "personalized recommendations"
+    ],
+    "syn": [
+      "customize",
+      "tailor",
+      "individualize",
+      "adapt"
+    ]
+  },
+  "pharmaceutical": {
+    "ipaUS": "/ˌfɑːrməˈsuːtɪkl/",
+    "col": [
+      "pharmaceutical company",
+      "pharmaceutical industry",
+      "pharmaceutical products",
+      "pharmaceutical sales",
+      "pharmaceutical research",
+      "pharmaceutical drugs"
+    ],
+    "syn": [
+      "medicinal",
+      "drug",
+      "medical",
+      "chemist's"
+    ]
+  },
+  "pharmacy": {
+    "ipaUS": "/ˈfɑːrməsi/",
+    "col": [
+      "local pharmacy",
+      "pharmacy counter",
+      "go to the pharmacy",
+      "pharmacy chain",
+      "online pharmacy",
+      "pharmacy student"
+    ],
+    "syn": [
+      "drugstore",
+      "chemist's",
+      "dispensary"
+    ]
+  },
+  "physician": {
+    "ipaUS": "/fəˈzɪʃn/",
+    "col": [
+      "family physician",
+      "consult a physician",
+      "attending physician",
+      "primary care physician",
+      "licensed physician",
+      "physician's assistant"
+    ],
+    "syn": [
+      "doctor",
+      "medical practitioner",
+      "clinician",
+      "doctor of medicine"
+    ]
+  },
+  "pole": {
+    "ipaUS": "/poʊl/",
+    "col": [
+      "telephone pole",
+      "flagpole",
+      "fishing pole",
+      "ski pole",
+      "North Pole",
+      "pole vault"
+    ],
+    "syn": [
+      "post",
+      "rod",
+      "stick",
+      "mast"
+    ]
+  },
+  "polish": {
+    "ipaUS": "/ˈpɑːlɪʃ/",
+    "col": [
+      "polish shoes",
+      "polish your skills",
+      "polish a presentation",
+      "furniture polish",
+      "polish up",
+      "polish the silver"
+    ],
+    "syn": [
+      "shine",
+      "buff",
+      "refine",
+      "improve"
+    ]
+  },
+  "popularity": {
+    "ipaUS": "/ˌpɑːpjuˈlerəti/",
+    "col": [
+      "gain popularity",
+      "growing popularity",
+      "popularity of",
+      "popularity among teenagers",
+      "lose popularity",
+      "soar in popularity"
+    ],
+    "syn": [
+      "fame",
+      "appeal",
+      "favor",
+      "acceptance"
+    ]
+  },
+  "portfolio": {
+    "ipaUS": "/pɔːrtˈfoʊlioʊ/",
+    "col": [
+      "investment portfolio",
+      "design portfolio",
+      "build a portfolio",
+      "portfolio of",
+      "portfolio manager",
+      "student portfolio"
+    ],
+    "syn": [
+      "collection",
+      "range",
+      "selection",
+      "work samples"
+    ]
+  },
+  "postage": {
+    "ipaUS": "/ˈpoʊstɪdʒ/",
+    "col": [
+      "postage stamp",
+      "postage and handling",
+      "postage paid",
+      "free postage",
+      "postage costs",
+      "pay postage"
+    ],
+    "syn": [
+      "mailing cost",
+      "carriage",
+      "shipping fee"
+    ]
+  },
+  "postpone": {
+    "ipaUS": "/poʊstˈpoʊn/",
+    "col": [
+      "postpone a meeting",
+      "postpone the launch",
+      "postpone until",
+      "postpone to a later date",
+      "postpone indefinitely",
+      "postponed due to rain"
+    ],
+    "syn": [
+      "delay",
+      "put off",
+      "reschedule",
+      "defer"
+    ]
+  },
+  "premium": {
+    "ipaUS": "/ˈpriːmiəm/",
+    "col": [
+      "insurance premium",
+      "premium quality",
+      "premium price",
+      "pay a premium",
+      "premium service",
+      "premium subscription"
+    ],
+    "syn": [
+      "fee",
+      "top-quality",
+      "superior",
+      "surcharge"
+    ]
+  },
+  "prescription": {
+    "ipaUS": "/prɪˈskrɪpʃn/",
+    "col": [
+      "fill a prescription",
+      "prescription drugs",
+      "write a prescription",
+      "on prescription",
+      "prescription medicine",
+      "refill a prescription"
+    ],
+    "syn": [
+      "order for medicine",
+      "medication order",
+      "script",
+      "recipe"
+    ]
+  },
+  "process": {
+    "ipaUS": "/ˈprɑːses/",
+    "col": [
+      "decision-making process",
+      "in the process of",
+      "manufacturing process",
+      "the whole process",
+      "process of elimination",
+      "start the process"
+    ],
+    "syn": [
+      "procedure",
+      "method",
+      "system",
+      "operation"
+    ]
+  },
+  "professionally": {
+    "ipaUS": "/prəˈfeʃənəli/",
+    "col": [
+      "professionally trained",
+      "dress professionally",
+      "professionally done",
+      "act professionally",
+      "professionally qualified",
+      "handle it professionally"
+    ],
+    "syn": [
+      "competently",
+      "expertly",
+      "skillfully",
+      "in a businesslike way"
+    ]
+  },
+  "promotional": {
+    "ipaUS": "/prəˈmoʊʃənl/",
+    "col": [
+      "promotional offer",
+      "promotional materials",
+      "promotional price",
+      "promotional campaign",
+      "promotional video",
+      "promotional gift"
+    ],
+    "syn": [
+      "advertising",
+      "marketing",
+      "publicity",
+      "sales"
+    ]
+  },
+  "promptly": {
+    "ipaUS": "/ˈprɑːmptli/",
+    "col": [
+      "respond promptly",
+      "pay promptly",
+      "arrive promptly",
+      "promptly at nine",
+      "act promptly",
+      "reply promptly"
+    ],
+    "syn": [
+      "quickly",
+      "immediately",
+      "punctually",
+      "without delay"
+    ]
+  },
+  "proofread": {
+    "ipaUS": "/ˈpruːfriːd/",
+    "col": [
+      "proofread a document",
+      "proofread carefully",
+      "proofread before sending",
+      "proofread an essay",
+      "proofread your work",
+      "proofread the report"
+    ],
+    "syn": [
+      "check",
+      "edit",
+      "review",
+      "correct"
+    ]
+  },
+  "provider": {
+    "ipaUS": "/prəˈvaɪdər/",
+    "col": [
+      "service provider",
+      "healthcare provider",
+      "internet provider",
+      "provider of",
+      "energy provider",
+      "cable provider"
+    ],
+    "syn": [
+      "supplier",
+      "vendor",
+      "source",
+      "company"
+    ]
+  },
+  "publicize": {
+    "ipaUS": "/ˈpʌblɪsaɪz/",
+    "col": [
+      "publicize an event",
+      "widely publicized",
+      "publicize a product",
+      "publicize the results",
+      "publicize on social media",
+      "well-publicized"
+    ],
+    "syn": [
+      "advertise",
+      "promote",
+      "announce",
+      "broadcast"
+    ]
+  },
+  "purchaser": {
+    "ipaUS": "/ˈpɜːrtʃəsər/",
+    "col": [
+      "first-time purchaser",
+      "purchaser agreement",
+      "prospective purchaser",
+      "purchaser of",
+      "the purchaser must",
+      "home purchaser"
+    ],
+    "syn": [
+      "buyer",
+      "customer",
+      "consumer",
+      "client"
+    ]
+  },
+  "purser": {
+    "ipaUS": "/ˈpɜːrsər/",
+    "col": [
+      "ship's purser",
+      "chief purser",
+      "airline purser",
+      "purser's office",
+      "purser announced",
+      "the purser on board"
+    ],
+    "syn": [
+      "cabin chief",
+      "chief steward",
+      "senior steward"
+    ]
+  },
+  "quarterly": {
+    "ipaUS": "/ˈkwɔːrtərli/",
+    "col": [
+      "quarterly report",
+      "quarterly meeting",
+      "quarterly earnings",
+      "quarterly basis",
+      "published quarterly",
+      "quarterly review"
+    ],
+    "syn": [
+      "every three months",
+      "three-monthly",
+      "seasonal"
+    ]
+  },
+  "query": {
+    "ipaUS": "/ˈkwɪri/",
+    "col": [
+      "customer query",
+      "answer a query",
+      "raise a query",
+      "search query",
+      "database query",
+      "send a query"
+    ],
+    "syn": [
+      "question",
+      "inquiry",
+      "request",
+      "doubt"
+    ]
+  }
+}
