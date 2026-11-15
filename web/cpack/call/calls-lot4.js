@@ -1,4 +1,4 @@
-/* Call Ama / Carlos – lô S-CALL-4: 12 cuộc gọi tình huống đời thật A2–C1 (nhờ đồng nghiệp trực thay, mặc cả ở chợ, đặt lịch cắt tóc, báo mất ví, nhờ chủ nhà sửa sưởi, giới thiệu bản thân ở hội nghị, góp ý đồng nghiệp, từ chối lời mời, báo khách về việc chậm trễ, yêu cầu bồi thường bảo hiểm du lịch, xin thầy gia hạn, sửa hoá đơn sai).
+/* Call Ama / Carlos – lô S-CALL-4: 12 cuộc gọi tình huống đời thật A2–C1 (nhờ đồng nghiệp trực thay, mặc cả ở chợ, đặt lịch cắt tóc, báo mất ví, nhờ chủ nhà sửa sưởi, giới thiệu bản thân ở hội nghị, góp ý đồng nghiệp, từ chối lời mời, báo khách về việc chậm trễ, yêu cầu bồi thường bảo hiểm du lịch, xin thầy gia hạn, sửa hóa đơn sai).
 * Nội dung tự biên soạn 100 % (docs/CONTENT-RULES.md). Cùng dạng `nodes` như calls-lot2.js: start + nodes{ m câu giáo viên, o gợi ý (o[0] = câu mẫu, đạt `min` từ), br [[regex, câu đáp, nútKế]], re, next, min, kw }.
 * Ama = nữ, Carlos = nam (who). Mỗi cuộc gọi: ≥ 2 nhánh, người học tự nói câu mới ở mọi nút. Nối vào g.CALLS sau các lô trước. */
 (function (g) {
