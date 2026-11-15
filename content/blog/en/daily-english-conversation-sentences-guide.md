@@ -174,3 +174,6 @@ For eating out, read [restaurant English: ordering food and paying](/en/blog/res
 For health situations, read [English at the doctor: describing symptoms](/en/blog/english-at-the-doctor-describing-symptoms/).
 
 For errands, read [English for opening a bank account abroad](/en/blog/english-for-opening-a-bank-account-abroad/).
+
+For two high-stakes everyday settings, see [English phrases at the doctor](/en/blog/english-for-newcomers-doctor/) and [English phrases at the bank](/en/blog/english-for-newcomers-bank/).
+

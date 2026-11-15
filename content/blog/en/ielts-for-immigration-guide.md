@@ -168,6 +168,8 @@ For Canada, the [IELTS to CLB conversion](/en/blog/ielts-clb-score-canada/) guid
 
 After the test, daily life starts; see [English for opening a bank account abroad](/en/blog/english-for-opening-a-bank-account-abroad/).
 
+For deeper dives, read [CELPIP vs IELTS for Canada](/en/blog/celpip-vs-ielts-canada/), [PTE vs IELTS for Australia](/en/blog/pte-vs-ielts-australia/), [IELTS for UKVI explained](/en/blog/ielts-ukvi-explained/) and [IELTS General vs Academic for immigration](/en/blog/ielts-general-vs-academic-immigration/).
+
 ## Frequently asked questions
 
 ### Is IELTS General Training easier than Academic?

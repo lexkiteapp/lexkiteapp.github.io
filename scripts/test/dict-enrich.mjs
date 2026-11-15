@@ -2,7 +2,7 @@
 // Chặn: từ ngoài tập trang, ghi chú ngắn/dài, sai chữ viết (lẫn ngôn ngữ), mã/HTML/URL, ví dụ không chứa từ hoặc chép lại ví dụ sẵn có, bản dịch trống/trùng câu gốc,
 // ghi chú trùng nhau hoặc mở đầu lặp (nội dung khuôn). Ngưỡng chỉ được TĂNG.
 import fs from 'node:fs';
-import { setOf, J } from '../lib/seo-words.mjs';
+import { setOf, J, enrichFiles } from '../lib/seo-words.mjs';
 import { countWords } from '../lib/word-depth.mjs';
 const only = process.argv.includes('--lang') ? process.argv[process.argv.indexOf('--lang') + 1] : null;
 export const NOTE_WORDS = [45, 110], EX_LEN = [25, 170];
@@ -14,8 +14,8 @@ let bad = 0, total = 0;
 const err = (l, w, m) => { bad++; console.error(`✗ ${l}/${w}: ${m}`); };
 for (const l of Object.keys(setOf)) {
   if (only && l !== only) continue;
-  const f = `content/dict/enrich/${l}.json`; if (!fs.existsSync(f)) continue;
-  let d; try { d = J(f); } catch (e) { err(l, '-', 'JSON hỏng'); continue; }
+  if (!enrichFiles(l).length) continue;
+  let d; try { d = Object.assign({}, ...enrichFiles(l).map(f => J(`content/dict/enrich/${f}`))); } catch (e) { err(l, '-', 'JSON hỏng'); continue; }
   const words = new Map(setOf[l].map(e => [e.word.toLowerCase(), e])), seen = new Map(), open = new Map();
   for (const [k, v] of Object.entries(d)) {
     total++;

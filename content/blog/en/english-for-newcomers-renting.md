@@ -208,6 +208,8 @@ Next on the newcomer list: [English for opening a bank account abroad](/en/blog/
 
 To get around your new city, read [asking for directions and using public transport in English](/en/blog/asking-for-directions-and-using-public-transport-in-english/).
 
+Health is another early need: see [English phrases at the doctor](/en/blog/english-for-newcomers-doctor/) and [English phrases at the bank](/en/blog/english-for-newcomers-bank/).
+
 ## Frequently asked questions
 
 ### What is the difference between a lease and a tenancy agreement?

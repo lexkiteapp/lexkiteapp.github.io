@@ -6,6 +6,7 @@
   "scripts": {
     "build": "bash scripts/build-web.sh",
     "prepush": "bash scripts/prepush.sh",
+    "postinstall": "node scripts/ci/regen-generated.mjs --if-ci",
     "test": "node scripts/test/run-suite.mjs",
     "test:ai-pool": "node scripts/test/ai-pool.mjs",
     "test:docs": "node scripts/test/docs-budget.mjs",
