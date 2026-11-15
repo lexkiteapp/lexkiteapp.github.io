@@ -12,7 +12,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   measure:
-    runs-on: ubuntu-24.04
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
@@ -23,7 +23,7 @@ jobs:
         run: |
           npm init -y >/dev/null 2>&1 || true
           npm i --no-save --no-audit --no-fund playwright@1.50.1
-          npx playwright install --with-deps chromium
+          bash scripts/ci/pw-install.sh --with-deps chromium
       - run: node scripts/ux/ux-measure.mjs --out ux-out | tee -a "$GITHUB_STEP_SUMMARY"
       - uses: actions/upload-artifact@v4
         if: always()
