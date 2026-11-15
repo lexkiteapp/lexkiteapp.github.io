@@ -10,7 +10,7 @@
 | Mã 200 | 1.407/1.407 sau khi chạy chậm (lần đầu 340 blog trả 429 do em gửi dồn – bot giới hạn tốc độ của Cloudflare, không phải lỗi trang) |
 | Canonical tuyệt đối đúng | Đạt toàn mẫu |
 | noindex | Không trang nào (trừ trang cố ý) |
-| Meta description | Thiếu/ngắn: 5 authority, 2 grammar, 3 blog (ví dụ `/tr/about/sources/`, `/fr/blog/ielts-writing-task-2-plan/`) – P3, nội dung của session khác |
+| Meta description | Đạt. 10 trang bị cờ "thiếu/ngắn" ban đầu là dương tính giả của crawler (regex dừng ở dấu `'` trong mô tả nháy kép, vd. `l'IELTS`); đọc lại bằng parser đúng: 78–192 ký tự, đủ. Không có lỗi |
 | JSON-LD | Parse hợp lệ mọi trang; blog có Article/FAQ/Breadcrumb |
 | Ảnh alt | Không `<img>` nào thiếu alt trong mẫu |
 | hreflang | Trang từ/blog có bản dịch: đủ + x-default. Bài blog chưa có bản dịch (153/443) không phát hreflang (hợp lệ, P3) |
@@ -27,6 +27,8 @@
 | 5 | **P3** | Trang `/en/ielts-writing/task-1/*` (40 mẫu) và bài blog chỉ một ngôn ngữ không có hreflang nào (kể cả tự tham chiếu) | Hợp lệ nếu không có bản dịch; thêm self-hreflang để thống nhất – chưa làm |
 | 6 | **P3** | `/ko/words/` sitemap 261 URL vs các ngôn ngữ R2 khác 125–261, `words-vi` 1.268: quy mô index lệch (cổng độ dày) – đã theo dõi ở `SEO-GROWTH-PLAN.md` | Không đổi |
 | 7 | **P3** | Tải sitemap bằng Python (không gzip) bị cắt giữa chừng (`IncompleteRead`) ở một số file; curl lấy đủ | Chưa tái hiện với Googlebot (gzip); theo dõi |
+
+Đính chính: mục meta description ở bản đầu của audit sai (xem bảng trên) – không cần session blog sửa.
 
 Không sửa nội dung bài/trang của các session blog, từ điển, đề thi (chỉ template/generator/Function).
 
