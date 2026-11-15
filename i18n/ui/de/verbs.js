@@ -189,7 +189,7 @@
 "Đã sao chép bản đã sửa":"Korrigierter Text kopiert",
 "Đã sửa {n} lỗi":"{n} Fehler behoben",
 "Đúng rồi!":"Richtig!",
-"Đọc to cả ba dạng, nhịp điệu giúp bạn nhớ lâu.":"Sprich alle drei Formen laut aus, der Rhythmus hilft dir beim Merken.",
+"Đọc to cả ba dạng, nhịp điệu giúp bạn nhớ lâu.":"Sprechen Sie alle drei Formen laut aus, der Rhythmus hilft Ihnen beim Merken.",
 "Động từ bất quy tắc":"Unregelmäßige Verben",
 "Động từ bất quy tắc không thêm -ed.":"Unregelmäßige Verben nehmen kein -ed an.",
 "Động từ bất quy tắc: V2 và V3 cần học thuộc. Dạng -ing và -s vẫn theo quy tắc chung.":"Unregelmäßiges Verb: Lernen Sie V2 und V3 auswendig. Die Formen -ing und -s folgen weiterhin den normalen Regeln.",
