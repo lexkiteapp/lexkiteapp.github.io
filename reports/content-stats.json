@@ -31,48 +31,53 @@
   "respond": 9,
   "info": 9,
   "opinion": 12,
+  "picture": 10,
   "request": 9,
-  "essay": 9
+  "essay": 9,
+  "picture-sentence": 8
  },
  "TOEFL Reading": {
-  "Complete the Words": 100,
-  "daily": 40,
-  "academic": 100
+  "Complete the Words": 120,
+  "daily": 60,
+  "academic": 120
  },
  "TOEFL Listening": {
   "response": 48,
-  "conversation": 52,
-  "announcement": 39,
-  "talk": 61
+  "conversation": 80,
+  "announcement": 59,
+  "talk": 95
  },
  "TOEFL Writing": {
-  "sentence": 56,
+  "sentence": 60,
   "email": 22,
   "discussion": 22
  },
  "TOEFL Speaking": {
-  "repeat": 94,
-  "interview": 56
+  "repeat": 119,
+  "interview": 64
  },
  "Ngữ pháp – trắc nghiệm": {
   "A2": 168,
   "B1": 360,
   "B2": 324,
   "C1": 168,
-  "A1": 36
+  "A1": 180,
+  "C2": 120
  },
  "Ngữ pháp – tự luận": {
   "A2": 168,
   "B1": 360,
   "B2": 393,
   "C1": 136,
-  "A1": 68
+  "A1": 261,
+  "C2": 143
  },
  "Bài đọc ngắn": {
   "B1": 75,
   "B2": 75,
   "C1": 70,
-  "A2": 65
+  "A2": 65,
+  "A1": 128
  },
  "Từ vựng (mục)": {
   "B2": 2948,

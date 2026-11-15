@@ -11,7 +11,7 @@ const g = {}; g.self = g; g.window = g; vm.createContext(g);
 const run = f => vm.runInContext(fs.readFileSync(new URL(f, WEB), 'utf8'), g, { filename: f });
 // cùng thứ tự với BUNDLES.grammar / BUNDLES.pron trong app.js
 for (const f of ['tenses', 'verbs', 'sentences', 'foundation', 'academic', 'chapters', 'book2']) run(/^(academic|book2)$/.test(f) ? '../cpack/grammar/' + f + '.js' : 'grammar/' + f + '.js'); // academic/book2 dời sang web/cpack (tải lười)
-run('pron/sounds.js'); run('../cpack/pron/skills.js'); // skills.js ở web/cpack (tải lười, không tính ngân sách web/js)
+run('../cpack/pron/sounds.js'); run('../cpack/pron/skills.js'); // sounds.js + skills.js ở web/cpack (tải lười, không tính ngân sách web/js)
 const byLv = a => a.map((x, i) => [x, i]).filter(([x]) => CE.includes(x.level)).sort((a, b) => CE.indexOf(a[0].level) - CE.indexOf(b[0].level) || a[1] - b[1]).map(([x]) => x);
 const G = byLv(g.GRAMMAR || []).map(x => [x.id, x.level, x.emoji || '📐', x.title, x.en || x.title]);
 const P = byLv(g.PRON || []).map(x => [x.id, x.level, x.emoji || '🗣️', x.title, x.ipa || x.id]);

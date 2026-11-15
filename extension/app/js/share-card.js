@@ -8,6 +8,7 @@
   const d = document, URL_ = 'https://lexkite.com';
   const C = { teal: '#0F3D3E', teal2: '#17595A', coral: '#E5502F', orange: '#FFB054', gold: '#FFC94A', cream: '#FFF7EA', green: '#2FBF71' };
   const T = (k, v) => g.t(k, v);
+  const ev = (a, k) => { try { navigator.sendBeacon('/api/hit', JSON.stringify({ t: 'q', ev: 'share_' + a + '_' + k })); } catch (e) { /* bỏ qua */ } }; // đếm ẩn danh: mở · gửi · tải · mời theo loại thẻ
   const XP_IN = 50, XP_OUT = 100; // thưởng: người được mời / người mời (mỗi bạn)
   // Liên kết đo được (docs/specs/funnel.md): trang đích /go/<ngôn ngữ>/ + UTM (nguồn share · phương tiện qr|link · chiến dịch = loại thẻ); không dữ liệu cá nhân
   const kindOf = S => (S.streak >= 3 ? 'streak' : S.acc ? 'result' : S.today >= S.goal ? 'goal' : 'day');
@@ -119,17 +120,18 @@
       <div class="sc-act"><button type="button" class="btn primary" id="scShare">📤 ${T('Chia sẻ')}</button><button type="button" class="btn" id="scDl">⬇️ ${T('Tải ảnh')}</button><button type="button" class="btn ghost" data-close>${T('Đóng')}</button></div>
       <div class="sc-inv"><button type="button" class="btn" id="scInv">🎁 ${T('Mời bạn học cùng')}</button><p class="muted small">${T('Bạn và bạn bè cùng nhận +{xp} XP và 1 lượt đóng băng chuỗi khi bạn ấy học xong bài đầu', { xp: XP_OUT })}</p></div></div>`);
     box.setAttribute('aria-labelledby', 'scTitle');
+    ev('open', kindOf(S));
     const cv = box.querySelector('#scCv'), name = f => `lexkite-${f === 'story' ? 'story' : 'post'}-${new Date().toISOString().slice(0, 10)}.png`;
     let fmt = 'story', blob = null, seq = 0;
     // Vẽ xong là tạo sẵn ảnh → lúc bấm "Chia sẻ" gọi navigator.share NGAY (Safari iOS đòi thao tác người dùng còn hiệu lực)
     const draw = async () => { const my = ++seq; blob = null; await render(cv, S, fmt === 'story'); const b = await toBlob(cv); if (my !== seq) return; blob = b; };
     box.querySelectorAll('[data-f]').forEach(b => b.onclick = () => { if (fmt === b.dataset.f) return; fmt = b.dataset.f; box.querySelectorAll('[data-f]').forEach(x => x.setAttribute('aria-selected', String(x === b))); draw(); });
-    const save = async () => { const b = blob || await toBlob(cv); if (b) download(b, name(fmt)); else toast(T('Không tải được – thử lại sau')); };
+    const save = async () => { ev('dl', kindOf(S)); const b = blob || await toBlob(cv); if (b) download(b, name(fmt)); else toast(T('Không tải được – thử lại sau')); };
     box.querySelector('#scDl').onclick = save;
-    box.querySelector('#scInv').onclick = invite;
+    box.querySelector('#scInv').onclick = () => { ev('inv', kindOf(S)); invite(); };
     // Web: navigator.share({files}) → không được thì tải ảnh + chép link. App gốc: bảng chia sẻ hệ điều hành (js/lib/save-file.js)
     box.querySelector('#scShare').onclick = async () => {
-      const b = blob || await toBlob(cv); if (!b || !g.LKFile) return save();
+      ev('send', kindOf(S)); const b = blob || await toBlob(cv); if (!b || !g.LKFile) return save();
       let r; try { r = await LKFile.save(b, name(fmt), { share: true, title: T('Khoe thành tích'), text: shareText(S) }); } catch (e) { return toast(T('Không tải được – thử lại sau')); }
       if (r === 'saved') try { await navigator.clipboard.writeText(shareText(S)); toast(T('Đã tải ảnh – link đã được chép, dán kèm khi đăng nhé')); } catch (e) { /* bỏ qua */ }
     };

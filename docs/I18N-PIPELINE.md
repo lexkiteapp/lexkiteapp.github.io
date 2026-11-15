@@ -47,6 +47,11 @@ Khóa chỉ module tải lười dùng nằm ở `en/lazyui.js` (gói `i18nl`, A
 
 Khóa thiếu → giao diện tự hiện tiếng Anh (en.js nạp trước), không bao giờ hiện tiếng Việt.
 
+### 3b. Giọng & xưng hô theo ngôn ngữ (14/11/2026, chốt theo chữ native đã phát hành)
+- **de = Sie** (Ihr/Ihnen, mệnh lệnh "Starten Sie"), **fr = vous**, **ja = です・ます**, **ko = 해요체 (-요)**. Không trộn du/tu trong cùng app. Câu cứng thì dùng nguyên mẫu/danh từ hóa ("Wörter hinzufügen").
+- Máy gác: `i18n-qa.mjs` (cột "lẫn xưng hô", `INFORMAL` trong `scripts/lib/i18n-rules.mjs`) lỗi khi du/tu lọt vào nguồn `i18n/ui/{de,fr}`. Ngoại lệ duy nhất: khóa native đã phát hành còn xưng thân mật ở `scripts/i18n-register-legacy.json` (chỉ gỡ khi mở khóa native, PR riêng + snapshot). Khóa mới KHÔNG được thêm vào danh sách này.
+- Hiệu đính hàng loạt: `node scripts/i18n-rewrite.mjs extract <lang> <nhóm|informal> --size 120 <thư mục>` → người viết lại (Sonnet) → `apply <lang> <kết quả.json>` (kiểm biến/thẻ/tiếng Anh mẫu/VI; ghi vào `i18n-fixed.json` nếu khóa ở đó, còn lại vào nguồn) → `node scripts/i18n-fix.mjs && node scripts/i18n-pack.mjs`. Người chấm độc lập phải là phiên khác người viết, ≥ 90.
+
 ### Nội dung bài học viết gốc tiếng Anh (O5)
 Khóa có `content/i18n/en-src/*.json` { "<chuỗi vi>": "<en GV bản xứ>" }: `gen-content-i18n.mjs` cho en hiện thẳng bản gốc, L1 dịch **từ en** (dấu `content/i18n/from-en.json`, dịch lại khi en đổi); bản đã sửa `content/i18n/native-fixed.json` đứng trên hết. `i18n-native-score.yml` (dispatch, 4 shard): A dịch ngược L1→en, B khác họ chấm 1–5 → `content/i18n-native-score.json` (content-score đọc `avg`); cổng avg ≥ 4,3, không mục < 3,5; `--fix` viết lại mục < 4 thẳng từ en. Rút khóa một bài: `node scripts/i18n-native-score.mjs --keys <id>`. Test: `scripts/test/i18n-native-score.mjs`.
 
@@ -71,6 +76,6 @@ Khóa có `content/i18n/en-src/*.json` { "<chuỗi vi>": "<en GV bản xứ>" }:
 ## Nhóm ở web/cpack
 Nhóm `pathn` (nội dung nút Lộ trình): nguồn và bản en như mọi nhóm, gói chạy 13 ngôn ngữ ra `web/cpack/lesson/pn-<lang>.js` (`CPACK_GROUP` trong `scripts/lib/i18n-pack.mjs`), nạp qua `App.pathnPack` cùng dữ liệu nút; `scan-roots` và `i18n-pack` kiểm.
 
-Nhóm `criteria` và `confidence` (`CPACK_I18N` trong `scripts/lib/i18n-pack.mjs`, 10/11): cũng ra `web/cpack/i18n/<nhóm>-<lang>.js`, đường dẫn viết đủ ở `App.cpackI18n` (`web/js/app.js`); bộ nạp gói chờ xong trước khi vẽ. Lý do: gói ngôn ngữ lớn nhất (hi) phải dư ≥ 10 % so với `langPackMax`; `size-budget` cảnh báo khi một gói còn < 5 %.
+Nhóm `criteria`, `confidence`, `rhythm` và `qtips` (qtips dời 14/11 để mở ngân sách người học cho trang Ngày v2) (`CPACK_I18N` trong `scripts/lib/i18n-pack.mjs`, 10/11): cũng ra `web/cpack/i18n/<nhóm>-<lang>.js`, đường dẫn viết đủ ở `App.cpackI18n` (`web/js/app.js`); bộ nạp gói chờ xong trước khi vẽ. Lý do: gói ngôn ngữ lớn nhất (hi) phải dư ≥ 10 % so với `langPackMax`; `size-budget` cảnh báo khi một gói còn < 5 %.
 
 **Chữ app native bị khóa** (#983): `i18n-fix.mjs` luôn đặt lại khóa nằm trong `native/shared/strings.json` theo đúng chữ đã phát hành ở `native/shared/gen/strings/<lang>.json`, nên bot dịch lại không làm trôi native được. Trong `i18n.yml`, bước `gen.mjs --check` chạy trước commit: đỏ thì không commit. Muốn đổi chữ native: mở PR, chạy `I18N_NATIVE_UNLOCK=1 node scripts/i18n-fix.mjs && node scripts/native/gen.mjs` và cập nhật ảnh trong cùng PR. Test: `scripts/test/native-strings-locked.mjs`.

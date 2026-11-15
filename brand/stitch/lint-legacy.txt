@@ -80,8 +80,6 @@ brand/stitch/v2/feedback-wrong-dark.html
 brand/stitch/v2/feedback-wrong-light.html
 brand/stitch/v2/fix-dark.html
 brand/stitch/v2/fix-light.html
-brand/stitch/v2/grammar-dark.html
-brand/stitch/v2/grammar-light.html
 brand/stitch/v2/handsfree-run-dark.html
 brand/stitch/v2/handsfree-run-light.html
 brand/stitch/v2/ideas-dark.html

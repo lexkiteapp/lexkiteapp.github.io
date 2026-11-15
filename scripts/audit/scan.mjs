@@ -24,12 +24,15 @@ fs.mkdirSync(OUT + '/shots', { recursive: true });
 
 const INIT = seed => { try { for (const [k, v] of Object.entries(seed)) if (localStorage.getItem(k) == null) localStorage.setItem(k, v); } catch { /* */ } window.__rej = []; addEventListener('unhandledrejection', e => window.__rej.push(String((e.reason && e.reason.message) || e.reason).slice(0, 200))); };
 const srv = KIND === 'ext' ? null : await serve(ROOT, 0), O = srv ? srv.origin : '';
-const browser = KIND === 'ext' ? null : await chromium.launch({ args: ['--autoplay-policy=no-user-gesture-required'] });
+const ARGS = ['--autoplay-policy=no-user-gesture-required'];
+const browser = KIND === 'ext' ? null : await chromium.launch({ args: ARGS });
+// Điện thoại thật có con trỏ THÔ (@media (pointer: coarse) → --tap 2.8rem, mọi nút ≥ 44px): Playwright hasTouch không bật tính năng đó nên bản 390 từng báo nút 36px mà máy thật đã 44. Trình duyệt riêng cho bản 390 với con trỏ thô.
+const touchBrowser = KIND === 'ext' ? null : await chromium.launch({ args: [...ARGS, '--blink-settings=primaryPointerType=2,availablePointerTypes=2,primaryHoverType=1,availableHoverTypes=1'] });
 const VARIANTS = [{ tag: '390l', w: 390, h: 844, th: 'light' }, { tag: '390d', w: 390, h: 844, th: 'dark' }, { tag: '1440l', w: 1440, h: 900, th: 'light' }, { tag: '1440d', w: 1440, h: 900, th: 'dark' }];
 
 async function context({ w = 390, h = 844, th = 'light', seed = LEARNER, media = true } = {}) {
   const mobile = w < 500;
-  const ctx = await browser.newContext({ ...(mobile ? devices['Pixel 7'] : {}), viewport: { width: w, height: h }, screen: { width: w, height: h }, colorScheme: th, locale: 'en-US', serviceWorkers: 'block' });
+  const ctx = await (mobile ? touchBrowser : browser).newContext({ ...(mobile ? devices['Pixel 7'] : {}), viewport: { width: w, height: h }, screen: { width: w, height: h }, colorScheme: th, locale: 'en-US', serviceWorkers: 'block' });
   await noProd(ctx);
   await ctx.route(u => !u.href.startsWith(O) && !/lexkite\.com$/.test(u.hostname), r => r.fulfill({ status: 204, body: '' }));
   if (!media) await ctx.route(/(media|audio)\.lexkite\.com/, r => r.fulfill({ status: 204, body: '' }));
@@ -168,12 +171,14 @@ async function i18nPage(item) {
   } finally { await ctx.close(); }
   return out;
 }
+// Trang do Worker dựng khi truy cập (từ điển /en/dictionary/<từ>/, /vi/tu-dien/<từ>/: từ ngoài pool vẫn 200 noindex – scripts/dict/links.mjs, test dict-pages) và /api/: máy chủ tĩnh của audit không có → không phải link hỏng thật
+const DYNAMIC = /^\/(?:en\/dictionary|vi\/tu-dien|api)\//;
 async function links(item) {
   const ctx = await context(), page = await ctx.newPage(), bad = [];
   try {
     await go(page, O + item.url);
     const hrefs = await page.evaluate(() => [...new Set([...document.querySelectorAll('a[href^="/"]')].map(a => a.getAttribute('href').split('#')[0]))].slice(0, 50));
-    for (const h of hrefs) { if (!h) continue; const r = await ctx.request.get(O + h, { maxRedirects: 3 }).catch(() => null); if (!r || r.status() >= 400) bad.push(h); }
+    for (const h of hrefs) { if (!h || DYNAMIC.test(h)) continue; const r = await ctx.request.get(O + h, { maxRedirects: 3 }).catch(() => null); if (!r || r.status() >= 400) bad.push(h); }
     return { checked: hrefs.length, bad };
   } catch { return null; } finally { await ctx.close(); }
 }
@@ -245,6 +250,7 @@ else for (const item of list) {
 }
 fs.writeFileSync(path.join(OUT, `data-${KIND}-${SI}.json`), JSON.stringify(results));
 if (browser) await browser.close();
+if (touchBrowser) await touchBrowser.close();
 if (srv && srv.close) srv.close();
 const ok = results.filter(r => !r.fatal).length;
 console.log(`audit ${KIND} ${SI}/${SN}: ${ok}/${results.length} mục đo được`);
