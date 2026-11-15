@@ -80,6 +80,19 @@
       "status": "Đang dùng (02/11/2026 ~10:05Z) – tên miền gắn R2, Worker giữ deploy làm đường lùi; chốt $0 ≥ 90 % (docs/FREE-TIER.md §R2)"
     },
     {
+      "key": "words-r2",
+      "name": "Cloudflare R2 lexkite-words (trang từ điển các ngôn ngữ ngoài en/vi)",
+      "purpose": "Trang /<lang>/words/** của các ngôn ngữ trong content/seo/words-r2.json (docs/specs/words-off-pages.md) – khoá <lang>/words/<slug>.html, sổ _words/manifest.json. Đồng bộ: scripts/seo/words-r2-sync.mjs (workflow words-r2-sync.yml + pages-deploy direct). Đọc qua Pages Function functions/[lang]/words/[[path]].js (binding WORDS, fail-open → Pages tĩnh). Mục đích: dist ≤ 20k file.",
+      "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/r2/default/buckets/lexkite-words",
+      "match": [
+        "lexkite-words"
+      ],
+      "kind": "cdn",
+      "free": "R2 Free chung tài khoản: ≈ 8.200 trang × 52 KB ≈ 0,4 GB; Class A chỉ khi băm đổi; Class B ≪ 10 triệu/tháng nhờ Cache API + s-maxage; +1 lượt Pages Function mỗi lượt xem (free-tier cảnh báo > 50 % trần ngày)",
+      "upgrade": "Functions/ngày > 50 % trần → WORDS_R2=0 / hạ số ngôn ngữ trong words-r2.json (docs/specs/words-off-pages.md §4)",
+      "status": "Đang bật cho ko (15/11/2026); 13 ngôn ngữ sau 3 ngày theo dõi"
+    },
+    {
       "key": "report-shots-r2",
       "name": "Cloudflare R2 lexkite-report-shots (ảnh chụp báo lỗi, riêng tư)",
       "purpose": "Ảnh chụp đính kèm báo lỗi (functions/api/report.js, binding Pages REPORT_SHOTS, khóa report/<id>, nhị phân) – không tên miền công khai; quản trị xem qua URL ký 5 phút /api/report-shot. Xóa 60 ngày sau khi đóng phiếu.",

@@ -304,6 +304,20 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "words-r2-sync",
+   "workflow": "words-r2-sync.yml",
+   "cron": [
+    "35 4 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 8,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "pr-unconflict",
    "workflow": "pr-unconflict.yml",
    "cron": [
@@ -466,6 +480,24 @@ export const REG = {
    "est": {
     "d1_internal_reads": 20000,
     "drive_calls": 1500
+   },
+   "lease": true
+  },
+  {
+   "id": "drive-tidy",
+   "workflow": "drive-tidy.yml",
+   "cron": [
+    "43 7,19 * * *"
+   ],
+   "priority": "archive",
+   "resources": [
+    "drive_pool",
+    "d1_internal"
+   ],
+   "minutes": 5,
+   "est": {
+    "d1_internal_reads": 4000,
+    "drive_calls": 300
    },
    "lease": true
   },

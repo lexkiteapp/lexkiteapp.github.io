@@ -37,12 +37,19 @@ Trước khi chủ bấm: workflow đã có sẵn, không ảnh hưởng gì (ch
 | `web/js/i18n/<lang≠en>`, `web/cpack/lesson/pn-*` | `i18n-pack.mjs` | lấy main + sinh lại |
 | `extension/app/**` | `build-extension.sh` | lấy main + sinh lại |
 | `web/css/st-*.css` | `build-stitch-css.mjs` | lấy main + sinh lại |
+| `web/<lang>/{privacy,terms,schools,credits}.html` | `build-legal.mjs` | lấy main + sinh lại |
+| `scripts/i18n-fixed.json` | người/bot dịch | gộp 3 bên theo khóa rồi theo ngôn ngữ (`merge3Fixed`); cùng ô khác giá trị → người gỡ |
 | `scripts/test/suite.txt`, `docs/INDEX.md` | người, chỉ thêm dòng | union + khử trùng |
 | `i18n/ui/**` | người/bot dịch | gộp 3 bên theo khóa (`merge3`); cùng sửa một khóa → người gỡ |
 | registry (`REGISTRIES`) | người | giữ dòng mục cả hai phía; trùng khóa → người gỡ |
 
-Chưa tự gỡ (xung đột hiếm, cần người): `content/pipeline/score.budget.json`, `targets.json` (sàn chỉ tăng). Tệp sinh mới → thêm vào `TAKE_MAIN`/`REGEN`/`GENERATED` cùng PR.
+Chưa tự gỡ (xung đột hiếm, cần người): `content/pipeline/score.budget.json`, `targets.json` (sàn chỉ tăng). Tệp sinh mới → thêm vào `TAKE_MAIN`/`REGEN`/`GENERATED` cùng PR. Người/phiên pr-fixer dùng `scripts/ci/regen-conflicts.mjs` (cùng luật, chạy cục bộ).
 
 ## Rủi ro
 - Hàng đợi dừng nếu `npm test` chập chờn → lỗi chập chờn phải sửa gốc (ci-triage), không tắt queue.
 - Status `required-gate` trên sha hàng đợi do `GITHUB_TOKEN` của workflow ghi: ruleset không giới hạn nguồn status (đúng như hiện nay), nên được chấp nhận.
+
+## Công cụ gỡ cục bộ: `scripts/ci/regen-conflicts.mjs` (15/11)
+- `node scripts/ci/regen-conflicts.mjs [--base=real/main] [--dry]`: gộp base vào nhánh hiện tại (hoặc tiếp cuộc gộp dở), gỡ theo bảng trên bằng `plan/applySteps/regen` của `pr-unconflict.mjs` (một bộ luật cho bot và người), commit. Không push → sau đó `npm run prepush`, đẩy, `prwatch.py N@<sha>`. Thoát 2 = còn tệp người viết (in danh sách, cuộc gộp để dở); cần `npm ci` nếu có `st-*.css`.
+- `--measure N…` (PR đã fetch `refs/remotes/pr/N`): thống kê tệp xung đột nhiều nhất, không đụng cây làm việc.
+- `scripts/i18n-fixed.json`: khóa sắp, MỖI KHÓA MỘT DÒNG (`scripts/lib/fixed-json.mjs`, gác bởi `fmt-stable.mjs`). Gốc cũ: khóa mới nối cuối tệp → 7/16 PR dirty cùng một chỗ (đo 15/11; phần còn lại chủ yếu `extension/app` + `web/js/i18n` – tệp sinh, bot/công cụ gỡ).
