@@ -52,7 +52,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix: { t: '${{ fromJSON(needs.setup.outputs.list) }}' }
-    env: { SPEC: 'content/video/cine/news/templates-motion/${{ matrix.t }}.json' }
+    env: { SPEC: "content/video/cine/news/${{ startsWith(matrix.t, 'news_') && 'motion' || 'templates-motion' }}/${{ matrix.t }}.json", HOOKS: "${{ startsWith(matrix.t, 'news_') && 'content/video/cine/news/motion/reviewed.json' || 'content/video/cine/news/templates-v1/reviewed-hooks.json' }}" }
     steps:
       - uses: actions/checkout@v4
       - name: Reviewed script + hook verdict present
@@ -92,7 +92,8 @@ jobs:
       fail-fast: false
       matrix: { t: '${{ fromJSON(needs.setup.outputs.list) }}', kind: [short, embed] }   # embed = 16:9 + 4:5 lesson videos from the same data (caption-free plate, VTT)
     env:
-      SPEC: content/video/cine/news/templates-motion/${{ matrix.t }}.json
+      SPEC: content/video/cine/news/${{ startsWith(matrix.t, 'news_') && 'motion' || 'templates-motion' }}/${{ matrix.t }}.json
+      HOOKS: "${{ startsWith(matrix.t, 'news_') && 'content/video/cine/news/motion/reviewed.json' || 'content/video/cine/news/templates-v1/reviewed-hooks.json' }}"
       O: out/motion/${{ matrix.t }}/${{ matrix.kind }}
     steps:
       - uses: actions/checkout@v4

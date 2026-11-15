@@ -1,0 +1,627 @@
+{
+ "_note": "machine-built verdicts for news2motion specs (qc hook_truth: script == rendered script, hook == on-screen hook)",
+ "verdicts": {
+  "mo_news_airplane_cabin_three_b5dc88": {
+   "template": "tip",
+   "hook": "FLYING SOON?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "news bank text (reviewed) via news2motion.py 15/11/2026",
+   "script": {
+    "h": "Flying somewhere soon?",
+    "t0": "Could I get some water, please?",
+    "t1": "Sure, here you go.",
+    "t2": "Would you mind switching seats?",
+    "t3": "Not at all. Go ahead.",
+    "t4": "Is there room in the overhead bin?",
+    "t5": "Yes, right above you.",
+    "r": "Teacher's tip: save these three phrases today.",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_news_bank_three_15d51e": {
+   "template": "tip",
+   "hook": "AT THE BANK?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "news bank text (reviewed) via news2motion.py 15/11/2026",
+   "script": {
+    "h": "Going to the bank?",
+    "t0": "I'd like to open a checking account.",
+    "t1": "Great. Do you have ID?",
+    "t2": "Can I withdraw some cash here?",
+    "t3": "Sure, how much?",
+    "t4": "Is there a fee for that?",
+    "t5": "No, it's free for you.",
+    "t6": "Repeat after me: I'd like to open an account.",
+    "r": "Teacher's tip: save these three phrases today.",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_news_bank_ways_0ea920": {
+   "template": "tip",
+   "hook": "NEED HELP?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "news bank text (reviewed) via news2motion.py 15/11/2026",
+   "script": {
+    "h": "Need some help?",
+    "t0": "Polite: Would you mind helping me out?",
+    "t1": "Neutral: Could you help me, please?",
+    "t2": "Casual: Can you give me a hand?",
+    "t3": "With strangers, use the first two.",
+    "t4": "Give me a hand is great with friends.",
+    "r": "Teacher's tip: save all three and pick your style.",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_news_bookstore_fix_a59145": {
+   "template": "mistake",
+   "hook": "STOP SAYING THIS",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "news bank text (reviewed) via news2motion.py 15/11/2026",
+   "script": {
+    "h": "Stop saying this!",
+    "b0": "In a bookstore, many learners say: I'm looking a book.",
+    "b1": "Pause and guess. Which small word is missing?",
+    "b2": "Say: I'm looking for a book.",
+    "b3": "Look for means try to find. It needs for.",
+    "b4": "Are you trying to find a book? Yes. So, look for.",
+    "b5": "Repeat after me: I'm looking for a book.",
+    "b6": "Now at normal speed: I'm looking for a book.",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_news_classroom_fix_0f9226": {
+   "template": "mistake",
+   "hook": "DO YOU SAY THIS?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "news bank text (reviewed) via news2motion.py 15/11/2026",
+   "script": {
+    "h": "Do you say this?",
+    "b0": "A lot of learners say: I am agree.",
+    "b1": "Just say: I agree.",
+    "b2": "I agree with you.",
+    "b3": "I don't agree with that.",
+    "b4": "So no am before agree.",
+    "b5": "Repeat after me: I agree.",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_news_clothing_store_ab_b20f1c": {
+   "template": "drill",
+   "hook": "TRY ON IT?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "news bank text (reviewed) via news2motion.py 15/11/2026",
+   "script": {
+    "h": "Try on it? Hmm.",
+    "q": "Which one sounds natural?",
+    "o": "Is it A: Can I try on it?? Or B: Can I try it on??",
+    "a": "It's B. Can I try it on?",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_news_coffee_counter_three_e0b1b7": {
+   "template": "tip",
+   "hook": "ORDERING COFFEE?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "news bank text (reviewed) via news2motion.py 15/11/2026",
+   "script": {
+    "h": "Ordering coffee today?",
+    "t0": "Can I get a medium latte, please?",
+    "t1": "Sure. Anything else?",
+    "t2": "Could I get that to go?",
+    "t3": "No problem.",
+    "t4": "Can I pay by card?",
+    "t5": "Yes, just tap here.",
+    "r": "Teacher's tip: save these three phrases today.",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_news_daily_embarrass_c1a128": {
+   "template": "mistake",
+   "hook": "DON'T SAY THIS",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "news bank text (reviewed) via news2motion.py 15/11/2026",
+   "script": {
+    "h": "Don't embarrass yourself",
+    "b0": "Many learners say: If I will be rich, I would travel.",
+    "b1": "Pause and guess. What sounds right?",
+    "b2": "Say: If I were rich, I would travel.",
+    "b3": "For dreams, use if plus past, then would.",
+    "b4": "Is 'If I will be rich, I would travel' correct? No.",
+    "b5": "Repeat after me: If I were rich, I would travel.",
+    "b6": "Now at normal speed: If I were rich, I would travel.",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_news_exam_hall_three_2df2cf": {
+   "template": "tip",
+   "hook": "IELTS SPEAKING?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "news bank text (reviewed) via news2motion.py 15/11/2026",
+   "script": {
+    "h": "IELTS Speaking test soon?",
+    "t0": "That's an interesting question.",
+    "t1": "Then answer, don't pause.",
+    "t2": "To be honest, I prefer the city.",
+    "t3": "Good, now add a reason.",
+    "t4": "For example, there's more to do.",
+    "t5": "That makes your answer longer.",
+    "t6": "Repeat after me: Interesting question.",
+    "r": "Teacher's tip: save these three phrases today.",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_news_exam_ninety_d9514a": {
+   "template": "mistake",
+   "hook": "90% GET THIS WRONG",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "news bank text (reviewed) via news2motion.py 15/11/2026",
+   "script": {
+    "h": "90% get this wrong.",
+    "b0": "Many learners say: The number of student are increasing.",
+    "b1": "Pause and guess. What sounds right?",
+    "b2": "Say: The number of students is increasing.",
+    "b3": "The number takes is. A number takes are.",
+    "b4": "Is 'The number of student are increasing' correct? No.",
+    "b5": "Repeat after me: The number of students is increasing.",
+    "b6": "Now at normal speed: The number of students is increasing.",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_news_food_natives_35f2ef": {
+   "template": "mistake",
+   "hook": "NATIVES NEVER SAY",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "news bank text (reviewed) via news2motion.py 15/11/2026",
+   "script": {
+    "h": "Natives never say this",
+    "b0": "Many learners say: Let's divide the bill.",
+    "b1": "Pause and guess. What sounds right?",
+    "b2": "Say: Let's split the bill.",
+    "b3": "For sharing a cost, we say split the bill.",
+    "b4": "Is 'Let's divide the bill' correct? No.",
+    "b5": "Repeat after me: Let's split the bill.",
+    "b6": "Now at normal speed: Let's split the bill.",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_news_gym_ab_a76472": {
+   "template": "drill",
+   "hook": "MAKE OR DO?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "news bank text (reviewed) via news2motion.py 15/11/2026",
+   "script": {
+    "h": "Make or do?",
+    "q": "Which one sounds natural?",
+    "o": "Is it A: I do yoga? Or B: I make yoga?",
+    "a": "It's A. I do yoga every morning.",
+    "w": "You also do homework and do the dishes.",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_news_health_which_b3d3f4": {
+   "template": "mistake",
+   "hook": "WHICH IS CORRECT?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "news bank text (reviewed) via news2motion.py 15/11/2026",
+   "script": {
+    "h": "Which is correct?",
+    "b0": "Many learners say: I can't cope stress.",
+    "b1": "Pause and guess. What sounds right?",
+    "b2": "Say: I can't cope with stress.",
+    "b3": "Cope needs with before the problem.",
+    "b4": "Is 'I can't cope stress' correct? No.",
+    "b5": "Repeat after me: I can't cope with stress.",
+    "b6": "Now at normal speed: I can't cope with stress.",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_news_home_guess_867e72": {
+   "template": "mistake",
+   "hook": "GUESS FIRST",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "news bank text (reviewed) via news2motion.py 15/11/2026",
+   "script": {
+    "h": "Guess before I tell you",
+    "b0": "Many learners say: Take an umbrella if it rains.",
+    "b1": "Pause and guess. What sounds right?",
+    "b2": "Say: Take an umbrella in case it rains.",
+    "b3": "In case means: be ready, just to be safe.",
+    "b4": "Is 'Take an umbrella if it rains' correct? No.",
+    "b5": "Repeat after me: Take an umbrella in case it rains.",
+    "b6": "Now at normal speed: Take an umbrella in case it rains.",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_news_hotel_room_night_three_3c01b9": {
+   "template": "tip",
+   "hook": "HOTEL PROBLEM?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "news bank text (reviewed) via news2motion.py 15/11/2026",
+   "script": {
+    "h": "Need help at the hotel?",
+    "t0": "Could I get a late checkout?",
+    "t1": "Sure, until noon is fine.",
+    "t2": "The Wi-Fi isn't working in my room.",
+    "t3": "Sorry about that. I'll reset it.",
+    "t4": "Could I get some extra towels?",
+    "t5": "Of course. I'll send some up.",
+    "t6": "Repeat after me: The Wi-Fi isn't working.",
+    "r": "Teacher's tip: save these three phrases today.",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_news_kitchen_ab_a30db6": {
+   "template": "drill",
+   "hook": "MAKE OR DO?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "news bank text (reviewed) via news2motion.py 15/11/2026",
+   "script": {
+    "h": "Dinner: make or do?",
+    "q": "Which one sounds natural?",
+    "o": "Is it A: I'll do dinner? Or B: I'll make dinner?",
+    "a": "It's B. I'll make dinner tonight.",
+    "w": "You also make coffee and make a cake.",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_news_library_ab_a843c0": {
+   "template": "drill",
+   "hook": "BORROW OR LEND?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "news bank text (reviewed) via news2motion.py 15/11/2026",
+   "script": {
+    "h": "Borrow or lend?",
+    "q": "Which one sounds natural?",
+    "o": "Is it A: Can I borrow your pen?? Or B: Can I lend your pen??",
+    "a": "It's A. Can I borrow your pen?",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_news_living_room_fix_8c570f": {
+   "template": "mistake",
+   "hook": "VERY LIKE?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "news bank text (reviewed) via news2motion.py 15/11/2026",
+   "script": {
+    "h": "Do you say very like?",
+    "b0": "A lot of learners say: I very like it.",
+    "b1": "Say: I really like it.",
+    "b2": "Or: I like it a lot.",
+    "b3": "Very goes with adjectives: very good.",
+    "b4": "Really before verbs, very before adjectives.",
+    "b5": "Repeat after me: I really like it.",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_news_living_room_ways_0b506e": {
+   "template": "tip",
+   "hook": "SAY NO NICELY",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "news bank text (reviewed) via news2motion.py 15/11/2026",
+   "script": {
+    "h": "How do you say no?",
+    "t0": "Polite: I'd love to, but I can't.",
+    "t1": "Neutral: Sorry, I can't make it.",
+    "t2": "Casual: Can't tonight. Maybe next time!",
+    "t3": "Use the first one with your boss.",
+    "t4": "Save the casual one for friends.",
+    "t5": "Repeat after me: I'd love to, but I can't.",
+    "r": "Teacher's tip: save all three and pick your style.",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_news_meeting_room_fix_5d50a6": {
+   "template": "mistake",
+   "hook": "STOP SAYING THIS",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "news bank text (reviewed) via news2motion.py 15/11/2026",
+   "script": {
+    "h": "Stop saying this at work.",
+    "b0": "People often say: let's discuss about the plan.",
+    "b1": "Say: let's discuss the plan.",
+    "b2": "We need to discuss the budget.",
+    "b3": "But you can talk about the budget.",
+    "b4": "Discuss something, talk about something.",
+    "b5": "Repeat after me: Let's discuss the plan.",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_news_meeting_room_ways_23140c": {
+   "template": "tip",
+   "hook": "DISAGREE NICELY?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "news bank text (reviewed) via news2motion.py 15/11/2026",
+   "script": {
+    "h": "How do you disagree?",
+    "t0": "Polite: I see your point, but I'm not sure.",
+    "t1": "Neutral: I'm not sure about that.",
+    "t2": "Casual: Hmm, I don't think so.",
+    "t3": "In meetings, start with the first one.",
+    "t4": "With close coworkers, the others are fine.",
+    "t5": "Repeat after me: I'm not sure about that.",
+    "r": "Teacher's tip: save all three and pick your style.",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_news_metro_station_three_4b67fc": {
+   "template": "tip",
+   "hook": "SUBWAY LOST?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "news bank text (reviewed) via news2motion.py 15/11/2026",
+   "script": {
+    "h": "Lost on the subway?",
+    "t0": "Which line goes downtown?",
+    "t1": "Take the red line.",
+    "t2": "Where do I transfer?",
+    "t3": "At Central Station.",
+    "t4": "How many stops is it?",
+    "t5": "It's about five stops.",
+    "r": "Teacher's tip: save these three phrases today.",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_news_park_ab_18caee": {
+   "template": "drill",
+   "hook": "IN OR ON?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "news bank text (reviewed) via news2motion.py 15/11/2026",
+   "script": {
+    "h": "In or on? Quick test.",
+    "q": "Which one sounds natural?",
+    "o": "Is it A: I run in the morning? Or B: I run on the morning?",
+    "a": "It's A. I run in the morning.",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_news_pharmacy_three_974c28": {
+   "template": "tip",
+   "hook": "AT THE PHARMACY?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "news bank text (reviewed) via news2motion.py 15/11/2026",
+   "script": {
+    "h": "Feeling sick today?",
+    "t0": "I need something for a headache.",
+    "t1": "Try this. It works fast.",
+    "t2": "Do I need a prescription for this?",
+    "t3": "No, you can buy it here.",
+    "t4": "How often should I take it?",
+    "t5": "Every six hours, with food.",
+    "r": "Teacher's tip: save these three phrases today.",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_news_restaurant_night_pov_9ad922": {
+   "template": "tip",
+   "hook": "ORDER POLITELY?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "news bank text (reviewed) via news2motion.py 15/11/2026",
+   "script": {
+    "h": "Can you order politely?",
+    "t0": "The server asks: Ready to order? Many learners say: I want salmon.",
+    "t1": "Pause and guess. What sounds more polite?",
+    "t2": "Say: I'll have the salmon, please.",
+    "t3": "I want sounds rude here. I'll have sounds friendly.",
+    "t4": "Is 'I want salmon' polite to a server? No.",
+    "t5": "Repeat after me: I'll have the salmon, please.",
+    "t6": "Now at normal speed: I'll have the salmon, please.",
+    "r": "Teacher's tip: save these lines.",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_news_shopping_stop_8cf065": {
+   "template": "mistake",
+   "hook": "STOP SAYING THIS",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "news bank text (reviewed) via news2motion.py 15/11/2026",
+   "script": {
+    "h": "Stop saying this.",
+    "b0": "Many learners say: I'm considering to buy a car.",
+    "b1": "Pause and guess. What sounds right?",
+    "b2": "Say: I'm considering buying a car.",
+    "b3": "After consider, use the -ing form.",
+    "b4": "Is 'I'm considering to buy a car' correct? No.",
+    "b5": "Repeat after me: I'm considering buying a car.",
+    "b6": "Now at normal speed: I'm considering buying a car.",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_news_social_instead_c6ce7f": {
+   "template": "mistake",
+   "hook": "SAY THIS INSTEAD",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "news bank text (reviewed) via news2motion.py 15/11/2026",
+   "script": {
+    "h": "Say this instead",
+    "b0": "Many learners say: Your phone is very class.",
+    "b1": "Pause and guess. What sounds right?",
+    "b2": "Say: Your phone is very classy.",
+    "b3": "Class is a noun. Classy means stylish.",
+    "b4": "Is 'Your phone is very class' correct? No.",
+    "b5": "Repeat after me: Your phone is very classy.",
+    "b6": "Now at normal speed: Your phone is very classy.",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_news_street_dusk_fix_ee2b2c": {
+   "template": "mistake",
+   "hook": "SAID ME?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "news bank text (reviewed) via news2motion.py 15/11/2026",
+   "script": {
+    "h": "She said me? No.",
+    "b0": "People often say: she said me the news.",
+    "b1": "Say: she told me the news.",
+    "b2": "She said that it was late.",
+    "b3": "He told me to wait here.",
+    "b4": "Tell someone, say something.",
+    "b5": "Repeat after me: She told me the news.",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_news_supermarket_fix_155f6a": {
+   "template": "mistake",
+   "hook": "HOW MUCH?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "news bank text (reviewed) via news2motion.py 15/11/2026",
+   "script": {
+    "h": "How much is this?",
+    "b0": "Many learners ask: how much it cost?",
+    "b1": "Say: how much does it cost?",
+    "b2": "How much do these apples cost?",
+    "b3": "Or just say: how much is it?",
+    "b4": "Does for it, do for they.",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_news_taxi_interior_ab_4828ed": {
+   "template": "drill",
+   "hook": "IN OR ON?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "news bank text (reviewed) via news2motion.py 15/11/2026",
+   "script": {
+    "h": "Taxi: in or on?",
+    "q": "Which one sounds natural?",
+    "o": "Is it A: I got in the taxi? Or B: I got on the taxi?",
+    "a": "It's A. I got in the taxi.",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_news_travel_instead_e5324d": {
+   "template": "mistake",
+   "hook": "SAY THIS INSTEAD",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "news bank text (reviewed) via news2motion.py 15/11/2026",
+   "script": {
+    "h": "Say this instead",
+    "b0": "Many learners say: time-TA-ble",
+    "b1": "Pause and guess. What sounds right?",
+    "b2": "Say: TIME-ta-ble",
+    "b3": "Stress the first part: TIME.",
+    "b4": "Is 'time-TA-ble' correct? No.",
+    "b5": "Repeat after me: TIME-ta-ble",
+    "b6": "Now at normal speed: TIME-ta-ble",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_news_travel_natives_fd1239": {
+   "template": "mistake",
+   "hook": "NATIVES NEVER SAY",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "news bank text (reviewed) via news2motion.py 15/11/2026",
+   "script": {
+    "h": "Natives never say this.",
+    "b0": "Many learners say: I want a two-bed room, please.",
+    "b1": "Pause and guess. What sounds right?",
+    "b2": "Say: I'd like a twin room, please.",
+    "b3": "Two single beds in a hotel? That's a twin room.",
+    "b4": "Is 'I want a two-bed room, please' correct? No.",
+    "b5": "Repeat after me: I'd like a twin room, please.",
+    "b6": "Now at normal speed: I'd like a twin room, please.",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_news_waiting_room_ways_7b5d0d": {
+   "template": "tip",
+   "hook": "SEE A DOCTOR?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "news bank text (reviewed) via news2motion.py 15/11/2026",
+   "script": {
+    "h": "Need to see a doctor?",
+    "t0": "You call the doctor's office. Many learners say: I want a doctor.",
+    "t1": "Pause and guess. What sounds polite?",
+    "t2": "Say: I'd like to make an appointment, please.",
+    "t3": "I'd like is soft. It sounds polite.",
+    "t4": "Is 'I want a doctor' polite on the phone? No.",
+    "t5": "Repeat after me: I'd like to make an appointment, please.",
+    "t6": "Now at normal speed: I'd like to make an appointment, please.",
+    "r": "Teacher's tip: save these lines.",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_news_work_which_e10d3a": {
+   "template": "mistake",
+   "hook": "WHICH IS CORRECT?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "news bank text (reviewed) via news2motion.py 15/11/2026",
+   "script": {
+    "h": "Which is correct?",
+    "b0": "Many learners say: I met her three years before.",
+    "b1": "Pause and guess. What sounds right?",
+    "b2": "Say: I met her three years ago.",
+    "b3": "Ago counts back from now.",
+    "b4": "Is 'I met her three years before' correct? No.",
+    "b5": "Repeat after me: I met her three years ago.",
+    "b6": "Now at normal speed: I met her three years ago.",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  }
+ }
+}

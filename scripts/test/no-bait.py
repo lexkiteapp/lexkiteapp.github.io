@@ -23,5 +23,6 @@ else:
     import tempfile; d = tempfile.mkdtemp()
     r = subprocess.run([sys.executable, f'{ROOT}/scripts/cine/news_kit_preview.py', d], capture_output=True, text=True); ok(r.returncode == 0, 'news_kit_preview failed: ' + r.stderr[-300:])
     ok(all(os.path.getsize(f'{d}/{n}-new.png') > 20000 for n in ('wordcheck', 'fix', 'tip')) if r.returncode == 0 else True, 'preview stills empty')
+r = subprocess.run([sys.executable, f'{ROOT}/scripts/video/motion/news2motion.py', '--check'], capture_output=True, text=True); ok(r.returncode == 0, 'news2motion specs stale (run scripts/video/motion/news2motion.py): ' + r.stdout[-200:])
 if fails: print('\n'.join('FAIL ' + f for f in fails)); sys.exit(1)
 print('no-bait: ok')
