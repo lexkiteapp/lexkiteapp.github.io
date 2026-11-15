@@ -128,6 +128,8 @@ export function violations(file, src) {
   for (const j of jobs(src)) if (usesPlaywright(j.text) && badRunner(j.text)) out.push(`${file}: luật 14 – job "${j.id}" dùng Playwright/Chromium mà runs-on không phải vars.PW_RUNNER (mặc định ubuntu-24.04; ubuntu-latest = 26.04, Playwright chưa hỗ trợ, 13/11)`);
   for (const j of jobs(src)) if (!/^    uses:/m.test(j.text) && !/^    timeout-minutes:/m.test(j.text)) out.push(`${file}: job "${j.id}" thiếu timeout-minutes`);
   const cg = (src.match(/^concurrency:.*$/m) || [''])[0]; if (/\binputs\.(templates|lessons|eps|ids|list)\b/.test(cg) && !reason(src, 'group-inputs')) out.push(`${file}: concurrency.group nhúng cả danh sách input (templates/lessons/eps/ids) – danh sách dài làm lượt dispatch lỗi 0 job (video-motion 15/11); dùng github.run_id hoặc ghi "# ci-policy: group-inputs – <lý do>"`);
+  // 15/11 (luật chủ 13/11: video ≤ 3 máy khi còn việc khác): ma trận của workflow video/dựng phim PHẢI có max-parallel – 10 job video-motion từng chiếm 10/40 máy, 260 job PR xếp hàng
+  if (/^(video|cine|teach)-/.test(file)) for (const j of jobs(src)) if (/^\s+strategy:/m.test(j.text) && /\bmatrix:/.test(j.text) && !/max-parallel:/.test(j.text) && !reason(j.text, 'no-max-parallel')) out.push(`${file}: job "${j.id}" có matrix mà thiếu strategy.max-parallel (video chiếm hết máy; hoặc dòng "# ci-policy: no-max-parallel – <lý do>")`);
   const hasConc = /^concurrency:/m.test(src) || jobs(src).some(j => /^    concurrency:/m.test(j.text));
   const auto = AUTO.filter(e => t.events.has(e));
   if (!hasConc && auto.length) out.push(`${file}: chạy tự động (${auto.join(', ')}) mà thiếu concurrency`);

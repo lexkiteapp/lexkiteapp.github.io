@@ -166,6 +166,21 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "video-junk",
+   "workflow": "video-junk.yml",
+   "cron": [
+    "37 5 * * 0"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 15,
+   "est": {},
+   "lease": false,
+   "_note": "Dọn artifact Actions video rác (failed-run / superseded / gone-episode); lịch chỉ dry-run + manifest, xoá thật chỉ khi chạy tay apply=true (docs/VIDEO-STORAGE.md)"
+  },
+  {
    "id": "capacity-watch",
    "workflow": "capacity-watch.yml",
    "cron": [
@@ -285,6 +300,20 @@ export const REG = {
     "gh_minutes"
    ],
    "minutes": 3,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "words-r2-sync",
+   "workflow": "words-r2-sync.yml",
+   "cron": [
+    "35 4 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 8,
    "est": {},
    "lease": false
   },
@@ -451,6 +480,24 @@ export const REG = {
    "est": {
     "d1_internal_reads": 20000,
     "drive_calls": 1500
+   },
+   "lease": true
+  },
+  {
+   "id": "drive-tidy",
+   "workflow": "drive-tidy.yml",
+   "cron": [
+    "43 7,19 * * *"
+   ],
+   "priority": "archive",
+   "resources": [
+    "drive_pool",
+    "d1_internal"
+   ],
+   "minutes": 5,
+   "est": {
+    "d1_internal_reads": 4000,
+    "drive_calls": 300
    },
    "lease": true
   },
@@ -1335,6 +1382,20 @@ export const REG = {
     "grabcast_text": 300
    },
    "lease": false
+  },
+  {
+   "id": "funnel-digest",
+   "workflow": "funnel-digest.yml",
+   "cron": [
+    "5 1 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 1,
+   "lease": false,
+   "_note": "14/11: tóm tắt phễu tăng trưởng 1 tin/ngày (08:05 VN) → issue growth-funnel; 1 GET /api/funnel-digest (chỉ đọc D1, đệm), không ghi"
   },
   {
    "id": "ci-queue-report",

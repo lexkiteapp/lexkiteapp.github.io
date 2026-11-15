@@ -123,6 +123,7 @@
 .day-steps a.ok{border-color:var(--good)}.day-steps a.next{border:2px solid var(--primary);box-shadow:0 3px 0 color-mix(in srgb,var(--primary) 40%,transparent)}
 .day-steps .ds-em{font-size:1.5rem;width:2rem;text-align:center;flex:none}.day-steps .ds-min{margin-left:auto;font-size:.8rem;color:var(--muted);flex:none}
 .day-hero{display:flex;gap:1rem;align-items:center}.day-hero .dh-n{flex:none;width:72px;height:72px;border-radius:22px;display:grid;place-items:center;color:#fff;font-weight:800;font-size:1.6rem;background:var(--sc,var(--primary))}
+.day-v2 .lv-card{flex-direction:column;align-items:stretch;gap:.5rem}.day-v2 .lv-card img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:12px}.day-v2 .lv-card .lv-play{position:absolute;inset-inline-end:1.2rem;top:calc(50% - 1.2rem)}.day-v2 .lv-card{position:relative}
 @media (prefers-reduced-motion:reduce){.node.current{animation:none}}`;
     document.head.appendChild(s);
   }
