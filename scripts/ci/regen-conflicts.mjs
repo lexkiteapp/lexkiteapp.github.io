@@ -14,7 +14,7 @@ import { plan, applySteps, regen } from '../pr-unconflict.mjs';
 
 const arg = k => (process.argv.find(a => a.startsWith(`--${k}=`)) || '').split('=')[1];
 const flag = k => process.argv.includes(`--${k}`);
-const git = (...a) => execFileSync('git', a, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
+const git = (...a) => execFileSync('git', a, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'], maxBuffer: 1 << 28 }).trim();
 const tryGit = (...a) => { try { return { ok: true, out: git(...a) }; } catch (e) { return { ok: false, out: String(e.stdout || '') + String(e.stderr || '') }; } };
 const unmerged = () => git('diff', '--name-only', '--diff-filter=U').split('\n').filter(Boolean);
 const base = arg('base') || 'real/main';
