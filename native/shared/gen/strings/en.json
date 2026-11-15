@@ -247,6 +247,8 @@
   "lesson.story.lookup": "Looking up “{w}”…",
   "lesson.story.notFound": "No results for “{w}”.",
   "lesson.hint": "Hint",
+  "lesson.q.buildListen": "Listen, then build the sentence",
+  "lesson.card.word": "Word: {w}",
   "rev.noFlashcardsYet": "No flashcards yet",
   "rev.addWordsFromThe": "Add words from the library or look them up in the dictionary to get started.",
   "rev.openLibrary": "Open library",

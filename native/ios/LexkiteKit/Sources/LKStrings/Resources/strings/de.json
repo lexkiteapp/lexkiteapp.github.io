@@ -247,6 +247,8 @@
   "lesson.story.lookup": "Suche nach „{w}“…",
   "lesson.story.notFound": "Keine Ergebnisse für „{w}“.",
   "lesson.hint": "Tipp",
+  "lesson.q.buildListen": "Hör zu und bilde den Satz",
+  "lesson.card.word": "Wort: {w}",
   "rev.noFlashcardsYet": "Noch keine Karten",
   "rev.addWordsFromThe": "Fügen Sie Wörter aus der Bibliothek hinzu oder schlagen Sie sie im Wörterbuch nach, um loszulegen.",
   "rev.openLibrary": "Bibliothek öffnen",

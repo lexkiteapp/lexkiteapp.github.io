@@ -251,6 +251,8 @@ enum class L10nKey(val id: String) {
     lessonStoryLookup("lesson.story.lookup"),
     lessonStoryNotFound("lesson.story.notFound"),
     lessonHint("lesson.hint"),
+    lessonQBuildListen("lesson.q.buildListen"),
+    lessonCardWord("lesson.card.word"),
     revNoFlashcardsYet("rev.noFlashcardsYet"),
     revAddWordsFromThe("rev.addWordsFromThe"),
     revOpenLibrary("rev.openLibrary"),
