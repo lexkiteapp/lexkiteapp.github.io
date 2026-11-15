@@ -5,12 +5,14 @@ import fs from 'fs'; import path from 'path';
 const D = process.argv[2] || 'dist', ORIGIN = 'https://lexkite.com';
 if (!fs.existsSync(path.join(D, 'sitemap.xml'))) { console.log(`⚠ seo-sitemap: không có ${D}/sitemap.xml (chưa build) – bỏ qua`); process.exit(0); }
 const locs = x => [...x.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
-const rd = f => fs.readFileSync(path.join(D, f), 'utf8');
+const W = process.argv[3] || 'dist-words'; // trang từ ở R2 (docs/specs/words-off-pages.md): dist-words/ – kiểm cùng luật, không nằm trong dist
+const root = f => (fs.existsSync(path.join(D, f)) || !fs.existsSync(path.join(W, f)) ? D : W);
+const rd = f => fs.readFileSync(path.join(root(f), f), 'utf8');
 let files = ['sitemap.xml'], urls = [];
 const ext = []; // sitemap do Worker phục vụ (sitemap-dict-*: dict-pages.mjs + live-audit.mjs kiểm) – không có trong dist
 for (const f of files) { if (!fs.existsSync(path.join(D, f))) { ext.push(f); continue; } const x = rd(f); if (x.includes('<sitemapindex')) files.push(...locs(x).map(u => u.replace(ORIGIN + '/', ''))); else urls.push(...[...x.matchAll(/<url>([\s\S]*?)<\/url>/g)].map(m => m[1])); }
 const hdr = fs.existsSync(path.join(D, '_headers')) ? rd('_headers') : '';
-const fileFor = u => { const p = decodeURI(u.replace(ORIGIN, '')).replace(/^\//, ''); return [p + (p && !p.endsWith('/') ? '' : 'index.html'), p + '.html', p + '/index.html'].map(x => x.replace('//', '/')).find(x => x && fs.existsSync(path.join(D, x)) && fs.statSync(path.join(D, x)).isFile()); };
+const fileFor = u => { const p = decodeURI(u.replace(ORIGIN, '')).replace(/^\//, ''); return [p + (p && !p.endsWith('/') ? '' : 'index.html'), p + '.html', p + '/index.html'].map(x => x.replace('//', '/')).find(x => x && [D, W].some(r => fs.existsSync(path.join(r, x)) && fs.statSync(path.join(r, x)).isFile())); };
 const bad = []; let n = 0;
 for (const b of urls) {
   const u = locs(b)[0]; n++;
