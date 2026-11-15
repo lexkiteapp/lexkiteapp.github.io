@@ -11,6 +11,7 @@
 import fs from 'fs';
 import crypto from 'crypto';
 import { pathToFileURL } from 'url';
+import { writeFixed } from './lib/fixed-json.mjs';
 
 export const LANGS = ['ar', 'de', 'es', 'fr', 'hi', 'id', 'ja', 'ko', 'pt', 'ru', 'th', 'tr', 'zh'];
 export const GATE = { avg: 4.3, min: 3.5 };
@@ -177,7 +178,7 @@ async function main(argv) {
       for (let i = 0; i < low.length && !late(); i += 8) {
         const ok = await fixBatch(AI, lang, low.slice(i, i + 8), old);
         for (const [vi, v] of Object.entries(ok)) { (fixed[lang] = fixed[lang] || {})[vi] = { l1: v.l1, s: v.s, en: hash(en[vi]) }; mine[v.h] = v.r; }
-        fs.writeFileSync(part, JSON.stringify(mine)); fs.writeFileSync(FIXED, JSON.stringify(fixed, null, 1) + '\n');
+        fs.writeFileSync(part, JSON.stringify(mine)); writeFixed(FIXED, fixed);
         if (Object.keys(ok).length) console.log(`  ${lang}: sửa ${Object.keys(ok).length}`);
       }
     }

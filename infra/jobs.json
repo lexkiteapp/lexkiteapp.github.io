@@ -284,6 +284,20 @@
    "lease": false
   },
   {
+   "id": "words-r2-sync",
+   "workflow": "words-r2-sync.yml",
+   "cron": [
+    "35 4 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 8,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "pr-unconflict",
    "workflow": "pr-unconflict.yml",
    "cron": [

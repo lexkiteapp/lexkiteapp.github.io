@@ -1,6 +1,6 @@
 {
  "found": {
-  "n": "الفعل found يعني يؤسس، وصيغته الماضية founded، فلا تخلطه مع found الماضي من find التي تعني وجد. يأتي غالبًا مع شركة أو مؤسسة أو مدينة: found a company. وعبارة founded in تُستعمل مع السنة، مثل founded in 1990. أما founder فهي المؤسس. وfound أرسمى من start أو set up، ويناسب الكيانات التي يُراد لها الدوام كالشركات والمدارس والجمعيات.",
+  "n": "الفعل found يعني يؤسس، وصيغته الماضية founded، فلا تخلطه مع found الماضي من find التي تعني وجد. يأتي غالبًا مع شركة أو مؤسسة أو مدينة: found a company. وعبارة founded in تُستعمل مع السنة، مثل founded in 1990. أما founder فهي المؤسس. وfound أكثر رسمية من start أو set up، ويناسب الكيانات التي يُراد لها الدوام كالشركات والمدارس والجمعيات.",
   "x": [
    [
     "She founded a small software company with two friends from university.",
@@ -741,7 +741,7 @@
   ]
  },
  "intervene": {
-  "n": "الفعل intervene لازم، فلا يأخذ مفعولًا به، ويأتي حرف الجر in قبل الأمر الذي نتدخل فيه: intervene in a dispute. ويمكن أن يأتي بعده to + فعل: intervene to stop a fight. ونقول intervene between لشخصين متخاصمين. والاسم intervention، كما في military intervention وearly intervention. وهو أرسمى من get involved، ويوحي غالبًا بتدخل يهدف إلى منع ضرر أو حل مشكلة.",
+  "n": "الفعل intervene لازم، فلا يأخذ مفعولًا به، ويأتي حرف الجر in قبل الأمر الذي نتدخل فيه: intervene in a dispute. ويمكن أن يأتي بعده to + فعل: intervene to stop a fight. ونقول intervene between لشخصين متخاصمين. والاسم intervention، كما في military intervention وearly intervention. وهو أكثر رسمية من get involved، ويوحي غالبًا بتدخل يهدف إلى منع ضرر أو حل مشكلة.",
   "x": [
    [
     "The teacher had to intervene when the argument became too loud.",
@@ -1036,6 +1036,331 @@
    [
     "There is no logic in buying a car that you cannot afford to drive.",
     "لا منطق في شراء سيارة لا تستطيع تحمل تكاليف قيادتها."
+   ]
+  ]
+ },
+ "motive": {
+  "n": "كلمة motive تعني الدافع الذي يقف وراء فعل ما، وغالبًا ما تُستعمل مع الجرائم والتحقيقات: the motive for the crime. التعبير الشائع motive for أو behind، وليس motive to. لا تخلطها بـ motivation التي تدل على الحماس والرغبة في الإنجاز، فنقول: low motivation لا low motive. ومن التعابير المفيدة ulterior motive أي دافع خفي، وprofit motive أي دافع الربح. وانتبه إلى أن النطق يكون MO-tiv بنبرة على المقطع الأول.",
+  "x": [
+   [
+    "The police could not find a clear motive for the robbery.",
+    "لم تستطع الشرطة العثور على دافع واضح للسرقة."
+   ],
+   [
+    "Her motive for moving abroad was simply to learn a new language.",
+    "كان دافعها للانتقال إلى الخارج ببساطة أن تتعلم لغة جديدة."
+   ]
+  ]
+ },
+ "psychology": {
+  "n": "في كلمة psychology لا يُنطق حرف p في البداية، فتُقرأ sai-KOL-uh-jee. وهي اسم غير معدود يدل على العلم نفسه، فلا نقول a psychology إلا حين نقصد النظام النفسي لفئة ما، كما في the psychology of teenagers. الشخص المختص هو psychologist، والصفة psychological. ولا تخلطها بـ psychiatry، فالطبيب النفسي psychiatrist يصف الأدوية، بينما يعالج psychologist عادةً بالحوار والعلاج السلوكي.",
+  "x": [
+   [
+    "She studied psychology at university before becoming a teacher.",
+    "درست علم النفس في الجامعة قبل أن تصبح معلمة."
+   ],
+   [
+    "The psychology of fear explains why people avoid public speaking.",
+    "يفسّر علم نفس الخوف سبب تجنب الناس للحديث أمام الجمهور."
+   ]
+  ]
+ },
+ "brief": {
+  "n": "الصفة brief تعني قصيرًا في المدة أو في الكلام، وتُقرأ breef بصوت ياء طويل، فلا تنطق ie كما في كلمة pie. تأتي قبل الاسم كثيرًا: a brief meeting وa brief statement، وتُستعمل بعد الفعل بقلة. وعبارة in brief تعني باختصار. وbrief تعمل أيضًا اسمًا وفعلًا، ومنها to brief someone أي يطلع شخصًا على المستجدات. وهي أكثر رسمية قليلًا من short، وكثيرًا ما تُقال في التقارير والأخبار.",
+  "x": [
+   [
+    "The manager gave a brief summary of the results.",
+    "قدّم المدير ملخصًا موجزًا للنتائج."
+   ],
+   [
+    "After a brief pause, he continued his speech.",
+    "بعد توقف قصير واصل خطابه."
+   ]
+  ]
+ },
+ "diminish": {
+  "n": "الفعل diminish رسمي يعني أن يصغر الشيء أو تقل قيمته، ويصلح لازمًا ومتعديًا: his influence diminished، أو diminish the risk. وتُقرأ di-MIN-ish بنبرة على المقطع الثاني. ومن الشائع استعماله في الأسلوب الأكاديمي مع أسماء مجردة كالأهمية والقيمة والتأثير. والعبارة المعروفة diminishing returns تعني تناقص العائد. وفي الحديث اليومي نفضّل get smaller أو go down لأنها أبسط.",
+  "x": [
+   [
+    "Regular exercise can diminish the risk of heart disease.",
+    "قد تقلل التمارين المنتظمة من خطر الإصابة بأمراض القلب."
+   ],
+   [
+    "The value of the old currency began to diminish quickly.",
+    "بدأت قيمة العملة القديمة تتراجع بسرعة."
+   ]
+  ]
+ },
+ "prime": {
+  "n": "الصفة prime تعني الأهم أو الأفضل جودة، وتأتي قبل الاسم دائمًا تقريبًا: a prime suspect وa prime example وprime location. ومنها العبارات الثابتة prime minister أي رئيس الوزراء، وprime time أي وقت الذروة التلفزيونية. وprime number هو العدد الأولي في الرياضيات. وتُنطق praim. ولا تخلطها بـ primary التي تعني الأساسي أو الأولي من حيث الترتيب، فمدرسة primary school هي المدرسة الابتدائية.",
+  "x": [
+   [
+    "The old man was the prime suspect in the case.",
+    "كان الرجل العجوز المشتبه به الرئيسي في القضية."
+   ],
+   [
+    "This area is a prime location for a new restaurant.",
+    "هذه المنطقة موقع ممتاز لمطعم جديد."
+   ]
+  ]
+ },
+ "random": {
+  "n": "تعني random عشوائيًا أي بلا نمط أو خطة، وتُستعمل في الإحصاء كثيرًا: a random sample وrandom selection. والعبارة at random تعني عشوائيًا دون تمييز: she picked a card at random. وفي العامية الحديثة قد تعني غريبًا وغير متوقع، كقولهم that was so random، لكن هذا الاستعمال غير رسمي. وتُنطق RAN-dum. وهي لا تعني بالضرورة الصدفة السعيدة، بل غياب القصد.",
+  "x": [
+   [
+    "Winners were chosen at random from thousands of entries.",
+    "اختير الفائزون عشوائيًا من آلاف المشاركات."
+   ],
+   [
+    "The survey used a random sample of two hundred households.",
+    "استخدم المسح عينة عشوائية من مئتي أسرة."
+   ]
+  ]
+ },
+ "via": {
+  "n": "حرف الجر via يعني عن طريق، ويُستعمل لوسيلة الاتصال أو لمسار الرحلة: send it via email وfly to Cairo via Dubai. يمكن نطقه VY-uh أو VEE-uh. وبعده اسم مباشرة دون of أو by، فلا تقل via by email لأن via تكفي. وهو أكثر رسمية قليلًا من through أو by، ويشيع في الأخبار والتعليمات. ويصح مع الأشخاص بمعنى الوساطة، مثل via his lawyer أي عن طريق محاميه.",
+  "x": [
+   [
+    "You can register for the course via our website.",
+    "يمكنك التسجيل في الدورة عبر موقعنا الإلكتروني."
+   ],
+   [
+    "We flew from Riyadh to London via Istanbul.",
+    "سافرنا من الرياض إلى لندن عبر إسطنبول."
+   ]
+  ]
+ },
+ "abandon": {
+  "n": "الفعل abandon يعني ترك شيء أو شخص نهائيًا أو التخلي عن فكرة أو خطة، ويأخذ مفعولًا به دائمًا: abandon a plan وabandon a car. نبرته أقوى من leave لأنه يوحي بالتخلي دون نية العودة، ولذلك يحمل أحيانًا معنى اللوم إذا تعلق بطفل أو حيوان. وتُنطق uh-BAN-dun. ومن التعابير abandon ship أي غادروا السفينة، وabandon hope أي فقد الأمل. والاسم abandonment.",
+  "x": [
+   [
+    "The villagers had to abandon their homes because of the flood.",
+    "اضطر القرويون إلى ترك منازلهم بسبب الفيضان."
+   ],
+   [
+    "He never abandoned his dream of becoming a doctor.",
+    "لم يتخلَّ يومًا عن حلمه بأن يصبح طبيبًا."
+   ]
+  ]
+ },
+ "accommodate": {
+  "n": "كلمة accommodate يكثر الخطأ في إملائها، فهي تحتوي على حرفي c وحرفي m مزدوجين: accommodate. تعني استيعاب عدد من الناس أو توفير مكان لهم، كما تعني تلبية احتياجات أو طلبات شخص ما: accommodate special needs. وتُنطق uh-KOM-uh-dayt. والاسم المرتبط بها accommodation، وهو في البريطانية غير معدود بمعنى السكن، فلا نقول accommodations إلا في الأمريكية. والفعل رسمي نسبيًا.",
+  "x": [
+   [
+    "The hotel can accommodate up to four hundred guests.",
+    "يستطيع الفندق استيعاب ما يصل إلى أربعمئة ضيف."
+   ],
+   [
+    "The school tries to accommodate students with different learning needs.",
+    "تحاول المدرسة تلبية احتياجات الطلاب ذوي أساليب التعلم المختلفة."
+   ]
+  ]
+ },
+ "acknowledge": {
+  "n": "الفعل acknowledge يعني الإقرار بوجود شيء أو بصحته، كما في acknowledge a mistake أي اعترف بخطأ. ويأتي بعده اسم أو that وجملة. ويُستعمل أيضًا لتأكيد استلام رسالة: acknowledge receipt. يُنطق ak-NOL-ij، ويُنطق حرف k الأول. وهو أخف من admit في اللوم، إذ لا يشترط أن يكون المقر مخطئًا. والاسم acknowledgement ويُكتب أيضًا acknowledgment في الأمريكية.",
+  "x": [
+   [
+    "The company acknowledged that the product had a serious fault.",
+    "أقرّت الشركة بأن المنتج فيه عيب خطير."
+   ],
+   [
+    "She waved to acknowledge the crowd.",
+    "لوّحت بيدها تحيةً للجمهور."
+   ]
+  ]
+ },
+ "acquire": {
+  "n": "الفعل acquire يعني الحصول على شيء بالجهد أو بالشراء، وأكثر ما يُستعمل مع المهارات واللغات والمعرفة: acquire a language وacquire new skills. كما يصلح للشركات التي تشتري شركات أخرى: Google acquired the startup. وهو أكثر رسمية من get، فلا يناسب الأشياء الصغيرة اليومية كشراء قهوة. وتُنطق uh-KWYE-er. ومن العبارات acquire a taste for أي تعلّم تذوق شيء. والاسم acquisition.",
+  "x": [
+   [
+    "It takes years to acquire fluency in a foreign language.",
+    "يستغرق اكتساب الطلاقة في لغة أجنبية سنوات."
+   ],
+   [
+    "The firm plans to acquire a smaller competitor next year.",
+    "تخطط الشركة لشراء منافس أصغر العام المقبل."
+   ]
+  ]
+ },
+ "adjacent": {
+  "n": "الصفة adjacent تعني المجاور أو الملاصق، وتأتي غالبًا مع حرف الجر to: a building adjacent to the park. ويمكن أن تسبق الاسم دون to: adjacent rooms. تُنطق uh-JAY-sunt، وفي الرياضيات تدل adjacent angles على الزوايا المتجاورة. وهي أكثر رسمية من next to وأدق منها، وتصف القرب المباشر. ولا تخلطها بـ nearby التي لا تشترط التلامس.",
+  "x": [
+   [
+    "Our hotel room was adjacent to the swimming pool.",
+    "كانت غرفتنا في الفندق مجاورة لمسبح السباحة."
+   ],
+   [
+    "Fires in adjacent villages made the air unsafe.",
+    "جعلت الحرائق في القرى المجاورة الهواء غير آمن."
+   ]
+  ]
+ },
+ "albeit": {
+  "n": "كلمة albeit أداة ربط رسمية تعني ومع أن أو وإن كان، وتُنطق all-BEE-it. تأتي قبل صفة أو ظرف أو عبارة قصيرة ولا يليها فعل بفاعل: a good result, albeit a small one. لا نقول albeit it was small إلا نادرًا، فهذا غير شائع. وهي تظهر في الكتابة أكثر من الكلام، وتعادل although لكن بصياغة مختصرة. ولا تحتاج إلى but معها.",
+  "x": [
+   [
+    "She accepted the job, albeit with some hesitation.",
+    "قبلت الوظيفة، وإن كان ذلك على مضض."
+   ],
+   [
+    "The film was a success, albeit a modest one.",
+    "حقق الفيلم نجاحًا، وإن كان متواضعًا."
+   ]
+  ]
+ },
+ "alter": {
+  "n": "الفعل alter يعني تغيير شيء تغييرًا بسيطًا أو جزئيًا، وهو أكثر رسمية من change. تقول alter a dress أي عدّل فستانًا، وalter plans أي عدّل الخطط. ويمكن استعماله لازمًا: the situation has altered. ولا تخلطه بالكلمة altar التي تعني المذبح، فهي تُنطق بالطريقة نفسها تقريبًا. وتأتي alter ego بمعنى الشخصية الأخرى. والاسم alteration يعني تعديلًا، كما في ورش الخياطة.",
+  "x": [
+   [
+    "The tailor will alter the jacket to fit you better.",
+    "سيعدّل الخياط السترة لتناسبك أكثر."
+   ],
+   [
+    "Nothing he said could alter her decision.",
+    "لم يكن في كلامه ما يغيّر قرارها."
+   ]
+  ]
+ },
+ "anticipate": {
+  "n": "الفعل anticipate أقوى من expect، لأنه يعني توقع الشيء والاستعداد له مسبقًا: anticipate problems. بعده اسم أو اسم فعل -ing أو that، ولا يأتي بعده to مع مصدر، فنقول anticipate meeting him وليس anticipate to meet him. وهو رسمي، ويستعمل كثيرًا في الأعمال. وتُنطق an-TIS-ih-payt. ولا تعني anticipate بالضرورة الانتظار بحماس، ولا تحمل معنى look forward to دائمًا.",
+  "x": [
+   [
+    "We anticipate that demand will rise sharply this winter.",
+    "نتوقع أن يرتفع الطلب بشكل حاد هذا الشتاء."
+   ],
+   [
+    "The team did not anticipate such a strong reaction from customers.",
+    "لم يتوقع الفريق ردة فعل بهذه القوة من العملاء."
+   ]
+  ]
+ },
+ "apparent": {
+  "n": "الصفة apparent تحمل معنيين: الواضح، كما في it was apparent that he was tired، أو الظاهري الذي قد لا يكون حقيقيًا، كما في an apparent success. فانتبه إلى السياق. وتُنطق uh-PAIR-unt، ويخطئ المتعلمون في كتابتها لأن حرف p فيها مزدوج وحرف r مفرد: apparent. والتعبير become apparent يعني اتضح، وfor no apparent reason أي دون سبب واضح. والظرف apparently قد يفيد الظاهر من الكلام وما سمعته من غيرك.",
+  "x": [
+   [
+    "It became apparent that the old system could not cope.",
+    "اتضح أن النظام القديم لا يستطيع التعامل مع الوضع."
+   ],
+   [
+    "There was no apparent reason for the sudden delay.",
+    "لم يكن هناك سبب واضح للتأخير المفاجئ."
+   ]
+  ]
+ },
+ "approximate": {
+  "n": "الصفة approximate تعني تقريبيًا، وتُنطق uh-PROK-sih-mut، أما الفعل approximate بمعنى يقترب من فيُنطق uh-PROK-sih-mayt بصوت واضح في آخره. فالفرق بين الصفة والفعل يظهر في النطق. نقول an approximate figure أي رقم تقريبي، وapproximate cost. والظرف approximately يعني حوالي، وهو أكثر رسمية من about وroughly. ويأتي في الأرقام والقياسات أكثر من الأوصاف العامة.",
+  "x": [
+   [
+    "The approximate distance between the two cities is three hundred kilometres.",
+    "المسافة التقريبية بين المدينتين ثلاثمئة كيلومتر."
+   ],
+   [
+    "Please give me an approximate time of arrival.",
+    "من فضلك أعطني وقت وصول تقريبيًا."
+   ]
+  ]
+ },
+ "assume": {
+  "n": "الفعل assume يعني افترض أو ظنّ شيئًا صحيحًا دون دليل: I assume you're right. بعده that وجملة أو مفعول به، ويمكن حذف that في الكلام. ولا تخلطه بـ presume، فهي أقوى قليلًا وتوحي بثقة أكبر. ويعني أيضًا تولّى مسؤولية: assume control. وتُنطق uh-SYOOM، وبعض الناس يقولون uh-SOOM. والتعبير شائع في الأكاديمي: assuming that.",
+  "x": [
+   [
+    "I assume you have already read the instructions.",
+    "أفترض أنك قرأت التعليمات بالفعل."
+   ],
+   [
+    "Don't assume that everyone will agree with the plan.",
+    "لا تفترض أن الجميع سيوافقون على الخطة."
+   ]
+  ]
+ },
+ "behalf": {
+  "n": "كلمة behalf لا تُستعمل وحدها تقريبًا، بل ضمن العبارة on behalf of بمعنى نيابة عن أو لمصلحة. نقول: I'm writing on behalf of my colleagues. وتأتي بعدها of ثم اسم أو ضمير. يخطئ المتعلمون أحيانًا فيقولون in behalf of أو on behalf from. وفي الأمريكية قد تُستعمل in behalf of بمعنى لصالح، لكنها نادرة. وتُنطق bih-HAF. وهي عبارة رسمية تُستعمل في الرسائل والاجتماعات.",
+  "x": [
+   [
+    "The lawyer spoke on behalf of her client.",
+    "تحدثت المحامية نيابةً عن موكلها."
+   ],
+   [
+    "I would like to thank you on behalf of the whole team.",
+    "أود أن أشكرك باسم الفريق بأكمله."
+   ]
+  ]
+ },
+ "clarify": {
+  "n": "الفعل clarify يعني توضيح شيء غامض ليسهل فهمه، وهو متعدٍّ: clarify the rules أو clarify a point. يمكن أن يُستعمل في الطلب المهذب: Could you clarify what you mean? والاسم clarification يعني التوضيح، فنقول ask for clarification. وتُنطق KLAIR-ih-fy. وهو أكثر رسمية من explain، ويدل على إزالة اللبس أكثر من شرح الفكرة من الصفر.",
+  "x": [
+   [
+    "Could you clarify what you meant by that last point?",
+    "هل يمكنك أن توضح ما قصدته بتلك النقطة الأخيرة؟"
+   ],
+   [
+    "The minister agreed to clarify the new rules at a press conference.",
+    "وافق الوزير على توضيح القواعد الجديدة في مؤتمر صحفي."
+   ]
+  ]
+ },
+ "coherent": {
+  "n": "الصفة coherent تصف كلامًا أو خطة مترابطة منطقيًا ويسهل فهمها: a coherent argument. وتصف الشخص حين يتكلم بوضوح ووعي، فنقول he was barely coherent أي كان يكاد لا يتكلم بوضوح. وضدها incoherent. وتُنطق koh-HEER-unt بنبرة على المقطع الثاني. ولا تخلطها بـ cohesive التي تعني متماسكًا اجتماعيًا أو بنيويًا، كالمجتمع المتماسك.",
+  "x": [
+   [
+    "The report offers a clear and coherent plan for reform.",
+    "يقدّم التقرير خطة إصلاح واضحة ومترابطة."
+   ],
+   [
+    "After the accident, she was too shocked to give a coherent account.",
+    "بعد الحادث كانت مصدومة جدًا فلم تستطع أن تروي ما حدث بشكل مترابط."
+   ]
+  ]
+ },
+ "component": {
+  "n": "الاسم component معناه جزء من نظام أو جهاز أو فكرة أكبر، ويأتي مع of: a key component of the plan. يُستعمل في الهندسة والتقنية كثيرًا: electronic components. وهو اسم معدود، فنقول two components. وتُنطق kum-POH-nunt بنبرة على المقطع الثاني. وهو يعادل part لكنه أكثر رسمية وأدق، ويدل على جزء له وظيفة محددة في الكل.",
+  "x": [
+   [
+    "Every component of the engine was tested before the launch.",
+    "جرى اختبار كل مكوّن من مكونات المحرك قبل الإطلاق."
+   ],
+   [
+    "Trust is a key component of any good relationship.",
+    "الثقة عنصر أساسي في أي علاقة جيدة."
+   ]
+  ]
+ },
+ "compound": {
+  "n": "تختلف نبرة compound بحسب نوع الكلمة. الاسم والصفة يحملان النبرة على المقطع الأول: KOM-pound، والفعل يحمل النبرة على الثاني: kum-POUND. المعنى المعتاد للاسم هو المركب الكيميائي أو الكلمة المركبة، مثل compound word. وتأتي بمعنى المجمع المسوّر أيضًا: a prison compound. والفعل يعني تفاقم الأمر: compound a problem. ولا تخلطها بـ mixture التي لا ترتبط كيميائيًا.",
+  "x": [
+   [
+    "Salt is a compound of sodium and chlorine.",
+    "الملح مركّب من الصوديوم والكلور."
+   ],
+   [
+    "The new rules only compound the existing confusion.",
+    "لا تزيد القواعد الجديدة إلا من حدة الارتباك القائم."
+   ]
+  ]
+ },
+ "comprehensive": {
+  "n": "الصفة comprehensive تعني شاملًا يغطي كل شيء تقريبًا: a comprehensive guide. ولا تخلطها بـ comprehensible التي تعني مفهومًا. وتُنطق kom-prih-HEN-siv، والنبرة على المقطع الثالث. وهي شائعة في التأمين والتقارير والدراسات: comprehensive insurance. وفي بريطانيا comprehensive school هي مدرسة ثانوية عامة تقبل جميع الطلاب دون انتقاء. والاسم comprehensiveness نادر.",
+  "x": [
+   [
+    "The museum offers a comprehensive guide to ancient Egypt.",
+    "يقدّم المتحف دليلًا شاملًا عن مصر القديمة."
+   ],
+   [
+    "She bought comprehensive insurance for her new car.",
+    "اشترت تأمينًا شاملًا لسيارتها الجديدة."
+   ]
+  ]
+ },
+ "conform": {
+  "n": "الفعل conform يعني الالتزام بقاعدة أو معيار أو سلوك الجماعة، ويأتي غالبًا مع to أو with: conform to the rules. وهو لازم، فلا نقول conform the rules. ويستعمل لوصف الضغط الاجتماعي: pressure to conform. وتُنطق kun-FORM. وهو رسمي، ويقابله comply الذي يرتبط بالقوانين والطلبات، أما conform فيرتبط أكثر بالمعايير والتوقعات.",
+  "x": [
+   [
+    "All new buildings must conform to local safety regulations.",
+    "يجب أن تتوافق جميع المباني الجديدة مع أنظمة السلامة المحلية."
+   ],
+   [
+    "Teenagers often feel pressure to conform to their friends' habits.",
+    "يشعر المراهقون غالبًا بضغط للتكيف مع عادات أصدقائهم."
    ]
   ]
  }
