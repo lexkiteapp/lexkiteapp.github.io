@@ -83,10 +83,12 @@ export function evaluate({ checkRuns = [], statuses = [], workflowRuns = [] } = 
 // ---------- bộ canh (3/11): thay ~20 lượt workflow_run/commit bằng 1 runner canh liên tục ----------
 // 15/11 (#1316 lọt cổng Sie): CI của PR chạy trên head + main LÚC ĐÓ; nếu sau đó main đổi chính FILE CỔNG (i18n-qa, bộ luật, test, workflow) thì kết quả xanh cũ chưa qua cổng mới.
 // → gate xanh mà main đã đổi file cổng kể từ lần gộp main cuối của PR = CHỜ ("gộp lại main rồi chờ CI"). Chỉ tệp SỬA/XOÁ/ĐỔI TÊN trong scripts/test (tệp test mới thêm không đổi cổng cũ); workflow/i18n-qa/luật: mọi trạng thái.
-export const GATE_ANY = [/^\.github\/workflows\//, /^scripts\/i18n-qa\.mjs$/, /^scripts\/lib\/[^/]*rules[^/]*\.mjs$/, /^scripts\/ci\/required-gate\.mjs$/];
+// 16/11: workflow main đổi KHÔNG còn bắt mọi PR gộp lại (audio.yml, call-rt.yml… → 150 lượt chờ, 0 merge). Workflow chỉ tính khi CHÍNH PR cũng sửa file đó (GATE_WORKFLOW + prFiles); luật/policy (ci-policy, required-gate, i18n-qa, luật dịch) vẫn mọi PR.
+export const GATE_WORKFLOW = /^\.github\/workflows\//;
+export const GATE_ANY = [/^scripts\/i18n-qa\.mjs$/, /^scripts\/lib\/[^/]*rules[^/]*\.mjs$/, /^scripts\/ci\/required-gate\.mjs$/];
 export const GATE_CHANGED = [/^scripts\/test\//];
 /** Hàm thuần: files = [{ filename, status }] main đã đổi kể từ merge-base của PR → danh sách tệp cổng đã đổi. */
-export const gateDrift = (files = []) => files.filter(f => GATE_ANY.some(r => r.test(f.filename)) || (GATE_CHANGED.some(r => r.test(f.filename)) && f.status !== 'added')).map(f => f.filename);
+export const gateDrift = (files = [], prFiles = null) => files.filter(f => (GATE_WORKFLOW.test(f.filename) && (!prFiles || prFiles.includes(f.filename) || /\(>300 tệp đổi\)/.test(f.filename))) || GATE_ANY.some(r => r.test(f.filename)) || (GATE_CHANGED.some(r => r.test(f.filename)) && f.status !== 'added')).map(f => f.filename);
 /** Gate xanh nhưng main đã đổi tệp cổng → CHỜ (thuần). Không đụng đỏ/chờ. */
 export const applyDrift = (res, drift) => res.state === 'success' && drift.length
   ? { ...res, state: 'pending', description: `Main đã đổi tệp cổng (${drift.slice(0, 2).map(f => f.split('/').pop()).join(', ')}${drift.length > 2 ? ` +${drift.length - 2}` : ''}): gộp lại main rồi chờ CI`.slice(0, 140), drift }
@@ -197,9 +199,10 @@ export function api(token, repo, fetchImpl = globalThis.fetch) {
     rerun: id => call(`/actions/runs/${id}/rerun`, { method: 'POST', body: '{}' }),
     // tệp main đã đổi kể từ merge-base với sha (2 lệnh, chỉ gọi cho sha sắp xanh); lỗi API → [] (mở cổng, không chặn oan)
     drift: async sha => {
-      const mb = (await call(`/compare/main...${sha}`)).merge_base_commit?.sha; if (!mb) return [];
+      const pc = await call(`/compare/main...${sha}`), mb = pc.merge_base_commit?.sha; if (!mb) return [];
+      const prFiles = (pc.files || []).map(x => x.filename);
       const c = await call(`/compare/${mb}...main`), fs_ = c.files || [];
-      return gateDrift(c.total_commits > 0 && fs_.length >= 300 ? [...fs_, { filename: '.github/workflows/(>300 tệp đổi)', status: 'modified' }] : fs_);
+      return gateDrift(c.total_commits > 0 && fs_.length >= 300 ? [...fs_, { filename: '.github/workflows/(>300 tệp đổi)', status: 'modified' }] : fs_, prFiles);
     },
     pr: n => call(`/pulls/${n}`),
     openPrs: () => pages('/pulls?state=open&sort=updated&direction=desc', null, 2),

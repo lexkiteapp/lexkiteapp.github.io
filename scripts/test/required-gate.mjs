@@ -227,6 +227,12 @@ ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 
   ok(gateDrift([F('scripts/i18n-qa.mjs')]).length === 1 && gateDrift([F('scripts/lib/i18n-rules.mjs')]).length === 1 && gateDrift([F('.github/workflows/npm-test.yml', 'added')]).length === 1, 'i18n-qa / bộ luật / workflow đổi → cổng đổi (mọi trạng thái)');
   ok(gateDrift([F('scripts/test/ci-policy.mjs')]).length === 1 && gateDrift([F('scripts/test/old.mjs', 'removed')]).length === 1 && gateDrift([F('scripts/test/x.mjs', 'renamed')]).length === 1, 'test SỬA/XOÁ/ĐỔI TÊN → cổng đổi');
   ok(gateDrift([F('scripts/test/brand-new.mjs', 'added'), F('web/js/app.js'), F('docs/CODEMAP.md')]).length === 0, 'test MỚI thêm + mã/tài liệu thường → không đổi cổng');
+  // 16/11: workflow main đổi chỉ tính khi PR cũng sửa đúng file đó; luật/policy vẫn mọi PR
+  { const wf = [F('.github/workflows/audio.yml'), F('.github/workflows/call-rt.yml', 'added'), F('.github/workflows/x.yml')];
+    ok(gateDrift(wf, ['web/js/app.js']).length === 0, 'PR không chạm workflow → main đổi workflow KHÔNG bắt gộp lại');
+    ok(gateDrift(wf, ['.github/workflows/audio.yml', 'web/js/app.js']).join() === '.github/workflows/audio.yml', 'PR cũng sửa audio.yml → chỉ file đó tính');
+    ok(gateDrift([F('scripts/test/ci-policy.mjs'), F('scripts/ci/required-gate.mjs'), F('scripts/i18n-qa.mjs'), ...wf], []).length === 3, 'ci-policy / required-gate / i18n-qa đổi → vẫn bắt mọi PR');
+    ok(gateDrift([F('.github/workflows/(>300 tệp đổi)')], ['a']).length === 1, 'main đổi >300 tệp → vẫn chờ (không đo được)'); }
   const green = { state: 'success', description: 'Xanh: 5 check đều đạt', failed: [], pending: [], total: 5, cancelled: [] };
   const w = applyDrift(green, ['scripts/i18n-qa.mjs', 'scripts/lib/i18n-rules.mjs', '.github/workflows/a.yml']);
   ok(w.state === 'pending' && /gộp lại main/.test(w.description) && w.description.length <= 140 && /\+1/.test(w.description), 'xanh + cổng đổi → CHỜ, mô tả ≤140 ký tự: ' + w.description);
