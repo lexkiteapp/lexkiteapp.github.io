@@ -4,6 +4,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { gapsOf, coverage } from '../../functions/api/_social_cover.js';
 import { report } from '../social/coverage.mjs';
+import { langOfChannel, LANG_TZ, SOCIAL_LANGS, validTz } from '../../functions/api/_distribution.js';
 
 const D = 864e5, NOW = Date.UTC(2026, 10, 16, 5, 0, 0); // 16/11/2026 05:00 UTC
 let n = 0; const ok = (c, m) => { assert.ok(c, m); n++; };
@@ -41,6 +42,9 @@ ok(yt.want === 15 && yt.channels === 2 && yt.unconnected === 13 && yt.total === 
 ok(/youtube: mới nối 2\/15 kênh → thiếu 13/.test(r.text) && r.miss.length === 3 && /\| youtube \| 2\/15 \| 2\/450 \|/.test(r.table), 'báo cáo nêu kênh chưa nối + bảng tuần có mẫu số 450');
 ok(c.idle24 === 3 && c.rows.every(x => x.last24h === 0) && /KHÔNG có bài nào/.test(r.text) && r.idle.length === 3, 'kênh 24 giờ không có bài đẩy/đăng → báo (đỏ)');
 ok(/channel-idle-24h/.test(fs.readFileSync('scripts/social/coverage.mjs', 'utf8')) && /process\.exit\(1\)/.test(fs.readFileSync('scripts/social/coverage.mjs', 'utf8')), 'máy gác mở issue + làm đỏ CI khi có kênh 24 giờ im lặng');
+// ngôn ngữ + múi giờ kênh (16/11): tên bản ngữ nhận đúng ngôn ngữ, mỗi ngôn ngữ có múi giờ bản địa hợp lệ (kênh chưa lưu cfg.tz không còn theo New York)
+for (const [t, l] of [['Lexkite – เรียนภาษาอังกฤษ', 'th'], ['Lexkite – 学英语', 'zh'], ['Lexkite – 英語学習', 'ja'], ['Lexkite – 영어 공부', 'ko'], ['Lexkite – Belajar Bahasa Inggris', 'id'], ['Lexkite – Học Tiếng Anh', 'vi'], ['Lexkite – Learn English', 'en']]) ok(langOfChannel(t) === l, `${t} → ${l}`);
+ok(LANG_TZ.th === 'Asia/Bangkok' && LANG_TZ.ko === 'Asia/Seoul' && LANG_TZ.ja === 'Asia/Tokyo' && SOCIAL_LANGS.every(l => validTz(LANG_TZ[l])), 'mỗi ngôn ngữ có múi giờ bản địa hợp lệ (th → Asia/Bangkok)');
 // nối dây: workflow + op + job đăng ký
 const wf = fs.readFileSync('.github/workflows/social-coverage.yml', 'utf8'), api = fs.readFileSync('functions/api/social-auto.js', 'utf8'), jobs = JSON.parse(fs.readFileSync('infra/jobs.json', 'utf8')).jobs;
 ok(/WEEKLY|getUTCDay/.test(fs.readFileSync('scripts/social/coverage.mjs', 'utf8')), 'bảng phủ theo trang gửi mỗi tuần (thứ Hai)');

@@ -18,7 +18,7 @@
  *   matches the description marker "lk:<clip>", checks unlisted/public + processing done + duration → status 'done' → op ids → web manifest
  *   embeds YouTube exactly like an API upload. 'api': the resumable upload path above (needs youtube.upload). Never browser bots / cookies. */
 import { isD1Limit, D1_LIMIT_BODY } from './_d1limit.js';
-import { healthVerdict, localDate, localHM, normCfg, pickEmbed } from './_distribution.js';
+import { healthVerdict, localDate, localHM, normCfg, pickEmbed, validTz } from './_distribution.js';
 import { guardBg } from './_d1guard.js';
 import { adminGate, adminAudit, adminCors } from './admin.js';
 import { limit } from './sync.js';
@@ -325,8 +325,8 @@ export async function unqueueClip(db, id) {
 
 // ---------- distribution hooks (config lives in yt_chan_cfg; engine in _distribution.js, ops in distribution.js) ----------
 /** All channel configs in ONE query (the admin list did 1 D1 round trip per channel: ~400 ms each → 16 s for 32 channels). Map id → same shape as chanCfg(). */
-export async function chanCfgs(db) { const m = new Map(); for (const r of await all(db, 'SELECT channel_id, cfg, paused_reason FROM yt_chan_cfg')) { let c = {}; try { c = JSON.parse(r.cfg || '{}'); } catch (e) { /* default */ } m.set(r.channel_id, { cfg: normCfg(c), explicit_lang: !!(c && typeof c.lang === 'string' && c.lang.trim()), paused_reason: r.paused_reason || '' }); } return m; }
-export async function chanCfg(db, id) { const r = await one(db, 'SELECT cfg, paused_reason FROM yt_chan_cfg WHERE channel_id = ?', id); let c = {}; try { c = JSON.parse((r && r.cfg) || '{}'); } catch (e) { /* default */ } return { cfg: normCfg(c), explicit_lang: !!(c && typeof c.lang === 'string' && c.lang.trim()), paused_reason: (r && r.paused_reason) || '' }; } // explicit_lang: chủ đã chọn ngôn ngữ kênh → không đoán theo tên
+export async function chanCfgs(db) { const m = new Map(); for (const r of await all(db, 'SELECT channel_id, cfg, paused_reason FROM yt_chan_cfg')) { let c = {}; try { c = JSON.parse(r.cfg || '{}'); } catch (e) { /* default */ } m.set(r.channel_id, { cfg: normCfg(c), explicit_lang: !!(c && typeof c.lang === 'string' && c.lang.trim()), explicit_tz: !!(c && validTz(c.tz)), paused_reason: r.paused_reason || '' }); } return m; }
+export async function chanCfg(db, id) { const r = await one(db, 'SELECT cfg, paused_reason FROM yt_chan_cfg WHERE channel_id = ?', id); let c = {}; try { c = JSON.parse((r && r.cfg) || '{}'); } catch (e) { /* default */ } return { cfg: normCfg(c), explicit_lang: !!(c && typeof c.lang === 'string' && c.lang.trim()), explicit_tz: !!(c && validTz(c.tz)), paused_reason: (r && r.paused_reason) || '' }; } // explicit_lang: chủ đã chọn ngôn ngữ kênh → không đoán theo tên
 /** Pause a channel (cfg.active = 0) and raise an admin alert (yt_meta 'alerts', newest first, ≤ 20). */
 export async function pauseChannel(db, id, reason) {
   const { cfg } = await chanCfg(db, id), t = await one(db, 'SELECT title FROM yt_channel WHERE channel_id = ?', id);
