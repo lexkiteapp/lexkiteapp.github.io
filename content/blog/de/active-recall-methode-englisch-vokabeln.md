@@ -9,7 +9,7 @@ tags: [active-recall, vocabulary, memory, flashcards]
 keyword: "active recall methode"
 cover: practice-test
 coverAlt: "Lexkite Multiple-Choice-Test, der nach der richtigen Bedeutung von run out of fragt"
-publishAt:
+publishAt: 2026-12-28T12:14:00+01:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

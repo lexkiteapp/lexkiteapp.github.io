@@ -9,7 +9,7 @@ tags: [ielts, reading, summary-completion, question-types]
 keyword: "ielts summary completion"
 cover: reading
 coverAlt: "Lexkite Reading list with passages graded from A2 to C1"
-publishAt:
+publishAt: 2027-02-15T20:20:00+05:30
 factChecked: 2026-11-15
 author: Lexkite
 status: ready
