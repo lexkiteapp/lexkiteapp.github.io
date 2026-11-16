@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_discuss",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Discuss the plan, no about!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Let's discuss about the plan.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Let's discuss the plan.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Discuss already means talk about.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The plan! Let's discuss the plan.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Let's discuss about the plan.",
+  "right": "Let's discuss the plan.",
+  "strike": "about",
+  "why": "Discuss already means talk about.",
+  "memory": "Discuss it.",
+  "quiz": {
+   "stem": "Let's discuss ___.",
+   "options": [
+    "the plan",
+    "about the plan"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "discuss ไม่ต้องมี about!",
+   "tip": "ไทยพูด “คุยเกี่ยวกับ…” แต่ discuss แปลว่าคุยเรื่องนั้นอยู่แล้ว: “discuss the plan”",
+   "caption": "คุณเคยพูดว่า “Let's discuss about the plan.” ไหม? 😅 ภาษาไทยพูดว่า “คุยเกี่ยวกับแผน” จึงมักเติม about แต่ discuss แปลว่าคุยเรื่องนั้นอยู่แล้ว: “Let's discuss the plan.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “the plan” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยค แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "No “about” after “discuss”!",
+   "tip": "Thai says talk about, but discuss already means talk about: “discuss the plan”",
+   "caption": "Do you say “Let's discuss about the plan”? 😅 Thai says talk about, but discuss already means talk about. Say “Let's discuss the plan”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "discuss ไม่ต้องมี about!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "discuss ไม่ต้องมี about!",
+  "keyword": "Let's discuss the plan.",
+  "value": "ไทยพูด “คุยเกี่ยวกับ…” แต่ discuss แปลว่าคุยเรื่องนั้นอยู่แล้ว: “discuss the plan”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "discuss ไม่ต้องมี about!",
+    "description": "ไทยพูด “คุยเกี่ยวกับ…” แต่ discuss แปลว่าคุยเรื่องนั้นอยู่แล้ว: “discuss the plan”\n\nคุณเคยพูดว่า “Let's discuss about the plan.” ไหม? 😅 ภาษาไทยพูดว่า “คุยเกี่ยวกับแผน” จึงมักเติม about แต่ discuss แปลว่าคุยเรื่องนั้นอยู่แล้ว: “Let's discuss the plan.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "Let's discuss the plan.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “Let's discuss about the plan.” ไหม? 😅 ภาษาไทยพูดว่า “คุยเกี่ยวกับแผน” จึงมักเติม about แต่ discuss แปลว่าคุยเรื่องนั้นอยู่แล้ว: “Let's discuss the plan.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "discuss ไม่ต้องมี about!\n\nไทยพูด “คุยเกี่ยวกับ…” แต่ discuss แปลว่าคุยเรื่องนั้นอยู่แล้ว: “discuss the plan”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "discuss ไม่ต้องมี about! ไทยพูด “คุยเกี่ยวกับ…” แต่ discuss แปลว่าคุยเรื่องนั้นอยู่แล้ว: “discuss the plan” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “the plan” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยค แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

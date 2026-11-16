@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_attached",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Email: say attached!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Please find the file joined.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Please find the file attached.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Attached is the word for a file in an email.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Attached! The file is attached.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Please find the file joined.",
+  "right": "Please find the file attached.",
+  "strike": "joined",
+  "why": "Attached is the word for a file in an email.",
+  "memory": "File: attached.",
+  "quiz": {
+   "stem": "In my email, I add a file. It is ___.",
+   "options": [
+    "joined",
+    "attached"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "« Ci-joint » : “attached”",
+   "tip": "En français, on dit « ci-joint » ou « joint ». En anglais, pour une pièce jointe, dites “attached”.",
+   "caption": "Vous dites “Please find the file joined.” ? En français, on dit « ci-joint ». En anglais, pour un fichier dans un e-mail, dites “attached”. Dites plutôt “Please find the file attached.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “Please find the file attached.” — En français, on dit « ci-joint ». En anglais, pour un fichier dans un e-mail, dites “attached”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Email files are “attached”!",
+   "tip": "In English, a file in an email is “attached”, not “joined”.",
+   "caption": "Do you say this? “Please find the file joined.” In English, a file in an email is “attached”, not “joined”. Say “Please find the file attached.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "« Ci-joint » : “attached”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "« Ci-joint » : “attached”",
+  "keyword": "Please find the file attached.",
+  "value": "En français, on dit « ci-joint » ou « joint ». En anglais, pour une pièce jointe, dites “attached”.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "« Ci-joint » : “attached”",
+    "description": "En français, on dit « ci-joint » ou « joint ». En anglais, pour une pièce jointe, dites “attached”.\n\nVous dites “Please find the file joined.” ? En français, on dit « ci-joint ». En anglais, pour un fichier dans un e-mail, dites “attached”. Dites plutôt “Please find the file attached.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "Please find the file attached.",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Vous dites “Please find the file joined.” ? En français, on dit « ci-joint ». En anglais, pour un fichier dans un e-mail, dites “attached”. Dites plutôt “Please find the file attached.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "« Ci-joint » : “attached”\n\nEn français, on dit « ci-joint » ou « joint ». En anglais, pour une pièce jointe, dites “attached”.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "« Ci-joint » : “attached” En français, on dit « ci-joint » ou « joint ». En anglais, pour une pièce… #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “Please find the file attached.” — En français, on dit « ci-joint ». En anglais, pour un fichier dans un e-mail, dites “attached”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}

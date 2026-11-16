@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_sorrylate",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Sorry for being late!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Sorry for late.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Sorry for being late.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After for, say being late.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "For being! Sorry for being late.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Sorry for late.",
+  "right": "Sorry for being late.",
+  "strike": "for late",
+  "why": "After for, say being late.",
+  "memory": "Sorry for being late.",
+  "quiz": {
+   "stem": "Sorry ___ late.",
+   "options": [
+    "for",
+    "for being"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“for late” नहीं, “for being late”!",
+   "tip": "हिंदी में “देर के लिए माफ़ी” कह देते हैं, पर अंग्रेज़ी में for के बाद being late पूरा बोलें।",
+   "caption": "क्या आप भी बोलते हैं: “Sorry for late.” 😅 सही वाक्य है: “Sorry for being late.” ध्यान रखें: for के बाद being late पूरा बोला जाता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “for being”। याद रखें: for के बाद being late पूरा बोला जाता है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “for being late”!",
+   "tip": "Many learners say sorry for late, but English needs the whole phrase being late.",
+   "caption": "Do you say: “Sorry for late.” 😅 The right sentence is: “Sorry for being late.” Remember: After for, say being late. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“for late” नहीं, “for being late”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "“for late” नहीं, “for being late”!",
+  "keyword": "Sorry for being late.",
+  "value": "हिंदी में “देर के लिए माफ़ी” कह देते हैं, पर अंग्रेज़ी में for के बाद being late पूरा बोलें।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "“for late” नहीं, “for being late”!",
+    "description": "हिंदी में “देर के लिए माफ़ी” कह देते हैं, पर अंग्रेज़ी में for के बाद being late पूरा बोलें।\n\nक्या आप भी बोलते हैं: “Sorry for late.” 😅 सही वाक्य है: “Sorry for being late.” ध्यान रखें: for के बाद being late पूरा बोला जाता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "Sorry for being late.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी बोलते हैं: “Sorry for late.” 😅 सही वाक्य है: “Sorry for being late.” ध्यान रखें: for के बाद being late पूरा बोला जाता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“for late” नहीं, “for being late”!\n\nहिंदी में “देर के लिए माफ़ी” कह देते हैं, पर अंग्रेज़ी में for के बाद being late पूरा बोलें।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“for late” नहीं, “for being late”! हिंदी में “देर के लिए माफ़ी” कह देते हैं, पर अंग्रेज़ी में for के बा… #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “for being”। याद रखें: for के बाद being late पूरा बोला जाता है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

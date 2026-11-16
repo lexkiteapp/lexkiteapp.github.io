@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_wantsleep",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "What small word is missing?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I want go home.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I want to go home.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After want, add to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "To go! She wants to go home.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I want go home.",
+  "right": "I want to go home.",
+  "strike": "want go",
+  "why": "After want, add to.",
+  "memory": "Want to go.",
+  "quiz": {
+   "stem": "She is tired. She wants ___ home.",
+   "options": [
+    "to go",
+    "go"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“I want go home” — что не так?",
+   "tip": "По-русски «хочу пойти» — без частицы. В английском перед глаголом нужно “to”: “I want to go home.”",
+   "caption": "Ты тоже говоришь “I want go home”? 😅 По-русски «хочу пойти» — без частицы, а в английском после want нужно “to.” Правильно: “I want to go home.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “to go.” После want — to + глагол. Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английский",
+    "#грамматика",
+    "#английскийонлайн",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "What small word is missing?",
+   "tip": "After want, put “to” before the verb: “I want to go home.”",
+   "caption": "Do you also say “I want go home”? 😅 After want, English needs “to.” Correct: “I want to go home.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“I want go home” — что не так?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“I want go home” — что не так?",
+  "keyword": "I want to go home.",
+  "value": "По-русски «хочу пойти» — без частицы. В английском перед глаголом нужно “to”: “I want to go home.”",
+  "hashtags": [
+   "#английский",
+   "#грамматика",
+   "#английскийонлайн",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "“I want go home” — что не так?",
+    "description": "По-русски «хочу пойти» — без частицы. В английском перед глаголом нужно “to”: “I want to go home.”\n\nТы тоже говоришь “I want go home”? 😅 По-русски «хочу пойти» — без частицы, а в английском после want нужно “to.” Правильно: “I want to go home.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английский #грамматика #английскийонлайн #lexkite",
+    "tags": [
+     "I want to go home.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “I want go home”? 😅 По-русски «хочу пойти» — без частицы, а в английском после want нужно “to.” Правильно: “I want to go home.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“I want go home” — что не так?\n\nПо-русски «хочу пойти» — без частицы. В английском перед глаголом нужно “to”: “I want to go home.”\n\nlexkite.com",
+    "hashtags": [
+     "#английский",
+     "#грамматика",
+     "#английскийонлайн",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“I want go home” — что не так? По-русски «хочу пойти» — без частицы. В английском перед глаголом нужно “to”… #английский #грамматика #английскийонлайн"
+   }
+  },
+  "first_comment": "Ответ: “to go.” После want — to + глагол. Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

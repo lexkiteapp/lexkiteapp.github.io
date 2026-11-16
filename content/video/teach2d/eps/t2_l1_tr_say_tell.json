@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_say_tell",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Told me, not said me!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: He said me the news.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: He told me the news.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say told me.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Told! She told me a story.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "He said me the news.",
+  "right": "He told me the news.",
+  "strike": "said",
+  "why": "Say told me.",
+  "memory": "He told me the news.",
+  "quiz": {
+   "stem": "She ___ me a story.",
+   "options": [
+    "said",
+    "told"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Said me” değil, “told me”!",
+   "tip": "Türkçede “bana söyledi” deriz; İngilizcede “said me” olmaz, kişiyle birlikte “told me” denir: “He told me the news.”",
+   "caption": "“He said me the news” mi diyorsun? 😅 İngilizcede “bana söyledi” için “told me” kullanılır, “said me” olmaz. Doğrusu “He told me the news.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “told”. Kişiden önce “told” gelir. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “told me,” not “said me”!",
+   "tip": "Use “told” before a person: “He told me the news.”",
+   "caption": "Do you say “He said me the news”? 😅 In English we say “told me” when we tell a person something. We never use “said me” for that. The right sentence is “He told me the news.” Listen to Carlos and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Said me” değil, “told me”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“Said me” değil, “told me”!",
+  "keyword": "He told me the news.",
+  "value": "Türkçede “bana söyledi” deriz; İngilizcede “said me” olmaz, kişiyle birlikte “told me” denir: “He told me the news.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "“Said me” değil, “told me”!",
+    "description": "Türkçede “bana söyledi” deriz; İngilizcede “said me” olmaz, kişiyle birlikte “told me” denir: “He told me the news.”\n\n“He said me the news” mi diyorsun? 😅 İngilizcede “bana söyledi” için “told me” kullanılır, “said me” olmaz. Doğrusu “He told me the news.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "He told me the news.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“He said me the news” mi diyorsun? 😅 İngilizcede “bana söyledi” için “told me” kullanılır, “said me” olmaz. Doğrusu “He told me the news.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Said me” değil, “told me”!\n\nTürkçede “bana söyledi” deriz; İngilizcede “said me” olmaz, kişiyle birlikte “told me” denir: “He told me the news.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Said me” değil, “told me”! Türkçede “bana söyledi” deriz; İngilizcede “said me” olmaz, kişiyle birlikte… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “told”. Kişiden önce “told” gelir. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+  "lang": "tr"
+ }
+}

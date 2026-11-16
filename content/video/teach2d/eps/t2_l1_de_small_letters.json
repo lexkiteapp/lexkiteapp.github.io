@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_small_letters",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Write dog with a small d!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have a Dog and a Cat.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have a dog and a cat.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Most words start with a small letter.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Dog with a small d! I have a dog.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have a Dog and a Cat.",
+  "right": "I have a dog and a cat.",
+  "strike": "Dog",
+  "why": "Most words start with a small letter.",
+  "memory": "A dog, a cat.",
+  "quiz": {
+   "stem": "I have a ___.",
+   "options": [
+    "Dog",
+    "dog"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Nomen klein schreiben!",
+   "tip": "Im Deutschen schreiben wir alle Nomen groß. Im Englischen schreiben Sie sie klein, außer Namen, Sprachen, Wochentagen und Monaten.",
+   "caption": "Schreiben Sie „Dog“ und „Cat“ groß? ✍️ Falsch: “I have a Dog and a Cat.” Richtig: “I have a dog and a cat.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “dog”. Richtig heißt es: “I have a dog and a cat.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "English nouns use small letters!",
+   "tip": "German writes all nouns with a capital letter. English uses small letters, except for names, languages, days and months.",
+   "caption": "English nouns use small letters! Wrong: “I have a Dog and a Cat.” Right: “I have a dog and a cat.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Nomen klein schreiben!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 56,
+  "seconds": 33.0,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "Nomen klein schreiben!",
+  "keyword": "I have a dog and a cat.",
+  "value": "Im Deutschen schreiben wir alle Nomen groß. Im Englischen schreiben Sie sie klein, außer Namen, Sprachen, Wochentagen und Monaten.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 50,
+  "platforms": {
+   "youtube": {
+    "title": "Nomen klein schreiben!",
+    "description": "Im Deutschen schreiben wir alle Nomen groß. Im Englischen schreiben Sie sie klein, außer Namen, Sprachen, Wochentagen und Monaten.\n\nSchreiben Sie „Dog“ und „Cat“ groß? ✍️ Falsch: “I have a Dog and a Cat.” Richtig: “I have a dog and a cat.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "I have a dog and a cat.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Schreiben Sie „Dog“ und „Cat“ groß? ✍️ Falsch: “I have a Dog and a Cat.” Richtig: “I have a dog and a cat.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Nomen klein schreiben!\n\nIm Deutschen schreiben wir alle Nomen groß. Im Englischen schreiben Sie sie klein, außer Namen, Sprachen, Wochentagen und Monaten.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Nomen klein schreiben! Im Deutschen schreiben wir alle Nomen groß. Im Englischen schreiben Sie sie kle… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “dog”. Richtig heißt es: “I have a dog and a cat.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

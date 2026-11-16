@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_mysister",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "No the before my!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: The my sister lives here.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My sister lives here.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "We do not use the before my.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The first! My sister lives here.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "The my sister lives here.",
+  "right": "My sister lives here.",
+  "strike": "The my",
+  "why": "We do not use the before my.",
+  "memory": "My sister lives here.",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "My sister lives here.",
+    "The my sister lives here."
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Sem “the” antes de “my”!",
+   "tip": "Em português dizemos “a minha irmã”, com artigo; em inglês, não use “the” antes de “my”.",
+   "caption": "Você também diz isso? “The my sister lives here.” 😅 O certo é “My sister lives here.” Em português dizemos “a minha irmã”, com artigo; em inglês, não use “the” antes de “my”. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “My sister lives here.” Agora diga em voz alta “My sister lives here.” e treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "No “the” before “my”!",
+   "tip": "In Portuguese we say “a minha irmã”, with an article; in English, do not use “the” before “my”.",
+   "caption": "Do you say this too? “The my sister lives here.” 😅 The right way is “My sister lives here.” In Portuguese we say “a minha irmã”, with an article; in English, do not use “the” before “my”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Sem “the” antes de “my”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Sem “the” antes de “my”!",
+  "keyword": "My sister lives here.",
+  "value": "Em português dizemos “a minha irmã”, com artigo; em inglês, não use “the” antes de “my”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Sem “the” antes de “my”!",
+    "description": "Em português dizemos “a minha irmã”, com artigo; em inglês, não use “the” antes de “my”.\n\nVocê também diz isso? “The my sister lives here.” 😅 O certo é “My sister lives here.” Em português dizemos “a minha irmã”, com artigo; em inglês, não use “the” antes de “my”. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "My sister lives here.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Você também diz isso? “The my sister lives here.” 😅 O certo é “My sister lives here.” Em português dizemos “a minha irmã”, com artigo; em inglês, não use “the” antes de “my”. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Sem “the” antes de “my”!\n\nEm português dizemos “a minha irmã”, com artigo; em inglês, não use “the” antes de “my”.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Sem “the” antes de “my”! Em português dizemos “a minha irmã”, com artigo; em inglês, não use “the” antes d… #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “My sister lives here.” Agora diga em voz alta “My sister lives here.” e treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

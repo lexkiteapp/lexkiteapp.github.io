@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_enjoyswim",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Enjoy swimming, not to swim!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I enjoy to swim.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I enjoy swimming.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Enjoy goes with swimming.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Listening to! I enjoy listening to music.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I enjoy to swim.",
+  "right": "I enjoy swimming.",
+  "strike": "to swim",
+  "why": "Enjoy goes with swimming.",
+  "memory": "Enjoy swimming.",
+  "quiz": {
+   "stem": "I enjoy ___ music.",
+   "options": [
+    "to listen to",
+    "listening to"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "enjoy 后面不用 to！",
+   "tip": "中文“喜欢游泳”里，动词原样放在后面。英语的 enjoy 后面要用 ing 形式，不能加 to。",
+   "caption": "你是不是也会说 “I enjoy to swim.”😅 enjoy 后面用 ing，不加 to：“I enjoy swimming.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“I enjoy swimming.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Enjoy plus ing, no to!",
+   "tip": "Chinese verbs stay the same after “like”, but in English enjoy needs ing, not to.",
+   "caption": "Do you say “I enjoy to swim.” 😅 Enjoy needs ing, not to: “I enjoy swimming.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "enjoy 后面不用 to！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "enjoy 后面不用 to！",
+  "keyword": "I enjoy swimming.",
+  "value": "中文“喜欢游泳”里，动词原样放在后面。英语的 enjoy 后面要用 ing 形式，不能加 to。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "enjoy 后面不用 to！",
+    "description": "中文“喜欢游泳”里，动词原样放在后面。英语的 enjoy 后面要用 ing 形式，不能加 to。\n\n你是不是也会说 “I enjoy to swim.”😅 enjoy 后面用 ing，不加 to：“I enjoy swimming.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "I enjoy swimming.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “I enjoy to swim.”😅 enjoy 后面用 ing，不加 to：“I enjoy swimming.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "enjoy 后面不用 to！\n\n中文“喜欢游泳”里，动词原样放在后面。英语的 enjoy 后面要用 ing 形式，不能加 to。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "enjoy 后面不用 to！ 中文“喜欢游泳”里，动词原样放在后面。英语的 enjoy 后面要用 ing 形式，不能加 to。 #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“I enjoy swimming.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

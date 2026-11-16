@@ -69,7 +69,7 @@
    "hook": "Phủ định hai lần là sai!",
    "tip": "Tiếng Anh chỉ cần một từ phủ định: don't + anything, không phải don't + nothing.",
    "caption": "Bạn có hay nói “I don't have nothing.” không? 😅 Một câu chỉ một phủ định: “I don't have anything.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-   "comment": "Đáp án: “anything”. Thử nói “I don't have anything…” nhé. Luyện thêm miễn phí tại đây: {link}",
+   "comment": "Đáp án: “anything.” Thử nói “I don't have anything…” nhé. Luyện thêm miễn phí tại đây: {link}",
    "hashtags": [
     "#hoctienganh",
     "#nguphaptienganh",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "Chỉ cần MỘT từ phủ định!",
+   "hook": "A double negative is wrong!",
    "tip": "English needs only one negative: don't plus anything.",
-   "caption": "Do you often say “I don't have nothing.”? One negative is enough: “I don't have anything.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
+   "caption": "Do you often say this? “I don't have nothing.” One negative is enough: “I don't have anything.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -140,7 +140,7 @@
     "caption": "Phủ định hai lần là sai! #hoctienganh #nguphaptienganh #tienganhgiaotiep"
    }
   },
-  "first_comment": "Đáp án: “anything”. Thử nói “I don't have anything…” nhé. Luyện thêm miễn phí tại đây: {link}",
+  "first_comment": "Đáp án: “anything.” Thử nói “I don't have anything…” nhé. Luyện thêm miễn phí tại đây: {link}",
   "lang": "vi"
  }
 }

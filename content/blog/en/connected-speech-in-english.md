@@ -190,3 +190,5 @@ Yes. TOEIC audio uses natural speed and several accents, so recognising weak for
 ### How long does it take to get used to connected speech?
 
 It depends on how much focused listening you do. Many learners notice a clear difference after a few weeks of daily transcript work with short clips. Passive background listening alone is much slower.
+
+The melody of a sentence matters too: see [English intonation](/en/blog/english-intonation/) for rising and falling patterns.

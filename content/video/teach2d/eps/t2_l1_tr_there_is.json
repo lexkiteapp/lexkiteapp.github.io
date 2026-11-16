@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_there_is",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say there is, not there have!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: There have a park near my house.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: There is a park near my house.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use is. Not have.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Is! There is a shop here.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "There have a park near my house.",
+  "right": "There is a park near my house.",
+  "strike": "have",
+  "why": "Use is. Not have.",
+  "memory": "There is a park near my house.",
+  "quiz": {
+   "stem": "There ___ a shop here.",
+   "options": [
+    "have",
+    "is"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“There have” değil, “there is”!",
+   "tip": "Türkçede “var” hem “have” hem “there is” demektir; bir yerde bir şey varsa “there is” kullan: “There is a park near my house.”",
+   "caption": "“There have a park near my house” mi diyorsun? 😅 İngilizcede “var” anlamı için “there is” kullanılır, “there have” gelmez. Doğrusu “There is a park near my house.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “is”. “There” ile “is” gelir. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “there have,” but “there is”!",
+   "tip": "When something is in a place, use “there is,” not “there have”: “There is a park near my house.”",
+   "caption": "Do you say “There have a park near my house”? 😅 When something is in a place, English uses “there is” and not “there have” here. The right sentence is “There is a park near my house.” Listen to Ama and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“There have” değil, “there is”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“There have” değil, “there is”!",
+  "keyword": "There is a park near my house.",
+  "value": "Türkçede “var” hem “have” hem “there is” demektir; bir yerde bir şey varsa “there is” kullan: “There is a park near my house.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "“There have” değil, “there is”!",
+    "description": "Türkçede “var” hem “have” hem “there is” demektir; bir yerde bir şey varsa “there is” kullan: “There is a park near my house.”\n\n“There have a park near my house” mi diyorsun? 😅 İngilizcede “var” anlamı için “there is” kullanılır, “there have” gelmez. Doğrusu “There is a park near my house.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "There is a park near my house.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“There have a park near my house” mi diyorsun? 😅 İngilizcede “var” anlamı için “there is” kullanılır, “there have” gelmez. Doğrusu “There is a park near my house.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“There have” değil, “there is”!\n\nTürkçede “var” hem “have” hem “there is” demektir; bir yerde bir şey varsa “there is” kullan: “There is a park near my house.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“There have” değil, “there is”! Türkçede “var” hem “have” hem “there is” demektir; bir yerde bir şey var… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “is”. “There” ile “is” gelir. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+  "lang": "tr"
+ }
+}

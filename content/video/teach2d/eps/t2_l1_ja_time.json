@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "Any! I don't have any time.",
+   "text": "Time! Sorry, I don't have time today.",
    "pause": 0.42
   },
   {
@@ -58,10 +58,10 @@
   "why": "Time here has no a.",
   "memory": "I don't have time.",
   "quiz": {
-   "stem": "I don't have ___ time.",
+   "stem": "Sorry, I don't have ___ today.",
    "options": [
-    "a",
-    "any"
+    "a time",
+    "time"
    ],
    "answer": 1
   },
@@ -69,7 +69,7 @@
    "hook": "「時間がない」に a は不要",
    "tip": "「時間」の意味の time は数えられない名詞。a は付けません。",
    "caption": "“I don't have a time.”と言っていませんか？😅 「時間」という意味の time は数えられない名詞です。a は付けず、I don't have time と言います。 “I don't have time.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
-   "comment": "答え：“any”。時間の time に a は不要。無料クイズで練習：{link}",
+   "comment": "答え：“time”。時間の time に a は不要。無料クイズで練習：{link}",
    "hashtags": [
     "#英語学習",
     "#英会話",
@@ -80,7 +80,7 @@
   "en": {
    "hook": "Do you say “I don't have a time”?",
    "tip": "Time meaning free time has no a. Say I don't have time.",
-   "caption": "Do you say “I don't have a time.”? 😅 Time as free time is uncountable, so no a. Say I don't have time. The natural way is “I don't have time.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+   "caption": "Do you say this? “I don't have a time.” 😅 Time as free time is uncountable, so no a. The natural way is “I don't have time.” Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -98,9 +98,9 @@
  },
  "lang": "ja",
  "est": {
-  "words": 44,
-  "seconds": 27.1,
-  "wpm": 97
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
  },
  "publish": {
   "title": "「時間がない」に a は不要",
@@ -113,11 +113,11 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 38,
+  "script_words": 39,
   "platforms": {
    "youtube": {
     "title": "「時間がない」に a は不要",
-    "description": "“I don't have a time.”と言っていませんか？😅 「時間」という意味の time は数えられない名詞です。a は付けず、I don't have time と言います。 “I don't have time.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "description": "「時間」の意味の time は数えられない名詞。a は付けません。\n\n“I don't have a time.”と言っていませんか？😅 「時間」という意味の time は数えられない名詞です。a は付けず、I don't have time と言います。 “I don't have time.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
     "tags": [
      "I don't have time.",
      "learn english",
@@ -128,7 +128,7 @@
     "text": "“I don't have a time.”と言っていませんか？😅 「時間」という意味の time は数えられない名詞です。a は付けず、I don't have time と言います。 “I don't have time.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "“I don't have a time.”と言っていませんか？😅 「時間」という意味の time は数えられない名詞です。a は付けず、I don't have time と言います。 “I don't have time.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nlexkite.com",
+    "caption": "「時間がない」に a は不要\n\n「時間」の意味の time は数えられない名詞。a は付けません。\n\nlexkite.com",
     "hashtags": [
      "#英語学習",
      "#英会話",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "「時間がない」に a は不要 #英語学習 #英会話 #英語勉強"
+    "caption": "「時間がない」に a は不要 「時間」の意味の time は数えられない名詞。a は付けません。 #英語学習 #英会話 #英語勉強"
    }
   },
-  "first_comment": "答え：“any”。時間の time に a は不要。無料クイズで練習：{link}",
+  "first_comment": "答え：“time”。時間の time に a は不要。無料クイズで練習：{link}",
   "lang": "ja"
  }
 }

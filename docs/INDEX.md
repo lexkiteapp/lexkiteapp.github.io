@@ -93,6 +93,7 @@
 - [LESSON-UX-V2.md](LESSON-UX-V2.md) — Bài học v2 kiểu Duolingo: gốc lỗi, ma trận dạng bài (đề → ô trả lời → gợi ý → chấm), luật nội dung CI, bản dịch câu 15 ngôn ngữ; đọc khi: sửa đề/gợi ý/dạng bài
 - [SAY-NATIVE.md](SAY-NATIVE.md) — Say it like a native: thẻ 2 mặt #/say (Stitch v2 say-front/back, Ama/Carlos 2D, nghĩa 15 ngôn ngữ trên CI, chia sẻ 1:1/4:5) + video react
 - [CALL.md](CALL.md) — Cuộc gọi Ama/Carlos #/call (kịch bản IELTS/TOEIC rẽ nhánh, nhận dạng trên máy, tổng kết sửa lỗi, luyện lại câu yếu) + nhịp câu/shadowing phát âm; đọc khi: sửa call*.js, pron/coach.js, pron/rhythm.js
+- [specs/call-realtime.md](specs/call-realtime.md) — Call thời gian thực (cờ lk.call_rt): Silero VAD trên máy, nói chen, câu đệm, phản hồi kiểu bản xứ, nói tự do có rào; đọc khi: sửa call/{endpoint,rt,fillers}.js, call-rt.yml
 - [LEARNING-PATH.md](LEARNING-PATH.md) — Lộ trình bản đồ chặng (cờ ux1): tâm lý người học → luật (SDT, flow, FSRS, i+1, chống nản), chặng theo mục tiêu thi + trình độ, nút kiểm tra kỹ năng thi; đọc khi: sửa thứ tự chặng/nút bản đồ hoặc 5 tab ux1
 - [specs/play-and-speak-path.md](specs/play-and-speak-path.md) — Spec lộ trình v3: 7 phần lớn luôn mở, bài nhỏ khoá tuần tự A1→C1, nhảy cóc, thứ tự theo trí nhớ người học, nói lưu loát, ngữ pháp theo kỳ thi (M1–M5); đọc khi: sửa bản đồ học/khoá bài/xếp lớp
 - [LEXICON.md](LEXICON.md) — Kho từ vựng một nguồn sự thật: quy tắc chuẩn hóa build-lexicon, CEFR, nghĩa 13 ngôn ngữ, giọng đọc, hiển thị, ảnh minh họa; đọc khi: sửa từ vựng/nghĩa/ảnh từ
@@ -115,6 +116,7 @@
 - [specs/funnel.md](specs/funnel.md) — Phễu kênh UTM → /go → app → bài đầu → D1/D7+, bảng Quản trị Kênh & mã bài; đọc khi: sửa _funnel.js, beacon at/fl, admin-channels.js.
 - [specs/referral.md](specs/referral.md) — Vòng giới thiệu: link mời, thưởng XP + đóng băng chuỗi hai phía, trần chống lạm dụng; đọc khi: sửa nút mời, api/ref.js.
 - [SEO-AUDIT-1211.md](SEO-AUDIT-1211.md) — Audit trang từ × 15 ngôn ngữ: quy mô index, lastmod, liên kết /go; đọc khi: chọn việc SEO cho thị trường CPM cao.
+- [SEO-AUDIT-1511.md](SEO-AUDIT-1511.md) — Soát live blog/từ R2/đề thi: lỗi + mức ưu tiên, đã sửa gì; đọc khi: làm SEO, sitemap, lastmod hoặc trang từ R2.
 - [specs/seo-words-depth.md](specs/seo-words-depth.md) — Spec độ dày trang từ /<lang>/words/: khối nội dung từ dữ liệu thật 15 ngôn ngữ, cổng DEPTH_MIN (noindex dưới ngưỡng), ảnh trước/sau, hộp blog → /words/ 13 ngôn ngữ (lib seo-words/blog-words); đọc khi: sửa build-seo-pages.mjs, seo-words.mjs, word-depth.mjs, blog-words.mjs
 - [specs/words-off-pages.md](specs/words-off-pages.md) — Spec chuyển trang từ 13 ngôn ngữ sang R2 + Pages Function (giữ URL) để nâng 650 → 1.000 trong ngân sách file; đọc khi: làm SEO-ARCH § Ngân sách file
 - [specs/notifications.md](specs/notifications.md) — Chuẩn mọi thông báo (push, nhắc học, toast, banner, báo lỗi): hỏi quyền sau giá trị, tắt dễ, ≤1/ngày, giọng không dọa, toast một-cái có nút sửa, 15 ngôn ngữ; bảng chỗ lệch; đọc khi: thêm/sửa thông báo/toast

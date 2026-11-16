@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_spend_weekend",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Pass the weekend? Spend it!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I pass the weekend at home.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I spend the weekend at home.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "For time, use spend.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Spend! I spend the weekend at home.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I pass the weekend at home.",
+  "right": "I spend the weekend at home.",
+  "strike": "pass",
+  "why": "For time, use spend.",
+  "memory": "Spend time.",
+  "quiz": {
+   "stem": "I ___ the weekend at home.",
+   "options": [
+    "pass",
+    "spend"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "¿“Pass the weekend”? Di “spend”",
+   "tip": "En español “pasar el fin de semana”, pero en inglés el tiempo se “gasta”: “spend the weekend.”",
+   "caption": "🙈 Error común: “I pass the weekend at home.” “Pasar” el tiempo se dice “spend”: “I spend the weekend at home.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “spend”. Con fines de semana, vacaciones y horas se usa “spend”. Escribe una frase tuya con “spend” o dila en voz alta: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#vocabulario",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Pass the weekend”? Say “spend”",
+   "tip": "Learners say “pasar el fin de semana”, but English uses “spend” for time.",
+   "caption": "Common mistake: “I pass the weekend at home.” “Pasar” time is “spend” in English: “I spend the weekend at home.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿“Pass the weekend”? Di “spend”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "¿“Pass the weekend”? Di “spend”",
+  "keyword": "I spend the weekend at home.",
+  "value": "En español “pasar el fin de semana”, pero en inglés el tiempo se “gasta”: “spend the weekend.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#vocabulario",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "¿“Pass the weekend”? Di “spend”",
+    "description": "En español “pasar el fin de semana”, pero en inglés el tiempo se “gasta”: “spend the weekend.”\n\n🙈 Error común: “I pass the weekend at home.” “Pasar” el tiempo se dice “spend”: “I spend the weekend at home.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
+    "tags": [
+     "I spend the weekend at home.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "🙈 Error común: “I pass the weekend at home.” “Pasar” el tiempo se dice “spend”: “I spend the weekend at home.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "¿“Pass the weekend”? Di “spend”\n\nEn español “pasar el fin de semana”, pero en inglés el tiempo se “gasta”: “spend the weekend.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#vocabulario",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿“Pass the weekend”? Di “spend” En español “pasar el fin de semana”, pero en inglés el tiempo se “gasta”: “… #aprenderingles #inglesfacil #vocabulario"
+   }
+  },
+  "first_comment": "Respuesta: “spend”. Con fines de semana, vacaciones y horas se usa “spend”. Escribe una frase tuya con “spend” o dila en voz alta: {link}",
+  "lang": "es"
+ }
+}

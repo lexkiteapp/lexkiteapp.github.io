@@ -63,6 +63,8 @@ Dans ce comparatif exhaustif et objectif, nous analysons point par point les for
 ![Interface d examen blanc IELTS pour les 4 compétences dans Lexkite](media:mock)
 *Simulation d examen IELTS permettant d évaluer ses performances avant de choisir son test.*
 
+Si vous penchez pour l'IELTS, voyez comment [le band global est calculé et ce que signifient les bands](/fr/blog/calcul-score-ielts-band-signification/).
+
 ## Vue d'ensemble : Les cartes d'identité des deux géants
 
 Avant d'entrer dans les subtilités pédagogiques, comparons les données fondamentales des deux certifications :
@@ -156,6 +158,8 @@ Quel que soit votre choix final, les compétences linguistiques fondamentales re
 * Familiarisez-vous avec des formulations de haut niveau en consultant nos [Exemples de textes académiques](/samples/).
 
 Si vous optez pour le TOEFL, notre guide de la [TOEFL Academic Discussion](/fr/blog/toefl-academic-discussion-conseils/) détaille la dernière tâche de Writing, exemple corrigé à l'appui.
+
+Pour un dossier de visa britannique, la version à connaître est l'[IELTS UKVI](/fr/blog/ielts-ukvi-difference-ielts-classique/), détaillée dans notre article dédié.
 
 {{cta: /app/#/mock | Passer un test blanc sur Lexkite}}
 
