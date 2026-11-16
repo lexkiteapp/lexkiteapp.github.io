@@ -133,6 +133,8 @@ After each exercise, review the transcript. For every missed answer, ask: was it
 
 Reading uses many of the same skills, especially recognising paraphrase and resisting tempting wrong options. See [True False Not Given](/en/blog/ielts-reading-true-false-not-given/) for the Reading equivalent.
 
+If you are choosing between tests, compare [PTE vs IELTS for Australia](/en/blog/pte-vs-ielts-australia/) and [CELPIP vs IELTS for Canada](/en/blog/celpip-vs-ielts-canada/).
+
 ## Frequently asked questions
 
 ### Can I hear the IELTS Listening recording twice?
@@ -154,3 +156,5 @@ Practise with several. The test uses a range of native-speaker accents, so expos
 ### How can I stay focused in Parts 3 and 4?
 
 Read the questions for the whole section during the preparation time, follow the speakers' signposting language, and if you lose your place, find the next question rather than searching for the one you missed.
+
+For the most common Section 1 task, read our guide to [IELTS listening form completion](/en/blog/ielts-listening-form-completion/).

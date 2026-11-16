@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_salarylow",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Salary is low, not little!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: My salary is little.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My salary is low.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say low for a salary or a price.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Low! The prices here are low.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "My salary is little.",
+  "right": "My salary is low.",
+  "strike": "little",
+  "why": "Say low for a salary or a price.",
+  "memory": "Low salary, low price.",
+  "quiz": {
+   "stem": "The prices here are ___.",
+   "options": [
+    "little",
+    "low"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "هل تقول “salary is little”؟",
+   "tip": "نقول «راتبي قليل»، أما في الإنجليزية فنقول low مع الراتب والسعر: “My salary is low.” وليس “My salary is little.”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “My salary is little.” 😅 نقول «راتبي قليل»، أما في الإنجليزية فنقول low مع الراتب والسعر، فالجملة الصحيحة “My salary is low.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “low” — مع الراتب والسعر نقول low. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “salary is little”?",
+   "tip": "In Arabic we say «راتبي قليل», but in English we say low for a salary or a price: “My salary is low.” not “My salary is little.”",
+   "caption": "Do you sometimes say this? “My salary is little.” 😅 In Arabic we say «راتبي قليل», but in English we say low for a salary or a price, so the right sentence is “My salary is low.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “salary is little”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "هل تقول “salary is little”؟",
+  "keyword": "My salary is low.",
+  "value": "نقول «راتبي قليل»، أما في الإنجليزية فنقول low مع الراتب والسعر: “My salary is low.” وليس “My salary is little.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “salary is little”؟",
+    "description": "نقول «راتبي قليل»، أما في الإنجليزية فنقول low مع الراتب والسعر: “My salary is low.” وليس “My salary is little.”\n\nهل تقول أحيانًا هذه الجملة؟ “My salary is little.” 😅 نقول «راتبي قليل»، أما في الإنجليزية فنقول low مع الراتب والسعر، فالجملة الصحيحة “My salary is low.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "My salary is low.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا هذه الجملة؟ “My salary is little.” 😅 نقول «راتبي قليل»، أما في الإنجليزية فنقول low مع الراتب والسعر، فالجملة الصحيحة “My salary is low.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول “salary is little”؟\n\nنقول «راتبي قليل»، أما في الإنجليزية فنقول low مع الراتب والسعر: “My salary is low.” وليس “My salary is little.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “salary is little”؟ نقول «راتبي قليل»، أما في الإنجليزية فنقول low مع الراتب والسعر: “My… #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “low” — مع الراتب والسعر نقول low. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+  "lang": "ar"
+ }
+}

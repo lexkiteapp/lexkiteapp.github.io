@@ -97,7 +97,7 @@ async function styleVectors(S) {
 
 // ================================================================== #/confidence ==================================================================
 function confData() {
-  const sb = {}; sb.window = sb; sb.self = sb; vm.createContext(sb); vm.runInContext(rd('web/js/confidence/data.js'), sb); return clone(sb.CONF);
+  const sb = {}; sb.window = sb; sb.self = sb; vm.createContext(sb); vm.runInContext(rd('web/cpack/confidence/data.js'), sb); return clone(sb.CONF);
 }
 function confVectors(C) {
   const src = rd('web/js/confidence.js');
@@ -183,17 +183,17 @@ async function methodContent() {
 
 // ================================================================== #/grammar ==================================================================
 const GRAMMAR_FILES = ['tenses', 'verbs', 'sentences', 'foundation', 'starter', 'academic', 'chapters', 'book2', 'drills-a', 'drills-b', 'drills-c', 'drills-own', 'bank-gen', 'check'];
-const CPACK = new Set(['starter', 'drills-own']); // dời sang cpack để trả byte người học
+const CPACK = new Set(['starter', 'drills-own', 'academic', 'book2', 'drills-c']); // dời sang cpack để trả byte người học
 function grammarSource() {
   const sb = { console }; sb.window = sb; sb.self = sb; vm.createContext(sb);
   for (const f of GRAMMAR_FILES) vm.runInContext(rd(CPACK.has(f) ? `web/cpack/grammar/${f}.js` : `web/js/grammar/${f}.js`), sb, { filename: f });
-  const l1 = {}; for (const f of fs.readdirSync(path.join(ROOT, 'web/js/grammar/l1')).filter(x => x.endsWith('.js')).sort()) { sb.GRAMMAR_L1 = undefined; vm.runInContext(rd('web/js/grammar/l1/' + f), sb); l1[sb.GRAMMAR_L1.lang] = sb.GRAMMAR_L1; }
+  const l1 = {}; for (const f of fs.readdirSync(path.join(ROOT, 'web/cpack/grammar-l1')).filter(x => x.endsWith('.js')).sort()) { sb.GRAMMAR_L1 = undefined; vm.runInContext(rd('web/cpack/grammar-l1/' + f), sb); l1[sb.GRAMMAR_L1.lang] = sb.GRAMMAR_L1; }
   const gs = rd('web/js/grammar.js');
   const units = sliceLit(gs, 'UNITS', '\n  ];'), chapters = sliceLit(gs, 'CHAPTERS', '\n  ];'), fb = sliceLit(gs, 'UNIT_FALLBACK', ' };');
-  const FOCUS = (() => { const a = gs.indexOf('const FOCUS = {'), b = gs.indexOf('\n    };', a); return vm.runInNewContext('(' + gs.slice(a + 'const FOCUS = '.length, b + 6) + ')'.replace('\n    }', '}')).valueOf; })();
+  const FOCUS = (() => { const a = gs.indexOf('const FOCUS = {'), b = gs.indexOf('\n  };', a); return vm.runInNewContext('(' + gs.slice(a + 'const FOCUS = '.length, b + 4) + ')'.replace('\n    }', '}')).valueOf; })();
   return { G: clone(sb.GRAMMAR), check: clone(sb.GRAMMAR_CHECK), l1: clone(l1), units, chapters, fallback: fb, gs };
 }
-function grammarFocus(gs) { const a = gs.indexOf('const FOCUS = {'), b = gs.indexOf('\n    };', a); const o = vm.runInNewContext('(' + gs.slice(a + 'const FOCUS = '.length, b + 6) + ')'); return Object.fromEntries(Object.entries(o).map(([k, v]) => [k, Array.isArray(v) ? v : []])); }
+function grammarFocus(gs) { const a = gs.indexOf('const FOCUS = {'), b = gs.indexOf('\n  };', a); const o = vm.runInNewContext('(' + gs.slice(a + 'const FOCUS = '.length, b + 4) + ')'); return Object.fromEntries(Object.entries(o).map(([k, v]) => [k, Array.isArray(v) ? v : []])); }
 const lessonIndex = x => ({ id: x.id, unit: x.unit, order: x.order, title: x.title, en: x.en, level: x.level, emoji: x.emoji, summary: x.summary });
 const STARTER_IDS = ['present-simple', 'articles', 'passive-voice'];
 export const GRAMMAR_PACK_PATH = 'web/data/grammar-pack.json', GRAMMAR_PACK_URL = 'https://lexkite.com/data/grammar-pack.json', GRAMMAR_STARTER_PATH = 'native/shared/gen/content-pack/grammar-starter.json';

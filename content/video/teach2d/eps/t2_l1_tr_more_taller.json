@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_more_taller",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Taller, not more taller!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: He is more taller than me.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: He is taller than me.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Taller already means more.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Taller! She is taller than her brother.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "He is more taller than me.",
+  "right": "He is taller than me.",
+  "strike": "more taller",
+  "why": "Taller already means more.",
+  "memory": "He is taller than me.",
+  "quiz": {
+   "stem": "She is ___ than her brother.",
+   "options": [
+    "more taller",
+    "taller"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“More taller” değil, “taller”!",
+   "tip": "Türkçede “daha uzun” deriz; İngilizcede kısa sıfata -er gelir, “more” eklenmez: “taller”.",
+   "caption": "“He is more taller than me” mi diyorsun? 😅 Doğrusu “He is taller than me.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “taller”. Kısa sıfatta -er yeter, more gerekmez. Ücretsiz testle pratik yap: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “more taller”, but “taller”!",
+   "tip": "Add -er to short adjectives, without “more”: “taller”.",
+   "caption": "Do you say “He is more taller than me”? 😅 English adds -er to short words, without “more”. The right sentence is “He is taller than me.” Listen to Ama and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“More taller” değil, “taller”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“More taller” değil, “taller”!",
+  "keyword": "He is taller than me.",
+  "value": "Türkçede “daha uzun” deriz; İngilizcede kısa sıfata -er gelir, “more” eklenmez: “taller”.",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "“More taller” değil, “taller”!",
+    "description": "Türkçede “daha uzun” deriz; İngilizcede kısa sıfata -er gelir, “more” eklenmez: “taller”.\n\n“He is more taller than me” mi diyorsun? 😅 Doğrusu “He is taller than me.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "He is taller than me.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“He is more taller than me” mi diyorsun? 😅 Doğrusu “He is taller than me.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“More taller” değil, “taller”!\n\nTürkçede “daha uzun” deriz; İngilizcede kısa sıfata -er gelir, “more” eklenmez: “taller”.\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“More taller” değil, “taller”! Türkçede “daha uzun” deriz; İngilizcede kısa sıfata -er gelir, “more” ekl… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “taller”. Kısa sıfatta -er yeter, more gerekmez. Ücretsiz testle pratik yap: {link}",
+  "lang": "tr"
+ }
+}

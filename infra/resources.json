@@ -80,6 +80,19 @@
       "status": "Đang dùng (02/11/2026 ~10:05Z) – tên miền gắn R2, Worker giữ deploy làm đường lùi; chốt $0 ≥ 90 % (docs/FREE-TIER.md §R2)"
     },
     {
+      "key": "words-r2",
+      "name": "Cloudflare R2 lexkite-words (trang từ điển các ngôn ngữ ngoài en/vi)",
+      "purpose": "Trang /<lang>/words/** của các ngôn ngữ trong content/seo/words-r2.json (docs/specs/words-off-pages.md) – khoá <lang>/words/<slug>.html, sổ _words/manifest.json. Đồng bộ: scripts/seo/words-r2-sync.mjs (workflow words-r2-sync.yml + pages-deploy direct). Đọc qua Pages Function functions/[lang]/words/[[path]].js (binding WORDS, fail-open → Pages tĩnh). Mục đích: dist ≤ 20k file.",
+      "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/r2/default/buckets/lexkite-words",
+      "match": [
+        "lexkite-words"
+      ],
+      "kind": "cdn",
+      "free": "R2 Free chung tài khoản: ≈ 8.200 trang × 52 KB ≈ 0,4 GB; Class A chỉ khi băm đổi; Class B ≪ 10 triệu/tháng nhờ Cache API + s-maxage; +1 lượt Pages Function mỗi lượt xem (free-tier cảnh báo > 50 % trần ngày)",
+      "upgrade": "Functions/ngày > 50 % trần → WORDS_R2=0 / hạ số ngôn ngữ trong words-r2.json (docs/specs/words-off-pages.md §4)",
+      "status": "Đang bật cho ko (15/11/2026); 13 ngôn ngữ sau 3 ngày theo dõi"
+    },
+    {
       "key": "report-shots-r2",
       "name": "Cloudflare R2 lexkite-report-shots (ảnh chụp báo lỗi, riêng tư)",
       "purpose": "Ảnh chụp đính kèm báo lỗi (functions/api/report.js, binding Pages REPORT_SHOTS, khóa report/<id>, nhị phân) – không tên miền công khai; quản trị xem qua URL ký 5 phút /api/report-shot. Xóa 60 ngày sau khi đóng phiếu.",
@@ -90,7 +103,7 @@
       "kind": "cdn",
       "free": "R2 Free 10 GB lưu trữ chung tài khoản · ảnh ≤ 300 KB/phiếu – thẻ Chất lượng admin hiện dung lượng + %",
       "upgrade": "Không cần: xóa 60 ngày sau khi đóng giữ dung lượng nhỏ",
-      "status": "Chưa bật (02/11/2026) – chạy report-shots.yml action=setup rồi bỏ # [[r2_buckets]] trong wrangler.toml"
+      "status": "Bucket đã tạo (15/11/2026, report-shots.yml setup); binding Pages REPORT_SHOTS vẫn tắt (# trong wrangler.toml). Dùng thêm cho ảnh QC PR: tiền tố ci-shots/ qua S3, dọn > 14 ngày (scripts/ci/stitch-shots.mjs)"
     },
     {
       "key": "audio-cdn-r2",
@@ -137,7 +150,7 @@
       "key": "ai",
       "name": "Cloudflare Workers AI",
       "kind": "ai",
-      "purpose": "Dự phòng chấm Writing/Speaking & hội thoại Roleplay công sở (/api/ai) khi Gemini gần trần; hạn mức theo người ở functions/api/_quota.js (docs/QUOTAS.md), cầu dao giữ < 80% gói miễn phí · AI phân loại báo lỗi (functions/api/_triage.js, @cf/meta/llama-4-scout-17b-16e-instruct, binding AI; không có binding → REST api.cloudflare.com với secret CF_AI_TOKEN + CF_ACCOUNT_ID tùy chọn)",
+      "purpose": "Dự phòng chấm Writing/Speaking & hội thoại Roleplay công sở · AI điền nghĩa cho Nhập tài liệu, tính năng `import` (/api/ai) khi Gemini gần trần; hạn mức theo người ở functions/api/_quota.js (docs/QUOTAS.md), cầu dao giữ < 80% gói miễn phí · AI phân loại báo lỗi (functions/api/_triage.js, @cf/meta/llama-4-scout-17b-16e-instruct, binding AI; không có binding → REST api.cloudflare.com với secret CF_AI_TOKEN + CF_ACCOUNT_ID tùy chọn)",
       "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/ai/workers-ai",
       "free": "10.000 neuron/ngày",
       "upgrade": "Workers Paid",
@@ -263,7 +276,7 @@
       "key": "gemini",
       "name": "Gemini API",
       "kind": "ai",
-      "purpose": "AI chấm bài viết/nói, duyệt bản dịch; nhiều khóa xoay vòng, quản lý ở Quản trị → Dịch vụ",
+      "purpose": "AI người dùng tuyến 1 (chấm Writing/Speaking, Roleplay… – functions/api/_aichain.js, docs/AI-CHAIN.md) + duyệt bản dịch; kho khóa mã hóa (Quản trị → Khóa API, đồng bộ từ secret CI GEMINI_POOL bằng ai-keys-sync.yml)",
       "console": "https://aistudio.google.com/apikey",
       "free": "Khoảng 20 lượt/ngày/khóa (gói miễn phí, tự xoay khóa khi 429)",
       "upgrade": "Thêm khóa ở Quản trị hoặc bật trả phí Google AI",
@@ -274,6 +287,24 @@
       ],
       "cap": {
         "day": 20,
+        "unit": "call/key"
+      }
+    },
+    {
+      "key": "groq",
+      "name": "Groq API",
+      "kind": "ai",
+      "purpose": "AI người dùng tuyến 2: gpt-oss-120b (chỉ model đạt bộ golden ai-golden.yml) – functions/api/_aichain.js, docs/AI-CHAIN.md; khóa trong kho mã hóa (đồng bộ từ secret CI GROQ_POOL bằng ai-keys-sync.yml); CI dùng GROQ_POOL trực tiếp (scripts/lib/ai-pool.mjs)",
+      "console": "https://console.groq.com/keys",
+      "free": "Gói miễn phí: ~1.000 lượt/ngày/khóa (gpt-oss-120b; còn trần token/ngày), tự nghỉ khóa khi 429",
+      "upgrade": "Nạp thêm khóa vào secret GROQ_POOL rồi chạy ai-keys-sync",
+      "status": "Đang dùng",
+      "match": [
+        "api.groq.com",
+        "console.groq.com"
+      ],
+      "cap": {
+        "day": 1000,
         "unit": "call/key"
       }
     },
@@ -575,6 +606,19 @@
       ]
     },
     {
+      "key": "cf-doh",
+      "name": "Cloudflare DNS-over-HTTPS (cloudflare-dns.com)",
+      "kind": "api",
+      "purpose": "/api/readable (Nhập tài liệu từ liên kết) phân giải DNS để chặn SSRF: mọi địa chỉ phải là IP công khai, kiểm lại từng bước chuyển hướng (functions/api/readable.js). Lỗi → từ chối liên kết (không bao giờ cho qua)",
+      "console": "",
+      "free": "Miễn phí, không khóa API",
+      "upgrade": "Không cần",
+      "status": "Đang dùng",
+      "match": [
+        "cloudflare-dns.com"
+      ]
+    },
+    {
       "key": "gtx",
       "name": "Google Translate (gtx) & từ điển mở",
       "kind": "api",
@@ -663,7 +707,7 @@
       "key": "jsdelivr",
       "name": "jsDelivr CDN (thư viện AI chạy trên máy; CI: Noto Emoji/OpenMoji/CLDR cho ảnh từ vựng)",
       "kind": "cdn",
-      "purpose": "Tải transformers.js để chạy AI ngay trên máy người dùng (không tốn máy chủ)",
+      "purpose": "Tải transformers.js để chạy AI ngay trên máy người dùng (không tốn máy chủ) · pdf.js 3.11.174 (SRI) đọc PDF trên máy khi nhập tài liệu → bộ thẻ (web/js/importdeck.js, chỉ khi chọn PDF, không có trong add-on)",
       "console": "",
       "free": "Miễn phí",
       "upgrade": "—",
@@ -784,7 +828,6 @@
       "upgrade": "Thêm khóa (tài khoản khác) hoặc nâng gói ở nhà cung cấp",
       "status": "Chờ đặt secret KEYS_ENC_KEY",
       "match": [
-        "api.groq.com",
         "openrouter.ai",
         "api.anthropic.com",
         "api.openai.com"

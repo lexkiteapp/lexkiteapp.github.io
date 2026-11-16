@@ -554,13 +554,13 @@ const SIMILARITY = vm.runInNewContext(`(function(){ ${slice(rd('web/js/ui.js'), 
 async function writingCases() {
   const out = { ideas: [], letters: [], paraphrase: {}, models: [], model: [], phrases: [], annotated: [] };
   // ---- the web content the page scripts read, plus the REDUCED copy the ports get in vocab.json (data.writing): the same real records, a few of them ----
-  const MODF = ['web/js/models.js', 'web/cpack/write/models2.js', 'web/cpack/write/models3.js', 'web/cpack/write/models4.js', 'web/cpack/write/models5.js', 'web/js/write/gt-letters.js', 'web/cpack/write/task2-more.js'];
+  const MODF = ['web/cpack/write/models.js', 'web/cpack/write/models2.js', 'web/cpack/write/models3.js', 'web/cpack/write/models4.js', 'web/cpack/write/models5.js', 'web/js/write/gt-letters.js', 'web/cpack/write/task2-more.js'];
   const applyMini = (P, W) => { const sb = P.E.sb; sb.MODELS = clone(W.models); sb.WRITE_PROMPTS = clone(W.prompts); const S = P.A.app.task1 && P.A.app.task1.SETS; if (S) S.splice(0, S.length, ...clone(W.task1)); };
   const base = async (hash, W) => { // the model pages on the MINI library (word index = data.catalog) with the real phrases.js lemmatizer
     const P = await pageEnv(hash, MODF, {}, true);
     const L = lemmaTables(P.E.sb.IELTS_DATA); P.A.app.lemma = L.lemma; P.A.app.lemmaT = { PAST: L.PAST, PP: L.PP, BASE: L.BASE, KNOWN: L.KNOWN };
     P.A.app.cleanText = el => ''; P.A.app.phrasePop = () => {}; P.A.app.savePhraseDialog = () => {}; P.A.app.saveSettings = () => {};
-    for (const f of ['web/js/write/task1-more.js', 'web/js/write/task1-more2.js', 'web/js/write.js', 'web/js/task1.js']) P.E.load(f);
+    for (const f of ['web/cpack/write/task1-more.js', 'web/js/write/task1-more2.js', 'web/js/write.js', 'web/js/task1.js']) P.E.load(f);
     P.E.load('web/js/phrases-model.js'); if (W) applyMini(P, W);
     return P;
   };
@@ -635,7 +635,7 @@ async function writingCases() {
       const chunks = [...m.text.matchAll(/\[\[([^|\]]+)\|([^\]]+)\]\]/g)].map(x => [x[1], x[2]]);
       P.E.dom.$$('[data-sv]')[0].onclick(); await settle(6); P.E.dom.$('#saveAll').onclick(); await settle(40);
       const cards = await P.E.Core.Cards.all();
-      out.model.push({ id: 'page-' + m.id, why: 'model page: header (task/kind/band/words), prompt source (WRITE_PROMPTS / task1 SETS / GT_LETTERS by m.ref), chunks list (+ saved flag), linkers set (unique {{…}}), "+" saves ONE chunk as a phrase card (pos "phrase", emoji 🧩, topic "phrases", ex = the sentence that contains it, context title "Bài mẫu Task n"), "Lưu tất cả" saves every missing chunk; tabs: read/vocab/gram/link/copy/write', input: { id: m.id, task: m.task, ref: m.ref, band: m.band, words: m.words }, out: { badges: attrs(h, /<span class="md-badge[^"]*">(.*?)<\/span>/g), back: (/<a href="(#\/[^"]+)" class="small">←/.exec(h) || [])[1], chunks, linkers: [...new Set([...m.text.matchAll(/\{\{([^}]+)\}\}/g)].map(x => x[1]))], tabs: attrs(h, /data-mt="(\w+)"/g), extras: { outline: !!m.outline, vocab: !!m.vocab, pitfalls: !!m.pitfalls, band6: !!m.band6 }, saved: Object.values(cards).slice(0, 4).map(c => ({ word: c.word, vi: c.vi, pos: c.pos, topic: c.topic, emoji: c.emoji, ex: c.ex, ctxTitle: (c.contexts[0] || {}).title })), savedCount: Object.keys(cards).length } });
+      out.model.push({ id: 'page-' + m.id, why: 'model page: header (task/kind/band/words), prompt source (WRITE_PROMPTS / task1 SETS / GT_LETTERS by m.ref), chunks list (+ saved flag), linkers set (unique {{…}}), "+" saves ONE chunk as a phrase card (pos "phrase", emoji 🧩, topic "phrases", ex = the sentence that contains it, context title "Bài mẫu Task n"), "Lưu tất cả" saves every missing chunk; tabs: read/vocab/gram/link/copy/write', input: { id: m.id, task: m.task, ref: m.ref, band: m.band, words: m.words }, out: { badges: attrs(h.split('id="mExtra"')[0], /<span class="md-badge[^"]*"[^>]*>(.*?)<\/span>/g), back: (/<a href="(#\/[^"]+)" class="small">←/.exec(h) || [])[1], chunks, linkers: [...new Set([...m.text.matchAll(/\{\{([^}]+)\}\}/g)].map(x => x[1]))], tabs: attrs(h, /data-mt="(\w+)"/g), extras: { outline: !!m.outline, vocab: !!m.vocab, pitfalls: !!m.pitfalls, band6: !!m.band6 }, saved: Object.values(cards).slice(0, 4).map(c => ({ word: c.word, vi: c.vi, pos: c.pos, topic: c.topic, emoji: c.emoji, ex: c.ex, ctxTitle: (c.contexts[0] || {}).title })), savedCount: Object.keys(cards).length } });
     }
   }
   // ---- gap exercises (vocab / link) and phrase book, driven on real models ----
@@ -754,7 +754,7 @@ async function dictPageCases() {
     const dsb = { console, Math, JSON, Promise, Object, Array, Map, Set, Error, RegExp, URL, TextEncoder, AbortController, encodeURIComponent, decodeURIComponent, Date: P.E.sb.Date, setTimeout: f => { setImmediate(f); return 0; }, clearTimeout() {}, localStorage: P.E.ls, navigator: { onLine: true }, location: P.E.sb.location, t, I18N: P.E.I18N, Core: P.E.Core, IELTS_DATA: P.E.data, App: { state: { settings: { aiLocal: false } } } };
     dsb.fetch = async url => { url = String(url); if (net && /src=gtx/.test(url) && /dt=bd/.test(url)) return J(200, net.gtx); if (net && /src=dapi/.test(url)) return J(200, net.dapi); if (/\/api\/img/.test(url)) return J(200, (net && net.img) || { none: 1 }); if (net && /tatoeba/.test(url)) return J(200, net.tato); return J(200, null); };
     dsb.self = dsb; dsb.window = dsb; vm.createContext(dsb); for (const f of ['web/js/verbs-core.js', 'web/js/lex.js', 'web/js/dictionary.js']) vm.runInContext(rd(f), dsb, { filename: f });
-    P.E.sb.Dict = dsb.Dict; P.E.sb.Lex = undefined;
+    P.E.sb.Dict = dsb.Dict; P.E.sb.Lex = undefined; P.E.sb.ST2 = { mount: (v, name, d) => { P.E.sb._dictD = d; return {}; } }; // khung Stitch dict (đầu trang + ô tìm + Gần đây + Khám phá nhanh): vector đọc d, #result vẫn do dict-page.js vẽ
     vm.runInContext('1', P.E.sb); P.E.load('web/js/dict-page.js');
     await P.A.routes.dict(w); await settle(30);
     const h = P.E.dom.$('#result').innerHTML, r = { empty: /class="card empty"/.test(h), resultHtmlLength: undefined };
@@ -768,7 +768,7 @@ async function dictPageCases() {
     r.bilingual = h.split('class="meaning"').slice(1).filter(x => /data-use-sent/.test(x)).map(x => ({ en: (/<div>(.*?) <button/.exec(x) || [])[1], vi: (/<div class="muted small">(.*?) <span/.exec(x) || [])[1] }));
     r.actions = { quickSave: /id="quickSave"/.test(h), saved: /entry-saved/.test(h), practiceSpeak: (/href="(#\/practice\/speak[^"]*)"/.exec(h) || [])[1] || null, verb: (/href="(#\/verb\/[^"]*)"/.exec(h) || [])[1] || null, usage: (/href="(#\/usage\/[^"]*)"/.exec(h) || [])[1] || null, saveCard: /id="saveCard"/.test(h) };
     r.recent = await P.E.Core.Store.get('recent', []); r.lookupReward = rewards;
-    r.samples = [...h.matchAll(/href="#\/dict\/(\w+)"/g)].map(m => m[1]);
+    r.samples = [...h.matchAll(/href="#\/dict\/(\w+)"/g)].map(m => m[1]).concat(((P.E.sb._dictD || {}).browseBlk || []).flatMap(x => x.items).map(x => x.w)); // blank: 6 từ mẫu nay nằm ở khung (Khám phá nhanh)
     if (r.actions.quickSave || r.actions.saveCard) { P.E.dom.$('#ctx').value = 'My own sentence with ' + w + '.'; await P.E.dom.$('#saveWord').onclick(); await settle(40); const c = (await P.E.Core.Cards.all())[w]; r.afterSave = c && { word: c.word, vi: c.vi, pos: c.pos, ex: c.ex, contexts: c.contexts.map(x => ({ text: x.text, title: x.title, source: x.source })), image: c.image, audio: c.audio, ipaUS: c.ipaUS, topic: c.topic }; }
     delete r.resultHtmlLength;
     out.push({ id: w || 'blank', why, input: { query: w, meanLang: ml }, out: r });

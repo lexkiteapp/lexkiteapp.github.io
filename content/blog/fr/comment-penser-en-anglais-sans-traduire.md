@@ -177,3 +177,5 @@ Oui, parfaitement. Créer de nouvelles autoroutes neuronales consomme beaucoup d
 Arrêter de traduire mentalement n'est pas un don inné réservé aux personnes bilingues depuis l'enfance. C'est une habitude qui se cultive jour après jour par la répétition d'automatismes simples : nommer les objets, commenter ses actions et penser par blocs d'expressions idiomatiques.
 
 Commencez dès aujourd'hui : levez les yeux de cet écran, observez la pièce où vous vous trouvez, et faites résonner votre première pensée directement en anglais !
+
+Pour mettre ce réflexe en pratique à l’oral, voyez des [réponses IELTS Speaking band 7](/fr/blog/reponses-ielts-speaking-band-7-exemples/) où l’on compare version faible et version forte.

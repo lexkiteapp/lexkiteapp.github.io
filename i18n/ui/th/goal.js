@@ -1,3 +1,30 @@
-/* UI th – goal (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["th"] = Object.assign(D["th"] || {}, {"Điểm ước tính":"คะแนนโดยประมาณ","{p}% sẵn sàng":"พร้อม {p}%","Chưa có điểm ước tính":"ยังไม่มีคะแนนโดยประมาณ","Làm một bài thi thử để Lexkite ước tính điểm hiện tại, mức sẵn sàng và kỹ năng cần luyện.":"ทำข้อสอบจำลองเพื่อให้ Lexkite ประเมินคะแนนปัจจุบัน ความพร้อม และทักษะที่ควรฝึก","Làm bài kiểm tra trình độ":"ทำแบบทดสอบระดับ","Thi thử ngay":"สอบจำลองเลย","Chẩn đoán từng kỹ năng":"วิเคราะห์รายทักษะ","Cần luyện thêm":"ต้องฝึกเพิ่ม","Đạt nhịp mục tiêu":"ตามเป้า","{n} chọn cho bạn":"{n} เลือกให้คุณ","Luyện {s} có trọng tâm":"ฝึก{s}แบบเจาะจง","Kỹ năng thấp nhất của bạn – luyện 5 phút mỗi ngày để kéo điểm tổng lên.":"ทักษะที่ต่ำที่สุดของคุณ – ฝึกวันละ 5 นาทีเพื่อดันคะแนนรวมขึ้น","Thi thử tiếp theo: {date}":"สอบจำลองครั้งถัดไป: {date}","Thi thử ngay tuần này để đo điểm":"สอบจำลองสัปดาห์นี้เพื่อวัดคะแนน","Còn {n} ngày đến kỳ thi":"อีก {n} วันถึงวันสอบ","~{h} giờ luyện còn lại":"เหลือเวลาฝึก ~{h} ชม.","Phần 3–4: bám ý người nói":"ส่วนที่ 3–4: จับใจความผู้พูด","Đọc lướt tìm ý nhanh":"อ่านเร็วจับใจความหลัก","Task 2: liên kết ý":"Task 2: ความเชื่อมโยงของความคิด","Trôi chảy & từ nối":"ความคล่องและคำเชื่อม","Khoảng cách":"ส่วนต่าง","Trọng tâm:":"จุดเน้น:","Đủ 4 kỹ năng":"ครบ 4 ทักษะ","Dự báo tổng":"คาดการณ์รวม","Tối thiểu":"ต่ำสุด","Tối đa":"สูงสุด"});
+/* UI th – goal (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["th"] = Object.assign(D["th"] || {}, {
+"Chưa có điểm ước tính":"ยังไม่มีคะแนนโดยประมาณ",
+"Chẩn đoán từng kỹ năng":"วิเคราะห์รายทักษะ",
+"Còn {n} ngày đến kỳ thi":"อีก {n} วันถึงวันสอบ",
+"Cần luyện thêm":"ต้องฝึกเพิ่ม",
+"Dự báo tổng":"คาดการณ์รวม",
+"Khoảng cách":"ส่วนต่าง",
+"Kỹ năng thấp nhất của bạn – luyện 5 phút mỗi ngày để kéo điểm tổng lên.":"ทักษะที่ต่ำที่สุดของคุณ – ฝึกวันละ 5 นาทีเพื่อดันคะแนนรวมขึ้น",
+"Luyện {s} có trọng tâm":"ฝึก{s}แบบเจาะจง",
+"Làm bài kiểm tra trình độ":"ทำแบบทดสอบระดับ",
+"Làm một bài thi thử để Lexkite ước tính điểm hiện tại, mức sẵn sàng và kỹ năng cần luyện.":"ทำข้อสอบจำลองเพื่อให้ Lexkite ประเมินคะแนนปัจจุบัน ความพร้อม และทักษะที่ควรฝึก",
+"Phần 3–4: bám ý người nói":"ส่วนที่ 3–4: จับใจความผู้พูด",
+"Task 2: liên kết ý":"Task 2: ความเชื่อมโยงของความคิด",
+"Thi thử ngay":"สอบจำลองเลย",
+"Thi thử ngay tuần này để đo điểm":"สอบจำลองสัปดาห์นี้เพื่อวัดคะแนน",
+"Thi thử tiếp theo: {date}":"สอบจำลองครั้งถัดไป: {date}",
+"Trôi chảy & từ nối":"ความคล่องและคำเชื่อม",
+"Trọng tâm:":"จุดเน้น:",
+"Tối thiểu":"ต่ำสุด",
+"Tối đa":"สูงสุด",
+"{n} chọn cho bạn":"{n} เลือกให้คุณ",
+"{p}% sẵn sàng":"พร้อม {p}%",
+"~{h} giờ luyện còn lại":"เหลือเวลาฝึก ~{h} ชม.",
+"Điểm ước tính":"คะแนนโดยประมาณ",
+"Đạt nhịp mục tiêu":"ตามเป้า",
+"Đọc lướt tìm ý nhanh":"อ่านเร็วจับใจความหลัก",
+"Đủ 4 kỹ năng":"ครบ 4 ทักษะ",
+});
 })(typeof self !== 'undefined' ? self : this);

@@ -8,7 +8,7 @@ export function collect() {
   const c = { self: {} }; c.self = c; vm.createContext(c);
   vm.runInContext(fs.readFileSync('web/js/listen/kvoice.js', 'utf8'), c);
   for (const f of dataFiles('listen', /^test\d+\.js$/)) vm.runInContext(fs.readFileSync(f, 'utf8'), c); // web/js/listen + web/cpack/listen
-  for (const f of fs.readdirSync('web/js/toeic').filter(f => /^listening\d+\.js$/.test(f)).sort()) vm.runInContext(fs.readFileSync('web/js/toeic/' + f, 'utf8'), c);
+  for (const f of dataFiles('toeic', /^listening\d+\.js$/)) vm.runInContext(fs.readFileSync(f, 'utf8'), c); // web/js/toeic + web/cpack/toeic (đề 8–10)
   for (const f of fs.readdirSync('web/cpack/toefl').filter(f => /^data\d+\.js$/.test(f))) vm.runInContext(fs.readFileSync('web/cpack/toefl/' + f, 'utf8'), c);
   // Cambridge A2–C2 (docs/specs/cambridge.md): mỗi unit nghe có speakers + script như TOEFL
   if (fs.existsSync('web/cpack/cambridge')) for (const l of fs.readdirSync('web/cpack/cambridge').filter(x => /^(a2|b1|b2|c1|c2)$/.test(x))) for (const f of fs.readdirSync('web/cpack/cambridge/' + l).filter(f => /^t\d+\.js$/.test(f))) vm.runInContext(fs.readFileSync(`web/cpack/cambridge/${l}/${f}`, 'utf8'), c);
@@ -31,12 +31,15 @@ export function collect() {
   }
   // Cuộc gọi Ama/Carlos (#/call, docs/CALL.md): mỗi câu giáo viên nói (câu hỏi, câu đáp nhánh, câu kết) 1 file theo giọng người gọi → sprite khớp môi đúng độ dài file
   {
-    for (const f of ['web/js/call/calls.js', 'web/js/call/calls-exam.js', 'web/js/call/calls-lot1.js', 'web/js/call/calls-lot2.js']) vm.runInContext(fs.readFileSync(f, 'utf8'), c);
+    for (const f of ['web/js/call/calls.js', 'web/js/call/calls-exam.js', 'web/js/call/calls-lot1.js', 'web/js/call/calls-lot2.js', 'web/cpack/call/calls-lot3.js', 'web/cpack/call/calls-lot4.js']) vm.runInContext(fs.readFileSync(f, 'utf8'), c);
     const V = { ama: 'af_heart', carlos: 'am_michael' };
     for (const k of c.CALLS || []) {
       const v = V[k.who] || V.ama, nodes = k.nodes ? Object.values(k.nodes) : (k.turns || []);
       for (const x of [...nodes.flatMap(n => [n.m, n.re, ...(n.br || []).map(b => b[1])]), k.end, "Let's keep our chat friendly and on topic!"]) if (x) { const key = c.KVoice.lineKey(v, x); jobs.set(key, { voice: v, text: String(x).trim() }); tag('calls', key); }
     }
+    // Call RT (docs/specs/call-realtime.md): câu đệm/backchannel theo đúng giọng từng giáo viên
+    vm.runInContext(fs.readFileSync('web/js/call/fillers.js', 'utf8'), c);
+    for (const [who, f] of Object.entries(c.CALL_FILLERS || {})) for (const x of [...f.ack, ...f.think]) jobs.set(c.KVoice.lineKey(V[who], x), { voice: V[who], text: x });
   }
   // Câu đọc đơn (UI.tts): giọng chung theo accent – câu hỏi giám khảo Speaking (Anh & Mỹ), TOEFL Listen & Repeat / Interview
   const GEN = { 'en-GB': 'bf_emma', 'en-US': 'af_heart' };
@@ -49,6 +52,16 @@ export function collect() {
   for (const T of c.CAMBRIDGE || []) for (const p of (T.speaking || {}).parts || []) {
     for (const q of [...(p.phases || []).flatMap(x => [...(x.q || []), ...(x.extended ? [x.extended] : [])]), p.prompt, ...(p.follow || [])]) if (q) addOne(GEN['en-GB'], q, 'cambridge-speaking');
     for (const l of p.partnerLines || []) addOne(GEN['en-US'], l, 'cambridge-speaking');
+  }
+  // Trung gian (#/mediate, docs/specs/mediation.md): nguồn đọc/nói/hội thoại đọc to bằng giọng cố định của MediateCore.voices (web/js/mediate.js play()) – biểu đồ không đọc
+  if (fs.existsSync('web/cpack/mediation')) {
+    vm.runInContext(fs.readFileSync('web/js/mediate-core.js', 'utf8'), c);
+    for (const f of fs.readdirSync('web/cpack/mediation').filter(f => /^m\d+\.js$/.test(f)).sort()) vm.runInContext(fs.readFileSync('web/cpack/mediation/' + f, 'utf8'), c);
+    for (const X of Object.values(c.MEDIATION || {})) {
+      const S = X.source, V = c.MediateCore.voices(S);
+      if (S.kind === 'dialogue') for (const l of S.lines || []) oneSplit(V[l.s], l.t, 'mediation-source');
+      else if (S.kind !== 'chart') oneSplit(V._narrator, c.MediateCore.sourceText(S), 'mediation-source');
+    }
   }
   for (const u of (c.TOEFL || {}).speaking || []) { const v = GEN[u.accent] || GEN['en-GB']; for (const x of u.sentences || []) x.t && addOne(v, x.t, 'toefl-speaking'); for (const x of u.questions || []) x.q && addOne(v, x.q, 'toefl-speaking'); }
   {
@@ -69,10 +82,11 @@ export function collect() {
   // Nhóm tĩnh khác mà app đọc qua UI.tts / LessonTeacher.say (đo 1/11: trước đó luôn rơi về giọng máy). Mỗi file nạp trong ngữ cảnh riêng có window = self.
   {
     const ctx = () => { const x = { t: s => s, console }; x.self = x.window = x.globalThis = x; vm.createContext(x); return x; };
-    const L = (x, f) => { try { vm.runInContext(fs.readFileSync(f, 'utf8'), x); } catch (e) { console.error(`corpus: bỏ qua ${f}: ${e.message}`); } };
+    // Nguồn không tồn tại (dời/đổi tên tệp mà quên sửa đường dẫn) → LỖI CỨNG, không bỏ qua âm thầm (12/11: pron/skills.js dời cpack ở #1178 → 114 từ/câu mất khỏi đo độ phủ mà không ai biết).
+    const L = (x, f) => { if (!fs.existsSync(f)) throw new Error(`corpus: nguồn không tồn tại: ${f} (đã dời/đổi tên? sửa đường dẫn trong scripts/sentence-audio/corpus.mjs)`); try { vm.runInContext(fs.readFileSync(f, 'utf8'), x); } catch (e) { console.error(`corpus: bỏ qua ${f}: ${e.message}`); } };
     const strs = a => (Array.isArray(a) ? a : [a]).filter(v => typeof v === 'string' && /[A-Za-z]/.test(v));
     // Confidence (confidence.js: theo accent người học; người nói b đọc giọng còn lại → cả 2 giọng)
-    { const x = ctx(); L(x, 'web/js/confidence/data.js'); const D = x.CONF || {};
+    { const x = ctx(); L(x, 'web/cpack/confidence/data.js'); const D = x.CONF || {};
       for (const u of D.units || []) { for (const p of u.phrases || []) bothSplit(p.say, 'confidence'); for (const l of (u.dialogue || {}).lines || []) bothSplit(l[1], 'confidence'); }
       for (const k of D.toolkit || []) for (const p of k.phrases || []) bothSplit(p.say, 'confidence');
       for (const q of D.daily || []) bothSplit(q.q, 'confidence'); }
@@ -92,7 +106,7 @@ export function collect() {
     { const sp = fs.readFileSync('web/js/speaking.js', 'utf8'), i0 = sp.indexOf('const BANK = [') + 13, B = vm.runInNewContext(sp.slice(i0, sp.indexOf('\n  ];', i0) + 4), { t: v => v });
       for (const b of [...B, ...(c.SPEAK_MORE || [])]) { const t = `Now I'd like you to talk about a topic for one to two minutes. You have one minute to prepare. ${b.p2.q}`; for (const sen of c.KVoice.split(t)) addOne(GEN['en-GB'], sen, 'mock-speaking'); } }
     // Phát âm: từ + cặp tối thiểu + câu (pron.js, data-speak-text bỏ ký hiệu ngữ điệu), Nói theo mẫu (sayit.js, giọng Mỹ), nhịp câu (rhythm.js)
-    { const x = ctx(); for (const f of ['sounds', 'skills', 'pairs', 'coach']) L(x, `web/js/pron/${f}.js`);
+    { const x = ctx(); for (const f of ['pairs', 'coach']) L(x, `web/js/pron/${f}.js`); L(x, 'web/cpack/pron/sounds.js'); L(x, 'web/cpack/pron/skills.js'); // sounds.js + skills.js ở cpack (#1178)
       for (const it of x.PRON || []) { for (const w of it.words || []) both(w.w, 'pron'); for (const w of (it.pairs || []).flat()) both(w, 'pron');
         for (const sn of it.sentences || []) bothSplit(String(sn).replace(/[↗↘‿]|\s\/\s/g, ' ').replace(/\s+/g, ' ').trim(), 'pron'); }
       for (const k of (x.PronPairs || {}).CONTRASTS || []) for (const p of String(k.pairs || '').split(/\s+/)) for (const w of p.split('/')) addOne(GEN['en-US'], w.split('=')[0], 'pron');
@@ -108,17 +122,22 @@ export function collect() {
       // câu ví dụ của thẻ giải thích (grammar.js / usage.js ExplainCard → UI.speak theo accent người học)
       for (const t of strs(Object.values(x.LESSON_GOLD || {}).flat().flatMap(g => (g && g.ex) || []))) bothSplit(t, 'gold-examples'); }
     // Bài mẫu (phrases.js, bỏ đánh dấu) + câu cố định trong Cài đặt
-    { const x = ctx(); for (const f of fs.readdirSync('web/js').filter(f => /^models.*\.js$/.test(f))) L(x, `web/js/${f}`);
+    { const x = ctx(); for (const f of fs.readdirSync('web/js').filter(f => /^models.*\.js$/.test(f))) L(x, `web/js/${f}`); L(x, 'web/cpack/write/models.js'); // models.js ở cpack từ #1213
       const plain = t => t.replace(/<<[^>]*>>/g, '').replace(/\[\[([^|\]]*)\|[^\]]*\]\]/g, '$1').replace(/\{\{([^}]*)\}\}/g, '$1');
       for (const m of x.MODELS || []) if (m.text) bothSplit(plain(m.text), 'models');
       for (const t of ['This is how I will read words and sentences to you.', 'Many people believe that renewable energy is the key to a sustainable future. However, the transition will not happen overnight.']) bothSplit(t, 'ui-lines'); }
     // Say it like a native (say.js: 🔊 = giọng giáo viên của loạt, UI.tts 'en-US' giọng nhân vật – cả câu như UI.tts tra trước)
     if (fs.existsSync('web/data/say.json')) { const V = { ama: 'af_heart', carlos: 'am_michael' };
       for (const s of JSON.parse(fs.readFileSync('web/data/say.json', 'utf8')).series || []) for (const it of s.items || []) oneSplit(V[s.teacher] || V.ama, it.say, 'say-native'); }
+    // Bảng động từ bất quy tắc (#/irregular): chuỗi 3 dạng + 2 câu ví dụ, theo accent người học (cpack/irregular/table.js, UI.tts)
+    if (fs.existsSync('web/js/irv/core.json')) for (const r of JSON.parse(fs.readFileSync('web/js/irv/core.json', 'utf8')).rows) for (const t of [r[10], r[5], r[6]]) bothSplit(t, 'irregular');
     // Ngân hàng ý tưởng Task 2 (ideas.js: câu ví dụ, nút data-saysent → theo accent người học)
     { const x = ctx(); L(x, 'web/cpack/write/ideas.js'); for (const tp of x.IDEAS || []) for (const iss of tp.issues || []) for (const it of [...(iss.for || []), ...(iss.against || [])]) for (const t of strs(it.ex)) bothSplit(t, 'ideas'); }
     // Ngữ pháp: mọi câu ví dụ (trường ex) trong web/js/grammar + web/cpack/grammar (bài tải lười); bỏ mục lục lazy-*.js
-    { const x = ctx(); for (const d of ['web/js/grammar', 'web/cpack/grammar']) if (fs.existsSync(d)) for (const f of fs.readdirSync(d).filter(f => f.endsWith('.js') && !/^lazy-/.test(f)).sort()) L(x, `${d}/${f}`);
+    { const x = ctx(), ls = d => fs.existsSync(d) ? fs.readdirSync(d).filter(f => f.endsWith('.js') && !/^lazy-/.test(f)).sort().map(f => `${d}/${f}`) : [];
+      // thứ tự nạp như app: web/js/grammar rồi web/cpack/grammar, riêng drills-c (dời cpack) vẫn nạp ngay sau drills-b như khi còn ở web/js
+      const gj = ls('web/js/grammar'), gc = ls('web/cpack/grammar'), dc = gc.filter(f => /\/drills-c\.js$/.test(f)), at = gj.findIndex(f => /\/drills-b\.js$/.test(f)) + 1;
+      for (const f of [...gj.slice(0, at), ...dc, ...gj.slice(at), ...gc.filter(f => !dc.includes(f))]) L(x, f);
       const seen = new Set(), walk = o => { if (!o || typeof o !== 'object' || seen.has(o)) return; seen.add(o); for (const [k, v] of Object.entries(o)) { if (k === 'ex') for (const t of strs(v)) bothSplit(t, 'grammar'); else walk(v); } };
       walk(x.GRAMMAR); walk(x.GRAMMAR_CHECK); }
   }

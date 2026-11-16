@@ -105,10 +105,11 @@
   onReady(watchToast);
 
   let lastFocus = null;
-  function modal(html) {
+  function modal(html, opts) {
     lastFocus = document.activeElement;
     const box = $('#modalBox');
     box.innerHTML = html;
+    $('#modal').dataset.v = (opts && opts.v) || ''; // dạng hộp: 'sheet' = tấm dưới (css/path-sheet.css)
     box.setAttribute('role', 'dialog'); box.setAttribute('aria-modal', 'true'); box.tabIndex = -1;
     $('#modal').hidden = false;
     trapFocus(true); requestAnimationFrame(() => trapFocus()); setTimeout(trapFocus, 120); // WebView (iOS/Android) có thể bỏ qua focus() lần đầu
@@ -129,6 +130,11 @@
   // Trả focus: phần tử cũ đã bị vẽ lại (vd. nút cuối bài học) → tiêu đề/nút chính của trang thay vì rơi về <body> (journey-e2e)
   const closeModal = () => { if ($('#modal').hidden) return; $('#modal').hidden = true; const f = lastFocus && lastFocus.isConnected && lastFocus !== document.body ? lastFocus : $('#view .btn.primary, #view h1, #view h2'); const put = el => { if (!el || !el.focus) return false; if (!el.matches('a[href],button,input,select,textarea,[tabindex]')) el.tabIndex = -1; try { el.focus({ preventScroll: true }); } catch (e) { /* bỏ qua */ } return document.activeElement === el; };
     if (!put(f)) put($('#view h1, #view h2') || $('#view')); };
+  // Vuốt xuống từ mép trên hộp thoại (bottom sheet trên điện thoại) → đóng; thả giữa chừng thì trượt về chỗ cũ
+  { let y0 = null, dy = 0; const box = () => document.getElementById('modalBox');
+    document.addEventListener('touchstart', e => { const m = box(); y0 = null; if (!m || !m.contains(e.target) || innerWidth > 640 || m.scrollTop > 0) return; const y = e.touches[0].clientY; if (y - m.getBoundingClientRect().top < 44) { y0 = y; dy = 0; } }, { passive: true });
+    document.addEventListener('touchmove', e => { const m = box(); if (y0 == null || !m) return; dy = Math.max(0, e.touches[0].clientY - y0); m.classList.add('drag'); m.style.transform = `translateY(${dy}px)`; }, { passive: true });
+    document.addEventListener('touchend', () => { const m = box(); if (y0 == null || !m) return; y0 = null; m.classList.remove('drag'); m.classList.add('back'); m.style.transform = ''; setTimeout(() => m.classList.remove('back'), 240); if (dy > 90) closeModal(); }); }
   document.addEventListener('keydown', e => {
     if ($('#modal').hidden) return;
     if (e.key === 'Escape') return closeModal();
@@ -437,7 +443,7 @@
     if (cb.setup) try { cb.setup(r); } catch (e) { /* thuộc tính mới (processLocally, phrases) chưa có */ }
     // Ghi âm giọng người học song song để nghe lại so với giọng mẫu
     let media = null, chunks = [], stream = null, audioP = null;
-    if (navigator.mediaDevices && g.MediaRecorder) {
+    if (navigator.mediaDevices && g.MediaRecorder && micParallel(SR)) {
       navigator.mediaDevices.getUserMedia(MIC).then(st => {
         if (r._stale || r._ended) { st.getTracks().forEach(t => t.stop()); return; }
         stream = st;
@@ -473,14 +479,19 @@
     cb.start && cb.start();
     return { stop: () => { try { r.stop(); } catch (e) { /* đã dừng */ } } };
   }
+  // LX-1003: Android/iOS cấp mic cho 1 bên → không ghi âm song song với SpeechRecognition (nhận dạng chỉ nghe im lặng)
+  const micParallel = SR => !(SR && (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || navigator.maxTouchPoints > 1 && /Mac/.test(navigator.userAgent)));
   const stopRecognize = () => { if (activeRec) { activeRec._stale = true; try { activeRec.abort(); } catch (e) { /* đã dừng */ } activeRec = null; } };
 
   // Ảnh minh họa kèm ghi nguồn theo giấy phép Creative Commons
-  // Không dùng onclick="…" nội tuyến (CSP của add-on chặn): bấm ⓘ ghi nguồn ảnh không lật thẻ; [data-confirm] hỏi lại trước khi đi tiếp
+  // Không dùng handler onclick nội tuyến (CSP của add-on chặn): bấm ⓘ ghi nguồn ảnh không lật thẻ; [data-confirm] hỏi lại trước khi đi tiếp
   if (g.document && !g.__lkDeleg) {
     g.__lkDeleg = true;
     document.addEventListener('click', e => {
       if (e.target.closest && e.target.closest('.pcredit')) { e.stopPropagation(); return; }
+      // Liên kết "Bỏ qua tới nội dung chính": <base href="/"> → href="#view" sẽ rời /app/ → chặn và đưa tiêu điểm vào #view (thay onclick= nội tuyến – CSP)
+      const sk = e.target.closest && e.target.closest('a.skip-link[href="#view"]');
+      if (sk) { const v = document.getElementById('view'); if (v) { e.preventDefault(); v.focus(); } return; }
       const c = e.target.closest && e.target.closest('[data-confirm]');
       if (c && !confirm(c.dataset.confirm)) { e.preventDefault(); e.stopPropagation(); }
     }, true);
@@ -489,7 +500,7 @@
   const levelChip = l => l ? `<span class="chip lv ${esc(l)}">${esc(l)}</span>` : '';
   // Từ loại lưu bằng tiếng Việt trong dữ liệu (vd. "danh từ") → giao diện ngôn ngữ khác hiện thuật ngữ tiếng Anh chuẩn (noun, verb…)
   const VI_POS = { 'danh từ': 'noun', 'động từ': 'verb', 'tính từ': 'adjective', 'trạng từ': 'adverb', 'giới từ': 'preposition', 'liên từ': 'conjunction', 'đại từ': 'pronoun', 'thán từ': 'interjection', 'từ hạn định': 'determiner', 'cụm động từ': 'phrasal verb', 'cụm từ': 'phrase', 'thành ngữ': 'idiom', 'trợ động từ': 'auxiliary verb', 'số từ': 'number', 'mạo từ': 'article' };
-  const posLabel = p => { const k = String(p || '').trim().toLowerCase(); return (!g.I18N || I18N.lang() === 'vi') ? p : VI_POS[k] || p; };
+  const posLabel = p => { const k = String(p || '').trim().toLowerCase(); if (!g.I18N || I18N.lang() === 'vi') return p; const x = VI_POS[k] ? I18N.t(k) : ''; return x && x !== k ? x : VI_POS[k] || p; }; // có bản dịch trong ngôn ngữ giao diện thì dùng (Adjektiv, 形容詞…), chưa có → thuật ngữ tiếng Anh
   const posChip = p => p ? `<span class="chip pos">${esc(posLabel(p))}</span>` : '';
   const masteryDots = (s, SRS) => { const m = SRS.mastery(s); return `<span class="mastery" title="${t('Mức thuộc')}">${[1, 2, 3].map(i => `<i class="${i <= m ? 'on' : ''}"></i>`).join('')}</span>`; };
   const ring = (pct, label, color) => `<div class="ring" style="--p:${Math.round(pct)};${color ? `--c:${color}` : ''}"><b>${label}</b></div>`;
@@ -519,6 +530,7 @@
   }, true);
   // Hạn mức máy chủ (functions/api/_quota.js): mã thiết bị ngẫu nhiên (X-Lexkite-Device) · 429 { error:'quota', msg, resetAt, signIn } → câu báo
   const dev = () => { try { let d = localStorage.getItem('lk.dev'); if (!d) localStorage.setItem('lk.dev', d = [...crypto.getRandomValues(new Uint8Array(20))].map(b => (b % 36).toString(36)).join('')); return d; } catch (e) { return ''; } };
+  let humanP; const human = () => humanP || (humanP = window.Human ? Promise.resolve(window.Human) : new Promise(r => { const s = document.createElement('script'); s.src = 'js/human.js'; const fin = () => { clearTimeout(to); if (!window.Human) humanP = null; r(window.Human || null); }, to = setTimeout(fin, 4000); s.onload = s.onerror = fin; document.head.appendChild(s); }));
   const quotaText = (j = {}) => { const r = j.resetAt, at = r && new Date(r).toLocaleString([], r - Date.now() > 864e5 ? { dateStyle: 'short', timeStyle: 'short' } : { timeStyle: 'short' }); return (j.msg === 'quota.daily' && at ? t('Đã hết lượt miễn phí hôm nay – mở lại lúc {time}.', { time: at }) : t('Máy chủ đang bận – thử lại sau ít phút.')) + (j.signIn ? ' ' + t('Đăng nhập để có thêm lượt.') : ''); };
   // Icon UI: 1 bộ Lucide, sprite #lk-sprite (docs/DESIGN-SYSTEM.md)
   const icon = (n, cls) => `<svg class="i${cls ? ' ' + cls : ''}" aria-hidden="true"><use href="#i-${n}"/></svg>`;
@@ -646,5 +658,12 @@
     e.preventDefault(); const st = prefs();
     if (b.dataset.speak != null) speak(b.dataset.speak, b.dataset.accent || st.accent, b.dataset.url || ''); else speak(b.dataset.speakText, st.accent);
   });
-  g.UI = { whisperModel, sayBtn, ipaOf, ipaTag, ipaHtml, pronHtml, accOrder, weakOf, WEAK, audioFor, fillIpa, icon, glyph, addIcons, paintIcons: paint, skel, skelPage, dev, quotaText, quota: j => { toast(quotaText(j), 6000); if (g.Ads && g.Ads.quota) g.Ads.quota(j); }, ctxBox, recUrl, clearRecs, $, $$, esc, shuffle, wordRegex, highlight, cloze, clozeAnswer, similarity, toast, modal, closeModal, xpFloat, speak, tts, ttsClean, stopSpeak, recognize, stopRecognize, recErrorText, whisperWarm: p => whisper(p), voicesFor, pickVoice, splitSentences, pic, levelChip, posChip, masteryDots, ring, download };
+  // Vé người thật (docs/HUMAN.md): lượt thường không chờ; again (403 human) → chờ vé rồi thử lại
+  async function humanHdr(h, again) {
+    const H = window.Human;
+    if (again) { const X = await human(); if (X) { await X.ticket(true); X.headers(h); } } else if (H) { if (!H.headers(h)['X-Lexkite-Human']) H.ticket().catch(() => {}); } else human().then(x => x && x.ticket()).catch(() => {});
+    return h;
+  }
+
+  g.UI = { whisperModel, sayBtn, ipaOf, ipaTag, ipaHtml, pronHtml, accOrder, weakOf, WEAK, audioFor, fillIpa, icon, glyph, addIcons, paintIcons: paint, skel, skelPage, dev, human, humanHdr, quotaText, quota: j => { toast(quotaText(j), 6000); if (g.Ads && g.Ads.quota) g.Ads.quota(j); }, ctxBox, recUrl, clearRecs, $, $$, esc, shuffle, wordRegex, highlight, cloze, clozeAnswer, similarity, toast, modal, closeModal, xpFloat, speak, tts, ttsClean, stopSpeak, recognize, micParallel, MIC, stopRecognize, recErrorText, whisperWarm: p => whisper(p), voicesFor, pickVoice, splitSentences, pic, levelChip, posChip, posLabel, masteryDots, ring, download };
 })(typeof self !== 'undefined' ? self : this);

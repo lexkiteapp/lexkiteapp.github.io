@@ -77,7 +77,7 @@ const RV = T1.vectorJson, RD = T1.rigJson;
   }
   ok(bad.length === 0 && RV.scenarios.length === 24, `machine reference: ${RV.scenarios.length} scenarios (idle · emotions · gestures · speak cues/queue/live · listen, normal + reduced motion), inside LIMITS, calm = neck/breath still${bad.length ? ' – ' + bad.slice(0, 3).join('; ') : ''}`);
   const posesOf = who => new Set(RV.scenarios.find(s => s.who === who && s.id === 'gestures').rows.map(r => r[col('pose')]).filter(Boolean));
-  ok(['cheer', 'thumbs_up', 'clap', 'explain'].every(p => posesOf('ama').has(p)) && ['cheer', 'thumbs_up', 'hold_card'].every(p => posesOf('carlos').has(p)), 'gestures scenario: Ama clap + hold_card→explain (alt), Carlos hold_card + clap→cheer (alt)');
+  ok(['cheer', 'thumbs_up', 'clap', 'hold_card'].every(p => posesOf('ama').has(p)) && ['cheer', 'thumbs_up', 'hold_card', 'clap'].every(p => posesOf('carlos').has(p)), 'gestures scenario: both teachers show their own thumbs_up, clap and hold_card stills (gesture bank 12/11 – no alt left)');
   const rigid = RV.matrix.every(({ m }) => Math.abs(m[0] - m[3]) < 1e-5 && Math.abs(m[1] + m[2]) < 1e-5);
   ok(rigid && RV.matrix.length === 12, 'matrix vectors are rigid (rotation + uniform scale + translation, no shear)');
   ok(RV.paint.length === 2 * 14 && RV.paint.every(p => p.parts.length === 5 && p.parts[3].length > 3) && RV.paint.filter(p => p.who === 'ama').every(p => p.parts[4].length === 0) && RV.paint.filter(p => p.who === 'carlos').every(p => p.parts[4].length > 0), 'face paint ops: 5 layers per state (eyes×2, brows, mouth, moustache only for Carlos)');
@@ -207,7 +207,7 @@ const RV = T1.vectorJson, RD = T1.rigJson;
     ok(Buffer.byteLength(K1) < 700 * 1024 && gz < 250 * 1024, `skills-pack.json size: ${(Buffer.byteLength(K1) / 1024) | 0} KB raw (< 700) / ${(gz / 1024) | 0} KB gzip (< 250); not in the extension or app shell`);
     if (!/^[0-9a-f]{12}$/.test(PK.v) || PK.schema !== 1) bp.push('v/schema');
     if (PK.listening.length !== 40 || new Set(PK.listening.map(p => p.test)).size !== 10 || [...Array(10).keys()].some(t => [1, 2, 3, 4].some(k => !PK.listening.find(p => p.id === `t${t + 1}p${k}`)))) bp.push('listening is not 10 tests x 4 parts');
-    if (PK.readings.length !== 57 || new Set(PK.readings.map(r => r.id)).size !== 57) bp.push('readings is not 57 distinct passages');
+    if (PK.readings.length !== SV.counts.readings || new Set(PK.readings.map(r => r.id)).size !== SV.counts.readings) bp.push("readings are not " + SV.counts.readings + " distinct passages (vectors counts)");
     const JS = x => JSON.stringify(x);
     if (SV.data.listening.some(p => JS(PK.listening.find(q => q.id === p.id)) !== JS(p))) bp.push('listening parts differ from skills.json data.listening');
     if (SV.data.readings.some(r => JS(PK.readings.find(q => q.id === r.id)) !== JS(r))) bp.push('readings differ from skills.json data.readings');
@@ -215,7 +215,7 @@ const RV = T1.vectorJson, RD = T1.rigJson;
     for (const sk of Object.keys(Q.band)) if (JS(Q.band[sk]) !== JS(Array.from({ length: 41 }, (_, r) => (PK.consts.band[sk].find(([m]) => r >= m) || [0, 0])[1]))) bp.push('band ' + sk);
     if (PK.consts.kvoice.narrator !== 'bm_george' || Object.keys(PK.consts.kvoice.pools).length !== 6 || SV.shared.kvoice.voices.some(c => c.out._narrator !== PK.consts.kvoice.narrator)) bp.push('kvoice consts');
     if (PK.consts.stopwords.length < 40 || !PK.consts.stopwords.includes('the')) bp.push('stopwords');
-    ok(bp.length === 0, `skills-pack.json: 10 tests / 40 parts, 57 readings, shape = skills.json data.*, consts (band, voice pools, stopwords) match the vectors${bp.length ? ' – ' + bp.join('; ') : ''}`);
+    ok(bp.length === 0, `skills-pack.json: 10 tests / 40 parts, readings = vectors counts, shape = skills.json data.*, consts (band, voice pools, stopwords) match the vectors${bp.length ? ' – ' + bp.join('; ') : ''}`);
   }
   // strings: every literal t() key on the P06 screens (listening, reading, qengine, qtips, choice-kit) is mapped by strings.json
   const have8 = new Set(Object.values(JSON.parse(rd('native/shared/strings.json')))), keys8 = new Set();
@@ -274,13 +274,13 @@ const RV = T1.vectorJson, RD = T1.rigJson;
     ok(S1 === (await SP.speakStarter()) && same(SP.SPEAK_STARTER_PATH, S1) && same('native/ios/LexkiteKit/Sources/LKStore/Resources/speak-content.json', S1) && Buffer.byteLength(S1) < 128 * 1024, `speak-starter.json: deterministic, equal to the committed copies (shared + iOS resource), ${(Buffer.byteLength(S1) / 1024) | 0} KB < 128`);
     if (!/^[0-9a-f]{12}$/.test(PK.v) || PK.schema !== 1) bp.push('v/schema');
     if (PK.speaking.bank.length < 30 || Object.keys(PK.speaking.samples).length < 300 || Object.keys(PK.speaking.parts).join() !== 'p1,p2,p3' || !PK.speaking.fillers.includes('you know')) bp.push('speaking');
-    if (PK.pron.lessons.length !== 56 || PK.pron.pairs.contrasts.length !== 23 || Object.keys(PK.pron.pairs.tips).length !== 23 || PK.pron.coach.sentences.length !== 12 || Object.keys(PK.consts.weak).length < 35) bp.push('pron');
-    if (PK.roleplay.scripts.length !== 31 || PK.roleplay.guestAiPerDay !== 2 || PK.roleplay.rate.join() !== '0.82,0.92,1' || Object.keys(PK.roleplay.names).length < 16 || PK.roleplay.errors.length !== 11) bp.push('roleplay');
+    if (PK.pron.lessons.length !== 62 || PK.pron.pairs.contrasts.length !== 23 || Object.keys(PK.pron.pairs.tips).length !== 23 || PK.pron.coach.sentences.length !== 12 || Object.keys(PK.consts.weak).length < 35) bp.push('pron');
+    if (PK.roleplay.scripts.length !== V.counts.scripts || PK.roleplay.scripts.length < 33 || PK.roleplay.guestAiPerDay !== 2 || PK.roleplay.rate.join() !== '0.82,0.92,1' || Object.keys(PK.roleplay.names).length < 16 || PK.roleplay.errors.length !== 11) bp.push('roleplay');
     const JS = x => JSON.stringify(x);
     if (V.data.pron.lessons.some(l => JS(PK.pron.lessons.find(q => q.id === l.id)) !== JS(l)) || JS(V.data.pron.pairs) !== JS(PK.pron.pairs) || V.data.roleplay.some(r => JS(PK.roleplay.scripts.find(q => q.id === r.id)) !== JS(r))) bp.push('data.* differs from the pack');
     if (JS(PK.consts.speakScore) !== JS(V.shared.speak.cal) || JS(PK.speaking.parts) !== JS(V.data.speaking.parts)) bp.push('consts vs vectors');
     if (ST.speaking.bank.length !== 8 || ST.pron.lessons.length !== 8 || ST.roleplay.scripts.length !== 6 || JS(ST.pron.pairs) !== JS(PK.pron.pairs) || ST.speaking.bank.some((b, i) => JS(b) !== JS(PK.speaking.bank[i]))) bp.push('starter is not a subset of the pack');
-    ok(bp.length === 0, `speak-pack.json: ${PK.speaking.bank.length} speaking topics + ${Object.keys(PK.speaking.samples).length} sample answers, 56 pronunciation lessons + pair/coach tables, 31 roleplay scripts + constants; shape = speak.json data.*; starter = 8 topics / 8 lessons / 6 scripts${bp.length ? ' – ' + bp.join('; ') : ''}`);
+    ok(bp.length === 0, `speak-pack.json: ${PK.speaking.bank.length} speaking topics + ${Object.keys(PK.speaking.samples).length} sample answers, 62 pronunciation lessons + pair/coach tables, roleplay scripts (count = vectors counts, >= 33) + constants; shape = speak.json data.*; starter = 8 topics / 8 lessons / 6 scripts${bp.length ? ' – ' + bp.join('; ') : ''}`);
   }
   // strings: every t() key of the P07 screens (literal calls + keys that arrive as data) is mapped by strings.json
   {
@@ -318,7 +318,7 @@ const RV = T1.vectorJson, RD = T1.rigJson;
     const nat = Object.fromEntries(E.asrModeNative.map(c => [c.id, c.out])); if (nat['native-none-11'] !== 'local' || nat['native-tap-11'] !== 'tap' || nat['native-cloud-01'] !== 'cloud' || nat['native-none-01'] !== 'ask' || nat['native-none-00'] !== 'tap') b10.push('asrModeNative'); }
   { const d = byId(E.depth, 'depth-all-calls').out; if (d.coffee !== 6 || Object.keys(d).length < 30 || V.data.calls.some(c => !(c.id in d))) b10.push('depth table'); }
   { const l0 = byId(V.list, 'list-default').out.steps[0].out, g = id => byId(V.list, id).out.steps.at(-1).out.cardIds;
-    if (l0.cards.length < 30 || l0.filter.buttons.map(b => b.group).join() !== 'all,ielts,toeic,everyday' || !l0.filter.buttons[0].pressed || l0.cards.find(c => c.id === 'coffee').name.k !== 'Mua cà phê cho cả nhóm' || l0.cards.find(c => c.id === 'hobbies').name.k !== l0.cards.find(c => c.id === 'hobbies').title || g('list-filter-ielts').some(i => !/^ielts/.test(i)) || J(g('list-filter-toeic')) !== '["toeic-reschedule"]' || g('list-filter-everyday').some(i => /^ielts|^toeic/.test(i)) || g('list-filter-all').length !== l0.cards.length) b10.push('list groups / names');
+    if (l0.cards.length < 30 || l0.filter.buttons.map(b => b.group).join() !== 'all,ielts,toeic,everyday' || !l0.filter.buttons[0].pressed || l0.cards.find(c => c.id === 'coffee').name.k !== 'Mua cà phê cho cả nhóm' || l0.cards.find(c => c.id === 'hobbies').name.k !== l0.cards.find(c => c.id === 'hobbies').title || g('list-filter-ielts').some(i => !/^ielts/.test(i)) || J(g('list-filter-toeic')) !== J(JSON.parse(fs.readFileSync('web/data/call-pack.json', 'utf8')).calls.filter(c => c.exam === 'toeic').map(c => c.id)) || g('list-filter-everyday').some(i => /^ielts|^toeic/.test(i)) || g('list-filter-all').length !== l0.cards.length) b10.push('list groups / names');
     if (byId(V.list, 'list-filter-ielts').out.steps[1].writes[0].key !== 'vb.call.flt' || byId(V.list, 'list-asr-change').out.steps[1].asrPrefAfter !== null || byId(V.list, 'list-asr-change').out.steps[1].out.changeAsr) b10.push('list persist'); }
   { const f = flowOf('tap-through-coffee'), say = f.steps[1].say, last = f.steps.find(s => s.summary); if (J(say) !== J(['Great choice!', 'Do you want it hot or iced?']) || J(f.steps[1].phases) !== '["think","talk","you"]' || f.steps[1].progress !== '17%' || !last || last.rewards[0].xp !== 17 || last.rewards[0].spoken !== 0 || last.progress !== '100%' || f.teacher.voice !== 'af_heart') b10.push('flow tap-through say order / phases / progress / xp'); }
   { const f = flowOf('unsafe-reask'), s = steps(f, 'type'); if (s[0].say[0] !== "Let's keep our chat friendly and on topic!" || s[0].say[1] !== f.steps[0].say[0] || s[0].state.logged !== 0 || s[0].state.node !== f.steps[0].state.node || s[2].state.node === s[0].state.node || s[2].state.logged !== 1) b10.push('flow unsafe keeps node and re-asks'); }
@@ -341,7 +341,7 @@ const RV = T1.vectorJson, RD = T1.rigJson;
   {
     const zlib = await import('node:zlib'), K1 = await CL.callPack(), K2 = await CL.callPack(), S1 = await CL.callStarter(), PK = JSON.parse(K1), ST = JSON.parse(S1), gz = zlib.gzipSync(K1, { level: 9 }).length, bp = [], JS = x => JSON.stringify(x);
     ok(K1 === K2 && same(CL.CALL_PACK_PATH, K1), 'call-pack.json: two runs identical and equal to the committed file (else: node scripts/native/gen.mjs)');
-    ok(Buffer.byteLength(K1) < 200 * 1024 && gz < 60 * 1024, `call-pack.json size: ${(Buffer.byteLength(K1) / 1024) | 0} KB raw (< 200) / ${(gz / 1024) | 0} KB gzip (< 60); not in the extension or app shell, no audio`);
+    ok(Buffer.byteLength(K1) < 260 * 1024 && gz < 85 * 1024, `call-pack.json size: ${(Buffer.byteLength(K1) / 1024) | 0} KB raw (< 260) / ${(gz / 1024) | 0} KB gzip (< 85); not in the extension or app shell, no audio`);
     ok(S1 === (await CL.callStarter()) && same(CL.CALL_STARTER_PATH, S1) && same('native/ios/LexkiteKit/Sources/LKStore/Resources/call-content.json', S1) && Buffer.byteLength(S1) < 48 * 1024, `call-starter.json: deterministic, equal to the committed copies (shared content-pack = Android assets + iOS resource), ${(Buffer.byteLength(S1) / 1024) | 0} KB < 48`);
     ok(/Resources\/call-content\.json/.test(fs.readFileSync(R('native/ios/LexkiteKit/Package.swift'), 'utf8')), 'Package.swift copies Resources/call-content.json (iOS bundle) – Android reads content-pack/call-starter.json from assets (srcDirs shared/gen)');
     if (!/^[0-9a-f]{12}$/.test(PK.v) || PK.schema !== 1) bp.push('v/schema');
@@ -385,7 +385,7 @@ const RV = T1.vectorJson, RD = T1.rigJson;
   const ta = V.write.analyze.find(c => c.id === 'too-short').out; if (ta.reported || ta.writes.length || ta.rewards.length || ta.toast.length !== 1) b11.push('too-short');
   if (sc('good-line').band !== 8 || sc('under-100').band > 4.5 || sc('120-words').band > 5.5 || !sc('opinion').notes.some(n => /^Task 1 <b>không nêu/.test(n.k)) || !sc('process-active').notes.some(n => /^Với quy trình/.test(n.k)) || !sc('map-passive').notes.some(n => /^Với bản đồ/.test(n.k))) b11.push('task1 score rules');
   const fl = V.write.flow.find(c => c.id === 'saved-list').out; if (fl.keptAfter !== 20 || fl.newest !== 'p5' || fl.shownCount !== 6) b11.push('saved list');
-  const qs = id => V.qstats.cases.find(c => c.id === id).out; if (!qs('empty').empty || qs('unknown-skill').cards.length || qs('listening-reading').cards.map(c => c.name).join() !== 'IELTS Listening,IELTS Reading' || JSON.stringify(V.qstats.skills.map(s => s[0])) !== '["il","ir","tl","tr","fr","fl","fw"]') b11.push('qstats');
+  const qs = id => V.qstats.cases.find(c => c.id === id).out; if (!qs('empty').empty || qs('unknown-skill').cards.length || qs('listening-reading').cards.map(c => c.name).join() !== 'IELTS Listening,IELTS Reading' || JSON.stringify(V.qstats.skills.map(s => s[0])) !== '["il","ir","tl","tr","fr","fl","fw","cb"]') b11.push('qstats');
   ok(b11.length === 0, `write vectors obey the web rules (Lexis.analyze band caps + tips, saved essays, Task 1 score, qstats cards)${b11.length ? ' – ' + b11.slice(0, 4).join(' | ') : ''}`);
   // the downloadable pack (web/data/write-pack.json, https://lexkite.com/data/write-pack.json)
   {
@@ -395,7 +395,7 @@ const RV = T1.vectorJson, RD = T1.rigJson;
     if (!/^[0-9a-f]{12}$/.test(PK.v) || PK.schema !== 1) bp.push('v/schema');
     if (JSON.stringify(PK.write.outline) !== JSON.stringify(V.write.static.outline) || JSON.stringify(PK.write.trends) !== JSON.stringify(V.write.static.trends) || JSON.stringify(PK.task1.vocab) !== JSON.stringify(V.task1.static.vocab) || JSON.stringify(PK.lexis.stop) !== JSON.stringify(V.data.stop)) bp.push('tables differ from the vectors');
     for (const sk of ['writing', 'speaking']) { const d = PK.criteria[sk]; if (!d || d.criteria.length !== 4 || Object.keys(d.models).join() !== '5.0,6.5,8.0' || d.jumpTips.length < 2 || d.criteria.some(c => Object.keys(c.bands).join() !== '4,5,6,7,8,9') || PK.scoreKeys[sk].length !== 4) bp.push('criteria ' + sk); }
-    if (PK.qstats.skills.length !== 7 || !PK.write.connectors.includes('Firstly,') || PK.lexis.stop.length < 100) bp.push('qstats/connectors/stop');
+    if (PK.qstats.skills.length !== 8 || !PK.write.connectors.includes('Firstly,') || PK.lexis.stop.length < 100) bp.push('qstats/connectors/stop');
     ok(bp.length === 0, `write-pack.json: criteria (writing + speaking: 4 criteria × bands 4–9, 3 models, roadmap) + STOP table + page tables; shape = write.json criteria rules${bp.length ? ' – ' + bp.join(' | ') : ''}`);
   }
   // strings: every t() key of the P09 screens (write.js, task1.js, qtips.js #/qstats, criteria.js + their data) is mapped by strings.json

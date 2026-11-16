@@ -18,12 +18,14 @@
  *   matches the description marker "lk:<clip>", checks unlisted/public + processing done + duration → status 'done' → op ids → web manifest
  *   embeds YouTube exactly like an API upload. 'api': the resumable upload path above (needs youtube.upload). Never browser bots / cookies. */
 import { isD1Limit, D1_LIMIT_BODY } from './_d1limit.js';
-import { healthVerdict, localDate, localHM, normCfg, pickEmbed } from './_distribution.js';
+import { healthVerdict, localDate, localHM, normCfg, pickEmbed, validTz } from './_distribution.js';
 import { guardBg } from './_d1guard.js';
 import { adminGate, adminAudit, adminCors } from './admin.js';
 import { limit } from './sync.js';
 import { signState, verifyState, encryptToken, decryptToken, cliVerify, driveMedia } from './drive.js';
 import { manifest, signedPack } from './admin-shorts.js';
+import { setupMgr, ingestYouTube, analyticsAlerts, saveAlerts } from './_social_mgr.js';
+import { readText, bodyFail } from './_body.js';
 
 export const REDIRECT = 'https://lexkite.com/api/youtube/callback';
 export const SCOPE_UP = 'https://www.googleapis.com/auth/youtube.upload', SCOPE_RO = 'https://www.googleapis.com/auth/youtube.readonly';
@@ -43,7 +45,9 @@ const configured = env => { const c = client(env); return { client: !!c.id, secr
 const ready = env => Object.values(configured(env)).every(Boolean);
 const CLIP = /^[a-z0-9-]{3,120}$/, CHID = /^[A-Za-z0-9_-]{8,64}$/;
 
+const SETUP_DONE = new WeakSet(); // one DDL batch per D1 binding per isolate (it used to run on EVERY request)
 export async function setup(db) {
+  if (SETUP_DONE.has(db)) return;
   await db.batch([
     db.prepare('CREATE TABLE IF NOT EXISTS yt_channel (id INTEGER PRIMARY KEY, channel_id TEXT UNIQUE, title TEXT, email TEXT, enc_token TEXT, iv TEXT, status TEXT, created INTEGER, last_ok INTEGER, err TEXT, by_who TEXT)'),
     db.prepare('CREATE TABLE IF NOT EXISTS yt_queue (clip TEXT PRIMARY KEY, lesson TEXT, status TEXT, privacy TEXT, publish_at TEXT, approved_by TEXT, approved_at INTEGER, video_id TEXT, upload_url TEXT, session_at INTEGER, attempts INTEGER DEFAULT 0, err TEXT, updated INTEGER, thumb INTEGER, title TEXT)'),
@@ -57,6 +61,7 @@ export async function setup(db) {
     db.prepare('CREATE TABLE IF NOT EXISTS yt_pack (clip TEXT PRIMARY KEY, file_id TEXT, drive_id TEXT, sha TEXT, bytes INTEGER, title TEXT, description TEXT, tags TEXT, at INTEGER, retired INTEGER DEFAULT 0, seen TEXT)'),
   ]);
   await addCols(db);
+  SETUP_DONE.add(db);
 }
 
 let COLS = false; // additive columns (idempotent: duplicate-column errors are expected after the first run)
@@ -82,7 +87,7 @@ export function slotToIso(slot, now = Date.now()) {
 const clean = (s, n) => String(s || '').replace(/[<>]/g, '').replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f]/g, '').trim().slice(0, n);
 /** YouTube video resource for an approved queue row + CI metadata. Enforces: private|unlisted only, #shorts, Education, AI disclosure, not for kids. */
 export function videoResource(row, meta = {}) {
-  const privacy = PRIVACY.includes(row.privacy) ? row.privacy : 'private';
+  const privacy = PRIVACY.includes(row.privacy) || (row.privacy === 'public' && row.approved_by === 'probe') ? row.privacy : 'private'; // 'public' CHỈ cho hàng do op probe tạo (chủ OK 16/11: thử 1 video public để biết project có bị khoá Private không); mọi đường khác bị ép private
   let title = clean(meta.title, 100) || clean(row.title, 100) || 'English in 30 seconds';
   let desc = clean(meta.description, 4800);
   if (!/https:\/\/lexkite\.com\//.test(desc)) desc += '\n\nPractice it free: https://lexkite.com/';
@@ -90,15 +95,18 @@ export function videoResource(row, meta = {}) {
   if (row.clip && !markersOf(desc).includes(row.clip)) desc += '\n' + markerLine(row.clip); // same marker as the manual pack → sync matches both paths
   let tags = (Array.isArray(meta.tags) ? meta.tags : []).map(t => clean(t, 30).replace(/[",]/g, '')).filter(Boolean), total = 0;
   tags = tags.filter(t => (total += t.length + 2) <= 450).slice(0, 30);
+  const lang = /^[a-z]{2,3}(-[A-Za-z]{2,4})?$/.test(String(meta.lang || '')) ? String(meta.lang) : 'en';
   const status = { privacyStatus: privacy, selfDeclaredMadeForKids: false, containsSyntheticMedia: true, embeddable: true, license: 'youtube' };
   if (privacy === 'private' && row.publish_at && Date.parse(row.publish_at) > Date.now()) status.publishAt = row.publish_at; // YouTube flips it public at that time (owner-approved schedule)
-  return { snippet: { title, description: desc.slice(0, 5000), tags, categoryId: '27', defaultLanguage: 'en', defaultAudioLanguage: 'en' }, status };
+  return { snippet: { title, description: desc.slice(0, 5000), tags, categoryId: '27', defaultLanguage: lang, defaultAudioLanguage: lang }, status };
 }
 /** Rows the CI may upload now (oldest approval first), within today's quota. */
 export function pickNext(rows, used, now = Date.now(), max = 6, inserted = 0) {
   const n = Math.min(max, uploadsLeft(used, inserted));
   const due = rows.filter(r => r.status === 'queued' || (r.status === 'failed' && (+r.attempts || 0) < MAX_TRIES) || (r.status === 'uploading' && now - (+r.session_at || 0) > 2 * 3600e3));
-  return due.sort((a, b) => (+a.approved_at || 0) - (+b.approved_at || 0)).slice(0, n);
+  // bài hẹn giờ GẦN nhất tải trước (16/11: 132 hàng fill – tải theo thứ tự duyệt thì bài ngày mai có thể còn nằm sau bài 3 tuần nữa); không hẹn giờ (probe, tải ngay) lên đầu; cùng giờ → duyệt cũ trước
+  const pa = r => (r.publish_at ? Date.parse(r.publish_at) || 0 : 0);
+  return due.sort((a, b) => pa(a) - pa(b) || (+a.approved_at || 0) - (+b.approved_at || 0)).slice(0, n);
 }
 
 // ---------- manual path (Studio upload + read-only sync) – pure, tested in scripts/test/yt-manual.mjs ----------
@@ -318,7 +326,9 @@ export async function unqueueClip(db, id) {
 }
 
 // ---------- distribution hooks (config lives in yt_chan_cfg; engine in _distribution.js, ops in distribution.js) ----------
-export async function chanCfg(db, id) { const r = await one(db, 'SELECT cfg, paused_reason FROM yt_chan_cfg WHERE channel_id = ?', id); let c = {}; try { c = JSON.parse((r && r.cfg) || '{}'); } catch (e) { /* default */ } return { cfg: normCfg(c), explicit_lang: !!(c && typeof c.lang === 'string' && c.lang.trim()), paused_reason: (r && r.paused_reason) || '' }; } // explicit_lang: chủ đã chọn ngôn ngữ kênh → không đoán theo tên
+/** All channel configs in ONE query (the admin list did 1 D1 round trip per channel: ~400 ms each → 16 s for 32 channels). Map id → same shape as chanCfg(). */
+export async function chanCfgs(db) { const m = new Map(); for (const r of await all(db, 'SELECT channel_id, cfg, paused_reason FROM yt_chan_cfg')) { let c = {}; try { c = JSON.parse(r.cfg || '{}'); } catch (e) { /* default */ } m.set(r.channel_id, { cfg: normCfg(c), explicit_lang: !!(c && typeof c.lang === 'string' && c.lang.trim()), explicit_tz: !!(c && validTz(c.tz)), paused_reason: r.paused_reason || '' }); } return m; }
+export async function chanCfg(db, id) { const r = await one(db, 'SELECT cfg, paused_reason FROM yt_chan_cfg WHERE channel_id = ?', id); let c = {}; try { c = JSON.parse((r && r.cfg) || '{}'); } catch (e) { /* default */ } return { cfg: normCfg(c), explicit_lang: !!(c && typeof c.lang === 'string' && c.lang.trim()), explicit_tz: !!(c && validTz(c.tz)), paused_reason: (r && r.paused_reason) || '' }; } // explicit_lang: chủ đã chọn ngôn ngữ kênh → không đoán theo tên
 /** Pause a channel (cfg.active = 0) and raise an admin alert (yt_meta 'alerts', newest first, ≤ 20). */
 export async function pauseChannel(db, id, reason) {
   const { cfg } = await chanCfg(db, id), t = await one(db, 'SELECT title FROM yt_channel WHERE channel_id = ?', id);
@@ -422,6 +432,25 @@ const ADMIN_OPS = {
   },
 };
 
+/** Local publish slots per day (stagger, 09–21 h local like the social schedule); UTC offsets are fixed means (no DST drift needed for a daily slot). */
+export const YT_TZ = { en: -5, vi: 7, pt: -3, es: -5, de: 1, fr: 1, ja: 9, ko: 9, zh: 8, hi: 5.5, ar: 3, tr: 3, ru: 3 };
+export const YT_SLOTS = [[10, 0], [14, 20], [18, 40], [12, 10], [16, 30], [20, 0]];
+/** i-th clip of a channel → ISO publishAt: perDay clips a day, day d = 1.. (never in the past), slot offset rotates per channel so channels do not post at the same minute. */
+export function slotAt(i, perDay, lang, now = Date.now(), rot = 0) {
+  const n = Math.max(1, Math.min(YT_SLOTS.length, perDay | 0)), d = Math.floor(i / n) + 1, [h, m] = YT_SLOTS[(i % n + rot) % YT_SLOTS.length], off = YT_TZ[lang] ?? 0;
+  const base = new Date(now + d * 864e5); return new Date(Date.UTC(base.getUTCFullYear(), base.getUTCMonth(), base.getUTCDate(), h, m) - off * 36e5).toISOString();
+}
+/** The connected channel for a clip language: the channel whose yt_chan_cfg.cfg.lang matches; English falls back to the default channel; other languages without a channel → null (never post a clip on a channel of another language). */
+export async function chanForLang(db, lang) {
+  const l = await channelsOk(db);
+  for (const c of l) { const x = await chanCfg(db, c.channel_id); if (x.explicit_lang && x.cfg.lang === lang) return c; }
+  return lang === 'en' ? l.find(c => true) || null : null;
+}
+/** Clip BẢN NGỮ nhặt cho 1 kênh (hàm thuần, test scripts/test/yt-fill.mjs): đúng ngôn ngữ, qa pass, chưa bị giữ/loại, chưa lên/xếp ở YouTube, có tiêu đề. */
+export function fillPick(items, lang, taken, held, need) {
+  return (items || []).filter(it => it && String(it.lang || 'en').toLowerCase() === lang && it.qa && it.qa.status === 'pass' && !it.rejected && !it.paused && it.drive && it.drive.video && !it.drive.video.retired && !taken.has(it.id) && CLIP.test(String(it.id)) && (it.title || it.point)
+    && !(held.get(it.id) && (held.get(it.id).deleted || ['rejected', 'paused'].includes(held.get(it.id).state)))).slice(0, Math.min(Math.max(0, need), 100)).map(it => ({ id: it.id, lang }));
+}
 const CLI_OPS = {
   /** approved/uploaded ids (shorts-archive.mjs keeps 2 copies of these; web-rendition.mjs adds youtube_id when the video is watchable). */
   async ids(db) {
@@ -433,15 +462,126 @@ const CLI_OPS = {
     const purge = (await all(db, 'SELECT clip FROM clip_review WHERE deleted = 2')).map(r => r.clip); // "Xóa hẳn" → shorts-archive.mjs trashes Drive files + drops the recipe, then op purged
     return { purge, approved: rows.map(r => r.clip), uploaded: Object.fromEntries(rows.filter(r => r.video_id).map(r => [r.clip, r.video_id])), web };
   },
+  /** Daily-reels auto queue (docs/specs/daily-reels.md): clips that already passed QC (manifest qa 'pass') are queued as private + publishAt, spread perDay a day per channel, on the channel of their language. b = { items: [{id, lang}], per_day }. No admin click; the quota log is yt_quota. */
+  async autoq(db, b, who, env) {
+    if ((await modeOf(db, env)) !== 'api') return { status: 409, error: 'mode-manual' };
+    const items = (Array.isArray(b.items) ? b.items : []).filter(x => x && CLIP.test(String(x.id))).slice(0, 100), perDay = Math.min(6, Math.max(1, +b.per_day || 3)), now = Date.now(), out = { queued: [], skipped: [] };
+    const used_ = new Map(); let rot = 0;
+    for (const it of items) {
+      const lang = String(it.lang || 'en').toLowerCase(), ch = await chanForLang(db, lang);
+      if (!ch) { out.skipped.push({ id: it.id, why: 'no-channel-' + lang }); continue; }
+      const r = await approveClips(db, { ids: [it.id], privacy: 'private' }, { email: 'autopub@lexkite.com' }, env);
+      if (!(r.queued || []).length) { out.skipped.push(...(r.skipped || [])); continue; }
+      const last = await one(db, "SELECT COUNT(*) AS n FROM yt_queue WHERE channel_id = ? AND status IN ('queued','uploading','done') AND publish_at > ?", ch.channel_id, new Date(now).toISOString());
+      const k = used_.get(ch.channel_id) ?? (last ? +last.n : 0); used_.set(ch.channel_id, k + 1); rot = (ch.id || 0) % YT_SLOTS.length;
+      const pa = slotAt(k, perDay, lang, now, rot);
+      await run(db, 'UPDATE yt_queue SET channel_id = ?, publish_at = ? WHERE clip = ?', ch.channel_id, pa, it.id);
+      out.queued.push({ id: it.id, channel_id: ch.channel_id, publish_at: pa });
+    }
+    return { ok: true, ...out, quota: await quotaInfo(db) };
+  },
+  /** Lấp lịch YouTube TRỰC TIẾP (owner 16/11: mỗi kênh 1 video/ngày, 30 ngày): mỗi kênh có ngôn ngữ riêng còn thiếu (30 − số bài đã xếp trong tương lai) thì nhặt clip BẢN NGỮ đã đạt QC
+   *  (manifest qa 'pass', chưa bị giữ/loại, chưa lên YouTube) và đưa qua autoq (private + publishAt, 1 bài/ngày nối tiếp sau bài đã xếp). Không đủ clip bản ngữ → xếp phần có, báo phần thiếu (không đăng ngôn ngữ khác, không lặp clip).
+   *  b = { days? (mặc định 30) }. CI hằng ngày: scripts/social/yt-fill.mjs. */
+  async fill(db, b, who, env) {
+    if ((await modeOf(db, env)) !== 'api') return { status: 409, error: 'mode-manual' };
+    const days = Math.min(60, Math.max(1, +b.days || 30)), now = Date.now(), iso = new Date(now).toISOString(), items = (await manifest(env)).items || [], out = { channels: [], queued: 0 };
+    const taken = new Set((await all(db, "SELECT clip FROM yt_queue WHERE status IN ('queued', 'uploading', 'done') OR video_id IS NOT NULL")).map(r => r.clip));
+    const held = new Map((await all(db, 'SELECT clip, state, deleted FROM clip_review')).map(r => [r.clip, r])), byId = new Map(items.map(it => [it.id, it]));
+    for (const ch of await channelsOk(db)) {
+      const x = await chanCfg(db, ch.channel_id); if (!x.explicit_lang || x.cfg.active === 0) continue;
+      const lang = x.cfg.lang, have = await one(db, "SELECT COUNT(*) AS n FROM yt_queue WHERE channel_id = ? AND status IN ('queued', 'uploading', 'done') AND publish_at > ?", ch.channel_id, iso), need = days - ((have && +have.n) || 0);
+      const row = { channel_id: ch.channel_id, title: ch.title, lang, have: days - Math.max(0, need), need: Math.max(0, need), queued: 0, short: 0 };
+      if (need > 0) {
+        const pick = fillPick(items, lang, taken, held, need);
+        if (pick.length) { // MỘT lượt D1 cho cả kênh (autoq từng clip = ~6 lượt/clip, 15 kênh × 30 clip vượt 120 s → fetch hết giờ 16/11): giờ hẹn = slotAt nối tiếp sau bài đã xếp, 1 bài/ngày
+          const rot = (ch.id || 0) % YT_SLOTS.length, ins = pick.map((q, k) => { const it = byId.get(q.id), pa = slotAt((have ? +have.n : 0) + k, 1, lang, now, rot);
+            return db.prepare(`INSERT INTO yt_queue (clip, lesson, status, privacy, publish_at, channel_id, approved_by, approved_at, attempts, updated, title) VALUES (?, ?, 'queued', 'private', ?, ?, 'autopub@lexkite.com', ?, 0, ?, ?)
+              ON CONFLICT(clip) DO UPDATE SET status = 'queued', privacy = 'private', publish_at = excluded.publish_at, channel_id = excluded.channel_id, approved_by = excluded.approved_by, approved_at = excluded.approved_at, attempts = 0, err = NULL, upload_url = NULL, updated = excluded.updated
+              WHERE yt_queue.status NOT IN ('done', 'uploading', 'queued')`).bind(q.id, it.lesson || '', pa, ch.channel_id, now, now, String(it.title || '').slice(0, 100)); });
+          await db.batch(ins); row.queued = pick.length; for (const q of pick) taken.add(q.id); }
+        row.short = Math.max(0, need - row.queued);
+      }
+      out.channels.push(row); out.queued += row.queued;
+    }
+    return { ok: true, ...out, short: out.channels.reduce((a, c) => a + c.short, 0), quota: await quotaInfo(db) };
+  },
+  /** Phép thử audit (chủ OK 16/11): đưa 1 clip QC-pass (bản ngữ của kênh) vào hàng tải PUBLIC ngay, không hẹn giờ. youtube-upload.yml tải; op probe_status đọc lại videos.list part=status.
+   *  b = { channel_id? (mặc định kênh mặc định), clip? (mặc định clip QC-pass đầu tiên đúng ngôn ngữ kênh) }. Một lượt một clip, không ghi đè hàng đã tải. */
+  async probe(db, b, who, env) {
+    if ((await modeOf(db, env)) !== 'api') return { status: 409, error: 'mode-manual' };
+    const ch = await channelRow(db, b.channel_id ? String(b.channel_id) : ''), x = ch && await chanCfg(db, ch.channel_id); if (!ch) return { status: 412, error: 'not-connected' };
+    const lang = x.explicit_lang ? x.cfg.lang : 'en', taken = new Set((await all(db, "SELECT clip FROM yt_queue WHERE status IN ('queued', 'uploading', 'done') OR video_id IS NOT NULL")).map(r => r.clip));
+    const held = new Map((await all(db, 'SELECT clip, state, deleted FROM clip_review')).map(r => [r.clip, r])), items = (await manifest(env)).items || [];
+    const pick = b.clip ? fillPick(items.filter(i => i && i.id === String(b.clip)), lang, taken, held, 1)[0] : fillPick(items, lang, taken, held, 1)[0];
+    if (!pick) { // mọi clip bản ngữ đã xếp lịch (fill) → dùng lại hàng autopub xa nhất của kênh (chưa tải): chỉ đổi sang public tải ngay, hàng được fill bù ở lượt sau
+      const re = await one(db, "SELECT clip FROM yt_queue WHERE status = 'queued' AND approved_by = 'autopub@lexkite.com' AND channel_id = ? ORDER BY publish_at DESC LIMIT 1", ch.channel_id); if (!re) return { status: 404, error: 'no-clip', lang };
+      await run(db, "UPDATE yt_queue SET privacy = 'public', publish_at = NULL, approved_by = 'probe', approved_at = 1 WHERE clip = ? AND status = 'queued'", re.clip);
+      return { ok: true, clip: re.clip, channel_id: ch.channel_id, title: ch.title, lang, reused: true };
+    }
+    const r = await approveClips(db, { ids: [pick.id], privacy: 'private' }, { email: 'probe@lexkite.com' }, env); if (!(r.queued || []).length) return { status: 409, error: 'not-approved', skipped: r.skipped };
+    await run(db, "UPDATE yt_queue SET channel_id = ?, privacy = 'public', publish_at = NULL, approved_by = 'probe', approved_at = 1 WHERE clip = ? AND status = 'queued'", ch.channel_id, pick.id);
+    return { ok: true, clip: pick.id, channel_id: ch.channel_id, title: ch.title, lang };
+  },
+  async probe_status(db, b, who, env) {
+    const row = await one(db, 'SELECT clip, video_id, channel_id, privacy, status, err FROM yt_queue WHERE clip = ?', String(b.clip || '')); if (!row) return { status: 404, error: 'no-clip' };
+    if (!row.video_id) return { ok: true, uploaded: false, status_row: row.status, err: row.err || null };
+    const ch = await channelRow(db, row.channel_id); if (!ch) return { status: 412, error: 'not-connected' };
+    let at; try { at = await accessToken(env, db, ch); } catch (e) { return { status: 502, error: e.code || 'token' }; }
+    const r = await gfetch('https://www.googleapis.com/youtube/v3/videos?part=status&id=' + encodeURIComponent(row.video_id), { headers: { Authorization: 'Bearer ' + at } }); await spend(db, QUOTA.list);
+    const v = r.ok ? (((await r.json().catch(() => ({}))).items || [])[0] || null) : null; if (!v) return { ok: true, uploaded: true, video_id: row.video_id, found: false, http: r.status };
+    const st = v.status || {}; return { ok: true, uploaded: true, found: true, video_id: row.video_id, url: 'https://youtu.be/' + row.video_id, privacy: st.privacyStatus, upload: st.uploadStatus, rejection: st.rejectionReason || null, failure: st.failureReason || null, publish_at: st.publishAt || null };
+  },
   async quota(db) { return { quota: await quotaInfo(db) }; },
+  /** Analytics (read-only, youtube.readonly): statistics of every channel + every uploaded video, snapshot per day in yt_stats (growth 7/30 d = diff of snapshots).
+   *  Cost: channels.list 1 + videos.list 1 per 50 ids; stops when the default bucket is ≥ 80 % used (breaker). b = { snapshot: bool (default true) } */
+  async stats(db, b, who, env) {
+    const q = await quotaInfo(db); if (q.used >= QUOTA.day * 0.8) return { status: 429, error: 'quota-breaker', quota: q };
+    await db.prepare('CREATE TABLE IF NOT EXISTS yt_stats (day TEXT, video_id TEXT, channel_id TEXT, views INTEGER, likes INTEGER, comments INTEGER, PRIMARY KEY (day, video_id))').run();
+    const day = new Date().toISOString().slice(0, 10), channels = [], videos = [], errors = [];
+    const rows = await all(db, "SELECT clip, video_id, channel_id, privacy, publish_at, title FROM yt_queue WHERE video_id IS NOT NULL AND video_id != ''");
+    for (const ch of await channelsOk(db)) {
+      let at; try { at = await accessToken(env, db, ch); } catch (e) { errors.push({ channel_id: ch.channel_id, error: e.code || 'token' }); continue; }
+      const h = { headers: { Authorization: 'Bearer ' + at } };
+      const cr = await gfetch('https://www.googleapis.com/youtube/v3/channels?part=statistics&id=' + encodeURIComponent(ch.channel_id), h); await spend(db, QUOTA.list);
+      const cj = cr.ok ? await cr.json().catch(() => ({})) : {}, st = ((cj.items || [])[0] || {}).statistics || {};
+      channels.push({ channel_id: ch.channel_id, title: ch.title, subs: st.hiddenSubscriberCount ? null : +st.subscriberCount || 0, views: +st.viewCount || 0, videos: +st.videoCount || 0 });
+      const mine = rows.filter(r => r.channel_id === ch.channel_id), ids = mine.map(r => r.video_id);
+      for (let i = 0; i < ids.length; i += 50) {
+        const part = ids.slice(i, i + 50);
+        const r = await gfetch('https://www.googleapis.com/youtube/v3/videos?part=statistics,status,contentDetails&maxResults=50&id=' + part.map(encodeURIComponent).join(','), h); await spend(db, QUOTA.list);
+        if (!r.ok) { errors.push({ channel_id: ch.channel_id, error: 'videos-' + r.status }); continue; }
+        const seen = new Set();
+        for (const v of (await r.json().catch(() => ({}))).items || []) {
+          seen.add(v.id); const m = mine.find(x => x.video_id === v.id) || {}, s = v.statistics || {};
+          videos.push({ video_id: v.id, clip: m.clip, channel_id: ch.channel_id, privacy: (v.status || {}).privacyStatus, publish_at: m.publish_at || null, secs: isoSecs((v.contentDetails || {}).duration), views: +s.viewCount || 0, likes: +s.likeCount || 0, comments: +s.commentCount || 0 });
+        }
+        for (const id of part) if (!seen.has(id)) videos.push({ video_id: id, clip: (mine.find(x => x.video_id === id) || {}).clip, channel_id: ch.channel_id, missing: true, views: 0, likes: 0, comments: 0 }); // removed / blocked → alert
+      }
+    }
+    if (b.snapshot !== false) for (const v of videos) if (!v.missing) await run(db, 'INSERT INTO yt_stats (day, video_id, channel_id, views, likes, comments) VALUES (?, ?, ?, ?, ?, ?) ON CONFLICT(day, video_id) DO UPDATE SET views = excluded.views, likes = excluded.likes, comments = excluded.comments', day, v.video_id, v.channel_id, v.views, v.likes, v.comments);
+    if (b.snapshot !== false) { try { await setupMgr(db); await ingestYouTube(db, videos); } catch (e) { errors.push({ error: 'ingest' }); } } // vào bảng Phân tích + trọng số tuần sau
+    const prev = {}; for (const [d, n] of [[7, 'w'], [30, 'm']]) for (const r of await all(db, 'SELECT video_id, views FROM yt_stats WHERE day = (SELECT MAX(day) FROM yt_stats WHERE day <= date(?, ?))', day, `-${d} day`)) (prev[r.video_id] = prev[r.video_id] || {})[n] = r.views;
+    for (const v of videos) { const p = prev[v.video_id] || {}; v.d7 = p.w == null ? null : v.views - p.w; v.d30 = p.m == null ? null : v.views - p.m; }
+    const zero3 = []; // kênh có video nhưng 0 view mới trong ≥ 3 ngày (cần snapshot cũ ≥ 3 ngày – không đoán)
+    for (const c of channels) {
+      const now_ = videos.filter(v => v.channel_id === c.channel_id && !v.missing).reduce((a, v) => a + v.views, 0);
+      const old = await one(db, "SELECT SUM(views) AS v, COUNT(*) AS n FROM yt_stats WHERE channel_id = ? AND day = (SELECT MAX(day) FROM yt_stats WHERE channel_id = ? AND day <= date(?, '-3 day'))", c.channel_id, c.channel_id, day);
+      if (old && old.n > 0 && now_ - (+old.v || 0) === 0 && videos.some(v => v.channel_id === c.channel_id && !v.missing)) zero3.push(c.channel_id);
+    }
+    const qi = await quotaInfo(db), alerts = analyticsAlerts({ channels, videos, zero3, quota: qi });
+    if (b.snapshot !== false) { try { await saveAlerts(db, alerts); } catch (e) { errors.push({ error: 'alerts' }); } }
+    return { ok: true, day, zero3, alerts, scope: await getMeta(db, 'scope'), analytics: /yt-analytics/.test((await getMeta(db, 'scope')) || ''), channels, videos, errors, quota: qi };
+  },
   /** shorts-archive.mjs: Drive files of these hard-deleted clips are in the trash and the recipe is gone → deleted = 3 (purged, kept as a tombstone). */
   async purged(db, b) { const ids = (Array.isArray(b.ids) ? b.ids : []).map(String).filter(x => CLIP.test(x)).slice(0, 200); for (const id of ids) await run(db, 'UPDATE clip_review SET deleted = 3, updated = ? WHERE clip = ? AND deleted = 2', Date.now(), id); return { ok: true, count: ids.length }; },
   async next(db, b, who, env) {
     if ((await modeOf(db, env)) !== 'api') return { items: [], quota: await quotaInfo(db), channel: null, mode: 'manual' }; // manual mode: owner uploads in Studio
     const ch = await channelRow(db); if (!ch) return { items: [], quota: await quotaInfo(db), channel: null };
     const rows = await all(db, "SELECT * FROM yt_queue WHERE status IN ('queued', 'failed', 'uploading')");
-    const pick = pickNext(rows, await used(db), Date.now(), Math.min(Math.max(1, +b.max || 6), 6), await used(db, INS));
-    return { items: pick.map(r => ({ id: r.clip, lesson: r.lesson, privacy: r.privacy, publish_at: r.publish_at, resume: !!(r.upload_url && Date.now() - r.session_at < SESSION_TTL) })), quota: await quotaInfo(db), channel: { title: ch.title } };
+    const pick = pickNext(rows, await used(db), Date.now(), Math.min(Math.max(1, +b.max || 6), 30), await used(db, INS));
+    const counts = Object.fromEntries((await all(db, 'SELECT status, COUNT(*) AS n FROM yt_queue GROUP BY status')).map(r => [r.status, +r.n]));
+    return { items: pick.map(r => ({ id: r.clip, lesson: r.lesson, privacy: r.privacy, publish_at: r.publish_at, resume: !!(r.upload_url && Date.now() - r.session_at < SESSION_TTL) })), quota: await quotaInfo(db), channel: { title: ch.title }, counts };
   },
   /** Open (or resume) the resumable upload session → upload_url for CI. Quota is charged once per new session. */
   async session(db, b, who, env) {
@@ -450,7 +590,7 @@ const CLI_OPS = {
     if (row.upload_url && Date.now() - row.session_at < SESSION_TTL) return { upload_url: row.upload_url, resumed: true };
     if (uploadsLeft(await used(db), await used(db, INS)) < 1) return { status: 429, error: 'quota', quota: await quotaInfo(db) };
     const size = Math.floor(+((b.meta || {}).size) || 0); if (!(size > 0 && size < 256 * 1048576)) return { status: 400, error: 'bad-size' };
-    const ch = await channelRow(db); if (!ch) return { status: 412, error: 'not-connected' };
+    const ch = await channelRow(db, row.channel_id || undefined); if (!ch) return { status: 412, error: 'not-connected' };
     const at = await accessToken(env, db, ch), res = videoResource(row, b.meta || {});
     const r = await gfetch('https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status', { method: 'POST', headers: { Authorization: 'Bearer ' + at, 'Content-Type': 'application/json; charset=UTF-8', 'X-Upload-Content-Length': String(size), 'X-Upload-Content-Type': 'video/mp4' }, body: JSON.stringify(res) });
     await spend(db, QUOTA.insert, INS);
@@ -467,7 +607,7 @@ const CLI_OPS = {
   async done(db, b, who, env) {
     const row = await one(db, 'SELECT * FROM yt_queue WHERE clip = ?', String(b.id || '')), vid = String(b.video_id || '');
     if (!row || !/^[A-Za-z0-9_-]{6,20}$/.test(vid)) return { status: 400, error: 'bad-input' };
-    const ch = await channelRow(db); if (!ch) return { status: 412, error: 'not-connected' };
+    const ch = await channelRow(db, row.channel_id || undefined); if (!ch) return { status: 412, error: 'not-connected' };
     const at = await accessToken(env, db, ch);
     const v = await gfetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet,status&id=${encodeURIComponent(vid)}`, { headers: { Authorization: 'Bearer ' + at } }); await spend(db, QUOTA.list);
     const it = ((await v.json().catch(() => ({}))).items || [])[0];
@@ -517,13 +657,12 @@ const CLI_OPS = {
   },
 };
 const DANGER = new Set(['disconnect']); // revoke + delete a channel → sign-in ≤ 15 min old (same rule as drive.js)
-const WRITE = new Set(['connect', 'disconnect', 'setdefault', 'settings', 'approve', 'unqueue', 'session', 'done', 'fail', 'sync', 'link', 'pack', 'purged']);
+const WRITE = new Set(['connect', 'disconnect', 'setdefault', 'settings', 'approve', 'unqueue', 'session', 'done', 'fail', 'sync', 'link', 'pack', 'purged', 'fill', 'autoq', 'probe']);
 
 export const onRequestOptions = ({ request }) => new Response(null, { status: 204, headers: adminCors(request) });
 
 export async function onRequestPost({ request, env }) {
-  const text = await request.text().catch(() => '');
-  if (text.length > 32768) return json(request, 413, { error: 'too-large' });
+  let text; try { text = await readText(request, 32768); } catch (e) { const f = bodyFail(e); return json(request, f.status, { error: f.error }); }
   let b; try { b = JSON.parse(text || '{}'); } catch (e) { return json(request, 400, { error: 'json' }); }
   if (!b || typeof b !== 'object' || Array.isArray(b)) return json(request, 400, { error: 'json' });
   const ip = request.headers.get('CF-Connecting-IP') || '?';

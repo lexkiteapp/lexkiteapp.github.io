@@ -1,7 +1,7 @@
 {
   "name": "lexkite-mobile",
   "private": true,
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Vocaband app Android/iOS – bọc chính web app (dist/) bằng Capacitor, dùng chung 1 bộ mã với web & add-on",
   "scripts": {
     "sync": "cap sync",

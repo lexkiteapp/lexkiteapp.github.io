@@ -8,11 +8,12 @@ import { adminGate, adminAudit, adminCors } from './admin.js';
 import { guardBg } from './_d1guard.js';
 import { limit } from './sync.js';
 import { manifest } from './admin-shorts.js';
-import { setup, chanCfg, pauseChannel } from './youtube.js';
-import { langOfChannel, foreignAccount, pausedAccount, extAccount, normCfg, route, routeAll, implicitSocialRules, pickEmbed, explain, platformOf, planAll, localDate, localHM, PLAN_DAYS } from './_distribution.js';
+import { setup, chanCfg, chanCfgs, pauseChannel } from './youtube.js';
+import { LANG_TZ, langOfChannel, foreignAccount, pausedAccount, extAccount, normCfg, route, routeAll, implicitSocialRules, pickEmbed, explain, platformOf, planAll, localDate, localHM, PLAN_DAYS } from './_distribution.js';
 import { embedMeta, socialMeta, PLATFORMS } from './_role_meta.js';
 import { viewOf, typeOf } from './_clip_logic.js';
 import { TOPICS, SKILLS, EXAMS, CEFR, TYPES } from './_taxonomy.js';
+import { readText, bodyFail } from './_body.js';
 
 const json = (req, status, data) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...adminCors(req) } });
 const CLIP = /^[a-z0-9-]{3,120}$/, CHID = /^[A-Za-z0-9_-]{8,96}$/, COND = ['type', 'topic', 'skill', 'cefr', 'exam', 'region', 'template', 'scene'];
@@ -22,9 +23,12 @@ const meta = async (db, k) => ((await db.prepare('SELECT v FROM yt_meta WHERE k 
 const setMeta = (db, k, v) => run(db, 'INSERT INTO yt_meta (k, v) VALUES (?, ?) ON CONFLICT(k) DO UPDATE SET v = excluded.v', k, v);
 const rules = async db => (await all(db, 'SELECT * FROM yt_rules ORDER BY pos, id')).map(r => { let cond = {}; try { cond = JSON.parse(r.cond || '{}'); } catch (e) { /* empty */ } return { id: r.id, name: r.name, cond, channel_id: r.channel_id, active: r.active }; });
 async function channels(db) {
-  const out = []; for (const c of await all(db, 'SELECT channel_id, title, thumb, status, email FROM yt_channel ORDER BY id')) { const x = await chanCfg(db, c.channel_id); out.push({ channel_id: c.channel_id, title: c.title, thumb: c.thumb, status: c.status, cfg: x.cfg, paused_reason: x.paused_reason }); }
-  for (const c of await all(db, 'SELECT channel_id, platform, account_id, title, thumb, status, info, updated FROM dist_ext ORDER BY platform, title')) { const x = await chanCfg(db, c.channel_id), info = parseInfo(c.info); delete c.info;
-    out.push({ ...c, thumb: avatarUrl(info) || c.thumb, thumb_src: c.thumb, info, lang_src: x.explicit_lang ? 'cfg' : langOfChannel(c.title) ? 'name' : 'default', cfg: { ...x.cfg, role: 'social', lang: x.explicit_lang ? x.cfg.lang : (langOfChannel(c.title) || x.cfg.lang) }, paused_reason: x.paused_reason, ext: 1 }); }
+  // 2 reads in ONE round trip (db.batch) + ONE config query: the per-channel chanCfg loop made /api/distribution take ~16 s (≈400 ms per D1 trip × 32 channels)
+  const [yt, ext] = (await db.batch([db.prepare('SELECT channel_id, title, thumb, status, email FROM yt_channel ORDER BY id'), db.prepare('SELECT channel_id, platform, account_id, title, thumb, status, info, updated FROM dist_ext ORDER BY platform, title')])).map(r => r.results || []);
+  const cf = await chanCfgs(db), get = id => cf.get(id) || { cfg: normCfg({}), explicit_lang: false, explicit_tz: false, paused_reason: '' }, out = [];
+  for (const c of yt) { const x = get(c.channel_id); out.push({ channel_id: c.channel_id, title: c.title, thumb: c.thumb, status: c.status, cfg: x.cfg, paused_reason: x.paused_reason }); }
+  for (const c of ext) { const x = get(c.channel_id), info = parseInfo(c.info); delete c.info;
+    out.push({ ...c, thumb: avatarUrl(info) || c.thumb, thumb_src: c.thumb, info, lang_src: x.explicit_lang ? 'cfg' : langOfChannel(c.title) ? 'name' : 'default', cfg: (lang => ({ ...x.cfg, role: 'social', lang, tz: x.explicit_tz ? x.cfg.tz : (LANG_TZ[lang || 'en'] || x.cfg.tz) }))(x.explicit_lang ? x.cfg.lang : (langOfChannel(c.title) || x.cfg.lang)), paused_reason: x.paused_reason, ext: 1 }); }
   return out.map(c => ({ ...c, platform: c.platform || platformOf(c.channel_id) }));
 }
 const parseInfo = v => { try { const o = JSON.parse(v || '{}'); return o && typeof o === 'object' && !Array.isArray(o) ? o : {}; } catch (e) { return {}; } };
@@ -97,7 +101,7 @@ export async function socialChannels(db) {
   }
   return out;
 }
-async function cfgMap(db) { const m = {}; for (const c of await channels(db)) if (c.status === 'ok') m[c.channel_id] = c.cfg; return m; }
+async function cfgMap(db) { const m = {}; for (const c of await channels(db)) if (c.status === 'ok' && !foreignAccount({ name: c.title })) m[c.channel_id] = c.cfg; return m; }   // Page "Grabcast.click" không phải của Lexkite: không làm đích/luật ngầm
 /** Embed-channel load for pickEmbed: clips planned/uploaded per channel (today = touched since 00:00 UTC). */
 async function embedCounts(db) {
   const day = Date.now() - (Date.now() % 864e5), m = {};
@@ -271,6 +275,16 @@ const OPS = {
 /** Hợp đồng §3 cho autopilot máy chủ (functions/api/_social_auto.js) – gọi thẳng, cùng hàm với op qua HTTP. */
 export const DIST = { ext_sync: (db, b, env) => OPS.ext_sync(db, b, null, env), social_due: (db, b, env) => OPS.social_due(db, b, null, env), social_ack: (db, b) => OPS.social_ack(db, b), plan_run: (db, b, env) => OPS.plan_run(db, b, null, env) };
 export const OPS_FOR_TEST = OPS; // test máy chủ (scripts/test/dist-channels.mjs) gọi op thẳng, không qua adminGate
+// Monitor: a slow op (the 16 s `get` of 15/11 left the admin page on "Loading…") raises an admin alert instead of staying invisible; one per op per hour.
+const SLOW_MS = 6000;
+async function slowAlert(db, op, ms) {
+  if (ms < SLOW_MS) return;
+  try {
+    let al = []; try { al = JSON.parse((await meta(db, 'alerts')) || '[]'); } catch (e) { /* reset */ }
+    const reason = `slow-op:${op}`; if (al.some(a => a.reason && a.reason.startsWith(reason) && Date.now() - a.at < 36e5)) return;
+    await setMeta(db, 'alerts', JSON.stringify([{ at: Date.now(), channel_id: '-', title: '/api/distribution', reason: `${reason} ${Math.round(ms / 1000)}s` }, ...al].slice(0, 20)));
+  } catch (e) { /* the monitor never breaks the op */ }
+}
 const WRITE = new Set(['cfg_set', 'rules_set', 'plan_run', 'plan_set', 'resume', 'alerts_clear', 'ext_sync', 'social_ack']);
 /** GET /api/distribution?av=<băm 32 hex> → avatar kênh đã tải về phía máy chủ (cùng origin, bất biến theo nội dung). Không cần đăng nhập: chỉ là ảnh đại diện công khai của Page/kênh,
  *  khóa là băm SHA-256 nội dung (không đoán/liệt kê được). Bộ đệm trình duyệt + edge 1 năm → gần như 0 lượt đọc D1. */
@@ -290,7 +304,7 @@ export async function onRequestGet({ request, env, waitUntil }) {
 export const onRequestOptions = ({ request }) => new Response(null, { status: 204, headers: adminCors(request) });
 export async function onRequestPost({ request, env }) {
   const g = await adminGate(request, env, 'dst'); if (!g.who) return json(request, g.status, { error: g.error });
-  const text = await request.text().catch(() => ''); if (text.length > 65536) return json(request, 413, { error: 'too-large' });
+  let text; try { text = await readText(request, 65536); } catch (e) { const f = bodyFail(e); return json(request, f.status, { error: f.error }); }
   let b; try { b = JSON.parse(text || '{}'); } catch (e) { b = null; }
   if (!b || typeof b !== 'object' || Array.isArray(b)) return json(request, 400, { error: 'body' });
   if (!Object.hasOwn(OPS, b.op)) return json(request, 400, { error: 'op' });
@@ -298,7 +312,8 @@ export async function onRequestPost({ request, env }) {
   if (!env.DB) return json(request, 412, { error: 'not-configured' });
   { const gb = await guardBg(request, env, json); if (gb) return gb; } // cầu dao D1 (_d1guard.js): việc nền/quản trị dừng khi tài khoản đã đọc ≥ 50 % hạn mức
   try {
-    await setup(env.DB); await setupDist(env.DB); const out = await OPS[b.op](env.DB, b, g.who, env), status = out.status || 200; delete out.status;
+    const t0 = Date.now(); await setup(env.DB); await setupDist(env.DB); const out = await OPS[b.op](env.DB, b, g.who, env), status = out.status || 200; delete out.status;
+    await slowAlert(env.DB, b.op, Date.now() - t0);
     if (WRITE.has(b.op)) await adminAudit(env, request, g.who.email, 'dist.' + b.op, status < 400);
     return json(request, status, out);
   } catch (e) { if (WRITE.has(b.op)) await adminAudit(env, request, g.who.email, 'dist.' + b.op, false); return json(request, e.status || 500, { error: e.code || 'error' }); }

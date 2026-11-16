@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // 🗣️ Giao tiếp tự tin – MỘT NGUỒN: content/confidence/{units/*.json,toolkit.json,daily.json,ui.json,i18n/<lang>.json} (docs/CONFIDENCE.md §1).
 //   node scripts/confidence/build.mjs            cổng kiểm (npm test): nội dung, id vĩnh viễn, tiếng Anh hướng dẫn ≤ B1, đủ 13 bản dịch, bản sinh khớp nguồn
-//   node scripts/confidence/build.mjs --write    sinh web/js/confidence/data.js, web/js/i18n/en/confidence.js, nguồn i18n/ui/<lang>/confidence.js (+ gói khóa băm qua i18n-pack),
+//   node scripts/confidence/build.mjs --write    sinh web/cpack/confidence/data.js, web/js/i18n/en/confidence.js, nguồn i18n/ui/<lang>/confidence.js (+ gói khóa băm qua i18n-pack),
 //                                               khóa lõi/nhãn ngắn → scripts/i18n-fixed.json, content/confidence/i18n/_source.json (đầu vào người dịch), ids.lock.json
 //   Sau --write: bash scripts/build-i18n.sh && node scripts/i18n-fix.mjs
 import fs from 'node:fs';
@@ -10,6 +10,8 @@ import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
 import { missingSegments } from '../i18n-english.mjs';
 import { known } from '../scriptbank/lib.mjs';
+import { srcText } from '../lib/i18n-pack.mjs';
+import { writeFixed } from '../lib/fixed-json.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const R = p => path.join(ROOT, p), rd = p => fs.readFileSync(R(p), 'utf8'), J = p => JSON.parse(rd(p));
@@ -130,17 +132,17 @@ for (const l of LANGS) {
 // ---------- Sinh ----------
 const data = { v: 1, units: outUnits, toolkit: outTk, daily: daily.map(({ id, q, tip }) => ({ id, q, tip })) };
 const OUT = {
-  'web/js/confidence/data.js': `/* 🗣️ Giao tiếp tự tin – FILE SINH TỰ ĐỘNG từ content/confidence/*.json bằng scripts/confidence/build.mjs. Đừng sửa tay. */\nself.CONF = ${JSON.stringify(data)};\n`,
+  'web/cpack/confidence/data.js': `/* 🗣️ Giao tiếp tự tin – FILE SINH TỰ ĐỘNG từ content/confidence/*.json bằng scripts/confidence/build.mjs. Đừng sửa tay. */\nself.CONF = ${JSON.stringify(data)};\n`,
   'web/js/i18n/en/confidence.js': `/* English UI – confidence (lazy group, LAZY in scripts/build-i18n.sh). GENERATED from content/confidence by scripts/confidence/build.mjs – do not edit. */\n(function (g) {\n  const D = g.I18N_DICT = g.I18N_DICT || {};\n  D.en = Object.assign(D.en || {}, ${JSON.stringify(GROUP, null, 1).replace(/\n/g, '\n  ')});\n})(typeof self !== 'undefined' ? self : this);\n`,
 };
-for (const l of LANGS) OUT[`i18n/ui/${l}/confidence.js`] = `/* UI ${l} – confidence (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */\n(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["${l}"] = Object.assign(D["${l}"] || {}, ${JSON.stringify(Object.fromEntries(Object.keys(GROUP).map(k => [k, TR[l][k] ?? GROUP[k]])))}); })(typeof self !== 'undefined' ? self : this);\n`;
+for (const l of LANGS) OUT[`i18n/ui/${l}/confidence.js`] = srcText(l, 'confidence', Object.fromEntries(Object.keys(GROUP).map(k => [k, TR[l][k] ?? GROUP[k]]))); // định dạng nguồn chung (scripts/lib/i18n-pack.mjs)
 const short = v => String(v).trim().split(/\s+/).length <= 3 && !/[{<]/.test(v);
 const FIX = 'scripts/i18n-fixed.json', fixed = J(FIX);
 for (const [k, en] of Object.entries(ALL)) if (EXTRA[k] != null || short(en)) fixed[k] = Object.assign(fixed[k] || {}, Object.fromEntries(LANGS.filter(l => TR[l][k]).map(l => [l, TR[l][k]])));
 const SRC = { _note: 'Đầu vào cho người dịch: khóa (vi) → bản tiếng Anh. Dịch từ tiếng Anh; giữ nguyên {biến} và mọi cụm tiếng Anh trong ngoặc kép.', ...ALL };
 if (WRITE) {
   for (const [f, c] of Object.entries(OUT)) { fs.mkdirSync(path.dirname(R(f)), { recursive: true }); fs.writeFileSync(R(f), c); }
-  fs.writeFileSync(R(FIX), JSON.stringify(fixed, null, 2) + '\n');
+  writeFixed(R(FIX), fixed);
   fs.writeFileSync(R('content/confidence/i18n/_source.json'), JSON.stringify(SRC, null, 1) + '\n');
   { const { packAll } = await import('../lib/i18n-pack.mjs'); packAll(); } // nguồn i18n/ui → gói chạy khóa băm web/js/i18n/<lang>
   if (!errs.length) fs.writeFileSync(R(LOCK), JSON.stringify([...new Set([...lock, ...ids])], null, 0).replace(/","/g, '",\n"') + '\n');

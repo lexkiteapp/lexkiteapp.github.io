@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_interested_in",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Which little word is right?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am interested for art.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am interested in art.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say interested in.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "In! I am interested in music.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am interested for art.",
+  "right": "I am interested in art.",
+  "strike": "for",
+  "why": "Say interested in.",
+  "memory": "Interested in.",
+  "quiz": {
+   "stem": "I am interested ___ music.",
+   "options": [
+    "in",
+    "for"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "„Interessiert“ = „interested in“",
+   "tip": "„Sich interessieren für“ heißt im Englischen „interested in“, nicht „for“.",
+   "caption": "Welche Präposition passt zu „interested“? 🎨 Falsch: “I am interested for art.” Richtig: “I am interested in art.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “in”. Richtig heißt es: “I am interested in art.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Interessiert” = “interested in”",
+   "tip": "“Sich interessieren für” becomes “interested for”, but English says “interested in”.",
+   "caption": "Which preposition goes with “interested”? Wrong: “I am interested for art.” Right: “I am interested in art.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "„Interessiert“ = „interested in“"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "„Interessiert“ = „interested in“",
+  "keyword": "I am interested in art.",
+  "value": "„Sich interessieren für“ heißt im Englischen „interested in“, nicht „for“.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "„Interessiert“ = „interested in“",
+    "description": "„Sich interessieren für“ heißt im Englischen „interested in“, nicht „for“.\n\nWelche Präposition passt zu „interested“? 🎨 Falsch: “I am interested for art.” Richtig: “I am interested in art.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "I am interested in art.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Welche Präposition passt zu „interested“? 🎨 Falsch: “I am interested for art.” Richtig: “I am interested in art.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "„Interessiert“ = „interested in“\n\n„Sich interessieren für“ heißt im Englischen „interested in“, nicht „for“.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "„Interessiert“ = „interested in“ „Sich interessieren für“ heißt im Englischen „interested in“, nicht „… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “in”. Richtig heißt es: “I am interested in art.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

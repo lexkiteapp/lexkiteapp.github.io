@@ -170,6 +170,14 @@
       ]
     },
     {
+      "id": "P13",
+      "m": 6,
+      "title": "Mediation: relay a read/heard English source to one specific person (write or say), self-check points, model answer",
+      "routes": [
+        "#/mediate"
+      ]
+    },
+    {
       "id": "C01",
       "m": 1,
       "title": "Auth: Firebase Google + Apple sign-in, same project, guest mode, delete account",

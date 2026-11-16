@@ -50,7 +50,7 @@ jobs:
 
   sweep:
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 55
     strategy:
       max-parallel: 6   # ngân sách runner nền (docs/METHODS.md §CI)
@@ -115,7 +115,7 @@ jobs:
   ext:
     needs: lease
     if: needs.lease.outputs.skip != '1'
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 35
     strategy:
       max-parallel: 6   # ngân sách runner nền (docs/METHODS.md §CI)
@@ -145,7 +145,7 @@ jobs:
   ext-heavy:
     needs: lease
     if: needs.lease.outputs.skip != '1'
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
@@ -188,7 +188,7 @@ jobs:
     needs: [lease, native]
     if: needs.lease.outputs.skip != '1'
     uses: ./.github/workflows/journey-e2e.yml
-    permissions: { contents: read, checks: read }   # journey-e2e job gate xin checks: read; thiếu → startup_failure (scripts/test/workflow-call-perms.mjs)
+    permissions: { contents: read, checks: read, pull-requests: read }   # journey-e2e job gate xin checks + pull-requests: read; thiếu → startup_failure (scripts/test/workflow-call-perms.mjs)
     with:
       native: ${{ needs.native.outputs.jn || '0' }}
 

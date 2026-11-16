@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_yesterdaygo",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Yesterday? Say went!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Yesterday I go to school.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Yesterday I went to school.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Past time? Use went.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Went! Yesterday we went home.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Yesterday I go to school.",
+  "right": "Yesterday I went to school.",
+  "strike": "go",
+  "why": "Past time? Use went.",
+  "memory": "Yesterday: went.",
+  "quiz": {
+   "stem": "Yesterday we ___ home.",
+   "options": [
+    "go",
+    "went"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Kemarin, tapi “go”?",
+   "tip": "Bahasa Indonesia tidak mengubah kata kerja, tapi bahasa Inggris pakai bentuk lampau: go jadi went.",
+   "caption": "Pernah bilang begini? “Yesterday I go to school.” 😅 Untuk kejadian kemarin, pakai bentuk lampau: “Yesterday I went to school.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “went”. Ceritakan harimu kemarin dengan went, ate, saw. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#grammaringgris",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Go” for yesterday?",
+   "tip": "Indonesian does not change verbs, but English uses the past form: go becomes went.",
+   "caption": "Ever say this? “Yesterday I go to school.” 😅 For yesterday, use the past form: “Yesterday I went to school.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Kemarin, tapi “go”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "Kemarin, tapi “go”?",
+  "keyword": "Yesterday I went to school.",
+  "value": "Bahasa Indonesia tidak mengubah kata kerja, tapi bahasa Inggris pakai bentuk lampau: go jadi went.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#grammaringgris",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "Kemarin, tapi “go”?",
+    "description": "Bahasa Indonesia tidak mengubah kata kerja, tapi bahasa Inggris pakai bentuk lampau: go jadi went.\n\nPernah bilang begini? “Yesterday I go to school.” 😅 Untuk kejadian kemarin, pakai bentuk lampau: “Yesterday I went to school.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #grammaringgris #bahasainggris #lexkite",
+    "tags": [
+     "Yesterday I went to school.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “Yesterday I go to school.” 😅 Untuk kejadian kemarin, pakai bentuk lampau: “Yesterday I went to school.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Kemarin, tapi “go”?\n\nBahasa Indonesia tidak mengubah kata kerja, tapi bahasa Inggris pakai bentuk lampau: go jadi went.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#grammaringgris",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Kemarin, tapi “go”? Bahasa Indonesia tidak mengubah kata kerja, tapi bahasa Inggris pakai bentuk… #belajarbahasainggris #grammaringgris #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “went”. Ceritakan harimu kemarin dengan went, ate, saw. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

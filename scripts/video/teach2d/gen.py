@@ -12,8 +12,10 @@ REG = json.load(open(f'{ROOT}/web/teach/characters.json'))
 PIL = json.load(open(f'{ROOT}/content/video/teach2d/pilots.json'))
 PR_SMOKE_MAX = 1   # số tập teach-video render trên pull_request (ci-policy luật 11 khoá ≤ 2)
 GOLD = {}
-for x in open(f'{ROOT}/content/video/scripts/bank/g0000.jsonl'):
-    r = json.loads(x); GOLD[r['id']] = r
+GOLD_FILES = ('g0000', 'gold-curated-b')   # audited gold banks; a row id may live in only one file (teach2d-gen test)
+for _f in GOLD_FILES:
+    for x in open(f'{ROOT}/content/video/scripts/bank/{_f}.jsonl'):
+        r = json.loads(x); assert r['id'] not in GOLD, ('gold id in two bank files', r['id'], _f); GOLD[r['id']] = r
 APP = 'https://lexkite.com/app/'
 
 
@@ -92,6 +94,21 @@ def mistake(p):
         L('c', 'Save this. Free on lexkite.com.')],
         data=dict(wrong=p['wrong_say'], right=p['right_say'], strike=p['strike'], why=g['why'], memory=g['memory'], quiz=dict(stem=q['q'], options=q['options'], answer=q['answer'])),
         cta=cta('grammar-check', '#/fix', 'Check your grammar'), hook=dict(line='h', text=p['hook_text']), src=dict(gold=g['id'], pid=g['pid']))
+
+
+def l1(p):   # clip L1 (l1.json, docs/VIDEO-TEACH2D.md): teacher speaks plain English about a mistake speakers of ONE language make; native hook / tip / caption in that language
+    q = p['quiz']
+    return dict(lines=[
+        L('h', p['hook_say']),
+        L('w', f"Many learners say: {p['wrong']}"),
+        L('r', f"Better: {p['right']}"),
+        L('y', p['why']),
+        L('q', 'Quick quiz! Which one fits?', 3.0, quiz=True),
+        L('a', p['answer_say']),
+        L('sh', 'Send this to a friend!'),
+        L('c', 'Save this. Free on lexkite.com.')],
+        data=dict(wrong=p['wrong'], right=p['right'], strike=p['strike'], why=p['why'], memory=p['memory'], quiz=dict(stem=q['stem'], options=q['options'], answer=q['answer']), native=p['native'], en=p['en']),
+        cta=cta('grammar-check', '#/fix', 'Check your grammar'), hook=dict(line='h', text=p['native']['hook']), src=dict(l1=True))
 
 
 def phrasal(p):
@@ -195,7 +212,7 @@ def guess(p):   # Guess the Word (audited word bank + img.json picture): 3 clues
         L('c1', f'Clue one: {clue[0].lower() + clue[1:]}'),
         L('c2', f'Clue two: it has {NUM[n]} letters.'),
         L('c3', f'Clue three: it starts with {w[0].upper()}.'),
-        L('q', 'Got it? Comment your guess!', 3.0, quiz=True),
+        L('q', 'Got it? Take a guess!', 3.0, quiz=True),
         L('a', f"{w.capitalize()}! {ex}"),
         L('sh', 'Send this to a friend!'),
         L('c', 'Save this. Free on lexkite.com.')],
@@ -207,7 +224,7 @@ def level(p):   # Level Check (3 gold quiz items): progress dots, question card,
     Q = [gq(GOLD[x]) for x in p['gold']]; lines = [L('h', 'Level check! Ready?')]
     for i, (stem, opts, ans, right) in enumerate(Q, 1):
         lines += [L(f'q{i}', f"Question {['one', 'two', 'three'][i - 1]}.", 2.4, quiz=True), L(f'a{i}', stem.replace('___', right))]   # the answer = the full sentence (no lone word first: whisper drops it)
-    lines += [L('s', 'Three out of three? Comment below!'), L('c', 'Save this. Free on lexkite.com.')]
+    lines += [L('s', 'Three out of three? Well done!'), L('c', 'Save this. Free on lexkite.com.')]
     return dict(lines=lines, data=dict(qs=[dict(stem=s_, options=o_, answer=a_) for s_, o_, a_, _ in Q]),
                 cta=cta('placement', '#/placement', 'Take the level test'), hook=dict(line='h', text='Level check!'), src=dict(gold=p['gold']))
 
@@ -343,6 +360,7 @@ def react(p):   # Say it like a native (content/say-native/series.json, docs/SAY
                 cta=cta('phrases', '#/phrases', 'Learn real phrases'), hook=dict(line='h', text=hook), src=dict(say=S_['id'], key=it['key'], item=k_.index(p['key'])))
 
 
+T['l1'] = l1; SERIES['l1'] = 'Stop Saying This'
 T['react'] = react; SERIES['react'] = 'Say it like a native'   # 9:16 reaction-card short (owner OK Stitch brand/stitch/say/video-frame 31/10)
 
 
@@ -363,6 +381,7 @@ def make(row):
     assert len(words(hk)) <= 7, ('hook too long', hk)
     assert 30 <= n <= 70, ('word count', n)
     assert 60 * n / est <= 150, ('pace', 60 * n / est)
+    if row.get('lang'): ep['lang'] = row['lang']   # L1 clip: routed only to pages whose cfg.lang == lang (functions/api/_distribution.js blockOf)
     ep['est'] = dict(words=n, seconds=round(est, 1), wpm=round(60 * n / est))
     ep['publish'] = PUBLISH.build(ep)   # posting metadata written at production from this script (publish.py, docs/specs/video-production-v2.md §2)
     return ep
@@ -383,8 +402,8 @@ def make(row):
 AUTO_F, REV_F = f'{ROOT}/content/video/teach2d/auto.json', f'{ROOT}/content/video/teach2d/reviewed.json'
 BANK_F, PAIRS_F = f'{ROOT}/content/video/teach2d/bank.json', f'{ROOT}/content/video/teach2d/usuk-pairs.json'
 ECO = {a['id']: a for a in json.load(open(f'{ROOT}/content/video/ecosystem.json'))['areas']}
-AUTO_T = dict(usuk='ama', verbs='carlos', stress='carlos', guess='carlos', review='carlos')   # one teacher per series (the pilot's)
-AREA = dict(usuk='dictionary', verbs='verbs', stress='pronunciation', guess='dictionary', review='vocab-review')
+AUTO_T = dict(usuk='ama', verbs='carlos', stress='carlos', guess='carlos', review='carlos', mistake='ama', phrasal='ama')   # one teacher per series (the pilot's)
+AREA = dict(usuk='dictionary', verbs='verbs', stress='pronunciation', guess='dictionary', review='vocab-review', mistake='grammar-check', phrasal='phrases')
 REVIEWER = 'gen.py machine gates v1 (data == audited bank / verb engine / img.json · level <= B1 NGSL · hook true · no duplicate point or picture)'
 FRAME = set('participle irregular quiz lexkite com u s k america britain london manchester liverpool edinburgh forgot clue clues'.split()) | set('abcdefghijklmnopqrstuvwxyz') \
     | set('one two three four five six seven eight nine ten eleven twelve'.split())   # template words (pilot-reviewed), spelled letters, letter counts
@@ -600,6 +619,13 @@ def data_gate(row, F=None):   # facts in the row == live sources; returns the li
             x = p[k]; eq(x['word'], 'ipa', x['ipa'])
             if stress_ix(x['ipa']) != x['stress'] or ''.join(x['syl']) != x['word'] or len(x['syl']) != nuclei(x['ipa']): bad.append(f"{x['word']} stress / syllables")
         if p['a']['stress'] == p['b']['stress']: bad.append('stress does not move')
+    elif t in ('mistake', 'phrasal'):   # hand-written rows (hand.json): the gold-bank row is the audited fact
+        g = GOLD.get(p['gold']) or {}
+        if not g: bad.append('gold row gone')
+        else:
+            if p['wrong_say'] != g.get('wrong') or p['right_say'] != g.get('right'): bad.append('gold wrong/right changed')
+            if p['strike'] not in g['wrong']: bad.append('strike not in the wrong sentence')
+            if p['answer_say'] != hand_answer(g): bad.append('quiz answer changed')
     else:
         w = p['word']
         for f in ('ipa', 'ex'): eq(w, f, p[f])
@@ -621,6 +647,24 @@ def hook_gate(row, ep):   # the on-screen hook is a true claim about these facts
 
 
 def chash(t, point): return hashlib.sha1(f'{t}:{point}'.lower().encode()).hexdigest()[:12]
+
+
+L1_F = f'{ROOT}/content/video/teach2d/l1.json'
+def l1_rows():   # l1.json (first rows) + l1/<lang>.json (one file per language, content lane of the daily reels)
+    import glob
+    return [r for f in [L1_F] + sorted(glob.glob(f'{ROOT}/content/video/teach2d/l1/*.json')) if os.path.exists(f) for r in json.load(open(f))['rows']]
+def load_l1(): return [dict(r, template='l1', area='grammar-check') for r in l1_rows()]
+
+
+def l1_gate(row, F=None):   # level <= B1 for every spoken word (the taught words are exempt) + native text complete
+    p = row['in']; bad = []; n = p['native']
+    taught = taught_re(re.findall(r"[A-Za-z']+", p['wrong'] + ' ' + p['right']) + [p['strike']])
+    spoken = [p['hook_say'], p['wrong'], p['right'], p['why'], p['answer_say'], p['quiz']['stem']]
+    for t in spoken:
+        un = [w for w in unknown([taught.sub('', t)])[0] if len(w) > 1 and not lvl_ok(w, F or facts())] if t else []
+        if un: bad.append(f'level>B1: {un}')
+    if not all(n.get(k) for k in ('hook', 'tip', 'caption', 'comment', 'hashtags')) or not row.get('lang'): bad.append('native text incomplete')
+    return bad
 
 
 def load_auto(): return json.load(open(AUTO_F)) if os.path.exists(AUTO_F) else dict(_note='', rows=[])
@@ -678,6 +722,67 @@ def plan(n):
     by = ', '.join(f"{t} {sum(r['template'] == t for r in new)}" for t in CANDS); print(f'plan: +{len(new)} rows ({by}), total {len(rows)}; skipped {why}')
 
 
+HAND_F = f'{ROOT}/content/video/teach2d/hand.json'
+HAND_REVIEWER = 'gen.py --hand gates v1 (data == gold bank row · level <= B1 NGSL · hook <= 6 words, true for the facts · no duplicate gold row / approved sample / L1 error) + independent review by a fresh Opus reviewer 15/11/2026, score >= 90 per row (hand.json)'
+
+
+def hand_answer(g):   # the spoken quiz answer: right option + the stem filled in ("Discuss! We need to discuss the budget.")
+    q = g['quiz']; opt = q['options'][q['answer']]
+    if '___' not in q['q'] or opt.startswith('('): return None
+    return f"{opt[0].upper()}{opt[1:]}! {q['q'].replace('___', opt)}"
+
+
+def hand_hook_text(s):
+    m = re.fullmatch(r"(Stop saying|Don't say|Say) (.+?)!", s)
+    return f'{m[1]} “{m[2]}”' if m else s.rstrip('!')
+
+
+def hand_rows():   # hand.json -> auto.json-shaped rows (same shape as the pilots, facts frozen), mistake / phrasal alternating
+    H = json.load(open(HAND_F)); out = {t: [] for t in ('mistake', 'phrasal')}
+    for t in out:
+        for h in H[t]:
+            g = GOLD[h['gold']]; ans = hand_answer(g)
+            i = dict(gold=g['id'], hook_say=h['hook_say'], hook_text=hand_hook_text(h['hook_say']), wrong_say=g['wrong'], right_say=g['right'], strike=h['strike'], answer_say=ans)
+            if t == 'phrasal': i.update(pv=h['pv'], mean_say=h['mean_say'], mean_card=h['mean_card'])
+            sp = ' '.join([g['wrong'], g['right'], h['strike'], h.get('pv', '')])
+            out[t].append(dict(id=f"t2a_{t}_{g['id'][3:]}", template=t, teacher=AUTO_T[t], theme='dusk', area=AREA[t], point=g['pid'], hash=chash(t, g['id']),
+                               heads=[g['id']], taught=re.findall(r"[A-Za-z']+", sp), **{'in': i}))
+    return [r for pair in zip(out['mistake'], out['phrasal']) for r in pair] + out['mistake'][len(out['phrasal']):] + out['phrasal'][len(out['mistake']):]
+
+
+def plan_hand():
+    F = facts(); A = load_auto(); R = json.load(open(REV_F)); rows = A['rows']; why = {}
+    used_h = {r['hash'] for r in rows} | {chash(r['template'], pilot_point(r)) for r in PIL['pilots']}
+    used_g = {r['in'].get('gold') for r in rows} | {g for r in PIL['pilots'] for g in ([r['in'].get('gold')] if not isinstance(r['in'].get('gold'), list) else r['in']['gold'])}
+    appr = {x['id'].split('_', 1)[1] for x in json.load(open(f'{ROOT}/content/video/cine/news/approved.json'))['approved'] if re.fullmatch(r'(sts|sod)_[0-9a-f]{8}', x['id'])}   # approved sample = already an episode of that gold row
+    l1w = ' | '.join(r['in']['wrong'].lower() for r in l1_rows())
+    cand = [r for r in hand_rows() if r['id'] not in {x['id'] for x in rows}]; ok = []
+    def skip(k, r): why.setdefault(k, []).append(r['id'])
+    for r in cand:
+        g = r['in']['gold']
+        if not r['in']['answer_say']: skip('no-spoken-answer', r); continue
+        if g in used_g or r['hash'] in used_h or g[3:] in appr: skip('dup', r); continue
+        if r['in']['strike'].lower() in l1w: skip('l1-dup', r); continue
+        b = data_gate(r, F)
+        if b: skip('data:' + b[0], r); continue
+        try: ep = make(r)
+        except AssertionError as e: skip('shape:' + str(e.args[0][0]), r); continue
+        if not hook_gate(r, ep): skip('hook', r); continue
+        if not 18 <= short_secs(ep) <= 28: skip('duration', r); continue
+        ok.append([r, ep, taught_re(r['taught']).sub(' ', ' '.join(l['text'] for l in ep['lines']))])
+    for x, un in zip(ok, unknown([x[2] for x in ok])): x[2] = [u for u in un if u.lower() not in FRAME and not lvl_ok(u, F)]
+    new = []
+    for r, ep, un in ok:
+        if un: skip('level:' + ','.join(un), r); continue
+        rows.append(r); new.append(r)
+        R['verdicts'][r['id']] = dict(template=r['template'], hook=ep['hook']['text'], hook_true=True, script_reviewed=True, reviewer=HAND_REVIEWER, machine=True,
+                                      gates=dict(data=True, level=True, hook=True, dup=True), hash=r['hash'], script={l['id']: l['text'] for l in ep['lines']})
+    json.dump(A, open(AUTO_F, 'w'), indent=1, ensure_ascii=False); open(AUTO_F, 'a').write('\n')
+    json.dump(R, open(REV_F, 'w'), indent=1, ensure_ascii=False); open(REV_F, 'a').write('\n')
+    print(f"hand: +{len(new)} rows (mistake {sum(r['template'] == 'mistake' for r in new)}, phrasal {sum(r['template'] == 'phrasal' for r in new)}), total {len(rows)}")
+    for k, v in why.items(): print(f'  skipped {k}: {v}')
+
+
 def pilot_point(r):
     p = r['in']; return dict(usuk=lambda: f"{p.get('us')}/{p.get('uk')}", verbs=lambda: p.get('base'), stress=lambda: f"{p['a']['word']}/{p['b']['word']}" if 'a' in p else '',
                              guess=lambda: p.get('word'), review=lambda: p.get('word')).get(r['template'], lambda: r['id'])()
@@ -687,18 +792,32 @@ def verify():   # live re-check of every auto row: (ok ids, stale [(id, problems
     F = facts(); ok, stale = [], []
     for r in load_auto()['rows']:
         b = data_gate(r, F); (stale.append((r['id'], b)) if b else ok.append(r['id']))
+    for r in load_l1():
+        b = l1_gate(r, F); (stale.append((r['id'], b)) if b else ok.append(r['id']))
     return ok, stale
+
+
+GRADE_F = f'{ROOT}/content/video/teach2d/l1-grade.json'   # independent-grader verdict per L1 row: {id: score >= 90}
+
+
+def l1_graded(i, G):   # an L1 row is rendered only when an independent grader gave it >= 90 (coordinator 16/11): unscored or <90 rows never become a video
+    g = G.get(i); return isinstance(g, (int, float)) and g >= 90
 
 
 def todo():
     ok, stale = verify(); B = (json.load(open(BANK_F)) if os.path.exists(BANK_F) else {}).get('eps', {})
     for i, b in stale: print(f'::warning::stale (fact changed, not rendered): {i}: {b}', file=sys.stderr)
+    G = json.load(open(GRADE_F)).get('grades', {}) if os.path.exists(GRADE_F) else {}; L1 = {r['id'] for r in load_l1()}
+    for i in sorted(L1 & set(ok)):
+        if not l1_graded(i, G): print(f'::warning::L1 row without grader score >= 90 (not rendered): {i}', file=sys.stderr)
+    ok = [i for i in ok if i not in L1 or l1_graded(i, G)]
     return [i for i in ok if not (B.get(i, {}).get('state') == 'banked' or B.get(i, {}).get('tries', 0) >= 2)]   # 2 red renders -> left for a person (sheet lists it)
 
 
 if __name__ == '__main__':
     A_ = sys.argv
     if '--plan' in A_: plan(int(A_[A_.index('--plan') + 1])); sys.exit(0)
+    if '--hand' in A_: plan_hand(); sys.exit(0)
     if '--todo' in A_:
         T_ = todo()
         if '--count' in A_: print(f'cần render {len(T_)}'); sys.exit(0)
@@ -706,16 +825,23 @@ if __name__ == '__main__':
     if '--pick' in A_:   # teach-video preqc: explicit ids > next N todo (ci-filler 'shards') > PR smoke (pilots + first auto ep of each template) > pilots
         i = A_.index('--pick'); ids, n, ev = [x.strip() for x in A_[i + 1].split(',') if x.strip()], int(A_[i + 2] or 0), A_[i + 3]
         par = int(A_[i + 4]) if len(A_) > i + 4 and A_[i + 4].isdigit() else 30
+        if len(ids) > 120: sys.exit(f'--pick: {len(ids)} explicit episodes > 120 (render matrix = 2 formats x episodes <= 256 jobs) - dispatch in chunks of <= 120 with distinct batch ids')
         if not ids and n > 0: ids = todo()[:min(n, 120, 4 * par)]   # render matrix = 2 x episodes <= 256 jobs; ~4 episodes per free runner per run
         if not ids:
             ids = [r['id'] for r in PIL['pilots']]
             if ev == 'pull_request': R_ = load_auto()['rows']; ids += [next(r['id'] for r in R_ if r['template'] == t) for t in CANDS if any(r['template'] == t for r in R_)]
         if ev == 'pull_request': ids = ids[:PR_SMOKE_MAX]   # luật 11 (hàng chờ 48 job teach-video, 07/11): PR chỉ smoke preqc + 1 tập; render đủ chạy khi dispatch/ci-filler
         print(json.dumps(ids)); sys.exit(0)
+    if '--l1-review' in A_:   # (re)write the reviewed.json verdict of every L1 clip: script + native hook as reviewed, level gate green (l1_gate); native-qa.mjs is the second gate (preqc)
+        R_ = json.load(open(REV_F)); F_ = facts()
+        for row in load_l1():
+            assert not l1_gate(row, F_), (row['id'], l1_gate(row, F_)); ep = make(row)
+            R_['verdicts'][row['id']] = dict(template='l1', hook=ep['hook']['text'], hook_true=True, script_reviewed=True, reviewer='gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs', script={l['id']: l['text'] for l in ep['lines']})
+        json.dump(R_, open(REV_F, 'w'), indent=1, ensure_ascii=False); open(REV_F, 'a').write('\n'); print('l1 verdicts', len(load_l1())); sys.exit(0)
     if '--verify' in A_:
         ok_, st_ = verify(); print(f'verify: {len(ok_)} ok, {len(st_)} stale'); [print(' ', i, b) for i, b in st_]; sys.exit(0)
     out = f'{ROOT}/content/video/teach2d/eps'; os.makedirs(out, exist_ok=True)
-    for row in PIL['pilots'] + load_auto()['rows']:
+    for row in PIL['pilots'] + load_auto()['rows'] + load_l1():
         ep = make(row)
         if '-q' not in A_: print(f"{ep['id']:28s} {ep['template']:8s} {ep['teacher']:7s} {ep['theme']:5s} {ep['est']}")
         if '--check' not in A_: json.dump(ep, open(f"{out}/{ep['id']}.json", 'w'), indent=1, ensure_ascii=False)

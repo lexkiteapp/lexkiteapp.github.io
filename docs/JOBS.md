@@ -38,6 +38,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 00:04 | `ci-filler` | `4-59/10 * * * *` | reports | gh_minutes | 3 | — | — |
 | 00:07 | `blog-publish` | `7 */3 * * *` | publishing | gh_minutes | 10 | — | — |
 | 00:07 | `d1-usage-watch` | `7,27,47 * * * *` | reports | d1_main, gh_minutes | 1 | d1_main_reads≈10, d1_main_writes≈2 | — |
+| 00:07 | `ci-autopilot` | `7-57/10 * * * *` | reports | gh_minutes | 3 | — | — |
 | 00:07 | `youtube-manual` | `7,37 * * * *` | publishing | youtube_api, d1_main_read | 5 | d1_main_reads≈300 | — |
 | 00:15 | `d1-backup` | `15 0 * * 1,2` | archive | d1_main_read, drive_pool, gh_minutes | 30 | d1_main_reads≈60000, drive_calls≈80 | ✓ |
 | 00:17 | `free-tier-guard` | `35 1 * * *`<br>`17 * * * *` | reports | gh_minutes | 2 | — | — |
@@ -55,6 +56,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 00:53 | `report-autofix` | `53 */3 * * *` | reports | gh_minutes | 1 | d1_main_reads≈200 | — |
 | 01:00 | `lighthouse` | `0 1 * * 1` | reports | gh_minutes | 15 | — | — |
 | 01:00 | `mail-digest` | `0 1 * * *` | reports | d1_main_read | 2 | d1_main_reads≈3000 | — |
+| 01:05 | `funnel-digest` | `5 1 * * *` | reports | gh_minutes | 1 | — | — |
 | 01:15 | `youtube-upload` | `15 1,8,14,20 * * *` | publishing | youtube_api, drive_pool, d1_internal | 20 | d1_internal_reads≈200, d1_main_reads≈100, drive_calls≈60 | ✓ |
 | 01:20 | `store-reviews` | `20 1 * * 1` | reports | gh_minutes | 1 | — | — |
 | 01:25 | `capacity-watch` | `25 1 * * *` | reports | d1_main, gh_minutes | 2 | d1_main_reads≈40 | — |
@@ -67,28 +69,37 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 02:00 | `upgrade-audit` | `0 2 * * 1` | reports | gh_minutes | 2 | — | — |
 | 02:10 | `nav-render` | `10 2 * * *` | render | gh_minutes | 20 | — | — |
 | 02:17 | `content-protect` | `17 2 * * 0` | reports | gh_minutes | 10 | — | — |
+| 02:17 | `perf-flake-report` | `17 2 * * 1` | reports | gh_minutes | 1 | — | — |
 | 02:20 | `font-audit` | `20 2 * * 1` | reports | gh_minutes | 10 | — | — |
 | 02:30 | `i18n` | `30 2 * * *` | render | gemini, gh_minutes | 90 | — | — |
 | 02:30 | `world-scorecard` | `30 2 * * 1` | reports | gh_minutes | 15 | — | — |
 | 02:40 | `vocab-img-scene` | `40 2,4,7,10,13,16,19,22 * * *` | bulk | grabcast_ai, gh_minutes | 120 | grabcast_images≈6000, grabcast_text≈300, shards_max≈10, per_shard_images≈max_gc / shards, judge≈local CPU (0 token), grabcast_vision≈6000 | ✓ |
+| 02:50 | `social-metrics` | `50 2 * * *` | reports | youtube_api, d1_main | 2 | d1_main_reads≈200, d1_main_writes≈150 | — |
+| 03:17 | `ai-keys-sync` | `17 3 * * 1` | reports | gh_minutes | 1 | — | — |
 | 03:20 | `visual-qa` | `20 3 * * 1` | reports | gh_minutes | 30 | — | — |
 | 03:40 | `mobile-qa` | `40 3 * * 1` | reports | gh_minutes | 30 | — | — |
+| 03:40 | `native-qa-nightly` | `40 3 * * *` | reports | gh_minutes | 8 | — | — |
 | 03:41 | `content-evidence` | `41 3 * * *`<br>`23 4 1 * *` | reports | gh_minutes | 30 | — | — |
 | 03:41 | `storage-watch` | `41 3 * * 1` | reports | gh_minutes | 5 | d1_internal_reads≈10 | ✓ |
+| 03:41 | `social-coverage` | `41 3 * * *` | publishing | d1_main | 1 | d1_main_reads≈700 | — |
 | 03:47 | `drive-repair` | `47 3 * * *` | archive | drive_pool | 30 | drive_calls≈100 | — |
 | 03:53 | `video-auto` | `17 23 * * *`<br>`53 3,6 * * *` | render | gh_minutes | 90 | — | — |
 | 04:17 | `ads-demo` | `17 4 * * 1` | reports | gh_minutes | 30 | — | — |
 | 04:23 | `drive-shorts` | `23 4 * * *` | archive | drive_pool, d1_internal | 20 | d1_internal_reads≈20000, drive_calls≈1500 | ✓ |
+| 04:35 | `words-r2-sync` | `35 4 * * *` | reports | gh_minutes | 8 | — | — |
 | 04:40 | `capacity-sim` | `40 4 * * 1` | reports | gh_minutes | 10 | — | — |
 | 04:40 | `vocab-img-free` | `40 4 * * 1` | bulk | gh_minutes | 6 | images≈0 | — |
 | 04:41 | `report-shots` | `41 4 * * 1` | archive | gh_minutes | 2 | — | — |
 | 04:47 | `video-web` | `47 4 * * *` | render | gh_minutes, drive_pool, d1_internal | 40 | d1_internal_reads≈300, drive_calls≈100 | ✓ |
 | 05:23 | `web-merge-daily` | `23 5 * * *` | reports | gh_minutes | 2 | — | — |
 | 05:30 | `d1b-migrate` | `30 5 * * *` | archive | d1_internal, d1_main_read, drive_pool | 45 | d1_main_reads≈40000, d1_internal_reads≈2000 | ✓ |
+| 05:37 | `video-junk` | `37 5 * * 0` | reports | gh_minutes | 15 | — | — |
 | 06:03 | `ads-revenue` | `3 6 * * *` | reports | gh_minutes, d1_main | 2 | d1_main_reads≈1500, d1_main_writes≈300 | — |
 | 06:20 | `footage-verify` | `20 6 * * 1` | reports | drive_pool, d1_internal | 20 | d1_internal_reads≈8000, drive_calls≈300 | ✓ |
+| 06:41 | `ai-golden` | `41 6 * * *` | reports | gh_minutes | 15 | — | — |
 | 07:20 | `ci-queue-report` | `20 7 * * *` | reports | gh_minutes | 3 | — | — |
 | 07:30 | `explain` | `30 7 * * *` | render | gemini, grabcast_ai, gh_minutes | 40 | gemini_calls≈400, grabcast_text≈200 | — |
+| 07:43 | `drive-tidy` | `43 7,19 * * *` | archive | drive_pool, d1_internal | 5 | d1_internal_reads≈4000, drive_calls≈300 | ✓ |
 | 08:53 | `news-auto` | `53 8 * * *` | render | gh_minutes, workers_ai_b, gemini, drive_pool | 150 | clips≈6, gemini_calls≈12, drive_calls≈60, workers_ai_b_neurons≈3000 | ✓ |
 | 11:30 | `release-archive` | `30 11 * * 6` | archive | drive_pool, gh_minutes | 30 | drive_calls≈40 | ✓ |
 | 12:00 | `code-bundle` | `0 12 * * 0` | archive | drive_pool, gh_minutes | 60 | drive_calls≈20 | ✓ |
@@ -96,6 +107,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 13:10 | `vocab-img` | `10 13 * * *` | bulk | grabcast_ai, gh_minutes | 85 | grabcast_images≈400, grabcast_text≈220, senses≈220, images≈130 | ✓ |
 | 17:50 | `content-factory` | `50 17 * * *` | render | gemini, grabcast_ai, gh_minutes | 90 | gemini_calls≈600, grabcast_text≈300 | — |
 | 19:00 | `audio` | `0 19 * * *` | render | gh_minutes | 60 | — | — |
+| 19:17 | `audit-all` | `17 19 * * 1,4` | reports | gh_minutes | 300 | — | — |
 | 20:30 | `word-packs` | `30 20 * * *` | render | gh_minutes, gemini | 45 | — | — |
 | 21:00 | `wordlists` | `0 21 * * *` | render | gh_minutes | 20 | — | — |
 | 21:30 | `lexicon-i18n` | `30 21 * * *` | render | gemini, gh_minutes | 60 | — | — |
@@ -115,6 +127,7 @@ Sau mốc reset 00:00 UTC (hạn mức D1 miễn phí làm mới), thứ tự: v
 | `scripts/content-score.mjs` – content/pipeline/SCORE.md – điểm mảng Kho từ (đếm từ#loại kể cả mở rộng 20k, độ phủ trường, ảnh) | `loadAllPlus` | content-qa.yml (score) |
 | `scripts/content-qa/learnability.mjs` – reports/learnability.json + content/pipeline/LEARN.md – thước đo 'Dễ học – dễ nhớ' (12 tiêu chí; dùng cấp CEFR kho từ cho i+1, kể cả mục mở rộng 20k) | `loadAllPlus` | content-qa.yml (score) + npm test |
 | `scripts/content-qa/lkf-check.mjs` – reports/lkf-coverage.json – độ phủ lo của từ#loại (luật vocab theo cấp CEFR, kể cả mục mở rộng 20k) cho khung Can-do | `loadAllPlus` | npm test + content-qa.yml (score) |
+| `scripts/gen-word-packs.mjs` – web/i18n/words/<lang>: gói nghĩa từ 13 ngôn ngữ (nguồn từ gồm cả mục mở rộng 20k) | `loadAllPlus` | word-packs.yml (hằng đêm) |
 | `scripts/lexicon/shards.mjs` – mảnh tra từ (web, mobile, add-on qua Lex) + mảnh nghĩa 13 ngôn ngữ | `loadExpand` | build-web (mỗi lần deploy) |
 | `scripts/lexicon/surfaces.mjs` – dict-consistency: mảnh = INDEX | `loadBrowserIndex` | npm test |
 | `scripts/build-lexicon.mjs` – dist/lexicon.json (vimg, video-web, i18n) + cổng ảnh | `loadExpand` | build / npm test |
@@ -163,4 +176,5 @@ Sau mốc reset 00:00 UTC (hạn mức D1 miễn phí làm mới), thứ tự: v
 | `scripts/native/gen-learn.mjs` –  | bỏ qua: chạy JS web thật (soát lỗi, ngữ pháp, phương pháp, giao tiếp tự tin) để sinh vector/gói; nếu nạp kho từ thì chỉ để dựng DOM giả, không ghi/xuất kho | — |
 | `scripts/native/gen-sync.mjs` –  | bỏ qua: chỉ tra các từ mà vector sync/migration dùng (map lib) để native dựng lại thẻ L:1; không ghi/xuất kho | — |
 | `scripts/lexicon/expand/left.mjs` – số việc còn cho ci-filler (20k − mục sống + retry), không ghi gì | `doneWords` | ci-filler.yml (probe infra/ci-backlog.json) |
+| `scripts/video/teach2d/native-qa.mjs` –  | bỏ qua: đọc nghĩa/ví dụ từ web/packs để dịch ngược kiểm clip L1; không ghi kho, không cần mục mở rộng | — |
 | **CÒN THIẾU** srs-topics | bộ chủ đề SRS/Từ vựng trong app (IELTS_DATA.TOPICS) chưa có bộ xw-*: từ mở rộng tra được (mảnh) nhưng chưa vào danh sách bộ học – cần bộ tải lười JSON từ mảnh (không thêm vào web/js, ngân sách 19 MB) | — |

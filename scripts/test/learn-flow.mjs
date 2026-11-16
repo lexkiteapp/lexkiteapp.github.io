@@ -28,6 +28,8 @@ require('./lazyfix.js')(w, fs, path, WEB, errors);
 const tick = (ms = 40) => new Promise(r => setTimeout(r, ms));
 const $ = (s, r = w.document) => r.querySelector(s), $$ = (s, r = w.document) => [...r.querySelectorAll(s)];
 const go = async (h, ms = 150) => { w.location.hash = h; await tick(ms); };
+// chờ có điều kiện thay vì ngủ cố định: máy CI chậm không làm test đỏ chập chờn
+const until = async (fn, ms = 3000) => { const t = Date.now(); while (!fn() && Date.now() - t < ms) await tick(20); return fn(); };
 const click = el => el && el.dispatchEvent(new w.MouseEvent('click', { bubbles: true, cancelable: true }));
 const cs = el => w.getComputedStyle(el);
 w.UI.speak = () => {}; w.speechSynthesis = { speak() {}, cancel() {}, getVoices: () => [], pause() {}, resume() {} };
@@ -105,6 +107,8 @@ if (found) {
   ok($$('#fi .ctx-say').every(b => b.getAttribute('aria-label')), 'nút nghe câu ví dụ có nhãn');
   w.document.body.dispatchEvent(new w.KeyboardEvent('keydown', { key: ' ', bubbles: true })); await tick(30);
   ok(!errors.some(e => /flip is not defined/.test(e)), 'phím cách không gây lỗi (flip không tồn tại)');
+  // đóng băng đồng hồ của app: bảo vệ chạm đúp 250 ms (study.js shownAt) kiểm tất định, không phụ thuộc tốc độ máy CI (từng đỏ ~1/234 vì các kiểm tra giữa 2 lần chạm vượt 250 ms thật)
+  const realNow = w.Date.now.bind(w.Date); let clock = realNow(); w.Date.now = () => clock;
   click($('#gotIt')); click($('#gotIt')); await tick(60);
   ok($$('.options .option').length === 4, 'Tiếp tục → câu trắc nghiệm nghĩa (chạm đúp không nhảy 2 bước)');
   ok(!$$('.options .option').some(b => /right|wrong|picked/.test(b.className)), 'chưa chạm: không đáp án nào được tô');
@@ -115,12 +119,12 @@ if (found) {
   ok(others.length === 3 && others.every(x => D.posOf(x.pos) === 'v'), 'phương án nhiễu cho “live” đều là động từ: ' + others.map(x => x.word).join(', '));
   click(opts[0]); await tick(10);
   ok(!$('#fb .sheet'), 'chạm ngay khi vừa hiện câu (chạm đúp từ màn trước) bị bỏ qua');
-  await tick(300); click(opts[0]); await tick(40);
+  clock += 300; click(opts[0]); await tick(40); const clockOff = clock - realNow(); w.Date.now = () => realNow() + clockOff; // đủ 250 ms theo đồng hồ app → chạm được nhận; rã đông thì chạy tiếp LIÊN TỤC từ mốc ảo (KHÔNG nhảy ngược về giờ thật: máy nhanh thì nextQ bị bảo vệ chạm đúp 250 ms chặn → không có tiến độ → ✕ không hỏi xác nhận, đỏ ~1/234)
   ok($('#fb .sheet'), 'chạm sau đó → hiện bảng phản hồi');
-  ok($('.study-wrap').style.getPropertyValue('--sheet-h') && /\.study-wrap:has\(\.sheet\) \{ padding-bottom: calc\(var\(--sheet-h/.test(css), 'chừa đáy bằng đúng chiều cao bảng phản hồi');
+  ok($('.study-wrap').style.getPropertyValue('--sheet-h') && /\.study-wrap:has\(\.sheet-up\) \{ padding-bottom: calc\(var\(--sheet-h/.test(css) && $('#fb .sheet').classList.contains('sheet-up'), 'chừa đáy bằng đúng chiều cao bảng phản hồi (gắn .sheet-up sau lần vẽ – INP)');
   // ✕ giữa chừng → hỏi lại
   await tick(300); const x = $('.study-top a.icon-btn'), before = w.location.hash; click($('#nextQ')); await tick(400);
-  click($('.study-top a.icon-btn')); await tick(40);
+  click($('.study-top a.icon-btn')); await until(() => !$('#modal').hidden && /Thoát giữa chừng/.test($('#modalBox').textContent));
   ok(!$('#modal').hidden && /Thoát giữa chừng/.test($('#modalBox').textContent) && w.location.hash === before, '✕ giữa phiên học → hỏi xác nhận, không mất tiến độ ngay');
   click($('#modalBox [data-close].primary')); await tick(30);
   ok(x && $('#modal').hidden, 'Làm tiếp → đóng hộp thoại, ở lại phiên');
@@ -203,8 +207,9 @@ ok((await w.App.todayPlan()).some(x => x.href === '#/placement') && w.App.pathCu
   await go('#/home', 400);
   ok(/Ngày 1|Day 1/.test(($('.today-cta') || {}).textContent || ''), 'nút chính trang chủ: ' + (($('.today-cta') || {}).textContent || '').trim());
   await go('#/day/1', 400);
-  ok($$('.day-steps li').length === 6 && $('.day-hero') && $('[role=progressbar]'), 'trang #/day/1: 6 hoạt động + thanh tiến độ');
-  click($('.day-steps a')); await tick(50);
+  ok($$('.dayv2-steps a').length === 6 && $('.v2s-day h1') && $('[role=progressbar]'), 'trang #/day/1: 6 hoạt động + thanh tiến độ');
+  { const xs = Array.from($$('.dayv2-steps a')).map(a => +((a.textContent.match(/(\d+)\/15 XP/) || [])[1] || 0)); ok(xs.length === 6 && xs.every((x, i) => x > (xs[i - 1] || 0)) && xs[5] === 15, 'trang #/day/1: chip tiến tới +15 XP tăng dần, bước cuối = 15/15 (thưởng thật chỉ trao khi xong ngày)'); }
+  click($('.dayv2-steps a')); await tick(50);
   ok(w.localStorage.getItem('vb.daySess') === 'ngsl1.1~1', 'bấm hoạt động → giữ phiên Ngày 1');
   w.dispatchEvent(new w.CustomEvent('lexkite:practice-done', { detail: { mode: 'match', src: 'topic:ngsl1.1~1', pct: 100 } })); await tick(200);
   const rec = await w.Core.Store.get('pathDays', {});
@@ -222,8 +227,8 @@ ok((await w.App.todayPlan()).some(x => x.href === '#/placement') && w.App.pathCu
   // Nội dung đích của mọi bước (đọc thẳng file dữ liệu – không cần nạp từng gói)
   const src = (...fs) => fs.map(f => fs0(f)).join('\n'), fs0 = f => { try { return fs.readFileSync(path.join(WEB, 'js', f), 'utf8'); } catch (e) { return ''; } };
   const dir = d => fs.readdirSync(path.join(WEB, 'js', d)).map(f => d + '/' + f);
-  const C = { roleplay: src(...dir('roleplay')), call: src('call/calls.js', 'call/calls-exam.js'), listen: src(...dir('listen'), ...dir('../cpack/listen'), ...dir('toeic')), task1: src('task1.js'), write: src('write.js'), letters: src('write/gt-letters.js'),
-    rtype: src('rtype.js'), toefl: src('toefl.js'), toeic: src('toeic.js'), treading: src(...dir('toeic')), grammar: src(...dir('grammar')) };
+  const C = { roleplay: src(...dir('roleplay'), ...dir('../cpack/roleplay')), call: src('call/calls.js', 'call/calls-exam.js'), listen: src(...dir('listen'), ...dir('../cpack/listen'), ...dir('toeic')), task1: src('task1.js'), write: src('write.js'), letters: src('write/gt-letters.js'),
+    rtype: src('rtype.js'), toefl: src('toefl.js'), toeic: src('toeic.js'), treading: src(...dir('toeic')), grammar: src(...dir('grammar'), ...dir('../cpack/grammar')) };
   const has = (txt, id) => new RegExp(`id: '${id}'|T\\('${id}'`).test(txt);
   const exists = h => { const [, r, a = '', q = ''] = /^#\/([a-z0-9-]+)\/?([^?]*)\??(.*)$/.exec(h) || [];
     if (r === 'practice') { const id = decodeURIComponent(new URLSearchParams(q).get('src') || '').replace(/^topic:/, ''); return id === 'due' || (w.App.topicOf(id) || { words: [] }).words.length >= 3; }

@@ -166,6 +166,21 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "video-junk",
+   "workflow": "video-junk.yml",
+   "cron": [
+    "37 5 * * 0"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 15,
+   "est": {},
+   "lease": false,
+   "_note": "Dọn artifact Actions video rác (failed-run / superseded / gone-episode); lịch chỉ dry-run + manifest, xoá thật chỉ khi chạy tay apply=true (docs/VIDEO-STORAGE.md)"
+  },
+  {
    "id": "capacity-watch",
    "workflow": "capacity-watch.yml",
    "cron": [
@@ -289,6 +304,20 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "words-r2-sync",
+   "workflow": "words-r2-sync.yml",
+   "cron": [
+    "35 4 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 8,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "pr-unconflict",
    "workflow": "pr-unconflict.yml",
    "cron": [
@@ -338,6 +367,20 @@ export const REG = {
    "workflow": "ci-filler.yml",
    "cron": [
     "4-59/10 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 3,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "ci-autopilot",
+   "workflow": "ci-autopilot.yml",
+   "cron": [
+    "7-57/10 * * * *"
    ],
    "priority": "reports",
    "resources": [
@@ -437,6 +480,24 @@ export const REG = {
    "est": {
     "d1_internal_reads": 20000,
     "drive_calls": 1500
+   },
+   "lease": true
+  },
+  {
+   "id": "drive-tidy",
+   "workflow": "drive-tidy.yml",
+   "cron": [
+    "43 7,19 * * *"
+   ],
+   "priority": "archive",
+   "resources": [
+    "drive_pool",
+    "d1_internal"
+   ],
+   "minutes": 5,
+   "est": {
+    "d1_internal_reads": 4000,
+    "drive_calls": 300
    },
    "lease": true
   },
@@ -994,6 +1055,36 @@ export const REG = {
    "_note": "27/10: dò kho CF_POOL ngay sau giờ nạp neuron (mỗi tài khoản 1 câu ~1 neuron) – kho có thật sự nạp lại lúc 00:00 UTC không, có ai khác dùng không. Kết quả ở tóm tắt run."
   },
   {
+   "id": "ai-golden",
+   "workflow": "ai-golden.yml",
+   "cron": [
+    "41 6 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 15,
+   "lease": false,
+   "paused": false,
+   "_note": "03/11: cổng chất lượng AI người dùng (docs/AI-CHAIN.md §4) – ~20 bài IELTS + ~20 lượt roleplay × mỗi model Gemini/Groq/Llama, giám khảo khác họ; gọi thẳng nhà cung cấp bằng GEMINI_POOL/GROQ_POOL/CF_POOL (≈ 250 lượt/ngày, không chạm API của site)."
+  },
+  {
+   "id": "ai-keys-sync",
+   "workflow": "ai-keys-sync.yml",
+   "cron": [
+    "17 3 * * 1"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 1,
+   "lease": false,
+   "paused": false,
+   "_note": "03/11: đồng bộ GEMINI_POOL/GROQ_POOL vào kho khóa mã hóa của site (/api/keysync, OIDC) – 2 lượt gọi API/tuần (docs/AI-CHAIN.md §3)."
+  },
+  {
    "id": "vocab-img-scene",
    "workflow": "vocab-img-scene.yml",
    "cron": [
@@ -1099,6 +1190,20 @@ export const REG = {
    "minutes": 45,
    "est": {},
    "lease": true
+  },
+  {
+   "id": "audit-all",
+   "workflow": "audit-all.yml",
+   "cron": [
+    "17 19 * * 1,4"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 300,
+   "est": {},
+   "lease": false
   },
   {
    "id": "content-qa",
@@ -1232,6 +1337,22 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "social-coverage",
+   "workflow": "social-coverage.yml",
+   "cron": [
+    "41 3 * * *"
+   ],
+   "priority": "publishing",
+   "resources": [
+    "d1_main"
+   ],
+   "minutes": 1,
+   "est": {
+    "d1_main_reads": 700
+   },
+   "lease": false
+  },
+  {
    "id": "upgrade-audit",
    "workflow": "upgrade-audit.yml",
    "cron": [
@@ -1279,6 +1400,20 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "funnel-digest",
+   "workflow": "funnel-digest.yml",
+   "cron": [
+    "5 1 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 1,
+   "lease": false,
+   "_note": "14/11: tóm tắt phễu tăng trưởng 1 tin/ngày (08:05 VN) → issue growth-funnel; 1 GET /api/funnel-digest (chỉ đọc D1, đệm), không ghi"
+  },
+  {
    "id": "ci-queue-report",
    "workflow": "ci-queue-report.yml",
    "cron": [
@@ -1291,6 +1426,52 @@ export const REG = {
    "minutes": 3,
    "lease": false,
    "_note": "05/11 PR #719: đo hàng chờ CI mức job mỗi ngày (chờ p50/p90, phút, lượt trùng) so với mốc → issue ci-queue; chỉ đọc API"
+  },
+  {
+   "id": "perf-flake-report",
+   "workflow": "perf-flake-report.yml",
+   "cron": [
+    "17 2 * * 1"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 1,
+   "lease": false,
+   "_note": "16/11: tỉ lệ chập chờn hiệu năng hằng tuần (call-rt, story-stage, scroll-perf, mobile-qa, ux-cards); chỉ đọc API"
+  },
+  {
+   "id": "native-qa-nightly",
+   "workflow": "native-qa-nightly.yml",
+   "cron": [
+    "40 3 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 8,
+   "lease": false,
+   "_note": "16/11: native-qa --online đủ mọi hàng L1 mỗi đêm (PR chỉ dịch ngược hàng đổi); gtx miễn phí, chỉ đọc"
+  },
+  {
+   "id": "social-metrics",
+   "workflow": "social-metrics.yml",
+   "cron": [
+    "50 2 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "youtube_api",
+    "d1_main"
+   ],
+   "minutes": 2,
+   "est": {
+    "d1_main_reads": 200,
+    "d1_main_writes": 150
+   },
+   "lease": false
   }
  ]
 };

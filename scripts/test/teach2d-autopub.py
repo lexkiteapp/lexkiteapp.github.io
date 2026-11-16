@@ -11,6 +11,9 @@ Q = dict(score=100, ok=True, gates=dict(pace=dict(ok=True, wpm=120), caption_syn
 BASE = dict(ep=EP, entry=dict(sha=dict(short='aa', wide='bb')), qc=dict(short=Q, wide=Q), levels=LV, area_map=AREAS, posted=[])
 
 
+_status = A.AT.status; A.AT.status = lambda tid, engine=None: 'approved'   # fixture episode is a draft template: the per-reason cases below run with the book stubbed, the book gate has its own cases at the end
+
+
 def run(**kw): return A.gate(**copy.deepcopy(dict(BASE, **kw)))
 
 
@@ -28,7 +31,7 @@ if not g['ok'] or g['cefr'] != 'B1': fails.append(f'clean clip blocked: {g}')
 low = dict(Q, score=89); bad = dict(Q, gates=dict(Q['gates'], caption_sync=dict(ok=False)), ok=False)
 expect('qc short', 'qc<90:short', qc=dict(short=low, wide=Q)); expect('qc wide', 'qc<90:wide', qc=dict(short=Q, wide=low)); expect('no render', 'qc<90:wide', qc=dict(short=Q))
 expect('gate', 'gate:caption_sync', qc=dict(short=bad, wide=Q))
-expect('lang', 'lang≠en', ep=mut(lambda e: e.update(lang='vi')))
+expect('lang', 'native-qa', ep=mut(lambda e: e.update(lang='vi')))   # lang≠en without a green l1-qa.json entry stays blocked
 expect('teacher', 'teacher∉{ama,carlos}', ep=mut(lambda e: e.update(teacher='mei')))
 expect('wpm', 'wpm>150', qc=dict(short=dict(Q, gates=dict(pace=dict(ok=True, wpm=151))), wide=Q))
 expect('publish', 'publish:title-length:0', ep=mut(lambda e: e['publish'].update(title='')))

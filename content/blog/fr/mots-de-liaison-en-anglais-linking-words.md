@@ -141,6 +141,10 @@ Pour voir comment doser les connecteurs dans un texte de 130 mots, lisez notre e
 
 ---
 
+Un exemple d'emploi de ces connecteurs dans un essai complet figure dans notre [IELTS opinion essay](/fr/blog/ielts-opinion-essay-exprimer-son-avis/).
+
+Les mots de séquence (*first, next, subsequently, finally*) sont mis en pratique dans [IELTS Writing Task 1 processus](/fr/blog/ielts-writing-task-1-processus-diagramme/).
+
 ## Foire aux questions (FAQ)
 
 ### Quelle est la différence exacte entre "Despite" et "Although" ?

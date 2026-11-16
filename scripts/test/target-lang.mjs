@@ -39,15 +39,53 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
 // ---------- 1b) es: cờ es_course RIÊNG, mặc định tắt (docs/specs/spanish-course.md W0) ----------
 {
   const { sb, ls } = env(); load(sb, 'web/js/target.js'); const T = sb.Target;
-  ok(T.LANGS.join() === 'en,pt,es' && !T.enabled('es') && T.avail().join() === 'en', 'es: mặc định tắt, chỉ chọn được en');
+  ok(T.LANGS.join() === 'en,pt,es,fr' && !T.enabled('es') && T.avail().join() === 'en', 'es: mặc định tắt, chỉ chọn được en');
   T.set('es'); ok(T.cur() === 'en', 'cờ es tắt: chọn es vẫn ra en');
   ls.set('lk.pt', '1'); ok(T.cur() === 'en' && !T.enabled('es') && T.avail().join() === 'en,pt', 'bật pt KHÔNG bật es');
   ls.set('lk.es', '1'); ok(T.cur() === 'es' && T.avail().join() === 'en,pt,es', 'lk.es=1 → es');
   ls.delete('lk.es'); ls.delete('lk.pt'); ls.set('lk.cfg', JSON.stringify({ v: { es_course: true } })); ok(T.enabled() && T.enabled('es') && !T.enabled('pt') && T.cur() === 'es', 'cờ máy chủ es_course → es');
   ls.set('lk.cfg', JSON.stringify({ v: { es_course: '0', pt_pilot: '1' } })); ok(T.cur() === 'en' && T.enabled() && !T.enabled('es'), 'es_course=0 → es tắt (pt vẫn bật)');
   ok(/'es_course'/.test(rd('functions/api/config.js')) && /'es_course'/.test(rd('functions/api/admin.js')), 'es_course có trong PUBLIC_KEYS + CONFIG_KEYS');
+  // bật theo bậc: es_course_pct theo nhóm thiết bị lk.esb · es_kill tắt mọi đường · cờ 0 rõ ràng thắng %
+  const cfg = v => ls.set('lk.cfg', JSON.stringify({ v }));
+  [...ls.keys()].forEach(k => ls.delete(k));
+  ls.set('lk.esb', '9'); cfg({ es_course_pct: '10' }); ok(T.enabled('es'), 'pct=10, nhóm 9 → bật');
+  ls.set('lk.esb', '10'); ok(!T.enabled('es'), 'pct=10, nhóm 10 → tắt (ranh giới)');
+  ls.set('lk.esb', '0'); cfg({ es_course_pct: '0' }); ok(!T.enabled('es'), 'pct=0 → tắt cả nhóm 0');
+  cfg({}); ok(!T.enabled('es'), 'không có pct → tắt');
+  ls.set('lk.esb', '99'); cfg({ es_course_pct: '100' }); ok(T.enabled('es'), 'pct=100 → bật mọi nhóm');
+  cfg({ es_course_pct: '100', es_kill: '1' }); ok(!T.enabled('es') && T.cur() === 'en', 'es_kill=1 thắng pct');
+  ls.set('lk.es', '1'); ok(!T.enabled('es'), 'es_kill=1 thắng cả lk.es=1');
+  ls.delete('lk.es'); cfg({ es_course: true, es_kill: 'true' }); ok(!T.enabled('es'), 'es_kill thắng cờ es_course=true');
+  cfg({ es_course: '0', es_course_pct: '100' }); ok(!T.enabled('es'), 'es_course=0 rõ ràng thắng pct');
+  ls.delete('lk.esb'); cfg({ es_course_pct: '50' }); T.enabled('es'); ok(/^\d{1,2}$/.test(ls.get('lk.esb')), 'nhóm lk.esb được tạo 1 lần (0–99)');
+  ls.set('lk.tb', '1'); ls.set('lk.esb', '50'); cfg({ es_course_pct: '10' }); ok(!T.enabled('es'), 'lk.tb (cổng bot teacher-bubble) không ảnh hưởng nhóm lk.esb');
+  ls.set('lk.esb', ''); cfg({ es_course_pct: '1' }); ok(!T.enabled('es') || /^\d{1,2}$/.test(ls.get('lk.esb')), 'lk.esb rỗng/hỏng → chọn lại nhóm hợp lệ');
+  ls.set('lk.esb', '150'); T.enabled('es'); ok(/^\d{1,2}$/.test(ls.get('lk.esb')), 'lk.esb ngoài 0–99 → chọn lại');
+  ls.set('lk.esb', '5'); for (const bad of ['abc', true, null, '', {}]) { cfg({ es_course_pct: bad }); ok(!T.enabled('es'), 'pct rác ' + JSON.stringify(bad) + ' → tắt'); }
+  cfg({ es_course_pct: 100 }); ok(T.enabled('es'), 'pct số 100 → bật');
+  ok(/'es_course_pct'/.test(rd('functions/api/config.js')) && /'es_course_pct'/.test(rd('functions/api/admin.js')) && /'es_kill'/.test(rd('functions/api/config.js')) && /'es_kill'/.test(rd('functions/api/admin.js')), 'es_course_pct + es_kill có trong PUBLIC_KEYS + CONFIG_KEYS');
   // một bảng, không nhánh code: không còn so sánh trực tiếp với 'pt'/'es' trong target.js + settings.js
   for (const f of ['web/js/target.js', 'web/js/settings.js']) ok(!/[!=]==?\s*'(pt|es)'|'(pt|es)'\s*[!=]==?|lk\.pt'|pt_pilot\b(?!',)/.test(rd(f).replace(/^\s*(\/\/|\*|\/\*).*$/gm, '').replace(/const TABLE = \{[\s\S]*?\n {2}\};/, '') /* dữ liệu bảng được phép */), f + ': không còn nhánh if (pt) – tra bảng');
+}
+
+// ---------- 1d) W7b chống rò tiếng Anh: tl≠en thì Hôm nay chuyển sang lộ trình của ngôn ngữ đó; mỗi dòng bảng có home ----------
+{
+  const ux = rd('web/js/ux1.js'), { sb } = env(); load(sb, 'web/js/target.js'); const T = sb.Target;
+  ok(/Target\.cur\(\) !== 'en'[^;]*Target\.homeOf\(Target\.cur\(\)\)/.test(ux) && /location\.replace\(tlHome\)/.test(ux), 'ux1.map: tl≠en → vào lộ trình của ngôn ngữ đích, không vẽ lộ trình IELTS');
+  ok(T.LANGS.filter(k => k !== 'en').every(k => k === 'pt' || k === 'fr' /* fr: trang chủ = lộ trình ngày W4 */ || /^#\/practice\//.test(T.table(k).home || '')), 'mọi ngôn ngữ đích có trang chủ riêng (trừ pt thử nghiệm)');
+}
+
+// ---------- 1c) nhãn ngôn ngữ đích (W7a): en = rỗng; es = huy hiệu cờ+tên → Cài đặt; mark chèn đúng 1 lần ----------
+{
+  const { sb, ls } = env(); load(sb, 'web/js/target.js'); const T = sb.Target;
+  ok(T.chip() === '' && T.chip('en') === '', 'chip: en = chuỗi rỗng, không chèn gì (từng byte như cũ)');
+  const h = T.chip('es'); ok(/class="chip tl-chip"/.test(h) && /href="#\/settings"/.test(h) && /translate="no"/.test(h) && /lang="es"/.test(h) && !/<a [^>]*lang=/.test(h) && !/style=/.test(h) && /Español/.test(h) && /aria-label=/.test(h), 'chip es: cờ + tên, bấm → Cài đặt, không dịch, có nhãn đọc màn hình');
+  const st = T.chip('es', true); ok(/^<span class="chip tl-chip"/.test(st) && !/href=/.test(st), 'chip tĩnh (trong phiên học) không là liên kết');
+  sb.t = x => '<' + x; ok(/aria-label="&lt;Ngôn ngữ đang học: Español"/.test(T.chip('es')), 'chip dùng g.t và escape nhãn');
+  ok(T.chip('<img onerror=1>') === '' && !/<img/.test(T.chip('es')), 'chip: tl lạ → rỗng, không chèn HTML thô');
+  ok(/window\.Target \? Target\.chip\('es'\)/.test(rd('web/cpack/es-app/day-ui.js')), 'day-ui: Target chưa nạp không làm vỡ trang');
+  for (const f of ['web/js/study.js', 'web/cpack/es-app/day-ui.js']) ok(/Target\.chip\(/.test(rd(f)), `${f}: gắn nhãn ngôn ngữ đích`);
 }
 
 // ---------- 2) bảng giọng/lang: 'en' tái tạo đúng hành vi cũ ----------
@@ -56,7 +94,7 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
   ok(T.kokoroVoice('en-US') === 'af_heart' && T.kokoroVoice('en-GB') === 'bf_emma' && T.kokoroVoice(undefined) === 'bf_emma' && T.kokoroVoice('en-AU') === 'bf_emma', 'Kokoro en như cũ (US af_heart, còn lại bf_emma)');
   ok(T.wordVoice('en-US') === 'af_heart' && T.wordVoice('en-GB') === 'bf_emma', 'file từ en như cũ');
   ok(T.accent('en-US') === 'en-US' && T.accent('en-GB') === 'en-GB', 'accent en = Cài đặt');
-  ok(T.prefixFor('en-GB') === 'en' && T.prefixFor('fr-FR') === 'en' && T.prefixFor('') === 'en', 'lọc giọng: accent tiếng Anh/lạ → en như cũ');
+  ok(T.prefixFor('en-GB') === 'en' && T.prefixFor('de-DE') === 'en' && T.prefixFor('') === 'en', 'lọc giọng: accent tiếng Anh/lạ → en như cũ');
   ok(T.recLang('en', 'en-US') === 'en-US' && T.recLang('en', undefined) === 'en-GB', 'nhận giọng en như cũ');
   ok(T.speechLang('pt') === 'pt-BR' && T.recLang('pt', 'en-GB') === 'pt-BR' && T.prefixFor('pt-BR') === 'pt' && T.kokoroVoice('pt-BR') === 'pf_dora', 'pt: pt-BR + pf_dora');
   ok(T.wordVoice('pt-BR') === '' && !T.isEn('pt-BR') && T.isEn('en-GB') && T.isEn(''), 'pt chưa có file từ → giọng máy; isEn');
@@ -161,6 +199,33 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
   const V = readJSON('scripts/word-audio/tl-voices.json');
   ok(V.es.voices.join() === 'ef_dora,em_alex' && V.es.espeak === 'es-419' && V.es.asrModel === 'small' && V.es.seseo && /^es_MX-/.test(V.es.piper.name) && V.pt.voices.join() === 'pf_dora,pm_alex', 'tl-voices.json: es + pt');
   const wf = rd('.github/workflows/word-audio-tl.yml'); ok(/word-audio-es/.test(wf) && /timeout-minutes/.test(wf) && /concurrency/.test(wf) && /paths:/.test(wf), 'word-audio-tl.yml: nhãn es + timeout/concurrency/paths');
+}
+
+// ---------- 4c) fr (W0): cờ RIÊNG fr_course/fr_course_pct/fr_kill (mặc định tắt) + bộ từ mẫu fr (giống, số nhiều, h muet/aspiré, tu/vous) ----------
+{
+  const { sb, ls } = env(); load(sb, 'web/js/target.js'); const T = sb.Target, cfg = v => ls.set('lk.cfg', JSON.stringify({ v }));
+  ok(!T.enabled('fr') && T.avail().join() === 'en', 'fr: mặc định tắt'); T.set('fr'); ok(T.cur() === 'en', 'cờ fr tắt: chọn fr vẫn ra en');
+  ls.set('lk.es', '1'); ok(!T.enabled('fr') && T.avail().join() === 'en,es', 'bật es KHÔNG bật fr'); ls.delete('lk.es');
+  ls.set('lk.fr', '1'); ok(T.cur() === 'fr' && T.avail().join() === 'en,fr', 'lk.fr=1 → fr'); ls.delete('lk.fr');
+  cfg({ fr_course: true }); ok(T.enabled('fr') && T.cur() === 'fr', 'cờ máy chủ fr_course → fr');
+  cfg({ fr_course: true, fr_kill: '1' }); ok(!T.enabled('fr') && T.cur() === 'en', 'fr_kill=1 thắng cờ');
+  ls.set('lk.esb', '9'); cfg({ fr_course_pct: '10' }); ok(T.enabled('fr'), 'fr_course_pct=10, nhóm 9 → bật'); ls.set('lk.esb', '10'); ok(!T.enabled('fr'), 'nhóm 10 → tắt'); cfg({ fr_course: '0', fr_course_pct: '100' }); ok(!T.enabled('fr'), 'fr_course=0 thắng pct');
+  for (const k of ['fr_course', 'fr_course_pct', 'fr_kill']) ok(rd('functions/api/config.js').includes(`'${k}'`) && rd('functions/api/admin.js').includes(`'${k}'`), k + ' có trong PUBLIC_KEYS + CONFIG_KEYS');
+  ok(T.speechLang('fr') === 'fr-FR' && T.speechLangs('fr').join() === 'fr-FR,fr-CA,fr-BE' && T.recLang('fr', 'en-GB') === 'fr-FR' && T.kokoroVoice('fr-FR') === 'ff_siwis' && T.teacherVoice('ama', 'fr') === 'ff_siwis' && T.prefixFor('fr-CA') === 'fr', 'fr: fr-FR, dự phòng fr-CA/fr-BE, Kokoro ff_siwis');
+  const deck = readJSON(seedPath('fr')), err = validate(deck, { img: imgKeys() });
+  ok(!err.length, 'seed fr đúng schema + cổng: ' + err.slice(0, 5).join(' | '));
+  ok(deck.words.length === 30 && deck.tl === 'fr' && deck.variant === 'fr-FR', 'seed fr = 30 từ, fr-FR');
+  ok(deck.words.every(w => MEAN_LANGS.every(L => w.gl[L]) && w.gl.fr === w.word && w.ex.fr && w.ex.en), 'fr: đủ nghĩa 15 ngôn ngữ, gl.fr = từ, ví dụ fr+en');
+  ok(deck.words.every(w => w.pos !== 'n' || (w.gender && w.plural)) && deck.words.find(w => w.word === 'ciel').plural === 'cieux' && deck.words.find(w => w.word === 'eau').plural === 'eaux', 'fr: danh từ có giống + số nhiều (bất quy tắc cieux/eaux)');
+  ok(deck.words.find(w => w.word === 'homme').h === 'muet' && deck.words.find(w => w.word === 'haricot').h === 'aspire' && deck.words.every(w => /^h/i.test(w.word) === (w.h !== undefined)), 'fr: cờ h muet/aspiré đúng và chỉ ở từ mở đầu bằng h');
+  ok(TL_RULES.fr.plural && TL_RULES.fr.hFlag && TL_RULES.fr.mix && !TL_RULES.es.hFlag, 'luật riêng fr theo bảng TL_RULES');
+  const bad = structuredClone(deck); delete bad.words[0].plural; delete bad.words.find(w => w.word === 'haricot').h; bad.words[2].ex.fr = "Tu peux aider vos amis, le ciel est bleu."; bad.words[3].ex.fr = 'Cette bagnole est trop petite pour moi chaussure.'; bad.words[4].h = 'muet'; bad.words[5].ex.fr = 'Sans le mot.';
+  const e2 = validate(bad, { img: imgKeys() });
+  ok(e2.length >= 6 && e2.some(e => /h \(muet\|aspire\)/.test(e)) && e2.some(e => /tu \+ vous/.test(e)) && e2.some(e => /lệch chuẩn/.test(e)) && e2.some(e => /plural/.test(e)), 'cổng fr bắt đủ 6 lỗi cài sẵn (plural, h, tu+vous, bagnole, h thừa, thiếu từ): ' + e2.length);
+  const sch = readJSON('content/target/fr/schema.json'); ok(sch.properties.variant.const === 'fr-FR' && sch.properties.words.items.properties.h.enum.join() === 'muet,aspire' && sch.properties.words.items.properties.ex.required.join() === 'fr,en', 'schema fr: variant, h, ex.fr');
+  try { execFileSync(process.execPath, ['scripts/target/build.mjs', 'fr', '--check'], { stdio: 'pipe' }); ok(true); } catch (e) { ok(false, 'web/js/target-fr-seed.json lệch seed.json: ' + String(e.stdout || e.stderr)); }
+  const V = readJSON('scripts/word-audio/tl-voices.json'); ok(V.fr.voices[0] === 'ff_siwis' && V.fr.espeak === 'fr-fr' && V.fr.asrLang === 'fr' && /^fr_FR-/.test(V.fr.piper.name) && V.es.espeak === 'es-419', 'tl-voices.json: fr (ff_siwis, espeak fr-fr)');
+  ok(/word-audio-fr/.test(rd('.github/workflows/word-audio-tl.yml')), 'word-audio-tl.yml: nhãn word-audio-fr');
 }
 
 // ---------- 5) nối dây: shell nạp target.js trước core.js; package test ----------

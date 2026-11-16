@@ -17,6 +17,7 @@ export const ROWS = [
    "REPORT_SHOT_KEY",
    "CRON_KICK_SECRET",
    "PUSH_CRON_SECRET",
+   "MAIL_SECRET",
    "STUDIO_CALLBACK_SECRET"
   ],
   "scope": "Danh sách admin, khóa mã hóa kho khóa/Drive, khóa CLI/CI, bí mật cron",
@@ -142,12 +143,13 @@ export const ROWS = [
    "BREVO_API_KEY",
    "GEMINI_KEY",
    "TURNSTILE_SECRET_KEY",
+   "HUMAN_TICKET_KEY",
    "SHORTS_READ_TOKEN"
   ],
   "scope": "Gửi thư, AI, chống bot. Khóa nhà cung cấp quản ở Admin › Khóa API",
   "manage": "https://lexkite.com/admin.html#keys",
   "expires": "",
-  "note": ""
+  "note": "HUMAN_TICKET_KEY: TÙY CHỌN (≥ 32 ký tự, ký vé người thật 12 h – docs/HUMAN.md); chưa đặt thì dẫn xuất HMAC từ TURNSTILE_SECRET_KEY"
  },
  {
   "id": "gh-cloudflare",

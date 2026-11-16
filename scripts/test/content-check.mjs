@@ -141,7 +141,7 @@ for (const r of C.READINGS || []) { lintEn(r.id + ' text', r.text); (r.questions
   for (const t of C.READTESTS || []) for (const [i, p] of t.passages.entries()) cueCheck(`${t.id}p${i + 1}`, (p.paras || []).map(x => x.t).join(' '), p.groups);
   for (const p of C.TOEIC?.listening || []) cueCheck(p.id, scr(p.script), p.groups);
   for (const t of C.TOEIC?.reading || []) for (const pt of t.parts) for (const ps of pt.passages || []) cueCheck(`${t.id} P${pt.part}`, ps.text, ps.groups);
-  for (const u of [...(C.TOEFL?.reading || []), ...(C.TOEFL?.listening || [])]) cueCheck(u.id, u.text || scr(u.script), u.groups);
+  for (const u of [...(C.TOEFL?.reading || []), ...(C.TOEFL?.listening || [])]) cueCheck(u.id, u.text || (u.paras || []).map(x => x.t || x).join(' ') || scr(u.script), u.groups);
 }
 // TOEIC Part 2 (phương án chỉ là chữ A/B/C): dòng kịch bản của chữ cái đáp án phải trùng câu trích căn cứ
 for (const p of C.TOEIC?.listening || []) { const sc = p.script || []; for (const g of p.groups || []) for (const it of g.items || []) {

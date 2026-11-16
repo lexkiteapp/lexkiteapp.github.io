@@ -7,6 +7,7 @@ on:
     inputs:
       ids: { description: 'only these scene ids (comma), empty = all 517', required: false, default: '' }
 permissions: { contents: read }
+# ci-policy: group-inputs – ids = vài id ngắn (nhóm serial theo input; danh sách dài thì dùng github.run_id như video-motion.yml)
 concurrency: { group: 'bg-v4-${{ inputs.ids }}', cancel-in-progress: false }
 jobs:
   sr:

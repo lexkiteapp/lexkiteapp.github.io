@@ -1,0 +1,241 @@
+{
+ "_note": "Bộ golden roleplay (docs/AI-CHAIN.md §Golden): mỗi lượt dựng đúng như web/js/roleplay.js (RP._p.sysOf + turnPrompt) từ kịch bản thật; replies = câu người học cho các lượt 0..n. unclear = câu cuối khó hiểu → phải hỏi lại (advance false). decoys = câu trả lời mẫu để kiểm GIÁM KHẢO (max/min điểm).",
+ "cases": [
+  {
+   "id": "cafe-probe",
+   "scenario": "cafe",
+   "L": 1,
+   "replies": [
+    "Can I have a latte, please?"
+   ],
+   "unclear": false,
+   "note": "03/11 live: Llama 8B asked \"whole bean or ground coffee for your latte?\""
+  },
+  {
+   "id": "cafe-size",
+   "scenario": "cafe",
+   "L": 0,
+   "replies": [
+    "A coffee, please.",
+    "Large, please."
+   ],
+   "unclear": false,
+   "note": ""
+  },
+  {
+   "id": "cafe-unclear",
+   "scenario": "cafe",
+   "L": 1,
+   "replies": [
+    "Can I have a latte, please?",
+    "ehm the... yes"
+   ],
+   "unclear": true,
+   "note": ""
+  },
+  {
+   "id": "neighbour",
+   "scenario": "neighbour",
+   "L": 1,
+   "replies": [
+    "Hi Emma, nice to meet you! I'm Sam.",
+    "I'm from Mexico. I came here for my job."
+   ],
+   "unclear": false,
+   "note": ""
+  },
+  {
+   "id": "shop",
+   "scenario": "shop",
+   "L": 1,
+   "replies": [
+    "Yes, please. I'm looking for a T-shirt.",
+    "I'm a medium, I think."
+   ],
+   "unclear": false,
+   "note": ""
+  },
+  {
+   "id": "directions",
+   "scenario": "directions",
+   "L": 0,
+   "replies": [
+    "Yes. Where is the train station?"
+   ],
+   "unclear": false,
+   "note": ""
+  },
+  {
+   "id": "hotel",
+   "scenario": "hotel",
+   "L": 2,
+   "replies": [
+    "Good evening. I've got a booking under the name Lee – Sam Lee.",
+    "Of course, here it is."
+   ],
+   "unclear": false,
+   "note": ""
+  },
+  {
+   "id": "doctor",
+   "scenario": "doctor",
+   "L": 1,
+   "replies": [
+    "I don't feel well. I have a bad headache and a sore throat."
+   ],
+   "unclear": false,
+   "note": ""
+  },
+  {
+   "id": "doctor-unclear",
+   "scenario": "doctor",
+   "L": 1,
+   "replies": [
+    "I don't feel well. I have a bad headache.",
+    "blue"
+   ],
+   "unclear": true,
+   "note": ""
+  },
+  {
+   "id": "manager",
+   "scenario": "manager",
+   "L": 1,
+   "replies": [
+    "Pretty busy, but productive. Thanks for asking – how about yours?",
+    "We're about one week behind because the designer was sick."
+   ],
+   "unclear": false,
+   "note": ""
+  },
+  {
+   "id": "dev-interview",
+   "scenario": "dev-interview",
+   "L": 1,
+   "replies": [
+    "Sure. I'm a backend developer with five years of experience, mostly in fintech."
+   ],
+   "unclear": false,
+   "note": ""
+  },
+  {
+   "id": "marketing",
+   "scenario": "marketing-interview",
+   "L": 2,
+   "replies": [
+    "Lovely to meet you. I've spent four years in brand marketing, most recently leading influencer campaigns.",
+    "Last spring we launched a TikTok challenge for a snack brand – it reached two million views in a week."
+   ],
+   "unclear": false,
+   "note": ""
+  },
+  {
+   "id": "salary",
+   "scenario": "salary",
+   "L": 1,
+   "replies": [
+    "That's great news, thank you!",
+    "Thanks. Honestly, I was hoping for around 58,000."
+   ],
+   "unclear": false,
+   "note": ""
+  },
+  {
+   "id": "delay",
+   "scenario": "delay",
+   "L": 1,
+   "replies": [
+    "Hi Karen. I wanted to tell you directly that we're behind schedule."
+   ],
+   "unclear": false,
+   "note": ""
+  },
+  {
+   "id": "client-call",
+   "scenario": "client-call",
+   "L": 1,
+   "replies": [
+    "Hi Tom, this is Lan from BrightRoute. Do you have a minute?",
+    "We make route-planning software for delivery companies."
+   ],
+   "unclear": false,
+   "note": ""
+  },
+  {
+   "id": "complaint",
+   "scenario": "complaint",
+   "L": 1,
+   "replies": [
+    "I'm really sorry about that. Can you tell me what happened?"
+   ],
+   "unclear": false,
+   "note": ""
+  },
+  {
+   "id": "presentation",
+   "scenario": "presentation",
+   "L": 1,
+   "replies": [
+    "Thanks. I'll cover three points: results, one challenge and a recommendation.",
+    "Online sales grew twenty percent year on year."
+   ],
+   "unclear": false,
+   "note": ""
+  },
+  {
+   "id": "small-talk",
+   "scenario": "small-talk",
+   "L": 0,
+   "replies": [
+    "Hi Emma, I'm Minh. I'm new in IT.",
+    "Good, thanks. People are nice."
+   ],
+   "unclear": false,
+   "note": ""
+  },
+  {
+   "id": "leave",
+   "scenario": "leave",
+   "L": 1,
+   "replies": [
+    "Hi. I'd like to ask about taking some leave next month."
+   ],
+   "unclear": false,
+   "note": ""
+  },
+  {
+   "id": "end-cafe",
+   "scenario": "cafe",
+   "L": 1,
+   "replies": [
+    "Can I have a latte, please?",
+    "Medium, please.",
+    "For here, please.",
+    "Card, please.",
+    "It's Sam."
+   ],
+   "unclear": false,
+   "note": "last turn → must close politely"
+  }
+ ],
+ "decoys": [
+  {
+   "case": "cafe-probe",
+   "reply": "Would you like whole bean or ground coffee for your latte?",
+   "max": 2,
+   "why": "03/11 live answer: absurd question"
+  },
+  {
+   "case": "doctor",
+   "reply": "Great! Which size would you like, small or large?",
+   "max": 1,
+   "why": "out of character"
+  },
+  {
+   "case": "hotel",
+   "reply": "Thanks, Mr Lee. So that's a double room for two nights, until Friday – is that right?",
+   "min": 4,
+   "why": "good reply: judge must not under-score"
+  }
+ ]
+}

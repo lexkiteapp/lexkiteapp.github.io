@@ -3,16 +3,16 @@
  "cells": 36,
  "cellsOk": 36,
  "minCell": 16,
- "objectivesUsed": 142,
+ "objectivesUsed": 184,
  "coverage": {
   "grammar": {
-   "items": 80,
-   "tagged": 80,
+   "items": 102,
+   "tagged": 102,
    "pct": 100
   },
   "reading": {
-   "items": 57,
-   "tagged": 57,
+   "items": 73,
+   "tagged": 73,
    "pct": 100
   },
   "ielts-reading": {
@@ -26,28 +26,28 @@
    "pct": 100
   },
   "toeic-reading": {
-   "items": 21,
-   "tagged": 21,
+   "items": 30,
+   "tagged": 30,
    "pct": 100
   },
   "toeic-listening": {
-   "items": 28,
-   "tagged": 28,
+   "items": 40,
+   "tagged": 40,
    "pct": 100
   },
   "toeic-sw": {
-   "items": 60,
-   "tagged": 60,
+   "items": 78,
+   "tagged": 78,
    "pct": 100
   },
   "toefl": {
-   "items": 159,
-   "tagged": 159,
+   "items": 302,
+   "tagged": 302,
    "pct": 100
   },
   "writing-model": {
-   "items": 128,
-   "tagged": 128,
+   "items": 142,
+   "tagged": 142,
    "pct": 100
   },
   "gt-letter": {
@@ -86,24 +86,24 @@
    "pct": 100
   },
   "call": {
-   "items": 35,
-   "tagged": 35,
+   "items": 60,
+   "tagged": 60,
    "pct": 100
   },
   "roleplay": {
-   "items": 31,
-   "tagged": 31,
+   "items": 60,
+   "tagged": 60,
    "pct": 100
   },
   "vocab": {
-   "items": 9759,
-   "tagged": 9759,
+   "items": 10287,
+   "tagged": 10287,
    "pct": 100
   }
  },
  "total": {
-  "items": 10609,
-  "tagged": 10609,
+  "items": 11425,
+  "tagged": 11425,
   "pct": 100
  },
  "errors": 0

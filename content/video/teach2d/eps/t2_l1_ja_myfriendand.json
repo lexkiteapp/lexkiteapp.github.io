@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_myfriendand",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Who comes first?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I and my friend went to the park.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My friend and I went to the park.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say my friend and I.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "My sister and I! My sister and I went to the park.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I and my friend went to the park.",
+  "right": "My friend and I went to the park.",
+  "strike": "I and my friend",
+  "why": "Say my friend and I.",
+  "memory": "My friend and I went to the park.",
+  "quiz": {
+   "stem": "___ went to the park.",
+   "options": [
+    "I and my sister",
+    "My sister and I"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "「I and my friend」と言ってない？",
+   "tip": "自分は後ろに置きます。My friend and I … が自然です。",
+   "caption": "“I and my friend went to the park.”と言っていませんか？😅 日本語の「私と友達は」の順にすると、英語では不自然になります。“My friend and I went to the park.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“My sister and I”。“My friend and I went to the park.” を声に出して言ってみよう。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “I and my friend”?",
+   "tip": "Put yourself last: my friend and I.",
+   "caption": "Do you say this? “I and my friend went to the park.” 😅 The Japanese order 私と友達 sounds odd in English, so put I last. The natural way is “My friend and I went to the park.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "「I and my friend」と言ってない？"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 56,
+  "seconds": 33.0,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "「I and my friend」と言ってない？",
+  "keyword": "My friend and I went to the park.",
+  "value": "自分は後ろに置きます。My friend and I … が自然です。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 50,
+  "platforms": {
+   "youtube": {
+    "title": "「I and my friend」と言ってない？",
+    "description": "自分は後ろに置きます。My friend and I … が自然です。\n\n“I and my friend went to the park.”と言っていませんか？😅 日本語の「私と友達は」の順にすると、英語では不自然になります。“My friend and I went to the park.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "My friend and I went to the park.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“I and my friend went to the park.”と言っていませんか？😅 日本語の「私と友達は」の順にすると、英語では不自然になります。“My friend and I went to the park.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "「I and my friend」と言ってない？\n\n自分は後ろに置きます。My friend and I … が自然です。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「I and my friend」と言ってない？ 自分は後ろに置きます。My friend and I … が自然です。 #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“My sister and I”。“My friend and I went to the park.” を声に出して言ってみよう。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

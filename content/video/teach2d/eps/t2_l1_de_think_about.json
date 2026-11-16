@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_think_about",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "I think about you!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I often think on my family.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I often think about my family.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Think goes with about.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "About! I often think about my family.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I often think on my family.",
+  "right": "I often think about my family.",
+  "strike": "on",
+  "why": "Think goes with about.",
+  "memory": "Think about.",
+  "quiz": {
+   "stem": "I often think ___ my family.",
+   "options": [
+    "on",
+    "about"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "„Denken an“ ≠ „think on“",
+   "tip": "Im Deutschen sagen wir „denken an“, darum sagen viele „on“. Im Englischen heißt es „think about“.",
+   "caption": "Sagen Sie „think on“? 💭 Falsch: “I often think on my family.” Richtig: “I often think about my family.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “about”. Richtig heißt es: “I often think about my family.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Think of” ≠ “think on”",
+   "tip": "German says “denken an”, so many say “think on”. In English you say “think about”.",
+   "caption": "German “an” is not “on” here! Wrong: “I often think on my family.” Right: “I often think about my family.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "„Denken an“ ≠ „think on“"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "„Denken an“ ≠ „think on“",
+  "keyword": "I often think about my family.",
+  "value": "Im Deutschen sagen wir „denken an“, darum sagen viele „on“. Im Englischen heißt es „think about“.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "„Denken an“ ≠ „think on“",
+    "description": "Im Deutschen sagen wir „denken an“, darum sagen viele „on“. Im Englischen heißt es „think about“.\n\nSagen Sie „think on“? 💭 Falsch: “I often think on my family.” Richtig: “I often think about my family.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "I often think about my family.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Sagen Sie „think on“? 💭 Falsch: “I often think on my family.” Richtig: “I often think about my family.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "„Denken an“ ≠ „think on“\n\nIm Deutschen sagen wir „denken an“, darum sagen viele „on“. Im Englischen heißt es „think about“.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "„Denken an“ ≠ „think on“ Im Deutschen sagen wir „denken an“, darum sagen viele „on“. Im Englischen hei… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “about”. Richtig heißt es: “I often think about my family.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

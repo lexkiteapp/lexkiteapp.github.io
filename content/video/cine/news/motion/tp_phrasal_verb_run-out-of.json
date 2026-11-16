@@ -1,0 +1,287 @@
+{
+ "id": "mo_tp_phrasal_verb_run-out-of",
+ "template": "phrasal-verb",
+ "title": "Motion phrasal-verb – phrasal-verb: run-out-of (tp_phrasal_verb_run-out-of)",
+ "teacher": "ama",
+ "clips": [
+  "ga11_talk",
+  "ga11_explain",
+  "ga11_happy",
+  "ga11_thinking",
+  "ga11_surprise_3"
+ ],
+ "listen": [
+  "ga11_listen_2"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy",
+ "active": "mint",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "phrasal-verb",
+  "link": "https://lexkite.com/app/",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Phrasal Verb",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "Sorry, we ran out.",
+   "gap": 0.7
+  },
+  {
+   "id": "s0",
+   "text": "Ran out? Where did it go?",
+   "gap": 0.7
+  },
+  {
+   "id": "s1",
+   "text": "Run out of means there's none left. We have no oat milk today.",
+   "gap": 0.7
+  },
+  {
+   "id": "s2",
+   "text": "Oh no! We've run out of coffee at home too.",
+   "gap": 0.7
+  },
+  {
+   "id": "t",
+   "text": "Tip: say run out of before the thing: we ran out of milk.",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "Sorry, we",
+      "white"
+     ]
+    ],
+    [
+     [
+      "ran out.",
+      "yellow"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Phrasal verb",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "Sorry, we"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "ran out."
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "sum",
+    "at": [
+     "t",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Tip",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "say run out of before the thing: we ran out of milk."
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "rules",
+    "at": [
+     "s0",
+     0
+    ],
+    "rows": [
+     {
+      "t": "tile",
+      "tag": "LITERAL",
+      "tone": "coral",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "run out of",
+        "coral"
+       ]
+      ],
+      "ex_at": [
+       "s0",
+       0
+      ],
+      "at": [
+       "s0",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "REAL",
+      "tone": "teal",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "Run out of means there's none left. We have",
+        "teal"
+       ]
+      ],
+      "ex_at": [
+       "s1",
+       0
+      ],
+      "at": [
+       "s1",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "EXAMPLE",
+      "tone": "gold",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "Oh no! We've run out of coffee at home too.",
+        "gold"
+       ]
+      ],
+      "ex_at": [
+       "s2",
+       0
+      ],
+      "at": [
+       "s2",
+       0
+      ]
+     }
+    ]
+   }
+  ],
+  "hook_text": "Sorry, we ran out.",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ },
+ "uses": {
+  "template": "phrasal-verb",
+  "row": "tp_phrasal_verb_run-out-of",
+  "teacher": "ama",
+  "accent": "navy",
+  "active": "mint",
+  "tones": 0
+ }
+}

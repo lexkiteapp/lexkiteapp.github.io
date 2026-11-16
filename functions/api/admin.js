@@ -1,17 +1,20 @@
 /* API trang quản trị (/admin.html). Chỉ email trong biến bí mật ADMIN_EMAILS (Cloudflare Pages) được dùng.
  * POST /api/admin  (Authorization: Bearer <Firebase ID token>)  { op, ... }
- * op: usage · services · serviceSet · serviceDelete · overview · users · usersStats · usersBulk · usersExport · user · userDelete · inbox · inboxMark · analytics · live · growth · errors · errorsClear · config · configSet · alerts
+ * op: usage · services · serviceSet · serviceDelete · overview · users · usersStats · usersBulk · usersExport · user · userDelete · inbox · inboxMark · analytics · live · growth · channels · retention · errors · errorsClear · config · configSet · alerts
  * (alerts gồm cả Backlink, PR & Thương hiệu – bảng bw_* do functions/api/backlinks.js ghi) */
 import { claims, limit, userDocs } from './sync.js';
 import { geminiKeys, geminiCall, isCooling, resetGeminiCache, gemFetch } from './ai.js';
 import { setup as hitSetup, dayOf as vday, TZ, hitMode, aeOnline } from './hit.js';
 import { growthData, growthRoll } from './growth.js';
+import { retentionData } from './_retention.js';
+import { channelData } from './_funnel.js';
 import { tierShare, landStats } from './_cpm.js';
 import { loadDays, merge, top, distinctBy, sumOf, freqOf, perDay, unkey, vidsHash } from './_rollup.js';
 import { purgeNotices } from './notices.js';
 import { purgeConfig, ADS_PUBLIC } from './config.js';
 import { stats as adsStatsOf, guardOf, revPack as adsRevPack } from './_ads.js';
 import { SEL as ADS_REV_SEL } from './ads-report.js';
+import { readJSON, bodyFail } from './_body.js';
 import { setupQuota, resetState as resetQuotaState } from './_quota.js';
 import { deleteUserData } from './account.js';
 import { d1Usage, isShed, secsToReset } from './_d1guard.js';
@@ -30,7 +33,7 @@ export const ghApi = async (env, u, f = fetch) => {
 };
 // Quảng cáo (docs/ADS.md): cờ công khai + khóa chỉ quản trị (eCPM ước tính USD/1000 lượt, ngưỡng cổng giữ chân %, cỡ mẫu tối thiểu, checklist sẵn sàng)
 const ADS_KEYS = [...ADS_PUBLIC, 'ads_ecpm_web', 'ads_ecpm_android', 'ads_ecpm_ios', 'ads_guard_pct', 'ads_guard_min', 'ads_ready']; // ads_ready = JSON trạng thái nhập tay của thẻ "Sẵn sàng bật quảng cáo" (duyệt AdSense/AdMob, IRS, CMP…) – không phải cờ, không tới /api/config
-const CONFIG_KEYS = ['banner', 'banner_url', 'banner_level', 'ai_user', 'ai_anon', 'ai_global', 'alert_errors', 'note', 'hit_rate', 'vocab_img', 'vocab_img_pct', 'ret', 'ret_pct', 'ux1', 'ux1_pct', 'offline_pack', 'pt_pilot', 'es_course', ...ADS_KEYS];
+const CONFIG_KEYS = ['banner', 'banner_url', 'banner_level', 'ai_user', 'ai_anon', 'ai_global', 'alert_errors', 'note', 'hit_rate', 'vocab_img', 'vocab_img_pct', 'ret', 'ret_pct', 'ux1', 'ux1_pct', 'offline_pack', 'pt_pilot', 'es_course', 'es_course_pct', 'es_kill', 'fr_course', 'fr_course_pct', 'fr_kill', 'importdeck', ...ADS_KEYS];
 const DAY = 86400e3;
 // Ngôn ngữ giao diện quản trị: máy khách gửi ui: 'vi' | 'en' (thiếu = 'vi', tương thích cũ) – chỉ áp cho vài câu hiển thị
 const tx = (b, vi, en) => (b && b.ui === 'en' ? en : vi);
@@ -644,6 +647,16 @@ export const OPS = {
     const { vids } = await humanWhere(db, env);
     return cached(`growth-r1?d=${P}&x=${vidsHash(vids)}`, 600, () => growthRoll(db, P, new Set(vids)));
   },
+  // Giữ chân D1/D7/D30 theo nền tảng & quốc gia (functions/api/_retention.js) – đệm 10 phút
+  async retention(db, b, who, env) {
+    const P = [30, 90].includes(+b.days) ? +b.days : 30, { vids } = await humanWhere(db, env);
+    return cached(`retention-v1?d=${P}&x=${vidsHash(vids)}`, 600, () => retentionData(db, P, vids));
+  },
+  // Phễu theo kênh/mã bài UTM (functions/api/_funnel.js, docs/specs/funnel.md) – đệm 10 phút theo kỳ
+  async channels(db, b) {
+    const P = [7, 30, 90].includes(+b.days) ? +b.days : 30;
+    return cached('channels-v1?d=' + P, 600, () => channelData(db, P));
+  },
   async errors(db) { return { rows: await all(db, 'SELECT * FROM errors ORDER BY last DESC LIMIT 200') }; },
   async errorsClear(db, b) { if (b.h) await db.prepare('DELETE FROM errors WHERE h = ?').bind(String(b.h)).run(); else await db.prepare('DELETE FROM errors').run(); return { ok: true }; },
   async config(db) { const rows = (await all(db, `SELECT k, v, at, by FROM config WHERE k IN (${CONFIG_KEYS.map(() => '?').join(',')})`, ...CONFIG_KEYS)).filter(r => CONFIG_KEYS.includes(r.k)); return { keys: CONFIG_KEYS, values: Object.fromEntries(rows.map(r => [r.k, r])) }; },
@@ -908,7 +921,7 @@ export { audit as adminAudit, cors as adminCors };
 export async function onRequestPost({ request, env }) {
   const g = await adminGate(request, env); if (!g.who) return json(request, g.status, { error: g.error });
   const who = g.who;
-  let b; try { b = await request.json(); } catch (e) { return json(request, 400, { error: 'json' }); }
+  let b; try { b = await readJSON(request, 1_000_000); } catch (e) { const f = bodyFail(e); return json(request, f.status, { error: f.error }); }
   if (!b || typeof b !== 'object') return json(request, 400, { error: 'json' });
   const fn = Object.hasOwn(OPS, b.op) ? OPS[b.op] : null; if (!fn) return json(request, 400, { error: 'op' }); // hasOwn: chặn op 'constructor'/'__proto__' (Object(env) → lộ bí mật)
   if ((DANGER.has(b.op) || (b.op === 'usersBulk' && BULK_DANGER.has(b.action))) && Date.now() / 1000 - (+who.auth_time || 0) > 900) return json(request, 401, { error: 'reauth', message: tx(b, 'Thao tác quan trọng: hãy đăng xuất rồi đăng nhập lại (bảo mật) rồi thử lại.', 'Sensitive action: sign out and sign back in (for security), then try again.') });

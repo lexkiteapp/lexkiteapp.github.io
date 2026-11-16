@@ -44,6 +44,7 @@ async function r2(cfg, method, key, { body, query = {}, headers = {} } = {}) {
     catch (e) { if (i >= 3) throw e; await new Promise(r => setTimeout(r, 800 * 2 ** i)); }
   }
 }
+export async function r2Get(cfg, key) { const r = await r2(cfg, 'GET', key); if (r.status === 404) return null; if (!r.ok) throw new Error(`R2 GET ${key}: ${r.status}`); return Buffer.from(await r.arrayBuffer()); }
 export const r2Head = async (cfg, key) => (await r2(cfg, 'HEAD', key)).status === 200;
 export async function r2Put(cfg, key, body, type) { const r = await r2(cfg, 'PUT', key, { body, headers: { 'content-type': type, 'cache-control': IMMUTABLE } }); if (!r.ok) throw new Error(`R2 PUT ${key}: ${r.status}`); }
 export async function r2Delete(cfg, key) { const r = await r2(cfg, 'DELETE', key); if (!r.ok && r.status !== 404) throw new Error(`R2 DELETE ${key}: ${r.status}`); }

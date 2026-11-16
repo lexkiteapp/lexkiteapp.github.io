@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_demand",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Demand is too strong!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Can I demand you something?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Can I ask you something?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Demand is strong. Ask is normal.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Ask! Please ask him for help.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Can I demand you something?",
+  "right": "Can I ask you something?",
+  "strike": "demand",
+  "why": "Demand is strong. Ask is normal.",
+  "memory": "Just ask.",
+  "quiz": {
+   "stem": "Please ___ him for help.",
+   "options": [
+    "demand",
+    "ask"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "« Demander » ≠ “demand”",
+   "tip": "« Demander » se dit “ask”. “Demand” veut dire exiger : c’est très fort.",
+   "caption": "Vous dites “Can I demand you something?” ? Faux ami ! Dites plutôt “Can I ask you something?” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “ask” — “Demand” veut dire exiger : c’est trop fort. Testez d’autres pièges avec un quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Demand” is a false friend!",
+   "tip": "“Demand” means to require, which sounds very strong. To ask, say “ask”.",
+   "caption": "Do you say this? “Can I demand you something?” False friend! Say “Can I ask you something?” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "« Demander » ≠ “demand”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "« Demander » ≠ “demand”",
+  "keyword": "Can I ask you something?",
+  "value": "« Demander » se dit “ask”. “Demand” veut dire exiger : c’est très fort.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "« Demander » ≠ “demand”",
+    "description": "« Demander » se dit “ask”. “Demand” veut dire exiger : c’est très fort.\n\nVous dites “Can I demand you something?” ? Faux ami ! Dites plutôt “Can I ask you something?” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "Can I ask you something?",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Vous dites “Can I demand you something?” ? Faux ami ! Dites plutôt “Can I ask you something?” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "« Demander » ≠ “demand”\n\n« Demander » se dit “ask”. “Demand” veut dire exiger : c’est très fort.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "« Demander » ≠ “demand” « Demander » se dit “ask”. “Demand” veut dire exiger : c’est très fort. #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “ask” — “Demand” veut dire exiger : c’est trop fort. Testez d’autres pièges avec un quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}

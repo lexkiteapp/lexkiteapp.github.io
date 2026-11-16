@@ -465,7 +465,7 @@ public struct LessonSession: Sendable {
         let it = q.removeFirst()
         if it.free == true { solved += 1; return Answered(ok: true, combo: combo, requeued: nil, free: true) }
         n += 1
-        let k = LessonEngine.norm(it.word)
+        let k = it.card != nil ? LessonEngine.norm(it.word) : "#" + LessonEngine.norm(it.word) // câu không thuộc từ nào (#match/#story): khóa '#…' như web/js/lesson/engine.js
         log.append(Log(id: it.id, type: it.type, word: it.word, ok: ok, retry: it.retry, skip: nil))
         miss = ok ? 0 : miss + 1
         if !ok && ease && miss >= 2 && q.count > 1 && LessonEngine.isHard(q[0]) {

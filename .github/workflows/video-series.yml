@@ -12,6 +12,7 @@ on:
       count: { description: 'how many when ids is empty (max 12)', default: '3' }
       dir: { description: 'spec root under content/video/cine/news/', default: 'series' }
 permissions: { contents: read }
+# ci-policy: group-inputs – series + ids = vài id ngắn (nhóm serial theo input; danh sách dài thì dùng github.run_id như video-motion.yml)
 concurrency: { group: 'video-series-${{ github.event.inputs.series }}-${{ github.event.inputs.ids }}', cancel-in-progress: false }
 jobs:
   setup:
@@ -36,7 +37,7 @@ jobs:
           PY
   render:
     needs: setup
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 60
     strategy:
       max-parallel: 6   # ngân sách runner nền (docs/METHODS.md §CI)

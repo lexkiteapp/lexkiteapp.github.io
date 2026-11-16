@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_feel_bad",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say I feel sick, not bad!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am very bad today.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I feel very sick today.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "When you are sick, say I feel sick.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Feel sick! I feel very sick today.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am very bad today.",
+  "right": "I feel very sick today.",
+  "strike": "am very bad",
+  "why": "When you are sick, say I feel sick.",
+  "memory": "I feel sick.",
+  "quiz": {
+   "stem": "I have a fever. I ___ today.",
+   "options": [
+    "feel sick",
+    "am bad"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Nicht „I am bad“ sagen!",
+   "tip": "„I am bad“ kann nach „Ich bin ein schlechter Mensch“ klingen. Wenn Sie krank sind, sagen Sie „I feel sick.“",
+   "caption": "Geht es Ihnen schlecht? 🤒 Falsch: „I am very bad today.“ Richtig: „I feel very sick today.“ Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: „feel sick“. Richtig heißt es: „I feel very sick today.“ Üben Sie mehr mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do not say “I am bad”!",
+   "tip": "“I am bad” can sound like you are a bad person. When you are sick, say “I feel sick.”",
+   "caption": "Do you feel unwell? Wrong: “I am very bad today.” Right: “I feel very sick today.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Nicht „I am bad“ sagen!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 51,
+  "seconds": 30.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Nicht „I am bad“ sagen!",
+  "keyword": "I feel very sick today.",
+  "value": "„I am bad“ kann nach „Ich bin ein schlechter Mensch“ klingen. Wenn Sie krank sind, sagen Sie „I feel sick.“",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 45,
+  "platforms": {
+   "youtube": {
+    "title": "Nicht „I am bad“ sagen!",
+    "description": "„I am bad“ kann nach „Ich bin ein schlechter Mensch“ klingen. Wenn Sie krank sind, sagen Sie „I feel sick.“\n\nGeht es Ihnen schlecht? 🤒 Falsch: „I am very bad today.“ Richtig: „I feel very sick today.“ Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "I feel very sick today.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Geht es Ihnen schlecht? 🤒 Falsch: „I am very bad today.“ Richtig: „I feel very sick today.“ Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Nicht „I am bad“ sagen!\n\n„I am bad“ kann nach „Ich bin ein schlechter Mensch“ klingen. Wenn Sie krank sind, sagen Sie „I feel sick.“\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Nicht „I am bad“ sagen! „I am bad“ kann nach „Ich bin ein schlechter Mensch“ klingen. Wenn Sie krank s… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: „feel sick“. Richtig heißt es: „I feel very sick today.“ Üben Sie mehr mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

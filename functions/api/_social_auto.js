@@ -16,6 +16,7 @@ import { field } from './_clip_logic.js';
 import { gcClient, gcConfigured } from './_grabcast.js';
 import { manifest, signed } from './admin-shorts.js';
 import { once } from './_schema.js';
+import { clipHeld } from './_drive_state.js';
 import { encReady } from './_keys.js';
 import { metaClient, tokenHealth, fbReel, fbStatus, igContainer, igStatus, igQuota, igPublish, fbComment, fbFindComment } from './_meta.js';
 import { firstComment, fcCaption, fcLeft, fcCount, cleanFc, clickStats, FC_DEFAULT } from './_first_comment.js';
@@ -27,10 +28,10 @@ export const AUTO_PLATS = ['facebook_page', 'instagram', 'tiktok', 'youtube', 't
 /** on = kill switch (TẮT → không gọi GrabCast gì cả) · auto_approve mặc định TẮT · TikTok BẬT (Direct Post duyệt 03/11/2026) · YouTube qua GrabCast tự bật khi workspace có kênh YouTube ok (yt_gc_auto; GrabCast qua audit YouTube 10/11/2026), plats.youtube = đường API trực tiếp. plan_daily BẬT: lịch tự xếp mỗi ngày (chỉ D1, không đăng gì khi chưa duyệt). */
 export const AUTO_DEFAULT = { on: true, auto_approve: false, auto_queue: false, manual_first: 1, plats: { facebook_page: true, instagram: true, tiktok: true, youtube: false, threads: false }, max_per_run: 3, lookahead_h: 30, lead_min: 20, sync_h: 3, daily_calls: 60, plan_daily: true, provider: 'auto', meta_daily: 80, meta_map: {}, yt_gc_auto: true, fc: FC_DEFAULT };
 export const PROVIDERS = ['auto', 'grabcast', 'meta'];
-/** Chủ 10/11/2026: "e tự duyệt tự đăng luôn … lên lịch sẵn … vài tháng". Áp MỘT lần lên cấu hình đang lưu (live có thể còn manual_first 1, autopub tắt):
- *  bỏ duyệt tay bài đầu, tự vào hàng, tự duyệt, autopub YouTube bật. Sau đó cấu hình mang policy → anh đổi gì ở Quản trị thì giữ nguyên. Công tắc khẩn `on` không đụng. */
-export const POLICY = 'owner-1011';
-export const ownerPolicy = a => { a = a && typeof a === 'object' ? a : {}; return a.policy === POLICY ? a : { ...a, policy: POLICY, auto_approve: true, auto_queue: true, manual_first: 0, autopub: { ...(a.autopub && typeof a.autopub === 'object' ? a.autopub : {}), youtube: true } }; };
+/** Chủ 10/11 + 16/11/2026: "tự duyệt tự đăng luôn … lên lịch sẵn" – fanpage 4–5 ngày không có video vì autopub chỉ bật YouTube: FB/IG/TikTok tạo bài nháp ở GrabCast rồi chờ duyệt mãi (log 16/11: tạo 3 · lên lịch 0 · chờ duyệt 3).
+ *  Áp MỘT lần lên cấu hình đang lưu (policy khác POLICY): bỏ duyệt tay bài đầu, tự vào hàng, tự duyệt, autopub BẬT cho FB + IG + TikTok + YouTube (cổng QC/policy ở autoQueue/approve giữ nguyên). Sau đó cấu hình mang policy → anh đổi gì ở Quản trị thì giữ nguyên. Công tắc khẩn `on` không đụng. */
+export const POLICY = 'owner-1116';
+export const ownerPolicy = a => { a = a && typeof a === 'object' ? a : {}; return a.policy === POLICY ? a : { ...a, policy: POLICY, auto_approve: true, auto_queue: true, manual_first: 0, autopub: { ...(a.autopub && typeof a.autopub === 'object' ? a.autopub : {}), facebook_page: true, instagram: true, tiktok: true, youtube: true } }; };
 const loadAuto = async db => cleanAuto(ownerPolicy(await getMeta(db, 'auto', AUTO_DEFAULT)));
 const clamp = (v, lo, hi, d) => { const n = Math.round(+v); return Number.isFinite(n) ? Math.max(lo, Math.min(hi, n)) : d; };
 export function cleanAuto(a) {
@@ -105,7 +106,7 @@ async function clipsFor(env, ids) {
   const rv = new Map((await all(env.DB, `SELECT clip, state, deleted FROM clip_review WHERE clip IN (${qs})`, ...ids).catch(() => [])).map(r => [r.clip, r]));
   const out = new Map();
   for (const [id, it] of by) {
-    const r = rv.get(id) || {}; if (!q.has(id) || r.deleted || ['rejected', 'paused'].includes(r.state) || it.rejected) continue;
+    if (!q.has(id) || clipHeld({ ...it, paused: false }, rv.get(id))) continue; // đã nằm trong hàng đợi/bảng: clip bị owner 'paused' ở manifest (chỉ chặn nhận MỚI ở autoQueue) vẫn được đăng; chặn xoá/loại/master đã rời kho
     out.set(id, { id, title: it.title || it.lesson || id, description: it.description || '', hashtags: [], template: it.template || '', hook: field(it, 'hook'), cefr: field(it, 'diff') || it.cefr || '', duration: +it.duration || 0, video: it.video, cover: it.cover, _it: it });
   }
   return out;
@@ -232,8 +233,8 @@ export async function autoQueue(env, db, cfg, now, max = 30) {
   let n = 0;
   for (const it of cand) {
     if (n >= max) break;
-    const rv = review.get(it.id); if (seen.has(it.id) || (rv && (rv.deleted || ['rejected', 'paused'].includes(rv.state)))) continue;
-    const r = await run(db, "INSERT INTO yt_queue (clip, lesson, status, privacy, approved_by, approved_at, attempts, updated, title) VALUES (?, ?, 'social', 'unlisted', ?, ?, 0, ?, ?) ON CONFLICT(clip) DO NOTHING", it.id, it.lesson || '', 'autopilot-qc', now, now, String(it.title || '').slice(0, 100));
+    if (seen.has(it.id) || clipHeld(it, review.get(it.id))) continue;
+    const r = await run(db, "INSERT INTO yt_queue (clip, lesson, status, privacy, approved_by, approved_at, attempts, updated, title) VALUES (?, ?, 'social', 'private', ?, ?, 0, ?, ?) ON CONFLICT(clip) DO NOTHING", it.id, it.lesson || '', 'autopilot-qc', now, now, String(it.title || '').slice(0, 100));
     n += (r && r.meta && r.meta.changes) || 0;
   }
   return n;

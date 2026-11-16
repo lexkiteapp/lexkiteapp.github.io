@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_what_means",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "What does it mean?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: What means this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: What does this word mean?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Ask with does, then mean.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Mean! What does this word mean?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "What means this word?",
+  "right": "What does this word mean?",
+  "strike": "means",
+  "why": "Ask with does, then mean.",
+  "memory": "What does it mean?",
+  "quiz": {
+   "stem": "What does this word ___?",
+   "options": [
+    "means",
+    "mean"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "¿“What means”? ¡Error común!",
+   "tip": "En español “¿qué significa?” lleva solo el verbo, pero en inglés hace falta “does”: “What does it mean?”",
+   "caption": "Muchos dicen “What means this word?” 🙈 En español “¿qué significa?” lleva solo el verbo, pero en inglés hace falta “does”: “What does this word mean?” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “mean”. En preguntas como esta se necesita “does” y el verbo sin -s: “What does it mean?” Escribe una frase tuya con “mean”. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#gramatica",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“What means”? Common mistake!",
+   "tip": "In Spanish “¿qué significa?” has only the verb, but English needs “does”: “What does it mean?”",
+   "caption": "Many learners say “What means this word?” In Spanish “¿qué significa?” has only the verb, but English needs “does”: “What does this word mean?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿“What means”? ¡Error común!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "¿“What means”? ¡Error común!",
+  "keyword": "What does this word mean?",
+  "value": "En español “¿qué significa?” lleva solo el verbo, pero en inglés hace falta “does”: “What does it mean?”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#gramatica",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "¿“What means”? ¡Error común!",
+    "description": "En español “¿qué significa?” lleva solo el verbo, pero en inglés hace falta “does”: “What does it mean?”\n\nMuchos dicen “What means this word?” 🙈 En español “¿qué significa?” lleva solo el verbo, pero en inglés hace falta “does”: “What does this word mean?” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #gramatica #lexkite",
+    "tags": [
+     "What does this word mean?",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "Muchos dicen “What means this word?” 🙈 En español “¿qué significa?” lleva solo el verbo, pero en inglés hace falta “does”: “What does this word mean?” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "¿“What means”? ¡Error común!\n\nEn español “¿qué significa?” lleva solo el verbo, pero en inglés hace falta “does”: “What does it mean?”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#gramatica",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿“What means”? ¡Error común! En español “¿qué significa?” lleva solo el verbo, pero en inglés hace falta “doe… #aprenderingles #inglesfacil #gramatica"
+   }
+  },
+  "first_comment": "Respuesta: “mean”. En preguntas como esta se necesita “does” y el verbo sin -s: “What does it mean?” Escribe una frase tuya con “mean”. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}

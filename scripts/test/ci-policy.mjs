@@ -32,11 +32,13 @@
 //  13) (08/11 – native-m1 đỏ: ký Automatic + -allowProvisioningUpdates tạo 1 chứng chỉ Development mỗi máy CI → tài khoản Apple đầy hạn mức)
 //     cấm ký iOS Automatic trên CI (`-allowProvisioningUpdates`, `CODE_SIGN_STYLE=Automatic`, ExportOptions signingStyle automatic): ký Manual
 //     bằng chứng chỉ Distribution cố định – scripts/native/ios-sign.sh, docs/CI-SIGNING-IOS.md.
+//  17) (15/11 – bot lexicon-expand đẩy main [skip ci] làm lex.mjs đỏ) workflow commit [skip ci] vào main phải qua máy gác bot-test-gate.mjs (hoặc push-main.sh / commit-regen.sh), hoặc `# ci-policy: bot-test – <lý do>`.
 // Không có danh sách miễn trừ ngầm: ngoại lệ nằm ngay trong file workflow, kèm lý do. Chạy: node scripts/test/ci-policy.mjs
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
+import { classify, needed, prPaths, relevantFiles } from '../ci/pr-scope.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const WF = path.join(ROOT, '.github/workflows');
@@ -108,11 +110,28 @@ export function installSteps(src) {
   }
   return out;
 }
+// (14) 13/11/2026 – ubuntu-latest chuyển sang 26.04, Playwright chưa hỗ trợ chromium ở đó ("Playwright does not support chromium on ubuntu26.04-x64"
+//     → shell/taps/topbar đỏ mọi PR): job dùng Playwright/Chromium phải ghim ubuntu-24.04 (không ubuntu-latest / 26.04) tới khi Playwright hỗ trợ
+//     (theo dõi: https://github.com/microsoft/playwright/issues?q=ubuntu+26.04). Job "dùng Playwright" = nhắc playwright/chromium/puppeteer hoặc chạy script có import playwright.
+const PW_SCRIPTS = (() => { const r = []; const walk = d => { for (const e of fs.readdirSync(d, { withFileTypes: true })) { const f = path.join(d, e.name);
+  if (e.isDirectory()) { if (e.name !== 'node_modules') walk(f); } else if (/\.(mjs|cjs|js)$/.test(e.name) && /from ['"]playwright|require\(['"]playwright|playwright-core/.test(fs.readFileSync(f, 'utf8').slice(0, 4000))) r.push(path.relative(ROOT, f).split(path.sep).join('/')); } };
+  try { walk(path.join(ROOT, 'scripts')); } catch (e) { /* không có thư mục scripts (test tổng hợp) */ } return r; })();
+// + job cài faster-whisper/scripts/cine/requirements.txt: PyAV (av 11) chưa có wheel cho Python của 26.04 → build từ nguồn lỗi "libavformat not found" (voice (t2_usuk_elevator) đỏ 13/11)
+const PW_RE = /playwright|chromium|puppeteer|faster-whisper|scripts\/cine\/requirements/i;
+const ACT = (() => { const m = {}; const d = path.join(ROOT, '.github/actions'); try { for (const n of fs.readdirSync(d)) { const f = path.join(d, n, 'action.yml'); if (fs.existsSync(f)) m[n] = fs.readFileSync(f, 'utf8'); } } catch (e) { /* không có thư mục actions */ } return m; })();
+// job dùng composite action nội bộ (./.github/actions/<tên>, tối đa 3 tầng) mà action đó cài/chạy những thứ trên cũng tính (video9-setup cài faster-whisper)
+const actUses = (text, depth = 0) => depth < 3 && [...text.matchAll(/uses:\s*\.\/\.github\/actions\/([\w-]+)/g)].some(x => ACT[x[1]] && (PW_RE.test(ACT[x[1]]) || actUses(ACT[x[1]], depth + 1)));
+export const usesPlaywright = jobText => PW_RE.test(jobText) || PW_SCRIPTS.some(f => jobText.includes(f)) || actUses(jobText);
+export const badRunner = jobText => { const m = jobText.match(/^    runs-on:\s*(.*)$/m); return !!m && (/ubuntu-latest|26\.04/.test(m[1]) || (/ubuntu/.test(m[1]) && !/vars\.PW_RUNNER/.test(m[1]))); }; // một chỗ đổi chung: repo variable PW_RUNNER (mặc định ubuntu-24.04)
 /** Lỗi chính sách của 1 workflow (thuần, có test) → [chuỗi]. */
 const SIGN_AUTO = /-allowProvisioningUpdates\b|CODE_SIGN_STYLE\s*=\s*"?Automatic|signingStyle<\/key>\s*<string>automatic/i;
 export function violations(file, src) {
   const out = [], t = triggers(src);
+  for (const j of jobs(src)) if (usesPlaywright(j.text) && badRunner(j.text)) out.push(`${file}: luật 14 – job "${j.id}" dùng Playwright/Chromium mà runs-on không phải vars.PW_RUNNER (mặc định ubuntu-24.04; ubuntu-latest = 26.04, Playwright chưa hỗ trợ, 13/11)`);
   for (const j of jobs(src)) if (!/^    uses:/m.test(j.text) && !/^    timeout-minutes:/m.test(j.text)) out.push(`${file}: job "${j.id}" thiếu timeout-minutes`);
+  const cg = (src.match(/^concurrency:.*$/m) || [''])[0]; if (/\binputs\.(templates|lessons|eps|ids|list)\b/.test(cg) && !reason(src, 'group-inputs')) out.push(`${file}: concurrency.group nhúng cả danh sách input (templates/lessons/eps/ids) – danh sách dài làm lượt dispatch lỗi 0 job (video-motion 15/11); dùng github.run_id hoặc ghi "# ci-policy: group-inputs – <lý do>"`);
+  // 15/11 (luật chủ 13/11: video ≤ 3 máy khi còn việc khác): ma trận của workflow video/dựng phim PHẢI có max-parallel – 10 job video-motion từng chiếm 10/40 máy, 260 job PR xếp hàng
+  if (/^(video|cine|teach)-/.test(file)) for (const j of jobs(src)) if (/^\s+strategy:/m.test(j.text) && /\bmatrix:/.test(j.text) && !/max-parallel:/.test(j.text) && !reason(j.text, 'no-max-parallel')) out.push(`${file}: job "${j.id}" có matrix mà thiếu strategy.max-parallel (video chiếm hết máy; hoặc dòng "# ci-policy: no-max-parallel – <lý do>")`);
   const hasConc = /^concurrency:/m.test(src) || jobs(src).some(j => /^    concurrency:/m.test(j.text));
   const auto = AUTO.filter(e => t.events.has(e));
   if (!hasConc && auto.length) out.push(`${file}: chạy tự động (${auto.join(', ')}) mà thiếu concurrency`);
@@ -137,6 +156,11 @@ export function violations(file, src) {
   if ((t.events.has('pull_request') || t.events.has('pull_request_target')) && !reason(src, 'matrix'))
     for (const j of jobs(src)) { const n = matrixLegs(j.text); if (n > MATRIX_MAX) out.push(`${file}: job "${j.id}" chạy trên PR với matrix ${n} nhánh (> ${MATRIX_MAX}) – gộp phần nhỏ nối tiếp trong 1 job (mỗi nhánh = 1 lượt xin runner + setup), hoặc dòng "# ci-policy: matrix – <lý do>"`); }
   if ((t.events.has('pull_request') || t.events.has('pull_request_target')) && !/cancel-in-progress:\s*["']?(true|\$\{\{)/.test(src) && !reason(src, 'queue')) out.push(`${file}: chạy trên PR mà concurrency không có cancel-in-progress (luật 12) – commit mới phải huỷ lượt cũ (hoặc dòng "# ci-policy: queue – <lý do>")`);
+  // luật 14 (12/11 – bão CI: 262 lượt chờ, PR mới đợi ~2 h): workflow chạy trình duyệt (Playwright/Chrome) trên PR PHẢI nằm sau làn nhanh
+  //  (`# ci-policy: heavy-gate`, luật 11) – hoặc có dòng `# ci-policy: fast-lane – <lý do>` (vd. đường dẫn rất hẹp). Không để bộ UI mới lọt qua cổng.
+  if ((t.events.has('pull_request') || t.events.has('pull_request_target')) && /playwright|pw-install|puppeteer|google-chrome/i.test(String(src).replace(/^\s*#.*$/gm, '')) && !/^# ci-policy: heavy-gate\b/m.test(src) && !reason(src, 'fast-lane'))
+    out.push(`${file}: chạy trình duyệt trên PR mà không qua làn nhanh (luật 14) – thêm "# ci-policy: heavy-gate" + job gate (mẫu web-sweep.yml) hoặc dòng "# ci-policy: fast-lane – <lý do>"`);
+  if (/^# ci-policy: heavy-gate\b/m.test(src) && !/READY/.test(src)) out.push(`${file}: job gate thiếu nhãn \`ready\` (luật 14: PR có nhãn ready chạy việc nặng ngay, không chờ npm test)`);
   if (/^# ci-policy: heavy-gate\b/m.test(src)) {   // luật 11
     const js = jobs(src), g = js.find(j => j.id === 'gate');
     if (!g || !/check_name=npm%20test/.test(g.text) || !/outputs:\s*\{\s*go:/.test(g.text)) out.push(`${file}: heavy-gate cần job "gate" đọc check-run npm test và xuất output go`);
@@ -177,6 +201,8 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   ok(violations('x.yml', base.replace('    timeout-minutes: 5\n', '')).some(v => /timeout-minutes/.test(v)), 'job thiếu timeout → lỗi');
   ok(violations('x.yml', base.replace('    timeout-minutes: 5\n', '').replace('    runs-on: ubuntu-latest\n', '    uses: ./.github/workflows/y.yml\n')).length === 0, 'job uses: (workflow tái dùng) không cần timeout');
   ok(violations('x.yml', base.replace('concurrency: { group: x }\n', '')).some(v => /thiếu concurrency/.test(v)), 'push thiếu concurrency → lỗi');
+  ok(violations('x.yml', base.replace('group: x', "group: 'v-${{ github.event.inputs.templates }}'")).some(v => /danh sách input/.test(v)), 'concurrency group nhúng danh sách input → lỗi');
+  ok(!violations('x.yml', '# ci-policy: group-inputs – danh sách ngắn có lý do\n' + base.replace('group: x', "group: 'v-${{ github.event.inputs.templates }}'")).some(v => /danh sách input/.test(v)), 'group-inputs có lý do → qua');
   ok(violations('x.yml', base.replace('concurrency: { group: x }\n', '').replace('steps: []', 'concurrency: { group: y }\n    steps: []')).length === 0, 'concurrency mức job cũng được');
   ok(violations('x.yml', base.replace("    paths: ['a/**']\n", '')).some(v => /không có paths/.test(v)), 'push main không paths → lỗi');
   ok(violations('x.yml', '# ci-policy: all-paths – check bắt buộc của ruleset\n' + base.replace("    paths: ['a/**']\n", '')).length === 0, 'all-paths có lý do → đạt');
@@ -239,11 +265,15 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     ok(!violations('mobile-qa.yml', job('      - timeout-minutes: 12\n        run: npx playwright install chromium\n')).some(x => /luật 10/.test(x)), 'luật 10: mobile-qa.yml được miễn');
   }
   { const hv = "# ci-policy: heavy-gate – x\n" + base.replace("  push:\n    branches: [main]\n    paths: ['a/**']", "  pull_request:\n    paths: ['a/**']").replace('concurrency: { group: x }', 'concurrency: { group: x, cancel-in-progress: true }');
-    const gate = "  gate:\n    runs-on: ubuntu-latest\n    timeout-minutes: 3\n    outputs: { go: '${{ steps.g.outputs.go }}' }\n    steps:\n      - run: gh api 'x?check_name=npm%20test'\n";
+    const gate = "  gate:\n    runs-on: ubuntu-latest\n    timeout-minutes: 3\n    outputs: { go: '${{ steps.g.outputs.go }}' }\n    steps:\n      - run: gh api 'x?check_name=npm%20test' $READY\n";
     const good = hv.replace('jobs:\n', 'jobs:\n' + gate).replace('  a:\n', "  a:\n    needs: gate\n    if: needs.gate.outputs.go == 'true'\n");
     ok(violations('h.yml', good).length === 0, 'luật 11: gate + needs + if → đạt');
     ok(violations('h.yml', hv.replace('jobs:\n', 'jobs:\n' + gate)).some(v => /luật 11/.test(v)), 'luật 11: job không needs gate → lỗi');
     ok(violations('h.yml', hv).some(v => /gate/.test(v)), 'luật 11: thiếu job gate → lỗi');
+    ok(violations('h.yml', good.replace(' $READY', '')).some(v => /luật 14/.test(v)), 'luật 14: gate thiếu nhãn ready → lỗi');
+    const ui = base.replace("  push:\n    branches: [main]\n", '  pull_request:\n').replace('concurrency: { group: x }', 'concurrency: { group: x, cancel-in-progress: true }').replace('    steps: []\n', '    steps:\n      - run: npx playwright test\n');
+    ok(violations('u.yml', ui).some(v => /luật 14/.test(v)), 'luật 14: PR chạy trình duyệt không qua làn nhanh → lỗi');
+    ok(violations('u.yml', '# ci-policy: fast-lane – đường dẫn rất hẹp, không phải bộ UI nặng\n' + ui.replace('ubuntu-latest', "${{ vars.PW_RUNNER || 'ubuntu-24.04' }}")).length === 0, 'luật 14: có lý do fast-lane → đạt');
     ok(violations('h.yml', good.replace('cancel-in-progress: true', 'cancel-in-progress: false')).some(v => /luật 12/.test(v)), 'luật 12: PR không cancel-in-progress → lỗi');
     ok(violations('h.yml', '# ci-policy: queue – việc tuần tự không được huỷ\n' + good.replace('cancel-in-progress: true', 'cancel-in-progress: false')).length === 0, 'luật 12: có lý do queue → đạt'); }
   { const sg = l => violations('s.yml', base.replace('    steps: []\n', `    steps:\n      - run: |\n          ${l}\n`)).filter(v => /luật 13/.test(v)).length;
@@ -252,19 +282,90 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     ok(sg('<key>signingStyle</key><string>automatic</string>') === 1, 'luật 13: ExportOptions automatic → lỗi');
     ok(sg('bash scripts/native/ios-sign.sh App.xcodeproj/project.pbxproj com.lexkite.app:P') === 0, 'luật 13: ký Manual qua ios-sign.sh → đạt');
     ok(sg('# không dùng -allowProvisioningUpdates') === 0, 'luật 13: dòng chú thích không tính'); }
+  { const pw = base.replace('    steps: []\n', '    steps:\n      - run: npx playwright install chromium\n');
+    ok(violations('p.yml', pw).some(v => /luật 14/.test(v)), 'luật 14: job Playwright trên ubuntu-latest → lỗi');
+    ok(violations('p.yml', pw.replace('ubuntu-latest', 'ubuntu-24.04')).some(v => /luật 14/.test(v)), 'luật 14: ghim ubuntu-24.04 trần (không qua vars.PW_RUNNER) → lỗi');
+    ok(!violations('p.yml', pw.replace('ubuntu-latest', "${{ vars.PW_RUNNER || 'ubuntu-24.04' }}")).some(v => /luật 14/.test(v)), 'luật 14: runs-on qua vars.PW_RUNNER → đạt');
+    ok(violations('p.yml', pw.replace('ubuntu-latest', 'ubuntu-26.04')).some(v => /luật 14/.test(v)), 'luật 14: ubuntu-26.04 → lỗi');
+    ok(!violations('p.yml', base).some(v => /luật 14/.test(v)), 'luật 14: job không Playwright dùng ubuntu-latest → đạt');
+    ok(PW_SCRIPTS.length > 10, 'luật 14: quét được script có import playwright (' + PW_SCRIPTS.length + ')'); }
+  // luật 15 (13/11): ngưỡng fps của cổng sân khấu/rig KHÔNG được hạ dưới 50 (4×) / 55 (1×) – runner dao động thì đo bền hơn (warm-up + 15 mẫu + trung vị + 1 lần đo lại), không nới ngưỡng
+  { const ss = fs.readFileSync(path.join(ROOT, 'scripts/test/story-stage.mjs'), 'utf8'), rg = fs.readFileSync(path.join(ROOT, 'scripts/test/teacher-rig-browser.mjs'), 'utf8');
+    ok(+((ss.match(/const FPS_MIN = (\d+)/) || [])[1]) >= 50 && /m\.fps >= FPS_MIN/.test(ss), 'luật 15: story-stage FPS_MIN ≥ 50 và cổng dùng FPS_MIN');
+    const rm = rg.match(/const FPS_MIN = \{ 1: (\d+), 4: (\d+) \}/); ok(rm && +rm[1] >= 55 && +rm[2] >= 50 && /good = m => m\.fps >= min/.test(rg), 'luật 15: teacher-rig FPS_MIN 1× ≥ 55, 4× ≥ 50');
+    ok(/runSet\(15\)/.test(ss) && /runSet\(rate === 4 \? 15 : 5\)/.test(rg) && /fps-samples\.json/.test(ss) && /fps-samples\.json/.test(rg), 'luật 15: đo 15 mẫu + ghi fps-samples.json cho cả hai cổng'); }
   // --- quét repo
   const files = fs.readdirSync(WF).filter(f => /\.ya?ml$/.test(f)), srcs = files.map(f => [f, fs.readFileSync(path.join(WF, f), 'utf8')]);
   for (const [f, s] of srcs) for (const v of violations(f, s)) ok(false, v);
-  const HEAVY = ['teach-video', 'video-motion', 'qa-bot', 'journey-e2e', 'ux-cards', 'scroll-perf', 'stitch-diff', 'font-audit', 'frame-consistency', 'visual-qa', 'mobile-qa', 'web-sweep', 'size-guard'];
+  const HEAVY = ['teach-video', 'video-motion', 'qa-bot', 'journey-e2e', 'ux-cards', 'scroll-perf', 'stitch-diff', 'font-audit', 'frame-consistency', 'visual-qa', 'mobile-qa', 'web-sweep', 'size-guard',
+    'journey-matrix', 'storage-audit', 'theme-qa', 'shell-responsive', 'icon-flash', 'figure-layout', 'stitch-web', 'stitch-quality-qc', 'stitch-refs-qc', 'topbar-lang', 'review-taps', 'review-taps-stability', 'samples-visual', 'admin-guard', 'admin-ads-ui', 'tools-pages', 'dict-pages', 'authority-pages'];
   for (const h of HEAVY) { const src = (srcs.find(([f]) => f === h + '.yml') || [])[1] || ''; ok(/^# ci-policy: heavy-gate\b/m.test(src), `${h}.yml thiếu dòng "# ci-policy: heavy-gate – …" (luật 11)`); }
   // luật 11b: teach-video trên PR chỉ smoke (preqc + ≤ 2 tập; render đầy đủ khi dispatch/ci-filler), video-motion PR chỉ 1 mẫu
   { let n = -1; try { n = JSON.parse(execFileSync('python3', ['scripts/video/teach2d/gen.py', '--pick', '', '0', 'pull_request', '24'], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] })).length; } catch (e) { console.log('• ci-policy: python3/gen.py không chạy được – bỏ qua kiểm shard teach-video'); }
     ok(n < 0 || (n >= 1 && n <= 2), `teach-video trên PR chọn ${n} tập (phải 1–2: smoke, không render 24 shard)`);
+    { const tv = (srcs.find(([f]) => f === 'teach-video.yml') || [])[1] || ''; const c = (tv.match(/^concurrency:.*$/m) || [''])[0];
+      ok(/workflow_dispatch/.test(c) && /run_id/.test(c) && /batch/.test(c), 'teach-video.yml: mỗi dispatch phải có concurrency group riêng (batch/run_id) – group chung làm GitHub hủy âm thầm lượt đang chờ (12/11)');
+      ok(!/cancel-in-progress:[^}]*workflow_dispatch/.test(c) && !/github\.ref != /.test(c), 'teach-video.yml: dispatch không được cancel-in-progress'); }
     const vm = (srcs.find(([f]) => f === 'video-motion.yml') || [])[1] || ''; ok(/github\.event_name == 'pull_request' && 'drill' \|\|/.test(vm), 'video-motion.yml: PR phải chạy 1 mẫu (drill), không 4'); }
   { const np = (srcs.find(([f]) => f === 'npm-test.yml') || [])[1] || ''; ok(/^  heavy:/m.test(np) && /heavy-rerun\.mjs/.test(np) && /needs:\s*test/.test(np), 'npm-test.yml thiếu job heavy (chạy heavy-rerun.mjs sau job test) – luật 11'); }
+  { // luật 15: ci-autopilot không được cập nhật nhánh PR cũ/nhàn rỗi, trần 6 PR/lượt (bão CI 12/11: update-branch mọi PR tụt → ~40 workflow/PR/lần)
+    const ap = fs.readFileSync(path.join(ROOT, 'scripts/ci/autopilot.mjs'), 'utf8');
+    ok(/MAX_UPDATES = 6\b/.test(ap) && /isPriority\(pr, now\)/.test(ap) && /isRecent\(pr, now\)/.test(ap), 'luật 15: autopilot giữ trần 6 PR + chỉ đụng PR ưu tiên (isPriority/isRecent)');
+    // luật 15b: hàng chờ > 30 → ngừng đẩy nhánh; mỗi PR tối đa 1 lần đẩy / 3 giờ (cả gỡ xung đột lẫn gộp main)
+    ok(/QUEUE_MAX = 30\b/.test(ap) && /UPDATE_GAP_H = 3\b/.test(ap) && /budget\(m\.busy, m\.queued\)/.test(ap) && (ap.match(/!updatedRecently\(/g) || []).length >= 2, 'luật 15b: autopilot dừng khi hàng chờ > 30 và mỗi PR ≤ 1 lần đẩy/3 giờ (QUEUE_MAX, UPDATE_GAP_H, updatedRecently)'); }
+  { // luật 16 (15/11 – hàng chờ 200–330: PR chỉ đổi nội dung/chữ dịch vẫn chạy ~19–32 job UI nặng): job nặng bỏ qua theo PHẠM VI PR ở mức JOB
+    //  (scripts/ci/pr-scope.mjs trong job gate; KHÔNG dùng `paths:` mức workflow; skipped = đạt với required-gate). Mặc định coi là giao diện → chỉ bớt khi MỌI file đều là nội dung/chữ dịch/backend.
+    const SCOPED = { 'stitch-diff': 'ui', 'frame-consistency': 'ui', 'journey-matrix': 'ui', 'qa-bot': 'ui', 'scroll-perf': 'ui', 'ux-cards': 'ui', 'teacher-native': 'ui', 'visual-qa': 'ui,text', 'mobile-qa': 'ui,text', 'journey-e2e': 'ui,text' };
+    for (const [w, need] of Object.entries(SCOPED)) {
+      const src = (srcs.find(([f]) => f === w + '.yml') || [])[1] || '', g = jobs(src).find(j => j.id === 'gate');
+      ok(!!g, `luật 16: ${w}.yml thiếu job gate`); if (!g) continue;
+      ok(g.text.includes(`node scripts/ci/pr-scope.mjs --repo "$REPO" --pr "$PR" --workflow .github/workflows/${w}.yml --need ${need}\n`) && g.text.includes(`scripts/ci/pr-scope.mjs .github/workflows/${w}.yml; do gh api`) && !/actions\/checkout@/.test(g.text), `luật 16: ${w}.yml gate phải chạy pr-scope.mjs --workflow … --need ${need}, lấy file qua API (không checkout: no-prod-hosts/luật 14)`);
+      ok(/outputs:\s*\{\s*go:[^\n]*steps\.g\.outputs\.go == ''true''[^\n]*steps\.s\.outputs\.ok != ''false''/.test(g.text), `luật 16: ${w}.yml output go phải gộp steps.s.outputs.ok != 'false' (lỗi API → mở cổng, không mất kiểm)`);
+      ok(/id: s\n\s+if: github\.event_name == 'pull_request'\n\s+continue-on-error: true/.test(g.text), `luật 16: ${w}.yml bước scope chỉ chạy trên PR và continue-on-error (không làm đỏ gate)`);
+      ok(/pull-requests: read/.test(g.text), `luật 16: ${w}.yml gate cần pull-requests: read để đọc danh sách file PR`);
+    }
+    for (const [f, src] of srcs) if (/pr-scope\.mjs/.test(src) && !SCOPED[f.replace(/\.yml$/, '')]) ok(false, `luật 16: ${f} dùng pr-scope.mjs nhưng chưa khai báo trong SCOPED (ci-policy.mjs) – thêm để có gác`);
+    const sc = f => classify(f.split(',')), nd = (f, n) => needed(f.split(','), n);
+    ok(!sc('web/cpack/a/b.json,content/blog/en/x.md,docs/A.md,web/de/index.html').ui, 'luật 16: cpack/blog/docs/trang SEO = không phải UI');
+    ok(!sc('web/js/i18n/de/a.js,extension/app/js/i18n/de/a.js,i18n/ui/de/a.js').ui && sc('web/js/i18n/de/a.js').text, 'luật 16: chữ dịch = text, không phải ui');
+    ok(sc('web/css/a.css').ui && sc('web/js/app.js').ui && sc('extension/app/js/x.js').ui && sc('brand/stitch/v2/a.html').ui && sc('web/index.html').ui && sc('web/sw.js').ui, 'luật 16: css/js/app/add-on/Stitch/index/sw = UI');
+    ok(sc('web/cpack/a.json,web/css/a.css').ui, 'luật 16: PR lẫn nội dung + UI → vẫn UI (chạy đủ)');
+    ok(sc('scripts/test/stitch-diff.mjs').ui && sc('.github/workflows/x.yml').ui && sc('package.json').ui && sc('some/unknown/file.bin').ui, 'luật 16: script test / workflow / file lạ = UI (mặc định an toàn)');
+    ok(!nd('functions/api/a.js,web/js/admin-x.js', 'ui,text') && nd('functions/api/a.js,web/js/i18n/de/a.js', 'ui,text') && !nd('web/js/i18n/de/a.js', 'ui'), 'luật 16: backend bỏ qua cả ui,text; chữ dịch chạy ui,text nhưng bỏ qua ui');
+    { const pp = prPaths("on:\n  pull_request:\n    paths: ['web/**', '!web/**/*.md', 'a/b.js']\n  push:\n    paths: ['x']\n") || [];
+      ok(pp.join('|') === 'web/**|!web/**/*.md|a/b.js', 'luật 16: prPaths đọc paths của pull_request (không lẫn push)');
+      ok(relevantFiles(['web/a.js', 'web/a.md', 'z/y', 'a/b.js'], pp).join() === 'web/a.js,a/b.js', 'luật 16: relevantFiles = file khớp paths, trừ phủ định');
+      ok(relevantFiles(['q'], null).join() === 'q' && relevantFiles(['.github/workflows/w.yml'], ['web/**'], '.github/workflows/w.yml').length === 1, 'luật 16: không paths → mọi file; file workflow tự nó luôn tính');
+      const own = f => needed(relevantFiles(f.split(','), pp), 'ui');
+      ok(!own('web/cpack/x.json,scripts/test/other.mjs') && own('web/css/a.css,web/cpack/x.json'), 'luật 16: chỉ file KÍCH workflow mới tính (file lạc đề như scripts/test/other.mjs không kéo workflow chạy)'); }
+    ok(nd('', 'ui') && needed([], 'ui'), 'luật 16: không đọc được danh sách file → chạy (mở cổng)'); }
+  { // luật 16 (15/11): ảnh QC Stitch → R2 + MỘT bình luận PR (scripts/ci/stitch-shots.mjs) – giám khảo UI đọc link, không tải artifact; không nới luật CI
+    const sd = (srcs.find(([f]) => f === 'stitch-diff.yml') || [])[1] || '', st = (sd.match(/- name: Ảnh QC → R2 \+ bình luận PR\n[\s\S]*$/) || [''])[0];
+    ok(/stitch-shots\.mjs/.test(st) && /timeout-minutes:/.test(st) && /continue-on-error: true/.test(st), 'luật 16: stitch-diff.yml có bước stitch-shots (timeout + continue-on-error)');
+    ok(/head\.repo\.full_name == github\.repository/.test(st) && /github\.event_name == 'pull_request'/.test(st), 'luật 16: bước ảnh QC chỉ chạy PR cùng repo (fork không có secret)');
+    ok(/pull-requests: write/.test(sd) && /^concurrency:/m.test(sd) && !/workflow_run|check_suite|check_run/.test(sd.split('\njobs:')[0]), 'luật 16: stitch-diff.yml có quyền bình luận PR, vẫn concurrency, không nghe workflow_run/check_suite');
+    ok(!/upload-artifact[\s\S]{0,200}stitch-shots|git (add|commit|push)/.test(st) && !/echo[^\n]*(secrets\.|TOKEN|SECRET)/.test(st), 'luật 16: không commit ảnh vào repo, không in secret');
+    const sh = fs.readFileSync(path.join(ROOT, 'scripts/ci/stitch-shots.mjs'), 'utf8');
+    ok(/BUCKET = 'lexkite-report-shots'/.test(sh) && !/bucket create/.test(sh) && /MARKER = '<!-- stitch-shots -->'/.test(sh) && /'PATCH'/.test(sh), 'luật 16: dùng bucket report-shots có sẵn (không tạo bucket), marker ẩn + PATCH');
+    const M = await import('../ci/stitch-shots.mjs'), cfg = { host: 'a.r2.cloudflarestorage.com', bucket: 'b', keyId: 'KID', secret: 'S', region: 'auto' };
+    const u = M.presign(cfg, 'ci-shots/pr1/abc1234/sheet-x.jpg', 99999999, new Date('2026-11-15T01:02:03Z'));
+    ok(/^https:\/\/a\.r2\.cloudflarestorage\.com\/b\/ci-shots\/pr1\/abc1234\/sheet-x\.jpg\?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=KID%2F20261115%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20261115T010203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=[0-9a-f]{64}$/.test(u) && !u.includes('S&') && !/Secret|=S$/.test(u), 'luật 16: link ký SigV4 đúng dạng, trần 7 ngày, không lộ secret');
+    const fl = [{ kind: 'sheet', screen: 'today', name: 'sheet-today.jpg' }, { kind: 'desk', screen: 'today', name: 'desk-today.jpg' }, { kind: 'v2', screen: 'tờ-stitch-v2-1', name: 'v2-1.jpg' }], md = M.renderComment({ files: fl, links: { 'sheet-today.jpg': 'https://x/1', 'desk-today.jpg': 'https://x/2', 'v2-1.jpg': 'https://x/3' }, sha: 'abcdef0123', a11y: { 'today-dark': { violations: [{ impact: 'serious' }] } } });
+    ok(md.startsWith(M.MARKER) && md.includes('[ảnh](https://x/1)') && md.includes('[ảnh](https://x/2)') && md.includes('(https://x/3)') && md.includes('– · 1/1') && md.includes('abcdef0'), 'luật 16: bình luận có marker ở đầu + bảng link theo màn + axe');
+    { const rows = md.split('\n').filter(l => l.startsWith('|')); ok(rows.length > 2 && rows.every(l => l.split('|').length === rows[0].split('|').length), 'luật 16: bảng bình luận không vỡ cột (nhãn cột không chứa |)'); }
+    const calls = [], mk = existing => async (m, p, b) => { calls.push(m); return m === 'GET' ? existing : { id: 7 }; };
+    await M.upsertComment(mk([{ id: 5, body: 'x' }, { id: 9, body: M.MARKER + ' cũ' }]), 'o/r', 1, 'b'); ok(calls.join() === 'GET,PATCH', 'luật 16: có bình luận cũ → PATCH (không đăng mới)');
+    calls.length = 0; await M.upsertComment(mk([{ id: 5, body: 'x' }]), 'o/r', 1, 'b'); ok(calls.join() === 'GET,POST', 'luật 16: chưa có → đăng đúng một bình luận'); }
+  { // luật 17 (15/11): workflow bot commit [skip ci] vào main (không qua CI) phải qua máy gác test theo tệp đổi (scripts/ci/bot-test-gate.mjs) – 9c4e52d158 làm lex.mjs đỏ, mọi PR kẹt shard 4
+    const { ungated } = await import('../ci/bot-test-gate.mjs');
+    for (const [f, s] of srcs) for (const why of ungated(s)) ok(false, `luật 17: ${f}: ${why}`); }
   for (const c of chainCycles(srcs)) ok(false, `vòng workflow_run: ${c}`);
   for (const k of ciParity(fs.readFileSync(path.join(WF, 'ci.yml'), 'utf8'), fs.readFileSync(path.join(ROOT, 'scripts/test/suite.txt'), 'utf8'))) ok(false, `ci.yml chạy "${k}" nhưng suite.txt (cổng PR) không có → PR xanh vẫn làm main đỏ`);
   ok(ciParity('run: node scripts/a.mjs\n- run: npx tsc -p x.json', 'node scripts/a.mjs').join() === 'tsc -p', 'ciParity bắt lệnh thiếu');
+  // luật 15 (13/11): "tạm không chặn" phải có hạn – dòng `# tạm-không-chặn-tới: YYYY-MM-DD (issue #N)`; quá hạn mà còn marker → đỏ (không để bỏ chặn thành vĩnh viễn)
+  const expiredTemp = (src, today) => [...src.matchAll(/^\s*# tạm-không-chặn-tới: (\d{4}-\d{2}-\d{2})/gm)].filter(m => m[1] < today).map(m => m[1]);
+  ok(expiredTemp('# tạm-không-chặn-tới: 2026-11-20 (issue #1)', '2026-11-21').length === 1 && expiredTemp('# tạm-không-chặn-tới: 2026-11-20 (issue #1)', '2026-11-20').length === 0, 'luật 15: marker quá hạn → lỗi, đúng hạn → đạt');
+  { const today = new Date().toISOString().slice(0, 10); for (const [f, s] of srcs) for (const d of expiredTemp(s, today)) ok(false, `${f}: "tạm không chặn" quá hạn ${d} – đưa leg về chặn gate hoặc gia hạn có OK của owner (luật 15)`); }
   console.log(fails ? `ci-policy: ${fails} lỗi` : `✓ ci-policy: ${files.length} workflow đạt (timeout + concurrency + phạm vi + workflow_run có cổng skip, không vòng)`);
   process.exit(fails ? 1 : 0);
 }

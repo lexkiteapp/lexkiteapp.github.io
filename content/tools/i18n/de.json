@@ -79,7 +79,11 @@
     "planTop": "So verbesserst du dich weiter",
     "you": "Dein Testergebnis: {lv}",
     "takeTest": "Niveau prüfen – kostenloser 15-Minuten-Test",
-    "otherLevels": "Alle CEFR-Niveaus"
+    "otherLevels": "Alle CEFR-Niveaus",
+    "wordsH": "Wörter für Niveau {lv}",
+    "wordsLead": "Wörter aus dem Lexkite-Wörterbuch, die dem Niveau {lv} zugeordnet sind – jeweils mit Bedeutung und Beispielsatz. Öffne ein Wort für Aussprache, typische Wortverbindungen und häufige Fehler.",
+    "sampleH": "Beispielfragen für Niveau {lv}",
+    "answer": "Antwort anzeigen"
   },
   "toeic": {
     "title": "TOEIC Part 5 Übungstest online – kostenlos, mit Erklärungen",

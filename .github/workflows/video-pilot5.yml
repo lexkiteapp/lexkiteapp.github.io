@@ -14,7 +14,7 @@ env:
   PD: content/video/cine/news/pilot-v5
 jobs:
   pilot:
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4

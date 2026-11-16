@@ -37,8 +37,9 @@ const H = 36e5, now = Date.now();
     ok(A.canAutoApprove(fb, 'facebook_page', m) && !A.canAutoApprove(fb, 'tiktok', m) && !('nope' in fb.autopub), 'cờ chỉ có hiệu lực đúng nền tảng, chỉ nhận true');
     ok(!A.canAutoApprove(A.cleanAuto({ auto_approve: false, autopub: { facebook_page: true } }), 'facebook_page', m) && !A.canAutoApprove(fb, 'facebook_page', {}), 'cờ không thay auto_approve, không bỏ qua manual_first'); }
   { const live = A.cleanAuto(A.ownerPolicy({ on: true, auto_approve: false, manual_first: 1, autopub: { facebook_page: true }, plats: { tiktok: false } })); // chủ 10/11: tự duyệt tự đăng, áp 1 lần lên cấu hình đang lưu
-    ok(live.policy === A.POLICY && live.manual_first === 0 && live.auto_approve && live.auto_queue && live.autopub.youtube && live.autopub.facebook_page && !live.autopub.tiktok && !live.plats.tiktok && live.on, 'ownerPolicy: bỏ duyệt tay bài đầu, autopub YouTube bật, giữ cờ khác + công tắc');
-    ok(A.canAutoApprove(live, 'youtube', {}) && !A.canAutoApprove(live, 'tiktok', {}), 'YouTube tự duyệt ngay bài đầu; nền tảng chưa có cờ autopub vẫn chờ');
+    ok(live.policy === A.POLICY && live.manual_first === 0 && live.auto_approve && live.auto_queue && live.autopub.youtube && live.autopub.facebook_page && live.autopub.instagram && live.autopub.tiktok && !live.plats.tiktok && live.on, 'ownerPolicy (16/11): bỏ duyệt tay bài đầu, autopub FB/IG/TikTok/YouTube bật, giữ cờ khác + công tắc');
+    ok(A.canAutoApprove(live, 'youtube', {}) && A.canAutoApprove(live, 'facebook_page', {}) && A.canAutoApprove(live, 'instagram', {}) && A.canAutoApprove(live, 'tiktok', {}) && !A.canAutoApprove(live, 'threads', {}), 'FB/IG/TikTok/YouTube tự duyệt ngay bài đầu; Threads (chưa có cờ) vẫn chờ');
+    ok(A.cleanAuto(A.ownerPolicy({ policy: 'owner-1011', autopub: { youtube: true }, manual_first: 1 })).autopub.facebook_page === true, 'cấu hình đã áp policy cũ (10/11, chỉ YouTube) được áp lại bản 16/11: FB/IG/TikTok tự đăng');
     const kept = A.cleanAuto(A.ownerPolicy({ ...live, manual_first: 3, autopub: { youtube: false } }));
     ok(kept.manual_first === 3 && !kept.autopub.youtube, 'đã mang policy → thay đổi sau đó ở Quản trị được giữ, không bị áp lại');
     ok(A.cleanAuto(A.ownerPolicy({ on: false })).on === false, 'công tắc khẩn on=false giữ nguyên sau khi áp policy'); }
@@ -76,7 +77,7 @@ if (typeof FixedLengthStream === 'undefined') globalThis.FixedLengthStream = cla
 const ENV = { DB, GRABCAST_API_KEY: KEY, SHORTS_READ_TOKEN: 'ro', LEXKITE_DRIVE_CLI_KEY: CLI, GRABCAST_WEBHOOK_SECRET: 'whsec_0123456789abcdefghijklmn' };
 await MGR.setupMgr(DB);
 // Kịch bản gốc cố định cài đặt (TikTok tắt, không tự xếp lịch, đồng bộ 6 giờ) để không phụ thuộc mặc định – mặc định mới được kiểm ở mục 1 và mục 3.
-sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES ('auto', ?, ?)").run(JSON.stringify({ plats: { tiktok: false }, plan_daily: false, sync_h: 6 }), now);
+sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES ('auto', ?, ?)").run(JSON.stringify({ policy: A.POLICY, auto_approve: true, auto_queue: true, manual_first: 0, autopub: { youtube: true }, plats: { tiktok: false }, plan_daily: false, sync_h: 6 }), now); // kịch bản gốc = cấu hình ownerPolicy 10/11 (chỉ YouTube tự đăng, FB/IG chờ duyệt); từ 16/11 ownerPolicy bật cả FB/IG/TikTok nên phải lưu rõ
 sql.exec('CREATE TABLE yt_queue (clip TEXT PRIMARY KEY, lesson TEXT, status TEXT, privacy TEXT, publish_at TEXT, approved_by TEXT, approved_at INTEGER, video_id TEXT, upload_url TEXT, session_at INTEGER, attempts INTEGER DEFAULT 0, err TEXT, updated INTEGER, thumb INTEGER, title TEXT, channel_id TEXT); CREATE TABLE clip_review (clip TEXT PRIMARY KEY, state TEXT, deleted INTEGER, web INTEGER)');
 for (const c of [CA, CB]) sql.prepare("INSERT INTO yt_queue (clip, status) VALUES (?, 'manual')").run(c); // CC chưa duyệt
 await A.runAuto({ ...ENV, GRABCAST_API_KEY: '' }, { now }); // tạo bảng (setupDist) – không có khóa → không gọi gì
@@ -113,7 +114,7 @@ ok(st().calls.n === 9 && st().last_sync && st().last_sync.at === now, 'ngân sá
   ok(out.state === 'scheduled' && GC.posts[p1.id].status === 'scheduled' && Date.parse(GC.posts[p1.id].scheduled_at) === ds(CA, 'gc-facebook_page-2').slot_ms, 'owner duyệt tay bài autopilot → GrabCast lên lịch đúng slot');
 }
 // tự duyệt: FB đã có 1 bài duyệt tay (manual_first = 1) → bài FB mới tự lên lịch; IG chưa có bài duyệt tay → chờ duyệt
-sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES ('auto', ?, ?) ON CONFLICT(k) DO UPDATE SET v = excluded.v").run(JSON.stringify({ policy: 'owner-1011', auto_approve: true, autopub: { facebook_page: true, instagram: true, tiktok: true, youtube: true, threads: true }, manual_first: 1, plats: { tiktok: false }, plan_daily: false, sync_h: 6 }), now); // giữ cài đặt gốc của kịch bản (TikTok tắt): ghi đè cũ làm rơi plats → TikTok (mặc định bật từ 03/11) chiếm hết max_per_run
+sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES ('auto', ?, ?) ON CONFLICT(k) DO UPDATE SET v = excluded.v").run(JSON.stringify({ policy: 'owner-1116', auto_approve: true, autopub: { facebook_page: true, instagram: true, tiktok: true, youtube: true, threads: true }, manual_first: 1, plats: { tiktok: false }, plan_daily: false, sync_h: 6 }), now); // giữ cài đặt gốc của kịch bản (TikTok tắt): ghi đè cũ làm rơi plats → TikTok (mặc định bật từ 03/11) chiếm hết max_per_run
 due(CB, 'gc-instagram-3', 10); sql.prepare('UPDATE dist_social SET slot_ms = ? WHERE clip = ? AND channel_id = ?').run(Math.round(now + 9 * H), CB, 'gc-facebook_page-5');
 calls = []; r = await A.runAuto(ENV, { now: now + 2 * 60e3 });
 const p5 = Object.values(GC.posts).find(p => p.targets[0].account_id === 5), b5 = p5 && sql.prepare('SELECT * FROM soc_board WHERE post_id = ?').get(p5.id);
@@ -225,7 +226,7 @@ ok(S.key && S.webhook && S.cfg.daily_calls === 10 && S.budget_left === 2 && S.up
   const D = await import(new URL('../../functions/api/_distribution.js', import.meta.url));
   const cfgs = { 'gc-tiktok-9': D.normCfg({}), 'gc-tiktok-1': D.normCfg({}), 'gc-facebook_page-2': D.normCfg({}), UCabc: D.normCfg({}) };
   const imp = D.implicitSocialRules([], cfgs);
-  ok(imp.map(r => r.channel_id).join() === 'gc-facebook_page-2,gc-tiktok-1', 'nối kênh mà chưa có luật → luật ngầm 1 kênh/nền tảng, không đụng YouTube');
+  ok(imp.map(r => r.channel_id).join() === 'gc-facebook_page-2,gc-tiktok-1,gc-tiktok-9' && imp.filter(r => r.cond && r.cond.shard).map(r => r.cond.shard).join() === '0/2,1/2', 'nối kênh mà chưa có luật → luật ngầm: 1 page EN/nền tảng đi thẳng, nhiều page EN cùng nền tảng chia clip theo băm id (shard i/n), không đụng YouTube');
   ok(D.routeAll(imp, cfgs, { id: 'x' }, null).length === 2, 'luật ngầm khớp mọi clip');
   ok(D.implicitSocialRules([{ channel_id: 'gc-tiktok-9', cond: {}, active: 0 }], cfgs).every(r => !/tiktok/.test(r.channel_id)), 'luật đã TẮT = chủ ý dừng → không có luật ngầm cho nền tảng đó');
 
@@ -236,7 +237,7 @@ ok(S.key && S.webhook && S.cfg.daily_calls === 10 && S.budget_left === 2 && S.up
   ok(d.sync_h === 3, 'đồng bộ trạng thái 3 giờ/lần để sớm biết bài lỗi');
 
   // Môi trường sạch cho từng ca
-  const reset = cfg => { sql.exec("DELETE FROM soc_board; DELETE FROM dist_social; DELETE FROM soc_lock; DELETE FROM soc_meta"); GC.posts = {}; GC.fail = {}; sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES ('auto', ?, ?)").run(JSON.stringify({ sync_h: 24, plan_daily: false, ...cfg }), now); sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES ('auto_state', ?, ?)").run(JSON.stringify({ last_sync: { at: now } }), now); };
+  const reset = cfg => { sql.exec("DELETE FROM soc_board; DELETE FROM dist_social; DELETE FROM soc_lock; DELETE FROM soc_meta"); GC.posts = {}; GC.fail = {}; sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES ('auto', ?, ?)").run(JSON.stringify({ policy: A.POLICY, auto_approve: true, auto_queue: true, manual_first: 0, autopub: { youtube: true }, sync_h: 24, plan_daily: false, ...cfg }), now); sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES ('auto_state', ?, ?)").run(JSON.stringify({ last_sync: { at: now } }), now); };
   const dueAt = (clip, ch, h) => sql.prepare("INSERT INTO dist_social (clip, channel_id, platform, slot_ms, source, rule, state, updated) VALUES (?, ?, ?, ?, 'auto', 0, 'planned', ?)").run(clip, ch, /^gc-([a-z_]+)-/.exec(ch)[1], now + h * H, now);
   const stNow = () => JSON.parse(sql.prepare("SELECT v FROM soc_meta WHERE k = 'auto_state'").get().v);
 
@@ -296,7 +297,7 @@ ok(S.key && S.webhook && S.cfg.daily_calls === 10 && S.budget_left === 2 && S.up
   reset({}); dueAt(CA, 'gc-facebook_page-2', 3);
   x = await A.runAuto(ENV, { now });
   ok(x.created === 1 && x.review === 1 && Object.values(GC.posts)[0].status === 'draft', 'tự duyệt tắt: bài nằm Chờ duyệt, chưa lên lịch');
-  sql.prepare("UPDATE soc_meta SET v = ? WHERE k = 'auto'").run(JSON.stringify({ policy: 'owner-1011', sync_h: 24, plan_daily: false, auto_approve: true, autopub: { facebook_page: true, instagram: true, tiktok: true, youtube: true, threads: true }, manual_first: 1 }));
+  sql.prepare("UPDATE soc_meta SET v = ? WHERE k = 'auto'").run(JSON.stringify({ policy: 'owner-1116', sync_h: 24, plan_daily: false, auto_approve: true, autopub: { facebook_page: true, instagram: true, tiktok: true, youtube: true, threads: true }, manual_first: 1 }));
   sql.prepare("INSERT INTO soc_board (id, post_id, clip, state, accounts, plats, approved_by, created, updated, by_who) VALUES ('b_manual01', 'pm', ?, 'published', '[\"2\"]', '[\"facebook_page\"]', 'owner', ?, ?, 'owner')").run(CC, now, now);
   x = await A.runAuto(ENV, { now: now + 60e3 });
   ok(x.scheduled === 1 && Object.values(GC.posts)[0].status === 'scheduled', 'bật tự duyệt → bài Chờ duyệt cũ được lên lịch');
@@ -304,7 +305,7 @@ ok(S.key && S.webhook && S.cfg.daily_calls === 10 && S.budget_left === 2 && S.up
   // Hợp đồng GrabCast: validate trước khi lên lịch, warning không chặn, 422 giữ mã lỗi từng đích
   ok(A.problemCodes([{ problems: [{ level: 'warning', code: 'w' }, { level: 'error', code: 'privacy_required' }] }, { problems: [{ level: 'error', code: 'privacy_required' }] }]) === 'privacy_required' && A.problemCodes(null) === '', 'problemCodes: bỏ warning, bỏ trùng');
   ok(await A.createKey(CA, 'c', { title: 't', caption: 'x' }) === await A.createKey(CA, 'c', { title: 't', caption: 'x' }) && await A.createKey(CA, 'c', { title: 't', caption: 'x' }) !== await A.createKey(CA, 'c', { title: 't', caption: 'y' }), 'khóa tạo bài: cùng nội dung cùng khóa, sửa chữ đổi khóa');
-  const armAuto = () => { sql.prepare("UPDATE soc_meta SET v = ? WHERE k = 'auto'").run(JSON.stringify({ policy: 'owner-1011', sync_h: 24, plan_daily: false, auto_approve: true, autopub: { facebook_page: true, instagram: true, tiktok: true, youtube: true, threads: true }, manual_first: 1 })); sql.prepare("INSERT INTO soc_board (id, post_id, clip, state, accounts, plats, approved_by, created, updated, by_who) VALUES ('b_manual01', 'pm', ?, 'published', '[\"2\"]', '[\"facebook_page\"]', 'owner', ?, ?, 'owner')").run(CC, now, now); };
+  const armAuto = () => { sql.prepare("UPDATE soc_meta SET v = ? WHERE k = 'auto'").run(JSON.stringify({ policy: 'owner-1116', sync_h: 24, plan_daily: false, auto_approve: true, autopub: { facebook_page: true, instagram: true, tiktok: true, youtube: true, threads: true }, manual_first: 1 })); sql.prepare("INSERT INTO soc_board (id, post_id, clip, state, accounts, plats, approved_by, created, updated, by_who) VALUES ('b_manual01', 'pm', ?, 'published', '[\"2\"]', '[\"facebook_page\"]', 'owner', ?, ?, 'owner')").run(CC, now, now); };
   reset({}); dueAt(CA, 'gc-facebook_page-2', 3); await A.runAuto(ENV, { now }); armAuto();
   GC.validate = { ok: false, targets: [{ problems: [{ level: 'error', code: 'privacy_required' }] }] };
   x = await A.runAuto(ENV, { now: now + 60e3 });
@@ -325,7 +326,7 @@ ok(S.key && S.webhook && S.cfg.daily_calls === 10 && S.budget_left === 2 && S.up
     reset({}); dueAt(CA, 'gc-facebook_page-2', 3);
     await A.runAuto(ENV, { now });
     const nd = Object.values(GC.posts)[0]; if (cs === 'timeout') GC.scheduleTimeout = true; else nd.status = cs;
-    sql.prepare("UPDATE soc_meta SET v = ? WHERE k = 'auto'").run(JSON.stringify({ policy: 'owner-1011', sync_h: 24, plan_daily: false, auto_approve: true, autopub: { facebook_page: true, instagram: true, tiktok: true, youtube: true, threads: true }, manual_first: 1 }));
+    sql.prepare("UPDATE soc_meta SET v = ? WHERE k = 'auto'").run(JSON.stringify({ policy: 'owner-1116', sync_h: 24, plan_daily: false, auto_approve: true, autopub: { facebook_page: true, instagram: true, tiktok: true, youtube: true, threads: true }, manual_first: 1 }));
     sql.prepare("INSERT INTO soc_board (id, post_id, clip, state, accounts, plats, approved_by, created, updated, by_who) VALUES ('b_manual01', 'pm', ?, 'published', '[\"2\"]', '[\"facebook_page\"]', 'owner', ?, ?, 'owner')").run(CC, now, now);
     x = await A.runAuto(ENV, { now: now + 60e3 }); GC.scheduleTimeout = false;
     const bd = sql.prepare("SELECT state, err FROM soc_board WHERE post_id = ?").get(nd.id);

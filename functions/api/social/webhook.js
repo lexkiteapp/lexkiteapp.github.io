@@ -3,12 +3,13 @@
  * Ký: X-GrabCast-Timestamp (giây) + X-GrabCast-Signature = "sha256=" + hex(HMAC-SHA256(secret, "<ts>.<body thô>")), lệch ≤ 300 s. Logic: functions/api/_social_auto.js. */
 import { limit } from '../sync.js';
 import { verifyWebhook, onWebhook } from '../_social_auto.js';
+import { readText, bodyFail } from '../_body.js';
 
 const json = (status, data) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } });
 export async function onRequestPost({ request, env }) {
   const secret = String(env.GRABCAST_WEBHOOK_SECRET || ''); if (secret.length < 24) return json(503, { error: 'not-configured' });
   if (await limit('gcwh:' + (request.headers.get('CF-Connecting-IP') || '?'), 60, 60)) return json(429, { error: 'too-fast' });
-  const text = await request.text().catch(() => ''); if (text.length > 64 * 1024) return json(413, { error: 'too-large' });
+  let text; try { text = await readText(request, 64 * 1024); } catch (e) { const f = bodyFail(e); return json(f.status, { error: f.error }); }
   if (!(await verifyWebhook(secret, request.headers.get('X-GrabCast-Timestamp'), request.headers.get('X-GrabCast-Signature'), text))) return json(401, { error: 'bad-signature' });
   let ev; try { ev = JSON.parse(text); } catch (e) { return json(400, { error: 'json' }); }
   if (!env.DB) return json(412, { error: 'not-configured' });

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_the_sun",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Do you need a small word?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Sun is very hot today.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: The sun is very hot today.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say the before sun.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The moon! The moon is bright.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Sun is very hot today.",
+  "right": "The sun is very hot today.",
+  "strike": "Sun",
+  "why": "Say the before sun.",
+  "memory": "The sun, the moon.",
+  "quiz": {
+   "stem": "Look! ___ is bright.",
+   "options": [
+    "The moon",
+    "Moon"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Quên “the” trước “sun”?",
+   "tip": "Tiếng Việt không có mạo từ, nhưng tiếng Anh cần “the” trước “sun.”",
+   "caption": "Bạn có hay nói “Sun is very hot today.” không? 😅 Trước “sun”, hãy thêm “the”: “The sun is very hot today.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “The moon.” Hãy viết một câu về thời tiết hôm nay, bắt đầu bằng “The sun” hoặc “The sky.” Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#nguphaptienganh",
+    "#tienganhgiaotiep",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Forget “the” before “sun”?",
+   "tip": "English needs “the” before “sun.”",
+   "caption": "Do you often say this? “Sun is very hot today.” Put “the” before “sun”: “The sun is very hot today.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Quên “the” trước “sun”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Quên “the” trước “sun”?",
+  "keyword": "The sun is very hot today.",
+  "value": "Tiếng Việt không có mạo từ, nhưng tiếng Anh cần “the” trước “sun.”",
+  "hashtags": [
+   "#hoctienganh",
+   "#nguphaptienganh",
+   "#tienganhgiaotiep",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "Quên “the” trước “sun”?",
+    "description": "Tiếng Việt không có mạo từ, nhưng tiếng Anh cần “the” trước “sun.”\n\nBạn có hay nói “Sun is very hot today.” không? 😅 Trước “sun”, hãy thêm “the”: “The sun is very hot today.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #nguphaptienganh #tienganhgiaotiep #lexkite",
+    "tags": [
+     "The sun is very hot today.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “Sun is very hot today.” không? 😅 Trước “sun”, hãy thêm “the”: “The sun is very hot today.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Quên “the” trước “sun”?\n\nTiếng Việt không có mạo từ, nhưng tiếng Anh cần “the” trước “sun.”\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#nguphaptienganh",
+     "#tienganhgiaotiep",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Quên “the” trước “sun”? Tiếng Việt không có mạo từ, nhưng tiếng Anh cần “the” trước “sun.” #hoctienganh #nguphaptienganh #tienganhgiaotiep"
+   }
+  },
+  "first_comment": "Đáp án: “The moon.” Hãy viết một câu về thời tiết hôm nay, bắt đầu bằng “The sun” hoặc “The sky.” Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

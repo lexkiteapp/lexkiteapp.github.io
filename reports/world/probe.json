@@ -1,10 +1,10 @@
 {
- "at": "2026-11-10T11:27:23.426Z",
+ "at": "2026-11-16T10:08:34.396Z",
  "lang": "en",
  "device": "Pixel 7",
  "firstRun": {
   "ok": true,
-  "seconds": 6.2,
+  "seconds": 6,
   "taps": 9,
   "trail": [
    "[data-cta=start], .ctas a.btn.lg",
@@ -19,14 +19,8 @@
   ]
  },
  "today": {
-  "ok": true,
-  "taps": 2,
-  "trail": [
-   "#view a.btn.primary",
-   "ol.day-steps a[data-step=\"learn\"]:not(.ok)"
-  ],
-  "at": "#known",
-  "route": "/app/?sandbox=1&hl=en#/practice/learn?src=topic%3Angsl1.1~1"
+  "ok": false,
+  "err": "không tới bài hôm nay từ /app/?sandbox=1&hl=en#/day/1"
  },
  "errors": []
 }

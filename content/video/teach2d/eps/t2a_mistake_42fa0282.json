@@ -1,0 +1,129 @@
+{
+ "id": "t2a_mistake_42fa0282",
+ "template": "mistake",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Stop saying suggest you to!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I suggest you to go.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I suggest you go.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "There is no suggest someone to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Leave! I suggest you leave early.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I suggest you to go.",
+  "right": "I suggest you go.",
+  "strike": "suggest you to",
+  "why": "There is no suggest someone to.",
+  "memory": "suggest (THAT) you GO",
+  "quiz": {
+   "stem": "I suggest you ___ early.",
+   "options": [
+    "to leave",
+    "leave"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Stop saying “suggest you to”"
+ },
+ "src": {
+  "gold": "sb_42fa0282",
+  "pid": "u:v:suggest:m0"
+ },
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Say \"I suggest you go\", not \"I suggest you to go\"",
+  "keyword": "suggest you to",
+  "value": "Say \"I suggest you go\", not \"I suggest you to go\". There is no suggest someone to.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#englishgrammar",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Say \"I suggest you go\", not \"I suggest you to go\"",
+    "description": "Say \"I suggest you go\", not \"I suggest you to go\". There is no suggest someone to.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix\n\nSeries: Stop Saying This · Teacher: Ama\n\n#learnenglish #englishtips #englishgrammar #englishteacher",
+    "tags": [
+     "suggest you to",
+     "Stop Saying This",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Say \"I suggest you go\", not \"I suggest you to go\"\n\nSay \"I suggest you go\", not \"I suggest you to go\". There is no suggest someone to.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Say \"I suggest you go\", not \"I suggest you to go\"\n\nSay \"I suggest you go\", not \"I suggest you to go\". There is no suggest someone to.\n\nCheck your grammar: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#englishgrammar",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Say \"I suggest you go\", not \"I suggest you to go\" #learnenglish #englishtips #englishgrammar"
+   }
+  },
+  "first_comment": "Did you get it? Leave! I suggest you leave early. Say \"I suggest you go\", not \"I suggest you to go\". There is no suggest someone to. More practice like this (free): {link}"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_used_to_ing",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Used to waking, not used to wake!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am used to wake up early.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am used to waking up early.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After used to, say waking.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Getting up! I am used to getting up early.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am used to wake up early.",
+  "right": "I am used to waking up early.",
+  "strike": "wake",
+  "why": "After used to, say waking.",
+  "memory": "Used to waking.",
+  "quiz": {
+   "stem": "I am used to ___ early.",
+   "options": [
+    "get up",
+    "getting up"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "¿“Used to wake”? ¡Cuidado!",
+   "tip": "En español “acostumbrado a despertarme” lleva infinitivo, pero “be used to” lleva -ing: “waking up.”",
+   "caption": "Muchos dicen “I am used to wake up early.” 🙈 En español “acostumbrado a despertarme” lleva infinitivo, pero en inglés “be used to” va con -ing: “I am used to waking up early.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “getting up”. Después de “be used to” va la forma con -ing. Escribe una frase tuya con “getting up”. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#gramatica",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Used to wake”? Careful!",
+   "tip": "Spanish “acostumbrado a despertar” takes an infinitive, but English “be used to” takes -ing: “waking up.”",
+   "caption": "Many learners say “I am used to wake up early.” Spanish “acostumbrado a despertar” takes an infinitive, but English “be used to” takes -ing: “I am used to waking up early.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿“Used to wake”? ¡Cuidado!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 55,
+  "seconds": 32.5,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "¿“Used to wake”? ¡Cuidado!",
+  "keyword": "I am used to waking up early.",
+  "value": "En español “acostumbrado a despertarme” lleva infinitivo, pero “be used to” lleva -ing: “waking up.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#gramatica",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 49,
+  "platforms": {
+   "youtube": {
+    "title": "¿“Used to wake”? ¡Cuidado!",
+    "description": "En español “acostumbrado a despertarme” lleva infinitivo, pero “be used to” lleva -ing: “waking up.”\n\nMuchos dicen “I am used to wake up early.” 🙈 En español “acostumbrado a despertarme” lleva infinitivo, pero en inglés “be used to” va con -ing: “I am used to waking up early.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #gramatica #lexkite",
+    "tags": [
+     "I am used to waking up early.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "Muchos dicen “I am used to wake up early.” 🙈 En español “acostumbrado a despertarme” lleva infinitivo, pero en inglés “be used to” va con -ing: “I am used to waking up early.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "¿“Used to wake”? ¡Cuidado!\n\nEn español “acostumbrado a despertarme” lleva infinitivo, pero “be used to” lleva -ing: “waking up.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#gramatica",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿“Used to wake”? ¡Cuidado! En español “acostumbrado a despertarme” lleva infinitivo, pero “be used to” lleva… #aprenderingles #inglesfacil #gramatica"
+   }
+  },
+  "first_comment": "Respuesta: “getting up”. Después de “be used to” va la forma con -ing. Escribe una frase tuya con “getting up”. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}

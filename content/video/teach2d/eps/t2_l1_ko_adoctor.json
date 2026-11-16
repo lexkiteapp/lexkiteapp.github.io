@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_adoctor",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Add a before doctor!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I want to be doctor.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I want to be a doctor.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Jobs need a or an.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "A nurse! My mother is a nurse.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I want to be doctor.",
+  "right": "I want to be a doctor.",
+  "strike": "be doctor",
+  "why": "Jobs need a or an.",
+  "memory": "Be a doctor.",
+  "quiz": {
+   "stem": "My mother is ___.",
+   "options": [
+    "a nurse",
+    "nurse"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "직업 앞에 a 빠졌어요!",
+   "tip": "직업 앞에는 a나 an을 붙여요. 이렇게 말해요 👉 “I want to be a doctor.”",
+   "caption": "“I want to be doctor”처럼 말하고 있나요? 😅 직업을 말할 때는 셀 수 있는 명사라서 앞에 a나 an을 붙여요. 맞는 문장 ✅ “I want to be a doctor.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답: “a”! 직업 앞에는 a! 무료 퀴즈로 더 연습해 보세요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Put a before a job!",
+   "tip": "Put a before a job. Say “I want to be a doctor”!",
+   "caption": "Do you say “I want to be doctor” in English? 😅 A job is a countable noun, so it needs “a” or “an”! “I want to be a doctor” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "직업 앞에 a 빠졌어요!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "직업 앞에 a 빠졌어요!",
+  "keyword": "I want to be a doctor.",
+  "value": "직업 앞에는 a나 an을 붙여요. 이렇게 말해요 👉 “I want to be a doctor.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "직업 앞에 a 빠졌어요!",
+    "description": "직업 앞에는 a나 an을 붙여요. 이렇게 말해요 👉 “I want to be a doctor.”\n\n“I want to be doctor”처럼 말하고 있나요? 😅 직업을 말할 때는 셀 수 있는 명사라서 앞에 a나 an을 붙여요. 맞는 문장 ✅ “I want to be a doctor.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "I want to be a doctor.",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“I want to be doctor”처럼 말하고 있나요? 😅 직업을 말할 때는 셀 수 있는 명사라서 앞에 a나 an을 붙여요. 맞는 문장 ✅ “I want to be a doctor.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "직업 앞에 a 빠졌어요!\n\n직업 앞에는 a나 an을 붙여요. 이렇게 말해요 👉 “I want to be a doctor.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "직업 앞에 a 빠졌어요! 직업 앞에는 a나 an을 붙여요. 이렇게 말해요 👉 “I want to be a doctor.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “a”! 직업 앞에는 a! 무료 퀴즈로 더 연습해 보세요: {link}",
+  "lang": "ko"
+ }
+}

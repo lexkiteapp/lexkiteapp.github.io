@@ -28,6 +28,7 @@ export function blockOf(cfg, clip) {
 }
 export const allowed = (cfg, clip) => !blockOf(cfg, clip);
 const condOk = (cond, clip) => Object.entries(cond || {}).every(([k, want]) => {
+  if (k === 'shard') { const [i, n] = String(want).split('/').map(Number); return !(n > 1) || Math.floor(hash(clip.id) * n) === i; }   // luật ngầm: nhiều page EN cùng nền tảng chia nhau clip theo băm id (mỗi clip đúng 1 page)
   const w = list(want).map(x => x.toLowerCase()); if (!w.length) return true;
   const have = k === 'topic' ? [clip.topic, clip.sub] : k === 'region' ? list(clip.regions || clip.region) : k === 'lang' ? [clip.lang || 'en'] : [clip[k]];
   return have.some(h => h && w.includes(String(h).toLowerCase()));
@@ -58,11 +59,13 @@ export function routeAll(rules, cfgs, clip, fallback) {
 }
 /** Bộ 16 fanpage Lexkite: 1 page EN chung + 15 page theo ngôn ngữ người học. Tên kênh (GrabCast) → mã ngôn ngữ; không nhận ra = '' (page chung = 'en').
  *  Khớp tên riêng ngôn ngữ (endonym), tên tiếng Anh, tên tiếng Việt, hoặc mã trong ngoặc/sau gạch: "Lexkite Español", "Lexkite (VI)", "Lexkite – Japanese". */
-const LANG_NAMES = { vi: ['tiếng việt', 'việt nam', 'vietnam', 'vietnamese'], es: ['español', 'espanol', 'spanish', 'tây ban nha'], pt: ['português', 'portugues', 'portuguese', 'brasil', 'bồ đào nha'],
-  fr: ['français', 'francais', 'french', 'tiếng pháp'], de: ['deutsch', 'german', 'tiếng đức'], id: ['indonesia', 'bahasa'], th: ['ไทย', 'thai', 'thái lan'], zh: ['中文', '汉语', '漢語', 'chinese', 'trung quốc', 'tiếng trung'],
-  ja: ['日本語', 'japanese', 'nhật bản', 'tiếng nhật'], ko: ['한국어', 'korean', 'hàn quốc', 'tiếng hàn'], hi: ['हिन्दी', 'हिंदी', 'hindi'], ar: ['العربية', 'arabic', 'ả rập'], ru: ['русский', 'russian', 'tiếng nga'],
-  tr: ['türkçe', 'turkce', 'turkish', 'thổ nhĩ kỳ'], en: ['english', 'global', 'tiếng anh'] };
+const LANG_NAMES = { vi: ['tiếng việt', 'việt nam', 'vietnam', 'vietnamese'], es: ['español', 'espanol', 'spanish', 'tây ban nha', 'aprende inglés', 'aprender inglés', 'aprende ingles'], pt: ['português', 'portugues', 'portuguese', 'brasil', 'bồ đào nha', 'aprenda inglês', 'aprender inglês', 'aprenda ingles'],
+  fr: ['français', 'francais', 'french', 'tiếng pháp', "apprendre l'anglais", 'apprendre l’anglais'], de: ['deutsch', 'german', 'tiếng đức', 'englisch lernen'], id: ['indonesia', 'bahasa'], th: ['ไทย', 'thai', 'thái lan', 'เรียนภาษาอังกฤษ', 'ภาษาอังกฤษ'], zh: ['中文', '汉语', '漢語', '学英语', '學英語', '英语', 'chinese', 'trung quốc', 'tiếng trung'],
+  ja: ['日本語', '英語学習', 'japanese', 'nhật bản', 'tiếng nhật'], ko: ['한국어', '영어 공부', '영어', 'korean', 'hàn quốc', 'tiếng hàn'], hi: ['हिन्दी', 'हिंदी', 'hindi'], ar: ['العربية', 'arabic', 'ả rập'], ru: ['русский', 'russian', 'tiếng nga'],
+  tr: ['türkçe', 'turkce', 'turkish', 'thổ nhĩ kỳ', 'ngilizce öğren', 'ngilizce ogren'], en: ['english', 'global', 'tiếng anh'] };
 export const SOCIAL_LANGS = Object.keys(LANG_NAMES);
+/** Múi giờ bản địa của người học theo ngôn ngữ kênh – dùng khi kênh CHƯA lưu cfg.tz (mặc định America/New_York làm kênh Thái/Hàn/Nhật… lên lịch theo giờ New York, 16/11). */
+export const LANG_TZ = { vi: 'Asia/Ho_Chi_Minh', en: 'America/New_York', es: 'America/Mexico_City', pt: 'America/Sao_Paulo', fr: 'Europe/Paris', de: 'Europe/Berlin', id: 'Asia/Jakarta', th: 'Asia/Bangkok', zh: 'Asia/Shanghai', ja: 'Asia/Tokyo', ko: 'Asia/Seoul', hi: 'Asia/Kolkata', ar: 'Asia/Riyadh', ru: 'Europe/Moscow', tr: 'Europe/Istanbul' };
 /** Tên page nói người HỌC là ai: "Học tiếng Anh/Nhật…" = page cho người Việt (10/11: "Lexkite - Học Tiếng Anh" bị nhận nhầm 'en' vì chứa "tiếng anh"). Xét trước LANG_NAMES. */
 const LEARNER_VI = /(?:^|[^\p{L}])(?:học|hoc)\s+(?:tiếng|tieng)(?:[^\p{L}]|$)/u;
 export function langOfChannel(title) {
@@ -77,13 +80,15 @@ export function langOfChannel(title) {
  *  và clip EN không bao giờ rơi vào page tiếng Tây Ban Nha chỉ vì id đứng đầu bảng chữ cái (lỗi cũ: 1 kênh/nền tảng, bất kể ngôn ngữ). */
 export function implicitSocialRules(allRules, cfgs) {
   // chỉ luật cho kênh GrabCast (gc-*) mới chặn luật ngầm: luật YouTube trực tiếp (UC…) không được làm câm kênh YouTube GrabCast (lỗi cũ: platformOf(UC…) = 'youtube')
-  const have = new Set((allRules || []).filter(r => /^gc-/.test(String(r.channel_id || ''))).map(r => platformOf(r.channel_id))), seen = new Set(), own = [], general = [];
+  const have = new Set((allRules || []).filter(r => /^gc-/.test(String(r.channel_id || ''))).map(r => platformOf(r.channel_id))), seen = new Set(), own = [], general = [], en = {};
   for (const id of Object.keys(cfgs || {}).filter(x => /^gc-/.test(x)).sort()) {
     const p = platformOf(id), lang = String((cfgs[id] && cfgs[id].lang) || 'en').toLowerCase(), k = p + '|' + lang;
-    if (have.has(p) || seen.has(k)) continue; seen.add(k);
-    // page ngôn ngữ riêng chỉ nhận clip cùng ngôn ngữ (đứng trước); page EN chung = mọi ngôn ngữ chưa có page riêng (05/11: mới có 1 page "Lexkite.com")
-    (lang === 'en' ? general : own).push({ cond: lang === 'en' ? {} : { lang }, channel_id: id, active: 1 });
+    if (have.has(p)) continue;
+    // page EN chung = mọi ngôn ngữ chưa có page riêng; NHIỀU page EN cùng nền tảng (Lexkite.com + Learn English, 11/11) chia nhau clip theo băm id thay vì chỉ page đứng đầu bảng chữ cái
+    if (lang === 'en') { (en[p] = en[p] || []).push(id); continue; }
+    if (seen.has(k)) continue; seen.add(k); own.push({ cond: { lang }, channel_id: id, active: 1 });
   }
+  for (const ids of Object.values(en)) ids.forEach((id, i) => general.push({ cond: ids.length > 1 ? { shard: `${i}/${ids.length}` } : {}, channel_id: id, active: 1 }));
   return [...own, ...general];
 }
 /** Tài khoản không phải của Lexkite trong workspace GrabCast (OAuth Meta kéo kèm Page/IG "Grabcast.click" vào ws4, 05/11) hoặc bị tạm dừng đăng → không bao giờ là đích autopilot. */

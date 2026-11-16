@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_on_time",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "On time, not in time!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: The bus is always in time.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: The bus is always on time.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "On time means at the right time.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "On time! The train is always on time.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "The bus is always in time.",
+  "right": "The bus is always on time.",
+  "strike": "in time",
+  "why": "On time means at the right time.",
+  "memory": "The bus is always on time.",
+  "quiz": {
+   "stem": "The train is always ___.",
+   "options": [
+    "in time",
+    "on time"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“In time” değil, “on time”!",
+   "tip": "Türkçede “zamanında” deriz; tam saatinde olmak için “on time” kullanılır: “The bus is always on time.”",
+   "caption": "“The bus is always in time” mi diyorsun? 😅 Tam saatinde, gecikmeden demek için “in time” değil, “on time” kullanılır. Doğrusu “The bus is always on time.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “on time”. Tam saatinde, gecikmeden demek için “on time” de. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “on time”, not “in time”!",
+   "tip": "For the right time, use “on time”: “The bus is always on time.”",
+   "caption": "Do you say “The bus is always in time”? 😅 In English for the right time we say on time, not in time. The right sentence is “The bus is always on time.” Listen to Ama and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“In time” değil, “on time”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "“In time” değil, “on time”!",
+  "keyword": "The bus is always on time.",
+  "value": "Türkçede “zamanında” deriz; tam saatinde olmak için “on time” kullanılır: “The bus is always on time.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 46,
+  "platforms": {
+   "youtube": {
+    "title": "“In time” değil, “on time”!",
+    "description": "Türkçede “zamanında” deriz; tam saatinde olmak için “on time” kullanılır: “The bus is always on time.”\n\n“The bus is always in time” mi diyorsun? 😅 Tam saatinde, gecikmeden demek için “in time” değil, “on time” kullanılır. Doğrusu “The bus is always on time.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "The bus is always on time.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“The bus is always in time” mi diyorsun? 😅 Tam saatinde, gecikmeden demek için “in time” değil, “on time” kullanılır. Doğrusu “The bus is always on time.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“In time” değil, “on time”!\n\nTürkçede “zamanında” deriz; tam saatinde olmak için “on time” kullanılır: “The bus is always on time.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“In time” değil, “on time”! Türkçede “zamanında” deriz; tam saatinde olmak için “on time” kullanılır: “T… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “on time”. Tam saatinde, gecikmeden demek için “on time” de. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+  "lang": "tr"
+ }
+}

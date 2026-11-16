@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_take_photo",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Made a photo? You took it!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I made a photo of Ana.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I took a photo of Ana.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Take a photo.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Took! He took a photo of me.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I made a photo of Ana.",
+  "right": "I took a photo of Ana.",
+  "strike": "made",
+  "why": "Take a photo.",
+  "memory": "Take a photo.",
+  "quiz": {
+   "stem": "He ___ a photo of me.",
+   "options": [
+    "made",
+    "took"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "¿“Made a photo”? Es “took”",
+   "tip": "Muchos dicen “hacer una foto”; en inglés es “take a photo”, como “tomar una foto”.",
+   "caption": "¿Dices “I made a photo of Ana.”? 📸 Muchos dicen “hice una foto”, pero en inglés: “I took a photo of Ana.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “took”. “Take a photo”, no “make a photo”. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#vocabulario",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Made a photo”? You “took” it",
+   "tip": "Learners say “hacer una foto”; English says “take a photo”, like “tomar una foto”.",
+   "caption": "Do you say “I made a photo of Ana.”? Learners say “hice una foto”, but in English: “I took a photo of Ana.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿“Made a photo”? Es “took”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "¿“Made a photo”? Es “took”",
+  "keyword": "I took a photo of Ana.",
+  "value": "Muchos dicen “hacer una foto”; en inglés es “take a photo”, como “tomar una foto”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#vocabulario",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "¿“Made a photo”? Es “took”",
+    "description": "Muchos dicen “hacer una foto”; en inglés es “take a photo”, como “tomar una foto”.\n\n¿Dices “I made a photo of Ana.”? 📸 Muchos dicen “hice una foto”, pero en inglés: “I took a photo of Ana.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
+    "tags": [
+     "I took a photo of Ana.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "¿Dices “I made a photo of Ana.”? 📸 Muchos dicen “hice una foto”, pero en inglés: “I took a photo of Ana.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "¿“Made a photo”? Es “took”\n\nMuchos dicen “hacer una foto”; en inglés es “take a photo”, como “tomar una foto”.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#vocabulario",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿“Made a photo”? Es “took” Muchos dicen “hacer una foto”; en inglés es “take a photo”, como “tomar una foto… #aprenderingles #inglesfacil #vocabulario"
+   }
+  },
+  "first_comment": "Respuesta: “took”. “Take a photo”, no “make a photo”. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}

@@ -32,5 +32,38 @@
    {"t": "Habla de una experiencia que te enseñó algo importante.", "min": 50, "g": ["una vez|cuando|hace |el ano pasado", "aprend|ensen|descubr|me di cuenta|entendi", "porque|entonces|por eso|ahora"]},
    {"t": "Habla de un problema de tu ciudad y propón una solución.", "min": 50, "g": ["problema|trafico|ruido|contamin|transporte|basura|precio", "deberia|podrian|habria que|hay que|propongo|solucion|se podria", "porque|por eso|creo|pienso|ademas"]}
   ]
+ },
+ "B2": {
+  "con": ["sin embargo", "no obstante", "por lo tanto", "aunque", "a pesar de", "ya que", "en cambio", "ademas", "por un lado", "por otro lado", "en conclusion", "dado que"],
+  "w": [
+   {"t": "Escribe una carta a un periódico: opina sobre el trabajo remoto. Presenta ventajas y desventajas, da ejemplos y concluye con tu postura.", "min": 150, "g": ["trabajo|teletrabajo|remoto|casa", "ventaja|beneficio|desventaja|inconveniente|problema", "por ejemplo|como|es el caso", "creo|opino|considero|en mi opinion|en conclusion"]},
+   {"t": "Escribe un informe breve para tu universidad: describe un problema de la biblioteca (ruido, horarios, falta de libros) y propón dos soluciones realistas.", "min": 150, "g": ["biblioteca", "problema|ruido|horario|falta|escasez|queja", "propongo|sugiero|recomiendo|se podria|seria conveniente|solucion", "ademas|por un lado|por otro lado|en conclusion"]}
+  ],
+  "s": [
+   {"t": "Habla de un cambio importante en tu vida y explica cómo te afectó.", "min": 80, "g": ["cambi|mude|empece|deje|decidi", "afect|influy|consecuencia|gracias a|debido a", "antes|despues|ahora|desde entonces", "aunque|sin embargo|ya que|por eso"]},
+   {"t": "Defiende tu opinión: ¿deberían las ciudades limitar el uso del coche en el centro? Da argumentos y menciona al menos una objeción.", "min": 80, "g": ["coche|auto|carro|trafico|centro", "contamin|ruido|transporte publico|bicicleta|peaton", "deberian|habria que|seria mejor|creo que|opino", "aunque|sin embargo|a pesar de|por otro lado"]}
+  ]
+ },
+ "C1": {
+  "con": ["no obstante", "sin embargo", "en consecuencia", "por consiguiente", "a pesar de que", "en la medida en que", "cabe destacar", "si bien", "por el contrario", "en definitiva", "dicho esto", "de ahi que"],
+  "w": [
+   {"t": "Redacta un ensayo argumentativo: ¿hasta qué punto la tecnología mejora la educación? Contrasta posturas, matiza tu opinión y cierra con una conclusión fundamentada.", "min": 220, "g": ["tecnolog|digital|internet|aplicacion|herramienta", "educacion|ensenanza|aprendizaje|aula|alumno|estudiante", "si bien|no obstante|sin embargo|por el contrario|a pesar de que", "en definitiva|en conclusion|en suma|por consiguiente"]},
+   {"t": "Escribe una reseña crítica de un libro, una película o una serie que conozcas: resume el argumento, valora sus aciertos y señala sus limitaciones.", "min": 220, "g": ["libro|pelicula|serie|novela|obra", "argumento|trama|personaje|historia|narra", "acierto|logro|destaca|virtud|limitacion|defecto|debilidad", "recomiendo|valoro|en definitiva|en mi opinion"]}
+  ],
+  "s": [
+   {"t": "Presenta una propuesta para mejorar la vida de tu barrio y responde a posibles críticas.", "min": 100, "g": ["barrio|vecin|ciudad|comunidad", "propuesta|propongo|plantear|iniciativa|proyecto", "critica|objecion|preocupa|riesgo|coste|costo", "no obstante|sin embargo|si bien|en definitiva"]},
+   {"t": "Analiza las ventajas y los riesgos de vivir en otro país por motivos de trabajo.", "min": 100, "g": ["pais|extranjero|otro lugar|emigr|mudarse", "trabajo|empleo|carrera|profesional", "ventaja|oportunidad|riesgo|desafio|dificultad|desarraigo", "si bien|no obstante|por un lado|por otro lado|en definitiva"]}
+  ]
+ },
+ "C2": {
+  "con": ["no obstante", "con todo", "a tenor de", "en aras de", "cabe senalar", "de hecho", "en el fondo", "pese a", "por ende", "en tanto que", "dicho sea de paso", "lejos de"],
+  "w": [
+   {"t": "Escribe un artículo de opinión sobre el equilibrio entre la libertad individual y el interés colectivo en la era digital. Usa un registro formal, matices y ejemplos concretos.", "min": 280, "g": ["libertad|individual|derecho|privacidad", "colectivo|sociedad|comunidad|bien comun|interes general", "digital|datos|redes|internet|tecnolog", "no obstante|con todo|pese a|por ende|lejos de|en el fondo"]},
+   {"t": "Redacta una ponencia breve para un congreso: defiende que aprender idiomas transforma la manera de pensar. Estructura tus ideas, anticipa objeciones y concluye con una reflexión propia.", "min": 280, "g": ["idioma|lengua|bilingue|aprender", "pensar|pensamiento|mente|cerebro|cognitiv|mirada", "objecion|critica|podria objetarse|se dira|cabe preguntarse", "no obstante|con todo|pese a|por ende|en el fondo"]}
+  ],
+  "s": [
+   {"t": "Disertación breve: ¿qué papel debería tener el arte en la vida pública? Argumenta con matices y ejemplos.", "min": 120, "g": ["arte|artista|cultura|museo|musica|literatura", "publico|publica|sociedad|ciudad|comunidad|espacio", "deberia|cabria|seria deseable|convendria|a mi juicio", "no obstante|con todo|pese a|en el fondo|por ende"]},
+   {"t": "Explica y valora críticamente un cambio social reciente que consideres relevante.", "min": 120, "g": ["cambio|transformacion|fenomeno|tendencia|reciente", "social|sociedad|generacion|cultura|trabajo|familia", "relevante|alcance|consecuencia|impacto|repercusion", "no obstante|con todo|pese a|por ende|en el fondo|lejos de"]}
+  ]
  }
 }

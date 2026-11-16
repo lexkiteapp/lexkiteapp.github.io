@@ -7,6 +7,7 @@
 import { isMain } from '../../lib/is-main.mjs';
 import fs from 'fs';
 import { execFileSync } from 'child_process';
+import { doneWords } from './lib.mjs';
 
 const NONE = Symbol('none');
 const eq = (a, b) => a === b || (a !== NONE && b !== NONE && JSON.stringify(a) === JSON.stringify(b));
@@ -46,6 +47,14 @@ const parse = t => { try { return t == null ? NONE : JSON.parse(t); } catch { re
 const read = p => (fs.existsSync(p) ? fs.readFileSync(p, 'utf8') : null);
 const atBase = (ref, f) => { try { return execFileSync('git', ['show', `${ref}:${f}`], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], maxBuffer: 1 << 28 }); } catch { return null; } };
 
+/** gỡ khỏi retry mọi mục doneWords() đã tính (khoá từ#loại); lũy đẳng. → 1 nếu có ghi */
+export function reconcileRetry(f, done = doneWords) {
+  if (!f || !fs.existsSync(f)) return 0;
+  const d = JSON.parse(fs.readFileSync(f, 'utf8')), D = done(), keep = (d.items || []).filter(k => !D.has(k));
+  if (keep.length === (d.items || []).length) return 0;
+  d.items = keep; fs.writeFileSync(f, JSON.stringify(d, null, 1) + '\n'); return 1;
+}
+
 if (isMain(import.meta.url)) {
   const [ref, dir, ...files] = process.argv.slice(2);
   let n = 0;
@@ -57,5 +66,7 @@ if (isMain(import.meta.url)) {
       out = v === NONE ? NONE : eq(v, o) ? oT : eq(v, t) ? tT : fmt(v, oT || tT); }
     if (out === NONE) { if (tT != null) fs.unlinkSync(f); } else if (out !== tT) { fs.mkdirSync(f.replace(/\/[^/]*$/, ''), { recursive: true }); fs.writeFileSync(f, out); n++; }
   }
+  // 13/11 (main đỏ: e122220be – 594 mục vừa vào hàng duyệt/đã xuất vẫn nằm trong retry/words.json → test + doneWords): sau gộp 3 chiều, mục đã xử lý (xuất/chờ soát/hàng duyệt) KHÔNG còn ở retry
+  n += reconcileRetry(files.find(f => /retry\/words\.json$/.test(f)));
   console.log(`✓ save-merge: ${files.length} tệp, ${n} ghi (gộp 3 chiều trên origin/main)`);
 }

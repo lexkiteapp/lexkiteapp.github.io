@@ -2,55 +2,55 @@
 
 Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipeline/score.budget.json` · kế hoạch `docs/CONTENT-WORLD-PLAN.md` §3.5. Điểm = độ phủ so với chuẩn × tỉ lệ qua cổng.
 
-**Tổng: 63.2 / 100**
+**Tổng: 75.4 / 100**
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
-| Kho từ | **54.7** | 46.2 | 54.7% | 100% | 0 |
-| Ngữ pháp | **54.5** | 54.5 | 54.5% | 100% | 0 |
-| Giao tiếp | **67.7** | 15.2 | 67.7% | 100% | 0 |
-| 4 kỹ năng | **62.2** | 48.2 | 62.2% | 100% | 0 |
-| Đề thi | **31.7** | 30.4 | 31.7% | 100% | 0 |
-| Khung Can-do | **80.3** | 79.3 | 80.3% | 100% | 0 |
-| Dễ học – dễ nhớ | **91.5** | 90.7 | 91.5% | 100% | 0 |
-| i18n | **62.7** | 62.7 | 62.7% | 100% | 0 |
+| Kho từ | **59.2** | 58.5 | 59.2% | 100% | 0 |
+| Ngữ pháp | **72.8** | 72.8 | 72.8% | 100% | 0 |
+| Giao tiếp | **89.7** | 68.3 | 89.7% | 100% | 0 |
+| 4 kỹ năng | **69.5** | 62.9 | 69.5% | 100% | 0 |
+| Đề thi | **57.1** | 31.7 | 57.1% | 100% | 0 |
+| Khung Can-do | **82** | 81.3 | 82% | 100% | 0 |
+| Dễ học – dễ nhớ | **91.8** | 91.7 | 91.8% | 100% | 0 |
+| i18n | **81** | 62.7 | 81% | 100% | 0 |
 
 ## Kho từ
 
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
-| từ#loại duy nhất | 9775 / 20000 | 49% | 25 |
-| IPA·nghĩa·định nghĩa·ví dụ·CEFR | 9775 / 9775 | 100% | 20 |
-| collocation | 4818 / 20000 | 24% | 12 |
-| đồng nghĩa | 2923 / 20000 | 15% | 8 |
-| IPA Mỹ | 6486 / 20000 | 32% | 5 |
-| ảnh theo nghĩa | 7501 / 20000 | 38% | 15 |
-| C2 | 685 / 1000 | 69% | 10 |
-| A1 | 862 / 1000 | 86% | 5 |
+| từ#loại duy nhất | 10287 / 20000 | 51% | 25 |
+| IPA·nghĩa·định nghĩa·ví dụ·CEFR | 10287 / 10287 | 100% | 20 |
+| collocation | 5019 / 20000 | 25% | 12 |
+| đồng nghĩa | 3106 / 20000 | 16% | 8 |
+| IPA Mỹ | 6884 / 20000 | 34% | 5 |
+| ảnh theo nghĩa | 8014 / 20000 | 40% | 15 |
+| C2 | 1022 / 1000 | 100% | 10 |
+| A1 | 869 / 1000 | 87% | 5 |
 
 ## Ngữ pháp
 
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
-| bài A1 | 3 / 15 | 20% | 8 |
+| bài A1 | 15 / 15 | 100% | 8 |
 | bài A2 | 14 / 15 | 93% | 8 |
 | bài B1 | 30 / 30 | 100% | 8 |
 | bài B2 | 27 / 27 | 100% | 8 |
 | bài C1 | 6 / 15 | 40% | 8 |
-| bài C2 (chưa làm) | 0 / 10 | 0% | 8 |
-| trắc nghiệm | 1056 / 3000 | 35% | 20 |
-| tự luận | 1125 / 3000 | 38% | 20 |
+| bài C2 (chưa làm) | 10 / 10 | 100% | 8 |
+| trắc nghiệm | 1320 / 3000 | 44% | 20 |
+| tự luận | 1461 / 3000 | 49% | 20 |
 | kho điểm ngữ pháp | 300 / 300 | 100% | 12 |
-| điểm đã có bài đúng cấp | 157 / 300 | 52% | 12 |
+| điểm đã có bài đúng cấp | 209 / 300 | 70% | 12 |
 
 ## Giao tiếp
 
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
-| cuộc gọi Ama/Carlos | 35 / 60 | 58% | 20 |
-| roleplay | 31 / 60 | 52% | 20 |
+| cuộc gọi Ama/Carlos | 60 / 60 | 100% | 20 |
+| roleplay | 60 / 60 | 100% | 20 |
 | tình huống Play & Speak | 40 / 40 | 100% | 20 |
-| mục gold (giải thích cách dùng) | 284 / 1000 | 28% | 20 |
+| mục gold (giải thích cách dùng) | 484 / 1000 | 48% | 20 |
 | sổ mẫu câu theo chức năng (chưa làm) | 100 / 100 | 100% | 20 |
 
 ## 4 kỹ năng
@@ -58,8 +58,8 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
 | Nghe: bộ bài | 40 / 80 | 50% | 15 |
-| Đọc: bài | 342 / 600 | 57% | 15 |
-| Đọc ngắn A1 (chưa làm) | 0 / 80 | 0% | 3 |
+| Đọc: bài | 486 / 600 | 81% | 15 |
+| Đọc ngắn A1 (chưa làm) | 128 / 80 | 100% | 3 |
 | Đọc ngắn A2 | 65 / 80 | 81% | 3 |
 | Đọc ngắn B1 | 75 / 80 | 94% | 3 |
 | Đọc ngắn B2 | 75 / 80 | 94% | 3 |
@@ -67,7 +67,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | Đọc ngắn C2 (chưa làm) | 0 / 80 | 0% | 3 |
 | Nói: chủ đề | 32 / 60 | 53% | 10 |
 | Nói: câu trả lời mẫu | 343 / 600 | 57% | 10 |
-| Viết: bài mẫu | 232 / 400 | 58% | 18 |
+| Viết: bài mẫu | 246 / 400 | 62% | 18 |
 | trung gian (mediation) (chưa làm) | 30 / 30 | 100% | 14 |
 
 ## Đề thi
@@ -79,18 +79,18 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | IELTS Reading GT | 200 / 400 | 50% | 5 |
 | IELTS Writing Task 2 | 80 / 200 | 40% | 5 |
 | IELTS Writing Task 1 Academic | 38 / 80 | 48% | 5 |
-| TOEIC Listening | 700 / 1000 | 70% | 5 |
-| TOEIC Reading | 700 / 1000 | 70% | 5 |
-| TOEIC Speaking & Writing | 60 / 190 | 32% | 5 |
-| TOEFL Reading | 240 / 500 | 48% | 5 |
-| TOEFL Listening | 200 / 400 | 50% | 5 |
-| TOEFL Writing | 100 / 200 | 50% | 5 |
-| TOEFL Speaking | 150 / 300 | 50% | 5 |
-| Cambridge A2 (chưa làm) | 1 / 6 | 17% | 8 |
-| Cambridge B1 (chưa làm) | 0 / 6 | 0% | 8 |
-| Cambridge B2 (chưa làm) | 0 / 6 | 0% | 8 |
-| Cambridge C1 (chưa làm) | 0 / 6 | 0% | 8 |
-| Cambridge C2 (chưa làm) | 0 / 6 | 0% | 8 |
+| TOEIC Listening | 1000 / 1000 | 100% | 5 |
+| TOEIC Reading | 1000 / 1000 | 100% | 5 |
+| TOEIC Speaking & Writing | 78 / 190 | 41% | 5 |
+| TOEFL Reading | 500 / 500 | 100% | 5 |
+| TOEFL Listening | 470 / 400 | 100% | 5 |
+| TOEFL Writing | 160 / 200 | 80% | 5 |
+| TOEFL Speaking | 271 / 300 | 90% | 5 |
+| Cambridge A2 (chưa làm) | 3 / 6 | 50% | 8 |
+| Cambridge B1 (chưa làm) | 3 / 6 | 50% | 8 |
+| Cambridge B2 (chưa làm) | 3 / 6 | 50% | 8 |
+| Cambridge C1 (chưa làm) | 1 / 6 | 17% | 8 |
+| Cambridge C2 (chưa làm) | 1 / 6 | 17% | 8 |
 
 ## Khung Can-do
 
@@ -98,17 +98,17 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 |---|---|---|---|
 | mục tiêu LKF tự soạn | 585 / 600 | 98% | 25 |
 | ô kỹ năng × cấp đủ ≥ 15 | 36 / 36 | 100% | 15 |
-| nội dung có lo hợp lệ | 10625 / 10625 | 100% | 35 |
-| mục tiêu đã có nội dung luyện | 142 / 600 | 24% | 25 |
+| nội dung có lo hợp lệ | 11425 / 11425 | 100% | 35 |
+| mục tiêu đã có nội dung luyện | 184 / 600 | 31% | 25 |
 
 ## Dễ học – dễ nhớ
 
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
-| Ngữ pháp | 96.4 / 100 | 96% | 25 |
+| Ngữ pháp | 96.9 / 100 | 97% | 25 |
 | Bài lộ trình | 100 / 100 | 100% | 25 |
-| Bộ từ | 74.3 / 100 | 74% | 25 |
-| Kỹ năng | 95.4 / 100 | 95% | 25 |
+| Bộ từ | 74.2 / 100 | 74% | 25 |
+| Kỹ năng | 96.1 / 100 | 96% | 25 |
 
 ## i18n
 
@@ -117,4 +117,4 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | ngôn ngữ đạt i18n-qa | 13 / 13 | 100% | 45 |
 | nhãn ngắn dịch tay | 12.4 / 13 | 95% | 10 |
 | gói nghĩa từ theo ngôn ngữ | 5.3 / 13 | 41% | 20 |
-| điểm bản xứ (native-score/5) (chưa làm) | 0 / 5 | 0% | 25 |
+| điểm bản xứ (native-score/5) (chưa làm) | 3.7 / 5 | 74% | 25 |

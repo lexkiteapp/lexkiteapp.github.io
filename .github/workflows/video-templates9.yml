@@ -12,6 +12,7 @@ on:
       plan: { description: 'true = dry run: voices + layout/timing plan JSON only (no frames, no render)', default: 'false' }
       shards: { description: 'frame shards per template (1 = single-process render, default: 4 shards only ~17 % faster wall-clock and 4x the jobs; proven equivalent, see PR)', default: '1' }
 permissions: { contents: read }
+# ci-policy: group-inputs – templates mặc định 6 mẫu, dispatch lẻ ≤ 6 (nhóm serial theo input; danh sách dài thì dùng github.run_id như video-motion.yml)
 concurrency: { group: 'video-templates9-${{ github.event.inputs.dir }}-${{ github.event.inputs.templates }}-${{ github.event.inputs.shards }}', cancel-in-progress: false }
 env:
   DIR: ${{ github.event.inputs.dir || 'templates-v1' }}
@@ -29,10 +30,11 @@ jobs:
           echo "shards=$(python3 -c "import json;print(json.dumps(list(range($N))))")" >> "$GITHUB_OUTPUT"
   voice:
     needs: setup
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 30
     strategy:
       fail-fast: false
+      max-parallel: 3   # 15/11: luật chủ 13/11 – video ≤ 3 máy khi còn việc khác (10 job video-motion chiếm 10/40 máy, PR xếp hàng 260 job)
       matrix: { t: '${{ fromJSON(needs.setup.outputs.list) }}' }
     env: { SPEC: 'content/video/cine/news/${{ github.event.inputs.dir || ''templates-v1'' }}/${{ matrix.t }}.json' }
     steps:
@@ -69,10 +71,11 @@ jobs:
         with: { name: 'vo-${{ matrix.t }}-${{ github.run_number }}', path: vo/, retention-days: 3 }
   shard:
     needs: [setup, voice]
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 60
     strategy:
       fail-fast: false
+      max-parallel: 3   # 15/11: luật chủ 13/11 – video ≤ 3 máy khi còn việc khác (10 job video-motion chiếm 10/40 máy, PR xếp hàng 260 job)
       matrix: { t: '${{ fromJSON(needs.setup.outputs.list) }}', i: '${{ fromJSON(needs.setup.outputs.shards) }}' }
     env:
       SPEC: content/video/cine/news/${{ github.event.inputs.dir || 'templates-v1' }}/${{ matrix.t }}.json
@@ -113,10 +116,11 @@ jobs:
   merge:
     needs: [setup, shard]
     if: ${{ always() && needs.shard.result == 'success' && github.event.inputs.plan != 'true' }}
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 40
     strategy:
       fail-fast: false
+      max-parallel: 3   # 15/11: luật chủ 13/11 – video ≤ 3 máy khi còn việc khác (10 job video-motion chiếm 10/40 máy, PR xếp hàng 260 job)
       matrix: { t: '${{ fromJSON(needs.setup.outputs.list) }}' }
     env:
       SPEC: content/video/cine/news/${{ github.event.inputs.dir || 'templates-v1' }}/${{ matrix.t }}.json

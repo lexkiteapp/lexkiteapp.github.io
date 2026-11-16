@@ -25,7 +25,7 @@
     laugh: { kind: 'pose', pose: 'laugh', hold: 1.2, emo: 'praise' }, empathy: { kind: 'pose', pose: 'empathy', hold: 1.4, emo: 'sad' },
     // ảnh chuẩn riêng (gesture bank 05/11): alt = tư thế đã duyệt cho người CHƯA có ảnh này (Chars.has)
     thumbs_up: { kind: 'pose', pose: 'thumbs_up', alt: 'encourage', hold: 1.2, emo: 'encourage' }, clap: { kind: 'pose', pose: 'clap', alt: 'cheer', hold: 1.2, emo: 'praise' },
-    count: { kind: 'pose', pose: 'explain', hold: 1.6, emo: 'explain', pending: 1 }, hold_card: { kind: 'pose', pose: 'hold_card', alt: 'explain', hold: 2, emo: 'explain' },
+    count: { kind: 'pose', pose: 'count', alt: 'explain', hold: 1.6, emo: 'explain' }, hold_card: { kind: 'pose', pose: 'hold_card', alt: 'explain', hold: 2, emo: 'explain' },
   };
   const KEYS = ['brow', 'knit', 'smile', 'o', 'lx', 'ly', 'tilt'];
   const vec = name => { const e = EMOTIONS[name] || {}; return { brow: e.brow || 0, knit: e.knit || 0, smile: e.smile || 0, o: e.o || 0, lx: (e.look || [0, 0])[0], ly: (e.look || [0, 0])[1], tilt: e.tilt || 0, nodHz: e.nodHz || 0, nodPx: e.nodPx || 0 }; };
@@ -66,7 +66,7 @@
         emo.nodHz = want.nodHz; emo.nodPx = want.nodPx;
         // lớp miệng/mắt: máy nói (đồng hồ âm thanh) hoặc máy nghỉ
         let s, talking = false;
-        if (S) { const t = S.clock(); talking = S.playing(); if (S.live) { S.live.tick(t, talking, Math.min(dt, 0.1)); s = S.M.at(Math.max(0, t - LS().LEAD)); } else s = S.M.at(t); }
+        if (S) { const t = S.clock(); talking = S.playing(); if (S.live) { S.live.tick(t, talking && (S.voiced ? S.voiced() : true), Math.min(dt, 0.1)); s = S.M.at(Math.max(0, t - LS().LEAD)); } else s = S.M.at(t); }
         else s = idle.at(now % 120);
         openK = talking ? Math.min(1, openK + dt / 0.04) : Math.max(0, openK - dt / 0.08); // không phát → miệng về X trong 80 ms
         if (openK < 1) { s.mouth = LM().mix('X', s.mouth, openK); if (openK < 0.5) s.shape = 'X'; s.open *= openK; }
@@ -138,16 +138,25 @@
   const imgs = {};
   const img = src => imgs[src] || (imgs[src] = new Promise(ok => { const i = new Image(); i.decoding = 'async'; i.onload = () => (i.decode ? i.decode().catch(() => {}) : Promise.resolve()).then(() => ok(i)); i.onerror = () => ok(null); i.src = src; }));
 
+  // 1 AudioContext chung cho mọi giáo viên trên trang (trình duyệt giới hạn số context)
+  const IOS_WA = /iP(hone|ad|od)/.test(g.navigator && g.navigator.userAgent || '') || (/Macintosh/.test(g.navigator && g.navigator.userAgent || '') && (g.navigator.maxTouchPoints || 0) > 1);
+  let actx = null;
+  const audioCtx = () => { if (actx) return actx; try { const A = g.AudioContext || g.webkitAudioContext; if (A) actx = new A(); } catch (e) { actx = null; } return actx; };
+
+  /** mount(el, who, o): o.cls = lớp CSS thêm cho canvas (host tự đặt khung, vd. 'tch-face') · o.bare = không thêm class .trig lên host · o.onFail = gọi khi thiếu tài sản (thay ảnh poster dự phòng) */
   function mount(el, who, o = {}) {
     who = g.Chars ? g.Chars.id(who) : who;
-    const stats = { frames: 0, long: 0, draws: 0, low: 0, ready: false, shape: 'X', pose: null, emo: 'neutral', calm: reduced() };
-    let M = null, cv = null, ctx = null, head = null, raf = 0, dead = false, paused = false, lastK = '', prev = 0, dpr = Math.min(2, g.devicePixelRatio || 1), ro = null;
+    const stats = {
+      frames: 0, long: 0, draws: 0, low: 0, fit: 0, rs: 0, ready: false, shape: 'X', open: 0, mode: 'idle', pose: null, emo: 'neutral', calm: reduced(),
+    };
+    const ac = audioCtx(); let tok = 0, endPrev = null, node = null, mode = 'idle', M = null, cv = null, ctx = null, head = null, raf = 0, dead = false, paused = false, lastK = '', prev = 0, dpr = Math.min(2, g.devicePixelRatio || 1), ro = null;
     const poses = {}, scaled = {}, pend = {}; // poses[name]: 1 đang tải · Image · 2 lỗi · scaled[name]: bản thu sẵn về cỡ canvas (vẽ 1:1, không lấy mẫu lại ảnh 1108 px mỗi khung)
     let headC = null, faceC = null, lastT = '', lastP = [], boxes = null;
-    el.classList.add('trig'); // CSS mặc định :where() = độ ưu tiên 0: host tự đặt vị trí (vd. .tb-rig absolute trong chỗ giáo viên) luôn thắng – .trig{relative} chèn sau từng đè absolute → rig tụt 0,1 khung sau khi tải
+    if (!o.bare) el.classList.add('trig'); // CSS mặc định :where() = độ ưu tiên 0: host tự đặt vị trí (vd. .tb-rig absolute trong chỗ giáo viên) luôn thắng – .trig{relative} chèn sau từng đè absolute → rig tụt 0,1 khung sau khi tải
     if (!D.getElementById('trig-css')) D.head.insertAdjacentHTML('beforeend', '<style id="trig-css">:where(.trig){position:relative}:where(.trig>canvas){display:block;width:100%;height:auto;aspect-ratio:1108/960;pointer-events:none}</style>');
     const shrink = im => { const c = D.createElement('canvas'); c.width = cv.width; c.height = cv.height; const x = c.getContext('2d'); x.imageSmoothingQuality = 'high'; x.drawImage(im, 0, 0, c.width, c.height); return c; };
-    const fit = () => { const w = el.clientWidth || 240, W = Math.round(Math.min(1108, w * dpr)); if (cv.width !== W) { cv.width = W; cv.height = Math.round(W * 960 / 1108); headC = shrink(head); for (const k in scaled) scaled[k] = shrink(poses[k]); lastK = lastT = ''; } };
+    // offsetWidth (cỡ bố cục, KHÔNG tính transform): getBoundingClientRect đổi theo hoạt cảnh phóng to người đang nói → đổi cỡ canvas + thu lại đầu và mọi tư thế mỗi nhịp
+    const fit = () => { const w = Math.max(el.clientWidth || 240, (cv.offsetWidth || 0)), W = Math.round(Math.min(1108, w * dpr)); if (cv.width !== W) { stats.rs++; cv.width = W; cv.height = Math.round(W * 960 / 1108); headC = shrink(head); for (const k in scaled) scaled[k] = shrink(poses[k]); lastK = lastT = ''; } };
     // thu nhỏ KHÔNG chặn luồng chính (createImageBitmap resize, ngoài luồng vẽ) – bản canvas đồng bộ chỉ là dự phòng
     const shrinkAsync = im => (g.createImageBitmap ? g.createImageBitmap(im, { resizeWidth: cv.width, resizeHeight: cv.height, resizeQuality: 'high' }).catch(() => shrink(im)) : Promise.resolve(shrink(im)));
     const loadPose = name => {
@@ -161,6 +170,7 @@
       const ex = R.eyes.flatMap(e => [e.c[0] - e.rx - 24, e.c[0] + e.rx + 24]), by = R.brows.flatMap(b => [b.i[1], b.p[1], b.o[1]]);
       return [[Math.min(...ex), Math.min(...by) - 48, Math.max(...ex), Math.max(...R.eyes.map(e => e.c[1] + e.ry + 16))], [R.mouth[0] - 100, R.mouth[1] - 60, R.mouth[0] + 100, R.mouth[1] + 80]];
     };
+    (g.__lkRigs || (g.__lkRigs = [])).push({ who, stats }); // sổ đo cho cổng CI (story-stage in chi phí từng rig); destroy() gỡ
     const prof = stats.prof = { n: 0, js: 0, paint: 0, full: 0, part: 0, skip: 0 };
     const paint = (T, f, P, pi) => {
       ctx.setTransform(T[0], T[1], T[2], T[3], T[4], T[5]);
@@ -186,7 +196,8 @@
       if (f.pose && !poses[f.pose]) loadPose(f.pose);
       const pi = f.pose && typeof poses[f.pose] === 'object' ? poses[f.pose] : null;
       // khóa khung xương (toàn canvas) tách khỏi khóa mặt (chỉ vùng mắt/miệng) → nói/chớp không vẽ lại cả người
-      const kT = [f.tilt / 10, f.nod / 10, f.sway / 10, f.breath * 1e3, f.poseW, f.pose, pi ? 1 : 0, cv.width].map(v => (typeof v === 'number' ? Math.round(v * 100) : v || 0)).join();
+      const qs = cv.width / 1108 / 30; // nod/sway (px poster) và hơi thở theo bước ~0,3 px CANVAS: mịn hơn mắt không thấy mà vẽ lại cả người mỗi khung
+      const kT = [f.tilt / 10, f.nod * qs, f.sway * qs, f.breath * cv.height / 35, f.poseW, f.pose, pi ? 1 : 0, cv.width].map(v => (typeof v === 'number' ? Math.round(v * 100) : v || 0)).join();
       const P = f.faceW > 0 ? g.LipFace.parts(who, s, 'tr' + who) : [];
       const key = kT + '|' + P.join('');
       if (key !== lastK) {
@@ -207,16 +218,17 @@
         }
         lastP = P; prof.paint += performance.now() - tp;
       } else prof.skip++;
-      stats.speaking = M.speaking(); stats.shape = f.shape; stats.pose = f.poseW > 0.5 ? f.pose : null; stats.emo = f.emo; stats.tilt = f.tilt; stats.nod = f.nod; stats.poseW = f.poseW; stats.blink = s.blink || 0;
+      stats.speaking = M.speaking(); stats.shape = f.shape; stats.open = Math.round(s.open * 100) / 100; stats.mode = M.speaking() ? mode : 'idle'; stats.pose = f.poseW > 0.5 ? f.pose : null; stats.emo = f.emo; stats.tilt = f.tilt; stats.nod = f.nod; stats.poseW = f.poseW; stats.blink = s.blink || 0;
       prof.n++; prof.js += performance.now() - t0;
       raf = requestAnimationFrame(frame);
     };
     const ready = load().then(() => img(g.Chars.head(who, true))).then(h => {
       if (dead) return; if (!h) throw new Error('head');
       head = h; M = machine(who, { calm: stats.calm, seed: [...who].reduce((a, c) => a * 31 + c.charCodeAt(0), 7), has: g.Chars && g.Chars.has ? p => g.Chars.has(who, p) : null });
-      cv = D.createElement('canvas'); cv.className = 'trig-cv'; cv.setAttribute('aria-hidden', 'true'); ctx = cv.getContext('2d');
-      fit(); el.appendChild(cv); if (g.ResizeObserver) { ro = new ResizeObserver(() => !dead && fit()); ro.observe(el); } // cỡ đặt TRƯỚC khi gắn → 1 thay đổi DOM duy nhất
-      stats.ready = true; if (!paused) raf = requestAnimationFrame(frame);
+      cv = D.createElement('canvas'); cv.className = 'trig-cv' + (o.cls ? ' ' + o.cls : ''); cv.setAttribute('aria-hidden', 'true'); ctx = cv.getContext('2d');
+      if (!ctx || !g.Path2D) throw new Error('canvas');
+      fit(); el.appendChild(cv); if (o.cls) fit(); if (g.ResizeObserver) { ro = new ResizeObserver(() => !dead && fit()); ro.observe(el); } // cỡ đặt TRƯỚC khi gắn → 1 thay đổi DOM duy nhất
+      stats.ready = true; stats.t0 = performance.now(); if (!paused) raf = requestAnimationFrame(frame);
     });
     const api = {
       who, stats, ready,
@@ -224,25 +236,51 @@
       speak(audio, visemes, so = {}) {
         return ready.then(() => new Promise(done => {
           if (dead) return done();
-          const t0 = performance.now(), clock = audio ? () => audio.currentTime : () => (performance.now() - t0) / 1000;
-          const c = cuesOf(visemes), dur = (c && c.dur) || so.dur || (audio && isFinite(audio.duration) ? audio.duration : Math.max(0.6, String(so.text || '').length * 0.065));
-          const isPlay = audio ? () => playing(audio) : () => clock() < dur;
-          const live = c ? null : g.LipSync.live(so.text || '', { dur });
-          M.speak({ clock, playing: isPlay, cues: c && c.cues, env: c && c.env, live, dur, text: so.text });
-          let ended = false; const fin = () => { if (ended) return; ended = true; M.quiet(); done(); };
-          if (audio) { audio.addEventListener('ended', fin, { once: true }); audio.addEventListener('error', fin, { once: true }); } else setTimeout(fin, dur * 1000 + 80);
+          if (endPrev) endPrev(); // câu mới thay câu cũ: trả lời hứa của câu cũ, bỏ nối âm cũ
+          const my = ++tok, t0 = performance.now(), LSy = g.LipSync, c = cuesOf(visemes), text = String(so.text || '');
+          // đồng hồ hiển thị = tiếng THẬT tới tai (nội suy currentTime, − trễ loa, + 1 khung): lệch ≤ ±33 ms (lip-clock.mjs)
+          const clk = audio && LSy.clock ? LSy.clock(() => ({ t: audio.currentTime, playing: playing(audio), rate: audio.playbackRate }), () => (ac ? ac.outputLatency || ac.baseLatency || 0 : 0)) : null, clock = audio ? (clk ? () => clk(performance.now()) : () => audio.currentTime) : () => (performance.now() - t0) / 1000;
+          const est = (c && c.dur) || so.dur || (audio && isFinite(audio.duration) ? audio.duration : Math.max(0.6, text.length * 0.065));
+          const isPlay = audio ? () => playing(audio) : () => clock() < est, an = { n: null, buf: null }, vd = LSy.vad ? LSy.vad() : null;
+          const drop = () => { if (node) { try { node.disconnect(); } catch (e) { /* bỏ qua */ } node = null; } };
+          let ended = false, refined = false;
+          const fin = () => { if (ended) return; ended = true; if (my === tok) { drop(); M.quiet(); mode = 'idle'; } if (endPrev === stop) endPrev = null; done(); };
+          const stop = () => { if (ended) return; ended = true; drop(); done(); };
+          endPrev = stop;
+          // câu có file tiếng nhưng chưa có mốc CI → giải mã đúng file đang phát, căn âm vị theo độ lớn tiếng thật (fromEnv); lỗi CORS/giải mã → giữ live
+          const refine = () => { const url = audio.currentSrc || audio.src; if (!url || !ac || !g.fetch || !LSy.fromEnv) return; refined = true;
+            g.fetch(url).then(r => (r.ok ? r.arrayBuffer() : Promise.reject(r.status))).then(b => new Promise((ok, no) => { const p = ac.decodeAudioData(b, ok, no); if (p && p.catch) p.catch(no); }))
+              .then(buf => { if (dead || my !== tok || (isFinite(audio.duration) && Math.abs(audio.duration - buf.duration) > 0.12)) return;
+                const env = LSy.envOf(buf), dur = buf.duration; M.speak({ clock, playing: isPlay, cues: LSy.fromEnv(text, dur, env), env, dur, text }); mode = 'pre'; stats.fit++; }).catch(() => {}); };
+          const live = () => {
+            if (!node && audio && audio.crossOrigin && api.tap()) { try { node = ac.createMediaElementSource(audio); audio._lkWA = 1; an.n = ac.createAnalyser(); an.n.fftSize = 1024; node.connect(an.n); an.n.connect(ac.destination); an.buf = new Float32Array(an.n.fftSize); } catch (e) { an.n = null; } }
+            const L = LSy.live(text, { dur: audio && isFinite(audio.duration) ? audio.duration : est });
+            const voiced = () => { if (audio && !playing(audio)) return false; if (!an.n || !vd) return true; an.n.getFloatTimeDomainData(an.buf); let e = 0; for (const x of an.buf) e += x * x; return vd(Math.sqrt(e / an.buf.length)); };
+            M.speak({ clock, playing: isPlay, live: L, voiced, dur: est, text }); mode = 'live';
+            if (audio && !isFinite(audio.duration)) audio.addEventListener('loadedmetadata', () => { if (my === tok && audio.currentTime < 0.05) live(); }, { once: true });
+            if (audio && !refined) refine();
+          };
+          if (c && c.cues) {
+            M.speak({ clock, playing: isPlay, cues: c.cues, env: c.env, dur: est, text }); mode = 'pre';
+            // mp3 đệm cũ / sai bản → độ dài lệch mốc > 120 ms thì chuyển live (không bao giờ khớp sai)
+            if (audio && c.dur) audio.addEventListener('loadedmetadata', () => { if (my === tok && isFinite(audio.duration) && Math.abs(audio.duration - c.dur) > 0.12) live(); }, { once: true });
+          } else live();
+          if (audio && ac && ac.state !== 'running') ac.resume().catch(() => {});
+          if (audio) { audio.addEventListener('ended', fin, { once: true }); audio.addEventListener('error', fin, { once: true }); } else setTimeout(fin, est * 1000 + 80);
         }));
       },
-      quiet() { if (M) M.quiet(); },
+      /** tap(): true khi câu live đo được năng lượng tiếng (Web Audio; iOS không nối vì công tắc im lặng tắt tiếng) – host đặt crossOrigin cho <audio> trước khi phát */
+      tap: () => !IOS_WA && !!(ac && ac.state === 'running'),
+      quiet() { tok++; if (endPrev) endPrev(); if (M) M.quiet(); mode = 'idle'; },
       /** pause(true) = dừng hẳn vòng vẽ (tab ẩn / ngoài màn: 0 CPU); pause(false) = chạy lại, đồng hồ khung không nhảy (prev đặt lại) */
       pause(on) { on = !!on; if (on === paused) return; paused = on; if (on) { cancelAnimationFrame(raf); raf = 0; } else if (stats.ready && !dead) { prev = 0; raf = requestAnimationFrame(frame); } },
       setEmotion(name) { return ready.then(() => M.setEmotion(name)); },
       gesture(name) { const G = GESTURES[name]; return ready.then(() => (G && G.kind === 'pose' ? loadPose(poseOf(G, g.Chars && g.Chars.has ? p => g.Chars.has(who, p) : null)) : null)).then(() => !dead && M.gesture(name, performance.now() / 1000)); }, // ảnh tư thế tải XONG mới mờ chéo (không bật hình)
       listen(on) { return ready.then(() => { M.setEmotion(on ? 'listen' : 'neutral'); }); },
       state: () => (M ? M.last() : null),
-      destroy() { dead = true; cancelAnimationFrame(raf); if (ro) ro.disconnect(); if (cv) cv.remove(); el.classList.remove('trig'); },
+      destroy() { dead = true; if (g.__lkRigs) g.__lkRigs = g.__lkRigs.filter(r => r.stats !== stats); tok++; if (endPrev) endPrev(); cancelAnimationFrame(raf); if (ro) ro.disconnect(); if (cv) cv.remove(); if (!o.bare) el.classList.remove('trig'); },
     };
-    ready.catch(() => { stats.failed = true; if (!dead && g.Chars) el.insertAdjacentHTML('beforeend', g.Chars.slot ? g.Chars.slot(who, { size: 'xl', cls: 'trig-poster', ground: false }) : ''); }); // thiếu tài sản → ảnh 2D tĩnh qua chỗ giáo viên chung (Chars.slot), không bao giờ trống
+    ready.catch(() => { stats.failed = true; if (o.onFail) { if (!dead) o.onFail(); return; } if (!dead && g.Chars) el.insertAdjacentHTML('beforeend', g.Chars.slot ? g.Chars.slot(who, { size: 'xl', cls: 'trig-poster', ground: false }) : ''); }); // thiếu tài sản → ảnh 2D tĩnh qua chỗ giáo viên chung (Chars.slot), không bao giờ trống
     return api;
   }
 

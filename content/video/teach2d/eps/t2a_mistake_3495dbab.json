@@ -1,0 +1,129 @@
+{
+ "id": "t2a_mistake_3495dbab",
+ "template": "mistake",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Full of, not full with.",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: The bus is full with people.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: The bus is full of people.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use full of, not full with.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Full of! The bus is full of people.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "The bus is full with people.",
+  "right": "The bus is full of people.",
+  "strike": "full with",
+  "why": "Use full of, not full with.",
+  "memory": "Full OF",
+  "quiz": {
+   "stem": "The bus is ___ people.",
+   "options": [
+    "full with",
+    "full of"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Full of, not full with."
+ },
+ "src": {
+  "gold": "sb_3495dbab",
+  "pid": "w:full#adj"
+ },
+ "est": {
+  "words": 51,
+  "seconds": 30.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Stop saying \"full with\"? Say this instead",
+  "keyword": "full with",
+  "value": "Say \"The bus is full of people\", not \"The bus is full with people\". Use full of, not full with.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#englishgrammar",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 45,
+  "platforms": {
+   "youtube": {
+    "title": "Stop saying \"full with\"? Say this instead",
+    "description": "Say \"The bus is full of people\", not \"The bus is full with people\". Use full of, not full with.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix\n\nSeries: Stop Saying This · Teacher: Ama\n\n#learnenglish #englishtips #englishgrammar #englishteacher",
+    "tags": [
+     "full with",
+     "Stop Saying This",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Stop saying \"full with\"? Say this instead\n\nSay \"The bus is full of people\", not \"The bus is full with people\". Use full of, not full with.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Stop saying \"full with\"? Say this instead\n\nSay \"The bus is full of people\", not \"The bus is full with people\". Use full of, not full with.\n\nCheck your grammar: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#englishgrammar",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Stop saying \"full with\"? Say this instead #learnenglish #englishtips #englishgrammar"
+   }
+  },
+  "first_comment": "Quiz answer: Full of! The bus is full of people. Say \"The bus is full of people\", not \"The bus is full with people\". Use full of, not full with. Practice it with a free quiz: {link}"
+ }
+}

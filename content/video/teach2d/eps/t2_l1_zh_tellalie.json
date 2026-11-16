@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_tellalie",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say tell a lie!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: He said a lie.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: He told a lie.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "We tell a lie.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Tell! Do not tell a lie.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "He said a lie.",
+  "right": "He told a lie.",
+  "strike": "said",
+  "why": "We tell a lie.",
+  "memory": "Tell a lie.",
+  "quiz": {
+   "stem": "Do not ___ a lie.",
+   "options": [
+    "say",
+    "tell"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“说谎”要用 tell a lie！",
+   "tip": "中文说“说谎”，“说”对应 say，所以容易说 say a lie。英语的固定说法是 tell a lie。",
+   "caption": "你是不是也会说 “He said a lie.”😅 “说谎”的“说”不是 say，英语固定说 tell a lie：“He told a lie.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“He told a lie.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “tell a lie”!",
+   "tip": "The set phrase is tell a lie, not say a lie.",
+   "caption": "Do you say “He said a lie.” 😅 The set phrase is tell a lie, not say a lie: “He told a lie.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“说谎”要用 tell a lie！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "“说谎”要用 tell a lie！",
+  "keyword": "He told a lie.",
+  "value": "中文说“说谎”，“说”对应 say，所以容易说 say a lie。英语的固定说法是 tell a lie。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "“说谎”要用 tell a lie！",
+    "description": "中文说“说谎”，“说”对应 say，所以容易说 say a lie。英语的固定说法是 tell a lie。\n\n你是不是也会说 “He said a lie.”😅 “说谎”的“说”不是 say，英语固定说 tell a lie：“He told a lie.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "He told a lie.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “He said a lie.”😅 “说谎”的“说”不是 say，英语固定说 tell a lie：“He told a lie.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“说谎”要用 tell a lie！\n\n中文说“说谎”，“说”对应 say，所以容易说 say a lie。英语的固定说法是 tell a lie。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“说谎”要用 tell a lie！ 中文说“说谎”，“说”对应 say，所以容易说 say a lie。英语的固定说法是 tell a lie。 #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“He told a lie.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

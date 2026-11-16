@@ -55,8 +55,8 @@ const LN = ex('reports/learnability.json') ? JSON.parse(rd('reports/learnability
 
 // ---------- Cổng 3: i18n-qa (15 ngôn ngữ) ----------
 const qa = spawnSync('node', ['scripts/i18n-qa.mjs'], { encoding: 'utf8' }).stdout || '';
-const qaRows = [...qa.matchAll(/^[✓✗] ([\w-]+): thiếu (\d+) · sai biến\/thẻ (\d+) · lẫn tiếng Việt (\d+) · dịch sai đã biết (\d+) · mất tiếng Anh mẫu (\d+) · nhãn ngắn chưa dịch tay (\d+)/gm)]
-  .map(m => ({ l: m[1], hard: +m[2] + +m[3] + +m[4] + +m[5] + +m[6], short: +m[7] }));
+const qaRows = [...qa.matchAll(/^[✓✗] ([\w-]+): thiếu (\d+) · sai biến\/thẻ (\d+) · lẫn tiếng Việt (\d+) · dịch sai đã biết (\d+) · mất tiếng Anh mẫu (\d+)(?: · lẫn xưng hô (\d+))? · nhãn ngắn chưa dịch tay (\d+)/gm)]
+  .map(m => ({ l: m[1], hard: +m[2] + +m[3] + +m[4] + +m[5] + +m[6] + +(m[7] || 0), short: +m[8] }));
 const LANGS = rd('scripts/i18n-langs.txt').split('\n').map(x => x.trim()).filter(x => x && !x.startsWith('#'));
 const enDict = (() => { const g = {}; new Function('self', rd('web/js/i18n/en.js'))(g); return g.I18N_DICT.en; })();
 const lazy = ((rd('scripts/build-i18n.sh').match(/^LAZY="([^"]*)"/m) || [])[1] || '').split(/\s+/).filter(Boolean);
@@ -68,7 +68,7 @@ const nativeAvg = native ? +(native.avg ?? native.mean ?? 0) : 0;
 // ---------- Thành phần: [tên, có, chuẩn, trọng số, future?] – future = chưa làm (được phép 0, chưa có nguồn) ----------
 const grammar = C.GRAMMAR || [], gLv = l => grammar.filter(g => g.level === l).length;
 const readLv = l => +(S['Bài đọc ngắn']?.[l] || 0);
-const roleplay = (() => { const w = { self: {} }; w.window = w.self; for (const f of ls('web/js/roleplay', /^data-.*\.js$/)) { try { new Function('self', 'window', rd('web/js/roleplay/' + f))(w.self, w.self); } catch {} } return (w.self.ROLEPLAY || []).length; })();
+const roleplay = (() => { const w = { self: {} }; w.window = w.self; for (const d of ['web/js/roleplay', 'web/cpack/roleplay']) for (const f of ls(d, /^data-.*\.js$/)) { try { new Function('self', 'window', rd(d + '/' + f))(w.self, w.self); } catch {} } return (w.self.ROLEPLAY || []).length; })(); // lô lớn ở web/cpack (tải lười, ngoài ngân sách web/js)
 // Thành phần đếm tuyệt đối so với chuẩn cố định → thêm nội dung không bao giờ làm tụt điểm; chỉ xoá/lỗi/thiếu trường bắt buộc mới tụt.
 const VSTD = 20000; // kho đích 20k từ#loại (docs/CONTENT-WORLD-PLAN.md §2)
 // Chuẩn đề thi "đủ format + nhiều đề hoàn chỉnh" (≈ 20 đề IELTS, 10 TOEIC/TOEFL) – cố định, độc lập với targets.json
@@ -85,7 +85,7 @@ const AREAS = {
     // chuẩn ~300 điểm A1–C2; "đã có bài đúng cấp" chỉ tăng khi viết bài mới cho điểm trong hàng chờ (targets.json "Ngữ pháp – bài <cấp>")
     ['kho điểm ngữ pháp', GI.points, 300, 12], ['điểm đã có bài đúng cấp', GI.taught, 300, 12]] },
   comm: { name: 'Giao tiếp', err: 0, parts: [
-    ['cuộc gọi Ama/Carlos', countRe(ls('web/js/call', /^calls.*\.js$/).map(f => 'web/js/call/' + f), /^\s*id: '/gm), 60, 20],
+    ['cuộc gọi Ama/Carlos', countRe(['web/js/call', 'web/cpack/call'].flatMap(d => ls(d, /^calls.*\.js$/).map(f => d + '/' + f)), /^\s*id: '/gm), 60, 20],
     ['roleplay', roleplay, 60, 20], ['tình huống Play & Speak', ls('content/situations', /\.json$/).length, 40, 20],
     ['mục gold (giải thích cách dùng)', (rd('web/cpack/lesson/gold.js').match(/":\[\{"why"/g) || []).length, 1000, 20],
     ['sổ mẫu câu theo chức năng', ex('content/framework/functions.json') ? (JSON.parse(rd('content/framework/functions.json')).functions || []).length : 0, 100, 20, 1]] },
