@@ -15936,7 +15936,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "Like it very much!",
+    "h": "I like it very much!",
     "w": "Many learners say: I very like coffee.",
     "r": "Better: I like coffee very much.",
     "y": "Say very much at the end.",
@@ -16109,7 +16109,7 @@
     "h": "Now? Use am studying!",
     "w": "Many learners say: I study English now.",
     "r": "Better: I am studying English now.",
-    "y": "Now? Use am studying.",
+    "y": "Right now: use am studying.",
     "q": "Quick quiz! Which one fits?",
     "a": "Studying! I am studying now.",
     "sh": "Send this to a friend!",
@@ -16349,7 +16349,7 @@
     "r": "Better: I speak English fluently.",
     "y": "Say fluently here.",
     "q": "Quick quiz! Which one fits?",
-    "a": "Quickly! She speaks quickly now.",
+    "a": "Fluently! She speaks English fluently.",
     "sh": "Send this to a friend!",
     "c": "Save this. Free on lexkite.com."
    }
@@ -16381,7 +16381,7 @@
     "h": "Say I don't understand!",
     "w": "Many learners say: I am not understand.",
     "r": "Better: I don't understand.",
-    "y": "Not needs do.",
+    "y": "Verb? Use don't.",
     "q": "Quick quiz! Which one fits?",
     "a": "Do! I do not know.",
     "sh": "Send this to a friend!",
@@ -16531,7 +16531,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "Do not open the light!",
+    "h": "Don't open the light!",
     "w": "Many learners say: Please open the light.",
     "r": "Better: Please turn on the light.",
     "y": "Open is for doors. For lights, turn on.",
@@ -16696,7 +16696,7 @@
   },
   "t2_l1_th_two_child": {
    "template": "l1",
-   "hook": "สองคนขึ้นไป ต้องเป็นพหูพจน์!",
+   "hook": "สองขึ้นไป ต้องเป็นพหูพจน์!",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -16995,7 +16995,7 @@
     "r": "Better: I am bored today.",
     "y": "Bored is how you feel.",
     "q": "Quick quiz! Which one fits?",
-    "a": "Boring! The movie is boring.",
+    "a": "Bored! There is nothing to do. I'm bored.",
     "sh": "Send this to a friend!",
     "c": "Save this. Free on lexkite.com."
    }
@@ -17075,10 +17075,10 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "Drop ever here!",
+    "h": "I have been, no ever!",
     "w": "Many learners say: I have ever been to Bali.",
     "r": "Better: I have been to Bali.",
-    "y": "No ever in yes answers.",
+    "y": "No ever in statements.",
     "q": "Quick quiz! Which one fits?",
     "a": "Have been! I have been to Bali.",
     "sh": "Send this to a friend!",
@@ -17143,7 +17143,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "Do not play Facebook!",
+    "h": "Don't play Facebook!",
     "w": "Many learners say: I play Facebook every night.",
     "r": "Better: I use Facebook every night.",
     "y": "We use Facebook, we do not play it.",
@@ -17160,7 +17160,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "Not have, say there are!",
+    "h": "Say there are, not have!",
     "w": "Many learners say: In Bangkok have many cars.",
     "r": "Better: There are many cars in Bangkok.",
     "y": "Use there is or there are, not have.",
@@ -17172,7 +17172,7 @@
   },
   "t2_l1_th_yes_i_can": {
    "template": "l1",
-   "hook": "ตอบ “ได้” ≠ Can.!",
+   "hook": "ตอบ “ได้” อย่าพูดแค่ Can!",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",

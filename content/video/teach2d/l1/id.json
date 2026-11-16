@@ -77,7 +77,7 @@
     "en": {
      "hook": "She beautiful… no “is”!",
      "tip": "In Indonesian “dia cantik” has no verb, but English needs is, am or are.",
-     "caption": "Ever say this? “She beautiful.” 😅 Do not forget is after she: “She is beautiful.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "caption": "Ever say this? “She beautiful.” 😅 Don't forget is after she: “She is beautiful.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -127,7 +127,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Like it very much!",
+    "hook_say": "I like it very much!",
     "wrong": "I very like coffee.",
     "right": "I like coffee very much.",
     "strike": "very like",
@@ -476,7 +476,7 @@
     },
     "en": {
      "hook": "“Since two years”? Use “for”",
-     "tip": "Not “since two years”. For is the length of time; since is the starting point (since 2020).",
+     "tip": "“Sejak dua tahun” is not since two years. For a length of time, use for; since is for a starting point (since 2020).",
      "caption": "Ever say this? “I have lived here since two years.” 😅 For a length of time, use for: “I have lived here for two years.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
@@ -487,11 +487,11 @@
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Drop ever here!",
+    "hook_say": "I have been, no ever!",
     "wrong": "I have ever been to Bali.",
     "right": "I have been to Bali.",
     "strike": "ever",
-    "why": "No ever in yes answers.",
+    "why": "No ever in statements.",
     "memory": "I have been.",
     "quiz": {
      "stem": "I ___ to Bali.",
@@ -531,7 +531,7 @@
     "wrong": "I study English now.",
     "right": "I am studying English now.",
     "strike": "study",
-    "why": "Now? Use am studying.",
+    "why": "Right now: use am studying.",
     "memory": "Now: am + ing.",
     "quiz": {
      "stem": "I am ___ now.",
@@ -664,9 +664,9 @@
     "answer_say": "Old! I am 30 years old.",
     "native": {
      "hook": "“25 years” kurang “old”",
-     "tip": "“25 tahun” saja belum cukup. Bilang “I am 25” atau “I am 25 years old”.",
+     "tip": "“25 tahun” saja belum cukup. Untuk umur, bilang I am 25 atau I am 25 years old, dua-duanya benar.",
      "caption": "Pernah bilang begini? “I am 25 years.” 😅 Untuk umur, tambahkan old: “I am 25 years old.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “old”. Sebutkan umurmu lengkap: “I am ... years old” Latihan gratis lainnya di sini: {link}",
+     "comment": "Jawaban: “old”. Sebutkan umurmu lengkap: “I am ... years old.” Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -676,7 +676,7 @@
     },
     "en": {
      "hook": "“25 years” needs “old”",
-     "tip": "“25 tahun” alone is not enough. Say “I am 25” or “I am 25 years old”.",
+     "tip": "“25 tahun” alone is not enough. For age, say I am 25 or I am 25 years old, both are right.",
      "caption": "Ever say this? “I am 25 years.” 😅 For your age, add old: “I am 25 years old.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
@@ -704,7 +704,7 @@
     "answer_say": "Live! I live in a small town.",
     "native": {
      "hook": "“I am live”? Cukup “live”",
-     "tip": "Banyak yang mengira “I am” = “saya”. Padahal live sudah kata kerja: cukup I live.",
+     "tip": "Banyak yang mengira “I am” artinya “saya”, padahal live sudah kata kerja: cukup I live.",
      "caption": "Pernah bilang begini? “I am live in Jakarta.” 😅 Cukup bilang I live: “I live in Jakarta.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
      "comment": "Jawaban: “live”. Perkenalkan tempat tinggalmu: “I live in ...” Latihan gratis lainnya di sini: {link}",
      "hashtags": [
@@ -716,7 +716,7 @@
     },
     "en": {
      "hook": "“I am live”? Just “live”",
-     "tip": "Many think “I am” = “saya”. But live is already a verb: just say I live.",
+     "tip": "Many think “I am” means “saya”, but live is already a verb: just say I live.",
      "caption": "Ever say this? “I am live in Jakarta.” 😅 Just say I live: “I live in Jakarta.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
@@ -744,7 +744,7 @@
     "answer_say": "My sister and I! My sister and I are home.",
     "native": {
      "hook": "“I and my friend”? Balik urutannya",
-     "tip": "Kita bilang “saya dan teman saya”, jadi muncul “I and my friend”. Di bahasa Inggris, sebut diri sendiri terakhir: my friend and I.",
+     "tip": "Kita bilang “saya dan teman saya”, jadi sering muncul I and my friend. Di bahasa Inggris, sebut diri sendiri terakhir: my friend and I.",
      "caption": "Pernah bilang begini? “I and my friend are late.” 😅 Sebut dirimu terakhir: “My friend and I are late.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
      "comment": "Jawaban: “My sister and I”. Bilang “My friend and I” saat bercerita. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
@@ -1094,19 +1094,19 @@
     "why": "Say fluently here.",
     "memory": "Speak fluently.",
     "quiz": {
-     "stem": "She speaks ___ now.",
+     "stem": "She speaks English ___.",
      "options": [
-      "quickly",
-      "quick"
+      "fluently",
+      "fluent"
      ],
      "answer": 0
     },
-    "answer_say": "Quickly! She speaks quickly now.",
+    "answer_say": "Fluently! She speaks English fluently.",
     "native": {
      "hook": "“Speak fluent”? Pakai “fluently”",
      "tip": "Di bahasa Indonesia “lancar” tetap, tapi bahasa Inggris pakai -ly untuk kata kerja: fluently. (Bisa: I speak fluent English.)",
      "caption": "Pernah bilang begini? “I speak English fluent.” 😅 Untuk menjelaskan kata kerja, pakai fluently: “I speak English fluently.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “quickly”. Coba bilang “I speak English slowly”, lalu fluently. Latihan gratis lainnya di sini: {link}",
+     "comment": "Jawaban: “fluently”. Coba bilang “I speak English slowly”, lalu fluently. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -1171,8 +1171,8 @@
     "wrong": "I am not understand.",
     "right": "I don't understand.",
     "strike": "am",
-    "why": "Not needs do.",
-    "memory": "Do not.",
+    "why": "Verb? Use don't.",
+    "memory": "I don't + verb.",
     "quiz": {
      "stem": "I ___ not know.",
      "options": [
