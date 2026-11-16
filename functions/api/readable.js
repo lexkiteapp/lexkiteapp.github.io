@@ -6,6 +6,7 @@
  * trần 1 MB (đọc luồng, vượt → báo lỗi), hết giờ 8 s, không gửi cookie/Authorization. Cloudflare Workers vốn cũng không nối được IP riêng.
  * Hạn mức: tính năng `readable` của _quota.js (biên, 0 lượt ghi D1), vượt → 429 như các API khác. Lỗi → { error: <mã> } (máy khách báo nhẹ nhàng). */
 import { gate } from './_quota.js';
+import { readJSON, bodyFail } from './_body.js';
 
 export const MAX_BYTES = 1048576, MAX_HOPS = 4, FETCH_MS = 8000, MAX_TEXT = 300000, MIN_TEXT = 200;
 const TYPES = /^(text\/html|application\/xhtml\+xml|text\/plain)$/i;
@@ -145,8 +146,7 @@ const STATUS = { badurl: 400, blocked: 403, type: 415, toobig: 413, empty: 422, 
 export const onRequestOptions = ({ request }) => new Response(null, { status: 204, headers: cors(request) });
 export async function onRequestPost({ request, env }) {
   const o = request.headers.get('Origin'); if (o && !ORIGINS.test(o)) return json(request, 403, { error: 'origin' });
-  if (+(request.headers.get('Content-Length') || 0) > 4096) return json(request, 413, { error: 'size' });
-  let body; try { body = await request.json(); } catch (e) { return json(request, 400, { error: 'json' }); }
+  let body; try { body = await readJSON(request, 4096); } catch (e) { const f = bodyFail(e, 'size'); return json(request, f.status, { error: f.error }); }
   const url = body && typeof body.url === 'string' ? body.url : ''; if (!url || url.length > 2048) return json(request, 400, { error: 'badurl' });
   const q = await gate(request, env || {}, 'readable', { json }); if (q.res) return q.res; // hết lượt/burst/khóa → 429 { error:'quota', … }
   try { return json(request, 200, await readArticle(url)); }

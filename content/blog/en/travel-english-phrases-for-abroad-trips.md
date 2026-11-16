@@ -119,6 +119,16 @@ You can practice pronouncing these travel phrases with immediate speech-recognit
 2. **Focus on key nouns when nervous:** If you temporarily forget full sentence grammar, deliver key nouns with a pleasant smile: *"Central Station, please?"* or *"Restroom, please?"*. Hospitality workers are eager to assist polite international travelers.
 3. **Leverage universal body language and gestures:** Open posture, smiling, and polite nodding make interactions pleasant and overcome minor phonetic discrepancies.
 
+Going through an airport? Our guide to [airport English phrases for check-in, immigration and delays](/en/blog/airport-english-phrases-immigration-check-in-delays/) goes deeper.
+
+Staying overnight? Read [hotel English phrases for check-in, requests and complaints](/en/blog/hotel-english-phrases-check-in-requests-complaints/).
+
+Eating out? See [restaurant English for ordering food and paying](/en/blog/restaurant-english-ordering-food-and-paying/).
+
+Feeling unwell abroad? See [English at the doctor: describing symptoms](/en/blog/english-at-the-doctor-describing-symptoms/).
+
+Lost? See [asking for directions and using public transport in English](/en/blog/asking-for-directions-and-using-public-transport-in-english/).
+
 ## Frequently Asked Questions (FAQ)
 
 ### Can I travel independently if my English pronunciation is not perfect?

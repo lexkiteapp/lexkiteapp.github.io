@@ -22,6 +22,8 @@ Aufbauend auf unserem Leitfaden zur [IPA Lautschrift Englisch Tabelle Aussprache
 
 ---
 
+
+Die Betonung einzelner Wörter erklärt der Artikel zur [englischen Wortbetonung](/de/blog/englische-wortbetonung-regeln/).
 ## Die akustische Mechanik von Satzakzent im Englischen und Stress-Timed-Rhythmus
 
 Um den dynamischen Rhythmus der englischen Sprache zu verstehen, hilft ein Vergleich linguistischer Zeitsysteme:
