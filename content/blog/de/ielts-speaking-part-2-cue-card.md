@@ -154,6 +154,8 @@ Für den schriftlichen Teil lies unsere Empfehlungen zu [IELTS Writing Task 2 Ti
 
 {{youtube: | IELTS Speaking Part 2 Cue Card Strategie und Vorlagen}}
 
+Schwächere und stärkere Antworten zu allen drei Teilen im direkten Vergleich findest du in [IELTS Speaking Band 7 Beispielantworten](/de/blog/ielts-speaking-band-7-beispielantworten/).
+
 ## Häufig gestellte Fragen
 
 ### Darf ich den Prüfer bitten, eine Frage in Part 3 zu wiederholen?

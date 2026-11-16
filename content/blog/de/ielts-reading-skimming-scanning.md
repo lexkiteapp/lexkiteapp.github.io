@@ -152,6 +152,8 @@ Teste deine Performance unter Prüfungsbedingungen im [Prüfungssimulator auf Le
 
 {{youtube: | IELTS Reading Skimming und Scanning Strategien für Band 7+}}
 
+Welche Technik zu welcher Aufgabe passt, ordnet der Überblick zu den [IELTS Reading Fragetypen](/de/blog/ielts-reading-fragetypen-strategie-fuer-jede-aufgabe/) übersichtlich nach vier Aufgabenfamilien.
+
 ## Häufig gestellte Fragen
 
 ### Sollte ich den gesamten Lesetext vor den Fragen gründlich lesen?
