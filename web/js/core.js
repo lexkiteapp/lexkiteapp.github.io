@@ -108,9 +108,8 @@
   const todayKey = (d = new Date()) =>
     `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
   const startOfToday = () => { const d = new Date(); d.setHours(0, 0, 0, 0); return d.getTime(); };
-  // Số ngày LỊCH địa phương từ hôm nay tới 'YYYY-MM-DD' (0 = hôm nay, âm = đã qua). `new Date('YYYY-MM-DD')` là nửa đêm UTC → đếm ngược thi lệch 1 ngày vài giờ mỗi ngày ở mọi múi giờ ≠ UTC.
-  const daysTo = ds => { const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(String(ds || '')); if (!m) return NaN; const t = new Date(); return Math.round((new Date(+m[1], +m[2] - 1, +m[3]) - new Date(t.getFullYear(), t.getMonth(), t.getDate())) / DAY); };
-  const endOfToday = () => { const d = new Date(); d.setHours(24, 0, 0, 0); return d.getTime() - 1; }; // 23:59:59.999 địa phương – KHÔNG phải đầu ngày + 24 h (ngày đổi giờ mùa hè dài 23/25 h → lệch 1 giờ thẻ đến hạn)
+  const daysTo = ds => { const m = /^(\d+)-(\d+)-(\d+)/.exec(ds); return m ? Math.round((new Date(+m[1], +m[2] - 1, +m[3]).getTime() - startOfToday()) / DAY) : NaN; };
+  const endOfToday = () => { const d = new Date(); d.setHours(24, 0, 0, 0); return d.getTime() - 1; };
 
   // ---------- SRS: FSRS-5 (Free Spaced Repetition Scheduler – thuật toán Anki dùng từ 2023) + bước học ----------
   // grade: 0 = Quên, 1 = Khó, 2 = Nhớ, 3 = Dễ  (FSRS: Again/Hard/Good/Easy = 1..4)
@@ -443,8 +442,8 @@
       while (s.days[todayKey(d)]) { n++; d.setDate(d.getDate() - 1); }
       return n;
     },
-    // Đóng băng chuỗi – NGUỒN DUY NHẤT là dữ liệu game (app.js applyFreeze/offerRescue): game.freezes = lượt còn (tối đa 2, +1 mỗi 7 ngày chuỗi),
-    // game.frozen = { 'YYYY-MM-DD': 1 } ngày được giữ chuỗi, game.freezeSaved = ngày tự dùng lượt gần nhất (giao diện streak-ui.js hiện màn "đã cứu chuỗi").
+    // Đóng băng chuỗi: NGUỒN DUY NHẤT = game (app.js applyFreeze/offerRescue): freezes = lượt còn (≤ 2, +1/7 ngày chuỗi),
+    // frozen = { 'YYYY-MM-DD': 1 } ngày được giữ chuỗi, freezeSaved = ngày tự dùng gần nhất (streak-ui.js).
     freezeInfo(g) { g = g || {}; return { left: +g.freezes || 0, max: 2, used: Object.keys(g.frozen || {}).sort().slice(-7), lastSave: g.freezeSaved || '' }; },
   };
 
