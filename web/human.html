@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><script data-lkt>function lkT(){try{var s=localStorage,t=s.getItem('lk.theme'),p;try{p=JSON.parse(s.getItem('ielts.settings')||'0')}catch(e){}if(p&&p.theme&&+s.getItem('ielts.settingsAt')>(+s.getItem('lk.themeAt')||0))t=p.theme;return t=='light'||t=='dark'?t:''}catch(e){return''}}lkT()&&document.documentElement.setAttribute('data-theme',lkT())</script><meta name="theme-color" media="(prefers-color-scheme:light)" content="#FBF7F1"><meta name="theme-color" media="(prefers-color-scheme:dark)" content="#0E191C">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Lexkite quick human check (Cloudflare Turnstile) for the app and browser add-on.">
+<title>Lexkite</title>
+<!-- Xác minh người thật cho app gốc (capacitor://localhost), trang add-on (chrome-extension://) và web: web/js/human.js nhúng trang này
+     bằng iframe ẩn (?o=<origin trang mẹ>&l=<ngôn ngữ>) → giải Turnstile trên lexkite.com → postMessage token CHỈ tới origin trong danh sách cho phép.
+     Trang mẹ gửi token tới POST /api/human để đổi lấy vé 12 h (functions/api/human.js). Header: web/_headers khối /human. Tài liệu docs/HUMAN.md -->
+<style>:root{color-scheme:light dark}html,body{margin:0;background:Canvas;color:CanvasText;font:14px system-ui,sans-serif}#w{display:flex;justify-content:center;padding:6px}</style>
+</head>
+<body>
+<div id="w"></div>
+<script>
+(function () {
+  var OK = /^(https:\/\/((www\.)?lexkite\.com|([a-z0-9-]+\.)?lexkite\.pages\.dev)|https?:\/\/localhost(:\d+)?|capacitor:\/\/localhost|chrome-extension:\/\/[a-p]{32}|moz-extension:\/\/[0-9a-f-]{36})$/;
+  var q = new URLSearchParams(location.search), o = q.get('o') || '', lang = (q.get('l') || 'auto').replace(/[^a-zA-Z-]/g, '').slice(0, 8) || 'auto';
+  if (!OK.test(o) || window.parent === window) return; // không được nhúng / origin lạ → không làm gì (token không bao giờ rời trang)
+  var post = function (m) { m.lkh = 1; try { window.parent.postMessage(m, o); } catch (e) { /* trình duyệt chặn khi origin trang mẹ khác o */ } };
+  window.lkTs = function () {
+    try {
+      window.turnstile.render('#w', {
+        sitekey: '0x4AAAAAAAMmZ7O1jJgQv8iY', language: lang, appearance: 'interaction-only',
+        callback: function (t) { post({ t: 'token', token: t }); },
+        'error-callback': function () { post({ t: 'error' }); },
+        'expired-callback': function () { post({ t: 'expired' }); },
+        'before-interactive-callback': function () { post({ t: 'show' }); },
+        'after-interactive-callback': function () { post({ t: 'hide' }); }
+      });
+    } catch (e) { post({ t: 'error' }); }
+  };
+  var s = document.createElement('script');
+  s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=lkTs';
+  s.async = true; s.onerror = function () { post({ t: 'error' }); };
+  document.head.appendChild(s);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+{
+"_doc": "Lệch CMUdict đã duyệt tay: CMU ghi tiền tố re-/be- theo âm yếu khác, past của proofread, leant, forbidden (CMU lỗi gõ).",
+"beheld": {
+"us": "/bɪˈheld/"
+},
+"forbidden": {
+"us": "/fərˈbɪdən/"
+},
+"leant": {
+"us": "/lent/"
+},
+"proofread": {
+"us": "/ˈpruːfred/"
+},
+"repay": {
+"us": "/rɪˈpeɪ/"
+},
+"repaid": {
+"us": "/rɪˈpeɪd/"
+},
+"rerun": {
+"us": "/ˌriːˈrʌn/"
+},
+"rewrite": {
+"us": "/ˌriːˈraɪt/"
+},
+"rewrote": {
+"us": "/ˌriːˈroʊt/"
+},
+"rewritten": {
+"us": "/ˌriːˈrɪtən/"
+}
+}

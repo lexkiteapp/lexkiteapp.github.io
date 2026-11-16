@@ -126,6 +126,8 @@ Bereiten Sie sich systematisch auf die Prüfung vor. Absolvieren Sie eine vollst
 
 {{cta: /#/mock | Jetzt Cambridge C1 Prüfungssimulation starten}}
 
+Liegt dein Ziel zunächst eine Stufe darunter, erklärt der Beitrag zum [Cambridge B2 First Aufbau](/de/blog/cambridge-b2-first-aufbau-alle-pruefungsteile-erklaert/) alle Prüfungsteile von Reading and Use of English bis Speaking.
+
 ## Häufig gestellte Fragen
 
 ### Wie lange ist das Cambridge C1 Advanced Zertifikat gültig?

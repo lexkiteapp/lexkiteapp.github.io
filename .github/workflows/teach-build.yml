@@ -57,7 +57,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A web/teach
-          git diff --cached --quiet || { git commit -q -m "teach: bộ nhân vật 2D duy nhất (characters.json) [teach-build] [CF-Pages-Skip] [skip ci]"; git push -q origin HEAD:main; }
+          git diff --cached --quiet || { git commit -q -m "teach: bộ nhân vật 2D duy nhất (characters.json) [teach-build] [CF-Pages-Skip] [skip ci]"; node scripts/ci/bot-test-gate.mjs --base HEAD~1 && git push -q origin HEAD:main; }
       - name: Nhánh – artifact + summary + comment PR (không đẩy vào nhánh)
         if: github.ref != 'refs/heads/main'
         uses: ./.github/actions/bot-output

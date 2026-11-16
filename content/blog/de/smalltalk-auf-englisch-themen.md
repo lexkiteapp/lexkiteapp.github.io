@@ -190,6 +190,8 @@ Ein gelungener Smalltalk ist das Tor zu erfolgreichen geschäftlichen Beziehunge
 
 {{youtube: | Wie man charmanten Smalltalk auf Englisch führt und das Eis bricht}}
 
+Mehr zur inneren Sicherheit beim Sprechen findest du in [Selbstbewusst Englisch sprechen](/de/blog/selbstbewusst-englisch-sprechen-alltag/).
+
 ## Häufig gestellte Fragen
 
 ### Was antworte ich auf die US-Begrüßung "How are you doing?"

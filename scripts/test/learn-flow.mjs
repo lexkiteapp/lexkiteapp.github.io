@@ -204,6 +204,7 @@ ok((await w.App.todayPlan()).some(x => x.href === '#/placement') && w.App.pathCu
   ok(/Ngày 1|Day 1/.test(($('.today-cta') || {}).textContent || ''), 'nút chính trang chủ: ' + (($('.today-cta') || {}).textContent || '').trim());
   await go('#/day/1', 400);
   ok($$('.dayv2-steps a').length === 6 && $('.v2s-day h1') && $('[role=progressbar]'), 'trang #/day/1: 6 hoạt động + thanh tiến độ');
+  { const xs = Array.from($$('.dayv2-steps a')).map(a => +((a.textContent.match(/(\d+)\/15 XP/) || [])[1] || 0)); ok(xs.length === 6 && xs.every((x, i) => x > (xs[i - 1] || 0)) && xs[5] === 15, 'trang #/day/1: chip tiến tới +15 XP tăng dần, bước cuối = 15/15 (thưởng thật chỉ trao khi xong ngày)'); }
   click($('.dayv2-steps a')); await tick(50);
   ok(w.localStorage.getItem('vb.daySess') === 'ngsl1.1~1', 'bấm hoạt động → giữ phiên Ngày 1');
   w.dispatchEvent(new w.CustomEvent('lexkite:practice-done', { detail: { mode: 'match', src: 'topic:ngsl1.1~1', pct: 100 } })); await tick(200);

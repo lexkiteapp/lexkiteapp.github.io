@@ -101,3 +101,5 @@ True conversational confidence during high-stakes corporate discussions requires
 To build comprehensive executive capabilities in international enterprises, explore our related workplace guides: master team collaboration in [business English meeting phrases](/en/blog/business-english-meeting-phrases-guide/), refine formal communication through [business report writing in English](/en/blog/business-report-writing-in-english-guide/), enhance managerial tact with [how to give feedback in English at work](/en/blog/how-to-give-feedback-in-english-at-work/), and negotiate commercial terms effectively via [business English negotiation phrases](/en/blog/business-english-negotiation-phrases-guide/).
 
 When you communicate priorities with precision and respect, time management ceases to be a personal stress factor and evolves into your most compelling demonstration of strategic leadership. Consistent daily practice in realistic workplace scenarios ensures your professional growth remains unstoppable across international markets.
+
+Working across time zones? See [English for video calls and remote work](/en/blog/english-for-video-calls-and-remote-work/).
