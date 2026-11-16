@@ -247,12 +247,12 @@
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "One name is enough!",
+    "hook_say": "No extra she!",
     "wrong": "My friend she is nice.",
     "right": "My friend is nice.",
     "strike": "she",
     "why": "Do not repeat the person.",
-    "memory": "Friend is nice.",
+    "memory": "My friend is nice.",
     "quiz": {
      "stem": "My teacher ___ kind.",
      "options": [
@@ -287,7 +287,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Many people ARE!",
+    "hook_say": "There ARE many people!",
     "wrong": "There is many people here.",
     "right": "There are many people here.",
     "strike": "is",
@@ -306,7 +306,7 @@
      "hook": "Banyak orang → “are”!",
      "tip": "Bahasa Indonesia pakai “ada” untuk satu atau banyak, tapi bahasa Inggris pakai there are untuk jamak.",
      "caption": "Pernah bilang begini? “There is many people here.” 😅 Untuk banyak, pakai there are: “There are many people here.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “are”. Lihat sekitarmu dan bilang “There are ...”. Latihan gratis lainnya di sini: {link}",
+     "comment": "Jawaban: “are”. Lihat sekitarmu dan bilang “There are ...” Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -586,7 +586,7 @@
      "hook": "“She have”? Pakai “has”!",
      "tip": "Kata kerja bahasa Indonesia sama untuk semua orang, tapi bahasa Inggris pakai has setelah she dan he.",
      "caption": "Pernah bilang begini? “She have a new car.” 😅 Setelah she atau he, pakai has: “She has a new car.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “has”. Ceritakan temanmu: “He has ...”. Latihan gratis lainnya di sini: {link}",
+     "comment": "Jawaban: “has”. Ceritakan temanmu: “He has ...” Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -624,7 +624,7 @@
     "answer_say": "Doesn't! She doesn't like tea.",
     "native": {
      "hook": "“He don't”? Pakai “doesn't”",
-     "tip": "Bahasa Indonesia tidak mengubah kata kerja bantu, tapi bahasa Inggris pakai doesn't setelah he dan she.",
+     "tip": "Bahasa Indonesia cukup pakai “tidak” untuk semua orang, tapi bahasa Inggris pakai doesn't setelah he dan she.",
      "caption": "Pernah bilang begini? “He don't like fish.” 😅 Setelah he atau she, pakai doesn't: “He doesn't like fish.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
      "comment": "Jawaban: “doesn't”. Bilang tiga hal yang temanmu tidak suka. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
@@ -636,7 +636,7 @@
     },
     "en": {
      "hook": "“He don't”? Use “doesn't”",
-     "tip": "Indonesian does not change the helper word, but English uses doesn't after he and she.",
+     "tip": "Indonesian uses “tidak” for everyone, but English uses doesn't after he and she.",
      "caption": "Ever say this? “He don't like fish.” 😅 After he or she, use doesn't: “He doesn't like fish.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
@@ -664,9 +664,9 @@
     "answer_say": "Old! I am 30 years old.",
     "native": {
      "hook": "“25 years” kurang “old”",
-     "tip": "Di bahasa Indonesia “25 tahun” sudah cukup, tapi bahasa Inggris bilang “I am 25” atau “I am 25 years old”, bukan “25 years” saja.",
+     "tip": "“25 tahun” saja belum cukup. Bilang “I am 25” atau “I am 25 years old”.",
      "caption": "Pernah bilang begini? “I am 25 years.” 😅 Untuk umur, tambahkan old: “I am 25 years old.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “old”. Sebutkan umurmu lengkap: “I am ... years old”. Latihan gratis lainnya di sini: {link}",
+     "comment": "Jawaban: “old”. Sebutkan umurmu lengkap: “I am ... years old” Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -676,7 +676,7 @@
     },
     "en": {
      "hook": "“25 years” needs “old”",
-     "tip": "In Indonesian “25 tahun” is enough, but English says “I am 25” or “I am 25 years old”, not just “25 years”.",
+     "tip": "“25 tahun” alone is not enough. Say “I am 25” or “I am 25 years old”.",
      "caption": "Ever say this? “I am 25 years.” 😅 For your age, add old: “I am 25 years old.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
@@ -706,7 +706,7 @@
      "hook": "“I am live”? Cukup “live”",
      "tip": "Banyak yang mengira “I am” = “saya”. Padahal live sudah kata kerja: cukup I live.",
      "caption": "Pernah bilang begini? “I am live in Jakarta.” 😅 Cukup bilang I live: “I live in Jakarta.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “live”. Perkenalkan tempat tinggalmu: “I live in ...”. Latihan gratis lainnya di sini: {link}",
+     "comment": "Jawaban: “live”. Perkenalkan tempat tinggalmu: “I live in ...” Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -927,25 +927,25 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Good at English!",
-    "wrong": "I am good in English.",
-    "right": "I am good at English.",
+    "hook_say": "Good at cooking!",
+    "wrong": "I am good in cooking.",
+    "right": "I am good at cooking.",
     "strike": "in",
     "why": "Say good at.",
     "memory": "Good at.",
     "quiz": {
-     "stem": "He is good ___ English.",
+     "stem": "He is good ___ football.",
      "options": [
       "at",
       "in"
      ],
      "answer": 0
     },
-    "answer_say": "At! He is good at English.",
+    "answer_say": "At! He is good at football.",
     "native": {
      "hook": "“Good in”? Pakai “at”",
-     "tip": "Kita bilang “pandai dalam”, tapi di bahasa Inggris pakai good at.",
-     "caption": "Pernah bilang begini? “I am good in English.” 😅 Untuk keahlian, pakai at: “I am good at English.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+     "tip": "Kita bilang “jago dalam”, tapi di bahasa Inggris pakai good at.",
+     "caption": "Pernah bilang begini? “I am good in cooking.” 😅 Untuk keahlian, pakai at: “I am good at cooking.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
      "comment": "Jawaban: “at”. Bilang “I am good at ...” untuk kemampuanmu. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
@@ -956,8 +956,8 @@
     },
     "en": {
      "hook": "“Good in”? Use “at”",
-     "tip": "We say “pandai dalam”, but English uses good at.",
-     "caption": "Ever say this? “I am good in English.” 😅 For a skill, use at: “I am good at English.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "We say “jago dalam”, but English uses good at.",
+     "caption": "Ever say this? “I am good in cooking.” 😅 For a skill, use at: “I am good at cooking.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1002,31 +1002,31 @@
    }
   },
   {
-   "id": "t2_l1_id_forgotbring",
+   "id": "t2_l1_id_discussabout",
    "lang": "id",
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Don't forget to!",
-    "wrong": "I forgot bring my book.",
-    "right": "I forgot to bring my book.",
-    "strike": "bring",
-    "why": "Forgot + to + verb.",
-    "memory": "Forgot to.",
+    "hook_say": "Discuss it, no about!",
+    "wrong": "We discussed about the plan.",
+    "right": "We discussed the plan.",
+    "strike": "about",
+    "why": "Discuss needs no about.",
+    "memory": "Discuss the plan.",
     "quiz": {
-     "stem": "Don't forget ___ call me.",
+     "stem": "Let's ___ the problem.",
      "options": [
-      "to",
-      "for"
+      "discuss",
+      "discuss about"
      ],
      "answer": 0
     },
-    "answer_say": "To! Don't forget to call me.",
+    "answer_say": "Discuss! Let's discuss the problem.",
     "native": {
-     "hook": "“Forgot bring”? Pakai “to”",
-     "tip": "“Lupa bawa” langsung dua kata, tapi bahasa Inggris: forgot to + kata kerja. (Forgot + -ing: lupa pernah melakukannya.)",
-     "caption": "Pernah bilang begini? “I forgot bring my book.” 😅 Setelah forgot, pakai to: “I forgot to bring my book.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “to”. Bilang “I forgot to ...” untuk hal yang kamu lupa. Latihan gratis lainnya di sini: {link}",
+     "hook": "“Discuss about”? Buang “about”",
+     "tip": "Kita bilang “diskusi tentang”, tapi discuss langsung diikuti topiknya, tanpa about.",
+     "caption": "Pernah bilang begini? “We discussed about the plan.” 😅 Setelah discuss, langsung topiknya: “We discussed the plan.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+     "comment": "Jawaban: “discuss”. Bilang “Let's discuss ...” tanpa about. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -1035,9 +1035,9 @@
      ]
     },
     "en": {
-     "hook": "“Forgot bring”? Add “to”",
-     "tip": "“Lupa bawa” goes straight on, but English is forgot to + verb. (Forgot + -ing: forgot you did it.)",
-     "caption": "Ever say this? “I forgot bring my book.” 😅 After forgot, use to: “I forgot to bring my book.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "hook": "“Discuss about”? Drop “about”",
+     "tip": "We say “diskusi tentang”, but discuss takes the topic directly, with no about.",
+     "caption": "Ever say this? “We discussed about the plan.” 😅 After discuss, go straight to the topic: “We discussed the plan.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1047,7 +1047,7 @@
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "The office, not office!",
+    "hook_say": "Go to THE office!",
     "wrong": "I go to office by bus.",
     "right": "I go to the office by bus.",
     "strike": "office",
@@ -1064,9 +1064,9 @@
     "answer_say": "The office! I walk to the office every day.",
     "native": {
      "hook": "“To office”? Pakai “the”",
-     "tip": "Bahasa Indonesia tidak punya kata the, tapi bahasa Inggris butuh the sebelum tempat tertentu.",
+     "tip": "Bahasa Indonesia tidak punya artikel seperti the, tapi bahasa Inggris butuh the sebelum tempat tertentu.",
      "caption": "Pernah bilang begini? “I go to office by bus.” 😅 Sebelum tempat tertentu, pakai the: “I go to the office by bus.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “the office”. Ceritakan perjalananmu: “I go to the ...”. Latihan gratis lainnya di sini: {link}",
+     "comment": "Jawaban: “the office”. Ceritakan perjalananmu: “I go to the ...” Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -1076,7 +1076,7 @@
     },
     "en": {
      "hook": "“To office”? Add “the”",
-     "tip": "Indonesian has no word like the, but English needs the before a specific place.",
+     "tip": "Indonesian has no article like the, but English needs the before a specific place.",
      "caption": "Ever say this? “I go to office by bus.” 😅 Before a specific place, use the: “I go to the office by bus.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
@@ -1106,7 +1106,7 @@
      "hook": "“Speak fluent”? Pakai “fluently”",
      "tip": "Di bahasa Indonesia “lancar” tetap, tapi bahasa Inggris pakai -ly untuk kata kerja: fluently. (Bisa: I speak fluent English.)",
      "caption": "Pernah bilang begini? “I speak English fluent.” 😅 Untuk menjelaskan kata kerja, pakai fluently: “I speak English fluently.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “quickly”. Coba bilang “I speak English slowly”, lalu “fluently”. Latihan gratis lainnya di sini: {link}",
+     "comment": "Jawaban: “quickly”. Coba bilang “I speak English slowly”, lalu fluently. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -1167,7 +1167,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Do not understand!",
+    "hook_say": "Say I don't understand!",
     "wrong": "I am not understand.",
     "right": "I don't understand.",
     "strike": "am",
@@ -1184,7 +1184,7 @@
     "answer_say": "Do! I do not know.",
     "native": {
      "hook": "“I am not understand” salah",
-     "tip": "“I am” tidak sama dengan “saya”. Understand itu kata kerja, jadi negatifnya pakai do not (don't).",
+     "tip": "“Saya tidak mengerti” bukan I am not understand. Understand itu kata kerja, jadi negatifnya pakai don't: I don't understand.",
      "caption": "Pernah bilang begini? “I am not understand.” 😅 Untuk kalimat negatif dengan kata kerja, pakai do not: “I don't understand.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
      "comment": "Jawaban: “do”. Latih “I do not understand” dengan tenang. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
@@ -1196,7 +1196,7 @@
     },
     "en": {
      "hook": "“I am not understand” is wrong",
-     "tip": "“I am” is not “saya”. Understand is a verb, so its negative uses do not (don't).",
+     "tip": "“Saya tidak mengerti” is not I am not understand. Understand is a verb, so its negative uses don't: I don't understand.",
      "caption": "Ever say this? “I am not understand.” 😅 To make a verb negative, use do not: “I don't understand.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
