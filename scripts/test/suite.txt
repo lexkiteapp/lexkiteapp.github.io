@@ -171,6 +171,8 @@ node scripts/test/ai-local.mjs
 node scripts/test/admin-prefs.mjs
 node scripts/test/mail-prefs.mjs
 node scripts/test/admin-ui.mjs
+node scripts/test/admin-plat.mjs
+node scripts/test/admin-series.mjs
 node scripts/test/admin-tabs.mjs
 node scripts/test/admin-gh.mjs
 node scripts/test/admin-metrics.mjs
@@ -256,6 +258,7 @@ node scripts/test/landing-v3.mjs
 node scripts/test/sw-cache-fixed.mjs
 node scripts/test/sw-storage.mjs
 node scripts/test/get-app.mjs
+node scripts/test/install-links.mjs
 node scripts/test/brand-check.mjs
 node scripts/test/token-contrast.mjs
 node scripts/stitch-sync-palette.mjs --check
