@@ -390,6 +390,7 @@ node scripts/test/apt-install.mjs
 node scripts/test/perf-median.mjs
 node scripts/test/perf-calibrate.mjs
 node scripts/test/perf-flake.mjs
+node scripts/test/gate-relevance.mjs
 node scripts/test/pr-unconflict.mjs
 node scripts/test/regen-conflicts.mjs
 node scripts/test/gen-pr-clean.mjs
@@ -397,6 +398,7 @@ node scripts/test/main-red-sweep.mjs
 node scripts/test/ci-queue-gate.mjs
 node scripts/test/android-xml-comments.mjs
 node scripts/test/retry5xx.mjs
+node scripts/test/gh-tree.mjs
 node scripts/test/sparse-imports.mjs
 node scripts/test/stitch-today-contrast.mjs
 node scripts/test/is-main-guard.mjs
