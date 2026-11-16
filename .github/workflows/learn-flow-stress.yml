@@ -4,7 +4,7 @@
 name: learn-flow-stress
 on:
   pull_request:
-    paths: ['scripts/test/learn-flow.mjs', 'web/js/study.js', '.github/workflows/learn-flow-stress.yml']
+    paths: ['scripts/test/learn-flow.mjs', '.github/workflows/learn-flow-stress.yml']   # 16/11: bỏ web/js/study.js (PR giao diện đụng liên tục → 10 job mỗi lần, hàng chờ CI 185 job); đổi study.js thì chạy tay (workflow_dispatch)
   workflow_dispatch:
 permissions:
   contents: read
