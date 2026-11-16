@@ -191,7 +191,7 @@
   let hqEl = null;
   const stopHq = () => { if (hqEl) { hqEl.stop(); hqEl = null; } };
   // Gốc CDN âm thanh + chuỗi dự phòng: docs/specs/kokoro-on-device.md §Chuỗi phát
-  let cdnFail = 0; let cdnAt = 0; // cdnFail tự hồi sau 60 s yên (một đợt thiếu file/mạng chập không được ghim cả phiên vào gốc cuối rồi rơi về giọng máy); không dùng setTimeout (vector native ghi mọi hẹn giờ)
+  let cdnFail = 0, cdnAt = 0; // tự hồi sau 60 s yên (không setTimeout: vector native)
   const AUDIO_BASES = g.AUDIO_BASES = ['https://audio.lexkite.com/audio/l/', 'https://lexkiteapp.github.io/lexkite-media-2/audio/l/', 'https://lexkiteapp.github.io/audio/l/'];
   const baseAt = () => Math.min(AUDIO_BASES.length - 1, (cdnFail && Date.now() - cdnAt > 60000 ? (cdnFail = 0) : cdnFail) >> 1);
   const lk = k => k + (g.LISTEN_AUDIO_S2 && g.LISTEN_AUDIO_S2.has(k) ? '-s2' : ''); // -s2: câu đã render lại qua cổng ASR (docs/WORD-AUDIO.md, khóa mới, không ghi đè bản cũ)
