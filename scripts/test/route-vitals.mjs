@@ -19,7 +19,7 @@ const ROUTES = [
 const RUNS = +process.env.RUNS || 3;
 const WARM = process.env.WARM === '1'; // 1 = khách quay lại còn cache (mở 1 lượt trước khi đo); mặc định xoá HTTP cache + SW (lần tải lạnh)
 const b = await chromium.launch();
-const mkCtx = () => b.newContext({ viewport: { width: 412, height: 823 }, deviceScaleFactor: 1.75, isMobile: true, hasTouch: true, locale: 'vi-VN' });
+const mkCtx = () => b.newContext({ bypassCSP: true, viewport: { width: 412, height: 823 }, deviceScaleFactor: 1.75, isMobile: true, hasTouch: true, locale: 'vi-VN' });
 const UX1 = process.env.UX1 === '1'; // bản dựng cục bộ không có /api/config → bật giao diện 5 tab (ux1) như lexkite.com
 const init = UX1 => {
   try { localStorage.setItem('lk.noTrack', '1'); if (UX1) localStorage.setItem('lk.ux1', '1'); } catch (e) { /* trang không có localStorage */ }

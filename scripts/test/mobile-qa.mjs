@@ -108,7 +108,7 @@ async function keyboard(page, vp) {
 }
 
 async function open(browser, vp) {
-  const ctx = await browser.newContext({ viewport: { width: vp.w, height: vp.h }, deviceScaleFactor: 2, isMobile: true, hasTouch: true, userAgent: UA, locale: 'en', reducedMotion: 'reduce' });
+  const ctx = await browser.newContext({ bypassCSP: true, viewport: { width: vp.w, height: vp.h }, deviceScaleFactor: 2, isMobile: true, hasTouch: true, userAgent: UA, locale: 'en', reducedMotion: 'reduce' });
   await noProd(ctx); // CI: media/audio → GitHub, /api → offline (0 lượt prod)
   const page = await ctx.newPage();
   page.on('pageerror', e => errs.push(`${vp.w} pageerror: ${String(e.message).slice(0, 120)}`));
