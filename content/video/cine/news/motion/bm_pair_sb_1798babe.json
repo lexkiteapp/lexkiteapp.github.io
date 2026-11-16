@@ -1,0 +1,260 @@
+{
+ "id": "mo_bm_pair_sb_1798babe",
+ "template": "pair",
+ "title": "Motion pair – damage (n/v) vs harm (n/v) (sb_1798babe)",
+ "teacher": "ama",
+ "clips": [
+  "ga11_talk",
+  "ga11_explain",
+  "ga11_happy",
+  "ga11_thinking",
+  "ga11_surprise_3"
+ ],
+ "listen": [
+  "ga11_listen_2"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy2",
+ "active": "mint",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "x-vs-y",
+  "link": "https://lexkite.com/app/",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Work",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "Which is correct?",
+   "gap": 0.7
+  },
+  {
+   "id": "w",
+   "text": "Things get damaged. People get harmed.",
+   "gap": 0.7
+  },
+  {
+   "id": "e0",
+   "text": "The car was damaged.",
+   "gap": 0.7
+  },
+  {
+   "id": "e1",
+   "text": "Smoking harms your health.",
+   "gap": 0.7
+  },
+  {
+   "id": "m",
+   "text": "So remember: things = DAMAGE, people = HARM.",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "Which is",
+      "white"
+     ]
+    ],
+    [
+     [
+      "correct?",
+      "yellow"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "A or B?",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "Which is"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "correct?"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "sum",
+    "at": [
+     "m",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Remember",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "things = DAMAGE, people = HARM"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "rules",
+    "at": [
+     "e0",
+     0
+    ],
+    "rows": [
+     {
+      "t": "tile",
+      "tag": "DAMAGE",
+      "tone": "gold",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "The car was damaged.",
+        "gold"
+       ]
+      ],
+      "ex_at": [
+       "e0",
+       0
+      ],
+      "at": [
+       "e0",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "HARM",
+      "tone": "teal",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "Smoking harms your health.",
+        "teal"
+       ]
+      ],
+      "ex_at": [
+       "e1",
+       0
+      ],
+      "at": [
+       "e1",
+       0
+      ]
+     }
+    ]
+   }
+  ],
+  "hook_text": "Which is correct?",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ },
+ "uses": {
+  "template": "pair",
+  "row": "sb_1798babe",
+  "teacher": "ama",
+  "accent": "navy2",
+  "active": "mint",
+  "tones": 0
+ }
+}

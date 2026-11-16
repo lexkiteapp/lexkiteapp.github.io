@@ -1,0 +1,230 @@
+{
+ "id": "mo_news_food_natives_35f2ef",
+ "template": "mistake",
+ "title": "News Motion – split the bill (phrase): to share the cost of a meal or service between people (news_food_natives_35f2ef)",
+ "teacher": "ama",
+ "clips": [
+  "ga11_talk",
+  "ga11_explain",
+  "ga11_happy",
+  "ga11_thinking",
+  "ga11_surprise_3"
+ ],
+ "listen": [
+  "ga11_listen_2"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy2",
+ "active": "mint",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "grammar-check",
+  "link": "",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Food English",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "Natives never say this"
+  },
+  {
+   "id": "b0",
+   "text": "Many learners say: Let's divide the bill.",
+   "gap": 0.7
+  },
+  {
+   "id": "b1",
+   "text": "Pause and guess. What sounds right?",
+   "gap": 0.7
+  },
+  {
+   "id": "b2",
+   "text": "Say: Let's split the bill.",
+   "gap": 0.7
+  },
+  {
+   "id": "b3",
+   "text": "For sharing a cost, we say split the bill.",
+   "gap": 0.7
+  },
+  {
+   "id": "b4",
+   "text": "Is 'Let's divide the bill' correct? No.",
+   "gap": 0.7
+  },
+  {
+   "id": "b5",
+   "text": "Repeat after me: Let's split the bill.",
+   "gap": 0.7
+  },
+  {
+   "id": "b6",
+   "text": "Now at normal speed: Let's split the bill.",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "Let's divide the bill.",
+      "white"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Common mistake",
+      "tone": "coral"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "Let's "
+       ],
+       [
+        "divide",
+        "ink"
+       ],
+       [
+        " the bill."
+       ]
+      ]
+     }
+    ],
+    "strike": [
+     {
+      "line": 0,
+      "run": 1,
+      "at": [
+       "b0",
+       4
+      ]
+     }
+    ]
+   },
+   {
+    "id": "no",
+    "at": [
+     "b5",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Also say",
+      "tone": "teal"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "Let's split the bill.",
+        "teal"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "better",
+    "at": [
+     "b2",
+     0
+    ],
+    "tone": "green",
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Better",
+      "tone": "green"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "Let's split the bill.",
+        "green"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "hook_text": "Let's divide the bill.",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ }
+}

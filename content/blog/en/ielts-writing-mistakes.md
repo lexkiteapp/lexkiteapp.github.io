@@ -9,7 +9,7 @@ tags: [ielts, writing, mistakes, grammar, task-2]
 keyword: "ielts writing mistakes"
 cover: write
 coverAlt: "Lexkite Writing room with essay prompts, idea hints and an essay frame"
-publishAt:
+publishAt: 2027-02-17T08:44:00+05:30
 factChecked: 2026-11-15
 author: Lexkite
 status: ready
