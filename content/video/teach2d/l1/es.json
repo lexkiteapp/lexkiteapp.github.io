@@ -1,5 +1,5 @@
 {
- "_note": "L1 Spanish batch 2: 28 common mistakes of Spanish speakers (grammar/vocab, family-safe).",
+ "_note": "L1 Spanish batch 2: 38 common mistakes of Spanish speakers (grammar/vocab, family-safe).",
  "rows": [
   {
    "id": "t2_l1_es_depend",
@@ -1118,6 +1118,406 @@
      "hook": "“Lost the bus”? It is “missed”",
      "tip": "In Spanish “perder el autobús”, but in English you “miss” it. “Lose” is for objects.",
      "caption": "In Spanish “perdí el bus”, but English says miss. Say “I missed the bus.”, not “I lost the bus.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_es_married_to",
+   "lang": "es",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Married with? No, married to!",
+    "wrong": "She is married with a doctor.",
+    "right": "She is married to a doctor.",
+    "strike": "with",
+    "why": "Say married to.",
+    "memory": "Married to.",
+    "quiz": {
+     "stem": "He is married ___ a nurse.",
+     "options": [
+      "with",
+      "to"
+     ],
+     "answer": 1
+    },
+    "answer_say": "To! He is married to a nurse.",
+    "native": {
+     "hook": "¿“Married with”? Es “married to”",
+     "tip": "En español se dice “casada con”, pero en inglés es “married to”.",
+     "caption": "¿Dices “She is married with a doctor.”? 💍 En español “casada con”, pero en inglés: “She is married to a doctor.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+     "comment": "Respuesta: “to”. “Married to”, nunca “married with”. Practica más con un quiz gratis aquí: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#vocabulario",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Married with”? It is “married to”",
+     "tip": "In Spanish it is “casada con”, but English says “married to”.",
+     "caption": "Do you say “She is married with a doctor.”? In Spanish “casada con”, but in English: “She is married to a doctor.” Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_es_go_home",
+   "lang": "es",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Go to home? Just say go home!",
+    "wrong": "I go to home at six.",
+    "right": "I go home at six.",
+    "strike": "to",
+    "why": "Say go home.",
+    "memory": "Go home.",
+    "quiz": {
+     "stem": "I go ___ at six.",
+     "options": [
+      "to home",
+      "home"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Home! I go home at six.",
+    "native": {
+     "hook": "¿“Go to home”? Di “go home”",
+     "tip": "En español “ir a casa” lleva “a”, pero en inglés “home” va solo: “go home”.",
+     "caption": "¿Dices “I go to home at six.”? 🏠 En español “voy a casa”, pero en inglés “home” no lleva “to”: “I go home at six.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+     "comment": "Respuesta: “go home”. “Go home”, sin “to”. Practica más con un quiz gratis aquí: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#gramatica",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Go to home”? Say “go home”",
+     "tip": "In Spanish “ir a casa” has “a”, but in English “home” stands alone: “go home”.",
+     "caption": "Do you say “I go to home at six.”? In Spanish “voy a casa”, but in English “home” takes no “to”: “I go home at six.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_es_bored",
+   "lang": "es",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Boring or bored? Feel bored!",
+    "wrong": "I am boring with nothing to do.",
+    "right": "I am bored with nothing to do.",
+    "strike": "boring",
+    "why": "Bored is how you feel.",
+    "memory": "I am bored.",
+    "quiz": {
+     "stem": "Nothing to do. I am so ___.",
+     "options": [
+      "bored",
+      "boring"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Bored! I am so bored.",
+    "native": {
+     "hook": "¿Estás aburrido? Es “bored”",
+     "tip": "En español “aburrido” sirve para “estoy” y “soy”; en inglés: “bored” (cómo estás) y “boring” (cómo eres).",
+     "caption": "¿Dices “I am boring with nothing to do.”? 😴 “Aburrido” en español vale para ambos casos, pero en inglés no: “I am bored with nothing to do.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+     "comment": "Respuesta: “bored”. “Bored” es cómo te sientes; “boring” es lo que aburre. Practica más con un quiz gratis aquí: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#vocabulario",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Are you bored? Say “bored”",
+     "tip": "Spanish uses “aburrido” for both “estoy” and “soy”; English splits it: “bored” (how you feel) and “boring” (what something is).",
+     "caption": "Do you say “I am boring with nothing to do.”? Spanish “aburrido” covers both ideas, but English does not: “I am bored with nothing to do.” Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_es_make_question",
+   "lang": "es",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Make a question? You ask it!",
+    "wrong": "Can I make you a question?",
+    "right": "Can I ask you a question?",
+    "strike": "make",
+    "why": "Ask a question.",
+    "memory": "Ask a question.",
+    "quiz": {
+     "stem": "Can I ___ you a question?",
+     "options": [
+      "make",
+      "ask"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Ask! Can I ask you a question?",
+    "native": {
+     "hook": "¿“Make a question”? Es “ask”",
+     "tip": "En español “hacer una pregunta”, pero en inglés se usa “ask”: “ask a question”.",
+     "caption": "¿Dices “Can I make you a question?” 🤔 En español “hacer una pregunta”, pero en inglés: “Can I ask you a question?” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+     "comment": "Respuesta: “ask”. “Ask a question”, nunca “make a question”. Practica más con un quiz gratis aquí: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#vocabulario",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Make a question”? It is “ask”",
+     "tip": "In Spanish “hacer una pregunta”, but in English you “ask” a question.",
+     "caption": "Do you say “Can I make you a question?”? In Spanish “hacer una pregunta”, but in English: “Can I ask you a question?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_es_take_photo",
+   "lang": "es",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Made a photo? You took it!",
+    "wrong": "I made a photo of Ana.",
+    "right": "I took a photo of Ana.",
+    "strike": "made",
+    "why": "Take a photo.",
+    "memory": "Take a photo.",
+    "quiz": {
+     "stem": "He ___ a photo of me.",
+     "options": [
+      "made",
+      "took"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Took! He took a photo of me.",
+    "native": {
+     "hook": "¿“Made a photo”? Es “took”",
+     "tip": "En España se dice “hacer una foto”; en inglés es “take a photo”, como “tomar una foto”.",
+     "caption": "¿Dices “I made a photo of Ana.”? 📸 En España, “hice una foto”, pero en inglés: “I took a photo of Ana.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+     "comment": "Respuesta: “took”. “Take a photo”, no “make a photo”. Practica más con un quiz gratis aquí: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#vocabulario",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Made a photo”? You “took” it",
+     "tip": "In Spanish “hacer una foto”, but English says “take a photo”.",
+     "caption": "Do you say “I made a photo of Ana.”? In Spanish “hice una foto”, but in English: “I took a photo of Ana.” Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_es_good_time",
+   "lang": "es",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Passed or had a good time?",
+    "wrong": "I passed a good time there.",
+    "right": "I had a good time there.",
+    "strike": "passed",
+    "why": "Say had a good time.",
+    "memory": "Had a good time.",
+    "quiz": {
+     "stem": "We ___ a good time.",
+     "options": [
+      "passed",
+      "had"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Had! We had a good time.",
+    "native": {
+     "hook": "¿“Passed a good time”? Es “had”",
+     "tip": "En español “pasé un buen rato”, pero en inglés “have a good time”, no “pass”.",
+     "caption": "¿Dices “I passed a good time there.”? 😄 En español “pasé un buen rato”, pero en inglés: “I had a good time there.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+     "comment": "Respuesta: “had”. “Have a good time”, no “pass a good time”. Practica más con un quiz gratis aquí: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#vocabulario",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Passed a good time”? Say “had”",
+     "tip": "In Spanish “pasé un buen rato”, but English says “have a good time”.",
+     "caption": "Do you say “I passed a good time there.”? In Spanish “pasé un buen rato”, but in English: “I had a good time there.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_es_decision",
+   "lang": "es",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Took a decision? Made one!",
+    "wrong": "I took a decision today.",
+    "right": "I made a decision today.",
+    "strike": "took",
+    "why": "Make a decision.",
+    "memory": "Make a decision.",
+    "quiz": {
+     "stem": "She ___ a decision.",
+     "options": [
+      "took",
+      "made"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Made! She made a decision.",
+    "native": {
+     "hook": "¿“Took a decision”? Mejor “made”",
+     "tip": "Es un calco de “tomar una decisión”; en inglés americano se dice “make a decision”.",
+     "caption": "¿Dices “I took a decision today.”? 🤝 En español “tomé una decisión”, pero en inglés: “I made a decision today.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+     "comment": "Respuesta: “made”. En inglés americano: “make a decision”. Practica más con un quiz gratis aquí: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#vocabulario",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Took a decision”? It is “made”",
+     "tip": "It copies Spanish “tomar una decisión”; American English says “make a decision”.",
+     "caption": "Do you say “I took a decision today.”? In Spanish “tomé una decisión”, but in English: “I made a decision today.” Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_es_coffee",
+   "lang": "es",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Take a coffee? Have a coffee!",
+    "wrong": "Let's take a coffee now.",
+    "right": "Let's have a coffee now.",
+    "strike": "take",
+    "why": "We have a coffee, not take.",
+    "memory": "Have a coffee.",
+    "quiz": {
+     "stem": "Let's ___ a coffee together.",
+     "options": [
+      "take",
+      "have"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Have! Let's have a coffee.",
+    "native": {
+     "hook": "¿“Take a coffee” juntos? Es “have”",
+     "tip": "En español “tomar un café”, pero en inglés se dice “have a coffee” cuando lo tomas con alguien.",
+     "caption": "¿Dices “Let's take a coffee now.”? ☕ En español “tomemos un café”, pero en inglés: “Let's have a coffee now.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+     "comment": "Respuesta: “have”. “Have a coffee”, no “take a coffee”. Practica más con un quiz gratis aquí: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#vocabulario",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Take a coffee” together? Say “have”",
+     "tip": "In Spanish “tomar un café”, but English says “have a coffee”.",
+     "caption": "Do you say “Let's take a coffee now.”? In Spanish “tomemos un café”, but in English: “Let's have a coffee now.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_es_years_old",
+   "lang": "es",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "I have 30 years? I am 30!",
+    "wrong": "I have thirty years old.",
+    "right": "I am thirty years old.",
+    "strike": "have",
+    "why": "Say I am for age.",
+    "memory": "I am thirty.",
+    "quiz": {
+     "stem": "I ___ thirty years old.",
+     "options": [
+      "have",
+      "am"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Am! I am thirty years old.",
+    "native": {
+     "hook": "¿“I have 30 years”? Es “I am”",
+     "tip": "En español “tengo 30 años” usa “tener”, pero en inglés la edad lleva “am”.",
+     "caption": "¿Dices “I have thirty years old.”? 🎂 En español “tengo treinta años”, pero en inglés: “I am thirty years old.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+     "comment": "Respuesta: “am”. La edad lleva “be”: “I am”, nunca “I have”. Practica más con un quiz gratis aquí: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#gramatica",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“I have 30 years”? Say “I am”",
+     "tip": "In Spanish “tengo 30 años” uses “tener”, but English uses “am” for age.",
+     "caption": "Do you say “I have thirty years old.”? In Spanish “tengo treinta años”, but in English: “I am thirty years old.” Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_es_friend_mine",
+   "lang": "es",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Friend of me? Friend of mine!",
+    "wrong": "He is a friend of me.",
+    "right": "He is a friend of mine.",
+    "strike": "me",
+    "why": "Say friend of mine.",
+    "memory": "Friend of mine.",
+    "quiz": {
+     "stem": "He is a friend of ___.",
+     "options": [
+      "me",
+      "mine"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Mine! He is a friend of mine.",
+    "native": {
+     "hook": "¿“Friend of me”? Di “of mine”",
+     "tip": "Tras “de” en español usas “mí” (“de mí”), pero en inglés es “a friend of mine”, como “un amigo mío”.",
+     "caption": "¿Dices “He is a friend of me.”? 👋 En español “un amigo mío”, pero en inglés: “He is a friend of mine.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+     "comment": "Respuesta: “mine”. “A friend of mine”, no “of me”. Practica más con un quiz gratis aquí: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#gramatica",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Friend of me”? Say “of mine”",
+     "tip": "After “de”, Spanish uses “mí” (“de mí”), but English says “a friend of mine”, like “un amigo mío”.",
+     "caption": "Do you say “He is a friend of me.”? In Spanish “un amigo mío”, but in English: “He is a friend of mine.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   }

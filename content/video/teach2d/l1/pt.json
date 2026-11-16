@@ -1,5 +1,5 @@
 {
- "_note": "L1 pt (Portuguese, Brazil): 28 extra clip rows for the reels pipeline.",
+ "_note": "L1 pt (Portuguese, Brazil): 37 extra clip rows for the reels pipeline.",
  "rows": [
   {
    "id": "t2_l1_pt_job",
@@ -1078,6 +1078,397 @@
      "hook": "Do you say “my hair are”?",
      "tip": "“Hair” is singular in English: “my hair is”.",
      "caption": "Watch out for this common mistake! Many people say “My hair are brown.”. The right way is “My hair is brown.”. In Portuguese “cabelos” is plural, but “hair” is not. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_pt_nothing",
+   "lang": "pt",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Two no words? Not in English!",
+    "wrong": "I do not know nothing.",
+    "right": "I do not know anything.",
+    "strike": "nothing",
+    "why": "One no word is enough.",
+    "memory": "No plus no is wrong.",
+    "quiz": {
+     "stem": "I do not have ___ money.",
+     "options": [
+      "any",
+      "no"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Any! I do not have any money.",
+    "native": {
+     "hook": "Dois negativos? Em inglês, não!",
+     "tip": "Em português “não sei nada” tem dois negativos; em inglês, com “do not”, use “anything”.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I do not know nothing”. O certo é “I do not know anything”. Em português a dupla negação é normal, mas em inglês um negativo basta. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+     "comment": "Resposta: “any”. Treine mais com um quiz grátis aqui: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Two negatives? Not in English!",
+     "tip": "In Portuguese two negatives are normal. In English, with “do not”, use “anything”.",
+     "caption": "Watch out for this common mistake! Many people say “I do not know nothing”. The right way is “I do not know anything”. In Portuguese a double negative is normal, but in English one negative is enough. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_pt_assisted",
+   "lang": "pt",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Assist is a false friend!",
+    "wrong": "I assisted a movie last night.",
+    "right": "I watched a movie last night.",
+    "strike": "assisted",
+    "why": "Assist means help.",
+    "memory": "Movies are watched.",
+    "quiz": {
+     "stem": "I ___ a movie last night.",
+     "options": [
+      "assisted",
+      "watched"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Watched! I watched a movie last night.",
+    "native": {
+     "hook": "“Assistir” não é “assist”!",
+     "tip": "Em português “assistir” um filme é ver; em inglês “assist” é ajudar. Para filme, use “watch”.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I assisted a movie last night”. O certo é “I watched a movie last night”. É um falso cognato: o “assistir” português vira “watch” em inglês. Ouça a Ama e repita! Treine mais no app Lexkite.",
+     "comment": "Resposta: “watched”. Treine mais com um quiz grátis aqui: {link}",
+     "hashtags": [
+      "#inglesonline",
+      "#dicasdeingles",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Assistir” is not “assist”!",
+     "tip": "In Portuguese “assistir” means to watch; in English “assist” means to help. For a movie, use “watch”.",
+     "caption": "Watch out for this common mistake! Many people say “I assisted a movie last night”. The right way is “I watched a movie last night”. It is a false friend: Portuguese “assistir” becomes “watch” in English. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_pt_spent",
+   "lang": "pt",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Days at home? Say spent!",
+    "wrong": "I passed two days at home.",
+    "right": "I spent two days at home.",
+    "strike": "passed",
+    "why": "Time is spent.",
+    "memory": "Spend your time.",
+    "quiz": {
+     "stem": "I ___ two days at home.",
+     "options": [
+      "spent",
+      "passed"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Spent! I spent two days at home.",
+    "native": {
+     "hook": "“Passei 2 dias” é “spent”!",
+     "tip": "Em português dizemos “passei dois dias em casa”; em inglês, para quanto tempo, o natural é “spend”.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I passed two days at home”. O certo é “I spent two days at home”. Aqui o “passar” português não funciona: em inglês o tempo é gasto, “spend”. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+     "comment": "Resposta: “spent”. Treine mais com um quiz grátis aqui: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Passed two days”? Say “spent”!",
+     "tip": "In Portuguese you “pass” days at home; in English, for how long you stay, the natural verb is “spend”.",
+     "caption": "Watch out for this common mistake! Many people say “I passed two days at home”. The right way is “I spent two days at home”. The Portuguese “passar” does not work here: in English time is “spent”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_pt_thankfor",
+   "lang": "pt",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Thank you by? No, for!",
+    "wrong": "Thank you by your help.",
+    "right": "Thank you for your help.",
+    "strike": "by",
+    "why": "Thank goes with for.",
+    "memory": "Thank you for.",
+    "quiz": {
+     "stem": "Thank you ___ the gift.",
+     "options": [
+      "for",
+      "by"
+     ],
+     "answer": 0
+    },
+    "answer_say": "For! Thank you for the gift.",
+    "native": {
+     "hook": "“Thank you by” está errado!",
+     "tip": "Em português é “obrigado PELA ajuda” (por); em inglês o certo é “thank you FOR”, não “by”.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “Thank you by your help”. O certo é “Thank you for your help”. O “por” de “obrigado pela ajuda” leva muita gente a escolher “by”. Ouça a Ama e repita! Treine mais no app Lexkite.",
+     "comment": "Resposta: “for”. Treine mais com um quiz grátis aqui: {link}",
+     "hashtags": [
+      "#inglesonline",
+      "#dicasdeingles",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Thank you by” is wrong!",
+     "tip": "In Portuguese it is “obrigado PELA ajuda” (por); in English it is “thank you FOR”, not “by”.",
+     "caption": "Watch out for this common mistake! Many people say “Thank you by your help”. The right way is “Thank you for your help”. The “por” in “obrigado pela ajuda” makes many people choose “by”. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_pt_arriveat",
+   "lang": "pt",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Arrive does not take to!",
+    "wrong": "I arrived to school late.",
+    "right": "I arrived at school late.",
+    "strike": "to",
+    "why": "Arrive goes with at.",
+    "memory": "Arrive at school.",
+    "quiz": {
+     "stem": "I arrived ___ school.",
+     "options": [
+      "at",
+      "to"
+     ],
+     "answer": 0
+    },
+    "answer_say": "At! I arrived at school.",
+    "native": {
+     "hook": "“Arrive to school”? Não!",
+     "tip": "Em português “cheguei à escola” usa “a”, que parece “to”; em inglês, com “arrive”, usa-se “at” ou “in”.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I arrived to school late”. O certo é “I arrived at school late”. O “a” de “chegar a” parece “to”, mas em inglês o certo é “arrive at”. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+     "comment": "Resposta: “at”. Treine mais com um quiz grátis aqui: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Arrive to school”? No!",
+     "tip": "In Portuguese “cheguei à escola” uses “a”, which looks like “to”; in English “arrive” takes “at” or “in”.",
+     "caption": "Watch out for this common mistake! Many people say “I arrived to school late”. The right way is “I arrived at school late”. The “a” of “chegar a” looks like “to”, but English says “arrive at”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_pt_peopleare",
+   "lang": "pt",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "People is more than one!",
+    "wrong": "People is very nice here.",
+    "right": "People are very nice here.",
+    "strike": "is",
+    "why": "People means many.",
+    "memory": "People are many.",
+    "quiz": {
+     "stem": "People ___ happy here.",
+     "options": [
+      "are",
+      "is"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Are! People are happy here.",
+    "native": {
+     "hook": "“People is” ou “people are”?",
+     "tip": "Em português “gente” e “povo” são singulares, mas em inglês “people” é plural e pede “are”.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “People is very nice here”. O certo é “People are very nice here”. Palavras como “gente” e “povo” são singulares em português, mas “people” é plural. Ouça a Ama e repita! Treine mais no app Lexkite.",
+     "comment": "Resposta: “are”. Treine mais com um quiz grátis aqui: {link}",
+     "hashtags": [
+      "#inglesonline",
+      "#dicasdeingles",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“People is” or “people are”?",
+     "tip": "In Portuguese “gente” and “povo” are singular, but in English “people” is plural and takes “are”.",
+     "caption": "Watch out for this common mistake! Many people say “People is very nice here”. The right way is “People are very nice here”. Words like “gente” and “povo” are singular in Portuguese, but “people” is plural. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_pt_friendmine",
+   "lang": "pt",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Friend of me? Say mine!",
+    "wrong": "Ana is a friend of me.",
+    "right": "Ana is a friend of mine.",
+    "strike": "me",
+    "why": "Say mine, not me.",
+    "memory": "Friend of mine.",
+    "quiz": {
+     "stem": "She is a friend of ___.",
+     "options": [
+      "mine",
+      "me"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Mine! She is a friend of mine.",
+    "native": {
+     "hook": "“A friend of me” soa estranho!",
+     "tip": "Dizemos “amiga dele” (de + ele); por analogia sai “of me”, mas em inglês usa-se “a friend of mine”.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “Ana is a friend of me”. O certo é “Ana is a friend of mine”. Por analogia com “amiga dele” (de + ele), muita gente diz “of me”. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+     "comment": "Resposta: “mine”. Treine mais com um quiz grátis aqui: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“A friend of me” sounds odd!",
+     "tip": "Portuguese says “amiga dele” (de + ele), so learners copy it as “of me”; English uses “a friend of mine”.",
+     "caption": "Watch out for this common mistake! Many people say “Ana is a friend of me”. The right way is “Ana is a friend of mine”. By analogy with “amiga dele” (de + ele), many people say “of me”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_pt_whereis",
+   "lang": "pt",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "After where, say who first!",
+    "wrong": "I do not know where is Ali.",
+    "right": "I do not know where Ali is.",
+    "strike": "is Ali",
+    "why": "Say Ali, then is.",
+    "memory": "Where Ali is.",
+    "quiz": {
+     "stem": "I do not know where ___.",
+     "options": [
+      "he is",
+      "is he"
+     ],
+     "answer": 0
+    },
+    "answer_say": "He is! I do not know where he is.",
+    "native": {
+     "hook": "“I do not know where is Ali”?",
+     "tip": "Em português dizemos “não sei onde está o Ali”; em inglês, depois de “where”, vem o sujeito e depois “is”.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I do not know where is Ali”. O certo é “I do not know where Ali is”. A ordem “onde está o Ali” é natural em português, mas em inglês a ordem muda. Ouça a Ama e repita! Treine mais no app Lexkite.",
+     "comment": "Resposta: “he is”. Treine mais com um quiz grátis aqui: {link}",
+     "hashtags": [
+      "#inglesonline",
+      "#dicasdeingles",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“I do not know where is Ali”?",
+     "tip": "In Portuguese we say “não sei onde está o Ali”; in English, after “where”, the subject comes before “is”.",
+     "caption": "Watch out for this common mistake! Many people say “I do not know where is Ali”. The right way is “I do not know where Ali is”. “Onde está o Ali” is natural in Portuguese, but the order changes in English. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_pt_waitfor",
+   "lang": "pt",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Wait needs for!",
+    "wrong": "I am waiting her.",
+    "right": "I am waiting for her.",
+    "strike": "waiting her",
+    "why": "Wait goes with for.",
+    "memory": "Wait for her.",
+    "quiz": {
+     "stem": "Which one is right?",
+     "options": [
+      "I am waiting for her.",
+      "I am waiting her."
+     ],
+     "answer": 0
+    },
+    "answer_say": "The first! I am waiting for her.",
+    "native": {
+     "hook": "“I am waiting her” está errado!",
+     "tip": "Em português “esperar alguém” não leva palavra extra; em inglês, “wait” pede “for”: “wait for her”.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I am waiting her”. O certo é “I am waiting for her”. O “esperar” português vai direto ao objeto, mas “wait” pede “for”. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+     "comment": "Resposta: “I am waiting for her”. Treine mais com um quiz grátis aqui: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“I am waiting her” is wrong!",
+     "tip": "In Portuguese “esperar alguém” takes no extra word; in English “wait” needs “for”: “wait for her”.",
+     "caption": "Watch out for this common mistake! Many people say “I am waiting her”. The right way is “I am waiting for her”. Portuguese “esperar” goes straight to the object, but “wait” needs “for”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_pt_likeof",
+   "lang": "pt",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Like needs no little word!",
+    "wrong": "I like of music.",
+    "right": "I like music.",
+    "strike": "of",
+    "why": "Like goes right before music.",
+    "memory": "Like has no of.",
+    "quiz": {
+     "stem": "Which one is right?",
+     "options": [
+      "I like music.",
+      "I like of music."
+     ],
+     "answer": 0
+    },
+    "answer_say": "The first! I like music.",
+    "native": {
+     "hook": "Você diz “I like of music”?",
+     "tip": "Em português é “gostar DE música”, mas em inglês “like” vem direto com o objeto, sem “of”.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I like of music”. O certo é “I like music”. Por causa do “gostar de”, muita gente coloca “of” depois de “like”. Ouça a Ama e repita! Treine mais no app Lexkite.",
+     "comment": "Resposta: “I like music”. Treine mais com um quiz grátis aqui: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#inglesonline",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Do you say “I like of music”?",
+     "tip": "In Portuguese it is “gostar DE música”, but in English “like” goes straight to the object, with no “of”.",
+     "caption": "Watch out for this common mistake! Many people say “I like of music”. The right way is “I like music”. Because of “gostar de”, many people add “of” after “like”. Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   }

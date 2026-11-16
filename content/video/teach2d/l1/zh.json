@@ -1263,9 +1263,9 @@
     },
     "answer_say": "Likes! My brother likes coffee.",
     "native": {
-     "hook": "单数第三人称，动词要加 s！",
+     "hook": "第三人称单数，动词加 s！",
      "tip": "中文动词不变形；英语一般现在时，主语是 he/she/it 或单数名词（如 my mother）时，动词要加 s。",
-     "caption": "你是不是也会说 “My mother like tea.”？😅 中文里“我妈妈喜欢茶”动词不会变，英语一般现在时，主语是单数第三人称，动词要加 s：“My mother likes tea.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+     "caption": "你是不是也会说 “My mother like tea.”？😅 中文里“我妈妈喜欢喝茶”动词不会变，英语一般现在时，主语是单数第三人称，动词要加 s：“My mother likes tea.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
      "comment": "答案：“My mother likes tea.”免费测验在这里：{link}",
      "hashtags": [
       "#学英语",
@@ -1277,7 +1277,7 @@
     "en": {
      "hook": "One person, likes!",
      "tip": "With he, she or one person, the verb needs s.",
-     "caption": "Do you say “My mother like tea.”? 😅 With one person like my mother, the verb needs s: “My mother likes tea.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "caption": "Do you say “My mother like tea.”? 😅 With one person like my mother, the verb needs s: “My mother likes tea.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },

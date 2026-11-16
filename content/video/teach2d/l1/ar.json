@@ -967,26 +967,26 @@
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "No s on this word!",
-    "wrong": "The books are expensives.",
-    "right": "The books are expensive.",
-    "strike": "expensives",
+    "hook_say": "Describing words stay single!",
+    "wrong": "My brothers are talls.",
+    "right": "My brothers are tall.",
+    "strike": "talls",
     "why": "Describing words never take s.",
-    "memory": "Books are expensive.",
+    "memory": "Brothers are tall.",
     "quiz": {
-     "stem": "The shoes are ___.",
+     "stem": "The girls are ___.",
      "options": [
-      "cheap",
-      "cheaps"
+      "happy",
+      "happys"
      ],
      "answer": 0
     },
-    "answer_say": "Cheap! The shoes are cheap.",
+    "answer_say": "Happy! The girls are happy.",
     "native": {
      "hook": "هل تجمع الصفة؟",
-     "tip": "في العربية تُجمع الصفة مع الجمع العاقل «الطلاب أذكياء»، لكن في الإنجليزية لا تُجمع أبدًا: “The books are expensive.” وليس “expensives”",
-     "caption": "هل تقول أحيانًا “The books are expensives.” 😅 الصفة لا تُجمع ولا تأخذ s، فالجملة الصحيحة “The books are expensive.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
-     "comment": "الإجابة: “cheap”. الصفة لا تُجمع ولا تأخذ s. اختبار مجاني هنا: {link}",
+     "tip": "في العربية تُجمع الصفة مع جمع العاقل «إخوتي طِوال»، لكن في الإنجليزية لا تُجمع أبدًا: “My brothers are tall.” وليس “talls”",
+     "caption": "هل تقول أحيانًا “My brothers are talls.” 😅 الصفة في الإنجليزية لا تُجمع ولا تأخذ s، فالجملة الصحيحة “My brothers are tall.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+     "comment": "الإجابة: “happy”. الصفة في الإنجليزية لا تُجمع ولا تأخذ s. اختبار مجاني هنا: {link}",
      "hashtags": [
       "#تعلم_الانجليزية",
       "#اللغة_الانجليزية",
@@ -995,9 +995,9 @@
      ]
     },
     "en": {
-     "hook": "Do you say “The books are expensives”?",
-     "tip": "Adjectives never take plural s: “The books are expensive.” not “The books are expensives”.",
-     "caption": "Do you sometimes say “The books are expensives.” 😅 In English adjectives never take plural s, so the right sentence is “The books are expensive.” Listen to Ama and repeat! Practice more in the Lexkite app."
+     "hook": "Do you say “My brothers are talls”?",
+     "tip": "Describing words never take plural s: “My brothers are tall.” not “My brothers are talls”.",
+     "caption": "Do you sometimes say “My brothers are talls.” 😅 In English describing words never take plural s, so the right sentence is “My brothers are tall.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1008,25 +1008,25 @@
    "theme": "dusk",
    "in": {
     "hook_say": "Add there is!",
-    "wrong": "In my city is a park.",
-    "right": "In my city there is a park.",
-    "strike": "city is",
+    "wrong": "Is a park in my city.",
+    "right": "There is a park in my city.",
+    "strike": "Is",
     "why": "Use there is to say it exists.",
     "memory": "There is a park.",
     "quiz": {
-     "stem": "In my room ___ a bed.",
+     "stem": "___ a bed in my room.",
      "options": [
-      "is",
-      "there is"
+      "Is",
+      "There is"
      ],
      "answer": 1
     },
-    "answer_say": "There is! In my room there is a bed.",
+    "answer_say": "There is! There is a bed in my room.",
     "native": {
      "hook": "هل تنسى “there”؟",
-     "tip": "في العربية نقول «في مدينتي حديقة» بلا فعل، لكن الإنجليزية تحتاج there is: “In my city there is a park.” وليس “In my city is a park”",
-     "caption": "هل تقول أحيانًا “In my city is a park.” 😅 للدلالة على الوجود نقول there is، فالجملة الصحيحة “In my city there is a park.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
-     "comment": "الإجابة: “there is”. للدلالة على الوجود نقول there is. اختبار مجاني هنا: {link}",
+     "tip": "نقول بالعربية «في مدينتي حديقة» بلا كلمة مثل there، لكن الإنجليزية تحتاجها: “There is a park in my city.” وليس “Is a park in my city”",
+     "caption": "هل تقول أحيانًا “Is a park in my city.” 😅 نقول there is للدلالة على الوجود ولا نبدأ بـ is وحدها، فالجملة الصحيحة “There is a park in my city.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+     "comment": "الإجابة: “There is”. نقول there is للدلالة على الوجود ولا نبدأ بـ is وحدها. اختبار مجاني هنا: {link}",
      "hashtags": [
       "#تعلم_الانجليزية",
       "#اللغة_الانجليزية",
@@ -1035,9 +1035,9 @@
      ]
     },
     "en": {
-     "hook": "Do you say “In my city is a park”?",
-     "tip": "To say something exists, use there is: “In my city there is a park.” not “In my city is a park”.",
-     "caption": "Do you sometimes say “In my city is a park.” 😅 In English we use there is to say something exists, so the right sentence is “In my city there is a park.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "hook": "Do you say “Is a park in my city”?",
+     "tip": "To say something exists we start with there is: “There is a park in my city.” not “Is a park in my city”.",
+     "caption": "Do you sometimes say “Is a park in my city.” 😅 In English we say there is to show that something exists, so the right sentence is “There is a park in my city.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1168,26 +1168,26 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Live, not am live!",
-    "wrong": "I am live in Cairo.",
-    "right": "I live in Cairo.",
-    "strike": "am live",
-    "why": "Do not put am before live.",
-    "memory": "I live in Cairo.",
+    "hook_say": "Work, not am work!",
+    "wrong": "I am work in a bank.",
+    "right": "I work in a bank.",
+    "strike": "am",
+    "why": "Do not put am before work.",
+    "memory": "I work in a bank.",
     "quiz": {
-     "stem": "We ___ in Cairo.",
+     "stem": "We ___ in a bank.",
      "options": [
-      "live",
-      "are live"
+      "work",
+      "are work"
      ],
      "answer": 0
     },
-    "answer_say": "Live! We live in Cairo.",
+    "answer_say": "Work! We work in a bank.",
     "native": {
-     "hook": "هل تقول “I am live”؟",
-     "tip": "في العربية نقول «أنا ساكن في القاهرة» بلا فعل، فنضيف am خطأً، لكن live فعل يكفي وحده: “I live in Cairo.” وليس “I am live in Cairo”",
-     "caption": "هل تقول أحيانًا “I am live in Cairo.” 😅 live فعل يكفي وحده بلا am، فالجملة الصحيحة “I live in Cairo.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
-     "comment": "الإجابة: “live”. live فعل يكفي وحده بلا am. اختبار مجاني هنا: {link}",
+     "hook": "هل تقول “I am work”؟",
+     "tip": "في العربية نقول «أنا موظف في بنك» بلا فعل، فنضيف am خطأً، لكن work فعل يكفي وحده: “I work in a bank.” وليس “I am work in a bank”",
+     "caption": "هل تقول أحيانًا “I am work in a bank.” 😅 work فعل يكفي وحده بلا am، فالجملة الصحيحة “I work in a bank.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+     "comment": "الإجابة: “work”. work فعل يكفي وحده بلا am. اختبار مجاني هنا: {link}",
      "hashtags": [
       "#تعلم_الانجليزية",
       "#اللغة_الانجليزية",
@@ -1196,9 +1196,9 @@
      ]
     },
     "en": {
-     "hook": "Do you say “I am live in Cairo”?",
-     "tip": "Live is a verb by itself: “I live in Cairo.” not “I am live in Cairo”.",
-     "caption": "Do you sometimes say “I am live in Cairo.” 😅 In English live is a verb by itself, so the right sentence is “I live in Cairo.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "hook": "Do you say “I am work in a bank”?",
+     "tip": "Work is a verb by itself: “I work in a bank.” not “I am work in a bank”.",
+     "caption": "Do you sometimes say “I am work in a bank.” 😅 In English work is a verb by itself, so we do not add am, so the right sentence is “I work in a bank.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },

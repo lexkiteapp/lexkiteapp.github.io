@@ -1304,7 +1304,7 @@
     "answer_say": "Often walks! She often walks to school.",
     "native": {
      "hook": "“Often” để nhầm chỗ rồi!",
-     "tip": "Cứ đặt như tiếng Việt “tôi thường đi chợ”: “often” đứng trước động từ, đúng chỗ của “thường”.",
+     "tip": "Lỗi do bắt chước “go there often”. Cứ đặt như “tôi thường đi chợ”: “often” đứng trước động từ.",
      "caption": "Bạn có hay nói “I go often to the market.” không? 🛒 “Often” đứng trước động từ: “I often go to the market.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
      "comment": "Đáp án: “often walks”. Kể một việc bạn hay làm bằng “I often…” nhé! Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
@@ -1316,7 +1316,7 @@
     },
     "en": {
      "hook": "“Often” in the wrong place!",
-     "tip": "Copy Vietnamese “tôi thường đi chợ”: “often” goes before the verb, right where “thường” sits.",
+     "tip": "The error copies “go there often”. Think “tôi thường đi chợ”: “often” goes before the verb.",
      "caption": "Do you often say “I go often to the market.”? Say “I often go to the market.” instead. Listen to Ama, then repeat! Practice more in the Lexkite app."
     }
    }

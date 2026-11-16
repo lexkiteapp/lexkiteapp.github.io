@@ -1008,24 +1008,24 @@
    "theme": "dusk",
    "in": {
     "hook_say": "Good at, not good in!",
-    "wrong": "I am good in English.",
-    "right": "I am good at English.",
+    "wrong": "I am good in cooking.",
+    "right": "I am good at cooking.",
     "strike": "in",
     "why": "Say good at a skill.",
-    "memory": "Good at English.",
+    "memory": "Good at cooking.",
     "quiz": {
-     "stem": "He is good ___ music.",
+     "stem": "He is good ___ drawing.",
      "options": [
       "in",
       "at"
      ],
      "answer": 1
     },
-    "answer_say": "At! He is good at music.",
+    "answer_say": "At! He is good at drawing.",
     "native": {
      "hook": "“Good in” değil, “good at”!",
-     "tip": "Türkçedeki “-de” eki bizi “in”e götürür; ama bir beceride iyi olmak için İngilizcede “good at” denir.",
-     "caption": "“I am good in English.” mi diyorsun? 😅 Doğrusu “I am good at English.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+     "tip": "Türkçede “yemek yapmakta iyiyim” deriz (-de); İngilizcede “good at” kullanılır.",
+     "caption": "“I am good in cooking.” mi diyorsun? 😅 İngilizcede iyi olduğun konudan önce “in” değil “at” gelir. Doğrusu “I am good at cooking.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
      "comment": "Cevap: “at”. Bir konuda iyi olmak için good at denir. Ücretsiz testle pratik yap: {link}",
      "hashtags": [
       "#ingilizceöğren",
@@ -1037,7 +1037,7 @@
     "en": {
      "hook": "Not “good in”, but “good at”!",
      "tip": "Turkish uses “-de”, but English uses “good at”.",
-     "caption": "Do you say “I am good in English.”? 😅 English uses “at”, not “in”, after good. The right sentence is “I am good at English.” Listen to Carlos and repeat! Open the Lexkite app and practice more."
+     "caption": "Do you say “I am good in cooking.”? 😅 English uses “at”, not “in”, after good. The right sentence is “I am good at cooking.” Listen to Ama and repeat! Open the Lexkite app and practice more."
     }
    }
   },
@@ -1184,7 +1184,7 @@
     "answer_say": "Run! She can run very fast.",
     "native": {
      "hook": "“Can to swim” değil, “can swim”!",
-     "tip": "Türkçedeki mastar eki -mek’i “to” gibi düşünüp ekleriz; ama can’den sonra fiil “to” almadan yalın gelir.",
+     "tip": "“Yüzmeyi bilirim” derken -me/-mek’i “to” sanıp ekleriz; ama can’den sonra fiil yalın gelir.",
      "caption": "“I can to swim well.” mi diyorsun? 😅 Doğrusu “I can swim well.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
      "comment": "Cevap: “run”. Can’den sonra fiil yalın gelir. Ücretsiz testle pratik yap: {link}",
      "hashtags": [
@@ -1196,7 +1196,7 @@
     },
     "en": {
      "hook": "Not “can to swim”, but “can swim”!",
-     "tip": "We map Turkish -mek to “to”, but after can the verb takes no “to”.",
+     "tip": "Turkish -mek can feel like “to”, but English has no “to” after can.",
      "caption": "Do you say “I can to swim well.”? 😅 English has no “to” after can. The right sentence is “I can swim well.” Listen to Carlos and repeat! Open the Lexkite app and practice more."
     }
    }
