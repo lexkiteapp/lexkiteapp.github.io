@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_life_short",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Life is short!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: The life is short.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Life is short.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Life in general needs no the.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Life! Life is short.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "The life is short.",
+  "right": "Life is short.",
+  "strike": "The life",
+  "why": "Life in general needs no the.",
+  "memory": "Life is short.",
+  "quiz": {
+   "stem": "___ is short.",
+   "options": [
+    "Life",
+    "The life"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Kein „the“ vor „life“!",
+   "tip": "Im Deutschen sagen wir „Das Leben ist kurz.“ Im Englischen sagen Sie allgemein nur „Life is short.“",
+   "caption": "Sagen Sie „the life“? 🌍 Falsch: “The life is short.” Richtig: “Life is short.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “Life”. Richtig heißt es: “Life is short.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do not say “the” before life!",
+   "tip": "German says “Das Leben ist kurz.” In English, life in general needs no “the.”",
+   "caption": "Do not say “the” before life! Wrong: “The life is short.” Right: “Life is short.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Kein „the“ vor „life“!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 40,
+  "seconds": 25.1,
+  "wpm": 95
+ },
+ "publish": {
+  "title": "Kein „the“ vor „life“!",
+  "keyword": "Life is short.",
+  "value": "Im Deutschen sagen wir „Das Leben ist kurz.“ Im Englischen sagen Sie allgemein nur „Life is short.“",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "Kein „the“ vor „life“!",
+    "description": "Im Deutschen sagen wir „Das Leben ist kurz.“ Im Englischen sagen Sie allgemein nur „Life is short.“\n\nSagen Sie „the life“? 🌍 Falsch: “The life is short.” Richtig: “Life is short.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "Life is short.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Sagen Sie „the life“? 🌍 Falsch: “The life is short.” Richtig: “Life is short.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Kein „the“ vor „life“!\n\nIm Deutschen sagen wir „Das Leben ist kurz.“ Im Englischen sagen Sie allgemein nur „Life is short.“\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Kein „the“ vor „life“! Im Deutschen sagen wir „Das Leben ist kurz.“ Im Englischen sagen Sie allgemein… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “Life”. Richtig heißt es: “Life is short.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

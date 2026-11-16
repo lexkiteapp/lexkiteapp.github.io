@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_what_end",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Ask the time with What time!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: What o'clock does class end?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: What time does class end?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Ask the time with what time.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "What time! What time does the movie start?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "What o'clock does class end?",
+  "right": "What time does class end?",
+  "strike": "o'clock",
+  "why": "Ask the time with what time.",
+  "memory": "What time...?",
+  "quiz": {
+   "stem": "___ does the movie start?",
+   "options": [
+    "What o'clock",
+    "What time"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "ถามเวลา ใช้ What time!",
+   "tip": "ภาษาไทยถามว่า “กี่โมง” หลายคนจึงพูด o'clock ตาม แต่ภาษาอังกฤษถามเวลาด้วย What time: “What time does class end?”",
+   "caption": "คุณเคยพูดว่า “What o'clock does class end?” ไหม? 😅 ภาษาไทยถามว่า “เลิกเรียนกี่โมง” จึงมักพูด o'clock ตาม แต่ภาษาอังกฤษถามเวลาด้วย What time: “What time does class end?” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “What time” จำไว้ให้ดีนะ! ลองเขียนประโยคถามเวลาของคุณเองหนึ่งประโยค แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Ask the time with “What time”!",
+   "tip": "Thai asks “how many o'clock,” so people say o'clock, but English asks What time: “What time does class end?”",
+   "caption": "Do you ever say this? “What o'clock does class end?” 😅 Thai asks “how many o'clock,” so many people say o'clock, but English asks What time. Say “What time does class end?” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "ถามเวลา ใช้ What time!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "ถามเวลา ใช้ What time!",
+  "keyword": "What time does class end?",
+  "value": "ภาษาไทยถามว่า “กี่โมง” หลายคนจึงพูด o'clock ตาม แต่ภาษาอังกฤษถามเวลาด้วย What time: “What time does class end?”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "ถามเวลา ใช้ What time!",
+    "description": "ภาษาไทยถามว่า “กี่โมง” หลายคนจึงพูด o'clock ตาม แต่ภาษาอังกฤษถามเวลาด้วย What time: “What time does class end?”\n\nคุณเคยพูดว่า “What o'clock does class end?” ไหม? 😅 ภาษาไทยถามว่า “เลิกเรียนกี่โมง” จึงมักพูด o'clock ตาม แต่ภาษาอังกฤษถามเวลาด้วย What time: “What time does class end?” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "What time does class end?",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “What o'clock does class end?” ไหม? 😅 ภาษาไทยถามว่า “เลิกเรียนกี่โมง” จึงมักพูด o'clock ตาม แต่ภาษาอังกฤษถามเวลาด้วย What time: “What time does class end?” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "ถามเวลา ใช้ What time!\n\nภาษาไทยถามว่า “กี่โมง” หลายคนจึงพูด o'clock ตาม แต่ภาษาอังกฤษถามเวลาด้วย What time: “What time does class end?”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ถามเวลา ใช้ What time! ภาษาไทยถามว่า “กี่โมง” หลายคนจึงพูด o'clock ตาม แต่ภาษาอังกฤษถามเวลาด้วย What time: “W… #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “What time” จำไว้ให้ดีนะ! ลองเขียนประโยคถามเวลาของคุณเองหนึ่งประโยค แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

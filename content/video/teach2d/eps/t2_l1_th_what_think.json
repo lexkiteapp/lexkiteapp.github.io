@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_what_think",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "What, not how!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: How do you think?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: What do you think?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Ask what for an idea.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "What! What do you think?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "How do you think?",
+  "right": "What do you think?",
+  "strike": "How",
+  "why": "Ask what for an idea.",
+  "memory": "What do you think?",
+  "quiz": {
+   "stem": "___ do you think?",
+   "options": [
+    "How",
+    "What"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "ถามความคิดเห็น ใช้ What!",
+   "tip": "ไทยพูด “คิดยังไง” จึงมักใช้ how แต่อังกฤษใช้ what: “What do you think?”",
+   "caption": "คุณเคยพูดว่า “How do you think?” ไหม? 😅 ภาษาไทยพูดว่า “คุณคิดยังไง” จึงมักใช้ how แต่ภาษาอังกฤษถามความคิดเห็นด้วย what: “What do you think?” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “What” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยค แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Ask ideas with “What”!",
+   "tip": "Thai says how do you think, but English asks what do you think: “What do you think?”",
+   "caption": "Do you say “How do you think”? 😅 Thai says how do you think, but English asks what. Say “What do you think”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "ถามความคิดเห็น ใช้ What!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 41,
+  "seconds": 25.6,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "ถามความคิดเห็น ใช้ What!",
+  "keyword": "What do you think?",
+  "value": "ไทยพูด “คิดยังไง” จึงมักใช้ how แต่อังกฤษใช้ what: “What do you think?”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "ถามความคิดเห็น ใช้ What!",
+    "description": "ไทยพูด “คิดยังไง” จึงมักใช้ how แต่อังกฤษใช้ what: “What do you think?”\n\nคุณเคยพูดว่า “How do you think?” ไหม? 😅 ภาษาไทยพูดว่า “คุณคิดยังไง” จึงมักใช้ how แต่ภาษาอังกฤษถามความคิดเห็นด้วย what: “What do you think?” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "What do you think?",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “How do you think?” ไหม? 😅 ภาษาไทยพูดว่า “คุณคิดยังไง” จึงมักใช้ how แต่ภาษาอังกฤษถามความคิดเห็นด้วย what: “What do you think?” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "ถามความคิดเห็น ใช้ What!\n\nไทยพูด “คิดยังไง” จึงมักใช้ how แต่อังกฤษใช้ what: “What do you think?”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ถามความคิดเห็น ใช้ What! ไทยพูด “คิดยังไง” จึงมักใช้ how แต่อังกฤษใช้ what: “What do you think?” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “What” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยค แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

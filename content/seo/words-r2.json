@@ -1,2 +1,2 @@
 { "_": "Ngôn ngữ có trang /<lang>/words/** nằm ở R2 (bucket lexkite-words) thay vì dist – docs/specs/words-off-pages.md. Khớp web/_routes.json (test words-r2-fn). Tắt khẩn: SEO_WORDS_R2=0 hoặc để langs rỗng + bỏ route.",
-  "langs": ["ko"] }
+  "langs": ["ar", "de", "es", "fr", "hi", "id", "ja", "ko", "pt", "ru", "th", "tr", "zh"] }

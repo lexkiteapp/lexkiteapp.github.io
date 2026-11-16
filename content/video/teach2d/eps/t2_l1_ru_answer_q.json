@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_answer_q",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Answer on or answer?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I answered on your question.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I answered your question.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Answer needs no on.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "No word! Please answer my question.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I answered on your question.",
+  "right": "I answered your question.",
+  "strike": "on",
+  "why": "Answer needs no on.",
+  "memory": "Answer the question.",
+  "quiz": {
+   "stem": "Please answer ___ my question.",
+   "options": [
+    "on",
+    "no word"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Answer on — лишнее “on”",
+   "tip": "После “answer” предлог не нужен: “I answered your question.”",
+   "caption": "Ты тоже говоришь “I answered on your question”? 😅 По-русски «ответил на вопрос» — с «на», и хочется сказать “on”, но по-английски глагол answer идёт прямо к вопросу. Правильно: “I answered your question.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “no word.” После answer — сразу вопрос. Скажи вслух: “Please answer my question.” Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#изучениеанглийского",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Answer on: drop the “on”",
+   "tip": "After “answer”, no “on”: “I answered your question.”",
+   "caption": "Do you also say “I answered on your question”? 😅 In Russian «на» follows the verb, so “on” slips in, but “answer” goes straight to the question. Correct: “I answered your question.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Answer on — лишнее “on”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "Answer on — лишнее “on”",
+  "keyword": "I answered your question.",
+  "value": "После “answer” предлог не нужен: “I answered your question.”",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#изучениеанглийского",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "Answer on — лишнее “on”",
+    "description": "После “answer” предлог не нужен: “I answered your question.”\n\nТы тоже говоришь “I answered on your question”? 😅 По-русски «ответил на вопрос» — с «на», и хочется сказать “on”, но по-английски глагол answer идёт прямо к вопросу. Правильно: “I answered your question.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #английский #изучениеанглийского #lexkite",
+    "tags": [
+     "I answered your question.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “I answered on your question”? 😅 По-русски «ответил на вопрос» — с «на», и хочется сказать “on”, но по-английски глагол answer идёт прямо к вопросу. Правильно: “I answered your question.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Answer on — лишнее “on”\n\nПосле “answer” предлог не нужен: “I answered your question.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#изучениеанглийского",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Answer on — лишнее “on” После “answer” предлог не нужен: “I answered your question.” #английскийязык #английский #изучениеанглийского"
+   }
+  },
+  "first_comment": "Ответ: “no word.” После answer — сразу вопрос. Скажи вслух: “Please answer my question.” Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

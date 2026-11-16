@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_onemore",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "For free, not as a service!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Can I get this as a service?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Can I get this for free?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Service means help from a worker, not a free gift.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "For free! Can I get this for free?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Can I get this as a service?",
+  "right": "Can I get this for free?",
+  "strike": "as a service",
+  "why": "Service means help from a worker, not a free gift.",
+  "memory": "For free.",
+  "quiz": {
+   "stem": "Can I get this ___?",
+   "options": [
+    "for free",
+    "as a service"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“service” 말고 for free!",
+   "tip": "한국어에서는 공짜로 주는 것을 ‘서비스’라고 하지만, 영어 service는 도움이라는 뜻이에요. 공짜는 for free! 이렇게 말해요 👉 “Can I get this for free?”",
+   "caption": "“Can I get this as a service?”처럼 말하고 있나요? 😅 한국어에서는 공짜로 주는 것을 ‘서비스’라고 하지만, 영어 service는 도움이라는 뜻이에요. 공짜로 달라고 할 때는 for free! 맞는 문장 ✅ “Can I get this for free?” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답 ✅ “Can I get this for free?” 소리 내어 한 번 말해 보고, 나만의 문장도 하나 써 보세요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say for free, not “service”!",
+   "tip": "Service means help from a worker, not a free gift. Say “Can I get this for free?”",
+   "caption": "Do you say “Can I get this as a service” in English? 😅 Service means help from a worker, not a free gift, so say for free! “Can I get this for free?” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“service” 말고 for free!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 57,
+  "seconds": 33.5,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "“service” 말고 for free!",
+  "keyword": "Can I get this for free?",
+  "value": "한국어에서는 공짜로 주는 것을 ‘서비스’라고 하지만, 영어 service는 도움이라는 뜻이에요. 공짜는 for free! 이렇게 말해요 👉 “Can I get this for free?”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 51,
+  "platforms": {
+   "youtube": {
+    "title": "“service” 말고 for free!",
+    "description": "한국어에서는 공짜로 주는 것을 ‘서비스’라고 하지만, 영어 service는 도움이라는 뜻이에요. 공짜는 for free! 이렇게 말해요 👉 “Can I get this for free?”\n\n“Can I get this as a service?”처럼 말하고 있나요? 😅 한국어에서는 공짜로 주는 것을 ‘서비스’라고 하지만, 영어 service는 도움이라는 뜻이에요. 공짜로 달라고 할 때는 for free! 맞는 문장 ✅ “Can I get this for free?” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "Can I get this for free?",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“Can I get this as a service?”처럼 말하고 있나요? 😅 한국어에서는 공짜로 주는 것을 ‘서비스’라고 하지만, 영어 service는 도움이라는 뜻이에요. 공짜로 달라고 할 때는 for free! 맞는 문장 ✅ “Can I get this for free?” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“service” 말고 for free!\n\n한국어에서는 공짜로 주는 것을 ‘서비스’라고 하지만, 영어 service는 도움이라는 뜻이에요. 공짜는 for free! 이렇게 말해요 👉 “Can I get this for free?”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“service” 말고 for free! 한국어에서는 공짜로 주는 것을 ‘서비스’라고 하지만, 영어 service는 도움이라는 뜻이에요. 공짜는 for free! 이렇게 말해요 👉 “Can I get this for free?” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답 ✅ “Can I get this for free?” 소리 내어 한 번 말해 보고, 나만의 문장도 하나 써 보세요: {link}",
+  "lang": "ko"
+ }
+}

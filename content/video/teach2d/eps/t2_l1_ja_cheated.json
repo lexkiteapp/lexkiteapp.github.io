@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_cheated",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Cunning on the exam?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: He did cunning on the exam.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: He cheated on the exam.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Cheat is the word for it.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Cheated! He cheated on the exam.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "He did cunning on the exam.",
+  "right": "He cheated on the exam.",
+  "strike": "did cunning",
+  "why": "Cheat is the word for it.",
+  "memory": "He cheated on the exam.",
+  "quiz": {
+   "stem": "He ___ on the test.",
+   "options": [
+    "did cunning",
+    "cheated"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "「カンニング」を cunning と言ってない？",
+   "tip": "日本語の「カンニング」は英語では cheat。cunning は「ずる賢い」という意味です。",
+   "caption": "“He did cunning on the exam.”と言っていませんか？😅 カタカナ語の「カンニング」をそのまま英語にしてしまいがちです。“He cheated on the exam.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“cheated”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Is “cunning” cheating?",
+   "tip": "\"Cheating\" in Japanese is \"cheat\" in English. Cunning means \"sly.\"",
+   "caption": "Do you say this? “He did cunning on the exam.” 😅 The Japanese loan word sounds like English, but it is not the English word. The natural way is “He cheated on the exam.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "「カンニング」を cunning と言ってない？"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "「カンニング」を cunning と言ってない？",
+  "keyword": "He cheated on the exam.",
+  "value": "日本語の「カンニング」は英語では cheat。cunning は「ずる賢い」という意味です。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "「カンニング」を cunning と言ってない？",
+    "description": "日本語の「カンニング」は英語では cheat。cunning は「ずる賢い」という意味です。\n\n“He did cunning on the exam.”と言っていませんか？😅 カタカナ語の「カンニング」をそのまま英語にしてしまいがちです。“He cheated on the exam.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "He cheated on the exam.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“He did cunning on the exam.”と言っていませんか？😅 カタカナ語の「カンニング」をそのまま英語にしてしまいがちです。“He cheated on the exam.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "「カンニング」を cunning と言ってない？\n\n日本語の「カンニング」は英語では cheat。cunning は「ずる賢い」という意味です。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「カンニング」を cunning と言ってない？ 日本語の「カンニング」は英語では cheat。cunning は「ずる賢い」という意味です。 #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“cheated”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

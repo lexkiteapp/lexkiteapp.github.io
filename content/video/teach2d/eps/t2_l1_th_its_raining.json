@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_its_raining",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Raining now? Add it!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Raining now.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: It is raining now.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "English needs a subject, even for weather.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "It! It is sunny today.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Raining now.",
+  "right": "It is raining now.",
+  "strike": "Raining",
+  "why": "English needs a subject, even for weather.",
+  "memory": "It is raining now.",
+  "quiz": {
+   "stem": "___ is sunny today.",
+   "options": [
+    "There",
+    "It"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "ฝนตก ก็ต้องมี It!",
+   "tip": "ไทยพูด “ฝนตก” ไม่มีประธาน แต่อังกฤษต้องมี it: “It is raining”",
+   "caption": "คุณเคยพูดว่า “Raining now.” ไหม? 😅 ภาษาไทยพูดว่า “ฝนตก” โดยไม่มีประธาน แต่ภาษาอังกฤษต้องมีประธาน แม้เป็นเรื่องอากาศ ต้องใช้ it: “It is raining now.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “It” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Who is raining? It is!",
+   "tip": "English needs a subject, even for weather: use it",
+   "caption": "Do you say “Raining now”? 😅 Thai says “raining” with no subject, but English needs one, even for weather. Use it. Say “It is raining now”! Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "ฝนตก ก็ต้องมี It!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "ฝนตก ก็ต้องมี It!",
+  "keyword": "It is raining now.",
+  "value": "ไทยพูด “ฝนตก” ไม่มีประธาน แต่อังกฤษต้องมี it: “It is raining”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "ฝนตก ก็ต้องมี It!",
+    "description": "ไทยพูด “ฝนตก” ไม่มีประธาน แต่อังกฤษต้องมี it: “It is raining”\n\nคุณเคยพูดว่า “Raining now.” ไหม? 😅 ภาษาไทยพูดว่า “ฝนตก” โดยไม่มีประธาน แต่ภาษาอังกฤษต้องมีประธาน แม้เป็นเรื่องอากาศ ต้องใช้ it: “It is raining now.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "It is raining now.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “Raining now.” ไหม? 😅 ภาษาไทยพูดว่า “ฝนตก” โดยไม่มีประธาน แต่ภาษาอังกฤษต้องมีประธาน แม้เป็นเรื่องอากาศ ต้องใช้ it: “It is raining now.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "ฝนตก ก็ต้องมี It!\n\nไทยพูด “ฝนตก” ไม่มีประธาน แต่อังกฤษต้องมี it: “It is raining”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ฝนตก ก็ต้องมี It! ไทยพูด “ฝนตก” ไม่มีประธาน แต่อังกฤษต้องมี it: “It is raining” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “It” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

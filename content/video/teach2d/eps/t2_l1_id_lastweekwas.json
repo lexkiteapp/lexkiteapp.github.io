@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_lastweekwas",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Last week, I was sick.",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Last week I am sick.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Last week I was sick.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Last week is past. Say was.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Was! Last week I was at home.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Last week I am sick.",
+  "right": "Last week I was sick.",
+  "strike": "am",
+  "why": "Last week is past. Say was.",
+  "memory": "Last week, I was.",
+  "quiz": {
+   "stem": "Last week I ___ at home.",
+   "options": [
+    "am",
+    "was"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Minggu lalu: was",
+   "tip": "Kita bilang “Minggu lalu saya sakit.” tanpa mengubah kata apa pun. Di bahasa Inggris, untuk minggu lalu pakai was, bukan am.",
+   "caption": "Pernah bilang begini? “Last week I am sick.” 😅 Untuk minggu lalu, pakai was: “Last week I was sick.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “was”. Ucapkan dengan lantang: “Last week I was sick.” lalu tulis satu kalimat tentang minggu lalu. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#waktulampau",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Last week: was, not am",
+   "tip": "We say “Minggu lalu saya sakit.” and change nothing. In English, for last week use was, not am.",
+   "caption": "Ever say this? “Last week I am sick.” 😅 For last week, use was: “Last week I was sick.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Minggu lalu: was"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Minggu lalu: was",
+  "keyword": "Last week I was sick.",
+  "value": "Kita bilang “Minggu lalu saya sakit.” tanpa mengubah kata apa pun. Di bahasa Inggris, untuk minggu lalu pakai was, bukan am.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#waktulampau",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "Minggu lalu: was",
+    "description": "Kita bilang “Minggu lalu saya sakit.” tanpa mengubah kata apa pun. Di bahasa Inggris, untuk minggu lalu pakai was, bukan am.\n\nPernah bilang begini? “Last week I am sick.” 😅 Untuk minggu lalu, pakai was: “Last week I was sick.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #waktulampau #bahasainggris #lexkite",
+    "tags": [
+     "Last week I was sick.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “Last week I am sick.” 😅 Untuk minggu lalu, pakai was: “Last week I was sick.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Minggu lalu: was\n\nKita bilang “Minggu lalu saya sakit.” tanpa mengubah kata apa pun. Di bahasa Inggris, untuk minggu lalu pakai was, bukan am.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#waktulampau",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Minggu lalu: was Kita bilang “Minggu lalu saya sakit.” tanpa mengubah kata apa pun. Di bahasa Inggr… #belajarbahasainggris #waktulampau #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “was”. Ucapkan dengan lantang: “Last week I was sick.” lalu tulis satu kalimat tentang minggu lalu. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}
