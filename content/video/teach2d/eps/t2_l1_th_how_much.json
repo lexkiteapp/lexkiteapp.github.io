@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_how_much",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Ask the price with How much!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: How many is this bag?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: How much is this bag?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Ask the price with how much.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "How much! How much is this shirt?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "How many is this bag?",
+  "right": "How much is this bag?",
+  "strike": "many",
+  "why": "Ask the price with how much.",
+  "memory": "Price? How much!",
+  "quiz": {
+   "stem": "___ is this shirt?",
+   "options": [
+    "How many",
+    "How much"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "ถามราคา ใช้ How much!",
+   "tip": "ภาษาไทยใช้ “เท่าไหร่” ถามได้ทั้งราคาและจำนวน แต่ภาษาอังกฤษถามราคาต้องใช้ How much: “How much is this bag?”",
+   "caption": "คุณเคยพูดว่า “How many is this bag?” ไหม? 😅 ภาษาไทยใช้ “เท่าไหร่” ถามได้ทั้งราคาและจำนวน แต่ภาษาอังกฤษถามราคาต้องใช้ How much: “How much is this bag?” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “How much” จำไว้ให้ดีนะ! ลองพูดประโยคตัวอย่างออกเสียงหนึ่งรอบ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Ask the price with “How much”!",
+   "tip": "Thai uses one word to ask both price and number, but English asks the price with How much.",
+   "caption": "Do you say “How many is this bag?” 😅 Thai uses one word to ask both price and number, but English asks the price with How much. Say “How much is this bag?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "ถามราคา ใช้ How much!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "ถามราคา ใช้ How much!",
+  "keyword": "How much is this bag?",
+  "value": "ภาษาไทยใช้ “เท่าไหร่” ถามได้ทั้งราคาและจำนวน แต่ภาษาอังกฤษถามราคาต้องใช้ How much: “How much is this bag?”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "ถามราคา ใช้ How much!",
+    "description": "ภาษาไทยใช้ “เท่าไหร่” ถามได้ทั้งราคาและจำนวน แต่ภาษาอังกฤษถามราคาต้องใช้ How much: “How much is this bag?”\n\nคุณเคยพูดว่า “How many is this bag?” ไหม? 😅 ภาษาไทยใช้ “เท่าไหร่” ถามได้ทั้งราคาและจำนวน แต่ภาษาอังกฤษถามราคาต้องใช้ How much: “How much is this bag?” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "How much is this bag?",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “How many is this bag?” ไหม? 😅 ภาษาไทยใช้ “เท่าไหร่” ถามได้ทั้งราคาและจำนวน แต่ภาษาอังกฤษถามราคาต้องใช้ How much: “How much is this bag?” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "ถามราคา ใช้ How much!\n\nภาษาไทยใช้ “เท่าไหร่” ถามได้ทั้งราคาและจำนวน แต่ภาษาอังกฤษถามราคาต้องใช้ How much: “How much is this bag?”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ถามราคา ใช้ How much! ภาษาไทยใช้ “เท่าไหร่” ถามได้ทั้งราคาและจำนวน แต่ภาษาอังกฤษถามราคาต้องใช้ How much: “How… #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “How much” จำไว้ให้ดีนะ! ลองพูดประโยคตัวอย่างออกเสียงหนึ่งรอบ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

@@ -8,7 +8,7 @@
 import fs from 'node:fs'; import path from 'node:path'; import os from 'node:os'; import { execFileSync } from 'node:child_process';
 import { hosts, merge, diff, typeFor, cacheFor, ACCOUNT } from './hosts.mjs';
 import { signV4, sha256hex } from '../lib/media-store.mjs';
-import { r2Frozen } from '../lib/r2-freeze.mjs'; import { fetchRetry } from '../lib/retry5xx.mjs'; // GitHub API 5xx tạm (07/11: cây lexkite-media-2 → 500) + socket đứt giữa body (10/11 'terminated')
+import { listTreeFiles } from '../lib/gh-tree.mjs'; import { r2Frozen } from '../lib/r2-freeze.mjs'; import { fetchRetry } from '../lib/retry5xx.mjs'; // GitHub API 5xx tạm (07/11: cây lexkite-media-2 → 500) + socket đứt giữa body (10/11 'terminated')
 
 const args = process.argv.slice(2), opt = (k, d) => { const i = args.indexOf('--' + k); return i >= 0 ? args[i + 1] : d; };
 const DRY = args.includes('--dry'), VERIFY = +opt('verify', 40), MAX = +opt('max', 0), CONC = +opt('concurrency', 24);
@@ -37,11 +37,8 @@ const ghH = () => (process.env.GH_TOKEN ? { Authorization: `Bearer ${process.env
 const trees = new Map(), clones = new Map();
 async function listTree(repo) {
   if (trees.has(repo)) return trees.get(repo);
-  const r = await fetchRetry(`https://api.github.com/repos/${repo}/git/trees/HEAD?recursive=1`, { headers: ghH() });
-  if (!r.ok) throw new Error(`cây ${repo}: ${r.status}`);
-  const j = await r.json(); if (j.truncated) throw new Error(`cây ${repo} bị cắt (> 100k mục) – chia kho (docs/STORAGE.md §Mở kho mới)`);
-  const files = j.tree.filter(t => t.type === 'blob').map(t => ({ sha: t.sha, size: t.size, path: t.path }));
-  trees.set(repo, { commit: j.sha, files }); return trees.get(repo);
+  const t = await listTreeFiles(repo, url => fetchRetry(url, { headers: ghH() })); // 16/11: recursive=1 → 500 với kho lớn → đi bộ thư mục (scripts/lib/gh-tree.mjs)
+  trees.set(repo, t); return t;
 }
 function cloneAt(repo) {
   if (clones.has(repo)) return clones.get(repo);

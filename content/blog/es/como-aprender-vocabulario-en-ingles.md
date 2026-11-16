@@ -133,6 +133,12 @@ Corrige estas frases (respuestas debajo):
 
 Si fallaste dos o más, añade esas expresiones a tus tarjetas hoy mismo.
 
+Para el vocabulario de exámenes, empieza por la [lista de palabras académicas (AWL)](/es/blog/lista-de-palabras-academicas-awl-ielts/).
+
+Para que las palabras duren, combina esta lista de pasos con el [recuerdo activo para vocabulario](/es/blog/recuerdo-activo-vocabulario-ingles/).
+
+Un buen ejemplo de vocabulario que conviene aprender en contexto es [la diferencia entre affect y effect](/es/blog/diferencia-entre-affect-y-effect-en-ingles/): las dos palabras se recuerdan mejor con sus vecinas habituales.
+
 ## Preguntas frecuentes
 
 ### ¿Cuántas palabras en inglés debo aprender al día?

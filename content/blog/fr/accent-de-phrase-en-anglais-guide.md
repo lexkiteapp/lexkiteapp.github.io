@@ -146,6 +146,8 @@ Consacrez cinq minutes chaque matin à cette routine ciblée :
 
 ---
 
+Avant le rythme de la phrase, assurez-vous de maîtriser l'[accent tonique des mots](/fr/blog/accent-tonique-anglais-regles-et-exemples/), qui en est le socle.
+
 ## Perfectionnez votre expression orale avec Lexkite
 
 Acquérir une cadence sonore authentique réclame un entraînement méthodique appuyé par des technologies d'évaluation dédiées :

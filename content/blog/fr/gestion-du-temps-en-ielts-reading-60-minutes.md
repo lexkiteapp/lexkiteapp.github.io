@@ -68,6 +68,8 @@ Une erreur fréquente consiste à accorder exactement 20 minutes à chaque texte
 
 Cet article propose un budget de départ de 15-20-25 minutes, un ordre de traitement des types de questions, une règle pour les questions qui résistent et un programme de quatre semaines pour s'entraîner.
 
+Pour placer ces exercices de chrono dans votre calendrier, consultez [le planning de révision IELTS en 4, 8 ou 12 semaines](/fr/blog/planning-revision-ielts-4-8-12-semaines/).
+
 ## Pourquoi la répartition uniforme 20-20-20 est un piège
 
 L'IELTS ne publie pas de durée par texte et la difficulté varie d'un test à l'autre : les minutes suivantes forment donc un budget de départ à vérifier avec vos propres tests blancs, pas une règle de l'examen. Cambridge précise qu'en Academic au moins un texte contient une argumentation logique détaillée :
@@ -142,6 +144,8 @@ Voici un programme progressif :
 - **Semaine 4 (Ajustement des réflexes de contrôle) :** Consolidez la règle 15-20-25. Notez une réponse probable à 90 secondes (après avoir élargi la recherche à 60) et passez à la suivante ; gardez trois minutes pour la vérification.
 
 Afin d'étoffer votre bagage lexical avant le jour de l'épreuve, explorez notre répertoire structuré de [vocabulaire d'anglais](/en/vocabulary/) (les listes sont en anglais).
+
+Pour adapter votre rythme à chaque format d'exercice, voyez les [types de questions IELTS Reading](/fr/blog/types-de-questions-ielts-reading-methodes/).
 
 ## Questions fréquentes sur la gestion du temps en IELTS Reading
 

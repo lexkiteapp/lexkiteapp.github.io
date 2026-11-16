@@ -141,3 +141,5 @@ Not by themselves. They become a problem when they are the only cohesive devices
 ### Do I need linking words in Task 1 as well?
 
 Yes, but different ones. Task 1 relies mostly on comparison and time sequence words, plus *Overall* for the overview. Argument connectors like *Consequently* or *In conclusion* are rarely needed.
+
+For the most common Task 2 question type, read our plan for an [IELTS opinion essay](/en/blog/ielts-opinion-essay/).

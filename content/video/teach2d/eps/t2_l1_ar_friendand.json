@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_friendand",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say my friend and I!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I and my friend went to the park.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My friend and I went to the park.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Put I last: my friend and I.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "My sister and I! My sister and I went to the market.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I and my friend went to the park.",
+  "right": "My friend and I went to the park.",
+  "strike": "I and my friend",
+  "why": "Put I last: my friend and I.",
+  "memory": "My friend and I.",
+  "quiz": {
+   "stem": "___ went to the market.",
+   "options": [
+    "I and my sister",
+    "My sister and I"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "هل تقول “I and my friend”؟",
+   "tip": "نقول «أنا وصديقي»، أما في الإنجليزية فنضع I في النهاية: “My friend and I went to the park.” وليس “I and my friend went to the park.”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “I and my friend went to the park.” 😅 نقول «أنا وصديقي» فنبدأ بـ«أنا»، أما في الإنجليزية فنضع I في النهاية، فالجملة الصحيحة “My friend and I went to the park.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “My sister and I” — في الإنجليزية نضع I في النهاية. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “I and my friend”?",
+   "tip": "In Arabic we say «أنا وصديقي» and start with «أنا», but in English we put I last: “My friend and I went to the park.” not “I and my friend went to the park.”",
+   "caption": "Do you sometimes say this? “I and my friend went to the park.” 😅 In Arabic we say «أنا وصديقي» and start with «أنا», but in English we put I last, so the right sentence is “My friend and I went to the park.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “I and my friend”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 60,
+  "seconds": 35.0,
+  "wpm": 103
+ },
+ "publish": {
+  "title": "هل تقول “I and my friend”؟",
+  "keyword": "My friend and I went to the park.",
+  "value": "نقول «أنا وصديقي»، أما في الإنجليزية فنضع I في النهاية: “My friend and I went to the park.” وليس “I and my friend went to the park.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 54,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “I and my friend”؟",
+    "description": "نقول «أنا وصديقي»، أما في الإنجليزية فنضع I في النهاية: “My friend and I went to the park.” وليس “I and my friend went to the park.”\n\nهل تقول أحيانًا هذه الجملة؟ “I and my friend went to the park.” 😅 نقول «أنا وصديقي» فنبدأ بـ«أنا»، أما في الإنجليزية فنضع I في النهاية، فالجملة الصحيحة “My friend and I went to the park.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "My friend and I went to the park.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا هذه الجملة؟ “I and my friend went to the park.” 😅 نقول «أنا وصديقي» فنبدأ بـ«أنا»، أما في الإنجليزية فنضع I في النهاية، فالجملة الصحيحة “My friend and I went to the park.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول “I and my friend”؟\n\nنقول «أنا وصديقي»، أما في الإنجليزية فنضع I في النهاية: “My friend and I went to the park.” وليس “I and my friend went to the park.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “I and my friend”؟ نقول «أنا وصديقي»، أما في الإنجليزية فنضع I في النهاية: “My friend and… #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “My sister and I” — في الإنجليزية نضع I في النهاية. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+  "lang": "ar"
+ }
+}

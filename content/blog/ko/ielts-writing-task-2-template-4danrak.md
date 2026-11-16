@@ -281,6 +281,14 @@ IELTS 준비를 더 이어가고 싶다면 Lexkite 블로그의 다음 글도 �
 
 {{youtube: | IELTS Writing Task 2 4단락 템플릿 구조와 5분 브레인스토밍 비법}}
 
+찬반형 문제에서 입장을 세 가지로 나누는 방법과 직접 쓴 모범 답안은 [IELTS agree disagree 에세이 쓰는 법](/ko/blog/ielts-agree-disagree-essay-jakseongbeop/) 글에서 이어서 볼 수 있습니다.
+
+Task 2가 쓰기 점수에서 차지하는 비중과 오버올 계산 방식은 [IELTS 밴드 점수 계산법](/ko/blog/ielts-band-jeomsu-gyesan-bangbeop/)에 정리되어 있습니다.
+
+템플릿을 외워서 쓰다 보면 관사나 복수형 같은 작은 오류가 반복되기 쉬우니, 자주 감점되는 습관은 [아이엘츠 라이팅 실수 20가지](/ko/blog/ielts-writing-jaju-hanun-silsu-gyojeong/)에서 따로 점검해 보십시오.
+
+Task 2를 준비하면서 Task 1도 챙기고 싶다면 [IELTS 라이팅 Task 1 프로세스 쓰는 법](/ko/blog/ielts-writing-task-1-process-sseuneun-beop/)에서 개요 쓰는 법과 모범 답안을 확인할 수 있습니다.
+
 ## 자주 묻는 질문
 
 ### IELTS Writing Task 2의 가장 이상적인 글자 수는 몇 단어인가요?

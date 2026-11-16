@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Want needs a different shape!",
+   "text": "Do not say want that!",
    "pause": 0.42
   },
   {
@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "Nicht „want that“ sagen!",
-   "tip": "Im Englischen gibt es kein „want that“. Du sagst „I want you to come“.",
-   "caption": "Du willst, dass jemand etwas tut? 💬 Falsch: “I want that you come.” Richtig: “I want you to come.” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.",
-   "comment": "Lösung: “to”. Richtig heißt es: “I want you to come.” Übe mehr mit einem kostenlosen Quiz: {link}",
+   "tip": "Nach „want“ folgt kein „that“-Satz. Sagen Sie „I want you to come“.",
+   "caption": "Möchten Sie, dass jemand etwas tut? 💬 Falsch: “I want that you come.” Richtig: “I want you to come.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “to”. Richtig heißt es: “I want you to come.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
    "hashtags": [
     "#englischlernen",
     "#englischtipps",
@@ -78,8 +78,8 @@
    ]
   },
   "en": {
-   "hook": "Do you want someone to do something?",
-   "tip": "English has no “want that”. You say “I want you to come”.",
+   "hook": "Do not say “want that”!",
+   "tip": "After “want”, do not use a “that” clause. Say “I want you to come”.",
    "caption": "Do you want someone to do something? Wrong: “I want that you come.” Right: “I want you to come.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
@@ -105,7 +105,7 @@
  "publish": {
   "title": "Nicht „want that“ sagen!",
   "keyword": "I want you to come.",
-  "value": "Im Englischen gibt es kein „want that“. Du sagst „I want you to come“.",
+  "value": "Nach „want“ folgt kein „that“-Satz. Sagen Sie „I want you to come“.",
   "hashtags": [
    "#englischlernen",
    "#englischtipps",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "Nicht „want that“ sagen!",
-    "description": "Du willst, dass jemand etwas tut? 💬 Falsch: “I want that you come.” Richtig: “I want you to come.” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "description": "Nach „want“ folgt kein „that“-Satz. Sagen Sie „I want you to come“.\n\nMöchten Sie, dass jemand etwas tut? 💬 Falsch: “I want that you come.” Richtig: “I want you to come.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
     "tags": [
      "I want you to come.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Du willst, dass jemand etwas tut? 💬 Falsch: “I want that you come.” Richtig: “I want you to come.” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Möchten Sie, dass jemand etwas tut? 💬 Falsch: “I want that you come.” Richtig: “I want you to come.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Du willst, dass jemand etwas tut? 💬 Falsch: “I want that you come.” Richtig: “I want you to come.” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.\n\nlexkite.com",
+    "caption": "Nicht „want that“ sagen!\n\nNach „want“ folgt kein „that“-Satz. Sagen Sie „I want you to come“.\n\nlexkite.com",
     "hashtags": [
      "#englischlernen",
      "#englischtipps",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "Nicht „want that“ sagen! #englischlernen #englischtipps #sprachenlernen"
+    "caption": "Nicht „want that“ sagen! Nach „want“ folgt kein „that“-Satz. Sagen Sie „I want you to come“. #englischlernen #englischtipps #sprachenlernen"
    }
   },
-  "first_comment": "Lösung: “to”. Richtig heißt es: “I want you to come.” Übe mehr mit einem kostenlosen Quiz: {link}",
+  "first_comment": "Lösung: “to”. Richtig heißt es: “I want you to come.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
   "lang": "de"
  }
 }

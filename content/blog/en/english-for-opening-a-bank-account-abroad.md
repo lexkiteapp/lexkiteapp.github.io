@@ -22,6 +22,7 @@ diagrams: [
   {id: d1, type: compare, title: 'Banking words by country', cols: ['US / Canada', 'UK', 'Australia'], rows: [['checking account (US), chequing account (CA)', 'current account', 'transaction account, everyday account'], ['routing number (US), transit and institution numbers (CA)', 'sort code', 'BSB'], ['check (US), cheque (CA)', 'cheque', 'cheque'], ['ATM, cash machine', 'cash machine, cashpoint, ATM', 'ATM'], ['wire transfer, e-transfer (CA)', 'bank transfer, faster payment', 'bank transfer, direct credit'], ['statement', 'statement', 'statement']]},
   {id: d2, type: boxes, title: 'How to explain a problem to your bank', parts: [{t: 'Say who you are', r: 'I have a current account with you'}, {t: 'Name the item', r: 'a payment of this amount on this date'}, {t: 'Say what is wrong', r: 'I do not recognise it'}, {t: 'Ask for the next step', r: 'what should I do now?'}]}
 ]
+publishAt: 2027-02-02T19:31:00+05:30
 ---
 
 Opening an account is one of the first jobs after you arrive in a new country, and it is also one of the most nervous conversations to have in a second language. The good news: **English for opening a bank account** is a small, repeatable set of words and questions. Once you know the vocabulary, the documents banks usually ask about, and a few polite phrases, the appointment becomes routine.

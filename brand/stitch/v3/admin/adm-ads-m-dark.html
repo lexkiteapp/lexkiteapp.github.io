@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Admin › Quảng cáo - Lexkite</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-dim": "#091518",
+            "surface-container-high": "#202c2f",
+            "on-error": "#690005",
+            "primary-fixed-dim": "#6bd8ce",
+            "tertiary-fixed": "#ffdf9e",
+            "tertiary-container": "#ba8b00",
+            "surface-container": "#162125",
+            "error-container": "#93000a",
+            "secondary-fixed": "#ffdad3",
+            "on-surface": "#d8e5e9",
+            "surface-variant": "#2b373a",
+            "on-secondary-fixed": "#3f0300",
+            "primary-container": "#2ba39a",
+            "on-primary-fixed": "#00201e",
+            "surface-container-lowest": "#051013",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "secondary-container": "#981201",
+            "on-background": "#d8e5e9",
+            "tertiary": "#f4bf40",
+            "tertiary-fixed-dim": "#f4bf40",
+            "surface-tint": "#6bd8ce",
+            "primary": "#6bd8ce",
+            "on-secondary-fixed-variant": "#900f00",
+            "outline": "#879391",
+            "error": "#ffb4ab",
+            "primary-fixed": "#88f5ea",
+            "secondary-fixed-dim": "#ffb4a6",
+            "on-error-container": "#ffdad6",
+            "surface-bright": "#2f3b3e",
+            "outline-variant": "#3d4947",
+            "secondary": "#ffb4a6",
+            "on-tertiary": "#402e00",
+            "surface-container-low": "#121d20",
+            "surface-container-highest": "#2b373a",
+            "on-tertiary-fixed": "#261a00",
+            "on-secondary-container": "#ffa493",
+            "on-secondary": "#660800",
+            "inverse-primary": "#006a64",
+            "inverse-on-surface": "#263236",
+            "surface": "#091518",
+            "on-primary-container": "#00322e",
+            "inverse-surface": "#d8e5e9",
+            "on-tertiary-container": "#392900",
+            "on-surface-variant": "#bcc9c7",
+            "on-primary": "#003733",
+            "background": "#091518",
+            "on-primary-fixed-variant": "#00504b"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin": "1rem",
+            "space-sm": "0.5rem",
+            "gutter": "1rem",
+            "margin-lg": "1.5rem",
+            "space-xl": "1.5rem",
+            "space-lg": "1rem",
+            "space-md": "0.75rem",
+            "space-xs": "0.25rem",
+            "gutter-sm": "0.5rem",
+            "space-2xl": "2rem"
+          },
+          "fontFamily": {
+            "headline-sm": ["Plus Jakarta Sans"],
+            "data-mono": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "title-md": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "title-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-sm": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "data-mono": ["13px", { "lineHeight": "16px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "title-md": ["16px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "headline-xl": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "title-sm": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-md": ["20px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-lg": ["26px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      background-color: #091518;
+      color: #d8e5e9;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      min-height: max(884px, 100dvh);
+    }
+    .tactile-card {
+      background-color: #121d20;
+      border: 1px solid #26393e;
+      box-shadow: 0 1px 0 0 #18282c, 0 4px 12px -2px rgba(0, 0, 0, 0.4);
+      border-radius: 0.75rem;
+    }
+    .tactile-card-teal {
+      background-color: #0d2826;
+      border: 1px solid #204e4a;
+      box-shadow: 0 2px 0 0 #091c1b, 0 6px 14px rgba(0, 0, 0, 0.45);
+      border-radius: 0.75rem;
+    }
+    .tactile-btn-coral {
+      background-color: #ff5c38;
+      box-shadow: 0 3px 0 0 #b83314;
+      transition: all 0.1s ease;
+    }
+    .tactile-btn-coral:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #b83314;
+    }
+    .tactile-stepper-btn {
+      box-shadow: 0 2px 0 0 #101c1f;
+      background-color: #19282c;
+      border: 1px solid #2b3d42;
+    }
+    .tactile-stepper-btn:active {
+      transform: translateY(1.5px);
+      box-shadow: 0 0.5px 0 0 #101c1f;
+    }
+    .inset-well {
+      box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+      background-color: #0e181b;
+      border: 1px solid #223438;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex justify-center bg-[#0A1517]">
+<!-- Mobile Screen Container (Exact 390px iPhone width, zero horizontal overflow) -->
+<div class="w-full max-w-[390px] min-h-screen relative flex flex-col bg-[#0A1517] pb-24 shadow-2xl">
+<!-- 1. Top App Bar (native mobile, h-14, sticky top) -->
+<header class="sticky top-0 z-40 bg-[#0A1517]/95 backdrop-blur-md border-b border-[#263A3F] shadow-sm flex items-center justify-between px-4 h-14 w-full">
+<div class="flex items-center gap-2">
+<button aria-label="Menu điều hướng" class="min-w-[44px] min-h-[44px] -ml-1 flex items-center justify-center rounded-lg text-primary hover:bg-[#162124] active:scale-95 transition-transform"><span class="material-symbols-outlined text-primary">menu</span></button>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<h1 class="text-title-md font-title-md text-[#F4FBF8] font-bold tracking-tight">Quảng cáo</h1>
+<span class="px-1.5 py-0.5 text-[10px] font-bold font-data-mono bg-[#162124] text-primary rounded border border-[#263A3F]">v2.4.1</span>
+</div>
+<span class="text-[10px] font-label-sm text-[#A3B9B7] leading-tight">Admin › Quản lý quảng cáo</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5">
+<button aria-label="Làm mới dữ liệu" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg text-[#A3B9B7] hover:bg-[#162124] active:scale-95 transition-transform"><span class="material-symbols-outlined text-[19px]">refresh</span></button>
+<div class="min-w-[44px] min-h-[44px] rounded-full bg-[#12514D] text-white flex items-center justify-center text-xs font-bold border border-primary/40 shadow-inner" title="Hoàng Minh (Admin)">HM</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-4 py-3 space-y-4">
+<!-- 2. Thẻ Công tắc khẩn cấp (Emergency Kill Switch) -->
+<section class="tactile-card p-4">
+<div class="flex items-start justify-between gap-3">
+<div class="flex-1">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+<h2 class="text-title-sm font-title-sm text-[#F4FBF8] font-bold">Công tắc khẩn cấp</h2>
+<span class="px-1.5 py-0.5 text-[10px] font-label-sm bg-emerald-950/70 text-emerald-300 rounded border border-emerald-500/40">Hoạt động</span>
+</div>
+<p class="text-body-sm font-body-sm text-[#A3B9B7] mt-1 leading-snug">
+              Tắt toàn bộ quảng cáo tức thì trên mọi nền tảng nếu có phản hồi xấu hoặc kỳ thi lớn.
+            </p>
+</div>
+<!-- Tactile Big Toggle Button (Touch Target ≥44px) -->
+<label class="relative inline-flex items-center cursor-pointer min-h-[44px] min-w-[56px] justify-end">
+<input checked="" class="opacity-0 absolute inset-0 w-full h-full cursor-pointer peer z-10" id="kill-switch" type="checkbox"/>
+<div class="w-14 h-8 bg-[#1D2F33] peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-[#00201e] after:content-[''] after:absolute after:top-[10px] after:left-[4px] after:bg-white after:border-gray-600 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-primary shadow-inner"></div>
+</label>
+</div>
+<div class="mt-3 pt-2.5 border-t border-[#213438] flex items-center justify-between text-label-sm font-label-sm">
+<div class="flex items-center gap-1 text-[#A3B9B7]">
+<span class="material-symbols-outlined text-[15px] text-primary">bolt</span>
+<span>Đồng bộ Edge Cloudflare:</span>
+<span class="text-primary font-bold">&lt;15s</span>
+</div>
+<span class="text-[11px] text-emerald-300 font-semibold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]">check_circle</span>
+            Sẵn sàng
+          </span>
+</div>
+</section>
+<!-- 3. Thẻ Nền tảng & Định dạng (Table of Platforms) -->
+<section class="tactile-card p-3.5">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">devices</span>
+<h2 class="text-title-sm font-title-sm text-[#F4FBF8] font-bold">Nền tảng &amp; Định dạng</h2>
+</div>
+<span class="text-[11px] font-label-sm text-[#7E9599]">5 mục tiêu</span>
+</div>
+<p class="text-[12px] font-body-sm text-[#A3B9B7] mb-3 leading-tight">
+          Cấu hình hiển thị theo thiết bị. Web &amp; Extension tuân thủ chính sách tôn trọng học tập không pop-up.
+        </p>
+<!-- Platform Matrix (Zero overflow, explicit 44px tap targets) -->
+<div class="rounded-lg border border-[#263A3F] overflow-hidden">
+<!-- Table Header -->
+<div class="grid grid-cols-12 bg-[#162528] px-2 py-2 text-[11px] font-label-sm text-[#A3B9B7] uppercase tracking-wider border-b border-[#263A3F]">
+<span class="col-span-4 font-bold text-primary">Nền tảng</span>
+<span class="col-span-3 text-center">Banner</span>
+<span class="col-span-2 text-center">Xen kẽ</span>
+<span class="col-span-3 text-center">Thưởng</span>
+</div>
+<!-- Rows -->
+<!-- Web lexkite.app -->
+<div class="grid grid-cols-12 items-center px-2 py-1.5 border-b border-[#1D2F33] bg-[#122023] hover:bg-[#162528] transition-colors">
+<div class="col-span-4">
+<span class="text-[12px] font-bold text-[#F4FBF8] block leading-tight">Web App</span>
+<span class="text-[10px] text-[#7E9599] font-data-mono">lexkite.app</span>
+</div>
+<!-- Banner Toggle -->
+<div class="col-span-3 flex justify-center">
+<button aria-label="Bật Banner Web" class="w-11 h-11 flex items-center justify-center rounded focus:outline-none">
+<span class="px-2 py-1 text-[11px] font-bold rounded bg-emerald-950/70 text-emerald-300 border border-emerald-500/40">Bật</span>
+</button>
+</div>
+<!-- Interstitial Toggle (Disabled by clean policy) -->
+<div class="col-span-2 flex justify-center">
+<button aria-label="Khóa Xen kẽ Web" class="w-11 h-11 flex items-center justify-center rounded focus:outline-none" title="Không dùng popup chen ngang trên Web">
+<span class="px-1.5 py-1 text-[10px] font-semibold rounded bg-[#162124] text-[#7E9599] border border-[#263A3F]">Khóa</span>
+</button>
+</div>
+<!-- Rewarded Toggle -->
+<div class="col-span-3 flex justify-center">
+<button aria-label="Bật Quảng cáo có thưởng Web" class="w-11 h-11 flex items-center justify-center rounded focus:outline-none">
+<span class="px-2 py-1 text-[11px] font-bold rounded bg-emerald-950/70 text-emerald-300 border border-emerald-500/40">Bật</span>
+</button>
+</div>
+</div>
+<!-- Chrome Add-on -->
+<div class="grid grid-cols-12 items-center px-2 py-1.5 border-b border-[#1D2F33] bg-[#0E191C] hover:bg-[#162528] transition-colors">
+<div class="col-span-4">
+<span class="text-[12px] font-bold text-[#F4FBF8] block leading-tight">Extension</span>
+<span class="text-[10px] text-[#7E9599]">Chrome Add-on</span>
+</div>
+<div class="col-span-3 flex justify-center">
+<button aria-label="Tắt Banner Extension" class="w-11 h-11 flex items-center justify-center rounded focus:outline-none">
+<span class="px-2 py-1 text-[11px] font-medium rounded bg-[#162124] text-[#A3B9B7] border border-[#263A3F]">Tắt</span>
+</button>
+</div>
+<div class="col-span-2 flex justify-center">
+<button aria-label="Khóa Xen kẽ Extension" class="w-11 h-11 flex items-center justify-center rounded focus:outline-none">
+<span class="px-1.5 py-1 text-[10px] font-semibold rounded bg-[#162124] text-[#7E9599] border border-[#263A3F]">Khóa</span>
+</button>
+</div>
+<div class="col-span-3 flex justify-center">
+<button aria-label="Bật Rewarded Extension" class="w-11 h-11 flex items-center justify-center rounded focus:outline-none">
+<span class="px-2 py-1 text-[11px] font-bold rounded bg-emerald-950/70 text-emerald-300 border border-emerald-500/40">Bật</span>
+</button>
+</div>
+</div>
+<!-- iOS TestFlight -->
+<div class="grid grid-cols-12 items-center px-2 py-1.5 border-b border-[#1D2F33] bg-[#122023] hover:bg-[#162528] transition-colors">
+<div class="col-span-4">
+<span class="text-[12px] font-bold text-[#F4FBF8] block leading-tight">iOS Mobile</span>
+<span class="text-[10px] text-amber-400 font-medium">TestFlight build</span>
+</div>
+<div class="col-span-3 flex justify-center">
+<button aria-label="Bật Banner iOS" class="w-11 h-11 flex items-center justify-center rounded focus:outline-none">
+<span class="px-2 py-1 text-[11px] font-bold rounded bg-emerald-950/70 text-emerald-300 border border-emerald-500/40">Bật</span>
+</button>
+</div>
+<div class="col-span-2 flex justify-center">
+<button aria-label="Bật Xen kẽ iOS" class="w-11 h-11 flex items-center justify-center rounded focus:outline-none">
+<span class="px-2 py-1 text-[11px] font-bold rounded bg-emerald-950/70 text-emerald-300 border border-emerald-500/40">Bật</span>
+</button>
+</div>
+<div class="col-span-3 flex justify-center">
+<button aria-label="Bật Rewarded iOS" class="w-11 h-11 flex items-center justify-center rounded focus:outline-none">
+<span class="px-2 py-1 text-[11px] font-bold rounded bg-emerald-950/70 text-emerald-300 border border-emerald-500/40">Bật</span>
+</button>
+</div>
+</div>
+<!-- Android APK -->
+<div class="grid grid-cols-12 items-center px-2 py-1.5 bg-[#0E191C] hover:bg-[#162528] transition-colors">
+<div class="col-span-4">
+<span class="text-[12px] font-bold text-[#F4FBF8] block leading-tight">Android</span>
+<span class="text-[10px] text-[#7E9599]">Internal Release</span>
+</div>
+<div class="col-span-3 flex justify-center">
+<button aria-label="Bật Banner Android" class="w-11 h-11 flex items-center justify-center rounded focus:outline-none">
+<span class="px-2 py-1 text-[11px] font-bold rounded bg-emerald-950/70 text-emerald-300 border border-emerald-500/40">Bật</span>
+</button>
+</div>
+<div class="col-span-2 flex justify-center">
+<button aria-label="Bật Xen kẽ Android" class="w-11 h-11 flex items-center justify-center rounded focus:outline-none">
+<span class="px-2 py-1 text-[11px] font-bold rounded bg-emerald-950/70 text-emerald-300 border border-emerald-500/40">Bật</span>
+</button>
+</div>
+<div class="col-span-3 flex justify-center">
+<button aria-label="Bật Rewarded Android" class="w-11 h-11 flex items-center justify-center rounded focus:outline-none">
+<span class="px-2 py-1 text-[11px] font-bold rounded bg-emerald-950/70 text-emerald-300 border border-emerald-500/40">Bật</span>
+</button>
+</div>
+</div>
+</div>
+<div class="mt-2.5 px-2.5 py-1.5 rounded bg-[#0E191C] border border-[#213438] text-[11px] text-[#A3B9B7] flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-primary">info</span>
+<span>Chính sách sạch: 100% không dùng pop-up gián đoạn bài học từ vựng.</span>
+</div>
+</section>
+<!-- 4. Thẻ Doanh thu ước tính · 7 ngày (Estimated Revenue) -->
+<section class="tactile-card-teal p-4 text-white">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">query_stats</span>
+<span class="text-label-sm font-label-sm text-primary uppercase tracking-wider">Doanh thu ước tính · 7 ngày</span>
+</div>
+<p class="text-[11px] text-[#D5DEDC] mt-0.5">Ước tính thuần (Net) · Chỉ bù chi phí máy chủ &amp; CDN</p>
+</div>
+<span class="px-2 py-0.5 text-[11px] font-bold bg-[#FA5B40]/20 text-[#ffb4a6] rounded border border-[#FA5B40]/40">
+            +4.2%
+          </span>
+</div>
+<!-- Metric Big Stats -->
+<div class="mt-2 flex items-baseline justify-between">
+<div>
+<span class="text-[28px] font-extrabold font-headline-xl tracking-tight text-white leading-none">$16.42</span>
+<span class="text-[12px] text-[#D5DEDC] ml-1.5 font-medium">~ 415.000 ₫</span>
+</div>
+<div class="text-right">
+<span class="text-[11px] text-[#A3B9B7] block">eRPM trung bình</span>
+<span class="text-[13px] font-bold font-data-mono text-primary">$1.15 <span class="text-[10px] font-normal text-[#A3B9B7]">/ 1k lượt</span></span>
+</div>
+</div>
+<!-- Mini 7-Day Bar Chart -->
+<div class="mt-3 pt-3 border-t border-white/10">
+<div class="flex items-end justify-between gap-1.5 h-16 px-1">
+<!-- T2 -->
+<div class="flex-1 flex flex-col items-center gap-1">
+<span class="text-[9px] font-data-mono text-[#D5DEDC]">$1.85</span>
+<div class="w-full bg-[#10302F] rounded-t h-8 relative flex items-end">
+<div class="w-full bg-[#2ba39a] rounded-t h-[60%]"></div>
+</div>
+<span class="text-[10px] text-[#D5DEDC]">T2</span>
+</div>
+<!-- T3 -->
+<div class="flex-1 flex flex-col items-center gap-1">
+<span class="text-[9px] font-data-mono text-[#D5DEDC]">$2.10</span>
+<div class="w-full bg-[#10302F] rounded-t h-10 relative flex items-end">
+<div class="w-full bg-[#2ba39a] rounded-t h-[75%]"></div>
+</div>
+<span class="text-[10px] text-[#D5DEDC]">T3</span>
+</div>
+<!-- T4 -->
+<div class="flex-1 flex flex-col items-center gap-1">
+<span class="text-[9px] font-data-mono text-[#D5DEDC]">$1.95</span>
+<div class="w-full bg-[#10302F] rounded-t h-9 relative flex items-end">
+<div class="w-full bg-[#2ba39a] rounded-t h-[68%]"></div>
+</div>
+<span class="text-[10px] text-[#D5DEDC]">T4</span>
+</div>
+<!-- T5 -->
+<div class="flex-1 flex flex-col items-center gap-1">
+<span class="text-[9px] font-data-mono text-[#D5DEDC]">$2.40</span>
+<div class="w-full bg-[#10302F] rounded-t h-12 relative flex items-end">
+<div class="w-full bg-[#2ba39a] rounded-t h-[82%]"></div>
+</div>
+<span class="text-[10px] text-[#D5DEDC]">T5</span>
+</div>
+<!-- T6 -->
+<div class="flex-1 flex flex-col items-center gap-1">
+<span class="text-[9px] font-data-mono text-[#D5DEDC]">$2.28</span>
+<div class="w-full bg-[#10302F] rounded-t h-11 relative flex items-end">
+<div class="w-full bg-[#2ba39a] rounded-t h-[78%]"></div>
+</div>
+<span class="text-[10px] text-[#D5DEDC]">T6</span>
+</div>
+<!-- T7 -->
+<div class="flex-1 flex flex-col items-center gap-1">
+<span class="text-[9px] font-data-mono text-[#ffdad3] font-bold">$2.94</span>
+<div class="w-full bg-[#3A1A1C] rounded-t h-14 relative flex items-end">
+<div class="w-full bg-[#FA5B40] rounded-t h-[95%]"></div>
+</div>
+<span class="text-[10px] text-[#ffdad3] font-bold">T7</span>
+</div>
+<!-- CN -->
+<div class="flex-1 flex flex-col items-center gap-1">
+<span class="text-[9px] font-data-mono text-[#ffdad3] font-bold">$2.90</span>
+<div class="w-full bg-[#3A1A1C] rounded-t h-14 relative flex items-end">
+<div class="w-full bg-[#FA5B40] rounded-t h-[93%]"></div>
+</div>
+<span class="text-[10px] text-[#ffdad3] font-bold">CN</span>
+</div>
+</div>
+<div class="mt-2 text-center text-[10px] text-[#A3B9B7]">
+            Tổng lượt hiển thị: 14.280 views (~240 học viên active/ngày)
+          </div>
+</div>
+</section>
+<!-- 5. Thẻ Giới hạn tần suất (Frequency Caps) -->
+<section class="tactile-card p-4">
+<div class="flex items-center gap-1.5 mb-1">
+<span class="material-symbols-outlined text-primary text-[18px]">timer</span>
+<h2 class="text-title-sm font-title-sm text-[#F4FBF8] font-bold">Giới hạn tần suất (Frequency Caps)</h2>
+</div>
+<p class="text-[12px] font-body-sm text-[#A3B9B7] mb-3">
+          Bảo vệ độ tập trung của học viên trong khi luyện phát âm &amp; nhớ thẻ flashcard.
+        </p>
+<div class="space-y-3">
+<!-- Stepper 1: Tối đa mỗi giờ -->
+<div class="p-2.5 rounded-lg bg-[#0E191C] border border-[#213438] flex items-center justify-between">
+<div>
+<span class="text-title-sm font-title-sm text-[#F4FBF8] block leading-tight">Tối đa mỗi giờ</span>
+<span class="text-[11px] text-[#7E9599]">Số lần hiển thị tối đa / học viên</span>
+</div>
+<div class="flex items-center gap-2">
+<button aria-label="Giảm lượt mỗi giờ" class="tactile-stepper-btn w-11 h-11 rounded-lg flex items-center justify-center text-primary font-bold active:scale-95">
+<span class="material-symbols-outlined text-[18px]">remove</span>
+</button>
+<div class="min-w-[40px] text-center">
+<span class="text-headline-sm font-headline-sm text-primary font-bold">2</span>
+<span class="text-[10px] text-[#7E9599] block leading-none">qc/h</span>
+</div>
+<button aria-label="Tăng lượt mỗi giờ" class="tactile-stepper-btn w-11 h-11 rounded-lg flex items-center justify-center text-primary font-bold active:scale-95">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+<!-- Stepper 2: Khoảng cách tối thiểu -->
+<div class="p-2.5 rounded-lg bg-[#0E191C] border border-[#213438] flex items-center justify-between">
+<div>
+<span class="text-title-sm font-title-sm text-[#F4FBF8] block leading-tight">Khoảng cách tối thiểu</span>
+<span class="text-[11px] text-[#7E9599]">Giãn cách giữa 2 lượt quảng cáo</span>
+</div>
+<div class="flex items-center gap-2">
+<button aria-label="Giảm phút giãn cách" class="tactile-stepper-btn w-11 h-11 rounded-lg flex items-center justify-center text-primary font-bold active:scale-95">
+<span class="material-symbols-outlined text-[18px]">remove</span>
+</button>
+<div class="min-w-[40px] text-center">
+<span class="text-headline-sm font-headline-sm text-primary font-bold">15</span>
+<span class="text-[10px] text-[#7E9599] block leading-none">phút</span>
+</div>
+<button aria-label="Tăng phút giãn cách" class="tactile-stepper-btn w-11 h-11 rounded-lg flex items-center justify-center text-primary font-bold active:scale-95">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. Thẻ Cổng giữ chân học viên mới (Retention Guard) -->
+<section class="tactile-card p-4">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">shield</span>
+<h2 class="text-title-sm font-title-sm text-[#F4FBF8] font-bold">Cổng giữ chân học viên mới</h2>
+</div>
+<span class="px-2 py-0.5 text-[10px] font-bold bg-teal-950/70 text-teal-300 rounded border border-teal-500/40">
+            D7 Guard
+          </span>
+</div>
+<p class="text-[12px] font-body-sm text-[#A3B9B7] mb-3">
+          Hoàn toàn không hiển thị quảng cáo cho người mới để tối đa hóa tỉ lệ hoàn thành bài học tuần đầu.
+        </p>
+<!-- Stepper chọn ngày miễn quảng cáo -->
+<div class="p-3 rounded-lg inset-well flex items-center justify-between">
+<div>
+<span class="text-title-sm font-title-sm text-[#F4FBF8] font-bold block">Miễn phí hoàn toàn</span>
+<span class="text-[11px] text-[#A3B9B7]">Không chèn quảng cáo trong</span>
+</div>
+<!-- Discrete Chips (44px min tap) -->
+<div class="flex items-center gap-1"><button class="min-h-[44px] min-w-[44px] px-2.5 rounded-md text-[11px] font-bold bg-[#162124] text-[#A3B9B7] border border-[#263A3F] shadow-xs active:scale-95">3d</button><button class="min-h-[44px] min-w-[44px] px-2.5 rounded-md text-[11px] font-bold bg-[#162124] text-[#A3B9B7] border border-[#263A3F] shadow-xs active:scale-95">5d</button><button class="min-h-[44px] min-w-[44px] px-3 rounded-md text-[12px] font-extrabold bg-[#12514D] text-white shadow-sm active:scale-95 border border-primary/40">7 ngày</button><button class="min-h-[44px] min-w-[44px] px-2.5 rounded-md text-[11px] font-bold bg-[#162124] text-[#A3B9B7] border border-[#263A3F] shadow-xs active:scale-95">14d</button></div>
+</div>
+<div class="mt-2.5 flex items-center justify-between text-[11px] font-label-sm text-[#A3B9B7] px-1">
+<span>Tỉ lệ duy trì D7 được bảo vệ:</span>
+<span class="text-primary font-bold text-[12px]">34.5% Hoàn thành D7</span>
+</div>
+</section>
+<!-- 7. Thẻ Đồng ý theo vùng & Tuân thủ pháp lý (Consent by Region) -->
+<section class="tactile-card p-4">
+<div class="flex items-center justify-between mb-1.5">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">verified_user</span>
+<h2 class="text-title-sm font-title-sm text-[#F4FBF8] font-bold">Đồng ý &amp; Tuân thủ pháp lý</h2>
+</div>
+<span class="text-[11px] font-data-mono font-bold text-emerald-300 bg-emerald-950/70 px-1.5 py-0.5 rounded border border-emerald-500/40">
+            CMP 92.4%
+          </span>
+</div>
+<p class="text-[12px] font-body-sm text-[#A3B9B7] mb-2.5">
+          Google Consent Mode v2 kích hoạt. Tự động điều chỉnh theo luật riêng tư từng quốc gia.
+        </p>
+<!-- Regional Compliance Chips Grid -->
+<div class="grid grid-cols-2 gap-2">
+<!-- EEA / GDPR -->
+<div class="p-2.5 rounded-lg bg-[#0E191C] border border-[#213438]">
+<div class="flex items-center justify-between">
+<span class="text-[11px] font-bold text-[#F4FBF8]">EEA / EU</span>
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+</div>
+<span class="text-[10px] text-[#7E9599] block mt-0.5">GDPR · TCF v2.2</span>
+<span class="text-[10px] text-primary font-semibold">Cần hỏi trước</span>
+</div>
+<!-- UK ICO -->
+<div class="p-2.5 rounded-lg bg-[#0E191C] border border-[#213438]">
+<div class="flex items-center justify-between">
+<span class="text-[11px] font-bold text-[#F4FBF8]">Vương quốc Anh</span>
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+</div>
+<span class="text-[10px] text-[#7E9599] block mt-0.5">ICO Compliant</span>
+<span class="text-[10px] text-primary font-semibold">Cần hỏi trước</span>
+</div>
+<!-- California CCPA -->
+<div class="p-2.5 rounded-lg bg-[#0E191C] border border-[#213438]">
+<div class="flex items-center justify-between">
+<span class="text-[11px] font-bold text-[#F4FBF8]">California (Mỹ)</span>
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+</div>
+<span class="text-[10px] text-[#7E9599] block mt-0.5">CCPA / CPRA</span>
+<span class="text-[10px] text-primary font-semibold">Do Not Sell Opt-out</span>
+</div>
+<!-- VN & Global -->
+<div class="p-2.5 rounded-lg bg-[#0E191C] border border-[#213438]">
+<div class="flex items-center justify-between">
+<span class="text-[11px] font-bold text-[#F4FBF8]">Việt Nam &amp; Khác</span>
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+</div>
+<span class="text-[10px] text-[#7E9599] block mt-0.5">NĐ 13/2023/NĐ-CP</span>
+<span class="text-[10px] text-primary font-semibold">Bật mặc định</span>
+</div>
+</div>
+</section>
+<!-- 8. Nút hành động chính dưới cùng (Primary Coral CTA) -->
+<div class="pt-1 pb-4"><button aria-label="Lưu cấu hình quảng cáo" class="tactile-btn-coral w-full min-h-[48px] h-12 rounded-xl text-white font-title-md font-extrabold flex items-center justify-center gap-2 text-center" style="background-color: #d13b19; box-shadow: 0 3px 0 0 #8f2108;"><span class="material-symbols-outlined text-[20px]">save</span><span>Lưu cấu hình quảng cáo</span></button><div class="mt-2 flex items-center justify-center gap-1.5 text-center text-[11px] text-[#A3B9B7] font-medium"><span class="material-symbols-outlined text-[14px] text-primary">cloud_done</span><span>Đã đồng bộ Cloudflare KV · Phiên bản phân phối tức thời</span></div></div>
+</main>
+<!-- 9. Docked Bottom Navigation Bar (Shared Component Execution, h-16, fixed bottom) -->
+<nav class="fixed bottom-0 left-0 right-0 w-full z-50 flex justify-around items-center px-2 py-2 h-16 max-w-[390px] mx-auto bg-[#0A1517]/95 backdrop-blur-md border-t border-[#263A3F] shadow-lg"><a class="flex flex-col items-center justify-center text-[#A3B9B7] px-3 py-1 min-h-[48px] min-w-[48px] active:scale-95 transition-transform duration-100 hover:bg-[#162124] rounded-lg" href="#tong-quan"><span class="material-symbols-outlined text-[20px]">dashboard</span><span class="text-label-sm font-label-sm mt-0.5">Tổng quan</span></a><a class="flex flex-col items-center justify-center bg-[#12514D] text-primary rounded-lg px-3 py-1 min-h-[48px] min-w-[48px] border border-primary/30 shadow-sm active:scale-95 transition-transform duration-100" href="#phan-tich"><span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">analytics</span><span class="text-label-sm font-label-sm mt-0.5 font-bold">Phân tích</span></a><a class="flex flex-col items-center justify-center text-[#A3B9B7] px-3 py-1 min-h-[48px] min-w-[48px] active:scale-95 transition-transform duration-100 hover:bg-[#162124] rounded-lg" href="#noi-dung"><span class="material-symbols-outlined text-[20px]">article</span><span class="text-label-sm font-label-sm mt-0.5">Nội dung</span></a><a class="flex flex-col items-center justify-center text-[#A3B9B7] px-3 py-1 min-h-[48px] min-w-[48px] active:scale-95 transition-transform duration-100 hover:bg-[#162124] rounded-lg" href="#cai-dat"><span class="material-symbols-outlined text-[20px]">settings</span><span class="text-label-sm font-label-sm mt-0.5">Cài đặt</span></a></nav>
+</div>
+<!-- Inline Script for interactive tactile feedback -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const killSwitch = document.getElementById('kill-switch');
+      if (killSwitch) {
+        killSwitch.addEventListener('change', (e) => {
+          if (!e.target.checked) {
+            const confirmed = confirm('CẢNH BÁO: Tắt toàn bộ quảng cáo trên Web, iOS, Android ngay lập tức?');
+            if (!confirmed) {
+              e.target.checked = true;
+            }
+          }
+        });
+      }
+    });
+  </script>
+</body></html>

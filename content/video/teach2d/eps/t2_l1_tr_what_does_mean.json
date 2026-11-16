@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_what_does_mean",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "What does it mean?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: What is this word mean?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: What does this word mean?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use does, not is.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Does! What does this word mean?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "What is this word mean?",
+  "right": "What does this word mean?",
+  "strike": "is",
+  "why": "Use does, not is.",
+  "memory": "What does this word mean?",
+  "quiz": {
+   "stem": "What ___ this word mean?",
+   "options": [
+    "is",
+    "does"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Is” değil, “does”: ne demek?",
+   "tip": "Türkçede “Bu kelime ne demek?” deriz; İngilizcede bu soru “is” ile değil, “does” ile kurulur: “What does this word mean?”",
+   "caption": "“What is this word mean?” mi diyorsun? 😅 Soruyu “does” ile kurarız, “is” demeyiz. Doğrusu “What does this word mean?” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “does”. “Mean” fiiliyle soru sorarken “does” kullan, fiil yalın kalır. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “does”, not “is”!",
+   "tip": "Ask with “does”: “What does this word mean?”",
+   "caption": "Do you say “What is this word mean?” 😅 In English we ask with does, not is. The right sentence is “What does this word mean?” Listen to Ama and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Is” değil, “does”: ne demek?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“Is” değil, “does”: ne demek?",
+  "keyword": "What does this word mean?",
+  "value": "Türkçede “Bu kelime ne demek?” deriz; İngilizcede bu soru “is” ile değil, “does” ile kurulur: “What does this word mean?”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "“Is” değil, “does”: ne demek?",
+    "description": "Türkçede “Bu kelime ne demek?” deriz; İngilizcede bu soru “is” ile değil, “does” ile kurulur: “What does this word mean?”\n\n“What is this word mean?” mi diyorsun? 😅 Soruyu “does” ile kurarız, “is” demeyiz. Doğrusu “What does this word mean?” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "What does this word mean?",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“What is this word mean?” mi diyorsun? 😅 Soruyu “does” ile kurarız, “is” demeyiz. Doğrusu “What does this word mean?” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Is” değil, “does”: ne demek?\n\nTürkçede “Bu kelime ne demek?” deriz; İngilizcede bu soru “is” ile değil, “does” ile kurulur: “What does this word mean?”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Is” değil, “does”: ne demek? Türkçede “Bu kelime ne demek?” deriz; İngilizcede bu soru “is” ile değil,… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “does”. “Mean” fiiliyle soru sorarken “does” kullan, fiil yalın kalır. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+  "lang": "tr"
+ }
+}

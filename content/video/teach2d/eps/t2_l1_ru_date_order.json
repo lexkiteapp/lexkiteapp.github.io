@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_date_order",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "5 of May or May 5?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: My birthday is on 5 of May.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My birthday is on May 5.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say the month first.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "May 5! His birthday is on May 5.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "My birthday is on 5 of May.",
+  "right": "My birthday is on May 5.",
+  "strike": "5 of May",
+  "why": "Say the month first.",
+  "memory": "May 5.",
+  "quiz": {
+   "stem": "His birthday is on ___.",
+   "options": [
+    "5 of May",
+    "May 5"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "«5 мая» — как сказать?",
+   "tip": "Месяц идёт первым: “My birthday is on May 5.”",
+   "caption": "Ты тоже говоришь “My birthday is on 5 of May”? 😅 По-русски сначала число, потом месяц — «5 мая», и хочется сказать “5 of May”, но в американском английском сначала идёт месяц. Правильно: “My birthday is on May 5.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “May 5.” Сначала месяц. Скажи вслух дату своего дня рождения: “My birthday is on …” Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#изучениеанглийского",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "5 of May or May 5?",
+   "tip": "Say the month first: “My birthday is on May 5.”",
+   "caption": "Do you also say “My birthday is on 5 of May”? 😅 In Russian the day comes first, so “5 of May” feels right, but American English puts the month first. Correct: “My birthday is on May 5.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "«5 мая» — как сказать?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 51,
+  "seconds": 30.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "«5 мая» — как сказать?",
+  "keyword": "My birthday is on May 5.",
+  "value": "Месяц идёт первым: “My birthday is on May 5.”",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#изучениеанглийского",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 45,
+  "platforms": {
+   "youtube": {
+    "title": "«5 мая» — как сказать?",
+    "description": "Месяц идёт первым: “My birthday is on May 5.”\n\nТы тоже говоришь “My birthday is on 5 of May”? 😅 По-русски сначала число, потом месяц — «5 мая», и хочется сказать “5 of May”, но в американском английском сначала идёт месяц. Правильно: “My birthday is on May 5.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #английский #изучениеанглийского #lexkite",
+    "tags": [
+     "My birthday is on May 5.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “My birthday is on 5 of May”? 😅 По-русски сначала число, потом месяц — «5 мая», и хочется сказать “5 of May”, но в американском английском сначала идёт месяц. Правильно: “My birthday is on May 5.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "«5 мая» — как сказать?\n\nМесяц идёт первым: “My birthday is on May 5.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#изучениеанглийского",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "«5 мая» — как сказать? Месяц идёт первым: “My birthday is on May 5.” #английскийязык #английский #изучениеанглийского"
+   }
+  },
+  "first_comment": "Ответ: “May 5.” Сначала месяц. Скажи вслух дату своего дня рождения: “My birthday is on …” Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

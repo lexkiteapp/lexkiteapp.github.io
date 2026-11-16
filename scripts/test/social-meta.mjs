@@ -112,6 +112,7 @@ GC.posts.p_1 = { id: 'p_1', status: 'scheduled', caption: 'Cap ' + CA, targets: 
 due(CA, 'gc-facebook_page-2', now + H, 'pushed', 'p_1'); const bA = await board(CA, 'gc-facebook_page-2', 'scheduled', 'p_1');
 due(CA, 'gc-instagram-3', now + 2.5 * H); const bAi = await board(CA, 'gc-instagram-3', 'approved', null);
 due(CB, 'gc-facebook_page-2', now + 2 * H); const bB = await board(CB, 'gc-facebook_page-2', 'review', null);
+sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES ('auto', ?, ?) ON CONFLICT(k) DO UPDATE SET v = excluded.v").run(JSON.stringify({ policy: A.POLICY, auto_approve: true, auto_queue: true, manual_first: 0, autopub: { youtube: true } }), now); // kịch bản gốc: FB/IG chờ duyệt (từ 16/11 ownerPolicy bật autopub cả FB/IG/TikTok, phải lưu rõ cấu hình cũ)
 GC.down = true; gcCalls = []; MG.calls = [];
 let r = await A.runAuto(ENV, { now, sleep });
 ok(/db_budget/.test(String(r.stop)) && r.provider.cur === 'meta' && r.provider.why === 'db_budget_guard', `lượt 1: GrabCast 503 db_budget_guard → cầu dao + chuyển Meta NGAY trong lượt (${r.stop} ${JSON.stringify(r.provider)})`);

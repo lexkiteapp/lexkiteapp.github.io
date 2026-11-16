@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_bigi",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Always write a big I!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: i am a student.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am a student.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "I is always a big letter.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Big I! I am happy.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "i am a student.",
+  "right": "I am a student.",
+  "strike": "i",
+  "why": "I is always a big letter.",
+  "memory": "Big I.",
+  "quiz": {
+   "stem": "Write it right: ___ am happy.",
+   "options": [
+    "i",
+    "I"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "英语的 I 永远要大写！",
+   "tip": "汉语没有大小写，所以容易把 i 写成小写。英语里 I（我）无论在哪里都要大写。",
+   "caption": "你是不是也会写 “i am a student.”😅 汉语没有大小写，所以容易写成 i，英语的 I 一定要大写：“I am a student.”跟着 Carlos 老师写一写！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“I am a student.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Always write a big “I”!",
+   "tip": "Chinese has no capital letters, but English always writes I big.",
+   "caption": "Do you write “i am a student.” 😅 Chinese has no capital letters, but English always writes I big: “I am a student.” Write it with Carlos! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "英语的 I 永远要大写！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "英语的 I 永远要大写！",
+  "keyword": "I am a student.",
+  "value": "汉语没有大小写，所以容易把 i 写成小写。英语里 I（我）无论在哪里都要大写。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "英语的 I 永远要大写！",
+    "description": "汉语没有大小写，所以容易把 i 写成小写。英语里 I（我）无论在哪里都要大写。\n\n你是不是也会写 “i am a student.”😅 汉语没有大小写，所以容易写成 i，英语的 I 一定要大写：“I am a student.”跟着 Carlos 老师写一写！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "I am a student.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会写 “i am a student.”😅 汉语没有大小写，所以容易写成 i，英语的 I 一定要大写：“I am a student.”跟着 Carlos 老师写一写！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "英语的 I 永远要大写！\n\n汉语没有大小写，所以容易把 i 写成小写。英语里 I（我）无论在哪里都要大写。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "英语的 I 永远要大写！ 汉语没有大小写，所以容易把 i 写成小写。英语里 I（我）无论在哪里都要大写。 #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“I am a student.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

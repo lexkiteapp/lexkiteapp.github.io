@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_wherecani",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Can goes before I!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Where I can buy a ticket?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Where can I buy a ticket?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Put can before I.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Can I! Where can I buy water?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Where I can buy a ticket?",
+  "right": "Where can I buy a ticket?",
+  "strike": "I can",
+  "why": "Put can before I.",
+  "memory": "Where can I?",
+  "quiz": {
+   "stem": "Where ___ buy water?",
+   "options": [
+    "I can",
+    "can I"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Di mana saya bisa” dibalik",
+   "tip": "Kita bilang “Di mana saya bisa beli tiket?”, tapi bahasa Inggris menaruh can sebelum I: Where can I buy a ticket?",
+   "caption": "Pernah bilang begini? “Where I can buy a ticket?” 😅 Dalam pertanyaan, can ada sebelum I: “Where can I buy a ticket?” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “can I”. Tulis satu pertanyaan Where can I tentang hal yang ingin kamu beli. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#pertanyaan",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Flip “saya bisa” to “can I”",
+   "tip": "We say “Di mana saya bisa beli tiket?”, but English puts can before I: Where can I buy a ticket?",
+   "caption": "Ever say this? “Where I can buy a ticket?” 😅 In a question, can goes before I: “Where can I buy a ticket?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Di mana saya bisa” dibalik"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“Di mana saya bisa” dibalik",
+  "keyword": "Where can I buy a ticket?",
+  "value": "Kita bilang “Di mana saya bisa beli tiket?”, tapi bahasa Inggris menaruh can sebelum I: Where can I buy a ticket?",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#pertanyaan",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "“Di mana saya bisa” dibalik",
+    "description": "Kita bilang “Di mana saya bisa beli tiket?”, tapi bahasa Inggris menaruh can sebelum I: Where can I buy a ticket?\n\nPernah bilang begini? “Where I can buy a ticket?” 😅 Dalam pertanyaan, can ada sebelum I: “Where can I buy a ticket?” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #pertanyaan #bahasainggris #lexkite",
+    "tags": [
+     "Where can I buy a ticket?",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “Where I can buy a ticket?” 😅 Dalam pertanyaan, can ada sebelum I: “Where can I buy a ticket?” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Di mana saya bisa” dibalik\n\nKita bilang “Di mana saya bisa beli tiket?”, tapi bahasa Inggris menaruh can sebelum I: Where can I buy a ticket?\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#pertanyaan",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Di mana saya bisa” dibalik Kita bilang “Di mana saya bisa beli tiket?”, tapi bahasa Inggris menaruh… #belajarbahasainggris #pertanyaan #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “can I”. Tulis satu pertanyaan Where can I tentang hal yang ingin kamu beli. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

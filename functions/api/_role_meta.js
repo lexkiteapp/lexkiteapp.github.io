@@ -3,6 +3,7 @@
  *   socialMeta(clip, platform) → public, viral-optimised: hook-first title ≤ 60 with the keyword first, description whose first 2 lines are hook + value
  *                                then the lesson deep link, 3–5 hashtags, tags, A/B title variants and an SEO score (seoScore).
  * clip: {id, title, point, keyword?, topic, sub, skill, cefr, exam, hook, slug?, url?}. Used by distribution.js (op meta / social_due) and scripts/video/yt-pack.mjs. */
+import { installLines } from './_install_links.js'; // link cài: infra/install-links.json (luật: docs/VIDEO.md)
 import { clipLang } from './_first_comment.js';
 export const SITE = 'https://lexkite.com';
 export const PLATFORMS = {
@@ -75,6 +76,8 @@ export function socialMeta(c, platform = 'youtube') {
   // Link theo luật nền tảng (docs/DISTRIBUTION.md §6c): YouTube → dòng ĐẦU mô tả (bấm được, hiện trên "…more"); IG/TikTok → link trong caption KHÔNG bấm được
   // → CTA "link in bio" (link bio = /api/go/<nền tảng>/bio); FB/Threads giữ dòng link (autopilot đổi sang "in the first comment" khi gắn bình luận đầu – _first_comment.js fcCaption).
   const link = `Full lesson + quiz: ${lessonUrl(c, platform)}`, lines = platform === 'youtube' ? [link, hook, value] : BIO_ONLY.includes(platform) ? [hook, value, BIO_CTA] : [hook, value, link];
+  // Link cài theo nền tảng (infra/install-links.json): YouTube/Facebook liệt kê từng cửa hàng (bấm được); Threads một link /get có nguồn đo; IG/TikTok caption không bấm được → giữ "link in bio" (/api/go/<nền tảng>/bio chuyển tới /get)
+  if (!BIO_ONLY.includes(platform)) lines.push(...installLines(platform, c.id));
   const head = [...lines, '', 'Save this and send it to a friend who needs it.'].join('\n'), body = [head.length > room ? head.slice(0, Math.max(0, room - 1)).replace(/\s+\S*$/, '') + '…' : head, tail];
   const m = { role: 'social', platform, privacy: 'public', no_keyword: k.toLowerCase() === String(c.id || '').toLowerCase(), title: variants[0], variants, description: body.join('\n').slice(0, P.caption), hashtags, tags, made_for_kids: false, synthetic: true };
   m.seo = seoScore(m, k); return m;

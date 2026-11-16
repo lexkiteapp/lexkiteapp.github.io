@@ -16,7 +16,7 @@
   },
   {
    "id": "w",
-   "text": "Many learners say: I want that you help me.",
+   "text": "Many learners say: I want you help me.",
    "pause": 0.42
   },
   {
@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "You to! I want you to come.",
+   "text": "You to! I want you to help me.",
    "pause": 0.42
   },
   {
@@ -52,24 +52,24 @@
   }
  ],
  "data": {
-  "wrong": "I want that you help me.",
+  "wrong": "I want you help me.",
   "right": "I want you to help me.",
-  "strike": "that you",
+  "strike": "you help",
   "why": "Say want you to.",
   "memory": "Want you to help.",
   "quiz": {
-   "stem": "I want ___ come.",
+   "stem": "I want ___ help me.",
    "options": [
-    "that you",
+    "you",
     "you to"
    ],
    "answer": 1
   },
   "native": {
-   "hook": "“want that you” 틀렸어요!",
-   "tip": "want 뒤에 that절 대신 “you to”! “I want you to help me”예요.",
-   "caption": "“I want that you help me”라고 말하고 있나요? 😅 want 뒤에는 that절이 아니라 ‘사람 + to 동사’를 써요. “I want you to help me”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-   "comment": "정답: “you to”. want you to로 말해요! 무료 퀴즈로 더 연습해 보세요: {link}",
+   "hook": "“want you help” 틀렸어요!",
+   "tip": "want you 뒤에 to가 빠졌어요! 이렇게 말해요 👉 “I want you to help me.”",
+   "caption": "“I want you help me”처럼 말하고 있나요? 😅 한국어는 ‘네가 도와줬으면 해’처럼 to 없이 말하지만, 영어는 want you 뒤에 to가 꼭 필요해요. 맞는 문장 ✅ “I want you to help me.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답: “you to”! want you to로 말해요! 무료 퀴즈로 더 연습해 보세요: {link}",
    "hashtags": [
     "#영어공부",
     "#영어회화",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "“Want that you” is wrong!",
-   "tip": "Do not use that after want. Say “I want you to help me”.",
-   "caption": "Do you say “I want that you help me”? 😅 After want, use a person plus “to”, not a that clause. “I want you to help me” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
+   "hook": "“Want you help” is wrong!",
+   "tip": "Add to after want you. Say “I want you to help me.”",
+   "caption": "Do you say “I want you help me” in English? 😅 After want and a person, English needs “to”. “I want you to help me” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "“want that you” 틀렸어요!"
+  "text": "“want you help” 틀렸어요!"
  },
  "src": {
   "l1": true
@@ -103,9 +103,9 @@
   "wpm": 99
  },
  "publish": {
-  "title": "“want that you” 틀렸어요!",
+  "title": "“want you help” 틀렸어요!",
   "keyword": "I want you to help me.",
-  "value": "want 뒤에 that절 대신 “you to”! “I want you to help me”예요.",
+  "value": "want you 뒤에 to가 빠졌어요! 이렇게 말해요 👉 “I want you to help me.”",
   "hashtags": [
    "#영어공부",
    "#영어회화",
@@ -116,8 +116,8 @@
   "script_words": 41,
   "platforms": {
    "youtube": {
-    "title": "“want that you” 틀렸어요!",
-    "description": "“I want that you help me”라고 말하고 있나요? 😅 want 뒤에는 that절이 아니라 ‘사람 + to 동사’를 써요. “I want you to help me”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "title": "“want you help” 틀렸어요!",
+    "description": "want you 뒤에 to가 빠졌어요! 이렇게 말해요 👉 “I want you to help me.”\n\n“I want you help me”처럼 말하고 있나요? 😅 한국어는 ‘네가 도와줬으면 해’처럼 to 없이 말하지만, 영어는 want you 뒤에 to가 꼭 필요해요. 맞는 문장 ✅ “I want you to help me.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
     "tags": [
      "I want you to help me.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "“I want that you help me”라고 말하고 있나요? 😅 want 뒤에는 that절이 아니라 ‘사람 + to 동사’를 써요. “I want you to help me”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "“I want you help me”처럼 말하고 있나요? 😅 한국어는 ‘네가 도와줬으면 해’처럼 to 없이 말하지만, 영어는 want you 뒤에 to가 꼭 필요해요. 맞는 문장 ✅ “I want you to help me.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "“I want that you help me”라고 말하고 있나요? 😅 want 뒤에는 that절이 아니라 ‘사람 + to 동사’를 써요. “I want you to help me”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nlexkite.com",
+    "caption": "“want you help” 틀렸어요!\n\nwant you 뒤에 to가 빠졌어요! 이렇게 말해요 👉 “I want you to help me.”\n\nlexkite.com",
     "hashtags": [
      "#영어공부",
      "#영어회화",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "“want that you” 틀렸어요! #영어공부 #영어회화 #영어독학"
+    "caption": "“want you help” 틀렸어요! want you 뒤에 to가 빠졌어요! 이렇게 말해요 👉 “I want you to help me.” #영어공부 #영어회화 #영어독학"
    }
   },
-  "first_comment": "정답: “you to”. want you to로 말해요! 무료 퀴즈로 더 연습해 보세요: {link}",
+  "first_comment": "정답: “you to”! want you to로 말해요! 무료 퀴즈로 더 연습해 보세요: {link}",
   "lang": "ko"
  }
 }

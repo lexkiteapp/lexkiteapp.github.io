@@ -156,3 +156,5 @@ Practise with several. The test uses a range of native-speaker accents, so expos
 ### How can I stay focused in Parts 3 and 4?
 
 Read the questions for the whole section during the preparation time, follow the speakers' signposting language, and if you lose your place, find the next question rather than searching for the one you missed.
+
+For the most common Section 1 task, read our guide to [IELTS listening form completion](/en/blog/ielts-listening-form-completion/).

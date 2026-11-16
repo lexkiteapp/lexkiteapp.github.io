@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_call_me",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Call me, not call I!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Please call I tonight.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Please call me tonight.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After a verb, use me, not I.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Me! She called me yesterday.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Please call I tonight.",
+  "right": "Please call me tonight.",
+  "strike": "I",
+  "why": "After a verb, use me, not I.",
+  "memory": "Call me.",
+  "quiz": {
+   "stem": "She called ___ yesterday.",
+   "options": [
+    "I",
+    "me"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "หลังกริยา ใช้ me ไม่ใช่ I!",
+   "tip": "ภาษาไทยใช้ “ฉัน” ได้ทั้งหน้าและหลังกริยา แต่ภาษาอังกฤษหลังกริยาต้องใช้ me: “Please call me tonight.”",
+   "caption": "คุณเคยพูดว่า “Please call I tonight.” ไหม? 😅 ภาษาไทยใช้ “ฉัน” ได้ทั้งหน้าและหลังกริยา แต่ภาษาอังกฤษหลังกริยาต้องใช้ me: “Please call me tonight.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “me” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยคด้วยคำนี้ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "After a verb, use “me”!",
+   "tip": "Thai uses one word for I and me, but English needs me after a verb.",
+   "caption": "Do you say “Please call I tonight.” 😅 Thai uses one word for I and me, but English needs me after a verb. Say “Please call me tonight.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "หลังกริยา ใช้ me ไม่ใช่ I!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "หลังกริยา ใช้ me ไม่ใช่ I!",
+  "keyword": "Please call me tonight.",
+  "value": "ภาษาไทยใช้ “ฉัน” ได้ทั้งหน้าและหลังกริยา แต่ภาษาอังกฤษหลังกริยาต้องใช้ me: “Please call me tonight.”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "หลังกริยา ใช้ me ไม่ใช่ I!",
+    "description": "ภาษาไทยใช้ “ฉัน” ได้ทั้งหน้าและหลังกริยา แต่ภาษาอังกฤษหลังกริยาต้องใช้ me: “Please call me tonight.”\n\nคุณเคยพูดว่า “Please call I tonight.” ไหม? 😅 ภาษาไทยใช้ “ฉัน” ได้ทั้งหน้าและหลังกริยา แต่ภาษาอังกฤษหลังกริยาต้องใช้ me: “Please call me tonight.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "Please call me tonight.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “Please call I tonight.” ไหม? 😅 ภาษาไทยใช้ “ฉัน” ได้ทั้งหน้าและหลังกริยา แต่ภาษาอังกฤษหลังกริยาต้องใช้ me: “Please call me tonight.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "หลังกริยา ใช้ me ไม่ใช่ I!\n\nภาษาไทยใช้ “ฉัน” ได้ทั้งหน้าและหลังกริยา แต่ภาษาอังกฤษหลังกริยาต้องใช้ me: “Please call me tonight.”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "หลังกริยา ใช้ me ไม่ใช่ I! ภาษาไทยใช้ “ฉัน” ได้ทั้งหน้าและหลังกริยา แต่ภาษาอังกฤษหลังกริยาต้องใช้ me: “Please… #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “me” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยคด้วยคำนี้ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}
