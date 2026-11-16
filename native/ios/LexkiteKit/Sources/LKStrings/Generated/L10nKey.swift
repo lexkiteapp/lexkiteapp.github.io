@@ -900,6 +900,8 @@ public enum L10nKey: String, CaseIterable, Sendable {
     case verbTypeAVerbE = "verb.typeAVerbE"
     case verbSearchForAVerb = "verb.searchForAVerb"
     case verbConjugate = "verb.conjugate"
+    case verbIrregularVerbs = "verb.irregularVerbs"
+    case verbOpenIrregularTable = "verb.openIrregularTable"
     case verbVerbSuggestions = "verb.verbSuggestions"
     case verbIrregular = "verb.irregular"
     case verbEnglishVerbConjugator = "verb.englishVerbConjugator"

@@ -1,0 +1,752 @@
+{
+ "allergy": {
+  "mis": [
+   {
+    "w": "I have an allergy with peanuts.",
+    "r": "I have an allergy to peanuts.",
+    "why": "Allergy takes the preposition 'to' for the thing that causes the reaction."
+   },
+   {
+    "w": "He is allergy to cats.",
+    "r": "He is allergic to cats.",
+    "why": "Allergy is a noun; the adjective after 'be' is allergic."
+   }
+  ],
+  "u": "Allergy is a countable noun for the body's overreaction to a harmless substance such as pollen, dust or certain foods: a nut allergy, hay fever allergies. The matching adjective is allergic, and both take to. In notices at restaurants and hotels it is a key safety word, so staff often ask about dietary allergies. Do not confuse it with intolerance, which is milder and does not involve the immune system."
+ },
+ "announcer": {
+  "mis": [
+   {
+    "w": "The announcer said us the gate had changed.",
+    "r": "The announcer told us the gate had changed.",
+    "why": "Say cannot take a person object directly; use tell, or say to someone."
+   },
+   {
+    "w": "Please listen the announcer carefully.",
+    "r": "Please listen to the announcer carefully.",
+    "why": "Listen needs 'to' before the person or thing you hear."
+   }
+  ],
+  "u": "An announcer is a person whose job is to speak announcements or introduce programmes on radio, television, at stations, airports or sports events. In TOEIC listening, the announcer often gives gate changes, delays or store promotions over a loudspeaker. It is a neutral word; presenter is more common in British TV for someone who hosts a show, while newsreader specifically reads the news. Do not confuse the person (announcer) with the message (announcement)."
+ },
+ "appetizer": {
+  "mis": [
+   {
+    "w": "I eat appetizer before the main dish.",
+    "r": "I eat an appetizer before the main dish.",
+    "why": "Appetizer is countable; a singular one needs a or an."
+   },
+   {
+    "w": "We had soup like an appetizer.",
+    "r": "We had soup as an appetizer.",
+    "why": "Use 'as' to state the role something plays; 'like' means similar to."
+   }
+  ],
+  "u": "Appetizer is the American word for a small dish served before the main course, often shared at a business dinner. British English prefers starter, so a UK menu may not use appetizer at all. It is countable, and a typical pattern is have or order something as an appetizer. It should not be confused with aperitif, which is a drink taken before a meal, or with dessert, which comes after."
+ },
+ "athlete": {
+  "mis": [
+   {
+    "w": "She is a famous athletic.",
+    "r": "She is a famous athlete.",
+    "why": "Athletic is an adjective; the person is an athlete."
+   },
+   {
+    "w": "He is a athlete from Vietnam.",
+    "r": "He is an athlete from Vietnam.",
+    "why": "Use 'an' before a vowel sound, and athlete starts with /æ/."
+   }
+  ],
+  "u": "Athlete refers to a person trained for sport, especially track and field, and in American English it covers any competitive sportsperson, from footballers to swimmers. In British English it can lean towards running and jumping events. Watch the th in the middle: it is the voiceless /θ/ and there are only two syllables, not three. The adjective is athletic, which can also mean strong and fit. Compare with player, used for team games like football."
+ },
+ "banker": {
+  "mis": [
+   {
+    "w": "My uncle works as banker in Hanoi.",
+    "r": "My uncle works as a banker in Hanoi.",
+    "why": "Singular job titles after 'as' need a or an."
+   },
+   {
+    "w": "I deposited my salary in the banker.",
+    "r": "I deposited my salary in the bank.",
+    "why": "A banker is a person; the institution is a bank."
+   }
+  ],
+  "u": "A banker is a person who owns or holds a fairly senior position in a bank, often in lending or investment. It does not mean any bank employee: a cashier or teller is a clerk, not a banker. Common types are investment banker and central banker. The word for the place is bank, and learners from some languages mix the two because one word often covers both. In informal English a personal banker is a bank's named adviser for one customer."
+ },
+ "beforehand": {
+  "mis": [
+   {
+    "w": "Beforehand the meeting, we checked the slides.",
+    "r": "Before the meeting, we checked the slides.",
+    "why": "Beforehand is an adverb and cannot take an object; use the preposition before."
+   },
+   {
+    "w": "Please tell me before hand if you cannot come.",
+    "r": "Please tell me beforehand if you cannot come.",
+    "why": "Beforehand is one word, not two."
+   }
+  ],
+  "u": "Beforehand is an adverb meaning earlier than a particular time or event, and it usually stands at the end of a clause: Please call beforehand. It sounds a little more formal than in advance. It does not take an object, so you cannot say beforehand the meeting; say before the meeting or in advance of the meeting. A related pattern is to be sure to do something beforehand, common in instructions and notices."
+ },
+ "booklet": {
+  "mis": [
+   {
+    "w": "The booklet contains many useful informations.",
+    "r": "The booklet contains a lot of useful information.",
+    "why": "Information is uncountable and has no plural form."
+   },
+   {
+    "w": "I looked on the booklet for the schedule.",
+    "r": "I looked in the booklet for the schedule.",
+    "why": "Use 'in' for content inside a booklet, book or document."
+   }
+  ],
+  "u": "A booklet is a thin small book with a paper cover, usually stapled, that gives information such as instructions, a programme or rules. In TOEIC it appears in office and training contexts: an employee booklet, a safety booklet. It is smaller than a manual and more substantial than a leaflet, which is often one folded sheet. A brochure is more promotional and glossy. Content is found in a booklet, not on it."
+ },
+ "booth": {
+  "mis": [
+   {
+    "w": "We have a booth in the trade fair.",
+    "r": "We have a booth at the trade fair.",
+    "why": "Use 'at' for an event such as a fair or conference."
+   },
+   {
+    "w": "There is a booth sells tickets near the gate.",
+    "r": "There is a booth that sells tickets near the gate.",
+    "why": "A clause describing a noun needs a relative pronoun such as that or which."
+   }
+  ],
+  "u": "A booth is a small enclosed or semi-enclosed space or stall. It is used for a ticket seller, a voting place, a photo machine, or a company's stand at a trade fair: Please visit our booth. In restaurants it also means a fixed seat area with a table between two high-backed benches. The ending is the voiceless /θ/, not /ð/ or a hard t. Booth is more compact than stand and more private than stall."
+ },
+ "briefcase": {
+  "mis": [
+   {
+    "w": "She took a document out her briefcase.",
+    "r": "She took a document out of her briefcase.",
+    "why": "Out needs 'of' before a noun that names the container."
+   },
+   {
+    "w": "The briefcase is belonged to my boss.",
+    "r": "The briefcase belongs to my boss.",
+    "why": "Belong is never used in the passive voice."
+   }
+  ],
+  "u": "A briefcase is a flat, rectangular case with a handle, used to carry papers and a laptop to work. It suggests a traditional office or business setting, and in films it often holds secret documents or cash. Typical verbs are carry, pack, open and leave behind. Attache case is a more formal, hard-sided version, while a laptop bag is softer and more casual. Do not use it for a school bag, which is a backpack or schoolbag."
+ },
+ "businessperson": {
+  "mis": [
+   {
+    "w": "Three businesspersons attended the meeting.",
+    "r": "Three businesspeople attended the meeting.",
+    "why": "The usual plural of businessperson is businesspeople."
+   },
+   {
+    "w": "The businesspeople is waiting in the lobby.",
+    "r": "The businesspeople are waiting in the lobby.",
+    "why": "Businesspeople is a plural noun and takes a plural verb."
+   }
+  ],
+  "u": "Businessperson is a gender-neutral word for someone who works in business, especially as an owner or manager, and is common in modern formal writing and TOEIC texts. It replaces businessman and businesswoman when gender is unknown or irrelevant. The plural is businesspeople, written as one word. It is stronger than office worker: it suggests deals, investment or running a company. Entrepreneur stresses starting new ventures."
+ },
+ "caller": {
+  "mis": [
+   {
+    "w": "A caller is waiting you on line two.",
+    "r": "A caller is waiting for you on line two.",
+    "why": "Wait needs 'for' before the person or thing awaited."
+   },
+   {
+    "w": "Ask the caller to leave message.",
+    "r": "Ask the caller to leave a message.",
+    "why": "Message is countable, so a singular one needs an article."
+   }
+  ],
+  "u": "A caller is a person who makes a phone call, or in British English also someone who visits a home briefly. In offices, receptionists often say: The caller asked to speak to the manager. Caller ID is the display that shows the number of the person ringing you. Anonymous caller and nuisance caller are common in news about scams. In a call centre, callers wait in a queue before an agent answers."
+ },
+ "captain": {
+  "mis": [
+   {
+    "w": "The captain welcomed to the passengers on board.",
+    "r": "The captain welcomed the passengers on board.",
+    "why": "Welcome is transitive here; do not add 'to' before the object."
+   },
+   {
+    "w": "She was elected the captain in our team.",
+    "r": "She was elected captain of our team.",
+    "why": "Use 'of' to link captain to the group it leads."
+   }
+  ],
+  "u": "Captain has several meanings: the pilot in command of an aircraft, the master of a ship, the leader of a sports team, or a military or police rank. Titles used alone after elect, appoint or become usually drop the article: She became captain of the team. The group is joined with of. The pronunciation is /ˈkæptən/ with a weak middle syllable. Skipper is an informal alternative for a ship or team."
+ },
+ "careless": {
+  "mis": [
+   {
+    "w": "She drives very careless.",
+    "r": "She drives very carelessly.",
+    "why": "A word that modifies a verb must be an adverb."
+   },
+   {
+    "w": "The careless is dangerous on the road.",
+    "r": "Carelessness is dangerous on the road.",
+    "why": "Careless is an adjective; the noun is carelessness."
+   }
+  ],
+  "u": "Careless means not giving enough attention or care, so mistakes happen: a careless error in an invoice. It can be followed by with or about: careless with money, careless about safety. The adverb is carelessly and the noun is carelessness. It is milder than reckless, which suggests knowing the risk, and more critical than absent-minded. Do not confuse it with carefree, which means relaxed and without worries, a positive idea."
+ },
+ "carpenter": {
+  "mis": [
+   {
+    "w": "The carpenter made the table by wood.",
+    "r": "The carpenter made the table from wood.",
+    "why": "Use 'from' or 'out of' for the material something is made from."
+   },
+   {
+    "w": "My father is carpenter.",
+    "r": "My father is a carpenter.",
+    "why": "A singular job after 'be' needs a or an."
+   }
+  ],
+  "u": "A carpenter is a skilled worker who builds and repairs things made of wood, such as roofs, floors, doors and furniture. In British English a joiner usually makes fitted wooden items in a workshop, while a carpenter works on site. Cabinetmaker is more specialized. Typical phrases are hire a carpenter and carpenter's tools. Job titles take a or an after be, and the material follows made from or made of."
+ },
+ "closet": {
+  "mis": [
+   {
+    "w": "I put my shoes on the closet.",
+    "r": "I put my shoes in the closet.",
+    "why": "Things stored inside a closet are 'in' it, not 'on' it."
+   },
+   {
+    "w": "There are many cloths in my closet.",
+    "r": "There are many clothes in my closet.",
+    "why": "Cloths means pieces of fabric; the garments you wear are clothes."
+   }
+  ],
+  "u": "In American English a closet is a built-in cupboard or small room for storing clothes, cleaning tools or coats: a walk-in closet, a hall closet. British English uses wardrobe for the freestanding furniture and cupboard for the built-in kind. Closet space is a common selling point in apartment listings. Do not mix up clothes in a closet with cloths for cleaning. The old British water closet meant toilet."
+ },
+ "cloth": {
+  "mis": [
+   {
+    "w": "She needs two meters of cloths for a dress.",
+    "r": "She needs two meters of cloth for a dress.",
+    "why": "Cloth meaning fabric is uncountable, so no plural after a measure."
+   },
+   {
+    "w": "I washed my cloth yesterday.",
+    "r": "I washed my clothes yesterday.",
+    "why": "The garments you wear are clothes, a plural noun."
+   }
+  ],
+  "u": "Cloth has two uses. As an uncountable noun it means woven fabric: a metre of cotton cloth. As a countable noun it means a piece of fabric used for a job: a damp cloth, a dish cloth. It is different from clothes, the plural-only noun for garments, which is pronounced /kloʊz/. Fabric and material are close, but cloth sounds simpler and more traditional, while textile is technical."
+ },
+ "colleague": {
+  "mis": [
+   {
+    "w": "She is my colleague at university.",
+    "r": "She is my classmate at university.",
+    "why": "Colleagues share a workplace or profession; students in a class are classmates."
+   },
+   {
+    "w": "I discussed it with a colleague of me.",
+    "r": "I discussed it with a colleague of mine.",
+    "why": "After 'of' use the possessive pronoun mine, not me."
+   }
+  ],
+  "u": "A colleague is someone you work with in the same organisation or profession, such as a fellow teacher or doctor. It is a little more formal than coworker, which suits informal and American talk. The stress is on the first syllable, and the ending -gue is pronounced /g/. The pattern a colleague of mine is common. It is not used for school friends, who are classmates or schoolmates."
+ },
+ "comfortably": {
+  "mis": [
+   {
+    "w": "The hotel is comfortably.",
+    "r": "The hotel is comfortable.",
+    "why": "After 'be', a description of a noun needs an adjective, not an adverb."
+   },
+   {
+    "w": "She sat comfortable in the armchair.",
+    "r": "She sat comfortably in the armchair.",
+    "why": "A word modifying the verb sat must be an adverb."
+   }
+  ],
+  "u": "Comfortably is an adverb with three main uses: in a relaxed physical way (sit comfortably), with enough money to live without worry (live comfortably, comfortably off), and by a clear margin (win comfortably). The middle syllable is usually reduced, so it sounds like three syllables, /ˈkʌmftərbli/. The adjective is comfortable, which is used after be. Do not say the hotel is comfortably; say the hotel is comfortable."
+ },
+ "conditioner": {
+  "mis": [
+   {
+    "w": "Please turn on the conditioner.",
+    "r": "Please turn on the air conditioner.",
+    "why": "Conditioner alone usually means hair product; the machine is an air conditioner."
+   },
+   {
+    "w": "I need a conditioner for hairs.",
+    "r": "I need a conditioner for hair.",
+    "why": "Hair meaning all the hair on the head is uncountable."
+   }
+  ],
+  "u": "Conditioner most often means a hair product used after shampoo to make hair soft and easy to comb. In longer forms it names other things: air conditioner (a machine that cools a room) and fabric conditioner (laundry softener). Because air conditioner is usually shortened to AC or aircon, the single word conditioner is understood as the hair product. Hair here is uncountable: shampoo and conditioner for dry hair."
+ },
+ "container": {
+  "mis": [
+   {
+    "w": "We shipped the goods by a container.",
+    "r": "We shipped the goods in a container.",
+    "why": "Use 'in' for the container that holds goods."
+   },
+   {
+    "w": "Put the leftovers in a container of plastic.",
+    "r": "Put the leftovers in a plastic container.",
+    "why": "A material used as a describing word comes before the noun."
+   }
+  ],
+  "u": "A container is anything used to hold or carry things, from a small plastic food box to a huge steel box for ships, trains and lorries. In trade the shipping container is standard, and a container ship carries thousands of them. The pattern is store food in an airtight container. The material usually comes before the word: a plastic container, a glass container. Box is more general and less formal."
+ },
+ "convenient": {
+  "mis": [
+   {
+    "w": "Are you convenient on Friday?",
+    "r": "Is Friday convenient for you?",
+    "why": "Convenient describes a time or place, not a person; use free or available for people."
+   },
+   {
+    "w": "It is convenient for me to meeting you at six.",
+    "r": "It is convenient for me to meet you at six.",
+    "why": "After 'to', use the base verb."
+   }
+  ],
+  "u": "Convenient describes things that save time or effort or fit your plans: a convenient location, a convenient time. It is applied to things, times and places, not people, so Are you convenient is wrong. Say Is Friday convenient for you? or Are you free on Friday? The noun is convenience, and the polite phrase at your convenience means whenever suits you. The opposite is inconvenient."
+ },
+ "conveniently": {
+  "mis": [
+   {
+    "w": "Paying online is conveniently for most people.",
+    "r": "Paying online is convenient for most people.",
+    "why": "After 'be' you need an adjective; conveniently is an adverb."
+   },
+   {
+    "w": "The office is convenient located near the station.",
+    "r": "The office is conveniently located near the station.",
+    "why": "An adverb is needed to modify the adjective located."
+   }
+  ],
+  "u": "Conveniently is an adverb meaning in a way that is easy or handy. It is most common in property and travel writing: a conveniently located hotel, close to the airport. It also has an ironic use: He conveniently forgot his wallet, meaning the forgetting suited him. The adjective is convenient. Using the adverb before located, situated or placed is the usual pattern in advertisements and TOEIC reading."
+ },
+ "cooler": {
+  "mis": [
+   {
+    "w": "Today is cooler that yesterday.",
+    "r": "Today is cooler than yesterday.",
+    "why": "Comparatives use 'than' to introduce the thing compared."
+   },
+   {
+    "w": "It will be more cooler tomorrow.",
+    "r": "It will be cooler tomorrow.",
+    "why": "A comparative already ending in -er cannot also take 'more'."
+   }
+  ],
+  "u": "Cooler works as a comparative adjective, as in cooler weather, and as a noun. As a noun it means a container that keeps food and drinks cold, usually called a cooler in the US and a cool box in the UK. A water cooler is an office dispenser, and the phrase water-cooler chat means casual workplace talk. Remember that the comparative of cool is cooler, never more cooler."
+ },
+ "copier": {
+  "mis": [
+   {
+    "w": "Please make a copier of this report.",
+    "r": "Please make a copy of this report.",
+    "why": "The machine is a copier; the paper you get is a copy."
+   },
+   {
+    "w": "Please put more paper to the tray.",
+    "r": "Please put more paper in the tray.",
+    "why": "Use 'in' for something placed inside a tray."
+   }
+  ],
+  "u": "A copier is a machine that makes copies of documents. In American English it is common in offices; British English prefers photocopier. TOEIC office scenes often mention a copier that is jammed or out of paper or toner. Verbs used are use, fix and refill. The thing produced is a copy, so make a copy but use the copier. Copy machine is another common US variant."
+ },
+ "cord": {
+  "mis": [
+   {
+    "w": "Don't trip over the electricity cord.",
+    "r": "Don't trip over the power cord.",
+    "why": "The standard compound is power cord or electrical cord, not electricity cord."
+   },
+   {
+    "w": "Be careful with the cord, don't step it.",
+    "r": "Be careful with the cord, don't step on it.",
+    "why": "The verb step needs 'on' before what you tread on."
+   }
+  ],
+  "u": "A cord is a thick string or a flexible electrical wire with a plug, as in power cord and extension cord. In British English the electrical kind is more often called a lead or a flex. A phone charging cable is a cable, not a cord, in most speech. Cord can also mean a thin rope for tying, and a cord of wood is a measure of firewood. Safety signs often warn about frayed cords."
+ },
+ "cordless": {
+  "mis": [
+   {
+    "w": "I bought a cord less phone yesterday.",
+    "r": "I bought a cordless phone yesterday.",
+    "why": "Cordless is written as one word."
+   },
+   {
+    "w": "This drill is cordless, so you can use it anywhere without plug.",
+    "r": "This drill is cordless, so you can use it anywhere without a plug.",
+    "why": "Plug is countable, so a singular needs an article."
+   }
+  ],
+  "u": "Cordless is an adjective for a device that works from a battery instead of a power cord: a cordless drill, vacuum or phone. It stresses the missing mains cord, while wireless focuses on signals such as Wi-Fi or Bluetooth, so a mouse is usually wireless and a tool cordless. The opposite is corded. Do not add -ly, as the form cordlessly is not used in everyday English."
+ },
+ "countryside": {
+  "mis": [
+   {
+    "w": "We went to the countrysides last weekend.",
+    "r": "We went to the countryside last weekend.",
+    "why": "Countryside is normally singular and used with the."
+   },
+   {
+    "w": "I love the quiet and fresh air of country.",
+    "r": "I love the quiet and fresh air of the countryside.",
+    "why": "Country means a nation; the rural area is the countryside."
+   }
+  ],
+  "u": "The countryside means the land outside towns and cities, with farms, villages and open fields. It is normally singular and takes the: live in the countryside, a walk through the countryside. It is not the same as country, which usually means a nation, so I love the country can confuse. In British English the countryside is also a place to relax and walk. Rural is the formal adjective."
+ },
+ "coworker": {
+  "mis": [
+   {
+    "w": "My coworkers is very helpful.",
+    "r": "My coworkers are very helpful.",
+    "why": "A plural subject needs a plural verb."
+   },
+   {
+    "w": "She is my co-work at the bank.",
+    "r": "She is my coworker at the bank.",
+    "why": "The person is a coworker; work is the activity."
+   }
+  ],
+  "u": "Coworker is a person who works with you, usually at the same level. It is the usual word in American English, often spelled co-worker in older writing, while British English uses colleague or workmate. Coworker is less formal than colleague and fits everyday talk, HR messages and TOEIC emails. Work alone is not a person: she is my coworker, not my co-work. Fellow coworker is redundant."
+ },
+ "cushion": {
+  "mis": [
+   {
+    "w": "The sofa has many soft cushion.",
+    "r": "The sofa has many soft cushions.",
+    "why": "Many needs a plural noun."
+   },
+   {
+    "w": "He sat in the cushion.",
+    "r": "He sat on the cushion.",
+    "why": "You sit on a cushion because it lies under you."
+   }
+  ],
+  "u": "A cushion is a soft bag filled with foam or feathers used to sit on, lean against or decorate a sofa. The oo in the first syllable is the short /ʊ/ of put, and the ending sounds like /ʃn/. As a verb it also means to soften a blow, and cushion the impact is used for falls and shocks. Pillow is for the head in bed, while cushion is for chairs and sofas."
+ },
+ "departure": {
+  "mis": [
+   {
+    "w": "The train's departure is on 9 a.m.",
+    "r": "The train's departure is at 9 a.m.",
+    "why": "Use 'at' with clock times."
+   },
+   {
+    "w": "What time does the bus departure?",
+    "r": "What time does the bus depart?",
+    "why": "Departure is a noun; the verb is depart."
+   }
+  ],
+  "u": "Departure is the noun for the act of leaving, especially a journey. At airports you see Departures, departure gate and departure time, the opposite of arrival. The verb is depart, and the stress falls on the second syllable in both words. Clock times take at: departure at 9 a.m. A departure from also means a change from the usual, such as a departure from the plan."
+ },
+ "diamond": {
+  "mis": [
+   {
+    "w": "The ring is made by diamond.",
+    "r": "The ring is made of diamond.",
+    "why": "Use 'of' for the material something consists of."
+   },
+   {
+    "w": "He wore a ring with a big diamonds.",
+    "r": "He wore a ring with a big diamond.",
+    "why": "'A' signals a singular noun."
+   }
+  ],
+  "u": "A diamond is a very hard, clear precious stone used in jewellery and in cutting tools, and it is also the name of a shape and a baseball field. Phrases include diamond ring and diamond mine. A rough diamond is one not yet cut, and also describes a person with good qualities but poor manners. Diamond is made of carbon. The word is two syllables in common speech, /ˈdaɪmənd/."
+ },
+ "dislike": {
+  "mis": [
+   {
+    "w": "I dislike to get up early.",
+    "r": "I dislike getting up early.",
+    "why": "Dislike is followed by a gerund, not an infinitive."
+   },
+   {
+    "w": "I am dislike spicy food.",
+    "r": "I dislike spicy food.",
+    "why": "Dislike is already a verb and needs no 'be'."
+   }
+  ],
+  "u": "Dislike is a verb for not liking, and it is also a noun: a strong dislike of noise. As a verb it takes an object or a gerund: dislike spicy food, dislike waiting. In casual speech I don't like is more natural, whereas dislike sounds formal and is common in surveys. Stronger words are hate and detest. Take a dislike to means start disliking someone."
+ },
+ "documentary": {
+  "mis": [
+   {
+    "w": "I watched a documentary about animals in the TV.",
+    "r": "I watched a documentary about animals on TV.",
+    "why": "Use 'on' for TV and radio programmes, without 'the'."
+   },
+   {
+    "w": "The documentary was very bored.",
+    "r": "The documentary was very boring.",
+    "why": "An -ing adjective describes what causes the feeling."
+   }
+  ],
+  "u": "A documentary is a film or TV programme that shows real people and events to inform viewers, such as a nature documentary or a documentary about a war. The stress falls on the third syllable, /ˌdɑːkjuˈmentri/. Documentary is also an adjective meaning based on documents: documentary evidence. Compare it with a feature film, which is fiction. Programmes are watched on TV and heard on the radio."
+ },
+ "donate": {
+  "mis": [
+   {
+    "w": "She donated the charity $100.",
+    "r": "She donated $100 to the charity.",
+    "why": "Donate needs 'to' before the receiver; it has no double-object pattern."
+   },
+   {
+    "w": "People are donating to the poor children clothes.",
+    "r": "People are donating clothes to the poor children.",
+    "why": "The thing given comes right after donate, then 'to' plus the receiver."
+   }
+  ],
+  "u": "Donate means to give money, goods, blood or time to a charity or good cause, usually without payment. The word order is donate something to someone or something: donate clothes to a shelter. Unlike give, it cannot take two objects in a row. The noun is donation and the giver is a donor. It is more formal than give, and stresses the first syllable, /ˈdoʊneɪt/."
+ },
+ "doorman": {
+  "mis": [
+   {
+    "w": "The doorman open the door for guests.",
+    "r": "The doorman opens the door for guests.",
+    "why": "A third-person singular subject needs -s on the present verb."
+   },
+   {
+    "w": "He works as doorman in a hotel.",
+    "r": "He works as a doorman in a hotel.",
+    "why": "A singular job title needs a or an."
+   }
+  ],
+  "u": "A doorman is a person employed to stand at the entrance of a hotel or apartment building, open doors, greet guests and sometimes call taxis or carry bags. The plural is doormen. It is mainly American; British English uses porter or commissionaire. A doorman building is an apartment block with this service and signals a higher price. Concierge handles bookings and advice, not just the door."
+ },
+ "earthquake": {
+  "mis": [
+   {
+    "w": "An earthquake was happened in Japan last night.",
+    "r": "An earthquake happened in Japan last night.",
+    "why": "Happen has no passive form."
+   },
+   {
+    "w": "Earthquake destroyed many houses.",
+    "r": "The earthquake destroyed many houses.",
+    "why": "A countable singular noun needs a determiner, here 'the' for a known event."
+   }
+  ],
+  "u": "An earthquake is a sudden strong shaking of the ground caused by movement of rock beneath the surface. It is countable: a strong earthquake, two earthquakes. In news it often appears with hit, strike or occur, and with measures such as magnitude. Quake is a shorter journalistic word, and tremor means a weaker shock. Earthquake drills teach people to take cover."
+ },
+ "electrician": {
+  "mis": [
+   {
+    "w": "My brother works as an electric in a factory.",
+    "r": "My brother works as an electrician in a factory.",
+    "why": "The person is an electrician; electric is an adjective."
+   },
+   {
+    "w": "He is a electrician.",
+    "r": "He is an electrician.",
+    "why": "Use 'an' before a vowel sound."
+   }
+  ],
+  "u": "An electrician is a trained worker who installs, checks and repairs electrical wiring and equipment in homes, offices and factories. A licensed electrician has passed official exams, which matters for safety rules. The stress falls on -tri-, /ɪˌlekˈtrɪʃn/, and the ending is -cian, pronounced /ʃn/. Typical phrases are call an electrician and hire an electrician. An electrical engineer designs systems rather than fitting them."
+ },
+ "energetic": {
+  "mis": [
+   {
+    "w": "She is very energy.",
+    "r": "She is very energetic.",
+    "why": "After 'be' with 'very' you need an adjective."
+   },
+   {
+    "w": "She is an energetic person, always full with energy.",
+    "r": "She is an energetic person, always full of energy.",
+    "why": "Full takes 'of', not 'with'."
+   }
+  ],
+  "u": "Energetic describes a person, activity or style that is lively and full of physical or mental energy. In job adverts it appears as an energetic, enthusiastic team member. The noun is energy, the adverb is energetically, and the stress falls on the third syllable, /ˌenərˈdʒetɪk/. It is stronger than active and warmer than dynamic. Energy-efficient is a different idea, used for machines that use less power."
+ },
+ "erase": {
+  "mis": [
+   {
+    "w": "Please erase out the old files.",
+    "r": "Please erase the old files.",
+    "why": "Erase is a transitive verb and needs no particle."
+   },
+   {
+    "w": "I need an erase to fix my mistake.",
+    "r": "I need an eraser to fix my mistake.",
+    "why": "The tool is an eraser; erase is the verb."
+   }
+  ],
+  "u": "Erase means to remove writing, a recording or data completely so that no trace remains: erase a file, erase the whiteboard. It is stronger than delete, which can often be undone. The object follows directly with no particle: erase the data, not erase out. The tool is an eraser in American English and a rubber in British English. Figuratively, you can erase a memory or erase a difference."
+ },
+ "experiment": {
+  "mis": [
+   {
+    "w": "They made an experiment on the new drug.",
+    "r": "They carried out an experiment on the new drug.",
+    "why": "Experiments are conducted, carried out or done, not made."
+   },
+   {
+    "w": "Teachers experiment the new method in class.",
+    "r": "Teachers experiment with the new method in class.",
+    "why": "The verb experiment takes 'with' before what you try."
+   }
+  ],
+  "u": "Experiment is both a noun and a verb. As a noun it means a test, usually scientific, to find out what happens: conduct or carry out an experiment, with the preposition on for the subject tested. As a verb it is intransitive and needs with or on: experiment with new ideas. The noun is stressed on the second syllable, /ɪkˈsperəmənt/, and the adjective is experimental. Trial is more common for products."
+ },
+ "explorer": {
+  "mis": [
+   {
+    "w": "He is a famous exploration.",
+    "r": "He is a famous explorer.",
+    "why": "The person who explores is an explorer; exploration is the act."
+   },
+   {
+    "w": "Explorers are people who explore to unknown places.",
+    "r": "Explorers are people who explore unknown places.",
+    "why": "Explore is transitive and takes no 'to'."
+   }
+  ],
+  "u": "An explorer is a person who travels through unfamiliar regions to learn about them, such as a polar explorer or a deep-sea explorer. The verb explore takes a direct object: explore the jungle. The noun for the activity is exploration, and the adjective is exploratory. Explorers are often linked with history, like Columbus or Magellan, but the word also fits space and science. Adventurer stresses thrill over research."
+ },
+ "extinguisher": {
+  "mis": [
+   {
+    "w": "The fire extinguishing is next to the door.",
+    "r": "The fire extinguisher is next to the door.",
+    "why": "The device is an extinguisher; extinguishing is an -ing form of the verb."
+   },
+   {
+    "w": "He used an extinguisher to extinguisher the fire.",
+    "r": "He used an extinguisher to extinguish the fire.",
+    "why": "After 'to', use the base verb extinguish."
+   }
+  ],
+  "u": "An extinguisher is a device that sprays foam, water or powder to put out a fire, almost always in the phrase fire extinguisher. The related verb is extinguish, with the stress on the second syllable. The word is countable and appears in safety notices, offices and building inspections: Check the extinguisher every month. The -gu- sounds like /ɡw/. Do not use extinguisher for a smoke alarm, which only warns."
+ },
+ "farewell": {
+  "mis": [
+   {
+    "w": "We said farewell her at the airport.",
+    "r": "We said farewell to her at the airport.",
+    "why": "Farewell as a noun needs 'to' before the person."
+   },
+   {
+    "w": "We had a farewell party to our manager.",
+    "r": "We had a farewell party for our manager.",
+    "why": "Use 'for' to show who an event is held in honour of."
+   }
+  ],
+  "u": "Farewell is a formal or literary word for goodbye. As a noun it appears in farewell party, farewell speech and say farewell to someone. It is stressed on the second syllable in many dictionaries, /ˌferˈwel/. In everyday speech people say goodbye or see you, while farewell suits a retirement or leaving ceremony. As an interjection it is old-fashioned. Send-off is a warmer, more informal event."
+ },
+ "fasten": {
+  "mis": [
+   {
+    "w": "Passengers must fastened their seat belts.",
+    "r": "Passengers must fasten their seat belts.",
+    "why": "After a modal verb, use the base form."
+   },
+   {
+    "w": "Please fasten securely your seat belt.",
+    "r": "Please fasten your seat belt securely.",
+    "why": "An adverb of manner usually goes after the object."
+   }
+  ],
+  "u": "Fasten means to close or attach something firmly so it does not come apart: fasten a seat belt, fasten a button. In airplane announcements it appears in Please fasten your seat belts. The t is silent, so it sounds like /ˈfæsn/. An adverb of manner normally follows the object: fasten the lid tightly. Buckle and secure are close, but fasten is more general. The opposite is unfasten."
+ },
+ "firstly": {
+  "mis": [
+   {
+    "w": "Firstly of all, I want to thank you.",
+    "r": "First of all, I want to thank you.",
+    "why": "The fixed phrase is first of all; firstly does not go before 'of all'."
+   },
+   {
+    "w": "At firstly, I did not like him.",
+    "r": "At first, I did not like him.",
+    "why": "'At first' means in the beginning and uses first, not firstly."
+   }
+  ],
+  "u": "Firstly is a sentence adverb that introduces the first point in an ordered list: Firstly, the cost is low; secondly, the location is good. First or first of all is just as common and sounds less stiff. Do not use it for time: at first means in the beginning, and for the first time is another phrase. Firstly is common in essays, followed by secondly and finally. A comma usually follows it."
+ },
+ "flavor": {
+  "mis": [
+   {
+    "w": "The soup is very flavor.",
+    "r": "The soup is very flavorful.",
+    "why": "After 'very' you need an adjective; flavor is a noun."
+   },
+   {
+    "w": "Add some herbs for flavor the soup.",
+    "r": "Add some herbs to flavor the soup.",
+    "why": "Purpose before a verb uses 'to', not 'for'."
+   }
+  ],
+  "u": "Flavor is the taste of food or drink, including smell: a rich flavor, a mild flavor. It is the American spelling; British English writes flavour. It is also a verb: flavor soup with herbs. The adjective is flavorful, or flavoursome in the UK. Flavor of the month describes something popular only briefly. Taste is more general, and flavor often names a specific variety of ice cream or crisps."
+ },
+ "flour": {
+  "mis": [
+   {
+    "w": "She bought two flours at the market.",
+    "r": "She bought two bags of flour at the market.",
+    "why": "Flour is uncountable; count it with a unit like bags."
+   },
+   {
+    "w": "The cake is made from wheat flower.",
+    "r": "The cake is made from wheat flour.",
+    "why": "Flower is a plant; flour is the powder from grain."
+   }
+  ],
+  "u": "Flour is the fine powder made by grinding wheat or other grain, used for bread, cakes and pasta. It is uncountable, so count it with units: a bag of flour, two cups of flour. Do not confuse it with flower, which is a homophone, a bloom on a plant. Common types are plain flour and self-raising flour in the UK, and all-purpose flour in the US. Rice flour is also widely sold."
+ },
+ "flyer": {
+  "mis": [
+   {
+    "w": "They gave the flyers for people on the street.",
+    "r": "They gave flyers to people on the street.",
+    "why": "Give takes 'to' before the receiver when the thing given comes first."
+   },
+   {
+    "w": "Please print one hundred flyer for the event.",
+    "r": "Please print one hundred flyers for the event.",
+    "why": "A number above one needs a plural noun."
+   }
+  ],
+  "u": "A flyer is a single printed sheet that advertises something such as an event, shop or service, usually handed out in the street or put in letterboxes: hand out flyers. It is also spelled flier. It is less formal than brochure, which is folded and glossy. Flyer can also mean a person who travels by plane, as in frequent flyer. Leaflet is common in British English."
+ },
+ "fountain": {
+  "mis": [
+   {
+    "w": "Let's meet at front of the fountain.",
+    "r": "Let's meet in front of the fountain.",
+    "why": "The fixed phrase is 'in front of', not 'at front of'."
+   },
+   {
+    "w": "The fountain shoots water to the air.",
+    "r": "The fountain shoots water into the air.",
+    "why": "Use 'into' for movement going inside a space such as the air."
+   }
+  ],
+  "u": "A fountain is a structure that shoots water into the air, often in a park or plaza as decoration. In American English a drinking fountain or water fountain is a public device for drinking. A fountain pen is a pen with a refillable ink reservoir. The t is usually silent and the ending sounds like /ntn/. Fountain of youth is a legendary spring that keeps people young."
+ },
+ "gasoline": {
+  "mis": [
+   {
+    "w": "The price of gasolines rose again.",
+    "r": "The price of gasoline rose again.",
+    "why": "Gasoline is uncountable and has no plural."
+   },
+   {
+    "w": "In the UK, people call it gasoline.",
+    "r": "In the UK, people call it petrol.",
+    "why": "British English says petrol; gasoline is American."
+   }
+  ],
+  "u": "Gasoline is the fuel used in most cars. It is uncountable: gasoline prices, a gallon of gasoline. In American English people often shorten it to gas, which can confuse learners because gas also means natural gas. British English says petrol, and diesel is a different fuel. The stress is on the first syllable, /ˈɡæsəliːn/. Related words are unleaded and petrol station, which Americans call a gas station."
+ }
+}

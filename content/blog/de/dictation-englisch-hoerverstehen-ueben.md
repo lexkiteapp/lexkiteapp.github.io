@@ -144,6 +144,8 @@ Integrieren Sie Dictation nahtlos in Ihre Lernroutine:
 
 {{cta: /#/listening | Starten Sie Ihr erstes 15-Minuten-Diktat im Lexkite Hörverstehens-Raum}}
 
+Wie Sie das genaue Hören auf die Fragetypen im IELTS übertragen, steht in den [IELTS Listening Aufgabentypen](/de/blog/ielts-listening-aufgabentypen/).
+
 ## Häufig gestellte Fragen zu englischen Diktaten (FAQ)
 
 ### Ist Dictation auch für Sprachanfänger geeignet?
