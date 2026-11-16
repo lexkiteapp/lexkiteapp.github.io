@@ -20,6 +20,10 @@ for (const r of JSON.parse(fs.readFileSync(path.join(ROOT, MAP), 'utf8')).rules)
 { const real = JSON.parse(fs.readFileSync(path.join(ROOT, MAP), 'utf8')).rules;   // đúng ca 9c4e52d158: tệp bot lexicon-expand đổi → lex.mjs phải được chạy
   const t = pickTests(['content/lexicon/expand/20261113-r229.json', 'content/qa/review-queue.json', 'web/data/ai-capacity.json'], real);
   assert.ok(t.includes('node scripts/test/lex.mjs') && t.includes('node scripts/test/lexicon-expand.mjs'), 'ca 9c4e52d158: lex.mjs + lexicon-expand.mjs'); }
+{ const real = JSON.parse(fs.readFileSync(path.join(ROOT, MAP), 'utf8')).rules;   // ca c1ce1f2bc2 (bot i18n ghi lại de/report.js làm i18n-qa --strict đỏ): tệp nó đổi phải kéo i18n-qa + report
+  const t = pickTests(['i18n/ui/de/report.js', 'web/js/i18n/de/report.js', 'functions/api/_report-i18n.js', 'web/i18n/backcheck.json'], real);
+  assert.ok(t.includes('node scripts/i18n-qa.mjs --strict') && t.includes('node scripts/test/report.mjs'), 'ca c1ce1f2bc2: i18n-qa --strict + report.mjs');
+  assert.ok(pickTests(['web/i18n/content/ar.json'], real).includes('node scripts/i18n-qa.mjs --strict'), 'web/i18n/** cũng được gác'); }
 // 3) workflow [skip ci] phải qua máy gác
 assert.equal(ungated('run: git commit -m "x [skip ci]" && git push').length, 1, 'commit [skip ci] trần → vi phạm');
 assert.equal(ungated('run: git commit -m "x [skip ci]" && node scripts/ci/bot-test-gate.mjs --base HEAD~1 && git push').length, 0);

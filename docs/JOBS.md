@@ -79,6 +79,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 03:40 | `mobile-qa` | `40 3 * * 1` | reports | gh_minutes | 30 | — | — |
 | 03:41 | `content-evidence` | `41 3 * * *`<br>`23 4 1 * *` | reports | gh_minutes | 30 | — | — |
 | 03:41 | `storage-watch` | `41 3 * * 1` | reports | gh_minutes | 5 | d1_internal_reads≈10 | ✓ |
+| 03:41 | `social-coverage` | `41 3 * * *` | publishing | d1_main | 1 | d1_main_reads≈700 | — |
 | 03:47 | `drive-repair` | `47 3 * * *` | archive | drive_pool | 30 | drive_calls≈100 | — |
 | 03:53 | `video-auto` | `17 23 * * *`<br>`53 3,6 * * *` | render | gh_minutes | 90 | — | — |
 | 04:17 | `ads-demo` | `17 4 * * 1` | reports | gh_minutes | 30 | — | — |

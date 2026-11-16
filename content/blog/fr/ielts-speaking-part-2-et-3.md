@@ -170,3 +170,5 @@ Demandez poliment une clarification. Vous avez parfaitement le droit de dire : *
 L'épreuve de Speaking de l'IELTS n'évalue pas votre capacité à réciter un texte mémorisé, mais votre flexibilité intellectuelle dans une langue étrangère. En structurant vos notes en Part 2 et en appliquant le schéma PEEL en Part 3, vous vous libérerez du stress pour laisser place à un échange fluide et percutant.
 
 Pratiquez chaque jour pendant 10 minutes devant un miroir ou avec un enregistreur, et transformez l'entretien oral en votre meilleur atout pour décrocher votre admission internationale.
+
+Pour voir à quoi ressemblent des réponses complètes autour du band 7 sur les trois parties, avec version faible et version forte, lisez nos [réponses modèles IELTS Speaking band 7](/fr/blog/reponses-ielts-speaking-band-7-exemples/).
