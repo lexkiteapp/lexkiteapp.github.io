@@ -42,6 +42,7 @@ quiz: [
     explain: "Here effect means 'to bring about' and its object is 'real change'. The other sentences use effect as a noun or use affect as a verb."
   }
 ]
+publishAt: 2027-01-29T12:31:00+05:30
 ---
 The affect vs effect meaning question has a short answer: **affect is usually a verb meaning "to influence", and effect is usually a noun meaning "a result"**. *The weather affects our mood. The weather has an effect on our mood.* Same idea, two different jobs. That one rule is right in roughly nine uses out of ten, and the rest of this guide covers the other one, the two exceptions you will actually meet, and the phrases that learners most often get wrong in emails, essays and exams.
 

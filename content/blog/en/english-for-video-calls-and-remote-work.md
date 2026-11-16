@@ -22,6 +22,7 @@ diagrams: [
   {id: d1, type: compare, title: 'Video call words', cols: ['Say this', 'Meaning', 'Example'], rows: [['mute / unmute', 'turn your microphone off or on', 'Could you unmute, please?'], ['share your screen', 'show your display to others', 'Can you share your screen?'], ['you are breaking up', 'the connection cuts out', 'Sorry, you are breaking up.'], ['drop off', 'lose the connection', 'I dropped off for a moment.'], ['lag / delay', 'sound or video arrives late', 'There is a bit of lag.'], ['take this offline', 'discuss it outside the meeting', 'Let us take this offline.']]},
   {id: d2, type: boxes, title: 'A tidy ending', parts: [{t: 'Summarise', r: 'so we agreed to...'}, {t: 'Name owners', r: 'Sara will send the draft'}, {t: 'Set dates', r: 'by Thursday'}, {t: 'Confirm', r: 'does that sound right to everyone?'}]}
 ]
+publishAt: 2027-02-03T07:17:00+05:30
 ---
 
 Most trouble in **English for video calls** is not grammar; it is the small practical moments: "Can you hear me?", "I think you are on mute", a frozen screen, and the awkward silence when two people start speaking at once. These moments have standard phrases, and once you know them you stop freezing and start sounding like a confident colleague.
