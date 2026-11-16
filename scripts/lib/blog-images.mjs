@@ -316,3 +316,10 @@ export function appRoutes(root = process.cwd()) {
   return (ROUTES = set);
 }
 export const routeName = r => String(r).replace(/^#\//, '').split(/[/?]/)[0];
+// Ảnh thẻ danh sách: chọn trong ảnh `media:` của bài (imgs = [{id, real, alt}]; MEDIA = sổ ảnh). Ưu tiên: chưa dùng trong lưới → ảnh ngang (1.3–2) → ảnh riêng @ → ít bài dùng chung.
+// Ảnh dọc/vuông vẫn nhận (CSS cắt khung 16:10 từ đầu ảnh); chỉ khi chưa render (không có trong sổ) mới bị bỏ.
+export function pickThumb(imgs, MEDIA, { used, imgUse = {} } = {}) {
+  const ok = imgs.filter(x => MEDIA[x.real]), land = x => { const r = MEDIA[x.real].w / MEDIA[x.real].h; return r >= 1.3 && r <= 2 ? 0 : 1; };
+  const key = x => [used?.has(x.real) ? 1 : 0, land(x), x.id.startsWith('@') ? 0 : 1, imgUse[x.id] || 0];
+  return ok.sort((a, b) => { const ka = key(a), kb = key(b); for (let i = 0; i < ka.length; i++) if (ka[i] !== kb[i]) return ka[i] - kb[i]; return 0; })[0] || null;
+}
