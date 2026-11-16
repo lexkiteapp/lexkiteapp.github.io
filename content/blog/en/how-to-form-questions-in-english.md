@@ -158,6 +158,8 @@ Writing polite inquiries is a vital skill for international communication; see o
 
 {{cta: /#/grammar | Master English question structures with interactive lessons}}
 
+Practise question forms in a real setting with [hotel English phrases](/en/blog/hotel-english-phrases-check-in-requests-complaints/).
+
 ## Frequently asked questions about question formation
 
 ### Why do we say "Who broke the window?" instead of "Who did break the window?"
@@ -170,3 +172,5 @@ Negative questions (*"Didn't you hear the announcement?"* or *"Isn't it cold?"*)
 While examiners ask the majority of questions, candidate clarity in understanding complex multi-clause inquiries directly impacts your fluency and coherence score. Understanding indirect questions also allows you to politely ask the examiner for clarification (*"Could you please explain what you mean by...?"*).
 
 To build broader grammatical accuracy across your writing and speaking, consult our guides on [conditional sentences in English](/en/blog/conditional-sentences-in-english-rules-and-examples/) and [gerunds and infinitives](/en/blog/gerunds-and-infinitives/).
+
+Next, see our guide to [order of adjectives in English](/en/blog/order-of-adjectives/).

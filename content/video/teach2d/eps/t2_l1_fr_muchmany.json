@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Work has no plural!",
+   "text": "Much or many? Careful!",
    "pause": 0.42
   },
   {
@@ -26,7 +26,7 @@
   },
   {
    "id": "y",
-   "text": "Work has no plural. Use a lot of.",
+   "text": "Work has no number. Use much or a lot of.",
    "pause": 0.42
   },
   {
@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "Much! I have too much homework.",
+   "text": "Much! I don't have much work today.",
    "pause": 0.42
   },
   {
@@ -55,10 +55,10 @@
   "wrong": "I have many work today.",
   "right": "I have a lot of work today.",
   "strike": "many",
-  "why": "Work has no plural. Use a lot of.",
+  "why": "Work has no number. Use much or a lot of.",
   "memory": "Work: a lot of.",
   "quiz": {
-   "stem": "I have too ___ homework.",
+   "stem": "I don't have ___ work today.",
    "options": [
     "many",
     "much"
@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "“Many work” : faux !",
-   "tip": "“Work” ne se compte pas : pas de “many”. Dis “a lot of work” ou “much work”.",
-   "caption": "Tu dis “I have many work today.” ? “Work” ne se compte pas. Dis “I have a lot of work today.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.",
-   "comment": "Réponse : “much”. On ne compte pas “homework”. Teste d'autres pièges avec un quiz gratuit : {link}",
+   "tip": "“Work” ne se compte pas : pas de “many”. Dites “a lot of work”.",
+   "caption": "Vous dites “I have many work today.” ? “Work” ne se compte pas. Dites plutôt “I have a lot of work today.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “much” — “Work” ne se compte pas : on dit “much” ou “a lot of”. Testez d’autres pièges avec un quiz gratuit : {link}",
    "hashtags": [
     "#apprendrelanglais",
     "#anglaisfacile",
@@ -80,7 +80,7 @@
   "en": {
    "hook": "“Many work”: wrong!",
    "tip": "“Work” is not countable, so no “many”. Say “a lot of work”.",
-   "caption": "Do you say “I have many work today.”? “Work” is not countable. Say “I have a lot of work today.”. Listen to Ama and repeat with her! More exercises in the Lexkite app."
+   "caption": "Do you say this? “I have many work today.” “Work” is not countable. Say “I have a lot of work today.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
   }
  },
  "cta": {
@@ -98,14 +98,14 @@
  },
  "lang": "fr",
  "est": {
-  "words": 50,
-  "seconds": 30.0,
-  "wpm": 100
+  "words": 53,
+  "seconds": 31.5,
+  "wpm": 101
  },
  "publish": {
   "title": "“Many work” : faux !",
   "keyword": "I have a lot of work today.",
-  "value": "“Work” ne se compte pas : pas de “many”. Dis “a lot of work” ou “much work”.",
+  "value": "“Work” ne se compte pas : pas de “many”. Dites “a lot of work”.",
   "hashtags": [
    "#apprendrelanglais",
    "#anglaisfacile",
@@ -113,11 +113,11 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 44,
+  "script_words": 47,
   "platforms": {
    "youtube": {
     "title": "“Many work” : faux !",
-    "description": "Tu dis “I have many work today.” ? “Work” ne se compte pas. Dis “I have a lot of work today.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "description": "“Work” ne se compte pas : pas de “many”. Dites “a lot of work”.\n\nVous dites “I have many work today.” ? “Work” ne se compte pas. Dites plutôt “I have a lot of work today.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
     "tags": [
      "I have a lot of work today.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Tu dis “I have many work today.” ? “Work” ne se compte pas. Dis “I have a lot of work today.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Vous dites “I have many work today.” ? “Work” ne se compte pas. Dites plutôt “I have a lot of work today.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Tu dis “I have many work today.” ? “Work” ne se compte pas. Dis “I have a lot of work today.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.\n\nlexkite.com",
+    "caption": "“Many work” : faux !\n\n“Work” ne se compte pas : pas de “many”. Dites “a lot of work”.\n\nlexkite.com",
     "hashtags": [
      "#apprendrelanglais",
      "#anglaisfacile",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "“Many work” : faux ! #apprendrelanglais #anglaisfacile #coursdanglais"
+    "caption": "“Many work” : faux ! “Work” ne se compte pas : pas de “many”. Dites “a lot of work”. #apprendrelanglais #anglaisfacile #coursdanglais"
    }
   },
-  "first_comment": "Réponse : “much”. On ne compte pas “homework”. Teste d'autres pièges avec un quiz gratuit : {link}",
+  "first_comment": "Réponse : “much” — “Work” ne se compte pas : on dit “much” ou “a lot of”. Testez d’autres pièges avec un quiz gratuit : {link}",
   "lang": "fr"
  }
 }

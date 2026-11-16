@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_wakeupon",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "At six, not on six!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I wake up on six o'clock.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I wake up at six o'clock.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Clock time: at.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "At! The class starts at 9 o'clock.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I wake up on six o'clock.",
+  "right": "I wake up at six o'clock.",
+  "strike": "on",
+  "why": "Clock time: at.",
+  "memory": "At six.",
+  "quiz": {
+   "stem": "The class starts ___ 9 o'clock.",
+   "options": [
+    "on",
+    "at"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Pada jam enam” jadi “on”?",
+   "tip": "Kita bilang “pada jam enam”, tapi untuk jam bahasa Inggris pakai at, bukan on.",
+   "caption": "Pernah bilang begini? “I wake up on six o'clock.” 😅 Untuk jam, pakai at: “I wake up at six o'clock.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “at”. Ucapkan dengan lantang: “I wake up at six o'clock.” Lalu ganti jamnya dengan jam bangunmu. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#waktu",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“At six o'clock” becomes “on”?",
+   "tip": "We say “pada jam enam”, but for clock time English uses at, not on.",
+   "caption": "Ever say this? “I wake up on six o'clock.” 😅 For clock time, use at: “I wake up at six o'clock.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Pada jam enam” jadi “on”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“Pada jam enam” jadi “on”?",
+  "keyword": "I wake up at six o'clock.",
+  "value": "Kita bilang “pada jam enam”, tapi untuk jam bahasa Inggris pakai at, bukan on.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#waktu",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "“Pada jam enam” jadi “on”?",
+    "description": "Kita bilang “pada jam enam”, tapi untuk jam bahasa Inggris pakai at, bukan on.\n\nPernah bilang begini? “I wake up on six o'clock.” 😅 Untuk jam, pakai at: “I wake up at six o'clock.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #waktu #bahasainggris #lexkite",
+    "tags": [
+     "I wake up at six o'clock.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “I wake up on six o'clock.” 😅 Untuk jam, pakai at: “I wake up at six o'clock.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Pada jam enam” jadi “on”?\n\nKita bilang “pada jam enam”, tapi untuk jam bahasa Inggris pakai at, bukan on.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#waktu",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Pada jam enam” jadi “on”? Kita bilang “pada jam enam”, tapi untuk jam bahasa Inggris pakai at, bukan on. #belajarbahasainggris #waktu #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “at”. Ucapkan dengan lantang: “I wake up at six o'clock.” Lalu ganti jamnya dengan jam bangunmu. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

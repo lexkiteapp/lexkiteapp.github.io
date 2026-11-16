@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_stopby",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Stop by, not pass!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I will pass in your house tomorrow.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I will stop by your house tomorrow.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "For a short visit, we say stop by.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The first! I will stop by your house.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I will pass in your house tomorrow.",
+  "right": "I will stop by your house tomorrow.",
+  "strike": "pass in",
+  "why": "For a short visit, we say stop by.",
+  "memory": "Stop by my house.",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "I will stop by your house.",
+    "I will pass in your house."
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Diga “stop by” para visitar!",
+   "tip": "Em português dizemos “passar na sua casa”; em inglês, para uma visita rápida, use “stop by”.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I will pass in your house tomorrow.” O certo é “I will stop by your house tomorrow.” Em português dizemos “passar na sua casa”; em inglês, para uma visita rápida, use “stop by”. Ouça a Ama e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “I will stop by your house.” Agora escreva uma frase sua com “Stop by my house” e treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “stop by” to visit!",
+   "tip": "In Portuguese we say “passar na sua casa”; in English, for a quick visit, use “stop by”.",
+   "caption": "Watch out for this common mistake! Many people say “I will pass in your house tomorrow.” The right way is “I will stop by your house tomorrow.” In Portuguese we say “passar na sua casa”; in English, for a quick visit, use “stop by”. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Diga “stop by” para visitar!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 54,
+  "seconds": 32.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "Diga “stop by” para visitar!",
+  "keyword": "I will stop by your house tomorrow.",
+  "value": "Em português dizemos “passar na sua casa”; em inglês, para uma visita rápida, use “stop by”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 48,
+  "platforms": {
+   "youtube": {
+    "title": "Diga “stop by” para visitar!",
+    "description": "Em português dizemos “passar na sua casa”; em inglês, para uma visita rápida, use “stop by”.\n\nCuidado com este erro comum! 😬 Muita gente diz “I will pass in your house tomorrow.” O certo é “I will stop by your house tomorrow.” Em português dizemos “passar na sua casa”; em inglês, para uma visita rápida, use “stop by”. Ouça a Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "I will stop by your house tomorrow.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “I will pass in your house tomorrow.” O certo é “I will stop by your house tomorrow.” Em português dizemos “passar na sua casa”; em inglês, para uma visita rápida, use “stop by”. Ouça a Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Diga “stop by” para visitar!\n\nEm português dizemos “passar na sua casa”; em inglês, para uma visita rápida, use “stop by”.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Diga “stop by” para visitar! Em português dizemos “passar na sua casa”; em inglês, para uma visita rápida,… #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “I will stop by your house.” Agora escreva uma frase sua com “Stop by my house” e treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

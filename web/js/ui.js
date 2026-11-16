@@ -48,7 +48,7 @@
   // Chọn chỗ đặt toast không đè vật cản: vị trí CSS gốc → ngay trên từng vật cản ở nửa dưới màn (≤ 55 %) → mép trên (dưới tai thỏ); hết chỗ thì giữ gốc
   function toastLift(t) {
     t.style.removeProperty('--ty'); delete t.dataset.at; const H = g.innerHeight || document.documentElement.clientHeight || 0, W = g.innerWidth || document.documentElement.clientWidth || 0; if (!H) return;
-    const tr = t.getBoundingClientRect(), h = tr.height || 48, tw = Math.min(tr.width || W, W), x0 = (W - tw) / 2, x1 = x0 + tw; // không getComputedStyle (chậm)
+    const tr = t.getBoundingClientRect(), h = tr.height || 48, tw = Math.min(tr.width || W, W), x0 = (W - tw) / 2, x1 = x0 + tw;
     const base = tr.height ? H - tr.bottom + (t.classList.contains('show') ? 0 : 20) : 28; // chưa .show: translateY(20px)
     const obs = [...document.querySelectorAll(AVOID)].map(el => el.getBoundingClientRect()).filter(r => r.height && r.width && r.top < H && r.bottom > 0 && (!W || (r.left < x1 && r.right > x0)));
     const free = (top, bot) => !obs.some(r => r.top < bot && r.bottom > top);
@@ -63,12 +63,17 @@
   }
   function toastShow(msg, ms, o) {
     const t = $('#toast'); if (!t) return;
+    if (t.classList.contains('show') || toast._sw) { // đổi chữ tại chỗ khi đang hiện = hộp đổi cỡ (CLS @#/dict) → mờ hết rồi mới đổi, dồn nhiều câu giữ câu cuối
+      toast._sa = t._msg = [msg, ms, o]; clearTimeout(toast._t);
+      if (!toast._sw) { t.classList.remove('show', 'act'); toast._sw = setTimeout(() => { toast._sw = 0; const a = toast._sa; if (a && t._msg === a) { t._msg = null; toastShow(...a); } }, 230); }
+      return;
+    }
     t.textContent = msg; t._msg = [msg, ms, o]; t._at = Date.now(); toast._last = [msg, t._at];
-    // Nút hành động (vd. "Thử lại"): báo lỗi bình tĩnh luôn kèm cách sửa; chỉ toast có nút mới nhận chạm (.act), còn lại không chặn thao tác bên dưới
+    // chỉ toast có nút hành động mới nhận chạm (.act)
     t.classList.toggle('act', !!(o && o.action));
     if (o && o.action) { const b = document.createElement('button'); b.type = 'button'; b.className = 'toast-act'; b.textContent = o.action; b.onclick = () => { if (!t._msg || t._msg[2] !== o) return; toastHide(t); try { o.onAction && o.onAction(); } catch (e) { /* bỏ qua */ } }; t.append(' ', b); }
     toastLift(t); t.classList.add('show');
-    // Màn vẽ lại khi toast đang hiện (vd. hết bài → màn "Bạn đã học xong") → đặt lại chỗ để không đè nút mới
+    // màn vẽ lại khi toast đang hiện → đặt lại chỗ để không đè nút mới
     const v = document.getElementById('view'); if (v && g.MutationObserver && !toast._mo) { let q = 0; toast._mo = new MutationObserver(() => { if (q) return; q = 1; (g.requestAnimationFrame || setTimeout)(() => { q = 0; if (t._msg) toastLift(t); }); }); toast._mo.observe(v, { childList: true, subtree: true }); }
     toastTimer(t, ms);
   }
@@ -484,11 +489,14 @@
   const stopRecognize = () => { if (activeRec) { activeRec._stale = true; try { activeRec.abort(); } catch (e) { /* đã dừng */ } activeRec = null; } };
 
   // Ảnh minh họa kèm ghi nguồn theo giấy phép Creative Commons
-  // Không dùng onclick="…" nội tuyến (CSP của add-on chặn): bấm ⓘ ghi nguồn ảnh không lật thẻ; [data-confirm] hỏi lại trước khi đi tiếp
+  // Không dùng handler onclick nội tuyến (CSP của add-on chặn): bấm ⓘ ghi nguồn ảnh không lật thẻ; [data-confirm] hỏi lại trước khi đi tiếp
   if (g.document && !g.__lkDeleg) {
     g.__lkDeleg = true;
     document.addEventListener('click', e => {
       if (e.target.closest && e.target.closest('.pcredit')) { e.stopPropagation(); return; }
+      // Liên kết "Bỏ qua tới nội dung chính": <base href="/"> → href="#view" sẽ rời /app/ → chặn và đưa tiêu điểm vào #view (thay onclick= nội tuyến – CSP)
+      const sk = e.target.closest && e.target.closest('a.skip-link[href="#view"]');
+      if (sk) { const v = document.getElementById('view'); if (v) { e.preventDefault(); v.focus(); } return; }
       const c = e.target.closest && e.target.closest('[data-confirm]');
       if (c && !confirm(c.dataset.confirm)) { e.preventDefault(); e.stopPropagation(); }
     }, true);
@@ -527,6 +535,7 @@
   }, true);
   // Hạn mức máy chủ (functions/api/_quota.js): mã thiết bị ngẫu nhiên (X-Lexkite-Device) · 429 { error:'quota', msg, resetAt, signIn } → câu báo
   const dev = () => { try { let d = localStorage.getItem('lk.dev'); if (!d) localStorage.setItem('lk.dev', d = [...crypto.getRandomValues(new Uint8Array(20))].map(b => (b % 36).toString(36)).join('')); return d; } catch (e) { return ''; } };
+  let humanP; const human = () => humanP || (humanP = window.Human ? Promise.resolve(window.Human) : new Promise(r => { const s = document.createElement('script'); s.src = 'js/human.js'; const fin = () => { clearTimeout(to); if (!window.Human) humanP = null; r(window.Human || null); }, to = setTimeout(fin, 4000); s.onload = s.onerror = fin; document.head.appendChild(s); }));
   const quotaText = (j = {}) => { const r = j.resetAt, at = r && new Date(r).toLocaleString([], r - Date.now() > 864e5 ? { dateStyle: 'short', timeStyle: 'short' } : { timeStyle: 'short' }); return (j.msg === 'quota.daily' && at ? t('Đã hết lượt miễn phí hôm nay – mở lại lúc {time}.', { time: at }) : t('Máy chủ đang bận – thử lại sau ít phút.')) + (j.signIn ? ' ' + t('Đăng nhập để có thêm lượt.') : ''); };
   // Icon UI: 1 bộ Lucide, sprite #lk-sprite (docs/DESIGN-SYSTEM.md)
   const icon = (n, cls) => `<svg class="i${cls ? ' ' + cls : ''}" aria-hidden="true"><use href="#i-${n}"/></svg>`;
@@ -654,5 +663,12 @@
     e.preventDefault(); const st = prefs();
     if (b.dataset.speak != null) speak(b.dataset.speak, b.dataset.accent || st.accent, b.dataset.url || ''); else speak(b.dataset.speakText, st.accent);
   });
-  g.UI = { whisperModel, sayBtn, ipaOf, ipaTag, ipaHtml, pronHtml, accOrder, weakOf, WEAK, audioFor, fillIpa, icon, glyph, addIcons, paintIcons: paint, skel, skelPage, dev, quotaText, quota: j => { toast(quotaText(j), 6000); if (g.Ads && g.Ads.quota) g.Ads.quota(j); }, ctxBox, recUrl, clearRecs, $, $$, esc, shuffle, wordRegex, highlight, cloze, clozeAnswer, similarity, toast, modal, closeModal, xpFloat, speak, tts, ttsClean, stopSpeak, recognize, micParallel, MIC, stopRecognize, recErrorText, whisperWarm: p => whisper(p), voicesFor, pickVoice, splitSentences, pic, levelChip, posChip, posLabel, masteryDots, ring, download };
+  // Vé người thật (docs/HUMAN.md): lượt thường không chờ; again (403 human) → chờ vé rồi thử lại
+  async function humanHdr(h, again) {
+    const H = window.Human;
+    if (again) { const X = await human(); if (X) { await X.ticket(true); X.headers(h); } } else if (H) { if (!H.headers(h)['X-Lexkite-Human']) H.ticket().catch(() => {}); } else human().then(x => x && x.ticket()).catch(() => {});
+    return h;
+  }
+
+  g.UI = { whisperModel, sayBtn, ipaOf, ipaTag, ipaHtml, pronHtml, accOrder, weakOf, WEAK, audioFor, fillIpa, icon, glyph, addIcons, paintIcons: paint, skel, skelPage, dev, human, humanHdr, quotaText, quota: j => { toast(quotaText(j), 6000); if (g.Ads && g.Ads.quota) g.Ads.quota(j); }, ctxBox, recUrl, clearRecs, $, $$, esc, shuffle, wordRegex, highlight, cloze, clozeAnswer, similarity, toast, modal, closeModal, xpFloat, speak, tts, ttsClean, stopSpeak, recognize, micParallel, MIC, stopRecognize, recErrorText, whisperWarm: p => whisper(p), voicesFor, pickVoice, splitSentences, pic, levelChip, posChip, posLabel, masteryDots, ring, download };
 })(typeof self !== 'undefined' ? self : this);

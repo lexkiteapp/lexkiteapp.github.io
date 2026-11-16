@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_monday_capital",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Monday needs a big letter!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I will see you on monday.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I will see you on Monday.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Days start with a big letter.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "On Monday! Days start with a big letter.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I will see you on monday.",
+  "right": "I will see you on Monday.",
+  "strike": "monday",
+  "why": "Days start with a big letter.",
+  "memory": "Big M.",
+  "quiz": {
+   "stem": "Which is right?",
+   "options": [
+    "on monday",
+    "on Monday"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "¿“Monday” con minúscula? ¡Ojo!",
+   "tip": "En español los días y los meses van en minúscula, pero en inglés empiezan con mayúscula: “Monday”, “June.”",
+   "caption": "Muchos escriben “I will see you on monday.” 🙈 En español los días y los meses se escriben en minúscula, pero en inglés empiezan con mayúscula: “I will see you on Monday.” ¡Mira a Ama y practica! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “Monday”. Los días y los meses se escriben con mayúscula inicial. Escribe una frase tuya con “Monday”. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#escritura",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Monday” with a small letter?",
+   "tip": "Spanish writes days and months in lowercase, but English starts them with a capital: “Monday”, “June.”",
+   "caption": "Many learners write “I will see you on monday.” Spanish writes days and months in lowercase, but English starts them with a capital letter: “I will see you on Monday.” Watch Ama and practice! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿“Monday” con minúscula? ¡Ojo!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 51,
+  "seconds": 30.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "¿“Monday” con minúscula? ¡Ojo!",
+  "keyword": "I will see you on Monday.",
+  "value": "En español los días y los meses van en minúscula, pero en inglés empiezan con mayúscula: “Monday”, “June.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#escritura",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 45,
+  "platforms": {
+   "youtube": {
+    "title": "¿“Monday” con minúscula? ¡Ojo!",
+    "description": "En español los días y los meses van en minúscula, pero en inglés empiezan con mayúscula: “Monday”, “June.”\n\nMuchos escriben “I will see you on monday.” 🙈 En español los días y los meses se escriben en minúscula, pero en inglés empiezan con mayúscula: “I will see you on Monday.” ¡Mira a Ama y practica! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #escritura #lexkite",
+    "tags": [
+     "I will see you on Monday.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "Muchos escriben “I will see you on monday.” 🙈 En español los días y los meses se escriben en minúscula, pero en inglés empiezan con mayúscula: “I will see you on Monday.” ¡Mira a Ama y practica! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "¿“Monday” con minúscula? ¡Ojo!\n\nEn español los días y los meses van en minúscula, pero en inglés empiezan con mayúscula: “Monday”, “June.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#escritura",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿“Monday” con minúscula? ¡Ojo! En español los días y los meses van en minúscula, pero en inglés empiezan con… #aprenderingles #inglesfacil #escritura"
+   }
+  },
+  "first_comment": "Respuesta: “Monday”. Los días y los meses se escriben con mayúscula inicial. Escribe una frase tuya con “Monday”. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}

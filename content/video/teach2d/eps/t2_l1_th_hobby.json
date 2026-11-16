@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_hobby",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say it depends, not is depend.",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: It is depend on you.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: It depends on you.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Depends is the verb, so no is.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Depends! It depends on the weather.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "It is depend on you.",
+  "right": "It depends on you.",
+  "strike": "is depend",
+  "why": "Depends is the verb, so no is.",
+  "memory": "It depends on you.",
+  "quiz": {
+   "stem": "It ___ on the weather.",
+   "options": [
+    "is depend",
+    "depends"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "ใช้ It depends ไม่ใช่ is depend!",
+   "tip": "หลายคนคิดว่า depend เป็นคำบอกสภาพ เหมือน “ขึ้นอยู่กับ” จึงใส่ is ข้างหน้า แต่ depend เป็นกริยาอยู่แล้ว ไม่ต้องมี is: “It depends on you.”",
+   "caption": "คุณเคยพูดว่า “It is depend on you.” ไหม? 😅 หลายคนคิดว่า depend เป็นคำบอกสภาพ จึงใส่ is ข้างหน้า แต่ depend เป็นกริยาอยู่แล้ว ไม่ต้องมี is: “It depends on you.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “depends” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยคด้วย It depends แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “It depends,” not “is depend”!",
+   "tip": "Many Thai speakers feel depend is a state word, so they put is before it, but depend is already the verb, so we do not need is: “It depends on you.”",
+   "caption": "Do you ever say this? “It is depend on you.” 😅 Many Thai speakers put is before depend, but depend is already the verb, so we do not need is. Say “It depends on you.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "ใช้ It depends ไม่ใช่ is depend!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "ใช้ It depends ไม่ใช่ is depend!",
+  "keyword": "It depends on you.",
+  "value": "หลายคนคิดว่า depend เป็นคำบอกสภาพ เหมือน “ขึ้นอยู่กับ” จึงใส่ is ข้างหน้า แต่ depend เป็นกริยาอยู่แล้ว ไม่ต้องมี is: “It depends on you.”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "ใช้ It depends ไม่ใช่ is depend!",
+    "description": "หลายคนคิดว่า depend เป็นคำบอกสภาพ เหมือน “ขึ้นอยู่กับ” จึงใส่ is ข้างหน้า แต่ depend เป็นกริยาอยู่แล้ว ไม่ต้องมี is: “It depends on you.”\n\nคุณเคยพูดว่า “It is depend on you.” ไหม? 😅 หลายคนคิดว่า depend เป็นคำบอกสภาพ จึงใส่ is ข้างหน้า แต่ depend เป็นกริยาอยู่แล้ว ไม่ต้องมี is: “It depends on you.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "It depends on you.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “It is depend on you.” ไหม? 😅 หลายคนคิดว่า depend เป็นคำบอกสภาพ จึงใส่ is ข้างหน้า แต่ depend เป็นกริยาอยู่แล้ว ไม่ต้องมี is: “It depends on you.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "ใช้ It depends ไม่ใช่ is depend!\n\nหลายคนคิดว่า depend เป็นคำบอกสภาพ เหมือน “ขึ้นอยู่กับ” จึงใส่ is ข้างหน้า แต่ depend เป็นกริยาอยู่แล้ว ไม่ต้องมี is: “It depends on you.”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ใช้ It depends ไม่ใช่ is depend! หลายคนคิดว่า depend เป็นคำบอกสภาพ เหมือน “ขึ้นอยู่กับ” จึงใส่ is ข้างหน้า แต… #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “depends” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยคด้วย It depends แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

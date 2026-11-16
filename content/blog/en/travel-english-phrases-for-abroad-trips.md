@@ -119,6 +119,16 @@ You can practice pronouncing these travel phrases with immediate speech-recognit
 2. **Focus on key nouns when nervous:** If you temporarily forget full sentence grammar, deliver key nouns with a pleasant smile: *"Central Station, please?"* or *"Restroom, please?"*. Hospitality workers are eager to assist polite international travelers.
 3. **Leverage universal body language and gestures:** Open posture, smiling, and polite nodding make interactions pleasant and overcome minor phonetic discrepancies.
 
+Going through an airport? Our guide to [airport English phrases for check-in, immigration and delays](/en/blog/airport-english-phrases-immigration-check-in-delays/) goes deeper.
+
+Staying overnight? Read [hotel English phrases for check-in, requests and complaints](/en/blog/hotel-english-phrases-check-in-requests-complaints/).
+
+Eating out? See [restaurant English for ordering food and paying](/en/blog/restaurant-english-ordering-food-and-paying/).
+
+Feeling unwell abroad? See [English at the doctor: describing symptoms](/en/blog/english-at-the-doctor-describing-symptoms/).
+
+Lost? See [asking for directions and using public transport in English](/en/blog/asking-for-directions-and-using-public-transport-in-english/).
+
 ## Frequently Asked Questions (FAQ)
 
 ### Can I travel independently if my English pronunciation is not perfect?
@@ -129,4 +139,6 @@ Never hesitate to say: *"I'm sorry, could you please speak a little slower? My E
 
 ### Should I rely solely on translation apps during my vacation?
 Translation apps are wonderful for reading street signs or multi-page menus. However, relying on your own voice for quick airport interactions, ordering food, and hailing taxis saves valuable time, ensures your personal safety, and creates genuine human connections during your trip. Having core phrases committed to memory guarantees seamless navigation even when your mobile phone battery dies or cellular network signals drop.
+
+If you stay longer or fall ill, our guide to [English phrases at the doctor](/en/blog/english-for-newcomers-doctor/) gives the key sentences, and the [bank phrases guide](/en/blog/english-for-newcomers-bank/) covers cards and cash.
 

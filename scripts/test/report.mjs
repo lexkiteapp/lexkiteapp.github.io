@@ -19,10 +19,11 @@ const kp = await webcrypto.subtle.generateKey({ name: 'RSASSA-PKCS1-v1_5', modul
 const jwk = { ...(await webcrypto.subtle.exportKey('jwk', kp.publicKey)), kid: 'k1' };
 const b64u = b => Buffer.from(b).toString('base64url'), sec = Math.floor(Date.now() / 1000);
 const idt = async (sub, email) => { const h = b64u(JSON.stringify({ alg: 'RS256', kid: 'k1' })), p = b64u(JSON.stringify({ aud: 'lexkite-app', iss: 'https://securetoken.google.com/lexkite-app', exp: sec + 3600, iat: sec, auth_time: sec, sub, email, email_verified: true })); return h + '.' + p + '.' + b64u(await webcrypto.subtle.sign('RSASSA-PKCS1-v1_5', kp.privateKey, new TextEncoder().encode(h + '.' + p))); };
-const issues = []; let ghOk = true;
+const issues = []; let ghOk = true; let tsMode = 'ok';
 globalThis.fetch = async (url, init = {}) => {
   url = String(url);
   if (url.includes('googleapis.com/service_accounts')) return { ok: true, json: async () => ({ keys: [jwk] }) };
+  if (url === 'https://challenges.cloudflare.com/turnstile/v0/siteverify') { if (tsMode === 'down') throw new Error('net'); return new Response(JSON.stringify({ success: new URLSearchParams(String(init.body)).get('response') === 'ts-good' })); }
   if (url === 'https://api.github.com/repos/lexkiteapp/lexkiteapp.github.io/issues') { issues.push({ headers: init.headers, body: JSON.parse(init.body) }); return new Response(JSON.stringify({ html_url: 'https://github.com/lexkiteapp/lexkiteapp.github.io/issues/' + issues.length, number: issues.length }), { status: ghOk ? 201 : 500 }); }
   throw new Error('mạng bị chặn trong test: ' + url);
 };
@@ -37,8 +38,8 @@ const ENV = { DB, MAIL, AI, ADMIN_EMAILS: 'boss@lexkite.com, ops@lexkite.com', G
 const R = await import(new URL('../../functions/api/report.js', import.meta.url));
 
 let ipN = 1;
-const call = async (body, { ip = '10.0.0.' + ipN, token, origin = 'https://lexkite.com', env = ENV, dev, cli } = {}) => {
-  const headers = { Origin: origin, 'Content-Type': 'application/json', 'CF-Connecting-IP': ip, ...(token ? { Authorization: 'Bearer ' + token } : {}), ...(dev ? { 'X-Lexkite-Device': dev } : {}), ...(cli ? { 'X-Lexkite-Cli': cli } : {}) };
+const call = async (body, { ip = '10.0.0.' + ipN, token, origin = 'https://lexkite.com', env = ENV, dev, cli, hdr = {} } = {}) => {
+  const headers = { Origin: origin, 'Content-Type': 'application/json', 'CF-Connecting-IP': ip, ...(token ? { Authorization: 'Bearer ' + token } : {}), ...(dev ? { 'X-Lexkite-Device': dev } : {}), ...(cli ? { 'X-Lexkite-Cli': cli } : {}), ...hdr };
   const r = await R.onRequestPost({ request: new Request('https://lexkite.com/api/report', { method: 'POST', headers, body: typeof body === 'string' ? body : JSON.stringify(body) }), env });
   const text = await r.text(); let j = {}; try { j = JSON.parse(text); } catch (e) { /* bỏ qua */ } return { s: r.status, j, text, h: r.headers };
 };
@@ -261,6 +262,28 @@ ok((await call(raw, { cli: Date.now() + '.' + 'a'.repeat(64) })).s === 403, 'HMA
 const old = String(Date.now() - 600e3); ok((await call(raw, { cli: old + '.' + await R.cliSign(CLI_KEY, old, raw) })).s === 403, 'HMAC quá 5 phút → 403');
 const rawL = JSON.stringify({ op: 'list' }), tsL = String(Date.now()); ok((await call(rawL, { cli: tsL + '.' + await R.cliSign(CLI_KEY, tsL, rawL) })).s === 403, 'HMAC không dùng được cho lệnh khác (list)');
 ok((await signQ({ op: 'queue' })).s === 200 && (await call(raw, { env: { ...ENV, LEXKITE_REPORT_CLI_KEY: '' }, cli: Date.now() + '.' + 'a'.repeat(64) })).s === 403, 'chưa đặt khóa CLI → 403');
+// act: thao tác nhanh + mẫu theo ngôn ngữ người báo; lô quá trần bị từ chối; không gửi thư cho báo lỗi thử
+{ const admin = b => call(b, { token: ADM });
+  const mkR = (lang, notify, sandbox = 0) => sql.prepare("INSERT INTO reports (tok, at, upd, status, cat, area, msg, lang, email, notify, sandbox, spam) VALUES (?, ?, ?, 'new', 'bug', 'vocab', 'act test message', ?, ?, ?, ?, 0) RETURNING id").get('A'.repeat(14) + String(Math.random()).slice(2, 12).padEnd(10, '0'), Date.now(), Date.now(), lang, notify ? 'act@example.com' : '', notify ? 1 : 0, sandbox).id;
+  const LX = id => 'LX-' + (1000 + id), row = id => sql.prepare('SELECT status, reply, fixed_at, dup_of FROM reports WHERE id = ?').get(id);
+  const zh = mkR('zh', 0), fr = mkR('fr', 0), dupId = mkR('ja', 0), sb = mkR('en', 1, 1);
+  sql.prepare("UPDATE reports SET status = 'dup', dup_of = ? WHERE id = ?").run(zh, dupId);
+  const m0 = mails.length, ac = await admin({ op: 'act', ids: [LX(zh), LX(fr)], status: 'fixed', tpl: 'fixed' });
+  ok(ac.s === 200 && row(zh).status === 'fixed' && row(fr).status === 'fixed', 'act: đánh dấu đã sửa nhiều phiếu');
+  ok(/修复/.test(row(zh).reply) && /corrig/.test(row(fr).reply), 'act: mẫu đúng ngôn ngữ từng người báo (zh, fr)');
+  ok(row(dupId).status === 'fixed' && /修正/.test(row(dupId).reply) && ac.j.rows[0].dups === 1, 'act: Đã sửa kéo theo phiếu trùng, đúng ngôn ngữ của người đó (ja)');
+  const again = await admin({ op: 'act', ids: [LX(zh)], status: 'fixed', tpl: 'fixed' }); ok(again.j.rows[0].changed === false && mails.length === m0, 'act lặp lại: không đổi gì, không báo trùng');
+  const sbA = await admin({ op: 'act', ids: [LX(sb)], status: 'fixed', tpl: 'fixed' }); ok(sbA.s === 200 && mails.length === m0, 'báo lỗi thử (sandbox) không bao giờ gửi thư thật');
+  const custom = mkR('zh', 0); await admin({ op: 'act', ids: [LX(custom)], tpl: 'thanks', status: 'ack' }); ok(row(custom).status === 'ack' && /感谢/.test(row(custom).reply), 'act: cảm ơn + Đã tiếp nhận');
+  await admin({ op: 'act', ids: [LX(custom)], reply: 'Sửa tay' }); ok(row(custom).reply === 'Sửa tay' && row(custom).status === 'ack', 'act: chữ quản trị sửa được giữ nguyên');
+  ok((await admin({ op: 'act', ids: Array.from({ length: 11 }, (_, i) => 'LX-' + (5000 + i)), status: 'ack' })).s === 400, 'act: quá trần 10 phiếu/lệnh → từ chối (máy khách chia lô)');
+  ok((await admin({ op: 'act', ids: [LX(custom)], status: 'dup' })).s === 400 && (await admin({ op: 'act', ids: [LX(custom)], tpl: 'constructor' })).s === 400, 'act: không nhận trạng thái Trùng lặp / khóa mẫu lạ');
+  const g = await admin({ op: 'get', id: LX(custom) }); ok(/感谢/.test(g.j.tpl.thanks) && /Cảm ơn/.test(g.j.tpl_vi.thanks) && Object.keys(g.j.tpl).length === 4, 'get: trả 4 mẫu theo ngôn ngữ người báo + bản tiếng Việt');
+  const tok = sql.prepare('SELECT tok FROM reports WHERE id = ?').get(custom).tok, seenOf = () => sql.prepare('SELECT seen_at, upd FROM reports WHERE id = ?').get(custom);
+  await call({ op: 'seen', t: tok }); const s1 = seenOf(); ok(s1.seen_at >= s1.upd, 'seen: máy người báo xác nhận đã hiện');
+  await call({ op: 'seen', t: tok }); ok(seenOf().seen_at === s1.seen_at, 'seen lặp: không ghi thêm');
+  ok((await call({ op: 'seen', t: 'short' })).s === 400, 'seen: mã sai → 400'); }
+
 // resolve: Đã sửa + phiên bản + báo người báo & phiếu trùng
 mails.length = 0;
 const rs = await signQ({ op: 'resolve', id: g1.j.id, note: 'Audio now plays after the first tap.', commit: 'abc1234def' });
@@ -297,6 +320,27 @@ ok(sql.prepare("SELECT COUNT(*) AS n FROM report_events WHERE rid = 1 AND act IN
   ok((await call({ op: 'unhide', cid: XC })).s === 401 || (await call({ op: 'unhide', cid: XC })).s === 403, 'hiện lại: cần quyền quản trị');
   const u = await call({ op: 'unhide', cid: XC }, { token: ADM }); h = (await call({ op: 'hidden' })).j.cids || [];
   ok(u.j.ok && !h.includes(XC) && sql.prepare('SELECT COUNT(*) AS n FROM content_flags WHERE cid = ?').get(XC).n === 0, 'quản trị hiện lại → bỏ khỏi danh sách ẩn + đếm lại từ 0');
+}
+
+// ---------- Người thật (02/11): có TURNSTILE_SECRET_KEY → khách BẮT BUỘC token/vé; siteverify lỗi → chặn; đăng nhập & HMAC CI giữ nguyên ----------
+{
+  const H = await import(new URL('../../functions/api/_human.js', import.meta.url));
+  const TS = { ...ENV, TURNSTILE_SECRET_KEY: 'ts_test_SECRET_key' }, hip = () => '10.9.' + (ipN++) + '.1';
+  const h0 = await call(good(), { env: TS, ip: hip() });
+  ok(h0.s === 403 && h0.j.error === 'human', 'báo lỗi khách thiếu token/vé → 403');
+  ok((await call(good({ ts: 'ts-wrong' }), { env: TS, ip: hip() })).s === 403, 'báo lỗi token sai → 403');
+  tsMode = 'down'; const hd = await call(good({ ts: 'ts-good' }), { env: TS, ip: hip() });
+  ok(hd.s === 503 && hd.j.error === 'turnstile-unavailable', 'siteverify lỗi mạng → 503, không lưu (fail closed – trước đây cho qua)');
+  tsMode = 'ok';
+  ok((await call(good({ ts: 'ts-good' }), { env: TS, ip: hip() })).s === 200, 'token Turnstile đúng → nhận');
+  const dv = 'devhuman' + 'x'.repeat(16), tk = (await H.issueTicket(TS, [dv])).ticket;
+  ok((await call(good(), { env: TS, ip: hip(), dev: dv, hdr: { 'X-Lexkite-Human': tk } })).s === 200, 'vé người thật (app gốc/add-on) → nhận');
+  ok((await call(good(), { env: TS, ip: hip(), dev: 'devother' + 'y'.repeat(16), hdr: { 'X-Lexkite-Human': tk } })).s === 403, 'vé của thiết bị khác → 403');
+  ok((await call(good(), { env: TS, ip: hip(), token: USER })).s === 200, 'đã đăng nhập → khỏi token');
+  ok((await call(good({ hp: 'x' }), { env: TS, ip: hip() })).s === 200, 'ô bẫy → vẫn giả vờ thành công');
+  const raw = JSON.stringify({ op: 'queue' }), ts = String(Date.now());
+  ok((await call(raw, { env: TS, ip: hip(), cli: ts + '.' + await R.cliSign(CLI_KEY, ts, raw) })).s === 200, 'HMAC CI (report-cli) vẫn qua khi bật Turnstile');
+  ok((await call({ op: 'hidden' }, { env: TS, ip: hip() })).s === 200, 'op công khai (hidden) không cần token');
 }
 
 // Thư người báo theo đúng 15 ngôn ngữ (hồi quy LX-1001: phiếu tiếng Trung nhận thư tiếng Anh) + bản dịch thư khớp nguồn app
@@ -433,4 +477,4 @@ ok(R.smartH(72, 0, 0) === 72 && R.smartH(24, 0, 5) === 36 && R.smartH(72, 100, 0
   const cf = (await call({ op: 'cfg' }, { token: ADM, env: E3 })).j; ok(cf.r2 === true && cf.shot_sign === true && (await call({ op: 'cfg' }, { token: ADM })).j.r2 === false, 'cfg: cờ R2 + khóa ký URL'); }
 
 if (fails) { console.error(`✗ report: ${fails}/${n} lỗi`); process.exit(1); }
-console.log(`✓ report: ${n} kiểm tra – tạo, giới hạn tốc độ, mã riêng, quyền quản trị, thư, không lộ dữ liệu cá nhân, gộp trùng, CSV, thống kê`);
+console.log(`✓ report: ${n} kiểm tra – tạo, giới hạn tốc độ, mã riêng, quyền quản trị, thư, không lộ dữ liệu cá nhân, gộp trùng, CSV, thống kê, người thật (fail closed)`);

@@ -163,7 +163,7 @@ ok(C.gemBody('gemini-3.8-flash', 's', 'p').generationConfig.thinkingConfig.think
   ok(/"overall": number/.test(vi.prompt) && !C.validOut({ band: 6 }, vi.prompt), 'khuôn chấm của máy khách khớp validOut máy chủ (model trả sai khuôn → thử model kế)');
   const x = CL.rpCase(RP[0]); ok(/JSON: \{"reply": string/.test(x.req.prompt) && !C.validOut({ advance: true }, x.req.prompt) && /Small, medium or large/.test(x.req.prompt) && /Tom, barista/.test(x.req.sys), 'lượt roleplay của máy khách khớp validOut + đúng kịch bản');
   const src = fs.readFileSync(new URL('../../web/js/ai.js', import.meta.url), 'utf8');
-  ok(/prompt: forLang\(prompt\), sys: forLang\(SYS\)/.test(src), 'máy khách gửi /api/ai bằng ngôn ngữ người học (mọi AI.ask: toeic/toefl/fixer/assist…)');
+  ok(/prompt: forLang\(prompt\), task: 'grade', lang: learnName\(\)/.test(src), 'máy khách gửi /api/ai bằng ngôn ngữ người học (prompt đã đổi ngôn ngữ + task grade + lang; máy chủ dựng sys – mọi AI.ask: toeic/toefl/fixer/assist…)');
 }
 
 console.log = log;

@@ -35,7 +35,7 @@
     .map(([id, ic, l, d]) => `<a class="adm-tile" href="${App.adminUrl(id)}" target="_blank" rel="noopener"><span class="adm-ic" aria-hidden="true">${ic}</span><span class="adm-tx"><b>${l}</b><small>${d}</small></span></a>`).join('');
   // Bộ từ mẫu ngôn ngữ đích (content/target/<tl>/seed.json → bản sao web/js/target-<tl>-seed.json, scripts/target/build.mjs) → thẻ tl, khóa '<tl>:từ' (Core.tlKey)
   // chuỗi thông báo theo ngôn ngữ đích – để chữ nguyên văn trong t() cho bộ quét i18n (thêm ngôn ngữ = thêm một dòng)
-  const TL_TOAST = { pt: n => t('Đã thêm {n} từ tiếng Bồ Đào Nha vào Sổ từ', { n }), es: n => t('Đã thêm {n} từ tiếng Tây Ban Nha vào Sổ từ', { n }) };
+  const TL_TOAST = { pt: n => t('Đã thêm {n} từ tiếng Bồ Đào Nha vào Sổ từ', { n }), es: n => t('Đã thêm {n} từ tiếng Tây Ban Nha vào Sổ từ', { n }), fr: n => t('Đã thêm {n} từ tiếng Pháp vào Sổ từ', { n }) };
   async function addTlSeed(tl) {
     const r = await fetch('js/target-' + tl + '-seed.json'); if (!r.ok) throw new Error('seed ' + r.status);
     const j = await r.json(); let n = 0;
@@ -229,6 +229,7 @@
     $('#sReset').onclick = async () => {
       if (!confirm(t('Xóa toàn bộ flashcard, tiến độ, XP và thống kê trên thiết bị này? Không thể hoàn tác.'))) return;
       await Store.set('cards', {}); await Store.set('stats', { days: {}, newToday: { day: '', n: 0 } }); await Store.set('game', null);
+      if (window.Sync && Sync.afterLocalReset) await Sync.afterLocalReset().catch(() => {});
       await load(); toast(t('Đã xóa dữ liệu')); routes.settings();
     };
     if (window.Sync) Sync.renderBox($('#syncBox')); else $('#syncBox').hidden = true;

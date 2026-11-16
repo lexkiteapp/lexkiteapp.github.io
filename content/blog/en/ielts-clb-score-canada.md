@@ -158,6 +158,8 @@ Use only the table above.
 3. Listening is CLB 7. Reading, Writing and Speaking are CLB 9. The Listening score is the only one holding the candidate back.
 4. Because each skill is converted separately; one weak skill cannot be balanced by a strong one.
 
+If you are still choosing a test for Canada, compare [CELPIP vs IELTS for Canada](/en/blog/celpip-vs-ielts-canada/), and for the UK read [IELTS for UKVI explained](/en/blog/ielts-ukvi-explained/).
+
 ## Frequently asked questions
 
 ### Which IELTS test do I take for Canadian immigration?
@@ -179,3 +181,5 @@ For this conversion, no. The chart works skill by skill. The overall band is a s
 ### Can I predict my official band from practice results?
 
 No. Practice tools, including ours, can show progress and weak areas, but only the real test produces an official band. Use practice scores as a guide for what to study next, not as a promise.
+
+Preparing for Canada? Read our list of [CELPIP speaking phrases](/en/blog/celpip-speaking-everyday-phrases/) for each task.

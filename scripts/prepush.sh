@@ -6,6 +6,7 @@ cd "$(dirname "$0")/.."
 node scripts/build-tokens.mjs           # brand/tokens.json → :root CSS, add-on, icon.svg (docs/BRAND-RULES.md)
 node scripts/test/native-visual.mjs --self-test --write-fixtures >/dev/null   # token đổi → ảnh mẫu QC native sinh lại (không thì npm test đỏ "fixture lỗi thời")
 node scripts/native/gen.mjs >/dev/null && node scripts/native/gen.mjs --check | tail -1   # chuỗi/token web đổi (vd sau merge main) → file sinh native dựng lại; trước đây chỉ CI bắt (#721)
+node scripts/test/workflow-yaml.mjs | tail -2   # workflow YAML lỗi → run push "failure" 0 job, PR không sinh run (làn nhanh npm test cũng chạy)
 node scripts/test/json-dupkeys.mjs | tail -1   # khoá JSON trùng sau khi gộp tay (bind Stitch…): JSON.parse lặng lẽ lấy khoá sau
 node scripts/ci/required-gate.mjs --check  # gate = bộ canh lịch, không quay lại workflow_run (docs/CI-RUNNERS.md)
 node scripts/path/build-mix.mjs          # sửa ngữ pháp/phát âm → web/js/path-mix.js
@@ -18,8 +19,8 @@ node scripts/framework/build-functions.mjs --write   # sửa content/framework/f
 node scripts/fmt-stable.mjs | tail -1   # nguồn dịch i18n/ui + registry dài: mỗi mục một dòng, sắp xếp (chống xung đột PR – scripts/test/fmt-stable.mjs)
 node scripts/mediation/build.mjs         # sửa content/mediation/*.json → web/cpack/mediation (màn #/mediate)
 node scripts/lesson/build-path-nodes.mjs   # sửa content/lesson/path-nodes.json → web/cpack/lesson/path-nodes.js (nội dung nút Lộ trình)
-bash scripts/build-extension.sh >/dev/null && git checkout -q -- extension/academic.json 2>/dev/null || true   # web/ → extension/app (bỏ thay đổi phụ academic.json)
-node scripts/test/ext-sync.mjs
+node scripts/build-install-links.mjs      # infra/install-links.json → web/js/ext-config.js, functions/api/_install_data.js
+# extension/app + gói dịch web/js/i18n KHÔNG commit trong PR (CI dựng lại, bot gen-sync commit; scripts/test/gen-pr-clean.mjs) → không dựng/kiểm ở đây
 node scripts/vi-lint.mjs
 node scripts/test/docs-budget.mjs
 node scripts/test/infra-check.mjs

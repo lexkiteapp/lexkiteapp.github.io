@@ -13,7 +13,7 @@ import { buildRows, readFixture, unitMap } from '../ads/report.mjs';
 import { stats, guardOf, revPack } from '../../functions/api/_ads.js';
 let pw; try { pw = await import('playwright'); } catch (e) { console.log('admin-guard: playwright chưa cài – bỏ qua'); process.exit(0); }
 const browser = await pw.chromium.launch(process.env.PW_CHANNEL ? { channel: process.env.PW_CHANNEL } : {}); // PW_CHANNEL=chrome: chạy thử nhanh bằng Chrome có sẵn
-const SHOTS = [['video/overview', 1736, 'dark'], ['video/overview', 390, 'light'], ['overview', 1440, 'dark'], ['analytics', 1280, 'light'], ['ads', 1920, 'light'], ['growth', 820, 'dark'], ['analytics', 360, 'dark'], ['quota', 390, 'light']];
+const SHOTS = [['users', 390, 'dark'], ['users', 360, 'light'], ['users~sheet', 390, 'dark'], ['users~bulk', 390, 'light'], ['users~menu', 360, 'dark'], ['backlinks', 390, 'dark'], ['dist', 360, 'light'], ['growth', 390, 'light'], ['video/overview', 1736, 'dark'], ['video/overview', 390, 'light'], ['overview', 1440, 'dark'], ['analytics', 1280, 'light'], ['ads', 1920, 'light'], ['growth', 820, 'dark'], ['analytics', 360, 'dark'], ['quota', 390, 'light'], ['reports', 1280, 'light'], ['reports', 1440, 'dark'], ['reports', 390, 'light'], ['reports', 390, 'dark']];
 
 if (process.argv[2] === '--compare') { // TRƯỚC | SAU cạnh nhau, thu nhỏ để soát nhanh
   const OUT = process.argv[3] || 'out/admin-guard', made = [];
@@ -50,8 +50,37 @@ SHOTS.push(['users', 1280, 'light'], ['users', 1440, 'dark'], ['analytics', 1440
 const DAY = 864e5, USERS = { ...FX.users, rows: [{ uid: 'L1', email: 'nguyen.thi.bich.ngoc.very.long.mailbox.address@subdomain.example-university.edu.vn', name: 'Nguyễn Thị Bích Ngọc Trần Lê Phạm Hoàng Đặng Bùi Võ Dương', created: NOW - 9 * DAY, seen: NOW - 3600e3, plat: 'web', n: 5, isAdmin: false, cc: 'VN' }, { uid: 'L2', email: 'old@example.com', name: 'Bo', created: NOW - 90 * DAY, seen: NOW - 40 * DAY, plat: 'ios', n: 2, isAdmin: false, cc: null, blocked: 1, ai: 1, tags: '["beta","vip","teacher-program-long-tag"]' }, { uid: 'L3', email: 'a'.repeat(70) + '@example.com', name: 'Wolfeschlegelsteinhausenbergerdorffwelchevoralternwaren', created: NOW - 3 * DAY, seen: NOW - 2 * DAY, plat: 'ext', n: 1234, isAdmin: true, cc: 'US' }, { uid: 'L4', email: '', name: '', created: NOW - 3 * DAY, seen: NOW - DAY, plat: 'android', n: 1, isAdmin: false, cc: 'JP' }, ...FX.users.rows] };
 const MAP_CC = { VN: 1, US: 3, JP: 12, DE: 50, BR: 300 }, LIVE = { ...FX.live, countries: [...Object.entries(MAP_CC).map(([k, n]) => ({ k, n })), { k: 'XX', n: 2 }] };
 // owner 3/11: bảng Nền tảng tràn thẻ + tên nước bị cắt ở cột ~300 px → thêm 360 (tối), 768, 1024. ADMIN_GUARD_W=360,1440 = chỉ chạy các bề rộng đó (thử nhanh)
-const CONFIGS = [[1280, 'light', 'vi'], [1440, 'dark', 'vi'], [1736, 'dark', 'vi'], [1920, 'light', 'en'], [1024, 'light', 'en'], [820, 'dark', 'vi'], [768, 'light', 'vi'], [390, 'light', 'en'], [360, 'dark', 'vi']]
+// Hộp báo lỗi (/api/report): dữ liệu mẫu, chỉ sandbox – không người thật
+const REP = (() => { const L = ['Audio stops after the first tap on the vocabulary card', 'Không bấm được nút Tiếp tục trong truyện sau câu hỏi giữa bài, phải tải lại trang', 'Wrong example sentence in the grammar lesson about the present perfect', 'Please add an automatic flip mode for flashcards'], S = ['new', 'prog', 'new', 'ack'], P = ['P1', 'P1', 'P2', 'P3'], C = ['audio', 'bug', 'content', 'idea'];
+  const rows = Array.from({ length: 14 }, (_, i) => ({ tid: 'LX-' + (1001 + i), id: i + 1, at: NOW - (i + 1) * 36e5, upd: NOW - i * 36e5, status: S[i % 4], cat: C[i % 4], area: ['vocab', 'reading', 'grammar', 'other'][i % 4], msg: L[i % 4], ai_sum: L[i % 4], lang: ['zh', 'vi', 'fr', 'en'][i % 4], plat: ['web', 'ios', 'android', 'ext'][i % 4], ver: '1.0.' + i, sev: P[i % 4], people: i % 5 === 0 ? 3 : 1, has_shot: i % 3 === 0 ? 1 : 0, notify: i % 4 === 0 ? 1 : 0, sandbox: 1, asg: i % 6 === 0 ? 'admin@example.com' : '' }));
+  return { list: { rows, total: rows.length, counts: { new: 6, ack: 3, prog: 4, fixed: 18, wontfix: 2, dup: 5, ideas: 3 }, sevs: { P0: 1, P1: 6 }, areas: { vocab: 5, reading: 4 }, spam: 2, admins: ['admin@example.com'], gh: true },
+    get: { ...rows[0], ctx: { route: 'vocab/flash', vw: '390x844', dpr: 3, tz: 'Asia/Shanghai', ua: 'Mozilla/5.0 (sample)' }, errs: ['TypeError: sample error at audio.js:42'], events: [{ at: NOW, by: 'ai', act: 'triage', note: 'P1 · ai' }, { at: NOW - 36e5, by: 'reporter', act: 'create' }], dups: ['LX-1006'], gh: true, ai: { by: 'ai', severity: 'P1', summary_vi: 'Âm thanh dừng sau lần chạm đầu ở thẻ từ vựng', area: 'vocab', type: 'bug', confidence: 0.86, likely_cause: 'AudioContext chưa được mở lại sau khi tạm dừng.', suggested_fix: 'Gọi resume() trước khi phát.' }, tpl: { thanks: '感谢你的反馈!我们的团队已收到,很快会查看。', prog: '我们的团队正在处理此问题,完成后会立即通知你。', fixed: '此问题已修复。感谢你的反馈!请重新加载应用以使用新版本。', more: '我们的团队需要更多信息。' }, tpl_vi: { thanks: 'Cảm ơn bạn đã báo! Đội ngũ đã nhận được và sẽ xem sớm.', prog: 'Đội ngũ đang xử lý.', fixed: 'Vấn đề này đã được sửa.', more: 'Đội ngũ cần thêm chút thông tin.' } },
+    cfg: { notify: 'instant', eta: { serious: 24, normal: 72, content: 168 } } }; })();
+const CONFIGS = [[1280, 'light', 'vi'], [1440, 'dark', 'vi'], [1736, 'dark', 'vi'], [1920, 'light', 'en'], [1024, 'light', 'en'], [820, 'dark', 'vi'], [768, 'light', 'vi'], [390, 'light', 'en'], [390, 'dark', 'vi', ['reports']], [360, 'dark', 'vi'], [360, 'light', 'en']]
   .filter(([w]) => !process.env.ADMIN_GUARD_W || process.env.ADMIN_GUARD_W.split(',').includes(String(w)));
+// Điện thoại (<640 px, owner 3/11 iPhone): vùng chạm ≥ 44 px, chữ không ngắt giữa từ, bảng không cuộn ngang (phải thành thẻ), thanh trên không tràn.
+const MOBILE = () => {
+  const vis = e => { const r = e.getBoundingClientRect(); if (r.width < 1 || r.height < 1) return null; const cs = getComputedStyle(e); if (cs.visibility === 'hidden' || +cs.opacity === 0) return null; if (e.closest('.tbl-cards:not(.u-tbl) thead, .u-tbl.tbl-cards thead th:not(.u-ckc), [hidden], .sr-only, .adm-skip, dialog:not([open]), .adm-side:not(.open), .fsheet:not(.open)')) return null; return r; };
+  const nm = e => e.tagName.toLowerCase() + (e.id ? '#' + e.id : '') + [...e.classList].slice(0, 2).map(c => '.' + c).join('') + ' "' + ((e.getAttribute('aria-label') || e.textContent || e.value || '').trim().slice(0, 18)) + '"';
+  const tap = [], seen = new Set(), sheet = document.querySelector('.fsheet.open'), menu = document.querySelector('#meMenu.open');
+  const scope = sheet || menu ? [sheet, menu, ...(sheet ? [] : [document.querySelector('.adm-top')])].filter(Boolean) : [document.querySelector('.adm-top'), document.querySelector('.adm-content'), document.querySelector('#uBulk')].filter(Boolean);
+  for (const root of scope) for (const e of root.querySelectorAll('a[href], button, input:not([type=hidden]), select, textarea, summary, [role=button], [role=tab]')) {
+    if (e.closest('[data-tap-ok]')) continue; const r = vis(e); if (!r) continue;
+    if (e.tagName === 'A' && getComputedStyle(e).display === 'inline' && /\S/.test((e.parentElement.textContent || '').replace(e.textContent, ''))) continue; // liên kết trong câu chữ (ngoại lệ WCAG 2.5.8)
+    const l = e.closest('label'), lr = l ? l.getBoundingClientRect() : r, w = Math.max(r.width, lr.width), h = Math.max(r.height, lr.height);
+    if (Math.min(w, h) < 43.5) { const k = nm(e).replace(/ ".*/, ''); if (!seen.has(k)) { seen.add(k); tap.push(`${nm(e)} ${Math.round(w)}×${Math.round(h)}`); } }
+  }
+  const brk = [], tw = document.createTreeWalker(document.querySelector('.adm-content') || document.body, NodeFilter.SHOW_TEXT), RX = /[\p{L}\p{N}\p{M}@._']{4,32}/gu; let n = 0;
+  for (let t; (t = tw.nextNode()) && n < 6000;) {
+    const pe = t.parentElement; if (!pe || pe.closest('svg, code, pre, [data-break-ok], script, style, .sr-only, [hidden]') || !vis(pe)) continue;
+    for (const m of t.textContent.matchAll(RX)) { n++; const rg = document.createRange(); rg.setStart(t, m.index); rg.setEnd(t, m.index + m[0].length); const tops = new Set([...rg.getClientRects()].filter(x => x.width > 0.5).map(x => Math.round(x.top / 4))); if (tops.size > 1 && brk.length < 8) brk.push(`"${m[0]}" trong ${nm(pe).replace(/ ".*/, '')}`); }
+  }
+  const tbl = [];
+  for (const t of document.querySelectorAll('.adm-content table:not([data-keep-table])')) { const b = t.closest('.tbl-x, .tbl-wrap, .g-wrap, .drv-tw, .ds-tw, [data-sx]'); if (b && vis(b) && b.scrollWidth > b.clientWidth + 1) tbl.push(`bảng ${nm(t).replace(/ ".*/, '')} cuộn ngang ${b.scrollWidth}/${b.clientWidth} px`); }
+  const top = document.querySelector('.adm-top'), tops = []; if (top) for (const e of top.querySelectorAll('*')) { const r = vis(e); if (r && (r.right > innerWidth + 1 || r.left < -1) && !e.closest('#meMenu')) { tops.push(nm(e) + ' ra ngoài màn hình'); break; } }
+  if (tap.length) { const b = document.querySelector('#navBtn'), cs = b && getComputedStyle(b), sh = [...document.styleSheets].map(x => { let n = -1, m = 0; try { n = x.cssRules.length; for (const r of x.cssRules) if (r.media && /640/.test(r.media.mediaText)) m += r.cssRules.length; } catch (e) { /* bỏ qua */ } return (x.href || 'inline').replace(/^.*\//, '') + ':' + n + '/' + m; }); tap.unshift(`[chẩn đoán] innerWidth=${innerWidth} burger ${cs && cs.width}×${cs && cs.height} bodyClass=${document.body.className} sheets=${sh.join(',')}`); }
+  return { 'vùng chạm < 44 px': tap.slice(0, 12), 'chữ ngắt giữa từ': brk, 'bảng cuộn ngang trên điện thoại': tbl, 'thanh trên tràn': tops };
+};
 const FB = `window.firebase = { initializeApp() {}, auth: Object.assign(() => window.__AUTH, { GoogleAuthProvider: function () { this.setCustomParameters = () => {}; } }) };
   const U = { uid: 'guard', email: 'admin@example.com', displayName: 'Guard', photoURL: '', getIdToken: async () => 'x' };
   window.__AUTH = { currentUser: U, onAuthStateChanged: cb => setTimeout(() => cb(U), 0), signOut: async () => {}, signInWithPopup: async () => {} };`;
@@ -60,6 +89,7 @@ const api = (pathn, b) => {
   if (pathn === '/api/admin-prefs') return b.op === 'get' ? { ok: true, pref: { tab: 'overview', lang: 'vi', theme: 'auto', autoLogoutMin: 0, alertTypes: ['js_error'], jsErrorThreshold: 10, quotaThresholdPct: 70 } } : { ok: true, rows: [] };
   if (pathn === '/api/admin') return { users: USERS, live: LIVE }[b.op] || FX[b.op] || (b.op === 'adsStats' ? ADS : /^(growth|ext)/i.test(b.op) ? GROW : { ok: true, rows: [] });
   if (pathn === '/api/backlinks') return BFX[b.op] || { ok: true };
+  if (pathn === '/api/report') return REP[b.op] || { ok: true, rows: [] };
   if (pathn === '/api/drive') return { alerts: [] };
   if (pathn === '/api/quota') return b.op === 'state' ? QUOTA : { day: QUOTA.day, jobs: [], runs: [], leases: [], budget: {} };
   return { ok: true, rows: [] };
@@ -79,7 +109,7 @@ const mapCheck = async (page, full) => {
   return o;
 };
 const found = {}, errs = [], add = (k, v) => { (found[k] ||= []).push(v); };
-for (const [width, scheme, lang] of CONFIGS) {
+for (const [width, scheme, lang, only] of CONFIGS) {
   const vp = width < 768 ? { viewport: { width, height: 844 }, deviceScaleFactor: 1, isMobile: true, hasTouch: true } : { viewport: { width, height: 900 } };
   const ctx = await browser.newContext({ ...vp, colorScheme: scheme, serviceWorkers: 'block' });
   await ctx.addInitScript(([l, th]) => { try { localStorage.setItem('lk.admLang', l); localStorage.setItem('lk.admTheme', th); } catch (e) { /* bỏ qua */ } }, [lang, scheme]);
@@ -96,7 +126,7 @@ for (const [width, scheme, lang] of CONFIGS) {
   await page.goto('https://lk.test/admin.html#overview', { waitUntil: 'load' });
   await page.waitForSelector('body.adm-in #tabs a[data-tab]', { state: 'attached', timeout: 15000 }); await page.waitForTimeout(800);
   const tabs = await page.$$eval('#tabs a[data-tab]', a => a.map(x => x.dataset.tab));
-  const routes = [...tabs, ...['overview', 'review', 'library', 'qc', 'scripts', 'channels', 'archive'].map(s => 'video/' + s)];
+  const routes = only || [...tabs, ...['overview', 'review', 'library', 'qc', 'scripts', 'channels', 'archive'].map(s => 'video/' + s)];
   for (const r of routes) {
     cur = r;
     await page.evaluate(h => { location.hash = h; }, r); await page.waitForTimeout(r.startsWith('video/') ? 900 : 700);
@@ -117,6 +147,8 @@ for (const [width, scheme, lang] of CONFIGS) {
         const gw = g.clientWidth, min = Math.min(300, gw) - 2;
         for (const c of g.children) { const w = c.getBoundingClientRect().width; if (w > 0 && w < min && !c.matches('[data-narrow-ok]')) { o.push(`thẻ ${c.className} "${(c.textContent || '').trim().slice(0, 20)}" bị ép còn ${Math.round(w)} px trong lưới ${gw} px`); break; } }
       }
+      // 3/11 gốc lỗi iPhone: .u-tbl td:first-child { min-width: 15rem } trúng cột ô chọn → cột Người dùng bị ép. Ô chọn phải gọn ở mọi bề rộng.
+      for (const c of document.querySelectorAll('.u-tbl:not(.tbl-cards) td.u-ckc')) { const w = c.getBoundingClientRect().width; if (w > 72) { o.push(`cột ô chọn rộng ${Math.round(w)} px (cột Người dùng bị ép)`); break; } }
       const side = document.querySelector('#side'), main = document.querySelector('#main'), cont = document.querySelector('.adm-content');
       if (innerWidth > 900 && side && !side.hidden) {
         const sr = side.getBoundingClientRect(), mr = main.getBoundingClientRect(), cr = cont.getBoundingClientRect(), pad = parseFloat(getComputedStyle(cont).paddingLeft) + parseFloat(getComputedStyle(cont).paddingRight);
@@ -125,8 +157,24 @@ for (const [width, scheme, lang] of CONFIGS) {
       }
       return o;
     });
+    if (width < 640) Object.assign(res, await page.evaluate(MOBILE));
     let bad = false; for (const [k, v] of Object.entries(res)) if (v.length) { bad = true; add(k, `${tag} #${r}: ${v.join(' | ')}`); }
     const sh = SHOTS.find(([sr, w, th]) => sr === r && w === width && th === scheme);
+    if (width < 640 && r === 'users') { // trạng thái điện thoại: sheet Lọc, thanh chọn hàng loạt dính đáy, menu ⋯ – cũng phải qua gác
+      for (const [st, open, close] of [['sheet', '.fs-btn', '.fsheet.open .fs-done'], ['bulk', '#uTable tbody .u-ckh', '[data-bulk=clear]'], ['menu', '#meMore', '#meMore']]) {
+        const el = await page.$$(open); if (!el.length) { add('trạng thái', `${tag} #users~${st}: thiếu ${open}`); continue; }
+        const ck = async e => { try { await e.click({ timeout: 4000 }); return ''; } catch (x) { return (x.message.match(/<[^>]+>[^\n]*intercepts pointer events/) || [x.message.split('\n')[0]])[0]; } };
+        let er = await ck(el[0]); if (!er && st === 'bulk' && el[1]) er = await ck(el[1]); if (er) add('trạng thái', `${tag} #users~${st}: bấm ${open} lỗi – ${er}`); await page.waitForTimeout(350);
+        const m = await page.evaluate(MOBILE); m.shell = await page.evaluate(() => { const o = [], over = document.scrollingElement.scrollWidth - innerWidth; if (over > 1) o.push(`trang tràn ngang ${over} px`); return o; });
+        if (st === 'sheet' && !(await page.$('.fsheet.open'))) m.shell.push('sheet Lọc không mở');
+        if (st === 'bulk') { const b = await page.evaluate(() => { const e = document.querySelector('#uBulk'); if (!e || e.hidden) return 'thanh chọn hàng loạt không hiện'; const r = e.getBoundingClientRect(); return innerHeight - r.bottom > 2 ? `thanh chọn hàng loạt không dính đáy (cách ${Math.round(innerHeight - r.bottom)} px)` : ''; }); if (b) m.shell.push(b); }
+        if (st === 'menu' && !(await page.$('#meMenu.open'))) m.shell.push('menu ⋯ không mở');
+        for (const [k, v] of Object.entries(m)) if (v.length) add(k, `${tag} #users~${st}: ${v.join(' | ')}`);
+        if (SHOTS.find(([sr, w, th]) => sr === 'users~' + st && w === width && th === scheme)) await page.screenshot({ path: path.join(OUT, `${TAG}-users~${st}-${width}-${scheme}.jpg`), type: 'jpeg', quality: 70 });
+        const c = await page.$(close); let ce = c && await c.isVisible() ? await ck(c) : 'x'; if (ce && ce !== 'x') add('trạng thái', `${tag} #users~${st}: bấm ${close} lỗi – ${ce}`); if (ce) await page.keyboard.press('Escape'); await page.waitForTimeout(200);
+      }
+    }
+    if (width < 640) await page.screenshot({ path: path.join(OUT, `m-${TAG}-${r.replace(/\//g, '_')}-${width}-${scheme}.jpg`), type: 'jpeg', quality: 50, fullPage: true }); // owner 3/11: chụp MỌI trang ở 360/390 sáng/tối
     if (sh) await page.screenshot({ path: path.join(OUT, `${TAG}-${r.replace(/\//g, '_')}-${width}-${scheme}.jpg`), type: 'jpeg', quality: 70, fullPage: true });
     else if (bad && TAG !== 'before') await page.screenshot({ path: path.join(OUT, `fail-${tag}-${r.replace(/\//g, '_')}.jpg`), type: 'jpeg', quality: 55, fullPage: true });
   }

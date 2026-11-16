@@ -166,6 +166,8 @@ Para seguir leyendo: [cómo aprender vocabulario en inglés](/es/blog/como-apren
 
 {{youtube: | Cómo funciona la repetición espaciada y el algoritmo FSRS para aprender inglés}}
 
+La repetición espaciada decide cuándo repasas; el [recuerdo activo para vocabulario](/es/blog/recuerdo-activo-vocabulario-ingles/) decide cómo.
+
 ## Preguntas frecuentes
 
 ### ¿Cuántas palabras nuevas debo añadir al día?

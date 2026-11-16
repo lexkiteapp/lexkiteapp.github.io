@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_congrats_on",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "With or on?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Congratulations with your birthday!",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Congratulations on your birthday!",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Congratulations goes with on.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "On! Congratulations on your new job!",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Congratulations with your birthday!",
+  "right": "Congratulations on your birthday!",
+  "strike": "with",
+  "why": "Congratulations goes with on.",
+  "memory": "Congratulations on.",
+  "quiz": {
+   "stem": "Congratulations ___ your new job!",
+   "options": [
+    "on",
+    "with"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "«Поздравляю с» — “with” или “on”?",
+   "tip": "После congratulations ставь “on”: “Congratulations on your birthday!”",
+   "caption": "Ты тоже пишешь “Congratulations with your birthday!” 😅 Русское «поздравляю с…» тянет за собой “with”, а нужно “on.” Правильно: “Congratulations on your birthday!” Послушай Аму и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “on.” После congratulations — on. Скажи вслух: “Congratulations on your birthday!” Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английский",
+    "#грамматика",
+    "#английскийонлайн",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "With or on?",
+   "tip": "After congratulations, use “on”: “Congratulations on your birthday!”",
+   "caption": "Do you also write “Congratulations with your birthday!” 😅 Russian “congratulate with” pulls you toward “with”, but English needs “on.” Correct: “Congratulations on your birthday!” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "«Поздравляю с» — “with” или “on”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 41,
+  "seconds": 25.6,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "«Поздравляю с» — “with” или “on”?",
+  "keyword": "Congratulations on your birthday!",
+  "value": "После congratulations ставь “on”: “Congratulations on your birthday!”",
+  "hashtags": [
+   "#английский",
+   "#грамматика",
+   "#английскийонлайн",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "«Поздравляю с» — “with” или “on”?",
+    "description": "После congratulations ставь “on”: “Congratulations on your birthday!”\n\nТы тоже пишешь “Congratulations with your birthday!” 😅 Русское «поздравляю с…» тянет за собой “with”, а нужно “on.” Правильно: “Congratulations on your birthday!” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английский #грамматика #английскийонлайн #lexkite",
+    "tags": [
+     "Congratulations on your birthday!",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже пишешь “Congratulations with your birthday!” 😅 Русское «поздравляю с…» тянет за собой “with”, а нужно “on.” Правильно: “Congratulations on your birthday!” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "«Поздравляю с» — “with” или “on”?\n\nПосле congratulations ставь “on”: “Congratulations on your birthday!”\n\nlexkite.com",
+    "hashtags": [
+     "#английский",
+     "#грамматика",
+     "#английскийонлайн",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "«Поздравляю с» — “with” или “on”? После congratulations ставь “on”: “Congratulations on your birthday!” #английский #грамматика #английскийонлайн"
+   }
+  },
+  "first_comment": "Ответ: “on.” После congratulations — on. Скажи вслух: “Congratulations on your birthday!” Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

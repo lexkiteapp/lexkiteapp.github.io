@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_older_years",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Put two years first!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: He is older than me two years.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: He is two years older than me.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say how many years before older.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Three years older! She is three years older than me.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "He is older than me two years.",
+  "right": "He is two years older than me.",
+  "strike": "two years",
+  "why": "Say how many years before older.",
+  "memory": "Two years older.",
+  "quiz": {
+   "stem": "She is ___ than me.",
+   "options": [
+    "older three years",
+    "three years older"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "กี่ปี ต้องวางไว้หน้า older!",
+   "tip": "ภาษาไทยพูด “แก่กว่าสองปี” โดยวางจำนวนปีไว้ท้าย แต่ภาษาอังกฤษต้องวางไว้หน้า older: “He is two years older than me.”",
+   "caption": "คุณเคยพูดว่า “He is older than me two years.” ไหม? 😅 ภาษาไทยพูด “แก่กว่าสองปี” โดยวางจำนวนปีไว้ท้าย แต่ภาษาอังกฤษต้องวางไว้หน้า older: “He is two years older than me.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “three years older” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยคด้วยคำนี้ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Put the years before “older”!",
+   "tip": "Thai puts the number of years at the end, but English puts it before older.",
+   "caption": "Do you say “He is older than me two years.” 😅 Thai puts the number of years at the end, but English puts it before older. Say “He is two years older than me.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "กี่ปี ต้องวางไว้หน้า older!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 54,
+  "seconds": 32.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "กี่ปี ต้องวางไว้หน้า older!",
+  "keyword": "He is two years older than me.",
+  "value": "ภาษาไทยพูด “แก่กว่าสองปี” โดยวางจำนวนปีไว้ท้าย แต่ภาษาอังกฤษต้องวางไว้หน้า older: “He is two years older than me.”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 48,
+  "platforms": {
+   "youtube": {
+    "title": "กี่ปี ต้องวางไว้หน้า older!",
+    "description": "ภาษาไทยพูด “แก่กว่าสองปี” โดยวางจำนวนปีไว้ท้าย แต่ภาษาอังกฤษต้องวางไว้หน้า older: “He is two years older than me.”\n\nคุณเคยพูดว่า “He is older than me two years.” ไหม? 😅 ภาษาไทยพูด “แก่กว่าสองปี” โดยวางจำนวนปีไว้ท้าย แต่ภาษาอังกฤษต้องวางไว้หน้า older: “He is two years older than me.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "He is two years older than me.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “He is older than me two years.” ไหม? 😅 ภาษาไทยพูด “แก่กว่าสองปี” โดยวางจำนวนปีไว้ท้าย แต่ภาษาอังกฤษต้องวางไว้หน้า older: “He is two years older than me.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "กี่ปี ต้องวางไว้หน้า older!\n\nภาษาไทยพูด “แก่กว่าสองปี” โดยวางจำนวนปีไว้ท้าย แต่ภาษาอังกฤษต้องวางไว้หน้า older: “He is two years older than me.”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "กี่ปี ต้องวางไว้หน้า older! ภาษาไทยพูด “แก่กว่าสองปี” โดยวางจำนวนปีไว้ท้าย แต่ภาษาอังกฤษต้องวางไว้หน้า older:… #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “three years older” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยคด้วยคำนี้ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

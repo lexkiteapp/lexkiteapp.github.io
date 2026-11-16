@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_nearfrom",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Near here, not near from!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: My house is near from here.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My house is near here.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "No from after near.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Near here! The bank is near here.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "My house is near from here.",
+  "right": "My house is near here.",
+  "strike": "from",
+  "why": "No from after near.",
+  "memory": "Near here.",
+  "quiz": {
+   "stem": "The bank is near ___.",
+   "options": [
+    "from here",
+    "here"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Dekat dari” jadi “near from”?",
+   "tip": "Kita bilang “dekat dari sini”, tapi bahasa Inggris tidak pakai from: near here.",
+   "caption": "Pernah bilang begini? “My house is near from here.” 😅 Setelah near, jangan tambah from: “My house is near here.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “here”. Ucapkan dengan lantang: “My house is near here.” Lalu ganti dengan tempat yang dekat dari rumahmu. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#katasehari",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Near from”? Drop “from”",
+   "tip": "We say “dekat dari sini”, but English does not use from: near here.",
+   "caption": "Ever say this? “My house is near from here.” 😅 After near, do not add from: “My house is near here.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Dekat dari” jadi “near from”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“Dekat dari” jadi “near from”?",
+  "keyword": "My house is near here.",
+  "value": "Kita bilang “dekat dari sini”, tapi bahasa Inggris tidak pakai from: near here.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#katasehari",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "“Dekat dari” jadi “near from”?",
+    "description": "Kita bilang “dekat dari sini”, tapi bahasa Inggris tidak pakai from: near here.\n\nPernah bilang begini? “My house is near from here.” 😅 Setelah near, jangan tambah from: “My house is near here.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #katasehari #bahasainggris #lexkite",
+    "tags": [
+     "My house is near here.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “My house is near from here.” 😅 Setelah near, jangan tambah from: “My house is near here.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Dekat dari” jadi “near from”?\n\nKita bilang “dekat dari sini”, tapi bahasa Inggris tidak pakai from: near here.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#katasehari",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Dekat dari” jadi “near from”? Kita bilang “dekat dari sini”, tapi bahasa Inggris tidak pakai from:… #belajarbahasainggris #katasehari #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “here”. Ucapkan dengan lantang: “My house is near here.” Lalu ganti dengan tempat yang dekat dari rumahmu. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

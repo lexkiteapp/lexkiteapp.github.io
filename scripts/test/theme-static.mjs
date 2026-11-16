@@ -187,5 +187,5 @@ for (const W of [375, 800, 1000, 1440]) { const ctx = await browser.newContext({
   if (!r) bad.push(`chân trang ${W}px: thiếu menu ngôn ngữ`); else { if (r.ov) bad.push(`chân trang ${W}px: ${r.ov} cặp tên ngôn ngữ đè nhau`); if (r.l < 0 || r.r > W) bad.push(`chân trang ${W}px: menu ngôn ngữ tràn màn (${Math.round(r.l)}–${Math.round(r.r)})`); if (W === 1440 && r.foot > 420) bad.push(`chân trang 1440px cao ${Math.round(r.foot)}px (> 420)`); }
   checks += 3; await ctx.close(); }
 await browser.close();
-if (bad.length) { console.log(`✗ theme-static: ${bad.length} lỗi (${PAGES.length} trang × ${MODES.length} chế độ)\n  - ` + bad.slice(0, 60).join('\n  - ')); process.exit(1); }
+if (bad.length) { for (const b of bad.slice(0, 10)) console.log(`::error title=theme-static::${b.replace(/[\r\n%]/g, ' ').slice(0, 300)}`); /* chú thích lỗi: đọc được qua API check-run annotations khi không có log */ console.log(`✗ theme-static: ${bad.length} lỗi (${PAGES.length} trang × ${MODES.length} chế độ)\n  - ` + bad.slice(0, 60).join('\n  - ')); process.exit(1); }
 console.log(`✓ theme-static: ${PAGES.length} trang × ${MODES.length} chế độ (${checks} lượt) – đúng data-theme, không nháy, tương phản AA 0 lỗi, nút vòng/lưu/44 px, không tràn @360${SHOTS ? ` · ảnh: ${SHOTS}/` : ''}`);

@@ -1,8 +1,7 @@
 /* Lexkite v2 – khung ứng dụng: router, trạng thái, trang chủ, thư viện, từ điển, sổ từ, tiến độ, cài đặt. */
 (function () {
   const { Store, SRS, Cards, Stats, Golden, DEFAULT_SETTINGS, todayKey, endOfToday, DAY } = Core;
-  // Chữ ligature phông icon không bao giờ lộ thành chữ thường (icon-flash, P1): phông Material Symbols khai báo trong CSS tải lười của từng màn → trên mạng chậm
-  // font-display:block hết 3 s rồi hiện chữ "dark_mode" tới khi phông về. Ẩn (trong suốt, rộng 1em) theo TỪNG họ phông cho tới khi FontFace của họ đó 'loaded'.
+  // Icon-flash (P1): phông Material Symbols khai báo trong CSS tải lười của từng màn; mạng chậm thì font-display:block hết 3 s rồi lộ chữ "dark_mode". Ẩn ligature theo TỪNG họ phông tới khi FontFace 'loaded'.
   (function iconGuard() {
     const F = document.fonts, h = document.documentElement; if (!F || !F.addEventListener) return;
     const fam = { o: 'Material Symbols Outlined', r: 'Material Symbols Rounded' }; h.classList.add('ic-wait-o', 'ic-wait-r');
@@ -279,7 +278,7 @@
     pron: ['js/i18n/en/pron.js', 'cpack/pron/sounds.js', 'cpack/pron/skills.js', 'js/pron/pairs.js', 'js/pron/sayit.js', 'js/pron/coach.js', 'js/pron/rhythm.js', 'js/st/v2/runtime.js', 'js/st/v2/pron-hub.js', 'js/pron.js'],
     shadow: ['js/speak/score.js', 'js/pron/shadow.js'], // Nói đuổi liên tục (nút trong pron/rhythm.js)
     words: ['js/lib/topics-more.js', 'js/lib/skills.js', 'js/lib/awl.js', 'js/lib/ngsl.js', 'js/lib/ngsl2.js', 'js/lib/office.js', 'js/distract.js'], // 4 kho từ (~145 KB nén) – không chặn trang đầu, tải khi cần/lúc rảnh
-    readings: ['js/reading.js', 'js/readings.js', 'cpack/readings/more.js', 'js/choice-kit.js', 'js/cbt.js', 'js/method.js'], // 30 bài đọc – chỉ tải khi cần (trang chủ tự điền mục "Bài đọc hôm nay")
+    readings: ['js/reading.js', 'js/readings.js', 'cpack/readings/more.js', 'js/choice-kit.js', 'js/exam-clock.js', 'js/cbt.js', 'js/method.js'], // 30 bài đọc – chỉ tải khi cần (trang chủ tự điền mục "Bài đọc hôm nay")
     l1: ['cpack/grammar-l1/ar.js', 'cpack/grammar-l1/de.js', 'cpack/grammar-l1/es.js', 'cpack/grammar-l1/fr.js', 'cpack/grammar-l1/hi.js', 'cpack/grammar-l1/id.js', 'cpack/grammar-l1/ja.js', 'cpack/grammar-l1/ko.js', 'cpack/grammar-l1/pt.js', 'cpack/grammar-l1/ru.js', 'cpack/grammar-l1/th.js', 'cpack/grammar-l1/tr.js', 'cpack/grammar-l1/vi.js', 'cpack/grammar-l1/zh.js'], // ghi chú "vì sao sai" theo tiếng mẹ đẻ – grammar.js nạp đúng 1 gói theo ngôn ngữ giao diện (L1_PACK), KHÔNG prefetch cả 14
     klocal: ['js/klocal.js'], // Kokoro trên máy cho chữ chưa có file dựng sẵn (docs/specs/kokoro-on-device.md) – tự quyết có nạp mô hình hay không
     voice: ['js/listen/kvoice.js', 'js/listen/audio-index.js'], // danh mục giọng Kokoro: mọi lần phát âm từ/câu dùng giọng chất lượng cao nếu có
@@ -289,13 +288,13 @@
     handoff: ['js/lib/qr.js', 'js/handoff.js'], // 📲 chuyển dữ liệu bằng mã QR, không cần đăng nhập (mã hóa trên máy)
     roleplay: ['js/i18n/en/rpbasic.js', 'js/roleplay/data-everyday.js', 'js/roleplay/data-a.js', 'js/roleplay/data-b.js', 'cpack/roleplay/data-lot1.js', 'cpack/roleplay/data-lot2.js', 'js/roleplay.js'], // Roleplay: 6 tình huống hằng ngày A1–A2 + 10 kịch bản công sở
     say: ['js/i18n/en/v2.js', 'js/i18n/en/say.js', 'js/i18n/en/share.js', 'js/st/v2/runtime.js', 'js/st/v2/shell.js', 'js/st/v2/say-front.js', 'js/st/v2/say-back.js', 'js/say.js'], // 🗣️ Say it like a native: thẻ phản xạ 2 mặt, khung Stitch v2 say-front/back (docs/SAY-NATIVE.md)
-    call: ['js/i18n/en/v2.js', 'js/st/v2/runtime.js', 'js/st/v2/teacher-call.js', 'js/pron/pairs.js', 'js/listen/kvoice.js', 'js/lesson/engine.js', 'js/say-text.js', 'js/lesson/teacher.js', 'js/call/calls.js', 'js/call/calls-exam.js', 'js/call/calls-lot1.js', 'js/call/calls-lot2.js', 'js/call/engine.js', 'js/call.js'], // Call Ama/Carlos: cuộc gọi luyện nói rẽ nhánh, giáo viên khớp môi (docs/CALL.md); khung Stitch v2 teacher-call
+    call: ['js/i18n/en/v2.js', 'js/st/v2/runtime.js', 'js/st/v2/teacher-call.js', 'js/pron/pairs.js', 'js/listen/kvoice.js', 'js/lesson/engine.js', 'js/say-text.js', 'js/lesson/teacher.js', 'js/call/calls.js', 'js/call/calls-exam.js', 'js/call/calls-lot1.js', 'js/call/calls-lot2.js', 'cpack/call/calls-lot3.js', 'cpack/call/calls-lot4.js', 'js/call/engine.js', 'js/call/endpoint.js', 'js/call/fillers.js', 'js/call/rt.js', 'js/call.js'], // Call Ama/Carlos: cuộc gọi luyện nói rẽ nhánh, giáo viên khớp môi (docs/CALL.md); khung Stitch v2 teacher-call
     struct: ['js/structures.js'], // VBStruct cho popup dịch (phrases.js) – thiếu khóa này App.need('struct') ném TypeError
     // Mục tiêu & kế hoạch: tải lười (khung app chạm trần 380 KB)
     courses: ['js/courses.js'],
     goal: ['js/i18n/en/goal.js', 'js/st/common.js', 'js/st/goal.js', 'js/goal.js'],
     paraphrase: ['js/lib/paraphrase-data.js', 'js/paraphrase.js'],
-    listening: ['js/choice-kit.js', 'js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js', ...[1, 2, 3, 4, 5, 6, 7, 8].map(n => `js/listen/test${n}.js`), 'cpack/listen/test9.js', 'cpack/listen/test10.js', 'js/listen/kvoice.js', 'js/listen/audio-index.js', 'js/listening.js'],
+    listening: ['js/choice-kit.js', 'js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js', ...[1, 2, 3, 4, 5, 6, 7, 8].map(n => `js/listen/test${n}.js`), 'cpack/listen/test9.js', 'cpack/listen/test10.js', 'js/listen/kvoice.js', 'js/listen/audio-index.js', 'js/exam-clock.js', 'js/listening.js'],
     writing: ['js/i18n/en/ideast.js', 'cpack/write/task2-more.js', 'cpack/write/task1-more.js', 'js/write/task1-more2.js', 'cpack/write/ideas.js', 'js/write.js', 'js/task1.js', 'cpack/write/models.js', 'cpack/write/models2.js', 'cpack/write/models3.js', 'cpack/write/models4.js', 'cpack/write/models5.js', 'js/write/gt-letters.js', 'js/letters.js', 'js/ideas.js', 'js/phrases-model.js'], // phrases-model.js: #/model #/models #/phrases (tách khỏi phrases.js 01/11)
     mock: ['js/choice-kit.js', 'js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js', 'js/readtest/_i.js', 'js/readtest/test1.js', 'js/readtest/test2.js', 'js/readtest/test3.js', 'js/readtest/test4.js', 'js/readtest/test5.js', 'js/readtest/test6.js', 'js/readtest/test7.js', 'js/readtest/test8.js', 'js/readtest/test9.js', 'js/readtest/test10.js', 'js/readtest/explain-a.js', 'js/readtest/explain-b.js', 'js/readtest/explain-c.js', 'js/readtest/explain-d.js', 'js/readtest/explain-e.js', 'js/readtest/explain-f.js', 'js/readtest/explain-g.js', 'js/readtest/gt1.js', 'js/readtest/gt2.js', 'js/readtest/explain-gt.js', 'cpack/readtest/gt3.js', 'js/mock.js', 'js/rtype.js', 'js/speech-session.js'],
     dist: ['js/distract.js'],
@@ -306,8 +305,8 @@
     mediate: ['js/i18n/en/mediate.js', 'js/characters.js', 'js/listen/kvoice.js', 'js/listen/audio-index.js', 'js/mediate-core.js', 'cpack/mediation/index.js', 'js/mediate.js'], // 🤝 Trung gian (docs/specs/mediation.md §2): bài mở thêm cpack/mediation/<id>.js lúc vào
     retcards: ['cpack/ret-app/cards.js'], // thẻ quay lại + tuần qua của trang chủ (retention.js Ret.home)
     cambridge: ['js/i18n/en/cambridge.js', 'js/choice-kit.js', 'js/qengine.js', 'cpack/cambridge/rubric.js', 'cpack/cambridge/a2/t1.js', 'cpack/cambridge/a2/t2.js', 'cpack/cambridge/a2/t3.js', 'cpack/cambridge/b1/t1.js', 'cpack/cambridge/b1/t2.js', 'cpack/cambridge/b1/t3.js', 'cpack/cambridge/b2/t1.js', 'cpack/cambridge/b2/t2.js', 'cpack/cambridge/b2/t3.js', 'cpack/cambridge/c1/t1.js', 'cpack/cambridge/c2/t1.js', 'js/cambridge.js'], // Cambridge A2–C2 (docs/specs/cambridge.md): thêm đề mới = thêm 1 đường dẫn ở đây
-    toefl: ['js/i18n/en/arrange.js', 'js/word-arrange.js', 'js/choice-kit.js', 'js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js', 'cpack/toefl/data1.js', 'cpack/toefl/data2.js', 'cpack/toefl/data3.js', 'cpack/toefl/data4.js', 'cpack/toefl/data5.js', 'cpack/toefl/data6.js', 'cpack/toefl/data7.js', 'js/toefl.js'],
-    toeic: ['js/choice-kit.js', 'js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js', 'js/toeic/reading1.js', 'js/toeic/reading2.js', 'js/toeic/listening1.js', 'js/toeic/listening2.js', 'js/toeic/reading3.js', 'js/toeic/listening3.js', 'js/toeic/reading4.js', 'js/toeic/listening4.js', 'js/toeic/reading5.js', 'js/toeic/listening5.js', 'js/toeic/reading6.js', 'js/toeic/listening6.js', 'js/toeic/reading7.js', 'js/toeic/listening7.js', 'js/toeic/sw1.js', 'cpack/toeic/sw2.js', 'js/toeic.js'],
+    toefl: ['js/i18n/en/arrange.js', 'js/word-arrange.js', 'js/choice-kit.js', 'js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js', 'cpack/toefl/data1.js', 'cpack/toefl/data2.js', 'cpack/toefl/data3.js', 'cpack/toefl/data4.js', 'cpack/toefl/data5.js', 'cpack/toefl/data6.js', 'cpack/toefl/data7.js', 'cpack/toefl/data8.js', 'cpack/toefl/data9.js', 'cpack/toefl/data10.js', 'cpack/toefl/data11.js', 'js/toefl.js'],
+    toeic: ['js/choice-kit.js', 'js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js', 'js/toeic/reading1.js', 'js/toeic/reading2.js', 'js/toeic/listening1.js', 'js/toeic/listening2.js', 'js/toeic/reading3.js', 'js/toeic/listening3.js', 'js/toeic/reading4.js', 'js/toeic/listening4.js', 'js/toeic/reading5.js', 'js/toeic/listening5.js', 'js/toeic/reading6.js', 'js/toeic/listening6.js', 'js/toeic/reading7.js', 'js/toeic/listening7.js', 'cpack/toeic/reading8.js', 'cpack/toeic/listening8.js', 'cpack/toeic/reading9.js', 'cpack/toeic/listening9.js', 'cpack/toeic/reading10.js', 'cpack/toeic/listening10.js', 'js/toeic/sw1.js', 'cpack/toeic/sw2.js', 'js/toeic.js'],
     // 🏫 Lớp học (giáo viên/học sinh)
     nxs: ['js/i18n/en/nextstep.js', 'js/next-step.js'],
     league: ['js/league.js'],
@@ -331,11 +330,13 @@
     streak: ['js/streak-ui.js'],
     ret: ['js/i18n/en/ret.js', 'js/retention.js'],
     // 📖 trang Từ điển #/dict (tách khỏi app.js 01/11)
-    dictp: ['js/dict-page.js'],
+    dictp: ['js/i18n/en/v2.js', 'js/st/v2/runtime.js', 'js/st/v2/dict.js', 'js/dict-page.js'],
     statsp: ['js/stats-page.js'],
     // 🔤 Chia động từ · ✍️ Sửa ngữ pháp
     vcore: ['js/verbs-core.js'],
     verbs: ['js/verbs.js'],
+    irregular: ['js/i18n/en/v2.js', 'js/characters.js', 'js/st/v2/runtime.js', 'js/st/v2/shell.js', 'cpack/irregular/table.js'],
+    irvdrill: ['cpack/irregular/drill.js'],
     fixer: ['js/writecheck-rules.js', 'js/fixer.js'],
     // 📘 Cách dùng từ (dữ liệu theo nhóm, usage.js tự gọi App.need)
     uidx: ['js/usage-index.js'],
@@ -410,6 +411,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     handsfree: ['words', 'tsl', 'voice', 'handsfree'],
     home: ['words', 'streak'],
     ideas: 'writing',
+    irregular: ['vcore', 'irregular'],
     league: 'league',
     lesson: 'lesson',
     letters: 'writing',
@@ -493,9 +495,12 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     call: ['css/st-v2-teacher-call.css'],
     cambridge: 'css/exam.css',
     dayv2: 'css/st-v2-day.css',
+    dictp: 'css/st-v2-dict.css',
     espr: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-question.css', 'css/st-v2-feedback-correct.css', 'css/st-v2-feedback-wrong.css', 'css/st-v2-lesson-complete.css'],
     ghub: 'css/st-v2-grammar.css',
     goal: ['css/tactile-x.css', 'css/st-goal.css'],
+    irregular: 'css/st-v2-irregular.css',
+    irvdrill: 'css/st-v2-irregular-drill.css',
     league: 'css/league.css',
     lesson: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-question.css', 'css/st-v2-feedback-correct.css', 'css/st-v2-feedback-wrong.css', 'css/st-v2-lesson-complete.css', 'css/st-v2-story-duo.css'],
     listening: 'css/exam.css',
@@ -761,7 +766,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
   const notesFile = w => { const c = /^[a-z]/.test(w) ? w[0] : '_'; return notesCache[c] || (notesCache[c] = fetch(`js/notes/${c}.json`).then(r => r.ok ? r.json() : {}).catch(() => { delete notesCache[c]; return {}; })); };
   // 🧩 Bài học trộn (cờ lesson_mix: config công khai true/false; thử: localStorage lk.lesson=1; demo #/lesson?demo=1 luôn mở – docs/LESSON-ENGINE.md)
   // 🧭 UX1 "Một app duy nhất" (cờ ux1, mặc định TẮT – docs/LEARNING-PATH.md): 5 tab, trang chủ = bản đồ, Luyện gom mọi tính năng. Thử: localStorage lk.ux1=1 · xem trước 1 phiên: #/home?ux1=1
-  // Bật dần (như ret, docs/LEARNING-PATH.md §Phát hành): config ux1 '0' tắt khẩn / '1' bật hết > ux1_pct: nhóm lk.ub (0–99 ngẫu nhiên, cố định theo máy, tách lk.rb của ret) < ux1_pct (trống/0 = tắt). Chốt 1 lần/lượt tải trang → không đổi giao diện giữa chừng
+  // Bật dần (như ret, docs/LEARNING-PATH.md §Phát hành): ux1 "0" tắt / "1" bật hết / nhóm lk.ub < ux1_pct; chốt 1 lần/lượt tải
   // Đo D1/D7: App.ux1Arm() 'on' | 'off' (đối chứng cùng cỡ: lk.ub ∈ [50, 50+pct)) | '' → ux1Track gửi 1 lần/máy seen, d1 (chuỗi ≥ 2), d7 (chuỗi ≥ 7) → ext_events 'ux1:ux1_<arm>_<ev>' (functions/api/hit.js UX1_EV)
   const ux1Cfg = () => { try { return JSON.parse(localStorage.getItem('lk.cfg') || '{}').v || {}; } catch (e) { return {}; } };
   const ux1B = () => { try { let b = localStorage.getItem('lk.ub'); if (b == null || isNaN(+b) || +b < 0 || +b > 99) { b = String(Math.floor(Math.random() * 100)); localStorage.setItem('lk.ub', b); } return +b; } catch (e) { return 99; } };
@@ -1217,7 +1222,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
       <p class="small muted" style="margin-top:1rem">${t('Hoặc email trực tiếp')}: <a href="mailto:support@lexkite.com">support@lexkite.com</a></p>`;
     // Cloudflare Turnstile: tải ngầm khi mở form liên hệ (bảo vệ chống bot)
     const siteKey = window.TURNSTILE_SITE_KEY || '0x4AAAAAAAMmZ7O1jJgQv8iY';
-    const noTs = !!(window.VBNative && VBNative.is); // app gốc (capacitor://localhost): Turnstile báo lỗi 400020 & hiện khung lỗi → bỏ; máy chủ chỉ xác minh khi có token, vẫn chặn spam bằng ô bẫy/thời gian/hạn mức
+    const noTs = !!(window.VBNative && VBNative.is); // app gốc (capacitor://localhost): Turnstile báo lỗi 400020 & hiện khung lỗi → bỏ widget; gửi bằng vé người thật (js/human.js)
     if (!noTs && !window.turnstile && !document.getElementById('cf-turnstile-script')) {
       const s = document.createElement('script'); s.id = 'cf-turnstile-script';
       s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
@@ -1247,7 +1252,9 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
       if (d.msg.trim().length < 10) { out.textContent = t('Nội dung quá ngắn (tối thiểu 10 ký tự).'); f.msg.focus(); return; }
       const btn = f.querySelector('button'); btn.disabled = true; out.textContent = t('Đang gửi…');
       try {
-        const r = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...d, token: turnstileToken, lang: I18N.lang(), ms: Date.now() - t0 }) });
+        const hd = { 'Content-Type': 'application/json', 'X-Lexkite-Device': UI.dev() };
+        if (!turnstileToken) { const H = await UI.human(); if (H) { await H.ticket(); H.headers(hd); } } // không widget/chưa giải → vé người thật
+        const r = await fetch(API, { method: 'POST', headers: hd, body: JSON.stringify({ ...d, token: turnstileToken, lang: I18N.lang(), ms: Date.now() - t0 }) });
         if (r.status === 429) throw new Error('rate');
         if (!r.ok) throw new Error('fail');
         f.innerHTML = `<div class="center" style="padding:1.5rem"><div style="font-size:2.5rem">✉️</div><h3>${t('Đã gửi!')}</h3><p class="muted">${t('Cảm ơn bạn. Chúng tôi sẽ trả lời qua email {email}.', { email: esc(d.email) })}</p></div>`;
@@ -1473,7 +1480,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     await saveSettings();
     if (!Store.sandbox) try { localStorage.setItem('lk.onb', '1'); } catch (e) { /* bỏ qua */ } // lk.onb = gợi ý về dữ liệu THẬT (khung chào, trang giới thiệu tự vào app) – phiên ?sandbox=1 không được ghi
     document.body.classList.remove('bare');
-    // Bỏ các mục lịch sử của từng bước (+ Welcome ngay trước đó): lùi tới mục đầu rồi THAY bằng trang đích, Back từ Hôm nay không đi qua thiết lập. welcomeGate thay; quá 500 ms mà không tới (đếm lệch, trình duyệt chặn) thì thay tại chỗ
+    // Bỏ mục lịch sử từng bước (+ Welcome): lùi tới mục đầu rồi THAY bằng trang đích; quá 500 ms không tới thì thay tại chỗ
     if (back) { setupTo = to; history.go(-back); setTimeout(() => { if (setupTo) { const x = setupTo; setupTo = ''; App.replaceHash(x); } }, 500); }
     else if (/^#\/welcome/.test(location.hash)) App.replaceHash(to); else location.hash = to;
     if (celebrate === true) { Sfx.win(); confetti(140); toast('🎉 ' + t('Bộ thẻ đã sẵn sàng – bắt đầu bài ôn đầu tiên nhé!'), 3500); }
@@ -1567,7 +1574,9 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     App.offerRescue = offerRescue; applyFreeze().then(() => setTimeout(() => offerRescue().catch(() => {}), 1500)).catch(() => {});
     App.painted.then(() => idle(() => App.need('install').catch(() => {}))); // 📲 mời cài app (chỉ sau khi đã học, js/install-sheet.js)
     App.painted.then(() => idle(() => App.need('remind').then(() => Remind.start()).catch(() => {}))); // ⏰ nhắc học (js/remind.js, docs/REMINDERS.md)
-    // Bàn phím ảo kiểu "resizes-visual" (iOS WKWebView, Chrome Android): viewport bố cục giữ nguyên, chỉ visualViewport thấp lại → trang không còn chỗ cuộn để đưa ô nhập lên trên bàn phím (mqa kbd-visual: practice/test ô #ans bị che). --kb = chiều cao bàn phím → html thêm đệm đáy đúng cỡ đó (style.css)
+    // Add-on: lấy sẵn vé người thật cho service worker (khách; docs/HUMAN.md)
+    if (Store.isExtension) setTimeout(() => idle(() => { if (!(window.Sync && Sync.user)) UI.human().then(H => H && H.ticket()).catch(() => {}); }), 8000);
+    // Bàn phím ảo "resizes-visual" (iOS WKWebView, Chrome Android): --kb = cao bàn phím → html thêm đệm đáy (style.css), ô #ans không bị che
     if (window.visualViewport) { const vv = window.visualViewport, root = document.documentElement, kb = () => { const h = Math.max(0, Math.round(innerHeight - vv.height - vv.offsetTop)); root.style.setProperty('--kb', (h > 80 ? h : 0) + 'px'); }; vv.addEventListener('resize', kb); vv.addEventListener('scroll', kb); }
     netState(); setTimeout(showInstallBtn, 1500);
     document.addEventListener('visibilitychange', async () => { if (!document.hidden) { state.cards = await Cards.mine(); state.stats = await Stats.get(); state.game = await Game.get(); updateChrome(); } });
@@ -1643,7 +1652,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
         if (!replayed) { replayed = true; for (const [k, v] of Object.entries(qGet())) if (k !== sid) sendS(v); }
       }).catch(() => park(d));
     };
-    // Nguồn thật: vào /app/ thường đi qua trang tĩnh nên document.referrer là chính mình → mất Google/blog. Ưu tiên: nguồn ngoài trực tiếp → nguồn ngoài trang tĩnh ghi lại ≤ 30 phút (lk.src, site-layout SRC_JS) → site:<đoạn đường dẫn> (máy chủ lọc, xem _cpm.js normRef)
+    // Nguồn thật (referrer của /app/ là chính mình): nguồn ngoài trực tiếp → lk.src ≤ 30 phút (site-layout SRC_JS) → site:<đường dẫn> (_cpm.js normRef)
     const ref = (() => { try { const r = document.referrer, u = r && new URL(r); if (u && u.hostname !== location.hostname) return r; const o = JSON.parse(localStorage.getItem('lk.src') || '0'); if (o && o.h && Date.now() - o.t < 18e5) return 'https://' + o.h; if (u) { const a = u.pathname.split('/').filter(Boolean); return 'site:' + ((/^[a-z]{2}$/.test(a[0]) ? a[1] : a[0]) || ''); } } catch (e) { /* bỏ qua */ } return ''; })();
     // Phễu kênh (docs/specs/funnel.md): utm_source/medium/campaign + c (mã kênh/bài) hợp lệ → nhớ trên máy; gửi 1 lần ở beacon đầu phiên (máy chủ ghi lượt đầu của máy mới); fl = đã học xong bài đầu
     let atSent = 0; const at = (() => { try { const q = new URLSearchParams(location.search), o = {}, g = (k, j) => { const v = q.get(k); if (/^[\w.~-]{1,40}$/.test(v || '')) o[j] = v; }; g('utm_source', 's'); g('utm_medium', 'm'); g('utm_campaign', 'c'); g('c', 'k'); if (o.s || o.k) localStorage.setItem('lk.at', JSON.stringify(o)); return JSON.parse(localStorage.getItem('lk.at') || 'null') || undefined; } catch (e) { /* bỏ qua */ } })();

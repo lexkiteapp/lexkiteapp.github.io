@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_graduated",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "No “is” before graduated!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She is graduated from college.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She graduated from college.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "We do not say is here. Say graduated.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second one! She graduated from college.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She is graduated from college.",
+  "right": "She graduated from college.",
+  "strike": "is graduated",
+  "why": "We do not say is here. Say graduated.",
+  "memory": "She graduated.",
+  "quiz": {
+   "stem": "Choose the right sentence.",
+   "options": [
+    "She is graduated from college.",
+    "She graduated from college."
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "« Elle est diplômée » : sans “is”",
+   "tip": "En français, on dit « elle est diplômée », avec « être ». En anglais, on dit “she graduated”, sans “is”.",
+   "caption": "Vous dites “She is graduated from college.” ? En français, on dit « elle est diplômée », avec « être ». En anglais, on dit “she graduated”, sans “is”. Dites plutôt “She graduated from college.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “She graduated from college.” — En français, on dit « elle est diplômée », avec « être ». En anglais, on dit “she graduated”, sans “is”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "No “is” before “graduated”!",
+   "tip": "French says « elle est diplômée », with « être ». English says “she graduated”, with no “is”.",
+   "caption": "Do you say this? “She is graduated from college.” French says « elle est diplômée », with « être ». English says “she graduated”, with no “is”. Say “She graduated from college.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "« Elle est diplômée » : sans “is”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "« Elle est diplômée » : sans “is”",
+  "keyword": "She graduated from college.",
+  "value": "En français, on dit « elle est diplômée », avec « être ». En anglais, on dit “she graduated”, sans “is”.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "« Elle est diplômée » : sans “is”",
+    "description": "En français, on dit « elle est diplômée », avec « être ». En anglais, on dit “she graduated”, sans “is”.\n\nVous dites “She is graduated from college.” ? En français, on dit « elle est diplômée », avec « être ». En anglais, on dit “she graduated”, sans “is”. Dites plutôt “She graduated from college.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "She graduated from college.",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Vous dites “She is graduated from college.” ? En français, on dit « elle est diplômée », avec « être ». En anglais, on dit “she graduated”, sans “is”. Dites plutôt “She graduated from college.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "« Elle est diplômée » : sans “is”\n\nEn français, on dit « elle est diplômée », avec « être ». En anglais, on dit “she graduated”, sans “is”.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "« Elle est diplômée » : sans “is” En français, on dit « elle est diplômée », avec « être ». En angla… #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “She graduated from college.” — En français, on dit « elle est diplômée », avec « être ». En anglais, on dit “she graduated”, sans “is”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}

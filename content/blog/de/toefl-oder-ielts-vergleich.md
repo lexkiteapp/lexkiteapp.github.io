@@ -19,6 +19,8 @@ Wer ein Auslandsstudium anstrebt, ein Visum für ein englischsprachiges Land bea
 
 Die Wahl des falschen Tests kann viel Geld kosten, unnötigen Stress verursachen und im schlimmsten Fall das angestrebte Sprachniveau verfehlen. Ein Prüfungskandidat, der beim Sprechen in ein Mikrofon vor einem Bildschirm nervös wird, blüht vielleicht im persönlichen Gespräch mit einem menschlichen Prüfer auf – und umgekehrt. In diesem umfassenden Vergleichsanalyse stellen wir den TOEFL iBT und das IELTS Academic direkt gegenüber, analysieren Vor- und Nachteile und geben Ihnen eine fundierte Entscheidungshilfe. Für Migrationsziele zeigt der Beitrag [IELTS für die Auswanderung nach Kanada, UK und Neuseeland](/de/blog/ielts-fuer-auswanderung-kanada-australien-uk/), welche Variante die Behörden nennen.
 
+
+Wer ein britisches Visum plant, sollte außerdem wissen, was [IELTS UKVI](/de/blog/ielts-ukvi-erklaert/) vom normalen IELTS unterscheidet.
 ## TOEFL oder IELTS im direkten tabellarischen Vergleich
 
 Bevor wir in die feinen Details der vier Einzeldisziplinen eintauchen, verschafft Ihnen diese Gegenüberstellung einen schnellen Überblick über die organisatorischen Rahmenbedingungen:

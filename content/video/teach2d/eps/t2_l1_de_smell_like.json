@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_smell_like",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Smell like, not smell after!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: It smells after coffee here.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: It smells like coffee here.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say smells like.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Like! It smells like coffee here.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "It smells after coffee here.",
+  "right": "It smells like coffee here.",
+  "strike": "after",
+  "why": "Say smells like.",
+  "memory": "Smells like.",
+  "quiz": {
+   "stem": "It smells ___ coffee here.",
+   "options": [
+    "like",
+    "after"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "„Riechen nach“ heißt „smell like“!",
+   "tip": "„Es riecht nach Kaffee“ heißt nicht „smells after“. Im Englischen sagen Sie „smells like“.",
+   "caption": "Sagen Sie „smells after“? ☕ Falsch: “It smells after coffee here.” Richtig: “It smells like coffee here.” „Riechen nach“ ist „smell like“. Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “like”. Richtig heißt es: “It smells like coffee here.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Riechen nach” is “smell like”!",
+   "tip": "“Es riecht nach Kaffee” is not “smells after.” In English you say “smells like.”",
+   "caption": "“Riechen nach” is “smell like”! Wrong: “It smells after coffee here.” Right: “It smells like coffee here.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "„Riechen nach“ heißt „smell like“!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "„Riechen nach“ heißt „smell like“!",
+  "keyword": "It smells like coffee here.",
+  "value": "„Es riecht nach Kaffee“ heißt nicht „smells after“. Im Englischen sagen Sie „smells like“.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "„Riechen nach“ heißt „smell like“!",
+    "description": "„Es riecht nach Kaffee“ heißt nicht „smells after“. Im Englischen sagen Sie „smells like“.\n\nSagen Sie „smells after“? ☕ Falsch: “It smells after coffee here.” Richtig: “It smells like coffee here.” „Riechen nach“ ist „smell like“. Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "It smells like coffee here.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Sagen Sie „smells after“? ☕ Falsch: “It smells after coffee here.” Richtig: “It smells like coffee here.” „Riechen nach“ ist „smell like“. Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "„Riechen nach“ heißt „smell like“!\n\n„Es riecht nach Kaffee“ heißt nicht „smells after“. Im Englischen sagen Sie „smells like“.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "„Riechen nach“ heißt „smell like“! „Es riecht nach Kaffee“ heißt nicht „smells after“. Im Englischen s… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “like”. Richtig heißt es: “It smells like coffee here.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

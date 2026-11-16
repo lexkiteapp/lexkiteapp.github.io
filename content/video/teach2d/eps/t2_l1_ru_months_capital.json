@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_months_capital",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Big letter or small?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: My birthday is in march.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My birthday is in March.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Months start with a big letter.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "March! My birthday is in March.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "My birthday is in march.",
+  "right": "My birthday is in March.",
+  "strike": "march",
+  "why": "Months start with a big letter.",
+  "memory": "March, May, June.",
+  "quiz": {
+   "stem": "My birthday is ___.",
+   "options": [
+    "in march",
+    "in March"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Месяц с большой буквы?",
+   "tip": "В английском месяцы пишут с большой буквы: “My birthday is in March.”",
+   "caption": "Ты тоже пишешь “My birthday is in march”? 😅 По-русски месяцы пишут с маленькой буквы («в марте»), и это переносится на английский. Нужно “March.” Правильно: “My birthday is in March.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “March.” Месяц — с большой буквы. Напиши своё предложение с месяцем. Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#учуанглийский",
+    "#английскийдляначинающих",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Big letter or small?",
+   "tip": "In English, months start with a big letter: “My birthday is in March.”",
+   "caption": "Do you also write “My birthday is in march”? 😅 In Russian months start with a small letter, and that slips into English. You need “March.” Correct: “My birthday is in March.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Месяц с большой буквы?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Месяц с большой буквы?",
+  "keyword": "My birthday is in March.",
+  "value": "В английском месяцы пишут с большой буквы: “My birthday is in March.”",
+  "hashtags": [
+   "#английскийязык",
+   "#учуанглийский",
+   "#английскийдляначинающих",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Месяц с большой буквы?",
+    "description": "В английском месяцы пишут с большой буквы: “My birthday is in March.”\n\nТы тоже пишешь “My birthday is in march”? 😅 По-русски месяцы пишут с маленькой буквы («в марте»), и это переносится на английский. Нужно “March.” Правильно: “My birthday is in March.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #учуанглийский #английскийдляначинающих #lexkite",
+    "tags": [
+     "My birthday is in March.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже пишешь “My birthday is in march”? 😅 По-русски месяцы пишут с маленькой буквы («в марте»), и это переносится на английский. Нужно “March.” Правильно: “My birthday is in March.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Месяц с большой буквы?\n\nВ английском месяцы пишут с большой буквы: “My birthday is in March.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#учуанглийский",
+     "#английскийдляначинающих",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Месяц с большой буквы? В английском месяцы пишут с большой буквы: “My birthday is in March.” #английскийязык #учуанглийский #английскийдляначинающих"
+   }
+  },
+  "first_comment": "Ответ: “March.” Месяц — с большой буквы. Напиши своё предложение с месяцем. Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

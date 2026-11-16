@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_would_like",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Want sounds strong. Say would like!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I want a coffee, please.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I would like a coffee, please.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "To order politely: would like.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "I would like! I would like a coffee, please.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I want a coffee, please.",
+  "right": "I would like a coffee, please.",
+  "strike": "want",
+  "why": "To order politely: would like.",
+  "memory": "Would like.",
+  "quiz": {
+   "stem": "___ a coffee, please.",
+   "options": [
+    "I want",
+    "I would like"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“I want” suena brusco",
+   "tip": "En español “quiero un café” es normal, pero en inglés “I want” suena brusco: mejor “I would like.”",
+   "caption": "🙈 Error común: “I want a coffee, please.” Para pedir con educación usa “I would like”: “I would like a coffee, please.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “I would like”. En un café o tienda, “I would like” suena amable; “I want” suena brusco. Escribe una frase tuya con “I would like” o dila en voz alta: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#cortesia",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“I want” sounds blunt",
+   "tip": "“Quiero un café” is normal for learners, but “I want” sounds blunt in English: use “I would like.”",
+   "caption": "Common mistake: “I want a coffee, please.” To ask politely use “I would like”: “I would like a coffee, please.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“I want” suena brusco"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 51,
+  "seconds": 30.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“I want” suena brusco",
+  "keyword": "I would like a coffee, please.",
+  "value": "En español “quiero un café” es normal, pero en inglés “I want” suena brusco: mejor “I would like.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#cortesia",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 45,
+  "platforms": {
+   "youtube": {
+    "title": "“I want” suena brusco",
+    "description": "En español “quiero un café” es normal, pero en inglés “I want” suena brusco: mejor “I would like.”\n\n🙈 Error común: “I want a coffee, please.” Para pedir con educación usa “I would like”: “I would like a coffee, please.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #cortesia #lexkite",
+    "tags": [
+     "I would like a coffee, please.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "🙈 Error común: “I want a coffee, please.” Para pedir con educación usa “I would like”: “I would like a coffee, please.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“I want” suena brusco\n\nEn español “quiero un café” es normal, pero en inglés “I want” suena brusco: mejor “I would like.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#cortesia",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“I want” suena brusco En español “quiero un café” es normal, pero en inglés “I want” suena brusco: mejor “I wo… #aprenderingles #inglesfacil #cortesia"
+   }
+  },
+  "first_comment": "Respuesta: “I would like”. En un café o tienda, “I would like” suena amable; “I want” suena brusco. Escribe una frase tuya con “I would like” o dila en voz alta: {link}",
+  "lang": "es"
+ }
+}

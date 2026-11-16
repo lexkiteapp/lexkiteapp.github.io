@@ -1,0 +1,227 @@
+{
+ "id": "mo_news_social_instead_c6ce7f",
+ "template": "mistake",
+ "title": "News Motion – A common mix-up with \"class\" (n): rank or level in society, ranked from high (rich professional people) to low (ordinary people) (news_social_instead_c6ce7f)",
+ "teacher": "ama",
+ "clips": [
+  "ga11_talk",
+  "ga11_explain",
+  "ga11_happy",
+  "ga11_thinking",
+  "ga11_surprise_3"
+ ],
+ "listen": [
+  "ga11_listen_2"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy2",
+ "active": "mint",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "grammar-check",
+  "link": "",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Grammar Fix",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say this instead"
+  },
+  {
+   "id": "b0",
+   "text": "Many learners say: Your phone is very class.",
+   "gap": 0.7
+  },
+  {
+   "id": "b1",
+   "text": "Pause and guess. What sounds right?",
+   "gap": 0.7
+  },
+  {
+   "id": "b2",
+   "text": "Say: Your phone is very classy.",
+   "gap": 0.7
+  },
+  {
+   "id": "b3",
+   "text": "Class is a noun. Classy means stylish.",
+   "gap": 0.7
+  },
+  {
+   "id": "b4",
+   "text": "Is 'Your phone is very class' correct? No.",
+   "gap": 0.7
+  },
+  {
+   "id": "b5",
+   "text": "Repeat after me: Your phone is very classy.",
+   "gap": 0.7
+  },
+  {
+   "id": "b6",
+   "text": "Now at normal speed: Your phone is very classy.",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "Your phone is very class.",
+      "white"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Common mistake",
+      "tone": "coral"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "Your phone is very "
+       ],
+       [
+        "class.",
+        "ink"
+       ]
+      ]
+     }
+    ],
+    "strike": [
+     {
+      "line": 0,
+      "run": 1,
+      "at": [
+       "b0",
+       7
+      ]
+     }
+    ]
+   },
+   {
+    "id": "no",
+    "at": [
+     "b5",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Also say",
+      "tone": "teal"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "Your phone is very classy.",
+        "teal"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "better",
+    "at": [
+     "b2",
+     0
+    ],
+    "tone": "green",
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Better",
+      "tone": "green"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "Your phone is very classy.",
+        "green"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "hook_text": "Your phone is very class.",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ }
+}

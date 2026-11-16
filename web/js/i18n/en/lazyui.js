@@ -390,6 +390,7 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
 'Thêm 30 từ cơ bản': 'Add 30 core words',
 'Đã thêm {n} từ tiếng Bồ Đào Nha vào Sổ từ': 'Added {n} Portuguese words to your word list',
 'Đã thêm {n} từ tiếng Tây Ban Nha vào Sổ từ': 'Added {n} Spanish words to your word list',
+'Đã thêm {n} từ tiếng Pháp vào Sổ từ': 'Added {n} French words to your word list',
 'Không tải được bộ từ, thử lại sau': 'Could not load the word set. Please try again later.',
 'Định nghĩa tiếng Anh': 'English definitions',
 'Giọng đọc tự nhiên cho bài nghe & giám khảo (tải âm thanh từ mạng)': 'Natural voices for listening & examiner (streams audio)',
@@ -910,4 +911,6 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
   'Tiếng TBN Mỹ Latinh · DELE/SIELE A1–C2': 'Latin American Spanish · DELE/SIELE A1–C2',
   'Chọn 1 ngôn ngữ – đổi được bất cứ lúc nào ở Cài đặt.': 'Pick one language – you can change it any time in Settings.',
   'Không lưu được – thử lại sau': 'Couldn’t save – please try again later',
+  // ← en/core.js
+  '{a}/{b} bài': '{a}/{b} lessons',
 }); })(typeof self !== 'undefined' ? self : this);

@@ -1,0 +1,129 @@
+{
+ "id": "t2a_mistake_47b3e9e9",
+ "template": "mistake",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Stop saying robbed my phone!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Someone robbed my phone.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Someone stole my phone.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "You steal things. You rob people or places.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Stole! Someone stole my wallet!",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Someone robbed my phone.",
+  "right": "Someone stole my phone.",
+  "strike": "robbed my phone",
+  "why": "You steal things. You rob people or places.",
+  "memory": "STEAL a thing, ROB a person/place",
+  "quiz": {
+   "stem": "Someone ___ my wallet!",
+   "options": [
+    "stole",
+    "robbed"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Stop saying “robbed my phone”"
+ },
+ "src": {
+  "gold": "sb_47b3e9e9",
+  "pid": "u:c:rob-steal"
+ },
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Say \"Someone stole my phone\", not \"Someone robbed my phone\"",
+  "keyword": "robbed my phone",
+  "value": "Say \"Someone stole my phone\", not \"Someone robbed my phone\". You steal things. You rob people or places.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#englishgrammar",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Say \"Someone stole my phone\", not \"Someone robbed my phone\"",
+    "description": "Say \"Someone stole my phone\", not \"Someone robbed my phone\". You steal things. You rob people or places.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix\n\nSeries: Stop Saying This · Teacher: Ama\n\n#learnenglish #englishtips #englishgrammar #englishteacher",
+    "tags": [
+     "robbed my phone",
+     "Stop Saying This",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Say \"Someone stole my phone\", not \"Someone robbed my phone\"\n\nSay \"Someone stole my phone\", not \"Someone robbed my phone\". You steal things. You rob people or places.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Say \"Someone stole my phone\", not \"Someone robbed my phone\"\n\nSay \"Someone stole my phone\", not \"Someone robbed my phone\". You steal things. You rob people or places.\n\nCheck your grammar: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#englishgrammar",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Say \"Someone stole my phone\", not \"Someone robbed my phone\" #learnenglish #englishtips #englishgrammar"
+   }
+  },
+  "first_comment": "Answer: Stole! Someone stole my wallet! Say \"Someone stole my phone\", not \"Someone robbed my phone\". You steal things. You rob people or places. Try the full lesson and quiz here: {link}"
+ }
+}

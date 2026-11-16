@@ -1,0 +1,844 @@
+{
+  "dependence": {
+    "ipaUS": "/dɪˈpendəns/",
+    "col": [
+      "dependence on",
+      "heavy dependence",
+      "reduce dependence",
+      "growing dependence",
+      "drug dependence",
+      "dependence on foreign oil"
+    ],
+    "syn": [
+      "reliance",
+      "need",
+      "dependency"
+    ]
+  },
+  "descriptive": {
+    "ipaUS": "/dɪˈskrɪptɪv/",
+    "col": [
+      "descriptive text",
+      "descriptive title",
+      "descriptive language",
+      "descriptive essay",
+      "descriptive statistics",
+      "highly descriptive"
+    ],
+    "syn": [
+      "explanatory",
+      "detailed",
+      "illustrative"
+    ]
+  },
+  "detach": {
+    "ipaUS": "/dɪˈtætʃ/",
+    "col": [
+      "detach from",
+      "detach the coupon",
+      "detach a part",
+      "detach along the dotted line",
+      "easily detached",
+      "detach the hose"
+    ],
+    "syn": [
+      "separate",
+      "remove",
+      "unfasten",
+      "disconnect"
+    ]
+  },
+  "devastate": {
+    "ipaUS": "/ˈdevəsteɪt/",
+    "col": [
+      "devastating effect",
+      "devastating loss",
+      "be devastated by",
+      "devastate a region",
+      "devastating blow",
+      "utterly devastated"
+    ],
+    "syn": [
+      "ruin",
+      "destroy",
+      "wreck",
+      "shatter"
+    ]
+  },
+  "dine": {
+    "ipaUS": "/daɪn/",
+    "col": [
+      "dine out",
+      "dine with",
+      "dine in",
+      "dine at a restaurant",
+      "dine alone",
+      "dine on seafood"
+    ],
+    "syn": [
+      "eat",
+      "have dinner",
+      "feast"
+    ]
+  },
+  "disagreement": {
+    "ipaUS": "/ˌdɪsəˈɡriːmənt/",
+    "col": [
+      "in disagreement",
+      "resolve a disagreement",
+      "a heated disagreement",
+      "disagreement over",
+      "disagreement between",
+      "a minor disagreement"
+    ],
+    "syn": [
+      "dispute",
+      "argument",
+      "conflict",
+      "difference of opinion"
+    ]
+  },
+  "disappointment": {
+    "ipaUS": "/ˌdɪsəˈpɔɪntmənt/",
+    "col": [
+      "great disappointment",
+      "express disappointment",
+      "disappointment at",
+      "bitter disappointment",
+      "to my disappointment",
+      "a major disappointment"
+    ],
+    "syn": [
+      "letdown",
+      "dismay",
+      "frustration",
+      "regret"
+    ]
+  },
+  "discrepancy": {
+    "ipaUS": "/dɪˈskrepənsi/",
+    "col": [
+      "find a discrepancy",
+      "price discrepancy",
+      "discrepancy between",
+      "discrepancy in",
+      "explain a discrepancy",
+      "a glaring discrepancy"
+    ],
+    "syn": [
+      "inconsistency",
+      "mismatch",
+      "gap",
+      "difference"
+    ]
+  },
+  "disgust": {
+    "ipaUS": "/dɪsˈɡʌst/",
+    "col": [
+      "in disgust",
+      "express disgust",
+      "feel disgust",
+      "disgust at",
+      "with disgust",
+      "utter disgust"
+    ],
+    "syn": [
+      "revulsion",
+      "repulsion",
+      "distaste",
+      "loathing"
+    ]
+  },
+  "dispatch": {
+    "ipaUS": "/dɪˈspætʃ/",
+    "col": [
+      "dispatch an order",
+      "dispatch goods",
+      "dispatch a team",
+      "dispatch to",
+      "dispatch a message",
+      "dispatched promptly"
+    ],
+    "syn": [
+      "send",
+      "ship",
+      "forward",
+      "deliver"
+    ]
+  },
+  "disrupt": {
+    "ipaUS": "/dɪsˈrʌpt/",
+    "col": [
+      "disrupt services",
+      "disrupt traffic",
+      "seriously disrupt",
+      "disrupt the meeting",
+      "disrupt supply chains",
+      "disrupt the market"
+    ],
+    "syn": [
+      "interrupt",
+      "disturb",
+      "upset",
+      "interfere with"
+    ]
+  },
+  "distract": {
+    "ipaUS": "/dɪˈstrækt/",
+    "col": [
+      "distract attention",
+      "distract from",
+      "easily distracted",
+      "distract the driver",
+      "distract someone from work",
+      "a distracting noise"
+    ],
+    "syn": [
+      "divert",
+      "sidetrack",
+      "disturb",
+      "draw away"
+    ]
+  },
+  "dive": {
+    "ipaUS": "/daɪv/",
+    "col": [
+      "dive into",
+      "dive in",
+      "dive off",
+      "scuba dive",
+      "dive for cover",
+      "prices dive"
+    ],
+    "syn": [
+      "plunge",
+      "plummet",
+      "jump",
+      "dip"
+    ]
+  },
+  "dividend": {
+    "ipaUS": "/ˈdɪvɪdend/",
+    "col": [
+      "pay a dividend",
+      "declare a dividend",
+      "dividend payout",
+      "quarterly dividend",
+      "dividend yield",
+      "receive dividends"
+    ],
+    "syn": [
+      "payout",
+      "distribution",
+      "bonus",
+      "return"
+    ]
+  },
+  "downsize": {
+    "ipaUS": "/ˈdaʊnsaɪz/",
+    "col": [
+      "downsize the workforce",
+      "downsize operations",
+      "forced to downsize",
+      "downsize to a smaller office",
+      "plans to downsize",
+      "downsize by 10 percent"
+    ],
+    "syn": [
+      "cut staff",
+      "reduce",
+      "shrink",
+      "scale back"
+    ]
+  },
+  "dull": {
+    "ipaUS": "/dʌl/",
+    "col": [
+      "dull and boring",
+      "a dull pain",
+      "dull colour",
+      "dull weather",
+      "dull knife",
+      "dull sound"
+    ],
+    "syn": [
+      "boring",
+      "dreary",
+      "dim",
+      "blunt"
+    ]
+  },
+  "elevate": {
+    "ipaUS": "/ˈeləveɪt/",
+    "col": [
+      "elevate to",
+      "elevate the status",
+      "elevate standards",
+      "elevate the mood",
+      "elevate awareness",
+      "elevated levels"
+    ],
+    "syn": [
+      "raise",
+      "lift",
+      "promote",
+      "boost"
+    ]
+  },
+  "embassy": {
+    "ipaUS": "/ˈembəsi/",
+    "col": [
+      "foreign embassy",
+      "at the embassy",
+      "embassy staff",
+      "embassy in Hanoi",
+      "visit the embassy",
+      "embassy official"
+    ],
+    "syn": [
+      "consulate",
+      "diplomatic mission",
+      "legation"
+    ]
+  },
+  "embed": {
+    "ipaUS": "/ɪmˈbed/",
+    "col": [
+      "embed in",
+      "embed a video",
+      "deeply embedded",
+      "embed a link",
+      "embedded software",
+      "embed values"
+    ],
+    "syn": [
+      "implant",
+      "insert",
+      "integrate",
+      "root"
+    ]
+  },
+  "engagement": {
+    "ipaUS": "/ɪnˈɡeɪdʒmənt/",
+    "col": [
+      "customer engagement",
+      "engagement ring",
+      "speaking engagement",
+      "prior engagement",
+      "community engagement",
+      "engagement rate"
+    ],
+    "syn": [
+      "involvement",
+      "participation",
+      "commitment",
+      "appointment"
+    ]
+  },
+  "environment": {
+    "ipaUS": "/ɪnˈvaɪrənmənt/",
+    "col": [
+      "protect the environment",
+      "working environment",
+      "natural environment",
+      "harm the environment",
+      "a safe environment",
+      "business environment"
+    ],
+    "syn": [
+      "surroundings",
+      "setting",
+      "habitat",
+      "atmosphere"
+    ]
+  },
+  "ethics": {
+    "ipaUS": "/ˈeθɪks/",
+    "col": [
+      "business ethics",
+      "medical ethics",
+      "code of ethics",
+      "ethics committee",
+      "raise ethics concerns",
+      "professional ethics"
+    ],
+    "syn": [
+      "morality",
+      "principles",
+      "values",
+      "moral code"
+    ]
+  },
+  "evenly": {
+    "ipaUS": "/ˈiːvənli/",
+    "col": [
+      "evenly spaced",
+      "evenly divided",
+      "spread evenly",
+      "evenly matched",
+      "distribute evenly",
+      "cook evenly"
+    ],
+    "syn": [
+      "equally",
+      "uniformly",
+      "fairly",
+      "steadily"
+    ]
+  },
+  "excessive": {
+    "ipaUS": "/ɪkˈsesɪv/",
+    "col": [
+      "excessive force",
+      "excessive use",
+      "excessive charges",
+      "excessive heat",
+      "excessive drinking",
+      "excessive demand"
+    ],
+    "syn": [
+      "extreme",
+      "undue",
+      "unreasonable",
+      "exorbitant"
+    ]
+  },
+  "fabric": {
+    "ipaUS": "/ˈfæbrɪk/",
+    "col": [
+      "soft fabric",
+      "cotton fabric",
+      "fabric softener",
+      "woven fabric",
+      "a piece of fabric",
+      "waterproof fabric"
+    ],
+    "syn": [
+      "cloth",
+      "material",
+      "textile"
+    ]
+  },
+  "faulty": {
+    "ipaUS": "/ˈfɔːlti/",
+    "col": [
+      "faulty equipment",
+      "faulty wiring",
+      "faulty product",
+      "faulty logic",
+      "replace a faulty part",
+      "faulty brakes"
+    ],
+    "syn": [
+      "defective",
+      "broken",
+      "malfunctioning",
+      "flawed"
+    ]
+  },
+  "finalize": {
+    "ipaUS": "/ˈfaɪnəlaɪz/",
+    "col": [
+      "finalize the plan",
+      "finalize a deal",
+      "finalize details",
+      "finalize the budget",
+      "finalize an agreement",
+      "be finalized"
+    ],
+    "syn": [
+      "complete",
+      "conclude",
+      "settle",
+      "wrap up"
+    ]
+  },
+  "flaw": {
+    "ipaUS": "/flɔː/",
+    "col": [
+      "a fatal flaw",
+      "design flaw",
+      "character flaw",
+      "flaw in the system",
+      "spot a flaw",
+      "a serious flaw"
+    ],
+    "syn": [
+      "defect",
+      "fault",
+      "weakness",
+      "imperfection"
+    ]
+  },
+  "fleet": {
+    "ipaUS": "/fliːt/",
+    "col": [
+      "a fleet of vehicles",
+      "fishing fleet",
+      "fleet manager",
+      "naval fleet",
+      "expand the fleet",
+      "fleet of taxis"
+    ],
+    "syn": [
+      "convoy",
+      "flotilla",
+      "armada",
+      "squadron"
+    ]
+  },
+  "freight": {
+    "ipaUS": "/freɪt/",
+    "col": [
+      "air freight",
+      "freight charges",
+      "freight forwarder",
+      "freight train",
+      "freight costs",
+      "ship by freight"
+    ],
+    "syn": [
+      "cargo",
+      "shipment",
+      "goods",
+      "load"
+    ]
+  },
+  "fundraise": {
+    "ipaUS": "/ˈfʌndreɪz/",
+    "col": [
+      "fundraise for charity",
+      "fundraise online",
+      "fundraise for research",
+      "event to fundraise",
+      "fundraise for a cause",
+      "fundraise at school"
+    ],
+    "syn": [
+      "raise funds",
+      "collect money",
+      "solicit donations"
+    ]
+  },
+  "graphic": {
+    "ipaUS": "/ˈɡræfɪk/",
+    "col": [
+      "graphic design",
+      "graphic designer",
+      "graphic novel",
+      "graphic details",
+      "graphic content",
+      "graphic image"
+    ],
+    "syn": [
+      "vivid",
+      "explicit",
+      "visual",
+      "pictorial"
+    ]
+  },
+  "graphics": {
+    "ipaUS": "/ˈɡræfɪks/",
+    "col": [
+      "computer graphics",
+      "graphics card",
+      "video game graphics",
+      "motion graphics",
+      "graphics software",
+      "high-quality graphics"
+    ],
+    "syn": [
+      "visuals",
+      "images",
+      "illustrations",
+      "artwork"
+    ]
+  },
+  "guidance": {
+    "ipaUS": "/ˈɡaɪdns/",
+    "col": [
+      "provide guidance",
+      "seek guidance",
+      "under the guidance of",
+      "career guidance",
+      "parental guidance",
+      "detailed guidance"
+    ],
+    "syn": [
+      "advice",
+      "direction",
+      "support",
+      "counseling"
+    ]
+  },
+  "handy": {
+    "ipaUS": "/ˈhændi/",
+    "col": [
+      "come in handy",
+      "handy tool",
+      "handy tip",
+      "handy for",
+      "keep handy",
+      "handy guide"
+    ],
+    "syn": [
+      "useful",
+      "convenient",
+      "practical",
+      "helpful"
+    ]
+  },
+  "hesitant": {
+    "ipaUS": "/ˈhezɪtənt/",
+    "col": [
+      "hesitant to",
+      "hesitant about",
+      "hesitant smile",
+      "a hesitant voice",
+      "seem hesitant",
+      "hesitant response"
+    ],
+    "syn": [
+      "reluctant",
+      "unsure",
+      "uncertain",
+      "cautious"
+    ]
+  },
+  "highway": {
+    "ipaUS": "/ˈhaɪweɪ/",
+    "col": [
+      "highway robbery",
+      "highway code",
+      "drive on the highway",
+      "highway patrol",
+      "highway exit",
+      "coastal highway"
+    ],
+    "syn": [
+      "motorway",
+      "freeway",
+      "expressway",
+      "main road"
+    ]
+  },
+  "humidity": {
+    "ipaUS": "/hjuːˈmɪdəti/",
+    "col": [
+      "high humidity",
+      "humidity level",
+      "relative humidity",
+      "humidity and heat",
+      "control humidity",
+      "humidity in the air"
+    ],
+    "syn": [
+      "moisture",
+      "dampness",
+      "mugginess"
+    ]
+  },
+  "imperative": {
+    "ipaUS": "/ɪmˈperətɪv/",
+    "col": [
+      "it is imperative that",
+      "imperative to",
+      "moral imperative",
+      "absolutely imperative",
+      "imperative mood",
+      "imperative need"
+    ],
+    "syn": [
+      "essential",
+      "vital",
+      "crucial",
+      "urgent"
+    ]
+  },
+  "inclusive": {
+    "ipaUS": "/ɪnˈkluːsɪv/",
+    "col": [
+      "inclusive of",
+      "all-inclusive",
+      "inclusive price",
+      "inclusive education",
+      "inclusive policy",
+      "inclusive language"
+    ],
+    "syn": [
+      "comprehensive",
+      "all-in",
+      "welcoming",
+      "broad"
+    ]
+  },
+  "indeed": {
+    "ipaUS": "/ɪnˈdiːd/",
+    "col": [
+      "very much indeed",
+      "does indeed",
+      "indeed it is",
+      "yes, indeed",
+      "indeed true",
+      "if indeed"
+    ],
+    "syn": [
+      "in fact",
+      "certainly",
+      "truly",
+      "actually"
+    ]
+  },
+  "individually": {
+    "ipaUS": "/ˌɪndɪˈvɪdʒuəli/",
+    "col": [
+      "treated individually",
+      "individually wrapped",
+      "assess individually",
+      "each individually",
+      "individually owned",
+      "individually or in groups"
+    ],
+    "syn": [
+      "separately",
+      "one by one",
+      "singly",
+      "personally"
+    ]
+  },
+  "inefficient": {
+    "ipaUS": "/ˌɪnɪˈfɪʃnt/",
+    "col": [
+      "inefficient use",
+      "inefficient system",
+      "highly inefficient",
+      "inefficient process",
+      "energy inefficient",
+      "inefficient method"
+    ],
+    "syn": [
+      "wasteful",
+      "ineffective",
+      "unproductive",
+      "slow"
+    ]
+  },
+  "inference": {
+    "ipaUS": "/ˈɪnfərəns/",
+    "col": [
+      "draw an inference",
+      "logical inference",
+      "make an inference",
+      "inference from",
+      "statistical inference",
+      "reasonable inference"
+    ],
+    "syn": [
+      "deduction",
+      "conclusion",
+      "implication",
+      "assumption"
+    ]
+  },
+  "inflate": {
+    "ipaUS": "/ɪnˈfleɪt/",
+    "col": [
+      "inflate a tyre",
+      "inflate prices",
+      "inflate the figures",
+      "artificially inflate",
+      "inflate the balloon",
+      "inflate expectations"
+    ],
+    "syn": [
+      "pump up",
+      "blow up",
+      "exaggerate",
+      "raise"
+    ]
+  },
+  "ink": {
+    "ipaUS": "/ɪŋk/",
+    "col": [
+      "printer ink",
+      "black ink",
+      "ink cartridge",
+      "run out of ink",
+      "invisible ink",
+      "in ink"
+    ],
+    "syn": [
+      "dye",
+      "pigment",
+      "toner"
+    ]
+  },
+  "intently": {
+    "ipaUS": "/ɪnˈtentli/",
+    "col": [
+      "listen intently",
+      "watch intently",
+      "stare intently",
+      "look intently",
+      "study intently",
+      "gaze intently"
+    ],
+    "syn": [
+      "closely",
+      "attentively",
+      "keenly",
+      "carefully"
+    ]
+  },
+  "interactive": {
+    "ipaUS": "/ˌɪntərˈæktɪv/",
+    "col": [
+      "interactive whiteboard",
+      "interactive lesson",
+      "interactive map",
+      "interactive display",
+      "highly interactive",
+      "interactive features"
+    ],
+    "syn": [
+      "participatory",
+      "hands-on",
+      "two-way",
+      "engaging"
+    ]
+  },
+  "interrupt": {
+    "ipaUS": "/ˌɪntəˈrʌpt/",
+    "col": [
+      "interrupt a meeting",
+      "interrupt someone",
+      "sorry to interrupt",
+      "interrupt the flow",
+      "interrupt a call",
+      "rudely interrupt"
+    ],
+    "syn": [
+      "cut in",
+      "disturb",
+      "break in",
+      "stop"
+    ]
+  },
+  "introductory": {
+    "ipaUS": "/ˌɪntrəˈdʌktəri/",
+    "col": [
+      "introductory offer",
+      "introductory course",
+      "introductory price",
+      "introductory remarks",
+      "introductory paragraph",
+      "introductory guide"
+    ],
+    "syn": [
+      "initial",
+      "opening",
+      "preliminary",
+      "beginner"
+    ]
+  }
+}
