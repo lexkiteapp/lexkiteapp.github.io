@@ -1,0 +1,290 @@
+{
+ "id": "mo_bm_native_sb_001209da",
+ "template": "native",
+ "title": "Motion native – sold out (adj): having no more tickets or goods available (sb_001209da)",
+ "teacher": "carlos",
+ "clips": [
+  "gc11_talk",
+  "gc11_explain",
+  "gc11_happy",
+  "gc11_thinking",
+  "gc11_surprise_2"
+ ],
+ "listen": [
+  "gc11_listen"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy",
+ "active": "yellow",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "situational",
+  "link": "https://lexkite.com/app/",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Shopping",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "Natives never say 'finished tickets",
+   "gap": 0.7
+  },
+  {
+   "id": "x",
+   "text": "Textbook: The tickets are finished.",
+   "gap": 0.7
+  },
+  {
+   "id": "b",
+   "text": "Natural: The tickets are sold out.",
+   "gap": 0.7
+  },
+  {
+   "id": "w",
+   "text": "Sold out means none are left to buy.",
+   "gap": 0.7
+  },
+  {
+   "id": "a",
+   "text": "A sold-out show is a big success!",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "Natives",
+      "white"
+     ]
+    ],
+    [
+     [
+      "never say",
+      "yellow"
+     ]
+    ],
+    [
+     [
+      "'finished",
+      "yellow"
+     ]
+    ],
+    [
+     [
+      "tickets",
+      "yellow"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Sound natural",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "Natives"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "never say"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "'finished"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "tickets"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "sum",
+    "at": [
+     "w",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Why",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "Sold out means none are left to buy."
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "rules",
+    "at": [
+     "x",
+     0
+    ],
+    "rows": [
+     {
+      "t": "tile",
+      "tag": "TEXTBOOK",
+      "tone": "gold",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "The tickets are finished.",
+        "gold"
+       ]
+      ],
+      "ex_at": [
+       "x",
+       1
+      ],
+      "at": [
+       "x",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "NATURAL",
+      "tone": "teal",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "The tickets are sold out.",
+        "teal"
+       ]
+      ],
+      "ex_at": [
+       "b",
+       1
+      ],
+      "at": [
+       "b",
+       0
+      ]
+     }
+    ]
+   }
+  ],
+  "hook_text": "Natives never say 'finished tickets",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ },
+ "uses": {
+  "template": "native",
+  "row": "sb_001209da",
+  "teacher": "carlos",
+  "accent": "navy",
+  "active": "yellow",
+  "tones": 0
+ }
+}
