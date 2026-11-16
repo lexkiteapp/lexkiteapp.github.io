@@ -1,7 +1,7 @@
 // Gộp kết quả nghe lại của các shard (word-audio.yml) → web/audio/w/s3.tsv + web/audio/w/index.txt, in thống kê trước/sau.
 //   node scripts/word-audio/merge.mjs <res1.json> [res2.json …]
 // s3.tsv: "từ\tbf_emma\taf_heart" – "ok" hoặc lý do trượt (giọng đó → giọng máy của thiết bị). Chỉ ghi từ đã có kết quả CUỐI cho cả 2 giọng.
-// index.txt (cờ "có file" cho Lex/newtab): từ có ≥ 1 giọng đạt, theo thứ tự kho từ.
+// index.txt (cờ "có file" cho Lex/newtab): từ đạt CẢ 2 giọng (thiếu 1 giọng → 404 ở giọng đó), theo thứ tự kho từ.
 import fs from 'node:fs';
 import { corpus, readRes, writeRes, IDX, VOICES } from './lib.mjs';
 const res = Object.assign({}, ...process.argv.slice(2).filter(f => fs.existsSync(f)).map(f => JSON.parse(fs.readFileSync(f, 'utf8'))));
@@ -18,7 +18,7 @@ const SF = 'web/audio/w/s3-stats.json', S = fs.existsSync(SF) ? JSON.parse(fs.re
 Object.assign(S, { oldN: S.oldN + oldN, oldOk: S.oldOk + oldOk, fileN: S.fileN + newN, fileOk: S.fileOk + newOk }); fs.writeFileSync(SF, JSON.stringify(S) + '\n');
 const order = new Map(words.map((w, i) => [w, i]));
 writeRes(new Map([...st].filter(([w]) => order.has(w)).sort((a, b) => order.get(a[0]) - order.get(b[0]))));
-const idx = words.filter(w => st.has(w) && st.get(w).includes('ok'));
+const idx = words.filter(w => st.has(w) && st.get(w).length === VOICES.length && st.get(w).every(x => x === 'ok')); // cả 2 giọng: en-GB mặc định (bf_emma) hoặc en-US (af_heart) thiếu 1 → 404
 fs.writeFileSync(IDX, idx.join('\n') + '\n');
 const fb = [...st].filter(([, s]) => s.some(x => x !== 'ok'));
 const md = `## Giọng từ đơn s3: +${add} từ (${before} → ${st.size}/${words.length})
