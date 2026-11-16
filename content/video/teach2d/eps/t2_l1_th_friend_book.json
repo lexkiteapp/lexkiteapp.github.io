@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_friend_book",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "My friend's book, not book of friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: This is book of my friend.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: This is my friend's book.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Put my friend's before the thing.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "My sister's! This is my sister's phone.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "This is book of my friend.",
+  "right": "This is my friend's book.",
+  "strike": "book of my friend",
+  "why": "Put my friend's before the thing.",
+  "memory": "My friend's book.",
+  "quiz": {
+   "stem": "This is ___ phone.",
+   "options": [
+    "my sister's",
+    "of my sister"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "บอกเจ้าของ ใช้ 's!",
+   "tip": "ไทยพูด “หนังสือของเพื่อน” จึงมักใช้ of แต่อังกฤษใช้ 's: “my friend's book”",
+   "caption": "คุณเคยพูดว่า “This is book of my friend.” ไหม? 😅 ภาษาไทยพูดว่า “หนังสือของเพื่อน” จึงมักใช้ of แต่ภาษาอังกฤษบอกเจ้าของด้วย 's: “This is my friend's book.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “my sister's” จำไว้ให้ดีนะ! ลองพูดประโยคนี้ออกเสียงดัง ๆ หนึ่งครั้ง แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Owner? Add “'s”!",
+   "tip": "Thai says book of a friend, so people use of, but English adds 's: “my friend's book”",
+   "caption": "Do you say “This is book of my friend”? 😅 Thai says book of a friend, so people use of, but English adds 's. Say “This is my friend's book”! Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "บอกเจ้าของ ใช้ 's!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 51,
+  "seconds": 30.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "บอกเจ้าของ ใช้ 's!",
+  "keyword": "This is my friend's book.",
+  "value": "ไทยพูด “หนังสือของเพื่อน” จึงมักใช้ of แต่อังกฤษใช้ 's: “my friend's book”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 45,
+  "platforms": {
+   "youtube": {
+    "title": "บอกเจ้าของ ใช้ 's!",
+    "description": "ไทยพูด “หนังสือของเพื่อน” จึงมักใช้ of แต่อังกฤษใช้ 's: “my friend's book”\n\nคุณเคยพูดว่า “This is book of my friend.” ไหม? 😅 ภาษาไทยพูดว่า “หนังสือของเพื่อน” จึงมักใช้ of แต่ภาษาอังกฤษบอกเจ้าของด้วย 's: “This is my friend's book.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "This is my friend's book.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “This is book of my friend.” ไหม? 😅 ภาษาไทยพูดว่า “หนังสือของเพื่อน” จึงมักใช้ of แต่ภาษาอังกฤษบอกเจ้าของด้วย 's: “This is my friend's book.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "บอกเจ้าของ ใช้ 's!\n\nไทยพูด “หนังสือของเพื่อน” จึงมักใช้ of แต่อังกฤษใช้ 's: “my friend's book”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "บอกเจ้าของ ใช้ 's! ไทยพูด “หนังสือของเพื่อน” จึงมักใช้ of แต่อังกฤษใช้ 's: “my friend's book” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “my sister's” จำไว้ให้ดีนะ! ลองพูดประโยคนี้ออกเสียงดัง ๆ หนึ่งครั้ง แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

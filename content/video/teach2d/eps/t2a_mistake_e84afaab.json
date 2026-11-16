@@ -1,0 +1,129 @@
+{
+ "id": "t2a_mistake_e84afaab",
+ "template": "mistake",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Reply needs to",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Please reply me soon.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Please reply to me soon.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Reply needs to before the person or message.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Reply to! I will reply to your email tonight.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Please reply me soon.",
+  "right": "Please reply to me soon.",
+  "strike": "reply me",
+  "why": "Reply needs to before the person or message.",
+  "memory": "Reply TO someone",
+  "quiz": {
+   "stem": "I will ___ your email tonight.",
+   "options": [
+    "reply",
+    "reply to"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Reply needs to"
+ },
+ "src": {
+  "gold": "sb_e84afaab",
+  "pid": "w:reply#v"
+ },
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Say \"Please reply to me soon\", not \"Please reply me soon\"",
+  "keyword": "reply me",
+  "value": "Say \"Please reply to me soon\", not \"Please reply me soon\". Reply needs to before the person or message.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#englishgrammar",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "Say \"Please reply to me soon\", not \"Please reply me soon\"",
+    "description": "Say \"Please reply to me soon\", not \"Please reply me soon\". Reply needs to before the person or message.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix\n\nSeries: Stop Saying This · Teacher: Ama\n\n#learnenglish #englishtips #englishgrammar #englishteacher",
+    "tags": [
+     "reply me",
+     "Stop Saying This",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Say \"Please reply to me soon\", not \"Please reply me soon\"\n\nSay \"Please reply to me soon\", not \"Please reply me soon\". Reply needs to before the person or message.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Say \"Please reply to me soon\", not \"Please reply me soon\"\n\nSay \"Please reply to me soon\", not \"Please reply me soon\". Reply needs to before the person or message.\n\nCheck your grammar: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#englishgrammar",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Say \"Please reply to me soon\", not \"Please reply me soon\" #learnenglish #englishtips #englishgrammar"
+   }
+  },
+  "first_comment": "Did you get it? Reply to! I will reply to your email tonight. Say \"Please reply to me soon\", not \"Please reply me soon\". Reply needs to before the person or message. More practice like this (free): {link}"
+ }
+}

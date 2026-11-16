@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_is_raining",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say it is raining, not is raining!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Is raining today.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: It is raining today.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Start with it.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! It is cold today.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Is raining today.",
+  "right": "It is raining today.",
+  "strike": "Is raining",
+  "why": "Start with it.",
+  "memory": "It is raining today.",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "Is cold today.",
+    "It is cold today."
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“It” demeyi unutma!",
+   "tip": "Türkçede “Bugün soğuk.” deriz, özne yoktur; İngilizcede hava için “it” gerekir: “It is raining today.”",
+   "caption": "“Is raining today” mi diyorsun? 😅 İngilizcede cümlenin öznesi olmalı; havadan söz ederken özne “it” olur. Doğrusu “It is raining today.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “It is cold today”. Cümle “it” ile başlar. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do not forget “it”!",
+   "tip": "In English the weather needs “it”: “It is raining today.”",
+   "caption": "Do you say “Is raining today”? 😅 In English a sentence needs a subject, so for the weather you start with “it” every time. The right sentence is “It is raining today.” Listen to Carlos and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“It” demeyi unutma!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“It” demeyi unutma!",
+  "keyword": "It is raining today.",
+  "value": "Türkçede “Bugün soğuk.” deriz, özne yoktur; İngilizcede hava için “it” gerekir: “It is raining today.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "“It” demeyi unutma!",
+    "description": "Türkçede “Bugün soğuk.” deriz, özne yoktur; İngilizcede hava için “it” gerekir: “It is raining today.”\n\n“Is raining today” mi diyorsun? 😅 İngilizcede cümlenin öznesi olmalı; havadan söz ederken özne “it” olur. Doğrusu “It is raining today.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "It is raining today.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“Is raining today” mi diyorsun? 😅 İngilizcede cümlenin öznesi olmalı; havadan söz ederken özne “it” olur. Doğrusu “It is raining today.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“It” demeyi unutma!\n\nTürkçede “Bugün soğuk.” deriz, özne yoktur; İngilizcede hava için “it” gerekir: “It is raining today.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“It” demeyi unutma! Türkçede “Bugün soğuk.” deriz, özne yoktur; İngilizcede hava için “it” gerekir: “It… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “It is cold today”. Cümle “it” ile başlar. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+  "lang": "tr"
+ }
+}

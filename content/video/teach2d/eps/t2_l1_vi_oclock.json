@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_oclock",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "How do you say the time?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I wake up at 6 hour.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I wake up at 6 o'clock.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say o'clock after the number.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "7 o'clock! I wake up at 7 o'clock.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I wake up at 6 hour.",
+  "right": "I wake up at 6 o'clock.",
+  "strike": "6 hour",
+  "why": "Say o'clock after the number.",
+  "memory": "Six o'clock.",
+  "quiz": {
+   "stem": "I wake up at ___.",
+   "options": [
+    "7 o'clock",
+    "7 hour"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“6 giờ” ≠ “6 hour”",
+   "tip": "Chữ “giờ” trong “6 giờ” không phải “hour.” Tiếng Anh nói “6 o'clock.”",
+   "caption": "Bạn có hay nói “I wake up at 6 hour.” không? 😅 Khi nói giờ tròn, hãy dùng “o'clock”: “I wake up at 6 o'clock.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “7 o'clock.” Hãy nói to giờ bạn thức dậy với “o'clock.” Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#nguphaptienganh",
+    "#tienganhgiaotiep",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “6 hour”!",
+   "tip": "Say “6 o'clock”, not “6 hour.”",
+   "caption": "Do you often say this? “I wake up at 6 hour.” For a full hour, use “o'clock”: “I wake up at 6 o'clock.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“6 giờ” ≠ “6 hour”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 51,
+  "seconds": 30.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“6 giờ” ≠ “6 hour”",
+  "keyword": "I wake up at 6 o'clock.",
+  "value": "Chữ “giờ” trong “6 giờ” không phải “hour.” Tiếng Anh nói “6 o'clock.”",
+  "hashtags": [
+   "#hoctienganh",
+   "#nguphaptienganh",
+   "#tienganhgiaotiep",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 45,
+  "platforms": {
+   "youtube": {
+    "title": "“6 giờ” ≠ “6 hour”",
+    "description": "Chữ “giờ” trong “6 giờ” không phải “hour.” Tiếng Anh nói “6 o'clock.”\n\nBạn có hay nói “I wake up at 6 hour.” không? 😅 Khi nói giờ tròn, hãy dùng “o'clock”: “I wake up at 6 o'clock.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #nguphaptienganh #tienganhgiaotiep #lexkite",
+    "tags": [
+     "I wake up at 6 o'clock.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “I wake up at 6 hour.” không? 😅 Khi nói giờ tròn, hãy dùng “o'clock”: “I wake up at 6 o'clock.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“6 giờ” ≠ “6 hour”\n\nChữ “giờ” trong “6 giờ” không phải “hour.” Tiếng Anh nói “6 o'clock.”\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#nguphaptienganh",
+     "#tienganhgiaotiep",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“6 giờ” ≠ “6 hour” Chữ “giờ” trong “6 giờ” không phải “hour.” Tiếng Anh nói “6 o'clock.” #hoctienganh #nguphaptienganh #tienganhgiaotiep"
+   }
+  },
+  "first_comment": "Đáp án: “7 o'clock.” Hãy nói to giờ bạn thức dậy với “o'clock.” Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

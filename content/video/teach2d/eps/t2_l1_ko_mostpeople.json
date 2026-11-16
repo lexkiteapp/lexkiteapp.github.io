@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_mostpeople",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Most people, no of!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Most of people like music.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Most people like music.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Most people means almost everyone.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Most people! Most people like music.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Most of people like music.",
+  "right": "Most people like music.",
+  "strike": "of",
+  "why": "Most people means almost everyone.",
+  "memory": "Most people.",
+  "quiz": {
+   "stem": "___ like music.",
+   "options": [
+    "Most of people",
+    "Most people"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Most of people” 틀렸어요!",
+   "tip": "‘대부분의 사람들’의 ‘의’를 of로 옮기기 쉬워요. 그냥 most people! 이렇게 말해요 👉 “Most people like music.”",
+   "caption": "“Most of people like music”처럼 말하고 있나요? 😅 ‘대부분의 사람들’의 ‘의’를 of로 옮기기 쉬워요. 사람 전체를 말할 때는 of 없이 most people이라고 해요. 맞는 문장 ✅ “Most people like music.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답 ✅ “Most people like music.” 소리 내어 한 번 말해 보고, 나만의 문장도 하나 써 보세요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Most of people” is wrong!",
+   "tip": "Do not add of. Say most people. Say “Most people like music.”",
+   "caption": "Do you say “Most of people like music” in English? 😅 You do not add “of” here, so say “most people”! “Most people like music” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Most of people” 틀렸어요!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“Most of people” 틀렸어요!",
+  "keyword": "Most people like music.",
+  "value": "‘대부분의 사람들’의 ‘의’를 of로 옮기기 쉬워요. 그냥 most people! 이렇게 말해요 👉 “Most people like music.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "“Most of people” 틀렸어요!",
+    "description": "‘대부분의 사람들’의 ‘의’를 of로 옮기기 쉬워요. 그냥 most people! 이렇게 말해요 👉 “Most people like music.”\n\n“Most of people like music”처럼 말하고 있나요? 😅 ‘대부분의 사람들’의 ‘의’를 of로 옮기기 쉬워요. 사람 전체를 말할 때는 of 없이 most people이라고 해요. 맞는 문장 ✅ “Most people like music.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "Most people like music.",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“Most of people like music”처럼 말하고 있나요? 😅 ‘대부분의 사람들’의 ‘의’를 of로 옮기기 쉬워요. 사람 전체를 말할 때는 of 없이 most people이라고 해요. 맞는 문장 ✅ “Most people like music.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Most of people” 틀렸어요!\n\n‘대부분의 사람들’의 ‘의’를 of로 옮기기 쉬워요. 그냥 most people! 이렇게 말해요 👉 “Most people like music.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Most of people” 틀렸어요! ‘대부분의 사람들’의 ‘의’를 of로 옮기기 쉬워요. 그냥 most people! 이렇게 말해요 👉 “Most people like music.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답 ✅ “Most people like music.” 소리 내어 한 번 말해 보고, 나만의 문장도 하나 써 보세요: {link}",
+  "lang": "ko"
+ }
+}

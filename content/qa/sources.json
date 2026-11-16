@@ -346,7 +346,8 @@
    "paths": [
     "web/js/roleplay",
     "web/cpack/roleplay",
-    "web/js/call"
+    "web/js/call",
+    "web/cpack/call"
    ],
    "owner": "antigravity",
    "gen": true,

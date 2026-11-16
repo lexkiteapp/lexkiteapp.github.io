@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_tell_me",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Tell me, not say me!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Say me the truth.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Tell me the truth.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use tell with me.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Tell! Please tell me your name.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Say me the truth.",
+  "right": "Tell me the truth.",
+  "strike": "Say",
+  "why": "Use tell with me.",
+  "memory": "Tell me.",
+  "quiz": {
+   "stem": "Please ___ me your name.",
+   "options": [
+    "tell",
+    "say"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "„Sag mir“ heißt „tell me“!",
+   "tip": "Das deutsche „sagen“ passt hier nicht: Im Englischen heißt es „tell me“, nicht „say me“.",
+   "caption": "Sagen Sie „say me“ statt „tell me“? 🗣️ Falsch: “Say me the truth.” Richtig: “Tell me the truth.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “tell”. Richtig heißt es: “Tell me the truth.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Sag mir” is “tell me”!",
+   "tip": "German “sagen” does not fit here. In English it is “tell me”, not “say me”.",
+   "caption": "“Sag mir” is “tell me”! Wrong: “Say me the truth.” Right: “Tell me the truth.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "„Sag mir“ heißt „tell me“!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "„Sag mir“ heißt „tell me“!",
+  "keyword": "Tell me the truth.",
+  "value": "Das deutsche „sagen“ passt hier nicht: Im Englischen heißt es „tell me“, nicht „say me“.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "„Sag mir“ heißt „tell me“!",
+    "description": "Das deutsche „sagen“ passt hier nicht: Im Englischen heißt es „tell me“, nicht „say me“.\n\nSagen Sie „say me“ statt „tell me“? 🗣️ Falsch: “Say me the truth.” Richtig: “Tell me the truth.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "Tell me the truth.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Sagen Sie „say me“ statt „tell me“? 🗣️ Falsch: “Say me the truth.” Richtig: “Tell me the truth.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "„Sag mir“ heißt „tell me“!\n\nDas deutsche „sagen“ passt hier nicht: Im Englischen heißt es „tell me“, nicht „say me“.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "„Sag mir“ heißt „tell me“! Das deutsche „sagen“ passt hier nicht: Im Englischen heißt es „tell me“, ni… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “tell”. Richtig heißt es: “Tell me the truth.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

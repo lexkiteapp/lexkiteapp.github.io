@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "Can to — лишнее “to”!",
-   "tip": "После can глагол идёт без “to”: “I can swim”.",
-   "caption": "Ты тоже говоришь “I can to swim.”? 😅 По-русски «я могу плавать» — с инфинитивом, вот и появляется лишнее “to”. Правильно: “I can swim.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
-   "comment": "Ответ: “sing”. После can — без to. Бесплатный тест для практики здесь: {link}",
+   "tip": "После can глагол идёт без “to”: “I can swim.”",
+   "caption": "Ты тоже говоришь “I can to swim”? 😅 По-русски «я могу плавать» — с инфинитивом, вот и появляется лишнее “to.” Правильно: “I can swim.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “sing.” После can — без to. Бесплатный тест для практики здесь: {link}",
    "hashtags": [
     "#английскийязык",
     "#учуанглийский",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "Do you say can to?",
-   "tip": "After can, the verb goes without “to”: “I can swim”.",
-   "caption": "Do you also say “I can to swim.”? 😅 In Russian the infinitive follows “mogu”, so an extra “to” appears. Correct: “I can swim.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+   "tip": "After can, the verb goes without “to”: “I can swim.”",
+   "caption": "Do you also say “I can to swim”? 😅 After can, the verb needs no “to.” Correct: “I can swim.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "Can to — лишнее “to”!",
   "keyword": "I can swim.",
-  "value": "После can глагол идёт без “to”: “I can swim”.",
+  "value": "После can глагол идёт без “to”: “I can swim.”",
   "hashtags": [
    "#английскийязык",
    "#учуанглийский",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "Can to — лишнее “to”!",
-    "description": "Ты тоже говоришь “I can to swim.”? 😅 По-русски «я могу плавать» — с инфинитивом, вот и появляется лишнее “to”. Правильно: “I can swim.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #учуанглийский #английскийдляначинающих #lexkite",
+    "description": "После can глагол идёт без “to”: “I can swim.”\n\nТы тоже говоришь “I can to swim”? 😅 По-русски «я могу плавать» — с инфинитивом, вот и появляется лишнее “to.” Правильно: “I can swim.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #учуанглийский #английскийдляначинающих #lexkite",
     "tags": [
      "I can swim.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Ты тоже говоришь “I can to swim.”? 😅 По-русски «я могу плавать» — с инфинитивом, вот и появляется лишнее “to”. Правильно: “I can swim.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Ты тоже говоришь “I can to swim”? 😅 По-русски «я могу плавать» — с инфинитивом, вот и появляется лишнее “to.” Правильно: “I can swim.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Ты тоже говоришь “I can to swim.”? 😅 По-русски «я могу плавать» — с инфинитивом, вот и появляется лишнее “to”. Правильно: “I can swim.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nlexkite.com",
+    "caption": "Can to — лишнее “to”!\n\nПосле can глагол идёт без “to”: “I can swim.”\n\nlexkite.com",
     "hashtags": [
      "#английскийязык",
      "#учуанглийский",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "Can to — лишнее “to”! #английскийязык #учуанглийский #английскийдляначинающих"
+    "caption": "Can to — лишнее “to”! После can глагол идёт без “to”: “I can swim.” #английскийязык #учуанглийский #английскийдляначинающих"
    }
   },
-  "first_comment": "Ответ: “sing”. После can — без to. Бесплатный тест для практики здесь: {link}",
+  "first_comment": "Ответ: “sing.” После can — без to. Бесплатный тест для практики здесь: {link}",
   "lang": "ru"
  }
 }

@@ -38,6 +38,8 @@ publishAt: 2026-12-08T08:37:00+09:00
 
 多くのIELTS受験者がライティングのスコア（特に *Grammatical Range and Accuracy*）で伸び悩む原因の一つに、「難解で長い単語を並べることばかりに意識が向き、文構造の多様性と正確さがおろそかになっている」という点があります。試験官が求めているのは、意味もなく複雑化した読みにくい英文ではなく、論理関係を明確かつ柔軟に表現できる多様な構文力です。体系的な**ielts ライティング 複文 complex sentences**の運用スキルを身につけることで、Task 2において安定してBand 7.0から8.5の高得点を叩き出すことが可能になります。
 
+賛成・反対を問われる設問での文章全体の組み立ては、[IELTS opinion essay の書き方](/ja/blog/ielts-opinion-essay-kakikata/)で模範エッセイつきで解説しています。
+
 本記事では、複文の正確な評価基準から、アカデミックライティングで即戦力となる4つの従属構文、さらにBand 8以上を狙うための高度な倒置・強調構文までを網羅して解説します。
 
 ![Lexkiteライティング練習室画面ではトピック選択と語彙提案や構成ガイドを提供](media:write "IELTS Writing Task 2練習室、トピック別の語彙提案と段落構成ガイド")
@@ -138,3 +140,9 @@ Task 2のエッセイでは、以下の4つの複文パターンを状況に応�
 試験対策の総仕上げとして、[英語の仮定法if構文の使い方](/ja/blog/eigo-kateihou-if-koubun-tsukaikata/) や [IELTSパラフレーズの言い換え構文のコツ](/ja/blog/ielts-paraphrase-iikae-koubun-kotsu/) を再確認しておきましょう。また、文全体の説得力を高めるために [IELTS環境問題の英単語とコロケーション](/ja/blog/ielts-kankyou-mondai-eitango-collocation/) や [自然な英語コロケーション一覧](/ja/blog/ielts-collocation-shizen-na-rengo-eigo/) を併せて学習し、公式単語集 [/tu-vung/](/en/vocabulary/) でアカデミック語彙を強固にしておくことが推奨されます。
 
 複文を正しく操り、明快かつ説得力に富んだエッセイでIELTS Writingの目標スコアを確実に達成してください。
+
+複文を使うときに起きやすい減点パターンは、[IELTS ライティングのミス20選](/ja/blog/ielts-writing-miss-genten-taisaku/)にまとめています。
+
+複文を使うTask 1のレポートの実例は、[IELTS ライティング 棒グラフの書き方と模範解答](/ja/blog/ielts-writing-bougraph-kakikata-mohan-kaitou/)で確認できます。
+
+複文の練習の応用として、工程を順に説明する[IELTS プロセス図の書き方](/ja/blog/ielts-process-diagram-kakikata/)も、受動態と接続表現を組み合わせる良い題材です。

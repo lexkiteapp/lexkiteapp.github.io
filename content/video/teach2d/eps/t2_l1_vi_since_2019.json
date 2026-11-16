@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_since_2019",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "From or since a year?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have worked here from 2019.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have worked here since 2019.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use since for the start.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Since! I have lived here since 2018.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have worked here from 2019.",
+  "right": "I have worked here since 2019.",
+  "strike": "from",
+  "why": "Use since for the start.",
+  "memory": "Since 2019.",
+  "quiz": {
+   "stem": "I have lived here ___ 2018.",
+   "options": [
+    "since",
+    "from"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Từ năm 2019”: from hay since?",
+   "tip": "Tiếng Việt dùng “từ”, nhưng với “have worked”, tiếng Anh dùng “since.”",
+   "caption": "Bạn có hay nói “I have worked here from 2019.” không? 😅 Để nói điểm bắt đầu, hãy dùng “since”: “I have worked here since 2019.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “since.” Hãy viết một câu về điều bạn làm từ một năm nào đó, dùng “since.” Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#nguphaptienganh",
+    "#tienganhgiaotiep",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "From or since?",
+   "tip": "With “have worked”, use “since” for the start.",
+   "caption": "Do you often say this? “I have worked here from 2019.” To give the start, use “since”: “I have worked here since 2019.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Từ năm 2019”: from hay since?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“Từ năm 2019”: from hay since?",
+  "keyword": "I have worked here since 2019.",
+  "value": "Tiếng Việt dùng “từ”, nhưng với “have worked”, tiếng Anh dùng “since.”",
+  "hashtags": [
+   "#hoctienganh",
+   "#nguphaptienganh",
+   "#tienganhgiaotiep",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "“Từ năm 2019”: from hay since?",
+    "description": "Tiếng Việt dùng “từ”, nhưng với “have worked”, tiếng Anh dùng “since.”\n\nBạn có hay nói “I have worked here from 2019.” không? 😅 Để nói điểm bắt đầu, hãy dùng “since”: “I have worked here since 2019.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #nguphaptienganh #tienganhgiaotiep #lexkite",
+    "tags": [
+     "I have worked here since 2019.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “I have worked here from 2019.” không? 😅 Để nói điểm bắt đầu, hãy dùng “since”: “I have worked here since 2019.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Từ năm 2019”: from hay since?\n\nTiếng Việt dùng “từ”, nhưng với “have worked”, tiếng Anh dùng “since.”\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#nguphaptienganh",
+     "#tienganhgiaotiep",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Từ năm 2019”: from hay since? Tiếng Việt dùng “từ”, nhưng với “have worked”, tiếng Anh dùng “since.” #hoctienganh #nguphaptienganh #tienganhgiaotiep"
+   }
+  },
+  "first_comment": "Đáp án: “since.” Hãy viết một câu về điều bạn làm từ một năm nào đó, dùng “since.” Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_take_exam",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Pass or take an exam?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I will pass the exam tomorrow.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I will take the exam tomorrow.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Take means you do it. Pass means you do well.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Take! I will take a test tomorrow.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I will pass the exam tomorrow.",
+  "right": "I will take the exam tomorrow.",
+  "strike": "pass",
+  "why": "Take means you do it. Pass means you do well.",
+  "memory": "Take an exam.",
+  "quiz": {
+   "stem": "I will ___ a test tomorrow.",
+   "options": [
+    "pass",
+    "take"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Сдавать экзамен — pass или take?",
+   "tip": "Сдавать (писать) — “take”: “I will take the exam tomorrow.”",
+   "caption": "Ты тоже говоришь “I will pass the exam tomorrow”? 😅 По-русски «сдавать экзамен» значит просто писать его, и “pass” кажется верным, но по-английски “pass” — успешно сдать, а прийти на экзамен — “take.” Правильно: “I will take the exam tomorrow.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “take.” Писать экзамен — take. Напиши своё предложение с “I will take the.” Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#изучениеанглийского",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Pass or take an exam?",
+   "tip": "To do an exam, use “take”: “I will take the exam tomorrow.”",
+   "caption": "Do you also say “I will pass the exam tomorrow”? 😅 In Russian one verb means doing an exam, so “pass” feels right, but in English “pass” means you do well, and “take” means you do it. Correct: “I will take the exam tomorrow.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Сдавать экзамен — pass или take?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 54,
+  "seconds": 32.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "Сдавать экзамен — pass или take?",
+  "keyword": "I will take the exam tomorrow.",
+  "value": "Сдавать (писать) — “take”: “I will take the exam tomorrow.”",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#изучениеанглийского",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 48,
+  "platforms": {
+   "youtube": {
+    "title": "Сдавать экзамен — pass или take?",
+    "description": "Сдавать (писать) — “take”: “I will take the exam tomorrow.”\n\nТы тоже говоришь “I will pass the exam tomorrow”? 😅 По-русски «сдавать экзамен» значит просто писать его, и “pass” кажется верным, но по-английски “pass” — успешно сдать, а прийти на экзамен — “take.” Правильно: “I will take the exam tomorrow.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #английский #изучениеанглийского #lexkite",
+    "tags": [
+     "I will take the exam tomorrow.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “I will pass the exam tomorrow”? 😅 По-русски «сдавать экзамен» значит просто писать его, и “pass” кажется верным, но по-английски “pass” — успешно сдать, а прийти на экзамен — “take.” Правильно: “I will take the exam tomorrow.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Сдавать экзамен — pass или take?\n\nСдавать (писать) — “take”: “I will take the exam tomorrow.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#изучениеанглийского",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Сдавать экзамен — pass или take? Сдавать (писать) — “take”: “I will take the exam tomorrow.” #английскийязык #английский #изучениеанглийского"
+   }
+  },
+  "first_comment": "Ответ: “take.” Писать экзамен — take. Напиши своё предложение с “I will take the.” Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_pen_mine",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "My or mine? Listen!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: This pen is my.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: This pen is mine.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Alone, use mine, not my.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Mine! This bag is mine.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "This pen is my.",
+  "right": "This pen is mine.",
+  "strike": "my",
+  "why": "Alone, use mine, not my.",
+  "memory": "Alone: mine.",
+  "quiz": {
+   "stem": "This bag is ___.",
+   "options": [
+    "mine",
+    "my"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Của tôi”: my hay mine?",
+   "tip": "Tiếng Việt dùng “của tôi” cho cả hai, nhưng tiếng Anh có “my” và “mine.”",
+   "caption": "Bạn có hay nói “This pen is my.” không? ✏️ Đứng một mình thì dùng “mine”: “This pen is mine.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “mine.” Nói về đồ của bạn bằng “It is mine” nhé! Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#tuhoctienganh",
+    "#luyennoitienganh",
+    "#loisaiphobien",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "This pen is “my” or “mine”?",
+   "tip": "English has “my” and “mine”, not one word for both.",
+   "caption": "Do you often say this? “This pen is my.” Say “This pen is mine.” instead. Listen to Carlos, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Của tôi”: my hay mine?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "“Của tôi”: my hay mine?",
+  "keyword": "This pen is mine.",
+  "value": "Tiếng Việt dùng “của tôi” cho cả hai, nhưng tiếng Anh có “my” và “mine.”",
+  "hashtags": [
+   "#tuhoctienganh",
+   "#luyennoitienganh",
+   "#loisaiphobien",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "“Của tôi”: my hay mine?",
+    "description": "Tiếng Việt dùng “của tôi” cho cả hai, nhưng tiếng Anh có “my” và “mine.”\n\nBạn có hay nói “This pen is my.” không? ✏️ Đứng một mình thì dùng “mine”: “This pen is mine.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#tuhoctienganh #luyennoitienganh #loisaiphobien #lexkite",
+    "tags": [
+     "This pen is mine.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “This pen is my.” không? ✏️ Đứng một mình thì dùng “mine”: “This pen is mine.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Của tôi”: my hay mine?\n\nTiếng Việt dùng “của tôi” cho cả hai, nhưng tiếng Anh có “my” và “mine.”\n\nlexkite.com",
+    "hashtags": [
+     "#tuhoctienganh",
+     "#luyennoitienganh",
+     "#loisaiphobien",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Của tôi”: my hay mine? Tiếng Việt dùng “của tôi” cho cả hai, nhưng tiếng Anh có “my” và “mine.” #tuhoctienganh #luyennoitienganh #loisaiphobien"
+   }
+  },
+  "first_comment": "Đáp án: “mine.” Nói về đồ của bạn bằng “It is mine” nhé! Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_wash_your_hands",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "What word is missing?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I wash hands before dinner.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I wash my hands before dinner.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "With hands, say my hands.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Her! She is brushing her hair.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I wash hands before dinner.",
+  "right": "I wash my hands before dinner.",
+  "strike": "hands",
+  "why": "With hands, say my hands.",
+  "memory": "My hands, her hair.",
+  "quiz": {
+   "stem": "She is brushing ___ hair.",
+   "options": [
+    "the",
+    "her"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“I wash hands” — чего не хватает?",
+   "tip": "Нужно “my”: “I wash my hands before dinner.”",
+   "caption": "Ты тоже говоришь “I wash hands before dinner”? 😅 По-русски говорят просто «мою руки», а в английском нужно сказать чьи: “my.” Правильно: “I wash my hands before dinner.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “her.” С hair нужно her. Скажи вслух: “I wash my hands before dinner.” Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#изучениеанглийского",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "What word is missing?",
+   "tip": "You need “my”: “I wash my hands before dinner.”",
+   "caption": "Do you also say “I wash hands before dinner”? 😅 In Russian you just say wash hands, but English needs to say whose hands: “my.” Correct: “I wash my hands before dinner.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“I wash hands” — чего не хватает?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“I wash hands” — чего не хватает?",
+  "keyword": "I wash my hands before dinner.",
+  "value": "Нужно “my”: “I wash my hands before dinner.”",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#изучениеанглийского",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "“I wash hands” — чего не хватает?",
+    "description": "Нужно “my”: “I wash my hands before dinner.”\n\nТы тоже говоришь “I wash hands before dinner”? 😅 По-русски говорят просто «мою руки», а в английском нужно сказать чьи: “my.” Правильно: “I wash my hands before dinner.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #английский #изучениеанглийского #lexkite",
+    "tags": [
+     "I wash my hands before dinner.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “I wash hands before dinner”? 😅 По-русски говорят просто «мою руки», а в английском нужно сказать чьи: “my.” Правильно: “I wash my hands before dinner.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“I wash hands” — чего не хватает?\n\nНужно “my”: “I wash my hands before dinner.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#изучениеанглийского",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“I wash hands” — чего не хватает? Нужно “my”: “I wash my hands before dinner.” #английскийязык #английский #изучениеанглийского"
+   }
+  },
+  "first_comment": "Ответ: “her.” С hair нужно her. Скажи вслух: “I wash my hands before dinner.” Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

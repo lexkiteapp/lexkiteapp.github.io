@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "Is! He is tired.",
+   "text": "Is! My brother is tall.",
    "pause": 0.42
   },
   {
@@ -58,18 +58,18 @@
   "why": "English needs is.",
   "memory": "She is.",
   "quiz": {
-   "stem": "He ___ tired.",
+   "stem": "My brother ___ tall.",
    "options": [
     "is",
-    "are"
+    "(no word)"
    ],
    "answer": 0
   },
   "native": {
    "hook": "Ты забываешь “is”?",
-   "tip": "Не пропускай is: “She is very beautiful”.",
-   "caption": "Ты тоже говоришь “She very beautiful.”? 😅 В русском нет «есть» в настоящем времени: «она красивая». В английском “is” нужен. Правильно: “She is very beautiful.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.",
-   "comment": "Ответ: “is”. Без is — нельзя. Бесплатный тест для практики здесь: {link}",
+   "tip": "Не пропускай “is”: “She is very beautiful.”",
+   "caption": "Ты тоже говоришь “She very beautiful”? 😅 В русском в настоящем времени нет связки: «она красивая». В английском “is” нужен. Правильно: “She is very beautiful.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “is.” Без is — нельзя. Бесплатный тест для практики здесь: {link}",
    "hashtags": [
     "#английский",
     "#грамматика",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "Do you forget is?",
-   "tip": "Do not skip is: “She is very beautiful”.",
-   "caption": "Do you also say “She very beautiful.”? 😅 Russian has no “is” in the present: “ona krasivaya”. English needs “is”. Correct: “She is very beautiful.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+   "tip": "Do not skip “is”: “She is very beautiful.”",
+   "caption": "Do you also say “She very beautiful”? 😅 English needs “is” here. Correct: “She is very beautiful.” Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -98,14 +98,14 @@
  },
  "lang": "ru",
  "est": {
-  "words": 38,
-  "seconds": 24.2,
-  "wpm": 94
+  "words": 39,
+  "seconds": 24.7,
+  "wpm": 95
  },
  "publish": {
   "title": "Ты забываешь “is”?",
   "keyword": "She is very beautiful.",
-  "value": "Не пропускай is: “She is very beautiful”.",
+  "value": "Не пропускай “is”: “She is very beautiful.”",
   "hashtags": [
    "#английский",
    "#грамматика",
@@ -113,11 +113,11 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 32,
+  "script_words": 33,
   "platforms": {
    "youtube": {
     "title": "Ты забываешь “is”?",
-    "description": "Ты тоже говоришь “She very beautiful.”? 😅 В русском нет «есть» в настоящем времени: «она красивая». В английском “is” нужен. Правильно: “She is very beautiful.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английский #грамматика #английскийонлайн #lexkite",
+    "description": "Не пропускай “is”: “She is very beautiful.”\n\nТы тоже говоришь “She very beautiful”? 😅 В русском в настоящем времени нет связки: «она красивая». В английском “is” нужен. Правильно: “She is very beautiful.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английский #грамматика #английскийонлайн #lexkite",
     "tags": [
      "She is very beautiful.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Ты тоже говоришь “She very beautiful.”? 😅 В русском нет «есть» в настоящем времени: «она красивая». В английском “is” нужен. Правильно: “She is very beautiful.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Ты тоже говоришь “She very beautiful”? 😅 В русском в настоящем времени нет связки: «она красивая». В английском “is” нужен. Правильно: “She is very beautiful.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Ты тоже говоришь “She very beautiful.”? 😅 В русском нет «есть» в настоящем времени: «она красивая». В английском “is” нужен. Правильно: “She is very beautiful.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.\n\nlexkite.com",
+    "caption": "Ты забываешь “is”?\n\nНе пропускай “is”: “She is very beautiful.”\n\nlexkite.com",
     "hashtags": [
      "#английский",
      "#грамматика",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "Ты забываешь “is”? #английский #грамматика #английскийонлайн"
+    "caption": "Ты забываешь “is”? Не пропускай “is”: “She is very beautiful.” #английский #грамматика #английскийонлайн"
    }
   },
-  "first_comment": "Ответ: “is”. Без is — нельзя. Бесплатный тест для практики здесь: {link}",
+  "first_comment": "Ответ: “is.” Без is — нельзя. Бесплатный тест для практики здесь: {link}",
   "lang": "ru"
  }
 }

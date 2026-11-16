@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_nextweek",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "In next week?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I will visit my uncle in next week.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I will visit my uncle next week.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say next week with no in.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Next week! I will visit my uncle next week.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I will visit my uncle in next week.",
+  "right": "I will visit my uncle next week.",
+  "strike": "in",
+  "why": "Say next week with no in.",
+  "memory": "I will visit my uncle next week.",
+  "quiz": {
+   "stem": "I will go there ___.",
+   "options": [
+    "in next week",
+    "next week"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "「in next week」と言ってない？",
+   "tip": "next week の前に in は不要です。そのまま next week と言います。",
+   "caption": "“I will visit my uncle in next week.”と言っていませんか？😅 「来週に」の「に」につられて in を入れがちです。“I will visit my uncle next week.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“next week”。“I will visit my uncle next week.” を声に出して言ってみよう。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you add in before next week?",
+   "tip": "Say next week alone. No in.",
+   "caption": "Do you say this? “I will visit my uncle in next week.” 😅 The Japanese に makes people add in. The natural way is “I will visit my uncle next week.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "「in next week」と言ってない？"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 53,
+  "seconds": 31.5,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "「in next week」と言ってない？",
+  "keyword": "I will visit my uncle next week.",
+  "value": "next week の前に in は不要です。そのまま next week と言います。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 47,
+  "platforms": {
+   "youtube": {
+    "title": "「in next week」と言ってない？",
+    "description": "next week の前に in は不要です。そのまま next week と言います。\n\n“I will visit my uncle in next week.”と言っていませんか？😅 「来週に」の「に」につられて in を入れがちです。“I will visit my uncle next week.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "I will visit my uncle next week.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“I will visit my uncle in next week.”と言っていませんか？😅 「来週に」の「に」につられて in を入れがちです。“I will visit my uncle next week.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "「in next week」と言ってない？\n\nnext week の前に in は不要です。そのまま next week と言います。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「in next week」と言ってない？ next week の前に in は不要です。そのまま next week と言います。 #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“next week”。“I will visit my uncle next week.” を声に出して言ってみよう。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

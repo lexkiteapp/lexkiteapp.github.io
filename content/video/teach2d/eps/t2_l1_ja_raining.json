@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_raining",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Discuss about? No!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Let's discuss about the plan.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Let's discuss the plan.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Discuss already means talk about.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Discussed! We discussed the trip.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Let's discuss about the plan.",
+  "right": "Let's discuss the plan.",
+  "strike": "about",
+  "why": "Discuss already means talk about.",
+  "memory": "Let's discuss the plan.",
+  "quiz": {
+   "stem": "We ___ the trip.",
+   "options": [
+    "discussed",
+    "discussed about"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "「discuss about」の about は不要",
+   "tip": "discuss は「〜について話し合う」の意味を含む。about は付けない。",
+   "caption": "“Let's discuss about the plan.”と言っていませんか？😅 日本語の「〜について」につられて about を付けがちです。discuss だけで「〜について話し合う」になります。 “Let's discuss the plan.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“discussed”。discuss のあとに about は不要。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “discuss about”?",
+   "tip": "Discuss already means talk about. Do not add about.",
+   "caption": "Do you say this? “Let's discuss about the plan.” 😅 It is easy to add about, but discuss already includes it. The natural way is “Let's discuss the plan.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "「discuss about」の about は不要"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "「discuss about」の about は不要",
+  "keyword": "Let's discuss the plan.",
+  "value": "discuss は「〜について話し合う」の意味を含む。about は付けない。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "「discuss about」の about は不要",
+    "description": "discuss は「〜について話し合う」の意味を含む。about は付けない。\n\n“Let's discuss about the plan.”と言っていませんか？😅 日本語の「〜について」につられて about を付けがちです。discuss だけで「〜について話し合う」になります。 “Let's discuss the plan.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "Let's discuss the plan.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“Let's discuss about the plan.”と言っていませんか？😅 日本語の「〜について」につられて about を付けがちです。discuss だけで「〜について話し合う」になります。 “Let's discuss the plan.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "「discuss about」の about は不要\n\ndiscuss は「〜について話し合う」の意味を含む。about は付けない。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「discuss about」の about は不要 discuss は「〜について話し合う」の意味を含む。about は付けない。 #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“discussed”。discuss のあとに about は不要。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}
