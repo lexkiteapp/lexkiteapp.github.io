@@ -69,6 +69,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 02:00 | `upgrade-audit` | `0 2 * * 1` | reports | gh_minutes | 2 | — | — |
 | 02:10 | `nav-render` | `10 2 * * *` | render | gh_minutes | 20 | — | — |
 | 02:17 | `content-protect` | `17 2 * * 0` | reports | gh_minutes | 10 | — | — |
+| 02:17 | `perf-flake-report` | `17 2 * * 1` | reports | gh_minutes | 1 | — | — |
 | 02:20 | `font-audit` | `20 2 * * 1` | reports | gh_minutes | 10 | — | — |
 | 02:30 | `i18n` | `30 2 * * *` | render | gemini, gh_minutes | 90 | — | — |
 | 02:30 | `world-scorecard` | `30 2 * * 1` | reports | gh_minutes | 15 | — | — |
