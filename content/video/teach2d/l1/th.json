@@ -35,7 +35,7 @@
      ]
     },
     "en": {
-     "hook": "Thai verbs skip this “s”!",
+     "hook": "He/she/it: add “s” to the verb!",
      "tip": "With he/she/it the verb needs -s. Thai verbs never change, so it is easy to forget",
      "caption": "Do you say “She like coffee”? 😅 Thai verbs do not change, but with he/she/it English verbs need -s. Say “She likes coffee”! Listen to Ama and repeat! Practice more in the Lexkite app."
     }
@@ -64,8 +64,8 @@
     "answer_say": "Very much! I like pizza very much.",
     "native": {
      "hook": "very much ไว้ท้ายประโยค!",
-     "tip": "ไทยพูด “ชอบดนตรีมาก” เลยติดวาง very much ไว้กลาง แต่อังกฤษวางหลังสิ่งที่ชอบ: “I like music very much”",
-     "caption": "คุณเคยพูดว่า “I like very much music.” ไหม? 😅 ภาษาไทยพูดว่า “ชอบดนตรีมาก” เลยติดวาง very much ไว้กลางประโยค แต่ภาษาอังกฤษวางไว้หลังสิ่งที่ชอบ: “I like music very much.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+     "tip": "เรามักจำ “like very much” เป็นก้อนเดียว แต่ very much ต้องอยู่หลังสิ่งที่ชอบ: “I like music very much”",
+     "caption": "คุณเคยพูดว่า “I like very much music.” ไหม? 😅 เรามักจำ “like very much” เป็นก้อนเดียว เลยวาง very much ไว้กลางประโยค แต่ภาษาอังกฤษวางไว้หลังสิ่งที่ชอบ: “I like music very much.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
      "comment": "เฉลย: “very much” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
      "hashtags": [
       "#เรียนภาษาอังกฤษ",
@@ -76,8 +76,8 @@
     },
     "en": {
      "hook": "Very much goes at the end!",
-     "tip": "Thai puts “very” at the end, so learners say “like very much music”. English says “like music very much”",
-     "caption": "Do you say “I like very much music”? 😅 Thai puts “very” at the end, so learners say “like very much music”. English says “like music very much”. Say “I like music very much”! Listen to Ama and repeat! Practice more in the Lexkite app."
+     "tip": "Learners keep “like very much” as one chunk, but very much goes after the thing you like: “I like music very much”",
+     "caption": "Do you say “I like very much music”? 😅 Learners often keep “like very much” as one chunk, but very much goes after the thing you like. Say “I like music very much”! Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -167,7 +167,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Do not open the light!",
+    "hook_say": "Don't open the light!",
     "wrong": "Please open the light.",
     "right": "Please turn on the light.",
     "strike": "open",
@@ -276,8 +276,8 @@
     },
     "en": {
      "hook": "Questions need “do”!",
-     "tip": "Thai can ask “where you live”, but English questions need do or does: “Where do you live”",
-     "caption": "Do you say “Where you live”? 😅 Thai can ask with the same word order as a statement, but English questions need a helper: do or does. Say “Where do you live”! Listen to Ama and repeat! Practice more in the Lexkite app."
+     "tip": "Thai can ask “where you live?”, but English questions need do or does: “Where do you live?”",
+     "caption": "Do you say “Where you live?” 😅 Thai can ask with the same word order as a statement, but English questions need a helper: do or does. Say “Where do you live?”! Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -527,7 +527,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Do not play Facebook!",
+    "hook_say": "Don't play Facebook!",
     "wrong": "I play Facebook every night.",
     "right": "I use Facebook every night.",
     "strike": "play",
@@ -583,7 +583,7 @@
     },
     "answer_say": "Children! I have two children.",
     "native": {
-     "hook": "สองคนขึ้นไป ต้องเป็นพหูพจน์!",
+     "hook": "สองขึ้นไป ต้องเป็นพหูพจน์!",
      "tip": "ภาษาไทยไม่มีรูปพหูพจน์ แต่อังกฤษต้องมี: child → children",
      "caption": "คุณเคยพูดว่า “I have two child.” ไหม? 😅 ภาษาไทยไม่เติมพหูพจน์หลังตัวเลข แต่ภาษาอังกฤษต้องใช้พหูพจน์ child จึงเป็น children: “I have two children.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
      "comment": "เฉลย: “children” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
@@ -595,7 +595,7 @@
      ]
     },
     "en": {
-     "hook": "Is your plural missing?",
+     "hook": "Two or more? Make it plural!",
      "tip": "Thai has no plural form, but after two or more English needs one: child becomes children",
      "caption": "Do you say “I have two child”? 😅 Thai does not mark the plural, but English nouns after two or more must be plural. Child is special: children. Say “I have two children”! Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
@@ -807,7 +807,7 @@
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Not have, say there are!",
+    "hook_say": "Say there are, not have!",
     "wrong": "In Bangkok have many cars.",
     "right": "There are many cars in Bangkok.",
     "strike": "have",
@@ -995,7 +995,7 @@
      ]
     },
     "en": {
-     "hook": "What small word is missing?",
+     "hook": "After “want”, add “to”!",
      "tip": "Thai has no “to” before the second verb, but English needs it: “I want to go home”",
      "caption": "Do you say “I want go home”? 😅 In Thai you say “want go” with no extra word, but English needs to after want. Say “I want to go home”! Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
@@ -1103,7 +1103,7 @@
     },
     "answer_say": "Yes, I can! Can you cook? Yes, I can.",
     "native": {
-     "hook": "ตอบ “ได้” ≠ Can.!",
+     "hook": "ตอบ “ได้” อย่าพูดแค่ Can!",
      "tip": "ไทยตอบ “ได้” คำเดียวพอ แต่อังกฤษควรตอบเต็มประโยค: “Yes, I can”",
      "caption": "คุณเคยพูดว่า “Can you swim? Can.” ไหม? 😅 ภาษาไทยตอบว่า “ได้” คำเดียวก็พอ แต่ภาษาอังกฤษควรตอบ yes พร้อมประธาน: “Can you swim? Yes, I can.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
      "comment": "เฉลย: “Yes, I can.” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
@@ -1117,7 +1117,7 @@
     "en": {
      "hook": "Don't just answer “Can”!",
      "tip": "Thai can answer with one word, but English usually answers with yes plus a subject: “Yes, I can”",
-     "caption": "Do you say “Can you swim? Can”? 😅 Thai can answer with one word, but English usually answers with yes plus a subject. Say “Can you swim? Yes, I can”! Listen to Ama and repeat! Practice more in the Lexkite app."
+     "caption": "Do you answer “Can you swim?” with just “Can”? 😅 Thai can answer with one word, but English usually answers with yes plus a subject. Say “Can you swim? Yes, I can”! Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1155,7 +1155,7 @@
      ]
     },
     "en": {
-     "hook": "“My sister she…” is too much!",
+     "hook": "Don't say the subject twice!",
      "tip": "Thai can repeat the subject, but English says it only once: “My friend lives in Phuket”",
      "caption": "Do you say “My friend he lives in Phuket”? 😅 Thai can repeat the subject, but English names the person only once. Say “My friend lives in Phuket”! Listen to Ama and repeat! Practice more in the Lexkite app."
     }
@@ -1254,19 +1254,19 @@
     "why": "Bored is how you feel.",
     "memory": "I feel bored.",
     "quiz": {
-     "stem": "The movie is ___.",
+     "stem": "There is nothing to do. I'm ___.",
      "options": [
-      "bored",
-      "boring"
+      "boring",
+      "bored"
      ],
      "answer": 1
     },
-    "answer_say": "Boring! The movie is boring.",
+    "answer_say": "Bored! There is nothing to do. I'm bored.",
     "native": {
      "hook": "ความรู้สึก ใช้ bored!",
      "tip": "bored คือเรารู้สึกเบื่อ boring คือสิ่งที่น่าเบื่อ",
      "caption": "คุณเคยพูดว่า “I am boring today.” ไหม? 😅 ภาษาอังกฤษความรู้สึกเบื่อของเราต้องใช้ bored ส่วน boring ใช้กับสิ่งที่น่าเบื่อ: “I am bored today.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
-     "comment": "เฉลย: “boring” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+     "comment": "เฉลย: “bored” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
      "hashtags": [
       "#เรียนภาษาอังกฤษ",
       "#ภาษาอังกฤษ",
