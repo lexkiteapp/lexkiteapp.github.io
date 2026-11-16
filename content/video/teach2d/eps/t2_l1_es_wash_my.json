@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_wash_my",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Wash the hands? Wash my hands!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I wash the hands before dinner.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I wash my hands before dinner.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Your body: use my, not the.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "My! I wash my hands before dinner.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I wash the hands before dinner.",
+  "right": "I wash my hands before dinner.",
+  "strike": "the",
+  "why": "Your body: use my, not the.",
+  "memory": "My hands.",
+  "quiz": {
+   "stem": "I wash ___ hands before dinner.",
+   "options": [
+    "the",
+    "my"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Me lavo las manos” = “my hands”",
+   "tip": "En español “me lavo las manos”, pero en inglés se usa “my”: “wash my hands.”",
+   "caption": "🙈 Error común: “I wash the hands before dinner.” Con partes del cuerpo se usa “my”, no “the”: “I wash my hands before dinner.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “my”. Con el cuerpo y la ropa se dice “my hands”, “my hair”, no “the hands”. Escribe una frase tuya con “my” o dila en voz alta: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#gramatica",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Body parts: “my”",
+   "tip": "Learners say “las manos”, but English says “my hands.”",
+   "caption": "Common mistake: “I wash the hands before dinner.” With body parts use “my”, not “the”: “I wash my hands before dinner.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Me lavo las manos” = “my hands”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 51,
+  "seconds": 30.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“Me lavo las manos” = “my hands”",
+  "keyword": "I wash my hands before dinner.",
+  "value": "En español “me lavo las manos”, pero en inglés se usa “my”: “wash my hands.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#gramatica",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 45,
+  "platforms": {
+   "youtube": {
+    "title": "“Me lavo las manos” = “my hands”",
+    "description": "En español “me lavo las manos”, pero en inglés se usa “my”: “wash my hands.”\n\n🙈 Error común: “I wash the hands before dinner.” Con partes del cuerpo se usa “my”, no “the”: “I wash my hands before dinner.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #gramatica #lexkite",
+    "tags": [
+     "I wash my hands before dinner.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "🙈 Error común: “I wash the hands before dinner.” Con partes del cuerpo se usa “my”, no “the”: “I wash my hands before dinner.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Me lavo las manos” = “my hands”\n\nEn español “me lavo las manos”, pero en inglés se usa “my”: “wash my hands.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#gramatica",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Me lavo las manos” = “my hands” En español “me lavo las manos”, pero en inglés se usa “my”: “wash my hands.” #aprenderingles #inglesfacil #gramatica"
+   }
+  },
+  "first_comment": "Respuesta: “my”. Con el cuerpo y la ropa se dice “my hands”, “my hair”, no “the hands”. Escribe una frase tuya con “my” o dila en voz alta: {link}",
+  "lang": "es"
+ }
+}

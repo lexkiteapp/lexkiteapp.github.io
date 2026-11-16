@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_tellme",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Said me, or told me?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She said me to wait.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She told me to wait.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use told with me, not said.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Told! She told me to wait.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She said me to wait.",
+  "right": "She told me to wait.",
+  "strike": "said",
+  "why": "Use told with me, not said.",
+  "memory": "She told me to wait.",
+  "quiz": {
+   "stem": "He ___ me his name.",
+   "options": [
+    "said",
+    "told"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "「said me」？ それとも told me？",
+   "tip": "「私に言う」は tell me。say の直後に me は置けません（say to me ならOK）。",
+   "caption": "“She said me to wait.”と言っていませんか？😅 「言う」を say だけで訳すと said me になりがちです。“She told me to wait.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“told”。“She told me to wait.” を声に出して言ってみよう。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Is it “said me”?",
+   "tip": "Say told me, not said me.",
+   "caption": "Do you say this? “She said me to wait.” 😅 Japanese speakers often use say for every kind of “say.” The natural way is “She told me to wait.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "「said me」？ それとも told me？"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "「said me」？ それとも told me？",
+  "keyword": "She told me to wait.",
+  "value": "「私に言う」は tell me。say の直後に me は置けません（say to me ならOK）。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "「said me」？ それとも told me？",
+    "description": "「私に言う」は tell me。say の直後に me は置けません（say to me ならOK）。\n\n“She said me to wait.”と言っていませんか？😅 「言う」を say だけで訳すと said me になりがちです。“She told me to wait.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "She told me to wait.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“She said me to wait.”と言っていませんか？😅 「言う」を say だけで訳すと said me になりがちです。“She told me to wait.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "「said me」？ それとも told me？\n\n「私に言う」は tell me。say の直後に me は置けません（say to me ならOK）。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「said me」？ それとも told me？ 「私に言う」は tell me。say の直後に me は置けません（say to me ならOK）。 #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“told”。“She told me to wait.” を声に出して言ってみよう。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

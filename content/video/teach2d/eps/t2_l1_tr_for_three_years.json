@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_for_three_years",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "For three years, not since!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have studied English since three years.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have studied English for three years.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use for with how long.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "For! I have lived here for two years.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have studied English since three years.",
+  "right": "I have studied English for three years.",
+  "strike": "since three years",
+  "why": "Use for with how long.",
+  "memory": "I have studied English for three years.",
+  "quiz": {
+   "stem": "I have lived here ___ two years.",
+   "options": [
+    "since",
+    "for"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Since” değil, “for three years”!",
+   "tip": "Türkçede “üç yıldır” deriz; süre için İngilizcede “for” kullanılır: “I have studied English for three years.”",
+   "caption": "“I have studied English since three years” mi diyorsun? 😅 Süre anlatırken “since” değil, “for” kullanılır. Doğrusu “I have studied English for three years.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “for”. “Üç yıldır” için “for three years” de. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Use “for” with how long!",
+   "tip": "“For” shows how long: “I have studied English for three years.”",
+   "caption": "Do you say “I have studied English since three years”? 😅 In English for shows how long, and since shows a start point. The right sentence is “I have studied English for three years.” Listen to Carlos and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Since” değil, “for three years”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "“Since” değil, “for three years”!",
+  "keyword": "I have studied English for three years.",
+  "value": "Türkçede “üç yıldır” deriz; süre için İngilizcede “for” kullanılır: “I have studied English for three years.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 46,
+  "platforms": {
+   "youtube": {
+    "title": "“Since” değil, “for three years”!",
+    "description": "Türkçede “üç yıldır” deriz; süre için İngilizcede “for” kullanılır: “I have studied English for three years.”\n\n“I have studied English since three years” mi diyorsun? 😅 Süre anlatırken “since” değil, “for” kullanılır. Doğrusu “I have studied English for three years.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "I have studied English for three years.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“I have studied English since three years” mi diyorsun? 😅 Süre anlatırken “since” değil, “for” kullanılır. Doğrusu “I have studied English for three years.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Since” değil, “for three years”!\n\nTürkçede “üç yıldır” deriz; süre için İngilizcede “for” kullanılır: “I have studied English for three years.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Since” değil, “for three years”! Türkçede “üç yıldır” deriz; süre için İngilizcede “for” kullanılır: “I… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “for”. “Üç yıldır” için “for three years” de. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+  "lang": "tr"
+ }
+}

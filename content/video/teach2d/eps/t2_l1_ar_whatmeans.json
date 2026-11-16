@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_whatmeans",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "What means? Say does mean!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: What means this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: What does this word mean?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say what does, then mean.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Does! What does it mean?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "What means this word?",
+  "right": "What does this word mean?",
+  "strike": "means",
+  "why": "Say what does, then mean.",
+  "memory": "What does it mean?",
+  "quiz": {
+   "stem": "What ___ it mean?",
+   "options": [
+    "does",
+    "is"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "هل تقول “What means”؟",
+   "tip": "نقول «ماذا تعني» دون فعل مساعد، أما هنا فنحتاج does: “What does this word mean?” وليس “What means this word?”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “What means this word?” 😅 نقول «ماذا تعني» دون فعل مساعد، أما هنا فنحتاج does، فالجملة الصحيحة “What does this word mean?” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “does” — نقول «ماذا تعني» دون فعل مساعد، أما هنا فنحتاج does. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “What means”?",
+   "tip": "In Arabic «ماذا تعني» needs no helper word, but here we need does: “What does this word mean?” not “What means this word?”",
+   "caption": "Do you sometimes say this? “What means this word?” 😅 In Arabic «ماذا تعني» needs no helper word, but here we need does, so the right sentence is “What does this word mean?” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “What means”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "هل تقول “What means”؟",
+  "keyword": "What does this word mean?",
+  "value": "نقول «ماذا تعني» دون فعل مساعد، أما هنا فنحتاج does: “What does this word mean?” وليس “What means this word?”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “What means”؟",
+    "description": "نقول «ماذا تعني» دون فعل مساعد، أما هنا فنحتاج does: “What does this word mean?” وليس “What means this word?”\n\nهل تقول أحيانًا هذه الجملة؟ “What means this word?” 😅 نقول «ماذا تعني» دون فعل مساعد، أما هنا فنحتاج does، فالجملة الصحيحة “What does this word mean?” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "What does this word mean?",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا هذه الجملة؟ “What means this word?” 😅 نقول «ماذا تعني» دون فعل مساعد، أما هنا فنحتاج does، فالجملة الصحيحة “What does this word mean?” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول “What means”؟\n\nنقول «ماذا تعني» دون فعل مساعد، أما هنا فنحتاج does: “What does this word mean?” وليس “What means this word?”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “What means”؟ نقول «ماذا تعني» دون فعل مساعد، أما هنا فنحتاج does: “What does this word m… #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “does” — نقول «ماذا تعني» دون فعل مساعد، أما هنا فنحتاج does. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+  "lang": "ar"
+ }
+}

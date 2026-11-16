@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_good_at",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Good at, not good in!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She is good in cooking.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She is good at cooking.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say good at before the skill.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "At! He is good at drawing.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She is good in cooking.",
+  "right": "She is good at cooking.",
+  "strike": "in",
+  "why": "Say good at before the skill.",
+  "memory": "Good at.",
+  "quiz": {
+   "stem": "He is good ___ drawing.",
+   "options": [
+    "at",
+    "on"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "เก่งอะไร ต้องใช้ “good at”",
+   "tip": "ภาษาไทยพูด “เก่งทำอาหาร” โดยไม่มีคำเชื่อม จึงมักเดาเป็น in แต่ภาษาอังกฤษต้องใช้ good at: “She is good at cooking.”",
+   "caption": "คุณเคยพูดว่า “She is good in cooking.” ไหม? 😅 ภาษาไทยพูด “เก่งทำอาหาร” โดยไม่มีคำเชื่อม จึงมักเดาเป็น in แต่ภาษาอังกฤษต้องใช้ good at: “She is good at cooking.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “at” จำไว้ให้ดีนะ! ลองพูดประโยคตัวอย่างออกเสียงหนึ่งรอบ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “good at”, not “good in”!",
+   "tip": "Thai has no small word here, so it is easy to pick the wrong one, but English says good at.",
+   "caption": "Do you say “She is good in cooking.” 😅 Thai has no small word here, so it is easy to pick the wrong one, but English says good at. Say “She is good at cooking.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "เก่งอะไร ต้องใช้ “good at”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "เก่งอะไร ต้องใช้ “good at”",
+  "keyword": "She is good at cooking.",
+  "value": "ภาษาไทยพูด “เก่งทำอาหาร” โดยไม่มีคำเชื่อม จึงมักเดาเป็น in แต่ภาษาอังกฤษต้องใช้ good at: “She is good at cooking.”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "เก่งอะไร ต้องใช้ “good at”",
+    "description": "ภาษาไทยพูด “เก่งทำอาหาร” โดยไม่มีคำเชื่อม จึงมักเดาเป็น in แต่ภาษาอังกฤษต้องใช้ good at: “She is good at cooking.”\n\nคุณเคยพูดว่า “She is good in cooking.” ไหม? 😅 ภาษาไทยพูด “เก่งทำอาหาร” โดยไม่มีคำเชื่อม จึงมักเดาเป็น in แต่ภาษาอังกฤษต้องใช้ good at: “She is good at cooking.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "She is good at cooking.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “She is good in cooking.” ไหม? 😅 ภาษาไทยพูด “เก่งทำอาหาร” โดยไม่มีคำเชื่อม จึงมักเดาเป็น in แต่ภาษาอังกฤษต้องใช้ good at: “She is good at cooking.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "เก่งอะไร ต้องใช้ “good at”\n\nภาษาไทยพูด “เก่งทำอาหาร” โดยไม่มีคำเชื่อม จึงมักเดาเป็น in แต่ภาษาอังกฤษต้องใช้ good at: “She is good at cooking.”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "เก่งอะไร ต้องใช้ “good at” ภาษาไทยพูด “เก่งทำอาหาร” โดยไม่มีคำเชื่อม จึงมักเดาเป็น in แต่ภาษาอังกฤษต้องใช้ go… #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “at” จำไว้ให้ดีนะ! ลองพูดประโยคตัวอย่างออกเสียงหนึ่งรอบ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

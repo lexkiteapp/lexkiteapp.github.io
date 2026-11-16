@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_can_you",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Can you ask this question?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Do you can swim?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Can you swim?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Put can first.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The first one! Can you cook?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Do you can swim?",
+  "right": "Can you swim?",
+  "strike": "Do you can",
+  "why": "Put can first.",
+  "memory": "Can you...?",
+  "quiz": {
+   "stem": "You ask about a skill: ___",
+   "options": [
+    "Can you cook?",
+    "Do you can cook?"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Do you can” sai ở đâu?",
+   "tip": "Tiếng Việt hỏi “có … không”, nên dễ ghép “do” với “can.” Tiếng Anh chỉ cần đưa “can” lên đầu.",
+   "caption": "Bạn có hay nói “Do you can swim?” không? 😅 Hãy đưa “can” lên đầu, không thêm “do”: “Can you swim?” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “Can you cook?” Hãy hỏi to một người bạn, bắt đầu bằng “Can you.” Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#tuhoctienganh",
+    "#luyennoitienganh",
+    "#loisaiphobien",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Do you can”? No!",
+   "tip": "Put “can” first: “Can you…?” Do not add “do.”",
+   "caption": "Do you often say this? “Do you can swim?” Put “can” first, and do not add “do”: “Can you swim?” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Do you can” sai ở đâu?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 41,
+  "seconds": 25.6,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "“Do you can” sai ở đâu?",
+  "keyword": "Can you swim?",
+  "value": "Tiếng Việt hỏi “có … không”, nên dễ ghép “do” với “can.” Tiếng Anh chỉ cần đưa “can” lên đầu.",
+  "hashtags": [
+   "#tuhoctienganh",
+   "#luyennoitienganh",
+   "#loisaiphobien",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "“Do you can” sai ở đâu?",
+    "description": "Tiếng Việt hỏi “có … không”, nên dễ ghép “do” với “can.” Tiếng Anh chỉ cần đưa “can” lên đầu.\n\nBạn có hay nói “Do you can swim?” không? 😅 Hãy đưa “can” lên đầu, không thêm “do”: “Can you swim?” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#tuhoctienganh #luyennoitienganh #loisaiphobien #lexkite",
+    "tags": [
+     "Can you swim?",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “Do you can swim?” không? 😅 Hãy đưa “can” lên đầu, không thêm “do”: “Can you swim?” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Do you can” sai ở đâu?\n\nTiếng Việt hỏi “có … không”, nên dễ ghép “do” với “can.” Tiếng Anh chỉ cần đưa “can” lên đầu.\n\nlexkite.com",
+    "hashtags": [
+     "#tuhoctienganh",
+     "#luyennoitienganh",
+     "#loisaiphobien",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Do you can” sai ở đâu? Tiếng Việt hỏi “có … không”, nên dễ ghép “do” với “can.” Tiếng Anh chỉ cần đư… #tuhoctienganh #luyennoitienganh #loisaiphobien"
+   }
+  },
+  "first_comment": "Đáp án: “Can you cook?” Hãy hỏi to một người bạn, bắt đầu bằng “Can you.” Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_dream_of",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "I dream of a big house!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I often dream from a big house.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I often dream of a big house.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Dream goes with of.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Of! I often dream of a big house.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I often dream from a big house.",
+  "right": "I often dream of a big house.",
+  "strike": "from",
+  "why": "Dream goes with of.",
+  "memory": "Dream of.",
+  "quiz": {
+   "stem": "I often dream ___ a big house.",
+   "options": [
+    "of",
+    "from"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "„Träumen von“ = „dream of“!",
+   "tip": "Im Deutschen sagen wir „träumen von“. Im Englischen heißt es „dream of“, nicht „from“.",
+   "caption": "Sagen Sie „dream from“? 💭 Falsch: “I often dream from a big house.” Richtig: “I often dream of a big house.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “of”. Richtig heißt es: “I often dream of a big house.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "German “von” is “of” here!",
+   "tip": "German says “träumen von.” In English it is “dream of,” not “from.”",
+   "caption": "German “von” is “of” here! Wrong: “I often dream from a big house.” Right: “I often dream of a big house.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "„Träumen von“ = „dream of“!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "„Träumen von“ = „dream of“!",
+  "keyword": "I often dream of a big house.",
+  "value": "Im Deutschen sagen wir „träumen von“. Im Englischen heißt es „dream of“, nicht „from“.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 46,
+  "platforms": {
+   "youtube": {
+    "title": "„Träumen von“ = „dream of“!",
+    "description": "Im Deutschen sagen wir „träumen von“. Im Englischen heißt es „dream of“, nicht „from“.\n\nSagen Sie „dream from“? 💭 Falsch: “I often dream from a big house.” Richtig: “I often dream of a big house.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "I often dream of a big house.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Sagen Sie „dream from“? 💭 Falsch: “I often dream from a big house.” Richtig: “I often dream of a big house.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "„Träumen von“ = „dream of“!\n\nIm Deutschen sagen wir „träumen von“. Im Englischen heißt es „dream of“, nicht „from“.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "„Träumen von“ = „dream of“! Im Deutschen sagen wir „träumen von“. Im Englischen heißt es „dream of“, n… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “of”. Richtig heißt es: “I often dream of a big house.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

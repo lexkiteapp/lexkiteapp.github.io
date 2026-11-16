@@ -1480,6 +1480,2326 @@
      "caption": "Afraid before or of? Wrong: “I am afraid before dogs.” Right: “I am afraid of dogs.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
+  },
+  {
+   "id": "t2_l1_de_also",
+   "lang": "de",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Start with so, not also!",
+    "wrong": "Also, what do you think?",
+    "right": "So, what do you think?",
+    "strike": "Also",
+    "why": "Start with so.",
+    "memory": "So, what do you think?",
+    "quiz": {
+     "stem": "___, what do you think?",
+     "options": [
+      "So",
+      "Also"
+     ],
+     "answer": 0
+    },
+    "answer_say": "So! So, what do you think?",
+    "native": {
+     "hook": "„Also“ heißt „so“!",
+     "tip": "Das deutsche „also“ heißt im Englischen „so“. Das englische „also“ bedeutet „auch“.",
+     "caption": "Beginnen Sie Sätze mit „also“? 🤔 Falsch: “Also, what do you think?” Richtig: “So, what do you think?” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “So”. Richtig heißt es: “So, what do you think?” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "German “also” is “so”!",
+     "tip": "German “also” means “so” in English. English “also” means “auch”.",
+     "caption": "The German word also means so in English! Wrong: “Also, what do you think?” Right: “So, what do you think?” Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_go_home",
+   "lang": "de",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Go home, not to home!",
+    "wrong": "I go to home.",
+    "right": "I go home.",
+    "strike": "to home",
+    "why": "Home needs no to.",
+    "memory": "Go home.",
+    "quiz": {
+     "stem": "After work, I go ___.",
+     "options": [
+      "to home",
+      "home"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Home! I go home after work.",
+    "native": {
+     "hook": "„Nach Hause“ ohne „to“!",
+     "tip": "„Nach Hause“ klingt nach einer Richtung, deshalb sagen viele „to home“. Im Englischen heißt es „go home“ ohne „to“.",
+     "caption": "Sagen Sie „to home“? 🏠 Falsch: “I go to home.” Richtig: “I go home.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “home”. Richtig heißt es: “I go home.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "No “to” before “home”!",
+     "tip": "“Nach Hause” sounds like a direction, so many say “to home”. In English it is “go home” without “to”.",
+     "caption": "No “to” before “home”! Wrong: “I go to home.” Right: “I go home.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_help_me",
+   "lang": "de",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Can you help me?",
+    "wrong": "Can you me help?",
+    "right": "Can you help me?",
+    "strike": "me help",
+    "why": "Put help before me.",
+    "memory": "Help me.",
+    "quiz": {
+     "stem": "Can you ___?",
+     "options": [
+      "help me",
+      "me help"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Help me! Can you help me?",
+    "native": {
+     "hook": "Wie bitten Sie um Hilfe?",
+     "tip": "Im Deutschen steht das Verb spät: „Können Sie mir helfen“. Im Englischen kommt „help“ direkt nach „you“: „Can you help me?“",
+     "caption": "Wie bitten Sie um Hilfe? 🙋 Falsch: “Can you me help?” Richtig: “Can you help me?” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “help me”. Richtig heißt es: “Can you help me?” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "How do you ask for help?",
+     "tip": "In German the verb comes late. In English “help” comes right after “you”: “Can you help me?”",
+     "caption": "How do you ask for help? Wrong: “Can you me help?” Right: “Can you help me?” Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_then_went",
+   "lang": "de",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Then I went, not went I!",
+    "wrong": "Then went I home.",
+    "right": "Then I went home.",
+    "strike": "went I",
+    "why": "Put I before went.",
+    "memory": "Then I went.",
+    "quiz": {
+     "stem": "Then ___ home.",
+     "options": [
+      "went I",
+      "I went"
+     ],
+     "answer": 1
+    },
+    "answer_say": "I went! Then I went home.",
+    "native": {
+     "hook": "„Dann ging ich“ ≠ „went I“!",
+     "tip": "Im Deutschen steht nach „dann“ das Verb vorn: „Dann ging ich“. Im Englischen bleibt „I“ vorn: „Then I went“.",
+     "caption": "Sagen Sie „Then went I“? 🔄 Falsch: “Then went I home.” Richtig: “Then I went home.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “I went”. Richtig heißt es: “Then I went home.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Dann ging ich” is not “went I”!",
+     "tip": "German puts the verb first after “dann”. English keeps “I” first: “Then I went home.”",
+     "caption": "“Dann ging ich” is not “went I”! Wrong: “Then went I home.” Right: “Then I went home.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_in_english",
+   "lang": "de",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "In English, not on English!",
+    "wrong": "How do you say it on English?",
+    "right": "How do you say it in English?",
+    "strike": "on",
+    "why": "Say in English.",
+    "memory": "In English.",
+    "quiz": {
+     "stem": "How do you say it ___ English?",
+     "options": [
+      "in",
+      "on"
+     ],
+     "answer": 0
+    },
+    "answer_say": "In! How do you say it in English?",
+    "native": {
+     "hook": "„Auf Englisch“ heißt „in“!",
+     "tip": "Im Deutschen sagen Sie „auf Englisch“, deshalb hört man oft „on English“. Im Englischen heißt es „in English“.",
+     "caption": "Sagen Sie „on English“? 💬 Falsch: “How do you say it on English?” Richtig: “How do you say it in English?” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “in”. Richtig heißt es: “How do you say it in English?” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Auf Englisch” is “in English”!",
+     "tip": "German says “auf Englisch”, so many say “on English”. In English it is “in English”.",
+     "caption": "“Auf Englisch” is “in English”! Wrong: “How do you say it on English?” Right: “How do you say it in English?” Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_on_monday",
+   "lang": "de",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "On Monday, not at Monday!",
+    "wrong": "See you at Monday.",
+    "right": "See you on Monday.",
+    "strike": "at",
+    "why": "Days need on.",
+    "memory": "On Monday.",
+    "quiz": {
+     "stem": "See you ___ Monday.",
+     "options": [
+      "at",
+      "on"
+     ],
+     "answer": 1
+    },
+    "answer_say": "On! See you on Monday.",
+    "native": {
+     "hook": "„Am Montag“ heißt „on“!",
+     "tip": "Bei „am Montag“ denken viele an „at“. Im Englischen heißt es „on Monday“.",
+     "caption": "Sagen Sie „at Monday“? 📅 Falsch: “See you at Monday.” Richtig: “See you on Monday.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “on”. Richtig heißt es: “See you on Monday.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Am Montag” is “on Monday”!",
+     "tip": "“Am” makes many think of “at”. In English you say “on Monday”.",
+     "caption": "“Am Montag” is “on Monday”! Wrong: “See you at Monday.” Right: “See you on Monday.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_take_break",
+   "lang": "de",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Take a break, not make!",
+    "wrong": "I make a break.",
+    "right": "I take a break.",
+    "strike": "make",
+    "why": "Say take a break.",
+    "memory": "Take a break.",
+    "quiz": {
+     "stem": "Let's ___ a break.",
+     "options": [
+      "take",
+      "make"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Take! Let's take a break.",
+    "native": {
+     "hook": "„Pause machen“ ≠ „make“!",
+     "tip": "„Pause machen“ klingt nach „make a break“. Im Englischen sagen Sie „take a break“.",
+     "caption": "Sagen Sie „make a break“? ☕ Falsch: “I make a break.” Richtig: “I take a break.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “take”. Richtig heißt es: “I take a break.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Pause machen” is “take a break”!",
+     "tip": "“Pause machen” sounds like “make a break”. In English you say “take a break”.",
+     "caption": "“Pause machen” is “take a break”! Wrong: “I make a break.” Right: “I take a break.” Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_what_time",
+   "lang": "de",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Not how late, what time!",
+    "wrong": "How late is it?",
+    "right": "What time is it?",
+    "strike": "How late",
+    "why": "Ask what time.",
+    "memory": "What time?",
+    "quiz": {
+     "stem": "___ is it? Look at the clock.",
+     "options": [
+      "How late",
+      "What time"
+     ],
+     "answer": 1
+    },
+    "answer_say": "What time! What time is it?",
+    "native": {
+     "hook": "„Wie spät ist es?“ auf Englisch?",
+     "tip": "„Wie spät“ heißt Wort für Wort „how late“. Im Englischen fragen Sie „What time is it?“",
+     "caption": "Wie fragen Sie nach der Uhrzeit? ⏰ Falsch: “How late is it?” Richtig: “What time is it?” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “What time”. Richtig heißt es: “What time is it?” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Wie spät ist es?” in English?",
+     "tip": "“Wie spät” word for word is “how late”. In English you ask “What time is it?”",
+     "caption": "“Wie spät ist es?” in English? Wrong: “How late is it?” Right: “What time is it?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_tell_me",
+   "lang": "de",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Tell me, not say me!",
+    "wrong": "Say me the truth.",
+    "right": "Tell me the truth.",
+    "strike": "Say",
+    "why": "Use tell with me.",
+    "memory": "Tell me.",
+    "quiz": {
+     "stem": "Please ___ me your name.",
+     "options": [
+      "tell",
+      "say"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Tell! Please tell me your name.",
+    "native": {
+     "hook": "„Sag mir“ heißt „tell me“!",
+     "tip": "Das deutsche „sagen“ passt hier nicht: Im Englischen heißt es „tell me“, nicht „say me“.",
+     "caption": "Sagen Sie „say me“ statt „tell me“? 🗣️ Falsch: “Say me the truth.” Richtig: “Tell me the truth.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “tell”. Richtig heißt es: “Tell me the truth.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Sag mir” is “tell me”!",
+     "tip": "German “sagen” does not fit here. In English it is “tell me”, not “say me”.",
+     "caption": "“Sag mir” is “tell me”! Wrong: “Say me the truth.” Right: “Tell me the truth.” Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_comma_that",
+   "lang": "de",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Nothing between think and that!",
+    "wrong": "I think, that you are right.",
+    "right": "I think that you are right.",
+    "strike": "think,",
+    "why": "Write that right after think, with nothing between.",
+    "memory": "No comma before that.",
+    "quiz": {
+     "stem": "Which one is right?",
+     "options": [
+      "I think, that you are right.",
+      "I think that you are right."
+     ],
+     "answer": 1
+    },
+    "answer_say": "The second one! I think that you are right.",
+    "native": {
+     "hook": "Kein Komma vor „that“!",
+     "tip": "Im Deutschen steht vor „dass“ ein Komma. Im Englischen schreiben Sie „I think that“ ohne Komma.",
+     "caption": "Setzen Sie ein Komma vor „that“? ✍️ Falsch: “I think, that you are right.” Richtig: “I think that you are right.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Richtig heißt es: “I think that you are right.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "No comma before “that”!",
+     "tip": "German uses a comma before “dass.” In English you write “I think that” without a comma.",
+     "caption": "No comma before “that”! Wrong: “I think, that you are right.” Right: “I think that you are right.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_participle_end",
+   "lang": "de",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Read comes after have!",
+    "wrong": "I have the book read.",
+    "right": "I have read the book.",
+    "strike": "book read",
+    "why": "Put read after have.",
+    "memory": "Have read.",
+    "quiz": {
+     "stem": "Which one is right?",
+     "options": [
+      "I have read the book.",
+      "I have the book read."
+     ],
+     "answer": 0
+    },
+    "answer_say": "The first one! I have read the book.",
+    "native": {
+     "hook": "Wohin kommt „read“?",
+     "tip": "Im Deutschen steht „gelesen“ am Ende. Im Englischen steht „read“ direkt nach „have“.",
+     "caption": "Wie sagen Sie „Ich habe das Buch gelesen“? 📖 Falsch: “I have the book read.” Richtig: “I have read the book.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Richtig heißt es: “I have read the book.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Where does “read” go?",
+     "tip": "German puts “gelesen” at the end. English puts “read” right after “have”.",
+     "caption": "Where does “read” go? Wrong: “I have the book read.” Right: “I have read the book.” Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_friend_of_mine",
+   "lang": "de",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "A friend of mine!",
+    "wrong": "He is a friend of me.",
+    "right": "He is a friend of mine.",
+    "strike": "me",
+    "why": "Say of mine.",
+    "memory": "Of mine.",
+    "quiz": {
+     "stem": "She is a friend of ___.",
+     "options": [
+      "me",
+      "mine"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Mine! She is a friend of mine.",
+    "native": {
+     "hook": "„Ein Freund von mir“ ≠ „of me“!",
+     "tip": "Im Deutschen sagen Sie „ein Freund von mir“. Im Englischen heißt es „a friend of mine“.",
+     "caption": "Sagen Sie „a friend of me“? 👫 Falsch: “He is a friend of me.” Richtig: “He is a friend of mine.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “mine”. Richtig heißt es: “He is a friend of mine.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Von mir” is “of mine”!",
+     "tip": "German says “von mir”. In English it is “a friend of mine”.",
+     "caption": "“Von mir” is “of mine”! Wrong: “He is a friend of me.” Right: “He is a friend of mine.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_live_with",
+   "lang": "de",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Live with, not live by!",
+    "wrong": "I live by my parents.",
+    "right": "I live with my parents.",
+    "strike": "by",
+    "why": "Say live with.",
+    "memory": "Live with.",
+    "quiz": {
+     "stem": "I live ___ my parents.",
+     "options": [
+      "with",
+      "by"
+     ],
+     "answer": 0
+    },
+    "answer_say": "With! I live with my parents.",
+    "native": {
+     "hook": "„Bei den Eltern“ heißt „with“!",
+     "tip": "In „Ich wohne bei meinen Eltern“ heißt „bei“ im Englischen „with“, nicht „by“.",
+     "caption": "Wohnen Sie „by“ Ihren Eltern? 🏡 Falsch: “I live by my parents.” Richtig: “I live with my parents.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “with”. Richtig heißt es: “I live with my parents.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Bei” here is “with”!",
+     "tip": "In “Ich wohne bei meinen Eltern”, “bei” is “with”, not “by”.",
+     "caption": "“Bei” here is “with”! Wrong: “I live by my parents.” Right: “I live with my parents.” Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_find_it",
+   "lang": "de",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "A pen is it, not him!",
+    "wrong": "I lost my pen. I cannot find him.",
+    "right": "I lost my pen. I cannot find it.",
+    "strike": "him",
+    "why": "Things are it.",
+    "memory": "Things: it.",
+    "quiz": {
+     "stem": "Where is my pen? I cannot find ___.",
+     "options": [
+      "him",
+      "it"
+     ],
+     "answer": 1
+    },
+    "answer_say": "It! I cannot find it.",
+    "native": {
+     "hook": "Ein Stift ist „it“, nicht „him“!",
+     "tip": "Im Deutschen sagen Sie „Ich finde ihn nicht“. Im Englischen sind Dinge normalerweise „it“, nicht „him“.",
+     "caption": "Suchen Sie Ihren Stift? Finden Sie „ihn“? 🖊️ Falsch: “I lost my pen. I cannot find him.” Richtig: “I lost my pen. I cannot find it.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “it”. Richtig heißt es: “I lost my pen. I cannot find it.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "A pen is “it”, not “him”!",
+     "tip": "German says “Ich finde ihn nicht” for a pen. In English a thing is normally “it”.",
+     "caption": "A pen is “it”, not “him”! Wrong: “I lost my pen. I cannot find him.” Right: “I lost my pen. I cannot find it.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_must_not",
+   "lang": "de",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Do not have to, not must not!",
+    "wrong": "You must not bring a gift.",
+    "right": "You do not have to bring a gift.",
+    "strike": "must not",
+    "why": "Not needed? Say do not have to.",
+    "memory": "Do not have to.",
+    "quiz": {
+     "stem": "You ___ bring a gift. It is not needed.",
+     "options": [
+      "do not have to",
+      "must not"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Do not have to! You do not have to bring a gift.",
+    "native": {
+     "hook": "„Nicht müssen“ ≠ „must not“!",
+     "tip": "„Sie müssen nicht kommen“ heißt „You do not have to come“. „Must not“ bedeutet „nicht dürfen“.",
+     "caption": "Sagen Sie „must not“ für „nicht müssen“? 🎁 Falsch: “You must not bring a gift.” Richtig: “You do not have to bring a gift.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “do not have to”. Richtig heißt es: “You do not have to bring a gift.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Nicht müssen” is not “must not”!",
+     "tip": "“Nicht müssen” is “do not have to”. “Must not” means “nicht dürfen”.",
+     "caption": "“Nicht müssen” is not “must not”! Wrong: “You must not bring a gift.” Right: “You do not have to bring a gift.” Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_married_to",
+   "lang": "de",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Married to, not with!",
+    "wrong": "Anna is married with Ali.",
+    "right": "Anna is married to Ali.",
+    "strike": "with",
+    "why": "Say married to.",
+    "memory": "Married to.",
+    "quiz": {
+     "stem": "Anna is married ___ Ali.",
+     "options": [
+      "with",
+      "to"
+     ],
+     "answer": 1
+    },
+    "answer_say": "To! Anna is married to Ali.",
+    "native": {
+     "hook": "„Verheiratet mit“ heißt „to“!",
+     "tip": "„Verheiratet mit“ klingt nach „with“. Im Englischen sagen Sie „married to“.",
+     "caption": "Sagen Sie „married with“? 💍 Falsch: “Anna is married with Ali.” Richtig: “Anna is married to Ali.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “to”. Richtig heißt es: “Anna is married to Ali.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Verheiratet mit” is “married to”!",
+     "tip": "“Verheiratet mit” sounds like “with”. In English you say “married to”.",
+     "caption": "“Verheiratet mit” is “married to”! Wrong: “Anna is married with Ali.” Right: “Anna is married to Ali.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_smell_like",
+   "lang": "de",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Smell like, not smell after!",
+    "wrong": "It smells after coffee here.",
+    "right": "It smells like coffee here.",
+    "strike": "after",
+    "why": "Say smells like.",
+    "memory": "Smells like.",
+    "quiz": {
+     "stem": "It smells ___ coffee here.",
+     "options": [
+      "like",
+      "after"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Like! It smells like coffee here.",
+    "native": {
+     "hook": "„Riechen nach“ heißt „smell like“!",
+     "tip": "„Es riecht nach Kaffee“ heißt nicht „smells after“. Im Englischen sagen Sie „smells like“.",
+     "caption": "Sagen Sie „smells after“? ☕ Falsch: “It smells after coffee here.” Richtig: “It smells like coffee here.” „Riechen nach“ ist „smell like“. Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “like”. Richtig heißt es: “It smells like coffee here.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Riechen nach” is “smell like”!",
+     "tip": "“Es riecht nach Kaffee” is not “smells after.” In English you say “smells like.”",
+     "caption": "“Riechen nach” is “smell like”! Wrong: “It smells after coffee here.” Right: “It smells like coffee here.” Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_proud_of",
+   "lang": "de",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Proud of, not proud on!",
+    "wrong": "I am proud on my son.",
+    "right": "I am proud of my son.",
+    "strike": "on",
+    "why": "Say proud of.",
+    "memory": "Proud of.",
+    "quiz": {
+     "stem": "She is proud ___ her work.",
+     "options": [
+      "on",
+      "of"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Of! She is proud of her work.",
+    "native": {
+     "hook": "„Stolz auf“ heißt „proud of“!",
+     "tip": "„Stolz auf“ klingt nach „on“. Im Englischen heißt es „proud of“.",
+     "caption": "Sind Sie „proud on“ Ihren Sohn? 😊 Falsch: “I am proud on my son.” Richtig: “I am proud of my son.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “of”. Richtig heißt es: “I am proud of my son.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Stolz auf” is “proud of”!",
+     "tip": "“Auf” makes many say “proud on”. In English it is “proud of”.",
+     "caption": "“Stolz auf” is “proud of”! Wrong: “I am proud on my son.” Right: “I am proud of my son.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_factory",
+   "lang": "de",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Not fabric, say factory!",
+    "wrong": "He works in a fabric.",
+    "right": "He works in a factory.",
+    "strike": "fabric",
+    "why": "A fabric is cloth.",
+    "memory": "Factory.",
+    "quiz": {
+     "stem": "My dad works in a ___.",
+     "options": [
+      "factory",
+      "fabric"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Factory! My dad works in a factory.",
+    "native": {
+     "hook": "„Fabrik“ ist nicht „fabric“!",
+     "tip": "„Fabrik“ heißt im Englischen „factory“. „Fabric“ ist ein Stoff.",
+     "caption": "Arbeiten Sie in einer „fabric“ statt „factory“? 🏭 Falsch: “He works in a fabric.” Richtig: “He works in a factory.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “factory”. Richtig heißt es: “He works in a factory.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Fabrik” is not “fabric”!",
+     "tip": "“Fabrik” is “factory” in English. “Fabric” means cloth.",
+     "caption": "“Fabrik” is not “fabric”! Wrong: “He works in a fabric.” Right: “He works in a factory.” Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_become_get",
+   "lang": "de",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Get a coffee, not become!",
+    "wrong": "I will become a coffee.",
+    "right": "I will get a coffee.",
+    "strike": "become",
+    "why": "Say get.",
+    "memory": "Get a coffee.",
+    "quiz": {
+     "stem": "I will ___ a coffee.",
+     "options": [
+      "become",
+      "get"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Get! I will get a coffee.",
+    "native": {
+     "hook": "„Bekommen“ ist nicht „become“!",
+     "tip": "„Bekommen“ klingt nach „become“, heißt aber „get“. Das englische „become“ bedeutet „werden“.",
+     "caption": "Heißt „bekommen“ auf Englisch „become“? ☕ Falsch: “I will become a coffee.” Richtig: “I will get a coffee.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “get”. Richtig heißt es: “I will get a coffee.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Bekommen” is “get”!",
+     "tip": "“Bekommen” looks like “become”, but it is “get”. English “become” means “werden”.",
+     "caption": "“Bekommen” is “get”! Wrong: “I will become a coffee.” Right: “I will get a coffee.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_what_does_mean",
+   "lang": "de",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "What does it mean?",
+    "wrong": "What means this word?",
+    "right": "What does this word mean?",
+    "strike": "means",
+    "why": "Use does and mean.",
+    "memory": "What does it mean?",
+    "quiz": {
+     "stem": "What ___ this word mean?",
+     "options": [
+      "does",
+      "means"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Does! What does this word mean?",
+    "native": {
+     "hook": "„Was bedeutet das?“ auf Englisch?",
+     "tip": "Im Deutschen fragen Sie: „Was bedeutet das Wort?“ Im Englischen brauchen Sie „does“ und „mean“.",
+     "caption": "Wie fragen Sie nach einem Wort? 🤔 Falsch: “What means this word?” Richtig: “What does this word mean?” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “does”. Richtig heißt es: “What does this word mean?” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Was bedeutet das?” in English?",
+     "tip": "German asks: “Was bedeutet das Wort?” English needs “does” and “mean”.",
+     "caption": "“Was bedeutet das?” in English? Wrong: “What means this word?” Right: “What does this word mean?” Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_like_to",
+   "lang": "de",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Like to, not gladly!",
+    "wrong": "I swim gladly.",
+    "right": "I like to swim.",
+    "strike": "gladly",
+    "why": "Say like to.",
+    "memory": "Like to.",
+    "quiz": {
+     "stem": "I ___ in summer.",
+     "options": [
+      "swim gladly",
+      "like to swim"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Like to swim! I like to swim in summer.",
+    "native": {
+     "hook": "„Gerne“ ist nicht „gladly“!",
+     "tip": "Im Deutschen sagen Sie „Ich schwimme gerne“. Im Englischen sagen Sie „I like to swim“, nicht „gladly“.",
+     "caption": "Schwimmen Sie „gladly“? 🏊 Falsch: “I swim gladly.” Richtig: “I like to swim.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “like to swim”. Richtig heißt es: “I like to swim.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Gerne” is not “gladly”!",
+     "tip": "German says “Ich schwimme gerne”. English says “I like to swim”, not “gladly”.",
+     "caption": "“Gerne” is not “gladly”! Wrong: “I swim gladly.” Right: “I like to swim.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_same_as",
+   "lang": "de",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "The same as, not same like!",
+    "wrong": "I have the same bag like you.",
+    "right": "I have the same bag as you.",
+    "strike": "like",
+    "why": "Say the same as.",
+    "memory": "The same as.",
+    "quiz": {
+     "stem": "She has the same bag ___ me.",
+     "options": [
+      "as",
+      "like"
+     ],
+     "answer": 0
+    },
+    "answer_say": "As! She has the same bag as me.",
+    "native": {
+     "hook": "„Das Gleiche wie“ = „same as“!",
+     "tip": "„Wie“ ist oft „like“. Aber nach „the same“ heißt „wie“ im Englischen „as“.",
+     "caption": "Sagen Sie „the same like“? 👜 Falsch: “I have the same bag like you.” Richtig: “I have the same bag as you.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “as”. Richtig heißt es: “I have the same bag as you.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Wie” after “same” is “as”!",
+     "tip": "“Wie” is often “like”. But after “the same” it is “as”.",
+     "caption": "“Wie” after “same” is “as”! Wrong: “I have the same bag like you.” Right: “I have the same bag as you.” Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_in_my_opinion",
+   "lang": "de",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "In my opinion, not after!",
+    "wrong": "After my opinion, it is good.",
+    "right": "In my opinion, it is good.",
+    "strike": "After",
+    "why": "Say in my opinion.",
+    "memory": "In my opinion.",
+    "quiz": {
+     "stem": "___ my opinion, it is good.",
+     "options": [
+      "After",
+      "In"
+     ],
+     "answer": 1
+    },
+    "answer_say": "In! In my opinion, it is good.",
+    "native": {
+     "hook": "„Nach meiner Meinung“ ≠ „after“!",
+     "tip": "Im Deutschen heißt es „nach meiner Meinung“. Im Englischen sagen Sie „in my opinion“, nicht „after“.",
+     "caption": "Sagen Sie „after my opinion“? 💭 Falsch: “After my opinion, it is good.” Richtig: “In my opinion, it is good.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “In”. Richtig heißt es: “In my opinion, it is good.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Nach” here is “in”, not “after”!",
+     "tip": "German says “nach meiner Meinung”. In English you say “in my opinion”, not “after”.",
+     "caption": "“Nach” here is “in”, not “after”! Wrong: “After my opinion, it is good.” Right: “In my opinion, it is good.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_on_vacation",
+   "lang": "de",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "On vacation, not in!",
+    "wrong": "I am in vacation.",
+    "right": "I am on vacation.",
+    "strike": "in",
+    "why": "Say on vacation.",
+    "memory": "On vacation.",
+    "quiz": {
+     "stem": "We are ___ vacation.",
+     "options": [
+      "on",
+      "in"
+     ],
+     "answer": 0
+    },
+    "answer_say": "On! We are on vacation.",
+    "native": {
+     "hook": "„Im Urlaub“ heißt „on vacation“!",
+     "tip": "„Im Urlaub“ klingt nach „in“. Im Englischen sagen Sie „on vacation“.",
+     "caption": "Sind Sie „in vacation“? 🏖️ Falsch: “I am in vacation.” Richtig: “I am on vacation.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “on”. Richtig heißt es: “I am on vacation.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Im Urlaub” is “on vacation”!",
+     "tip": "“Im Urlaub” sounds like “in”. In English you say “on vacation”.",
+     "caption": "“Im Urlaub” is “on vacation”! Wrong: “I am in vacation.” Right: “I am on vacation.” Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_bald_soon",
+   "lang": "de",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Say soon, not bald!",
+    "wrong": "I will call you bald.",
+    "right": "I will call you soon.",
+    "strike": "bald",
+    "why": "Bald means no hair.",
+    "memory": "Soon.",
+    "quiz": {
+     "stem": "See you ___!",
+     "options": [
+      "bald",
+      "soon"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Soon! See you soon!",
+    "native": {
+     "hook": "„Bald“ heißt „soon“!",
+     "tip": "Das deutsche „bald“ heißt im Englischen „soon“. Das englische „bald“ bedeutet „kahl“.",
+     "caption": "Sagen Sie „bald“ statt „soon“? 👋 Falsch: “I will call you bald.” Richtig: “I will call you soon.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “soon”. Richtig heißt es: “I will call you soon.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Bald” is “soon”!",
+     "tip": "German “bald” is “soon” in English. English “bald” means “kahl”.",
+     "caption": "The German word bald means soon in English! Wrong: “I will call you bald.” Right: “I will call you soon.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_on_foot",
+   "lang": "de",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "By bus, not with the bus!",
+    "wrong": "I go to work with the bus.",
+    "right": "I go to work by bus.",
+    "strike": "with the",
+    "why": "Say by bus.",
+    "memory": "By bus.",
+    "quiz": {
+     "stem": "I go to work ___ bus.",
+     "options": [
+      "by",
+      "with the"
+     ],
+     "answer": 0
+    },
+    "answer_say": "By! I go to work by bus.",
+    "native": {
+     "hook": "„Mit dem Bus“ = „by bus“!",
+     "tip": "Im Deutschen sagen wir „mit dem Bus“. Im Englischen sagen Sie „by bus“, ohne „the“.",
+     "caption": "Sagen Sie „with the bus“? 🚌 Falsch: “I go to work with the bus.” Richtig: “I go to work by bus.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “by”. Richtig heißt es: “I go to work by bus.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Mit dem Bus” is “by bus”!",
+     "tip": "German says “mit dem Bus.” English says “by bus,” with no “the.”",
+     "caption": "“Mit dem Bus” is “by bus”! Wrong: “I go to work with the bus.” Right: “I go to work by bus.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_children",
+   "lang": "de",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Add do to the question!",
+    "wrong": "Have you children?",
+    "right": "Do you have children?",
+    "strike": "Have you",
+    "why": "Say do you have.",
+    "memory": "Do you have.",
+    "quiz": {
+     "stem": "Which one is right?",
+     "options": [
+      "Have you children?",
+      "Do you have children?"
+     ],
+     "answer": 1
+    },
+    "answer_say": "The second one! Do you have children?",
+    "native": {
+     "hook": "Fragen mit „Do“ bilden!",
+     "tip": "Im Deutschen sagen Sie „Haben Sie Kinder?“ Im Englischen steht „Do“ vor der Frage.",
+     "caption": "Fragen Sie wie im Deutschen? 👶 Falsch: “Have you children?” Richtig: “Do you have children?” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Richtig heißt es: “Do you have children?” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Make questions with “Do”!",
+     "tip": "In German you say “Haben Sie Kinder?” In English “Do” comes before the question.",
+     "caption": "Make questions with “Do”! Wrong: “Have you children?” Right: “Do you have children?” Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_note_grade",
+   "lang": "de",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Use grade for school!",
+    "wrong": "I got a bad note in math.",
+    "right": "I got a bad grade in math.",
+    "strike": "note",
+    "why": "Grade is a school result.",
+    "memory": "A bad grade.",
+    "quiz": {
+     "stem": "I got a good ___ in math.",
+     "options": [
+      "grade",
+      "note"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Grade! I got a good grade.",
+    "native": {
+     "hook": "Schulnote? Sagen Sie „grade“!",
+     "tip": "Das englische „note“ heißt „Notiz“. Eine Schulnote heißt „grade“.",
+     "caption": "Sagen Sie bei Schulnoten „note“? 📚 Falsch: “I got a bad note in math.” Richtig: “I got a bad grade in math.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “grade”. Richtig heißt es: “I got a bad grade in math.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "School note? Say grade!",
+     "tip": "English “note” means “Notiz”. A school “Note” is a “grade”.",
+     "caption": "School note? Say grade! Wrong: “I got a bad note in math.” Right: “I got a bad grade in math.” Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_checks_ticket",
+   "lang": "de",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "He checks my ticket!",
+    "wrong": "The man controls my ticket.",
+    "right": "The man checks my ticket.",
+    "strike": "controls",
+    "why": "Check means look to see if it is OK.",
+    "memory": "He checks it.",
+    "quiz": {
+     "stem": "The man ___ my ticket.",
+     "options": [
+      "controls",
+      "checks"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Checks! The man checks my ticket.",
+    "native": {
+     "hook": "„Kontrollieren“ ≠ „control“",
+     "tip": "„Kontrollieren“ klingt wie „control“. Aber „control“ heißt „steuern“. Zum Prüfen sagen Sie „check“.",
+     "caption": "Prüft jemand Ihre Fahrkarte? 🎫 Falsch: “The man controls my ticket.” Richtig: “The man checks my ticket.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “checks”. Richtig heißt es: “The man checks my ticket.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Kontrollieren” is not control!",
+     "tip": "“Kontrollieren” sounds like “control”. But “control” means “steuern”. To look at something, say “check”.",
+     "caption": "“Kontrollieren” is not control! Wrong: “The man controls my ticket.” Right: “The man checks my ticket.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_life_short",
+   "lang": "de",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Life is short!",
+    "wrong": "The life is short.",
+    "right": "Life is short.",
+    "strike": "The life",
+    "why": "Life in general needs no the.",
+    "memory": "Life is short.",
+    "quiz": {
+     "stem": "___ is short.",
+     "options": [
+      "Life",
+      "The life"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Life! Life is short.",
+    "native": {
+     "hook": "Kein „the“ vor „life“!",
+     "tip": "Im Deutschen sagen wir „Das Leben ist kurz.“ Im Englischen sagen Sie allgemein nur „Life is short.“",
+     "caption": "Sagen Sie „the life“? 🌍 Falsch: “The life is short.” Richtig: “Life is short.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “Life”. Richtig heißt es: “Life is short.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Do not say “the” before life!",
+     "tip": "German says “Das Leben ist kurz.” In English, life in general needs no “the.”",
+     "caption": "Do not say “the” before life! Wrong: “The life is short.” Right: “Life is short.” Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_at_work",
+   "lang": "de",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "I am at work now!",
+    "wrong": "I am at the work now.",
+    "right": "I am at work now.",
+    "strike": "the work",
+    "why": "At work is a fixed phrase.",
+    "memory": "At work.",
+    "quiz": {
+     "stem": "I am ___ now.",
+     "options": [
+      "at the work",
+      "at work"
+     ],
+     "answer": 1
+    },
+    "answer_say": "At work! I am at work now.",
+    "native": {
+     "hook": "„Bei der Arbeit“: „at work“",
+     "tip": "Im Deutschen sagen wir „bei der Arbeit“ mit „der“. Im Englischen heißt es „at work“ ohne „the“.",
+     "caption": "Sagen Sie „at the work“? 💼 Falsch: “I am at the work now.” Richtig: “I am at work now.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “at work”. Richtig heißt es: “I am at work now.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "No “the” in “at work”!",
+     "tip": "German says “bei der Arbeit” with “der”. English says “at work” without “the”.",
+     "caption": "No “the” in “at work”! Wrong: “I am at the work now.” Right: “I am at work now.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_dream_of",
+   "lang": "de",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "I dream of a big house!",
+    "wrong": "I often dream from a big house.",
+    "right": "I often dream of a big house.",
+    "strike": "from",
+    "why": "Dream goes with of.",
+    "memory": "Dream of.",
+    "quiz": {
+     "stem": "I often dream ___ a big house.",
+     "options": [
+      "of",
+      "from"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Of! I often dream of a big house.",
+    "native": {
+     "hook": "„Träumen von“ = „dream of“!",
+     "tip": "Im Deutschen sagen wir „träumen von“. Im Englischen heißt es „dream of“, nicht „from“.",
+     "caption": "Sagen Sie „dream from“? 💭 Falsch: “I often dream from a big house.” Richtig: “I often dream of a big house.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “of”. Richtig heißt es: “I often dream of a big house.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "German “von” is “of” here!",
+     "tip": "German says “träumen von.” In English it is “dream of,” not “from.”",
+     "caption": "German “von” is “of” here! Wrong: “I often dream from a big house.” Right: “I often dream of a big house.” Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_think_about",
+   "lang": "de",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "I think about you!",
+    "wrong": "I often think on my family.",
+    "right": "I often think about my family.",
+    "strike": "on",
+    "why": "Think goes with about.",
+    "memory": "Think about.",
+    "quiz": {
+     "stem": "I often think ___ my family.",
+     "options": [
+      "on",
+      "about"
+     ],
+     "answer": 1
+    },
+    "answer_say": "About! I often think about my family.",
+    "native": {
+     "hook": "„Denken an“ ≠ „think on“",
+     "tip": "Im Deutschen sagen wir „denken an“, darum sagen viele „on“. Im Englischen heißt es „think about“.",
+     "caption": "Sagen Sie „think on“? 💭 Falsch: “I often think on my family.” Richtig: “I often think about my family.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “about”. Richtig heißt es: “I often think about my family.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "German “an” is not “on” here!",
+     "tip": "German says “denken an”, so many say “think on”. In English you say “think about”.",
+     "caption": "German “an” is not “on” here! Wrong: “I often think on my family.” Right: “I often think about my family.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_forward_seeing",
+   "lang": "de",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "I look forward to seeing you!",
+    "wrong": "I look forward to see you.",
+    "right": "I look forward to seeing you.",
+    "strike": "see",
+    "why": "Say seeing after look forward to.",
+    "memory": "Look forward to seeing.",
+    "quiz": {
+     "stem": "I look forward to ___ you.",
+     "options": [
+      "seeing",
+      "see"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Seeing! I look forward to seeing you.",
+    "native": {
+     "hook": "„Look forward to“ + -ing!",
+     "tip": "„to“ ist hier kein Infinitiv-„zu“. Nach „look forward to“ steht die -ing-Form: „to seeing“, nicht „to see“.",
+     "caption": "Sagen Sie „look forward to see“? 😊 Falsch: “I look forward to see you.” Richtig: “I look forward to seeing you.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “seeing”. Richtig heißt es: “I look forward to seeing you.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Say “look forward to seeing”!",
+     "tip": "Here “to” is not like German “zu.” After “look forward to,” say “seeing,” not “see.”",
+     "caption": "Say “look forward to seeing”! Wrong: “I look forward to see you.” Right: “I look forward to seeing you.” Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_for_two_years",
+   "lang": "de",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "I have lived here for two years!",
+    "wrong": "I have lived here since two years.",
+    "right": "I have lived here for two years.",
+    "strike": "since",
+    "why": "Use for with a length of time.",
+    "memory": "For two years.",
+    "quiz": {
+     "stem": "I have lived here ___ two years.",
+     "options": [
+      "for",
+      "since"
+     ],
+     "answer": 0
+    },
+    "answer_say": "For! I have lived here for two years.",
+    "native": {
+     "hook": "„Seit zwei Jahren“ = „for“!",
+     "tip": "Im Deutschen sagen wir „seit zwei Jahren“. Bei einer Zeitdauer heißt es im Englischen „for“, nicht „since“.",
+     "caption": "Sagen Sie „since two years“? ⏰ Falsch: “I have lived here since two years.” Richtig: “I have lived here for two years.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “for”. Richtig heißt es: “I have lived here for two years.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "German “seit” can be “for”!",
+     "tip": "German says “seit zwei Jahren.” For a length of time, English says “for,” not “since.”",
+     "caption": "German “seit” can be “for”! Wrong: “I have lived here since two years.” Right: “I have lived here for two years.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_often_order",
+   "lang": "de",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "I often go to the movies!",
+    "wrong": "I go often to the movies.",
+    "right": "I often go to the movies.",
+    "strike": "go often",
+    "why": "Often comes before the verb.",
+    "memory": "I often go.",
+    "quiz": {
+     "stem": "I ___ to the movies.",
+     "options": [
+      "often go",
+      "go often"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Often go! I often go to the movies.",
+    "native": {
+     "hook": "„Ich gehe oft“ ≠ „go often“",
+     "tip": "Im Deutschen steht „oft“ nach dem Verb: „Ich gehe oft ins Kino.“ Im Englischen steht „often“ vor dem Verb.",
+     "caption": "Sagen Sie „I go often“? 🎬 Falsch: “I go often to the movies.” Richtig: “I often go to the movies.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “often go”. Richtig heißt es: “I often go to the movies.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Move the word before the verb!",
+     "tip": "German puts “oft” after the verb. English puts “often” before the verb.",
+     "caption": "Move the word before the verb! Wrong: “I go often to the movies.” Right: “I often go to the movies.” Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_not_a_good_idea",
+   "lang": "de",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "That is not a good idea!",
+    "wrong": "This is no good idea.",
+    "right": "This is not a good idea.",
+    "strike": "no",
+    "why": "Say not a before good idea.",
+    "memory": "Not a good idea.",
+    "quiz": {
+     "stem": "This is ___ good idea.",
+     "options": [
+      "no",
+      "not a"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Not a! This is not a good idea.",
+    "native": {
+     "hook": "„Keine gute Idee“ auf Englisch",
+     "tip": "Im Deutschen verneinen wir mit „keine gute Idee“. Im Englischen sagen Sie „not a good idea“.",
+     "caption": "Sagen Sie „no good idea“? 💡 Falsch: “This is no good idea.” Richtig: “This is not a good idea.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “not a”. Richtig heißt es: “This is not a good idea.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Say “not a good idea”!",
+     "tip": "German says “keine gute Idee”. In English you say “not a good idea”.",
+     "caption": "Say “not a good idea”! Wrong: “This is no good idea.” Right: “This is not a good idea.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_not_anymore",
+   "lang": "de",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "I am not tired anymore!",
+    "wrong": "I am not more tired.",
+    "right": "I am not tired anymore.",
+    "strike": "not more",
+    "why": "Anymore goes at the end.",
+    "memory": "Not anymore.",
+    "quiz": {
+     "stem": "I am not tired ___.",
+     "options": [
+      "anymore",
+      "more"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Anymore! I am not tired anymore.",
+    "native": {
+     "hook": "„Nicht mehr“ ≠ „not more“",
+     "tip": "Im Deutschen sagen wir „nicht mehr müde“. Im Englischen steht „anymore“ am Ende: „not tired anymore“.",
+     "caption": "Sagen Sie „not more“? 😴 Falsch: “I am not more tired.” Richtig: “I am not tired anymore.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “anymore”. Richtig heißt es: “I am not tired anymore.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Nicht mehr” is “not anymore”!",
+     "tip": "German says “nicht mehr müde”. English says “not tired anymore” with “anymore” at the end.",
+     "caption": "“Nicht mehr” is “not anymore”! Wrong: “I am not more tired.” Right: “I am not tired anymore.” Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_recipe",
+   "lang": "de",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "A recipe for a cake!",
+    "wrong": "Can I have the receipt for this cake?",
+    "right": "Can I have the recipe for this cake?",
+    "strike": "receipt",
+    "why": "Recipe is the word for cooking.",
+    "memory": "A recipe.",
+    "quiz": {
+     "stem": "Can I have the ___ for this cake?",
+     "options": [
+      "recipe",
+      "receipt"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Recipe! Can I have the recipe for this cake?",
+    "native": {
+     "hook": "„Rezept“ heißt „recipe“!",
+     "tip": "„Receipt“ ist ein Kassenbon. Ein Kochrezept heißt „recipe“.",
+     "caption": "Sagen Sie „receipt“? 🍰 Falsch: “Can I have the receipt for this cake?” Richtig: “Can I have the recipe for this cake?” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “recipe”. Richtig heißt es: “Can I have the recipe for this cake?” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "A cooking “Rezept” is a “recipe”!",
+     "tip": "A “receipt” is from a store. A cooking “Rezept” is a “recipe.”",
+     "caption": "A cooking “Rezept” is a “recipe”! Wrong: “Can I have the receipt for this cake?” Right: “Can I have the recipe for this cake?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_get_up",
+   "lang": "de",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "I get up at six!",
+    "wrong": "I stand up at six every day.",
+    "right": "I get up at six every day.",
+    "strike": "stand up",
+    "why": "Get up means leave your bed.",
+    "memory": "Get up.",
+    "quiz": {
+     "stem": "I ___ at six every day.",
+     "options": [
+      "get up",
+      "stand up"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Get up! I get up at six every day.",
+    "native": {
+     "hook": "„Aufstehen“ ≠ „stand up“",
+     "tip": "Im Deutschen heißt „aufstehen“ auch „aus dem Bett kommen“. Im Englischen sagen Sie dafür „get up“.",
+     "caption": "Sagen Sie „stand up“ für „aufstehen“? ⏰ Falsch: “I stand up at six every day.” Richtig: “I get up at six every day.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “get up”. Richtig heißt es: “I get up at six every day.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Aufstehen” from bed is “get up”!",
+     "tip": "German “aufstehen” also means leaving your bed. In English you say “get up” for that.",
+     "caption": "“Aufstehen” from bed is “get up”! Wrong: “I stand up at six every day.” Right: “I get up at six every day.” Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_teach_me",
+   "lang": "de",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "She teaches me English!",
+    "wrong": "She learns me English.",
+    "right": "She teaches me English.",
+    "strike": "learns",
+    "why": "Teach means give lessons.",
+    "memory": "She teaches me.",
+    "quiz": {
+     "stem": "She ___ me English.",
+     "options": [
+      "learns",
+      "teaches"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Teaches! She teaches me English.",
+    "native": {
+     "hook": "Lehrer „teach“, Schüler „learn“",
+     "tip": "Umgangssprachlich sagen viele „Ich lerne dir das“. Im Englischen heißt es: Lehrer „teach“, Schüler „learn“.",
+     "caption": "Wer gibt den Unterricht? 🎓 Falsch: “She learns me English.” Richtig: “She teaches me English.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “teaches”. Richtig heißt es: “She teaches me English.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Teachers teach, students learn!",
+     "tip": "Some Germans say “Ich lerne dir das”. In English, teachers “teach” and students “learn”.",
+     "caption": "Teachers teach, students learn! Wrong: “She learns me English.” Right: “She teaches me English.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_lend_me",
+   "lang": "de",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Can you lend me a pen?",
+    "wrong": "Can you borrow me a pen?",
+    "right": "Can you lend me a pen?",
+    "strike": "borrow",
+    "why": "Lend means give for a short time.",
+    "memory": "Lend me a pen.",
+    "quiz": {
+     "stem": "Can you ___ me a pen?",
+     "options": [
+      "lend",
+      "borrow"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Lend! Can you lend me a pen?",
+    "native": {
+     "hook": "„Leihen“ hat zwei Wörter",
+     "tip": "Im Deutschen heißt „leihen“ geben und nehmen. Im Englischen geben Sie mit „lend“ und nehmen mit „borrow“.",
+     "caption": "Brauchen Sie einen Stift? ✏️ Falsch: “Can you borrow me a pen?” Richtig: “Can you lend me a pen?” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “lend”. Richtig heißt es: “Can you lend me a pen?” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Leihen” has two English words!",
+     "tip": "German “leihen” means both giving and taking. English uses “lend” for giving and “borrow” for taking.",
+     "caption": "“Leihen” has two English words! Wrong: “Can you borrow me a pen?” Right: “Can you lend me a pen?” Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_nice_to_meet",
+   "lang": "de",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Nice to meet you!",
+    "wrong": "Nice to know you.",
+    "right": "Nice to meet you.",
+    "strike": "know",
+    "why": "Meet is for the first time.",
+    "memory": "Nice to meet you.",
+    "quiz": {
+     "stem": "Nice to ___ you.",
+     "options": [
+      "know",
+      "meet"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Meet! Nice to meet you.",
+    "native": {
+     "hook": "„Kennenlernen“ = „meet“",
+     "tip": "Im Deutschen sagen wir „Schön, Sie kennenzulernen.“ Im Englischen sagen Sie „Nice to meet you“, nicht „know“.",
+     "caption": "Sagen Sie „Nice to know you“? 🤝 Falsch: “Nice to know you.” Richtig: “Nice to meet you.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “meet”. Richtig heißt es: “Nice to meet you.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Kennenlernen” is “meet”!",
+     "tip": "German says “Schön, Sie kennenzulernen.” English says “Nice to meet you”, not “know”.",
+     "caption": "“Kennenlernen” is “meet”! Wrong: “Nice to know you.” Right: “Nice to meet you.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_take_me",
+   "lang": "de",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Take me to the station!",
+    "wrong": "Can you bring me to the station?",
+    "right": "Can you take me to the station?",
+    "strike": "bring",
+    "why": "Use take when you go away from here.",
+    "memory": "Take me there.",
+    "quiz": {
+     "stem": "Can you ___ me to the station?",
+     "options": [
+      "take",
+      "bring"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Take! Can you take me to the station?",
+    "native": {
+     "hook": "„Bringen“ ist nicht immer „bring“",
+     "tip": "Im Deutschen sagen wir „Können Sie mich zum Bahnhof bringen?“ Im Englischen sagen Sie „take“, wenn es von hier weggeht.",
+     "caption": "Sagen Sie „bring me“ für „bringen“? 🚉 Falsch: “Can you bring me to the station?” Richtig: “Can you take me to the station?” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “take”. Richtig heißt es: “Can you take me to the station?” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Bringen” can be “take”!",
+     "tip": "German says “bringen” both ways. English says “take” when you go away and “bring” when you come here.",
+     "caption": "“Bringen” can be “take”! Wrong: “Can you bring me to the station?” Right: “Can you take me to the station?” Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_brochure",
+   "lang": "de",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "A brochure for the hotel!",
+    "wrong": "Can I have a prospect for the hotel?",
+    "right": "Can I have a brochure for the hotel?",
+    "strike": "prospect",
+    "why": "A brochure is a small paper book.",
+    "memory": "A brochure.",
+    "quiz": {
+     "stem": "Can I have a ___ for the hotel?",
+     "options": [
+      "prospect",
+      "brochure"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Brochure! Can I have a brochure for the hotel?",
+    "native": {
+     "hook": "„Prospekt“ heißt „brochure“!",
+     "tip": "Ein „Prospekt“ heißt im Englischen „brochure“. „Prospect“ bedeutet „Aussicht“.",
+     "caption": "Sagen Sie „prospect“? 🏨 Falsch: “Can I have a prospect for the hotel?” Richtig: “Can I have a brochure for the hotel?” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “brochure”. Richtig heißt es: “Can I have a brochure for the hotel?” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "A “Prospekt” is a “brochure”!",
+     "tip": "A “Prospekt” is a “brochure” in English. “Prospect” means “Aussicht.”",
+     "caption": "A “Prospekt” is a “brochure”! Wrong: “Can I have a prospect for the hotel?” Right: “Can I have a brochure for the hotel?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_decimal_dot",
+   "lang": "de",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Use a point for cents!",
+    "wrong": "It costs $2,50.",
+    "right": "It costs $2.50.",
+    "strike": "2,50",
+    "why": "English uses a point for cents.",
+    "memory": "Point for cents.",
+    "quiz": {
+     "stem": "It costs ___.",
+     "options": [
+      "$2.50",
+      "$2,50"
+     ],
+     "answer": 0
+    },
+    "answer_say": "A point! It costs $2.50.",
+    "native": {
+     "hook": "Punkt statt Komma bei Preisen!",
+     "tip": "Im Deutschen schreiben wir „2,50“ mit Komma. Im Englischen steht ein Punkt: „2.50“.",
+     "caption": "Schreiben Sie Preise mit Komma? 💲 Falsch: “It costs $2,50.” Richtig: “It costs $2.50.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “$2.50”. Richtig heißt es: “It costs $2.50.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "English prices use a point!",
+     "tip": "German writes “2,50” with a comma. English writes “2.50” with a point.",
+     "caption": "English prices use a point! Wrong: “It costs $2,50.” Right: “It costs $2.50.” Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_small_letters",
+   "lang": "de",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Write dog with a small d!",
+    "wrong": "I have a Dog and a Cat.",
+    "right": "I have a dog and a cat.",
+    "strike": "Dog",
+    "why": "Most words start with a small letter.",
+    "memory": "A dog, a cat.",
+    "quiz": {
+     "stem": "I have a ___.",
+     "options": [
+      "Dog",
+      "dog"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Dog with a small d! I have a dog.",
+    "native": {
+     "hook": "Nomen klein schreiben!",
+     "tip": "Im Deutschen schreiben wir alle Nomen groß. Im Englischen schreiben Sie sie klein, außer Namen, Sprachen, Wochentagen und Monaten.",
+     "caption": "Schreiben Sie „Dog“ und „Cat“ groß? ✍️ Falsch: “I have a Dog and a Cat.” Richtig: “I have a dog and a cat.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “dog”. Richtig heißt es: “I have a dog and a cat.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "English nouns use small letters!",
+     "tip": "German writes all nouns with a capital letter. English uses small letters, except for names, languages, days and months.",
+     "caption": "English nouns use small letters! Wrong: “I have a Dog and a Cat.” Right: “I have a dog and a cat.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_double_d",
+   "lang": "de",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Address has a double d!",
+    "wrong": "What is your adress?",
+    "right": "What is your address?",
+    "strike": "adress",
+    "why": "Address has a double d and a double s.",
+    "memory": "Two d, two s.",
+    "quiz": {
+     "stem": "What is your ___?",
+     "options": [
+      "address",
+      "adress"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Address! What is your address?",
+    "native": {
+     "hook": "„Address“ mit zwei „d“",
+     "tip": "Im Deutschen schreiben wir „Adresse“ mit einem „d“. Im Englischen schreiben Sie „address“ mit zwei „d“ und zwei „s“.",
+     "caption": "Schreiben Sie „adress“? 📬 Falsch: “What is your adress?” Richtig: “What is your address?” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “address”. Richtig heißt es: “What is your address?” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "English “address” has two d’s!",
+     "tip": "German writes “Adresse” with one “d”. English writes “address” with two “d” and two “s”.",
+     "caption": "English “address” has two d’s! Wrong: “What is your adress?” Right: “What is your address?” Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_kind_regards",
+   "lang": "de",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "End with kind regards!",
+    "wrong": "Thank you. With friendly greetings.",
+    "right": "Thank you. Kind regards.",
+    "strike": "With friendly greetings",
+    "why": "Kind regards is the usual end.",
+    "memory": "Kind regards.",
+    "quiz": {
+     "stem": "Thank you. ___.",
+     "options": [
+      "With friendly greetings",
+      "Kind regards"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Kind regards! Thank you. Kind regards.",
+    "native": {
+     "hook": "So enden E-Mails auf Englisch!",
+     "tip": "Im Deutschen enden E-Mails mit „Mit freundlichen Grüßen“. Im Englischen schreiben Sie „Kind regards“ oder „Best regards“.",
+     "caption": "Wie enden Sie eine E-Mail? ✉️ Falsch: “Thank you. With friendly greetings.” Richtig: “Thank you. Kind regards.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “Kind regards”. Richtig heißt es: “Thank you. Kind regards.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "This is how emails end in English!",
+     "tip": "German emails end with “Mit freundlichen Grüßen”. English emails end with “Kind regards” or “Best regards”.",
+     "caption": "This is how emails end in English! Wrong: “Thank you. With friendly greetings.” Right: “Thank you. Kind regards.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_would_like_pay",
+   "lang": "de",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "I would like to pay, please.",
+    "wrong": "I want to pay, please.",
+    "right": "I would like to pay, please.",
+    "strike": "want",
+    "why": "Would like sounds polite.",
+    "memory": "I would like.",
+    "quiz": {
+     "stem": "I ___ to pay, please.",
+     "options": [
+      "would like",
+      "want"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Would like! I would like to pay, please.",
+    "native": {
+     "hook": "„Ich möchte“ = „I would like“",
+     "tip": "Im Deutschen sagen wir „Ich möchte zahlen.“ Viele übersetzen „möchte“ mit „want“, aber das klingt hart. Besser ist „would like“.",
+     "caption": "Möchten Sie höflich die Rechnung verlangen? 💳 Falsch: “I want to pay, please.” Richtig: “I would like to pay, please.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “would like”. Richtig heißt es: “I would like to pay, please.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "German “möchte” is “would like”!",
+     "tip": "German says “Ich möchte zahlen.” Many say “want” in English, but it sounds hard. “Would like” is more polite.",
+     "caption": "German “möchte” is “would like”! Wrong: “I want to pay, please.” Right: “I would like to pay, please.” Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_sorry_not_please",
+   "lang": "de",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Sorry? I did not hear you.",
+    "wrong": "Please? I did not hear you.",
+    "right": "Sorry? I did not hear you.",
+    "strike": "Please",
+    "why": "Use sorry when you did not hear.",
+    "memory": "Sorry?",
+    "quiz": {
+     "stem": "___? I did not hear you.",
+     "options": [
+      "Please",
+      "Sorry"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Sorry is right! Sorry? I did not hear you.",
+    "native": {
+     "hook": "„Bitte?“ ≠ „Please?“",
+     "tip": "Im Deutschen fragen wir „Bitte?“, wenn wir etwas nicht gehört haben. Im Englischen sagen Sie dann „Sorry?“.",
+     "caption": "Haben Sie etwas nicht gehört? 👂 Falsch: “Please? I did not hear you.” Richtig: “Sorry? I did not hear you.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “Sorry”. Richtig heißt es: “Sorry? I did not hear you.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Bitte?” is “Sorry?” here!",
+     "tip": "German says “Bitte?” when you did not hear. English says “Sorry?” in that case.",
+     "caption": "“Bitte?” is “Sorry?” here! Wrong: “Please? I did not hear you.” Right: “Sorry? I did not hear you.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_how_is_it_going",
+   "lang": "de",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "How is it going?",
+    "wrong": "How goes it?",
+    "right": "How is it going?",
+    "strike": "goes it",
+    "why": "Ask with is and going here.",
+    "memory": "How is it going?",
+    "quiz": {
+     "stem": "How ___?",
+     "options": [
+      "is it going",
+      "goes it"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Right! How is it going?",
+    "native": {
+     "hook": "„Wie geht’s?“ ≠ „How goes it?“",
+     "tip": "Aus „Wie geht’s?“ wird im Englischen nicht „How goes it?“, sondern „How is it going?“",
+     "caption": "Fragen Sie „How goes it?“ 👋 Falsch: “How goes it?” Richtig: “How is it going?” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “is it going”. Richtig heißt es: “How is it going?” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "German “geht” becomes “is going”!",
+     "tip": "German says “Wie geht’s?” with “geht”. English says “How is it going?”",
+     "caption": "German “geht” becomes “is going”! Wrong: “How goes it?” Right: “How is it going?” Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_wait_for",
+   "lang": "de",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "It depends on the weather!",
+    "wrong": "It depends from the weather.",
+    "right": "It depends on the weather.",
+    "strike": "from",
+    "why": "Say depend on.",
+    "memory": "Depend on.",
+    "quiz": {
+     "stem": "It depends ___ the weather.",
+     "options": [
+      "on",
+      "from"
+     ],
+     "answer": 0
+    },
+    "answer_say": "On! It depends on the weather.",
+    "native": {
+     "hook": "„Abhängen von“ = „depend on“!",
+     "tip": "Im Deutschen sagen wir „abhängen von“. Im Englischen heißt es „depend on“, nicht „from“.",
+     "caption": "Sagen Sie „depend from“? 🌦️ Merken Sie sich “depend on”. Falsch: “It depends from the weather.” Richtig: “It depends on the weather.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “on”. Richtig heißt es: “It depends on the weather.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Abhängen von” is “depend on”!",
+     "tip": "German says “abhängen von.” English says “depend on,” not “from.”",
+     "caption": "“Abhängen von” is “depend on”! Wrong: “It depends from the weather.” Right: “It depends on the weather.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_look_forward_to",
+   "lang": "de",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "I look forward to the weekend!",
+    "wrong": "I am looking forward on the weekend.",
+    "right": "I am looking forward to the weekend.",
+    "strike": "on",
+    "why": "Use to after look forward.",
+    "memory": "Look forward to it.",
+    "quiz": {
+     "stem": "I am looking forward ___ the weekend.",
+     "options": [
+      "to",
+      "on"
+     ],
+     "answer": 0
+    },
+    "answer_say": "To! I am looking forward to the weekend.",
+    "native": {
+     "hook": "„Look forward“ braucht „to“!",
+     "tip": "Im Deutschen sagen wir „sich freuen auf“. Im Englischen sagen Sie „look forward to“, nicht „look forward on“.",
+     "caption": "Sagen Sie „look forward on“? 🎉 Merken Sie sich “look forward to”. Falsch: “I am looking forward on the weekend.” Richtig: “I am looking forward to the weekend.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “to”. Richtig heißt es: “I am looking forward to the weekend.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Say “look forward to”!",
+     "tip": "German says “sich freuen auf.” English says “look forward to,” not “look forward on.”",
+     "caption": "Say “look forward to”! Wrong: “I am looking forward on the weekend.” Right: “I am looking forward to the weekend.” Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_how_much_time",
+   "lang": "de",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "How much time do you need?",
+    "wrong": "How much time need you?",
+    "right": "How much time do you need?",
+    "strike": "need you",
+    "why": "Questions need do before you.",
+    "memory": "How much time do you need?",
+    "quiz": {
+     "stem": "How much time ___?",
+     "options": [
+      "do you need",
+      "need you"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Do you need! How much time do you need?",
+    "native": {
+     "hook": "Fragen mit „do“ bilden!",
+     "tip": "Im Deutschen sagen wir „Wie viel Zeit brauchen Sie?“ Im Englischen braucht die Frage „do“ vor „you“.",
+     "caption": "Fragen Sie „How much time need you?“ ⏰ Falsch: “How much time need you?” Richtig: “How much time do you need?” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “do you need”. Richtig heißt es: “How much time do you need?” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Questions need “do”!",
+     "tip": "German says “Wie viel Zeit brauchen Sie?” English needs “do” before “you.”",
+     "caption": "Questions need “do”! Wrong: “How much time need you?” Right: “How much time do you need?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_do_sports",
+   "lang": "de",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Play sports, not make sports!",
+    "wrong": "I make sports every day.",
+    "right": "I play sports every day.",
+    "strike": "make",
+    "why": "Say play sports.",
+    "memory": "Play sports.",
+    "quiz": {
+     "stem": "I ___ sports every day.",
+     "options": [
+      "play",
+      "make"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Play! I play sports every day.",
+    "native": {
+     "hook": "„Sport machen“ = „play sports“!",
+     "tip": "Im Deutschen sagen wir „Sport machen“. Im Englischen sagen Sie „play sports“, nicht „make sports“.",
+     "caption": "Sagen Sie „make sports“? ⚽ Falsch: “I make sports every day.” Richtig: “I play sports every day.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “play”. Richtig heißt es: “I play sports every day.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Say “play sports”!",
+     "tip": "German says “Sport machen.” English says “play sports,” not “make sports.”",
+     "caption": "Say “play sports”! Wrong: “I make sports every day.” Right: “I play sports every day.” Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_de_appointment_with",
+   "lang": "de",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "I have an appointment with my dentist.",
+    "wrong": "I have a date with my dentist.",
+    "right": "I have an appointment with my dentist.",
+    "strike": "a date",
+    "why": "A date is for a romantic meeting.",
+    "memory": "An appointment with a doctor.",
+    "quiz": {
+     "stem": "I have an ___ with my dentist.",
+     "options": [
+      "appointment",
+      "date"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Appointment! I have an appointment with my dentist.",
+    "native": {
+     "hook": "„Termin“ ist „appointment“!",
+     "tip": "Im Deutschen sagen wir „Termin“ beim Zahnarzt. Im Englischen heißt das „appointment“, nicht „date“.",
+     "caption": "Sagen Sie „date“ beim Arzt? 🦷 Falsch: “I have a date with my dentist.” Richtig: “I have an appointment with my dentist.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “appointment”. Richtig heißt es: “I have an appointment with my dentist.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+     "hashtags": [
+      "#englischlernen",
+      "#englischtipps",
+      "#sprachenlernen",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Doctor visit? Say appointment!",
+     "tip": "German says “Termin.” English says “appointment” for a doctor, not “date.”",
+     "caption": "Doctor visit? Say appointment! Wrong: “I have a date with my dentist.” Right: “I have an appointment with my dentist.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
   }
  ]
 }

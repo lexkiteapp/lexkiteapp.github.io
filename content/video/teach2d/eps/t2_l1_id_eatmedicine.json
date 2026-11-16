@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_eatmedicine",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Medicine? Take it!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I eat medicine at night.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I take medicine at night.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Medicine: take it.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Take! You must take medicine now.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I eat medicine at night.",
+  "right": "I take medicine at night.",
+  "strike": "eat",
+  "why": "Medicine: take it.",
+  "memory": "Take medicine.",
+  "quiz": {
+   "stem": "You must ___ medicine now.",
+   "options": [
+    "eat",
+    "take"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Makan obat” jadi “eat”?",
+   "tip": "Kita bilang “makan obat”, tapi bahasa Inggris pakai take medicine.",
+   "caption": "Pernah bilang begini? “I eat medicine at night.” 😅 Untuk obat, pakai take: “I take medicine at night.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “take”. Ucapkan dengan lantang: “I take medicine at night.” Lalu ganti night dengan morning. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#katasehari",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Makan obat” is “take”",
+   "tip": "We say “makan obat”, but English uses take medicine.",
+   "caption": "Ever say this? “I eat medicine at night.” 😅 For medicine, use take: “I take medicine at night.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Makan obat” jadi “eat”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "“Makan obat” jadi “eat”?",
+  "keyword": "I take medicine at night.",
+  "value": "Kita bilang “makan obat”, tapi bahasa Inggris pakai take medicine.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#katasehari",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "“Makan obat” jadi “eat”?",
+    "description": "Kita bilang “makan obat”, tapi bahasa Inggris pakai take medicine.\n\nPernah bilang begini? “I eat medicine at night.” 😅 Untuk obat, pakai take: “I take medicine at night.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #katasehari #bahasainggris #lexkite",
+    "tags": [
+     "I take medicine at night.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “I eat medicine at night.” 😅 Untuk obat, pakai take: “I take medicine at night.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Makan obat” jadi “eat”?\n\nKita bilang “makan obat”, tapi bahasa Inggris pakai take medicine.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#katasehari",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Makan obat” jadi “eat”? Kita bilang “makan obat”, tapi bahasa Inggris pakai take medicine. #belajarbahasainggris #katasehari #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “take”. Ucapkan dengan lantang: “I take medicine at night.” Lalu ganti night dengan morning. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

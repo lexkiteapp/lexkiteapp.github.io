@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_nicetomeet",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say nice to meet you!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am Anna. Please take care of me.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am Anna. Nice to meet you.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "That is how we greet.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Nice to meet you! Hello, I am Anna. Nice to meet you.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am Anna. Please take care of me.",
+  "right": "I am Anna. Nice to meet you.",
+  "strike": "Please take care of me",
+  "why": "That is how we greet.",
+  "memory": "Nice to meet you.",
+  "quiz": {
+   "stem": "Hello, I am Anna. ___.",
+   "options": [
+    "Please take care of me",
+    "Nice to meet you"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“잘 부탁해요”는 직역 금지!",
+   "tip": "한국어 “잘 부탁드립니다”를 Please take care of me로 직역하기 쉬워요. 처음 만났을 땐 Nice to meet you라고 해요. 이렇게 말해요 👉 “I am Anna. Nice to meet you.”",
+   "caption": "“I am Anna. Please take care of me.”처럼 말하고 있나요? 😅 한국어 “잘 부탁드립니다”를 Please take care of me로 직역하기 쉬워요. 처음 만났을 땐 Nice to meet you라고 해요. 맞는 문장 ✅ “I am Anna. Nice to meet you.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답: “Nice to meet you”! 이 표현을 넣어 소리 내어 한 문장 말해 보세요. 무료 퀴즈로 더 연습해요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do not copy it word for word!",
+   "tip": "When we meet someone new, we say nice to meet you. Say “I am Anna. Nice to meet you.”",
+   "caption": "Do you say it like this? 😅 “I am Anna. Please take care of me.” When we meet someone new, we say nice to meet you. Right: “I am Anna. Nice to meet you.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“잘 부탁해요”는 직역 금지!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 57,
+  "seconds": 33.5,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "“잘 부탁해요”는 직역 금지!",
+  "keyword": "I am Anna. Nice to meet you.",
+  "value": "한국어 “잘 부탁드립니다”를 Please take care of me로 직역하기 쉬워요. 처음 만났을 땐 Nice to meet you라고 해요. 이렇게 말해요 👉 “I am Anna. Nice to meet you.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 51,
+  "platforms": {
+   "youtube": {
+    "title": "“잘 부탁해요”는 직역 금지!",
+    "description": "한국어 “잘 부탁드립니다”를 Please take care of me로 직역하기 쉬워요. 처음 만났을 땐 Nice to meet you라고 해요. 이렇게 말해요 👉 “I am Anna. Nice to meet you.”\n\n“I am Anna. Please take care of me.”처럼 말하고 있나요? 😅 한국어 “잘 부탁드립니다”를 Please take care of me로 직역하기 쉬워요. 처음 만났을 땐 Nice to meet you라고 해요. 맞는 문장 ✅ “I am Anna. Nice to meet you.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "I am Anna. Nice to meet you.",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“I am Anna. Please take care of me.”처럼 말하고 있나요? 😅 한국어 “잘 부탁드립니다”를 Please take care of me로 직역하기 쉬워요. 처음 만났을 땐 Nice to meet you라고 해요. 맞는 문장 ✅ “I am Anna. Nice to meet you.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“잘 부탁해요”는 직역 금지!\n\n한국어 “잘 부탁드립니다”를 Please take care of me로 직역하기 쉬워요. 처음 만났을 땐 Nice to meet you라고 해요. 이렇게 말해요 👉 “I am Anna. Nice to meet you.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“잘 부탁해요”는 직역 금지! 한국어 “잘 부탁드립니다”를 Please take care of me로 직역하기 쉬워요. 처음 만났을 땐 Nice to meet you라고 해요. 이렇게 말해요 👉 “I am Anna. Nice to me… #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “Nice to meet you”! 이 표현을 넣어 소리 내어 한 문장 말해 보세요. 무료 퀴즈로 더 연습해요: {link}",
+  "lang": "ko"
+ }
+}

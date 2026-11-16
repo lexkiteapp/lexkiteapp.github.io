@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_newsis",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "News is one thing!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: The news are good.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: The news is good.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "News looks like many, but it is one.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Is! The news is sad.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "The news are good.",
+  "right": "The news is good.",
+  "strike": "are",
+  "why": "News looks like many, but it is one.",
+  "memory": "The news is good.",
+  "quiz": {
+   "stem": "The news ___ sad.",
+   "options": [
+    "are",
+    "is"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“The news are” गलत है!",
+   "tip": "हिंदी में “खबरें” बहुवचन है, इसलिए are याद आता है; अंग्रेज़ी में news के साथ is आता है।",
+   "caption": "क्या आप भी यही कहते हैं? “The news are good.” 😅 सही रूप है “The news is good.” क्योंकि news के साथ is आता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “is”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“The news are” is wrong!",
+   "tip": "Many learners say are because news looks like many, but news takes is.",
+   "caption": "Do you say this? “The news are good.” 😅 The right way is “The news is good.” This is right because news takes is. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“The news are” गलत है!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“The news are” गलत है!",
+  "keyword": "The news is good.",
+  "value": "हिंदी में “खबरें” बहुवचन है, इसलिए are याद आता है; अंग्रेज़ी में news के साथ is आता है।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "“The news are” गलत है!",
+    "description": "हिंदी में “खबरें” बहुवचन है, इसलिए are याद आता है; अंग्रेज़ी में news के साथ is आता है।\n\nक्या आप भी यही कहते हैं? “The news are good.” 😅 सही रूप है “The news is good.” क्योंकि news के साथ is आता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "The news is good.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी यही कहते हैं? “The news are good.” 😅 सही रूप है “The news is good.” क्योंकि news के साथ is आता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“The news are” गलत है!\n\nहिंदी में “खबरें” बहुवचन है, इसलिए are याद आता है; अंग्रेज़ी में news के साथ is आता है।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“The news are” गलत है! हिंदी में “खबरें” बहुवचन है, इसलिए are याद आता है; अंग्रेज़ी में news के साथ is… #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “is”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

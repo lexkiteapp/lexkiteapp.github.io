@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_also",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Start with so, not also!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Also, what do you think?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: So, what do you think?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Start with so.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "So! So, what do you think?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Also, what do you think?",
+  "right": "So, what do you think?",
+  "strike": "Also",
+  "why": "Start with so.",
+  "memory": "So, what do you think?",
+  "quiz": {
+   "stem": "___, what do you think?",
+   "options": [
+    "So",
+    "Also"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "„Also“ heißt „so“!",
+   "tip": "Das deutsche „also“ heißt im Englischen „so“. Das englische „also“ bedeutet „auch“.",
+   "caption": "Beginnen Sie Sätze mit „also“? 🤔 Falsch: “Also, what do you think?” Richtig: “So, what do you think?” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “So”. Richtig heißt es: “So, what do you think?” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "German “also” is “so”!",
+   "tip": "German “also” means “so” in English. English “also” means “auch”.",
+   "caption": "The German word also means so in English! Wrong: “Also, what do you think?” Right: “So, what do you think?” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "„Also“ heißt „so“!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "„Also“ heißt „so“!",
+  "keyword": "So, what do you think?",
+  "value": "Das deutsche „also“ heißt im Englischen „so“. Das englische „also“ bedeutet „auch“.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "„Also“ heißt „so“!",
+    "description": "Das deutsche „also“ heißt im Englischen „so“. Das englische „also“ bedeutet „auch“.\n\nBeginnen Sie Sätze mit „also“? 🤔 Falsch: “Also, what do you think?” Richtig: “So, what do you think?” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "So, what do you think?",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Beginnen Sie Sätze mit „also“? 🤔 Falsch: “Also, what do you think?” Richtig: “So, what do you think?” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "„Also“ heißt „so“!\n\nDas deutsche „also“ heißt im Englischen „so“. Das englische „also“ bedeutet „auch“.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "„Also“ heißt „so“! Das deutsche „also“ heißt im Englischen „so“. Das englische „also“ bedeutet „auch“. #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “So”. Richtig heißt es: “So, what do you think?” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

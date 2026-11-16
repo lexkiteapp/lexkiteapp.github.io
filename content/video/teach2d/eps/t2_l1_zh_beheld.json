@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_beheld",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say will be held!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: The party will hold on Friday.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: The party will be held on Friday.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "A party is held by people.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Be held! The meeting will be held at three.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "The party will hold on Friday.",
+  "right": "The party will be held on Friday.",
+  "strike": "will hold",
+  "why": "A party is held by people.",
+  "memory": "Be held on Friday.",
+  "quiz": {
+   "stem": "The meeting will ___ at three.",
+   "options": [
+    "hold",
+    "be held"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“将举行”要说 will be held！",
+   "tip": "中文说“聚会将举行”，不需要被动的标记。英语里活动是“被举行”的，要说 will be held。",
+   "caption": "你是不是也会说 “The party will hold on Friday.”😅 英语里活动是“被举行”的，要说 will be held：“The party will be held on Friday.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“The party will be held on Friday.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “will be held”!",
+   "tip": "An event is held by people, so use be held.",
+   "caption": "Do you say “The party will hold on Friday.” 😅 An event is held by people, so use be held: “The party will be held on Friday.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“将举行”要说 will be held！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "“将举行”要说 will be held！",
+  "keyword": "The party will be held on Friday.",
+  "value": "中文说“聚会将举行”，不需要被动的标记。英语里活动是“被举行”的，要说 will be held。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 46,
+  "platforms": {
+   "youtube": {
+    "title": "“将举行”要说 will be held！",
+    "description": "中文说“聚会将举行”，不需要被动的标记。英语里活动是“被举行”的，要说 will be held。\n\n你是不是也会说 “The party will hold on Friday.”😅 英语里活动是“被举行”的，要说 will be held：“The party will be held on Friday.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "The party will be held on Friday.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “The party will hold on Friday.”😅 英语里活动是“被举行”的，要说 will be held：“The party will be held on Friday.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“将举行”要说 will be held！\n\n中文说“聚会将举行”，不需要被动的标记。英语里活动是“被举行”的，要说 will be held。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“将举行”要说 will be held！ 中文说“聚会将举行”，不需要被动的标记。英语里活动是“被举行”的，要说 will be held。 #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“The party will be held on Friday.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

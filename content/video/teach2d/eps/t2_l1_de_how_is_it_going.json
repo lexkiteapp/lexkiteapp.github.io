@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_how_is_it_going",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "How is it going?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: How goes it?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: How is it going?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Ask with is and going here.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Right! How is it going?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "How goes it?",
+  "right": "How is it going?",
+  "strike": "goes it",
+  "why": "Ask with is and going here.",
+  "memory": "How is it going?",
+  "quiz": {
+   "stem": "How ___?",
+   "options": [
+    "is it going",
+    "goes it"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "„Wie geht’s?“ ≠ „How goes it?“",
+   "tip": "Aus „Wie geht’s?“ wird im Englischen nicht „How goes it?“, sondern „How is it going?“",
+   "caption": "Fragen Sie „How goes it?“ 👋 Falsch: “How goes it?” Richtig: “How is it going?” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “is it going”. Richtig heißt es: “How is it going?” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "German “geht” becomes “is going”!",
+   "tip": "German says “Wie geht’s?” with “geht”. English says “How is it going?”",
+   "caption": "German “geht” becomes “is going”! Wrong: “How goes it?” Right: “How is it going?” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "„Wie geht’s?“ ≠ „How goes it?“"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "„Wie geht’s?“ ≠ „How goes it?“",
+  "keyword": "How is it going?",
+  "value": "Aus „Wie geht’s?“ wird im Englischen nicht „How goes it?“, sondern „How is it going?“",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "„Wie geht’s?“ ≠ „How goes it?“",
+    "description": "Aus „Wie geht’s?“ wird im Englischen nicht „How goes it?“, sondern „How is it going?“\n\nFragen Sie „How goes it?“ 👋 Falsch: “How goes it?” Richtig: “How is it going?” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "How is it going?",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Fragen Sie „How goes it?“ 👋 Falsch: “How goes it?” Richtig: “How is it going?” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "„Wie geht’s?“ ≠ „How goes it?“\n\nAus „Wie geht’s?“ wird im Englischen nicht „How goes it?“, sondern „How is it going?“\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "„Wie geht’s?“ ≠ „How goes it?“ Aus „Wie geht’s?“ wird im Englischen nicht „How goes it?“, sondern „How… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “is it going”. Richtig heißt es: “How is it going?” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

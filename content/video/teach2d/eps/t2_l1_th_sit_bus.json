@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_sit_bus",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Take the bus, not sit the bus!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I sit the bus to work.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I take the bus to work.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say take for a bus or taxi.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Take! I take a taxi to the airport.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I sit the bus to work.",
+  "right": "I take the bus to work.",
+  "strike": "sit",
+  "why": "Say take for a bus or taxi.",
+  "memory": "Take the bus.",
+  "quiz": {
+   "stem": "I ___ a taxi to the airport.",
+   "options": [
+    "sit",
+    "take"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "รถเมล์ใช้ take ไม่ใช่ sit!",
+   "tip": "ไทยพูด “นั่งรถเมล์” แต่อังกฤษใช้ take กับรถ: “I take the bus to work”",
+   "caption": "คุณเคยพูดว่า “I sit the bus to work.” ไหม? 😅 ภาษาไทยพูดว่า “นั่งรถเมล์ไปทำงาน” แต่ภาษาอังกฤษใช้ take กับรถเมล์และแท็กซี่: “I take the bus to work.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “take” จำไว้ให้ดีนะ! ลองพูดประโยคนี้ออกเสียงดัง ๆ หนึ่งครั้ง แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “take the bus”!",
+   "tip": "Thai says sit on the bus, but English says take the bus: “I take the bus to work”",
+   "caption": "Do you say “I sit the bus to work”? 😅 Thai says sit on the bus, but English says take the bus. Say “I take the bus to work”! Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "รถเมล์ใช้ take ไม่ใช่ sit!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 54,
+  "seconds": 32.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "รถเมล์ใช้ take ไม่ใช่ sit!",
+  "keyword": "I take the bus to work.",
+  "value": "ไทยพูด “นั่งรถเมล์” แต่อังกฤษใช้ take กับรถ: “I take the bus to work”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 48,
+  "platforms": {
+   "youtube": {
+    "title": "รถเมล์ใช้ take ไม่ใช่ sit!",
+    "description": "ไทยพูด “นั่งรถเมล์” แต่อังกฤษใช้ take กับรถ: “I take the bus to work”\n\nคุณเคยพูดว่า “I sit the bus to work.” ไหม? 😅 ภาษาไทยพูดว่า “นั่งรถเมล์ไปทำงาน” แต่ภาษาอังกฤษใช้ take กับรถเมล์และแท็กซี่: “I take the bus to work.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "I take the bus to work.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “I sit the bus to work.” ไหม? 😅 ภาษาไทยพูดว่า “นั่งรถเมล์ไปทำงาน” แต่ภาษาอังกฤษใช้ take กับรถเมล์และแท็กซี่: “I take the bus to work.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "รถเมล์ใช้ take ไม่ใช่ sit!\n\nไทยพูด “นั่งรถเมล์” แต่อังกฤษใช้ take กับรถ: “I take the bus to work”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "รถเมล์ใช้ take ไม่ใช่ sit! ไทยพูด “นั่งรถเมล์” แต่อังกฤษใช้ take กับรถ: “I take the bus to work” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “take” จำไว้ให้ดีนะ! ลองพูดประโยคนี้ออกเสียงดัง ๆ หนึ่งครั้ง แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

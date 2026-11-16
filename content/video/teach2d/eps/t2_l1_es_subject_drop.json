@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_subject_drop",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Not “I am agree.” Say “I agree!”",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am agree with you.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I agree with you.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Agree already has the action. Do not add am.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Agree! I agree with you.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am agree with you.",
+  "right": "I agree with you.",
+  "strike": "am",
+  "why": "Agree already has the action. Do not add am.",
+  "memory": "I agree. No am.",
+  "quiz": {
+   "stem": "I ___ with you.",
+   "options": [
+    "am agree",
+    "agree"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Estoy de acuerdo” = “I agree”",
+   "tip": "En español decimos “estoy de acuerdo” con “estar”, pero en inglés “agree” ya es verbo: se dice “I agree”, sin “am”.",
+   "caption": "🙅 Error común: “I am agree with you.” En inglés no se usa “am” con “agree”: “I agree with you.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “agree”. En inglés “agree” va solo, sin “am”. Escribe una frase tuya con “I agree” o dila en voz alta: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#gramatica",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “I agree,” not “I am agree.”",
+   "tip": "In Spanish you say “estoy de acuerdo,” but in English “agree” is already a verb, so you say “I agree,” with no “am.”",
+   "caption": "Common mistake: “I am agree with you.” In English you do not use “am” with “agree”: “I agree with you.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Estoy de acuerdo” = “I agree”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“Estoy de acuerdo” = “I agree”",
+  "keyword": "I agree with you.",
+  "value": "En español decimos “estoy de acuerdo” con “estar”, pero en inglés “agree” ya es verbo: se dice “I agree”, sin “am”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#gramatica",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "“Estoy de acuerdo” = “I agree”",
+    "description": "En español decimos “estoy de acuerdo” con “estar”, pero en inglés “agree” ya es verbo: se dice “I agree”, sin “am”.\n\n🙅 Error común: “I am agree with you.” En inglés no se usa “am” con “agree”: “I agree with you.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #gramatica #lexkite",
+    "tags": [
+     "I agree with you.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "🙅 Error común: “I am agree with you.” En inglés no se usa “am” con “agree”: “I agree with you.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Estoy de acuerdo” = “I agree”\n\nEn español decimos “estoy de acuerdo” con “estar”, pero en inglés “agree” ya es verbo: se dice “I agree”, sin “am”.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#gramatica",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Estoy de acuerdo” = “I agree” En español decimos “estoy de acuerdo” con “estar”, pero en inglés “agree” ya e… #aprenderingles #inglesfacil #gramatica"
+   }
+  },
+  "first_comment": "Respuesta: “agree”. En inglés “agree” va solo, sin “am”. Escribe una frase tuya con “I agree” o dila en voz alta: {link}",
+  "lang": "es"
+ }
+}

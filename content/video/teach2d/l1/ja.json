@@ -1,1325 +1,3765 @@
 {
- "_note": "L1 ja: 33 clip rows (daily reels content lane); same schema as l1.json",
- "rows": [
-  {
-   "id": "t2_l1_ja_student",
-   "lang": "ja",
-   "teacher": "ama",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "A or no A?",
-    "wrong": "I am student.",
-    "right": "I am a student.",
-    "strike": "student",
-    "why": "Say a before a job word.",
-    "memory": "I am a student.",
-    "quiz": {
-     "stem": "He is ___.",
-     "options": [
-      "a teacher",
-      "teacher"
-     ],
-     "answer": 0
+  "_note": "L1 ja: 33 clip rows (daily reels content lane); same schema as l1.json",
+  "rows": [
+    {
+      "id": "t2_l1_ja_student",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "A or no A?",
+        "wrong": "I am student.",
+        "right": "I am a student.",
+        "strike": "student",
+        "why": "Say a before a job word.",
+        "memory": "I am a student.",
+        "quiz": {
+          "stem": "He is ___.",
+          "options": [
+            "a teacher",
+            "teacher"
+          ],
+          "answer": 0
+        },
+        "answer_say": "A teacher! He is a teacher.",
+        "native": {
+          "hook": "「I am student」と言ってない？",
+          "tip": "職業の前には a が必要。日本語にない「a」を忘れずに！",
+          "caption": "“I am student.”と言っていませんか？😅 日本語には冠詞がないので、つい抜けがち。職業の前には a をつけます。“I am a student.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“a”。a を入れて自然な英語に。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “I am student”?",
+          "tip": "Put a before a job word. It is easy to forget!",
+          "caption": "Do you say this? “I am student.” 😅 The little word a often goes missing. Put a before a job. The natural way is “I am a student.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
     },
-    "answer_say": "A teacher! He is a teacher.",
-    "native": {
-     "hook": "「I am student」と言ってない？",
-     "tip": "職業の前には a が必要。日本語にない「a」を忘れずに！",
-     "caption": "“I am student.”と言っていませんか？😅 日本語には冠詞がないので、つい抜けがち。職業の前には a をつけます。“I am a student.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
-     "comment": "答え：“a”。a を入れて自然な英語に。無料クイズで練習：{link}",
-     "hashtags": [
-      "#英語学習",
-      "#英会話",
-      "#英語勉強",
-      "#lexkite"
-     ]
+    {
+      "id": "t2_l1_ja_children",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Two child? Fix it!",
+        "wrong": "I have two child.",
+        "right": "I have two children.",
+        "strike": "child",
+        "why": "Child has a special plural: children.",
+        "memory": "I have two children.",
+        "quiz": {
+          "stem": "I have three ___.",
+          "options": [
+            "childs",
+            "children"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Children! I have three children.",
+        "native": {
+          "hook": "two child、複数形が抜けてない？",
+          "tip": "2つ以上なら複数形。child の複数形は children（childs ではない）。",
+          "caption": "“I have two child.”と言っていませんか？😅 数が2以上のときは名詞を複数形にします。child は特別で children になります。 “I have two children.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“children”。child の複数形は children。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Two child? Is the plural missing?",
+          "tip": "With two or more, use the plural. Child becomes children.",
+          "caption": "Do you say this? “I have two child.” 😅 With two or more, the noun must be plural. Child is special: children. The natural way is “I have two children.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
     },
-    "en": {
-     "hook": "Do you say “I am student”?",
-     "tip": "Put a before a job word. It is easy to forget!",
-     "caption": "Do you say this? “I am student.” 😅 The little word a often goes missing. Put a before a job. The natural way is “I am a student.” Listen to Ama and repeat! Practice more in the Lexkite app."
+    {
+      "id": "t2_l1_ja_saw",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Have seen yesterday? No!",
+        "wrong": "I have seen him yesterday.",
+        "right": "I saw him yesterday.",
+        "strike": "have seen",
+        "why": "With yesterday, use the simple past.",
+        "memory": "I saw him yesterday.",
+        "quiz": {
+          "stem": "I ___ him yesterday.",
+          "options": [
+            "saw",
+            "have seen"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Saw! I saw him yesterday.",
+        "native": {
+          "hook": "yesterday と have seen？注意！",
+          "tip": "「昨日」など過去の時を言うなら、過去形 saw を使います。",
+          "caption": "“I have seen him yesterday.”と言っていませんか？😅 yesterday のように過去の時がはっきりしているときは、現在完了ではなく過去形を使います。 “I saw him yesterday.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“saw”。yesterday には過去形。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Have seen with yesterday? Careful!",
+          "tip": "With a clear past time like yesterday, use the simple past.",
+          "caption": "Do you say this? “I have seen him yesterday.” 😅 With a clear past time such as yesterday, use the simple past, not the present perfect. The natural way is “I saw him yesterday.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_arrived",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Arrive: to or at?",
+        "wrong": "I arrived to the station.",
+        "right": "I arrived at the station.",
+        "strike": "to",
+        "why": "Arrive goes with at, not to.",
+        "memory": "I arrived at the station.",
+        "quiz": {
+          "stem": "I arrived ___ the station.",
+          "options": [
+            "at",
+            "to"
+          ],
+          "answer": 0
+        },
+        "answer_say": "At! I arrived at the station.",
+        "native": {
+          "hook": "「到着する」に to を使ってない？",
+          "tip": "arrive の後は場所なら at、都市なら in を使います。to は使いません。",
+          "caption": "“I arrived to the station.”と言っていませんか？😅 日本語の「に」につられて to を使いがち。arrive の後は at を使います。 “I arrived at the station.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“at”。arrive のあとは at か in。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you use to after “arrive”?",
+          "tip": "After arrive, use at for places or in for cities. Not to.",
+          "caption": "Do you say this? “I arrived to the station.” 😅 It is easy to use to, but after arrive you say at. The natural way is “I arrived at the station.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_mansion",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Mansion means a big house!",
+        "wrong": "My mansion is small.",
+        "right": "My apartment is small.",
+        "strike": "mansion",
+        "why": "A mansion is a very big house.",
+        "memory": "My apartment is small.",
+        "quiz": {
+          "stem": "I rent a small ___ near the station.",
+          "options": [
+            "mansion",
+            "apartment"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Apartment! I rent a small apartment.",
+        "native": {
+          "hook": "「マンション」は英語で通じない",
+          "tip": "英語の mansion は大豪邸。日本のマンションは apartment と言います。",
+          "caption": "“My mansion is small.”と言っていませんか？😅 英語の mansion は「大豪邸」のこと。日本でいうマンションは apartment（または condo）です。 “My apartment is small.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“apartment”。mansion は大豪邸のこと。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Is your home really a mansion?",
+          "tip": "A mansion is a huge house. A normal home in a building is an apartment.",
+          "caption": "Do you say this? “My mansion is small.” 😅 In English a mansion is a huge house. A normal home in a building is an apartment. The natural way is “My apartment is small.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_excited",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "High tension? Not quite!",
+        "wrong": "I am high tension today.",
+        "right": "I am so excited today.",
+        "strike": "high tension",
+        "why": "Say excited, not high tension.",
+        "memory": "I am so excited today.",
+        "quiz": {
+          "stem": "I am ___ about the trip.",
+          "options": [
+            "excited",
+            "high tension"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Excited! I am excited about the trip.",
+        "native": {
+          "hook": "「ハイテンション」は和製英語",
+          "tip": "tension は「緊張」の意味。盛り上がっているなら excited を使おう。",
+          "caption": "“I am high tension today.”と言っていませんか？😅 日本語の「ハイテンション」は和製英語です。英語の tension は緊張や不安のこと。元気なら excited と言います。 “I am so excited today.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“excited”。ハイテンションは和製英語。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "“High tension” is not English!",
+          "tip": "Tension means stress. When you feel full of energy, say excited.",
+          "caption": "Do you say this? “I am high tension today.” 😅 In English, tension means stress. When you feel full of energy, say excited. The natural way is “I am so excited today.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_mistake",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Make a mistake!",
+        "wrong": "I did a mistake.",
+        "right": "I made a mistake.",
+        "strike": "did",
+        "why": "We make a mistake, not do.",
+        "memory": "I made a mistake.",
+        "quiz": {
+          "stem": "I ___ a mistake.",
+          "options": [
+            "made",
+            "did"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Made! I made a mistake.",
+        "native": {
+          "hook": "mistake は do じゃなくて make",
+          "tip": "「間違える」は make a mistake。do は使いません。セットで覚えよう。",
+          "caption": "“I did a mistake.”と言っていませんか？😅 「間違いをする」を do で訳したくなりますが、英語では make a mistake がセットの言い方です。 “I made a mistake.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“made”。make a mistake で一つの表現。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Is it “do” a mistake? Not really!",
+          "tip": "Say make a mistake. Learn the two words together.",
+          "caption": "Do you say this? “I did a mistake.” 😅 Do feels right, but English says make a mistake as a set phrase. The natural way is “I made a mistake.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_foot",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "By walk? Use on foot!",
+        "wrong": "I go there by walk.",
+        "right": "I go there on foot.",
+        "strike": "by walk",
+        "why": "Say on foot for walking.",
+        "memory": "I go there on foot.",
+        "quiz": {
+          "stem": "I go to school ___ foot.",
+          "options": [
+            "on",
+            "by"
+          ],
+          "answer": 0
+        },
+        "answer_say": "On! I go to school on foot.",
+        "native": {
+          "hook": "「歩いて」は by walk じゃない",
+          "tip": "乗り物は by、歩きは on foot。決まったセットで言います。",
+          "caption": "“I go there by walk.”と言っていませんか？😅 電車は by train なので、歩きも by walk と言いたくなります。でも歩きは on foot が決まり文句です。 “I go there on foot.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“on”。歩きは on foot。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “by walk”?",
+          "tip": "For vehicles use by. For walking, say on foot.",
+          "caption": "Do you say this? “I go there by walk.” 😅 By train works, so by walk feels logical. But for walking the set phrase is on foot. The natural way is “I go there on foot.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_agree",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Agree is not a feeling!",
+        "wrong": "I am agree.",
+        "right": "I agree.",
+        "strike": "am agree",
+        "why": "Agree is a verb. No am.",
+        "memory": "I agree with you.",
+        "quiz": {
+          "stem": "I ___ with you.",
+          "options": [
+            "agree",
+            "am agree"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Agree! I agree with you.",
+        "native": {
+          "hook": "「I am agree」になってない？",
+          "tip": "agree は動詞なので be 動詞はいりません。I agree でOK！",
+          "caption": "“I am agree.”と言っていませんか？😅 日本語の「賛成だ」につられて am を入れがち。agree はそれだけで動詞なので、I agree と言います。 “I agree.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“agree”。be 動詞は不要です。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “I am agree”?",
+          "tip": "Agree is already a verb, so no am is needed. Just say I agree.",
+          "caption": "Do you say this? “I am agree.” 😅 It is easy to add am, but agree is a verb by itself. The natural way is “I agree.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_medicine",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Medicine: take it!",
+        "wrong": "I drank medicine.",
+        "right": "I took medicine.",
+        "strike": "drank",
+        "why": "We take medicine. We do not drink it.",
+        "memory": "I took medicine.",
+        "quiz": {
+          "stem": "I ___ medicine every day.",
+          "options": [
+            "take",
+            "drink"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Take! I take medicine every day.",
+        "native": {
+          "hook": "薬を「飲む」は drink じゃない",
+          "tip": "薬は「飲む」でも take を使います。drink は使いません。",
+          "caption": "“I drank medicine.”と言っていませんか？😅 「薬を飲む」をそのまま drink と訳しがちですが、英語では take medicine と言います。“I took medicine.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“take”。薬は take。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you “drink” your medicine?",
+          "tip": "Use take for medicine, not drink.",
+          "caption": "Do you say this? “I drank medicine.” 😅 English says take medicine. The natural way is “I took medicine.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_hard",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Start with It is hard!",
+        "wrong": "I am difficult to get up early.",
+        "right": "It is hard for me to get up early.",
+        "strike": "I am difficult",
+        "why": "Start with It: it is hard for me to...",
+        "memory": "It is hard for me to get up early.",
+        "quiz": {
+          "stem": "___ is hard for me to wake up.",
+          "options": [
+            "It",
+            "I"
+          ],
+          "answer": 0
+        },
+        "answer_say": "It! It is hard for me to wake up.",
+        "native": {
+          "hook": "「私は難しい」になってない？",
+          "tip": "「私は〜するのが難しい」は I am difficult ではなく It is hard for me to ~ の形で。",
+          "caption": "“I am difficult to get up early.”と言っていませんか？😅 「私は早起きが難しい」と主語を I にすると不自然に。difficult は物事に使うので、It を主語にします。 “It is hard for me to get up early.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“It”。It is hard for me to ～ の形を使おう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Is “I am difficult” your sentence?",
+          "tip": "For things that are hard for you, start with It is hard for me to...",
+          "caption": "Do you say this? “I am difficult to get up early.” 😅 Making I the subject sounds odd here. Start with It. The natural way is “It is hard for me to get up early.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_people",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "People are plural!",
+        "wrong": "People is very kind here.",
+        "right": "People are very kind here.",
+        "strike": "is",
+        "why": "People is plural. Use are.",
+        "memory": "People are very kind here.",
+        "quiz": {
+          "stem": "Many people ___ here.",
+          "options": [
+            "is",
+            "are"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Are! Many people are here.",
+        "native": {
+          "hook": "people は単数？複数？",
+          "tip": "people は複数扱い。is ではなく are を使います。",
+          "caption": "“People is very kind here.”と言っていませんか？😅 日本語では人数に関係なく同じ形ですが、英語の people は複数扱い。動詞は are になります。 “People are very kind here.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“are”。people は複数扱い。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Is “people” one or many?",
+          "tip": "People is plural. Use are, not is.",
+          "caption": "Do you say this? “People is very kind here.” 😅 People is plural, so the verb is are. The natural way is “People are very kind here.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_homework",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Homework has no s!",
+        "wrong": "I have many homeworks.",
+        "right": "I have a lot of homework.",
+        "strike": "many homeworks",
+        "why": "Homework has no plural.",
+        "memory": "I have a lot of homework.",
+        "quiz": {
+          "stem": "I have too much ___.",
+          "options": [
+            "homework",
+            "homeworks"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Homework! I have too much homework.",
+        "native": {
+          "hook": "homework に s をつけてない？",
+          "tip": "homework は数えられない名詞。s は付けず、a lot of で量を表します。",
+          "caption": "“I have many homeworks.”と言っていませんか？😅 homework は数えられない名詞なので、s は付けません。たくさんは many ではなく a lot of を使います。 “I have a lot of homework.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“homework”。数えられない名詞に s は不要。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you add s to homework?",
+          "tip": "Homework cannot be counted. No s. Say a lot of homework.",
+          "caption": "Do you say this? “I have many homeworks.” 😅 Homework is uncountable, so no s. For a large amount, use a lot of. The natural way is “I have a lot of homework.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_ate",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Yesterday needs past!",
+        "wrong": "I eat natto yesterday.",
+        "right": "I ate natto yesterday.",
+        "strike": "eat",
+        "why": "Past time needs a past verb.",
+        "memory": "I ate natto yesterday.",
+        "quiz": {
+          "stem": "Yesterday I ___ rice.",
+          "options": [
+            "ate",
+            "eat"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Ate! Yesterday I ate rice.",
+        "native": {
+          "hook": "過去の話なのに eat のまま？",
+          "tip": "昨日の話なら、英語は動詞を過去形に。eat → ate！",
+          "caption": "“I eat natto yesterday.”と言っていませんか？😅 yesterday があっても、英語では動詞そのものを過去形にします。eat の過去形は ate。“I ate natto yesterday.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“ate”。昨日の話は過去形。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Past story, but still “eat”?",
+          "tip": "English changes the verb for the past: eat becomes ate.",
+          "caption": "Do you say this? “I eat natto yesterday.” 😅 Yesterday is not enough. The verb itself must change: eat becomes ate. The natural way is “I ate natto yesterday.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_time",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "No a before time!",
+        "wrong": "I don't have a time.",
+        "right": "I don't have time.",
+        "strike": "a time",
+        "why": "Time here has no a.",
+        "memory": "I don't have time.",
+        "quiz": {
+          "stem": "Sorry, I don't have ___ today.",
+          "options": [
+            "a time",
+            "time"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Time! Sorry, I don't have time today.",
+        "native": {
+          "hook": "「時間がない」に a は不要",
+          "tip": "「時間」の意味の time は数えられない名詞。a は付けません。",
+          "caption": "“I don't have a time.”と言っていませんか？😅 「時間」という意味の time は数えられない名詞です。a は付けず、I don't have time と言います。 “I don't have time.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“time”。時間の time に a は不要。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “I don't have a time”?",
+          "tip": "Time meaning free time has no a. Say I don't have time.",
+          "caption": "Do you say this? “I don't have a time.” 😅 Time as free time is uncountable, so no a. The natural way is “I don't have time.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_taxi",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "In a taxi, on a train!",
+        "wrong": "I got on the taxi.",
+        "right": "I got in the taxi.",
+        "strike": "on",
+        "why": "Small cars use in. Big ones use on.",
+        "memory": "I got in the taxi.",
+        "quiz": {
+          "stem": "I got ___ the taxi.",
+          "options": [
+            "in",
+            "on"
+          ],
+          "answer": 0
+        },
+        "answer_say": "In! I got in the taxi.",
+        "native": {
+          "hook": "タクシーに「on」で乗ってない？",
+          "tip": "車・タクシーは in、電車・バスは on。乗り物の大きさで使い分けます。",
+          "caption": "“I got on the taxi.”と言っていませんか？😅 車やタクシーのような小さい乗り物は in、電車やバスのような大きい乗り物は on を使います。 “I got in the taxi.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“in”。車は in、電車は on。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you get “on” a taxi?",
+          "tip": "Use in for cars and taxis. Use on for trains and buses.",
+          "caption": "Do you say this? “I got on the taxi.” 😅 Small vehicles like cars and taxis use in. Big ones like trains and buses use on. The natural way is “I got in the taxi.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_pizza",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Very much goes at the end!",
+        "wrong": "I very like pizza.",
+        "right": "I like pizza very much.",
+        "strike": "very like",
+        "why": "Put very much after the thing.",
+        "memory": "I like pizza very much.",
+        "quiz": {
+          "stem": "Pick the right sentence.",
+          "options": [
+            "I like cats very much.",
+            "I very like cats."
+          ],
+          "answer": 0
+        },
+        "answer_say": "I like cats very much!",
+        "native": {
+          "hook": "「とても好き」は very like？",
+          "tip": "very は動詞の前に置けません。like ～ very much の順にします。",
+          "caption": "“I very like pizza.”と言っていませんか？😅 「とても好き」を I very like と言いたくなりますが、英語では very much を文の後ろに置きます。 “I like pizza very much.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“I like cats very much.” very much は後ろに置きます。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "“I very like”? Try another order!",
+          "tip": "Very cannot go before a verb. Say like it very much.",
+          "caption": "Do you say this? “I very like pizza.” 😅 English puts very much after the object. The natural way is “I like pizza very much.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_listen",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Listen to music!",
+        "wrong": "I listen music every day.",
+        "right": "I listen to music every day.",
+        "strike": "listen music",
+        "why": "Listen needs to before the thing.",
+        "memory": "I listen to music every day.",
+        "quiz": {
+          "stem": "I listen ___ music.",
+          "options": [
+            "to",
+            "at"
+          ],
+          "answer": 0
+        },
+        "answer_say": "To! I listen to music.",
+        "native": {
+          "hook": "「音楽を聞く」で to が消えてる",
+          "tip": "listen は「listen to ～」の形。to を忘れずに！",
+          "caption": "“I listen music every day.”と言っていませんか？😅 日本語の「音楽を聞く」には「を」しかないので、to が抜けがち。listen のあとは to が必要です。 “I listen to music every day.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“to”。listen のあとは to。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Is your “to” missing after listen?",
+          "tip": "Listen always needs to before the thing you hear.",
+          "caption": "Do you say this? “I listen music every day.” 😅 It is easy to drop to, but English needs listen to. The natural way is “I listen to music every day.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_can",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Can plus verb!",
+        "wrong": "She can to speak English.",
+        "right": "She can speak English.",
+        "strike": "can to speak",
+        "why": "After can, use the plain verb.",
+        "memory": "She can speak English.",
+        "quiz": {
+          "stem": "I can ___ English.",
+          "options": [
+            "speak",
+            "to speak"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Speak! I can speak English.",
+        "native": {
+          "hook": "can のあとに to を入れてない？",
+          "tip": "can のあとは動詞の原形だけ。to はいりません。",
+          "caption": "“She can to speak English.”と言っていませんか？😅 can のような助動詞のあとには、to なしの動詞の原形が続きます。be able to と混ざらないように。 “She can speak English.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“speak”。can のあとは原形。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you put “to” after can?",
+          "tip": "After can, use the plain verb. No to.",
+          "caption": "Do you say this? “She can to speak English.” 😅 After a modal like can, the base verb follows without to. Do not mix it with be able to. The natural way is “She can speak English.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_likes",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Does needs no s!",
+        "wrong": "He doesn't likes it.",
+        "right": "He doesn't like it.",
+        "strike": "likes",
+        "why": "After doesn't, the verb has no s.",
+        "memory": "He doesn't like it.",
+        "quiz": {
+          "stem": "She doesn't ___ it.",
+          "options": [
+            "like",
+            "likes"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Like! She doesn't like it.",
+        "native": {
+          "hook": "doesn't のあとに s をつけてない？",
+          "tip": "doesn't がすでに三単現の s を持っているので、動詞は原形に。",
+          "caption": "“He doesn't likes it.”と言っていませんか？😅 否定文では doesn't が三人称単数を担当します。そのため like は s のない原形になります。 “He doesn't like it.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“like”。doesn't のあとは原形。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you add s after doesn't?",
+          "tip": "Doesn't already carries the s. Use the plain verb: like.",
+          "caption": "Do you say this? “He doesn't likes it.” 😅 In negatives, doesn't handles the third person, so the verb stays plain. The natural way is “He doesn't like it.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_yesno",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Yes or no? Be careful!",
+        "wrong": "Yes, I don't like fish.",
+        "right": "No, I don't like fish.",
+        "strike": "Yes",
+        "why": "If you don't, say no.",
+        "memory": "No, I don't like fish.",
+        "quiz": {
+          "stem": "You don't like fish? ___, I don't.",
+          "options": [
+            "Yes",
+            "No"
+          ],
+          "answer": 1
+        },
+        "answer_say": "No! No, I don't.",
+        "native": {
+          "hook": "Yes か No か？日本人の癖の罠！",
+          "tip": "英語では事実で答えます。否定なら No と言います。",
+          "caption": "“Yes, I don't like fish.”と言っていませんか？😅 日本語は相手の言葉に同意するかで「はい」と答えますが、英語は答えの内容が否定なら No です。 “No, I don't like fish.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“No”。否定の答えは No。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Yes or No? Watch this trap!",
+          "tip": "In English, answer by the fact. If it is negative, say No.",
+          "caption": "Do you say this? “Yes, I don't like fish.” 😅 In English, answer by the fact. If your answer is negative, say No. The natural way is “No, I don't like fish.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_late",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say sorry, I'm late!",
+        "wrong": "Sorry for late.",
+        "right": "Sorry I'm late.",
+        "strike": "for late",
+        "why": "Use a full phrase: I'm late.",
+        "memory": "Sorry I'm late.",
+        "quiz": {
+          "stem": "Sorry, I'm ___.",
+          "options": [
+            "late",
+            "for late"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Late! Sorry, I'm late.",
+        "native": {
+          "hook": "「遅れてごめん」の言い方は？",
+          "tip": "Sorry for late は不自然。Sorry I'm late. と主語と動詞を入れます。",
+          "caption": "“Sorry for late.”と言っていませんか？😅 日本語の「遅れてごめん」をそのまま訳すと不自然に。Sorry のあとは I'm late と文の形にします。 “Sorry I'm late.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“late”。I'm late と文で言おう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "“Sorry for late” sounds odd!",
+          "tip": "Say Sorry I'm late. Use a full sentence after sorry.",
+          "caption": "Do you say this? “Sorry for late.” 😅 A word-for-word translation sounds odd. After sorry, say a full phrase: I'm late. The natural way is “Sorry I'm late.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_plane",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Wait for what?",
+        "wrong": "I waited the bus.",
+        "right": "I waited for the bus.",
+        "strike": "waited the",
+        "why": "Wait needs for before the thing.",
+        "memory": "I waited for the bus.",
+        "quiz": {
+          "stem": "I am waiting ___ my friend.",
+          "options": [
+            "for",
+            "to"
+          ],
+          "answer": 0
+        },
+        "answer_say": "For! I am waiting for my friend.",
+        "native": {
+          "hook": "「I waited the bus」で合ってる？",
+          "tip": "wait のあとには for が必要。「バスを待つ」につられて忘れがち。",
+          "caption": "“I waited the bus.”と言っていませんか？😅 日本語の「バスを待った」につられて、for を抜かしがちです。wait のあとには for が必要です。 “I waited for the bus.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“for”。wait のあとは for。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “I waited the bus”?",
+          "tip": "Wait needs for before the thing you wait for.",
+          "caption": "Do you say this? “I waited the bus.” 😅 It is easy to drop for, but wait needs it. The natural way is “I waited for the bus.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_raining",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Discuss about? No!",
+        "wrong": "Let's discuss about the plan.",
+        "right": "Let's discuss the plan.",
+        "strike": "about",
+        "why": "Discuss already means talk about.",
+        "memory": "Let's discuss the plan.",
+        "quiz": {
+          "stem": "We ___ the trip.",
+          "options": [
+            "discussed",
+            "discussed about"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Discussed! We discussed the trip.",
+        "native": {
+          "hook": "「discuss about」の about は不要",
+          "tip": "discuss は「〜について話し合う」の意味を含む。about は付けない。",
+          "caption": "“Let's discuss about the plan.”と言っていませんか？😅 日本語の「〜について」につられて about を付けがちです。discuss だけで「〜について話し合う」になります。 “Let's discuss the plan.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“discussed”。discuss のあとに about は不要。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “discuss about”?",
+          "tip": "Discuss already means talk about. Do not add about.",
+          "caption": "Do you say this? “Let's discuss about the plan.” 😅 It is easy to add about, but discuss already includes it. The natural way is “Let's discuss the plan.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_wentkyoto",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Who went? Say who!",
+        "wrong": "Went to Kyoto yesterday.",
+        "right": "I went to Kyoto yesterday.",
+        "strike": "Went",
+        "why": "Do not drop the subject.",
+        "memory": "I went to Kyoto yesterday.",
+        "quiz": {
+          "stem": "Pick the full sentence.",
+          "options": [
+            "Went to Kyoto.",
+            "I went to Kyoto."
+          ],
+          "answer": 1
+        },
+        "answer_say": "I went to Kyoto!",
+        "native": {
+          "hook": "「Went to Kyoto」、「I」を忘れてない？",
+          "tip": "日本語は主語を省くのが普通。でも英語では I を省かずに言おう。",
+          "caption": "“Went to Kyoto yesterday.”と言っていませんか？😅 日本語では「京都に行った」で通じますが、英語では主語の I が必要です。“I went to Kyoto yesterday.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“I went to Kyoto.” 主語の I を忘れずに。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Did you drop the I?",
+          "tip": "Do not drop the subject. Say I went...",
+          "caption": "Do you say this? “Went to Kyoto yesterday.” 😅 English needs the subject I. The natural way is “I went to Kyoto yesterday.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_forward",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "To see? Or seeing?",
+        "wrong": "I look forward to see you.",
+        "right": "I look forward to seeing you.",
+        "strike": "to see",
+        "why": "After this to, say seeing, not see.",
+        "memory": "I look forward to seeing you.",
+        "quiz": {
+          "stem": "We look forward to ___ it.",
+          "options": [
+            "watch",
+            "watching"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Watching! We look forward to watching it.",
+        "native": {
+          "hook": "look forward to の後ろ、動詞の形は大丈夫？",
+          "tip": "look forward to の to は前置詞。だから後ろは seeing のように -ing 形。",
+          "caption": "“I look forward to see you.”と言っていませんか？😅 「to の後ろは原形」と覚えていて原形にしがちですが、この to は前置詞なので -ing 形が正解。“I look forward to seeing you.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“watching”。look forward to の後ろは -ing 形。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Look forward to see, or seeing?",
+          "tip": "The to here is a preposition, so use the ing form.",
+          "caption": "Do you say this? “I look forward to see you.” 😅 The to in this phrase is a preposition, so the verb takes ing. The natural way is “I look forward to seeing you.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_gasstand",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Gas stand? Not English!",
+        "wrong": "I went to a gas stand.",
+        "right": "I went to a gas station.",
+        "strike": "gas stand",
+        "why": "Say gas station in American English.",
+        "memory": "I went to a gas station.",
+        "quiz": {
+          "stem": "We need a gas ___.",
+          "options": [
+            "stand",
+            "station"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Station! We need a gas station.",
+        "native": {
+          "hook": "「ガソリンスタンド」は和製英語って知ってた？",
+          "tip": "stand は英語では「屋台」のようなイメージ。ガソリンスタンドは gas station と言う。",
+          "caption": "“I went to a gas stand.”と言っていませんか？😅 「ガソリンスタンド」は和製英語で、英語では gas station です。“I went to a gas station.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“station”。gas station が正しい言い方。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "“Gas stand” is not English!",
+          "tip": "Gas stand is not English. Say gas station.",
+          "caption": "Do you say this? “I went to a gas stand.” 😅 Gas stand is not real English. In American English, say gas station. The natural way is “I went to a gas station.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_outlet",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Is it consent?",
+        "wrong": "My room has no consent.",
+        "right": "My room has no outlet.",
+        "strike": "consent",
+        "why": "In American English, we call it an outlet.",
+        "memory": "My room has no outlet.",
+        "quiz": {
+          "stem": "There is no ___ by my desk.",
+          "options": [
+            "consent",
+            "outlet"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Outlet! There is no outlet by my desk.",
+        "native": {
+          "hook": "「コンセント」は英語じゃない！通じないかも",
+          "tip": "日本語の「コンセント」は和製英語。壁の差し込み口は outlet と言う。",
+          "caption": "“My room has no consent.”と言っていませんか？😅 「コンセント」は和製英語です。英語の consent は「同意」の意味になってしまいます。壁の差し込み口は outlet。“My room has no outlet.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“outlet”。差し込み口は outlet。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Is “consent” a power plug?",
+          "tip": "Consent means permission. A wall socket is an outlet.",
+          "caption": "Do you say this? “My room has no consent.” 😅 In English, consent means permission. A wall socket is an outlet. The natural way is “My room has no outlet.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_whereis",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Fix the word order!",
+        "wrong": "Do you know where is the station?",
+        "right": "Do you know where the station is?",
+        "strike": "where is the station",
+        "why": "Inside a sentence, use normal order: subject, then verb.",
+        "memory": "Do you know where the station is?",
+        "quiz": {
+          "stem": "I know where ___.",
+          "options": [
+            "the bank is",
+            "is the bank"
+          ],
+          "answer": 0
+        },
+        "answer_say": "The bank is! I know where the bank is.",
+        "native": {
+          "hook": "「Do you know where is〜」、語順が逆かも",
+          "tip": "文の中に入る疑問文は、普通の文と同じ語順。where the station is のようにします。",
+          "caption": "“Do you know where is the station?”と言っていませんか？😅 疑問文が文の中に入るときは、主語→動詞の普通の語順にします。“Do you know where the station is?” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“the bank is”。文中の疑問文は普通の語順に。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you know where is...? Check it!",
+          "tip": "Inside a longer question, use normal order: subject, then verb.",
+          "caption": "Do you say this? “Do you know where is the station?” 😅 Inside a longer question, use normal word order. The natural way is “Do you know where the station is?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_weather",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "A weather? No!",
+        "wrong": "We had a nice weather today.",
+        "right": "We had nice weather today.",
+        "strike": "a nice weather",
+        "why": "Weather has no a or an.",
+        "memory": "We had nice weather today.",
+        "quiz": {
+          "stem": "We had ___ at the beach.",
+          "options": [
+            "a good weather",
+            "good weather"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Good weather! We had good weather.",
+        "native": {
+          "hook": "weather に a をつけていませんか？",
+          "tip": "weather は数えられない名詞。a はつけず、nice weather と言う。",
+          "caption": "“We had a nice weather today.”と言っていませんか？😅 weather は数えられない名詞なので、a はつきません。“We had nice weather today.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“good weather”。weather に a は不要。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you put a before “weather”?",
+          "tip": "Weather is uncountable, so do not use a.",
+          "caption": "Do you say this? “We had a nice weather today.” 😅 Weather is a noun you cannot count, so it takes no a. The natural way is “We had nice weather today.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_wentthere",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "To there? No to!",
+        "wrong": "I went to there yesterday.",
+        "right": "I went there yesterday.",
+        "strike": "to there",
+        "why": "There already means to there.",
+        "memory": "I went there yesterday.",
+        "quiz": {
+          "stem": "She goes ___ every day.",
+          "options": [
+            "to there",
+            "there"
+          ],
+          "answer": 1
+        },
+        "answer_say": "There! She goes there every day.",
+        "native": {
+          "hook": "「went to there」の to は要らない！",
+          "tip": "there は「そこへ」の意味を持つ。to はつけずに went there と言う。",
+          "caption": "“I went to there yesterday.”と言っていませんか？😅 日本語の「そこに行く」につられて to を入れがちですが、there だけで「そこへ」の意味になります。“I went there yesterday.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“there”。there に to は不要。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “went to there”?",
+          "tip": "There already means to that place, so drop to.",
+          "caption": "Do you say this? “I went to there yesterday.” 😅 There already means to that place, so skip to. The natural way is “I went there yesterday.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_since",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Since? Use have!",
+        "wrong": "I study English since last year.",
+        "right": "I have studied English since last year.",
+        "strike": "I study",
+        "why": "Since needs the present perfect, not the present.",
+        "memory": "I have studied English since last year.",
+        "quiz": {
+          "stem": "I ___ here since May.",
+          "options": [
+            "live",
+            "have lived"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Have lived! I have lived here since May.",
+        "native": {
+          "hook": "「since」の文、動詞の形は合ってる？",
+          "tip": "since を使うときは現在完了形（have + 過去分詞）。日本語の「勉強している」につられないで。",
+          "caption": "“I study English since last year.”と言っていませんか？😅 日本語の「去年から勉強している」につられて現在形にしがちですが、since には現在完了形を使います。“I have studied English since last year.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“have lived”。since には have + 過去分詞。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Since: study or have studied?",
+          "tip": "Use the present perfect with since, not the present.",
+          "caption": "Do you say this? “I study English since last year.” 😅 With since, English needs the present perfect. The natural way is “I have studied English since last year.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_friend",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Friend of me?",
+        "wrong": "He is a friend of me.",
+        "right": "He is a friend of mine.",
+        "strike": "of me",
+        "why": "In “a friend of ___,” use mine, not me.",
+        "memory": "He is a friend of mine.",
+        "quiz": {
+          "stem": "She is a friend of ___.",
+          "options": [
+            "me",
+            "mine"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Mine! She is a friend of mine.",
+        "native": {
+          "hook": "「a friend of me」、me じゃなくて…？",
+          "tip": "「私の友達の一人」は a friend of mine。この形では of の後ろは me ではなく mine。",
+          "caption": "“He is a friend of me.”と言っていませんか？😅 「私の友達」を「friend of me」と直訳しがちですが、正しくは mine を使います。“He is a friend of mine.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“mine”。a friend of mine が正しい形。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Is it “a friend of me”?",
+          "tip": "In this phrase, say a friend of mine, not of me.",
+          "caption": "Do you say this? “He is a friend of me.” 😅 Say mine, not me, after of. The natural way is “He is a friend of mine.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_tellme",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Said me, or told me?",
+        "wrong": "She said me to wait.",
+        "right": "She told me to wait.",
+        "strike": "said",
+        "why": "Use told with me, not said.",
+        "memory": "She told me to wait.",
+        "quiz": {
+          "stem": "He ___ me his name.",
+          "options": [
+            "said",
+            "told"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Told! She told me to wait.",
+        "native": {
+          "hook": "「said me」？ それとも told me？",
+          "tip": "「私に言う」は tell me。say の直後に me は置けません（say to me ならOK）。",
+          "caption": "“She said me to wait.”と言っていませんか？😅 「言う」を say だけで訳すと said me になりがちです。“She told me to wait.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“told”。“She told me to wait.” を声に出して言ってみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Is it “said me”?",
+          "tip": "Say told me, not said me.",
+          "caption": "Do you say this? “She said me to wait.” 😅 Japanese speakers often use say for every kind of “say.” The natural way is “She told me to wait.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_enjoyplay",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Enjoyed to play?",
+        "wrong": "I enjoyed to play tennis.",
+        "right": "I enjoyed playing tennis.",
+        "strike": "to play",
+        "why": "After enjoy, use playing, not to play.",
+        "memory": "I enjoyed playing tennis.",
+        "quiz": {
+          "stem": "She enjoys ___ every day.",
+          "options": [
+            "to run",
+            "running"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Running! I enjoyed playing tennis.",
+        "native": {
+          "hook": "「enjoyed to play」はNG？",
+          "tip": "enjoy のあとに「to＋動詞」は使えません。-ing 形にします。",
+          "caption": "“I enjoyed to play tennis.”と言っていませんか？😅 「楽しむ」の後に to を付けたくなりますが、enjoy のあとは -ing です。“I enjoyed playing tennis.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“running”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Enjoyed to play?",
+          "tip": "After enjoy, use -ing: enjoyed playing.",
+          "caption": "Do you say this? “I enjoyed to play tennis.” 😅 After enjoy, we use -ing, not to. The natural way is “I enjoyed playing tennis.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_lendme",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Borrow me a pen?",
+        "wrong": "Can you borrow me a pen?",
+        "right": "Can you lend me a pen?",
+        "strike": "borrow",
+        "why": "You lend to others. You borrow from others.",
+        "memory": "Can you lend me a pen?",
+        "quiz": {
+          "stem": "I want to ___ your pen.",
+          "options": [
+            "lend",
+            "borrow"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Borrow! Can you lend me a pen?",
+        "native": {
+          "hook": "borrow と lend、どっち？",
+          "tip": "「貸す」は lend、「借りる」は borrow。方向が逆なので注意しましょう。",
+          "caption": "“Can you borrow me a pen?”と言っていませんか？😅 「貸して」と言いたいときに borrow を使ってしまいがちです。“Can you lend me a pen?” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“borrow”。“Can you lend me a pen?” を声に出して言ってみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Borrow or lend?",
+          "tip": "Lend means you give it. Borrow means you take it.",
+          "caption": "Do you say this? “Can you borrow me a pen?” 😅 The two words go in opposite directions. The natural way is “Can you lend me a pen?” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_marryher",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Married with her?",
+        "wrong": "He married with her.",
+        "right": "He married her.",
+        "strike": "with",
+        "why": "Marry does not need with.",
+        "memory": "He married her.",
+        "quiz": {
+          "stem": "She ___ him last year.",
+          "options": [
+            "married",
+            "married with"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Married! He married her.",
+        "native": {
+          "hook": "「married with」は間違い？",
+          "tip": "marry の後ろに with は不要。直接人を置きます。",
+          "caption": "“He married with her.”と言っていませんか？😅 「〜と結婚する」の「と」につられて with を入れがちです。“He married her.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“married”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Married with her?",
+          "tip": "Say married her, with no with.",
+          "caption": "Do you say this? “He married with her.” 😅 Do not add with after marry. The natural way is “He married her.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_tellnumber",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Teach me your number?",
+        "wrong": "Please teach me your phone number.",
+        "right": "Please tell me your phone number.",
+        "strike": "teach",
+        "why": "Teach is for lessons. Use tell for a number.",
+        "memory": "Please tell me your phone number.",
+        "quiz": {
+          "stem": "Please ___ me your name.",
+          "options": [
+            "teach",
+            "tell"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Tell! Please tell me your phone number.",
+        "native": {
+          "hook": "「電話番号を教えて」は teach？",
+          "tip": "teach は勉強や技術を教えるとき。番号や場所を教えるときは tell。",
+          "caption": "“Please teach me your phone number.”と言っていませんか？😅 日本語の「教える」を何でも teach にしてしまいがちです。“Please tell me your phone number.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“tell”。“Please tell me your phone number.” を声に出して言ってみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Teach me your number?",
+          "tip": "Use tell for numbers and names.",
+          "caption": "Do you say this? “Please teach me your phone number.” 😅 Teach is for lessons, not for a number. The natural way is “Please tell me your phone number.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_goodat",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Good at speak?",
+        "wrong": "I am not good at speak English.",
+        "right": "I am not good at speaking English.",
+        "strike": "speak",
+        "why": "After good at, say speaking, not speak.",
+        "memory": "I am not good at speaking English.",
+        "quiz": {
+          "stem": "She is good at ___.",
+          "options": [
+            "cooking",
+            "cook"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Cooking! I am not good at speaking English.",
+        "native": {
+          "hook": "「話すのが苦手」は good at speak？",
+          "tip": "good at のあとの動詞は -ing 形にします。",
+          "caption": "“I am not good at speak English.”と言っていませんか？😅 「話すのが苦手」の「話す」を、そのまま原形で置いてしまいがちです。“I am not good at speaking English.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“cooking”。good at＋-ing で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Good at speak?",
+          "tip": "After good at, use -ing.",
+          "caption": "Do you say this? “I am not good at speak English.” 😅 After good at, use the -ing form. The natural way is “I am not good at speaking English.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_areyou",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "You are a student?",
+        "wrong": "You are a student?",
+        "right": "Are you a student?",
+        "strike": "You are",
+        "why": "A question starts with are, then you.",
+        "memory": "Are you a student?",
+        "quiz": {
+          "stem": "___ tired today?",
+          "options": [
+            "You are",
+            "Are you"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Are you! Are you a student?",
+        "native": {
+          "hook": "文末を上げるだけではダメ？",
+          "tip": "日本語は文末を上げると質問になりますが、英語は語順を入れ替えます。",
+          "caption": "“You are a student?”と言っていませんか？😅 日本語の感覚で、語順そのままで文末を上げてしまいがちです。“Are you a student?” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“Are you”。“Are you a student?” を声に出して言ってみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Just raise your voice?",
+          "tip": "In a question, put are before you.",
+          "caption": "Do you say this? “You are a student?” 😅 Do not only raise your voice. The natural way is “Are you a student?” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_whatthink",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "How do you think?",
+        "wrong": "How do you think about it?",
+        "right": "What do you think about it?",
+        "strike": "How",
+        "why": "Ask for an idea with what, not how.",
+        "memory": "What do you think about it?",
+        "quiz": {
+          "stem": "___ do you think about this song?",
+          "options": [
+            "How",
+            "What"
+          ],
+          "answer": 1
+        },
+        "answer_say": "What! What do you think about it?",
+        "native": {
+          "hook": "「どう思う？」は How？ What？",
+          "tip": "「どう思う？」の「どう」を how にしがちですが、意見を聞くときは what。",
+          "caption": "“How do you think about it?”と言っていませんか？😅 「どう」を how と訳して How do you think と言いがちです。“What do you think about it?” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“What”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "How do you think?",
+          "tip": "Use what to ask for an idea.",
+          "caption": "Do you say this? “How do you think about it?” 😅 Use what, not how, to ask for an idea. The natural way is “What do you think about it?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_onmay5",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Born in May 5?",
+        "wrong": "I was born in May 5.",
+        "right": "I was born on May 5.",
+        "strike": "in",
+        "why": "Use on with a day and in with a month.",
+        "memory": "I was born on May 5.",
+        "quiz": {
+          "stem": "My birthday is ___ May 3.",
+          "options": [
+            "in",
+            "on"
+          ],
+          "answer": 1
+        },
+        "answer_say": "On! I was born on May 5.",
+        "native": {
+          "hook": "「5月5日に」は in？ on？",
+          "tip": "日付（日にち）には on。月だけなら in May。",
+          "caption": "“I was born in May 5.”と言っていませんか？😅 日本語は「5月5日に」と全部「に」なので in と on を混同しがちです。“I was born on May 5.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“on”。“I was born on May 5.” を声に出して言ってみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "In May 5, or on?",
+          "tip": "Use on with a day, in with a month.",
+          "caption": "Do you say this? “I was born in May 5.” 😅 With a day, use on. The natural way is “I was born on May 5.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_alwaysam",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "I always am late?",
+        "wrong": "I always am late.",
+        "right": "I am always late.",
+        "strike": "always am",
+        "why": "Put always after am, is, or are.",
+        "memory": "I am always late.",
+        "quiz": {
+          "stem": "She ___ happy.",
+          "options": [
+            "is always",
+            "always is"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Is always! I am always late.",
+        "native": {
+          "hook": "always の位置、合ってる？",
+          "tip": "be動詞のときは、always は be動詞の後ろに置きます。",
+          "caption": "“I always am late.”と言っていませんか？😅 「いつも遅れる」と日本語の順に always を前に置きがちです。“I am always late.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“is always”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Where does always go?",
+          "tip": "With am, is, are, put always after it.",
+          "caption": "Do you say this? “I always am late.” 😅 Put always after am, is, or are. The natural way is “I am always late.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_goshopping",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Go to shopping?",
+        "wrong": "I will go to shopping.",
+        "right": "I will go shopping.",
+        "strike": "to",
+        "why": "Go shopping has no to.",
+        "memory": "I will go shopping.",
+        "quiz": {
+          "stem": "Let's go ___ tomorrow.",
+          "options": [
+            "to swimming",
+            "swimming"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Swimming! I will go shopping.",
+        "native": {
+          "hook": "「go to shopping」はNG？",
+          "tip": "「買い物に行く」は go shopping。go swimming も同じで to は不要です。",
+          "caption": "“I will go to shopping.”と言っていませんか？😅 「買い物に行く」の「に」を to にしてしまいがちです。“I will go shopping.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“swimming”。“I will go shopping.” を声に出して言ってみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Go to shopping?",
+          "tip": "Say go shopping, with no to.",
+          "caption": "Do you say this? “I will go to shopping.” 😅 Do not add to in go shopping. The natural way is “I will go shopping.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_betterthan",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Summer than winter?",
+        "wrong": "I like summer than winter.",
+        "right": "I like summer better than winter.",
+        "strike": "than",
+        "why": "Say like one better than the other.",
+        "memory": "I like summer better than winter.",
+        "quiz": {
+          "stem": "I like tea ___ than coffee.",
+          "options": [
+            "well",
+            "better"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Better! I like summer better than winter.",
+        "native": {
+          "hook": "「夏が好き」は than だけ？",
+          "tip": "「AよりBが好き」は like B better than A。better を忘れずに。",
+          "caption": "“I like summer than winter.”と言っていませんか？😅 「冬より夏が好き」を than だけで作りがちです。“I like summer better than winter.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“better”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Like summer than?",
+          "tip": "Add better: like summer better than winter.",
+          "caption": "Do you say this? “I like summer than winter.” 😅 Do not forget better. The natural way is “I like summer better than winter.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_sayitagain",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Please say again?",
+        "wrong": "Please say again.",
+        "right": "Please say it again.",
+        "strike": "say again",
+        "why": "Say needs a word like it.",
+        "memory": "Please say it again.",
+        "quiz": {
+          "stem": "Please ___ again.",
+          "options": [
+            "say",
+            "say it"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Say it! Please say it again.",
+        "native": {
+          "hook": "「もう一度」の「それ」が抜けてる？",
+          "tip": "日本語は目的語を省きますが、英語は say it のように言います。",
+          "caption": "“Please say again.”と言っていませんか？😅 日本語は「もう一度言って」と目的語を省くので、英語でも省きがちです。“Please say it again.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“say it”。“Please say it again.” を声に出して言ってみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Please say again?",
+          "tip": "Say it again, not only say again.",
+          "caption": "Do you say this? “Please say again.” 😅 English needs it after say. The natural way is “Please say it again.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_haveacar",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Am having a car?",
+        "wrong": "I am having a car.",
+        "right": "I have a car.",
+        "strike": "am having",
+        "why": "For things you own, use have.",
+        "memory": "I have a car.",
+        "quiz": {
+          "stem": "She ___ a big house.",
+          "options": [
+            "has",
+            "is having"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Has! I have a car.",
+        "native": {
+          "hook": "「車を持っている」は am having？",
+          "tip": "「持っている」は have だけでOK。be＋-ing にはしません。",
+          "caption": "“I am having a car.”と言っていませんか？😅 「持っている」の「〜ている」につられて be＋-ing にしがちです。“I have a car.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“has”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Am having a car?",
+          "tip": "For things you own, say have.",
+          "caption": "Do you say this? “I am having a car.” 😅 Do not use am having for things you own. The natural way is “I have a car.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_ifrains",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "If it will rain?",
+        "wrong": "If it will rain tomorrow, I will stay home.",
+        "right": "If it rains tomorrow, I will stay home.",
+        "strike": "will rain",
+        "why": "After if, use rains, not will rain.",
+        "memory": "If it rains tomorrow, I will stay home.",
+        "quiz": {
+          "stem": "If she ___ late, call me.",
+          "options": [
+            "will be",
+            "is"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Is! If it rains tomorrow, I will stay home.",
+        "native": {
+          "hook": "「if it will rain」はNG？",
+          "tip": "if のあとは未来のことでも現在形。will は使いません。",
+          "caption": "“If it will rain tomorrow, I will stay home.”と言っていませんか？😅 「明日雨が降るなら」という未来の気持ちにつられて will を入れがちです。“If it rains tomorrow, I will stay home.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“is”。“If it rains tomorrow, I will stay home.” を声に出して言ってみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "If it will rain?",
+          "tip": "After if, use the simple form: rains.",
+          "caption": "Do you say this? “If it will rain tomorrow, I will stay home.” 😅 Do not use will right after if. The natural way is “If it rains tomorrow, I will stay home.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_complaint",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "A claim to the store?",
+        "wrong": "I made a claim to the store.",
+        "right": "I made a complaint to the store.",
+        "strike": "claim",
+        "why": "Use complaint when you say something is wrong.",
+        "memory": "I made a complaint to the store.",
+        "quiz": {
+          "stem": "She made a ___ about the noise.",
+          "options": [
+            "claim",
+            "complaint"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Complaint! I made a complaint to the store.",
+        "native": {
+          "hook": "「クレーム」は claim じゃない？",
+          "tip": "カタカナの「クレーム」は complaint のこと。claim は「主張」や「請求」の意味です。",
+          "caption": "“I made a claim to the store.”と言っていませんか？😅 「クレーム」をそのまま claim と言いがちです。“I made a complaint to the store.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“complaint”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Is “claim” a complaint?",
+          "tip": "Use complaint when something is wrong.",
+          "caption": "Do you say this? “I made a claim to the store.” 😅 Claim is not the word for complaint. The natural way is “I made a complaint to the store.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_signature",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Write your sign?",
+        "wrong": "Please write your sign here.",
+        "right": "Please write your signature here.",
+        "strike": "sign",
+        "why": "Your name in your own writing is a signature.",
+        "memory": "Please write your signature here.",
+        "quiz": {
+          "stem": "Please write your ___ here.",
+          "options": [
+            "sign",
+            "signature"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Signature! Please write your signature here.",
+        "native": {
+          "hook": "「サイン」は sign？ signature？",
+          "tip": "名前を書く「サイン」は名詞で signature。動詞なら sign here。",
+          "caption": "“Please write your sign here.”と言っていませんか？😅 日本語の「サイン」をそのまま sign と言いがちです。“Please write your signature here.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“signature”。“Please write your signature here.” を声に出して言ってみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Is it “your sign”?",
+          "tip": "Use signature for your name.",
+          "caption": "Do you say this? “Please write your sign here.” 😅 Use signature as the word for your name. The natural way is “Please write your signature here.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_mechpencil",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "I need a sharp pen.",
+        "wrong": "I need a sharp pen.",
+        "right": "I need a mechanical pencil.",
+        "strike": "sharp pen",
+        "why": "Use mechanical pencil for this kind of pencil.",
+        "memory": "I need a mechanical pencil.",
+        "quiz": {
+          "stem": "I need a ___ for my test.",
+          "options": [
+            "sharp pen",
+            "mechanical pencil"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Mechanical pencil! I need a mechanical pencil.",
+        "native": {
+          "hook": "「シャーペン」は英語じゃない？",
+          "tip": "「シャーペン」は和製英語。英語では mechanical pencil と言います。",
+          "caption": "“I need a sharp pen.”と言っていませんか？😅 「シャーペン」をそのまま sharp pen と言いがちです。“I need a mechanical pencil.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“mechanical pencil”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Is “sharp pen” English?",
+          "tip": "Say mechanical pencil.",
+          "caption": "Do you say this? “I need a sharp pen.” 😅 Sharp pen is not used in English. The natural way is “I need a mechanical pencil.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_calledhim",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Call to you later?",
+        "wrong": "I will call to you later.",
+        "right": "I will call you later.",
+        "strike": "to",
+        "why": "Call does not need to before a person.",
+        "memory": "I will call you later.",
+        "quiz": {
+          "stem": "I will ___ my mother later.",
+          "options": [
+            "call",
+            "call to"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Call! I will call you later.",
+        "native": {
+          "hook": "「電話するね」は call to you？",
+          "tip": "「あなたに電話する」は call you。人の前に to は不要です。",
+          "caption": "“I will call to you later.”と言っていませんか？😅 「あなたに電話する」の「に」を to にしてしまいがちです。“I will call you later.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“call”。“I will call you later.” を声に出して言ってみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Call to you later?",
+          "tip": "Say call you, with no to.",
+          "caption": "Do you say this? “I will call to you later.” 😅 Do not add to before the person. The natural way is “I will call you later.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_enterroom",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Entered into the room?",
+        "wrong": "I entered into the room.",
+        "right": "I entered the room.",
+        "strike": "into",
+        "why": "Enter does not need into.",
+        "memory": "I entered the room.",
+        "quiz": {
+          "stem": "She ___ the kitchen.",
+          "options": [
+            "entered",
+            "entered into"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Entered! I entered the room.",
+        "native": {
+          "hook": "「entered into」は間違い？",
+          "tip": "「部屋に入る」は enter the room。into は不要です。",
+          "caption": "“I entered into the room.”と言っていませんか？😅 「に入る」の「に」につられて into を足しがちです。“I entered the room.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“entered”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Entered into the room?",
+          "tip": "Say entered the room, with no into.",
+          "caption": "Do you say this? “I entered into the room.” 😅 Do not add into after enter. The natural way is “I entered the room.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_thousands",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Two thousands yen?",
+        "wrong": "It costs two thousands yen.",
+        "right": "It costs two thousand yen.",
+        "strike": "thousands",
+        "why": "After a number, thousand has no s.",
+        "memory": "It costs two thousand yen.",
+        "quiz": {
+          "stem": "It costs five ___ yen.",
+          "options": [
+            "thousands",
+            "thousand"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Thousand! It costs two thousand yen.",
+        "native": {
+          "hook": "「2000円」は thousands？",
+          "tip": "数字のあとの thousand や hundred に s は付けません。",
+          "caption": "“It costs two thousands yen.”と言っていませんか？😅 「何千もの」の thousands of と混ざって、数字のあとにも s を付けがちです。“It costs two thousand yen.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“thousand”。“It costs two thousand yen.” を声に出して言ってみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Two thousands yen?",
+          "tip": "After a number, thousand has no s.",
+          "caption": "Do you say this? “It costs two thousands yen.” 😅 With a number, do not add s. The natural way is “It costs two thousand yen.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_thankwaiting",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Thank you for your waiting?",
+        "wrong": "Thank you for your waiting.",
+        "right": "Thank you for waiting.",
+        "strike": "your waiting",
+        "why": "Say for waiting, without your.",
+        "memory": "Thank you for waiting.",
+        "quiz": {
+          "stem": "Thank you for ___.",
+          "options": [
+            "your coming",
+            "coming"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Coming! Thank you for waiting.",
+        "native": {
+          "hook": "「お待たせ」は your waiting？",
+          "tip": "「お待ちいただきありがとう」は Thank you for waiting. で自然です。",
+          "caption": "“Thank you for your waiting.”と言っていませんか？😅 日本語の「お待ちいただき」を直訳して your waiting にしがちです。“Thank you for waiting.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“coming”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Thank you for your waiting?",
+          "tip": "Say for waiting, without your.",
+          "caption": "Do you say this? “Thank you for your waiting.” 😅 Skip your and just say waiting. The natural way is “Thank you for waiting.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_infive",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "After five minutes?",
+        "wrong": "I will come back after five minutes.",
+        "right": "I will come back in five minutes.",
+        "strike": "after",
+        "why": "For a time from now, use in.",
+        "memory": "I will come back in five minutes.",
+        "quiz": {
+          "stem": "The bus comes ___ five minutes.",
+          "options": [
+            "after",
+            "in"
+          ],
+          "answer": 1
+        },
+        "answer_say": "In! I will come back in five minutes.",
+        "native": {
+          "hook": "「5分後」は after？ in？",
+          "tip": "今から先の「〜後」は in。after は過去から見た後のときに使います。",
+          "caption": "“I will come back after five minutes.”と言っていませんか？😅 「5分後」を after にそのまま訳しがちです。“I will come back in five minutes.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“in”。“I will come back in five minutes.” を声に出して言ってみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "After five minutes?",
+          "tip": "From now, use in five minutes.",
+          "caption": "Do you say this? “I will come back after five minutes.” 😅 From now, use in, not after. The natural way is “I will come back in five minutes.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_wassurprised",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "I surprised at the news?",
+        "wrong": "I surprised at the news.",
+        "right": "I was surprised at the news.",
+        "strike": "I surprised",
+        "why": "Use was before surprised.",
+        "memory": "I was surprised at the news.",
+        "quiz": {
+          "stem": "She ___ surprised at the news.",
+          "options": [
+            "was",
+            "did"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Was! I was surprised at the news.",
+        "native": {
+          "hook": "「I surprised」で驚いた？",
+          "tip": "「驚いた」は was surprised。「驚かされた」という形です。",
+          "caption": "“I surprised at the news.”と言っていませんか？😅 「驚いた」という動詞の形につられて I surprised と言いがちです。“I was surprised at the news.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“was”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "I surprised?",
+          "tip": "Say I was surprised.",
+          "caption": "Do you say this? “I surprised at the news.” 😅 You need was before surprised. The natural way is “I was surprised at the news.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_wantyouto",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "I want you help me?",
+        "wrong": "I want you help me.",
+        "right": "I want you to help me.",
+        "strike": "want you help",
+        "why": "After want you, add to.",
+        "memory": "I want you to help me.",
+        "quiz": {
+          "stem": "I want ___ come.",
+          "options": [
+            "you to",
+            "you"
+          ],
+          "answer": 0
+        },
+        "answer_say": "You to! Say: I want you to help me.",
+        "native": {
+          "hook": "「手伝ってほしい」は want you help？",
+          "tip": "「〜してほしい」は want＋人＋to＋動詞。to を落とさないように。",
+          "caption": "“I want you help me.”と言っていませんか？😅 「あなたに手伝ってほしい」を言うとき、to を落としがちです。“I want you to help me.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“you to”。“I want you to help me.” を声に出して言ってみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Want you help me?",
+          "tip": "Say want you to help.",
+          "caption": "Do you say this? “I want you help me.” 😅 Do not forget to after want you. The natural way is “I want you to help me.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_everyoneis",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Everyone are here?",
+        "wrong": "Everyone are here.",
+        "right": "Everyone is here.",
+        "strike": "are",
+        "why": "Everyone uses is, not are.",
+        "memory": "Everyone is here.",
+        "quiz": {
+          "stem": "Everyone ___ happy.",
+          "options": [
+            "is",
+            "are"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Is! Everyone is here.",
+        "native": {
+          "hook": "「みんな」は are？ is？",
+          "tip": "「みんな」は複数のイメージですが、everyone は単数扱いで is を使います。",
+          "caption": "“Everyone are here.”と言っていませんか？😅 「みんな」と聞くと複数に感じて are にしがちです。“Everyone is here.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“is”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Everyone are?",
+          "tip": "Say everyone is, not everyone are.",
+          "caption": "Do you say this? “Everyone are here.” 😅 Everyone is one group, so use is. The natural way is “Everyone is here.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_gotscore",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Took a good score?",
+        "wrong": "I took a good score on the test.",
+        "right": "I got a good score on the test.",
+        "strike": "took",
+        "why": "Use got for a score.",
+        "memory": "I got a good score on the test.",
+        "quiz": {
+          "stem": "She ___ a high score.",
+          "options": [
+            "took",
+            "got"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Got! I got a good score on the test.",
+        "native": {
+          "hook": "「点を取る」は take？ get？",
+          "tip": "「点を取る」の「取る」を take と訳しがちですが、点数は get。",
+          "caption": "“I took a good score on the test.”と言っていませんか？😅 「点を取る」の「取る」を take にしがちです。“I got a good score on the test.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“got”。“I got a good score on the test.” を声に出して言ってみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Took a good score?",
+          "tip": "Use got for a score.",
+          "caption": "Do you say this? “I took a good score on the test.” 😅 Do not use took for a score. The natural way is “I got a good score on the test.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_takeyou",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Bring you to the station?",
+        "wrong": "I will bring you to the station.",
+        "right": "I will take you to the station.",
+        "strike": "bring",
+        "why": "Take goes away from here. Bring comes here.",
+        "memory": "I will take you to the station.",
+        "quiz": {
+          "stem": "I will ___ you to school.",
+          "options": [
+            "bring",
+            "take"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Take! I will take you to the station.",
+        "native": {
+          "hook": "「連れていく」は bring？ take？",
+          "tip": "離れた場所へ連れていくときは take。bring は自分のところへ持ってくるとき。",
+          "caption": "“I will bring you to the station.”と言っていませんか？😅 「連れていく」を bring と訳しがちです。“I will take you to the station.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“take”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Bring or take?",
+          "tip": "Going away from here, use take.",
+          "caption": "Do you say this? “I will bring you to the station.” 😅 Use take for going away from here. The natural way is “I will take you to the station.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_lastnight",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Yesterday night? Say it better!",
+        "wrong": "I went to bed early yesterday night.",
+        "right": "I went to bed early last night.",
+        "strike": "yesterday night",
+        "why": "Say last night, not yesterday night.",
+        "memory": "I went to bed early last night.",
+        "quiz": {
+          "stem": "I went to bed early ___.",
+          "options": [
+            "yesterday night",
+            "last night"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Last night! I went to bed early last night.",
+        "native": {
+          "hook": "「yesterday night」と言ってない？",
+          "tip": "「昨日の夜」は last night と言います。yesterday night は不自然です。",
+          "caption": "“I went to bed early yesterday night.”と言っていませんか？😅 「昨日の夜」を直訳して yesterday night にしがちです。“I went to bed early last night.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“last night”。“I went to bed early last night.” を声に出して言ってみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “yesterday night”?",
+          "tip": "For last evening, say last night.",
+          "caption": "Do you say this? “I went to bed early yesterday night.” 😅 It is easy to translate word by word from Japanese. The natural way is “I went to bed early last night.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_headhurts",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Is your head pain?",
+        "wrong": "My head is pain.",
+        "right": "My head hurts.",
+        "strike": "is pain",
+        "why": "Say hurts, not is pain.",
+        "memory": "My head hurts.",
+        "quiz": {
+          "stem": "My back ___ today.",
+          "options": [
+            "hurts",
+            "is pain"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Hurts! My head hurts.",
+        "native": {
+          "hook": "「is pain」で痛いと言ってない？",
+          "tip": "「痛い」は動詞の hurt で表します。My head hurts. が自然です。",
+          "caption": "“My head is pain.”と言っていませんか？😅 「頭が痛い」の「痛い」を pain で訳してしまいがちです。“My head hurts.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“hurts”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “is pain”?",
+          "tip": "Use the verb hurt: My head hurts.",
+          "caption": "Do you say this? “My head is pain.” 😅 Pain is a noun, so it does not work here. The natural way is “My head hurts.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_caughtcold",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Have cold or a cold?",
+        "wrong": "I have cold.",
+        "right": "I have a cold.",
+        "strike": "cold",
+        "why": "Say a cold when you are sick.",
+        "memory": "I have a cold.",
+        "quiz": {
+          "stem": "She has ___ today.",
+          "options": [
+            "cold",
+            "a cold"
+          ],
+          "answer": 1
+        },
+        "answer_say": "A cold! I have a cold.",
+        "native": {
+          "hook": "「風邪をひいた」は have cold？",
+          "tip": "「風邪をひいている」は have a cold。cold の前に a を入れます。",
+          "caption": "“I have cold.”と言っていませんか？😅 日本語には「a」がないので、つい抜けがちです。“I have a cold.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“a cold”。“I have a cold.” を声に出して言ってみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “I have cold”?",
+          "tip": "Say a cold: I have a cold.",
+          "caption": "Do you say this? “I have cold.” 😅 Japanese has no a, so it is easy to drop. The natural way is “I have a cold.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_explainit",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Explain you the rule?",
+        "wrong": "I will explain you the rule.",
+        "right": "I will explain the rule to you.",
+        "strike": "explain you",
+        "why": "Put the thing first, then to you.",
+        "memory": "I will explain the rule to you.",
+        "quiz": {
+          "stem": "I will explain the plan ___.",
+          "options": [
+            "you",
+            "to you"
+          ],
+          "answer": 1
+        },
+        "answer_say": "To you! I will explain the rule to you.",
+        "native": {
+          "hook": "「explain you」と言ってない？",
+          "tip": "explain は「説明する内容」を先に置き、人には to をつけます。",
+          "caption": "“I will explain you the rule.”と言っていませんか？😅 「あなたに説明する」を順番どおりに訳すと explain you になりがちです。“I will explain the rule to you.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“to you”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “explain you”?",
+          "tip": "Say explain the rule to you.",
+          "caption": "Do you say this? “I will explain you the rule.” 😅 In Japanese you can say the person first, but English puts the thing first. The natural way is “I will explain the rule to you.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_wouldlike",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Want or would like?",
+        "wrong": "I want a coffee, please.",
+        "right": "I would like a coffee, please.",
+        "strike": "want",
+        "why": "Would like sounds nicer when you order.",
+        "memory": "I would like a coffee, please.",
+        "quiz": {
+          "stem": "___ a coffee, please.",
+          "options": [
+            "I want",
+            "I would like"
+          ],
+          "answer": 1
+        },
+        "answer_say": "I would like! I would like a coffee, please.",
+        "native": {
+          "hook": "注文で「I want」は強すぎる？",
+          "tip": "お店では I would like ... が丁寧。I want は少し直接的です。",
+          "caption": "“I want a coffee, please.”と言っていませんか？😅 「〜がほしい」をそのまま want にすると、ぶっきらぼうに聞こえることがあります。“I would like a coffee, please.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“I would like”。“I would like a coffee, please.” を声に出して言ってみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Is “I want” too direct?",
+          "tip": "In shops, say I would like for a polite tone.",
+          "caption": "Do you say this? “I want a coffee, please.” 😅 Want can sound a little strong when you ask for something. The natural way is “I would like a coffee, please.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_cheated",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Cunning on the exam?",
+        "wrong": "He did cunning on the exam.",
+        "right": "He cheated on the exam.",
+        "strike": "did cunning",
+        "why": "Cheat is the word for it.",
+        "memory": "He cheated on the exam.",
+        "quiz": {
+          "stem": "He ___ on the test.",
+          "options": [
+            "did cunning",
+            "cheated"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Cheated! He cheated on the exam.",
+        "native": {
+          "hook": "「カンニング」を cunning と言ってない？",
+          "tip": "日本語の「カンニング」は英語では cheat。cunning は「ずる賢い」という意味です。",
+          "caption": "“He did cunning on the exam.”と言っていませんか？😅 カタカナ語の「カンニング」をそのまま英語にしてしまいがちです。“He cheated on the exam.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“cheated”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Is “cunning” cheating?",
+          "tip": "Cheat is the verb for cheating on a test.",
+          "caption": "Do you say this? “He did cunning on the exam.” 😅 The Japanese loan word sounds like English, but it is not the English word. The natural way is “He cheated on the exam.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_sameage",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Same age with or as?",
+        "wrong": "He is the same age with me.",
+        "right": "He is the same age as me.",
+        "strike": "with",
+        "why": "Use as after same.",
+        "memory": "He is the same age as me.",
+        "quiz": {
+          "stem": "She is the same age ___ me.",
+          "options": [
+            "with",
+            "as"
+          ],
+          "answer": 1
+        },
+        "answer_say": "As! He is the same age as me.",
+        "native": {
+          "hook": "「同じ年」は same age with？",
+          "tip": "same のあとは as を使います。with は使いません。",
+          "caption": "“He is the same age with me.”と言っていませんか？😅 「〜と同じ」の「と」につられて with にしがちです。“He is the same age as me.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“as”。“He is the same age as me.” を声に出して言ってみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Same age with me?",
+          "tip": "After same, use as.",
+          "caption": "Do you say this? “He is the same age with me.” 😅 The Japanese particle to makes people say with. The natural way is “He is the same age as me.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_replyto",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Reply me or reply to me?",
+        "wrong": "Please reply me soon.",
+        "right": "Please reply to me soon.",
+        "strike": "reply me",
+        "why": "Reply needs to before a person.",
+        "memory": "Please reply to me soon.",
+        "quiz": {
+          "stem": "Please ___ soon.",
+          "options": [
+            "reply me",
+            "reply to me"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Reply to me! Please reply to me soon.",
+        "native": {
+          "hook": "「reply me」と言ってない？",
+          "tip": "reply の後に人を置くときは to が必要です。",
+          "caption": "“Please reply me soon.”と言っていませんか？😅 「返事をください」の感覚で、人をそのまま置いてしまいがちです。“Please reply to me soon.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“reply to me”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “reply me”?",
+          "tip": "Put to before the person: reply to me.",
+          "caption": "Do you say this? “Please reply me soon.” 😅 Do not drop to after reply. The natural way is “Please reply to me soon.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_nextweek",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "In next week?",
+        "wrong": "I will visit my uncle in next week.",
+        "right": "I will visit my uncle next week.",
+        "strike": "in",
+        "why": "Say next week with no in.",
+        "memory": "I will visit my uncle next week.",
+        "quiz": {
+          "stem": "I will go there ___.",
+          "options": [
+            "in next week",
+            "next week"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Next week! I will visit my uncle next week.",
+        "native": {
+          "hook": "「in next week」と言ってない？",
+          "tip": "next week の前に in は不要です。そのまま next week と言います。",
+          "caption": "“I will visit my uncle in next week.”と言っていませんか？😅 「来週に」の「に」につられて in を入れがちです。“I will visit my uncle next week.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“next week”。“I will visit my uncle next week.” を声に出して言ってみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you add in before next week?",
+          "tip": "Say next week alone. No in.",
+          "caption": "Do you say this? “I will visit my uncle in next week.” 😅 The Japanese に makes people add in. The natural way is “I will visit my uncle next week.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_dontworry",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Don't mind or don't worry?",
+        "wrong": "Please don't mind.",
+        "right": "Please don't worry.",
+        "strike": "mind",
+        "why": "Use don't worry to say it is fine.",
+        "memory": "Please don't worry.",
+        "quiz": {
+          "stem": "Please don't ___ about it.",
+          "options": [
+            "mind",
+            "worry"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Worry! Please don't worry.",
+        "native": {
+          "hook": "「気にしないで」は Don't mind？",
+          "tip": "「気にしないで」は Don't worry about it. が自然です。",
+          "caption": "“Please don't mind.”と言っていませんか？😅 「気にしない」の「気にする」を mind で訳しがちです。“Please don't worry.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“worry”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “Don't mind”?",
+          "tip": "To comfort someone, say Don't worry.",
+          "caption": "Do you say this? “Please don't mind.” 😅 The Japanese 気にしないで does not match mind in English. The natural way is “Please don't worry.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_turnright",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Light or right?",
+        "wrong": "Turn light at the corner.",
+        "right": "Turn right at the corner.",
+        "strike": "light",
+        "why": "The word right has an r sound.",
+        "memory": "Turn right at the corner.",
+        "quiz": {
+          "stem": "Turn ___ at the corner.",
+          "options": [
+            "light",
+            "right"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Right! Turn right at the corner.",
+        "native": {
+          "hook": "right と light、聞き分けられる？",
+          "tip": "right は r、light は l の音。書くときも r と l を間違えないで。",
+          "caption": "“Turn light at the corner.”と言っていませんか？😅 日本語には r と l の区別がないので、綴りも混ざりがちです。“Turn right at the corner.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“right”。“Turn right at the corner.” を声に出して言ってみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Right or light?",
+          "tip": "Right has an r. Light has an l. They are different words.",
+          "caption": "Do you say this? “Turn light at the corner.” 😅 Japanese does not separate r and l, so the spelling gets mixed. The natural way is “Turn right at the corner.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_howlong",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "To abroad?",
+        "wrong": "I want to go to abroad.",
+        "right": "I want to go abroad.",
+        "strike": "to",
+        "why": "Say go abroad, without to.",
+        "memory": "I want to go abroad.",
+        "quiz": {
+          "stem": "I want to go ___.",
+          "options": [
+            "abroad",
+            "to abroad"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Abroad! I want to go abroad.",
+        "native": {
+          "hook": "「海外に行く」をgo to abroadにしてない？",
+          "tip": "「海外に行きたい」は “I want to go abroad.” と言います。abroad の前に to はつけません。",
+          "caption": "“I want to go to abroad.”と言っていませんか？😅 「海外に行く」の「に」を訳して to を足しがちです。“I want to go abroad.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“abroad”。“I want to go abroad.” のあとに、海外でしたいことを英語で1文書いてみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “go to abroad”?",
+          "tip": "Just say go abroad. Do not add to.",
+          "caption": "Do you say this? “I want to go to abroad.” 😅 Japanese speakers often add “to” because of に. The natural way is “I want to go abroad.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_watchmovie",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Looked a movie?",
+        "wrong": "I looked a movie last night.",
+        "right": "I watched a movie last night.",
+        "strike": "looked",
+        "why": "Use watched for movies.",
+        "memory": "I watched a movie last night.",
+        "quiz": {
+          "stem": "I ___ a movie last night.",
+          "options": [
+            "looked",
+            "watched"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Watched! I watched a movie last night.",
+        "native": {
+          "hook": "映画は look で見る？",
+          "tip": "映画は watch を使います。look は「目を向ける」で、後ろに at が必要です。",
+          "caption": "“I looked a movie last night.”と言っていませんか？😅 日本語の「見る」はひとつなので、look と watch が混ざりがちです。“I watched a movie last night.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“watched”。“I watched a movie last night.” を声に出して言ってみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “looked a movie”?",
+          "tip": "Use watch for a movie. Look needs at.",
+          "caption": "Do you say this? “I looked a movie last night.” 😅 Japanese uses one word for see, look and watch. The natural way is “I watched a movie last night.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_japanese",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "A Japanese?",
+        "wrong": "I am a Japanese.",
+        "right": "I am Japanese.",
+        "strike": "a",
+        "why": "Say I am Japanese, with no a.",
+        "memory": "I am Japanese.",
+        "quiz": {
+          "stem": "I am ___.",
+          "options": [
+            "Japanese",
+            "a Japanese"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Japanese! I am Japanese.",
+        "native": {
+          "hook": "「a Japanese」と言ってない？",
+          "tip": "国籍を言うときは I am Japanese. と a をつけません。",
+          "caption": "“I am a Japanese.”と言っていませんか？😅 「私は日本人です」の「人」を入れて a をつけがちです。“I am Japanese.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“Japanese”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Is it “a Japanese”?",
+          "tip": "Say I am Japanese. No a.",
+          "caption": "Do you say this? “I am a Japanese.” 😅 The Japanese 人 makes people add a. The natural way is “I am Japanese.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_didntlike",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Like what?",
+        "wrong": "I tried sushi, but I didn't like.",
+        "right": "I tried sushi, but I didn't like it.",
+        "strike": "like",
+        "why": "Say it after like.",
+        "memory": "I tried sushi, but I didn't like it.",
+        "quiz": {
+          "stem": "I tried sushi, but I ___.",
+          "options": [
+            "didn't like",
+            "didn't like it"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Didn't like it! I tried sushi, but I didn't like it.",
+        "native": {
+          "hook": "文末に it が抜けてない？",
+          "tip": "like のあとには「何を」が必要。ここでは it を入れます。",
+          "caption": "“I tried sushi, but I didn't like.”と言っていませんか？😅 日本語は話の中で分かる言葉を省くので、英語でも省きがちです。“I tried sushi, but I didn't like it.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“didn't like it”。“I tried sushi, but I didn't like it.” を声に出して言ってみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Did you drop it?",
+          "tip": "Like needs something after it: like it.",
+          "caption": "Do you say this? “I tried sushi, but I didn't like.” 😅 Japanese often skips the thing you talk about, but English needs it. The natural way is “I tried sushi, but I didn't like it.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_sohappy",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Too happy?",
+        "wrong": "I am too happy to see you.",
+        "right": "I am so happy to see you.",
+        "strike": "too",
+        "why": "Too sounds like too much. Use so.",
+        "memory": "I am so happy to see you.",
+        "quiz": {
+          "stem": "I am ___ happy to see you.",
+          "options": [
+            "too",
+            "so"
+          ],
+          "answer": 1
+        },
+        "answer_say": "So! I am so happy to see you.",
+        "native": {
+          "hook": "「too happy」で喜びを伝える？",
+          "tip": "too は「〜すぎる」で悪い意味になりがち。うれしいときは so を使います。",
+          "caption": "“I am too happy to see you.”と言っていませんか？😅 「とても」を too に訳してしまいがちです。“I am so happy to see you.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“so”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “too happy”?",
+          "tip": "Too means too much. Use so for very.",
+          "caption": "Do you say this? “I am too happy to see you.” 😅 Too often sounds like a problem. The natural way is “I am so happy to see you.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_mostjapanese",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Almost or most?",
+        "wrong": "Almost Japanese people like rice.",
+        "right": "Most Japanese people like rice.",
+        "strike": "Almost",
+        "why": "Use most for many people.",
+        "memory": "Most Japanese people like rice.",
+        "quiz": {
+          "stem": "___ people here like rice.",
+          "options": [
+            "Almost",
+            "Most"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Most! Most Japanese people like rice.",
+        "native": {
+          "hook": "「ほとんどの」は almost？",
+          "tip": "「ほとんどの人」は most people。almost は使えません。",
+          "caption": "“Almost Japanese people like rice.”と言っていませんか？😅 「ほとんど」を almost と覚えているので、つい混ざります。“Most Japanese people like rice.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“Most”。“Most Japanese people like rice.” を声に出して言ってみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Almost people?",
+          "tip": "Say most people, not almost people.",
+          "caption": "Do you say this? “Almost Japanese people like rice.” 😅 Most means the biggest part of a group. The natural way is “Most Japanese people like rice.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_timesaweek",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Three times in a week?",
+        "wrong": "I go to the gym three times in a week.",
+        "right": "I go to the gym three times a week.",
+        "strike": "in a week",
+        "why": "Say a week to count how often.",
+        "memory": "I go to the gym three times a week.",
+        "quiz": {
+          "stem": "I go three times ___.",
+          "options": [
+            "a week",
+            "in a week"
+          ],
+          "answer": 0
+        },
+        "answer_say": "A week! I go to the gym three times a week.",
+        "native": {
+          "hook": "「週に3回」は in a week？",
+          "tip": "「週に〜回」は three times a week と言います。in は不要です。",
+          "caption": "“I go to the gym three times in a week.”と言っていませんか？😅 「週に」の「に」を in で訳しがちです。“I go to the gym three times a week.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“a week”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “in a week”?",
+          "tip": "Say three times a week. No in.",
+          "caption": "Do you say this? “I go to the gym three times in a week.” 😅 The Japanese に makes people add in. The natural way is “I go to the gym three times a week.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_giveitme",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Give me it?",
+        "wrong": "Please give me it.",
+        "right": "Please give it to me.",
+        "strike": "give me it",
+        "why": "When it is a short word, say give it to me.",
+        "memory": "Please give it to me.",
+        "quiz": {
+          "stem": "Please ___.",
+          "options": [
+            "give me it",
+            "give it to me"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Give it to me! Please give it to me.",
+        "native": {
+          "hook": "「give me it」と言ってない？",
+          "tip": "it のような短い言葉は先に置いて、give it to me と言います。",
+          "caption": "“Please give me it.”と言っていませんか？😅 「私に、それを」の順番で訳して give me it にしがちです。“Please give it to me.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“give it to me”。“Please give it to me.” を声に出して言ってみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “give me it”?",
+          "tip": "Say give it to me, not give me it.",
+          "caption": "Do you say this? “Please give me it.” 😅 Japanese puts me first, so people say give me it. The natural way is “Please give it to me.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_usebathroom",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Borrow the bathroom?",
+        "wrong": "Can I borrow the bathroom?",
+        "right": "Can I use the bathroom?",
+        "strike": "borrow",
+        "why": "You use a bathroom. You do not borrow it.",
+        "memory": "Can I use the bathroom?",
+        "quiz": {
+          "stem": "Can I ___ the bathroom?",
+          "options": [
+            "borrow",
+            "use"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Use! Can I use the bathroom?",
+        "native": {
+          "hook": "「トイレを借りる」は borrow？",
+          "tip": "トイレは borrow ではなく use を使います。",
+          "caption": "“Can I borrow the bathroom?”と言っていませんか？😅 日本語の「お手洗いを借りる」を直訳すると borrow になりがちです。“Can I use the bathroom?” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“use”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you borrow the bathroom?",
+          "tip": "Say use the bathroom.",
+          "caption": "Do you say this? “Can I borrow the bathroom?” 😅 The Japanese 借りる does not work for a bathroom in English. The natural way is “Can I use the bathroom?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_questionfor",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Question to or for?",
+        "wrong": "I have a question to you.",
+        "right": "I have a question for you.",
+        "strike": "to",
+        "why": "Use for before the person.",
+        "memory": "I have a question for you.",
+        "quiz": {
+          "stem": "I have a question ___ you.",
+          "options": [
+            "to",
+            "for"
+          ],
+          "answer": 1
+        },
+        "answer_say": "For! I have a question for you.",
+        "native": {
+          "hook": "「あなたに質問」は question to？",
+          "tip": "質問を向ける相手には for を使い、a question for you と言います。",
+          "caption": "“I have a question to you.”と言っていませんか？😅 「あなたに」の「に」につられて to にしがちです。“I have a question for you.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“for”。“I have a question for you.” を声に出して言ってみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “question to you”?",
+          "tip": "Say a question for you.",
+          "caption": "Do you say this? “I have a question to you.” 😅 The Japanese に makes people choose to. The natural way is “I have a question for you.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_angrywith",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Angry to or with?",
+        "wrong": "My mother is angry to me.",
+        "right": "My mother is angry with me.",
+        "strike": "to",
+        "why": "Use with after angry.",
+        "memory": "My mother is angry with me.",
+        "quiz": {
+          "stem": "She is angry ___ me.",
+          "options": [
+            "to",
+            "with"
+          ],
+          "answer": 1
+        },
+        "answer_say": "With! My mother is angry with me.",
+        "native": {
+          "hook": "「angry to me」と言ってない？",
+          "tip": "「〜に怒っている」は be angry with。to は使いません。",
+          "caption": "“My mother is angry to me.”と言っていませんか？😅 「私に怒っている」の「に」につられて to にしがちです。“My mother is angry with me.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“with”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Angry to me?",
+          "tip": "After angry, say with me.",
+          "caption": "Do you say this? “My mother is angry to me.” 😅 Japanese に makes people say to. The natural way is “My mother is angry with me.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_tall170",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Height or tall?",
+        "wrong": "I am 170 cm height.",
+        "right": "I am 170 cm tall.",
+        "strike": "height",
+        "why": "For people, say tall.",
+        "memory": "I am 170 cm tall.",
+        "quiz": {
+          "stem": "I am 170 cm ___.",
+          "options": [
+            "height",
+            "tall"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Tall! I am 170 cm tall.",
+        "native": {
+          "hook": "「身長170cm」は height？",
+          "tip": "「身長が〜cm」は I am 170 cm tall. と tall を使います。",
+          "caption": "“I am 170 cm height.”と言っていませんか？😅 「身長」を height と覚えているので、そのまま入れがちです。“I am 170 cm tall.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“tall”。“I am 170 cm tall.” を声に出して言ってみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Is it “170 cm height”?",
+          "tip": "Say 170 cm tall.",
+          "caption": "Do you say this? “I am 170 cm height.” 😅 Height is a noun, but here English uses tall. The natural way is “I am 170 cm tall.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_didntgo",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Didn't went?",
+        "wrong": "I didn't went to school yesterday.",
+        "right": "I didn't go to school yesterday.",
+        "strike": "went",
+        "why": "After didn't, use the basic verb.",
+        "memory": "I didn't go to school yesterday.",
+        "quiz": {
+          "stem": "I didn't ___ there.",
+          "options": [
+            "went",
+            "go"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Go! I didn't go to school yesterday.",
+        "native": {
+          "hook": "「didn't went」と言ってない？",
+          "tip": "didn't のあとの動詞は元の形に戻します。didn't go です。",
+          "caption": "“I didn't went to school yesterday.”と言っていませんか？😅 日本語は「行かなかった」のように動詞そのものに過去の形がつくので、英語でも went を使いがちです。“I didn't go to school yesterday.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“go”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “didn't went”?",
+          "tip": "After didn't, use go, not went.",
+          "caption": "Do you say this? “I didn't went to school yesterday.” 😅 In Japanese the verb itself shows the past, so people keep went. The natural way is “I didn't go to school yesterday.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_tookbath",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Entered the bath?",
+        "wrong": "I entered the bath last night.",
+        "right": "I took a bath last night.",
+        "strike": "entered",
+        "why": "Say take a bath.",
+        "memory": "I took a bath last night.",
+        "quiz": {
+          "stem": "She ___ a bath after dinner.",
+          "options": [
+            "entered",
+            "took"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Took! I took a bath last night.",
+        "native": {
+          "hook": "「お風呂に入る」は enter？",
+          "tip": "「お風呂に入る」は take a bath。enter は使いません。",
+          "caption": "“I entered the bath last night.”と言っていませんか？😅 「入る」を enter で訳してしまいがちです。“I took a bath last night.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“took”。“I took a bath last night.” を声に出して言ってみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you enter the bath?",
+          "tip": "Say take a bath.",
+          "caption": "Do you say this? “I entered the bath last night.” 😅 The Japanese 入る does not match enter here. The natural way is “I took a bath last night.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_becauseof",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Because or because of?",
+        "wrong": "I cried because of the movie was sad.",
+        "right": "I cried because the movie was sad.",
+        "strike": "because of",
+        "why": "Use because before a full sentence.",
+        "memory": "I cried because the movie was sad.",
+        "quiz": {
+          "stem": "I cried ___ the movie was sad.",
+          "options": [
+            "because",
+            "because of"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Because! I cried because the movie was sad.",
+        "native": {
+          "hook": "because of のあとに文を続けてない？",
+          "tip": "because のあとに「主語＋動詞」が続くときは of をつけません。",
+          "caption": "“I cried because of the movie was sad.”と言っていませんか？😅 「〜ので」を because of と覚えていて、文の前でも使いがちです。“I cried because the movie was sad.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“because”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Because or because of?",
+          "tip": "Use because before a full sentence.",
+          "caption": "Do you say this? “I cried because of the movie was sad.” 😅 Because of is not for a full sentence. The natural way is “I cried because the movie was sad.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_bookbought",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Two brother or brothers?",
+        "wrong": "I have two brother.",
+        "right": "I have two brothers.",
+        "strike": "brother",
+        "why": "Add s when there are two or more.",
+        "memory": "I have two brothers.",
+        "quiz": {
+          "stem": "I have two ___.",
+          "options": [
+            "brother",
+            "brothers"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Brothers! I have two brothers.",
+        "native": {
+          "hook": "「two brother」と言ってない？",
+          "tip": "2つ以上の数のときは名詞に s をつけます。two brothers です。",
+          "caption": "“I have two brother.”と言っていませんか？😅 日本語は「兄弟が二人」のように名詞の形が変わらないので、s が抜けがちです。“I have two brothers.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“brothers”。“I have two brothers.” を声に出して言ってみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “two brother”?",
+          "tip": "Add s after two: two brothers.",
+          "caption": "Do you say this? “I have two brother.” 😅 Japanese nouns do not change for more than one, so the s is easy to drop. The natural way is “I have two brothers.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_interestedin",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "In or to?",
+        "wrong": "I am interested to music.",
+        "right": "I am interested in music.",
+        "strike": "to",
+        "why": "Say interested in, not interested to.",
+        "memory": "I am interested in music.",
+        "quiz": {
+          "stem": "I am interested ___ art.",
+          "options": [
+            "to",
+            "in"
+          ],
+          "answer": 1
+        },
+        "answer_say": "In! I am interested in art.",
+        "native": {
+          "hook": "「interested to」と言ってない？",
+          "tip": "「〜に興味がある」は interested in。to ではなく in を使います。",
+          "caption": "“I am interested to music.”と言っていませんか？😅 日本語の「に」につられて to を使いがちです。“I am interested in music.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“in”。“I am interested in music.” を声に出して言ってみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “interested to”?",
+          "tip": "Say interested in. Do not use to.",
+          "caption": "Do you say this? “I am interested to music.” 😅 The Japanese word に makes us say to, but English uses in. The natural way is “I am interested in music.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_yesterdaywent",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Where does yesterday go?",
+        "wrong": "I yesterday saw her.",
+        "right": "I saw her yesterday.",
+        "strike": "yesterday",
+        "why": "Do not put yesterday between I and saw.",
+        "memory": "I saw her yesterday.",
+        "quiz": {
+          "stem": "Which one is right?",
+          "options": [
+            "I yesterday saw her.",
+            "I saw her yesterday."
+          ],
+          "answer": 1
+        },
+        "answer_say": "The second one! I saw her yesterday.",
+        "native": {
+          "hook": "「I yesterday saw」と言ってない？",
+          "tip": "yesterday は主語と動詞の間に入れません。文の最後か最初に置きます。",
+          "caption": "“I yesterday saw her.”と言っていませんか？😅 日本語は「昨日」を動詞の前に置きますが、英語では主語と動詞の間には入れません。“I saw her yesterday.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“I saw her yesterday.” “I went to the park yesterday.” を声に出して言ってみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “I yesterday saw”?",
+          "tip": "Do not put yesterday between I and the action word.",
+          "caption": "Do you say this? “I yesterday saw her.” 😅 In Japanese the time word goes before the verb, but in English it does not go between I and the verb. The natural way is “I saw her yesterday.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_twentyyears",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "How old are you?",
+        "wrong": "I am twenty years.",
+        "right": "I am twenty years old.",
+        "strike": "years",
+        "why": "Add old after years.",
+        "memory": "I am twenty years old.",
+        "quiz": {
+          "stem": "I am twenty years ___.",
+          "options": [
+            "old",
+            "age"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Old! I am twenty years old.",
+        "native": {
+          "hook": "「twenty years」で止めてない？",
+          "tip": "年齢は years old まで言います。years だけでは足りません。",
+          "caption": "“I am twenty years.”と言っていませんか？😅 日本語の「20歳」につられて、old を忘れがちです。“I am twenty years old.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“old”。“I am twenty years old.” を声に出して言ってみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you stop at “twenty years”?",
+          "tip": "Say years old when you tell your age.",
+          "caption": "Do you say this? “I am twenty years.” 😅 The Japanese 20歳 is one short word, so old is easy to forget. The natural way is “I am twenty years old.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_goodfigure",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Good style?",
+        "wrong": "She has a good style.",
+        "right": "She has a good figure.",
+        "strike": "style",
+        "why": "Say figure for a body shape.",
+        "memory": "She has a good figure.",
+        "quiz": {
+          "stem": "Her body shape is great. She has a good ___.",
+          "options": [
+            "figure",
+            "style"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Figure! She has a good figure.",
+        "native": {
+          "hook": "「good style」と言ってない？",
+          "tip": "体型がいいは good figure。英語の style は服装や着こなしのセンスを指します。",
+          "caption": "“She has a good style.”と言っていませんか？😅 日本語の「スタイルがいい」をそのまま言うと、意味がずれてしまいます。“She has a good figure.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“figure”。“She has a good figure.” を声に出して言ってみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “good style”?",
+          "tip": "For a nice body shape, say good figure. Style means how you dress.",
+          "caption": "Do you say this? “She has a good style.” 😅 In Japanese, “style” can mean body shape, but in English it does not. The natural way is “She has a good figure.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_myfriendand",
+      "lang": "ja",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Who comes first?",
+        "wrong": "I and my friend went to the park.",
+        "right": "My friend and I went to the park.",
+        "strike": "I and my friend",
+        "why": "Say my friend and I.",
+        "memory": "My friend and I went to the park.",
+        "quiz": {
+          "stem": "___ went to the park.",
+          "options": [
+            "I and my sister",
+            "My sister and I"
+          ],
+          "answer": 1
+        },
+        "answer_say": "My sister and I! My sister and I went to the park.",
+        "native": {
+          "hook": "「I and my friend」と言ってない？",
+          "tip": "自分は後ろに置きます。My friend and I … が自然です。",
+          "caption": "“I and my friend went to the park.”と言っていませんか？😅 日本語の「私と友達は」の順にすると、英語では不自然になります。“My friend and I went to the park.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“My sister and I”。“My friend and I went to the park.” を声に出して言ってみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “I and my friend”?",
+          "tip": "Put yourself last: my friend and I.",
+          "caption": "Do you say this? “I and my friend went to the park.” 😅 The Japanese order 私と友達 sounds odd in English, so put I last. The natural way is “My friend and I went to the park.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ja_eithercoffee",
+      "lang": "ja",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Too or either?",
+        "wrong": "I don't like coffee, too.",
+        "right": "I don't like coffee, either.",
+        "strike": "too",
+        "why": "Use either after not.",
+        "memory": "I don't like coffee, either.",
+        "quiz": {
+          "stem": "I don't like tea, ___.",
+          "options": [
+            "too",
+            "either"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Either! I don't like tea, either.",
+        "native": {
+          "hook": "「not 〜, too」と言ってない？",
+          "tip": "否定のあとの「〜も」は either。too は使いません。",
+          "caption": "“I don't like coffee, too.”と言っていませんか？😅 日本語は「も」だけなので、否定でも too を使いがちです。“I don't like coffee, either.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+          "comment": "答え：“either”。“I don't like coffee, either.” を声に出して言ってみよう。無料クイズで練習：{link}",
+          "hashtags": [
+            "#英語学習",
+            "#英会話",
+            "#英語勉強",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “not … too”?",
+          "tip": "After not, say either, not too.",
+          "caption": "Do you say this? “I don't like coffee, too.” 😅 Japanese uses one word も for both, but English changes too to either after not. The natural way is “I don't like coffee, either.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
     }
-   }
-  },
-  {
-   "id": "t2_l1_ja_children",
-   "lang": "ja",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Two child? Fix it!",
-    "wrong": "I have two child.",
-    "right": "I have two children.",
-    "strike": "child",
-    "why": "Child has a special plural: children.",
-    "memory": "I have two children.",
-    "quiz": {
-     "stem": "I have three ___.",
-     "options": [
-      "childs",
-      "children"
-     ],
-     "answer": 1
-    },
-    "answer_say": "Children! I have three children.",
-    "native": {
-     "hook": "two child、複数形が抜けてない？",
-     "tip": "2つ以上なら複数形。child の複数形は children（childs ではない）。",
-     "caption": "“I have two child.”と言っていませんか？😅 数が2以上のときは名詞を複数形にします。child は特別で children になります。 “I have two children.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
-     "comment": "答え：“children”。child の複数形は children。無料クイズで練習：{link}",
-     "hashtags": [
-      "#英語学習",
-      "#英会話",
-      "#英語勉強",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Two child? Is the plural missing?",
-     "tip": "With two or more, use the plural. Child becomes children.",
-     "caption": "Do you say this? “I have two child.” 😅 With two or more, the noun must be plural. Child is special: children. The natural way is “I have two children.” Listen to Carlos and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_ja_saw",
-   "lang": "ja",
-   "teacher": "ama",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Have seen yesterday? No!",
-    "wrong": "I have seen him yesterday.",
-    "right": "I saw him yesterday.",
-    "strike": "have seen",
-    "why": "With yesterday, use the simple past.",
-    "memory": "I saw him yesterday.",
-    "quiz": {
-     "stem": "I ___ him yesterday.",
-     "options": [
-      "saw",
-      "have seen"
-     ],
-     "answer": 0
-    },
-    "answer_say": "Saw! I saw him yesterday.",
-    "native": {
-     "hook": "yesterday と have seen？注意！",
-     "tip": "「昨日」など過去の時を言うなら、過去形 saw を使います。",
-     "caption": "“I have seen him yesterday.”と言っていませんか？😅 yesterday のように過去の時がはっきりしているときは、現在完了ではなく過去形を使います。 “I saw him yesterday.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
-     "comment": "答え：“saw”。yesterday には過去形。無料クイズで練習：{link}",
-     "hashtags": [
-      "#英語学習",
-      "#英会話",
-      "#英語勉強",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Have seen with yesterday? Careful!",
-     "tip": "With a clear past time like yesterday, use the simple past.",
-     "caption": "Do you say this? “I have seen him yesterday.” 😅 With a clear past time such as yesterday, use the simple past, not the present perfect. The natural way is “I saw him yesterday.” Listen to Ama and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_ja_arrived",
-   "lang": "ja",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Arrive: to or at?",
-    "wrong": "I arrived to the station.",
-    "right": "I arrived at the station.",
-    "strike": "to",
-    "why": "Arrive goes with at, not to.",
-    "memory": "I arrived at the station.",
-    "quiz": {
-     "stem": "I arrived ___ the station.",
-     "options": [
-      "at",
-      "to"
-     ],
-     "answer": 0
-    },
-    "answer_say": "At! I arrived at the station.",
-    "native": {
-     "hook": "「到着する」に to を使ってない？",
-     "tip": "arrive の後は場所なら at、都市なら in を使います。to は使いません。",
-     "caption": "“I arrived to the station.”と言っていませんか？😅 日本語の「に」につられて to を使いがち。arrive の後は at を使います。 “I arrived at the station.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
-     "comment": "答え：“at”。arrive のあとは at か in。無料クイズで練習：{link}",
-     "hashtags": [
-      "#英語学習",
-      "#英会話",
-      "#英語勉強",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Do you use to after “arrive”?",
-     "tip": "After arrive, use at for places or in for cities. Not to.",
-     "caption": "Do you say this? “I arrived to the station.” 😅 It is easy to use to, but after arrive you say at. The natural way is “I arrived at the station.” Listen to Carlos and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_ja_mansion",
-   "lang": "ja",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Mansion means a big house!",
-    "wrong": "My mansion is small.",
-    "right": "My apartment is small.",
-    "strike": "mansion",
-    "why": "A mansion is a very big house.",
-    "memory": "My apartment is small.",
-    "quiz": {
-     "stem": "I rent a small ___ near the station.",
-     "options": [
-      "mansion",
-      "apartment"
-     ],
-     "answer": 1
-    },
-    "answer_say": "Apartment! I rent a small apartment.",
-    "native": {
-     "hook": "「マンション」は英語で通じない",
-     "tip": "英語の mansion は大豪邸。日本のマンションは apartment と言います。",
-     "caption": "“My mansion is small.”と言っていませんか？😅 英語の mansion は「大豪邸」のこと。日本でいうマンションは apartment（または condo）です。 “My apartment is small.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
-     "comment": "答え：“apartment”。mansion は大豪邸のこと。無料クイズで練習：{link}",
-     "hashtags": [
-      "#英語学習",
-      "#英会話",
-      "#英語勉強",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Is your home really a mansion?",
-     "tip": "A mansion is a huge house. A normal home in a building is an apartment.",
-     "caption": "Do you say this? “My mansion is small.” 😅 In English a mansion is a huge house. A normal home in a building is an apartment. The natural way is “My apartment is small.” Listen to Carlos and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_ja_excited",
-   "lang": "ja",
-   "teacher": "ama",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "High tension? Not quite!",
-    "wrong": "I am high tension today.",
-    "right": "I am so excited today.",
-    "strike": "high tension",
-    "why": "Say excited, not high tension.",
-    "memory": "I am so excited today.",
-    "quiz": {
-     "stem": "I am ___ about the trip.",
-     "options": [
-      "excited",
-      "high tension"
-     ],
-     "answer": 0
-    },
-    "answer_say": "Excited! I am excited about the trip.",
-    "native": {
-     "hook": "「ハイテンション」は和製英語",
-     "tip": "tension は「緊張」の意味。盛り上がっているなら excited を使おう。",
-     "caption": "“I am high tension today.”と言っていませんか？😅 日本語の「ハイテンション」は和製英語です。英語の tension は緊張や不安のこと。元気なら excited と言います。 “I am so excited today.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
-     "comment": "答え：“excited”。ハイテンションは和製英語。無料クイズで練習：{link}",
-     "hashtags": [
-      "#英語学習",
-      "#英会話",
-      "#英語勉強",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "“High tension” is not English!",
-     "tip": "Tension means stress. When you feel full of energy, say excited.",
-     "caption": "Do you say this? “I am high tension today.” 😅 In English, tension means stress. When you feel full of energy, say excited. The natural way is “I am so excited today.” Listen to Ama and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_ja_mistake",
-   "lang": "ja",
-   "teacher": "ama",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Make a mistake!",
-    "wrong": "I did a mistake.",
-    "right": "I made a mistake.",
-    "strike": "did",
-    "why": "We make a mistake, not do.",
-    "memory": "I made a mistake.",
-    "quiz": {
-     "stem": "I ___ a mistake.",
-     "options": [
-      "made",
-      "did"
-     ],
-     "answer": 0
-    },
-    "answer_say": "Made! I made a mistake.",
-    "native": {
-     "hook": "mistake は do じゃなくて make",
-     "tip": "「間違える」は make a mistake。do は使いません。セットで覚えよう。",
-     "caption": "“I did a mistake.”と言っていませんか？😅 「間違いをする」を do で訳したくなりますが、英語では make a mistake がセットの言い方です。 “I made a mistake.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
-     "comment": "答え：“made”。make a mistake で一つの表現。無料クイズで練習：{link}",
-     "hashtags": [
-      "#英語学習",
-      "#英会話",
-      "#英語勉強",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Is it “do” a mistake? Not really!",
-     "tip": "Say make a mistake. Learn the two words together.",
-     "caption": "Do you say this? “I did a mistake.” 😅 Do feels right, but English says make a mistake as a set phrase. The natural way is “I made a mistake.” Listen to Ama and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_ja_foot",
-   "lang": "ja",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "By walk? Use on foot!",
-    "wrong": "I go there by walk.",
-    "right": "I go there on foot.",
-    "strike": "by walk",
-    "why": "Say on foot for walking.",
-    "memory": "I go there on foot.",
-    "quiz": {
-     "stem": "I go to school ___ foot.",
-     "options": [
-      "on",
-      "by"
-     ],
-     "answer": 0
-    },
-    "answer_say": "On! I go to school on foot.",
-    "native": {
-     "hook": "「歩いて」は by walk じゃない",
-     "tip": "乗り物は by、歩きは on foot。決まったセットで言います。",
-     "caption": "“I go there by walk.”と言っていませんか？😅 電車は by train なので、歩きも by walk と言いたくなります。でも歩きは on foot が決まり文句です。 “I go there on foot.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
-     "comment": "答え：“on”。歩きは on foot。無料クイズで練習：{link}",
-     "hashtags": [
-      "#英語学習",
-      "#英会話",
-      "#英語勉強",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Do you say “by walk”?",
-     "tip": "For vehicles use by. For walking, say on foot.",
-     "caption": "Do you say this? “I go there by walk.” 😅 By train works, so by walk feels logical. But for walking the set phrase is on foot. The natural way is “I go there on foot.” Listen to Carlos and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_ja_agree",
-   "lang": "ja",
-   "teacher": "ama",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Agree is not a feeling!",
-    "wrong": "I am agree.",
-    "right": "I agree.",
-    "strike": "am agree",
-    "why": "Agree is a verb. No am.",
-    "memory": "I agree with you.",
-    "quiz": {
-     "stem": "I ___ with you.",
-     "options": [
-      "agree",
-      "am agree"
-     ],
-     "answer": 0
-    },
-    "answer_say": "Agree! I agree with you.",
-    "native": {
-     "hook": "「I am agree」になってない？",
-     "tip": "agree は動詞なので be 動詞はいりません。I agree でOK！",
-     "caption": "“I am agree.”と言っていませんか？😅 日本語の「賛成だ」につられて am を入れがち。agree はそれだけで動詞なので、I agree と言います。 “I agree.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
-     "comment": "答え：“agree”。be 動詞は不要です。無料クイズで練習：{link}",
-     "hashtags": [
-      "#英語学習",
-      "#英会話",
-      "#英語勉強",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Do you say “I am agree”?",
-     "tip": "Agree is already a verb, so no am is needed. Just say I agree.",
-     "caption": "Do you say this? “I am agree.” 😅 It is easy to add am, but agree is a verb by itself. The natural way is “I agree.” Listen to Ama and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_ja_medicine",
-   "lang": "ja",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Medicine: take it!",
-    "wrong": "I drank medicine.",
-    "right": "I took medicine.",
-    "strike": "drank",
-    "why": "We take medicine. We do not drink it.",
-    "memory": "I took medicine.",
-    "quiz": {
-     "stem": "I ___ medicine every day.",
-     "options": [
-      "take",
-      "drink"
-     ],
-     "answer": 0
-    },
-    "answer_say": "Take! I take medicine every day.",
-    "native": {
-     "hook": "薬を「飲む」は drink じゃない",
-     "tip": "薬は「飲む」でも take を使います。drink は使いません。",
-     "caption": "“I drank medicine.”と言っていませんか？😅 「薬を飲む」をそのまま drink と訳しがちですが、英語では take medicine と言います。“I took medicine.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
-     "comment": "答え：“take”。薬は take。無料クイズで練習：{link}",
-     "hashtags": [
-      "#英語学習",
-      "#英会話",
-      "#英語勉強",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Do you “drink” your medicine?",
-     "tip": "Use take for medicine, not drink.",
-     "caption": "Do you say this? “I drank medicine.” 😅 English says take medicine. The natural way is “I took medicine.” Listen to Carlos and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_ja_hard",
-   "lang": "ja",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Start with It is hard!",
-    "wrong": "I am difficult to get up early.",
-    "right": "It is hard for me to get up early.",
-    "strike": "I am difficult",
-    "why": "Start with It: it is hard for me to...",
-    "memory": "It is hard for me to get up early.",
-    "quiz": {
-     "stem": "___ is hard for me to wake up.",
-     "options": [
-      "It",
-      "I"
-     ],
-     "answer": 0
-    },
-    "answer_say": "It! It is hard for me to wake up.",
-    "native": {
-     "hook": "「私は難しい」になってない？",
-     "tip": "「私は〜するのが難しい」は I am difficult ではなく It is hard for me to ~ の形で。",
-     "caption": "“I am difficult to get up early.”と言っていませんか？😅 「私は早起きが難しい」と主語を I にすると不自然に。difficult は物事に使うので、It を主語にします。 “It is hard for me to get up early.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
-     "comment": "答え：“It”。It is hard for me to ～ の形を使おう。無料クイズで練習：{link}",
-     "hashtags": [
-      "#英語学習",
-      "#英会話",
-      "#英語勉強",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Is “I am difficult” your sentence?",
-     "tip": "For things that are hard for you, start with It is hard for me to...",
-     "caption": "Do you say this? “I am difficult to get up early.” 😅 Making I the subject sounds odd here. Start with It. The natural way is “It is hard for me to get up early.” Listen to Carlos and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_ja_people",
-   "lang": "ja",
-   "teacher": "ama",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "People are plural!",
-    "wrong": "People is very kind here.",
-    "right": "People are very kind here.",
-    "strike": "is",
-    "why": "People is plural. Use are.",
-    "memory": "People are very kind here.",
-    "quiz": {
-     "stem": "Many people ___ here.",
-     "options": [
-      "is",
-      "are"
-     ],
-     "answer": 1
-    },
-    "answer_say": "Are! Many people are here.",
-    "native": {
-     "hook": "people は単数？複数？",
-     "tip": "people は複数扱い。is ではなく are を使います。",
-     "caption": "“People is very kind here.”と言っていませんか？😅 日本語では人数に関係なく同じ形ですが、英語の people は複数扱い。動詞は are になります。 “People are very kind here.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
-     "comment": "答え：“are”。people は複数扱い。無料クイズで練習：{link}",
-     "hashtags": [
-      "#英語学習",
-      "#英会話",
-      "#英語勉強",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Is “people” one or many?",
-     "tip": "People is plural. Use are, not is.",
-     "caption": "Do you say this? “People is very kind here.” 😅 People is plural, so the verb is are. The natural way is “People are very kind here.” Listen to Ama and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_ja_homework",
-   "lang": "ja",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Homework has no s!",
-    "wrong": "I have many homeworks.",
-    "right": "I have a lot of homework.",
-    "strike": "many homeworks",
-    "why": "Homework has no plural.",
-    "memory": "I have a lot of homework.",
-    "quiz": {
-     "stem": "I have too much ___.",
-     "options": [
-      "homework",
-      "homeworks"
-     ],
-     "answer": 0
-    },
-    "answer_say": "Homework! I have too much homework.",
-    "native": {
-     "hook": "homework に s をつけてない？",
-     "tip": "homework は数えられない名詞。s は付けず、a lot of で量を表します。",
-     "caption": "“I have many homeworks.”と言っていませんか？😅 homework は数えられない名詞なので、s は付けません。たくさんは many ではなく a lot of を使います。 “I have a lot of homework.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
-     "comment": "答え：“homework”。数えられない名詞に s は不要。無料クイズで練習：{link}",
-     "hashtags": [
-      "#英語学習",
-      "#英会話",
-      "#英語勉強",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Do you add s to homework?",
-     "tip": "Homework cannot be counted. No s. Say a lot of homework.",
-     "caption": "Do you say this? “I have many homeworks.” 😅 Homework is uncountable, so no s. For a large amount, use a lot of. The natural way is “I have a lot of homework.” Listen to Carlos and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_ja_ate",
-   "lang": "ja",
-   "teacher": "ama",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Yesterday needs past!",
-    "wrong": "I eat natto yesterday.",
-    "right": "I ate natto yesterday.",
-    "strike": "eat",
-    "why": "Past time needs a past verb.",
-    "memory": "I ate natto yesterday.",
-    "quiz": {
-     "stem": "Yesterday I ___ rice.",
-     "options": [
-      "ate",
-      "eat"
-     ],
-     "answer": 0
-    },
-    "answer_say": "Ate! Yesterday I ate rice.",
-    "native": {
-     "hook": "過去の話なのに eat のまま？",
-     "tip": "昨日の話なら、英語は動詞を過去形に。eat → ate！",
-     "caption": "“I eat natto yesterday.”と言っていませんか？😅 yesterday があっても、英語では動詞そのものを過去形にします。eat の過去形は ate。“I ate natto yesterday.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
-     "comment": "答え：“ate”。昨日の話は過去形。無料クイズで練習：{link}",
-     "hashtags": [
-      "#英語学習",
-      "#英会話",
-      "#英語勉強",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Past story, but still “eat”?",
-     "tip": "English changes the verb for the past: eat becomes ate.",
-     "caption": "Do you say this? “I eat natto yesterday.” 😅 Yesterday is not enough. The verb itself must change: eat becomes ate. The natural way is “I ate natto yesterday.” Listen to Ama and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_ja_time",
-   "lang": "ja",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "No a before time!",
-    "wrong": "I don't have a time.",
-    "right": "I don't have time.",
-    "strike": "a time",
-    "why": "Time here has no a.",
-    "memory": "I don't have time.",
-    "quiz": {
-     "stem": "Sorry, I don't have ___ today.",
-     "options": [
-      "a time",
-      "time"
-     ],
-     "answer": 1
-    },
-    "answer_say": "Time! Sorry, I don't have time today.",
-    "native": {
-     "hook": "「時間がない」に a は不要",
-     "tip": "「時間」の意味の time は数えられない名詞。a は付けません。",
-     "caption": "“I don't have a time.”と言っていませんか？😅 「時間」という意味の time は数えられない名詞です。a は付けず、I don't have time と言います。 “I don't have time.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
-     "comment": "答え：“time”。時間の time に a は不要。無料クイズで練習：{link}",
-     "hashtags": [
-      "#英語学習",
-      "#英会話",
-      "#英語勉強",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Do you say “I don't have a time”?",
-     "tip": "Time meaning free time has no a. Say I don't have time.",
-     "caption": "Do you say this? “I don't have a time.” 😅 Time as free time is uncountable, so no a. The natural way is “I don't have time.” Listen to Carlos and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_ja_taxi",
-   "lang": "ja",
-   "teacher": "ama",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "In a taxi, on a train!",
-    "wrong": "I got on the taxi.",
-    "right": "I got in the taxi.",
-    "strike": "on",
-    "why": "Small cars use in. Big ones use on.",
-    "memory": "I got in the taxi.",
-    "quiz": {
-     "stem": "I got ___ the taxi.",
-     "options": [
-      "in",
-      "on"
-     ],
-     "answer": 0
-    },
-    "answer_say": "In! I got in the taxi.",
-    "native": {
-     "hook": "タクシーに「on」で乗ってない？",
-     "tip": "車・タクシーは in、電車・バスは on。乗り物の大きさで使い分けます。",
-     "caption": "“I got on the taxi.”と言っていませんか？😅 車やタクシーのような小さい乗り物は in、電車やバスのような大きい乗り物は on を使います。 “I got in the taxi.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
-     "comment": "答え：“in”。車は in、電車は on。無料クイズで練習：{link}",
-     "hashtags": [
-      "#英語学習",
-      "#英会話",
-      "#英語勉強",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Do you get “on” a taxi?",
-     "tip": "Use in for cars and taxis. Use on for trains and buses.",
-     "caption": "Do you say this? “I got on the taxi.” 😅 Small vehicles like cars and taxis use in. Big ones like trains and buses use on. The natural way is “I got in the taxi.” Listen to Ama and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_ja_pizza",
-   "lang": "ja",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Very much goes at the end!",
-    "wrong": "I very like pizza.",
-    "right": "I like pizza very much.",
-    "strike": "very like",
-    "why": "Put very much after the thing.",
-    "memory": "I like pizza very much.",
-    "quiz": {
-     "stem": "Pick the right sentence.",
-     "options": [
-      "I like cats very much.",
-      "I very like cats."
-     ],
-     "answer": 0
-    },
-    "answer_say": "I like cats very much!",
-    "native": {
-     "hook": "「とても好き」は very like？",
-     "tip": "very は動詞の前に置けません。like ～ very much の順にします。",
-     "caption": "“I very like pizza.”と言っていませんか？😅 「とても好き」を I very like と言いたくなりますが、英語では very much を文の後ろに置きます。 “I like pizza very much.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
-     "comment": "答え：“I like cats very much.” very much は後ろに置きます。無料クイズで練習：{link}",
-     "hashtags": [
-      "#英語学習",
-      "#英会話",
-      "#英語勉強",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "“I very like”? Try another order!",
-     "tip": "Very cannot go before a verb. Say like it very much.",
-     "caption": "Do you say this? “I very like pizza.” 😅 English puts very much after the object. The natural way is “I like pizza very much.” Listen to Carlos and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_ja_listen",
-   "lang": "ja",
-   "teacher": "ama",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Listen to music!",
-    "wrong": "I listen music every day.",
-    "right": "I listen to music every day.",
-    "strike": "listen music",
-    "why": "Listen needs to before the thing.",
-    "memory": "I listen to music every day.",
-    "quiz": {
-     "stem": "I listen ___ music.",
-     "options": [
-      "to",
-      "at"
-     ],
-     "answer": 0
-    },
-    "answer_say": "To! I listen to music.",
-    "native": {
-     "hook": "「音楽を聞く」で to が消えてる",
-     "tip": "listen は「listen to ～」の形。to を忘れずに！",
-     "caption": "“I listen music every day.”と言っていませんか？😅 日本語の「音楽を聞く」には「を」しかないので、to が抜けがち。listen のあとは to が必要です。 “I listen to music every day.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
-     "comment": "答え：“to”。listen のあとは to。無料クイズで練習：{link}",
-     "hashtags": [
-      "#英語学習",
-      "#英会話",
-      "#英語勉強",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Is your “to” missing after listen?",
-     "tip": "Listen always needs to before the thing you hear.",
-     "caption": "Do you say this? “I listen music every day.” 😅 It is easy to drop to, but English needs listen to. The natural way is “I listen to music every day.” Listen to Ama and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_ja_can",
-   "lang": "ja",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Can plus verb!",
-    "wrong": "She can to speak English.",
-    "right": "She can speak English.",
-    "strike": "can to speak",
-    "why": "After can, use the plain verb.",
-    "memory": "She can speak English.",
-    "quiz": {
-     "stem": "I can ___ English.",
-     "options": [
-      "speak",
-      "to speak"
-     ],
-     "answer": 0
-    },
-    "answer_say": "Speak! I can speak English.",
-    "native": {
-     "hook": "can のあとに to を入れてない？",
-     "tip": "can のあとは動詞の原形だけ。to はいりません。",
-     "caption": "“She can to speak English.”と言っていませんか？😅 can のような助動詞のあとには、to なしの動詞の原形が続きます。be able to と混ざらないように。 “She can speak English.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
-     "comment": "答え：“speak”。can のあとは原形。無料クイズで練習：{link}",
-     "hashtags": [
-      "#英語学習",
-      "#英会話",
-      "#英語勉強",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Do you put “to” after can?",
-     "tip": "After can, use the plain verb. No to.",
-     "caption": "Do you say this? “She can to speak English.” 😅 After a modal like can, the base verb follows without to. Do not mix it with be able to. The natural way is “She can speak English.” Listen to Carlos and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_ja_likes",
-   "lang": "ja",
-   "teacher": "ama",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Does needs no s!",
-    "wrong": "He doesn't likes it.",
-    "right": "He doesn't like it.",
-    "strike": "likes",
-    "why": "After doesn't, the verb has no s.",
-    "memory": "He doesn't like it.",
-    "quiz": {
-     "stem": "She doesn't ___ it.",
-     "options": [
-      "like",
-      "likes"
-     ],
-     "answer": 0
-    },
-    "answer_say": "Like! She doesn't like it.",
-    "native": {
-     "hook": "doesn't のあとに s をつけてない？",
-     "tip": "doesn't がすでに三単現の s を持っているので、動詞は原形に。",
-     "caption": "“He doesn't likes it.”と言っていませんか？😅 否定文では doesn't が三人称単数を担当します。そのため like は s のない原形になります。 “He doesn't like it.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
-     "comment": "答え：“like”。doesn't のあとは原形。無料クイズで練習：{link}",
-     "hashtags": [
-      "#英語学習",
-      "#英会話",
-      "#英語勉強",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Do you add s after doesn't?",
-     "tip": "Doesn't already carries the s. Use the plain verb: like.",
-     "caption": "Do you say this? “He doesn't likes it.” 😅 In negatives, doesn't handles the third person, so the verb stays plain. The natural way is “He doesn't like it.” Listen to Ama and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_ja_yesno",
-   "lang": "ja",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Yes or no? Be careful!",
-    "wrong": "Yes, I don't like fish.",
-    "right": "No, I don't like fish.",
-    "strike": "Yes",
-    "why": "If you don't, say no.",
-    "memory": "No, I don't like fish.",
-    "quiz": {
-     "stem": "You don't like fish? ___, I don't.",
-     "options": [
-      "Yes",
-      "No"
-     ],
-     "answer": 1
-    },
-    "answer_say": "No! No, I don't.",
-    "native": {
-     "hook": "Yes か No か？日本人の癖の罠！",
-     "tip": "英語では事実で答えます。否定なら No と言います。",
-     "caption": "“Yes, I don't like fish.”と言っていませんか？😅 日本語は相手の言葉に同意するかで「はい」と答えますが、英語は答えの内容が否定なら No です。 “No, I don't like fish.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
-     "comment": "答え：“No”。否定の答えは No。無料クイズで練習：{link}",
-     "hashtags": [
-      "#英語学習",
-      "#英会話",
-      "#英語勉強",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Yes or No? Watch this trap!",
-     "tip": "In English, answer by the fact. If it is negative, say No.",
-     "caption": "Do you say this? “Yes, I don't like fish.” 😅 In English, answer by the fact. If your answer is negative, say No. The natural way is “No, I don't like fish.” Listen to Carlos and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_ja_late",
-   "lang": "ja",
-   "teacher": "ama",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Say sorry, I'm late!",
-    "wrong": "Sorry for late.",
-    "right": "Sorry I'm late.",
-    "strike": "for late",
-    "why": "Use a full phrase: I'm late.",
-    "memory": "Sorry I'm late.",
-    "quiz": {
-     "stem": "Sorry, I'm ___.",
-     "options": [
-      "late",
-      "for late"
-     ],
-     "answer": 0
-    },
-    "answer_say": "Late! Sorry, I'm late.",
-    "native": {
-     "hook": "「遅れてごめん」の言い方は？",
-     "tip": "Sorry for late は不自然。Sorry I'm late. と主語と動詞を入れます。",
-     "caption": "“Sorry for late.”と言っていませんか？😅 日本語の「遅れてごめん」をそのまま訳すと不自然に。Sorry のあとは I'm late と文の形にします。 “Sorry I'm late.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
-     "comment": "答え：“late”。I'm late と文で言おう。無料クイズで練習：{link}",
-     "hashtags": [
-      "#英語学習",
-      "#英会話",
-      "#英語勉強",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "“Sorry for late” sounds odd!",
-     "tip": "Say Sorry I'm late. Use a full sentence after sorry.",
-     "caption": "Do you say this? “Sorry for late.” 😅 A word-for-word translation sounds odd. After sorry, say a full phrase: I'm late. The natural way is “Sorry I'm late.” Listen to Ama and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_ja_plane",
-   "lang": "ja",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Wait for what?",
-    "wrong": "I waited the bus.",
-    "right": "I waited for the bus.",
-    "strike": "waited the",
-    "why": "Wait needs for before the thing.",
-    "memory": "I waited for the bus.",
-    "quiz": {
-     "stem": "I am waiting ___ my friend.",
-     "options": [
-      "for",
-      "to"
-     ],
-     "answer": 0
-    },
-    "answer_say": "For! I am waiting for my friend.",
-    "native": {
-     "hook": "「I waited the bus」で合ってる？",
-     "tip": "wait のあとには for が必要。「バスを待つ」につられて忘れがち。",
-     "caption": "“I waited the bus.”と言っていませんか？😅 日本語の「バスを待った」につられて、for を抜かしがちです。wait のあとには for が必要です。 “I waited for the bus.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
-     "comment": "答え：“for”。wait のあとは for。無料クイズで練習：{link}",
-     "hashtags": [
-      "#英語学習",
-      "#英会話",
-      "#英語勉強",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Do you say “I waited the bus”?",
-     "tip": "Wait needs for before the thing you wait for.",
-     "caption": "Do you say this? “I waited the bus.” 😅 It is easy to drop for, but wait needs it. The natural way is “I waited for the bus.” Listen to Carlos and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_ja_raining",
-   "lang": "ja",
-   "teacher": "ama",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Discuss about? No!",
-    "wrong": "Let's discuss about the plan.",
-    "right": "Let's discuss the plan.",
-    "strike": "about",
-    "why": "Discuss already means talk about.",
-    "memory": "Let's discuss the plan.",
-    "quiz": {
-     "stem": "We ___ the trip.",
-     "options": [
-      "discussed",
-      "discussed about"
-     ],
-     "answer": 0
-    },
-    "answer_say": "Discussed! We discussed the trip.",
-    "native": {
-     "hook": "「discuss about」の about は不要",
-     "tip": "discuss は「〜について話し合う」の意味を含む。about は付けない。",
-     "caption": "“Let's discuss about the plan.”と言っていませんか？😅 日本語の「〜について」につられて about を付けがちです。discuss だけで「〜について話し合う」になります。 “Let's discuss the plan.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
-     "comment": "答え：“discussed”。discuss のあとに about は不要。無料クイズで練習：{link}",
-     "hashtags": [
-      "#英語学習",
-      "#英会話",
-      "#英語勉強",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Do you say “discuss about”?",
-     "tip": "Discuss already means talk about. Do not add about.",
-     "caption": "Do you say this? “Let's discuss about the plan.” 😅 It is easy to add about, but discuss already includes it. The natural way is “Let's discuss the plan.” Listen to Ama and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_ja_wentkyoto",
-   "lang": "ja",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Who went? Say who!",
-    "wrong": "Went to Kyoto yesterday.",
-    "right": "I went to Kyoto yesterday.",
-    "strike": "Went",
-    "why": "Do not drop the subject.",
-    "memory": "I went to Kyoto yesterday.",
-    "quiz": {
-     "stem": "Pick the full sentence.",
-     "options": [
-      "Went to Kyoto.",
-      "I went to Kyoto."
-     ],
-     "answer": 1
-    },
-    "answer_say": "I went to Kyoto!",
-    "native": {
-     "hook": "「Went to Kyoto」、「I」を忘れてない？",
-     "tip": "日本語は主語を省くのが普通。でも英語では I を省かずに言おう。",
-     "caption": "“Went to Kyoto yesterday.”と言っていませんか？😅 日本語では「京都に行った」で通じますが、英語では主語の I が必要です。“I went to Kyoto yesterday.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
-     "comment": "答え：“I went to Kyoto.” 主語の I を忘れずに。無料クイズで練習：{link}",
-     "hashtags": [
-      "#英語学習",
-      "#英会話",
-      "#英語勉強",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Did you drop the I?",
-     "tip": "Do not drop the subject. Say I went...",
-     "caption": "Do you say this? “Went to Kyoto yesterday.” 😅 English needs the subject I. The natural way is “I went to Kyoto yesterday.” Listen to Carlos and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_ja_forward",
-   "lang": "ja",
-   "teacher": "ama",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "To see? Or seeing?",
-    "wrong": "I look forward to see you.",
-    "right": "I look forward to seeing you.",
-    "strike": "to see",
-    "why": "After this to, say seeing, not see.",
-    "memory": "I look forward to seeing you.",
-    "quiz": {
-     "stem": "We look forward to ___ it.",
-     "options": [
-      "watch",
-      "watching"
-     ],
-     "answer": 1
-    },
-    "answer_say": "Watching! We look forward to watching it.",
-    "native": {
-     "hook": "look forward to の後ろ、動詞の形は大丈夫？",
-     "tip": "look forward to の to は前置詞。だから後ろは seeing のように -ing 形。",
-     "caption": "“I look forward to see you.”と言っていませんか？😅 「to の後ろは原形」と覚えていて原形にしがちですが、この to は前置詞なので -ing 形が正解。“I look forward to seeing you.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
-     "comment": "答え：“watching”。look forward to の後ろは -ing 形。無料クイズで練習：{link}",
-     "hashtags": [
-      "#英語学習",
-      "#英会話",
-      "#英語勉強",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Look forward to see, or seeing?",
-     "tip": "The to here is a preposition, so use the ing form.",
-     "caption": "Do you say this? “I look forward to see you.” 😅 The to in this phrase is a preposition, so the verb takes ing. The natural way is “I look forward to seeing you.” Listen to Ama and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_ja_gasstand",
-   "lang": "ja",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Gas stand? Not English!",
-    "wrong": "I went to a gas stand.",
-    "right": "I went to a gas station.",
-    "strike": "gas stand",
-    "why": "Say gas station in American English.",
-    "memory": "I went to a gas station.",
-    "quiz": {
-     "stem": "We need a gas ___.",
-     "options": [
-      "stand",
-      "station"
-     ],
-     "answer": 1
-    },
-    "answer_say": "Station! We need a gas station.",
-    "native": {
-     "hook": "「ガソリンスタンド」は和製英語って知ってた？",
-     "tip": "stand は英語では「屋台」のようなイメージ。ガソリンスタンドは gas station と言う。",
-     "caption": "“I went to a gas stand.”と言っていませんか？😅 「ガソリンスタンド」は和製英語で、英語では gas station です。“I went to a gas station.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
-     "comment": "答え：“station”。gas station が正しい言い方。無料クイズで練習：{link}",
-     "hashtags": [
-      "#英語学習",
-      "#英会話",
-      "#英語勉強",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "“Gas stand” is not English!",
-     "tip": "Gas stand is not English. Say gas station.",
-     "caption": "Do you say this? “I went to a gas stand.” 😅 Gas stand is not real English. In American English, say gas station. The natural way is “I went to a gas station.” Listen to Carlos and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_ja_outlet",
-   "lang": "ja",
-   "teacher": "ama",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Is it consent?",
-    "wrong": "My room has no consent.",
-    "right": "My room has no outlet.",
-    "strike": "consent",
-    "why": "In American English, we call it an outlet.",
-    "memory": "My room has no outlet.",
-    "quiz": {
-     "stem": "There is no ___ by my desk.",
-     "options": [
-      "consent",
-      "outlet"
-     ],
-     "answer": 1
-    },
-    "answer_say": "Outlet! There is no outlet by my desk.",
-    "native": {
-     "hook": "「コンセント」は英語じゃない！通じないかも",
-     "tip": "日本語の「コンセント」は和製英語。壁の差し込み口は outlet と言う。",
-     "caption": "“My room has no consent.”と言っていませんか？😅 「コンセント」は和製英語です。英語の consent は「同意」の意味になってしまいます。壁の差し込み口は outlet。“My room has no outlet.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
-     "comment": "答え：“outlet”。差し込み口は outlet。無料クイズで練習：{link}",
-     "hashtags": [
-      "#英語学習",
-      "#英会話",
-      "#英語勉強",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Is “consent” a power plug?",
-     "tip": "Consent means permission. A wall socket is an outlet.",
-     "caption": "Do you say this? “My room has no consent.” 😅 In English, consent means permission. A wall socket is an outlet. The natural way is “My room has no outlet.” Listen to Ama and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_ja_whereis",
-   "lang": "ja",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Fix the word order!",
-    "wrong": "Do you know where is the station?",
-    "right": "Do you know where the station is?",
-    "strike": "where is the station",
-    "why": "Inside a sentence, use normal order: subject, then verb.",
-    "memory": "Do you know where the station is?",
-    "quiz": {
-     "stem": "I know where ___.",
-     "options": [
-      "the bank is",
-      "is the bank"
-     ],
-     "answer": 0
-    },
-    "answer_say": "The bank is! I know where the bank is.",
-    "native": {
-     "hook": "「Do you know where is〜」、語順が逆かも",
-     "tip": "文の中に入る疑問文は、普通の文と同じ語順。where the station is のようにします。",
-     "caption": "“Do you know where is the station?”と言っていませんか？😅 疑問文が文の中に入るときは、主語→動詞の普通の語順にします。“Do you know where the station is?” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
-     "comment": "答え：“the bank is”。文中の疑問文は普通の語順に。無料クイズで練習：{link}",
-     "hashtags": [
-      "#英語学習",
-      "#英会話",
-      "#英語勉強",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Do you know where is...? Check it!",
-     "tip": "Inside a longer question, use normal order: subject, then verb.",
-     "caption": "Do you say this? “Do you know where is the station?” 😅 Inside a longer question, use normal word order. The natural way is “Do you know where the station is?” Listen to Carlos and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_ja_weather",
-   "lang": "ja",
-   "teacher": "ama",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "A weather? No!",
-    "wrong": "We had a nice weather today.",
-    "right": "We had nice weather today.",
-    "strike": "a nice weather",
-    "why": "Weather has no a or an.",
-    "memory": "We had nice weather today.",
-    "quiz": {
-     "stem": "We had ___ at the beach.",
-     "options": [
-      "a good weather",
-      "good weather"
-     ],
-     "answer": 1
-    },
-    "answer_say": "Good weather! We had good weather.",
-    "native": {
-     "hook": "weather に a をつけていませんか？",
-     "tip": "weather は数えられない名詞。a はつけず、nice weather と言う。",
-     "caption": "“We had a nice weather today.”と言っていませんか？😅 weather は数えられない名詞なので、a はつきません。“We had nice weather today.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
-     "comment": "答え：“good weather”。weather に a は不要。無料クイズで練習：{link}",
-     "hashtags": [
-      "#英語学習",
-      "#英会話",
-      "#英語勉強",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Do you put a before “weather”?",
-     "tip": "Weather is uncountable, so do not use a.",
-     "caption": "Do you say this? “We had a nice weather today.” 😅 Weather is a noun you cannot count, so it takes no a. The natural way is “We had nice weather today.” Listen to Ama and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_ja_wentthere",
-   "lang": "ja",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "To there? No to!",
-    "wrong": "I went to there yesterday.",
-    "right": "I went there yesterday.",
-    "strike": "to there",
-    "why": "There already means to there.",
-    "memory": "I went there yesterday.",
-    "quiz": {
-     "stem": "She goes ___ every day.",
-     "options": [
-      "to there",
-      "there"
-     ],
-     "answer": 1
-    },
-    "answer_say": "There! She goes there every day.",
-    "native": {
-     "hook": "「went to there」の to は要らない！",
-     "tip": "there は「そこへ」の意味を持つ。to はつけずに went there と言う。",
-     "caption": "“I went to there yesterday.”と言っていませんか？😅 日本語の「そこに行く」につられて to を入れがちですが、there だけで「そこへ」の意味になります。“I went there yesterday.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
-     "comment": "答え：“there”。there に to は不要。無料クイズで練習：{link}",
-     "hashtags": [
-      "#英語学習",
-      "#英会話",
-      "#英語勉強",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Do you say “went to there”?",
-     "tip": "There already means to that place, so drop to.",
-     "caption": "Do you say this? “I went to there yesterday.” 😅 There already means to that place, so skip to. The natural way is “I went there yesterday.” Listen to Carlos and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_ja_since",
-   "lang": "ja",
-   "teacher": "ama",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Since? Use have!",
-    "wrong": "I study English since last year.",
-    "right": "I have studied English since last year.",
-    "strike": "I study",
-    "why": "Since needs the present perfect, not the present.",
-    "memory": "I have studied English since last year.",
-    "quiz": {
-     "stem": "I ___ here since May.",
-     "options": [
-      "live",
-      "have lived"
-     ],
-     "answer": 1
-    },
-    "answer_say": "Have lived! I have lived here since May.",
-    "native": {
-     "hook": "「since」の文、動詞の形は合ってる？",
-     "tip": "since を使うときは現在完了形（have + 過去分詞）。日本語の「勉強している」につられないで。",
-     "caption": "“I study English since last year.”と言っていませんか？😅 日本語の「去年から勉強している」につられて現在形にしがちですが、since には現在完了形を使います。“I have studied English since last year.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
-     "comment": "答え：“have lived”。since には have + 過去分詞。無料クイズで練習：{link}",
-     "hashtags": [
-      "#英語学習",
-      "#英会話",
-      "#英語勉強",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Since: study or have studied?",
-     "tip": "Use the present perfect with since, not the present.",
-     "caption": "Do you say this? “I study English since last year.” 😅 With since, English needs the present perfect. The natural way is “I have studied English since last year.” Listen to Ama and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_ja_friend",
-   "lang": "ja",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Friend of me?",
-    "wrong": "He is a friend of me.",
-    "right": "He is a friend of mine.",
-    "strike": "of me",
-    "why": "In “a friend of ___,” use mine, not me.",
-    "memory": "He is a friend of mine.",
-    "quiz": {
-     "stem": "She is a friend of ___.",
-     "options": [
-      "me",
-      "mine"
-     ],
-     "answer": 1
-    },
-    "answer_say": "Mine! She is a friend of mine.",
-    "native": {
-     "hook": "「a friend of me」、me じゃなくて…？",
-     "tip": "「私の友達の一人」は a friend of mine。この形では of の後ろは me ではなく mine。",
-     "caption": "“He is a friend of me.”と言っていませんか？😅 「私の友達」を「friend of me」と直訳しがちですが、正しくは mine を使います。“He is a friend of mine.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
-     "comment": "答え：“mine”。a friend of mine が正しい形。無料クイズで練習：{link}",
-     "hashtags": [
-      "#英語学習",
-      "#英会話",
-      "#英語勉強",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Is it “a friend of me”?",
-     "tip": "In this phrase, say a friend of mine, not of me.",
-     "caption": "Do you say this? “He is a friend of me.” 😅 Say mine, not me, after of. The natural way is “He is a friend of mine.” Listen to Carlos and repeat! Practice more in the Lexkite app."
-    }
-   }
-  }
- ]
+  ]
 }

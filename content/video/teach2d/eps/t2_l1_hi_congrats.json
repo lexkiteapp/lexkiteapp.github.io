@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_congrats",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Congratulations on, not for!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Congratulations for your new job.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Congratulations on your new job.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "We say congratulations on something.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "On! Congratulations on your new house!",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Congratulations for your new job.",
+  "right": "Congratulations on your new job.",
+  "strike": "for",
+  "why": "We say congratulations on something.",
+  "memory": "Congratulations on it.",
+  "quiz": {
+   "stem": "Congratulations ___ your new house!",
+   "options": [
+    "for",
+    "on"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“congratulations for” नहीं!",
+   "tip": "हिंदी में “नौकरी के लिए बधाई” कहते हैं, इसलिए लोग for लगा देते हैं। अंग्रेज़ी में congratulations के बाद on आता है।",
+   "caption": "क्या आप भी बोलते हैं: “Congratulations for your new job.” 😅 सही वाक्य है: “Congratulations on your new job.” ध्यान रखें: congratulations के बाद on आता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “on”। याद रखें: congratulations के बाद on आता है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “congratulations on”!",
+   "tip": "Many learners use for because it sounds like the sentence in their language, but English says congratulations on.",
+   "caption": "Do you say: “Congratulations for your new job.” 😅 The right sentence is: “Congratulations on your new job.” Remember: We say congratulations on something. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“congratulations for” नहीं!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“congratulations for” नहीं!",
+  "keyword": "Congratulations on your new job.",
+  "value": "हिंदी में “नौकरी के लिए बधाई” कहते हैं, इसलिए लोग for लगा देते हैं। अंग्रेज़ी में congratulations के बाद on आता है।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "“congratulations for” नहीं!",
+    "description": "हिंदी में “नौकरी के लिए बधाई” कहते हैं, इसलिए लोग for लगा देते हैं। अंग्रेज़ी में congratulations के बाद on आता है।\n\nक्या आप भी बोलते हैं: “Congratulations for your new job.” 😅 सही वाक्य है: “Congratulations on your new job.” ध्यान रखें: congratulations के बाद on आता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "Congratulations on your new job.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी बोलते हैं: “Congratulations for your new job.” 😅 सही वाक्य है: “Congratulations on your new job.” ध्यान रखें: congratulations के बाद on आता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“congratulations for” नहीं!\n\nहिंदी में “नौकरी के लिए बधाई” कहते हैं, इसलिए लोग for लगा देते हैं। अंग्रेज़ी में congratulations के बाद on आता है।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“congratulations for” नहीं! हिंदी में “नौकरी के लिए बधाई” कहते हैं, इसलिए लोग for लगा देते हैं। अंग्रेज… #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “on”। याद रखें: congratulations के बाद on आता है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

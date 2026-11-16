@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_isnotit",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say don't you, not isn't it!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: You like tea, isn't it?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: You like tea, don't you?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "The end must match the verb.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Doesn't she! She works here, doesn't she?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "You like tea, isn't it?",
+  "right": "You like tea, don't you?",
+  "strike": "isn't it",
+  "why": "The end must match the verb.",
+  "memory": "You like tea, don't you?",
+  "quiz": {
+   "stem": "She works here, ___?",
+   "options": [
+    "isn't it",
+    "doesn't she"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“isn't it” हर जगह नहीं चलता!",
+   "tip": "हिंदी का “है ना?” हर वाक्य के अंत में चल जाता है; अंग्रेज़ी में अंत वाला हिस्सा क्रिया के अनुसार बदलता है, जैसे don't you।",
+   "caption": "क्या आप भी यही कहते हैं? “You like tea, isn't it?” 😅 सही रूप है “You like tea, don't you?” क्योंकि अंत वाला हिस्सा क्रिया के अनुसार बदलता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “doesn't she”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “isn't it” every time!",
+   "tip": "Many learners end every sentence with isn't it, but the end must match the verb.",
+   "caption": "Do you say this? “You like tea, isn't it?” 😅 The right way is “You like tea, don't you?” This is right because the end must match the verb. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“isn't it” हर जगह नहीं चलता!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“isn't it” हर जगह नहीं चलता!",
+  "keyword": "You like tea, don't you?",
+  "value": "हिंदी का “है ना?” हर वाक्य के अंत में चल जाता है; अंग्रेज़ी में अंत वाला हिस्सा क्रिया के अनुसार बदलता है, जैसे don't you।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "“isn't it” हर जगह नहीं चलता!",
+    "description": "हिंदी का “है ना?” हर वाक्य के अंत में चल जाता है; अंग्रेज़ी में अंत वाला हिस्सा क्रिया के अनुसार बदलता है, जैसे don't you।\n\nक्या आप भी यही कहते हैं? “You like tea, isn't it?” 😅 सही रूप है “You like tea, don't you?” क्योंकि अंत वाला हिस्सा क्रिया के अनुसार बदलता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "You like tea, don't you?",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी यही कहते हैं? “You like tea, isn't it?” 😅 सही रूप है “You like tea, don't you?” क्योंकि अंत वाला हिस्सा क्रिया के अनुसार बदलता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“isn't it” हर जगह नहीं चलता!\n\nहिंदी का “है ना?” हर वाक्य के अंत में चल जाता है; अंग्रेज़ी में अंत वाला हिस्सा क्रिया के अनुसार बदलता है, जैसे don't you।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“isn't it” हर जगह नहीं चलता! हिंदी का “है ना?” हर वाक्य के अंत में चल जाता है; अंग्रेज़ी में अंत वाला ह… #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “doesn't she”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

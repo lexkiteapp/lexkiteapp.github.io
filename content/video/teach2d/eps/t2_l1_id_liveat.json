@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_liveat",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Live in a town!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: My uncle lives at a small town.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My uncle lives in a small town.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Towns and cities: in.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "In! We live in a big city.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "My uncle lives at a small town.",
+  "right": "My uncle lives in a small town.",
+  "strike": "at",
+  "why": "Towns and cities: in.",
+  "memory": "Live in.",
+  "quiz": {
+   "stem": "We live ___ a big city.",
+   "options": [
+    "at",
+    "in"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Tinggal di” jadi “at”?",
+   "tip": "Kita bilang “tinggal di kota”, dan sering mengira “di” selalu at. Untuk kota, pakai in.",
+   "caption": "Pernah bilang begini? “My uncle lives at a small town.” 😅 Untuk kota, pakai in: “My uncle lives in a small town.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “in”. Ucapkan dengan lantang: “I live in a big city.” Lalu ganti dengan kotamu. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#depan",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Cities need “in”, not “at”",
+   "tip": "We say “tinggal di kota”, and often think “di” is always at. For a town or city, use in.",
+   "caption": "Ever say this? “My uncle lives at a small town.” 😅 For a town or city, use in: “My uncle lives in a small town.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Tinggal di” jadi “at”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“Tinggal di” jadi “at”?",
+  "keyword": "My uncle lives in a small town.",
+  "value": "Kita bilang “tinggal di kota”, dan sering mengira “di” selalu at. Untuk kota, pakai in.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#depan",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "“Tinggal di” jadi “at”?",
+    "description": "Kita bilang “tinggal di kota”, dan sering mengira “di” selalu at. Untuk kota, pakai in.\n\nPernah bilang begini? “My uncle lives at a small town.” 😅 Untuk kota, pakai in: “My uncle lives in a small town.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #depan #bahasainggris #lexkite",
+    "tags": [
+     "My uncle lives in a small town.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “My uncle lives at a small town.” 😅 Untuk kota, pakai in: “My uncle lives in a small town.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Tinggal di” jadi “at”?\n\nKita bilang “tinggal di kota”, dan sering mengira “di” selalu at. Untuk kota, pakai in.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#depan",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Tinggal di” jadi “at”? Kita bilang “tinggal di kota”, dan sering mengira “di” selalu at. Untuk kota, pak… #belajarbahasainggris #depan #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “in”. Ucapkan dengan lantang: “I live in a big city.” Lalu ganti dengan kotamu. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_preferthan",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Prefer tea to coffee!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I prefer tea than coffee.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I prefer tea to coffee.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Prefer goes with to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "To! I prefer rice to bread.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I prefer tea than coffee.",
+  "right": "I prefer tea to coffee.",
+  "strike": "than",
+  "why": "Prefer goes with to.",
+  "memory": "Prefer A to B.",
+  "quiz": {
+   "stem": "I prefer rice ___ bread.",
+   "options": [
+    "than",
+    "to"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Daripada” jadi “than”?",
+   "tip": "Kita bilang “lebih suka teh daripada kopi”, tapi dengan prefer, bahasa Inggris pakai to, bukan than.",
+   "caption": "Pernah bilang begini? “I prefer tea than coffee.” 😅 Dengan prefer, pakai to: “I prefer tea to coffee.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “to”. Tulis satu kalimat tentang makanan favoritmu dengan prefer … to. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#grammaringgris",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Daripada”? Prefer uses “to”",
+   "tip": "We say “lebih suka teh daripada kopi”, but with prefer, English uses to, not than.",
+   "caption": "Ever say this? “I prefer tea than coffee.” 😅 With prefer, use to: “I prefer tea to coffee.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Daripada” jadi “than”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“Daripada” jadi “than”?",
+  "keyword": "I prefer tea to coffee.",
+  "value": "Kita bilang “lebih suka teh daripada kopi”, tapi dengan prefer, bahasa Inggris pakai to, bukan than.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#grammaringgris",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "“Daripada” jadi “than”?",
+    "description": "Kita bilang “lebih suka teh daripada kopi”, tapi dengan prefer, bahasa Inggris pakai to, bukan than.\n\nPernah bilang begini? “I prefer tea than coffee.” 😅 Dengan prefer, pakai to: “I prefer tea to coffee.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #grammaringgris #bahasainggris #lexkite",
+    "tags": [
+     "I prefer tea to coffee.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “I prefer tea than coffee.” 😅 Dengan prefer, pakai to: “I prefer tea to coffee.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Daripada” jadi “than”?\n\nKita bilang “lebih suka teh daripada kopi”, tapi dengan prefer, bahasa Inggris pakai to, bukan than.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#grammaringgris",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Daripada” jadi “than”? Kita bilang “lebih suka teh daripada kopi”, tapi dengan prefer, bahasa I… #belajarbahasainggris #grammaringgris #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “to”. Tulis satu kalimat tentang makanan favoritmu dengan prefer … to. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

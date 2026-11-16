@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_marryher",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Married with her?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: He married with her.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: He married her.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Marry does not need with.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Married! He married her.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "He married with her.",
+  "right": "He married her.",
+  "strike": "with",
+  "why": "Marry does not need with.",
+  "memory": "He married her.",
+  "quiz": {
+   "stem": "She ___ him last year.",
+   "options": [
+    "married",
+    "married with"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "「married with」は間違い？",
+   "tip": "marry の後ろに with は不要。直接人を置きます。",
+   "caption": "“He married with her.”と言っていませんか？😅 「〜と結婚する」の「と」につられて with を入れがちです。“He married her.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“married”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Married with her?",
+   "tip": "Say married her, with no with.",
+   "caption": "Do you say this? “He married with her.” 😅 Do not add with after marry. The natural way is “He married her.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "「married with」は間違い？"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 39,
+  "seconds": 24.7,
+  "wpm": 95
+ },
+ "publish": {
+  "title": "「married with」は間違い？",
+  "keyword": "He married her.",
+  "value": "marry の後ろに with は不要。直接人を置きます。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 33,
+  "platforms": {
+   "youtube": {
+    "title": "「married with」は間違い？",
+    "description": "marry の後ろに with は不要。直接人を置きます。\n\n“He married with her.”と言っていませんか？😅 「〜と結婚する」の「と」につられて with を入れがちです。“He married her.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "He married her.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“He married with her.”と言っていませんか？😅 「〜と結婚する」の「と」につられて with を入れがちです。“He married her.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "「married with」は間違い？\n\nmarry の後ろに with は不要。直接人を置きます。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「married with」は間違い？ marry の後ろに with は不要。直接人を置きます。 #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“married”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

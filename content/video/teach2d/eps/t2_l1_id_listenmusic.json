@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_listenmusic",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Listen to music!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I listen music every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I listen to music every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Listen needs to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Listen to music! I listen to music in the car.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I listen music every day.",
+  "right": "I listen to music every day.",
+  "strike": "listen",
+  "why": "Listen needs to.",
+  "memory": "Listen to.",
+  "quiz": {
+   "stem": "I ___ in the car.",
+   "options": [
+    "listen music",
+    "listen to music"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Mendengarkan” jadi “listen”?",
+   "tip": "Kata “mendengarkan” sudah lengkap, tapi bahasa Inggris butuh to: listen to music.",
+   "caption": "Pernah bilang begini? “I listen music every day.” 😅 Setelah listen, tambahkan to: “I listen to music every day.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “listen to music”. Ucapkan dengan lantang: “I listen to music every day.” Lalu sebut lagu favoritmu. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#kosakata",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Mendengarkan” needs “to”",
+   "tip": "The word “mendengarkan” is complete, but English needs to: listen to music.",
+   "caption": "Ever say this? “I listen music every day.” 😅 After listen, add to: “I listen to music every day.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Mendengarkan” jadi “listen”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“Mendengarkan” jadi “listen”?",
+  "keyword": "I listen to music every day.",
+  "value": "Kata “mendengarkan” sudah lengkap, tapi bahasa Inggris butuh to: listen to music.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#kosakata",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "“Mendengarkan” jadi “listen”?",
+    "description": "Kata “mendengarkan” sudah lengkap, tapi bahasa Inggris butuh to: listen to music.\n\nPernah bilang begini? “I listen music every day.” 😅 Setelah listen, tambahkan to: “I listen to music every day.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #kosakata #bahasainggris #lexkite",
+    "tags": [
+     "I listen to music every day.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “I listen music every day.” 😅 Setelah listen, tambahkan to: “I listen to music every day.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Mendengarkan” jadi “listen”?\n\nKata “mendengarkan” sudah lengkap, tapi bahasa Inggris butuh to: listen to music.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#kosakata",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Mendengarkan” jadi “listen”? Kata “mendengarkan” sudah lengkap, tapi bahasa Inggris butuh to: listen… #belajarbahasainggris #kosakata #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “listen to music”. Ucapkan dengan lantang: “I listen to music every day.” Lalu sebut lagu favoritmu. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

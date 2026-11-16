@@ -1,0 +1,149 @@
+{
+ "id": "t2_l1_vi_good_at",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Is it good in or good at?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: He is good in English.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: He is good at English.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use at after good.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "At! She is good at cooking.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "He is good in English.",
+  "right": "He is good at English.",
+  "strike": "in",
+  "why": "Use at after good.",
+  "memory": "Good at, always at.",
+  "quiz": {
+   "stem": "She is good ___ cooking.",
+   "options": [
+    "at",
+    "in"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Giỏi” đi với từ nhỏ nào?",
+   "tip": "Người Việt hay nói “giỏi về” nên dễ dịch thành “good in”, nhưng tiếng Anh dùng “good at”.",
+   "caption": "Bạn có hay nói “He is good in English.” không? 💪 Sau “good” hãy dùng “at”: “He is good at English.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “at.” Hãy nói to một câu về điều bạn giỏi, bắt đầu bằng “I am good at…” nhé. Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#loisaithuonggap",
+    "#nguphaptienganh",
+    "#tienganhcoban",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Good in” or “good at”?",
+   "tip": "Learners often say “good in” because of the Vietnamese word for it, but English says “good at”.",
+   "caption": "Do you often say this? “He is good in English.” After “good”, use “at”: “He is good at English.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Giỏi” đi với từ nhỏ nào?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“Giỏi” đi với từ nhỏ nào?",
+  "keyword": "He is good at English.",
+  "value": "Người Việt hay nói “giỏi về” nên dễ dịch thành “good in”, nhưng tiếng Anh dùng “good at”.",
+  "hashtags": [
+   "#hoctienganh",
+   "#loisaithuonggap",
+   "#nguphaptienganh",
+   "#tienganhcoban",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "“Giỏi” đi với từ nhỏ nào?",
+    "description": "Người Việt hay nói “giỏi về” nên dễ dịch thành “good in”, nhưng tiếng Anh dùng “good at”.\n\nBạn có hay nói “He is good in English.” không? 💪 Sau “good” hãy dùng “at”: “He is good at English.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #loisaithuonggap #nguphaptienganh #tienganhcoban #lexkite",
+    "tags": [
+     "He is good at English.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “He is good in English.” không? 💪 Sau “good” hãy dùng “at”: “He is good at English.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Giỏi” đi với từ nhỏ nào?\n\nNgười Việt hay nói “giỏi về” nên dễ dịch thành “good in”, nhưng tiếng Anh dùng “good at”.\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#loisaithuonggap",
+     "#nguphaptienganh",
+     "#tienganhcoban",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Giỏi” đi với từ nhỏ nào? Người Việt hay nói “giỏi về” nên dễ dịch thành “good in”, nhưng tiếng Anh dù… #hoctienganh #loisaithuonggap #nguphaptienganh"
+   }
+  },
+  "first_comment": "Đáp án: “at.” Hãy nói to một câu về điều bạn giỏi, bắt đầu bằng “I am good at…” nhé. Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

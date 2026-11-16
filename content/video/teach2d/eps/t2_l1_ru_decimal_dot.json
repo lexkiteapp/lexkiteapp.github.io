@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_decimal_dot",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Which mark is in 3.5?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: The room is 3,5 meters long.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: The room is 3.5 meters long.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Write 3.5 with a point.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Two point five! Write 2.5.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "The room is 3,5 meters long.",
+  "right": "The room is 3.5 meters long.",
+  "strike": "3,5",
+  "why": "Write 3.5 with a point.",
+  "memory": "Three point five.",
+  "quiz": {
+   "stem": "Write two and a half: ___",
+   "options": [
+    "2,5",
+    "2.5"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "3,5 или 3.5 — что писать?",
+   "tip": "В английских числах точка, а не запятая: пиши 3.5, а не 3,5.",
+   "caption": "Ты тоже пишешь “The room is 3,5 meters long”? 😅 По-русски пишут «3,5» с запятой, а в английском нужна точка. Правильно: “The room is 3.5 meters long.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Правильный ответ — 2.5, с точкой. В английском — точка, а не запятая. Напиши своё предложение с числом через точку. Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#изучениеанглийского",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Comma or point?",
+   "tip": "English numbers use a point, not a comma: write 3.5, not 3,5.",
+   "caption": "Do you also write “The room is 3,5 meters long”? 😅 In Russian you write “3,5” with a comma, but English needs a point. Correct: “The room is 3.5 meters long.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "3,5 или 3.5 — что писать?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "3,5 или 3.5 — что писать?",
+  "keyword": "The room is 3.5 meters long.",
+  "value": "В английских числах точка, а не запятая: пиши 3.5, а не 3,5.",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#изучениеанглийского",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "3,5 или 3.5 — что писать?",
+    "description": "В английских числах точка, а не запятая: пиши 3.5, а не 3,5.\n\nТы тоже пишешь “The room is 3,5 meters long”? 😅 По-русски пишут «3,5» с запятой, а в английском нужна точка. Правильно: “The room is 3.5 meters long.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #английский #изучениеанглийского #lexkite",
+    "tags": [
+     "The room is 3.5 meters long.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже пишешь “The room is 3,5 meters long”? 😅 По-русски пишут «3,5» с запятой, а в английском нужна точка. Правильно: “The room is 3.5 meters long.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "3,5 или 3.5 — что писать?\n\nВ английских числах точка, а не запятая: пиши 3.5, а не 3,5.\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#изучениеанглийского",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "3,5 или 3.5 — что писать? В английских числах точка, а не запятая: пиши 3.5, а не 3,5. #английскийязык #английский #изучениеанглийского"
+   }
+  },
+  "first_comment": "Правильный ответ — 2.5, с точкой. В английском — точка, а не запятая. Напиши своё предложение с числом через точку. Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

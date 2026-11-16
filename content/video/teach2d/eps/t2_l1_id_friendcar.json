@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_friendcar",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "My friend’s car, with s!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: This is my friend car.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: This is my friend's car.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Add ’s to the owner.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "My brother's! This is my brother's bike.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "This is my friend car.",
+  "right": "This is my friend's car.",
+  "strike": "friend car",
+  "why": "Add ’s to the owner.",
+  "memory": "Friend’s car.",
+  "quiz": {
+   "stem": "This is ___ bike.",
+   "options": [
+    "my brother's",
+    "my brother"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Mobil teman saya” itu “friend’s”",
+   "tip": "Dalam bahasa Indonesia “mobil teman saya” cukup disusun begitu saja. Bahasa Inggris tambah ’s pada pemilik: friend's car.",
+   "caption": "Pernah bilang begini? “This is my friend car.” 😅 Pemilik barang diberi ’s: “This is my friend's car.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “my brother's”. Tulis satu kalimat tentang barang temanmu dengan ’s. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#kosakata",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Owner needs ’s: friend's car",
+   "tip": "In Indonesian “mobil teman saya” works as it is. English adds ’s to the owner: friend's car.",
+   "caption": "Ever say this? “This is my friend car.” 😅 Put ’s on the owner: “This is my friend's car.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Mobil teman saya” itu “friend’s”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“Mobil teman saya” itu “friend’s”",
+  "keyword": "This is my friend's car.",
+  "value": "Dalam bahasa Indonesia “mobil teman saya” cukup disusun begitu saja. Bahasa Inggris tambah ’s pada pemilik: friend's car.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#kosakata",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "“Mobil teman saya” itu “friend’s”",
+    "description": "Dalam bahasa Indonesia “mobil teman saya” cukup disusun begitu saja. Bahasa Inggris tambah ’s pada pemilik: friend's car.\n\nPernah bilang begini? “This is my friend car.” 😅 Pemilik barang diberi ’s: “This is my friend's car.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #kosakata #bahasainggris #lexkite",
+    "tags": [
+     "This is my friend's car.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “This is my friend car.” 😅 Pemilik barang diberi ’s: “This is my friend's car.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Mobil teman saya” itu “friend’s”\n\nDalam bahasa Indonesia “mobil teman saya” cukup disusun begitu saja. Bahasa Inggris tambah ’s pada pemilik: friend's car.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#kosakata",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Mobil teman saya” itu “friend’s” Dalam bahasa Indonesia “mobil teman saya” cukup disusun begitu saja.… #belajarbahasainggris #kosakata #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “my brother's”. Tulis satu kalimat tentang barang temanmu dengan ’s. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

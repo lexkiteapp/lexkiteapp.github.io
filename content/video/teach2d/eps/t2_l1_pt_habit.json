@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_habit",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Habit, not costume!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: He has the costume of reading at night.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: He has the habit of reading at night.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "A costume is for a party.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! He has the habit of reading at night.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "He has the costume of reading at night.",
+  "right": "He has the habit of reading at night.",
+  "strike": "costume",
+  "why": "A costume is for a party.",
+  "memory": "A habit is what you do often.",
+  "quiz": {
+   "stem": "He has the ___ of reading at night.",
+   "options": [
+    "costume",
+    "habit"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Em inglês, “costume” é fantasia!",
+   "tip": "Em português “costume” é o que fazemos sempre; em inglês, isso é “habit.” “Costume” é uma fantasia.",
+   "caption": "Você também diz isso? “He has the costume of reading at night.” 😅 O certo é “He has the habit of reading at night.” Em português “costume” é o que fazemos sempre; em inglês, isso é “habit.” “Costume” é uma fantasia. Ouça a Ama e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “habit”. Agora escreva uma frase sua com “I have the habit of” e treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "A “costume” is a party outfit!",
+   "tip": "In Portuguese “costume” is what we always do; in English, that is a “habit.” A “costume” is for a party.",
+   "caption": "Do you say this too? “He has the costume of reading at night.” 😅 The right way is “He has the habit of reading at night.” In Portuguese “costume” is what we always do; in English, that is a “habit.” A “costume” is for a party. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Em inglês, “costume” é fantasia!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 55,
+  "seconds": 32.5,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "Em inglês, “costume” é fantasia!",
+  "keyword": "He has the habit of reading at night.",
+  "value": "Em português “costume” é o que fazemos sempre; em inglês, isso é “habit.” “Costume” é uma fantasia.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 49,
+  "platforms": {
+   "youtube": {
+    "title": "Em inglês, “costume” é fantasia!",
+    "description": "Em português “costume” é o que fazemos sempre; em inglês, isso é “habit.” “Costume” é uma fantasia.\n\nVocê também diz isso? “He has the costume of reading at night.” 😅 O certo é “He has the habit of reading at night.” Em português “costume” é o que fazemos sempre; em inglês, isso é “habit.” “Costume” é uma fantasia. Ouça a Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "He has the habit of reading at night.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Você também diz isso? “He has the costume of reading at night.” 😅 O certo é “He has the habit of reading at night.” Em português “costume” é o que fazemos sempre; em inglês, isso é “habit.” “Costume” é uma fantasia. Ouça a Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Em inglês, “costume” é fantasia!\n\nEm português “costume” é o que fazemos sempre; em inglês, isso é “habit.” “Costume” é uma fantasia.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Em inglês, “costume” é fantasia! Em português “costume” é o que fazemos sempre; em inglês, isso é “habit.”… #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “habit”. Agora escreva uma frase sua com “I have the habit of” e treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

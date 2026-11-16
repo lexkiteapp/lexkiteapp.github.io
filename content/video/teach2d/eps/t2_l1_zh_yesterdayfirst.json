@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_yesterdayfirst",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Went to the park yesterday!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I yesterday went to the park.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I went to the park yesterday.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Time often goes last.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Saw her yesterday! I saw her yesterday.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I yesterday went to the park.",
+  "right": "I went to the park yesterday.",
+  "strike": "yesterday",
+  "why": "Time often goes last.",
+  "memory": "Time goes last.",
+  "quiz": {
+   "stem": "I ___.",
+   "options": [
+    "yesterday saw her",
+    "saw her yesterday"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "时间词通常放句尾！",
+   "tip": "中文习惯把时间放在动词前：“我昨天去了公园”。英语也可以把时间放句首，但放在主语和动词中间不自然，通常放句尾。",
+   "caption": "你是不是也会说 “I yesterday went to the park.”😅 中文时间在前，英语时间多放句尾：“I went to the park yesterday.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“I went to the park yesterday.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Time goes last!",
+   "tip": "Chinese puts time before the verb, but in English time usually goes at the end.",
+   "caption": "Do you say “I yesterday went to the park.” 😅 In English, time usually goes at the end: “I went to the park yesterday.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "时间词通常放句尾！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "时间词通常放句尾！",
+  "keyword": "I went to the park yesterday.",
+  "value": "中文习惯把时间放在动词前：“我昨天去了公园”。英语也可以把时间放句首，但放在主语和动词中间不自然，通常放句尾。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "时间词通常放句尾！",
+    "description": "中文习惯把时间放在动词前：“我昨天去了公园”。英语也可以把时间放句首，但放在主语和动词中间不自然，通常放句尾。\n\n你是不是也会说 “I yesterday went to the park.”😅 中文时间在前，英语时间多放句尾：“I went to the park yesterday.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "I went to the park yesterday.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “I yesterday went to the park.”😅 中文时间在前，英语时间多放句尾：“I went to the park yesterday.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "时间词通常放句尾！\n\n中文习惯把时间放在动词前：“我昨天去了公园”。英语也可以把时间放句首，但放在主语和动词中间不自然，通常放句尾。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "时间词通常放句尾！ 中文习惯把时间放在动词前：“我昨天去了公园”。英语也可以把时间放句首，但放在主语和动词中间不自然，通常放句尾。 #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“I went to the park yesterday.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

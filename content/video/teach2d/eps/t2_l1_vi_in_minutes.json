@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_in_minutes",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "After or in? Which one?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I will come back after five minutes.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I will come back in five minutes.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use in for soon.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "In! The bus comes in 10 minutes.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I will come back after five minutes.",
+  "right": "I will come back in five minutes.",
+  "strike": "after",
+  "why": "Use in for soon.",
+  "memory": "Soon? Use in.",
+  "quiz": {
+   "stem": "The bus comes ___ 10 minutes.",
+   "options": [
+    "in",
+    "after"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Sau 5 phút” nói sao?",
+   "tip": "“Sau” trong tiếng Việt thường được dịch thành “after”, nhưng khi nói việc sắp xảy ra thì tiếng Anh dùng “in five minutes”.",
+   "caption": "Bạn có hay nói “I will come back after five minutes.” không? ⏰ Việc sắp xảy ra thì dùng “in”: “I will come back in five minutes.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “in.” Hãy nói to một câu hẹn quay lại sau ít phút, có “in … minutes” nhé. Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#nguphaptienganh",
+    "#tienganhgiaotiep",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“After” or “in” for soon?",
+   "tip": "Learners turn the Vietnamese word into “after”, but for something coming soon English says “in five minutes”.",
+   "caption": "Do you often say this? “I will come back after five minutes.” For something coming soon, use “in”: “I will come back in five minutes.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Sau 5 phút” nói sao?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“Sau 5 phút” nói sao?",
+  "keyword": "I will come back in five minutes.",
+  "value": "“Sau” trong tiếng Việt thường được dịch thành “after”, nhưng khi nói việc sắp xảy ra thì tiếng Anh dùng “in five minutes”.",
+  "hashtags": [
+   "#hoctienganh",
+   "#nguphaptienganh",
+   "#tienganhgiaotiep",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "“Sau 5 phút” nói sao?",
+    "description": "“Sau” trong tiếng Việt thường được dịch thành “after”, nhưng khi nói việc sắp xảy ra thì tiếng Anh dùng “in five minutes”.\n\nBạn có hay nói “I will come back after five minutes.” không? ⏰ Việc sắp xảy ra thì dùng “in”: “I will come back in five minutes.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #nguphaptienganh #tienganhgiaotiep #lexkite",
+    "tags": [
+     "I will come back in five minutes.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “I will come back after five minutes.” không? ⏰ Việc sắp xảy ra thì dùng “in”: “I will come back in five minutes.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Sau 5 phút” nói sao?\n\n“Sau” trong tiếng Việt thường được dịch thành “after”, nhưng khi nói việc sắp xảy ra thì tiếng Anh dùng “in five minutes”.\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#nguphaptienganh",
+     "#tienganhgiaotiep",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Sau 5 phút” nói sao? “Sau” trong tiếng Việt thường được dịch thành “after”, nhưng khi nói việc sắp x… #hoctienganh #nguphaptienganh #tienganhgiaotiep"
+   }
+  },
+  "first_comment": "Đáp án: “in.” Hãy nói to một câu hẹn quay lại sau ít phút, có “in … minutes” nhé. Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

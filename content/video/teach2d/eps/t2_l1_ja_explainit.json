@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_explainit",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Explain you the rule?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I will explain you the rule.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I will explain the rule to you.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Put the thing first, then to you.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "To you! I will explain the rule to you.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I will explain you the rule.",
+  "right": "I will explain the rule to you.",
+  "strike": "explain you",
+  "why": "Put the thing first, then to you.",
+  "memory": "I will explain the rule to you.",
+  "quiz": {
+   "stem": "I will explain the plan ___.",
+   "options": [
+    "you",
+    "to you"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "「explain you」と言ってない？",
+   "tip": "explain は「説明する内容」を先に置き、人には to をつけます。",
+   "caption": "“I will explain you the rule.”と言っていませんか？😅 「あなたに説明する」を順番どおりに訳すと explain you になりがちです。“I will explain the rule to you.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“to you”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “explain you”?",
+   "tip": "Say explain the rule to you.",
+   "caption": "Do you say this? “I will explain you the rule.” 😅 In Japanese you can say the person first, but English puts the thing first. The natural way is “I will explain the rule to you.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "「explain you」と言ってない？"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 53,
+  "seconds": 31.5,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "「explain you」と言ってない？",
+  "keyword": "I will explain the rule to you.",
+  "value": "explain は「説明する内容」を先に置き、人には to をつけます。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 47,
+  "platforms": {
+   "youtube": {
+    "title": "「explain you」と言ってない？",
+    "description": "explain は「説明する内容」を先に置き、人には to をつけます。\n\n“I will explain you the rule.”と言っていませんか？😅 「あなたに説明する」を順番どおりに訳すと explain you になりがちです。“I will explain the rule to you.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "I will explain the rule to you.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“I will explain you the rule.”と言っていませんか？😅 「あなたに説明する」を順番どおりに訳すと explain you になりがちです。“I will explain the rule to you.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "「explain you」と言ってない？\n\nexplain は「説明する内容」を先に置き、人には to をつけます。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「explain you」と言ってない？ explain は「説明する内容」を先に置き、人には to をつけます。 #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“to you”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}
