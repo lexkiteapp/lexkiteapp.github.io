@@ -387,6 +387,8 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
 'Chế độ màu': 'Colour mode',
 'Nghĩa từ hiển thị bằng': 'Show word meanings in',
 'Ngôn ngữ đang học': 'Learning language',
+'Thêm ngôn ngữ': 'Add a language',
+'Sắp ra mắt': 'Coming soon',
 'Thêm 30 từ cơ bản': 'Add 30 core words',
 'Đã thêm {n} từ tiếng Bồ Đào Nha vào Sổ từ': 'Added {n} Portuguese words to your word list',
 'Đã thêm {n} từ tiếng Tây Ban Nha vào Sổ từ': 'Added {n} Spanish words to your word list',
