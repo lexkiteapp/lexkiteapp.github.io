@@ -33,7 +33,7 @@
 
   {"id":"dict","area":"app","name":"Từ điển: đầu trang + ô tìm + Gần đây + Khám phá nhanh (thẻ mục từ/lưu ngữ cảnh còn khung cũ)","routes":["dict"],"status":"stitch","stitch":["dict-light","dict-dark"],"gate":"diff:dict","batch":"-","note":"đợt 2 port thẻ mục từ + hình thái + không thấy theo dict-entry-layout"},
   {"id":"phrases","area":"app","name":"Cụm từ / mẫu câu","routes":["phrases","model","models"],"status":"ref","batch":"A3","refs":{"phrases":["34796f81","095cb931"]}},
-  {"id":"verbs","area":"app","name":"Động từ + bảng chữ","routes":["verb","letters"],"status":"ref","batch":"A3","refs":{"verbs":["d6a466e8","0f824cc7"]}},
+  {"id":"verbs","area":"app","name":"Động từ + bảng chữ","routes":["verb","letters","irregular"],"status":"ref","batch":"A3","refs":{"verbs":["d6a466e8","0f824cc7"]}},
   {"id":"usage","area":"app","name":"Cách dùng / kết hợp từ","routes":["usage"],"status":"ref","batch":"A3","refs":{"usage":["2001a781","3e0fab84"]}},
   {"id":"mistakes","area":"app","name":"Sổ lỗi sai","routes":["mistakes"],"status":"ref","batch":"A3","stitch":["78159447","711d6351"],"ref":"brand/stitch/v3/app/mistakes"},
 

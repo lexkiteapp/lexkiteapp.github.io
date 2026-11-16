@@ -86,6 +86,7 @@ node scripts/test/pron-pairs.mjs
 node scripts/test/pron-coach.mjs
 node scripts/test/pron-shadow.mjs
 node scripts/test/call-engine.mjs
+node scripts/test/call-rt.mjs
 node scripts/test/feedback-eval.mjs
 node scripts/test/route-race.mjs
 node scripts/test/exit-guard.mjs
@@ -114,6 +115,7 @@ node scripts/test/social-first-comment.mjs
 node scripts/test/studio.mjs
 node scripts/test/report.mjs
 node scripts/test/report-ui.mjs
+node scripts/test/admin-reports-ui.mjs
 node scripts/test/quota.mjs
 node scripts/test/capacity.mjs
 node scripts/test/admin-rollup.mjs
@@ -300,6 +302,7 @@ node scripts/test/explain-let.mjs
 node scripts/content-qa/sense-check.mjs
 node scripts/test/sense-check.mjs
 node scripts/test/bot-push-key.mjs
+node scripts/test/bot-test-gate.mjs
 node scripts/test/no-pr-branch-push.mjs
 node scripts/test/shell-lazy.mjs
 node scripts/test/css-lazy.mjs
@@ -429,5 +432,11 @@ node scripts/test/l1-notes.mjs
 node scripts/test/qengine-flag.mjs
 node scripts/test/qwk.mjs
 node scripts/test/es-native-bundle.mjs
+node scripts/test/lexai-oidc.mjs
+node scripts/test/firestore-rules.mjs
+node scripts/test/ext-imgdata.mjs
+node scripts/test/league-xp.mjs
+node scripts/test/body-limit.mjs
+node scripts/test/ai-task.mjs
 node scripts/test/video-junk.mjs
 node scripts/test/dict-add.mjs

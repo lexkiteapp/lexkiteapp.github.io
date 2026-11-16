@@ -591,6 +591,531 @@
   "Câu hỏi đuôi (question tag) có hai ngữ điệu thường gặp với nghĩa khác nhau. Khi người nói gần như chắc chắn và…": {
    "en": "d1aa4be8fefa",
    "l1": "يأخذ السؤال الذيلي (question tag) عادةً أحد نمطين من التنغيم بمعنيين مختلفين. عندما يكون المتحدث شبه متأكد و…"
+  },
+  "\"further studies are needed\" cho thấy kết luận còn dè dặt → suggest (gợi ý). \"prove\", \"confirm absolutely\", \"show without doubt\" quá chắc chắn, mâu thuẫn với vế sau.": {
+   "l1": "\"Further studies are needed\" تُظهر أن الاستنتاج لا يزال مؤقتًا → suggest. \"Prove\"، \"confirm absolutely\" و\"show without doubt\" قوية جدًا وتتناقض مع النصف الثاني.",
+   "s": 4,
+   "en": "db1e304f3f85"
+  },
+  "Apple bắt đầu bằng âm nguyên âm → an apple.": {
+   "l1": "Apple تبدأ بصوت حرف علة → an apple.",
+   "s": 5,
+   "en": "ffdf9e8c010d"
+  },
+  "Bổ ngữ gone lên đầu, be hòa hợp với the days. → Gone are the days of cheap oil.": {
+   "l1": "المكمل gone يُنقل إلى البداية، وفعل be يطابق عدد الأيام. → Gone are the days of cheap oil.",
+   "s": 4,
+   "en": "980bae63f21d"
+  },
+  "Children là số nhiều (của child) → are.": {
+   "l1": "\"Children\" هو جمع كلمة child → are.",
+   "s": 5,
+   "en": "3c4e656c1ff8"
+  },
+  "Chỉ trêu người đã thân với bạn và giữ giọng ấm áp, tươi cười, nhẹ nhàng. Nếu họ có vẻ khó chịu, hãy dừng ngay.": {
+   "l1": "امزح فقط مع الأشخاص الذين يعرفونك جيدًا وحافظ على نبرة دافئة ومبتسمة وخفيفة. إذا بدوا غير مرتاحين، توقف فورًا.",
+   "s": 5,
+   "en": "2da339287b02"
+  },
+  "Chỉ đảo với chủ ngữ là danh từ. Với đại từ, giữ trật tự thường: Here he comes! Away they went! Off I go! (không nói Here comes he). Văn kể có thể đảo đủ, nhưng đảo quá nhiều làm văn phong giả tạo.": {
+   "l1": "اعكس الترتيب فقط عندما يكون الفاعل اسمًا. إذا كان الضمير، حافظ على ترتيب الكلمات العادي: Here he comes! Away they went! Off I go! (ليس Here comes he). يمكن للكتابة السردية أن تعكس أكثر، لكن كثرة العكس تجعل أسلوبك يبدو مصطنعًا.",
+   "s": 4,
+   "en": "7d9169e162b8"
+  },
+  "Chủ ngữ I luôn đi với am.": {
+   "l1": "الفاعل I دائمًا يأخذ am.",
+   "s": 5,
+   "en": "489a20a806ce"
+  },
+  "Chủ ngữ thật số nhiều (the director and her two deputies) → were.": {
+   "l1": "الفاعل الحقيقي جمع (the director and her two deputies) → were.",
+   "s": 5,
+   "en": "bd5aaffcabe9"
+  },
+  "A / an & danh từ số nhiều": {
+   "l1": "A / an & جمع الأسماء",
+   "s": 5,
+   "en": "c32b1bc82a18"
+  },
+  "Apple và orange bắt đầu bằng âm nguyên âm → an.": {
+   "l1": "Apple و orange يبدأان بصوت حرف علة → an.",
+   "s": 4,
+   "en": "2e304b0551e9"
+  },
+  "Bắt đầu bằng điều thật sự tốt, rồi nêu một thay đổi kèm lý do. Đề nghị giúp để thực hiện.": {
+   "l1": "ابدأ بشيء حقيقي يعمل، ثم اذكر تغييرًا واحدًا مع السبب. قدّم مساعدة لجعل ذلك يحدث.",
+   "s": 5,
+   "en": "8a4d3b712d4f"
+  },
+  "Bị động khách quan: It is widely believed that… believe là động từ nguyên mẫu; believing sai dạng; belief là danh từ.": {
+   "l1": "المبني للمجهول غير الشخصي: It is widely believed that… \\\"Believe\\\" هي الصيغة الأساسية، \\\"believing\\\" صيغة خاطئة، و\\\"belief\\\" اسم.",
+   "s": 5,
+   "en": "70a12c14fd9d"
+  },
+  "Bổ ngữ đặt lên đầu": {
+   "l1": "مُكمل مقدم",
+   "s": 5,
+   "en": "533877c86935"
+  },
+  "Chỉ trêu về những thói quen vô hại, không bao giờ trêu về ngoại hình, gia đình hay điều người ta không thể thay đổi.": {
+   "l1": "'Joke' لا تأخذ شخصًا كمفعول به. قل 'You must be joking' أو 'You're kidding me'.",
+   "s": 5,
+   "en": "591635bacdbc"
+  },
+  "Chọn a / an theo ÂM đầu khi đọc, không theo chữ cái: a university, a uniform (đọc /juː/ như phụ âm), nhưng an hour (h câm), an umbrella.": {
+   "l1": "اختر a / an بناءً على أول صوت تُنطقه، وليس أول حرف: a university, a uniform (تنطق /juː/, كحرف ساكن)، لكن an hour (h صامت)، an umbrella.",
+   "s": 5,
+   "en": "0c5d692a1dde"
+  },
+  "Chủ ngữ a man (số ít) → was. were sai hòa hợp; did sit và sat were sai cấu trúc.": {
+   "l1": "الفاعل a man (مفرد) → was. Were لا يتطابق؛ did sit و sat were تم تشكيلهما بشكل خاطئ.",
+   "s": 5,
+   "en": "897bb030abaf"
+  },
+  "Chủ ngữ số nhiều (my parents) đi với are.": {
+   "l1": "الفاعل الجمع (my parents) يستخدم are.",
+   "s": 5,
+   "en": "1db5cf625565"
+  },
+  "Chủ ngữ thật two former ministers (số nhiều) đứng sau → were. Các dạng còn lại số ít hoặc sai thì.": {
+   "l1": "الفاعل الحقيقي two former ministers (جمع) يأتي بعد الفعل → were. الصيغ الأخرى مفردة أو في زمن غير صحيح.",
+   "s": 5,
+   "en": "378b2ffc4fb3"
+  },
+  "Câu B thận trọng hợp lý; A tuyệt đối, C chồng từ, D sai ngữ pháp. Câu A khẳng định tuyệt đối (definitely); câu C chồng ba từ rào đón; câu D sai ngữ pháp (are tend).": {
+   "l1": "الجملة B حذرة بشكل مناسب: A مطلق، C يضيف تحوطات، و D غير نحوية. A تُصدر ادعاءً مطلقًا (بالتأكيد)؛ C يضع ثلاث تحوطات؛ D فيها خطأ نحوي (are tend).",
+   "s": 4,
+   "en": "ce31409e4bb8"
+  },
+  "Câu có may và \"further research is needed\" → kết luận còn dè dặt, dùng động từ rào đón suggest (gợi ý rằng). prove/confirm/guarantee khẳng định chắc chắn, mâu thuẫn với phần sau.": {
+   "l1": "الجملة تحتوي على may و \"further research is needed\" → الاستنتاج لا يزال مؤقتًا، لذا استخدم الفعل الحذر suggest. كلمات prove، confirm و guarantee تعبر عن اليقين، وهذا يتعارض مع النصف الثاني.",
+   "s": 4,
+   "en": "752c32b2813a"
+  },
+  "Câu hỏi chỉ cần một động từ be, đặt lên trước chủ ngữ.": {
+   "l1": "السؤال يحتاج إلى فعل be واحد فقط، يُوضع قبل الفاعل.",
+   "s": 5,
+   "en": "7b425f9d4c24"
+  },
+  "Câu hỏi: Am / Is / Are + S + …?": {
+   "l1": "سؤال: Am / Is / Are + S + …؟",
+   "s": 5,
+   "en": "2569d36a9c4e"
+  },
+  "Dùng am / is / are để nói mình là ai, đến từ đâu, đang ở đâu và cảm thấy thế nào; thêm not để phủ định, đưa am / is / are lên trước chủ ngữ để hỏi.": {
+   "l1": "بنستخدم am / is / are عشان نعبّر عن هويتنا، من وين إحنا، وين مكاننا، وكيف بنشعر. وللنفي بنضيف not، وعشان نعمل سؤال بنحط am / is / are قبل الفاعل.",
+   "s": 5,
+   "en": "4ac335478c4d"
+  },
+  "Dùng ‘could’ thay cho ‘can’ khi muốn nghe lịch sự hơn.": {
+   "l1": "استخدم 'could' بدل 'can' لما تحب يكون كلامك أكثر أدباً وتهذيباً.",
+   "s": 5,
+   "en": "298da1739599"
+  },
+  "Giảm độ tuyệt đối của lượng từ": {
+   "l1": "محددات الكمية للتلطيف والتخفيف (Softening quantifiers)",
+   "s": 4,
+   "en": "567eb5691806"
+  },
+  "Hòa hợp với chủ ngữ thật số nhiều two journalists.": {
+   "l1": "طابق الفعل مع الفاعل الحقيقي، وهو اسم الجمع two journalists.",
+   "s": 5,
+   "en": "4733c1d9f152"
+  },
+  "Khi nói, người bản xứ gần như luôn rút gọn: I'm, you're, he's, it's. Riêng câu trả lời ngắn khẳng định thì KHÔNG rút gọn: Yes, I am (không nói Yes, I'm).": {
+   "l1": "في المحادثة اليومية، المتحدثون الأصليون يستخدمون دائمًا تقريبًا الصيغ المختصرة: I'm, you're, he's, it's. والاستثناء الوحيد هو في الإجابة القصيرة المثبتة: \"Yes, I am\" (ولا نقول أبدًا \"Yes, I'm\").",
+   "s": 5,
+   "en": "fabc3faaf2f8"
+  },
+  "Khoảng lặng chen ‘uh’ nghe lúng túng. Một cụm rõ ràng cho thấy bạn đang suy nghĩ chứ không bị bối rối.": {
+   "l1": "السكوت واستخدام 'uh' يجعلك تبدو متوترًا، بينما استخدام عبارة واضحة يُظهر أنك ترتّب أفكارك ولست تائهًا.",
+   "s": 5,
+   "en": "096bf6b81940"
+  },
+  "Lời chào thân mật đi cùng lời đề nghị trang trọng sẽ lệch tông. Giữ cả thông điệp ở một mức, phù hợp với người đọc.": {
+   "l1": "الجمع بين تحية غير رسمية وطلب رسمي يسبب تنافرًا في أسلوب الرسالة. احرص أن تكون الرسالة كلها بنفس النبرة وبما يناسب الشخص الذي يقرأها.",
+   "s": 5,
+   "en": "ae257b3c440f"
+  },
+  "Nowhere + is there + S; hiện tại.": {
+   "l1": "تركيبة النفي في البداية: Nowhere + is there + الفاعل؛ في زمن المضارع (present tense).",
+   "s": 5,
+   "en": "65a5590bbb1c"
+  },
+  "Nói mình là ai và lý do gọi trong mười giây đầu. Cách này tiết kiệm thời gian cho cả hai bên.": {
+   "l1": "وضّح اسمك وسبب اتصالك في أول عشر ثوانٍ، فهذا يوفّر الوقت للطرفين.",
+   "s": 5,
+   "en": "a6792ffbced2"
+  },
+  "Nói tuổi dùng be + số + years old, không dùng have.": {
+   "l1": "عند ذكر عمرك، استخدم be + number + years old، ولا تستخدم have.",
+   "s": 5,
+   "en": "8deb387be13f"
+  },
+  "Nói tên mình hoặc tên công ty trước. Khi nghe máy, giới thiệu bản thân bằng ‘this is…’ chứ không dùng ‘I am…’.": {
+   "l1": "اذكر اسمك أو اسم الشركة أولاً. وعند الحديث عبر الهاتف، عرّف عن نفسك بقول 'this is' وليس 'I am'.",
+   "s": 5,
+   "en": "edc19c078840"
+  },
+  "Phần nào sai? \"He hardly (A) ever studies (B), doesn't (C) he (D)?\"": {
+   "l1": "أي جزء يحتوي على خطأ؟ \"He hardly (A) ever studies (B), doesn't (C) he (D)?\"",
+   "s": 5,
+   "en": "af2ff3fff916"
+  },
+  "Phần nào sai? \"My father (A) work (B) in a hospital (C) near our house (D).\"": {
+   "l1": "أي جزء يحتوي على خطأ؟ \"My father (A) work (B) in a hospital (C) near our house (D).\"",
+   "s": 5,
+   "en": "bd5ebd29c416"
+  },
+  "Phần nào sai? \"This (A) is your first IELTS test (B), isn't (C) this (D)?\"": {
+   "l1": "أي جزء يحتوي على خطأ؟ \"This (A) is your first IELTS test (B), isn't (C) this (D)?\"",
+   "s": 5,
+   "en": "0189acc9771a"
+  },
+  "Phủ định: thêm not ngay sau are.": {
+   "l1": "عند النفي: نضع not مباشرة بعد are.",
+   "s": 5,
+   "en": "fcb3ec892d4b"
+  },
+  "Sau ‘like’, ‘love’, ‘enjoy’ và ‘can’t stand’ có thể dùng danh từ hoặc động từ thêm -ing: I enjoy cooking.": {
+   "l1": "بعد الأفعال 'like' و 'love' و 'enjoy' و 'can't stand' يمكننا استخدام اسم (noun) أو فعل مضاف إليه ‎-ing: I enjoy cooking.",
+   "s": 5,
+   "en": "e2132825a484"
+  },
+  "Shoes là số nhiều nên không đi với a.": {
+   "l1": "كلمة Shoes جمع، لذلك لا نستخدم معها أداة التنكير a.",
+   "s": 5,
+   "en": "ce8e7280484d"
+  },
+  "So + tính từ đứng đầu câu thì đảo be: So loud was the noise. was loud giữ trật tự thường; loud did và loudly was sai dạng.": {
+   "l1": "عندما تبدأ الجملة بـ So + صفة، نقوم بتقديم فعل be على الفاعل (inversion): فتصبح So loud was the noise. أما Was loud فتحافظ على الترتيب العادي للجملة بدون تقديم؛ وصيغتا loud did و loudly was مركبتان بشكل غير صحيح.",
+   "s": 5,
+   "en": "9bb38ad62a85"
+  },
+  "Ta ‘meet’ a deadline (kịp hạn). ‘Finish’ dùng cho công việc, không dùng cho hạn chót.": {
+   "l1": "نستخدم الفعل 'meet' مع الموعد النهائي (meet a deadline). أما 'finish' فنستخدمها للحديث عن إنهاء العمل نفسه، وليس الموعد النهائي.",
+   "s": 5,
+   "en": "441ab29ce110"
+  },
+  "The data ___ a link between screen time and poor sleep. (chọn cách nói rào đón)": {
+   "l1": "The data ___ a link between screen time and poor sleep. (اختر التعبير الأنسب للتحوط/التقليل من الجزم)",
+   "s": 5,
+   "en": "5a7c44160a66"
+  },
+  "There is some evidence that + mệnh đề: trình bày kết luận như một phát hiện có giới hạn thay vì sự thật tuyệt đối.": {
+   "l1": "نستخدم الصيغة There is some evidence that + clause لعرض الاستنتاج كنتيجة محدودة أو غير قطعية، وليست حقيقة مطلقة.",
+   "s": 5,
+   "en": "4efab4b51ca2"
+  },
+  "Trước tính từ tired phải có be: I am tired.": {
+   "l1": "الصفة tired تحتاج قبلها فعل be: نقول I am tired.",
+   "s": 5,
+   "en": "d846a17432e6"
+  },
+  "Trạng từ tần suất đứng ngay trước động từ thường (I often walk) nhưng đứng sau be (I am often tired). Sometimes còn đứng được ở đầu câu: Sometimes I walk.": {
+   "l1": "ظرف التكرار يأتي مباشرة قبل الفعل الأساسي (I often walk)، لكنه يأتي بعد be (مثل I am often tired). ويمكن أيضاً لكلمة Sometimes أن تأتي في بداية الجملة: Sometimes I walk.",
+   "s": 5,
+   "en": "ec587bbc8641"
+  },
+  "V (không do)": {
+   "l1": "V (بدون do)",
+   "s": 5,
+   "en": "9d69a61e66b6"
+  },
+  "Với we: don't + nguyên mẫu. (Phần phủ định chi tiết ở bài tiếp theo.) → don't go.": {
+   "l1": "مع الضمير we نستخدم don't + الفعل الأساسي. (ستُغطى تفاصيل النفي في الدرس التالي.) → don't go.",
+   "s": 5,
+   "en": "ad3f01a6e636"
+  },
+  "Xác nhận điều mình gần như chắc chắn (giọng xuống)": {
+   "l1": "التحقق من شيء أنت شبه متأكد منه (نبرة هابطة)",
+   "s": 5,
+   "en": "bda693a9d211"
+  },
+  "a + âm phụ âm": {
+   "l1": "a + صوت ساكن",
+   "s": 5,
+   "en": "f73e3431452e"
+  },
+  "according to + nguồn (theo…) → According to the survey. Accordingly là trạng từ (do đó), không đi với to.": {
+   "l1": "according to + المصدر → According to the survey. كلمة Accordingly هي ظرف (= لذلك) ولا تُستَخدم مع to.",
+   "s": 5,
+   "en": "c2e2e2b0e9ca"
+  },
+  "be likely to + V (có khả năng) – tính từ likely. \"like\" sai vì không có cấu trúc be like to V.": {
+   "l1": "be likely to + فعل (= ربما سيحدث) – كلمة likely صفة. \\\"Like\\\" غير صحيحة لأنه لا توجد تركيبة \\\"be like to + فعل\\\".",
+   "s": 5,
+   "en": "d4d16f43b086"
+  },
+  "hate là động từ thường, câu khẳng định → So do I. Neither dùng cho câu phủ định; \"So am I\" sai trợ động từ; \"So I do\" sai trật tự.": {
+   "l1": "\\\"Hate\\\" فعل عادي في جملة إيجابية → So do I. كلمة Neither تُستَخدم للجمل السلبية؛ \\\"So am I\\\" تستخدم الفعل المساعد الخطأ؛ \\\"So I do\\\" ترتيبها غير صحيح.",
+   "s": 4,
+   "en": "57d925ab3f5d"
+  },
+  "Box tận cùng -x → thêm es: five boxes, nên phần sai là (B). There are, on the table và in the kitchen đều đúng.": {
+   "l1": "الكلمة التي تنتهي بـ -x → نضيف es لتصبح five boxes، إذًا الجزء الخطأ هو (B). الجمل There are، on the table و in the kitchen كلها صحيحة.",
+   "s": 4,
+   "en": "c0ee01711145"
+  },
+  "Bổ ngữ đặt lên đầu + be + S": {
+   "l1": "متمم مقدم + be + S",
+   "s": 5,
+   "en": "8f6b1715d875"
+  },
+  "Chỉ từng bước một và dùng mốc như ngân hàng hay góc phố. ‘On foot’ nghĩa là đi bộ.": {
+   "l1": "اعطِ خطوة واحدة في كل مرة واستخدم معالم مثل بنك أو زاوية. \"On foot\" يعني المشي.",
+   "s": 4,
+   "en": "8458ee3e7e41"
+  },
+  "Chọn theo âm của từ đứng ngay sau: easy bắt đầu bằng âm nguyên âm → an.": {
+   "l1": "اختر بناءً على صوت الكلمة التي تليها: easy يبدأ بصوت حرف علة → an.",
+   "s": 5,
+   "en": "297f606acfab"
+  },
+  "Chủ ngữ danh từ → đảo: Here comes the bus.": {
+   "l1": "الفاعل هو اسم → عكس الترتيب: Here comes the bus.",
+   "s": 5,
+   "en": "685981ce9bcb"
+  },
+  "Chủ ngữ thật là the lack (số ít) → is. Phần sai là (B).": {
+   "l1": "الفاعل الحقيقي هو lack (مفرد) → is. الجزء الخطأ هو (B).",
+   "s": 5,
+   "en": "6db5897a105c"
+  },
+  "Chủ ngữ đại từ không đảo trong cấu trúc Here / There / Away / Off.": {
+   "l1": "إذا كان الفاعل ضميراً، فلا نقوم بتقديم الفعل عليه (لا نستخدم أسلوب التقديم والتأخير) في التراكيب التي تبدأ بـ Here / There / Away / Off.",
+   "s": 4,
+   "en": "6d06bea30f28"
+  },
+  "Cuối tuần đã qua nên dùng quá khứ ‘was’.": {
+   "l1": "عطلة نهاية الأسبوع انتهت بالفعل، لذلك نستخدم صيغة الماضي 'was'.",
+   "s": 5,
+   "en": "efe3349f06f4"
+  },
+  "Câu bị động không nêu người làm nghe như né trách nhiệm. Lòng tin của công chúng dựa vào việc nhận trách nhiệm.": {
+   "l1": "استخدام المبني للمجهول بدون ذكر الفاعل يُعطي انطباعاً بالتهرب من اللوم، بينما ثقة الناس تعتمد على تحمّل المسؤولية.",
+   "s": 5,
+   "en": "4d5eefc3361c"
+  },
+  "Câu giờ để suy nghĩ": {
+   "l1": "كسب بعض الوقت للتفكير",
+   "s": 5,
+   "en": "2e9b1a230ee0"
+  },
+  "Câu rủ rê bắt đầu bằng Let's… luôn dùng câu hỏi đuôi shall we? will we, don't we và do we không dùng sau Let's.": {
+   "l1": "أي اقتراح يبدأ بـ Let's… يأتي معه دائماً السؤال المذيل shall we? ولا نستخدم أبداً \"will we\" أو \"don't we\" أو \"do we\" بعد Let's.",
+   "s": 5,
+   "en": "2f9e0dc58a4b"
+  },
+  "Cảm ơn họ, nêu khối lượng công việc bằng sự thật và đề xuất phương án khác. Để cấp trên quyết định việc nào làm trước.": {
+   "l1": "اشكرهم أولاً، ووضّح حجم عملك الحالي بلغة الأرقام والحقائق، واقترح حلاً بديلاً. بعد ذلك، اترك للمسؤول الأقدم تحديد الأولويات.",
+   "s": 5,
+   "en": "1e5663bfd399"
+  },
+  "Cấu trúc It is + tính từ + that…: possible. \"possibly\" là trạng từ, không đứng sau be làm vị ngữ.": {
+   "l1": "نستخدم هنا التركيب It is + adjective + that…، لذا نختار الصفة possible. أما \"Possibly\" فهي ظرف (adverb) ولا يصح أن تأتي بعد فعل be كمكمّل للجملة.",
+   "s": 5,
+   "en": "31d58741da96"
+  },
+  "Cụm cố định: to some extent / to a certain extent. any, an, many không đi với extent trong cụm cố định này.": {
+   "l1": "هذا تعبير ثابت: to some extent أو to a certain extent. الكلمات Any و an و many لا تُستخدم مع extent في هذا السياق.",
+   "s": 5,
+   "en": "00369d9eb473"
+  },
+  "Danh từ số nhiều KHÔNG đi với a / an": {
+   "l1": "الأسماء الجمع لا تأتي أبداً مع أدوات النكرة a / an.",
+   "s": 5,
+   "en": "4ba1a2967253"
+  },
+  "Dùng một cụm nối ngắn (‘by the way’, ‘speaking of…’) để việc đổi chủ đề không đột ngột hay bất lịch sự.": {
+   "l1": "استخدم عبارة ربط بسيطة مثل ('by the way'، 'speaking of...') حتى لا يبدو الانتقال لموضوع آخر مفاجئاً أو غير لائق.",
+   "s": 5,
+   "en": "c475e6ce4f63"
+  },
+  "Dùng ‘Good morning’ trước 12 giờ trưa và ‘Good afternoon’ sau đó. ‘Hi’ là lời chào thân mật phổ biến nhất.": {
+   "l1": "نقول 'Good morning' قبل الساعة 12:00، و'Good afternoon' بعد 12:00. وتبقى 'Hi' هي التحية الودية الأكثر شيوعاً في المواقف غير الرسمية.",
+   "s": 5,
+   "en": "8ebe9562f1f1"
+  },
+  "Dùng ‘calling to’ + động từ nguyên mẫu để nêu mục đích. ‘For ask’ là sai.": {
+   "l1": "للتعبير عن الغرض والسبب، استخدم 'calling to' متبوعة بفعل في المصدر (base verb). أما 'For ask' فتركيب غير صحيح إطلاقاً.",
+   "s": 5,
+   "en": "54930b15ef1c"
+  },
+  "Dùng ‘exchange’ với ‘to’ hoặc nói ‘swap’ trong văn nói thân mật.": {
+   "l1": "استخدم الفعل 'exchange' مع حرف الجر 'to'، أو يمكنك استخدام 'swap' كخيار شائع في المحادثات الودية غير الرسمية.",
+   "s": 5,
+   "en": "169a4d70a0ff"
+  },
+  "Hướng + động từ chính + S. Câu hoàn chỉnh: Into the room walked a stranger.": {
+   "l1": "الترتيب هو: اتجاه (Direction) + الفعل الأساسي (main verb) + الفاعل (S). الجملة الكاملة: Into the room walked a stranger.",
+   "s": 5,
+   "en": "a52928f19ba6"
+  },
+  "In most cases giới hạn phạm vi khẳng định (hedging bằng lượng từ). \"all of the cases\" và \"every case\" tuyệt đối hóa; \"every cases\" còn sai ngữ pháp; \"the whole cases\" sai.": {
+   "l1": "العبارة \"In most cases\" بتحدد نطاق الادعاء وتقلل من التعميم (hedging with a quantifier). أما \"All of the cases\" و \"every case\" فدي تعبيرات قطعية ومطلقة؛ و \"every cases\" غير صحيحة قواعدياً أصلاً؛ و \"the whole cases\" خاطئة أيضاً.",
+   "s": 5,
+   "en": "c8ffad1e2d96"
+  },
+  "It appears that + mệnh đề: kết luận dè dặt, bỏ clearly.": {
+   "l1": "التركيبة It appears that + clause بتعبر عن استنتاج حذر ومتحفظ، عشان كدا بنحذف clearly.",
+   "s": 5,
+   "en": "b9ff9a496b9b"
+  },
+  "It is likely/possible that… (có khả năng là…) – cách rào đón quen thuộc trong văn học thuật.": {
+   "l1": "التركيب …It is likely/possible that هو أسلوب تحوّط (hedge) شائع ومستخدم بكثرة في الكتابة الأكاديمية.",
+   "s": 5,
+   "en": "64f62a93acff"
+  },
+  "Khi giới thiệu người, dùng ‘this is’ chứ không dùng ‘here is’.": {
+   "l1": "لما تيجي تعرّف بالناس وتوجبهم، استخدم 'this is' بدل 'here is'.",
+   "s": 5,
+   "en": "334e9db71116"
+  },
+  "Khi so + tính từ đứng đầu câu phải đảo be lên trước chủ ngữ.": {
+   "l1": "لما نبدأ الجملة بـ so + صفة، لازم نقدّم فعل be قبل الفاعل.",
+   "s": 5,
+   "en": "47b1bd0fea98"
+  },
+  "Most researchers ___ that climate change affects bird migration. (chọn cách nói rào đón)": {
+   "l1": "Most researchers ___ that climate change affects bird migration. (اختر أسلوب التحوّط المناسب)",
+   "s": 5,
+   "en": "cf3d7be01a99"
+  },
+  "Mở đầu bằng sự quan tâm đến những người bị ảnh hưởng, nêu những sự thật bạn chắc chắn và tránh phỏng đoán. Chỉ hứa điều bạn làm được.": {
+   "l1": "ابدأ بإظهار الاهتمام بالمتأثرين، واذكر الحقائق اللي متأكد منها بس، وتجنب التخمين. ولا توعد إلا باللي تقدر تنفذه.",
+   "s": 5,
+   "en": "aea33ec55ac3"
+  },
+  "Mở đầu bằng ‘I am afraid’ hoặc ‘Excuse me’ để báo sự cố lịch sự, không nghe như đang giận.": {
+   "l1": "ابدأ بـ 'I am afraid' أو 'Excuse me' عشان تبلّغ عن المشاكل بأسلوب مؤدب وبدون ما تبان معصب.",
+   "s": 5,
+   "en": "88e23b58efcf"
+  },
+  "Neither + aux + S: \"tôi cũng không\" (phủ định)": {
+   "l1": "التركيبة: Neither + aux + S بتعني: \"ولا أنا\" (في النفي)",
+   "s": 5,
+   "en": "b2eddb8670f0"
+  },
+  "Người bản xứ hiếm khi nói ‘I introduce myself’; hãy nói ‘I’m…’ hoặc ‘My name is…’.": {
+   "l1": "نادر جداً لما بنستخدم 'I introduce myself' في الإنجليزية المحكية الطبيعية.",
+   "s": 5,
+   "en": "5445f675cf68"
+  },
+  "Nhấn mạnh mức độ rồi đưa hậu quả (so / such)": {
+   "l1": "أكّد على الدرجة أو الشدة أولاً، وبعدها وضّح النتيجة باستخدام (so / such).",
+   "s": 5,
+   "en": "45fa955a5ddf"
+  },
+  "Nói thời tiết dùng it + is.": {
+   "l1": "لما تتكلم عن الطقس، استخدم it + is.",
+   "s": 5,
+   "en": "fac9b1d50371"
+  },
+  "Nói tuổi dùng be: My little sister is five years old.": {
+   "l1": "للحديث عن العمر بنستخدم فعل be: نقول مثلاً My little sister is five years old.",
+   "s": 5,
+   "en": "50fc94f6be70"
+  },
+  "Nói điều bạn chấp nhận trước, rồi mới nêu điều kiện. ‘As long as’ và ‘provided that’ giới thiệu điều kiện rất rõ ràng.": {
+   "l1": "وضّح الأول الحاجة اللي موافق عليها قبل ما تذكر الشرط. عبارات زي 'As long as' و'provided that' بتقدّم الشرط بأسلوب واضح.",
+   "s": 5,
+   "en": "450102de1a82"
+  },
+  "People là số nhiều thông dụng của person, đi với are. person là số ít; peoples nghĩa là \"các dân tộc\"; persons chỉ gặp trong văn bản pháp lý, trang trọng.": {
+   "l1": "كلمة People هي الجمع الطبيعي لكلمة person، وبتاخد are. كلمة Person مفرد؛ أما peoples فمعناها \"شعوب\" أو \"أعراق\"؛ وكلمة persons مش بنشوفها تقريباً غير في الصياغات القانونية الرسمية.",
+   "s": 5,
+   "en": "4e2937925095"
+  },
+  "Phần nào sai? \"I (A) am not (B) hungry, but my friends (C) is hungry (D).\"": {
+   "l1": "أي جزء في الجملة هو اللي غلط؟ \"I (A) am not (B) hungry, but my friends (C) is hungry (D).\"",
+   "s": 5,
+   "en": "d7af70da5cf1"
+  },
+  "Anh-Mỹ dùng likely như trạng từ ngay sau will: Prices will likely rise next year (= will probably rise). Anh-Anh ưu tiên will probably hoặc are likely to rise. Cả hai đều chuẩn, nhưng không viết “Prices are likely rise” (thiếu to).": {
+   "l1": "في الإنجليزية الأمريكية يُستعمل كلمة likely كظرف مباشرة بعد will: Prices will likely rise next year (= will probably rise). أما الإنجليزية البريطانية فتميل لاستخدام \"will probably\" أو \"are likely to rise\". كلاهما صحيح، لكن لا تكتب أبداً \"Prices are likely rise\" (حرف to مفقود).",
+   "s": 4,
+   "en": "2044f6d23991"
+  },
+  "Bus tận cùng -s → thêm es: buses; there is đổi thành there are.": {
+   "l1": "الكلمة bus تنتهي بـ -s → نضيف es لتصبح buses؛ there is تتحول إلى there are.",
+   "s": 5,
+   "en": "c47694cd45ee"
+  },
+  "Bị động khách quan": {
+   "l1": "المبني للمجهول غير الشخصي",
+   "s": 5,
+   "en": "6537e267113d"
+  },
+  "Bốn cách tạo số nhiều": {
+   "l1": "أربع طرق لتكوين الجمع",
+   "s": 5,
+   "en": "e7dda9ecd72c"
+  },
+  "Child có số nhiều bất quy tắc là children.": {
+   "l1": "جمع كلمة child غير المنتظم هو children.",
+   "s": 5,
+   "en": "6e82a4d520a7"
+  },
+  "Chủ ngữ": {
+   "l1": "الفاعل",
+   "s": 5,
+   "en": "8d183dbdcea3"
+  },
+  "Chủ ngữ thật là the lack (số ít), nên động từ là is, dù funds đứng gần.": {
+   "l1": "الفاعل الحقيقي هو lack (مفرد)، لذا الفعل هو is، رغم وجود funds بجانبه.",
+   "s": 5,
+   "en": "dcd66ac0dc3c"
+  },
+  "Chữ h trong hour câm, âm đầu là nguyên âm → an hour. a sai vì phải chọn theo âm, không theo chữ; many và two cần hours.": {
+   "l1": "حرف الـ h في كلمة hour صامت، لذا أول صوت هو حرف علة → an hour. الخيار A غير صحيح لأن الاختيار يُعتمد على الصوت وليس على الحرف؛ كلمة many و two تحتاج إلى صيغة hours.",
+   "s": 5,
+   "en": "6c73893cc302"
+  },
+  "Câu trước có never (phủ định) → đồng ý dùng neither do (động từ thường use). so do dùng cho câu khẳng định; \"neither don't\" là phủ định kép; \"so don't\" sai.": {
+   "l1": "الجملة الأولى تحتوي على never (نفي) → توافق مع \"neither do\" (استخدام الفعل العادي). \"So do\" تُستعمل مع الجمل الإيجابية؛ \"neither don't\" تُعد نفيًا مزدوجًا؛ \"so don't\" غير صحيحة.",
+   "s": 4,
+   "en": "7bbdc46cac79"
+  },
+  "Cấu trúc be likely to + V. \"probably/possibly/perhaps\" là trạng từ, không đi với \"are … to rise\" theo cấu trúc này (phải nói \"will probably rise\").": {
+   "l1": "البنية هي be likely to + فعل. كلمات مثل Probably، possibly وperhaps هي ظروف ولا تتناسب مع \"are … to rise\" (الأصح تقول \"will probably rise\").",
+   "s": 5,
+   "en": "88dc509afb2a"
+  },
+  "Dùng cách nói giảm và mỉa mai": {
+   "l1": "استخدام التقليل والسخرية.",
+   "s": 4,
+   "en": "e036ccf61896"
+  },
+  "Dùng một tín hiệu ngắn như ‘Can I just add…’ để chen vào. Để giữ lượt, nói ‘Let me finish’ rồi tiếp tục với nhịp đều.": {
+   "l1": "استخدم عبارة تنبيهية قصيرة للدخول في الحديث مثل '...Can I just add'. ولتحافظ على دورك في الكلام، قل 'Let me finish' وتابع حديثك بوتيرة هادئة وثابتة.",
+   "s": 4,
+   "en": "e8cf1a428ada"
+  },
+  "Dùng ‘can’ hoặc ‘shall’ để đặt câu hỏi về kế hoạch tương lai.": {
+   "l1": "استخدم 'can' أو 'shall' لتكوين سؤال حول خطط مستقبلية.",
+   "s": 5,
+   "en": "3aae3c1e2e4c"
+  },
+  "Hoàn thành bằng đảo ngữ: \"Into the hall ___.\"": {
+   "l1": "أكمل باستخدام أسلوب التقديم والتأخير (inversion): \"Into the hall ___.\"",
+   "s": 5,
+   "en": "ba0cd394efed"
+  },
+  "Hãy giải thích lý do và mời đặt câu hỏi. Thay đổi mà không có lý do sẽ gây lo sợ và đồn đoán.": {
+   "l1": "وضّح السبب وافتح المجال للأسئلة؛ فالإعلان عن أي تغيير دون ذكر الأسباب يثير الخوف والشائعات.",
+   "s": 5,
+   "en": "b6b10a2b375b"
+  },
+  "Hãy nhận phần trách nhiệm về thông điệp chưa rõ, không chỉ đổ cho người nghe. Cách này làm giảm căng thẳng.": {
+   "l1": "تحمّل أنت مسؤولية عدم وضوح الرسالة، ولا تُلقِ باللوم على المستمع وحده؛ فهذا يخفف من حدة التوتر.",
+   "s": 5,
+   "en": "7b9b9b72237c"
+  },
+  "Hỏi về lời giải thích của bạn chứ không hỏi người nghe. Như vậy họ thoải mái nói ‘chưa’.": {
+   "l1": "اسأل عن مدى وضوح شرحك أنت، ولا تسأل عن فهم المستمع؛ فهذا يجعل الطرف الآخر يشعر بالارتياح إذا أراد أن يقول 'no'.",
+   "s": 5,
+   "en": "994a351b46da"
   }
  },
  "ru": {

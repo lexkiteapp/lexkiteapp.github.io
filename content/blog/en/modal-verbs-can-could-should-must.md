@@ -198,6 +198,8 @@ Modals interact with tense choice, so pair this lesson with [present perfect vs 
 
 {{youtube: | Video idea: a certainty scale from must be to can't be, acted out with five short everyday scenes}}
 
+See modals at work in [polite requests in English](/en/blog/polite-requests-in-english-could-you-would-you-mind/).
+
 ## Frequently asked questions
 
 ### What are the nine core modal verbs in English?
