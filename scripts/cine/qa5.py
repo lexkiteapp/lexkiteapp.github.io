@@ -200,7 +200,7 @@ if VIRAL:   # viral-mode rules (docs/CINE-SCENE-STANDARD.md §7, v3 pacing model
         ra, rb = min(o['t'][0] for o in rv), max(o['t'][1] for o in rv); rule(rb - ra >= 1.8 - 1 / FPS, f'reveal held {rb - ra:.2f} s (>= 1.8)')
     if TP in ('choose', 'mistake', 'pov', 'anchor'):
         ring_end = max(o['t'][1] for o in rg if o['shot'] == min(rg, key=lambda q: q['t'][0])['shot']); rs = min(o['t'][0] for o in rg)
-        rule(ra >= ring_end - 0.01 and ring_end - rs >= 2.95 and any('Comment' in o['text'] for o in rg), f'comment ring {rs:.2f}-{ring_end:.2f} s (3 s) BEFORE the reveal at {ra:.2f} s')
+        rule(ra >= ring_end - 0.01 and ring_end - rs >= 2.95 and any(re.search(r'Pick|Think|answer|Save', o['text']) for o in rg), f'comment ring {rs:.2f}-{ring_end:.2f} s (3 s) BEFORE the reveal at {ra:.2f} s')
     if TP == 'choose':
         ch = [o for o in tl['overlays'] if o['style'] == 'Choice']; sp0 = [x for x in speech if x[2] == Q['choice_line']][0][0]
         rule(min(o['t'][0] for o in ch) <= sp0 - 1.5 + 1e-3 and max(o['t'][1] for o in ch if o['part'] == 0) >= ring_end - 0.05, f'options up {sp0 - min(o["t"][0] for o in ch):.2f} s before the audio (>= 1.5) and through the ring')
