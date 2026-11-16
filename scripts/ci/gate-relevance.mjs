@@ -47,7 +47,8 @@ export function readsAny(src = '', prFiles = []) {
     if (src.includes(f)) return true;
     const seg = f.split('/');
     for (let d = seg.length - 1; d >= 2; d--) if (src.includes(seg.slice(0, d).join('/'))) return true;
-    if (seg.length >= 2 && (q.has(seg[0]) || q.has(seg[0] + '/') || q.has('./' + seg[0]))) return true;
+    // 16/11: chuỗi gốc TRẦN ('content', 'web', 'scripts') bỏ – xuất hiện khắp nơi (khoá JSON, thuộc tính HTML…) nên PR chỉ đổi content/blog vẫn bị đòi gộp lại vì admin-guard.mjs có chuỗi 'content'; chỉ nhận dạng có gạch chéo ('content/', './docs/')
+    if (seg.length >= 2 && (q.has(seg[0] + '/') || q.has('./' + seg[0] + '/'))) return true;
   }
   return false;
 }

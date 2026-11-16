@@ -11,6 +11,7 @@ ok(workflowMatches("on:\n  pull_request:\n    paths: ['web/**', '!web/audio/**']
 ok(workflowMatches("on:\n  schedule: []\n", ['a']) === false, 'không có pull_request → false');
 ok(readsAny("x('web/js/study.js')", ['web/js/study.js']) && readsAny("rd('web/js/' + f)", ['web/js/app.js']), 'nhắc tệp / thư mục 2 cấp');
 ok(!readsAny("rd('web/js/' + f)", ['docs/CODEMAP.md']) && !readsAny("rd('web/js/')", ['web/blog/a.md']), 'không nhắc → false');
-ok(readsAny("readdirSync('docs')", ['docs/CODEMAP.md']) && readsAny("const D = 'web/'", ['web/x.css']), 'thư mục gốc dạng chuỗi riêng');
+ok(readsAny("readdirSync('docs/')", ['docs/CODEMAP.md']) && readsAny("const D = 'web/'", ['web/x.css']) && readsAny("const D = './docs/'", ['docs/a.md']), 'thư mục gốc dạng chuỗi CÓ gạch chéo vẫn tính');
+ok(!readsAny("const o = { content: 1, type: 'content', web: 'web', k: \"scripts\" }", ['content/blog/pt/a.md', 'web/x.css', 'scripts/a.mjs']), 'chuỗi gốc TRẦN (content/web/scripts) KHÔNG tính: PR chỉ đổi content/blog không bị đòi gộp vì test có khoá \'content\'');
 ok(!readsAny("", ['a/b.js']) && !readsAny("x", []), 'rỗng');
 if (bad) { console.error(`✗ gate-relevance: ${bad} lỗi`); process.exit(1); } console.log('✓ gate-relevance: đạt');
