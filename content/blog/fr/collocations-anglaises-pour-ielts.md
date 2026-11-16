@@ -116,6 +116,8 @@ Pour transformer ces collocations en réflexes spontanés lors de l'examen :
 3. **Exploitez la Répétition Espacée :** Entraînez-vous dans le module [Smart Learn](/#/practice/learn) de Lexkite. L'algorithme FSRS sollicite votre mémoire juste avant le point d'oubli, ce qui ancre définitivement les expressions dans votre mémoire à long terme.
 4. **Appliquez Directement dans vos Écrits :** Entraînez-vous à paraphraser en consultant [comment paraphraser ielts techniques](/fr/blog/comment-paraphraser-ielts-techniques/) et adoptez le bon réflexe intellectuel détaillé dans notre guide [comment penser en anglais sans traduire](/fr/blog/comment-penser-en-anglais-sans-traduire/). Vous pouvez également explorer notre sélection de cours théoriques dans la section [/ngu-phap/](/ngu-phap/). Si vous visez également d'autres certifications, lisez notre analyse comparative sur [cambridge english b2 c1](/fr/blog/cambridge-english-b2-c1/).
 
+Les mots de l'[Academic Word List](/fr/blog/academic-word-list-awl-liste-de-vocabulaire/) se retiennent mieux avec leurs collocations.
+
 ## Foire Aux Questions (FAQ)
 
 ### Combien de collocations faut-il employer dans un essai Task 2 ?

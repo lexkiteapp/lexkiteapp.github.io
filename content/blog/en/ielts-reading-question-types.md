@@ -9,7 +9,7 @@ tags: [ielts, reading, question-types, strategy]
 keyword: "ielts reading question types"
 cover: reading
 coverAlt: "Lexkite Reading list with passages graded from A2 to C1"
-publishAt:
+publishAt: 2027-02-12T20:41:00+05:30
 factChecked: 2026-11-15
 author: Lexkite
 status: ready

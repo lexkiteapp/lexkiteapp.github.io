@@ -1,0 +1,241 @@
+{
+ "id": "mo_news_kitchen_ab_a30db6",
+ "template": "drill",
+ "title": "News Motion – make dinner, not do dinner (news_kitchen_ab_a30db6)",
+ "teacher": "carlos",
+ "clips": [
+  "gc11_talk",
+  "gc11_explain",
+  "gc11_happy",
+  "gc11_thinking",
+  "gc11_surprise_2"
+ ],
+ "listen": [
+  "gc11_listen"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy2",
+ "active": "mint",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "word-usage",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Word Check",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "Dinner: make or do?"
+  },
+  {
+   "id": "q",
+   "text": "Which one sounds natural?",
+   "gap": 0.7
+  },
+  {
+   "id": "o",
+   "text": "Is it A: I'll do dinner? Or B: I'll make dinner?",
+   "gap": 0.7
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "a",
+   "text": "It's B. I'll make dinner tonight.",
+   "gap": 0.7
+  },
+  {
+   "id": "w",
+   "text": "You also make coffee and make a cake.",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "MAKE OR DO?",
+      "white"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Word Check",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "MAKE OR DO?"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "q",
+    "at": [
+     "q",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "make vs do",
+      "tone": "teal",
+      "ring": "_count"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "Which one sounds natural?"
+       ]
+      ]
+     }
+    ],
+    "xp": [
+     {
+      "at": [
+       "a",
+       0
+      ],
+      "n": 10
+     }
+    ]
+   },
+   {
+    "id": "note",
+    "at": [
+     "w",
+     0
+    ],
+    "tone": "coral",
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Remember",
+      "tone": "coral"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "make dinner"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "make coffee"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "opts",
+    "id": "opts",
+    "opts": [
+     "I'll do dinner.",
+     "I'll make dinner."
+    ],
+    "cues": [
+     [
+      "o",
+      3
+     ],
+     [
+      "o",
+      8
+     ]
+    ],
+    "reveal": [
+     "a",
+     0
+    ],
+    "right": 1
+   }
+  ],
+  "hook_text": "MAKE OR DO?",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ }
+}

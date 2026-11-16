@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_everyone_is",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Is everyone one or many?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Everyone are here.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Everyone is here.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use is with everyone.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Is! Everyone is happy.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Everyone are here.",
+  "right": "Everyone is here.",
+  "strike": "are",
+  "why": "Use is with everyone.",
+  "memory": "Everyone is.",
+  "quiz": {
+   "stem": "Everyone ___ happy.",
+   "options": [
+    "is",
+    "are"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Everyone” đi với is hay are?",
+   "tip": "“Mọi người” nghe như nhiều người, nhưng trong tiếng Anh “everyone” đi với “is.”",
+   "caption": "Bạn có hay nói “Everyone are here.” không? 😅 Dù nghĩa là nhiều người, “everyone” đi với “is”: “Everyone is here.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “is.” Hãy viết một câu bắt đầu bằng “Everyone is.” Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#nguphaptienganh",
+    "#tienganhgiaotiep",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Everyone”: is or are?",
+   "tip": "“Everyone” goes with “is”, even if it feels like many people.",
+   "caption": "Do you often say this? “Everyone are here.” Even if it feels like many people, “everyone” goes with “is”: “Everyone is here.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Everyone” đi với is hay are?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 39,
+  "seconds": 24.7,
+  "wpm": 95
+ },
+ "publish": {
+  "title": "“Everyone” đi với is hay are?",
+  "keyword": "Everyone is here.",
+  "value": "“Mọi người” nghe như nhiều người, nhưng trong tiếng Anh “everyone” đi với “is.”",
+  "hashtags": [
+   "#hoctienganh",
+   "#nguphaptienganh",
+   "#tienganhgiaotiep",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 33,
+  "platforms": {
+   "youtube": {
+    "title": "“Everyone” đi với is hay are?",
+    "description": "“Mọi người” nghe như nhiều người, nhưng trong tiếng Anh “everyone” đi với “is.”\n\nBạn có hay nói “Everyone are here.” không? 😅 Dù nghĩa là nhiều người, “everyone” đi với “is”: “Everyone is here.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #nguphaptienganh #tienganhgiaotiep #lexkite",
+    "tags": [
+     "Everyone is here.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “Everyone are here.” không? 😅 Dù nghĩa là nhiều người, “everyone” đi với “is”: “Everyone is here.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Everyone” đi với is hay are?\n\n“Mọi người” nghe như nhiều người, nhưng trong tiếng Anh “everyone” đi với “is.”\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#nguphaptienganh",
+     "#tienganhgiaotiep",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Everyone” đi với is hay are? “Mọi người” nghe như nhiều người, nhưng trong tiếng Anh “everyone” đi v… #hoctienganh #nguphaptienganh #tienganhgiaotiep"
+   }
+  },
+  "first_comment": "Đáp án: “is.” Hãy viết một câu bắt đầu bằng “Everyone is.” Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

@@ -13,7 +13,8 @@ on:
   pull_request:
     paths: ['scripts/video/motion/**', 'scripts/teach/**', 'web/teach/characters.json', '.github/actions/video9-setup/**', 'scripts/video/remotion/src/stitch/**', 'content/video/cine/news/templates-motion/**', 'scripts/video/tpl/pilot5_voice.py', 'scripts/video/tpl/render_v9.py', 'scripts/video/tpl/qc_v9.py', 'scripts/video/tpl/pron.mjs', 'scripts/cine/news_voice.py', 'scripts/cine/whisper_det.py', 'scripts/cine/test_whisper_det.py', '.github/workflows/video-motion.yml']   # + the voice/render/QC scripts this workflow runs (02/11: a news_voice fix did not trigger it)
 permissions: { contents: read }
-concurrency: { group: 'video-motion-${{ github.ref }}-${{ github.event.inputs.templates }}', cancel-in-progress: true }
+# bounded group (15/11): the old group embedded the whole `templates` list - a 15-template dispatch ended as a failed run with 0 jobs. Dispatch = own group per run (never cancelled by another list), PR = per ref.
+concurrency: { group: 'video-motion-${{ github.event_name == ''workflow_dispatch'' && github.run_id || github.ref }}', cancel-in-progress: true }
 env:
   DIR: templates-motion
   HOOKS: content/video/cine/news/templates-v1/reviewed-hooks.json
@@ -53,7 +54,7 @@ jobs:
       fail-fast: false
       max-parallel: 3   # 15/11: luật chủ 13/11 – video ≤ 3 máy khi còn việc khác (10 job video-motion chiếm 10/40 máy, PR xếp hàng 260 job)
       matrix: { t: '${{ fromJSON(needs.setup.outputs.list) }}' }
-    env: { SPEC: 'content/video/cine/news/templates-motion/${{ matrix.t }}.json' }
+    env: { SPEC: "content/video/cine/news/${{ contains(matrix.t, '_') && 'motion' || 'templates-motion' }}/${{ matrix.t }}.json", HOOKS: "${{ contains(matrix.t, '_') && 'content/video/cine/news/motion/reviewed.json' || 'content/video/cine/news/templates-v1/reviewed-hooks.json' }}" }
     steps:
       - uses: actions/checkout@v4
       - name: Reviewed script + hook verdict present
@@ -94,7 +95,8 @@ jobs:
       max-parallel: 3   # 15/11: luật chủ 13/11 – video ≤ 3 máy khi còn việc khác (10 job video-motion chiếm 10/40 máy, PR xếp hàng 260 job)
       matrix: { t: '${{ fromJSON(needs.setup.outputs.list) }}', kind: [short, embed] }   # embed = 16:9 + 4:5 lesson videos from the same data (caption-free plate, VTT)
     env:
-      SPEC: content/video/cine/news/templates-motion/${{ matrix.t }}.json
+      SPEC: content/video/cine/news/${{ contains(matrix.t, '_') && 'motion' || 'templates-motion' }}/${{ matrix.t }}.json
+      HOOKS: "${{ contains(matrix.t, '_') && 'content/video/cine/news/motion/reviewed.json' || 'content/video/cine/news/templates-v1/reviewed-hooks.json' }}"
       O: out/motion/${{ matrix.t }}/${{ matrix.kind }}
     steps:
       - uses: actions/checkout@v4

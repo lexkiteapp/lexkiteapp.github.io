@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_yes_i_do",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Yes, I do, not yes, I have!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Do you have a pen? Yes, I have.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Do you have a pen? Yes, I do.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Answer with do.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! Yes, I do.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Do you have a pen? Yes, I have.",
+  "right": "Do you have a pen? Yes, I do.",
+  "strike": "I have",
+  "why": "Answer with do.",
+  "memory": "Do you have a pen? Yes, I do.",
+  "quiz": {
+   "stem": "Do you have a pen?",
+   "options": [
+    "Yes, I have.",
+    "Yes, I do."
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Kısa cevap: “Yes, I do.”",
+   "tip": "Türkçede “Evet, var.” deriz; İngilizcede “Do you have…?” sorusunun kısa cevabı “Yes, I do.” olur.",
+   "caption": "“Do you have a pen? Yes, I have” mi diyorsun? 😅 İngilizcede “Do you…?” sorusuna kısa cevapta “do” kullanılır. Doğrusu “Do you have a pen? Yes, I do.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “Yes, I do”. Soru “do” ile başlarsa cevap “do” ile biter. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Short answer: “Yes, I do.”",
+   "tip": "A “Do you…?” question gets a short answer with “do”: “Yes, I do.”",
+   "caption": "Do you say “Do you have a pen? Yes, I have”? 😅 A question with “do” gets a short answer with “do”. The right sentence is “Do you have a pen? Yes, I do.” Listen to Ama and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Kısa cevap: “Yes, I do.”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 51,
+  "seconds": 30.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Kısa cevap: “Yes, I do.”",
+  "keyword": "Do you have a pen? Yes, I do.",
+  "value": "Türkçede “Evet, var.” deriz; İngilizcede “Do you have…?” sorusunun kısa cevabı “Yes, I do.” olur.",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 45,
+  "platforms": {
+   "youtube": {
+    "title": "Kısa cevap: “Yes, I do.”",
+    "description": "Türkçede “Evet, var.” deriz; İngilizcede “Do you have…?” sorusunun kısa cevabı “Yes, I do.” olur.\n\n“Do you have a pen? Yes, I have” mi diyorsun? 😅 İngilizcede “Do you…?” sorusuna kısa cevapta “do” kullanılır. Doğrusu “Do you have a pen? Yes, I do.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "Do you have a pen? Yes, I do.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“Do you have a pen? Yes, I have” mi diyorsun? 😅 İngilizcede “Do you…?” sorusuna kısa cevapta “do” kullanılır. Doğrusu “Do you have a pen? Yes, I do.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Kısa cevap: “Yes, I do.”\n\nTürkçede “Evet, var.” deriz; İngilizcede “Do you have…?” sorusunun kısa cevabı “Yes, I do.” olur.\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Kısa cevap: “Yes, I do.” Türkçede “Evet, var.” deriz; İngilizcede “Do you have…?” sorusunun kısa cevabı… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “Yes, I do”. Soru “do” ile başlarsa cevap “do” ile biter. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+  "lang": "tr"
+ }
+}

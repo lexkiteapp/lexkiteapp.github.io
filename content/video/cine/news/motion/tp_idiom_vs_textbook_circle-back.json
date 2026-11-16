@@ -1,0 +1,275 @@
+{
+ "id": "mo_tp_idiom_vs_textbook_circle-back",
+ "template": "idiom-vs-textbook",
+ "title": "Motion idiom-vs-textbook – idiom-vs-textbook: circle-back (tp_idiom_vs_textbook_circle-back)",
+ "teacher": "ama",
+ "clips": [
+  "ga11_talk",
+  "ga11_explain",
+  "ga11_happy",
+  "ga11_thinking",
+  "ga11_surprise_3"
+ ],
+ "listen": [
+  "ga11_listen_2"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy",
+ "active": "mint",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "idiom-vs-textbook",
+  "link": "https://lexkite.com/app/",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Idiom Vs Textbook",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "Let's circle back on this.",
+   "gap": 0.7
+  },
+  {
+   "id": "s0",
+   "text": "Textbook: So in my textbook, that's: we'll discuss it later?",
+   "gap": 0.7
+  },
+  {
+   "id": "s1",
+   "text": "Natives say: Can we circle back to the budget on Monday?",
+   "gap": 0.7
+  },
+  {
+   "id": "s2",
+   "text": "Oh, circle back means come back to a topic later.",
+   "gap": 0.7
+  },
+  {
+   "id": "t",
+   "text": "Tip: circle back is for work. With friends, just say let's talk later.",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "Let's circle",
+      "white"
+     ]
+    ],
+    [
+     [
+      "back on",
+      "yellow"
+     ]
+    ],
+    [
+     [
+      "this.",
+      "yellow"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Sound natural",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "Let's circle"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "back on"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "this."
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "sum",
+    "at": [
+     "t",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Tip",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "circle back is for work. With friends, just say"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "rules",
+    "at": [
+     "s0",
+     0
+    ],
+    "rows": [
+     {
+      "t": "tile",
+      "tag": "TEXTBOOK",
+      "tone": "gold",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "We'll discuss it later.",
+        "gold"
+       ]
+      ],
+      "ex_at": [
+       "s0",
+       0
+      ],
+      "at": [
+       "s0",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "NATIVE",
+      "tone": "teal",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "Let's circle back.",
+        "teal"
+       ]
+      ],
+      "ex_at": [
+       "s1",
+       0
+      ],
+      "at": [
+       "s1",
+       0
+      ]
+     }
+    ]
+   }
+  ],
+  "hook_text": "Let's circle back on this.",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ },
+ "uses": {
+  "template": "idiom-vs-textbook",
+  "row": "tp_idiom_vs_textbook_circle-back",
+  "teacher": "ama",
+  "accent": "navy",
+  "active": "mint",
+  "tones": 2
+ }
+}

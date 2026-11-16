@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_would_like",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Do you like coffee?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I very like coffee.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I really like coffee.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say really before like, not very.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Really! I really like tea.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I very like coffee.",
+  "right": "I really like coffee.",
+  "strike": "very",
+  "why": "Say really before like, not very.",
+  "memory": "I really like coffee.",
+  "quiz": {
+   "stem": "I ___ like tea.",
+   "options": [
+    "really",
+    "very"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Rất thích” nói sao cho đúng?",
+   "tip": "Người Việt hay dịch “rất thích” thành “I very like.” Trong tiếng Anh, hãy nói “I really like.”",
+   "caption": "Bạn có hay nói “I very like coffee.” không? ☕ Hãy nói: “I really like coffee.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “really.” Hãy nói to một câu về món bạn thích, bắt đầu bằng “I really like…” nhé. Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#tienganhgiaotiep",
+    "#tienganhmoingay",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "How do you say you like it?",
+   "tip": "Vietnamese learners often turn “rất thích” into “I very like.” In English, say “I really like.”",
+   "caption": "Do you often say this? “I very like coffee.” Say it this way: “I really like coffee.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Rất thích” nói sao cho đúng?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“Rất thích” nói sao cho đúng?",
+  "keyword": "I really like coffee.",
+  "value": "Người Việt hay dịch “rất thích” thành “I very like.” Trong tiếng Anh, hãy nói “I really like.”",
+  "hashtags": [
+   "#hoctienganh",
+   "#tienganhgiaotiep",
+   "#tienganhmoingay",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "“Rất thích” nói sao cho đúng?",
+    "description": "Người Việt hay dịch “rất thích” thành “I very like.” Trong tiếng Anh, hãy nói “I really like.”\n\nBạn có hay nói “I very like coffee.” không? ☕ Hãy nói: “I really like coffee.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #tienganhgiaotiep #tienganhmoingay #lexkite",
+    "tags": [
+     "I really like coffee.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “I very like coffee.” không? ☕ Hãy nói: “I really like coffee.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Rất thích” nói sao cho đúng?\n\nNgười Việt hay dịch “rất thích” thành “I very like.” Trong tiếng Anh, hãy nói “I really like.”\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#tienganhgiaotiep",
+     "#tienganhmoingay",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Rất thích” nói sao cho đúng? Người Việt hay dịch “rất thích” thành “I very like.” Trong tiếng Anh, h… #hoctienganh #tienganhgiaotiep #tienganhmoingay"
+   }
+  },
+  "first_comment": "Đáp án: “really.” Hãy nói to một câu về món bạn thích, bắt đầu bằng “I really like…” nhé. Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_kind_regards",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "End with kind regards!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Thank you. With friendly greetings.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Thank you. Kind regards.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Kind regards is the usual end.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Kind regards! Thank you. Kind regards.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Thank you. With friendly greetings.",
+  "right": "Thank you. Kind regards.",
+  "strike": "With friendly greetings",
+  "why": "Kind regards is the usual end.",
+  "memory": "Kind regards.",
+  "quiz": {
+   "stem": "Thank you. ___.",
+   "options": [
+    "With friendly greetings",
+    "Kind regards"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "So enden E-Mails auf Englisch!",
+   "tip": "Im Deutschen enden E-Mails mit „Mit freundlichen Grüßen“. Im Englischen schreiben Sie „Kind regards“ oder „Best regards“.",
+   "caption": "Wie enden Sie eine E-Mail? ✉️ Falsch: “Thank you. With friendly greetings.” Richtig: “Thank you. Kind regards.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “Kind regards”. Richtig heißt es: “Thank you. Kind regards.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "This is how emails end in English!",
+   "tip": "German emails end with “Mit freundlichen Grüßen”. English emails end with “Kind regards” or “Best regards”.",
+   "caption": "This is how emails end in English! Wrong: “Thank you. With friendly greetings.” Right: “Thank you. Kind regards.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "So enden E-Mails auf Englisch!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "So enden E-Mails auf Englisch!",
+  "keyword": "Thank you. Kind regards.",
+  "value": "Im Deutschen enden E-Mails mit „Mit freundlichen Grüßen“. Im Englischen schreiben Sie „Kind regards“ oder „Best regards“.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "So enden E-Mails auf Englisch!",
+    "description": "Im Deutschen enden E-Mails mit „Mit freundlichen Grüßen“. Im Englischen schreiben Sie „Kind regards“ oder „Best regards“.\n\nWie enden Sie eine E-Mail? ✉️ Falsch: “Thank you. With friendly greetings.” Richtig: “Thank you. Kind regards.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "Thank you. Kind regards.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Wie enden Sie eine E-Mail? ✉️ Falsch: “Thank you. With friendly greetings.” Richtig: “Thank you. Kind regards.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "So enden E-Mails auf Englisch!\n\nIm Deutschen enden E-Mails mit „Mit freundlichen Grüßen“. Im Englischen schreiben Sie „Kind regards“ oder „Best regards“.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "So enden E-Mails auf Englisch! Im Deutschen enden E-Mails mit „Mit freundlichen Grüßen“. Im Englischen… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “Kind regards”. Richtig heißt es: “Thank you. Kind regards.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

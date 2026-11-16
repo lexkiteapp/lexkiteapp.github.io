@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_howlong",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "No time after how long!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: How long time do you need?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: How long do you need?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "How long already asks about time.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Long! How long is the movie?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "How long time do you need?",
+  "right": "How long do you need?",
+  "strike": "long time",
+  "why": "How long already asks about time.",
+  "memory": "How long?",
+  "quiz": {
+   "stem": "How ___ is the movie?",
+   "options": [
+    "long time",
+    "long"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "how long 后面不加 time！",
+   "tip": "中文问“多长时间”，所以容易说 how long time。英语的 how long 已经包含“时间”，不加 time。",
+   "caption": "你是不是也会说 “How long time do you need?”😅 how long 已经包含“时间”，后面不加 time：“How long do you need?”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“How long do you need?”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "No “time” after how long!",
+   "tip": "How long already asks about time, so skip the word time.",
+   "caption": "Do you say “How long time do you need?” 😅 How long already asks about time, so skip the word time: “How long do you need?” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "how long 后面不加 time！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "how long 后面不加 time！",
+  "keyword": "How long do you need?",
+  "value": "中文问“多长时间”，所以容易说 how long time。英语的 how long 已经包含“时间”，不加 time。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "how long 后面不加 time！",
+    "description": "中文问“多长时间”，所以容易说 how long time。英语的 how long 已经包含“时间”，不加 time。\n\n你是不是也会说 “How long time do you need?”😅 how long 已经包含“时间”，后面不加 time：“How long do you need?”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "How long do you need?",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “How long time do you need?”😅 how long 已经包含“时间”，后面不加 time：“How long do you need?”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "how long 后面不加 time！\n\n中文问“多长时间”，所以容易说 how long time。英语的 how long 已经包含“时间”，不加 time。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "how long 后面不加 time！ 中文问“多长时间”，所以容易说 how long time。英语的 how long 已经包含“时间”，不加 time。 #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“How long do you need?”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

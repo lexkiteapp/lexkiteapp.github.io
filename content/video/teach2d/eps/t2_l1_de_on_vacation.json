@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_on_vacation",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "On vacation, not in!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am in vacation.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am on vacation.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say on vacation.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "On! We are on vacation.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am in vacation.",
+  "right": "I am on vacation.",
+  "strike": "in",
+  "why": "Say on vacation.",
+  "memory": "On vacation.",
+  "quiz": {
+   "stem": "We are ___ vacation.",
+   "options": [
+    "on",
+    "in"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "„Im Urlaub“ heißt „on vacation“!",
+   "tip": "„Im Urlaub“ klingt nach „in“. Im Englischen sagen Sie „on vacation“.",
+   "caption": "Sind Sie „in vacation“? 🏖️ Falsch: “I am in vacation.” Richtig: “I am on vacation.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “on”. Richtig heißt es: “I am on vacation.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Im Urlaub” is “on vacation”!",
+   "tip": "“Im Urlaub” sounds like “in”. In English you say “on vacation”.",
+   "caption": "“Im Urlaub” is “on vacation”! Wrong: “I am in vacation.” Right: “I am on vacation.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "„Im Urlaub“ heißt „on vacation“!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 40,
+  "seconds": 25.1,
+  "wpm": 95
+ },
+ "publish": {
+  "title": "„Im Urlaub“ heißt „on vacation“!",
+  "keyword": "I am on vacation.",
+  "value": "„Im Urlaub“ klingt nach „in“. Im Englischen sagen Sie „on vacation“.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "„Im Urlaub“ heißt „on vacation“!",
+    "description": "„Im Urlaub“ klingt nach „in“. Im Englischen sagen Sie „on vacation“.\n\nSind Sie „in vacation“? 🏖️ Falsch: “I am in vacation.” Richtig: “I am on vacation.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "I am on vacation.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Sind Sie „in vacation“? 🏖️ Falsch: “I am in vacation.” Richtig: “I am on vacation.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "„Im Urlaub“ heißt „on vacation“!\n\n„Im Urlaub“ klingt nach „in“. Im Englischen sagen Sie „on vacation“.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "„Im Urlaub“ heißt „on vacation“! „Im Urlaub“ klingt nach „in“. Im Englischen sagen Sie „on vacation“. #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “on”. Richtig heißt es: “I am on vacation.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

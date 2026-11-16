@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_i_am_cold",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "I am cold, not I have cold!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have cold.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am cold.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "For cold, use am.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Am! I am cold.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have cold.",
+  "right": "I am cold.",
+  "strike": "have",
+  "why": "For cold, use am.",
+  "memory": "I am cold.",
+  "quiz": {
+   "stem": "I ___ cold. Close the window.",
+   "options": [
+    "have",
+    "am"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "¿“I have cold”? ¡Error común!",
+   "tip": "En español “tengo frío”, pero en inglés se usa “to be”: “I am cold.”",
+   "caption": "Muchos dicen “I have cold.” 🙈 En español “tengo frío”, pero en inglés se usa “be”: “I am cold.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “am”. Para el frío o el calor se usa “to be”, no “to have”. Di en voz alta una frase tuya con “am”. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#gramatica",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“I have cold”? Common mistake!",
+   "tip": "In Spanish it is “tengo frío”, but English uses “be”: “I am cold.”",
+   "caption": "Many learners say “I have cold.” In Spanish it is “tengo frío”, but English uses “be”: “I am cold.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿“I have cold”? ¡Error común!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 41,
+  "seconds": 25.6,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "¿“I have cold”? ¡Error común!",
+  "keyword": "I am cold.",
+  "value": "En español “tengo frío”, pero en inglés se usa “to be”: “I am cold.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#gramatica",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "¿“I have cold”? ¡Error común!",
+    "description": "En español “tengo frío”, pero en inglés se usa “to be”: “I am cold.”\n\nMuchos dicen “I have cold.” 🙈 En español “tengo frío”, pero en inglés se usa “be”: “I am cold.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #gramatica #lexkite",
+    "tags": [
+     "I am cold.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "Muchos dicen “I have cold.” 🙈 En español “tengo frío”, pero en inglés se usa “be”: “I am cold.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "¿“I have cold”? ¡Error común!\n\nEn español “tengo frío”, pero en inglés se usa “to be”: “I am cold.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#gramatica",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿“I have cold”? ¡Error común! En español “tengo frío”, pero en inglés se usa “to be”: “I am cold.” #aprenderingles #inglesfacil #gramatica"
+   }
+  },
+  "first_comment": "Respuesta: “am”. Para el frío o el calor se usa “to be”, no “to have”. Di en voz alta una frase tuya con “am”. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}

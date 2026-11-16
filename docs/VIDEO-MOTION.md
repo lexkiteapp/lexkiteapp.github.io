@@ -62,3 +62,13 @@ Springs taper to exact rest at SETTLE (core.py == core.mjs) · HALF draw = 0.062
 (Remotion's AAC priming lagged ~40 ms) · embeds CRF 23 (CRF 30 ringing flickered static text) · handover coverage measured against the
 plate (short, dark canvas) / canvas colour (embed); pills hand over like cards · 16:9 pills shrink to stay inside SAFE incl. the rise
 offset · registry set: v13 plate captions inside SAFE, no PLACEHOLDER tag.
+
+## Template inventory and Motion mapping (15/11/2026, owner: reuse the existing set, render with Motion, no duplicates)
+Existing sets: `content/video/templates/` (15, 26 reviewed examples), `cine/news/templates-v1|v2` (old PIL/Studio engines, superseded for new clips), 4 Motion hand-built (drill, mistake, tip, ready), 34 news lessons.
+| source | Motion spec generator | element grammar |
+|---|---|---|
+| 15 content templates (collocation, confusing-pair, idiom-vs-textbook, ielts-speaking, ielts-writing-phrase, irregular-verb, phrasal-verb, polite-request, pronunciation-pair, roleplay, three-words, upgrade-your-english, word-of-the-day) | `tpl2motion.py` (`tp_<template>_<slug>`) | hook + ordered rule tiles + tip card |
+| quiz-ab · spot-the-mistake | `tpl2motion.py` | A/B pills + 3-2-1 ring · ring then strike |
+| 34 news lessons | `news2motion.py` (ab→drill, fix→mistake, three/ways/pov→tip) | drill / mistake / tip |
+| gold bank rows (261 + 34 mix-ups) | `bank2motion.py` (`bm_<tpl>_<row>`): pair = confusing-pair, phrasal = phrasal-verb, native = idiom-vs-textbook, pattern = collocation, spot = spot-the-mistake **on bank data**; tf, gap, recall = formats the 15 do not have | same |
+Pending engine work (not a new template): host layout left/centre + footage backgrounds, waveform (pronunciation-pair), second teacher on screen (roleplay). Specs: `content/video/cine/news/motion/` (`reviewed.json` = machine verdicts); CI `video-motion.yml` input `templates` takes any spec id.

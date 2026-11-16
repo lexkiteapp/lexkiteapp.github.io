@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_wouldlike",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Would like is polite!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I want a coffee.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I would like a coffee.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Would like sounds kind.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Would like! I would like a glass of water.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I want a coffee.",
+  "right": "I would like a coffee.",
+  "strike": "want",
+  "why": "Would like sounds kind.",
+  "memory": "I would like...",
+  "quiz": {
+   "stem": "I ___ a glass of water.",
+   "options": [
+    "want",
+    "would like"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "want는 너무 직설적이에요!",
+   "tip": "한국어 “커피 마시고 싶어요”의 ‘-고 싶어요’는 공손하지만, 주문할 때 I want를 쓰면 영어에선 직설적으로 들려요. I would like를 써요. 이렇게 말해요 👉 “I would like a coffee.”",
+   "caption": "“I want a coffee.”처럼 말하고 있나요? 😅 한국어 “커피 마시고 싶어요”의 ‘-고 싶어요’는 공손하지만, 주문할 때 I want를 쓰면 영어에선 직설적으로 들려요. I would like를 써요. 맞는 문장 ✅ “I would like a coffee.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답: “would like”! 이 표현을 넣어 소리 내어 한 문장 말해 보세요. 무료 퀴즈로 더 연습해요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“I want” can sound rude!",
+   "tip": "Would like is kinder than want when you ask. Say “I would like a coffee.”",
+   "caption": "Do you say it like this? 😅 “I want a coffee.” Would like is kinder than want when you ask. Right: “I would like a coffee.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "want는 너무 직설적이에요!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "want는 너무 직설적이에요!",
+  "keyword": "I would like a coffee.",
+  "value": "한국어 “커피 마시고 싶어요”의 ‘-고 싶어요’는 공손하지만, 주문할 때 I want를 쓰면 영어에선 직설적으로 들려요. I would like를 써요. 이렇게 말해요 👉 “I would like a coffee.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "want는 너무 직설적이에요!",
+    "description": "한국어 “커피 마시고 싶어요”의 ‘-고 싶어요’는 공손하지만, 주문할 때 I want를 쓰면 영어에선 직설적으로 들려요. I would like를 써요. 이렇게 말해요 👉 “I would like a coffee.”\n\n“I want a coffee.”처럼 말하고 있나요? 😅 한국어 “커피 마시고 싶어요”의 ‘-고 싶어요’는 공손하지만, 주문할 때 I want를 쓰면 영어에선 직설적으로 들려요. I would like를 써요. 맞는 문장 ✅ “I would like a coffee.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "I would like a coffee.",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“I want a coffee.”처럼 말하고 있나요? 😅 한국어 “커피 마시고 싶어요”의 ‘-고 싶어요’는 공손하지만, 주문할 때 I want를 쓰면 영어에선 직설적으로 들려요. I would like를 써요. 맞는 문장 ✅ “I would like a coffee.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "want는 너무 직설적이에요!\n\n한국어 “커피 마시고 싶어요”의 ‘-고 싶어요’는 공손하지만, 주문할 때 I want를 쓰면 영어에선 직설적으로 들려요. I would like를 써요. 이렇게 말해요 👉 “I would like a coffee.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "want는 너무 직설적이에요! 한국어 “커피 마시고 싶어요”의 ‘-고 싶어요’는 공손하지만, 주문할 때 I want를 쓰면 영어에선 직설적으로 들려요. I would like를 써요. 이렇게 말해요 👉 “I would like a co… #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “would like”! 이 표현을 넣어 소리 내어 한 문장 말해 보세요. 무료 퀴즈로 더 연습해요: {link}",
+  "lang": "ko"
+ }
+}

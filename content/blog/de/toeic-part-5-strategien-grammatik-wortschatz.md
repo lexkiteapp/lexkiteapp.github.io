@@ -57,7 +57,7 @@ quiz: [
 qualityScore: 90
 ---
 
-Für Berufstätige und Studierende mit internationalen Karrierezielen verlangt der TOEIC Reading-Test Tempo und Genauigkeit. Mit 30 Lückensätzen eröffnet TOEIC Part 5 den Leseteil und gibt den Rhythmus für den Rest vor. Sie lernen hier, jede Aufgabe in rund 20 Sekunden einzuordnen. Der gesamte Leseteil hat 100 Fragen in 75 Minuten (Part 5: 30, Part 6: 16, Part 7: 54), und es gibt keine Zeitvorgabe pro Part. Die Zeit, die Sie in Part 5 sparen, steht Ihnen für die langen Texte in Part 7 zur Verfügung.
+Für Berufstätige und Studierende mit internationalen Karrierezielen verlangt der TOEIC Reading-Test Tempo und Genauigkeit. Mit 30 Lückensätzen eröffnet TOEIC Part 5 den Leseteil und gibt den Rhythmus für den Rest vor. Sie lernen hier, jede Aufgabe in rund 20 Sekunden einzuordnen. Der gesamte Leseteil hat 100 Fragen in 75 Minuten (Part 5: 30, Part 6: 16, Part 7: 54), und es gibt keine Zeitvorgabe pro Part. Die Zeit, die Sie in Part 5 sparen, steht Ihnen für die langen Texte in Part 7 zur Verfügung. Auch das Listening beginnt mit einer Grammatikfalle, dem Passiv in den Fotoaufgaben; siehe [TOEIC Part 1 Fotos](/de/blog/toeic-part-1-fotos-beschreiben/).
 
 Mit der Analysemethode in diesem Artikel lösen Sie die meisten Aufgaben in etwa 20 Sekunden. Das ist ein Richtwert, keine offizielle Vorgabe.
 
@@ -66,6 +66,8 @@ Mit der Analysemethode in diesem Artikel lösen Sie die meisten Aufgaben in etwa
 ## Aufbau von TOEIC Part 5: Die zwei Hauptkategorien der 30 Aufgaben
 
 Part 5 besteht aus 30 unvollständigen Sätzen, für die jeweils vier Antwortoptionen (A, B, C, D) zur Auswahl stehen. Die wichtigste Regel für das Tempo lautet: Betrachten Sie zuerst die Antwortoptionen, noch bevor Sie den gesamten Satz lesen.
+
+Wo Teil 5 im Gesamttest steht und wie sich die Zeit auf alle sieben Teile verteilt, zeigt der Beitrag [TOEIC Aufbau](/de/blog/toeic-aufbau-alle-7-teile-zeit-punkte/).
 
 Die Fragen lassen sich in zwei grundlegende Aufgabentypen unterteilen:
 

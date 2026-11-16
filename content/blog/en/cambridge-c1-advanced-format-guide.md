@@ -9,7 +9,7 @@ tags: [cambridge, c1-advanced, cae, exam-format]
 keyword: "cambridge c1 advanced format"
 cover: practice
 coverAlt: "Lexkite practice page with games and exercises including a test and a writing room"
-publishAt:
+publishAt: 2027-01-23T19:08:00+05:30
 factChecked: 2026-11-15
 author: Lexkite
 status: ready

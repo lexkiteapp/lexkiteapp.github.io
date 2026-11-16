@@ -62,7 +62,7 @@ quiz: [
 ]
 ---
 
-Der Abschnitt **TOEIC Listening Part 2** (Frage und Antwort) umfasst 25 aufeinanderfolgende Aufgaben (Fragen 7 bis 31) und stellt eine der größten Konzentrationsprüfungen des gesamten Sprachtests dar. Im Unterschied zu anderen Prüfungsteilen ist im Testheft oder auf dem Bildschirm absolut nichts abgedruckt: Sowohl die Ausgangsfrage als auch die drei Antwortoptionen (A, B und C) werden nur ein einziges Mal über Lautsprecher oder Kopfhörer vorgespielt.
+Der Abschnitt **TOEIC Listening Part 2** (Frage und Antwort) umfasst 25 aufeinanderfolgende Aufgaben (Fragen 7 bis 31) und stellt eine der größten Konzentrationsprüfungen des gesamten Sprachtests dar. Im Unterschied zu anderen Prüfungsteilen ist im Testheft oder auf dem Bildschirm absolut nichts abgedruckt: Sowohl die Ausgangsfrage als auch die drei Antwortoptionen (A, B und C) werden nur ein einziges Mal über Lautsprecher oder Kopfhörer vorgespielt. Wer zuerst die Fotoaufgaben am Testanfang trainieren möchte, findet Tipps unter [TOEIC Part 1 Fotos](/de/blog/toeic-part-1-fotos-beschreiben/).
 
 Viele Prüfungsteilnehmer verlieren hier wertvolle Punkte nicht durch mangelnde Englischkenntnisse, sondern weil sie auf Klangfallen hereinfallen oder durch indirekte Antworten verunsichert werden. Die TOEIC Listening Part 2 Strategien in diesem Leitfaden zeigen, wie Sie Fragemuster erkennen und Täuschungen abwehren.
 
@@ -152,6 +152,8 @@ Für die weiteren Prüfungsteile lesen Sie die [TOEIC Part 5 Grammatik- und Wort
 Für Laute, die Ihnen im Test entgleiten, hilft die [IPA-Aussprachebibliothek](/#/pron) mit Beispielwörtern zu jedem Vokal und Konsonanten.
 
 ![Lexkite Aussprachebibliothek mit IPA-Lauten: Monophthonge, Diphthonge und Konsonanten, Beispielwörter und Übung pro Laut](media:pron "Einzelne Laute gezielt üben, etwa die, die in Klangfallen vertauscht werden")
+
+Wenn du Part 2 beherrschst, geht es weiter mit [TOEIC Part 3 und 4](/de/blog/toeic-listening-part-3-und-4-strategien/).
 
 ## Häufig gestellte Fragen zu TOEIC Listening Part 2
 

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_am_study",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Am studying, not am study!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am study English now.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am studying English now.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use studying after am.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Reading! She is reading a book.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am study English now.",
+  "right": "I am studying English now.",
+  "strike": "study",
+  "why": "Use studying after am.",
+  "memory": "Am studying.",
+  "quiz": {
+   "stem": "She is ___ a book.",
+   "options": [
+    "read",
+    "reading"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "am ต้องตามด้วย -ing!",
+   "tip": "ภาษาไทยใช้ “กำลัง” นำหน้ากริยา แต่ภาษาอังกฤษต้องเติม -ing หลัง am/is/are: “I am studying English now.”",
+   "caption": "คุณเคยพูดว่า “I am study English now.” ไหม? 😅 ภาษาไทยใช้ “กำลัง” นำหน้ากริยา แต่ภาษาอังกฤษต้องเติม -ing หลัง am/is/are: “I am studying English now.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “reading” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยคด้วยคำนี้ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "After am, add -ing!",
+   "tip": "Thai puts one word before the verb for something happening now, but English adds -ing after am, is, are.",
+   "caption": "Do you say “I am study English now.” 😅 Thai puts one word before the verb for something happening now, but English adds -ing after am, is, are. Say “I am studying English now.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "am ต้องตามด้วย -ing!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "am ต้องตามด้วย -ing!",
+  "keyword": "I am studying English now.",
+  "value": "ภาษาไทยใช้ “กำลัง” นำหน้ากริยา แต่ภาษาอังกฤษต้องเติม -ing หลัง am/is/are: “I am studying English now.”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "am ต้องตามด้วย -ing!",
+    "description": "ภาษาไทยใช้ “กำลัง” นำหน้ากริยา แต่ภาษาอังกฤษต้องเติม -ing หลัง am/is/are: “I am studying English now.”\n\nคุณเคยพูดว่า “I am study English now.” ไหม? 😅 ภาษาไทยใช้ “กำลัง” นำหน้ากริยา แต่ภาษาอังกฤษต้องเติม -ing หลัง am/is/are: “I am studying English now.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "I am studying English now.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “I am study English now.” ไหม? 😅 ภาษาไทยใช้ “กำลัง” นำหน้ากริยา แต่ภาษาอังกฤษต้องเติม -ing หลัง am/is/are: “I am studying English now.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "am ต้องตามด้วย -ing!\n\nภาษาไทยใช้ “กำลัง” นำหน้ากริยา แต่ภาษาอังกฤษต้องเติม -ing หลัง am/is/are: “I am studying English now.”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "am ต้องตามด้วย -ing! ภาษาไทยใช้ “กำลัง” นำหน้ากริยา แต่ภาษาอังกฤษต้องเติม -ing หลัง am/is/are: “I am studying… #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “reading” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยคด้วยคำนี้ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

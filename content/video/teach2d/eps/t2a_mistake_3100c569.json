@@ -1,0 +1,129 @@
+{
+ "id": "t2a_mistake_3100c569",
+ "template": "mistake",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Stop saying every of us!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Every of us came.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Each of us came.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Each can go before of. Every can't.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Each! Each of my friends came to the party.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Every of us came.",
+  "right": "Each of us came.",
+  "strike": "Every of",
+  "why": "Each can go before of. Every can't.",
+  "memory": "EACH of ✓, EVERY of ✗",
+  "quiz": {
+   "stem": "___ of my friends came to the party.",
+   "options": [
+    "Every",
+    "Each"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Stop saying “every of us”"
+ },
+ "src": {
+  "gold": "sb_3100c569",
+  "pid": "u:c:each-every"
+ },
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Say \"Each of us came\", not \"Every of us came\"",
+  "keyword": "Every of",
+  "value": "Say \"Each of us came\", not \"Every of us came\". Each can go before of. Every can't.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#englishgrammar",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "Say \"Each of us came\", not \"Every of us came\"",
+    "description": "Say \"Each of us came\", not \"Every of us came\". Each can go before of. Every can't.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix\n\nSeries: Stop Saying This · Teacher: Ama\n\n#learnenglish #englishtips #englishgrammar #englishteacher",
+    "tags": [
+     "Every of",
+     "Stop Saying This",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Say \"Each of us came\", not \"Every of us came\"\n\nSay \"Each of us came\", not \"Every of us came\". Each can go before of. Every can't.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Say \"Each of us came\", not \"Every of us came\"\n\nSay \"Each of us came\", not \"Every of us came\". Each can go before of. Every can't.\n\nCheck your grammar: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#englishgrammar",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Say \"Each of us came\", not \"Every of us came\" #learnenglish #englishtips #englishgrammar"
+   }
+  },
+  "first_comment": "Quiz answer: Each! Each of my friends came to the party. Say \"Each of us came\", not \"Every of us came\". Each can go before of. Every can't. Practice it with a free quiz: {link}"
+ }
+}

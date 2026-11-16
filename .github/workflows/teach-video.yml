@@ -38,7 +38,7 @@ jobs:
     needs: gate
     if: needs.gate.outputs.go == 'true'
     runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
-    timeout-minutes: 8   # 15/11: đo 10 lượt – bước 'Specs regenerate' 87–300 s tuỳ runner; 5 phút bị cắt (conclusion = cancelled → gate đỏ oan). Nay các kiểm độc lập chạy song song + trần 8 phút
+    timeout-minutes: 20   # 16/11: 8 phút cắt oan 'Specs regenerate' khi corpus 1753 tập (#1409, cancelled 3 lượt liền) – 20 phút theo số tập; 15/11 (8 phút): đo 10 lượt – bước 'Specs regenerate' 87–300 s tuỳ runner; 5 phút bị cắt (conclusion = cancelled → gate đỏ oan). Nay các kiểm độc lập chạy song song + trần 8 phút
     outputs: { list: '${{ steps.m.outputs.list }}', par: '${{ steps.p.outputs.par }}' }
     steps:
       - uses: actions/checkout@v4

@@ -186,6 +186,8 @@ If articles also trouble you (*at the airport* but *at home*), read [a, an, the 
 
 {{youtube: | Video idea: three pictures for in, on and at (container, surface, point) with twelve quick examples}}
 
+Prepositions of place in action: [asking for directions in English](/en/blog/asking-for-directions-and-using-public-transport-in-english/).
+
 ## Frequently asked questions
 
 ### Is it "in the weekend", "on the weekend" or "at the weekend"?

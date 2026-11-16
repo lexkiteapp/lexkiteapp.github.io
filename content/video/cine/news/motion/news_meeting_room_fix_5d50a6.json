@@ -1,0 +1,230 @@
+{
+ "id": "mo_news_meeting_room_fix_5d50a6",
+ "template": "mistake",
+ "title": "News Motion – discuss + object, no about (news_meeting_room_fix_5d50a6)",
+ "teacher": "ama",
+ "clips": [
+  "ga11_talk",
+  "ga11_explain",
+  "ga11_happy",
+  "ga11_thinking",
+  "ga11_surprise_3"
+ ],
+ "listen": [
+  "ga11_listen_2"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy2",
+ "active": "mint",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "grammar-check",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Work English",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "Stop saying this at work."
+  },
+  {
+   "id": "b0",
+   "text": "People often say: let's discuss about the plan.",
+   "gap": 0.7
+  },
+  {
+   "id": "b1",
+   "text": "Say: let's discuss the plan.",
+   "gap": 0.7
+  },
+  {
+   "id": "b2",
+   "text": "We need to discuss the budget.",
+   "gap": 0.7
+  },
+  {
+   "id": "b3",
+   "text": "But you can talk about the budget.",
+   "gap": 0.7
+  },
+  {
+   "id": "b4",
+   "text": "Discuss something, talk about something.",
+   "gap": 0.7
+  },
+  {
+   "id": "b5",
+   "text": "Repeat after me: Let's discuss the plan.",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "Let's discuss about it.",
+      "white"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Common mistake",
+      "tone": "coral"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "Let's discuss "
+       ],
+       [
+        "about it.",
+        "ink"
+       ]
+      ]
+     }
+    ],
+    "strike": [
+     {
+      "line": 0,
+      "run": 1,
+      "at": [
+       "b0",
+       5
+      ]
+     }
+    ]
+   },
+   {
+    "id": "no",
+    "at": [
+     "b3",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Also say",
+      "tone": "teal"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "talk about the budget",
+        "teal"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "better",
+    "at": [
+     "b1",
+     0
+    ],
+    "tone": "green",
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Better",
+      "tone": "green"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "Let's discuss the plan.",
+        "green"
+       ]
+      ]
+     },
+     {
+      "t": "sub",
+      "runs": [
+       [
+        "discuss needs no about"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "hook_text": "Let's discuss about it.",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ }
+}

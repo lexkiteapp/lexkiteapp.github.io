@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_coffee",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Part-time job, not arbeit!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have an arbeit after school.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have a part-time job after school.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Arbeit is not an English word.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Part-time job! I have a part-time job after school.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have an arbeit after school.",
+  "right": "I have a part-time job after school.",
+  "strike": "arbeit",
+  "why": "Arbeit is not an English word.",
+  "memory": "Part-time job.",
+  "quiz": {
+   "stem": "I have a ___ after school.",
+   "options": [
+    "part-time job",
+    "arbeit"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“arbeit” 말고 part-time job!",
+   "tip": "‘아르바이트’를 그대로 arbeit이라고 말하기 쉬워요. 영어로는 part-time job! 이렇게 말해요 👉 “I have a part-time job after school.”",
+   "caption": "“I have an arbeit after school.”처럼 말하고 있나요? 😅 ‘아르바이트’를 그대로 arbeit이라고 하기 쉬워요. 영어에서는 part-time job이라고 해요. 맞는 문장 ✅ “I have a part-time job after school.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답 ✅ “I have a part-time job after school.” 소리 내어 한 번 말해 보고, 나만의 문장도 하나 써 보세요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say part-time job, not “arbeit”!",
+   "tip": "Arbeit is not an English word. Say “I have a part-time job after school.”",
+   "caption": "Do you say it like this? 😅 “I have an arbeit after school.” Arbeit is not an English word. Right: “I have a part-time job after school.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“arbeit” 말고 part-time job!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "“arbeit” 말고 part-time job!",
+  "keyword": "I have a part-time job after school.",
+  "value": "‘아르바이트’를 그대로 arbeit이라고 말하기 쉬워요. 영어로는 part-time job! 이렇게 말해요 👉 “I have a part-time job after school.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 46,
+  "platforms": {
+   "youtube": {
+    "title": "“arbeit” 말고 part-time job!",
+    "description": "‘아르바이트’를 그대로 arbeit이라고 말하기 쉬워요. 영어로는 part-time job! 이렇게 말해요 👉 “I have a part-time job after school.”\n\n“I have an arbeit after school.”처럼 말하고 있나요? 😅 ‘아르바이트’를 그대로 arbeit이라고 하기 쉬워요. 영어에서는 part-time job이라고 해요. 맞는 문장 ✅ “I have a part-time job after school.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "I have a part-time job after school.",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“I have an arbeit after school.”처럼 말하고 있나요? 😅 ‘아르바이트’를 그대로 arbeit이라고 하기 쉬워요. 영어에서는 part-time job이라고 해요. 맞는 문장 ✅ “I have a part-time job after school.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“arbeit” 말고 part-time job!\n\n‘아르바이트’를 그대로 arbeit이라고 말하기 쉬워요. 영어로는 part-time job! 이렇게 말해요 👉 “I have a part-time job after school.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“arbeit” 말고 part-time job! ‘아르바이트’를 그대로 arbeit이라고 말하기 쉬워요. 영어로는 part-time job! 이렇게 말해요 👉 “I have a part-time job after school.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답 ✅ “I have a part-time job after school.” 소리 내어 한 번 말해 보고, 나만의 문장도 하나 써 보세요: {link}",
+  "lang": "ko"
+ }
+}

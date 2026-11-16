@@ -1,0 +1,149 @@
+{
+ "id": "t2_l1_vi_decimal",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Which mark is right?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: The bag is 2,5 kilos.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: The bag is 2.5 kilos.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use a period.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The first one! Two point five.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "The bag is 2,5 kilos.",
+  "right": "The bag is 2.5 kilos.",
+  "strike": "2,5",
+  "why": "Use a period.",
+  "memory": "Numbers use a period.",
+  "quiz": {
+   "stem": "Which one is right for two and a half?",
+   "options": [
+    "2.5",
+    "2,5"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Dấu phẩy hay dấu chấm?",
+   "tip": "Tiếng Việt viết số thập phân bằng dấu phẩy (2,5), còn tiếng Anh dùng dấu chấm (2.5).",
+   "caption": "Bạn có hay viết “The bag is 2,5 kilos.” không? ⚖️ Số thập phân trong tiếng Anh dùng dấu chấm: “The bag is 2.5 kilos.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: 2.5. Hãy viết một câu về cân nặng hoặc giá tiền, có số thập phân viết đúng nhé. Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#loisaithuonggap",
+    "#nguphaptienganh",
+    "#tienganhcoban",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Comma or period in numbers?",
+   "tip": "Vietnamese writes a comma in 2,5, but English writes a period in 2.5.",
+   "caption": "Do you often write this? “The bag is 2,5 kilos.” In English, decimals use a period: “The bag is 2.5 kilos.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Dấu phẩy hay dấu chấm?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Dấu phẩy hay dấu chấm?",
+  "keyword": "The bag is 2.5 kilos.",
+  "value": "Tiếng Việt viết số thập phân bằng dấu phẩy (2,5), còn tiếng Anh dùng dấu chấm (2.5).",
+  "hashtags": [
+   "#hoctienganh",
+   "#loisaithuonggap",
+   "#nguphaptienganh",
+   "#tienganhcoban",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "Dấu phẩy hay dấu chấm?",
+    "description": "Tiếng Việt viết số thập phân bằng dấu phẩy (2,5), còn tiếng Anh dùng dấu chấm (2.5).\n\nBạn có hay viết “The bag is 2,5 kilos.” không? ⚖️ Số thập phân trong tiếng Anh dùng dấu chấm: “The bag is 2.5 kilos.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #loisaithuonggap #nguphaptienganh #tienganhcoban #lexkite",
+    "tags": [
+     "The bag is 2.5 kilos.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay viết “The bag is 2,5 kilos.” không? ⚖️ Số thập phân trong tiếng Anh dùng dấu chấm: “The bag is 2.5 kilos.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Dấu phẩy hay dấu chấm?\n\nTiếng Việt viết số thập phân bằng dấu phẩy (2,5), còn tiếng Anh dùng dấu chấm (2.5).\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#loisaithuonggap",
+     "#nguphaptienganh",
+     "#tienganhcoban",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Dấu phẩy hay dấu chấm? Tiếng Việt viết số thập phân bằng dấu phẩy (2,5), còn tiếng Anh dùng dấu chấm (… #hoctienganh #loisaithuonggap #nguphaptienganh"
+   }
+  },
+  "first_comment": "Đáp án: 2.5. Hãy viết một câu về cân nặng hoặc giá tiền, có số thập phân viết đúng nhé. Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

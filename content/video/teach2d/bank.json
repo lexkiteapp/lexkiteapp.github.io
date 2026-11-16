@@ -1955,16 +1955,19 @@
    "tries": 0
   },
   "t2_l1_ja_ate": {
-   "run": "43250170409",
-   "at": "2026-11-13T16:35Z",
-   "score": {},
-   "sha": {},
-   "why": [
-    "short: no render",
-    "wide: no render"
-   ],
-   "state": "failed",
-   "tries": 1
+   "run": "43875118890",
+   "at": "2026-11-16T13:53Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "da71aef8526a5cf5",
+    "wide": "10cbea286400df22"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 2
   },
   "t2_l1_ja_bored": {
    "run": "43129502972",
@@ -2305,21 +2308,19 @@
    "tries": 0
   },
   "t2_l1_ko_adoctor": {
-   "run": "43250170409",
-   "at": "2026-11-13T16:35Z",
+   "run": "43875118890",
+   "at": "2026-11-16T13:53Z",
    "score": {
-    "short": 94.9,
+    "short": 100.0,
     "wide": 100.0
    },
    "sha": {
-    "short": "a84698a65ff86ea3",
-    "wide": "5253fbd2dd98dd2a"
+    "short": "276d5e2463210188",
+    "wide": "0568db97918414d6"
    },
-   "why": [
-    "short: score 94.9 gates file"
-   ],
-   "state": "failed",
-   "tries": 1
+   "why": [],
+   "state": "banked",
+   "tries": 2
   },
   "t2_l1_ko_agree": {
    "run": "43250170409",
@@ -4206,16 +4207,19 @@
    "tries": 1
   },
   "t2_l1_zh_advice": {
-   "run": "43250175181",
-   "at": "2026-11-13T16:01Z",
-   "score": {},
-   "sha": {},
-   "why": [
-    "short: no render",
-    "wide: no render"
-   ],
-   "state": "failed",
-   "tries": 1
+   "run": "43875118890",
+   "at": "2026-11-16T13:53Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "895da78a786cc7ed",
+    "wide": "b4bb0581e438e858"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 2
   },
   "t2_l1_zh_agree": {
    "run": "43250175181",

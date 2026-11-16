@@ -32,7 +32,7 @@ def card(t, i, c, n):
     """bank card [text, sub|LABEL] -> card_one args (kind, text, sub, label) + width check at 52 px (news.py card_one geometry)."""
     text, x = c; sub = None
     if t == 'three': kind, label, sub = 'p', f'#{n}', x
-    elif x in LABELS: kind, label = 'p', {'?': 'COMMENT'}.get(x, x)
+    elif x in LABELS: kind, label = 'p', {'?': 'GUESS'}.get(x, x)
     elif x is None: kind, label = 'x', None
     else: kind, label, sub = 'v', None, x
     tx = 46 + dr.textlength(label, font=FL) + 32 if kind == 'p' else 112
@@ -93,7 +93,7 @@ def teacherize(spec, lines, h6):
     phrase; the self-intro 'I'm Ama, your American English teacher.' in ~1 of 4 clips (hash-rotated)."""
     spec['recap']['title'] = "TEACHER'S TIP"; bs = spec['beats']
     if not any(b.get('repeat') for b in bs):
-        cs = [b['card'] for b in bs if b.get('card') and b['card']['kind'] == 'v'] + [b['card'] for b in bs if b.get('card') and b['card']['kind'] == 'p' and b['card'].get('label') not in ('COMMENT', 'A', 'B')]
+        cs = [b['card'] for b in bs if b.get('card') and b['card']['kind'] == 'v'] + [b['card'] for b in bs if b.get('card') and b['card']['kind'] == 'p' and b['card'].get('label') not in ('GUESS', 'A', 'B')]
         ph = next((c['text'] for c in cs if '?' not in c['text'] and 2 <= NW(c['text']) <= 8 and not re.search(r'[/=]|\.\.\.|…|\b(but|for|to|a|the)\W*$', c['text'])), None)
         if ph:
             who = 'carlos' if bs[-1]['who'] == 'ama' else 'ama'; ph = ph[0].upper() + ph[1:].rstrip('.!') + '.'

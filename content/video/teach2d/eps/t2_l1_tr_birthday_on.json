@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_birthday_on",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "On May 5, not in May 5!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: My birthday is in May 5.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My birthday is on May 5.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use on for a day.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "On! My birthday is on May 3.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "My birthday is in May 5.",
+  "right": "My birthday is on May 5.",
+  "strike": "in",
+  "why": "Use on for a day.",
+  "memory": "My birthday is on May 5.",
+  "quiz": {
+   "stem": "My birthday is ___ May 3.",
+   "options": [
+    "in",
+    "on"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Belli gün için “on” kullan!",
+   "tip": "Türkçede “5 Mayıs’ta” deriz, tek ek yeter; İngilizcede belli gün için “on May 5”, yalnız ay için “in May” denir.",
+   "caption": "“My birthday is in May 5” mi diyorsun? 😅 İngilizcede belli bir günün önüne “on” gelir. Doğrusu “My birthday is on May 5.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “on”. Belli gün için “on” kullan. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Use “on” for one day!",
+   "tip": "For one day say “on May 5”; for a month say “in May”.",
+   "caption": "Do you say “My birthday is in May 5”? 😅 For a day with a number we say “on”; for a month alone we say “in”. The right sentence is “My birthday is on May 5.” Listen to Ama and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Belli gün için “on” kullan!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 51,
+  "seconds": 30.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Belli gün için “on” kullan!",
+  "keyword": "My birthday is on May 5.",
+  "value": "Türkçede “5 Mayıs’ta” deriz, tek ek yeter; İngilizcede belli gün için “on May 5”, yalnız ay için “in May” denir.",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 45,
+  "platforms": {
+   "youtube": {
+    "title": "Belli gün için “on” kullan!",
+    "description": "Türkçede “5 Mayıs’ta” deriz, tek ek yeter; İngilizcede belli gün için “on May 5”, yalnız ay için “in May” denir.\n\n“My birthday is in May 5” mi diyorsun? 😅 İngilizcede belli bir günün önüne “on” gelir. Doğrusu “My birthday is on May 5.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "My birthday is on May 5.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“My birthday is in May 5” mi diyorsun? 😅 İngilizcede belli bir günün önüne “on” gelir. Doğrusu “My birthday is on May 5.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Belli gün için “on” kullan!\n\nTürkçede “5 Mayıs’ta” deriz, tek ek yeter; İngilizcede belli gün için “on May 5”, yalnız ay için “in May” denir.\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Belli gün için “on” kullan! Türkçede “5 Mayıs’ta” deriz, tek ek yeter; İngilizcede belli gün için “on Ma… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “on”. Belli gün için “on” kullan. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+  "lang": "tr"
+ }
+}

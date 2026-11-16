@@ -26,13 +26,13 @@
    "pct": 100
   },
   "toeic-reading": {
-   "items": 21,
-   "tagged": 21,
+   "items": 30,
+   "tagged": 30,
    "pct": 100
   },
   "toeic-listening": {
-   "items": 28,
-   "tagged": 28,
+   "items": 40,
+   "tagged": 40,
    "pct": 100
   },
   "toeic-sw": {
@@ -41,8 +41,8 @@
    "pct": 100
   },
   "toefl": {
-   "items": 194,
-   "tagged": 194,
+   "items": 302,
+   "tagged": 302,
    "pct": 100
   },
   "writing-model": {
@@ -96,14 +96,14 @@
    "pct": 100
   },
   "vocab": {
-   "items": 10201,
-   "tagged": 10201,
+   "items": 10287,
+   "tagged": 10287,
    "pct": 100
   }
  },
  "total": {
-  "items": 11185,
-  "tagged": 11185,
+  "items": 11400,
+  "tagged": 11400,
   "pct": 100
  },
  "errors": 0
