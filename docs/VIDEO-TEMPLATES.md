@@ -2,6 +2,7 @@
 
 > TL;DR: Template video v1 (24/10) nhất quán theo thiết kế: lưới, thang chữ, màu từ kit.js, token chuyển động, luật, cấu trúc beat. Thay cách dựng cine/news bị chủ bác.
 > Đọc khi: sửa template video.
+> **Sổ duyệt mẫu (nguồn duy nhất, 15/11):** `content/video/cine/news/approved.json` → `templates` (approved / draft / retired, có bằng chứng clip + QC + ngày + người duyệt). Chỉ mẫu `approved` được vào hàng đợi đăng (`autopub_gate.py` lý do `template:<status>`, `scripts/video/approved_templates.py require`); test `scripts/test/template-approval.py`. Mẫu cũ không xoá: chuyển `retired` kèm ghi chú.
 
 Owner rejected the cine/news composite approach (two cartoon hosts on cropped AI plates, matting, pans, whip-pans,
 chaotic cuts, inconsistent proportions). These two templates replace it. Consistency is a property of the design,

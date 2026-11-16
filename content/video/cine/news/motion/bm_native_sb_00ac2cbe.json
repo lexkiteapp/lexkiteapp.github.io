@@ -1,0 +1,260 @@
+{
+ "id": "mo_bm_native_sb_00ac2cbe",
+ "template": "native",
+ "title": "Motion native – A common mix-up with \"travel\" (v): to go to a place that is far away (sb_00ac2cbe)",
+ "teacher": "carlos",
+ "clips": [
+  "gc11_talk",
+  "gc11_explain",
+  "gc11_happy",
+  "gc11_thinking",
+  "gc11_surprise_2"
+ ],
+ "listen": [
+  "gc11_listen"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy",
+ "active": "mint",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "misunderstanding",
+  "link": "https://lexkite.com/app/",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Travel",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "90% get this wrong",
+   "gap": 0.7
+  },
+  {
+   "id": "x",
+   "text": "Textbook: I travel to my office by bus.",
+   "gap": 0.7
+  },
+  {
+   "id": "b",
+   "text": "Natural: I go to work by bus.",
+   "gap": 0.7
+  },
+  {
+   "id": "w",
+   "text": "For short daily trips, go sounds more natural.",
+   "gap": 0.7
+  },
+  {
+   "id": "a",
+   "text": "Commute is the word for daily work trips!",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "90% get this",
+      "white"
+     ]
+    ],
+    [
+     [
+      "wrong",
+      "yellow"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Sound natural",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "90% get this"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "wrong"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "sum",
+    "at": [
+     "w",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Why",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "For short daily trips, go sounds more natural."
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "rules",
+    "at": [
+     "x",
+     0
+    ],
+    "rows": [
+     {
+      "t": "tile",
+      "tag": "TEXTBOOK",
+      "tone": "gold",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "I travel to my office by bus.",
+        "gold"
+       ]
+      ],
+      "ex_at": [
+       "x",
+       1
+      ],
+      "at": [
+       "x",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "NATURAL",
+      "tone": "teal",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "I go to work by bus.",
+        "teal"
+       ]
+      ],
+      "ex_at": [
+       "b",
+       1
+      ],
+      "at": [
+       "b",
+       0
+      ]
+     }
+    ]
+   }
+  ],
+  "hook_text": "90% get this wrong",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ },
+ "uses": {
+  "template": "native",
+  "row": "sb_00ac2cbe",
+  "teacher": "carlos",
+  "accent": "navy",
+  "active": "mint",
+  "tones": 1
+ }
+}

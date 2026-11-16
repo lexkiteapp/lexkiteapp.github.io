@@ -63,6 +63,8 @@ Cet article vous apprend à reconnaître le type de chaque question dès le prem
 
 ---
 
+Pour situer la partie 5 dans l'ensemble de l'examen, consultez [le format du TOEIC en sept parties](/fr/blog/format-toeic-7-parties-duree-score/).
+
 ## Anatomie du TOEIC Part 5 : les deux grandes familles de questions
 
 La Partie 5 compte 30 phrases incomplètes, chacune avec quatre choix (A, B, C, D). Avant de lire la phrase, regardez les quatre choix : ils vous disent déjà quel type de question vous avez devant vous.
