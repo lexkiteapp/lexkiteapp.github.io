@@ -157,3 +157,5 @@ Transforming cognitive grammar into effortless speech rhythm requires consistent
 - **Microphone-Driven Speech Practice**: Open the [Lexkite speaking laboratory](/#/practice/speak) to record challenging phrases, evaluate pronunciation accuracy, and fine-tune your spoken English before critical meetings.
 
 Launch the [Lexkite learning web app](/#/) today and experience how sentence stress in English elevates your professional communication to international standards!
+
+The melody of a sentence matters too: see [English intonation](/en/blog/english-intonation/) for rising and falling patterns.

@@ -2,8 +2,9 @@
 // BLOG_DRAFTS=1 xem trước mọi bài). Sinh: bài /blog/<slug>/, danh sách + phân trang, chuyên mục, thẻ, RSS, sitemap-blog.xml.
 // Ảnh: CDN repo lexkite-media (content/blog/config.json → mediaBase); BLOG_MEDIA_LOCAL=1 chép ảnh .media/out vào dist để xem thử.
 import fs from 'node:fs'; import path from 'node:path';
+import { fitTitle } from './lib/title-fit.mjs';
 import { loadPosts, parse, FAQ_RE, isLive, publishTime, wordCount, config, CATEGORIES, ROOT, loadMedia } from './lib/blog-content.mjs';
-import { specOf, mediaId, diagramHtml } from './lib/blog-images.mjs';
+import { specOf, mediaId, diagramHtml, pickThumb } from './lib/blog-images.mjs';
 import { joinPath } from './lib/url-guard.mjs';
 import { embedWatermark } from '../content/protection/watermark.mjs';
 import { CSS, TAP_CSS, esc, ld, themePage, siteHeader, siteFooter, crumbsHtml, crumbsLd as crumbsLdAt, appHref, landingHref, EXT_STORE, EXT_JS } from './lib/site-layout.mjs';
@@ -148,14 +149,12 @@ const stem = (id, m) => m.key || `${id}-${m.hash}`;
 // Ảnh bìa: bản riêng của bài (CI đã render) nếu có, không thì ảnh chung `cover:` (alt = coverAlt). Alt bìa riêng = alt tự sinh (đúng ảnh).
 const coverOf = p => { const id = mediaId(p, 'cover'), m = MEDIA[id]; return m ? { id, alt: m.alt } : { id: p.cover, alt: p.coverAlt || p.title }; };
 // Ảnh thẻ ở trang danh sách: ảnh thật trong bài (ưu tiên ảnh riêng @, rồi ảnh ít bài dùng chung nhất) – không lặp mẫu bìa chữ
-// (tiêu đề đã in ngay dưới thẻ). Chỉ nhận ảnh ngang gần 16:10 (ảnh dọc bị cắt còn mẩu đầu). Không có → ảnh bìa, hiện trọn (fit). og:image vẫn dùng ảnh bìa.
+// (tiêu đề đã in ngay dưới thẻ). Ưu tiên ảnh ngang 16:10; ảnh dọc/vuông vẫn dùng được (CSS .card .pic cắt khung 16:10 từ đầu ảnh) – chỉ khi bài không có ảnh nào mới rơi về bìa. Không có → ảnh bìa, hiện trọn (fit). og:image vẫn dùng ảnh bìa.
 const IMG_RE = /^!\[([^\]]*)\]\(media:(@?[\w-]+)/gm;
 const imgUse = {}; for (const p of posts) for (const id of new Set([...(p.body || '').matchAll(IMG_RE)].map(m => m[2]))) if (!id.startsWith('@')) imgUse[id] = (imgUse[id] || 0) + 1;
 const thumbOf = (p, used) => { // used: ảnh đã dùng trong cùng lưới → tránh hai thẻ trùng ảnh
-  const imgs = [...(p.body || '').matchAll(IMG_RE)].map(m => ({ alt: m[1], id: m[2], real: m[2].startsWith('@') ? mediaId(p, m[2].slice(1)) : m[2] })).filter(x => { const m = MEDIA[x.real]; return m && m.w / m.h >= 1.3 && m.w / m.h <= 2; });
-  const own = imgs.find(x => x.id.startsWith('@'));
-  const seen = x => (used?.has(x.real) ? 1 : 0);
-  const pick = (own && !seen(own) ? own : null) || imgs.sort((a, b) => seen(a) - seen(b) || (imgUse[a.id] || 0) - (imgUse[b.id] || 0))[0];
+  const imgs = [...(p.body || '').matchAll(IMG_RE)].map(m => ({ alt: m[1], id: m[2], real: m[2].startsWith('@') ? mediaId(p, m[2].slice(1)) : m[2] }));
+  const pick = pickThumb(imgs, MEDIA, { used, imgUse });
   if (pick) used?.add(pick.real);
   return pick ? { id: pick.real, alt: pick.alt || MEDIA[pick.real].alt || p.title } : { ...coverOf(p), fit: true };
 };
@@ -279,7 +278,7 @@ function layout({ lang, title, desc, url, alt = [], to = () => null, img, imgAlt
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>${esc(title)}</title>
+<title>${esc(fitTitle(title))}</title>
 <meta name="description" content="${esc(desc)}">
 <meta name="robots" content="${robots}">
 <meta name="author" content="Lexkite Editorial Team">

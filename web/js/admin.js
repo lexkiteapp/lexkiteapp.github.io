@@ -33,7 +33,7 @@
     'Thông báo đầu trang, giới hạn AI, giám sát và lấy mẫu thống kê.': 'Site banner, AI limits, monitoring and analytics sampling.',
     'Trang quản trị Lexkite': 'Lexkite Admin', 'Chỉ tài khoản quản trị được cấp quyền.': 'Authorized admin accounts only.', 'Đăng nhập bằng Google': 'Sign in with Google',
     'Về app': 'Back to app', 'Về trang chủ Lexkite': 'Back to the Lexkite home page', 'Tự động (theo máy)': 'Auto (system)', 'Sáng': 'Light', 'Tối': 'Dark', 'Giao diện: {m} – bấm để đổi': 'Theme: {m} – click to change', 'Đổi giao diện sáng/tối': 'Switch light/dark theme',
-    'Đổi ngôn ngữ': 'Change language', 'Ngôn ngữ: Tiếng Việt – bấm để chuyển sang English': 'Language: English – click to switch to Vietnamese', 'Thoát': 'Sign out',
+    'Đổi ngôn ngữ': 'Change language', 'Ngôn ngữ: Tiếng Việt – bấm để chuyển sang English': 'Language: English – click to switch to Vietnamese', 'Thoát': 'Sign out', 'Thêm': 'More', 'Lọc': 'Filter', 'Lọc · {n} đang bật': ['Filter · {n} active', 'Filter · {n} active'], 'Bộ lọc': 'Filters', 'Xong': 'Done', 'dd/mm/yyyy': 'mm/dd/yyyy',
     'Không có quyền': 'Access denied', 'Không tải được dữ liệu': 'Could not load data', 'Thử lại': 'Retry', 'Tài khoản này không có quyền quản trị': 'This account does not have admin access', 'Đăng nhập bằng tài khoản khác': 'Sign in with a different account', '{e} chưa được cấp quyền quản trị.': '{e} does not have admin access.', 'Đổi tài khoản': 'Switch account',
     'Phiên đăng nhập quản trị đã hết. Đăng nhập lại ngay?': 'Your admin session has expired. Sign in again now?', 'Phiên đăng nhập đã hết – đăng nhập lại rồi thử lại': 'Session expired – sign in again and retry',
     'Cần đăng nhập lại để xác nhận thao tác quan trọng. Đăng nhập lại ngay?': 'Please sign in again to confirm this sensitive action. Sign in now?',
@@ -67,7 +67,7 @@
     // Biểu đồ
     '{h}h: {n} phiên': '{h}:00 – {n} sessions', '{d}: {f} mới · {b} quay lại': '{d}: {f} new · {b} returning', 'Khách mới': 'New visitors', 'Quay lại': 'Returning',
     'PWA (web đã cài)': 'PWA (installed web)', 'Add-on Chrome': 'Chrome add-on', 'App (cũ)': 'App (legacy)',
-    'Lượt xem và khách 14 ngày qua': 'Views and visitors, last 14 days', '{d}: {v} lượt xem · {u} khách': '{d}: {v} views · {u} visitors', 'Lượt xem': 'Views', 'Khách': 'Visitors', 'Phiên theo ngày: {r}': 'Sessions per day: {r}',
+    'Lượt xem và khách 14 ngày qua': 'Views and visitors, last 14 days', '{d}: {v} lượt xem · {u} khách': '{d}: {v} views · {u} visitors', 'Lượt xem': 'Views', 'Khách': 'Visitors', 'Lượt xem (trục trái)': 'Views (left axis)', 'Khách (trục phải)': 'Visitors (right axis)', 'Hôm nay (đến giờ)': 'Today (so far)', 'Phiên theo ngày: {r}': 'Sessions per day: {r}',
     // Tổng quan
     'Cập nhật {t}': 'Updated {t}', 'Làm mới': 'Refresh', 'Tải lại số liệu': 'Reload data', 'Người thật': 'Real people', 'Học viên': 'Learners', 'Vận hành': 'Operations',
     'Người thật hôm nay': 'Humans today', 'Người thật 7 ngày': 'Humans · 7 days', 'Người thật 30 ngày': 'Humans · 30 days', 'thiết bị khác nhau': 'unique devices', 'hôm qua': 'yesterday', '7 ngày trước đó': 'previous 7 days', '30 ngày trước đó': 'previous 30 days',
@@ -88,8 +88,13 @@
     'Khách hôm nay': 'Visitors today', 'Trang/khách': 'Pages/visitor', 'Thời gian TB': 'Avg. time', 'mỗi phiên hôm nay': 'per session today', 'Tổng lượt xem': 'Total views', '{n} khách từ trước đến nay': '{n} visitors all-time', '14 ngày qua': 'Last 14 days',
     '🌍 Quốc gia hôm nay': '🌍 Countries today', '👀 Đang xem': '👀 Viewing now', 'Không ai online trong 5 phút qua': 'Nobody online in the last 5 minutes', '📄 Trang xem nhiều hôm nay': '📄 Top pages today',
     'Theo trang vào đầu tiên (chưa có số lượt xem từng trang).': 'Based on landing pages (per-page views not available yet).', '🔗 Nguồn giới thiệu hôm nay': '🔗 Referrers today', 'Chủ yếu truy cập trực tiếp': 'Mostly direct traffic',
-    '🔥 Trang xem nhiều · 7 ngày': '🔥 Top pages · 7 days', '📱 Nền tảng': '📱 Platforms', 'Nền tảng': 'Platform', 'Nền tảng@@h': 'Platforms', 'Số khách (thiết bị) khác nhau.': 'Unique visitors (devices).',
-    '{c} quốc gia · {n} khách': '{c} countries · {n} visitors', ' · {n} không rõ': ' · {n} unknown', 'Ít': 'Few', '0 khách': '0 visitors', 'Nhiều khách': 'Many visitors', '{c} – {n} khách hôm nay': '{c} – {n} visitors today', 'Không tải được bản đồ – danh sách quốc gia:': 'Map failed to load – country list:',
+    '🔥 Trang xem nhiều · 7 ngày': '🔥 Top pages · 7 days', '📱 Nền tảng': '📱 Platforms', 'Nền tảng': 'Platform', 'Nền tảng@@h': 'Platforms', 'Web (trình duyệt)': 'Web (browser)', 'App iOS': 'iOS app', 'App Android': 'Android app', 'Tỉ lệ': 'Share', 'Tổng thiết bị': 'All devices', 'Bản dev/preview': 'Dev/preview builds', 'Tổng': 'Total',
+    'Thiết bị theo nền tảng: hôm nay, 30 ngày và % trong tổng thiết bị 30 ngày': 'Devices by platform: today, 30 days and % of all devices in 30 days',
+    'PWA = web đã cài lên máy · Add-on = tiện ích Chrome': 'PWA = installed web app · Add-on = Chrome extension',
+    'Đếm thiết bị khác nhau (mã ẩn danh của trình duyệt/app) có ít nhất 1 phiên người thật; đã loại bot và tài khoản quản trị. Hôm nay = từ 00:00 giờ Việt Nam (UTC+7). 30 ngày = 30 ngày gần nhất tính cả hôm nay, cập nhật 10 phút/lần. % = phần trong tổng thiết bị 30 ngày.': 'Counts distinct devices (anonymous browser/app ID) with at least one human session; bots and admin accounts are excluded. Today = since 00:00 Vietnam time (UTC+7). 30 days = the last 30 days including today, refreshed every 10 min. % = share of all devices in 30 days.',
+    '{n} thiết bị dùng từ 2 nền tảng trở lên: có mặt ở mỗi dòng đó nhưng chỉ tính 1 lần ở Tổng, nên cộng các dòng sẽ lớn hơn Tổng.': ['{n} device used 2+ platforms: it appears in each of those rows but counts once in the total, so the rows add up to more than the total.', '{n} devices used 2+ platforms: they appear in each of those rows but count once in the total, so the rows add up to more than the total.'],
+    'Tổng tạm = cộng các dòng (máy chủ chưa gửi số thiết bị khác nhau).': 'Total is the sum of rows for now (the server has not sent the distinct-device count yet).',
+    '{c} quốc gia · {n} khách': '{c} countries · {n} visitors', ' · {n} không rõ': ' · {n} unknown', 'Ít': 'Few', 'Nhiều khách': 'Many visitors', '{c} – {n} khách hôm nay': '{c} – {n} visitors today', 'Không tải được bản đồ – danh sách quốc gia:': 'Map failed to load – country list:',
     // Phân tích
     'Khoảng thời gian (phần Chi tiết)': 'Date range (Details section)', 'ℹ️ Đang lấy mẫu {p}% người dùng – số phiên/người thực tế ≈ số dưới đây × {x}; tỉ lệ % và trung bình giữ nguyên.': 'ℹ️ Sampling {p}% of users – actual sessions/users ≈ figures below × {x}; percentages and averages are unaffected.',
     '🗺️ Khách theo quốc gia · hôm nay': '🗺️ Visitors by country · today', 'Bản đồ khách theo quốc gia hôm nay': 'Map of visitors by country today', 'Không tải được số liệu trực tiếp.': 'Could not load live data.', 'Chi tiết · {r}': 'Details · {r}',
@@ -215,6 +220,7 @@
   const copyBtn = (v, label) => `<button type="button" class="copy" data-copy="${esc(v)}" aria-label="${esc(L('Sao chép {v}', { v }))}" title="${esc(L('Sao chép'))}">${esc(label == null ? v : label)}</button>`;
   // Mã quốc gia Cloudflare: XX = không rõ, T1 = mạng Tor (không phải quốc gia) – không vẽ cờ giả
   const realCC = c => /^[A-Z]{2}$/.test(c || '') && c !== 'XX' && c !== 'T1';
+  const CL = r => ({ html: `<span class="cc">${FLAG(r.k)}</span> ${esc(cname(r.k))}`, t: FLAG(r.k) + ' · ' + cname(r.k) }); // cờ + mã (cột cố định) + tên nước đủ
   const FLAG = c => realCC(c) ? String.fromCodePoint(...[...c].map(x => 127397 + x.charCodeAt(0))) + ' ' + c : c === 'T1' ? '🧅 Tor' : '🌐 ?';
 
   // ---------- Điều hướng: nhóm → mục [khóa, biểu tượng, nhãn, mô tả, id huy hiệu] ----------
@@ -490,8 +496,18 @@
   $('#signin').onclick = signIn;
 
   // ---------- Thanh trên, thanh bên, đầu trang ----------
+  let meDoc = 0;
   const renderMe = u => {
-    $('#me').innerHTML = `<a class="btn ghost sm" href="/app/#/home" id="home" aria-label="${esc(L('Về app'))}">↩ <span class="lbl">${esc(L('Về app'))}</span></a><button type="button" class="btn ghost sm theme-btn" id="thm" title="${esc(L('Đổi giao diện sáng/tối'))}"></button><button type="button" class="btn ghost sm lang-btn" id="lng"></button><span class="adm-email" title="${esc(u.email)}">${esc(u.email)}</span><button type="button" class="btn ghost sm" id="out">${esc(L('Thoát'))}</button>`;
+    // owner 3/11 (iPhone 390 px): 5 nút + email chen chúc, logo bị cắt → ≤640 px gom vào menu ⋯ (cùng nút, cùng trình xử lý; máy tính vẫn xếp hàng ngang)
+    $('#me').innerHTML = `<button type="button" class="adm-ibtn adm-more" id="meMore" aria-haspopup="true" aria-expanded="false" aria-controls="meMenu"><span aria-hidden="true">⋯</span><span class="sr-only">${esc(L('Thêm'))}</span></button><div class="adm-me-items" id="meMenu"><a class="btn ghost sm" href="/app/#/home" id="home" aria-label="${esc(L('Về app'))}">↩ <span class="lbl">${esc(L('Về app'))}</span></a><button type="button" class="btn ghost sm theme-btn" id="thm" title="${esc(L('Đổi giao diện sáng/tối'))}"></button><button type="button" class="btn ghost sm lang-btn" id="lng"></button><span class="adm-email" title="${esc(u.email)}">${esc(u.email)}</span><button type="button" class="btn ghost sm" id="out">${esc(L('Thoát'))}</button></div>`;
+    const mm = $('#meMore'), menu = $('#meMenu'), mClose = () => { menu.classList.remove('open'); mm.setAttribute('aria-expanded', 'false'); };
+    mm.onclick = e => { e.stopPropagation(); const o = !menu.classList.contains('open'); menu.classList.toggle('open', o); mm.setAttribute('aria-expanded', String(o)); if (o) { const f = menu.querySelector('button, a'); if (f) f.focus(); } };
+    menu.addEventListener('click', e => { if (e.target.closest('#thm, #lng')) return; mClose(); }); // đổi sáng/tối, ngôn ngữ: giữ menu mở để thấy kết quả
+    if (!meDoc) { meDoc = 1; // gắn 1 lần (renderMe chạy lại khi đổi ngôn ngữ) – tra lại phần tử mỗi lần
+      const cl = () => { const m = $('#meMenu'), b = $('#meMore'); if (m && m.classList.contains('open')) { m.classList.remove('open'); if (b) b.setAttribute('aria-expanded', 'false'); return b; } };
+      document.addEventListener('click', e => { if (!e.target.closest('#me')) cl(); });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') { const b = cl(); if (b) b.focus(); } });
+    }
     paintTheme(); paintStatic();
     $('#thm').onclick = cycleTheme;
     $('#lng').onclick = () => setLang(LANG === 'vi' ? 'en' : 'vi');
@@ -599,6 +615,7 @@
   const sxHint = el => { const m = el.scrollWidth - el.clientWidth; el.classList.toggle('sx-l', m > 1 && el.scrollLeft > 1); el.classList.toggle('sx-r', m > 1 && el.scrollLeft < m - 1); };
   const sxRO = window.ResizeObserver ? new ResizeObserver(es => es.forEach(x => sxHint(x.target))) : null;
   const fitTables = () => {
+    cardTables(); fsheets();
     for (const t of main.querySelectorAll('table')) {
       if (t.closest(SCROLLX)) continue;
       let p = t.parentElement; while (p && p !== main && !/auto|scroll/.test(getComputedStyle(p).overflowX)) p = p.parentElement;
@@ -611,6 +628,60 @@
       if (!el.hasAttribute('tabindex') && el.scrollWidth > el.clientWidth + 1) el.tabIndex = 0; // cuộn được bằng bàn phím
     }
   };
+  // ---------- Điện thoại ≤640 px (owner 3/11, iPhone 390 px): bảng → danh sách thẻ, bộ lọc → sheet "Lọc", ô ngày có chữ gợi ý ----------
+  // Một cơ chế cho MỌI tab: bảng nào trên điện thoại rộng hơn khung (hoặc gắn data-cards) chuyển thành thẻ – mỗi ô kèm nhãn cột (data-label lấy từ <th>);
+  // khối gắn data-fsheet = bộ lọc → nút "Lọc · n" + sheet trượt từ đáy (giữ nguyên ô, trình xử lý). data-keep-table = giữ dạng bảng (lưới số nhỏ).
+  const MOB = matchMedia('(max-width: 640px)');
+  const headTxt = th => { if (!th) return ''; const c = th.cloneNode(true); c.querySelectorAll('.sr-only, input, [aria-hidden="true"]').forEach(x => x.remove()); return c.textContent.replace(/\s+/g, ' ').trim(); };
+  const cardTables = () => {
+    for (const t of main.querySelectorAll('table')) {
+      if (t.matches('[data-keep-table]')) continue;
+      const hr = t.tHead && t.tHead.rows[t.tHead.rows.length - 1];
+      if (hr) { // nhãn cột cho từng ô chưa có nhãn (thân bảng vẽ lại vẫn được gắn)
+        const hs = []; for (const th of hr.cells) for (let k = 0; k < (th.colSpan || 1); k++) hs.push(headTxt(th));
+        for (const r of t.tBodies[0] ? t.tBodies[0].rows : []) { let k = 0; for (const td of r.cells) { const h = hs[k]; if (h && !td.hasAttribute('data-label') && (td.colSpan || 1) === 1) td.dataset.label = h; k += td.colSpan || 1; } }
+      }
+      if (!MOB.matches) { t.classList.remove('tbl-cards'); continue; }
+      if (t.matches('[data-cards]')) { t.classList.add('tbl-cards'); continue; }
+      t.classList.remove('tbl-cards'); const box = t.closest(SCROLLX) || t.parentElement;
+      if (Math.max(t.scrollWidth, t.getBoundingClientRect().width) > box.clientWidth + 1) t.classList.add('tbl-cards');
+    }
+  };
+  const fsCount = el => [...el.querySelectorAll('select, input')].filter(x => !x.matches('[data-fs-nc], [type=search], [type=hidden]') && (x.tagName === 'SELECT' ? x.selectedIndex > 0 && x.value !== (x.options[0] || {}).value : x.type === 'checkbox' ? x.checked : x.value !== '')).length;
+  const fsPaint = el => { const b = el.previousElementSibling; if (!b || !b.classList.contains('fs-btn')) return; const n = fsCount(el); b.querySelector('.fs-n').textContent = n ? String(n) : ''; b.setAttribute('aria-label', n ? L('Lọc · {n} đang bật', { n }) : L('Lọc')); };
+  let fsScrim = null;
+  const fsOpen = (el, o) => {
+    if (!fsScrim) { fsScrim = document.createElement('div'); fsScrim.className = 'fs-scrim'; fsScrim.hidden = true; document.body.appendChild(fsScrim); fsScrim.onclick = () => main.querySelectorAll('.fsheet.open').forEach(x => fsOpen(x, false)); }
+    el.classList.toggle('open', o); fsScrim.hidden = !o; document.body.classList.toggle('fs-on', o);
+    const b = el.previousElementSibling; if (b && b.classList.contains('fs-btn')) b.setAttribute('aria-expanded', String(o));
+    if (o) { const f = el.querySelector('select, input:not([type=hidden]), button:not(.fs-x)'); if (f) f.focus({ preventScroll: true }); } else if (b && el.contains(document.activeElement)) b.focus();
+  };
+  const fsheets = () => {
+    for (const el of main.querySelectorAll('[data-fsheet]')) {
+      if (!el.dataset.fsOn) {
+        el.dataset.fsOn = 1; el.classList.add('fsheet'); if (!el.id) el.id = 'fs' + Math.random().toString(36).slice(2, 8);
+        el.setAttribute('role', 'group'); el.setAttribute('aria-label', L('Bộ lọc'));
+        const b = document.createElement('button'); b.type = 'button'; b.className = 'btn sm fs-btn'; b.setAttribute('aria-controls', el.id); b.setAttribute('aria-expanded', 'false');
+        b.innerHTML = `<span aria-hidden="true">⚙</span> ${esc(L('Lọc'))}<span class="fs-n" aria-hidden="true"></span>`; el.before(b);
+        const body = document.createElement('div'); body.className = 'fs-body'; while (el.firstChild) body.appendChild(el.firstChild); el.appendChild(body); // đầu/thân cuộn/chân tách riêng → chân không đè nút
+        el.insertAdjacentHTML('afterbegin', `<div class="fs-head"><b>${esc(L('Lọc'))}</b><button type="button" class="adm-ibtn fs-x" aria-label="${esc(L('Đóng'))}">✕</button></div>`);
+        el.insertAdjacentHTML('beforeend', `<div class="fs-foot"><button type="button" class="btn primary fs-done">${esc(L('Xong'))}</button></div>`);
+        b.onclick = () => fsOpen(el, true);
+        el.addEventListener('click', e => { if (e.target.closest('.fs-x, .fs-done')) fsOpen(el, false); });
+        el.addEventListener('keydown', e => { if (e.key === 'Escape' && el.classList.contains('open')) { e.stopPropagation(); fsOpen(el, false); } });
+        el.addEventListener('change', () => fsPaint(el)); el.addEventListener('input', () => fsPaint(el));
+      }
+      fsPaint(el); if (!MOB.matches && el.classList.contains('open')) fsOpen(el, false);
+    }
+    for (const d of main.querySelectorAll('input[type=date]:not([data-ph-on])')) { // iOS: ô ngày trống không có placeholder → gợi ý phủ lên, ẩn khi đã chọn
+      d.dataset.phOn = 1; const w = document.createElement('span'); w.className = 'date-w'; d.replaceWith(w); w.appendChild(d);
+      w.insertAdjacentHTML('beforeend', `<span class="date-ph" aria-hidden="true">${esc(d.getAttribute('placeholder') || L('dd/mm/yyyy'))}</span>`);
+      if (!d.getAttribute('aria-describedby') && !d.getAttribute('placeholder')) d.setAttribute('placeholder', L('dd/mm/yyyy'));
+      const p = () => w.classList.toggle('has-v', !!d.value); d.addEventListener('input', p); d.addEventListener('change', p); p();
+    }
+    for (const d of main.querySelectorAll('.date-w')) d.classList.toggle('has-v', !!(d.querySelector('input') || {}).value); // giá trị đặt bằng mã (chế độ xem đã lưu, Bỏ lọc)
+  };
+  MOB.addEventListener ? MOB.addEventListener('change', () => fitTables()) : MOB.addListener(() => fitTables());
   let fitQ = 0; new MutationObserver(() => { if (!fitQ) fitQ = requestAnimationFrame(() => { fitQ = 0; fitTables(); }); }).observe(main, { childList: true, subtree: true });
   main.addEventListener('click', e => {
     const g = e.target.closest('[data-go]'); if (g && !(e.metaKey || e.ctrlKey)) { e.preventDefault(); go(g.dataset.go); return; }
@@ -804,10 +875,13 @@
   // Cột chồng khách mới / quay lại theo ngày
   const stack = rows => { if (!rows.length) return NODATA(); const m = Math.max(1, ...rows.map(r => (r.fresh || 0) + (r.back || 0))); return `<div class="hchart stack">${rows.slice(-30).map(r => `<div title="${L('{d}: {f} mới · {b} quay lại', { d: esc(r.day), f: r.fresh || 0, b: r.back || 0 })}"><i class="b" style="height:${(r.back || 0) / m * 100}%"></i><i style="height:${(r.fresh || 0) / m * 100}%"></i><small>${esc(String(r.day).slice(8))}</small></div>`).join('')}</div><p class="small muted"><span class="lg new"></span> ${L('Khách mới')} <span class="lg back"></span> ${L('Quay lại')}</p>`; };
   // total: mẫu số cho % khi rows chỉ là top N (vd. 12 quốc gia đầu) – thiếu thì lấy tổng các dòng đang hiện
+  // Thanh dùng chung (mọi thẻ danh sách): thang = % trên tổng (total hoặc cộng các dòng) – cùng kiểu thẻ Nền tảng (js/admin-plat.js):
+  // dòng 0 không vẽ thanh, dòng > 0 thanh tối thiểu 4 px, "<1%". Nhãn: chữ thường hoặc { html, t } (vd. cờ + mã nước thẳng cột + tên đủ).
   const bars = (rows, label = r => r.k, val = r => r.n, extra = r => '', total = 0) => {
     if (!rows || !rows.length) return NODATA();
-    const max = Math.max(1, ...rows.map(val)), tot = Math.max(+total || 0, rows.reduce((t, r) => t + (+val(r) || 0), 0)) || 1;
-    return `<div class="hbars">${rows.map(r => `<div class="row2"><span class="k" title="${esc(label(r))}">${esc(label(r)) || '–'}</span><span class="track"><i style="width:${val(r) / max * 100}%"></i></span><span class="v">${num(val(r))}<small> · ${Math.round(val(r) / tot * 100)}%${extra(r)}</small></span></div>`).join('')}</div>`;
+    const tot = Math.max(+total || 0, rows.reduce((t, r) => t + (+val(r) || 0), 0)) || 1;
+    const lab = r => { const x = label(r); return x && x.html != null ? [x.html, x.t] : [esc(x) || '–', x]; };
+    return `<div class="hbars">${rows.map(r => { const v = +val(r) || 0, sh = v / tot * 100, [h, t] = lab(r); return `<div class="row2"><span class="k" title="${esc(t)}">${h}</span><span class="track" aria-hidden="true"><i class="${v ? '' : 'z'}" style="width:${v ? Math.min(100, sh).toFixed(2) : 0}%"></i></span><span class="v">${num(v)}<small> · ${AdminPlat.pctText(sh)}${extra(r)}</small></span></div>`; }).join('')}</div>`;
   };
   // Đủ mọi ngày trong khoảng chọn (ngày không có phiên = 0) – tránh vài cột khổng lồ khi dữ liệu thưa
   const padDays = (rows, days) => { const by = Object.fromEntries((rows || []).map(r => [r.day, r])), out = []; for (let i = Math.min(days, 90) - 1; i >= 0; i--) { const d = vday(Date.now() - i * 864e5); out.push(by[d] || { day: d, s: 0, v: 0 }); } return out; };
@@ -818,28 +892,46 @@
   const stopLive = () => { if (liveTimer) { clearInterval(liveTimer); liveTimer = null; } if (mapRO) { mapRO.disconnect(); mapRO = null; } if (worldMap) { try { worldMap.destroy(); } catch (e) { /* bỏ qua */ } worldMap = null; } mapKey = ''; mapData = null; };
   const PLAT = { web: ['🌐', 'Web'], pwa: ['📲', 'PWA (web đã cài)'], ext: ['🧩', 'Add-on Chrome'], ios: ['🍎', 'iOS'], android: ['🤖', 'Android'], app: ['📱', 'App (cũ)'] };
   const platName = k => PLAT[k] ? L(PLAT[k][1]) : k || '–', platIcon = k => (PLAT[k] || ['❔'])[0];
+  // Thẻ Nền tảng: nhãn ngắn 1 dòng + tên đầy đủ (title + trình đọc màn hình)
+  const PSHORT = { web: ['Web', 'Web (trình duyệt)'], pwa: ['PWA', 'PWA (web đã cài)'], ext: ['Add-on', 'Add-on Chrome'], ios: ['iOS', 'App iOS'], android: ['Android', 'App Android'], app: ['App (cũ)', 'App (cũ)'] };
+  const platCard = l => {
+    const { rows, total, multi, approx } = AdminPlat.platRows(l);
+    const lab = k => { const [sh, full] = PSHORT[k] ? PSHORT[k].map(x => L(x)) : [k || '–', k || '–']; return `<th scope="row" title="${esc(full)}"><span class="pi" aria-hidden="true">${platIcon(k)}</span><span class="pn" aria-hidden="true">${esc(sh)}</span><span class="sr-only">${esc(full)}</span></th>`; };
+    const share = r => `<td class="ps"><span class="pbar" aria-hidden="true"><i class="${r.w ? '' : 'z'}" style="width:${r.w.toFixed(2)}%"></i></span><span class="pp num">${r.pct}</span></td>`;
+    const tr = r => `<tr class="${r.d30 ? '' : 'zero'}">${lab(r.k)}<td class="num">${num(r.today)}</td><td class="num">${num(r.d30)}</td>${share(r)}</tr>`;
+    return `<div class="card plat-card"><h3>${L('📱 Nền tảng')}</h3>
+      <table class="plat-tbl" aria-label="${esc(L('Thiết bị theo nền tảng: hôm nay, 30 ngày và % trong tổng thiết bị 30 ngày'))}"><colgroup><col><col class="c-n"><col class="c-n"><col class="c-s"></colgroup>
+        <thead><tr><th scope="col">${L('Nền tảng')}</th><th scope="col" class="num">${L('Hôm nay')}</th><th scope="col" class="num">${L('30 ngày')}</th><th scope="col" class="num">${L('Tỉ lệ')}</th></tr></thead>
+        <tbody>${rows.map(tr).join('')}</tbody>
+        <tfoot><tr><th scope="row" title="${esc(L('Tổng thiết bị'))}"><span class="pi" aria-hidden="true">Σ</span><span class="pn" aria-hidden="true">${L('Tổng')}</span><span class="sr-only">${L('Tổng thiết bị')}</span></th><td class="num">${num(total.today)}</td><td class="num">${num(total.d30)}</td><td class="ps"><span class="pp num">${total.d30 ? '100%' : '0%'}</span></td></tr></tfoot>
+      </table>
+      <p class="plat-note">${L('Đếm thiết bị khác nhau (mã ẩn danh của trình duyệt/app) có ít nhất 1 phiên người thật; đã loại bot và tài khoản quản trị. Hôm nay = từ 00:00 giờ Việt Nam (UTC+7). 30 ngày = 30 ngày gần nhất tính cả hôm nay, cập nhật 10 phút/lần. % = phần trong tổng thiết bị 30 ngày.')}</p>
+      ${multi ? `<p class="plat-note">${L('{n} thiết bị dùng từ 2 nền tảng trở lên: có mặt ở mỗi dòng đó nhưng chỉ tính 1 lần ở Tổng, nên cộng các dòng sẽ lớn hơn Tổng.', { n: num(multi) })}</p>` : ''}
+      ${approx ? `<p class="plat-note">${L('Tổng tạm = cộng các dòng (máy chủ chưa gửi số thiết bị khác nhau).')}</p>` : ''}
+      <p class="plat-note">${L('PWA = web đã cài lên máy · Add-on = tiện ích Chrome')}</p></div>`;
+  };
   const mkRegion = () => { try { return new Intl.DisplayNames([LANG], { type: 'region' }); } catch (e) { return null; } }; // trình duyệt cũ → null
   let regionNames = mkRegion();
   const cname = c => { if (c === 'T1') return 'Tor'; if (!realCC(c)) return L('Không rõ'); try { return regionNames ? regionNames.of(c) : c; } catch (e) { return c; } };
   const durS = s => { s = Math.round(+s || 0); return s < 60 ? L('{s} giây', { s }) : L('{m}p {s}s', { m: Math.floor(s / 60), s: String(s % 60).padStart(2, '0') }); };
   const nf1 = x => (+x || 0).toLocaleString(LOC(), { maximumFractionDigits: 1 });
   // Biểu đồ vùng mượt 2 chuỗi (lượt xem + khách) – di chuột vào cột để xem số (title)
-  const areaChart = rows => {
-    if (!rows || !rows.length) return NODATA();
-    const W = Math.round(Math.min(1200, Math.max(320, main.clientWidth - 70))), H = 200, PL = 36, T = 12, B = 22, iw = W - PL - 8, ih = H - T - B, n = rows.length;
-    const max = Math.max(1, ...rows.map(r => +r.views || 0), ...rows.map(r => +r.visitors || 0)), nice = Math.ceil(max / Math.pow(10, Math.floor(Math.log10(max)))) * Math.pow(10, Math.floor(Math.log10(max)));
-    const X = i => PL + (n === 1 ? iw / 2 : i * iw / (n - 1)), Y = v => T + ih - (+v || 0) / nice * ih;
+  const areaChart = l => {
+    const { rows, maxV, maxU } = AdminSeries.seriesRows(l); // js/admin-series.js – thang riêng cho lượt xem (trái) và khách (phải)
+    if (!rows.length) return NODATA();
+    const W = Math.round(Math.min(1200, Math.max(320, main.clientWidth - 70))), H = 200, PL = 36, PR = 32, T = 12, B = 22, iw = W - PL - PR, ih = H - T - B, n = rows.length;
+    const X = i => PL + (n === 1 ? iw / 2 : i * iw / (n - 1)), Y = (v, m) => T + ih - (+v || 0) / m * ih;
     const smooth = pts => pts.map((p, i) => { if (!i) return `M${p[0].toFixed(1)},${p[1].toFixed(1)}`; const a = pts[i - 2] || pts[i - 1], b = pts[i - 1], c = p, d = pts[i + 1] || p, k = 6; return `C${(b[0] + (c[0] - a[0]) / k).toFixed(1)},${Math.min(T + ih, b[1] + (c[1] - a[1]) / k).toFixed(1)} ${(c[0] - (d[0] - b[0]) / k).toFixed(1)},${Math.min(T + ih, c[1] - (d[1] - b[1]) / k).toFixed(1)} ${c[0].toFixed(1)},${c[1].toFixed(1)}`; }).join(' ');
-    const pv = rows.map((r, i) => [X(i), Y(r.views)]), pu = rows.map((r, i) => [X(i), Y(r.visitors)]), lv = smooth(pv);
-    const grid = [0, .5, 1].map(f => `<line x1="${PL}" x2="${W - 8}" y1="${(T + ih - f * ih).toFixed(1)}" y2="${(T + ih - f * ih).toFixed(1)}" class="ac-grid"/><text x="${PL - 6}" y="${(T + ih - f * ih + 3).toFixed(1)}" text-anchor="end">${num(Math.round(nice * f))}</text>`).join('');
+    const pv = rows.map((r, i) => [X(i), Y(r.views, maxV)]), pu = rows.map((r, i) => [X(i), Y(r.visitors, maxU)]), lv = smooth(pv);
+    const grid = [0, .5, 1].map(f => { const y = (T + ih - f * ih).toFixed(1), ty = (T + ih - f * ih + 3).toFixed(1); return `<line x1="${PL}" x2="${W - PR}" y1="${y}" y2="${y}" class="ac-grid"/><text x="${PL - 6}" y="${ty}" text-anchor="end">${num(Math.round(maxV * f))}</text><text x="${W - PR + 6}" y="${ty}" text-anchor="start" class="ac-ax-u">${num(Math.round(maxU * f))}</text>`; }).join('');
     const dd = d => LANG === 'en' ? d.slice(5, 7) + '/' + d.slice(8) : d.slice(8) + '/' + d.slice(5, 7), cw = n > 1 ? iw / (n - 1) : iw;
     return `<svg class="area-chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${L('Lượt xem và khách 14 ngày qua')}"><defs><linearGradient id="acFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="var(--primary)" stop-opacity=".3"/><stop offset="1" stop-color="var(--primary)" stop-opacity="0"/></linearGradient></defs>
       ${grid}<path d="${lv} L${X(n - 1).toFixed(1)},${T + ih} L${X(0).toFixed(1)},${T + ih} Z" fill="url(#acFill)"/><path d="${lv}" class="ac-v"/><path d="${smooth(pu)}" class="ac-u"/>
-      ${rows.map((r, i) => `<g class="ac-col"><rect x="${(X(i) - cw / 2).toFixed(1)}" y="${T}" width="${cw.toFixed(1)}" height="${ih}" fill="transparent"/><line x1="${X(i).toFixed(1)}" x2="${X(i).toFixed(1)}" y1="${T}" y2="${T + ih}" class="ac-hl"/><circle cx="${pv[i][0].toFixed(1)}" cy="${pv[i][1].toFixed(1)}" r="3.5" class="ac-dv"/><circle cx="${pu[i][0].toFixed(1)}" cy="${pu[i][1].toFixed(1)}" r="3" class="ac-du"/>${i % 2 === (n - 1) % 2 ? `<text x="${X(i).toFixed(1)}" y="${H - 6}" text-anchor="middle">${dd(r.day)}</text>` : ''}<title>${L('{d}: {v} lượt xem · {u} khách', { d: dd(r.day), v: num(r.views), u: num(r.visitors) })}</title></g>`).join('')}</svg>
-      <p class="small muted ac-legend"><span class="lg new"></span> ${L('Lượt xem')} <span class="lg vis"></span> ${L('Khách')}</p>`;
+      ${rows.map((r, i) => `<g class="ac-col"><rect x="${(X(i) - cw / 2).toFixed(1)}" y="${T}" width="${cw.toFixed(1)}" height="${ih}" fill="transparent"/><line x1="${X(i).toFixed(1)}" x2="${X(i).toFixed(1)}" y1="${T}" y2="${T + ih}" class="ac-hl"/><circle cx="${pv[i][0].toFixed(1)}" cy="${pv[i][1].toFixed(1)}" r="3.5" class="ac-dv"/><circle cx="${pu[i][0].toFixed(1)}" cy="${pu[i][1].toFixed(1)}" r="3" class="ac-du"/>${i % 2 === (n - 1) % 2 ? `<text x="${X(i).toFixed(1)}" y="${H - 6}" text-anchor="middle">${r.today ? L('Hôm nay') : dd(r.day)}</text>` : ''}<title>${L('{d}: {v} lượt xem · {u} khách', { d: r.today ? L('Hôm nay (đến giờ)') : dd(r.day), v: num(r.views), u: num(r.visitors) })}</title></g>`).join('')}</svg>
+      <p class="small muted ac-legend"><span class="lg new"></span> ${L('Lượt xem (trục trái)')} <span class="lg vis"></span> ${L('Khách (trục phải)')}</p>`;
   };
   // Dòng "đã loại": máy tự động & quản trị hôm nay không cộng vào số người thật (để thấy bộ lọc đang chạy)
-  const EXCL = { ci: 'CI của mình', 'ci-app': 'App trên máy ảo CI', ua: 'Bot/công cụ (UA)', bot: 'Bot đã xác minh', dc: 'Máy chủ đám mây', admin: 'Quản trị' };
+  const EXCL = { ci: 'CI của mình', 'ci-app': 'App trên máy ảo CI', ua: 'Bot/công cụ (UA)', bot: 'Bot đã xác minh', dc: 'Máy chủ đám mây', dev: 'Bản dev/preview', admin: 'Quản trị' };
   const exclLine = l => {
     const x = l.excluded; if (!x) return '';
     const parts = (x.kinds || []).map(r => `${esc(L(EXCL[r.k] || r.k))} ${num(r.s)}`).join(' · ');
@@ -861,20 +953,17 @@
         ${lt('⏱️', L('Thời gian TB'), t.s ? durS(t.dur) : '–', L('mỗi phiên hôm nay'))}
         ${lt('Σ', L('Tổng lượt xem'), num(tot.views), L('{n} khách từ trước đến nay', { n: num(tot.visitors) }))}
       </div>
-      <div class="ac-wrap"><div class="small muted ac-title">${L('14 ngày qua')}</div>${areaChart(l.series)}</div>`;
+      <div class="ac-wrap"><div class="small muted ac-title">${L('14 ngày qua')}</div>${areaChart(l)}</div>`;
   };
   const route = k => '#/' + (k || 'home');
   const liveGrid = l => {
-    const P = ['web', 'pwa', 'ext', 'ios', 'android'], m = rows => Object.fromEntries((rows || []).map(r => [r.k, r.n]));
-    const pt = m(l.platsToday), p30 = m(l.plats30), keys = [...P, ...Object.keys({ ...pt, ...p30 }).filter(k => !P.includes(k))];
-    const tt = Math.max(1, ...keys.map(k => pt[k] || 0)), t3 = Math.max(1, ...keys.map(k => p30[k] || 0));
     return `
-      <div class="card"><h3>${L('🌍 Quốc gia hôm nay')}</h3>${bars((l.countries || []).slice(0, 12), r => FLAG(r.k) + ' · ' + cname(r.k), r => r.n, () => '', (l.today || {}).visitors)}</div>
-      <div class="card"><h3>${L('👀 Đang xem')} <span class="small muted">· ${num(l.online)} online</span></h3>${(l.viewing || []).length ? bars(l.viewing, r => route(r.k)) : emptyState(L('Không ai online trong 5 phút qua'))}</div>
+      <div class="card"><h3>${L('🌍 Quốc gia hôm nay')}</h3>${bars((l.countries || []).slice(0, 12), CL, r => r.n, () => '', (l.today || {}).visitors)}</div>
+      <div class="card"><h3>${L('👀 Đang xem')} <span class="small muted">· ${num(l.online)} online</span></h3>${(l.viewing || []).length ? bars(l.viewing, r => route(r.k), r => r.n, () => '', l.online) : emptyState(L('Không ai online trong 5 phút qua'))}</div>
       <div class="card"><h3>${L('📄 Trang xem nhiều hôm nay')}</h3>${bars(l.pagesToday, r => route(r.k))}${l.pagesFallback ? `<p class="tiny muted">${L('Theo trang vào đầu tiên (chưa có số lượt xem từng trang).')}</p>` : ''}</div>
       <div class="card"><h3>${L('🔗 Nguồn giới thiệu hôm nay')}</h3>${(l.refs || []).length ? bars(l.refs) : emptyState(L('Chủ yếu truy cập trực tiếp'))}</div>
       <div class="card"><h3>${L('🔥 Trang xem nhiều · 7 ngày')}</h3>${bars(l.pages7, r => route(r.k))}</div>
-      <div class="card plat-card"><h3>${L('📱 Nền tảng')}</h3><div class="tbl-x"><table class="tbl plat-tbl"><thead><tr><th scope="col">${L('Nền tảng')}</th><th scope="col" class="num">${L('Hôm nay')}</th><th scope="col" class="num">${L('30 ngày')}</th></tr></thead><tbody>${keys.map(k => `<tr><td><span class="pl-n"><span aria-hidden="true">${platIcon(k)}</span><span>${esc(platName(k))}</span></span></td><td class="num"><span class="mini"><i style="width:${(pt[k] || 0) / tt * 100}%"></i></span>${num(pt[k])}</td><td class="num"><span class="mini"><i style="width:${(p30[k] || 0) / t3 * 100}%"></i></span>${num(p30[k])}</td></tr>`).join('')}</tbody></table></div><p class="tiny muted">${L('Số khách (thiết bị) khác nhau.')}</p></div>`;
+      ${platCard(l)}`;
   };
   // Nạp jsvectormap (MIT, lưu sẵn trong web/js/vendor) chỉ khi mở tab Phân tích
   const loadMap = () => mapLib || (mapLib = new Promise((ok, fail) => {
@@ -889,7 +978,7 @@
     const rows = (countries || []).filter(r => realCC(r.k)), vals = Object.fromEntries(rows.map(r => [r.k, r.n])), known = rows.reduce((a, r) => a + r.n, 0), unk = (countries || []).filter(r => !realCC(r.k)).reduce((a, r) => a + r.n, 0);
     mapKey = JSON.stringify(countries || []); mapData = countries;
     if ($('#mapSum')) $('#mapSum').textContent = L('{c} quốc gia · {n} khách', { c: rows.length, n: num(known) }) + (unk ? L(' · {n} không rõ', { n: num(unk) }) : '');
-    if ($('#mapLegend')) $('#mapLegend').innerHTML = `<span class="small muted">${L('Ít')}</span><span class="ml-i"><i style="background:var(--map-0)"></i>${L('0 khách')}</span>${BUCKETS.map((b, i) => `<span class="ml-i"><i style="background:var(--map-${i + 1})"></i>${b[0]}</span>`).join('')}<span class="small muted">${L('Nhiều khách')}</span>`;
+    if ($('#mapLegend')) $('#mapLegend').innerHTML = `<span class="ml-end">${L('Ít')}</span><span class="ml-strip"><span class="ml-seg"><i style="background:var(--map-0)"></i><small>0</small></span>${BUCKETS.map((b, i) => `<span class="ml-seg"><i style="background:var(--map-${i + 1})"></i><small>${b[0]}</small></span>`).join('')}</span><span class="ml-end">${L('Nhiều khách')}</span>`;
     try {
       const JVM = await loadMap(); if (!$('#worldMap') || tab !== 'analytics') return;
       if (worldMap) { try { worldMap.destroy(); } catch (e) { /* bỏ qua */ } worldMap = null; }
@@ -906,7 +995,7 @@
       if (window.ResizeObserver && !mapRO) { let w = 0; mapRO = new ResizeObserver(() => { const k = box.clientWidth + 'x' + box.clientHeight; if (worldMap && k !== w) { w = k; try { worldMap.updateSize(); } catch (e) { /* bỏ qua */ } } }); mapRO.observe(box); }
     } catch (e) {
       box.classList.add('fallback');
-      box.innerHTML = `<p class="small muted">${L('Không tải được bản đồ – danh sách quốc gia:')}</p>${bars(rows, r => FLAG(r.k) + ' · ' + cname(r.k))}`;
+      box.innerHTML = `<p class="small muted">${L('Không tải được bản đồ – danh sách quốc gia:')}</p>${bars(rows, CL)}`;
     }
   }
   // Màu đọc lúc vẽ nên đổi sáng/tối phải vẽ lại (owner 4/11: vẽ lúc sáng rồi sang tối → nước trống vẫn kem như có khách). Cả nút giao diện lẫn hệ điều hành đổi ở chế độ Tự động.
@@ -1266,7 +1355,7 @@
         <div class="card mt"><h3>${L('Phiên theo ngày')}</h3>${chart(padDays(a.daily, a.days), 's', L('Phiên theo ngày: {r}', { r: span }))}</div>
         <div class="adm-grid">
           <div class="card"><h3>${L('Nguồn truy cập')}</h3>${bars(a.refs, r => L(r.k), r => r.n, r => ` · ${dur(r.dur)}`)}</div>
-          <div class="card"><h3>${L('Quốc gia')}</h3>${bars(a.countries, r => FLAG(r.k) + ' · ' + cname(r.k), r => r.n, () => '', s.s)}</div>
+          <div class="card"><h3>${L('Quốc gia')}</h3>${bars(a.countries, CL, r => r.n, () => '', s.s)}</div>
           ${a.cpm ? `<div class="card"><h3>${L('Nhóm CPM cao')}${a.cpm.highPct == null ? '' : ` · ${a.cpm.highPct} %`}</h3>${bars([{ k: 'high', n: a.cpm.high }, { k: 'vn', n: a.cpm.vn }, { k: 'other', n: a.cpm.other }], r => L({ high: 'Nhóm CPM cao (giả định)', vn: 'Việt Nam', other: 'Nước khác' }[r.k]), r => r.n, () => '', a.cpm.total)}<p class="small muted">${L('Khách thật trong khoảng đã chọn, đã loại bot và tài khoản quản trị. Danh sách nước: functions/api/_cpm.js.')}</p></div>` : ''}
           ${a.land ? `<div class="card"><h3>${L('Khách từ ngoài vào trang tĩnh')} · ${num(a.land.total)}</h3>${a.land.total ? `${bars(a.land.src)}<h3 class="mt">${L('Nước của khách từ ngoài')}</h3>${bars(a.land.countries.slice(0, 10), r => FLAG(r.k) + ' · ' + cname(r.k), r => r.n, () => '', a.land.total)}<h3 class="mt">${L('Loại trang họ vào')}</h3>${bars(a.land.kinds)}` : `<p class="small muted">${L('Chưa có lượt nào.')}</p>`}</div>` : ''}
           <div class="card"><h3>${L('Trang vào đầu tiên')}</h3>${bars(a.paths, r => '#/' + r.k)}</div>

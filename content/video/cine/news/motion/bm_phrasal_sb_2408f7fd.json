@@ -1,0 +1,303 @@
+{
+ "id": "mo_bm_phrasal_sb_2408f7fd",
+ "template": "phrasal",
+ "title": "Motion phrasal – hang out (phr v): informal; to spend relaxed time somewhere or with so (sb_2408f7fd)",
+ "teacher": "ama",
+ "clips": [
+  "ga11_talk",
+  "ga11_explain",
+  "ga11_happy",
+  "ga11_thinking",
+  "ga11_surprise_3"
+ ],
+ "listen": [
+  "ga11_listen_2"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy",
+ "active": "mint",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "idiom-phrasal",
+  "link": "https://lexkite.com/app/",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Social",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "Natives never say 'play together",
+   "gap": 0.7
+  },
+  {
+   "id": "m",
+   "text": "hang out means: informal; to spend relaxed time somewhere or with someone.",
+   "gap": 0.7
+  },
+  {
+   "id": "e0",
+   "text": "We hung out at the beach.",
+   "gap": 0.7
+  },
+  {
+   "id": "e1",
+   "text": "Let's hang out after work.",
+   "gap": 0.7
+  },
+  {
+   "id": "w",
+   "text": "Adults say hang out, not play.",
+   "gap": 0.7
+  },
+  {
+   "id": "a",
+   "text": "Kids play. Adults hang out!",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "Natives",
+      "white"
+     ]
+    ],
+    [
+     [
+      "never say",
+      "yellow"
+     ]
+    ],
+    [
+     [
+      "'play",
+      "yellow"
+     ]
+    ],
+    [
+     [
+      "together",
+      "yellow"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Phrase of the day",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "Natives"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "never say"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "'play"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "together"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "mean",
+    "at": [
+     "m",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Meaning",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "hang out"
+       ]
+      ]
+     },
+     {
+      "t": "sub",
+      "runs": [
+       [
+        "informal; to spend relaxed time somewhere or with someone"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "rules",
+    "at": [
+     "e0",
+     0
+    ],
+    "rows": [
+     {
+      "t": "tile",
+      "tag": "EXAMPLE 1",
+      "tone": "gold",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "We hung out at the beach.",
+        "gold"
+       ]
+      ],
+      "ex_at": [
+       "e0",
+       0
+      ],
+      "at": [
+       "e0",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "EXAMPLE 2",
+      "tone": "teal",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "Let's hang out after work.",
+        "teal"
+       ]
+      ],
+      "ex_at": [
+       "e1",
+       0
+      ],
+      "at": [
+       "e1",
+       0
+      ]
+     }
+    ]
+   }
+  ],
+  "hook_text": "Natives never say 'play together",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ },
+ "uses": {
+  "template": "phrasal",
+  "row": "sb_2408f7fd",
+  "teacher": "ama",
+  "accent": "navy",
+  "active": "mint",
+  "tones": 2
+ }
+}

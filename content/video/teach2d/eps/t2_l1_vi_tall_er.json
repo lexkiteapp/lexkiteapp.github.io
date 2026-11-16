@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_tall_er",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Is this comparison right?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: He is more tall than me.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: He is taller than me.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Make tall into taller.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Taller! My sister is taller than me.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "He is more tall than me.",
+  "right": "He is taller than me.",
+  "strike": "more tall",
+  "why": "Make tall into taller.",
+  "memory": "Tall, taller.",
+  "quiz": {
+   "stem": "My sister is ___ than me.",
+   "options": [
+    "taller",
+    "more tall"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Hơn = “more”? Chưa chắc!",
+   "tip": "Tiếng Việt chỉ thêm “hơn”, nhưng với từ ngắn như “tall”, tiếng Anh thêm -er: “taller.”",
+   "caption": "Bạn có hay nói “He is more tall than me.” không? 😅 Từ ngắn như “tall” thêm -er, không dùng “more”: “He is taller than me.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “taller.” Hãy nói to một câu so sánh chiều cao của hai người bạn với “taller than.” Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#nguphaptienganh",
+    "#tienganhgiaotiep",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Is it “more tall”?",
+   "tip": "Short words take -er: “taller”, not “more tall.”",
+   "caption": "Do you often say this? “He is more tall than me.” Short words like “tall” take -er, not “more”: “He is taller than me.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Hơn = “more”? Chưa chắc!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Hơn = “more”? Chưa chắc!",
+  "keyword": "He is taller than me.",
+  "value": "Tiếng Việt chỉ thêm “hơn”, nhưng với từ ngắn như “tall”, tiếng Anh thêm -er: “taller.”",
+  "hashtags": [
+   "#hoctienganh",
+   "#nguphaptienganh",
+   "#tienganhgiaotiep",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Hơn = “more”? Chưa chắc!",
+    "description": "Tiếng Việt chỉ thêm “hơn”, nhưng với từ ngắn như “tall”, tiếng Anh thêm -er: “taller.”\n\nBạn có hay nói “He is more tall than me.” không? 😅 Từ ngắn như “tall” thêm -er, không dùng “more”: “He is taller than me.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #nguphaptienganh #tienganhgiaotiep #lexkite",
+    "tags": [
+     "He is taller than me.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “He is more tall than me.” không? 😅 Từ ngắn như “tall” thêm -er, không dùng “more”: “He is taller than me.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Hơn = “more”? Chưa chắc!\n\nTiếng Việt chỉ thêm “hơn”, nhưng với từ ngắn như “tall”, tiếng Anh thêm -er: “taller.”\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#nguphaptienganh",
+     "#tienganhgiaotiep",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Hơn = “more”? Chưa chắc! Tiếng Việt chỉ thêm “hơn”, nhưng với từ ngắn như “tall”, tiếng Anh thêm -er:… #hoctienganh #nguphaptienganh #tienganhgiaotiep"
+   }
+  },
+  "first_comment": "Đáp án: “taller.” Hãy nói to một câu so sánh chiều cao của hai người bạn với “taller than.” Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

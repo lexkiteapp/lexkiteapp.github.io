@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_cold_outside",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Street or outside?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: It is cold on the street.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: It is cold outside.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Outside means not in a house.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Outside! It is hot outside today.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "It is cold on the street.",
+  "right": "It is cold outside.",
+  "strike": "on the street",
+  "why": "Outside means not in a house.",
+  "memory": "Cold outside.",
+  "quiz": {
+   "stem": "It is hot ___ today.",
+   "options": [
+    "on the street",
+    "outside"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "«На улице холодно» — как?",
+   "tip": "«На улице» — это “outside”: “It is cold outside.”",
+   "caption": "Ты тоже говоришь “It is cold on the street”? 😅 Русское «на улице холодно» часто переводят дословно — “on the street”, но по-английски говорят “outside.” Правильно: “It is cold outside.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “outside.” «На улице» — это outside. Скажи вслух: “It is cold outside.” Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#учуанглийский",
+    "#английскийдляначинающих",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "On the street or outside?",
+   "tip": "Say “outside,” not “on the street”: “It is cold outside.”",
+   "caption": "Do you also say “It is cold on the street”? 😅 People often translate the Russian phrase word for word as “on the street,” but English says “outside.” Correct: “It is cold outside.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "«На улице холодно» — как?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "«На улице холодно» — как?",
+  "keyword": "It is cold outside.",
+  "value": "«На улице» — это “outside”: “It is cold outside.”",
+  "hashtags": [
+   "#английскийязык",
+   "#учуанглийский",
+   "#английскийдляначинающих",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "«На улице холодно» — как?",
+    "description": "«На улице» — это “outside”: “It is cold outside.”\n\nТы тоже говоришь “It is cold on the street”? 😅 Русское «на улице холодно» часто переводят дословно — “on the street”, но по-английски говорят “outside.” Правильно: “It is cold outside.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #учуанглийский #английскийдляначинающих #lexkite",
+    "tags": [
+     "It is cold outside.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “It is cold on the street”? 😅 Русское «на улице холодно» часто переводят дословно — “on the street”, но по-английски говорят “outside.” Правильно: “It is cold outside.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "«На улице холодно» — как?\n\n«На улице» — это “outside”: “It is cold outside.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#учуанглийский",
+     "#английскийдляначинающих",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "«На улице холодно» — как? «На улице» — это “outside”: “It is cold outside.” #английскийязык #учуанглийский #английскийдляначинающих"
+   }
+  },
+  "first_comment": "Ответ: “outside.” «На улице» — это outside. Скажи вслух: “It is cold outside.” Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

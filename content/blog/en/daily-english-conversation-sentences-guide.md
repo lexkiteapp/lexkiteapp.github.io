@@ -165,5 +165,15 @@ For broader fluency development, explore our guides on [how to think in English 
 
 By internalizing 5 to 10 practical sentence chunks each week, you will eliminate hesitation and converse with calm, natural fluency wherever you go.
 
+For travel days, add [airport English phrases](/en/blog/airport-english-phrases-immigration-check-in-delays/) to your routine.
+
+For trips, see [hotel English phrases](/en/blog/hotel-english-phrases-check-in-requests-complaints/) for check-in and polite complaints.
+
+For eating out, read [restaurant English: ordering food and paying](/en/blog/restaurant-english-ordering-food-and-paying/).
+
+For health situations, read [English at the doctor: describing symptoms](/en/blog/english-at-the-doctor-describing-symptoms/).
+
+For errands, read [English for opening a bank account abroad](/en/blog/english-for-opening-a-bank-account-abroad/).
+
 For two high-stakes everyday settings, see [English phrases at the doctor](/en/blog/english-for-newcomers-doctor/) and [English phrases at the bank](/en/blog/english-for-newcomers-bank/).
 

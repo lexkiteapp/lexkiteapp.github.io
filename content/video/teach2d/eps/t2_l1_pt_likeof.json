@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_likeof",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Like needs no little word!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I like of music.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I like music.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Like goes right before music.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The first! I like music.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I like of music.",
+  "right": "I like music.",
+  "strike": "of",
+  "why": "Like goes right before music.",
+  "memory": "Like has no of.",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "I like music.",
+    "I like of music."
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Você diz “I like of music”?",
+   "tip": "Em português é “gostar DE música”, mas em inglês “like” vem direto com o objeto, sem “of”.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I like of music.” O certo é “I like music.” Por causa do “gostar de”, muita gente coloca “of” depois de “like”. Ouça a Ama e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “I like music”. Treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “I like of music”?",
+   "tip": "“Gostar DE música” has “de”, but in English “like” goes straight to the object, with no “of”.",
+   "caption": "Watch out for this common mistake! Many people say “I like of music.” The right way is “I like music.” Because of “gostar de”, many learners add “of” after “like”. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Você diz “I like of music”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "Você diz “I like of music”?",
+  "keyword": "I like music.",
+  "value": "Em português é “gostar DE música”, mas em inglês “like” vem direto com o objeto, sem “of”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "Você diz “I like of music”?",
+    "description": "Em português é “gostar DE música”, mas em inglês “like” vem direto com o objeto, sem “of”.\n\nCuidado com este erro comum! 😬 Muita gente diz “I like of music.” O certo é “I like music.” Por causa do “gostar de”, muita gente coloca “of” depois de “like”. Ouça a Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "I like music.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “I like of music.” O certo é “I like music.” Por causa do “gostar de”, muita gente coloca “of” depois de “like”. Ouça a Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Você diz “I like of music”?\n\nEm português é “gostar DE música”, mas em inglês “like” vem direto com o objeto, sem “of”.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Você diz “I like of music”? Em português é “gostar DE música”, mas em inglês “like” vem direto com o objet… #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “I like music”. Treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

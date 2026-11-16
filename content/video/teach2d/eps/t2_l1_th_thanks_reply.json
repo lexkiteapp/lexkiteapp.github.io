@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_thanks_reply",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Thank you for YOUR reply!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Thank you for reply.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Thank you for your reply.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say your before reply.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Your! Thank you for your help.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Thank you for reply.",
+  "right": "Thank you for your reply.",
+  "strike": "for reply",
+  "why": "Say your before reply.",
+  "memory": "Your reply.",
+  "quiz": {
+   "stem": "Thank you for ___ help.",
+   "options": [
+    "your",
+    "you"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "อย่าลืม your หน้า reply!",
+   "tip": "ไทยพูด “ขอบคุณที่ตอบ” ไม่ต้องมี “ของคุณ” แต่อังกฤษต้องมี your: “your reply”",
+   "caption": "คุณเคยพูดว่า “Thank you for reply.” ไหม? 😅 ภาษาไทยพูดว่า “ขอบคุณที่ตอบ” ได้โดยไม่ต้องมี “ของคุณ” แต่ในอีเมลภาษาอังกฤษต้องมี your: “Thank you for your reply.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “your” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยค แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Don't forget “your”!",
+   "tip": "Thai can skip “your”, but English needs it: “Thank you for your reply”",
+   "caption": "Do you say “Thank you for reply”? 😅 Thai can skip “your”, but English needs it in an email. Say “Thank you for your reply”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "อย่าลืม your หน้า reply!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "อย่าลืม your หน้า reply!",
+  "keyword": "Thank you for your reply.",
+  "value": "ไทยพูด “ขอบคุณที่ตอบ” ไม่ต้องมี “ของคุณ” แต่อังกฤษต้องมี your: “your reply”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "อย่าลืม your หน้า reply!",
+    "description": "ไทยพูด “ขอบคุณที่ตอบ” ไม่ต้องมี “ของคุณ” แต่อังกฤษต้องมี your: “your reply”\n\nคุณเคยพูดว่า “Thank you for reply.” ไหม? 😅 ภาษาไทยพูดว่า “ขอบคุณที่ตอบ” ได้โดยไม่ต้องมี “ของคุณ” แต่ในอีเมลภาษาอังกฤษต้องมี your: “Thank you for your reply.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "Thank you for your reply.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “Thank you for reply.” ไหม? 😅 ภาษาไทยพูดว่า “ขอบคุณที่ตอบ” ได้โดยไม่ต้องมี “ของคุณ” แต่ในอีเมลภาษาอังกฤษต้องมี your: “Thank you for your reply.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "อย่าลืม your หน้า reply!\n\nไทยพูด “ขอบคุณที่ตอบ” ไม่ต้องมี “ของคุณ” แต่อังกฤษต้องมี your: “your reply”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "อย่าลืม your หน้า reply! ไทยพูด “ขอบคุณที่ตอบ” ไม่ต้องมี “ของคุณ” แต่อังกฤษต้องมี your: “your reply” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “your” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยค แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

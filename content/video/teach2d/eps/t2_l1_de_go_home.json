@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_go_home",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Go home, not to home!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I go to home.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I go home.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Home needs no to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Home! I go home after work.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I go to home.",
+  "right": "I go home.",
+  "strike": "to home",
+  "why": "Home needs no to.",
+  "memory": "Go home.",
+  "quiz": {
+   "stem": "After work, I go ___.",
+   "options": [
+    "to home",
+    "home"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "„Nach Hause“ ohne „to“!",
+   "tip": "„Nach Hause“ klingt nach einer Richtung, deshalb sagen viele „to home“. Im Englischen heißt es „go home“ ohne „to“.",
+   "caption": "Sagen Sie „to home“? 🏠 Falsch: “I go to home.” Richtig: “I go home.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “home”. Richtig heißt es: “I go home.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "No “to” before “home”!",
+   "tip": "“Nach Hause” sounds like a direction, so many say “to home”. In English it is “go home” without “to”.",
+   "caption": "No “to” before “home”! Wrong: “I go to home.” Right: “I go home.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "„Nach Hause“ ohne „to“!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "„Nach Hause“ ohne „to“!",
+  "keyword": "I go home.",
+  "value": "„Nach Hause“ klingt nach einer Richtung, deshalb sagen viele „to home“. Im Englischen heißt es „go home“ ohne „to“.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "„Nach Hause“ ohne „to“!",
+    "description": "„Nach Hause“ klingt nach einer Richtung, deshalb sagen viele „to home“. Im Englischen heißt es „go home“ ohne „to“.\n\nSagen Sie „to home“? 🏠 Falsch: “I go to home.” Richtig: “I go home.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "I go home.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Sagen Sie „to home“? 🏠 Falsch: “I go to home.” Richtig: “I go home.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "„Nach Hause“ ohne „to“!\n\n„Nach Hause“ klingt nach einer Richtung, deshalb sagen viele „to home“. Im Englischen heißt es „go home“ ohne „to“.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "„Nach Hause“ ohne „to“! „Nach Hause“ klingt nach einer Richtung, deshalb sagen viele „to home“. Im Eng… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “home”. Richtig heißt es: “I go home.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

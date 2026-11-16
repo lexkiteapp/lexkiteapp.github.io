@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_afraid_of",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "I am afraid of dogs.",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have fear of dogs.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am afraid of dogs.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "To say fear, we use am afraid.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Am afraid! I am afraid of spiders.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have fear of dogs.",
+  "right": "I am afraid of dogs.",
+  "strike": "have fear",
+  "why": "To say fear, we use am afraid.",
+  "memory": "Fear: am afraid.",
+  "quiz": {
+   "stem": "I ___ of spiders.",
+   "options": [
+    "have fear",
+    "am afraid"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "« J’ai peur » : “I am afraid”",
+   "tip": "En français, on dit « J’ai peur » avec « avoir ». En anglais, on dit “I am afraid”, avec “be”.",
+   "caption": "Vous dites “I have fear of dogs.” ? En français, on dit « J’ai peur » avec « avoir ». En anglais, on dit “I am afraid”, avec “be”. Dites plutôt “I am afraid of dogs.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “I am afraid of dogs.” — En français, on dit « J’ai peur » avec « avoir ». En anglais, on dit “I am afraid”, avec “be”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “I am afraid”!",
+   "tip": "French says « J’ai peur » with « avoir ». English says “I am afraid”, with “be”.",
+   "caption": "Do you say this? “I have fear of dogs.” French says « J’ai peur » with « avoir ». English says “I am afraid”, with “be”. Say “I am afraid of dogs.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "« J’ai peur » : “I am afraid”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "« J’ai peur » : “I am afraid”",
+  "keyword": "I am afraid of dogs.",
+  "value": "En français, on dit « J’ai peur » avec « avoir ». En anglais, on dit “I am afraid”, avec “be”.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "« J’ai peur » : “I am afraid”",
+    "description": "En français, on dit « J’ai peur » avec « avoir ». En anglais, on dit “I am afraid”, avec “be”.\n\nVous dites “I have fear of dogs.” ? En français, on dit « J’ai peur » avec « avoir ». En anglais, on dit “I am afraid”, avec “be”. Dites plutôt “I am afraid of dogs.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "I am afraid of dogs.",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Vous dites “I have fear of dogs.” ? En français, on dit « J’ai peur » avec « avoir ». En anglais, on dit “I am afraid”, avec “be”. Dites plutôt “I am afraid of dogs.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "« J’ai peur » : “I am afraid”\n\nEn français, on dit « J’ai peur » avec « avoir ». En anglais, on dit “I am afraid”, avec “be”.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "« J’ai peur » : “I am afraid” En français, on dit « J’ai peur » avec « avoir ». En anglais, on dit “… #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “I am afraid of dogs.” — En français, on dit « J’ai peur » avec « avoir ». En anglais, on dit “I am afraid”, avec “be”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}

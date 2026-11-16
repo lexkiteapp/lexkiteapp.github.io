@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_bornon",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Born in a year!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I was born on 1995.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I was born in 1995.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Years use in.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "In! I was born in 2001.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I was born on 1995.",
+  "right": "I was born in 1995.",
+  "strike": "on",
+  "why": "Years use in.",
+  "memory": "I was born in 1995.",
+  "quiz": {
+   "stem": "I was born ___ 2001.",
+   "options": [
+    "on",
+    "in"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "born in + tahun",
+   "tip": "Kita bilang “lahir pada tahun 1995” dengan pada. Di bahasa Inggris, untuk tahun pakai in, bukan on.",
+   "caption": "Pernah bilang begini? “I was born on 1995.” 😅 Untuk tahun, pakai in: “I was born in 1995.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “in”. Ucapkan dengan lantang: “I was born in 1995.” lalu tulis tahun lahirmu dengan born in. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#angka",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Year = “in”",
+   "tip": "We say “lahir pada tahun 1995” with pada. In English, for a year use in, not on.",
+   "caption": "Ever say this? “I was born on 1995.” 😅 For a year, use in: “I was born in 1995.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "born in + tahun"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "born in + tahun",
+  "keyword": "I was born in 1995.",
+  "value": "Kita bilang “lahir pada tahun 1995” dengan pada. Di bahasa Inggris, untuk tahun pakai in, bukan on.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#angka",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "born in + tahun",
+    "description": "Kita bilang “lahir pada tahun 1995” dengan pada. Di bahasa Inggris, untuk tahun pakai in, bukan on.\n\nPernah bilang begini? “I was born on 1995.” 😅 Untuk tahun, pakai in: “I was born in 1995.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #angka #bahasainggris #lexkite",
+    "tags": [
+     "I was born in 1995.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “I was born on 1995.” 😅 Untuk tahun, pakai in: “I was born in 1995.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "born in + tahun\n\nKita bilang “lahir pada tahun 1995” dengan pada. Di bahasa Inggris, untuk tahun pakai in, bukan on.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#angka",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "born in + tahun Kita bilang “lahir pada tahun 1995” dengan pada. Di bahasa Inggris, untuk tahun pakai in,… #belajarbahasainggris #angka #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “in”. Ucapkan dengan lantang: “I was born in 1995.” lalu tulis tahun lahirmu dengan born in. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

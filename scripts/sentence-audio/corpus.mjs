@@ -8,7 +8,7 @@ export function collect() {
   const c = { self: {} }; c.self = c; vm.createContext(c);
   vm.runInContext(fs.readFileSync('web/js/listen/kvoice.js', 'utf8'), c);
   for (const f of dataFiles('listen', /^test\d+\.js$/)) vm.runInContext(fs.readFileSync(f, 'utf8'), c); // web/js/listen + web/cpack/listen
-  for (const f of fs.readdirSync('web/js/toeic').filter(f => /^listening\d+\.js$/.test(f)).sort()) vm.runInContext(fs.readFileSync('web/js/toeic/' + f, 'utf8'), c);
+  for (const f of dataFiles('toeic', /^listening\d+\.js$/)) vm.runInContext(fs.readFileSync(f, 'utf8'), c); // web/js/toeic + web/cpack/toeic (đề 8–10)
   for (const f of fs.readdirSync('web/cpack/toefl').filter(f => /^data\d+\.js$/.test(f))) vm.runInContext(fs.readFileSync('web/cpack/toefl/' + f, 'utf8'), c);
   // Cambridge A2–C2 (docs/specs/cambridge.md): mỗi unit nghe có speakers + script như TOEFL
   if (fs.existsSync('web/cpack/cambridge')) for (const l of fs.readdirSync('web/cpack/cambridge').filter(x => /^(a2|b1|b2|c1|c2)$/.test(x))) for (const f of fs.readdirSync('web/cpack/cambridge/' + l).filter(f => /^t\d+\.js$/.test(f))) vm.runInContext(fs.readFileSync(`web/cpack/cambridge/${l}/${f}`, 'utf8'), c);
@@ -31,12 +31,15 @@ export function collect() {
   }
   // Cuộc gọi Ama/Carlos (#/call, docs/CALL.md): mỗi câu giáo viên nói (câu hỏi, câu đáp nhánh, câu kết) 1 file theo giọng người gọi → sprite khớp môi đúng độ dài file
   {
-    for (const f of ['web/js/call/calls.js', 'web/js/call/calls-exam.js', 'web/js/call/calls-lot1.js', 'web/js/call/calls-lot2.js']) vm.runInContext(fs.readFileSync(f, 'utf8'), c);
+    for (const f of ['web/js/call/calls.js', 'web/js/call/calls-exam.js', 'web/js/call/calls-lot1.js', 'web/js/call/calls-lot2.js', 'web/cpack/call/calls-lot3.js', 'web/cpack/call/calls-lot4.js']) vm.runInContext(fs.readFileSync(f, 'utf8'), c);
     const V = { ama: 'af_heart', carlos: 'am_michael' };
     for (const k of c.CALLS || []) {
       const v = V[k.who] || V.ama, nodes = k.nodes ? Object.values(k.nodes) : (k.turns || []);
       for (const x of [...nodes.flatMap(n => [n.m, n.re, ...(n.br || []).map(b => b[1])]), k.end, "Let's keep our chat friendly and on topic!"]) if (x) { const key = c.KVoice.lineKey(v, x); jobs.set(key, { voice: v, text: String(x).trim() }); tag('calls', key); }
     }
+    // Call RT (docs/specs/call-realtime.md): câu đệm/backchannel theo đúng giọng từng giáo viên
+    vm.runInContext(fs.readFileSync('web/js/call/fillers.js', 'utf8'), c);
+    for (const [who, f] of Object.entries(c.CALL_FILLERS || {})) for (const x of [...f.ack, ...f.think]) jobs.set(c.KVoice.lineKey(V[who], x), { voice: V[who], text: x });
   }
   // Câu đọc đơn (UI.tts): giọng chung theo accent – câu hỏi giám khảo Speaking (Anh & Mỹ), TOEFL Listen & Repeat / Interview
   const GEN = { 'en-GB': 'bf_emma', 'en-US': 'af_heart' };
@@ -126,6 +129,8 @@ export function collect() {
     // Say it like a native (say.js: 🔊 = giọng giáo viên của loạt, UI.tts 'en-US' giọng nhân vật – cả câu như UI.tts tra trước)
     if (fs.existsSync('web/data/say.json')) { const V = { ama: 'af_heart', carlos: 'am_michael' };
       for (const s of JSON.parse(fs.readFileSync('web/data/say.json', 'utf8')).series || []) for (const it of s.items || []) oneSplit(V[s.teacher] || V.ama, it.say, 'say-native'); }
+    // Bảng động từ bất quy tắc (#/irregular): chuỗi 3 dạng + 2 câu ví dụ, theo accent người học (cpack/irregular/table.js, UI.tts)
+    if (fs.existsSync('web/js/irv/core.json')) for (const r of JSON.parse(fs.readFileSync('web/js/irv/core.json', 'utf8')).rows) for (const t of [r[10], r[5], r[6]]) bothSplit(t, 'irregular');
     // Ngân hàng ý tưởng Task 2 (ideas.js: câu ví dụ, nút data-saysent → theo accent người học)
     { const x = ctx(); L(x, 'web/cpack/write/ideas.js'); for (const tp of x.IDEAS || []) for (const iss of tp.issues || []) for (const it of [...(iss.for || []), ...(iss.against || [])]) for (const t of strs(it.ex)) bothSplit(t, 'ideas'); }
     // Ngữ pháp: mọi câu ví dụ (trường ex) trong web/js/grammar + web/cpack/grammar (bài tải lười); bỏ mục lục lazy-*.js

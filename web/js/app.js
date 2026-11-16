@@ -1,8 +1,7 @@
 /* Lexkite v2 – khung ứng dụng: router, trạng thái, trang chủ, thư viện, từ điển, sổ từ, tiến độ, cài đặt. */
 (function () {
   const { Store, SRS, Cards, Stats, Golden, DEFAULT_SETTINGS, todayKey, endOfToday, DAY } = Core;
-  // Chữ ligature phông icon không bao giờ lộ thành chữ thường (icon-flash, P1): phông Material Symbols khai báo trong CSS tải lười của từng màn → trên mạng chậm
-  // font-display:block hết 3 s rồi hiện chữ "dark_mode" tới khi phông về. Ẩn (trong suốt, rộng 1em) theo TỪNG họ phông cho tới khi FontFace của họ đó 'loaded'.
+  // Icon-flash (P1): phông Material Symbols khai báo trong CSS tải lười của từng màn; mạng chậm thì font-display:block hết 3 s rồi lộ chữ "dark_mode". Ẩn ligature theo TỪNG họ phông tới khi FontFace 'loaded'.
   (function iconGuard() {
     const F = document.fonts, h = document.documentElement; if (!F || !F.addEventListener) return;
     const fam = { o: 'Material Symbols Outlined', r: 'Material Symbols Rounded' }; h.classList.add('ic-wait-o', 'ic-wait-r');
@@ -301,6 +300,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     handsfree: ['words', 'tsl', 'voice', 'handsfree'],
     home: ['words', 'streak'],
     ideas: 'writing',
+    irregular: ['vcore', 'irregular'],
     league: 'league',
     lesson: 'lesson',
     letters: 'writing',
@@ -388,6 +388,8 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     espr: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-question.css', 'css/st-v2-feedback-correct.css', 'css/st-v2-feedback-wrong.css', 'css/st-v2-lesson-complete.css'],
     ghub: 'css/st-v2-grammar.css',
     goal: ['css/tactile-x.css', 'css/st-goal.css'],
+    irregular: 'css/st-v2-irregular.css',
+    irvdrill: 'css/st-v2-irregular-drill.css',
     league: 'css/league.css',
     lesson: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-question.css', 'css/st-v2-feedback-correct.css', 'css/st-v2-feedback-wrong.css', 'css/st-v2-lesson-complete.css', 'css/st-v2-story-duo.css'],
     listening: 'css/exam.css',
@@ -653,7 +655,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
   const notesFile = w => { const c = /^[a-z]/.test(w) ? w[0] : '_'; return notesCache[c] || (notesCache[c] = fetch(`js/notes/${c}.json`).then(r => r.ok ? r.json() : {}).catch(() => { delete notesCache[c]; return {}; })); };
   // 🧩 Bài học trộn (cờ lesson_mix: config công khai true/false; thử: localStorage lk.lesson=1; demo #/lesson?demo=1 luôn mở – docs/LESSON-ENGINE.md)
   // 🧭 UX1 "Một app duy nhất" (cờ ux1, mặc định TẮT – docs/LEARNING-PATH.md): 5 tab, trang chủ = bản đồ, Luyện gom mọi tính năng. Thử: localStorage lk.ux1=1 · xem trước 1 phiên: #/home?ux1=1
-  // Bật dần (như ret, docs/LEARNING-PATH.md §Phát hành): config ux1 '0' tắt khẩn / '1' bật hết > ux1_pct: nhóm lk.ub (0–99 ngẫu nhiên, cố định theo máy, tách lk.rb của ret) < ux1_pct (trống/0 = tắt). Chốt 1 lần/lượt tải trang → không đổi giao diện giữa chừng
+  // Bật dần (như ret, docs/LEARNING-PATH.md §Phát hành): ux1 "0" tắt / "1" bật hết / nhóm lk.ub < ux1_pct; chốt 1 lần/lượt tải
   // Đo D1/D7: App.ux1Arm() 'on' | 'off' (đối chứng cùng cỡ: lk.ub ∈ [50, 50+pct)) | '' → ux1Track gửi 1 lần/máy seen, d1 (chuỗi ≥ 2), d7 (chuỗi ≥ 7) → ext_events 'ux1:ux1_<arm>_<ev>' (functions/api/hit.js UX1_EV)
   const ux1Cfg = () => { try { return JSON.parse(localStorage.getItem('lk.cfg') || '{}').v || {}; } catch (e) { return {}; } };
   const ux1B = () => { try { let b = localStorage.getItem('lk.ub'); if (b == null || isNaN(+b) || +b < 0 || +b > 99) { b = String(Math.floor(Math.random() * 100)); localStorage.setItem('lk.ub', b); } return +b; } catch (e) { return 99; } };
@@ -1367,7 +1369,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     await saveSettings();
     if (!Store.sandbox) try { localStorage.setItem('lk.onb', '1'); } catch (e) { /* bỏ qua */ } // lk.onb = gợi ý về dữ liệu THẬT (khung chào, trang giới thiệu tự vào app) – phiên ?sandbox=1 không được ghi
     document.body.classList.remove('bare');
-    // Bỏ các mục lịch sử của từng bước (+ Welcome ngay trước đó): lùi tới mục đầu rồi THAY bằng trang đích, Back từ Hôm nay không đi qua thiết lập. welcomeGate thay; quá 500 ms mà không tới (đếm lệch, trình duyệt chặn) thì thay tại chỗ
+    // Bỏ mục lịch sử từng bước (+ Welcome): lùi tới mục đầu rồi THAY bằng trang đích; quá 500 ms không tới thì thay tại chỗ
     if (back) { setupTo = to; history.go(-back); setTimeout(() => { if (setupTo) { const x = setupTo; setupTo = ''; App.replaceHash(x); } }, 500); }
     else if (/^#\/welcome/.test(location.hash)) App.replaceHash(to); else location.hash = to;
     if (celebrate === true) { Sfx.win(); confetti(140); toast('🎉 ' + t('Bộ thẻ đã sẵn sàng – bắt đầu bài ôn đầu tiên nhé!'), 3500); }
@@ -1463,7 +1465,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     App.painted.then(() => idle(() => App.need('remind').then(() => Remind.start()).catch(() => {}))); // ⏰ nhắc học (js/remind.js, docs/REMINDERS.md)
     // Add-on: lấy sẵn vé người thật cho service worker (khách; docs/HUMAN.md)
     if (Store.isExtension) setTimeout(() => idle(() => { if (!(window.Sync && Sync.user)) UI.human().then(H => H && H.ticket()).catch(() => {}); }), 8000);
-    // Bàn phím ảo kiểu "resizes-visual" (iOS WKWebView, Chrome Android): viewport bố cục giữ nguyên, chỉ visualViewport thấp lại → trang không còn chỗ cuộn để đưa ô nhập lên trên bàn phím (mqa kbd-visual: practice/test ô #ans bị che). --kb = chiều cao bàn phím → html thêm đệm đáy đúng cỡ đó (style.css)
+    // Bàn phím ảo "resizes-visual" (iOS WKWebView, Chrome Android): --kb = cao bàn phím → html thêm đệm đáy (style.css), ô #ans không bị che
     if (window.visualViewport) { const vv = window.visualViewport, root = document.documentElement, kb = () => { const h = Math.max(0, Math.round(innerHeight - vv.height - vv.offsetTop)); root.style.setProperty('--kb', (h > 80 ? h : 0) + 'px'); }; vv.addEventListener('resize', kb); vv.addEventListener('scroll', kb); }
     netState(); setTimeout(showInstallBtn, 1500);
     document.addEventListener('visibilitychange', async () => { if (!document.hidden) { state.cards = await Cards.mine(); state.stats = await Stats.get(); state.game = await Game.get(); updateChrome(); } });
@@ -1539,7 +1541,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
         if (!replayed) { replayed = true; for (const [k, v] of Object.entries(qGet())) if (k !== sid) sendS(v); }
       }).catch(() => park(d));
     };
-    // Nguồn thật: vào /app/ thường đi qua trang tĩnh nên document.referrer là chính mình → mất Google/blog. Ưu tiên: nguồn ngoài trực tiếp → nguồn ngoài trang tĩnh ghi lại ≤ 30 phút (lk.src, site-layout SRC_JS) → site:<đoạn đường dẫn> (máy chủ lọc, xem _cpm.js normRef)
+    // Nguồn thật (referrer của /app/ là chính mình): nguồn ngoài trực tiếp → lk.src ≤ 30 phút (site-layout SRC_JS) → site:<đường dẫn> (_cpm.js normRef)
     const ref = (() => { try { const r = document.referrer, u = r && new URL(r); if (u && u.hostname !== location.hostname) return r; const o = JSON.parse(localStorage.getItem('lk.src') || '0'); if (o && o.h && Date.now() - o.t < 18e5) return 'https://' + o.h; if (u) { const a = u.pathname.split('/').filter(Boolean); return 'site:' + ((/^[a-z]{2}$/.test(a[0]) ? a[1] : a[0]) || ''); } } catch (e) { /* bỏ qua */ } return ''; })();
     // Phễu kênh (docs/specs/funnel.md): utm_source/medium/campaign + c (mã kênh/bài) hợp lệ → nhớ trên máy; gửi 1 lần ở beacon đầu phiên (máy chủ ghi lượt đầu của máy mới); fl = đã học xong bài đầu
     let atSent = 0; const at = (() => { try { const q = new URLSearchParams(location.search), o = {}, g = (k, j) => { const v = q.get(k); if (/^[\w.~-]{1,40}$/.test(v || '')) o[j] = v; }; g('utm_source', 's'); g('utm_medium', 'm'); g('utm_campaign', 'c'); g('c', 'k'); if (o.s || o.k) localStorage.setItem('lk.at', JSON.stringify(o)); return JSON.parse(localStorage.getItem('lk.at') || 'null') || undefined; } catch (e) { /* bỏ qua */ } })();

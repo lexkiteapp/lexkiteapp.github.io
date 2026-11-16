@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_myfriendandi",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "My friend and I!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I and my friend went to the park.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My friend and I went to the park.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "We put I last.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "My sister and I! My sister and I went home.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I and my friend went to the park.",
+  "right": "My friend and I went to the park.",
+  "strike": "I and my friend",
+  "why": "We put I last.",
+  "memory": "My friend and I.",
+  "quiz": {
+   "stem": "___ went home.",
+   "options": [
+    "I and my sister",
+    "My sister and I"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“I and my friend” का क्रम बदलें!",
+   "tip": "हिंदी में “मैं और मेरा दोस्त” कहकर अपने से शुरुआत होती है; अंग्रेज़ी में विनम्रता के लिए I को आख़िर में रखते हैं।",
+   "caption": "क्या आप भी यही कहते हैं? “I and my friend went to the park.” 😅 सही रूप है “My friend and I went to the park.” क्योंकि अंग्रेज़ी में I को आख़िर में रखते हैं। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “My sister and I”। अब इसी तरह अपना एक वाक्य लिखिए। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Change the order of “I and my frie",
+   "tip": "In Hindi, one starts with oneself by saying “Main aur mera dost”; In English, I is placed at the end for politeness.",
+   "caption": "Do you say this? “I and my friend went to the park.” 😅 The right way is “My friend and I went to the park.” This is right because we put I last. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“I and my friend” का क्रम बदलें!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 54,
+  "seconds": 32.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "“I and my friend” का क्रम बदलें!",
+  "keyword": "My friend and I went to the park.",
+  "value": "हिंदी में “मैं और मेरा दोस्त” कहकर अपने से शुरुआत होती है; अंग्रेज़ी में विनम्रता के लिए I को आख़िर में रखते हैं।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 48,
+  "platforms": {
+   "youtube": {
+    "title": "“I and my friend” का क्रम बदलें!",
+    "description": "हिंदी में “मैं और मेरा दोस्त” कहकर अपने से शुरुआत होती है; अंग्रेज़ी में विनम्रता के लिए I को आख़िर में रखते हैं।\n\nक्या आप भी यही कहते हैं? “I and my friend went to the park.” 😅 सही रूप है “My friend and I went to the park.” क्योंकि अंग्रेज़ी में I को आख़िर में रखते हैं। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "My friend and I went to the park.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी यही कहते हैं? “I and my friend went to the park.” 😅 सही रूप है “My friend and I went to the park.” क्योंकि अंग्रेज़ी में I को आख़िर में रखते हैं। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“I and my friend” का क्रम बदलें!\n\nहिंदी में “मैं और मेरा दोस्त” कहकर अपने से शुरुआत होती है; अंग्रेज़ी में विनम्रता के लिए I को आख़िर में रखते हैं।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“I and my friend” का क्रम बदलें! हिंदी में “मैं और मेरा दोस्त” कहकर अपने से शुरुआत होती है; अंग्रेज़ी म… #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “My sister and I”। अब इसी तरह अपना एक वाक्य लिखिए। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

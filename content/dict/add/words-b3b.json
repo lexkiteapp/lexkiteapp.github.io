@@ -1,0 +1,831 @@
+{
+ "irrelevant": {
+  "ipaUS": "/ɪˈreləvənt/",
+  "col": [
+   "irrelevant to the topic",
+   "completely irrelevant",
+   "an irrelevant question",
+   "irrelevant information",
+   "seem irrelevant",
+   "largely irrelevant"
+  ],
+  "syn": [
+   "unrelated",
+   "immaterial",
+   "beside the point"
+  ]
+ },
+ "kit": {
+  "ipaUS": "/kɪt/",
+  "col": [
+   "first-aid kit",
+   "tool kit",
+   "repair kit",
+   "sewing kit",
+   "a kit for beginners",
+   "training kit",
+   "sports kit"
+  ],
+  "syn": [
+   "set",
+   "equipment",
+   "gear"
+  ]
+ },
+ "lane": {
+  "ipaUS": "/leɪn/",
+  "col": [
+   "bus lane",
+   "bike lane",
+   "fast lane",
+   "change lanes",
+   "the left lane",
+   "a narrow lane",
+   "a four-lane highway"
+  ],
+  "syn": [
+   "track",
+   "path",
+   "strip"
+  ]
+ },
+ "lately": {
+  "ipaUS": "/ˈleɪtli/",
+  "col": [
+   "I have been busy lately",
+   "until lately",
+   "lately I have noticed",
+   "have you seen him lately",
+   "not much lately",
+   "feeling tired lately"
+  ],
+  "syn": [
+   "recently",
+   "of late",
+   "in recent days"
+  ]
+ },
+ "lawn": {
+  "ipaUS": "/lɔːn/",
+  "col": [
+   "mow the lawn",
+   "front lawn",
+   "water the lawn",
+   "a well-kept lawn",
+   "lawn mower",
+   "lawn chair"
+  ],
+  "syn": [
+   "grass",
+   "turf",
+   "green"
+  ]
+ },
+ "leak": {
+  "ipaUS": "/liːk/",
+  "col": [
+   "a gas leak",
+   "water leak",
+   "fix a leak",
+   "a leak in the roof",
+   "leak of information",
+   "a slow leak"
+  ],
+  "syn": [
+   "drip",
+   "hole",
+   "seepage"
+  ]
+ },
+ "lease": {
+  "ipaUS": "/liːs/",
+  "col": [
+   "sign a lease",
+   "renew a lease",
+   "a five-year lease",
+   "lease agreement",
+   "a lease on an office",
+   "break the lease"
+  ],
+  "syn": [
+   "rental agreement",
+   "contract",
+   "tenancy"
+  ]
+ },
+ "lifetime": {
+  "ipaUS": "/ˈlaɪftaɪm/",
+  "col": [
+   "lifetime warranty",
+   "once in a lifetime",
+   "in my lifetime",
+   "a lifetime achievement",
+   "lifetime membership",
+   "last a lifetime"
+  ],
+  "syn": [
+   "life",
+   "lifespan",
+   "existence"
+  ]
+ },
+ "loyal": {
+  "ipaUS": "/ˈlɔɪəl/",
+  "col": [
+   "loyal customer",
+   "loyal to the company",
+   "fiercely loyal",
+   "remain loyal",
+   "a loyal friend",
+   "loyal supporter"
+  ],
+  "syn": [
+   "faithful",
+   "devoted",
+   "dependable",
+   "committed"
+  ]
+ },
+ "loyalty": {
+  "ipaUS": "/ˈlɔɪəlti/",
+  "col": [
+   "customer loyalty",
+   "brand loyalty",
+   "loyalty program",
+   "loyalty to the company",
+   "show loyalty",
+   "a sense of loyalty"
+  ],
+  "syn": [
+   "allegiance",
+   "devotion",
+   "faithfulness"
+  ]
+ },
+ "machinery": {
+  "ipaUS": "/məˈʃiːnəri/",
+  "col": [
+   "heavy machinery",
+   "operate machinery",
+   "agricultural machinery",
+   "industrial machinery",
+   "a piece of machinery",
+   "machinery and equipment"
+  ],
+  "syn": [
+   "equipment",
+   "apparatus",
+   "plant"
+  ]
+ },
+ "malfunction": {
+  "ipaUS": "/mælˈfʌŋkʃən/",
+  "col": [
+   "equipment malfunction",
+   "technical malfunction",
+   "system malfunction",
+   "a malfunction in the engine",
+   "due to a malfunction",
+   "malfunction occurs"
+  ],
+  "syn": [
+   "failure",
+   "breakdown",
+   "fault",
+   "glitch"
+  ]
+ },
+ "maximize": {
+  "ipaUS": "/ˈmæksɪmaɪz/",
+  "col": [
+   "maximize profits",
+   "maximize efficiency",
+   "maximize the use of",
+   "maximize your chances",
+   "maximize potential",
+   "maximize revenue"
+  ],
+  "syn": [
+   "increase",
+   "boost",
+   "optimize",
+   "raise to the limit"
+  ]
+ },
+ "meaningful": {
+  "ipaUS": "/ˈmiːnɪŋfəl/",
+  "col": [
+   "meaningful work",
+   "meaningful discussion",
+   "a meaningful relationship",
+   "meaningful change",
+   "deeply meaningful",
+   "find it meaningful"
+  ],
+  "syn": [
+   "significant",
+   "purposeful",
+   "worthwhile",
+   "important"
+  ]
+ },
+ "meantime": {
+  "ipaUS": "/ˈmiːntaɪm/",
+  "col": [
+   "in the meantime",
+   "for the meantime",
+   "in the meantime, please wait",
+   "meantime arrangements",
+   "in the meantime, we suggest"
+  ],
+  "syn": [
+   "interim",
+   "interval",
+   "meanwhile"
+  ]
+ },
+ "meanwhile": {
+  "ipaUS": "/ˈmiːnwaɪl/",
+  "col": [
+   "meanwhile, back at the office",
+   "meanwhile elsewhere",
+   "meanwhile, the situation",
+   "and meanwhile",
+   "meanwhile in London",
+   "meanwhile, prices rose"
+  ],
+  "syn": [
+   "at the same time",
+   "in the meantime",
+   "simultaneously"
+  ]
+ },
+ "method": {
+  "ipaUS": "/ˈmeθəd/",
+  "col": [
+   "a teaching method",
+   "method of payment",
+   "an effective method",
+   "use a method",
+   "scientific method",
+   "a method for solving"
+  ],
+  "syn": [
+   "technique",
+   "approach",
+   "procedure",
+   "system"
+  ]
+ },
+ "mileage": {
+  "ipaUS": "/ˈmaɪlɪdʒ/",
+  "col": [
+   "high mileage",
+   "low mileage",
+   "fuel mileage",
+   "gas mileage",
+   "unlimited mileage",
+   "mileage allowance"
+  ],
+  "syn": [
+   "distance",
+   "miles traveled",
+   "fuel economy"
+  ]
+ },
+ "nationwide": {
+  "ipaUS": "/ˌneɪʃənˈwaɪd/",
+  "col": [
+   "nationwide campaign",
+   "nationwide search",
+   "nationwide delivery",
+   "nationwide survey",
+   "expand nationwide",
+   "available nationwide"
+  ],
+  "syn": [
+   "countrywide",
+   "national",
+   "across the country"
+  ]
+ },
+ "neat": {
+  "ipaUS": "/niːt/",
+  "col": [
+   "neat and tidy",
+   "neat handwriting",
+   "keep it neat",
+   "neat appearance",
+   "neat idea",
+   "neat solution"
+  ],
+  "syn": [
+   "tidy",
+   "orderly",
+   "well-organized",
+   "trim"
+  ]
+ },
+ "needy": {
+  "ipaUS": "/ˈniːdi/",
+  "col": [
+   "needy families",
+   "the needy",
+   "a needy child",
+   "emotionally needy",
+   "needy students",
+   "help the needy"
+  ],
+  "syn": [
+   "poor",
+   "deprived",
+   "impoverished",
+   "disadvantaged"
+  ]
+ },
+ "noon": {
+  "ipaUS": "/nuːn/",
+  "col": [
+   "at noon",
+   "by noon",
+   "around noon",
+   "noon deadline",
+   "high noon",
+   "before noon"
+  ],
+  "syn": [
+   "midday",
+   "twelve o'clock"
+  ]
+ },
+ "oblige": {
+  "ipaUS": "/əˈblaɪdʒ/",
+  "col": [
+   "oblige someone to do",
+   "much obliged",
+   "feel obliged",
+   "be obliged to",
+   "happy to oblige",
+   "legally obliged"
+  ],
+  "syn": [
+   "require",
+   "compel",
+   "force",
+   "accommodate"
+  ]
+ },
+ "officially": {
+  "ipaUS": "/əˈfɪʃəli/",
+  "col": [
+   "officially announced",
+   "officially open",
+   "officially confirmed",
+   "officially recognized",
+   "officially opened",
+   "officially speaking"
+  ],
+  "syn": [
+   "formally",
+   "publicly",
+   "legally"
+  ]
+ },
+ "outfit": {
+  "ipaUS": "/ˈaʊtfɪt/",
+  "col": [
+   "a casual outfit",
+   "wear an outfit",
+   "a matching outfit",
+   "a new outfit",
+   "wedding outfit",
+   "outfit for the party"
+  ],
+  "syn": [
+   "clothes",
+   "costume",
+   "ensemble",
+   "attire"
+  ]
+ },
+ "outlet": {
+  "ipaUS": "/ˈaʊtlet/",
+  "col": [
+   "retail outlet",
+   "electrical outlet",
+   "outlet store",
+   "an outlet for",
+   "media outlet",
+   "a power outlet"
+  ],
+  "syn": [
+   "store",
+   "socket",
+   "vent",
+   "channel"
+  ]
+ },
+ "outstanding": {
+  "ipaUS": "/aʊtˈstændɪŋ/",
+  "col": [
+   "outstanding performance",
+   "outstanding achievement",
+   "an outstanding balance",
+   "outstanding debt",
+   "outstanding issues",
+   "outstanding student"
+  ],
+  "syn": [
+   "excellent",
+   "exceptional",
+   "remarkable",
+   "unpaid"
+  ]
+ },
+ "pad": {
+  "ipaUS": "/pæd/",
+  "col": [
+   "a notepad",
+   "writing pad",
+   "a pad of paper",
+   "shoulder pads",
+   "launch pad",
+   "mouse pad"
+  ],
+  "syn": [
+   "notepad",
+   "cushion",
+   "cover"
+  ]
+ },
+ "physical": {
+  "ipaUS": "/ˈfɪzɪkəl/",
+  "col": [
+   "physical activity",
+   "physical health",
+   "physical exam",
+   "physical contact",
+   "physical therapy",
+   "physical strength"
+  ],
+  "syn": [
+   "bodily",
+   "tangible",
+   "material",
+   "corporeal"
+  ]
+ },
+ "pill": {
+  "ipaUS": "/pɪl/",
+  "col": [
+   "take a pill",
+   "sleeping pill",
+   "birth control pill",
+   "a pill for headaches",
+   "swallow a pill",
+   "vitamin pill"
+  ],
+  "syn": [
+   "tablet",
+   "capsule",
+   "medicine"
+  ]
+ },
+ "placement": {
+  "ipaUS": "/ˈpleɪsmənt/",
+  "col": [
+   "job placement",
+   "product placement",
+   "student placement",
+   "placement test",
+   "placement agency",
+   "work placement"
+  ],
+  "syn": [
+   "positioning",
+   "arrangement",
+   "location",
+   "assignment"
+  ]
+ },
+ "plow": {
+  "ipaUS": "/plaʊ/",
+  "col": [
+   "plow a field",
+   "snow plow",
+   "pull a plow",
+   "plow through",
+   "plow ahead",
+   "plow the road"
+  ],
+  "syn": [
+   "till",
+   "cultivate",
+   "furrow"
+  ]
+ },
+ "plug": {
+  "ipaUS": "/plʌɡ/",
+  "col": [
+   "plug in",
+   "plug into",
+   "pull the plug",
+   "plug a leak",
+   "a wall plug",
+   "plug the gap"
+  ],
+  "syn": [
+   "connect",
+   "stopper",
+   "cork",
+   "promote"
+  ]
+ },
+ "predict": {
+  "ipaUS": "/prɪˈdɪkt/",
+  "col": [
+   "predict the future",
+   "predict the outcome",
+   "accurately predict",
+   "predict that",
+   "hard to predict",
+   "predict a rise"
+  ],
+  "syn": [
+   "forecast",
+   "foresee",
+   "anticipate",
+   "project"
+  ]
+ },
+ "prescribe": {
+  "ipaUS": "/prɪˈskraɪb/",
+  "col": [
+   "prescribe medicine",
+   "prescribe antibiotics",
+   "prescribed by a doctor",
+   "prescribe a treatment",
+   "prescribed dose",
+   "prescribe a remedy"
+  ],
+  "syn": [
+   "recommend",
+   "order",
+   "advise",
+   "specify"
+  ]
+ },
+ "prestigious": {
+  "ipaUS": "/preˈstɪdʒəs/",
+  "col": [
+   "prestigious award",
+   "prestigious university",
+   "highly prestigious",
+   "a prestigious job",
+   "prestigious school",
+   "prestigious brand"
+  ],
+  "syn": [
+   "esteemed",
+   "respected",
+   "distinguished",
+   "high-profile"
+  ]
+ },
+ "preview": {
+  "ipaUS": "/ˈpriːvjuː/",
+  "col": [
+   "sneak preview",
+   "preview a document",
+   "a preview of",
+   "print preview",
+   "movie preview",
+   "exclusive preview"
+  ],
+  "syn": [
+   "trailer",
+   "sample",
+   "teaser",
+   "advance look"
+  ]
+ },
+ "productive": {
+  "ipaUS": "/prəˈdʌktɪv/",
+  "col": [
+   "productive meeting",
+   "highly productive",
+   "productive day",
+   "a productive discussion",
+   "productive worker",
+   "productive use of time"
+  ],
+  "syn": [
+   "efficient",
+   "fruitful",
+   "effective",
+   "constructive"
+  ]
+ },
+ "professional": {
+  "ipaUS": "/prəˈfeʃənəl/",
+  "col": [
+   "professional development",
+   "professional advice",
+   "a professional athlete",
+   "highly professional",
+   "professional standards",
+   "professional experience"
+  ],
+  "syn": [
+   "expert",
+   "qualified",
+   "skilled",
+   "competent"
+  ]
+ },
+ "prospective": {
+  "ipaUS": "/prəˈspektɪv/",
+  "col": [
+   "prospective client",
+   "prospective employee",
+   "prospective buyer",
+   "prospective student",
+   "prospective customers",
+   "prospective employer"
+  ],
+  "syn": [
+   "potential",
+   "likely",
+   "future",
+   "expected"
+  ]
+ },
+ "protective": {
+  "ipaUS": "/prəˈtektɪv/",
+  "col": [
+   "protective clothing",
+   "protective gear",
+   "protective equipment",
+   "protective of",
+   "protective layer",
+   "overly protective"
+  ],
+  "syn": [
+   "defensive",
+   "safeguarding",
+   "shielding",
+   "caring"
+  ]
+ },
+ "publish": {
+  "ipaUS": "/ˈpʌblɪʃ/",
+  "col": [
+   "publish a book",
+   "publish research",
+   "publish an article",
+   "recently published",
+   "publish online",
+   "published by"
+  ],
+  "syn": [
+   "release",
+   "issue",
+   "print",
+   "bring out"
+  ]
+ },
+ "ray": {
+  "ipaUS": "/reɪ/",
+  "col": [
+   "ray of light",
+   "X-ray",
+   "sun rays",
+   "a ray of hope",
+   "ultraviolet rays",
+   "gamma rays"
+  ],
+  "syn": [
+   "beam",
+   "shaft",
+   "streak"
+  ]
+ },
+ "react": {
+  "ipaUS": "/riˈækt/",
+  "col": [
+   "react to",
+   "react quickly",
+   "react badly",
+   "react strongly",
+   "react against",
+   "react angrily"
+  ],
+  "syn": [
+   "respond",
+   "reply",
+   "behave",
+   "answer"
+  ]
+ },
+ "rearrange": {
+  "ipaUS": "/ˌriːəˈreɪndʒ/",
+  "col": [
+   "rearrange the furniture",
+   "rearrange a meeting",
+   "rearrange the schedule",
+   "rearrange the order",
+   "rearrange the letters",
+   "rearrange the room"
+  ],
+  "syn": [
+   "reorganize",
+   "reschedule",
+   "reorder",
+   "reposition"
+  ]
+ },
+ "rebate": {
+  "ipaUS": "/ˈriːbeɪt/",
+  "col": [
+   "mail-in rebate",
+   "tax rebate",
+   "a rebate on",
+   "claim a rebate",
+   "cash rebate",
+   "rebate offer"
+  ],
+  "syn": [
+   "refund",
+   "discount",
+   "money back",
+   "reimbursement"
+  ]
+ },
+ "recipient": {
+  "ipaUS": "/rɪˈsɪpiənt/",
+  "col": [
+   "award recipient",
+   "email recipient",
+   "the recipient of",
+   "a grant recipient",
+   "intended recipient",
+   "transplant recipient"
+  ],
+  "syn": [
+   "receiver",
+   "beneficiary",
+   "addressee"
+  ]
+ },
+ "redesign": {
+  "ipaUS": "/ˌriːdɪˈzaɪn/",
+  "col": [
+   "redesign the website",
+   "redesign the logo",
+   "a complete redesign",
+   "redesign a product",
+   "redesign the layout",
+   "redesign process"
+  ],
+  "syn": [
+   "revamp",
+   "rework",
+   "remodel",
+   "overhaul"
+  ]
+ },
+ "relieve": {
+  "ipaUS": "/rɪˈliːv/",
+  "col": [
+   "relieve stress",
+   "relieve pain",
+   "relieve pressure",
+   "relieve the symptoms",
+   "relieved of duty",
+   "feel relieved"
+  ],
+  "syn": [
+   "ease",
+   "alleviate",
+   "soothe",
+   "lessen"
+  ]
+ },
+ "reluctant": {
+  "ipaUS": "/rɪˈlʌktənt/",
+  "col": [
+   "reluctant to",
+   "reluctant to admit",
+   "a reluctant agreement",
+   "reluctant participant",
+   "seem reluctant",
+   "reluctant to change"
+  ],
+  "syn": [
+   "unwilling",
+   "hesitant",
+   "disinclined",
+   "loath"
+  ]
+ }
+}

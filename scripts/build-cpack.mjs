@@ -30,7 +30,7 @@ while (todo.size) {
 }
 for (const [jf, t] of src) fs.writeFileSync(jf, t);
 const hashedSet = new Set(Object.values(manifest)), scan = [...src.entries(), ...Object.values(manifest).map(h => [path.join(root, h), fs.readFileSync(path.join(root, h), 'utf8')])];
-for (const [jf, t] of scan) for (const m of t.matchAll(/cpack\/[\w./-]+\.js/g)) if (!hashedSet.has(m[0])) errs.push(`${path.relative(root, jf)} trỏ tới ${m[0]} – không có trong web/cpack`);
+for (const [jf, t] of scan) for (const m of t.matchAll(/cpack\/[\w./-]+\.js\b/g)) if (!hashedSet.has(m[0])) errs.push(`${path.relative(root, jf)} trỏ tới ${m[0]} – không có trong web/cpack`);
 fs.writeFileSync(path.join(cdir, 'manifest.json'), JSON.stringify(manifest, null, 1) + '\n');
 if (errs.length) { console.error('✗ cpack:\n  - ' + errs.join('\n  - ')); process.exit(1); }
 console.log(`✓ cpack: ${Object.keys(manifest).length} gói đặt tên theo mã băm (immutable)`);

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_didntgo",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Didn't went?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I didn't went to school yesterday.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I didn't go to school yesterday.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After didn't, use the basic verb.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Go! I didn't go to school yesterday.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I didn't went to school yesterday.",
+  "right": "I didn't go to school yesterday.",
+  "strike": "went",
+  "why": "After didn't, use the basic verb.",
+  "memory": "I didn't go to school yesterday.",
+  "quiz": {
+   "stem": "I didn't ___ there.",
+   "options": [
+    "went",
+    "go"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "「didn't went」と言ってない？",
+   "tip": "didn't のあとの動詞は元の形に戻します。didn't go です。",
+   "caption": "“I didn't went to school yesterday.”と言っていませんか？😅 日本語は「行かなかった」のように動詞そのものに過去の形がつくので、英語でも went を使いがちです。“I didn't go to school yesterday.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“go”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “didn't went”?",
+   "tip": "After didn't, use go, not went.",
+   "caption": "Do you say this? “I didn't went to school yesterday.” 😅 In Japanese the verb itself shows the past, so people keep went. The natural way is “I didn't go to school yesterday.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "「didn't went」と言ってない？"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "「didn't went」と言ってない？",
+  "keyword": "I didn't go to school yesterday.",
+  "value": "didn't のあとの動詞は元の形に戻します。didn't go です。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "「didn't went」と言ってない？",
+    "description": "didn't のあとの動詞は元の形に戻します。didn't go です。\n\n“I didn't went to school yesterday.”と言っていませんか？😅 日本語は「行かなかった」のように動詞そのものに過去の形がつくので、英語でも went を使いがちです。“I didn't go to school yesterday.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "I didn't go to school yesterday.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“I didn't went to school yesterday.”と言っていませんか？😅 日本語は「行かなかった」のように動詞そのものに過去の形がつくので、英語でも went を使いがちです。“I didn't go to school yesterday.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "「didn't went」と言ってない？\n\ndidn't のあとの動詞は元の形に戻します。didn't go です。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「didn't went」と言ってない？ didn't のあとの動詞は元の形に戻します。didn't go です。 #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“go”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_thankgod",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Thanks God? Thank God!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am fine, thanks God.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am fine, thank God.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "We say thank God.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! Thank God.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am fine, thanks God.",
+  "right": "I am fine, thank God.",
+  "strike": "thanks",
+  "why": "We say thank God.",
+  "memory": "Thank God.",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "Thanks God.",
+    "Thank God."
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "هل تقول “thanks God”؟",
+   "tip": "نترجم «الحمد لله» حرفيًا، لكن العبارة المعتادة هي thank God: “I am fine, thank God.” وليس “I am fine, thanks God.”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “I am fine, thanks God.” 😅 نترجم «الحمد لله» حرفيًا، لكن العبارة المعتادة هي thank God، فالجملة الصحيحة “I am fine, thank God.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “thank” — نترجم «الحمد لله» حرفيًا، لكن العبارة المعتادة هي thank God. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “thanks God”?",
+   "tip": "We translate «الحمد لله» word by word, but the usual phrase is thank God: “I am fine, thank God.” not “I am fine, thanks God.”",
+   "caption": "Do you sometimes say this? “I am fine, thanks God.” 😅 We translate «الحمد لله» word by word, but the usual phrase is thank God, so the right sentence is “I am fine, thank God.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “thanks God”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "هل تقول “thanks God”؟",
+  "keyword": "I am fine, thank God.",
+  "value": "نترجم «الحمد لله» حرفيًا، لكن العبارة المعتادة هي thank God: “I am fine, thank God.” وليس “I am fine, thanks God.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “thanks God”؟",
+    "description": "نترجم «الحمد لله» حرفيًا، لكن العبارة المعتادة هي thank God: “I am fine, thank God.” وليس “I am fine, thanks God.”\n\nهل تقول أحيانًا هذه الجملة؟ “I am fine, thanks God.” 😅 نترجم «الحمد لله» حرفيًا، لكن العبارة المعتادة هي thank God، فالجملة الصحيحة “I am fine, thank God.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "I am fine, thank God.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا هذه الجملة؟ “I am fine, thanks God.” 😅 نترجم «الحمد لله» حرفيًا، لكن العبارة المعتادة هي thank God، فالجملة الصحيحة “I am fine, thank God.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول “thanks God”؟\n\nنترجم «الحمد لله» حرفيًا، لكن العبارة المعتادة هي thank God: “I am fine, thank God.” وليس “I am fine, thanks God.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “thanks God”؟ نترجم «الحمد لله» حرفيًا، لكن العبارة المعتادة هي thank God: “I am fine, th… #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “thank” — نترجم «الحمد لله» حرفيًا، لكن العبارة المعتادة هي thank God. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+  "lang": "ar"
+ }
+}

@@ -16,15 +16,15 @@
   "Passage 3": 140
  },
  "TOEIC Reading": {
-  "Part 5": 210,
-  "Part 6": 112,
-  "Part 7": 378
+  "Part 5": 300,
+  "Part 6": 160,
+  "Part 7": 540
  },
  "TOEIC Listening": {
-  "Part 1": 42,
-  "Part 2": 175,
-  "Part 3": 273,
-  "Part 4": 210
+  "Part 1": 60,
+  "Part 2": 250,
+  "Part 3": 390,
+  "Part 4": 300
  },
  "TOEIC Speaking & Writing": {
   "read": 12,
@@ -37,24 +37,24 @@
   "picture-sentence": 8
  },
  "TOEFL Reading": {
-  "Complete the Words": 120,
-  "daily": 60,
-  "academic": 120
+  "Complete the Words": 200,
+  "daily": 100,
+  "academic": 200
  },
  "TOEFL Listening": {
-  "response": 48,
-  "conversation": 80,
-  "announcement": 59,
-  "talk": 95
+  "response": 80,
+  "conversation": 132,
+  "announcement": 99,
+  "talk": 159
  },
  "TOEFL Writing": {
-  "sentence": 60,
-  "email": 22,
-  "discussion": 22
+  "sentence": 100,
+  "email": 30,
+  "discussion": 30
  },
  "TOEFL Speaking": {
-  "repeat": 119,
-  "interview": 64
+  "repeat": 175,
+  "interview": 96
  },
  "Ngữ pháp – trắc nghiệm": {
   "A2": 168,
