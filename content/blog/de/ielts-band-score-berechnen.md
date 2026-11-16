@@ -9,7 +9,7 @@ tags: [ielts, band-score, scoring, strategy]
 keyword: "ielts band score berechnen"
 cover: mock
 coverAlt: "Lexkite Bildschirm für den IELTS-Probetest mit den vier Fertigkeiten Listening, Reading, Writing und Speaking sowie dem Verlauf früherer Versuche"
-publishAt:
+publishAt: 2027-01-07T12:01:00+01:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

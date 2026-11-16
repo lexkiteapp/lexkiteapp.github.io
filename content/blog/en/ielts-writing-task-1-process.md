@@ -9,7 +9,7 @@ tags: [ielts, writing, task-1, process-diagram, passive-voice]
 keyword: "ielts writing task 1 process"
 cover: write
 coverAlt: "Lexkite Writing room with prompts and a planning frame for a report"
-publishAt:
+publishAt: 2027-02-20T08:40:00+05:30
 factChecked: 2026-11-15
 author: Lexkite
 status: ready

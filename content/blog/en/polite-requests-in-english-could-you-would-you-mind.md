@@ -22,6 +22,7 @@ diagrams: [
   {id: d1, type: compare, title: 'From blunt to very polite', cols: ['Blunt', 'Polite', 'Very polite'], rows: [['Give me the report.', 'Could you send me the report?', 'I was wondering if you could send me the report.'], ['Open the window.', 'Would you mind opening the window?', 'Sorry to ask, but could we possibly open the window?'], ['I want you to check this.', 'Could you check this for me?', 'Would it be possible for you to check this when you have a moment?'], ['Wait here.', 'Could you wait here, please?', 'Would you mind waiting here for a moment?']]},
   {id: d2, type: boxes, title: 'Build a polite request in four parts', parts: [{t: 'Soft opener', r: 'Sorry to bother you, but'}, {t: 'Polite frame', r: 'could you / would you mind'}, {t: 'The request', r: 'sending me the file'}, {t: 'Softener or reason', r: 'when you get a chance? I need it for a call.'}]}
 ]
+publishAt: 2027-02-24T08:51:00+05:30
 ---
 
 **Polite requests in English** are built from a few reliable frames: *Could you…?*, *Would you mind + -ing?*, and *I was wondering if you could…*. Use them with a calm tone, a small softener such as *just* or *when you get a chance*, and a short reason, and you will sound respectful without sounding stiff.

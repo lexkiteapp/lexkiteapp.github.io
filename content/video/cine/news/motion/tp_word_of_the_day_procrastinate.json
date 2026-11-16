@@ -1,0 +1,260 @@
+{
+ "id": "mo_tp_word_of_the_day_procrastinate",
+ "template": "word-of-the-day",
+ "title": "Motion word-of-the-day – word-of-the-day: procrastinate (tp_word_of_the_day_procrastinate)",
+ "teacher": "carlos",
+ "clips": [
+  "gc11_talk",
+  "gc11_explain",
+  "gc11_happy",
+  "gc11_thinking",
+  "gc11_surprise_2"
+ ],
+ "listen": [
+  "gc11_listen"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy",
+ "active": "yellow",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "word-of-the-day",
+  "link": "https://lexkite.com/app/",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Word Of The Day",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "Wait, procrastinate?",
+   "gap": 0.7
+  },
+  {
+   "id": "s0",
+   "text": "My teacher says I procrastinate. Is that bad?",
+   "gap": 0.7
+  },
+  {
+   "id": "s1",
+   "text": "procrastinate means to keep putting things off.",
+   "gap": 0.7
+  },
+  {
+   "id": "s2",
+   "text": "If I procrastinate, I end up studying all night.",
+   "gap": 0.7
+  },
+  {
+   "id": "t",
+   "text": "Tip: it comes from Latin. Cras means tomorrow, so don't push it to tomorrow!",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "Wait,",
+      "white"
+     ]
+    ],
+    [
+     [
+      "procrastinate?",
+      "yellow"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Word of the day",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "Wait,"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "procrastinate?"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "sum",
+    "at": [
+     "t",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Tip",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "it comes from Latin. Cras means tomorrow, so don't"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "rules",
+    "at": [
+     "s1",
+     0
+    ],
+    "rows": [
+     {
+      "t": "tile",
+      "tag": "MEANING",
+      "tone": "teal",
+      "lines": [
+       [
+        [
+         "to keep putting things off",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "procrastinate",
+        "teal"
+       ]
+      ],
+      "ex_at": [
+       "s1",
+       0
+      ],
+      "at": [
+       "s1",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "EXAMPLE",
+      "tone": "gold",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "If I procrastinate, I end up studying all",
+        "gold"
+       ]
+      ],
+      "ex_at": [
+       "s2",
+       0
+      ],
+      "at": [
+       "s2",
+       0
+      ]
+     }
+    ]
+   }
+  ],
+  "hook_text": "Wait, procrastinate?",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ },
+ "uses": {
+  "template": "word-of-the-day",
+  "row": "tp_word_of_the_day_procrastinate",
+  "teacher": "carlos",
+  "accent": "navy",
+  "active": "yellow",
+  "tones": 0
+ }
+}

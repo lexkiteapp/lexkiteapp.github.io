@@ -9,7 +9,7 @@ tags: [toeic, listening, part-1, photographs]
 keyword: "toeic part 1 fotos"
 cover: toeic
 coverAlt: "TOEIC-Bereich in Lexkite mit Probetests und Übungen nach Teilen"
-publishAt:
+publishAt: 2027-01-18T21:40:00+01:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
