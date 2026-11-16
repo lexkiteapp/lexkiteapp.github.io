@@ -160,6 +160,8 @@ IELTS 스피킹 시험에서는 *run into*, *come across*와 같은 자연스러
 
 {{cta: /#/practice/learn | Lexkite Smart Learn으로 필수 영어 구동사 완벽 마스터하기}}
 
+구동사가 시험 문제로 어떻게 출제되는지는 [케임브리지 B2 First 시험 구성](/ko/blog/cambridge-b2-first-sihom-guseong-fce/) 글의 파트 1 설명을 참고하세요.
+
 ## 자주 묻는 질문 (FAQ)
 
 ### 구동사를 외울 때 사전 순서대로 외우면 왜 효과가 떨어지나요?

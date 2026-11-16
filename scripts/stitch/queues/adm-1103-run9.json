@@ -1,0 +1,25 @@
+[
+ {
+  "id": "adm-ads",
+  "mode": "light",
+  "kind": "gen",
+  "device": "DESKTOP",
+  "prompt": "The private Lexkite admin console (Vietnamese labels) used by the small team running Lexkite, a free English-learning app. Feel: calm, confident and premium, data-dense yet airy, as polished as the very best modern SaaS dashboards; built on the Lexkite Kit design system: deep teal brand, one warm coral primary action per view, soft cream light theme (\"Bright Day\"), rounded tactile cards with a gentle ledge, friendly but grown-up. Rules: every word clearly readable with strong contrast against its own background; no text truncated, clipped or spilling outside its card or table cell; long labels wrap neatly instead of being cut; table numbers right-aligned in their own columns; comfortably large click targets; no photos of real people anywhere (initials avatars or simple flat 2D illustrated icons only); no lorem ipsum; only modest honest sample numbers that fit a young app (a few to a few hundred visitors per day); no invented features, revenue figures, follower counts or growth claims. Wide desktop web layout. Left sidebar with the Lexkite kite logo and nav groups: Tổng quan (Tổng quan, Phân tích, Quảng cáo) · Người dùng (Người dùng, Hộp thư, Thông báo) · Chất lượng (Cảnh báo, Báo lỗi, Chất lượng) · Nội dung & Video (Kênh & phân phối, Video & Social, Video Studio, Trung tâm video, Backlink & PR) · Hệ thống (Hạn mức, Kho Drive, Khóa API, Dịch vụ & API, Lưu trữ) · Cài đặt. Slim top bar with the page title, a command search field showing \"Ctrl K\", a small VI | EN switch and the admin's initials avatar. Sidebar item Quảng cáo selected. Screen: Admin › Quảng cáo – per-platform ad flags, emergency kill switch, estimated revenue, frequency caps, retention guard and consent by region. A prominent \"Công tắc khẩn cấp\" card with one big tactile toggle (all ads off). A table of platforms (Web, PWA, Add-on Chrome, iOS, Android) with toggle columns Banner / Xen kẽ / Có thưởng. A \"Doanh thu ước tính · 7 ngày\" card clearly labelled as an estimate with a small honest amount in USD and a mini bar chart. \"Tần suất\" card with steppers (tối đa mỗi giờ, khoảng cách giữa 2 quảng cáo). \"Cổng giữ chân\" card: no ads for new learners during their first days, with a stepper. \"Đồng ý theo vùng\" card with region chips (EEA, UK, California) and consent-mode status. Layout: the page must fit a 1280-wide browser window with zero horizontal scroll (flexible widths, nothing wider than the window); every sidebar nav item, tab, chip, table action and icon button at least 44 px tall; every text at least 4.5:1 contrast – small helper text uses the main ink colour, not faint grey; only valid Material Symbols icon names."
+ },
+ {
+  "id": "adm-ads",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "DESKTOP",
+  "from": "adm-ads/light",
+  "prompt": "Convert this exact screen to the dark theme (\"Tactile Night\"): deep teal-black page background, cards, table rows and inputs one step lighter dark surfaces; NO white, cream or light-grey panels, chips, buttons, inputs or tooltips left anywhere; all text light and high-contrast; teal accents brightened for dark; coral primary button kept with a dark readable label; bars, maps and charts stay clearly visible. Keep layout, content and size identical. Keep exactly the same content and the 1280-wide fit."
+ },
+ {
+  "id": "adm-analytics-m",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "adm-analytics-m/light",
+  "prompt": "Convert this exact screen to the dark theme (\"Tactile Night\"): deep teal-black page background, cards, table rows and inputs one step lighter dark surfaces; NO white, cream or light-grey panels, chips, buttons, inputs or tooltips left anywhere; all text light and high-contrast; teal accents brightened for dark; coral primary button kept with a dark readable label; bars, maps and charts stay clearly visible. Keep layout, content and size identical. Keep exactly the same sections, texts and numbers as this light screen and the narrow phone canvas."
+ }
+]
