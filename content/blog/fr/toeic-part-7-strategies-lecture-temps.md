@@ -22,6 +22,8 @@ En prolongeant les principes exposés dans [toeic listening reading astuces](/fr
 
 ---
 
+Pour replacer la partie 7 dans l'ensemble du test, consultez [le format du TOEIC : les 7 parties, la durée et le score](/fr/blog/format-toeic-7-parties-duree-score/).
+
 ## Anatomie du TOEIC Part 7 : Architecture textuelle et enjeux stratégiques
 
 Au cours des 75 minutes allouées à la section Reading, la Partie 7 démarre immédiatement après la Partie 5 (30 phrases à compléter) et la Partie 6 (16 questions de texte à trous). Les supports reproduisent fidèlement la correspondance professionnelle du monde de l'entreprise : courriels, mémos internes, communiqués de presse, offres d'emploi, factures commerciales, formulaires de commande et discussions instantanées à plusieurs intervenants.

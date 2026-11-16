@@ -14,7 +14,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `.github/workflows/` (220 file): CI/CD + việc nền theo lịch (xem mục Workflows)
 - `infra/` (11 file): Sổ hạ tầng JSON: resources, jobs (nguồn của docs/JOBS.md), media-repos, schema.lock
 - `brand/` (1878 file): tokens.json (màu), logo, stitch/ (ref + DTCG), library/ (kho cảnh/clip video)
-- `content/` (4217 file): Nội dung nguồn: blog, authority, dict, confidence, explain, brand (dữ liệu lớn – bỏ khỏi map)
+- `content/` (4234 file): Nội dung nguồn: blog, authority, dict, confidence, explain, brand (dữ liệu lớn – bỏ khỏi map)
 - `mobile/` (216 file): Capacitor iOS/Android (ios/ android/ bỏ khỏi map)
 - `store/` (46 file): Hồ sơ listing Chrome/Edge/Apple/Play
 - `docs/` (247 file): Luật + tài liệu chủ đề (docs/README.md → INDEX.md); lịch sử ở docs/archive
@@ -158,7 +158,6 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `mobile/android`: android-ime android-xml-comments token-contrast
 - `content/dict`: dict-add dict-enrich
 - `content/framework`: grammar-inventory lkf
-- `content/lexicon`: bot-test-gate vocab-img-strict
 - `scripts/audio`: audio-loudness tts-sites
 - `scripts/cine`: publish-meta whisper-det
 - `scripts/content-qa`: content-qa sense-check
@@ -171,6 +170,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `content`: samples-seo-parity
 - `content/legal`: legal-i18n
 - `content/lesson`: learnability
+- `content/lexicon`: vocab-img-strict
 - `content/protection`: commit-regen
 - `content/qa`: vimg-watch
 - `content/seo`: words-r2-fn
@@ -199,6 +199,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `web/blog`: quiz
 - `web/data`: lesson-embed-e2e
 - `web/go`: go-landing
+- `web/i18n`: bot-test-gate
 - `web/icons`: ext-e2e
 - `web/img`: toeic-photos
 - `workers/cronkick`: cron-kick
@@ -206,6 +207,6 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `workers/mail`: mail-prefs
 - `workers/push`: fcm-push
 
-## Mô-đun JS chính (3/2356, ngoài god nodes; phần còn lại trong json) – tên: export →nạp/import ←số nơi dùng
-- `scripts/lib/` blog-content.mjs: ROOT,CATEGORIES,config,parse,setField… →blog-images.mjs,url-guard.mjs ←14 (blog-captions.mjs,blog-check.mjs,blog-due.mjs) · site-layout.mjs: EXT_STORE,EXT_JS,GETAPP_JS,LSW_CSS,LSW_JS… →authority-links.mjs,samples-visual.mjs,seo-pages-i18n.mjs ←15 (build-authority.mjs,build-blog.mjs,build-go.mjs)
-- `scripts/target/` lib.mjs: ROOT,MEAN_LANGS,POS,seedPath,coreFiles… →i18n-rules.mjs ←14 (grammar-map-check.mjs,build.mjs,calls-check.mjs)
+## Mô-đun JS chính (4/2356, ngoài god nodes; phần còn lại trong json) – tên: export →nạp/import ←số nơi dùng
+- `scripts/lib/` blog-content.mjs: ROOT,CATEGORIES,config,parse,setField… →blog-images.mjs,url-guard.mjs ←14 (blog-captions.mjs,blog-check.mjs,blog-due.mjs) · is-main.mjs: isMain →- ←14 (build-hash.mjs,creds.mjs,cutover.mjs) · site-layout.mjs: EXT_STORE,EXT_JS,GETAPP_JS,LSW_CSS,LSW_JS… →authority-links.mjs,samples-visual.mjs,seo-pages-i18n.mjs ←15 (build-authority.mjs,build-blog.mjs,build-go.mjs)
+- `web/js/` anki.js: default →app.js,sync.js ←1 (app.js)
