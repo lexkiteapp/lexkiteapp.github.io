@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_havecoffee",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Take a coffee? Not quite!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Let's take a coffee after class.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Let's have a coffee after class.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "We have coffee, we do not take it.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! Let's have a beer tonight.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Let's take a coffee after class.",
+  "right": "Let's have a coffee after class.",
+  "strike": "take a coffee",
+  "why": "We have coffee, we do not take it.",
+  "memory": "Have a coffee.",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "Let's take a beer tonight.",
+    "Let's have a beer tonight."
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Você diz “take a coffee”?",
+   "tip": "Para tomar um café ou uma bebida, o inglês usa “have”: “have a coffee”.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “Let's take a coffee after class.” O certo é “Let's have a coffee after class.” Em português dizemos “tomar um café”, mas em inglês dizemos “have a coffee”. Ouça a Ama e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “Let's have a beer tonight.” Agora escreva uma frase sua com esse ponto e treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “take a coffee”?",
+   "tip": "For a coffee or a drink, English uses “have”: “have a coffee”.",
+   "caption": "Watch out for this common mistake! Many people say “Let's take a coffee after class.” The right way is “Let's have a coffee after class.” In Portuguese we say “tomar um café”, but in English you “have” a coffee. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Você diz “take a coffee”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "Você diz “take a coffee”?",
+  "keyword": "Let's have a coffee after class.",
+  "value": "Para tomar um café ou uma bebida, o inglês usa “have”: “have a coffee”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 46,
+  "platforms": {
+   "youtube": {
+    "title": "Você diz “take a coffee”?",
+    "description": "Para tomar um café ou uma bebida, o inglês usa “have”: “have a coffee”.\n\nCuidado com este erro comum! 😬 Muita gente diz “Let's take a coffee after class.” O certo é “Let's have a coffee after class.” Em português dizemos “tomar um café”, mas em inglês dizemos “have a coffee”. Ouça a Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "Let's have a coffee after class.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “Let's take a coffee after class.” O certo é “Let's have a coffee after class.” Em português dizemos “tomar um café”, mas em inglês dizemos “have a coffee”. Ouça a Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Você diz “take a coffee”?\n\nPara tomar um café ou uma bebida, o inglês usa “have”: “have a coffee”.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Você diz “take a coffee”? Para tomar um café ou uma bebida, o inglês usa “have”: “have a coffee”. #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “Let's have a beer tonight.” Agora escreva uma frase sua com esse ponto e treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

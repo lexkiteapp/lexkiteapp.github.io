@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_so_delicious",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Is too a good word here?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: This soup is too delicious.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: This soup is so delicious.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Too means more than you want.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "So! The cake is so good!",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "This soup is too delicious.",
+  "right": "This soup is so delicious.",
+  "strike": "too",
+  "why": "Too means more than you want.",
+  "memory": "Too is bad. So is great.",
+  "quiz": {
+   "stem": "The cake is ___ good!",
+   "options": [
+    "so",
+    "too"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Khen ngon: “too” hay “so”?",
+   "tip": "Tiếng Việt “quá” có thể là lời khen, nhưng “too” trong tiếng Anh nghĩa là “nhiều quá mức.” Khen thì dùng “so.”",
+   "caption": "Bạn có hay nói “This soup is too delicious.” không? 😅 Để khen, hãy dùng “so”, không dùng “too”: “This soup is so delicious.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “so.” Hãy nói to một câu khen món ăn bạn thích với “so.” Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#tuvungtienganh",
+    "#nguphaptienganh",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Is it “too” or “so”?",
+   "tip": "In Vietnamese, “too” can be a compliment, but “too” in English means “too much.” When praising, use “so.”",
+   "caption": "Do you often say this? “This soup is too delicious.” To praise, use “so”, not “too”: “This soup is so delicious.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Khen ngon: “too” hay “so”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Khen ngon: “too” hay “so”?",
+  "keyword": "This soup is so delicious.",
+  "value": "Tiếng Việt “quá” có thể là lời khen, nhưng “too” trong tiếng Anh nghĩa là “nhiều quá mức.” Khen thì dùng “so.”",
+  "hashtags": [
+   "#hoctienganh",
+   "#tuvungtienganh",
+   "#nguphaptienganh",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "Khen ngon: “too” hay “so”?",
+    "description": "Tiếng Việt “quá” có thể là lời khen, nhưng “too” trong tiếng Anh nghĩa là “nhiều quá mức.” Khen thì dùng “so.”\n\nBạn có hay nói “This soup is too delicious.” không? 😅 Để khen, hãy dùng “so”, không dùng “too”: “This soup is so delicious.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #tuvungtienganh #nguphaptienganh #lexkite",
+    "tags": [
+     "This soup is so delicious.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “This soup is too delicious.” không? 😅 Để khen, hãy dùng “so”, không dùng “too”: “This soup is so delicious.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Khen ngon: “too” hay “so”?\n\nTiếng Việt “quá” có thể là lời khen, nhưng “too” trong tiếng Anh nghĩa là “nhiều quá mức.” Khen thì dùng “so.”\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#tuvungtienganh",
+     "#nguphaptienganh",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Khen ngon: “too” hay “so”? Tiếng Việt “quá” có thể là lời khen, nhưng “too” trong tiếng Anh nghĩa là “n… #hoctienganh #tuvungtienganh #nguphaptienganh"
+   }
+  },
+  "first_comment": "Đáp án: “so.” Hãy nói to một câu khen món ăn bạn thích với “so.” Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

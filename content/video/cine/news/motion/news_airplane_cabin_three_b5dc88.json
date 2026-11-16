@@ -1,0 +1,297 @@
+{
+ "id": "mo_news_airplane_cabin_three_b5dc88",
+ "template": "tip",
+ "title": "News Motion – on the plane: could I get, mind switching seats, overhead bin (news_airplane_cabin_three_b5dc88)",
+ "teacher": "ama",
+ "clips": [
+  "ga11_talk",
+  "ga11_explain",
+  "ga11_happy",
+  "ga11_thinking",
+  "ga11_surprise_3"
+ ],
+ "listen": [
+  "ga11_listen_2"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy2",
+ "active": "mint",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Travel English",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "Flying somewhere soon?"
+  },
+  {
+   "id": "t0",
+   "text": "Could I get some water, please?",
+   "gap": 0.7
+  },
+  {
+   "id": "t1",
+   "text": "Sure, here you go.",
+   "gap": 0.7
+  },
+  {
+   "id": "t2",
+   "text": "Would you mind switching seats?",
+   "gap": 0.7
+  },
+  {
+   "id": "t3",
+   "text": "Not at all. Go ahead.",
+   "gap": 0.7
+  },
+  {
+   "id": "t4",
+   "text": "Is there room in the overhead bin?",
+   "gap": 0.7
+  },
+  {
+   "id": "t5",
+   "text": "Yes, right above you.",
+   "gap": 0.7
+  },
+  {
+   "id": "r",
+   "text": "Teacher's tip: save these three phrases today.",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "FLYING SOON?",
+      "white"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Travel English · On the plane",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "FLYING SOON?"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "sum",
+    "at": [
+     "r",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Remember",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "Could I get some water?",
+        "gold"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "Would you mind switching seats?",
+        "teal"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "Is there room in the overhead bin?",
+        "coral"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "rules",
+    "at": [
+     "t0",
+     0
+    ],
+    "rows": [
+     {
+      "t": "tile",
+      "tag": "PHRASE 1",
+      "tone": "gold",
+      "lines": [
+       [
+        [
+         "ask the flight attendant",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "Could I get some water?",
+        "gold"
+       ]
+      ],
+      "ex_at": [
+       "t0",
+       0
+      ],
+      "at": [
+       "t0",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "PHRASE 2",
+      "tone": "teal",
+      "lines": [
+       [
+        [
+         "Would you mind + verb-ing?",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "Would you mind switching?",
+        "teal"
+       ]
+      ],
+      "ex_at": [
+       "t2",
+       0
+      ],
+      "at": [
+       "t2",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "PHRASE 3",
+      "tone": "coral",
+      "lines": [
+       [
+        [
+         "overhead bin = bag space",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "Is there room up there?",
+        "coral"
+       ]
+      ],
+      "ex_at": [
+       "t4",
+       0
+      ],
+      "at": [
+       "t4",
+       0
+      ]
+     }
+    ]
+   }
+  ],
+  "hook_text": "FLYING SOON?",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_have_party",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Make a party? No, have one!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: We made a party on Saturday.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: We had a party on Saturday.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Party goes with have.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Had! We had a party on Saturday.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "We made a party on Saturday.",
+  "right": "We had a party on Saturday.",
+  "strike": "made",
+  "why": "Party goes with have.",
+  "memory": "Have a party.",
+  "quiz": {
+   "stem": "We ___ a party on Saturday.",
+   "options": [
+    "made",
+    "had"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "¿“Make a party”? Se dice “have”",
+   "tip": "En español “hacer una fiesta”, pero en inglés la fiesta se “tiene”: “have a party.”",
+   "caption": "🙈 Error común: “We made a party on Saturday.” “Hacer una fiesta” no se traduce con “make”: “We had a party on Saturday.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “had”. Con fiestas y reuniones se usa “have a party”. Escribe una frase tuya con “had” o dila en voz alta: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#vocabulario",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Make a party”? Say “have”",
+   "tip": "Learners say “hacer una fiesta”, but English says “have a party.”",
+   "caption": "Common mistake: “We made a party on Saturday.” “Hacer una fiesta” does not use “make” in English: “We had a party on Saturday.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿“Make a party”? Se dice “have”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "¿“Make a party”? Se dice “have”",
+  "keyword": "We had a party on Saturday.",
+  "value": "En español “hacer una fiesta”, pero en inglés la fiesta se “tiene”: “have a party.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#vocabulario",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "¿“Make a party”? Se dice “have”",
+    "description": "En español “hacer una fiesta”, pero en inglés la fiesta se “tiene”: “have a party.”\n\n🙈 Error común: “We made a party on Saturday.” “Hacer una fiesta” no se traduce con “make”: “We had a party on Saturday.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
+    "tags": [
+     "We had a party on Saturday.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "🙈 Error común: “We made a party on Saturday.” “Hacer una fiesta” no se traduce con “make”: “We had a party on Saturday.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "¿“Make a party”? Se dice “have”\n\nEn español “hacer una fiesta”, pero en inglés la fiesta se “tiene”: “have a party.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#vocabulario",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿“Make a party”? Se dice “have” En español “hacer una fiesta”, pero en inglés la fiesta se “tiene”: “have a… #aprenderingles #inglesfacil #vocabulario"
+   }
+  },
+  "first_comment": "Respuesta: “had”. Con fiestas y reuniones se usa “have a party”. Escribe una frase tuya con “had” o dila en voz alta: {link}",
+  "lang": "es"
+ }
+}

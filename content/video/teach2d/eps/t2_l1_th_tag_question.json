@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_tag_question",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say aren't you, not isn't it!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: You are a teacher, isn't it?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: You are a teacher, aren't you?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "End with a short question that fits.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Isn't she! She is tired, isn't she?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "You are a teacher, isn't it?",
+  "right": "You are a teacher, aren't you?",
+  "strike": "isn't it",
+  "why": "End with a short question that fits.",
+  "memory": "You are, aren't you?",
+  "quiz": {
+   "stem": "She is tired, ___?",
+   "options": [
+    "isn't it",
+    "isn't she"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "ถามย้ำ ต้องตรงกับประโยค!",
+   "tip": "ภาษาไทยลงท้ายถามย้ำว่า “ใช่ไหม” ได้ทุกประโยค จึงมักพูด isn't it แต่ภาษาอังกฤษต้องเปลี่ยนตามประโยค: “You are a teacher, aren't you?”",
+   "caption": "คุณเคยพูดว่า “You are a teacher, isn't it?” ไหม? 😅 ภาษาไทยลงท้ายถามย้ำว่า “ใช่ไหม” ได้ทุกประโยค จึงมักพูด isn't it แต่ภาษาอังกฤษต้องเปลี่ยนตามประโยค: “You are a teacher, aren't you?” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “isn't she” จำไว้ให้ดีนะ! ลองพูดประโยคตัวอย่างออกเสียงหนึ่งรอบ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Make the ending fit the sentence!",
+   "tip": "Thai uses one short ending for every sentence, so people say isn't it each time, but English changes it to fit the sentence.",
+   "caption": "Do you say “You are a teacher, isn't it?” 😅 Thai uses one short ending for every sentence, so people say isn't it each time, but English changes it to fit the sentence. Say “You are a teacher, aren't you?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "ถามย้ำ ต้องตรงกับประโยค!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "ถามย้ำ ต้องตรงกับประโยค!",
+  "keyword": "You are a teacher, aren't you?",
+  "value": "ภาษาไทยลงท้ายถามย้ำว่า “ใช่ไหม” ได้ทุกประโยค จึงมักพูด isn't it แต่ภาษาอังกฤษต้องเปลี่ยนตามประโยค: “You are a teacher, aren't you?”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 46,
+  "platforms": {
+   "youtube": {
+    "title": "ถามย้ำ ต้องตรงกับประโยค!",
+    "description": "ภาษาไทยลงท้ายถามย้ำว่า “ใช่ไหม” ได้ทุกประโยค จึงมักพูด isn't it แต่ภาษาอังกฤษต้องเปลี่ยนตามประโยค: “You are a teacher, aren't you?”\n\nคุณเคยพูดว่า “You are a teacher, isn't it?” ไหม? 😅 ภาษาไทยลงท้ายถามย้ำว่า “ใช่ไหม” ได้ทุกประโยค จึงมักพูด isn't it แต่ภาษาอังกฤษต้องเปลี่ยนตามประโยค: “You are a teacher, aren't you?” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "You are a teacher, aren't you?",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “You are a teacher, isn't it?” ไหม? 😅 ภาษาไทยลงท้ายถามย้ำว่า “ใช่ไหม” ได้ทุกประโยค จึงมักพูด isn't it แต่ภาษาอังกฤษต้องเปลี่ยนตามประโยค: “You are a teacher, aren't you?” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "ถามย้ำ ต้องตรงกับประโยค!\n\nภาษาไทยลงท้ายถามย้ำว่า “ใช่ไหม” ได้ทุกประโยค จึงมักพูด isn't it แต่ภาษาอังกฤษต้องเปลี่ยนตามประโยค: “You are a teacher, aren't you?”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ถามย้ำ ต้องตรงกับประโยค! ภาษาไทยลงท้ายถามย้ำว่า “ใช่ไหม” ได้ทุกประโยค จึงมักพูด isn't it แต่ภาษาอังกฤษต้องเปล… #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “isn't she” จำไว้ให้ดีนะ! ลองพูดประโยคตัวอย่างออกเสียงหนึ่งรอบ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

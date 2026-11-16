@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_iamlive",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "I live, not am live!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am live in Jakarta.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I live in Jakarta.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Live is already a verb.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Live! I live in a small town.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am live in Jakarta.",
+  "right": "I live in Jakarta.",
+  "strike": "am",
+  "why": "Live is already a verb.",
+  "memory": "I live.",
+  "quiz": {
+   "stem": "I ___ in a small town.",
+   "options": [
+    "live",
+    "am live"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“I am live”? Cukup “live”",
+   "tip": "Banyak yang mengira “I am” artinya “saya”, padahal live sudah kata kerja: cukup I live.",
+   "caption": "Pernah bilang begini? “I am live in Jakarta.” 😅 Cukup bilang I live: “I live in Jakarta.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “live”. Perkenalkan tempat tinggalmu: “I live in ...” Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#grammaringgris",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“I am live”? Just “live”",
+   "tip": "Many think “I am” means “saya”, but live is already a verb: just say I live.",
+   "caption": "Ever say this? “I am live in Jakarta.” 😅 Just say I live: “I live in Jakarta.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“I am live”? Cukup “live”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“I am live”? Cukup “live”",
+  "keyword": "I live in Jakarta.",
+  "value": "Banyak yang mengira “I am” artinya “saya”, padahal live sudah kata kerja: cukup I live.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#grammaringgris",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "“I am live”? Cukup “live”",
+    "description": "Banyak yang mengira “I am” artinya “saya”, padahal live sudah kata kerja: cukup I live.\n\nPernah bilang begini? “I am live in Jakarta.” 😅 Cukup bilang I live: “I live in Jakarta.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #grammaringgris #bahasainggris #lexkite",
+    "tags": [
+     "I live in Jakarta.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “I am live in Jakarta.” 😅 Cukup bilang I live: “I live in Jakarta.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“I am live”? Cukup “live”\n\nBanyak yang mengira “I am” artinya “saya”, padahal live sudah kata kerja: cukup I live.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#grammaringgris",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“I am live”? Cukup “live” Banyak yang mengira “I am” artinya “saya”, padahal live sudah kata ker… #belajarbahasainggris #grammaringgris #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “live”. Perkenalkan tempat tinggalmu: “I live in ...” Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

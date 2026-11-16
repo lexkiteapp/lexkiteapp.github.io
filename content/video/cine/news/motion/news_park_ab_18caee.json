@@ -1,0 +1,205 @@
+{
+ "id": "mo_news_park_ab_18caee",
+ "template": "drill",
+ "title": "News Motion – in the morning, on Monday (news_park_ab_18caee)",
+ "teacher": "carlos",
+ "clips": [
+  "gc11_talk",
+  "gc11_explain",
+  "gc11_happy",
+  "gc11_thinking",
+  "gc11_surprise_2"
+ ],
+ "listen": [
+  "gc11_listen"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy2",
+ "active": "mint",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "grammar",
+  "link": "https://lexkite.com/app/#/grammar",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Prepositions",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "In or on? Quick test."
+  },
+  {
+   "id": "q",
+   "text": "Which one sounds natural?",
+   "gap": 0.7
+  },
+  {
+   "id": "o",
+   "text": "Is it A: I run in the morning? Or B: I run on the morning?",
+   "gap": 0.7
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "a",
+   "text": "It's A. I run in the morning.",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "IN OR ON?",
+      "white"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Prepositions",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "IN OR ON?"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "q",
+    "at": [
+     "q",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "time words",
+      "tone": "teal",
+      "ring": "_count"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "Which one sounds natural?"
+       ]
+      ]
+     }
+    ],
+    "xp": [
+     {
+      "at": [
+       "a",
+       0
+      ],
+      "n": 10
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "opts",
+    "id": "opts",
+    "opts": [
+     "I run in the morning.",
+     "I run on the morning."
+    ],
+    "cues": [
+     [
+      "o",
+      3
+     ],
+     [
+      "o",
+      10
+     ]
+    ],
+    "reveal": [
+     "a",
+     0
+    ],
+    "right": 0
+   }
+  ],
+  "hook_text": "IN OR ON?",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ }
+}

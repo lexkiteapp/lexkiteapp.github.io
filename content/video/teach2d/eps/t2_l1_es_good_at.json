@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_good_at",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Good at English, not good in!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She is good in English.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She is good at English.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After good, use at.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "At! He is good at sports.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She is good in English.",
+  "right": "She is good at English.",
+  "strike": "in",
+  "why": "After good, use at.",
+  "memory": "Good at.",
+  "quiz": {
+   "stem": "He is good ___ sports.",
+   "options": [
+    "in",
+    "at"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "¿“Good in English”? ¡Ojo!",
+   "tip": "En español “buena en inglés”, pero en inglés se dice “good at.”",
+   "caption": "Muchos dicen “She is good in English.” 🙈 En español “buena en inglés”, pero en inglés se usa “good at”: “She is good at English.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “at”. Para decir que alguien es bueno en algo se usa “good at”, no “good in”. Di en voz alta una frase tuya con “at”. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#preposiciones",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Good in English”? Careful!",
+   "tip": "In Spanish it is “buena en inglés”, but English says “good at.”",
+   "caption": "Many learners say “She is good in English.” In Spanish it is “buena en inglés”, but English uses “good at”: “She is good at English.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿“Good in English”? ¡Ojo!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "¿“Good in English”? ¡Ojo!",
+  "keyword": "She is good at English.",
+  "value": "En español “buena en inglés”, pero en inglés se dice “good at.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#preposiciones",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "¿“Good in English”? ¡Ojo!",
+    "description": "En español “buena en inglés”, pero en inglés se dice “good at.”\n\nMuchos dicen “She is good in English.” 🙈 En español “buena en inglés”, pero en inglés se usa “good at”: “She is good at English.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #preposiciones #lexkite",
+    "tags": [
+     "She is good at English.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "Muchos dicen “She is good in English.” 🙈 En español “buena en inglés”, pero en inglés se usa “good at”: “She is good at English.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "¿“Good in English”? ¡Ojo!\n\nEn español “buena en inglés”, pero en inglés se dice “good at.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#preposiciones",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿“Good in English”? ¡Ojo! En español “buena en inglés”, pero en inglés se dice “good at.” #aprenderingles #inglesfacil #preposiciones"
+   }
+  },
+  "first_comment": "Respuesta: “at”. Para decir que alguien es bueno en algo se usa “good at”, no “good in”. Di en voz alta una frase tuya con “at”. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}

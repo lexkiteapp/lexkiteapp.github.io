@@ -212,6 +212,10 @@ If you are taking IELTS General Training, the same formal register is tested in 
 
 {{youtube: | Video idea: rewriting a blunt work email into a polite, clear one, line by line}}
 
+For spoken tone, also read [polite requests in English](/en/blog/polite-requests-in-english-could-you-would-you-mind/).
+
+Chasing a reply? See [follow-up emails in English](/en/blog/follow-up-email-in-english-examples-and-timing/).
+
 ## Frequently asked questions
 
 ### Do I always need "Dear" in a formal email?
@@ -233,3 +237,5 @@ Reply in the same thread so the reader sees the original message, wait a reasona
 ### Is it fine to use email templates?
 
 Yes, as a starting point. Templates help with structure and standard phrases. Always adapt the purpose, details and request to the real situation, because a generic email is easy to ignore.
+
+To sound courteous in every message, use our [polite English phrases for work](/en/blog/polite-english-at-work/).

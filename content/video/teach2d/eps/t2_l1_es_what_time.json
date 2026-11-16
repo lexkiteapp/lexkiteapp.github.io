@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_what_time",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "What hour? What time!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: What hour is it?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: What time is it?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "For the clock, say what time.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Time! What time is it?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "What hour is it?",
+  "right": "What time is it?",
+  "strike": "hour",
+  "why": "For the clock, say what time.",
+  "memory": "What time?",
+  "quiz": {
+   "stem": "What ___ is it?",
+   "options": [
+    "hour",
+    "time"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“¿Qué hora es?” = “What time…”",
+   "tip": "En español “¿qué hora es?”, pero en inglés se pregunta “what time”, no “what hour.”",
+   "caption": "🙈 Error común: “What hour is it?” Para preguntar la hora, usa “time”, no “hour”: “What time is it?” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “time”. Para saber la hora di “What time is it?”; “hour” es un periodo de 60 minutos. Escribe una frase tuya con “time” o dila en voz alta: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#preguntas",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Ask “what time”, not “what hour”",
+   "tip": "Learners say “qué hora”, but English asks “what time is it?”",
+   "caption": "Common mistake: “What hour is it?” To ask about the clock, use “time”, not “hour”: “What time is it?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“¿Qué hora es?” = “What time…”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“¿Qué hora es?” = “What time…”",
+  "keyword": "What time is it?",
+  "value": "En español “¿qué hora es?”, pero en inglés se pregunta “what time”, no “what hour.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#preguntas",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "“¿Qué hora es?” = “What time…”",
+    "description": "En español “¿qué hora es?”, pero en inglés se pregunta “what time”, no “what hour.”\n\n🙈 Error común: “What hour is it?” Para preguntar la hora, usa “time”, no “hour”: “What time is it?” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #preguntas #lexkite",
+    "tags": [
+     "What time is it?",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "🙈 Error común: “What hour is it?” Para preguntar la hora, usa “time”, no “hour”: “What time is it?” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“¿Qué hora es?” = “What time…”\n\nEn español “¿qué hora es?”, pero en inglés se pregunta “what time”, no “what hour.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#preguntas",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“¿Qué hora es?” = “What time…” En español “¿qué hora es?”, pero en inglés se pregunta “what time”, no “what h… #aprenderingles #inglesfacil #preguntas"
+   }
+  },
+  "first_comment": "Respuesta: “time”. Para saber la hora di “What time is it?”; “hour” es un periodo de 60 minutos. Escribe una frase tuya con “time” o dila en voz alta: {link}",
+  "lang": "es"
+ }
+}

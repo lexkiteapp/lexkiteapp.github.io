@@ -178,6 +178,10 @@ publishAt: 2026-12-10T21:28:00+09:00
 
 {{cta: /#/write | Lexkite 라이팅 룸에서 에세이 패러프레이징 실전 훈련을 지금 시작하세요}}
 
+그래프 설명의 첫 문장을 바꿔 쓰는 연습은 [아이엘츠 라이팅 task 1 막대 그래프](/ko/blog/ielts-writing-task-1-makdae-graph-model-answer/) 글의 도입 단락 예시와 함께 해 보면 좋습니다.
+
+문제를 바꿔 쓰는 서론 작성이 궁금하다면 [IELTS agree disagree 에세이 쓰는 법](/ko/blog/ielts-agree-disagree-essay-jakseongbeop/) 글에서 찬반 문제의 서론 쓰는 법도 확인해 보세요.
+
 ## 자주 묻는 질문 (FAQ)
 
 ### 문제의 모든 단어를 다 바꾸어야 하나요?

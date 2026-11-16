@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Share Card Preview</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "brand-cream": "#FFF7EA",
+            "brand-ink": "#0F3D3E",
+            "brand-sub": "#3C5355",
+            "brand-btn-ink": "#1E120A",
+            "brand-border": "#EADEC8",
+            "brand-ledge": "#D8CFBC",
+            "brand-teal": "#2BA39A",
+            "brand-teal-dark": "#0F3D3E",
+            "brand-ledge-coral": "#B53A22"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "3xl": "1.5rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "gutter": "16px"
+          },
+          fontFamily: {
+            "title": ["Plus Jakarta Sans", "sans-serif"],
+            "body": ["Plus Jakarta Sans", "sans-serif"],
+            "label": ["Plus Jakarta Sans", "sans-serif"],
+            "display": ["Plus Jakarta Sans", "sans-serif"]
+          },
+          fontSize: {
+            "title": ["22px", { lineHeight: "28px", fontWeight: "700" }],
+            "body": ["16px", { lineHeight: "24px", fontWeight: "500" }],
+            "label": ["12px", { lineHeight: "16px", letterSpacing: "0.06em", fontWeight: "800" }],
+            "display": ["32px", { lineHeight: "38px", fontWeight: "800" }]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .tactile-btn { transition: transform 0.08s ease, border-bottom-width 0.08s ease; }
+    .tactile-btn:active { transform: translateY(3px); }
+    .btn-coral-tactile:active { border-bottom-width: 2px !important; transform: translateY(3px); }
+    .btn-white-tactile:active { border-bottom-width: 2px !important; transform: translateY(2px); }
+  </style>
+</head>
+<body class="bg-brand-cream text-brand-ink font-body antialiased min-h-screen flex flex-col items-center selection:bg-brand-teal selection:text-white">
+<header class="w-full max-w-xl mx-auto px-gutter pt-4 pb-3 flex items-center justify-between z-20">
+<button aria-label="Close preview" class="w-11 h-11 rounded-full bg-white border-2 border-brand-border border-b-4 border-b-brand-ledge flex items-center justify-center text-brand-ink active:translate-y-0.5 active:border-b-2 transition-all">
+<span class="material-symbols-outlined text-[22px]">close</span>
+</button>
+<div class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white border border-brand-border shadow-xs">
+<span class="w-2 h-2 rounded-full bg-brand-teal animate-pulse"></span>
+<span class="font-label text-label tracking-wider uppercase text-brand-ink">SHARE ACHIEVEMENT</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="inline-flex items-center gap-1 px-2.5 py-1.5 bg-white border-2 border-brand-border border-b-[3px] border-b-brand-ledge rounded-xl font-title text-sm text-brand-ink">
+<span class="material-symbols-outlined text-orange-500 material-symbols-fill text-[19px]">local_fire_department</span>
+<span class="font-extrabold text-xs text-brand-ink">14</span>
+</div>
+<div class="inline-flex items-center gap-1 px-2.5 py-1.5 bg-[#FFF3DA] border-2 border-[#FFDF9E] border-b-[3px] border-b-[#FFB054] rounded-xl font-title text-sm text-brand-ink">
+<span class="material-symbols-outlined text-amber-600 material-symbols-fill text-[18px]">bolt</span>
+<span class="font-extrabold text-xs text-brand-ink">820 XP</span>
+</div>
+</div>
+</header>
+<main class="w-full max-w-xl mx-auto px-gutter flex-1 flex flex-col items-center justify-center pb-8 pt-2">
+<div class="text-center mb-5">
+<h1 class="font-display text-display text-brand-ink tracking-tight font-extrabold mb-1">
+        Share your milestone
+      </h1>
+<p class="font-body text-body text-brand-sub text-sm sm:text-base font-semibold">
+        Show your study crew how far you've come!
+      </p>
+</div>
+<div class="relative w-full max-w-[440px] aspect-square bg-white rounded-3xl border-2 border-brand-border border-b-[6px] border-b-brand-ledge p-6 flex flex-col justify-between overflow-hidden shadow-sm transition-transform">
+<div class="absolute inset-0 pointer-events-none opacity-40 bg-[radial-gradient(#2BA39A_1px,transparent_1px)] [background-size:16px_16px]"></div>
+<div class="absolute -top-16 -right-16 w-44 h-44 bg-gradient-to-br from-amber-200/40 via-coral-200/30 to-transparent rounded-full blur-2xl pointer-events-none"></div>
+<div class="absolute -bottom-16 -left-16 w-44 h-44 bg-gradient-to-tr from-teal-200/40 via-emerald-100/30 to-transparent rounded-full blur-2xl pointer-events-none"></div>
+<div class="relative z-10 flex items-center justify-between border-b border-brand-border/60 pb-3">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-xl bg-[#0F3D3E] flex items-center justify-center p-1.5 shadow-xs border border-white/20">
+<svg class="w-full h-full" fill="none" viewbox="0 0 32 32">
+<polygon fill="#2BA39A" points="16,2 29,14 16,14"></polygon>
+<polygon fill="#6BD8CE" points="16,2 3,14 16,14"></polygon>
+<polygon fill="#F2553B" points="16,14 29,14 16,30"></polygon>
+<polygon fill="#FFB054" points="16,14 3,14 16,30"></polygon>
+</svg>
+</div>
+<span class="font-display text-lg font-extrabold tracking-tight text-brand-ink">Lexkite</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#FFF3DA] border border-[#FFDF9E] rounded-full">
+<span class="material-symbols-outlined text-amber-700 material-symbols-fill text-[14px]">military_tech</span>
+<span class="font-label text-[10px] uppercase font-extrabold tracking-wider text-[#6B4A00]">
+            30-DAY STREAK MILESTONE
+          </span>
+</div>
+</div>
+<div class="relative z-10 my-auto py-2 flex items-center justify-between gap-4">
+<div class="flex-1 flex flex-col items-center justify-center">
+<div class="relative group">
+<div class="absolute inset-0 bg-gradient-to-tr from-[#F2553B] to-[#FFC94A] rounded-full blur-md opacity-40 scale-105"></div>
+<div class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-gradient-to-b from-[#F5A524] via-[#F2553B] to-[#CC3F1C] border-4 border-white border-b-[8px] border-b-[#900F00] flex flex-col items-center justify-center shadow-md">
+<div class="absolute top-1.5 left-4 right-4 h-6 rounded-full bg-gradient-to-b from-white/60 to-transparent pointer-events-none"></div>
+<div class="w-18 h-18 sm:w-20 sm:h-20 rounded-full bg-[#FFF3DA] border-2 border-[#F4BF40] flex flex-col items-center justify-center shadow-inner">
+<span class="material-symbols-outlined text-[#F2553B] material-symbols-fill text-2xl -mb-1">local_fire_department</span>
+<span class="font-display text-2xl sm:text-3xl font-extrabold text-brand-btn-ink tracking-tight leading-none">30</span>
+<span class="font-label text-[8px] font-extrabold tracking-widest text-[#B53A22] uppercase">DAYS</span>
+</div>
+<div class="absolute -top-2 -right-1 text-amber-300">
+<span class="material-symbols-outlined material-symbols-fill text-xl drop-shadow">star</span>
+</div>
+<div class="absolute bottom-2 -left-2 text-amber-200">
+<span class="material-symbols-outlined material-symbols-fill text-base drop-shadow">auto_awesome</span>
+</div>
+</div>
+</div>
+</div>
+<div class="w-[140px] h-[170px] shrink-0 rounded-2xl border-2 border-dashed border-brand-teal bg-[#EAF2F2]/60 flex flex-col items-center justify-center p-3 text-center relative overflow-hidden">
+<p class="font-label text-[10px] font-extrabold tracking-wider uppercase text-brand-ink leading-tight mb-1">
+            TEACHER
+          </p>
+<p class="font-label text-[9px] font-bold text-brand-sub tracking-normal">
+            140 × 170 Slot
+          </p>
+</div>
+</div>
+<div class="relative z-10 pt-1 pb-2">
+<h2 class="font-display text-lg sm:text-xl font-extrabold text-brand-ink tracking-tight flex items-center gap-1.5">
+<span>30-Day Study Streak!</span>
+<span class="material-symbols-outlined text-amber-500 material-symbols-fill text-lg">verified</span>
+</h2>
+<p class="font-body text-xs sm:text-sm text-brand-sub font-semibold mt-0.5 leading-snug">
+          30 days of high-yield exam vocabulary locked in.
+        </p>
+</div>
+<div class="relative z-10 pt-2 border-t border-brand-border/60 flex items-center justify-end text-[11px] font-bold text-brand-sub">
+<span class="text-[#0D6964] font-extrabold tracking-tight">Lexkite.com</span>
+</div>
+</div>
+<div class="w-full max-w-[440px] mt-6 flex flex-col gap-3">
+<div class="flex items-center gap-3">
+<button class="btn-coral-tactile flex-1 h-14 rounded-2xl bg-gradient-to-r from-[#F2553B] to-[#FFB054] border-2 border-[#CC3F1C] border-b-[5px] border-b-brand-ledge-coral px-4 flex items-center justify-center gap-2 text-brand-btn-ink font-title font-extrabold text-base tracking-wide transition-all shadow-sm">
+<span class="material-symbols-outlined text-brand-btn-ink material-symbols-fill text-[22px]">download</span>
+<span>Save image</span>
+</button>
+<button class="btn-white-tactile h-14 px-5 rounded-2xl bg-white border-2 border-brand-border border-b-[4px] border-b-brand-ledge flex items-center justify-center gap-2 text-brand-ink font-title font-extrabold text-base transition-all hover:bg-neutral-50 shadow-xs">
+<span class="material-symbols-outlined text-brand-teal text-[20px]">link</span>
+<span class="hidden sm:inline">Copy link</span>
+</button>
+<button aria-label="More sharing options" class="btn-white-tactile w-14 h-14 rounded-2xl bg-white border-2 border-brand-border border-b-[4px] border-b-brand-ledge flex items-center justify-center text-brand-ink font-bold transition-all hover:bg-neutral-50 shadow-xs">
+<span class="material-symbols-outlined text-brand-ink text-[22px]">more_horiz</span>
+</button>
+</div>
+</div>
+</main>
+</body></html>

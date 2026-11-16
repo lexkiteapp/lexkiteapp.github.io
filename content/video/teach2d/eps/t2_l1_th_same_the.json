@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_same_the",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say the same!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: We have same bag.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: We have the same bag.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say the same, not same.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The same! We have the same phone.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "We have same bag.",
+  "right": "We have the same bag.",
+  "strike": "same",
+  "why": "Say the same, not same.",
+  "memory": "The same.",
+  "quiz": {
+   "stem": "We have ___ phone.",
+   "options": [
+    "same",
+    "the same"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "same ต้องมี the นำหน้า!",
+   "tip": "ภาษาไทยพูด “กระเป๋าใบเดียวกัน” ได้โดยไม่ต้องมีคำนำหน้า แต่ภาษาอังกฤษ same ต้องมี the เสมอ: “We have the same bag.”",
+   "caption": "คุณเคยพูดว่า “We have same bag.” ไหม? 😅 ภาษาไทยพูด “กระเป๋าใบเดียวกัน” ได้โดยไม่ต้องมีคำนำหน้า แต่ภาษาอังกฤษ same ต้องมี the เสมอ: “We have the same bag.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “the same” จำไว้ให้ดีนะ! ลองพูดประโยคตัวอย่างออกเสียงหนึ่งรอบ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Same needs “the” before it!",
+   "tip": "Thai needs no small word here, but English always puts the before same.",
+   "caption": "Do you say “We have same bag.” 😅 Thai needs no small word here, but English always puts the before same. Say “We have the same bag.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "same ต้องมี the นำหน้า!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "same ต้องมี the นำหน้า!",
+  "keyword": "We have the same bag.",
+  "value": "ภาษาไทยพูด “กระเป๋าใบเดียวกัน” ได้โดยไม่ต้องมีคำนำหน้า แต่ภาษาอังกฤษ same ต้องมี the เสมอ: “We have the same bag.”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "same ต้องมี the นำหน้า!",
+    "description": "ภาษาไทยพูด “กระเป๋าใบเดียวกัน” ได้โดยไม่ต้องมีคำนำหน้า แต่ภาษาอังกฤษ same ต้องมี the เสมอ: “We have the same bag.”\n\nคุณเคยพูดว่า “We have same bag.” ไหม? 😅 ภาษาไทยพูด “กระเป๋าใบเดียวกัน” ได้โดยไม่ต้องมีคำนำหน้า แต่ภาษาอังกฤษ same ต้องมี the เสมอ: “We have the same bag.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "We have the same bag.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “We have same bag.” ไหม? 😅 ภาษาไทยพูด “กระเป๋าใบเดียวกัน” ได้โดยไม่ต้องมีคำนำหน้า แต่ภาษาอังกฤษ same ต้องมี the เสมอ: “We have the same bag.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "same ต้องมี the นำหน้า!\n\nภาษาไทยพูด “กระเป๋าใบเดียวกัน” ได้โดยไม่ต้องมีคำนำหน้า แต่ภาษาอังกฤษ same ต้องมี the เสมอ: “We have the same bag.”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "same ต้องมี the นำหน้า! ภาษาไทยพูด “กระเป๋าใบเดียวกัน” ได้โดยไม่ต้องมีคำนำหน้า แต่ภาษาอังกฤษ same ต้องมี the… #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “the same” จำไว้ให้ดีนะ! ลองพูดประโยคตัวอย่างออกเสียงหนึ่งรอบ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_care_of",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Care about or care of?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Take care about yourself.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Take care of yourself.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Take care needs of.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Of! Take care of your mother.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Take care about yourself.",
+  "right": "Take care of yourself.",
+  "strike": "about",
+  "why": "Take care needs of.",
+  "memory": "Take care of.",
+  "quiz": {
+   "stem": "Please take care ___ your mother.",
+   "options": [
+    "about",
+    "of"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Береги себя: “take care of”",
+   "tip": "Заботиться — “take care of”: “Take care of yourself.”",
+   "caption": "Ты тоже говоришь “Take care about yourself”? 😅 По-русски «заботиться о ком-то» — с «о», и хочется сказать “about”, но по-английски нужно “of.” Правильно: “Take care of yourself.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “of.” Заботиться — take care of. Скажи вслух: “Take care of yourself.” — и добавь имя друга. Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#изучениеанглийского",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Care about or care of?",
+   "tip": "To look after, say “take care of”: “Take care of yourself.”",
+   "caption": "Do you also say “Take care about yourself”? 😅 In Russian «о» leads to “about”, but English needs “of.” Correct: “Take care of yourself.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Береги себя: “take care of”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "Береги себя: “take care of”",
+  "keyword": "Take care of yourself.",
+  "value": "Заботиться — “take care of”: “Take care of yourself.”",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#изучениеанглийского",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "Береги себя: “take care of”",
+    "description": "Заботиться — “take care of”: “Take care of yourself.”\n\nТы тоже говоришь “Take care about yourself”? 😅 По-русски «заботиться о ком-то» — с «о», и хочется сказать “about”, но по-английски нужно “of.” Правильно: “Take care of yourself.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #английский #изучениеанглийского #lexkite",
+    "tags": [
+     "Take care of yourself.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “Take care about yourself”? 😅 По-русски «заботиться о ком-то» — с «о», и хочется сказать “about”, но по-английски нужно “of.” Правильно: “Take care of yourself.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Береги себя: “take care of”\n\nЗаботиться — “take care of”: “Take care of yourself.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#изучениеанглийского",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Береги себя: “take care of” Заботиться — “take care of”: “Take care of yourself.” #английскийязык #английский #изучениеанглийского"
+   }
+  },
+  "first_comment": "Ответ: “of.” Заботиться — take care of. Скажи вслух: “Take care of yourself.” — и добавь имя друга. Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_want_you_to",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Want that or want you to?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I want that you help me.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I want you to help me.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say want you to help.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "You to! I want you to help me.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I want that you help me.",
+  "right": "I want you to help me.",
+  "strike": "that you help",
+  "why": "Say want you to help.",
+  "memory": "Want you to.",
+  "quiz": {
+   "stem": "I want ___ help me.",
+   "options": [
+    "you to",
+    "that you"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "«Хочу, чтобы» — как сказать?",
+   "tip": "После want ставь “you to”: “I want you to help me.”",
+   "caption": "Ты тоже говоришь “I want that you help me”? 😅 По-русски «хочу, чтобы ты помог», и получается “want that you.” В английском нужно “want you to.” Правильно: “I want you to help me.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “you to.” Нужно want you to. Скажи вслух: “I want you to help me.” Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английский",
+    "#грамматика",
+    "#английскийонлайн",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "How do you say it?",
+   "tip": "After want, use “you to”: “I want you to help me.”",
+   "caption": "Do you also say “I want that you help me”? 😅 In Russian you say “I want that you help”, which gives “want that you”, but English needs “want you to.” Correct: “I want you to help me.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "«Хочу, чтобы» — как сказать?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 51,
+  "seconds": 30.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "«Хочу, чтобы» — как сказать?",
+  "keyword": "I want you to help me.",
+  "value": "После want ставь “you to”: “I want you to help me.”",
+  "hashtags": [
+   "#английский",
+   "#грамматика",
+   "#английскийонлайн",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 45,
+  "platforms": {
+   "youtube": {
+    "title": "«Хочу, чтобы» — как сказать?",
+    "description": "После want ставь “you to”: “I want you to help me.”\n\nТы тоже говоришь “I want that you help me”? 😅 По-русски «хочу, чтобы ты помог», и получается “want that you.” В английском нужно “want you to.” Правильно: “I want you to help me.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английский #грамматика #английскийонлайн #lexkite",
+    "tags": [
+     "I want you to help me.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “I want that you help me”? 😅 По-русски «хочу, чтобы ты помог», и получается “want that you.” В английском нужно “want you to.” Правильно: “I want you to help me.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "«Хочу, чтобы» — как сказать?\n\nПосле want ставь “you to”: “I want you to help me.”\n\nlexkite.com",
+    "hashtags": [
+     "#английский",
+     "#грамматика",
+     "#английскийонлайн",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "«Хочу, чтобы» — как сказать? После want ставь “you to”: “I want you to help me.” #английский #грамматика #английскийонлайн"
+   }
+  },
+  "first_comment": "Ответ: “you to.” Нужно want you to. Скажи вслух: “I want you to help me.” Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

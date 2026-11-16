@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_goshopping",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Go to shopping?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I will go to shopping.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I will go shopping.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Go shopping has no to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Swimming! I will go shopping.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I will go to shopping.",
+  "right": "I will go shopping.",
+  "strike": "to",
+  "why": "Go shopping has no to.",
+  "memory": "I will go shopping.",
+  "quiz": {
+   "stem": "Let's go ___ tomorrow.",
+   "options": [
+    "to swimming",
+    "swimming"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "「go to shopping」はNG？",
+   "tip": "「買い物に行く」は go shopping。go swimming も同じで to は不要です。",
+   "caption": "“I will go to shopping.”と言っていませんか？😅 「買い物に行く」の「に」を to にしてしまいがちです。“I will go shopping.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“swimming”。“I will go shopping.” を声に出して言ってみよう。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Go to shopping?",
+   "tip": "\"Go shopping\" is go shopping. The same goes for go swimming, to is unnecessary.",
+   "caption": "Do you say this? “I will go to shopping.” 😅 Do not add to in go shopping. The natural way is “I will go shopping.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "「go to shopping」はNG？"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "「go to shopping」はNG？",
+  "keyword": "I will go shopping.",
+  "value": "「買い物に行く」は go shopping。go swimming も同じで to は不要です。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "「go to shopping」はNG？",
+    "description": "「買い物に行く」は go shopping。go swimming も同じで to は不要です。\n\n“I will go to shopping.”と言っていませんか？😅 「買い物に行く」の「に」を to にしてしまいがちです。“I will go shopping.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "I will go shopping.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“I will go to shopping.”と言っていませんか？😅 「買い物に行く」の「に」を to にしてしまいがちです。“I will go shopping.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "「go to shopping」はNG？\n\n「買い物に行く」は go shopping。go swimming も同じで to は不要です。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「go to shopping」はNG？ 「買い物に行く」は go shopping。go swimming も同じで to は不要です。 #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“swimming”。“I will go shopping.” を声に出して言ってみよう。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

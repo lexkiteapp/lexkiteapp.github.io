@@ -1,0 +1,129 @@
+{
+ "id": "t2a_mistake_a5326200",
+ "template": "mistake",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Stop saying childs!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Three childs were playing outside.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Three children were playing outside.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "The plural of child is children.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Children! Three children were playing outside.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Three childs were playing outside.",
+  "right": "Three children were playing outside.",
+  "strike": "childs",
+  "why": "The plural of child is children.",
+  "memory": "Child, children, never childs",
+  "quiz": {
+   "stem": "Three ___ were playing outside.",
+   "options": [
+    "children",
+    "childs"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Stop saying “childs”"
+ },
+ "src": {
+  "gold": "sb_a5326200",
+  "pid": "w:child#n"
+ },
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Stop saying \"childs\"? Say this instead",
+  "keyword": "childs",
+  "value": "Say \"Three children were playing outside\", not \"Three childs were playing outside\". The plural of child is children.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#englishgrammar",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "Stop saying \"childs\"? Say this instead",
+    "description": "Say \"Three children were playing outside\", not \"Three childs were playing outside\". The plural of child is children.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix\n\nSeries: Stop Saying This · Teacher: Ama\n\n#learnenglish #englishtips #englishgrammar #englishteacher",
+    "tags": [
+     "childs",
+     "Stop Saying This",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Stop saying \"childs\"? Say this instead\n\nSay \"Three children were playing outside\", not \"Three childs were playing outside\". The plural of child is children.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Stop saying \"childs\"? Say this instead\n\nSay \"Three children were playing outside\", not \"Three childs were playing outside\". The plural of child is children.\n\nCheck your grammar: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#englishgrammar",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Stop saying \"childs\"? Say this instead #learnenglish #englishtips #englishgrammar"
+   }
+  },
+  "first_comment": "Did you get it? Children! Three children were playing outside. Say \"Three children were playing outside\", not \"Three childs were playing outside\". The plural of child is children. More practice like this (free): {link}"
+ }
+}

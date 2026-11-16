@@ -103,6 +103,7 @@ export function checkPosts(posts, { all = posts, root = ROOT, now = Date.now() }
         const local = id.slice(1), rec = media.items?.[mediaId(p, local)];
         if (!shotIds.has(local)) { E('image', `media:${id} chưa khai báo trong shots: (id ${[...shotIds].join(', ') || 'chưa có'})`); continue; }
         usedShots.add(local);
+        if (!rec && media.items && !draft) W('media-missing', `media:${id} chưa có trong content/blog/media/${p.lang}.json (CI blog-images chưa dựng) – thẻ danh sách sẽ rơi về bìa chung; chạy workflow blog-images (mode backfill, posts ${p.lang}/${p.slug})`);
         if (m[1].trim() && len(m[1].trim()) < 10) E('image', `alt ảnh "${m[1]}" quá ngắn (≥ 10 ký tự, hoặc để trống để tự sinh)`);
         if (rec && m[1].trim()) { const bad = altUntruths(m[1], rec, p.lang); if (bad.length) E('alt-truth', `alt media:${id} khẳng định ${bad.join(', ')} – không có trên ảnh chụp (${rec.cap?.route}); để trống alt hoặc chỉ tả chữ thấy trên màn hình`); }
         continue;

@@ -15,6 +15,9 @@
     // es: tiếng TBN Mỹ Latinh trung tính (seseo – spanish-course.md §8): es-419, máy thiếu giọng es-419 → es-MX → es-US. Kokoro ef_dora/em_alex chờ lượt mẫu W0.
     es: { em: '🇪🇸', name: 'Español', home: '#/practice/esd', speech: 'es-419', rec: 'es-MX' /* Web Speech nhận giọng chưa có es-419 ổn định → es-MX (chuẩn trung tính gần nhất) */, fallback: ['es-MX', 'es-US'], prefix: 'es', kokoro: { 'es-419': 'ef_dora', 'es-MX': 'ef_dora', 'es-US': 'ef_dora' }, voices: { ama: 'ef_dora', carlos: 'em_alex' }, wordFiles: false,
       flag: 'es_course', pct: 'es_course_pct', kill: 'es_kill', ls: 'lk.es', label: 'Español (beta)' },
+    // fr: tiếng Pháp chuẩn của Pháp (french-course.md §8): fr-FR, nhận giọng fr-FR, dự phòng fr-CA; Kokoro ff_siwis = giọng nữ duy nhất (Ama) – Carlos chờ lượt mẫu W0 (Piper fr_FR) hoặc "chỉ Ama".
+    fr: { em: '🇫🇷', name: 'Français', speech: 'fr-FR', rec: 'fr-FR', fallback: ['fr-CA', 'fr-BE'], prefix: 'fr', kokoro: { 'fr-FR': 'ff_siwis', 'fr-CA': 'ff_siwis', 'fr-BE': 'ff_siwis' }, voices: { ama: 'ff_siwis', carlos: 'ff_siwis' }, wordFiles: false,
+      flag: 'fr_course', pct: 'fr_course_pct', kill: 'fr_kill', ls: 'lk.fr', label: 'Français (bêta)' },
   };
   const LANGS = Object.keys(TABLE), KEY = 'lk.tl';
   const ls = (k, v) => { try { if (v === undefined) return g.localStorage ? g.localStorage.getItem(k) : null; if (v === null) g.localStorage.removeItem(k); else g.localStorage.setItem(k, v); } catch (e) { /* chế độ riêng tư */ } return null; };

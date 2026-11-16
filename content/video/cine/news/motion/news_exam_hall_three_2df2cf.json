@@ -1,0 +1,317 @@
+{
+ "id": "mo_news_exam_hall_three_2df2cf",
+ "template": "tip",
+ "title": "News Motion – IELTS Speaking: phrases to buy time and extend answers (news_exam_hall_three_2df2cf)",
+ "teacher": "ama",
+ "clips": [
+  "ga11_talk",
+  "ga11_explain",
+  "ga11_happy",
+  "ga11_thinking",
+  "ga11_surprise_3"
+ ],
+ "listen": [
+  "ga11_listen_2"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy2",
+ "active": "mint",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "ielts",
+  "link": "https://lexkite.com/app/#/mock",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Exam Tips",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "IELTS Speaking test soon?"
+  },
+  {
+   "id": "t0",
+   "text": "That's an interesting question.",
+   "gap": 0.7
+  },
+  {
+   "id": "t1",
+   "text": "Then answer, don't pause.",
+   "gap": 0.7
+  },
+  {
+   "id": "t2",
+   "text": "To be honest, I prefer the city.",
+   "gap": 0.7
+  },
+  {
+   "id": "t3",
+   "text": "Good, now add a reason.",
+   "gap": 0.7
+  },
+  {
+   "id": "t4",
+   "text": "For example, there's more to do.",
+   "gap": 0.7
+  },
+  {
+   "id": "t5",
+   "text": "That makes your answer longer.",
+   "gap": 0.7
+  },
+  {
+   "id": "t6",
+   "text": "Repeat after me: Interesting question.",
+   "gap": 0.7
+  },
+  {
+   "id": "r",
+   "text": "Teacher's tip: save these three phrases today.",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "IELTS",
+      "white"
+     ]
+    ],
+    [
+     [
+      "SPEAKING?",
+      "yellow"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Exam Tips · IELTS Speaking",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "IELTS"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "SPEAKING?"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "sum",
+    "at": [
+     "r",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Remember",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "That's an interesting question.",
+        "gold"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "To be honest, ...",
+        "teal"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "For example, ...",
+        "coral"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "rules",
+    "at": [
+     "t0",
+     0
+    ],
+    "rows": [
+     {
+      "t": "tile",
+      "tag": "PHRASE 1",
+      "tone": "gold",
+      "lines": [
+       [
+        [
+         "buys you time to think",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "Interesting question.",
+        "gold"
+       ]
+      ],
+      "ex_at": [
+       "t0",
+       0
+      ],
+      "at": [
+       "t0",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "PHRASE 2",
+      "tone": "teal",
+      "lines": [
+       [
+        [
+         "give your real opinion",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "To be honest, ...",
+        "teal"
+       ]
+      ],
+      "ex_at": [
+       "t2",
+       0
+      ],
+      "at": [
+       "t2",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "PHRASE 3",
+      "tone": "coral",
+      "lines": [
+       [
+        [
+         "always add an example",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "For example, ...",
+        "coral"
+       ]
+      ],
+      "ex_at": [
+       "t4",
+       0
+      ],
+      "at": [
+       "t4",
+       0
+      ]
+     }
+    ]
+   }
+  ],
+  "hook_text": "IELTS SPEAKING?",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ }
+}

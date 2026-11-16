@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_job_article",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Jobs need a little word!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: My sister is nurse.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My sister is a nurse.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say a before a job.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "He is a teacher!",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "My sister is nurse.",
+  "right": "My sister is a nurse.",
+  "strike": "is nurse",
+  "why": "Say a before a job.",
+  "memory": "Job? Add a.",
+  "quiz": {
+   "stem": "My brother works at a school. He ___.",
+   "options": [
+    "is teacher",
+    "is a teacher"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Métier : n’oubliez pas « a »",
+   "tip": "En français, « Elle est infirmière » se dit sans article. En anglais, ajoutez “a” devant le métier.",
+   "caption": "Vous dites “My sister is nurse.” ? En anglais, le métier prend “a” ou “an”, contrairement au français. Dites plutôt “My sister is a nurse.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “My sister is a nurse.” — En anglais, le métier prend “a” ou “an”, contrairement au français. Testez d’autres pièges avec un quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Jobs need “a”!",
+   "tip": "Many learners skip the article before a job. In English, add “a” or “an”.",
+   "caption": "Do you say this? “My sister is nurse.” In English, a job needs “a” or “an”. Say “My sister is a nurse.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Métier : n’oubliez pas « a »"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "Métier : n’oubliez pas « a »",
+  "keyword": "My sister is a nurse.",
+  "value": "En français, « Elle est infirmière » se dit sans article. En anglais, ajoutez “a” devant le métier.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "Métier : n’oubliez pas « a »",
+    "description": "En français, « Elle est infirmière » se dit sans article. En anglais, ajoutez “a” devant le métier.\n\nVous dites “My sister is nurse.” ? En anglais, le métier prend “a” ou “an”, contrairement au français. Dites plutôt “My sister is a nurse.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "My sister is a nurse.",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Vous dites “My sister is nurse.” ? En anglais, le métier prend “a” ou “an”, contrairement au français. Dites plutôt “My sister is a nurse.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Métier : n’oubliez pas « a »\n\nEn français, « Elle est infirmière » se dit sans article. En anglais, ajoutez “a” devant le métier.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Métier : n’oubliez pas « a » En français, « Elle est infirmière » se dit sans article. En anglais, a… #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “My sister is a nurse.” — En anglais, le métier prend “a” ou “an”, contrairement au français. Testez d’autres pièges avec un quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_howtosay",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Ask: How do you say it?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: How to say this in English?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: How do you say this in English?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Ask with how do you.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "How do you say! How do you say this word in English?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "How to say this in English?",
+  "right": "How do you say this in English?",
+  "strike": "to",
+  "why": "Ask with how do you.",
+  "memory": "How do you say?",
+  "quiz": {
+   "stem": "___ this word in English?",
+   "options": [
+    "How to say",
+    "How do you say"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Cara bilang” = “How do you”",
+   "tip": "Kita bilang “Bagaimana cara bilang ini?”, tapi bahasa Inggris butuh kalimat lengkap: How do you say this?",
+   "caption": "Pernah bilang begini? “How to say this in English?” 😅 Untuk bertanya cara bilang, pakai How do you: “How do you say this in English?” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “How do you say”. Ucapkan dengan lantang: “How do you say this in English?” Lalu tanyakan cara bilang satu benda di rumahmu. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#pertanyaan",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Ask with “How do you”",
+   "tip": "We say “Bagaimana cara bilang ini?”, but English needs a full question: How do you say this?",
+   "caption": "Ever say this? “How to say this in English?” 😅 To ask how to say it, use How do you: “How do you say this in English?” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Cara bilang” = “How do you”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 56,
+  "seconds": 33.0,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "“Cara bilang” = “How do you”",
+  "keyword": "How do you say this in English?",
+  "value": "Kita bilang “Bagaimana cara bilang ini?”, tapi bahasa Inggris butuh kalimat lengkap: How do you say this?",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#pertanyaan",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 50,
+  "platforms": {
+   "youtube": {
+    "title": "“Cara bilang” = “How do you”",
+    "description": "Kita bilang “Bagaimana cara bilang ini?”, tapi bahasa Inggris butuh kalimat lengkap: How do you say this?\n\nPernah bilang begini? “How to say this in English?” 😅 Untuk bertanya cara bilang, pakai How do you: “How do you say this in English?” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #pertanyaan #bahasainggris #lexkite",
+    "tags": [
+     "How do you say this in English?",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “How to say this in English?” 😅 Untuk bertanya cara bilang, pakai How do you: “How do you say this in English?” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Cara bilang” = “How do you”\n\nKita bilang “Bagaimana cara bilang ini?”, tapi bahasa Inggris butuh kalimat lengkap: How do you say this?\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#pertanyaan",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Cara bilang” = “How do you” Kita bilang “Bagaimana cara bilang ini?”, tapi bahasa Inggris butuh kal… #belajarbahasainggris #pertanyaan #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “How do you say”. Ucapkan dengan lantang: “How do you say this in English?” Lalu tanyakan cara bilang satu benda di rumahmu. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

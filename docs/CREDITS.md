@@ -5,6 +5,7 @@
 
 | Dữ liệu | Nguồn | Giấy phép | Dùng ở |
 |---|---|---|---|
+| Dạng động từ bất quy tắc (đối chiếu) | WordNet 3.1 `verb.exc`, Princeton University | WordNet License | `content/verbs/sources/wordnet-forms.json` |
 | IPA Anh–Mỹ (ô `ipaUS`) | CMU Pronouncing Dictionary – github.com/cmusphinx/cmudict | BSD-2-Clause, © 1993-2015 Carnegie Mellon University | `content/lexicon/cmudict-subset.txt` → `scripts/build-lexicon.mjs` (ARPAbet → IPA kiểu Oxford) |
 | Kiểm IPA Anh (chỉ để kiểm, không hiển thị) | Britfone 3.0.1 – github.com/JoseLlarena/Britfone | MIT, © 2017 Jose Llarena | `content/lexicon/britfone-subset.txt` (kèm giấy phép) → `scripts/lexicon/ipa-audit.mjs` |
 | Dạng yếu/mạnh hư từ | Cambridge Dictionary, Longman Pronunciation Dictionary (J. C. Wells), Wikipedia "Weak and strong forms in English" (CC BY-SA 4.0) – dữ kiện ngữ âm, bảng tự soạn | – | `web/js/ui.js` `LK_WEAK` |

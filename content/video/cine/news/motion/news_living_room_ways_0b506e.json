@@ -1,0 +1,312 @@
+{
+ "id": "mo_news_living_room_ways_0b506e",
+ "template": "tip",
+ "title": "News Motion – saying no to an invitation: polite to casual (news_living_room_ways_0b506e)",
+ "teacher": "ama",
+ "clips": [
+  "ga11_talk",
+  "ga11_explain",
+  "ga11_happy",
+  "ga11_thinking",
+  "ga11_surprise_3"
+ ],
+ "listen": [
+  "ga11_listen_2"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy2",
+ "active": "mint",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "speaking",
+  "link": "https://lexkite.com/en/speaking/",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Speaking",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "How do you say no?"
+  },
+  {
+   "id": "t0",
+   "text": "Polite: I'd love to, but I can't.",
+   "gap": 0.7
+  },
+  {
+   "id": "t1",
+   "text": "Neutral: Sorry, I can't make it.",
+   "gap": 0.7
+  },
+  {
+   "id": "t2",
+   "text": "Casual: Can't tonight. Maybe next time!",
+   "gap": 0.7
+  },
+  {
+   "id": "t3",
+   "text": "Use the first one with your boss.",
+   "gap": 0.7
+  },
+  {
+   "id": "t4",
+   "text": "Save the casual one for friends.",
+   "gap": 0.7
+  },
+  {
+   "id": "t5",
+   "text": "Repeat after me: I'd love to, but I can't.",
+   "gap": 0.7
+  },
+  {
+   "id": "r",
+   "text": "Teacher's tip: save all three and pick your style.",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "SAY NO",
+      "white"
+     ]
+    ],
+    [
+     [
+      "NICELY",
+      "yellow"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Speaking · 3 ways to say no",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "SAY NO"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "NICELY"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "sum",
+    "at": [
+     "r",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Remember",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "I'd love to, but I can't.",
+        "gold"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "Sorry, I can't make it.",
+        "teal"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "Can't tonight. Next time!",
+        "coral"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "rules",
+    "at": [
+     "t0",
+     0
+    ],
+    "rows": [
+     {
+      "t": "tile",
+      "tag": "POLITE",
+      "tone": "gold",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "I'd love to, but I can't.",
+        "gold"
+       ]
+      ],
+      "ex_at": [
+       "t0",
+       0
+      ],
+      "at": [
+       "t0",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "NEUTRAL",
+      "tone": "teal",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "Sorry, I can't make it.",
+        "teal"
+       ]
+      ],
+      "ex_at": [
+       "t1",
+       0
+      ],
+      "at": [
+       "t1",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "CASUAL",
+      "tone": "coral",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "Can't tonight. Next time!",
+        "coral"
+       ]
+      ],
+      "ex_at": [
+       "t2",
+       0
+      ],
+      "at": [
+       "t2",
+       0
+      ]
+     }
+    ]
+   }
+  ],
+  "hook_text": "SAY NO NICELY",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ }
+}
