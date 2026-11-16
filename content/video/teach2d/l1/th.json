@@ -7,7 +7,7 @@
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Do you forget this sound?",
+    "hook_say": "Don't forget the s!",
     "wrong": "She like coffee.",
     "right": "She likes coffee.",
     "strike": "like",
@@ -77,7 +77,7 @@
     "en": {
      "hook": "Don't say “I very like”!",
      "tip": "Very describes adjectives, not verbs. Say “like … very much” or “really like”",
-     "caption": "Do you say “I very like music”? 😅 In Thai “very” can follow a verb, but in English very does not go before a verb. Say “I like music very much” or “I really like music”. Say “I like music very much”! Listen to Ama and repeat! Practice more in the Lexkite app."
+     "caption": "Do you say “I very like music”? 😅 In Thai “very” can come after the verb, but in English very does not go before a verb. Say “I like music very much” or “I really like music”! Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -117,7 +117,7 @@
     "en": {
      "hook": "Don't say “I am agree”!",
      "tip": "Agree is already a verb, so you do not need “am”: “I agree”",
-     "caption": "Do you say “I am agree with you”? 😅 Thai has no “be” before this kind of word, so “am” sneaks in. Agree is already a verb. Say “I agree with you”! Listen to Ama and repeat! Practice more in the Lexkite app."
+     "caption": "Do you say “I am agree with you”? 😅 Agree is already a verb, so it does not need am. Say “I agree with you”! Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -174,14 +174,14 @@
     "why": "Open is for doors. For lights, turn on.",
     "memory": "Turn on the light.",
     "quiz": {
-     "stem": "Please ___ the TV.",
+     "stem": "Please ___ the music.",
      "options": [
       "open",
       "turn on"
      ],
      "answer": 1
     },
-    "answer_say": "Turn on! Please turn on the TV.",
+    "answer_say": "Turn on! Please turn on the music.",
     "native": {
      "hook": "เปิดไฟ ไม่ใช่ open!",
      "tip": "ไทยพูด “เปิดไฟ” แต่อังกฤษ open ใช้กับประตู ไฟใช้ “turn on”",
@@ -196,7 +196,7 @@
     },
     "en": {
      "hook": "Not “open the light”!",
-     "tip": "In Thai you “open” a light, but in English open is for doors. For lights and music say “turn on”",
+     "tip": "In Thai you “open” a light, but in English open is for doors. For lights say “turn on”",
      "caption": "Do you say “Please open the light”? 😅 In Thai we say “open the light”, but English uses open for doors and lids. For a light, use turn on. Say “Please turn on the light”! Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
@@ -277,36 +277,36 @@
     "en": {
      "hook": "Questions need “do”!",
      "tip": "Thai can ask “where you live”, but English questions need do or does: “Where do you live”",
-     "caption": "Do you say “Where you live?”? 😅 Thai can ask with the same word order as a statement, but English questions need a helper: do or does. Say “Where do you live?”! Listen to Ama and repeat! Practice more in the Lexkite app."
+     "caption": "Do you say “Where you live”? 😅 Thai can ask with the same word order as a statement, but English questions need a helper: do or does. Say “Where do you live”! Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
   {
-   "id": "t2_l1_th_he_has",
+   "id": "t2_l1_th_by_walk",
    "lang": "th",
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Watch he and have!",
-    "wrong": "He have a car.",
-    "right": "He has a car.",
-    "strike": "have",
-    "why": "Use has with he, she, it.",
-    "memory": "He has. She has.",
+    "hook_say": "Walk to work, not by walk!",
+    "wrong": "I go to work by walk.",
+    "right": "I walk to work.",
+    "strike": "go to work by walk",
+    "why": "We walk to work, we do not go by walk.",
+    "memory": "Walk to work.",
     "quiz": {
-     "stem": "She ___ a big house.",
+     "stem": "She ___ to school.",
      "options": [
-      "have",
-      "has"
+      "goes by walk",
+      "walks"
      ],
      "answer": 1
     },
-    "answer_say": "Has! She has a big house.",
+    "answer_say": "Walks! She walks to school.",
     "native": {
-     "hook": "he ต้องใช้ has!",
-     "tip": "he/she/it ใช้ has ไม่ใช่ have: “He has a car”",
-     "caption": "คุณเคยพูดว่า “He have a car.” ไหม? 😅 ภาษาไทยไม่เปลี่ยนรูปกริยา แต่ภาษาอังกฤษ he/she/it ต้องใช้ has: “He has a car.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
-     "comment": "เฉลย: “has” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+     "hook": "เดินไป ใช้ walk ไม่ใช่ by walk!",
+     "tip": "ไทยพูด “เดินไป” แต่อังกฤษไม่พูด by walk ใช้กริยา walk: “I walk to work”",
+     "caption": "คุณเคยพูดว่า “I go to work by walk.” ไหม? 😅 ภาษาไทยพูดว่า “เดินไปทำงาน” แต่ภาษาอังกฤษไม่ใช้ by walk ต้องใช้กริยา walk: “I walk to work.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+     "comment": "เฉลย: “walks” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
      "hashtags": [
       "#เรียนภาษาอังกฤษ",
       "#ภาษาอังกฤษ",
@@ -315,9 +315,9 @@
      ]
     },
     "en": {
-     "hook": "With he, use “has”!",
-     "tip": "With he, she and it we use has, not have: “He has a car”",
-     "caption": "Do you say “He have a car”? 😅 Thai verbs do not change, but with he, she and it English needs has. Say “He has a car”! Listen to Ama and repeat! Practice more in the Lexkite app."
+     "hook": "Walk to work, not “by walk”!",
+     "tip": "Thai says “walk go”, but English uses the verb walk, not by walk: “I walk to work”",
+     "caption": "Do you say “I go to work by walk”? 😅 Thai can say “walk to work” in one go, but English does not use by walk. Use the verb walk. Say “I walk to work”! Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -456,17 +456,17 @@
     "quiz": {
      "stem": "___ is fun.",
      "options": [
-      "Dance",
-      "Dancing"
+      "Read",
+      "Reading"
      ],
      "answer": 1
     },
-    "answer_say": "Dancing! Dancing is fun.",
+    "answer_say": "Reading! Reading is fun.",
     "native": {
      "hook": "ใช้ Swimming ไม่ใช่ Swim!",
      "tip": "ไทยใช้กริยาเป็นประธานได้เลย แต่อังกฤษต้องเติม -ing: “Swimming is fun”",
      "caption": "คุณเคยพูดว่า “Swim is fun.” ไหม? 😅 ภาษาไทยใช้กริยาเป็นประธานได้ทันที เช่น “ว่ายน้ำสนุก” แต่ภาษาอังกฤษต้องเติม -ing: “Swimming is fun.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
-     "comment": "เฉลย: “Dancing” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+     "comment": "เฉลย: “Reading” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
      "hashtags": [
       "#เรียนภาษาอังกฤษ",
       "#ภาษาอังกฤษ",
@@ -503,7 +503,7 @@
     },
     "answer_say": "On! We meet on Monday.",
     "native": {
-     "hook": "วันใช้ on ไม่ใช่ in!",
+     "hook": "on Monday ไม่ใช่ in Monday!",
      "tip": "ไทยพูด “ในวันจันทร์” เลยติดใช้ in แต่อังกฤษใช้ on กับวัน: “on Monday”",
      "caption": "คุณเคยพูดว่า “I work in Monday.” ไหม? 😅 ภาษาไทยพูดว่า “ในวันจันทร์” จึงมักใช้ in แต่ภาษาอังกฤษใช้ on กับวัน: “I work on Monday.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
      "comment": "เฉลย: “on” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
@@ -531,17 +531,17 @@
     "wrong": "I play Facebook every night.",
     "right": "I use Facebook every night.",
     "strike": "play",
-    "why": "We use apps, we do not play them.",
+    "why": "We use Facebook, we do not play it.",
     "memory": "Use Facebook.",
     "quiz": {
-     "stem": "I ___ Instagram a lot.",
+     "stem": "I ___ Facebook a lot.",
      "options": [
       "play",
       "use"
      ],
      "answer": 1
     },
-    "answer_say": "Use! I use Instagram a lot.",
+    "answer_say": "Use! I use Facebook a lot.",
     "native": {
      "hook": "เล่นเฟซ ≠ play Facebook!",
      "tip": "ไทยพูด “เล่นเฟซ” แต่อังกฤษไม่ใช้ play กับแอป ใช้ “use” หรือ “be on”",
@@ -576,7 +576,7 @@
     "quiz": {
      "stem": "I have two ___.",
      "options": [
-      "childs",
+      "child",
       "children"
      ],
      "answer": 1
@@ -647,7 +647,7 @@
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Who is raining?",
+    "hook_say": "Say it before raining!",
     "wrong": "Raining now.",
     "right": "It is raining now.",
     "strike": "Raining",
@@ -717,7 +717,7 @@
     "en": {
      "hook": "Don't drop the “I”!",
      "tip": "Thai often drops the subject, but English needs I: “I went to Chiang Mai”",
-     "caption": "Do you say “Went to Chiang Mai yesterday”? 😅 Thai often drops the subject, but English needs one. Say I. Say “I went to Chiang Mai yesterday”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "caption": "Do you say “Went to Chiang Mai yesterday”? 😅 Thai often drops the subject, but English needs one. Say “I went to Chiang Mai yesterday”! Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -745,7 +745,7 @@
     "native": {
      "hook": "borrow หรือ lend?",
      "tip": "lend คือให้ยืม borrow คือยืมมา: “lend me a pen”",
-     "caption": "คุณเคยพูดว่า “Can you borrow me a pen?” ไหม? 😅 ภาษาไทยใช้คำว่า “ยืม” ทั้งยืมมาและให้ยืม แต่ภาษาอังกฤษแยกเป็นสองคำ: lend = ให้ยืม, borrow = ยืมมา ต้องพูดว่า “Can you lend me a pen?” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+     "caption": "คุณเคยพูดว่า “Can you borrow me a pen?” ไหม? 😅 ภาษาไทยใช้คำว่า “ยืม” ทั้งยืมมาและให้ยืม (ให้ยืม) แต่ภาษาอังกฤษแยกเป็นสองคำ: lend = ให้ยืม, borrow = ยืมมา ต้องพูดว่า “Can you lend me a pen?” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
      "comment": "เฉลย: “lend” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
      "hashtags": [
       "#เรียนภาษาอังกฤษ",
@@ -756,8 +756,8 @@
     },
     "en": {
      "hook": "Borrow or lend?",
-     "tip": "Thai uses one word for both, but English has two: lend means give, borrow means take",
-     "caption": "Do you say “Can you borrow me a pen?”? 😅 Thai uses one word for both borrowing and lending, but English splits them: lend is to give, borrow is to take. Say “Can you lend me a pen?”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "Thai uses the same root word for both, but English has two: lend means give, borrow means take",
+     "caption": "Do you say “Can you borrow me a pen”? 😅 Thai uses the same root word for both borrowing and lending, but English has two words: lend is to give, borrow is to take. Say “Can you lend me a pen”! Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -767,25 +767,25 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Watch TV, do not see!",
-    "wrong": "I see TV every night.",
+    "hook_say": "Watch TV, not look TV!",
+    "wrong": "I look TV every night.",
     "right": "I watch TV every night.",
-    "strike": "see",
+    "strike": "look",
     "why": "We watch TV.",
     "memory": "Watch TV.",
     "quiz": {
      "stem": "I ___ TV after dinner.",
      "options": [
-      "see",
+      "look",
       "watch"
      ],
      "answer": 1
     },
     "answer_say": "Watch! I watch TV after dinner.",
     "native": {
-     "hook": "ดูทีวี ใช้ watch!",
-     "tip": "ไทยใช้ “ดู” กับทุกอย่าง แต่อังกฤษดูทีวีใช้ “watch”",
-     "caption": "คุณเคยพูดว่า “I see TV every night.” ไหม? 😅 ภาษาไทยใช้คำว่า “ดู” กับทุกอย่าง แต่ภาษาอังกฤษดูทีวีต้องใช้ watch ไม่ใช่ see: “I watch TV every night.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+     "hook": "ดูทีวี ใช้ watch ไม่ใช่ look!",
+     "tip": "ไทยใช้ “ดู” ทั้ง look และ watch แต่ดูทีวีต้องใช้ “watch”",
+     "caption": "คุณเคยพูดว่า “I look TV every night.” ไหม? 😅 ภาษาไทยใช้ “ดู” ทั้ง look และ watch แต่ภาษาอังกฤษดูทีวีต้องใช้ watch ไม่ใช่ look: “I watch TV every night.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
      "comment": "เฉลย: “watch” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
      "hashtags": [
       "#เรียนภาษาอังกฤษ",
@@ -795,38 +795,38 @@
      ]
     },
     "en": {
-     "hook": "Watch TV, not “see TV”!",
-     "tip": "In Thai you “see” TV, but English uses watch for things on a screen: “I watch TV”",
-     "caption": "Do you say “I see TV every night”? 😅 In Thai we use one word for looking at anything, but English uses watch for TV. Say “I watch TV every night”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "hook": "Watch TV, not “look TV”!",
+     "tip": "Thai uses one verb for look and watch, but for TV English uses watch: “I watch TV”",
+     "caption": "Do you say “I look TV every night”? 😅 Thai uses one verb for look and watch, but for TV English uses watch. Say “I watch TV every night”! Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
   {
-   "id": "t2_l1_th_two_cat",
+   "id": "t2_l1_th_there_is",
    "lang": "th",
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Two cats, with s!",
-    "wrong": "I have two cat.",
-    "right": "I have two cats.",
-    "strike": "cat",
-    "why": "More than one: add s.",
-    "memory": "Two cats.",
+    "hook_say": "Not have, say there are!",
+    "wrong": "In Bangkok have many cars.",
+    "right": "There are many cars in Bangkok.",
+    "strike": "have",
+    "why": "Use there is or there are, not have.",
+    "memory": "There are many cars.",
     "quiz": {
-     "stem": "I see three ___.",
+     "stem": "___ a park near my house.",
      "options": [
-      "dog",
-      "dogs"
+      "Have",
+      "There is"
      ],
      "answer": 1
     },
-    "answer_say": "Dogs! I see three dogs.",
+    "answer_say": "There is! There is a park near my house.",
     "native": {
-     "hook": "สองตัวขึ้นไป เติม s!",
-     "tip": "ไทยไม่เติมพหูพจน์หลังตัวเลข แต่อังกฤษต้องเติม: “two cats”",
-     "caption": "คุณเคยพูดว่า “I have two cat.” ไหม? 😅 ภาษาไทยไม่เติมพหูพจน์หลังตัวเลข แต่ภาษาอังกฤษต้องเติม s เมื่อมีสองขึ้นไป: “I have two cats.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
-     "comment": "เฉลย: “dogs” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+     "hook": "มี… ≠ have เสมอ!",
+     "tip": "ไทยใช้ “มี” ทั้ง have และ there is แต่ถ้าบอกว่ามีอะไรอยู่ที่ไหน ใช้ “there is/are”",
+     "caption": "คุณเคยพูดว่า “In Bangkok have many cars.” ไหม? 😅 ภาษาไทยใช้ “มี” ทั้ง have และ there is แต่ภาษาอังกฤษบอกว่ามีอะไรอยู่ที่ไหนต้องใช้ there is หรือ there are: “There are many cars in Bangkok.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+     "comment": "เฉลย: “There is” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
      "hashtags": [
       "#เรียนภาษาอังกฤษ",
       "#ภาษาอังกฤษ",
@@ -835,9 +835,9 @@
      ]
     },
     "en": {
-     "hook": "Two or more? Add s!",
-     "tip": "Thai does not mark plurals after numbers, but English does: “two cats”",
-     "caption": "Do you say “I have two cat”? 😅 Thai does not add a plural after a number, but English adds s to the noun. Say “I have two cats”! Listen to Ama and repeat! Practice more in the Lexkite app."
+     "hook": "Not “have”, say “there are”!",
+     "tip": "Thai uses one word for have and there is, but English says there is/are for what is in a place",
+     "caption": "Do you say “In Bangkok have many cars”? 😅 Thai uses one word for have and there is, but English says there is or there are for what is in a place. Say “There are many cars in Bangkok”! Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -917,7 +917,7 @@
     "en": {
      "hook": "No “am knowing”!",
      "tip": "Know describes a state, so it takes no -ing, even for right now: “I know the answer”",
-     "caption": "Do you say “I am knowing the answer”? 😅 Thai can say “is knowing”, but know is a state verb in English and takes no -ing. Say “I know the answer”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "caption": "Do you say “I am knowing the answer”? 😅 Know is a state verb, so it takes no -ing, even for right now. Say “I know the answer”! Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -927,7 +927,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Do you forget is?",
+    "hook_say": "Don't forget is!",
     "wrong": "She very beautiful.",
     "right": "She is very beautiful.",
     "strike": "She very",
@@ -1082,31 +1082,31 @@
    }
   },
   {
-   "id": "t2_l1_th_my_name_is",
+   "id": "t2_l1_th_yes_i_can",
    "lang": "th",
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Do you forget one small word?",
-    "wrong": "My name Anna.",
-    "right": "My name is Anna.",
-    "strike": "name",
-    "why": "Put is between name and Anna.",
-    "memory": "Name plus is.",
+    "hook_say": "Answer with a full yes!",
+    "wrong": "Can you swim? Can.",
+    "right": "Can you swim? Yes, I can.",
+    "strike": "Can.",
+    "why": "Answer with yes and a subject.",
+    "memory": "Yes, I can.",
     "quiz": {
-     "stem": "Pick the right sentence.",
+     "stem": "Can you cook? ___",
      "options": [
-      "My name Anna.",
-      "My name is Anna."
+      "Can.",
+      "Yes, I can."
      ],
      "answer": 1
     },
-    "answer_say": "My name is Anna!",
+    "answer_say": "Yes, I can! Can you cook? Yes, I can.",
     "native": {
-     "hook": "My name is… อย่าลืม is!",
-     "tip": "ไทยพูด “ฉันชื่อ Anna” ไม่มีกริยา แต่อังกฤษต้องมี is",
-     "caption": "คุณเคยพูดว่า “My name Anna.” ไหม? 😅 ภาษาไทยพูดว่า “ฉันชื่อ Anna” ได้เลย แต่ภาษาอังกฤษต้องมี is ระหว่าง name กับชื่อ: “My name is Anna.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
-     "comment": "เฉลย: “My name is Anna.” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+     "hook": "ตอบ “ได้” ≠ Can.!",
+     "tip": "ไทยตอบ “ได้” คำเดียวพอ แต่อังกฤษต้องตอบ “Yes, I can”",
+     "caption": "คุณเคยพูดว่า “Can you swim? Can.” ไหม? 😅 ภาษาไทยตอบว่า “ได้” คำเดียวก็พอ แต่ภาษาอังกฤษต้องตอบ yes พร้อมประธาน: “Can you swim? Yes, I can.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+     "comment": "เฉลย: “Yes, I can.” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
      "hashtags": [
       "#เรียนภาษาอังกฤษ",
       "#ภาษาอังกฤษ",
@@ -1115,9 +1115,9 @@
      ]
     },
     "en": {
-     "hook": "Missing “is” in your name?",
-     "tip": "Thai says “my name Anna” with no verb, but English needs is: “My name is Anna”",
-     "caption": "Do you say “My name Anna”? 😅 Thai can say this sentence with no verb, but English needs is. Say “My name is Anna”! Listen to Ama and repeat! Practice more in the Lexkite app."
+     "hook": "Don't just answer “Can”!",
+     "tip": "Thai can answer with one word, but English needs yes plus a subject: “Yes, I can”",
+     "caption": "Do you say “Can you swim? Can”? 😅 Thai can answer with one word, but English needs yes plus a subject. Say “Can you swim? Yes, I can”! Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1132,7 +1132,7 @@
     "right": "My sister is a nurse.",
     "strike": "she",
     "why": "Say the person once, not twice.",
-    "memory": "One person, one word.",
+    "memory": "Say the person once.",
     "quiz": {
      "stem": "My dad ___ tall.",
      "options": [
@@ -1207,7 +1207,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Home needs no to.",
+    "hook_say": "Going home? Drop the to!",
     "wrong": "I'm going to home.",
     "right": "I'm going home.",
     "strike": "to",
@@ -1225,7 +1225,7 @@
     "native": {
      "hook": "go home ไม่ต้องใส่ to นะ!",
      "tip": "go home ไม่ต้องมี to (ต่างจาก go to school): “I'm going home”",
-     "caption": "คุณเคยพูดว่า “I'm going to home.” ไหม? 😅 ภาษาไทยพูดว่า “ไปบ้าน” จึงมักใส่ to เพราะติดจาก go to school แต่ home ไม่ต้องมี to: “I'm going home.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+     "caption": "คุณเคยพูดว่า “I'm going to home.” ไหม? 😅 เราติดพูด go to school, go to work จึงใส่ to หน้า home ด้วย แต่ home ไม่ต้องมี to: “I'm going home.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
      "comment": "เฉลย: “home” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
      "hashtags": [
       "#เรียนภาษาอังกฤษ",
@@ -1237,7 +1237,7 @@
     "en": {
      "hook": "Don't say “go to home”!",
      "tip": "Home needs no to, unlike go to school: “I'm going home”",
-     "caption": "Do you say “I'm going to home”? 😅 Home needs no to. It is easy to copy go to school, but we say going home. Say “I'm going home”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "caption": "Do you say “I'm going to home”? 😅 We say go to school and go to work, so people add to before home too, but home needs no to. Say “I'm going home”! Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1276,7 +1276,7 @@
     },
     "en": {
      "hook": "Boring or bored?",
-     "tip": "Bored is how you feel, boring is what causes it. Thai often uses one word for both",
+     "tip": "Bored is how you feel, boring is what makes you feel it: “I am bored today”",
      "caption": "Do you say “I am boring today”? 😅 Your feeling is bored, and the thing that causes it is boring. Say “I am bored today”! Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
@@ -1327,7 +1327,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Homework has no s!",
+    "hook_say": "Homework: no s, please!",
     "wrong": "I have many homeworks today.",
     "right": "I have a lot of homework today.",
     "strike": "many homeworks",
