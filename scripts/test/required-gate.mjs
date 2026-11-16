@@ -4,7 +4,7 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { evaluate, gateDrift, applyDrift, rerunCancelled, MAX_AUTO_RERUN, prCapable, checkWorkflow, dirtyShas, run, paceDue, PACED, chainAlive, CHAIN_CHECK_MS, CHAIN_RETRIES, CONTEXT, SELF_JOB, SELF_PATH } from '../ci/required-gate.mjs';
+import { api, evaluate, gateDrift, applyDrift, rerunCancelled, MAX_AUTO_RERUN, prCapable, checkWorkflow, dirtyShas, run, paceDue, PACED, chainAlive, CHAIN_CHECK_MS, CHAIN_RETRIES, CONTEXT, SELF_JOB, SELF_PATH } from '../ci/required-gate.mjs';
 let fails = 0, n = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log('✗', m); } };
 
 const cr = (name, status, conclusion, id = 1) => ({ name, status, conclusion, id });
@@ -248,6 +248,24 @@ ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 
     ok(gateDrift(fl, ['web/dict/a.json'], src).includes('scripts/test/dict-only.mjs') && !gateDrift(fl, ['web/js/app.js'], src).includes('scripts/test/dict-only.mjs'), 'test đọc thư mục web/dict: PR đụng web/dict → bắt, PR khác → không');
     ok(gateDrift([F('scripts/test/learn-flow.mjs')], ['web/js/app.js'], {}).length === 1, 'không tải được nguồn → giữ cách cũ (bắt), không mở cổng oan');
     ok(gateDrift([F('scripts/test/learn-flow.mjs')], ['scripts/test/learn-flow.mjs'], src).length === 1, 'PR cũng sửa đúng test đó → bắt (xung đột kết quả)'); }
+  // 16/11: compare chỉ liệt kê 300 tệp/lần → phân trang, không còn mặc định "(>300 tệp đổi)" = luôn chờ gộp lại (#1478 tự kẹt)
+  { const mk = n => Array.from({ length: n }, (_, i) => ({ filename: `docs/f${i}.md`, status: 'modified' }));
+    const b64 = t => Buffer.from(t).toString('base64');
+    const fake = ({ mainFiles, prFiles, src = {} }) => async u => {
+      const url = new URL(u), pth = url.pathname.replace('/repos/o/r', ''), pg = +(url.searchParams.get('page') || 1), page = a => a.slice((pg - 1) * 100, pg * 100);
+      const res = b => ({ ok: true, status: 200, headers: { get: () => null }, json: async () => b, text: async () => '' });
+      if (pth.startsWith('/compare/main...')) return res({ merge_base_commit: { sha: 'mb' }, files: page(prFiles) });
+      if (pth.startsWith('/compare/mb...main')) return res({ total_commits: 3, files: page(mainFiles) });
+      const m = pth.match(/^\/contents\/(.+)$/); if (m && src[decodeURIComponent(m[1])] != null) return res({ encoding: 'base64', content: b64(src[decodeURIComponent(m[1])]) });
+      return { ok: false, status: 404, headers: { get: () => null }, json: async () => ({}), text: async () => 'nf' };
+    };
+    const learn = { filename: 'scripts/test/learn-flow.mjs', status: 'modified' }, srcs = { 'scripts/test/learn-flow.mjs': "rd('web/js/study.js')" };
+    const big = [...mk(399), learn];   // 400 tệp main đổi (> 300), gồm 1 test cổng
+    ok((await api('t', 'o/r', fake({ mainFiles: big, prFiles: [{ filename: 'docs/CODEMAP.md', status: 'modified' }], src: srcs })).drift('sha')).length === 0, 'main đổi 400 tệp nhưng test cổng không nhắc tệp PR → KHÔNG chờ (phân trang, không còn dấu >300)');
+    ok((await api('t', 'o/r', fake({ mainFiles: big, prFiles: [{ filename: 'web/js/study.js', status: 'modified' }], src: srcs })).drift('sha')).join() === 'scripts/test/learn-flow.mjs', 'cùng 400 tệp nhưng PR đụng web/js/study.js → bắt đúng test cổng liên quan');
+    const huge = mk(1200);   // quá 10 trang → vẫn cắt cụt → dấu hiệu chờ (không đo được, không mở cổng oan)
+    ok((await api('t', 'o/r', fake({ mainFiles: huge, prFiles: [{ filename: 'a.md', status: 'modified' }] })).drift('sha')).join() === '.github/workflows/(>300 tệp đổi)', 'main đổi > 1000 tệp (cắt cụt) → vẫn chờ');
+    ok((await api('t', 'o/r', fake({ mainFiles: [learn], prFiles: mk(1200), src: srcs })).drift('sha')).join() === 'scripts/test/learn-flow.mjs', 'PR > 1000 tệp (không biết đủ) → tính hết như cách cũ'); }
   const green = { state: 'success', description: 'Xanh: 5 check đều đạt', failed: [], pending: [], total: 5, cancelled: [] };
   const w = applyDrift(green, ['scripts/i18n-qa.mjs', 'scripts/lib/i18n-rules.mjs', '.github/workflows/a.yml']);
   ok(w.state === 'pending' && /gộp lại main/.test(w.description) && w.description.length <= 140 && /\+1/.test(w.description), 'xanh + cổng đổi → CHỜ, mô tả ≤140 ký tự: ' + w.description);

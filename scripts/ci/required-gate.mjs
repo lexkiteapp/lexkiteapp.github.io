@@ -215,13 +215,14 @@ export function api(token, repo, fetchImpl = globalThis.fetch) {
     post: (sha, { state, description }, targetUrl) => call(`/statuses/${sha}`, { method: 'POST', body: JSON.stringify({ state, description, context: CONTEXT, ...(targetUrl ? { target_url: targetUrl } : {}) }) }),
     rerun: id => call(`/actions/runs/${id}/rerun`, { method: 'POST', body: '{}' }),
     // tệp main đã đổi kể từ merge-base với sha (2 lệnh, chỉ gọi cho sha sắp xanh); lỗi API → [] (mở cổng, không chặn oan)
+    // 16/11 (điều phối): compare chỉ liệt kê 300 tệp/lần → trước đây ≥300 tệp = "(>300 tệp đổi)" = LUÔN chờ gộp lại (#1478 tự kẹt). Nay phân trang tới 10×100 tệp; chỉ khi vẫn cắt cụt mới dùng dấu hiệu chờ.
+    // PR: cắt cụt → prFiles = null (chưa biết → tính hết, cách cũ). Tệp cổng: tải nguồn bản main để xét liên quan (≤ 40 tệp), lỗi/quá lớn → không có nguồn → giữ cách cũ.
     drift: async sha => {
-      const pc = await call(`/compare/main...${sha}`), mb = pc.merge_base_commit?.sha; if (!mb) return [];
-      const prFiles = (pc.files || []).map(x => x.filename);
-      const c = await call(`/compare/${mb}...main`), fs_ = c.files || [];
-      const all = c.total_commits > 0 && fs_.length >= 300 ? [...fs_, { filename: '.github/workflows/(>300 tệp đổi)', status: 'modified' }] : fs_;
-      // tải nguồn (bản main) của các tệp cổng ứng viên để xét liên quan; ≤ 40 tệp, lỗi/quá lớn → không có nguồn → giữ cách cũ
-      const cand = all.filter(f => f.status !== 'removed' && (GATE_WORKFLOW.test(f.filename) || GATE_ANY.some(r => r.test(f.filename)) || (GATE_CHANGED.some(r => r.test(f.filename)) && f.status !== 'added')) && !prFiles.includes(f.filename) && !/\(>300/.test(f.filename)).slice(0, 40);
+      const cmp = async (spec, max = 10) => { let first, files = []; for (let pg = 1; pg <= max; pg++) { const r = await call(`/compare/${spec}?per_page=100&page=${pg}`); first ??= r; const f = r.files || []; files.push(...f); if (f.length < 100) return { first, files, truncated: false }; } return { first, files, truncated: true }; };
+      const pc = await cmp(`main...${sha}`), mb = pc.first.merge_base_commit?.sha; if (!mb) return [];
+      const prFiles = pc.truncated ? null : pc.files.map(x => x.filename);
+      const c = await cmp(`${mb}...main`), all = c.truncated ? [...c.files, { filename: '.github/workflows/(>300 tệp đổi)', status: 'modified' }] : c.files;
+      const cand = all.filter(f => f.status !== 'removed' && (GATE_WORKFLOW.test(f.filename) || GATE_ANY.some(r => r.test(f.filename)) || (GATE_CHANGED.some(r => r.test(f.filename)) && f.status !== 'added')) && !(prFiles || []).includes(f.filename) && !/\(>300/.test(f.filename)).slice(0, 40);
       const srcs = {};
       await Promise.all(cand.map(async f => { try { const r = await call(`/contents/${f.filename.split('/').map(encodeURIComponent).join('/')}?ref=main`); if (r && r.encoding === 'base64' && typeof r.content === 'string') srcs[f.filename] = Buffer.from(r.content, 'base64').toString('utf8'); } catch {} }));
       return gateDrift(all, prFiles, srcs);
