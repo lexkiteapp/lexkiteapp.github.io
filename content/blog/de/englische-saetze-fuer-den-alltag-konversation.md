@@ -124,6 +124,8 @@ Wenn Ihnen ein englisches Wort nicht sofort einfällt, überbrücken Sie die Pau
 - **« That’s a thoughtful question, give me just a second. »** : Das ist eine gute Frage, gib mir eine Sekunde.
 - **« The word is right on the tip of my tongue! »** : Das Wort liegt mir auf der Zunge!
 
+Wie du diese Sätze in zwölf Situationen laut übst und Sprechhemmungen abbaust, steht in [Selbstbewusst Englisch sprechen](/de/blog/selbstbewusst-englisch-sprechen-alltag/).
+
 ## Übersichtstabelle: Häufige Alltagssituationen und Formulierungen
 
 | Alltagssituation | Empfohlene Formulierung | Deutsche Bedeutung |

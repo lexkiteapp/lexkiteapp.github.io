@@ -15,13 +15,15 @@ author: Lexkite
 status: ready
 qualityScore: 94
 ---
-Haben Sie schon einmal stundenlang Vokabellisten gepaukt, nur um festzustellen, dass nach zwei Wochen fast alles wieder vergessen war? Dieses Phänomen kennen Millionen von Sprachlernern. Wer erfolgreich **Englisch Vokabeln lernen** möchte, braucht keine eiserne Disziplin oder ein fotografisches Gedächtnis – entscheidend ist die richtige Lernmethode. Unser Gehirn ist darauf programmiert, isolierte Fakten auszusortieren, behält jedoch Informationen dauerhaft, wenn sie mit Sinn, Emotion und zeitlich abgestimmten Wiederholungen verknüpft sind.
+Haben Sie schon einmal stundenlang Vokabellisten gepaukt, nur um festzustellen, dass nach zwei Wochen fast alles wieder vergessen war? Dieses Phänomen kennen Millionen von Sprachlernern. Wer erfolgreich **Englisch Vokabeln lernen** möchte, braucht keine eiserne Disziplin oder ein fotografisches Gedächtnis – entscheidend ist die richtige Lernmethode. Unser Gehirn ist darauf programmiert, isolierte Fakten auszusortieren, behält jedoch Informationen dauerhaft, wenn sie mit Sinn, Emotion und zeitlich abgestimmten Wiederholungen verknüpft sind. Für akademischen Wortschatz bietet die [Academic Word List](/de/blog/academic-word-list-awl-wortschatz/) einen bewährten Lernplan.
 
 In diesem umfassenden Leitfaden lernen Sie 7 wissenschaftlich fundierte Methoden kennen, mit denen Sie neue Wörter schnell verstehen, sicher im Langzeitgedächtnis verankern und in echten Gesprächen flüssig abrufen können.
 
 ## Warum das klassische Listenlernen scheitert
 
 In der Schule bestand der Vokabelerwerb meist aus einer einfachen Tabelle: links das englische Wort, rechts die deutsche Übersetzung. Diese Methode hat drei fatale Schwachstellen:
+
+Eine der wirksamsten Techniken aus dieser Liste vertieft der Beitrag [Active Recall Methode](/de/blog/active-recall-methode-englisch-vokabeln/), mit vier Stufen und einem Tagesplan.
 
 1. **Fehlender Kontext:** Ein Wort wie *draw* bedeutet je nach Satz „zeichnen“, „ziehen“, „ein Unentschieden spielen“ oder „Schlüsse ziehen“. Ohne Satzgefüge bleibt die Bedeutung unvollständig.
 2. **Reine Rekognition statt aktivem Abruf:** Beim Durchlesen einer Liste erkennen Sie das Wort wieder (passives Wissen). Das bedeutet jedoch keineswegs, dass es Ihnen beim Sprechen einfällt (aktives Wissen).
@@ -148,6 +150,8 @@ Sparen Sie sich das mühsame manuelle Erstellen von Karteikarten. Starten Sie di
 {{youtube: | Video-Tutorial: So lernen Sie 500 Vokabeln im Monat mit Spaced Repetition}}
 
 {{cta: /#/library | Jetzt die Vokabelbibliothek kostenlos ausprobieren}}
+
+Wie du ein Verwechslungspaar im Kontext lernst, zeigt das Beispiel [Affect oder Effect](/de/blog/affect-oder-effect-unterschied/).
 
 ## Häufig gestellte Fragen
 
