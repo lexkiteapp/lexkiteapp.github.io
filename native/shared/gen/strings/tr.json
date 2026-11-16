@@ -898,6 +898,8 @@
   "verb.typeAVerbE": "Bir fiil yazın, ör. go, went, studies",
   "verb.searchForAVerb": "Bir fiil ara",
   "verb.conjugate": "Konjuge",
+  "verb.irregularVerbs": "Düzensiz fiiller",
+  "verb.openIrregularTable": "Düzensiz fiil tablosunu aç",
   "verb.verbSuggestions": "Fiil önerileri",
   "verb.irregular": "Düzensiz",
   "verb.englishVerbConjugator": "İngilizce fiil çekimi",

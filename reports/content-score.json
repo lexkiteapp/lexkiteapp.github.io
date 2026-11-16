@@ -3,8 +3,8 @@
  "areas": {
   "vocab": {
    "name": "Kho từ",
-   "score": 59.1,
-   "coverage": 59.1,
+   "score": 59.2,
+   "coverage": 59.2,
    "pass": 100,
    "errors": 0,
    "parts": [
@@ -45,7 +45,7 @@
     },
     {
      "k": "ảnh theo nghĩa",
-     "have": 7931,
+     "have": 8014,
      "std": 20000,
      "w": 15,
      "future": false
@@ -470,7 +470,7 @@
     },
     {
      "k": "Bộ từ",
-     "have": 74.1,
+     "have": 74.2,
      "std": 100,
      "w": 25,
      "future": false
@@ -500,7 +500,7 @@
     },
     {
      "k": "nhãn ngắn dịch tay",
-     "have": 12.3,
+     "have": 12.4,
      "std": 13,
      "w": 10,
      "future": false

@@ -42,6 +42,7 @@ quiz: [
     explain: "IRCC names IELTS General Training and says IELTS One Skill Retake is not accepted for Express Entry."
   }
 ]
+publishAt: 2027-01-24T12:45:00+05:30
 ---
 Both tests lead to the same destination, a Canadian Language Benchmark (CLB) score on your Express Entry profile, so **CELPIP vs IELTS for Canada** is not a question of which is "better". It is a question of which test you can perform your best on, for your own programme and your own skills. This guide compares them on the points that decide it: what Immigration, Refugees and Citizenship Canada (IRCC) accepts, how scores convert, how each test feels on the day, and how to test yourself before you pay.
 

@@ -152,6 +152,8 @@ Pour maximiser vos progrès en compréhension orale, reliez la dictée à nos au
 
 {{cta: /#/listening | Lancez votre première session de dictée dans l'espace d'écoute Lexkite}}
 
+La dictée aide aussi à réussir les blancs à compléter de l'épreuve d'écoute ; la méthode par format est détaillée dans [IELTS Listening types de questions](/fr/blog/ielts-listening-types-de-questions-methode/).
+
 ## Foire aux questions sur la dictée en anglais (FAQ)
 
 ### La dictée convient-elle aux débutants complets ?

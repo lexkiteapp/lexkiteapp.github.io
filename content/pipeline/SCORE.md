@@ -6,7 +6,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
-| Kho từ | **59.1** | 58.5 | 59.1% | 100% | 0 |
+| Kho từ | **59.2** | 58.5 | 59.2% | 100% | 0 |
 | Ngữ pháp | **72.8** | 72.8 | 72.8% | 100% | 0 |
 | Giao tiếp | **81.3** | 68.3 | 81.3% | 100% | 0 |
 | 4 kỹ năng | **69.5** | 62.9 | 69.5% | 100% | 0 |
@@ -24,7 +24,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | collocation | 5019 / 20000 | 25% | 12 |
 | đồng nghĩa | 3106 / 20000 | 16% | 8 |
 | IPA Mỹ | 6884 / 20000 | 34% | 5 |
-| ảnh theo nghĩa | 7931 / 20000 | 40% | 15 |
+| ảnh theo nghĩa | 8014 / 20000 | 40% | 15 |
 | C2 | 1022 / 1000 | 100% | 10 |
 | A1 | 869 / 1000 | 87% | 5 |
 
@@ -107,7 +107,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 |---|---|---|---|
 | Ngữ pháp | 96.9 / 100 | 97% | 25 |
 | Bài lộ trình | 100 / 100 | 100% | 25 |
-| Bộ từ | 74.1 / 100 | 74% | 25 |
+| Bộ từ | 74.2 / 100 | 74% | 25 |
 | Kỹ năng | 96.1 / 100 | 96% | 25 |
 
 ## i18n
@@ -115,6 +115,6 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
 | ngôn ngữ đạt i18n-qa | 13 / 13 | 100% | 45 |
-| nhãn ngắn dịch tay | 12.3 / 13 | 95% | 10 |
+| nhãn ngắn dịch tay | 12.4 / 13 | 95% | 10 |
 | gói nghĩa từ theo ngôn ngữ | 5.3 / 13 | 41% | 20 |
 | điểm bản xứ (native-score/5) (chưa làm) | 3.7 / 5 | 74% | 25 |
