@@ -26,6 +26,7 @@ Chuẩn: Lexkite Kit (assets/1b7a8a3d3d52404bb332d9ba3f783547), cách port [STIT
 | Chào mừng / thiết lập | #/welcome | d2c0773b / de3f3ff3… | diff:welcome |
 | Buổi học theo ngày | #/day | ef162f57 / e30cad6c… | diff:day |
 | Hub Từ vựng | #/vocab | 66a8a4f8 / 95826e15… | diff:vocab-hub |
+| Từ điển: đầu trang + ô tìm + Gần đây + Khám phá nhanh (thẻ mục từ/lưu ngữ cảnh còn khung cũ) | #/dict | dict-light / dict-dark… | diff:dict |
 | Phát âm: thư viện (bài #/pron/<id> còn khung cũ) | #/pron | pron-hub-light / pron-hub-dark… | diff:pron-hub |
 | Hub Ngữ pháp | #/grammar | 9e62a2e8 / e5fec5b8… | diff:grammar |
 | Cài đặt (mục lục; trang con còn điều khiển cũ) | #/settings | settings-light / settings-dark… | diff:settings |
@@ -35,7 +36,7 @@ Chuẩn: Lexkite Kit (assets/1b7a8a3d3d52404bb332d9ba3f783547), cách port [STIT
 |---|---|---|
 | A1 Học: biến thể + vào học | Học: dạng nối/gõ/nói/nghe/đúng-sai · Thoát giữa chừng · gợi ý · hết giờ · lên cấp · Kiểm tra trình độ · Lộ trình từ vựng / phần thưởng | có screen Kit, chưa port |
 | A2 Hub | Hub Kỹ năng · Hub Thi thử · Thư viện + chủ đề · Bộ thẻ của tôi (+Anki) | có screen Kit, chưa port |
-| A3 Từ điển & tra | Từ điển + thẻ từ (sheet) · Cụm từ / mẫu câu · Động từ + bảng chữ · Cách dùng / kết hợp từ · Sổ lỗi sai | có screen Kit, chưa port |
+| A3 Từ điển & tra | Cụm từ / mẫu câu · Động từ + bảng chữ · Cách dùng / kết hợp từ · Sổ lỗi sai | có screen Kit, chưa port |
 | A4 Luyện kỹ năng | Nghe (hub, chép chính tả, rảnh tay) · Đọc · Viết (editor, task1, sửa văn) · Nói + nhập vai | có screen Kit, chưa port |
 | A5 Game · thống kê · ngữ pháp · lớp | Trò chơi từ vựng · Thống kê + huy hiệu · Độ tự tin · Khóa học + lớp | có screen Kit, chưa port |
 | A6 Thi + trang thông tin | Thi thử IELTS / quick · TOEIC · TOEFL · Thi trên máy (CBT) · Tài nguyên · phương pháp · liên hệ · ý tưởng | có screen Kit, chưa port |

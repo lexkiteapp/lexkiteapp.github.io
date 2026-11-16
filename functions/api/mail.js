@@ -15,6 +15,7 @@ import { coordDb, d1bReady } from './_d1b.js';
 import { claims as verifyClaims, limit } from './sync.js';
 import { tzParts, tzOk, slotFor, inQuiet } from './push.js';
 import { copyOf, fill } from './_mail_copy.js';
+import { readJSON, bodyFail } from './_body.js';
 import { pick, report as keyReport } from './_keys.js';
 
 export const STEPS = [2, 5, 10, 21], WINDOW = 40, MAX_PER_TICK = 25;
@@ -123,7 +124,7 @@ export async function handle(request, env, deps = {}) {
   const u = new URL(request.url);
   if (u.searchParams.has('u')) return unsubscribe(request, env, db);
   if (request.method !== 'POST') return json(405, { error: 'method' });
-  let b; try { b = await request.json(); } catch (e) { return json(400, { error: 'json' }); }
+  let b; try { b = await readJSON(request, 262144); } catch (e) { const f = bodyFail(e); return json(f.status, { error: f.error }); }
   if (b && b.op === 'tick') {
     if (!env.PUSH_CRON_SECRET || request.headers.get('X-Push-Cron') !== env.PUSH_CRON_SECRET) return json(401, { error: 'cron' });
     return json(200, await tick(env, db, now, deps.send));
