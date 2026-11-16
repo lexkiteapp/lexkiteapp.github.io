@@ -55,7 +55,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Không sửa tay tệp sinh (`web/js/i18n/<lang>`, `extension/app`, `st-*.css`, CODEMAP) hay `i18n-fixed.json`/trang pháp lý: PR dirty → bot `pr-unconflict` hoặc `node scripts/ci/regen-conflicts.mjs` (`docs/specs/merge-queue.md`). Gác: `fmt-stable.mjs`, `gen-guard.mjs`.
 
 ## 3. Ngân sách dung lượng
-- Khung app (SHELL ∪ file nạp ngay của /app/) ≤ 374 KB gz chuẩn (`scripts/lib/gz-canon.mjs`, máy = CI; không nâng) → tính năng mới tải lười; khóa: `shell-lazy.mjs`. Trần chỉ đi xuống (size-budget.mjs 1c: không nâng `budget.shellGz`); PR thêm byte vào khung phải gọt bằng nhau (chú thích dài/CSS chết trong `web/css/style.css`: giữ chú thích ≤ 120 ký tự, ý dài → docs/). Từng module + Δ so với main: `node scripts/test/shell-size.mjs` (tóm tắt CI npm test); khóa i18n chỉ trang lười dùng → `--move` sang `en/lazyui.js` (gói i18nl). `web/js` ≤ `totalJs` trong `scripts/test/budget.json` (không tính `admin-*.js` và nguồn dựng en.js – `scripts/lib/js-budget.mjs`).
+- Khung app (SHELL ∪ file nạp ngay của /app/) ≤ 374 KB gz chuẩn (`scripts/lib/gz-canon.mjs`; không nâng) → tính năng mới lười; khóa: `shell-lazy.mjs`. Trần chỉ đi xuống: thêm byte phải gọt bằng nhau; ý dài → CSS-NOTES.md. Từng module: `node scripts/test/shell-size.mjs`; khóa i18n chỉ trang lười → `--move` sang `en/lazyui.js`. `web/js` ≤ `totalJs` trong `scripts/test/budget.json` (trừ `admin-*.js`, nguồn dựng en.js – `scripts/lib/js-budget.mjs`).
 - `web/js/i18n/<lang>.js` ≤ 160 KB gz/ngôn ngữ; không thêm file vào `allowBig`.
 - `scripts/test/size-budget.mjs`; ngưỡng `visual-qa.budget.json` chỉ được GIẢM.
 
