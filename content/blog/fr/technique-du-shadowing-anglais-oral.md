@@ -171,3 +171,5 @@ Dans l'*overlapping*, vous essayez de parler exactement en même temps que la vo
 
 ### Combien de temps faut-il pour observer des résultats notables ?
 Avec 15 minutes d'exercice par jour, vous ressentirez une mâchoire plus détendue et une bien meilleure aisance pour enchaîner les mots en deux à trois semaines. Au bout de deux mois, votre vitesse de réaction et votre naturel à l'oral auront fait un bond spectaculaire.
+
+Le shadowing est l’étape 2 de la routine décrite dans [parler anglais avec confiance](/fr/blog/parler-anglais-avec-confiance-situations/).
