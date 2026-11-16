@@ -158,7 +158,7 @@ async function measure(ctx, sc, cold) {
   const inScroll = s => s.phase === 'down' || s.phase === 'up' || s.phase === 'off', sum = a => +a.reduce((x, s) => x + s.v, 0).toFixed(4);
   const nonInput = m.shifts.filter(s => !s.input);
   Object.assign(res, { liveAnim: m.liveAnim, cvRows: m.cv, frames: m.n, droppedPct: m.n ? +(dropped / (dropped + m.n) * 100).toFixed(1) : 0, p95: pctl(m.dt, .95), worst: Math.round(Math.max(0, ...m.dt)), jank50: m.dt.filter(d => d > 50).length,
-    cls: clsOf(nonInput), loadCls: sum(nonInput.filter(s => s.phase === 'load')), scrollCls: sum(m.shifts.filter(inScroll)), shiftTop: [...m.shifts].sort((a, b) => b.v - a.v).slice(0, 4),
+    cls: clsOf(nonInput), loadCls: sum(nonInput.filter(s => s.phase === 'load')), scrollCls: sum(m.shifts.filter(inScroll)), toastCls: sum(m.shifts.filter(x => x.src.some(y => /#toast\b/.test(y.n)))), shiftTop: [...m.shifts].sort((a, b) => b.v - a.v).slice(0, 4),
     reversal: m.reversal, barDelta: m.barDelta, heightChange: m.heightChange, blocking: m.listeners.filter(l => l.blocking), listeners: m.listeners.length, scrollLis: m.listeners.filter(l => l.type === 'scroll').map(l => l.at), prog: m.prog, mutN: m.mutN, muts: m.muts, raf: m.raf, anim: m.anim, blur: m.blur, smooth: m.smooth, overscroll: m.overscroll, errs });
   await page.close();
   return res;
@@ -233,6 +233,7 @@ for (const r of good) {
   const w = `${DEVICE}/${r.theme} ${r.id}`, g = k => B[k] ?? Infinity, t = r.trace || {};
   if (DEVICE !== 'webkit') {
     if (r.cls > g('cls')) fail(`${w}: CLS ${r.cls} > ${g('cls')} ← ${JSON.stringify((r.shiftTop || []).slice(0, 2).map(s => s.src.map(x => x.n)))}`);
+    if (r.toastCls > g('toastCls')) fail(`${w}: #toast tự đổi cỡ/chỗ khi đang hiện (layout shift ${r.toastCls}) – đổi chữ toast phải mờ hết rồi mới đổi (ui.js toastShow)`);
     if (r.scrollCls > g('scrollCls')) fail(`${w}: CLS khi cuộn ${r.scrollCls} > ${g('scrollCls')} ← ${JSON.stringify((r.shiftTop || []).filter(s => s.phase !== 'load').slice(0, 2).map(s => s.src.map(x => x.n)))}`);
     if (r.dist > 40 && r.droppedPct > g('droppedPct')) fail(`${w}: rớt khung ${r.droppedPct}% > ${g('droppedPct')}%`);
     if (r.dist > 40 && (t.longMax ?? 0) > g('longMaxMs')) fail(`${w}: task dài ${t.longMax} ms > ${g('longMaxMs')} ms khi cuộn`);
