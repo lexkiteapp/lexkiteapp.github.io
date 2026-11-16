@@ -20,6 +20,8 @@ Das Deutsche besitzt eine sehr präzise, fast abgehackte Artikulation mit harter
 
 In diesem Ratgeber analysieren wir die fünf größten Aussprachehürden deutschsprachiger Lerner und zeigen Ihnen praxiserprobte Übungen für eine klare, natürliche Aussprache.
 
+
+Die Betonung einzelner Wörter erklärt der Artikel zur [englischen Wortbetonung](/de/blog/englische-wortbetonung-regeln/).
 ## Warum ein deutscher Akzent entsteht
 
 Akzente sind kein Zeichen mangelnder Intelligenz, sondern ein natürliches Phänomen des Gehirns. Bis zur Pubertät verfestigt sich das Lautsystem der Muttersprache. Hören wir danach Laute einer Fremdsprache, die im Deutschen nicht existieren, versucht das Gehirn, diese durch die am nächsten liegenden vertrauten Laute zu ersetzen:

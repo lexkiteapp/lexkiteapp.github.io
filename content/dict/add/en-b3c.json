@@ -1,0 +1,752 @@
+{
+  "remove": {
+    "mis": [
+      {
+        "w": "Please remove the file out of the folder.",
+        "r": "Please remove the file from the folder.",
+        "why": "Remove takes 'from' for the original place; 'out of' is not used after it."
+      },
+      {
+        "w": "Please remove off your shoes.",
+        "r": "Please remove your shoes.",
+        "why": "Remove already means take off, so 'off' is redundant."
+      }
+    ],
+    "u": "Remove is a general verb for taking something away from a place, a surface or a list: remove a stain, remove your shoes, remove a name from a list. In formal or technical writing it also means to dismiss someone (remove a director) or delete data. Remove is followed by 'from'. It sounds more neutral and official than take off or get rid of, which are common in speech. Do not use it for simply moving something to a new place."
+  },
+  "renown": {
+    "mis": [
+      {
+        "w": "She is a scientist of renowned.",
+        "r": "She is a scientist of renown.",
+        "why": "After 'of' the noun renown is needed; renowned is an adjective."
+      },
+      {
+        "w": "He is renown for his cooking.",
+        "r": "He is renowned for his cooking.",
+        "why": "Before 'for' you need the adjective renowned, ending in -ed; renown is a noun."
+      }
+    ],
+    "u": "Renown is a formal, slightly literary noun meaning widespread fame based on real achievement, usually respect rather than celebrity gossip. It is uncountable and most often appears in the pattern 'a person of renown' or 'gain/win renown'. The related adjective is renowned, used in be renowned for something. Fame is the everyday word; renown suits biographies, awards and news writing about artists, scholars and institutions."
+  },
+  "repeatedly": {
+    "mis": [
+      {
+        "w": "I called him repeatly but he never answered.",
+        "r": "I called him repeatedly but he never answered.",
+        "why": "The adverb is spelled repeatedly, with -ed, not repeatly."
+      },
+      {
+        "w": "She repeatedly said me to wait.",
+        "r": "She repeatedly told me to wait.",
+        "why": "Say does not take a person object before 'to + verb'; use tell."
+      }
+    ],
+    "u": "Repeatedly is an adverb meaning many times, often with an annoyed or serious tone: the system repeatedly crashed, he repeatedly denied the claim. It usually sits before the main verb or at the end of the clause. It is more formal than again and again and fits reports, complaints and news. Unlike frequently, it stresses that the same thing happened the same way, not just that it happened often."
+  },
+  "replacement": {
+    "mis": [
+      {
+        "w": "We need a replacement of the broken screen.",
+        "r": "We need a replacement for the broken screen.",
+        "why": "Replacement takes 'for' to name what is being replaced, not 'of'."
+      },
+      {
+        "w": "The company hired a replace for him.",
+        "r": "The company hired a replacement for him.",
+        "why": "Replace is a verb; the noun for the person or thing is replacement."
+      }
+    ],
+    "u": "Replacement is a countable noun for a person or thing that takes another's place, and it also means the act of replacing: the replacement of old pipes. In business it is common in warranty and staffing contexts: a free replacement, a replacement part, a replacement for the retiring manager. Substitute is wider and often temporary, like a sports substitute; successor is for someone who inherits a post."
+  },
+  "residence": {
+    "mis": [
+      {
+        "w": "He has residence in Hanoi since 2020.",
+        "r": "He has been a resident of Hanoi since 2020.",
+        "why": "Residence is a noun; to say where someone lives, use the verb reside or the adjective resident."
+      },
+      {
+        "w": "My residence is at the Nguyen Hue street.",
+        "r": "My residence is on Nguyen Hue Street.",
+        "why": "Use 'on' with a street name and no 'the' before a proper street name."
+      }
+    ],
+    "u": "Residence is a formal noun for the place where someone lives, used mostly on forms, in law and in news: place of residence, residence permit, the president's official residence. In daily speech people say home, house or place. It is countable for a building (a luxury residence) and uncountable in 'take up residence' or 'in residence', as in a writer in residence. Resident is the person."
+  },
+  "retreat": {
+    "mis": [
+      {
+        "w": "Our team has a retreat in the next weekend.",
+        "r": "Our team has a retreat next weekend.",
+        "why": "Do not put 'in the' before next; time phrases with next take no preposition."
+      },
+      {
+        "w": "The army retreated back from the border.",
+        "r": "The army retreated from the border.",
+        "why": "Retreat already means go back, so 'back' is redundant."
+      }
+    ],
+    "u": "Retreat works as a noun and a verb. As a noun it can be military (a retreat from the front), a quiet hideaway (a mountain retreat), or an organised trip for work or wellness (a company retreat, a yoga retreat), which is the usual business meaning. As a verb it means to move away from danger or pressure: retreat from a position. Because it contains the idea of going back, avoid saying retreat back."
+  },
+  "retrieve": {
+    "mis": [
+      {
+        "w": "I retrieved the information at the database.",
+        "r": "I retrieved the information from the database.",
+        "why": "Use 'from' for the source you take something out of."
+      },
+      {
+        "w": "Please retrieve me my bag.",
+        "r": "Please retrieve my bag for me.",
+        "why": "Retrieve does not take two objects directly; add 'for me' after the thing."
+      }
+    ],
+    "u": "Retrieve means to get something back from a place where it was stored or lost, and is especially common with computers and records: retrieve data, retrieve a deleted file. It also describes dogs fetching a thrown object. It is more formal than get back and implies effort or a system, not just picking something up. The noun is retrieval. Recover suggests the thing was damaged or lost; retrieve only needs it to be somewhere."
+  },
+  "seldom": {
+    "mis": [
+      {
+        "w": "He doesn't seldom go to the cinema.",
+        "r": "He seldom goes to the cinema.",
+        "why": "Seldom is already negative, so do not add doesn't."
+      },
+      {
+        "w": "Seldom she eats meat.",
+        "r": "Seldom does she eat meat.",
+        "why": "When seldom opens a sentence, the auxiliary comes before the subject."
+      }
+    ],
+    "u": "Seldom is an adverb of frequency meaning not often, a little more formal and written than rarely. It sits before the main verb but after be: she seldom complains, he is seldom late. It already carries a negative meaning, so never combine it with not. At the start of a sentence it forces inversion for emphasis: seldom have I seen such talent. The fixed phrase seldom if ever stresses almost never."
+  },
+  "separately": {
+    "mis": [
+      {
+        "w": "We came separate because of the traffic.",
+        "r": "We came separately because of the traffic.",
+        "why": "Modify a verb with the adverb separately, not the adjective separate."
+      },
+      {
+        "w": "The bill is separately for each person.",
+        "r": "The bill is separate for each person.",
+        "why": "After be, use the adjective separate; separately is an adverb."
+      }
+    ],
+    "u": "Separately is an adverb meaning apart from others, one at a time, or independently. It is very common in shopping and service language: batteries sold separately, please pay separately. In offices it often describes billing or handling items outside a main group. The adjective is separate and, as a verb, separate is pronounced differently. Learners often misspell it as seperately; remember there is 'par' in the middle."
+  },
+  "sketch": {
+    "mis": [
+      {
+        "w": "He drew a sketch on the building.",
+        "r": "He drew a sketch of the building.",
+        "why": "Use 'of' for the subject of a picture; 'on' is wrong."
+      },
+      {
+        "w": "He is good at sketch.",
+        "r": "He is good at sketching.",
+        "why": "After the preposition 'at', use the -ing form: sketching."
+      }
+    ],
+    "u": "Sketch is a countable noun for a quick, rough drawing, often a first idea for a design: a pencil sketch, a rough sketch of the building. It can also be a short comedy scene on television, or a brief outline of a plan or report. As a verb, sketch out means to describe something in general terms: sketch out the main ideas. A sketch is looser than a drawing and less finished than a plan."
+  },
+  "skim": {
+    "mis": [
+      {
+        "w": "I skimmed the article carefully.",
+        "r": "I read the article carefully.",
+        "why": "Skim means read quickly, so it cannot go with carefully."
+      },
+      {
+        "w": "She skimmed over to the report.",
+        "r": "She skimmed through the report.",
+        "why": "Use 'through' or no preposition for reading quickly; 'over to' is wrong."
+      }
+    ],
+    "u": "Skim means to read quickly to get the main idea without studying details. It is a core reading skill in exams and at work: skim the email first, then read the important parts. Skim and scan differ: skimming is for the general idea, scanning is for a specific fact. The pattern skim through a document is common. Outside reading, skim also means to touch a surface lightly, or remove fat from milk."
+  },
+  "specialty": {
+    "mis": [
+      {
+        "w": "This restaurant's specialty is seafoods.",
+        "r": "This restaurant's specialty is seafood.",
+        "why": "Seafood is uncountable and has no plural -s."
+      },
+      {
+        "w": "The doctor specialties in children's diseases.",
+        "r": "The doctor specializes in children's diseases.",
+        "why": "The verb is specialize; specialty is a noun."
+      }
+    ],
+    "u": "Specialty is the American spelling for something a person, place or business is especially known for: the house specialty, a regional specialty. In medicine it means a branch of practice such as cardiology. British English prefers speciality. It is countable. Pattern: specialize in a field, but 'a specialty of' a place. A specialty shop sells one type of product. Strength or forte is more general, referring to a person's best skill."
+  },
+  "specific": {
+    "mis": [
+      {
+        "w": "Can you be more specific in the price?",
+        "r": "Can you be more specific about the price?",
+        "why": "Be specific takes 'about' for the topic, not 'in'."
+      },
+      {
+        "w": "This rule is specified to Vietnam.",
+        "r": "This rule is specific to Vietnam.",
+        "why": "Use the adjective specific to, meaning applying only to; specified is a past participle."
+      }
+    ],
+    "u": "Specific is an adjective meaning clear, exact, or relating to one particular thing rather than things in general. It is frequently used in interviews and reports: give a specific example, a specific goal. Two prepositions matter: be specific about a topic, and something is specific to a place or group. It is the opposite of general, and a little stronger than particular. The adverb is specifically."
+  },
+  "spill": {
+    "mis": [
+      {
+        "w": "I spilled the coffee at my shirt.",
+        "r": "I spilled the coffee on my shirt.",
+        "why": "Use 'on' for the surface that gets covered by liquid."
+      },
+      {
+        "w": "The juice spilled the table when I hit it.",
+        "r": "The juice spilled onto the table when I hit it.",
+        "why": "Spill as an intransitive verb needs a preposition such as 'onto' or 'over' before the place."
+      }
+    ],
+    "u": "Spill means to let liquid or small things fall out of a container by accident: spill coffee on the keyboard. The past form is spilled in American English and spilt or spilled in British English. It can be intransitive too: the juice spilled over. Idioms include spill the beans, meaning reveal a secret, and spill over, meaning spread to another area. Pour suggests doing it on purpose; spill is always an accident."
+  },
+  "spite": {
+    "mis": [
+      {
+        "w": "In spite the rain, we went out.",
+        "r": "In spite of the rain, we went out.",
+        "why": "The fixed phrase is 'in spite of'; 'of' cannot be dropped."
+      },
+      {
+        "w": "In spite of it was raining, we went out.",
+        "r": "In spite of the rain, we went out.",
+        "why": "In spite of needs a noun or -ing form, not a full clause; use although for a clause."
+      }
+    ],
+    "u": "Spite has two uses. In the fixed phrase in spite of it means despite and is followed by a noun or -ing form: in spite of the delay, in spite of being tired. For a full clause, use although or even though. By itself, spite is a noun for a petty wish to hurt someone, as in 'He did it out of spite'. Despite is slightly more formal and takes no 'of'."
+  },
+  "spouse": {
+    "mis": [
+      {
+        "w": "My spouse, she is a nurse.",
+        "r": "My spouse is a nurse.",
+        "why": "Do not repeat the subject with a pronoun; spouse is already the subject."
+      },
+      {
+        "w": "I will bring my spouse's to the party.",
+        "r": "I will bring my spouse to the party.",
+        "why": "Add 's only for possession; the object here needs no possessive."
+      }
+    ],
+    "u": "Spouse is a formal, gender-neutral noun for a husband or wife, common on forms, in law, insurance and immigration: spouse visa, name of spouse. It is countable and treats same-sex and opposite-sex marriages alike. In speech most people say my husband, my wife or my partner. Spouse does not mean a boyfriend or girlfriend. It is also used in company policies about benefits for employees' spouses."
+  },
+  "spray": {
+    "mis": [
+      {
+        "w": "He sprayed the plants by water.",
+        "r": "He sprayed the plants with water.",
+        "why": "Use 'with' for the liquid used to spray something."
+      },
+      {
+        "w": "She sprayed perfume to her neck.",
+        "r": "She sprayed perfume on her neck.",
+        "why": "Use 'on' for the surface that receives the spray; 'to' is wrong."
+      }
+    ],
+    "u": "Spray is a verb and noun for sending liquid out in a cloud of tiny drops. Two patterns exist: spray water on the plants and spray the plants with water; the second puts the target first. As a noun it names the can itself or the mist: insect spray, hair spray, sea spray. It differs from pour, which is a steady stream, and from sprinkle, which uses larger, scattered drops or particles."
+  },
+  "statistics": {
+    "mis": [
+      {
+        "w": "The latest statistic show a rise in prices.",
+        "r": "The latest statistics show a rise in prices.",
+        "why": "Use the plural statistics for several figures; one figure is a statistic."
+      },
+      {
+        "w": "Statistics are a difficult subject.",
+        "r": "Statistics is a difficult subject.",
+        "why": "As a school subject, statistics takes a singular verb."
+      }
+    ],
+    "u": "Statistics has two meanings. As a field of study it is singular: Statistics is required for this degree. As numbers that describe something, it is plural: the statistics show a rise in prices. One number is a statistic. Phrases include official statistics and crime statistics. Say 'according to the statistics' or 'statistics show', not 'statistics say'. In informal talk stats is common. Data is the raw material; statistics are what you calculate from it."
+  },
+  "strategy": {
+    "mis": [
+      {
+        "w": "We need a strategy to solve of this problem.",
+        "r": "We need a strategy to solve this problem.",
+        "why": "Solve is transitive and takes its object directly; do not add 'of'."
+      },
+      {
+        "w": "Their strategy is very strategy.",
+        "r": "Their strategy is very strategic.",
+        "why": "Use the adjective strategic, not the noun again, to describe something."
+      }
+    ],
+    "u": "Strategy means a plan designed to achieve a long-term aim, often in business, politics, sport or war. It is countable: a marketing strategy, an exit strategy. It is larger than a tactic: strategy is the overall plan, tactics are the steps used to carry it out. Common verbs are develop, adopt and implement a strategy. The adjective is strategic, and strategically is the adverb. It is stronger than plan."
+  },
+  "streamline": {
+    "mis": [
+      {
+        "w": "We streamlined the process to be more efficiently.",
+        "r": "We streamlined the process to make it more efficient.",
+        "why": "After 'make it' you need the adjective efficient, not an adverb."
+      },
+      {
+        "w": "The company streamlined for the process.",
+        "r": "The company streamlined the process.",
+        "why": "Streamline is transitive and needs a direct object without 'for'."
+      }
+    ],
+    "u": "Streamline is a business verb meaning to make a system or process simpler and more efficient by removing unnecessary steps: streamline operations, streamline the approval process. It is transitive and often appears in reports about cost cutting or digital change. The word originally comes from the smooth shape of fast vehicles. In company news it can sound like a polite way of saying jobs will be cut, so context matters. Simplify is the plain everyday word."
+  },
+  "strictly": {
+    "mis": [
+      {
+        "w": "The rules are strict enforced.",
+        "r": "The rules are strictly enforced.",
+        "why": "Modify the participle enforced with the adverb strictly."
+      },
+      {
+        "w": "The documents are strictly confidentially.",
+        "r": "The documents are strictly confidential.",
+        "why": "After the adverb strictly, use the adjective confidential, not an adverb."
+      }
+    ],
+    "u": "Strictly is an adverb meaning in a way that must be obeyed, or exactly and without exceptions. It intensifies words about rules: strictly forbidden, strictly confidential, strictly enforced. Strictly speaking opens a statement to say what is technically true even if people use a looser meaning. It also means only: the offer is strictly for members. Do not confuse the adverb strictly with the adjective strict."
+  },
+  "subscribe": {
+    "mis": [
+      {
+        "w": "Please subscribe our newsletter.",
+        "r": "Please subscribe to our newsletter.",
+        "why": "Subscribe needs 'to' before what you sign up for."
+      },
+      {
+        "w": "I subscribed for the magazine since 2019.",
+        "r": "I have subscribed to the magazine since 2019.",
+        "why": "Use present perfect with since, and 'to' after subscribe."
+      }
+    ],
+    "u": "Subscribe means to pay or register to receive something regularly, such as a magazine, streaming service or email newsletter. The preposition is 'to': subscribe to a channel. It also appears in the formal phrase subscribe to an idea, meaning to agree with it. The opposite is unsubscribe. Sign up is the casual equivalent and may not involve payment. The noun is subscription and the person is a subscriber."
+  },
+  "subscription": {
+    "mis": [
+      {
+        "w": "I pay a subscription of this app every month.",
+        "r": "I pay a subscription for this app every month.",
+        "why": "Use 'for' to say what the subscription pays for."
+      },
+      {
+        "w": "My subscription will expire at March.",
+        "r": "My subscription will expire in March.",
+        "why": "Use 'in' with a month, not 'at'."
+      }
+    ],
+    "u": "Subscription is a countable noun for payment made regularly to receive a service or publication, or for the arrangement itself: a monthly subscription, an annual subscription, a subscription to a journal. Typical verbs are take out, renew and cancel a subscription. In business it is the basis of subscription models used by software and media companies. In British English, it can also mean a membership fee paid to a club."
+  },
+  "subsidize": {
+    "mis": [
+      {
+        "w": "The government subsidizes to farmers.",
+        "r": "The government subsidizes farmers.",
+        "why": "Subsidize is transitive and takes its object directly, without 'to'."
+      },
+      {
+        "w": "The meals are subsidy by the school.",
+        "r": "The meals are subsidized by the school.",
+        "why": "The passive needs the past participle subsidized, not the noun subsidy."
+      }
+    ],
+    "u": "Subsidize means to pay part of the cost of something so that it costs less for users: subsidize public transport, subsidize school meals. The British spelling is subsidise. The money is a subsidy, usually from a government or organisation. Notice that subsidize covers only part of the cost, whereas fund can mean paying all of it. It is commonly used in the passive: heavily subsidized housing."
+  },
+  "sue": {
+    "mis": [
+      {
+        "w": "He sued to the company for damages.",
+        "r": "He sued the company for damages.",
+        "why": "Sue takes its object directly; the reason is introduced by 'for'."
+      },
+      {
+        "w": "She will sue him about the accident.",
+        "r": "She will sue him over the accident.",
+        "why": "Use 'over' (or for + damages) to give the reason for suing; 'about' is not usual."
+      }
+    ],
+    "u": "Sue means to start a civil legal case against a person or company, usually to obtain money: sue for damages, sue for compensation. The pattern is sue someone for something. It is a civil action, unlike prosecute, which is used by the state in criminal cases. The noun is suit or lawsuit. In everyday speech, threaten to sue is common in customer complaints. It is a short word but carries a serious meaning."
+  },
+  "suspicious": {
+    "mis": [
+      {
+        "w": "I am suspicious about my neighbor's story.",
+        "r": "I am suspicious of my neighbor's story.",
+        "why": "Suspicious takes 'of' when you distrust someone or something."
+      },
+      {
+        "w": "The suspicion man ran away.",
+        "r": "The suspicious man ran away.",
+        "why": "Before a noun use the adjective suspicious; suspicion is a noun."
+      }
+    ],
+    "u": "Suspicious has two directions. Something suspicious makes you think it is wrong or dangerous: a suspicious package, suspicious behavior. A person is suspicious of someone or something when they distrust it: suspicious of strangers. Both uses are common in news and security notices. The noun is suspicion and the adverb is suspiciously. Do not confuse it with suspect, which is a noun for a person police think guilty."
+  },
+  "tactic": {
+    "mis": [
+      {
+        "w": "They used a new tactics.",
+        "r": "They used a new tactic.",
+        "why": "Tactic is singular and takes 'a'; only the plural tactics stands without an article."
+      },
+      {
+        "w": "Their tactics is working well.",
+        "r": "Their tactics are working well.",
+        "why": "Tactics here is plural, so the verb must be plural."
+      }
+    ],
+    "u": "Tactic is a planned method used to achieve a particular goal, usually a short step inside a larger strategy: a sales tactic, a delaying tactic. It is countable and often plural: the team changed its tactics. The word can imply cleverness or even trickery, as in scare tactics. Sports commentary uses tactics for how a team plays. The adjective is tactical. Compare strategy, which is the overall long-term plan."
+  },
+  "tag": {
+    "mis": [
+      {
+        "w": "He tagged me in the photo of yesterday at Facebook.",
+        "r": "He tagged me in yesterday's photo on Facebook.",
+        "why": "Use 'on' with a website or app name, not 'at'."
+      },
+      {
+        "w": "Please tag the label to the bag.",
+        "r": "Please attach the label to the bag.",
+        "why": "Tag as a verb means to label or mark; to fix a thing to another, use attach."
+      }
+    ],
+    "u": "Tag is a small label attached to something to give information: a price tag, a luggage tag, a name tag. Online it also means a keyword or a link to a person: tag a friend in a post. As a verb it means to attach such a label. Phrasal verb tag along means to go with someone who has not been invited. Do not confuse the noun tag with the more general label or sticker, which need not be attached by string."
+  },
+  "tempt": {
+    "mis": [
+      {
+        "w": "I was tempted buy the shoes.",
+        "r": "I was tempted to buy the shoes.",
+        "why": "Be tempted takes 'to' plus the base verb."
+      },
+      {
+        "w": "She was tempting by the cake.",
+        "r": "She was tempted by the cake.",
+        "why": "Use the past participle tempted for the person who feels the attraction."
+      }
+    ],
+    "u": "Tempt means to make someone want to do or have something, especially something they should not: the sale tempted me to spend more. The usual pattern is tempt someone to do something, and the passive be tempted by something is common. The adjective tempting describes the thing offered, such as a tempting offer. Tempted is for the person. The noun is temptation. It often suggests a mild moral struggle, not a serious sin."
+  },
+  "terrific": {
+    "mis": [
+      {
+        "w": "We had a terrifically time at the beach.",
+        "r": "We had a terrific time at the beach.",
+        "why": "Before a noun use the adjective terrific, not an adverb."
+      },
+      {
+        "w": "The party was terrified last night.",
+        "r": "The party was terrific last night.",
+        "why": "Terrified describes a frightened person; for a very good event use terrific."
+      }
+    ],
+    "u": "Terrific is an informal adjective meaning very good, excellent: a terrific idea, you look terrific. It once meant causing terror, and that older meaning survives in the relative terrifying, so in modern use do not choose it for frightening things. It is warm and positive, typical of conversation, emails and praise at work. Terrific can also mean very great in size: a terrific noise. Great and wonderful are close in meaning."
+  },
+  "textbook": {
+    "mis": [
+      {
+        "w": "Please open the textbook in page 20.",
+        "r": "Please open the textbook to page 20.",
+        "why": "Use 'to' with open a book to a page; 'in' is not used."
+      },
+      {
+        "w": "I bought a text book for physics.",
+        "r": "I bought a physics textbook.",
+        "why": "Textbook is one word and the subject goes before it as a noun modifier."
+      }
+    ],
+    "u": "Textbook is a countable noun for a book used to study a subject at school or university: a chemistry textbook. It is written as one word. It is also used as an adjective before nouns, meaning a perfect example of something: a textbook case, a textbook landing. A textbook differs from a manual, which tells you how to use a machine, and from a workbook, which contains exercises to complete."
+  },
+  "theft": {
+    "mis": [
+      {
+        "w": "Someone did a theft in my shop.",
+        "r": "Someone committed theft in my shop.",
+        "why": "The verb that goes with theft is commit, not do."
+      },
+      {
+        "w": "He was arrested for theft the bike.",
+        "r": "He was arrested for the theft of the bike.",
+        "why": "Theft is a noun and needs 'of' before the thing stolen."
+      }
+    ],
+    "u": "Theft is the general crime of stealing, covering taking property without permission and without using violence. It is countable for a single incident (three thefts this week) and uncountable for the crime in general. Common compounds are identity theft and car theft. Burglary means breaking into a building to steal, and robbery involves force or threats against a person, so they are not all the same. The verb is steal and the person is a thief."
+  },
+  "thrill": {
+    "mis": [
+      {
+        "w": "I was thrill when I saw the stage.",
+        "r": "I was thrilled when I saw the stage.",
+        "why": "For the person's feeling use the adjective thrilled, not the noun thrill."
+      },
+      {
+        "w": "It gave me a thrilled.",
+        "r": "It gave me a thrill.",
+        "why": "After 'a' you need a noun; thrilled is an adjective."
+      }
+    ],
+    "u": "Thrill is a countable noun for a sudden, strong feeling of excitement and pleasure, often with a little fear: the thrill of the roller coaster. Typical patterns are get a thrill from something and the thrill of doing something. As a verb, thrill means to excite someone greatly. The adjectives need care: thrilled describes the person (I'm thrilled), while thrilling describes the experience. Excitement is more general; thrill is shorter and more intense."
+  },
+  "timely": {
+    "mis": [
+      {
+        "w": "He answered timely to my email.",
+        "r": "He answered my email in a timely manner.",
+        "why": "Timely is an adjective, not an adverb; use 'in a timely manner' or promptly."
+      },
+      {
+        "w": "The bus arrived timely.",
+        "r": "The bus arrived on time.",
+        "why": "Timely does not work as an adverb; use on time for punctuality."
+      }
+    ],
+    "u": "Timely is an adjective meaning happening at exactly the right moment, or fast enough to be useful: a timely warning, timely delivery. Note the ending -ly does not make it an adverb, so use in a timely manner or promptly. Timely is not the same as punctual, which describes a person who arrives on time; timely describes an action or event that fits the situation. It is common in business and news writing."
+  },
+  "traditionally": {
+    "mis": [
+      {
+        "w": "Traditionally the Vietnamese people ate rice with chopsticks.",
+        "r": "Traditionally Vietnamese people eat rice with chopsticks.",
+        "why": "Use the present simple for a custom that still holds; the past tense implies it has stopped. Also no 'the' before Vietnamese people in general."
+      },
+      {
+        "w": "The festival is traditional held in spring.",
+        "r": "The festival is traditionally held in spring.",
+        "why": "Modify the participle held with the adverb traditionally."
+      }
+    ],
+    "u": "Traditionally is an adverb meaning according to long-established custom: the soup is traditionally served hot. Writers often use it at the start of a sentence to set up contrast: traditionally men did this, but now things are changing. It refers to habits passed through generations, not just something old. It is not a synonym of historically, which points to past facts. Be careful with spelling: traditional has no extra 'n'."
+  },
+  "unless": {
+    "mis": [
+      {
+        "w": "Unless you don't hurry, you will miss the train.",
+        "r": "Unless you hurry, you will miss the train.",
+        "why": "Unless already means if not, so do not add another negative."
+      },
+      {
+        "w": "Unless it will rain, we will go.",
+        "r": "Unless it rains, we will go.",
+        "why": "Use the present simple after unless for future meaning, not will."
+      }
+    ],
+    "u": "Unless is a conjunction meaning except if, introducing the only condition that would change the main clause: We will start at nine unless it rains. The verb after unless is usually present, even for the future, and it is not combined with another negative. It is the same as if not, but the structure is shorter. Unless otherwise stated appears on contracts and notices. In formal writing unless introduces an exception, not an ordinary condition."
+  },
+  "unreliable": {
+    "mis": [
+      {
+        "w": "The bus service is unreliably.",
+        "r": "The bus service is unreliable.",
+        "why": "After be, use the adjective unreliable, not an adverb."
+      },
+      {
+        "w": "The data is not unreliability.",
+        "r": "The data is unreliable.",
+        "why": "After be use the adjective unreliable; unreliability is a noun."
+      }
+    ],
+    "u": "Unreliable is an adjective for something or someone that cannot be trusted to work, behave or be accurate every time: an unreliable car, an unreliable source of news. It is the negative of reliable and is stronger than inconsistent. In research, an unreliable witness or source casts doubt on conclusions. The noun is unreliability. Unreliable describes repeated failure; untrustworthy suggests dishonesty, which is a different problem."
+  },
+  "upgrade": {
+    "mis": [
+      {
+        "w": "I upgraded my phone for a newer.",
+        "r": "I upgraded my phone to a newer model.",
+        "why": "Use 'to' for the better version you move to, and name the noun."
+      },
+      {
+        "w": "The airline upgraded to me to business class.",
+        "r": "The airline upgraded me to business class.",
+        "why": "Upgrade takes the person directly as object; do not put 'to' before it."
+      }
+    ],
+    "u": "Upgrade means to improve something or replace it with a better version: upgrade the software, upgrade your plan. With a person as the object, it usually means move to a higher class: the airline upgraded me to business class. The pattern is upgrade (something) to (a better version). As a noun, an upgrade is the improvement itself, such as a free upgrade. Update changes it to the newest version without necessarily making it better."
+  },
+  "vacancy": {
+    "mis": [
+      {
+        "w": "We have a vacancy to a receptionist.",
+        "r": "We have a vacancy for a receptionist.",
+        "why": "Vacancy takes 'for' to name the role or room."
+      },
+      {
+        "w": "There are many vacancy in this hotel.",
+        "r": "There are many vacancies in this hotel.",
+        "why": "Many needs the plural vacancies."
+      }
+    ],
+    "u": "Vacancy is a countable noun for a job or room that is empty and available: a job vacancy, a vacancy for a chef. At hotels, a sign saying no vacancy means all rooms are full, which surprises learners. Companies advertise a vacancy and then fill it. In property, the vacancy rate is the share of unoccupied units. The adjective is vacant. Opening is a less formal US word for a job."
+  },
+  "vend": {
+    "mis": [
+      {
+        "w": "He vends at the street every day.",
+        "r": "He sells goods on the street every day.",
+        "why": "Vend is rare and formal; ordinary speech uses sell with 'on' the street."
+      },
+      {
+        "w": "The machine vended me a drink.",
+        "r": "The machine gave me a drink.",
+        "why": "Vend does not take a person object; use give or dispense."
+      }
+    ],
+    "u": "Vend is a formal and uncommon verb meaning to sell small items, usually from a stall or machine. You are far more likely to meet its relatives: vendor for a seller, and vending machine for a machine that sells snacks or drinks. Street vendors are common in Asian cities. In daily English, use sell, not vend. The word vend is also found on licences and in legal writing about who may sell goods in public places."
+  },
+  "venue": {
+    "mis": [
+      {
+        "w": "The venue of the meeting is a hotel.",
+        "r": "The venue for the meeting is a hotel.",
+        "why": "Venue takes 'for' with the event."
+      },
+      {
+        "w": "We will hold the party at a big venue room.",
+        "r": "We will hold the party at a big venue.",
+        "why": "A venue is the whole place, so do not add room after it."
+      }
+    ],
+    "u": "Venue is a countable noun for the place where an event happens, such as a concert, wedding, match or conference. Event planners use it every day: book a venue, a conference venue. It is a little more formal than place and tells you the place is arranged for events. Pattern: the venue for the event. The word does not mean the exact room or address, only the overall location. In law, venue also refers to the place where a trial is held."
+  },
+  "waive": {
+    "mis": [
+      {
+        "w": "The bank waived me the late fee.",
+        "r": "The bank waived the late fee for me.",
+        "why": "Waive takes only one object; give the beneficiary with 'for'."
+      },
+      {
+        "w": "He waved the late fee.",
+        "r": "He waived the late fee.",
+        "why": "Waive (give up a rule or payment) is not wave (move your hand)."
+      }
+    ],
+    "u": "Waive means to choose not to require something such as a fee, rule or right: the bank waived the late charge, applicants may waive the interview. It is formal and used in finance, law and administration. The noun is waiver, a document in which someone gives up a right. Waive sounds exactly like wave, which is a common spelling error. The thing waived is usually a requirement or payment, not a person."
+  },
+  "wildlife": {
+    "mis": [
+      {
+        "w": "There are many wildlifes in the park.",
+        "r": "There is a lot of wildlife in the park.",
+        "why": "Wildlife is uncountable and has no plural form."
+      },
+      {
+        "w": "Wildlife are protected here.",
+        "r": "Wildlife is protected here.",
+        "why": "Wildlife is uncountable and takes a singular verb."
+      }
+    ],
+    "u": "Wildlife is an uncountable noun for wild animals and plants living in their natural environment: protect wildlife, wildlife reserve. It is used with singular verbs and quantity words like a lot of, not many. To talk about one animal, say a wild animal. It often appears in nature tourism, school science and conservation news. Fauna is the technical word for animals only; wildlife can include plants as well."
+  },
+  "willingness": {
+    "mis": [
+      {
+        "w": "She showed willingness for help us.",
+        "r": "She showed willingness to help us.",
+        "why": "Willingness takes 'to' plus the base verb."
+      },
+      {
+        "w": "His willing to learn is impressive.",
+        "r": "His willingness to learn is impressive.",
+        "why": "After a possessive, you need the noun willingness, not the adjective willing."
+      }
+    ],
+    "u": "Willingness is an uncountable noun meaning the quality of being happy to do something when asked. It is popular in job ads and references: willingness to learn, willingness to travel. The pattern is willingness to + base verb. It is the noun of willing, and the opposite is unwillingness or reluctance. Willingness suggests a positive, cooperative attitude, so it carries more warmth than simple ability. A related word is readiness."
+  },
+  "withdrawal": {
+    "mis": [
+      {
+        "w": "I want to make a withdraw of 2 million.",
+        "r": "I want to make a withdrawal of 2 million.",
+        "why": "The noun is withdrawal; withdraw is the verb."
+      },
+      {
+        "w": "The withdrawl limit is 5 million.",
+        "r": "The withdrawal limit is 5 million.",
+        "why": "Spell the noun withdrawal with -al at the end."
+      }
+    ],
+    "u": "Withdrawal is a noun for taking money out of a bank account (a cash withdrawal), and also for moving back from a place, agreement or activity: the withdrawal of troops, withdrawal from the contract. In medicine, withdrawal symptoms appear when someone stops taking a drug. The verb is withdraw, and the opposite for money is deposit. Banks set a daily withdrawal limit. Remember the spelling ends with -al."
+  },
+  "wrinkle": {
+    "mis": [
+      {
+        "w": "My shirt is wrinkle after the trip.",
+        "r": "My shirt is wrinkled after the trip.",
+        "why": "Use the adjective wrinkled to describe the state; wrinkle is the noun or verb."
+      },
+      {
+        "w": "She has many wrinkle on her face.",
+        "r": "She has many wrinkles on her face.",
+        "why": "Many needs a plural noun."
+      }
+    ],
+    "u": "Wrinkle is a countable noun for a small line on skin or a fold in cloth: fine wrinkles, wrinkles in a shirt. As a verb it means to make or form such lines: wrinkle your nose. The adjective is wrinkled, and wrinkle-free describes fabric or products that resist creasing. For clothes, crease is also common in British English, while for skin only wrinkle and line are used. Anti-wrinkle creams are a big beauty product."
+  },
+  "aboard": {
+    "mis": [
+      {
+        "w": "We went aboard to the ship.",
+        "r": "We went aboard the ship.",
+        "why": "Aboard is a preposition meaning on; do not add 'to'."
+      },
+      {
+        "w": "Passengers must stay in aboard.",
+        "r": "Passengers must stay aboard.",
+        "why": "Aboard is an adverb here and does not take 'in'."
+      }
+    ],
+    "u": "Aboard means on or onto a ship, plane, train or bus. It works as an adverb (Welcome aboard) and as a preposition (aboard the flight) without any extra word like 'to'. It is more formal and a bit more traditional than on, and it is mostly used in announcements by crew. Welcome aboard has also become a friendly way to greet a new colleague. On board is the two-word variant with the same meaning, also used figuratively as in get on board with a plan."
+  },
+  "advertisement": {
+    "mis": [
+      {
+        "w": "I saw an advertisement of a new phone.",
+        "r": "I saw an advertisement for a new phone.",
+        "why": "Advertisement takes 'for' with the product."
+      },
+      {
+        "w": "There are too many advertisement on TV.",
+        "r": "There are too many advertisements on TV.",
+        "why": "Advertisement is countable, so use the plural after many."
+      }
+    ],
+    "u": "Advertisement is a countable noun for a notice, picture or film that tells people about a product, service or job. In speech and informal writing it is shortened to ad, and on TV a commercial is the usual word in American English. In British English the stress falls on the second syllable (ad-VER-tisement), while American English often stresses it on the third. Do not confuse it with advertising, an uncountable word for the whole activity."
+  },
+  "advertiser": {
+    "mis": [
+      {
+        "w": "Many advertiser pay for space on this site.",
+        "r": "Many advertisers pay for space on this site.",
+        "why": "Many needs a plural noun."
+      },
+      {
+        "w": "Advertisers is leaving the site.",
+        "r": "Advertisers are leaving the site.",
+        "why": "A plural noun needs a plural verb."
+      }
+    ],
+    "u": "Advertiser is a countable noun for a person or company that pays for advertising to promote its goods or services. Websites, newspapers and TV channels sell space to advertisers, and the money they pay can fund free content. The word is spelled -er, not -or, and is stressed on the first syllable. An advertiser is different from an advertising agency, which designs the ads for it, and from a sponsor, who supports an event."
+  },
+  "afterward": {
+    "mis": [
+      {
+        "w": "Afterward the meeting, we had lunch.",
+        "r": "After the meeting, we had lunch.",
+        "why": "Afterward is an adverb and cannot take an object; use after before a noun."
+      },
+      {
+        "w": "I will call you afterward of the class.",
+        "r": "I will call you after the class.",
+        "why": "Do not add 'of' after afterward; use the preposition after."
+      }
+    ],
+    "u": "Afterward is an adverb meaning at a later time than the one just mentioned: we ate and went for a walk afterward. It stands alone and cannot be followed by a noun. American English prefers afterward, while British English more often uses afterwards, and both are correct. Choose after when a noun follows, as in after dinner. In writing, afterward often begins a sentence and links two events in a story, like then but more formal."
+  }
+}
