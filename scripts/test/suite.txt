@@ -171,6 +171,8 @@ node scripts/test/ai-local.mjs
 node scripts/test/admin-prefs.mjs
 node scripts/test/mail-prefs.mjs
 node scripts/test/admin-ui.mjs
+node scripts/test/admin-plat.mjs
+node scripts/test/admin-series.mjs
 node scripts/test/admin-tabs.mjs
 node scripts/test/admin-gh.mjs
 node scripts/test/admin-metrics.mjs
