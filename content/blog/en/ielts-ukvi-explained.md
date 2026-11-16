@@ -42,6 +42,7 @@ quiz: [
     explain: "IELTS Life Skills tests Speaking and Listening only and is reported as a pass or a fail."
   }
 ]
+publishAt: 2027-02-16T09:04:00+05:30
 ---
 Most people who ask about **IELTS for UKVI** have the same worry: they already know that IELTS exists, and now a UK visa page says they must take a specific version. The short explanation is that IELTS for UKVI is IELTS delivered as a Secure English Language Test (SELT), which means it is taken with an approved provider at an approved centre so that the UK Home Office can accept the result. This guide explains who might need it, how it differs from the standard test, what the main versions are, and how to book without wasting money.
 

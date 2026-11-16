@@ -898,6 +898,8 @@
   "verb.typeAVerbE": "動詞を入力します。例: go, went, studies",
   "verb.searchForAVerb": "動詞を検索する",
   "verb.conjugate": "共役",
+  "verb.irregularVerbs": "不規則動詞",
+  "verb.openIrregularTable": "不規則動詞の一覧を開く",
   "verb.verbSuggestions": "動詞の提案",
   "verb.irregular": "不規則",
   "verb.englishVerbConjugator": "英語の動詞の活用",

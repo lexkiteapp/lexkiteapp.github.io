@@ -80,13 +80,9 @@ await go('#/verb/give%20up');
 ok(txt('#vbW') === 'give up' && /gave up/.test(txt('.vb-forms')), 'cụm động từ: give up → gave up');
 // trang chính + lọc
 await go('#/verb');
-const irr = $$('#vbIrr .vb-ir').length;
-ok(irr >= 150, `bảng động từ bất quy tắc ≥ 150 (${irr})`);
-const f = $('#vbF'); f.value = 'swum'; f.dispatchEvent(new w.Event('input')); await tick();
-ok($$('#vbIrr .vb-ir').length === 1 && /swim/.test(txt('#vbIrr')), 'lọc theo dạng V3 “swum” → swim');
-f.value = ''; f.dispatchEvent(new w.Event('input'));
-click($('#vbPat [data-p=AAA]')); await tick();
-ok($$('#vbIrr .vb-ir').length > 10 && /cut/.test(txt('#vbIrr')) && !/\bgo\b/.test(txt('#vbIrr')), 'lọc mẫu AAA (cut-cut-cut)');
+// bảng bất quy tắc + lọc đã chuyển sang #/irregular (thẻ dẫn tới; lọc swum→swim / AAA kiểm ở scripts/test/irregular-ui.mjs)
+const irrCard = $('#vbIrrCard'), irrN = +((/\d+/.exec(irrCard && irrCard.textContent) || [0])[0]);
+ok(irrCard && irrCard.getAttribute('href') === '#/irregular' && irrN >= 150, `thẻ dẫn tới bảng bất quy tắc ≥ 150 (${irrN})`);
 // gợi ý (combobox)
 const q = $('#vbQ'); q.value = 'stu'; q.dispatchEvent(new w.Event('input')); await tick(150);
 ok(!$('#vbList').hidden && $$('#vbList [role=option]').some(o => o.dataset.v === 'study') && q.getAttribute('aria-expanded') === 'true', 'gõ “stu” → gợi ý study (listbox)');
