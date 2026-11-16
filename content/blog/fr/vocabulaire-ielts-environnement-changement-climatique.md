@@ -172,6 +172,8 @@ Examinons comment combiner harmonieusement ces collocations dans un paragraphe a
 
 {{cta: /#/library | Accédez dès maintenant à la bibliothèque Lexkite pour maîtriser le vocabulaire académique IELTS}}
 
+Pour le vocabulaire académique transversal, voyez l'[Academic Word List](/fr/blog/academic-word-list-awl-liste-de-vocabulaire/).
+
 ## Foire aux questions (FAQ)
 
 ### Peut-on employer les termes 'green' ou 'eco-friendly' dans un essai ?

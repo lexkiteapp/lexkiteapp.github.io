@@ -212,6 +212,10 @@ If you are taking IELTS General Training, the same formal register is tested in 
 
 {{youtube: | Video idea: rewriting a blunt work email into a polite, clear one, line by line}}
 
+For spoken tone, also read [polite requests in English](/en/blog/polite-requests-in-english-could-you-would-you-mind/).
+
+Chasing a reply? See [follow-up emails in English](/en/blog/follow-up-email-in-english-examples-and-timing/).
+
 ## Frequently asked questions
 
 ### Do I always need "Dear" in a formal email?

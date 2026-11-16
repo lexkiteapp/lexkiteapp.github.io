@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_factory",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Fabric? No, factory!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: My father works in a fabric.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My father works in a factory.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "A place that makes things: factory.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Factory! My father works in a factory.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "My father works in a fabric.",
+  "right": "My father works in a factory.",
+  "strike": "fabric",
+  "why": "A place that makes things: factory.",
+  "memory": "Factory.",
+  "quiz": {
+   "stem": "My father works in a ___.",
+   "options": [
+    "fabric",
+    "factory"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Fábrica” no es “fabric”",
+   "tip": "En español “fábrica”, pero “fabric” en inglés es tela: el edificio es “factory.”",
+   "caption": "🙈 Error común: “My father works in a fabric.” Falso amigo: “fábrica” es “factory”: “My father works in a factory.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “factory”. “Fabric” es una tela. El lugar donde se fabrica algo es “factory”. Escribe una frase tuya con “factory” o dila en voz alta: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#falsosamigos",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Fábrica” ≠ “fabric”",
+   "tip": "“Fábrica” looks like “fabric”, but “fabric” is cloth. The building is a “factory.”",
+   "caption": "Common mistake: “My father works in a fabric.” False friend: “fábrica” is “factory”: “My father works in a factory.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Fábrica” no es “fabric”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“Fábrica” no es “fabric”",
+  "keyword": "My father works in a factory.",
+  "value": "En español “fábrica”, pero “fabric” en inglés es tela: el edificio es “factory.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#falsosamigos",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "“Fábrica” no es “fabric”",
+    "description": "En español “fábrica”, pero “fabric” en inglés es tela: el edificio es “factory.”\n\n🙈 Error común: “My father works in a fabric.” Falso amigo: “fábrica” es “factory”: “My father works in a factory.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #falsosamigos #lexkite",
+    "tags": [
+     "My father works in a factory.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "🙈 Error común: “My father works in a fabric.” Falso amigo: “fábrica” es “factory”: “My father works in a factory.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Fábrica” no es “fabric”\n\nEn español “fábrica”, pero “fabric” en inglés es tela: el edificio es “factory.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#falsosamigos",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Fábrica” no es “fabric” En español “fábrica”, pero “fabric” en inglés es tela: el edificio es “factory.” #aprenderingles #inglesfacil #falsosamigos"
+   }
+  },
+  "first_comment": "Respuesta: “factory”. “Fabric” es una tela. El lugar donde se fabrica algo es “factory”. Escribe una frase tuya con “factory” o dila en voz alta: {link}",
+  "lang": "es"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_gohome",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Just say go home!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Let's go to home now.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Let's go home now.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Home already shows the place.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Home! Let's go home now.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Let's go to home now.",
+  "right": "Let's go home now.",
+  "strike": "to",
+  "why": "Home already shows the place.",
+  "memory": "Go home.",
+  "quiz": {
+   "stem": "Let's go ___ now.",
+   "options": [
+    "to home",
+    "home"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“go to home” 틀렸어요!",
+   "tip": "‘집에 가요’의 ‘에’를 to로 옮기기 쉬워요. home 앞에는 to가 필요 없어요! 이렇게 말해요 👉 “Let's go home now.”",
+   "caption": "“Let's go to home now.”처럼 말하고 있나요? 😅 home은 ‘집에’라는 뜻이라서 앞에 to를 따로 붙이지 않아요. 맞는 문장 ✅ “Let's go home now.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답 ✅ “Let's go home now.” 소리 내어 한 번 말해 보고, 나만의 문장도 하나 써 보세요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Go to home” is wrong!",
+   "tip": "Home already shows the place, so do not add “to.” Say “Let's go home now.”",
+   "caption": "Do you say it like this? 😅 “Let's go to home now.” Home already shows the place, so do not add the word to. Right: “Let's go home now.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“go to home” 틀렸어요!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“go to home” 틀렸어요!",
+  "keyword": "Let's go home now.",
+  "value": "‘집에 가요’의 ‘에’를 to로 옮기기 쉬워요. home 앞에는 to가 필요 없어요! 이렇게 말해요 👉 “Let's go home now.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "“go to home” 틀렸어요!",
+    "description": "‘집에 가요’의 ‘에’를 to로 옮기기 쉬워요. home 앞에는 to가 필요 없어요! 이렇게 말해요 👉 “Let's go home now.”\n\n“Let's go to home now.”처럼 말하고 있나요? 😅 home은 ‘집에’라는 뜻이라서 앞에 to를 따로 붙이지 않아요. 맞는 문장 ✅ “Let's go home now.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "Let's go home now.",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“Let's go to home now.”처럼 말하고 있나요? 😅 home은 ‘집에’라는 뜻이라서 앞에 to를 따로 붙이지 않아요. 맞는 문장 ✅ “Let's go home now.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“go to home” 틀렸어요!\n\n‘집에 가요’의 ‘에’를 to로 옮기기 쉬워요. home 앞에는 to가 필요 없어요! 이렇게 말해요 👉 “Let's go home now.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“go to home” 틀렸어요! ‘집에 가요’의 ‘에’를 to로 옮기기 쉬워요. home 앞에는 to가 필요 없어요! 이렇게 말해요 👉 “Let's go home now.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답 ✅ “Let's go home now.” 소리 내어 한 번 말해 보고, 나만의 문장도 하나 써 보세요: {link}",
+  "lang": "ko"
+ }
+}

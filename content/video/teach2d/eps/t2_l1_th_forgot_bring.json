@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_forgot_bring",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Forgot to bring it!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I forgot bring my phone.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I forgot to bring my phone.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After forgot, say to before the verb.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "To close! Don't forget to close the door.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I forgot bring my phone.",
+  "right": "I forgot to bring my phone.",
+  "strike": "bring",
+  "why": "After forgot, say to before the verb.",
+  "memory": "Forgot to.",
+  "quiz": {
+   "stem": "Don't forget ___ the door.",
+   "options": [
+    "close",
+    "to close"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "forgot + to + กริยา!",
+   "tip": "ภาษาไทยพูด “ลืมเอามือถือมา” โดยวางกริยาต่อกันได้เลย แต่ภาษาอังกฤษต้องใส่ to ก่อนกริยาตัวที่สอง: “I forgot to bring my phone.”",
+   "caption": "คุณเคยพูดว่า “I forgot bring my phone.” ไหม? 😅 ภาษาไทยพูด “ลืมเอามือถือมา” โดยวางกริยาต่อกันได้เลย แต่ภาษาอังกฤษต้องใส่ to ก่อนกริยาตัวที่สอง: “I forgot to bring my phone.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “to close” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยคด้วยคำนี้ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "After forgot, add “to”!",
+   "tip": "Thai joins the two verbs directly, but English needs to before the second verb.",
+   "caption": "Do you say “I forgot bring my phone.” 😅 Thai joins the two verbs directly, but English needs to before the second verb. Say “I forgot to bring my phone.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "forgot + to + กริยา!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "forgot + to + กริยา!",
+  "keyword": "I forgot to bring my phone.",
+  "value": "ภาษาไทยพูด “ลืมเอามือถือมา” โดยวางกริยาต่อกันได้เลย แต่ภาษาอังกฤษต้องใส่ to ก่อนกริยาตัวที่สอง: “I forgot to bring my phone.”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "forgot + to + กริยา!",
+    "description": "ภาษาไทยพูด “ลืมเอามือถือมา” โดยวางกริยาต่อกันได้เลย แต่ภาษาอังกฤษต้องใส่ to ก่อนกริยาตัวที่สอง: “I forgot to bring my phone.”\n\nคุณเคยพูดว่า “I forgot bring my phone.” ไหม? 😅 ภาษาไทยพูด “ลืมเอามือถือมา” โดยวางกริยาต่อกันได้เลย แต่ภาษาอังกฤษต้องใส่ to ก่อนกริยาตัวที่สอง: “I forgot to bring my phone.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "I forgot to bring my phone.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “I forgot bring my phone.” ไหม? 😅 ภาษาไทยพูด “ลืมเอามือถือมา” โดยวางกริยาต่อกันได้เลย แต่ภาษาอังกฤษต้องใส่ to ก่อนกริยาตัวที่สอง: “I forgot to bring my phone.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "forgot + to + กริยา!\n\nภาษาไทยพูด “ลืมเอามือถือมา” โดยวางกริยาต่อกันได้เลย แต่ภาษาอังกฤษต้องใส่ to ก่อนกริยาตัวที่สอง: “I forgot to bring my phone.”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "forgot + to + กริยา! ภาษาไทยพูด “ลืมเอามือถือมา” โดยวางกริยาต่อกันได้เลย แต่ภาษาอังกฤษต้องใส่ to ก่อนกริยาตัว… #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “to close” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยคด้วยคำนี้ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

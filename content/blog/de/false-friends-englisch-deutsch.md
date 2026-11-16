@@ -145,6 +145,8 @@ Schlagen Sie zweifelhafte Begriffe direkt in unserem integrierten [Wörterbuch](
 
 {{cta: /#/dict/ | Jetzt Wörter und Bedeutungen im Wörterbuch nachschlagen}}
 
+Ein weiteres Paar, das Deutsche oft verwechseln, ist in [Affect oder Effect](/de/blog/affect-oder-effect-unterschied/).
+
 ## Häufig gestellte Fragen
 
 ### Was ist der Unterschied zwischen einem „False Friend“ und einem Lehnwort?

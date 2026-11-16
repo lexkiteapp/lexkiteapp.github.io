@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_coldit",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "What word is missing?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Is cold today.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: It is cold today.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Start the sentence with it.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "It is! It is raining now.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Is cold today.",
+  "right": "It is cold today.",
+  "strike": "Is",
+  "why": "Start the sentence with it.",
+  "memory": "It is cold.",
+  "quiz": {
+   "stem": "___ raining now.",
+   "options": [
+    "It is",
+    "Is"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Чего не хватает в “Is cold”?",
+   "tip": "По-русски «Холодно» — без подлежащего. В английском нужно “It”: “It is cold today.”",
+   "caption": "Ты тоже говоришь “Is cold today”? 😅 По-русски «Сегодня холодно» говорят без подлежащего, а в английском нужно “It.” Правильно: “It is cold today.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “It is.” Нужно “It.” Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#изучениеанглийского",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "What word is missing?",
+   "tip": "English needs “It”: “It is cold today.”",
+   "caption": "Do you also say “Is cold today”? 😅 English needs a subject, so start with “It.” Correct: “It is cold today.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Чего не хватает в “Is cold”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "Чего не хватает в “Is cold”?",
+  "keyword": "It is cold today.",
+  "value": "По-русски «Холодно» — без подлежащего. В английском нужно “It”: “It is cold today.”",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#изучениеанглийского",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "Чего не хватает в “Is cold”?",
+    "description": "По-русски «Холодно» — без подлежащего. В английском нужно “It”: “It is cold today.”\n\nТы тоже говоришь “Is cold today”? 😅 По-русски «Сегодня холодно» говорят без подлежащего, а в английском нужно “It.” Правильно: “It is cold today.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #английский #изучениеанглийского #lexkite",
+    "tags": [
+     "It is cold today.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “Is cold today”? 😅 По-русски «Сегодня холодно» говорят без подлежащего, а в английском нужно “It.” Правильно: “It is cold today.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Чего не хватает в “Is cold”?\n\nПо-русски «Холодно» — без подлежащего. В английском нужно “It”: “It is cold today.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#изучениеанглийского",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Чего не хватает в “Is cold”? По-русски «Холодно» — без подлежащего. В английском нужно “It”: “It is… #английскийязык #английский #изучениеанглийского"
+   }
+  },
+  "first_comment": "Ответ: “It is.” Нужно “It.” Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

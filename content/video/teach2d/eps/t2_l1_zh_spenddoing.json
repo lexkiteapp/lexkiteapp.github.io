@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_spenddoing",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say spent time doing!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I spent two hours to do my homework.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I spent two hours doing my homework.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After spent time, use doing.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Studying! I spent an hour studying English.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I spent two hours to do my homework.",
+  "right": "I spent two hours doing my homework.",
+  "strike": "to do",
+  "why": "After spent time, use doing.",
+  "memory": "Spent time doing.",
+  "quiz": {
+   "stem": "I spent an hour ___ English.",
+   "options": [
+    "to study",
+    "studying"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "spend 时间后面接 -ing！",
+   "tip": "中文说“花两小时做作业”，容易照搬成 to do。英语 spend 时间后面要接动词的 -ing 形式。",
+   "caption": "你是不是也会说 “I spent two hours to do my homework.”😅 spend 时间后面要接 -ing，不能用 to do：“I spent two hours doing my homework.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“I spent two hours doing my homework.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Spend time doing!",
+   "tip": "After spend and a time, use the -ing form.",
+   "caption": "Do you say “I spent two hours to do my homework.” 😅 After spend and a time, use the -ing form: “I spent two hours doing my homework.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "spend 时间后面接 -ing！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 51,
+  "seconds": 30.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "spend 时间后面接 -ing！",
+  "keyword": "I spent two hours doing my homework.",
+  "value": "中文说“花两小时做作业”，容易照搬成 to do。英语 spend 时间后面要接动词的 -ing 形式。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 45,
+  "platforms": {
+   "youtube": {
+    "title": "spend 时间后面接 -ing！",
+    "description": "中文说“花两小时做作业”，容易照搬成 to do。英语 spend 时间后面要接动词的 -ing 形式。\n\n你是不是也会说 “I spent two hours to do my homework.”😅 spend 时间后面要接 -ing，不能用 to do：“I spent two hours doing my homework.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "I spent two hours doing my homework.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “I spent two hours to do my homework.”😅 spend 时间后面要接 -ing，不能用 to do：“I spent two hours doing my homework.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "spend 时间后面接 -ing！\n\n中文说“花两小时做作业”，容易照搬成 to do。英语 spend 时间后面要接动词的 -ing 形式。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "spend 时间后面接 -ing！ 中文说“花两小时做作业”，容易照搬成 to do。英语 spend 时间后面要接动词的 -ing 形式。 #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“I spent two hours doing my homework.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

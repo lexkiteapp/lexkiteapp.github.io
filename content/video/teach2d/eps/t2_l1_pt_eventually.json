@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_eventually",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Eventually is not sometimes!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Eventually, I go to the gym on Sundays.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Sometimes, I go to the gym on Sundays.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Eventually means at the end.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! I go to the gym sometimes.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Eventually, I go to the gym on Sundays.",
+  "right": "Sometimes, I go to the gym on Sundays.",
+  "strike": "Eventually",
+  "why": "Eventually means at the end.",
+  "memory": "Sometimes I go.",
+  "quiz": {
+   "stem": "I go to the gym ___, not every day.",
+   "options": [
+    "eventually",
+    "sometimes"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Eventually” não é “às vezes”!",
+   "tip": "Em português “eventualmente” quer dizer “às vezes”; em inglês, “eventually” quer dizer “no fim”. Para “às vezes”, use “sometimes”.",
+   "caption": "Você também diz isso? “Eventually, I go to the gym on Sundays.” 😅 O certo é “Sometimes, I go to the gym on Sundays.” Em português “eventualmente” quer dizer “às vezes”; em inglês, “eventually” quer dizer “no fim”. Para “às vezes”, use “sometimes”. Ouça a Ama e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “sometimes”. Agora escreva uma frase sua com “Sometimes I go” e treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Eventually” is not “às vezes”!",
+   "tip": "In Portuguese “eventualmente” means “às vezes”; in English, “eventually” means “in the end”. For “às vezes”, use “sometimes”.",
+   "caption": "Do you say this too? “Eventually, I go to the gym on Sundays.” 😅 The right way is “Sometimes, I go to the gym on Sundays.” In Portuguese “eventualmente” means “às vezes”; in English, “eventually” means “in the end”. For “às vezes”, use “sometimes”. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Eventually” não é “às vezes”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 53,
+  "seconds": 31.5,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "“Eventually” não é “às vezes”!",
+  "keyword": "Sometimes, I go to the gym on Sundays.",
+  "value": "Em português “eventualmente” quer dizer “às vezes”; em inglês, “eventually” quer dizer “no fim”. Para “às vezes”, use “sometimes”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 47,
+  "platforms": {
+   "youtube": {
+    "title": "“Eventually” não é “às vezes”!",
+    "description": "Em português “eventualmente” quer dizer “às vezes”; em inglês, “eventually” quer dizer “no fim”. Para “às vezes”, use “sometimes”.\n\nVocê também diz isso? “Eventually, I go to the gym on Sundays.” 😅 O certo é “Sometimes, I go to the gym on Sundays.” Em português “eventualmente” quer dizer “às vezes”; em inglês, “eventually” quer dizer “no fim”. Para “às vezes”, use “sometimes”. Ouça a Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "Sometimes, I go to the gym on Sundays.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Você também diz isso? “Eventually, I go to the gym on Sundays.” 😅 O certo é “Sometimes, I go to the gym on Sundays.” Em português “eventualmente” quer dizer “às vezes”; em inglês, “eventually” quer dizer “no fim”. Para “às vezes”, use “sometimes”. Ouça a Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Eventually” não é “às vezes”!\n\nEm português “eventualmente” quer dizer “às vezes”; em inglês, “eventually” quer dizer “no fim”. Para “às vezes”, use “sometimes”.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Eventually” não é “às vezes”! Em português “eventualmente” quer dizer “às vezes”; em inglês, “eventually”… #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “sometimes”. Agora escreva uma frase sua com “Sometimes I go” e treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_thanks_helping",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Thank you for helping me!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Thank you for help me.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Thank you for helping me.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After for, use helping.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Helping! Thanks for helping me.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Thank you for help me.",
+  "right": "Thank you for helping me.",
+  "strike": "for help",
+  "why": "After for, use helping.",
+  "memory": "Thank you for helping me.",
+  "quiz": {
+   "stem": "Thanks for ___ me.",
+   "options": [
+    "help",
+    "helping"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“For help” değil, “for helping”!",
+   "tip": "Türkçede “yardım ettiğin için” deriz; İngilizcede “for” sözcüğünden sonra fiil “-ing” alır: “Thank you for helping me.”",
+   "caption": "“Thank you for help me” mi diyorsun? 😅 İngilizcede “for” sözcüğünden sonra gelen fiil “-ing” alır. Doğrusu “Thank you for helping me.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “helping”. “For” sözcüğünden sonra fiile “-ing” ekle. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “for help”, but “for helping”!",
+   "tip": "After “for”, the verb takes “-ing”: “Thank you for helping me.”",
+   "caption": "Do you say “Thank you for help me”? 😅 In English after “for” the verb ends in “-ing”. The right sentence is “Thank you for helping me.” Listen to Ama and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“For help” değil, “for helping”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“For help” değil, “for helping”!",
+  "keyword": "Thank you for helping me.",
+  "value": "Türkçede “yardım ettiğin için” deriz; İngilizcede “for” sözcüğünden sonra fiil “-ing” alır: “Thank you for helping me.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "“For help” değil, “for helping”!",
+    "description": "Türkçede “yardım ettiğin için” deriz; İngilizcede “for” sözcüğünden sonra fiil “-ing” alır: “Thank you for helping me.”\n\n“Thank you for help me” mi diyorsun? 😅 İngilizcede “for” sözcüğünden sonra gelen fiil “-ing” alır. Doğrusu “Thank you for helping me.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "Thank you for helping me.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“Thank you for help me” mi diyorsun? 😅 İngilizcede “for” sözcüğünden sonra gelen fiil “-ing” alır. Doğrusu “Thank you for helping me.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“For help” değil, “for helping”!\n\nTürkçede “yardım ettiğin için” deriz; İngilizcede “for” sözcüğünden sonra fiil “-ing” alır: “Thank you for helping me.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“For help” değil, “for helping”! Türkçede “yardım ettiğin için” deriz; İngilizcede “for” sözcüğünden son… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “helping”. “For” sözcüğünden sonra fiile “-ing” ekle. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+  "lang": "tr"
+ }
+}

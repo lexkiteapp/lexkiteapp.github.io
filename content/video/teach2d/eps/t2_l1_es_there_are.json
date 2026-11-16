@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_there_are",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Have? No, there are!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: In my city have many parks.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: In my city there are many parks.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "To say what exists, use there are.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "There are! In my city there are many parks.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "In my city have many parks.",
+  "right": "In my city there are many parks.",
+  "strike": "have",
+  "why": "To say what exists, use there are.",
+  "memory": "There are parks.",
+  "quiz": {
+   "stem": "In my city ___ many parks.",
+   "options": [
+    "have",
+    "there are"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "¿“Have parks”? Di “there are”",
+   "tip": "“Hay” viene de “haber”, pero en inglés no se usa “have”: es “there is” o “there are.”",
+   "caption": "🙈 Error común: “In my city have many parks.” Para decir que algo existe en un lugar usa “there are”: “In my city there are many parks.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “there are”. “Hay” en inglés es “there is” o “there are”, no “have”. Escribe una frase tuya con “there are” o dila en voz alta: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#gramatica",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Hay” is “there are”",
+   "tip": "In English, “hay” is not “have”: it is “there is” or “there are.”",
+   "caption": "Common mistake: “In my city have many parks.” To say something exists in a place, use “there are”: “In my city there are many parks.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿“Have parks”? Di “there are”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 53,
+  "seconds": 31.5,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "¿“Have parks”? Di “there are”",
+  "keyword": "In my city there are many parks.",
+  "value": "“Hay” viene de “haber”, pero en inglés no se usa “have”: es “there is” o “there are.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#gramatica",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 47,
+  "platforms": {
+   "youtube": {
+    "title": "¿“Have parks”? Di “there are”",
+    "description": "“Hay” viene de “haber”, pero en inglés no se usa “have”: es “there is” o “there are.”\n\n🙈 Error común: “In my city have many parks.” Para decir que algo existe en un lugar usa “there are”: “In my city there are many parks.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #gramatica #lexkite",
+    "tags": [
+     "In my city there are many parks.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "🙈 Error común: “In my city have many parks.” Para decir que algo existe en un lugar usa “there are”: “In my city there are many parks.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "¿“Have parks”? Di “there are”\n\n“Hay” viene de “haber”, pero en inglés no se usa “have”: es “there is” o “there are.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#gramatica",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿“Have parks”? Di “there are” “Hay” viene de “haber”, pero en inglés no se usa “have”: es “there is” o “there… #aprenderingles #inglesfacil #gramatica"
+   }
+  },
+  "first_comment": "Respuesta: “there are”. “Hay” en inglés es “there is” o “there are”, no “have”. Escribe una frase tuya con “there are” o dila en voz alta: {link}",
+  "lang": "es"
+ }
+}

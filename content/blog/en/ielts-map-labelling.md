@@ -9,7 +9,7 @@ tags: [ielts, listening, map-labelling, directions]
 keyword: "ielts map labelling"
 cover: listening
 coverAlt: "Lexkite listening practice list with recordings grouped by level"
-publishAt:
+publishAt: 2027-02-09T07:41:00+05:30
 factChecked: 2026-11-15
 author: Lexkite
 status: ready

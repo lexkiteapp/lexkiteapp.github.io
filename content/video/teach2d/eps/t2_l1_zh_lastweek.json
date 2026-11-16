@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_lastweek",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Past time needs past verbs!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Yesterday we play soccer.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Yesterday we played soccer.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Yesterday means past. Use played.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Watched! I watched a movie last night.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Yesterday we play soccer.",
+  "right": "Yesterday we played soccer.",
+  "strike": "we play",
+  "why": "Yesterday means past. Use played.",
+  "memory": "Yesterday, played.",
+  "quiz": {
+   "stem": "Last night I ___ a movie.",
+   "options": [
+    "watch",
+    "watched"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "说了“昨天”，动词也要变过去式！",
+   "tip": "中文动词不变形，英语里说过去的事，动词要用过去式：played。",
+   "caption": "你是不是也会说 “Yesterday we play soccer.”？😅 中文靠“昨天”这类时间词表示过去，动词本身不变；英语的动词却要变成过去式：“Yesterday we played soccer.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“Yesterday we played soccer.”免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Past time, past verb!",
+   "tip": "Yesterday is in the past, so the verb must be past: played.",
+   "caption": "Do you say “Yesterday we play soccer.”? 😅 Yesterday is in the past, so the verb must change too: “Yesterday we played soccer.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "说了“昨天”，动词也要变过去式！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "说了“昨天”，动词也要变过去式！",
+  "keyword": "Yesterday we played soccer.",
+  "value": "中文动词不变形，英语里说过去的事，动词要用过去式：played。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "说了“昨天”，动词也要变过去式！",
+    "description": "你是不是也会说 “Yesterday we play soccer.”？😅 中文靠“昨天”这类时间词表示过去，动词本身不变；英语的动词却要变成过去式：“Yesterday we played soccer.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "Yesterday we played soccer.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “Yesterday we play soccer.”？😅 中文靠“昨天”这类时间词表示过去，动词本身不变；英语的动词却要变成过去式：“Yesterday we played soccer.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "你是不是也会说 “Yesterday we play soccer.”？😅 中文靠“昨天”这类时间词表示过去，动词本身不变；英语的动词却要变成过去式：“Yesterday we played soccer.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "说了“昨天”，动词也要变过去式！ #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“Yesterday we played soccer.”免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

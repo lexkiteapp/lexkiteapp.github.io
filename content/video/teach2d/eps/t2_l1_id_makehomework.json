@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_makehomework",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Do your homework!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I make my homework every night.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I do my homework every night.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Homework: do it.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Do! I do my homework after dinner.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I make my homework every night.",
+  "right": "I do my homework every night.",
+  "strike": "make",
+  "why": "Homework: do it.",
+  "memory": "Do homework.",
+  "quiz": {
+   "stem": "I ___ my homework after dinner.",
+   "options": [
+    "make",
+    "do"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Membuat PR” jadi “make”?",
+   "tip": "Kita sering bilang “membuat PR”, tapi bahasa Inggris pakai do homework.",
+   "caption": "Pernah bilang begini? “I make my homework every night.” 😅 Untuk PR, pakai do: “I do my homework every night.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “do”. Ucapkan dengan lantang: “I do my homework every night.” Lalu tambahkan jamnya. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#kolokasi",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Homework: “do”, not “make”",
+   "tip": "We often say “membuat PR”, but English uses do homework.",
+   "caption": "Ever say this? “I make my homework every night.” 😅 For homework, use do: “I do my homework every night.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Membuat PR” jadi “make”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“Membuat PR” jadi “make”?",
+  "keyword": "I do my homework every night.",
+  "value": "Kita sering bilang “membuat PR”, tapi bahasa Inggris pakai do homework.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#kolokasi",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "“Membuat PR” jadi “make”?",
+    "description": "Kita sering bilang “membuat PR”, tapi bahasa Inggris pakai do homework.\n\nPernah bilang begini? “I make my homework every night.” 😅 Untuk PR, pakai do: “I do my homework every night.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #kolokasi #bahasainggris #lexkite",
+    "tags": [
+     "I do my homework every night.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “I make my homework every night.” 😅 Untuk PR, pakai do: “I do my homework every night.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Membuat PR” jadi “make”?\n\nKita sering bilang “membuat PR”, tapi bahasa Inggris pakai do homework.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#kolokasi",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Membuat PR” jadi “make”? Kita sering bilang “membuat PR”, tapi bahasa Inggris pakai do homework. #belajarbahasainggris #kolokasi #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “do”. Ucapkan dengan lantang: “I do my homework every night.” Lalu tambahkan jamnya. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

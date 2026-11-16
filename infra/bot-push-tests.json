@@ -1,0 +1,9 @@
+{
+  "_doc": "Máy gác bot đẩy main (scripts/ci/bot-test-gate.mjs): commit bot [skip ci] không qua CI → trước khi đẩy chạy các lệnh này theo đường dẫn tệp bot đổi. Mỗi lệnh phải có NGUYÊN DÒNG trong scripts/test/suite.txt (npm test = cổng PR; scripts/test/bot-test-gate.mjs kiểm). Đường dẫn không khớp mẫu nào = không cần test (sổ sao lưu, báo cáo…).",
+  "rules": [
+    { "paths": "^(content/lexicon/|content/qa/|web/data/ai-capacity\\.json)", "tests": ["node scripts/test/lexicon-expand.mjs", "node scripts/test/lex.mjs", "node scripts/lexicon/ipa-audit.mjs", "node scripts/content-qa/gate.mjs", "node scripts/test/review-done.mjs", "node scripts/content-qa/sense-check.mjs"] },
+    { "paths": "^content/blog/", "tests": ["node scripts/blog-pipeline.mjs gate", "node scripts/blog-schedule.mjs --verify"] },
+    { "paths": "^(web/js/i18n/|web/cpack/lesson/pn-|web/i18n/|functions/api/_report-i18n\\.js|extension/app/|i18n/)", "tests": ["node scripts/i18n-qa.mjs --strict", "node scripts/test/report.mjs", "node scripts/test/ext-sync.mjs", "node scripts/test/gen-guard.mjs"] },
+    { "paths": "^(web/teach/|content/video/)", "tests": ["node scripts/test/gen-guard.mjs"] }
+  ]
+}

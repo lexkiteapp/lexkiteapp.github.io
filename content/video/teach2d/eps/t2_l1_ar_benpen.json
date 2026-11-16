@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_benpen",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Ben? No, say pen!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I write with a ben.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I write with a pen.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Pen starts with p, not b.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! I need a pen.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I write with a ben.",
+  "right": "I write with a pen.",
+  "strike": "ben",
+  "why": "Pen starts with p, not b.",
+  "memory": "Pen. Park. Pizza.",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "I need a ben.",
+    "I need a pen."
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "هل تكتب “ben” بدل “pen”؟",
+   "tip": "في العربية لا يوجد صوت p، فيكتب كثيرون b بدلًا منه، لكن الكلمة الصحيحة pen: “I write with a pen.” وليس “I write with a ben.”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “I write with a ben.” 😅 في العربية لا يوجد صوت p، فيكتب كثيرون b بدلًا منه، لكن الكلمة الصحيحة pen، فالجملة الصحيحة “I write with a pen.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “pen” — في العربية لا يوجد صوت p، فيكتب كثيرون b بدلًا منه، لكن الكلمة الصحيحة pen. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you write “ben” for “pen”?",
+   "tip": "Arabic has no p sound, so many learners write b instead, but the right word is pen: “I write with a pen.” not “I write with a ben.”",
+   "caption": "Do you sometimes say this? “I write with a ben.” 😅 Arabic has no p sound, so many learners write b instead, but the right word is pen, so the right sentence is “I write with a pen.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تكتب “ben” بدل “pen”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "هل تكتب “ben” بدل “pen”؟",
+  "keyword": "I write with a pen.",
+  "value": "في العربية لا يوجد صوت p، فيكتب كثيرون b بدلًا منه، لكن الكلمة الصحيحة pen: “I write with a pen.” وليس “I write with a ben.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "هل تكتب “ben” بدل “pen”؟",
+    "description": "في العربية لا يوجد صوت p، فيكتب كثيرون b بدلًا منه، لكن الكلمة الصحيحة pen: “I write with a pen.” وليس “I write with a ben.”\n\nهل تقول أحيانًا هذه الجملة؟ “I write with a ben.” 😅 في العربية لا يوجد صوت p، فيكتب كثيرون b بدلًا منه، لكن الكلمة الصحيحة pen، فالجملة الصحيحة “I write with a pen.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "I write with a pen.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا هذه الجملة؟ “I write with a ben.” 😅 في العربية لا يوجد صوت p، فيكتب كثيرون b بدلًا منه، لكن الكلمة الصحيحة pen، فالجملة الصحيحة “I write with a pen.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تكتب “ben” بدل “pen”؟\n\nفي العربية لا يوجد صوت p، فيكتب كثيرون b بدلًا منه، لكن الكلمة الصحيحة pen: “I write with a pen.” وليس “I write with a ben.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تكتب “ben” بدل “pen”؟ في العربية لا يوجد صوت p، فيكتب كثيرون b بدلًا منه، لكن الكلمة الصحيحة p… #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “pen” — في العربية لا يوجد صوت p، فيكتب كثيرون b بدلًا منه، لكن الكلمة الصحيحة pen. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+  "lang": "ar"
+ }
+}

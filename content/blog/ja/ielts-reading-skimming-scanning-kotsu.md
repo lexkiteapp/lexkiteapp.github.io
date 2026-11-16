@@ -141,6 +141,8 @@ IELTSの設問文で使われている単語が、パッセージ内でそのま
 
 実戦的な問題形式に慣れるには、公式問題集や[IELTSリーディング問題サンプル](/samples/)を活用して、時間を計りながらスキミングとスキャニングの反復演習を行うことが最短の近道です。
 
+問題の種類ごとの解き方は[IELTS リーディング 問題形式一覧](/ja/blog/ielts-reading-mondai-keishiki-ichiran/)にまとめています。
+
 {{youtube: | IELTS Reading Skimming & Scanning Technique}}
 
 ## よくある質問（FAQ）

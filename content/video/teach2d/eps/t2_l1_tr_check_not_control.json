@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_check_not_control",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Check my homework, please!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I will control your homework.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I will check your homework.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Check means look and see.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Check! Please check my work.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I will control your homework.",
+  "right": "I will check your homework.",
+  "strike": "control",
+  "why": "Check means look and see.",
+  "memory": "I will check your homework.",
+  "quiz": {
+   "stem": "Please ___ my work.",
+   "options": [
+    "control",
+    "check"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Control” değil, “check”!",
+   "tip": "Türkçedeki “kontrol etmek” İngilizcede “check” olur; “control” yönetmek demektir: “I will check your homework.”",
+   "caption": "“I will control your homework” mi diyorsun? 😅 “Kontrol etmek” için “control” değil, “check” kullanılır. Doğrusu “I will check your homework.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “check”. Bir şeye bakıp doğrulamak için “check” de. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “check”, not “control”!",
+   "tip": "To look at something, say “check”: “I will check your homework.”",
+   "caption": "Do you say “I will control your homework”? 😅 In English control means to be in charge, so to look at something we say check. The right sentence is “I will check your homework.” Listen to Ama and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Control” değil, “check”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“Control” değil, “check”!",
+  "keyword": "I will check your homework.",
+  "value": "Türkçedeki “kontrol etmek” İngilizcede “check” olur; “control” yönetmek demektir: “I will check your homework.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "“Control” değil, “check”!",
+    "description": "Türkçedeki “kontrol etmek” İngilizcede “check” olur; “control” yönetmek demektir: “I will check your homework.”\n\n“I will control your homework” mi diyorsun? 😅 “Kontrol etmek” için “control” değil, “check” kullanılır. Doğrusu “I will check your homework.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "I will check your homework.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“I will control your homework” mi diyorsun? 😅 “Kontrol etmek” için “control” değil, “check” kullanılır. Doğrusu “I will check your homework.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Control” değil, “check”!\n\nTürkçedeki “kontrol etmek” İngilizcede “check” olur; “control” yönetmek demektir: “I will check your homework.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Control” değil, “check”! Türkçedeki “kontrol etmek” İngilizcede “check” olur; “control” yönetmek demekt… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “check”. Bir şeye bakıp doğrulamak için “check” de. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+  "lang": "tr"
+ }
+}

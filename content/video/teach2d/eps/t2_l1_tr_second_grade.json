@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_second_grade",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Second grade, not second class!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: My son is in the second class.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My son is in the second grade.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say grade for a school year.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Grade! She is in the third grade.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "My son is in the second class.",
+  "right": "My son is in the second grade.",
+  "strike": "second class",
+  "why": "Say grade for a school year.",
+  "memory": "My son is in the second grade.",
+  "quiz": {
+   "stem": "She is in the third ___.",
+   "options": [
+    "class",
+    "grade"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Class” değil, “grade”!",
+   "tip": "Türkçede “ikinci sınıf” deriz; okul yılı için İngilizcede “grade” kullanılır: “My son is in the second grade.”",
+   "caption": "“My son is in the second class” mi diyorsun? 😅 Okul yılı için “class” değil, “grade” kullanılır. Doğrusu “My son is in the second grade.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “grade”. “İkinci sınıf” için “second grade” de. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “grade”, not “class”!",
+   "tip": "For a school year, say “grade”: “My son is in the second grade.”",
+   "caption": "Do you say “My son is in the second class”? 😅 In English for a school year we say grade, not class. The right sentence is “My son is in the second grade.” Listen to Carlos and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Class” değil, “grade”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "“Class” değil, “grade”!",
+  "keyword": "My son is in the second grade.",
+  "value": "Türkçede “ikinci sınıf” deriz; okul yılı için İngilizcede “grade” kullanılır: “My son is in the second grade.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 46,
+  "platforms": {
+   "youtube": {
+    "title": "“Class” değil, “grade”!",
+    "description": "Türkçede “ikinci sınıf” deriz; okul yılı için İngilizcede “grade” kullanılır: “My son is in the second grade.”\n\n“My son is in the second class” mi diyorsun? 😅 Okul yılı için “class” değil, “grade” kullanılır. Doğrusu “My son is in the second grade.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "My son is in the second grade.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“My son is in the second class” mi diyorsun? 😅 Okul yılı için “class” değil, “grade” kullanılır. Doğrusu “My son is in the second grade.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Class” değil, “grade”!\n\nTürkçede “ikinci sınıf” deriz; okul yılı için İngilizcede “grade” kullanılır: “My son is in the second grade.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Class” değil, “grade”! Türkçede “ikinci sınıf” deriz; okul yılı için İngilizcede “grade” kullanılır: “M… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “grade”. “İkinci sınıf” için “second grade” de. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+  "lang": "tr"
+ }
+}

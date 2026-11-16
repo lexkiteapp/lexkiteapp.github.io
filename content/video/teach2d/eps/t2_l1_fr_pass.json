@@ -11,17 +11,17 @@
  "lines": [
   {
    "id": "h",
-   "text": "Spend your holiday!",
+   "text": "Spend your vacation!",
    "pause": 0.42
   },
   {
    "id": "w",
-   "text": "Many learners say: I will pass my holidays in Spain.",
+   "text": "Many learners say: I will pass my vacation in Spain.",
    "pause": 0.42
   },
   {
    "id": "r",
-   "text": "Better: I will spend my holidays in Spain.",
+   "text": "Better: I will spend my vacation in Spain.",
    "pause": 0.42
   },
   {
@@ -52,8 +52,8 @@
   }
  ],
  "data": {
-  "wrong": "I will pass my holidays in Spain.",
-  "right": "I will spend my holidays in Spain.",
+  "wrong": "I will pass my vacation in Spain.",
+  "right": "I will spend my vacation in Spain.",
   "strike": "pass",
   "why": "For time, use spend.",
   "memory": "Time: spend it.",
@@ -68,8 +68,8 @@
   "native": {
    "hook": "« Passer » ≠ “pass”",
    "tip": "« Passer ses vacances » se dit “spend”. “Pass” veut dire donner ou réussir.",
-   "caption": "Tu dis “I will pass my holidays in Spain.” ? Faux ami ! Dis “I will spend my holidays in Spain.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.",
-   "comment": "Réponse : “spend”. Pour du temps, on dit “spend”. Teste d'autres pièges avec un quiz gratuit : {link}",
+   "caption": "Vous dites “I will pass my vacation in Spain.” ? Faux ami ! Dites plutôt “I will spend my vacation in Spain.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “spend” — Pour du temps, on dit “spend”. Testez d’autres pièges avec un quiz gratuit : {link}",
    "hashtags": [
     "#apprendrelanglais",
     "#anglaisfacile",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "“Passer” is not “pass”!",
-   "tip": "« Passer ses vacances » is “spend”. “Pass” means hand over or succeed.",
-   "caption": "Do you say “I will pass my holidays in Spain.”? False friend! Say “I will spend my holidays in Spain.”. Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+   "hook": "“Pass” is not “spend”!",
+   "tip": "To use time, say “spend”. “Pass” means hand over or succeed.",
+   "caption": "Do you say this? “I will pass my vacation in Spain.” False friend! Say “I will spend my vacation in Spain.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
   }
  },
  "cta": {
@@ -104,7 +104,7 @@
  },
  "publish": {
   "title": "« Passer » ≠ “pass”",
-  "keyword": "I will spend my holidays in Spain.",
+  "keyword": "I will spend my vacation in Spain.",
   "value": "« Passer ses vacances » se dit “spend”. “Pass” veut dire donner ou réussir.",
   "hashtags": [
    "#apprendrelanglais",
@@ -117,18 +117,18 @@
   "platforms": {
    "youtube": {
     "title": "« Passer » ≠ “pass”",
-    "description": "Tu dis “I will pass my holidays in Spain.” ? Faux ami ! Dis “I will spend my holidays in Spain.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "description": "« Passer ses vacances » se dit “spend”. “Pass” veut dire donner ou réussir.\n\nVous dites “I will pass my vacation in Spain.” ? Faux ami ! Dites plutôt “I will spend my vacation in Spain.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
     "tags": [
-     "I will spend my holidays in Spain.",
+     "I will spend my vacation in Spain.",
      "learn english",
      "fr"
     ]
    },
    "facebook": {
-    "text": "Tu dis “I will pass my holidays in Spain.” ? Faux ami ! Dis “I will spend my holidays in Spain.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Vous dites “I will pass my vacation in Spain.” ? Faux ami ! Dites plutôt “I will spend my vacation in Spain.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Tu dis “I will pass my holidays in Spain.” ? Faux ami ! Dis “I will spend my holidays in Spain.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.\n\nlexkite.com",
+    "caption": "« Passer » ≠ “pass”\n\n« Passer ses vacances » se dit “spend”. “Pass” veut dire donner ou réussir.\n\nlexkite.com",
     "hashtags": [
      "#apprendrelanglais",
      "#anglaisfacile",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "« Passer » ≠ “pass” #apprendrelanglais #anglaisfacile #coursdanglais"
+    "caption": "« Passer » ≠ “pass” « Passer ses vacances » se dit “spend”. “Pass” veut dire donner ou réussir. #apprendrelanglais #anglaisfacile #coursdanglais"
    }
   },
-  "first_comment": "Réponse : “spend”. Pour du temps, on dit “spend”. Teste d'autres pièges avec un quiz gratuit : {link}",
+  "first_comment": "Réponse : “spend” — Pour du temps, on dit “spend”. Testez d’autres pièges avec un quiz gratuit : {link}",
   "lang": "fr"
  }
 }

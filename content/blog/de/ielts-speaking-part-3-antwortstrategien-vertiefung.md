@@ -146,6 +146,8 @@ Zur weiteren Verfeinerung Ihres Sprachrhythmus studieren Sie unseren Leitfaden z
 
 ---
 
+Ein Vorher-nachher-Vergleich ganzer Antworten steht in [IELTS Speaking Band 7 Beispielantworten](/de/blog/ielts-speaking-band-7-beispielantworten/).
+
 ## Häufig gestellte Fragen zu IELTS Speaking Part 3
 
 ### 1. Wie lange sollte jede Antwort in Teil 3 idealerweise dauern?

@@ -141,3 +141,5 @@ Lexkite provides the comprehensive toolkit required to master professional spoke
 Launch the [Lexkite English learning app](/#/) today to refine your behavioral interview storytelling and secure your dream role at top-tier global enterprises!
 
 If you are new to the country, our guide to [job interview English for newcomers](/en/blog/job-interview-english-newcomers/) covers the language for the interview itself.
+
+Your opening answer matters too: [Tell me about yourself in English](/en/blog/tell-me-about-yourself-answer-in-english/).

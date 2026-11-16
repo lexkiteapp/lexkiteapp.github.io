@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "In! I eat lunch in the afternoon.",
+   "text": "In! I go for a walk in the evening.",
    "pause": 0.42
   },
   {
@@ -58,7 +58,7 @@
   "why": "Say in the morning.",
   "memory": "In the morning.",
   "quiz": {
-   "stem": "I eat lunch ___ the afternoon.",
+   "stem": "I go for a walk ___ the evening.",
    "options": [
     "in",
     "at"
@@ -68,7 +68,7 @@
   "native": {
    "hook": "“At the morning” değil, “in”!",
    "tip": "Günün bölümlerinde “in” kullan: in the morning, in the evening.",
-   "caption": "“I wake up at the morning.” mi diyorsun? 😅 Sabah, öğleden sonra, akşam için “in” gelir. Doğrusu “I wake up in the morning.”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "caption": "“I wake up at the morning” mi diyorsun? 😅 Sabah, öğleden sonra, akşam için “in” gelir. Doğrusu “I wake up in the morning.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
    "comment": "Cevap: “in”. Sabah için in kullan. Ücretsiz testle pratik yap: {link}",
    "hashtags": [
     "#ingilizceöğren",
@@ -80,7 +80,7 @@
   "en": {
    "hook": "Not “at the morning”, but “in”!",
    "tip": "Use “in” for parts of the day: in the morning, in the evening.",
-   "caption": "Do you say “I wake up at the morning.”? 😅 Use “in” for morning, afternoon and evening. The right sentence is “I wake up in the morning.”. Listen to Carlos and repeat! Open the Lexkite app and practice more."
+   "caption": "Do you say “I wake up at the morning”? 😅 Use “in” for morning, afternoon and evening. The right sentence is “I wake up in the morning.” Listen to Carlos and repeat! Open the Lexkite app and practice more."
   }
  },
  "cta": {
@@ -98,9 +98,9 @@
  },
  "lang": "tr",
  "est": {
-  "words": 46,
-  "seconds": 28.1,
-  "wpm": 98
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
  },
  "publish": {
   "title": "“At the morning” değil, “in”!",
@@ -113,11 +113,11 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 40,
+  "script_words": 42,
   "platforms": {
    "youtube": {
     "title": "“At the morning” değil, “in”!",
-    "description": "“I wake up at the morning.” mi diyorsun? 😅 Sabah, öğleden sonra, akşam için “in” gelir. Doğrusu “I wake up in the morning.”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "description": "Günün bölümlerinde “in” kullan: in the morning, in the evening.\n\n“I wake up at the morning” mi diyorsun? 😅 Sabah, öğleden sonra, akşam için “in” gelir. Doğrusu “I wake up in the morning.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
     "tags": [
      "I wake up in the morning.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "“I wake up at the morning.” mi diyorsun? 😅 Sabah, öğleden sonra, akşam için “in” gelir. Doğrusu “I wake up in the morning.”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "“I wake up at the morning” mi diyorsun? 😅 Sabah, öğleden sonra, akşam için “in” gelir. Doğrusu “I wake up in the morning.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "“I wake up at the morning.” mi diyorsun? 😅 Sabah, öğleden sonra, akşam için “in” gelir. Doğrusu “I wake up in the morning.”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nlexkite.com",
+    "caption": "“At the morning” değil, “in”!\n\nGünün bölümlerinde “in” kullan: in the morning, in the evening.\n\nlexkite.com",
     "hashtags": [
      "#ingilizceöğren",
      "#ingilizcekonuşma",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "“At the morning” değil, “in”! #ingilizceöğren #ingilizcekonuşma #ingilizce"
+    "caption": "“At the morning” değil, “in”! Günün bölümlerinde “in” kullan: in the morning, in the evening. #ingilizceöğren #ingilizcekonuşma #ingilizce"
    }
   },
   "first_comment": "Cevap: “in”. Sabah için in kullan. Ücretsiz testle pratik yap: {link}",

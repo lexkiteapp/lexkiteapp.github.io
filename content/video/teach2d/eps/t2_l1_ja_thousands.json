@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_thousands",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Two thousands yen?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: It costs two thousands yen.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: It costs two thousand yen.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After a number, thousand has no s.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Thousand! It costs two thousand yen.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "It costs two thousands yen.",
+  "right": "It costs two thousand yen.",
+  "strike": "thousands",
+  "why": "After a number, thousand has no s.",
+  "memory": "It costs two thousand yen.",
+  "quiz": {
+   "stem": "It costs five ___ yen.",
+   "options": [
+    "thousands",
+    "thousand"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "「2000円」は thousands？",
+   "tip": "数字のあとの thousand や hundred に s は付けません。",
+   "caption": "“It costs two thousands yen.”と言っていませんか？😅 「何千もの」の thousands of と混ざって、数字のあとにも s を付けがちです。“It costs two thousand yen.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“thousand”。“It costs two thousand yen.” を声に出して言ってみよう。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Two thousands yen?",
+   "tip": "After a number, thousand has no s.",
+   "caption": "Do you say this? “It costs two thousands yen.” 😅 With a number, do not add s. The natural way is “It costs two thousand yen.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "「2000円」は thousands？"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "「2000円」は thousands？",
+  "keyword": "It costs two thousand yen.",
+  "value": "数字のあとの thousand や hundred に s は付けません。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "「2000円」は thousands？",
+    "description": "数字のあとの thousand や hundred に s は付けません。\n\n“It costs two thousands yen.”と言っていませんか？😅 「何千もの」の thousands of と混ざって、数字のあとにも s を付けがちです。“It costs two thousand yen.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "It costs two thousand yen.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“It costs two thousands yen.”と言っていませんか？😅 「何千もの」の thousands of と混ざって、数字のあとにも s を付けがちです。“It costs two thousand yen.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "「2000円」は thousands？\n\n数字のあとの thousand や hundred に s は付けません。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「2000円」は thousands？ 数字のあとの thousand や hundred に s は付けません。 #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“thousand”。“It costs two thousand yen.” を声に出して言ってみよう。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

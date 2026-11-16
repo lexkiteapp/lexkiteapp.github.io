@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_sorrylate",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Sorry for being late.",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Sorry for late.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Sorry for being late.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After for, add being.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Being late! Sorry for being late.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Sorry for late.",
+  "right": "Sorry for being late.",
+  "strike": "late",
+  "why": "After for, add being.",
+  "memory": "Sorry for being late.",
+  "quiz": {
+   "stem": "Sorry for ___.",
+   "options": [
+    "late",
+    "being late"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "for being late",
+   "tip": "Kita bilang “maaf terlambat”. Di bahasa Inggris, setelah sorry for perlu being sebelum late.",
+   "caption": "Pernah bilang begini? “Sorry for late.” 😅 Tambahkan being sebelum late: “Sorry for being late.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “being late”. Ucapkan dengan lantang: “Sorry for being late.” lalu tulis permintaan maaf untuk temanmu. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#mintamaaf",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Sorry for “being” late",
+   "tip": "We say “maaf terlambat”. In English, after sorry for you need being before late.",
+   "caption": "Ever say this? “Sorry for late.” 😅 Add being before late: “Sorry for being late.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "for being late"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 41,
+  "seconds": 25.6,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "for being late",
+  "keyword": "Sorry for being late.",
+  "value": "Kita bilang “maaf terlambat”. Di bahasa Inggris, setelah sorry for perlu being sebelum late.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#mintamaaf",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "for being late",
+    "description": "Kita bilang “maaf terlambat”. Di bahasa Inggris, setelah sorry for perlu being sebelum late.\n\nPernah bilang begini? “Sorry for late.” 😅 Tambahkan being sebelum late: “Sorry for being late.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #mintamaaf #bahasainggris #lexkite",
+    "tags": [
+     "Sorry for being late.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “Sorry for late.” 😅 Tambahkan being sebelum late: “Sorry for being late.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "for being late\n\nKita bilang “maaf terlambat”. Di bahasa Inggris, setelah sorry for perlu being sebelum late.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#mintamaaf",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "for being late Kita bilang “maaf terlambat”. Di bahasa Inggris, setelah sorry for perlu being sebelum… #belajarbahasainggris #mintamaaf #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “being late”. Ucapkan dengan lantang: “Sorry for being late.” lalu tulis permintaan maaf untuk temanmu. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

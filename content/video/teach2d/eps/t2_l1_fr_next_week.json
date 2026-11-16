@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_next_week",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Next week, no the!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I will see you the next week.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I will see you next week.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "We do not say the before next.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Next! See you next week.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I will see you the next week.",
+  "right": "I will see you next week.",
+  "strike": "the",
+  "why": "We do not say the before next.",
+  "memory": "Next week: no the.",
+  "quiz": {
+   "stem": "I will call you ___ week.",
+   "options": [
+    "the next",
+    "next"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Next week” sans “the”",
+   "tip": "En français, on dit « la semaine prochaine ». En anglais, pas de “the” : on dit “next week”.",
+   "caption": "Vous dites “I will see you the next week.” ? En français, on dit « la semaine prochaine ». En anglais, pas de “the” : on dit “next week”. Dites plutôt “I will see you next week.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “I will see you next week.” — En français, on dit « la semaine prochaine ». En anglais, pas de “the” : on dit “next week”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "No “the” here!",
+   "tip": "French says “la semaine prochaine”. English has no “the”: say “next week”.",
+   "caption": "Do you say this? “I will see you the next week.” French says “la semaine prochaine”. English has no “the”: say “next week”. Say “I will see you next week.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Next week” sans “the”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“Next week” sans “the”",
+  "keyword": "I will see you next week.",
+  "value": "En français, on dit « la semaine prochaine ». En anglais, pas de “the” : on dit “next week”.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "“Next week” sans “the”",
+    "description": "En français, on dit « la semaine prochaine ». En anglais, pas de “the” : on dit “next week”.\n\nVous dites “I will see you the next week.” ? En français, on dit « la semaine prochaine ». En anglais, pas de “the” : on dit “next week”. Dites plutôt “I will see you next week.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "I will see you next week.",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Vous dites “I will see you the next week.” ? En français, on dit « la semaine prochaine ». En anglais, pas de “the” : on dit “next week”. Dites plutôt “I will see you next week.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Next week” sans “the”\n\nEn français, on dit « la semaine prochaine ». En anglais, pas de “the” : on dit “next week”.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Next week” sans “the” En français, on dit « la semaine prochaine ». En anglais, pas de “the” : on d… #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “I will see you next week.” — En français, on dit « la semaine prochaine ». En anglais, pas de “the” : on dit “next week”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}
