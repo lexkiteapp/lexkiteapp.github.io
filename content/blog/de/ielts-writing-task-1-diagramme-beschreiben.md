@@ -52,7 +52,7 @@ quiz: [
 ]
 ---
 
-Im akademischen Modul des IELTS-Tests verlangt der erste Prüfungsteil die präzise, sachliche Beschreibung visueller Daten in einem zusammenhängenden Bericht von mindestens 150 Wörtern. Wer einen verlässlichen **ielts writing task 1 aufbau** verinnerlicht, spart am Prüfungstag wertvolle Zeit und sichert sich im Kriterium *Task Achievement* sowie *Coherence and Cohesion* Spitzennoten auf Band-7- bis Band-8-Niveau.
+Im akademischen Modul des IELTS-Tests verlangt der erste Prüfungsteil die präzise, sachliche Beschreibung visueller Daten in einem zusammenhängenden Bericht von mindestens 150 Wörtern. Wer einen verlässlichen **ielts writing task 1 aufbau** verinnerlicht, spart am Prüfungstag wertvolle Zeit und sichert sich im Kriterium *Task Achievement* sowie *Coherence and Cohesion* Spitzennoten auf Band-7- bis Band-8-Niveau. Einen Prozess mit Pfeilen, Passiv und Signalwörtern behandelt ausführlich der Leitfaden [IELTS Process Diagramm beschreiben](/de/blog/ielts-process-diagramm-beschreiben/).
 
 Die visuellen Vorlagen können stark variieren: Liniendiagramme (*Line Graphs*), Balkendiagramme (*Bar Charts*), Kreisdiagramme (*Pie Charts*), Tabellen (*Tables*), Prozessbeschreibungen (*Process Diagrams*) oder vergleichende Landkarten (*Maps*). Trotz dieser scheinbaren Vielfalt bleibt das zugrunde liegende Konzept immer identisch: Daten analysieren, die Haupttrends identifizieren und wesentliche Unterschiede strukturiert herausarbeiten.
 
@@ -201,6 +201,8 @@ Weitere Muster finden Sie in unserem Bereich für [Schreib- und Brief-Leitfäden
 {{youtube: | IELTS Academic Writing Task 1 Full Guide Line Graph Bar Chart Overview}}
 
 ---
+
+Wie du gezielt Balkendiagramme mit einem eigenen Musterbericht beschreibst, zeigt der Artikel [IELTS Writing Task 1 Balkendiagramm](/de/blog/ielts-writing-task-1-balkendiagramm/).
 
 ## Häufig gestellte Fragen (FAQ)
 
