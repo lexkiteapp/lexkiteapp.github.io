@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_goodnight",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say good evening, not good night!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Good night, welcome to our shop.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Good evening, welcome to our shop.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Greeting at night: good evening.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Good evening! Welcome to our shop.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Good night, welcome to our shop.",
+  "right": "Good evening, welcome to our shop.",
+  "strike": "night",
+  "why": "Greeting at night: good evening.",
+  "memory": "Good evening, welcome.",
+  "quiz": {
+   "stem": "Hello! ___, welcome to our shop.",
+   "options": [
+    "Good night",
+    "Good evening"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Evening = menyapa",
+   "tip": "Kita bilang “selamat malam” untuk menyapa. Di bahasa Inggris, good night hanya untuk pamit atau tidur. Untuk menyapa pakai good evening.",
+   "caption": "Pernah bilang begini? “Good night, welcome to our shop.” 😅 Untuk menyapa di malam hari, pakai good evening: “Good evening, welcome to our shop.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “Good evening”. Ucapkan dengan lantang: “Good evening, welcome to our shop.” lalu tulis sapaan untuk tamu. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#sapaan",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Greeting: good evening",
+   "tip": "We say “selamat malam” to greet. In English, good night is only for saying goodbye or going to bed. To greet, use good evening.",
+   "caption": "Ever say this? “Good night, welcome to our shop.” 😅 To greet at night, use good evening: “Good evening, welcome to our shop.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Evening = menyapa"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Evening = menyapa",
+  "keyword": "Good evening, welcome to our shop.",
+  "value": "Kita bilang “selamat malam” untuk menyapa. Di bahasa Inggris, good night hanya untuk pamit atau tidur. Untuk menyapa pakai good evening.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#sapaan",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "Evening = menyapa",
+    "description": "Kita bilang “selamat malam” untuk menyapa. Di bahasa Inggris, good night hanya untuk pamit atau tidur. Untuk menyapa pakai good evening.\n\nPernah bilang begini? “Good night, welcome to our shop.” 😅 Untuk menyapa di malam hari, pakai good evening: “Good evening, welcome to our shop.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #sapaan #bahasainggris #lexkite",
+    "tags": [
+     "Good evening, welcome to our shop.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “Good night, welcome to our shop.” 😅 Untuk menyapa di malam hari, pakai good evening: “Good evening, welcome to our shop.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Evening = menyapa\n\nKita bilang “selamat malam” untuk menyapa. Di bahasa Inggris, good night hanya untuk pamit atau tidur. Untuk menyapa pakai good evening.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#sapaan",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Evening = menyapa Kita bilang “selamat malam” untuk menyapa. Di bahasa Inggris, good night hanya untuk p… #belajarbahasainggris #sapaan #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “Good evening”. Ucapkan dengan lantang: “Good evening, welcome to our shop.” lalu tulis sapaan untuk tamu. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

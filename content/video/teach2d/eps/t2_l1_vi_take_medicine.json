@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_take_medicine",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Do you drink your medicine?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I drink medicine when I am sick.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I take medicine when I am sick.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say take for medicine.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Take! Please take your medicine.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I drink medicine when I am sick.",
+  "right": "I take medicine when I am sick.",
+  "strike": "drink",
+  "why": "Say take for medicine.",
+  "memory": "Take medicine.",
+  "quiz": {
+   "stem": "Please ___ your medicine.",
+   "options": [
+    "take",
+    "drink"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Uống thuốc” ≠ “drink medicine”",
+   "tip": "Tiếng Việt nói “uống thuốc”, nhưng tiếng Anh nói “take medicine.”",
+   "caption": "Bạn có hay nói “I drink medicine when I am sick.” không? 😅 Với thuốc, hãy dùng “take”: “I take medicine when I am sick.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “take.” Hãy viết một câu về lúc bạn cần “take medicine.” Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#tuvungtienganh",
+    "#nguphaptienganh",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “drink medicine”!",
+   "tip": "Say “take medicine”, not “drink medicine.”",
+   "caption": "Do you often say this? “I drink medicine when I am sick.” With medicine, use “take”: “I take medicine when I am sick.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Uống thuốc” ≠ “drink medicine”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“Uống thuốc” ≠ “drink medicine”",
+  "keyword": "I take medicine when I am sick.",
+  "value": "Tiếng Việt nói “uống thuốc”, nhưng tiếng Anh nói “take medicine.”",
+  "hashtags": [
+   "#hoctienganh",
+   "#tuvungtienganh",
+   "#nguphaptienganh",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "“Uống thuốc” ≠ “drink medicine”",
+    "description": "Tiếng Việt nói “uống thuốc”, nhưng tiếng Anh nói “take medicine.”\n\nBạn có hay nói “I drink medicine when I am sick.” không? 😅 Với thuốc, hãy dùng “take”: “I take medicine when I am sick.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #tuvungtienganh #nguphaptienganh #lexkite",
+    "tags": [
+     "I take medicine when I am sick.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “I drink medicine when I am sick.” không? 😅 Với thuốc, hãy dùng “take”: “I take medicine when I am sick.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Uống thuốc” ≠ “drink medicine”\n\nTiếng Việt nói “uống thuốc”, nhưng tiếng Anh nói “take medicine.”\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#tuvungtienganh",
+     "#nguphaptienganh",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Uống thuốc” ≠ “drink medicine” Tiếng Việt nói “uống thuốc”, nhưng tiếng Anh nói “take medicine.” #hoctienganh #tuvungtienganh #nguphaptienganh"
+   }
+  },
+  "first_comment": "Đáp án: “take.” Hãy viết một câu về lúc bạn cần “take medicine.” Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

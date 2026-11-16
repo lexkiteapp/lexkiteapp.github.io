@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_most",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say most, not the most!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: The most people like pizza.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Most people like pizza.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "For almost all, say most. No the.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Most! Most people like music.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "The most people like pizza.",
+  "right": "Most people like pizza.",
+  "strike": "The most",
+  "why": "For almost all, say most. No the.",
+  "memory": "Most people.",
+  "quiz": {
+   "stem": "___ people like music.",
+   "options": [
+    "The most",
+    "Most"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "« La plupart des gens » : “most”",
+   "tip": "En français, « la plupart » prend « la ». En anglais, on dit simplement “most people”.",
+   "caption": "Vous dites “The most people like pizza.” ? En français, « la plupart des gens » prend « la ». En anglais, dites “most people”, sans “the”. Dites plutôt “Most people like pizza.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “Most people like pizza.” — En français, « la plupart des gens » prend « la ». En anglais, dites “most people”, sans “the”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “most people”!",
+   "tip": "French says “la plupart”. English says “most”, with no “the”.",
+   "caption": "Do you say this? “The most people like pizza.” French says “la plupart”. English says “most”, with no “the”. Say “Most people like pizza.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "« La plupart des gens » : “most”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "« La plupart des gens » : “most”",
+  "keyword": "Most people like pizza.",
+  "value": "En français, « la plupart » prend « la ». En anglais, on dit simplement “most people”.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "« La plupart des gens » : “most”",
+    "description": "En français, « la plupart » prend « la ». En anglais, on dit simplement “most people”.\n\nVous dites “The most people like pizza.” ? En français, « la plupart des gens » prend « la ». En anglais, dites “most people”, sans “the”. Dites plutôt “Most people like pizza.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "Most people like pizza.",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Vous dites “The most people like pizza.” ? En français, « la plupart des gens » prend « la ». En anglais, dites “most people”, sans “the”. Dites plutôt “Most people like pizza.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "« La plupart des gens » : “most”\n\nEn français, « la plupart » prend « la ». En anglais, on dit simplement “most people”.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "« La plupart des gens » : “most” En français, « la plupart » prend « la ». En anglais, on dit simple… #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “Most people like pizza.” — En français, « la plupart des gens » prend « la ». En anglais, dites “most people”, sans “the”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}

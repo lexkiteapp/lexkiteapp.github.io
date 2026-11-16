@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_right",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Right? Say you are!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: You have right.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: You are right.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "To say someone is correct, use be: you are, she is.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Is! She is right.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "You have right.",
+  "right": "You are right.",
+  "strike": "have",
+  "why": "To say someone is correct, use be: you are, she is.",
+  "memory": "Correct: you are right.",
+  "quiz": {
+   "stem": "My sister is correct. She ___ right.",
+   "options": [
+    "has",
+    "is"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "« Tu as raison » ≠ “have right”",
+   "tip": "En français, « avoir raison » utilise « avoir ». En anglais, on dit “be right” : “You are right”.",
+   "caption": "Vous dites “You have right.” ? En français, « avoir raison » utilise « avoir ». En anglais, on dit “You are right”. Dites plutôt “You are right.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “You are right.” — En français, « avoir raison » utilise « avoir ». En anglais, on dit “You are right”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “You are right”!",
+   "tip": "French says “have reason”. English says “be right”.",
+   "caption": "Do you say this? “You have right.” French says “have reason”. English says “be right”. Say “You are right.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "« Tu as raison » ≠ “have right”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "« Tu as raison » ≠ “have right”",
+  "keyword": "You are right.",
+  "value": "En français, « avoir raison » utilise « avoir ». En anglais, on dit “be right” : “You are right”.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "« Tu as raison » ≠ “have right”",
+    "description": "En français, « avoir raison » utilise « avoir ». En anglais, on dit “be right” : “You are right”.\n\nVous dites “You have right.” ? En français, « avoir raison » utilise « avoir ». En anglais, on dit “You are right”. Dites plutôt “You are right.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "You are right.",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Vous dites “You have right.” ? En français, « avoir raison » utilise « avoir ». En anglais, on dit “You are right”. Dites plutôt “You are right.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "« Tu as raison » ≠ “have right”\n\nEn français, « avoir raison » utilise « avoir ». En anglais, on dit “be right” : “You are right”.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "« Tu as raison » ≠ “have right” En français, « avoir raison » utilise « avoir ». En anglais, on dit… #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “You are right.” — En français, « avoir raison » utilise « avoir ». En anglais, on dit “You are right”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}

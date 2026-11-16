@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_explainme",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Explain me? Not quite!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Can you explain me the rule?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Can you explain the rule to me?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "We explain something to someone.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! Please explain this word to me.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Can you explain me the rule?",
+  "right": "Can you explain the rule to me?",
+  "strike": "explain me",
+  "why": "We explain something to someone.",
+  "memory": "Explain it to me.",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "Please explain me this word.",
+    "Please explain this word to me."
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Você diz “explain me”?",
+   "tip": "Com “explain”, a pessoa vem depois de “to”: “explain it to me”.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “Can you explain me the rule?” O certo é “Can you explain the rule to me?” Em português dizemos “me explica”, mas em inglês é “explain it to me”. Ouça a Ama e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “Please explain this word to me.” Agora escreva uma frase sua com esse ponto e treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “explain me”?",
+   "tip": "With “explain”, the person comes after “to”: “explain it to me”.",
+   "caption": "Watch out for this common mistake! Many people say “Can you explain me the rule?” The right way is “Can you explain the rule to me?” In Portuguese we say “me explica”, but in English it is “explain it to me”. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Você diz “explain me”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Você diz “explain me”?",
+  "keyword": "Can you explain the rule to me?",
+  "value": "Com “explain”, a pessoa vem depois de “to”: “explain it to me”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "Você diz “explain me”?",
+    "description": "Com “explain”, a pessoa vem depois de “to”: “explain it to me”.\n\nCuidado com este erro comum! 😬 Muita gente diz “Can you explain me the rule?” O certo é “Can you explain the rule to me?” Em português dizemos “me explica”, mas em inglês é “explain it to me”. Ouça a Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "Can you explain the rule to me?",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “Can you explain me the rule?” O certo é “Can you explain the rule to me?” Em português dizemos “me explica”, mas em inglês é “explain it to me”. Ouça a Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Você diz “explain me”?\n\nCom “explain”, a pessoa vem depois de “to”: “explain it to me”.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Você diz “explain me”? Com “explain”, a pessoa vem depois de “to”: “explain it to me”. #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “Please explain this word to me.” Agora escreva uma frase sua com esse ponto e treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

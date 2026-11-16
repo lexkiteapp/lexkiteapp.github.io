@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_nice_to_meet",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Pleasant or nice?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Pleasant to meet you.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Nice to meet you.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say nice to meet you.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Nice! Nice to meet you.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Pleasant to meet you.",
+  "right": "Nice to meet you.",
+  "strike": "Pleasant",
+  "why": "Say nice to meet you.",
+  "memory": "Nice to meet you.",
+  "quiz": {
+   "stem": "___ to meet you.",
+   "options": [
+    "Pleasant",
+    "Nice"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "«Приятно познакомиться» — как?",
+   "tip": "Не “Pleasant”, а “Nice”: “Nice to meet you.”",
+   "caption": "Ты тоже говоришь “Pleasant to meet you”? 😅 Русское «приятно познакомиться» легко перевести как “pleasant”, но так не говорят. Нужно “nice.” Правильно: “Nice to meet you.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “nice.” Говорят nice. Скажи вслух: “Nice to meet you.” Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английский",
+    "#грамматика",
+    "#английскийонлайн",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Pleasant or nice?",
+   "tip": "Not “Pleasant” but “Nice”: “Nice to meet you.”",
+   "caption": "Do you also say “Pleasant to meet you”? 😅 The Russian phrase is easy to copy word by word as “pleasant,” but people do not say that. You need “nice.” Correct: “Nice to meet you.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "«Приятно познакомиться» — как?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 41,
+  "seconds": 25.6,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "«Приятно познакомиться» — как?",
+  "keyword": "Nice to meet you.",
+  "value": "Не “Pleasant”, а “Nice”: “Nice to meet you.”",
+  "hashtags": [
+   "#английский",
+   "#грамматика",
+   "#английскийонлайн",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "«Приятно познакомиться» — как?",
+    "description": "Не “Pleasant”, а “Nice”: “Nice to meet you.”\n\nТы тоже говоришь “Pleasant to meet you”? 😅 Русское «приятно познакомиться» легко перевести как “pleasant”, но так не говорят. Нужно “nice.” Правильно: “Nice to meet you.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английский #грамматика #английскийонлайн #lexkite",
+    "tags": [
+     "Nice to meet you.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “Pleasant to meet you”? 😅 Русское «приятно познакомиться» легко перевести как “pleasant”, но так не говорят. Нужно “nice.” Правильно: “Nice to meet you.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "«Приятно познакомиться» — как?\n\nНе “Pleasant”, а “Nice”: “Nice to meet you.”\n\nlexkite.com",
+    "hashtags": [
+     "#английский",
+     "#грамматика",
+     "#английскийонлайн",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "«Приятно познакомиться» — как? Не “Pleasant”, а “Nice”: “Nice to meet you.” #английский #грамматика #английскийонлайн"
+   }
+  },
+  "first_comment": "Ответ: “nice.” Говорят nice. Скажи вслух: “Nice to meet you.” Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

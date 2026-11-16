@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_workas",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Like or as?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She works like a nurse at the hospital.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She works as a nurse at the hospital.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "As tells the job.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The first! He works as a driver.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She works like a nurse at the hospital.",
+  "right": "She works as a nurse at the hospital.",
+  "strike": "works like",
+  "why": "As tells the job.",
+  "memory": "Job: as.",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "He works as a driver.",
+    "He works like a driver."
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Você diz “works like”?",
+   "tip": "Para dizer qual é o trabalho de alguém, use “as”, não “like”.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “She works like a nurse at the hospital.” O certo é “She works as a nurse at the hospital.” Em português “como” serve para os dois, mas em inglês “like” compara e “as” diz a função. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “He works as a driver.” Agora diga em voz alta uma frase sua com esse ponto e treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “works like”?",
+   "tip": "To say what someone’s job is, use “as”, not “like”.",
+   "caption": "Watch out for this common mistake! Many people say “She works like a nurse at the hospital.” The right way is “She works as a nurse at the hospital.” In Portuguese “como” covers both, but in English “like” compares and “as” gives the role. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Você diz “works like”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Você diz “works like”?",
+  "keyword": "She works as a nurse at the hospital.",
+  "value": "Para dizer qual é o trabalho de alguém, use “as”, não “like”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "Você diz “works like”?",
+    "description": "Para dizer qual é o trabalho de alguém, use “as”, não “like”.\n\nCuidado com este erro comum! 😬 Muita gente diz “She works like a nurse at the hospital.” O certo é “She works as a nurse at the hospital.” Em português “como” serve para os dois, mas em inglês “like” compara e “as” diz a função. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "She works as a nurse at the hospital.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “She works like a nurse at the hospital.” O certo é “She works as a nurse at the hospital.” Em português “como” serve para os dois, mas em inglês “like” compara e “as” diz a função. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Você diz “works like”?\n\nPara dizer qual é o trabalho de alguém, use “as”, não “like”.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Você diz “works like”? Para dizer qual é o trabalho de alguém, use “as”, não “like”. #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “He works as a driver.” Agora diga em voz alta uma frase sua com esse ponto e treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

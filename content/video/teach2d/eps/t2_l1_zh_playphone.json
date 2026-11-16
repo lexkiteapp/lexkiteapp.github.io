@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_playphone",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "He plays with his phone!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: He plays his phone all day.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: He plays with his phone all day.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Play needs with.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "With! The baby plays with a toy.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "He plays his phone all day.",
+  "right": "He plays with his phone all day.",
+  "strike": "plays his",
+  "why": "Play needs with.",
+  "memory": "Play with it.",
+  "quiz": {
+   "stem": "The baby plays ___ a toy.",
+   "options": [
+    "with",
+    "at"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "玩手机别漏 with 哦！",
+   "tip": "中文说“玩手机”，动词后面直接接东西。英语里玩东西要加 with：play with his phone。",
+   "caption": "你是不是也会说 “He plays his phone all day.”😅 中文“玩手机”直接接，英语要加 with：“He plays with his phone all day.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“He plays with his phone all day.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Don’t miss out on using your mobil",
+   "tip": "Chinese puts the thing right after the verb, but English needs with.",
+   "caption": "Do you say “He plays his phone all day.” 😅 English needs with after play: “He plays with his phone all day.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "玩手机别漏 with 哦！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "玩手机别漏 with 哦！",
+  "keyword": "He plays with his phone all day.",
+  "value": "中文说“玩手机”，动词后面直接接东西。英语里玩东西要加 with：play with his phone。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "玩手机别漏 with 哦！",
+    "description": "中文说“玩手机”，动词后面直接接东西。英语里玩东西要加 with：play with his phone。\n\n你是不是也会说 “He plays his phone all day.”😅 中文“玩手机”直接接，英语要加 with：“He plays with his phone all day.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "He plays with his phone all day.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “He plays his phone all day.”😅 中文“玩手机”直接接，英语要加 with：“He plays with his phone all day.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "玩手机别漏 with 哦！\n\n中文说“玩手机”，动词后面直接接东西。英语里玩东西要加 with：play with his phone。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "玩手机别漏 with 哦！ 中文说“玩手机”，动词后面直接接东西。英语里玩东西要加 with：play with his phone。 #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“He plays with his phone all day.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

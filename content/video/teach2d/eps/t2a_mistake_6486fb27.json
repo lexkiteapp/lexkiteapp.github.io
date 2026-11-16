@@ -1,0 +1,129 @@
+{
+ "id": "t2a_mistake_6486fb27",
+ "template": "mistake",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Stop saying blamed me about!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She blamed me about the mistake.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She blamed me for the mistake.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use blame someone for something.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "For! She blamed me for the mistake.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She blamed me about the mistake.",
+  "right": "She blamed me for the mistake.",
+  "strike": "blamed me about",
+  "why": "Use blame someone for something.",
+  "memory": "Blame for the fault",
+  "quiz": {
+   "stem": "She blamed me ___ the mistake.",
+   "options": [
+    "for",
+    "about"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Stop saying “blamed me about”"
+ },
+ "src": {
+  "gold": "sb_6486fb27",
+  "pid": "w:blame#v"
+ },
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Stop saying \"blamed me about\"? Say this instead",
+  "keyword": "blamed me about",
+  "value": "Say \"She blamed me for the mistake\", not \"She blamed me about the mistake\". Use blame someone for something.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#englishgrammar",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "Stop saying \"blamed me about\"? Say this instead",
+    "description": "Say \"She blamed me for the mistake\", not \"She blamed me about the mistake\". Use blame someone for something.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix\n\nSeries: Stop Saying This · Teacher: Ama\n\n#learnenglish #englishtips #englishgrammar #englishteacher",
+    "tags": [
+     "blamed me about",
+     "Stop Saying This",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Stop saying \"blamed me about\"? Say this instead\n\nSay \"She blamed me for the mistake\", not \"She blamed me about the mistake\". Use blame someone for something.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Stop saying \"blamed me about\"? Say this instead\n\nSay \"She blamed me for the mistake\", not \"She blamed me about the mistake\". Use blame someone for something.\n\nCheck your grammar: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#englishgrammar",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Stop saying \"blamed me about\"? Say this instead #learnenglish #englishtips #englishgrammar"
+   }
+  },
+  "first_comment": "Answer: For! She blamed me for the mistake. Say \"She blamed me for the mistake\", not \"She blamed me about the mistake\". Use blame someone for something. Try the full lesson and quiz here: {link}"
+ }
+}

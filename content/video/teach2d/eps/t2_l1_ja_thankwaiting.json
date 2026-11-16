@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_thankwaiting",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Thank you for your waiting?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Thank you for your waiting.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Thank you for waiting.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say for waiting, without your.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Coming! Thank you for waiting.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Thank you for your waiting.",
+  "right": "Thank you for waiting.",
+  "strike": "your waiting",
+  "why": "Say for waiting, without your.",
+  "memory": "Thank you for waiting.",
+  "quiz": {
+   "stem": "Thank you for ___.",
+   "options": [
+    "your coming",
+    "coming"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "「お待たせ」は your waiting？",
+   "tip": "「お待ちいただきありがとう」は Thank you for waiting. で自然です。",
+   "caption": "“Thank you for your waiting.”と言っていませんか？😅 日本語の「お待ちいただき」を直訳して your waiting にしがちです。“Thank you for waiting.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“coming”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Thank you for your waiting?",
+   "tip": "Say for waiting, without your.",
+   "caption": "Do you say this? “Thank you for your waiting.” 😅 Skip your and just say waiting. The natural way is “Thank you for waiting.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "「お待たせ」は your waiting？"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "「お待たせ」は your waiting？",
+  "keyword": "Thank you for waiting.",
+  "value": "「お待ちいただきありがとう」は Thank you for waiting. で自然です。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "「お待たせ」は your waiting？",
+    "description": "「お待ちいただきありがとう」は Thank you for waiting. で自然です。\n\n“Thank you for your waiting.”と言っていませんか？😅 日本語の「お待ちいただき」を直訳して your waiting にしがちです。“Thank you for waiting.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "Thank you for waiting.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“Thank you for your waiting.”と言っていませんか？😅 日本語の「お待ちいただき」を直訳して your waiting にしがちです。“Thank you for waiting.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "「お待たせ」は your waiting？\n\n「お待ちいただきありがとう」は Thank you for waiting. で自然です。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「お待たせ」は your waiting？ 「お待ちいただきありがとう」は Thank you for waiting. で自然です。 #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“coming”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

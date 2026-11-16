@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_watchmovie",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Looked a movie?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I looked a movie last night.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I watched a movie last night.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use watched for movies.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Watched! I watched a movie last night.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I looked a movie last night.",
+  "right": "I watched a movie last night.",
+  "strike": "looked",
+  "why": "Use watched for movies.",
+  "memory": "I watched a movie last night.",
+  "quiz": {
+   "stem": "I ___ a movie last night.",
+   "options": [
+    "looked",
+    "watched"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "映画は look で見る？",
+   "tip": "映画は watch を使います。look は「目を向ける」で、後ろに at が必要です。",
+   "caption": "“I looked a movie last night.”と言っていませんか？😅 日本語の「見る」はひとつなので、look と watch が混ざりがちです。“I watched a movie last night.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“watched”。“I watched a movie last night.” を声に出して言ってみよう。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “looked a movie”?",
+   "tip": "Use watch for a movie. Look needs at.",
+   "caption": "Do you say this? “I looked a movie last night.” 😅 Japanese uses one word for see, look and watch. The natural way is “I watched a movie last night.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "映画は look で見る？"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "映画は look で見る？",
+  "keyword": "I watched a movie last night.",
+  "value": "映画は watch を使います。look は「目を向ける」で、後ろに at が必要です。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "映画は look で見る？",
+    "description": "映画は watch を使います。look は「目を向ける」で、後ろに at が必要です。\n\n“I looked a movie last night.”と言っていませんか？😅 日本語の「見る」はひとつなので、look と watch が混ざりがちです。“I watched a movie last night.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "I watched a movie last night.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“I looked a movie last night.”と言っていませんか？😅 日本語の「見る」はひとつなので、look と watch が混ざりがちです。“I watched a movie last night.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "映画は look で見る？\n\n映画は watch を使います。look は「目を向ける」で、後ろに at が必要です。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "映画は look で見る？ 映画は watch を使います。look は「目を向ける」で、後ろに at が必要です。 #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“watched”。“I watched a movie last night.” を声に出して言ってみよう。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

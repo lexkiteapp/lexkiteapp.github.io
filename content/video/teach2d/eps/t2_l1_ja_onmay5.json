@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_onmay5",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Born in May 5?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I was born in May 5.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I was born on May 5.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use on with a day and in with a month.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "On! I was born on May 5.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I was born in May 5.",
+  "right": "I was born on May 5.",
+  "strike": "in",
+  "why": "Use on with a day and in with a month.",
+  "memory": "I was born on May 5.",
+  "quiz": {
+   "stem": "My birthday is ___ May 3.",
+   "options": [
+    "in",
+    "on"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "「5月5日に」は in？ on？",
+   "tip": "日付（日にち）には on。月だけなら in May。",
+   "caption": "“I was born in May 5.”と言っていませんか？😅 日本語は「5月5日に」と全部「に」なので in と on を混同しがちです。“I was born on May 5.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“on”。“I was born on May 5.” を声に出して言ってみよう。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "In May 5, or on?",
+   "tip": "On for the date. If it's just the month, it's in May.",
+   "caption": "Do you say this? “I was born in May 5.” 😅 With a day, use on. The natural way is “I was born on May 5.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "「5月5日に」は in？ on？"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 53,
+  "seconds": 31.5,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "「5月5日に」は in？ on？",
+  "keyword": "I was born on May 5.",
+  "value": "日付（日にち）には on。月だけなら in May。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 47,
+  "platforms": {
+   "youtube": {
+    "title": "「5月5日に」は in？ on？",
+    "description": "日付（日にち）には on。月だけなら in May。\n\n“I was born in May 5.”と言っていませんか？😅 日本語は「5月5日に」と全部「に」なので in と on を混同しがちです。“I was born on May 5.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "I was born on May 5.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“I was born in May 5.”と言っていませんか？😅 日本語は「5月5日に」と全部「に」なので in と on を混同しがちです。“I was born on May 5.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "「5月5日に」は in？ on？\n\n日付（日にち）には on。月だけなら in May。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「5月5日に」は in？ on？ 日付（日にち）には on。月だけなら in May。 #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“on”。“I was born on May 5.” を声に出して言ってみよう。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

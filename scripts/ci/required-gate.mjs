@@ -12,6 +12,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isZombie } from './zombie.mjs';
 import { retry5xx } from '../lib/retry5xx.mjs';
+import { workflowMatches, readsAny } from './gate-relevance.mjs';
 
 export const CONTEXT = 'required-gate';            // tên commit status (thứ ruleset sẽ yêu cầu)
 export const SELF_JOB = 'required-gate-eval';      // tên job của chính workflow này – không tự chờ mình (bộ canh chạy trên main nên không bám head PR)
@@ -88,10 +89,23 @@ export function evaluate({ checkRuns = [], statuses = [], workflowRuns = [] } = 
 // → gate xanh mà main đã đổi file cổng kể từ lần gộp main cuối của PR = CHỜ ("gộp lại main rồi chờ CI"). Chỉ tệp SỬA/XOÁ/ĐỔI TÊN trong scripts/test (tệp test mới thêm không đổi cổng cũ); workflow/i18n-qa/luật: mọi trạng thái.
 // 16/11: workflow main đổi KHÔNG còn bắt mọi PR gộp lại (audio.yml, call-rt.yml… → 150 lượt chờ, 0 merge). Workflow chỉ tính khi CHÍNH PR cũng sửa file đó (GATE_WORKFLOW + prFiles); luật/policy (ci-policy, required-gate, i18n-qa, luật dịch) vẫn mọi PR.
 export const GATE_WORKFLOW = /^\.github\/workflows\//;
-export const GATE_ANY = [/^scripts\/i18n-qa\.mjs$/, /^scripts\/lib\/[^/]*rules[^/]*\.mjs$/, /^scripts\/ci\/required-gate\.mjs$/];
+// 16/11 (điều phối, #1397 rebase 3 lần 28/28 xanh vẫn kẹt): required-gate.mjs bỏ khỏi danh sách (nó tự chấm bằng bản main mới nhất, không làm đổi kết quả check của PR).
+export const GATE_ANY = [/^scripts\/i18n-qa\.mjs$/, /^scripts\/lib\/[^/]*rules[^/]*\.mjs$/];
 export const GATE_CHANGED = [/^scripts\/test\//];
-/** Hàm thuần: files = [{ filename, status }] main đã đổi kể từ merge-base của PR → danh sách tệp cổng đã đổi. */
-export const gateDrift = (files = [], prFiles = null) => files.filter(f => (GATE_WORKFLOW.test(f.filename) && (!prFiles || prFiles.includes(f.filename) || /\(>300 tệp đổi\)/.test(f.filename))) || GATE_ANY.some(r => r.test(f.filename)) || (GATE_CHANGED.some(r => r.test(f.filename)) && f.status !== 'added')).map(f => f.filename);
+/** Hàm thuần: files = [{ filename, status }] main đã đổi kể từ merge-base của PR → tệp cổng đã đổi VÀ có thể đổi kết quả PR này.
+ *  prFiles = tệp PR đổi (null = chưa biết → tính hết); srcs = { tên tệp: nguồn bản main } đã tải sẵn (thiếu → giữ cách cũ: test/luật tính, workflow chỉ tính khi PR cũng sửa nó).
+ *  Liên quan = PR cũng sửa đúng tệp đó · workflow có `pull_request.paths` khớp tệp PR · test/luật nhắc tới tệp PR (lib/gate-relevance.mjs). Tệp bị xoá không làm PR đỏ → bỏ qua. */
+export const gateDrift = (files = [], prFiles = null, srcs = {}) => files.filter(f => {
+  const n = f.filename;
+  if (/\(>300 tệp đổi\)/.test(n)) return true;
+  if (GATE_WORKFLOW.test(n)) {
+    if (!prFiles || prFiles.includes(n)) return true;
+    return typeof srcs[n] === 'string' && f.status !== 'removed' && workflowMatches(srcs[n], prFiles);
+  }
+  if (!(GATE_ANY.some(r => r.test(n)) || (GATE_CHANGED.some(r => r.test(n)) && f.status !== 'added')) || f.status === 'removed') return false;
+  if (!prFiles || prFiles.includes(n)) return true;
+  return typeof srcs[n] !== 'string' || readsAny(srcs[n], prFiles);
+}).map(f => f.filename);
 /** Gate xanh nhưng main đã đổi tệp cổng → CHỜ (thuần). Không đụng đỏ/chờ. */
 export const applyDrift = (res, drift) => res.state === 'success' && drift.length
   ? { ...res, state: 'pending', description: `Main đã đổi tệp cổng (${drift.slice(0, 2).map(f => f.split('/').pop()).join(', ')}${drift.length > 2 ? ` +${drift.length - 2}` : ''}): gộp lại main rồi chờ CI`.slice(0, 140), drift }
@@ -201,11 +215,17 @@ export function api(token, repo, fetchImpl = globalThis.fetch) {
     post: (sha, { state, description }, targetUrl) => call(`/statuses/${sha}`, { method: 'POST', body: JSON.stringify({ state, description, context: CONTEXT, ...(targetUrl ? { target_url: targetUrl } : {}) }) }),
     rerun: id => call(`/actions/runs/${id}/rerun`, { method: 'POST', body: '{}' }),
     // tệp main đã đổi kể từ merge-base với sha (2 lệnh, chỉ gọi cho sha sắp xanh); lỗi API → [] (mở cổng, không chặn oan)
+    // 16/11 (điều phối): compare chỉ liệt kê 300 tệp/lần → trước đây ≥300 tệp = "(>300 tệp đổi)" = LUÔN chờ gộp lại (#1478 tự kẹt). Nay phân trang tới 10×100 tệp; chỉ khi vẫn cắt cụt mới dùng dấu hiệu chờ.
+    // PR: cắt cụt → prFiles = null (chưa biết → tính hết, cách cũ). Tệp cổng: tải nguồn bản main để xét liên quan (≤ 40 tệp), lỗi/quá lớn → không có nguồn → giữ cách cũ.
     drift: async sha => {
-      const pc = await call(`/compare/main...${sha}`), mb = pc.merge_base_commit?.sha; if (!mb) return [];
-      const prFiles = (pc.files || []).map(x => x.filename);
-      const c = await call(`/compare/${mb}...main`), fs_ = c.files || [];
-      return gateDrift(c.total_commits > 0 && fs_.length >= 300 ? [...fs_, { filename: '.github/workflows/(>300 tệp đổi)', status: 'modified' }] : fs_, prFiles);
+      const cmp = async (spec, max = 10) => { let first, files = []; for (let pg = 1; pg <= max; pg++) { const r = await call(`/compare/${spec}?per_page=100&page=${pg}`); first ??= r; const f = r.files || []; files.push(...f); if (f.length < 100) return { first, files, truncated: false }; } return { first, files, truncated: true }; };
+      const pc = await cmp(`main...${sha}`), mb = pc.first.merge_base_commit?.sha; if (!mb) return [];
+      const prFiles = pc.truncated ? null : pc.files.map(x => x.filename);
+      const c = await cmp(`${mb}...main`), all = c.truncated ? [...c.files, { filename: '.github/workflows/(>300 tệp đổi)', status: 'modified' }] : c.files;
+      const cand = all.filter(f => f.status !== 'removed' && (GATE_WORKFLOW.test(f.filename) || GATE_ANY.some(r => r.test(f.filename)) || (GATE_CHANGED.some(r => r.test(f.filename)) && f.status !== 'added')) && !(prFiles || []).includes(f.filename) && !/\(>300/.test(f.filename)).slice(0, 40);
+      const srcs = {};
+      await Promise.all(cand.map(async f => { try { const r = await call(`/contents/${f.filename.split('/').map(encodeURIComponent).join('/')}?ref=main`); if (r && r.encoding === 'base64' && typeof r.content === 'string') srcs[f.filename] = Buffer.from(r.content, 'base64').toString('utf8'); } catch {} }));
+      return gateDrift(all, prFiles, srcs);
     },
     pr: n => call(`/pulls/${n}`),
     openPrs: () => pages('/pulls?state=open&sort=updated&direction=desc', null, 2),

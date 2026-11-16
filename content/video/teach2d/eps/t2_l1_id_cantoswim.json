@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_cantoswim",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Can? No to!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I can to swim.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I can swim.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After can, no to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Swim! I can swim well.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I can to swim.",
+  "right": "I can swim.",
+  "strike": "to",
+  "why": "After can, no to.",
+  "memory": "Can + verb.",
+  "quiz": {
+   "stem": "I can ___ well.",
+   "options": [
+    "swim",
+    "to swim"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Can to”? Tanpa “to”!",
+   "tip": "Karena sering dengar “want to” dan “need to”, kita ikut menambah to. Setelah can, langsung kata kerja.",
+   "caption": "Pernah bilang begini? “I can to swim.” 😅 Setelah can, langsung kata kerja: “I can swim.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “swim”. Bilang “I can ...” untuk tiga hal yang kamu bisa. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#grammaringgris",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Can to”? No “to”!",
+   "tip": "Because we often hear “want to” and “need to”, we add to too. After can, go straight to the verb.",
+   "caption": "Ever say this? “I can to swim.” 😅 After can, use the verb directly: “I can swim.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Can to”? Tanpa “to”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 39,
+  "seconds": 24.7,
+  "wpm": 95
+ },
+ "publish": {
+  "title": "“Can to”? Tanpa “to”!",
+  "keyword": "I can swim.",
+  "value": "Karena sering dengar “want to” dan “need to”, kita ikut menambah to. Setelah can, langsung kata kerja.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#grammaringgris",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 33,
+  "platforms": {
+   "youtube": {
+    "title": "“Can to”? Tanpa “to”!",
+    "description": "Karena sering dengar “want to” dan “need to”, kita ikut menambah to. Setelah can, langsung kata kerja.\n\nPernah bilang begini? “I can to swim.” 😅 Setelah can, langsung kata kerja: “I can swim.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #grammaringgris #bahasainggris #lexkite",
+    "tags": [
+     "I can swim.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “I can to swim.” 😅 Setelah can, langsung kata kerja: “I can swim.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Can to”? Tanpa “to”!\n\nKarena sering dengar “want to” dan “need to”, kita ikut menambah to. Setelah can, langsung kata kerja.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#grammaringgris",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Can to”? Tanpa “to”! Karena sering dengar “want to” dan “need to”, kita ikut menambah to. Setel… #belajarbahasainggris #grammaringgris #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “swim”. Bilang “I can ...” untuk tiga hal yang kamu bisa. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}
