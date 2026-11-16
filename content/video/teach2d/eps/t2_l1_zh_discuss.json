@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "Discuss! Let us discuss the problem.",
+   "text": "Discuss! Let's discuss the problem.",
    "pause": 0.42
   },
   {
@@ -58,7 +58,7 @@
   "why": "Discuss already means talk about.",
   "memory": "Discuss the plan.",
   "quiz": {
-   "stem": "Let us ___ the problem.",
+   "stem": "Let's ___ the problem.",
    "options": [
     "discuss about",
     "discuss"
@@ -68,8 +68,8 @@
   "native": {
    "hook": "discuss 后面不加 about！",
    "tip": "discuss 本身就有“谈论”的意思，直接接宾语。",
-   "caption": "你是不是也会说 “We discussed about the plan.”？😅 discuss 自带“谈论”的意思，后面直接接内容：“We discussed the plan.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
-   "comment": "答案：“discuss”。discuss 后不加 about！免费测验在这里：{link}",
+   "caption": "你是不是也会说 “We discussed about the plan.”😅 discuss 自带“谈论”的意思，后面直接接内容：“We discussed the plan.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“discuss”，discuss 后不加 about！免费测验在这里：{link}",
    "hashtags": [
     "#学英语",
     "#英语口语",
@@ -80,7 +80,7 @@
   "en": {
    "hook": "No “about” after discuss!",
    "tip": "Discuss already means “talk about”, so go straight to the object.",
-   "caption": "Do you say “We discussed about the plan.”? 😅 Discuss already means talk about, so no about is needed: “We discussed the plan.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+   "caption": "Do you say “We discussed about the plan.” 😅 Discuss already means talk about, so no about is needed: “We discussed the plan.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -98,8 +98,8 @@
  },
  "lang": "zh",
  "est": {
-  "words": 44,
-  "seconds": 27.1,
+  "words": 43,
+  "seconds": 26.6,
   "wpm": 97
  },
  "publish": {
@@ -113,11 +113,11 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 38,
+  "script_words": 37,
   "platforms": {
    "youtube": {
     "title": "discuss 后面不加 about！",
-    "description": "你是不是也会说 “We discussed about the plan.”？😅 discuss 自带“谈论”的意思，后面直接接内容：“We discussed the plan.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "description": "discuss 本身就有“谈论”的意思，直接接宾语。\n\n你是不是也会说 “We discussed about the plan.”😅 discuss 自带“谈论”的意思，后面直接接内容：“We discussed the plan.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
     "tags": [
      "We discussed the plan.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "你是不是也会说 “We discussed about the plan.”？😅 discuss 自带“谈论”的意思，后面直接接内容：“We discussed the plan.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+    "text": "你是不是也会说 “We discussed about the plan.”😅 discuss 自带“谈论”的意思，后面直接接内容：“We discussed the plan.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "你是不是也会说 “We discussed about the plan.”？😅 discuss 自带“谈论”的意思，后面直接接内容：“We discussed the plan.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nlexkite.com",
+    "caption": "discuss 后面不加 about！\n\ndiscuss 本身就有“谈论”的意思，直接接宾语。\n\nlexkite.com",
     "hashtags": [
      "#学英语",
      "#英语口语",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "discuss 后面不加 about！ #学英语 #英语口语 #英语学习"
+    "caption": "discuss 后面不加 about！ discuss 本身就有“谈论”的意思，直接接宾语。 #学英语 #英语口语 #英语学习"
    }
   },
-  "first_comment": "答案：“discuss”。discuss 后不加 about！免费测验在这里：{link}",
+  "first_comment": "答案：“discuss”，discuss 后不加 about！免费测验在这里：{link}",
   "lang": "zh"
  }
 }

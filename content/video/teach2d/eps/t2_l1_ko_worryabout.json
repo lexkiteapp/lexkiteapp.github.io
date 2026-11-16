@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_worryabout",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say I am worried!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am worry about the test.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am worried about the test.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say I am worried, or I worry.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Worried! She is worried about her mom.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am worry about the test.",
+  "right": "I am worried about the test.",
+  "strike": "worry",
+  "why": "Say I am worried, or I worry.",
+  "memory": "I am worried.",
+  "quiz": {
+   "stem": "She is ___ about her mom.",
+   "options": [
+    "worry",
+    "worried"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“I am worry” 아니고 worried!",
+   "tip": "한국어 “걱정이에요”를 그대로 옮겨 I am worry라고 하기 쉬워요. am 뒤에는 worried를 써요. 이렇게 말해요 👉 “I am worried about the test.”",
+   "caption": "“I am worry about the test.”처럼 말하고 있나요? 😅 한국어 “걱정이에요”를 그대로 옮겨 I am worry라고 하기 쉬워요. am 뒤에는 worried를 써요. 맞는 문장 ✅ “I am worried about the test.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답: “worried”! 이 표현을 넣어 소리 내어 한 문장 말해 보세요. 무료 퀴즈로 더 연습해요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say worried, not worry!",
+   "tip": "After am, use worried. Say “I am worried about the test.”",
+   "caption": "Do you say it like this? 😅 “I am worry about the test.” After am, use worried. Right: “I am worried about the test.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“I am worry” 아니고 worried!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“I am worry” 아니고 worried!",
+  "keyword": "I am worried about the test.",
+  "value": "한국어 “걱정이에요”를 그대로 옮겨 I am worry라고 하기 쉬워요. am 뒤에는 worried를 써요. 이렇게 말해요 👉 “I am worried about the test.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "“I am worry” 아니고 worried!",
+    "description": "한국어 “걱정이에요”를 그대로 옮겨 I am worry라고 하기 쉬워요. am 뒤에는 worried를 써요. 이렇게 말해요 👉 “I am worried about the test.”\n\n“I am worry about the test.”처럼 말하고 있나요? 😅 한국어 “걱정이에요”를 그대로 옮겨 I am worry라고 하기 쉬워요. am 뒤에는 worried를 써요. 맞는 문장 ✅ “I am worried about the test.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "I am worried about the test.",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“I am worry about the test.”처럼 말하고 있나요? 😅 한국어 “걱정이에요”를 그대로 옮겨 I am worry라고 하기 쉬워요. am 뒤에는 worried를 써요. 맞는 문장 ✅ “I am worried about the test.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“I am worry” 아니고 worried!\n\n한국어 “걱정이에요”를 그대로 옮겨 I am worry라고 하기 쉬워요. am 뒤에는 worried를 써요. 이렇게 말해요 👉 “I am worried about the test.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“I am worry” 아니고 worried! 한국어 “걱정이에요”를 그대로 옮겨 I am worry라고 하기 쉬워요. am 뒤에는 worried를 써요. 이렇게 말해요 👉 “I am worried about the test.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “worried”! 이 표현을 넣어 소리 내어 한 문장 말해 보세요. 무료 퀴즈로 더 연습해요: {link}",
+  "lang": "ko"
+ }
+}

@@ -66,10 +66,10 @@
    "answer": 1
   },
   "native": {
-   "hook": "Hai anh em mà thiếu “s”?",
-   "tip": "Tiếng Việt không chia số nhiều, nhưng tiếng Anh thêm -s sau số từ lớn hơn một.",
+   "hook": "Hai anh trai mà thiếu “s”?",
+   "tip": "Tiếng Việt không thêm -s cho danh từ, nhưng tiếng Anh thêm -s sau số từ lớn hơn một.",
    "caption": "Bạn có hay nói “I have two brother.” không? 😅 Từ hai trở lên phải thêm -s: “I have two brothers.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-   "comment": "Đáp án: “cats”. Đếm đồ vật quanh bạn bằng tiếng Anh, nhớ thêm -s nhé. Luyện thêm miễn phí tại đây: {link}",
+   "comment": "Đáp án: “cats.” Đếm đồ vật quanh bạn bằng tiếng Anh, nhớ thêm -s nhé. Luyện thêm miễn phí tại đây: {link}",
    "hashtags": [
     "#hoctienganh",
     "#nguphaptienganh",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "Two brothers but no “s”?",
-   "tip": "Vietnamese has no plural form, but English adds -s after a number above one.",
-   "caption": "Do you often say “I have two brother.”? With two or more, add -s: “I have two brothers.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
+   "tip": "Many learners skip the plural, but English adds -s after a number above one.",
+   "caption": "Do you often say this? “I have two brother.” With two or more, add -s: “I have two brothers.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "Hai anh em mà thiếu “s”?"
+  "text": "Hai anh trai mà thiếu “s”?"
  },
  "src": {
   "l1": true
@@ -103,9 +103,9 @@
   "wpm": 96
  },
  "publish": {
-  "title": "Hai anh em mà thiếu “s”?",
+  "title": "Hai anh trai mà thiếu “s”?",
   "keyword": "I have two brothers.",
-  "value": "Tiếng Việt không chia số nhiều, nhưng tiếng Anh thêm -s sau số từ lớn hơn một.",
+  "value": "Tiếng Việt không thêm -s cho danh từ, nhưng tiếng Anh thêm -s sau số từ lớn hơn một.",
   "hashtags": [
    "#hoctienganh",
    "#nguphaptienganh",
@@ -116,8 +116,8 @@
   "script_words": 36,
   "platforms": {
    "youtube": {
-    "title": "Hai anh em mà thiếu “s”?",
-    "description": "Bạn có hay nói “I have two brother.” không? 😅 Từ hai trở lên phải thêm -s: “I have two brothers.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #nguphaptienganh #tuvungtienganh #lexkite",
+    "title": "Hai anh trai mà thiếu “s”?",
+    "description": "Tiếng Việt không thêm -s cho danh từ, nhưng tiếng Anh thêm -s sau số từ lớn hơn một.\n\nBạn có hay nói “I have two brother.” không? 😅 Từ hai trở lên phải thêm -s: “I have two brothers.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #nguphaptienganh #tuvungtienganh #lexkite",
     "tags": [
      "I have two brothers.",
      "learn english",
@@ -128,7 +128,7 @@
     "text": "Bạn có hay nói “I have two brother.” không? 😅 Từ hai trở lên phải thêm -s: “I have two brothers.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Bạn có hay nói “I have two brother.” không? 😅 Từ hai trở lên phải thêm -s: “I have two brothers.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nlexkite.com",
+    "caption": "Hai anh trai mà thiếu “s”?\n\nTiếng Việt không thêm -s cho danh từ, nhưng tiếng Anh thêm -s sau số từ lớn hơn một.\n\nlexkite.com",
     "hashtags": [
      "#hoctienganh",
      "#nguphaptienganh",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "Hai anh em mà thiếu “s”? #hoctienganh #nguphaptienganh #tuvungtienganh"
+    "caption": "Hai anh trai mà thiếu “s”? Tiếng Việt không thêm -s cho danh từ, nhưng tiếng Anh thêm -s sau số từ lớn… #hoctienganh #nguphaptienganh #tuvungtienganh"
    }
   },
-  "first_comment": "Đáp án: “cats”. Đếm đồ vật quanh bạn bằng tiếng Anh, nhớ thêm -s nhé. Luyện thêm miễn phí tại đây: {link}",
+  "first_comment": "Đáp án: “cats.” Đếm đồ vật quanh bạn bằng tiếng Anh, nhớ thêm -s nhé. Luyện thêm miễn phí tại đây: {link}",
   "lang": "vi"
  }
 }

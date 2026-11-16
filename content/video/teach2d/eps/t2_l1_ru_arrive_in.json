@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_arrive_in",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Arrived to or in?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I arrived to the city yesterday.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I arrived in the city yesterday.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Arrive in a city.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "In! We arrived in the city at night.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I arrived to the city yesterday.",
+  "right": "I arrived in the city yesterday.",
+  "strike": "to",
+  "why": "Arrive in a city.",
+  "memory": "Arrive in.",
+  "quiz": {
+   "stem": "We arrived ___ the city at night.",
+   "options": [
+    "to",
+    "in"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Приехал: “arrive in”",
+   "tip": "Приехать в город — “arrive in”: “I arrived in the city yesterday.”",
+   "caption": "Ты тоже говоришь “I arrived to the city yesterday”? 😅 По-русски «приехал в город», и после глагола движения хочется сказать “to”, но после “arrive” нужен “in.” Правильно: “I arrived in the city yesterday.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “in.” Приехать в город — arrive in. Скажи вслух: “I arrived in … yesterday.” Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#учуанглийский",
+    "#английскийдляначинающих",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Arrived to or in?",
+   "tip": "For a city, use “arrive in”: “I arrived in the city yesterday.”",
+   "caption": "Do you also say “I arrived to the city yesterday”? 😅 In Russian we go “to” a place, so “to” slips in, but after “arrive” English needs “in.” Correct: “I arrived in the city yesterday.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Приехал: “arrive in”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Приехал: “arrive in”",
+  "keyword": "I arrived in the city yesterday.",
+  "value": "Приехать в город — “arrive in”: “I arrived in the city yesterday.”",
+  "hashtags": [
+   "#английскийязык",
+   "#учуанглийский",
+   "#английскийдляначинающих",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "Приехал: “arrive in”",
+    "description": "Приехать в город — “arrive in”: “I arrived in the city yesterday.”\n\nТы тоже говоришь “I arrived to the city yesterday”? 😅 По-русски «приехал в город», и после глагола движения хочется сказать “to”, но после “arrive” нужен “in.” Правильно: “I arrived in the city yesterday.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #учуанглийский #английскийдляначинающих #lexkite",
+    "tags": [
+     "I arrived in the city yesterday.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “I arrived to the city yesterday”? 😅 По-русски «приехал в город», и после глагола движения хочется сказать “to”, но после “arrive” нужен “in.” Правильно: “I arrived in the city yesterday.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Приехал: “arrive in”\n\nПриехать в город — “arrive in”: “I arrived in the city yesterday.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#учуанглийский",
+     "#английскийдляначинающих",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Приехал: “arrive in” Приехать в город — “arrive in”: “I arrived in the city yesterday.” #английскийязык #учуанглийский #английскийдляначинающих"
+   }
+  },
+  "first_comment": "Ответ: “in.” Приехать в город — arrive in. Скажи вслух: “I arrived in … yesterday.” Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

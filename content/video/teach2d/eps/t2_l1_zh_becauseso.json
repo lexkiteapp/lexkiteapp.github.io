@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_becauseso",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Because or so, not both!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Because it rained, so I stayed home.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Because it rained, I stayed home.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use because or so.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "No word! Because I was tired, I went home.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Because it rained, so I stayed home.",
+  "right": "Because it rained, I stayed home.",
+  "strike": "so",
+  "why": "Use because or so.",
+  "memory": "Because, no so.",
+  "quiz": {
+   "stem": "Because I was tired, ___ I went home.",
+   "options": [
+    "so",
+    "(no word)"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "because 和 so 不能同时用！",
+   "tip": "中文常说“因为下雨，所以我留在家里”，两个词一起用。英语里 because 和 so 只能留一个。",
+   "caption": "你是不是也会说 “Because it rained, so I stayed home.”😅 中文“因为……所以……”连用，英语只留一个：“Because it rained, I stayed home.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“Because it rained, I stayed home.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "because and so cannot be used at t",
+   "tip": "Chinese often uses both words, but English uses only one of them.",
+   "caption": "Do you say “Because it rained, so I stayed home.” 😅 English uses only one of them: “Because it rained, I stayed home.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "because 和 so 不能同时用！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 51,
+  "seconds": 30.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "because 和 so 不能同时用！",
+  "keyword": "Because it rained, I stayed home.",
+  "value": "中文常说“因为下雨，所以我留在家里”，两个词一起用。英语里 because 和 so 只能留一个。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 45,
+  "platforms": {
+   "youtube": {
+    "title": "because 和 so 不能同时用！",
+    "description": "中文常说“因为下雨，所以我留在家里”，两个词一起用。英语里 because 和 so 只能留一个。\n\n你是不是也会说 “Because it rained, so I stayed home.”😅 中文“因为……所以……”连用，英语只留一个：“Because it rained, I stayed home.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "Because it rained, I stayed home.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “Because it rained, so I stayed home.”😅 中文“因为……所以……”连用，英语只留一个：“Because it rained, I stayed home.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "because 和 so 不能同时用！\n\n中文常说“因为下雨，所以我留在家里”，两个词一起用。英语里 because 和 so 只能留一个。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "because 和 so 不能同时用！ 中文常说“因为下雨，所以我留在家里”，两个词一起用。英语里 because 和 so 只能留一个。 #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“Because it rained, I stayed home.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

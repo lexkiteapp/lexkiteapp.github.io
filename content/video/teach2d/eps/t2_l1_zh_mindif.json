@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_mindif",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Do you mind if I...?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Do you mind I open the window?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Do you mind if I open the window?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Add if after mind.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "If! Do you mind if I sit here?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Do you mind I open the window?",
+  "right": "Do you mind if I open the window?",
+  "strike": "mind I",
+  "why": "Add if after mind.",
+  "memory": "Mind if I open?",
+  "quiz": {
+   "stem": "Do you mind ___ I sit here?",
+   "options": [
+    "if",
+    "so"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“你介意我…吗”要加 if！",
+   "tip": "中文说“你介意我开窗吗”，中间不需要连接词。英语要在 mind 后面加 if。",
+   "caption": "你是不是也会说 “Do you mind I open the window?”😅 中文里不需要连接词，英语要在 mind 后面加 if：“Do you mind if I open the window?”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“Do you mind if I open the window?”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Add “if” after mind!",
+   "tip": "Chinese needs no link word, but English needs if after mind.",
+   "caption": "Do you say “Do you mind I open the window?” 😅 English needs if after mind: “Do you mind if I open the window?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“你介意我…吗”要加 if！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "“你介意我…吗”要加 if！",
+  "keyword": "Do you mind if I open the window?",
+  "value": "中文说“你介意我开窗吗”，中间不需要连接词。英语要在 mind 后面加 if。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 46,
+  "platforms": {
+   "youtube": {
+    "title": "“你介意我…吗”要加 if！",
+    "description": "中文说“你介意我开窗吗”，中间不需要连接词。英语要在 mind 后面加 if。\n\n你是不是也会说 “Do you mind I open the window?”😅 中文里不需要连接词，英语要在 mind 后面加 if：“Do you mind if I open the window?”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "Do you mind if I open the window?",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “Do you mind I open the window?”😅 中文里不需要连接词，英语要在 mind 后面加 if：“Do you mind if I open the window?”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“你介意我…吗”要加 if！\n\n中文说“你介意我开窗吗”，中间不需要连接词。英语要在 mind 后面加 if。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“你介意我…吗”要加 if！ 中文说“你介意我开窗吗”，中间不需要连接词。英语要在 mind 后面加 if。 #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“Do you mind if I open the window?”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

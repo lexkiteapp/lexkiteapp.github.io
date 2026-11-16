@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_windowshop",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say window shopping!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I like eye shopping.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I like window shopping.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "You look through the window.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Window! I like window shopping.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I like eye shopping.",
+  "right": "I like window shopping.",
+  "strike": "eye",
+  "why": "You look through the window.",
+  "memory": "Window shopping.",
+  "quiz": {
+   "stem": "I like ___ shopping.",
+   "options": [
+    "eye",
+    "window"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“eye shopping” 틀렸어요!",
+   "tip": "‘아이쇼핑’은 한국에서 만든 말이에요. 영어로는 window shopping! 이렇게 말해요 👉 “I like window shopping.”",
+   "caption": "“I like eye shopping”처럼 말하고 있나요? 😅 ‘아이쇼핑’은 한국식 영어라서 영어로는 잘 통하지 않아요. 사지 않고 구경만 하는 것은 window shopping이라고 해요. 맞는 문장 ✅ “I like window shopping.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답 ✅ “I like window shopping.” 소리 내어 한 번 말해 보고, 나만의 문장도 하나 써 보세요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Eye shopping” is wrong!",
+   "tip": "“Eye shopping” is not English. Say window shopping. Say “I like window shopping.”",
+   "caption": "Do you say “I like eye shopping” in English? 😅 Eye shopping is not used in English, so say window shopping! “I like window shopping” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“eye shopping” 틀렸어요!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 41,
+  "seconds": 25.6,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "“eye shopping” 틀렸어요!",
+  "keyword": "I like window shopping.",
+  "value": "‘아이쇼핑’은 한국에서 만든 말이에요. 영어로는 window shopping! 이렇게 말해요 👉 “I like window shopping.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "“eye shopping” 틀렸어요!",
+    "description": "‘아이쇼핑’은 한국에서 만든 말이에요. 영어로는 window shopping! 이렇게 말해요 👉 “I like window shopping.”\n\n“I like eye shopping”처럼 말하고 있나요? 😅 ‘아이쇼핑’은 한국식 영어라서 영어로는 잘 통하지 않아요. 사지 않고 구경만 하는 것은 window shopping이라고 해요. 맞는 문장 ✅ “I like window shopping.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "I like window shopping.",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“I like eye shopping”처럼 말하고 있나요? 😅 ‘아이쇼핑’은 한국식 영어라서 영어로는 잘 통하지 않아요. 사지 않고 구경만 하는 것은 window shopping이라고 해요. 맞는 문장 ✅ “I like window shopping.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“eye shopping” 틀렸어요!\n\n‘아이쇼핑’은 한국에서 만든 말이에요. 영어로는 window shopping! 이렇게 말해요 👉 “I like window shopping.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“eye shopping” 틀렸어요! ‘아이쇼핑’은 한국에서 만든 말이에요. 영어로는 window shopping! 이렇게 말해요 👉 “I like window shopping.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답 ✅ “I like window shopping.” 소리 내어 한 번 말해 보고, 나만의 문장도 하나 써 보세요: {link}",
+  "lang": "ko"
+ }
+}

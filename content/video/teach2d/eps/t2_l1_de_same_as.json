@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_same_as",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "The same as, not same like!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have the same bag like you.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have the same bag as you.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say the same as.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "As! She has the same bag as me.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have the same bag like you.",
+  "right": "I have the same bag as you.",
+  "strike": "like",
+  "why": "Say the same as.",
+  "memory": "The same as.",
+  "quiz": {
+   "stem": "She has the same bag ___ me.",
+   "options": [
+    "as",
+    "like"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "„Das Gleiche wie“ = „same as“!",
+   "tip": "„Wie“ ist oft „like“. Aber nach „the same“ heißt „wie“ im Englischen „as“.",
+   "caption": "Sagen Sie „the same like“? 👜 Falsch: “I have the same bag like you.” Richtig: “I have the same bag as you.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “as”. Richtig heißt es: “I have the same bag as you.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Wie” after “same” is “as”!",
+   "tip": "“Wie” is often “like”. But after “the same” it is “as”.",
+   "caption": "“Wie” after “same” is “as”! Wrong: “I have the same bag like you.” Right: “I have the same bag as you.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "„Das Gleiche wie“ = „same as“!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "„Das Gleiche wie“ = „same as“!",
+  "keyword": "I have the same bag as you.",
+  "value": "„Wie“ ist oft „like“. Aber nach „the same“ heißt „wie“ im Englischen „as“.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 46,
+  "platforms": {
+   "youtube": {
+    "title": "„Das Gleiche wie“ = „same as“!",
+    "description": "„Wie“ ist oft „like“. Aber nach „the same“ heißt „wie“ im Englischen „as“.\n\nSagen Sie „the same like“? 👜 Falsch: “I have the same bag like you.” Richtig: “I have the same bag as you.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "I have the same bag as you.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Sagen Sie „the same like“? 👜 Falsch: “I have the same bag like you.” Richtig: “I have the same bag as you.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "„Das Gleiche wie“ = „same as“!\n\n„Wie“ ist oft „like“. Aber nach „the same“ heißt „wie“ im Englischen „as“.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "„Das Gleiche wie“ = „same as“! „Wie“ ist oft „like“. Aber nach „the same“ heißt „wie“ im Englischen „a… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “as”. Richtig heißt es: “I have the same bag as you.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

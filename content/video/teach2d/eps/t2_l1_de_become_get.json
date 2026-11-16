@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_become_get",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Get a coffee, not become!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I will become a coffee.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I will get a coffee.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say get.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Get! I will get a coffee.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I will become a coffee.",
+  "right": "I will get a coffee.",
+  "strike": "become",
+  "why": "Say get.",
+  "memory": "Get a coffee.",
+  "quiz": {
+   "stem": "I will ___ a coffee.",
+   "options": [
+    "become",
+    "get"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "„Bekommen“ ist nicht „become“!",
+   "tip": "„Bekommen“ klingt nach „become“, heißt aber „get“. Das englische „become“ bedeutet „werden“.",
+   "caption": "Heißt „bekommen“ auf Englisch „become“? ☕ Falsch: “I will become a coffee.” Richtig: “I will get a coffee.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “get”. Richtig heißt es: “I will get a coffee.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Bekommen” is “get”!",
+   "tip": "“Bekommen” looks like “become”, but it is “get”. English “become” means “werden”.",
+   "caption": "“Bekommen” is “get”! Wrong: “I will become a coffee.” Right: “I will get a coffee.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "„Bekommen“ ist nicht „become“!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "„Bekommen“ ist nicht „become“!",
+  "keyword": "I will get a coffee.",
+  "value": "„Bekommen“ klingt nach „become“, heißt aber „get“. Das englische „become“ bedeutet „werden“.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "„Bekommen“ ist nicht „become“!",
+    "description": "„Bekommen“ klingt nach „become“, heißt aber „get“. Das englische „become“ bedeutet „werden“.\n\nHeißt „bekommen“ auf Englisch „become“? ☕ Falsch: “I will become a coffee.” Richtig: “I will get a coffee.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "I will get a coffee.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Heißt „bekommen“ auf Englisch „become“? ☕ Falsch: “I will become a coffee.” Richtig: “I will get a coffee.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "„Bekommen“ ist nicht „become“!\n\n„Bekommen“ klingt nach „become“, heißt aber „get“. Das englische „become“ bedeutet „werden“.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "„Bekommen“ ist nicht „become“! „Bekommen“ klingt nach „become“, heißt aber „get“. Das englische „becom… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “get”. Richtig heißt es: “I will get a coffee.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

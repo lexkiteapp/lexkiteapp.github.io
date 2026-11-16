@@ -1,0 +1,129 @@
+{
+ "id": "t2a_mistake_6e4b5fa0",
+ "template": "mistake",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Stop saying laugh me.",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Don't laugh me.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Don't laugh at me.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Laugh needs at before the person or thing.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Laugh at! Please don't laugh at me.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Don't laugh me.",
+  "right": "Don't laugh at me.",
+  "strike": "laugh me",
+  "why": "Laugh needs at before the person or thing.",
+  "memory": "Laugh AT people",
+  "quiz": {
+   "stem": "Please don't ___ me.",
+   "options": [
+    "laugh",
+    "laugh at"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Stop saying laugh me."
+ },
+ "src": {
+  "gold": "sb_6e4b5fa0",
+  "pid": "w:laugh#v"
+ },
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Say \"Don't laugh at me\", not \"Don't laugh me\"",
+  "keyword": "laugh me",
+  "value": "Say \"Don't laugh at me\", not \"Don't laugh me\". Laugh needs at before the person or thing.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#englishgrammar",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Say \"Don't laugh at me\", not \"Don't laugh me\"",
+    "description": "Say \"Don't laugh at me\", not \"Don't laugh me\". Laugh needs at before the person or thing.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix\n\nSeries: Stop Saying This · Teacher: Ama\n\n#learnenglish #englishtips #englishgrammar #englishteacher",
+    "tags": [
+     "laugh me",
+     "Stop Saying This",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Say \"Don't laugh at me\", not \"Don't laugh me\"\n\nSay \"Don't laugh at me\", not \"Don't laugh me\". Laugh needs at before the person or thing.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Say \"Don't laugh at me\", not \"Don't laugh me\"\n\nSay \"Don't laugh at me\", not \"Don't laugh me\". Laugh needs at before the person or thing.\n\nCheck your grammar: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#englishgrammar",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Say \"Don't laugh at me\", not \"Don't laugh me\" #learnenglish #englishtips #englishgrammar"
+   }
+  },
+  "first_comment": "Answer: Laugh at! Please don't laugh at me. Say \"Don't laugh at me\", not \"Don't laugh me\". Laugh needs at before the person or thing. Try the full lesson and quiz here: {link}"
+ }
+}

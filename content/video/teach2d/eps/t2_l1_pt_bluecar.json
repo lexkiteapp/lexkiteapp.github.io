@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_bluecar",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Where does blue go?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have a car blue.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have a blue car.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Color first, thing second.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The first! She has a red bag.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have a car blue.",
+  "right": "I have a blue car.",
+  "strike": "car blue",
+  "why": "Color first, thing second.",
+  "memory": "Blue car.",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "She has a red bag.",
+    "She has a bag red."
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Você diz “car blue”?",
+   "tip": "Em inglês, a cor vem antes da coisa: “a blue car”.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I have a car blue.” O certo é “I have a blue car.” Em português dizemos “carro azul”, mas em inglês a cor vem primeiro. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “She has a red bag.” Agora diga em voz alta uma frase sua com esse ponto e treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “car blue”?",
+   "tip": "In English, the color comes before the thing: “a blue car”.",
+   "caption": "Watch out for this common mistake! Many people say “I have a car blue.” The right way is “I have a blue car.” In Portuguese we say “carro azul”, but in English the color comes first. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Você diz “car blue”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Você diz “car blue”?",
+  "keyword": "I have a blue car.",
+  "value": "Em inglês, a cor vem antes da coisa: “a blue car”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "Você diz “car blue”?",
+    "description": "Em inglês, a cor vem antes da coisa: “a blue car”.\n\nCuidado com este erro comum! 😬 Muita gente diz “I have a car blue.” O certo é “I have a blue car.” Em português dizemos “carro azul”, mas em inglês a cor vem primeiro. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "I have a blue car.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “I have a car blue.” O certo é “I have a blue car.” Em português dizemos “carro azul”, mas em inglês a cor vem primeiro. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Você diz “car blue”?\n\nEm inglês, a cor vem antes da coisa: “a blue car”.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Você diz “car blue”? Em inglês, a cor vem antes da coisa: “a blue car”. #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “She has a red bag.” Agora diga em voz alta uma frase sua com esse ponto e treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

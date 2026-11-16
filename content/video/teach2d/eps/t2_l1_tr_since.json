@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Since needs have lived!",
+   "text": "With since, say have lived!",
    "pause": 0.42
   },
   {
@@ -66,9 +66,9 @@
    "answer": 1
   },
   "native": {
-   "hook": "“Since” ile “live” olmaz!",
-   "tip": "“Since” ile “have + fiil” kullan: “I have lived here since 2020.”",
-   "caption": "“I live here since 2020.” mi diyorsun? 😅 Türkçede “2020’den beri yaşıyorum” deriz ama İngilizcede “have lived” gerekir. Doğrusu “I have lived here since 2020.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "hook": "“Since” ile “have lived” kullan!",
+   "tip": "“Since” ile “have + fiilin 3. hâli” kullan: “I have lived here since 2020.”",
+   "caption": "“I live here since 2020” mi diyorsun? 😅 Türkçede “2020’den beri yaşıyorum” deriz ama İngilizcede “have lived” gerekir. Doğrusu “I have lived here since 2020.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
    "comment": "Cevap: “have lived”. Since ile have lived kullan. Ücretsiz testle pratik yap: {link}",
    "hashtags": [
     "#ingilizceöğren",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "“Since” does not go with “live”!",
-   "tip": "With “since”, use have + verb: “I have lived here since 2020.”",
-   "caption": "Do you say “I live here since 2020.”? 😅 Turkish uses the simple present, but English needs “have lived”. The right sentence is “I have lived here since 2020.”. Listen to Ama and repeat! Open the Lexkite app and practice more."
+   "hook": "With “since”, say “have lived”!",
+   "tip": "With “since”, use have + past participle: “I have lived here since 2020.”",
+   "caption": "Do you say “I live here since 2020”? 😅 With “since”, English needs “have lived”. The right sentence is “I have lived here since 2020.” Listen to Ama and repeat! Open the Lexkite app and practice more."
   }
  },
  "cta": {
@@ -91,21 +91,21 @@
  },
  "hook": {
   "line": "h",
-  "text": "“Since” ile “live” olmaz!"
+  "text": "“Since” ile “have lived” kullan!"
  },
  "src": {
   "l1": true
  },
  "lang": "tr",
  "est": {
-  "words": 48,
-  "seconds": 29.1,
+  "words": 49,
+  "seconds": 29.6,
   "wpm": 99
  },
  "publish": {
-  "title": "“Since” ile “live” olmaz!",
+  "title": "“Since” ile “have lived” kullan!",
   "keyword": "I have lived here since 2020.",
-  "value": "“Since” ile “have + fiil” kullan: “I have lived here since 2020.”",
+  "value": "“Since” ile “have + fiilin 3. hâli” kullan: “I have lived here since 2020.”",
   "hashtags": [
    "#ingilizceöğren",
    "#ingilizcekonuşma",
@@ -113,11 +113,11 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 42,
+  "script_words": 43,
   "platforms": {
    "youtube": {
-    "title": "“Since” ile “live” olmaz!",
-    "description": "“I live here since 2020.” mi diyorsun? 😅 Türkçede “2020’den beri yaşıyorum” deriz ama İngilizcede “have lived” gerekir. Doğrusu “I have lived here since 2020.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "title": "“Since” ile “have lived” kullan!",
+    "description": "“Since” ile “have + fiilin 3. hâli” kullan: “I have lived here since 2020.”\n\n“I live here since 2020” mi diyorsun? 😅 Türkçede “2020’den beri yaşıyorum” deriz ama İngilizcede “have lived” gerekir. Doğrusu “I have lived here since 2020.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
     "tags": [
      "I have lived here since 2020.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "“I live here since 2020.” mi diyorsun? 😅 Türkçede “2020’den beri yaşıyorum” deriz ama İngilizcede “have lived” gerekir. Doğrusu “I have lived here since 2020.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "“I live here since 2020” mi diyorsun? 😅 Türkçede “2020’den beri yaşıyorum” deriz ama İngilizcede “have lived” gerekir. Doğrusu “I have lived here since 2020.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "“I live here since 2020.” mi diyorsun? 😅 Türkçede “2020’den beri yaşıyorum” deriz ama İngilizcede “have lived” gerekir. Doğrusu “I have lived here since 2020.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nlexkite.com",
+    "caption": "“Since” ile “have lived” kullan!\n\n“Since” ile “have + fiilin 3. hâli” kullan: “I have lived here since 2020.”\n\nlexkite.com",
     "hashtags": [
      "#ingilizceöğren",
      "#ingilizcekonuşma",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "“Since” ile “live” olmaz! #ingilizceöğren #ingilizcekonuşma #ingilizce"
+    "caption": "“Since” ile “have lived” kullan! “Since” ile “have + fiilin 3. hâli” kullan: “I have lived here since 20… #ingilizceöğren #ingilizcekonuşma #ingilizce"
    }
   },
   "first_comment": "Cevap: “have lived”. Since ile have lived kullan. Ücretsiz testle pratik yap: {link}",

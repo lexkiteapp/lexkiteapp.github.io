@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_askquestion",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Ask a question, not make!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Can I make a question?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Can I ask a question?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "We ask a question.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! Can I ask a question?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Can I make a question?",
+  "right": "Can I ask a question?",
+  "strike": "make",
+  "why": "We ask a question.",
+  "memory": "Ask a question.",
+  "quiz": {
+   "stem": "Can I ___ a question?",
+   "options": [
+    "make",
+    "ask"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Diga “ask a question”!",
+   "tip": "Em português dizemos “fazer uma pergunta”, mas em inglês usamos “ask a question”.",
+   "caption": "Você também diz isso? “Can I make a question?” 😅 O certo é “Can I ask a question?” Em português dizemos “fazer uma pergunta”, mas em inglês usamos “ask a question”. Ouça a Ama e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “ask”. Agora escreva uma frase sua com “Ask a question” e treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “ask a question”!",
+   "tip": "In Portuguese we say “fazer uma pergunta”, but in English we use “ask a question”.",
+   "caption": "Do you say this too? “Can I make a question?” 😅 The right way is “Can I ask a question?” In Portuguese we say “fazer uma pergunta”, but in English we use “ask a question”. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Diga “ask a question”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Diga “ask a question”!",
+  "keyword": "Can I ask a question?",
+  "value": "Em português dizemos “fazer uma pergunta”, mas em inglês usamos “ask a question”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Diga “ask a question”!",
+    "description": "Em português dizemos “fazer uma pergunta”, mas em inglês usamos “ask a question”.\n\nVocê também diz isso? “Can I make a question?” 😅 O certo é “Can I ask a question?” Em português dizemos “fazer uma pergunta”, mas em inglês usamos “ask a question”. Ouça a Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "Can I ask a question?",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Você também diz isso? “Can I make a question?” 😅 O certo é “Can I ask a question?” Em português dizemos “fazer uma pergunta”, mas em inglês usamos “ask a question”. Ouça a Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Diga “ask a question”!\n\nEm português dizemos “fazer uma pergunta”, mas em inglês usamos “ask a question”.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Diga “ask a question”! Em português dizemos “fazer uma pergunta”, mas em inglês usamos “ask a question”. #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “ask”. Agora escreva uma frase sua com “Ask a question” e treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_noliketemp",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Please open the window.",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Please you open the window.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Please open the window.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "No you after please.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Open! Please open the door.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Please you open the window.",
+  "right": "Please open the window.",
+  "strike": "you",
+  "why": "No you after please.",
+  "memory": "Please open the door.",
+  "quiz": {
+   "stem": "Please ___ the door.",
+   "options": [
+    "you open",
+    "open"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Please, tanpa you",
+   "tip": "Kita bilang “Tolong kamu buka jendelanya.” Di bahasa Inggris, setelah please langsung kata kerja: open, tanpa you.",
+   "caption": "Pernah bilang begini? “Please you open the window.” 😅 Setelah please, langsung kata kerja: “Please open the window.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “open”. Ucapkan dengan lantang: “Please open the window.” lalu tulis satu permintaan sopan untuk temanmu. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#permintaan",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Please, without “you”",
+   "tip": "We say “Tolong kamu buka jendelanya.” In English, after please put the verb right away: open, without you.",
+   "caption": "Ever say this? “Please you open the window.” 😅 After please, go straight to the verb: “Please open the window.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Please, tanpa you"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "Please, tanpa you",
+  "keyword": "Please open the window.",
+  "value": "Kita bilang “Tolong kamu buka jendelanya.” Di bahasa Inggris, setelah please langsung kata kerja: open, tanpa you.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#permintaan",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "Please, tanpa you",
+    "description": "Kita bilang “Tolong kamu buka jendelanya.” Di bahasa Inggris, setelah please langsung kata kerja: open, tanpa you.\n\nPernah bilang begini? “Please you open the window.” 😅 Setelah please, langsung kata kerja: “Please open the window.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #permintaan #bahasainggris #lexkite",
+    "tags": [
+     "Please open the window.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “Please you open the window.” 😅 Setelah please, langsung kata kerja: “Please open the window.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Please, tanpa you\n\nKita bilang “Tolong kamu buka jendelanya.” Di bahasa Inggris, setelah please langsung kata kerja: open, tanpa you.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#permintaan",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Please, tanpa you Kita bilang “Tolong kamu buka jendelanya.” Di bahasa Inggris, setelah please langs… #belajarbahasainggris #permintaan #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “open”. Ucapkan dengan lantang: “Please open the window.” lalu tulis satu permintaan sopan untuk temanmu. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

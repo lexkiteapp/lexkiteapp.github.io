@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_open_light",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Don't open the light!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Please open the light.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Please turn on the light.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Open is for doors. For lights, turn on.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Turn on! Please turn on the music.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Please open the light.",
+  "right": "Please turn on the light.",
+  "strike": "open",
+  "why": "Open is for doors. For lights, turn on.",
+  "memory": "Turn on the light.",
+  "quiz": {
+   "stem": "Please ___ the music.",
+   "options": [
+    "open",
+    "turn on"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "เปิดไฟ ไม่ใช่ open!",
+   "tip": "ไทยพูด “เปิดไฟ” แต่อังกฤษ open ใช้กับประตู ไฟใช้ “turn on”",
+   "caption": "คุณเคยพูดว่า “Please open the light.” ไหม? 😅 ภาษาไทยพูดว่า “เปิดไฟ” แต่ในภาษาอังกฤษ open ใช้กับประตู ส่วนไฟต้องใช้ turn on: “Please turn on the light.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “turn on” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “open the light”!",
+   "tip": "In Thai you “open” a light, but in English open is for doors. For lights say “turn on”",
+   "caption": "Do you say “Please open the light”? 😅 In Thai we say “open the light”, but English uses open for doors and lids. For a light, use turn on. Say “Please turn on the light”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "เปิดไฟ ไม่ใช่ open!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "เปิดไฟ ไม่ใช่ open!",
+  "keyword": "Please turn on the light.",
+  "value": "ไทยพูด “เปิดไฟ” แต่อังกฤษ open ใช้กับประตู ไฟใช้ “turn on”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "เปิดไฟ ไม่ใช่ open!",
+    "description": "ไทยพูด “เปิดไฟ” แต่อังกฤษ open ใช้กับประตู ไฟใช้ “turn on”\n\nคุณเคยพูดว่า “Please open the light.” ไหม? 😅 ภาษาไทยพูดว่า “เปิดไฟ” แต่ในภาษาอังกฤษ open ใช้กับประตู ส่วนไฟต้องใช้ turn on: “Please turn on the light.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "Please turn on the light.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “Please open the light.” ไหม? 😅 ภาษาไทยพูดว่า “เปิดไฟ” แต่ในภาษาอังกฤษ open ใช้กับประตู ส่วนไฟต้องใช้ turn on: “Please turn on the light.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "เปิดไฟ ไม่ใช่ open!\n\nไทยพูด “เปิดไฟ” แต่อังกฤษ open ใช้กับประตู ไฟใช้ “turn on”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "เปิดไฟ ไม่ใช่ open! ไทยพูด “เปิดไฟ” แต่อังกฤษ open ใช้กับประตู ไฟใช้ “turn on” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “turn on” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}
