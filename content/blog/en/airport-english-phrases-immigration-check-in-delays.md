@@ -22,6 +22,7 @@ diagrams: [
   {id: d1, type: timeline, title: 'The airport journey in five steps', span: [0, 6], events: [{at: 1, label: 'Check-in: bag drop and boarding pass'}, {at: 2, label: 'Security: trays, liquids, laptops'}, {at: 3, label: 'Gate: boarding and announcements'}, {at: 4, label: 'Immigration: short questions on arrival'}, {at: 5, label: 'Baggage claim: collect bags or report a problem'}]},
   {id: d2, type: compare, title: 'Airport words by country', cols: ['US / Canada', 'UK / Australia'], rows: [['carry-on', 'hand luggage, cabin bag'], ['checked bag', 'hold luggage, checked baggage'], ['baggage claim', 'baggage reclaim'], ['line', 'queue'], ['customs', 'customs (and border control)'], ['flight attendant', 'cabin crew, flight attendant']]}
 ]
+publishAt: 2027-01-20T20:52:00+05:30
 ---
 
 Most airport conversations are short, scripted and polite. Learn a small set of **airport English phrases** for each stage, check-in, security, immigration, delays and lost bags, and you can handle almost every situation without panic. Keep your answers brief and true: officers and desk staff want clear facts, not long stories.
