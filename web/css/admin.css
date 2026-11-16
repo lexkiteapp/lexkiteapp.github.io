@@ -666,6 +666,7 @@ body.u-bulk-on .adm-main { padding-bottom: 6.5rem; }
   .adm-me-items .adm-email { display: block; order: -1; padding: .55rem .75rem .6rem; margin-bottom: .2rem; border-bottom: 1px solid var(--line); font-size: .8rem; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   /* Bảng → danh sách thẻ (mọi bảng rộng hơn khung, hoặc data-cards) */
   .tbl.tbl-cards, .tbl.tbl-cards tbody { display: block; width: 100%; }
+  .tbl.tbl-cards { min-width: 0; } /* .u-tbl { min-width: var(--u-min) } và .vx-web { min-width: 560px } chỉ cho dạng bảng; dạng thẻ không được ép rộng hơn khung (trang tràn ngang → Chrome điện thoại thu nhỏ, thanh đáy cách mép) */
   .tbl.tbl-cards thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .tbl.tbl-cards tr { display: flex; flex-wrap: wrap; gap: .1rem .9rem; padding: .7rem .2rem; border-bottom: 1px solid var(--line); }
   .tbl.tbl-cards tr:last-child { border-bottom: 0; }
@@ -735,6 +736,9 @@ body.u-bulk-on .adm-main { padding-bottom: 6.5rem; }
   .tbl.tbl-cards td { flex-wrap: wrap; } /* giá trị ngắn xuống dòng dưới nhãn thay vì bị bóp từng chữ */
   .tbl.tbl-cards td > * { min-width: 0; max-width: 100%; overflow-wrap: break-word; }
   .tbl.tbl-cards td > .chip, .tbl.tbl-cards td > .pill { flex: none; white-space: nowrap; }
+  /* Tab Kênh đăng (Embed | Social): hai tab chia đều bề ngang thẻ, chữ xuống dòng thay vì tràn khỏi nút */
+  .adm .adm-content .vx-segs { display: flex; width: 100%; }
+  .adm .adm-content .vx-segs .vx-seg { flex: 1 1 0; min-width: 0; justify-content: center; text-align: center; white-space: normal; line-height: 1.2; padding-block: .3rem; }
   .tbl.tbl-cards td a:not(.btn) { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; line-height: 44px; }
   .u-tbl.tbl-cards .u-badges { min-width: 0; }
   .u-pg select { min-height: 44px; }
