@@ -21,8 +21,8 @@ concurrency:   # ci-policy 2/11: push/lịch trùng gộp; chạy tay (mỗi lư
 jobs:
   # luật 11: trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha (npm-test.yml job `heavy` chạy lại ngay khi xanh); lỗi API → mở cổng
   gate:
-    # lượt 1 của PR: npm test chưa thể xanh → gate bỏ qua KHÔNG tốn máy (skipped); heavy-rerun chạy lại (run_attempt ≥ 2) khi npm test xanh; nhãn ready = chạy ngay
-    if: ${{ github.event_name != 'pull_request' || github.run_attempt > 1 || contains(github.event.pull_request.labels.*.name, 'ready') }}
+    # luật 18 (CI làn nhanh, 16/11): PR chỉ chờ làn nhanh – việc nặng bỏ qua trên PR (skipped, không tốn máy), chạy SAU gộp trên push main; nhãn ready-heavy/ready = chạy nặng ngay trên PR
+    if: ${{ github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'ready-heavy') || contains(github.event.pull_request.labels.*.name, 'ready') }}
     runs-on: ubuntu-latest
     timeout-minutes: 3
     permissions: { contents: read, checks: read }

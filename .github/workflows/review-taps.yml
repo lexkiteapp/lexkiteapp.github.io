@@ -6,6 +6,9 @@ name: Màn Ôn – chạm được
 on:
   pull_request:
     paths: ['web/js/ux1.js', 'web/js/app.js', 'web/js/study.js', 'web/js/core.js', 'web/js/st/**', 'web/css/st-v2-*.css', 'web/app/index.html', 'brand/stitch/v2/**', 'scripts/test/review-taps.mjs', 'scripts/test/stitch-screens.mjs', 'web/js/study-modes.js', 'web/js/i18n/*/rmodes.js', 'scripts/test/review-modes-e2e.mjs', '.github/workflows/review-taps.yml']
+  push:
+    branches: [main]
+    paths: ['web/js/ux1.js', 'web/js/app.js', 'web/js/study.js', 'web/js/core.js', 'web/js/st/**', 'web/css/st-v2-*.css', 'web/app/index.html', 'brand/stitch/v2/**', 'scripts/test/review-taps.mjs', 'scripts/test/stitch-screens.mjs', 'web/js/study-modes.js', 'web/js/i18n/*/rmodes.js', 'scripts/test/review-modes-e2e.mjs', '.github/workflows/review-taps.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -16,8 +19,8 @@ jobs:
   # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha (hoặc PR có nhãn `ready`) – đỏ/chưa xong thì mọi job dưới là skipped
   # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
   gate:
-    # lượt 1 của PR: npm test chưa thể xanh → gate bỏ qua KHÔNG tốn máy (skipped); heavy-rerun chạy lại (run_attempt ≥ 2) khi npm test xanh; nhãn ready = chạy ngay
-    if: ${{ github.event_name != 'pull_request' || github.run_attempt > 1 || contains(github.event.pull_request.labels.*.name, 'ready') }}
+    # luật 18 (CI làn nhanh, 16/11): PR chỉ chờ làn nhanh – việc nặng bỏ qua trên PR (skipped, không tốn máy), chạy SAU gộp trên push main; nhãn ready-heavy/ready = chạy nặng ngay trên PR
+    if: ${{ github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'ready-heavy') || contains(github.event.pull_request.labels.*.name, 'ready') }}
     runs-on: ubuntu-latest
     timeout-minutes: 3
     permissions: { contents: read, checks: read }

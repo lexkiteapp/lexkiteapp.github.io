@@ -11,6 +11,9 @@ on:
       seo_words: { description: 'Chỉ chụp trước (main)/sau (nhánh) trang từ, vd. en/words/detect,vi/words/detect', required: false, default: '' }
   pull_request:
     paths: ['web/app/**', 'web/css/**', 'web/js/**', 'web/index.html', 'web/*/index.html', 'scripts/build-landing.mjs', 'scripts/build-stitch-css.mjs', 'scripts/lib/site-layout.mjs', 'scripts/lib/st-web.mjs', 'brand/tokens.json', 'scripts/test/visual-qa*', '.github/workflows/visual-qa.yml']
+  push:
+    branches: [main]
+    paths: ['web/app/**', 'web/css/**', 'web/js/**', 'web/index.html', 'web/*/index.html', 'scripts/build-landing.mjs', 'scripts/build-stitch-css.mjs', 'scripts/lib/site-layout.mjs', 'scripts/lib/st-web.mjs', 'brand/tokens.json', 'scripts/test/visual-qa*', '.github/workflows/visual-qa.yml']
   schedule:
     - cron: '20 3 * * 1'   # thứ Hai 10:20 giờ Việt Nam
 permissions:
@@ -25,8 +28,8 @@ jobs:
   # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha – đỏ/chưa xong thì mọi job dưới là skipped
   # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
   gate:
-    # lượt 1 của PR: npm test chưa thể xanh → gate bỏ qua KHÔNG tốn máy (skipped); heavy-rerun chạy lại (run_attempt ≥ 2) khi npm test xanh; nhãn ready = chạy ngay
-    if: ${{ github.event_name != 'pull_request' || github.run_attempt > 1 || contains(github.event.pull_request.labels.*.name, 'ready') }}
+    # luật 18 (CI làn nhanh, 16/11): PR chỉ chờ làn nhanh – việc nặng bỏ qua trên PR (skipped, không tốn máy), chạy SAU gộp trên push main; nhãn ready-heavy/ready = chạy nặng ngay trên PR
+    if: ${{ github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'ready-heavy') || contains(github.event.pull_request.labels.*.name, 'ready') }}
     runs-on: ubuntu-latest
     timeout-minutes: 3
     permissions: { contents: read, checks: read, pull-requests: read }

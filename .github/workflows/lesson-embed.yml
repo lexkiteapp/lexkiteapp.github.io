@@ -8,14 +8,17 @@ on:
       run_id: { description: 'Lượt video-motion để lấy artifact embed (trống = mới nhất)', required: false, default: '' }
   pull_request:
     paths: ['web/js/lesson-video.js', 'web/js/lesson/**', 'web/data/videos.json', 'web/js/i18n/*/lvideo.js', 'web/js/i18n/*/lesson.js', 'scripts/test/lesson-embed*', 'scripts/test/ux-guard-lib.mjs', '.github/workflows/lesson-embed.yml']
+  push:
+    branches: [main]
+    paths: ['web/js/lesson-video.js', 'web/js/lesson/**', 'web/data/videos.json', 'web/js/i18n/*/lvideo.js', 'web/js/i18n/*/lesson.js', 'scripts/test/lesson-embed*', 'scripts/test/ux-guard-lib.mjs', '.github/workflows/lesson-embed.yml']
 concurrency: { group: 'lesson-embed-${{ github.ref }}', cancel-in-progress: true }
 permissions: { contents: read, actions: read }
 jobs:
   # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha (hoặc PR có nhãn `ready`) – đỏ/chưa xong thì mọi job dưới là skipped
   # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
   gate:
-    # lượt 1 của PR: npm test chưa thể xanh → gate bỏ qua KHÔNG tốn máy (skipped); heavy-rerun chạy lại (run_attempt ≥ 2) khi npm test xanh; nhãn ready = chạy ngay
-    if: ${{ github.event_name != 'pull_request' || github.run_attempt > 1 || contains(github.event.pull_request.labels.*.name, 'ready') }}
+    # luật 18 (CI làn nhanh, 16/11): PR chỉ chờ làn nhanh – việc nặng bỏ qua trên PR (skipped, không tốn máy), chạy SAU gộp trên push main; nhãn ready-heavy/ready = chạy nặng ngay trên PR
+    if: ${{ github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'ready-heavy') || contains(github.event.pull_request.labels.*.name, 'ready') }}
     runs-on: ubuntu-latest
     timeout-minutes: 3
     permissions: { contents: read, checks: read }
