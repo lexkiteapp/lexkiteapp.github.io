@@ -43,6 +43,8 @@ Das **Internationale Phonetische Alphabet (IPA)** löst dieses Problem ein für 
 
 In diesem Leitfaden führen wir Sie durch das gesamte Lautsystem des Englischen, heben typische Stolpersteine für deutsche Sprecher hervor und zeigen, wie Sie die Lautschrift im Alltag meistern.
 
+
+Die Betonung einzelner Wörter erklärt der Artikel zur [englischen Wortbetonung](/de/blog/englische-wortbetonung-regeln/).
 ## Die 44 Laute des Englischen: Die vollständige IPA Lautschrift Englisch Übersicht
 
 Das Lautsystem des Englischen gliedert sich in **20 Vokale** (12 Monophthonge und 8 Diphthonge) sowie **24 Konsonanten**.
