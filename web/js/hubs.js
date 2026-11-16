@@ -118,6 +118,9 @@
       + `<p class="small muted" style="margin-top:1rem">${UI.icon('flag')} ${t('Muốn làm đề đầy đủ có tính giờ?')} <a href="#/tests">${t('Đến Thi thử')} →</a></p>`;
   };
 
+  // Gắn thanh hub chung vào đầu #view (điện thoại; ≥ 1024 px CSS tự ẩn) và ẩn thanh trên cũ; chưa có khung Stitch (ST2) → giữ thanh cũ
+  const hubBar = () => { if (!(window.ST2 && ST2.hubbar && ST2.hubWire)) return; document.body.classList.add('hb-on'); view.insertAdjacentHTML('afterbegin', ST2.hubbar({ hdr: ST2.hdr() }, true)); ST2.hubWire(view);
+    if (App.onCleanup) App.onCleanup(() => document.body.classList.remove('hb-on')); };
   // ---------- Thi thử ----------
   routes.tests = App.guard(async function () {
     const w = App.W;
@@ -141,6 +144,7 @@
       + (rows.length ? `<div class="set-list">${rows.map(r => `<div class="set-row"><div class="set-l"><span>${esc(r[2])}</span><small>${esc(r[1])}${fmt(r[0]) ? ' · ' + fmt(r[0]) : ''}</small></div><div class="set-c"><b>${esc(r[3])}</b></div></div>`).join('')}</div>`
         : `<div class="card empty-note"><p class="muted" style="margin:0">${t('Chưa có bài thi nào. Làm bài kiểm tra trình độ 5 phút để bắt đầu.')}</p></div>`)
       + `<details class="hub-more"><summary>${t('Kỳ thi khác')}</summary><div class="hub-grid">${Object.keys(T).filter(e => e !== ex && e !== 'ieltsgt' && !(ex === 'ieltsgt' && e === 'ielts')).map(e => T[e].join('')).join('')}</div></details>`;
+    hubBar(); // thanh trên hub chung với 4 tab còn lại (st/v2/runtime.js hubbar) – trang Thi là trang cũ, trước đây giữ thanh trên app riêng
   });
 
   // ---------- Tôi ----------
