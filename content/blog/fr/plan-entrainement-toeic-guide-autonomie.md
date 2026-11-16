@@ -55,6 +55,8 @@ Beaucoup de candidats stagnent entre 450 et 550 points au TOEIC Listening & Read
 
 Ce guide vous propose ce programme en trois phases, un planning hebdomadaire à caser avant ou après le travail, et un journal d'erreurs pour que chaque test blanc vous apprenne quelque chose. Les durées sont des exemples de planification, pas des promesses : votre rythme dépend de votre niveau de départ et du nombre d'heures que vous consacrez à vos révisions.
 
+Pour connaître en détail les sept parties du test et leur durée, lisez [le format du TOEIC : parties, durée et score](/fr/blog/format-toeic-7-parties-duree-score/).
+
 ## Structure et phases du programme de révision TOEIC
 
 On croit souvent que multiplier les tests blancs est le chemin le plus court. Or un test ne mesure que ce que vous savez aujourd'hui ; il ne comble pas les lacunes de vocabulaire et de grammaire qui ont provoqué les erreurs.
@@ -160,6 +162,8 @@ Toutes les parties et les tests complets sont sur la [page d'entraînement TOEIC
 
 {{cta: /#/toeic | Faire un test blanc TOEIC et voir votre score estimé de 10 à 990}}
 
+Pour la première partie de l'écoute, le guide [TOEIC partie 1 photographies](/fr/blog/toeic-partie-1-photographies-astuces/) propose un plan sur dix jours.
+
 ## Questions fréquentes sur la révision autonome du TOEIC
 
 ### Combien de mois faut-il pour passer de 500 à 750 ?
@@ -177,3 +181,5 @@ Les faux amis du vocabulaire de bureau coûtent des points en Part 5 et Part 7 :
 Côté écoute, deux habitudes du français jouent contre vous. D'abord, le *h* n'est pas prononcé en français : on n'entend donc pas toujours la différence entre *hair* et *air*, *heat* et *eat* ou *his* et *is*, ce qui compte en Part 2 quand une réponse piège ressemble à la question.
 
 Ensuite, le français accentue la fin du groupe de mots, alors que beaucoup de mots d'affaires anglais portent l'accent au début (*office, manager, schedule*) et affaiblissent le reste : les francophones attendent l'accent en fin de mot et ratent la syllabe forte initiale ; *schedule* devient méconnaissable. Travaillez ces mots en dictée, en notant d'abord les syllabes accentuées.
+
+Pour la section Listening en détail, lisez aussi notre méthode pour le [TOEIC Part 3 et 4](/fr/blog/toeic-part-3-et-4-methode-conversations-exposes/), qui concentre 69 questions sur 100.

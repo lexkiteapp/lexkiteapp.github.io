@@ -149,3 +149,5 @@ Quelle réplique convient le mieux pour répondre naturellement dans chaque situ
    - Réponse : *« Would you mind running that by me one more time? »*
 
 Pratiquer chaque jour en associant ces phrases clés à des contextes concrets transforme vos réflexes conversationnels. Profitez des parcours guidés de Lexkite pour vous entraîner à l'oral et parler anglais avec une confiance renouvelée !
+
+Après ces phrases, entraînez-les en situation avec nos [12 situations pour parler anglais avec confiance](/fr/blog/parler-anglais-avec-confiance-situations/).
