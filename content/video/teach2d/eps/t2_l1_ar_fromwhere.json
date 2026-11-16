@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_fromwhere",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Fix the order: where first!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: From where are you?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Where are you from?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Start with where, end with from.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! Where is he from?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "From where are you?",
+  "right": "Where are you from?",
+  "strike": "From where",
+  "why": "Start with where, end with from.",
+  "memory": "Where are you from?",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "From where is he?",
+    "Where is he from?"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "هل تقول “From where are you”؟",
+   "tip": "نبدأ بالعربية بـ «من أين أنت»، أما في الإنجليزية فتأتي where أولًا وfrom في النهاية: “Where are you from?” وليس “From where are you?”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “From where are you?” 😅 نبدأ بالعربية بـ «من أين أنت»، أما في الإنجليزية فتأتي where أولًا وfrom في النهاية، فالجملة الصحيحة “Where are you from?” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “Where is he from?” — نبدأ بالعربية بـ «من أين أنت»، أما في الإنجليزية فتأتي where أولًا وfrom في النهاية. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “From where are you”?",
+   "tip": "In Arabic we start with «من أين أنت», but in English where comes first and from comes at the end: “Where are you from?” not “From where are you?”",
+   "caption": "Do you sometimes say this? “From where are you?” 😅 In Arabic we start with «من أين أنت», but in English where comes first and from comes at the end, so the right sentence is “Where are you from?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “From where are you”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "هل تقول “From where are you”؟",
+  "keyword": "Where are you from?",
+  "value": "نبدأ بالعربية بـ «من أين أنت»، أما في الإنجليزية فتأتي where أولًا وfrom في النهاية: “Where are you from?” وليس “From where are you?”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “From where are you”؟",
+    "description": "نبدأ بالعربية بـ «من أين أنت»، أما في الإنجليزية فتأتي where أولًا وfrom في النهاية: “Where are you from?” وليس “From where are you?”\n\nهل تقول أحيانًا هذه الجملة؟ “From where are you?” 😅 نبدأ بالعربية بـ «من أين أنت»، أما في الإنجليزية فتأتي where أولًا وfrom في النهاية، فالجملة الصحيحة “Where are you from?” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "Where are you from?",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا هذه الجملة؟ “From where are you?” 😅 نبدأ بالعربية بـ «من أين أنت»، أما في الإنجليزية فتأتي where أولًا وfrom في النهاية، فالجملة الصحيحة “Where are you from?” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول “From where are you”؟\n\nنبدأ بالعربية بـ «من أين أنت»، أما في الإنجليزية فتأتي where أولًا وfrom في النهاية: “Where are you from?” وليس “From where are you?”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “From where are you”؟ نبدأ بالعربية بـ «من أين أنت»، أما في الإنجليزية فتأتي where أولًا… #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “Where is he from?” — نبدأ بالعربية بـ «من أين أنت»، أما في الإنجليزية فتأتي where أولًا وfrom في النهاية. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+  "lang": "ar"
+ }
+}

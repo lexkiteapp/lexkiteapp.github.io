@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "It is cold, not makes!",
+   "text": "For weather, say it is!",
    "pause": 0.42
   },
   {
@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "« Il fait froid » ≠ “it makes”",
-   "tip": "En français, « il fait froid ». En anglais, on dit “it is cold”.",
-   "caption": "Tu traduis « il fait » par “It makes cold today.” ? Non ! Dis “It is cold today.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.",
-   "comment": "Réponse : “is”. Pour la météo, on utilise “it is”. Teste d'autres pièges avec un quiz gratuit : {link}",
+   "tip": "Le français dit « il fait froid ». L’anglais dit “it is cold”, jamais “it makes cold”.",
+   "caption": "Vous dites “It makes cold today.” ? Pour la météo, l’anglais emploie “it is”. Dites plutôt “It is cold today.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “is” — Pour la météo, on utilise “it is”. Testez d’autres pièges avec un quiz gratuit : {link}",
    "hashtags": [
     "#apprendrelanglais",
     "#anglaisfacile",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "“It makes cold”: wrong!",
-   "tip": "French says « il fait froid ». English says “it is cold”.",
-   "caption": "Do you say “It makes cold today.”? No! Say “It is cold today.”. Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+   "tip": "For weather, English says “it is cold”, not “it makes cold”.",
+   "caption": "Do you say this? “It makes cold today.” For weather, use “it is”. Say “It is cold today.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "« Il fait froid » ≠ “it makes”",
   "keyword": "It is cold today.",
-  "value": "En français, « il fait froid ». En anglais, on dit “it is cold”.",
+  "value": "Le français dit « il fait froid ». L’anglais dit “it is cold”, jamais “it makes cold”.",
   "hashtags": [
    "#apprendrelanglais",
    "#anglaisfacile",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "« Il fait froid » ≠ “it makes”",
-    "description": "Tu traduis « il fait » par “It makes cold today.” ? Non ! Dis “It is cold today.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "description": "Le français dit « il fait froid ». L’anglais dit “it is cold”, jamais “it makes cold”.\n\nVous dites “It makes cold today.” ? Pour la météo, l’anglais emploie “it is”. Dites plutôt “It is cold today.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
     "tags": [
      "It is cold today.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Tu traduis « il fait » par “It makes cold today.” ? Non ! Dis “It is cold today.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Vous dites “It makes cold today.” ? Pour la météo, l’anglais emploie “it is”. Dites plutôt “It is cold today.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Tu traduis « il fait » par “It makes cold today.” ? Non ! Dis “It is cold today.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.\n\nlexkite.com",
+    "caption": "« Il fait froid » ≠ “it makes”\n\nLe français dit « il fait froid ». L’anglais dit “it is cold”, jamais “it makes cold”.\n\nlexkite.com",
     "hashtags": [
      "#apprendrelanglais",
      "#anglaisfacile",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "« Il fait froid » ≠ “it makes” #apprendrelanglais #anglaisfacile #coursdanglais"
+    "caption": "« Il fait froid » ≠ “it makes” Le français dit « il fait froid ». L’anglais dit “it is cold”, jamais… #apprendrelanglais #anglaisfacile #coursdanglais"
    }
   },
-  "first_comment": "Réponse : “is”. Pour la météo, on utilise “it is”. Teste d'autres pièges avec un quiz gratuit : {link}",
+  "first_comment": "Réponse : “is” — Pour la météo, on utilise “it is”. Testez d’autres pièges avec un quiz gratuit : {link}",
   "lang": "fr"
  }
 }

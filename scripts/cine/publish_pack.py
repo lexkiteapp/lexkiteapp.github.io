@@ -69,7 +69,7 @@ def desc_lines(sc, x):
              'pov': f'You are {where}. One natural answer: "{x["recap"]}"',
              'speak': f'Say it out loud with Ama {where}: "{x["recap"]}"',
              'series': f'A real mini conversation {where}. Ama says: "{x["recap"]}"'}[t]
-    return [first, f'Comment your answer below and follow for daily English ({x["series"]}).']
+    return [first, 'Practice free on lexkite.com.']
 
 def utm(link, plat, sc, lid):
     base, _, frag = link.partition('#'); q = f'utm_source={plat}&utm_medium=social&utm_campaign=cine_{sc}&utm_content={lid}'
@@ -88,10 +88,10 @@ def news_pack(p):
     hook = sp['hook']['card'].rstrip('?!.').title()
     ti = {'three': fit(f'{hook}? 3 phrases you need', f'3 phrases you need: {sp["series"][1]}'),
           'fix': fit(f'Stop saying "{c[0]["text"].rstrip(".")}"', f'Common mistake: {sp["series"][1]}'),
-          'ab': fit(f'"{c[0]["text"]}" or "{c[1]["text"]}"? Comment A or B', f'A or B? {sp["series"][1]}'),
+          'ab': fit(f'"{c[0]["text"]}" or "{c[1]["text"]}"? A or B', f'A or B? {sp["series"][1]}'),
           'ways': fit(f'3 ways to say it: polite to casual ({sp["series"][1]})', f'{hook}? Polite vs casual English'),
           'pov': fit(f'POV: {c[0]["text"]} What do you say?', f'POV: {hook}? What do you say?')}[t]
-    ans = sp['recap']['rows']; dl = [f'{sp["point"][0].upper() + sp["point"][1:]}. Save this: ' + ' / '.join(ans), 'Comment your answer below and follow for daily English.']
+    ans = sp['recap']['rows']; dl = [f'{sp["point"][0].upper() + sp["point"][1:]}. Save this: ' + ' / '.join(ans), 'Practice free on lexkite.com.']
     eco = ECO[sp['area']]; name = f'cine-{lid.replace("_", "-")}-en'; plats = {}
     tg0 = ['#learnenglish', '#englishtips'] + NEWS_TAGS[t] + ['#americanenglish', '#esl', '#englishlearning']
     for pl, cfg in PLAT.items():

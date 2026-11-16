@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_bored",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Boring or bored? Feel bored!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am boring with nothing to do.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am bored with nothing to do.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Bored is how you feel.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Bored! I am so bored.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am boring with nothing to do.",
+  "right": "I am bored with nothing to do.",
+  "strike": "boring",
+  "why": "Bored is how you feel.",
+  "memory": "I am bored.",
+  "quiz": {
+   "stem": "Nothing to do. I am so ___.",
+   "options": [
+    "bored",
+    "boring"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "¿Estás aburrido? Es “bored”",
+   "tip": "En español “aburrido” sirve para “estoy” y “soy”; en inglés: “bored” (cómo estás) y “boring” (cómo eres).",
+   "caption": "¿Dices “I am boring with nothing to do.”? 😴 “Aburrido” en español vale para ambos casos, pero en inglés no: “I am bored with nothing to do.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “bored”. “Bored” es cómo te sientes; “boring” es lo que aburre. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#vocabulario",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Are you bored? Say “bored”",
+   "tip": "Learners use “aburrido” for both “estoy” and “soy”; English splits it: “bored” (how you feel) and “boring” (what something is).",
+   "caption": "Do you say “I am boring with nothing to do.”? “aburrido” covers both ideas, but English does not: “I am bored with nothing to do.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿Estás aburrido? Es “bored”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "¿Estás aburrido? Es “bored”",
+  "keyword": "I am bored with nothing to do.",
+  "value": "En español “aburrido” sirve para “estoy” y “soy”; en inglés: “bored” (cómo estás) y “boring” (cómo eres).",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#vocabulario",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "¿Estás aburrido? Es “bored”",
+    "description": "En español “aburrido” sirve para “estoy” y “soy”; en inglés: “bored” (cómo estás) y “boring” (cómo eres).\n\n¿Dices “I am boring with nothing to do.”? 😴 “Aburrido” en español vale para ambos casos, pero en inglés no: “I am bored with nothing to do.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
+    "tags": [
+     "I am bored with nothing to do.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "¿Dices “I am boring with nothing to do.”? 😴 “Aburrido” en español vale para ambos casos, pero en inglés no: “I am bored with nothing to do.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "¿Estás aburrido? Es “bored”\n\nEn español “aburrido” sirve para “estoy” y “soy”; en inglés: “bored” (cómo estás) y “boring” (cómo eres).\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#vocabulario",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿Estás aburrido? Es “bored” En español “aburrido” sirve para “estoy” y “soy”; en inglés: “bored” (cómo está… #aprenderingles #inglesfacil #vocabulario"
+   }
+  },
+  "first_comment": "Respuesta: “bored”. “Bored” es cómo te sientes; “boring” es lo que aburre. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}

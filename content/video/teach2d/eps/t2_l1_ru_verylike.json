@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_verylike",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Very like or really like?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I very like this song.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I really like this song.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use really before like.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Really! I really like pizza.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I very like this song.",
+  "right": "I really like this song.",
+  "strike": "very like",
+  "why": "Use really before like.",
+  "memory": "Really like.",
+  "quiz": {
+   "stem": "I ___ like pizza.",
+   "options": [
+    "very",
+    "really"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“I very like” — ошибка!",
+   "tip": "«Очень нравится» — это “really like”, не “very like.”",
+   "caption": "Ты тоже говоришь “I very like this song”? 😅 По-русски «очень нравится», но “very” не ставят перед глаголом. Нужно “really like.” Правильно: “I really like this song.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “really.” Перед like — really. Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#изучениеанглийского",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Very like or really like?",
+   "tip": "Say “really like”, not “very like.”",
+   "caption": "Do you also say “I very like this song”? 😅 The word very does not go before a verb. Use “really like.” Correct: “I really like this song.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“I very like” — ошибка!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“I very like” — ошибка!",
+  "keyword": "I really like this song.",
+  "value": "«Очень нравится» — это “really like”, не “very like.”",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#изучениеанглийского",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "“I very like” — ошибка!",
+    "description": "«Очень нравится» — это “really like”, не “very like.”\n\nТы тоже говоришь “I very like this song”? 😅 По-русски «очень нравится», но “very” не ставят перед глаголом. Нужно “really like.” Правильно: “I really like this song.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #английский #изучениеанглийского #lexkite",
+    "tags": [
+     "I really like this song.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “I very like this song”? 😅 По-русски «очень нравится», но “very” не ставят перед глаголом. Нужно “really like.” Правильно: “I really like this song.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“I very like” — ошибка!\n\n«Очень нравится» — это “really like”, не “very like.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#изучениеанглийского",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“I very like” — ошибка! «Очень нравится» — это “really like”, не “very like.” #английскийязык #английский #изучениеанглийского"
+   }
+  },
+  "first_comment": "Ответ: “really.” Перед like — really. Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

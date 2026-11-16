@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_red_car",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Color first, then the thing!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have a car red.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have a red car.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say the color before the thing.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Blue bag! She has a blue bag.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have a car red.",
+  "right": "I have a red car.",
+  "strike": "car red",
+  "why": "Say the color before the thing.",
+  "memory": "Red car, blue bag.",
+  "quiz": {
+   "stem": "She has a ___.",
+   "options": [
+    "blue bag",
+    "bag blue"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "สีต้องมาก่อนคำนาม!",
+   "tip": "ภาษาไทยวางสีไว้หลัง (รถสีแดง) แต่ภาษาอังกฤษวางไว้หน้า: “a red car”",
+   "caption": "คุณเคยพูดว่า “I have a car red.” ไหม? 😅 ภาษาไทยพูดว่า “รถสีแดง” โดยวางสีไว้หลังคำนาม แต่ภาษาอังกฤษวางสีไว้หน้าคำนาม: “I have a red car.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “blue bag” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยค แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Color goes before the thing!",
+   "tip": "Thai puts the color after the thing, but English puts it before: “a red car”",
+   "caption": "Do you say “I have a car red”? 😅 Thai puts the color after the thing, but English puts it before. Say “I have a red car”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "สีต้องมาก่อนคำนาม!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "สีต้องมาก่อนคำนาม!",
+  "keyword": "I have a red car.",
+  "value": "ภาษาไทยวางสีไว้หลัง (รถสีแดง) แต่ภาษาอังกฤษวางไว้หน้า: “a red car”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "สีต้องมาก่อนคำนาม!",
+    "description": "ภาษาไทยวางสีไว้หลัง (รถสีแดง) แต่ภาษาอังกฤษวางไว้หน้า: “a red car”\n\nคุณเคยพูดว่า “I have a car red.” ไหม? 😅 ภาษาไทยพูดว่า “รถสีแดง” โดยวางสีไว้หลังคำนาม แต่ภาษาอังกฤษวางสีไว้หน้าคำนาม: “I have a red car.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "I have a red car.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “I have a car red.” ไหม? 😅 ภาษาไทยพูดว่า “รถสีแดง” โดยวางสีไว้หลังคำนาม แต่ภาษาอังกฤษวางสีไว้หน้าคำนาม: “I have a red car.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "สีต้องมาก่อนคำนาม!\n\nภาษาไทยวางสีไว้หลัง (รถสีแดง) แต่ภาษาอังกฤษวางไว้หน้า: “a red car”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "สีต้องมาก่อนคำนาม! ภาษาไทยวางสีไว้หลัง (รถสีแดง) แต่ภาษาอังกฤษวางไว้หน้า: “a red car” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “blue bag” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยค แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

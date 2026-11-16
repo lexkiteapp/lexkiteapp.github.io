@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_take_me",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Bring or take me there?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Can you bring me to the airport?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Can you take me to the airport?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Take means go with me.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Take! Please take me to school.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Can you bring me to the airport?",
+  "right": "Can you take me to the airport?",
+  "strike": "bring",
+  "why": "Take means go with me.",
+  "memory": "Take me there.",
+  "quiz": {
+   "stem": "Please ___ me to school.",
+   "options": [
+    "take",
+    "bring"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Đưa tôi đi”: bring hay take?",
+   "tip": "Tiếng Việt dùng “đưa” cho nhiều hướng, nhưng tiếng Anh nói “take me to” khi đi cùng đến một nơi khác.",
+   "caption": "Bạn có hay nói “Can you bring me to the airport?” không? 😅 Khi đi cùng đến một nơi, hãy dùng “take”: “Can you take me to the airport?” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “take.” Hãy nói to một câu nhờ ai đó đưa bạn đến một nơi, bắt đầu bằng “Can you take me.” Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#tuvungtienganh",
+    "#nguphaptienganh",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Bring or take me there?",
+   "tip": "Use “take me to” when someone goes with you to a place.",
+   "caption": "Do you often say this? “Can you bring me to the airport?” When someone goes with you to a place, use “take”: “Can you take me to the airport?” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Đưa tôi đi”: bring hay take?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“Đưa tôi đi”: bring hay take?",
+  "keyword": "Can you take me to the airport?",
+  "value": "Tiếng Việt dùng “đưa” cho nhiều hướng, nhưng tiếng Anh nói “take me to” khi đi cùng đến một nơi khác.",
+  "hashtags": [
+   "#hoctienganh",
+   "#tuvungtienganh",
+   "#nguphaptienganh",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "“Đưa tôi đi”: bring hay take?",
+    "description": "Tiếng Việt dùng “đưa” cho nhiều hướng, nhưng tiếng Anh nói “take me to” khi đi cùng đến một nơi khác.\n\nBạn có hay nói “Can you bring me to the airport?” không? 😅 Khi đi cùng đến một nơi, hãy dùng “take”: “Can you take me to the airport?” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #tuvungtienganh #nguphaptienganh #lexkite",
+    "tags": [
+     "Can you take me to the airport?",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “Can you bring me to the airport?” không? 😅 Khi đi cùng đến một nơi, hãy dùng “take”: “Can you take me to the airport?” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Đưa tôi đi”: bring hay take?\n\nTiếng Việt dùng “đưa” cho nhiều hướng, nhưng tiếng Anh nói “take me to” khi đi cùng đến một nơi khác.\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#tuvungtienganh",
+     "#nguphaptienganh",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Đưa tôi đi”: bring hay take? Tiếng Việt dùng “đưa” cho nhiều hướng, nhưng tiếng Anh nói “take me to” k… #hoctienganh #tuvungtienganh #nguphaptienganh"
+   }
+  },
+  "first_comment": "Đáp án: “take.” Hãy nói to một câu nhờ ai đó đưa bạn đến một nơi, bắt đầu bằng “Can you take me.” Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

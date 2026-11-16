@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_lot_of",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Is one word missing?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have a lot friends.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have a lot of friends.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say a lot of.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "A lot of! She has a lot of books.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have a lot friends.",
+  "right": "I have a lot of friends.",
+  "strike": "lot",
+  "why": "Say a lot of.",
+  "memory": "A lot of friends.",
+  "quiz": {
+   "stem": "She has ___ books.",
+   "options": [
+    "a lot of",
+    "a lot"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Nhiều bạn” thiếu từ nào?",
+   "tip": "“Nhiều bạn” trong tiếng Việt không cần từ nối, nhưng tiếng Anh cần “of” trong “a lot of”.",
+   "caption": "Bạn có hay nói “I have a lot friends.” không? 👫 Phải nói đủ “a lot of”: “I have a lot of friends.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “a lot of.” Hãy nói to một câu bắt đầu bằng “I have a lot of…” nhé. Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#meotienganh",
+    "#tienganhmoingay",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Is “of” missing in “a lot of”?",
+   "tip": "Vietnamese needs no extra word, but English needs “of” in “a lot of”.",
+   "caption": "Do you often say this? “I have a lot friends.” Say the whole phrase, “a lot of”: “I have a lot of friends.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Nhiều bạn” thiếu từ nào?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“Nhiều bạn” thiếu từ nào?",
+  "keyword": "I have a lot of friends.",
+  "value": "“Nhiều bạn” trong tiếng Việt không cần từ nối, nhưng tiếng Anh cần “of” trong “a lot of”.",
+  "hashtags": [
+   "#hoctienganh",
+   "#meotienganh",
+   "#tienganhmoingay",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "“Nhiều bạn” thiếu từ nào?",
+    "description": "“Nhiều bạn” trong tiếng Việt không cần từ nối, nhưng tiếng Anh cần “of” trong “a lot of”.\n\nBạn có hay nói “I have a lot friends.” không? 👫 Phải nói đủ “a lot of”: “I have a lot of friends.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #meotienganh #tienganhmoingay #lexkite",
+    "tags": [
+     "I have a lot of friends.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “I have a lot friends.” không? 👫 Phải nói đủ “a lot of”: “I have a lot of friends.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Nhiều bạn” thiếu từ nào?\n\n“Nhiều bạn” trong tiếng Việt không cần từ nối, nhưng tiếng Anh cần “of” trong “a lot of”.\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#meotienganh",
+     "#tienganhmoingay",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Nhiều bạn” thiếu từ nào? “Nhiều bạn” trong tiếng Việt không cần từ nối, nhưng tiếng Anh cần “of” trong “a… #hoctienganh #meotienganh #tienganhmoingay"
+   }
+  },
+  "first_comment": "Đáp án: “a lot of.” Hãy nói to một câu bắt đầu bằng “I have a lot of…” nhé. Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

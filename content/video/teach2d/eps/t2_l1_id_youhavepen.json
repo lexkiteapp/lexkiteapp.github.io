@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_youhavepen",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Start with “Do you…?”",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: You have a pen?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Do you have a pen?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "A question needs Do first.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Do! Do you have a pen?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "You have a pen?",
+  "right": "Do you have a pen?",
+  "strike": "You",
+  "why": "A question needs Do first.",
+  "memory": "Do you have a pen?",
+  "quiz": {
+   "stem": "___ you have a pen?",
+   "options": [
+    "Are",
+    "Do"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Do you have…?",
+   "tip": "Kita sering bertanya hanya dengan nada naik: “Kamu punya pulpen?” Di bahasa Inggris, pertanyaan perlu do di depan.",
+   "caption": "Pernah bilang begini? “You have a pen?” 😅 Mulai pertanyaan dengan do: “Do you have a pen?” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “Do”. Ucapkan dengan lantang: “Do you have a pen?” lalu tulis satu pertanyaan dengan Do you. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#pertanyaan",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you have...?",
+   "tip": "We often ask with rising tone only: “Kamu punya pulpen?” English questions need do at the start.",
+   "caption": "Ever say this? “You have a pen?” 😅 Start the question with do: “Do you have a pen?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Do you have…?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "Do you have…?",
+  "keyword": "Do you have a pen?",
+  "value": "Kita sering bertanya hanya dengan nada naik: “Kamu punya pulpen?” Di bahasa Inggris, pertanyaan perlu do di depan.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#pertanyaan",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "Do you have…?",
+    "description": "Kita sering bertanya hanya dengan nada naik: “Kamu punya pulpen?” Di bahasa Inggris, pertanyaan perlu do di depan.\n\nPernah bilang begini? “You have a pen?” 😅 Mulai pertanyaan dengan do: “Do you have a pen?” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #pertanyaan #bahasainggris #lexkite",
+    "tags": [
+     "Do you have a pen?",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “You have a pen?” 😅 Mulai pertanyaan dengan do: “Do you have a pen?” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Do you have…?\n\nKita sering bertanya hanya dengan nada naik: “Kamu punya pulpen?” Di bahasa Inggris, pertanyaan perlu do di depan.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#pertanyaan",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Do you have…? Kita sering bertanya hanya dengan nada naik: “Kamu punya pulpen?” Di bahasa Inggris, p… #belajarbahasainggris #pertanyaan #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “Do”. Ucapkan dengan lantang: “Do you have a pen?” lalu tulis satu pertanyaan dengan Do you. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

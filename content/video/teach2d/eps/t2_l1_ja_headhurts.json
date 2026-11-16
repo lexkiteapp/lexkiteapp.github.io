@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_headhurts",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Is your head pain?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: My head is pain.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My head hurts.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say hurts, not is pain.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Hurts! My head hurts.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "My head is pain.",
+  "right": "My head hurts.",
+  "strike": "is pain",
+  "why": "Say hurts, not is pain.",
+  "memory": "My head hurts.",
+  "quiz": {
+   "stem": "My back ___ today.",
+   "options": [
+    "hurts",
+    "is pain"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "「is pain」で痛いと言ってない？",
+   "tip": "「痛い」は動詞の hurt で表します。My head hurts. が自然です。",
+   "caption": "“My head is pain.”と言っていませんか？😅 「頭が痛い」の「痛い」を pain で訳してしまいがちです。“My head hurts.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“hurts”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “is pain”?",
+   "tip": "Use the verb hurt: My head hurts.",
+   "caption": "Do you say this? “My head is pain.” 😅 Pain is a noun, so it does not work here. The natural way is “My head hurts.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "「is pain」で痛いと言ってない？"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 40,
+  "seconds": 25.1,
+  "wpm": 95
+ },
+ "publish": {
+  "title": "「is pain」で痛いと言ってない？",
+  "keyword": "My head hurts.",
+  "value": "「痛い」は動詞の hurt で表します。My head hurts. が自然です。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "「is pain」で痛いと言ってない？",
+    "description": "「痛い」は動詞の hurt で表します。My head hurts. が自然です。\n\n“My head is pain.”と言っていませんか？😅 「頭が痛い」の「痛い」を pain で訳してしまいがちです。“My head hurts.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "My head hurts.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“My head is pain.”と言っていませんか？😅 「頭が痛い」の「痛い」を pain で訳してしまいがちです。“My head hurts.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "「is pain」で痛いと言ってない？\n\n「痛い」は動詞の hurt で表します。My head hurts. が自然です。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「is pain」で痛いと言ってない？ 「痛い」は動詞の hurt で表します。My head hurts. が自然です。 #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“hurts”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_giveitme",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Give me it?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Please give me it.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Please give it to me.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "When it is a short word, say give it to me.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Give it to me! Please give it to me.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Please give me it.",
+  "right": "Please give it to me.",
+  "strike": "give me it",
+  "why": "When it is a short word, say give it to me.",
+  "memory": "Please give it to me.",
+  "quiz": {
+   "stem": "Please ___.",
+   "options": [
+    "give me it",
+    "give it to me"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "「give me it」と言ってない？",
+   "tip": "it のような短い言葉は先に置いて、give it to me と言います。",
+   "caption": "“Please give me it.”と言っていませんか？😅 「私に、それを」の順番で訳して give me it にしがちです。“Please give it to me.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“give it to me”。“Please give it to me.” を声に出して言ってみよう。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “give me it”?",
+   "tip": "Say give it to me, not give me it.",
+   "caption": "Do you say this? “Please give me it.” 😅 Japanese puts me first, so people say give me it. The natural way is “Please give it to me.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "「give me it」と言ってない？"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "「give me it」と言ってない？",
+  "keyword": "Please give it to me.",
+  "value": "it のような短い言葉は先に置いて、give it to me と言います。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 46,
+  "platforms": {
+   "youtube": {
+    "title": "「give me it」と言ってない？",
+    "description": "it のような短い言葉は先に置いて、give it to me と言います。\n\n“Please give me it.”と言っていませんか？😅 「私に、それを」の順番で訳して give me it にしがちです。“Please give it to me.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "Please give it to me.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“Please give me it.”と言っていませんか？😅 「私に、それを」の順番で訳して give me it にしがちです。“Please give it to me.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "「give me it」と言ってない？\n\nit のような短い言葉は先に置いて、give it to me と言います。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「give me it」と言ってない？ it のような短い言葉は先に置いて、give it to me と言います。 #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“give it to me”。“Please give it to me.” を声に出して言ってみよう。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

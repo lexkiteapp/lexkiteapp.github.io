@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_meet_us",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "We just meet!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: We meet us at six.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: We meet at six.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say we meet.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Meet! We meet at six.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "We meet us at six.",
+  "right": "We meet at six.",
+  "strike": "us",
+  "why": "Say we meet.",
+  "memory": "We meet.",
+  "quiz": {
+   "stem": "We ___ at six.",
+   "options": [
+    "meet",
+    "meet us"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "„Wir treffen uns“ ≠ „meet us“",
+   "tip": "„Sich treffen“ ist im Deutschen reflexiv: „wir treffen uns“. Im Englischen ist „meet“ nicht reflexiv – einfach „we meet“.",
+   "caption": "„Wir treffen uns“ – aber auf Englisch ohne „us“! 🤝 Falsch: “We meet us at six.” Richtig: “We meet at six.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “meet”. Richtig heißt es: “We meet at six.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "We meet, not we meet us!",
+   "tip": "“Wir treffen uns” is reflexive. In English just say “we meet”.",
+   "caption": "We meet, not we meet us! Wrong: “We meet us at six.” Right: “We meet at six.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "„Wir treffen uns“ ≠ „meet us“"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 40,
+  "seconds": 25.1,
+  "wpm": 95
+ },
+ "publish": {
+  "title": "„Wir treffen uns“ ≠ „meet us“",
+  "keyword": "We meet at six.",
+  "value": "„Sich treffen“ ist im Deutschen reflexiv: „wir treffen uns“. Im Englischen ist „meet“ nicht reflexiv – einfach „we meet“.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "„Wir treffen uns“ ≠ „meet us“",
+    "description": "„Sich treffen“ ist im Deutschen reflexiv: „wir treffen uns“. Im Englischen ist „meet“ nicht reflexiv – einfach „we meet“.\n\n„Wir treffen uns“ – aber auf Englisch ohne „us“! 🤝 Falsch: “We meet us at six.” Richtig: “We meet at six.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "We meet at six.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "„Wir treffen uns“ – aber auf Englisch ohne „us“! 🤝 Falsch: “We meet us at six.” Richtig: “We meet at six.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "„Wir treffen uns“ ≠ „meet us“\n\n„Sich treffen“ ist im Deutschen reflexiv: „wir treffen uns“. Im Englischen ist „meet“ nicht reflexiv – einfach „we meet“.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "„Wir treffen uns“ ≠ „meet us“ „Sich treffen“ ist im Deutschen reflexiv: „wir treffen uns“. Im Englisch… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “meet”. Richtig heißt es: “We meet at six.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

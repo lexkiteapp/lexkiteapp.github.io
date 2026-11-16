@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_how_many_people",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Much or many?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: How much people are here?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: How many people are here?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Count people: use many.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Many! How many students are here?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "How much people are here?",
+  "right": "How many people are here?",
+  "strike": "much",
+  "why": "Count people: use many.",
+  "memory": "Many people.",
+  "quiz": {
+   "stem": "How ___ students are here?",
+   "options": [
+    "much",
+    "many"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Much или many с people?",
+   "tip": "С people нужно “many”: “How many people are here?”",
+   "caption": "Ты тоже говоришь “How much people are here”? 😅 По-русски «сколько» — одно слово на все случаи, а в английском людей считают словом “many.” Правильно: “How many people are here?” Послушай Аму и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “many.” С people — many. Скажи вслух: “How many people are here?” Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#учуанглийский",
+    "#английскийдляначинающих",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Much or many with people?",
+   "tip": "With people, use “many”: “How many people are here?”",
+   "caption": "Do you also say “How much people are here”? 😅 Russian uses one word for much and many, but for people English needs “many.” Correct: “How many people are here?” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Much или many с people?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "Much или many с people?",
+  "keyword": "How many people are here?",
+  "value": "С people нужно “many”: “How many people are here?”",
+  "hashtags": [
+   "#английскийязык",
+   "#учуанглийский",
+   "#английскийдляначинающих",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "Much или many с people?",
+    "description": "С people нужно “many”: “How many people are here?”\n\nТы тоже говоришь “How much people are here”? 😅 По-русски «сколько» — одно слово на все случаи, а в английском людей считают словом “many.” Правильно: “How many people are here?” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #учуанглийский #английскийдляначинающих #lexkite",
+    "tags": [
+     "How many people are here?",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “How much people are here”? 😅 По-русски «сколько» — одно слово на все случаи, а в английском людей считают словом “many.” Правильно: “How many people are here?” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Much или many с people?\n\nС people нужно “many”: “How many people are here?”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#учуанглийский",
+     "#английскийдляначинающих",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Much или many с people? С people нужно “many”: “How many people are here?” #английскийязык #учуанглийский #английскийдляначинающих"
+   }
+  },
+  "first_comment": "Ответ: “many.” С people — many. Скажи вслух: “How many people are here?” Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

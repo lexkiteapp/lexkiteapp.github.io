@@ -26,7 +26,7 @@
   },
   {
    "id": "y",
-   "text": "Difficult is for things, not for people.",
+   "text": "Start with It: it is hard for me to...",
    "pause": 0.42
   },
   {
@@ -55,7 +55,7 @@
   "wrong": "I am difficult to get up early.",
   "right": "It is hard for me to get up early.",
   "strike": "I am difficult",
-  "why": "Difficult is for things, not for people.",
+  "why": "Start with It: it is hard for me to...",
   "memory": "It is hard for me to get up early.",
   "quiz": {
    "stem": "___ is hard for me to wake up.",
@@ -67,7 +67,7 @@
   },
   "native": {
    "hook": "「私は難しい」になってない？",
-   "tip": "difficult や hard の主語は人ではなく It。It is hard for me to ~ の形で。",
+   "tip": "「私は〜するのが難しい」は I am difficult ではなく It is hard for me to ~ の形で。",
    "caption": "“I am difficult to get up early.”と言っていませんか？😅 「私は早起きが難しい」と主語を I にすると不自然に。difficult は物事に使うので、It を主語にします。 “It is hard for me to get up early.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
    "comment": "答え：“It”。It is hard for me to ～ の形を使おう。無料クイズで練習：{link}",
    "hashtags": [
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "Is “I am difficult” your sentence?",
-   "tip": "Hard and difficult describe things. Start with It is hard for me to...",
-   "caption": "Do you say “I am difficult to get up early.”? 😅 Making I the subject sounds odd. Difficult describes things, so start with It. The natural way is “It is hard for me to get up early.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+   "tip": "For things that are hard for you, start with It is hard for me to...",
+   "caption": "Do you say this? “I am difficult to get up early.” 😅 Making I the subject sounds odd here. Start with It. The natural way is “It is hard for me to get up early.” Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -98,14 +98,14 @@
  },
  "lang": "ja",
  "est": {
-  "words": 57,
-  "seconds": 33.5,
-  "wpm": 102
+  "words": 59,
+  "seconds": 34.5,
+  "wpm": 103
  },
  "publish": {
   "title": "「私は難しい」になってない？",
   "keyword": "It is hard for me to get up early.",
-  "value": "difficult や hard の主語は人ではなく It。It is hard for me to ~ の形で。",
+  "value": "「私は〜するのが難しい」は I am difficult ではなく It is hard for me to ~ の形で。",
   "hashtags": [
    "#英語学習",
    "#英会話",
@@ -113,11 +113,11 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 51,
+  "script_words": 53,
   "platforms": {
    "youtube": {
     "title": "「私は難しい」になってない？",
-    "description": "“I am difficult to get up early.”と言っていませんか？😅 「私は早起きが難しい」と主語を I にすると不自然に。difficult は物事に使うので、It を主語にします。 “It is hard for me to get up early.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "description": "「私は〜するのが難しい」は I am difficult ではなく It is hard for me to ~ の形で。\n\n“I am difficult to get up early.”と言っていませんか？😅 「私は早起きが難しい」と主語を I にすると不自然に。difficult は物事に使うので、It を主語にします。 “It is hard for me to get up early.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
     "tags": [
      "It is hard for me to get up early.",
      "learn english",
@@ -128,7 +128,7 @@
     "text": "“I am difficult to get up early.”と言っていませんか？😅 「私は早起きが難しい」と主語を I にすると不自然に。difficult は物事に使うので、It を主語にします。 “It is hard for me to get up early.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "“I am difficult to get up early.”と言っていませんか？😅 「私は早起きが難しい」と主語を I にすると不自然に。difficult は物事に使うので、It を主語にします。 “It is hard for me to get up early.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nlexkite.com",
+    "caption": "「私は難しい」になってない？\n\n「私は〜するのが難しい」は I am difficult ではなく It is hard for me to ~ の形で。\n\nlexkite.com",
     "hashtags": [
      "#英語学習",
      "#英会話",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "「私は難しい」になってない？ #英語学習 #英会話 #英語勉強"
+    "caption": "「私は難しい」になってない？ 「私は〜するのが難しい」は I am difficult ではなく It is hard for me to ~ の形で。 #英語学習 #英会話 #英語勉強"
    }
   },
   "first_comment": "答え：“It”。It is hard for me to ～ の形を使おう。無料クイズで練習：{link}",
