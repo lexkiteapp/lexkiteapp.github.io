@@ -4,7 +4,7 @@
 import fs from 'fs'; import path from 'path'; import { fileURLToPath } from 'url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const g = {};
-for (const d of ['listen', '../cpack/listen', 'readtest', '../cpack/readtest', 'toeic', '../cpack/toefl', '../cpack/cambridge/a2', '../cpack/cambridge/b1', '../cpack/cambridge/b2', '../cpack/cambridge/c1', '../cpack/cambridge/c2']) { const dir = path.join(ROOT, 'web/js', d); if (fs.existsSync(dir)) for (const f of fs.readdirSync(dir).sort()) if (f.endsWith('.js')) try { new Function('self', fs.readFileSync(path.join(dir, f), 'utf8'))(g); } catch (e) { /* bỏ tệp không phải dữ liệu */ } }
+for (const d of ['listen', '../cpack/listen', 'readtest', '../cpack/readtest', 'toeic', '../cpack/toeic', '../cpack/toefl', '../cpack/cambridge/a2', '../cpack/cambridge/b1', '../cpack/cambridge/b2', '../cpack/cambridge/c1', '../cpack/cambridge/c2']) { const dir = path.join(ROOT, 'web/js', d); if (fs.existsSync(dir)) for (const f of fs.readdirSync(dir).sort()) if (f.endsWith('.js')) try { new Function('self', fs.readFileSync(path.join(dir, f), 'utf8'))(g); } catch (e) { /* bỏ tệp không phải dữ liệu */ } }
 const src = new Set();
 const srcEn = new Set(); // lời giải Cambridge viết gốc TIẾNG ANH (docs/specs/cambridge.md) → dịch từ en (sl=en), không phải từ vi
 JSON.stringify(g.CAMBRIDGE || [], (k, v) => { if (k === 'explain' && typeof v === 'string' && v.trim()) srcEn.add(v); return v; });

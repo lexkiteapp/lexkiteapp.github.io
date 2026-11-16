@@ -165,6 +165,8 @@ Vertiefe dein Fundament außerdem mit unserem Basisleitfaden zu [Englische Präp
 
 {{youtube: | Die wichtigsten Phrasal Verbs im Englischen und wie man sie lernt}}
 
+Wo Phrasal Verbs in einer Prüfung vorkommen, zeigt der Beitrag zum [Cambridge B2 First Aufbau](/de/blog/cambridge-b2-first-aufbau-alle-pruefungsteile-erklaert/), etwa im Lückentext von Teil 1 und bei den Umformungen in Teil 4.
+
 ## Häufig gestellte Fragen
 
 ### Kann man formelle englische Verben einfach durch Phrasal Verbs ersetzen?

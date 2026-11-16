@@ -1,0 +1,752 @@
+{
+  "dependence": {
+    "mis": [
+      {
+        "w": "We should reduce our dependence of imported goods.",
+        "r": "We should reduce our dependence on imported goods.",
+        "why": "Dependence takes 'on', not 'of'."
+      },
+      {
+        "w": "Our company has a big depend on one client.",
+        "r": "Our company has a big dependence on one client.",
+        "why": "'Depend' is a verb; the noun is 'dependence'."
+      }
+    ],
+    "u": "Dependence is the noun for relying on a person, thing or system, and it is always followed by on: dependence on tourism. It is uncountable and often negative in business writing (heavy dependence, over-dependence), though neutral in science. In medicine it can mean addiction, as in alcohol dependence. Reliance is a very close synonym; dependence suggests you cannot easily manage without the thing, while reliance can be milder. The adjective is dependent, not dependant (a noun in British English)."
+  },
+  "descriptive": {
+    "mis": [
+      {
+        "w": "The report was very describe, so it was easy to follow.",
+        "r": "The report was very descriptive, so it was easy to follow.",
+        "why": "Use the adjective 'descriptive' after 'very', not the verb 'describe'."
+      },
+      {
+        "w": "Please write a descriptive of the product.",
+        "r": "Please write a description of the product.",
+        "why": "'Descriptive' is an adjective; the noun you need is 'description'."
+      }
+    ],
+    "u": "Descriptive is an adjective meaning that something tells you what a thing is like, without judging or explaining why. You will see it in descriptive titles, descriptive essays and descriptive statistics, which summarize data rather than test a theory. It contrasts with prescriptive, which says how things should be, and with analytical or argumentative. It is neutral in tone and common in academic and workplace writing. Do not use it as a noun; use description."
+  },
+  "detach": {
+    "mis": [
+      {
+        "w": "Please detach the form of the booklet.",
+        "r": "Please detach the form from the booklet.",
+        "why": "Detach takes 'from' to show what something is removed from."
+      },
+      {
+        "w": "The strap is detachable, so you can detach it easy.",
+        "r": "The strap is detachable, so you can detach it easily.",
+        "why": "A verb needs an adverb, 'easily', not the adjective 'easy'."
+      }
+    ],
+    "u": "Detach means to take one thing away from another it was fixed to, usually in a clean, planned way: detach the coupon, detach the camera lens. The pattern is detach X from Y. It is more formal and precise than take off and is common in instructions and forms. It also works for people, mentally: to detach yourself from a problem. The opposite is attach. Its adjective detached can mean emotionally distant, and in British English a detached house stands alone."
+  },
+  "devastate": {
+    "mis": [
+      {
+        "w": "The news was very devastated for the family.",
+        "r": "The news was devastating for the family.",
+        "why": "The thing causing the shock takes -ing; the person affected takes -ed."
+      },
+      {
+        "w": "The storm devastated by the whole village.",
+        "r": "The storm devastated the whole village.",
+        "why": "Do not add 'by' after an active transitive verb; devastate takes a direct object."
+      }
+    ],
+    "u": "Devastate is a strong verb meaning to destroy or badly damage a place, or to shock someone with grief. Use it for serious things such as floods, wars, crises and bad news, not for small disappointments. Both the -ing and -ed adjectives are common: a devastating loss, and she was devastated. In everyday speech devastated means extremely upset. Ruin is weaker and more general, while destroy suggests complete elimination."
+  },
+  "dine": {
+    "mis": [
+      {
+        "w": "She dined at her colleagues last night.",
+        "r": "She dined with her colleagues last night.",
+        "why": "Use 'with' for the people you eat with, and 'at' for places."
+      },
+      {
+        "w": "Let's dine the new Italian restaurant tonight.",
+        "r": "Let's dine at the new Italian restaurant tonight.",
+        "why": "Dine is intransitive and needs a preposition like 'at' before a place."
+      }
+    ],
+    "u": "Dine is a formal or polished word for eating a meal, usually dinner, and it suggests a pleasant occasion. It is intransitive, so you dine at a place, with a person, or on a dish: dine on lobster. Dine out means eat at a restaurant; dine in means eat at home or at a hotel's own restaurant. In casual conversation people simply say have dinner or eat. You will see dine in hotel, airline and restaurant marketing."
+  },
+  "disagreement": {
+    "mis": [
+      {
+        "w": "They had a disagreement for the budget.",
+        "r": "They had a disagreement over the budget.",
+        "why": "Use 'over' or 'about' for the topic of a disagreement."
+      },
+      {
+        "w": "There is a disagreement on the two reports.",
+        "r": "There is a disagreement between the two reports.",
+        "why": "Use 'between' for a difference involving two things."
+      }
+    ],
+    "u": "Disagreement is the countable noun for a situation where people hold different opinions, and it is milder than argument or fight. Common patterns are a disagreement with someone, between people, and over or about an issue. It is neutral and fits workplace writing: there was some disagreement over the schedule. In disagreement means holding opposite views. Dispute is stronger and often formal or legal, while a difference of opinion is more polite."
+  },
+  "disappointment": {
+    "mis": [
+      {
+        "w": "She was disappointment with the results.",
+        "r": "She was disappointed with the results.",
+        "why": "Describe a person's feeling with the adjective 'disappointed'."
+      },
+      {
+        "w": "To my disappointed, the flight was cancelled.",
+        "r": "To my disappointment, the flight was cancelled.",
+        "why": "'To my ...' needs the noun 'disappointment'."
+      }
+    ],
+    "u": "Disappointment is both uncountable (a feeling) and countable (a thing or person that fails expectations): the film was a disappointment. The set phrase to my disappointment introduces unwelcome news. Typical prepositions are disappointment at, with, or about a result, and disappointment in a person. The adjective for the person is disappointed, and for the thing that causes it, disappointing. It is milder than despair and common in polite complaints and reviews."
+  },
+  "discrepancy": {
+    "mis": [
+      {
+        "w": "There is a discrepancy among the invoice and the order.",
+        "r": "There is a discrepancy between the invoice and the order.",
+        "why": "Compare two items with 'between'; 'among' is for three or more."
+      },
+      {
+        "w": "We found a lot of discrepancy in the figures.",
+        "r": "We found a lot of discrepancies in the figures.",
+        "why": "Discrepancy is countable; use the plural for more than one."
+      }
+    ],
+    "u": "Discrepancy is a formal, countable noun for a difference between two things that ought to agree, such as figures, accounts, stories or records. Use discrepancy between A and B, or discrepancy in the data. It is typical in accounting, auditing, law and logistics, where it signals an error to investigate. It is more specific than difference: a difference can be normal, but a discrepancy suggests a mismatch or mistake. Inconsistency is a near synonym."
+  },
+  "disgust": {
+    "mis": [
+      {
+        "w": "The smell disgust me.",
+        "r": "The smell disgusts me.",
+        "why": "Disgust is also a verb, and it takes -s with a third-person subject."
+      },
+      {
+        "w": "I was very disgust at the dirty kitchen.",
+        "r": "I was very disgusted at the dirty kitchen.",
+        "why": "Describe how a person feels with the -ed adjective 'disgusted'."
+      }
+    ],
+    "u": "Disgust is a strong feeling of dislike, usually caused by something dirty, immoral or physically unpleasant. As a noun it is uncountable: she turned away in disgust. It also works as a verb: the smell disgusts me. Remember the adjective pair: disgusted for the person, disgusting for the thing. It is much stronger than dislike or annoyance, so use it carefully in polite business writing; distaste is a milder, more formal option."
+  },
+  "dispatch": {
+    "mis": [
+      {
+        "w": "We will dispatch you the parcel tomorrow.",
+        "r": "We will dispatch the parcel to you tomorrow.",
+        "why": "Dispatch takes the item first, then 'to' plus the recipient."
+      },
+      {
+        "w": "The goods will be dispatch on Friday.",
+        "r": "The goods will be dispatched on Friday.",
+        "why": "The passive needs the past participle 'dispatched'."
+      }
+    ],
+    "u": "Dispatch is a formal verb for sending goods, messages or people off to a destination, often with speed or an official purpose: dispatch an ambulance, dispatch an order. The pattern is dispatch something to someone or somewhere. In British English despatch is an older spelling. Dispatch is also a noun, meaning the act of sending or an official report. In logistics it sounds more precise than send; ship is common for goods moved by freight."
+  },
+  "disrupt": {
+    "mis": [
+      {
+        "w": "The storm disrupted to our schedule.",
+        "r": "The storm disrupted our schedule.",
+        "why": "Disrupt is transitive and takes a direct object without 'to'."
+      },
+      {
+        "w": "The disrupt caused long delays.",
+        "r": "The disruption caused long delays.",
+        "why": "The noun form is 'disruption', not 'disrupt'."
+      }
+    ],
+    "u": "Disrupt means to stop something from continuing normally, either briefly or in a lasting way: strikes disrupt transport, noise disrupts a class. It is transitive and is followed directly by what is affected. The noun is disruption and the adjective disruptive. In business, to disrupt a market has a positive tone, meaning a new product changes how an industry works. Interrupt is more about a break in a single action or speech, while disrupt affects a whole process."
+  },
+  "distract": {
+    "mis": [
+      {
+        "w": "Don't distract me of my work.",
+        "r": "Don't distract me from my work.",
+        "why": "Use 'from' after distract to name what you lose focus on."
+      },
+      {
+        "w": "I was distracting by the noise outside.",
+        "r": "I was distracted by the noise outside.",
+        "why": "A person who loses focus is 'distracted', not 'distracting'."
+      }
+    ],
+    "u": "Distract means to draw someone's attention away from what they are doing: loud music distracts students. The pattern is distract someone from something. Use the -ed adjective for the person (I am distracted) and -ing for the cause (a distracting noise). The noun is distraction, which can be countable (a distraction) or uncountable (to distraction means to an extreme degree). It is milder than disrupt, which affects a whole process rather than one person's focus."
+  },
+  "dive": {
+    "mis": [
+      {
+        "w": "He dived in the pool from the edge.",
+        "r": "He dived into the pool from the edge.",
+        "why": "Movement into water takes 'into'."
+      },
+      {
+        "w": "They went to scuba diving in Nha Trang.",
+        "r": "They went scuba diving in Nha Trang.",
+        "why": "After 'go' for activities, use -ing directly without 'to'."
+      }
+    ],
+    "u": "Dive means to plunge head first into water, or to fall or drop quickly. It also describes sudden falls in numbers: share prices dived. Prepositions: dive into water, dive off a board. Informally, dive in or dive into a topic means start enthusiastically. The past tense is dived in British English, and dived or dove in American English, but dived is always safe, and the participle is dived. Plummet sounds more formal for steep drops."
+  },
+  "dividend": {
+    "mis": [
+      {
+        "w": "The company gave a dividend to its shareholders last month.",
+        "r": "The company paid a dividend to its shareholders last month.",
+        "why": "The natural verb with dividend is 'pay' or 'declare', not 'give'."
+      },
+      {
+        "w": "Shareholders received a high dividend of the company.",
+        "r": "Shareholders received a high dividend from the company.",
+        "why": "The source of a payment is marked with 'from'."
+      }
+    ],
+    "u": "A dividend is a share of a company's profit paid to shareholders, usually in cash and often every quarter or year. Common verbs are pay, declare, cut and raise a dividend. It is countable: shareholders receive dividends. Dividend yield measures dividend as a percentage of the share price. It is different from interest, which is paid on loans and deposits. Figuratively, peace dividend or a dividend from hard work means a benefit gained later."
+  },
+  "downsize": {
+    "mis": [
+      {
+        "w": "The firm downsized 200 employees last year.",
+        "r": "The firm downsized its workforce by 200 employees last year.",
+        "why": "Downsize usually takes a group like 'workforce', not individual people."
+      },
+      {
+        "w": "They downsized the company by cut fifty jobs.",
+        "r": "They downsized the company by cutting fifty jobs.",
+        "why": "After 'by', use the -ing form: cutting."
+      }
+    ],
+    "u": "Downsize means to make an organization smaller, mainly by cutting jobs, and it can also mean moving to a smaller home or office. It is a business euphemism, so employees may find it cold; layoffs is blunter, while restructure sounds even softer. Typical objects are the workforce, operations or the company: downsize the workforce. Do not say downsize someone; use lay off or let go. The noun is downsizing."
+  },
+  "dull": {
+    "mis": [
+      {
+        "w": "The lecture was very bored.",
+        "r": "The lecture was very dull.",
+        "why": "Describe the thing with 'dull' or 'boring'; 'bored' describes a person."
+      },
+      {
+        "w": "I need to sharp this dull knife.",
+        "r": "I need to sharpen this dull knife.",
+        "why": "'Sharp' is an adjective; the verb is 'sharpen'."
+      }
+    ],
+    "u": "Dull is a flexible adjective with several meanings: not interesting (a dull speech), not bright (dull weather, dull colours), not sharp (a dull knife) and not strong (a dull pain). The context decides the meaning. Its opposites differ: exciting, bright, sharp. For a person it describes someone uninteresting, which is rude, while for a lesson boring is more common in speech. Dull as dishwater is a fixed idiom for very boring."
+  },
+  "elevate": {
+    "mis": [
+      {
+        "w": "She was elevated at the position of director.",
+        "r": "She was elevated to the position of director.",
+        "why": "Elevate a person to a rank takes 'to'."
+      },
+      {
+        "w": "The test showed elevate blood pressure.",
+        "r": "The test showed elevated blood pressure.",
+        "why": "Before a noun, the participle adjective 'elevated' is needed."
+      }
+    ],
+    "u": "Elevate is a formal verb meaning to raise something physically or to a higher level of rank, quality or importance: elevate standards, elevate someone to a post. It is common in medical reports, where elevated levels mean above normal, and in marketing, where a brand elevates the experience. In casual speech raise or lift is more natural. The noun is elevation, which also means height above sea level."
+  },
+  "embassy": {
+    "mis": [
+      {
+        "w": "I went to the American embassy for to get a visa.",
+        "r": "I went to the American embassy to get a visa.",
+        "why": "Purpose is expressed with 'to + verb', not 'for to'."
+      },
+      {
+        "w": "Please call the embassy staffs for details.",
+        "r": "Please call the embassy staff for details.",
+        "why": "Staff is uncountable and takes no -s in this meaning."
+      }
+    ],
+    "u": "An embassy is the main office of a country's diplomatic representatives in a foreign capital, headed by an ambassador. It deals with political relations and provides help for its citizens abroad. A consulate is a smaller office, often in other cities, that handles visas and documents. Use at the embassy for location and the Vietnamese embassy in Washington for ownership. Embassy staff can also be described as diplomats. It is a countable noun."
+  },
+  "embed": {
+    "mis": [
+      {
+        "w": "The nail was embedded to the wall.",
+        "r": "The nail was embedded in the wall.",
+        "why": "Embedded takes 'in' or 'into' for the surrounding material."
+      },
+      {
+        "w": "The habit is deep embed in our culture.",
+        "r": "The habit is deeply embedded in our culture.",
+        "why": "Use the adverb 'deeply' and the participle 'embedded'."
+      }
+    ],
+    "u": "Embed means to fix something firmly inside a surrounding mass or system: a nail embedded in wood, a journalist embedded with troops. In technology it means to place a video, link or piece of code inside a page, as in embed a video in a website. It also describes ideas that become part of a culture: deeply embedded values. Past forms are embedded, with a double d. A variant spelling imbed exists but is rare."
+  },
+  "engagement": {
+    "mis": [
+      {
+        "w": "They announced their engagement with a party.",
+        "r": "They announced their engagement at a party.",
+        "why": "The event where something happens takes 'at', not 'with'."
+      },
+      {
+        "w": "Our engagement to customers has increased.",
+        "r": "Our engagement with customers has increased.",
+        "why": "Engagement with people or groups takes 'with'."
+      }
+    ],
+    "u": "Engagement has several meanings. In marketing and work it means involvement and interest: customer engagement, staff engagement. It can also be a formal agreement to marry (an engagement ring) or a scheduled commitment, as in a speaking engagement or a prior engagement, a polite reason for declining an invitation. Use engagement with a group or project, and engagement to a person you will marry. It is usually uncountable in the first sense and countable in the others."
+  },
+  "environment": {
+    "mis": [
+      {
+        "w": "We must protect environment for our children.",
+        "r": "We must protect the environment for our children.",
+        "why": "Environment in the natural sense needs the article 'the'."
+      },
+      {
+        "w": "The company has a friendly environmental to work in.",
+        "r": "The company has a friendly environment to work in.",
+        "why": "'Environmental' is an adjective; the noun is 'environment'."
+      }
+    ],
+    "u": "Environment has two main uses. With the, it means the natural world: protect the environment, damage to the environment. Without the, with an adjective, it means the conditions around you: a friendly working environment, a stressful home environment. Do not mix them with environmental, which is the adjective (environmental policy). In computing, a development environment means the software setup used for coding. Surroundings is a close synonym for the general sense; habitat is for animals."
+  },
+  "ethics": {
+    "mis": [
+      {
+        "w": "She teaches an ethics at the university.",
+        "r": "She teaches ethics at the university.",
+        "why": "Ethics is an uncountable-style noun and takes no article here."
+      },
+      {
+        "w": "He studies ethic at university.",
+        "r": "He studies ethics at university.",
+        "why": "The subject name always ends in -s: ethics."
+      }
+    ],
+    "u": "Ethics refers to moral rules that guide behavior, or to the study of right and wrong. It ends in -s but is used with either a plural verb for standards (the ethics of the firm are questioned) or a singular verb for the subject (ethics is a required course). Common compounds are business ethics, medical ethics and a code of ethics. The adjective is ethical and the opposite unethical. Ethics is more formal and professional than morals, which relates to personal beliefs."
+  },
+  "evenly": {
+    "mis": [
+      {
+        "w": "Please divide the cake even between the children.",
+        "r": "Please divide the cake evenly between the children.",
+        "why": "A verb needs an adverb: 'evenly', not the adjective 'even'."
+      },
+      {
+        "w": "The two teams were even matched.",
+        "r": "The two teams were evenly matched.",
+        "why": "Use the adverb 'evenly' before the participle 'matched'."
+      }
+    ],
+    "u": "Evenly is an adverb meaning in a way that is equal, regular or smooth. It is common with verbs of spreading, dividing and spacing: spread the butter evenly, evenly spaced rows. Evenly matched describes two competitors of similar strength, and evenly paced means a steady speed. It is close to equally, but equally often concerns share or fairness (shared equally), while evenly emphasizes smooth distribution. Remember that even is also an adjective and a word for emphasis."
+  },
+  "excessive": {
+    "mis": [
+      {
+        "w": "The hotel charged us excess prices.",
+        "r": "The hotel charged us excessive prices.",
+        "why": "'Excess' is a noun; the adjective meaning too much is 'excessive'."
+      },
+      {
+        "w": "The cost is excessive high for us.",
+        "r": "The cost is excessively high for us.",
+        "why": "Modify an adjective with the adverb 'excessively'."
+      }
+    ],
+    "u": "Excessive describes an amount or degree that is more than is needed, reasonable or acceptable, and it always has a negative tone: excessive force, excessive noise. It is stronger than too much and common in contracts, news and reports. The adverb is excessively. The noun excess is also a modifier in some phrases, such as excess baggage. Exorbitant is similar but only for prices. Use excessive when the speaker clearly disapproves of the amount."
+  },
+  "fabric": {
+    "mis": [
+      {
+        "w": "I bought two fabrics for the curtains.",
+        "r": "I bought two pieces of fabric for the curtains.",
+        "why": "Fabric as material is mostly uncountable; use 'pieces of'."
+      },
+      {
+        "w": "This dress is made by cotton fabric.",
+        "r": "This dress is made of cotton fabric.",
+        "why": "Material in 'made of' takes 'of', not 'by'."
+      }
+    ],
+    "u": "Fabric is cloth produced by weaving or knitting, and it is the word used in clothing, furniture and curtains. It is usually uncountable: a soft fabric is fine, but we count pieces or metres of fabric. Fabrics in the plural means different types of cloth. Cloth is simpler and can mean a rag, while textile is more technical and industrial. Figuratively, the fabric of society means its basic structure."
+  },
+  "faulty": {
+    "mis": [
+      {
+        "w": "The machine is fault and needs repair.",
+        "r": "The machine is faulty and needs repair.",
+        "why": "After 'is', the adjective 'faulty' is needed, not the noun 'fault'."
+      },
+      {
+        "w": "I want to return the faulty one because it is break.",
+        "r": "I want to return the faulty one because it is broken.",
+        "why": "A state needs the participle adjective 'broken'."
+      }
+    ],
+    "u": "Faulty describes something that does not work correctly because of a defect: faulty wiring, a faulty switch. It is the usual word in complaints and product returns, and it is common in British English. Defective is a close, more formal synonym used in law and manufacturing. A person is not faulty, but their reasoning can be: faulty logic. Do not confuse the adjective with the noun fault, meaning blame or a defect."
+  },
+  "finalize": {
+    "mis": [
+      {
+        "w": "We finalized the contract for sign next week.",
+        "r": "We finalized the contract for signing next week.",
+        "why": "After a preposition use a gerund, not a base verb."
+      },
+      {
+        "w": "We will finalize the details until Friday.",
+        "r": "We will finalize the details by Friday.",
+        "why": "A deadline takes 'by'; 'until' is for something continuing up to a time."
+      }
+    ],
+    "u": "Finalize means to complete the last details of a plan or agreement so that it is ready: finalize the schedule, finalize a deal. It is common in business and sounds more formal than finish. It does not mean the end of an activity, but the point of making something official. In British English the spelling finalise is also used. A related noun is finalization. Settle often suits arguments, while conclude suits meetings or talks."
+  },
+  "flaw": {
+    "mis": [
+      {
+        "w": "The plan has a flaw of the logic.",
+        "r": "The plan has a flaw in the logic.",
+        "why": "A flaw inside something takes 'in'."
+      },
+      {
+        "w": "The diamond has some flaw.",
+        "r": "The diamond has some flaws.",
+        "why": "Flaw is countable; use the plural for several."
+      }
+    ],
+    "u": "A flaw is a mistake, weakness or imperfection in something, which can make it less effective or valuable: a flaw in the design, a flaw in someone's argument. It is countable, and the pattern is a flaw in something. In people, it is a character flaw. The adjective flawed describes something with problems, while flawless means perfect. Defect is more technical and used for manufactured goods, but flaw works for arguments, plans, and gems."
+  },
+  "fleet": {
+    "mis": [
+      {
+        "w": "Our company has a fleet vehicles of fifty trucks.",
+        "r": "Our company has a fleet of fifty trucks.",
+        "why": "The pattern is 'a fleet of + plural noun'."
+      },
+      {
+        "w": "We own a fleet of fifty truck.",
+        "r": "We own a fleet of fifty trucks.",
+        "why": "After 'fleet of' and a number, the noun must be plural."
+      }
+    ],
+    "u": "A fleet is a group of vehicles, ships or aircraft owned or managed by one organization: a fleet of delivery vans, an airline's fleet. It began as a naval word for ships sailing together. In business, fleet management covers maintenance, fuel and drivers. It is a collective noun, so British English may use a plural verb, while American English prefers a singular verb. A fleet is bigger and more organized than a convoy, which moves together for one trip."
+  },
+  "freight": {
+    "mis": [
+      {
+        "w": "We sent many freights by sea.",
+        "r": "We sent a lot of freight by sea.",
+        "why": "Freight is uncountable, so it has no plural 'freights'."
+      },
+      {
+        "w": "The goods will travel in air freight.",
+        "r": "The goods will travel by air freight.",
+        "why": "The means of transport takes 'by'."
+      }
+    ],
+    "u": "Freight means goods carried by ship, plane, truck or train, and also the cost or system of carrying them: air freight, freight charges. It is uncountable and mostly used in the business of transport. In American English freight can refer to all kinds of transport, while in British English cargo is typical for ships and aircraft. Freight forwarder is a company that arranges shipments. Shipment is a single consignment, while freight is the goods in general."
+  },
+  "fundraise": {
+    "mis": [
+      {
+        "w": "The club fundraised 5,000 dollars for charity.",
+        "r": "The club raised 5,000 dollars for charity.",
+        "why": "Use 'raise' with an amount; fundraise is used with 'for'."
+      },
+      {
+        "w": "We are fundraising to the local hospital.",
+        "r": "We are fundraising for the local hospital.",
+        "why": "Fundraise takes 'for' to name the cause."
+      }
+    ],
+    "u": "Fundraise is a verb meaning to collect money for a cause, charity or project, often through events, campaigns and donations. It is intransitive and usually followed by for: fundraise for the school. Raise funds is a more natural alternative in formal speech. The noun is fundraising or fundraiser, which can mean either the event or the person organizing it. Do not say fundraise money; you raise money or fundraise for a cause."
+  },
+  "graphic": {
+    "mis": [
+      {
+        "w": "He gave a graphic of the accident.",
+        "r": "He gave a graphic account of the accident.",
+        "why": "As an adjective, graphic needs a noun like 'account'."
+      },
+      {
+        "w": "She studies graphics design at university.",
+        "r": "She studies graphic design at university.",
+        "why": "Use the singular adjective 'graphic' before 'design'."
+      }
+    ],
+    "u": "Graphic is an adjective with two main uses. Relating to drawing, design or visual art: graphic design, a graphic artist, a graphic novel. Or very detailed, especially about something violent or unpleasant: a graphic description, graphic scenes. Warnings say contains graphic content. It can also be a noun for a computer picture, but graphics is more common. Vivid is similar for descriptions, while explicit stresses openness about sensitive topics."
+  },
+  "graphics": {
+    "mis": [
+      {
+        "w": "The graphics of this game is amazing.",
+        "r": "The graphics of this game are amazing.",
+        "why": "In the sense of images, graphics takes a plural verb."
+      },
+      {
+        "w": "I need a new graphic card for my PC.",
+        "r": "I need a new graphics card for my PC.",
+        "why": "The fixed compound is 'graphics card'."
+      }
+    ],
+    "u": "Graphics refers to visual images, especially those produced by a computer or used in design: computer graphics, game graphics, motion graphics. In this sense it takes a plural verb: the graphics look great. As a subject, as in graphics at university, it can take a singular verb. A graphics card handles image processing in a computer. The term is broader than graphic, which is mostly an adjective or a single image. Visuals is a common informal alternative."
+  },
+  "guidance": {
+    "mis": [
+      {
+        "w": "She gave me a useful guidance.",
+        "r": "She gave me useful guidance.",
+        "why": "Guidance is uncountable, so it cannot take 'a'."
+      },
+      {
+        "w": "I need guidances on my project.",
+        "r": "I need guidance on my project.",
+        "why": "Never add -s to guidance; use 'some' or 'a piece of' if needed."
+      }
+    ],
+    "u": "Guidance means help, advice or direction given to someone, especially by an experienced person. It is uncountable, so say some guidance or a piece of guidance. Typical phrases are seek guidance, provide guidance and under the guidance of a teacher. Career guidance helps students choose jobs, and parental guidance is a film label. It is more formal than advice and suggests ongoing support. The verb is guide."
+  },
+  "handy": {
+    "mis": [
+      {
+        "w": "The hotel is handy of the station.",
+        "r": "The hotel is handy for the station.",
+        "why": "Handy takes 'for' to show what a place is close to."
+      },
+      {
+        "w": "A flashlight will come in handily.",
+        "r": "A flashlight will come in handy.",
+        "why": "The idiom 'come in handy' uses the adjective."
+      }
+    ],
+    "u": "Handy is an informal adjective meaning useful, convenient or easy to reach: a handy tool, a handy tip. It is common in the idiom come in handy, meaning prove useful, and in keep something handy, meaning near. Handy for can describe a place close to something: the flat is handy for the station. It is warmer and less formal than convenient. It can also describe a person skilled with their hands, as in a handyman."
+  },
+  "hesitant": {
+    "mis": [
+      {
+        "w": "He is hesitant of investing in the company.",
+        "r": "He is hesitant about investing in the company.",
+        "why": "Hesitant takes 'about' + gerund, or 'to' + base verb."
+      },
+      {
+        "w": "I am hesitant to answering the question.",
+        "r": "I am hesitant to answer the question.",
+        "why": "After 'hesitant to' use the base verb."
+      }
+    ],
+    "u": "Hesitant describes someone slow to speak or act because they are unsure or nervous. It is followed by to + verb or about + gerund: I'm hesitant to commit, hesitant about moving. It can also describe manner: a hesitant voice, a hesitant start. It is milder than reluctant, which suggests unwillingness, because a hesitant person might still agree later. The noun is hesitation and the verb hesitate, often in the polite phrase do not hesitate to ask."
+  },
+  "highway": {
+    "mis": [
+      {
+        "w": "We drove through the highway to Hanoi.",
+        "r": "We drove along the highway to Hanoi.",
+        "why": "Use 'along' or 'on' for travelling on a road."
+      },
+      {
+        "w": "There is a heavy traffic on the highway.",
+        "r": "There is heavy traffic on the highway.",
+        "why": "Traffic is uncountable and takes no 'a'."
+      }
+    ],
+    "u": "Highway is a main public road connecting towns or cities. In American English it means a large road, often with several lanes, while British English prefers motorway for fast roads and main road otherwise. Common phrases: highway code (UK driving rules), highway patrol, and highway robbery for an unfairly high price. The compound is written as one word. Freeway and expressway are American terms for highways with limited access."
+  },
+  "humidity": {
+    "mis": [
+      {
+        "w": "The humidity are very high today.",
+        "r": "The humidity is very high today.",
+        "why": "Humidity is singular and uncountable, so it takes 'is'."
+      },
+      {
+        "w": "There is a lot of humid in the air.",
+        "r": "There is a lot of humidity in the air.",
+        "why": "'Humid' is an adjective; the noun is 'humidity'."
+      }
+    ],
+    "u": "Humidity is the amount of water vapor in the air, and it is uncountable. We speak of high or low humidity and relative humidity as a percentage. In hot countries, high humidity makes the air feel sticky and heavy. The adjective is humid. Moisture is wetter and more general, while dampness describes wet surfaces in buildings. Use humidity for climate, weather reports, and manufacturing or storage conditions."
+  },
+  "imperative": {
+    "mis": [
+      {
+        "w": "Imperative is that all staff attend.",
+        "r": "It is imperative that all staff attend.",
+        "why": "Imperative is an adjective and needs 'It is' as the subject."
+      },
+      {
+        "w": "It is imperative of us to act.",
+        "r": "It is imperative for us to act.",
+        "why": "The pattern is imperative for + person + to."
+      }
+    ],
+    "u": "Imperative is a formal adjective meaning absolutely necessary: it is imperative that we act now. A common pattern is imperative that + base verb in formal writing, or imperative for someone to do something. In grammar, the imperative mood gives commands, such as Close the door. As a noun, an imperative is something that must be done, as in a moral imperative. It is stronger than important and close to essential or vital."
+  },
+  "inclusive": {
+    "mis": [
+      {
+        "w": "The price is inclusive tax.",
+        "r": "The price is inclusive of tax.",
+        "why": "Inclusive needs 'of' before a noun."
+      },
+      {
+        "w": "The fee is inclusive with tax.",
+        "r": "The fee is inclusive of tax.",
+        "why": "Inclusive takes 'of', not 'with'."
+      }
+    ],
+    "u": "Inclusive means including everything, or welcoming all people. For price and range, use inclusive of: the fee is inclusive of tax; Monday to Friday inclusive (both days count). For people, an inclusive workplace gives everyone equal access. All-inclusive is a hyphenated adjective for packages that include meals and activities. The opposite is exclusive. In everyday speech, including is more common than inclusive of."
+  },
+  "indeed": {
+    "mis": [
+      {
+        "w": "Indeed you will come to the party?",
+        "r": "Will you really come to the party?",
+        "why": "Indeed confirms a statement; it is not a question word."
+      },
+      {
+        "w": "It is very good indeed, but I am not agree.",
+        "r": "It is very good indeed, but I do not agree.",
+        "why": "Agree is a verb, so 'am not' is wrong."
+      }
+    ],
+    "u": "Indeed is an adverb used to confirm or strengthen a previous statement: it was a difficult year; indeed, we nearly closed. It can follow very plus an adjective for emphasis: very good indeed. In answers, yes, indeed is formal agreement. It is more literary than really or in fact and sometimes sounds old-fashioned in speech. Avoid putting it before every sentence; use it where it adds emphasis or a stronger point."
+  },
+  "individually": {
+    "mis": [
+      {
+        "w": "The students were tested individual.",
+        "r": "The students were tested individually.",
+        "why": "A verb needs an adverb, 'individually'."
+      },
+      {
+        "w": "Each of the items is wrapped individual.",
+        "r": "Each of the items is wrapped individually.",
+        "why": "The participle 'wrapped' is modified by an adverb."
+      }
+    ],
+    "u": "Individually is an adverb meaning separately, one at a time, rather than as a group: the candidates were interviewed individually. It also describes products packaged one by one: individually wrapped sweets. It can mean in a personal way, as in each person can respond individually. The adjective is individual and the noun individual means a single person. Singly is more formal, and separately is the most common alternative."
+  },
+  "inefficient": {
+    "mis": [
+      {
+        "w": "The process is not efficiency and wastes time.",
+        "r": "The process is not efficient and wastes time.",
+        "why": "After 'is not', use the adjective 'efficient'."
+      },
+      {
+        "w": "This heater is ineffective because it wastes so much electricity.",
+        "r": "This heater is inefficient because it wastes so much electricity.",
+        "why": "Wasting resources is inefficient; ineffective means not producing the result."
+      }
+    ],
+    "u": "Inefficient describes something that wastes time, money, energy or effort, and does not produce the best result: an inefficient heating system. It is about the way something works, while ineffective is about whether it works at all. A system can be effective but inefficient. The pattern is inefficient in its use of or at doing something. The noun is inefficiency. Wasteful stresses loss of resources, and unproductive stresses poor output."
+  },
+  "inference": {
+    "mis": [
+      {
+        "w": "We can make an inference of the data.",
+        "r": "We can make an inference from the data.",
+        "why": "The evidence source takes 'from'."
+      },
+      {
+        "w": "She inference that he was late.",
+        "r": "She inferred that he was late.",
+        "why": "'Inference' is a noun; the verb is 'infer'."
+      }
+    ],
+    "u": "An inference is a conclusion you reach from evidence and reasoning, not from direct statement: from her smile, I drew the inference that she agreed. It is countable and common in logic, science and reading tests. Typical verbs are make, draw and support. The verb is infer, and it is often confused with imply: speakers imply, listeners infer. Statistical inference means estimating facts about a population from a sample. Deduction is stricter and more certain."
+  },
+  "inflate": {
+    "mis": [
+      {
+        "w": "He inflated the tyre by a pump.",
+        "r": "He inflated the tyre with a pump.",
+        "why": "The tool used takes 'with', not 'by'."
+      },
+      {
+        "w": "Prices are inflating by the shops.",
+        "r": "Prices are being inflated by the shops.",
+        "why": "Prices cannot inflate themselves here; the passive is needed."
+      }
+    ],
+    "u": "Inflate means to fill something with air or gas, such as a tyre or balloon, and to make something larger or higher than it should be: inflate prices, inflate profits. It is often negative in finance and news, suggesting prices or numbers are artificially high. The opposite is deflate. The noun is inflation, which describes general rising prices in an economy. Exaggerate is more about statements, whereas inflate is used for amounts and size."
+  },
+  "ink": {
+    "mis": [
+      {
+        "w": "We need to buy more inks for the printer.",
+        "r": "We need to buy more ink for the printer.",
+        "why": "Ink as a substance is uncountable and has no plural."
+      },
+      {
+        "w": "Please sign with ink pen.",
+        "r": "Please sign in ink.",
+        "why": "'In ink' is the set phrase for using ink."
+      }
+    ],
+    "u": "Ink is a colored liquid used for writing, drawing and printing. As a material it is usually uncountable: the printer ran out of ink. The set phrase in ink means written with a pen, not pencil: sign in ink. You buy printer ink in cartridges, and tattoos use ink too. Toner is the powder used in laser printers, not liquid ink. Idiomatically, to ink a deal means to sign it, and ink is a verb in informal news."
+  },
+  "intently": {
+    "mis": [
+      {
+        "w": "She listened intent to the speaker.",
+        "r": "She listened intently to the speaker.",
+        "why": "The verb 'listened' needs an adverb, 'intently'."
+      },
+      {
+        "w": "He listened intently the teacher.",
+        "r": "He listened intently to the teacher.",
+        "why": "Listen always needs 'to' before its object."
+      }
+    ],
+    "u": "Intently is an adverb meaning with great concentration and focus: she listened intently, he stared intently at the map. It is common with verbs of perception, such as listen, watch, look and stare. It is a little literary. The adjective is intent, which usually appears in the pattern intent on doing something. Attentively is more formal and neutral, while closely is more everyday. Intently suggests strong interest, not just following carefully."
+  },
+  "interactive": {
+    "mis": [
+      {
+        "w": "This lesson is very interact and fun.",
+        "r": "This lesson is very interactive and fun.",
+        "why": "After 'very', use the adjective interactive, not the verb interact."
+      },
+      {
+        "w": "Students can interactive with the website.",
+        "r": "Students can interact with the website.",
+        "why": "After 'can' a verb is needed: 'interact', not the adjective."
+      }
+    ],
+    "u": "Interactive describes something that allows two-way communication, so the user can respond and the system reacts: an interactive map, an interactive lesson. In education, it means students take part instead of just listening. In technology it refers to games, websites and displays that respond to input. The noun is interaction, and the verb is interact. Hands-on emphasizes practical experience, while participatory emphasizes involvement in decisions."
+  },
+  "interrupt": {
+    "mis": [
+      {
+        "w": "Sorry for interrupt you.",
+        "r": "Sorry for interrupting you.",
+        "why": "After a preposition, use the -ing form."
+      },
+      {
+        "w": "He interrupted to me while I was speaking.",
+        "r": "He interrupted me while I was speaking.",
+        "why": "Interrupt is transitive and takes no 'to'."
+      }
+    ],
+    "u": "Interrupt means to stop someone while they are speaking or working, or to break the continuity of something: interrupt a meeting, interrupt the signal. It is transitive: interrupt someone. A polite opener is sorry to interrupt. As an intransitive verb, it can stand alone: please do not interrupt. The noun is interruption. Interrupt is about one break in an action, whereas disrupt affects a whole system or process more seriously."
+  },
+  "introductory": {
+    "mis": [
+      {
+        "w": "The shop has an introduction offer this month.",
+        "r": "The shop has an introductory offer this month.",
+        "why": "The adjective before 'offer' is 'introductory'."
+      },
+      {
+        "w": "She teaches an introductory of grammar.",
+        "r": "She teaches an introductory course in grammar.",
+        "why": "'Introductory' is an adjective and needs a noun."
+      }
+    ],
+    "u": "Introductory is an adjective meaning first or serving as an introduction: an introductory course, introductory remarks, an introductory paragraph. In marketing, an introductory offer or price is a special low rate for new customers. It describes level too: an introductory textbook is for beginners. It is not used as a noun. The noun is introduction and the verb introduce. Preliminary is for something that comes before the main part, while beginner is for people."
+  }
+}
