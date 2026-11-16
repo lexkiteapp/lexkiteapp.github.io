@@ -514,7 +514,7 @@ const CLI_OPS = {
     const pick = b.clip ? fillPick(items.filter(i => i && i.id === String(b.clip)), lang, taken, held, 1)[0] : fillPick(items, lang, taken, held, 1)[0];
     if (!pick) return { status: 404, error: 'no-clip', lang };
     const r = await approveClips(db, { ids: [pick.id], privacy: 'private' }, { email: 'probe@lexkite.com' }, env); if (!(r.queued || []).length) return { status: 409, error: 'not-approved', skipped: r.skipped };
-    await run(db, "UPDATE yt_queue SET channel_id = ?, privacy = 'public', publish_at = NULL, approved_by = 'probe' WHERE clip = ? AND status = 'queued'", ch.channel_id, pick.id);
+    await run(db, "UPDATE yt_queue SET channel_id = ?, privacy = 'public', publish_at = NULL, approved_by = 'probe', approved_at = 1 WHERE clip = ? AND status = 'queued'", ch.channel_id, pick.id);
     return { ok: true, clip: pick.id, channel_id: ch.channel_id, title: ch.title, lang };
   },
   async probe_status(db, b, who, env) {
