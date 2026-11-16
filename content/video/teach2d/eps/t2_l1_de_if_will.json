@@ -11,22 +11,22 @@
  "lines": [
   {
    "id": "h",
-   "text": "After if, no will!",
+   "text": "Sure? Say when, not if!",
    "pause": 0.42
   },
   {
    "id": "w",
-   "text": "Many learners say: If it will rain, I stay home.",
+   "text": "Many learners say: If I get home, I will call you.",
    "pause": 0.42
   },
   {
    "id": "r",
-   "text": "Better: If it rains, I will stay home.",
+   "text": "Better: When I get home, I will call you.",
    "pause": 0.42
   },
   {
    "id": "y",
-   "text": "After if, use the present.",
+   "text": "For something sure, use when.",
    "pause": 0.42
   },
   {
@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "Rains! If it rains tomorrow, I will stay home.",
+   "text": "When! When the film ends, we will go home.",
    "pause": 0.42
   },
   {
@@ -52,24 +52,24 @@
   }
  ],
  "data": {
-  "wrong": "If it will rain, I stay home.",
-  "right": "If it rains, I will stay home.",
-  "strike": "will rain",
-  "why": "After if, use the present.",
-  "memory": "If rains, will stay.",
+  "wrong": "If I get home, I will call you.",
+  "right": "When I get home, I will call you.",
+  "strike": "If",
+  "why": "For something sure, use when.",
+  "memory": "Sure: when.",
   "quiz": {
-   "stem": "If it ___ tomorrow, I will stay home.",
+   "stem": "___ the film ends, we will go home.",
    "options": [
-    "will rain",
-    "rains"
+    "If",
+    "When"
    ],
    "answer": 1
   },
   "native": {
-   "hook": "Nach „if“ kein „will“!",
-   "tip": "Im „if“-Satz steht das Present: „If it rains“. Das „will“ kommt in den Hauptsatz.",
-   "caption": "Wann benutzt du „will“ im „if“-Satz? ☔ Falsch: “If it will rain, I stay home.” Richtig: “If it rains, I will stay home.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.",
-   "comment": "Lösung: “rains”. Richtig heißt es: “If it rains, I will stay home.” Übe mehr mit einem kostenlosen Quiz: {link}",
+   "hook": "„Wenn“ ist nicht immer „if“!",
+   "tip": "Wenn etwas sicher passiert, sagen Sie „when“, nicht „if“.",
+   "caption": "Ist „wenn“ immer „if“? ☔ Falsch: “If I get home, I will call you.” Richtig: “When I get home, I will call you.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “When”. Richtig heißt es: “When I get home, I will call you.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
    "hashtags": [
     "#englischlernen",
     "#englischtipps",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "When do you use “will” in an “if” sentence?",
-   "tip": "In the “if” clause use the present: “If it rains”. “Will” goes in the main clause.",
-   "caption": "When do you use “will” in an “if” sentence? Wrong: “If it will rain, I stay home.” Right: “If it rains, I will stay home.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+   "hook": "“Wenn” is not always “if”!",
+   "tip": "For something sure, say “when”, not “if”.",
+   "caption": "Is “wenn” always “if”? Wrong: “If I get home, I will call you.” Right: “When I get home, I will call you.” Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -91,21 +91,21 @@
  },
  "hook": {
   "line": "h",
-  "text": "Nach „if“ kein „will“!"
+  "text": "„Wenn“ ist nicht immer „if“!"
  },
  "src": {
   "l1": true
  },
  "lang": "de",
  "est": {
-  "words": 52,
-  "seconds": 31.0,
-  "wpm": 101
+  "words": 55,
+  "seconds": 32.5,
+  "wpm": 102
  },
  "publish": {
-  "title": "Nach „if“ kein „will“!",
-  "keyword": "If it rains, I will stay home.",
-  "value": "Im „if“-Satz steht das Present: „If it rains“. Das „will“ kommt in den Hauptsatz.",
+  "title": "„Wenn“ ist nicht immer „if“!",
+  "keyword": "When I get home, I will call you.",
+  "value": "Wenn etwas sicher passiert, sagen Sie „when“, nicht „if“.",
   "hashtags": [
    "#englischlernen",
    "#englischtipps",
@@ -113,22 +113,22 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 46,
+  "script_words": 49,
   "platforms": {
    "youtube": {
-    "title": "Nach „if“ kein „will“!",
-    "description": "Wann benutzt du „will“ im „if“-Satz? ☔ Falsch: “If it will rain, I stay home.” Richtig: “If it rains, I will stay home.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "title": "„Wenn“ ist nicht immer „if“!",
+    "description": "Wenn etwas sicher passiert, sagen Sie „when“, nicht „if“.\n\nIst „wenn“ immer „if“? ☔ Falsch: “If I get home, I will call you.” Richtig: “When I get home, I will call you.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
     "tags": [
-     "If it rains, I will stay home.",
+     "When I get home, I will call you.",
      "learn english",
      "de"
     ]
    },
    "facebook": {
-    "text": "Wann benutzt du „will“ im „if“-Satz? ☔ Falsch: “If it will rain, I stay home.” Richtig: “If it rains, I will stay home.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Ist „wenn“ immer „if“? ☔ Falsch: “If I get home, I will call you.” Richtig: “When I get home, I will call you.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Wann benutzt du „will“ im „if“-Satz? ☔ Falsch: “If it will rain, I stay home.” Richtig: “If it rains, I will stay home.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.\n\nlexkite.com",
+    "caption": "„Wenn“ ist nicht immer „if“!\n\nWenn etwas sicher passiert, sagen Sie „when“, nicht „if“.\n\nlexkite.com",
     "hashtags": [
      "#englischlernen",
      "#englischtipps",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "Nach „if“ kein „will“! #englischlernen #englischtipps #sprachenlernen"
+    "caption": "„Wenn“ ist nicht immer „if“! Wenn etwas sicher passiert, sagen Sie „when“, nicht „if“. #englischlernen #englischtipps #sprachenlernen"
    }
   },
-  "first_comment": "Lösung: “rains”. Richtig heißt es: “If it rains, I will stay home.” Übe mehr mit einem kostenlosen Quiz: {link}",
+  "first_comment": "Lösung: “When”. Richtig heißt es: “When I get home, I will call you.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
   "lang": "de"
  }
 }

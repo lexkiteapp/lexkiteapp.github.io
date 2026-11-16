@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_wash_hands",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "I wash my hands first.",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I wash the hands before dinner.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I wash my hands before dinner.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "With hands, we say my, your, her.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Her! She brushes her hair.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I wash the hands before dinner.",
+  "right": "I wash my hands before dinner.",
+  "strike": "the",
+  "why": "With hands, we say my, your, her.",
+  "memory": "Hands: my.",
+  "quiz": {
+   "stem": "She brushes ___ hair every night.",
+   "options": [
+    "the",
+    "her"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Les mains : “my hands”",
+   "tip": "En français, on dit « je me lave les mains », sans possessif. En anglais, on dit “my hands”.",
+   "caption": "Vous dites “I wash the hands before dinner.” ? En français, on dit « je me lave les mains », sans possessif. En anglais, on dit “my hands”. Dites plutôt “I wash my hands before dinner.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “I wash my hands before dinner.” — En français, on dit « je me lave les mains », sans possessif. En anglais, on dit “my hands”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “my hands”!",
+   "tip": "French says « les mains » with no “my”. English says “my hands”.",
+   "caption": "Do you say this? “I wash the hands before dinner.” French says « les mains » with no “my”. English says “my hands”. Say “I wash my hands before dinner.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Les mains : “my hands”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Les mains : “my hands”",
+  "keyword": "I wash my hands before dinner.",
+  "value": "En français, on dit « je me lave les mains », sans possessif. En anglais, on dit “my hands”.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "Les mains : “my hands”",
+    "description": "En français, on dit « je me lave les mains », sans possessif. En anglais, on dit “my hands”.\n\nVous dites “I wash the hands before dinner.” ? En français, on dit « je me lave les mains », sans possessif. En anglais, on dit “my hands”. Dites plutôt “I wash my hands before dinner.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "I wash my hands before dinner.",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Vous dites “I wash the hands before dinner.” ? En français, on dit « je me lave les mains », sans possessif. En anglais, on dit “my hands”. Dites plutôt “I wash my hands before dinner.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Les mains : “my hands”\n\nEn français, on dit « je me lave les mains », sans possessif. En anglais, on dit “my hands”.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Les mains : “my hands” En français, on dit « je me lave les mains », sans possessif. En anglais, on… #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “I wash my hands before dinner.” — En français, on dit « je me lave les mains », sans possessif. En anglais, on dit “my hands”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}

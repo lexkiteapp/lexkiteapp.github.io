@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_left_keys",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Forgot or left?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I forgot my keys at home.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I left my keys at home.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Left means not taking it.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Left! I left my phone at home.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I forgot my keys at home.",
+  "right": "I left my keys at home.",
+  "strike": "forgot",
+  "why": "Left means not taking it.",
+  "memory": "Left my keys.",
+  "quiz": {
+   "stem": "I ___ my phone at home.",
+   "options": [
+    "forgot",
+    "left"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Forgot или left?",
+   "tip": "Оставить дома — “leave”: “I left my keys at home.”",
+   "caption": "Ты тоже говоришь “I forgot my keys at home”? 😅 По-русски «забыл ключи дома» звучит естественно, но по-английски “forgot” значит просто «не вспомнил». Если вещь осталась в каком-то месте, нужно “left.” Правильно: “I left my keys at home.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “left.” Если вещь осталась дома, это left. Скажи вслух, что ты сегодня оставил дома: “I left my … at home.” Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#учуанглийский",
+    "#английскийдляначинающих",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Forgot or left?",
+   "tip": "To leave something at home, use “left”: “I left my keys at home.”",
+   "caption": "Do you also say “I forgot my keys at home”? 😅 In Russian one word covers both ideas, but in English “forgot” means you did not remember. If a thing stays in a place, use “left.” Correct: “I left my keys at home.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Forgot или left?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Forgot или left?",
+  "keyword": "I left my keys at home.",
+  "value": "Оставить дома — “leave”: “I left my keys at home.”",
+  "hashtags": [
+   "#английскийязык",
+   "#учуанглийский",
+   "#английскийдляначинающих",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "Forgot или left?",
+    "description": "Оставить дома — “leave”: “I left my keys at home.”\n\nТы тоже говоришь “I forgot my keys at home”? 😅 По-русски «забыл ключи дома» звучит естественно, но по-английски “forgot” значит просто «не вспомнил». Если вещь осталась в каком-то месте, нужно “left.” Правильно: “I left my keys at home.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #учуанглийский #английскийдляначинающих #lexkite",
+    "tags": [
+     "I left my keys at home.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “I forgot my keys at home”? 😅 По-русски «забыл ключи дома» звучит естественно, но по-английски “forgot” значит просто «не вспомнил». Если вещь осталась в каком-то месте, нужно “left.” Правильно: “I left my keys at home.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Forgot или left?\n\nОставить дома — “leave”: “I left my keys at home.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#учуанглийский",
+     "#английскийдляначинающих",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Forgot или left? Оставить дома — “leave”: “I left my keys at home.” #английскийязык #учуанглийский #английскийдляначинающих"
+   }
+  },
+  "first_comment": "Ответ: “left.” Если вещь осталась дома, это left. Скажи вслух, что ты сегодня оставил дома: “I left my … at home.” Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

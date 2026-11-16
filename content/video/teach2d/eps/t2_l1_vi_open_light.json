@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_open_light",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Open the light? Not in English!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Please open the light.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Please turn on the light.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Lights turn on. They do not open.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Turn on! Please turn on the computer.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Please open the light.",
+  "right": "Please turn on the light.",
+  "strike": "open",
+  "why": "Lights turn on. They do not open.",
+  "memory": "Turn on the light.",
+  "quiz": {
+   "stem": "Please ___ the computer.",
+   "options": [
+    "turn on",
+    "open"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Đừng nói “open the light” nhé!",
+   "tip": "Tiếng Việt nói “mở đèn”, nhưng tiếng Anh dùng “turn on” cho đèn, TV, quạt.",
+   "caption": "Bạn có hay nói “Please open the light.” không? 💡 Đèn, TV, quạt dùng “turn on”: “Please turn on the light.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “turn on.” Tối nay bật đèn, nhớ nói “turn on the light” nhé! Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#tuvungtienganh",
+    "#tienganhgiaotiep",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Don't say “open the light”!",
+   "tip": "Many learners say “open” for lights, but English uses “turn on” for lights, TVs, and fans.",
+   "caption": "Do you often say this? “Please open the light.” Say “Please turn on the light.” instead. Listen to Ama, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Đừng nói “open the light” nhé!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Đừng nói “open the light” nhé!",
+  "keyword": "Please turn on the light.",
+  "value": "Tiếng Việt nói “mở đèn”, nhưng tiếng Anh dùng “turn on” cho đèn, TV, quạt.",
+  "hashtags": [
+   "#hoctienganh",
+   "#tuvungtienganh",
+   "#tienganhgiaotiep",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "Đừng nói “open the light” nhé!",
+    "description": "Tiếng Việt nói “mở đèn”, nhưng tiếng Anh dùng “turn on” cho đèn, TV, quạt.\n\nBạn có hay nói “Please open the light.” không? 💡 Đèn, TV, quạt dùng “turn on”: “Please turn on the light.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #tuvungtienganh #tienganhgiaotiep #lexkite",
+    "tags": [
+     "Please turn on the light.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “Please open the light.” không? 💡 Đèn, TV, quạt dùng “turn on”: “Please turn on the light.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Đừng nói “open the light” nhé!\n\nTiếng Việt nói “mở đèn”, nhưng tiếng Anh dùng “turn on” cho đèn, TV, quạt.\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#tuvungtienganh",
+     "#tienganhgiaotiep",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Đừng nói “open the light” nhé! Tiếng Việt nói “mở đèn”, nhưng tiếng Anh dùng “turn on” cho đèn, TV, qu… #hoctienganh #tuvungtienganh #tienganhgiaotiep"
+   }
+  },
+  "first_comment": "Đáp án: “turn on.” Tối nay bật đèn, nhớ nói “turn on the light” nhé! Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Since needs have!",
+   "text": "Since 2020? Say have lived!",
    "pause": 0.42
   },
   {
@@ -26,7 +26,7 @@
   },
   {
    "id": "y",
-   "text": "Since needs have, not am.",
+   "text": "With since, use have lived, not am living.",
    "pause": 0.42
   },
   {
@@ -55,7 +55,7 @@
   "wrong": "I am living here since 2020.",
   "right": "I have lived here since 2020.",
   "strike": "am living",
-  "why": "Since needs have, not am.",
+  "why": "With since, use have lived, not am living.",
   "memory": "Have lived since.",
   "quiz": {
    "stem": "I ___ here since May.",
@@ -68,7 +68,7 @@
   "native": {
    "hook": "“since” के साथ “am living” नहीं",
    "tip": "हिंदी में “2020 से रह रहा हूँ” कहते हैं, पर अंग्रेज़ी में since के साथ “have lived” आता है।",
-   "caption": "क्या आप भी कहते हैं “I am living here since 2020”? 😉 अंग्रेज़ी में “I have lived here since 2020” सही है, क्योंकि since के साथ have + क्रिया का तीसरा रूप चलता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "caption": "क्या आप भी कहते हैं “I am living here since 2020”? 😉 अंग्रेज़ी में “I have lived here since 2020” सही है, क्योंकि since के साथ “have lived” या “have been living” आता है, “am living” नहीं। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
    "comment": "उत्तर: “have lived”। “am living” की जगह “have lived” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
    "hashtags": [
     "#अंग्रेजीसीखें",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "Not “am living” with “since”",
-   "tip": "Hindi says “2020 se reh raha hoon”, but English uses “have lived” with since.",
-   "caption": "Do you say “I am living here since 2020”? 😉 In English “I have lived here since 2020” is right, because since goes with have plus the past form. Listen to Carlos and repeat! Practice more in the Lexkite app."
+   "tip": "Learners often use am living with since; in English use have lived.",
+   "caption": "Do you say “I am living here since 2020”? 😉 In English “I have lived here since 2020” is right, because since goes with have lived or have been living, not am living. Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -98,9 +98,9 @@
  },
  "lang": "hi",
  "est": {
-  "words": 48,
-  "seconds": 29.1,
-  "wpm": 99
+  "words": 53,
+  "seconds": 31.5,
+  "wpm": 101
  },
  "publish": {
   "title": "“since” के साथ “am living” नहीं",
@@ -113,11 +113,11 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 42,
+  "script_words": 47,
   "platforms": {
    "youtube": {
     "title": "“since” के साथ “am living” नहीं",
-    "description": "क्या आप भी कहते हैं “I am living here since 2020”? 😉 अंग्रेज़ी में “I have lived here since 2020” सही है, क्योंकि since के साथ have + क्रिया का तीसरा रूप चलता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "description": "हिंदी में “2020 से रह रहा हूँ” कहते हैं, पर अंग्रेज़ी में since के साथ “have lived” आता है।\n\nक्या आप भी कहते हैं “I am living here since 2020”? 😉 अंग्रेज़ी में “I have lived here since 2020” सही है, क्योंकि since के साथ “have lived” या “have been living” आता है, “am living” नहीं। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
     "tags": [
      "I have lived here since 2020.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "क्या आप भी कहते हैं “I am living here since 2020”? 😉 अंग्रेज़ी में “I have lived here since 2020” सही है, क्योंकि since के साथ have + क्रिया का तीसरा रूप चलता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+    "text": "क्या आप भी कहते हैं “I am living here since 2020”? 😉 अंग्रेज़ी में “I have lived here since 2020” सही है, क्योंकि since के साथ “have lived” या “have been living” आता है, “am living” नहीं। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "क्या आप भी कहते हैं “I am living here since 2020”? 😉 अंग्रेज़ी में “I have lived here since 2020” सही है, क्योंकि since के साथ have + क्रिया का तीसरा रूप चलता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nlexkite.com",
+    "caption": "“since” के साथ “am living” नहीं\n\nहिंदी में “2020 से रह रहा हूँ” कहते हैं, पर अंग्रेज़ी में since के साथ “have lived” आता है।\n\nlexkite.com",
     "hashtags": [
      "#अंग्रेजीसीखें",
      "#englishspeaking",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "“since” के साथ “am living” नहीं #अंग्रेजीसीखें #englishspeaking #learnenglish"
+    "caption": "“since” के साथ “am living” नहीं हिंदी में “2020 से रह रहा हूँ” कहते हैं, पर अंग्रेज़ी में since के साथ… #अंग्रेजीसीखें #englishspeaking #learnenglish"
    }
   },
   "first_comment": "उत्तर: “have lived”। “am living” की जगह “have lived” बोलें। मुफ़्त क्विज़ यहाँ: {link}",

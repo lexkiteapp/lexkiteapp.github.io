@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_didmistake",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Did a mistake? Say made a mistake!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I did a mistake.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I made a mistake.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "We make a mistake.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Made! He made a mistake.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I did a mistake.",
+  "right": "I made a mistake.",
+  "strike": "did",
+  "why": "We make a mistake.",
+  "memory": "Make a mistake.",
+  "quiz": {
+   "stem": "He ___ a mistake.",
+   "options": [
+    "did",
+    "made"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "هل تقول “did a mistake”؟",
+   "tip": "نقول بالعامية «عملت غلطة» فنترجمها did، لكن الصحيح make a mistake: “I made a mistake.” وليس “I did a mistake.”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “I did a mistake.” 😅 نقول بالعامية «عملت غلطة» فنترجمها did، لكن الصحيح make a mistake، فالجملة الصحيحة “I made a mistake.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “made” — نقول بالعامية «عملت غلطة» فنترجمها did، لكن الصحيح make a mistake. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “did a mistake”?",
+   "tip": "In spoken Arabic we say «عملت غلطة», so we use did, but in English we make a mistake: “I made a mistake.” not “I did a mistake.”",
+   "caption": "Do you sometimes say this? “I did a mistake.” 😅 In spoken Arabic we say «عملت غلطة», so we use did, but in English we make a mistake, so the right sentence is “I made a mistake.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “did a mistake”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "هل تقول “did a mistake”؟",
+  "keyword": "I made a mistake.",
+  "value": "نقول بالعامية «عملت غلطة» فنترجمها did، لكن الصحيح make a mistake: “I made a mistake.” وليس “I did a mistake.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “did a mistake”؟",
+    "description": "نقول بالعامية «عملت غلطة» فنترجمها did، لكن الصحيح make a mistake: “I made a mistake.” وليس “I did a mistake.”\n\nهل تقول أحيانًا هذه الجملة؟ “I did a mistake.” 😅 نقول بالعامية «عملت غلطة» فنترجمها did، لكن الصحيح make a mistake، فالجملة الصحيحة “I made a mistake.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "I made a mistake.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا هذه الجملة؟ “I did a mistake.” 😅 نقول بالعامية «عملت غلطة» فنترجمها did، لكن الصحيح make a mistake، فالجملة الصحيحة “I made a mistake.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول “did a mistake”؟\n\nنقول بالعامية «عملت غلطة» فنترجمها did، لكن الصحيح make a mistake: “I made a mistake.” وليس “I did a mistake.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “did a mistake”؟ نقول بالعامية «عملت غلطة» فنترجمها did، لكن الصحيح make a mistake: “I ma… #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “made” — نقول بالعامية «عملت غلطة» فنترجمها did، لكن الصحيح make a mistake. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+  "lang": "ar"
+ }
+}

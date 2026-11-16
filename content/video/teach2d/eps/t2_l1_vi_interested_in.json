@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_interested_in",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Which word comes after interested?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am interested with music.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am interested in music.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say interested in.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "In! He is interested in art.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am interested with music.",
+  "right": "I am interested in music.",
+  "strike": "with",
+  "why": "Say interested in.",
+  "memory": "Interested in, not with.",
+  "quiz": {
+   "stem": "He is interested ___ art.",
+   "options": [
+    "in",
+    "with"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Hứng thú với” nói thế nào?",
+   "tip": "Người Việt hay dịch “hứng thú với” thành “interested with”, nhưng tiếng Anh nói “interested in”.",
+   "caption": "Bạn có hay nói “I am interested with music.” không? 🎵 Sau “interested” hãy dùng “in”: “I am interested in music.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “in.” Hãy viết một câu về điều bạn quan tâm, bắt đầu bằng “I am interested in…” nhé. Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#nguphaptienganh",
+    "#tienganhgiaotiep",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Interested” takes which word?",
+   "tip": "Many learners say “interested with”, but English says “interested in”.",
+   "caption": "Do you often say this? “I am interested with music.” After “interested”, use “in”: “I am interested in music.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Hứng thú với” nói thế nào?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“Hứng thú với” nói thế nào?",
+  "keyword": "I am interested in music.",
+  "value": "Người Việt hay dịch “hứng thú với” thành “interested with”, nhưng tiếng Anh nói “interested in”.",
+  "hashtags": [
+   "#hoctienganh",
+   "#nguphaptienganh",
+   "#tienganhgiaotiep",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "“Hứng thú với” nói thế nào?",
+    "description": "Người Việt hay dịch “hứng thú với” thành “interested with”, nhưng tiếng Anh nói “interested in”.\n\nBạn có hay nói “I am interested with music.” không? 🎵 Sau “interested” hãy dùng “in”: “I am interested in music.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #nguphaptienganh #tienganhgiaotiep #lexkite",
+    "tags": [
+     "I am interested in music.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “I am interested with music.” không? 🎵 Sau “interested” hãy dùng “in”: “I am interested in music.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Hứng thú với” nói thế nào?\n\nNgười Việt hay dịch “hứng thú với” thành “interested with”, nhưng tiếng Anh nói “interested in”.\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#nguphaptienganh",
+     "#tienganhgiaotiep",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Hứng thú với” nói thế nào? Người Việt hay dịch “hứng thú với” thành “interested with”, nhưng tiếng A… #hoctienganh #nguphaptienganh #tienganhgiaotiep"
+   }
+  },
+  "first_comment": "Đáp án: “in.” Hãy viết một câu về điều bạn quan tâm, bắt đầu bằng “I am interested in…” nhé. Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

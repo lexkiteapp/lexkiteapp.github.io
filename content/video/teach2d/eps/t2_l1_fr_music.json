@@ -11,17 +11,17 @@
  "lines": [
   {
    "id": "h",
-   "text": "No the for music!",
+   "text": "Say music, not the music!",
    "pause": 0.42
   },
   {
    "id": "w",
-   "text": "Many learners say: I love the music.",
+   "text": "Many learners say: I love the music, especially rock.",
    "pause": 0.42
   },
   {
    "id": "r",
-   "text": "Better: I love music.",
+   "text": "Better: I love music, especially rock.",
    "pause": 0.42
   },
   {
@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "No the! I like coffee.",
+   "text": "Coffee! In general, I like coffee.",
    "pause": 0.42
   },
   {
@@ -52,24 +52,24 @@
   }
  ],
  "data": {
-  "wrong": "I love the music.",
-  "right": "I love music.",
+  "wrong": "I love the music, especially rock.",
+  "right": "I love music, especially rock.",
   "strike": "the",
   "why": "For things in general, no the.",
   "memory": "General: no the.",
   "quiz": {
-   "stem": "I like ___ coffee.",
+   "stem": "In general, I like ___.",
    "options": [
-    "the",
-    "-"
+    "the coffee",
+    "coffee"
    ],
    "answer": 1
   },
   "native": {
-   "hook": "« J'aime la musique » : sans “the”",
+   "hook": "« J’aime la musique » : sans “the”",
    "tip": "En français, on met « la ». En anglais, pour parler en général, on enlève “the”.",
-   "caption": "Tu dis “I love the music.” ? En général, pas de “the” ! Dis “I love music.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.",
-   "comment": "Réponse : Pour parler en général, on n'utilise pas “the”. Teste d'autres pièges avec un quiz gratuit : {link}",
+   "caption": "Vous dites “I love the music, especially rock.” ? Pour parler en général, pas de “the” ! Dites plutôt “I love music, especially rock.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “coffee” — Pour parler en général, on n’utilise pas “the”. Testez d’autres pièges avec un quiz gratuit : {link}",
    "hashtags": [
     "#apprendrelanglais",
     "#anglaisfacile",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "“I love the music”: no “the”",
-   "tip": "French adds « la ». In English, to talk in general, drop “the”.",
-   "caption": "Do you say “I love the music.”? In general, no “the”! Say “I love music.”. Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+   "tip": "In English, to talk in general, drop “the”.",
+   "caption": "Do you say this? “I love the music, especially rock.” In general, no “the”! Say “I love music, especially rock.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
   }
  },
  "cta": {
@@ -91,20 +91,20 @@
  },
  "hook": {
   "line": "h",
-  "text": "« J'aime la musique » : sans “the”"
+  "text": "« J’aime la musique » : sans “the”"
  },
  "src": {
   "l1": true
  },
  "lang": "fr",
  "est": {
-  "words": 42,
-  "seconds": 26.1,
-  "wpm": 96
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
  },
  "publish": {
-  "title": "« J'aime la musique » : sans “the”",
-  "keyword": "I love music.",
+  "title": "« J’aime la musique » : sans “the”",
+  "keyword": "I love music, especially rock.",
   "value": "En français, on met « la ». En anglais, pour parler en général, on enlève “the”.",
   "hashtags": [
    "#apprendrelanglais",
@@ -113,22 +113,22 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 36,
+  "script_words": 42,
   "platforms": {
    "youtube": {
-    "title": "« J'aime la musique » : sans “the”",
-    "description": "Tu dis “I love the music.” ? En général, pas de “the” ! Dis “I love music.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "title": "« J’aime la musique » : sans “the”",
+    "description": "En français, on met « la ». En anglais, pour parler en général, on enlève “the”.\n\nVous dites “I love the music, especially rock.” ? Pour parler en général, pas de “the” ! Dites plutôt “I love music, especially rock.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
     "tags": [
-     "I love music.",
+     "I love music, especially rock.",
      "learn english",
      "fr"
     ]
    },
    "facebook": {
-    "text": "Tu dis “I love the music.” ? En général, pas de “the” ! Dis “I love music.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Vous dites “I love the music, especially rock.” ? Pour parler en général, pas de “the” ! Dites plutôt “I love music, especially rock.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Tu dis “I love the music.” ? En général, pas de “the” ! Dis “I love music.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.\n\nlexkite.com",
+    "caption": "« J’aime la musique » : sans “the”\n\nEn français, on met « la ». En anglais, pour parler en général, on enlève “the”.\n\nlexkite.com",
     "hashtags": [
      "#apprendrelanglais",
      "#anglaisfacile",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "« J'aime la musique » : sans “the” #apprendrelanglais #anglaisfacile #coursdanglais"
+    "caption": "« J’aime la musique » : sans “the” En français, on met « la ». En anglais, pour parler en général, o… #apprendrelanglais #anglaisfacile #coursdanglais"
    }
   },
-  "first_comment": "Réponse : Pour parler en général, on n'utilise pas “the”. Teste d'autres pièges avec un quiz gratuit : {link}",
+  "first_comment": "Réponse : “coffee” — Pour parler en général, on n’utilise pas “the”. Testez d’autres pièges avec un quiz gratuit : {link}",
   "lang": "fr"
  }
 }

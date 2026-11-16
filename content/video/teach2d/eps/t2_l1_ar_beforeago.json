@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_beforeago",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Before two years? Say ago!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I moved here before two years.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I moved here two years ago.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Put ago after the time.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Ago! I met him three days ago.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I moved here before two years.",
+  "right": "I moved here two years ago.",
+  "strike": "before two years",
+  "why": "Put ago after the time.",
+  "memory": "Two years ago.",
+  "quiz": {
+   "stem": "I met him three days ___.",
+   "options": [
+    "before",
+    "ago"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "هل تقول “before two years”؟",
+   "tip": "نقول «قبل سنتين» بـ «قبل» أولًا، أما في الإنجليزية فنضع ago بعد المدة: “I moved here two years ago.” وليس “I moved here before two years.”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “I moved here before two years.” 😅 نقول «قبل سنتين» بـ «قبل» أولًا، أما في الإنجليزية فنضع ago بعد المدة، فالجملة الصحيحة “I moved here two years ago.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “two years ago” — نقول «قبل سنتين» بـ «قبل» أولًا، أما في الإنجليزية فنضع ago بعد المدة. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “before two years”?",
+   "tip": "In Arabic we say «قبل سنتين» with «قبل» first, but in English ago comes after the time: “I moved here two years ago.” not “I moved here before two years.”",
+   "caption": "Do you sometimes say this? “I moved here before two years.” 😅 In Arabic we say «قبل سنتين» with «قبل» first, but in English ago comes after the time, so the right sentence is “I moved here two years ago.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “before two years”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "هل تقول “before two years”؟",
+  "keyword": "I moved here two years ago.",
+  "value": "نقول «قبل سنتين» بـ «قبل» أولًا، أما في الإنجليزية فنضع ago بعد المدة: “I moved here two years ago.” وليس “I moved here before two years.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “before two years”؟",
+    "description": "نقول «قبل سنتين» بـ «قبل» أولًا، أما في الإنجليزية فنضع ago بعد المدة: “I moved here two years ago.” وليس “I moved here before two years.”\n\nهل تقول أحيانًا هذه الجملة؟ “I moved here before two years.” 😅 نقول «قبل سنتين» بـ «قبل» أولًا، أما في الإنجليزية فنضع ago بعد المدة، فالجملة الصحيحة “I moved here two years ago.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "I moved here two years ago.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا هذه الجملة؟ “I moved here before two years.” 😅 نقول «قبل سنتين» بـ «قبل» أولًا، أما في الإنجليزية فنضع ago بعد المدة، فالجملة الصحيحة “I moved here two years ago.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول “before two years”؟\n\nنقول «قبل سنتين» بـ «قبل» أولًا، أما في الإنجليزية فنضع ago بعد المدة: “I moved here two years ago.” وليس “I moved here before two years.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “before two years”؟ نقول «قبل سنتين» بـ «قبل» أولًا، أما في الإنجليزية فنضع ago بعد المدة… #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “two years ago” — نقول «قبل سنتين» بـ «قبل» أولًا، أما في الإنجليزية فنضع ago بعد المدة. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+  "lang": "ar"
+ }
+}

@@ -61,11 +61,13 @@ def _noto(*pats):
         g = sorted(glob.glob(p_))
         if g: return g[0]
 FB = dict(cyr=_noto(f'{ROOT}/brand/social/src/fonts/NotoSans-Medium.ttf'), ara=_noto(f'{ROOT}/scripts/cine/fonts/NotoSansArabic.ttf', '/usr/share/fonts/truetype/noto/NotoSansArabic-*.ttf'),
-          dev=_noto('/usr/share/fonts/truetype/noto/NotoSansDevanagari-Bold.ttf', '/usr/share/fonts/truetype/noto/NotoSansDevanagari-*.ttf', '/usr/share/fonts/truetype/noto/NotoSansDevanagari*.ttf')); _fb = {}
+          dev=_noto('/usr/share/fonts/truetype/noto/NotoSansDevanagari-Bold.ttf', '/usr/share/fonts/truetype/noto/NotoSansDevanagari-*.ttf', '/usr/share/fonts/truetype/noto/NotoSansDevanagari*.ttf'),
+          tha=_noto('/usr/share/fonts/truetype/noto/NotoSansThai-Bold.ttf', '/usr/share/fonts/truetype/noto/NotoSansThai-*.ttf', '/usr/share/fonts/truetype/noto/NotoSansThai*.ttf')); _fb = {}
 def kind(c):
     o_ = ord(c)
     if 0x400 <= o_ <= 0x52f: return 'cyr'
     if 0x900 <= o_ <= 0x97f: return 'dev'
+    if 0xe00 <= o_ <= 0xe7f: return 'tha'   # Thai: no spaces between words (wrap() breaks an over-long run at syllable starts)
     if 0x600 <= o_ <= 0x6ff or 0xfb50 <= o_ <= 0xfeff: return 'ara'
     if 0xac00 <= o_ <= 0xd7af or 0x1100 <= o_ <= 0x11ff: return 'hangul'
     if re.match(f'[{CJK}]', c): return 'cjk'
@@ -86,6 +88,17 @@ def _seg(r, k, sz, ipa):
         if (k, sz) not in _fb: _fb[(k, sz)] = ImageFont.truetype(FB[k], sz)
         return _fb[(k, sz)].getlength(r) * 1.06   # Bold/shaping safety margin
     return len(r) * sz * 0.62
+
+
+def thai_split(w, sz, width, ipa=False):
+    """A Thai run longer than the card is cut at syllable starts (a leading vowel เแโใไ stays with its consonant; marks / following vowels never start a piece); other tokens pass through."""
+    if not re.search('[\u0e00-\u0e7f]', w) or tw(w.rstrip(), sz, ipa) <= width: return [w]
+    cl = [c for c in re.findall('[\u0e40-\u0e44]?[\u0e01-\u0e2e][\u0e30-\u0e3a\u0e45-\u0e4e]*|.', w, re.S)]
+    out, cur = [], ''
+    for c in cl:
+        if cur and tw(cur + c, sz, ipa) > width: out.append(cur); cur = ''
+        cur += c
+    return out + [cur] if cur else out
 
 
 # ---------------- timeline: lines, words, speech, pauses ----------------
@@ -135,6 +148,7 @@ class Card:
     def wrap(s, runs, sz, width=None, ipa=False):
         """runs [[text, colour token]] -> lines of runs, greedy word wrap at width (balanced when 2 lines)."""
         width = width or s.inner; toks = [(w, c) for txt, c in runs for w in re.findall(TOK, txt)]
+        toks = [(piece, c) for w, c in toks for piece in thai_split(w, sz, width, ipa)]
         lines, cur, cw = [], [], 0
         for w, c in toks:
             ww = tw(w.rstrip(), sz, ipa)

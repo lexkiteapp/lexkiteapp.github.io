@@ -1,0 +1,129 @@
+{
+ "id": "t2a_mistake_0ad85c2e",
+ "template": "mistake",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Stop saying live lonely!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I live lonely.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I live alone.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Alone means no people. Lonely means sad.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Alone! I live alone, but I'm not lonely.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I live lonely.",
+  "right": "I live alone.",
+  "strike": "live lonely",
+  "why": "Alone means no people. Lonely means sad.",
+  "memory": "ALONE = no people, LONELY = sad",
+  "quiz": {
+   "stem": "I live ___, but I'm not lonely.",
+   "options": [
+    "alone",
+    "lonely"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Stop saying “live lonely”"
+ },
+ "src": {
+  "gold": "sb_0ad85c2e",
+  "pid": "u:c:alone-lonely"
+ },
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Say \"I live alone\", not \"I live lonely\"",
+  "keyword": "live lonely",
+  "value": "Say \"I live alone\", not \"I live lonely\". Alone means no people. Lonely means sad.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#englishgrammar",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "Say \"I live alone\", not \"I live lonely\"",
+    "description": "Say \"I live alone\", not \"I live lonely\". Alone means no people. Lonely means sad.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix\n\nSeries: Stop Saying This · Teacher: Ama\n\n#learnenglish #englishtips #englishgrammar #englishteacher",
+    "tags": [
+     "live lonely",
+     "Stop Saying This",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Say \"I live alone\", not \"I live lonely\"\n\nSay \"I live alone\", not \"I live lonely\". Alone means no people. Lonely means sad.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Say \"I live alone\", not \"I live lonely\"\n\nSay \"I live alone\", not \"I live lonely\". Alone means no people. Lonely means sad.\n\nCheck your grammar: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#englishgrammar",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Say \"I live alone\", not \"I live lonely\" #learnenglish #englishtips #englishgrammar"
+   }
+  },
+  "first_comment": "Did you get it? Alone! I live alone, but I'm not lonely. Say \"I live alone\", not \"I live lonely\". Alone means no people. Lonely means sad. More practice like this (free): {link}"
+ }
+}

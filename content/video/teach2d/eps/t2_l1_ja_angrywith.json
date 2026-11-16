@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_angrywith",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Angry to or with?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: My mother is angry to me.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My mother is angry with me.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use with after angry.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "With! My mother is angry with me.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "My mother is angry to me.",
+  "right": "My mother is angry with me.",
+  "strike": "to",
+  "why": "Use with after angry.",
+  "memory": "My mother is angry with me.",
+  "quiz": {
+   "stem": "She is angry ___ me.",
+   "options": [
+    "to",
+    "with"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "「angry to me」と言ってない？",
+   "tip": "「〜に怒っている」は be angry with。to は使いません。",
+   "caption": "“My mother is angry to me.”と言っていませんか？😅 「私に怒っている」の「に」につられて to にしがちです。“My mother is angry with me.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“with”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Angry to me?",
+   "tip": "After angry, say with me.",
+   "caption": "Do you say this? “My mother is angry to me.” 😅 Japanese に makes people say to. The natural way is “My mother is angry with me.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "「angry to me」と言ってない？"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "「angry to me」と言ってない？",
+  "keyword": "My mother is angry with me.",
+  "value": "「〜に怒っている」は be angry with。to は使いません。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "「angry to me」と言ってない？",
+    "description": "「〜に怒っている」は be angry with。to は使いません。\n\n“My mother is angry to me.”と言っていませんか？😅 「私に怒っている」の「に」につられて to にしがちです。“My mother is angry with me.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "My mother is angry with me.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“My mother is angry to me.”と言っていませんか？😅 「私に怒っている」の「に」につられて to にしがちです。“My mother is angry with me.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "「angry to me」と言ってない？\n\n「〜に怒っている」は be angry with。to は使いません。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「angry to me」と言ってない？ 「〜に怒っている」は be angry with。to は使いません。 #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“with”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

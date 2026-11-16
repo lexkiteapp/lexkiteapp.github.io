@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_waste_time",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Don't waste your time!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Don't lose your time here.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Don't waste your time here.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Time we use badly: waste.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Waste! Don't waste my time.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Don't lose your time here.",
+  "right": "Don't waste your time here.",
+  "strike": "lose",
+  "why": "Time we use badly: waste.",
+  "memory": "Time: waste.",
+  "quiz": {
+   "stem": "Please don't ___ my time.",
+   "options": [
+    "lose",
+    "waste"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "« Perdre son temps » : “waste”",
+   "tip": "En français, on « perd » son temps. En anglais, on dit “waste your time”.",
+   "caption": "Vous dites “Don't lose your time here.” ? En français, on « perd » son temps. En anglais, on dit “waste your time”. Dites plutôt “Don't waste your time here.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “Don't waste your time here.” — En français, on « perd » son temps. En anglais, on dit “waste your time”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “waste time”!",
+   "tip": "French says « perdre son temps ». English says “waste your time”.",
+   "caption": "Do you say this? “Don't lose your time here.” French says « perdre son temps ». English says “waste your time”. Say “Don't waste your time here.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "« Perdre son temps » : “waste”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "« Perdre son temps » : “waste”",
+  "keyword": "Don't waste your time here.",
+  "value": "En français, on « perd » son temps. En anglais, on dit “waste your time”.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "« Perdre son temps » : “waste”",
+    "description": "En français, on « perd » son temps. En anglais, on dit “waste your time”.\n\nVous dites “Don't lose your time here.” ? En français, on « perd » son temps. En anglais, on dit “waste your time”. Dites plutôt “Don't waste your time here.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "Don't waste your time here.",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Vous dites “Don't lose your time here.” ? En français, on « perd » son temps. En anglais, on dit “waste your time”. Dites plutôt “Don't waste your time here.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "« Perdre son temps » : “waste”\n\nEn français, on « perd » son temps. En anglais, on dit “waste your time”.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "« Perdre son temps » : “waste” En français, on « perd » son temps. En anglais, on dit “waste your ti… #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “Don't waste your time here.” — En français, on « perd » son temps. En anglais, on dit “waste your time”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}
