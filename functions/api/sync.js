@@ -14,6 +14,7 @@ import { readJSON, bodyFail } from './_body.js';
 const PROJECT = 'lexkite-app';
 const JWKS_URL = 'https://www.googleapis.com/service_accounts/v1/jwk/securetoken@system.gserviceaccount.com';
 const KEY_RE = /^(meta|cards_\d{1,3})$/;
+export const SHRINK_MIN = 40;
 const MAX_DOCS = 80, MAX_BODY = 1_000_000, MAX_TOTAL = 8_000_000;
 const ORIGINS = /^(https:\/\/((www\.)?lexkite\.com|([a-z0-9-]+\.)?lexkite\.pages\.dev)|https?:\/\/localhost(:\d+)?|capacitor:\/\/localhost)$/;
 
@@ -173,6 +174,8 @@ export async function onRequestPost({ request, env }) {
       for (let attempt = 0; attempt < 3; attempt++) {
         const now = Date.now(), rows = (await ddb.prepare('SELECT k, h, body, updated FROM docs WHERE uid = ?').bind(uid).all()).results || [];
         const view = viewOf(rows), old = rows.find(r => r.k === 'pack'), hasRows = rows.some(r => r.k !== 'pack');
+        // Chống ghi đè bằng gói thẻ nhỏ đi hẳn (máy rỗng đẩy nhầm – P0 16/11): gói thẻ mới < ¼ gói cũ → 409 'shrink'; máy khách kéo đủ, gộp, rồi gửi lại kèm force:true (dấu xóa thật)
+        if (req.force !== true) for (const [k, d] of entries) { const x = view.get(k); if (/^cards_/.test(k) && x && x.body.length > SHRINK_MIN && d.body.length * 4 < x.body.length) return json(request, 409, { error: 'shrink', k }); }
         let changed = 0;
         for (const [k, d] of entries) { const x = view.get(k); if (!x || x.h !== d.h || !sameBody(k, x.body, d.body)) { view.set(k, { h: d.h, body: d.body, updated: now }); changed++; } }
         if (!changed && !hasRows) return json(request, 200, { ok: true, n: entries.length, same: true }); // đẩy lại y hệt → 0 dòng ghi
