@@ -16,6 +16,11 @@
    "via": "loadAllPlus",
    "job": "npm test + content-qa.yml (score)"
   },
+  "scripts/gen-word-packs.mjs": {
+   "what": "web/i18n/words/<lang>: gói nghĩa từ 13 ngôn ngữ (nguồn từ gồm cả mục mở rộng 20k)",
+   "via": "loadAllPlus",
+   "job": "word-packs.yml (hằng đêm)"
+  },
   "scripts/lexicon/shards.mjs": {
    "what": "mảnh tra từ (web, mobile, add-on qua Lex) + mảnh nghĩa 13 ngôn ngữ",
    "via": "loadExpand",

@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """Teach2D auto-publish gate (docs/specs/video-autopublish.md §2.1): may this banked episode leave CI for the shorts store and the social autopilot?
 Pure: gate(ep, entry, qc, ...) -> dict(ok, why[], cefr). A clip with any reason is never published; the reasons go to bank.json `publish_block` and PUBLISH.md.
-Reasons: qc<90:short|wide · gate:<name> · native-qa (lang≠en, l1-qa.json) · teacher∉{ama,carlos} · wpm>150 · publish:<publish.py check> · topic · cefr · dup"""
+Reasons: template:<status> (not approved in the book) · qc<90:short|wide · gate:<name> · native-qa (lang≠en, l1-qa.json) · teacher∉{ama,carlos} · wpm>150 · publish:<publish.py check> · topic · cefr · dup"""
 import json, os, re, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 import publish as PUBLISH   # noqa: E402
+sys.path.insert(0, os.path.join(HERE, '..'))
+import approved_templates as AT   # noqa: E402
 ROOT = os.path.abspath(os.path.join(HERE, '..', '..', '..'))
 MIN, MAX_WPM, TEACHERS, CEFR = 90, 150, ('ama', 'carlos'), ('A1', 'A2', 'B1', 'B2', 'C1', 'C2')
 
@@ -53,6 +55,8 @@ def gate(ep, entry, qc, levels, area_map, posted=()):
     if ep.get('teacher') not in TEACHERS: why.append('teacher∉{ama,carlos}')
     wpm = [((q or {}).get('gates') or {}).get('pace', {}).get('wpm') for q in qc.values()]; wpm = [w for w in wpm if w is not None] or [(ep.get('est') or {}).get('wpm')]
     if any(w is None or w > MAX_WPM for w in wpm): why.append(f'wpm>{MAX_WPM}')
+    ts = AT.status(ep.get('template'), 'teach2d')   # owner 15/11: only templates in the approval book (content/video/cine/news/approved.json) may enter the queue
+    if ts != 'approved': why.append(f'template:{ts or "unlisted"}')
     why += [f'publish:{e}' for e in PUBLISH.check(ep)]
     if not topic_ok(ep, area_map): why.append('topic')
     pub = ep.get('publish') or {}; level = cefr_of(pub.get('keyword'), levels)
