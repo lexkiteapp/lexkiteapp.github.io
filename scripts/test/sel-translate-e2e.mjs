@@ -45,6 +45,8 @@ async function open(vp, scheme, lang = 'vi') {
     await page.evaluate(() => { location.hash = '#/dict/promotion'; });
     await page.waitForSelector('.example-box.entry-ex', { timeout: 12000 }).catch(() => {});
   }
+  // Trang từ vẽ lại khi dữ liệu về muộn → vùng chọn bị thu về 0 (đo [0,0,0]): chờ khối ví dụ đứng yên 1 s rồi mới chọn
+  await page.evaluate(() => new Promise(res => { let el = document.querySelector('.example-box.entry-ex'), t = performance.now(); const tick = () => { const n = document.querySelector('.example-box.entry-ex'); if (n !== el) { el = n; t = performance.now(); } if (performance.now() - t > 1000 || performance.now() > t + 8000) return res(); setTimeout(tick, 100); }; tick(); }));
   await page.addStyleTag({ content: STILL });
   return { ctx, page, errs };
 }
