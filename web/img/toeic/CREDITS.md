@@ -47,3 +47,21 @@ Resized to max 800px wide JPEG.
 | t7-p1-4.jpg | Mobile nurse station of Hsiao Chung Cheng Hospital 20071210 | Jackhsiao | https://commons.wikimedia.org/wiki/File:Mobile_nurse_station_of_Hsiao_Chung_Cheng_Hospital_20071210.jpg | Public domain |
 | t7-p1-5.jpg | Batesville concert band during performance (Unsplash) | Jordan Whitt | https://commons.wikimedia.org/wiki/File:Batesville_concert_band_during_performance_(Unsplash).jpg | CC0 1.0 |
 | t7-p1-6.jpg | In The Tube (Unsplash) | Sam X | https://commons.wikimedia.org/wiki/File:In_The_Tube_(Unsplash).jpg | CC0 1.0 |
+| t8-p1-1.jpg | Worker at the old Othon palace hotel (Unsplash) | Guilherme Cunha | https://commons.wikimedia.org/wiki/File:Worker_at_the_old_Othon_palace_hotel_(Unsplash).jpg | CC0 1.0 |
+| t8-p1-2.jpg | Seamstress at work (Unsplash) | Kris Atomic | https://commons.wikimedia.org/wiki/File:Seamstress_at_work_(Unsplash).jpg | CC0 1.0 |
+| t8-p1-3.jpg | Man at a laptop in an office (Unsplash) | Bench Accounting | https://commons.wikimedia.org/wiki/File:Man_at_a_laptop_in_an_office_(Unsplash).jpg | CC0 1.0 |
+| t8-p1-4.jpg | Two people meeting with iphone and ipad (Unsplash) | Alejandro Escamilla | https://commons.wikimedia.org/wiki/File:Two_people_meeting_with_iphone_and_ipad_(Unsplash).jpg | CC0 1.0 |
+| t8-p1-5.jpg | Minimalist meeting room (Unsplash) | Breather | https://commons.wikimedia.org/wiki/File:Minimalist_meeting_room_(Unsplash).jpg | CC0 1.0 |
+| t8-p1-6.jpg | Docked in York (Unsplash) | Ashley Baxter | https://commons.wikimedia.org/wiki/File:Docked_in_York_(Unsplash).jpg | CC0 1.0 |
+| t9-p1-1.jpg | Cook (Unsplash) | Igor Miske | https://commons.wikimedia.org/wiki/File:Cook_(Unsplash).jpg | CC0 1.0 |
+| t9-p1-2.jpg | Doing his job (Unsplash) | Maarten van den Heuvel | https://commons.wikimedia.org/wiki/File:Doing_his_job_(Unsplash).jpg | CC0 1.0 |
+| t9-p1-3.jpg | Lone office worker (Unsplash) | Jadon Barnes | https://commons.wikimedia.org/wiki/File:Lone_office_worker_(Unsplash).jpg | CC0 1.0 |
+| t9-p1-4.jpg | Busy people at a coffee shop (Unsplash) | Tim Gouw | https://commons.wikimedia.org/wiki/File:Busy_people_at_a_coffee_shop_(Unsplash).jpg | CC0 1.0 |
+| t9-p1-5.jpg | Quiet meeting room (Unsplash) | Breather | https://commons.wikimedia.org/wiki/File:Quiet_meeting_room_(Unsplash).jpg | CC0 1.0 |
+| t9-p1-6.jpg | Urban suspension bridge (Unsplash) | Johan Mouchet | https://commons.wikimedia.org/wiki/File:Urban_suspension_bridge_(Unsplash).jpg | CC0 1.0 |
+| t10-p1-1.jpg | Butcher Shop (Unsplash) | Natalie Ng | https://commons.wikimedia.org/wiki/File:Butcher_Shop_(Unsplash).jpg | CC0 1.0 |
+| t10-p1-2.jpg | Welder at work (Unsplash) | Chetan Menaria | https://commons.wikimedia.org/wiki/File:Welder_at_work_(Unsplash).jpg | CC0 1.0 |
+| t10-p1-3.jpg | Running in an airport (Unsplash) | Andy Beales | https://commons.wikimedia.org/wiki/File:Running_in_an_airport_(Unsplash).jpg | CC0 1.0 |
+| t10-p1-4.jpg | Meeting at the Cafe (Unsplash) | rawpixel.com | https://commons.wikimedia.org/wiki/File:Meeting_at_the_Cafe_(Unsplash).jpg | CC0 1.0 |
+| t10-p1-5.jpg | Car mechanic's workbench (Unsplash) | AJ Yorio | https://commons.wikimedia.org/wiki/File:Car_mechanic%27s_workbench_(Unsplash).jpg | CC0 1.0 |
+| t10-p1-6.jpg | Blurry railway platform (Unsplash) | Reginar | https://commons.wikimedia.org/wiki/File:Blurry_railway_platform_(Unsplash).jpg | CC0 1.0 |

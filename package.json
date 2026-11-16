@@ -6,6 +6,7 @@
   "scripts": {
     "build": "bash scripts/build-web.sh",
     "prepush": "bash scripts/prepush.sh",
+    "postinstall": "node scripts/ci/regen-generated.mjs --if-ci",
     "test": "node scripts/test/run-suite.mjs",
     "test:ai-pool": "node scripts/test/ai-pool.mjs",
     "test:docs": "node scripts/test/docs-budget.mjs",
@@ -36,7 +37,7 @@
     "content:queue": "node scripts/content-queue.mjs",
     "content:score": "node scripts/content-score.mjs",
     "world:score": "node scripts/world-scorecard.mjs --write",
-    "content:gate": "node scripts/test/content-check.mjs && node scripts/content-qa/gate.mjs && node scripts/test/blog-images.mjs && node scripts/blog-schedule.mjs --verify && node scripts/test/size-budget.mjs && node scripts/vi-lint.mjs && node scripts/test/brand-check.mjs && node scripts/test/characters-gate.mjs && node scripts/test/samples-ui.mjs && node scripts/test/infra-check.mjs"
+    "content:gate": "node scripts/test/content-check.mjs && node scripts/content-qa/gate.mjs && node scripts/test/blog-images.mjs && node scripts/test/blog-thumbs.mjs && node scripts/blog-schedule.mjs --verify && node scripts/test/size-budget.mjs && node scripts/vi-lint.mjs && node scripts/test/brand-check.mjs && node scripts/test/characters-gate.mjs && node scripts/test/samples-ui.mjs && node scripts/test/infra-check.mjs"
   },
   "devDependencies": {
     "axe-core": "^4.10.2",

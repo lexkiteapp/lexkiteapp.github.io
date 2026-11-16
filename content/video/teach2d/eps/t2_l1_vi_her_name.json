@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_her_name",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Is this name sentence right?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She name is Anna.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Her name is Anna.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say her before a name.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Her! Her name is Anna.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She name is Anna.",
+  "right": "Her name is Anna.",
+  "strike": "She name",
+  "why": "Say her before a name.",
+  "memory": "Her name, his name.",
+  "quiz": {
+   "stem": "___ name is Anna.",
+   "options": [
+    "Her",
+    "She"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Tên cô ấy” đừng nói “She name”",
+   "tip": "Tiếng Việt dùng “cô ấy” cho cả “she” lẫn “her”, nên dễ nói “She name.” Tiếng Anh cần “her.”",
+   "caption": "Bạn có hay nói “She name is Anna.” không? 😅 Trước “name”, hãy dùng “her”, không dùng “she”: “Her name is Anna.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “Her.” Hãy viết một câu giới thiệu tên một người bạn, bắt đầu bằng “His name is” hoặc “Her name is.” Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#nguphaptienganh",
+    "#tienganhgiaotiep",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “She name”!",
+   "tip": "Before a name, say “her”, not “she.”",
+   "caption": "Do you often say this? “She name is Anna.” Before “name”, use “her”, not “she”: “Her name is Anna.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Tên cô ấy” đừng nói “She name”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“Tên cô ấy” đừng nói “She name”",
+  "keyword": "Her name is Anna.",
+  "value": "Tiếng Việt dùng “cô ấy” cho cả “she” lẫn “her”, nên dễ nói “She name.” Tiếng Anh cần “her.”",
+  "hashtags": [
+   "#hoctienganh",
+   "#nguphaptienganh",
+   "#tienganhgiaotiep",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "“Tên cô ấy” đừng nói “She name”",
+    "description": "Tiếng Việt dùng “cô ấy” cho cả “she” lẫn “her”, nên dễ nói “She name.” Tiếng Anh cần “her.”\n\nBạn có hay nói “She name is Anna.” không? 😅 Trước “name”, hãy dùng “her”, không dùng “she”: “Her name is Anna.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #nguphaptienganh #tienganhgiaotiep #lexkite",
+    "tags": [
+     "Her name is Anna.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “She name is Anna.” không? 😅 Trước “name”, hãy dùng “her”, không dùng “she”: “Her name is Anna.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Tên cô ấy” đừng nói “She name”\n\nTiếng Việt dùng “cô ấy” cho cả “she” lẫn “her”, nên dễ nói “She name.” Tiếng Anh cần “her.”\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#nguphaptienganh",
+     "#tienganhgiaotiep",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Tên cô ấy” đừng nói “She name” Tiếng Việt dùng “cô ấy” cho cả “she” lẫn “her”, nên dễ nói “She name.… #hoctienganh #nguphaptienganh #tienganhgiaotiep"
+   }
+  },
+  "first_comment": "Đáp án: “Her.” Hãy viết một câu giới thiệu tên một người bạn, bắt đầu bằng “His name is” hoặc “Her name is.” Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

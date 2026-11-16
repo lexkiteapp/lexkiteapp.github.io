@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_wantyouto",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "I want you help me?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I want you help me.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I want you to help me.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After want you, add to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "You to! Say: I want you to help me.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I want you help me.",
+  "right": "I want you to help me.",
+  "strike": "want you help",
+  "why": "After want you, add to.",
+  "memory": "I want you to help me.",
+  "quiz": {
+   "stem": "I want ___ come.",
+   "options": [
+    "you to",
+    "you"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "「手伝ってほしい」は want you help？",
+   "tip": "「〜してほしい」は want＋人＋to＋動詞。to を落とさないように。",
+   "caption": "“I want you help me.”と言っていませんか？😅 「あなたに手伝ってほしい」を言うとき、to を落としがちです。“I want you to help me.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“you to”。“I want you to help me.” を声に出して言ってみよう。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Want you help me?",
+   "tip": "Say want you to help.",
+   "caption": "Do you say this? “I want you help me.” 😅 Do not forget to after want you. The natural way is “I want you to help me.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "「手伝ってほしい」は want you help？"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "「手伝ってほしい」は want you help？",
+  "keyword": "I want you to help me.",
+  "value": "「〜してほしい」は want＋人＋to＋動詞。to を落とさないように。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "「手伝ってほしい」は want you help？",
+    "description": "「〜してほしい」は want＋人＋to＋動詞。to を落とさないように。\n\n“I want you help me.”と言っていませんか？😅 「あなたに手伝ってほしい」を言うとき、to を落としがちです。“I want you to help me.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "I want you to help me.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“I want you help me.”と言っていませんか？😅 「あなたに手伝ってほしい」を言うとき、to を落としがちです。“I want you to help me.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "「手伝ってほしい」は want you help？\n\n「〜してほしい」は want＋人＋to＋動詞。to を落とさないように。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「手伝ってほしい」は want you help？ 「〜してほしい」は want＋人＋to＋動詞。to を落とさないように。 #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“you to”。“I want you to help me.” を声に出して言ってみよう。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

@@ -1,0 +1,752 @@
+{
+  "biopsy": {
+    "mis": [
+      {
+        "w": "The doctor did a biopsy on my liver.",
+        "r": "The doctor did a biopsy of my liver.",
+        "why": "Use 'of' to name the organ or tissue sampled: a biopsy of the liver."
+      },
+      {
+        "w": "The biopsies is negative, so you can relax.",
+        "r": "The biopsy is negative, so you can relax.",
+        "why": "The subject is singular, so the verb must be singular too: one biopsy is negative."
+      }
+    ],
+    "u": "A biopsy is a medical procedure in which a small piece of tissue is removed and examined under a microscope, usually to check for cancer. You take or perform a biopsy, and the lab then reports the result. The preposition is of: a biopsy of the breast. It is a countable noun with the plural biopsies. Do not confuse it with an autopsy, which is an examination of a dead body."
+  },
+  "boiler": {
+    "mis": [
+      {
+        "w": "The boiler makes the water to be hot.",
+        "r": "The boiler makes the water hot.",
+        "why": "After make, use the bare adjective: make something hot, not make something to be hot."
+      },
+      {
+        "w": "The boiler is not working, so I called to a plumber.",
+        "r": "The boiler is not working, so I called a plumber.",
+        "why": "Call is transitive: call someone, with no 'to' before the person."
+      }
+    ],
+    "u": "In British homes a boiler is the appliance that heats water for taps and radiators, usually fuelled by gas. In industry it means a large closed vessel producing steam for power or process heat, as in a steam boiler. People say the boiler is on, breaks down or needs servicing. In American English a home unit is more often called a furnace or water heater. A boiler room is where it is housed."
+  },
+  "bolt": {
+    "mis": [
+      {
+        "w": "Please tighten the bolt by a wrench.",
+        "r": "Please tighten the bolt with a wrench.",
+        "why": "Use 'with' for the tool you use to do something."
+      },
+      {
+        "w": "The bolt are loose on the left wheel.",
+        "r": "The bolts are loose on the left wheel.",
+        "why": "A singular noun cannot take 'are'; the subject must be plural: the bolts are."
+      }
+    ],
+    "u": "A bolt is a metal rod with a thread, normally fastened with a nut and turned with a wrench. It differs from a screw, which cuts its own thread into the material. In engineering you tighten, loosen or torque a bolt. As a verb, bolt means to lock a door with a sliding bar, or to run away suddenly: the horse bolted. A bolt of lightning is a single flash."
+  },
+  "bookkeeping": {
+    "mis": [
+      {
+        "w": "The company needs a bookkeeping to track expenses.",
+        "r": "The company needs bookkeeping to track expenses.",
+        "why": "Bookkeeping is uncountable, so it takes no 'a'."
+      },
+      {
+        "w": "She is studying bookkeeper at night.",
+        "r": "She is studying bookkeeping at night.",
+        "why": "Name the subject or activity with bookkeeping; a bookkeeper is the person who does it."
+      }
+    ],
+    "u": "Bookkeeping is the day-to-day recording of a business's financial transactions: sales, purchases, payments and receipts. It is uncountable and takes a singular verb. The person is a bookkeeper. Bookkeeping feeds accounting, which analyses and reports the figures, so the two are related but not identical. Small firms often hire a part-time bookkeeper or use software, and an accountant then prepares tax returns and statements."
+  },
+  "brokerage": {
+    "mis": [
+      {
+        "w": "He opened an account in an online brokerage.",
+        "r": "He opened an account with an online brokerage.",
+        "why": "You open an account with a company, not in it."
+      },
+      {
+        "w": "The brokerage charges a high commission to our trades.",
+        "r": "The brokerage charges a high commission on our trades.",
+        "why": "Commission is charged on a transaction, not 'to' it."
+      }
+    ],
+    "u": "A brokerage is a firm that buys and sells shares, bonds, property or insurance on behalf of clients and earns a fee or commission. It can also mean the fee itself, as in brokerage charges. A brokerage account is the investment account you hold with such a firm. The related person is a broker. Online brokerages usually charge lower fees than traditional firms that offer personal advice."
+  },
+  "calibration": {
+    "mis": [
+      {
+        "w": "The scale needs a calibration of every month.",
+        "r": "The scale needs calibration every month.",
+        "why": "Calibration is normally uncountable here, and frequency needs no 'of'."
+      },
+      {
+        "w": "We calibration the sensors before each test.",
+        "r": "We calibrate the sensors before each test.",
+        "why": "The verb is calibrate; calibration is the noun."
+      }
+    ],
+    "u": "Calibration is the process of adjusting or checking an instrument so that its readings match a known standard. Laboratories and factories keep records and issue a calibration certificate. The verb is calibrate and the adjective calibrated. Calibration is usually uncountable, though calibrations can mean separate checks. Beyond equipment, calibrate can be used figuratively: to calibrate your response to the situation."
+  },
+  "cardiology": {
+    "mis": [
+      {
+        "w": "She is a cardiology and works at the hospital.",
+        "r": "She is a cardiologist and works at the hospital.",
+        "why": "Cardiology is the field; the doctor is a cardiologist."
+      },
+      {
+        "w": "He was sent to the cardiology for tests.",
+        "r": "He was sent to cardiology for tests.",
+        "why": "Names of medical departments used generally take no article after 'to'."
+      }
+    ],
+    "u": "Cardiology is the branch of medicine concerned with the heart and blood vessels. A doctor who practises it is a cardiologist, and the adjective is cardiac or cardiovascular. In hospitals people say they were referred to cardiology or admitted to the cardiology ward, without an article. Cardiology deals with conditions such as arrhythmia and heart failure, while operations on the heart are done by cardiac surgeons."
+  },
+  "casting": {
+    "mis": [
+      {
+        "w": "The factory specializes on metal casting.",
+        "r": "The factory specializes in metal casting.",
+        "why": "The verb specialize takes the preposition 'in'."
+      },
+      {
+        "w": "The casting are cooled slowly in the mold.",
+        "r": "The castings are cooled slowly in the mold.",
+        "why": "A plural subject needs a plural noun for several items: castings."
+      }
+    ],
+    "u": "In manufacturing, casting is making an object by pouring molten metal into a mold and letting it solidify. The finished piece is also called a casting, and then the word is countable: the castings were inspected. Common methods are sand casting and die casting. In film and theatre, casting means choosing actors for roles, and fishing also uses it for throwing a line. The verb cast has the same form in the past tense."
+  },
+  "chemotherapy": {
+    "mis": [
+      {
+        "w": "She is under a chemotherapy now.",
+        "r": "She is undergoing chemotherapy now.",
+        "why": "Chemotherapy is uncountable and takes no 'a'; 'undergo' is the natural verb."
+      },
+      {
+        "w": "The chemotherapies made him very tired.",
+        "r": "The chemotherapy made him very tired.",
+        "why": "The treatment as a general course is uncountable, so no plural."
+      }
+    ],
+    "u": "Chemotherapy is a cancer treatment that uses powerful drugs to kill or slow the growth of cancer cells. It is uncountable: a patient undergoes or receives chemotherapy, often in cycles called sessions or courses. Doctors and patients commonly shorten it to chemo in conversation. Side effects include hair loss, nausea and tiredness. It is different from radiotherapy, which uses radiation rather than drugs."
+  },
+  "cholesterol": {
+    "mis": [
+      {
+        "w": "His cholesterol are too high.",
+        "r": "His cholesterol is too high.",
+        "why": "Cholesterol is uncountable and singular, so use 'is'."
+      },
+      {
+        "w": "The doctor told me to reduce my cholesterols.",
+        "r": "The doctor told me to reduce my cholesterol.",
+        "why": "Do not add plural -s to an uncountable noun."
+      }
+    ],
+    "u": "Cholesterol is a waxy fatty substance found in the blood and in every cell of the body. The body needs some, but too much, especially LDL, called bad cholesterol, raises the risk of heart disease. HDL is the good type. It is uncountable and singular, so you have high cholesterol and check your cholesterol level. Doctors order a cholesterol test and may advise diet changes or medication."
+  },
+  "collateral": {
+    "mis": [
+      {
+        "w": "The bank wants a collateral for this loan.",
+        "r": "The bank wants collateral for this loan.",
+        "why": "In finance, collateral is uncountable and takes no 'a'."
+      },
+      {
+        "w": "He used his house like collateral.",
+        "r": "He used his house as collateral.",
+        "why": "Use 'as' to state the role or function of something."
+      }
+    ],
+    "u": "Collateral is an asset such as a house, car or equipment that a borrower pledges to a lender as security for a loan. If the borrower fails to repay, the lender can take the asset. It is uncountable: you put up, offer or provide collateral, or use something as collateral. As an adjective it also appears in collateral damage, meaning unintended harm to bystanders."
+  },
+  "commissioning": {
+    "mis": [
+      {
+        "w": "The line is in commissioning since May.",
+        "r": "The line has been in commissioning since May.",
+        "why": "Use the present perfect with since: has been, not is."
+      },
+      {
+        "w": "The commissioning of the machine are almost done.",
+        "r": "The commissioning of the machine is almost done.",
+        "why": "The subject is 'commissioning', singular; 'machine' only follows 'of'."
+      }
+    ],
+    "u": "In engineering, commissioning is the stage of testing and adjusting new equipment, a building system or a plant to prove it works as designed before it is handed to the owner. It is uncountable and usually follows construction and precedes operation. A commissioning engineer runs the tests and signs a report. The verb is commission. In other contexts, commissioning also means ordering a work such as a painting."
+  },
+  "compiler": {
+    "mis": [
+      {
+        "w": "The compiler translates the source code to machine code.",
+        "r": "The compiler translates the source code into machine code.",
+        "why": "Use 'into' when something is changed from one form to another."
+      },
+      {
+        "w": "The compiler gives an error in my program.",
+        "r": "The compiler reports an error in my program.",
+        "why": "Report, show or throw is the natural verb for diagnostics; 'give' sounds unnatural here."
+      }
+    ],
+    "u": "A compiler is a program that translates source code written in a high-level language such as C into machine code the computer can run. It checks syntax and reports errors and warnings before the program ever starts. This differs from an interpreter, which executes code line by line. Programmers say they run or invoke the compiler, and a compiler error stops the build."
+  },
+  "constitution": {
+    "mis": [
+      {
+        "w": "The rights are guaranteed in constitution of Vietnam.",
+        "r": "The rights are guaranteed in the constitution of Vietnam.",
+        "why": "A specific document needs the article 'the'."
+      },
+      {
+        "w": "Vietnam's constitution have been amended several times.",
+        "r": "Vietnam's constitution has been amended several times.",
+        "why": "The subject 'constitution' is singular, so use 'has'."
+      }
+    ],
+    "u": "A constitution is the set of fundamental principles and laws by which a state is governed, and it often limits the power of government and lists citizens' rights. Countries amend, draft or violate a constitution, and actions can be constitutional or unconstitutional. With a small c, the word can also mean a person's physical health: a strong constitution. In law it is capitalised when naming a specific document."
+  },
+  "convict": {
+    "mis": [
+      {
+        "w": "He was convicted for murder last year.",
+        "r": "He was convicted of murder last year.",
+        "why": "Convict takes 'of' before the crime; 'for' is used for the punishment or sentence."
+      },
+      {
+        "w": "The court convicted him to ten years in prison.",
+        "r": "The court sentenced him to ten years in prison.",
+        "why": "Convict means to find guilty; the verb for giving a punishment is sentence."
+      }
+    ],
+    "u": "As a verb, convict means that a court officially declares a person guilty of a crime, always with of: convicted of fraud. It is different from sentence, which is the punishment decided afterwards. The noun convict is stressed on the first syllable and means a person serving a prison sentence, while the verb is stressed on the second. A conviction is the result, and the opposite is acquit."
+  },
+  "cybersecurity": {
+    "mis": [
+      {
+        "w": "The firm hired a cybersecurity to protect its data.",
+        "r": "The firm hired a cybersecurity expert to protect its data.",
+        "why": "Cybersecurity is a field, not a person; add 'expert' or 'specialist'."
+      },
+      {
+        "w": "Cybersecurities are very important now.",
+        "r": "Cybersecurity is very important now.",
+        "why": "The noun is uncountable and singular, so no plural and use 'is'."
+      }
+    ],
+    "u": "Cybersecurity is the practice of protecting computers, networks, software and data from digital attacks such as hacking, malware and phishing. It is uncountable and written as one word in modern usage. People strengthen or invest in cybersecurity and talk about a cybersecurity breach or team. It is broader than antivirus software and includes policies, training and monitoring. The older term IT security is similar but narrower."
+  },
+  "damages": {
+    "mis": [
+      {
+        "w": "The court ordered him to pay a damage of two million.",
+        "r": "The court ordered him to pay damages of two million.",
+        "why": "In law, the money awarded is plural 'damages', while singular 'damage' is harm."
+      },
+      {
+        "w": "The storm caused serious damages to the roof.",
+        "r": "The storm caused serious damage to the roof.",
+        "why": "Physical harm is uncountable 'damage'; 'damages' means money awarded by a court."
+      }
+    ],
+    "u": "In law, damages are a sum of money a court orders one party to pay another as compensation for loss or injury. The plural form is essential: damages is not the same as damage, which is physical harm and is uncountable. You claim, seek or are awarded damages, or sue for damages. Punitive damages are meant to punish the wrongdoer. Compensation is a broader everyday synonym."
+  },
+  "debug": {
+    "mis": [
+      {
+        "w": "I need to debug the bugs in my code.",
+        "r": "I need to debug my code.",
+        "why": "Debug already means remove bugs, so 'debug the bugs' is redundant."
+      },
+      {
+        "w": "She debugged for the login page all afternoon.",
+        "r": "She debugged the login page all afternoon.",
+        "why": "Debug is transitive and takes its object directly, with no 'for'."
+      }
+    ],
+    "u": "To debug is to find and remove errors, called bugs, from software or hardware. It is a transitive verb: you debug a program, not debug for it. The noun is debugging, and a debugger is the tool that helps step through the code. Developers often say code is hard to debug when its logic is unclear. Debug is more specific than fix, because it includes the process of locating the cause."
+  },
+  "default": {
+    "mis": [
+      {
+        "w": "He defaulted to pay the loan.",
+        "r": "He defaulted on the loan.",
+        "why": "As a verb in finance, default takes 'on' plus the debt, not an infinitive."
+      },
+      {
+        "w": "The program uses this setting by the default.",
+        "r": "The program uses this setting by default.",
+        "why": "The fixed phrase 'by default' takes no article."
+      }
+    ],
+    "u": "Default has two main uses. In finance it means failing to repay a loan on time: a borrower defaults on a loan, and the noun default is the failure itself. In computing it describes the setting applied automatically unless changed, such as the default language, and the phrase by default means without any change. The financial verb takes 'on', never an infinitive."
+  },
+  "dehydration": {
+    "mis": [
+      {
+        "w": "He felt weak because of the dehydrate.",
+        "r": "He felt weak because of dehydration.",
+        "why": "After 'because of' you need a noun; dehydrate is the verb."
+      },
+      {
+        "w": "Drinking water prevents from dehydration.",
+        "r": "Drinking water prevents dehydration.",
+        "why": "Prevent is transitive and takes no 'from' before its object."
+      }
+    ],
+    "u": "Dehydration is a harmful loss of water and salts from the body, caused by heat, illness, or not drinking enough. Symptoms include thirst, dark urine, headache and dizziness, and severe cases need hospital treatment. It is uncountable: suffer from dehydration, signs of dehydration. The verb is dehydrate and the adjective dehydrated. Dehydrated food, such as dried fruit, is also food from which water has been removed."
+  },
+  "depreciation": {
+    "mis": [
+      {
+        "w": "The depreciation of the machine is 10% on a year.",
+        "r": "The depreciation of the machine is 10% a year.",
+        "why": "Rates per period use 'a' or 'per', not 'on'."
+      },
+      {
+        "w": "Cars depreciation quickly after purchase.",
+        "r": "Cars depreciate quickly after purchase.",
+        "why": "Use the verb depreciate here; depreciation is a noun."
+      }
+    ],
+    "u": "Depreciation is the gradual fall in the value of an asset such as a vehicle or machine because of age and use. In accounting, firms spread an asset's cost over its useful life, for example by straight-line depreciation, and record it as an expense. The verb is depreciate; the opposite is appreciation. Economists also use depreciation for a currency losing value against others."
+  },
+  "dermatology": {
+    "mis": [
+      {
+        "w": "I have an appointment with the dermatology tomorrow.",
+        "r": "I have an appointment with a dermatologist tomorrow.",
+        "why": "You meet a person, the dermatologist; dermatology is the field."
+      },
+      {
+        "w": "Dermatology are my favorite subject.",
+        "r": "Dermatology is my favorite subject.",
+        "why": "A field of study is a singular noun, so the verb is 'is', not 'are'."
+      }
+    ],
+    "u": "Dermatology is the branch of medicine that deals with the skin, hair and nails, covering problems such as acne, eczema and skin cancer. A doctor in this field is a dermatologist, and the related adjective is dermatological. Hospitals have a dermatology department or clinic, and patients are referred to dermatology. Cosmetic dermatology focuses on appearance, for example treating scars or ageing."
+  },
+  "diabetes": {
+    "mis": [
+      {
+        "w": "Diabetes are common among older adults.",
+        "r": "Diabetes is common among older adults.",
+        "why": "Diabetes ends in -s but is a singular, uncountable disease name."
+      },
+      {
+        "w": "He has a diabetes.",
+        "r": "He has diabetes.",
+        "why": "Disease names like diabetes take no article."
+      }
+    ],
+    "u": "Diabetes is a long-term disease in which the body cannot control blood sugar properly. In type 1 the body makes too little insulin; in type 2 it cannot use insulin well. The word ends in -s but is singular and uncountable, so it takes no article and a singular verb. People say they have diabetes or were diagnosed with diabetes. A person with the disease is a diabetic, and the adjective is also diabetic."
+  },
+  "diagnosis": {
+    "mis": [
+      {
+        "w": "The doctor diagnosed me for flu.",
+        "r": "The doctor diagnosed me with flu.",
+        "why": "Diagnose someone with an illness; 'for' is wrong here."
+      },
+      {
+        "w": "Many diagnosis were wrong in the study.",
+        "r": "Many diagnoses were wrong in the study.",
+        "why": "The plural of diagnosis is diagnoses, pronounced /-siːz/."
+      }
+    ],
+    "u": "Diagnosis is the identification of an illness from its symptoms and test results. You make or confirm a diagnosis, and patients receive one. It has an irregular Greek plural, diagnoses, and the verb is diagnose, used with the illness or in the passive: he was diagnosed with asthma. Early diagnosis often improves treatment results. A prognosis, by contrast, is a forecast of how the illness will develop."
+  },
+  "dialysis": {
+    "mis": [
+      {
+        "w": "He needs a dialysis three times a week.",
+        "r": "He needs dialysis three times a week.",
+        "why": "Dialysis is an uncountable treatment name and takes no 'a'."
+      },
+      {
+        "w": "Dialysis helps patients whose kidney do not work.",
+        "r": "Dialysis helps patients whose kidneys do not work.",
+        "why": "Kidney is countable; a plural verb needs the plural noun kidneys."
+      }
+    ],
+    "u": "Dialysis is a medical treatment that filters waste and extra fluid from the blood when the kidneys no longer work properly. In haemodialysis, a machine cleans the blood outside the body; in peritoneal dialysis, the lining of the abdomen is used. The noun is uncountable and takes no article: a patient is on or undergoes dialysis. The plural form dialyses exists but is rare."
+  },
+  "discharge": {
+    "mis": [
+      {
+        "w": "The patient was discharged the hospital yesterday.",
+        "r": "The patient was discharged from the hospital yesterday.",
+        "why": "Discharge needs 'from' before the place a person leaves."
+      },
+      {
+        "w": "She was discharged to home after surgery.",
+        "r": "She was discharged home after surgery.",
+        "why": "Home is an adverb here; no 'to' is needed."
+      }
+    ],
+    "u": "Discharge as a verb means to allow a patient to leave hospital, to dismiss someone from the army, or to release something such as liquid or gas. The patient is discharged from a hospital, often home, with no preposition before home. The noun is stressed on the first syllable: a discharge from the wound means fluid, while hospital discharge is formal permission to leave. Discharge summary is the doctor's final report."
+  },
+  "donor": {
+    "mis": [
+      {
+        "w": "She donor her kidney to her sister.",
+        "r": "She donated her kidney to her sister.",
+        "why": "Donor is a noun for the person; the verb is donate."
+      },
+      {
+        "w": "He is a blood donator.",
+        "r": "He is a blood donor.",
+        "why": "The noun is donor; 'donator' is rare and sounds wrong."
+      }
+    ],
+    "u": "A donor is a person or organisation that gives something, especially blood, an organ or money, for others to use. Common compounds are blood donor, organ donor and charity donor. The verb is donate and the act is donation. A recipient is the person who receives. Donor countries are wealthy states giving aid. Match is important in medicine: a donor must have a compatible blood or tissue type."
+  },
+  "dosage": {
+    "mis": [
+      {
+        "w": "Never take more than the recommend dosage.",
+        "r": "Never take more than the recommended dosage.",
+        "why": "Before a noun use the participle adjective 'recommended', not the base verb."
+      },
+      {
+        "w": "The doctor increased my dosages of the medicine.",
+        "r": "The doctor increased my dosage of the medicine.",
+        "why": "Dosage means the regular amount and frequency and is normally uncountable; 'dose' is the single portion."
+      }
+    ],
+    "u": "Dosage is the amount of a medicine to take and how often to take it, for example two tablets three times a day. It is usually uncountable, whereas a dose is one single portion: you take a dose, but follow the dosage. Doctors adjust or increase the dosage, and the label gives dosage instructions. Taking more than the recommended dosage can be dangerous, especially for children."
+  },
+  "encryption": {
+    "mis": [
+      {
+        "w": "The messages are protected by encrypt.",
+        "r": "The messages are protected by encryption.",
+        "why": "After a preposition you need a noun; encrypt is the verb."
+      },
+      {
+        "w": "We need an encryption to protect the files.",
+        "r": "We need encryption to protect the files.",
+        "why": "Encryption as a general technology is uncountable and takes no 'a'."
+      }
+    ],
+    "u": "Encryption is the process of converting readable data into a coded form so that only people with the right key can read it. It protects emails, payments and messages. The verb is encrypt, the opposite process is decryption, and the data before encryption is called plaintext. It is uncountable: use strong encryption. Encryption is one tool within cybersecurity, not a replacement for good passwords."
+  },
+  "endpoint": {
+    "mis": [
+      {
+        "w": "The app sends a request at the endpoint.",
+        "r": "The app sends a request to the endpoint.",
+        "why": "A request is sent to a destination, so use 'to'."
+      },
+      {
+        "w": "Each end point must require authentication.",
+        "r": "Each endpoint must require authentication.",
+        "why": "In technical writing this is one closed word, not two."
+      }
+    ],
+    "u": "In software, an endpoint is a specific URL or address where an API receives requests and returns responses, for example /users. Clients send or call an endpoint, and developers secure it with authentication. In IT security, endpoint also means a device such as a laptop or phone connected to a network, as in endpoint protection. It is written as one word, and sometimes stands for the end of a process generally."
+  },
+  "equity": {
+    "mis": [
+      {
+        "w": "He owns a lot of equities in the company.",
+        "r": "He owns a lot of equity in the company.",
+        "why": "Equity meaning ownership value is uncountable; 'equities' means shares as a category."
+      },
+      {
+        "w": "He wants to invest on equity.",
+        "r": "He wants to invest in equity.",
+        "why": "Invest takes 'in' before what you put money into."
+      }
+    ],
+    "u": "In finance, equity is the value of ownership in a company, equal to assets minus liabilities, so shareholder equity is what remains for owners. Companies raise equity by selling shares, as opposed to taking on debt. Private equity firms buy companies. Home equity is the part of a house you own outright. Equity also means fairness, as in gender equity."
+  },
+  "fastener": {
+    "mis": [
+      {
+        "w": "The fastener is made of stainless steel for resist rust.",
+        "r": "The fastener is made of stainless steel to resist rust.",
+        "why": "Purpose before a verb uses 'to' + infinitive, not 'for' + base verb."
+      },
+      {
+        "w": "Each fasteners must be tightened.",
+        "r": "Each fastener must be tightened.",
+        "why": "'Each' is followed by a singular noun and singular verb."
+      }
+    ],
+    "u": "A fastener is any device that joins or holds two or more parts together, such as a bolt, screw, nut, rivet or clip. The word is common in engineering catalogues and assembly work: threaded fasteners have screw threads, while rivets are non-threaded. Fasteners can be stainless steel or zinc plated. The verb is fasten, and fastening is the more general noun for the action or system."
+  },
+  "forging": {
+    "mis": [
+      {
+        "w": "The factory makes the crankshaft by forge.",
+        "r": "The factory makes the crankshaft by forging.",
+        "why": "After 'by' use the gerund or noun forging, not the base verb."
+      },
+      {
+        "w": "Forging are stronger than casting.",
+        "r": "Forging is stronger than casting.",
+        "why": "The process name forging is uncountable, so it takes 'is'."
+      }
+    ],
+    "u": "Forging is shaping hot or cold metal by hammering, pressing or rolling it, which aligns the grain and makes parts such as crankshafts very strong. The product is also called a forging, which can be counted. It is different from casting, where molten metal is poured into a mold. A blacksmith forges by hand, while factories use presses. Forging can also mean creating fake documents."
+  },
+  "friction": {
+    "mis": [
+      {
+        "w": "There was a friction between the two managers.",
+        "r": "There was friction between the two managers.",
+        "why": "Friction is uncountable in both its physical and figurative senses."
+      },
+      {
+        "w": "Friction on the two surfaces creates heat.",
+        "r": "Friction between the two surfaces creates heat.",
+        "why": "Friction occurs between two things, so use 'between'."
+      }
+    ],
+    "u": "Friction is the force that resists movement when two surfaces touch, and it produces heat. Engineers reduce friction with lubrication, or use it, for example in brakes. The noun is uncountable and takes 'between': friction between the tyre and the road. Figuratively, friction means disagreement or tension among people, as in friction in the team. The adjective is frictional, but it is rarely used outside physics."
+  },
+  "furnace": {
+    "mis": [
+      {
+        "w": "Steel is melted at a furnace.",
+        "r": "Steel is melted in a furnace.",
+        "why": "A furnace is an enclosed space, so use 'in'."
+      },
+      {
+        "w": "The furnace is hot like an oven, so wear a helmet.",
+        "r": "The furnace is hotter than an oven, so wear a helmet.",
+        "why": "Use the comparative 'hotter than' to say one thing exceeds another."
+      }
+    ],
+    "u": "A furnace is an enclosed chamber in which materials are heated to very high temperatures, for example to melt metal in a blast furnace or an electric arc furnace. In American English the word also means the home heating unit that warms air, which British speakers call a boiler or central heating. A kiln is a furnace for firing ceramics. Figuratively, it describes an extremely hot place."
+  },
+  "hearing": {
+    "mis": [
+      {
+        "w": "The hearing will be hold on Monday.",
+        "r": "The hearing will be held on Monday.",
+        "why": "The passive needs the past participle held, not the base form hold."
+      },
+      {
+        "w": "The judge listened the witness during the hearing.",
+        "r": "The judge listened to the witness during the hearing.",
+        "why": "Listen takes 'to' before the person or thing heard."
+      }
+    ],
+    "u": "A hearing is a formal meeting of a court or official body at which evidence and arguments are heard, shorter than a full trial. It can be a preliminary hearing, a public hearing or a disciplinary hearing, and it is scheduled, held or adjourned. The same word also means the sense of hearing, as in hearing loss, so context decides the meaning. A fair hearing is the right to be listened to."
+  },
+  "hydraulic": {
+    "mis": [
+      {
+        "w": "The press is operated by hydraulic.",
+        "r": "The press is operated hydraulically.",
+        "why": "To modify the verb 'operated' you need the adverb hydraulically."
+      },
+      {
+        "w": "The machine uses a hydraulics cylinder.",
+        "r": "The machine uses a hydraulic cylinder.",
+        "why": "The adjective before a noun is hydraulic; hydraulics is the field."
+      }
+    ],
+    "u": "Hydraulic is an adjective describing machines or systems that work by the pressure of a liquid, usually oil, as in a hydraulic press, brake or jack. Pressurised fluid transmits force through pipes to a cylinder. The noun hydraulics (singular) is the science or engineering of liquids in motion, and the adverb is hydraulically. Hydraulic is different from pneumatic, which uses compressed air."
+  },
+  "incision": {
+    "mis": [
+      {
+        "w": "The surgeon made an incision at the abdomen.",
+        "r": "The surgeon made an incision in the abdomen.",
+        "why": "Use 'in' for a cut made inside a body part's surface."
+      },
+      {
+        "w": "The doctor did an incision of the skin.",
+        "r": "The doctor made an incision in the skin.",
+        "why": "The collocation is make an incision, not do one."
+      }
+    ],
+    "u": "An incision is a neat cut made into the body during an operation, usually with a scalpel. The standard collocation is make an incision, followed by in and the body part: an incision in the abdomen. Surgeons then close it with stitches, and the place is the incision site. The verb is incise, which is rare outside medicine. An incision is clean and intentional, unlike a wound or a cut caused by accident."
+  },
+  "inheritance": {
+    "mis": [
+      {
+        "w": "He inherited an inheritance from his uncle.",
+        "r": "He received an inheritance from his uncle.",
+        "why": "Inherit already means receive an inheritance, so 'inherited an inheritance' is redundant."
+      },
+      {
+        "w": "She inherited from her father a lot of money.",
+        "r": "She inherited a lot of money from her father.",
+        "why": "Inherit takes the thing directly after it; the person comes after 'from'."
+      }
+    ],
+    "u": "Inheritance is money, property or traits received from someone who has died or from parents. A person receives or leaves an inheritance, and may pay inheritance tax. The verb is inherit: inherit a house from your grandmother. In biology, genetic inheritance means traits passed through genes. In programming, inheritance is when one class receives the properties of another, a use that is unrelated to death or money."
+  },
+  "inpatient": {
+    "mis": [
+      {
+        "w": "He was treated like an inpatient for a week.",
+        "r": "He was treated as an inpatient for a week.",
+        "why": "Use 'as' to state a role or status, 'like' to compare."
+      },
+      {
+        "w": "The inpatients was moved to another ward.",
+        "r": "The inpatients were moved to another ward.",
+        "why": "A plural subject needs a plural verb: were."
+      }
+    ],
+    "u": "An inpatient is a patient who stays in a hospital overnight or longer while being treated, as opposed to an outpatient, who visits for treatment and goes home the same day. The adjective use is common: inpatient care, an inpatient ward, an inpatient stay. A patient is admitted as an inpatient and later discharged. Insurance often covers inpatient and outpatient services differently."
+  },
+  "integer": {
+    "mis": [
+      {
+        "w": "The age field must be integer.",
+        "r": "The age field must be an integer.",
+        "why": "A singular countable noun needs an article: an integer."
+      },
+      {
+        "w": "Enter a integer between 1 and 10.",
+        "r": "Enter an integer between 1 and 10.",
+        "why": "Use 'an' before a vowel sound: an integer."
+      }
+    ],
+    "u": "An integer is a whole number with no fractional part, positive, negative or zero, such as -4, 0 or 25. In programming, integer is a data type, often abbreviated int, and integer overflow happens when a value exceeds its limit. Integers differ from floating-point numbers like 3.5. The word is a noun and also forms the adjective integral, though that is used in a different sense."
+  },
+  "integration": {
+    "mis": [
+      {
+        "w": "We need integration of the app on the CRM.",
+        "r": "We need integration of the app with the CRM.",
+        "why": "Integrate and integration use 'with' for the system you connect to."
+      },
+      {
+        "w": "The integrations of the two systems is easy.",
+        "r": "The integration of the two systems is easy.",
+        "why": "The subject is singular, so use 'is'; the plural integrations would need 'are'."
+      }
+    ],
+    "u": "Integration is the act of combining separate parts or systems into a unified whole. In IT it means connecting software so they exchange data, for example integration with payment services. The noun is followed by with or of: the integration of two systems. In social contexts it means bringing groups together, as in the integration of immigrants. Its verb is integrate and its adjective is integrated."
+  },
+  "intravenous": {
+    "mis": [
+      {
+        "w": "The patient was given intravenous through a drip.",
+        "r": "The patient was given intravenous fluids through a drip.",
+        "why": "Intravenous is an adjective and needs a noun after it."
+      },
+      {
+        "w": "The drug is given by intravenously.",
+        "r": "The drug is given intravenously.",
+        "why": "Intravenously is an adverb and needs no preposition 'by'."
+      }
+    ],
+    "u": "Intravenous means given directly into a vein, usually through a needle or a drip, so that the medicine or fluid enters the blood quickly. It is an adjective; the adverb is intravenously, and in hospitals it is often abbreviated IV. Common phrases are intravenous fluids and intravenous injection. It is the opposite of oral. The prefix intra- means inside, like in intramuscular, which means into a muscle."
+  },
+  "jurisdiction": {
+    "mis": [
+      {
+        "w": "The case is not in our jurisdiction on this matter.",
+        "r": "The case is not within our jurisdiction.",
+        "why": "'Within' or 'under' is the natural preposition for scope of authority."
+      },
+      {
+        "w": "The court has jurisdiction on the dispute.",
+        "r": "The court has jurisdiction over the dispute.",
+        "why": "Jurisdiction takes 'over' when the thing being governed follows."
+      }
+    ],
+    "u": "Jurisdiction is the official power of a court or authority to make legal decisions, and it can also mean the territory over which that power applies. A case falls within a court's jurisdiction, and a court has jurisdiction over a dispute. Foreign courts lack jurisdiction. The word is uncountable for authority but can be countable when referring to different legal territories: different jurisdictions have different laws."
+  },
+  "lawsuit": {
+    "mis": [
+      {
+        "w": "They did a lawsuit against the developer.",
+        "r": "They filed a lawsuit against the developer.",
+        "why": "The collocation is file (or bring) a lawsuit, not do."
+      },
+      {
+        "w": "He lawsuit the company for fraud.",
+        "r": "He sued the company for fraud.",
+        "why": "Lawsuit is a noun; the verb is sue."
+      }
+    ],
+    "u": "A lawsuit is a case brought to a court of law by one party against another, usually a civil one for money or an order. You file, bring or settle a lawsuit, and the court may dismiss it. The verb is sue, and the person who sues is the plaintiff. A lawsuit against a company is different from a criminal case, where the state prosecutes. Class action lawsuits involve many claimants."
+  },
+  "liquidity": {
+    "mis": [
+      {
+        "w": "The firm has liquid problems this month.",
+        "r": "The firm has liquidity problems this month.",
+        "why": "Use the noun liquidity as a modifier, not the adjective liquid."
+      },
+      {
+        "w": "Banks must keep enough of liquidity.",
+        "r": "Banks must keep enough liquidity.",
+        "why": "'Enough' takes the noun directly, with no 'of'."
+      }
+    ],
+    "u": "Liquidity describes how quickly an asset can be turned into cash without losing value. Cash is the most liquid; property is not. Companies and banks need enough liquidity to pay short-term debts. The word is uncountable, with the adjective liquid and the opposite illiquid. A liquidity crisis occurs when firms cannot meet obligations even though they may be profitable. It is different from solvency."
+  },
+  "litigation": {
+    "mis": [
+      {
+        "w": "The company is in a litigation with its supplier.",
+        "r": "The company is in litigation with its supplier.",
+        "why": "Litigation is uncountable and takes no article."
+      },
+      {
+        "w": "They want to avoid litigate over the contract.",
+        "r": "They want to avoid litigation over the contract.",
+        "why": "After 'avoid' use a noun or gerund; litigate is a base verb."
+      }
+    ],
+    "u": "Litigation is the process of taking legal action in court, from filing a claim to the final judgment. It is uncountable and usually appears in phrases such as be involved in litigation, avoid litigation or pending litigation. It is more formal than lawsuit, which refers to a specific case. The verb is litigate and a lawyer who handles court cases is a litigator. Many firms try mediation to avoid costly litigation."
+  },
+  "lubrication": {
+    "mis": [
+      {
+        "w": "The machine needs a lubrication every week.",
+        "r": "The machine needs lubrication every week.",
+        "why": "Lubrication is uncountable and takes no 'a'."
+      },
+      {
+        "w": "Lubrication the chain every month.",
+        "r": "Lubricate the chain every month.",
+        "why": "An instruction needs a verb: lubricate."
+      }
+    ],
+    "u": "Lubrication is the application of oil, grease or another substance between moving parts to reduce friction, wear and heat. It is uncountable in general use: regular lubrication extends machine life. The verb is lubricate and the substance is a lubricant. A lubrication system pumps oil to engine parts automatically. In everyday speech, people often say oil or grease a machine instead, which is less technical."
+  },
+  "machining": {
+    "mis": [
+      {
+        "w": "The parts are made by machining of CNC.",
+        "r": "The parts are made by CNC machining.",
+        "why": "Put the modifier CNC before the noun; 'machining of CNC' is unnatural."
+      },
+      {
+        "w": "The factory machining the cast parts.",
+        "r": "The factory machines the cast parts.",
+        "why": "Machining is a noun or gerund; the finite verb is machines."
+      }
+    ],
+    "u": "Machining is the process of cutting, drilling or turning a block of material, usually metal, to the exact shape and size using machine tools such as lathes and mills. CNC machining is controlled by computer. It is uncountable and removes material, unlike casting or forging, which shape it. The verb is machine, and parts need a machining allowance of extra material to be removed. Precision machining achieves tight tolerances."
+  },
+  "manufacturing": {
+    "mis": [
+      {
+        "w": "The country has a strong manufacture sector.",
+        "r": "The country has a strong manufacturing sector.",
+        "why": "Use the noun manufacturing before 'sector'; manufacture is a verb or a different noun."
+      },
+      {
+        "w": "Many manufacturings are moving to Vietnam.",
+        "r": "Many manufacturers are moving to Vietnam.",
+        "why": "Manufacturing is uncountable; the companies are manufacturers."
+      }
+    ],
+    "u": "Manufacturing is the making of goods in large quantities using machines and labour, as in the manufacturing industry or sector. It is uncountable. Companies that do it are manufacturers, and the verb is manufacture. The term covers factories producing items from clothing to cars. It is broader than production, which can also mean farming or films, and it differs from assembly, which only joins parts."
+  }
+}

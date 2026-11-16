@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_not_have",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "What is wrong with this sentence?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am not have a car.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I do not have a car.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use do not before have.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Do not have! I do not have a pen.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am not have a car.",
+  "right": "I do not have a car.",
+  "strike": "am not have",
+  "why": "Use do not before have.",
+  "memory": "Do not have.",
+  "quiz": {
+   "stem": "I ___ a pen.",
+   "options": [
+    "do not have",
+    "am not have"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Không có” ≠ “am not have”",
+   "tip": "Tiếng Việt nói “không có”, nên dễ ghép “not have” với “am.” Tiếng Anh dùng “do not have.”",
+   "caption": "Bạn có hay nói “I am not have a car.” không? 😅 Muốn nói “không có”, hãy dùng “do not”: “I do not have a car.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “do not have.” Hãy viết một câu về một thứ bạn không có, bắt đầu bằng “I do not have.” Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#nguphaptienganh",
+    "#tienganhgiaotiep",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Am not have”? No!",
+   "tip": "Vietnamese says \"don't have\", so it's easy to combine \"not have\" with \"am.\" English uses “do not have.”",
+   "caption": "Do you often say this? “I am not have a car.” To say you do not have something, use “do not”: “I do not have a car.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Không có” ≠ “am not have”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "“Không có” ≠ “am not have”",
+  "keyword": "I do not have a car.",
+  "value": "Tiếng Việt nói “không có”, nên dễ ghép “not have” với “am.” Tiếng Anh dùng “do not have.”",
+  "hashtags": [
+   "#hoctienganh",
+   "#nguphaptienganh",
+   "#tienganhgiaotiep",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 46,
+  "platforms": {
+   "youtube": {
+    "title": "“Không có” ≠ “am not have”",
+    "description": "Tiếng Việt nói “không có”, nên dễ ghép “not have” với “am.” Tiếng Anh dùng “do not have.”\n\nBạn có hay nói “I am not have a car.” không? 😅 Muốn nói “không có”, hãy dùng “do not”: “I do not have a car.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #nguphaptienganh #tienganhgiaotiep #lexkite",
+    "tags": [
+     "I do not have a car.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “I am not have a car.” không? 😅 Muốn nói “không có”, hãy dùng “do not”: “I do not have a car.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Không có” ≠ “am not have”\n\nTiếng Việt nói “không có”, nên dễ ghép “not have” với “am.” Tiếng Anh dùng “do not have.”\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#nguphaptienganh",
+     "#tienganhgiaotiep",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Không có” ≠ “am not have” Tiếng Việt nói “không có”, nên dễ ghép “not have” với “am.” Tiếng Anh dùng… #hoctienganh #nguphaptienganh #tienganhgiaotiep"
+   }
+  },
+  "first_comment": "Đáp án: “do not have.” Hãy viết một câu về một thứ bạn không có, bắt đầu bằng “I do not have.” Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

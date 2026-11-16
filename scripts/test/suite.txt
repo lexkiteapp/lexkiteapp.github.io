@@ -86,6 +86,7 @@ node scripts/test/pron-pairs.mjs
 node scripts/test/pron-coach.mjs
 node scripts/test/pron-shadow.mjs
 node scripts/test/call-engine.mjs
+node scripts/test/call-rt.mjs
 node scripts/test/feedback-eval.mjs
 node scripts/test/route-race.mjs
 node scripts/test/exit-guard.mjs
@@ -105,6 +106,8 @@ node scripts/test/social-proxy.mjs
 node scripts/test/social-ui.mjs
 node scripts/test/social-mgr.mjs
 node scripts/test/social-auto.mjs
+node scripts/test/social-coverage.mjs
+node scripts/test/yt-fill.mjs
 node scripts/test/social-preview.mjs
 node scripts/test/dist-channels.mjs
 node scripts/test/social-admin.mjs
@@ -114,6 +117,7 @@ node scripts/test/social-first-comment.mjs
 node scripts/test/studio.mjs
 node scripts/test/report.mjs
 node scripts/test/report-ui.mjs
+node scripts/test/admin-reports-ui.mjs
 node scripts/test/quota.mjs
 node scripts/test/capacity.mjs
 node scripts/test/admin-rollup.mjs
@@ -167,6 +171,8 @@ node scripts/test/ai-local.mjs
 node scripts/test/admin-prefs.mjs
 node scripts/test/mail-prefs.mjs
 node scripts/test/admin-ui.mjs
+node scripts/test/admin-plat.mjs
+node scripts/test/admin-series.mjs
 node scripts/test/admin-tabs.mjs
 node scripts/test/admin-gh.mjs
 node scripts/test/admin-metrics.mjs
@@ -240,6 +246,7 @@ node scripts/test/home-logic.mjs
 node scripts/test/vocab-hub.mjs
 node scripts/test/grammar-hub.mjs
 node scripts/test/pron-hub.mjs
+node scripts/test/dict-hub.mjs
 node scripts/test/inline-box.mjs
 node scripts/test/st2-href.mjs
 node scripts/test/card-actions.mjs
@@ -251,6 +258,7 @@ node scripts/test/landing-v3.mjs
 node scripts/test/sw-cache-fixed.mjs
 node scripts/test/sw-storage.mjs
 node scripts/test/get-app.mjs
+node scripts/test/install-links.mjs
 node scripts/test/brand-check.mjs
 node scripts/test/token-contrast.mjs
 node scripts/stitch-sync-palette.mjs --check
@@ -299,6 +307,7 @@ node scripts/test/explain-let.mjs
 node scripts/content-qa/sense-check.mjs
 node scripts/test/sense-check.mjs
 node scripts/test/bot-push-key.mjs
+node scripts/test/bot-test-gate.mjs
 node scripts/test/no-pr-branch-push.mjs
 node scripts/test/shell-lazy.mjs
 node scripts/test/css-lazy.mjs
@@ -322,6 +331,7 @@ node scripts/test/codemap-budget.mjs
 node scripts/test/whisper-det.mjs
 node scripts/test/logic-invariants.mjs
 node scripts/test/top1-score.mjs
+node scripts/test/exam-clock.mjs
 node scripts/test/vocab-img-judge-budget.mjs
 node scripts/test/vocab-img-worth.mjs
 node scripts/test/lastmod.mjs
@@ -381,12 +391,18 @@ node scripts/test/ci-guards.mjs
 node scripts/test/workflow-cd-paths.mjs
 node scripts/test/apt-install.mjs
 node scripts/test/perf-median.mjs
+node scripts/test/perf-calibrate.mjs
+node scripts/test/perf-flake.mjs
+node scripts/test/gate-relevance.mjs
+node scripts/test/native-qa-scope.mjs
 node scripts/test/pr-unconflict.mjs
 node scripts/test/regen-conflicts.mjs
+node scripts/test/gen-pr-clean.mjs
 node scripts/test/main-red-sweep.mjs
 node scripts/test/ci-queue-gate.mjs
 node scripts/test/android-xml-comments.mjs
 node scripts/test/retry5xx.mjs
+node scripts/test/gh-tree.mjs
 node scripts/test/sparse-imports.mjs
 node scripts/test/stitch-today-contrast.mjs
 node scripts/test/is-main-guard.mjs
@@ -426,5 +442,12 @@ node scripts/test/l1-notes.mjs
 node scripts/test/qengine-flag.mjs
 node scripts/test/qwk.mjs
 node scripts/test/es-native-bundle.mjs
+node scripts/test/lexai-oidc.mjs
+node scripts/test/firestore-rules.mjs
+node scripts/test/ext-imgdata.mjs
+node scripts/test/league-xp.mjs
+node scripts/test/body-limit.mjs
+node scripts/test/ai-task.mjs
 node scripts/test/video-junk.mjs
 node scripts/test/dict-add.mjs
+node scripts/test/ci-portable.mjs

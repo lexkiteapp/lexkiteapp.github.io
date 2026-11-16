@@ -596,7 +596,7 @@ def note_im(lines, k=1.0, rw=None):   # layout-v12 note: mock typography for eve
 def endcard_im(say, rw, rh):   # v13 end card (owner-approved mock C): rounded app icon, call to action, 100% FREE, lexkite.com, platforms, QR for desktop/TV viewers
     RI = Image.open(f"{ROOT}/brand/social/logo/lexkite-app-icon-rounded.png").convert('RGBA')
     try:
-        import qrcode; QR = qrcode.make('https://lexkite.com/?src=short').convert('RGB')
+        import qrcode; QR = qrcode.make('https://lexkite.com/get?src=short').convert('RGB')  # trang cài ngắn tự chuyển theo thiết bị (docs/VIDEO.md)
     except Exception: QR = None
     def wrap2(t, fo, mw):   # the call line breaks into two balanced lines when it is wider than the card column
         if fo.getlength(t) <= mw: return [t]

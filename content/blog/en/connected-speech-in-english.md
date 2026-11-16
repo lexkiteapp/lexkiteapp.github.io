@@ -171,6 +171,8 @@ To work on individual sounds such as /ə/ before tackling whole phrases, open th
 
 For phrases to practise these sounds in real situations, see [speak English with confidence](/en/blog/speak-english-with-confidence/).
 
+Linking and pausing also matter when reading text aloud; see [PTE read aloud pronunciation tips](/en/blog/pte-read-aloud-pronunciation/).
+
 ## Frequently asked questions
 
 ### Do I need connected speech to get a high IELTS Speaking score?
@@ -188,3 +190,5 @@ Yes. TOEIC audio uses natural speed and several accents, so recognising weak for
 ### How long does it take to get used to connected speech?
 
 It depends on how much focused listening you do. Many learners notice a clear difference after a few weeks of daily transcript work with short clips. Passive background listening alone is much slower.
+
+The melody of a sentence matters too: see [English intonation](/en/blog/english-intonation/) for rising and falling patterns.

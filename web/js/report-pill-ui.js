@@ -1,5 +1,5 @@
 /* ⚑ Báo lỗi – phần LƯỜI của nút (js/report-pill.js nạp sau DOMContentLoaded): ẩn khi cuộn xuống/gõ phím, chân thanh bên gọn "⋯ Xem thêm",
- * hỏi trạng thái phiếu đã gửi (≤ 1 lần/12 giờ, hoặc ngay sau báo đẩy "đã sửa"). Kiểu: css/style.css § report-pill. docs/REPORTS.md */
+ * hỏi trạng thái phiếu đã gửi (còn phiếu mở ≤ 1 lần/4 giờ, đã đóng hết ≤ 1 lần/ngày, hoặc ngay sau báo đẩy "đã sửa"). Kiểu: css/style.css § report-pill. docs/REPORTS.md */
 (function (w, d) {
   var p = w.LexPill; if (!p || p.ui) return; p.ui = 1;
   var b = p.b, load = w.LexReportLoad;
@@ -43,10 +43,11 @@
   d.addEventListener('focusin', function (e) { b.classList.toggle('kb', typing(e.target)); });
   d.addEventListener('focusout', function () { setTimeout(function () { b.classList.toggle('kb', typing(d.activeElement)); }, 0); });
   b.classList.toggle('kb', typing(d.activeElement));
-  // Đã từng gửi báo lỗi → lúc rảnh (≤ 1 lần/12 giờ) hỏi trạng thái mới để nhắc trong app; vừa có báo đẩy "đã sửa" (sw.js đặt chk) → hỏi ngay
+  // Đã từng gửi báo lỗi → lúc rảnh hỏi trạng thái mới để báo trong app (giãn theo số phiếu còn mở, tiết kiệm D1); vừa có báo đẩy "đã sửa" (sw.js đặt chk) → hỏi ngay
   var poll = function (ms) { setTimeout(function () { load().then(function (R) { R.poll(); }, function () {}); }, ms); };
   try {
-    if (localStorage.getItem('lk.rp') && Date.now() - (+localStorage.getItem('lk.rpc') || 0) > 432e5) poll(9000);
+    var rp = JSON.parse(localStorage.getItem('lk.rp') || '[]'), gap = Array.isArray(rp) && rp.some(function (x) { return !/^(fixed|wontfix|dup)$/.test(x && x.st); }) ? 144e5 : 864e5;
+    if (localStorage.getItem('lk.rp') && Date.now() - (+localStorage.getItem('lk.rpc') || 0) > gap) poll(9000);
     else if (localStorage.getItem('lk.rp') && w.caches) caches.open('lk-meta').then(function (c) { return c.match('/__rep'); }).then(function (r) { return r && r.json(); }).then(function (x) { if (x && x.chk) poll(1500); }, function () {});
   } catch (x) { /* bỏ qua */ }
 })(window, document);

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_howtosay",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "How do you say it?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: How to say this in English?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: How do you say this in English?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "A question needs do you.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "How do you! How do you say this in English?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "How to say this in English?",
+  "right": "How do you say this in English?",
+  "strike": "to",
+  "why": "A question needs do you.",
+  "memory": "How do you say?",
+  "quiz": {
+   "stem": "___ say this in English?",
+   "options": [
+    "How to",
+    "How do you"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“怎么说”要用 how do you！",
+   "tip": "中文“这个用英语怎么说”很短，直译成 How to say 就不完整了。英语的问句要有主语和 do：How do you say。",
+   "caption": "你是不是也会说 “How to say this in English?”😅 中文的“怎么说”不能直译，要补上 do you：“How do you say this in English?”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“How do you say this in English?”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "How to say? Add do you!",
+   "tip": "Chinese can ask this in a few words, but English needs the full question: how do you say.",
+   "caption": "Do you say “How to say this in English?” 😅 The full question needs do you: “How do you say this in English?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“怎么说”要用 how do you！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 53,
+  "seconds": 31.5,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "“怎么说”要用 how do you！",
+  "keyword": "How do you say this in English?",
+  "value": "中文“这个用英语怎么说”很短，直译成 How to say 就不完整了。英语的问句要有主语和 do：How do you say。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 47,
+  "platforms": {
+   "youtube": {
+    "title": "“怎么说”要用 how do you！",
+    "description": "中文“这个用英语怎么说”很短，直译成 How to say 就不完整了。英语的问句要有主语和 do：How do you say。\n\n你是不是也会说 “How to say this in English?”😅 中文的“怎么说”不能直译，要补上 do you：“How do you say this in English?”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "How do you say this in English?",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “How to say this in English?”😅 中文的“怎么说”不能直译，要补上 do you：“How do you say this in English?”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“怎么说”要用 how do you！\n\n中文“这个用英语怎么说”很短，直译成 How to say 就不完整了。英语的问句要有主语和 do：How do you say。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“怎么说”要用 how do you！ 中文“这个用英语怎么说”很短，直译成 How to say 就不完整了。英语的问句要有主语和 do：How do you say。 #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“How do you say this in English?”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

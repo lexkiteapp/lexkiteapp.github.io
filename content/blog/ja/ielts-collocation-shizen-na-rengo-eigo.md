@@ -18,6 +18,8 @@ qualityScore: 93
 
 IELTSテストにおいて、特に語彙力（Lexical Resource）でBand 7.0以上の高得点を獲得するためには、単に難解で珍しい英単語を暗記するだけでは不十分です。採点官が重視するのは、文脈に応じた語と語の「自然な結びつき（コロケーション）」です。**ielts コロケーション collocation 英語**の基本ルールと頻出表現を体系的に身につけることで、不自然な直訳英語を脱却し、説得力に富んだ洗練された英文を構築できるようになります。
 
+*have an effect on* のような名詞中心の連語を正しく選ぶ練習には、[affect と effect の違い](/ja/blog/affect-effect-chigai/)も役立ちます。
+
 日本人学習者が陥りがちな典型例として、*"make a research"*（研究を行う）や *"do a decision"*（決定を下す）といった誤った表現が挙げられます。文脈上意味は通じるかもしれませんが、英語として極めて不自然です。正しくは *conduct research* や *make a decision* と表現しなければなりません。これらを決定づける厳格な文法規則は存在せず、英語圏で何百年もの間に培われた「慣用的な結びつき」によるものです。
 
 ![Lexkiteアプリ内で試験テーマごとに分類されたフレーズ記録ノート](media:phrases "トピック別に重要コロケーションや連語を整理して復習できる個人ノート画面")
@@ -114,6 +116,10 @@ IELTS Writing Task 2で頻出する主要テーマから、エッセイの説得
 2. **辞書で前置詞の結合パターンを確認する:** 正確な結びつきを調べるには [Lexkiteスマート辞書](/#/dict) を活用し、前置詞の組み合わせを徹底確認します。
 3. **分散学習（FSRS）アルゴリズムを活用する:** Lexkiteの [Smart Learn](/#/practice/learn) を起動し、[bunsan gakushuu eitango anki fsrs](/ja/blog/bunsan-gakushuu-eitango-anki-fsrs/) に基づく最適な復習タイミングでテストを受けましょう。
 4. **英文作成とパラフレーズに組み込む:** ライティングの際は [eigo kuseigo phrasal verbs tsukaikata](/ja/blog/eigo-kuseigo-phrasal-verbs-tsukaikata/) や [business eigo mail kakikata](/ja/blog/business-eigo-mail-kakikata/) の表現と組み合わせ、実践的なアウトプットを繰り返します。文法事項の確認には当サイトの [/ngu-phap/](/ngu-phap/) ライブラリが便利です。
+
+学術語彙をリストで体系的に学びたい人は、[AWL（Academic Word List）の覚え方](/ja/blog/awl-academic-word-list-ielts-tango/)も合わせてどうぞ。
+
+コロケーションが問われる別の試験として、[ケンブリッジ英検 B2 First の試験内容](/ja/blog/cambridge-eiken-b2-first-shiken-naiyou/)のUse of Englishも参考になります。
 
 ## よくある質問（FAQ）
 

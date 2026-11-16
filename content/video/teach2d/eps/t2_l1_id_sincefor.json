@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_sincefor",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "For two years, not since!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have lived here since two years.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have lived here for two years.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Time length? Use for.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "For! I have worked here for three years.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have lived here since two years.",
+  "right": "I have lived here for two years.",
+  "strike": "since",
+  "why": "Time length? Use for.",
+  "memory": "For + time length.",
+  "quiz": {
+   "stem": "I have worked here ___ three years.",
+   "options": [
+    "for",
+    "since"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Since two years”? Pakai “for”",
+   "tip": "“Sejak dua tahun (lalu)” bukan since two years. Untuk lamanya waktu pakai for; since untuk titik awal (since 2020).",
+   "caption": "Pernah bilang begini? “I have lived here since two years.” 😅 Untuk lamanya waktu, pakai for: “I have lived here for two years.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “for”. Ceritakan sudah berapa lama kamu belajar bahasa Inggris dengan for. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#grammaringgris",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Since two years”? Use “for”",
+   "tip": "“Sejak dua tahun” is not since two years. For a length of time, use for; since is for a starting point (since 2020).",
+   "caption": "Ever say this? “I have lived here since two years.” 😅 For a length of time, use for: “I have lived here for two years.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Since two years”? Pakai “for”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 51,
+  "seconds": 30.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“Since two years”? Pakai “for”",
+  "keyword": "I have lived here for two years.",
+  "value": "“Sejak dua tahun (lalu)” bukan since two years. Untuk lamanya waktu pakai for; since untuk titik awal (since 2020).",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#grammaringgris",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 45,
+  "platforms": {
+   "youtube": {
+    "title": "“Since two years”? Pakai “for”",
+    "description": "“Sejak dua tahun (lalu)” bukan since two years. Untuk lamanya waktu pakai for; since untuk titik awal (since 2020).\n\nPernah bilang begini? “I have lived here since two years.” 😅 Untuk lamanya waktu, pakai for: “I have lived here for two years.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #grammaringgris #bahasainggris #lexkite",
+    "tags": [
+     "I have lived here for two years.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “I have lived here since two years.” 😅 Untuk lamanya waktu, pakai for: “I have lived here for two years.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Since two years”? Pakai “for”\n\n“Sejak dua tahun (lalu)” bukan since two years. Untuk lamanya waktu pakai for; since untuk titik awal (since 2020).\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#grammaringgris",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Since two years”? Pakai “for” “Sejak dua tahun (lalu)” bukan since two years. Untuk lamanya wak… #belajarbahasainggris #grammaringgris #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “for”. Ceritakan sudah berapa lama kamu belajar bahasa Inggris dengan for. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

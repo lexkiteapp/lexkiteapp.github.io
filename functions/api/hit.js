@@ -10,7 +10,7 @@
  *   { t:'x', vid, day, ev:{lookup,save,popup,newtab}, prev:{day, ev}, ver, lang } → add-on Chrome: 1 lượt/ngày/máy → ext_daily (lấy MAX, gửi lại không cộng trùng)
  *   { t:'x', vid, ev:{install|update|uninstall:1}, reason }           → ext_events (đếm theo ngày; lý do gỡ = kind 'uninstall:<lý do>')
  *   { t:'q', ev:'ext_land'|'ext_feat'|'ext_blog'|'ext_app'|'ext_set'|'ext_nudge' }        → bấm nút cài add-on: ext_events kind 'cta:<ev>' (chỉ đếm)
- *   { t:'q', ev:'app_<head|foot|menu|me|top>_<cws|play|ios|a2hs|dock|web>' }             → nút "Tải app" (web/js/get-app.js): ext_events kind 'cta:<ev>' (chỉ đếm)
+ *   { t:'q', ev:'app_<head|foot|menu|me|top|rail|inst|get>_<cws|play|ios|edge|firefox|a2hs|dock|web>' }             → nút "Tải app" (web/js/get-app.js): ext_events kind 'cta:<ev>' (chỉ đếm)
  *   { t:'q', ev:'inst_<first|streak|words>_<v|c|x>_<play|ios|desk>' }       → lời mời cài app ở khoảnh khắc giá trị (web/js/install-sheet.js; v xem · c bấm · x để sau): kind 'cta:<ev>'
  *   { t:'q', ev:'share_<open|send|dl|inv>_<streak|result|goal|day>' }   → thẻ chia sẻ (web/js/share-card.js): kind 'cta:<ev>'
  *   { t:'q', ev:'ret_<on|off>_<seen|d7>' }                              → thử nghiệm cờ ret: ext_events kind 'ret:<ev>' (1 lượt/máy/sự kiện)
@@ -24,6 +24,7 @@ import { gate } from './_quota.js';
 import { once } from './_schema.js';
 import { adRows, guardOf } from './_ads.js';
 import { purgeConfig } from './config.js';
+import { readJSON } from './_body.js';
 import { landKey, normRef } from './_cpm.js';
 import { DDL as FUN_DDL, attrStmts, funStmt } from './_funnel.js';
 const QUIZ_EV = ['quiz_view', 'quiz_done', 'quiz_cta'];
@@ -32,7 +33,7 @@ const UX1_EV = ['on', 'off'].flatMap(a => ['seen', 'd1', 'd7'].map(e => `ux1_${a
 const HAB_EV = ['plan_seen', 'plan_start', 'plan_done', 'resume_seen', 'resume_click']; // vòng thói quen trang chủ (web/js/plan.js App.habTrack, 1 lượt/máy/ngày/sự kiện) → kind 'hab:<ev>' – chỉ số đếm, không định danh
 const VID_EV = ['view', 'done', 'quiz_ok', 'quiz_no', 'yt_fallback']; // t:'v' – video bài học (lesson-video.js)
 const CTA_EV = ['ext_land', 'ext_feat', 'ext_blog', 'ext_app', 'ext_set', 'ext_nudge',
-  ...['head', 'foot', 'menu', 'me', 'top'].flatMap(p => ['cws', 'play', 'ios', 'a2hs', 'dock', 'web'].map(k => `app_${p}_${k}`))]; // bấm "Thêm vào Chrome" (web/js/ext-cta.js) → kind 'cta:<ev>'
+  ...['head', 'foot', 'menu', 'me', 'top', 'rail', 'inst', 'get'].flatMap(p => ['cws', 'play', 'ios', 'edge', 'firefox', 'a2hs', 'dock', 'web'].map(k => `app_${p}_${k}`))]; // bấm "Thêm vào Chrome" (web/js/ext-cta.js) → kind 'cta:<ev>'
 const INST_EV = ['first', 'streak', 'words'].flatMap(m => ['v', 'c', 'x'].flatMap(a => ['play', 'ios', 'desk'].map(k => `inst_${m}_${a}_${k}`))); // mời cài app ở khoảnh khắc giá trị (web/js/install-sheet.js): xem · bấm · để sau → kind 'cta:<ev>'
 const SHARE_EV = ['open', 'send', 'dl', 'inv'].flatMap(a => ['streak', 'result', 'goal', 'day'].map(k => `share_${a}_${k}`)); // thẻ chia sẻ (web/js/share-card.js): mở · gửi · tải ảnh · mời, theo loại thẻ → kind 'cta:<ev>' (chỉ đếm; tỷ lệ chia sẻ → lượt về: utm_source share|qr|ref ở bảng kênh)
 const CTA_LANGS = ['vi', 'en', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr']; // 15 ngôn ngữ – chặn giá trị lạ làm phình bảng ext_events
@@ -194,8 +195,7 @@ export async function adsGuard(db, now = Date.now()) {
 export async function onRequestPost({ request, env }) {
   if (!env.DB) return ok();
   if ((await gate(request, env, 'hit', { who: null })).res) return ok(); // 1 IP gửi dồn dập → bỏ qua im lặng (thống kê không bao giờ làm hỏng app)
-  if (+(request.headers.get('Content-Length') || 0) > 65536) return ok(); // beacon thật chỉ vài KB
-  let b; try { b = JSON.parse(await request.text()); } catch (e) { return ok(); }
+  let b; try { b = await readJSON(request, 65536); } catch (e) { return ok(); } // beacon thật chỉ vài KB; vượt trần/Content-Length giả → bỏ qua im lặng
   if (!b || typeof b !== 'object') return ok();
   const auto = automation(request);
   if (auto && b && b.t !== 's') return ok(); // máy tự động: chỉ đếm phiên (để Quản trị hiện "đã loại"), không ghi lỗi JS / add-on

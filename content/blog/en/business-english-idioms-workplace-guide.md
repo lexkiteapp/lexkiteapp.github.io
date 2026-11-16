@@ -115,3 +115,6 @@ Memorising random idiom lists in isolation rarely translates to spontaneous spok
 * **Collocation Mastery**: Learn idioms as indivisible structural chunks rather than isolated lexical units, preventing grammatical slips in high-visibility correspondence.
 
 Internalising **business english idioms** empowers you to articulate complex corporate strategies with authority, build authentic camaraderie with global teams, and navigate international careers with total confidence.
+
+For the verb-plus-particle expressions that fill office talk, see [phrasal verbs for work](/en/blog/phrasal-verbs-for-work-meanings/).
+

@@ -1,0 +1,843 @@
+{
+ "vehicle": {
+  "ipaUS": "/ˈviːɪkl/",
+  "col": [
+   "motor vehicle",
+   "electric vehicle",
+   "commercial vehicle",
+   "vehicle registration",
+   "park a vehicle",
+   "stolen vehicle"
+  ],
+  "syn": [
+   "car",
+   "automobile",
+   "transport",
+   "means"
+  ]
+ },
+ "vendor": {
+  "ipaUS": "/ˈvendər/",
+  "col": [
+   "street vendor",
+   "software vendor",
+   "approved vendor",
+   "vendor contract",
+   "ice cream vendor",
+   "vendor payment"
+  ],
+  "syn": [
+   "seller",
+   "supplier",
+   "merchant",
+   "dealer"
+  ]
+ },
+ "videoconference": {
+  "ipaUS": "/ˈvɪdioʊkɑːnfərəns/",
+  "col": [
+   "hold a videoconference",
+   "join a videoconference",
+   "videoconference call",
+   "by videoconference",
+   "videoconference facilities",
+   "schedule a videoconference"
+  ],
+  "syn": [
+   "video call",
+   "virtual meeting",
+   "online meeting"
+  ]
+ },
+ "voucher": {
+  "ipaUS": "/ˈvaʊtʃər/",
+  "col": [
+   "gift voucher",
+   "meal voucher",
+   "discount voucher",
+   "redeem a voucher",
+   "travel voucher",
+   "voucher code"
+  ],
+  "syn": [
+   "coupon",
+   "token",
+   "certificate",
+   "pass"
+  ]
+ },
+ "ward": {
+  "ipaUS": "/wɔːrd/",
+  "col": [
+   "hospital ward",
+   "maternity ward",
+   "emergency ward",
+   "children's ward",
+   "ward round",
+   "ward sister"
+  ],
+  "syn": [
+   "unit",
+   "department",
+   "district",
+   "dependent"
+  ]
+ },
+ "warehouse": {
+  "ipaUS": "/ˈwerhaʊs/",
+  "col": [
+   "warehouse manager",
+   "distribution warehouse",
+   "bonded warehouse",
+   "warehouse space",
+   "warehouse staff",
+   "in the warehouse"
+  ],
+  "syn": [
+   "depot",
+   "storehouse",
+   "storeroom",
+   "depository"
+  ]
+ },
+ "whoever": {
+  "ipaUS": "/huˈevər/",
+  "col": [
+   "whoever wants",
+   "whoever you are",
+   "whoever said that",
+   "whoever comes first",
+   "whoever is responsible",
+   "whoever it was"
+  ],
+  "syn": [
+   "anyone who",
+   "any person who",
+   "no matter who"
+  ]
+ },
+ "workplace": {
+  "ipaUS": "/ˈwɜːrkpleɪs/",
+  "col": [
+   "workplace safety",
+   "in the workplace",
+   "workplace culture",
+   "workplace injury",
+   "a friendly workplace",
+   "workplace harassment"
+  ],
+  "syn": [
+   "office",
+   "work environment",
+   "job site",
+   "place of work"
+  ]
+ },
+ "workshop": {
+  "ipaUS": "/ˈwɜːrkʃɑːp/",
+  "col": [
+   "attend a workshop",
+   "hold a workshop",
+   "training workshop",
+   "writing workshop",
+   "workshop leader",
+   "car repair workshop"
+  ],
+  "syn": [
+   "seminar",
+   "training session",
+   "studio",
+   "class"
+  ]
+ },
+ "worthwhile": {
+  "ipaUS": "/ˌwɜːrθˈwaɪl/",
+  "col": [
+   "worthwhile investment",
+   "worthwhile experience",
+   "well worthwhile",
+   "worthwhile cause",
+   "a worthwhile effort",
+   "prove worthwhile"
+  ],
+  "syn": [
+   "valuable",
+   "useful",
+   "rewarding",
+   "beneficial"
+  ]
+ },
+ "abide": {
+  "ipaUS": "/əˈbaɪd/",
+  "col": [
+   "abide by",
+   "abide by the rules",
+   "abide by a decision",
+   "cannot abide",
+   "abide by the law",
+   "abide by the terms"
+  ],
+  "syn": [
+   "obey",
+   "follow",
+   "comply with",
+   "observe"
+  ]
+ },
+ "acclaim": {
+  "ipaUS": "/əˈkleɪm/",
+  "col": [
+   "critical acclaim",
+   "widespread acclaim",
+   "win acclaim",
+   "international acclaim",
+   "universal acclaim",
+   "receive acclaim"
+  ],
+  "syn": [
+   "praise",
+   "applause",
+   "approval",
+   "recognition"
+  ]
+ },
+ "accountant": {
+  "ipaUS": "/əˈkaʊntənt/",
+  "col": [
+   "chief accountant",
+   "hire an accountant",
+   "certified public accountant",
+   "accountant's fee",
+   "tax accountant",
+   "trainee accountant"
+  ],
+  "syn": [
+   "bookkeeper",
+   "auditor",
+   "financial officer"
+  ]
+ },
+ "accustom": {
+  "ipaUS": "/əˈkʌstəm/",
+  "col": [
+   "be accustomed to",
+   "become accustomed to",
+   "accustom yourself to",
+   "get accustomed to",
+   "accustomed to the cold",
+   "long accustomed"
+  ],
+  "syn": [
+   "familiarize",
+   "habituate",
+   "adapt",
+   "adjust"
+  ]
+ },
+ "achieve": {
+  "ipaUS": "/əˈtʃiːv/",
+  "col": [
+   "achieve a goal",
+   "achieve success",
+   "achieve results",
+   "achieve an aim",
+   "achieve independence",
+   "achieve a target"
+  ],
+  "syn": [
+   "attain",
+   "accomplish",
+   "reach",
+   "realize"
+  ]
+ },
+ "actively": {
+  "ipaUS": "/ˈæktɪvli/",
+  "col": [
+   "actively involved",
+   "actively seeking",
+   "actively encourage",
+   "actively participate",
+   "actively promote",
+   "actively looking for"
+  ],
+  "syn": [
+   "energetically",
+   "busily",
+   "enthusiastically",
+   "eagerly"
+  ]
+ },
+ "affect": {
+  "ipaUS": "/əˈfekt/",
+  "col": [
+   "affect the outcome",
+   "adversely affect",
+   "badly affected",
+   "affect your health",
+   "directly affect",
+   "be affected by"
+  ],
+  "syn": [
+   "influence",
+   "change",
+   "impact",
+   "alter"
+  ]
+ },
+ "alike": {
+  "ipaUS": "/əˈlaɪk/",
+  "col": [
+   "look alike",
+   "think alike",
+   "treat alike",
+   "young and old alike",
+   "dress alike",
+   "much alike"
+  ],
+  "syn": [
+   "similar",
+   "the same",
+   "equally",
+   "in the same way"
+  ]
+ },
+ "appendix": {
+  "ipaUS": "/əˈpendɪks/",
+  "col": [
+   "see the appendix",
+   "appendix A",
+   "remove the appendix",
+   "in the appendix",
+   "burst appendix",
+   "appendix to the report"
+  ],
+  "syn": [
+   "addendum",
+   "supplement",
+   "annex",
+   "attachment"
+  ]
+ },
+ "appliance": {
+  "ipaUS": "/əˈplaɪəns/",
+  "col": [
+   "household appliance",
+   "kitchen appliance",
+   "electrical appliance",
+   "home appliance",
+   "appliance store",
+   "energy-efficient appliance"
+  ],
+  "syn": [
+   "device",
+   "gadget",
+   "machine",
+   "equipment"
+  ]
+ },
+ "applicant": {
+  "ipaUS": "/ˈæplɪkənt/",
+  "col": [
+   "job applicant",
+   "successful applicant",
+   "applicant for the post",
+   "unsuccessful applicant",
+   "visa applicant",
+   "applicant pool"
+  ],
+  "syn": [
+   "candidate",
+   "job seeker",
+   "contender",
+   "petitioner"
+  ]
+ },
+ "apprehensive": {
+  "ipaUS": "/ˌæprɪˈhensɪv/",
+  "col": [
+   "feel apprehensive",
+   "apprehensive about",
+   "apprehensive of",
+   "slightly apprehensive",
+   "apprehensive look",
+   "apprehensive and nervous"
+  ],
+  "syn": [
+   "anxious",
+   "uneasy",
+   "worried",
+   "nervous"
+  ]
+ },
+ "authorize": {
+  "ipaUS": "/ˈɔːθəraɪz/",
+  "col": [
+   "authorize a payment",
+   "authorize access",
+   "officially authorize",
+   "authorized dealer",
+   "authorize the use of",
+   "be authorized to"
+  ],
+  "syn": [
+   "permit",
+   "approve",
+   "allow",
+   "sanction"
+  ]
+ },
+ "automatic": {
+  "ipaUS": "/ˌɔːtəˈmætɪk/",
+  "col": [
+   "automatic transmission",
+   "automatic door",
+   "automatic payment",
+   "fully automatic",
+   "automatic renewal",
+   "automatic response"
+  ],
+  "syn": [
+   "self-operating",
+   "mechanical",
+   "instinctive",
+   "involuntary"
+  ]
+ },
+ "available": {
+  "ipaUS": "/əˈveɪləbl/",
+  "col": [
+   "readily available",
+   "available online",
+   "available for purchase",
+   "not available",
+   "make available",
+   "available to all"
+  ],
+  "syn": [
+   "accessible",
+   "free",
+   "obtainable",
+   "on hand"
+  ]
+ },
+ "await": {
+  "ipaUS": "/əˈweɪt/",
+  "col": [
+   "await a decision",
+   "eagerly await",
+   "await approval",
+   "await your reply",
+   "await trial",
+   "anxiously await"
+  ],
+  "syn": [
+   "wait for",
+   "expect",
+   "anticipate"
+  ]
+ },
+ "badge": {
+  "ipaUS": "/bædʒ/",
+  "col": [
+   "name badge",
+   "security badge",
+   "wear a badge",
+   "police badge",
+   "badge number",
+   "badge of honor"
+  ],
+  "syn": [
+   "pin",
+   "tag",
+   "emblem",
+   "pass"
+  ]
+ },
+ "balloon": {
+  "ipaUS": "/bəˈluːn/",
+  "col": [
+   "blow up a balloon",
+   "helium balloon",
+   "hot air balloon",
+   "balloon burst",
+   "party balloon",
+   "balloon payment"
+  ],
+  "syn": [
+   "inflatable",
+   "airship",
+   "bubble"
+  ]
+ },
+ "bankrupt": {
+  "ipaUS": "/ˈbæŋkrʌpt/",
+  "col": [
+   "go bankrupt",
+   "declare bankrupt",
+   "bankrupt company",
+   "financially bankrupt",
+   "bankrupt the firm",
+   "be made bankrupt"
+  ],
+  "syn": [
+   "insolvent",
+   "broke",
+   "ruined",
+   "in liquidation"
+  ]
+ },
+ "basement": {
+  "ipaUS": "/ˈbeɪsmənt/",
+  "col": [
+   "in the basement",
+   "basement flat",
+   "finished basement",
+   "flooded basement",
+   "basement level",
+   "basement apartment"
+  ],
+  "syn": [
+   "cellar",
+   "lower level",
+   "underground floor"
+  ]
+ },
+ "bench": {
+  "ipaUS": "/bentʃ/",
+  "col": [
+   "park bench",
+   "sit on a bench",
+   "workbench",
+   "wooden bench",
+   "bench press",
+   "on the bench"
+  ],
+  "syn": [
+   "seat",
+   "pew",
+   "stool"
+  ]
+ },
+ "bound": {
+  "ipaUS": "/baʊnd/",
+  "col": [
+   "bound to happen",
+   "bound for",
+   "homeward bound",
+   "be bound by",
+   "bound to fail",
+   "legally bound"
+  ],
+  "syn": [
+   "certain",
+   "obliged",
+   "heading",
+   "tied"
+  ]
+ },
+ "brake": {
+  "ipaUS": "/breɪk/",
+  "col": [
+   "hit the brakes",
+   "brake pedal",
+   "emergency brake",
+   "hand brake",
+   "brake fluid",
+   "slam on the brakes"
+  ],
+  "syn": [
+   "stop",
+   "slow down",
+   "decelerate"
+  ]
+ },
+ "cancellation": {
+  "ipaUS": "/ˌkænsəˈleɪʃn/",
+  "col": [
+   "cancellation policy",
+   "cancellation fee",
+   "last-minute cancellation",
+   "flight cancellation",
+   "cancellation of",
+   "free cancellation"
+  ],
+  "syn": [
+   "abandonment",
+   "calling off",
+   "annulment",
+   "termination"
+  ]
+ },
+ "cautious": {
+  "ipaUS": "/ˈkɔːʃəs/",
+  "col": [
+   "cautious approach",
+   "cautious optimism",
+   "be cautious about",
+   "cautiously optimistic",
+   "cautious driver",
+   "cautious of"
+  ],
+  "syn": [
+   "careful",
+   "wary",
+   "prudent",
+   "guarded"
+  ]
+ },
+ "cleanliness": {
+  "ipaUS": "/ˈklenlinəs/",
+  "col": [
+   "personal cleanliness",
+   "standard of cleanliness",
+   "cleanliness and hygiene",
+   "maintain cleanliness",
+   "cleanliness of the room",
+   "high level of cleanliness"
+  ],
+  "syn": [
+   "hygiene",
+   "tidiness",
+   "purity",
+   "sanitation"
+  ]
+ },
+ "clinic": {
+  "ipaUS": "/ˈklɪnɪk/",
+  "col": [
+   "medical clinic",
+   "dental clinic",
+   "go to the clinic",
+   "walk-in clinic",
+   "outpatient clinic",
+   "free clinic"
+  ],
+  "syn": [
+   "surgery",
+   "health center",
+   "outpatient department",
+   "practice"
+  ]
+ },
+ "clip": {
+  "ipaUS": "/klɪp/",
+  "col": [
+   "paper clip",
+   "video clip",
+   "hair clip",
+   "clip the coupons",
+   "film clip",
+   "bulldog clip"
+  ],
+  "syn": [
+   "fastener",
+   "excerpt",
+   "snippet",
+   "clasp"
+  ]
+ },
+ "compliance": {
+  "ipaUS": "/kəmˈplaɪəns/",
+  "col": [
+   "in compliance with",
+   "compliance officer",
+   "regulatory compliance",
+   "ensure compliance",
+   "compliance rate",
+   "non-compliance"
+  ],
+  "syn": [
+   "obedience",
+   "conformity",
+   "adherence",
+   "observance"
+  ]
+ },
+ "comply": {
+  "ipaUS": "/kəmˈplaɪ/",
+  "col": [
+   "comply with",
+   "comply with the law",
+   "fail to comply",
+   "comply with regulations",
+   "refuse to comply",
+   "comply with a request"
+  ],
+  "syn": [
+   "obey",
+   "conform",
+   "follow",
+   "adhere"
+  ]
+ },
+ "considerably": {
+  "ipaUS": "/kənˈsɪdərəbli/",
+  "col": [
+   "considerably higher",
+   "considerably more",
+   "considerably less",
+   "vary considerably",
+   "improve considerably",
+   "considerably easier"
+  ],
+  "syn": [
+   "greatly",
+   "substantially",
+   "significantly",
+   "markedly"
+  ]
+ },
+ "consignment": {
+  "ipaUS": "/kənˈsaɪnmənt/",
+  "col": [
+   "on consignment",
+   "consignment of goods",
+   "consignment note",
+   "a large consignment",
+   "consignment store",
+   "consignment sale"
+  ],
+  "syn": [
+   "shipment",
+   "delivery",
+   "batch",
+   "load"
+  ]
+ },
+ "consistently": {
+  "ipaUS": "/kənˈsɪstəntli/",
+  "col": [
+   "consistently high",
+   "consistently good",
+   "perform consistently",
+   "consistently deliver",
+   "consistently fail",
+   "consistently achieve"
+  ],
+  "syn": [
+   "steadily",
+   "regularly",
+   "reliably",
+   "uniformly"
+  ]
+ },
+ "cruise": {
+  "ipaUS": "/kruːz/",
+  "col": [
+   "go on a cruise",
+   "cruise ship",
+   "river cruise",
+   "cruise control",
+   "luxury cruise",
+   "cruise liner"
+  ],
+  "syn": [
+   "voyage",
+   "sail",
+   "sea trip",
+   "boat trip"
+  ]
+ },
+ "customize": {
+  "ipaUS": "/ˈkʌstəmaɪz/",
+  "col": [
+   "customize settings",
+   "customize a product",
+   "fully customizable",
+   "customize your order",
+   "customize the layout",
+   "customized service"
+  ],
+  "syn": [
+   "tailor",
+   "personalize",
+   "adapt",
+   "modify"
+  ]
+ },
+ "debit": {
+  "ipaUS": "/ˈdebɪt/",
+  "col": [
+   "debit card",
+   "direct debit",
+   "debit account",
+   "debit balance",
+   "debit and credit",
+   "debit transaction"
+  ],
+  "syn": [
+   "charge",
+   "withdrawal",
+   "deduction"
+  ]
+ },
+ "deduct": {
+  "ipaUS": "/dɪˈdʌkt/",
+  "col": [
+   "deduct from",
+   "deduct tax",
+   "deduct a fee",
+   "tax deductible",
+   "deduct points",
+   "deducted at source"
+  ],
+  "syn": [
+   "subtract",
+   "take off",
+   "withhold",
+   "remove"
+  ]
+ },
+ "defect": {
+  "ipaUS": "/ˈdiːfekt/",
+  "col": [
+   "manufacturing defect",
+   "minor defect",
+   "birth defect",
+   "a defect in",
+   "design defect",
+   "latent defect"
+  ],
+  "syn": [
+   "fault",
+   "flaw",
+   "imperfection",
+   "shortcoming"
+  ]
+ },
+ "defective": {
+  "ipaUS": "/dɪˈfektɪv/",
+  "col": [
+   "defective product",
+   "defective goods",
+   "defective parts",
+   "found defective",
+   "defective design",
+   "defective item"
+  ],
+  "syn": [
+   "faulty",
+   "flawed",
+   "broken",
+   "imperfect"
+  ]
+ },
+ "delete": {
+  "ipaUS": "/dɪˈliːt/",
+  "col": [
+   "delete a file",
+   "delete an email",
+   "delete the account",
+   "press delete",
+   "delete from",
+   "permanently delete"
+  ],
+  "syn": [
+   "remove",
+   "erase",
+   "wipe",
+   "cancel"
+  ]
+ }
+}

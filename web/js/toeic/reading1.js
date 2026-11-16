@@ -22,6 +22,7 @@ g.TQR = [
 'Questions 151-153 refer to the following Web page.',
 'What is the discussion mainly about?',
 'What is the purpose of the notice?',
+'Questions 176-180 refer to the following Web page and e-mail.',
 ];
   const T = g.TOEIC = g.TOEIC || { reading: [], listening: [] };
   T.reading.push({ id: 'tr1', test: 1, title: 'TOEIC Reading Test 1', parts: [

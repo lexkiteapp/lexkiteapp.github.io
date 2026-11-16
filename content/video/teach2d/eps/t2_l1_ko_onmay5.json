@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_onmay5",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Date? Use on, not in!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: My birthday is in May 5.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My birthday is on May 5.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use on with a day.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "On! My birthday is on May 9.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "My birthday is in May 5.",
+  "right": "My birthday is on May 5.",
+  "strike": "in",
+  "why": "Use on with a day.",
+  "memory": "On May 5.",
+  "quiz": {
+   "stem": "My birthday is ___ May 9.",
+   "options": [
+    "in",
+    "on"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "날짜 앞엔 on이에요!",
+   "tip": "한국어는 “5월 5일에”처럼 월과 일 모두 ‘에’를 써서 in으로 옮기기 쉬워요. 월만 말하면 in May, 날짜까지 말하면 on May 5예요. 이렇게 말해요 👉 “My birthday is on May 5.”",
+   "caption": "“My birthday is in May 5.”처럼 말하고 있나요? 😅 한국어는 “5월 5일에”처럼 월과 일 모두 ‘에’를 써서 in으로 옮기기 쉬워요. 월만 말하면 in May, 날짜까지 말하면 on May 5예요. 맞는 문장 ✅ “My birthday is on May 5.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답: “on”! 이 표현으로 나만의 문장을 하나 써 보세요. 무료 퀴즈로 더 연습해요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "For a date, say on, not in!",
+   "tip": "Use in with a month and on with a day. Say “My birthday is on May 5.”",
+   "caption": "Do you say it like this? 😅 “My birthday is in May 5.” Use in with a month and on with a day. Right: “My birthday is on May 5.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "날짜 앞엔 on이에요!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "날짜 앞엔 on이에요!",
+  "keyword": "My birthday is on May 5.",
+  "value": "한국어는 “5월 5일에”처럼 월과 일 모두 ‘에’를 써서 in으로 옮기기 쉬워요. 월만 말하면 in May, 날짜까지 말하면 on May 5예요. 이렇게 말해요 👉 “My birthday is on May 5.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "날짜 앞엔 on이에요!",
+    "description": "한국어는 “5월 5일에”처럼 월과 일 모두 ‘에’를 써서 in으로 옮기기 쉬워요. 월만 말하면 in May, 날짜까지 말하면 on May 5예요. 이렇게 말해요 👉 “My birthday is on May 5.”\n\n“My birthday is in May 5.”처럼 말하고 있나요? 😅 한국어는 “5월 5일에”처럼 월과 일 모두 ‘에’를 써서 in으로 옮기기 쉬워요. 월만 말하면 in May, 날짜까지 말하면 on May 5예요. 맞는 문장 ✅ “My birthday is on May 5.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "My birthday is on May 5.",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“My birthday is in May 5.”처럼 말하고 있나요? 😅 한국어는 “5월 5일에”처럼 월과 일 모두 ‘에’를 써서 in으로 옮기기 쉬워요. 월만 말하면 in May, 날짜까지 말하면 on May 5예요. 맞는 문장 ✅ “My birthday is on May 5.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "날짜 앞엔 on이에요!\n\n한국어는 “5월 5일에”처럼 월과 일 모두 ‘에’를 써서 in으로 옮기기 쉬워요. 월만 말하면 in May, 날짜까지 말하면 on May 5예요. 이렇게 말해요 👉 “My birthday is on May 5.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "날짜 앞엔 on이에요! 한국어는 “5월 5일에”처럼 월과 일 모두 ‘에’를 써서 in으로 옮기기 쉬워요. 월만 말하면 in May, 날짜까지 말하면 on May 5예요. 이렇게 말해요 👉 “My birthday is on May 5.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “on”! 이 표현으로 나만의 문장을 하나 써 보세요. 무료 퀴즈로 더 연습해요: {link}",
+  "lang": "ko"
+ }
+}

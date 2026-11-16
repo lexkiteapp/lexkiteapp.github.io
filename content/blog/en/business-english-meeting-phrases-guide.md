@@ -119,6 +119,8 @@ You can practice your pronunciation and pacing for every meeting phrase in the s
 2. **Speak within the first ten minutes:** Behavioral studies show that participants who contribute early—even through a concise greeting, a supportive comment, or a clarifying inquiry—experience significantly less performance anxiety throughout the remaining session.
 3. **Anchor statements with objective evidence:** Whenever presenting recommendations or disagreeing with an existing plan, reference measurable data, user feedback, or timeline benchmarks rather than personal opinions.
 
+Meeting online? Read [English for video calls and remote work](/en/blog/english-for-video-calls-and-remote-work/).
+
 ## Frequently Asked Questions (FAQ)
 
 ### What should I say if I fail to understand a colleague's fast speech or accent?
@@ -129,3 +131,7 @@ Address the interruption calmly without showing irritation: *"Thank you, Tom. If
 
 ### Should I use informal idioms during cross-border business meetings?
 Avoid culturally localized idioms or slang whenever possible. International teams communicate most effectively through precise, universally understood phrasing. Prioritize clarity, concise sentences, and diplomatic tone over colloquial metaphors.
+
+Many meeting phrases rely on phrasal verbs such as *bring up* and *wrap up*; see [phrasal verbs for work](/en/blog/phrasal-verbs-for-work-meanings/) for meanings and examples.
+
+To sound courteous in every message, use our [polite English phrases for work](/en/blog/polite-english-at-work/).

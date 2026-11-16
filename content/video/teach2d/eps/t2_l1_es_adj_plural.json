@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_adj_plural",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "No s on expensive!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: The cars are expensives.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: The cars are expensive.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Words like expensive never get s.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Expensive! The cars are expensive.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "The cars are expensives.",
+  "right": "The cars are expensive.",
+  "strike": "expensives",
+  "why": "Words like expensive never get s.",
+  "memory": "No s on expensive.",
+  "quiz": {
+   "stem": "The cars are ___.",
+   "options": [
+    "expensive",
+    "expensives"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "En inglés “expensive” no lleva -s",
+   "tip": "En español decimos “caros”, pero en inglés “expensive” nunca lleva -s.",
+   "caption": "🙈 Error común: “The cars are expensives.” Sobra la “s”, porque “expensive” no cambia. Lo correcto es “The cars are expensive.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “expensive”. En inglés los adjetivos no cambian: “expensive” sirve para uno o para varios. Escribe una frase tuya con “expensive” o dila en voz alta: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#gramatica",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "No “s” on “expensive”",
+   "tip": "Learners say “caros”, but “expensive” never takes an s in English.",
+   "caption": "Common mistake: “The cars are expensives.” The “s” is extra, because “expensive” never changes. Say “The cars are expensive.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "En inglés “expensive” no lleva -s"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "En inglés “expensive” no lleva -s",
+  "keyword": "The cars are expensive.",
+  "value": "En español decimos “caros”, pero en inglés “expensive” nunca lleva -s.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#gramatica",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "En inglés “expensive” no lleva -s",
+    "description": "En español decimos “caros”, pero en inglés “expensive” nunca lleva -s.\n\n🙈 Error común: “The cars are expensives.” Sobra la “s”, porque “expensive” no cambia. Lo correcto es “The cars are expensive.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #gramatica #lexkite",
+    "tags": [
+     "The cars are expensive.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "🙈 Error común: “The cars are expensives.” Sobra la “s”, porque “expensive” no cambia. Lo correcto es “The cars are expensive.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "En inglés “expensive” no lleva -s\n\nEn español decimos “caros”, pero en inglés “expensive” nunca lleva -s.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#gramatica",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "En inglés “expensive” no lleva -s En español decimos “caros”, pero en inglés “expensive” nunca lleva -s. #aprenderingles #inglesfacil #gramatica"
+   }
+  },
+  "first_comment": "Respuesta: “expensive”. En inglés los adjetivos no cambian: “expensive” sirve para uno o para varios. Escribe una frase tuya con “expensive” o dila en voz alta: {link}",
+  "lang": "es"
+ }
+}

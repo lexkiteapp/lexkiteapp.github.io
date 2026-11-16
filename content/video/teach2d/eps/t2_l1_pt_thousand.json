@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_thousand",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Look at the mark!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: It costs 1.500 dollars.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: It costs 1,500 dollars.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Big numbers have a special mark.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The first! The bike costs 2,000 dollars.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "It costs 1.500 dollars.",
+  "right": "It costs 1,500 dollars.",
+  "strike": "1.500",
+  "why": "Big numbers have a special mark.",
+  "memory": "1,500 not 1.500.",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "The bike costs 2,000 dollars.",
+    "The bike costs 2.000 dollars."
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Você escreve “1.500”?",
+   "tip": "Em inglês, o milhar leva vírgula: 1,500. O ponto é para decimais.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente escreve “It costs 1.500 dollars.” O certo é “It costs 1,500 dollars.” Em português escrevemos 1.500, mas em inglês o ponto e a vírgula trocam de lugar. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “The bike costs 2,000 dollars.” Agora diga em voz alta uma frase sua com esse ponto e treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you write “1.500”?",
+   "tip": "In English, thousands use a comma: 1,500. The dot is for decimals.",
+   "caption": "Watch out for this common mistake! Many people write “It costs 1.500 dollars.” The right way is “It costs 1,500 dollars.” In Portuguese we write 1.500, but in English the dot and comma swap places. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Você escreve “1.500”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Você escreve “1.500”?",
+  "keyword": "It costs 1,500 dollars.",
+  "value": "Em inglês, o milhar leva vírgula: 1,500. O ponto é para decimais.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "Você escreve “1.500”?",
+    "description": "Em inglês, o milhar leva vírgula: 1,500. O ponto é para decimais.\n\nCuidado com este erro comum! 😬 Muita gente escreve “It costs 1.500 dollars.” O certo é “It costs 1,500 dollars.” Em português escrevemos 1.500, mas em inglês o ponto e a vírgula trocam de lugar. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "It costs 1,500 dollars.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente escreve “It costs 1.500 dollars.” O certo é “It costs 1,500 dollars.” Em português escrevemos 1.500, mas em inglês o ponto e a vírgula trocam de lugar. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Você escreve “1.500”?\n\nEm inglês, o milhar leva vírgula: 1,500. O ponto é para decimais.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Você escreve “1.500”? Em inglês, o milhar leva vírgula: 1,500. O ponto é para decimais. #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “The bike costs 2,000 dollars.” Agora diga em voz alta uma frase sua com esse ponto e treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_understand",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Just say understand!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am understanding you.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I understand you.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "We do not use am with understand.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Understand! I understand the lesson.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am understanding you.",
+  "right": "I understand you.",
+  "strike": "am understanding",
+  "why": "We do not use am with understand.",
+  "memory": "I understand you.",
+  "quiz": {
+   "stem": "I ___ the lesson.",
+   "options": [
+    "am understanding",
+    "understand"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“am understanding” नहीं!",
+   "tip": "हिंदी में “समझ रहा हूँ” आम है, पर अंग्रेज़ी में understand के साथ am नहीं लगता; “I understand” कहें।",
+   "caption": "क्या आप भी यही कहते हैं? “I am understanding you.” 😅 सही रूप है “I understand you.” क्योंकि understand के साथ am नहीं लगता। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “understand”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “am understanding”!",
+   "tip": "Many learners say am understanding, but understand takes no am.",
+   "caption": "Do you say this? “I am understanding you.” 😅 The right way is “I understand you.” This is right because understand takes no am. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“am understanding” नहीं!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "“am understanding” नहीं!",
+  "keyword": "I understand you.",
+  "value": "हिंदी में “समझ रहा हूँ” आम है, पर अंग्रेज़ी में understand के साथ am नहीं लगता; “I understand” कहें।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "“am understanding” नहीं!",
+    "description": "हिंदी में “समझ रहा हूँ” आम है, पर अंग्रेज़ी में understand के साथ am नहीं लगता; “I understand” कहें।\n\nक्या आप भी यही कहते हैं? “I am understanding you.” 😅 सही रूप है “I understand you.” क्योंकि understand के साथ am नहीं लगता। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "I understand you.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी यही कहते हैं? “I am understanding you.” 😅 सही रूप है “I understand you.” क्योंकि understand के साथ am नहीं लगता। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“am understanding” नहीं!\n\nहिंदी में “समझ रहा हूँ” आम है, पर अंग्रेज़ी में understand के साथ am नहीं लगता; “I understand” कहें।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“am understanding” नहीं! हिंदी में “समझ रहा हूँ” आम है, पर अंग्रेज़ी में understand के साथ am नहीं लगता… #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “understand”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}
