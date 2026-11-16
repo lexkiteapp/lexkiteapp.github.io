@@ -63,6 +63,12 @@
   }
   function toastShow(msg, ms, o) {
     const t = $('#toast'); if (!t) return;
+    // Đang hiện câu khác: đổi chữ tại chỗ làm hộp đổi cỡ khi còn thấy = layout shift (CLS 0,059 @#/dict, 16/11) → mờ hết (.2 s) rồi mới đổi; nhiều câu đến dồn → giữ câu cuối
+    if (t.classList.contains('show') || toast._sw) {
+      toast._sa = [msg, ms, o]; t._msg = toast._sa; clearTimeout(toast._t);
+      if (!toast._sw) { t.classList.remove('show', 'act'); toast._sw = setTimeout(() => { toast._sw = 0; const a = toast._sa; toast._sa = null; if (a && t._msg === a) { t._msg = null; toastShow(...a); } }, 230); }
+      return;
+    }
     t.textContent = msg; t._msg = [msg, ms, o]; t._at = Date.now(); toast._last = [msg, t._at];
     // Nút hành động (vd. "Thử lại"): báo lỗi bình tĩnh luôn kèm cách sửa; chỉ toast có nút mới nhận chạm (.act), còn lại không chặn thao tác bên dưới
     t.classList.toggle('act', !!(o && o.action));
