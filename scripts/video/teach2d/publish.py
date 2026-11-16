@@ -71,8 +71,10 @@ def facts(ep):
 def build_l1(ep):
     """Clip L1: title, post text, hashtags, first comment all in the page language (native-qa.mjs checks them); the teacher still teaches English."""
     N = ep['data']['native']; title, kw, value = facts(ep); link = ep['cta']['link']; cap = N['caption']; tags = N['hashtags'][:5]; ph = '\n\n'
-    plat = dict(youtube=dict(title=title, description=f"{cap}\n\n{link}\n\n{' '.join(tags)}", tags=list(dict.fromkeys([kw, 'learn english', ep['lang']]))),
-                facebook=dict(text=f'{cap}{ph}{link}'), instagram=dict(caption=f'{cap}{ph}lexkite.com', hashtags=tags), tiktok=dict(caption=(f'{title} {" ".join(tags[:3])}')[:150]))
+    hook, tip, tg3 = N['hook'], N['tip'], ' '.join(tags[:3])   # one native source, four platform shapes (coordinator 16/11): FB = the full caption, YT = tip + caption (search text), IG = short hook + tip (caption + tags kept apart), TikTok = hook + tip squeezed under 150 with the tags
+    tt = f'{hook} {tip}'; tt = (f'{tt[:150 - len(tg3) - 2].rstrip()}… {tg3}' if len(tt) + len(tg3) + 1 > 150 else f'{tt} {tg3}')
+    plat = dict(youtube=dict(title=title, description=f"{tip}{ph}{cap}{ph}{link}{ph}{' '.join(tags)}", tags=list(dict.fromkeys([kw, 'learn english', ep['lang']]))),
+                facebook=dict(text=f'{cap}{ph}{link}'), instagram=dict(caption=f'{hook}{ph}{tip}{ph}lexkite.com', hashtags=tags), tiktok=dict(caption=tt[:150]))
     return dict(title=title, keyword=kw, value=value, hashtags=tags, link=link, script_words=sum(len(l['text'].split()) for l in ep['lines'] if not l.get('quiz')), platforms=plat, first_comment=N['comment'], lang=ep['lang'])
 
 
@@ -138,6 +140,9 @@ def validate_platforms(pub, ep):
     if len((P.get('tiktok') or {}).get('caption', '')) > 150: e.append('tiktok-length')
     if not 3 <= len((P.get('instagram') or {}).get('hashtags') or []) <= 5: e.append('instagram-hashtags')
     if 'http' in (P.get('instagram') or {}).get('caption', ''): e.append('instagram-link')   # links in IG captions are not clickable
+    if ep.get('lang', 'en') != 'en':   # L1 clip: the four platforms must not carry the same text (coordinator 16/11: FB / YT / IG / TikTok get their own shape)
+        t4 = [(P.get('facebook') or {}).get('text', ''), (P.get('youtube') or {}).get('description', ''), (P.get('instagram') or {}).get('caption', ''), (P.get('tiktok') or {}).get('caption', '')]
+        if len(set(t4)) < 4: e.append('platforms-identical')
     txt = ' '.join([pub.get('title', ''), pub.get('value', '')] + [str(v) for p in P.values() for v in p.values() if isinstance(v, str)])
     if re.search(r'\bundefined\b|\bNone\b|\bnan\b|\{[a-z_]+\}', txt): e.append('placeholder')   # a missing fact leaked into the copy
     return e
