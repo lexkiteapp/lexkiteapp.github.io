@@ -66,10 +66,10 @@
    "answer": 0
   },
   "native": {
-   "hook": "“depends of” sai giới từ!",
-   "tip": "Động từ “depend” luôn đi với “on”, dù tiếng Việt là “tùy vào/ở”.",
+   "hook": "“depends of”: sai giới từ!",
+   "tip": "Động từ “depend” luôn đi với “on”, không dùng “of” hay “at.”",
    "caption": "Bạn có hay nói “It depends of the weather.” không? 😅 “Depend” luôn đi với “on”: “It depends on the weather.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-   "comment": "Đáp án: “on”. Đặt câu với “It depends on…” nhé. Luyện thêm miễn phí tại đây: {link}",
+   "comment": "Đáp án: “on.” Đặt câu với “It depends on…” nhé. Luyện thêm miễn phí tại đây: {link}",
    "hashtags": [
     "#hoctienganh",
     "#gioitu",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "Depend + giới từ nào?",
-   "tip": "“Depend” always goes with “on”.",
-   "caption": "Do you often say “It depends of the weather.”? “Depend” always takes “on”: “It depends on the weather.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
+   "hook": "“Depends of”: wrong preposition!",
+   "tip": "“Depend” always goes with “on”, never “of” or “at.”",
+   "caption": "Do you often say this? “It depends of the weather.” “Depend” always takes “on”: “It depends on the weather.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "“depends of” sai giới từ!"
+  "text": "“depends of”: sai giới từ!"
  },
  "src": {
   "l1": true
@@ -103,9 +103,9 @@
   "wpm": 96
  },
  "publish": {
-  "title": "“depends of” sai giới từ!",
+  "title": "“depends of”: sai giới từ!",
   "keyword": "It depends on the weather.",
-  "value": "Động từ “depend” luôn đi với “on”, dù tiếng Việt là “tùy vào/ở”.",
+  "value": "Động từ “depend” luôn đi với “on”, không dùng “of” hay “at.”",
   "hashtags": [
    "#hoctienganh",
    "#gioitu",
@@ -116,7 +116,7 @@
   "script_words": 35,
   "platforms": {
    "youtube": {
-    "title": "“depends of” sai giới từ!",
+    "title": "“depends of”: sai giới từ!",
     "description": "Bạn có hay nói “It depends of the weather.” không? 😅 “Depend” luôn đi với “on”: “It depends on the weather.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #gioitu #nguphaptienganh #lexkite",
     "tags": [
      "It depends on the weather.",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "“depends of” sai giới từ! #hoctienganh #gioitu #nguphaptienganh"
+    "caption": "“depends of”: sai giới từ! #hoctienganh #gioitu #nguphaptienganh"
    }
   },
-  "first_comment": "Đáp án: “on”. Đặt câu với “It depends on…” nhé. Luyện thêm miễn phí tại đây: {link}",
+  "first_comment": "Đáp án: “on.” Đặt câu với “It depends on…” nhé. Luyện thêm miễn phí tại đây: {link}",
   "lang": "vi"
  }
 }

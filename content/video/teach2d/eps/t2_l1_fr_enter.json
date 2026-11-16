@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_enter",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Enter needs no in!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She entered in the room.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She entered the room.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Enter takes the place by itself.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Entered! My brother entered the kitchen.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She entered in the room.",
+  "right": "She entered the room.",
+  "strike": "in",
+  "why": "Enter takes the place by itself.",
+  "memory": "Enter: no in.",
+  "quiz": {
+   "stem": "My brother ___ the kitchen.",
+   "options": [
+    "entered in",
+    "entered"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "« Entrer dans » : sans “in”",
+   "tip": "En français, « entrer dans » prend « dans ». En anglais, “enter” se suffit à lui-même.",
+   "caption": "Vous dites “She entered in the room.” ? En français, « entrer dans la pièce » prend « dans ». En anglais, “enter” n’a pas besoin de “in”. Dites plutôt “She entered the room.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “She entered the room.” — En français, « entrer dans la pièce » prend « dans ». En anglais, “enter” n’a pas besoin de “in”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Enter” takes no “in”!",
+   "tip": "French says “entrer dans”. English says “enter” with no “in”.",
+   "caption": "Do you say this? “She entered in the room.” French says “entrer dans”. English says “enter” with no “in”. Say “She entered the room.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "« Entrer dans » : sans “in”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "« Entrer dans » : sans “in”",
+  "keyword": "She entered the room.",
+  "value": "En français, « entrer dans » prend « dans ». En anglais, “enter” se suffit à lui-même.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "« Entrer dans » : sans “in”",
+    "description": "En français, « entrer dans » prend « dans ». En anglais, “enter” se suffit à lui-même.\n\nVous dites “She entered in the room.” ? En français, « entrer dans la pièce » prend « dans ». En anglais, “enter” n’a pas besoin de “in”. Dites plutôt “She entered the room.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "She entered the room.",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Vous dites “She entered in the room.” ? En français, « entrer dans la pièce » prend « dans ». En anglais, “enter” n’a pas besoin de “in”. Dites plutôt “She entered the room.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "« Entrer dans » : sans “in”\n\nEn français, « entrer dans » prend « dans ». En anglais, “enter” se suffit à lui-même.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "« Entrer dans » : sans “in” En français, « entrer dans » prend « dans ». En anglais, “enter” se suff… #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “She entered the room.” — En français, « entrer dans la pièce » prend « dans ». En anglais, “enter” n’a pas besoin de “in”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}

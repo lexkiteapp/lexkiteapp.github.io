@@ -1,0 +1,129 @@
+{
+ "id": "t2a_mistake_ff076731",
+ "template": "mistake",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Glasses has no A",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She is wearing a glasses.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She is wearing glasses.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Glasses is always plural, so do not use a before it.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Glasses! She wears glasses every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She is wearing a glasses.",
+  "right": "She is wearing glasses.",
+  "strike": "a glasses",
+  "why": "Glasses is always plural, so do not use a before it.",
+  "memory": "Glasses: plural, no a",
+  "quiz": {
+   "stem": "She wears ___ every day.",
+   "options": [
+    "a glasses",
+    "glasses"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Glasses has no A"
+ },
+ "src": {
+  "gold": "sb_ff076731",
+  "pid": "w:wear#v"
+ },
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Say \"She is wearing glasses\", not \"She is wearing a glasses\"",
+  "keyword": "a glasses",
+  "value": "Say \"She is wearing glasses\", not \"She is wearing a glasses\". Glasses is always plural, so do not use a before it.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#englishgrammar",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "Say \"She is wearing glasses\", not \"She is wearing a glasses\"",
+    "description": "Say \"She is wearing glasses\", not \"She is wearing a glasses\". Glasses is always plural, so do not use a before it.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix\n\nSeries: Stop Saying This · Teacher: Ama\n\n#learnenglish #englishtips #englishgrammar #englishteacher",
+    "tags": [
+     "a glasses",
+     "Stop Saying This",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Say \"She is wearing glasses\", not \"She is wearing a glasses\"\n\nSay \"She is wearing glasses\", not \"She is wearing a glasses\". Glasses is always plural, so do not use a before it.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Say \"She is wearing glasses\", not \"She is wearing a glasses\"\n\nSay \"She is wearing glasses\", not \"She is wearing a glasses\". Glasses is always plural, so do not use a before it.\n\nCheck your grammar: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#englishgrammar",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Say \"She is wearing glasses\", not \"She is wearing a glasses\" #learnenglish #englishtips #englishgrammar"
+   }
+  },
+  "first_comment": "Quiz answer: Glasses! She wears glasses every day. Say \"She is wearing glasses\", not \"She is wearing a glasses\". Glasses is always plural, so do not use a before it. Practice it with a free quiz: {link}"
+ }
+}

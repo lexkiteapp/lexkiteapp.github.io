@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_know_how",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Know swim? Know how to swim!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I know to swim.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I know how to swim.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Add how before to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "How to! I know how to swim.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I know to swim.",
+  "right": "I know how to swim.",
+  "strike": "to",
+  "why": "Add how before to.",
+  "memory": "Know how to.",
+  "quiz": {
+   "stem": "I know ___ swim.",
+   "options": [
+    "to",
+    "how to"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Sé nadar” = “I know how to swim”",
+   "tip": "En español “sé nadar”, pero en inglés falta “how”: “I know how to swim.”",
+   "caption": "🙈 Error común: “I know to swim.” Falta una palabra: “know how to” + verbo. “I know how to swim.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “how to”. Para decir que sabes hacer algo: “know how to” + verbo. Escribe una frase tuya con “how to” o dila en voz alta: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#gramatica",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Know how to” + verb",
+   "tip": "Learners say “sé nadar”, but English adds “how”: “know how to swim.”",
+   "caption": "Common mistake: “I know to swim.” One word is missing: “know how to” + verb. “I know how to swim.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Sé nadar” = “I know how to swim”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“Sé nadar” = “I know how to swim”",
+  "keyword": "I know how to swim.",
+  "value": "En español “sé nadar”, pero en inglés falta “how”: “I know how to swim.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#gramatica",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "“Sé nadar” = “I know how to swim”",
+    "description": "En español “sé nadar”, pero en inglés falta “how”: “I know how to swim.”\n\n🙈 Error común: “I know to swim.” Falta una palabra: “know how to” + verbo. “I know how to swim.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #gramatica #lexkite",
+    "tags": [
+     "I know how to swim.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "🙈 Error común: “I know to swim.” Falta una palabra: “know how to” + verbo. “I know how to swim.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Sé nadar” = “I know how to swim”\n\nEn español “sé nadar”, pero en inglés falta “how”: “I know how to swim.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#gramatica",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Sé nadar” = “I know how to swim” En español “sé nadar”, pero en inglés falta “how”: “I know how to swim.” #aprenderingles #inglesfacil #gramatica"
+   }
+  },
+  "first_comment": "Respuesta: “how to”. Para decir que sabes hacer algo: “know how to” + verbo. Escribe una frase tuya con “how to” o dila en voz alta: {link}",
+  "lang": "es"
+ }
+}

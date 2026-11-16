@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_recipe",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "A recipe for a cake!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Can I have the receipt for this cake?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Can I have the recipe for this cake?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Recipe is the word for cooking.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Recipe! Can I have the recipe for this cake?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Can I have the receipt for this cake?",
+  "right": "Can I have the recipe for this cake?",
+  "strike": "receipt",
+  "why": "Recipe is the word for cooking.",
+  "memory": "A recipe.",
+  "quiz": {
+   "stem": "Can I have the ___ for this cake?",
+   "options": [
+    "recipe",
+    "receipt"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "„Rezept“ heißt „recipe“!",
+   "tip": "„Receipt“ ist ein Kassenbon. Ein Kochrezept heißt „recipe“.",
+   "caption": "Sagen Sie „receipt“? 🍰 Falsch: “Can I have the receipt for this cake?” Richtig: “Can I have the recipe for this cake?” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “recipe”. Richtig heißt es: “Can I have the recipe for this cake?” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "A cooking “Rezept” is a “recipe”!",
+   "tip": "A “receipt” is from a store. A cooking “Rezept” is a “recipe.”",
+   "caption": "A cooking “Rezept” is a “recipe”! Wrong: “Can I have the receipt for this cake?” Right: “Can I have the recipe for this cake?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "„Rezept“ heißt „recipe“!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 56,
+  "seconds": 33.0,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "„Rezept“ heißt „recipe“!",
+  "keyword": "Can I have the recipe for this cake?",
+  "value": "„Receipt“ ist ein Kassenbon. Ein Kochrezept heißt „recipe“.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 50,
+  "platforms": {
+   "youtube": {
+    "title": "„Rezept“ heißt „recipe“!",
+    "description": "„Receipt“ ist ein Kassenbon. Ein Kochrezept heißt „recipe“.\n\nSagen Sie „receipt“? 🍰 Falsch: “Can I have the receipt for this cake?” Richtig: “Can I have the recipe for this cake?” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "Can I have the recipe for this cake?",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Sagen Sie „receipt“? 🍰 Falsch: “Can I have the receipt for this cake?” Richtig: “Can I have the recipe for this cake?” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "„Rezept“ heißt „recipe“!\n\n„Receipt“ ist ein Kassenbon. Ein Kochrezept heißt „recipe“.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "„Rezept“ heißt „recipe“! „Receipt“ ist ein Kassenbon. Ein Kochrezept heißt „recipe“. #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “recipe”. Richtig heißt es: “Can I have the recipe for this cake?” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

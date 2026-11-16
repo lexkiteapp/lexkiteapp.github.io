@@ -176,6 +176,8 @@ Si escribes correos de trabajo, la pasiva ayuda a sonar menos directo (*The invo
 
 {{youtube: | Idea de vídeo: la misma noticia contada en activa y en pasiva para ver cómo cambia el foco}}
 
+Si preparas el IELTS, aplica la pasiva a un caso real con nuestra guía del [IELTS Writing Task 1 diagrama de proceso](/es/blog/ielts-writing-task-1-diagrama-de-proceso-ejemplo/), donde casi cada frase la necesita.
+
 ## Preguntas frecuentes
 
 ### ¿Siempre hay que poner "by" en la voz pasiva?

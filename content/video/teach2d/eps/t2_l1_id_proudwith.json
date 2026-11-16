@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_proudwith",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Proud of, not proud with.",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am proud with my son.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am proud of my son.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use of after proud.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Of! I am proud of my team.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am proud with my son.",
+  "right": "I am proud of my son.",
+  "strike": "with",
+  "why": "Use of after proud.",
+  "memory": "I am proud of my son.",
+  "quiz": {
+   "stem": "I am proud ___ my team.",
+   "options": [
+    "with",
+    "of"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Proud of my son!",
+   "tip": "Kita bilang “bangga dengan anakku”. Di bahasa Inggris, setelah proud pakai of, bukan with.",
+   "caption": "Pernah bilang begini? “I am proud with my son.” 😅 Setelah proud, pakai of: “I am proud of my son.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “of”. Ucapkan dengan lantang: “I am proud of my son.” lalu tulis satu orang yang kamu banggakan. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#katadepan",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Proud “of”",
+   "tip": "We say “bangga dengan anakku”. In English, after proud use of, not with.",
+   "caption": "Ever say this? “I am proud with my son.” 😅 After proud, use of: “I am proud of my son.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Proud of my son!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Proud of my son!",
+  "keyword": "I am proud of my son.",
+  "value": "Kita bilang “bangga dengan anakku”. Di bahasa Inggris, setelah proud pakai of, bukan with.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#katadepan",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "Proud of my son!",
+    "description": "Kita bilang “bangga dengan anakku”. Di bahasa Inggris, setelah proud pakai of, bukan with.\n\nPernah bilang begini? “I am proud with my son.” 😅 Setelah proud, pakai of: “I am proud of my son.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #katadepan #bahasainggris #lexkite",
+    "tags": [
+     "I am proud of my son.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “I am proud with my son.” 😅 Setelah proud, pakai of: “I am proud of my son.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Proud of my son!\n\nKita bilang “bangga dengan anakku”. Di bahasa Inggris, setelah proud pakai of, bukan with.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#katadepan",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Proud of my son! Kita bilang “bangga dengan anakku”. Di bahasa Inggris, setelah proud pakai of, bukan… #belajarbahasainggris #katadepan #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “of”. Ucapkan dengan lantang: “I am proud of my son.” lalu tulis satu orang yang kamu banggakan. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

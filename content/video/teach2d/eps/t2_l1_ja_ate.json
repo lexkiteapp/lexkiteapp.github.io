@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "Ate! Yesterday I ate rice.",
+   "text": "Yesterday I ate rice.",
    "pause": 0.42
   },
   {
@@ -67,8 +67,8 @@
   },
   "native": {
    "hook": "過去の話なのに eat のまま？",
-   "tip": "日本語は動詞が変わらないことも。英語は過去の話なら ate のように変えます。",
-   "caption": "“I eat natto yesterday.”と言っていませんか？😅 日本語では「昨日」があれば動詞はそのままでも通じます。でも英語では動詞そのものを過去形に変えます。 “I ate natto yesterday.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "tip": "昨日の話なら、英語は動詞を過去形に。eat → ate！",
+   "caption": "“I eat natto yesterday.”と言っていませんか？😅 yesterday があっても、英語では動詞そのものを過去形にします。eat の過去形は ate。“I ate natto yesterday.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
    "comment": "答え：“ate”。昨日の話は過去形。無料クイズで練習：{link}",
    "hashtags": [
     "#英語学習",
@@ -80,7 +80,7 @@
   "en": {
    "hook": "Past story, but still “eat”?",
    "tip": "English changes the verb for the past: eat becomes ate.",
-   "caption": "Do you say “I eat natto yesterday.”? 😅 In Japanese, yesterday is enough. In English the verb itself must change. The natural way is “I ate natto yesterday.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+   "caption": "Do you say this? “I eat natto yesterday.” 😅 Yesterday is not enough. The verb itself must change: eat becomes ate. The natural way is “I ate natto yesterday.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -98,14 +98,14 @@
  },
  "lang": "ja",
  "est": {
-  "words": 42,
-  "seconds": 26.1,
+  "words": 41,
+  "seconds": 25.6,
   "wpm": 96
  },
  "publish": {
   "title": "過去の話なのに eat のまま？",
   "keyword": "I ate natto yesterday.",
-  "value": "日本語は動詞が変わらないことも。英語は過去の話なら ate のように変えます。",
+  "value": "昨日の話なら、英語は動詞を過去形に。eat → ate！",
   "hashtags": [
    "#英語学習",
    "#英会話",
@@ -113,11 +113,11 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 36,
+  "script_words": 35,
   "platforms": {
    "youtube": {
     "title": "過去の話なのに eat のまま？",
-    "description": "“I eat natto yesterday.”と言っていませんか？😅 日本語では「昨日」があれば動詞はそのままでも通じます。でも英語では動詞そのものを過去形に変えます。 “I ate natto yesterday.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "description": "昨日の話なら、英語は動詞を過去形に。eat → ate！\n\n“I eat natto yesterday.”と言っていませんか？😅 yesterday があっても、英語では動詞そのものを過去形にします。eat の過去形は ate。“I ate natto yesterday.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
     "tags": [
      "I ate natto yesterday.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "“I eat natto yesterday.”と言っていませんか？😅 日本語では「昨日」があれば動詞はそのままでも通じます。でも英語では動詞そのものを過去形に変えます。 “I ate natto yesterday.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+    "text": "“I eat natto yesterday.”と言っていませんか？😅 yesterday があっても、英語では動詞そのものを過去形にします。eat の過去形は ate。“I ate natto yesterday.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "“I eat natto yesterday.”と言っていませんか？😅 日本語では「昨日」があれば動詞はそのままでも通じます。でも英語では動詞そのものを過去形に変えます。 “I ate natto yesterday.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nlexkite.com",
+    "caption": "過去の話なのに eat のまま？\n\n昨日の話なら、英語は動詞を過去形に。eat → ate！\n\nlexkite.com",
     "hashtags": [
      "#英語学習",
      "#英会話",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "過去の話なのに eat のまま？ #英語学習 #英会話 #英語勉強"
+    "caption": "過去の話なのに eat のまま？ 昨日の話なら、英語は動詞を過去形に。eat → ate！ #英語学習 #英会話 #英語勉強"
    }
   },
   "first_comment": "答え：“ate”。昨日の話は過去形。無料クイズで練習：{link}",

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_pretty",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Do not forget is!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She very pretty.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She is very pretty.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Describing words need is, am or are.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Is very! My sister is very kind.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She very pretty.",
+  "right": "She is very pretty.",
+  "strike": "She very",
+  "why": "Describing words need is, am or are.",
+  "memory": "She is very pretty.",
+  "quiz": {
+   "stem": "My sister ___ kind.",
+   "options": [
+    "very",
+    "is very"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "形容词前面别漏掉 is！",
+   "tip": "中文可以说“她很漂亮”，但英语用形容词描述主语时，前面要有 is/am/are。",
+   "caption": "你是不是也会说 “She very pretty.”😅 中文里“她很漂亮”不用动词，英语的形容词前面却要有 is/am/are：“She is very pretty.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“is very”，形容词前面要有 is！免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Don’t miss is before the adjective",
+   "tip": "When an adjective describes the subject, it needs is, am or are.",
+   "caption": "Do you say “She very pretty.” 😅 When an adjective describes the subject, it needs is, am or are: “She is very pretty.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "形容词前面别漏掉 is！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "形容词前面别漏掉 is！",
+  "keyword": "She is very pretty.",
+  "value": "中文可以说“她很漂亮”，但英语用形容词描述主语时，前面要有 is/am/are。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "形容词前面别漏掉 is！",
+    "description": "中文可以说“她很漂亮”，但英语用形容词描述主语时，前面要有 is/am/are。\n\n你是不是也会说 “She very pretty.”😅 中文里“她很漂亮”不用动词，英语的形容词前面却要有 is/am/are：“She is very pretty.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "She is very pretty.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “She very pretty.”😅 中文里“她很漂亮”不用动词，英语的形容词前面却要有 is/am/are：“She is very pretty.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "形容词前面别漏掉 is！\n\n中文可以说“她很漂亮”，但英语用形容词描述主语时，前面要有 is/am/are。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "形容词前面别漏掉 is！ 中文可以说“她很漂亮”，但英语用形容词描述主语时，前面要有 is/am/are。 #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“is very”，形容词前面要有 is！免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

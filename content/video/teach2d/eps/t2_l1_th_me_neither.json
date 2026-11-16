@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_me_neither",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say me neither!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I don't like fish. Me too.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I don't like fish. Me neither.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After a no, say me neither.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Me neither! I can't swim. Me neither.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I don't like fish. Me too.",
+  "right": "I don't like fish. Me neither.",
+  "strike": "too",
+  "why": "After a no, say me neither.",
+  "memory": "No? Me neither.",
+  "quiz": {
+   "stem": "I can't swim. ___.",
+   "options": [
+    "Me too",
+    "Me neither"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "ตอบปฏิเสธ ใช้ Me neither!",
+   "tip": "ไทยตอบว่า “ฉันก็เหมือนกัน” ได้ทั้งสองกรณี จึงมักพูด Me too แต่หลังประโยคปฏิเสธ ต้องพูด Me neither: “I don't like fish. Me neither.”",
+   "caption": "คุณเคยพูดว่า “I don't like fish. Me too.” ไหม? 😅 ไทยตอบว่า “ฉันก็เหมือนกัน” ได้ทั้งสองกรณี จึงมักพูด Me too แต่หลังประโยคปฏิเสธ ต้องพูด Me neither: “I don't like fish. Me neither.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “Me neither” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยคด้วยคำนี้ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "After a no, say “Me neither”!",
+   "tip": "Thai answers with one phrase for both cases, so people say Me too, but after a no English says Me neither.",
+   "caption": "Do you say “I don't like fish. Me too.” 😅 Thai answers with one phrase for both cases, so people say Me too, but after a no English says Me neither. Say “I don't like fish. Me neither.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "ตอบปฏิเสธ ใช้ Me neither!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "ตอบปฏิเสธ ใช้ Me neither!",
+  "keyword": "I don't like fish. Me neither.",
+  "value": "ไทยตอบว่า “ฉันก็เหมือนกัน” ได้ทั้งสองกรณี จึงมักพูด Me too แต่หลังประโยคปฏิเสธ ต้องพูด Me neither: “I don't like fish. Me neither.”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "ตอบปฏิเสธ ใช้ Me neither!",
+    "description": "ไทยตอบว่า “ฉันก็เหมือนกัน” ได้ทั้งสองกรณี จึงมักพูด Me too แต่หลังประโยคปฏิเสธ ต้องพูด Me neither: “I don't like fish. Me neither.”\n\nคุณเคยพูดว่า “I don't like fish. Me too.” ไหม? 😅 ไทยตอบว่า “ฉันก็เหมือนกัน” ได้ทั้งสองกรณี จึงมักพูด Me too แต่หลังประโยคปฏิเสธ ต้องพูด Me neither: “I don't like fish. Me neither.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "I don't like fish. Me neither.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “I don't like fish. Me too.” ไหม? 😅 ไทยตอบว่า “ฉันก็เหมือนกัน” ได้ทั้งสองกรณี จึงมักพูด Me too แต่หลังประโยคปฏิเสธ ต้องพูด Me neither: “I don't like fish. Me neither.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "ตอบปฏิเสธ ใช้ Me neither!\n\nไทยตอบว่า “ฉันก็เหมือนกัน” ได้ทั้งสองกรณี จึงมักพูด Me too แต่หลังประโยคปฏิเสธ ต้องพูด Me neither: “I don't like fish. Me neither.”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ตอบปฏิเสธ ใช้ Me neither! ไทยตอบว่า “ฉันก็เหมือนกัน” ได้ทั้งสองกรณี จึงมักพูด Me too แต่หลังประโยคปฏิเสธ ต้อง… #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “Me neither” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยคด้วยคำนี้ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

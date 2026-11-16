@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_i_not_have",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "I don't have, not I not have!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I not have money.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I don't have money.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use don't before have.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Don't! I don't have time.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I not have money.",
+  "right": "I don't have money.",
+  "strike": "not",
+  "why": "Use don't before have.",
+  "memory": "I don't have.",
+  "quiz": {
+   "stem": "I ___ have time.",
+   "options": [
+    "not",
+    "don't"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "ปฏิเสธต้องใช้ don't!",
+   "tip": "ไทยวาง “ไม่” หน้ากริยา (ไม่มี) แต่อังกฤษต้องใช้ don't: “I don't have money”",
+   "caption": "คุณเคยพูดว่า “I not have money.” ไหม? 😅 ภาษาไทยวาง “ไม่” ไว้หน้ากริยาได้เลย (ไม่มี) แต่ภาษาอังกฤษต้องใช้ don't: “I don't have money.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “don't” จำไว้ให้ดีนะ! ลองพูดประโยคนี้ออกเสียงดัง ๆ หนึ่งครั้ง แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “don't have”!",
+   "tip": "Thai puts not before the verb, but English needs don't: “I don't have money”",
+   "caption": "Do you say “I not have money”? 😅 Thai puts not before the verb, but English needs don't. Say “I don't have money”! Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "ปฏิเสธต้องใช้ don't!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "ปฏิเสธต้องใช้ don't!",
+  "keyword": "I don't have money.",
+  "value": "ไทยวาง “ไม่” หน้ากริยา (ไม่มี) แต่อังกฤษต้องใช้ don't: “I don't have money”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "ปฏิเสธต้องใช้ don't!",
+    "description": "ไทยวาง “ไม่” หน้ากริยา (ไม่มี) แต่อังกฤษต้องใช้ don't: “I don't have money”\n\nคุณเคยพูดว่า “I not have money.” ไหม? 😅 ภาษาไทยวาง “ไม่” ไว้หน้ากริยาได้เลย (ไม่มี) แต่ภาษาอังกฤษต้องใช้ don't: “I don't have money.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "I don't have money.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “I not have money.” ไหม? 😅 ภาษาไทยวาง “ไม่” ไว้หน้ากริยาได้เลย (ไม่มี) แต่ภาษาอังกฤษต้องใช้ don't: “I don't have money.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "ปฏิเสธต้องใช้ don't!\n\nไทยวาง “ไม่” หน้ากริยา (ไม่มี) แต่อังกฤษต้องใช้ don't: “I don't have money”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ปฏิเสธต้องใช้ don't! ไทยวาง “ไม่” หน้ากริยา (ไม่มี) แต่อังกฤษต้องใช้ don't: “I don't have money” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “don't” จำไว้ให้ดีนะ! ลองพูดประโยคนี้ออกเสียงดัง ๆ หนึ่งครั้ง แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

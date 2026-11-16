@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_final_s",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Don't forget the s!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She like coffee.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She likes coffee.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "With he, she, it, add s to the verb.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Drinks! He drinks tea every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She like coffee.",
+  "right": "She likes coffee.",
+  "strike": "like",
+  "why": "With he, she, it, add s to the verb.",
+  "memory": "He, she, it: add s.",
+  "quiz": {
+   "stem": "He ___ tea every day.",
+   "options": [
+    "drink",
+    "drinks"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "he/she/it ต้องเติม s ที่กริยา!",
+   "tip": "ภาษาไทยกริยาไม่เปลี่ยนรูป แต่ he/she/it ต้องเติม s: “She likes coffee”",
+   "caption": "คุณเคยพูดว่า “She like coffee.” ไหม? 😅 ภาษาไทยไม่เปลี่ยนรูปกริยา แต่ในภาษาอังกฤษ he/she/it ต้องเติม s ที่กริยา: “She likes coffee.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “drinks” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "He/she/it: add “s” to the verb!",
+   "tip": "With he/she/it the verb needs -s. Thai verbs never change, so it is easy to forget",
+   "caption": "Do you say “She like coffee”? 😅 Thai verbs do not change, but with he/she/it English verbs need -s. Say “She likes coffee”! Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "he/she/it ต้องเติม s ที่กริยา!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "he/she/it ต้องเติม s ที่กริยา!",
+  "keyword": "She likes coffee.",
+  "value": "ภาษาไทยกริยาไม่เปลี่ยนรูป แต่ he/she/it ต้องเติม s: “She likes coffee”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "he/she/it ต้องเติม s ที่กริยา!",
+    "description": "ภาษาไทยกริยาไม่เปลี่ยนรูป แต่ he/she/it ต้องเติม s: “She likes coffee”\n\nคุณเคยพูดว่า “She like coffee.” ไหม? 😅 ภาษาไทยไม่เปลี่ยนรูปกริยา แต่ในภาษาอังกฤษ he/she/it ต้องเติม s ที่กริยา: “She likes coffee.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "She likes coffee.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “She like coffee.” ไหม? 😅 ภาษาไทยไม่เปลี่ยนรูปกริยา แต่ในภาษาอังกฤษ he/she/it ต้องเติม s ที่กริยา: “She likes coffee.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "he/she/it ต้องเติม s ที่กริยา!\n\nภาษาไทยกริยาไม่เปลี่ยนรูป แต่ he/she/it ต้องเติม s: “She likes coffee”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "he/she/it ต้องเติม s ที่กริยา! ภาษาไทยกริยาไม่เปลี่ยนรูป แต่ he/she/it ต้องเติม s: “She likes coffee” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “drinks” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

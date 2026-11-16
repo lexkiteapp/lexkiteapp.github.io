@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "« I have 20 years » : faux !",
-   "tip": "En anglais, on ne « a » pas un âge : on dit “I am twenty years old”.",
-   "caption": "Tu dis aussi “I have twenty years” ? 🙈 En anglais, le bon réflexe est “I am twenty years old”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.",
-   "comment": "Réponse : “is”. En anglais, l'âge se dit avec le verbe être. Entraîne-toi avec un quiz gratuit : {link}",
+   "tip": "En anglais, on n’« a » pas un âge : on dit “I am twenty years old”.",
+   "caption": "Vous dites “I have twenty years.” ? En anglais, l’âge se dit avec “be”. Dites plutôt “I am twenty years old.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “is” — En anglais, l’âge se dit avec le verbe être. Testez d’autres pièges avec un quiz gratuit : {link}",
    "hashtags": [
     "#apprendrelanglais",
     "#anglaisfacile",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "“I have 30 years”: wrong!",
+   "hook": "“I have 20 years”: wrong!",
    "tip": "In English, you do not “have” an age: you say “I am twenty years old”.",
-   "caption": "Do you also say “I have twenty years”? In English the right way is “I am twenty years old”. Listen to Ama and repeat with her! More exercises in the Lexkite app."
+   "caption": "Do you say this? “I have twenty years.” In English, age uses “be”. Say “I am twenty years old.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "« I have 20 years » : faux !",
   "keyword": "I am twenty years old.",
-  "value": "En anglais, on ne « a » pas un âge : on dit “I am twenty years old”.",
+  "value": "En anglais, on n’« a » pas un âge : on dit “I am twenty years old”.",
   "hashtags": [
    "#apprendrelanglais",
    "#anglaisfacile",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "« I have 20 years » : faux !",
-    "description": "Tu dis aussi “I have twenty years” ? 🙈 En anglais, le bon réflexe est “I am twenty years old”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "description": "En anglais, on n’« a » pas un âge : on dit “I am twenty years old”.\n\nVous dites “I have twenty years.” ? En anglais, l’âge se dit avec “be”. Dites plutôt “I am twenty years old.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
     "tags": [
      "I am twenty years old.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Tu dis aussi “I have twenty years” ? 🙈 En anglais, le bon réflexe est “I am twenty years old”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Vous dites “I have twenty years.” ? En anglais, l’âge se dit avec “be”. Dites plutôt “I am twenty years old.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Tu dis aussi “I have twenty years” ? 🙈 En anglais, le bon réflexe est “I am twenty years old”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.\n\nlexkite.com",
+    "caption": "« I have 20 years » : faux !\n\nEn anglais, on n’« a » pas un âge : on dit “I am twenty years old”.\n\nlexkite.com",
     "hashtags": [
      "#apprendrelanglais",
      "#anglaisfacile",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "« I have 20 years » : faux ! #apprendrelanglais #anglaisfacile #coursdanglais"
+    "caption": "« I have 20 years » : faux ! En anglais, on n’« a » pas un âge : on dit “I am twenty years old”. #apprendrelanglais #anglaisfacile #coursdanglais"
    }
   },
-  "first_comment": "Réponse : “is”. En anglais, l'âge se dit avec le verbe être. Entraîne-toi avec un quiz gratuit : {link}",
+  "first_comment": "Réponse : “is” — En anglais, l’âge se dit avec le verbe être. Testez d’autres pièges avec un quiz gratuit : {link}",
   "lang": "fr"
  }
 }

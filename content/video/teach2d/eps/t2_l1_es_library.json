@@ -16,12 +16,12 @@
   },
   {
    "id": "w",
-   "text": "Many learners say: I bought a book in the library.",
+   "text": "Many learners say: I bought a book at the library.",
    "pause": 0.42
   },
   {
    "id": "r",
-   "text": "Better: I bought a book in the bookstore.",
+   "text": "Better: I bought a book at the bookstore.",
    "pause": 0.42
   },
   {
@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "Bookstore! I buy books in a bookstore.",
+   "text": "Bookstore! I buy books at a bookstore.",
    "pause": 0.42
   },
   {
@@ -52,13 +52,13 @@
   }
  ],
  "data": {
-  "wrong": "I bought a book in the library.",
-  "right": "I bought a book in the bookstore.",
+  "wrong": "I bought a book at the library.",
+  "right": "I bought a book at the bookstore.",
   "strike": "library",
   "why": "You buy books in a bookstore.",
-  "memory": "Library = biblioteca.",
+  "memory": "Library: borrow books.",
   "quiz": {
-   "stem": "I buy books in a ___.",
+   "stem": "I buy books at a ___.",
    "options": [
     "library",
     "bookstore"
@@ -67,8 +67,8 @@
   },
   "native": {
    "hook": "“Library” no es “librería”",
-   "tip": "Falso amigo: “library” es “biblioteca”. Una “librería” es “bookstore”.",
-   "caption": "Falso amigo clásico 📚 No digas “I bought a book in the library.”, sino “I bought a book in the bookstore.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+   "tip": "Falso amigo: “library” es “biblioteca”. Una “librería” es una “bookstore”.",
+   "caption": "Falso amigo clásico 📚 No digas “I bought a book at the library.”, sino “I bought a book at the bookstore.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
    "comment": "Respuesta: “bookstore”. “Library” significa biblioteca. Practica más con un quiz gratis aquí: {link}",
    "hashtags": [
     "#aprenderingles",
@@ -80,7 +80,7 @@
   "en": {
    "hook": "“Library” is not “librería”",
    "tip": "False friend: “library” is “biblioteca”. A “librería” is a “bookstore”.",
-   "caption": "Classic false friend! Do not say “I bought a book in the library.”, say “I bought a book in the bookstore.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+   "caption": "Classic false friend! Do not say “I bought a book at the library.”, say “I bought a book at the bookstore.” Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -104,8 +104,8 @@
  },
  "publish": {
   "title": "“Library” no es “librería”",
-  "keyword": "I bought a book in the bookstore.",
-  "value": "Falso amigo: “library” es “biblioteca”. Una “librería” es “bookstore”.",
+  "keyword": "I bought a book at the bookstore.",
+  "value": "Falso amigo: “library” es “biblioteca”. Una “librería” es una “bookstore”.",
   "hashtags": [
    "#aprenderingles",
    "#inglesfacil",
@@ -117,18 +117,18 @@
   "platforms": {
    "youtube": {
     "title": "“Library” no es “librería”",
-    "description": "Falso amigo clásico 📚 No digas “I bought a book in the library.”, sino “I bought a book in the bookstore.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #falsosamigos #lexkite",
+    "description": "Falso amigo: “library” es “biblioteca”. Una “librería” es una “bookstore”.\n\nFalso amigo clásico 📚 No digas “I bought a book at the library.”, sino “I bought a book at the bookstore.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #falsosamigos #lexkite",
     "tags": [
-     "I bought a book in the bookstore.",
+     "I bought a book at the bookstore.",
      "learn english",
      "es"
     ]
    },
    "facebook": {
-    "text": "Falso amigo clásico 📚 No digas “I bought a book in the library.”, sino “I bought a book in the bookstore.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Falso amigo clásico 📚 No digas “I bought a book at the library.”, sino “I bought a book at the bookstore.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Falso amigo clásico 📚 No digas “I bought a book in the library.”, sino “I bought a book in the bookstore.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nlexkite.com",
+    "caption": "“Library” no es “librería”\n\nFalso amigo: “library” es “biblioteca”. Una “librería” es una “bookstore”.\n\nlexkite.com",
     "hashtags": [
      "#aprenderingles",
      "#inglesfacil",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "“Library” no es “librería” #aprenderingles #inglesfacil #falsosamigos"
+    "caption": "“Library” no es “librería” Falso amigo: “library” es “biblioteca”. Una “librería” es una “bookstore”. #aprenderingles #inglesfacil #falsosamigos"
    }
   },
   "first_comment": "Respuesta: “bookstore”. “Library” significa biblioteca. Practica más con un quiz gratis aquí: {link}",

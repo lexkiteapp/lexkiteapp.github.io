@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_buy_coffee",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Buy you a coffee, not invite!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I will invite you a coffee.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I will buy you a coffee.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Invite means ask someone to come.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Buy! Let me buy you lunch.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I will invite you a coffee.",
+  "right": "I will buy you a coffee.",
+  "strike": "invite",
+  "why": "Invite means ask someone to come.",
+  "memory": "Pay = buy.",
+  "quiz": {
+   "stem": "Let me ___ you lunch.",
+   "options": [
+    "invite",
+    "buy"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "¿“Invite you a coffee”? ¡Ojo!",
+   "tip": "En español “te invito un café”, pero en inglés “invite” es pedir que alguien venga. Para pagar: “buy you a coffee.”",
+   "caption": "Muchos dicen “I will invite you a coffee.” 🙈 En español “te invito un café”, pero en inglés “invite” es pedir que alguien venga. Para pagar se dice: “I will buy you a coffee.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “buy”. Para pagar por otra persona se usa “buy”, no “invite”. Di en voz alta una frase tuya con “buy”. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#vocabulario",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Invite you a coffee”? Careful!",
+   "tip": "In Spanish “te invito un café” is normal, but English “invite” means ask someone to come. To pay, say “buy you a coffee.”",
+   "caption": "Many learners say “I will invite you a coffee.” In Spanish “te invito un café” is normal, but English “invite” means ask someone to come. To pay, say: “I will buy you a coffee.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿“Invite you a coffee”? ¡Ojo!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "¿“Invite you a coffee”? ¡Ojo!",
+  "keyword": "I will buy you a coffee.",
+  "value": "En español “te invito un café”, pero en inglés “invite” es pedir que alguien venga. Para pagar: “buy you a coffee.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#vocabulario",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "¿“Invite you a coffee”? ¡Ojo!",
+    "description": "En español “te invito un café”, pero en inglés “invite” es pedir que alguien venga. Para pagar: “buy you a coffee.”\n\nMuchos dicen “I will invite you a coffee.” 🙈 En español “te invito un café”, pero en inglés “invite” es pedir que alguien venga. Para pagar se dice: “I will buy you a coffee.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
+    "tags": [
+     "I will buy you a coffee.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "Muchos dicen “I will invite you a coffee.” 🙈 En español “te invito un café”, pero en inglés “invite” es pedir que alguien venga. Para pagar se dice: “I will buy you a coffee.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "¿“Invite you a coffee”? ¡Ojo!\n\nEn español “te invito un café”, pero en inglés “invite” es pedir que alguien venga. Para pagar: “buy you a coffee.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#vocabulario",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿“Invite you a coffee”? ¡Ojo! En español “te invito un café”, pero en inglés “invite” es pedir que alguien… #aprenderingles #inglesfacil #vocabulario"
+   }
+  },
+  "first_comment": "Respuesta: “buy”. Para pagar por otra persona se usa “buy”, no “invite”. Di en voz alta una frase tuya con “buy”. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}

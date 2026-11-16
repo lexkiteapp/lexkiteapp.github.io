@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_becauseso",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Because, no so!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Because it rained, so we stayed home.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Because it rained, we stayed home.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Because already gives the reason.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "I rested! Because I was tired, I rested.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Because it rained, so we stayed home.",
+  "right": "Because it rained, we stayed home.",
+  "strike": "so",
+  "why": "Because already gives the reason.",
+  "memory": "Because, no so.",
+  "quiz": {
+   "stem": "Because I was tired, ___.",
+   "options": [
+    "so I rested",
+    "I rested"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Because” के साथ “so” नहीं!",
+   "tip": "हिंदी में “क्योंकि… इसलिए” दोनों बोलते हैं। अंग्रेज़ी में because के साथ so नहीं लगता।",
+   "caption": "क्या आप भी बोलते हैं: “Because it rained, so we stayed home.” 😅 सही वाक्य है: “Because it rained, we stayed home.” ध्यान रखें: because के साथ so नहीं लगता। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “I rested”। याद रखें: because के साथ so नहीं लगता। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do not use “so” with “because”!",
+   "tip": "Many learners use both because and so, but English needs only one of them.",
+   "caption": "Do you say: “Because it rained, so we stayed home.” 😅 The right sentence is: “Because it rained, we stayed home.” Remember: Because already gives the reason, so skip so. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Because” के साथ “so” नहीं!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“Because” के साथ “so” नहीं!",
+  "keyword": "Because it rained, we stayed home.",
+  "value": "हिंदी में “क्योंकि… इसलिए” दोनों बोलते हैं। अंग्रेज़ी में because के साथ so नहीं लगता।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "“Because” के साथ “so” नहीं!",
+    "description": "हिंदी में “क्योंकि… इसलिए” दोनों बोलते हैं। अंग्रेज़ी में because के साथ so नहीं लगता।\n\nक्या आप भी बोलते हैं: “Because it rained, so we stayed home.” 😅 सही वाक्य है: “Because it rained, we stayed home.” ध्यान रखें: because के साथ so नहीं लगता। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "Because it rained, we stayed home.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी बोलते हैं: “Because it rained, so we stayed home.” 😅 सही वाक्य है: “Because it rained, we stayed home.” ध्यान रखें: because के साथ so नहीं लगता। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Because” के साथ “so” नहीं!\n\nहिंदी में “क्योंकि… इसलिए” दोनों बोलते हैं। अंग्रेज़ी में because के साथ so नहीं लगता।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Because” के साथ “so” नहीं! हिंदी में “क्योंकि… इसलिए” दोनों बोलते हैं। अंग्रेज़ी में because के साथ so… #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “I rested”। याद रखें: because के साथ so नहीं लगता। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

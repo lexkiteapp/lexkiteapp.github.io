@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_would_like",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say would like, be polite!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I want a coffee, please.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I would like a coffee, please.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Would like is more polite.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Would like! I would like a tea, please.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I want a coffee, please.",
+  "right": "I would like a coffee, please.",
+  "strike": "want",
+  "why": "Would like is more polite.",
+  "memory": "I would like a coffee, please.",
+  "quiz": {
+   "stem": "In a shop: I ___ a tea, please.",
+   "options": [
+    "want",
+    "would like"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Kibar ol: “I would like”!",
+   "tip": "Türkçede “bir kahve istiyorum” kibardır; İngilizcede “I want” sert durur, “I would like” kibardır: “I would like a coffee, please.”",
+   "caption": "“I want a coffee, please” mi diyorsun? 😅 Sipariş verirken “I want” sert durur; “I would like” daha kibardır. Doğrusu “I would like a coffee, please.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “would like”. Sipariş verirken “I would like” de. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Be polite: “I would like”!",
+   "tip": "“I want” sounds hard; say “I would like” to order: “I would like a coffee, please.”",
+   "caption": "Do you say “I want a coffee, please”? 😅 In English I want can sound hard when you order, so we say I would like. The right sentence is “I would like a coffee, please.” Listen to Ama and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Kibar ol: “I would like”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Kibar ol: “I would like”!",
+  "keyword": "I would like a coffee, please.",
+  "value": "Türkçede “bir kahve istiyorum” kibardır; İngilizcede “I want” sert durur, “I would like” kibardır: “I would like a coffee, please.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "Kibar ol: “I would like”!",
+    "description": "Türkçede “bir kahve istiyorum” kibardır; İngilizcede “I want” sert durur, “I would like” kibardır: “I would like a coffee, please.”\n\n“I want a coffee, please” mi diyorsun? 😅 Sipariş verirken “I want” sert durur; “I would like” daha kibardır. Doğrusu “I would like a coffee, please.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "I would like a coffee, please.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“I want a coffee, please” mi diyorsun? 😅 Sipariş verirken “I want” sert durur; “I would like” daha kibardır. Doğrusu “I would like a coffee, please.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Kibar ol: “I would like”!\n\nTürkçede “bir kahve istiyorum” kibardır; İngilizcede “I want” sert durur, “I would like” kibardır: “I would like a coffee, please.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Kibar ol: “I would like”! Türkçede “bir kahve istiyorum” kibardır; İngilizcede “I want” sert durur, “I w… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “would like”. Sipariş verirken “I would like” de. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+  "lang": "tr"
+ }
+}

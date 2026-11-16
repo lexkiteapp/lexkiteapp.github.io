@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_phone_dead",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say dead, not die!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: My phone is die.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My phone is dead.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use dead after is.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Dead! My battery is dead.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "My phone is die.",
+  "right": "My phone is dead.",
+  "strike": "die",
+  "why": "Use dead after is.",
+  "memory": "Is dead.",
+  "quiz": {
+   "stem": "My battery is ___.",
+   "options": [
+    "die",
+    "dead"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "is ต้องตามด้วย dead!",
+   "tip": "ภาษาไทยใช้ “ตาย” คำเดียวทั้ง die และ dead จึงมักพูด is die แต่หลัง is ต้องใช้ dead: “My phone is dead.”",
+   "caption": "คุณเคยพูดว่า “My phone is die.” ไหม? 😅 ภาษาไทยใช้ “ตาย” คำเดียวทั้ง die และ dead จึงมักพูด is die แต่หลัง is ต้องใช้ dead: “My phone is dead.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “dead” จำไว้ให้ดีนะ! ลองพูดประโยคตัวอย่างออกเสียงหนึ่งรอบ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "After is, say “dead”!",
+   "tip": "Thai uses one word for die and dead, so many people say is die, but English needs dead after is.",
+   "caption": "Do you say “My phone is die.” 😅 Thai uses one word for die and dead, so many people say is die, but English needs dead after is. Say “My phone is dead.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "is ต้องตามด้วย dead!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 41,
+  "seconds": 25.6,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "is ต้องตามด้วย dead!",
+  "keyword": "My phone is dead.",
+  "value": "ภาษาไทยใช้ “ตาย” คำเดียวทั้ง die และ dead จึงมักพูด is die แต่หลัง is ต้องใช้ dead: “My phone is dead.”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "is ต้องตามด้วย dead!",
+    "description": "ภาษาไทยใช้ “ตาย” คำเดียวทั้ง die และ dead จึงมักพูด is die แต่หลัง is ต้องใช้ dead: “My phone is dead.”\n\nคุณเคยพูดว่า “My phone is die.” ไหม? 😅 ภาษาไทยใช้ “ตาย” คำเดียวทั้ง die และ dead จึงมักพูด is die แต่หลัง is ต้องใช้ dead: “My phone is dead.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "My phone is dead.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “My phone is die.” ไหม? 😅 ภาษาไทยใช้ “ตาย” คำเดียวทั้ง die และ dead จึงมักพูด is die แต่หลัง is ต้องใช้ dead: “My phone is dead.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "is ต้องตามด้วย dead!\n\nภาษาไทยใช้ “ตาย” คำเดียวทั้ง die และ dead จึงมักพูด is die แต่หลัง is ต้องใช้ dead: “My phone is dead.”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "is ต้องตามด้วย dead! ภาษาไทยใช้ “ตาย” คำเดียวทั้ง die และ dead จึงมักพูด is die แต่หลัง is ต้องใช้ dead: “My… #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “dead” จำไว้ให้ดีนะ! ลองพูดประโยคตัวอย่างออกเสียงหนึ่งรอบ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

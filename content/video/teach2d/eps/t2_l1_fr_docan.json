@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "“Do you can” : un “do” de trop",
-   "tip": "“Can” se suffit à lui-même : on l'inverse avec le sujet, sans “do”.",
-   "caption": "Tu dis “Do you can help me, please?” ? Pas de “do” ! Dis “Can you help me, please?”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.",
-   "comment": "Réponse : “Can” se place devant le sujet, sans “do”. Teste d'autres pièges avec un quiz gratuit : {link}",
+   "tip": "“Can” se suffit à lui-même : on l’inverse avec le sujet, sans “do”.",
+   "caption": "Vous dites “Do you can help me, please?” ? Pas de “do” ! Dites plutôt “Can you help me, please?” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “Can” — “Can” se place devant le sujet, sans “do”. Testez d’autres pièges avec un quiz gratuit : {link}",
    "hashtags": [
     "#apprendrelanglais",
     "#anglaisfacile",
@@ -80,7 +80,7 @@
   "en": {
    "hook": "“Do you can”: one “do” too many",
    "tip": "“Can” needs no “do”: just put it before the subject.",
-   "caption": "Do you say “Do you can help me, please?”? No “do”! Say “Can you help me, please?”. Listen to Ama and repeat with her! More exercises in the Lexkite app."
+   "caption": "Do you say this? “Do you can help me, please?” No “do”! Say “Can you help me, please?” Listen to Ama and repeat with her! More exercises in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "“Do you can” : un “do” de trop",
   "keyword": "Can you help me, please?",
-  "value": "“Can” se suffit à lui-même : on l'inverse avec le sujet, sans “do”.",
+  "value": "“Can” se suffit à lui-même : on l’inverse avec le sujet, sans “do”.",
   "hashtags": [
    "#apprendrelanglais",
    "#anglaisfacile",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "“Do you can” : un “do” de trop",
-    "description": "Tu dis “Do you can help me, please?” ? Pas de “do” ! Dis “Can you help me, please?”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "description": "“Can” se suffit à lui-même : on l’inverse avec le sujet, sans “do”.\n\nVous dites “Do you can help me, please?” ? Pas de “do” ! Dites plutôt “Can you help me, please?” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
     "tags": [
      "Can you help me, please?",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Tu dis “Do you can help me, please?” ? Pas de “do” ! Dis “Can you help me, please?”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Vous dites “Do you can help me, please?” ? Pas de “do” ! Dites plutôt “Can you help me, please?” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Tu dis “Do you can help me, please?” ? Pas de “do” ! Dis “Can you help me, please?”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.\n\nlexkite.com",
+    "caption": "“Do you can” : un “do” de trop\n\n“Can” se suffit à lui-même : on l’inverse avec le sujet, sans “do”.\n\nlexkite.com",
     "hashtags": [
      "#apprendrelanglais",
      "#anglaisfacile",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "“Do you can” : un “do” de trop #apprendrelanglais #anglaisfacile #coursdanglais"
+    "caption": "“Do you can” : un “do” de trop “Can” se suffit à lui-même : on l’inverse avec le sujet, sans “do”. #apprendrelanglais #anglaisfacile #coursdanglais"
    }
   },
-  "first_comment": "Réponse : “Can” se place devant le sujet, sans “do”. Teste d'autres pièges avec un quiz gratuit : {link}",
+  "first_comment": "Réponse : “Can” — “Can” se place devant le sujet, sans “do”. Testez d’autres pièges avec un quiz gratuit : {link}",
   "lang": "fr"
  }
 }

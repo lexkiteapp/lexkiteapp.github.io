@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_whichtime",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "What time, not which time!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Which time will you come?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: What time will you come?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Ask about the clock with what time.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "What time! What time will you come home?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Which time will you come?",
+  "right": "What time will you come?",
+  "strike": "Which time",
+  "why": "Ask about the clock with what time.",
+  "memory": "What time is it?",
+  "quiz": {
+   "stem": "___ will you come home?",
+   "options": [
+    "Which time",
+    "What time"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Which time” नहीं, “What time”!",
+   "tip": "हिंदी में “कौन सा समय” कहते हैं, इसलिए लोग which time बोल देते हैं। अंग्रेज़ी में घड़ी का समय पूछने के लिए what time बोलें।",
+   "caption": "क्या आप भी बोलते हैं: “Which time will you come?” 😅 सही वाक्य है: “What time will you come?” ध्यान रखें: समय पूछने के लिए what time बोला जाता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “What time”। याद रखें: समय पूछने के लिए what time बोला जाता है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “What time”, not “Which time”!",
+   "tip": "Many learners copy which time word for word. To ask about the clock, we say what time.",
+   "caption": "Do you say: “Which time will you come?” 😅 The right sentence is: “What time will you come?” Remember: To ask about the clock, say what time. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Which time” नहीं, “What time”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“Which time” नहीं, “What time”!",
+  "keyword": "What time will you come?",
+  "value": "हिंदी में “कौन सा समय” कहते हैं, इसलिए लोग which time बोल देते हैं। अंग्रेज़ी में घड़ी का समय पूछने के लिए what time बोलें।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "“Which time” नहीं, “What time”!",
+    "description": "हिंदी में “कौन सा समय” कहते हैं, इसलिए लोग which time बोल देते हैं। अंग्रेज़ी में घड़ी का समय पूछने के लिए what time बोलें।\n\nक्या आप भी बोलते हैं: “Which time will you come?” 😅 सही वाक्य है: “What time will you come?” ध्यान रखें: समय पूछने के लिए what time बोला जाता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "What time will you come?",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी बोलते हैं: “Which time will you come?” 😅 सही वाक्य है: “What time will you come?” ध्यान रखें: समय पूछने के लिए what time बोला जाता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Which time” नहीं, “What time”!\n\nहिंदी में “कौन सा समय” कहते हैं, इसलिए लोग which time बोल देते हैं। अंग्रेज़ी में घड़ी का समय पूछने के लिए what time बोलें।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Which time” नहीं, “What time”! हिंदी में “कौन सा समय” कहते हैं, इसलिए लोग which time बोल देते हैं। अंग… #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “What time”। याद रखें: समय पूछने के लिए what time बोला जाता है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

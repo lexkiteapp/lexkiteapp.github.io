@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_look_for",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Looking my keys? Looking for!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am looking my keys.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am looking for my keys.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "To search, use look for.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Looking for! I am looking for my keys.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am looking my keys.",
+  "right": "I am looking for my keys.",
+  "strike": "looking",
+  "why": "To search, use look for.",
+  "memory": "Look for.",
+  "quiz": {
+   "stem": "I am ___ my keys.",
+   "options": [
+    "looking",
+    "looking for"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Buscar” = “look for”",
+   "tip": "En español “busco mis llaves”, pero en inglés “look” solo es mirar; para buscar: “look for.”",
+   "caption": "🙈 Error común: “I am looking my keys.” “Look” es mirar; “look for” es buscar: “I am looking for my keys.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “look for”. “Look” sola es mirar. Para buscar algo di “look for”. Escribe una frase tuya con “look for” o dila en voz alta: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#preposiciones",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Look for” = buscar",
+   "tip": "In English “look” alone means “mirar”; to search, say “look for.”",
+   "caption": "Common mistake: “I am looking my keys.” “Look” is “mirar”; “look for” is “buscar”: “I am looking for my keys.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Buscar” = “look for”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“Buscar” = “look for”",
+  "keyword": "I am looking for my keys.",
+  "value": "En español “busco mis llaves”, pero en inglés “look” solo es mirar; para buscar: “look for.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#preposiciones",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "“Buscar” = “look for”",
+    "description": "En español “busco mis llaves”, pero en inglés “look” solo es mirar; para buscar: “look for.”\n\n🙈 Error común: “I am looking my keys.” “Look” es mirar; “look for” es buscar: “I am looking for my keys.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #preposiciones #lexkite",
+    "tags": [
+     "I am looking for my keys.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "🙈 Error común: “I am looking my keys.” “Look” es mirar; “look for” es buscar: “I am looking for my keys.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Buscar” = “look for”\n\nEn español “busco mis llaves”, pero en inglés “look” solo es mirar; para buscar: “look for.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#preposiciones",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Buscar” = “look for” En español “busco mis llaves”, pero en inglés “look” solo es mirar; para buscar: “l… #aprenderingles #inglesfacil #preposiciones"
+   }
+  },
+  "first_comment": "Respuesta: “look for”. “Look” sola es mirar. Para buscar algo di “look for”. Escribe una frase tuya con “look for” o dila en voz alta: {link}",
+  "lang": "es"
+ }
+}

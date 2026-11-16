@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_attend",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Answer, not attend!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Can you attend the phone?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Can you answer the phone?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "You answer a phone.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! Can you answer the phone?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Can you attend the phone?",
+  "right": "Can you answer the phone?",
+  "strike": "attend",
+  "why": "You answer a phone.",
+  "memory": "I answer the phone.",
+  "quiz": {
+   "stem": "Can you ___ the phone?",
+   "options": [
+    "attend",
+    "answer"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Atender” o telefone é “answer”!",
+   "tip": "Em português dizemos “atender o telefone”; em inglês, use “answer.” “Attend” é ir a um evento ou aula.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “Can you attend the phone?” O certo é “Can you answer the phone?” Em português dizemos “atender o telefone”; em inglês, use “answer.” “Attend” é ir a um evento ou aula. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “answer”. Agora diga em voz alta: “Can you answer the phone?” Depois treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Atender” the phone is “answer”!",
+   "tip": "In Portuguese we say “atender o telefone”; in English, use “answer.” “Attend” means to go to an event or a class.",
+   "caption": "Watch out for this common mistake! Many people say “Can you attend the phone?” The right way is “Can you answer the phone?” In Portuguese we say “atender o telefone”; in English, use “answer.” “Attend” means to go to an event or a class. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Atender” o telefone é “answer”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“Atender” o telefone é “answer”!",
+  "keyword": "Can you answer the phone?",
+  "value": "Em português dizemos “atender o telefone”; em inglês, use “answer.” “Attend” é ir a um evento ou aula.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "“Atender” o telefone é “answer”!",
+    "description": "Em português dizemos “atender o telefone”; em inglês, use “answer.” “Attend” é ir a um evento ou aula.\n\nCuidado com este erro comum! 😬 Muita gente diz “Can you attend the phone?” O certo é “Can you answer the phone?” Em português dizemos “atender o telefone”; em inglês, use “answer.” “Attend” é ir a um evento ou aula. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "Can you answer the phone?",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “Can you attend the phone?” O certo é “Can you answer the phone?” Em português dizemos “atender o telefone”; em inglês, use “answer.” “Attend” é ir a um evento ou aula. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Atender” o telefone é “answer”!\n\nEm português dizemos “atender o telefone”; em inglês, use “answer.” “Attend” é ir a um evento ou aula.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Atender” o telefone é “answer”! Em português dizemos “atender o telefone”; em inglês, use “answer.” “Atte… #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “answer”. Agora diga em voz alta: “Can you answer the phone?” Depois treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}
