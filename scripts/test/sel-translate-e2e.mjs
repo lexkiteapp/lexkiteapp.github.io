@@ -81,7 +81,8 @@ const firstPaint = page => page.evaluate(() => { const p = document.querySelecto
 const geom = page => page.evaluate(() => {
   const p = document.querySelector('.sel-pop'), pr = p.getBoundingClientRect(), vw = document.documentElement.clientWidth;
   const def = document.querySelector('#view .entry-mean') || [...document.querySelectorAll('#view *')].find(e => e.children.length === 0 && /a move to a more important job/i.test(e.textContent)) || null, dr = def && def.getBoundingClientRect();
-  const sel = getSelection().rangeCount ? getSelection().getRangeAt(0).getBoundingClientRect() : null;
+  let sel = getSelection().rangeCount ? getSelection().getRangeAt(0).getBoundingClientRect() : null;
+  if (!sel || !sel.height) { const ex = document.querySelector('.example-box.entry-ex'); if (ex) sel = ex.getBoundingClientRect(); } // vùng chọn có thể thu về 0 sau khi bấm Dịch (trang từ vẽ lại) → đo theo chính khối câu ví dụ
   const hit = (a, b) => a && b && a.left < b.right && b.left < a.right && a.top < b.bottom && b.top < a.bottom;
   return { pop: [pr.left, pr.top, pr.right, pr.bottom].map(Math.round), defR: dr ? [dr.top, dr.bottom].map(Math.round) : null, defTag: def ? def.tagName + '.' + def.className + '@' + (def.closest('[id]') || {}).id : null, selR: sel ? [sel.top, sel.bottom, sel.width].map(Math.round) : null, vw, sw: document.documentElement.scrollWidth, defFound: !!def, coversDef: hit(pr, dr), coversSel: hit(pr, sel), defAbove: !!(dr && sel && dr.bottom <= sel.top) };
 });
