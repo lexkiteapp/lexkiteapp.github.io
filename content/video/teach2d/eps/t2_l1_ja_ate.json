@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "Ate! Yesterday I ate rice.",
+   "text": "Yesterday I ate rice.",
    "pause": 0.42
   },
   {
@@ -98,8 +98,8 @@
  },
  "lang": "ja",
  "est": {
-  "words": 42,
-  "seconds": 26.1,
+  "words": 41,
+  "seconds": 25.6,
   "wpm": 96
  },
  "publish": {
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 36,
+  "script_words": 35,
   "platforms": {
    "youtube": {
     "title": "過去の話なのに eat のまま？",

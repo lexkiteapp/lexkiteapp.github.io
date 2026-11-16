@@ -541,7 +541,7 @@
           ],
           "answer": 0
         },
-        "answer_say": "Ate! Yesterday I ate rice.",
+        "answer_say": "Yesterday I ate rice.",
         "native": {
           "hook": "過去の話なのに eat のまま？",
           "tip": "昨日の話なら、英語は動詞を過去形に。eat → ate！",
