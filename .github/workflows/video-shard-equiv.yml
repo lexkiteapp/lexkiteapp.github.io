@@ -20,12 +20,16 @@ env:
   NUM_A: ${{ github.event.inputs.num_a || '101' }}
   RUN_B: ${{ github.event.inputs.run_b || '40564021337' }}
   NUM_B: ${{ github.event.inputs.num_b || '100' }}
+concurrency:   # ci-policy 2/11: push/lịch trùng gộp; chạy tay (mỗi lượt khác input) không bao giờ bị huỷ
+  group: ${{ github.workflow }}-${{ github.event_name == 'workflow_dispatch' && github.run_id || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 jobs:
   equiv:
     runs-on: ubuntu-latest
+    timeout-minutes: 120   # ci-policy 2/11 (mặc định GitHub 360 giữ runner nếu treo)
     steps:
       - uses: actions/checkout@v4
-      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+      - uses: ./.github/actions/setup-ffmpeg
       - uses: actions/download-artifact@v4
         with:
           name: tpl9-${{ env.DIR }}-${{ env.T }}-${{ env.NUM_A }}

@@ -1,0 +1,5055 @@
+{
+ "_doc": "Mô hình nghĩa từ v2 (P0.2) – spec docs/specs/sense-v2.md; cổng scripts/content-qa/sense-check.mjs. src gold = Claude viết tay (lô thử 100).",
+ "entries": {
+  "the#det": {
+   "fam": [],
+   "senses": [
+    {
+     "n": 1,
+     "def": "used before a noun when the listener already knows which person or thing you mean",
+     "lvl": "A1",
+     "reg": "neutral",
+     "ex": [
+      "Can you open the window, please?",
+      "I left the keys on the kitchen table."
+     ],
+     "col": [
+      "the same",
+      "the other"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "used before a noun when there is only one of something in the world",
+     "lvl": "A1",
+     "reg": "neutral",
+     "ex": [
+      "The sun is very hot today.",
+      "She wants to travel around the world."
+     ],
+     "col": [
+      "the sun",
+      "the world",
+      "the internet"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "used before superlative adjectives and words like first, last and only",
+     "lvl": "A2",
+     "reg": "neutral",
+     "ex": [
+      "This is the best pizza in town.",
+      "He was the first person to arrive at the party."
+     ],
+     "col": [
+      "the best",
+      "the first time",
+      "the only one"
+     ],
+     "pat": [
+      "the + superlative adj"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 4,
+     "def": "used before an adjective to talk about a whole group of people",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "The charity collects warm clothes for the poor.",
+      "Big cities are not always easy places for the elderly."
+     ],
+     "col": [
+      "the rich",
+      "the poor",
+      "the elderly"
+     ],
+     "pat": [
+      "the + adj"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "go#v": {
+   "fam": [
+    "going (n)",
+    "ongoing (adj)",
+    "outgoing (adj)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "to move or travel from one place to another",
+     "lvl": "A1",
+     "reg": "neutral",
+     "ex": [
+      "We go to the beach every summer.",
+      "Shall we go by train?"
+     ],
+     "col": [
+      "go home",
+      "go by train",
+      "go abroad"
+     ],
+     "pat": [
+      "go to sth",
+      "go by sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "to leave home or another place in order to do an activity",
+     "lvl": "A1",
+     "reg": "neutral",
+     "ex": [
+      "Let’s go swimming this afternoon.",
+      "They went for a walk after dinner."
+     ],
+     "col": [
+      "go shopping",
+      "go swimming",
+      "go for a walk"
+     ],
+     "pat": [
+      "go + -ing",
+      "go for sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "to leave a place",
+     "lvl": "A2",
+     "reg": "neutral",
+     "ex": [
+      "I have to go now, it’s getting late.",
+      "Has the last bus gone already?"
+     ],
+     "col": [
+      "have to go",
+      "time to go"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 4,
+     "def": "to become different, usually in a bad way",
+     "lvl": "A2",
+     "reg": "neutral",
+     "ex": [
+      "The milk has gone bad.",
+      "Everything went wrong on the first day of our holiday."
+     ],
+     "col": [
+      "go wrong",
+      "go bad",
+      "go missing"
+     ],
+     "pat": [
+      "go + adj"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 5,
+     "def": "to happen or develop in a particular way",
+     "lvl": "A2",
+     "reg": "neutral",
+     "ex": [
+      "How did your job interview go?",
+      "The party went really well, and everyone enjoyed it."
+     ],
+     "col": [
+      "go well",
+      "go according to plan"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "well#adv": {
+   "fam": [
+    "good (adj)",
+    "better (adv)",
+    "best (adv)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "in a good, skilful or successful way",
+     "lvl": "A1",
+     "reg": "neutral",
+     "ex": [
+      "She speaks Spanish very well.",
+      "Did you sleep well last night?"
+     ],
+     "col": [
+      "very well",
+      "sleep well",
+      "pretty well"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "also; too, used in the phrase \"as ...\" at the end of a sentence",
+     "lvl": "A2",
+     "reg": "neutral",
+     "ex": [
+      "Can I have a glass of water as well?",
+      "My brother is coming to the wedding as well."
+     ],
+     "col": [
+      "as well",
+      "as well as"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "completely, carefully or closely",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "Shake the bottle well before you open it.",
+      "I know the city quite well now."
+     ],
+     "col": [
+      "know sb well",
+      "mix well"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 4,
+     "def": "by a large amount; much, used before words like above, over and before",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "The repairs cost well over a thousand dollars.",
+      "We arrived well before the doors opened, so we got good seats."
+     ],
+     "col": [
+      "well over",
+      "well above",
+      "well before"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "much#adv": {
+   "fam": [
+    "more (adv)",
+    "most (adv)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "a lot; to a great degree, often used in negatives and questions",
+     "lvl": "A1",
+     "reg": "neutral",
+     "ex": [
+      "Thank you very much for the flowers!",
+      "I don’t like spicy food much."
+     ],
+     "col": [
+      "very much",
+      "thank you very much",
+      "not much"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "a lot, used before comparative adjectives and before \"too\"",
+     "lvl": "A2",
+     "reg": "neutral",
+     "ex": [
+      "Our new flat is much bigger than the old one.",
+      "This coat is much too expensive for me."
+     ],
+     "col": [
+      "much better",
+      "much more",
+      "much too"
+     ],
+     "pat": [
+      "much + comparative adj"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "often; a lot of the time, mainly in questions and negatives",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "Do you go out much in the evenings?",
+      "We don’t see our cousins much now that they live abroad."
+     ],
+     "pat": [
+      "not do sth much"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "write#v": {
+   "fam": [
+    "writer (n)",
+    "writing (n)",
+    "written (adj)",
+    "rewrite (v)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "to make letters, words or numbers on paper or a screen",
+     "lvl": "A1",
+     "reg": "neutral",
+     "ex": [
+      "Write your answers in pencil.",
+      "My little boy is learning to write."
+     ],
+     "col": [
+      "write sth down",
+      "write clearly"
+     ],
+     "pat": [
+      "write sth on sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "to send a letter, email or message to someone",
+     "lvl": "A1",
+     "reg": "neutral",
+     "ex": [
+      "I wrote a letter to my grandmother.",
+      "Please write me a short email."
+     ],
+     "col": [
+      "write a letter",
+      "write an email",
+      "write back"
+     ],
+     "pat": [
+      "write to sb",
+      "write sb sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "to create a book, story, song, article or other piece of work",
+     "lvl": "A2",
+     "reg": "neutral",
+     "ex": [
+      "She has written three novels about her childhood.",
+      "Who wrote this song? It’s beautiful."
+     ],
+     "col": [
+      "write a book",
+      "write a song",
+      "write an article"
+     ],
+     "pat": [
+      "write about sth"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "next#adj": {
+   "fam": [],
+   "senses": [
+    {
+     "n": 1,
+     "def": "coming straight after the present one in time or order",
+     "lvl": "A1",
+     "reg": "neutral",
+     "ex": [
+      "I’ll see you next Monday.",
+      "The next train leaves at six."
+     ],
+     "col": [
+      "next week",
+      "next year",
+      "next time"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "nearest in place to where you are now",
+     "lvl": "A2",
+     "reg": "neutral",
+     "ex": [
+      "We get off at the next stop.",
+      "The music from the next room kept me awake."
+     ],
+     "col": [
+      "the next stop",
+      "the next room"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "question#n": {
+   "fam": [
+    "questionnaire (n)",
+    "questionable (adj)",
+    "unquestionably (adv)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "something you say or write to ask for information",
+     "lvl": "A1",
+     "reg": "neutral",
+     "ex": [
+      "Can I ask you a question?",
+      "Please answer every question on the form."
+     ],
+     "col": [
+      "ask a question",
+      "answer a question",
+      "a good question"
+     ],
+     "pat": [
+      "ask sb a question about sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "a problem or matter that people need to discuss or deal with",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "The meeting will discuss the question of parking near the school.",
+      "It’s only a question of time before prices go up again."
+     ],
+     "col": [
+      "the question of",
+      "a question of time",
+      "raise a question"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "doubt or uncertainty about whether something is true or right",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "She is, without question, the best player on the team.",
+      "Nobody has ever called his honesty into question."
+     ],
+     "col": [
+      "without question",
+      "call sth into question",
+      "no question"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "business#n": {
+   "fam": [
+    "businessman (n)",
+    "businesswoman (n)",
+    "businesslike (adj)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "the work of buying, selling or making things for money",
+     "lvl": "A1",
+     "reg": "neutral",
+     "ex": [
+      "My aunt travels a lot on business.",
+      "Business is good this year."
+     ],
+     "col": [
+      "on business",
+      "business trip",
+      "do business with"
+     ],
+     "pat": [
+      "do business with sb"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "a company, shop or other organization that sells goods or services",
+     "lvl": "A2",
+     "reg": "neutral",
+     "ex": [
+      "They run a small family business near the market.",
+      "Many local businesses closed after the floods."
+     ],
+     "col": [
+      "run a business",
+      "small business",
+      "family business",
+      "start a business"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "something that concerns only a particular person and not other people",
+     "lvl": "B2",
+     "reg": "informal",
+     "ex": [
+      "How much I earn is none of your business.",
+      "What I do at the weekend is my own business."
+     ],
+     "col": [
+      "none of your business",
+      "mind your own business"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "lead#v": {
+   "fam": [
+    "leader (n)",
+    "leadership (n)",
+    "leading (adj)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "to show someone the way by going in front of them",
+     "lvl": "A2",
+     "reg": "neutral",
+     "ex": [
+      "The guide led us through the old town.",
+      "She led the children safely across the road."
+     ],
+     "col": [
+      "lead the way",
+      "lead sb through sth"
+     ],
+     "pat": [
+      "lead sb to/into sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "to cause something to happen or to make someone do something",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "Too much stress can lead to health problems.",
+      "The discovery led to a new treatment for the disease."
+     ],
+     "col": [
+      "lead to problems",
+      "lead to an increase"
+     ],
+     "pat": [
+      "lead to sth",
+      "lead sb to do sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "to be in charge of a group, team, activity or organization",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "She leads a team of ten engineers.",
+      "Who will lead the discussion at tomorrow’s meeting?"
+     ],
+     "col": [
+      "lead a team",
+      "lead a discussion"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 4,
+     "def": "if a road, path or door leads somewhere, it goes there",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "This road leads to the airport.",
+      "A narrow path led down to the beach."
+     ],
+     "col": [
+      "lead down to"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 5,
+     "def": "to live a particular kind of life",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "My grandparents led a simple life in the countryside.",
+      "Despite his illness, he leads a normal, active life."
+     ],
+     "col": [
+      "lead a normal life",
+      "lead a busy life"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "able#adj": {
+   "fam": [
+    "ability (n)",
+    "unable (adj)",
+    "ably (adv)",
+    "enable (v)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "having the skill, strength, time or chance to do something",
+     "lvl": "A2",
+     "reg": "neutral",
+     "ex": [
+      "Will you be able to help me tomorrow?",
+      "I wasn’t able to sleep because of the noise."
+     ],
+     "col": [
+      "be able to",
+      "never be able to",
+      "no longer able to"
+     ],
+     "pat": [
+      "be able to do sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "clever or good at doing something",
+     "lvl": "B2",
+     "reg": "formal",
+     "ex": [
+      "She is a very able student who learns quickly.",
+      "The project needs an able and experienced manager."
+     ],
+     "col": [
+      "an able student",
+      "highly able"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "control#v": {
+   "fam": [
+    "controller (n)",
+    "controlled (adj)",
+    "uncontrollable (adj)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "to have the power to decide how a person, organization, machine or system works",
+     "lvl": "A2",
+     "reg": "neutral",
+     "ex": [
+      "Who controls the company now?",
+      "You can control the lights with your phone."
+     ],
+     "col": [
+      "control the market",
+      "control a machine",
+      "remotely controlled"
+     ],
+     "pat": [
+      "control sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "to limit something or stop it from increasing or spreading",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "Firefighters worked all night to control the fire.",
+      "The city wants to control traffic in the centre."
+     ],
+     "col": [
+      "control the spread",
+      "control costs",
+      "control prices"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "to stay calm and stop yourself from showing strong feelings",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "Try to control your temper when you’re tired.",
+      "He couldn’t control his laughter during the speech."
+     ],
+     "col": [
+      "control your temper",
+      "control your emotions",
+      "control yourself"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "power#n": {
+   "fam": [
+    "powerful (adj)",
+    "powerless (adj)",
+    "empower (v)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "energy, especially electricity, used to make machines and lights work",
+     "lvl": "A2",
+     "reg": "neutral",
+     "ex": [
+      "There was no power after the storm.",
+      "Turn off the power before you change the light bulb."
+     ],
+     "col": [
+      "power cut",
+      "solar power",
+      "nuclear power",
+      "power station"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "the ability to control people, events or a country",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "The president has a lot of power.",
+      "The party came to power after the election."
+     ],
+     "col": [
+      "come to power",
+      "in power",
+      "political power"
+     ],
+     "pat": [
+      "power over sb/sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "a natural ability or strength to do something",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "Some people believe music has the power to heal.",
+      "She lost the power of speech after the accident."
+     ],
+     "col": [
+      "the power to do sth",
+      "the power of speech"
+     ],
+     "pat": [
+      "the power to do sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 4,
+     "def": "a country with a lot of military or economic influence",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "The summit brought together the world’s leading powers.",
+      "After the war, the country became a major economic power."
+     ],
+     "col": [
+      "world power",
+      "major power",
+      "economic power"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "subject#n": {
+   "fam": [
+    "subjective (adj)",
+    "subjectively (adv)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "an area of knowledge that you study at school",
+     "lvl": "A1",
+     "reg": "neutral",
+     "ex": [
+      "Science is my favourite subject.",
+      "Which subjects do you study?"
+     ],
+     "col": [
+      "favourite subject",
+      "school subject"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "the thing that people are talking or writing about",
+     "lvl": "A2",
+     "reg": "neutral",
+     "ex": [
+      "Let’s change the subject.",
+      "Climate change is the subject of her new book."
+     ],
+     "col": [
+      "change the subject",
+      "on the subject of"
+     ],
+     "pat": [
+      "the subject of sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "in grammar, the noun or pronoun that usually comes before the verb and does the action",
+     "lvl": "B1",
+     "reg": "technical",
+     "ex": [
+      "In the sentence ‘She sings’, the subject is ‘she’.",
+      "Every English sentence needs a subject and a verb."
+     ],
+     "col": [
+      "subject and verb"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 4,
+     "def": "a person or thing that is being studied, painted or photographed",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "All the subjects in the study were over sixty.",
+      "Her cat is the subject of most of her photographs."
+     ],
+     "col": [
+      "the subject of a study"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "eye#n": {
+   "fam": [
+    "eyebrow (n)",
+    "eyesight (n)",
+    "eyelash (n)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "one of the two parts of the face that you see with",
+     "lvl": "A1",
+     "reg": "neutral",
+     "ex": [
+      "She has big brown eyes.",
+      "Close your eyes and relax."
+     ],
+     "col": [
+      "close your eyes",
+      "open your eyes",
+      "brown eyes"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "careful attention or watching, so that you notice what happens",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "Can you keep an eye on my bag for a minute?",
+      "A bright red poster caught my eye in the shop window."
+     ],
+     "col": [
+      "keep an eye on sth",
+      "catch sb’s eye"
+     ],
+     "pat": [
+      "keep an eye on sb/sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "an ability to notice and judge what is good, attractive or important",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "She has a great eye for colour.",
+      "You need an eye for detail to work as an editor."
+     ],
+     "col": [
+      "an eye for detail",
+      "have an eye for sth"
+     ],
+     "pat": [
+      "have an eye for sth"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "law#n": {
+   "fam": [
+    "lawyer (n)",
+    "lawful (adj)",
+    "unlawful (adj)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "the whole system of rules that people in a country must obey",
+     "lvl": "A2",
+     "reg": "neutral",
+     "ex": [
+      "Stealing is against the law.",
+      "Everyone has to obey the law, including the police."
+     ],
+     "col": [
+      "against the law",
+      "obey the law",
+      "break the law"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "one official rule made by a government",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "The government passed a new law on plastic bags.",
+      "There is a law against smoking in restaurants."
+     ],
+     "col": [
+      "pass a law",
+      "a new law",
+      "a law against sth"
+     ],
+     "pat": [
+      "a law against sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "the study of legal rules as a university subject or profession",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "My sister is studying law at university.",
+      "He went to law school after working as a teacher."
+     ],
+     "col": [
+      "study law",
+      "law school",
+      "law firm"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 4,
+     "def": "a statement that describes what always happens in nature or science",
+     "lvl": "B2",
+     "reg": "technical",
+     "ex": [
+      "The laws of physics explain why objects fall to the ground.",
+      "Supply and demand is one of the basic laws of economics."
+     ],
+     "col": [
+      "the laws of physics",
+      "a law of nature"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "certain#adj": {
+   "fam": [
+    "certainly (adv)",
+    "certainty (n)",
+    "uncertain (adj)",
+    "uncertainty (n)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "completely sure that something is true or correct",
+     "lvl": "A2",
+     "reg": "neutral",
+     "ex": [
+      "Are you certain you turned off the oven?",
+      "I’m not certain what time the film starts."
+     ],
+     "col": [
+      "absolutely certain",
+      "not certain",
+      "make certain"
+     ],
+     "pat": [
+      "certain (that)",
+      "certain about/of sth",
+      "certain + wh- clause"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "sure to happen or to be true; definite",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "It’s almost certain that it will rain tomorrow.",
+      "With their best player injured, the team is certain to lose."
+     ],
+     "col": [
+      "almost certain",
+      "certain to win"
+     ],
+     "pat": [
+      "be certain to do sth",
+      "it is certain that"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "used to talk about a particular person, thing or amount without saying exactly which",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "The museum is closed on certain days of the week.",
+      "Certain foods can cause allergies in young children."
+     ],
+     "col": [
+      "certain people",
+      "to a certain extent",
+      "under certain conditions"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "draw#v": {
+   "fam": [
+    "drawing (n)",
+    "drawer (n)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "to make a picture with a pencil, pen or crayon",
+     "lvl": "A1",
+     "reg": "neutral",
+     "ex": [
+      "Can you draw a cat?",
+      "He drew a map for me."
+     ],
+     "col": [
+      "draw a picture",
+      "draw a map",
+      "draw a line"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "to finish a game with the same score as the other player or team",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "The two teams drew one–one.",
+      "We drew with the champions last weekend, which was a great result."
+     ],
+     "pat": [
+      "draw with sb"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "to attract people, or to attract their interest or attention",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "The festival draws thousands of visitors every year.",
+      "She tried not to draw attention to herself."
+     ],
+     "col": [
+      "draw attention to",
+      "draw a crowd"
+     ],
+     "pat": [
+      "draw attention to sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 4,
+     "def": "to decide what is true or compare things after thinking about the facts",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "It’s too early to draw any conclusions from the results.",
+      "The writer draws a comparison between city and village life."
+     ],
+     "col": [
+      "draw a conclusion",
+      "draw a comparison"
+     ],
+     "pat": [
+      "draw sth from sth"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "regard#v": {
+   "fam": [
+    "regarding (prep)",
+    "regardless (adv)",
+    "disregard (v)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "to have a particular opinion about someone or something",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "Many people regard her as the best writer of her generation.",
+      "The old bridge is widely regarded as a symbol of the city."
+     ],
+     "col": [
+      "regard sb as sth",
+      "widely regarded as",
+      "highly regarded"
+     ],
+     "pat": [
+      "regard sb/sth as sth",
+      "regard sb/sth with sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "to look carefully at someone or something, often in a particular way",
+     "lvl": "C1",
+     "reg": "formal",
+     "ex": [
+      "The guard regarded us with suspicion as we walked past.",
+      "The cat sat on the wall, regarding the birds calmly."
+     ],
+     "col": [
+      "regard sb with suspicion"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "security#n": {
+   "fam": [
+    "secure (adj)",
+    "secure (v)",
+    "securely (adv)",
+    "insecurity (n)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "actions and systems used to protect people, buildings or a country from danger or crime",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "There was tight security at the airport.",
+      "A security guard asked to see our tickets."
+     ],
+     "col": [
+      "tight security",
+      "security guard",
+      "security check"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "the feeling of being safe, protected and free from worry",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "Children need love and a sense of security.",
+      "Many workers value job security more than a high salary."
+     ],
+     "col": [
+      "a sense of security",
+      "job security",
+      "financial security"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "protection of computers, networks and personal data from attack or theft",
+     "lvl": "B2",
+     "reg": "technical",
+     "ex": [
+      "Change your password regularly to improve your online security.",
+      "The company hired experts to test the security of its app."
+     ],
+     "col": [
+      "online security",
+      "data security",
+      "security software"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "material#n": {
+   "fam": [
+    "materialistic (adj)",
+    "materialize (v)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "a substance such as wood, plastic or metal that things are made from",
+     "lvl": "A2",
+     "reg": "neutral",
+     "ex": [
+      "This bag is made from recycled materials.",
+      "The builders are waiting for more material."
+     ],
+     "col": [
+      "building materials",
+      "recycled materials",
+      "raw materials"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "cloth used for making clothes, curtains and other things",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "I need two metres of soft cotton material for the dress.",
+      "This material is light and easy to wash."
+     ],
+     "col": [
+      "cotton material"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "information or ideas used in lessons, books, films or other work",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "The teacher prepares new material for every class.",
+      "This website has plenty of free study material."
+     ],
+     "col": [
+      "teaching materials",
+      "study material",
+      "reading material"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "particularly#adv": {
+   "fam": [
+    "particular (adj)",
+    "particular (n)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "especially; more than usual or more than others",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "I love fruit, particularly fresh mangoes.",
+      "The roads are particularly busy on Friday evenings."
+     ],
+     "col": [
+      "particularly important",
+      "particularly interested in",
+      "particularly good at"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "used after \"not\" to mean \"not very\" or \"not much\"",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "I’m not particularly hungry right now.",
+      "The film wasn’t particularly good, but the music was great."
+     ],
+     "col": [
+      "not particularly"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "fast#adj": {
+   "fam": [],
+   "senses": [
+    {
+     "n": 1,
+     "def": "able to move or travel at high speed",
+     "lvl": "A1",
+     "reg": "neutral",
+     "ex": [
+      "This car is very fast.",
+      "She is the fastest runner in our class."
+     ],
+     "col": [
+      "fast car",
+      "fast runner",
+      "fast train"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "happening or done in a short time",
+     "lvl": "A2",
+     "reg": "neutral",
+     "ex": [
+      "The internet here is really fast.",
+      "Fast food is cheap but not very healthy."
+     ],
+     "col": [
+      "fast food",
+      "fast internet",
+      "fast connection"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "if a clock or watch is this, it shows a time later than the real time",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "My watch is five minutes fast.",
+      "Don’t worry, that kitchen clock is always fast."
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "manager#n": {
+   "fam": [
+    "manage (v)",
+    "management (n)",
+    "managerial (adj)",
+    "manageable (adj)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "a person in charge of a shop, business, department or group of workers",
+     "lvl": "A2",
+     "reg": "neutral",
+     "ex": [
+      "The hotel manager apologized for the noise.",
+      "She became a sales manager last year."
+     ],
+     "col": [
+      "hotel manager",
+      "sales manager",
+      "bank manager",
+      "general manager"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "a person who trains and is in charge of a sports team",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "The team’s manager was happy with the result.",
+      "The club has appointed a new manager for next season."
+     ],
+     "col": [
+      "team manager",
+      "football manager"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "a person who looks after the business side of a singer, actor or sports star",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "The singer’s manager organized the whole world tour.",
+      "Her manager handles all her contracts and interviews."
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "stock#n": {
+   "fam": [
+    "stockpile (n)",
+    "stockbroker (n)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "the goods that a shop or company has available to sell",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "Sorry, we don’t have that model in stock at the moment.",
+      "The shop sold its entire stock of umbrellas in an hour."
+     ],
+     "col": [
+      "in stock",
+      "out of stock",
+      "stock of"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "an amount of something that is kept or exists, ready to be used",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "We keep a stock of bottled water at home in case of emergencies.",
+      "Fish stocks in the sea are falling fast."
+     ],
+     "col": [
+      "keep a stock of sth",
+      "fish stocks"
+     ],
+     "pat": [
+      "a stock of sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "shares in a company, or the value of those shares",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "She invested her savings in stocks and bonds.",
+      "Technology stocks rose sharply this morning."
+     ],
+     "col": [
+      "stock market",
+      "stock price",
+      "stocks and shares"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 4,
+     "def": "a liquid made by boiling meat, bones or vegetables, used to make soups and sauces",
+     "lvl": "C1",
+     "reg": "neutral",
+     "ex": [
+      "Add a litre of vegetable stock and cook for twenty minutes.",
+      "Homemade chicken stock gives the soup a much richer taste."
+     ],
+     "col": [
+      "vegetable stock",
+      "chicken stock"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "drug#n": {
+   "fam": [
+    "drugstore (n)",
+    "drugged (adj)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "a chemical substance used as medicine to treat an illness",
+     "lvl": "A2",
+     "reg": "neutral",
+     "ex": [
+      "The doctor gave me a drug for the pain.",
+      "Scientists are testing a new drug for flu."
+     ],
+     "col": [
+      "new drug",
+      "drug company",
+      "prescription drug"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "an illegal substance that people take for pleasure and can become addicted to",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "The police found drugs hidden in the car.",
+      "Taking drugs can seriously damage your health."
+     ],
+     "col": [
+      "take drugs",
+      "illegal drugs",
+      "drug addict",
+      "drug dealer"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "floor#n": {
+   "fam": [
+    "flooring (n)",
+    "floorboard (n)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "the flat surface of a room that you walk on",
+     "lvl": "A1",
+     "reg": "neutral",
+     "ex": [
+      "The kitchen floor is wet.",
+      "Please put your bags on the floor."
+     ],
+     "col": [
+      "on the floor",
+      "kitchen floor",
+      "sweep the floor",
+      "wooden floor"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "all the rooms on the same level of a building",
+     "lvl": "A1",
+     "reg": "neutral",
+     "ex": [
+      "I live on the third floor.",
+      "The shoe shop is on the ground floor."
+     ],
+     "col": [
+      "ground floor",
+      "top floor",
+      "first floor"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "the ground at the bottom of the sea, a forest or a valley",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "Strange creatures live on the ocean floor.",
+      "Dry leaves covered the forest floor in autumn."
+     ],
+     "col": [
+      "ocean floor",
+      "forest floor"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "card#n": {
+   "fam": [
+    "cardboard (n)",
+    "postcard (n)",
+    "scorecard (n)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "a folded piece of stiff paper with a picture on the front and a message inside",
+     "lvl": "A1",
+     "reg": "neutral",
+     "ex": [
+      "Did you get my birthday card?",
+      "We sent our teacher a thank-you card."
+     ],
+     "col": [
+      "birthday card",
+      "send a card",
+      "thank-you card"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "a small piece of plastic from a bank, used to pay for things or get money",
+     "lvl": "A1",
+     "reg": "neutral",
+     "ex": [
+      "Can I pay by card?",
+      "I lost my bank card yesterday."
+     ],
+     "col": [
+      "credit card",
+      "bank card",
+      "pay by card"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "one of a set of small pieces of stiff paper with numbers and pictures, used for playing games",
+     "lvl": "A2",
+     "reg": "neutral",
+     "ex": [
+      "Let’s play cards after dinner.",
+      "She mixed the cards and gave everyone seven."
+     ],
+     "col": [
+      "play cards",
+      "a pack of cards"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 4,
+     "def": "a small piece of stiff paper or plastic with your name and other details on it",
+     "lvl": "A2",
+     "reg": "neutral",
+     "ex": [
+      "Here’s my business card with my phone number.",
+      "You need your student card to borrow books."
+     ],
+     "col": [
+      "business card",
+      "ID card",
+      "student card"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "treatment#n": {
+   "fam": [
+    "treat (v)",
+    "treat (n)",
+    "mistreatment (n)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "medical care given to someone who is ill or injured",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "She is receiving treatment for a back injury.",
+      "There is now an effective treatment for this disease."
+     ],
+     "col": [
+      "receive treatment",
+      "medical treatment",
+      "treatment for sth",
+      "hospital treatment"
+     ],
+     "pat": [
+      "treatment for sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "the way you behave towards someone or deal with them",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "Everyone deserves fair treatment at work.",
+      "Why does he always get special treatment from the teacher?"
+     ],
+     "col": [
+      "fair treatment",
+      "special treatment",
+      "equal treatment"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "a process used to clean, protect or change a substance",
+     "lvl": "C1",
+     "reg": "technical",
+     "ex": [
+      "The water goes through several stages of treatment before it reaches our taps.",
+      "The wood has had a special treatment to protect it from insects."
+     ],
+     "col": [
+      "water treatment",
+      "treatment plant"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "except#prep": {
+   "fam": [
+    "exception (n)",
+    "exceptional (adj)",
+    "exceptionally (adv)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "not including; but not",
+     "lvl": "A2",
+     "reg": "neutral",
+     "ex": [
+      "I eat everything except mushrooms.",
+      "All the shops were closed except the bakery."
+     ],
+     "col": [
+      "every day except",
+      "everyone except",
+      "anything except"
+     ],
+     "pat": [
+      "except sb/sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "used before the one thing that makes a statement not completely true, usually in \"except for\"",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "The room was empty except for an old chair.",
+      "The essay is good, except for a few spelling mistakes."
+     ],
+     "col": [
+      "except for"
+     ],
+     "pat": [
+      "except for sb/sth"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "baby#n": {
+   "fam": [
+    "babysit (v)",
+    "babysitter (n)",
+    "babyish (adj)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "a very young child who cannot walk or talk yet",
+     "lvl": "A1",
+     "reg": "neutral",
+     "ex": [
+      "The baby is crying again.",
+      "My sister had a baby last month."
+     ],
+     "col": [
+      "have a baby",
+      "newborn baby",
+      "baby girl",
+      "baby boy"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "a very young animal",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "The baby elephant stayed close to its mother.",
+      "In spring the garden is full of baby birds."
+     ],
+     "col": [
+      "baby animals",
+      "baby birds"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "the youngest person in a family or group",
+     "lvl": "B2",
+     "reg": "informal",
+     "ex": [
+      "She’s the baby of the family, so everyone spoils her.",
+      "At twenty, he was the baby of the team."
+     ],
+     "col": [
+      "the baby of the family"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "guess#v": {
+   "fam": [
+    "guesswork (n)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "to give an answer when you are not sure if it is right",
+     "lvl": "A1",
+     "reg": "neutral",
+     "ex": [
+      "Guess what I bought today!",
+      "Can you guess her age?"
+     ],
+     "col": [
+      "guess what",
+      "guess right",
+      "guess wrong"
+     ],
+     "pat": [
+      "guess (that)",
+      "guess + wh- clause"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "to think that something is probably true; to suppose",
+     "lvl": "B1",
+     "reg": "informal",
+     "ex": [
+      "I guess you’re right about the weather.",
+      "I guess we should leave before the traffic gets bad."
+     ],
+     "col": [
+      "I guess so",
+      "I guess not"
+     ],
+     "pat": [
+      "I guess (that)"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "conclusion#n": {
+   "fam": [
+    "conclude (v)",
+    "conclusive (adj)",
+    "inconclusive (adj)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "something you decide is true after thinking carefully about all the facts",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "We came to the conclusion that the house was too small for us.",
+      "What conclusions can we draw from these results?"
+     ],
+     "col": [
+      "come to a conclusion",
+      "reach a conclusion",
+      "draw a conclusion"
+     ],
+     "pat": [
+      "the conclusion that"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "the last part of something such as an essay, speech or story",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "In conclusion, I would like to thank everyone for coming.",
+      "The conclusion of the film was a big surprise."
+     ],
+     "col": [
+      "in conclusion"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "female#adj": {
+   "fam": [
+    "femininity (n)",
+    "feminine (adj)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "of the sex that can give birth to babies or produce eggs",
+     "lvl": "A2",
+     "reg": "neutral",
+     "ex": [
+      "Female lions do most of the hunting.",
+      "The company wants more female managers."
+     ],
+     "col": [
+      "female managers",
+      "female student",
+      "female voice"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "communication#n": {
+   "fam": [
+    "communicate (v)",
+    "communicative (adj)",
+    "communicator (n)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "the process of sharing information, ideas or feelings with other people",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "Good communication between parents and teachers helps children do well.",
+      "Problems in the team were caused by a lack of communication."
+     ],
+     "col": [
+      "good communication",
+      "lack of communication",
+      "communication skills"
+     ],
+     "pat": [
+      "communication between sb and sb"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "ways of sending information, such as phones, radio and the internet",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "The storm cut off all communications with the island for two days.",
+      "Satellites play an important role in global communication."
+     ],
+     "col": [
+      "means of communication",
+      "communication systems"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "a message, letter, email or phone call",
+     "lvl": "C1",
+     "reg": "formal",
+     "ex": [
+      "We have had no further communication from the company since March.",
+      "All written communication with the bank should include your account name."
+     ],
+     "col": [
+      "written communication"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "warm#adj": {
+   "fam": [
+    "warmth (n)",
+    "warmly (adv)",
+    "warming (n)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "a little hot, in a pleasant way",
+     "lvl": "A1",
+     "reg": "neutral",
+     "ex": [
+      "The water in the lake is warm.",
+      "Come and get warm by the fire."
+     ],
+     "col": [
+      "warm weather",
+      "keep warm",
+      "warm water"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "keeping you from feeling cold",
+     "lvl": "A2",
+     "reg": "neutral",
+     "ex": [
+      "Take a warm coat because it’s cold outside.",
+      "These boots are light but very warm."
+     ],
+     "col": [
+      "warm coat",
+      "warm clothes"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "friendly, kind and showing that you care about people",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "They gave us a warm welcome.",
+      "My grandmother has a warm smile."
+     ],
+     "col": [
+      "warm welcome",
+      "warm smile",
+      "warm and friendly"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "directly#adv": {
+   "fam": [
+    "direct (adj)",
+    "direction (n)",
+    "director (n)",
+    "indirectly (adv)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "without involving any other person, thing or place in between",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "You can buy tickets directly from the theatre.",
+      "The new rules will directly affect small businesses."
+     ],
+     "col": [
+      "directly from",
+      "directly affect",
+      "deal directly with"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "in a straight line or exactly in a particular position",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "Go directly to the gate after the security check.",
+      "Our hotel is directly opposite the station."
+     ],
+     "col": [
+      "directly opposite",
+      "directly above",
+      "directly in front of"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "in an honest and clear way, saying exactly what you mean",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "She asked him directly whether he wanted the job.",
+      "I prefer people who speak directly instead of hinting."
+     ],
+     "col": [
+      "ask sb directly",
+      "speak directly"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "additional#adj": {
+   "fam": [
+    "add (v)",
+    "addition (n)",
+    "additionally (adv)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "added to what already exists or is already there; extra",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "There is an additional charge for breakfast.",
+      "We need two additional chairs for the meeting."
+     ],
+     "col": [
+      "additional cost",
+      "additional charge",
+      "additional information",
+      "at no additional cost"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "perfect#adj": {
+   "fam": [
+    "perfection (n)",
+    "perfectly (adv)",
+    "imperfect (adj)",
+    "perfectionist (n)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "as good as it can be, with nothing wrong",
+     "lvl": "A1",
+     "reg": "neutral",
+     "ex": [
+      "Your English is perfect!",
+      "It’s a perfect day for a picnic."
+     ],
+     "col": [
+      "perfect day",
+      "perfect weather",
+      "absolutely perfect"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "exactly right for a particular person, purpose or situation",
+     "lvl": "A2",
+     "reg": "neutral",
+     "ex": [
+      "This flat is perfect for a small family.",
+      "She is the perfect person for the job."
+     ],
+     "col": [
+      "perfect for sb/sth",
+      "the perfect place",
+      "the perfect gift"
+     ],
+     "pat": [
+      "perfect for sb/sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "complete, used to make a word stronger",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "I’d never seen him before; he was a perfect stranger.",
+      "It makes perfect sense to book the tickets early."
+     ],
+     "col": [
+      "a perfect stranger",
+      "make perfect sense"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "heat#n": {
+   "fam": [
+    "hot (adj)",
+    "heater (n)",
+    "heating (n)",
+    "heated (adj)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "the quality of being hot, or a high temperature",
+     "lvl": "A2",
+     "reg": "neutral",
+     "ex": [
+      "I can’t sleep in this heat.",
+      "The heat from the fire kept us warm all night."
+     ],
+     "col": [
+      "intense heat",
+      "summer heat",
+      "in the heat"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "the level of temperature used when cooking something",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "Cook the onions over a low heat until they are soft.",
+      "Turn up the heat and bring the water to the boil."
+     ],
+     "col": [
+      "low heat",
+      "medium heat",
+      "high heat"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "one of the early races in a competition that decides who goes to the final",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "She won her heat easily and reached the final.",
+      "He finished third in his heat and was out of the competition."
+     ],
+     "col": [
+      "qualifying heat"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 4,
+     "def": "a state of strong emotion or excitement, for example during an argument",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "I said things in the heat of the moment that I later regretted.",
+      "In the heat of the argument, nobody was listening."
+     ],
+     "col": [
+      "in the heat of the moment"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "struggle#v": {
+   "fam": [],
+   "senses": [
+    {
+     "n": 1,
+     "def": "to try very hard to do something that is difficult",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "Many families are struggling to pay their bills.",
+      "I always struggled with maths at school."
+     ],
+     "col": [
+      "struggle to survive",
+      "struggle with sth",
+      "struggle to cope"
+     ],
+     "pat": [
+      "struggle to do sth",
+      "struggle with sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "to fight or move your body strongly, especially to get free",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "The cat struggled to get out of my arms.",
+      "He struggled against the strong current and finally reached the shore."
+     ],
+     "col": [
+      "struggle to get free"
+     ],
+     "pat": [
+      "struggle against sb/sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "to move somewhere with great effort",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "She struggled up the hill with her heavy shopping bags.",
+      "We struggled through the deep snow to the car."
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "ball#n": {
+   "fam": [],
+   "senses": [
+    {
+     "n": 1,
+     "def": "a round object that you throw, kick or hit in games",
+     "lvl": "A1",
+     "reg": "neutral",
+     "ex": [
+      "The dog ran after the ball.",
+      "Throw me the ball, please!"
+     ],
+     "col": [
+      "kick a ball",
+      "throw a ball",
+      "catch a ball"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "something that has been formed into a round shape",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "Roll the dough into small balls.",
+      "The kitten played with a ball of wool."
+     ],
+     "col": [
+      "a ball of wool",
+      "a ball of string"
+     ],
+     "pat": [
+      "a ball of sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "a large formal party where people dance",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "They first met at a charity ball.",
+      "She wore a long silver dress to the ball."
+     ],
+     "col": [
+      "charity ball"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "rain#n": {
+   "fam": [
+    "rainy (adj)",
+    "rainfall (n)",
+    "rainbow (n)",
+    "raincoat (n)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "water that falls from clouds in small drops",
+     "lvl": "A1",
+     "reg": "neutral",
+     "ex": [
+      "We waited for the rain to stop.",
+      "I got caught in the rain."
+     ],
+     "col": [
+      "heavy rain",
+      "in the rain",
+      "light rain"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "the wet season in tropical countries, when water falls from the sky almost every day",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "Farmers are waiting anxiously for the rains to arrive.",
+      "The roads often flood when the rains come."
+     ],
+     "col": [
+      "the rains"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "duty#n": {
+   "fam": [
+    "dutiful (adj)",
+    "dutifully (adv)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "something you must do because it is morally or legally right",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "Parents have a duty to protect their children.",
+      "I felt it was my duty to report the accident."
+     ],
+     "col": [
+      "a duty to do sth",
+      "sense of duty",
+      "moral duty"
+     ],
+     "pat": [
+      "have a duty to do sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "a task that is part of your job",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "Your duties will include answering the phone and greeting visitors.",
+      "The new manager took up her duties on Monday."
+     ],
+     "col": [
+      "carry out duties",
+      "take up duties"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "the time when someone such as a nurse or police officer is working",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "Which doctor is on duty tonight?",
+      "The nurse goes off duty at six in the morning."
+     ],
+     "col": [
+      "on duty",
+      "off duty"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 4,
+     "def": "a tax that you pay on goods, especially goods brought into a country",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "You have to pay duty on goods worth more than a certain amount.",
+      "We bought some chocolate at the duty-free shop."
+     ],
+     "col": [
+      "pay duty on sth",
+      "duty-free"
+     ],
+     "pat": [
+      "duty on sth"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "promote#v": {
+   "fam": [
+    "promotion (n)",
+    "promoter (n)",
+    "promotional (adj)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "to advertise a product or event so that people buy it or go to it",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "The band is touring to promote their new album.",
+      "Famous athletes are often paid to promote sports drinks."
+     ],
+     "col": [
+      "promote a product",
+      "promote an album",
+      "heavily promoted"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "to help something develop, happen or become more common",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "Regular exercise promotes good sleep.",
+      "Schools should promote respect between students."
+     ],
+     "col": [
+      "promote health",
+      "promote understanding",
+      "promote equality"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "to move someone to a more important job or rank",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "She was promoted to manager after two years.",
+      "He hopes to be promoted before the end of the year."
+     ],
+     "col": [
+      "be promoted to"
+     ],
+     "pat": [
+      "promote sb to sth"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "commit#v": {
+   "fam": [
+    "commitment (n)",
+    "committed (adj)",
+    "committee (n)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "to do something illegal or seriously wrong",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "The police believe he committed the crime alone.",
+      "Most burglaries are committed during the day."
+     ],
+     "col": [
+      "commit a crime",
+      "commit an offence",
+      "commit fraud"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "to promise to do something, or to give your time and energy to it",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "The government has committed to cutting pollution by half.",
+      "She is fully committed to her studies this year."
+     ],
+     "col": [
+      "committed to",
+      "commit yourself to sth"
+     ],
+     "pat": [
+      "commit (yourself) to sth/doing sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "to decide to use money, time or people for a particular purpose",
+     "lvl": "C1",
+     "reg": "formal",
+     "ex": [
+      "The city has committed millions to building new cycle lanes.",
+      "We can’t commit any more staff to the project until next year."
+     ],
+     "col": [
+      "commit resources",
+      "commit funds"
+     ],
+     "pat": [
+      "commit sth to sth"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "enable#v": {
+   "fam": [
+    "able (adj)",
+    "disable (v)",
+    "enabling (adj)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "to give someone the ability or chance to do something",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "The new bridge will enable drivers to avoid the city centre.",
+      "Online banking enables customers to pay bills from home."
+     ],
+     "col": [
+      "enable sb to do sth",
+      "enable customers to",
+      "enable users to"
+     ],
+     "pat": [
+      "enable sb to do sth",
+      "enable sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "to make a feature or setting on a computer or phone start working",
+     "lvl": "C1",
+     "reg": "technical",
+     "ex": [
+      "Enable location services in your phone settings.",
+      "You must enable notifications to receive reminders from the app."
+     ],
+     "col": [
+      "enable notifications",
+      "enable cookies"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "concert#n": {
+   "fam": [
+    "concerto (n)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "a performance of music in front of an audience",
+     "lvl": "A1",
+     "reg": "neutral",
+     "ex": [
+      "We went to a rock concert.",
+      "The concert starts at eight."
+     ],
+     "col": [
+      "rock concert",
+      "go to a concert",
+      "concert hall",
+      "live concert"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "taste#n": {
+   "fam": [
+    "tasty (adj)",
+    "tasteless (adj)",
+    "tasteful (adj)",
+    "distaste (n)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "the flavour that food or drink has in your mouth",
+     "lvl": "A2",
+     "reg": "neutral",
+     "ex": [
+      "I love the taste of fresh strawberries.",
+      "This sauce has a slightly sweet taste."
+     ],
+     "col": [
+      "sweet taste",
+      "bitter taste",
+      "the taste of sth"
+     ],
+     "pat": [
+      "the taste of sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "the sense that lets you recognize flavours in your mouth",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "When I have a cold, I lose my sense of taste.",
+      "Smell and taste are closely connected."
+     ],
+     "col": [
+      "sense of taste"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "a small amount of food or drink that you try",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "Can I have a taste of your soup?",
+      "Give the sauce a quick taste before you add more salt."
+     ],
+     "col": [
+      "have a taste"
+     ],
+     "pat": [
+      "a taste of sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 4,
+     "def": "the kind of things that a person likes, or the ability to choose things that look good",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "We have very different tastes in music.",
+      "Their house is decorated with great taste."
+     ],
+     "col": [
+      "taste in music",
+      "good taste",
+      "in bad taste"
+     ],
+     "pat": [
+      "taste in sth"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "square#n": {
+   "fam": [
+    "squarely (adv)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "a shape with four straight sides that are all the same length",
+     "lvl": "A2",
+     "reg": "neutral",
+     "ex": [
+      "Draw a square in the middle of the page.",
+      "Cut the bread into small squares."
+     ],
+     "col": [
+      "draw a square",
+      "cut into squares"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "an open public space in a town, usually with buildings on all four sides",
+     "lvl": "A2",
+     "reg": "neutral",
+     "ex": [
+      "The old town square fills with tourists in summer.",
+      "Let’s meet in the main square at noon."
+     ],
+     "col": [
+      "town square",
+      "main square",
+      "market square"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "the number you get when you multiply a number by itself",
+     "lvl": "B2",
+     "reg": "technical",
+     "ex": [
+      "The square of four is sixteen.",
+      "Nine is the square of three, and sixteen is the square of four."
+     ],
+     "col": [
+      "the square of"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "border#n": {
+   "fam": [
+    "borderline (adj)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "the line that divides two countries or areas",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "We crossed the border by train early in the morning.",
+      "The town lies close to the northern border."
+     ],
+     "col": [
+      "cross the border",
+      "border control",
+      "close to the border"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "a narrow strip along the edge of something, often as decoration",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "The white plates have a thin blue border.",
+      "She planted roses along the border of the garden."
+     ],
+     "col": [
+      "a thin border",
+      "flower border"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "finger#n": {
+   "fam": [
+    "fingernail (n)",
+    "fingerprint (n)",
+    "fingertip (n)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "one of the four long thin parts at the end of your hand, or five including the thumb",
+     "lvl": "A2",
+     "reg": "neutral",
+     "ex": [
+      "She wears a gold ring on her little finger.",
+      "Don’t point your finger at people; it’s rude.",
+      "Cross your fingers for my exam tomorrow!"
+     ],
+     "col": [
+      "little finger",
+      "point your finger at sb",
+      "cross your fingers"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "investigate#v": {
+   "fam": [
+    "investigation (n)",
+    "investigator (n)",
+    "investigative (adj)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "to try to find out all the facts about something, such as a crime or an accident",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "Police are investigating the robbery at the bank.",
+      "Engineers are investigating why the bridge collapsed."
+     ],
+     "col": [
+      "investigate a crime",
+      "investigate the cause",
+      "fully investigate"
+     ],
+     "pat": [
+      "investigate sth",
+      "investigate + wh- clause"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "to study a subject carefully in order to discover new facts",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "The study investigates how sleep affects memory.",
+      "Researchers investigated the effects of music on young children."
+     ],
+     "col": [
+      "investigate the effects of"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "wed#v": {
+   "fam": [
+    "wedding (n)",
+    "wedded (adj)",
+    "newlywed (n)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "to marry someone, used especially in newspapers",
+     "lvl": "B2",
+     "reg": "written",
+     "ex": [
+      "The couple wed in a small ceremony last June.",
+      "They plan to wed next spring in her home town."
+     ],
+     "col": [
+      "wed in secret",
+      "newly wed",
+      "get wed"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "to join two different qualities, ideas or things closely together",
+     "lvl": "C2",
+     "reg": "formal",
+     "ex": [
+      "The design weds traditional craft with modern technology.",
+      "He is too wedded to his old methods to try anything new."
+     ],
+     "col": [
+      "be wedded to sth"
+     ],
+     "pat": [
+      "wed sth to/with sth"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "association#n": {
+   "fam": [
+    "associate (v)",
+    "associate (n)",
+    "associated (adj)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "an official group of people who join together for a shared purpose or interest",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "She joined the local residents’ association.",
+      "The national football association has banned the player for three games."
+     ],
+     "col": [
+      "residents’ association",
+      "national association",
+      "join an association"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "a connection or working relationship between people or organizations",
+     "lvl": "C1",
+     "reg": "neutral",
+     "ex": [
+      "The festival is organized in association with local businesses.",
+      "His long association with the club ended last year."
+     ],
+     "col": [
+      "in association with",
+      "close association"
+     ],
+     "pat": [
+      "association with sb/sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "a feeling, memory or idea that comes into your mind when you think of something",
+     "lvl": "C1",
+     "reg": "neutral",
+     "ex": [
+      "For me, the smell of rain has happy associations with childhood.",
+      "The colour red has strong associations with danger."
+     ],
+     "col": [
+      "strong associations"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "honor#n": {
+   "fam": [
+    "honorable (adj)",
+    "honorary (adj)",
+    "dishonor (n)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "something that makes you feel proud because people respect you",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "It’s a great honor to meet you.",
+      "It was an honor to play for my country."
+     ],
+     "col": [
+      "a great honor",
+      "an honor to do sth",
+      "have the honor of"
+     ],
+     "pat": [
+      "it is an honor to do sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "great respect and admiration shown to someone",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "A ceremony was held in honor of the firefighters.",
+      "The festival is held in honor of the city’s founder."
+     ],
+     "col": [
+      "in honor of"
+     ],
+     "pat": [
+      "in honor of sb/sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "strong moral principles that make you behave honestly and fairly",
+     "lvl": "C1",
+     "reg": "neutral",
+     "ex": [
+      "Her sense of honor would not let her lie.",
+      "He is a person of honor who always keeps his promises."
+     ],
+     "col": [
+      "sense of honor",
+      "a person of honor"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 4,
+     "def": "an award or title given to someone for their achievements",
+     "lvl": "C1",
+     "reg": "neutral",
+     "ex": [
+      "She received the country’s highest honor for her work.",
+      "The scientist has won many honors during her career."
+     ],
+     "col": [
+      "highest honor",
+      "receive an honor"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "entry#n": {
+   "fam": [
+    "enter (v)",
+    "entrance (n)",
+    "entrant (n)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "the act of going into a place, or the right to go into it",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "Entry to the museum is free on Sundays.",
+      "The sign on the door said ‘No entry’."
+     ],
+     "col": [
+      "no entry",
+      "free entry",
+      "entry fee",
+      "gain entry"
+     ],
+     "pat": [
+      "entry to/into sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "something that you send in to try to win a competition",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "The winning entry was a photo of a tiny green frog.",
+      "Please send your entries by the end of the month."
+     ],
+     "col": [
+      "competition entry",
+      "winning entry"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "a separate item written in a dictionary, diary, list or online record",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "Each dictionary entry gives examples of how the word is used.",
+      "I found her diary entry from the day we met."
+     ],
+     "col": [
+      "diary entry",
+      "dictionary entry",
+      "blog entry"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 4,
+     "def": "the act of becoming a member of a group or starting to take part in something",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "Entry into the medical school is very competitive.",
+      "Check the entry requirements before you apply for the course."
+     ],
+     "col": [
+      "entry requirements",
+      "entry into"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "reserve#v": {
+   "fam": [
+    "reservation (n)",
+    "reserved (adj)",
+    "reservoir (n)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "to ask for a seat, table, room or ticket to be kept for you to use later",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "I’ve reserved a table for four at eight o’clock.",
+      "You can reserve seats online up to a month in advance."
+     ],
+     "col": [
+      "reserve a table",
+      "reserve a room",
+      "reserve a seat"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "to keep something for a particular person or purpose",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "These parking spaces are reserved for disabled drivers.",
+      "The front row is reserved for family members."
+     ],
+     "col": [
+      "reserved for"
+     ],
+     "pat": [
+      "reserve sth for sb/sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "to officially keep a right or power for yourself, especially in legal notices",
+     "lvl": "C1",
+     "reg": "formal",
+     "ex": [
+      "The company reserves the right to change its prices without notice.",
+      "The organizers reserve the right to refuse entry."
+     ],
+     "col": [
+      "reserve the right to"
+     ],
+     "pat": [
+      "reserve the right to do sth"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "joke#n": {
+   "fam": [
+    "joker (n)",
+    "jokingly (adv)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "a short funny story or something said to make people laugh",
+     "lvl": "A2",
+     "reg": "neutral",
+     "ex": [
+      "My dad always tells terrible jokes.",
+      "Do you want to hear a joke?"
+     ],
+     "col": [
+      "tell a joke",
+      "make a joke",
+      "funny joke",
+      "get the joke"
+     ],
+     "pat": [
+      "a joke about sb/sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "something that is said or done to be funny and is not meant seriously",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "Don’t be angry; it was only a joke.",
+      "I said it as a joke, but she believed me."
+     ],
+     "col": [
+      "only a joke",
+      "as a joke"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "a person or thing that is so bad or silly that you cannot take it seriously",
+     "lvl": "B2",
+     "reg": "informal",
+     "ex": [
+      "The new bus timetable is a joke; the buses never arrive on time.",
+      "The test was a joke; everyone finished in ten minutes."
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "academic#adj": {
+   "fam": [
+    "academy (n)",
+    "academically (adv)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "connected with education, especially at schools, colleges and universities",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "The academic year starts in September.",
+      "She has an excellent academic record."
+     ],
+     "col": [
+      "academic year",
+      "academic achievement",
+      "academic record"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "involving reading, studying and thinking rather than practical skills",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "Some children are less academic but very good with their hands.",
+      "The course mixes academic subjects with work experience."
+     ],
+     "col": [
+      "academic subjects",
+      "academic skills"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "having no practical importance because it cannot change what happens",
+     "lvl": "C1",
+     "reg": "formal",
+     "ex": [
+      "Since the shop has already closed, the question of price is purely academic.",
+      "Whether we could have won is now an academic question."
+     ],
+     "col": [
+      "purely academic"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "pursue#v": {
+   "fam": [
+    "pursuit (n)",
+    "pursuer (n)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "to try to achieve something over a long period of time",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "She left her job to pursue her dream of becoming a chef.",
+      "He wants to pursue a career in engineering."
+     ],
+     "col": [
+      "pursue a career",
+      "pursue a dream",
+      "pursue your interests"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "to follow someone or something in order to catch them",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "Police pursued the stolen car through the city.",
+      "The lion pursued the young zebra across the plain."
+     ],
+     "col": [
+      "pursued by police"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "to continue to discuss, find out about or be involved in something",
+     "lvl": "C1",
+     "reg": "formal",
+     "ex": [
+      "The police decided not to pursue the matter any further.",
+      "I’d like to pursue this idea at our next meeting."
+     ],
+     "col": [
+      "pursue the matter",
+      "pursue an idea"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "salary#n": {
+   "fam": [
+    "salaried (adj)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "the fixed amount of money you are paid for your job, usually every month",
+     "lvl": "A2",
+     "reg": "neutral",
+     "ex": [
+      "Her salary is paid on the last day of each month.",
+      "He earns a good salary as a nurse."
+     ],
+     "col": [
+      "earn a salary",
+      "a good salary",
+      "annual salary",
+      "salary increase"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "diet#n": {
+   "fam": [
+    "dietary (adj)",
+    "dietitian (n)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "the food and drink that you usually have every day",
+     "lvl": "A1",
+     "reg": "neutral",
+     "ex": [
+      "Eat a healthy diet.",
+      "My diet includes lots of fish."
+     ],
+     "col": [
+      "healthy diet",
+      "balanced diet",
+      "a diet rich in sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "a plan to eat less or only certain foods, to lose weight or for health",
+     "lvl": "A2",
+     "reg": "neutral",
+     "ex": [
+      "I’m on a diet, so no cake for me.",
+      "She went on a diet before the wedding."
+     ],
+     "col": [
+      "on a diet",
+      "go on a diet",
+      "low-fat diet"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "repair#v": {
+   "fam": [
+    "repairer (n)",
+    "irreparable (adj)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "to fix something that is broken or damaged so that it works again",
+     "lvl": "A2",
+     "reg": "neutral",
+     "ex": [
+      "Can you repair my bike by Friday?",
+      "The roof was repaired after the storm."
+     ],
+     "col": [
+      "repair a car",
+      "get sth repaired",
+      "repair the damage"
+     ],
+     "pat": [
+      "have/get sth repaired"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "to improve a bad situation or a damaged relationship",
+     "lvl": "C1",
+     "reg": "neutral",
+     "ex": [
+      "The two leaders met to repair relations between their countries.",
+      "It took her years to repair her reputation after the scandal."
+     ],
+     "col": [
+      "repair relations",
+      "repair a relationship"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "chip#n": {
+   "fam": [
+    "chipped (adj)",
+    "microchip (n)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "(British English) a long thin piece of potato fried in oil and eaten hot",
+     "lvl": "A2",
+     "reg": "neutral",
+     "ex": [
+      "Can I have fish and chips, please?",
+      "These chips are too salty."
+     ],
+     "col": [
+      "fish and chips",
+      "a bag of chips",
+      "oven chips"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "(American English) a very thin, dry slice of fried potato, sold in packets",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "We bought a bag of potato chips for the long drive.",
+      "Tortilla chips with salsa make a quick snack."
+     ],
+     "col": [
+      "potato chips",
+      "tortilla chips"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "a very small electronic part inside a computer or phone that controls how it works",
+     "lvl": "B2",
+     "reg": "technical",
+     "ex": [
+      "The new model has a faster chip than the old one.",
+      "Modern cars contain hundreds of computer chips."
+     ],
+     "col": [
+      "computer chip",
+      "silicon chip",
+      "memory chip"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 4,
+     "def": "a small piece that has broken off something, or the mark it leaves",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "There’s a chip in the rim of this cup.",
+      "Wood chips covered the floor of the workshop."
+     ],
+     "col": [
+      "a chip in sth",
+      "wood chips"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "sudden#adj": {
+   "fam": [
+    "suddenly (adv)",
+    "suddenness (n)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "happening very quickly and when you do not expect it",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "There was a sudden noise from the kitchen.",
+      "The sudden rise in prices surprised everyone.",
+      "All of a sudden, the lights went out."
+     ],
+     "col": [
+      "sudden change",
+      "sudden increase",
+      "sudden death",
+      "all of a sudden"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "revolution#n": {
+   "fam": [
+    "revolutionary (adj)",
+    "revolutionize (v)",
+    "revolve (v)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "an attempt by many people, often using violence, to change a country’s government",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "The revolution ended three hundred years of royal rule.",
+      "Students played a key role in starting the revolution."
+     ],
+     "col": [
+      "start a revolution",
+      "lead a revolution",
+      "political revolution"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "a complete change in the way people live, work or think",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "Online shopping has brought a revolution in how people buy things.",
+      "The digital revolution has changed almost every kind of job."
+     ],
+     "col": [
+      "digital revolution",
+      "industrial revolution",
+      "a revolution in sth"
+     ],
+     "pat": [
+      "a revolution in sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "one complete turn of an object around a central point",
+     "lvl": "C1",
+     "reg": "technical",
+     "ex": [
+      "The engine was running at three thousand revolutions per minute.",
+      "The Earth completes one revolution around the Sun every year."
+     ],
+     "col": [
+      "revolutions per minute"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "achievement#n": {
+   "fam": [
+    "achieve (v)",
+    "achiever (n)",
+    "achievable (adj)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "something good that you have done successfully, usually with effort or skill",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "Finishing the marathon was her greatest achievement.",
+      "Winning the prize is a fantastic achievement for such a young team."
+     ],
+     "col": [
+      "great achievement",
+      "major achievement",
+      "greatest achievement"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "the act or feeling of succeeding in something after working hard",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "Hard work and good teaching both lead to higher academic achievement.",
+      "Learning to swim at sixty gave him a real sense of achievement."
+     ],
+     "col": [
+      "academic achievement",
+      "sense of achievement"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "honest#adj": {
+   "fam": [
+    "honesty (n)",
+    "honestly (adv)",
+    "dishonest (adj)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "telling the truth and never cheating, lying or stealing",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "She’s honest and hard-working, so everyone trusts her.",
+      "An honest taxi driver returned the wallet I had left in his car."
+     ],
+     "col": [
+      "honest person",
+      "perfectly honest",
+      "completely honest"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "saying what you really think, even if it is not pleasant to hear",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "To be honest, I didn’t enjoy the film very much.",
+      "Can I give you my honest opinion about your essay?"
+     ],
+     "col": [
+      "to be honest",
+      "honest opinion",
+      "be honest with sb"
+     ],
+     "pat": [
+      "be honest with sb",
+      "be honest about sth"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "crack#n": {
+   "fam": [
+    "cracked (adj)",
+    "crackle (v)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "a narrow line on the surface of something where it has broken but not come apart",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "My phone screen has a crack in the corner.",
+      "Cracks appeared in the walls after the earthquake."
+     ],
+     "col": [
+      "a crack in sth",
+      "deep crack",
+      "tiny crack"
+     ],
+     "pat": [
+      "a crack in sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "a narrow space between two things or two parts of something",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "Light came through a crack in the curtains.",
+      "She opened the door a crack and looked out."
+     ],
+     "col": [
+      "open the door a crack"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "a sudden short loud sound, like something hard breaking",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "We heard a loud crack of thunder.",
+      "There was a crack as the branch broke."
+     ],
+     "col": [
+      "a crack of thunder",
+      "a loud crack"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "false#adj": {
+   "fam": [
+    "falsely (adv)",
+    "falsehood (n)",
+    "falsify (v)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "not true or not correct",
+     "lvl": "A1",
+     "reg": "neutral",
+     "ex": [
+      "Is this sentence true or false?",
+      "That story is completely false."
+     ],
+     "col": [
+      "true or false",
+      "completely false",
+      "false information"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "not real, but made to look real",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "He gave the police a false name.",
+      "My grandfather wears false teeth."
+     ],
+     "col": [
+      "false name",
+      "false teeth",
+      "false passport"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "based on a wrong idea or belief",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "The doctor did not want to give us false hope.",
+      "Everyone left the building, but luckily it was a false alarm."
+     ],
+     "col": [
+      "false hope",
+      "false alarm",
+      "a false sense of security"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "guilty#adj": {
+   "fam": [
+    "guilt (n)",
+    "guiltily (adv)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "unhappy and sorry because you know you have done something wrong",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "I felt guilty about eating all the chocolate.",
+      "Don’t feel guilty about taking a day off."
+     ],
+     "col": [
+      "feel guilty",
+      "guilty conscience",
+      "guilty about sth"
+     ],
+     "pat": [
+      "feel guilty about sth/doing sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "having broken a law, or having done something wrong",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "The jury found him guilty of theft.",
+      "She was found not guilty and walked free."
+     ],
+     "col": [
+      "found guilty",
+      "plead guilty",
+      "guilty of sth"
+     ],
+     "pat": [
+      "guilty of sth"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "withdraw#v": {
+   "fam": [
+    "withdrawal (n)",
+    "withdrawn (adj)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "to take money out of a bank account or cash machine",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "I withdrew two hundred euros from the cash machine.",
+      "You can withdraw money at any of our branches."
+     ],
+     "col": [
+      "withdraw money",
+      "withdraw cash"
+     ],
+     "pat": [
+      "withdraw sth from sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "to stop taking part in an activity, competition or organization",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "She withdrew from the race because of a knee injury.",
+      "Two candidates have withdrawn from the election."
+     ],
+     "col": [
+      "withdraw from the race",
+      "withdraw from a competition"
+     ],
+     "pat": [
+      "withdraw from sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "to take back something that you have offered, said or made available",
+     "lvl": "C1",
+     "reg": "neutral",
+     "ex": [
+      "The company withdrew the product after customers complained.",
+      "He later withdrew his comments and apologized."
+     ],
+     "col": [
+      "withdraw an offer",
+      "withdraw support",
+      "withdraw a product"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 4,
+     "def": "to move soldiers or other people away from a place",
+     "lvl": "C1",
+     "reg": "neutral",
+     "ex": [
+      "The army began to withdraw its troops from the region.",
+      "Both sides agreed to withdraw their forces from the border."
+     ],
+     "col": [
+      "withdraw troops"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "invitation#n": {
+   "fam": [
+    "invite (v)",
+    "inviting (adj)",
+    "uninvited (adj)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "a spoken or written request asking someone to come to a party, event or meal",
+     "lvl": "A2",
+     "reg": "neutral",
+     "ex": [
+      "Did you get an invitation to her party?",
+      "We sent out fifty wedding invitations."
+     ],
+     "col": [
+      "accept an invitation",
+      "wedding invitation",
+      "send an invitation",
+      "an invitation to sth"
+     ],
+     "pat": [
+      "an invitation to sth",
+      "an invitation to do sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "something that makes it more likely that a particular thing, often a bad one, will happen",
+     "lvl": "C1",
+     "reg": "neutral",
+     "ex": [
+      "Leaving your car unlocked is an open invitation to thieves.",
+      "Low prices are an invitation to customers to buy more than they need."
+     ],
+     "col": [
+      "an open invitation"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "god#n": {
+   "fam": [
+    "goddess (n)",
+    "godly (adj)",
+    "godparent (n)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "a spirit or being that people believe has power over nature or part of life",
+     "lvl": "A2",
+     "reg": "neutral",
+     "ex": [
+      "The ancient Greeks had a god of the sea.",
+      "In the story, the gods were angry with the king."
+     ],
+     "col": [
+      "the god of sth",
+      "ancient gods"
+     ],
+     "pat": [
+      "the god of sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "in many religions, the one being who made and controls the world; written with a capital letter",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "Do you believe in God?",
+      "Thank God nobody was hurt in the accident."
+     ],
+     "col": [
+      "believe in God",
+      "pray to God",
+      "thank God"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "pure#adj": {
+   "fam": [
+    "purely (adv)",
+    "purity (n)",
+    "purify (v)",
+    "impure (adj)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "made of only one substance, with nothing else added",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "The ring is made of pure gold.",
+      "This juice is pure orange, with no added sugar."
+     ],
+     "col": [
+      "pure gold",
+      "pure cotton",
+      "pure orange juice"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "clean and free from anything harmful or dirty",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "The spring water here is pure enough to drink.",
+      "We moved to the coast for the pure sea air."
+     ],
+     "col": [
+      "pure water",
+      "pure air"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "complete, used to make a noun stronger",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "We met by pure chance at the airport.",
+      "It was pure luck that we found the keys."
+     ],
+     "col": [
+      "pure luck",
+      "pure chance",
+      "pure joy"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 4,
+     "def": "dealing only with theory, not with practical uses",
+     "lvl": "C1",
+     "reg": "technical",
+     "ex": [
+      "She studied pure mathematics at university.",
+      "The lab does both pure and applied research."
+     ],
+     "col": [
+      "pure mathematics",
+      "pure science"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "lip#n": {
+   "fam": [
+    "lipstick (n)",
+    "lip-read (v)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "either of the two soft edges at the top and bottom of your mouth",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "My lips get dry in winter.",
+      "He bit his lip and tried not to laugh."
+     ],
+     "col": [
+      "bite your lip",
+      "upper lip",
+      "lower lip",
+      "dry lips"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "the edge of a cup, jug or opening",
+     "lvl": "C1",
+     "reg": "neutral",
+     "ex": [
+      "Coffee dripped from the lip of the jug.",
+      "She stood on the lip of the crater and looked down."
+     ],
+     "col": [
+      "the lip of sth"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "angle#n": {
+   "fam": [
+    "angular (adj)",
+    "triangle (n)",
+    "rectangle (n)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "the space between two lines or surfaces that meet, measured in degrees",
+     "lvl": "B2",
+     "reg": "technical",
+     "ex": [
+      "A square has four angles of ninety degrees.",
+      "The picture is hanging at an angle."
+     ],
+     "col": [
+      "right angle",
+      "at an angle",
+      "sharp angle"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "a position from which you look at or photograph something",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "The photographer took pictures of the building from every angle.",
+      "From this angle, you can see the whole valley."
+     ],
+     "col": [
+      "from every angle",
+      "camera angle"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "a particular way of thinking about a problem or situation",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "Let’s look at the problem from a different angle.",
+      "Journalists are always looking for a new angle on the story."
+     ],
+     "col": [
+      "a different angle",
+      "a new angle"
+     ],
+     "pat": [
+      "an angle on sth"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "custom#n": {
+   "fam": [
+    "customary (adj)",
+    "accustomed (adj)",
+    "customize (v)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "something that people in a particular place have done in the same way for a long time",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "In many countries it is the custom to give gifts at New Year.",
+      "Every region has its own wedding customs."
+     ],
+     "col": [
+      "local custom",
+      "ancient custom",
+      "it is the custom to"
+     ],
+     "pat": [
+      "it is the custom (for sb) to do sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "(customs) the place at a border where officials check your bags and goods",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "It took us an hour to get through customs.",
+      "Customs officers searched our luggage at the airport."
+     ],
+     "col": [
+      "go through customs",
+      "customs officer",
+      "customs check"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "something that a person usually does",
+     "lvl": "C1",
+     "reg": "formal",
+     "ex": [
+      "It was his custom to walk along the river every evening.",
+      "As was her custom, she arrived ten minutes early."
+     ],
+     "col": [
+      "as was her custom"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "bury#v": {
+   "fam": [
+    "burial (n)",
+    "buried (adj)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "to put a dead body into the ground or a grave",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "My grandfather is buried in his home village.",
+      "They buried the old cat under the apple tree."
+     ],
+     "col": [
+      "bury the dead",
+      "be buried next to sb"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "to put something in a hole in the ground and cover it",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "Squirrels bury nuts to eat in winter.",
+      "The children buried a box of toys in the garden."
+     ],
+     "col": [
+      "buried treasure",
+      "bury sth in the ground"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "to cover something completely so that it cannot be seen",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "The village was buried under deep snow.",
+      "My keys were buried at the bottom of my bag."
+     ],
+     "col": [
+      "buried under",
+      "buried at the bottom of"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "rail#n": {
+   "fam": [
+    "railway (n)",
+    "railroad (n)",
+    "railing (n)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "the railway as a way of travelling or of sending goods",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "Most goods arrive at the port by rail.",
+      "The company offers cheap rail tickets for students."
+     ],
+     "col": [
+      "by rail",
+      "rail travel",
+      "rail network",
+      "rail ticket"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "a bar fixed along a wall, stairs or balcony that you can hold or hang things on",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "Hold the rail as you go down the stairs.",
+      "Hang your wet towel on the rail."
+     ],
+     "col": [
+      "towel rail",
+      "hold the rail"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "one of the two metal bars that a train runs on",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "The train came off the rails near the bridge.",
+      "Never walk along the rails; it is very dangerous."
+     ],
+     "col": [
+      "come off the rails"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "praise#v": {
+   "fam": [
+    "praiseworthy (adj)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "to say that you admire or approve of someone or something",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "The coach praised the players for their hard work.",
+      "Critics have praised the film for its beautiful music."
+     ],
+     "col": [
+      "praise sb for sth",
+      "highly praised",
+      "widely praised"
+     ],
+     "pat": [
+      "praise sb/sth for sth/doing sth"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "joy#n": {
+   "fam": [
+    "joyful (adj)",
+    "joyfully (adv)",
+    "joyous (adj)",
+    "enjoy (v)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "a feeling of great happiness",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "She cried with joy when she heard the news.",
+      "The children jumped for joy when they saw the snow."
+     ],
+     "col": [
+      "tears of joy",
+      "jump for joy",
+      "great joy",
+      "with joy"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "a person or thing that gives you great happiness or pleasure",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "Cooking with my grandmother was one of the joys of my childhood.",
+      "The little garden is her pride and joy."
+     ],
+     "col": [
+      "pride and joy",
+      "the joys of sth"
+     ],
+     "pat": [
+      "the joy of doing sth"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "tale#n": {
+   "fam": [
+    "telltale (adj)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "a story, often about imaginary or exciting events",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "Grandpa loves telling tales about his years at sea.",
+      "The book is a moving tale of friendship and adventure."
+     ],
+     "col": [
+      "fairy tale",
+      "folk tale",
+      "tell a tale",
+      "a tale of sth"
+     ],
+     "pat": [
+      "a tale of sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "a report about someone’s bad behaviour, or a story that may not be true",
+     "lvl": "C1",
+     "reg": "informal",
+     "ex": [
+      "Don’t tell tales about your classmates to the teacher.",
+      "There are all sorts of wild tales about what happened that night."
+     ],
+     "col": [
+      "tell tales"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "regulate#v": {
+   "fam": [
+    "regulation (n)",
+    "regulator (n)",
+    "regulatory (adj)",
+    "deregulate (v)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "to control an activity or process by using official rules",
+     "lvl": "B2",
+     "reg": "formal",
+     "ex": [
+      "New laws will regulate the use of drones in cities.",
+      "The industry is strictly regulated by the government."
+     ],
+     "col": [
+      "strictly regulated",
+      "heavily regulated",
+      "regulate the industry"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "to control the speed, temperature or amount of something so that it works well",
+     "lvl": "C1",
+     "reg": "technical",
+     "ex": [
+      "Sweating helps the body regulate its temperature.",
+      "This valve regulates the flow of water into the tank."
+     ],
+     "col": [
+      "regulate temperature",
+      "regulate the flow"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "potato#n": {
+   "fam": [],
+   "senses": [
+    {
+     "n": 1,
+     "def": "a hard round vegetable that grows under the ground and is white inside",
+     "lvl": "A1",
+     "reg": "neutral",
+     "ex": [
+      "Peel the potatoes, then boil them.",
+      "I’d like a baked potato, please."
+     ],
+     "col": [
+      "baked potato",
+      "mashed potatoes",
+      "potato salad",
+      "sweet potato"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "consume#v": {
+   "fam": [
+    "consumer (n)",
+    "consumption (n)",
+    "consumerism (n)",
+    "time-consuming (adj)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "to use something such as fuel, energy or time",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "Old fridges consume much more energy than new ones.",
+      "This project is consuming all my free time."
+     ],
+     "col": [
+      "consume energy",
+      "consume fuel",
+      "time-consuming"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "to eat or drink something",
+     "lvl": "B2",
+     "reg": "formal",
+     "ex": [
+      "Adults should consume less salt and sugar.",
+      "Most of the food was consumed within an hour of the party starting."
+     ],
+     "col": [
+      "consume alcohol",
+      "consume calories"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 3,
+     "def": "to buy and use goods and services",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "Rich countries consume far more than they produce.",
+      "Young people consume most of their news on their phones."
+     ],
+     "col": [
+      "consume news",
+      "consume goods"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 4,
+     "def": "if a strong feeling consumes you, you cannot think about anything else",
+     "lvl": "C1",
+     "reg": "neutral",
+     "ex": [
+      "After the argument, he was consumed with guilt.",
+      "She was consumed by the desire to win."
+     ],
+     "col": [
+      "consumed with guilt",
+      "consumed by jealousy"
+     ],
+     "pat": [
+      "be consumed with/by sth"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "uncle#n": {
+   "fam": [],
+   "senses": [
+    {
+     "n": 1,
+     "def": "the brother of your mother or father, or the husband of your aunt",
+     "lvl": "A1",
+     "reg": "neutral",
+     "ex": [
+      "My uncle lives in the countryside.",
+      "My aunt and uncle taught me to swim."
+     ],
+     "col": [
+      "favourite uncle",
+      "aunt and uncle",
+      "great-uncle"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "leather#n": {
+   "fam": [
+    "leathery (adj)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "a material made from animal skin and used for making shoes, bags and clothes",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "These shoes are made of real leather.",
+      "Leather usually lasts much longer than plastic."
+     ],
+     "col": [
+      "leather jacket",
+      "real leather",
+      "leather bag",
+      "leather sofa"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "royal#adj": {
+   "fam": [
+    "royalty (n)",
+    "royally (adv)",
+    "royalist (n)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "connected with a king or queen or a member of their family",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "Millions of people watched the royal wedding on TV.",
+      "The royal family spends the summer at the palace by the sea."
+     ],
+     "col": [
+      "royal family",
+      "royal palace",
+      "royal wedding"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "compulsory#adj": {
+   "fam": [
+    "compulsion (n)",
+    "compel (v)",
+    "compulsorily (adv)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "required by a rule or law, so that you have no choice",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "Wearing a helmet is compulsory on building sites.",
+      "Maths is a compulsory subject until the age of sixteen."
+     ],
+     "col": [
+      "compulsory education",
+      "compulsory subject",
+      "compulsory for sb",
+      "make sth compulsory"
+     ],
+     "pat": [
+      "compulsory for sb",
+      "it is compulsory to do sth"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "infrastructure#n": {
+   "fam": [
+    "infrastructural (adj)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "the basic systems a country or organization needs, such as roads, power and water supplies",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "The country needs to invest more in its infrastructure.",
+      "Heavy floods damaged roads, bridges and other infrastructure in the region."
+     ],
+     "col": [
+      "transport infrastructure",
+      "invest in infrastructure",
+      "basic infrastructure",
+      "digital infrastructure"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "referee#n": {
+   "fam": [
+    "refer (v)",
+    "reference (n)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "an official who controls a game and makes sure the players obey the rules",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "The referee blew the whistle to end the match.",
+      "The players argued with the referee about the penalty."
+     ],
+     "col": [
+      "the referee blew the whistle",
+      "football referee",
+      "referee’s decision"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "(British English) a person who describes your character and abilities when you apply for a job",
+     "lvl": "C1",
+     "reg": "neutral",
+     "ex": [
+      "Please give the names of two referees on your application form.",
+      "My former manager agreed to act as a referee for me."
+     ],
+     "col": [
+      "act as a referee"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "rainforest#n": {
+   "fam": [],
+   "senses": [
+    {
+     "n": 1,
+     "def": "a thick tropical forest where it rains a lot during the year",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "Many rare animals live only in the rainforest.",
+      "Huge areas of rainforest are cut down every year for farming."
+     ],
+     "col": [
+      "tropical rainforest",
+      "protect the rainforest",
+      "rainforest animals",
+      "areas of rainforest"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "pronunciation#n": {
+   "fam": [
+    "pronounce (v)",
+    "pronounced (adj)",
+    "mispronounce (v)"
+   ],
+   "senses": [
+    {
+     "n": 1,
+     "def": "the way in which the sounds of a word or language are said",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "Her pronunciation is very clear and easy to understand.",
+      "This app helps you practise your pronunciation every day."
+     ],
+     "col": [
+      "clear pronunciation",
+      "improve your pronunciation",
+      "practise pronunciation",
+      "correct pronunciation"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "go through#phrv": {
+   "fam": [],
+   "senses": [
+    {
+     "n": 1,
+     "def": "to live through a difficult or painful experience",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "She went through a very difficult time after her father died.",
+      "Most teenagers go through periods of self-doubt."
+     ],
+     "col": [
+      "go through a difficult time",
+      "go through changes",
+      "go through a divorce"
+     ],
+     "pat": [
+      "go through sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "to look at or check something carefully, from beginning to end",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "Let’s go through the answers together.",
+      "Customs officers went through all our bags at the border."
+     ],
+     "col": [
+      "go through the details",
+      "go through your notes"
+     ],
+     "pat": [
+      "go through sth"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "fit in#phrv": {
+   "fam": [],
+   "senses": [
+    {
+     "n": 1,
+     "def": "to be accepted by a group because you are similar to the other people in it",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "It took me a few months to fit in at my new job.",
+      "He never really fitted in with the other students."
+     ],
+     "col": [
+      "fit in with sb",
+      "fit in well",
+      "try to fit in",
+      "fit in easily"
+     ],
+     "pat": [
+      "fit in with sb/sth"
+     ],
+     "src": "gold"
+    },
+    {
+     "n": 2,
+     "def": "to find time to do something or to see someone",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "The dentist can fit you in on Tuesday morning.",
+      "I try to fit in a short run before work."
+     ],
+     "col": [
+      "fit sb in"
+     ],
+     "pat": [
+      "fit sb/sth in"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "learn by heart#idiom": {
+   "fam": [],
+   "senses": [
+    {
+     "n": 1,
+     "def": "to learn something so well that you can say it from memory without looking",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "We had to learn the whole poem by heart.",
+      "Actors must learn their lines by heart before rehearsals start."
+     ],
+     "col": [
+      "learn sth by heart",
+      "learn a poem by heart",
+      "learn lines by heart"
+     ],
+     "pat": [
+      "learn sth by heart"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "on the other hand#phrase": {
+   "fam": [],
+   "senses": [
+    {
+     "n": 1,
+     "def": "used to introduce a fact or opinion that is different from the one just mentioned",
+     "lvl": "B1",
+     "reg": "neutral",
+     "ex": [
+      "On the one hand, the job pays well; on the other hand, the hours are long.",
+      "Small cars are cheap to run, but on the other hand, they aren’t very comfortable."
+     ],
+     "col": [
+      "on the one hand ... on the other hand",
+      "but on the other hand",
+      "while on the other hand"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "promote equality#collocation": {
+   "fam": [],
+   "senses": [
+    {
+     "n": 1,
+     "def": "to take action so that all people are treated fairly and have the same chances",
+     "lvl": "B2",
+     "reg": "formal",
+     "ex": [
+      "New laws aim to promote equality between men and women at work.",
+      "The charity works to promote equality and diversity in sport."
+     ],
+     "col": [
+      "promote gender equality",
+      "promote equality and diversity",
+      "promote racial equality"
+     ],
+     "pat": [
+      "promote equality between sb and sb"
+     ],
+     "src": "gold"
+    }
+   ]
+  },
+  "en suite#adj": {
+   "fam": [],
+   "senses": [
+    {
+     "n": 1,
+     "def": "(British English, of a bathroom) joined directly to a bedroom and used only by the people in that room",
+     "lvl": "B2",
+     "reg": "neutral",
+     "ex": [
+      "Every bedroom has an en suite shower room.",
+      "We booked a double room with an en suite bathroom."
+     ],
+     "col": [
+      "en suite bathroom",
+      "en suite room",
+      "en suite shower room",
+      "en suite facilities"
+     ],
+     "src": "gold"
+    }
+   ]
+  }
+ },
+ "notes": {
+  "business#n": "EVP-like A2 (business = buying and selling); A1 seems one level too low.",
+  "lead#v": "EVP-like B1 for most senses; only the basic \"show the way\" sense is plausibly A2.",
+  "control#v": "EVP-like B1; A2 looks slightly low for the verb.",
+  "power#n": "EVP-like B1 (both electricity and control senses); A2 looks low.",
+  "law#n": "EVP-like B1; A2 is borderline low.",
+  "certain#adj": "EVP-like B1 for both \"sure\" and \"particular\" senses; A2 looks low.",
+  "much#adv": "Current lexicon example \"How much does this bag cost?\" shows the determiner/pronoun use, not the adverb; replace it.",
+  "material#n": "EVP-like B1; A2 is borderline low.",
+  "guess#v": "EVP-like A2; A1 is borderline low.",
+  "perfect#adj": "EVP-like A2; A1 is borderline low.",
+  "drug#n": "EVP-like B1 for both the medicine and the illegal sense; A2 looks low.",
+  "female#adj": "EVP-like B1; A2 is borderline low.",
+  "concert#n": "EVP-like A2; A1 is borderline low.",
+  "wed#v": "Rare, mainly journalistic/literary; for learners it is closer to C1. B2 is generous, and the register should be shown as written.",
+  "reserve#v": "The \"book a table/room\" sense is EVP-like B1; B2 looks one level high.",
+  "academic#adj": "EVP-like B2 for the adjective; B1 is borderline low.",
+  "honor#n": "US spelling; British \"honour\" should be linked as a variant so learners find both.",
+  "diet#n": "EVP-like A2 (healthy diet) / B1 (on a diet); A1 looks low.",
+  "salary#n": "EVP-like B1; A2 is borderline low.",
+  "chip#n": "BrE \"chips\" (= AmE fries) and AmE \"chips\" (= BrE crisps) differ; both senses are given, with the regional label in the definition.",
+  "regulate#v": "EVP-like C1 for the verb; B2 looks one level low.",
+  "consume#v": "EVP-like B2 (use energy/eat); B1 looks one level low.",
+  "infrastructure#n": "EVP-like C1; B2 is borderline low.",
+  "learn by heart#idiom": "Common in classrooms from B1; B2 looks slightly high.",
+  "promote equality#collocation": "A collocation rather than a headword; consider listing it under promote#v (sense 2) instead of as a separate entry.",
+  "en suite#adj": "British English; also used as a noun (\"a room with an en suite\"). Label the region in the UI."
+ }
+}

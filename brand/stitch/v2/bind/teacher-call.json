@@ -4,7 +4,8 @@
   "Profile": "Hồ sơ người học",
   "Teacher Room": "Phòng giáo viên",
   "End Call": "Kết thúc cuộc gọi",
-  "Leave": "Kết thúc"
+  "Leave": "Kết thúc",
+  "Toggle theme": "Đổi giao diện sáng/tối"
  },
  "text": {
   "70%": "d.pct + '%'",
@@ -24,7 +25,7 @@
   ":scope > main > div > div:nth-child(1) > div:nth-child(1) > div:nth-child(3)": "d.trHtml"
  },
  "attr": {
-  ":scope > header > div > button": {
+  ":scope > header > div > button:nth-child(1)": {
    "id": "'cEnd'",
    "type": "'button'",
    "aria-label": "t('Kết thúc cuộc gọi')"
@@ -36,7 +37,7 @@
   ":scope > header > div > div:nth-child(2) > div:nth-child(1) > span:nth-child(2)": {
    "id": "'cPct'"
   },
-  ":scope > header > div > div:nth-child(3)": {
+  ":scope > header > div > div:nth-child(4)": {
    "data-href": "'#/me'",
    "type": "'button'"
   },
@@ -80,6 +81,10 @@
   ":scope > main > div > div:nth-child(4) > div:nth-child(3) > button": {
    "id": "'cEnd2'",
    "type": "'button'"
+  },
+  ":scope > header > div > button:nth-child(3)": {
+   "id": "'lkTheme'",
+   "aria-label": "t('Đổi giao diện sáng/tối')"
   }
  },
  "cls": {

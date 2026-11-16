@@ -1,6 +1,25 @@
 {
  "_doc": "Sổ đăng ký MỌI nguồn nội dung học – cổng QA (docs/CONTENT-QA.md, scripts/content-qa/gate.mjs). Thư mục nội dung mới chưa có ở đây → CI đỏ. checks: schema · lexicon · pair (✗/✓) · cefr · judges (2 giám khảo) · translation · spot (≥5%/lô) · reports (tự ẩn). gen=true: có nội dung sinh tự động → bắt buộc judges + translation + spot.",
  "sources": [
+  {"id": "irregular-verbs", "paths": ["content/verbs", "web/js/irv"], "owner": "claude", "gen": false, "checks": ["schema", "cefr"], "delegate": ["test/verbs.mjs"], "doc": "docs/LEXICON.md"},
+  {"id": "outcomes", "paths": ["web/cpack/outcomes"], "owner": "claude", "gen": false, "checks": ["schema", "cefr"], "delegate": ["test/outcomes.mjs"], "doc": "docs/specs/outcomes-3-6m.md"},
+  {
+   "id": "stories",
+   "paths": [
+    "content/stories",
+    "web/js/stories"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "license",
+    "cefr",
+    "lexicon",
+    "grammar"
+   ],
+   "doc": "docs/STORIES.md"
+  },
   {
    "id": "vocab",
    "paths": [
@@ -17,7 +36,8 @@
    ],
    "delegate": [
     "build-lexicon.mjs",
-    "test/lex.mjs"
+    "test/lex.mjs",
+    "content-qa/sense-check.mjs"
    ]
   },
   {
@@ -62,7 +82,9 @@
   {
    "id": "grammar",
    "paths": [
-    "web/js/grammar"
+    "web/js/grammar",
+    "web/cpack/grammar",
+    "web/cpack/grammar-l1"
    ],
    "owner": "claude",
    "gen": false,
@@ -79,7 +101,8 @@
   {
    "id": "pron",
    "paths": [
-    "web/js/pron"
+    "web/js/pron",
+    "web/cpack/pron"
    ],
    "owner": "claude",
    "gen": false,
@@ -131,7 +154,9 @@
   {
    "id": "reading",
    "paths": [
-    "web/js/readtest"
+    "web/js/readtest",
+    "web/cpack/readtest",
+    "web/cpack/readings"
    ],
    "owner": "claude",
    "gen": false,
@@ -147,7 +172,8 @@
   {
    "id": "listening",
    "paths": [
-    "web/js/listen"
+    "web/js/listen",
+    "web/cpack/listen"
    ],
    "owner": "claude",
    "gen": false,
@@ -163,7 +189,8 @@
   {
    "id": "toeic",
    "paths": [
-    "web/js/toeic"
+    "web/js/toeic",
+    "web/cpack/toeic"
    ],
    "owner": "claude",
    "gen": false,
@@ -178,7 +205,8 @@
   {
    "id": "toefl",
    "paths": [
-    "web/js/toefl"
+    "web/js/toefl",
+    "web/cpack/toefl"
    ],
    "owner": "claude",
    "gen": false,
@@ -189,6 +217,24 @@
    "delegate": [
     "test/content-check.mjs"
    ]
+  },
+  {
+   "id": "cambridge",
+   "paths": [
+    "web/cpack/cambridge"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "cefr",
+    "format"
+   ],
+   "delegate": [
+    "content-qa/exam-format-check.mjs",
+    "test/cambridge.mjs"
+   ],
+   "doc": "docs/specs/cambridge.md"
   },
   {
    "id": "exam-spec",
@@ -224,9 +270,45 @@
    ]
   },
   {
+   "id": "target-lang",
+   "paths": [
+    "content/target"
+   ],
+   "owner": "claude",
+   "gen": true,
+   "checks": [
+    "schema",
+    "judges",
+    "translation",
+    "spot"
+   ],
+   "delegate": [
+    "test/target-lang.mjs"
+   ],
+   "_note": "Ngôn ngữ đích (docs/specs/target-language.md): seed soát tay; bộ lõi do scripts/target/gen.mjs sinh – 2 giám khảo khác họ + dịch ngược en + mẫu soát ≥5 %"
+  },
+  {
+   "id": "target-es-drills",
+   "paths": [
+    "web/cpack/es"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "translation"
+   ],
+   "delegate": [
+    "target/drill-pack.mjs --check",
+    "test/es-practice.mjs"
+   ],
+   "_note": "Gói luyện tập tiếng TBN W2b (spanish-course.md §10): dựng từ content/target/es/{drills,gx}; drill-pack --check = khớp nguồn + đủ 15 ngôn ngữ + ví dụ TBN nguyên văn, CI thêm LanguageTool 0 lỗi (--lt)"
+  },
+  {
    "id": "writing",
    "paths": [
-    "web/js/write"
+    "web/js/write",
+    "web/cpack/write"
    ],
    "owner": "antigravity",
    "gen": true,
@@ -244,7 +326,8 @@
   {
    "id": "speaking",
    "paths": [
-    "web/js/speak"
+    "web/js/speak",
+    "web/cpack/speak"
    ],
    "owner": "antigravity",
    "gen": true,
@@ -262,6 +345,7 @@
    "id": "roleplay",
    "paths": [
     "web/js/roleplay",
+    "web/cpack/roleplay",
     "web/js/call"
    ],
    "owner": "antigravity",
@@ -278,7 +362,8 @@
    "id": "confidence",
    "paths": [
     "content/confidence",
-    "web/js/confidence"
+    "web/js/confidence",
+    "web/cpack/confidence"
    ],
    "owner": "claude",
    "gen": false,
@@ -297,6 +382,7 @@
    "id": "lesson",
    "paths": [
     "web/js/lesson",
+    "web/cpack/lesson",
     "content/lesson"
    ],
    "owner": "claude",
@@ -422,6 +508,24 @@
    ]
   },
   {
+   "id": "mediation",
+   "paths": [
+    "content/mediation",
+    "web/cpack/mediation"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "cefr"
+   ],
+   "delegate": [
+    "content-qa/mediation-check.mjs",
+    "test/mediation.mjs"
+   ],
+   "doc": "docs/specs/mediation.md"
+  },
+  {
    "id": "tutor",
    "paths": [
     "web/js/tutor"
@@ -435,15 +539,43 @@
    "delegate": [
     "test/reminders.mjs"
    ]
-  }
+  },
+  {
+   "id": "content-factory",
+   "paths": [
+    "content/factory"
+   ],
+   "owner": "claude",
+   "gen": true,
+   "checks": [
+    "schema",
+    "judges",
+    "spot",
+    "reports"
+   ],
+   "delegate": [
+    "test/content-factory.mjs"
+   ]
+  },
+  { "id": "phrase-book", "paths": ["web/cpack/framework", "content/framework/functions.json"], "owner": "claude", "gen": true, "checks": ["schema"], "delegate": ["test/phrasebook.mjs", "test/content-factory.mjs"], "doc": "docs/CONTENT-FACTORY.md" }
  ],
  "skip": {
+  "web/cpack/irregular": "MÃ giao diện bảng động từ bất quy tắc (table.js, drill.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; dữ liệu ở web/js/irv + content/verbs (nguồn irregular-verbs, kiểm bởi scripts/test/verbs.mjs); giao diện kiểm bởi scripts/test/irregular-ui.mjs",
+  "web/cpack/qstats": "MÃ giao diện dải tỉ lệ đúng 8 tuần của #/qstats (week.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; test scripts/test/qwk.mjs",
+  "web/cpack/mail-app": "MÃ email nhắc học (mail.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; test scripts/test/mail-digest.mjs",
+  "web/cpack/ret-app": "MÃ giao diện thẻ trang chủ quay lại + tổng kết tuần (cards.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; test scripts/test/retention.mjs",
+  "web/cpack/es-app": "MÃ giao diện bài phát âm TBN (pron-ui.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; dữ liệu ở web/cpack/es (nguồn px), test scripts/test/es-pron.mjs",
+  "web/cpack/play-app": "MÃ giao diện Thử thách 60 giây (play-blitz.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; test scripts/test/play-blitz.mjs",
+  "web/cpack/importdeck-app": "MÃ giao diện Nhập tài liệu → bộ thẻ (importdeck.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; test scripts/test/importdeck.mjs",
+  "web/cpack/outcomes-app": "MÃ giao diện bài đo (outcomes.js, outcomes-core.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; dữ liệu đề ở web/cpack/outcomes (nguồn 'outcomes'), test scripts/test/outcomes.mjs",
+  "content/seo": "sổ máy sinh lastmod.json (URL → băm nội dung chính + ngày sửa thật cho sitemap) – không phải nội dung học; scripts/lib/lastmod.mjs, test scripts/test/lastmod.mjs",
   "web/js/st": "khuôn giao diện 4 màn port thẳng từ Google Stitch (DOM + class Tailwind, chữ qua t()) – không phải nội dung học; kiểm bởi scripts/test/stitch-diff.mjs + build-stitch-css.mjs --check",
   "web/js/vimg": "mảnh chỉ mục ảnh minh hoạ (khoá từ#loại → mã băm ảnh) SINH bởi build-lexicon từ content/lexicon/img.json – không phải nội dung học; ảnh đã qua cổng vocab-img (OCR, NSFW, giám khảo), kiểm bởi scripts/test/vocab-img.mjs",
-    "web/js/get-app": "chữ hướng dẫn nút \"Tải app\" sinh từ bản dịch giao diện (build-landing.mjs --check) – không phải nội dung học; test scripts/test/get-app.mjs",
+  "web/js/get-app": "chữ hướng dẫn nút \"Tải app\" sinh từ bản dịch giao diện (build-landing.mjs --check) – không phải nội dung học; test scripts/test/get-app.mjs",
   "content/dict": "Chỉ chứa stage.json – trạng thái mở index trang từ điển do workflow dict-stage.yml ghi (không phải nội dung học); nội dung trang lấy từ kho từ vựng đã qua cổng vocab/lexicon",
   "content/brand": "tài sản thương hiệu, không phải nội dung học",
   "content/landing": "trang giới thiệu – build-landing.mjs --check",
+  "content/go": "trang đích /go – build-go.mjs --check + test go-landing (15 ngôn ngữ, chữ UI ngắn)",
   "content/legal": "văn bản pháp lý soạn tay",
   "content/pipeline": "hàng đợi/nhật ký pipeline",
   "content/pr": "bài PR/danh bạ",

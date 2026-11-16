@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Social Reel Frame (Ship, Sheep, Sleep)</title>
+<!-- Plus Jakarta Sans Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            teal: {
+              brand: '#6bd8ce',
+              bright: '#4DD0C4',
+              primary: '#2ba39a',
+              dim: '#163d3d',
+              container: '#133336',
+              border: '#285f5b',
+              glow: 'rgba(107, 216, 206, 0.15)'
+            },
+            coral: {
+              brand: '#FF5C38',
+              bright: '#FF6B4A',
+              hover: '#E04A26',
+              bg: '#261b1e',
+              border: '#6e2b26'
+            },
+            dark: {
+              base: '#091518',
+              surface: '#0d191c',
+              card: '#132226',
+              cardSubtle: '#172427',
+              item: '#1a2d32',
+              pill: '#122024',
+              border: '#22383e',
+              subtleBorder: '#1c3035',
+              text: '#E8F1F0',
+              muted: '#A9BDBB'
+            }
+          },
+          boxShadow: {
+            'tactile-dark-card': '0 8px 0 0 #0c1619, 0 16px 28px rgba(0, 0, 0, 0.45)',
+            'tactile-coral': '0 4px 0 0 #9f2409',
+            'tactile-teal': '0 4px 0 0 #0d2524',
+            'tactile-badge': '0 2px 0 0 #091316',
+            'tactile-item': '0 3px 0 0 #0e1b1e'
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Safe container for 9:16 vertical ratio */
+    .reel-container {
+      width: 100%;
+      max-width: 480px;
+      aspect-ratio: 9 / 16;
+      height: 100vh;
+      max-height: 853px;
+      margin: 0 auto;
+    }
+    @media (max-height: 850px) {
+      .reel-container {
+        height: 100vh;
+      }
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-[#091518] text-[#E8F1F0] font-sans min-h-screen flex items-center justify-center p-0 sm:p-4 select-none" style="background-image: radial-gradient(circle at 50% 20%, #15262a 0%, #091518 80%);">
+<!-- 9:16 Full Vertical Story/Reel Frame Container -->
+<div class="reel-container relative bg-[#0d191c] flex flex-col justify-between overflow-hidden shadow-2xl rounded-none sm:rounded-[36px] border-0 sm:border-8 border-[#1c2e33]" style="box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(107, 216, 206, 0.08);">
+<!-- Subtle Background Tactile Grid/Warm Accent -->
+<div class="absolute inset-0 pointer-events-none opacity-40 bg-[radial-gradient(#2ba39a_0.75px,transparent_0.75px)] [background-size:20px_20px]"></div>
+<!-- TOP THIRD: Hook Question & Category Pill (Within safe area) -->
+<header class="relative z-10 pt-10 px-6 sm:px-8 text-center flex flex-col items-center">
+<!-- Top Tag / Pill -->
+<div class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#133336] text-[#6bd8ce] border border-[#285f5b] font-bold text-xs uppercase tracking-wider shadow-tactile-teal mb-4">
+<span class="material-symbols-outlined text-[15px] text-[#4DD0C4]">hearing</span>
+<span>Pronunciation Lab</span>
+</div>
+<!-- Big Hook Question -->
+<h1 class="text-3xl sm:text-[34px] leading-[1.18] font-extrabold text-[#E8F1F0] tracking-tight max-w-[340px] text-balance">
+        Can you hear <br/>
+<span class="relative inline-block mt-0.5">
+<span class="text-[#FF6B4A] underline decoration-[#FF5C38]/60 decoration-wavy decoration-2 underline-offset-4">the difference?</span>
+</span>
+</h1>
+<p class="mt-2 text-xs sm:text-sm font-semibold text-[#A9BDBB] tracking-wide">
+        Listen closely to the vowel length:
+      </p>
+</header>
+<!-- MIDDLE: Main Content Card (Three Look-Alike Words) -->
+<main class="relative z-10 px-5 sm:px-6 my-auto w-full">
+<div class="bg-[#132226] rounded-3xl p-5 sm:p-6 border-2 border-[#22383e] shadow-tactile-dark-card">
+<!-- 3 Look-Alike Words Row -->
+<div class="grid grid-cols-3 gap-2.5 sm:gap-3">
+<!-- Word 1: ship -->
+<div class="bg-[#1a2d32] rounded-2xl p-3 sm:p-3.5 flex flex-col items-center justify-between border-2 border-[#22383e] shadow-tactile-item text-center min-h-[148px]">
+<span class="text-[11px] font-bold uppercase tracking-wider text-[#A9BDBB] mb-1">Word 1</span>
+<div class="my-auto">
+<!-- Word with differing sound highlighted -->
+<span class="text-2xl sm:text-[26px] font-black text-[#E8F1F0] block tracking-tight">
+                sh<span class="text-[#FF6B4A] underline decoration-[#FF5C38] decoration-2 underline-offset-2">i</span>p
+              </span>
+<!-- IPA -->
+<div class="mt-1 px-2 py-0.5 rounded-md bg-[#122024] border border-[#22383e] text-xs sm:text-[13px] font-bold font-mono text-[#6bd8ce]">
+                /<span class="text-[#A9BDBB]">ʃ</span><span class="text-[#FF6B4A] font-black text-sm">ɪ</span><span class="text-[#A9BDBB]">p</span>/
+              </div>
+</div>
+<!-- Speaker Action Button (raised tactile feel) -->
+<button aria-label="Listen to ship" class="mt-2.5 w-10 h-10 rounded-xl bg-[#163d3d] hover:bg-[#1f4e4e] active:translate-y-0.5 text-[#4DD0C4] border border-[#285f5b] flex items-center justify-center shadow-tactile-teal transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">volume_up</span>
+</button>
+</div>
+<!-- Word 2: sheep -->
+<div class="bg-[#261b1e] rounded-2xl p-3 sm:p-3.5 flex flex-col items-center justify-between border-2 border-[#6e2b26] shadow-tactile-item text-center min-h-[148px] ring-2 ring-[#FF5C38]/30">
+<span class="text-[11px] font-bold uppercase tracking-wider text-[#FF6B4A] mb-1">Word 2</span>
+<div class="my-auto">
+<!-- Word with differing sound highlighted -->
+<span class="text-2xl sm:text-[26px] font-black text-white block tracking-tight">
+                sh<span class="text-[#FF6B4A] underline decoration-[#FF5C38] decoration-2 underline-offset-2">ee</span>p
+              </span>
+<!-- IPA -->
+<div class="mt-1 px-2 py-0.5 rounded-md bg-[#331c20] border border-[#6e2b26] text-xs sm:text-[13px] font-bold font-mono text-[#FFB4A6]">
+                /<span class="text-[#E8F1F0]">ʃ</span><span class="text-[#FF6B4A] font-black text-sm">iː</span><span class="text-[#E8F1F0]">p</span>/
+              </div>
+</div>
+<!-- Speaker Action Button (raised tactile feel in coral) -->
+<button aria-label="Listen to sheep" class="mt-2.5 w-10 h-10 rounded-xl bg-[#FF5C38] hover:bg-[#E04A26] active:translate-y-0.5 text-white flex items-center justify-center shadow-tactile-coral transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">volume_up</span>
+</button>
+</div>
+<!-- Word 3: sleep -->
+<div class="bg-[#1a2d32] rounded-2xl p-3 sm:p-3.5 flex flex-col items-center justify-between border-2 border-[#22383e] shadow-tactile-item text-center min-h-[148px]">
+<span class="text-[11px] font-bold uppercase tracking-wider text-[#A9BDBB] mb-1">Word 3</span>
+<div class="my-auto">
+<!-- Word with differing sound highlighted -->
+<span class="text-2xl sm:text-[26px] font-black text-[#E8F1F0] block tracking-tight">
+<span class="text-[#6bd8ce]">sl</span><span class="text-[#FF6B4A] underline decoration-[#FF5C38] decoration-2 underline-offset-2">ee</span>p
+              </span>
+<!-- IPA -->
+<div class="mt-1 px-2 py-0.5 rounded-md bg-[#122024] border border-[#22383e] text-xs sm:text-[13px] font-bold font-mono text-[#6bd8ce]">
+                /<span class="text-[#A9BDBB]">sl</span><span class="text-[#FF6B4A] font-black text-sm">iː</span><span class="text-[#A9BDBB]">p</span>/
+              </div>
+</div>
+<!-- Speaker Action Button (raised tactile feel) -->
+<button aria-label="Listen to sleep" class="mt-2.5 w-10 h-10 rounded-xl bg-[#163d3d] hover:bg-[#1f4e4e] active:translate-y-0.5 text-[#4DD0C4] border border-[#285f5b] flex items-center justify-center shadow-tactile-teal transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">volume_up</span>
+</button>
+</div>
+</div>
+<!-- One-Line Tip Container -->
+<div class="mt-4 pt-3.5 border-t border-[#22383e] flex items-start gap-2.5 bg-[#101e22] -mx-1 px-3 py-2.5 rounded-xl border border-[#1c3035]">
+<div class="w-6 h-6 rounded-full bg-[#FF5C38]/20 text-[#FF6B4A] flex-shrink-0 flex items-center justify-center mt-0.5">
+<span class="material-symbols-outlined text-[16px]">lightbulb</span>
+</div>
+<p class="text-xs sm:text-[13px] font-medium text-[#E8F1F0] leading-snug">
+<strong class="font-extrabold text-[#6bd8ce]">Rule:</strong> Short <span class="font-mono text-[#FF6B4A] font-bold">/ɪ/</span> is relaxed and quick; long <span class="font-mono text-[#FF6B4A] font-bold">/iː/</span> stretches wide like a smile!
+          </p>
+</div>
+</div>
+</main>
+<!-- LOWER THIRD & FOOTER (Within safe area) -->
+<footer class="relative z-10 pb-7 pt-2 px-6 sm:px-8 flex flex-col gap-3.5">
+<!-- Teacher Carlos 2D Slot with speech bubble / tip -->
+<div class="flex items-center gap-3.5 bg-[#172427] rounded-2xl p-2.5 sm:p-3 border-2 border-[#22383e] shadow-tactile-item">
+<!-- Teacher Slot (Empty rounded placeholder labelled "teacher-slot", with 2D Carlos inserted) -->
+<div class="relative w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-[#101c1f] border-2 border-dashed border-[#2ba39a] flex flex-col items-center justify-center flex-shrink-0 overflow-hidden text-center shadow-sm">
+<!-- 2D Carlos SVG Avatar inserted by code -->
+<svg class="w-10 h-10 text-[#2ba39a] mt-0.5" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<circle cx="24" cy="18" fill="#2ba39a" r="11"></circle>
+<!-- Glasses -->
+<rect height="6" rx="2" stroke="#122b2a" stroke-width="2" width="7" x="16" y="14"></rect>
+<rect height="6" rx="2" stroke="#122b2a" stroke-width="2" width="7" x="25" y="14"></rect>
+<path d="M23 17H25" stroke="#122b2a" stroke-width="2"></path>
+<!-- Friendly smile -->
+<path d="M20 22C21.5 24 26.5 24 28 22" stroke="#FF5C38" stroke-linecap="round" stroke-width="2"></path>
+<!-- Shoulders/Torso -->
+<path d="M9 44C9 35.1634 15.7157 28 24 28C32.2843 28 39 35.1634 39 44" fill="#243c3f"></path>
+</svg>
+<span class="text-[8px] font-extrabold text-[#6bd8ce] uppercase tracking-tight -mt-0.5 bg-[#091518] px-1 rounded border border-[#285f5b]">teacher-slot</span>
+</div>
+<!-- Teacher Carlos Tip Context -->
+<div class="flex-1 min-w-0 pr-1">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="font-extrabold text-xs sm:text-sm text-[#E8F1F0] tracking-tight">Carlos</span>
+<span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-[#17423f] text-[#6bd8ce] border border-[#286460] uppercase">Pronunciation Coach</span>
+</div>
+<p class="text-[11px] sm:text-xs font-medium text-[#A9BDBB] leading-tight mt-0.5">
+            "Notice how your tongue stays lower for <span class="text-[#E8F1F0] font-bold font-mono">ship</span>, but rises for <span class="text-[#E8F1F0] font-bold font-mono">sheep</span>!"
+          </p>
+</div>
+</div>
+<!-- Bottom Bar: Small Lexkite Wordmark & "Follow for more" line (Safe from bottom edges) -->
+<div class="flex items-center justify-between pt-1 border-t border-[#22383e]">
+<!-- Lexkite Brand Wordmark -->
+<div class="flex items-center gap-1.5">
+<div class="w-6 h-6 rounded-lg bg-[#FF5C38] text-white flex items-center justify-center font-black text-xs shadow-tactile-badge">
+            L
+          </div>
+<span class="text-base sm:text-lg font-black tracking-tight text-[#6bd8ce]">
+            Lex<span class="text-[#FF5C38]">kite</span>
+</span>
+</div>
+<!-- Follow CTA -->
+<div class="flex items-center gap-1.5 text-xs sm:text-[13px] font-extrabold text-[#E8F1F0] hover:text-[#6bd8ce] transition-colors cursor-pointer">
+<span>Follow for daily tips</span>
+<span class="material-symbols-outlined text-[16px] text-[#FF5C38]">add_circle</span>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

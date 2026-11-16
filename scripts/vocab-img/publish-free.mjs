@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { fileURLToPath } from 'node:url';
 // Đăng tầng MIỄN PHÍ (free_tier.py) vào CÙNG chỉ mục một nguồn content/lexicon/img.json + kho lexkite-media/vimg/ (media.lexkite.com/vimg/<h>.*).
-//   node scripts/vocab-img/publish-free.mjs --result out/free/result.json [--push]
+//   node scripts/vocab-img/publish-free.mjs --result out/free/result.json [--stage <dir>]
 // icon → mục ảnh chính (h) – tất định, đã soát tay (vimg-icon-overrides.json), q.vision = 'deterministic' (KHÔNG cần giám khảo AI);
 // wiki → trường photo (CHỈ trang từ điển + /words/, không thẻ học). Chỉ đăng nghĩa CÒN trong vimg-icons-lex.json / vimg-wiki.json (danh sách chặn mới nhất thắng).
 import fs from 'fs';
@@ -13,12 +13,9 @@ const arg = n => { const i = process.argv.indexOf('--' + n); return i > 0 ? proc
 const ROOT = new URL('../../', import.meta.url), P = p => fileURLToPath(new URL(p, ROOT)), J = p => JSON.parse(fs.readFileSync(P(p), 'utf8'));
 const IMGF = 'content/lexicon/img.json', img = J(IMGF), ic = J('content/lexicon/vimg-icons-lex.json').items, wk = J('content/lexicon/vimg-wiki.json').items;
 const rf = arg('result'), res = JSON.parse(fs.readFileSync(rf, 'utf8')).items, dir = path.join(path.dirname(rf), 'final');
-const media = process.env.MEDIA_DIR || path.join(process.env.RUNNER_TEMP || '/tmp', 'lexkite-media'), PUSH = process.argv.includes('--push');
-const bot = ['-c', 'user.name=lexkite-bot', '-c', 'user.email=lexkite-bot@users.noreply.github.com'];
-if (PUSH) {
-  const tok = process.env.LEXKITE_MEDIA_TOKEN; if (!tok) { console.error('✗ thiếu secret LEXKITE_MEDIA_TOKEN'); process.exit(1); }
-  if (!fs.existsSync(media)) execFileSync('git', ['clone', '-q', '--depth', '1', `https://x-access-token:${tok}@github.com/lexkiteapp/lexkite-media.git`, media]);
-}
+// 12/11: kho ảnh đích nay là m4 (media.lexkite.com/vimg) – chép vào --stage <dir>/vimg, workflow đẩy bằng scripts/media/push.mjs --kind img (deploy key MEDIA4_DEPLOY_KEY);
+// lexkite-media cũ (m1) đã đầy nên bước clone bằng LEXKITE_MEDIA_TOKEN bị bỏ.
+const media = arg('stage') || process.env.MEDIA_DIR || path.join(process.env.RUNNER_TEMP || '/tmp', 'lexkite-media-stage');
 fs.mkdirSync(path.join(media, 'vimg'), { recursive: true });
 const now = new Date().toISOString().slice(0, 10), B = process.env.GITHUB_RUN_ID || now, n = { icon: 0, wiki: 0 };
 for (const [k, r] of Object.entries(res)) {
@@ -34,11 +31,3 @@ img.items = Object.fromEntries(Object.entries(img.items).sort(([a], [b]) => (a <
 fs.writeFileSync(P(IMGF), JSON.stringify(img, null, 1) + '\n');
 console.log(`✓ đăng icon ${n.icon} · wiki ${n.wiki} · img.json: ${Object.values(img.items).filter(x => x.h).length} ảnh chính, ${Object.values(img.items).filter(x => x.photo).length} ảnh từ điển`);
 execFileSync('node', [P('scripts/build-lexicon.mjs'), '--write'], { stdio: 'inherit', env: { ...process.env, LEX_CDN_CHECK: '0' } });   // file mới chưa lên CDN – kiểm CDN ở bước sau (workflow)
-if (PUSH && (n.icon || n.wiki)) {
-  const g = (...a) => execFileSync('git', ['-C', media, ...a], { stdio: 'inherit' });
-  g(...bot, 'add', 'vimg'); g(...bot, 'commit', '-qm', `vimg: +${n.icon} icon, +${n.wiki} wiki`); g('push', '-q', 'origin', 'HEAD');
-  const m = (...a) => execFileSync('git', ['-C', P('.'), ...a], { stdio: 'inherit' });
-  m(...bot, 'add', IMGF, 'web/js/lexicon-img.json', 'extension/app/js/lexicon-img.json', 'web/js/vimg', 'extension/app/js/vimg');
-  m(...bot, 'commit', '-qm', `Ảnh từ vựng tầng miễn phí: +${n.icon} icon, +${n.wiki} Wikimedia [CF-Pages-Skip] [skip ci]`);
-  for (let i = 0; i < 5; i++) { try { m('pull', '-q', '--rebase', 'origin', 'main'); m('push', '-q', 'origin', 'HEAD:main'); break; } catch (e) { if (i === 4) throw e; } }
-}

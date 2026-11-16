@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_actually",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Actually is a false friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Actually, I am studying now.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Right now, I am studying.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Actually means in fact.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Right now! Right now, I am at work.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Actually, I am studying now.",
+  "right": "Right now, I am studying.",
+  "strike": "Actually",
+  "why": "Actually means in fact.",
+  "memory": "Now is right now.",
+  "quiz": {
+   "stem": "___, I am at work.",
+   "options": [
+    "Actually",
+    "Right now"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Actually” não é “atualmente”!",
+   "tip": "“Actually” quer dizer “na verdade”. Para “agora”, use “right now”.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “Actually, I am studying now.”. O certo é “Right now, I am studying.”. Cuidado: é um falso cognato clássico. Ouça o Ama e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “Right now”. Treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#inglesonline",
+    "#dicasdeingles",
+    "#aprenderingles",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Actually” is not “atualmente”!",
+   "tip": "“Actually” means “in fact”. For “now”, use “right now”.",
+   "caption": "Watch out for this common mistake! Many people say “Actually, I am studying now.”. The right way is “Right now, I am studying.”. Careful: it is a classic false friend. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Actually” não é “atualmente”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“Actually” não é “atualmente”!",
+  "keyword": "Right now, I am studying.",
+  "value": "“Actually” quer dizer “na verdade”. Para “agora”, use “right now”.",
+  "hashtags": [
+   "#inglesonline",
+   "#dicasdeingles",
+   "#aprenderingles",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "“Actually” não é “atualmente”!",
+    "description": "Cuidado com este erro comum! 😬 Muita gente diz “Actually, I am studying now.”. O certo é “Right now, I am studying.”. Cuidado: é um falso cognato clássico. Ouça o Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#inglesonline #dicasdeingles #aprenderingles #lexkite",
+    "tags": [
+     "Right now, I am studying.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “Actually, I am studying now.”. O certo é “Right now, I am studying.”. Cuidado: é um falso cognato clássico. Ouça o Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Cuidado com este erro comum! 😬 Muita gente diz “Actually, I am studying now.”. O certo é “Right now, I am studying.”. Cuidado: é um falso cognato clássico. Ouça o Ama e repita! Treine mais no app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#inglesonline",
+     "#dicasdeingles",
+     "#aprenderingles",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Actually” não é “atualmente”! #inglesonline #dicasdeingles #aprenderingles"
+   }
+  },
+  "first_comment": "Resposta: “Right now”. Treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

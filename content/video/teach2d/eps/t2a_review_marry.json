@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_marry",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: marry.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means to become the husband or wife of someone.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "They plan to marry next spring.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "marry",
+  "ipa": "/ˈmeri/",
+  "mean": "to become the husband or wife of someone",
+  "ex": "They plan to marry next spring.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=marry",
+  "link": "https://lexkite.com/app/#/review?w=marry",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 41,
+  "seconds": 25.2,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"marry\" mean?",
+  "keyword": "marry",
+  "value": "Marry means to become the husband or wife of someone.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=marry",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"marry\" mean?",
+    "description": "Marry means to become the husband or wife of someone.\n\nReview your words, free: https://lexkite.com/app/#/review?w=marry\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "marry",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"marry\" mean?\n\nMarry means to become the husband or wife of someone.\n\nReview your words, free: https://lexkite.com/app/#/review?w=marry"
+   },
+   "instagram": {
+    "caption": "What does \"marry\" mean?\n\nMarry means to become the husband or wife of someone.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"marry\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means to become the husband or wife of someone. Marry means to become the husband or wife of someone. More practice like this (free): {link}"
+ }
+}

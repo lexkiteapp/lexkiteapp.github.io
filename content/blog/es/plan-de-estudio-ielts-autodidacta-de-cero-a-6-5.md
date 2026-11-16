@@ -24,6 +24,8 @@ En este artículo analizaremos cómo diseñar un calendario de trabajo realista 
 
 El error más común entre quienes estudian de manera independiente es comprar un libro de exámenes Cambridge y empezar a cronometrar pruebas completas el primer día. Si tu nivel de vocabulario general o gramática básica todavía no alcanza el umbral B1 o B2 del Marco Común Europeo (MCER), enfrentarte directamente a textos académicos solo generará frustración y agotamiento mental.
 
+Te puede interesar además: [la estrategia de gestión del tiempo en IELTS Reading](/es/blog/gestion-del-tiempo-en-ielts-reading-60-minutos/).
+
 ![Prueba de nivel de 20 preguntas con sugerencias de ruta en Lexkite](media:placement "Evaluación diagnóstica de 20 preguntas de vocabulario y gramática en Lexkite")
 
 Antes de definir tus semanas de trabajo, necesitas medir tu punto de partida objetivo mediante una prueba diagnóstica:

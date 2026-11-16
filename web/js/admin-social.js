@@ -18,7 +18,7 @@
     '✍️ Soạn bài': '✍️ Compose', '📅 Lịch': '📅 Calendar', '🗂️ Bài đăng': '🗂️ Posts', '📡 Kênh & Drive': '📡 Channels & Drives', 'Mục Video & Social': 'Video & Social sections',
     '🗽 New York: {ny} · 🕒 Giờ của bạn: {loc}': '🗽 New York: {ny} · 🕒 Your time: {loc}',
     // Duyệt bài & quản lý (admin-social-mgr.js)
-    '✅ Duyệt bài': '✅ Approvals', '🤖 Hàng đợi': '🤖 Queue', '🩺 Sức khỏe kênh': '🩺 Account health', '📈 Phân tích': '📈 Analytics', '💬 Bình luận': '💬 Comments',
+    '✅ Duyệt bài': '✅ Approvals', '🤖 Hàng đợi': '🤖 Queue', '🛰️ Autopilot & kênh': '🛰️ Autopilot & channels', '🩺 Sức khỏe kênh': '🩺 Account health', '📈 Phân tích': '📈 Analytics', '💬 Bình luận': '💬 Comments',
     'Gửi duyệt & lên lịch': 'Send for review & schedule', 'Gửi duyệt & đăng ngay': 'Send for review & publish now',
     'Bài phải qua duyệt trước khi lên lịch/đăng – gửi duyệt ở tab Duyệt bài.': 'Posts must be approved before scheduling/publishing – send it for review in Approvals.',
     'Bài chưa được duyệt – duyệt ở tab Duyệt bài rồi thử lại.': 'The post is not approved – approve it in Approvals, then retry.',
@@ -287,7 +287,14 @@
       return used.includes(String(p.id)) || (cap.length > 8 && String(p.caption || '').trim() === cap);
     });
   };
-  const remember = (src, pid) => { if (!src || !pid) return; const u = LS.get('used', {}); u[src] = [...new Set([...(u[src] || []), String(pid)])].slice(-20); const ks = Object.keys(u); if (ks.length > 300) delete u[ks[0]]; LS.set('used', u); };
+  const remember = (src, pid) => { if (!src || !pid) return; const u = LS.get('used', {}); u[src] = [...new Set([...(u[src] || []), String(pid)])].slice(-20); const ks = Object.keys(u); if (ks.length > 300) delete u[ks[0]]; LS.set('used', u); if (window.AdminSync) AdminSync.store('socused').patch(String(src).slice(0, 120), u[src].map(String).slice(-20)).catch(() => {}); }; // "đã đăng" dùng chung mọi admin (D1 ns socused)
+  /** Kéo bản chung "bài nguồn đã dùng" về bản đệm trình duyệt (gộp); đẩy bản cũ của máy này lên lần đầu. */
+  const usedSync = async () => { try {
+    if (!window.AdminSync) await new Promise(y => { const sc = document.createElement('script'); sc.src = 'js/admin-sync.js'; sc.onload = y; sc.onerror = y; document.head.appendChild(sc); });
+    if (!window.AdminSync) return; const st = AdminSync.store('socused'), r = await st.get(), m = r.v || {}, u = LS.get('used', {});
+    for (const k of Object.keys(m)) u[k] = [...new Set([...(u[k] || []), ...m[k]])].slice(-20);
+    LS.set('used', u); for (const k of Object.keys(u)) if (!(k in m) && /^[A-Za-z0-9_.:-]{1,120}$/.test(k)) st.patch(k, u[k].map(String).slice(-20)).catch(() => {});
+  } catch (e) { /* ngoại tuyến → bản đệm */ } };
   const localInput = d => new Date(+d - d.getTimezoneOffset() * 6e4).toISOString().slice(0, 16);
   const isVideo = o => /^video\//.test(String(pick(o, 'content_type', 'mime_type', 'mime') || '')) || String(pick(o, 'type', 'kind') || '') === 'video' || /\.(mp4|mov|webm|m4v)$/i.test(String(pick(o, 'filename', 'name', 'key') || ''));
   const https = u => (typeof u === 'string' && /^https:\/\//.test(u) ? u : '');
@@ -324,7 +331,7 @@
     // Mọi nội dung nằm trong .soc-wrap (khung main dùng chung với tab khác → không để lại class/sự kiện trên main)
     const put = html => { box.innerHTML = `<div class="soc-wrap">${html}</div>`; box.firstElementChild.addEventListener('error', e => { if (e.target && e.target.tagName === 'IMG' && e.target.closest('.soc-av,.soc-th')) e.target.remove(); }, true); }; // ảnh hỏng (link hết hạn) → chữ cái đầu
 
-    const TABS = [['compose', '✍️ Soạn bài'], ['board', '✅ Duyệt bài'], ['calendar', '📅 Lịch'], ['queue', '🤖 Hàng đợi'], ['posts', '🗂️ Bài đăng'], ['health', '🩺 Sức khỏe kênh'], ['stats', '📈 Phân tích'], ['inbox', '💬 Bình luận'], ['accounts', '📡 Kênh & Drive']];
+    const TABS = [['queue', '🛰️ Autopilot & kênh'], ['compose', '✍️ Soạn bài'], ['board', '✅ Duyệt bài'], ['calendar', '📅 Lịch'], ['posts', '🗂️ Bài đăng'], ['health', '🩺 Sức khỏe kênh'], ['stats', '📈 Phân tích'], ['inbox', '💬 Bình luận'], ['accounts', '📡 Kênh & Drive']];
     const MGR = new Set(['board', 'queue', 'health', 'stats', 'inbox']);
     const D = { stores: [], accounts: [], posts: [], objects: [], bad: {} };
     const accById = id => D.accounts.find(a => String(a.id) === String(id));
@@ -333,6 +340,7 @@
     const C = { src: null, title: '', cap: '', fc: '', link: '', acc: [], at: '', pt: '', pv: '', srv: {}, mid: null, midFor: null, idem: uid(), tt: null, ttFor: null, q: '', busy: false,
       per: { youtube: { cap: '', privacy: 'public', cat: '27', tags: '', ai: false, notify: true }, tiktok: { cap: '', privacy: '', comment: false, duet: false, stitch: false, aigc: false }, instagram: { cap: '', fc: '', feed: true }, facebook_page: { cap: '', fc: '' }, threads: { cap: '' } } };
     let pre = pending; pending = null;
+    usedSync(); // bài nguồn đã dùng: dùng chung mọi admin
     if (pre) { C.title = String(pre.title || '').slice(0, 100); C.cap = String(pre.caption || ''); }
 
     const head = `<div class="soc-head"><div><h2>${S('🎬 Video & Social')}</h2><p class="small muted" style="margin:.2rem 0 0">${S('Lưu video trên Drive và đăng lên các kênh qua GrabCast.')}</p><p class="tiny muted" id="socTz" style="margin:.25rem 0 0"></p></div>
@@ -364,7 +372,7 @@
     function paint() { const b = $('#socBody'); if (!b) return; b.setAttribute('aria-labelledby', 'socT-' + tab); if (MGR.has(tab)) { const t = tab; b.innerHTML = `<p class="small muted">${S('Đang tải…')}</p>`; mgr().then(M => { if (alive() && tab === t) M.paint(t, b, mctx()); }).catch(e => { b.innerHTML = `<p class="small bad-t">${esc(errText(e))}</p>`; }); return; } ({ compose, calendar: calendarTab, posts: postsTab, accounts: accountsTab })[tab](b); }
     // Mục quản lý (js/admin-social-mgr.js, tải lười): duyệt bài, hàng đợi, sức khỏe, phân tích, bình luận + chọn clip/AI/bộ kênh cho trình soạn
     const mgr = () => (window.AdminSocialMgr ? Promise.resolve(window.AdminSocialMgr) : new Promise((y, n) => { const sc = document.createElement('script'); sc.src = 'js/admin-social-mgr.js'; sc.onload = () => y(window.AdminSocialMgr); sc.onerror = () => n(new Error('admin-social-mgr.js')); document.head.appendChild(sc); }));
-    const mctx = () => ({ focus: (() => { const f = focusId; focusId = null; return f; })(), sapi, L, esc, lang, D, accById, modal, both: t => both(t), errText, alive, LS, reloadPosts: () => reloadPosts(), reloadAccounts: () => sapi('GET', 'accounts').then(r => { D.accounts = arr(r).filter(a => platKey(accPlat(a)) !== 'google_drive'); }).catch(() => {}) });
+    const mctx = () => ({ focus: (() => { const f = focusId; focusId = null; return f; })(), sapi, L, esc, lang, D, accById, modal, both: t => both(t), errText, alive, LS, yapi: h.yapi || null, goBoard: id => { focusId = id; go('board'); }, reloadPosts: () => reloadPosts(), reloadAccounts: () => sapi('GET', 'accounts').then(r => { D.accounts = arr(r).filter(a => platKey(accPlat(a)) !== 'google_drive'); }).catch(() => {}) });
     libPush = (k, v) => sapi('POST', 'lk/lib/save', { kind: k, items: v }).catch(() => {});
     sapi('GET', 'lk/lib').then(r => { let ch = false; for (const k of ['tpl', 'tags']) if (Array.isArray(r[k]) && JSON.stringify(r[k]) !== JSON.stringify(LS.get(k, null))) { LS.set(k, r[k], true); ch = true; } if (ch && alive() && tab === 'compose') { paintTpl(); paintTags(); } }).catch(() => {});
 

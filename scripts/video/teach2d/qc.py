@@ -1,15 +1,18 @@
 #!/usr/bin/env python3
 """Teach2D QC (docs/VIDEO-TEACH2D.md): every gate must pass and the weighted score must be >= 90, else exit 1 (nothing ships).
   python3 scripts/video/teach2d/qc.py --timeline PROPS.json.timeline.json [--video OUT.mp4] [--sheet OUT.sheet.jpg] [--out qc.json]
-Gates: voice_teacher · pace (<= 150 wpm) · caption_sync (caption == script == whisper) · mouth (talk only while speaking, listen in pauses)
+Gates: voice_teacher · pace (<= 150 wpm) · caption_sync (caption == script == whisper) · mouth (registry host: talk only while speaking, listen in pauses)
+· lipsync_rig (TeacherRig host: every Rhubarb cue >= 50 ms on screen within +-33 ms, X in silences > 0.35 s, no pose over the mouth, frame count – lipsync_gate.py)
 · hook (on screen at frame 0, <= 6 words, spoken by 2.2 s) · cue_timing (+-80 ms on the word) · layout (text in SAFE, no overlap, head clear)
 · contrast (text >= 4.5:1, large >= 3:1, both on the real fill) · min_text · ipa (== audited bank, stress dot == IPA stress mark) · cta (deep link)
 · duration · file (fps, AAC, duration, -16 LUFS) · frames (teacher visible every second, no blank frame) – the last two need --video."""
 import argparse, json, os, re, subprocess, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); from labels import nf_of   # noqa: E402  one frame-count formula
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(f'{HERE}/../../..')
 sys.path.insert(0, f'{ROOT}/scripts/video/motion'); sys.path.insert(0, f'{ROOT}/scripts/video/tpl')
 import core as C  # noqa: E402
 sys.path.insert(0, HERE); import pace as P  # noqa: E402
+import lipsync_gate as LG  # noqa: E402
 from overlay_gates import contrast as _cr, bank_ipa, stress_index  # noqa: E402
 def contrast(a, b): return _cr(*[[int(x[i:i + 2], 16) for i in (1, 3, 5)] for x in (a, b)])
 ap = argparse.ArgumentParser(); ap.add_argument('--timeline', required=True); ap.add_argument('--video'); ap.add_argument('--sheet'); ap.add_argument('--out')
@@ -42,7 +45,7 @@ if T['format'] == 'short':
     if capw != allw: bad.append(dict(captions='caption tokens != spoken tokens'))
 gate('caption_sync', not bad, 3, bad=bad[:6])
 # mouth: talk frames cover every spoken word, no talk in silences > 0.35 s
-fps = T['fps']; nf = int(round(T['total'] * fps)); talk = [False] * nf
+fps = T['fps']; nf = nf_of(T); talk = [False] * nf
 for s in T['segs']:
     for f in range(s['from'], min(nf, s['from'] + s['dur'])): talk[f] = s['clip'] == 'talk'
 miss = [w['w'] for v in L.values() for w in v['words'] if not all(talk[f] for f in range(int(w['s'] * fps) + 1, max(int(w['s'] * fps) + 2, int(w['e'] * fps))) if f < nf)]
@@ -58,7 +61,12 @@ for i, s_ in enumerate(HS):
         a_ = 1.0 if i == 0 or not XF or not can(i - 1) else C.ease_out((f - s_['from']) / XF); cov[f] = max(cov[f], a_)
 holes = [round(f / fps, 2) for f in range(nf) if cov[f] < 0.99]   # an outgoing clip under a fade counts 1.0
 gate('host_cover', not holes and HL, 3, holes=holes[:6], frames=nf)
-gate('mouth', not miss and not long_talk, 3, words_without_talk=miss[:5], talk_in_silence=long_talk[:5], segments=len(T['segs']))
+if T.get('host') == 'rig':   # TeacherRig host: the mouth is the episode's own visemes, checked frame by frame on what rig_host.mjs rendered
+    rg = T['rig']
+    if os.path.exists(rg['frames']): lr = LG.check(T, json.load(open(rg['frames'])), rg['vo'])
+    else: lr = dict(ok=False, missing=rg['frames'])
+    gate('lipsync_rig', lr.pop('ok'), 3, **lr)
+else: gate('mouth', not miss and not long_talk, 3, words_without_talk=miss[:5], talk_in_silence=long_talk[:5], segments=len(T['segs']))
 # hook
 hk = [n for n in T['nodes'] if n.get('hook')]
 gate('hook', hk and alpha(hk[0], 0.0) >= 0.99 and len(L['h']['text'].split()) <= 6 and L['h']['words'][-1]['e'] <= 2.2, 3,

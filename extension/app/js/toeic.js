@@ -52,10 +52,10 @@
       </div>
       <a class="card hover" href="#/toeic-sw" style="display:block;margin-top:1rem;text-decoration:none;color:inherit"><div class="row between"><div><h3 style="margin:0">🎙️ TOEIC Speaking & Writing</h3><div class="small muted" style="margin-top:.2rem">${t('Nói và viết theo các dạng bài của ETS: bài mẫu, tiêu chí chấm, chấm đọc to tự động.')}</div></div><span class="btn sm primary">${t('Luyện tập')} →</span></div></a>
       <h2 style="margin-top:1.4rem">🎯 ${t('Luyện theo Part')}</h2>${tabs}
-      <h3 style="margin:.8rem 0 .4rem">🎧 Listening</h3>
+      <h3 style="margin:.8rem 0 .4rem">🎧 <span lang="en" translate="no">Listening</span></h3>
       <div class="grid auto">${T().listening.filter(p => p.test === cur).map(p => `<div class="card"><span class="chip">Part ${p.part} · ${L_PART()[p.part] || ''}</span><h3 style="margin:.5rem 0 .2rem">Test ${p.test} · ${esc(p.title)}</h3><div class="small muted">${App.listening ? t('{n} câu', { n: App.listening.qNums(p).length }) : ''}</div>
-        <div class="row" style="margin-top:.6rem"><a class="btn sm primary" href="#/listen/${p.id}">🎯 ${t('Luyện tập')}</a><a class="btn sm" href="#/listen/${p.id}?mode=exam">⏱ ${t('Nghe 1 lần')}</a><a class="btn sm ghost" href="#/dictation/${p.id}">⌨️ ${t('Chép chính tả')}</a></div></div>`).join('') || `<div class="card muted">${t('Đang cập nhật.')}</div>`}</div>
-      <h3 style="margin:1rem 0 .4rem">📖 Reading</h3>
+        <div class="card-acts"><a class="btn sm primary" href="#/listen/${p.id}">${UI.icon('target')} ${t('Luyện tập')}</a><a class="btn sm" href="#/listen/${p.id}?mode=exam">${UI.icon('timer')} ${t('Nghe 1 lần')}</a><a class="btn sm" href="#/dictation/${p.id}">${UI.icon('keyboard')} ${t('Chép chính tả')}</a></div></div>`).join('') || `<div class="card muted">${t('Đang cập nhật.')}</div>`}</div>
+      <h3 style="margin:1rem 0 .4rem">📖 <span lang="en" translate="no">Reading</span></h3>
       <div class="grid auto">${T().reading.filter(rt => rt.test === cur).flatMap(rt => rt.parts.map(pt => `<div class="card"><span class="chip">Part ${pt.part} · ${R_PART()[pt.part] || ''}</span><h3 style="margin:.5rem 0 .2rem">Test ${rt.test} · ${esc(pt.title)}</h3><div class="small muted">${t('{n} câu', { n: countPart(pt) })}</div>
         <div class="row" style="margin-top:.6rem"><a class="btn sm primary" href="#/toeic-r/${rt.id}?part=${pt.part}">🎯 ${t('Luyện Part {n}', { n: pt.part })}</a></div></div>`)).join('') || `<div class="card muted">${t('Đang cập nhật.')}</div>`}</div>
       <div class="card" style="margin-top:1.2rem"><h3 style="margin-top:0">💡 ${t('Chiến lược TOEIC')}</h3><ul class="small" style="line-height:1.8;padding-left:1.1rem">
@@ -106,31 +106,48 @@
     const LP = T().listening.filter(p => p.test === n).sort((a, b) => a.part - b.part), RT = T().reading.find(x => x.test === n);
     if (!LP.length || !RT) return routes.toeic();
     const res = { L: {}, R: {} };
-    let player = null, timer = null;
+    let player = null, timer = null, run = null, clk = null;
+    // Đồng hồ = ExamClock (mốc thời gian): Listening 45′ và Reading 75′ theo chuẩn ETS cho 100 câu, đề ít câu hơn thì chia theo tỉ lệ
+    const KL = 'toeic.' + n + '.L', KR = 'toeic.' + n + '.R', STD = window.ExamClock ? ExamClock.STD.toeic : null;
     // Lưu bài làm dở (đề dài ~2 giờ): tải lại trang / app bị tắt vẫn tiếp tục được – Listening theo Part, Reading từng đáp án + đồng hồ
     const SK = 'lk.toeicRun.' + n;
     const save = x => { try { localStorage.setItem(SK, JSON.stringify({ ...x, res, at: Date.now() })); } catch (e) { /* bỏ qua */ } };
     const saved = (() => { try { const x = JSON.parse(localStorage.getItem(SK) || 'null'); return x && Date.now() - x.at < 864e5 ? x : null; } catch (e) { return null; } })();
-    const clearRun = () => { try { localStorage.removeItem(SK); } catch (e) { /* bỏ qua */ } };
+    const clearRun = () => { try { localStorage.removeItem(SK); } catch (e) { /* bỏ qua */ } if (App.listening.runDrop) App.listening.runDrop(KL); if (window.ExamClock) ExamClock.clear(KR); };
     document.body.classList.add('bare');
     window.onbeforeunload = () => t('Bạn đang làm bài thi – rời trang sẽ mất kết quả.');
-    App.cleanup = () => { if (player) player.stop(); clearInterval(timer); document.body.classList.remove('bare'); window.onbeforeunload = null; };
+    App.cleanup = () => { if (player) player.stop(); if (run) run.stop(); if (clk) clk.stop(); clearInterval(timer); document.body.classList.remove('bare'); window.onbeforeunload = null; };
     const bar = (title, right = '') => `<div class="mk-bar"><div class="row nowrap"><b>💼 TOEIC Mock · Test ${n}</b><span class="chip">${esc(title)}</span></div><div class="row nowrap">${right}<a class="btn sm ghost" href="#/toeic" data-confirm="${esc(t('Thoát bài thi?'))}">${t('Thoát')}</a></div></div>`;
+    const enrich = (p, r) => { Object.keys(r).forEach(q => { r[q].part = p.part; { const i0 = p.groups.flatMap(g => g.items || []).find(i => i.n === +q) || {}; r[q].explain = QE.exT(i0.explain, i0._mv); } }); return r; };
+    // Listening như thi thật: chuẩn bị 5 giây rồi TỰ PHÁT từng Part, chỉ nghe 1 lần, hết Part tự sang Part kế, hết giờ/hết Part cuối → sang Reading
     const lPart = k => {
+      if (App.listening.runSection && window.ExamClock) {
+        const items = LP.reduce((a, p) => a + QE.numsOf(p).length, 0);
+        save({ stage: 'L', k });
+        run = App.listening.runSection({
+          key: KL, parts: LP, secs: Math.max(10, Math.round(STD.listening * items / STD.items)) * 60, review: 30, prepSecs: STD.prep, gap: 5, name: 'TOEIC Listening',
+          frame: (j, p, inner) => `${bar('Listening · Part ' + p.part, '<span id="xClock"></span>')}<div style="margin-top:1rem"></div>${inner}`,
+          collect: (p, box) => enrich(p, QE.collect(p, box)),
+          onDone: (r, timeUp) => { run = null; Object.assign(res.L, r); save({ stage: 'R' }); if (timeUp) toast(t('Hết giờ Listening – chuyển sang Reading')); reading(); window.scrollTo({ top: 0 }); },
+        });
+        return;
+      }
       const p = LP[k];
-      view.innerHTML = `${bar('Listening · Part ' + p.part)}<div class="card lplayer" style="margin-top:1rem"><b id="tState">🔊 ${t('Đang phát – chỉ nghe 1 lần')}</b><span class="lnow small muted" id="lNow"></span></div>
+      view.innerHTML = `${bar('Listening · Part ' + p.part)}<div class="card lplayer" style="margin-top:1rem"><b id="tState">⏳ ${t('Đang tải…')}</b><span class="lnow small muted" id="lNow"></span></div>
         <div class="card" id="lQs">${QE.questionsHtml(p)}<div class="row" style="margin-top:1rem"><button class="btn primary" id="tNext" disabled>${k < LP.length - 1 ? t('Phần tiếp') + ' →' : t('Sang Reading') + ' →'}</button></div></div>`;
       QE.bind($('#lQs'));
-      player = App.listening.Player(p, { onEnd: () => { const s = $('#tState'); if (s) s.textContent = '✓ ' + t('Hết phần nghe'); const b = $('#tNext'); if (b) b.disabled = false; } });
+      player = App.listening.Player(p, { onSound: () => { const s = $('#tState'); if (s) s.textContent = '🔊 ' + t('Đang phát – chỉ nghe 1 lần'); },
+        onBlocked: () => { const s = $('#tState'); if (!s) return; s.innerHTML = `<button class="btn primary" id="tTap">▶ ${t('Chạm ▶ để nghe')}</button> <span class="small muted">${t('Âm thanh chưa phát được – chạm để nghe (chưa tính lượt nghe)')}</span>`; $('#tTap').onclick = () => { s.textContent = '⏳ ' + t('Đang tải…'); player.play(); }; },
+        onEnd: () => { const s = $('#tState'); if (s) s.textContent = '✓ ' + t('Hết phần nghe'); const b = $('#tNext'); if (b) b.disabled = false; } });
       player.play(0);
       setTimeout(() => { const b = $('#tNext'); if (b) b.disabled = false; }, 30000);
-      $('#tNext').onclick = () => { player.stop(); const r = QE.collect(p, $('#lQs')); Object.keys(r).forEach(q => { r[q].part = p.part; { const i0 = p.groups.flatMap(g => g.items || []).find(i => i.n === +q) || {}; r[q].explain = QE.exT(i0.explain, i0._mv); } }); Object.assign(res.L, r); save(k < LP.length - 1 ? { stage: 'L', k: k + 1 } : { stage: 'R' }); if (k < LP.length - 1) lPart(k + 1); else reading(); window.scrollTo({ top: 0 }); };
+      $('#tNext').onclick = () => { player.stop(); const r = enrich(p, QE.collect(p, $('#lQs'))); Object.assign(res.L, r); save(k < LP.length - 1 ? { stage: 'L', k: k + 1 } : { stage: 'R' }); if (k < LP.length - 1) lPart(k + 1); else reading(); window.scrollTo({ top: 0 }); };
     };
     const reading = (restore) => {
       const units = RT.parts.flatMap(pt => unitsOf(pt).map(u => ({ ...u, part: pt.part })));
       const mins = Math.max(20, Math.round(units.reduce((a, u) => a + u.groups.reduce((b, g) => b + g.items.length, 0), 0) * 0.75));
       const nums = units.flatMap(u => QE.numsOf({ groups: u.groups }));
-      view.innerHTML = `${bar('Reading', `<span class="small muted" id="tCnt"></span><span class="mk-clock" id="tClock"></span>`)}<div class="tx-wrap"><div id="tq">${units.map(unitHtml).join('')}<div class="row" style="margin-top:1rem"><button class="btn primary" id="tSub">${t('Nộp bài')}</button></div></div>
+      view.innerHTML = `${bar('Reading', `<span class="small muted" id="tCnt"></span><span ${window.ExamClock ? '' : 'class="mk-clock" '}id="tClock"></span>`)}<div class="tx-wrap"><div id="tq">${units.map(unitHtml).join('')}<div class="row" style="margin-top:1rem"><button class="btn primary" id="tSub">${t('Nộp bài')}</button></div></div>
         <aside class="tx-nav card"><b class="small">${t('Bảng câu hỏi')}</b><div class="tx-grid">${nums.map(q => `<button data-go="${q}">${q}</button>`).join('')}</div><div class="tiny muted" style="margin-top:.5rem">${t('Ô tô màu = đã trả lời · bấm số để nhảy tới câu')}</div></aside></div>`;
       QE.bind($('#tq'));
       // Bảng câu hỏi: đánh dấu câu đã làm, bấm để nhảy tới
@@ -143,9 +160,13 @@
       $('#tq').addEventListener('change', () => { paint(); keep(); }); $('#tq').addEventListener('input', paint); paint();
       $$('.tx-grid [data-go]').forEach(b => b.onclick = () => { const q = b.dataset.go, el = $(`#tq [data-item="${q}"]`) || $$('#tq [data-item]').find(x => x.dataset.item.split(',').includes(q)); if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'center' }); el.classList.add('tx-flash'); setTimeout(() => el.classList.remove('tx-flash'), 1200); } });
       let left = restore && restore.left > 0 ? restore.left : mins * 60; const tick = () => { left--; if (left % 15 === 0) keep(); const c = $('#tClock'); if (c) { c.textContent = `${String(Math.floor(left / 60)).padStart(2, '0')}:${String(left % 60).padStart(2, '0')}`; c.classList.toggle('warn', left < 300); } if (left <= 0) submit(); };
-      tick(); timer = setInterval(tick, 1000);
-      const submit = () => { clearInterval(timer); units.forEach((u, k) => { const r = QE.collect({ groups: u.groups }, $(`.toeic-u[data-u="${k}"]`)); Object.values(r).forEach(x => { x.part = u.part; }); Object.keys(r).forEach(q => { { const i0 = u.groups.flatMap(g => g.items || []).find(i => i.n === +q) || {}; r[q].explain = QE.exT(i0.explain, i0._mv); } }); Object.assign(res.R, r); }); finish(); };
+      if (!window.ExamClock) { tick(); timer = setInterval(tick, 1000); }
+      const submit = () => { clearInterval(timer); if (clk) { clk.done(); clk = null; } units.forEach((u, k) => { const r = QE.collect({ groups: u.groups }, $(`.toeic-u[data-u="${k}"]`)); Object.values(r).forEach(x => { x.part = u.part; }); Object.keys(r).forEach(q => { { const i0 = u.groups.flatMap(g => g.items || []).find(i => i.n === +q) || {}; r[q].explain = QE.exT(i0.explain, i0._mv); } }); Object.assign(res.R, r); }); finish(); };
       $('#tSub').onclick = () => { const miss = nums.filter(q => !answered(q)).length; if (confirm(miss ? t('Còn {n} câu chưa làm. Vẫn nộp bài?', { n: miss }) : t('Nộp bài Reading?'))) submit(); };
+      if (window.ExamClock) {
+        if (!restore) ExamClock.clear(KR);
+        clk = ExamClock.mount($('#tClock'), { key: KR, secs: mins * 60, left: restore && restore.left, name: 'TOEIC Reading', onTick: L => { left = L; }, onEnd: () => { clk = null; left = 0; toast(t('Hết giờ Reading – bài đã được tự nộp')); submit(); } });
+      }
     };
     const finish = async () => {
       App.cleanup(); App.cleanup = null; clearRun();
@@ -191,7 +212,7 @@
     $('#tTest').onclick = () => UI.tts('This is a sound check. If you can hear this clearly, you are ready.', 'en-US');
     $('#tGo').onclick = () => { clearRun(); lPart(0); };
     if (saved) {
-      $('#tGo').insertAdjacentHTML('beforebegin', `<button class="btn lg block" id="tResume" style="margin-top:1.1rem">⏯ ${saved.stage === 'R' ? t('Tiếp tục bài đang làm – Reading (còn {m} phút)', { m: Math.ceil((saved.left || 0) / 60) || '…' }) : t('Tiếp tục bài đang làm – Listening Part {p}', { p: (LP[saved.k] || LP[0]).part })}</button>`);
+      $('#tGo').insertAdjacentHTML('beforebegin', `<button class="btn lg block" id="tResume" style="margin-top:1.1rem">⏯ ${saved.stage === 'R' ? t('Tiếp tục bài đang làm – Reading (còn {m} phút)', { m: Math.ceil((saved.left || 0) / 60) || '…' }) : t('Tiếp tục bài đang làm – Listening Part {p}', { p: (LP[((App.listening.runResume && App.listening.runResume(KL)) || saved).k] || LP[0]).part })}</button>`);
       $('#tResume').onclick = () => { Object.assign(res, saved.res || {}); if (saved.stage === 'R') reading(saved); else lPart(Math.min(saved.k || 0, LP.length - 1)); };
     }
   };
@@ -200,9 +221,11 @@
   const SW = () => window.TOEIC_SW || { speaking: [], writing: [] };
   const SWT = {
     read: { sec: 'speaking', name: 'Read a Text Aloud', ic: '📢', max: 3, get desc() { return t('Đọc to một đoạn thông báo hoặc quảng cáo: 45 giây chuẩn bị, 45 giây đọc.'); } },
+    picture: { sec: 'speaking', name: 'Describe a Picture', ic: '🖼️', max: 3, get desc() { return t('Mô tả một bức ảnh: 45 giây chuẩn bị, 30 giây nói (2 ảnh mỗi đề).'); } },
     respond: { sec: 'speaking', name: 'Respond to Questions', ic: '💬', max: 3, get desc() { return t('Trả lời 3 câu hỏi về một chủ đề quen thuộc (15, 15 và 30 giây).'); } },
     info: { sec: 'speaking', name: 'Respond to Questions Using Information Provided', ic: '📋', max: 3, get desc() { return t('Đọc lịch hoặc bảng thông tin rồi trả lời 3 câu hỏi của người gọi.'); } },
     opinion: { sec: 'speaking', name: 'Express an Opinion', ic: '🗣️', max: 5, get desc() { return t('Nêu và bảo vệ ý kiến: 45 giây chuẩn bị, 60 giây nói.'); } },
+    'picture-sentence': { sec: 'writing', name: 'Write a Sentence Based on a Picture', ic: '✏️', max: 3, get desc() { return t('Viết một câu cho mỗi ảnh (5 ảnh) với hai từ cho sẵn, trong 8 phút.'); } },
     request: { sec: 'writing', name: 'Respond to a Written Request', ic: '📧', max: 4, get desc() { return t('Trả lời một email công việc trong 10 phút.'); } },
     essay: { sec: 'writing', name: 'Write an Opinion Essay', ic: '📝', max: 5, get desc() { return t('Viết bài nêu ý kiến ít nhất 300 từ trong 30 phút.'); } },
   };
@@ -259,7 +282,7 @@
     if (!SWT[task]) {
       view.innerHTML = `<a href="#/toeic" class="small">← TOEIC</a>
         <div class="page-head" style="margin-top:.4rem"><div><h1>🎙️ TOEIC Speaking & Writing</h1><p class="muted">${t('Nói và viết theo các dạng bài của ETS: bài mẫu, tiêu chí chấm, chấm đọc to tự động.')}</p></div></div>
-        <div class="card small" style="margin-bottom:1rem">🗂️ ${t('Đề thật của ETS: Speaking 11 câu (khoảng 20 phút), Writing 8 câu (khoảng 60 phút), mỗi phần thang điểm 0–200. Ứng dụng chưa có dạng bài mô tả tranh (Speaking câu 3–4, Writing câu 1–5).')}</div>
+        <div class="card small" style="margin-bottom:1rem">🗂️ ${t('Đề thật của ETS: Speaking 11 câu (khoảng 20 phút), Writing 8 câu (khoảng 60 phút), mỗi phần thang điểm 0–200.')}</div>
         <div class="grid g2">${['speaking', 'writing'].map(sec => `<div class="card"><h2 style="margin-top:0">${sec === 'speaking' ? '🗣️ Speaking' : '✍️ Writing'}</h2>
           ${Object.entries(SWT).filter(([, v]) => v.sec === sec).map(([k, v]) => `<div style="margin:.8rem 0;padding-top:.6rem;border-top:1px solid var(--line)"><div class="row between"><b>${v.ic} ${esc(v.name)}</b><span class="chip">${swUnits(k).length}</span></div>
             <div class="small muted" style="margin:.2rem 0 .4rem">${v.desc}</div><a class="btn sm primary" href="#/toeic-sw/${k}">🎯 ${t('Luyện tập')}</a></div>`).join('')}</div>`).join('')}</div>`;
@@ -271,7 +294,7 @@
       <div class="row" style="margin-bottom:.8rem">${units.map((x, k) => `<a class="chip ${k === i ? 'lv' : ''}" href="#/toeic-sw/${task}?i=${k}">${esc(t('Đề {n}', { n: k + 1 }))} · ${esc(x.title)}</a>`).join('')}</div>
       <div id="swBody"></div>`;
     if (!u) { $('#swBody').innerHTML = `<div class="card muted">${t('Đang cập nhật.')}</div>`; return; }
-    ({ read: swRead, respond: swQs, info: swQs, opinion: swOpinion, request: swWrite, essay: swWrite })[task](u, $('#swBody'), T1);
+    ({ read: swRead, picture: swPic, respond: swQs, info: swQs, opinion: swOpinion, 'picture-sentence': swPS, request: swWrite, essay: swWrite })[task](u, $('#swBody'), T1);
   };
 
   function swRead(u, body, T1) {
@@ -286,7 +309,7 @@
     $('#swHear').onclick = () => UI.tts(u.text, accent, 0.95);
     const start = async () => {
       swStop(); UI.stopSpeak(); go.textContent = '⏹'; $('#swPrepB').disabled = true; phase.textContent = '🔴 ' + t('Đang ghi âm – bấm lần nữa để dừng');
-      const SR = window.SpeechRecognition || window.webkitSpeechRecognition, segs = [], tStart = performance.now(); let t0 = 0;
+      const SRC = window.SpeechRecognition || window.webkitSpeechRecognition, SR = UI.micParallel(SRC) ? SRC : null, segs = [], tStart = performance.now(); let t0 = 0; // mic độc quyền: bài này giữ ghi âm để nghe lại (LX-1003)
       if (SR) { try { const r = sw.sr = new SR(); r.lang = accent; r.continuous = true; r.interimResults = false; r.onspeechstart = () => { t0 = t0 || performance.now(); }; r.onresult = e => { for (let k = e.resultIndex; k < e.results.length; k++) if (e.results[k].isFinal) { t0 = t0 || tStart; /* SỬA LỖI: trình duyệt không phát onspeechstart → trước đây lấy (kết quả đầu − 1,5 s), nhưng cụm đầu thường dài 5–10 s → từ/phút bị thổi phồng; nay lấy lúc bắt đầu ghi */ segs.push({ text: e.results[k][0].transcript.trim(), t: performance.now() }); } }; r.onerror = () => {}; r.start(); } catch (e) { sw.sr = null; } }
       const ok = await swRecord(u.secs, left => { clock.textContent = mmss(left); clock.classList.toggle('warn', left <= 10); }, url => {
         try { if (sw.sr) sw.sr.stop(); } catch (e) { /* đã dừng */ }
@@ -347,18 +370,27 @@
     show();
   }
 
+  const swImg = (img, alt) => `<img src="img/toeic/${img}.jpg" width="800" height="533" loading="lazy" alt="${esc(alt)}" style="display:block;width:100%;max-width:560px;max-height:60vh;object-fit:contain;margin:.6rem auto;border-radius:12px">`;
+  // Mô tả tranh (Speaking câu 3–4): mỗi ảnh = một lượt như Express an Opinion (chuẩn bị 45 s + nói 30 s); bảng tiêu chí hiện ở ảnh cuối
+  function swPic(u, body, T1, qi = 0) {
+    const n = u.questions.length, go = d => { swStop(); swPic(u, body, T1, qi + d); };
+    swOpinion({ ...u.questions[qi], id: u.id, title: u.title, accent: u.accent, checklist: qi === n - 1 ? u.checklist : null }, body, T1);
+    body.insertAdjacentHTML('beforeend', `<div class="row between" style="margin-top:.8rem"><span class="chip">${t('Câu {i}/{n}', { i: qi + 1, n })}</span><span>${qi ? `<button class="btn ghost" id="pcPrev">← ${t('Câu trước')}</button>` : ''}${qi < n - 1 ? ` <button class="btn primary" id="pcNext">${t('Câu hỏi tiếp')} →</button>` : ''}</span></div>`);
+    const a = $('#pcPrev'), b = $('#pcNext'); if (a) a.onclick = () => go(-1); if (b) b.onclick = () => go(1);
+  }
+
   function swOpinion(u, body, T1) {
     const accent = u.accent || 'en-US';
-    body.innerHTML = `<div class="card"><div class="lq-instr"><i>Directions: In this part of the test, you will give your opinion about a specific topic. Be sure to say as much as you can in the time allowed. You will have ${u.prep} seconds to prepare. Then you will have ${u.secs} seconds to speak.</i></div>
-      <div class="row between"><span class="chip">${u.secs}s</span><button class="btn sm" id="ivHear">🔊 ${t('Nghe câu hỏi')}</button></div>
-      <div style="font-size:1.12rem;font-weight:700;margin:.8rem 0">${esc(u.q)}</div>
+    body.innerHTML = `<div class="card"><div class="lq-instr"><i>Directions: In this part of the test, you will ${u.img ? 'describe the picture on your screen in as much detail as you can' : 'give your opinion about a specific topic. Be sure to say as much as you can in the time allowed'}. You will have ${u.prep} seconds to prepare. Then you will have ${u.secs} seconds to speak.</i></div>
+      <div class="row between"><span class="chip">${u.secs}s</span>${u.img ? '' : `<button class="btn sm" id="ivHear">🔊 ${t('Nghe câu hỏi')}</button>`}</div>
+      ${u.img ? swImg(u.img, u.title) : `<div style="font-size:1.12rem;font-weight:700;margin:.8rem 0">${esc(u.q)}</div>`}
       <div style="text-align:center"><div class="small muted" id="swPhase">${t('Chuẩn bị')}</div><div class="timer" id="swClock" style="font-size:2.2rem">${mmss(u.prep)}</div>
         <div class="row center" style="margin-top:.6rem"><button class="btn" id="swPrepB">⏱ ${t('Bắt đầu chuẩn bị')}</button><button class="btn primary" id="swGo">🎙️ ${t('Nói ngay')}</button></div><div id="ivAudio" style="margin-top:.6rem"></div></div>
       <details style="margin-top:.8rem"><summary class="small"><b>📝 ${t('Câu trả lời mẫu & mẹo')}</b> <span class="tiny muted">– ${t('xem sau khi đã tự trả lời')}</span></summary>
-        <div style="margin-top:.5rem;line-height:1.7">${esc(u.model)} <button class="ctx-say sm" data-saysent="${esc(u.model)}">🔊</button></div>${extraHtml(u)}</details></div>
+        <div style="margin-top:.5rem;line-height:1.7">${esc(u.model)} <button class="ctx-say sm" data-saysent="${esc(u.model)}">🔊</button></div>${u.tip ? `<div class="tip small" style="margin-top:.5rem">💡 ${esc(u.tip)}</div>` : ''}${extraHtml(u)}</details></div>
       ${ckHtml(u, T1.max)}`;
     const clock = $('#swClock'), phase = $('#swPhase'), go = $('#swGo');
-    $('#ivHear').onclick = () => UI.tts(u.q, accent, 0.95);
+    if (!u.img) $('#ivHear').onclick = () => UI.tts(u.q, accent, 0.95);
     const start = async () => {
       swStop(); UI.stopSpeak(); $('#swPrepB').disabled = true;
       const ok = await swRecord(u.secs, left => { clock.textContent = mmss(left); clock.classList.toggle('warn', left <= 10); }, url => {
@@ -371,6 +403,34 @@
     go.onclick = () => { if (sw.media && sw.media.state === 'recording') { try { sw.media.stop(); } catch (e) { /* đã dừng */ } return; } start(); };
     $('#swPrepB').onclick = () => { swStop(); $('#swPrepB').disabled = true; swPrep(u.prep, left => { clock.textContent = mmss(left); }, start); };
     ckBind(u, T1.max);
+  }
+
+  // Viết câu theo tranh (Writing câu 1–5): máy kiểm tức thì 2 điều – đủ 2 từ cho sẵn (chịu đổi dạng từ) và đúng một câu; phần còn lại so với bài mẫu
+  const psHas = (s, w) => { w = w.toLowerCase().replace(/y$/, '').replace(/(ing|ed|es|s|e)$/, ''); return (s.toLowerCase().match(/[a-z']+/g) || []).some(x => w.length > 3 ? x.startsWith(w) : new RegExp('^' + w + '.?(s|es|ed|ing)?$').test(x)); };
+  const psOne = s => wc(s) >= 5 && /[.!?]$/.test(s) && (s.match(/[.!?]+(\s|$)/g) || []).length === 1;
+  function swPS(u, body, T1) {
+    body.innerHTML = `<div class="toeic-pass"><div class="small"><i>Directions: Write ONE sentence based on each picture. You must use the TWO words or phrases under the picture. You may change the forms of the words, and you may use them in any order. You have ${u.minutes} minutes to complete this part.</i></div></div>
+      <div class="row between" style="margin:.7rem 0"><span class="small muted">${t('Đồng hồ ({m} phút) chạy khi bạn bắt đầu gõ.', { m: u.minutes })}</span><span class="mk-clock timer" id="wClock" role="timer">${mmss(u.minutes * 60)}</span></div>
+      <div class="grid g2">${u.items.map((x, k) => `<div class="card" style="margin:0">${swImg(x.img, u.title + ' ' + (k + 1))}<div class="small"><b>${k + 1}.</b> ${x.words.map(w => `<span class="chip">${esc(w)}</span>`).join(' ')}</div>
+        <label class="tiny muted" for="ps${k}">${t('Câu của bạn')}</label><input class="input" id="ps${k}" data-ps="${k}" maxlength="240" autocomplete="off" spellcheck="false">
+        <div class="small" id="psR${k}" aria-live="polite" style="margin-top:.3rem"></div></div>`).join('')}</div>
+      <div class="row" style="margin-top:.8rem"><button class="btn primary" id="wModel">✅ ${t('Nộp & kiểm tra')}</button></div><div id="wOut" aria-live="polite" style="margin-top:1rem"></div>`;
+    let left = u.minutes * 60, started = false, rewarded = false;
+    $$('[data-ps]').forEach(el => el.addEventListener('input', () => {
+      if (started) return; started = true;
+      sw.timers.push(setInterval(() => { left--; const c = $('#wClock'); if (!c) return; c.textContent = left > 0 ? mmss(left) : '⏰ ' + t('Hết giờ'); c.classList.toggle('warn', left < 60); }, 1000));
+    }));
+    $('#wModel').onclick = () => {
+      let ok = 0;
+      u.items.forEach((x, k) => {
+        const s = $('#ps' + k).value.trim(), a = x.words.every(w => psHas(s, w)), b = psOne(s); if (a && b) ok++;
+        $('#psR' + k).innerHTML = `${a ? '✅' : '❌'} ${t('Có đủ 2 từ cho sẵn')} · ${b ? '✅' : '❌'} ${t('Một câu hoàn chỉnh (≥ 5 từ)')}<div class="tiny muted">${t('Bài mẫu')}: ${esc(x.model)}</div>`;
+      });
+      $('#wOut').innerHTML = `<div class="card" style="margin:0"><b>${t('{a}/{n} câu đạt cả hai kiểm tra tự động', { a: ok, n: u.items.length })}</b> · ${t('Ước tính: {s}/{m} theo thang ETS', { s: Math.round(ok / u.items.length * T1.max), m: T1.max })}
+        <div class="tiny muted" style="margin-top:.3rem">${t('Chỉ là ước tính để tự luyện, không phải điểm chính thức của ETS. Máy không chấm được ngữ pháp và độ khớp với ảnh – hãy so với bài mẫu.')}</div></div>${ckHtml(u, T1.max)}`;
+      ckBind(u, T1.max);
+      if (!rewarded && ok) { rewarded = true; App.reward({ xp: 10 }); }
+    };
   }
 
   function swWrite(u, body, T1) {

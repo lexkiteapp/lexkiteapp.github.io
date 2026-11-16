@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Vocabulary Games</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "night-bg": "#10191B",
+            "night-card": "#172427",
+            "night-raised": "#1E2F33",
+            "night-border": "#243538",
+            "night-text-primary": "#E8F1F0",
+            "night-text-secondary": "#A9BDBB",
+            "teal-accent": "#2BA39A",
+            "teal-bright": "#4CD9CC",
+            "teal-icon-bg": "#1A3538",
+            "coral-cta": "#F2790F",
+            "coral-cta-border": "#E86004",
+            "coral-cta-shadow": "#943400",
+            "coral-cta-text": "#1A0D00",
+            "amber-tag-bg": "#2E2214",
+            "amber-tag-text": "#FFB356",
+            "badge-amber": "#F5BF31",
+            "badge-amber-text": "#2B1A00"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            sans: ["Plus Jakarta Sans", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-night-bg text-night-text-primary font-sans antialiased flex justify-center min-h-screen">
+<div class="w-full max-w-[390px] min-h-screen bg-night-bg flex flex-col relative pb-28">
+<!-- Top Bar -->
+<header class="sticky top-0 z-30 bg-night-bg/95 backdrop-blur-md px-4 py-3 flex items-center justify-between border-b-2 border-night-border shadow-sm">
+<button aria-label="Back to Vocab Hub" class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-2xl bg-night-card border-2 border-night-border shadow-[0_2px_0_0_#0C1415] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-night-text-primary text-xl" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="flex flex-col items-center text-center px-1">
+<h1 class="text-[19px] font-extrabold text-night-text-primary leading-tight tracking-tight">Vocabulary Games</h1>
+<span class="text-[11px] text-night-text-secondary font-bold tracking-wide">Lexical Arcade • Timed Drills</span>
+</div>
+<button aria-label="Toggle Sound" class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-2xl bg-night-card border-2 border-night-border shadow-[0_2px_0_0_#0C1415] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-night-text-primary text-xl" data-icon="volume_up">volume_up</span>
+</button>
+</header>
+<main class="flex-1 px-4 pt-4 space-y-5">
+<!-- 1. Daily Sprint Challenge Hero Banner -->
+<section aria-labelledby="daily-challenge-heading" class="rounded-2xl bg-night-card border-2 border-night-border p-4 shadow-[0_4px_0_0_#0A1214] flex flex-col gap-3 relative overflow-hidden">
+<div class="flex items-start justify-between gap-2">
+<div class="flex-1">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-tag-bg border border-amber-tag-text/40 mb-2">
+<span class="material-symbols-outlined text-amber-tag-text text-sm fill-icon" data-icon="bolt">bolt</span>
+<span class="text-[11px] text-amber-tag-text font-black uppercase tracking-wider">Daily Sprint</span>
+</div>
+<h2 class="text-xl font-black text-night-text-primary leading-tight" id="daily-challenge-heading">Speed Match: Collocations</h2>
+</div>
+<!-- Empty Dashed Teacher Slot -->
+<div aria-label="teacher-slot" class="w-14 h-14 rounded-2xl border-2 border-dashed border-teal-accent/70 bg-night-raised flex flex-col items-center justify-center text-center p-1 flex-shrink-0">
+<span class="material-symbols-outlined text-teal-bright text-lg" data-icon="psychology">psychology</span>
+<span class="text-[9px] leading-tight text-teal-bright font-black tracking-tight">teacher-slot</span>
+</div>
+</div>
+<p class="text-[13px] text-night-text-secondary font-semibold leading-snug">
+  Score 1,200+ pts in 60 seconds • Reward: +50 XP &amp; 1 Streak Shield
+</p>
+<div class="flex items-center justify-between py-0.5">
+<div class="flex items-center gap-1.5 text-night-text-secondary text-xs font-bold bg-night-raised px-3 py-1.5 rounded-full border border-night-border">
+<span class="material-symbols-outlined text-sm text-teal-bright" data-icon="timer">timer</span>
+<span>Expires in 07h 42m</span>
+</div>
+<span class="text-xs text-amber-tag-text font-black bg-amber-tag-bg border border-amber-tag-text/30 px-2.5 py-1 rounded-lg">Tier C1 Academic</span>
+</div>
+<button class="w-full min-h-[48px] mt-1 bg-coral-cta text-coral-cta-text font-extrabold text-[15px] border-2 border-coral-cta-border rounded-2xl shadow-[0_4px_0_0_#943400] flex items-center justify-center gap-2 active:translate-y-1 active:shadow-none transition-all cursor-pointer" type="button">
+<span class="material-symbols-outlined text-xl fill-icon text-coral-cta-text" data-icon="sports_esports">sports_esports</span>
+<span>Play Daily Challenge</span>
+</button>
+</section>
+<!-- 2. Arcade Training Modes -->
+<section aria-labelledby="arcade-modes-heading" class="space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<h2 class="text-[19px] font-black text-night-text-primary" id="arcade-modes-heading">Arcade Training Modes</h2>
+<span class="text-[11px] px-2.5 py-0.5 rounded-full bg-night-raised border border-night-border text-teal-bright font-extrabold">4 Disciplines</span>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-3.5">
+<!-- Card 1: Reflex -->
+<article class="bg-night-card rounded-2xl border-2 border-night-border p-4 shadow-[0_3px_0_0_#0A1214] flex flex-col justify-between gap-3">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-2xl bg-teal-icon-bg border border-teal-accent/40 text-teal-bright flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-2xl fill-icon" data-icon="bolt">bolt</span>
+</div>
+<div>
+<h3 class="text-lg font-bold text-night-text-primary leading-tight">Reflex</h3>
+<span class="text-xs text-night-text-secondary font-bold">Reaction • 60s Sprint</span>
+</div>
+</div>
+<span class="text-xs px-2.5 py-1 rounded-lg bg-night-raised text-teal-bright font-extrabold border border-night-border">Level 8</span>
+</div>
+<p class="text-[13px] text-night-text-secondary font-medium leading-relaxed">
+  Synonym &amp; Antonym Discrimination. Rapid-fire accuracy combo multiplier.
+</p>
+<div class="p-2.5 rounded-xl bg-night-raised border border-night-border space-y-1.5">
+<div class="flex justify-between items-center text-xs">
+<span class="text-night-text-secondary font-semibold">Personal Best</span>
+<span class="text-night-text-primary font-extrabold tracking-wide">2,480 pts (Combo x8)</span>
+</div>
+<div class="flex items-center gap-2 pt-0.5">
+<span class="text-[11px] text-night-text-secondary font-bold">Mastery:</span>
+<div class="flex gap-1.5">
+<span class="w-3.5 h-3.5 rounded-full bg-teal-accent inline-block"></span>
+<span class="w-3.5 h-3.5 rounded-full bg-teal-accent inline-block"></span>
+<span class="w-3.5 h-3.5 rounded-full bg-teal-accent inline-block"></span>
+<span class="w-3.5 h-3.5 rounded-full bg-night-border inline-block border border-night-border/80"></span>
+</div>
+</div>
+</div>
+<button class="w-full min-h-[46px] bg-coral-cta text-coral-cta-text font-extrabold text-sm border-2 border-coral-cta-border rounded-2xl shadow-[0_4px_0_0_#943400] flex items-center justify-center gap-2 active:translate-y-1 active:shadow-none transition-all cursor-pointer" type="button">
+<span class="material-symbols-outlined text-lg fill-icon text-coral-cta-text" data-icon="play_arrow">play_arrow</span>
+<span>Play Reflex</span>
+</button>
+</article>
+<!-- Card 2: Speed Type -->
+<article class="bg-night-card rounded-2xl border-2 border-night-border p-4 shadow-[0_3px_0_0_#0A1214] flex flex-col justify-between gap-3">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-2xl bg-teal-icon-bg border border-teal-accent/40 text-teal-bright flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-2xl" data-icon="keyboard">keyboard</span>
+</div>
+<div>
+<h3 class="text-lg font-bold text-night-text-primary leading-tight">Speed Type</h3>
+<span class="text-xs text-night-text-secondary font-bold">Orthography • Keystroke Rush</span>
+</div>
+</div>
+<span class="text-xs px-2.5 py-1 rounded-lg bg-night-raised text-teal-bright font-extrabold border border-night-border">Level 5</span>
+</div>
+<p class="text-[13px] text-night-text-secondary font-medium leading-relaxed">
+  Spelling &amp; Rapid Phoneme Transcription. Audio cues and contextual clues.
+</p>
+<div class="p-2.5 rounded-xl bg-night-raised border border-night-border space-y-1.5">
+<div class="flex justify-between items-center text-xs">
+<span class="text-night-text-secondary font-semibold">Personal Best</span>
+<span class="text-night-text-primary font-extrabold tracking-wide">42 WPM • 1,950 pts</span>
+</div>
+<div class="flex items-center gap-2 pt-0.5">
+<span class="text-[11px] text-night-text-secondary font-bold">Mastery:</span>
+<div class="flex gap-1.5">
+<span class="w-3.5 h-3.5 rounded-full bg-teal-accent inline-block"></span>
+<span class="w-3.5 h-3.5 rounded-full bg-teal-accent inline-block"></span>
+<span class="w-3.5 h-3.5 rounded-full bg-night-border inline-block border border-night-border/80"></span>
+<span class="w-3.5 h-3.5 rounded-full bg-night-border inline-block border border-night-border/80"></span>
+</div>
+</div>
+</div>
+<button class="w-full min-h-[46px] bg-coral-cta text-coral-cta-text font-extrabold text-sm border-2 border-coral-cta-border rounded-2xl shadow-[0_4px_0_0_#943400] flex items-center justify-center gap-2 active:translate-y-1 active:shadow-none transition-all cursor-pointer" type="button">
+<span class="material-symbols-outlined text-lg fill-icon text-coral-cta-text" data-icon="play_arrow">play_arrow</span>
+<span>Play Speed Type</span>
+</button>
+</article>
+<!-- Card 3: Match Pairs -->
+<article class="bg-night-card rounded-2xl border-2 border-night-border p-4 shadow-[0_3px_0_0_#0A1214] flex flex-col justify-between gap-3">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-2xl bg-teal-icon-bg border border-teal-accent/40 text-teal-bright flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-2xl" data-icon="grid_view">grid_view</span>
+</div>
+<div>
+<h3 class="text-lg font-bold text-night-text-primary leading-tight">Match Pairs</h3>
+<span class="text-xs text-night-text-secondary font-bold">Collocations • 4x3 Grid</span>
+</div>
+</div>
+<span class="text-xs px-2.5 py-1 rounded-lg bg-amber-tag-bg text-amber-tag-text font-black border border-amber-tag-text/40">Mastered</span>
+</div>
+<p class="text-[13px] text-night-text-secondary font-medium leading-relaxed">
+  Collocation &amp; Definition Matrix. Link academic verbs with natural prepositions.
+</p>
+<div class="p-2.5 rounded-xl bg-night-raised border border-night-border space-y-1.5">
+<div class="flex justify-between items-center text-xs">
+<span class="text-night-text-secondary font-semibold">Personal Best</span>
+<span class="text-night-text-primary font-extrabold tracking-wide">18.4s (Clean Run)</span>
+</div>
+<div class="flex items-center gap-2 pt-0.5">
+<span class="text-[11px] text-night-text-secondary font-bold">Mastery:</span>
+<div class="flex gap-1.5">
+<span class="w-3.5 h-3.5 rounded-full bg-teal-accent inline-block"></span>
+<span class="w-3.5 h-3.5 rounded-full bg-teal-accent inline-block"></span>
+<span class="w-3.5 h-3.5 rounded-full bg-teal-accent inline-block"></span>
+<span class="w-3.5 h-3.5 rounded-full bg-teal-accent inline-block"></span>
+</div>
+</div>
+</div>
+<button class="w-full min-h-[46px] bg-coral-cta text-coral-cta-text font-extrabold text-sm border-2 border-coral-cta-border rounded-2xl shadow-[0_4px_0_0_#943400] flex items-center justify-center gap-2 active:translate-y-1 active:shadow-none transition-all cursor-pointer" type="button">
+<span class="material-symbols-outlined text-lg fill-icon text-coral-cta-text" data-icon="play_arrow">play_arrow</span>
+<span>Play Match Pairs</span>
+</button>
+</article>
+<!-- Card 4: Word Builder -->
+<article class="bg-night-card rounded-2xl border-2 border-night-border p-4 shadow-[0_3px_0_0_#0A1214] flex flex-col justify-between gap-3">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-2xl bg-teal-icon-bg border border-teal-accent/40 text-teal-bright flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-2xl" data-icon="extension">extension</span>
+</div>
+<div>
+<h3 class="text-lg font-bold text-night-text-primary leading-tight">Word Builder</h3>
+<span class="text-xs text-night-text-secondary font-bold">Etymology &amp; Suffixes</span>
+</div>
+</div>
+<span class="text-xs px-2.5 py-1 rounded-lg bg-night-raised text-teal-bright font-extrabold border border-night-border">Level 6</span>
+</div>
+<p class="text-[13px] text-night-text-secondary font-medium leading-relaxed">
+  Assemble complex C1/C2 words from roots, prefixes, and suffixes under time pressure.
+</p>
+<div class="p-2.5 rounded-xl bg-night-raised border border-night-border space-y-1.5">
+<div class="flex justify-between items-center text-xs">
+<span class="text-night-text-secondary font-semibold">Personal Best</span>
+<span class="text-night-text-primary font-extrabold tracking-wide">1,620 pts (14 Words)</span>
+</div>
+<div class="flex items-center gap-2 pt-0.5">
+<span class="text-[11px] text-night-text-secondary font-bold">Mastery:</span>
+<div class="flex gap-1.5">
+<span class="w-3.5 h-3.5 rounded-full bg-teal-accent inline-block"></span>
+<span class="w-3.5 h-3.5 rounded-full bg-teal-accent inline-block"></span>
+<span class="w-3.5 h-3.5 rounded-full bg-teal-accent inline-block"></span>
+<span class="w-3.5 h-3.5 rounded-full bg-night-border inline-block border border-night-border/80"></span>
+</div>
+</div>
+</div>
+<button class="w-full min-h-[46px] bg-coral-cta text-coral-cta-text font-extrabold text-sm border-2 border-coral-cta-border rounded-2xl shadow-[0_4px_0_0_#943400] flex items-center justify-center gap-2 active:translate-y-1 active:shadow-none transition-all cursor-pointer" type="button">
+<span class="material-symbols-outlined text-lg fill-icon text-coral-cta-text" data-icon="play_arrow">play_arrow</span>
+<span>Play Word Builder</span>
+</button>
+</article>
+</div>
+</section>
+<!-- 3. Weekly Arcade Progress -->
+<section aria-labelledby="weekly-progress-heading" class="rounded-2xl bg-night-card border-2 border-night-border p-4 shadow-[0_3px_0_0_#0A1214] space-y-3">
+<div class="flex items-start justify-between gap-2">
+<div>
+<h2 class="text-[19px] font-black text-night-text-primary" id="weekly-progress-heading">Weekly Arcade Progress</h2>
+<p class="text-[13px] text-night-text-secondary font-semibold pt-0.5">480 / 600 XP (80% Weekly Target)</p>
+</div>
+<span class="text-[11px] px-2.5 py-1 rounded-full bg-amber-tag-bg text-amber-tag-text border border-amber-tag-text/40 font-black text-right max-w-[140px]">
+  120 XP to Gold League
+</span>
+</div>
+<!-- Progress Tracker Bar -->
+<div class="w-full h-4 rounded-full bg-night-raised border border-night-border p-0.5 overflow-hidden">
+<div class="h-full bg-teal-accent rounded-full shadow-[inset_0_1.5px_0_rgba(255,255,255,0.25)]" style="width: 80%;"></div>
+</div>
+<!-- Milestone Nodes -->
+<div class="grid grid-cols-3 gap-2 pt-1 text-center">
+<div class="p-2.5 rounded-xl bg-night-raised border border-night-border">
+<span class="material-symbols-outlined text-teal-bright text-lg fill-icon" data-icon="check_circle">check_circle</span>
+<div class="text-xs font-bold text-night-text-primary pt-1">200 XP</div>
+<div class="text-[10px] text-night-text-secondary font-semibold leading-tight">+50 Booster Claimed</div>
+</div>
+<div class="p-2.5 rounded-xl bg-night-raised border border-night-border">
+<span class="material-symbols-outlined text-teal-bright text-lg fill-icon" data-icon="check_circle">check_circle</span>
+<div class="text-xs font-bold text-night-text-primary pt-1">400 XP</div>
+<div class="text-[10px] text-night-text-secondary font-semibold leading-tight">+100 Token Claimed</div>
+</div>
+<div class="p-2.5 rounded-xl bg-amber-tag-bg border border-amber-tag-text/50">
+<span class="material-symbols-outlined text-amber-tag-text text-lg fill-icon" data-icon="emoji_events">emoji_events</span>
+<div class="text-xs font-black text-amber-tag-text pt-1">600 XP</div>
+<div class="text-[10px] text-amber-tag-text/90 font-bold leading-tight">Gold League Ticket</div>
+</div>
+</div>
+</section>
+<!-- 4. Weekly Game League • Leaderboard Teaser Row -->
+<section aria-labelledby="leaderboard-heading" class="rounded-2xl bg-night-card border-2 border-night-border p-4 shadow-[0_3px_0_0_#0A1214] space-y-3">
+<div class="flex items-center justify-between">
+<h2 class="text-[19px] font-black text-night-text-primary" id="leaderboard-heading">Weekly Game League</h2>
+<a class="min-h-[44px] inline-flex items-center text-xs text-amber-tag-text hover:text-amber-300 font-extrabold" href="#">
+  View Full Leaderboard
+</a>
+</div>
+<div class="space-y-2">
+<!-- Rank 1 -->
+<div class="flex items-center justify-between p-2.5 rounded-xl bg-night-raised border border-night-border">
+<div class="flex items-center gap-3">
+<span class="w-6 h-6 rounded-full bg-coral-cta text-coral-cta-text text-xs font-black flex items-center justify-center">1</span>
+<div>
+<span class="text-sm font-bold text-night-text-primary">Siti K.</span>
+<span class="block text-[11px] text-night-text-secondary">Oxford Band 8.0</span>
+</div>
+</div>
+<span class="text-sm font-black text-teal-bright">2,310 XP</span>
+</div>
+<!-- Rank 2 -->
+<div class="flex items-center justify-between p-2.5 rounded-xl bg-night-raised border border-night-border">
+<div class="flex items-center gap-3">
+<span class="w-6 h-6 rounded-full bg-night-border text-night-text-primary text-xs font-black flex items-center justify-center">2</span>
+<div>
+<span class="text-sm font-bold text-night-text-primary">Javier R.</span>
+<span class="block text-[11px] text-night-text-secondary">Cambridge Prep</span>
+</div>
+</div>
+<span class="text-sm font-black text-teal-bright">2,140 XP</span>
+</div>
+<!-- Rank 3 -->
+<div class="flex items-center justify-between p-2.5 rounded-xl bg-night-raised border border-night-border">
+<div class="flex items-center gap-3">
+<span class="w-6 h-6 rounded-full bg-night-border text-night-text-primary text-xs font-black flex items-center justify-center">3</span>
+<div>
+<span class="text-sm font-bold text-night-text-primary">Min-jun L.</span>
+<span class="block text-[11px] text-night-text-secondary">IELTS Intensive</span>
+</div>
+</div>
+<span class="text-sm font-black text-teal-bright">2,050 XP</span>
+</div>
+<!-- Rank 4: YOU Highlighted -->
+<div class="flex items-center justify-between p-2.5 rounded-xl bg-[#163638] text-night-text-primary border-2 border-teal-accent shadow-sm">
+<div class="flex items-center gap-3">
+<span class="w-6 h-6 rounded-full bg-teal-accent text-[#002B27] text-xs font-black flex items-center justify-center">4</span>
+<div class="flex items-center gap-1.5">
+<span class="text-sm font-black text-night-text-primary">YOU (Alex L.)</span>
+<span class="material-symbols-outlined text-amber-tag-text text-base fill-icon" data-icon="star">star</span>
+</div>
+</div>
+<span class="text-sm font-black text-teal-bright">1,940 XP</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Tab Bar (Canonical 5 Tabs: Today, Vocab (Active), Skills, Tests, Me) -->
+<nav aria-label="Bottom Navigation" class="fixed bottom-0 left-0 right-0 z-40 max-w-[390px] mx-auto bg-night-bg/95 backdrop-blur-md px-2 py-2 flex items-center justify-between border-t-2 border-night-border shadow-[0_-4px_16px_rgba(0,0,0,0.5)]">
+<!-- Tab 1: Today -->
+<a class="min-w-[56px] min-h-[44px] flex flex-col items-center justify-center text-night-text-secondary hover:text-night-text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="calendar_today">calendar_today</span>
+<span class="text-[11px] leading-tight font-bold">Today</span>
+</a>
+<!-- Tab 2: Vocab (Active State) -->
+<a aria-current="page" class="min-w-[56px] min-h-[44px] flex flex-col items-center justify-center relative" href="#">
+<div class="px-3.5 py-1 rounded-full bg-coral-cta text-coral-cta-text flex flex-col items-center shadow-sm">
+<span class="material-symbols-outlined text-xl fill-icon text-coral-cta-text" data-icon="style">style</span>
+<span class="text-[11px] leading-tight font-black text-coral-cta-text">Vocab</span>
+</div>
+</a>
+<!-- Tab 3: Skills -->
+<a class="min-w-[56px] min-h-[44px] flex flex-col items-center justify-center text-night-text-secondary hover:text-night-text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="psychology">psychology</span>
+<span class="text-[11px] leading-tight font-bold">Skills</span>
+</a>
+<!-- Tab 4: Tests -->
+<a class="min-w-[56px] min-h-[44px] flex flex-col items-center justify-center text-night-text-secondary hover:text-night-text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="assignment">assignment</span>
+<span class="text-[11px] leading-tight font-bold">Tests</span>
+</a>
+<!-- Tab 5: Me -->
+<a class="min-w-[56px] min-h-[44px] flex flex-col items-center justify-center text-night-text-secondary hover:text-night-text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="person">person</span>
+<span class="text-[11px] leading-tight font-bold">Me</span>
+</a>
+</nav>
+</div>
+</body></html>

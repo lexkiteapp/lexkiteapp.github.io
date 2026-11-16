@@ -6,18 +6,23 @@
   const t = (s, v) => (g.t ? g.t(s, v) : s);
   // Màn học: luôn là màn học / chỉ khi có tham số (bài cụ thể). Trang trung tâm có crumb + tab dưới.
   const ALWAYS = ['quick', 'reflex', 'paraphrase', 'placement', 'handsfree', 'review', 'rtype', 'cbt', 'call', 'task1', 'write', 'speaking']; // task1/write/speaking: không tham số = bài đầu / phòng viết / Part 1
-  const WITH_ARG = ['lesson', 'practice', 'listen', 'listen-test', 'dictation', 'grammar', 'read', 'toefl-p', 'toeic-r', 'toeic-test', 'toeic-sw', 'pron', 'roleplay', 'mock', 'letters'];
-  const NOT_LEARN = ['home', 'welcome', 'contact', 'deck', 'dict', 'library', 'stats', 'topic', 'class', 'confidence', 'course', 'courses', 'criteria', 'fix', 'goal', 'handoff', 'me', 'skill', 'skills', 'tests', 'vocab', 'ideas', 'league', 'listening', 'method', 'day', 'path', 'tracks', 'model', 'models', 'phrases', 'mistakes', 'qstats', 'style', 'reading', 'report', 'resources', 'streak', 'settings', 'toefl', 'toeic', 'usage', 'train', 'verb'];
+  const WITH_ARG = ['lesson', 'practice', 'listen', 'listen-test', 'dictation', 'grammar', 'read', 'toefl-p', 'toeic-r', 'toeic-test', 'toeic-sw', 'pron', 'roleplay', 'mock', 'letters', 'outcome', 'mediate', 'irregular']
+  const NOT_LEARN = ['watch', 'home', 'welcome', 'contact', 'deck', 'dict', 'library', 'stats', 'topic', 'class', 'confidence', 'course', 'courses', 'criteria', 'fix', 'goal', 'handoff', 'me', 'skill', 'skills', 'tests', 'vocab', 'ideas', 'league', 'listening', 'method', 'day', 'path', 'tracks', 'model', 'models', 'phrases', 'mistakes', 'qstats', 'style', 'reading', 'report', 'resources', 'streak', 'settings', 'toefl', 'toeic', 'usage', 'train', 'verb']
   const extra = new Set(); // màn đăng ký lúc chạy (gói lười: truyện, video, Play & Speak…): ExitGuard.learn('story')
-  const isLearn = (name, arg) => {
+  // #/review?hub=1 (thanh tab, ux1) = màn "Ôn" trung tâm của Stitch, không phải phiên ôn – cùng điều kiện study.js
+  const reviewHub = q => /(^|[?&])hub=1(&|$)/.test(q || '') && !!(g.App && App.ux1On && App.ux1On());
+  const isLearn = (name, arg, q) => {
+    if (name === 'review' && reviewHub(q)) return false;
     if (extra.has(name) || ALWAYS.includes(name)) return true;
     if (!WITH_ARG.includes(name) || !arg) return false;
     if (name === 'lesson') return arg === 'go' || /^\d/.test(arg) || !(g.App && App.ux1On && App.ux1On()); // ux1: #/lesson = bản đồ chặng
+    if (name === 'irregular') return arg === 'practice'; // #/irregular và #/irregular/<động từ> = bảng + tờ chi tiết (không bẫy), chỉ luyện là màn học
     return arg !== 'mix';
   };
-  const parse = h => { const m = /^#\/([^/?]*)\/?([^?]*)/.exec(h || ''); return m ? [m[1] || 'home', decodeURIComponent(m[2] || '')] : ['home', '']; };
-  const learnHash = h => { const [n, a] = parse(h); return isLearn(n, a); };
-  const flagOn = () => { try { if (/[?&]exitbar=1\b/.test(location.search + location.hash)) sessionStorage.setItem('lk.exitbar.pv', '1'); return sessionStorage.getItem('lk.exitbar.pv') === '1' || localStorage.getItem('lk.exitbar') === '1'; } catch (e) { return false; } };
+  const parse = h => { const m = /^#\/([^/?]*)\/?([^?]*)\??(.*)/.exec(h || ''); return m ? [m[1] || 'home', decodeURIComponent(m[2] || ''), m[3] || ''] : ['home', '', '']; };
+  const learnHash = h => { const [n, a, q] = parse(h); return isLearn(n, a, q); };
+  // Thanh FOCUS bật mặc định (exit-sweep xanh, luật duyệt 2/11); tắt thử: ?exitbar=0 hoặc localStorage lk.exitbar = '0'
+  const flagOn = () => { try { const m = /[?&]exitbar=([01])\b/.exec(location.search + location.hash); if (m) sessionStorage.setItem('lk.exitbar.pv', m[1]); const pv = sessionStorage.getItem('lk.exitbar.pv'); return pv ? pv === '1' : localStorage.getItem('lk.exitbar') !== '0'; } catch (e) { return true; } };
 
   let backTo = '#/home', cur = '', dirty = false, done = false, saves = [], bypass = false, bar = null;
   const view = () => document.getElementById('view');
@@ -48,7 +53,7 @@
   function injectBar(v) {
     const b = document.createElement('div');
     b.className = 'study-top lk-exitbar';
-    b.innerHTML = `<button type="button" class="icon-btn lk-exit-x" data-exit aria-label="${t('Thoát bài học')}">${g.UI && UI.icon ? UI.icon('x') : '✕'}</button><div class="progress" aria-hidden="true"><i style="width:0%"></i></div>`;
+    b.innerHTML = `<button type="button" class="icon-btn lk-exit-x" data-exit aria-label="${t('Thoát bài học')}">${g.UI && UI.icon ? UI.icon('x') : '✕'}</button><div class="progress" aria-hidden="true"><i style="width:0%"></i></div><button type="button" id="lkTheme" class="icon-btn lk-exit-x" aria-label="${t('Đổi giao diện sáng/tối')}"><span class="material-symbols-outlined">light_mode</span></button>`; /* desktop: header mẫu bị ẩn → thanh thoát thay header, mang nút sáng/tối (hành vi gắn ở app.js focusTheme) */
     v.prepend(b);
     return b;
   }
@@ -125,6 +130,21 @@
     const a = document.activeElement; if (a && /^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName) && a.value) return; // Esc trong ô đang gõ = xóa/thoát ô, không rời bài
     e.preventDefault(); exit(false);
   });
+  // Enter = nút chính của bước (Kiểm tra → Tiếp tục), khung chung docs/specs/learn-flow-nav.md. Màn đánh dấu [data-lk-primary] hoặc dùng id đã biết.
+  // Không bắt khi đang ở nút/link (trình duyệt tự bấm), ô gõ (màn tự xử lý Enter), hộp hỏi đang mở.
+  const PRIMARY = '[data-lk-primary], #lsnNext, #lsnCheck, #lsnGo, #nextQ, #gotIt, #nx, #sNext, #dChk, #rNext, #rSub, #ppNext, #rxNext, #tNext, #mkNext, #ivNext, #spkNext, #sayNext, #hfNext, #check, #tGo, #mkGo, [data-lv-next]';
+  const usable = el => shown(el) && !el.disabled && el.getAttribute('aria-disabled') !== 'true' && !el.closest('[hidden], [inert]');
+  function primaryEl() {
+    const roots = [view(), document.getElementById('lsnFoot')].filter(Boolean);
+    for (const r of roots) { const k = [...r.querySelectorAll(PRIMARY)].find(usable); if (k) return k; }
+    return null;
+  }
+  const own = el => !!el && el !== document.body && (/^(INPUT|TEXTAREA|SELECT|BUTTON|A|SUMMARY)$/.test(el.tagName) || el.isContentEditable || /^(button|link|checkbox|radio|switch|tab|option|menuitem)$/.test(el.getAttribute('role') || ''));
+  document.addEventListener('keydown', e => {
+    if (e.key !== 'Enter' || !cur || e.defaultPrevented || e.repeat || e.isComposing || e.shiftKey || e.ctrlKey || e.metaKey || e.altKey || modalOpen() || own(document.activeElement)) return;
+    const p = primaryEl(); if (!p) return;
+    e.preventDefault(); p.click();
+  });
   // Back/vuốt iOS khi làm dở → giữ màn (pushState) rồi hỏi.
   // Nhận biết "quay lại": Navigation API (traverse) nếu có; không thì hash mới = mục trước trong lịch sử phiên và không có chạm điều hướng trong màn ngay trước.
   // Nghe cả popstate + hashchange (back từ mục pushState chỉ có popstate), mỗi lượt xử lý 1 lần – docs/specs/exit-button.md
@@ -168,15 +188,15 @@
   hist.push(location.hash);
   // Màn vẽ lại đầu trang (câu kế tiếp…) → gắn lại nút thoát, đồng bộ tiến độ; gom theo khung hình
   let raf = 0;
-  const reMark = () => { raf = 0; const v = view(); if (!cur || !v) return; if (!v.querySelector('[data-exit]')) setup(...parse(cur)); syncBar(); };
-  if (g.MutationObserver) document.addEventListener('DOMContentLoaded', () => { const v = view(); if (v) new MutationObserver(() => { if (cur && !raf) raf = requestAnimationFrame(reMark); }).observe(v, { childList: true, subtree: true }); });
+  const reMark = () => { raf = 0; const v = view(); if (!cur || !v || parse(location.hash)[0] !== parse(cur)[0]) return; /* cur còn là màn học cũ khi đã sang trang khác (đua điều hướng): không gắn thanh thoát vào trang mới */ if (!v.querySelector('[data-exit]')) setup(...parse(cur)); syncBar(); };
+  if (g.MutationObserver) document.addEventListener('DOMContentLoaded', () => { const v = view(); if (v) new MutationObserver(() => { if (!cur) return; if (!v.querySelector('[data-exit]')) return reMark(); /* gắn thanh trước khi vẽ: gắn sau đẩy cả màn 64 px (CLS) */ if (!raf) raf = requestAnimationFrame(reMark); }).observe(v, { childList: true, subtree: true }); });
 
   // Mỗi lượt vẽ trang (App.afterRoute, gọi từ app.js)
   function after(name) {
-    const [n, a] = parse(location.hash);
+    const [n, a, q] = parse(location.hash);
     if (bar && !bar.isConnected) bar = null;
     seen = location.hash;
-    if (!isLearn(n, a)) { cur = ''; if (n !== 'welcome') backTo = location.hash || '#/home'; document.body.classList.remove('lk-learn'); return; }
+    if (!isLearn(n, a, q)) { cur = ''; if (n !== 'welcome') backTo = location.hash || '#/home'; document.body.classList.remove('lk-learn'); return; }
     if (location.hash !== cur) { dirty = false; done = false; saves = []; }
     cur = location.hash; document.body.classList.add('lk-learn');
     if (flagOn()) document.body.classList.add('focus'); // khung §5d FOCUS: màn học không có thanh trên/tab dưới (route() tự gỡ khi rời màn)
@@ -185,9 +205,14 @@
   const hook = () => { const A = g.App; if (!A) return false; const prev = A.afterRoute; A.afterRoute = name => { if (prev) prev(name); try { after(name); } catch (e) { /* không chặn vẽ trang */ } }; return true; };
   // app.js/ux1.js/path.js cùng nối App.afterRoute → nối sau cùng (sau DOMContentLoaded)
   document.addEventListener('DOMContentLoaded', () => setTimeout(() => { hook(); if (g.App && App.route && view() && view().children.length) after(); }, 0));
+  // Phông web nạp SAU khi nới (font-display swap/optional) → chữ trong nút rộng ra, nhưng hộp đã nới giữ cỡ đo lúc đầu → lệch bố cục
+  // (exit-sweep: /mock/run @768 – mặt nút 51,7 px ≠ 54 px khi không nới). Phông đổi → gỡ nới, đo lại, nới lại theo cỡ thật.
+  const regrow = () => { const x = exitEl(); if (!x || x.dataset.lkGrow == null) return; ungrow(x); const r = x.getBoundingClientRect(); if (r.width < 44 || r.height < 44) { x.classList.add('lk-hit44'); if (!noGrow) grow(x, r); } };
+  const F = document.fonts; if (F && F.addEventListener) { F.addEventListener('loadingdone', regrow); if (F.ready) F.ready.then(regrow, () => {}); }
 
   g.ExitGuard = {
-    isLearn, ALWAYS, WITH_ARG, NOT_LEARN,
+    isLearn, ALWAYS, WITH_ARG, NOT_LEARN, focusHash: h => flagOn() && learnHash(h),
+    focusFor: (n, a, q) => flagOn() && isLearn(n, a, q), // route() đặt khung FOCUS ngay lúc chạm (after() chỉ còn là chốt)
     learn: name => extra.add(name),
     onSave: fn => saves.push(fn), // màn lưu được tiến độ → hộp hỏi báo "đã lưu"
     progress: () => syncBar(),
@@ -195,8 +220,9 @@
     dirty: v => { dirty = v !== false; },
     backTo: () => backTo,
     exit: () => exit(false),
+    primary: () => primaryEl(), // nav-sweep: nút Enter sẽ bấm
     _nav: () => ({ seen, popFor, popRes }),
-    _grow: x => grow(x, x.getBoundingClientRect()), _ungrow: ungrow, _noGrow: v => { noGrow = !!v; }, // exit-sweep: so ảnh có/không nới (diff phải = 0)
+    _grow: x => grow(x, x.getBoundingClientRect()), _ungrow: ungrow, _regrow: regrow, _noGrow: v => { noGrow = !!v; }, // exit-sweep: so ảnh có/không nới (diff phải = 0)
     _s: () => ({ cur, dirty, done, bypass, backTo, hist: hist.slice(-4), ex: !!exitEl(), exHref: exitEl() && exitEl().getAttribute('href'), exOn: !!(exitEl() && exitEl().onclick), act: document.activeElement && document.activeElement.tagName }), // chẩn đoán cho exit-sweep
   };
 })(typeof self !== 'undefined' ? self : this);

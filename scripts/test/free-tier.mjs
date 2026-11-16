@@ -5,7 +5,9 @@ import os from 'node:os';
 import path from 'node:path';
 import { evaluate, markdown, r2Class, level, LIMITS, WARN, ALERT } from '../free-tier/limits.mjs';
 import { cfUsage, pagesBuilds, writeState, intradayMain } from '../free-tier/guard.mjs';
-import { project, decide, hourly, writeIntraday, pauseWorkflows, query as iQuery, PAUSE } from '../free-tier/intraday.mjs';
+import { project, decide, hourly, writeIntraday, pauseWorkflows, query as iQuery, PAUSE, r2Gate, r2Usage, R2_FREE } from '../free-tier/intraday.mjs';
+import { r2Frozen } from '../lib/r2-freeze.mjs';
+import { r2Config } from '../lib/media-store.mjs';
 import { edgeCached, mode, _resetMode, shedRobots, cacheControl, STATE_URL } from '../../workers/lib/edge.mjs';
 
 let n = 0; const ok = (name, fn) => Promise.resolve().then(fn).then(() => { n++; }, e => { console.error('✗ ' + name); throw e; });
@@ -157,6 +159,16 @@ await ok('intraday: chỉ dừng workflow đang active, mở lại đúng cái �
   assert.ok(!paused.includes('i18n.yml') && paused.includes('ci-filler.yml')); assert.ok(!calls.includes('PUT i18n.yml/disable'));
   const c2 = []; assert.deepEqual(await pauseWorkflows('t', { pause: false, already: paused }, ghFake(states, c2)), []); assert.deepEqual(c2, paused.map(w => `PUT ${w}/enable`));
 });
+await ok('intraday hồi quy 02→03/11: workflow trong danh sách dừng CŨ mà đã bị bật tay → dừng lại theo mức hôm nay, không tưởng còn dừng', async () => {
+  const states = Object.fromEntries(PAUSE.map(w => [w, 'active'])); states['lighthouse.yml'] = 'disabled_manually';   // guard dừng hôm qua, chưa ai mở
+  const calls = [], old = ['ci-filler.yml', 'vocab-img-scene.yml', 'lighthouse.yml'];   // ci-filler + vocab-img-scene đã được bật tay
+  const paused = await pauseWorkflows('t', { pause: true, already: old }, ghFake(states, calls));
+  assert.ok(calls.includes('PUT ci-filler.yml/disable') && calls.includes('PUT vocab-img-scene.yml/disable'), 'workflow bật tay phải bị dừng lại: ' + calls.join(','));
+  assert.ok(paused.includes('lighthouse.yml') && !calls.includes('PUT lighthouse.yml/disable'), 'cái vẫn đang tắt do guard: giữ quyền mở lại, không gọi disable lần nữa');
+  assert.ok(paused.includes('ci-filler.yml') && paused.includes('vocab-img-scene.yml'));
+  const c2 = []; await pauseWorkflows('t', { pause: false, already: paused }, ghFake(states, c2));
+  assert.ok(['ci-filler.yml', 'vocab-img-scene.yml', 'lighthouse.yml'].every(w => c2.includes(`PUT ${w}/enable`)), 'hết mức → mở lại đủ');
+});
 await ok('intraday end-to-end 01/11 03:17Z: shed + dừng + issue, không đóng issue', async () => {
   const f = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'ftge-')), 's.json'), now = D0 + (3 * 60 + 17) * 6e4, calls = [];
   const fetcher = async (u, o = {}) => {
@@ -174,6 +186,48 @@ await ok('intraday end-to-end 01/11 03:17Z: shed + dừng + issue, không đóng
 await ok('workflow: cron mỗi giờ chạy --intraday, bản ngày vẫn quét đủ', () => {
   const wf = fs.readFileSync('.github/workflows/free-tier-guard.yml', 'utf8');
   assert.match(wf, /cron: '17 \* \* \* \*'/); assert.match(wf, /cron: '35 1 \* \* \*'/); assert.match(wf, /--intraday/); assert.match(wf, /mode_changed/);
+});
+
+// ---- Chốt $0 R2: ≥ 80 % → issue, ≥ 90 % → về Worker + GitHub + đóng băng ghi R2 (không hạ ngưỡng) ----
+await ok('r2 gate: ngưỡng 80/90 % trên cả 3 hạn mức Free', () => {
+  assert.deepEqual(R2_FREE, { storage: 10 * 1024 ** 3, a: 1e6, b: 10e6 });
+  assert.equal(r2Gate({ storage: 2.3 * 1024 ** 3, a: 1e5, b: 1e6 }).level, 'ok');
+  assert.equal(r2Gate({ storage: 8 * 1024 ** 3, a: 0, b: 0 }).level, 'alert'); assert.equal(r2Gate({ storage: 9 * 1024 ** 3, a: 0, b: 0 }).level, 'fallback');
+  assert.equal(r2Gate({ storage: 0, a: 799999, b: 0 }).level, 'ok'); assert.equal(r2Gate({ storage: 0, a: 800000, b: 0 }).level, 'alert');
+  const g = r2Gate({ storage: 1, a: 1, b: 9e6 }); assert.equal(g.level, 'fallback'); assert.equal(g.key, 'b');
+  assert.equal(r2Gate({ storage: 0, a: 0, b: 4999999 }).level, 'ok'); assert.equal(r2Gate({ storage: 0, a: 0, b: 5e6 }).level, 'warn'); // Class B ≥ 50 %: cảnh báo trượt cache
+  assert.deepEqual(r2Usage({ r2s: [{ max: { payloadSize: 10, metadataSize: 2 } }], r2o: [{ dimensions: { actionType: 'PutObject' }, sum: { requests: 3 } }, { dimensions: { actionType: 'GetObject' }, sum: { requests: 5 } }, { dimensions: { actionType: 'DeleteObject' }, sum: { requests: 9 } }] }), { storage: 12, a: 3, b: 5 });
+});
+const r2Run = async (r2, { cur } = {}) => {
+  const f = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'ftr2-')), 's.json'); if (cur) fs.writeFileSync(f, JSON.stringify(cur));
+  const now = Date.parse('2026-11-20T10:17:00Z'), calls = [], fb = [];
+  const fetcher = async (u, o = {}) => {
+    if (u.includes('/graphql')) return { ok: true, json: async () => ({ data: { viewer: { accounts: [{ wk: [{ dimensions: { datetimeHour: '2026-11-20T09:00:00Z', scriptName: 'lexkite-push' }, sum: { requests: 60 } }], fn: [], ...r2 }] } } }) };
+    calls.push(`${o.method || 'GET'} ${u.replace(/^https:\/\/api\.github\.com\/repos\/[^/]+\/[^/]+/, '')}`);
+    if (u.includes('/issues?')) return { ok: true, json: async () => [] };
+    return { ok: true, json: async () => ({ state: 'active' }) };
+  };
+  const r = await intradayMain({ now, env: { CF_ANALYTICS_TOKEN: 'x', CF_ACCOUNT_ID: 'e34e', GITHUB_TOKEN: 'g' }, fetcher, file: f, fallback: async () => fb.push(1) });
+  return { r, calls, fb, st: JSON.parse(fs.readFileSync(f, 'utf8')) };
+};
+const store = gb => ({ r2s: [{ max: { payloadSize: gb * 1024 ** 3, metadataSize: 0 } }], r2o: [] });
+await ok('r2 2,3 GB: không issue, không về GitHub', async () => { const x = await r2Run(store(2.3)); assert.equal(x.r.r2.level, 'ok'); assert.equal(x.fb.length, 0); assert.ok(!x.calls.includes('POST /issues')); assert.equal(x.st.r2, undefined); });
+await ok('r2 8,2 GB (≥ 80 %): mở issue, chưa về GitHub', async () => { const x = await r2Run(store(8.2)); assert.equal(x.r.r2.level, 'alert'); assert.ok(x.calls.includes('POST /issues')); assert.equal(x.fb.length, 0); assert.notEqual(x.st.r2, 'frozen'); });
+await ok('r2 9,1 GB (≥ 90 %): về Worker + GitHub 1 lần, đóng băng ghi, issue', async () => {
+  const x = await r2Run(store(9.1)); assert.equal(x.r.r2.level, 'fallback'); assert.equal(x.fb.length, 1); assert.equal(x.st.r2, 'frozen'); assert.ok(x.calls.includes('POST /issues'));
+  const y = await r2Run(store(9.1), { cur: x.st }); assert.equal(y.fb.length, 0, 'đã đóng băng → không rollback lại'); assert.equal(y.st.r2, 'frozen');
+  const z = await r2Run(store(1), { cur: x.st }); assert.equal(z.st.r2, 'frozen', 'không tự gỡ – gỡ tay (docs/FREE-TIER.md §R2)');
+});
+await ok('r2 Class B 6 triệu (≥ 50 %): chỉ cảnh báo, không issue, không về GitHub', async () => { const x = await r2Run({ r2s: [], r2o: [{ dimensions: { actionType: 'GetObject' }, sum: { requests: 6e6 } }] }); assert.equal(x.r.r2.level, 'warn'); assert.equal(x.fb.length, 0); assert.ok(!x.calls.includes('POST /issues')); });
+await ok('r2 Class B 9,5 triệu (≥ 90 %): về GitHub', async () => { const x = await r2Run({ r2s: [], r2o: [{ dimensions: { actionType: 'GetObject' }, sum: { requests: 9.5e6 } }] }); assert.equal(x.fb.length, 1); assert.equal(x.st.r2, 'frozen'); });
+await ok('đóng băng: mirror + media-store ngừng ghi R2', () => {
+  const f = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'ftz-')), 's.json');
+  fs.writeFileSync(f, '{"mode":"normal","r2":"frozen"}'); assert.equal(r2Frozen(f), true); assert.equal(r2Config({ R2_ACCESS_KEY_ID: 'a', R2_SECRET_ACCESS_KEY: 'b' }, { stateFile: f }), null);
+  fs.writeFileSync(f, '{"mode":"normal"}'); assert.equal(r2Frozen(f), false); assert.ok(r2Config({ R2_ACCESS_KEY_ID: 'a', R2_SECRET_ACCESS_KEY: 'b' }, { stateFile: f }));
+  assert.equal(r2Frozen('/không/có'), false);
+  assert.match(fs.readFileSync('scripts/cdn/mirror.mjs', 'utf8'), /if \(r2Frozen\(\) && !DRY\)/);
+  assert.match(fs.readFileSync('.github/workflows/cdn-mirror.yml', 'utf8'), /web\/free-tier-state\.json/);
+  assert.match(fs.readFileSync('.github/workflows/free-tier-guard.yml', 'utf8'), /CLOUDFLARE_API_TOKEN/);
 });
 
 console.log(`free-tier: ${n}/${n} ok`);

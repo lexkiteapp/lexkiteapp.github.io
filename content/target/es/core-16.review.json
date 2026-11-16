@@ -1,0 +1,47 @@
+{
+ "fixed": [
+  {
+   "word": "mal",
+   "field": "ex.en",
+   "from": "Today I feel very sick.",
+   "to": "Today I feel very bad.",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "mal",
+   "field": "gl.vi",
+   "from": "tồi tệ, sai",
+   "to": "tệ, không tốt",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "mal",
+   "field": "gl.id",
+   "from": "dengan buruk",
+   "to": "buruk",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "entre",
+   "field": "ipa",
+   "from": "ˈɛntɾe",
+   "to": "ˈentɾe",
+   "why": "IPA theo quy ước g2p (e/o đóng, ɣ sau nguyên âm, ʝ, aw/ej, không đồng hóa nasal)"
+  },
+  {
+   "word": "hermano",
+   "field": "gl.vi",
+   "from": "anh em trai",
+   "to": "anh trai, em trai",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "hacia",
+   "field": "gl.pt",
+   "from": "para",
+   "to": "em direção a",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  }
+ ],
+ "dropped": []
+}

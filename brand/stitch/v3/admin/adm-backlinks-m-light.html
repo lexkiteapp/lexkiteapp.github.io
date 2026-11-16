@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Admin - Backlink &amp; Thương hiệu</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-variant": "#d1e6e9",
+            "secondary-fixed-dim": "#8fd3cc",
+            "on-primary": "#ffffff",
+            "on-background": "#0b1e20",
+            "surface": "#eafdff",
+            "secondary-fixed": "#abefe8",
+            "inverse-surface": "#213336",
+            "on-secondary": "#ffffff",
+            "on-primary-container": "#5b0d00",
+            "primary": "#b52705",
+            "outline": "#8f7069",
+            "on-surface": "#0b1e20",
+            "outline-variant": "#e3beb6",
+            "on-secondary-fixed": "#00201e",
+            "surface-container": "#ddf2f4",
+            "on-secondary-container": "#266d68",
+            "on-tertiary-container": "#472300",
+            "on-secondary-fixed-variant": "#00504b",
+            "surface-container-highest": "#d1e6e9",
+            "secondary": "#216963",
+            "on-primary-fixed-variant": "#8b1900",
+            "tertiary": "#904d00",
+            "primary-fixed": "#ffdad2",
+            "on-surface-variant": "#5b413b",
+            "on-primary-fixed": "#3d0600",
+            "on-error-container": "#93000a",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#e2f8fa",
+            "on-tertiary": "#ffffff",
+            "inverse-on-surface": "#e0f5f7",
+            "on-tertiary-fixed": "#2f1500",
+            "tertiary-fixed-dim": "#ffb77d",
+            "primary-fixed-dim": "#ffb4a3",
+            "error": "#ba1a1a",
+            "background": "#eafdff",
+            "primary-container": "#ff5c38",
+            "on-tertiary-fixed-variant": "#6e3900",
+            "on-error": "#ffffff",
+            "tertiary-fixed": "#ffdcc3",
+            "surface-dim": "#c9dee0",
+            "surface-container-high": "#d7ecee",
+            "surface-bright": "#eafdff",
+            "error-container": "#ffdad6",
+            "surface-tint": "#b52705",
+            "secondary-container": "#a8ece5",
+            "tertiary-container": "#dd7a0c",
+            "inverse-primary": "#ffb4a3"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "gutter": "1.5rem",
+            "margin": "2rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2rem",
+            "margin-sm": "1rem",
+            "gutter-sm": "1rem"
+          },
+          "fontFamily": {
+            "body-lg": ["Be Vietnam Pro"],
+            "headline-xl-mobile": ["Be Vietnam Pro"],
+            "data-mono": ["JetBrains Mono"],
+            "headline-md": ["Be Vietnam Pro"],
+            "headline-lg": ["Be Vietnam Pro"],
+            "body-md": ["Be Vietnam Pro"],
+            "headline-xl": ["Be Vietnam Pro"],
+            "headline-lg-mobile": ["Be Vietnam Pro"],
+            "label-lg": ["Be Vietnam Pro"],
+            "headline-sm": ["Be Vietnam Pro"],
+            "label-md": ["Be Vietnam Pro"],
+            "label-sm": ["Be Vietnam Pro"],
+            "body-sm": ["Be Vietnam Pro"]
+          },
+          "fontSize": {
+            "body-lg": ["16px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-xl-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "data-mono": ["13px", { "lineHeight": "18px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-lg-mobile": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "headline-sm": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .material-symbols-outlined[data-weight="fill"] {
+      font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Cut-paper card ledge shadow token */
+    .ledge-card {
+      box-shadow: 0 1px 2px rgba(19, 38, 40, 0.05), 0 2px 0 #e5dfd5;
+    }
+    /* Hide scrollbar for tabs */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#faf8f5] text-on-surface antialiased font-body-md flex justify-center min-h-screen">
+<!-- iPhone 390px Viewport Shell -->
+<div class="w-full max-w-[390px] min-h-screen bg-[#faf8f5] flex flex-col relative pb-20 shadow-2xl overflow-x-hidden border-x border-[#d8d0c2]/50">
+<!-- TopAppBar (Shared Component Implementation) -->
+<header class="sticky top-0 z-50 bg-surface-container-lowest dark:bg-inverse-surface border-b border-outline-variant dark:border-outline shadow-sm flex justify-between items-center w-full px-space-md h-14">
+<div class="flex items-center gap-space-sm min-w-0">
+<button aria-label="Menu" class="w-10 h-10 -ml-1 flex items-center justify-center rounded-lg text-on-surface hover:bg-surface-container-low active:scale-95 transition-transform duration-150" type="button">
+<span class="material-symbols-outlined text-[22px]">menu</span>
+</button>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="text-headline-sm font-headline-sm font-semibold text-on-surface truncate">Backlink &amp; Thương hiệu</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-[#115e59] text-[10px] font-bold tracking-tight border border-[#99f6e4]">v2.4.1</span>
+</div>
+<span class="text-body-sm font-body-sm text-[#4a5a5c] text-[11px] truncate leading-tight">Admin › Backlink, PR &amp; Thương hiệu</span>
+</div>
+</div>
+<div class="flex items-center shrink-0">
+<div class="w-8 h-8 rounded-full bg-[#115e59] text-white flex items-center justify-center font-bold text-[12px] border border-[#0f4c4a] shadow-sm">
+          HM
+        </div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-space-md py-4 space-y-4">
+<!-- 1. Bot Daily Scan status card -->
+<section class="bg-surface-container-lowest rounded-xl border border-[#d8d0c2] ledge-card p-3.5">
+<div class="flex items-start justify-between gap-2 mb-2.5">
+<div class="space-y-1">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10b981] opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#059669]"></span>
+</span>
+<h2 class="text-[13.5px] font-headline-sm font-bold text-[#132628] leading-tight">Quét tự động hàng ngày (Daily Bot)</h2>
+</div>
+<div class="flex items-center gap-2 text-body-sm font-body-sm text-[#4a5a5c]">
+<span class="px-1.5 py-0.5 rounded bg-[#ecfdf5] text-[#065f46] font-data-mono text-data-mono font-semibold border border-[#a7f3d0]">06:00</span>
+<span>Chu kỳ tiếp theo: 24h</span>
+</div>
+</div>
+<button class="shrink-0 px-3 py-2 bg-primary-container text-white text-label-md font-label-md rounded-lg shadow-sm border border-[#f0532d] hover:bg-[#f0532d] active:scale-95 transition-all duration-150 flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">refresh</span>
+<span>Kiểm tra ngay</span>
+</button>
+</div>
+<div class="w-full bg-[#f4efe6] h-1.5 rounded-full overflow-hidden">
+<div class="bg-[#115e59] h-full rounded-full w-[91.3%]"></div>
+</div>
+</section>
+<!-- 2. 4 Metric Cards (2x2 Grid) -->
+<section class="grid grid-cols-2 gap-2.5">
+<!-- Metric 1 -->
+<div class="bg-surface-container-lowest rounded-xl border border-[#d8d0c2] ledge-card p-3 flex flex-col justify-between">
+<div class="flex items-center justify-between text-[#4a5a5c] mb-1">
+<span class="text-label-md font-label-md text-[#5b413b]">Backlink sống</span>
+<div class="w-6 h-6 rounded-md bg-[#e2f8fa] flex items-center justify-center text-[#115e59]">
+<span class="material-symbols-outlined text-[16px]">link</span>
+</div>
+</div>
+<div class="flex items-baseline gap-1 my-0.5">
+<span class="text-[24px] font-headline-lg-mobile font-bold text-[#132628]">42</span>
+<span class="text-[11px] font-data-mono text-[#065f46] font-bold">(91.3%)</span>
+</div>
+<p class="text-[11px] font-body-sm text-[#ba1a1a] flex items-center gap-0.5 font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-[#ba1a1a] shrink-0"></span>
+            4 link báo lỗi
+          </p>
+</div>
+<!-- Metric 2 -->
+<div class="bg-surface-container-lowest rounded-xl border border-[#d8d0c2] ledge-card p-3 flex flex-col justify-between">
+<div class="flex items-center justify-between text-[#4a5a5c] mb-1">
+<span class="text-label-md font-label-md text-[#5b413b]">Tên miền nhái</span>
+<div class="w-6 h-6 rounded-md bg-[#fff1f2] flex items-center justify-center text-[#9f1239]">
+<span class="material-symbols-outlined text-[16px]">warning</span>
+</div>
+</div>
+<div class="flex items-baseline gap-1 my-0.5">
+<span class="text-[24px] font-headline-lg-mobile font-bold text-[#132628]">2</span>
+<span class="px-1.5 py-0.2 rounded text-[10px] bg-[#fff1f2] text-[#9f1239] border border-[#fecdd3] font-bold">Cảnh báo</span>
+</div>
+<p class="text-[11px] font-body-sm text-[#4a5a5c] font-medium">Cần theo dõi sát</p>
+</div>
+<!-- Metric 3 -->
+<div class="bg-surface-container-lowest rounded-xl border border-[#d8d0c2] ledge-card p-3 flex flex-col justify-between">
+<div class="flex items-center justify-between text-[#4a5a5c] mb-1">
+<span class="text-label-md font-label-md text-[#5b413b]">Re-up &amp; Mạo danh</span>
+<div class="w-6 h-6 rounded-md bg-[#fffbeb] flex items-center justify-center text-[#92400e]">
+<span class="material-symbols-outlined text-[16px]">flag</span>
+</div>
+</div>
+<div class="flex items-baseline gap-1 my-0.5">
+<span class="text-[24px] font-headline-lg-mobile font-bold text-[#132628]">5</span>
+<span class="text-[11px] font-body-sm text-[#4a5a5c] font-medium">Đã xử lý 3</span>
+</div>
+<p class="text-[11px] font-body-sm text-[#4a5a5c] font-medium truncate">TikTok &amp; FB Reels</p>
+</div>
+<!-- Metric 4 -->
+<div class="bg-surface-container-lowest rounded-xl border border-[#d8d0c2] ledge-card p-3 flex flex-col justify-between">
+<div class="flex items-center justify-between text-[#4a5a5c] mb-1">
+<span class="text-label-md font-label-md text-[#5b413b]">Chỉ số DR / DA</span>
+<div class="w-6 h-6 rounded-md bg-[#e2f8fa] flex items-center justify-center text-[#115e59]">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+</div>
+</div>
+<div class="flex items-baseline gap-1 my-0.5">
+<span class="text-[24px] font-headline-lg-mobile font-bold text-[#132628]">28</span>
+<span class="text-[11px] font-data-mono text-[#065f46] font-bold">(+2)</span>
+</div>
+<p class="text-[11px] font-body-sm text-[#065f46] font-medium">Tăng trưởng tự nhiên</p>
+</div>
+</section>
+<!-- 3. Filter Tabs (Pill Style) -->
+<nav class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
+<button class="shrink-0 px-3.5 py-1.5 rounded-full text-label-md font-label-md bg-[#115e59] text-white shadow-sm flex items-center gap-1.5 active:scale-95 transition-transform" type="button">
+<span>Backlink &amp; PR</span>
+<span class="px-1.5 py-0.2 rounded-full bg-white/20 text-[10px] font-bold">46</span>
+</button>
+<button class="shrink-0 px-3 py-1.5 rounded-full text-label-md font-label-md bg-surface-container-lowest text-[#4a5a5c] border border-[#d8d0c2] hover:bg-[#f4efe6] flex items-center gap-1.5 active:scale-95 transition-transform" type="button">
+<span>Tên miền nhái</span>
+<span class="px-1.5 py-0.2 rounded-full bg-[#f4efe6] text-[10px] text-[#9f1239] font-bold">2</span>
+</button>
+<button class="shrink-0 px-3 py-1.5 rounded-full text-label-md font-label-md bg-surface-container-lowest text-[#4a5a5c] border border-[#d8d0c2] hover:bg-[#f4efe6] flex items-center gap-1.5 active:scale-95 transition-transform" type="button">
+<span>MXH &amp; Re-up</span>
+<span class="px-1.5 py-0.2 rounded-full bg-[#f4efe6] text-[10px] text-[#115e59] font-bold">5</span>
+</button>
+</nav>
+<!-- 4. DANH SÁCH TRỞ VỀ GẦN NHẤT (Recent Backlinks) -->
+<section class="bg-surface-container-lowest rounded-xl border border-[#d8d0c2] ledge-card overflow-hidden">
+<!-- Card Header -->
+<div class="p-3.5 border-b border-[#e5dfd5] bg-white">
+<div class="flex items-center justify-between gap-2 mb-1">
+<h3 class="text-label-lg font-label-lg uppercase tracking-wider text-[#132628] font-bold flex items-center gap-1.5">
+<span>DANH SÁCH TRỞ VỀ GẦN NHẤT</span>
+</h3>
+<span class="px-2 py-0.5 rounded text-[11px] font-bold bg-[#f4efe6] text-[#115e59] border border-[#d8d0c2]">46 liên kết</span>
+</div>
+<p class="text-body-sm font-body-sm text-[#4a5a5c] leading-relaxed">
+            Giám sát 46 bài viết báo chí, blog công nghệ và hồ sơ giáo dục trỏ về lexkite.com.
+          </p>
+</div>
+<!-- Stacked Card Rows -->
+<div class="divide-y divide-[#e5dfd5]">
+<!-- Item 1: Spiderum -->
+<article class="p-3.5 hover:bg-[#fbf9f4] transition-colors space-y-2">
+<div class="flex items-center justify-between gap-2">
+<div class="flex items-center gap-1.5 min-w-0">
+<span class="font-headline-sm font-bold text-[14px] text-[#132628] truncate">Spiderum</span>
+<span class="text-body-sm text-[#7c8c8e]">/</span>
+<span class="text-label-sm font-label-sm text-[#4a5a5c] truncate">Blog Review</span>
+</div>
+<!-- Status Pill: Còn sống -->
+<span class="shrink-0 inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-[#ecfdf5] border border-[#a7f3d0] text-[#065f46]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#065f46]"></span>
+                Còn sống
+              </span>
+</div>
+<div class="bg-[#faf8f5] p-2 rounded border border-[#e5dfd5] font-data-mono text-data-mono text-[12px] break-all text-[#115e59]">
+              spiderum.com/bai-dang/tu-vung-ielts-lexkite-app-review
+            </div>
+<div class="flex items-center justify-between text-body-sm font-body-sm text-[#4a5a5c] pt-0.5">
+<div class="flex items-center gap-1 truncate max-w-[200px]">
+<span class="material-symbols-outlined text-[14px] text-[#7c8c8e]">anchor</span>
+<span class="text-[#132628] font-medium truncate">lexkite.com/app</span>
+</div>
+<span class="text-[#7c8c8e] text-[11px] shrink-0 font-data-mono">Hôm nay 06:00</span>
+</div>
+</article>
+<!-- Item 2: GenK -->
+<article class="p-3.5 hover:bg-[#fbf9f4] transition-colors space-y-2">
+<div class="flex items-center justify-between gap-2">
+<div class="flex items-center gap-1.5 min-w-0">
+<span class="font-headline-sm font-bold text-[14px] text-[#132628] truncate">GenK</span>
+<span class="text-body-sm text-[#7c8c8e]">/</span>
+<span class="text-label-sm font-label-sm text-[#4a5a5c] truncate">PR Báo chí</span>
+</div>
+<span class="shrink-0 inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-[#ecfdf5] border border-[#a7f3d0] text-[#065f46]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#065f46]"></span>
+                Còn sống
+              </span>
+</div>
+<div class="bg-[#faf8f5] p-2 rounded border border-[#e5dfd5] font-data-mono text-data-mono text-[12px] break-all text-[#115e59]">
+              genk.vn/ung-dung-hoc-tu-vung-viet-nam-ung-dung-ai-fsrs
+            </div>
+<div class="flex items-center justify-between text-body-sm font-body-sm text-[#4a5a5c] pt-0.5">
+<div class="flex items-center gap-1 truncate max-w-[200px]">
+<span class="material-symbols-outlined text-[14px] text-[#7c8c8e]">anchor</span>
+<span class="text-[#132628] font-medium truncate">Lexkite Web</span>
+</div>
+<span class="text-[#7c8c8e] text-[11px] shrink-0 font-data-mono">Hôm nay 06:00</span>
+</div>
+</article>
+<!-- Item 3: Tinhte.vn -->
+<article class="p-3.5 hover:bg-[#fbf9f4] transition-colors space-y-2">
+<div class="flex items-center justify-between gap-2">
+<div class="flex items-center gap-1.5 min-w-0">
+<span class="font-headline-sm font-bold text-[14px] text-[#132628] truncate">Tinhte.vn</span>
+<span class="text-body-sm text-[#7c8c8e]">/</span>
+<span class="text-label-sm font-label-sm text-[#4a5a5c] truncate">Diễn đàn</span>
+</div>
+<!-- Status Pill: Cần xem -->
+<span class="shrink-0 inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-[#fffbeb] border border-[#fde68a] text-[#92400e]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#f59e0b]"></span>
+                Cần xem
+              </span>
+</div>
+<div class="bg-[#faf8f5] p-2 rounded border border-[#e5dfd5] font-data-mono text-data-mono text-[12px] break-all text-[#115e59]">
+              tinhte.vn/thread/chia-se-cach-nho-2000-tu-anki-lexkite
+            </div>
+<div class="flex items-center justify-between text-body-sm font-body-sm text-[#4a5a5c] pt-0.5">
+<div class="flex items-center gap-1 truncate max-w-[200px]">
+<span class="text-[11px] font-bold text-[#92400e] bg-[#fef3c7] px-1 rounded">301 Redirect</span>
+<span class="text-[#4a5a5c] text-[11px] truncate">Chuyển hướng</span>
+</div>
+<span class="text-[#7c8c8e] text-[11px] shrink-0 font-data-mono">Hôm qua 06:00</span>
+</div>
+</article>
+<!-- Item 4: Medium -->
+<article class="p-3.5 hover:bg-[#fbf9f4] transition-colors space-y-2">
+<div class="flex items-center justify-between gap-2">
+<div class="flex items-center gap-1.5 min-w-0">
+<span class="font-headline-sm font-bold text-[14px] text-[#132628] truncate">Medium</span>
+<span class="text-body-sm text-[#7c8c8e]">/</span>
+<span class="text-label-sm font-label-sm text-[#4a5a5c] truncate">Bài viết kỹ thuật</span>
+</div>
+<span class="shrink-0 inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-[#ecfdf5] border border-[#a7f3d0] text-[#065f46]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#065f46]"></span>
+                Còn sống
+              </span>
+</div>
+<div class="bg-[#faf8f5] p-2 rounded border border-[#e5dfd5] font-data-mono text-data-mono text-[12px] break-all text-[#115e59]">
+              medium.com/@minh/building-lexkite-spaced-repetition-engine
+            </div>
+<div class="flex items-center justify-between text-body-sm font-body-sm text-[#4a5a5c] pt-0.5">
+<div class="flex items-center gap-1 truncate max-w-[200px]">
+<span class="material-symbols-outlined text-[14px] text-[#7c8c8e]">person</span>
+<span class="text-[#132628] font-medium truncate">@hoangminh_dev</span>
+</div>
+<span class="text-[#7c8c8e] text-[11px] shrink-0 font-data-mono">18/03 06:00</span>
+</div>
+</article>
+<!-- Item 5: VietNamNet -->
+<article class="p-3.5 hover:bg-[#fbf9f4] transition-colors space-y-2">
+<div class="flex items-center justify-between gap-2">
+<div class="flex items-center gap-1.5 min-w-0">
+<span class="font-headline-sm font-bold text-[14px] text-[#132628] truncate">VietNamNet</span>
+<span class="text-body-sm text-[#7c8c8e]">/</span>
+<span class="text-label-sm font-label-sm text-[#4a5a5c] truncate">PR Báo chí</span>
+</div>
+<!-- Status Pill: Mất link -->
+<span class="shrink-0 inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-[#fff1f2] border border-[#fecdd3] text-[#9f1239]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#e11d48]"></span>
+                Mất link
+              </span>
+</div>
+<div class="bg-[#fff1f2]/40 p-2 rounded border border-[#fecdd3] font-data-mono text-data-mono text-[12px] break-all text-[#9f1239]">
+              vietnamnet.vn/giao-duc/nguoi-tre-khoi-nghiep-app-hoc-lexkite
+            </div>
+<div class="flex items-center justify-between text-body-sm font-body-sm pt-0.5">
+<div class="flex items-center gap-1 text-[#ba1a1a]">
+<span class="material-symbols-outlined text-[14px]">error</span>
+<span class="font-semibold text-[11px]">Lỗi 404 trang đích</span>
+</div>
+<span class="text-[#7c8c8e] text-[11px] shrink-0 font-data-mono">17/03 06:00</span>
+</div>
+</article>
+</div>
+<!-- Ledger Footer -->
+<div class="p-3 bg-[#f8f6f0] border-t-2 border-[#115e59] flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-[#4a5a5c] font-medium">Đã xác thực tuần này</span>
+<span class="font-data-mono font-bold text-[#115e59] text-[13px]">42 / 46 (91.3%)</span>
+</div>
+</section>
+<!-- 5. Cảnh báo mạo danh & Vi phạm bản quyền -->
+<section class="bg-surface-container-lowest rounded-xl border border-[#d8d0c2] ledge-card overflow-hidden">
+<!-- Header -->
+<div class="p-3.5 border-b border-[#e5dfd5] bg-white flex items-center justify-between gap-2">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-[#fff1f2] text-[#9f1239] flex items-center justify-center border border-[#fecdd3]">
+<span class="material-symbols-outlined text-[18px]">gpp_maybe</span>
+</div>
+<div>
+<h3 class="text-label-lg font-label-lg text-[#132628] leading-tight font-bold">Cảnh báo mạo danh &amp; Vi phạm</h3>
+<p class="text-body-sm text-[#4a5a5c] text-[11px]">Bảo vệ nhãn hiệu &amp; tài sản số</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-[#ba1a1a] text-white font-bold tracking-wide">2 Mới</span>
+</div>
+<div class="divide-y divide-[#e5dfd5]">
+<!-- Alert 1 -->
+<article class="p-3.5 space-y-2.5">
+<div class="flex items-start justify-between gap-2">
+<div>
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="font-headline-sm font-bold text-[14px] text-[#132628]">Tên miền giả mạo</span>
+<span class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-[#fee2e2] text-[#991b1b] border border-[#fca5a5]">Phishing</span>
+</div>
+<p class="text-[11px] text-[#7c8c8e] font-data-mono mt-0.5">IP Server: Hong Kong (Cloudflare)</p>
+</div>
+</div>
+<div class="bg-[#fff1f2]/50 p-2.5 rounded border border-[#fecdd3] space-y-1">
+<div class="font-data-mono font-bold text-[13px] text-[#ba1a1a] flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">public_off</span>
+                lexkite-vip[.]com
+              </div>
+<p class="text-body-sm font-body-sm text-[#5b413b] leading-normal">
+                Trang web sao chép giao diện đăng nhập và yêu cầu người dùng trả phí trọn đời 299k qua mã QR giả.
+              </p>
+</div>
+<button class="w-full py-2 px-3 bg-surface-container-lowest text-[#ba1a1a] border border-[#fecdd3] hover:bg-[#fff1f2] rounded-lg text-label-md font-label-md flex items-center justify-center gap-1.5 active:scale-98 transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">send_and_archive</span>
+<span>Gửi khiếu nại Registrar</span>
+</button>
+</article>
+<!-- Alert 2 -->
+<article class="p-3.5 space-y-2.5">
+<div class="flex items-start justify-between gap-2">
+<div>
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="font-headline-sm font-bold text-[14px] text-[#132628]">Video re-up không nguồn</span>
+<span class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-[#e0f2fe] text-[#075985] border border-[#bae6fd]">TikTok</span>
+</div>
+<p class="text-[11px] text-[#7c8c8e] font-data-mono mt-0.5">34k Views • Đăng tải 2 ngày trước</p>
+</div>
+</div>
+<div class="bg-[#faf8f5] p-2.5 rounded border border-[#e5dfd5] space-y-1">
+<div class="font-data-mono font-semibold text-[13px] text-[#132628] flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-[#115e59]">ondemand_video</span>
+                Kênh @ielts_flashcard_tips
+              </div>
+<p class="text-body-sm font-body-sm text-[#4a5a5c] leading-normal">
+                Copy toàn bộ chuỗi clip giải thích thuật toán FSRS của Ama/Carlos, cắt watermark và gắn bio bán khóa học.
+              </p>
+</div>
+<button class="w-full py-2 px-3 bg-[#115e59] text-white hover:bg-[#0f4c4a] rounded-lg text-label-md font-label-md flex items-center justify-center gap-1.5 active:scale-98 transition-all shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px]">copyright</span>
+<span>Báo cáo DMCA</span>
+</button>
+</article>
+</div>
+</section>
+<!-- 6. Footer Note -->
+<footer class="pt-2 pb-6 text-center text-[11px] text-[#7c8c8e] font-body-sm">
+<p>Hệ thống bảo vệ thương hiệu nội bộ • Lexkite EdTech 2025</p>
+</footer>
+</main>
+<!-- BottomNavBar (Shared Component Implementation) -->
+<!-- Destination 3 "Thương hiệu" is ACTIVE according to prompt context -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-space-xs py-space-xs h-16 bg-surface-container-lowest dark:bg-inverse-surface border-t border-outline-variant dark:border-outline shadow-sm max-w-[390px] left-1/2 -translate-x-1/2">
+<!-- Tab 1: Tổng quan -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant py-1 min-w-[64px] min-h-[44px] hover:text-secondary dark:hover:text-secondary-fixed active:scale-95 transition-transform duration-150" href="#overview">
+<span class="material-symbols-outlined text-[22px]">dashboard</span>
+<span class="text-label-sm font-label-sm mt-0.5">Tổng quan</span>
+</a>
+<!-- Tab 2: Nội dung -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant py-1 min-w-[64px] min-h-[44px] hover:text-secondary dark:hover:text-secondary-fixed active:scale-95 transition-transform duration-150" href="#content">
+<span class="material-symbols-outlined text-[22px]">article</span>
+<span class="text-label-sm font-label-sm mt-0.5">Nội dung</span>
+</a>
+<!-- Tab 3: Thương hiệu (ACTIVE) -->
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed font-semibold py-1 min-w-[64px] min-h-[44px] active:scale-95 transition-transform duration-150" href="#brand">
+<span class="material-symbols-outlined text-[22px]" data-weight="fill">verified</span>
+<span class="text-label-sm font-label-sm mt-0.5">Thương hiệu</span>
+</a>
+<!-- Tab 4: Cài đặt -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant py-1 min-w-[64px] min-h-[44px] hover:text-secondary dark:hover:text-secondary-fixed active:scale-95 transition-transform duration-150" href="#settings">
+<span class="material-symbols-outlined text-[22px]">settings</span>
+<span class="text-label-sm font-label-sm mt-0.5">Cài đặt</span>
+</a>
+</nav>
+</div>
+</body></html>

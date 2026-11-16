@@ -32,7 +32,7 @@ script: [
 { s: 'B', t: "Great. I've got a washing machine, so could I hire a trolley as well? I don't fancy carrying it down two flights of stairs." },
 { s: 'A', t: "Yes, I'll add a trolley to the booking." },
 { pause: 1.5 },
-{ say: 'Before you hear the rest of the conversation, you have some time to look at questions 7 to 10.' }, { pause: 3 },
+{ say: g.LTI[3] }, { pause: 3 },
 { s: 'B', t: "So what's the total going to be? The website said fifty-nine pounds for the day." },
 { s: 'A', t: "That's the weekday rate, I'm afraid. At weekends the charge for a medium van is sixty-five pounds a day." },
 { s: 'B', t: "Ah, right. Fair enough. And is there a charge for mileage?" },
@@ -50,7 +50,7 @@ script: [
 { s: 'A', t: "You're welcome. I'll text you a confirmation now. Good luck with the move!" },
 ],
 groups: [
-{ type: 'form', title: 'Kestrel Van Hire – Booking details', instr: 'Complete the form below. Write ONE WORD AND/OR A NUMBER for each answer.', limit: 2,
+{ type: 'form', title: 'Kestrel Van Hire – Booking details', instr: g.LTI[1], limit: 2,
 items: [
 { n: 1, text: 'Customer name: Josh ___', a: ['Rendell'], cue: 'R, E, N, D, E, L, L', explain: 'Họ được đánh vần từng chữ “R, E, N, D, E, L, L” – chú ý hai chữ L ở cuối.' },
 { n: 2, text: 'Date of move: Saturday ___ March', a: ['24', '24th', 'twenty-fourth', 'twenty fourth'], cue: "It's the 24th now.", explain: 'Bẫy: Josh nói “the 17th of March” rồi sửa lại “It\'s the 24th now” vì chủ nhà đổi ngày; nhân viên xác nhận “Saturday the 24th of March”.' },
@@ -106,7 +106,7 @@ script: [
 { s: 'A', t: "Finally, the garden covers forty acres, and some of it is pretty steep. If anyone would rather not walk, we have an electric shuttle buggy." },
 { s: 'A', t: "It's free, but there are only six seats, so you have to book a seat at the main gate. It stops at every zone, not just the glasshouses." },
 { pause: 1.5 },
-{ say: 'Now look at questions 16 to 20.' }, { pause: 3 },
+{ say: g.LTI[6] }, { pause: 3 },
 { s: 'A', t: "OK, let me give you a quick overview of the main zones, and what's happening in each of them this summer." },
 { s: 'A', t: "Our first stop will be the Desert House, the large glasshouse with the curved roof. It's full of cacti from Mexico and the southwestern states." },
 { s: 'A', t: "People ask if we hold a plant sale there. We used to, but now the plant sale happens at the visitor center." },
@@ -125,7 +125,7 @@ script: [
 { s: 'A', t: "OK, if everyone's ready, let's head toward the Desert House. Watch your step on the way down." },
 ],
 groups: [
-{ type: 'mcq', instr: 'Choose the correct letter, A, B or C.',
+{ type: 'mcq', instr: g.LTI[0],
 items: [
 { n: 11, q: 'What was the garden originally used for?', options: ['It was part of a large private estate.', 'It was a site for testing new crops.', 'It was a public park for local people.'], a: 1, cue: 'grew and tested new crops', explain: 'Người ta hay nghĩ đây từng là “private grounds of a grand house” (A) nhưng hướng dẫn viên phủ nhận. Thực ra vườn là nơi trường nông nghiệp “grew and tested new crops”. Vườn chỉ mở cửa cho công chúng từ thập niên 1950 nên C sai.' },
 { n: 12, q: 'What is new at the garden this year?', options: ['a bigger café', "a children's trail", 'a free audio guide'], a: 2, cue: "What's brand new this season is a free audio guide.", explain: 'Quán cà phê đã “extended last summer” (A) và đường mòn cho trẻ em đã có “for several years” (B), nên cả hai không mới. Cái mới là “What\'s brand new this season is a free audio guide”.' },
@@ -212,7 +212,7 @@ script: [
 { s: 'A', t: "Perhaps not, but that's a question for your recommendations. Right, this is shaping up well. Send me a draft in two weeks." },
 ],
 groups: [
-{ type: 'mcq', instr: 'Choose the correct letter, A, B or C.',
+{ type: 'mcq', instr: g.LTI[0],
 items: [
 { n: 21, q: 'Why did the students choose noise pollution as their topic?', options: ['It was on a list of topics from their tutor.', 'They knew there was a lot of research available.', 'One of them had been affected by noise.'], a: 2, cue: 'I hardly slept for three months', explain: 'Chủ đề “wasn\'t on my list” nên A sai, và họ lo “there wouldn\'t be much research” nên B sai. Lý do thật: Marcus sống trên một quán bar và “I hardly slept for three months”.' },
 { n: 22, q: 'What problem did the students have when recording noise levels?', options: ['Their equipment gave different results.', 'They were refused entry to some locations.', 'Bad weather affected some readings.'], a: 0, cue: "my phone would show sixty-eight decibels while Hannah's said seventy-four", explain: 'Không ai ngăn họ vào nhà ga (“nobody stopped us”) và “the weather was fine”, nên B và C sai. Vấn đề: hai điện thoại đo khác nhau, “sixty-eight decibels while Hannah\'s said seventy-four”.' },
@@ -288,7 +288,7 @@ script: [
 { s: 'A', t: "In the seminar, we'll look at how these ideas are being used in public health campaigns." },
 ],
 groups: [
-{ type: 'note', title: 'The psychology of habit formation', instr: 'Complete the notes below. Write ONE WORD ONLY for each answer.', limit: 1,
+{ type: 'note', title: 'The psychology of habit formation', instr: g.LTI[2], limit: 1,
 items: [
 { n: 31, text: 'About 40% of daily actions are repeated in the same ___', a: ['location', 'place'], cue: 'usually in the same location', explain: '“repeated almost every day, and usually in the same location” – “location” cũng có thể thay bằng “place” vì giảng viên nói ngay sau đó “Place, it turns out, is a powerful trigger”.' },
 { n: 32, text: 'Habit loop: cue → routine → ___', a: ['reward'], cue: "finally there's a reward", explain: 'Vòng lặp có ba phần: cue, routine, “and finally there\'s a reward”.' },

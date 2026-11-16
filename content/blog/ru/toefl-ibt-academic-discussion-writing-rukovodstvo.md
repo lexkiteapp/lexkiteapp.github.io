@@ -145,6 +145,8 @@ quiz: [
 
 {{youtube: | TOEFL iBT Writing Academic Discussion Masterclass}}
 
+Чтобы понять, как это задание вписывается в обновлённый тест, прочитайте про [новый формат TOEFL 2026](/ru/blog/novyy-format-toefl-2026-podgotovka/).
+
 ## Часто Задаваемые Вопросы (FAQ)
 
 ### Q1. Можно ли оспорить мнения обоих студентов и предложить третье решение?

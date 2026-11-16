@@ -184,6 +184,14 @@ ok((await call(B, { op: 'pull', have: {} })).s === 200, 'mở khóa → đồng 
   ok(cn.total === 10 && cn.due === 0 && C.dueList(onlyNew).length === 0 && C.dueList(onlyNew, { practicable: true }).length === 0, 'due: chỉ có thẻ mới → total>0 (huy hiệu) nhưng KHÔNG có thẻ đến hạn để ôn');
   const mixed = { a: mk('a', { ...fresh, reps: 2, last: now - 3 * DAY, due: now - DAY }, 'x'), b: mk('b', { ...fresh, reps: 2, last: now, due: now + 30 * DAY }, 'y'), c: mk('c', { ...fresh, reps: 2, last: now - 3 * DAY, due: now - DAY }, '') };
   ok(C.dueList(mixed).length === 2 && C.dueList(mixed, { practicable: true }).length === 1 && C.dueCount(mixed, set, st).due === 2, 'due: dueCount.due = dueList; practicable bỏ thẻ không có nghĩa');
+  { const nm = {}; for (let i = 0; i < 12; i++) nm['n' + i] = { ...mk('n' + i, { ...fresh }, 'x'), added: 100 - i }; const nt = C.newToday(nm, set, st);
+    ok(nt.length === C.dueCount(nm, set, st).newCount && nt.length === 10 && nt[0].word === 'n11' && nt.every((c, i) => !i || nt[i - 1].added <= c.added), 'due: newToday = đúng newCount thẻ mới, cũ nhất trước (phiên ôn và màn Ôn dùng chung)');
+    { const L = {}, old = ctx.localStorage; ctx.localStorage = { getItem: k => (k in L ? L[k] : null), setItem: (k, v) => { L[k] = v; } };
+      const first = C.newToday(nm, set, st).map(c => c.word); first.slice(0, 3).forEach(w => C.markSeen(w)); const next = C.newToday(nm, set, st).map(c => c.word);
+      ok(!first.slice(0, 3).some(w => next.slice(0, next.length - 3).includes(w)) && next[0] === first[3] && next.length === first.length, 'new: thẻ đã xem chưa chấm xuống cuối hàng, vào lại gặp từ chưa xem');
+      for (let i = 0; i < 12; i++) C.markSeen('n' + i); ok(C.newToday(nm, set, st).length === first.length, 'new: xem hết vẫn đủ số thẻ, xoay vòng');
+      ctx.localStorage = old; }
+    ok(C.newToday(nm, set, { newToday: { day: ctx.Core.todayKey(), n: 10 } }).length === 0, 'due: đã giới thiệu đủ thẻ mới hôm nay → newToday rỗng'); }
   const pd = fs.readFileSync(new URL('../../web/js/path-day.js', import.meta.url), 'utf8'), sy = fs.readFileSync(new URL('../../web/js/study.js', import.meta.url), 'utf8');
   ok(/dueList\(state\.cards, \{ practicable: true \}\)/.test(pd) && !/Cards\.dueCount/.test(pd), 'due: kế hoạch ngày quyết định bước ôn bằng dueList (không dùng total gồm thẻ mới)');
   ok(/src === 'due'\) list = Cards\.dueList\(state\.cards, \{ practicable: true \}\)/.test(sy), 'due: nguồn luyện due dùng cùng dueList');

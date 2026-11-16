@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=390, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Mistake Notebook</title>
+<!-- Material Symbols Outlined font -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Plus Jakarta Sans Google Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "background": "#10191B",
+            "surface": "#10191B",
+            "surface-container": "#172427",
+            "surface-container-low": "#131F22",
+            "surface-container-lowest": "#0D1517",
+            "surface-container-high": "#1E2F33",
+            "surface-container-highest": "#26383C",
+            "on-surface": "#E8F1F0",
+            "on-surface-variant": "#A9BDBB",
+            "primary": "#30C4B5",
+            "primary-container": "#195C55",
+            "on-primary": "#0A1B1D",
+            "on-primary-container": "#88F5EA",
+            "secondary": "#F97316",
+            "secondary-container": "#FF8C00",
+            "on-secondary": "#1A0D00",
+            "tertiary": "#FBBF24",
+            "outline": "#405458",
+            "outline-variant": "#26383C"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+            "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+            "headline-lg-mobile": ["26px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+            "label-md": ["14px", {"lineHeight": "18px", "letterSpacing": "0.03em", "fontWeight": "700"}],
+            "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+            "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+            "label-lg": ["16px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+      background-color: #10191B;
+    }
+  </style>
+</head>
+<body class="bg-[#10191B] text-[#E8F1F0] font-body-md antialiased min-h-screen flex justify-center selection:bg-[#30C4B5] selection:text-[#0A1B1D]">
+<!-- Mobile Container (Strict 390px simulated layout) -->
+<main class="w-full max-w-[390px] min-h-screen bg-[#10191B] flex flex-col relative pb-48">
+<!-- 1. Top App Bar (Inner Variant) -->
+<header class="sticky top-0 z-40 bg-[#10191B]/95 backdrop-blur-md px-4 py-3 flex items-center justify-between border-b-2 border-[#26383C] shadow-[0_4px_0_0_#0B1214]">
+<div class="flex items-center gap-2">
+<button aria-label="Go back" class="min-w-[44px] min-h-[44px] w-11 h-11 rounded-2xl bg-[#1E2F33] border-2 border-[#26383C] shadow-[0_3px_0_0_#0B1214] active:translate-y-1 active:shadow-none flex items-center justify-center text-[#30C4B5] transition-all" type="button">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<div class="flex flex-col">
+<h1 class="font-headline-sm text-headline-sm text-[#E8F1F0] leading-tight tracking-tight">Mistake Notebook</h1>
+<span class="font-label-sm text-label-sm text-[#A9BDBB]">#/mistakes • 25 items</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5">
+<button aria-label="Filter mistakes" class="min-w-[44px] min-h-[44px] w-11 h-11 rounded-2xl bg-[#1E2F33] border-2 border-[#26383C] shadow-[0_3px_0_0_#0B1214] active:translate-y-1 active:shadow-none flex items-center justify-center text-[#30C4B5] transition-all" type="button">
+<span class="material-symbols-outlined text-[22px]">tune</span>
+</button>
+<button aria-label="Bookmarked items" class="min-w-[44px] min-h-[44px] w-11 h-11 rounded-2xl bg-[#1E2F33] border-2 border-[#26383C] shadow-[0_3px_0_0_#0B1214] active:translate-y-1 active:shadow-none flex items-center justify-center text-[#30C4B5] transition-all" type="button">
+<span class="material-symbols-outlined text-[22px]">bookmark</span>
+</button>
+</div>
+</header>
+<!-- Main Content Area -->
+<div class="px-4 pt-4 flex flex-col gap-4">
+<!-- 2. Teacher / Motivational Header Banner -->
+<section class="bg-[#172427] border-2 border-[#26383C] rounded-2xl p-3.5 shadow-[0_4px_0_0_#0B1214] flex items-center gap-3">
+<!-- Dashed Teacher Slot Box -->
+<div class="teacher-slot min-w-[56px] w-14 h-14 rounded-2xl border-2 border-dashed border-[#30C4B5] bg-[#30C4B5]/10 flex flex-col items-center justify-center text-center p-1 flex-shrink-0" title="teacher-slot">
+<span class="material-symbols-outlined text-[#30C4B5] text-[20px]">school</span>
+<span class="font-label-sm text-[9px] leading-tight text-[#30C4B5] font-bold mt-0.5 tracking-wider">TEACHER</span>
+</div>
+<!-- Speech Bubble / Card Advice -->
+<div class="flex-1 bg-[#1E2F33] rounded-xl p-3 border-2 border-[#26383C] shadow-[0_2px_0_0_#0B1214] relative">
+<p class="font-body-sm text-body-sm text-[#E8F1F0] font-semibold leading-snug">
+            “Reviewing errors within <span class="text-[#FF8C00] font-bold underline decoration-[#FF8C00]/40 decoration-2">24 hours</span> doubles retention for <span class="text-[#30C4B5] font-bold">Band 7.5+</span>.”
+          </p>
+</div>
+</section>
+<!-- 3. Summary & Category Chips & Filter Dropdown -->
+<section class="flex flex-col gap-2.5">
+<!-- Horizontal Scroll Category Chips -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none -mx-4 px-4">
+<!-- Active Chip (Light Teal with Dark Text) -->
+<button class="min-h-[44px] px-3.5 py-2 rounded-2xl bg-[#30C4B5] text-[#0A1B1D] border-2 border-[#269E92] shadow-[0_3px_0_0_#0B1214] active:translate-y-0.5 active:shadow-none flex items-center justify-center whitespace-nowrap font-label-md text-label-md flex-shrink-0 font-extrabold" type="button">
+<span>All (25)</span>
+</button>
+<!-- Inactive Chip 1 -->
+<button class="min-h-[44px] px-3.5 py-2 rounded-2xl bg-[#1E2F33] text-[#E8F1F0] border-2 border-[#26383C] shadow-[0_3px_0_0_#0B1214] active:translate-y-0.5 active:shadow-none flex items-center justify-center whitespace-nowrap font-label-md text-label-md flex-shrink-0 hover:bg-[#26383C] transition-colors" type="button">
+<span>Grammar (12)</span>
+</button>
+<!-- Inactive Chip 2 -->
+<button class="min-h-[44px] px-3.5 py-2 rounded-2xl bg-[#1E2F33] text-[#E8F1F0] border-2 border-[#26383C] shadow-[0_3px_0_0_#0B1214] active:translate-y-0.5 active:shadow-none flex items-center justify-center whitespace-nowrap font-label-md text-label-md flex-shrink-0 hover:bg-[#26383C] transition-colors" type="button">
+<span>Vocabulary (8)</span>
+</button>
+<!-- Inactive Chip 3 -->
+<button class="min-h-[44px] px-3.5 py-2 rounded-2xl bg-[#1E2F33] text-[#E8F1F0] border-2 border-[#26383C] shadow-[0_3px_0_0_#0B1214] active:translate-y-0.5 active:shadow-none flex items-center justify-center whitespace-nowrap font-label-md text-label-md flex-shrink-0 hover:bg-[#26383C] transition-colors" type="button">
+<span>Pronunciation (5)</span>
+</button>
+</div>
+<!-- Date / Timeline Selector Row -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-1.5 text-[#A9BDBB] font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span>TIMELINE</span>
+</div>
+<button class="min-h-[44px] px-3 py-1.5 rounded-xl bg-[#1E2F33] border-2 border-[#26383C] shadow-[0_2px_0_0_#0B1214] active:translate-y-0.5 active:shadow-none flex items-center gap-1.5 text-[#E8F1F0] font-label-md text-label-md" type="button">
+<span>Past 7 days</span>
+<span class="material-symbols-outlined text-[18px] text-[#30C4B5]">keyboard_arrow_down</span>
+</button>
+</div>
+</section>
+<!-- 4. Mistakes List (Realistic Rich Content) -->
+<section class="flex flex-col gap-3.5">
+<!-- Card 1: Grammar (IELTS Task 2) -->
+<article class="bg-[#172427] border-2 border-[#26383C] rounded-2xl p-4 shadow-[0_4px_0_0_#0B1214] flex flex-col gap-3">
+<div class="flex items-center justify-between gap-2">
+<span class="px-2.5 py-1 rounded-lg bg-[#1E2F33] text-[#30C4B5] font-label-sm text-label-sm border border-[#26383C] flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">edit_note</span>
+<span>Grammar • IELTS Task 2</span>
+</span>
+<span class="font-label-sm text-label-sm text-[#A9BDBB]">Yesterday</span>
+</div>
+<!-- Prompt sentence -->
+<div>
+<span class="font-label-sm text-label-sm text-[#A9BDBB] block mb-0.5">CONTEXT SENTENCE</span>
+<p class="font-body-md text-body-md text-[#E8F1F0] font-semibold leading-snug">
+              “Despite of the bad weather, the outdoor symposium continued.”
+            </p>
+</div>
+<!-- Comparison Row -->
+<div class="grid grid-cols-1 gap-2 pt-1">
+<!-- Wrong Answer -->
+<div class="flex items-start gap-2 p-2.5 rounded-xl bg-[#2D1A1F] border-2 border-[#7F1D1D] text-[#FCA5A5]">
+<span class="material-symbols-outlined text-[20px] text-[#F87171] flex-shrink-0 mt-0.5">close</span>
+<div class="flex-1">
+<span class="font-label-sm text-[11px] uppercase tracking-wider block text-[#F87171]">Your Attempt</span>
+<span class="line-through font-bold text-body-sm text-[#FCA5A5]">Despite of</span>
+</div>
+</div>
+<!-- Correct Answer -->
+<div class="flex items-start gap-2 p-2.5 rounded-xl bg-[#142C24] border-2 border-[#065F46] text-[#6EE7B7]">
+<span class="material-symbols-outlined text-[20px] text-[#34D399] flex-shrink-0 mt-0.5">check_circle</span>
+<div class="flex-1">
+<span class="font-label-sm text-[11px] uppercase tracking-wider block text-[#34D399]">Correct Standard</span>
+<span class="font-bold text-body-sm text-[#6EE7B7]">Despite / In spite of</span>
+</div>
+</div>
+</div>
+<!-- Rule Tip Container -->
+<div class="p-3 rounded-xl bg-[#2C2413] border border-[#78350F] flex items-start gap-2">
+<span class="text-[16px] leading-tight flex-shrink-0">💡</span>
+<p class="font-body-sm text-body-sm text-[#FDE68A] leading-snug">
+<strong class="font-bold text-[#FBBF24]">Rule:</strong> ‘Despite’ takes a noun directly without a preposition (‘of’). ‘In spite’ always requires ‘of’.
+            </p>
+</div>
+<!-- Practice Mini Action -->
+<div class="flex items-center justify-end gap-2 pt-1 border-t border-[#26383C]">
+<button class="min-h-[44px] px-3 py-1.5 rounded-xl bg-[#1E2F33] hover:bg-[#26383C] border border-[#26383C] text-[#E8F1F0] font-label-md text-label-md flex items-center gap-1.5 active:scale-95 transition-all shadow-[0_2px_0_0_#0B1214]" type="button">
+<span class="material-symbols-outlined text-[18px] text-[#30C4B5]">volume_up</span>
+<span>Listen</span>
+</button>
+<button class="min-h-[44px] px-3.5 py-1.5 rounded-xl bg-[#30C4B5]/15 hover:bg-[#30C4B5]/25 border border-[#30C4B5]/30 text-[#30C4B5] font-label-md text-label-md flex items-center gap-1.5 active:scale-95 transition-all shadow-[0_2px_0_0_#0B1214]" type="button">
+<span class="material-symbols-outlined text-[18px]">cached</span>
+<span>Drill 1x</span>
+</button>
+</div>
+</article>
+<!-- Card 2: Vocabulary / Collocation -->
+<article class="bg-[#172427] border-2 border-[#26383C] rounded-2xl p-4 shadow-[0_4px_0_0_#0B1214] flex flex-col gap-3">
+<div class="flex items-center justify-between gap-2">
+<span class="px-2.5 py-1 rounded-lg bg-[#1E2F33] text-[#30C4B5] font-label-sm text-label-sm border border-[#26383C] flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">menu_book</span>
+<span>Vocabulary • Band 7.5 Collocation</span>
+</span>
+<span class="font-label-sm text-label-sm text-[#A9BDBB]">2 days ago</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-[#A9BDBB] block mb-0.5">CONTEXT SENTENCE</span>
+<p class="font-body-md text-body-md text-[#E8F1F0] font-semibold leading-snug">
+              “The committee decided to make a decision quickly.”
+            </p>
+</div>
+<!-- Comparison Row -->
+<div class="grid grid-cols-1 gap-2 pt-1">
+<div class="flex items-start gap-2 p-2.5 rounded-xl bg-[#2D1A1F] border-2 border-[#7F1D1D] text-[#FCA5A5]">
+<span class="material-symbols-outlined text-[20px] text-[#F87171] flex-shrink-0 mt-0.5">close</span>
+<div class="flex-1">
+<span class="font-label-sm text-[11px] uppercase tracking-wider block text-[#F87171]">Weak Academic Register</span>
+<span class="line-through font-bold text-body-sm text-[#FCA5A5]">make a decision</span>
+</div>
+</div>
+<div class="flex items-start gap-2 p-2.5 rounded-xl bg-[#142C24] border-2 border-[#065F46] text-[#6EE7B7]">
+<span class="material-symbols-outlined text-[20px] text-[#34D399] flex-shrink-0 mt-0.5">check_circle</span>
+<div class="flex-1">
+<span class="font-label-sm text-[11px] uppercase tracking-wider block text-[#34D399]">Band 8.0 Natural Collocation</span>
+<span class="font-bold text-body-sm text-[#6EE7B7]">reach a consensus / arrive at a decision</span>
+</div>
+</div>
+</div>
+<!-- Rule Tip Container -->
+<div class="p-3 rounded-xl bg-[#2C2413] border border-[#78350F] flex items-start gap-2">
+<span class="text-[16px] leading-tight flex-shrink-0">💡</span>
+<p class="font-body-sm text-body-sm text-[#FDE68A] leading-snug">
+<strong class="font-bold text-[#FBBF24]">Academic Lexis:</strong> High-level collocations like ‘reach a consensus’ boost Lexical Resource in Writing &amp; Speaking.
+            </p>
+</div>
+<div class="flex items-center justify-end gap-2 pt-1 border-t border-[#26383C]">
+<button class="min-h-[44px] px-3.5 py-1.5 rounded-xl bg-[#30C4B5]/15 hover:bg-[#30C4B5]/25 border border-[#30C4B5]/30 text-[#30C4B5] font-label-md text-label-md flex items-center gap-1.5 active:scale-95 transition-all shadow-[0_2px_0_0_#0B1214]" type="button">
+<span class="material-symbols-outlined text-[18px]">cached</span>
+<span>Drill 1x</span>
+</button>
+</div>
+</article>
+<!-- Card 3: Pronunciation / Stress -->
+<article class="bg-[#172427] border-2 border-[#26383C] rounded-2xl p-4 shadow-[0_4px_0_0_#0B1214] flex flex-col gap-3">
+<div class="flex items-center justify-between gap-2">
+<span class="px-2.5 py-1 rounded-lg bg-[#1E2F33] text-[#30C4B5] font-label-sm text-label-sm border border-[#26383C] flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">record_voice_over</span>
+<span>Pronunciation • Word Stress</span>
+</span>
+<span class="font-label-sm text-label-sm text-[#A9BDBB]">3 days ago</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-[#A9BDBB] block mb-0.5">TARGET WORD</span>
+<p class="font-headline-sm text-headline-sm text-[#E8F1F0] font-extrabold tracking-wide">
+              photographer
+            </p>
+</div>
+<!-- Comparison Row -->
+<div class="grid grid-cols-1 gap-2 pt-1">
+<div class="flex items-start gap-2 p-2.5 rounded-xl bg-[#2D1A1F] border-2 border-[#7F1D1D] text-[#FCA5A5]">
+<span class="material-symbols-outlined text-[20px] text-[#F87171] flex-shrink-0 mt-0.5">close</span>
+<div class="flex-1">
+<span class="font-label-sm text-[11px] uppercase tracking-wider block text-[#F87171]">Incorrect Stress</span>
+<span class="line-through font-bold text-body-sm text-[#FCA5A5]">PHO-to-graph-er (first syllable)</span>
+</div>
+</div>
+<div class="flex items-start gap-2 p-2.5 rounded-xl bg-[#142C24] border-2 border-[#065F46] text-[#6EE7B7]">
+<span class="material-symbols-outlined text-[20px] text-[#34D399] flex-shrink-0 mt-0.5">check_circle</span>
+<div class="flex-1">
+<span class="font-label-sm text-[11px] uppercase tracking-wider block text-[#34D399]">Correct Syllable Stress</span>
+<span class="font-bold text-body-sm text-[#6EE7B7]">pho-TOG-ra-pher</span>
+<span class="font-label-sm text-label-sm text-[#A9BDBB] block">/fəˈtɒɡ.rə.fər/ (second syllable)</span>
+</div>
+</div>
+</div>
+<!-- Rule Tip Container -->
+<div class="p-3 rounded-xl bg-[#2C2413] border border-[#78350F] flex items-start gap-2">
+<span class="text-[16px] leading-tight flex-shrink-0">💡</span>
+<p class="font-body-sm text-body-sm text-[#FDE68A] leading-snug">
+<strong class="font-bold text-[#FBBF24]">Stress Shift:</strong> Primary stress moves from ‘PHO-to-graph’ to ‘pho-TOG-ra-pher’ upon adding suffix ‘-er’.
+            </p>
+</div>
+<div class="flex items-center justify-end gap-2 pt-1 border-t border-[#26383C]">
+<button class="min-h-[44px] px-3 py-1.5 rounded-xl bg-[#1E2F33] hover:bg-[#26383C] border border-[#26383C] text-[#E8F1F0] font-label-md text-label-md flex items-center gap-1.5 active:scale-95 transition-all shadow-[0_2px_0_0_#0B1214]" type="button">
+<span class="material-symbols-outlined text-[18px] text-[#30C4B5]">volume_up</span>
+<span>Listen</span>
+</button>
+<button class="min-h-[44px] px-3.5 py-1.5 rounded-xl bg-[#30C4B5]/15 hover:bg-[#30C4B5]/25 border border-[#30C4B5]/30 text-[#30C4B5] font-label-md text-label-md flex items-center gap-1.5 active:scale-95 transition-all shadow-[0_2px_0_0_#0B1214]" type="button">
+<span class="material-symbols-outlined text-[18px]">mic</span>
+<span>Record</span>
+</button>
+</div>
+</article>
+<!-- Card 4: Grammar / Agreement -->
+<article class="bg-[#172427] border-2 border-[#26383C] rounded-2xl p-4 shadow-[0_4px_0_0_#0B1214] flex flex-col gap-3">
+<div class="flex items-center justify-between gap-2">
+<span class="px-2.5 py-1 rounded-lg bg-[#1E2F33] text-[#30C4B5] font-label-sm text-label-sm border border-[#26383C] flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">spellcheck</span>
+<span>Grammar • Agreement</span>
+</span>
+<span class="font-label-sm text-label-sm text-[#A9BDBB]">4 days ago</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-[#A9BDBB] block mb-0.5">CONTEXT SENTENCE</span>
+<p class="font-body-md text-body-md text-[#E8F1F0] font-semibold leading-snug">
+              “The number of international students are increasing rapidly.”
+            </p>
+</div>
+<!-- Comparison Row -->
+<div class="grid grid-cols-1 gap-2 pt-1">
+<div class="flex items-start gap-2 p-2.5 rounded-xl bg-[#2D1A1F] border-2 border-[#7F1D1D] text-[#FCA5A5]">
+<span class="material-symbols-outlined text-[20px] text-[#F87171] flex-shrink-0 mt-0.5">close</span>
+<div class="flex-1">
+<span class="font-label-sm text-[11px] uppercase tracking-wider block text-[#F87171]">Agreement Error</span>
+<span class="line-through font-bold text-body-sm text-[#FCA5A5]">are increasing</span>
+</div>
+</div>
+<div class="flex items-start gap-2 p-2.5 rounded-xl bg-[#142C24] border-2 border-[#065F46] text-[#6EE7B7]">
+<span class="material-symbols-outlined text-[20px] text-[#34D399] flex-shrink-0 mt-0.5">check_circle</span>
+<div class="flex-1">
+<span class="font-label-sm text-[11px] uppercase tracking-wider block text-[#34D399]">Singular Agreement</span>
+<span class="font-bold text-body-sm text-[#6EE7B7]">is increasing</span>
+</div>
+</div>
+</div>
+<!-- Rule Tip Container -->
+<div class="p-3 rounded-xl bg-[#2C2413] border border-[#78350F] flex items-start gap-2">
+<span class="text-[16px] leading-tight flex-shrink-0">💡</span>
+<p class="font-body-sm text-body-sm text-[#FDE68A] leading-snug">
+<strong class="font-bold text-[#FBBF24]">Rule:</strong> ‘The number of’ acts as a singular unit (‘is’), whereas ‘A number of’ is plural (‘are’).
+            </p>
+</div>
+<div class="flex items-center justify-end gap-2 pt-1 border-t border-[#26383C]">
+<button class="min-h-[44px] px-3.5 py-1.5 rounded-xl bg-[#30C4B5]/15 hover:bg-[#30C4B5]/25 border border-[#30C4B5]/30 text-[#30C4B5] font-label-md text-label-md flex items-center gap-1.5 active:scale-95 transition-all shadow-[0_2px_0_0_#0B1214]" type="button">
+<span class="material-symbols-outlined text-[18px]">cached</span>
+<span>Drill 1x</span>
+</button>
+</div>
+</article>
+</section>
+</div>
+<!-- 5. Bottom Sticky Primary CTA (Above tab bar) -->
+<div class="fixed bottom-16 left-0 right-0 max-w-[390px] mx-auto z-40 px-4 py-2.5 bg-gradient-to-t from-[#10191B] via-[#10191B]/95 to-transparent">
+<button class="w-full min-h-[52px] h-[52px] rounded-2xl bg-[#FF8C00] text-[#1A0D00] font-headline-sm text-[17px] font-extrabold border-2 border-[#D97300] shadow-[0_4px_0_0_#8F4700] active:translate-y-1 active:shadow-none transition-all flex items-center justify-center gap-2" type="button">
+<span>Practise these 25</span>
+<span class="material-symbols-outlined text-[22px] font-bold text-[#1A0D00]">bolt</span>
+</button>
+<div class="text-center mt-1">
+<span class="font-label-sm text-[11px] font-bold text-[#A9BDBB] tracking-wider">
+          Estimated session: 8 mins • <span class="text-[#FF8C00] font-black">+50 XP</span>
+</span>
+</div>
+</div>
+<!-- 6. Bottom Tab Bar -->
+<nav aria-label="Bottom Navigation" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-3 py-2 bg-[#172427] border-t-2 border-[#26383C] max-w-[390px] mx-auto h-16 shadow-[0_-4px_0_0_#0B1214]">
+<!-- Tab 1: Today -->
+<a class="flex flex-col items-center justify-center text-[#A9BDBB] px-2 py-1.5 min-w-[44px] min-h-[44px] hover:text-[#30C4B5] transition-colors active:scale-95 transition-transform duration-150" href="#today">
+<span class="material-symbols-outlined text-[22px]">today</span>
+<span class="font-label-sm text-[11px] font-bold mt-0.5">Today</span>
+</a>
+<!-- Tab 2: Vocab (Active) -->
+<a class="flex flex-col items-center justify-center bg-[#FF8C00] text-[#1A0D00] rounded-2xl px-3 py-1.5 shadow-[0_3px_0_0_#8F4700] active:translate-y-1 active:shadow-none min-w-[44px] min-h-[44px] transition-all" href="#vocab">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<span class="font-label-sm text-[11px] font-extrabold text-[#1A0D00] mt-0.5">Vocab</span>
+</a>
+<!-- Tab 3: Skills -->
+<a class="flex flex-col items-center justify-center text-[#A9BDBB] px-2 py-1.5 min-w-[44px] min-h-[44px] hover:text-[#30C4B5] transition-colors active:scale-95 transition-transform duration-150" href="#skills">
+<span class="material-symbols-outlined text-[22px]">psychology</span>
+<span class="font-label-sm text-[11px] font-bold mt-0.5">Skills</span>
+</a>
+<!-- Tab 4: Tests -->
+<a class="flex flex-col items-center justify-center text-[#A9BDBB] px-2 py-1.5 min-w-[44px] min-h-[44px] hover:text-[#30C4B5] transition-colors active:scale-95 transition-transform duration-150" href="#tests">
+<span class="material-symbols-outlined text-[22px]">assignment</span>
+<span class="font-label-sm text-[11px] font-bold mt-0.5">Tests</span>
+</a>
+<!-- Tab 5: Me -->
+<a class="flex flex-col items-center justify-center text-[#A9BDBB] px-2 py-1.5 min-w-[44px] min-h-[44px] hover:text-[#30C4B5] transition-colors active:scale-95 transition-transform duration-150" href="#me">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="font-label-sm text-[11px] font-bold mt-0.5">Me</span>
+</a>
+</nav>
+</main>
+</body></html>

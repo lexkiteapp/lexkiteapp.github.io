@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_cashier",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: cashier.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means a person who takes payments in a shop or bank.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "Please pay the cashier at the front counter.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "cashier",
+  "ipa": "/kæˈʃɪr/",
+  "mean": "a person who takes payments in a shop or bank",
+  "ex": "Please pay the cashier at the front counter.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=cashier",
+  "link": "https://lexkite.com/app/#/review?w=cashier",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 45,
+  "seconds": 27.2,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"cashier\" mean?",
+  "keyword": "cashier",
+  "value": "Cashier means a person who takes payments in a shop or bank.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=cashier",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"cashier\" mean?",
+    "description": "Cashier means a person who takes payments in a shop or bank.\n\nReview your words, free: https://lexkite.com/app/#/review?w=cashier\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "cashier",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"cashier\" mean?\n\nCashier means a person who takes payments in a shop or bank.\n\nReview your words, free: https://lexkite.com/app/#/review?w=cashier"
+   },
+   "instagram": {
+    "caption": "What does \"cashier\" mean?\n\nCashier means a person who takes payments in a shop or bank.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"cashier\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a person who takes payments in a shop or bank. Cashier means a person who takes payments in a shop or bank. More practice like this (free): {link}"
+ }
+}

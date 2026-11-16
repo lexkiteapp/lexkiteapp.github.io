@@ -146,7 +146,7 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
   }
   if (opt('--push-copy') != null) { // không bao giờ làm đỏ CI chỉ vì gửi lên Quản trị lỗi
     const f = opt('--push-copy'), rep = fs.existsSync(f) ? readJson(f) : null;
-    const r = await post('ciCopy', rep ? { configured: true, probes: rep.probes || [], run: process.env.RUN_URL || '' } : { configured: process.env.BRAVE_SET === 'true', probes: [], run: process.env.RUN_URL || '' });
+    const r = await post('ciCopy', rep ? { configured: rep.configured !== false, probes: rep.probes || [], run: process.env.RUN_URL || '' } : { configured: process.env.BRAVE_SET === 'true', probes: [], run: process.env.RUN_URL || '' });
     console.log(r.ok ? `✓ đã gửi kết quả dò sao chép lên Quản trị (${r.n} câu)` : `::warning::Không gửi được kết quả dò sao chép lên Quản trị: ${r.error}`); process.exit(0);
   }
   if (opt('--issues') != null) {

@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_cry",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: cry.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means to produce tears and sounds because of pain.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "The baby started to cry when the music stopped.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "cry",
+  "ipa": "/kraɪ/",
+  "mean": "to produce tears and sounds because of pain",
+  "ex": "The baby started to cry when the music stopped.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=cry",
+  "link": "https://lexkite.com/app/#/review?w=cry",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 44,
+  "seconds": 26.7,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"cry\" mean?",
+  "keyword": "cry",
+  "value": "Cry means to produce tears and sounds because of pain.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=cry",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"cry\" mean?",
+    "description": "Cry means to produce tears and sounds because of pain.\n\nReview your words, free: https://lexkite.com/app/#/review?w=cry\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "cry",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"cry\" mean?\n\nCry means to produce tears and sounds because of pain.\n\nReview your words, free: https://lexkite.com/app/#/review?w=cry"
+   },
+   "instagram": {
+    "caption": "What does \"cry\" mean?\n\nCry means to produce tears and sounds because of pain.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"cry\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to produce tears and sounds because of pain. Cry means to produce tears and sounds because of pain. Try the full lesson and quiz here: {link}"
+ }
+}

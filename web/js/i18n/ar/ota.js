@@ -1,3 +1,2 @@
-/* UI ar – ota (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ar"] = Object.assign(D["ar"] || {}, {"Có bản Lexkite mới":"يتوفر إصدار جديد من Lexkite","Cập nhật để có tính năng mới và bản sửa lỗi.":"حدّث للحصول على ميزات جديدة وإصلاحات للأخطاء.","Cập nhật":"تحديث","Mở App Store":"فتح App Store","Bản cập nhật đã sẵn sàng":"التحديث جاهز","Khởi động lại":"إعادة التشغيل","Cần cập nhật để tiếp tục dùng Lexkite.":"يرجى التحديث لمواصلة استخدام Lexkite."});
-})(typeof self !== 'undefined' ? self : this);
+/* SINH từ i18n/ui/ar/ota.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.ar=Object.assign(D.ar||{},{_hkil:"التحديث جاهز",_xfjx:"يتوفر إصدار جديد من Lexkite",_e7ze:"يرجى التحديث لمواصلة استخدام Lexkite.",_qi3m:"تحديث",_h4s8:"حدّث للحصول على ميزات جديدة وإصلاحات للأخطاء.",_4x79:"إعادة التشغيل",_4ca7:"فتح App Store"});})(typeof self!=='undefined'?self:this);

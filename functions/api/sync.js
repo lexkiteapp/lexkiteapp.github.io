@@ -3,10 +3,13 @@
  *   { op: 'pull', have: { cards_0: 'hash', … } } → { docs: { meta: {...}, cards_3: {...} } }  (chỉ trả tài liệu có hash khác)
  *   { op: 'push', docs: { meta: { h, body }, cards_0: { h, body } } } → { ok: true, n }
  * Mỗi người chỉ đọc/ghi được dữ liệu của chính mình (uid lấy từ token đã xác minh chữ ký Google). */
+import { isD1Limit } from './_d1limit.js';
+import { secsToReset } from './_d1guard.js';
 import { gate } from './_quota.js';
 import { once } from './_schema.js';
 import { docsDb, pickShard } from './_shard.js';
 import { cleanDocBody } from './_ctx.js';
+import { readJSON, bodyFail } from './_body.js';
 
 const PROJECT = 'lexkite-app';
 const JWKS_URL = 'https://www.googleapis.com/service_accounts/v1/jwk/securetoken@system.gserviceaccount.com';
@@ -16,11 +19,11 @@ const ORIGINS = /^(https:\/\/((www\.)?lexkite\.com|([a-z0-9-]+\.)?lexkite\.pages
 
 let jwks = null, jwksAt = 0, ready = false;
 
-const cors = req => {
+export const cors = req => {
   const o = req.headers.get('Origin') || '';
   return ORIGINS.test(o) ? { 'Access-Control-Allow-Origin': o, 'Access-Control-Allow-Headers': 'Authorization, Content-Type', 'Access-Control-Allow-Methods': 'POST, OPTIONS', 'Access-Control-Max-Age': '86400', Vary: 'Origin' } : {};
 };
-const json = (req, status, data) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...cors(req) } });
+export const json = (req, status, data) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...cors(req) } });
 
 const b64u = s => Uint8Array.from(atob(s.replace(/-/g, '+').replace(/_/g, '/') + '='.repeat((4 - s.length % 4) % 4)), c => c.charCodeAt(0));
 async function keys(force) {
@@ -120,9 +123,8 @@ export async function onRequestPost({ request, env }) {
   const who = await claims((request.headers.get('Authorization') || '').replace(/^Bearer\s+/i, '')).catch(() => null);
   const uid = who && who.sub;
   if (!uid) return json(request, 401, { error: 'auth' });
-  if (+(request.headers.get('Content-Length') || 0) > MAX_TOTAL) return json(request, 413, { error: 'too-large' });
   let req;
-  try { req = await request.json(); } catch (e) { return json(request, 400, { error: 'json' }); }
+  try { req = await readJSON(request, MAX_TOTAL); } catch (e) { const f = bodyFail(e); return json(request, f.status, { error: f.error }); }
   if (!req || typeof req !== 'object' || Array.isArray(req)) return json(request, 400, { error: 'json' });
   // Mỗi tài khoản: kéo/đẩy mỗi chiều tối đa 1 lần/20 giây (app tự gom 3 phút/lần nên người dùng thường không chạm tới)
   { const w = await limit(`sync:${uid}:${req.op}`, 1, 20); if (w) return json(request, 429, { error: 'too-fast', wait: w }); }
@@ -190,7 +192,8 @@ export async function onRequestPost({ request, env }) {
     return json(request, 400, { error: 'op' });
   } catch (e) {
     // Hết hạn mức D1 trong ngày → báo client tạm nghỉ (dữ liệu vẫn trên máy)
-    const quota = /limit|exceeded|quota|too many/i.test(String(e && e.message));
-    return json(request, quota ? 429 : 500, { error: quota ? 'quota' : 'server' });
+    // retry = giây tới 00:00 UTC (hạn mức đặt lại) → máy khách nghỉ đúng tới lúc đó (+ rải 1–21 phút), không phải cố định 6 giờ (sự cố 03/11)
+    const quota = isD1Limit(e) || /limit|exceeded|quota|too many/i.test(String(e && e.message));
+    return json(request, quota ? 429 : 500, quota ? { error: 'quota', retry: secsToReset() } : { error: 'server' });
   }
 }

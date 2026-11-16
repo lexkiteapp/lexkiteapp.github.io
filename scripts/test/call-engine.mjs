@@ -2,7 +2,7 @@
 // độ trôi chảy, tổng kết + điểm tử tế, luyện lại câu yếu, chọn đường nhận dạng (trên máy trước). Kịch bản mẫu chạy hết từ đầu đến cuối bằng câu gợi ý.
 import fs from 'node:fs'; import vm from 'node:vm'; import assert from 'node:assert/strict';
 const c = {}; vm.createContext(c); c.self = c;
-for (const f of ['pron/pairs.js', 'call/calls.js', 'call/calls-exam.js', 'call/engine.js']) vm.runInContext(fs.readFileSync('web/js/' + f, 'utf8'), c);
+for (const f of ['pron/pairs.js', 'call/calls.js', 'call/calls-exam.js', 'call/calls-lot1.js', 'call/calls-lot2.js', 'call/engine.js']) vm.runInContext(fs.readFileSync('web/js/' + f, 'utf8'), c);
 const E = c.CallEngine, CALLS = c.CALLS; let n = 0;
 const ok = (v, m) => { assert.ok(v, m || 'lỗi'); n++; }, eq = (a, b, m) => { assert.equal(JSON.stringify(a), JSON.stringify(b), m || JSON.stringify(a)); n++; };
 const byId = id => E.prep(CALLS.find(x => x.id === id));
@@ -52,6 +52,18 @@ eq(E.correct('Yesterday I go to the beach', 'What did you do?').good, 'Yesterday
 eq(E.correct('I go to the beach', 'Where do you like to go?'), null, 'không phải quá khứ');
 eq(E.correct('I want to go home', 'x'), null, 'câu đúng');
 eq(E.correct('She want to go', 'x').good, 'She wants to go');
+// Lỗi gốc đo bằng scripts/feedback/eval.mjs (05/11): have+V3 có mốc quá khứ thành "had watched"; "many homeworks" thành "many homework"; chỉ sửa luật đầu
+eq(E.correct('last night i have watched a film', 'What did you do?').good, 'last night i watched a film');
+eq(E.correct('I have lived in Beijing last year.', 'x').good, 'I lived in Beijing last year.');
+eq(E.correct('we have been there last summer', 'x').good, 'we were there last summer');
+eq(E.correct('yes I have many homeworks this week', 'x').good, 'yes I have a lot of homework this week');
+eq(E.correct('i took too many luggages', 'x').good, 'i took too much luggage');
+eq(E.correct('i bought a furnitures for my room', 'x').good, 'i bought furniture for my room');
+eq(E.correct('yesterday i go to market and buy fish', 'x').good, 'yesterday i went to market and bought fish');
+eq(E.correct('yesterday it rains so i stay home', 'x').good, 'yesterday it rained so i stayed home');
+eq(E.correct('He want to go but he don\'t have time', 'x').good, 'He wants to go but he doesn\'t have time', 'áp mọi luật, ghi đủ lý do');
+eq(E.correct('Yes, it says it will be sunny on Saturday.', 'Did you check the forecast?'), null, 'câu hỏi "Did you" không đủ để ép quá khứ');
+eq(E.correct('I have done it already', 'Did you finish?'), null, 'have + V3 không có mốc quá khứ vẫn đúng');
 
 // 4. Nhầm cặp âm: bread ≠ breast (bakery), không báo nhầm khi nói đúng
 const bk = byId('bakery');

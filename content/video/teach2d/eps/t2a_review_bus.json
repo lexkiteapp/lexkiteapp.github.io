@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_bus",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: bus.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means a large road vehicle used for carrying many people.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "I take the bus to work every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "bus",
+  "ipa": "/bʌs/",
+  "mean": "a large road vehicle used for carrying many people",
+  "ex": "I take the bus to work every day.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=bus",
+  "link": "https://lexkite.com/app/#/review?w=bus",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 44,
+  "seconds": 26.7,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"bus\" mean?",
+  "keyword": "bus",
+  "value": "Bus means a large road vehicle used for carrying many people.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=bus",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"bus\" mean?",
+    "description": "Bus means a large road vehicle used for carrying many people.\n\nReview your words, free: https://lexkite.com/app/#/review?w=bus\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "bus",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"bus\" mean?\n\nBus means a large road vehicle used for carrying many people.\n\nReview your words, free: https://lexkite.com/app/#/review?w=bus"
+   },
+   "instagram": {
+    "caption": "What does \"bus\" mean?\n\nBus means a large road vehicle used for carrying many people.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"bus\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a large road vehicle used for carrying many people. Bus means a large road vehicle used for carrying many people. More practice like this (free): {link}"
+ }
+}

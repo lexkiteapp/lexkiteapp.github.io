@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html class="h-full" dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>درس ليكسكايت — اختر الكلمة الصحيحة</title>
+<!-- Google Fonts: Cairo & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Rounded -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,1,0" rel="stylesheet"/>
+<!-- Tailwind CDN with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Cairo"', '"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+            latin: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            'cream-bg': '#FFF8F3',
+            'cream-surface': '#FFFDFB',
+            'cream-border': '#EFE2D3',
+            'teal-brand': '#0B4844',
+            'teal-primary': '#136B66',
+            'teal-dark': '#0F3D3E',
+            'teal-tint': '#E8F5F4',
+            'teal-border': '#99D0CC',
+            'amber-cta': '#F59E0B',
+            'amber-ledge': '#B45309',
+            'ink-primary': '#192024',
+            'ink-secondary': '#4A5B60',
+            'ink-dark': '#1C1003',
+          },
+          boxShadow: {
+            'tactile-card': '0 4px 0 #E3D5C5',
+            'tactile-option': '0 4px 0 #DFD2C2',
+            'tactile-selected': '0 4px 0 #062624',
+            'tactile-btn': '0 5px 0 #B45309',
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #FFF8F3;
+      color: #192024;
+      font-family: 'Cairo', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .teacher-slot {
+      border: 2px dashed #14B8A6;
+      background-color: #E8F5F4;
+    }
+    .touch-action-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #B45309;
+    }
+    .touch-option-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #DFD2C2;
+    }
+    /* Latin script helper */
+    .font-latin {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between bg-[#10191B] text-[#E8F1F0] select-none antialiased">
+<!-- TOP APP BAR / PROGRESS HEADER -->
+<header class="w-full max-w-4xl mx-auto px-4 sm:px-6 pt-5 pb-3 flex flex-col gap-3 shrink-0">
+<div class="flex items-center justify-between gap-4 w-full">
+<!-- Close button -->
+<button aria-label="إغلاق الدرس" class="w-11 h-11 flex items-center justify-center rounded-2xl bg-[#172427] border-2 border-[#23383E] text-[#E8F1F0] hover:bg-[#1E2F33] shadow-[0_2px_0_#0B1416] active:translate-y-0.5 active:shadow-none transition-all shrink-0" type="button">
+<span class="material-symbols-rounded text-[22px]">close</span>
+</button>
+<!-- Lesson Progress Track -->
+<div class="flex-1 flex flex-col gap-1.5">
+<div class="flex justify-between items-center text-xs font-black text-[#A9BDBB] px-0.5">
+<span class="tracking-wide">السؤال 4 من 10</span>
+<span class="text-[#2DD4BF] font-extrabold font-latin">40%</span>
+</div>
+<div class="h-3.5 w-full bg-[#172427] border border-[#23383E] rounded-full overflow-hidden p-0.5">
+<div class="h-full bg-gradient-to-l from-[#14B8A6] to-[#2DD4BF] rounded-full w-[40%] transition-all duration-300"></div>
+</div>
+</div>
+<!-- Settings / Options Trigger -->
+<button aria-label="إعدادات التمرين" class="w-11 h-11 flex items-center justify-center rounded-2xl bg-[#172427] border-2 border-[#23383E] text-[#A9BDBB] hover:text-[#E8F1F0] hover:bg-[#1E2F33] shadow-[0_2px_0_#0B1416] active:translate-y-0.5 active:shadow-none transition-all shrink-0" type="button">
+<span class="material-symbols-rounded text-[20px]">tune</span>
+</button>
+</div>
+<!-- Category / Level Strip & XP Badge -->
+<div class="flex items-center justify-between flex-wrap gap-2 pt-1 px-1">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#172427] border border-[#2A454C]">
+<span class="w-2.5 h-2.5 rounded-full bg-[#2DD4BF]"></span>
+<span class="text-xs font-bold text-[#2DD4BF] tracking-wide">أساسيات آيلتس وتوفل • المستوى B2</span>
+</div>
+<div class="inline-flex items-center gap-1.5 text-xs font-black text-[#A9BDBB] bg-[#1E2F33] px-3 py-1 rounded-full border border-amber-500/30">
+<span class="material-symbols-rounded text-amber-400 text-[18px]">bolt</span>
+<span class="font-latin font-bold text-[#E8F1F0]">+15 XP</span>
+<span class="text-[#A9BDBB] font-medium">نقطة خبرة</span>
+</div>
+</div>
+</header>
+<!-- MAIN SCROLLABLE CONTENT AREA -->
+<main class="flex-1 w-full max-w-3xl mx-auto px-4 sm:px-6 py-4 flex flex-col gap-5">
+<!-- TEACHER SLOT & COACH TIP (Mirrored for RTL) -->
+<section class="flex items-start gap-3.5 w-full">
+<!-- Empty Teacher Slot Placeholder -->
+<div aria-label="teacher-slot" class="w-[76px] h-[82px] rounded-2xl flex flex-col items-center justify-center p-1.5 shrink-0 text-center shadow-sm border-2 border-dashed border-[#2DD4BF]/60 bg-[#172427]">
+<span class="material-symbols-rounded text-[#2DD4BF] text-[28px]">school</span>
+<span class="text-[11px] font-black text-[#2DD4BF] uppercase tracking-tight mt-0.5 leading-tight">خانة</span>
+<span class="text-[10px] font-bold text-[#2DD4BF]/80 uppercase tracking-tight leading-none">المعلم</span>
+</div>
+<!-- Speech Bubble / Coach Hint with mirrored tail on the right -->
+<div class="flex-1 bg-[#172427] border-2 border-[#23383E] rounded-2xl p-3.5 sm:p-4 shadow-[0_4px_0_#0B1416] relative">
+<!-- Speech Bubble Tail pointing right toward teacher slot in RTL -->
+<div class="absolute -right-2 top-4 w-3.5 h-3.5 bg-[#172427] border-r-2 border-t-2 border-[#23383E] transform rotate-45"></div>
+<div class="flex items-center justify-between gap-1 mb-1.5">
+<span class="text-xs font-black text-[#2DD4BF] uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-rounded text-[16px]">lightbulb</span>
+            نصيحة المدربة
+          </span>
+<span class="text-[11px] font-bold text-[#A9BDBB] bg-[#1E2F33] px-2 py-0.5 rounded-md border border-[#2A454C]">تركيب الكلمات المتلازمة</span>
+</div>
+<p class="text-xs sm:text-sm font-semibold text-[#E8F1F0] leading-relaxed">
+          انتبه إلى الاسم <span class="font-latin text-[#2DD4BF] font-black underline decoration-[#2DD4BF] decoration-2" dir="ltr">decision</span> (قرار). ما هو الفعل الذي يتلازم معه بشكل طبيعي في الإنجليزية الأكاديمية؟
+        </p>
+</div>
+</section>
+<!-- QUESTION TITLE & PROMPT -->
+<section class="flex flex-col gap-1 w-full text-right">
+<h1 class="text-xl sm:text-2xl font-black text-[#E8F1F0] tracking-tight leading-snug">
+        اختر الكلمة الصحيحة
+      </h1>
+<p class="text-xs sm:text-sm font-semibold text-[#A9BDBB] leading-normal">
+        حدد الخيار الذي يُكمل الجملة بشكل صحيح نحوياً وبشكل اصطلاحي سليم.
+      </p>
+</section>
+<!-- SENTENCE CARD WITH GAP & AUDIO CONTROLS -->
+<section class="w-full bg-[#172427] border-2 border-[#23383E] rounded-3xl p-4 sm:p-5 shadow-[0_4px_0_#0B1416] flex flex-col gap-4">
+<!-- Audio Action Bar -->
+<div class="flex items-center justify-between pb-3 border-b border-[#23383E] flex-wrap gap-2">
+<div class="flex items-center gap-2.5">
+<!-- Play Full Audio -->
+<button aria-label="تشغيل الصوت" class="h-11 px-4 rounded-xl bg-[#0E3E3B] border border-[#2DD4BF]/50 text-white flex items-center gap-2 shadow-[0_3px_0_#062321] hover:bg-[#134e4a] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-rounded text-[20px] text-[#2DD4BF]">volume_up</span>
+<span class="text-xs font-black tracking-wide text-[#E8F1F0]">تشغيل الصوت</span>
+</button>
+<!-- Slow Audio Playback (0.75x) -->
+<button aria-label="إبطاء 0.75x" class="h-11 px-3.5 rounded-xl bg-[#1E2F33] border-2 border-[#2A454C] text-[#A9BDBB] flex items-center gap-1.5 hover:text-[#E8F1F0] hover:bg-[#23383E] shadow-[0_2px_0_#0B1416] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-rounded text-[18px] text-[#2DD4BF]">slow_motion_video</span>
+<span class="text-xs font-bold">إبطاء <span class="font-latin">0.75x</span></span>
+</button>
+</div>
+<span class="text-xs font-bold text-[#2DD4BF] bg-[#1E2F33] px-2.5 py-1 rounded-lg border border-[#2A454C]">
+          لهجة بريطانية
+        </span>
+</div>
+<!-- The Sentence stimulus kept in English (LTR) with styled gap -->
+<div class="py-2 px-1 text-left" dir="ltr">
+<p class="font-latin text-lg sm:text-xl font-bold text-[#E8F1F0] leading-loose">
+          “The committee will 
+          <span class="inline-flex items-center justify-center min-w-[110px] h-10 mx-1.5 px-3.5 align-middle border-2 border-dashed border-[#2DD4BF] bg-[#0E3E3B] rounded-xl text-[#2DD4BF] font-extrabold text-[18px] shadow-inner font-latin">
+            make
+          </span>
+          a final decision regarding the research grant tomorrow morning.”
+        </p>
+</div>
+<!-- Translation Hint Drawer -->
+<div class="bg-[#1E2F33] rounded-xl p-3 border border-[#2A454C] flex items-center justify-between gap-3 text-right">
+<div class="flex items-center gap-2.5 overflow-hidden">
+<span class="material-symbols-rounded text-[#2DD4BF] text-[20px] shrink-0">translate</span>
+<span class="text-xs sm:text-sm font-semibold text-[#A9BDBB] truncate">
+            ستتخذ اللجنة قراراً نهائياً بشأن منحة البحث صباح الغد.
+          </span>
+</div>
+<button class="min-h-[44px] inline-flex items-center justify-center px-3 py-2 rounded-lg text-xs font-black text-[#2DD4BF] hover:bg-[#23383E] shrink-0 uppercase tracking-wide transition-colors" type="button">عرض التلميح</button>
+</div>
+</section>
+<!-- 4 ANSWER CARDS -->
+<fieldset aria-label="خيارات الإجابة" class="w-full flex flex-col gap-3 pt-1">
+<legend class="sr-only">خيارات الإجابة</legend>
+<!-- Option A (SELECTED STATE - Tactile Active Card) -->
+<label class="relative w-full min-h-[64px] flex items-center justify-between p-4 rounded-2xl bg-[#0E3E3B] text-white border-2 border-[#2DD4BF] shadow-[0_4px_0_#062321] cursor-pointer transition-all">
+<input checked="" class="sr-only" name="lesson_answer" type="radio" value="make"/>
+<div class="flex items-center gap-3.5">
+<!-- Letter badge -->
+<span class="font-latin w-9 h-9 rounded-xl bg-[#172427] flex items-center justify-center font-extrabold text-base text-[#2DD4BF] border border-[#2DD4BF]/60 shrink-0">
+            A
+          </span>
+<div class="flex flex-col text-right">
+<span class="font-latin text-lg font-black text-[#E8F1F0] tracking-wide">
+              make
+            </span>
+<span class="text-xs font-medium text-[#A9BDBB]">
+              متلازمة قياسية: <span class="font-latin font-semibold text-[#2DD4BF]" dir="ltr">make a decision، make an effort</span>
+</span>
+</div>
+</div>
+<div class="w-7 h-7 rounded-full bg-[#2DD4BF] text-[#062321] flex items-center justify-center shrink-0">
+<span class="material-symbols-rounded text-[18px] font-black">check</span>
+</div>
+</label>
+<!-- Option B (UNSELECTED) -->
+<label class="relative w-full min-h-[64px] flex items-center justify-between p-4 rounded-2xl bg-[#172427] hover:bg-[#1E2F33] text-[#E8F1F0] border-2 border-[#23383E] shadow-[0_4px_0_#0B1416] cursor-pointer transition-all">
+<input class="sr-only" name="lesson_answer" type="radio" value="do"/>
+<div class="flex items-center gap-3.5">
+<!-- Letter badge -->
+<span class="font-latin w-9 h-9 rounded-xl bg-[#1E2F33] flex items-center justify-center font-extrabold text-base text-[#A9BDBB] border border-[#2A454C] shrink-0">
+            B
+          </span>
+<div class="flex flex-col text-right">
+<span class="font-latin text-lg font-black text-[#E8F1F0] tracking-wide">
+              do
+            </span>
+<span class="text-xs font-medium text-[#A9BDBB]">
+              فخ شائع: يُستخدم للواجبات والمهام (<span class="font-latin" dir="ltr">do homework, do business</span>)
+            </span>
+</div>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-[#2A454C] shrink-0"></div>
+</label>
+<!-- Option C (UNSELECTED) -->
+<label class="relative w-full min-h-[64px] flex items-center justify-between p-4 rounded-2xl bg-[#172427] hover:bg-[#1E2F33] text-[#E8F1F0] border-2 border-[#23383E] shadow-[0_4px_0_#0B1416] cursor-pointer transition-all">
+<input class="sr-only" name="lesson_answer" type="radio" value="give"/>
+<div class="flex items-center gap-3.5">
+<!-- Letter badge -->
+<span class="font-latin w-9 h-9 rounded-xl bg-[#1E2F33] flex items-center justify-center font-extrabold text-base text-[#A9BDBB] border border-[#2A454C] shrink-0">
+            C
+          </span>
+<div class="flex flex-col text-right">
+<span class="font-latin text-lg font-black text-[#E8F1F0] tracking-wide">
+              give
+            </span>
+<span class="text-xs font-medium text-[#A9BDBB]">
+              يأتي مع: <span class="font-latin" dir="ltr">give advice, give permission, give a presentation</span>
+</span>
+</div>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-[#2A454C] shrink-0"></div>
+</label>
+<!-- Option D (UNSELECTED) -->
+<label class="relative w-full min-h-[64px] flex items-center justify-between p-4 rounded-2xl bg-[#172427] hover:bg-[#1E2F33] text-[#E8F1F0] border-2 border-[#23383E] shadow-[0_4px_0_#0B1416] cursor-pointer transition-all">
+<input class="sr-only" name="lesson_answer" type="radio" value="take"/>
+<div class="flex items-center gap-3.5">
+<!-- Letter badge -->
+<span class="font-latin w-9 h-9 rounded-xl bg-[#1E2F33] flex items-center justify-center font-extrabold text-base text-[#A9BDBB] border border-[#2A454C] shrink-0">
+            D
+          </span>
+<div class="flex flex-col text-right">
+<span class="font-latin text-lg font-black text-[#E8F1F0] tracking-wide">
+              take
+            </span>
+<span class="text-xs font-medium text-[#A9BDBB]">
+              يأتي مع: <span class="font-latin" dir="ltr">take an exam, take a break, take notes</span>
+</span>
+</div>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-[#2A454C] shrink-0"></div>
+</label>
+</fieldset>
+<!-- Secondary Study Links / Footer Navigation -->
+<nav class="w-full pt-2 flex items-center justify-center gap-4 text-xs font-bold text-[#A9BDBB] border-t border-[#23383E]"><a class="min-h-[44px] inline-flex items-center px-3 py-2 rounded-lg hover:text-[#2DD4BF] hover:bg-[#172427] transition-colors" href="#">ملاحظات القواعد</a><span class="text-[#23383E]">•</span><a class="min-h-[44px] inline-flex items-center px-3 py-2 rounded-lg hover:text-[#2DD4BF] hover:bg-[#172427] transition-colors" href="#">معجم المتلازمات اللفظية</a><span class="text-[#23383E]">•</span><span class="min-h-[44px] inline-flex items-center px-3 py-2 text-[#A9BDBB]/70">ممارسة إتقان الإنجليزية - ليكسكايت</span></nav>
+</main>
+<!-- PINNED BOTTOM CHECK ACTION FOOTER (RTL Mirrored) -->
+<footer class="w-full bg-[#10191B]/95 backdrop-blur-sm border-t-2 border-[#23383E] shrink-0 py-4 px-4 sm:px-6">
+<div class="max-w-3xl mx-auto flex flex-col gap-2.5">
+<!-- Helper / Shortcuts strip -->
+<div class="flex items-center justify-between px-1 text-xs font-bold text-[#A9BDBB]">
+<span class="inline-flex items-center gap-1.5">
+<span class="material-symbols-rounded text-[#2DD4BF] text-[17px]">keyboard</span>
+<span>لوحة المفاتيح: اضغط <span class="font-latin text-[#E8F1F0]">1–4</span> للاختيار، و<span class="font-latin text-[#E8F1F0]">Enter</span> للتحقق</span>
+</span>
+<span class="inline-flex items-center gap-1 text-[#2DD4BF] font-extrabold">
+<span class="material-symbols-rounded text-[#2DD4BF] text-[15px]">verified</span>
+<span>تقييم فوري</span>
+</span>
+</div>
+<!-- Main Amber CTA with RTL Mirrored Arrow (Points Left) -->
+<button class="w-full h-14 rounded-2xl bg-[#F59E0B] text-[#1C1003] font-black text-lg tracking-wide shadow-[0_5px_0_#B45309] flex items-center justify-center gap-2.5 border-2 border-amber-600/40 touch-action-btn hover:brightness-105 active:translate-y-0.5 active:shadow-[0_2px_0_#B45309] transition-all" type="button">
+<span>التحقق من الإجابة</span>
+<span class="material-symbols-rounded text-[24px] font-black text-[#1C1003]">arrow_back</span>
+</button>
+</div>
+</footer>
+</body></html>

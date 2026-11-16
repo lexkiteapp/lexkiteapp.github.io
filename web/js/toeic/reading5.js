@@ -4,7 +4,7 @@
   T.reading.push({ id: 'tr5', test: 5, title: 'TOEIC Reading Test 5', parts: [
 
     /* ================= PART 5 ================= */
-    { part: 5, title: 'Incomplete Sentences', instr: 'A word or phrase is missing in each of the sentences below. Four answer choices are given below each sentence. Select the best answer to complete the sentence.',
+    { part: 5, title: 'Incomplete Sentences', instr: g.TQR[2],
       groups: [ { type: 'mcq', instr: '', items: [
         { n: 101, q: 'Ms. Whitaker worked ------- for the past month to prepare for the product launch.', options: ['tireless', 'tirelessly', 'tiredness', 'tire'], a: 1, cue: 'worked -------',
           explain: 'Cần trạng từ bổ nghĩa cho động từ "worked" → "tirelessly" (không biết mệt mỏi). "tireless" là tính từ; "tiredness" là danh từ (sự mệt mỏi); "tire" là động từ.' },
@@ -69,7 +69,7 @@
       ] } ] },
 
     /* ================= PART 6 ================= */
-    { part: 6, title: 'Text Completion', instr: 'Read the texts that follow. A word, phrase, or sentence is missing in parts of each text. Four answer choices for each question are given below the text. Select the best answer to complete the text.',
+    { part: 6, title: 'Text Completion', instr: g.TQR[1],
       passages: [
         { title: 'E-mail', text:
 `To: All tenants, Wexford Tower
@@ -82,7 +82,7 @@ Starting on September 15, the elevators in Wexford Tower will be upgraded -----(
 -----(133)-----. We therefore recommend that tenants allow extra time when arriving in the morning or going out for lunch.
 
 The new elevators will be faster, quieter, and more energy-efficient. We appreciate your -----(134)----- while this important work is completed.`,
-          groups: [ { type: 'mcq', instr: 'Questions 131-134 refer to the following e-mail.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[12], items: [
             { n: 131, q: '(131)', options: ['for', 'by', 'as', 'with'], a: 2, cue: 'part of a building-wide modernization project',
               explain: 'Cụm cố định "as part of" = như một phần của → việc nâng cấp thang máy là một phần của dự án hiện đại hóa toàn tòa nhà. "for part of", "by part of", "with part of" không tạo nghĩa đúng.' },
             { n: 132, q: '(132)', options: ['while', 'throughout', 'unless', 'whereas'], a: 1, cue: 'the project',
@@ -116,7 +116,7 @@ To apply, send your résumé to hiring@cedarhollowvet.com. Applications will be 
 Workers repaired the theater's original 1920s ceiling and replaced all 650 seats. They also installed a modern sound system -----(140)----- preserving the building's historic appearance.
 
 -----(141)-----. The first performance will be a concert by the Elmsford Symphony Orchestra. Tickets for the opening night are expected to sell out -----(142)-----.`,
-          groups: [ { type: 'mcq', instr: 'Questions 139-142 refer to the following article.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[6], items: [
             { n: 139, q: '(139)', options: ['what', 'which', 'who', 'where'], a: 1, cue: 'The project, ------- cost $4.2 million',
               explain: 'Đại từ quan hệ thay cho danh từ chỉ vật "The project" và làm chủ ngữ cho "cost" trong mệnh đề có dấu phẩy → "which". "who" dùng cho người; "where" chỉ nơi chốn; "what" không đứng sau danh từ làm đại từ quan hệ.' },
             { n: 140, q: '(140)', options: ['during', 'because', 'despite', 'while'], a: 3, cue: 'preserving the building\'s historic appearance',
@@ -152,7 +152,7 @@ Brightmoor Home Services Customer Care`,
       ] },
 
     /* ================= PART 7 ================= */
-    { part: 7, title: 'Reading Comprehension', instr: 'In this part you will read a selection of texts, such as magazine and newspaper articles, e-mails, and instant messages. Each text or set of texts is followed by several questions. Select the best answer for each question.',
+    { part: 7, title: 'Reading Comprehension', instr: g.TQR[0],
       passages: [
         { title: 'Notice', text:
 `Ashcombe Fitness Center
@@ -163,7 +163,7 @@ The indoor pool will be closed from July 7 to July 20 while new tiles are instal
 During this period, members may use the pool at our Kendrick Street branch at no additional charge. Simply show your membership card at the front desk.
 
 All other facilities, including the weight room and group exercise studios, will remain open as usual. Swimming lessons scheduled during the closure will be rescheduled, and instructors will contact participants directly.`,
-          groups: [ { type: 'mcq', instr: 'Questions 147-148 refer to the following notice.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[14], items: [
             { n: 147, q: 'Why will the pool be closed?', options: ['A swimming competition will be held.', 'Maintenance work will be done.', 'The center is changing owners.', 'Lifeguards are being trained.'], a: 1, cue: 'while new tiles are installed and the filtration system is serviced',
               explain: 'Bể bơi đóng cửa "while new tiles are installed and the filtration system is serviced" (để lát gạch mới và bảo dưỡng hệ thống lọc) → có công việc bảo trì. Không có thông tin về cuộc thi bơi, đổi chủ hay đào tạo nhân viên cứu hộ.' },
             { n: 148, q: 'What are members offered during the closure?', options: ['A discount on their membership', 'Free swimming lessons', 'Access to a pool at another location', 'Extra group exercise classes'], a: 2, cue: 'members may use the pool at our Kendrick Street branch at no additional charge',
@@ -175,7 +175,7 @@ Tomasz Wren [7:44 A.M.]: Oh no. Should I ask them to reschedule?
 Beatriz Salgado [7:45 A.M.]: They're finalizing their budget this week, so I'd rather not. Could you lead the presentation instead?
 Tomasz Wren [7:47 A.M.]: Leave it to me. Are the slides in the shared folder?
 Beatriz Salgado [7:48 A.M.]: Yes, the latest version is dated yesterday. I'll join by phone if I can find a quiet spot here at the airport.`,
-          groups: [ { type: 'mcq', instr: 'Questions 149-150 refer to the following text-message chain.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[5], items: [
             { n: 149, q: 'Why does Ms. Salgado contact Mr. Wren?', options: ['She cannot attend a meeting in person.', 'She needs a copy of a budget.', 'She wants to book a new flight.', 'She lost some presentation slides.'], a: 0, cue: "I won't make it to the Halberd Logistics meeting at ten.",
               explain: 'Chuyến bay bị hủy vì bão nên "I won\'t make it to the Halberd Logistics meeting at ten" (tôi không kịp dự cuộc họp lúc 10 giờ) → cô không thể trực tiếp dự họp. Ngân sách là của khách hàng Halberd; bản trình chiếu vẫn nằm trong thư mục chung chứ không bị mất.' },
             { n: 150, q: 'At 7:47 A.M., what does Mr. Wren mean when he writes, "Leave it to me"?', options: ['He will contact Halberd Logistics.', 'He will give the presentation.', 'He will update the slides.', 'He will pick Ms. Salgado up at the airport.'], a: 1, cue: 'Could you lead the presentation instead?',
@@ -189,7 +189,7 @@ Looking for a fun way to bring your team together? Orchard Lane Cooking Studio o
 Classes last about three hours and can be scheduled on weekday afternoons or evenings. Menus can be adjusted for vegetarian, vegan, and gluten-free diets if we are informed at least one week in advance.
 
 Prices start at $85 per person and include all ingredients, aprons, and printed recipe cards to take home. Book before September 30 and receive a free bottle of our house-made olive oil for each participant.`,
-          groups: [ { type: 'mcq', instr: 'Questions 151-153 refer to the following Web page.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[17], items: [
             { n: 151, q: 'For whom is the Web page most likely intended?', options: ['Professional chefs seeking employment', 'Companies planning team activities', 'Restaurants looking for suppliers', 'Students enrolling in a culinary school'], a: 1, cue: 'Looking for a fun way to bring your team together?',
               explain: 'Tiêu đề "Corporate Classes" (lớp học dành cho doanh nghiệp) và câu mở đầu "Looking for a fun way to bring your team together?" → hướng tới các công ty muốn tổ chức hoạt động gắn kết đội nhóm. Đầu bếp chuyên nghiệp là người dạy lớp, không phải đối tượng tìm việc.' },
             { n: 152, q: 'What is stated about the classes?', options: ['They are held on weekends.', 'They are limited to eight people.', 'Participants eat the food they prepare.', 'Participants must bring their own aprons.'], a: 2, cue: 'prepare a three-course meal, which they then enjoy together in our dining room',
@@ -213,7 +213,7 @@ If you have any questions, please contact me directly at 555-0129.
 Sincerely,
 Yvonne Castellanos
 Customer Accounts Manager`,
-          groups: [ { type: 'mcq', instr: 'Questions 154-157 refer to the following letter.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[15], items: [
             { n: 154, q: 'Why did Ms. Castellanos write the letter?', options: ['To inform a customer about changes to a service', 'To apologize for a late delivery', 'To request payment of an invoice', 'To announce the opening of a store'], a: 0, cue: 'I am writing to let you know about some changes to our ordering process.',
               explain: '"I am writing to let you know about some changes to our ordering process" – thư thông báo việc đặt hàng chuyển sang cổng trực tuyến và kho hàng chuyển địa điểm → thông báo cho khách hàng về thay đổi dịch vụ. Không có giao hàng trễ, hóa đơn chưa thanh toán hay cửa hàng mới nào.' },
             { n: 155, q: 'What is NOT mentioned as a feature of the online portal?', options: ['Tracking deliveries', 'Viewing past invoices', 'Chatting with a representative', 'Saving lists of items'], a: 2, cue: 'The portal allows customers to track deliveries, view past invoices, and save lists of frequently ordered items.',
@@ -231,7 +231,7 @@ Customer Accounts Manager`,
 The course is free for participants, who will also receive a weekly allowance. Graduates who meet the course requirements will be offered jobs at Tessaro's service centers or at partner bike shops in the region.
 
 Applications open on July 1. The first class will be limited to 20 students.`,
-          groups: [ { type: 'mcq', instr: 'Questions 158-160 refer to the following article.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[8], items: [
             { n: 158, q: 'What is the purpose of the article?', options: ['To review a new electric bicycle', 'To report on a factory closure', 'To announce a new training program', 'To compare local bike shops'], a: 2, cue: 'will open a training academy for bicycle mechanics',
               explain: 'Câu chủ đề: Tessaro Bikes sẽ mở "a training academy for bicycle mechanics" (học viện đào tạo thợ sửa xe đạp) với khóa học 12 tuần → thông báo chương trình đào tạo mới. Nhà máy Wrenfield là nơi đặt học viện, không phải đóng cửa; bài báo không đánh giá sản phẩm hay so sánh cửa hàng.' },
             { n: 159, q: 'According to Ms. Dufresne, what problem does the industry face?', options: ['A shortage of qualified mechanics', 'Rising prices of bicycle parts', 'Falling sales of electric bicycles', 'A lack of factory space'], a: 0, cue: 'there are not enough trained mechanics to service them',
@@ -248,8 +248,8 @@ Anjali Rao [10:10 A.M.]: Hmm. Alderidge is opening a new wing on Monday, so the 
 Marek Dvorak [10:12 A.M.]: What if we send the 180 now and the remaining 120 on Wednesday? That way they'd have enough for the new rooms on opening day.
 Anjali Rao [10:13 A.M.]: Worth a try. I'll call their purchasing manager and suggest it.
 Suzette Lambert [10:15 A.M.]: And I'll place the order with our supplier so it's ready to go if they agree.`,
-          groups: [ { type: 'mcq', instr: 'Questions 161-164 refer to the following online chat discussion.', items: [
-            { n: 161, q: 'What is the discussion mainly about?', options: ['Opening a new hotel wing', 'Choosing a new supplier', 'Fulfilling a large order', 'Reducing warehouse costs'], a: 2, cue: 'Alderidge Hotels just placed an order for 300 white bath towels.',
+          groups: [ { type: 'mcq', instr: g.TQR[4], items: [
+            { n: 161, q: g.TQR[18], options: ['Opening a new hotel wing', 'Choosing a new supplier', 'Fulfilling a large order', 'Reducing warehouse costs'], a: 2, cue: 'Alderidge Hotels just placed an order for 300 white bath towels.',
               explain: 'Cả nhóm bàn cách giao đơn hàng 300 khăn tắm cho Alderidge Hotels khi kho chỉ còn 180 chiếc → hoàn tất một đơn hàng lớn. Khu phòng mới là của khách sạn (khách hàng), không phải việc của nhóm; họ vẫn dùng nhà cung cấp hiện tại.' },
             { n: 162, q: 'What does Mr. Dvorak say about the towels?', options: ['Not enough are in stock.', 'They are the wrong color.', 'They were damaged in shipping.', 'They cost more than expected.'], a: 0, cue: 'we only have 180 in the warehouse',
               explain: '"According to the system, we only have 180 in the warehouse" (theo hệ thống, kho chỉ còn 180 chiếc) – thiếu so với 300 chiếc được đặt → không đủ hàng tồn kho. Màu sắc, hư hỏng hay giá cả không được nhắc đến.' },
@@ -313,7 +313,7 @@ Sofia Esteban [10:15 A.M.]: Almost. I'm just waiting on updated prices from the 
 Klara Nyberg [10:16 A.M.]: Can you call them this morning? We can't submit without those numbers.
 Sofia Esteban [10:17 A.M.]: I'm on it.
 Klara Nyberg [10:18 A.M.]: Great. Let's meet on Thursday at 2:00 to review everything before we send it.`,
-          groups: [ { type: 'mcq', instr: 'Questions 169-171 refer to the following online chat discussion.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[9], items: [
             { n: 169, q: 'What is the purpose of the discussion?', options: ['To announce a new client', 'To respond to a change in a deadline', 'To plan a school renovation', 'To choose a new steel supplier'], a: 1, cue: 'They now want our design proposal by Friday instead of next Wednesday.',
               explain: 'Bà Nyberg mở đầu bằng việc hội đồng trường dời hạn: "They now want our design proposal by Friday instead of next Wednesday" (giờ họ muốn bản đề xuất vào thứ Sáu thay vì thứ Tư tuần sau), và cả nhóm phân công lại công việc → phản ứng với thay đổi thời hạn. Khách hàng không mới; nhà cung cấp thép chỉ cần báo giá mới chứ không phải chọn lại.' },
             { n: 170, q: 'What will Mr. Adebayo most likely do tomorrow?', options: ['Finish some renderings', 'Prepare a cost estimate', 'Visit a site in Dunmore', 'Meet with the school board'], a: 2, cue: 'I can take over your site visit in Dunmore tomorrow',
@@ -329,8 +329,8 @@ Tidemark was founded by marine biologist Ingrid Solberg, who began selling roast
 To meet the expected demand, Tidemark will add a second production line at its plant on Quarry Road and hire about 30 additional workers by April. —[3]— The company also plans to introduce two new flavors, sea salt and lime and smoked paprika, exclusively for Halvorsen stores.
 
 Industry analysts say the agreement reflects growing consumer interest in plant-based snacks. "Shoppers are looking for alternatives to potato chips that are lower in fat," said Desmond Achterberg of the Northern Grocery Council. —[4]— Tidemark's chips currently sell for about $3.50 per bag.`,
-          groups: [ { type: 'mcq', instr: 'Questions 172-175 refer to the following article.', items: [
-            { n: 172, q: 'What is the article mainly about?', options: ['The opening of a new supermarket', 'A study on healthy eating habits', 'A business deal involving a local company', 'The retirement of a company founder'], a: 2, cue: 'has signed an agreement to supply its products to more than 400 Halvorsen supermarkets',
+          groups: [ { type: 'mcq', instr: g.TQR[7], items: [
+            { n: 172, q: g.TQR[3], options: ['The opening of a new supermarket', 'A study on healthy eating habits', 'A business deal involving a local company', 'The retirement of a company founder'], a: 2, cue: 'has signed an agreement to supply its products to more than 400 Halvorsen supermarkets',
               explain: 'Bài báo nói Tidemark Foods "has signed an agreement to supply its products to more than 400 Halvorsen supermarkets" (đã ký thỏa thuận cung cấp sản phẩm cho hơn 400 siêu thị Halvorsen) → một thương vụ của công ty địa phương. Không có siêu thị mới mở, nghiên cứu về ăn uống hay việc nhà sáng lập nghỉ hưu.' },
             { n: 173, q: 'What is indicated about Ms. Solberg?', options: ['She previously worked for Halvorsen.', 'She once sold her products at a market.', 'She is a member of the Northern Grocery Council.', 'She plans to start a second company.'], a: 1, cue: 'who began selling roasted seaweed chips at a weekend farmers market',
               explain: 'Bà Solberg "began selling roasted seaweed chips at a weekend farmers market" (bắt đầu bán snack rong biển ở một chợ nông sản cuối tuần) → từng bán sản phẩm ở chợ. Người thuộc Northern Grocery Council là ông Achterberg; không có thông tin bà từng làm cho Halvorsen hay định lập công ty thứ hai.' },
@@ -402,7 +402,7 @@ Rating: 4 out of 5 stars
 Our company recently expanded its tours to Japan and Brazil, so we hired Wordhaven to translate our booking site and safety guide, about 12,000 words in total. Because our new season was starting in just two weeks, we chose the faster of the two non-certified options, and every file arrived on time. The quality was excellent; our partners in Osaka said the Japanese text read naturally.
 
 My only complaint concerns the safety guide. We had only a printed version, so I mailed it in, and I was surprised by an additional charge on the invoice. That fee should be explained more clearly when customers place orders. Still, I would happily use Wordhaven again.`,
-          groups: [ { type: 'mcq', instr: 'Questions 181-185 refer to the following Web page and online review.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[10], items: [
             { n: 181, q: 'What is NOT indicated about Wordhaven Translation Services?', options: ['It has been in business for many years.', 'Its translations are checked by a second person.', 'It offers free samples to new customers.', 'It has offices in Japan and Brazil.'], a: 3, cue: 'All translations are reviewed by a second linguist before delivery.',
               explain: 'Trang web nêu công ty hoạt động "since 2009", bản dịch "reviewed by a second linguist" (được người thứ hai kiểm tra) và có "free sample translation" cho khách mới. Nhật Bản và Brazil là nơi công ty Brightwater mở tour, không phải nơi Wordhaven có văn phòng → đáp án.' },
             { n: 182, q: 'What price per word did Brightwater Kayak Tours most likely pay before any discount?', options: ['$0.12', '$0.18', '$0.20', '$0.25'], a: 1, cue: 'we chose the faster of the two non-certified options',

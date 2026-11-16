@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_retire",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: retire.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means to stop working because you have reached a certain age.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "My father plans to retire next year.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "retire",
+  "ipa": "/rɪˈtaɪr/",
+  "mean": "to stop working because you have reached a certain age",
+  "ex": "My father plans to retire next year.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=retire",
+  "link": "https://lexkite.com/app/#/review?w=retire",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 44,
+  "seconds": 26.7,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"retire\" mean?",
+  "keyword": "retire",
+  "value": "Retire means to stop working because you have reached a certain age.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=retire",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"retire\" mean?",
+    "description": "Retire means to stop working because you have reached a certain age.\n\nReview your words, free: https://lexkite.com/app/#/review?w=retire\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "retire",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"retire\" mean?\n\nRetire means to stop working because you have reached a certain age.\n\nReview your words, free: https://lexkite.com/app/#/review?w=retire"
+   },
+   "instagram": {
+    "caption": "What does \"retire\" mean?\n\nRetire means to stop working because you have reached a certain age.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"retire\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means to stop working because you have reached a certain age. Retire means to stop working because you have reached a certain age. More practice like this (free): {link}"
+ }
+}

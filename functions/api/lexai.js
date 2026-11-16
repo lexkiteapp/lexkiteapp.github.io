@@ -7,16 +7,40 @@
 import { candidates, report, gemFetch } from './_keys.js';
 
 import { stripBackgroundAI } from './_d1guard.js';
+import { readJSON, BodyError } from './_body.js';
 const ISS = 'https://token.actions.githubusercontent.com', AUD = 'lexkite-lexai', REPO = 'lexkiteapp/lexkiteapp.github.io';
 const NAMES = { en: 'English', vi: 'Vietnamese', es: 'Spanish', pt: 'Brazilian Portuguese', fr: 'French', de: 'German', id: 'Indonesian', th: 'Thai', zh: 'Simplified Chinese', ja: 'Japanese', ko: 'Korean', hi: 'Hindi', ar: 'Arabic', ru: 'Russian', tr: 'Turkish' };
 const b64u = s => Uint8Array.from(atob(s.replace(/-/g, '+').replace(/_/g, '/') + '==='.slice((s.length + 3) % 4)), c => c.charCodeAt(0));
 let JWKS = null, JWKS_AT = 0;
-export async function verifyOidc(token, now = Date.now()) {
+// Ghim danh tính (02/11 bảo mật): id số của repo (tên repo có thể bị chiếm lại sau khi đổi tên/xóa), thời hạn token, và – riêng /api/lexai – đúng workflow + nhánh.
+export const REPO_ID = '1420013187', MAIN_REF = 'refs/heads/main', SKEW = 60;
+export const WORKFLOWS = ['explain', 'lexicon-i18n', 'lexicon-expand', 'script-bank', 'say-native', 'vocab-img-scene', 'content-factory', 'content-judge', 'target-content', 'i18n-native-score'];
+// Nhánh khác main CHỈ cho workflow có nhánh thử/pilot hợp lệ; lượt thử PR (refs/pull/N/merge, cùng repo – fork không có id-token) CHỈ cho 3 workflow lô thử.
+export const BRANCH_OK = ['say-native', 'lexicon-expand'], PR_OK = ['content-factory', 'content-judge', 'target-content'];
+const WF_RE = /^lexkiteapp\/lexkiteapp\.github\.io\/\.github\/workflows\/([a-z0-9-]+)\.yml@(refs\/.+)$/;
+/** Claims chung cho MỌI audience: iss/aud/repo/repository_id + exp/iat/nbf (lệch đồng hồ ≤ SKEW giây). Thuần – test được. */
+export function oidcClaimsOk(body, now = Date.now(), aud = AUD) {
+  const t = now / 1000;
+  if (!body || body.iss !== ISS || body.aud !== aud || body.repository !== REPO || String(body.repository_id) !== REPO_ID) return false;
+  return body.exp > t - SKEW && body.iat <= t + SKEW && (body.nbf == null || body.nbf <= t + SKEW);
+}
+/** Claims đủ điều kiện gọi /api/lexai: đúng workflow trong WORKFLOWS, ref khớp ref của token; main, hoặc nhánh/PR theo BRANCH_OK/PR_OK. */
+export function lexaiAllowed(c) {
+  if (!c) return false;
+  const ref = String(c.ref || ''), m = WF_RE.exec(String(c.job_workflow_ref || ''));
+  if (!m || m[2] !== ref || !WORKFLOWS.includes(m[1])) return false;
+  if (ref === MAIN_REF) return true;
+  if (BRANCH_OK.includes(m[1]) && /^refs\/heads\/[\w./-]+$/.test(ref)) return true;
+  return PR_OK.includes(m[1]) && c.event_name === 'pull_request' && /^refs\/pull\/\d+\/merge$/.test(ref);
+}
+export async function verifyOidc(token, now = Date.now(), aud = AUD, getKeys) {
   const [h, p, s] = String(token || '').split('.'); if (!s) return null;
-  const head = JSON.parse(new TextDecoder().decode(b64u(h))), body = JSON.parse(new TextDecoder().decode(b64u(p)));
-  if (head.alg !== 'RS256' || body.iss !== ISS || body.aud !== AUD || body.repository !== REPO || !(body.exp * 1000 > now)) return null;
-  if (!JWKS || now - JWKS_AT > 3600e3) { JWKS = (await (await fetch(ISS + '/.well-known/jwks')).json()).keys || []; JWKS_AT = now; }
-  const jwk = JWKS.find(k => k.kid === head.kid); if (!jwk) return null;
+  let head, body; try { head = JSON.parse(new TextDecoder().decode(b64u(h))); body = JSON.parse(new TextDecoder().decode(b64u(p))); } catch (e) { return null; }
+  if (head.alg !== 'RS256' || !oidcClaimsOk(body, now, aud)) return null;
+  let keys;
+  if (getKeys) keys = await getKeys();
+  else { if (!JWKS || now - JWKS_AT > 3600e3) { JWKS = (await (await fetch(ISS + '/.well-known/jwks')).json()).keys || []; JWKS_AT = now; } keys = JWKS; }
+  const jwk = keys.find(k => k.kid === head.kid); if (!jwk) return null;
   const key = await crypto.subtle.importKey('jwk', jwk, { name: 'RSASSA-PKCS1-v1_5', hash: 'SHA-256' }, false, ['verify']);
   return (await crypto.subtle.verify('RSASSA-PKCS1-v1_5', key, b64u(s), new TextEncoder().encode(h + '.' + p))) ? body : null;
 }
@@ -227,9 +251,9 @@ export function build(b) {
 }
 export async function onRequestPost({ request, env }) {
   const claims = await verifyOidc((request.headers.get('Authorization') || '').replace(/^Bearer\s+/i, '')).catch(() => null);
-  if (!claims) return J({ error: 'unauthorized' }, 401);
+  if (!lexaiAllowed(claims)) return J({ error: 'unauthorized' }, 401);
   env = stripBackgroundAI(env); // lexai chỉ dành cho CI (OIDC) = việc nền: KHÔNG bao giờ tiêu Workers AI tài khoản chính (đặt chỗ cho người dùng)
-  const b = await request.json().catch(() => ({}));
+  let b; try { b = (await readJSON(request, 1_000_000)) || {}; } catch (e) { if (e instanceof BodyError && e.status === 413) return J({ error: 'too-large' }, 413); b = {}; }
   if (b.mode === 'ping') { const list = await candidates(env, 'gemini').catch(() => []); return J({ gemini: list.length }); } // sức khỏe kho Gemini – không gọi mô hình
   const p = build(b); if (!p) return J({ error: 'bad-request' }, 400);
   if (b.prompt === true) return J({ sys: p.sys + JSON_ONLY, user: p.user, temp: p.temp }); // cho nhà cung cấp khác (ai-pool) – không gọi mô hình

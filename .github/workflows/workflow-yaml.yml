@@ -1,0 +1,17 @@
+name: workflow-yaml
+# Bắt workflow lỗi cú pháp ngay ở PR (xem scripts/test/workflow-yaml.mjs). Nhẹ: 1 job vài giây; required-gate tự gom run này.
+on:
+  pull_request:
+    paths: ['.github/workflows/**', 'scripts/test/workflow-yaml.mjs']
+  workflow_dispatch:
+permissions: { contents: read }
+concurrency:
+  group: workflow-yaml-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  parse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - run: node scripts/test/workflow-yaml.mjs

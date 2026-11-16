@@ -18,11 +18,15 @@ qualityScore: 94
 
 Préparer l'IELTS sans professeur particulier peut sembler intimidant face à l'exigence académique de l'examen. Pourtant, des milliers de candidats réussissent chaque année à décrocher un score de 6.5 ou 7.0 sans dépenser des fortunes dans des organismes privés. Le secret ne réside pas dans l'enchaînement frénétique d'annales officielles sans recul, mais dans l'élaboration d'un **programme de preparation ielts autodidacte** méthodique, structuré par étapes progressives et soutenu par des habitudes régulières.
 
+Vous visez l'immigration ? Notre guide [IELTS pour immigrer](/fr/blog/ielts-pour-immigrer-canada-australie-royaume-uni/) précise les scores exigés.
+
 Dans ce guide complet, nous détaillons une feuille de route en quatre phases distinctes, les principes de gestion du temps quotidien entre Listening, Reading, Writing et Speaking, ainsi que l'utilisation de la répétition espacée FSRS pour pérenniser votre vocabulaire académique. Si votre niveau de départ nécessite une remise à niveau générale, consultez d'abord notre guide pour [apprendre l'anglais seul](/fr/blog/apprendre-anglais-seul/). Vous pouvez également explorer nos listes de [vocabulaire anglais](/fr/vocabulary/) pour consolider vos bases lexicales.
 
 ## Bilan initial : évaluer votre point de départ réel
 
 L'erreur la plus fréquente des autodidactes consiste à ouvrir immédiatement un recueil de tests Cambridge et à tenter des épreuves chronométrées intégrales dès la première semaine. Si votre socle lexical et votre maîtrise de la grammaire de base se situent encore en dessous du niveau B1 ou B2 du CECRL, vous confronter directement à des textes universitaires complexes ne produira que découragement et fatigue mentale.
+
+Vous pouvez également consulter [la méthode des 60 minutes pour gérer son temps en IELTS Reading](/fr/blog/gestion-du-temps-en-ielts-reading-60-minutes/).
 
 ![Test de positionnement de 20 questions avec suggestions de parcours sur Lexkite](media:placement "Évaluation initiale de vocabulaire et de grammaire en 20 questions sur Lexkite")
 

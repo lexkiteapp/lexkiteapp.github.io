@@ -12,7 +12,7 @@ const WEB = 'web';
 let n = 0, fails = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log('✗', m); } };
 const html = fs.readFileSync(path.join(WEB, 'app', 'index.html'), 'utf8');
 const scripts = [...html.matchAll(/<script(?: defer)? src="([^"]+)"><\/script>/g)].map(m => m[1]);
-const css = fs.readFileSync(path.join(WEB, 'css/style.css'), 'utf8');
+const css = (fs.readFileSync(path.join(WEB, 'css/style.css'), 'utf8') + fs.readFileSync(path.join(WEB, 'css/lazy-ui.css'), 'utf8'));
 const vc = new jsdom.VirtualConsole(); vc.on('jsdomError', e => { if (!/Not implemented|Could not parse CSS/.test(e.message)) console.error(e.message); });
 const dom = new JSDOM(html.replace(/<!--hero-->[\s\S]*?<!--\/hero-->/, '').replace(/<script(?: defer)? src="[^"]+"><\/script>/g, '').replace(/<link[^>]+>/g, '').replace('</head>', `<style>${css}</style></head>`), { url: 'http://localhost/app/#/home', runScripts: 'outside-only', pretendToBeVisual: true, virtualConsole: vc });
 const w = dom.window, errors = [];
@@ -74,7 +74,7 @@ ok(back.compareDocumentPosition($('#actions')) & w.Node.DOCUMENT_POSITION_FOLLOW
 ok(txt('.back .wc-word') === 'curriculum' && /n/.test(txt('.back .wi-pron')) && /B2/.test(txt('.back .wi-pron')) && /kəˈrɪkjələm/.test(txt('.back .wi-pron')), 'đầu thẻ: từ + từ loại + CEFR + IPA');
 ok($('.back [data-say][aria-label]'), 'nút nghe có nhãn trợ năng');
 ok(txt('.back .wi-vi').trim().length > 3, 'nghĩa hiện ngay dưới từ: ' + txt('.back .wi-vi'));
-ok(/subjects included in a course/.test(txt('.back')), 'định nghĩa tiếng Anh');
+ok(/set of subjects and topics that a school/.test(txt('.back')), 'định nghĩa tiếng Anh'); // viết lại 3/11 (không sát lời từ điển OALD – docs/CONTENT-PROTECTION.md §10)
 ok($('.back .wi-ex mark') && $('.back .wi-ex [data-speak-text]'), 'ví dụ có tô từ + nút nghe câu');
 
 // Chip cụm từ & đồng nghĩa

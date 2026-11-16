@@ -8,11 +8,12 @@ import { githubCandidates, PROD_CDN, PROD_API, typeOf } from '../media/origin.mj
 // Probe prod có chủ ý: workflow → { lý do, trần stale_hours tối thiểu trong sổ backlog }
 export const PROBE = { 'lighthouse.yml': { why: 'Lighthouse/CWV phải đo site live (14 trang × 3 lượt ≈ 42 lượt tải/lượt, ≤ 1 lượt/ngày qua filler)', minStale: 24 } };
 // Script tự kín (route '**/*' riêng + chặn DNS) – không cần noProd
-export const HERMETIC = new Set(['scripts/test/journey-e2e.mjs']);
+export const HERMETIC = new Set(['scripts/test/journey-e2e.mjs', 'scripts/test/welcome-journey.mjs']);
 
 // Workflow NGOÀI ci-filler được gọi URL prod (media/audio/api) – mỗi mục ghi lượt/ngày ước tính; thêm mục mới phải kèm số.
 export const PROD_OK = {
   'i18n.yml': 'GET /api/i18nfix 1 lượt/đêm (cron 02:30)',
+  'd1-usage-watch.yml': 'POST /api/capacity op usage 72 lượt/ngày (20 phút, sự cố D1 03/11 – số dòng đọc cho cầu dao)',
   'video.yml': 'STUDIO_API /api/studio – workflow đang tắt; vài lượt/clip khi bật',
   'vocab-img-scene.yml': 'kiểm CDN ảnh vừa đẩy ≤ 20 lượt/lượt × 8 lượt/ngày (quota_bound, filler không bơm)',
   'pages.yml': 'audio-cdn-check mẫu 150 tệp/lượt qua audio.lexkite.com (chỉ khi đổi âm thanh)',

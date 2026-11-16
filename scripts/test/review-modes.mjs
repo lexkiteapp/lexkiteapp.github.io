@@ -20,6 +20,12 @@ ok(T({ dist: 3, len: 9 }) === 0, 'sai 3 chữ → Again');
 ok(T({ dist: 1, len: 3 }) === 0, 'từ ngắn (<4) sai 1 chữ → Again');
 ok(T({ gaveUp: true }) === 0, 'bấm "Không nhớ" → Again');
 ok(M.dist('recieve', 'receive') === 2 && M.dist('cat', 'cat') === 0, 'khoảng cách Levenshtein');
+// --- Chuẩn hoá khi gõ: hoa/thường, dấu, nháy cong, gạch nối, dấu câu, khoảng trắng ---
+const N = (a, b) => M.dist(M.norm(a), M.norm(b));
+ok(N('Café', 'cafe') === 0 && N('NAÏVE', 'naive') === 0, 'bỏ dấu & hoa/thường (café = cafe)');
+ok(N('well-known', 'well known') === 0 && N('  look   up ', 'look up') === 0, 'gạch nối = khoảng trắng, gộp khoảng trắng');
+ok(N('don’t', "don't") === 0 && N('hello!', 'hello') === 0, 'nháy cong = nháy thẳng, bỏ dấu câu thừa');
+ok(N('dont', "don't") === 1, "thiếu nháy vẫn tính 1 lỗi gõ (gần đúng)");
 // --- Nghe chọn nghĩa → mức chấm ---
 const A = r => M.gradeAudio({ ok: true, replays: 0, ms: 2000, ...r });
 ok(A({}) === 3, 'chọn đúng ngay, không nghe lại → Easy');

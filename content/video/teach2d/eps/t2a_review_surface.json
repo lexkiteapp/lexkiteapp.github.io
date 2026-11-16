@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_surface",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: surface.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means the top or outside layer of something.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "The surface of the table is smooth.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "surface",
+  "ipa": "/ˈsɜːrfəs/",
+  "mean": "the top or outside layer of something",
+  "ex": "The surface of the table is smooth.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=surface",
+  "link": "https://lexkite.com/app/#/review?w=surface",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 41,
+  "seconds": 25.2,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"surface\" mean?",
+  "keyword": "surface",
+  "value": "Surface means the top or outside layer of something.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=surface",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"surface\" mean?",
+    "description": "Surface means the top or outside layer of something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=surface\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "surface",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"surface\" mean?\n\nSurface means the top or outside layer of something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=surface"
+   },
+   "instagram": {
+    "caption": "What does \"surface\" mean?\n\nSurface means the top or outside layer of something.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"surface\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means the top or outside layer of something. Surface means the top or outside layer of something. Try the full lesson and quiz here: {link}"
+ }
+}

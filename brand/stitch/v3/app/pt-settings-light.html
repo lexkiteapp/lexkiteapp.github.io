@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Lexkite — Settings (Study Goal & Learning Language)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,0,0&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #FFF7EA;
+      color: #0F3D3E;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .material-symbols-rounded {
+      font-family: 'Material Symbols Rounded';
+      font-weight: 600;
+      font-style: normal;
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+    /* Tactile physics from Lexkite Kit */
+    .tactile-card {
+      background-color: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 4px 0 0 #D8CFBC;
+      border-radius: 20px;
+    }
+    .tactile-card-item {
+      background-color: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 4px 0 0 #D8CFBC;
+      border-radius: 16px;
+      transition: all 0.1s ease;
+    }
+    .tactile-card-item:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 0 #D8CFBC;
+    }
+    .tactile-primary-cta {
+      background: linear-gradient(180deg, #F2553B 0%, #E04329 100%);
+      border: 2px solid #B53A22;
+      box-shadow: 0 5px 0 0 #9E2B17;
+      color: #FFFFFF;
+      border-radius: 16px;
+      transition: all 0.1s ease;
+    }
+    .tactile-primary-cta:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 0 #9E2B17;
+    }
+    .tactile-secondary-btn {
+      background-color: #FFFFFF;
+      border: 2px solid #2BA39A;
+      box-shadow: 0 4px 0 0 #1B756E;
+      color: #0D524D;
+      border-radius: 16px;
+      transition: all 0.1s ease;
+    }
+    .tactile-secondary-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 0 #1B756E;
+    }
+    .tactile-header-chip {
+      background-color: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 2px 0 0 #D8CFBC;
+      border-radius: 9999px;
+    }
+    .tab-active {
+      background-color: rgba(43, 163, 154, 0.12);
+      border: 2px solid #2BA39A;
+      color: #0D524D;
+      border-radius: 14px;
+    }
+    /* Safe container setup for 390px mobile */
+    .app-screen {
+      width: 100%;
+      max-width: 420px;
+      margin: 0 auto;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-color: #FFF7EA;
+      position: relative;
+    }
+  </style>
+</head>
+<body class="bg-[#FFF7EA] text-[#0F3D3E] flex justify-center min-h-screen">
+  <div class="app-screen">
+    
+    <!-- Top Header (Fixed Chrome, 56px) -->
+    <header class="w-full h-14 px-4 flex items-center justify-between border-b-2 border-[#EADEC8] bg-[#FFF7EA] sticky top-0 z-40">
+      <div class="flex items-center gap-2">
+        <button type="button" aria-label="Back" class="w-10 h-10 flex items-center justify-center rounded-xl bg-white border-2 border-[#EADEC8] shadow-[0_2px_0_0_#D8CFBC] active:translate-y-0.5 text-[#0F3D3E]">
+          <span class="material-symbols-rounded text-xl">arrow_back</span>
+        </button>
+        <h1 class="text-[19px] font-extrabold text-[#0F3D3E] tracking-tight ml-1">Settings</h1>
+      </div>
+      
+      <!-- Stats pills (Tactile Flame + XP) -->
+      <div class="flex items-center gap-2">
+        <div class="tactile-header-chip flex items-center gap-1.5 px-2.5 py-1">
+          <span class="material-symbols-rounded text-[#F2553B] text-lg">local_fire_department</span>
+          <span class="text-xs font-extrabold text-[#9E2B17]">14</span>
+        </div>
+        <div class="tactile-header-chip flex items-center gap-1.5 px-2.5 py-1">
+          <span class="material-symbols-rounded text-[#FFB054] text-lg">bolt</span>
+          <span class="text-xs font-extrabold text-[#7A4B00]">820 XP</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Scrollable Content -->
+    <main class="flex-1 px-4 pt-4 pb-28 flex flex-col gap-5 overflow-y-auto">
+      
+      <!-- Teacher Companion Slot (Empty rounded dashed box for Ama) -->
+      <div class="w-full bg-[#FFFFFF] border-2 border-dashed border-[#2BA39A] rounded-2xl p-3.5 flex items-center gap-3.5 shadow-[0_3px_0_0_#D8CFBC]">
+        <div class="w-14 h-16 rounded-xl border-2 border-dashed border-[#2BA39A] bg-[#2BA39A]/10 flex flex-col items-center justify-center text-center p-1 flex-shrink-0">
+          <span class="material-symbols-rounded text-[#1F7A75] text-xl">school</span>
+          <span class="text-[9px] font-extrabold text-[#1F7A75] uppercase tracking-wider mt-0.5">teacher-slot</span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-1.5 mb-0.5">
+            <span class="w-2 h-2 rounded-full bg-[#2FBF71]"></span>
+            <span class="text-xs font-bold text-[#1F7A75] uppercase tracking-wide">Coach Ama • IELTS Advisor</span>
+          </div>
+          <p class="text-sm font-semibold text-[#0F3D3E] leading-snug break-words">
+            "Align your daily study pace with your target test date for reliable long-term retention."
+          </p>
+        </div>
+      </div>
+
+      <!-- SECTION: Study goal -->
+      <section class="flex flex-col gap-2.5">
+        <div class="flex items-center justify-between px-1">
+          <div class="flex items-center gap-1.5">
+            <span class="material-symbols-rounded text-[#1F7A75] text-lg">track_changes</span>
+            <h2 class="text-xs font-extrabold text-[#1F7A75] uppercase tracking-wider">Study goal</h2>
+          </div>
+          <span class="text-xs font-bold text-[#4E6668] bg-[#EAE2D2] px-2 py-0.5 rounded-full">Personalized pacing</span>
+        </div>
+
+        <!-- Group of Rounded Settings Cards -->
+        <div class="flex flex-col gap-3">
+          
+          <!-- Row 1: Daily goal -->
+          <div role="button" tabindex="0" class="tactile-card-item p-4 flex items-center justify-between cursor-pointer">
+            <div class="flex items-center gap-3.5 min-w-0 flex-1 pr-2">
+              <div class="w-11 h-11 rounded-2xl bg-[#FFB054]/20 border-2 border-[#FFB054]/40 flex items-center justify-center text-[#9E5700] flex-shrink-0">
+                <span class="material-symbols-rounded text-2xl">timer</span>
+              </div>
+              <div class="min-w-0 flex-1">
+                <span class="text-[11px] font-extrabold text-[#4E6668] uppercase tracking-wide block">Daily cadence</span>
+                <span class="text-base font-bold text-[#0F3D3E] block break-words">Daily goal</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-1.5 flex-shrink-0">
+              <span class="text-sm font-extrabold text-[#1F7A75] bg-[#2BA39A]/15 border border-[#2BA39A]/30 px-2.5 py-1 rounded-xl">
+                10 min / day
+              </span>
+              <span class="material-symbols-rounded text-[#4E6668] text-xl">chevron_right</span>
+            </div>
+          </div>
+
+          <!-- Row 2: Exam target -->
+          <div role="button" tabindex="0" class="tactile-card-item p-4 flex items-center justify-between cursor-pointer">
+            <div class="flex items-center gap-3.5 min-w-0 flex-1 pr-2">
+              <div class="w-11 h-11 rounded-2xl bg-[#2BA39A]/15 border-2 border-[#2BA39A]/40 flex items-center justify-center text-[#12514D] flex-shrink-0">
+                <span class="material-symbols-rounded text-2xl">verified</span>
+              </div>
+              <div class="min-w-0 flex-1">
+                <span class="text-[11px] font-extrabold text-[#4E6668] uppercase tracking-wide block">Calibration syllabus</span>
+                <span class="text-base font-bold text-[#0F3D3E] block break-words">Exam target</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-1.5 flex-shrink-0">
+              <span class="text-sm font-extrabold text-[#0D524D] bg-[#2BA39A]/15 border border-[#2BA39A]/30 px-2.5 py-1 rounded-xl">
+                IELTS Academic 7.5+
+              </span>
+              <span class="material-symbols-rounded text-[#4E6668] text-xl">chevron_right</span>
+            </div>
+          </div>
+
+          <!-- Row 3: Language I'm learning (Featured row with Chevron) -->
+          <div role="button" tabindex="0" class="tactile-card-item p-4 flex items-center justify-between cursor-pointer border-[#2BA39A] bg-[#FFFFFF] shadow-[0_4px_0_0_#B8CFCB]">
+            <div class="flex items-center gap-3.5 min-w-0 flex-1 pr-2">
+              <div class="w-11 h-11 rounded-2xl bg-[#0F3D3E] border-2 border-[#092828] flex items-center justify-center text-[#E2FFFF] flex-shrink-0 shadow-[0_2px_0_0_#071F20]">
+                <span class="material-symbols-rounded text-2xl">translate</span>
+              </div>
+              <div class="min-w-0 flex-1">
+                <div class="flex items-center gap-1.5">
+                  <span class="text-[11px] font-extrabold text-[#1F7A75] uppercase tracking-wide block">Target study language</span>
+                </div>
+                <span class="text-base font-extrabold text-[#0F3D3E] block break-words">Language I'm learning</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-1.5 flex-shrink-0">
+              <span class="text-sm font-extrabold text-[#0F3D3E] bg-[#F3EDE2] border border-[#D8CFBC] px-3 py-1 rounded-xl flex items-center gap-1">
+                <span class="w-2 h-2 rounded-full bg-[#2FBF71]"></span>
+                English
+              </span>
+              <span class="material-symbols-rounded text-[#0F3D3E] text-2xl font-bold">expand_more</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Language Selector Bottom Sheet / Option Card (Visualized active context) -->
+      <section class="tactile-card p-4 flex flex-col gap-3.5 bg-[#FAF6EE] border-[#D8CFBC]">
+        <div class="flex items-center justify-between border-b border-[#EADEC8] pb-2.5">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-rounded text-[#1F7A75] text-lg">language</span>
+            <span class="text-xs font-extrabold text-[#0F3D3E] uppercase tracking-wider">Available target tracks</span>
+          </div>
+          <span class="text-[11px] font-bold text-[#4E6668]">Change anytime without losing streak</span>
+        </div>
+
+        <!-- Options List -->
+        <div class="grid grid-cols-1 gap-2.5">
+          
+          <!-- Option A: English (Currently selected) -->
+          <div class="p-3 rounded-xl bg-white border-2 border-[#2BA39A] shadow-[0_3px_0_0_#B8CFCB] flex items-center justify-between">
+            <div class="flex items-center gap-3 min-w-0 flex-1">
+              <div class="w-8 h-8 rounded-lg bg-[#2BA39A]/15 flex items-center justify-center text-sm font-extrabold text-[#12514D]">
+                EN
+              </div>
+              <div class="min-w-0 flex-1">
+                <span class="text-sm font-extrabold text-[#0F3D3E] block">English (IELTS / TOEIC / TOEFL)</span>
+                <span class="text-xs font-semibold text-[#4E6668] block">Global curriculum • 4,200+ exam collocations</span>
+              </div>
+            </div>
+            <div class="w-6 h-6 rounded-full bg-[#2BA39A] flex items-center justify-center text-white flex-shrink-0 shadow-sm ml-2">
+              <span class="material-symbols-rounded text-sm">check</span>
+            </div>
+          </div>
+
+          <!-- Option B: Português (With beta tag) -->
+          <div class="p-3 rounded-xl bg-white border-2 border-[#EADEC8] shadow-[0_3px_0_0_#D8CFBC] flex flex-col gap-2.5">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3 min-w-0 flex-1">
+                <div class="w-8 h-8 rounded-lg bg-[#FFB054]/20 flex items-center justify-center text-sm font-extrabold text-[#7A4B00]">
+                  PT
+                </div>
+                <div class="min-w-0 flex-1">
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <span class="text-sm font-extrabold text-[#0F3D3E]">Português</span>
+                    <span class="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#F2553B] text-white shadow-sm">
+                      BETA
+                    </span>
+                  </div>
+                  <span class="text-xs font-semibold text-[#4E6668] block">Colocações essenciais e falsos amigos em inglês</span>
+                </div>
+              </div>
+              <button type="button" aria-label="Select Português" class="w-6 h-6 rounded-full border-2 border-[#D8CFBC] bg-[#F7F2E7] flex items-center justify-center flex-shrink-0 ml-2">
+              </button>
+            </div>
+
+            <!-- Conditional Contextual Action: "Add 30 starter words" (Visible when Português is chosen/highlighted) -->
+            <div class="bg-[#FFF1DE] border-2 border-[#FFB054] rounded-xl p-3 flex flex-col gap-2 shadow-[0_2px_0_0_#DEC29B] mt-1">
+              <div class="flex items-start gap-2.5">
+                <span class="material-symbols-rounded text-[#9E5700] text-lg mt-0.5 flex-shrink-0">auto_awesome</span>
+                <div class="flex-1 min-w-0">
+                  <span class="text-xs font-extrabold text-[#6E3C00] block uppercase tracking-wide">Starter booster pack</span>
+                  <p class="text-xs font-semibold text-[#7A4B00] leading-normal break-words mt-0.5">
+                    Pre-loads high-frequency IELTS academic False Friends tailored specifically for Portuguese native speakers.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Secondary tactile button for Starter Words -->
+              <button type="button" class="tactile-secondary-btn w-full min-h-[44px] py-2.5 px-4 font-extrabold text-sm flex items-center justify-center gap-2 mt-1">
+                <span class="material-symbols-rounded text-lg">add_circle</span>
+                <span>Add 30 starter words</span>
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Additional Settings context (General preferences preview) -->
+      <section class="flex flex-col gap-2.5">
+        <h3 class="text-xs font-extrabold text-[#1F7A75] uppercase tracking-wider px-1">App experience</h3>
+        
+        <div class="tactile-card p-4 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-[#2BA39A]/15 flex items-center justify-center text-[#1F7A75]">
+              <span class="material-symbols-rounded text-xl">palette</span>
+            </div>
+            <div>
+              <span class="text-sm font-bold text-[#0F3D3E] block">Color theme</span>
+              <span class="text-xs font-semibold text-[#4E6668]">Bright Day (Warm tactile light)</span>
+            </div>
+          </div>
+          <span class="text-xs font-extrabold text-[#1F7A75] bg-[#E8F6F4] px-2.5 py-1 rounded-lg border border-[#2BA39A]/30">Active</span>
+        </div>
+
+        <div class="tactile-card p-4 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-[#FFB054]/20 flex items-center justify-center text-[#7A4B00]">
+              <span class="material-symbols-rounded text-xl">notifications</span>
+            </div>
+            <div>
+              <span class="text-sm font-bold text-[#0F3D3E] block">Daily reminder</span>
+              <span class="text-xs font-semibold text-[#4E6668]">08:30 AM before streak resets</span>
+            </div>
+          </div>
+          <div class="w-12 h-6 rounded-full bg-[#2FBF71] p-1 flex items-center justify-end shadow-inner">
+            <div class="w-4 h-4 rounded-full bg-white shadow-md"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Primary Action CTA (Warm Coral with tactile ledge) -->
+      <div class="pt-2">
+        <button type="button" class="tactile-primary-cta w-full min-h-[56px] py-3.5 px-6 font-extrabold text-base flex items-center justify-center gap-2">
+          <span>Save goal changes</span>
+          <span class="material-symbols-rounded text-xl">check</span>
+        </button>
+        <p class="text-[11px] font-bold text-center text-[#4E6668] mt-2">
+          Takes effect immediately on your spaced recall queue • Zero hearts or lockouts
+        </p>
+      </div>
+
+    </main>
+
+    <!-- Bottom Navigation Bar (Fixed 5-Tab Chrome with 'Me' highlighted) -->
+    <nav class="fixed bottom-0 left-0 right-0 w-full max-w-[420px] mx-auto bg-white border-t-2 border-[#EADEC8] shadow-[0_-4px_0_0_#D8CFBC] h-16 px-2 flex items-center justify-around z-50">
+      
+      <!-- Tab 1: Today -->
+      <a href="#" class="flex flex-col items-center justify-center py-1 px-2.5 text-[#4E6668] hover:text-[#0F3D3E] transition-colors flex-1 min-h-[44px]">
+        <span class="material-symbols-rounded text-[22px]">today</span>
+        <span class="text-[11px] font-bold tracking-tight mt-0.5">Today</span>
+      </a>
+
+      <!-- Tab 2: Vocab -->
+      <a href="#" class="flex flex-col items-center justify-center py-1 px-2.5 text-[#4E6668] hover:text-[#0F3D3E] transition-colors flex-1 min-h-[44px]">
+        <span class="material-symbols-rounded text-[22px]">menu_book</span>
+        <span class="text-[11px] font-bold tracking-tight mt-0.5">Vocab</span>
+      </a>
+
+      <!-- Tab 3: Skills -->
+      <a href="#" class="flex flex-col items-center justify-center py-1 px-2.5 text-[#4E6668] hover:text-[#0F3D3E] transition-colors flex-1 min-h-[44px]">
+        <span class="material-symbols-rounded text-[22px]">psychology</span>
+        <span class="text-[11px] font-bold tracking-tight mt-0.5">Skills</span>
+      </a>
+
+      <!-- Tab 4: Tests -->
+      <a href="#" class="flex flex-col items-center justify-center py-1 px-2.5 text-[#4E6668] hover:text-[#0F3D3E] transition-colors flex-1 min-h-[44px]">
+        <span class="material-symbols-rounded text-[22px]">quiz</span>
+        <span class="text-[11px] font-bold tracking-tight mt-0.5">Tests</span>
+      </a>
+
+      <!-- Tab 5: Me (HIGHLIGHTED ACTIVE TAB) -->
+      <a href="#" class="flex flex-col items-center justify-center py-1 px-2.5 tab-active transition-all flex-1 min-h-[44px] shadow-sm">
+        <span class="material-symbols-rounded text-[22px] text-[#0D524D]">person</span>
+        <span class="text-[11px] font-extrabold text-[#0D524D] tracking-tight mt-0.5">Me</span>
+      </a>
+
+    </nav>
+
+  </div>
+</body>
+</html>

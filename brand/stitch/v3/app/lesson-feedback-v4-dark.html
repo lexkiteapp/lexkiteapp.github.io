@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="de"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lektion - Lexkite</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "page-bg": "#10191B",
+            "card-bg": "#172427",
+            "elevated-bg": "#1E2F33",
+            "surface-border": "#26393E",
+            "text-primary": "#E8F1F0",
+            "text-secondary": "#A9BDBB",
+            "brand-teal": "#2BA39A",
+            "brand-teal-light": "#4DD0C4",
+            "brand-teal-bright": "#62FAE3",
+            "correct-bg": "#16403C",
+            "correct-border": "#2BA39A",
+            "correct-accent": "#34D399",
+            "coral-cta": "#FF6B4A",
+            "coral-shadow": "#C84427"
+          },
+          fontFamily: {
+            "body-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            "body-md": ["15px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "body-sm": ["13px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "display-lg-mobile": ["34px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-md": ["24px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-sm": ["20px", { "lineHeight": "26px", "fontWeight": "600" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "700" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .shadow-ledge-coral {
+      box-shadow: 0 4px 0 #C84427;
+    }
+    .shadow-ledge-coral:active {
+      transform: translateY(4px);
+      box-shadow: 0 0 0 transparent;
+    }
+    .shadow-ledge-dark {
+      box-shadow: 0 4px 0 #0C1517;
+    }
+    .shadow-ledge-dark:active {
+      transform: translateY(4px);
+      box-shadow: 0 0 0 transparent;
+    }
+    .shadow-ledge-correct {
+      box-shadow: 0 4px 0 #0D2624;
+    }
+    .shadow-sheet {
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
+    }
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-page-bg text-text-primary antialiased flex justify-center min-h-screen">
+<!-- Mobile Frame Container (Max 390px Viewport) -->
+<div class="relative w-full max-w-[390px] bg-page-bg flex flex-col min-h-screen border-x-2 border-[#1E2F33] overflow-hidden select-none">
+<!-- TopAppBar (Shared Anchor Implementation) -->
+<header class="bg-page-bg border-b-2 border-[#1E2F33] sticky top-0 z-30 flex justify-between items-center w-full px-4 h-14 max-w-md mx-auto">
+<div class="flex items-center gap-3 w-full">
+<!-- Close Button (min 44x44 tap target) -->
+<button aria-label="Lektion beenden" class="w-11 h-11 flex items-center justify-center rounded-lg text-text-secondary hover:bg-elevated-bg active:translate-y-0.5 transition-transform duration-100 ease-out focus:outline-none">
+<span class="material-symbols-outlined text-[24px]">close</span>
+</button>
+<!-- Progress Bar Meter -->
+<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="65" class="flex-1 h-3.5 bg-[#25393E] rounded-full overflow-hidden p-0.5 border border-[#26393E]/60" role="progressbar">
+<div class="h-full bg-brand-teal rounded-full relative transition-all duration-300 w-[65%]">
+<div class="absolute inset-x-0 top-0 h-[1.5px] bg-brand-teal-bright/70 rounded-full"></div>
+</div>
+</div>
+<!-- Unit & XP Pill -->
+<div class="flex items-center gap-1 bg-[#262B28] px-2.5 py-1 rounded-full border border-[#26393E] shrink-0">
+<span class="material-symbols-outlined text-[16px] text-[#FFB347]" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="font-label-sm text-label-sm text-text-primary font-bold tracking-tight">+12 XP</span>
+</div>
+</div>
+</header>
+<!-- Scrollable Lesson Content Area (with +260px bottom padding for pinned sheet clearance) -->
+<main class="flex-1 overflow-y-auto px-4 pt-4 pb-[260px] flex flex-col gap-4">
+<!-- Stage & CEFR Level Category Chip -->
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#163836] border border-brand-teal text-brand-teal-light font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[14px]">school</span>
+          B2 · Grammatik
+        </span>
+<span class="font-label-sm text-label-sm text-text-secondary font-medium">
+          Aufgabe 7 von 11
+        </span>
+</div>
+<!-- Teacher Slot & Instructions Card (Side-by-side Bento Row) -->
+<section class="bg-card-bg border-2 border-surface-border rounded-xl p-3.5 shadow-ledge-dark flex items-center gap-3">
+<!-- 96x96 empty teacher slot for 2D character code insertion -->
+<div aria-label="Lehrer Platzhalter" class="w-[96px] h-[96px] shrink-0 rounded-xl border-2 border-dashed border-surface-border bg-elevated-bg flex flex-col items-center justify-center p-2 text-center">
+<span class="material-symbols-outlined text-[28px] text-brand-teal mb-1">face</span>
+<span class="font-label-sm text-[10px] leading-tight text-text-secondary font-bold">[teacher-slot]</span>
+</div>
+<!-- Speech Bubble Prompt -->
+<div class="flex-1 bg-elevated-bg p-3 rounded-lg border border-surface-border relative">
+<p class="font-body-sm text-body-sm text-text-primary font-medium leading-snug">
+            Wähle die passende Zeitform für eine vollendete Handlung mit Gegenwartsbezug.
+          </p>
+</div>
+</section>
+<!-- Audio Interaction Dock (Dual Pill Buttons, min 44px target) -->
+<section class="grid grid-cols-2 gap-2.5">
+<button class="h-11 px-3 bg-elevated-bg border-2 border-surface-border rounded-xl shadow-ledge-dark flex items-center justify-center gap-2 hover:bg-[#25393E] active:translate-y-0.5 transition-transform duration-100 ease-out focus:outline-none" type="button">
+<span class="material-symbols-outlined text-[20px] text-brand-teal-light" style="font-variation-settings: 'FILL' 1;">volume_up</span>
+<span class="font-label-md text-label-md text-text-primary font-bold">Anhören (1.0×)</span>
+</button>
+<button class="h-11 px-3 bg-elevated-bg border-2 border-surface-border rounded-xl shadow-ledge-dark flex items-center justify-center gap-2 hover:bg-[#25393E] active:translate-y-0.5 transition-transform duration-100 ease-out focus:outline-none" type="button">
+<span class="material-symbols-outlined text-[20px] text-text-secondary">speed</span>
+<span class="font-label-md text-label-md text-text-secondary font-bold">Langsam (0.75×)</span>
+</button>
+</section>
+<!-- Target Sentence Prompt Card -->
+<section class="bg-card-bg border-2 border-surface-border rounded-xl p-4 shadow-ledge-dark">
+<span class="font-label-sm text-label-sm text-text-secondary uppercase tracking-wider block mb-2 font-bold">
+          Satz vervollständigen
+        </span>
+<div class="font-body-lg text-body-lg text-text-primary font-semibold leading-relaxed">
+          She 
+          <span class="inline-block border-b-2 border-brand-teal text-brand-teal-light font-bold px-2 py-0.5 bg-[#1E3B3A] rounded mx-1">
+            has lived
+          </span> 
+          in Berlin since October, so she knows the city very well.
+        </div>
+</section>
+<!-- Multiple Choice Options -->
+<fieldset class="flex flex-col gap-2.5">
+<legend class="sr-only">Wähle die richtige Antwortoption</legend>
+<!-- Option 1: CORRECT (Selected & Evaluated State) -->
+<div aria-label="has lived - Richtig" class="w-full min-h-[52px] px-4 py-3 bg-correct-bg border-2 border-correct-border rounded-xl shadow-ledge-correct flex items-center justify-between transition-all" role="status">
+<div class="flex items-center gap-3">
+<span class="w-6 h-6 rounded-full bg-correct-accent text-[#0C1517] flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-[16px] font-bold">check</span>
+</span>
+<span class="font-label-lg text-label-lg font-bold text-text-primary">has lived</span>
+</div>
+<span class="font-label-sm text-label-sm text-correct-accent font-bold uppercase tracking-wider">Richtig</span>
+</div>
+<!-- Option 2: Default Unselected -->
+<button class="w-full min-h-[52px] px-4 py-3 bg-elevated-bg border-2 border-surface-border rounded-xl shadow-ledge-dark flex items-center justify-between opacity-80 cursor-default text-left" disabled="" type="button">
+<div class="flex items-center gap-3">
+<span class="w-6 h-6 rounded-full border-2 border-[#26393E] bg-[#25393E] flex items-center justify-center font-label-sm text-[12px] text-text-secondary font-bold">A</span>
+<span class="font-label-lg text-label-lg font-medium text-text-primary">lives</span>
+</div>
+</button>
+<!-- Option 3: Default Unselected -->
+<button class="w-full min-h-[52px] px-4 py-3 bg-elevated-bg border-2 border-surface-border rounded-xl shadow-ledge-dark flex items-center justify-between opacity-80 cursor-default text-left" disabled="" type="button">
+<div class="flex items-center gap-3">
+<span class="w-6 h-6 rounded-full border-2 border-[#26393E] bg-[#25393E] flex items-center justify-center font-label-sm text-[12px] text-text-secondary font-bold">B</span>
+<span class="font-label-lg text-label-lg font-medium text-text-primary">is living</span>
+</div>
+</button>
+<!-- Option 4: Default Unselected -->
+<button class="w-full min-h-[52px] px-4 py-3 bg-elevated-bg border-2 border-surface-border rounded-xl shadow-ledge-dark flex items-center justify-between opacity-80 cursor-default text-left" disabled="" type="button">
+<div class="flex items-center gap-3">
+<span class="w-6 h-6 rounded-full border-2 border-[#26393E] bg-[#25393E] flex items-center justify-center font-label-sm text-[12px] text-text-secondary font-bold">C</span>
+<span class="font-label-lg text-label-lg font-medium text-text-primary">lived</span>
+</div>
+</button>
+</fieldset>
+</main>
+<!-- Pinned Correct Answer Feedback Sheet -->
+<footer class="absolute bottom-0 inset-x-0 bg-card-bg border-t-2 border-brand-teal/50 shadow-sheet z-40 px-4 pt-3.5 pb-6 flex flex-col gap-3">
+<!-- Feedback Header Banner -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-correct-accent text-[#0C1517] flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px] font-bold">check_circle</span>
+</div>
+<div>
+<div class="font-label-lg text-label-lg font-extrabold text-text-primary leading-none">
+              Richtig! +2 XP
+            </div>
+<div class="font-label-sm text-[11px] text-text-secondary font-semibold mt-0.5">
+              Ama: Super!
+            </div>
+</div>
+</div>
+<button aria-label="Erklärung vorlesen" class="w-9 h-9 rounded-lg bg-elevated-bg border border-surface-border text-brand-teal-light flex items-center justify-center hover:bg-[#25393E] active:translate-y-0.5 transition-transform duration-100 ease-out focus:outline-none">
+<span class="material-symbols-outlined text-[20px]">volume_up</span>
+</button>
+</div>
+<!-- German Linguistic Explanation -->
+<div class="bg-[#132727] border border-brand-teal/30 rounded-lg p-2.5">
+<p class="font-body-sm text-body-sm text-text-secondary leading-snug">
+          Wir verwenden das <strong class="text-text-primary font-bold">Present Perfect</strong> („has lived“), wenn eine Handlung in der Vergangenheit begonnen hat und bis in die Gegenwart andauert (Signalwort <strong class="text-brand-teal-light font-bold">„since“</strong>).
+        </p>
+</div>
+<!-- Primary Action CTA Button: Weiter -->
+<button class="w-full h-[52px] bg-coral-cta text-white rounded-xl font-label-lg text-label-lg font-bold border-2 border-[#FF8266] shadow-ledge-coral flex items-center justify-center gap-2 tracking-wide focus:outline-none" type="button">
+<span>Weiter</span>
+<span class="material-symbols-outlined text-[20px] font-bold">arrow_forward</span>
+</button>
+</footer>
+</div>
+</body></html>

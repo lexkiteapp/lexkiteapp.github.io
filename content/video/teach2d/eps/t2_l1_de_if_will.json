@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_if_will",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "After if, no will!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: If it will rain, I stay home.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: If it rains, I will stay home.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After if, use the present.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Rains! If it rains tomorrow, I will stay home.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "If it will rain, I stay home.",
+  "right": "If it rains, I will stay home.",
+  "strike": "will rain",
+  "why": "After if, use the present.",
+  "memory": "If rains, will stay.",
+  "quiz": {
+   "stem": "If it ___ tomorrow, I will stay home.",
+   "options": [
+    "will rain",
+    "rains"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Nach „if“ kein „will“!",
+   "tip": "Im „if“-Satz steht das Present: „If it rains“. Das „will“ kommt in den Hauptsatz.",
+   "caption": "Wann benutzt du „will“ im „if“-Satz? ☔ Falsch: “If it will rain, I stay home.” Richtig: “If it rains, I will stay home.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “rains”. Richtig heißt es: “If it rains, I will stay home.” Übe mehr mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "When do you use “will” in an “if” sentence?",
+   "tip": "In the “if” clause use the present: “If it rains”. “Will” goes in the main clause.",
+   "caption": "When do you use “will” in an “if” sentence? Wrong: “If it will rain, I stay home.” Right: “If it rains, I will stay home.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Nach „if“ kein „will“!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "Nach „if“ kein „will“!",
+  "keyword": "If it rains, I will stay home.",
+  "value": "Im „if“-Satz steht das Present: „If it rains“. Das „will“ kommt in den Hauptsatz.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 46,
+  "platforms": {
+   "youtube": {
+    "title": "Nach „if“ kein „will“!",
+    "description": "Wann benutzt du „will“ im „if“-Satz? ☔ Falsch: “If it will rain, I stay home.” Richtig: “If it rains, I will stay home.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "If it rains, I will stay home.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Wann benutzt du „will“ im „if“-Satz? ☔ Falsch: “If it will rain, I stay home.” Richtig: “If it rains, I will stay home.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Wann benutzt du „will“ im „if“-Satz? ☔ Falsch: “If it will rain, I stay home.” Richtig: “If it rains, I will stay home.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Nach „if“ kein „will“! #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “rains”. Richtig heißt es: “If it rains, I will stay home.” Übe mehr mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

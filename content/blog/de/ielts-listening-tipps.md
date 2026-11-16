@@ -15,13 +15,15 @@ author: Lexkite
 status: ready
 qualityScore: 94
 ---
-Der Hörverständnisteil des IELTS (International English Language Testing System) verlangt höchste Konzentration: Die Tonaufnahmen werden genau ein einziges Mal abgespielt. Wer hier zögert oder ein Wort falsch buchstabiert, verliert sofort wertvolle Punkte. Die besten ielts listening tipps setzen deshalb nicht nur auf passives Hören von Podcasts, sondern auf eine methodische Zerlegung der vier Prüfungsabschnitte und das systematische Erkennen typischer Ablenkungsfallen.
+Der Hörverständnisteil des IELTS (International English Language Testing System) verlangt höchste Konzentration: Die Tonaufnahmen werden genau ein einziges Mal abgespielt. Wer hier zögert oder ein Wort falsch buchstabiert, verliert sofort wertvolle Punkte. Die besten ielts listening tipps setzen deshalb nicht nur auf passives Hören von Podcasts, sondern auf eine methodische Zerlegung der vier Prüfungsabschnitte und das systematische Erkennen typischer Ablenkungsfallen. Eine Methode für jeden einzelnen Fragetyp finden Sie in den [IELTS Listening Aufgabentypen](/de/blog/ielts-listening-aufgabentypen/).
 
 Egal ob Sie den Test für ein Masterstudium im Ausland, für die Einwanderung nach Kanada oder Australien oder für Ihre berufliche Karriere ablegen: Ein Score von Band 7.5 oder höher im Listening ist mit der richtigen Vorbereitung absolut erreichbar. In diesem Leitfaden erfahren Sie, wie Sie die Vorbereitungszeit vor jeder Audio-Sequenz optimal nutzen, typische Selbstkorrekturen der Sprecher durchschauen und Ihre Treffsicherheit bei Zahlen und Namen perfektionieren.
 
 ## Die wichtigsten IELTS Listening Tipps für die Vorbereitungszeit
 
 Der Test dauert rund 30 Minuten und umfasst 40 Fragen, aufgeteilt auf vier Abschnitte mit steigendem Schwierigkeitsgrad. Nach dem Anhören haben Kandidaten beim papierbasierten Test 10 Minuten Zeit, um ihre Antworten auf den Antwortbogen zu übertragen; beim computerbasierten Test verbleiben lediglich 2 Minuten zur kurzen Überprüfung.
+
+Wie viele richtige Antworten im Listening später welchem Band entsprechen und wie der Gesamtscore gerundet wird, steht in [IELTS Band Score berechnen](/de/blog/ielts-band-score-berechnen/).
 
 Vor jedem Abschnitt erhalten Sie etwa 30 bis 45 Sekunden Zeit, um die Fragen zu überfliegen. Diese Sekunden entscheiden über Erfolg oder Misserfolg. Lesen Sie niemals passiv, sondern unterstreichen Sie sofort Signalwörter (Keywords) und antizipieren Sie die Wortart, die in die Lücke passt: Benötigen Sie ein Substantiv, eine Zahl, eine Uhrzeit, einen Wochentag oder ein Adjektiv?
 
@@ -58,7 +60,7 @@ Abschnitt 1 besteht aus einem Gespräch zwischen zwei Personen in einem alltägl
 
 Rechtschreibung ist im IELTS gnadenlos: Jeder Buchstabierfehler führt zu null Punkten für diese Aufgabe. Besondere Stolpersteine für deutschsprachige Prüflinge sind die englische Aussprache von Vokalen wie "E" (ausgesprochen wie deutsches "I") und "I" (ausgesprochen wie deutsches "Ei") sowie Konsonanten wie "J" und "G". Trainieren Sie das Buchstabieren mit gezielten [Übungstests](/#/practice/test), um Zahlendreher und Buchstabensalat unter Zeitdruck auszuschließen.
 
-Abschnitt 2 ist ein Monolog zu einem allgemeinen gesellschaftlichen Thema (z. B. Führung durch ein Museum oder Erklärung einer Campingplatz-Anlage). Häufig begegnen Ihnen hier Lagepläne und Karten (Map Labelling). Merken Sie sich Orientierungsbegriffe wie *in the top right corner*, *adjacent to*, *opposite*, *clockwise* und *just past the intersection*. Nutzen Sie auch unsere [thematischen Vokabellisten](/tu-vung/), um Ihren Wortschatz für Wegbeschreibungen systematisch zu erweitern.
+Abschnitt 2 ist ein Monolog zu einem allgemeinen gesellschaftlichen Thema (z. B. Führung durch ein Museum oder Erklärung einer Campingplatz-Anlage). Häufig begegnen Ihnen hier Lagepläne und Karten (Map Labelling). Merken Sie sich Orientierungsbegriffe wie *in the top right corner*, *adjacent to*, *opposite*, *clockwise* und *just past the intersection*. Nutzen Sie auch unsere [thematischen Vokabellisten](/en/vocabulary/), um Ihren Wortschatz für Wegbeschreibungen systematisch zu erweitern.
 
 ![Simulation eines vollständigen IELTS-Prüfungstests](media:mock "Probetests in allen vier Teilen bauen Routine und Prüfungsruhe auf; der Verlauf zeigt Ihre Fortschritte")
 

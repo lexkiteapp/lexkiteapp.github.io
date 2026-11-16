@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_headache",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: headache.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means a pain in the head.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "The new tax rules are a headache for small firms.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "headache",
+  "ipa": "/ˈhedeɪk/",
+  "mean": "a pain in the head",
+  "ex": "The new tax rules are a headache for small firms.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=headache",
+  "link": "https://lexkite.com/app/#/review?w=headache",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 42,
+  "seconds": 25.7,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"headache\" mean?",
+  "keyword": "headache",
+  "value": "Headache means a pain in the head.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=headache",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"headache\" mean?",
+    "description": "Headache means a pain in the head.\n\nReview your words, free: https://lexkite.com/app/#/review?w=headache\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "headache",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"headache\" mean?\n\nHeadache means a pain in the head.\n\nReview your words, free: https://lexkite.com/app/#/review?w=headache"
+   },
+   "instagram": {
+    "caption": "What does \"headache\" mean?\n\nHeadache means a pain in the head.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"headache\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means a pain in the head. Headache means a pain in the head. Practice it with a free quiz: {link}"
+ }
+}

@@ -1,0 +1,4361 @@
+{
+"_doc": "Câu điền từ A1–B1 (W2b) – gắn id điểm ngữ pháp; dựng gói bởi scripts/target/drill-pack.mjs",
+"cloze": {
+"ser-identity": [
+{
+"s": "Ella ___ doctora.",
+"a": "es",
+"o": [
+"es",
+"está",
+"son",
+"soy"
+],
+"en": "She is a doctor."
+},
+{
+"s": "Nosotros ___ de Colombia.",
+"a": "somos",
+"o": [
+"somos",
+"estamos",
+"soy",
+"son"
+],
+"en": "We are from Colombia."
+},
+{
+"s": "Yo ___ estudiante.",
+"a": "soy",
+"o": [
+"soy",
+"estoy",
+"eres",
+"es"
+],
+"en": "I am a student."
+}
+],
+"estar-location": [
+{
+"s": "El libro ___ en la mesa.",
+"a": "está",
+"o": [
+"está",
+"es",
+"hay",
+"tiene"
+],
+"en": "The book is on the table."
+},
+{
+"s": "Mis padres ___ en casa.",
+"a": "están",
+"o": [
+"están",
+"son",
+"somos",
+"está"
+],
+"en": "My parents are at home."
+},
+{
+"s": "¿Dónde ___ el baño?",
+"a": "está",
+"o": [
+"está",
+"están",
+"estoy",
+"estás"
+],
+"en": "Where is the bathroom?"
+}
+],
+"estar-feelings": [
+{
+"s": "Ahora yo ___ muy contento.",
+"a": "estoy",
+"o": [
+"estoy",
+"estás",
+"está",
+"estamos"
+],
+"en": "Now I am very happy."
+},
+{
+"s": "Ustedes ___ cansados hoy.",
+"a": "están",
+"o": [
+"están",
+"estamos",
+"estás",
+"está"
+],
+"en": "You (plural) are tired today."
+},
+{
+"s": "Mi mamá ___ enferma hoy.",
+"a": "está",
+"o": [
+"está",
+"estoy",
+"están",
+"estás"
+],
+"en": "My mom is sick today."
+}
+],
+"ser-estar-intro": [
+{
+"s": "Pedro ___ mexicano.",
+"a": "es",
+"o": [
+"es",
+"está",
+"son",
+"estoy"
+],
+"en": "Pedro is Mexican."
+},
+{
+"s": "Mi tía ___ enferma hoy.",
+"a": "está",
+"o": [
+"está",
+"es",
+"somos",
+"soy"
+],
+"en": "My aunt is sick today."
+},
+{
+"s": "Nosotros ___ estudiantes.",
+"a": "somos",
+"o": [
+"somos",
+"estamos",
+"son",
+"estoy"
+],
+"en": "We are students."
+}
+],
+"hay-existence": [
+{
+"s": "En mi ciudad ___ un parque grande.",
+"a": "hay",
+"o": [
+"hay",
+"está",
+"es",
+"son"
+],
+"en": "In my city there is a big park."
+},
+{
+"s": "En la clase ___ veinte estudiantes.",
+"a": "hay",
+"o": [
+"hay",
+"es",
+"tiene",
+"está"
+],
+"en": "In the class there are twenty students."
+},
+{
+"s": "No ___ leche en el refrigerador.",
+"a": "hay",
+"o": [
+"hay",
+"está",
+"es",
+"son"
+],
+"en": "There is no milk in the refrigerator."
+}
+],
+"present-ar": [
+{
+"s": "Mi hermana ___ en un banco.",
+"a": "trabaja",
+"o": [
+"trabaja",
+"trabajo",
+"trabajas",
+"trabajan"
+],
+"en": "My sister works in a bank."
+},
+{
+"s": "Nosotros ___ música en la computadora.",
+"a": "escuchamos",
+"o": [
+"escuchamos",
+"escucho",
+"escuchan",
+"escucha"
+],
+"en": "We listen to music on the computer."
+},
+{
+"s": "Ustedes ___ muy bien.",
+"a": "cantan",
+"o": [
+"cantan",
+"canto",
+"cantas",
+"canta"
+],
+"en": "You (plural) sing very well."
+}
+],
+"present-er-ir": [
+{
+"s": "Tú ___ mucha agua.",
+"a": "bebes",
+"o": [
+"bebes",
+"bebo",
+"bebe",
+"beben"
+],
+"en": "You drink a lot of water."
+},
+{
+"s": "Mis amigos ___ en un apartamento.",
+"a": "viven",
+"o": [
+"viven",
+"vivo",
+"vive",
+"vives"
+],
+"en": "My friends live in an apartment."
+},
+{
+"s": "Yo ___ un libro de cocina.",
+"a": "leo",
+"o": [
+"leo",
+"lees",
+"lee",
+"leen"
+],
+"en": "I read a cookbook."
+}
+],
+"present-irregular-yo": [
+{
+"s": "Yo ___ la cena todos los días.",
+"a": "hago",
+"o": [
+"hago",
+"hace",
+"hacemos",
+"haces"
+],
+"en": "I make dinner every day."
+},
+{
+"s": "Yo ___ de casa a las siete.",
+"a": "salgo",
+"o": [
+"salgo",
+"sale",
+"sales",
+"salen"
+],
+"en": "I leave home at seven."
+},
+{
+"s": "Yo ___ el celular en la mesa.",
+"a": "pongo",
+"o": [
+"pongo",
+"pone",
+"pones",
+"ponen"
+],
+"en": "I put the cell phone on the table."
+}
+],
+"tener-present": [
+{
+"s": "Mi hermano ___ diez años.",
+"a": "tiene",
+"o": [
+"tiene",
+"es",
+"está",
+"hay"
+],
+"en": "My brother is ten years old."
+},
+{
+"s": "Nosotros ___ un carro nuevo.",
+"a": "tenemos",
+"o": [
+"tenemos",
+"tienen",
+"tiene",
+"tengo"
+],
+"en": "We have a new car."
+},
+{
+"s": "¿Cuántos años ___ tú?",
+"a": "tienes",
+"o": [
+"tienes",
+"eres",
+"tiene",
+"tengo"
+],
+"en": "How old are you?"
+}
+],
+"ir-present": [
+{
+"s": "Mis padres ___ al trabajo en carro.",
+"a": "van",
+"o": [
+"van",
+"voy",
+"vas",
+"va"
+],
+"en": "My parents go to work by car."
+},
+{
+"s": "Yo ___ a la escuela por la mañana.",
+"a": "voy",
+"o": [
+"voy",
+"vas",
+"va",
+"vamos"
+],
+"en": "I go to school in the morning."
+},
+{
+"s": "¿Adónde ___ ustedes hoy?",
+"a": "van",
+"o": [
+"van",
+"vamos",
+"vas",
+"va"
+],
+"en": "Where are you (plural) going today?"
+}
+],
+"stem-change-e-ie": [
+{
+"s": "Ella ___ una pizza.",
+"a": "quiere",
+"o": [
+"quiere",
+"quere",
+"quieres",
+"quieren"
+],
+"en": "She wants a pizza."
+},
+{
+"s": "La clase ___ a las ocho.",
+"a": "empieza",
+"o": [
+"empieza",
+"empeza",
+"empiezo",
+"empiezan"
+],
+"en": "The class starts at eight."
+},
+{
+"s": "Nosotros ___ ir al cine.",
+"a": "queremos",
+"o": [
+"queremos",
+"quieremos",
+"quiero",
+"quieren"
+],
+"en": "We want to go to the movies."
+}
+],
+"stem-change-o-ue": [
+{
+"s": "Yo ___ hablar con mi jefa.",
+"a": "puedo",
+"o": [
+"puedo",
+"podo",
+"puede",
+"podemos"
+],
+"en": "I can talk to my boss."
+},
+{
+"s": "Mi hijo ___ nueve horas.",
+"a": "duerme",
+"o": [
+"duerme",
+"dorme",
+"duermo",
+"duermen"
+],
+"en": "My son sleeps nine hours."
+},
+{
+"s": "Nosotros ___ comer aquí.",
+"a": "podemos",
+"o": [
+"podemos",
+"puedemos",
+"puedo",
+"pueden"
+],
+"en": "We can eat here."
+}
+],
+"reflexive-daily": [
+{
+"s": "Yo ___ levanto a las siete.",
+"a": "me",
+"o": [
+"me",
+"te",
+"se",
+"nos"
+],
+"en": "I get up at seven."
+},
+{
+"s": "Mi hermano ___ ducha por la noche.",
+"a": "se",
+"o": [
+"se",
+"me",
+"te",
+"nos"
+],
+"en": "My brother takes a shower at night."
+},
+{
+"s": "Nosotros ___ acostamos a las diez.",
+"a": "nos",
+"o": [
+"nos",
+"me",
+"se",
+"te"
+],
+"en": "We go to bed at ten."
+}
+],
+"gustar-basic": [
+{
+"s": "Me ___ las manzanas.",
+"a": "gustan",
+"o": [
+"gustan",
+"gusta",
+"gusto",
+"gustas"
+],
+"en": "I like apples."
+},
+{
+"s": "A mi mamá le ___ el té.",
+"a": "gusta",
+"o": [
+"gusta",
+"gustan",
+"gusto",
+"gustas"
+],
+"en": "My mom likes tea."
+},
+{
+"s": "¿Te ___ la música?",
+"a": "gusta",
+"o": [
+"gusta",
+"gustan",
+"gusto",
+"gustas"
+],
+"en": "Do you like music?"
+}
+],
+"noun-gender": [
+{
+"s": "___ casa es grande.",
+"a": "La",
+"o": [
+"La",
+"El",
+"Los",
+"Las"
+],
+"en": "The house is big."
+},
+{
+"s": "Necesito ___ computadora nueva.",
+"a": "una",
+"o": [
+"una",
+"un",
+"unos",
+"el"
+],
+"en": "I need a new computer."
+},
+{
+"s": "El libro es ___.",
+"a": "rojo",
+"o": [
+"rojo",
+"roja",
+"rojas",
+"rojos"
+],
+"en": "The book is red."
+}
+],
+"noun-plural": [
+{
+"s": "En mi mochila hay cuatro ___.",
+"a": "lápices",
+"o": [
+"lápices",
+"lápizes",
+"lápises",
+"lápis"
+],
+"en": "In my backpack there are four pencils."
+},
+{
+"s": "Hay tres ___ en la mesa.",
+"a": "libros",
+"o": [
+"libros",
+"libroes",
+"libro"
+],
+"en": "There are three books on the table."
+},
+{
+"s": "Los ___ de mi escuela son amables.",
+"a": "profesores",
+"o": [
+"profesores",
+"profesors",
+"profesor"
+],
+"en": "The teachers at my school are kind."
+}
+],
+"definite-articles": [
+{
+"s": "___ niños juegan en el parque.",
+"a": "Los",
+"o": [
+"Los",
+"Las",
+"El",
+"La"
+],
+"en": "The children play in the park."
+},
+{
+"s": "Me gusta ___ música clásica.",
+"a": "la",
+"o": [
+"la",
+"el",
+"los",
+"las"
+],
+"en": "I like classical music."
+},
+{
+"s": "___ ventanas están abiertas.",
+"a": "Las",
+"o": [
+"Las",
+"Los",
+"La",
+"El"
+],
+"en": "The windows are open."
+}
+],
+"indefinite-articles": [
+{
+"s": "Ella tiene ___ hermana mayor.",
+"a": "una",
+"o": [
+"una",
+"un",
+"unos",
+"unas"
+],
+"en": "She has an older sister."
+},
+{
+"s": "Necesito ___ lápices.",
+"a": "unos",
+"o": [
+"unos",
+"unas",
+"un",
+"una"
+],
+"en": "I need some pencils."
+},
+{
+"s": "En la casa hay ___ jardín bonito.",
+"a": "un",
+"o": [
+"un",
+"una",
+"unos",
+"unas"
+],
+"en": "In the house there is a pretty garden."
+}
+],
+"adjective-agreement": [
+{
+"s": "Mi madre es muy ___.",
+"a": "simpática",
+"o": [
+"simpática",
+"simpático",
+"simpáticas",
+"simpáticos"
+],
+"en": "My mother is very nice."
+},
+{
+"s": "Los carros son ___.",
+"a": "rápidos",
+"o": [
+"rápidos",
+"rápido",
+"rápidas",
+"rápida"
+],
+"en": "The cars are fast."
+},
+{
+"s": "Tengo dos amigas ___.",
+"a": "mexicanas",
+"o": [
+"mexicanas",
+"mexicano",
+"mexicanos",
+"mexicana"
+],
+"en": "I have two Mexican friends."
+}
+],
+"possessive-short": [
+{
+"s": "Yo vivo con ___ padres.",
+"a": "mis",
+"o": [
+"mis",
+"mi",
+"tu",
+"nuestro"
+],
+"en": "I live with my parents."
+},
+{
+"s": "Sofía, ¿dónde está ___ mochila?",
+"a": "tu",
+"o": [
+"tu",
+"tus",
+"tú",
+"nuestro"
+],
+"en": "Sofía, where is your backpack?"
+},
+{
+"s": "Nosotros vivimos con ___ abuela.",
+"a": "nuestra",
+"o": [
+"nuestra",
+"nuestro",
+"nuestras",
+"nuestros"
+],
+"en": "We live with our grandmother."
+}
+],
+"demonstratives": [
+{
+"s": "Mira ___ casa que está allá, muy lejos.",
+"a": "aquella",
+"o": [
+"aquella",
+"aquel",
+"aquellas",
+"aquello"
+],
+"en": "Look at that house over there, very far away."
+},
+{
+"s": "Quiero ___ zapatos que tengo aquí en la mano.",
+"a": "estos",
+"o": [
+"estos",
+"estas",
+"este",
+"esta"
+],
+"en": "I want these shoes that I have here in my hand."
+},
+{
+"s": "Me gusta ___ camisa, la que tienes puesta.",
+"a": "esa",
+"o": [
+"esa",
+"ese",
+"esas",
+"eso"
+],
+"en": "I like that shirt, the one you are wearing."
+}
+],
+"subject-pronouns": [
+{
+"s": "___ somos de Perú.",
+"a": "Nosotros",
+"o": [
+"Nosotros",
+"Ellos",
+"Usted",
+"Tú"
+],
+"en": "We are from Peru."
+},
+{
+"s": "¿___ eres estudiante?",
+"a": "Tú",
+"o": [
+"Tú",
+"Yo",
+"Ella",
+"Ustedes"
+],
+"en": "Are you a student?"
+},
+{
+"s": "___ viven en Quito, pero yo vivo en Lima.",
+"a": "Ellos",
+"o": [
+"Ellos",
+"Yo",
+"Tú",
+"Nosotros"
+],
+"en": "They live in Quito, but I live in Lima."
+}
+],
+"question-words": [
+{
+"s": "¿___ te llamas?",
+"a": "Cómo",
+"o": [
+"Cómo",
+"Dónde",
+"Cuándo",
+"Quién"
+],
+"en": "What is your name?"
+},
+{
+"s": "¿___ vive tu abuela?",
+"a": "Dónde",
+"o": [
+"Dónde",
+"Cuántos",
+"Qué",
+"Quién"
+],
+"en": "Where does your grandmother live?"
+},
+{
+"s": "¿___ hermanos tienes?",
+"a": "Cuántos",
+"o": [
+"Cuántos",
+"Quién",
+"Dónde",
+"Cuándo"
+],
+"en": "How many siblings do you have?"
+}
+],
+"yes-no-questions": [
+{
+"s": "¿Vives en Bogotá? Sí, ___ en Bogotá.",
+"a": "vivo",
+"o": [
+"vivo",
+"vives",
+"vive",
+"viven"
+],
+"en": "Do you live in Bogotá? Yes, I live in Bogotá."
+},
+{
+"s": "¿Tienes hermanos? No, ___ tengo hermanos.",
+"a": "no",
+"o": [
+"no",
+"sí",
+"yo"
+],
+"en": "Do you have siblings? No, I do not have siblings."
+},
+{
+"s": "¿Usted ___ español?",
+"a": "habla",
+"o": [
+"habla",
+"hablo",
+"hablas",
+"hablan"
+],
+"en": "Do you speak Spanish?"
+}
+],
+"negation-no": [
+{
+"s": "Soy vegetariano y yo ___ como carne.",
+"a": "no",
+"o": [
+"no",
+"sí",
+"ni",
+"nada"
+],
+"en": "I am vegetarian and I do not eat meat."
+},
+{
+"s": "Mi hermana ___ trabaja hoy.",
+"a": "no",
+"o": [
+"no",
+"ni",
+"nada"
+],
+"en": "My sister does not work today."
+},
+{
+"s": "Ellos ___ tienen carro.",
+"a": "no",
+"o": [
+"no",
+"ni",
+"y"
+],
+"en": "They do not have a car."
+}
+],
+"prep-a-de-en": [
+{
+"s": "Vivo ___ Chile.",
+"a": "en",
+"o": [
+"en",
+"a",
+"de"
+],
+"en": "I live in Chile."
+},
+{
+"s": "Mi amiga es ___ Argentina.",
+"a": "de",
+"o": [
+"de",
+"en",
+"a"
+],
+"en": "My friend is from Argentina."
+},
+{
+"s": "Voy ___ la playa el sábado.",
+"a": "a",
+"o": [
+"a",
+"de",
+"con"
+],
+"en": "I am going to the beach on Saturday."
+}
+],
+"contractions-al-del": [
+{
+"s": "Voy ___ banco.",
+"a": "al",
+"o": [
+"al",
+"a el",
+"del",
+"a la"
+],
+"en": "I am going to the bank."
+},
+{
+"s": "El perro ___ vecino es grande.",
+"a": "del",
+"o": [
+"del",
+"de el",
+"al",
+"de la"
+],
+"en": "The neighbor's dog is big."
+},
+{
+"s": "La oficina está lejos ___ centro.",
+"a": "del",
+"o": [
+"del",
+"de el",
+"al",
+"a la"
+],
+"en": "The office is far from downtown."
+}
+],
+"numbers-0-100": [
+{
+"s": "Dos más dos son ___.",
+"a": "cuatro",
+"o": [
+"cuatro",
+"tres",
+"cinco",
+"seis"
+],
+"en": "Two plus two is four."
+},
+{
+"s": "Cincuenta y cincuenta son ___.",
+"a": "cien",
+"o": [
+"cien",
+"ciento",
+"quince",
+"sesenta"
+],
+"en": "Fifty and fifty is one hundred."
+},
+{
+"s": "Después de setenta y nueve viene ___.",
+"a": "ochenta",
+"o": [
+"ochenta",
+"setenta",
+"noventa",
+"sesenta"
+],
+"en": "After seventy-nine comes eighty."
+}
+],
+"time-clock": [
+{
+"s": "Es ___ una de la tarde.",
+"a": "la",
+"o": [
+"la",
+"las",
+"el",
+"lo"
+],
+"en": "It is one in the afternoon."
+},
+{
+"s": "___ las ocho de la noche.",
+"a": "Son",
+"o": [
+"Son",
+"Es",
+"Está",
+"Hay"
+],
+"en": "It is eight at night."
+},
+{
+"s": "Son las tres y ___.",
+"a": "media",
+"o": [
+"media",
+"medio",
+"mitad",
+"hora"
+],
+"en": "It is half past three."
+}
+],
+"days-months-dates": [
+{
+"s": "Después del lunes viene el ___.",
+"a": "martes",
+"o": [
+"martes",
+"domingo",
+"jueves"
+],
+"en": "After Monday comes Tuesday."
+},
+{
+"s": "Después de marzo viene ___.",
+"a": "abril",
+"o": [
+"abril",
+"mayo",
+"junio"
+],
+"en": "After March comes April."
+},
+{
+"s": "Mi cumpleaños es el diez ___ julio.",
+"a": "de",
+"o": [
+"de",
+"en",
+"a"
+],
+"en": "My birthday is on July tenth."
+}
+],
+"weather-hacer": [
+{
+"s": "Hoy ___ mucho calor.",
+"a": "hace",
+"o": [
+"hace",
+"está",
+"es"
+],
+"en": "Today it is very hot."
+},
+{
+"s": "Mañana ___ lluvia en la ciudad.",
+"a": "hay",
+"o": [
+"hay",
+"hace",
+"es",
+"está"
+],
+"en": "Tomorrow there is rain in the city."
+},
+{
+"s": "Cuando ___, uso paraguas.",
+"a": "llueve",
+"o": [
+"llueve",
+"hace",
+"hay",
+"está"
+],
+"en": "When it rains, I use an umbrella."
+}
+],
+"muy-mucho": [
+{
+"s": "La sopa está ___ rica.",
+"a": "muy",
+"o": [
+"muy",
+"mucho",
+"mucha",
+"muchos"
+],
+"en": "The soup is very tasty."
+},
+{
+"s": "Mi hermano duerme ___.",
+"a": "mucho",
+"o": [
+"mucho",
+"muy",
+"mucha",
+"muchos"
+],
+"en": "My brother sleeps a lot."
+},
+{
+"s": "Ella camina ___ rápido.",
+"a": "muy",
+"o": [
+"muy",
+"mucho",
+"mucha"
+],
+"en": "She walks very fast."
+}
+],
+"tambien-tampoco": [
+{
+"s": "Nosotros no tenemos tiempo y ellos ___ tienen tiempo.",
+"a": "tampoco",
+"o": [
+"tampoco",
+"también",
+"tanto"
+],
+"en": "We do not have time and they do not have time either."
+},
+{
+"s": "Ana come pan y yo ___ como pan.",
+"a": "también",
+"o": [
+"también",
+"tampoco",
+"tanto"
+],
+"en": "Ana eats bread and I eat bread too."
+},
+{
+"s": "Me gusta el helado. A mí ___.",
+"a": "también",
+"o": [
+"también",
+"tampoco",
+"tanto"
+],
+"en": "I like ice cream. Me too."
+}
+],
+"formal-usted": [
+{
+"s": "Señor Pérez, ¿cómo ___ usted?",
+"a": "está",
+"o": [
+"está",
+"estás",
+"estoy",
+"están"
+],
+"en": "Mr. Pérez, how are you?"
+},
+{
+"s": "Abuela, ¿cómo ___ tú hoy?",
+"a": "estás",
+"o": [
+"estás",
+"está",
+"estoy",
+"están"
+],
+"en": "Grandma, how are you today?"
+},
+{
+"s": "Doctora, ¿___ tiene tiempo ahora?",
+"a": "usted",
+"o": [
+"usted",
+"tú",
+"yo",
+"nosotros"
+],
+"en": "Doctor, do you have time now?"
+}
+],
+"basic-connectors": [
+{
+"s": "Como arroz ___ frijoles.",
+"a": "y",
+"o": [
+"y",
+"pero",
+"porque"
+],
+"en": "I eat rice and beans."
+},
+{
+"s": "Mi perro es pequeño, ___ muy fuerte.",
+"a": "pero",
+"o": [
+"pero",
+"porque",
+"o"
+],
+"en": "My dog is small, but very strong."
+},
+{
+"s": "¿Quieres té ___ café?",
+"a": "o",
+"o": [
+"o",
+"pero",
+"porque"
+],
+"en": "Do you want tea or coffee?"
+}
+],
+"ir-a-near-future": [
+{
+"s": "Mañana yo ___ a estudiar.",
+"a": "voy",
+"o": [
+"voy",
+"vas",
+"va",
+"vamos"
+],
+"en": "Tomorrow I am going to study."
+},
+{
+"s": "Esta noche nosotros ___ a cenar en casa.",
+"a": "vamos",
+"o": [
+"vamos",
+"voy",
+"van",
+"va"
+],
+"en": "Tonight we are going to have dinner at home."
+},
+{
+"s": "Mis amigos ___ a viajar en diciembre.",
+"a": "van",
+"o": [
+"van",
+"vamos",
+"va",
+"voy"
+],
+"en": "My friends are going to travel in December."
+}
+],
+"pret-regular": [
+{
+"s": "Anoche nosotros ___ pizza en casa.",
+"a": "comimos",
+"o": [
+"comimos",
+"comemos",
+"comeremos",
+"comer"
+],
+"en": "Last night we ate pizza at home."
+},
+{
+"s": "Ayer ella ___ un correo a su jefe.",
+"a": "escribió",
+"o": [
+"escribió",
+"escribe",
+"escribirá",
+"escribir"
+],
+"en": "Yesterday she wrote an email to her boss."
+},
+{
+"s": "Ustedes ___ mucho en la fiesta de ayer.",
+"a": "bailaron",
+"o": [
+"bailaron",
+"bailan",
+"bailarán",
+"bailar"
+],
+"en": "You danced a lot at yesterday's party."
+}
+],
+"pret-ser-ir": [
+{
+"s": "El año pasado nosotros ___ a México.",
+"a": "fuimos",
+"o": [
+"fuimos",
+"vamos",
+"iremos",
+"fueron"
+],
+"en": "Last year we went to Mexico."
+},
+{
+"s": "La cena de anoche ___ deliciosa.",
+"a": "fue",
+"o": [
+"fue",
+"es",
+"será",
+"fui"
+],
+"en": "Last night's dinner was delicious."
+},
+{
+"s": "Ayer tú ___ al médico, ¿verdad?",
+"a": "fuiste",
+"o": [
+"fuiste",
+"vas",
+"irás",
+"fue"
+],
+"en": "Yesterday you went to the doctor, right?"
+}
+],
+"pret-irregular-common": [
+{
+"s": "Ayer yo ___ la tarea en la biblioteca.",
+"a": "hice",
+"o": [
+"hice",
+"hago",
+"haré",
+"hizo"
+],
+"en": "Yesterday I did the homework in the library."
+},
+{
+"s": "Ustedes ___ que salir temprano anoche.",
+"a": "tuvieron",
+"o": [
+"tuvieron",
+"tienen",
+"tendrán",
+"tuvo"
+],
+"en": "You had to leave early last night."
+},
+{
+"s": "Mi mamá me ___ un regalo el sábado.",
+"a": "dio",
+"o": [
+"dio",
+"da",
+"dará",
+"di"
+],
+"en": "My mom gave me a gift on Saturday."
+}
+],
+"pret-stem-change-3rd": [
+{
+"s": "Anoche mi hermano ___ una pizza grande.",
+"a": "pidió",
+"o": [
+"pidió",
+"pedió",
+"pide",
+"pedirá"
+],
+"en": "Last night my brother ordered a big pizza."
+},
+{
+"s": "El abuelo ___ en el sofá toda la tarde.",
+"a": "durmió",
+"o": [
+"durmió",
+"dormió",
+"duerme",
+"dormirá"
+],
+"en": "Grandpa slept on the sofa all afternoon."
+},
+{
+"s": "Anoche los meseros ___ la sopa a las ocho.",
+"a": "sirvieron",
+"o": [
+"sirvieron",
+"servieron",
+"sirven",
+"servirán"
+],
+"en": "Last night the waiters served the soup at eight."
+}
+],
+"pret-spelling-changes": [
+{
+"s": "Ayer yo ___ a casa muy tarde.",
+"a": "llegué",
+"o": [
+"llegué",
+"llegé",
+"llegue",
+"llegó"
+],
+"en": "Yesterday I got home very late."
+},
+{
+"s": "Ayer yo ___ mis llaves por toda la casa.",
+"a": "busqué",
+"o": [
+"busqué",
+"busqe",
+"buscé",
+"busco"
+],
+"en": "Yesterday I looked for my keys all over the house."
+},
+{
+"s": "Ella ___ el periódico en la mañana.",
+"a": "leyó",
+"o": [
+"leyó",
+"leió",
+"lee",
+"leerá"
+],
+"en": "She read the newspaper in the morning."
+}
+],
+"imperfect-regular": [
+{
+"s": "Cuando éramos niños, nosotros ___ en la playa todos los veranos.",
+"a": "jugábamos",
+"o": [
+"jugábamos",
+"jugaremos",
+"jugarán",
+"jugaban"
+],
+"en": "When we were children, we played on the beach every summer."
+},
+{
+"s": "De joven, mi abuela siempre ___ pan.",
+"a": "hacía",
+"o": [
+"hacía",
+"hace",
+"hará",
+"haga"
+],
+"en": "When she was young, my grandmother always made bread."
+},
+{
+"s": "Tú ___ mucho cuando vivías en Lima.",
+"a": "caminabas",
+"o": [
+"caminabas",
+"caminas",
+"caminarás",
+"caminar"
+],
+"en": "You walked a lot when you lived in Lima."
+}
+],
+"imperfect-irregular": [
+{
+"s": "De pequeña, yo ___ muy tímida.",
+"a": "era",
+"o": [
+"era",
+"soy",
+"seré",
+"eras"
+],
+"en": "As a little girl, I was very shy."
+},
+{
+"s": "Antes ustedes ___ a la escuela en autobús.",
+"a": "iban",
+"o": [
+"iban",
+"van",
+"irán",
+"vamos"
+],
+"en": "Before, you used to go to school by bus."
+},
+{
+"s": "Cuando éramos jóvenes, nosotros ___ películas todos los sábados.",
+"a": "veíamos",
+"o": [
+"veíamos",
+"vemos",
+"veremos",
+"veían"
+],
+"en": "When we were young, we watched movies every Saturday."
+}
+],
+"pret-vs-imperfect-intro": [
+{
+"s": "Mientras yo ___ la cena, sonó el teléfono.",
+"a": "preparaba",
+"o": [
+"preparaba",
+"prepararé",
+"preparo",
+"prepararía"
+],
+"en": "While I was making dinner, the phone rang."
+},
+{
+"s": "Ayer, de repente, ___ a mi tía en el mercado.",
+"a": "vi",
+"o": [
+"vi",
+"veía",
+"veo",
+"veré"
+],
+"en": "Yesterday, suddenly, I saw my aunt at the market."
+},
+{
+"s": "Cuando yo era niño, todos los días mi papá ___ el periódico.",
+"a": "leía",
+"o": [
+"leía",
+"leeré",
+"leído",
+"leer"
+],
+"en": "When I was a child, my dad read the newspaper every day."
+}
+],
+"present-progressive": [
+{
+"s": "Ahora mi hermana ___ música en su cuarto.",
+"a": "está escuchando",
+"o": [
+"está escuchando",
+"estoy escuchando",
+"está escuchado",
+"escuchando"
+],
+"en": "Right now my sister is listening to music in her room."
+},
+{
+"s": "Nosotros ___ en la cocina ahora.",
+"a": "estamos cocinando",
+"o": [
+"estamos cocinando",
+"estamos cocinado",
+"estoy cocinando",
+"están cocinando"
+],
+"en": "We are cooking in the kitchen now."
+},
+{
+"s": "¿Qué ___ ustedes ahora?",
+"a": "están haciendo",
+"o": [
+"están haciendo",
+"están hacido",
+"está haciendo",
+"estamos haciendo"
+],
+"en": "What are you doing now?"
+}
+],
+"present-perfect-intro": [
+{
+"s": "Esta semana yo ___ mucho trabajo.",
+"a": "he tenido",
+"o": [
+"he tenido",
+"ha tenido",
+"he tuve",
+"hemos tenido"
+],
+"en": "This week I have had a lot of work."
+},
+{
+"s": "¿Ya ___ tú el correo?",
+"a": "has leído",
+"o": [
+"has leído",
+"has leer",
+"he leído",
+"hemos leído"
+],
+"en": "Have you already read the email?"
+},
+{
+"s": "Hoy mis amigos y yo ___ en un restaurante nuevo.",
+"a": "hemos comido",
+"o": [
+"hemos comido",
+"han comido",
+"hemos comer",
+"hemos comiendo"
+],
+"en": "Today my friends and I have eaten at a new restaurant."
+}
+],
+"participle-irregular": [
+{
+"s": "Todavía no he ___ esa película.",
+"a": "visto",
+"o": [
+"visto",
+"veído",
+"vido",
+"vista"
+],
+"en": "I have not seen that movie yet."
+},
+{
+"s": "Mi papá ha ___ la puerta.",
+"a": "abierto",
+"o": [
+"abierto",
+"abrido",
+"abriendo",
+"abrir"
+],
+"en": "My dad has opened the door."
+},
+{
+"s": "Ya hemos ___ la tarea.",
+"a": "hecho",
+"o": [
+"hecho",
+"hacido",
+"hecha",
+"hizo"
+],
+"en": "We have already done the homework."
+}
+],
+"imperative-tu-affirmative": [
+{
+"s": "___ la puerta, por favor.",
+"a": "Cierra",
+"o": [
+"Cierra",
+"Cierres",
+"Cerrar",
+"Cerró"
+],
+"en": "Close the door, please."
+},
+{
+"s": "___ aquí un momento, Pablo.",
+"a": "Ven",
+"o": [
+"Ven",
+"Vengas",
+"Venir",
+"Vino"
+],
+"en": "Come here a moment, Pablo."
+},
+{
+"s": "Sofía, ___ la verdad.",
+"a": "di",
+"o": [
+"di",
+"digas",
+"decir",
+"dijo"
+],
+"en": "Sofía, tell the truth."
+}
+],
+"imperative-tu-negative": [
+{
+"s": "Luis, por favor, no ___ tan rápido.",
+"a": "manejes",
+"o": [
+"manejes",
+"manejas",
+"maneja",
+"manejar"
+],
+"en": "Luis, please do not drive so fast."
+},
+{
+"s": "No ___ la ventana, hace frío.",
+"a": "abras",
+"o": [
+"abras",
+"abre",
+"abrir",
+"abrió"
+],
+"en": "Do not open the window, it is cold."
+},
+{
+"s": "No me ___ mentiras, por favor.",
+"a": "digas",
+"o": [
+"digas",
+"dices",
+"di",
+"decir"
+],
+"en": "Do not tell me lies, please."
+}
+],
+"imperative-usted": [
+{
+"s": "Señor López, ___ por aquí, por favor.",
+"a": "pase",
+"o": [
+"pase",
+"pasa",
+"pases",
+"pasar"
+],
+"en": "Mr. López, please come this way."
+},
+{
+"s": "Señora, ___ su nombre aquí.",
+"a": "escriba",
+"o": [
+"escriba",
+"escribe",
+"escribas",
+"escribir"
+],
+"en": "Madam, write your name here."
+},
+{
+"s": "Por favor, no ___ nada, señor.",
+"a": "toque",
+"o": [
+"toque",
+"toca",
+"toques",
+"tocar"
+],
+"en": "Please do not touch anything, sir."
+}
+],
+"reflexive-more-verbs": [
+{
+"s": "Ayer yo ___ a las seis de la mañana.",
+"a": "me levanté",
+"o": [
+"me levanté",
+"se levantó",
+"me levantaré",
+"levanté"
+],
+"en": "Yesterday I got up at six in the morning."
+},
+{
+"s": "Mis hijos ___ antes de la cena.",
+"a": "se bañaron",
+"o": [
+"se bañaron",
+"se bañó",
+"me bañaron",
+"bañaron"
+],
+"en": "My children took a bath before dinner."
+},
+{
+"s": "Nosotros ___ muy rápido para llegar a tiempo.",
+"a": "nos vestimos",
+"o": [
+"nos vestimos",
+"me vestimos",
+"se vestimos",
+"te vestimos"
+],
+"en": "We got dressed very quickly to arrive on time."
+}
+],
+"reciprocal-nos": [
+{
+"s": "Mi hermana y yo ___ todos los días por teléfono.",
+"a": "nos llamamos",
+"o": [
+"nos llamamos",
+"me llamamos",
+"se llamamos",
+"te llamamos"
+],
+"en": "My sister and I call each other every day by phone."
+},
+{
+"s": "Ana y Pablo ___ mucho porque son novios.",
+"a": "se quieren",
+"o": [
+"se quieren",
+"nos quieren",
+"me quieren",
+"te quieren"
+],
+"en": "Ana and Pablo love each other very much because they are a couple."
+},
+{
+"s": "Ustedes ___ cartas desde hace años.",
+"a": "se escriben",
+"o": [
+"se escriben",
+"se escribe",
+"se escribimos",
+"se escribió"
+],
+"en": "You have been writing letters to each other for years."
+}
+],
+"gustar-type-verbs": [
+{
+"s": "A mí me ___ los gatos.",
+"a": "encantan",
+"o": [
+"encantan",
+"encanta",
+"encanto",
+"encantamos"
+],
+"en": "I love cats."
+},
+{
+"s": "A ellos les ___ la música clásica.",
+"a": "interesa",
+"o": [
+"interesa",
+"interesan",
+"interesas",
+"interesamos"
+],
+"en": "Classical music interests them."
+},
+{
+"s": "A nosotros nos ___ bailar.",
+"a": "gusta",
+"o": [
+"gusta",
+"gustan",
+"gusto",
+"gustamos"
+],
+"en": "We like to dance."
+}
+],
+"indirect-object-pronouns": [
+{
+"s": "Mi mamá ___ prepara el desayuno a mi hermano.",
+"a": "le",
+"o": [
+"le",
+"lo",
+"les",
+"la"
+],
+"en": "My mom makes breakfast for my brother."
+},
+{
+"s": "Yo ___ envío un mensaje a mis padres.",
+"a": "les",
+"o": [
+"les",
+"le",
+"los",
+"nos"
+],
+"en": "I send a message to my parents."
+},
+{
+"s": "A ti ___ escribo mañana, Laura.",
+"a": "te",
+"o": [
+"te",
+"me",
+"le",
+"les"
+],
+"en": "I will write to you tomorrow, Laura."
+}
+],
+"direct-object-pronouns": [
+{
+"s": "¿Los zapatos? ___ compré ayer.",
+"a": "Los",
+"o": [
+"Los",
+"Las",
+"Lo",
+"Les"
+],
+"en": "The shoes? I bought them yesterday."
+},
+{
+"s": "Veo a María y ___ saludo.",
+"a": "la",
+"o": [
+"la",
+"lo",
+"las",
+"les"
+],
+"en": "I see María and I greet her."
+},
+{
+"s": "¿Las llaves? No ___ encuentro.",
+"a": "las",
+"o": [
+"las",
+"los",
+"la",
+"le"
+],
+"en": "The keys? I cannot find them."
+}
+],
+"pronoun-position-infinitive": [
+{
+"s": "¿La carta? Estoy ___ ahora.",
+"a": "leyéndola",
+"o": [
+"leyéndola",
+"leyéndolo",
+"la leyendo",
+"leyendola"
+],
+"en": "The letter? I am reading it now."
+},
+{
+"s": "Mis padres quieren ___ en Navidad.",
+"a": "verme",
+"o": [
+"verme",
+"me ver",
+"ver me",
+"veme"
+],
+"en": "My parents want to see me at Christmas."
+},
+{
+"s": "Ellos no pueden ___ ahora porque están ocupados.",
+"a": "atendernos",
+"o": [
+"atendernos",
+"nos atender",
+"atender nos",
+"atendenos"
+],
+"en": "They cannot help us now because they are busy."
+}
+],
+"prepositional-pronouns": [
+{
+"s": "Este regalo es para ___, Ana.",
+"a": "ti",
+"o": [
+"ti",
+"tú",
+"tu",
+"te"
+],
+"en": "This gift is for you, Ana."
+},
+{
+"s": "Marta, ¿puedo ir ___ al mercado?",
+"a": "contigo",
+"o": [
+"contigo",
+"con ti",
+"con tú",
+"conmigo"
+],
+"en": "Marta, can I go to the market with you?"
+},
+{
+"s": "Ese carro es para ___, no para ti.",
+"a": "mí",
+"o": [
+"mí",
+"yo",
+"me",
+"mi"
+],
+"en": "That car is for me, not for you."
+}
+],
+"personal-a": [
+{
+"s": "Veo ___ mi profesora en el patio.",
+"a": "a",
+"o": [
+"a",
+"de",
+"con",
+"por"
+],
+"en": "I see my teacher in the yard."
+},
+{
+"s": "Busco ___ mi perro por todas partes.",
+"a": "a",
+"o": [
+"a",
+"de",
+"en",
+"para"
+],
+"en": "I look for my dog everywhere."
+},
+{
+"s": "Visité ___ mi tío en Quito.",
+"a": "a",
+"o": [
+"a",
+"de",
+"con",
+"en"
+],
+"en": "I visited my uncle in Quito."
+}
+],
+"saber-conocer": [
+{
+"s": "Yo no ___ a tu hermano.",
+"a": "conozco",
+"o": [
+"conozco",
+"sé",
+"conoces",
+"sabo"
+],
+"en": "I do not know your brother."
+},
+{
+"s": "Mi abuela ___ tejer muy bien.",
+"a": "sabe",
+"o": [
+"sabe",
+"conoce",
+"sabes",
+"conocen"
+],
+"en": "My grandmother knows how to knit very well."
+},
+{
+"s": "¿___ tú este barrio?",
+"a": "Conoces",
+"o": [
+"Conoces",
+"Sabes",
+"Conozco",
+"Conocen"
+],
+"en": "Do you know this neighborhood?"
+}
+],
+"ser-estar-contrast": [
+{
+"s": "Hoy mi hermano ___ enfermo y no fue a la escuela.",
+"a": "está",
+"o": [
+"está",
+"es",
+"están",
+"eres"
+],
+"en": "Today my brother is sick and did not go to school."
+},
+{
+"s": "Mi casa ___ grande y tiene tres cuartos.",
+"a": "es",
+"o": [
+"es",
+"son",
+"soy",
+"eres"
+],
+"en": "My house is big and has three rooms."
+},
+{
+"s": "La leche ya ___ mala; no la tomes.",
+"a": "está",
+"o": [
+"está",
+"estás",
+"son",
+"soy"
+],
+"en": "The milk is already bad; do not drink it."
+}
+],
+"tener-que-hay-que": [
+{
+"s": "Mañana yo ___ que ir al dentista.",
+"a": "tengo",
+"o": [
+"tengo",
+"hay",
+"tiene",
+"tenemos"
+],
+"en": "Tomorrow I have to go to the dentist."
+},
+{
+"s": "En esta ciudad ___ que pagar para entrar al museo.",
+"a": "hay",
+"o": [
+"hay",
+"ha",
+"he",
+"hacen"
+],
+"en": "In this city, one has to pay to enter the museum."
+},
+{
+"s": "Ustedes ___ que traer sus documentos.",
+"a": "tienen",
+"o": [
+"tienen",
+"tiene",
+"tengo",
+"hay"
+],
+"en": "You have to bring your documents."
+}
+],
+"poder-querer-infinitive": [
+{
+"s": "¿___ ustedes ayudarme con la tarea?",
+"a": "Pueden",
+"o": [
+"Pueden",
+"Puede",
+"Puedes",
+"Puedo"
+],
+"en": "Can you help me with the homework?"
+},
+{
+"s": "Yo ___ comer algo ligero esta noche.",
+"a": "quiero",
+"o": [
+"quiero",
+"quieres",
+"quiere",
+"queremos"
+],
+"en": "I want to eat something light tonight."
+},
+{
+"s": "Mis amigos no ___ venir a la fiesta porque trabajan.",
+"a": "pueden",
+"o": [
+"pueden",
+"puede",
+"puedo",
+"podemos"
+],
+"en": "My friends cannot come to the party because they work."
+}
+],
+"acabar-de": [
+{
+"s": "Yo ___ de llegar a casa.",
+"a": "acabo",
+"o": [
+"acabo",
+"acaba",
+"acabas",
+"acaban"
+],
+"en": "I have just arrived home."
+},
+{
+"s": "Mis padres ___ de salir; vuelven pronto.",
+"a": "acaban",
+"o": [
+"acaban",
+"acaba",
+"acabo",
+"acabamos"
+],
+"en": "My parents have just left; they come back soon."
+},
+{
+"s": "Ella ___ de comprar un carro nuevo.",
+"a": "acaba",
+"o": [
+"acaba",
+"acabo",
+"acaban",
+"acabas"
+],
+"en": "She has just bought a new car."
+}
+],
+"por-para-basics": [
+{
+"s": "Camino ___ el parque todos los días.",
+"a": "por",
+"o": [
+"por",
+"para",
+"con",
+"sin"
+],
+"en": "I walk through the park every day."
+},
+{
+"s": "Necesito el informe ___ el viernes.",
+"a": "para",
+"o": [
+"para",
+"por",
+"con",
+"sin"
+],
+"en": "I need the report by Friday."
+},
+{
+"s": "Gracias ___ tu ayuda.",
+"a": "por",
+"o": [
+"por",
+"para",
+"con",
+"sin"
+],
+"en": "Thank you for your help."
+}
+],
+"comparatives-regular": [
+{
+"s": "Mi hermano es ___ alto que yo.",
+"a": "más",
+"o": [
+"más",
+"muy",
+"tan",
+"tanto"
+],
+"en": "My brother is taller than I am."
+},
+{
+"s": "Una bicicleta es ___ rápida que un carro.",
+"a": "menos",
+"o": [
+"menos",
+"muy",
+"tan",
+"mucho"
+],
+"en": "A bicycle is less fast than a car."
+},
+{
+"s": "Ella come ___ verduras que su hermano.",
+"a": "más",
+"o": [
+"más",
+"muy",
+"tan",
+"tanto"
+],
+"en": "She eats more vegetables than her brother."
+}
+],
+"superlatives": [
+{
+"s": "Este es el edificio ___ alto de la ciudad.",
+"a": "más",
+"o": [
+"más",
+"muy",
+"tan",
+"mucho"
+],
+"en": "This is the tallest building in the city."
+},
+{
+"s": "Ana es la ___ de la clase.",
+"a": "mejor",
+"o": [
+"mejor",
+"más buena",
+"bueno",
+"buena"
+],
+"en": "Ana is the best in the class."
+},
+{
+"s": "Julia es la persona más ___ de mi familia.",
+"a": "simpática",
+"o": [
+"simpática",
+"simpático",
+"simpatía",
+"simpatica"
+],
+"en": "Julia is the nicest person in my family."
+}
+],
+"tan-como": [
+{
+"s": "Mi casa es tan grande ___ la tuya.",
+"a": "como",
+"o": [
+"como",
+"que",
+"de",
+"cuanto"
+],
+"en": "My house is as big as yours."
+},
+{
+"s": "Tengo ___ amigos como tú.",
+"a": "tantos",
+"o": [
+"tantos",
+"tanto",
+"tantas",
+"tan"
+],
+"en": "I have as many friends as you."
+},
+{
+"s": "Ella no es ___ rápida como su hermano.",
+"a": "tan",
+"o": [
+"tan",
+"tanto",
+"tantas",
+"más"
+],
+"en": "She is not as fast as her brother."
+}
+],
+"adverbs-mente": [
+{
+"s": "Mi abuelo camina ___ por el parque.",
+"a": "lentamente",
+"o": [
+"lentamente",
+"lenta",
+"lentos",
+"lentamento"
+],
+"en": "My grandfather walks slowly through the park."
+},
+{
+"s": "Ella resolvió el problema ___.",
+"a": "fácilmente",
+"o": [
+"fácilmente",
+"fácilmento",
+"fáciles",
+"facilmente"
+],
+"en": "She solved the problem easily."
+},
+{
+"s": "___ llegaremos tarde.",
+"a": "Probablemente",
+"o": [
+"Probablemente",
+"Probable",
+"Probables",
+"Probabilidad"
+],
+"en": "We will probably arrive late."
+}
+],
+"frequency-adverbs": [
+{
+"s": "Yo ___ tomo café por la noche porque no puedo dormir.",
+"a": "nunca",
+"o": [
+"nunca",
+"siempre",
+"todavía",
+"ayer"
+],
+"en": "I never drink coffee at night because I cannot sleep."
+},
+{
+"s": "Mi papá ___ lee el periódico en la mañana; lo hace todos los días.",
+"a": "siempre",
+"o": [
+"siempre",
+"nunca",
+"jamás",
+"tampoco"
+],
+"en": "My dad always reads the newspaper in the morning; he does it every day."
+},
+{
+"s": "Voy al cine ___, pero no todas las semanas.",
+"a": "a veces",
+"o": [
+"a veces",
+"siempre",
+"nunca",
+"ayer"
+],
+"en": "I go to the movies sometimes, but not every week."
+}
+],
+"ya-todavia": [
+{
+"s": "Mi hijo ___ no sabe leer, pero está aprendiendo.",
+"a": "todavía",
+"o": [
+"todavía",
+"siempre",
+"nunca",
+"ayer"
+],
+"en": "My son still cannot read, but he is learning."
+},
+{
+"s": "¿___ terminaste la tarea? Quiero salir.",
+"a": "Ya",
+"o": [
+"Ya",
+"Siempre",
+"Nunca",
+"Ayer"
+],
+"en": "Have you finished the homework yet? I want to go out."
+},
+{
+"s": "No hemos cenado ___, tenemos hambre.",
+"a": "todavía",
+"o": [
+"todavía",
+"ayer",
+"siempre",
+"entonces"
+],
+"en": "We have not had dinner yet, we are hungry."
+}
+],
+"numbers-100-plus": [
+{
+"s": "El libro cuesta ___ pesos.",
+"a": "quinientos",
+"o": [
+"quinientos",
+"quinientas",
+"cinco cientos",
+"quinientes"
+],
+"en": "The book costs five hundred pesos."
+},
+{
+"s": "Mi ciudad tiene ___ mil habitantes.",
+"a": "ciento veinte",
+"o": [
+"ciento veinte",
+"cien veinte",
+"ciento y veinte",
+"cientos veinte"
+],
+"en": "My city has one hundred twenty thousand inhabitants."
+},
+{
+"s": "Hay ___ sillas en el salón.",
+"a": "setecientas",
+"o": [
+"setecientas",
+"setecientos",
+"sietecientas",
+"siete cientas"
+],
+"en": "There are seven hundred chairs in the hall."
+}
+],
+"ordinal-numbers": [
+{
+"s": "Mi oficina está en el ___ piso.",
+"a": "cuarto",
+"o": [
+"cuarto",
+"cuarta",
+"cuatro",
+"cuatros"
+],
+"en": "My office is on the fourth floor."
+},
+{
+"s": "Es la ___ vez que viajo a Chile.",
+"a": "primera",
+"o": [
+"primera",
+"primero",
+"primer",
+"uno"
+],
+"en": "It is the first time I travel to Chile."
+},
+{
+"s": "Febrero es el ___ mes del año.",
+"a": "segundo",
+"o": [
+"segundo",
+"segunda",
+"dos",
+"segundos"
+],
+"en": "February is the second month of the year."
+}
+],
+"place-prepositions": [
+{
+"s": "El gato duerme ___ la mesa.",
+"a": "debajo de",
+"o": [
+"debajo de",
+"debajo",
+"debajo en",
+"debajo la"
+],
+"en": "The cat sleeps under the table."
+},
+{
+"s": "La farmacia está enfrente ___ banco.",
+"a": "del",
+"o": [
+"del",
+"de el",
+"con el",
+"a el"
+],
+"en": "The pharmacy is in front of the bank."
+},
+{
+"s": "Mi casa está ___ la escuela, a cinco minutos.",
+"a": "cerca de",
+"o": [
+"cerca de",
+"cerca por",
+"cerca en",
+"cerca con"
+],
+"en": "My house is near the school, five minutes away."
+}
+],
+"time-hace": [
+{
+"s": "Mi tía se mudó ___ cinco meses.",
+"a": "hace",
+"o": [
+"hace",
+"desde",
+"durante",
+"antes"
+],
+"en": "My aunt moved five months ago."
+},
+{
+"s": "Vivo aquí ___ dos años.",
+"a": "desde hace",
+"o": [
+"desde hace",
+"desde",
+"por hace",
+"hace desde"
+],
+"en": "I have lived here for two years."
+},
+{
+"s": "Nos conocimos ___ diez años en una fiesta.",
+"a": "hace",
+"o": [
+"hace",
+"desde",
+"durante",
+"para"
+],
+"en": "We met ten years ago at a party."
+}
+],
+"question-por-que": [
+{
+"s": "¿___ estás triste?",
+"a": "Por qué",
+"o": [
+"Por qué",
+"Porque",
+"Por que",
+"Porqué"
+],
+"en": "Why are you sad?"
+},
+{
+"s": "No fui a la fiesta ___ estaba cansada.",
+"a": "porque",
+"o": [
+"porque",
+"por qué",
+"por que",
+"porqué"
+],
+"en": "I did not go to the party because I was tired."
+},
+{
+"s": "Dime ___ llegaste tarde.",
+"a": "por qué",
+"o": [
+"por qué",
+"porque",
+"por que",
+"porqué"
+],
+"en": "Tell me why you arrived late."
+}
+],
+"cause-consequence-simple": [
+{
+"s": "Tengo hambre, ___ voy a comer algo.",
+"a": "así que",
+"o": [
+"así que",
+"porque",
+"cuando",
+"donde"
+],
+"en": "I am hungry, so I am going to eat something."
+},
+{
+"s": "Llueve mucho; ___ no vamos a la playa.",
+"a": "por eso",
+"o": [
+"por eso",
+"porque",
+"aunque",
+"sino"
+],
+"en": "It rains a lot; that is why we are not going to the beach."
+},
+{
+"s": "No fui a trabajar ___ estaba enferma.",
+"a": "porque",
+"o": [
+"porque",
+"así que",
+"por eso",
+"entonces"
+],
+"en": "I did not go to work because I was sick."
+}
+],
+"relative-que-simple": [
+{
+"s": "La casa ___ vendieron es muy grande.",
+"a": "que",
+"o": [
+"que",
+"lo que",
+"cual",
+"donde"
+],
+"en": "The house that they sold is very big."
+},
+{
+"s": "Tengo un amigo ___ vive en Canadá.",
+"a": "que",
+"o": [
+"que",
+"lo que",
+"cual",
+"donde"
+],
+"en": "I have a friend who lives in Canada."
+},
+{
+"s": "El libro ___ me prestaste es muy interesante.",
+"a": "que",
+"o": [
+"que",
+"cual",
+"quien",
+"cuyo"
+],
+"en": "The book that you lent me is very interesting."
+}
+],
+"future-simple-regular": [
+{
+"s": "Mañana yo ___ a mis abuelos.",
+"a": "visitaré",
+"o": [
+"visitaré",
+"visitarás",
+"visitará",
+"visitarán"
+],
+"en": "Tomorrow I will visit my grandparents."
+},
+{
+"s": "Ustedes ___ muy contentos con el resultado.",
+"a": "estarán",
+"o": [
+"estará",
+"estarán",
+"estaremos",
+"estarás"
+],
+"en": "You all will be very happy with the result."
+},
+{
+"s": "El próximo año nosotros ___ en una casa nueva.",
+"a": "viviremos",
+"o": [
+"viviré",
+"vivirán",
+"viviremos",
+"vivirás"
+],
+"en": "Next year we will live in a new house."
+}
+],
+"future-irregular": [
+{
+"s": "Mañana yo ___ la cena para todos.",
+"a": "haré",
+"o": [
+"haceré",
+"haré",
+"harás",
+"haremos"
+],
+"en": "Tomorrow I will make dinner for everyone."
+},
+{
+"s": "¿Cuándo ___ ustedes venir a visitarnos?",
+"a": "podrán",
+"o": [
+"poderán",
+"podrá",
+"podrán",
+"podremos"
+],
+"en": "When will you all be able to come visit us?"
+},
+{
+"s": "Ellos me ___ la verdad mañana.",
+"a": "dirán",
+"o": [
+"decirán",
+"dirá",
+"dirán",
+"diré"
+],
+"en": "They will tell me the truth tomorrow."
+}
+],
+"future-probability": [
+{
+"s": "No sé dónde está Pedro; ___ en la oficina.",
+"a": "estará",
+"o": [
+"estaré",
+"estarás",
+"estará",
+"estarán"
+],
+"en": "I do not know where Pedro is; he is probably at the office."
+},
+{
+"s": "Ese abrigo ___ muy caro, porque es de cuero.",
+"a": "costará",
+"o": [
+"costaré",
+"costarás",
+"costará",
+"costarán"
+],
+"en": "That coat is probably very expensive, because it is made of leather."
+},
+{
+"s": "Mis vecinos no contestan; ___ de viaje.",
+"a": "estarán",
+"o": [
+"estaré",
+"estaremos",
+"estará",
+"estarán"
+],
+"en": "My neighbors are not answering; they are probably away on a trip."
+}
+],
+"conditional-polite": [
+{
+"s": "¿___ usted pasarme la sal, por favor?",
+"a": "Podría",
+"o": [
+"Podría",
+"Podrías",
+"Podríamos",
+"Podrían"
+],
+"en": "Could you pass me the salt, please?"
+},
+{
+"s": "Me ___ mucho conocer su ciudad.",
+"a": "gustaría",
+"o": [
+"gustaría",
+"gustarían",
+"gustaré",
+"gustarás"
+],
+"en": "I would very much like to see your city."
+},
+{
+"s": "Buenas tardes, yo ___ una habitación doble.",
+"a": "querría",
+"o": [
+"querría",
+"querríamos",
+"querrían",
+"querrías"
+],
+"en": "Good afternoon, I would like a double room."
+}
+],
+"conditional-advice": [
+{
+"s": "Tú ___ ir al médico si te duele tanto.",
+"a": "deberías",
+"o": [
+"deberías",
+"debería",
+"deberían",
+"debemos"
+],
+"en": "You should go to the doctor if it hurts so much."
+},
+{
+"s": "Yo que tú, ___ más temprano.",
+"a": "saldría",
+"o": [
+"saldría",
+"saldrá",
+"saldremos",
+"saldrían"
+],
+"en": "If I were you, I would leave earlier."
+},
+{
+"s": "Ustedes ___ comer menos azúcar.",
+"a": "deberían",
+"o": [
+"deberían",
+"deberías",
+"debería",
+"deberíamos"
+],
+"en": "You all should eat less sugar."
+}
+],
+"past-perfect": [
+{
+"s": "Cuando llegué al cine, la película ya ___.",
+"a": "había empezado",
+"o": [
+"había empezado",
+"habían empezado",
+"ha empezado",
+"hube empezado"
+],
+"en": "When I got to the movie theater, the movie had already started."
+},
+{
+"s": "Yo no ___ nunca el mar antes de ese viaje.",
+"a": "había visto",
+"o": [
+"había visto",
+"habías visto",
+"habían visto",
+"he visto"
+],
+"en": "I had never seen the sea before that trip."
+},
+{
+"s": "Ellos ya ___ cuando nosotros llamamos.",
+"a": "habían salido",
+"o": [
+"había salido",
+"habías salido",
+"habíamos salido",
+"habían salido"
+],
+"en": "They had already left when we called."
+}
+],
+"pret-vs-imperfect-narrative": [
+{
+"s": "Mientras yo ___ la cena, sonó el teléfono.",
+"a": "preparaba",
+"o": [
+"preparaba",
+"prepararé",
+"prepararon",
+"preparaban"
+],
+"en": "While I was preparing dinner, the phone rang."
+},
+{
+"s": "Dormía tranquilamente cuando de repente ___ un grito.",
+"a": "oí",
+"o": [
+"oí",
+"oía",
+"oiré",
+"oyeron"
+],
+"en": "I was sleeping peacefully when suddenly I heard a scream."
+},
+{
+"s": "Cuando era niña, siempre ___ con mis primos en el patio.",
+"a": "jugaba",
+"o": [
+"jugaba",
+"jugaban",
+"jugaré",
+"jugarán"
+],
+"en": "When I was a girl, I always played with my cousins in the yard."
+}
+],
+"pret-meaning-change": [
+{
+"s": "Ayer ___ la verdad por mi hermana.",
+"a": "supe",
+"o": [
+"supe",
+"sabía",
+"sé",
+"sabré"
+],
+"en": "Yesterday I found out the truth from my sister."
+},
+{
+"s": "Anoche ___ a mi vecino nuevo en la reunión.",
+"a": "conocí",
+"o": [
+"conocí",
+"conocía",
+"conozco",
+"conoceré"
+],
+"en": "Last night I met my new neighbor at the meeting."
+},
+{
+"s": "Después de mucho esfuerzo, por fin ___ abrir la puerta.",
+"a": "pude",
+"o": [
+"pude",
+"podía",
+"podría",
+"puedo"
+],
+"en": "After a lot of effort, I finally managed to open the door."
+}
+],
+"perfect-vs-preterite": [
+{
+"s": "Ayer ___ al mercado con mi abuela.",
+"a": "fui",
+"o": [
+"fui",
+"he ido",
+"había ido",
+"iría"
+],
+"en": "Yesterday I went to the market with my grandmother."
+},
+{
+"s": "Hasta ahora nunca ___ sushi.",
+"a": "he probado",
+"o": [
+"he probado",
+"ha probado",
+"había probado",
+"probaría"
+],
+"en": "Until now I have never tried sushi."
+},
+{
+"s": "El mes pasado mis primos ___ una casa nueva.",
+"a": "compraron",
+"o": [
+"compraron",
+"han comprado",
+"había comprado",
+"comprará"
+],
+"en": "Last month my cousins bought a new house."
+}
+],
+"past-progressive": [
+{
+"s": "Cuando llamaste, yo ___ la ropa.",
+"a": "estaba lavando",
+"o": [
+"estaba lavando",
+"estaba lavado",
+"estaban lavando",
+"estabas lavando"
+],
+"en": "When you called, I was washing the clothes."
+},
+{
+"s": "Mis hijos ___ en el parque cuando empezó a llover.",
+"a": "estaban jugando",
+"o": [
+"estaban jugando",
+"estaba jugando",
+"estaban jugado",
+"estábamos jugando"
+],
+"en": "My children were playing in the park when it started to rain."
+},
+{
+"s": "Ayer a las ocho nosotros ___ una película.",
+"a": "estábamos viendo",
+"o": [
+"estábamos viendo",
+"estamos viendo",
+"estaban viendo",
+"estábamos visto"
+],
+"en": "Yesterday at eight o'clock we were watching a movie."
+}
+],
+"subj-present-forms": [
+{
+"s": "Espero que ustedes ___ buen tiempo en el viaje.",
+"a": "tengan",
+"o": [
+"tengan",
+"tienen",
+"tendrán",
+"tenían"
+],
+"en": "I hope you all have good weather on the trip."
+},
+{
+"s": "Quiero que tú ___ la puerta.",
+"a": "cierres",
+"o": [
+"cierres",
+"cierras",
+"cerres",
+"cerrarás"
+],
+"en": "I want you to close the door."
+},
+{
+"s": "Ojalá que Marta ___ pronto.",
+"a": "vuelva",
+"o": [
+"vuelva",
+"vuelve",
+"volverá",
+"volvió"
+],
+"en": "I hope Marta comes back soon."
+}
+],
+"subj-wishes": [
+{
+"s": "Mi madre quiere que yo ___ más verduras.",
+"a": "coma",
+"o": [
+"coma",
+"como",
+"comeré",
+"comía"
+],
+"en": "My mother wants me to eat more vegetables."
+},
+{
+"s": "Te pido que me ___ con la tarea.",
+"a": "ayudes",
+"o": [
+"ayudes",
+"ayudas",
+"ayudarás",
+"ayudabas"
+],
+"en": "I am asking you to help me with the homework."
+},
+{
+"s": "El profesor prefiere que nosotros ___ en silencio.",
+"a": "trabajemos",
+"o": [
+"trabajemos",
+"trabajamos",
+"trabajaremos",
+"trabajábamos"
+],
+"en": "The teacher prefers that we work in silence."
+}
+],
+"subj-emotion": [
+{
+"s": "Me alegra que tu hermana se ___ mejor.",
+"a": "sienta",
+"o": [
+"sienta",
+"siente",
+"sentirá",
+"sentía"
+],
+"en": "I am glad that your sister feels better."
+},
+{
+"s": "Lamento que ustedes no ___ venir a la boda.",
+"a": "puedan",
+"o": [
+"puedan",
+"pueden",
+"podrán",
+"podían"
+],
+"en": "I am sorry that you all cannot come to the wedding."
+},
+{
+"s": "Nos molesta que los vecinos ___ música tan tarde.",
+"a": "pongan",
+"o": [
+"pongan",
+"ponen",
+"pondrán",
+"ponían"
+],
+"en": "It bothers us that the neighbors play music so late."
+}
+],
+"subj-doubt": [
+{
+"s": "Dudo que Luis ___ la respuesta.",
+"a": "sepa",
+"o": [
+"sepa",
+"sabe",
+"sabrá",
+"sabía"
+],
+"en": "I doubt that Luis knows the answer."
+},
+{
+"s": "No creo que ellos ___ hoy.",
+"a": "vengan",
+"o": [
+"vengan",
+"vienen",
+"vendrán",
+"venían"
+],
+"en": "I do not think they will come today."
+},
+{
+"s": "No estoy seguro de que mi hermano ___ tiempo.",
+"a": "tenga",
+"o": [
+"tenga",
+"tiene",
+"tendrá",
+"tenía"
+],
+"en": "I am not sure that my brother has time."
+}
+],
+"subj-impersonal": [
+{
+"s": "Es importante que todos ___ el reglamento.",
+"a": "lean",
+"o": [
+"lean",
+"leen",
+"leerán",
+"leían"
+],
+"en": "It is important that everyone reads the rules."
+},
+{
+"s": "Es mejor que tú ___ un taxi.",
+"a": "tomes",
+"o": [
+"tomes",
+"tomas",
+"tomarás",
+"tomabas"
+],
+"en": "It is better that you take a taxi."
+},
+{
+"s": "Es posible que mañana ___ más frío.",
+"a": "haga",
+"o": [
+"haga",
+"hace",
+"hará",
+"hacía"
+],
+"en": "It is possible that it will be colder tomorrow."
+}
+],
+"subj-recommend": [
+{
+"s": "Te recomiendo que ___ este restaurante.",
+"a": "pruebes",
+"o": [
+"pruebes",
+"pruebas",
+"probarás",
+"probabas"
+],
+"en": "I recommend that you try this restaurant."
+},
+{
+"s": "El doctor me sugiere que ___ más agua.",
+"a": "tome",
+"o": [
+"tome",
+"tomo",
+"tomaré",
+"tomaba"
+],
+"en": "The doctor suggests that I drink more water."
+},
+{
+"s": "Les pedimos que ___ sus teléfonos durante la clase.",
+"a": "apaguen",
+"o": [
+"apaguen",
+"apagan",
+"apagarán",
+"apagaban"
+],
+"en": "We ask you all to turn off your phones during class."
+}
+],
+"subj-irregular-forms": [
+{
+"s": "Quiero que ustedes ___ a mi casa mañana.",
+"a": "vayan",
+"o": [
+"vayan",
+"van",
+"irán",
+"iban"
+],
+"en": "I want you all to go to my house tomorrow."
+},
+{
+"s": "Espero que tú ___ la dirección correcta.",
+"a": "sepas",
+"o": [
+"sepas",
+"sabes",
+"sabrás",
+"sabías"
+],
+"en": "I hope you know the correct address."
+},
+{
+"s": "Es necesario que ellos nos ___ la respuesta hoy.",
+"a": "den",
+"o": [
+"den",
+"dan",
+"darán",
+"daban"
+],
+"en": "It is necessary that they give us the answer today."
+}
+],
+"subj-cuando-future": [
+{
+"s": "Cuando mis padres ___ el próximo mes, iremos al museo.",
+"a": "vengan",
+"o": [
+"vengan",
+"vinieron",
+"venían",
+"vendrán"
+],
+"en": "When my parents come next month, we will go to the museum."
+},
+{
+"s": "Cuando yo ___ dinero, compraré una moto.",
+"a": "tenga",
+"o": [
+"tenga",
+"tuve",
+"tendría",
+"tendré"
+],
+"en": "When I have money, I will buy a motorcycle."
+},
+{
+"s": "Te avisaremos cuando ___ los resultados.",
+"a": "lleguen",
+"o": [
+"lleguen",
+"llegaron",
+"llegaban",
+"llegarán"
+],
+"en": "We will let you know when the results arrive."
+}
+],
+"subj-para-que": [
+{
+"s": "Te doy mi número para que me ___.",
+"a": "llames",
+"o": [
+"llames",
+"llamas",
+"llamarás",
+"llamabas"
+],
+"en": "I give you my number so that you call me."
+},
+{
+"s": "El profesor habla despacio para que todos lo ___.",
+"a": "entiendan",
+"o": [
+"entiendan",
+"entienden",
+"entenderán",
+"entendían"
+],
+"en": "The teacher speaks slowly so that everyone understands him."
+},
+{
+"s": "Abro la ventana para que ___ el aire fresco.",
+"a": "entre",
+"o": [
+"entre",
+"entra",
+"entrará",
+"entraba"
+],
+"en": "I open the window so that the fresh air comes in."
+}
+],
+"indicative-vs-subjunctive": [
+{
+"s": "Creo que Ana ___ en casa ahora.",
+"a": "está",
+"o": [
+"está",
+"esté",
+"estuviera",
+"estar"
+],
+"en": "I think Ana is at home now."
+},
+{
+"s": "No creo que el examen ___ difícil.",
+"a": "sea",
+"o": [
+"sea",
+"es",
+"será",
+"fue"
+],
+"en": "I do not think the exam is difficult."
+},
+{
+"s": "Pienso que ellos ___ razón.",
+"a": "tienen",
+"o": [
+"tienen",
+"tengan",
+"tuvieran",
+"tener"
+],
+"en": "I think they are right."
+}
+],
+"imperative-clitics-affirmative": [
+{
+"s": "¡Ya es tarde! ___ rápido.",
+"a": "Levántate",
+"o": [
+"Levántate",
+"Levantate",
+"Levántete",
+"Te levántate"
+],
+"en": "It is late already! Get up quickly."
+},
+{
+"s": "Si quieres el libro, ___ ahora.",
+"a": "tómalo",
+"o": [
+"tómalo",
+"tomalo",
+"tómelo",
+"tomarlo"
+],
+"en": "If you want the book, take it now."
+},
+{
+"s": "Tengo una duda. ___, por favor.",
+"a": "Explícamela",
+"o": [
+"Explícamela",
+"Explicamela",
+"Explícalame",
+"Explícamelas"
+],
+"en": "I have a question. Explain it to me, please."
+}
+],
+"imperative-clitics-negative": [
+{
+"s": "Esa foto es privada; no ___ a nadie.",
+"a": "se la muestres",
+"o": [
+"se la muestres",
+"muéstrasela",
+"la se muestres",
+"muestres se la"
+],
+"en": "That photo is private; do not show it to anyone."
+},
+{
+"s": "Es un secreto; no ___ a nadie.",
+"a": "se lo digas",
+"o": [
+"se lo digas",
+"dígaselo",
+"díselo",
+"lo se digas"
+],
+"en": "It is a secret; do not tell it to anyone."
+},
+{
+"s": "No ___ aquí, por favor.",
+"a": "te sientes",
+"o": [
+"te sientes",
+"siéntate",
+"sientes te",
+"sientete"
+],
+"en": "Do not sit here, please."
+}
+],
+"imperative-ustedes": [
+{
+"s": "Niños, ___ las manos antes de comer.",
+"a": "laven",
+"o": [
+"laven",
+"lava",
+"laves",
+"lavó"
+],
+"en": "Children, wash your hands before eating."
+},
+{
+"s": "Señores, por favor, ___ aquí un momento.",
+"a": "esperen",
+"o": [
+"esperen",
+"espera",
+"esperas",
+"esperó"
+],
+"en": "Gentlemen, please wait here for a moment."
+},
+{
+"s": "Chicos, no ___ tarde a la clase.",
+"a": "lleguen",
+"o": [
+"lleguen",
+"llegues",
+"llegue",
+"llegarán"
+],
+"en": "Guys, do not arrive late to class."
+}
+],
+"double-object-pronouns": [
+{
+"s": "¿Mi libro? Sí, mi hermano ya ___ devolvió.",
+"a": "me lo",
+"o": [
+"me lo",
+"lo me",
+"me le",
+"le me"
+],
+"en": "My book? Yes, my brother already gave it back to me."
+},
+{
+"s": "Necesito el número. ¿___ puedes dar?",
+"a": "Me lo",
+"o": [
+"Me lo",
+"Lo me",
+"Me la",
+"Me los"
+],
+"en": "I need the number. Can you give it to me?"
+},
+{
+"s": "El pastel es para ti. Mañana ___ traigo.",
+"a": "te lo",
+"o": [
+"te lo",
+"lo te",
+"te la",
+"te le"
+],
+"en": "The cake is for you. Tomorrow I will bring it to you."
+}
+],
+"se-lo-rule": [
+{
+"s": "Mi jefe pidió el informe y yo ___ envié ayer.",
+"a": "se lo",
+"o": [
+"se lo",
+"le lo",
+"se la",
+"lo se"
+],
+"en": "My boss asked for the report and I sent it to him yesterday."
+},
+{
+"s": "Las llaves son de los vecinos y ___ devolví.",
+"a": "se las",
+"o": [
+"se las",
+"les las",
+"se los",
+"las se"
+],
+"en": "The keys belong to the neighbors and I returned them to them."
+},
+{
+"s": "Carolina quiere la receta y yo ___ voy a dar mañana.",
+"a": "se la",
+"o": [
+"se la",
+"le la",
+"se lo",
+"la se"
+],
+"en": "Carolina wants the recipe and I am going to give it to her tomorrow."
+}
+],
+"se-accidental": [
+{
+"s": "Se me ___ las llaves en el taxi.",
+"a": "olvidaron",
+"o": [
+"olvidaron",
+"olvidó",
+"olvidé",
+"olvidaste"
+],
+"en": "I forgot my keys in the taxi."
+},
+{
+"s": "A mi hermano se le ___ el celular.",
+"a": "cayó",
+"o": [
+"cayó",
+"cayeron",
+"caí",
+"cayeste"
+],
+"en": "My brother dropped his cell phone by accident."
+},
+{
+"s": "Se nos ___ la leche.",
+"a": "acabó",
+"o": [
+"acabó",
+"acabaron",
+"acabé",
+"acabamos"
+],
+"en": "We ran out of milk."
+}
+],
+"passive-se": [
+{
+"s": "En esta tienda se ___ computadoras usadas.",
+"a": "venden",
+"o": [
+"venden",
+"vende",
+"vendes",
+"vendemos"
+],
+"en": "Used computers are sold in this store."
+},
+{
+"s": "En Brasil se ___ portugués.",
+"a": "habla",
+"o": [
+"habla",
+"hablan",
+"hablas",
+"hablo"
+],
+"en": "Portuguese is spoken in Brazil."
+},
+{
+"s": "Aquí se ___ las entradas en la taquilla.",
+"a": "compran",
+"o": [
+"compran",
+"compra",
+"compras",
+"compramos"
+],
+"en": "Here the tickets are bought at the ticket office."
+}
+],
+"impersonal-se": [
+{
+"s": "En esta oficina se ___ mucho.",
+"a": "trabaja",
+"o": [
+"trabaja",
+"trabajan",
+"trabajamos",
+"trabajas"
+],
+"en": "People work a lot in this office."
+},
+{
+"s": "En el cine no se ___ comer.",
+"a": "puede",
+"o": [
+"puede",
+"pueden",
+"podemos",
+"puedes"
+],
+"en": "You cannot eat in the movie theater."
+},
+{
+"s": "Cuando hace calor, se ___ más agua.",
+"a": "toma",
+"o": [
+"toma",
+"toman",
+"tomamos",
+"tomas"
+],
+"en": "When it is hot, people drink more water."
+}
+],
+"passive-ser-intro": [
+{
+"s": "La novela fue ___ por una autora famosa.",
+"a": "escrita",
+"o": [
+"escrita",
+"escrito",
+"escritas",
+"escribida"
+],
+"en": "The novel was written by a famous author."
+},
+{
+"s": "Los puentes fueron ___ en 1950.",
+"a": "construidos",
+"o": [
+"construidos",
+"construido",
+"construida",
+"construidas"
+],
+"en": "The bridges were built in 1950."
+},
+{
+"s": "Estas fotos ___ tomadas por mi abuelo.",
+"a": "fueron",
+"o": [
+"fueron",
+"fue",
+"fui",
+"fuimos"
+],
+"en": "These photos were taken by my grandfather."
+}
+],
+"llevar-gerund": [
+{
+"s": "Mi hermana ___ dos horas esperando el autobús.",
+"a": "lleva",
+"o": [
+"lleva",
+"llevo",
+"llevan",
+"llevas"
+],
+"en": "My sister has been waiting for the bus for two hours."
+},
+{
+"s": "Nosotros ___ cinco años viviendo en esta ciudad.",
+"a": "llevamos",
+"o": [
+"llevamos",
+"llevan",
+"llevo",
+"llevas"
+],
+"en": "We have been living in this city for five years."
+},
+{
+"s": "Llevo tres meses ___ inglés.",
+"a": "estudiando",
+"o": [
+"estudiando",
+"estudiado",
+"estudiar",
+"estudio"
+],
+"en": "I have been studying English for three months."
+}
+],
+"seguir-gerund": [
+{
+"s": "Mi abuelo todavía ___ cuidando su jardín.",
+"a": "sigue",
+"o": [
+"sigue",
+"siguen",
+"sigo",
+"seguimos"
+],
+"en": "My grandfather is still taking care of his garden."
+},
+{
+"s": "Aunque es tarde, los niños ___ jugando.",
+"a": "siguen",
+"o": [
+"siguen",
+"sigue",
+"seguimos",
+"sigues"
+],
+"en": "Although it is late, the children keep playing."
+},
+{
+"s": "Sigo ___ el mismo curso de inglés.",
+"a": "tomando",
+"o": [
+"tomando",
+"tomado",
+"tomar",
+"tomo"
+],
+"en": "I am still taking the same English course."
+}
+],
+"soler-volver-a": [
+{
+"s": "Mis primos ___ visitarnos en diciembre.",
+"a": "suelen",
+"o": [
+"suelen",
+"suele",
+"solemos",
+"sueles"
+],
+"en": "My cousins usually visit us in December."
+},
+{
+"s": "Ayer yo ___ a llamar a mi amiga, pero no contestó.",
+"a": "volví",
+"o": [
+"volví",
+"volvió",
+"volvimos",
+"volvieron"
+],
+"en": "Yesterday I called my friend again, but she did not answer."
+},
+{
+"s": "Si no entiendes, el profesor ___ a explicar.",
+"a": "vuelve",
+"o": [
+"vuelve",
+"vuelvo",
+"vuelven",
+"volvemos"
+],
+"en": "If you do not understand, the teacher explains again."
+}
+],
+"deber-deber-de": [
+{
+"s": "Para ganar el partido, tú ___ practicar más.",
+"a": "debes",
+"o": [
+"debes",
+"debes de",
+"debe",
+"deben"
+],
+"en": "To win the game, you must practice more."
+},
+{
+"s": "Hay muchas luces encendidas; ___ haber gente en casa.",
+"a": "debe de",
+"o": [
+"debe de",
+"debes de",
+"debemos de",
+"deben de"
+],
+"en": "Many lights are on; there must be people at home."
+},
+{
+"s": "Los pasajeros ___ mostrar el pasaporte.",
+"a": "deben",
+"o": [
+"deben",
+"deben de",
+"debe",
+"debes"
+],
+"en": "The passengers must show their passports."
+}
+],
+"comparatives-irregular": [
+{
+"s": "Esta pizza es ___ que la de ayer; está deliciosa.",
+"a": "mejor",
+"o": [
+"mejor",
+"más bueno",
+"peor",
+"menor"
+],
+"en": "This pizza is better than yesterday's; it is delicious."
+},
+{
+"s": "Este restaurante es ___ que el de la esquina; la comida es horrible.",
+"a": "peor",
+"o": [
+"peor",
+"mejor",
+"más peor",
+"menor"
+],
+"en": "This restaurant is worse than the one on the corner; the food is terrible."
+},
+{
+"s": "Yo tengo veinte años y mi hermana tiene diez; ella es ___ que yo.",
+"a": "menor",
+"o": [
+"menor",
+"mayor",
+"mejor",
+"peor"
+],
+"en": "I am twenty years old and my sister is ten; she is younger than I am."
+}
+],
+"adjective-position": [
+{
+"s": "Mi tío es un ___ cocinero.",
+"a": "buen",
+"o": [
+"buen",
+"bueno",
+"buena",
+"bien"
+],
+"en": "My uncle is a good cook."
+},
+{
+"s": "Vivimos en una ___ ciudad con muchos parques.",
+"a": "gran",
+"o": [
+"gran",
+"grande",
+"grandes",
+"grando"
+],
+"en": "We live in a great city with many parks."
+},
+{
+"s": "Fue un ___ día; todo salió mal.",
+"a": "mal",
+"o": [
+"mal",
+"malo",
+"mala",
+"malos"
+],
+"en": "It was a bad day; everything went wrong."
+}
+],
+"relative-quien-donde": [
+{
+"s": "Esa es la amiga a ___ conocí en Lima.",
+"a": "quien",
+"o": [
+"quien",
+"quienes",
+"donde",
+"lo que"
+],
+"en": "That is the friend whom I met in Lima."
+},
+{
+"s": "Esta es la ciudad ___ nací.",
+"a": "donde",
+"o": [
+"donde",
+"quien",
+"lo que",
+"cuando"
+],
+"en": "This is the city where I was born."
+},
+{
+"s": "No entiendo ___ dices.",
+"a": "lo que",
+"o": [
+"lo que",
+"el que",
+"quien",
+"donde"
+],
+"en": "I do not understand what you are saying."
+}
+],
+"lo-neutral": [
+{
+"s": "Lo ___ de este trabajo es el horario.",
+"a": "mejor",
+"o": [
+"mejor",
+"mejores",
+"buena",
+"bien"
+],
+"en": "The best thing about this job is the schedule."
+},
+{
+"s": "No sabes lo ___ que es vivir solo.",
+"a": "difícil",
+"o": [
+"difícil",
+"difíciles",
+"difícilmente",
+"dificultad"
+],
+"en": "You do not know how hard it is to live alone."
+},
+{
+"s": "Lo ___ es que nadie salió herido.",
+"a": "bueno",
+"o": [
+"bueno",
+"buena",
+"buenos",
+"bien"
+],
+"en": "The good thing is that nobody was hurt."
+}
+],
+"si-real-conditions": [
+{
+"s": "Si ___ buen tiempo mañana, iremos a la playa.",
+"a": "hace",
+"o": [
+"hace",
+"hará",
+"hiciera",
+"hacía"
+],
+"en": "If the weather is nice tomorrow, we will go to the beach."
+},
+{
+"s": "Si no estudias, no ___ el examen.",
+"a": "pasarás",
+"o": [
+"pasarás",
+"pasaras",
+"pasaste",
+"pasabas"
+],
+"en": "If you do not study, you will not pass the exam."
+},
+{
+"s": "Si ___ hambre, puedes comer una fruta.",
+"a": "tienes",
+"o": [
+"tienes",
+"tendrás",
+"tuvieras",
+"tenías"
+],
+"en": "If you are hungry, you can eat a piece of fruit."
+}
+],
+"si-hypothetical": [
+{
+"s": "Si yo ___ más dinero, compraría una casa.",
+"a": "tuviera",
+"o": [
+"tuviera",
+"tengo",
+"tendré",
+"tendría"
+],
+"en": "If I had more money, I would buy a house."
+},
+{
+"s": "Si ellos vivieran más cerca, nos ___ más seguido.",
+"a": "visitarían",
+"o": [
+"visitarían",
+"visitaran",
+"visitarán",
+"visitan"
+],
+"en": "If they lived closer, they would visit us more often."
+},
+{
+"s": "Si tú ___ presidente, ¿qué cambiarías?",
+"a": "fueras",
+"o": [
+"fueras",
+"eres",
+"serás",
+"serías"
+],
+"en": "If you were president, what would you change?"
+}
+],
+"por-para-contrast": [
+{
+"s": "Este regalo es ___ mi mamá.",
+"a": "para",
+"o": [
+"para",
+"por",
+"sin",
+"hacia"
+],
+"en": "This gift is for my mom."
+},
+{
+"s": "Gracias ___ tu ayuda.",
+"a": "por",
+"o": [
+"por",
+"para",
+"de",
+"en"
+],
+"en": "Thank you for your help."
+},
+{
+"s": "Necesito el informe ___ el viernes.",
+"a": "para",
+"o": [
+"para",
+"por",
+"sin",
+"contra"
+],
+"en": "I need the report by Friday."
+}
+],
+"verb-preposition-pairs": [
+{
+"s": "Mi hermana sueña ___ ser doctora.",
+"a": "con",
+"o": [
+"con",
+"de",
+"en",
+"a"
+],
+"en": "My sister dreams of being a doctor."
+},
+{
+"s": "Siempre pienso ___ mis amigos cuando viajo.",
+"a": "en",
+"o": [
+"en",
+"a",
+"con",
+"por"
+],
+"en": "I always think about my friends when I travel."
+},
+{
+"s": "Ellos dependen ___ sus padres para estudiar.",
+"a": "de",
+"o": [
+"de",
+"en",
+"con",
+"a"
+],
+"en": "They depend on their parents in order to study."
+}
+],
+"aunque-indicative": [
+{
+"s": "Aunque ayer ___ mucho frío, salimos a caminar.",
+"a": "hacía",
+"o": [
+"hacía",
+"haga",
+"hará",
+"hacer"
+],
+"en": "Although it was very cold yesterday, we went out for a walk."
+},
+{
+"s": "Aunque mis padres ___ muy ocupados, nos llevaron al parque.",
+"a": "estaban",
+"o": [
+"estaban",
+"estén",
+"estarán",
+"estar"
+],
+"en": "Although my parents were very busy, they took us to the park."
+},
+{
+"s": "Aunque el examen ___ difícil, todos aprobaron.",
+"a": "fue",
+"o": [
+"fue",
+"sea",
+"será",
+"ser"
+],
+"en": "Although the exam was difficult, everyone passed."
+}
+],
+"reported-simple": [
+{
+"s": "Ayer mi madre dijo que ___ cansada.",
+"a": "estaba",
+"o": [
+"estaba",
+"estoy",
+"estaremos",
+"estés"
+],
+"en": "Yesterday my mother said that she was tired."
+},
+{
+"s": "Pedro me dijo que ___ a llamar más tarde.",
+"a": "iba",
+"o": [
+"iba",
+"voy",
+"vamos",
+"vayas"
+],
+"en": "Pedro told me that he was going to call later."
+},
+{
+"s": "Mis amigos dijeron que no ___ venir a la fiesta.",
+"a": "podían",
+"o": [
+"podían",
+"puedo",
+"podrías",
+"puedes"
+],
+"en": "My friends said that they could not come to the party."
+}
+],
+"indirect-questions": [
+{
+"s": "No sé ___ vive Carla.",
+"a": "dónde",
+"o": [
+"dónde",
+"qué",
+"quién",
+"cuándo"
+],
+"en": "I do not know where Carla lives."
+},
+{
+"s": "Me preguntaron ___ años tengo.",
+"a": "cuántos",
+"o": [
+"cuántos",
+"cuánto",
+"cuántas",
+"qué"
+],
+"en": "They asked me how old I am."
+},
+{
+"s": "Dime a ___ hora empieza la clase.",
+"a": "qué",
+"o": [
+"qué",
+"cuál",
+"cuánto",
+"quién"
+],
+"en": "Tell me what time the class starts."
+}
+],
+"tag-questions": [
+{
+"s": "Ya terminaste la tarea, ¿___?",
+"a": "verdad",
+"o": [
+"verdad",
+"cuándo",
+"quién",
+"cuál"
+],
+"en": "You already finished the homework, right?"
+},
+{
+"s": "Hace mucho calor hoy, ¿___?",
+"a": "no",
+"o": [
+"no",
+"nunca",
+"tampoco",
+"cuál"
+],
+"en": "It is very hot today, isn't it?"
+},
+{
+"s": "Mañana no hay clase, ¿___?",
+"a": "verdad",
+"o": [
+"verdad",
+"cuándo",
+"dónde",
+"cuál"
+],
+"en": "There is no class tomorrow, right?"
+}
+],
+"exclamations-que": [
+{
+"s": "¡___ difícil estuvo el examen!",
+"a": "Qué",
+"o": [
+"Qué",
+"Cuánto",
+"Cuánta",
+"Cuántos"
+],
+"en": "How difficult the exam was!"
+},
+{
+"s": "¡___ dinero gastaste en esa tienda!",
+"a": "Cuánto",
+"o": [
+"Cuánto",
+"Cuánta",
+"Cuántos",
+"Cuán"
+],
+"en": "How much money you spent in that store!"
+},
+{
+"s": "¡___ comida preparaste para la fiesta!",
+"a": "Cuánta",
+"o": [
+"Cuánta",
+"Cuánto",
+"Cuántas",
+"Cuán"
+],
+"en": "How much food you prepared for the party!"
+}
+],
+"diminutives": [
+{
+"s": "Mi abuela vive en una casa ___.",
+"a": "pequeñita",
+"o": [
+"pequeñita",
+"pequeñito",
+"pequeñitas",
+"pequeñitos"
+],
+"en": "My grandmother lives in a very small house."
+},
+{
+"s": "¿Me das un ___ de agua, por favor?",
+"a": "poquito",
+"o": [
+"poquito",
+"poquita",
+"poquitos",
+"poquitas"
+],
+"en": "Can you give me a little bit of water, please?"
+},
+{
+"s": "Mi hermano tiene un ___ muy simpático.",
+"a": "perrito",
+"o": [
+"perrito",
+"perrita",
+"perritos",
+"perritas"
+],
+"en": "My brother has a very friendly little dog."
+}
+],
+"years-dates-long": [
+{
+"s": "Hoy es el cinco ___ marzo de dos mil veinticinco.",
+"a": "de",
+"o": [
+"de",
+"del",
+"en",
+"a"
+],
+"en": "Today is the fifth of March, two thousand twenty-five."
+},
+{
+"s": "Mi hermana nació en el ___ mil novecientos noventa y ocho.",
+"a": "año",
+"o": [
+"año",
+"años",
+"día",
+"mes"
+],
+"en": "My sister was born in the year nineteen ninety-eight."
+},
+{
+"s": "Hoy es el ___ de enero.",
+"a": "primero",
+"o": [
+"primero",
+"primer",
+"primera",
+"primeros"
+],
+"en": "Today is the first of January."
+}
+]
+}
+}

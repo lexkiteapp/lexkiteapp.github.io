@@ -1,0 +1,35 @@
+{
+ "id": "cf-mcq-2026-11-02-s0",
+ "source": "content-factory",
+ "kind": "mcq",
+ "n": 15,
+ "checked": [
+  {
+   "id": "dependent-prepositions#0",
+   "ok": true,
+   "by": "openai/gpt-oss-120b"
+  },
+  {
+   "id": "adjectives-special#0",
+   "ok": true,
+   "by": "claude"
+  },
+  {
+   "id": "articles#0",
+   "ok": true,
+   "by": "claude"
+  },
+  {
+   "id": "conditionals-0-1#0",
+   "ok": true,
+   "by": "claude"
+  },
+  {
+   "id": "idioms-style#0",
+   "ok": false,
+   "note": "1 câu nhiều đáp án (văn phong không nêu) – gỡ về review.jsonl, siết rubric",
+   "by": "claude"
+  }
+ ],
+ "status": "rejected"
+}

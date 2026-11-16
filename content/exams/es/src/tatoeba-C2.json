@@ -1,0 +1,320 @@
+{
+ "v": 1,
+ "source": "Tatoeba (tatoeba.org), CC BY 2.0 FR",
+ "license": "https://creativecommons.org/licenses/by/2.0/fr/",
+ "lv": "C2",
+ "items": [
+  {
+   "id": 8300605,
+   "au": "GuidoW",
+   "s": "A causa del incendio ninguna ___ ha resultado herida y tampoco ha sido necesario hacer ningún desalojo.",
+   "a": "persona",
+   "o": [
+    "persona",
+    "baño",
+    "ataque"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 13737018,
+   "au": "carlosalberto",
+   "s": "La ___ está formada por padre, madre, hijos, abuelos, tíos, hermanos, sobrinos, primos y otros parientes.",
+   "a": "familia",
+   "o": [
+    "resto",
+    "cuello",
+    "familia"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1897606,
+   "au": "Shishir",
+   "s": "Cuando la ___ entró en la sala, algunos chicos se burlaron de ella por su sombrerito.",
+   "a": "chica",
+   "o": [
+    "sentido",
+    "papá",
+    "chica"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1810271,
+   "au": "marcelostockle",
+   "s": "Todos los días, los flamencos regresan antes del atardecer a la pequeña isla para ___ ahí la noche.",
+   "a": "pasar",
+   "o": [
+    "pasa",
+    "pasó",
+    "pasar"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1444495,
+   "au": "wallebot",
+   "s": "Los pulmones, el ___, la venas, arterias y pequeños capilares forman el sistema cardiovascular.",
+   "a": "corazón",
+   "o": [
+    "corazón",
+    "ayuda",
+    "tienda"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 7137457,
+   "au": "arh",
+   "s": "La ___, el miedo, la duda y la desconfianza nos vuelven esclavos del amor.",
+   "a": "razón",
+   "o": [
+    "razón",
+    "centro",
+    "negocio"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1601543,
+   "au": "Alba",
+   "s": "La ___ se arruga si no se dobla o se pone en una percha.",
+   "a": "ropa",
+   "o": [
+    "puesto",
+    "trato",
+    "ropa"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 10296204,
+   "au": "Seael",
+   "s": "En un ___ dado, se trabó al hablar y acabó perdiendo el hilo de lo que estaba diciendo.",
+   "a": "momento",
+   "o": [
+    "cama",
+    "momento",
+    "ropa"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 10185380,
+   "au": "saverius",
+   "s": "A los tiranos nos les gusta la ___, sino la propaganda de la mentira y su imposición mediante el uso de la fuerza.",
+   "a": "verdad",
+   "o": [
+    "minuto",
+    "verdad",
+    "muchacho"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 13068270,
+   "au": "carlosalberto",
+   "s": "Convierte lo ocurrido en algo mejor, de modo que el ___ termine convirtiéndose en beneficio.",
+   "a": "daño",
+   "o": [
+    "llamada",
+    "daño",
+    "novia"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 5172290,
+   "au": "adroguense",
+   "s": "Creo que la gente debería dejar de ___ las bolsitas de plástico de los supermercados.",
+   "a": "usar",
+   "o": [
+    "usa",
+    "usó",
+    "usar"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 13573616,
+   "au": "Seael",
+   "s": "No voy a ___ pasar a mis hijos por una experiencia tan traumática como esa.",
+   "a": "hacer",
+   "o": [
+    "hace",
+    "hizo",
+    "hacer"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 12141143,
+   "au": "Adelpa",
+   "s": "La ___ ofrecerá gratuitamente a los pasajeros comida y refrescos suficientes, en función del tiempo que sea necesario esperar.",
+   "a": "compañía",
+   "o": [
+    "placer",
+    "novio",
+    "compañía"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 2499814,
+   "au": "Shishir",
+   "s": "No me gusta, y aunque me gustara, no le invitaría a ___ a mi casa.",
+   "a": "venir",
+   "o": [
+    "vino",
+    "venir",
+    "viene"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 3740660,
+   "au": "ecorralest101",
+   "s": "La ___ bella pero tonta es como anillo de oro en la trompa de un cerdo.",
+   "a": "mujer",
+   "o": [
+    "estado",
+    "momento",
+    "mujer"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 11262125,
+   "au": "DJ_Saidez",
+   "s": "El hecho de que el ___ más rico del mundo apoye el antisemitismo debería decirles algo sobre el propósito verdadero del antisemitismo.",
+   "a": "hombre",
+   "o": [
+    "hombre",
+    "nave",
+    "tarjeta"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 13593767,
+   "au": "Seael",
+   "s": "El que el radiador esté en la esquina y detrás de la ___ cuando esta está abierta reduce mucha la capacidad de dispersión del calor.",
+   "a": "puerta",
+   "o": [
+    "puerta",
+    "cumpleaños",
+    "club"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 11972628,
+   "au": "Seael",
+   "s": "Como no me apetece salir esta ___, me quedaré en casa viendo la tele mientras ceno unos fideos chinos.",
+   "a": "noche",
+   "o": [
+    "cumpleaños",
+    "noche",
+    "muchacho"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1915817,
+   "au": "marinoli",
+   "s": "Tiene que ___ un comprimido con un vaso de agua dos o tres veces al día.",
+   "a": "tomar",
+   "o": [
+    "tomar",
+    "toma",
+    "tomó"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 9131027,
+   "au": "rafaeldejesus8199",
+   "s": "No hablo mucho español entonces es difícil para mí expresarme y decir lo que quiero en una ___ natural y correcta.",
+   "a": "manera",
+   "o": [
+    "manera",
+    "cuidado",
+    "chico"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 10156778,
+   "au": "saverius",
+   "s": "Prefiero las lámparas de pie a las de techo, porque se pueden mover donde quieras, y es más sencillo cambiar las bombillas.",
+   "k": "l"
+  },
+  {
+   "id": 10988064,
+   "au": "JSKabylie",
+   "s": "Todo el pueblo pensó que quedó atrapado en la trampa que ponen los jóvenes a los jabalíes.",
+   "k": "l"
+  },
+  {
+   "id": 345104,
+   "au": "tatoerique",
+   "s": "Reconocí a la cajera del banco como la persona que vi en el cine.",
+   "k": "l"
+  },
+  {
+   "id": 12345135,
+   "au": "carlosalberto",
+   "s": "¿Son suficientes las pequeñas diferencias entre gallego y portugués para considerar estos dos idiomas como lenguas distintas?",
+   "k": "l"
+  },
+  {
+   "id": 2604305,
+   "au": "marcelostockle",
+   "s": "Se necesitan seis metros cúbicos de aire para asegurar la combustión de un kilo de madera seca.",
+   "k": "l"
+  },
+  {
+   "id": 13516734,
+   "au": "frpzzd",
+   "s": "Si en una isla abandonado quedo con tres retardados y entre ellos un líder votan, yo no voy a dar pelota.",
+   "k": "l"
+  },
+  {
+   "id": 1273917,
+   "au": "marcelostockle",
+   "s": "Sadako quería seguir añadiendo, pero su boca ya no quería abrirse lo suficiente para formular las palabras.",
+   "k": "l"
+  },
+  {
+   "id": 1827372,
+   "au": "Shishir",
+   "s": "Un perro se acordará de tres días de amabilidad durante tres años; un gato se olvidará de tres años de amabilidad en tres días.",
+   "k": "l"
+  },
+  {
+   "id": 9052308,
+   "au": "rafaeldejesus8199",
+   "s": "El español es hablado en más de veinte países, tiene más de quinientos mil parlantes y cada quien tiene su propia forma de hablarlo.",
+   "k": "l"
+  },
+  {
+   "id": 10070663,
+   "au": "DJ_Saidez",
+   "s": "El inglés no es un idioma, es tres idiomas en una gabardina simulando ser uno.",
+   "k": "l"
+  },
+  {
+   "id": 858202,
+   "au": "iriberri",
+   "s": "No tengo ningún problema con una casa desordenada, pero no podría aceptar que estuviese sucia.",
+   "k": "l"
+  },
+  {
+   "id": 5540561,
+   "au": "Adelpa",
+   "s": "No es porque las cosas son difíciles que no nos atrevemos; es porque no nos atrevemos que son difíciles.",
+   "k": "l"
+  }
+ ]
+}

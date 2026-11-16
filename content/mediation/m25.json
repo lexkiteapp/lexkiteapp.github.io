@@ -1,0 +1,128 @@
+{
+ "id": "m25",
+ "level": "C1",
+ "lo": "M.C1.04",
+ "activity": "facilitate",
+ "title": "Whose name is on the slide?",
+ "scenario": "Two colleagues, Lukas and Mei, are arguing in front of you about credit for a project presentation. You are the team coordinator. Speak to both of them in a way that lowers the tension and moves them to a solution.",
+ "source": {
+  "kind": "dialogue",
+  "lines": [
+   {
+    "s": "Lukas",
+    "t": "I spent three weeks on the analysis, and the final slide just says \"the team\". Nobody even knows I did it."
+   },
+   {
+    "s": "Mei",
+    "t": "You were not in the room. I stood there while the director asked questions, and I answered all of them."
+   },
+   {
+    "s": "Lukas",
+    "t": "Because you never invited me to come!"
+   },
+   {
+    "s": "Mei",
+    "t": "You were on leave. It is not my fault you were away."
+   },
+   {
+    "s": "Lukas",
+    "t": "That was one week, and I was still checking email."
+   },
+   {
+    "s": "Mei",
+    "t": "I did the hard part, Lukas. I had to defend your numbers."
+   }
+  ]
+ },
+ "task": {
+  "mode": "speak",
+  "audience": "two colleagues in a tense argument",
+  "prompt": "Speak to Lukas and Mei (85–130 words). Acknowledge what each did, reframe the problem, and propose a concrete fix.",
+  "min_words": 85,
+  "max_words": 130
+ },
+ "points": [
+  {
+   "id": "lukas",
+   "idea": "Acknowledge Lukas's three weeks of analysis.",
+   "checks": [
+    [
+     "lukas"
+    ],
+    [
+     "analysis",
+     "three weeks"
+    ]
+   ]
+  },
+  {
+   "id": "mei",
+   "idea": "Acknowledge Mei presenting and answering the director's questions.",
+   "checks": [
+    [
+     "mei"
+    ],
+    [
+     "present",
+     "questions",
+     "defend"
+    ]
+   ]
+  },
+  {
+   "id": "reframe",
+   "idea": "Reframe: not who deserves credit, but making both contributions visible.",
+   "checks": [
+    [
+     "both"
+    ],
+    [
+     "visible",
+     "recogni",
+     "credit",
+     "seen"
+    ]
+   ]
+  },
+  {
+   "id": "fix",
+   "idea": "Name both on the slide and have Lukas join the next presentation.",
+   "checks": [
+    [
+     "both names",
+     "both of your names",
+     "each of your names",
+     "your names",
+     "names on"
+    ],
+    [
+     "next"
+    ]
+   ]
+  }
+ ],
+ "leave_out": [
+  {
+   "idea": "The argument over who was on leave.",
+   "checks": [
+    [
+     "on leave",
+     "was away",
+     "one week"
+    ]
+   ]
+  }
+ ],
+ "model": "I can hear that you both worked hard, and you each feel that part of it has gone unseen. Lukas, three weeks of careful analysis is the foundation of this project, and it should not disappear behind the word \"team\". Mei, you stood in front of the director and answered every question, and that was not easy either. I would like us to stop asking who deserves more credit, and ask how we make both contributions visible. So I suggest that we put both your names on the slide, and that Lukas joins the next presentation, so the director hears from both of you. Does that feel fair?",
+ "useful": [
+  "I can hear that you both …",
+  "part of it has gone unseen",
+  "I would like us to stop asking … and ask …",
+  "Does that feel fair?"
+ ],
+ "tips": [
+  "To reduce tension, validate the feeling behind each complaint (\"unseen\", \"not easy\") before you offer a fix. A complaint that is heard loses much of its heat.",
+  "Reframe a zero-sum question (\"who deserves more?\") as a shared problem (\"how do we show both?\"). Then offer a concrete step each person can see."
+ ],
+ "explain": "The facilitator names what each did, reframes the dispute and gives a concrete fix for the slide and the next presentation. Reopening the leave argument would restart the quarrel."
+}

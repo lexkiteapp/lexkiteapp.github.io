@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_saw_yesterday",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Yesterday needs saw!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have seen him yesterday.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I saw him yesterday.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Yesterday means past simple.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Saw! I saw her last night.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have seen him yesterday.",
+  "right": "I saw him yesterday.",
+  "strike": "have seen",
+  "why": "Yesterday means past simple.",
+  "memory": "Yesterday: saw.",
+  "quiz": {
+   "stem": "I ___ her last night.",
+   "options": [
+    "saw",
+    "have seen"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Yesterday” ile “have seen” olmaz!",
+   "tip": "Zamanı belli olan geçmişte “saw” gibi basit geçmiş kullan.",
+   "caption": "“I have seen him yesterday.” mi diyorsun? 😅 “Yesterday” gibi zaman sözcükleri basit geçmiş ister. Doğrusu “I saw him yesterday.”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “saw”. Dün: saw. Ücretsiz testle pratik yap: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Yesterday” does not go with “have seen”!",
+   "tip": "For a clear past time, use the simple past: “I saw him yesterday.”",
+   "caption": "Do you say “I have seen him yesterday.”? 😅 Words like “yesterday” need the simple past. The right sentence is “I saw him yesterday.”. Listen to Carlos and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Yesterday” ile “have seen” olmaz!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "“Yesterday” ile “have seen” olmaz!",
+  "keyword": "I saw him yesterday.",
+  "value": "Zamanı belli olan geçmişte “saw” gibi basit geçmiş kullan.",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "“Yesterday” ile “have seen” olmaz!",
+    "description": "“I have seen him yesterday.” mi diyorsun? 😅 “Yesterday” gibi zaman sözcükleri basit geçmiş ister. Doğrusu “I saw him yesterday.”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "I saw him yesterday.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“I have seen him yesterday.” mi diyorsun? 😅 “Yesterday” gibi zaman sözcükleri basit geçmiş ister. Doğrusu “I saw him yesterday.”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“I have seen him yesterday.” mi diyorsun? 😅 “Yesterday” gibi zaman sözcükleri basit geçmiş ister. Doğrusu “I saw him yesterday.”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Yesterday” ile “have seen” olmaz! #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “saw”. Dün: saw. Ücretsiz testle pratik yap: {link}",
+  "lang": "tr"
+ }
+}

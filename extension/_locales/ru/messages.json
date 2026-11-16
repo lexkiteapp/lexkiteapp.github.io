@@ -154,5 +154,26 @@
  },
  "ntMoreSenses": {
   "message": "+{n} знач."
+ },
+ "ntQzTag": {
+  "message": "Быстрый тест"
+ },
+ "ntQzQ": {
+  "message": "Выберите верное значение"
+ },
+ "ntQzTime": {
+  "message": "{s} сек."
+ },
+ "ntQzRight": {
+  "message": "Верно!"
+ },
+ "ntQzWrong": {
+  "message": "Почти — слово скоро вернётся"
+ },
+ "ntQzTimeout": {
+  "message": "Время вышло, ничего страшного"
+ },
+ "ntQzSkip": {
+  "message": "Пропустить"
  }
 }

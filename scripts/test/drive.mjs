@@ -424,7 +424,7 @@ ok(logs.length >= 8 && logs.some(l => l.email === 'cli') && logs.some(l => l.op 
     const G = await import(new URL('../../functions/api/_d1guard.js', import.meta.url));
     G.resetD1Cache();
     const fakeFetch = async () => ({ json: async () => ({ data: { viewer: { accounts: [{ d1AnalyticsAdaptiveGroups: [{ sum: { rowsRead: 3000000, rowsWritten: 500 } }] }] } } }) });
-    const u = await G.d1Usage({ CF_ANALYTICS_TOKEN: 't', CF_ACCOUNT_ID: 'e34e14b7ab35eaf2b3d9d84fcce011f7' }, DB, Date.now(), fakeFetch);
+    const u = await G.d1Usage({ D1_PLAN: 'free', CF_ANALYTICS_TOKEN: 't', CF_ACCOUNT_ID: 'e34e14b7ab35eaf2b3d9d84fcce011f7' }, DB, Date.now(), fakeFetch);
     ok(u.source === 'cloudflare' && u.reads === 3e6 && u.writes === 500 && u.block && u.alert, 'GraphQL: 3 M/5 M = 60 % → chặn việc nền + cảnh báo');
     G.resetD1Cache(); const u2 = await G.d1Usage({}, DB); ok(u2.source === 'own' && !u2.block, 'không có token → tự đếm, chưa chặn');
     G.resetD1Cache();
@@ -522,6 +522,8 @@ ok(!mod.isShortsRow({ cls: 'original', folder: 'footage/cafe' }), 'footage khôn
 // Dự báo dung lượng + cảnh báo ngoài (22/10): forecastPool, poolpct, EXT_KINDS không bị health xoá
 { const G = 1073741824, f = mod.forecastPool([{ day: '2026-10-01', used: 10 * G }, { day: '2026-10-11', used: 20 * G }], 30 * G);
   ok(f && f.gb_month === 30 && f.days_left === 30, 'forecastPool: +1 GB/ngày → 30 GB/tháng, còn 30 ngày');
+  { const snaps = [{ day: '2026-10-01', used: 0 }, { day: '2026-10-05', used: 400 * G }, ...Array.from({ length: 21 }, (_, i) => ({ day: new Date(Date.parse('2026-10-10') + i * 864e5).toISOString().slice(0, 10), used: (400 + i) * G }))], w = mod.forecastPool(snaps, 100 * G);
+    ok(w && w.gb_month < 40 && w.since >= '2026-10-15', 'forecastPool: đợt dồn kho 400 GB đầu kỳ nằm NGOÀI cửa sổ 14 ngày → dự báo theo tốc độ gần đây (' + (w && w.gb_month) + ' GB/tháng, từ ' + (w && w.since) + ')'); }
   ok(mod.forecastPool([{ day: '2026-10-01', used: 5 }], 1) === null && mod.forecastPool([{ day: '2026-10-01', used: 9 }, { day: '2026-10-05', used: 9 }], 1).days_left === null, 'forecastPool: thiếu dữ liệu → null; không tăng → days_left null');
   const rows = [{ id: 1, email: 'a@x', status: 'ok', weight: 100, quota_total: 100 * G, quota_used: 85 * G }];
   ok(mod.evalAlerts(rows, {}).some(a => a.kind === 'poolpct'), 'pool ≥ 80% → cảnh báo poolpct');

@@ -1,3 +1,2 @@
-/* UI ru – notices (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ru"] = Object.assign(D["ru"] || {}, {"Đã đọc tất cả":"Отметить все как прочитанные","Chưa có thông báo mới":"Нет новых уведомлений","Thông báo quan trọng":"Важное уведомление","Vừa xong":"Только что","Chưa đọc":"Непрочитано","{n} chưa đọc":"{n} непрочитано"});
-})(typeof self !== 'undefined' ? self : this);
+/* SINH từ i18n/ui/ru/notices.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.ru=Object.assign(D.ru||{},{_pffv:"Нет новых уведомлений",_lyra:"Непрочитано",_wyuq:"Нажмите, чтобы увидеть текущий статус.",_62kr:"Новости по сообщению {id}",_uu8l:"Спасибо за сообщение. Перезагрузите приложение, чтобы получить новую версию.",_tb6i:"Спасибо! Lexkite сообщит о ходе работы прямо здесь.",_dlnl:"Важное уведомление",_m4lx:"Только что",_erjf:"Открыть сообщение",_ub36:"{n} непрочитано",_z2ii:"Сообщение {id} получено",_2tyo:"Сообщение {id}: проблема исправлена",_zwis:"Отметить все как прочитанные"});})(typeof self!=='undefined'?self:this);

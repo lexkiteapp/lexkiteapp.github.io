@@ -1,0 +1,965 @@
+{
+ "_note": "L1 tr clips (28 rows): Turkish speakers' common English mistakes.",
+ "rows": [
+  {
+   "id": "t2_l1_tr_depend",
+   "lang": "tr",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Depends, not is depend!",
+    "wrong": "It is depend on you.",
+    "right": "It depends on you.",
+    "strike": "is depend",
+    "why": "Say depends. No is.",
+    "memory": "It depends on you.",
+    "quiz": {
+     "stem": "It ___ on the weather.",
+     "options": [
+      "depend",
+      "depends"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Depends! It depends on the weather.",
+    "native": {
+     "hook": "“Is depend” değil, “depends”!",
+     "tip": "“Bağlı” diye “is depend” denmez; fiil tek başına kullanılır: “It depends on you.”",
+     "caption": "“It is depend on you.” mi diyorsun? 😅 İngilizcede “depend” fiilinin önüne “is” gelmez. Doğrusu “It depends on you.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+     "comment": "Cevap: “depends”. Fiilin kendisi yeter: depends. Ücretsiz testle pratik yap: {link}",
+     "hashtags": [
+      "#ingilizceöğren",
+      "#ingilizcekonuşma",
+      "#ingilizce",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Not “is depend”, but “depends”!",
+     "tip": "Do not put “is” before “depend”: “It depends on you.”",
+     "caption": "Do you say “It is depend on you.”? 😅 In English “is” does not go before “depend”. The right sentence is “It depends on you.”. Listen to Ama and repeat! Open the Lexkite app and practice more."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_tr_married_to",
+   "lang": "tr",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Married to, not with!",
+    "wrong": "I am married with Ali.",
+    "right": "I am married to Ali.",
+    "strike": "with",
+    "why": "Say married to a person.",
+    "memory": "Married to him.",
+    "quiz": {
+     "stem": "She is married ___ a doctor.",
+     "options": [
+      "with",
+      "to"
+     ],
+     "answer": 1
+    },
+    "answer_say": "To! She is married to a doctor.",
+    "native": {
+     "hook": "“Married with” değil, “to”!",
+     "tip": "Türkçede “ile evlenmek” deriz ama İngilizcede “married to” kullanılır.",
+     "caption": "“I am married with Ali.” mi diyorsun? 😅 İngilizcede evlilikte “with” değil “to” gelir. Doğrusu “I am married to Ali.”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+     "comment": "Cevap: “to”. Evli olunan kişiden önce to gelir. Ücretsiz testle pratik yap: {link}",
+     "hashtags": [
+      "#ingilizceöğren",
+      "#ingilizcekonuşma",
+      "#ingilizce",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Not “married with”, but “married to”!",
+     "tip": "Turkish says “with”, but English uses “married to”.",
+     "caption": "Do you say “I am married with Ali.”? 😅 English uses “to”, not “with”, for marriage. The right sentence is “I am married to Ali.”. Listen to Carlos and repeat! Open the Lexkite app and practice more."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_tr_bored",
+   "lang": "tr",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Bored, not boring!",
+    "wrong": "I am boring in class.",
+    "right": "I am bored in class.",
+    "strike": "boring",
+    "why": "I feel bored. It is boring.",
+    "memory": "I am bored.",
+    "quiz": {
+     "stem": "I am ___ at home today.",
+     "options": [
+      "boring",
+      "bored"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Bored! I am bored at home today.",
+    "native": {
+     "hook": "“Boring” değil, “bored”!",
+     "tip": "“Sıkıldım” demek için “I am bored” de. “Boring” sıkıcı şeyi anlatır.",
+     "caption": "“I am boring in class.” mi diyorsun? 😅 Sıkılan kişi “bored” olur, sıkıcı şey “boring” olur. Doğrusu “I am bored in class.”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+     "comment": "Cevap: “bored”. Sıkılan sensin: bored. Ücretsiz testle pratik yap: {link}",
+     "hashtags": [
+      "#ingilizceöğren",
+      "#ingilizcekonuşma",
+      "#ingilizce",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Not “boring”, but “bored”!",
+     "tip": "Say “I am bored” when you feel bored. “Boring” describes the thing.",
+     "caption": "Do you say “I am boring in class.”? 😅 A person who is bored says “bored”. The thing is “boring”. The right sentence is “I am bored in class.”. Listen to Carlos and repeat! Open the Lexkite app and practice more."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_tr_listen_to",
+   "lang": "tr",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Listen to me!",
+    "wrong": "Listen me, please.",
+    "right": "Listen to me, please.",
+    "strike": "Listen me",
+    "why": "Listen needs to.",
+    "memory": "Listen to me.",
+    "quiz": {
+     "stem": "Please listen ___ the teacher.",
+     "options": [
+      "to",
+      "at"
+     ],
+     "answer": 0
+    },
+    "answer_say": "To! Please listen to the teacher.",
+    "native": {
+     "hook": "“Listen me” değil, “listen to me”!",
+     "tip": "Türkçede “beni dinle” deriz; İngilizcede “listen” fiilinden sonra “to” gelir.",
+     "caption": "“Listen me, please.” mi diyorsun? 😅 İngilizcede “listen” fiilinden sonra “to” unutulmaz. Doğrusu “Listen to me, please.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+     "comment": "Cevap: “to”. Listen’dan sonra to gelir. Ücretsiz testle pratik yap: {link}",
+     "hashtags": [
+      "#ingilizceöğren",
+      "#ingilizcekonuşma",
+      "#ingilizce",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Not “listen me”, but “listen to me”!",
+     "tip": "Turkish says “dinle beni”, but English needs “to” after “listen”.",
+     "caption": "Do you say “Listen me, please.”? 😅 In English you must put “to” after “listen”. The right sentence is “Listen to me, please.”. Listen to Ama and repeat! Open the Lexkite app and practice more."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_tr_explain_me",
+   "lang": "tr",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Explain it to me!",
+    "wrong": "Please explain me this word.",
+    "right": "Please explain this word to me.",
+    "strike": "explain me",
+    "why": "Say explain it to me.",
+    "memory": "Explain it to me.",
+    "quiz": {
+     "stem": "Please explain it ___ me.",
+     "options": [
+      "to",
+      "for"
+     ],
+     "answer": 0
+    },
+    "answer_say": "To! Please explain it to me.",
+    "native": {
+     "hook": "“Explain me” yok, “explain to”!",
+     "tip": "Önce şeyi, sonra “to” ile kişiyi söyle: “Please explain this word to me.”",
+     "caption": "“Please explain me this word.” mi diyorsun? 😅 İngilizcede “explain” kişiyi doğrudan almaz. Doğrusu “Please explain this word to me.”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+     "comment": "Cevap: “to”. Önce şey, sonra to me. Ücretsiz testle pratik yap: {link}",
+     "hashtags": [
+      "#ingilizceöğren",
+      "#ingilizcekonuşma",
+      "#ingilizce",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Not “explain me”, but “explain to me”!",
+     "tip": "Say the thing first, then “to” and the person: “Please explain this word to me.”",
+     "caption": "Do you say “Please explain me this word.”? 😅 In English “explain” does not take the person directly. The right sentence is “Please explain this word to me.”. Listen to Carlos and repeat! Open the Lexkite app and practice more."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_tr_peoples",
+   "lang": "tr",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "People is already plural!",
+    "wrong": "The peoples are kind.",
+    "right": "The people are kind.",
+    "strike": "peoples",
+    "why": "People is already plural.",
+    "memory": "People are kind.",
+    "quiz": {
+     "stem": "The ___ here are friendly.",
+     "options": [
+      "peoples",
+      "people"
+     ],
+     "answer": 1
+    },
+    "answer_say": "People! The people here are friendly.",
+    "native": {
+     "hook": "“Peoples” diye çoğul olmaz!",
+     "tip": "“People” zaten çoğuldur, -s almaz: “The people are kind.”",
+     "caption": "“The peoples are kind.” mi diyorsun? 😅 İngilizcede “people” kelimesine -s eklenmez. Doğrusu “The people are kind.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+     "comment": "Cevap: “people”. People zaten çoğul. Ücretsiz testle pratik yap: {link}",
+     "hashtags": [
+      "#ingilizceöğren",
+      "#ingilizcekonuşma",
+      "#ingilizce",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“People” is already plural!",
+     "tip": "“People” is already plural and takes no -s: “The people are kind.”",
+     "caption": "Do you say “The peoples are kind.”? 😅 In English you do not add -s to “people”. The right sentence is “The people are kind.”. Listen to Ama and repeat! Open the Lexkite app and practice more."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_tr_informations",
+   "lang": "tr",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Information has no s!",
+    "wrong": "I need an informations.",
+    "right": "I need some information.",
+    "strike": "an informations",
+    "why": "Information has no plural.",
+    "memory": "Some information.",
+    "quiz": {
+     "stem": "Can I have some ___?",
+     "options": [
+      "informations",
+      "information"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Information! Can I have some information?",
+    "native": {
+     "hook": "“Informations” diye bir şey yok!",
+     "tip": "“Information” sayılamaz: -s almaz, “a” gelmez. “I need some information.”",
+     "caption": "“I need an informations.” mi diyorsun? 😅 “Information” sayılamayan bir kelimedir. Doğrusu “I need some information.”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+     "comment": "Cevap: “information”. Information: s yok, a yok. Ücretsiz testle pratik yap: {link}",
+     "hashtags": [
+      "#ingilizceöğren",
+      "#ingilizcekonuşma",
+      "#ingilizce",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "There is no “informations”!",
+     "tip": "“Information” is uncountable: no -s, no “a”. “I need some information.”",
+     "caption": "Do you say “I need an informations.”? 😅 “Information” cannot be counted, so no -s and no “a”. The right sentence is “I need some information.”. Listen to Carlos and repeat! Open the Lexkite app and practice more."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_tr_advice",
+   "lang": "tr",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Advice has no s!",
+    "wrong": "He gave me good advices.",
+    "right": "He gave me good advice.",
+    "strike": "advices",
+    "why": "Advice has no plural.",
+    "memory": "Good advice, no s.",
+    "quiz": {
+     "stem": "She gave me good ___.",
+     "options": [
+      "advices",
+      "advice"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Advice! She gave me good advice.",
+    "native": {
+     "hook": "“Advices” diye çoğul yok!",
+     "tip": "“Advice” sayılamaz, -s almaz: “He gave me good advice.”",
+     "caption": "“He gave me good advices.” mi diyorsun? 😅 “Advice” sayılamayan bir kelimedir, çoğulu olmaz. Doğrusu “He gave me good advice.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+     "comment": "Cevap: “advice”. Advice sayılamaz, s yok. Ücretsiz testle pratik yap: {link}",
+     "hashtags": [
+      "#ingilizceöğren",
+      "#ingilizcekonuşma",
+      "#ingilizce",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "There is no “advices”!",
+     "tip": "“Advice” is uncountable and takes no -s: “He gave me good advice.”",
+     "caption": "Do you say “He gave me good advices.”? 😅 “Advice” cannot be counted, so it takes no -s. The right sentence is “He gave me good advice.”. Listen to Ama and repeat! Open the Lexkite app and practice more."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_tr_agree",
+   "lang": "tr",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Agree is a verb!",
+    "wrong": "I am agree with you.",
+    "right": "I agree with you.",
+    "strike": "am agree",
+    "why": "Agree is a verb. No am.",
+    "memory": "I agree.",
+    "quiz": {
+     "stem": "I ___ with you.",
+     "options": [
+      "am agree",
+      "agree"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Agree! I agree with you.",
+    "native": {
+     "hook": "“I am agree” değil, “I agree”!",
+     "tip": "“Katılıyorum” için “I agree” de. “Am” eklemek yanlış olur.",
+     "caption": "“I am agree with you.” mi diyorsun? 😅 “Agree” zaten fiildir, önüne “am” gelmez. Doğrusu “I agree with you.”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+     "comment": "Cevap: “agree”. Agree fiildir, am yok. Ücretsiz testle pratik yap: {link}",
+     "hashtags": [
+      "#ingilizceöğren",
+      "#ingilizcekonuşma",
+      "#ingilizce",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Not “I am agree”, but “I agree”!",
+     "tip": "Say “I agree”. Do not add “am”.",
+     "caption": "Do you say “I am agree with you.”? 😅 “Agree” is already a verb, so “am” does not go before it. The right sentence is “I agree with you.”. Listen to Carlos and repeat! Open the Lexkite app and practice more."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_tr_since",
+   "lang": "tr",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Since needs have lived!",
+    "wrong": "I live here since 2020.",
+    "right": "I have lived here since 2020.",
+    "strike": "live",
+    "why": "Since needs have plus verb.",
+    "memory": "Since: have lived.",
+    "quiz": {
+     "stem": "I ___ here since 2019.",
+     "options": [
+      "live",
+      "have lived"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Have lived! I have lived here since 2019.",
+    "native": {
+     "hook": "“Since” ile “live” olmaz!",
+     "tip": "“Since” ile “have + fiil” kullan: “I have lived here since 2020.”",
+     "caption": "“I live here since 2020.” mi diyorsun? 😅 Türkçede “2020’den beri yaşıyorum” deriz ama İngilizcede “have lived” gerekir. Doğrusu “I have lived here since 2020.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+     "comment": "Cevap: “have lived”. Since ile have lived kullan. Ücretsiz testle pratik yap: {link}",
+     "hashtags": [
+      "#ingilizceöğren",
+      "#ingilizcekonuşma",
+      "#ingilizce",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Since” does not go with “live”!",
+     "tip": "With “since”, use have + verb: “I have lived here since 2020.”",
+     "caption": "Do you say “I live here since 2020.”? 😅 Turkish uses the simple present, but English needs “have lived”. The right sentence is “I have lived here since 2020.”. Listen to Ama and repeat! Open the Lexkite app and practice more."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_tr_in_morning",
+   "lang": "tr",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "In the morning!",
+    "wrong": "I wake up at the morning.",
+    "right": "I wake up in the morning.",
+    "strike": "at",
+    "why": "Say in the morning.",
+    "memory": "In the morning.",
+    "quiz": {
+     "stem": "I eat lunch ___ the afternoon.",
+     "options": [
+      "in",
+      "at"
+     ],
+     "answer": 0
+    },
+    "answer_say": "In! I eat lunch in the afternoon.",
+    "native": {
+     "hook": "“At the morning” değil, “in”!",
+     "tip": "Günün bölümlerinde “in” kullan: in the morning, in the evening.",
+     "caption": "“I wake up at the morning.” mi diyorsun? 😅 Sabah, öğleden sonra, akşam için “in” gelir. Doğrusu “I wake up in the morning.”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+     "comment": "Cevap: “in”. Sabah için in kullan. Ücretsiz testle pratik yap: {link}",
+     "hashtags": [
+      "#ingilizceöğren",
+      "#ingilizcekonuşma",
+      "#ingilizce",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Not “at the morning”, but “in”!",
+     "tip": "Use “in” for parts of the day: in the morning, in the evening.",
+     "caption": "Do you say “I wake up at the morning.”? 😅 Use “in” for morning, afternoon and evening. The right sentence is “I wake up in the morning.”. Listen to Carlos and repeat! Open the Lexkite app and practice more."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_tr_did_homework",
+   "lang": "tr",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Homework: do, not make!",
+    "wrong": "I made my homework.",
+    "right": "I did my homework.",
+    "strike": "made",
+    "why": "Say do your homework.",
+    "memory": "Do homework.",
+    "quiz": {
+     "stem": "I ___ my homework every night.",
+     "options": [
+      "made",
+      "did"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Did! I did my homework every night.",
+    "native": {
+     "hook": "Ödev “make” değil, “do”!",
+     "tip": "Ödev yapmak İngilizcede “do homework” olur, “make” değil.",
+     "caption": "“I made my homework.” mi diyorsun? 😅 İngilizcede ödev “do” ile yapılır. Doğrusu “I did my homework.”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+     "comment": "Cevap: “did”. Ödev için do kullan. Ücretsiz testle pratik yap: {link}",
+     "hashtags": [
+      "#ingilizceöğren",
+      "#ingilizcekonuşma",
+      "#ingilizce",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Homework: “do”, not “make”!",
+     "tip": "In English you “do” homework, you do not “make” it.",
+     "caption": "Do you say “I made my homework.”? 😅 In English homework goes with “do”. The right sentence is “I did my homework.”. Listen to Carlos and repeat! Open the Lexkite app and practice more."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_tr_taught",
+   "lang": "tr",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Teach, not learn!",
+    "wrong": "She learned me English.",
+    "right": "She taught me English.",
+    "strike": "learned",
+    "why": "Teach is for the teacher.",
+    "memory": "She taught me.",
+    "quiz": {
+     "stem": "My uncle ___ me to swim.",
+     "options": [
+      "learned",
+      "taught"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Taught! My uncle taught me to swim.",
+    "native": {
+     "hook": "“Learn” değil, “teach”!",
+     "tip": "Başkasına öğretmek “teach”, kendin öğrenmek “learn”. “She taught me English.”",
+     "caption": "“She learned me English.” mi diyorsun? 😅 “Öğretmek” için “learn” değil “teach” kullanılır. Doğrusu “She taught me English.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+     "comment": "Cevap: “taught”. Öğreten teach der. Ücretsiz testle pratik yap: {link}",
+     "hashtags": [
+      "#ingilizceöğren",
+      "#ingilizcekonuşma",
+      "#ingilizce",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Teach”, not “learn”!",
+     "tip": "Teaching someone is “teach”, getting knowledge is “learn”.",
+     "caption": "Do you say “She learned me English.”? 😅 Use “teach” when someone else gives the lesson. The right sentence is “She taught me English.”. Listen to Ama and repeat! Open the Lexkite app and practice more."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_tr_look_at",
+   "lang": "tr",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Look at it!",
+    "wrong": "Look to the picture.",
+    "right": "Look at the picture.",
+    "strike": "to",
+    "why": "Say look at.",
+    "memory": "Look at it.",
+    "quiz": {
+     "stem": "Look ___ that bird!",
+     "options": [
+      "at",
+      "to"
+     ],
+     "answer": 0
+    },
+    "answer_say": "At! Look at that bird!",
+    "native": {
+     "hook": "“Look to” değil, “look at”!",
+     "tip": "Bir şeye bakmak için “look at” kullan: “Look at the picture.”",
+     "caption": "“Look to the picture.” mi diyorsun? 😅 “Bakmak” için “look” fiilinden sonra “at” gelir. Doğrusu “Look at the picture.”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+     "comment": "Cevap: “at”. Bakmak için look at. Ücretsiz testle pratik yap: {link}",
+     "hashtags": [
+      "#ingilizceöğren",
+      "#ingilizcekonuşma",
+      "#ingilizce",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Not “look to”, but “look at”!",
+     "tip": "To look at something, say “look at”: “Look at the picture.”",
+     "caption": "Do you say “Look to the picture.”? 😅 After “look”, use “at” to see something. The right sentence is “Look at the picture.”. Listen to Carlos and repeat! Open the Lexkite app and practice more."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_tr_a_teacher",
+   "lang": "tr",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Do not forget a!",
+    "wrong": "I am teacher.",
+    "right": "I am a teacher.",
+    "strike": "teacher",
+    "why": "Use a before a job.",
+    "memory": "I am a teacher.",
+    "quiz": {
+     "stem": "My sister is ___ engineer.",
+     "options": [
+      "a",
+      "an"
+     ],
+     "answer": 1
+    },
+    "answer_say": "An! My sister is an engineer.",
+    "native": {
+     "hook": "Meslekte “a” unutulmasın!",
+     "tip": "Türkçede “öğretmenim” deriz; İngilizcede meslekten önce “a/an” gelir.",
+     "caption": "“I am teacher.” mi diyorsun? 😅 İngilizcede mesleklerin önüne a veya an konur. Doğrusu “I am a teacher.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+     "comment": "Cevap: “an”. Meslekte a/an unutma. Ücretsiz testle pratik yap: {link}",
+     "hashtags": [
+      "#ingilizceöğren",
+      "#ingilizcekonuşma",
+      "#ingilizce",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Do not forget “a” before a job!",
+     "tip": "Turkish has no article, but English needs “a/an” before a job.",
+     "caption": "Do you say “I am teacher.”? 😅 In English you put a or an before a job. The right sentence is “I am a teacher.”. Listen to Ama and repeat! Open the Lexkite app and practice more."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_tr_my_friend_and_i",
+   "lang": "tr",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "My friend and I!",
+    "wrong": "Me and my friend went.",
+    "right": "My friend and I went.",
+    "strike": "Me and my friend",
+    "why": "Say my friend and I.",
+    "memory": "My friend and I.",
+    "quiz": {
+     "stem": "My brother and ___ are tall.",
+     "options": [
+      "I",
+      "me"
+     ],
+     "answer": 0
+    },
+    "answer_say": "I! My brother and I are tall.",
+    "native": {
+     "hook": "“Me and my friend” demeyelim!",
+     "tip": "Özne olarak “My friend and I” kullan. Kendini sona koy.",
+     "caption": "“Me and my friend went.” mi diyorsun? 😅 İngilizcede özne olan kişi “I” olur, kendin sonra gelir. Doğrusu “My friend and I went.”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+     "comment": "Cevap: “I”. Özne için I kullan. Ücretsiz testle pratik yap: {link}",
+     "hashtags": [
+      "#ingilizceöğren",
+      "#ingilizcekonuşma",
+      "#ingilizce",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Do not say “me and my friend”!",
+     "tip": "As the subject, say “My friend and I”. Put yourself last.",
+     "caption": "Do you say “Me and my friend went.”? 😅 As a subject, use “I” and put yourself last. The right sentence is “My friend and I went.”. Listen to Carlos and repeat! Open the Lexkite app and practice more."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_tr_much_money",
+   "lang": "tr",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Money: much, not many!",
+    "wrong": "I have many money.",
+    "right": "I have much money.",
+    "strike": "many",
+    "why": "Money has much, not many.",
+    "memory": "Much money.",
+    "quiz": {
+     "stem": "I do not have ___ time.",
+     "options": [
+      "many",
+      "much"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Much! I do not have much time.",
+    "native": {
+     "hook": "Para için “many” değil “much”!",
+     "tip": "Sayılamayanlarda “much” kullan: money, time, water.",
+     "caption": "“I have many money.” mi diyorsun? 😅 Sayılamayan kelimelerle “many” kullanılmaz. Doğrusu “I have much money.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+     "comment": "Cevap: “much”. Money ve time için much. Ücretsiz testle pratik yap: {link}",
+     "hashtags": [
+      "#ingilizceöğren",
+      "#ingilizcekonuşma",
+      "#ingilizce",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Not “many money”, but “much money”!",
+     "tip": "With uncountable words, use “much”: money, time, water.",
+     "caption": "Do you say “I have many money.”? 😅 Do not use “many” with words you cannot count. The right sentence is “I have much money.”. Listen to Ama and repeat! Open the Lexkite app and practice more."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_tr_sympathetic",
+   "lang": "tr",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Sympathetic is not nice!",
+    "wrong": "My teacher is very sympathetic.",
+    "right": "My teacher is very nice.",
+    "strike": "sympathetic",
+    "why": "Sympathetic means feel sorry.",
+    "memory": "Nice is sempatik.",
+    "quiz": {
+     "stem": "My teacher is very ___ and friendly.",
+     "options": [
+      "sympathetic",
+      "nice"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Nice! My teacher is very nice and friendly.",
+    "native": {
+     "hook": "“Sympathetic” sempatik değil!",
+     "tip": "Türkçedeki “sempatik” İngilizcede “nice” veya “friendly” demektir.",
+     "caption": "“My teacher is very sympathetic.” mi diyorsun? 😅 “Sympathetic” üzüntüyü anlayan kişidir, sempatik değil. Doğrusu “My teacher is very nice.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+     "comment": "Cevap: “nice”. Sempatik: nice. Ücretsiz testle pratik yap: {link}",
+     "hashtags": [
+      "#ingilizceöğren",
+      "#ingilizcekonuşma",
+      "#ingilizce",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Sympathetic” is not “sempatik”!",
+     "tip": "Turkish “sempatik” is “nice” or “friendly” in English.",
+     "caption": "Do you say “My teacher is very sympathetic.”? 😅 “Sympathetic” means feeling sorry for someone, not likeable. The right sentence is “My teacher is very nice.”. Listen to Ama and repeat! Open the Lexkite app and practice more."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_tr_two_brothers",
+   "lang": "tr",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Two needs an s!",
+    "wrong": "I have two brother.",
+    "right": "I have two brothers.",
+    "strike": "brother",
+    "why": "After two, add s.",
+    "memory": "Two brothers.",
+    "quiz": {
+     "stem": "She has three ___.",
+     "options": [
+      "cat",
+      "cats"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Cats! She has three cats.",
+    "native": {
+     "hook": "Sayıdan sonra -s unutulmasın!",
+     "tip": "Türkçede “iki kardeş” deriz ama İngilizcede sayıdan sonra çoğul gerekir.",
+     "caption": "“I have two brother.” mi diyorsun? 😅 Türkçede sayıdan sonra çoğul eki gelmez ama İngilizcede gelir. Doğrusu “I have two brothers.”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+     "comment": "Cevap: “cats”. İkiden sonra s ekle. Ücretsiz testle pratik yap: {link}",
+     "hashtags": [
+      "#ingilizceöğren",
+      "#ingilizcekonuşma",
+      "#ingilizce",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Do not forget -s after a number!",
+     "tip": "Turkish does not pluralize after numbers, but English does.",
+     "caption": "Do you say “I have two brother.”? 😅 Turkish skips the plural after a number, but English does not. The right sentence is “I have two brothers.”. Listen to Carlos and repeat! Open the Lexkite app and practice more."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_tr_he_works",
+   "lang": "tr",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "He works!",
+    "wrong": "He work in a bank.",
+    "right": "He works in a bank.",
+    "strike": "work",
+    "why": "He, she, it: add s.",
+    "memory": "He works.",
+    "quiz": {
+     "stem": "She ___ in a shop.",
+     "options": [
+      "work",
+      "works"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Works! She works in a shop.",
+    "native": {
+     "hook": "“He work” değil, “he works”!",
+     "tip": "Türkçede fiil kişiye göre -s almaz. İngilizcede he/she/it ile -s gerekir.",
+     "caption": "“He work in a bank.” mi diyorsun? 😅 He, she, it ile fiile -s eklenir. Doğrusu “He works in a bank.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+     "comment": "Cevap: “works”. He, she, it: -s. Ücretsiz testle pratik yap: {link}",
+     "hashtags": [
+      "#ingilizceöğren",
+      "#ingilizcekonuşma",
+      "#ingilizce",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Not “he work”, but “he works”!",
+     "tip": "With he, she, it, the verb needs -s: “He works in a bank.”",
+     "caption": "Do you say “He work in a bank.”? 😅 With he, she or it, add -s to the verb. The right sentence is “He works in a bank.”. Listen to Ama and repeat! Open the Lexkite app and practice more."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_tr_where_are_you",
+   "lang": "tr",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Where are you from?",
+    "wrong": "Where you are from?",
+    "right": "Where are you from?",
+    "strike": "you are",
+    "why": "Put are before you.",
+    "memory": "Where are you?",
+    "quiz": {
+     "stem": "Where ___ from?",
+     "options": [
+      "are you",
+      "you are"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Are you! Where are you from?",
+    "native": {
+     "hook": "Soruda sıra: “are you”!",
+     "tip": "Soru kelimesinden sonra yardımcı fiil gelir: “Where are you from?”",
+     "caption": "“Where you are from?” mi diyorsun? 😅 Türkçe sıra karışabilir; İngilizcede “are” önce gelir. Doğrusu “Where are you from?”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+     "comment": "Cevap: “are you”. Soruda are önce. Ücretsiz testle pratik yap: {link}",
+     "hashtags": [
+      "#ingilizceöğren",
+      "#ingilizcekonuşma",
+      "#ingilizce",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "In questions, “are” comes first!",
+     "tip": "After the question word, put the verb first: “Where are you from?”",
+     "caption": "Do you say “Where you are from?”? 😅 The word order differs from Turkish: “are” goes first. The right sentence is “Where are you from?”. Listen to Carlos and repeat! Open the Lexkite app and practice more."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_tr_didnt_go",
+   "lang": "tr",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Did not go!",
+    "wrong": "I didn't went there.",
+    "right": "I didn't go there.",
+    "strike": "went",
+    "why": "After did not, use go.",
+    "memory": "Did not go.",
+    "quiz": {
+     "stem": "She did not ___ home.",
+     "options": [
+      "went",
+      "go"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Go! She did not go home.",
+    "native": {
+     "hook": "“Didn’t went” değil, “didn’t go”!",
+     "tip": "“Didn’t” zaten geçmiş zamanı gösterir; fiil yalın kalır: “I didn’t go there.”",
+     "caption": "“I didn't went there.” mi diyorsun? 😅 “Didn’t”ten sonra fiil yalın hâlde gelir. Doğrusu “I didn't go there.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+     "comment": "Cevap: “go”. Didn't ardından yalın fiil. Ücretsiz testle pratik yap: {link}",
+     "hashtags": [
+      "#ingilizceöğren",
+      "#ingilizcekonuşma",
+      "#ingilizce",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Not “didn't went”, but “didn't go”!",
+     "tip": "“Didn’t” already shows the past, so the verb stays plain: “I didn’t go there.”",
+     "caption": "Do you say “I didn't went there.”? 😅 After “didn’t”, the verb stays in its base form. The right sentence is “I didn't go there.”. Listen to Ama and repeat! Open the Lexkite app and practice more."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_tr_saw_yesterday",
+   "lang": "tr",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Yesterday needs saw!",
+    "wrong": "I have seen him yesterday.",
+    "right": "I saw him yesterday.",
+    "strike": "have seen",
+    "why": "Yesterday means past simple.",
+    "memory": "Yesterday: saw.",
+    "quiz": {
+     "stem": "I ___ her last night.",
+     "options": [
+      "saw",
+      "have seen"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Saw! I saw her last night.",
+    "native": {
+     "hook": "“Yesterday” ile “have seen” olmaz!",
+     "tip": "Zamanı belli olan geçmişte “saw” gibi basit geçmiş kullan.",
+     "caption": "“I have seen him yesterday.” mi diyorsun? 😅 “Yesterday” gibi zaman sözcükleri basit geçmiş ister. Doğrusu “I saw him yesterday.”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+     "comment": "Cevap: “saw”. Dün: saw. Ücretsiz testle pratik yap: {link}",
+     "hashtags": [
+      "#ingilizceöğren",
+      "#ingilizcekonuşma",
+      "#ingilizce",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Yesterday” does not go with “have seen”!",
+     "tip": "For a clear past time, use the simple past: “I saw him yesterday.”",
+     "caption": "Do you say “I have seen him yesterday.”? 😅 Words like “yesterday” need the simple past. The right sentence is “I saw him yesterday.”. Listen to Carlos and repeat! Open the Lexkite app and practice more."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_tr_want_you_to",
+   "lang": "tr",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Want you to come!",
+    "wrong": "I want that you come.",
+    "right": "I want you to come.",
+    "strike": "that you come",
+    "why": "Say want you to.",
+    "memory": "Want you to come.",
+    "quiz": {
+     "stem": "I want you ___ here.",
+     "options": [
+      "come",
+      "to come"
+     ],
+     "answer": 1
+    },
+    "answer_say": "To come! I want you to come here.",
+    "native": {
+     "hook": "“Want that” değil, “want you to”!",
+     "tip": "İsteme cümlesinde “want + kişi + to + fiil” kullan: “I want you to come.”",
+     "caption": "“I want that you come.” mi diyorsun? 😅 İngilizcede “that” ile istenmez, “to” gelir. Doğrusu “I want you to come.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+     "comment": "Cevap: “to come”. Want you to. Ücretsiz testle pratik yap: {link}",
+     "hashtags": [
+      "#ingilizceöğren",
+      "#ingilizcekonuşma",
+      "#ingilizce",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Not “want that”, but “want you to”!",
+     "tip": "Use want + person + to + verb: “I want you to come.”",
+     "caption": "Do you say “I want that you come.”? 😅 English does not use “that” after “want”. The right sentence is “I want you to come.”. Listen to Ama and repeat! Open the Lexkite app and practice more."
+    }
+   }
+  }
+ ]
+}

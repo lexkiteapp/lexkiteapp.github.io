@@ -28,3 +28,4 @@ ok(check(fs.readFileSync('docs/specs/upgrade-audit.md', 'utf8')).length === 0, '
 ok(check('x\n'.repeat(200)).some(b => /1 trang/.test(b)), 'audit > 1 trang bị chặn');
 ok(/hiệu năng 9\d/.test(measured(JSON.parse(fs.readFileSync('reports/lighthouse.json', 'utf8')))), 'measured đọc được Lighthouse');
 if (fail) process.exit(1); console.log('✓ qa-fill: sổ 8 QA, trần, chặn trùng/cùng sha, backlog, kiểm toán');
+await import('./qs-fix-queue.mjs');   // hàng sửa quality-sweep (issue qs-fix) – cùng lệnh npm test

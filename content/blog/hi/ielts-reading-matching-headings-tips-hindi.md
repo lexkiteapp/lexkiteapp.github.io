@@ -53,6 +53,8 @@ Canada, UK या Australia के लिए IELTS देने वाले ब
 
 इस प्रश्न में आपको i, ii, iii… वाली headings की एक सूची मिलती है और हर paragraph (A, B, C…) के लिए सही heading चुननी होती है। IELTS Reading में कुल 60 मिनट और 40 प्रश्न होते हैं; Academic में 3 लंबे पैसेज होते हैं। Matching headings Academic और General Training दोनों में आ सकता है।
 
+अभ्यास को आगे बढ़ाने के लिए [IELTS Reading Time Management की 60 मिनट की रणनीति](/hi/blog/ielts-reading-time-management-in-hindi-guide/) देखें।
+
 यह कठिन क्यों लगता है?
 
 - **अनुवाद की आदत।** स्कूल में हमने comprehension को हर लाइन का हिंदी अर्थ निकालकर हल किया। यहाँ हर शब्द समझने की ज़रूरत नहीं; ज़रूरत है paragraph का **मकसद** समझने की।

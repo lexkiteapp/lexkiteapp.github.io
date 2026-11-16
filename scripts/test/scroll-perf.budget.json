@@ -1,0 +1,5 @@
+{
+  "phone": { "minScrollable": 8, "cls": 0.05, "scrollCls": 0.01, "droppedPct": 25, "longMaxMs": 400, "layoutMs": 160, "reversal": 0, "heightChange": 800, "barDelta": 0, "blocking": 0, "offscreen": 0, "backOff": 5 },
+  "desktop": { "minScrollable": 8, "cls": 0.03, "scrollCls": 0.02, "droppedPct": 5, "longMaxMs": 100, "layoutMs": 10, "reversal": 0, "heightChange": 50, "barDelta": 0, "blocking": 0, "offscreen": 0, "backOff": 5 },
+  "webkit": { "minScrollable": 8, "reversal": 0, "heightChange": 100, "heightChangeBy": { "path": 21000 }, "barDelta": 0, "backOff": 5 }
+}

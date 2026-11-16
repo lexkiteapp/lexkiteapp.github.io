@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_hair",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Hair is one thing!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: My hair are brown.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My hair is brown.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Hair takes is, not are.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Is! Her hair is long.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "My hair are brown.",
+  "right": "My hair is brown.",
+  "strike": "are",
+  "why": "Hair takes is, not are.",
+  "memory": "Hair is brown.",
+  "quiz": {
+   "stem": "Her hair ___ long.",
+   "options": [
+    "is",
+    "are"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Você diz “my hair are”?",
+   "tip": "“Hair” é singular em inglês: “my hair is”.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “My hair are brown.”. O certo é “My hair is brown.”. Em português “cabelos” é plural, mas “hair” não é. Ouça o Ama e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “is”. Treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “my hair are”?",
+   "tip": "“Hair” is singular in English: “my hair is”.",
+   "caption": "Watch out for this common mistake! Many people say “My hair are brown.”. The right way is “My hair is brown.”. In Portuguese “cabelos” is plural, but “hair” is not. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Você diz “my hair are”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "Você diz “my hair are”?",
+  "keyword": "My hair is brown.",
+  "value": "“Hair” é singular em inglês: “my hair is”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "Você diz “my hair are”?",
+    "description": "Cuidado com este erro comum! 😬 Muita gente diz “My hair are brown.”. O certo é “My hair is brown.”. Em português “cabelos” é plural, mas “hair” não é. Ouça o Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "My hair is brown.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “My hair are brown.”. O certo é “My hair is brown.”. Em português “cabelos” é plural, mas “hair” não é. Ouça o Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Cuidado com este erro comum! 😬 Muita gente diz “My hair are brown.”. O certo é “My hair is brown.”. Em português “cabelos” é plural, mas “hair” não é. Ouça o Ama e repita! Treine mais no app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Você diz “my hair are”? #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “is”. Treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

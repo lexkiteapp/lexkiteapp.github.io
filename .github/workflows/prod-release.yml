@@ -1,3 +1,4 @@
+# ci-policy: all-paths – mỗi lần main đổi phải gắn tag + smoke site thật; nhóm chung không huỷ = 1 lượt chạy + 1 lượt mới nhất chờ
 # Mỗi lần đẩy main = Cloudflare Pages tự deploy production (tích hợp git của Cloudflare). Workflow này, cho MỖI commit đó:
 #  1) tag    – gắn tag chú thích prod-YYYYMMDD-HHMM-<sha7> (mốc rollback duy nhất, nhìn là biết bản nào đang/đã chạy);
 #  2) gate   – npm test (cổng chặn thật là mergecheck/npm test TRƯỚC khi push; Pages deploy theo push nên bước này là kiểm lại sau-push, đỏ → issue ci-failure);
@@ -11,7 +12,7 @@ on:
   workflow_dispatch:
     inputs:
       sha: { description: 'Commit cần gắn tag/smoke (mặc định: đầu main)', required: false }
-permissions: { contents: write, checks: read, statuses: read }
+permissions: { contents: write, checks: read, statuses: read, issues: write }   # issues: máy gác main-red / budget-low (scripts/ci/guards.mjs)
 # push: 1 nhóm chung – 1 lượt chạy + 1 lượt MỚI NHẤT chờ (lượt chờ cũ hơn bị thay; Pages cũng chỉ dựng bản mới nhất); dispatch sha cụ thể: nhóm riêng (docs/METHODS.md §CI)
 concurrency: { group: "prod-release-${{ github.event.inputs.sha || 'main' }}", cancel-in-progress: false }
 env: { SHA: '${{ github.event.inputs.sha || github.sha }}' }
@@ -36,9 +37,11 @@ jobs:
   gate:
     # npm test: một định nghĩa dùng chung với cổng PR (.github/workflows/npm-test.yml)
     uses: ./.github/workflows/npm-test.yml
+    permissions: { contents: read, actions: write }   # job `heavy` của npm-test xin actions: write; thiếu → startup_failure cả lượt (scripts/test/workflow-call-perms.mjs)
     with: { sha: '${{ github.event.inputs.sha || github.sha }}' }
   smoke:
     needs: tag
+    outputs: { verified: '${{ steps.smoke.outputs.verified }}' }   # 'false' = commit chưa lên site (Pages gom deploy) → mark/ota không chạy
     runs-on: ubuntu-latest
     timeout-minutes: 40
     steps:
@@ -47,6 +50,7 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Chờ Pages deploy xong + smoke lexkite.com
+        id: smoke
         env:
           GITHUB_TOKEN: ${{ github.token }}
           LEXKITE_CI_HEADER: ${{ secrets.LEXKITE_CI_HEADER }}
@@ -56,6 +60,7 @@ jobs:
           node scripts/ops/smoke.mjs --wait --sha "$(git rev-parse "$SHA")"
   mark:
     needs: [gate, smoke]
+    if: ${{ success() && needs.smoke.outputs.verified != 'false' }}
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -71,9 +76,34 @@ jobs:
           git tag -fa prod-good "$SHA" -m "Bản production tốt cuối cùng (qua npm test + smoke): ${SHA}"
           git push -q -f origin refs/tags/prod-good
           echo "### ✅ prod-good → ${SHA::7}" >> "$GITHUB_STEP_SUMMARY"
+  # 06/11 máy gác: npm test sau-push đỏ → issue `main-red` (xanh lại → đóng). Gốc 05/11 (khung app 374/374 KB): hai PR xanh riêng cộng lại vượt ngân sách vì strict=false.
+  main-red:
+    needs: gate
+    if: ${{ always() && (needs.gate.result == 'failure' || needs.gate.result == 'success') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with: { sparse-checkout: "scripts/ci", sparse-checkout-cone-mode: false }
+      - run: node scripts/ci/guards.mjs main-red --result "${{ needs.gate.result }}" --sha "${{ github.event.inputs.sha || github.sha }}"
+        env: { GITHUB_TOKEN: '${{ github.token }}' }
+  # 06/11 cảnh báo sớm: ngân sách dư < 5 KB / < 2 % → issue `budget-low` (vàng, TRƯỚC khi đỏ); hết thấp → đóng.
+  budget-watch:
+    needs: gate
+    if: ${{ needs.gate.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: '${{ github.event.inputs.sha || github.sha }}' }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: node scripts/ci/guards.mjs budget
+        env: { GITHUB_TOKEN: '${{ github.token }}' }
   # Bản web OTA cho app Android/iOS (docs/OTA.md): CHỈ sau khi gate (npm test) + smoke xanh. Cần secret OTA_SIGNING_KEY (node scripts/ota/keygen.mjs); chưa có → bỏ qua, không đỏ.
   ota:
     needs: [gate, smoke]
+    if: ${{ success() && needs.smoke.outputs.verified != 'false' }}
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env: { OTA_SIGNING_KEY: '${{ secrets.OTA_SIGNING_KEY }}', GH_TOKEN: '${{ github.token }}' }
@@ -92,6 +122,6 @@ jobs:
         if: steps.key.outputs.has == '1'
         run: |
           npm ci --no-audit --no-fund
-          npm ci --prefix mobile --no-audit --no-fund --ignore-scripts
+          bash scripts/ci/npm-retry.sh ci --prefix mobile --no-audit --no-fund --ignore-scripts
           OTA_ONLY=1 ./scripts/build-mobile.sh
           node scripts/ota/release.mjs publish --sha "$SHA"

@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_salad",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: salad.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means a dish of mixed raw vegetables.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "I ordered a chicken salad and a coffee for lunch today.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "salad",
+  "ipa": "/ˈsæləd/",
+  "mean": "a dish of mixed raw vegetables",
+  "ex": "I ordered a chicken salad and a coffee for lunch today.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=salad",
+  "link": "https://lexkite.com/app/#/review?w=salad",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 44,
+  "seconds": 26.7,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"salad\" mean?",
+  "keyword": "salad",
+  "value": "Salad means a dish of mixed raw vegetables.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=salad",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"salad\" mean?",
+    "description": "Salad means a dish of mixed raw vegetables.\n\nReview your words, free: https://lexkite.com/app/#/review?w=salad\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "salad",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"salad\" mean?\n\nSalad means a dish of mixed raw vegetables.\n\nReview your words, free: https://lexkite.com/app/#/review?w=salad"
+   },
+   "instagram": {
+    "caption": "What does \"salad\" mean?\n\nSalad means a dish of mixed raw vegetables.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"salad\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means a dish of mixed raw vegetables. Salad means a dish of mixed raw vegetables. Try the full lesson and quiz here: {link}"
+ }
+}

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Browser Sync - Lexkite</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=JetBrains+Mono:wght@700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "secondary-container": "#981201",
+          "surface-container-low": "#102227",
+          "inverse-surface": "#d8e5e9",
+          "surface-bright": "#2f3b3e",
+          "primary": "#2DD4BF",
+          "primary-light": "#5EEAD4",
+          "on-surface-variant": "#A5C6CB",
+          "on-background": "#E2EDEF",
+          "background": "#091518",
+          "surface-dim": "#091518",
+          "surface-container": "#13272D",
+          "surface-container-highest": "#203a42",
+          "surface": "#091518",
+          "on-surface": "#F0F6F7",
+          "coral-primary": "#FA5252",
+          "coral-depth": "#B91C1C",
+          "teal-dark": "#0c4542",
+          "border-dark": "#22434B",
+          "border-dark-subtle": "#1b373e"
+        },
+        "fontFamily": {
+          "label-sm": ["Plus Jakarta Sans"],
+          "headline-xl": ["Plus Jakarta Sans"],
+          "headline-xl-mobile": ["Plus Jakarta Sans"],
+          "headline-lg-mobile": ["Plus Jakarta Sans"],
+          "body-sm": ["Plus Jakarta Sans"],
+          "headline-lg": ["Plus Jakarta Sans"],
+          "body-lg": ["Plus Jakarta Sans"],
+          "label-md": ["Plus Jakarta Sans"],
+          "label-lg": ["Plus Jakarta Sans"],
+          "headline-sm": ["Plus Jakarta Sans"],
+          "headline-md": ["Plus Jakarta Sans"],
+          "body-md": ["Plus Jakarta Sans"],
+          "mono": ["JetBrains Mono", "monospace"]
+        },
+        "fontSize": {
+          "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.6px", "fontWeight": "800" }],
+          "headline-xl": ["40px", { "lineHeight": "48px", "fontWeight": "800" }],
+          "headline-xl-mobile": ["30px", { "lineHeight": "38px", "fontWeight": "800" }],
+          "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "800" }],
+          "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+          "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "800" }],
+          "body-lg": ["18px", { "lineHeight": "26px", "fontWeight": "500" }],
+          "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.4px", "fontWeight": "700" }],
+          "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.2px", "fontWeight": "700" }],
+          "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "700" }],
+          "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+          "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }]
+        }
+      }
+    }
+  };
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+  }
+  .tactile-card-dark {
+    box-shadow: 0 4px 0 #050E10;
+  }
+  .tactile-btn-coral {
+    box-shadow: 0 4px 0 #B91C1C;
+  }
+  .tactile-btn-coral:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 #B91C1C;
+  }
+  .tactile-btn-secondary {
+    box-shadow: 0 3px 0 #08171C;
+  }
+  .tactile-btn-secondary:active {
+    transform: translateY(2px);
+    box-shadow: 0 1px 0 #08171C;
+  }
+  .tactile-btn-teal {
+    box-shadow: 0 3px 0 #073532;
+  }
+  .tactile-btn-teal:active {
+    transform: translateY(2px);
+    box-shadow: 0 1px 0 #073532;
+  }
+  body {
+    min-height: max(884px, 100dvh);
+  }
+</style>
+</head>
+<body class="bg-[#091518] text-[#F0F6F7] antialiased min-h-screen pb-24 selection:bg-[#2DD4BF] selection:text-[#091518] flex justify-center">
+<!-- Mobile Viewport Wrapper (390px max-width) -->
+<main class="w-full max-w-md bg-[#091518] min-h-screen flex flex-col relative px-0">
+<!-- 1. Top App Bar -->
+<header class="flex justify-between items-center w-full px-4 h-16 sticky top-0 z-40 max-w-md mx-auto bg-[#091518]/95 backdrop-blur-md border-b-2 border-[#22434B] shadow-[0_2px_0_0_#050E10]">
+<!-- Leading Action Target (>= 44x44px) -->
+<button aria-label="Go back" class="min-w-[44px] min-h-[44px] w-11 h-11 flex items-center justify-center rounded-xl bg-[#13272D] hover:bg-[#1b373e] border-2 border-[#22434B] text-[#2DD4BF] active:translate-y-0.5 transition-all" type="button">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<!-- Headline -->
+<h1 class="text-headline-sm font-headline-sm text-[#F0F6F7] font-extrabold tracking-tight text-center px-2 truncate">
+      Browser sync
+    </h1>
+<!-- Trailing Action Target (>= 44x44px) -->
+<button aria-label="Help and documentation" class="min-w-[44px] min-h-[44px] w-11 h-11 flex items-center justify-center rounded-xl bg-[#13272D] hover:bg-[#1b373e] border-2 border-[#22434B] text-[#2DD4BF] active:translate-y-0.5 transition-all" type="button">
+<span class="material-symbols-outlined text-[24px]">help_outline</span>
+</button>
+</header>
+<!-- Main Scrollable Canvas -->
+<div class="px-4 py-5 flex flex-col gap-5 flex-1">
+<!-- 2. Header Section -->
+<section class="flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#132B32] text-[#2DD4BF] border-2 border-[#2DD4BF] text-label-sm font-label-sm uppercase tracking-wider font-extrabold">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">desktop_windows</span>
+          DESKTOP COMPANION
+        </span>
+</div>
+<h2 class="text-headline-lg-mobile font-headline-lg-mobile text-[#FFFFFF] font-extrabold tracking-tight leading-snug break-words">
+        Connect the Lexkite add-on
+      </h2>
+<p class="text-body-md font-body-md text-[#A5C6CB] leading-relaxed break-words">
+        Link your desktop browser to study vocabulary everywhere you read.
+      </p>
+</section>
+<!-- 3. Sync Flow Diagram (Tactile Dark Card) -->
+<section class="bg-[#102227] border-2 border-[#22434B] tactile-card-dark rounded-2xl p-4 flex flex-col gap-3">
+<div class="flex items-center justify-between gap-1">
+<!-- Left: Desktop Add-on -->
+<div class="flex-1 flex flex-col items-center text-center p-3 rounded-xl bg-[#13272D] border-2 border-[#22434B] min-w-0">
+<div class="w-11 h-11 rounded-xl bg-[#091518] flex items-center justify-center border-2 border-[#22434B] text-[#2DD4BF] mb-2 shadow-[0_2px_0_0_#050E10]">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">laptop_chromebook</span>
+</div>
+<span class="text-label-md font-label-md text-[#F0F6F7] leading-tight break-words w-full font-bold">Chrome Add-on</span>
+<span class="text-label-sm font-label-sm text-[#A5C6CB] mt-0.5 break-words">Toolbar Extension</span>
+</div>
+<!-- Middle: Sync Bridge -->
+<div class="flex flex-col items-center justify-center px-1 shrink-0">
+<div class="px-2.5 py-1.5 rounded-full bg-[#132B32] text-[#2DD4BF] border-2 border-[#2DD4BF] flex items-center gap-1 shadow-[0_2px_0_0_#050E10]">
+<span class="material-symbols-outlined text-[18px]">sync_alt</span>
+</div>
+<span class="text-[11px] font-extrabold uppercase text-[#2DD4BF] mt-1 tracking-wider whitespace-nowrap">2-Way Sync</span>
+</div>
+<!-- Right: Mobile App -->
+<div class="flex-1 flex flex-col items-center text-center p-3 rounded-xl bg-[#13272D] border-2 border-[#22434B] min-w-0">
+<div class="w-11 h-11 rounded-xl bg-[#091518] flex items-center justify-center border-2 border-[#22434B] text-[#2DD4BF] mb-2 shadow-[0_2px_0_0_#050E10]">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">smartphone</span>
+</div>
+<span class="text-label-md font-label-md text-[#F0F6F7] leading-tight break-words w-full font-bold">Lexkite App</span>
+<span class="text-label-sm font-label-sm text-[#2DD4BF] font-extrabold mt-0.5 flex items-center gap-1 justify-center whitespace-nowrap">
+<span class="w-2 h-2 rounded-full bg-[#2DD4BF] animate-pulse inline-block"></span>
+            Active Now
+          </span>
+</div>
+</div>
+</section>
+<!-- 4. One-Time Pairing Code Card -->
+<section class="bg-[#102227] border-2 border-[#22434B] tactile-card-dark rounded-2xl p-4 flex flex-col gap-3.5">
+<div class="flex items-center justify-between flex-wrap gap-2">
+<div class="flex items-center gap-1.5 text-[#2DD4BF]">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">key</span>
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-[#F0F6F7] font-extrabold">ONE-TIME PAIRING CODE</span>
+</div>
+<!-- Expiration Pill -->
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#2a1e05] text-[#f4bf40] border-2 border-[#ba8b00]">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span class="text-label-sm font-label-sm font-extrabold">Expires in 4:56</span>
+</div>
+</div>
+<!-- Large Monospace Code Display -->
+<div class="bg-[#0c1b20] border-2 border-[#22434B] rounded-xl p-3.5 flex items-center justify-between gap-2 shadow-inner">
+<div class="flex items-center gap-2 pl-2">
+<span class="font-mono text-[28px] leading-none font-extrabold tracking-widest text-[#2DD4BF] selection:bg-[#2DD4BF] selection:text-[#091518]" id="pairing-code">
+            K7P - Q4M
+          </span>
+</div>
+<!-- Tactile Copy Button (>= 44x44px target) -->
+<button class="min-h-[44px] px-4 py-2 bg-[#136B66] text-[#FFFFFF] font-label-md rounded-xl tactile-btn-teal flex items-center gap-1.5 border-2 border-[#2DD4BF] active:translate-y-1 transition-all" id="copy-btn" onclick="navigator.clipboard.writeText('K7P-Q4M'); this.innerText='Copied!';" type="button">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+<span>Copy</span>
+</button>
+</div>
+</section>
+<!-- 5. Setup Steps Bento Section -->
+<section class="bg-[#102227] border-2 border-[#22434B] tactile-card-dark rounded-2xl p-4 flex flex-col gap-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#2DD4BF] text-[22px]">list_alt</span>
+<h3 class="text-headline-sm font-headline-sm text-[#FFFFFF] font-extrabold">Quick Setup Steps</h3>
+</div>
+<div class="flex flex-col gap-2.5">
+<!-- Step 1 -->
+<div class="flex items-start gap-3 p-3 rounded-xl bg-[#13272D] border-2 border-[#22434B]">
+<div class="w-8 h-8 rounded-full bg-[#136B66] text-[#FFFFFF] text-label-md font-label-md flex items-center justify-center shrink-0 border-2 border-[#2DD4BF] shadow-[0_2px_0_0_#050E10] font-extrabold">
+            1
+          </div>
+<div class="flex flex-col min-w-0 flex-1">
+<span class="text-label-md font-label-md text-[#F0F6F7] font-bold break-words">Open the add-on</span>
+<p class="text-body-sm font-body-sm text-[#A5C6CB] mt-0.5 leading-snug break-words">
+              Click the Lexkite kite icon on your browser toolbar.
+            </p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex items-start gap-3 p-3 rounded-xl bg-[#13272D] border-2 border-[#22434B]">
+<div class="w-8 h-8 rounded-full bg-[#136B66] text-[#FFFFFF] text-label-md font-label-md flex items-center justify-center shrink-0 border-2 border-[#2DD4BF] shadow-[0_2px_0_0_#050E10] font-extrabold">
+            2
+          </div>
+<div class="flex flex-col min-w-0 flex-1">
+<span class="text-label-md font-label-md text-[#F0F6F7] font-bold break-words">Choose Sign in with code</span>
+<p class="text-body-sm font-body-sm text-[#A5C6CB] mt-0.5 leading-snug break-words">
+              Select the code sign-in option on the welcome screen.
+            </p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex items-start gap-3 p-3 rounded-xl bg-[#13272D] border-2 border-[#22434B]">
+<div class="w-8 h-8 rounded-full bg-[#136B66] text-[#FFFFFF] text-label-md font-label-md flex items-center justify-center shrink-0 border-2 border-[#2DD4BF] shadow-[0_2px_0_0_#050E10] font-extrabold">
+            3
+          </div>
+<div class="flex flex-col min-w-0 flex-1">
+<span class="text-label-md font-label-md text-[#F0F6F7] font-bold break-words">Paste the code</span>
+<p class="text-body-sm font-body-sm text-[#A5C6CB] mt-0.5 leading-snug break-words">
+              Enter <strong class="font-mono text-[#2DD4BF] font-bold">K7P-Q4M</strong> to sync your word list and flashcards.
+            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. Teacher Slot Placeholder -->
+<section aria-label="Coach placeholder" class="rounded-2xl border-2 border-dashed border-[#234E57] bg-[#102227]/70 p-4 flex flex-col gap-2.5" role="region">
+<div class="flex items-center justify-between">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-[#091518] border border-[#22434B] text-[#A5C6CB] text-[11px] font-mono uppercase tracking-wider font-extrabold">
+          teacher-slot
+        </div>
+<span class="material-symbols-outlined text-[#2DD4BF] text-[20px]">school</span>
+</div>
+<!-- Tip speech card -->
+<div class="bg-[#13272D] rounded-xl p-3 border-2 border-[#22434B] shadow-[0_2px_0_0_#050E10] flex flex-col gap-1">
+<div class="flex items-center gap-1.5 text-[#2DD4BF] text-label-sm font-label-sm font-bold">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">tips_and_updates</span>
+<span>Coach Ama • TUTOR TIP</span>
+</div>
+<p class="text-body-md font-body-md text-[#F0F7F8] italic leading-snug break-words">
+          “Your words will sync both ways.”
+        </p>
+<span class="text-[12px] font-label-sm text-[#A5C6CB]">Subtext: Coach Ama: 'Your words will sync both ways.'</span>
+</div>
+</section>
+<!-- 7. Action Buttons & Security Assurance -->
+<section class="flex flex-col gap-3 pt-1">
+<!-- Coral Primary 3D Button (>= 48px target) -->
+<button class="w-full min-h-[52px] h-14 bg-[#FA5252] hover:bg-[#ff6161] text-[#FFFFFF] rounded-xl font-label-lg text-label-lg uppercase tracking-wide border-2 border-[#B91C1C] tactile-btn-coral flex items-center justify-center gap-2 transition-all font-extrabold" type="button">
+<span>Done ✓</span>
+</button>
+<!-- Secondary Tactile Button: Get a new code (min-height 48px) -->
+<button class="w-full min-h-[48px] h-12 bg-[#132B32] hover:bg-[#1a3841] text-[#2DD4BF] rounded-xl font-label-md text-label-md border-2 border-[#234E57] tactile-btn-secondary flex items-center justify-center gap-2 transition-all font-bold" type="button">
+<span class="material-symbols-outlined text-[20px] text-[#2DD4BF]">refresh</span>
+<span>Get a new code</span>
+</button>
+<!-- Security Footnote -->
+<div class="flex items-center justify-center gap-2 text-center text-body-sm py-1 px-2">
+<span class="material-symbols-outlined text-[18px] text-[#2DD4BF]" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span class="text-label-sm font-label-sm leading-tight text-[#A5C6CB]">
+          End-to-end encrypted · Ready for IELTS &amp; TOEIC study decks
+        </span>
+</div>
+</section>
+</div>
+<!-- 8. Docked Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-2 h-16 max-w-md mx-auto bg-[#0c1b20] border-t-2 border-[#22434B] shadow-[0_-3px_0_0_#050E10]">
+<!-- Tab 1: Today (Inactive) -->
+<button class="flex flex-col items-center justify-center text-[#A5C6CB] px-3 py-1 hover:text-[#2DD4BF] transition-colors min-h-[44px] min-w-[44px] active:translate-y-0.5 transition-transform duration-75" type="button">
+<span class="material-symbols-outlined text-[24px]">today</span>
+<span class="text-label-sm font-label-sm mt-0.5">Today</span>
+</button>
+<!-- Tab 2: Vocab (Inactive) -->
+<button class="flex flex-col items-center justify-center text-[#A5C6CB] px-3 py-1 hover:text-[#2DD4BF] transition-colors min-h-[44px] min-w-[44px] active:translate-y-0.5 transition-transform duration-75" type="button">
+<span class="material-symbols-outlined text-[24px]">menu_book</span>
+<span class="text-label-sm font-label-sm mt-0.5">Vocab</span>
+</button>
+<!-- Tab 3: Skills (Inactive) -->
+<button class="flex flex-col items-center justify-center text-[#A5C6CB] px-3 py-1 hover:text-[#2DD4BF] transition-colors min-h-[44px] min-w-[44px] active:translate-y-0.5 transition-transform duration-75" type="button">
+<span class="material-symbols-outlined text-[24px]">psychology</span>
+<span class="text-label-sm font-label-sm mt-0.5">Skills</span>
+</button>
+<!-- Tab 4: Tests (Inactive) -->
+<button class="flex flex-col items-center justify-center text-[#A5C6CB] px-3 py-1 hover:text-[#2DD4BF] transition-colors min-h-[44px] min-w-[44px] active:translate-y-0.5 transition-transform duration-75" type="button">
+<span class="material-symbols-outlined text-[24px]">assignment</span>
+<span class="text-label-sm font-label-sm mt-0.5">Tests</span>
+</button>
+<!-- Tab 5: Me (ACTIVE STATE) -->
+<button aria-current="page" class="flex flex-col items-center justify-center text-[#2DD4BF] bg-[#132B32] border-2 border-[#2DD4BF] rounded-xl px-3 py-1 shadow-[0_2px_0_0_#050E10] translate-y-[-2px] min-h-[44px] min-w-[44px] active:translate-y-0.5 active:shadow-none transition-transform duration-75" type="button">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="text-label-sm font-label-sm mt-0.5 font-extrabold text-[#2DD4BF]">Me</span>
+</button>
+</nav>
+</main>
+</body></html>

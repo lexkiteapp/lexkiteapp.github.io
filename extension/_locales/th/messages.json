@@ -154,5 +154,26 @@
  },
  "ntMoreSenses": {
   "message": "+{n} ความหมาย"
+ },
+ "ntQzTag": {
+  "message": "ควิซด่วน"
+ },
+ "ntQzQ": {
+  "message": "เลือกความหมายที่ถูกต้อง"
+ },
+ "ntQzTime": {
+  "message": "{s} วินาที"
+ },
+ "ntQzRight": {
+  "message": "ถูกต้อง!"
+ },
+ "ntQzWrong": {
+  "message": "ยังไม่ใช่ — คำนี้จะกลับมาเร็วๆ นี้"
+ },
+ "ntQzTimeout": {
+  "message": "หมดเวลา ไม่เป็นไร"
+ },
+ "ntQzSkip": {
+  "message": "ข้าม"
  }
 }

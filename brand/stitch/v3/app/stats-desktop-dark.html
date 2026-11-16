@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite — Statistics &amp; Badges | Learner Analytics</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Plus Jakarta Sans Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with config -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-canvas": "#10191B",
+            "surface-card": "#172427",
+            "surface-raised": "#1E2F33",
+            "surface-inner": "#142427",
+            "surface-lowest": "#0B1315",
+            "border-dark": "#23383E",
+            "border-card": "#1E2F33",
+            "border-tile": "#2A4248",
+            "border-subtle": "#16272B",
+            "text-primary": "#E8F1F0",
+            "text-secondary": "#A9BDBB",
+            "text-muted": "#7A9291",
+            "brand-teal": "#2DD4BF",
+            "brand-teal-deep": "#14B8A6",
+            "brand-teal-dark": "#136B66",
+            "brand-teal-bg": "#0D3E3A",
+            "brand-amber": "#F59E0B",
+            "brand-amber-deep": "#B45309",
+            "brand-coral": "#F97316",
+            "ink-dark": "#1C1003"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "margin-desktop": "2.5rem",
+            "space-xl": "2rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "margin-tablet": "1.5rem",
+            "gutter": "1rem",
+            "gutter-desktop": "1.5rem",
+            "margin": "1rem",
+            "space-md": "1rem"
+          },
+          "fontFamily": {
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "800"}],
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+            "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.6px", "fontWeight": "800"}],
+            "headline-xl": ["40px", {"lineHeight": "48px", "fontWeight": "800"}],
+            "label-md": ["14px", {"lineHeight": "18px", "letterSpacing": "0.4px", "fontWeight": "700"}],
+            "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+            "body-lg": ["18px", {"lineHeight": "26px", "fontWeight": "500"}],
+            "headline-md": ["22px", {"lineHeight": "28px", "fontWeight": "700"}],
+            "label-lg": ["16px", {"lineHeight": "20px", "letterSpacing": "0.2px", "fontWeight": "700"}],
+            "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-[#10191B] text-[#E8F1F0] min-h-screen font-body-md antialiased selection:bg-[#2DD4BF] selection:text-[#00201E]">
+<!-- Desktop Master Container (1280px optimized) -->
+<div class="max-w-[1360px] mx-auto min-h-screen flex flex-row bg-[#10191B]">
+<!-- 1. DESKTOP LEFT SIDEBAR (Width 268px, Sticky) -->
+<aside class="w-[268px] shrink-0 sticky top-0 h-screen py-6 pl-6 pr-4 flex flex-col justify-between border-r-2 border-[#23383E] bg-[#10191B]">
+<div class="flex flex-col gap-6">
+<!-- Brand Header with Diamond Kite -->
+<div class="flex items-center gap-3 px-2">
+<div class="w-11 h-11 rounded-DEFAULT bg-[#144440] text-[#2DD4BF] border border-[#2DD4BF]/40 flex items-center justify-center shadow-[0_4px_0_0_#0B1315] transition-transform active:translate-y-[2px] active:shadow-[0_2px_0_0_#0B1315]">
+<span class="material-symbols-outlined fill-icon text-[24px]">change_history</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md tracking-tight text-[#2DD4BF] leading-tight">Lexkite</span>
+<span class="font-label-sm text-label-sm text-[#F59E0B] tracking-wider font-extrabold uppercase">IELTS &amp; CEFR Prep</span>
+</div>
+</div>
+<!-- Main Navigation Items (Tactile pills) -->
+<nav aria-label="Main Navigation" class="flex flex-col gap-2 pt-2">
+<!-- Item: Today -->
+<a class="flex items-center gap-3.5 px-4 min-h-[48px] rounded-DEFAULT text-[#A9BDBB] font-label-md text-label-md hover:bg-[#1E2F33] hover:text-[#E8F1F0] transition-colors" href="#today">
+<span class="material-symbols-outlined text-[22px]">calendar_today</span>
+<span>Today</span>
+</a>
+<!-- Item: Vocab -->
+<a class="flex items-center gap-3.5 px-4 min-h-[48px] rounded-DEFAULT text-[#A9BDBB] font-label-md text-label-md hover:bg-[#1E2F33] hover:text-[#E8F1F0] transition-colors" href="#vocab">
+<span class="material-symbols-outlined text-[22px]">menu_book</span>
+<span>Vocab</span>
+</a>
+<!-- Item: Skills -->
+<a class="flex items-center gap-3.5 px-4 min-h-[48px] rounded-DEFAULT text-[#A9BDBB] font-label-md text-label-md hover:bg-[#1E2F33] hover:text-[#E8F1F0] transition-colors" href="#skills">
+<span class="material-symbols-outlined text-[22px]">psychology</span>
+<span>Skills</span>
+</a>
+<!-- Item: Tests -->
+<a class="flex items-center gap-3.5 px-4 min-h-[48px] rounded-DEFAULT text-[#A9BDBB] font-label-md text-label-md hover:bg-[#1E2F33] hover:text-[#E8F1F0] transition-colors" href="#tests">
+<span class="material-symbols-outlined text-[22px]">assignment</span>
+<span>Tests</span>
+</a>
+<!-- Item: Me (ACTIVE STATE HIGHLIGHTED WITH RICH TACTILE TEAL PILL & DEPTH) -->
+<a aria-current="page" class="flex items-center gap-3.5 px-4 min-h-[50px] rounded-DEFAULT bg-[#144440] text-[#2DD4BF] font-label-md text-label-md shadow-[0_4px_0_0_#0B1315] border-2 border-[#2DD4BF]/50 active:translate-y-[2px] active:shadow-[0_1px_0_0_#0B1315] transition-transform" href="#me">
+<span class="material-symbols-outlined fill-icon text-[24px]">person</span>
+<span class="tracking-wide text-[#E8F1F0]">Me</span>
+<span class="ml-auto w-2 h-2 rounded-full bg-[#2DD4BF] shadow-[0_0_6px_#2DD4BF]"></span>
+</a>
+</nav>
+</div>
+<!-- Bottom Cluster: User Status Card + Sidebar Links -->
+<div class="flex flex-col gap-4">
+<!-- Learner Status Card -->
+<div class="p-3.5 rounded-DEFAULT bg-[#172427] border-2 border-[#23383E] shadow-[0_3px_0_0_#0B1315] flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-headline-sm text-[15px] font-extrabold text-[#E8F1F0] leading-snug">Minh Anh Tran</span>
+<span class="font-label-sm text-label-sm text-[#2DD4BF] font-bold">IELTS Band 7.5 Target</span>
+</div>
+<!-- Streak badge -->
+<div class="flex items-center gap-1 bg-[#1E2F33] text-[#F59E0B] px-2 py-1 rounded-full border border-[#F59E0B]/40 font-label-sm text-label-sm font-extrabold shadow-sm">
+<span class="material-symbols-outlined fill-icon text-[16px] text-[#F59E0B]">local_fire_department</span>
+<span>45d</span>
+</div>
+</div>
+<!-- Micro Progress Bar to Next Target Milestone -->
+<div class="w-full bg-[#10191B] h-2 rounded-full overflow-hidden border border-[#23383E]/50">
+<div class="bg-[#2DD4BF] h-full rounded-full" style="width: 78%"></div>
+</div>
+<span class="font-label-sm text-[11px] text-[#A9BDBB] font-bold">Level 18 • 1,240 Vocab Points</span>
+</div>
+<!-- Sidebar footer links -->
+<div class="flex flex-col gap-1 px-2 font-label-sm text-[12px] text-[#A9BDBB]">
+<div class="flex items-center justify-between">
+<a class="hover:text-[#2DD4BF] transition-colors min-h-[44px] min-w-[44px] inline-flex items-center text-[#A9BDBB]" href="#blog">Blog &amp; Tips</a>
+<span class="text-[#A9BDBB]">•</span>
+<a class="hover:text-[#2DD4BF] transition-colors min-h-[44px] min-w-[44px] inline-flex items-center justify-center text-[#A9BDBB]" href="#guidelines">Guidelines</a>
+<span class="text-[#A9BDBB]">•</span>
+<a class="hover:text-[#F59E0B] transition-colors min-h-[44px] min-w-[44px] inline-flex items-center justify-end text-[#F59E0B]" href="#report">Report</a>
+</div>
+<span class="text-[11px] text-[#A9BDBB] pt-0.5">Lexkite CEFR Engine v4.2</span>
+</div>
+</div>
+</aside>
+<!-- 2. MAIN WORKBENCH CONTENT AREA -->
+<main class="flex-1 px-8 py-8 overflow-y-auto max-w-[1092px] bg-[#10191B]">
+<!-- Top Header Bar -->
+<header class="flex flex-col gap-4 pb-6 border-b-2 border-[#23383E]">
+<!-- Breadcrumbs -->
+<div class="flex items-center gap-2 font-label-md text-label-md text-[#A9BDBB]">
+<span>Academic Profile</span>
+<span class="material-symbols-outlined text-[16px] text-[#7A9291]">chevron_right</span>
+<span class="text-[#2DD4BF] font-extrabold">Performance Analytics &amp; Achievements</span>
+</div>
+<!-- Title Row + Filter Tabs + Share CTA -->
+<div class="flex items-center justify-between flex-wrap gap-4">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-[#E8F1F0] tracking-tight">Statistics &amp; Achievements</h1>
+<p class="font-body-sm text-body-sm text-[#A9BDBB] mt-0.5">Thống kê học tập &amp; Bảng thành tích năng lực CEFR / IELTS</p>
+</div>
+<div class="flex items-center gap-3">
+<!-- Time Filter Segmented Toggle -->
+<div class="p-1 rounded-DEFAULT bg-[#1E2F33] border-2 border-[#23383E] flex items-center shadow-[0_2px_0_0_#0B1315]">
+<button class="px-3.5 py-1.5 min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-[12px] font-label-sm text-label-sm text-[#A9BDBB] hover:text-[#E8F1F0] transition-colors">Last 7 Days</button>
+<button class="px-4 py-1.5 min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-[12px] bg-[#142427] font-label-sm text-label-sm text-[#2DD4BF] font-extrabold shadow-[0_2px_0_0_#0B1315] border border-[#2DD4BF]/40">Last 30 Days</button>
+<button class="px-3.5 py-1.5 min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-[12px] font-label-sm text-label-sm text-[#A9BDBB] hover:text-[#E8F1F0] transition-colors">This Quarter</button>
+<button class="px-3.5 py-1.5 min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-[12px] font-label-sm text-label-sm text-[#A9BDBB] hover:text-[#E8F1F0] transition-colors">All Time</button>
+</div>
+<!-- Share Progress Coral/Amber Tactile Button (Strict dark brown-black text) -->
+<button class="flex items-center gap-2 bg-[#F59E0B] hover:bg-[#F97316] active:translate-y-[3px] active:shadow-[0_1px_0_0_#9A3412] text-[#1C1003] px-5 py-2.5 rounded-DEFAULT font-label-lg text-label-lg shadow-[0_4px_0_0_#B45309] border-2 border-[#F97316] transition-all min-h-[48px]">
+<span class="material-symbols-outlined text-[20px] text-[#1C1003]">share</span>
+<span class="font-extrabold tracking-wide">Share Progress</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Overview Stat Cards (4 columns) -->
+<section aria-label="Key Study Metrics" class="grid grid-cols-4 gap-4 mt-6">
+<!-- Stat 1: Current Streak -->
+<div class="p-5 rounded-DEFAULT bg-[#172427] border-2 border-[#23383E] shadow-[0_4px_0_0_#0B1315] flex flex-col justify-between transition-transform hover:-translate-y-0.5">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-[#A9BDBB]">Current Streak</span>
+<div class="w-10 h-10 rounded-full bg-[#1E2F33] text-[#F59E0B] flex items-center justify-center border border-[#F59E0B]/40 shadow-sm">
+<span class="material-symbols-outlined fill-icon text-[22px]">local_fire_department</span>
+</div>
+</div>
+<div class="mt-3">
+<div class="font-headline-xl text-headline-xl text-[#E8F1F0] font-extrabold leading-none">45 <span class="font-headline-sm text-headline-sm text-[#F59E0B]">Days</span></div>
+<div class="flex items-center gap-1.5 mt-2 font-label-sm text-label-sm text-[#A9BDBB]">
+<span class="material-symbols-outlined text-[15px] text-[#2DD4BF]">verified</span>
+<span>Longest: 45 days</span>
+</div>
+</div>
+<div class="mt-3 pt-2.5 border-t border-[#23383E] font-label-sm text-label-sm text-[#2DD4BF] font-bold">
+            🔥 +3 days to Milestone 50
+          </div>
+</div>
+<!-- Stat 2: Words Mastered -->
+<div class="p-5 rounded-DEFAULT bg-[#172427] border-2 border-[#23383E] shadow-[0_4px_0_0_#0B1315] flex flex-col justify-between transition-transform hover:-translate-y-0.5">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-[#A9BDBB]">Words Mastered</span>
+<div class="w-10 h-10 rounded-full bg-[#1E2F33] text-[#2DD4BF] flex items-center justify-center border border-[#2DD4BF]/40 shadow-sm">
+<span class="material-symbols-outlined fill-icon text-[22px]">menu_book</span>
+</div>
+</div>
+<div class="mt-3">
+<div class="font-headline-xl text-headline-xl text-[#E8F1F0] font-extrabold leading-none">1,240 <span class="font-headline-sm text-headline-sm text-[#2DD4BF]">words</span></div>
+<div class="flex items-center gap-1.5 mt-2 font-label-sm text-label-sm text-[#A9BDBB]">
+<span class="material-symbols-outlined text-[15px] text-[#2DD4BF]">psychology</span>
+<span>SM-2 Recall: 92% retention</span>
+</div>
+</div>
+<div class="mt-3 pt-2.5 border-t border-[#23383E] font-label-sm text-label-sm text-[#2DD4BF] font-bold">
+            📈 +142 words this month
+          </div>
+</div>
+<!-- Stat 3: Total Study Time -->
+<div class="p-5 rounded-DEFAULT bg-[#172427] border-2 border-[#23383E] shadow-[0_4px_0_0_#0B1315] flex flex-col justify-between transition-transform hover:-translate-y-0.5">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-[#A9BDBB]">Total Study Time</span>
+<div class="w-10 h-10 rounded-full bg-[#1E2F33] text-[#A9BDBB] flex items-center justify-center border border-[#23383E] shadow-sm">
+<span class="material-symbols-outlined fill-icon text-[22px]">timer</span>
+</div>
+</div>
+<div class="mt-3">
+<div class="font-headline-xl text-headline-xl text-[#E8F1F0] font-extrabold leading-none">38h <span class="font-headline-sm text-headline-sm text-[#A9BDBB]">45m</span></div>
+<div class="flex items-center gap-1.5 mt-2 font-label-sm text-label-sm text-[#A9BDBB]">
+<span class="material-symbols-outlined text-[15px] text-[#F59E0B]">pace</span>
+<span>Avg. 16m / day sprint</span>
+</div>
+</div>
+<div class="mt-3 pt-2.5 border-t border-[#23383E] font-label-sm text-label-sm text-[#F59E0B] font-bold">
+            ⚡ Optimal daily pacing
+          </div>
+</div>
+<!-- Stat 4: Overall Band Estimate -->
+<div class="p-5 rounded-DEFAULT bg-[#172427] border-2 border-[#23383E] shadow-[0_4px_0_0_#0B1315] flex flex-col justify-between transition-transform hover:-translate-y-0.5">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-[#A9BDBB]">Band Estimate</span>
+<div class="w-10 h-10 rounded-full bg-[#1E2F33] text-[#F59E0B] flex items-center justify-center border border-[#F59E0B]/40 shadow-sm">
+<span class="material-symbols-outlined fill-icon text-[22px]">speed</span>
+</div>
+</div>
+<div class="mt-3">
+<div class="font-headline-xl text-headline-xl text-[#2DD4BF] font-extrabold leading-none">7.0 <span class="font-headline-sm text-headline-sm text-[#A9BDBB]">CEFR C1</span></div>
+<div class="flex items-center gap-1.5 mt-2 font-label-sm text-label-sm text-[#A9BDBB]">
+<span class="material-symbols-outlined text-[15px] text-[#F59E0B]">flag</span>
+<span>Target: Band 7.5</span>
+</div>
+</div>
+<div class="mt-3 pt-2.5 border-t border-[#23383E] font-label-sm text-label-sm text-[#2DD4BF] font-bold">
+            🎯 0.5 band to goal
+          </div>
+</div>
+</section>
+<!-- Two-Column Middle Section -->
+<section class="grid grid-cols-12 gap-6 mt-6">
+<!-- Left Column (Wide, 7 cols): Activity Heatmap & 7-Day Vocab Chart -->
+<div class="col-span-7 flex flex-col gap-6">
+<!-- Heatmap Card -->
+<div class="p-6 rounded-DEFAULT bg-[#172427] border-2 border-[#23383E] shadow-[0_4px_0_0_#0B1315]">
+<div class="flex items-center justify-between mb-4">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-[#E8F1F0]">Daily Activity Consistency</h3>
+<p class="font-body-sm text-body-sm text-[#A9BDBB]">30-day streak retention and practice intensity</p>
+</div>
+<span class="px-3 py-1 rounded-full bg-[#0D3E3A] text-[#2DD4BF] font-label-sm text-label-sm font-extrabold border border-[#2DD4BF]/50">
+                100% Active This Month
+              </span>
+</div>
+<!-- Heatmap Calendar Grid -->
+<div class="mt-2 bg-[#142427] p-4 rounded-DEFAULT border border-[#23383E]">
+<!-- Day of week headers -->
+<div class="grid grid-cols-7 gap-2 text-center font-label-sm text-label-sm text-[#7A9291] font-extrabold mb-2">
+<span>M</span>
+<span>T</span>
+<span>W</span>
+<span>T</span>
+<span>F</span>
+<span>S</span>
+<span>S</span>
+</div>
+<!-- 35 Heatmap cells (5 weeks) -->
+<div class="grid grid-cols-7 gap-2">
+<!-- Week 1 -->
+<div class="h-9 min-h-[44px] rounded-md bg-[#163835] border border-[#2DD4BF]/20 flex items-center justify-center font-label-sm text-[11px] font-bold text-[#2DD4BF]" title="Oct 1: 18m">1</div>
+<div class="h-9 min-h-[44px] rounded-md bg-[#1a4a46] border border-[#2DD4BF]/30 flex items-center justify-center font-label-sm text-[11px] font-bold text-[#E8F1F0]" title="Oct 2: 24m">2</div>
+<div class="h-9 min-h-[44px] rounded-md bg-[#136B66] text-[#E8F1F0] border border-[#2DD4BF]/50 flex items-center justify-center font-label-sm text-[11px] font-bold shadow-sm" title="Oct 3: 35m">3</div>
+<div class="h-9 min-h-[44px] rounded-md bg-[#1a4a46] border border-[#2DD4BF]/30 flex items-center justify-center font-label-sm text-[11px] font-bold text-[#E8F1F0]" title="Oct 4: 20m">4</div>
+<div class="h-9 min-h-[44px] rounded-md bg-[#163835] border border-[#2DD4BF]/20 flex items-center justify-center font-label-sm text-[11px] font-bold text-[#2DD4BF]" title="Oct 5: 12m">5</div>
+<div class="h-9 min-h-[44px] rounded-md bg-[#136B66] text-[#E8F1F0] border border-[#2DD4BF]/50 flex items-center justify-center font-label-sm text-[11px] font-bold shadow-sm" title="Oct 6: 45m">6</div>
+<div class="h-9 min-h-[44px] rounded-md bg-[#2DD4BF] text-[#091518] border border-[#2DD4BF] flex items-center justify-center font-label-sm text-[11px] font-bold shadow-sm" title="Oct 7: 50m">7</div>
+<!-- Week 2 -->
+<div class="h-9 min-h-[44px] rounded-md bg-[#1a4a46] border border-[#2DD4BF]/30 flex items-center justify-center font-label-sm text-[11px] font-bold text-[#E8F1F0]" title="Oct 8: 22m">8</div>
+<div class="h-9 min-h-[44px] rounded-md bg-[#163835] border border-[#2DD4BF]/20 flex items-center justify-center font-label-sm text-[11px] font-bold text-[#2DD4BF]" title="Oct 9: 15m">9</div>
+<div class="h-9 min-h-[44px] rounded-md bg-[#136B66] text-[#E8F1F0] border border-[#2DD4BF]/50 flex items-center justify-center font-label-sm text-[11px] font-bold" title="Oct 10: 30m">10</div>
+<div class="h-9 min-h-[44px] rounded-md bg-[#1a4a46] border border-[#2DD4BF]/30 flex items-center justify-center font-label-sm text-[11px] font-bold text-[#E8F1F0]" title="Oct 11: 25m">11</div>
+<div class="h-9 min-h-[44px] rounded-md bg-[#136B66] text-[#E8F1F0] border border-[#2DD4BF]/50 flex items-center justify-center font-label-sm text-[11px] font-bold" title="Oct 12: 32m">12</div>
+<div class="h-9 min-h-[44px] rounded-md bg-[#2DD4BF] text-[#091518] border border-[#2DD4BF] flex items-center justify-center font-label-sm text-[11px] font-bold shadow-sm" title="Oct 13: 40m">13</div>
+<div class="h-9 min-h-[44px] rounded-md bg-[#1a4a46] border border-[#2DD4BF]/30 flex items-center justify-center font-label-sm text-[11px] font-bold text-[#E8F1F0]" title="Oct 14: 28m">14</div>
+<!-- Week 3 -->
+<div class="h-9 min-h-[44px] rounded-md bg-[#163835] border border-[#2DD4BF]/20 flex items-center justify-center font-label-sm text-[11px] font-bold text-[#2DD4BF]" title="Oct 15: 14m">15</div>
+<div class="h-9 min-h-[44px] rounded-md bg-[#1a4a46] border border-[#2DD4BF]/30 flex items-center justify-center font-label-sm text-[11px] font-bold text-[#E8F1F0]" title="Oct 16: 20m">16</div>
+<div class="h-9 min-h-[44px] rounded-md bg-[#136B66] text-[#E8F1F0] border border-[#2DD4BF]/50 flex items-center justify-center font-label-sm text-[11px] font-bold" title="Oct 17: 35m">17</div>
+<div class="h-9 min-h-[44px] rounded-md bg-[#2DD4BF] text-[#091518] border border-[#2DD4BF] flex items-center justify-center font-label-sm text-[11px] font-bold shadow-sm" title="Oct 18: 42m">18</div>
+<div class="h-9 min-h-[44px] rounded-md bg-[#1a4a46] border border-[#2DD4BF]/30 flex items-center justify-center font-label-sm text-[11px] font-bold text-[#E8F1F0]" title="Oct 19: 21m">19</div>
+<div class="h-9 min-h-[44px] rounded-md bg-[#136B66] text-[#E8F1F0] border border-[#2DD4BF]/50 flex items-center justify-center font-label-sm text-[11px] font-bold" title="Oct 20: 38m">20</div>
+<div class="h-9 min-h-[44px] rounded-md bg-[#1a4a46] border border-[#2DD4BF]/30 flex items-center justify-center font-label-sm text-[11px] font-bold text-[#E8F1F0]" title="Oct 21: 26m">21</div>
+<!-- Week 4 -->
+<div class="h-9 min-h-[44px] rounded-md bg-[#163835] border border-[#2DD4BF]/20 flex items-center justify-center font-label-sm text-[11px] font-bold text-[#2DD4BF]" title="Oct 22: 15m">22</div>
+<div class="h-9 min-h-[44px] rounded-md bg-[#136B66] text-[#E8F1F0] border border-[#2DD4BF]/50 flex items-center justify-center font-label-sm text-[11px] font-bold" title="Oct 23: 31m">23</div>
+<div class="h-9 min-h-[44px] rounded-md bg-[#1a4a46] border border-[#2DD4BF]/30 flex items-center justify-center font-label-sm text-[11px] font-bold text-[#E8F1F0]" title="Oct 24: 25m">24</div>
+<div class="h-9 min-h-[44px] rounded-md bg-[#2DD4BF] text-[#091518] border border-[#2DD4BF] flex items-center justify-center font-label-sm text-[11px] font-bold shadow-sm" title="Oct 25: 44m">25</div>
+<div class="h-9 min-h-[44px] rounded-md bg-[#136B66] text-[#E8F1F0] border border-[#2DD4BF]/50 flex items-center justify-center font-label-sm text-[11px] font-bold" title="Oct 26: 30m">26</div>
+<div class="h-9 min-h-[44px] rounded-md bg-[#1a4a46] border border-[#2DD4BF]/30 flex items-center justify-center font-label-sm text-[11px] font-bold text-[#E8F1F0]" title="Oct 27: 22m">27</div>
+<div class="h-9 min-h-[44px] rounded-md bg-[#2DD4BF] text-[#091518] border border-[#2DD4BF] flex items-center justify-center font-label-sm text-[11px] font-bold shadow-sm" title="Oct 28: 48m">28</div>
+<!-- Week 5 (Current active week with highlight) -->
+<div class="h-9 min-h-[44px] rounded-md bg-[#1a4a46] border border-[#2DD4BF]/30 flex items-center justify-center font-label-sm text-[11px] font-bold text-[#E8F1F0]" title="Oct 29: 20m">29</div>
+<div class="h-9 min-h-[44px] rounded-md bg-[#2DD4BF] text-[#091518] border-2 border-[#5EEAD4] flex items-center justify-center font-label-sm text-[11px] font-black ring-2 ring-[#F59E0B]" title="Today: 36m">30 ★</div>
+<div class="h-9 min-h-[44px] rounded-md bg-[#1E2F33] border border-dashed border-[#23383E] flex items-center justify-center font-label-sm text-[11px] text-[#A9BDBB] font-bold">31</div>
+<div class="h-9 min-h-[44px] rounded-md bg-[#1E2F33]/60 border border-dashed border-[#23383E]/60 flex items-center justify-center font-label-sm text-[11px] text-[#A9BDBB] font-bold">1</div>
+<div class="h-9 min-h-[44px] rounded-md bg-[#1E2F33]/60 border border-dashed border-[#23383E]/60 flex items-center justify-center font-label-sm text-[11px] text-[#A9BDBB] font-bold">2</div>
+<div class="h-9 min-h-[44px] rounded-md bg-[#1E2F33]/60 border border-dashed border-[#23383E]/60 flex items-center justify-center font-label-sm text-[11px] text-[#A9BDBB] font-bold">3</div>
+<div class="h-9 min-h-[44px] rounded-md bg-[#1E2F33]/60 border border-dashed border-[#23383E]/60 flex items-center justify-center font-label-sm text-[11px] text-[#A9BDBB] font-bold">4</div>
+</div>
+<!-- Heatmap Legend -->
+<div class="flex items-center justify-between mt-4 pt-3 border-t border-[#23383E]">
+<span class="font-label-sm text-[11px] text-[#A9BDBB] font-bold">Current Sprint: 45 consecutive days without freeze</span>
+<div class="flex items-center gap-2 font-label-sm text-[11px] text-[#A9BDBB]">
+<span>Less</span>
+<div class="w-3.5 h-3.5 rounded bg-[#1E2F33] border border-[#23383E]"></div>
+<div class="w-3.5 h-3.5 rounded bg-[#163835] border border-[#2DD4BF]/20"></div>
+<div class="w-3.5 h-3.5 rounded bg-[#1a4a46] border border-[#2DD4BF]/30"></div>
+<div class="w-3.5 h-3.5 rounded bg-[#136B66] border border-[#2DD4BF]/50"></div>
+<div class="w-3.5 h-3.5 rounded bg-[#2DD4BF] border border-[#2DD4BF]"></div>
+<span>30m+</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Words Learned 7-Day Bar Chart -->
+<div class="p-6 rounded-DEFAULT bg-[#172427] border-2 border-[#23383E] shadow-[0_4px_0_0_#0B1315]">
+<div class="flex items-center justify-between mb-4">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-[#E8F1F0]">Vocabulary Intake (Last 7 Days)</h3>
+<p class="font-body-sm text-body-sm text-[#A9BDBB]">Mon – Sun spaced repetition cards reviewed</p>
+</div>
+<span class="px-3 py-1 rounded-full bg-[#1E2F33] text-[#F59E0B] font-label-sm text-label-sm font-extrabold border border-[#F59E0B]/50">
+                +180 words this week
+              </span>
+</div>
+<!-- Tactile Vertical Bar Chart -->
+<div class="bg-[#142427] p-5 rounded-DEFAULT border border-[#23383E]">
+<div class="h-44 flex items-end justify-between gap-3 px-2 pt-6">
+<!-- Monday (18) -->
+<div class="flex-1 flex flex-col items-center gap-2 group h-full justify-end">
+<span class="font-label-sm text-[11px] font-extrabold text-[#A9BDBB] group-hover:text-[#2DD4BF]">18</span>
+<div class="w-full bg-[#136B66] rounded-t-DEFAULT border-2 border-b-0 border-[#2DD4BF]/60 transition-all group-hover:brightness-110" style="height: 45%;"></div>
+<span class="font-label-sm text-label-sm text-[#A9BDBB] font-bold">Mon</span>
+</div>
+<!-- Tuesday (26) -->
+<div class="flex-1 flex flex-col items-center gap-2 group h-full justify-end">
+<span class="font-label-sm text-[11px] font-extrabold text-[#A9BDBB] group-hover:text-[#2DD4BF]">26</span>
+<div class="w-full bg-[#136B66] rounded-t-DEFAULT border-2 border-b-0 border-[#2DD4BF]/60 transition-all group-hover:brightness-110" style="height: 65%;"></div>
+<span class="font-label-sm text-label-sm text-[#A9BDBB] font-bold">Tue</span>
+</div>
+<!-- Wednesday (34) -->
+<div class="flex-1 flex flex-col items-center gap-2 group h-full justify-end">
+<span class="font-label-sm text-[11px] font-extrabold text-[#A9BDBB] group-hover:text-[#2DD4BF]">34</span>
+<div class="w-full bg-[#2DD4BF] rounded-t-DEFAULT border-2 border-b-0 border-[#5EEAD4] transition-all group-hover:brightness-110 shadow-[0_2px_0_0_#0B1315]" style="height: 85%;"></div>
+<span class="font-label-sm text-label-sm text-[#A9BDBB] font-bold">Wed</span>
+</div>
+<!-- Thursday (12) -->
+<div class="flex-1 flex flex-col items-center gap-2 group h-full justify-end">
+<span class="font-label-sm text-[11px] font-extrabold text-[#A9BDBB] group-hover:text-[#2DD4BF]">12</span>
+<div class="w-full bg-[#1E2F33] rounded-t-DEFAULT border-2 border-b-0 border-[#23383E] transition-all group-hover:brightness-110" style="height: 30%;"></div>
+<span class="font-label-sm text-label-sm text-[#A9BDBB] font-bold">Thu</span>
+</div>
+<!-- Friday (28) -->
+<div class="flex-1 flex flex-col items-center gap-2 group h-full justify-end">
+<span class="font-label-sm text-[11px] font-extrabold text-[#A9BDBB] group-hover:text-[#2DD4BF]">28</span>
+<div class="w-full bg-[#2DD4BF] rounded-t-DEFAULT border-2 border-b-0 border-[#5EEAD4] transition-all group-hover:brightness-110 shadow-[0_2px_0_0_#0B1315]" style="height: 70%;"></div>
+<span class="font-label-sm text-label-sm text-[#A9BDBB] font-bold">Fri</span>
+</div>
+<!-- Saturday (40 - Peak Day Highlighted) -->
+<div class="flex-1 flex flex-col items-center gap-2 group h-full justify-end">
+<span class="font-label-sm text-[11px] font-black text-[#1C1003] bg-[#F59E0B] px-1.5 py-0.5 rounded shadow-sm">40 ★</span>
+<div class="w-full bg-[#F59E0B] rounded-t-DEFAULT border-2 border-b-0 border-[#F97316] shadow-[0_4px_0_0_#0B1315] transition-all" style="height: 100%;"></div>
+<span class="font-label-sm text-label-sm text-[#F59E0B] font-black">Sat</span>
+</div>
+<!-- Sunday (22) -->
+<div class="flex-1 flex flex-col items-center gap-2 group h-full justify-end">
+<span class="font-label-sm text-[11px] font-extrabold text-[#A9BDBB] group-hover:text-[#2DD4BF]">22</span>
+<div class="w-full bg-[#136B66] rounded-t-DEFAULT border-2 border-b-0 border-[#2DD4BF]/60 transition-all group-hover:brightness-110" style="height: 55%;"></div>
+<span class="font-label-sm text-label-sm text-[#A9BDBB] font-bold">Sun</span>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-[#23383E] flex items-center justify-between font-label-sm text-[12px] text-[#A9BDBB]">
+<span>Daily average target: <strong class="text-[#E8F1F0]">25 cards</strong></span>
+<span class="text-[#2DD4BF] font-bold">Active recall pass-rate: 94.2%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column (5 cols): Teacher Slot Card & Skill Breakdown -->
+<div class="col-span-5 flex flex-col gap-6">
+<!-- Teacher Slot Card (Empty dashed rounded card with mentor cap icon & class teacher-slot) -->
+<div class="teacher-slot p-6 rounded-DEFAULT bg-[#142427] border-2 border-dashed border-[#2DD4BF] shadow-[0_4px_0_0_#0B1315] flex flex-col gap-3.5 relative overflow-hidden">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-DEFAULT bg-[#1E2F33] text-[#2DD4BF] flex items-center justify-center border border-[#2DD4BF]/40 shadow-sm">
+<span class="material-symbols-outlined fill-icon text-[20px]">school</span>
+</div>
+<div>
+<span class="font-headline-sm text-[15px] font-extrabold text-[#E8F1F0] block leading-tight">Coach Ama's Insight</span>
+<span class="font-label-sm text-[11px] text-[#2DD4BF] font-extrabold tracking-wide">AI Pedagogical Mentor</span>
+</div>
+</div>
+<span class="teacher-slot-tag font-label-sm text-[11px] uppercase tracking-wider bg-[#1E2F33] px-2 py-0.5 rounded text-[#A9BDBB] font-extrabold border border-[#23383E]">teacher-slot</span>
+</div>
+<!-- Speech bubble style callout -->
+<div class="p-3.5 rounded-DEFAULT bg-[#172427] border-2 border-[#23383E] shadow-sm">
+<p class="font-body-sm text-body-sm text-[#E8F1F0] leading-relaxed italic">
+                “Consistency compounds. 15 minutes of spaced retrieval daily outperforms weekend marathon cramming by 3.2x.”
+              </p>
+</div>
+<div class="flex items-center justify-between font-label-sm text-[12px] pt-1">
+<span class="text-[#A9BDBB] font-bold">Dynamic mentor slot ready</span>
+<a class="text-[#2DD4BF] hover:underline font-extrabold flex items-center gap-1 min-h-[44px] py-2" href="#schedule-mentor">
+                Consult Coach <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Accuracy by Skill Breakdown (4 tactile progress bars) -->
+<div class="p-6 rounded-DEFAULT bg-[#172427] border-2 border-[#23383E] shadow-[0_4px_0_0_#0B1315] flex flex-col gap-5">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-[#E8F1F0]">Skill Diagnostic Breakdown</h3>
+<p class="font-body-sm text-body-sm text-[#A9BDBB]">Calibrated against IELTS Band 9 criteria</p>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Skill 1: Listening -->
+<div class="flex flex-col gap-1.5 p-2 rounded-lg bg-[#142427] border border-[#23383E]/50">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<div class="flex items-center gap-2 text-[#E8F1F0]">
+<span class="material-symbols-outlined fill-icon text-[18px] text-[#2DD4BF]">headphones</span>
+<span>Listening</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-[#A9BDBB]">Band 7.5</span>
+<span class="font-headline-sm text-[14px] text-[#2DD4BF] font-extrabold">88%</span>
+</div>
+</div>
+<!-- Tactile Resin Progress Bar -->
+<div class="w-full h-3.5 bg-[#10191B] rounded-full p-0.5 border border-[#23383E] shadow-inner">
+<div class="bg-[#2DD4BF] h-full rounded-full relative shadow-[0_2px_0_0_#0B1315]" style="width: 88%">
+<div class="absolute inset-x-1 top-0.5 h-[1.5px] bg-white/40 rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Skill 2: Reading -->
+<div class="flex flex-col gap-1.5 p-2 rounded-lg bg-[#142427] border border-[#23383E]/50">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<div class="flex items-center gap-2 text-[#E8F1F0]">
+<span class="material-symbols-outlined fill-icon text-[18px] text-[#2DD4BF]">menu_book</span>
+<span>Reading</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-[#A9BDBB]">Band 7.0</span>
+<span class="font-headline-sm text-[14px] text-[#2DD4BF] font-extrabold">82%</span>
+</div>
+</div>
+<div class="w-full h-3.5 bg-[#10191B] rounded-full p-0.5 border border-[#23383E] shadow-inner">
+<div class="bg-[#14B8A6] h-full rounded-full relative shadow-[0_2px_0_0_#0B1315]" style="width: 82%">
+<div class="absolute inset-x-1 top-0.5 h-[1.5px] bg-white/40 rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Skill 3: Speaking Fluency -->
+<div class="flex flex-col gap-1.5 p-2 rounded-lg bg-[#142427] border border-[#23383E]/50">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<div class="flex items-center gap-2 text-[#E8F1F0]">
+<span class="material-symbols-outlined fill-icon text-[18px] text-[#F59E0B]">mic</span>
+<span>Speaking Fluency</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-[#A9BDBB]">Band 6.5</span>
+<span class="font-headline-sm text-[14px] text-[#F59E0B] font-extrabold">74%</span>
+</div>
+</div>
+<div class="w-full h-3.5 bg-[#10191B] rounded-full p-0.5 border border-[#23383E] shadow-inner">
+<div class="bg-[#F59E0B] h-full rounded-full relative shadow-[0_2px_0_0_#0B1315]" style="width: 74%">
+<div class="absolute inset-x-1 top-0.5 h-[1.5px] bg-white/50 rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Skill 4: Writing Task 2 Cohesion -->
+<div class="flex flex-col gap-1.5 p-2 rounded-lg bg-[#142427] border border-[#23383E]/50">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<div class="flex items-center gap-2 text-[#E8F1F0]">
+<span class="material-symbols-outlined fill-icon text-[18px] text-[#F97316]">edit_note</span>
+<span>Writing Task 2 Cohesion</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-[#A9BDBB]">Band 6.5</span>
+<span class="font-headline-sm text-[14px] text-[#F97316] font-extrabold">70%</span>
+</div>
+</div>
+<div class="w-full h-3.5 bg-[#10191B] rounded-full p-0.5 border border-[#23383E] shadow-inner">
+<div class="bg-[#F97316] h-full rounded-full relative shadow-[0_2px_0_0_#0B1315]" style="width: 70%">
+<div class="absolute inset-x-1 top-0.5 h-[1.5px] bg-white/40 rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Diagnostic Callout -->
+<div class="p-3 bg-[#1E2F33] rounded-DEFAULT border border-[#23383E] flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[#2DD4BF] text-[20px]">lightbulb</span>
+<span class="font-label-sm text-[12px] text-[#A9BDBB]">Focus suggestion: 2 Writing cohesion drills to unlock Band 7.0 benchmark.</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. BADGES SHOWCASE GRID (8 badges total: 5 unlocked, 3 locked) -->
+<section aria-label="Badges and Achievements" class="mt-8 pt-8 border-t-2 border-[#23383E] flex flex-col gap-6">
+<div class="flex items-center justify-between">
+<div>
+<div class="flex items-center gap-3">
+<h2 class="font-headline-md text-headline-md text-[#E8F1F0]">Badges Showcase</h2>
+<span class="bg-[#144440] text-[#2DD4BF] border border-[#2DD4BF]/40 px-2.5 py-0.5 rounded-full font-label-sm text-label-sm font-extrabold">
+                5 / 19 Unlocked
+              </span>
+</div>
+<p class="font-body-sm text-body-sm text-[#A9BDBB] mt-0.5">Physical trophies awarded for milestones, mastery and daily dedication</p>
+</div>
+<a class="font-label-md text-label-md text-[#2DD4BF] hover:text-[#5EEAD4] font-extrabold flex items-center gap-1 group min-h-[44px] py-2 px-1" href="#all-badges">
+<span>View all 19 badges</span>
+<span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<!-- 8-Card Responsive Bento Grid -->
+<div class="grid grid-cols-4 gap-4">
+<!-- Badge 1: First Review (Unlocked) -->
+<div class="p-5 rounded-DEFAULT bg-[#1E2F33] border-2 border-[#2A4248] shadow-[0_4px_0_0_#0B1315] flex flex-col items-center text-center relative group hover:-translate-y-1 transition-transform">
+<div class="w-16 h-16 rounded-full bg-[#172427] border-2 border-[#F59E0B] shadow-[0_4px_0_0_#0B1315] flex items-center justify-center text-[#F59E0B] relative mb-3">
+<span class="material-symbols-outlined fill-icon text-[32px]">star</span>
+<div class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-[#2DD4BF] text-[#00201E] flex items-center justify-center text-[10px] font-black border border-[#172427]">✓</div>
+</div>
+<h4 class="font-headline-sm text-[16px] text-[#E8F1F0] font-extrabold">First Review</h4>
+<p class="font-body-sm text-[13px] text-[#A9BDBB] mt-0.5">Completed day 1 session</p>
+<span class="mt-3 px-2 py-0.5 rounded-full bg-[#0D3E3A] font-label-sm text-[11px] text-[#5EEAD4] font-bold border border-[#2DD4BF]/30">
+              Earned Day 1
+            </span>
+</div>
+<!-- Badge 2: 50 Words (Unlocked) -->
+<div class="p-5 rounded-DEFAULT bg-[#1E2F33] border-2 border-[#2A4248] shadow-[0_4px_0_0_#0B1315] flex flex-col items-center text-center relative group hover:-translate-y-1 transition-transform">
+<div class="w-16 h-16 rounded-full bg-[#172427] border-2 border-[#2DD4BF] shadow-[0_4px_0_0_#0B1315] flex items-center justify-center text-[#2DD4BF] relative mb-3">
+<span class="material-symbols-outlined fill-icon text-[30px]">book</span>
+<div class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-[#2DD4BF] text-[#00201E] flex items-center justify-center text-[10px] font-black border border-[#172427]">✓</div>
+</div>
+<h4 class="font-headline-sm text-[16px] text-[#E8F1F0] font-extrabold">50 Words</h4>
+<p class="font-body-sm text-[13px] text-[#A9BDBB] mt-0.5">Core Academic Wordlist</p>
+<span class="mt-3 px-2 py-0.5 rounded-full bg-[#0D3E3A] font-label-sm text-[11px] text-[#5EEAD4] font-bold border border-[#2DD4BF]/30">
+              Earned Day 4
+            </span>
+</div>
+<!-- Badge 3: Review Machine (Unlocked) -->
+<div class="p-5 rounded-DEFAULT bg-[#1E2F33] border-2 border-[#2A4248] shadow-[0_4px_0_0_#0B1315] flex flex-col items-center text-center relative group hover:-translate-y-1 transition-transform">
+<div class="w-16 h-16 rounded-full bg-[#172427] border-2 border-[#F97316] shadow-[0_4px_0_0_#0B1315] flex items-center justify-center text-[#F97316] relative mb-3">
+<span class="material-symbols-outlined fill-icon text-[30px]">rocket_launch</span>
+<div class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-[#2DD4BF] text-[#00201E] flex items-center justify-center text-[10px] font-black border border-[#172427]">✓</div>
+</div>
+<h4 class="font-headline-sm text-[16px] text-[#E8F1F0] font-extrabold">Review Machine</h4>
+<p class="font-body-sm text-[13px] text-[#A9BDBB] mt-0.5">50 cards in one day</p>
+<span class="mt-3 px-2 py-0.5 rounded-full bg-[#0D3E3A] font-label-sm text-[11px] text-[#5EEAD4] font-bold border border-[#2DD4BF]/30">
+              Earned 28 Sep
+            </span>
+</div>
+<!-- Badge 4: 7-Day Volcano (Unlocked) -->
+<div class="p-5 rounded-DEFAULT bg-[#1E2F33] border-2 border-[#2A4248] shadow-[0_4px_0_0_#0B1315] flex flex-col items-center text-center relative group hover:-translate-y-1 transition-transform">
+<div class="w-16 h-16 rounded-full bg-[#172427] border-2 border-[#F59E0B] shadow-[0_4px_0_0_#0B1315] flex items-center justify-center text-[#F59E0B] relative mb-3">
+<span class="material-symbols-outlined fill-icon text-[32px]">local_fire_department</span>
+<div class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-[#2DD4BF] text-[#00201E] flex items-center justify-center text-[10px] font-black border border-[#172427]">✓</div>
+</div>
+<h4 class="font-headline-sm text-[16px] text-[#E8F1F0] font-extrabold">7-Day Volcano</h4>
+<p class="font-body-sm text-[13px] text-[#A9BDBB] mt-0.5">Flawless streak week</p>
+<span class="mt-3 px-2 py-0.5 rounded-full bg-[#0D3E3A] font-label-sm text-[11px] text-[#5EEAD4] font-bold border border-[#2DD4BF]/30">
+              Earned Week 1
+            </span>
+</div>
+<!-- Badge 5: 30-Day Spark (Unlocked) -->
+<div class="p-5 rounded-DEFAULT bg-[#1E2F33] border-2 border-[#2A4248] shadow-[0_4px_0_0_#0B1315] flex flex-col items-center text-center relative group hover:-translate-y-1 transition-transform">
+<div class="w-16 h-16 rounded-full bg-[#172427] border-2 border-[#2DD4BF] shadow-[0_4px_0_0_#0B1315] flex items-center justify-center text-[#2DD4BF] relative mb-3">
+<span class="material-symbols-outlined fill-icon text-[32px]">diamond</span>
+<div class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-[#2DD4BF] text-[#00201E] flex items-center justify-center text-[10px] font-black border border-[#172427]">✓</div>
+</div>
+<h4 class="font-headline-sm text-[16px] text-[#E8F1F0] font-extrabold">30-Day Spark</h4>
+<p class="font-body-sm text-[13px] text-[#A9BDBB] mt-0.5">Month streak habit master</p>
+<span class="mt-3 px-2 py-0.5 rounded-full bg-[#0D3E3A] font-label-sm text-[11px] text-[#5EEAD4] font-bold border border-[#2DD4BF]/30">
+              Earned 12 Oct
+            </span>
+</div>
+<!-- Badge 6: Grand Library (LOCKED) -->
+<div class="p-5 rounded-DEFAULT bg-[#172427] border-2 border-dashed border-[#23383E] shadow-sm flex flex-col items-center text-center opacity-85">
+<div class="w-16 h-16 rounded-full bg-[#142427] border-2 border-[#23383E] flex items-center justify-center text-[#7A9291] relative mb-3">
+<span class="material-symbols-outlined text-[28px]">local_library</span>
+<div class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-[#1E2F33] text-[#7A9291] flex items-center justify-center text-[10px] font-bold border border-[#23383E]">
+<span class="material-symbols-outlined text-[13px]">lock</span>
+</div>
+</div>
+<h4 class="font-headline-sm text-[16px] text-[#A9BDBB] font-bold">Grand Library</h4>
+<p class="font-body-sm text-[13px] text-[#7A9291] mt-0.5">Master 1,000 words</p>
+<div class="w-full mt-3 flex flex-col gap-1">
+<div class="w-full bg-[#10191B] h-2 rounded-full overflow-hidden border border-[#23383E]/50">
+<div class="bg-[#2DD4BF]/70 h-full rounded-full" style="width: 82%"></div>
+</div>
+<span class="font-label-sm text-[10px] text-[#7A9291] font-extrabold">820 / 1000 (82%)</span>
+</div>
+</div>
+<!-- Badge 7: Master 100 (LOCKED) -->
+<div class="p-5 rounded-DEFAULT bg-[#172427] border-2 border-dashed border-[#23383E] shadow-sm flex flex-col items-center text-center opacity-85">
+<div class="w-16 h-16 rounded-full bg-[#142427] border-2 border-[#23383E] flex items-center justify-center text-[#7A9291] relative mb-3">
+<span class="material-symbols-outlined text-[28px]">record_voice_over</span>
+<div class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-[#1E2F33] text-[#7A9291] flex items-center justify-center text-[10px] font-bold border border-[#23383E]">
+<span class="material-symbols-outlined text-[13px]">lock</span>
+</div>
+</div>
+<h4 class="font-headline-sm text-[16px] text-[#A9BDBB] font-bold">Master 100</h4>
+<p class="font-body-sm text-[13px] text-[#7A9291] mt-0.5">100 speaking drills</p>
+<div class="w-full mt-3 flex flex-col gap-1">
+<div class="w-full bg-[#10191B] h-2 rounded-full overflow-hidden border border-[#23383E]/50">
+<div class="bg-[#F59E0B]/70 h-full rounded-full" style="width: 64%"></div>
+</div>
+<span class="font-label-sm text-[10px] text-[#7A9291] font-extrabold">64 / 100 (64%)</span>
+</div>
+</div>
+<!-- Badge 8: IELTS Crown (LOCKED) -->
+<div class="p-5 rounded-DEFAULT bg-[#172427] border-2 border-dashed border-[#23383E] shadow-sm flex flex-col items-center text-center opacity-85">
+<div class="w-16 h-16 rounded-full bg-[#142427] border-2 border-[#23383E] flex items-center justify-center text-[#7A9291] relative mb-3">
+<span class="material-symbols-outlined text-[28px]">workspace_premium</span>
+<div class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-[#1E2F33] text-[#7A9291] flex items-center justify-center text-[10px] font-bold border border-[#23383E]">
+<span class="material-symbols-outlined text-[13px]">lock</span>
+</div>
+</div>
+<h4 class="font-headline-sm text-[16px] text-[#A9BDBB] font-bold">IELTS Crown</h4>
+<p class="font-body-sm text-[13px] text-[#7A9291] mt-0.5">Band 7.5 achieved</p>
+<div class="w-full mt-3 flex flex-col gap-1">
+<div class="w-full bg-[#10191B] h-2 rounded-full overflow-hidden border border-[#23383E]/50">
+<div class="bg-[#F97316]/70 h-full rounded-full" style="width: 93%"></div>
+</div>
+<span class="font-label-sm text-[10px] text-[#7A9291] font-extrabold">Band 7.0 / 7.5</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Benchmark Footer Note -->
+<footer class="mt-10 pt-6 border-t-2 border-[#23383E] flex items-center justify-between text-[#A9BDBB] font-label-sm text-[12px] bg-[#0B1315] -mx-8 -mb-8 px-8 pb-8">
+<span>© 2025 Lexkite Media Inc. Built on uncompromising accuracy and rigorous independent journalism.</span>
+<div class="flex items-center gap-4">
+<a class="hover:text-[#2DD4BF] transition-colors min-h-[44px] inline-flex items-center text-[#A9BDBB]" href="#standards">CEFR Standards</a>
+<a class="hover:text-[#2DD4BF] transition-colors min-h-[44px] inline-flex items-center text-[#A9BDBB]" href="#algorithm">SM-2 Algorithm</a>
+<a class="hover:text-[#2DD4BF] transition-colors min-h-[44px] inline-flex items-center text-[#A9BDBB]" href="#privacy">Data Privacy</a>
+</div>
+</footer>
+</main>
+</div>
+</body></html>

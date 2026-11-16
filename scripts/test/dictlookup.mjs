@@ -100,7 +100,7 @@ r = await call('src=dapi&w=hello', { Origin: 'https://evil.example' });
 ok(r.body === null && r.why === 'origin' && !r.res.headers.get('Access-Control-Allow-Origin') && upstreamCalls.length === c0, 'Origin lạ → null, không CORS, không gọi nguồn');
 r = await call('src=dapi&w=hello', { 'Sec-Fetch-Site': 'cross-site' });
 ok(r.why === 'origin', 'Sec-Fetch-Site cross-site không kèm Origin → từ chối');
-for (const o of ['capacitor://localhost', 'https://localhost', 'http://localhost:8080', 'http://127.0.0.1:40639', 'http://[::1]:5173', 'chrome-extension://abcdefghijklmnopabcdefghijklmnop', 'https://lexkite.com', 'https://preview-1.lexkite.pages.dev']) {
+for (const o of ['capacitor://localhost', 'https://localhost', 'http://localhost:8080', 'http://127.0.0.1:40639', 'http://[::1]:5173', 'chrome-extension://abcdefghijklmnopabcdefghijklmnop', 'https://lexkite.com', 'https://preview-1.lexkite.pages.dev', 'https://preview.lexkite-preview.pages.dev']) {
   r = await call('src=dapi&w=hello', { Origin: o });
   ok(r.res.headers.get('Access-Control-Allow-Origin') === o && JSON.stringify(r.body) === JSON.stringify(HELLO), `Origin ${o} → ACAO đúng nguồn`);
 }

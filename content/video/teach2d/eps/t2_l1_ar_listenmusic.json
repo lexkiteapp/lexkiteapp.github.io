@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_listenmusic",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Listen needs to!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I listen music every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I listen to music every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say listen to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "To! She listens to the radio.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I listen music every day.",
+  "right": "I listen to music every day.",
+  "strike": "listen music",
+  "why": "Say listen to.",
+  "memory": "Listen to music.",
+  "quiz": {
+   "stem": "She likes to listen ___ the radio.",
+   "options": [
+    "to",
+    "at"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "هل تقول “listen music”؟",
+   "tip": "بعد listen نضع to: “I listen to music every day.” وليس “I listen music every day.”.",
+   "caption": "هل تقول أحيانًا “I listen music every day.” 😅 بعد listen نضع to، فالجملة الصحيحة “I listen to music every day.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “to”. بعد listen نضع to. اختبار مجاني هنا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “I listen music every day”?",
+   "tip": "After listen we put to: “I listen to music every day.” not “I listen music every day.”.",
+   "caption": "Do you sometimes say “I listen music every day.” 😅 After listen we put to, so the right sentence is “I listen to music every day.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “listen music”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "هل تقول “listen music”؟",
+  "keyword": "I listen to music every day.",
+  "value": "بعد listen نضع to: “I listen to music every day.” وليس “I listen music every day.”.",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “listen music”؟",
+    "description": "هل تقول أحيانًا “I listen music every day.” 😅 بعد listen نضع to، فالجملة الصحيحة “I listen to music every day.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "I listen to music every day.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا “I listen music every day.” 😅 بعد listen نضع to، فالجملة الصحيحة “I listen to music every day.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول أحيانًا “I listen music every day.” 😅 بعد listen نضع to، فالجملة الصحيحة “I listen to music every day.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “listen music”؟ #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “to”. بعد listen نضع to. اختبار مجاني هنا: {link}",
+  "lang": "ar"
+ }
+}

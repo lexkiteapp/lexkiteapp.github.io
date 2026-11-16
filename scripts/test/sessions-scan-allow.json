@@ -1,0 +1,10 @@
+{
+  "e6e0f37ddff6": "admin.js LEGACY.analytics (giờ cao điểm) – chỉ chạy khi ADMIN_ROLLUP=0 (quay lại SQL cũ); đường thường đọc stats_day (#543)",
+  "02ece404bf8c": "admin.js LEGACY.analytics (thứ trong tuần) – chỉ khi ADMIN_ROLLUP=0",
+  "3cea311b4d1d": "admin.js LEGACY.live tổng toàn thời gian – chỉ khi ADMIN_ROLLUP=0, đệm 10 phút",
+  "6d65d9bd3062": "growth.js growthData (SQL cũ) – chỉ khi ADMIN_ROLLUP=0, đệm 10 phút; đường thường growthRoll đọc bảng tổng hợp",
+  "10f43da2cb5b": "hit.js di trú 1 lần 'mig-bot-1' (hit_meta khoá chặn chạy lại)",
+  "e46b12a2641a": "hit.js di trú 1 lần 'mig-bot-1' (sửa pageviews_day home)",
+  "a1c85c9de1a3": "hit.js di trú 1 lần 'mig-bot-1' (sửa pageviews_day welcome)",
+  "62fd4ac6a89e": "hit.js di trú 1 lần đổi day sang giờ VN (hit_meta khoá chặn chạy lại)"
+}

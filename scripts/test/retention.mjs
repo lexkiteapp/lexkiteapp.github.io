@@ -12,6 +12,8 @@ let pass = 0; const ok = (c, m) => { assert.ok(c, m); pass++; };
 // ---------- 1. Lõi thuần (Node, không DOM) ----------
 const ctx = { console }; ctx.self = ctx; vm.createContext(ctx); vm.runInContext(SRC, ctx);
 const C = ctx.Ret.core;
+vm.runInContext(fs.readFileSync('web/cpack/ret-app/cards.js', 'utf8'), ctx); // thẻ quay lại + tuần qua (lazy: cpack/ret-app/cards.js) – recap thuần nằm ở đây
+const RC = ctx.RetCards;
 ok(C.MILESTONES.join() === '3,7,14,30,50,100,180,365', 'mốc 3/7/14/30…');
 const days = new Set([ago(0), ago(1), ago(2), ago(3), ago(4), ago(5), ago(6)]);
 ok(C.streak(days) === 7, 'chuỗi 7 ngày');
@@ -19,6 +21,17 @@ ok(C.streak(new Set([ago(1), ago(2)])) === 2, 'hôm nay chưa học vẫn giữ 
 ok(C.pending({}, 7) === 7 && C.pending({ ms: { 3: 1, 7: 1 } }, 9) === 0, 'mốc chưa chúc mừng');
 ok(C.pending({}, 40) === 30, 'nhảy nhiều mốc (đồng bộ) → chỉ 1 màn mốc cao nhất');
 ok(C.next(7) === 14 && C.next(365) === 400, 'mốc tiếp theo');
+// Quay lại sau khi nghỉ: gap = số ngày từ ngày học cuối; bậc 3/7/14; học hôm nay hoặc chưa từng học → không hiện
+ok(C.gap(new Set([ago(0)])) === null && C.gap(new Set()) === null, 'đã học hôm nay / chưa từng học → không có gap');
+ok(C.gap(new Set([ago(1)])) === 1 && C.gap(new Set([ago(9), ago(30)])) === 9, 'gap tính từ ngày học gần nhất');
+ok([0, 1, 2, 3, 6, 7, 13, 14, 90].map(g => C.backTier(g)).join() === '0,0,0,3,3,7,7,14,14' && C.backTier(null) === 0, 'bậc quay lại 3/7/14, dưới 3 ngày không hiện');
+// Tổng kết tuần: tuần Thứ 2→CN vừa qua so với tuần trước đó, phút là ƯỚC TÍNH; 2026-11-12 (Thứ 5) → tuần 2/11–8/11
+{ const now = new Date(2026, 10, 12, 10), gd = { '2026-11-02': { xp: 10, newWords: 4, reviews: 10, spoken: 3 }, '2026-11-08': { xp: 5, quizzes: 1 }, '2026-11-09': { xp: 99, newWords: 50 }, '2026-10-27': { xp: 7, newWords: 2 } };
+  const r = RC.recap(gd, now); ok(r.week === '2026-11-02', 'tuần tổng kết bắt đầu Thứ 2 2/11 – ' + r.week);
+  ok(r.cur.newWords === 4 && r.cur.active === 2 && r.cur.spoken === 3 && r.cur.quizzes === 1, 'cộng đúng tuần vừa qua, bỏ ngày 9/11 (tuần mới)');
+  ok(r.prev.newWords === 2 && r.prev.active === 1, 'tuần trước đó 26/10–1/11');
+  ok(r.cur.mins === Math.round(10 * 0.3 + 4 * 0.5 + 1 * 2 + 3 * 0.3), 'phút ước tính theo số việc');
+  ok(RC.recap({}, now).cur.xp === 0, 'không có dữ liệu → xp 0 (thẻ không hiện)'); }
 // Lịch tuần: đo trên MỌI thứ trong tuần với "hôm nay" cố định (không phụ thuộc ngày chạy CI – 02/11 Thứ 2: hôm qua = CN tuần trước → không còn ô đóng băng)
 for (let dow = 0; dow < 7; dow++) {
   const now = new Date(2026, 10, 2 + dow, 12), at = n => { const d = new Date(now); d.setDate(d.getDate() - n); return key(d); }; // 2/11/2026 = Thứ 2
@@ -28,6 +41,15 @@ for (let dow = 0; dow < 7; dow++) {
   ok(wk.slice(dow + 1).every(x => x.st === 'future'), `sau hôm nay (${dow}) = future`);
   ok(wk.slice(0, dow).every((x, i) => x.st === (i >= dow - 2 ? 'done' : 'miss')), `trước hôm nay (${dow}): 2 ngày học = done, còn lại miss`);
   if (dow === 0) ok(!wk.some(x => x.k === at(1)), 'Thứ 2: hôm qua (CN tuần trước) không nằm trong lịch tuần');
+}
+{ // Lịch tháng (#/streak, 5/11): lưới Thứ 2 → CN, ô đệm null, trạng thái như week(), tháng trước qua off=-1
+  const now = new Date(2026, 10, 5, 12).getTime(), d = x => key(new Date(2026, 10, x, 12)); // 1/11/2026 = Chủ nhật → 6 ô đệm
+  const mo = C.month(new Set([d(3), d(4)]), { [d(2)]: 1 }, now, 0);
+  ok(mo.y === 2026 && mo.m === 10 && mo.cells.length % 7 === 0 && mo.cells.slice(0, 6).every(c => c === null) && mo.cells[6].day === 1, 'lịch tháng: 1/11 (CN) ở cột 7, ô đệm null, đủ hàng 7');
+  const at = n => mo.cells.find(c => c && c.day === n);
+  ok(at(2).st === 'frozen' && at(3).st === 'done' && at(1).st === 'miss' && at(5).st === 'today' && at(5).today && at(6).st === 'future' && mo.learned === 3, 'lịch tháng: đóng băng/đã học/lỡ/hôm nay/tương lai + đếm ngày giữ chuỗi');
+  const prev = C.month(new Set(), {}, now, -1), dec = C.month(new Set(), {}, new Date(2026, 11, 31, 12).getTime(), 1);
+  ok(prev.m === 9 && prev.cells.filter(Boolean).length === 31 && prev.cells.every(c => !c || c.st === 'miss') && dec.y === 2027 && dec.m === 0, 'lịch tháng: tháng trước toàn quá khứ; qua năm mới đúng');
 }
 const w = C.week(days, { [ago(0)]: 1 }, Date.now());
 ok(w.length === 7 && w[0].dow === 0 && w.some(x => x.st === 'frozen'), 'lịch tuần hôm nay: 7 ô, Thứ 2 đầu tuần, có ô đóng băng');
@@ -61,10 +83,11 @@ win.UI = { modal: h => { modalEl = win.document.getElementById('modal'); modalEl
 const today = key(new Date());
 const state = { user: { displayName: 'Lan' }, stats: { days: {} }, game: { xp: 100, days: Object.fromEntries([...days].map(k => [k, { xp: 10 }])), frozen: {}, freezes: 1, freezeAt: 7 } };
 win.Game = { mutate: async f => { const s = JSON.parse(JSON.stringify(state.game)); await f(s); return s; } };
-win.App = { retOn: () => true, state, routes: {}, activeDays: () => C.activeDays(state), streak: () => C.streak(C.activeDays(state)) };
+win.App = { need: async n => { if (n === 'retcards' && !win.RetCards) win.eval(fs.readFileSync('web/cpack/ret-app/cards.js', 'utf8')); }, retOn: () => true, state, routes: {}, activeDays: () => C.activeDays(state), streak: () => C.streak(C.activeDays(state)) };
 let adAsked = 0; win.Ads = { rewarded: async (r, q) => { if (r !== 'cosmetic') throw new Error('sai lý do quảng cáo: ' + r); adAsked++; return q ? true : true; } };
 win.matchMedia = () => ({ matches: true });
 win.eval(fs.readFileSync('web/js/characters.js', 'utf8')); // Chars (khung app nạp trước retention.js – web/app/index.html)
+win.eval(fs.readFileSync('web/js/teacher-slot.js', 'utf8')); // Chars.slot (khung app nạp ngay sau characters.js)
 win.eval(SRC);
 const R = win.Ret, $ = s => win.document.querySelector(s), tick = (ms = 0) => new Promise(r => setTimeout(r, ms));
 
@@ -88,7 +111,7 @@ state.game.ret = { ...(state.game.ret || {}), ms: { 3: 1 } };
 win.App.todayPlan = async () => [{ href: '#/review', done: true }, { href: '#/lesson/1', done: false }];
 await R.check(); await tick(1000);
 ok(modalEl && /7 ngày! 🔥/.test(modalEl.innerHTML), 'màn chúc mừng mốc 7');
-ok(/teach\/(ama|carlos)\/avatar\.webp/.test(modalEl.innerHTML) && !/img\/teach\//.test(modalEl.innerHTML), "màn chúc mừng có Ama/Carlos (avatar 2D registry, không ảnh 3D cũ)");
+ok(/teach\/(ama|carlos)\/(avatar|still-[a-z]+)\.webp/.test(modalEl.innerHTML) && modalEl.querySelector('.tslot[data-teacher]') && !/img\/teach\//.test(modalEl.innerHTML), "màn chúc mừng có Ama/Carlos (2D registry, đứng sau bệ Chars.slot – #314, không ảnh 3D cũ)");
 ok(/🧊 \+1/.test(modalEl.innerHTML), 'báo +1 lượt đóng băng kiếm được');
 ok(modalEl.querySelectorAll('.btn.primary').length === 1 && modalEl.querySelector('#retNext'), 'đúng 1 nút chính: Bài tiếp theo');
 ok(modalEl.querySelector('.ret-say').textContent.split(/\s+/).length <= 7, 'lời giáo viên ngắn (≤ 7 chữ)');
@@ -150,21 +173,37 @@ box.querySelector('#retNext').click(); await tick(30); ok(win.location.hash === 
   const V = $('#view'), vh = V.innerHTML;
   ok(V.querySelector('.v2-streak') || /v2-streak/.test(vh), 'v2: trang chuỗi dùng khung Stitch');
   ok(V.querySelector('header [data-href="#/home"]') && !V.querySelector('nav'), 'v2: đầu trang × có sẵn, không thanh tab');
-  ok(/>7</.test(vh) && /Chuỗi 7 ngày!/.test(vh) && /Mốc tiếp theo: 14 ngày/.test(vh), 'v2: số ngày + mốc tiếp');
+  ok(/>7</.test(vh) && /Mốc tiếp theo/.test(vh) && /Chuỗi 14 ngày/.test(vh) && /Còn 7 ngày/.test(vh) && V.querySelector('[role=progressbar][aria-valuemax="14"]'), 'v2: số ngày + mốc tiếp (14, còn 7, thanh tiến độ có aria)');
+  ok(V.querySelector('#retNext') && V.querySelectorAll('#retNext').length === 1, 'v2: đúng 1 CTA ghim đáy #retNext');
   ok(/miễn phí/.test(vh), 'v2: nói rõ miễn phí');
-  ok(V.querySelectorAll('[role=listitem]').length === 7 && V.querySelectorAll('[role=listitem][aria-label*="Hôm nay"], [role=listitem][aria-label*="Đã học"]').length >= 1, 'v2: lịch tuần 7 ô có nhãn trạng thái');
+  const wkL = V.querySelector('[role=listitem]').parentElement;
+  ok(wkL.querySelectorAll(':scope > [role=listitem]').length === 7 && wkL.querySelectorAll('[role=listitem][aria-label*="Hôm nay"], [role=listitem][aria-label*="Đã học"]').length >= 1, 'v2: lịch tuần 7 ô có nhãn trạng thái');
+  // lịch tháng: đủ ngày của tháng, có nhãn; ‹ › đổi tháng, không sang tháng tới, lùi tối đa 11 tháng
+  const mL = () => V.querySelector('#retMonth'), mDays = () => mL().querySelectorAll('[role=listitem]').length, mTi = () => mL().closest('section').querySelector('h3').textContent;
+  ok(mDays() >= 28 && mDays() <= 31 && mL().getAttribute('aria-label') && !/undefined/.test(mL().getAttribute('aria-label')), 'v2: lịch tháng đủ ngày + nhãn đọc màn hình');
+  ok(V.querySelector('#retMNext').disabled && !V.querySelector('#retMPrev').disabled, 'v2: tháng này → không sang tháng sau');
+  const t0 = mTi(); V.querySelector('#retMPrev').click(); await tick(5);
+  ok(mTi() !== t0 && !V.querySelector('#retMNext').disabled && V.querySelector('#retHelp'), 'v2: ‹ → tháng trước, chỉ vẽ lại thẻ lịch');
+  for (let i = 0; i < 12; i++) { V.querySelector('#retMPrev').click(); await tick(1); }
+  ok(V.querySelector('#retMPrev').disabled && mDays() >= 28, 'v2: lùi tối đa 11 tháng');
+  win.App.routes.streak(); await tick(10); ok(V.querySelector('#retMNext').disabled && mTi() === t0, 'v2: vào lại trang → về tháng này');
+  V.querySelector('#retHelp').click(); await tick(5);
+  ok(!modalEl.hidden && /miễn phí/.test(modalEl.innerHTML) && modalEl.querySelectorAll('li').length >= 4, 'v2: ? → giải thích luật chuỗi (miễn phí)'); win.UI.closeModal();
   ok(V.querySelector('[data-goal="20"]').getAttribute('aria-checked') === 'true' && V.querySelector('[data-goal="10"]').getAttribute('aria-checked') === 'false', 'v2: mục tiêu đang dùng lấy từ cài đặt thật');
   ok(V.querySelector('[role=progressbar][aria-valuemax="20"]'), 'v2: vòng mục tiêu ngày có aria');
-  ok(V.querySelectorAll('[data-ret-item]').length >= 15, 'v2: bộ sưu tập');
-  ok(V.querySelector('[data-ret-item="s:star"]').disabled, 'v2: món chưa có bị khóa');
-  ok(V.querySelector('[data-ret-item="f:ice"]') && !V.querySelector('[data-ret-item="f:ice"]').disabled, 'v2: món đã có đeo được');
-  ok(/🧊/.test(vh), 'v2: số lượt đóng băng hiện trên trang');
+  ok(V.querySelector('#retColl'), 'v2: hàng Bộ sưu tập');
+  ok(/\d+\/\d+ lượt sẵn sàng/.test(vh) && /Đóng băng chuỗi/.test(vh), 'v2: số lượt đóng băng hiện trên trang');
   ok(V.querySelector('#retChest'), 'v2: có rương chưa mở → nút Mở rương');
   V.querySelector('#retChest').click(); await tick(40);
   ok(modalEl.querySelector('.ret-tile.open') || modalEl.querySelector('#retChestTile'), 'v2: Mở rương từ trang chuỗi');
+  win.UI.closeModal(); state.game.ret.frame = '';
+  V.querySelector('#retColl').click(); await tick(5);
+  ok(modalEl.querySelectorAll('[data-ret-item]').length >= 15, 'v2: bộ sưu tập');
+  ok(modalEl.querySelector('[data-ret-item="s:star"]').disabled, 'v2: món chưa có bị khóa');
+  ok(modalEl.querySelector('[data-ret-item="f:ice"]') && !modalEl.querySelector('[data-ret-item="f:ice"]').disabled, 'v2: món đã có đeo được');
+  modalEl.querySelector('[data-ret-item="f:ice"]').click(); await tick(20);
+  ok(state.game.ret.frame === 'ice' && modalEl.querySelector('[data-ret-item="f:ice"]').getAttribute('aria-pressed') === 'true', 'v2: bấm món → đeo khung');
   win.UI.closeModal();
-  V.querySelector('[data-ret-item="f:ice"]').click(); await tick(20);
-  ok(state.game.ret.frame === 'ice', 'v2: bấm món → đeo khung');
   win.App.ux1On = () => false;
 }
 
@@ -201,6 +240,8 @@ ok(!/retention\.js/.test(fs.readFileSync('web/app/index.html', 'utf8')), 'không
   const r1 = run({ ret_pct: '10' }, 55); r1.A.retTrack(3); r1.A.retTrack(8); r1.A.retTrack(9);
   ok(r1.sent.join() === 'ret_off_seen,ret_off_d7', 'mỗi sự kiện 1 lần/máy');
   const r2 = run({ ret_pct: '10' }, 3, '', { 'lk.noTrack': '1' }); r2.A.retTrack(9); ok(!r2.sent.length, 'máy quản trị không gửi');
+  const r4 = run({ ret_pct: '10' }, 3, '?demo=1&hl=vi'); r4.A.retTrack(9); ok(!r4.sent.length, 'demo/sandbox không gửi beacon (ext-e2e: /api/hit 503 = lỗi console)');
+  const r5 = run({ ret_pct: '10' }, 3, '?sandbox=1'); r5.A.retTrack(9); ok(!r5.sent.length, 'sandbox không gửi beacon');
   const r3 = run({ ret_pct: '10' }, null); r3.A.retOn(); ok(/^\d+$/.test(r3.store['lk.rb']), 'tự tạo nhóm lk.rb cố định');
 }
 console.log(`✓ retention: ${pass} kiểm tra đạt`);

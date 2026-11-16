@@ -1,0 +1,6989 @@
+{
+ "_note": "Teach2D batch rows (gen.py --plan N appends, never rewrites or reorders): facts frozen from our data when planned, machine-gated (reviewed.json machine verdicts), re-verified live by gen.py --verify before every render. Change the sources (bank, usuk-pairs.json, gates in gen.py), never this file by hand.",
+ "rows": [
+  {
+   "id": "t2a_stress_athletic",
+   "template": "stress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "athlete/athletic",
+   "hash": "831ddfcfd1e3",
+   "heads": [
+    "athlete",
+    "athletic"
+   ],
+   "taught": [
+    "athlete",
+    "athletic",
+    "ath",
+    "lete",
+    "ath",
+    "le",
+    "tic"
+   ],
+   "in": {
+    "a": {
+     "word": "athlete",
+     "syl": [
+      "ath",
+      "lete"
+     ],
+     "stress": 0,
+     "say": "first",
+     "ipa": "/ˈæθlit/"
+    },
+    "b": {
+     "word": "athletic",
+     "syl": [
+      "ath",
+      "le",
+      "tic"
+     ],
+     "stress": 1,
+     "say": "second",
+     "ipa": "/æθˈletɪk/"
+    }
+   }
+  },
+  {
+   "id": "t2a_review_access",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "access",
+   "hash": "f15a3b298586",
+   "heads": [
+    "access"
+   ],
+   "taught": [
+    "access"
+   ],
+   "in": {
+    "word": "access",
+    "ipa": "/ˈækses/",
+    "def": "an entrance to a place",
+    "ex": "All students have free access to the online library.",
+    "bank_def": "an entrance to a place; a way in"
+   }
+  },
+  {
+   "id": "t2a_usuk_apartment",
+   "template": "usuk",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "apartment/flat",
+   "hash": "fe75120c76f7",
+   "heads": [
+    "apartment",
+    "flat"
+   ],
+   "taught": [
+    "apartment",
+    "flat"
+   ],
+   "in": {
+    "us": "apartment",
+    "uk": "flat",
+    "ipa_us": "/əˈpɑːrtmənt/",
+    "ipa_uk": "/flæt/",
+    "same": "Same thing!",
+    "example": "My apartment is on the third floor.",
+    "quiz_city": "London",
+    "us_say": "people say apartment.",
+    "uk_say": "people say flat.",
+    "quiz_say": "Which word do people use?",
+    "ans_say": "Flat!"
+   }
+  },
+  {
+   "id": "t2a_verbs_make",
+   "template": "verbs",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "verbs",
+   "point": "make",
+   "hash": "194bf9250647",
+   "heads": [
+    "make"
+   ],
+   "taught": [
+    "make",
+    "made",
+    "made",
+    "maked"
+   ],
+   "in": {
+    "base": "make",
+    "P": "made",
+    "PP": "made",
+    "over": "maked",
+    "ex_past": "He made her a bookshelf.",
+    "quiz_q": "I blank this cake myself. Maked, or made?",
+    "quiz_stem": "I ___ this cake myself.",
+    "quiz_right": "made",
+    "quiz_opts": [
+     "maked",
+     "made"
+    ],
+    "quiz_a": "Made! I made this cake myself."
+   }
+  },
+  {
+   "id": "t2a_stress_historic",
+   "template": "stress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "history/historic",
+   "hash": "3147dabe206c",
+   "heads": [
+    "history",
+    "historic"
+   ],
+   "taught": [
+    "history",
+    "historic",
+    "his",
+    "to",
+    "ry",
+    "his",
+    "to",
+    "ric"
+   ],
+   "in": {
+    "a": {
+     "word": "history",
+     "syl": [
+      "his",
+      "to",
+      "ry"
+     ],
+     "stress": 0,
+     "say": "first",
+     "ipa": "/ˈhɪstəri/"
+    },
+    "b": {
+     "word": "historic",
+     "syl": [
+      "his",
+      "to",
+      "ric"
+     ],
+     "stress": 1,
+     "say": "second",
+     "ipa": "/hɪˈstɔːrɪk/"
+    }
+   }
+  },
+  {
+   "id": "t2a_review_accounting",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "accounting",
+   "hash": "47b8e44cdd23",
+   "heads": [
+    "accounting"
+   ],
+   "taught": [
+    "accounting"
+   ],
+   "in": {
+    "word": "accounting",
+    "ipa": "/əˈkaʊntɪŋ/",
+    "def": "the work of keeping and checking financial records",
+    "ex": "She has worked in accounting for over ten years.",
+    "bank_def": "the work of keeping and checking financial records"
+   }
+  },
+  {
+   "id": "t2a_usuk_vacation",
+   "template": "usuk",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "vacation/holiday",
+   "hash": "2b3ce486a89c",
+   "heads": [
+    "vacation",
+    "holiday"
+   ],
+   "taught": [
+    "vacation",
+    "holiday"
+   ],
+   "in": {
+    "us": "vacation",
+    "uk": "holiday",
+    "ipa_us": "/veɪˈkeɪʃn/",
+    "ipa_uk": "/ˈhɑːlədeɪ/",
+    "same": "Same thing!",
+    "example": "We're going on vacation next week.",
+    "quiz_city": "Manchester",
+    "us_say": "people say vacation.",
+    "uk_say": "people say holiday.",
+    "quiz_say": "Which word do people use?",
+    "ans_say": "Holiday!"
+   }
+  },
+  {
+   "id": "t2a_verbs_say",
+   "template": "verbs",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "verbs",
+   "point": "say",
+   "hash": "3d0504087759",
+   "heads": [
+    "say"
+   ],
+   "taught": [
+    "say",
+    "said",
+    "said",
+    "sayed"
+   ],
+   "in": {
+    "base": "say",
+    "P": "said",
+    "PP": "said",
+    "over": "sayed",
+    "ex_past": "It's time we said goodbye.",
+    "quiz_q": "She blank she was unlucky. Sayed, or said?",
+    "quiz_stem": "She ___ she was unlucky.",
+    "quiz_right": "said",
+    "quiz_opts": [
+     "sayed",
+     "said"
+    ],
+    "quiz_a": "Said! She said she was unlucky."
+   }
+  },
+  {
+   "id": "t2a_stress_presenter",
+   "template": "stress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "present/presenter",
+   "hash": "2a9f7e398990",
+   "heads": [
+    "present",
+    "presenter"
+   ],
+   "taught": [
+    "present",
+    "presenter",
+    "pre",
+    "sent",
+    "pre",
+    "sen",
+    "ter"
+   ],
+   "in": {
+    "a": {
+     "word": "present",
+     "syl": [
+      "pre",
+      "sent"
+     ],
+     "stress": 0,
+     "say": "first",
+     "ipa": "/ˈprezənt/"
+    },
+    "b": {
+     "word": "presenter",
+     "syl": [
+      "pre",
+      "sen",
+      "ter"
+     ],
+     "stress": 1,
+     "say": "second",
+     "ipa": "/prɪˈzentər/"
+    }
+   }
+  },
+  {
+   "id": "t2a_review_adapter",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "adapter",
+   "hash": "b1f525df23a5",
+   "heads": [
+    "adapter"
+   ],
+   "taught": [
+    "adapter"
+   ],
+   "in": {
+    "word": "adapter",
+    "ipa": "/əˈdæptər/",
+    "def": "a device that connects different equipment",
+    "ex": "You need a power adapter to use your laptop abroad.",
+    "bank_def": "a device that connects different equipment"
+   }
+  },
+  {
+   "id": "t2a_usuk_line",
+   "template": "usuk",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "line/queue",
+   "hash": "5849416c6242",
+   "heads": [
+    "line",
+    "queue"
+   ],
+   "taught": [
+    "line",
+    "queue"
+   ],
+   "in": {
+    "us": "line",
+    "uk": "queue",
+    "ipa_us": "/laɪn/",
+    "ipa_uk": "/kjuː/",
+    "same": "Same thing!",
+    "example": "There's a long line at the bank.",
+    "quiz_city": "Liverpool",
+    "us_say": "people say line.",
+    "uk_say": "people say queue.",
+    "quiz_say": "Which word do people use?",
+    "ans_say": "Queue!"
+   }
+  },
+  {
+   "id": "t2a_stress_artistic",
+   "template": "stress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "artist/artistic",
+   "hash": "06e4c2a1553f",
+   "heads": [
+    "artist",
+    "artistic"
+   ],
+   "taught": [
+    "artist",
+    "artistic",
+    "ar",
+    "tist",
+    "ar",
+    "tis",
+    "tic"
+   ],
+   "in": {
+    "a": {
+     "word": "artist",
+     "syl": [
+      "ar",
+      "tist"
+     ],
+     "stress": 0,
+     "say": "first",
+     "ipa": "/ˈɑːrtəst/"
+    },
+    "b": {
+     "word": "artistic",
+     "syl": [
+      "ar",
+      "tis",
+      "tic"
+     ],
+     "stress": 1,
+     "say": "second",
+     "ipa": "/ɑːrˈtɪstɪk/"
+    }
+   }
+  },
+  {
+   "id": "t2a_review_admire",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "admire",
+   "hash": "abf2a248c4c9",
+   "heads": [
+    "admire"
+   ],
+   "taught": [
+    "admire"
+   ],
+   "in": {
+    "word": "admire",
+    "ipa": "/ədˈmaɪər/",
+    "def": "to feel respect or wonder toward someone",
+    "ex": "I admire her courage.",
+    "bank_def": "to feel respect or wonder toward someone"
+   }
+  },
+  {
+   "id": "t2a_usuk_gas",
+   "template": "usuk",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "gas/petrol",
+   "hash": "01ec50dc4d4c",
+   "heads": [
+    "gas",
+    "petrol"
+   ],
+   "taught": [
+    "gas",
+    "petrol"
+   ],
+   "in": {
+    "us": "gas",
+    "uk": "petrol",
+    "ipa_us": "/ɡæs/",
+    "ipa_uk": "/ˈpetroʊl/",
+    "same": "Same thing!",
+    "example": "We need to stop for gas.",
+    "quiz_city": "Edinburgh",
+    "us_say": "people say gas.",
+    "uk_say": "people say petrol.",
+    "quiz_say": "Which word do people use?",
+    "ans_say": "Petrol!"
+   }
+  },
+  {
+   "id": "t2a_stress_attendee",
+   "template": "stress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "attend/attendee",
+   "hash": "85d9488eaa6e",
+   "heads": [
+    "attend",
+    "attendee"
+   ],
+   "taught": [
+    "attend",
+    "attendee",
+    "at",
+    "tend",
+    "at",
+    "ten",
+    "dee"
+   ],
+   "in": {
+    "a": {
+     "word": "attend",
+     "syl": [
+      "at",
+      "tend"
+     ],
+     "stress": 1,
+     "say": "second",
+     "ipa": "/əˈtend/"
+    },
+    "b": {
+     "word": "attendee",
+     "syl": [
+      "at",
+      "ten",
+      "dee"
+     ],
+     "stress": 2,
+     "say": "third",
+     "ipa": "/ətenˈdiː/"
+    }
+   }
+  },
+  {
+   "id": "t2a_review_afford",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "afford",
+   "hash": "bc173dff0943",
+   "heads": [
+    "afford"
+   ],
+   "taught": [
+    "afford"
+   ],
+   "in": {
+    "word": "afford",
+    "ipa": "/əˈfɔːrd/",
+    "def": "to have enough money to pay for something",
+    "ex": "We can't afford a new car this year.",
+    "bank_def": "to have enough money to pay for something"
+   }
+  },
+  {
+   "id": "t2a_usuk_cookie",
+   "template": "usuk",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "cookie/biscuit",
+   "hash": "9d525c49331e",
+   "heads": [
+    "cookie",
+    "biscuit"
+   ],
+   "taught": [
+    "cookie",
+    "biscuit"
+   ],
+   "in": {
+    "us": "cookie",
+    "uk": "biscuit",
+    "ipa_us": "/ˈkʊki/",
+    "ipa_uk": "/ˈbɪskət/",
+    "same": "Same thing!",
+    "example": "Can I have another cookie, please?",
+    "quiz_city": "London",
+    "us_say": "people say cookie.",
+    "uk_say": "people say biscuit.",
+    "quiz_say": "Which word do people use?",
+    "ans_say": "Biscuit!"
+   }
+  },
+  {
+   "id": "t2a_stress_objective",
+   "template": "stress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "object/objective",
+   "hash": "bf01e11a822d",
+   "heads": [
+    "object",
+    "objective"
+   ],
+   "taught": [
+    "object",
+    "objective",
+    "ob",
+    "ject",
+    "ob",
+    "jec",
+    "tive"
+   ],
+   "in": {
+    "a": {
+     "word": "object",
+     "syl": [
+      "ob",
+      "ject"
+     ],
+     "stress": 0,
+     "say": "first",
+     "ipa": "/ˈɑːbdʒekt/"
+    },
+    "b": {
+     "word": "objective",
+     "syl": [
+      "ob",
+      "jec",
+      "tive"
+     ],
+     "stress": 1,
+     "say": "second",
+     "ipa": "/əbˈdʒektɪv/"
+    }
+   }
+  },
+  {
+   "id": "t2a_review_amaze",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "amaze",
+   "hash": "7dd469c311af",
+   "heads": [
+    "amaze"
+   ],
+   "taught": [
+    "amaze"
+   ],
+   "in": {
+    "word": "amaze",
+    "ipa": "/əˈmeɪz/",
+    "def": "to cause wonder",
+    "ex": "The view from the top will amaze you.",
+    "bank_def": "to cause wonder; to surprise completely"
+   }
+  },
+  {
+   "id": "t2a_usuk_mail",
+   "template": "usuk",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "mail/post",
+   "hash": "3c490e434be1",
+   "heads": [
+    "mail",
+    "post"
+   ],
+   "taught": [
+    "mail",
+    "post"
+   ],
+   "in": {
+    "us": "mail",
+    "uk": "post",
+    "ipa_us": "/meɪl/",
+    "ipa_uk": "/poʊst/",
+    "same": "Same thing!",
+    "example": "Did the mail come today?",
+    "quiz_city": "Manchester",
+    "us_say": "people say mail.",
+    "uk_say": "people say post.",
+    "quiz_say": "Which word do people use?",
+    "ans_say": "Post!"
+   }
+  },
+  {
+   "id": "t2a_stress_organic",
+   "template": "stress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "organ/organic",
+   "hash": "c1b04b214e21",
+   "heads": [
+    "organ",
+    "organic"
+   ],
+   "taught": [
+    "organ",
+    "organic",
+    "or",
+    "gan",
+    "or",
+    "ga",
+    "nic"
+   ],
+   "in": {
+    "a": {
+     "word": "organ",
+     "syl": [
+      "or",
+      "gan"
+     ],
+     "stress": 0,
+     "say": "first",
+     "ipa": "/ˈɔːrɡən/"
+    },
+    "b": {
+     "word": "organic",
+     "syl": [
+      "or",
+      "ga",
+      "nic"
+     ],
+     "stress": 1,
+     "say": "second",
+     "ipa": "/ɔːrˈɡænɪk/"
+    }
+   }
+  },
+  {
+   "id": "t2a_review_analyze",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "analyze",
+   "hash": "ed9c27202c02",
+   "heads": [
+    "analyze"
+   ],
+   "taught": [
+    "analyze"
+   ],
+   "in": {
+    "word": "analyze",
+    "ipa": "/ˈænəlaɪz/",
+    "def": "to study carefully to find out the meaning of",
+    "ex": "We need to analyze the results carefully.",
+    "bank_def": "to study carefully to find out the meaning of"
+   }
+  },
+  {
+   "id": "t2a_usuk_movie",
+   "template": "usuk",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "movie/film",
+   "hash": "f3911e948bc3",
+   "heads": [
+    "movie",
+    "film"
+   ],
+   "taught": [
+    "movie",
+    "film"
+   ],
+   "in": {
+    "us": "movie",
+    "uk": "film",
+    "ipa_us": "/ˈmuːvi/",
+    "ipa_uk": "/fɪlm/",
+    "same": "Same thing!",
+    "example": "Let's watch a movie tonight.",
+    "quiz_city": "Liverpool",
+    "us_say": "people say movie.",
+    "uk_say": "people say film.",
+    "quiz_say": "Which word do people use?",
+    "ans_say": "Film!"
+   }
+  },
+  {
+   "id": "t2a_stress_progressive",
+   "template": "stress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "progress/progressive",
+   "hash": "9d4de83ba0f9",
+   "heads": [
+    "progress",
+    "progressive"
+   ],
+   "taught": [
+    "progress",
+    "progressive",
+    "pro",
+    "gress",
+    "pro",
+    "gres",
+    "sive"
+   ],
+   "in": {
+    "a": {
+     "word": "progress",
+     "syl": [
+      "pro",
+      "gress"
+     ],
+     "stress": 0,
+     "say": "first",
+     "ipa": "/ˈprɑːɡres/"
+    },
+    "b": {
+     "word": "progressive",
+     "syl": [
+      "pro",
+      "gres",
+      "sive"
+     ],
+     "stress": 1,
+     "say": "second",
+     "ipa": "/prəˈɡresɪv/"
+    }
+   }
+  },
+  {
+   "id": "t2a_review_apologize",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "apologize",
+   "hash": "c3d559ba9b66",
+   "heads": [
+    "apologize"
+   ],
+   "taught": [
+    "apologize"
+   ],
+   "in": {
+    "word": "apologize",
+    "ipa": "/əˈpɑːlədʒaɪz/",
+    "def": "to say sorry because of a mistake or injury you made",
+    "ex": "I apologize for the delay.",
+    "bank_def": "to say sorry because of a mistake or injury you made"
+   }
+  },
+  {
+   "id": "t2a_usuk_soccer",
+   "template": "usuk",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "soccer/football",
+   "hash": "34e954fa2314",
+   "heads": [
+    "soccer",
+    "football"
+   ],
+   "taught": [
+    "soccer",
+    "football"
+   ],
+   "in": {
+    "us": "soccer",
+    "uk": "football",
+    "ipa_us": "/ˈsɑːkər/",
+    "ipa_uk": "/ˈfʊtbɔːl/",
+    "same": "Same thing!",
+    "example": "My son plays soccer after school.",
+    "quiz_city": "Edinburgh",
+    "us_say": "people say soccer.",
+    "uk_say": "people say football.",
+    "quiz_say": "Which word do people use?",
+    "ans_say": "Football!"
+   }
+  },
+  {
+   "id": "t2a_stress_referee",
+   "template": "stress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "refer/referee",
+   "hash": "f15aed1a0682",
+   "heads": [
+    "refer",
+    "referee"
+   ],
+   "taught": [
+    "refer",
+    "referee",
+    "re",
+    "fer",
+    "re",
+    "fe",
+    "ree"
+   ],
+   "in": {
+    "a": {
+     "word": "refer",
+     "syl": [
+      "re",
+      "fer"
+     ],
+     "stress": 1,
+     "say": "second",
+     "ipa": "/rɪˈfɜːr/"
+    },
+    "b": {
+     "word": "referee",
+     "syl": [
+      "re",
+      "fe",
+      "ree"
+     ],
+     "stress": 2,
+     "say": "third",
+     "ipa": "/ˌrefəˈriː/"
+    }
+   }
+  },
+  {
+   "id": "t2a_review_appreciate",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "appreciate",
+   "hash": "9fdd3b6d543b",
+   "heads": [
+    "appreciate"
+   ],
+   "taught": [
+    "appreciate"
+   ],
+   "in": {
+    "word": "appreciate",
+    "ipa": "/əˈpriːʃieɪt/",
+    "def": "to be thankful for",
+    "ex": "I really appreciate your help.",
+    "bank_def": "to be thankful for; to value or admire"
+   }
+  },
+  {
+   "id": "t2a_usuk_fall",
+   "template": "usuk",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "fall/autumn",
+   "hash": "d9aad36c7b0d",
+   "heads": [
+    "fall",
+    "autumn"
+   ],
+   "taught": [
+    "fall",
+    "autumn"
+   ],
+   "in": {
+    "us": "fall",
+    "uk": "autumn",
+    "ipa_us": "/fɔːl/",
+    "ipa_uk": "/ˈɔːtəm/",
+    "same": "Same thing!",
+    "example": "The leaves turn red in the fall.",
+    "quiz_city": "London",
+    "us_say": "people say fall.",
+    "uk_say": "people say autumn.",
+    "quiz_say": "Which word do people use?",
+    "ans_say": "Autumn!"
+   }
+  },
+  {
+   "id": "t2a_stress_specific",
+   "template": "stress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "specify/specific",
+   "hash": "8644dc9181b2",
+   "heads": [
+    "specify",
+    "specific"
+   ],
+   "taught": [
+    "specify",
+    "specific",
+    "spe",
+    "ci",
+    "fy",
+    "spe",
+    "ci",
+    "fic"
+   ],
+   "in": {
+    "a": {
+     "word": "specify",
+     "syl": [
+      "spe",
+      "ci",
+      "fy"
+     ],
+     "stress": 0,
+     "say": "first",
+     "ipa": "/ˈspesəfaɪ/"
+    },
+    "b": {
+     "word": "specific",
+     "syl": [
+      "spe",
+      "ci",
+      "fic"
+     ],
+     "stress": 1,
+     "say": "second",
+     "ipa": "/spəˈsɪfɪk/"
+    }
+   }
+  },
+  {
+   "id": "t2a_review_assist",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "assist",
+   "hash": "b7add52a4b1b",
+   "heads": [
+    "assist"
+   ],
+   "taught": [
+    "assist"
+   ],
+   "in": {
+    "word": "assist",
+    "ipa": "/əˈsɪst/",
+    "def": "to help",
+    "ex": "Volunteers assist visitors at the museum.",
+    "bank_def": "to help"
+   }
+  },
+  {
+   "id": "t2a_usuk_check",
+   "template": "usuk",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "check/bill",
+   "hash": "340834059306",
+   "heads": [
+    "check",
+    "bill"
+   ],
+   "taught": [
+    "check",
+    "bill"
+   ],
+   "in": {
+    "us": "check",
+    "uk": "bill",
+    "ipa_us": "/tʃek/",
+    "ipa_uk": "/bɪl/",
+    "same": "Same thing!",
+    "example": "Can we have the check, please?",
+    "quiz_city": "Liverpool",
+    "us_say": "people say check.",
+    "uk_say": "people say bill.",
+    "quiz_say": "Which word do people use?",
+    "ans_say": "Bill!"
+   }
+  },
+  {
+   "id": "t2a_review_attach",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "attach",
+   "hash": "00d951382dcb",
+   "heads": [
+    "attach"
+   ],
+   "taught": [
+    "attach"
+   ],
+   "in": {
+    "word": "attach",
+    "ipa": "/əˈtætʃ/",
+    "def": "to fasten or join one thing to another",
+    "ex": "Please attach a photo to your application.",
+    "bank_def": "to fasten or join one thing to another; to add a file to an email"
+   }
+  },
+  {
+   "id": "t2a_usuk_schedule",
+   "template": "usuk",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "schedule/timetable",
+   "hash": "a6804704af2c",
+   "heads": [
+    "schedule",
+    "timetable"
+   ],
+   "taught": [
+    "schedule",
+    "timetable"
+   ],
+   "in": {
+    "us": "schedule",
+    "uk": "timetable",
+    "ipa_us": "/ˈskedʒuːl/",
+    "ipa_uk": "/ˈtaɪmteɪbl/",
+    "same": "Same thing!",
+    "example": "Check the train schedule before you go.",
+    "quiz_city": "Edinburgh",
+    "us_say": "people say schedule.",
+    "uk_say": "people say timetable.",
+    "quiz_say": "Which word do people use?",
+    "ans_say": "Timetable!"
+   }
+  },
+  {
+   "id": "t2a_review_beat",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "beat",
+   "hash": "08f2b826dd49",
+   "heads": [
+    "beat"
+   ],
+   "taught": [
+    "beat"
+   ],
+   "in": {
+    "word": "beat",
+    "ipa": "/biːt/",
+    "def": "to win against another person or team",
+    "ex": "Our team beat the champions three goals to one.",
+    "bank_def": "to win against another person or team; defeat"
+   }
+  },
+  {
+   "id": "t2a_usuk_cellphone",
+   "template": "usuk",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "cellphone/mobile",
+   "hash": "19ddf0a38179",
+   "heads": [
+    "cellphone",
+    "mobile"
+   ],
+   "taught": [
+    "cellphone",
+    "mobile"
+   ],
+   "in": {
+    "us": "cellphone",
+    "uk": "mobile",
+    "ipa_us": "/ˈselfoʊn/",
+    "ipa_uk": "/ˈmoʊbl/",
+    "same": "Same thing!",
+    "example": "I left my cellphone at home.",
+    "quiz_city": "Manchester",
+    "us_say": "people say cellphone.",
+    "uk_say": "people say mobile.",
+    "quiz_say": "Which word do people use?",
+    "ans_say": "Mobile!"
+   }
+  },
+  {
+   "id": "t2a_review_bend",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "bend",
+   "hash": "035309b944b7",
+   "heads": [
+    "bend"
+   ],
+   "taught": [
+    "bend"
+   ],
+   "in": {
+    "word": "bend",
+    "ipa": "/bend/",
+    "def": "to make something not straight",
+    "ex": "Bend your knees when you lift something heavy.",
+    "bank_def": "to make something not straight; make into a curve"
+   }
+  },
+  {
+   "id": "t2a_usuk_purse",
+   "template": "usuk",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "purse/handbag",
+   "hash": "e5077482eeca",
+   "heads": [
+    "purse",
+    "handbag"
+   ],
+   "taught": [
+    "purse",
+    "handbag"
+   ],
+   "in": {
+    "us": "purse",
+    "uk": "handbag",
+    "ipa_us": "/pɜːrs/",
+    "ipa_uk": "/ˈhændbæɡ/",
+    "same": "Same thing!",
+    "example": "She left her purse in the car.",
+    "quiz_city": "Liverpool",
+    "us_say": "people say purse.",
+    "uk_say": "people say handbag.",
+    "quiz_say": "Which word do people use?",
+    "ans_say": "Handbag!"
+   }
+  },
+  {
+   "id": "t2a_review_bore",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "bore",
+   "hash": "435fcf970dc4",
+   "heads": [
+    "bore"
+   ],
+   "taught": [
+    "bore"
+   ],
+   "in": {
+    "word": "bore",
+    "ipa": "/bɔːr/",
+    "def": "to make someone not interested in something",
+    "ex": "Long speeches bore me.",
+    "bank_def": "to make someone not interested in something"
+   }
+  },
+  {
+   "id": "t2a_usuk_yard",
+   "template": "usuk",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "yard/garden",
+   "hash": "bdcf7bee8245",
+   "heads": [
+    "yard",
+    "garden"
+   ],
+   "taught": [
+    "yard",
+    "garden"
+   ],
+   "in": {
+    "us": "yard",
+    "uk": "garden",
+    "ipa_us": "/jɑːrd/",
+    "ipa_uk": "/ˈɡɑːrdn/",
+    "same": "Same thing!",
+    "example": "The kids are playing in the yard.",
+    "quiz_city": "Edinburgh",
+    "us_say": "people say yard.",
+    "uk_say": "people say garden.",
+    "quiz_say": "Which word do people use?",
+    "ans_say": "Garden!"
+   }
+  },
+  {
+   "id": "t2a_review_caller",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "caller",
+   "hash": "01d630c20643",
+   "heads": [
+    "caller"
+   ],
+   "taught": [
+    "caller"
+   ],
+   "in": {
+    "word": "caller",
+    "ipa": "/ˈkɔːlər/",
+    "def": "a person who makes a phone call",
+    "ex": "The caller asked to speak to the sales manager.",
+    "bank_def": "a person who makes a phone call"
+   }
+  },
+  {
+   "id": "t2a_usuk_trash",
+   "template": "usuk",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "trash/rubbish",
+   "hash": "ff6eab2de710",
+   "heads": [
+    "trash",
+    "rubbish"
+   ],
+   "taught": [
+    "trash",
+    "rubbish"
+   ],
+   "in": {
+    "us": "trash",
+    "uk": "rubbish",
+    "ipa_us": "/træʃ/",
+    "ipa_uk": "/ˈrʌbɪʃ/",
+    "same": "Same thing!",
+    "example": "Please take out the trash.",
+    "quiz_city": "Manchester",
+    "us_say": "people say trash.",
+    "uk_say": "people say rubbish.",
+    "quiz_say": "Which word do people use?",
+    "ans_say": "Rubbish!"
+   }
+  },
+  {
+   "id": "t2a_review_champion",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "champion",
+   "hash": "347fdaf13779",
+   "heads": [
+    "champion"
+   ],
+   "taught": [
+    "champion"
+   ],
+   "in": {
+    "word": "champion",
+    "ipa": "/ˈtʃæmpiən/",
+    "def": "a person or team that has won a competition",
+    "ex": "She is the national tennis champion.",
+    "bank_def": "a person or team that has won a competition; a person who strongly supports something"
+   }
+  },
+  {
+   "id": "t2a_guess_daughter",
+   "template": "guess",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "daughter",
+   "hash": "7e4591702754",
+   "heads": [
+    "daughter"
+   ],
+   "taught": [
+    "daughter"
+   ],
+   "ph": "f353ccb698cd9830",
+   "in": {
+    "word": "daughter",
+    "img": "daughter#n",
+    "ipa": "/ˈdɔːtər/",
+    "def": "a female child of someone",
+    "ex": "Their daughter is starting university this year.",
+    "bank_def": "a female child of someone"
+   }
+  },
+  {
+   "id": "t2a_review_clause",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "clause",
+   "hash": "f8668a2e0754",
+   "heads": [
+    "clause"
+   ],
+   "taught": [
+    "clause"
+   ],
+   "in": {
+    "word": "clause",
+    "ipa": "/klɔːz/",
+    "def": "a separate part of a contract or legal document",
+    "ex": "Read every clause of the contract carefully.",
+    "bank_def": "a separate part of a contract or legal document; (grammar) a group of words with a subject and a verb"
+   }
+  },
+  {
+   "id": "t2a_guess_celebrity",
+   "template": "guess",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "celebrity",
+   "hash": "c7f4d6a22e31",
+   "heads": [
+    "celebrity"
+   ],
+   "taught": [
+    "celebrity"
+   ],
+   "ph": "ebb69c44909b95c9",
+   "in": {
+    "word": "celebrity",
+    "img": "celebrity#n",
+    "ipa": "/səˈlebrɪti/",
+    "def": "a famous person",
+    "ex": "A celebrity chef will open the new restaurant.",
+    "bank_def": "a famous person"
+   }
+  },
+  {
+   "id": "t2a_review_click",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "click",
+   "hash": "ef20243ae0ae",
+   "heads": [
+    "click"
+   ],
+   "taught": [
+    "click"
+   ],
+   "in": {
+    "word": "click",
+    "ipa": "/klɪk/",
+    "def": "to press a button",
+    "ex": "Click the link to download the file.",
+    "bank_def": "to press a button"
+   }
+  },
+  {
+   "id": "t2a_guess_habit",
+   "template": "guess",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "habit",
+   "hash": "1d8e083ace6c",
+   "heads": [
+    "habit"
+   ],
+   "taught": [
+    "habit"
+   ],
+   "ph": "f09887e723c71e38",
+   "in": {
+    "word": "habit",
+    "img": "habit#n",
+    "ipa": "/ˈhæbət/",
+    "def": "the usual way of behaving",
+    "ex": "Reading before bed is a good habit.",
+    "bank_def": "the usual way of behaving; something often repeated"
+   }
+  },
+  {
+   "id": "t2a_review_coin",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "coin",
+   "hash": "615b7ac0fb3a",
+   "heads": [
+    "coin"
+   ],
+   "taught": [
+    "coin"
+   ],
+   "in": {
+    "word": "coin",
+    "ipa": "/kɔɪn/",
+    "def": "a small, flat piece of metal used as money",
+    "ex": "He found an old coin in the garden.",
+    "bank_def": "a small, flat piece of metal used as money"
+   }
+  },
+  {
+   "id": "t2a_guess_neighbor",
+   "template": "guess",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "neighbor",
+   "hash": "82a9d9118550",
+   "heads": [
+    "neighbor"
+   ],
+   "taught": [
+    "neighbor"
+   ],
+   "ph": "a5d8d92dc607e94c",
+   "in": {
+    "word": "neighbor",
+    "img": "neighbor#n",
+    "ipa": "/ˈneɪbər/",
+    "def": "a person who lives near you",
+    "ex": "Our neighbor looks after our cat when we are away.",
+    "bank_def": "a person who lives near you"
+   }
+  },
+  {
+   "id": "t2a_review_collection",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "collection",
+   "hash": "8b53a2c632a3",
+   "heads": [
+    "collection"
+   ],
+   "taught": [
+    "collection"
+   ],
+   "in": {
+    "word": "collection",
+    "ipa": "/kəˈlekʃn/",
+    "def": "a group of similar things that someone has gathered together",
+    "ex": "He has a large collection of old coins.",
+    "bank_def": "a group of similar things that someone has gathered together"
+   }
+  },
+  {
+   "id": "t2a_review_combine",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "combine",
+   "hash": "59764bf7db48",
+   "heads": [
+    "combine"
+   ],
+   "taught": [
+    "combine"
+   ],
+   "in": {
+    "word": "combine",
+    "ipa": "/kəmˈbaɪn/",
+    "def": "to mix several things together to form one thing",
+    "ex": "Combine the ingredients in a large bowl.",
+    "bank_def": "to mix several things together to form one thing"
+   }
+  },
+  {
+   "id": "t2a_review_concentrate",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "concentrate",
+   "hash": "63e9d5fff516",
+   "heads": [
+    "concentrate"
+   ],
+   "taught": [
+    "concentrate"
+   ],
+   "in": {
+    "word": "concentrate",
+    "ipa": "/ˈkɑːnsəntreɪt/",
+    "def": "to give all your attention to a task",
+    "ex": "I can't concentrate with all this noise.",
+    "bank_def": "to give all your attention to a task; focus"
+   }
+  },
+  {
+   "id": "t2a_review_confuse",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "confuse",
+   "hash": "696552b833dc",
+   "heads": [
+    "confuse"
+   ],
+   "taught": [
+    "confuse"
+   ],
+   "in": {
+    "word": "confuse",
+    "ipa": "/kənˈfjuːz/",
+    "def": "to make someone unable to understand or think clearly",
+    "ex": "These two words often confuse learners.",
+    "bank_def": "to make someone unable to understand or think clearly; to mix up two things"
+   }
+  },
+  {
+   "id": "t2a_review_consume",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "consume",
+   "hash": "ec807af8a331",
+   "heads": [
+    "consume"
+   ],
+   "taught": [
+    "consume"
+   ],
+   "in": {
+    "word": "consume",
+    "ipa": "/kənˈsuːm/",
+    "def": "to eat, drink, buy or use up something",
+    "ex": "Air conditioners consume a lot of electricity.",
+    "bank_def": "to eat, drink, buy or use up something"
+   }
+  },
+  {
+   "id": "t2a_review_cooler",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "cooler",
+   "hash": "c7e6250277ad",
+   "heads": [
+    "cooler"
+   ],
+   "taught": [
+    "cooler"
+   ],
+   "in": {
+    "word": "cooler",
+    "ipa": "/ˈkuːlər/",
+    "def": "a box that keeps food and drinks cold",
+    "ex": "Bring a cooler with drinks for the picnic.",
+    "bank_def": "a box that keeps food and drinks cold"
+   }
+  },
+  {
+   "id": "t2a_review_copier",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "copier",
+   "hash": "eaaa4d8612a2",
+   "heads": [
+    "copier"
+   ],
+   "taught": [
+    "copier"
+   ],
+   "in": {
+    "word": "copier",
+    "ipa": "/ˈkɑːpiər/",
+    "def": "a machine that makes copies of documents",
+    "ex": "The copier on the second floor is out of paper.",
+    "bank_def": "a machine that makes copies of documents"
+   }
+  },
+  {
+   "id": "t2a_review_deal",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "deal",
+   "hash": "399eab2309e3",
+   "heads": [
+    "deal"
+   ],
+   "taught": [
+    "deal"
+   ],
+   "in": {
+    "word": "deal",
+    "ipa": "/diːl/",
+    "def": "an agreement, especially in business",
+    "ex": "The two companies made a deal to work together.",
+    "bank_def": "an agreement, especially in business"
+   }
+  },
+  {
+   "id": "t2a_review_demand",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "demand",
+   "hash": "6c77308893aa",
+   "heads": [
+    "demand"
+   ],
+   "taught": [
+    "demand"
+   ],
+   "in": {
+    "word": "demand",
+    "ipa": "/dɪˈmænd/",
+    "def": "the need or wish of people to buy or use something",
+    "ex": "There is a growing demand for electric cars.",
+    "bank_def": "the need or wish of people to buy or use something"
+   }
+  },
+  {
+   "id": "t2a_review_determine",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "determine",
+   "hash": "498936eaa5da",
+   "heads": [
+    "determine"
+   ],
+   "taught": [
+    "determine"
+   ],
+   "in": {
+    "word": "determine",
+    "ipa": "/dɪˈtɜːrmɪn/",
+    "def": "to find out the facts about something",
+    "ex": "Tests will determine the cause of the problem.",
+    "bank_def": "to find out the facts about something; to decide or control what happens"
+   }
+  },
+  {
+   "id": "t2a_review_divide",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "divide",
+   "hash": "d912ce46016d",
+   "heads": [
+    "divide"
+   ],
+   "taught": [
+    "divide"
+   ],
+   "in": {
+    "word": "divide",
+    "ipa": "/dɪˈvaɪd/",
+    "def": "to separate something into parts or groups",
+    "ex": "Divide the class into groups of three.",
+    "bank_def": "to separate something into parts or groups"
+   }
+  },
+  {
+   "id": "t2a_review_educate",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "educate",
+   "hash": "2518521e871d",
+   "heads": [
+    "educate"
+   ],
+   "taught": [
+    "educate"
+   ],
+   "in": {
+    "word": "educate",
+    "ipa": "/ˈedʒəkeɪt/",
+    "def": "to teach someone in a school or college",
+    "ex": "The campaign aims to educate people about recycling.",
+    "bank_def": "to teach someone in a school or college"
+   }
+  },
+  {
+   "id": "t2a_review_emergency",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "emergency",
+   "hash": "c493db877da8",
+   "heads": [
+    "emergency"
+   ],
+   "taught": [
+    "emergency"
+   ],
+   "in": {
+    "word": "emergency",
+    "ipa": "/ɪˈmɜːrdʒənsi/",
+    "def": "a sudden serious event needing immediate action",
+    "ex": "In an emergency, call this number.",
+    "bank_def": "a sudden serious event needing immediate action"
+   }
+  },
+  {
+   "id": "t2a_review_fence",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "fence",
+   "hash": "537ab44de622",
+   "heads": [
+    "fence"
+   ],
+   "taught": [
+    "fence"
+   ],
+   "in": {
+    "word": "fence",
+    "ipa": "/fens/",
+    "def": "a wooden or metal structure that separates an area",
+    "ex": "There is a high fence around the garden.",
+    "bank_def": "a wooden or metal structure that separates an area"
+   }
+  },
+  {
+   "id": "t2a_review_file",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "file",
+   "hash": "02fc961445ca",
+   "heads": [
+    "file"
+   ],
+   "taught": [
+    "file"
+   ],
+   "in": {
+    "word": "file",
+    "ipa": "/faɪl/",
+    "def": "a set of information stored on a computer",
+    "ex": "I saved the file on my laptop.",
+    "bank_def": "a set of information stored on a computer; a box or folder for keeping papers"
+   }
+  },
+  {
+   "id": "t2a_review_flood",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "flood",
+   "hash": "8d39693e04d2",
+   "heads": [
+    "flood"
+   ],
+   "taught": [
+    "flood"
+   ],
+   "in": {
+    "word": "flood",
+    "ipa": "/flʌd/",
+    "def": "a large amount of water covering land that is usually dry",
+    "ex": "The flood damaged hundreds of homes.",
+    "bank_def": "a large amount of water covering land that is usually dry"
+   }
+  },
+  {
+   "id": "t2a_review_flow",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "flow",
+   "hash": "1e379a7fb4f7",
+   "heads": [
+    "flow"
+   ],
+   "taught": [
+    "flow"
+   ],
+   "in": {
+    "word": "flow",
+    "ipa": "/floʊ/",
+    "def": "a steady, continuous movement of liquid, air or people",
+    "ex": "Heavy rain increased the flow of the river.",
+    "bank_def": "a steady, continuous movement of liquid, air or people"
+   }
+  },
+  {
+   "id": "t2a_review_gain",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "gain",
+   "hash": "c0c41840262f",
+   "heads": [
+    "gain"
+   ],
+   "taught": [
+    "gain"
+   ],
+   "in": {
+    "word": "gain",
+    "ipa": "/ɡeɪn/",
+    "def": "to get something wanted, needed, or valued",
+    "ex": "You will gain useful experience from this job.",
+    "bank_def": "to get something wanted, needed, or valued"
+   }
+  },
+  {
+   "id": "t2a_review_grade",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "grade",
+   "hash": "2a7d02719789",
+   "heads": [
+    "grade"
+   ],
+   "taught": [
+    "grade"
+   ],
+   "in": {
+    "word": "grade",
+    "ipa": "/ɡreɪd/",
+    "def": "a mark given for a piece of work or an exam",
+    "ex": "She got a good grade in her history exam.",
+    "bank_def": "a mark given for a piece of work or an exam; a level of school in the US"
+   }
+  },
+  {
+   "id": "t2a_review_heavily",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "heavily",
+   "hash": "5654bddf24f3",
+   "heads": [
+    "heavily"
+   ],
+   "taught": [
+    "heavily"
+   ],
+   "in": {
+    "word": "heavily",
+    "ipa": "/ˈhevəli/",
+    "def": "a lot or to a great degree",
+    "ex": "It rained heavily all night.",
+    "bank_def": "a lot or to a great degree"
+   }
+  },
+  {
+   "id": "t2a_review_importer",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "importer",
+   "hash": "39f3ca8b28b0",
+   "heads": [
+    "importer"
+   ],
+   "taught": [
+    "importer"
+   ],
+   "in": {
+    "word": "importer",
+    "ipa": "/ɪmˈpɔːrtər/",
+    "def": "a person or company that brings goods into a country to sell",
+    "ex": "The company is a major importer of tea.",
+    "bank_def": "a person or company that brings goods into a country to sell"
+   }
+  },
+  {
+   "id": "t2a_review_indicate",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "indicate",
+   "hash": "44f64f4607d2",
+   "heads": [
+    "indicate"
+   ],
+   "taught": [
+    "indicate"
+   ],
+   "in": {
+    "word": "indicate",
+    "ipa": "/ˈɪndəkeɪt/",
+    "def": "to show something, direct attention to, or point out",
+    "ex": "The results indicate that the plan is working.",
+    "bank_def": "to show something, direct attention to, or point out"
+   }
+  },
+  {
+   "id": "t2a_review_insurer",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "insurer",
+   "hash": "27fb899a30d2",
+   "heads": [
+    "insurer"
+   ],
+   "taught": [
+    "insurer"
+   ],
+   "in": {
+    "word": "insurer",
+    "ipa": "/ɪnˈʃʊrər/",
+    "def": "a company that provides insurance",
+    "ex": "The insurer paid for the damage to the car.",
+    "bank_def": "a company that provides insurance"
+   }
+  },
+  {
+   "id": "t2a_review_intend",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "intend",
+   "hash": "9c87bde4ac44",
+   "heads": [
+    "intend"
+   ],
+   "taught": [
+    "intend"
+   ],
+   "in": {
+    "word": "intend",
+    "ipa": "/ɪnˈtend/",
+    "def": "to plan or want to do something",
+    "ex": "I intend to finish the report this week.",
+    "bank_def": "to plan or want to do something"
+   }
+  },
+  {
+   "id": "t2a_review_invest",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "invest",
+   "hash": "174313d6a053",
+   "heads": [
+    "invest"
+   ],
+   "taught": [
+    "invest"
+   ],
+   "in": {
+    "word": "invest",
+    "ipa": "/ɪnˈvest/",
+    "def": "to use resources to build for the future",
+    "ex": "The government will invest more in public hospitals.",
+    "bank_def": "to use resources to build for the future"
+   }
+  },
+  {
+   "id": "t2a_review_leather",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "leather",
+   "hash": "28743d46ca81",
+   "heads": [
+    "leather"
+   ],
+   "taught": [
+    "leather"
+   ],
+   "in": {
+    "word": "leather",
+    "ipa": "/ˈleðər/",
+    "def": "a material made from the skin of an animal",
+    "ex": "He bought a brown leather jacket.",
+    "bank_def": "a material made from the skin of an animal"
+   }
+  },
+  {
+   "id": "t2a_review_lecturer",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "lecturer",
+   "hash": "b925afb88256",
+   "heads": [
+    "lecturer"
+   ],
+   "taught": [
+    "lecturer"
+   ],
+   "in": {
+    "word": "lecturer",
+    "ipa": "/ˈlektʃərər/",
+    "def": "a person who teaches at a university",
+    "ex": "The guest lecturer spoke to our managers about global trade.",
+    "bank_def": "a person who teaches at a university"
+   }
+  },
+  {
+   "id": "t2a_review_mix",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "mix",
+   "hash": "76309a2c9b09",
+   "heads": [
+    "mix"
+   ],
+   "taught": [
+    "mix"
+   ],
+   "in": {
+    "word": "mix",
+    "ipa": "/mɪks/",
+    "def": "to combine two or more things to make one",
+    "ex": "Mix the flour and the eggs in a bowl.",
+    "bank_def": "to combine two or more things to make one"
+   }
+  },
+  {
+   "id": "t2a_review_narrative",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "narrative",
+   "hash": "17bc6bac0ec5",
+   "heads": [
+    "narrative"
+   ],
+   "taught": [
+    "narrative"
+   ],
+   "in": {
+    "word": "narrative",
+    "ipa": "/ˈnærətɪv/",
+    "def": "the telling of a story",
+    "ex": "The novel has a strong narrative.",
+    "bank_def": "the telling of a story"
+   }
+  },
+  {
+   "id": "t2a_review_nation",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "nation",
+   "hash": "114378160741",
+   "heads": [
+    "nation"
+   ],
+   "taught": [
+    "nation"
+   ],
+   "in": {
+    "word": "nation",
+    "ipa": "/ˈneɪʃn/",
+    "def": "a country, especially its people, culture and government",
+    "ex": "The whole nation celebrated the victory.",
+    "bank_def": "a country, especially its people, culture and government"
+   }
+  },
+  {
+   "id": "t2a_review_participate",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "participate",
+   "hash": "28aa68658ba5",
+   "heads": [
+    "participate"
+   ],
+   "taught": [
+    "participate"
+   ],
+   "in": {
+    "word": "participate",
+    "ipa": "/pɑːrˈtɪsəpeɪt/",
+    "def": "to take part with others in doing something",
+    "ex": "All students are encouraged to participate in the debate.",
+    "bank_def": "to take part with others in doing something"
+   }
+  },
+  {
+   "id": "t2a_review_plenty",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "plenty",
+   "hash": "41b06262ec9d",
+   "heads": [
+    "plenty"
+   ],
+   "taught": [
+    "plenty"
+   ],
+   "in": {
+    "word": "plenty",
+    "ipa": "/ˈplenti/",
+    "def": "a large amount of something",
+    "ex": "Don't worry, we have plenty of time.",
+    "bank_def": "a large amount of something; a lot; not too little"
+   }
+  },
+  {
+   "id": "t2a_review_pray",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "pray",
+   "hash": "7ea3555f329f",
+   "heads": [
+    "pray"
+   ],
+   "taught": [
+    "pray"
+   ],
+   "in": {
+    "word": "pray",
+    "ipa": "/preɪ/",
+    "def": "to wish or hope for something to happen or be true",
+    "ex": "Many people go to the temple to pray for good luck.",
+    "bank_def": "to wish or hope for something to happen or be true"
+   }
+  },
+  {
+   "id": "t2a_review_press",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "press",
+   "hash": "34111ca28112",
+   "heads": [
+    "press"
+   ],
+   "taught": [
+    "press"
+   ],
+   "in": {
+    "word": "press",
+    "ipa": "/pres/",
+    "def": "to push something against something else",
+    "ex": "Press the green button to start the machine.",
+    "bank_def": "to push something against something else"
+   }
+  },
+  {
+   "id": "t2a_review_relate",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "relate",
+   "hash": "02c837f40f54",
+   "heads": [
+    "relate"
+   ],
+   "taught": [
+    "relate"
+   ],
+   "in": {
+    "word": "relate",
+    "ipa": "/rɪˈleɪt/",
+    "def": "to show or make a connection between two things",
+    "ex": "Many health problems relate to poor diet.",
+    "bank_def": "to show or make a connection between two things; to understand how someone feels"
+   }
+  },
+  {
+   "id": "t2a_review_remain",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "remain",
+   "hash": "f67e0756fb6b",
+   "heads": [
+    "remain"
+   ],
+   "taught": [
+    "remain"
+   ],
+   "in": {
+    "word": "remain",
+    "ipa": "/rɪˈmeɪn/",
+    "def": "to be left behind, to continue to exist",
+    "ex": "Please remain in your seats until the plane stops.",
+    "bank_def": "to be left behind, to continue to exist"
+   }
+  },
+  {
+   "id": "t2a_review_remind",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "remind",
+   "hash": "a7f89f50d9ce",
+   "heads": [
+    "remind"
+   ],
+   "taught": [
+    "remind"
+   ],
+   "in": {
+    "word": "remind",
+    "ipa": "/rɪˈmaɪnd/",
+    "def": "to make someone remember something",
+    "ex": "Remind me to buy milk on the way home.",
+    "bank_def": "to make someone remember something"
+   }
+  },
+  {
+   "id": "t2a_review_represent",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "represent",
+   "hash": "74b3de63e163",
+   "heads": [
+    "represent"
+   ],
+   "taught": [
+    "represent"
+   ],
+   "in": {
+    "word": "represent",
+    "ipa": "/ˌreprɪˈzent/",
+    "def": "to speak or act officially for a person or group",
+    "ex": "She will represent our school in the competition.",
+    "bank_def": "to speak or act officially for a person or group; to be a sign of something"
+   }
+  },
+  {
+   "id": "t2a_review_responsibility",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "responsibility",
+   "hash": "0394ae90d5b0",
+   "heads": [
+    "responsibility"
+   ],
+   "taught": [
+    "responsibility"
+   ],
+   "in": {
+    "word": "responsibility",
+    "ipa": "/rɪˌspɑːnsəˈbɪləti/",
+    "def": "a duty to deal with or take care of something or someone",
+    "ex": "Looking after the garden is my responsibility.",
+    "bank_def": "a duty to deal with or take care of something or someone"
+   }
+  },
+  {
+   "id": "t2a_review_retire",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "retire",
+   "hash": "f079af67eb1c",
+   "heads": [
+    "retire"
+   ],
+   "taught": [
+    "retire"
+   ],
+   "in": {
+    "word": "retire",
+    "ipa": "/rɪˈtaɪr/",
+    "def": "to stop working because you have reached a certain age",
+    "ex": "My father plans to retire next year.",
+    "bank_def": "to stop working because you have reached a certain age"
+   }
+  },
+  {
+   "id": "t2a_review_revise",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "revise",
+   "hash": "c51c0145f76b",
+   "heads": [
+    "revise"
+   ],
+   "taught": [
+    "revise"
+   ],
+   "in": {
+    "word": "revise",
+    "ipa": "/rɪˈvaɪz/",
+    "def": "to change something to improve or correct it",
+    "ex": "I need to revise for my history exam.",
+    "bank_def": "to change something to improve or correct it; (UK) to study again for an exam"
+   }
+  },
+  {
+   "id": "t2a_review_risk",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "risk",
+   "hash": "720f42d06fbd",
+   "heads": [
+    "risk"
+   ],
+   "taught": [
+    "risk"
+   ],
+   "in": {
+    "word": "risk",
+    "ipa": "/rɪsk/",
+    "def": "the possibility that something bad or dangerous will happen",
+    "ex": "Driving fast increases the risk of accidents.",
+    "bank_def": "the possibility that something bad or dangerous will happen"
+   }
+  },
+  {
+   "id": "t2a_review_sender",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "sender",
+   "hash": "91751700c784",
+   "heads": [
+    "sender"
+   ],
+   "taught": [
+    "sender"
+   ],
+   "in": {
+    "word": "sender",
+    "ipa": "/ˈsendər/",
+    "def": "a person who sends a letter or message",
+    "ex": "If the address is wrong, return the parcel to the sender.",
+    "bank_def": "a person who sends a letter or message"
+   }
+  },
+  {
+   "id": "t2a_review_signal",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "signal",
+   "hash": "baf97471ffa1",
+   "heads": [
+    "signal"
+   ],
+   "taught": [
+    "signal"
+   ],
+   "in": {
+    "word": "signal",
+    "ipa": "/ˈsɪɡnl/",
+    "def": "a sound, action or sign that gives information or a message",
+    "ex": "There is no phone signal in the mountains.",
+    "bank_def": "a sound, action or sign that gives information or a message"
+   }
+  },
+  {
+   "id": "t2a_review_slightly",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "slightly",
+   "hash": "d26da33adf9d",
+   "heads": [
+    "slightly"
+   ],
+   "taught": [
+    "slightly"
+   ],
+   "in": {
+    "word": "slightly",
+    "ipa": "/ˈslaɪtli/",
+    "def": "a little",
+    "ex": "The price is slightly higher than last year.",
+    "bank_def": "a little"
+   }
+  },
+  {
+   "id": "t2a_review_spread",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "spread",
+   "hash": "9169c446a030",
+   "heads": [
+    "spread"
+   ],
+   "taught": [
+    "spread"
+   ],
+   "in": {
+    "word": "spread",
+    "ipa": "/spred/",
+    "def": "to reach or cause to reach a wider area or more people",
+    "ex": "The news spread quickly around the school.",
+    "bank_def": "to reach or cause to reach a wider area or more people; to cover a large area"
+   }
+  },
+  {
+   "id": "t2a_review_substance",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "substance",
+   "hash": "3cbacd968b6d",
+   "heads": [
+    "substance"
+   ],
+   "taught": [
+    "substance"
+   ],
+   "in": {
+    "word": "substance",
+    "ipa": "/ˈsʌbstəns/",
+    "def": "a particular type of material",
+    "ex": "Water is the most common substance on Earth.",
+    "bank_def": "a particular type of material"
+   }
+  },
+  {
+   "id": "t2a_review_suffer",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "suffer",
+   "hash": "1042605ce004",
+   "heads": [
+    "suffer"
+   ],
+   "taught": [
+    "suffer"
+   ],
+   "in": {
+    "word": "suffer",
+    "ipa": "/ˈsʌfər/",
+    "def": "to experience pain, illness, or injury",
+    "ex": "Many people suffer from back pain.",
+    "bank_def": "to experience pain, illness, or injury"
+   }
+  },
+  {
+   "id": "t2a_review_summary",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "summary",
+   "hash": "0cbe97338e75",
+   "heads": [
+    "summary"
+   ],
+   "taught": [
+    "summary"
+   ],
+   "in": {
+    "word": "summary",
+    "ipa": "/ˈsʌməri/",
+    "def": "a brief statement that gives the most important information",
+    "ex": "Write a short summary of the article.",
+    "bank_def": "a brief statement that gives the most important information"
+   }
+  },
+  {
+   "id": "t2a_review_surface",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "surface",
+   "hash": "47b202a15588",
+   "heads": [
+    "surface"
+   ],
+   "taught": [
+    "surface"
+   ],
+   "in": {
+    "word": "surface",
+    "ipa": "/ˈsɜːrfəs/",
+    "def": "the top or outside layer of something",
+    "ex": "The surface of the table is smooth.",
+    "bank_def": "the top or outside layer of something"
+   }
+  },
+  {
+   "id": "t2a_review_survive",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "survive",
+   "hash": "1565cf13e43e",
+   "heads": [
+    "survive"
+   ],
+   "taught": [
+    "survive"
+   ],
+   "in": {
+    "word": "survive",
+    "ipa": "/sərˈvaɪv/",
+    "def": "to continue to live despite illness or trouble",
+    "ex": "Some plants can survive without water for months.",
+    "bank_def": "to continue to live despite illness or trouble"
+   }
+  },
+  {
+   "id": "t2a_review_talent",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "talent",
+   "hash": "ed89b84a3e0a",
+   "heads": [
+    "talent"
+   ],
+   "taught": [
+    "talent"
+   ],
+   "in": {
+    "word": "talent",
+    "ipa": "/ˈtælənt/",
+    "def": "the natural ability of a person to do something well",
+    "ex": "She has a talent for drawing.",
+    "bank_def": "the natural ability of a person to do something well"
+   }
+  },
+  {
+   "id": "t2a_review_teller",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "teller",
+   "hash": "c62ccef6deeb",
+   "heads": [
+    "teller"
+   ],
+   "taught": [
+    "teller"
+   ],
+   "in": {
+    "word": "teller",
+    "ipa": "/ˈtelər/",
+    "def": "a bank employee who handles money",
+    "ex": "The bank teller counted the cash twice before handing it over.",
+    "bank_def": "a bank employee who handles money"
+   }
+  },
+  {
+   "id": "t2a_review_tend",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "tend",
+   "hash": "aaafe96388db",
+   "heads": [
+    "tend"
+   ],
+   "taught": [
+    "tend"
+   ],
+   "in": {
+    "word": "tend",
+    "ipa": "/tend/",
+    "def": "to regularly behave in a certain way",
+    "ex": "People tend to spend more money at weekends.",
+    "bank_def": "to regularly behave in a certain way"
+   }
+  },
+  {
+   "id": "t2a_review_treat",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "treat",
+   "hash": "4819736594bf",
+   "heads": [
+    "treat"
+   ],
+   "taught": [
+    "treat"
+   ],
+   "in": {
+    "word": "treat",
+    "ipa": "/triːt/",
+    "def": "to act in a certain way toward someone",
+    "ex": "The nurses treat every patient with kindness.",
+    "bank_def": "to act in a certain way toward someone"
+   }
+  },
+  {
+   "id": "t2a_review_update",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "update",
+   "hash": "007921e2cadc",
+   "heads": [
+    "update"
+   ],
+   "taught": [
+    "update"
+   ],
+   "in": {
+    "word": "update",
+    "ipa": "/ˌʌpˈdeɪt/",
+    "def": "to change something by adding the most recent information",
+    "ex": "Please update your contact details.",
+    "bank_def": "to change something by adding the most recent information"
+   }
+  },
+  {
+   "id": "t2a_review_actress",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "actress",
+   "hash": "487a9324f1ff",
+   "heads": [
+    "actress"
+   ],
+   "taught": [
+    "actress"
+   ],
+   "in": {
+    "word": "actress",
+    "ipa": "/ˈæktrəs/",
+    "def": "a woman who acts in plays or films",
+    "ex": "The actress will appear at the store opening.",
+    "bank_def": "a woman who acts in plays or films"
+   }
+  },
+  {
+   "id": "t2a_review_add",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "add",
+   "hash": "df3aee546b11",
+   "heads": [
+    "add"
+   ],
+   "taught": [
+    "add"
+   ],
+   "in": {
+    "word": "add",
+    "ipa": "/æd/",
+    "def": "to put something with something else",
+    "ex": "Add a little salt to the soup.",
+    "bank_def": "to put something with something else; to put numbers together to get a total"
+   }
+  },
+  {
+   "id": "t2a_review_agree",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "agree",
+   "hash": "756c256b96c6",
+   "heads": [
+    "agree"
+   ],
+   "taught": [
+    "agree"
+   ],
+   "in": {
+    "word": "agree",
+    "ipa": "/əˈɡriː/",
+    "def": "to have the same opinion as someone else",
+    "ex": "I agree with you completely.",
+    "bank_def": "to have the same opinion as someone else"
+   }
+  },
+  {
+   "id": "t2a_review_area",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "area",
+   "hash": "6ed74a946528",
+   "heads": [
+    "area"
+   ],
+   "taught": [
+    "area"
+   ],
+   "in": {
+    "word": "area",
+    "ipa": "/ˈeriə/",
+    "def": "a specific section or space",
+    "ex": "This area of the city has many good restaurants.",
+    "bank_def": "a specific section or space; part of a region"
+   }
+  },
+  {
+   "id": "t2a_review_art",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "art",
+   "hash": "a65db8d657e1",
+   "heads": [
+    "art"
+   ],
+   "taught": [
+    "art"
+   ],
+   "in": {
+    "word": "art",
+    "ipa": "/ɑːrt/",
+    "def": "a creative skill using the imagination (e.g., painting)",
+    "ex": "She studied art at university.",
+    "bank_def": "a creative skill using the imagination (e.g., painting)"
+   }
+  },
+  {
+   "id": "t2a_review_ask",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "ask",
+   "hash": "84f2c9d5d134",
+   "heads": [
+    "ask"
+   ],
+   "taught": [
+    "ask"
+   ],
+   "in": {
+    "word": "ask",
+    "ipa": "/æsk/",
+    "def": "to say to someone that you want something",
+    "ex": "If you don't understand, ask your teacher.",
+    "bank_def": "to say to someone that you want something"
+   }
+  },
+  {
+   "id": "t2a_review_bank",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "bank",
+   "hash": "e2b4b8f9d4f1",
+   "heads": [
+    "bank"
+   ],
+   "taught": [
+    "bank"
+   ],
+   "in": {
+    "word": "bank",
+    "ipa": "/bæŋk/",
+    "def": "a financial institution that keeps or lends money",
+    "ex": "I need to go to the bank to change some money.",
+    "bank_def": "a financial institution that keeps or lends money"
+   }
+  },
+  {
+   "id": "t2a_review_bath",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "bath",
+   "hash": "6d57b89cdf48",
+   "heads": [
+    "bath"
+   ],
+   "taught": [
+    "bath"
+   ],
+   "in": {
+    "word": "bath",
+    "ipa": "/bæθ/",
+    "def": "the cleaning of a body by putting it completely into water",
+    "ex": "I like to have a hot bath after a long day.",
+    "bank_def": "the cleaning of a body by putting it completely into water"
+   }
+  },
+  {
+   "id": "t2a_review_become",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "become",
+   "hash": "570623da2198",
+   "heads": [
+    "become"
+   ],
+   "taught": [
+    "become"
+   ],
+   "in": {
+    "word": "become",
+    "ipa": "/bɪˈkʌm/",
+    "def": "to begin to be",
+    "ex": "She wants to become a doctor.",
+    "bank_def": "to begin to be; grow to be; develop into"
+   }
+  },
+  {
+   "id": "t2a_review_beef",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "beef",
+   "hash": "5f96405a55f6",
+   "heads": [
+    "beef"
+   ],
+   "taught": [
+    "beef"
+   ],
+   "in": {
+    "word": "beef",
+    "ipa": "/biːf/",
+    "def": "the meat from a cow or bull",
+    "ex": "I love eating beef.",
+    "bank_def": "the meat from a cow or bull"
+   }
+  },
+  {
+   "id": "t2a_review_believe",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "believe",
+   "hash": "863913da9783",
+   "heads": [
+    "believe"
+   ],
+   "taught": [
+    "believe"
+   ],
+   "in": {
+    "word": "believe",
+    "ipa": "/bɪˈliːv/",
+    "def": "to think or accept that something is true",
+    "ex": "I believe that everyone should learn to swim.",
+    "bank_def": "to think or accept that something is true"
+   }
+  },
+  {
+   "id": "t2a_review_bike",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "bike",
+   "hash": "27cc95521e5f",
+   "heads": [
+    "bike"
+   ],
+   "taught": [
+    "bike"
+   ],
+   "in": {
+    "word": "bike",
+    "ipa": "/baɪk/",
+    "def": "a vehicle with two wheels that a person can ride",
+    "ex": "I go to school by bike.",
+    "bank_def": "a vehicle with two wheels that a person can ride"
+   }
+  },
+  {
+   "id": "t2a_review_body",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "body",
+   "hash": "66eda63c0b43",
+   "heads": [
+    "body"
+   ],
+   "taught": [
+    "body"
+   ],
+   "in": {
+    "word": "body",
+    "ipa": "/ˈbɑːdi/",
+    "def": "a person's physical self",
+    "ex": "Regular exercise keeps the body and mind healthy.",
+    "bank_def": "a person's physical self"
+   }
+  },
+  {
+   "id": "t2a_review_boy",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "boy",
+   "hash": "a8ed7c71e5e0",
+   "heads": [
+    "boy"
+   ],
+   "taught": [
+    "boy"
+   ],
+   "in": {
+    "word": "boy",
+    "ipa": "/bɔɪ/",
+    "def": "a young male person",
+    "ex": "The boy next door plays the violin every evening.",
+    "bank_def": "a young male person"
+   }
+  },
+  {
+   "id": "t2a_review_bring",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "bring",
+   "hash": "05d818520aee",
+   "heads": [
+    "bring"
+   ],
+   "taught": [
+    "bring"
+   ],
+   "in": {
+    "word": "bring",
+    "ipa": "/brɪŋ/",
+    "def": "to take or go with someone to a place",
+    "ex": "Please bring your passport to the interview.",
+    "bank_def": "to take or go with someone to a place"
+   }
+  },
+  {
+   "id": "t2a_review_brother",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "brother",
+   "hash": "02f61b8e186c",
+   "heads": [
+    "brother"
+   ],
+   "taught": [
+    "brother"
+   ],
+   "in": {
+    "word": "brother",
+    "ipa": "/ˈbrʌðər/",
+    "def": "a boy or man who shares a parent with you",
+    "ex": "My older brother is a pilot.",
+    "bank_def": "a boy or man who shares a parent with you"
+   }
+  },
+  {
+   "id": "t2a_review_bus",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "bus",
+   "hash": "34f1741b8c7e",
+   "heads": [
+    "bus"
+   ],
+   "taught": [
+    "bus"
+   ],
+   "in": {
+    "word": "bus",
+    "ipa": "/bʌs/",
+    "def": "a large road vehicle used for carrying many people",
+    "ex": "I take the bus to work every day.",
+    "bank_def": "a large road vehicle used for carrying many people"
+   }
+  },
+  {
+   "id": "t2a_review_business",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "business",
+   "hash": "e72b5be08333",
+   "heads": [
+    "business"
+   ],
+   "taught": [
+    "business"
+   ],
+   "in": {
+    "word": "business",
+    "ipa": "/ˈbɪznəs/",
+    "def": "the making, buying, or selling goods or services for money",
+    "ex": "Her family runs a small business selling flowers.",
+    "bank_def": "the making, buying, or selling goods or services for money"
+   }
+  },
+  {
+   "id": "t2a_review_butter",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "butter",
+   "hash": "cecf7ab7f61a",
+   "heads": [
+    "butter"
+   ],
+   "taught": [
+    "butter"
+   ],
+   "in": {
+    "word": "butter",
+    "ipa": "/ˈbʌtər/",
+    "def": "a yellow food made from cream",
+    "ex": "The hotel breakfast includes bread, butter, jam, and fresh fruit.",
+    "bank_def": "a yellow food made from cream"
+   }
+  },
+  {
+   "id": "t2a_review_buy",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "buy",
+   "hash": "83ba37b37679",
+   "heads": [
+    "buy"
+   ],
+   "taught": [
+    "buy"
+   ],
+   "in": {
+    "word": "buy",
+    "ipa": "/baɪ/",
+    "def": "to get something by paying money for it",
+    "ex": "I need to buy a present for my mother.",
+    "bank_def": "to get something by paying money for it"
+   }
+  },
+  {
+   "id": "t2a_review_cake",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "cake",
+   "hash": "d3a633fde84b",
+   "heads": [
+    "cake"
+   ],
+   "taught": [
+    "cake"
+   ],
+   "in": {
+    "word": "cake",
+    "ipa": "/keɪk/",
+    "def": "a sweet baked food made from flour, eggs, fat, and sugar",
+    "ex": "She baked a chocolate cake for the party.",
+    "bank_def": "a sweet baked food made from flour, eggs, fat, and sugar"
+   }
+  },
+  {
+   "id": "t2a_review_call",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "call",
+   "hash": "62d1ee7053b1",
+   "heads": [
+    "call"
+   ],
+   "taught": [
+    "call"
+   ],
+   "in": {
+    "word": "call",
+    "ipa": "/kɔːl/",
+    "def": "to phone someone",
+    "ex": "I'll call you when I arrive at the hotel.",
+    "bank_def": "to phone someone"
+   }
+  },
+  {
+   "id": "t2a_review_car",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "car",
+   "hash": "0e9a662bb614",
+   "heads": [
+    "car"
+   ],
+   "taught": [
+    "car"
+   ],
+   "in": {
+    "word": "car",
+    "ipa": "/kɑːr/",
+    "def": "a vehicle with four wheels and engine that can carry things",
+    "ex": "My uncle drives an old red car.",
+    "bank_def": "a vehicle with four wheels and engine that can carry things"
+   }
+  },
+  {
+   "id": "t2a_review_cheese",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "cheese",
+   "hash": "920536b2774a",
+   "heads": [
+    "cheese"
+   ],
+   "taught": [
+    "cheese"
+   ],
+   "in": {
+    "word": "cheese",
+    "ipa": "/tʃiːz/",
+    "def": "a yellow or white food made from milk",
+    "ex": "I'd like a cheese sandwich, please.",
+    "bank_def": "a yellow or white food made from milk"
+   }
+  },
+  {
+   "id": "t2a_review_cheeseburger",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "cheeseburger",
+   "hash": "ff6cde9d1f2e",
+   "heads": [
+    "cheeseburger"
+   ],
+   "taught": [
+    "cheeseburger"
+   ],
+   "in": {
+    "word": "cheeseburger",
+    "ipa": "/ˈtʃiːzbərɡər/",
+    "def": "a hamburger with cheese",
+    "ex": "He ordered a cheeseburger and fries for lunch.",
+    "bank_def": "a hamburger with cheese"
+   }
+  },
+  {
+   "id": "t2a_review_child",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "child",
+   "hash": "2fb2b8fa6d79",
+   "heads": [
+    "child"
+   ],
+   "taught": [
+    "child"
+   ],
+   "in": {
+    "word": "child",
+    "ipa": "/tʃaɪld/",
+    "def": "a very young person, between about 2 and 15",
+    "ex": "Every child in the village goes to the same primary school.",
+    "bank_def": "a very young person, between about 2 and 15"
+   }
+  },
+  {
+   "id": "t2a_review_choose",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "choose",
+   "hash": "45641ef2ca83",
+   "heads": [
+    "choose"
+   ],
+   "taught": [
+    "choose"
+   ],
+   "in": {
+    "word": "choose",
+    "ipa": "/tʃuːz/",
+    "def": "to select",
+    "ex": "It was hard to choose between the two jobs.",
+    "bank_def": "to select; decide between several possibilities"
+   }
+  },
+  {
+   "id": "t2a_review_classmate",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "classmate",
+   "hash": "12cbe7ee153c",
+   "heads": [
+    "classmate"
+   ],
+   "taught": [
+    "classmate"
+   ],
+   "in": {
+    "word": "classmate",
+    "ipa": "/ˈklæsmeɪt/",
+    "def": "a person in the same class",
+    "ex": "I met a former classmate at the business conference.",
+    "bank_def": "a person in the same class"
+   }
+  },
+  {
+   "id": "t2a_review_clock",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "clock",
+   "hash": "3cb8790709b4",
+   "heads": [
+    "clock"
+   ],
+   "taught": [
+    "clock"
+   ],
+   "in": {
+    "word": "clock",
+    "ipa": "/klɑːk/",
+    "def": "a device that shows the time",
+    "ex": "The clock on the wall is five minutes fast.",
+    "bank_def": "a device that shows the time"
+   }
+  },
+  {
+   "id": "t2a_review_close",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "close",
+   "hash": "d9f4c6404f01",
+   "heads": [
+    "close"
+   ],
+   "taught": [
+    "close"
+   ],
+   "in": {
+    "word": "close",
+    "ipa": "/kloʊz/",
+    "def": "to move something so that it is no longer open",
+    "ex": "Please close the door when you leave.",
+    "bank_def": "to move something so that it is no longer open; to shut"
+   }
+  },
+  {
+   "id": "t2a_review_company",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "company",
+   "hash": "c0aadc83d861",
+   "heads": [
+    "company"
+   ],
+   "taught": [
+    "company"
+   ],
+   "in": {
+    "word": "company",
+    "ipa": "/ˈkʌmpəni/",
+    "def": "a business that sells things or provides services",
+    "ex": "She works for a small software company.",
+    "bank_def": "a business that sells things or provides services"
+   }
+  },
+  {
+   "id": "t2a_review_compare",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "compare",
+   "hash": "3540154a3d0a",
+   "heads": [
+    "compare"
+   ],
+   "taught": [
+    "compare"
+   ],
+   "in": {
+    "word": "compare",
+    "ipa": "/kəmˈper/",
+    "def": "to consider how similar and different things are",
+    "ex": "Compare the two graphs and describe the main differences.",
+    "bank_def": "to consider how similar and different things are"
+   }
+  },
+  {
+   "id": "t2a_review_computer",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "computer",
+   "hash": "8bb370e7d66b",
+   "heads": [
+    "computer"
+   ],
+   "taught": [
+    "computer"
+   ],
+   "in": {
+    "word": "computer",
+    "ipa": "/kəmˈpjuːtər/",
+    "def": "a machine for storing information and accessing the internet",
+    "ex": "I use my computer mainly for work.",
+    "bank_def": "a machine for storing information and accessing the internet"
+   }
+  },
+  {
+   "id": "t2a_review_course",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "course",
+   "hash": "44fe986838a7",
+   "heads": [
+    "course"
+   ],
+   "taught": [
+    "course"
+   ],
+   "in": {
+    "word": "course",
+    "ipa": "/kɔːrs/",
+    "def": "a series of lessons on a particular subject",
+    "ex": "I'm taking an online course in photography.",
+    "bank_def": "a series of lessons on a particular subject; the direction in which something moves"
+   }
+  },
+  {
+   "id": "t2a_review_create",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "create",
+   "hash": "d5013a79b7dd",
+   "heads": [
+    "create"
+   ],
+   "taught": [
+    "create"
+   ],
+   "in": {
+    "word": "create",
+    "ipa": "/kriˈeɪt/",
+    "def": "to make, cause, or bring into existence",
+    "ex": "The new factory will create two hundred jobs.",
+    "bank_def": "to make, cause, or bring into existence"
+   }
+  },
+  {
+   "id": "t2a_review_discuss",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "discuss",
+   "hash": "a0692bc1c840",
+   "heads": [
+    "discuss"
+   ],
+   "taught": [
+    "discuss"
+   ],
+   "in": {
+    "word": "discuss",
+    "ipa": "/dɪˈskʌs/",
+    "def": "to talk about something seriously or in great detail",
+    "ex": "We will discuss the budget at the next meeting.",
+    "bank_def": "to talk about something seriously or in great detail"
+   }
+  },
+  {
+   "id": "t2a_review_doctor",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "doctor",
+   "hash": "860cac7f55fd",
+   "heads": [
+    "doctor"
+   ],
+   "taught": [
+    "doctor"
+   ],
+   "in": {
+    "word": "doctor",
+    "ipa": "/ˈdɑːktər/",
+    "def": "a person trained to treat people who are ill or injured",
+    "ex": "You should see a doctor if the pain continues.",
+    "bank_def": "a person trained to treat people who are ill or injured"
+   }
+  },
+  {
+   "id": "t2a_review_downstairs",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "downstairs",
+   "hash": "18cb8e1caacc",
+   "heads": [
+    "downstairs"
+   ],
+   "taught": [
+    "downstairs"
+   ],
+   "in": {
+    "word": "downstairs",
+    "ipa": "/daʊnˈsterz/",
+    "def": "to or on a lower floor",
+    "ex": "The staff cafeteria is downstairs, next to the fitness center.",
+    "bank_def": "to or on a lower floor"
+   }
+  },
+  {
+   "id": "t2a_review_draw",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "draw",
+   "hash": "f226b7813ce5",
+   "heads": [
+    "draw"
+   ],
+   "taught": [
+    "draw"
+   ],
+   "in": {
+    "word": "draw",
+    "ipa": "/drɔː/",
+    "def": "to create an image using pen or pencil and paper",
+    "ex": "My little sister loves to draw animals.",
+    "bank_def": "to create an image using pen or pencil and paper"
+   }
+  },
+  {
+   "id": "t2a_review_east",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "east",
+   "hash": "b8c42e35419e",
+   "heads": [
+    "east"
+   ],
+   "taught": [
+    "east"
+   ],
+   "in": {
+    "word": "east",
+    "ipa": "/iːst/",
+    "def": "the direction where the sun rises",
+    "ex": "The sun rises in the east.",
+    "bank_def": "the direction where the sun rises"
+   }
+  },
+  {
+   "id": "t2a_review_eat",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "eat",
+   "hash": "86b4bae09757",
+   "heads": [
+    "eat"
+   ],
+   "taught": [
+    "eat"
+   ],
+   "in": {
+    "word": "eat",
+    "ipa": "/iːt/",
+    "def": "to put food in your mouth",
+    "ex": "We usually eat dinner at seven.",
+    "bank_def": "to put food in your mouth"
+   }
+  },
+  {
+   "id": "t2a_review_egg",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "egg",
+   "hash": "7c278e134b91",
+   "heads": [
+    "egg"
+   ],
+   "taught": [
+    "egg"
+   ],
+   "in": {
+    "word": "egg",
+    "ipa": "/eɡ/",
+    "def": "an oval object with a shell that birds lay",
+    "ex": "I usually have an egg for breakfast.",
+    "bank_def": "an oval object with a shell that birds lay; eggs from chickens are eaten as food"
+   }
+  },
+  {
+   "id": "t2a_review_end",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "end",
+   "hash": "e16fb5235fc8",
+   "heads": [
+    "end"
+   ],
+   "taught": [
+    "end"
+   ],
+   "in": {
+    "word": "end",
+    "ipa": "/end/",
+    "def": "a point that marks the limit of something",
+    "ex": "We will discuss the results at the end of the meeting.",
+    "bank_def": "a point that marks the limit of something; finish"
+   }
+  },
+  {
+   "id": "t2a_review_fill",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "fill",
+   "hash": "daa72fdb5023",
+   "heads": [
+    "fill"
+   ],
+   "taught": [
+    "fill"
+   ],
+   "in": {
+    "word": "fill",
+    "ipa": "/fɪl/",
+    "def": "to make something full",
+    "ex": "Fill the bottle with cold water.",
+    "bank_def": "to make something full"
+   }
+  },
+  {
+   "id": "t2a_review_find",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "find",
+   "hash": "0b0f9c11a197",
+   "heads": [
+    "find"
+   ],
+   "taught": [
+    "find"
+   ],
+   "in": {
+    "word": "find",
+    "ipa": "/faɪnd/",
+    "def": "to discover something by looking for it",
+    "ex": "I can't find my glasses anywhere.",
+    "bank_def": "to discover something by looking for it"
+   }
+  },
+  {
+   "id": "t2a_review_fish",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "fish",
+   "hash": "62570b15f27d",
+   "heads": [
+    "fish"
+   ],
+   "taught": [
+    "fish"
+   ],
+   "in": {
+    "word": "fish",
+    "ipa": "/fɪʃ/",
+    "def": "an animal that lives and swims in water",
+    "ex": "We had grilled fish for dinner.",
+    "bank_def": "an animal that lives and swims in water; its flesh eaten as food"
+   }
+  },
+  {
+   "id": "t2a_review_flight",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "flight",
+   "hash": "65d9b2d01258",
+   "heads": [
+    "flight"
+   ],
+   "taught": [
+    "flight"
+   ],
+   "in": {
+    "word": "flight",
+    "ipa": "/flaɪt/",
+    "def": "a journey by plane",
+    "ex": "Our flight was delayed by two hours.",
+    "bank_def": "a journey by plane; a plane that travels a particular route"
+   }
+  },
+  {
+   "id": "t2a_review_forget",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "forget",
+   "hash": "dde9aff634ac",
+   "heads": [
+    "forget"
+   ],
+   "taught": [
+    "forget"
+   ],
+   "in": {
+    "word": "forget",
+    "ipa": "/fərˈɡet/",
+    "def": "to not remember something",
+    "ex": "Don't forget to bring your passport.",
+    "bank_def": "to not remember something"
+   }
+  },
+  {
+   "id": "t2a_review_geography",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "geography",
+   "hash": "65d2a341d9d3",
+   "heads": [
+    "geography"
+   ],
+   "taught": [
+    "geography"
+   ],
+   "in": {
+    "word": "geography",
+    "ipa": "/dʒiˈɑːɡrəfi/",
+    "def": "the study of the earth's physical features and its people",
+    "ex": "The geography of the region makes transport expensive.",
+    "bank_def": "the study of the earth's physical features and its people; the features of an area"
+   }
+  },
+  {
+   "id": "t2a_review_girl",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "girl",
+   "hash": "d0b1b8760b15",
+   "heads": [
+    "girl"
+   ],
+   "taught": [
+    "girl"
+   ],
+   "in": {
+    "word": "girl",
+    "ipa": "/ɡɜːrl/",
+    "def": "a female child",
+    "ex": "The girl in the red coat is my cousin.",
+    "bank_def": "a female child"
+   }
+  },
+  {
+   "id": "t2a_review_grandma",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "grandma",
+   "hash": "0a2af20ddacb",
+   "heads": [
+    "grandma"
+   ],
+   "taught": [
+    "grandma"
+   ],
+   "in": {
+    "word": "grandma",
+    "ipa": "/ˈɡrændmɑː/",
+    "def": "the mother of your father or mother",
+    "ex": "Grandma will take care of you.",
+    "bank_def": "the mother of your father or mother"
+   }
+  },
+  {
+   "id": "t2a_review_have",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "have",
+   "hash": "4082b4e3e7c7",
+   "heads": [
+    "have"
+   ],
+   "taught": [
+    "have"
+   ],
+   "in": {
+    "word": "have",
+    "ipa": "/hæv/",
+    "def": "to own, possess, or hold something",
+    "ex": "We have two weeks to finish the project.",
+    "bank_def": "to own, possess, or hold something"
+   }
+  },
+  {
+   "id": "t2a_review_hobby",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "hobby",
+   "hash": "42458a284e92",
+   "heads": [
+    "hobby"
+   ],
+   "taught": [
+    "hobby"
+   ],
+   "in": {
+    "word": "hobby",
+    "ipa": "/ˈhɑːbi/",
+    "def": "an activity you do for fun in your free time",
+    "ex": "His favorite hobby outside of work is photography.",
+    "bank_def": "an activity you do for fun in your free time"
+   }
+  },
+  {
+   "id": "t2a_review_hope",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "hope",
+   "hash": "d99e82525c14",
+   "heads": [
+    "hope"
+   ],
+   "taught": [
+    "hope"
+   ],
+   "in": {
+    "word": "hope",
+    "ipa": "/hoʊp/",
+    "def": "to want something to happen and think that it may happen",
+    "ex": "I hope you have a wonderful holiday.",
+    "bank_def": "to want something to happen and think that it may happen"
+   }
+  },
+  {
+   "id": "t2a_review_imagine",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "imagine",
+   "hash": "8db9063640a5",
+   "heads": [
+    "imagine"
+   ],
+   "taught": [
+    "imagine"
+   ],
+   "in": {
+    "word": "imagine",
+    "ipa": "/ɪˈmædʒn/",
+    "def": "to think creatively about",
+    "ex": "Imagine living without electricity.",
+    "bank_def": "to think creatively about; form a mental picture of"
+   }
+  },
+  {
+   "id": "t2a_review_improve",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "improve",
+   "hash": "c6a9ccf07a0a",
+   "heads": [
+    "improve"
+   ],
+   "taught": [
+    "improve"
+   ],
+   "in": {
+    "word": "improve",
+    "ipa": "/ɪmˈpruːv/",
+    "def": "to make, or become, something better",
+    "ex": "Reading every day will improve your vocabulary.",
+    "bank_def": "to make, or become, something better"
+   }
+  },
+  {
+   "id": "t2a_review_introduce",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "introduce",
+   "hash": "edb3baa1e783",
+   "heads": [
+    "introduce"
+   ],
+   "taught": [
+    "introduce"
+   ],
+   "in": {
+    "word": "introduce",
+    "ipa": "/ˌɪntrəˈduːs/",
+    "def": "to make someone known to another by name",
+    "ex": "Let me introduce you to my colleague.",
+    "bank_def": "to make someone known to another by name"
+   }
+  },
+  {
+   "id": "t2a_review_jacket",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "jacket",
+   "hash": "fcaed97cfc37",
+   "heads": [
+    "jacket"
+   ],
+   "taught": [
+    "jacket"
+   ],
+   "in": {
+    "word": "jacket",
+    "ipa": "/ˈdʒækət/",
+    "def": "a light, thin coat",
+    "ex": "Take a jacket in case it gets cold.",
+    "bank_def": "a light, thin coat"
+   }
+  },
+  {
+   "id": "t2a_review_juice",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "juice",
+   "hash": "b34554c5798e",
+   "heads": [
+    "juice"
+   ],
+   "taught": [
+    "juice"
+   ],
+   "in": {
+    "word": "juice",
+    "ipa": "/dʒuːs/",
+    "def": "the liquid from fruit or vegetables",
+    "ex": "Fresh orange juice is served with breakfast in the hotel restaurant.",
+    "bank_def": "the liquid from fruit or vegetables"
+   }
+  },
+  {
+   "id": "t2a_review_keep",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "keep",
+   "hash": "88f2967de92a",
+   "heads": [
+    "keep"
+   ],
+   "taught": [
+    "keep"
+   ],
+   "in": {
+    "word": "keep",
+    "ipa": "/kiːp/",
+    "def": "to have and continue to hold something",
+    "ex": "Keep the receipt in case you need to return the shoes.",
+    "bank_def": "to have and continue to hold something"
+   }
+  },
+  {
+   "id": "t2a_review_land",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "land",
+   "hash": "20893f37008c",
+   "heads": [
+    "land"
+   ],
+   "taught": [
+    "land"
+   ],
+   "in": {
+    "word": "land",
+    "ipa": "/lænd/",
+    "def": "the earth",
+    "ex": "The farmers own a lot of land near the river.",
+    "bank_def": "the earth; the ground"
+   }
+  },
+  {
+   "id": "t2a_review_last",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "last",
+   "hash": "b6b0b249e3cd",
+   "heads": [
+    "last"
+   ],
+   "taught": [
+    "last"
+   ],
+   "in": {
+    "word": "last",
+    "ipa": "/læst/",
+    "def": "the one before",
+    "ex": "I saw her last week at the supermarket.",
+    "bank_def": "the one before"
+   }
+  },
+  {
+   "id": "t2a_review_laugh",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "laugh",
+   "hash": "4be992e897e7",
+   "heads": [
+    "laugh"
+   ],
+   "taught": [
+    "laugh"
+   ],
+   "in": {
+    "word": "laugh",
+    "ipa": "/læf/",
+    "def": "to make a happy sound when something is funny",
+    "ex": "His jokes always make me laugh.",
+    "bank_def": "to make a happy sound when something is funny"
+   }
+  },
+  {
+   "id": "t2a_review_learn",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "learn",
+   "hash": "918c9363b465",
+   "heads": [
+    "learn"
+   ],
+   "taught": [
+    "learn"
+   ],
+   "in": {
+    "word": "learn",
+    "ipa": "/lɜːrn/",
+    "def": "to get knowledge or skills by study or experience",
+    "ex": "Children learn languages quickly.",
+    "bank_def": "to get knowledge or skills by study or experience"
+   }
+  },
+  {
+   "id": "t2a_review_let",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "let",
+   "hash": "93edcbfa3c3a",
+   "heads": [
+    "let"
+   ],
+   "taught": [
+    "let"
+   ],
+   "in": {
+    "word": "let",
+    "ipa": "/let/",
+    "def": "to not stop someone from doing something",
+    "ex": "Let me help you with your bags.",
+    "bank_def": "to not stop someone from doing something"
+   }
+  },
+  {
+   "id": "t2a_review_like",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "like",
+   "hash": "c15e4eda437a",
+   "heads": [
+    "like"
+   ],
+   "taught": [
+    "like"
+   ],
+   "in": {
+    "word": "like",
+    "ipa": "/laɪk/",
+    "def": "to find something pleasing",
+    "ex": "I like reading in bed before I go to sleep.",
+    "bank_def": "to find something pleasing; to prefer something"
+   }
+  },
+  {
+   "id": "t2a_review_listen",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "listen",
+   "hash": "ab9bd43ffdd5",
+   "heads": [
+    "listen"
+   ],
+   "taught": [
+    "listen"
+   ],
+   "in": {
+    "word": "listen",
+    "ipa": "/ˈlɪsn/",
+    "def": "to use your ears to hear and understand things",
+    "ex": "Listen carefully to the instructions.",
+    "bank_def": "to use your ears to hear and understand things"
+   }
+  },
+  {
+   "id": "t2a_review_lose",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "lose",
+   "hash": "ae32c45505a7",
+   "heads": [
+    "lose"
+   ],
+   "taught": [
+    "lose"
+   ],
+   "in": {
+    "word": "lose",
+    "ipa": "/luːz/",
+    "def": "to be unable to find something you once had",
+    "ex": "Don't lose your ticket, or you will have to buy another one.",
+    "bank_def": "to be unable to find something you once had"
+   }
+  },
+  {
+   "id": "t2a_review_lot",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "lot",
+   "hash": "165f779de164",
+   "heads": [
+    "lot"
+   ],
+   "taught": [
+    "lot"
+   ],
+   "in": {
+    "word": "lot",
+    "ipa": "/lɑːt/",
+    "def": "a large number or amount (a lot of)",
+    "ex": "I learned a lot from my first job.",
+    "bank_def": "a large number or amount (a lot of)"
+   }
+  },
+  {
+   "id": "t2a_review_love",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "love",
+   "hash": "5d98b8037507",
+   "heads": [
+    "love"
+   ],
+   "taught": [
+    "love"
+   ],
+   "in": {
+    "word": "love",
+    "ipa": "/lʌv/",
+    "def": "to care about and like someone very strongly",
+    "ex": "I love walking by the sea in the evening.",
+    "bank_def": "to care about and like someone very strongly; to enjoy something very much"
+   }
+  },
+  {
+   "id": "t2a_review_man",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "man",
+   "hash": "8a37dbfa59a8",
+   "heads": [
+    "man"
+   ],
+   "taught": [
+    "man"
+   ],
+   "in": {
+    "word": "man",
+    "ipa": "/mæn/",
+    "def": "an adult male human being",
+    "ex": "The man at the reception desk gave us a map.",
+    "bank_def": "an adult male human being"
+   }
+  },
+  {
+   "id": "t2a_review_model",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "model",
+   "hash": "cc8d5e2131cf",
+   "heads": [
+    "model"
+   ],
+   "taught": [
+    "model"
+   ],
+   "in": {
+    "word": "model",
+    "ipa": "/ˈmɑːdl/",
+    "def": "a copy that represents an object or standard",
+    "ex": "The architect showed us a model of the new building.",
+    "bank_def": "a copy that represents an object or standard"
+   }
+  },
+  {
+   "id": "t2a_review_mouse",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "mouse",
+   "hash": "174e3adfd90d",
+   "heads": [
+    "mouse"
+   ],
+   "taught": [
+    "mouse"
+   ],
+   "in": {
+    "word": "mouse",
+    "ipa": "/maʊs/",
+    "def": "a small animal with fur and a long tail",
+    "ex": "We found a mouse in the kitchen.",
+    "bank_def": "a small animal with fur and a long tail; a small device you move to control a computer"
+   }
+  },
+  {
+   "id": "t2a_review_need",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "need",
+   "hash": "a2477f13d877",
+   "heads": [
+    "need"
+   ],
+   "taught": [
+    "need"
+   ],
+   "in": {
+    "word": "need",
+    "ipa": "/niːd/",
+    "def": "to be unable to manage without something",
+    "ex": "I need a new charger for my phone.",
+    "bank_def": "to be unable to manage without something; require"
+   }
+  },
+  {
+   "id": "t2a_review_office",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "office",
+   "hash": "e71d89e0d300",
+   "heads": [
+    "office"
+   ],
+   "taught": [
+    "office"
+   ],
+   "in": {
+    "word": "office",
+    "ipa": "/ˈɔːfɪs/",
+    "def": "a room or building where people work, usually at desks",
+    "ex": "Her office is on the fifth floor.",
+    "bank_def": "a room or building where people work, usually at desks"
+   }
+  },
+  {
+   "id": "t2a_review_orange",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "orange",
+   "hash": "be83bb5040e3",
+   "heads": [
+    "orange"
+   ],
+   "taught": [
+    "orange"
+   ],
+   "in": {
+    "word": "orange",
+    "ipa": "/ˈɔːrəndʒ/",
+    "def": "a round, sweet fruit with a thick orange skin",
+    "ex": "I drink a glass of orange juice every morning.",
+    "bank_def": "a round, sweet fruit with a thick orange skin; the colour between red and yellow"
+   }
+  },
+  {
+   "id": "t2a_review_paint",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "paint",
+   "hash": "89753a9f7a0f",
+   "heads": [
+    "paint"
+   ],
+   "taught": [
+    "paint"
+   ],
+   "in": {
+    "word": "paint",
+    "ipa": "/peɪnt/",
+    "def": "to cover a surface with paint",
+    "ex": "We are going to paint the kitchen yellow.",
+    "bank_def": "to cover a surface with paint; to make a picture using paints"
+   }
+  },
+  {
+   "id": "t2a_review_phone",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "phone",
+   "hash": "6036b79aa4ec",
+   "heads": [
+    "phone"
+   ],
+   "taught": [
+    "phone"
+   ],
+   "in": {
+    "word": "phone",
+    "ipa": "/foʊn/",
+    "def": "a device you use to talk to people who are far away",
+    "ex": "My phone battery is almost empty.",
+    "bank_def": "a device you use to talk to people who are far away"
+   }
+  },
+  {
+   "id": "t2a_review_plane",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "plane",
+   "hash": "f7021cf896aa",
+   "heads": [
+    "plane"
+   ],
+   "taught": [
+    "plane"
+   ],
+   "in": {
+    "word": "plane",
+    "ipa": "/pleɪn/",
+    "def": "an airplane",
+    "ex": "The plane landed safely despite the storm.",
+    "bank_def": "an airplane"
+   }
+  },
+  {
+   "id": "t2a_review_point",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "point",
+   "hash": "0140b711759c",
+   "heads": [
+    "point"
+   ],
+   "taught": [
+    "point"
+   ],
+   "in": {
+    "word": "point",
+    "ipa": "/pɔɪnt/",
+    "def": "an idea or opinion in a discussion",
+    "ex": "That is a good point, but I don't completely agree.",
+    "bank_def": "an idea or opinion in a discussion; a mark or position; a unit for counting a score"
+   }
+  },
+  {
+   "id": "t2a_review_prefer",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "prefer",
+   "hash": "e80e1eb3b1b1",
+   "heads": [
+    "prefer"
+   ],
+   "taught": [
+    "prefer"
+   ],
+   "in": {
+    "word": "prefer",
+    "ipa": "/prɪˈfɜːr/",
+    "def": "to like something better than something else",
+    "ex": "I prefer tea to coffee.",
+    "bank_def": "to like something better than something else"
+   }
+  },
+  {
+   "id": "t2a_review_prepare",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "prepare",
+   "hash": "5b534feeaa4b",
+   "heads": [
+    "prepare"
+   ],
+   "taught": [
+    "prepare"
+   ],
+   "in": {
+    "word": "prepare",
+    "ipa": "/prɪˈper/",
+    "def": "to make something ready for use",
+    "ex": "It took me two hours to prepare dinner.",
+    "bank_def": "to make something ready for use"
+   }
+  },
+  {
+   "id": "t2a_review_project",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "project",
+   "hash": "b0c1a869d187",
+   "heads": [
+    "project"
+   ],
+   "taught": [
+    "project"
+   ],
+   "in": {
+    "word": "project",
+    "ipa": "/ˈprɑːdʒekt/",
+    "def": "a planned piece of work for specific purpose",
+    "ex": "Our group project is about renewable energy.",
+    "bank_def": "a planned piece of work for specific purpose"
+   }
+  },
+  {
+   "id": "t2a_review_put",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "put",
+   "hash": "dcff12a76716",
+   "heads": [
+    "put"
+   ],
+   "taught": [
+    "put"
+   ],
+   "in": {
+    "word": "put",
+    "ipa": "/pʊt/",
+    "def": "to move or place a thing in a particular position",
+    "ex": "Put your coats on the chair by the door.",
+    "bank_def": "to move or place a thing in a particular position"
+   }
+  },
+  {
+   "id": "t2a_review_relax",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "relax",
+   "hash": "b7f40c989dff",
+   "heads": [
+    "relax"
+   ],
+   "taught": [
+    "relax"
+   ],
+   "in": {
+    "word": "relax",
+    "ipa": "/rɪˈlæks/",
+    "def": "to stop feeling nervous or worried",
+    "ex": "I like to relax by listening to music.",
+    "bank_def": "to stop feeling nervous or worried; to rest and do something enjoyable"
+   }
+  },
+  {
+   "id": "t2a_review_ride",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "ride",
+   "hash": "19992294091e",
+   "heads": [
+    "ride"
+   ],
+   "taught": [
+    "ride"
+   ],
+   "in": {
+    "word": "ride",
+    "ipa": "/raɪd/",
+    "def": "to sit on and control a horse or vehicle",
+    "ex": "I ride my bike to work when the weather is good.",
+    "bank_def": "to sit on and control a horse or vehicle"
+   }
+  },
+  {
+   "id": "t2a_review_routine",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "routine",
+   "hash": "9db0f63876ec",
+   "heads": [
+    "routine"
+   ],
+   "taught": [
+    "routine"
+   ],
+   "in": {
+    "word": "routine",
+    "ipa": "/ruːˈtiːn/",
+    "def": "the usual order and way in which you regularly do things",
+    "ex": "Exercise is part of my daily routine.",
+    "bank_def": "the usual order and way in which you regularly do things"
+   }
+  },
+  {
+   "id": "t2a_review_salad",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "salad",
+   "hash": "01f055a8efbf",
+   "heads": [
+    "salad"
+   ],
+   "taught": [
+    "salad"
+   ],
+   "in": {
+    "word": "salad",
+    "ipa": "/ˈsæləd/",
+    "def": "a dish of mixed raw vegetables",
+    "ex": "I ordered a chicken salad and a coffee for lunch today.",
+    "bank_def": "a dish of mixed raw vegetables"
+   }
+  },
+  {
+   "id": "t2a_review_send",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "send",
+   "hash": "92eff19c7744",
+   "heads": [
+    "send"
+   ],
+   "taught": [
+    "send"
+   ],
+   "in": {
+    "word": "send",
+    "ipa": "/send/",
+    "def": "to cause mail or package to go to another place",
+    "ex": "I'll send you the photos by email.",
+    "bank_def": "to cause mail or package to go to another place"
+   }
+  },
+  {
+   "id": "t2a_review_share",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "share",
+   "hash": "1354ff7c6eb9",
+   "heads": [
+    "share"
+   ],
+   "taught": [
+    "share"
+   ],
+   "in": {
+    "word": "share",
+    "ipa": "/ʃer/",
+    "def": "to have or use something together with other people",
+    "ex": "We share a flat with two other students.",
+    "bank_def": "to have or use something together with other people"
+   }
+  },
+  {
+   "id": "t2a_review_shower",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "shower",
+   "hash": "b22c26da6ba0",
+   "heads": [
+    "shower"
+   ],
+   "taught": [
+    "shower"
+   ],
+   "in": {
+    "word": "shower",
+    "ipa": "/ˈʃaʊər/",
+    "def": "the cleaning of a body by standing under falling water",
+    "ex": "I usually have a shower in the morning.",
+    "bank_def": "the cleaning of a body by standing under falling water"
+   }
+  },
+  {
+   "id": "t2a_review_sing",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "sing",
+   "hash": "ac73a33512d7",
+   "heads": [
+    "sing"
+   ],
+   "taught": [
+    "sing"
+   ],
+   "in": {
+    "word": "sing",
+    "ipa": "/sɪŋ/",
+    "def": "to make musical sounds with your voice",
+    "ex": "She likes to sing while she cooks.",
+    "bank_def": "to make musical sounds with your voice"
+   }
+  },
+  {
+   "id": "t2a_review_sit",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "sit",
+   "hash": "aa9cb5bb4108",
+   "heads": [
+    "sit"
+   ],
+   "taught": [
+    "sit"
+   ],
+   "in": {
+    "word": "sit",
+    "ipa": "/sɪt/",
+    "def": "to be in a resting position on a chair",
+    "ex": "Come and sit next to me.",
+    "bank_def": "to be in a resting position on a chair"
+   }
+  },
+  {
+   "id": "t2a_review_sleep",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "sleep",
+   "hash": "dd3c1325f829",
+   "heads": [
+    "sleep"
+   ],
+   "taught": [
+    "sleep"
+   ],
+   "in": {
+    "word": "sleep",
+    "ipa": "/sliːp/",
+    "def": "to rest your body in bed, as at night time",
+    "ex": "I couldn't sleep because of the heat.",
+    "bank_def": "to rest your body in bed, as at night time"
+   }
+  },
+  {
+   "id": "t2a_review_sofa",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "sofa",
+   "hash": "ff17e0141026",
+   "heads": [
+    "sofa"
+   ],
+   "taught": [
+    "sofa"
+   ],
+   "in": {
+    "word": "sofa",
+    "ipa": "/ˈsoʊfə/",
+    "def": "a long soft seat for two or more people",
+    "ex": "There is a large sofa in the waiting area.",
+    "bank_def": "a long soft seat for two or more people"
+   }
+  },
+  {
+   "id": "t2a_review_start",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "start",
+   "hash": "2aa6e8cfcf7f",
+   "heads": [
+    "start"
+   ],
+   "taught": [
+    "start"
+   ],
+   "in": {
+    "word": "start",
+    "ipa": "/stɑːrt/",
+    "def": "to begin doing something, or to begin to happen",
+    "ex": "The concert will start in ten minutes.",
+    "bank_def": "to begin doing something, or to begin to happen"
+   }
+  },
+  {
+   "id": "t2a_review_story",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "story",
+   "hash": "e0fdc598154c",
+   "heads": [
+    "story"
+   ],
+   "taught": [
+    "story"
+   ],
+   "in": {
+    "word": "story",
+    "ipa": "/ˈstɔːri/",
+    "def": "an account or description of how something happened",
+    "ex": "My grandmother told us a story about her childhood.",
+    "bank_def": "an account or description of how something happened"
+   }
+  },
+  {
+   "id": "t2a_review_sun",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "sun",
+   "hash": "7812409022a3",
+   "heads": [
+    "sun"
+   ],
+   "taught": [
+    "sun"
+   ],
+   "in": {
+    "word": "sun",
+    "ipa": "/sʌn/",
+    "def": "the hot shining star the earth moves around",
+    "ex": "The sun rises at about six in summer.",
+    "bank_def": "the hot shining star the earth moves around"
+   }
+  },
+  {
+   "id": "t2a_review_swim",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "swim",
+   "hash": "c2ba45c2fe77",
+   "heads": [
+    "swim"
+   ],
+   "taught": [
+    "swim"
+   ],
+   "in": {
+    "word": "swim",
+    "ipa": "/swɪm/",
+    "def": "to move through water by moving parts of the body",
+    "ex": "I learned to swim when I was six.",
+    "bank_def": "to move through water by moving parts of the body"
+   }
+  },
+  {
+   "id": "t2a_review_take",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "take",
+   "hash": "97565ebf4209",
+   "heads": [
+    "take"
+   ],
+   "taught": [
+    "take"
+   ],
+   "in": {
+    "word": "take",
+    "ipa": "/teɪk/",
+    "def": "to pick up something and go away with it",
+    "ex": "Don't forget to take your umbrella with you.",
+    "bank_def": "to pick up something and go away with it"
+   }
+  },
+  {
+   "id": "t2a_review_text",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "text",
+   "hash": "1a002c6a9336",
+   "heads": [
+    "text"
+   ],
+   "taught": [
+    "text"
+   ],
+   "in": {
+    "word": "text",
+    "ipa": "/tekst/",
+    "def": "the written words in a book or document",
+    "ex": "I'll send you a text when I arrive.",
+    "bank_def": "the written words in a book or document; a message sent by mobile phone"
+   }
+  },
+  {
+   "id": "t2a_review_thank",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "thank",
+   "hash": "f379f071e69d",
+   "heads": [
+    "thank"
+   ],
+   "taught": [
+    "thank"
+   ],
+   "in": {
+    "word": "thank",
+    "ipa": "/θæŋk/",
+    "def": "to tell someone you are grateful to them",
+    "ex": "I want to thank you for your help.",
+    "bank_def": "to tell someone you are grateful to them"
+   }
+  },
+  {
+   "id": "t2a_review_think",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "think",
+   "hash": "6b09d48afd36",
+   "heads": [
+    "think"
+   ],
+   "taught": [
+    "think"
+   ],
+   "in": {
+    "word": "think",
+    "ipa": "/θɪŋk/",
+    "def": "to have an idea, opinion, or belief about something",
+    "ex": "I think this plan will save us a lot of money.",
+    "bank_def": "to have an idea, opinion, or belief about something"
+   }
+  },
+  {
+   "id": "t2a_review_travel",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "travel",
+   "hash": "c664d9ff55bb",
+   "heads": [
+    "travel"
+   ],
+   "taught": [
+    "travel"
+   ],
+   "in": {
+    "word": "travel",
+    "ipa": "/ˈtrævl/",
+    "def": "to go to a place that is far away",
+    "ex": "I'd love to travel around South America one day.",
+    "bank_def": "to go to a place that is far away"
+   }
+  },
+  {
+   "id": "t2a_review_try",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "try",
+   "hash": "722ddce4501f",
+   "heads": [
+    "try"
+   ],
+   "taught": [
+    "try"
+   ],
+   "in": {
+    "word": "try",
+    "ipa": "/traɪ/",
+    "def": "to make an effort, to attempt to do something",
+    "ex": "Try to answer every question, even if you are not sure.",
+    "bank_def": "to make an effort, to attempt to do something"
+   }
+  },
+  {
+   "id": "t2a_review_turn",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "turn",
+   "hash": "660b6f0a97a3",
+   "heads": [
+    "turn"
+   ],
+   "taught": [
+    "turn"
+   ],
+   "in": {
+    "word": "turn",
+    "ipa": "/tɜːrn/",
+    "def": "to change the direction of something (e.g., a car)",
+    "ex": "Turn left at the end of the road.",
+    "bank_def": "to change the direction of something (e.g., a car)"
+   }
+  },
+  {
+   "id": "t2a_review_understand",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "understand",
+   "hash": "61998dfde981",
+   "heads": [
+    "understand"
+   ],
+   "taught": [
+    "understand"
+   ],
+   "in": {
+    "word": "understand",
+    "ipa": "/ˌʌndərˈstænd/",
+    "def": "to know the meaning of language, what someone says",
+    "ex": "I don't understand this question.",
+    "bank_def": "to know the meaning of language, what someone says"
+   }
+  },
+  {
+   "id": "t2a_review_upstairs",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "upstairs",
+   "hash": "e8b4bbc527ad",
+   "heads": [
+    "upstairs"
+   ],
+   "taught": [
+    "upstairs"
+   ],
+   "in": {
+    "word": "upstairs",
+    "ipa": "/əpˈsterz/",
+    "def": "to or on a higher floor",
+    "ex": "The manager's office is upstairs at the end of the hall.",
+    "bank_def": "to or on a higher floor"
+   }
+  },
+  {
+   "id": "t2a_review_use",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "use",
+   "hash": "b115c9998252",
+   "heads": [
+    "use"
+   ],
+   "taught": [
+    "use"
+   ],
+   "in": {
+    "word": "use",
+    "ipa": "/juːz/",
+    "def": "to do something with, for a task or purpose",
+    "ex": "You can use my laptop if yours is broken.",
+    "bank_def": "to do something with, for a task or purpose"
+   }
+  },
+  {
+   "id": "t2a_review_wait",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "wait",
+   "hash": "a0faf932e0c0",
+   "heads": [
+    "wait"
+   ],
+   "taught": [
+    "wait"
+   ],
+   "in": {
+    "word": "wait",
+    "ipa": "/weɪt/",
+    "def": "to spend time until an expected thing happens",
+    "ex": "Please wait outside until the doctor calls you.",
+    "bank_def": "to spend time until an expected thing happens"
+   }
+  },
+  {
+   "id": "t2a_review_waiter",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "waiter",
+   "hash": "5541aa7ac3d0",
+   "heads": [
+    "waiter"
+   ],
+   "taught": [
+    "waiter"
+   ],
+   "in": {
+    "word": "waiter",
+    "ipa": "/ˈweɪtər/",
+    "def": "a man who serves food in a restaurant",
+    "ex": "The waiter brought us the menu and some water.",
+    "bank_def": "a man who serves food in a restaurant"
+   }
+  },
+  {
+   "id": "t2a_review_waitress",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "waitress",
+   "hash": "8a6aef86b3b3",
+   "heads": [
+    "waitress"
+   ],
+   "taught": [
+    "waitress"
+   ],
+   "in": {
+    "word": "waitress",
+    "ipa": "/ˈweɪtrəs/",
+    "def": "a woman who serves food in a restaurant",
+    "ex": "The waitress recommended the fish of the day.",
+    "bank_def": "a woman who serves food in a restaurant"
+   }
+  },
+  {
+   "id": "t2a_review_wake",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "wake",
+   "hash": "067ef7c2c7e1",
+   "heads": [
+    "wake"
+   ],
+   "taught": [
+    "wake"
+   ],
+   "in": {
+    "word": "wake",
+    "ipa": "/weɪk/",
+    "def": "to stop sleeping",
+    "ex": "I usually wake up at six.",
+    "bank_def": "to stop sleeping; to make someone stop sleeping"
+   }
+  },
+  {
+   "id": "t2a_review_want",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "want",
+   "hash": "a77cd095cfca",
+   "heads": [
+    "want"
+   ],
+   "taught": [
+    "want"
+   ],
+   "in": {
+    "word": "want",
+    "ipa": "/wɑːnt/",
+    "def": "to desire or wish for something",
+    "ex": "I want to improve my speaking skills.",
+    "bank_def": "to desire or wish for something; hope for a thing"
+   }
+  },
+  {
+   "id": "t2a_review_wash",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "wash",
+   "hash": "f8903af30f93",
+   "heads": [
+    "wash"
+   ],
+   "taught": [
+    "wash"
+   ],
+   "in": {
+    "word": "wash",
+    "ipa": "/wɑːʃ/",
+    "def": "to clean someone or something with soap and water",
+    "ex": "Wash your hands before eating.",
+    "bank_def": "to clean someone or something with soap and water"
+   }
+  },
+  {
+   "id": "t2a_review_west",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "west",
+   "hash": "557cf77080fb",
+   "heads": [
+    "west"
+   ],
+   "taught": [
+    "west"
+   ],
+   "in": {
+    "word": "west",
+    "ipa": "/west/",
+    "def": "the direction where the sun sets",
+    "ex": "The sun sets in the west.",
+    "bank_def": "the direction where the sun sets; opposite of east"
+   }
+  },
+  {
+   "id": "t2a_review_write",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "write",
+   "hash": "3611871f5e6f",
+   "heads": [
+    "write"
+   ],
+   "taught": [
+    "write"
+   ],
+   "in": {
+    "word": "write",
+    "ipa": "/raɪt/",
+    "def": "to make letters and words on paper or a screen",
+    "ex": "Please write your name at the top of the page.",
+    "bank_def": "to make letters and words on paper or a screen"
+   }
+  },
+  {
+   "id": "t2a_review_ability",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "ability",
+   "hash": "5f2d9fa0885c",
+   "heads": [
+    "ability"
+   ],
+   "taught": [
+    "ability"
+   ],
+   "in": {
+    "word": "ability",
+    "ipa": "/əˈbɪləti/",
+    "def": "the skill or power to do something",
+    "ex": "She has the ability to explain difficult ideas simply.",
+    "bank_def": "the skill or power to do something"
+   }
+  },
+  {
+   "id": "t2a_review_achieve",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "achieve",
+   "hash": "8192af0a9e4a",
+   "heads": [
+    "achieve"
+   ],
+   "taught": [
+    "achieve"
+   ],
+   "in": {
+    "word": "achieve",
+    "ipa": "/əˈtʃiːv/",
+    "def": "to succeed in doing something good, usually by working hard",
+    "ex": "You can achieve your goals if you work hard.",
+    "bank_def": "to succeed in doing something good, usually by working hard"
+   }
+  },
+  {
+   "id": "t2a_review_act",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "act",
+   "hash": "ff3f64deb980",
+   "heads": [
+    "act"
+   ],
+   "taught": [
+    "act"
+   ],
+   "in": {
+    "word": "act",
+    "ipa": "/ækt/",
+    "def": "to behave in a certain way",
+    "ex": "We must act quickly to solve the problem.",
+    "bank_def": "to behave in a certain way"
+   }
+  },
+  {
+   "id": "t2a_review_adventure",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "adventure",
+   "hash": "d61a254503f7",
+   "heads": [
+    "adventure"
+   ],
+   "taught": [
+    "adventure"
+   ],
+   "in": {
+    "word": "adventure",
+    "ipa": "/ædˈventʃər/",
+    "def": "an exciting and often dangerous experience",
+    "ex": "Our trip to the jungle was a real adventure.",
+    "bank_def": "an exciting and often dangerous experience"
+   }
+  },
+  {
+   "id": "t2a_review_advertising",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "advertising",
+   "hash": "7c76d9cc39fc",
+   "heads": [
+    "advertising"
+   ],
+   "taught": [
+    "advertising"
+   ],
+   "in": {
+    "word": "advertising",
+    "ipa": "/ˈædvərtaɪzɪŋ/",
+    "def": "the activity of promoting products through paid messages",
+    "ex": "The company spends a fifth of its budget on advertising.",
+    "bank_def": "the activity of promoting products through paid messages"
+   }
+  },
+  {
+   "id": "t2a_review_affect",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "affect",
+   "hash": "7d80ef66da73",
+   "heads": [
+    "affect"
+   ],
+   "taught": [
+    "affect"
+   ],
+   "in": {
+    "word": "affect",
+    "ipa": "/əˈfekt/",
+    "def": "to do something that changes something else",
+    "ex": "Lack of sleep can affect your concentration.",
+    "bank_def": "to do something that changes something else"
+   }
+  },
+  {
+   "id": "t2a_review_argue",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "argue",
+   "hash": "f5921447aca7",
+   "heads": [
+    "argue"
+   ],
+   "taught": [
+    "argue"
+   ],
+   "in": {
+    "word": "argue",
+    "ipa": "/ˈɑːrɡjuː/",
+    "def": "to speak angrily to someone because you disagree",
+    "ex": "My brothers always argue about football.",
+    "bank_def": "to speak angrily to someone because you disagree; to give reasons for or against an idea"
+   }
+  },
+  {
+   "id": "t2a_review_argument",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "argument",
+   "hash": "8d134944808e",
+   "heads": [
+    "argument"
+   ],
+   "taught": [
+    "argument"
+   ],
+   "in": {
+    "word": "argument",
+    "ipa": "/ˈɑːrɡjəmənt/",
+    "def": "a discussion in which you disagree with another's opinion",
+    "ex": "They had an argument about money.",
+    "bank_def": "a discussion in which you disagree with another's opinion"
+   }
+  },
+  {
+   "id": "t2a_review_arrange",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "arrange",
+   "hash": "003de7cb1b1b",
+   "heads": [
+    "arrange"
+   ],
+   "taught": [
+    "arrange"
+   ],
+   "in": {
+    "word": "arrange",
+    "ipa": "/əˈreɪndʒ/",
+    "def": "to put things into a particular order",
+    "ex": "Let's arrange a meeting for next week.",
+    "bank_def": "to put things into a particular order; to plan and organize an event"
+   }
+  },
+  {
+   "id": "t2a_review_assistant",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "assistant",
+   "hash": "b4b494367574",
+   "heads": [
+    "assistant"
+   ],
+   "taught": [
+    "assistant"
+   ],
+   "in": {
+    "word": "assistant",
+    "ipa": "/əˈsɪstənt/",
+    "def": "a person who helps another, usually as a job",
+    "ex": "The shop assistant helped me find the right size.",
+    "bank_def": "a person who helps another, usually as a job"
+   }
+  },
+  {
+   "id": "t2a_review_avoid",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "avoid",
+   "hash": "689ded6144d1",
+   "heads": [
+    "avoid"
+   ],
+   "taught": [
+    "avoid"
+   ],
+   "in": {
+    "word": "avoid",
+    "ipa": "/əˈvɔɪd/",
+    "def": "to prevent from happening, or stay away from",
+    "ex": "Try to avoid driving during rush hour.",
+    "bank_def": "to prevent from happening, or stay away from"
+   }
+  },
+  {
+   "id": "t2a_review_award",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "award",
+   "hash": "0539b229e90e",
+   "heads": [
+    "award"
+   ],
+   "taught": [
+    "award"
+   ],
+   "in": {
+    "word": "award",
+    "ipa": "/əˈwɔːrd/",
+    "def": "a prize given to someone for doing something well",
+    "ex": "She won an award for her research.",
+    "bank_def": "a prize given to someone for doing something well"
+   }
+  },
+  {
+   "id": "t2a_review_backpack",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "backpack",
+   "hash": "a1878ac5f249",
+   "heads": [
+    "backpack"
+   ],
+   "taught": [
+    "backpack"
+   ],
+   "in": {
+    "word": "backpack",
+    "ipa": "/ˈbækpæk/",
+    "def": "a bag carried on the back",
+    "ex": "Please leave your backpack at the entrance before entering the gallery.",
+    "bank_def": "a bag carried on the back"
+   }
+  },
+  {
+   "id": "t2a_review_baker",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "baker",
+   "hash": "d5542a878183",
+   "heads": [
+    "baker"
+   ],
+   "taught": [
+    "baker"
+   ],
+   "in": {
+    "word": "baker",
+    "ipa": "/ˈbeɪkər/",
+    "def": "a person who bakes bread",
+    "ex": "The baker starts work at four in the morning.",
+    "bank_def": "a person who bakes bread"
+   }
+  },
+  {
+   "id": "t2a_review_bakery",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "bakery",
+   "hash": "203e3d5245b5",
+   "heads": [
+    "bakery"
+   ],
+   "taught": [
+    "bakery"
+   ],
+   "in": {
+    "word": "bakery",
+    "ipa": "/ˈbeɪkəri/",
+    "def": "a shop that makes and sells bread and cakes",
+    "ex": "The bakery next door supplies our office breakfast.",
+    "bank_def": "a shop that makes and sells bread and cakes"
+   }
+  },
+  {
+   "id": "t2a_review_bin",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "bin",
+   "hash": "a5dd4d0c4eed",
+   "heads": [
+    "bin"
+   ],
+   "taught": [
+    "bin"
+   ],
+   "in": {
+    "word": "bin",
+    "ipa": "/bɪn/",
+    "def": "a container for storing things",
+    "ex": "Please put your rubbish in the bin.",
+    "bank_def": "a container for storing things"
+   }
+  },
+  {
+   "id": "t2a_review_bookshelf",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "bookshelf",
+   "hash": "962a236b2fb4",
+   "heads": [
+    "bookshelf"
+   ],
+   "taught": [
+    "bookshelf"
+   ],
+   "in": {
+    "word": "bookshelf",
+    "ipa": "/ˈbʊkʃelf/",
+    "def": "a shelf for storing books",
+    "ex": "He made her a bookshelf.",
+    "bank_def": "a shelf for storing books"
+   }
+  },
+  {
+   "id": "t2a_review_bowl",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "bowl",
+   "hash": "67411cbed9a7",
+   "heads": [
+    "bowl"
+   ],
+   "taught": [
+    "bowl"
+   ],
+   "in": {
+    "word": "bowl",
+    "ipa": "/boʊl/",
+    "def": "a round container used for holding things like rice or soup",
+    "ex": "I had a bowl of rice for lunch.",
+    "bank_def": "a round container used for holding things like rice or soup"
+   }
+  },
+  {
+   "id": "t2a_review_breeze",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "breeze",
+   "hash": "552e6e8ef015",
+   "heads": [
+    "breeze"
+   ],
+   "taught": [
+    "breeze"
+   ],
+   "in": {
+    "word": "breeze",
+    "ipa": "/briːz/",
+    "def": "a light and gentle wind",
+    "ex": "There's a nice breeze here.",
+    "bank_def": "a light and gentle wind"
+   }
+  },
+  {
+   "id": "t2a_review_bride",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "bride",
+   "hash": "8c4f2718afa4",
+   "heads": [
+    "bride"
+   ],
+   "taught": [
+    "bride"
+   ],
+   "in": {
+    "word": "bride",
+    "ipa": "/braɪd/",
+    "def": "a woman who is getting married or has just married",
+    "ex": "I don't know the bride.",
+    "bank_def": "a woman who is getting married or has just married"
+   }
+  },
+  {
+   "id": "t2a_review_bulb",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "bulb",
+   "hash": "989f9c1c4836",
+   "heads": [
+    "bulb"
+   ],
+   "taught": [
+    "bulb"
+   ],
+   "in": {
+    "word": "bulb",
+    "ipa": "/bʌlb/",
+    "def": "the glass part of an electric light",
+    "ex": "Please replace the light bulb in the hallway.",
+    "bank_def": "the glass part of an electric light"
+   }
+  },
+  {
+   "id": "t2a_review_button",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "button",
+   "hash": "51ede40ac8f0",
+   "heads": [
+    "button"
+   ],
+   "taught": [
+    "button"
+   ],
+   "in": {
+    "word": "button",
+    "ipa": "/ˈbʌtn/",
+    "def": "a small round object used to fasten clothes",
+    "ex": "Press the red button to stop the machine.",
+    "bank_def": "a small round object used to fasten clothes; a small part of a machine that you press to make it work"
+   }
+  },
+  {
+   "id": "t2a_review_cab",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "cab",
+   "hash": "5c24e55e3ab2",
+   "heads": [
+    "cab"
+   ],
+   "taught": [
+    "cab"
+   ],
+   "in": {
+    "word": "cab",
+    "ipa": "/kæb/",
+    "def": "a taxi",
+    "ex": "I'll take a cab to the airport after the meeting ends.",
+    "bank_def": "a taxi"
+   }
+  },
+  {
+   "id": "t2a_review_cashier",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "cashier",
+   "hash": "cff6f2fe8b40",
+   "heads": [
+    "cashier"
+   ],
+   "taught": [
+    "cashier"
+   ],
+   "in": {
+    "word": "cashier",
+    "ipa": "/kæˈʃɪr/",
+    "def": "a person who takes payments in a shop or bank",
+    "ex": "Please pay the cashier at the front counter.",
+    "bank_def": "a person who takes payments in a shop or bank"
+   }
+  },
+  {
+   "id": "t2a_review_character",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "character",
+   "hash": "50e4116d8ab8",
+   "heads": [
+    "character"
+   ],
+   "taught": [
+    "character"
+   ],
+   "in": {
+    "word": "character",
+    "ipa": "/ˈkærəktər/",
+    "def": "a person in a book, film or play",
+    "ex": "The main character of the novel is a young teacher.",
+    "bank_def": "a person in a book, film or play; the qualities that make a person different from others"
+   }
+  },
+  {
+   "id": "t2a_review_chin",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "chin",
+   "hash": "912e9a32172d",
+   "heads": [
+    "chin"
+   ],
+   "taught": [
+    "chin"
+   ],
+   "in": {
+    "word": "chin",
+    "ipa": "/tʃɪn/",
+    "def": "the lower front part of the face, below the mouth",
+    "ex": "I hit him on the chin.",
+    "bank_def": "the lower front part of the face, below the mouth"
+   }
+  },
+  {
+   "id": "t2a_review_circle",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "circle",
+   "hash": "bb6babed6984",
+   "heads": [
+    "circle"
+   ],
+   "taught": [
+    "circle"
+   ],
+   "in": {
+    "word": "circle",
+    "ipa": "/ˈsɜːrkl/",
+    "def": "a perfectly round shape or a group arranged in that shape",
+    "ex": "The children sat in a circle on the floor.",
+    "bank_def": "a perfectly round shape or a group arranged in that shape"
+   }
+  },
+  {
+   "id": "t2a_review_collect",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "collect",
+   "hash": "57dd46ecfefe",
+   "heads": [
+    "collect"
+   ],
+   "taught": [
+    "collect"
+   ],
+   "in": {
+    "word": "collect",
+    "ipa": "/kəˈlekt/",
+    "def": "to gather things/people together in one place",
+    "ex": "I'll collect you from the airport.",
+    "bank_def": "to gather things/people together in one place"
+   }
+  },
+  {
+   "id": "t2a_review_comb",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "comb",
+   "hash": "dd35c8e13d3c",
+   "heads": [
+    "comb"
+   ],
+   "taught": [
+    "comb"
+   ],
+   "in": {
+    "word": "comb",
+    "ipa": "/koʊm/",
+    "def": "a tool for tidying hair",
+    "ex": "The hotel bathroom has a comb and toothbrush.",
+    "bank_def": "a tool for tidying hair"
+   }
+  },
+  {
+   "id": "t2a_review_communicate",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "communicate",
+   "hash": "a4f44c7c2c80",
+   "heads": [
+    "communicate"
+   ],
+   "taught": [
+    "communicate"
+   ],
+   "in": {
+    "word": "communicate",
+    "ipa": "/kəˈmjuːnəkeɪt/",
+    "def": "to give and exchange information",
+    "ex": "We communicate mainly by email.",
+    "bank_def": "to give and exchange information"
+   }
+  },
+  {
+   "id": "t2a_review_competition",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "competition",
+   "hash": "58b4da774780",
+   "heads": [
+    "competition"
+   ],
+   "taught": [
+    "competition"
+   ],
+   "in": {
+    "word": "competition",
+    "ipa": "/ˌkɑːmpəˈtɪʃn/",
+    "def": "an event in which people try to win something",
+    "ex": "She won first prize in a writing competition.",
+    "bank_def": "an event in which people try to win something; trying to be more successful than others"
+   }
+  },
+  {
+   "id": "t2a_review_connect",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "connect",
+   "hash": "60a8f1de8a4e",
+   "heads": [
+    "connect"
+   ],
+   "taught": [
+    "connect"
+   ],
+   "in": {
+    "word": "connect",
+    "ipa": "/kəˈnekt/",
+    "def": "to join or attach things together",
+    "ex": "You can connect your phone to the speaker.",
+    "bank_def": "to join or attach things together"
+   }
+  },
+  {
+   "id": "t2a_review_continue",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "continue",
+   "hash": "8d11acb5fe76",
+   "heads": [
+    "continue"
+   ],
+   "taught": [
+    "continue"
+   ],
+   "in": {
+    "word": "continue",
+    "ipa": "/kənˈtɪnjuː/",
+    "def": "to do something without stopping, or after pausing",
+    "ex": "Please continue reading from page twelve.",
+    "bank_def": "to do something without stopping, or after pausing"
+   }
+  },
+  {
+   "id": "t2a_review_control",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "control",
+   "hash": "61fbcf298155",
+   "heads": [
+    "control"
+   ],
+   "taught": [
+    "control"
+   ],
+   "in": {
+    "word": "control",
+    "ipa": "/kənˈtroʊl/",
+    "def": "to direct or influence the behavior of something",
+    "ex": "The new traffic lights help to control the flow of cars.",
+    "bank_def": "to direct or influence the behavior of something"
+   }
+  },
+  {
+   "id": "t2a_review_coupon",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "coupon",
+   "hash": "bec365497af9",
+   "heads": [
+    "coupon"
+   ],
+   "taught": [
+    "coupon"
+   ],
+   "in": {
+    "word": "coupon",
+    "ipa": "/ˈkuːpɔːn/",
+    "def": "a ticket that gives a discount on a purchase",
+    "ex": "Use this coupon to get ten percent off.",
+    "bank_def": "a ticket that gives a discount on a purchase"
+   }
+  },
+  {
+   "id": "t2a_review_cross",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "cross",
+   "hash": "6dde8d666622",
+   "heads": [
+    "cross"
+   ],
+   "taught": [
+    "cross"
+   ],
+   "in": {
+    "word": "cross",
+    "ipa": "/krɔːs/",
+    "def": "to go from one side of something to the other",
+    "ex": "Look both ways before you cross the street.",
+    "bank_def": "to go from one side of something to the other"
+   }
+  },
+  {
+   "id": "t2a_review_cry",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "cry",
+   "hash": "f906a7d53966",
+   "heads": [
+    "cry"
+   ],
+   "taught": [
+    "cry"
+   ],
+   "in": {
+    "word": "cry",
+    "ipa": "/kraɪ/",
+    "def": "to produce tears and sounds because of pain",
+    "ex": "The baby started to cry when the music stopped.",
+    "bank_def": "to produce tears and sounds because of pain"
+   }
+  },
+  {
+   "id": "t2a_review_degree",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "degree",
+   "hash": "62c93effd8fc",
+   "heads": [
+    "degree"
+   ],
+   "taught": [
+    "degree"
+   ],
+   "in": {
+    "word": "degree",
+    "ipa": "/dɪˈɡriː/",
+    "def": "a unit for measuring temperature or angles",
+    "ex": "She has a degree in economics.",
+    "bank_def": "a unit for measuring temperature or angles; a qualification from a university"
+   }
+  },
+  {
+   "id": "t2a_review_diary",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "diary",
+   "hash": "98ba5afa5522",
+   "heads": [
+    "diary"
+   ],
+   "taught": [
+    "diary"
+   ],
+   "in": {
+    "word": "diary",
+    "ipa": "/ˈdaɪəri/",
+    "def": "a book in which you write about events each day",
+    "ex": "Keeping a learning diary helps students reflect on their progress each week.",
+    "bank_def": "a book in which you write about events each day"
+   }
+  },
+  {
+   "id": "t2a_review_disagree",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "disagree",
+   "hash": "a5bc662bfc85",
+   "heads": [
+    "disagree"
+   ],
+   "taught": [
+    "disagree"
+   ],
+   "in": {
+    "word": "disagree",
+    "ipa": "/dɪsəˈɡriː/",
+    "def": "to have a different opinion from someone",
+    "ex": "I disagree with you on this point.",
+    "bank_def": "to have a different opinion from someone"
+   }
+  },
+  {
+   "id": "t2a_review_dishwasher",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "dishwasher",
+   "hash": "9adc181f848f",
+   "heads": [
+    "dishwasher"
+   ],
+   "taught": [
+    "dishwasher"
+   ],
+   "in": {
+    "word": "dishwasher",
+    "ipa": "/ˈdɪʃwɑːʃər/",
+    "def": "a machine that washes dishes",
+    "ex": "Please load the office dishwasher after lunch every day.",
+    "bank_def": "a machine that washes dishes"
+   }
+  },
+  {
+   "id": "t2a_review_download",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "download",
+   "hash": "f4d54191a227",
+   "heads": [
+    "download"
+   ],
+   "taught": [
+    "download"
+   ],
+   "in": {
+    "word": "download",
+    "ipa": "/ˈdaʊnloʊd/",
+    "def": "to copy data from the internet to a computer",
+    "ex": "You can download the form from our website.",
+    "bank_def": "to copy data from the internet to a computer"
+   }
+  },
+  {
+   "id": "t2a_review_drop",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "drop",
+   "hash": "6b7eac59037f",
+   "heads": [
+    "drop"
+   ],
+   "taught": [
+    "drop"
+   ],
+   "in": {
+    "word": "drop",
+    "ipa": "/drɑːp/",
+    "def": "to let something fall from your hand",
+    "ex": "Be careful not to drop the plates.",
+    "bank_def": "to let something fall from your hand"
+   }
+  },
+  {
+   "id": "t2a_review_engine",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "engine",
+   "hash": "9d9e2bcd46ed",
+   "heads": [
+    "engine"
+   ],
+   "taught": [
+    "engine"
+   ],
+   "in": {
+    "word": "engine",
+    "ipa": "/ˈendʒn/",
+    "def": "a machine that changes energy into motion",
+    "ex": "The car engine wouldn't start this morning.",
+    "bank_def": "a machine that changes energy into motion"
+   }
+  },
+  {
+   "id": "t2a_review_exist",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "exist",
+   "hash": "f875a7967011",
+   "heads": [
+    "exist"
+   ],
+   "taught": [
+    "exist"
+   ],
+   "in": {
+    "word": "exist",
+    "ipa": "/ɪɡˈzɪst/",
+    "def": "to be present, alive or real",
+    "ex": "Many of these animals no longer exist in the wild.",
+    "bank_def": "to be present, alive or real"
+   }
+  },
+  {
+   "id": "t2a_review_fail",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "fail",
+   "hash": "1e5a79638f6b",
+   "heads": [
+    "fail"
+   ],
+   "taught": [
+    "fail"
+   ],
+   "in": {
+    "word": "fail",
+    "ipa": "/feɪl/",
+    "def": "to not achieve a goal, or to go wrong",
+    "ex": "If you don't study, you may fail the exam.",
+    "bank_def": "to not achieve a goal, or to go wrong"
+   }
+  },
+  {
+   "id": "t2a_review_fan",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "fan",
+   "hash": "456b7acee15d",
+   "heads": [
+    "fan"
+   ],
+   "taught": [
+    "fan"
+   ],
+   "in": {
+    "word": "fan",
+    "ipa": "/fæn/",
+    "def": "a person who likes a sport, team or famous person very much",
+    "ex": "He is a big fan of jazz music.",
+    "bank_def": "a person who likes a sport, team or famous person very much; a machine that moves air to keep you cool"
+   }
+  },
+  {
+   "id": "t2a_review_fax",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "fax",
+   "hash": "bf05f65f75ee",
+   "heads": [
+    "fax"
+   ],
+   "taught": [
+    "fax"
+   ],
+   "in": {
+    "word": "fax",
+    "ipa": "/fæks/",
+    "def": "a document sent by phone line",
+    "ex": "Please fax the signed contract to our head office.",
+    "bank_def": "a document sent by phone line; to send one"
+   }
+  },
+  {
+   "id": "t2a_review_feed",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "feed",
+   "hash": "f519ad9abaac",
+   "heads": [
+    "feed"
+   ],
+   "taught": [
+    "feed"
+   ],
+   "in": {
+    "word": "feed",
+    "ipa": "/fiːd/",
+    "def": "to give food (e.g., to an animal or a baby)",
+    "ex": "Don't feed the animals at the zoo.",
+    "bank_def": "to give food (e.g., to an animal or a baby)"
+   }
+  },
+  {
+   "id": "t2a_review_fever",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "fever",
+   "hash": "1f037203f2b3",
+   "heads": [
+    "fever"
+   ],
+   "taught": [
+    "fever"
+   ],
+   "in": {
+    "word": "fever",
+    "ipa": "/ˈfiːvər/",
+    "def": "a body temperature higher than normal",
+    "ex": "The child has had a high fever since last night.",
+    "bank_def": "a body temperature higher than normal"
+   }
+  },
+  {
+   "id": "t2a_review_flu",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "flu",
+   "hash": "8953038d07f7",
+   "heads": [
+    "flu"
+   ],
+   "taught": [
+    "flu"
+   ],
+   "in": {
+    "word": "flu",
+    "ipa": "/fluː/",
+    "def": "a common illness with fever and aches",
+    "ex": "Half the team is off work with the flu.",
+    "bank_def": "a common illness with fever and aches"
+   }
+  },
+  {
+   "id": "t2a_review_focus",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "focus",
+   "hash": "545a9b8ca732",
+   "heads": [
+    "focus"
+   ],
+   "taught": [
+    "focus"
+   ],
+   "in": {
+    "word": "focus",
+    "ipa": "/ˈfoʊkəs/",
+    "def": "to give all your attention to one thing",
+    "ex": "It is hard to focus when the room is noisy.",
+    "bank_def": "to give all your attention to one thing"
+   }
+  },
+  {
+   "id": "t2a_review_folder",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "folder",
+   "hash": "0f69b92c6994",
+   "heads": [
+    "folder"
+   ],
+   "taught": [
+    "folder"
+   ],
+   "in": {
+    "word": "folder",
+    "ipa": "/ˈfoʊldər/",
+    "def": "a cover for papers",
+    "ex": "Save the final version of the document in the shared folder.",
+    "bank_def": "a cover for papers; a place to store computer files"
+   }
+  },
+  {
+   "id": "t2a_review_fork",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "fork",
+   "hash": "fd3bc906131d",
+   "heads": [
+    "fork"
+   ],
+   "taught": [
+    "fork"
+   ],
+   "in": {
+    "word": "fork",
+    "ipa": "/fɔːrk/",
+    "def": "a tool with points for eating",
+    "ex": "Each table has a knife, fork, and spoon.",
+    "bank_def": "a tool with points for eating"
+   }
+  },
+  {
+   "id": "t2a_review_gap",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "gap",
+   "hash": "e3f300853bb6",
+   "heads": [
+    "gap"
+   ],
+   "taught": [
+    "gap"
+   ],
+   "in": {
+    "word": "gap",
+    "ipa": "/ɡæp/",
+    "def": "a space between two things",
+    "ex": "There is a big gap between rich and poor in the city.",
+    "bank_def": "a space between two things"
+   }
+  },
+  {
+   "id": "t2a_review_granddaughter",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "granddaughter",
+   "hash": "6288cf2763b6",
+   "heads": [
+    "granddaughter"
+   ],
+   "taught": [
+    "granddaughter"
+   ],
+   "in": {
+    "word": "granddaughter",
+    "ipa": "/ˈɡrændɔːtər/",
+    "def": "the daughter of someone's child",
+    "ex": "My granddaughter is still a baby.",
+    "bank_def": "the daughter of someone's child"
+   }
+  },
+  {
+   "id": "t2a_review_hallway",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "hallway",
+   "hash": "3832192c5c3c",
+   "heads": [
+    "hallway"
+   ],
+   "taught": [
+    "hallway"
+   ],
+   "in": {
+    "word": "hallway",
+    "ipa": "/ˈhɔːlweɪ/",
+    "def": "a passage in a building",
+    "ex": "The meeting room is at the end of the hallway.",
+    "bank_def": "a passage in a building"
+   }
+  },
+  {
+   "id": "t2a_review_headache",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "headache",
+   "hash": "b14ff0339795",
+   "heads": [
+    "headache"
+   ],
+   "taught": [
+    "headache"
+   ],
+   "in": {
+    "word": "headache",
+    "ipa": "/ˈhedeɪk/",
+    "def": "a pain in the head",
+    "ex": "The new tax rules are a headache for small firms.",
+    "bank_def": "a pain in the head; a problem"
+   }
+  },
+  {
+   "id": "t2a_review_heater",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "heater",
+   "hash": "f02af8fbc8e9",
+   "heads": [
+    "heater"
+   ],
+   "taught": [
+    "heater"
+   ],
+   "in": {
+    "word": "heater",
+    "ipa": "/ˈhiːtər/",
+    "def": "a device that makes heat",
+    "ex": "The heater in the meeting room isn't working.",
+    "bank_def": "a device that makes heat"
+   }
+  },
+  {
+   "id": "t2a_review_hit",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "hit",
+   "hash": "8ab347636822",
+   "heads": [
+    "hit"
+   ],
+   "taught": [
+    "hit"
+   ],
+   "in": {
+    "word": "hit",
+    "ipa": "/hɪt/",
+    "def": "to touch someone or something quickly and with force",
+    "ex": "The ball hit the window, but it didn't break.",
+    "bank_def": "to touch someone or something quickly and with force"
+   }
+  },
+  {
+   "id": "t2a_review_hold",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "hold",
+   "hash": "4dac33160854",
+   "heads": [
+    "hold"
+   ],
+   "taught": [
+    "hold"
+   ],
+   "in": {
+    "word": "hold",
+    "ipa": "/hoʊld/",
+    "def": "to use hands or arms to carry or keep something",
+    "ex": "Please hold the door open for me.",
+    "bank_def": "to use hands or arms to carry or keep something"
+   }
+  },
+  {
+   "id": "t2a_review_honey",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "honey",
+   "hash": "a6e2619745a6",
+   "heads": [
+    "honey"
+   ],
+   "taught": [
+    "honey"
+   ],
+   "in": {
+    "word": "honey",
+    "ipa": "/ˈhʌni/",
+    "def": "a sweet yellow liquid made by bees",
+    "ex": "This honey is really good.",
+    "bank_def": "a sweet yellow liquid made by bees"
+   }
+  },
+  {
+   "id": "t2a_review_hurt",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "hurt",
+   "hash": "9ab72abc8e5f",
+   "heads": [
+    "hurt"
+   ],
+   "taught": [
+    "hurt"
+   ],
+   "in": {
+    "word": "hurt",
+    "ipa": "/hɜːrt/",
+    "def": "to cause pain, damage, or injury",
+    "ex": "I hurt my back lifting a heavy box.",
+    "bank_def": "to cause pain, damage, or injury"
+   }
+  },
+  {
+   "id": "t2a_review_knee",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "knee",
+   "hash": "e4b039c6178c",
+   "heads": [
+    "knee"
+   ],
+   "taught": [
+    "knee"
+   ],
+   "in": {
+    "word": "knee",
+    "ipa": "/niː/",
+    "def": "the middle part of your leg that bends",
+    "ex": "She hurt her knee while running.",
+    "bank_def": "the middle part of your leg that bends"
+   }
+  },
+  {
+   "id": "t2a_review_knock",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "knock",
+   "hash": "4077a859ae64",
+   "heads": [
+    "knock"
+   ],
+   "taught": [
+    "knock"
+   ],
+   "in": {
+    "word": "knock",
+    "ipa": "/nɑːk/",
+    "def": "to hit something to get people's attention",
+    "ex": "Please knock before you enter.",
+    "bank_def": "to hit something to get people's attention"
+   }
+  },
+  {
+   "id": "t2a_review_lab",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "lab",
+   "hash": "c98393bdd98e",
+   "heads": [
+    "lab"
+   ],
+   "taught": [
+    "lab"
+   ],
+   "in": {
+    "word": "lab",
+    "ipa": "/læb/",
+    "def": "a room for scientific work",
+    "ex": "The samples were sent to the lab for testing.",
+    "bank_def": "a room for scientific work; laboratory"
+   }
+  },
+  {
+   "id": "t2a_review_lake",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "lake",
+   "hash": "8d46bb870e5c",
+   "heads": [
+    "lake"
+   ],
+   "taught": [
+    "lake"
+   ],
+   "in": {
+    "word": "lake",
+    "ipa": "/leɪk/",
+    "def": "a large area of water surrounded by land",
+    "ex": "We went swimming in the lake.",
+    "bank_def": "a large area of water surrounded by land"
+   }
+  },
+  {
+   "id": "t2a_review_lamp",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "lamp",
+   "hash": "af5a2b521de4",
+   "heads": [
+    "lamp"
+   ],
+   "taught": [
+    "lamp"
+   ],
+   "in": {
+    "word": "lamp",
+    "ipa": "/læmp/",
+    "def": "a device that gives light",
+    "ex": "Turn off the desk lamp when you leave.",
+    "bank_def": "a device that gives light"
+   }
+  },
+  {
+   "id": "t2a_review_lawyer",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "lawyer",
+   "hash": "997a49f83565",
+   "heads": [
+    "lawyer"
+   ],
+   "taught": [
+    "lawyer"
+   ],
+   "in": {
+    "word": "lawyer",
+    "ipa": "/ˈlɔːjər/",
+    "def": "a professional who is paid to help people with the law",
+    "ex": "She asked a lawyer to check the contract.",
+    "bank_def": "a professional who is paid to help people with the law"
+   }
+  },
+  {
+   "id": "t2a_review_librarian",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "librarian",
+   "hash": "0e91a8846e44",
+   "heads": [
+    "librarian"
+   ],
+   "taught": [
+    "librarian"
+   ],
+   "in": {
+    "word": "librarian",
+    "ipa": "/laɪˈbreriən/",
+    "def": "a person who works in a library",
+    "ex": "The librarian helped me find the old annual reports.",
+    "bank_def": "a person who works in a library"
+   }
+  },
+  {
+   "id": "t2a_review_link",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "link",
+   "hash": "351185dba6ea",
+   "heads": [
+    "link"
+   ],
+   "taught": [
+    "link"
+   ],
+   "in": {
+    "word": "link",
+    "ipa": "/lɪŋk/",
+    "def": "a connection",
+    "ex": "I'll send you the link to the website.",
+    "bank_def": "a connection; a word or picture on a web page that takes you to another page"
+   }
+  },
+  {
+   "id": "t2a_review_lock",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "lock",
+   "hash": "8b724fa64cc9",
+   "heads": [
+    "lock"
+   ],
+   "taught": [
+    "lock"
+   ],
+   "in": {
+    "word": "lock",
+    "ipa": "/lɑːk/",
+    "def": "to close something with a device so others can't open it",
+    "ex": "Don't forget to lock the door when you leave.",
+    "bank_def": "to close something with a device so others can't open it"
+   }
+  },
+  {
+   "id": "t2a_review_marry",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "marry",
+   "hash": "fc8581a2717e",
+   "heads": [
+    "marry"
+   ],
+   "taught": [
+    "marry"
+   ],
+   "in": {
+    "word": "marry",
+    "ipa": "/ˈmeri/",
+    "def": "to become the husband or wife of someone",
+    "ex": "They plan to marry next spring.",
+    "bank_def": "to become the husband or wife of someone"
+   }
+  },
+  {
+   "id": "t2a_review_metal",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "metal",
+   "hash": "0c182ce30d88",
+   "heads": [
+    "metal"
+   ],
+   "taught": [
+    "metal"
+   ],
+   "in": {
+    "word": "metal",
+    "ipa": "/ˈmetl/",
+    "def": "a hard material such as iron, gold or steel",
+    "ex": "The chair is made of metal and plastic.",
+    "bank_def": "a hard material such as iron, gold or steel"
+   }
+  },
+  {
+   "id": "t2a_review_microwave",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "microwave",
+   "hash": "d805fd7e312c",
+   "heads": [
+    "microwave"
+   ],
+   "taught": [
+    "microwave"
+   ],
+   "in": {
+    "word": "microwave",
+    "ipa": "/ˈmaɪkrəweɪv/",
+    "def": "an oven that cooks food quickly using waves",
+    "ex": "There is a microwave in the staff kitchen.",
+    "bank_def": "an oven that cooks food quickly using waves"
+   }
+  },
+  {
+   "id": "t2a_review_midday",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "midday",
+   "hash": "3d10114111f3",
+   "heads": [
+    "midday"
+   ],
+   "taught": [
+    "midday"
+   ],
+   "in": {
+    "word": "midday",
+    "ipa": "/ˈmɪddeɪ/",
+    "def": "the middle of the day",
+    "ex": "Please come home at midday.",
+    "bank_def": "the middle of the day; noon"
+   }
+  },
+  {
+   "id": "t2a_review_pack",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "vocab-review",
+   "point": "pack",
+   "hash": "576b50186258",
+   "heads": [
+    "pack"
+   ],
+   "taught": [
+    "pack"
+   ],
+   "in": {
+    "word": "pack",
+    "ipa": "/pæk/",
+    "def": "to put things in a suitcase to go on a trip",
+    "ex": "I need to pack my suitcase tonight.",
+    "bank_def": "to put things in a suitcase to go on a trip"
+   }
+  }
+ ]
+}

@@ -1,3 +1,2 @@
-/* UI ar – notices (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ar"] = Object.assign(D["ar"] || {}, {"Đã đọc tất cả":"تحديد الكل كمقروء","Chưa có thông báo mới":"لا توجد إشعارات جديدة","Thông báo quan trọng":"إشعار مهم","Vừa xong":"الآن","Chưa đọc":"غير مقروءة","{n} chưa đọc":"{n} غير مقروءة"});
-})(typeof self !== 'undefined' ? self : this);
+/* SINH từ i18n/ui/ar/notices.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.ar=Object.assign(D.ar||{},{_pffv:"لا توجد إشعارات جديدة",_lyra:"غير مقروءة",_wyuq:"اضغط لعرض أحدث حالة.",_62kr:"تحديث جديد للبلاغ {id}",_uu8l:"شكرًا على الإبلاغ. أعد تحميل التطبيق لاستخدام الإصدار الجديد.",_tb6i:"شكرًا لك – سيعرض Lexkite التحديثات هنا.",_dlnl:"إشعار مهم",_m4lx:"الآن",_erjf:"عرض البلاغ",_ub36:"{n} غير مقروءة",_z2ii:"تم استلام البلاغ {id}",_2tyo:"تم إصلاح البلاغ {id}",_zwis:"تحديد الكل كمقروء"});})(typeof self!=='undefined'?self:this);

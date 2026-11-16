@@ -1,0 +1,191 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "lexkite/target-deck",
+ "title": "Bộ từ ngôn ngữ đích (content/target/<tl>/*.json) – kiểm bởi scripts/target/lib.mjs validate() + scripts/test/target-lang.mjs",
+ "type": "object",
+ "required": [
+  "v",
+  "tl",
+  "words"
+ ],
+ "properties": {
+  "v": {
+   "const": 1
+  },
+  "tl": {
+   "type": "string",
+   "pattern": "^[a-z]{2}$"
+  },
+  "variant": {
+   "type": "string"
+  },
+  "source": {
+   "type": "object"
+  },
+  "words": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "word",
+     "pos",
+     "ipa",
+     "gl",
+     "ex"
+    ],
+    "properties": {
+     "word": {
+      "type": "string",
+      "pattern": "^\\p{L}[\\p{L}' -]*$"
+     },
+     "pos": {
+      "enum": [
+       "n",
+       "v",
+       "adj",
+       "adv",
+       "pron",
+       "prep",
+       "conj",
+       "num",
+       "interj",
+       "det"
+      ]
+     },
+     "gender": {
+      "enum": [
+       "m",
+       "f",
+       "mf"
+      ],
+      "description": "bắt buộc khi pos = n"
+     },
+     "ipa": {
+      "type": "string",
+      "description": "IPA pt-BR, không dấu gạch chéo"
+     },
+     "emoji": {
+      "type": "string"
+     },
+     "img": {
+      "type": "string",
+      "pattern": "^[a-z][a-z' -]*#[a-z]+$",
+      "description": "khóa tiếng Anh từ#loại có trong content/lexicon/img.json items – CHỈ khi đúng nghĩa"
+     },
+     "gl": {
+      "type": "object",
+      "required": [
+       "vi",
+       "en",
+       "es",
+       "pt",
+       "fr",
+       "de",
+       "id",
+       "th",
+       "zh",
+       "ja",
+       "ko",
+       "hi",
+       "ar",
+       "ru",
+       "tr"
+      ],
+      "additionalProperties": false,
+      "properties": {
+       "vi": {
+        "type": "string",
+        "minLength": 1
+       },
+       "en": {
+        "type": "string",
+        "minLength": 1
+       },
+       "es": {
+        "type": "string",
+        "minLength": 1
+       },
+       "pt": {
+        "type": "string",
+        "minLength": 1
+       },
+       "fr": {
+        "type": "string",
+        "minLength": 1
+       },
+       "de": {
+        "type": "string",
+        "minLength": 1
+       },
+       "id": {
+        "type": "string",
+        "minLength": 1
+       },
+       "th": {
+        "type": "string",
+        "minLength": 1
+       },
+       "zh": {
+        "type": "string",
+        "minLength": 1
+       },
+       "ja": {
+        "type": "string",
+        "minLength": 1
+       },
+       "ko": {
+        "type": "string",
+        "minLength": 1
+       },
+       "hi": {
+        "type": "string",
+        "minLength": 1
+       },
+       "ar": {
+        "type": "string",
+        "minLength": 1
+       },
+       "ru": {
+        "type": "string",
+        "minLength": 1
+       },
+       "tr": {
+        "type": "string",
+        "minLength": 1
+       }
+      }
+     },
+     "ex": {
+      "type": "object",
+      "required": [
+       "pt",
+       "en"
+      ],
+      "properties": {
+       "pt": {
+        "type": "string"
+       },
+       "en": {
+        "type": "string"
+       }
+      }
+     },
+     "exForm": {
+      "type": "string",
+      "description": "dạng chia của từ xuất hiện trong ex.pt khi khác từ gốc"
+     },
+     "rank": {
+      "type": "integer",
+      "description": "thứ hạng tần suất (bộ lõi do scripts/target/gen.mjs sinh)"
+     },
+     "qa": {
+      "type": "object",
+      "description": "kết quả cổng: giám khảo + dịch ngược"
+     }
+    }
+   }
+  }
+ }
+}

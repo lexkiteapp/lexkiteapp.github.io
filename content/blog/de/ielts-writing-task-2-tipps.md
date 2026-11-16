@@ -17,7 +17,7 @@ publishAt: 2026-10-23T21:28:00+02:00
 ---
 Der akademische Essay im IELTS Writing Modul ist für die meisten Prüfungskandidaten die größte Hürde auf dem Weg zum Traum-Score. Sie haben exakt 40 Minuten Zeit, um eine komplexe Fragestellung zu analysieren, überzeugende Argumente zu entwickeln und einen formal fehlerfreien Aufsatz von mindestens 250 Wörtern zu verfassen. Wer hier planlos drauflosschreibt, verliert wertvolle Zeit und scheitert meist an der geforderten Bandbreite. Mit den richtigen ielts writing task 2 tipps können Sie jedoch ein klares System verinnerlichen, das Ihnen auch unter starkem Prüfungsdruck Sicherheit gibt. Für komplexere Satzstrukturen lohnt sich ein Blick auf die [Relativsätze im Englischen](/de/blog/relativsaetze-englisch-who-which-that/).
 
-Task 2 macht ganze zwei Drittel der gesamten Writing-Punktzahl aus und wiegt damit doppelt so schwer wie Task 1. Selbst wenn Ihre Beschreibung der Grafik in Task 1 Schwächen aufweist, können Sie mit einem herausragenden Task-2-Aufsatz die Gesamtnote retten. In diesem Artikel schlüsseln wir die Bewertungskriterien der Prüfer auf, stellen Ihnen die bewährte 4-Absätze-Struktur vor und geben Ihnen praxisnahe Strategien an die Hand, mit denen Sie zielsicher ein Band 7, 8 oder höher erreichen.
+Task 2 macht ganze zwei Drittel der gesamten Writing-Punktzahl aus und wiegt damit doppelt so schwer wie Task 1. Selbst wenn Ihre Beschreibung der Grafik in Task 1 Schwächen aufweist, können Sie mit einem herausragenden Task-2-Aufsatz die Gesamtnote retten. In diesem Artikel schlüsseln wir die Bewertungskriterien der Prüfer auf, stellen Ihnen die bewährte 4-Absätze-Struktur vor und geben Ihnen praxisnahe Strategien an die Hand, mit denen Sie zielsicher ein Band 7, 8 oder höher erreichen. Planen Sie mit dem Test eine Auswanderung, lesen Sie zusätzlich: [IELTS für die Auswanderung nach Kanada, UK und Neuseeland](/de/blog/ielts-fuer-auswanderung-kanada-australien-uk/). Welche Fehler im Essay am meisten Punkte kosten, steht im Überblick zu den [häufigsten IELTS Writing Fehlern](/de/blog/ielts-writing-fehler-vermeiden/).
 
 ## Die 4 offiziellen Bewertungskriterien verstehen
 
@@ -129,6 +129,10 @@ Beurteilen Sie die folgenden Aussagen und Formulierungen zur Task 2 Prüfung:
 3. **A:** Wenn nach Ihrer Meinung gefragt wird, müssen Sie diese klar und deutlich darlegen. Nutzen Sie Formulierungen wie *I firmly believe that...* oder *In my view...*.
 4. **B:** Der Prüfer sollte nach dem Lesen des allerersten Satzes exakt wissen, worum es im gesamten Absatz geht.
 5. **B:** Das Unterschreiten der 250-Wörter-Marke wird bei Task Achievement strikt geahndet.
+
+Speziell für Aufgaben mit *Do you agree or disagree?* findest du im Beitrag zum [IELTS Agree or Disagree Essay](/de/blog/ielts-agree-disagree-essay-meinung-aufbau/) drei Wege zu einer klaren Position und einen kommentierten Musteraufsatz.
+
+Für den kürzeren ersten Teil der Schreibprüfung lohnt sich ein Blick auf [IELTS Writing Task 1 Balkendiagramm](/de/blog/ielts-writing-task-1-balkendiagramm/).
 
 ## Häufig gestellte Fragen (FAQ)
 

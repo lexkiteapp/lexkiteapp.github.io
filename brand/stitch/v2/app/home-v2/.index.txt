@@ -1,0 +1,5 @@
+# home-v2 refs (key3 project 18075333702575270507, Kit DS assets/16469239436252875897) – CHỜ CHỦ DUYỆT 31/10 · docs/HOME-V2.md
+today light 161ef34efafd4729816377ad7f952b86 dark 30b0c1ef10034be6bddcbbc26ec76007 | frame-hub, đang học; teacher slot → Chars.*; path = lộ trình thật (pathPlan)
+new light a4e2a4cdd838421baf6da5331e548b86 dark fc5ac0e346c7485c9c14da0a00749ab7 | frame-hub, người mới (empty state)
+desk light a987323cf148447f9f563b64d5200507 dark c6b09b9251974eeebb54dcd4efe97497 | desktop 1440: sidebar (của qa-bot-sidebar) + cột giữa + rail phải
+path-block light 2fbebfa813a94acc8a3902b817a52206 dark 90eb8f05de69466aa14b754be614d36d (key1 project 7268539912208977707) | 08/11 khối Lộ trình kiểu dây diều; ghép vào today/today-desk, chỉnh: dây liền, làn trái để không đè chữ

@@ -99,7 +99,7 @@ publishAt: 2026-12-15T19:05:00+09:00
   - [シャドーイングの正しいやり方](/ja/blog/shadowing-yarikata/) を1日10分行い、英語特有のイントネーションやリズム感を体得する。
   - [英語の疑問文の作り方](/ja/blog/eigo-gimonbun-tsukurikata-kouzou/) をマスターし、相手に質問して会話を広げる練習をする。
   - [英語脳の作り方：日本語に翻訳しない練習法](/ja/blog/eigonou-tsukurikata-hon-yaku-shinai/) を実践し、身の回りの動作を英語で独り言にする。
-  - 実践的な長文読解に慣れるために [IELTSリーディングTrue False Not Givenの解き方](/ja/blog/ielts-reading-true-false-not-given-koutsu/) を参考にしたり、[語彙ライブラリ](/tu-vung/) で関連表現を広げる。
+  - 実践的な長文読解に慣れるために [IELTSリーディングTrue False Not Givenの解き方](/ja/blog/ielts-reading-true-false-not-given-koutsu/) を参考にしたり、[語彙ライブラリ](/en/vocabulary/) で関連表現を広げる。
 
 ## 大人のための1日45分モデル学習スケジュール
 

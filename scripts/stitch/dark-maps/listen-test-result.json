@@ -1,0 +1,16 @@
+{
+ "_doc": "Bảng tối cho listen-test-result (9/11, Lexkite Kit \"Tactile Night\"): mỗi màu của bản sáng được xếp vai (nền/thẻ/viền/chữ/gờ) theo sắc độ và đổi sang thang tối của dark-maps/streak.json; sinh bằng script phân vai tự động, dò lại bằng dark-from-light.mjs --check.",
+ "config": {},
+ "hex": {
+  "#FFF8F4": "#1E2F33",
+  "#1A2426": "#E8F1F0"
+ },
+ "cls": {
+  "selection:text-white": "selection:text-[#1B0B04]",
+  "bg-white": "bg-[#172427]",
+  "to-[#F7ECE0]": "to-[#1E2F33]",
+  "bg-[#EADCCF]": "bg-[#37525A]",
+  "text-white": "text-[#1B0B04]",
+  "border-[#E03131]": "border-[#FF6B52]"
+ }
+}

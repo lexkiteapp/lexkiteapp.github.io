@@ -42,3 +42,35 @@ export function evaluate(rows, L = LIMITS.free, A = ALERT, today = new Date().to
 }
 export const fmtVN = d => d ? d.split('-').reverse().join('/') : '';
 export const alertText = ev => `Nâng gói Cloudflare 5 USD trước ngày ${fmtVN(ev.upgradeBy)}`;
+
+// ---------- Nguồn dòng đọc/ghi D1 (sự cố 03/11: 3,9 triệu dòng đọc = 78 % Free, hầu hết do trang Quản trị – cảnh báo cũ chỉ thấy TỔNG) ----------
+// Phân loại từng câu SQL của GraphQL d1QueriesAdaptiveGroups theo mẫu: 'admin' (Quản trị: thống kê, đếm bảng, danh sách) · 'cron' (việc nền) · 'user' (còn lại).
+// Câu ĐỌC mới xét 'admin'; ghi của hit.js/sync.js luôn là 'user'. Ngoại lệ đường người dùng: cổng quảng cáo hit.js (ext_events kind 'adc:').
+const SRC_CRON = /\b(bw_\w+|drive_\w+|soc_\w+|social_\w+|capacity_daily|ads_rev|jobs?|job_\w+|schema_ver)\b/i;
+const SRC_ADMIN = /\bstats_day\b|\bFROM sessions\b(?! WHERE sid =)|vid_uid m JOIN users|CROSS JOIN vid_uid|\bsqlite_master\b|FROM "\w+"|\b(admin_log|contact_msgs|i18n_judge|i18n_fix|services|user_backups|pageviews_day|ext_daily)\b|\bFROM ext_events\b(?! WHERE day = \?1 AND kind >= 'adc:')|\bFROM users\b(?! WHERE uid = )/i;
+export function d1Source(q) {
+  const s = String(q || '').trim();
+  if (SRC_CRON.test(s)) return 'cron';
+  if (/^(SELECT|WITH)\b/i.test(s) && !/kind >= 'adc:'/.test(s) && SRC_ADMIN.test(s)) return 'admin';
+  return 'user';
+}
+// Ngân sách đọc theo nguồn (phần của hạn mức Free/ngày): Quản trị + cron không được ăn quá 10 % (≈ 500k dòng) – vượt → chuông + thư ≤ 1/24 h
+export const SRC_BUDGET = { admin: 0.1, cron: 0.1 };
+/** groups: [{ dimensions:{date, query}, sum:{rowsRead, rowsWritten} }] → { 'YYYY-MM-DD': { user:{r,w}, admin:{r,w}, cron:{r,w} } } */
+export function sourcesOf(groups) {
+  const by = {};
+  for (const g of groups || []) {
+    const d = g.dimensions && g.dimensions.date; if (!d) continue;
+    const o = by[d] || (by[d] = { user: { r: 0, w: 0 }, admin: { r: 0, w: 0 }, cron: { r: 0, w: 0 } }), k = d1Source(g.dimensions.query);
+    o[k].r += +(g.sum && g.sum.rowsRead) || 0; o[k].w += +(g.sum && g.sum.rowsWritten) || 0;
+  }
+  return by;
+}
+/** src của 1 ngày → { over:[{k, r, pct}], text } – over rỗng = trong ngân sách */
+export function evaluateSources(src, L = LIMITS.free, B = SRC_BUDGET) {
+  const pct = r => Math.round(r / L.reads * 1000) / 10, fmt = n => n >= 1e6 ? (n / 1e6).toFixed(2).replace('.', ',') + ' tr' : n >= 1e3 ? Math.round(n / 1e3) + 'k' : String(n);
+  const names = { user: 'người dùng', admin: 'quản trị', cron: 'việc nền' };
+  const over = Object.entries(B).filter(([k, b]) => src && src[k] && src[k].r >= b * L.reads).map(([k]) => ({ k, r: src[k].r, pct: pct(src[k].r) }));
+  const text = src ? ['user', 'admin', 'cron'].map(k => `${names[k]} ${fmt((src[k] || {}).r || 0)} (${pct((src[k] || {}).r || 0)} %)`).join(' · ') : '';
+  return { over, text };
+}

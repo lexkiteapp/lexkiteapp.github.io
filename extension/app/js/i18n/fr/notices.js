@@ -1,3 +1,2 @@
-/* UI fr – notices (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["fr"] = Object.assign(D["fr"] || {}, {"Đã đọc tất cả":"Tout marquer comme lu","Chưa có thông báo mới":"Aucune nouvelle notification","Thông báo quan trọng":"Avis important","Vừa xong":"À l’instant","Chưa đọc":"Non lu","{n} chưa đọc":"{n} non lu"});
-})(typeof self !== 'undefined' ? self : this);
+/* SINH từ i18n/ui/fr/notices.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.fr=Object.assign(D.fr||{},{_pffv:"Aucune nouvelle notification",_lyra:"Non lu",_wyuq:"Touchez pour voir le dernier statut.",_62kr:"Du nouveau sur le signalement {id}",_uu8l:"Merci du signalement. Rechargez l'application pour la nouvelle version.",_tb6i:"Merci ! Lexkite vous tiendra informé ici même.",_dlnl:"Avis important",_m4lx:"À l’instant",_erjf:"Voir le signalement",_ub36:"{n} non lu",_z2ii:"Signalement {id} bien reçu",_2tyo:"Signalement {id} corrigé",_zwis:"Tout marquer comme lu"});})(typeof self!=='undefined'?self:this);

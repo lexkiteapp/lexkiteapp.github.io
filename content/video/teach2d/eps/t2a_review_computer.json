@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_computer",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: computer.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means a machine for storing information and accessing the internet.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "I use my computer mainly for work.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "computer",
+  "ipa": "/kəmˈpjuːtər/",
+  "mean": "a machine for storing information and accessing the internet",
+  "ex": "I use my computer mainly for work.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=computer",
+  "link": "https://lexkite.com/app/#/review?w=computer",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 43,
+  "seconds": 26.2,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"computer\" mean?",
+  "keyword": "computer",
+  "value": "Computer means a machine for storing information and accessing the internet.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=computer",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"computer\" mean?",
+    "description": "Computer means a machine for storing information and accessing the internet.\n\nReview your words, free: https://lexkite.com/app/#/review?w=computer\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "computer",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"computer\" mean?\n\nComputer means a machine for storing information and accessing the internet.\n\nReview your words, free: https://lexkite.com/app/#/review?w=computer"
+   },
+   "instagram": {
+    "caption": "What does \"computer\" mean?\n\nComputer means a machine for storing information and accessing the internet.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"computer\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a machine for storing information and accessing the internet. Computer means a machine for storing information and accessing the internet. More practice like this (free): {link}"
+ }
+}

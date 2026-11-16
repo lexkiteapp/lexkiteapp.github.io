@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_point",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: point.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means an idea or opinion in a discussion.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "That is a good point, but I don't completely agree.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "point",
+  "ipa": "/pɔɪnt/",
+  "mean": "an idea or opinion in a discussion",
+  "ex": "That is a good point, but I don't completely agree.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=point",
+  "link": "https://lexkite.com/app/#/review?w=point",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 44,
+  "seconds": 26.7,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"point\" mean?",
+  "keyword": "point",
+  "value": "Point means an idea or opinion in a discussion.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=point",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"point\" mean?",
+    "description": "Point means an idea or opinion in a discussion.\n\nReview your words, free: https://lexkite.com/app/#/review?w=point\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "point",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"point\" mean?\n\nPoint means an idea or opinion in a discussion.\n\nReview your words, free: https://lexkite.com/app/#/review?w=point"
+   },
+   "instagram": {
+    "caption": "What does \"point\" mean?\n\nPoint means an idea or opinion in a discussion.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"point\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means an idea or opinion in a discussion. Point means an idea or opinion in a discussion. Practice it with a free quiz: {link}"
+ }
+}

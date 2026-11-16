@@ -52,7 +52,8 @@ ok(missingSegments('It is clear/evident that …', 'It is clear/evident that …
   const load = f => { const g = {}; new Function('self', fs.readFileSync(new URL(f, import.meta.url), 'utf8'))(g); return g.I18N_DICT; };
   // en.js (khung) + mọi nhóm tải lười (LAZY trong build-i18n.sh) – khóa ra khỏi khung vẫn được kiểm
   const LAZY = ((fs.readFileSync(new URL('../build-i18n.sh', import.meta.url), 'utf8').match(/^LAZY="([^"]*)"/m) || [])[1] || '').split(/\s+/).filter(Boolean);
-  const loadAll = l => Object.assign({}, load(`../../web/js/i18n/${l}.js`)[l], ...LAZY.map(g => { const f = new URL(`../../web/js/i18n/${l}/${g}.js`, import.meta.url); return fs.existsSync(f) ? load(f.href)[l] : {}; }));
+  const dir = l => (l === 'en' ? '../../web/js/i18n' : '../../i18n/ui'); // 13 ngôn ngữ: nguồn khóa nguyên câu
+  const loadAll = l => Object.assign({}, load(`${dir(l)}/${l}.js`)[l], ...LAZY.map(g => { const f = new URL(`${dir(l)}/${l}/${g}.js`, import.meta.url); return fs.existsSync(f) ? load(f.href)[l] : {}; }));
   const EN = loadAll('en');
   const langs = fs.readFileSync(new URL('../i18n-langs.txt', import.meta.url), 'utf8').split('\n').map(s => s.trim()).filter(s => s && !s.startsWith('#'));
   let bad = 0, keys = 0;

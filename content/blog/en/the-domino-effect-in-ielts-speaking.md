@@ -29,7 +29,7 @@ When test takers produce blunt, two-word responses (*"Yes, I like cooking becaus
 2. **Waiting for the "Perfect" Truth:** Candidates pause because they search for the 100% factual truth of their lives (*"Did I visit my grandparents in 2021 or 2022?"*). IELTS is not a lie-detector test. Plausible, well-articulated fiction earns the exact same score as biographical fact.
 3. **Circular Repetition:** Candidates try to extend their speech by paraphrasing their first sentence: *"I really like football. Football is my favorite sport. It is something I enjoy playing very much."* This produces zero progression and lowers your Coherence band.
 
-To achieve Band 7 or above, your answer must move forward with each sentence, introducing fresh logical perspectives.
+To achieve Band 7 or above, your answer must move forward with each sentence, introducing fresh logical perspectives. To see how a Speaking band maps to a Canadian CLB level, see the [IELTS to CLB conversion](/en/blog/ielts-clb-score-canada/) table.
 
 ## The AREA Framework to Extend Answers in IELTS Speaking
 

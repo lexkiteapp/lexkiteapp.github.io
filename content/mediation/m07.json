@@ -1,0 +1,115 @@
+{
+ "id": "m07",
+ "level": "B1",
+ "lo": "M.B1.07",
+ "activity": "notes",
+ "title": "Remembering new words",
+ "scenario": "You attended a short talk by your teacher, Mr Evans, about learning vocabulary. Your classmate Mia was ill and missed it. Send her your notes so she can follow the next class.",
+ "source": {
+  "kind": "talk",
+  "text": [
+   "Today I would like to talk about how to remember new vocabulary. Many students read a word list ten times the night before a test. It feels useful, but research suggests it works badly.",
+   "A better method is spaced practice. Look at new words again after one day, then after three days, then after a week. Each review can be short, about ten minutes.",
+   "Second, do not only read. Cover the meaning and try to recall it. This effort feels hard, but it is exactly what builds memory.",
+   "Third, use the words in your own sentences. A word you have used is much harder to forget.",
+   "A quick note: the library has changed its opening hours this month, so check the board by the door.",
+   "Your homework is to choose twenty words from unit 4 and make a card for each one. Bring them next Tuesday, and we will test each other in pairs."
+  ]
+ },
+ "task": {
+  "mode": "write",
+  "audience": "a classmate who missed the talk",
+  "prompt": "Write your notes for Mia (70–115 words). Include the main advice and what she has to do for the next class.",
+  "min_words": 70,
+  "max_words": 115
+ },
+ "points": [
+  {
+   "id": "spaced",
+   "idea": "Review words after a day, three days and a week.",
+   "checks": [
+    [
+     "day",
+     "week"
+    ],
+    [
+     "review",
+     "revise",
+     "repeat",
+     "look at"
+    ]
+   ]
+  },
+  {
+   "id": "recall",
+   "idea": "Cover the meaning and try to remember it.",
+   "checks": [
+    [
+     "cover",
+     "recall",
+     "test yourself",
+     "remember it yourself"
+    ]
+   ]
+  },
+  {
+   "id": "sentences",
+   "idea": "Use each word in your own sentence.",
+   "checks": [
+    [
+     "own sentence",
+     "sentences",
+     "use the words",
+     "use each word"
+    ]
+   ]
+  },
+  {
+   "id": "homework",
+   "idea": "Homework: twenty words from unit 4 on cards, for Tuesday.",
+   "checks": [
+    [
+     "twenty",
+     "20"
+    ],
+    [
+     "card"
+    ],
+    [
+     "tuesday"
+    ]
+   ]
+  }
+ ],
+ "leave_out": [
+  {
+   "idea": "The new library opening hours.",
+   "checks": [
+    [
+     "library"
+    ]
+   ]
+  },
+  {
+   "idea": "The bad habit of reading a list the night before.",
+   "checks": [
+    [
+     "night before"
+    ]
+   ]
+  }
+ ],
+ "model": "Hi Mia, here are my notes from Mr Evans's talk. He said reading a word list again and again does not work well. Instead, look at new words after one day, three days and a week, for about ten minutes each time. Cover up the meaning and try to recall it, because that effort builds memory. Also write your own sentences with each word. For homework, make a card for each of twenty words from unit 4. Bring them on Tuesday, because we will test each other in pairs. See you in class!",
+ "useful": [
+  "Here are my notes from …",
+  "He said that …",
+  "Instead, you should …",
+  "For homework, we have to …",
+  "Bring them on …"
+ ],
+ "tips": [
+  "Notes for an absent person have two parts: the ideas they missed, and the jobs they must do. Do not forget the second part.",
+  "Name the speaker once (\"Mr Evans said …\") so Mia knows these are his points, then use short, direct sentences."
+ ],
+ "explain": "Mia needs the three techniques (spaced review, recalling, own sentences) and the homework with its deadline. The library hours are a side comment and the night-before habit is only the speaker's warning."
+}

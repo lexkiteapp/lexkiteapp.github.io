@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lexkite — App Language Bottom Sheet (Tactile Night)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Noto+Sans+Arabic:wght@700&family=Noto+Sans+Devanagari:wght@700&family=Noto+Sans+JP:wght@700&family=Noto+Sans+KR:wght@700&family=Noto+Sans+SC:wght@700&family=Noto+Sans+Thai:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,0,0" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = { theme: { extend: { fontFamily: { sans: ['"Plus Jakarta Sans"', '"Noto Sans Thai"', '"Noto Sans SC"', '"Noto Sans JP"', '"Noto Sans KR"', '"Noto Sans Devanagari"', '"Noto Sans Arabic"', 'sans-serif'] } } } } }
+</script>
+<style>
+body { background:#091518; color:#EEF6F7; }
+.muted { color:#A9BFC1; }
+.sheet-card { background:#142429; border:2px solid #264349; box-shadow:0 10px 0 0 #081113, 0 24px 48px -12px rgba(0,0,0,0.25); }
+.divider { border-color:#264349; }
+.tactile-row { background:#182A30; border-color:#264349; box-shadow:0 4px 0 0 #0E191C; transition:all .1s ease; }
+.tactile-row:hover { background:#1E343B; }
+.tactile-row:active, .tactile-row-selected:active { transform:translateY(2px); }
+.tactile-row-selected { background:#14383A; border-color:#2BA39A; box-shadow:0 4px 0 0 #0D6964; }
+.chip { background:#1A2D33; border:1px solid #2F4E56; color:#A9BFC1; }
+.chip-sel { background:#2BA39A; color:#091518; }
+.radio-ring { border-color:#2F4E56; }
+.tactile-btn-close { background:#1A2D33; border:2px solid #2F4E56; color:#EEF6F7; box-shadow:0 4px 0 0 #0E191C; }
+.tactile-btn-close:active { transform:translateY(2px); box-shadow:0 2px 0 0 #0E191C; }
+.search { background:#0F1D21; border:2px solid #264349; color:#EEF6F7; }
+.search::placeholder { color:#A9BFC1; opacity:.85; }
+.search:focus { outline:none; border-color:#2BA39A; }
+.custom-scroll::-webkit-scrollbar { width:6px; }
+.custom-scroll::-webkit-scrollbar-thumb { background:#264349; border-radius:9999px; }
+</style>
+</head>
+<body class="font-sans antialiased min-h-screen flex items-center justify-center p-4 sm:p-6 md:p-8 selection:bg-teal-500">
+<div class="fixed inset-0 pointer-events-none opacity-40 bg-[radial-gradient(rgba(107,216,206,0.10)_1px,transparent_1px)] [background-size:24px_24px]"></div>
+<main class="w-full max-w-xl sheet-card rounded-[28px] relative flex flex-col overflow-hidden z-10">
+<div class="pt-3 pb-1 flex justify-center items-center"><div class="w-12 h-1.5 rounded-full" style="background:#264349"></div></div>
+<header class="px-6 pt-2 pb-4 flex items-center justify-between border-b-2 divider">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-2xl flex items-center justify-center" style="background:#1A2D33;border:2px solid rgba(43,163,154,.4);color:#6BD8CE"><span class="material-symbols-rounded text-2xl">translate</span></div>
+<div><h1 class="text-2xl font-extrabold tracking-tight leading-none">App language</h1><p class="text-xs font-bold muted mt-1 uppercase tracking-wider">15 languages available</p></div>
+</div>
+<button type="button" aria-label="Close" class="w-10 h-10 rounded-2xl flex items-center justify-center tactile-btn-close"><span class="material-symbols-rounded text-xl">close</span></button>
+</header>
+<section class="px-6 pt-4 pb-2">
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none muted"><span class="material-symbols-rounded text-xl">search</span></div>
+<input type="text" placeholder="Search language..." class="search w-full pl-10 pr-4 py-3 rounded-2xl text-sm font-bold transition-all"/>
+</div>
+</section>
+<section class="px-6 py-3 pb-6 max-h-[460px] overflow-y-auto custom-scroll flex flex-col gap-2.5" role="radiogroup" aria-label="Language selection">
+<div role="radio" aria-checked="true" tabindex="0" class="tactile-row-selected rounded-2xl border-2 p-3.5 flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-3.5"><div class="w-9 h-9 rounded-xl chip-sel flex items-center justify-center font-extrabold text-sm">EN</div><div><div class="text-base font-extrabold leading-tight">English</div><div class="text-xs font-bold" style="color:#6BD8CE">English</div></div></div>
+<div class="w-7 h-7 rounded-full chip-sel flex items-center justify-center"><span class="material-symbols-rounded text-lg font-bold">check</span></div></div>
+<div role="radio" aria-checked="false" tabindex="0" class="tactile-row rounded-2xl border-2 p-3.5 flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-3.5"><div class="w-9 h-9 rounded-xl chip flex items-center justify-center font-extrabold text-sm">VI</div><div><div class="text-base font-extrabold leading-tight">Tiếng Việt</div><div class="text-xs font-bold muted">Vietnamese</div></div></div>
+<div class="w-6 h-6 rounded-full border-2 radio-ring"></div></div>
+<div role="radio" aria-checked="false" tabindex="0" class="tactile-row rounded-2xl border-2 p-3.5 flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-3.5"><div class="w-9 h-9 rounded-xl chip flex items-center justify-center font-extrabold text-sm">ES</div><div><div class="text-base font-extrabold leading-tight">Español</div><div class="text-xs font-bold muted">Spanish</div></div></div>
+<div class="w-6 h-6 rounded-full border-2 radio-ring"></div></div>
+<div role="radio" aria-checked="false" tabindex="0" class="tactile-row rounded-2xl border-2 p-3.5 flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-3.5"><div class="w-9 h-9 rounded-xl chip flex items-center justify-center font-extrabold text-sm">PT</div><div><div class="text-base font-extrabold leading-tight">Português</div><div class="text-xs font-bold muted">Portuguese</div></div></div>
+<div class="w-6 h-6 rounded-full border-2 radio-ring"></div></div>
+<div role="radio" aria-checked="false" tabindex="0" class="tactile-row rounded-2xl border-2 p-3.5 flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-3.5"><div class="w-9 h-9 rounded-xl chip flex items-center justify-center font-extrabold text-sm">FR</div><div><div class="text-base font-extrabold leading-tight">Français</div><div class="text-xs font-bold muted">French</div></div></div>
+<div class="w-6 h-6 rounded-full border-2 radio-ring"></div></div>
+<div role="radio" aria-checked="false" tabindex="0" class="tactile-row rounded-2xl border-2 p-3.5 flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-3.5"><div class="w-9 h-9 rounded-xl chip flex items-center justify-center font-extrabold text-sm">DE</div><div><div class="text-base font-extrabold leading-tight">Deutsch</div><div class="text-xs font-bold muted">German</div></div></div>
+<div class="w-6 h-6 rounded-full border-2 radio-ring"></div></div>
+<div role="radio" aria-checked="false" tabindex="0" class="tactile-row rounded-2xl border-2 p-3.5 flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-3.5"><div class="w-9 h-9 rounded-xl chip flex items-center justify-center font-extrabold text-sm">ID</div><div><div class="text-base font-extrabold leading-tight">Bahasa Indonesia</div><div class="text-xs font-bold muted">Indonesian</div></div></div>
+<div class="w-6 h-6 rounded-full border-2 radio-ring"></div></div>
+<div role="radio" aria-checked="false" tabindex="0" class="tactile-row rounded-2xl border-2 p-3.5 flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-3.5"><div class="w-9 h-9 rounded-xl chip flex items-center justify-center font-extrabold text-sm">TH</div><div><div class="text-base font-extrabold leading-tight">ไทย</div><div class="text-xs font-bold muted">Thai</div></div></div>
+<div class="w-6 h-6 rounded-full border-2 radio-ring"></div></div>
+<div role="radio" aria-checked="false" tabindex="0" class="tactile-row rounded-2xl border-2 p-3.5 flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-3.5"><div class="w-9 h-9 rounded-xl chip flex items-center justify-center font-extrabold text-sm">ZH</div><div><div class="text-base font-extrabold leading-tight">中文</div><div class="text-xs font-bold muted">Chinese</div></div></div>
+<div class="w-6 h-6 rounded-full border-2 radio-ring"></div></div>
+<div role="radio" aria-checked="false" tabindex="0" class="tactile-row rounded-2xl border-2 p-3.5 flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-3.5"><div class="w-9 h-9 rounded-xl chip flex items-center justify-center font-extrabold text-sm">JA</div><div><div class="text-base font-extrabold leading-tight">日本語</div><div class="text-xs font-bold muted">Japanese</div></div></div>
+<div class="w-6 h-6 rounded-full border-2 radio-ring"></div></div>
+<div role="radio" aria-checked="false" tabindex="0" class="tactile-row rounded-2xl border-2 p-3.5 flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-3.5"><div class="w-9 h-9 rounded-xl chip flex items-center justify-center font-extrabold text-sm">KO</div><div><div class="text-base font-extrabold leading-tight">한국어</div><div class="text-xs font-bold muted">Korean</div></div></div>
+<div class="w-6 h-6 rounded-full border-2 radio-ring"></div></div>
+<div role="radio" aria-checked="false" tabindex="0" class="tactile-row rounded-2xl border-2 p-3.5 flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-3.5"><div class="w-9 h-9 rounded-xl chip flex items-center justify-center font-extrabold text-sm">HI</div><div><div class="text-base font-extrabold leading-tight">हिन्दी</div><div class="text-xs font-bold muted">Hindi</div></div></div>
+<div class="w-6 h-6 rounded-full border-2 radio-ring"></div></div>
+<div role="radio" aria-checked="false" tabindex="0" class="tactile-row rounded-2xl border-2 p-3.5 flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-3.5"><div class="w-9 h-9 rounded-xl chip flex items-center justify-center font-extrabold text-sm">AR</div><div><div class="text-base font-extrabold leading-tight" dir="rtl">العربية</div><div class="text-xs font-bold muted">Arabic</div></div></div>
+<div class="w-6 h-6 rounded-full border-2 radio-ring"></div></div>
+<div role="radio" aria-checked="false" tabindex="0" class="tactile-row rounded-2xl border-2 p-3.5 flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-3.5"><div class="w-9 h-9 rounded-xl chip flex items-center justify-center font-extrabold text-sm">RU</div><div><div class="text-base font-extrabold leading-tight">Русский</div><div class="text-xs font-bold muted">Russian</div></div></div>
+<div class="w-6 h-6 rounded-full border-2 radio-ring"></div></div>
+<div role="radio" aria-checked="false" tabindex="0" class="tactile-row rounded-2xl border-2 p-3.5 flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-3.5"><div class="w-9 h-9 rounded-xl chip flex items-center justify-center font-extrabold text-sm">TR</div><div><div class="text-base font-extrabold leading-tight">Türkçe</div><div class="text-xs font-bold muted">Turkish</div></div></div>
+<div class="w-6 h-6 rounded-full border-2 radio-ring"></div></div>
+</section>
+</main>
+</body>
+</html>

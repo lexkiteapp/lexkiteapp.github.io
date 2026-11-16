@@ -149,6 +149,8 @@ Từ vựng theo chủ đề thường gặp trong bài đọc có sẵn ở m�
 
 {{youtube: | Gợi ý video: làm mẫu một bài matching headings, nói to suy nghĩ ở từng đoạn}}
 
+Dạng Matching Headings dễ ngốn thời gian, vì vậy hãy đọc thêm [chiến lược phân bổ thời gian IELTS Reading](/vi/blog/cach-phan-bo-thoi-gian-ielts-reading-60-phut/).
+
 ## Câu hỏi thường gặp
 
 ### Có nên đọc cả bài trước rồi mới làm matching headings không?

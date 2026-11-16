@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite Kit Illustration Badge Sheet (Bright Day)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #FFF8F5;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+<body class="min-h-screen w-full bg-[#FFF8F5] flex items-center justify-center p-6 md:p-12 lg:p-16">
+  <div class="w-full max-w-5xl mx-auto">
+    <!-- Grid of 6 badges: 3 cols on md/desktop, 2 cols on mobile/tablet -->
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 lg:gap-10 place-items-center">
+
+      <!-- Badge 1: Shield with a keyhole (Emerald / Teal theme) -->
+      <div class="w-full max-w-[260px] aspect-square flex items-center justify-center">
+        <svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-sm select-none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <!-- Badge tile gradients -->
+            <radialGradient id="bg1" cx="30%" cy="25%" r="80%">
+              <stop offset="0%" stop-color="#E6FAF5"/>
+              <stop offset="60%" stop-color="#CEF3EA"/>
+              <stop offset="100%" stop-color="#B2E7DB"/>
+            </radialGradient>
+            <!-- Shield gradient -->
+            <linearGradient id="shieldGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#00A896"/>
+              <stop offset="50%" stop-color="#028072"/>
+              <stop offset="100%" stop-color="#00504B"/>
+            </linearGradient>
+            <!-- Gold emblem gradient -->
+            <linearGradient id="goldGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#FDE047"/>
+              <stop offset="60%" stop-color="#F59E0B"/>
+              <stop offset="100%" stop-color="#D97706"/>
+            </linearGradient>
+            <filter id="badgeShadow" x="-10%" y="-10%" width="120%" height="130%">
+              <feDropShadow dx="0" dy="4" stdDeviation="0" flood-color="#8DBBAF"/>
+            </filter>
+          </defs>
+
+          <!-- Outer tactile tile base with bottom ledge -->
+          <!-- Ledge -->
+          <rect x="12" y="20" width="176" height="172" rx="36" fill="#8DBBAF"/>
+          <!-- Front plate -->
+          <rect x="12" y="12" width="176" height="172" rx="36" fill="url(#bg1)" stroke="#5AA595" stroke-width="3"/>
+          <!-- Gloss highlight curve on tile top -->
+          <path d="M 28 20 Q 100 28 172 20 Q 170 48 100 48 Q 30 48 28 20 Z" fill="#FFFFFF" opacity="0.45"/>
+
+          <!-- Badge Object: Glossy Shield with keyhole -->
+          <g transform="translate(0, 2)">
+            <!-- Shield outer drop ledge shadow -->
+            <path d="M 100 38 L 148 54 C 148 114 100 148 100 148 C 100 148 52 114 52 54 Z" fill="#003531" transform="translate(0, 5)"/>
+            <!-- Shield main body -->
+            <path d="M 100 38 L 148 54 C 148 114 100 148 100 148 C 100 148 52 114 52 54 Z" fill="url(#shieldGrad)" stroke="#003D38" stroke-width="3.5" stroke-linejoin="round"/>
+            <!-- Shield inner rim border -->
+            <path d="M 100 46 L 138 59 C 138 106 100 135 100 135 C 100 135 62 106 62 59 Z" fill="none" stroke="#34D399" stroke-width="2.5" opacity="0.6"/>
+            <!-- Shield gloss arc -->
+            <path d="M 100 42 L 144 56 C 144 76 130 96 100 88 C 70 80 56 68 56 56 Z" fill="#FFFFFF" opacity="0.25"/>
+
+            <!-- Keyhole medaillon / plate -->
+            <circle cx="100" cy="88" r="24" fill="#003833" opacity="0.35" transform="translate(0, 2)"/>
+            <circle cx="100" cy="88" r="23" fill="url(#goldGrad)" stroke="#B45309" stroke-width="2.5"/>
+            <!-- Gold plate shine -->
+            <path d="M 83 82 A 19 19 0 0 1 117 82 Q 100 90 83 82 Z" fill="#FFFFFF" opacity="0.45"/>
+
+            <!-- Keyhole cutout -->
+            <path d="M 94 82 A 7 7 0 1 1 106 82 C 106 84.5 104.5 86.5 103 88 L 104 100 A 2 2 0 0 1 102 102 L 98 102 A 2 2 0 0 1 96 100 L 97 88 C 95.5 86.5 94 84.5 94 82 Z" fill="#0F172A" stroke="#002421" stroke-width="1.5"/>
+            <!-- Little keyhole shine rim -->
+            <circle cx="98.5" cy="79.5" r="1.5" fill="#FFFFFF" opacity="0.8"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Badge 2: Stack of gold coins beside a rising arrow (Amber / Gold theme) -->
+      <div class="w-full max-w-[260px] aspect-square flex items-center justify-center">
+        <svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-sm select-none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="bg2" cx="30%" cy="25%" r="80%">
+              <stop offset="0%" stop-color="#FEF3C7"/>
+              <stop offset="60%" stop-color="#FDE68A"/>
+              <stop offset="100%" stop-color="#FCD34D"/>
+            </radialGradient>
+            <linearGradient id="coinFace" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#FFFBEB"/>
+              <stop offset="30%" stop-color="#FDE047"/>
+              <stop offset="100%" stop-color="#F59E0B"/>
+            </linearGradient>
+            <linearGradient id="coinSide" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#D97706"/>
+              <stop offset="100%" stop-color="#92400E"/>
+            </linearGradient>
+            <linearGradient id="arrowGrad" x1="0" y1="1" x2="1" y2="0">
+              <stop offset="0%" stop-color="#10B981"/>
+              <stop offset="60%" stop-color="#059669"/>
+              <stop offset="100%" stop-color="#047857"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Outer tactile tile base with bottom ledge -->
+          <rect x="12" y="20" width="176" height="172" rx="36" fill="#D29B27"/>
+          <rect x="12" y="12" width="176" height="172" rx="36" fill="url(#bg2)" stroke="#C88E18" stroke-width="3"/>
+          <path d="M 28 20 Q 100 28 172 20 Q 170 48 100 48 Q 30 48 28 20 Z" fill="#FFFFFF" opacity="0.45"/>
+
+          <!-- Object: Stack of gold coins + rising green arrow -->
+          <g transform="translate(4, 4)">
+            <!-- Base Shadow -->
+            <ellipse cx="78" cy="144" rx="42" ry="11" fill="#78350F" opacity="0.25"/>
+
+            <!-- Coin 1 (Bottom) -->
+            <path d="M 44 126 C 44 135 60 142 80 142 C 100 142 116 135 116 126 L 116 134 C 116 143 100 150 80 150 C 60 150 44 143 44 134 Z" fill="url(#coinSide)" stroke="#78350F" stroke-width="2"/>
+            <ellipse cx="80" cy="126" rx="36" ry="11" fill="url(#coinFace)" stroke="#B45309" stroke-width="2.5"/>
+            <ellipse cx="80" cy="126" rx="30" ry="8" fill="none" stroke="#D97706" stroke-width="1.5" opacity="0.6"/>
+
+            <!-- Coin 2 (Middle) -->
+            <path d="M 44 106 C 44 115 60 122 80 122 C 100 122 116 115 116 106 L 116 114 C 116 123 100 130 80 130 C 60 130 44 123 44 114 Z" fill="url(#coinSide)" stroke="#78350F" stroke-width="2"/>
+            <ellipse cx="80" cy="106" rx="36" ry="11" fill="url(#coinFace)" stroke="#B45309" stroke-width="2.5"/>
+            <ellipse cx="80" cy="106" rx="30" ry="8" fill="none" stroke="#D97706" stroke-width="1.5" opacity="0.6"/>
+
+            <!-- Coin 3 (Top) -->
+            <path d="M 44 86 C 44 95 60 102 80 102 C 100 102 116 95 116 86 L 116 94 C 116 103 100 110 80 110 C 60 110 44 103 44 94 Z" fill="url(#coinSide)" stroke="#78350F" stroke-width="2"/>
+            <ellipse cx="80" cy="86" rx="36" ry="11" fill="url(#coinFace)" stroke="#B45309" stroke-width="2.5"/>
+            <!-- Coin top gloss & star engraving -->
+            <ellipse cx="80" cy="86" rx="30" ry="8" fill="none" stroke="#D97706" stroke-width="1.5" opacity="0.6"/>
+            <!-- Sparkle shine on top coin -->
+            <path d="M 70 86 Q 80 84 80 81 Q 80 84 90 86 Q 80 88 80 91 Q 80 88 70 86 Z" fill="#FFFBEB" opacity="0.9"/>
+            <circle cx="80" cy="86" r="3.5" fill="#FFFFFF"/>
+
+            <!-- Rising Green Arrow (Dynamic, tactile 3D) -->
+            <!-- Arrow shadow/ledge -->
+            <path d="M 104 138 L 130 112 L 123 105 L 158 97 L 150 132 L 143 125 L 117 151 Z" fill="#064E3B" opacity="0.3" transform="translate(2, 4)"/>
+            <!-- Arrow bottom thickness -->
+            <path d="M 102 136 L 128 110 L 122 104 L 155 96 L 147 129 L 141 123 L 115 149 Z" fill="#047857"/>
+            <!-- Arrow top face -->
+            <path d="M 102 132 L 128 106 L 121 99 L 155 92 L 147 126 L 140 119 L 114 145 Z" fill="url(#arrowGrad)" stroke="#064E3B" stroke-width="2.5" stroke-linejoin="round"/>
+            <!-- Arrow gloss stripe -->
+            <path d="M 106 132 L 126 112 L 124 108 L 144 103 L 139 108 L 115 132 Z" fill="#FFFFFF" opacity="0.4"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Badge 3: Big green tick and big red cross side by side (Coral / Rose theme) -->
+      <div class="w-full max-w-[260px] aspect-square flex items-center justify-center">
+        <svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-sm select-none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="bg3" cx="30%" cy="25%" r="80%">
+              <stop offset="0%" stop-color="#FFE4E6"/>
+              <stop offset="60%" stop-color="#FECDD3"/>
+              <stop offset="100%" stop-color="#FDA4AF"/>
+            </radialGradient>
+            <!-- Tick Gradients -->
+            <linearGradient id="tickFace" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#34D399"/>
+              <stop offset="40%" stop-color="#10B981"/>
+              <stop offset="100%" stop-color="#047857"/>
+            </linearGradient>
+            <!-- Cross Gradients -->
+            <linearGradient id="crossFace" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#FB7185"/>
+              <stop offset="40%" stop-color="#E11D48"/>
+              <stop offset="100%" stop-color="#9F1239"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Outer tactile tile base with bottom ledge -->
+          <rect x="12" y="20" width="176" height="172" rx="36" fill="#D37E8C"/>
+          <rect x="12" y="12" width="176" height="172" rx="36" fill="url(#bg3)" stroke="#C76777" stroke-width="3"/>
+          <path d="M 28 20 Q 100 28 172 20 Q 170 48 100 48 Q 30 48 28 20 Z" fill="#FFFFFF" opacity="0.45"/>
+
+          <!-- Badge Object: Green Tick and Red Cross side by side -->
+          <g transform="translate(0, 4)">
+            <!-- Left: Green Tick Token -->
+            <!-- Tick drop ledge -->
+            <path d="M 42 98 L 62 118 L 88 74 L 98 82 L 64 134 L 32 106 Z" fill="#064E3B" transform="translate(0, 4)"/>
+            <!-- Tick body -->
+            <path d="M 42 98 L 62 118 L 88 74 L 98 82 L 64 134 L 32 106 Z" fill="url(#tickFace)" stroke="#064E3B" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
+            <!-- Tick gloss highlight -->
+            <path d="M 38 104 L 62 124 L 91 80" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.55"/>
+
+            <!-- Right: Red Cross Token -->
+            <!-- Cross drop ledge -->
+            <g transform="translate(0, 4)">
+              <path d="M 124 74 L 142 92 L 160 74 L 170 84 L 152 102 L 170 120 L 160 130 L 142 112 L 124 130 L 114 120 L 132 102 L 114 84 Z" fill="#4C0519"/>
+            </g>
+            <!-- Cross body -->
+            <path d="M 124 74 L 142 92 L 160 74 L 170 84 L 152 102 L 170 120 L 160 130 L 142 112 L 124 130 L 114 120 L 132 102 L 114 84 Z" fill="url(#crossFace)" stroke="#881337" stroke-width="3.5" stroke-linejoin="round"/>
+            <!-- Cross gloss highlight top/arms -->
+            <path d="M 124 78 L 142 96 L 160 78" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.55"/>
+            <path d="M 118 87 L 136 105" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.45"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Badge 4: A lit lightbulb untying a knot (Indigo / Soft Purple theme) -->
+      <div class="w-full max-w-[260px] aspect-square flex items-center justify-center">
+        <svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-sm select-none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="bg4" cx="30%" cy="25%" r="80%">
+              <stop offset="0%" stop-color="#EDE9FE"/>
+              <stop offset="60%" stop-color="#DDD6FE"/>
+              <stop offset="100%" stop-color="#C4B5FD"/>
+            </radialGradient>
+            <!-- Bulb glow & glass gradient -->
+            <radialGradient id="bulbGlow" cx="40%" cy="35%" r="65%">
+              <stop offset="0%" stop-color="#FFFFFF"/>
+              <stop offset="35%" stop-color="#FEF08A"/>
+              <stop offset="75%" stop-color="#F59E0B"/>
+              <stop offset="100%" stop-color="#D97706"/>
+            </radialGradient>
+            <!-- Knot cord gradient -->
+            <linearGradient id="ropeGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#38BDF8"/>
+              <stop offset="50%" stop-color="#0284C7"/>
+              <stop offset="100%" stop-color="#0369A1"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Outer tactile tile base with bottom ledge -->
+          <rect x="12" y="20" width="176" height="172" rx="36" fill="#9884DC"/>
+          <rect x="12" y="12" width="176" height="172" rx="36" fill="url(#bg4)" stroke="#826BCB" stroke-width="3"/>
+          <path d="M 28 20 Q 100 28 172 20 Q 170 48 100 48 Q 30 48 28 20 Z" fill="#FFFFFF" opacity="0.45"/>
+
+          <!-- Badge Object: Lit glowing lightbulb solving/untying a knot below -->
+          <g transform="translate(0, 3)">
+            <!-- Golden radiance rays around the bulb -->
+            <path d="M 100 32 L 100 24 M 64 44 L 56 38 M 136 44 L 144 38 M 52 72 L 44 72 M 148 72 L 156 72" stroke="#F59E0B" stroke-width="4.5" stroke-linecap="round"/>
+
+            <!-- Lightbulb shadow/ledge -->
+            <path d="M 82 108 C 76 98 68 88 68 72 C 68 54 82 40 100 40 C 118 40 132 54 132 72 C 132 88 124 98 118 108 Z" fill="#78350F" opacity="0.3" transform="translate(0, 4)"/>
+
+            <!-- Bulb glass body -->
+            <path d="M 82 106 C 76 96 68 86 68 70 C 68 52 82 38 100 38 C 118 38 132 52 132 70 C 132 86 124 96 118 106 Z" fill="url(#bulbGlow)" stroke="#B45309" stroke-width="3.5" stroke-linejoin="round"/>
+
+            <!-- Bulb inner glass gloss reflection -->
+            <path d="M 78 64 A 24 24 0 0 1 114 46 Q 100 56 82 66 Z" fill="#FFFFFF" opacity="0.6"/>
+
+            <!-- Metallic screw base -->
+            <rect x="85" y="108" width="30" height="6" rx="3" fill="#94A3B8" stroke="#475569" stroke-width="2"/>
+            <rect x="87" y="115" width="26" height="6" rx="3" fill="#64748B" stroke="#334155" stroke-width="2"/>
+            <path d="M 91 122 Q 100 125 109 122 L 105 127 Q 100 129 95 127 Z" fill="#334155"/>
+
+            <!-- The untying knot cord looped beneath the bulb -->
+            <!-- Drop shadow of knot -->
+            <path d="M 52 148 C 68 130 92 134 100 144 C 108 154 128 154 148 140" fill="none" stroke="#0C4A6E" stroke-width="8" stroke-linecap="round" opacity="0.3" transform="translate(0, 3)"/>
+            <!-- Main untying loop cord -->
+            <path d="M 48 148 C 66 126 94 130 100 142 C 106 154 126 156 152 138" fill="none" stroke="url(#ropeGrad)" stroke-width="8" stroke-linecap="round"/>
+            <!-- Cord secondary crossover loop with knot end -->
+            <path d="M 82 152 C 94 162 108 162 118 150 C 124 142 124 130 114 126" fill="none" stroke="#38BDF8" stroke-width="6" stroke-linecap="round"/>
+            <!-- Cord end tassels / tips -->
+            <circle cx="48" cy="148" r="4.5" fill="#38BDF8" stroke="#0284C7" stroke-width="2"/>
+            <circle cx="152" cy="138" r="4.5" fill="#38BDF8" stroke="#0284C7" stroke-width="2"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Badge 5: A sealed envelope with a red wax seal (Warm Sky / Blue theme) -->
+      <div class="w-full max-w-[260px] aspect-square flex items-center justify-center">
+        <svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-sm select-none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="bg5" cx="30%" cy="25%" r="80%">
+              <stop offset="0%" stop-color="#E0F2FE"/>
+              <stop offset="60%" stop-color="#BAE6FD"/>
+              <stop offset="100%" stop-color="#7DD3FC"/>
+            </radialGradient>
+            <!-- Envelope body gradient -->
+            <linearGradient id="envGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#FFFFFF"/>
+              <stop offset="60%" stop-color="#FFF8F2"/>
+              <stop offset="100%" stop-color="#FCE7D6"/>
+            </linearGradient>
+            <!-- Envelope flap gradient -->
+            <linearGradient id="flapGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#FFFFFF"/>
+              <stop offset="100%" stop-color="#F5DFCE"/>
+            </linearGradient>
+            <!-- Red wax seal gradient -->
+            <radialGradient id="waxGrad" cx="35%" cy="35%" r="70%">
+              <stop offset="0%" stop-color="#F87171"/>
+              <stop offset="45%" stop-color="#DC2626"/>
+              <stop offset="100%" stop-color="#991B1B"/>
+            </radialGradient>
+          </defs>
+
+          <!-- Outer tactile tile base with bottom ledge -->
+          <rect x="12" y="20" width="176" height="172" rx="36" fill="#5AA8D1"/>
+          <rect x="12" y="12" width="176" height="172" rx="36" fill="url(#bg5)" stroke="#4293BC" stroke-width="3"/>
+          <path d="M 28 20 Q 100 28 172 20 Q 170 48 100 48 Q 30 48 28 20 Z" fill="#FFFFFF" opacity="0.45"/>
+
+          <!-- Badge Object: Sealed envelope with glossy red wax seal -->
+          <g transform="translate(0, 10)">
+            <!-- Envelope drop shadow -->
+            <rect x="40" y="44" width="120" height="84" rx="14" fill="#0284C7" opacity="0.25" transform="translate(0, 5)"/>
+
+            <!-- Envelope base pocket -->
+            <rect x="40" y="44" width="120" height="84" rx="14" fill="url(#envGrad)" stroke="#B8977E" stroke-width="3.5"/>
+
+            <!-- Envelope bottom folds (tactile crease lines) -->
+            <path d="M 42 124 L 92 84 M 158 124 L 108 84" stroke="#D7BAA2" stroke-width="2.5" stroke-linecap="round"/>
+
+            <!-- Envelope closed top triangle flap -->
+            <path d="M 42 46 Q 100 44 158 46 L 106 96 Q 100 100 94 96 Z" fill="url(#flapGrad)" stroke="#B8977E" stroke-width="3.5" stroke-linejoin="round"/>
+            <!-- Flap gloss edge -->
+            <path d="M 52 48 L 148 48" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+
+            <!-- Red Wax Seal medallion -->
+            <!-- Wax irregular droplet scalloped rim -->
+            <circle cx="100" cy="98" r="23" fill="#7F1D1D" opacity="0.3" transform="translate(0, 3)"/>
+            <!-- Wax outer seal stamp -->
+            <circle cx="100" cy="98" r="22" fill="url(#waxGrad)" stroke="#7F1D1D" stroke-width="2.5"/>
+            <!-- Wax seal inner embossed ring -->
+            <circle cx="100" cy="98" r="16" fill="none" stroke="#FCA5A5" stroke-width="2" opacity="0.75"/>
+            <!-- Wax seal center monogram/kite/crest stamp -->
+            <path d="M 100 87 L 109 98 L 100 109 L 91 98 Z" fill="#7F1D1D" opacity="0.45"/>
+            <path d="M 100 89 L 107 98 L 100 107 L 93 98 Z" fill="#FEF2F2" opacity="0.9"/>
+            <!-- Gloss shine on wax seal -->
+            <path d="M 85 92 A 18 18 0 0 1 115 92 Q 100 97 85 92 Z" fill="#FFFFFF" opacity="0.4"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Badge 6: An open envelope with a card rising out (Fresh Mint / Teal theme) -->
+      <div class="w-full max-w-[260px] aspect-square flex items-center justify-center">
+        <svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-sm select-none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="bg6" cx="30%" cy="25%" r="80%">
+              <stop offset="0%" stop-color="#E6FFFA"/>
+              <stop offset="60%" stop-color="#CCFBF1"/>
+              <stop offset="100%" stop-color="#99F6E4"/>
+            </radialGradient>
+            <!-- Rising card gradient -->
+            <linearGradient id="cardGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#FFFFFF"/>
+              <stop offset="50%" stop-color="#FEF9C3"/>
+              <stop offset="100%" stop-color="#FEF08A"/>
+            </linearGradient>
+            <!-- Open envelope back/interior -->
+            <linearGradient id="envInside" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#D97706"/>
+              <stop offset="100%" stop-color="#B45309"/>
+            </linearGradient>
+            <!-- Open envelope front pocket -->
+            <linearGradient id="envFront" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#FBBF24"/>
+              <stop offset="100%" stop-color="#D97706"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Outer tactile tile base with bottom ledge -->
+          <rect x="12" y="20" width="176" height="172" rx="36" fill="#69C3B3"/>
+          <rect x="12" y="12" width="176" height="172" rx="36" fill="url(#bg6)" stroke="#4FA899" stroke-width="3"/>
+          <path d="M 28 20 Q 100 28 172 20 Q 170 48 100 48 Q 30 48 28 20 Z" fill="#FFFFFF" opacity="0.45"/>
+
+          <!-- Badge Object: Open envelope with a card rising out -->
+          <g transform="translate(0, 2)">
+            <!-- Envelope drop shadow -->
+            <rect x="38" y="76" width="124" height="74" rx="14" fill="#0D9488" opacity="0.25" transform="translate(0, 6)"/>
+
+            <!-- Open top back flap pointing upward -->
+            <path d="M 40 84 L 100 38 L 160 84 Z" fill="#FDE68A" stroke="#B45309" stroke-width="3" stroke-linejoin="round"/>
+            <!-- Interior dark backing -->
+            <rect x="42" y="78" width="116" height="68" rx="8" fill="#78350F" opacity="0.4"/>
+
+            <!-- The Rising Card -->
+            <!-- Card shadow inside slot -->
+            <rect x="52" y="44" width="96" height="70" rx="8" fill="#78350F" opacity="0.2" transform="translate(0, 3)"/>
+            <!-- Card main body -->
+            <rect x="52" y="42" width="96" height="68" rx="8" fill="url(#cardGrad)" stroke="#B45309" stroke-width="3"/>
+            <!-- Decorative card features: Golden star crest + progress bars -->
+            <circle cx="100" cy="62" r="12" fill="#F59E0B" stroke="#B45309" stroke-width="1.5"/>
+            <!-- Five-point star on the card -->
+            <path d="M 100 54 L 103 60 L 109 60.5 L 104.5 64.5 L 106 70.5 L 100 67 L 94 70.5 L 95.5 64.5 L 91 60.5 L 97 60 Z" fill="#FFFFFF"/>
+            <!-- Two friendly striped progress lines on card -->
+            <rect x="68" y="80" width="64" height="5" rx="2.5" fill="#F59E0B" opacity="0.8"/>
+            <rect x="76" y="89" width="48" height="4" rx="2" fill="#D97706" opacity="0.6"/>
+
+            <!-- Card gloss streak -->
+            <path d="M 54 44 L 108 44 L 62 90 L 54 90 Z" fill="#FFFFFF" opacity="0.5"/>
+
+            <!-- Envelope Front Pocket (V-shaped front overlap) -->
+            <path d="M 38 78 L 100 118 L 162 78 L 162 136 C 162 144 154 150 146 150 L 54 150 C 46 150 38 144 38 136 Z" fill="url(#envFront)" stroke="#92400E" stroke-width="3.5" stroke-linejoin="round"/>
+
+            <!-- Envelope front fold line accents -->
+            <path d="M 40 148 L 94 114 M 160 148 L 106 114" stroke="#B45309" stroke-width="2.5" stroke-linecap="round"/>
+
+            <!-- Front pocket rim shine -->
+            <path d="M 42 80 L 98 116 L 158 80" stroke="#FEF08A" stroke-width="2.5" fill="none" opacity="0.65"/>
+          </g>
+        </svg>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

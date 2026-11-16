@@ -1,0 +1,380 @@
+{
+ "v": 1,
+ "tl": "es",
+ "variant": "es-419",
+ "status": "reviewed",
+ "source": {
+  "name": "FrequencyWords (hermitdave) – OpenSubtitles 2018 es_50k",
+  "url": "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/es/es_50k.txt",
+  "license": "CC BY-SA 4.0 (dữ liệu) – chỉ dùng thứ hạng để chọn từ; ghi công trong spec"
+ },
+ "words": [
+  {
+   "word": "qué",
+   "pos": "pron",
+   "ipa": "ˈke",
+   "gl": {
+    "es": "qué",
+    "en": "what",
+    "pt": "o que",
+    "fr": "quoi",
+    "de": "was",
+    "vi": "cái gì",
+    "id": "apa",
+    "th": "อะไร",
+    "zh": "什么",
+    "ja": "何",
+    "ko": "뭐",
+    "hi": "क्या",
+    "ar": "ماذا",
+    "ru": "что",
+    "tr": "ne"
+   },
+   "ex": {
+    "es": "¿Qué quieres?",
+    "en": "What do you want?"
+   },
+   "rank": 13,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.8-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "bien",
+   "pos": "adv",
+   "ipa": "ˈbjen",
+   "gl": {
+    "es": "bien",
+    "en": "well",
+    "pt": "bem",
+    "fr": "bien",
+    "de": "gut",
+    "vi": "tốt",
+    "id": "baik",
+    "th": "ดี",
+    "zh": "好",
+    "ja": "よく",
+    "ko": "잘",
+    "hi": "अच्छा",
+    "ar": "جيد",
+    "ru": "хорошо",
+    "tr": "iyi"
+   },
+   "ex": {
+    "es": "Estoy bien.",
+    "en": "I am well."
+   },
+   "rank": 26,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.8-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "uno",
+   "pos": "num",
+   "ipa": "ˈuno",
+   "gl": {
+    "es": "uno",
+    "en": "one",
+    "pt": "um",
+    "fr": "un",
+    "de": "eins",
+    "vi": "một",
+    "id": "satu",
+    "th": "หนึ่ง",
+    "zh": "一",
+    "ja": "一つ",
+    "ko": "하나",
+    "hi": "एक",
+    "ar": "واحد",
+    "ru": "один",
+    "tr": "bir"
+   },
+   "ex": {
+    "es": "Tengo uno.",
+    "en": "I have one."
+   },
+   "rank": 135,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.8-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "donde",
+   "pos": "adv",
+   "ipa": "ˈdonde",
+   "gl": {
+    "es": "donde",
+    "en": "where",
+    "pt": "onde",
+    "fr": "où",
+    "de": "wo",
+    "vi": "ở đâu",
+    "id": "di mana",
+    "th": "ที่ไหน",
+    "zh": "哪里",
+    "ja": "どこ",
+    "ko": "어디",
+    "hi": "कहाँ",
+    "ar": "أين",
+    "ru": "где",
+    "tr": "nerede"
+   },
+   "ex": {
+    "es": "El lugar donde vivo.",
+    "en": "The place where I live."
+   },
+   "rank": 179,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.8-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "spot": true
+   }
+  },
+  {
+   "word": "mujer",
+   "pos": "n",
+   "gender": "f",
+   "plural": "mujeres",
+   "ipa": "muˈxeɾ",
+   "gl": {
+    "es": "mujer",
+    "en": "woman",
+    "pt": "mulher",
+    "fr": "femme",
+    "de": "Frau",
+    "vi": "phụ nữ",
+    "id": "wanita",
+    "th": "ผู้หญิง",
+    "zh": "女人",
+    "ja": "女性",
+    "ko": "여자",
+    "hi": "महिला",
+    "ar": "امرأة",
+    "ru": "женщина",
+    "tr": "kadın"
+   },
+   "ex": {
+    "es": "Ella es una mujer.",
+    "en": "She is a woman."
+   },
+   "rank": 195,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.8-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "realmente",
+   "pos": "adv",
+   "ipa": "realˈmente",
+   "gl": {
+    "vi": "thực sự",
+    "en": "really / truly",
+    "es": "realmente",
+    "pt": "realmente",
+    "fr": "vraiment",
+    "de": "wirklich",
+    "id": "sungguh",
+    "th": "จริงๆ",
+    "zh": "真正地",
+    "ja": "本当に",
+    "ko": "정말로",
+    "hi": "वास्तव में",
+    "ar": "حقا",
+    "ru": "действительно",
+    "tr": "gerçekten"
+   },
+   "ex": {
+    "es": "Realmente me gusta este lugar.",
+    "en": "I really like this place."
+   },
+   "rank": 221,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "cierto",
+   "pos": "adj",
+   "ipa": "ˈsjeɾto",
+   "gl": {
+    "vi": "đúng",
+    "en": "true / certain",
+    "es": "cierto",
+    "pt": "certo",
+    "fr": "vrai",
+    "de": "wahr",
+    "id": "benar",
+    "th": "จริง",
+    "zh": "真的",
+    "ja": "本当の",
+    "ko": "사실인",
+    "hi": "सच",
+    "ar": "صحيح",
+    "ru": "верный",
+    "tr": "doğru"
+   },
+   "ex": {
+    "es": "Es cierto que mañana es feriado.",
+    "en": "It is true that tomorrow is a holiday."
+   },
+   "rank": 246,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "policía",
+   "pos": "n",
+   "gender": "mf",
+   "plural": "policías",
+   "ipa": "poliˈsia",
+   "gl": {
+    "vi": "cảnh sát",
+    "en": "police officer / police",
+    "es": "policía",
+    "pt": "polícia",
+    "fr": "police",
+    "de": "Polizei",
+    "id": "polisi",
+    "th": "ตำรวจ",
+    "zh": "警察",
+    "ja": "警察",
+    "ko": "경찰",
+    "hi": "पुलिस",
+    "ar": "شرطة",
+    "ru": "полиция",
+    "tr": "polis"
+   },
+   "ex": {
+    "es": "El policía ayuda a las personas en la calle.",
+    "en": "The police officer helps people on the street."
+   },
+   "rank": 256,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "cuenta",
+   "pos": "n",
+   "gender": "f",
+   "plural": "cuentas",
+   "ipa": "ˈkwenta",
+   "gl": {
+    "vi": "hóa đơn / tài khoản",
+    "en": "bill / account",
+    "es": "cuenta",
+    "pt": "conta",
+    "fr": "addition / compte",
+    "de": "Rechnung / Konto",
+    "id": "tagihan / akun",
+    "th": "ใบเสร็จ / บัญชี",
+    "zh": "账单 / 账户",
+    "ja": "勘定 / 口座",
+    "ko": "계산서 / 계좌",
+    "hi": "बिल / खाता",
+    "ar": "حساب",
+    "ru": "счёт",
+    "tr": "hesap"
+   },
+   "ex": {
+    "es": "Mesero, la cuenta por favor.",
+    "en": "Waiter, the bill please."
+   },
+   "rank": 262,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaAi": "ˈkwenta"
+   }
+  }
+ ],
+ "review": {
+  "by": "sonnet-review-B",
+  "at": "2026-11-09",
+  "checked": 9,
+  "fixed": 1,
+  "dropped": 0,
+  "sample": 5
+ }
+}

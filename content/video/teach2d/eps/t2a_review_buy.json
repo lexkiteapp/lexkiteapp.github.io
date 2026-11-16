@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_buy",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: buy.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means to get something by paying money for it.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "I need to buy a present for my mother.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "buy",
+  "ipa": "/baɪ/",
+  "mean": "to get something by paying money for it",
+  "ex": "I need to buy a present for my mother.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=buy",
+  "link": "https://lexkite.com/app/#/review?w=buy",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 44,
+  "seconds": 26.7,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"buy\" mean?",
+  "keyword": "buy",
+  "value": "Buy means to get something by paying money for it.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=buy",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"buy\" mean?",
+    "description": "Buy means to get something by paying money for it.\n\nReview your words, free: https://lexkite.com/app/#/review?w=buy\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "buy",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"buy\" mean?\n\nBuy means to get something by paying money for it.\n\nReview your words, free: https://lexkite.com/app/#/review?w=buy"
+   },
+   "instagram": {
+    "caption": "What does \"buy\" mean?\n\nBuy means to get something by paying money for it.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"buy\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means to get something by paying money for it. Buy means to get something by paying money for it. More practice like this (free): {link}"
+ }
+}

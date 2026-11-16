@@ -177,6 +177,9 @@ publishAt: 2026-12-09T20:57:00+09:00
 | *I love the apple.* (총칭) | 사과 전반을 가리킬 때는 복수 무관사 원칙 | *I love apples.* |
 | *She has a headache.* | 올바른 표현 (headache는 가산 질병 명사) | *She has a headache.* |
 
-문법 실력을 탄탄하게 다지고자 하신다면 과거 시제와의 구분을 다룬 [현재완료와 과거 시제 차이](/ko/blog/hyeonjaewanryo-gwageo-chai/), 문장의 매끄러운 전개를 돕는 [영어 접속사 연결어 linking words](/ko/blog/yeongeo-jeobsogsa-yeangyeol-eowa-linking-words/), 조건문의 정석을 정리한 [영어 가정법 if 완벽 정리](/ko/blog/yeongeo-gajeongbeop-if-chongjeongri/), 그리고 [영어 전치사 in on at 총정리](/ko/blog/yeongeo-jeonchisa-in-on-at-chongjeongri/)를 함께 확인해 보세요. 어휘력 보강에는 [/tu-vung/](/tu-vung/)도 큰 도움이 됩니다.
+문법 실력을 탄탄하게 다지고자 하신다면 과거 시제와의 구분을 다룬 [현재완료와 과거 시제 차이](/ko/blog/hyeonjaewanryo-gwageo-chai/), 문장의 매끄러운 전개를 돕는 [영어 접속사 연결어 linking words](/ko/blog/yeongeo-jeobsogsa-yeangyeol-eowa-linking-words/), 조건문의 정석을 정리한 [영어 가정법 if 완벽 정리](/ko/blog/yeongeo-gajeongbeop-if-chongjeongri/), 그리고 [영어 전치사 in on at 총정리](/ko/blog/yeongeo-jeonchisa-in-on-at-chongjeongri/)를 함께 확인해 보세요. 어휘력 보강에는 [/tu-vung/](/en/vocabulary/)도 큰 도움이 됩니다.
 
 '특정성'과 '윤곽'이라는 두 가지 렌즈를 머릿속에 장착하면, 영작이나 스피킹 시 더 이상 관사 앞에서 멈칫거리지 않고 원어민처럼 자연스럽고 정교한 표현을 구사할 수 있습니다.
+
+
+이민용 IELTS에서도 관사 오류는 감점으로 이어지니, 목표 밴드는 [이민 IELTS 점수 총정리](/ko/blog/ielts-imin-jeomsu-kaenada-hoju-yeongguk/)와 함께 보세요.

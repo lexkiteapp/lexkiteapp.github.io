@@ -3,7 +3,6 @@
  "issues": [
   "feedback-wrong: [dark] 1 chữ thiếu tương phản WCAG: \"A\" 3.10<4.5",
   "story-duo: [dark] 1 chữ thiếu tương phản WCAG: \"A\" 2.78<4.5",
-  "leagues: [dark] 3 chữ thiếu tương phản WCAG: \"AN\" 3.87<4.5; \"5\" 4.33<4.5; \"YO\" 4.33<4.5",
-  "streak: [dark] 1 chữ thiếu tương phản WCAG: \"ACTIVE\" 2.78<4.5"
+  "leagues: [dark] 3 chữ thiếu tương phản WCAG: \"AN\" 3.87<4.5; \"5\" 4.33<4.5; \"YO\" 4.33<4.5"
  ]
 }

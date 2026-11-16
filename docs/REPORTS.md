@@ -5,14 +5,18 @@
 Người dùng báo lỗi → mã LX-xxxx + link riêng `#/report/<mã>` → AI phân loại → quản trị/Claude Code xử lý → báo người dùng.
 
 ## Thành phần
-- `web/js/report-pill.js` – nút nổi + bộ đệm 20 lỗi console; không nằm trong SHELL của `sw.js` (báo lỗi cần mạng); tự đăng ký route, **không sửa `app.js`** (chỉ 1 dòng `<script defer>` trong `web/index.html`).
-- `web/js/report.js` (tải lười) – form, ảnh đính kèm nén ≤ 300 KB trên máy, màn cảm ơn có Kit + mốc dự kiến, khóa gửi 30 s, trang trạng thái có dòng thời gian, nhắc trong app ≤ 1 lần/12 h.
+- `web/js/report-pill.js` – **lõi < 3 KB** (trần trong `scripts/test/size-guard.mjs`, không nới): bộ đệm 20 lỗi console + nút + route; tự đăng ký route, **không sửa `app.js`** (chỉ 1 dòng `<script defer>`). Kiểu nút/chân thanh bên/token nằm trong `css/style.css` § report-pill (nạp cùng khung – không nháy; link phụ chân thanh bên ẩn sẵn + chừa 1 hàng 44 px tới khi gom xong `.sf-ok` → không xô bố cục). Phần lười `web/js/report-pill-ui.js` (lõi nạp sau DOMContentLoaded): ẩn khi cuộn/gõ, "⋯ Xem thêm", hỏi trạng thái phiếu; tải lỗi → hiện lại link phụ.
+- `web/js/report.js` (tải lười) – form, ảnh đính kèm nén trên máy (`MAXPX`/`MAXB`, mặc định 1600 px / 300 KB – xem § Ảnh chụp), màn cảm ơn có Kit + mốc dự kiến, khóa gửi 30 s, trang trạng thái có dòng thời gian, nhắc trong app ≤ 1 lần/12 h.
 - `web/js/i18n/en/report.js` – nhóm chữ tải lười (`LAZY="report"` trong `build-i18n.sh`); 13 ngôn ngữ dịch tay trong `scripts/i18n-fixed.json`.
 - Add-on: mục "⚑ Báo cáo sự cố" trong popup – chỉ gửi **tên miền** tab đang xem, không thêm quyền.
 - `functions/api/report.js` (tạo phiếu, trạng thái theo mã riêng, lệnh admin, thư) · `functions/api/_triage.js` (AI phân loại, luật dự phòng, chữ ký lỗi, làm sạch, tạo GitHub Issue) · `web/js/admin-reports.js` (tab Báo lỗi + thẻ Chất lượng) · Worker `lexkite-mail` (`/send`, `/user` qua Resend/Brevo, tóm tắt ngày) · `scripts/report-cli.mjs`.
 
 ## Dữ liệu D1
-`reports` (tok, status new/ack/prog/fixed/wontfix/dup, cat bug/content/i18n/audio/account/idea, area, msg, email+notify chỉ khi người dùng đồng ý, uid, who = IP băm, ctx đã lọc, errs, sev P0–P3, sig, ai, issue, feat, fix_ver, reply công khai, note nội bộ, dup_of) · `report_shots` (không bao giờ công khai) · `report_events` · config `report_notify`, `report_eta`. Mọi lệnh admin ghi `admin_log`. Phiếu > 24 tháng tự xóa.
+`reports` (tok, status new/ack/prog/fixed/wontfix/dup, cat bug/content/i18n/audio/account/idea, area, msg, email+notify chỉ khi người dùng đồng ý, uid, who = IP băm, ctx đã lọc, errs, sev P0–P3, sig, ai, issue, feat, fix_ver, reply công khai, note nội bộ, dup_of) · ảnh chụp: R2 riêng `lexkite-report-shots` (cột `shot_b`), `report_shots` chỉ còn khi chưa gắn R2 (không bao giờ công khai) · `report_events` · config `report_notify`, `report_eta`; cột `eta_x` (đầu vào mốc thông minh). Mọi lệnh admin ghi `admin_log`. Phiếu > 24 tháng tự xóa.
+
+## Ảnh chụp (R2)
+Nhị phân trong bucket R2 **riêng tư** `lexkite-report-shots` (binding `REPORT_SHOTS`, khóa `report/<id>`, kiểu từ data URL; `reports.shot_b` = số byte) – không base64 trong D1. Quản trị xem qua URL ký HMAC 5 phút `/api/report-shot?id&e&s` (`functions/api/report-shot.js`: no-store, nosniff, CSP none; khóa `REPORT_SHOT_KEY` hoặc `LEXKITE_REPORT_CLI_KEY`; thiếu khóa → data URL qua op `shot`). AI phân loại lại đọc từ R2. Xóa ảnh 60 ngày sau khi đóng (fixed/wontfix/dup, mốc `fixed_at` hoặc `upd`; ≈ 2 % lượt gửi + op `shots-migrate`), ảnh không an toàn xóa ngay, phiếu > 24 tháng xóa cả ảnh. Chưa gắn binding → D1 như cũ.
+Workflow `report-shots.yml`: `setup` (tạo bucket, rồi bỏ `#` khối `[[r2_buckets]]` trong `wrangler.toml` – bucket chưa có thì Pages từ chối deploy) · `migrate` (thứ Hai + chạy tay: `report-cli.mjs shots-migrate --all`, lô 20, D1 → R2, xóa dòng, hết thì `VACUUM`; D1 từ chối VACUUM thì báo lại) · `bench` (PR đổi `report.js`: `scripts/report-shot-bench.mjs` nén mẫu thật bằng đúng `shrink()` ở 300 KB/1600 px và 150 KB/1280 px, OCR eng+vie so với ảnh gốc; chỉ hạ trần khi mọi mẫu ≥ 0,95 và trung bình ≥ 0,98 độ đọc của trần cũ). Thẻ Chất lượng: dung lượng ảnh R2 + % trên 10 GB miễn phí (chung các bucket của tài khoản) + số ảnh còn ở D1.
 
 ## Chống lạm dụng
 Hạn mức `report` + ≤ 5/giờ/IP + ô bẫy + chặn gửi < 2,5 s + điểm spam; body ≤ 600 KB; Turnstile tùy chọn.
@@ -27,13 +31,43 @@ Llama 4 Scout (Workers AI qua `env.AI` hoặc REST `CF_AI_TOKEN`); JSON chặt. 
 
 GitHub Issue: lỗi P0/P1 tự tạo, hoặc nút "Giao Claude Code"; label `bug-report` + `claude`; nội dung đã làm sạch (không email, IP, token, số điện thoại); ảnh chỉ qua link admin; cần `GH_ISSUES_TOKEN`.
 
-Quy trình phiên Claude Code: `node scripts/report-cli.mjs queue` (HMAC `LEXKITE_REPORT_CLI_KEY`, lệch giờ ±5 phút, chỉ queue/resolve) → **chỉ tự sửa lỗi rõ ràng**; lỗi dữ liệu/tài khoản/thanh toán hoặc `needs_human` → đề xuất cho admin duyệt → `npm test`, ship → `node scripts/report-cli.mjs resolve LX-1234 "<ghi chú>" <commit> [phiên bản]` (chuyển Đã sửa, kéo theo phiếu trùng, báo người dùng).
+Quy trình phiên Claude Code: `node scripts/report-cli.mjs queue` (HMAC `LEXKITE_REPORT_CLI_KEY`, lệch giờ ±5 phút, chỉ `CLI_OPS`: queue/resolve/progress/pending) → **chỉ tự sửa lỗi rõ ràng**; lỗi dữ liệu/tài khoản/thanh toán hoặc `needs_human` → đề xuất cho admin duyệt → `npm test`, ship → `node scripts/report-cli.mjs resolve LX-1234 "<ghi chú>" <commit> [phiên bản]` (chuyển Đã sửa, kéo theo phiếu trùng, báo người dùng).
+
+## Tự động theo PR (`report-autofix.yml`)
+Ghi `LX-1234` trong tiêu đề/nội dung/nhánh PR. PR gộp → `scripts/report-autofix.mjs merged` → op `progress`: phiếu (hoặc phiếu gốc nếu là phiếu trùng) sang **Đang xử lý**, báo người báo, ghi sự kiện `pr` = commit chờ live (cùng commit lần 2 bỏ qua; phiếu đã sửa/không sửa không mở lại). Sau Pages deploy + cron 3 giờ (:53) → `live`: op `pending` trả phiếu chờ + `CF_PAGES_COMMIT_SHA` của bản live; commit là tổ tiên git của bản live → op `resolve` với `fix_ver` = `CACHE` của `sw.js` live (phiên bản người dùng thấy). `resolve` phiếu đã sửa → bỏ qua (không thư lặp). Cần secret Actions `LEXKITE_REPORT_CLI_KEY` (= khóa Pages); thiếu → cảnh báo, workflow vẫn xanh.
+
+## Báo đẩy "Lỗi LX-xxxx đã được sửa"
+Màn cảm ơn: máy **chưa** có thông báo đẩy → nút "🔔 Báo cho tôi khi sửa xong" (15 ngôn ngữ); chỉ khi bấm mới xin quyền (không tự bật) → `/api/push` op `sub` `ro: 1` (thiết bị "chỉ báo lỗi": `done = 1`, không nhận lời nhắc học; thiết bị đã bật nhắc học giữ nguyên lịch) → op `pid` gắn id thiết bị vào phiếu bằng mã riêng (1 lần). Ẩn nút trên iOS Safari chưa thêm vào Màn hình chính, app gốc, add-on, khi đã chặn quyền hoặc cờ push tắt – dựa vào thư + nhắc trong app. Máy đã bật nhắc học gửi kèm `pid` (id thiết bị `push_subs`) khi tạo phiếu (không lộ ra admin/trang công khai). Phiếu chuyển **Đã sửa** (admin, `resolve`, phiếu trùng) → `pushFixed` ghi `push_now (sid, rid)` ở D1 nội bộ → cron `workers/push` (10 phút) lấy qua op `due` (`pickFixed`: tôn trọng giờ yên lặng, 1 push/thiết bị, bỏ thiết bị đã hủy/chờ > 3 ngày). Web: push rỗng → `sw.js` đọc `/__rep` (cache `lk-meta`, `report.js` ghi chữ đã dịch + mã phiếu), hỏi `mine` (≤ 4 giây) → phiếu vừa sửa → "Lỗi LX-… đã được sửa" (mở `#/report/<mã>`) thay lời nhắc; lỗi mạng → lời nhắc như cũ. FCM: kind `fixed` + `rid` (`workers/push/copy.json` lấy từ nhóm i18n `report`, `scripts/push-copy.mjs`). Mở app sau báo đẩy → nút Báo lỗi hỏi trạng thái ngay; nhắc trong app vẫn ≤ 1 lần/12 giờ (bị chặn thì giữ thay đổi cho lượt sau). Thiếu `D1B_*`/`PUSH_PCT`/`FCM_ON` → bỏ qua, thư vẫn chạy.
+
+## Quản trị › Báo lỗi (#reports) – hộp xử lý nhanh
+Port Stitch `adm-reports2` (`brand/stitch/v3/admin/`). Một hàng công cụ: tab trạng thái chính + "Thêm" (Đã tiếp nhận, Không sửa, Trùng lặp, Spam), tìm kiếm, nút **Bộ lọc** (khu vực, loại, nền tảng, mức, sắp xếp, sandbox), **?** bảng phím, **⋯** (Xuất CSV, tải lại, thư quản trị, mốc xử lý). Danh sách lên đầu màn; ≥ 1180 px bảng chi tiết mở bên cạnh, hẹp hơn thì ngăn trượt.
+- **Phím:** `j/k` di chuyển · `J/K` chọn liên tiếp · `x`/`X` chọn · `Enter` mở · `f` đã sửa · `t` cảm ơn · `m` cần thêm thông tin · `r` soạn · `1–5` trạng thái · `u` hoàn tác · `/` tìm · `Esc` · `?`.
+- **Hoàn tác:** mọi thao tác nhanh giữ ở máy 6 giây rồi mới gửi `op act`, nên hoàn tác thì người báo không hề nhận gì. Đóng/ẩn tab → gửi ngay bằng `fetch keepalive`, không mất thao tác. Lỗi mạng → dòng quay lại, có "Thử lại".
+- **`op act`** `{ ids (≤ 10), status?, tpl?, reply? }`: máy khách chia lô. `tpl` = `thanks|prog|fixed|more` (`REPLY_TPL`, chữ theo ngôn ngữ **từng người báo**, nhóm dịch `report` → `MAIL_KEYS`); `reply` = chữ anh đã sửa, gửi nguyên văn. `status: fixed` kéo theo phiếu trùng (`fixGroup`, dùng chung với `resolve`). Không nhận `dup` (dùng `merge`).
+- `op get` trả `tpl` (ngôn ngữ người báo) + `tpl_vi` (nghĩa cho người soạn). Thẻ Chất lượng giữ nguyên.
+
+## Thông báo trong app (không tốn thư)
+Lõi ở `web/js/report.js`, hiện ở chuông 🔔 (`web/js/notices.js`). Mục `lk.rpn` (≤ 20) lưu **khóa loại** + mã phiếu, dịch lúc vẽ.
+- **Xác nhận:** gửi xong → mục `ack` (đã đọc, không badge; người báo đang nhìn màn cảm ơn).
+- **Báo tiếp:** `poll` thấy đổi → mục `fixed`/`upd` vào chuông + một toast (`UI.toast`, nút Xem).
+- **Giới hạn:** "đã sửa" ≤ 1 toast/giờ, cập nhật khác ≤ 1/12 giờ, nhiều thay đổi gộp một toast (ưu tiên đã sửa). Đang làm bài (nút ⚑ ẩn) → không chen, giữ cho lượt sau. Chuông thì luôn có.
+- **Chống trùng:** khóa mục = phiếu + loại + `upd`; đã nhắc → `seen` = `upd`.
+- **Tần suất hỏi máy chủ:** còn phiếu mở ≤ 1 lần/4 giờ, đóng hết ≤ 1 lần/ngày (`report-pill-ui.js`).
+- **"Đã xem":** máy người báo gọi `op seen` khi hiện toast/mở trang trạng thái → cột `seen_at`, quản trị thấy trên dòng + bảng chi tiết; tối đa 1 lần ghi/lần cập nhật.
+- Báo lỗi thử/spam không bao giờ gửi thư thật (`notifyReporter`).
 
 ## Người dùng thấy
-Màn cảm ơn (Kit, mã, mốc theo loại: tài khoản 24 h, lỗi 2–3 ngày, nội dung/dịch 1 tuần, đề xuất "sẽ xem xét"; nút Theo dõi tiến độ, Sao chép liên kết; không để email → nhắc xem trong app). Trang trạng thái: Đã nhận → Đang xử lý → Đã sửa (phiên bản), mốc chính xác sau khi AI phân loại, phản hồi của đội, lời cảm ơn; không chứa dữ liệu cá nhân. Mốc chỉnh trong admin.
+Màn cảm ơn (Kit, mã, mốc theo loại: tài khoản 24 h, lỗi 2–3 ngày, nội dung/dịch 1 tuần, đề xuất "sẽ xem xét"; nút Theo dõi tiến độ, Sao chép liên kết; không để email → nhắc xem trong app). Trang trạng thái: Đã nhận → Đang xử lý → Đã sửa (phiên bản), mốc chính xác sau khi AI phân loại, phản hồi của đội, lời cảm ơn; không chứa dữ liệu cá nhân. Mốc chỉnh trong admin (mốc gốc theo mức). **Mốc thông minh** (`smartH` trong `report.js`): mốc gốc theo P0–P3/loại, không thấp hơn trung vị thời gian sửa thật của cùng mức (90 ngày, ≥ 3 phiếu), +10 % cho mỗi phiếu đang mở cùng mức hoặc gấp hơn xếp trước (≤ 30), ≥ 48 giờ làm tròn theo ngày, trần 90 ngày. Lúc gửi: theo loại + hàng đợi; sau AI lưu `eta_x` = {m: trung vị giờ, a: số phiếu trước} → trang trạng thái và thư cảm ơn dùng mốc này, đổi mốc gốc vẫn áp cho phiếu cũ.
+
+## Thư cho người báo (15 ngôn ngữ)
+Thư cảm ơn ngay khi tạo phiếu (chỉ khi để email + đồng ý; chạy nền sau AI phân loại nên mốc theo mức P0–P3, AI lỗi vẫn gửi): mã LX, mốc dự kiến, liên kết riêng `#/report/<mã>`; lịch sử ghi `mailed`/`mail-failed` · `thanks`. Đổi trạng thái/phản hồi → thư cập nhật. Thư theo ngôn ngữ giao diện lúc gửi (`lang` của phiếu; mã lạ → tiếng Anh). Chữ lấy từ nhóm dịch `report` của app (một nguồn): `scripts/gen-report-mail-i18n.mjs` sinh `functions/api/_report-i18n.js` (chạy tự động cuối `scripts/i18n-fix.mjs`; `scripts/test/report.mjs` báo lệch nguồn). Thêm chữ thư mới: thêm khóa vào `MAIL_KEYS` + `en/report.js` + `i18n-fixed.json`, rồi `node scripts/i18n-fix.mjs`.
+
+## Thư cho người báo (15 ngôn ngữ)
+Thư cảm ơn ngay khi tạo phiếu (chỉ khi để email + đồng ý; chạy nền sau AI phân loại nên mốc theo mức P0–P3, AI lỗi vẫn gửi): mã LX, mốc dự kiến, liên kết riêng `#/report/<mã>`; lịch sử ghi `mailed`/`mail-failed` · `thanks`. Đổi trạng thái/phản hồi → thư cập nhật. Thư theo ngôn ngữ giao diện lúc gửi (`lang` của phiếu; mã lạ → tiếng Anh). Chữ lấy từ nhóm dịch `report` của app (một nguồn): `scripts/gen-report-mail-i18n.mjs` sinh `functions/api/_report-i18n.js` (chạy tự động cuối `scripts/i18n-fix.mjs`; `scripts/test/report.mjs` báo lệch nguồn). Thêm chữ thư mới: thêm khóa vào `MAIL_KEYS` + `en/report.js` + `i18n-fixed.json`, rồi `node scripts/i18n-fix.mjs`.
 
 ## Biến môi trường
-Pages: `ADMIN_EMAILS`, `REPORT_NOTIFY_EMAIL`, `GH_ISSUES_TOKEN`, `LEXKITE_REPORT_CLI_KEY`, `CF_AI_TOKEN`/`CF_ACCOUNT_ID` (khi không có binding AI), `TURNSTILE_SECRET_KEY`. Worker mail: `RESEND_API_KEY`, `BREVO_API_KEY`.
+Thẻ Chất lượng (admin › Tổng quan) › **Cài đặt & bí mật** liệt kê mục còn thiếu + chỗ nhập (op `cfg`: `ai`, `gh`, `cli`, `mail_st` ok/no-key (Worker thư trả 501)/no-binding/failing/unknown, `push` ok/off/no-d1b, `r2`, `shot_sign`) – chỉ cờ, không giá trị.
+Pages: `ADMIN_EMAILS`, `REPORT_NOTIFY_EMAIL`, `GH_ISSUES_TOKEN`, `LEXKITE_REPORT_CLI_KEY`, `CF_AI_TOKEN`/`CF_ACCOUNT_ID` (khi không có binding AI), `TURNSTILE_SECRET_KEY`, (tùy chọn) `REPORT_SHOT_KEY`; binding R2 `REPORT_SHOTS`. Worker mail: `RESEND_API_KEY`, `BREVO_API_KEY`.
 
 ## Test
 `scripts/test/report.mjs`, `scripts/test/report-ui.mjs` (trong `npm test`).

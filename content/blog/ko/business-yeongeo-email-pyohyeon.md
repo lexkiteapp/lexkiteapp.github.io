@@ -79,7 +79,7 @@ qualityScore: 94
 - *While we cannot proceed with the original timeline, we would be happy to discuss an adjusted schedule.* (기존 일정대로 진행할 수는 없지만, 조정된 일정에 대해서는 기꺼이 논의할 용의가 있습니다.)
 - *We truly appreciate your interest in collaborating with us; however, our project team is currently fully committed.* (저희와의 협업에 대한 관심에 깊이 감사드리나, 현재 프로젝트 팀의 역량이 모두 차 있는 상황입니다.)
 
-비즈니스에서 자주 쓰이는 전문 용어와 약어를 정확히 이해하려면 [비즈니스 어휘 도서관](/tu-vung/)을 활용하여 전치사 연어를 함께 외워두어야 실수를 방지할 수 있습니다. 체계적인 어휘 암기 원리는 [영어 단어 암기법](/ko/blog/yeongdaneo-amgibeop/)을 참고하세요.
+비즈니스에서 자주 쓰이는 전문 용어와 약어를 정확히 이해하려면 [비즈니스 어휘 도서관](/en/vocabulary/)을 활용하여 전치사 연어를 함께 외워두어야 실수를 방지할 수 있습니다. 체계적인 어휘 암기 원리는 [영어 단어 암기법](/ko/blog/yeongdaneo-amgibeop/)을 참고하세요.
 
 ![Lexkite 6,800단어 이상 어휘 라이브러리: 핵심 어휘(NGSL), 주제별 IELTS, Writing·Speaking·TOEIC, A1–B2 수준](media:library "수준·시험별 단어 세트 – 비즈니스 영어 이메일")
 
@@ -154,6 +154,8 @@ Supply Chain Lead
 {{youtube: | 영상 아이디어: 직장인을 위한 비즈니스 영어 이메일 템플릿과 정중한 부탁 표현 10선}}
 
 {{cta: /#/write | 비즈니스 영작문 실습 시작}}
+
+이메일 속 줄임말이 낯설다면 [비즈니스 영어 줄임말 이메일 가이드](/ko/blog/business-yeongeo-jul-im-mal-email-yak-eo-guide/)에서 자주 쓰는 약어를 미리 정리해 두세요.
 
 ## 자주 묻는 질문
 

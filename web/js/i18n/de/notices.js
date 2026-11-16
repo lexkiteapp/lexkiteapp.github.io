@@ -1,3 +1,2 @@
-/* UI de – notices (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["de"] = Object.assign(D["de"] || {}, {"Đã đọc tất cả":"Alle als gelesen markieren","Chưa có thông báo mới":"Keine neuen Benachrichtigungen","Thông báo quan trọng":"Wichtige Mitteilung","Vừa xong":"Gerade eben","Chưa đọc":"Ungelesen","{n} chưa đọc":"{n} ungelesen"});
-})(typeof self !== 'undefined' ? self : this);
+/* SINH từ i18n/ui/de/notices.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.de=Object.assign(D.de||{},{_pffv:"Keine neuen Benachrichtigungen",_lyra:"Ungelesen",_wyuq:"Tippe, um den aktuellen Stand zu sehen.",_62kr:"Neues zu Meldung {id}",_uu8l:"Danke für die Meldung. Laden Sie die App neu für die neue Version.",_tb6i:"Danke! Lexkite informiert Sie genau hier über den Stand.",_dlnl:"Wichtige Mitteilung",_m4lx:"Gerade eben",_erjf:"Meldung ansehen",_ub36:"{n} ungelesen",_z2ii:"Meldung {id} ist angekommen",_2tyo:"Meldung {id} ist behoben",_zwis:"Alle als gelesen markieren"});})(typeof self!=='undefined'?self:this);

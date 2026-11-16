@@ -7,7 +7,7 @@
  "teacher": "carlos",
  "voice": "am_fenrir",
  "speed": 0.8,
- "area": "review",
+ "area": "vocab-review",
  "lines": [
   {
    "id": "h",
@@ -59,7 +59,7 @@
   ]
  },
  "cta": {
-  "area": "review",
+  "area": "vocab-review",
   "route": "#/review?w=deadline",
   "link": "https://lexkite.com/app/#/review?w=deadline",
   "say": "Review your words"
@@ -72,5 +72,46 @@
   "words": 44,
   "seconds": 26.7,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"deadline\" mean?",
+  "keyword": "deadline",
+  "value": "Deadline means the time by which something must be finished.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=deadline",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"deadline\" mean?",
+    "description": "Deadline means the time by which something must be finished.\n\nReview your words, free: https://lexkite.com/app/#/review?w=deadline\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "deadline",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"deadline\" mean?\n\nDeadline means the time by which something must be finished.\n\nReview your words, free: https://lexkite.com/app/#/review?w=deadline"
+   },
+   "instagram": {
+    "caption": "What does \"deadline\" mean?\n\nDeadline means the time by which something must be finished.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"deadline\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means the time by which something must be finished. Deadline means the time by which something must be finished. Practice it with a free quiz: {link}"
  }
 }

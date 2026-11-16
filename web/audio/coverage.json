@@ -5,11 +5,23 @@
    "pct": 100,
    "missing": 0
   },
+  "cambridge-listening": {
+   "pct": 100,
+   "missing": 0
+  },
   "lesson-stories": {
    "pct": 100,
    "missing": 0
   },
   "calls": {
+   "pct": 100,
+   "missing": 0
+  },
+  "cambridge-speaking": {
+   "pct": 100,
+   "missing": 0
+  },
+  "mediation-source": {
    "pct": 100,
    "missing": 0
   },
@@ -70,6 +82,18 @@
    "missing": 0
   },
   "models": {
+   "pct": 100,
+   "missing": 0
+  },
+  "say-native": {
+   "pct": 100,
+   "missing": 0
+  },
+  "irregular": {
+   "pct": 100,
+   "missing": 0
+  },
+  "ideas": {
    "pct": 100,
    "missing": 0
   },

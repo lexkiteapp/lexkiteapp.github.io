@@ -2,6 +2,11 @@
 * Bản dịch 13 ngôn ngữ: scripts/i18n-fixed.json (dịch tay). Kiểm tra: i18n-missing / i18n-qa đọc cả nhóm tải lười (LAZY trong build-i18n.sh). */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D.en = Object.assign(D.en || {}, {
 "Báo cáo sự cố": "Report a problem",
+"Báo cho tôi khi sửa xong": "Notify me when it's fixed",
+"Đã bật – bạn sẽ nhận thông báo khi lỗi được sửa.": "Done – you'll get a notification when it's fixed.",
+"Chưa bật được thông báo – bạn vẫn thấy cập nhật trong app.": "Couldn't turn on notifications – you'll still see updates in the app.",
+"Lỗi {id} đã được sửa": "Issue {id} has been fixed",
+"Cảm ơn bạn đã báo – chạm để xem chi tiết.": "Thanks for reporting – tap to see the details.",
 "Báo lỗi của tôi": "My reports",
 "Báo lỗi {id}: {s}": "Report {id}: {s}",
 "Bạn chưa gửi báo lỗi nào.": "You haven't sent any reports yet.",
@@ -50,5 +55,12 @@
 "Bạn sẽ thấy cập nhật ngay trong app (mục Báo lỗi của tôi).": "You'll see updates right in the app (My reports).",
 "Đã nhận": "Received",
 "Đã sửa trong phiên bản {v}": "Fixed in version {v}",
+"Bạn nhận thư này vì đã chọn nhận cập nhật khi gửi báo lỗi.": "You get this email because you asked for updates when sending the report.",
 "Vui lòng đợi {n} giây trước khi gửi tiếp.": "Please wait {n} seconds before sending another report.",
+"Cảm ơn bạn đã báo! Đội ngũ đã nhận được và sẽ xem sớm.": "Thanks for reporting! Our team has received it and will take a look soon.",
+"Đội ngũ đang xử lý vấn đề này và sẽ báo bạn ngay khi xong.": "Our team is working on this and will let you know as soon as it's done.",
+"Vấn đề này đã được sửa. Cảm ơn bạn đã báo! Hãy tải lại app để dùng bản mới.": "This has been fixed. Thanks for reporting! Reload the app to get the new version.",
+"Đội ngũ cần thêm chút thông tin: bạn đang làm gì khi lỗi xảy ra, và lỗi có lặp lại không? Hãy gửi một báo lỗi mới kèm ảnh chụp nếu được.": "Our team needs a little more information: what were you doing when it happened, and does it happen again? Please send a new report, with a screenshot if you can.",
+"Xác minh nhanh để tiếp tục": "Quick check to continue",
+"Chưa xác minh được bạn là người thật – hãy thử lại sau ít phút.": "We couldn't confirm you're a real person. Please try again in a few minutes.",
 }); })(typeof self !== 'undefined' ? self : this);

@@ -65,7 +65,7 @@ function serve() {
 const LANGS = ['vi', 'en', 'ja', 'zh', 'ko', 'ar', 'hi', 'th', 'ru', 'es'];
 const APP_ROUTES = ['home', 'library', 'review', 'practice', 'skills', 'tests', 'stats', 'settings', 'contact', 'verb/take', 'goal', 'placement', 'usage', 'dict', 'confidence', 'handsfree', 'practice/learn?src=topic:ngsl1', 'practice/mcq?src=topic:ngsl1'];
 const PARTS = {
-  landing: b => ['/', ...LANGS.filter(l => l !== 'vi').map(l => `/${l}/`)].map(p => b + p),
+  landing: b => ['/', ...LANGS.map(l => `/${l}/`)].map(p => b + p),
   legal: b => ['/privacy.html', '/terms.html', '/credits.html', '/schools.html', '/404.html', '/bye.html', '/en/privacy.html', '/ja/terms.html', '/ar/schools.html'].map(p => b + p),
   app: b => APP_ROUTES.flatMap(r => ['vi', 'en'].map(l => `${b}/app/?sandbox=1&hl=${l}#/${r}`)),
   admin: b => [b + '/admin.html'],
@@ -118,7 +118,8 @@ function inPage(srOnlyHidden) {   // srOnlyHidden: scripts/lib/qa-classify.mjs (
       if (w > max + 50 || w < min - 50) add('faux-weight', 'warn', el, `đậm ${w} nhưng "${f1}" chỉ tải ${min}–${max} → trình duyệt tô đậm giả`);
       if (cs.fontStyle !== 'normal' && !face.it) add('faux-italic', 'warn', el, `nghiêng giả – "${f1}" chưa tải bản italic`);
     }
-    if (!ctrl && /hidden|clip/.test(cs.overflowX) && cs.textOverflow !== 'ellipsis' && el.scrollWidth > el.clientWidth + 2) add('clipped', 'warn', el, 'chữ bị cắt mất (tràn ngang, không có …)');
+    // icon Material (ligature → 1 glyph) không phải chữ: tên ligature dài hơn hộp icon là đúng, không tính "bị cắt"
+    if (!ctrl && !/Material Symbols/.test(cs.fontFamily) && /hidden|clip/.test(cs.overflowX) && cs.textOverflow !== 'ellipsis' && el.scrollWidth > el.clientWidth + 2) add('clipped', 'warn', el, 'chữ bị cắt mất (tràn ngang, không có …)');
   }
   const missing = [...declared].filter(f => !faces[f]);
   for (const f of missing) issues.push({ type: 'webfont-missing', sev: 'warn', sel: 'document', text: '', msg: `CSS khai báo "${f}" nhưng trang không tải webfont → mỗi máy hiện font khác nhau` });

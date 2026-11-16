@@ -67,7 +67,7 @@ Eğer yönerge "ONE WORD ONLY" diyorsa ve doğru cevap "red car" ise, sadece "ca
 
 ![IELTS deneme sınavı arayüzü](media:mock "Deneme sınavında dört beceriden birini ve denemeyi seçme, geçmiş sınavları görme")
 
-Sınav ortamını birebir deneyimlemek için [IELTS tam deneme](/#/mock) bölümünde süre kısıtı altında çalışarak gerçek sınav stresini önceden yönetebilirsiniz. Ayrıca sınav öncesinde temel kelime haznenizi genişletmek adına [İngilizce kelime ezberleme](/tr/blog/ingilizce-kelime-ezberleme/) yazımızı inceleyebilir ve [kelime listeleri](/tu-vung/) sayfamızdaki akademik sözcükleri çalışabilirsiniz.
+Sınav ortamını birebir deneyimlemek için [IELTS tam deneme](/#/mock) bölümünde süre kısıtı altında çalışarak gerçek sınav stresini önceden yönetebilirsiniz. Ayrıca sınav öncesinde temel kelime haznenizi genişletmek adına [İngilizce kelime ezberleme](/tr/blog/ingilizce-kelime-ezberleme/) yazımızı inceleyebilir ve [kelime listeleri](/en/vocabulary/) sayfamızdaki akademik sözcükleri çalışabilirsiniz.
 
 ## Bölümlere Göre Özel Çözüm Stratejileri
 
@@ -116,7 +116,7 @@ Sadece soru çözmek dinleme reflekslerinizi belirli bir seviyeye kadar gelişti
 
 Bu yöntem, İngilizcedeki bitişik konuşma (connected speech), ses düşmesi (elision) ve zayıf formları (weak forms) beyninizin otomatik olarak çözümlemesini sağlar.
 
-{{youtube: bGywZ6D_uX4 | IELTS Dinleme Testinde En Çok Karşılaşılan 10 Tuzak ve Çözüm Yöntemleri}}
+{{youtube: | IELTS Dinleme Testinde En Çok Karşılaşılan 10 Tuzak ve Çözüm Yöntemleri}}
 
 Ayrıca okuyun: [İngilizce If Clauses: Koşul Cümleleri Kuralları ve Örnekleri](/tr/blog/ingilizce-if-clauses-kosul-cumleleri-rehberi/) · [İngilizce Passive Voice: Edilgen Çatı Kuralları ve Zamanlar](/tr/blog/ingilizce-passive-voice-edilgen-cati-kurallari/) · [İngilizce Sunum Kalıpları: Profesyonel İfadeler ve İpuçları](/tr/blog/ingilizce-sunum-yapma-teknikleri-ve-kaliplari/)
 

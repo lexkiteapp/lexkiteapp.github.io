@@ -103,6 +103,10 @@ qualityScore: 94
 
 {{youtube: | Plan podgotovki k IELTS samostoyatelno s nulya do 6.5 po shagam}}
 
+Если вы ещё выбираете между экзаменами, познакомьтесь и с [новым форматом TOEFL 2026](/ru/blog/novyy-format-toefl-2026-podgotovka/).
+
+Когда дойдёте до пробных тестов, используйте [стратегию на 60 минут для IELTS Reading](/ru/blog/taym-menedzhment-v-ielts-reading-strategiya-60-minut/).
+
 ## Часто задаваемые вопросы о самостоятельной подготовке
 
 ### Сколько месяцев требуется, чтобы подняться с уровня B1 до балла 6.5?

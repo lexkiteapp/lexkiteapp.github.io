@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_swim",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: swim.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means to move through water by moving parts of the body.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "I learned to swim when I was six.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "swim",
+  "ipa": "/swɪm/",
+  "mean": "to move through water by moving parts of the body",
+  "ex": "I learned to swim when I was six.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=swim",
+  "link": "https://lexkite.com/app/#/review?w=swim",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 45,
+  "seconds": 27.2,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"swim\" mean?",
+  "keyword": "swim",
+  "value": "Swim means to move through water by moving parts of the body.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=swim",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"swim\" mean?",
+    "description": "Swim means to move through water by moving parts of the body.\n\nReview your words, free: https://lexkite.com/app/#/review?w=swim\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "swim",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"swim\" mean?\n\nSwim means to move through water by moving parts of the body.\n\nReview your words, free: https://lexkite.com/app/#/review?w=swim"
+   },
+   "instagram": {
+    "caption": "What does \"swim\" mean?\n\nSwim means to move through water by moving parts of the body.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"swim\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to move through water by moving parts of the body. Swim means to move through water by moving parts of the body. Try the full lesson and quiz here: {link}"
+ }
+}

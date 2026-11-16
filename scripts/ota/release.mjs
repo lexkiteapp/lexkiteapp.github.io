@@ -4,6 +4,7 @@
 //   node scripts/ota/release.mjs rollback [<version>]            – trỏ latest.json về manifest ĐÃ KÝ sẵn của bản <version> (mặc định: bản ngay trước bản hiện hành)
 //   node scripts/ota/release.mjs list                            – các bản đang có + bản đang được phát
 // Chữ ký nằm trong manifest từng bản → rollback không cần khóa riêng. Chỉ giữ 10 bản gần nhất (không xóa bản đang phát).
+import { isMain } from '../lib/is-main.mjs';
 import fs from 'node:fs'; import path from 'node:path'; import os from 'node:os'; import crypto from 'node:crypto'; import { execFileSync } from 'node:child_process'; import { fileURLToPath } from 'node:url';
 import { sign, decodeKey, releaseUrl } from './lib.mjs';
 const REPO = process.env.OTA_REPO || 'lexkiteapp/lexkiteapp.github.io', KEEP = 10, POINTER = 'ota-manifest';
@@ -26,7 +27,7 @@ function prune() {
   for (const v of old) try { gh('release', 'delete', `ota-${v}`, '--yes', '--cleanup-tag'); } catch (e) { /* bỏ qua */ }
 }
 const [cmd, arg] = process.argv.slice(2).filter(a => !a.startsWith('--'));
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (isMain(import.meta.url)) {
   if (cmd === 'publish') {
     const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..'), www = path.join(root, 'mobile/www');
     if (!fs.existsSync(path.join(www, 'index.html'))) { console.error('✗ thiếu mobile/www/index.html – chạy OTA_ONLY=1 ./scripts/build-mobile.sh trước'); process.exit(1); }

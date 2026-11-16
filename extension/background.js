@@ -10,6 +10,18 @@ const { Store, Cards, Stats, Golden, DEFAULT_SETTINGS, todayKey } = Core;
 // Giao diện add-on theo 15 ngôn ngữ của web: vi = chữ gốc, en = bảng EN, ngôn ngữ khác = từ điển web (app/js/i18n/<lang>.js)
 const XLANGS = ['vi', 'en', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr'];
 const pickLang = l => { l = String(l || '').toLowerCase().split('-')[0]; return XLANGS.includes(l) ? l : null; };
+/*IMG-ALLOW*/
+// imgData chỉ tải ảnh từ nguồn ảnh minh họa thật của app (/api/img → Wikimedia Commons, Openverse và ảnh Flickr do Openverse trả) và hạ tầng Lexkite:
+// service worker có quyền host rộng nên KHÔNG được thành proxy tới mạng nội bộ/IP/host tùy ý do trang web gửi message.
+const IMG_HOSTS = ['upload.wikimedia.org', 'commons.wikimedia.org', 'api.openverse.org', 'api.openverse.engineering', 'staticflickr.com', 'lexkite.com', 'lexkite.pages.dev', 'lexkiteapp.github.io'];
+function imgUrlOk(u) {
+  let x; try { x = new URL(String(u || '')); } catch (e) { return false; }
+  if (x.protocol !== 'https:' || x.username || x.password || (x.port && x.port !== '443')) return false;
+  const h = x.hostname.toLowerCase();
+  if (!h.includes('.') || /^[\d.]+$/.test(h) || h.includes(':') || h === 'localhost' || h.endsWith('.localhost')) return false;
+  return IMG_HOSTS.some(a => h === a || h.endsWith('.' + a));
+}
+/*END-IMG-ALLOW*/
 let UI_LANG = pickLang(chrome.i18n && chrome.i18n.getUILanguage ? chrome.i18n.getUILanguage() : navigator.language) || 'en';
 const uiDicts = {};
 const I18NX = ['structs', 'toefl', 'league', 'call', 'handoff'];
@@ -18,7 +30,7 @@ const REMX = ['remind']; // văn bản nhắc học dùng chung với web (Remin
 async function uiDict(lang) {
   if (!lang || lang === 'vi') return {};
   if (uiDicts[lang]) return uiDicts[lang];
-  const one = async f => { try { const s = await (await fetch(chrome.runtime.getURL(f))).text(); const i = s.indexOf('{"', s.indexOf('Object.assign(')), j = s.lastIndexOf('});'); try { return JSON.parse(s.slice(i, j + 1)); } catch (e) { const k = s.indexOf('{', s.indexOf('|| {}, ') + 6); return JSON.parse(s.slice(k, j + 1).replace(/,\s*}$/, '}')); } } catch (e) { return {}; } };
+  const one = async f => { try { const s = await (await fetch(chrome.runtime.getURL(f))).text(); const m = s.indexOf('||{},{'), j = s.lastIndexOf('});'); if (m >= 0) return JSON.parse(s.slice(m + 5, j + 1).replace(/([{,])(_[0-9a-z]+):/g, '$1"$2":')); /* gói chạy sinh từ i18n-pack: khóa băm viết trần */ const i = s.indexOf('{"', s.indexOf('Object.assign(')); try { return JSON.parse(s.slice(i, j + 1)); } catch (e) { const k = s.indexOf('{', s.indexOf('|| {}, ') + 6); return JSON.parse(s.slice(k, j + 1).replace(/,\s*}$/, '}')); } } catch (e) { return {}; } };
   // en: cấu trúc + soát lỗi viết (định dạng JSON). Ngôn ngữ khác: nền tiếng Anh (khóa thiếu → English, KHÔNG BAO GIỜ tiếng Việt)
   // + <lang>.js + các nhóm i18nx (<lang>/<nhóm>.js – ra khỏi <lang>.js từ 22ca39d, gồm tên cấu trúc câu của bảng 🌐 Dịch)
   const en = Object.assign(await one('app/js/i18n/en/structs.js'), await one('app/js/i18n/en/writecheck.js'), await one('app/js/i18n/en/remind.js'));
@@ -57,7 +69,10 @@ const EN = {
   'Tra từ “%s” với Lexkite': 'Look up “%s” with Lexkite',
   'Dịch đoạn đã chọn': 'Translate selection',
 };
-const tx = (src, vars) => { let s = UI_LANG === 'vi' ? src : (XD[src] || EN[src] || src); if (vars) s = s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] != null ? vars[k] : m)); return s; };
+const hk = s => { let x = 0x811c9dc5; for (let i = 0; i < s.length; i++) { x ^= s.charCodeAt(i); x = Math.imul(x, 0x01000193); } return '_' + ((x >>> 0) % 1679616).toString(36); }; // = hk của web/js/i18n.js (gói ngôn ngữ khóa băm, scripts/lib/i18n-pack.mjs)
+// Từ điển background: gói ngôn ngữ (khóa băm, hoặc nguyên câu khi trùng băm) chồng lên nền en (nguyên câu) → tra băm trước
+const xd = src => (typeof src === 'string' && XD[hk(src)]) || XD[src];
+const tx = (src, vars) => { let s = UI_LANG === 'vi' ? src : (xd(src) || EN[src] || src); if (vars) s = s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] != null ? vars[k] : m)); return s; };
 
 const APP_URL = chrome.runtime.getURL('app/index.html');
 const getSettings = async () => ({ ...DEFAULT_SETTINGS, ...(await Store.get('settings', {})) });
@@ -94,7 +109,9 @@ async function sendReminder(force = false, at = Date.now()) {
     await Store.set('remHist', [...hist, { day: today, tpl: it.tpl }].filter(h => h && h.day >= remKey(new Date(now - 8 * REM_DAY))).slice(-20));
   }
   if (!it) return;
-  chrome.notifications.create('reminder-' + now + '|' + encodeURIComponent(it.url || '#/review'), {
+  const tpl = /^[a-z0-9_]{1,12}$/.test(it.tpl || '') ? it.tpl : '';
+  if (!force && tpl) remEv([['shown', tpl, 1]]);
+  chrome.notifications.create('reminder-' + now + (tpl ? '~' + tpl : '') + '|' + encodeURIComponent(it.url || '#/review'), {
     type: 'basic',
     iconUrl: 'icons/icon-128.png',
     title: it.title,
@@ -198,8 +215,12 @@ chrome.alarms.onAlarm.addListener(a => {
 });
 // Bấm thông báo nhắc → mở đúng trang (liên kết sâu nằm sau dấu | trong id); thông báo khác → Ôn tập
 const routeOf = id => { const m = /\|(.+)$/.exec(String(id)); try { const h = m ? decodeURIComponent(m[1]) : ''; return /^#\/[\w\-/?=&%.]*$/.test(h) ? h : undefined; } catch (e) { return undefined; } };
-chrome.notifications.onClicked.addListener(id => { chrome.notifications.clear(id); openApp(routeOf(id)); });
-chrome.notifications.onButtonClicked.addListener(id => { chrome.notifications.clear(id); openApp(routeOf(id)); });
+// Số liệu nhắc học (docs/REMINDERS.md, functions/api/push.js op ev): chỉ mã mẫu + đếm – CTR add-on trước đây không đo được
+const remEv = e => fetch('https://lexkite.com/api/push', { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ op: 'ev', e }) }).catch(() => {});
+const tplOf = id => { const m = /^reminder-\d+~([a-z0-9_]{1,12})\|/.exec(String(id)); return m ? m[1] : ''; };
+const remClick = id => { chrome.notifications.clear(id); const tpl = tplOf(id); if (tpl) remEv([['open', tpl, 1]]); openApp(routeOf(id)); };
+chrome.notifications.onClicked.addListener(remClick);
+chrome.notifications.onButtonClicked.addListener(remClick);
 
 chrome.storage.onChanged.addListener(ch => {
   if (ch.settings || ch.remRecent) scheduleReminder();
@@ -280,10 +301,14 @@ async function nanoExplain(text, sentence) {
 async function serverExplain(text, sentence, langName) {
   if (navigator.onLine === false) return { error: 'OFFLINE' };
   let r;
-  try { r = await fetch(AI_URL, { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Lexkite-Device': await deviceId() }, signal: AbortSignal.timeout(45000), body: JSON.stringify({ prompt: EX_PROMPT(text, sentence, langName), sys: AI_SYS }) }); }
+  // Prompt hệ thống do máy chủ chọn theo task 'explain' (= AI_SYS ở trên, functions/api/ai.js SYS.explain). Vé người thật: trang add-on (app/js/human.js) chép vào chrome.storage 'lk.human'
+  const dev = await deviceId(), hm = (await chrome.storage.local.get('lk.human'))['lk.human'], hd = { 'Content-Type': 'application/json', 'X-Lexkite-Device': dev };
+  if (hm && hm.d === dev && typeof hm.t === 'string' && hm.e > Date.now() + 60e3) hd['X-Lexkite-Human'] = hm.t;
+  try { r = await fetch(AI_URL, { method: 'POST', headers: hd, signal: AbortSignal.timeout(45000), body: JSON.stringify({ prompt: EX_PROMPT(text, sentence, langName), task: 'explain' }) }); }
   catch (e) { return { error: navigator.onLine === false ? 'OFFLINE' : 'FAILED' }; }
   const j = await r.json().catch(() => ({}));
   if (r.status === 429) return { error: j && j.msg === 'quota.daily' ? 'QUOTA_DAY' : 'BUSY' };
+  if (r.status === 403 && j && j.error === 'human') return { error: 'BUSY' }; // khách chưa xác minh (cờ AI_HUMAN_ENFORCE) → như bận (trang add-on tự lấy vé người thật nền, lượt sau qua)
   if (!r.ok || !okExplain(j && j.out)) return { error: r.status === 503 ? 'BUSY' : 'FAILED' };
   const out = j.out; delete out._model;
   return { result: out, left: typeof j.left === 'number' ? j.left : null, via: 'server' };
@@ -396,6 +421,7 @@ async function wcMistake(m) {
 }
 
 // ---------- Tin nhắn từ content script / popup / app ----------
+let irvMap = null;
 chrome.runtime.onMessage.addListener((msg, sender, reply) => {
   (async () => { try {
     switch (msg.type) {
@@ -435,12 +461,13 @@ chrome.runtime.onMessage.addListener((msg, sender, reply) => {
       }
       case 'imgData': { // ảnh minh họa dạng data: URL cho trang có CSP chặn ảnh ngoài (chỉ http/https, chỉ ảnh, ≤ 600 KB, đệm 30 ảnh gần nhất)
         const u = String(msg.url || '');
-        if (!/^https:\/\//.test(u)) return reply({});
+        if (!imgUrlOk(u)) return reply({});
         self.__imgs = self.__imgs || new Map();
         if (self.__imgs.has(u)) return reply({ data: self.__imgs.get(u) });
         const ctl = new AbortController(), tm = setTimeout(() => ctl.abort(), 8000);
         try {
           const r = await fetch(u, { signal: ctl.signal, credentials: 'omit', referrerPolicy: 'no-referrer' });
+          if (r.redirected && !imgUrlOk(r.url)) return reply({}); // chuyển hướng ra ngoài danh sách cho phép → bỏ (không đọc nội dung)
           const b = r.ok ? await r.blob() : null;
           if (!b || !/^image\//.test(b.type) || b.size > 600 * 1024) return reply({});
           const bytes = new Uint8Array(await b.arrayBuffer()); let bin = '';
@@ -476,6 +503,9 @@ chrome.runtime.onMessage.addListener((msg, sender, reply) => {
       case 'nanoEnable': return reply(await nanoEnable());
       case 'testNotify': await sendReminder(true); return reply({ ok: true });
       case 'logErr': logErr(msg.where || 'cs', msg.m); return reply({ ok: true });
+      case 'irv': { // bong bóng tra từ → hàng 3 dạng động từ bất quy tắc; đọc đúng dữ liệu của bảng trong gói (không chép, không quyền mới)
+        irvMap = irvMap || fetch(chrome.runtime.getURL('app/js/irv/core.json')).then(r => r.json()).then(d => { const m = new Map(); for (const r of d.rows) for (const f of Object.keys(r[4])) if (!m.has(f)) m.set(f, [r[0], r[10]]); return m; });
+        const hit = (await irvMap).get(String(msg.w || '').toLowerCase()); return reply(hit ? { base: hit[0], trio: hit[1] } : {}); }
       case 'openApp': await openApp(msg.hash); return reply({ ok: true });
       case 'syncNow': {
         // Trang Lexkite (đã đăng nhập) tự gộp dữ liệu qua cầu nối rồi gửi 'linked' → chờ tín hiệu đó, tối đa 25 giây

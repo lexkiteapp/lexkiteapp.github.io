@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Vocabulary Hub</title>
+
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              cream: '#fff8f5',
+              surface: '#ffffff',
+              warm: '#fff1e8',
+              warmBorder: '#f0dfd5',
+              deepTeal: '#00504b',
+              tealDark: '#083330',
+              tealSurface: '#e6f4f2',
+              tealBorder: '#bcdbd7',
+              coral: '#F2553B',
+              coralDark: '#B53A22',
+              ink: '#192020',
+              inkMuted: '#526060',
+              hairline: '#ebdcd3',
+              lineSoft: '#f2e8e2'
+            }
+          },
+          fontFamily: {
+            headline: ['"Plus Jakarta Sans"', 'sans-serif'],
+            body: ['"Inter"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fff8f5;
+      color: #192020;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-rounded.outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Chunky tactile button styling */
+    .tactile-btn {
+      position: relative;
+      transition: all 0.1s ease;
+      box-shadow: 0 4px 0 #B53A22;
+    }
+    .tactile-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #B53A22;
+    }
+    .tactile-card {
+      box-shadow: 0 3px 0 #0A1517;
+    }
+    .tactile-row:active {
+      background-color: #1D2F33;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#0E191C] text-[#EAF2F2] flex justify-center selection:bg-orange-500 selection:text-white">
+
+<main class="w-full max-w-[720px] min-h-screen flex flex-col bg-[#0E191C] relative pb-[84px]">
+
+
+
+<div class="px-5 pt-3 flex flex-col flex-1">
+
+<h1 class="font-headline font-extrabold text-[32px] leading-tight text-[#EAF2F2] tracking-tight mb-3">
+        Vocabulary
+      </h1>
+
+<form class="relative w-full mb-6" role="search">
+<label class="sr-only" for="word-search">Look up any word</label>
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#5FD0C4]">
+<span class="material-symbols-rounded text-[22px]">search</span>
+</div>
+<input class="w-full h-12 pl-11 pr-10 rounded-2xl bg-[#122023] border border-[#213438] text-[#EAF2F2] placeholder:text-[#A3B9B7] font-body text-[16px] focus:outline-none focus:ring-2 focus:ring-[#5FD0C4] focus:border-transparent tactile-card transition-all" id="word-search" placeholder="Look up any word" type="search"/>
+
+</form>
+
+<section class="w-full rounded-3xl bg-[#162528] border border-[#213438] p-5 mb-7 tactile-card relative overflow-hidden">
+<div class="flex items-start justify-between relative z-10">
+<div class="flex-1 pr-3">
+
+
+
+<div class="flex items-baseline gap-2 mb-1">
+<span class="font-headline font-extrabold text-[44px] leading-none text-[#5FD0C4] tracking-tight">18</span>
+<span class="font-headline font-bold text-[16px] text-[#EAF2F2] leading-tight">words to review today</span>
+</div>
+
+<p class="font-body text-[13px] text-[#A3B9B7] mb-4">
+              342 words · 96 mastered
+            </p>
+
+<a class="tactile-btn inline-flex items-center justify-center gap-2 px-6 py-3 rounded-2xl bg-[#F2553B] text-[#1A0E0B] font-headline font-extrabold text-[15px] cursor-pointer">
+<span>Review now</span>
+<span class="material-symbols-rounded text-lg">arrow_forward</span>
+</a>
+</div>
+
+<div class="w-[108px] h-[124px] flex-shrink-0 relative flex items-end justify-center">
+
+</div>
+</div>
+</section>
+
+<section aria-label="Vocabulary Modules" class="flex flex-col mb-7">
+<a class="tactile-row flex items-center justify-between py-4 border-b border-[#213438] transition-colors group" href="#/path">
+<div class="flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-2xl bg-[#162528] border border-[#213438] flex items-center justify-center text-[#5FD0C4]">
+<span class="material-symbols-rounded text-[22px]">route</span>
+</div>
+<div>
+<span class="font-headline font-bold text-[16px] text-[#EAF2F2] block transition-colors">
+                Vocabulary path
+              </span>
+<span class="font-body text-[13px] text-[#A3B9B7] block">
+                Structured CEFR B2 → C1 roadmap
+              </span>
+</div>
+</div>
+<div class="w-8 h-8 rounded-full flex items-center justify-center text-[#A3B9B7] transition-all">
+<span class="material-symbols-rounded text-xl">chevron_right</span>
+</div>
+</a>
+
+<a class="tactile-row flex items-center justify-between py-4 border-b border-[#213438] transition-colors group" href="#/library">
+<div class="flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-2xl bg-[#162528] border border-[#213438] flex items-center justify-center text-[#FF8466]">
+<span class="material-symbols-rounded text-[22px]">menu_book</span>
+</div>
+<div>
+<span class="font-headline font-bold text-[16px] text-[#EAF2F2] block transition-colors">
+                Word library
+              </span>
+<span class="font-body text-[13px] text-[#A3B9B7] block">
+                36 curated academic &amp; topic decks
+              </span>
+</div>
+</div>
+<div class="w-8 h-8 rounded-full flex items-center justify-center text-[#A3B9B7] transition-all">
+<span class="material-symbols-rounded text-xl">chevron_right</span>
+</div>
+</a>
+
+<a class="tactile-row flex items-center justify-between py-4 border-b border-[#213438] transition-colors group" href="#/notebook">
+<div class="flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-2xl bg-[#162528] border border-[#213438] flex items-center justify-center text-[#4ADE80]">
+<span class="material-symbols-rounded text-[22px]">edit_note</span>
+</div>
+<div>
+<span class="font-headline font-bold text-[16px] text-[#EAF2F2] block transition-colors">
+                My notebook
+              </span>
+<span class="font-body text-[13px] text-[#A3B9B7] block">
+                Saved words, personal examples &amp; notes
+              </span>
+</div>
+</div>
+<div class="w-8 h-8 rounded-full flex items-center justify-center text-[#A3B9B7] transition-all">
+<span class="material-symbols-rounded text-xl">chevron_right</span>
+</div>
+</a>
+
+<a class="tactile-row flex items-center justify-between py-4 border-b border-[#213438] transition-colors group" href="#/games">
+<div class="flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-2xl bg-[#162528] border border-[#213438] flex items-center justify-center text-[#FBBF24]">
+<span class="material-symbols-rounded text-[22px]">sports_esports</span>
+</div>
+<div>
+<span class="font-headline font-bold text-[16px] text-[#EAF2F2] block transition-colors">
+                Word games
+              </span>
+<span class="font-body text-[13px] text-[#A3B9B7] block">
+                Speed match, collocations &amp; reflex
+              </span>
+</div>
+</div>
+<div class="w-8 h-8 rounded-full flex items-center justify-center text-[#A3B9B7] transition-all">
+<span class="material-symbols-rounded text-xl">chevron_right</span>
+</div>
+</a></section>
+
+<section class="mb-4"><span class="font-headline font-bold text-xs uppercase tracking-wider text-[#A3B9B7] block mb-3">
+          Look up tools
+        </span>
+<div class="flex items-center gap-2.5 flex-wrap">
+
+<a class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-[#122023] border border-[#213438] text-[#EAF2F2] font-headline font-bold text-[13px] tactile-card transition-all" href="#/verbs">
+<span class="material-symbols-rounded text-[#5FD0C4] text-[17px]">format_list_bulleted</span>
+<span>Verb forms</span>
+</a>
+
+<a class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-[#122023] border border-[#213438] text-[#EAF2F2] font-headline font-bold text-[13px] tactile-card transition-all" href="#/usage">
+<span class="material-symbols-rounded text-[#5FD0C4] text-[17px]">auto_stories</span>
+<span>Word usage</span>
+</a>
+
+<a class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-[#122023] border border-[#213438] text-[#EAF2F2] font-headline font-bold text-[13px] tactile-card transition-all" href="#/phrases">
+<span class="material-symbols-rounded text-[#5FD0C4] text-[17px]">forum</span>
+<span>Phrases</span>
+</a>
+</div></section>
+</div>
+
+<nav aria-label="Bottom Navigation" class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] h-16 bg-[#0E191C] border-t border-[#213438] flex items-center justify-around px-2 z-40 shadow-[0_-2px_10px_rgba(0,0,0,0.4)]">
+
+<a class="flex flex-col items-center justify-center min-w-[58px] min-h-[44px] text-[#A3B9B7] transition-colors" href="#/today">
+<span class="material-symbols-rounded text-[22px] mb-0.5">today</span>
+<span class="font-headline font-bold text-[11px] leading-tight">Today</span>
+</a>
+
+<a class="flex flex-col items-center justify-center min-w-[58px] min-h-[44px] text-[#5FD0C4]" href="#/vocab">
+<div class="px-3 py-1 rounded-full bg-[#162528] border border-[#213438] flex flex-col items-center justify-center shadow-[0_1px_0_#0d1619]">
+<span class="material-symbols-rounded text-[20px] text-[#5FD0C4]">menu_book</span>
+<span class="font-headline font-extrabold text-[11px] text-[#5FD0C4] leading-tight mt-0.5">Vocabulary</span>
+</div>
+</a>
+
+<a class="flex flex-col items-center justify-center min-w-[58px] min-h-[44px] text-[#A3B9B7] transition-colors" href="#/skills">
+<span class="material-symbols-rounded text-[22px] mb-0.5">psychology</span>
+<span class="font-headline font-bold text-[11px] leading-tight">Skills</span>
+</a>
+
+<a class="flex flex-col items-center justify-center min-w-[58px] min-h-[44px] text-[#A3B9B7] transition-colors" href="#/exams">
+<span class="material-symbols-rounded text-[22px] mb-0.5">assignment</span>
+<span class="font-headline font-bold text-[11px] leading-tight">Exams</span>
+</a>
+
+<a class="flex flex-col items-center justify-center min-w-[58px] min-h-[44px] text-[#A3B9B7] transition-colors" href="#/me">
+<span class="material-symbols-rounded text-[22px] mb-0.5">person</span>
+<span class="font-headline font-bold text-[11px] leading-tight">Me</span>
+</a>
+</nav>
+</main>
+</body>
+</html>

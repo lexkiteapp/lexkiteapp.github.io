@@ -8,6 +8,7 @@
  *   align     các hàng cùng cột (o.align) lệch mép trái nội dung > 4 px
  *   indicator vạch/chấm "đang chọn" (::before/::after hoặc .indicator) tách rời khỏi viên thuốc của mục đang chọn > 2 px
  *   tap       vùng chạm < o.tap px (mặc định 44) – trừ link nằm trong đoạn văn
+ *   inlinebox thẻ inline có viền/nền/padding bọc khối con: viền vẽ thành 2 mảnh thừa, nội dung mất padding (Chuỗi 7 ngày 4/11)
  *   wrap      nút/biểu tượng rớt xuống đứng một mình ở dòng cuối · lone  nhãn ≤ 3 ký tự đứng trơ cả hàng · nolabel  ô chọn/nhập không có nhãn nhìn thấy
  * window.QAB.perf.*  CLS / long task / INP (Event Timing) / FPS – đo từ lúc nạp trang (gắn bằng addInitScript). */
 (function (W) {
@@ -101,6 +102,11 @@
         if (over > 2) { add('spill', 'fail', c, `"${txt(c)}" lòi ra ngoài ${lab(box)} ${Math.round(over)}px`); break; }
       }
     }
+    // 3b) thẻ cùng hàng, cùng số nút: nút cuối phải thẳng đáy (không thò thụt) – css/style.css § thẻ lưới
+    for (const g of new Set([...D.querySelectorAll('#view .card')].map(c => c.parentElement))) {
+      const rows = {}; for (const c of g.children) { if (!c.matches('.card')) continue; const r = vis(c), bs = [...c.querySelectorAll('.btn')].filter(vis); if (r && bs.length) (rows[Math.round(r.top) + '|' + bs.length] = rows[Math.round(r.top) + '|' + bs.length] || []).push(vis(bs[bs.length - 1]).bottom); }
+      for (const b of Object.values(rows)) if (b.length > 1 && Math.max(...b) - Math.min(...b) > 2) add('card-actions', 'fail', g, `nút các thẻ cùng hàng lệch nhau ${Math.round(Math.max(...b) - Math.min(...b))}px`);
+    }
     // 4–5) phần tử bấm được: ngoài màn hình / bị đè / vùng chạm nhỏ
     const inter = [...D.querySelectorAll(INTER)].map(e => [e, vis(e)]).filter(([, r]) => r);
     for (const [e, r] of inter) {
@@ -109,7 +115,9 @@
       if (!scr && (r.right > IW + 1 || r.left < -1) && getComputedStyle(e).position !== 'fixed') add('offscreen', 'fail', e, `"${txt(e)}" nằm ngoài màn hình (x ${Math.round(r.left)}…${Math.round(r.right)} / ${IW})`);
       // bị đè: điểm tâm (trong vùng nhìn thấy) phải trúng chính nó/con/cha-nhãn
       const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
-      if (cx > 0 && cx < IW && cy > 0 && cy < IH && !scr) {
+      // đang cuộn khuất trong vùng cuộn dọc riêng (menu thanh bên) = chưa nhìn thấy, không phải bị đè; cuộn tới được do kiểm riêng trong qa-bot.mjs (sidebar-*)
+      const outY = (function () { for (let x = e.parentElement; x && x !== D.body; x = x.parentElement) { if (!/auto|scroll/.test(getComputedStyle(x).overflowY)) continue; const b = x.getBoundingClientRect(); if (cy < b.top || cy > b.bottom) return true; } return false; })();
+      if (cx > 0 && cx < IW && cy > 0 && cy < IH && !scr && !outY) {
         const hit = D.elementFromPoint(cx, cy);
         if (hit && hit !== e && !e.contains(hit) && !hit.contains(e) && !(hit.closest && hit.closest('label') && hit.closest('label').contains(e))) {
           const hs = getComputedStyle(hit);
@@ -121,8 +129,12 @@
       }
       // vùng chạm: link chữ nằm giữa đoạn văn được miễn (WCAG 2.5.8 ngoại lệ "inline")
       const inline = e.tagName === 'A' && getComputedStyle(e).display === 'inline' && e.parentElement && /^(p|li|span|small|label|td|figcaption|blockquote)$/i.test(e.parentElement.tagName) && e.parentElement.textContent.trim().length > txt(e).length + 8;
-      const small = /^input$/i.test(e.tagName) ? !/checkbox|radio|range/.test(e.type) && r.height < TAP - 0.5 : r.width < TAP - 0.5 || r.height < TAP - 0.5;
-      if (!inline && small && !e.closest('[aria-hidden="true"]')) add('tap', 'fail', e, `"${txt(e)}" vùng chạm ${Math.round(r.width)}×${Math.round(r.height)} < ${TAP}px`);
+      // vùng chạm THẬT gồm ::after mở rộng (cơ chế Stitch port: after:absolute + -inset-* / min 44 – cú chạm vào ::after kích hoạt chính phần tử)
+      const hb = (() => { const a = getComputedStyle(e, '::after'); const clear = c => /^(transparent|rgba\(0, 0, 0, 0\))$/.test(c); // chỉ ::after TRONG SUỐT (vùng chạm mở rộng) – chấm huy hiệu/trang trí có nền/viền/bóng không tính
+        if (!a || a.content === 'none' || a.position !== 'absolute' || a.pointerEvents === 'none' || getComputedStyle(e).position === 'static' || !clear(a.backgroundColor) || a.backgroundImage !== 'none' || parseFloat(a.borderTopWidth) || parseFloat(a.borderLeftWidth) || (a.boxShadow && a.boxShadow !== 'none')) return r;
+        const px = v => parseFloat(v) || 0; return { width: Math.max(r.width, r.width - px(a.left) - px(a.right), px(a.minWidth)), height: Math.max(r.height, r.height - px(a.top) - px(a.bottom), px(a.minHeight)) }; })();
+      const small = /^input$/i.test(e.tagName) ? !/checkbox|radio|range/.test(e.type) && r.height < TAP - 0.5 : hb.width < TAP - 0.5 || hb.height < TAP - 0.5;
+      if (!inline && small && !e.closest('[aria-hidden="true"]')) add('tap', 'fail', e, `"${txt(e)}" vùng chạm ${Math.round(hb.width)}×${Math.round(hb.height)} < ${TAP}px`);
     }
     // 6a) "rớt dòng mồ côi": hàng nút/biểu tượng/chip xuống dòng mà dòng cuối chỉ còn 1 phần tử nhỏ (vd. nút loa UK rớt khỏi hàng phiên âm)
     for (const box of D.querySelectorAll('#view *, .sidebar *, .bottom-nav *')) {
@@ -163,6 +175,14 @@
       const ref = rows[0][1], bad = rows.filter(([, x]) => Math.abs(x - ref) > 4);
       const seen = new Set();
       for (const [e, x] of bad) { const k = lab(e).replace(/\[[^\]]*\]/g, ''); if (seen.has(k)) continue; seen.add(k); add('align', 'fail', `${g.name}:${k}`, `"${txt(e)}" lệch ${Math.round(x - ref)}px so với ${lab(rows[0][0])} (mép trái nội dung)`); }
+    }
+    // 6b) hộp inline bọc khối: các mảnh rỗng mang viền/nền đè lên mép nội dung
+    for (const e of all) {
+      const cs = getComputedStyle(e); if (cs.display !== 'inline' || !e.children.length || !vis(e)) continue;
+      const num = v => parseFloat(v) || 0, drawn = (num(cs.borderLeftWidth) > 0 && cs.borderLeftStyle !== 'none') || num(cs.paddingLeft) > 0 || num(cs.paddingTop) > 0 || (cs.backgroundColor !== 'rgba(0, 0, 0, 0)' && cs.backgroundColor !== 'transparent');
+      if (!drawn) continue;
+      const kid = [...e.children].find(c => { const k = getComputedStyle(c); return /^(block|flex|grid|table|list-item|flow-root)$/.test(k.display) && k.position === 'static' && k.float === 'none'; });
+      if (kid) add('inlinebox', 'fail', e, `<${e.tagName.toLowerCase()}> inline có viền/nền/padding bọc khối <${kid.tagName.toLowerCase()}>: thêm display block/flex`);
     }
     // 7) vạch "đang chọn" tách khỏi mục đang chọn
     for (const e of D.querySelectorAll('nav .active, nav [aria-current="page"], [role=tablist] [aria-selected="true"], .bottom-nav .active, #nav .active')) {

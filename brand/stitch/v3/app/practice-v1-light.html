@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=390, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite Practice Hub - Focused Workout &amp; Priority Stack</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              teal: '#0F3D3E',
+              tealLight: '#136A63',
+              tealMuted: '#EBF4F3',
+              surface: '#FFF8F5',
+              card: '#FFFFFF',
+              cardMuted: '#FFF1E8',
+              border: '#E8D9CE',
+              borderDark: '#D8C7BA',
+              coral: '#F2552E',
+              coralShadow: '#9E2A14',
+              coralInk: '#1A0804',
+              amber: '#F59E0B',
+              darkInk: '#162224',
+              secondaryInk: '#4A5B5E',
+              subtleInk: '#6E8083'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #FFF8F5;
+      color: #162224;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.filled {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Hero Primary Tactile Coral CTA */
+    .tactile-hero-coral-btn {
+      background-color: #F2552E;
+      box-shadow: 0 4px 0 0 #9E2A14;
+      transition: all 0.08s ease-in-out;
+    }
+    .tactile-hero-coral-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #9E2A14;
+    }
+    /* Secondary Outline Action Button */
+    .tactile-secondary-btn {
+      background-color: #FFFFFF;
+      box-shadow: 0 3px 0 0 #D8C7BA;
+      border: 1.5px solid #D8C7BA;
+      transition: all 0.08s ease-in-out;
+    }
+    .tactile-secondary-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #D8C7BA;
+    }
+    .tactile-card {
+      background-color: #FFFFFF;
+      border: 1.5px solid #E8D9CE;
+      box-shadow: 0 3px 0 0 #E3D1C4;
+    }
+    .tactile-card-interactive {
+      background-color: #FFFFFF;
+      border: 1.5px solid #E8D9CE;
+      box-shadow: 0 3px 0 0 #E3D1C4;
+      transition: all 0.08s ease-in-out;
+    }
+    .tactile-card-interactive:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #E3D1C4;
+    }
+    /* Teacher Avatar Slot Placeholder */
+    .teacher-slot {
+      background-color: #EBF4F3;
+      border: 1.5px dashed #0F3D3E;
+    }
+  </style>
+</head>
+<body class="w-[390px] min-h-screen mx-auto bg-brand-surface text-brand-darkInk flex flex-col justify-between selection:bg-brand-teal selection:text-white pb-[76px]">
+<!-- TOP APP BAR -->
+<header class="sticky top-0 z-40 bg-brand-surface/95 backdrop-blur-sm border-b border-brand-border px-4 py-3 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-brand-teal flex items-center justify-center text-white shadow-sm flex-shrink-0">
+<span class="material-symbols-outlined text-[22px]">fitness_center</span>
+</div>
+<div>
+<h1 class="text-lg font-extrabold leading-tight tracking-tight text-brand-darkInk">Practice Hub</h1>
+<p class="text-xs font-semibold text-brand-secondaryInk">Adaptive Diagnostic Drill</p>
+</div>
+</div>
+<!-- Streak and XP Badges (Strictly NO HEARTS / NO LIVES) -->
+<div class="flex items-center gap-2 flex-shrink-0">
+<div class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-brand-card border border-brand-border text-xs font-extrabold text-brand-darkInk shadow-[0_1.5px_0_0_#E3D1C4]">
+<span class="material-symbols-outlined filled text-[#F2552E] text-[17px]">local_fire_department</span>
+<span>14</span>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-brand-card border border-brand-border text-xs font-extrabold text-brand-darkInk shadow-[0_1.5px_0_0_#E3D1C4]">
+<span class="material-symbols-outlined filled text-brand-amber text-[17px]">stars</span>
+<span>820</span>
+</div>
+</div>
+</header>
+<!-- MAIN SCROLLABLE CONTENT -->
+<main class="flex-1 px-4 pt-4 pb-6 flex flex-col gap-4">
+<!-- 1. COACH ADVICE CARD (Carlos) -->
+<section class="tactile-card rounded-2xl p-3.5 flex items-start gap-3 bg-brand-card">
+<!-- Empty dashed rounded placeholder (mortarboard icon, strictly no drawn face) -->
+<div aria-label="Teacher avatar placeholder" class="teacher-slot w-14 h-16 rounded-xl flex-shrink-0 flex flex-col items-center justify-center p-1 text-center">
+<span class="material-symbols-outlined text-brand-teal text-[22px]">school</span>
+<span class="text-[9px] font-extrabold text-brand-teal tracking-tighter uppercase mt-0.5 leading-none">teacher slot</span>
+</div>
+<!-- Speech bubble advice from Carlos -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5 mb-1 flex-wrap">
+<span class="w-2 h-2 rounded-full bg-brand-tealLight flex-shrink-0"></span>
+<span class="text-xs font-extrabold uppercase tracking-wider text-brand-teal">Coach Carlos • Diagnostic</span>
+</div>
+<p class="text-xs font-semibold leading-relaxed text-brand-secondaryInk">
+          “Focusing on your 3 identified weak areas will yield the fastest score recovery before your next mock test.”
+        </p>
+</div>
+</section>
+<!-- 2. HERO: RECOMMENDED 10-MIN WORKOUT (Prominent hero card with single Primary Coral CTA) -->
+<section class="rounded-2xl bg-gradient-to-br from-[#0F3D3E] to-[#164E50] p-4 text-white shadow-[0_4px_0_0_#092627] flex flex-col gap-3.5 border border-[#1a5b5d]">
+<div class="flex items-start justify-between gap-3">
+<div class="flex flex-col gap-1 min-w-0 flex-1">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#1b5557] text-[11px] font-extrabold tracking-wide uppercase text-[#7fe5dc] w-fit border border-[#2d7376]">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+<span>Recommended Today</span>
+</div>
+<h2 class="text-lg font-extrabold text-white mt-0.5 tracking-tight">Mixed 10-Min Workout</h2>
+<p class="text-xs font-medium text-[#C8E0E0] leading-snug">
+            15 curated questions targeting your lowest accuracy grammar and listening patterns.
+          </p>
+</div>
+<div class="w-11 h-11 rounded-xl bg-[#1b5557] border border-[#2d7376] flex items-center justify-center flex-shrink-0 text-[#7fe5dc]">
+<span class="material-symbols-outlined text-[24px]">timer</span>
+</div>
+</div>
+<!-- Single Primary Coral CTA with tactile dark drop shadow ledge -->
+<button class="tactile-hero-coral-btn w-full min-h-[48px] py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-brand-coralInk font-extrabold text-sm tracking-wide" type="button">
+<span class="material-symbols-outlined text-[20px] text-brand-coralInk font-bold">play_arrow</span>
+<span>Start 10-min Workout</span>
+</button>
+</section>
+<!-- 3. WEAK AREAS DETECTED (Priority Stack with +40% expansion friendly buttons) -->
+<section class="flex flex-col gap-2.5">
+<div class="flex items-center justify-between flex-wrap gap-1">
+<h2 class="text-sm font-extrabold text-brand-darkInk tracking-tight flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[#F2552E] text-[18px]">warning</span>
+<span>Weak Areas Detected</span>
+</h2>
+<span class="text-[11px] font-bold text-brand-subtleInk bg-brand-cardMuted px-2 py-0.5 rounded-full border border-brand-border">3 priority modules</span>
+</div>
+<!-- Card 1: Listening Section 3 Collocations -->
+<div class="tactile-card rounded-2xl p-3.5 flex flex-col gap-2.5 bg-brand-card">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-start gap-2.5 min-w-0 flex-1">
+<div class="w-9 h-9 rounded-lg bg-teal-50 border border-teal-200 flex items-center justify-center text-brand-teal flex-shrink-0">
+<span class="material-symbols-outlined text-[19px]">headphones</span>
+</div>
+<div class="min-w-0 flex-1">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-amber-100 text-amber-900 border border-amber-200">Listening</span>
+<span class="text-[11px] font-semibold text-brand-secondaryInk">Part 3 Dialogue</span>
+</div>
+<h3 class="text-xs font-bold text-brand-darkInk mt-1 leading-snug break-words">Multiple Speaker Academic Distractors</h3>
+</div>
+</div>
+<!-- Accuracy Meter -->
+<div class="text-right flex-shrink-0">
+<span class="text-xs font-black text-rose-700 bg-rose-50 px-2 py-0.5 rounded-md border border-rose-200">52%</span>
+<div class="text-[10px] font-bold text-brand-subtleInk mt-0.5">Accuracy</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-brand-border/70 gap-2">
+<span class="text-[11px] font-semibold text-brand-secondaryInk flex-1 min-w-0 truncate">8 high-frequency traps logged</span>
+<!-- Room for +40% longer German labels ("Üben" or extended strings) -->
+<button class="tactile-secondary-btn min-h-[44px] min-w-[104px] px-3.5 py-2 rounded-xl text-xs font-extrabold text-brand-teal flex items-center justify-center gap-1 flex-shrink-0" type="button">
+<span>Practise</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 2: Grammar Present Perfect vs Past Simple -->
+<div class="tactile-card rounded-2xl p-3.5 flex flex-col gap-2.5 bg-brand-card">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-start gap-2.5 min-w-0 flex-1">
+<div class="w-9 h-9 rounded-lg bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-800 flex-shrink-0">
+<span class="material-symbols-outlined text-[19px]">spellcheck</span>
+</div>
+<div class="min-w-0 flex-1">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-amber-100 text-amber-900 border border-amber-200">Grammar</span>
+<span class="text-[11px] font-semibold text-brand-secondaryInk">Verb Conjugation</span>
+</div>
+<h3 class="text-xs font-bold text-brand-darkInk mt-1 leading-snug break-words">Present Perfect vs Past Simple Inversions</h3>
+</div>
+</div>
+<!-- Accuracy Meter -->
+<div class="text-right flex-shrink-0">
+<span class="text-xs font-black text-amber-800 bg-amber-50 px-2 py-0.5 rounded-md border border-amber-200">60%</span>
+<div class="text-[10px] font-bold text-brand-subtleInk mt-0.5">Accuracy</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-brand-border/70 gap-2">
+<span class="text-[11px] font-semibold text-brand-secondaryInk flex-1 min-w-0 truncate">6 repeat sentence errors</span>
+<button class="tactile-secondary-btn min-h-[44px] min-w-[104px] px-3.5 py-2 rounded-xl text-xs font-extrabold text-brand-teal flex items-center justify-center gap-1 flex-shrink-0" type="button">
+<span>Practise</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 3: Reading Headings & Inference -->
+<div class="tactile-card rounded-2xl p-3.5 flex flex-col gap-2.5 bg-brand-card">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-start gap-2.5 min-w-0 flex-1">
+<div class="w-9 h-9 rounded-lg bg-sky-50 border border-sky-200 flex items-center justify-center text-sky-800 flex-shrink-0">
+<span class="material-symbols-outlined text-[19px]">menu_book</span>
+</div>
+<div class="min-w-0 flex-1">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-amber-100 text-amber-900 border border-amber-200">Reading</span>
+<span class="text-[11px] font-semibold text-brand-secondaryInk">Academic Passage 2</span>
+</div>
+<h3 class="text-xs font-bold text-brand-darkInk mt-1 leading-snug break-words">Paragraph Heading &amp; Negative Inference</h3>
+</div>
+</div>
+<!-- Accuracy Meter -->
+<div class="text-right flex-shrink-0">
+<span class="text-xs font-black text-rose-700 bg-rose-50 px-2 py-0.5 rounded-md border border-rose-200">58%</span>
+<div class="text-[10px] font-bold text-brand-subtleInk mt-0.5">Accuracy</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-brand-border/70 gap-2">
+<span class="text-[11px] font-semibold text-brand-secondaryInk flex-1 min-w-0 truncate">12 test cards queued</span>
+<button class="tactile-secondary-btn min-h-[44px] min-w-[104px] px-3.5 py-2 rounded-xl text-xs font-extrabold text-brand-teal flex items-center justify-center gap-1 flex-shrink-0" type="button">
+<span>Practise</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- 4. MISTAKES TO FIX (Notebook review with alert badge) -->
+<section class="tactile-card rounded-2xl p-3.5 bg-brand-cardMuted/70 border border-brand-border flex items-center justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0 flex-1">
+<div class="w-11 h-11 rounded-xl bg-rose-100 border border-rose-200 flex items-center justify-center text-rose-700 flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]">auto_stories</span>
+</div>
+<div class="min-w-0 flex-1">
+<div class="flex items-center gap-2 flex-wrap">
+<h2 class="text-sm font-extrabold text-brand-darkInk">Mistakes to Fix</h2>
+<span class="text-[11px] font-bold text-white bg-rose-600 px-2 py-0.5 rounded-full flex-shrink-0">14 pending</span>
+</div>
+<p class="text-xs font-medium text-brand-secondaryInk mt-0.5 leading-snug">
+            Clear notebook errors before spaced recall decay.
+          </p>
+</div>
+</div>
+<button class="tactile-secondary-btn min-h-[44px] min-w-[84px] px-3 py-2 rounded-xl text-xs font-extrabold text-rose-700 flex-shrink-0 flex items-center justify-center gap-1" type="button">
+<span>Review</span>
+<span class="material-symbols-outlined text-[15px]">chevron_right</span>
+</button>
+</section>
+<!-- 5. QUICK DRILLS 2X2 GRID (Tap targets >= 44x44px, duration pills) -->
+<section class="flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<h2 class="text-sm font-extrabold text-brand-darkInk tracking-tight flex items-center gap-1.5">
+<span class="material-symbols-outlined text-brand-teal text-[18px]">grid_view</span>
+<span>Quick Drills</span>
+</h2>
+<span class="text-[11px] font-bold text-brand-secondaryInk">5-min sprints</span>
+</div>
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Drill Card 1: Fast Dictation -->
+<button class="tactile-card-interactive rounded-2xl p-3 flex flex-col justify-between min-h-[116px] text-left" type="button">
+<div class="flex items-start justify-between w-full">
+<div class="w-8 h-8 rounded-lg bg-teal-50 border border-teal-200 flex items-center justify-center text-brand-teal">
+<span class="material-symbols-outlined text-[18px]">hearing</span>
+</div>
+<span class="text-[10px] font-extrabold text-brand-secondaryInk bg-brand-surface px-1.5 py-0.5 rounded border border-brand-border">3 min</span>
+</div>
+<div class="mt-2">
+<h3 class="text-xs font-extrabold text-brand-darkInk leading-tight">Fast Dictation</h3>
+<p class="text-[11px] font-medium text-brand-subtleInk mt-0.5 leading-tight">UK &amp; US accents audio</p>
+</div>
+</button>
+<!-- Drill Card 2: Speaking Sprint -->
+<button class="tactile-card-interactive rounded-2xl p-3 flex flex-col justify-between min-h-[116px] text-left" type="button">
+<div class="flex items-start justify-between w-full">
+<div class="w-8 h-8 rounded-lg bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-800">
+<span class="material-symbols-outlined text-[18px]">mic</span>
+</div>
+<span class="text-[10px] font-extrabold text-brand-secondaryInk bg-brand-surface px-1.5 py-0.5 rounded border border-brand-border">4 min</span>
+</div>
+<div class="mt-2">
+<h3 class="text-xs font-extrabold text-brand-darkInk leading-tight">Speaking Sprint</h3>
+<p class="text-[11px] font-medium text-brand-subtleInk mt-0.5 leading-tight">IPA stress &amp; phonetics</p>
+</div>
+</button>
+<!-- Drill Card 3: Writing Fixer -->
+<button class="tactile-card-interactive rounded-2xl p-3 flex flex-col justify-between min-h-[116px] text-left" type="button">
+<div class="flex items-start justify-between w-full">
+<div class="w-8 h-8 rounded-lg bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-800">
+<span class="material-symbols-outlined text-[18px]">edit_note</span>
+</div>
+<span class="text-[10px] font-extrabold text-brand-secondaryInk bg-brand-surface px-1.5 py-0.5 rounded border border-brand-border">5 min</span>
+</div>
+<div class="mt-2">
+<h3 class="text-xs font-extrabold text-brand-darkInk leading-tight">Writing Fixer</h3>
+<p class="text-[11px] font-medium text-brand-subtleInk mt-0.5 leading-tight">Task 2 linking words</p>
+</div>
+</button>
+<!-- Drill Card 4: Speed Match -->
+<button class="tactile-card-interactive rounded-2xl p-3 flex flex-col justify-between min-h-[116px] text-left" type="button">
+<div class="flex items-start justify-between w-full">
+<div class="w-8 h-8 rounded-lg bg-purple-50 border border-purple-200 flex items-center justify-center text-purple-800">
+<span class="material-symbols-outlined text-[18px]">style</span>
+</div>
+<span class="text-[10px] font-extrabold text-brand-secondaryInk bg-brand-surface px-1.5 py-0.5 rounded border border-brand-border">60 sec</span>
+</div>
+<div class="mt-2">
+<h3 class="text-xs font-extrabold text-brand-darkInk leading-tight">Speed Match</h3>
+<p class="text-[11px] font-medium text-brand-subtleInk mt-0.5 leading-tight">Collocation pair rush</p>
+</div>
+</button>
+</div>
+</section>
+</main>
+<!-- CANONICAL BOTTOM TAB BAR: EXACTLY 5 TABS (Today, Vocab, Skills, Tests, Me) -->
+<nav class="fixed bottom-0 left-0 right-0 w-[390px] mx-auto bg-white/95 backdrop-blur-md border-t-2 border-brand-border h-[68px] px-2 flex items-center justify-around z-50 shadow-[0_-3px_0_0_#E8D9CE]">
+<!-- Tab 1: Today -->
+<a class="flex-1 min-h-[48px] flex flex-col items-center justify-center text-brand-secondaryInk hover:text-brand-darkInk transition-colors" href="#/today">
+<span class="material-symbols-outlined text-[22px]">calendar_today</span>
+<span class="text-[11px] font-bold mt-0.5 tracking-tight">Today</span>
+</a>
+<!-- Tab 2: Vocab -->
+<a class="flex-1 min-h-[48px] flex flex-col items-center justify-center text-brand-secondaryInk hover:text-brand-darkInk transition-colors" href="#/vocab">
+<span class="material-symbols-outlined text-[22px]">menu_book</span>
+<span class="text-[11px] font-bold mt-0.5 tracking-tight">Vocab</span>
+</a>
+<!-- Tab 3: Skills (ACTIVE HIGHLIGHT PILL) -->
+<a class="flex-1 min-h-[48px] flex flex-col items-center justify-center text-brand-teal transition-transform" href="#/practice">
+<div class="px-3.5 py-1 rounded-full bg-[#E5F3F2] flex flex-col items-center justify-center border border-[#97D0CD]">
+<span class="material-symbols-outlined filled text-[20px] text-brand-teal">fitness_center</span>
+<span class="text-[11px] font-extrabold tracking-tight text-brand-teal leading-none mt-0.5">Skills</span>
+</div>
+</a>
+<!-- Tab 4: Tests -->
+<a class="flex-1 min-h-[48px] flex flex-col items-center justify-center text-brand-secondaryInk hover:text-brand-darkInk transition-colors" href="#/tests">
+<span class="material-symbols-outlined text-[22px]">assignment</span>
+<span class="text-[11px] font-bold mt-0.5 tracking-tight">Tests</span>
+</a>
+<!-- Tab 5: Me -->
+<a class="flex-1 min-h-[48px] flex flex-col items-center justify-center text-brand-secondaryInk hover:text-brand-darkInk transition-colors" href="#/me">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="text-[11px] font-bold mt-0.5 tracking-tight">Me</span>
+</a>
+</nav>
+</body></html>

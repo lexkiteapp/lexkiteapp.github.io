@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_substance",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: substance.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means a particular type of material.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "Water is the most common substance on Earth.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "substance",
+  "ipa": "/ˈsʌbstəns/",
+  "mean": "a particular type of material",
+  "ex": "Water is the most common substance on Earth.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=substance",
+  "link": "https://lexkite.com/app/#/review?w=substance",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 40,
+  "seconds": 24.7,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "What does \"substance\" mean?",
+  "keyword": "substance",
+  "value": "Substance means a particular type of material.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=substance",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"substance\" mean?",
+    "description": "Substance means a particular type of material.\n\nReview your words, free: https://lexkite.com/app/#/review?w=substance\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "substance",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"substance\" mean?\n\nSubstance means a particular type of material.\n\nReview your words, free: https://lexkite.com/app/#/review?w=substance"
+   },
+   "instagram": {
+    "caption": "What does \"substance\" mean?\n\nSubstance means a particular type of material.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"substance\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means a particular type of material. Substance means a particular type of material. Practice it with a free quiz: {link}"
+ }
+}

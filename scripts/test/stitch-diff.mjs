@@ -4,7 +4,7 @@
 // Hermetic (phục vụ thẳng web/, ?sandbox=1, 0 lượt chạm prod). Dùng: node scripts/test/stitch-diff.mjs [web] [out=out/stitch-diff]
 // CI: .github/workflows/stitch-diff.yml (cần playwright + pngjs + imagemagick). docs/DESIGN-SYSTEM.md §0.
 import fs from 'node:fs'; import path from 'node:path'; import zlib from 'node:zlib'; import { execFileSync } from 'node:child_process';
-import { chromium } from 'playwright'; import { SCREENS, V2REF, DRIVE, DRIVEN, READY, SEED_STREAK, FIX_CLOCK, SEED_LEAGUE, MIME } from './stitch-screens.mjs'; import { PNG } from 'pngjs'; import { createRequire } from 'node:module';
+import { chromium } from 'playwright'; import { SCREENS, V2REF, DRIVE, DRIVEN, READY, SEED_STREAK, FIX_CLOCK, SEED_LEAGUE, SEED_SCREEN, MIME } from './stitch-screens.mjs'; import { PNG } from 'pngjs'; import { createRequire } from 'node:module';
 const AXE = createRequire(path.resolve('package.json')).resolve('axe-core/axe.min.js'), a11y = {}; // WCAG 2.2 AA (axe-core) trong vùng màn Stitch (.st)
 const [ROOT = 'web', OUT = 'out/stitch-diff'] = process.argv.slice(2); fs.mkdirSync(OUT, { recursive: true });
 const LIM = JSON.parse(fs.readFileSync('scripts/test/stitch-diff.json', 'utf8'));
@@ -32,7 +32,18 @@ const CSCAN = () => { const out = [];
 const lum = c => { const f = v => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }; return 0.2126 * f(c[0]) + 0.7152 * f(c[1]) + 0.0722 * f(c[2]); };
 const cratio = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); };
 const contrast = {}; // tag → { n, miss:[{t,cr,need}] }
+// Dải sáng quét qua chữ (.pill-shimmer – viên XP top-bar, chu kỳ 3 s): chụp ngẫu nhiên chỉ thỉnh thoảng trúng → cổng đỏ chập chờn, còn chữ thật vẫn mờ mỗi vòng.
+//   Luôn đo ở ĐỈNH sáng: phủ màu đậm nhất của gradient lên cả viên rồi chụp riêng cho phép đo (ảnh so SSIM giữ nguyên) → kết quả ổn định và là ca xấu nhất.
+const SHIMMER = '.pill-shimmer,.shimmer-fx';
+const shimmerPeak = async (page, buf) => {
+  const top = await page.evaluate(s => { const e = [...document.querySelectorAll(s)].find(x => x.getBoundingClientRect().width); if (!e) return null;
+    const cols = [...getComputedStyle(e, '::after').backgroundImage.matchAll(/rgba?\([^)]+\)/g)].map(m => m[0]), al = c => { const v = c.match(/[\d.]+/g); return v.length > 3 ? +v[3] : 1; };
+    return cols.length ? cols.sort((a, b) => al(b) - al(a))[0] : null; }, SHIMMER).catch(() => null);
+  if (!top) return buf;
+  const tag = await page.addStyleTag({ content: SHIMMER.split(',').map(x => x + '::after').join(',') + `{animation:none!important;left:0!important;background:${top}!important}` }), b = await page.screenshot();
+  await tag.evaluate(n => n.remove()); return b; };
 async function auditContrast(page, buf, tag) {
+  buf = await shimmerPeak(page, buf);
   const items = await page.evaluate(CSCAN).catch(() => []), p = PNG.sync.read(buf), miss = []; let n = 0;
   for (const it of items) { const m = (it.c.match(/[\d.]+/g) || []).map(Number); if (m.length < 3) continue; const a = (m[3] ?? 1) * it.op; if (a < 0.05) continue; // trong suốt = cố ý ẩn (vòng ✓ chưa chọn)
     const x0 = Math.max(0, Math.floor(it.x)), y0 = Math.max(0, Math.floor(it.y)), x1 = Math.min(p.width, Math.ceil(it.x + it.w)), y1 = Math.min(p.height, Math.ceil(it.y + it.h)); if (x1 - x0 < 3 || y1 - y0 < 3) continue;
@@ -50,7 +61,8 @@ async function auditContrast(page, buf, tag) {
 // gate: không ô giữ chỗ giáo viên / ảnh vỡ trong màn Stitch
 const PHSCAN = () => { const bad = []; for (const s of document.querySelectorAll('.st')) { if (/TEACHER SLOT|\[teacher\]|placeholder/i.test(s.innerText)) bad.push('chữ giữ chỗ');
     // lẫn ngôn ngữ: trang chụp ở hl=en → chữ hiện ra có chữ cái riêng tiếng Việt = chuỗi chưa dịch (lọt khóa Việt)
-    if (document.documentElement.lang !== 'vi') { const vi = (s.innerText.match(/[^\s]*[ăâđêôơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹĂÂĐÊÔƠƯẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼẾỀỂỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪỬỮỰỲỴỶỸ][^\s]*/g) || []); if (vi.length) bad.push('lẫn tiếng Việt: ' + [...new Set(vi)].slice(0, 6).join(' ')); } for (const i of s.querySelectorAll('img')) if (i.complete && !i.naturalWidth && i.getBoundingClientRect().width) bad.push('ảnh vỡ ' + (i.getAttribute('src') || '').slice(-40)); } return bad; };
+    if (document.documentElement.lang !== 'vi') { const own = [...s.querySelectorAll('[lang]')].filter(x => x.lang !== document.documentElement.lang).reduce((a, x) => a.split(x.textContent.trim()).join(' '), s.innerText); // tên ngôn ngữ tự xưng (option lang="vi" "Tiếng Việt") không phải chuỗi lọt
+      const vi = (own.match(/[^\s]*[ăâđêôơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹĂÂĐÊÔƠƯẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼẾỀỂỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪỬỮỰỲỴỶỸ][^\s]*/g) || []); if (vi.length) bad.push('lẫn tiếng Việt: ' + [...new Set(vi)].slice(0, 6).join(' ')); } for (const i of s.querySelectorAll('img')) if (i.complete && !i.naturalWidth && i.getBoundingClientRect().width) bad.push('ảnh vỡ ' + (i.getAttribute('src') || '').slice(-40)); } return bad; };
 const ph = {};
 
 // ---- ảnh: giải mã PNG/JPG (JPG đổi sang PNG bằng ImageMagick) → ma trận xám W×H ----
@@ -75,6 +87,11 @@ function score(refFile, ourBuf) { const r = gray(toPng(refFile)), o = gray(ourBu
 
 // ---- vẽ app ----
 const browser = await chromium.launch(), res = {}, errs = [];
+// Ảnh trạng thái Lộ trình (điều phối duyệt trước khi gộp): mở rộng + tấm chi tiết. Lái bằng thao tác thật; không tới được trạng thái = ĐỎ.
+const shotPath = async (page, scheme) => { const R = ':is(.v2-today, .v2-today-desk) ', px = R + '[data-act="pathx"]', full = async n => { const h = await page.evaluate(() => Math.max(document.documentElement.scrollHeight, 844)); await page.setViewportSize({ width: W, height: Math.min(2600, Math.ceil(h)) }); await page.waitForTimeout(300); fs.writeFileSync(path.join(OUT, `app-${n}-${scheme}.png`), await page.screenshot()); await page.setViewportSize({ width: W, height: 844 }); };
+  const sheet = async (sel, n) => { const b = await page.$(R + sel); if (!b) { errs.push(`${n}: không có nút ${sel}`); return; } await b.click(); if (!(await page.waitForSelector('#modalBox [data-act="pgo"]', { timeout: 6000 }).catch(() => null))) { errs.push(`${n}: tấm chi tiết không mở`); return; } await page.waitForTimeout(400); fs.writeFileSync(path.join(OUT, `app-${n}-${scheme}.png`), await page.screenshot()); await page.evaluate(() => UI.closeModal()); await page.waitForTimeout(200); };
+  await page.evaluate(() => scrollTo(0, 0)); await sheet('[data-pr]:has([data-cur]) button[aria-haspopup="dialog"]', 'path-sheet-cur'); await sheet('[data-pv] [data-pr]:last-child button[aria-haspopup="dialog"]', 'path-sheet-lock');
+  await page.click(px); await page.waitForTimeout(500); if (await page.getAttribute(px, 'aria-expanded') !== 'true') errs.push('path-open: không mở rộng được'); await full('path-open'); await page.click(px); await page.waitForTimeout(200); };
 for (const scheme of ['dark', 'light']) {
   const ctx = await browser.newContext({ viewport: { width: W, height: 844 }, deviceScaleFactor: 1, isMobile: true, hasTouch: true, colorScheme: scheme, serviceWorkers: 'block' });
   await ctx.route('**/*', r => { const u = new URL(r.request().url()); if (u.hostname !== 'lk.test') return r.abort(); let p = decodeURIComponent(u.pathname); if (p.startsWith('/api/')) return r.fulfill({ status: 200, body: '{}', contentType: 'application/json' }); if (p.endsWith('/')) p += 'index.html'; const f = path.join(ROOT, p); if (!fs.existsSync(f) || fs.statSync(f).isDirectory()) return r.fulfill({ status: 404, body: '' }); r.fulfill({ status: 200, body: fs.readFileSync(f), contentType: MIME[path.extname(f)] || 'application/octet-stream' }); });
@@ -88,13 +105,14 @@ for (const scheme of ['dark', 'light']) {
     localStorage.setItem('lk.lsn.path', '3'); localStorage.setItem('lk.ux1.st', JSON.stringify({ 0: 3, 1: 3, 2: 2 }));
   }).catch(e => errs.push(`${scheme}: seed ${e.message}`));
   for (const [k, h] of Object.entries(SCREENS)) {
-    await page.goto(url(h), { waitUntil: 'load' }); await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1800); { await FIX_CLOCK(page); await page.evaluate(SEED_STREAK); await page.evaluate(() => App.route()); await page.waitForTimeout(600); } if (k === 'leagues') { await page.evaluate(SEED_LEAGUE); await page.evaluate(() => App.route()); await page.waitForTimeout(900); }
-    if (DRIVEN.test(k)) await page.evaluate(DRIVE, k).catch(e => errs.push('drive ' + e.message)); if (READY[k] && !(await page.$(READY[k]))) errs.push(`${k}: chưa tới trạng thái (${READY[k]}) – ảnh chụp sai màn`);
+    await page.goto(url(h), { waitUntil: 'load' }); await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1800); { await FIX_CLOCK(page); await page.evaluate(SEED_STREAK); await page.evaluate(() => App.route()); await page.waitForTimeout(600); } if (k === 'leagues') { await page.evaluate(SEED_LEAGUE); await page.evaluate(() => App.route()); await page.waitForTimeout(900); } await SEED_SCREEN(page, k);
+    if (DRIVEN.test(k)) await page.evaluate(DRIVE, k).catch(e => errs.push('drive ' + e.message)); if (READY[k] && !(await page.waitForSelector(READY[k], { state: 'attached', timeout: 6000 }).catch(() => null))) errs.push(`${k}: chưa tới trạng thái (${READY[k]}) – ảnh chụp sai màn · có: ${await page.evaluate(sel => sel.split(' ').map((_, i, a) => a.slice(0, i + 1).join(' ')).map(x => { try { return x + '=' + document.querySelectorAll(x).length; } catch (e) { return x + '=?'; } }).join(' | ') + ' · hash ' + location.hash + ' · data-st ' + [...document.querySelectorAll('[data-st]')].map(e => e.dataset.st + (e.hasAttribute('data-cur') ? '*' : '')).join(','), READY[k]).catch(e => e.message)}`);
     await page.addStyleTag({ content: '#toast{display:none!important}' }).catch(() => {});
     // ảnh trọn màn như mẫu: khung cao bằng nội dung → thanh dưới/chân cố định nằm đúng đáy, không lọt giữa ảnh; cuộn về đầu, bỏ focus
     const fullH = await page.evaluate(() => { if (document.activeElement) document.activeElement.blur(); scrollTo(0, 0); const v = document.getElementById('view'); return Math.max(document.documentElement.scrollHeight, v ? v.scrollHeight + v.getBoundingClientRect().top : 0); });
     await page.setViewportSize({ width: W, height: Math.min(2600, Math.max(844, Math.ceil(fullH))) }); await page.waitForTimeout(300);
-    const buf = await page.screenshot(); await auditContrast(page, buf, `${k}-${scheme}-390`); ph[`${k}-${scheme}`] = await page.evaluate(PHSCAN).catch(() => []); await page.setViewportSize({ width: W, height: 844 }); fs.writeFileSync(path.join(OUT, `app-${k}-${scheme}.png`), buf);
+    const buf = await page.screenshot(); await auditContrast(page, buf, `${k}-${scheme}-390`); ph[`${k}-${scheme}`] = await page.evaluate(PHSCAN).catch(() => []); await page.setViewportSize({ width: W, height: 844 }); fs.writeFileSync(path.join(OUT, `app-${k}-${scheme}.png`), buf); try { fs.writeFileSync(path.join(OUT, `a11y-${k}-${scheme}.yml`), await page.locator('#view').ariaSnapshot()); } catch (e) { /* bản Playwright cũ: bỏ qua */ } // cây truy cập (a11y) của #view cho giám khảo độc lập
+    if (k === 'home') await shotPath(page, scheme); // Lộ trình: thêm ảnh mở rộng + tấm chi tiết (nút đang học, nút khoá)
     await page.addScriptTag({ path: AXE }).catch(() => {});
     a11y[`${k}-${scheme}`] = await page.evaluate(async () => { if (!window.axe || !document.querySelector('.st')) return { skipped: true };
       const r = await axe.run({ include: [...document.querySelectorAll('.st')] }, { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'] } });
@@ -115,13 +133,17 @@ for (const scheme of ['dark', 'light']) for (const QW of [360, 412]) {
   await page.evaluate(async () => { localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.speak', '1'); localStorage.setItem('lk.onb', '1'); App.state.settings.onboarded = true; App.state.settings.exam = 'ielts'; App.state.settings.examTarget = '7.5'; await App.saveSettings();
     await Core.Store.set('mocks', [{ at: Date.now() - 3 * 864e5, bands: { listening: 7.5, reading: 7.5, writing: 6.5, speaking: 6.5 }, overall: 7 }]); localStorage.setItem('lk.lsn.path', '3'); localStorage.setItem('lk.ux1.st', JSON.stringify({ 0: 3, 1: 3, 2: 2 })); }).catch(() => {});
   for (const [k, h] of Object.entries(SCREENS)) {
-    await page.goto(url(h), { waitUntil: 'load' }); await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1500); { await FIX_CLOCK(page); await page.evaluate(SEED_STREAK); await page.evaluate(() => App.route()); await page.waitForTimeout(600); } if (k === 'leagues') { await page.evaluate(SEED_LEAGUE); await page.evaluate(() => App.route()); await page.waitForTimeout(900); }
-    if (DRIVEN.test(k)) await page.evaluate(DRIVE, k).catch(() => {}); if (READY[k] && !(await page.$(READY[k]))) errs.push(`${k}: chưa tới trạng thái (${READY[k]}) – ảnh chụp sai màn`);
+    await page.goto(url(h), { waitUntil: 'load' }); await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1500); { await FIX_CLOCK(page); await page.evaluate(SEED_STREAK); await page.evaluate(() => App.route()); await page.waitForTimeout(600); } if (k === 'leagues') { await page.evaluate(SEED_LEAGUE); await page.evaluate(() => App.route()); await page.waitForTimeout(900); } await SEED_SCREEN(page, k);
+    if (DRIVEN.test(k)) await page.evaluate(DRIVE, k).catch(() => {}); if (READY[k] && !(await page.waitForSelector(READY[k], { state: 'attached', timeout: 6000 }).catch(() => null))) errs.push(`${k}: chưa tới trạng thái (${READY[k]}) – ảnh chụp sai màn · có: ${await page.evaluate(sel => sel.split(' ').map((_, i, a) => a.slice(0, i + 1).join(' ')).map(x => { try { return x + '=' + document.querySelectorAll(x).length; } catch (e) { return x + '=?'; } }).join(' | ') + ' · hash ' + location.hash + ' · data-st ' + [...document.querySelectorAll('[data-st]')].map(e => e.dataset.st + (e.hasAttribute('data-cur') ? '*' : '')).join(','), READY[k]).catch(e => e.message)}`);
     await page.addStyleTag({ content: '#toast{display:none!important}' }).catch(() => {});
+    // phông icon (Material Symbols) nạp lười khi có chữ cần vẽ: đo "chữ bị cắt" khi phông chưa xong thấy chữ ligature (arrow_back, check…) rộng hơn ô 1em → báo cắt GIẢ (07/11: onb-level-dark-412, welcome-desk-dark-412)
+    await page.evaluate(async () => { if (!document.fonts) return; await Promise.race([Promise.all(['Outlined', 'Rounded'].map(n => document.fonts.load('24px "Material Symbols ' + n + '"', 'home'))).then(() => document.fonts.ready), new Promise(r => setTimeout(r, 4000))]); }).catch(() => {});
     qc[`${k}-${scheme}-${QW}`] = await page.evaluate(() => { const W = innerWidth, over = [], clip = [], tap = [];
-      for (const e of document.querySelectorAll('.st *, .topbar *, .bottom-nav *')) { const r = e.getBoundingClientRect(), cs = getComputedStyle(e); if (!r.width || cs.visibility === 'hidden' || e.closest('.sr-only')) continue;
+      // ca đối chứng DƯƠNG (gác không được yếu đi): chữ thường bị overflow:hidden cắt thật PHẢI bị đúng phép đo dưới đây bắt (chỉ chờ phông icon, không loại phần tử nào)
+      const cn = document.createElement('div'); cn.style.cssText = 'width:40px;overflow:hidden;white-space:nowrap;position:absolute;left:0;top:0'; cn.textContent = 'CANARY clipped text'; cn.setAttribute('data-qc-canary', ''); document.body.prepend(cn);   // màn không có .st/.topbar/.bottom-nav (review) vẫn có canary trong phạm vi quét
+      for (const e of document.querySelectorAll('.st *, .topbar *, .bottom-nav *, [data-qc-canary]')) { const r = e.getBoundingClientRect(), cs = getComputedStyle(e); if (!r.width || cs.visibility === 'hidden' || e.closest('.sr-only')) continue;
         if (r.right > W + 1 || r.left < -1) if (!e.closest('[class*="overflow-hidden"],[class*="overflow-x"]') ) over.push(e.className.toString().slice(0, 40));
-        if (e.children.length === 0 && e.textContent.trim() && cs.textOverflow !== 'ellipsis' && e.scrollWidth > e.clientWidth + 2 && cs.overflow !== 'visible') clip.push(e.textContent.trim().slice(0, 24));
+        if (e.children.length === 0 && e.textContent.trim() && !e.closest('.sr-only') && cs.textOverflow !== 'ellipsis' && e.scrollWidth > e.clientWidth + 2 && cs.overflow !== 'visible') clip.push(e.textContent.trim().slice(0, 24));
         if (e.matches('a,button,[role=button],input') && (() => { // vùng bấm thật = khung ∪ hộp ::after (absolute: tính theo khối chứa định vị gần nhất – nới vô hình hoặc "stretched link" phủ cả thẻ)
           const x = getComputedStyle(e, '::after'); let w = r.width, h = r.height;
           if (x.content !== 'none' && x.position === 'absolute') { let cb = e; while (cb && cb !== document.body && getComputedStyle(cb).position === 'static') cb = cb.parentElement;
@@ -130,8 +152,9 @@ for (const scheme of ['dark', 'light']) for (const QW of [360, 412]) {
             const aw = L != null && R != null ? R - L : parseFloat(x.width) || 0, ah = T != null && B != null ? B - T : parseFloat(x.height) || 0;
             w = Math.max(w, aw); h = Math.max(h, ah); }
           return w < 43.5 || h < 43.5; })()) tap.push(`${(e.textContent.trim() || e.getAttribute('aria-label') || e.tagName).slice(0, 14)} ${Math.round(r.width)}x${Math.round(r.height)}`); }
+      const canary = clip.includes('CANARY clipped text'.slice(0, 24)); cn.remove(); if (canary) clip.splice(clip.indexOf('CANARY clipped text'.slice(0, 24)), 1);
       const lg = document.querySelector('.topbar .brand img'), lr = lg && lg.getBoundingClientRect();
-      return { hscroll: document.documentElement.scrollWidth > W + 1, over: over.slice(0, 5), clip: clip.slice(0, 5), tap: tap.slice(0, 8), tapN: tap.length, logo: lg ? { src: lg.getAttribute('src'), w: Math.round(lr.width), h: Math.round(lr.height), nat: lg.naturalWidth } : null }; }).catch(e => ({ error: e.message }));
+      return { canary, hscroll: document.documentElement.scrollWidth > W + 1, over: over.slice(0, 5), clip: clip.slice(0, 5), tap: tap.slice(0, 8), tapN: tap.length, logo: lg ? { src: lg.getAttribute('src'), w: Math.round(lr.width), h: Math.round(lr.height), nat: lg.naturalWidth } : null }; }).catch(e => ({ error: e.message }));
     const fullH = await page.evaluate(() => { scrollTo(0, 0); const v = document.getElementById('view'); return Math.max(document.documentElement.scrollHeight, v ? v.scrollHeight + v.getBoundingClientRect().top : 0); });
     await page.setViewportSize({ width: QW, height: Math.min(2600, Math.max(844, Math.ceil(fullH))) }); await page.waitForTimeout(250);
     { const b = await page.screenshot(); fs.writeFileSync(path.join(OUT, `w${QW}-${k}-${scheme}.png`), b); await auditContrast(page, b, `${k}-${scheme}-${QW}`); } await page.setViewportSize({ width: QW, height: 844 });
@@ -160,11 +183,12 @@ for (const scheme of ['dark', 'light']) {
     await Core.Store.set('mocks', [{ at: Date.now() - 3 * 864e5, bands: { listening: 7.5, reading: 7.5, writing: 6.5, speaking: 6.5 }, overall: 7 }]);
     localStorage.setItem('lk.lsn.path', '3'); localStorage.setItem('lk.ux1.st', JSON.stringify({ 0: 3, 1: 3, 2: 2 })); }).catch(() => {});
   for (const [k, h] of Object.entries(SCREENS)) {
-    await page.goto(url(h), { waitUntil: 'load' }); await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1800); { await FIX_CLOCK(page); await page.evaluate(SEED_STREAK); await page.evaluate(() => App.route()); await page.waitForTimeout(600); } if (k === 'leagues') { await page.evaluate(SEED_LEAGUE); await page.evaluate(() => App.route()); await page.waitForTimeout(900); }
-    if (DRIVEN.test(k)) await page.evaluate(DRIVE, k).catch(e => errs.push('drive ' + e.message)); if (READY[k] && !(await page.$(READY[k]))) errs.push(`${k}: chưa tới trạng thái (${READY[k]}) – ảnh chụp sai màn`);
+    await page.goto(url(h), { waitUntil: 'load' }); await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1800); { await FIX_CLOCK(page); await page.evaluate(SEED_STREAK); await page.evaluate(() => App.route()); await page.waitForTimeout(600); } if (k === 'leagues') { await page.evaluate(SEED_LEAGUE); await page.evaluate(() => App.route()); await page.waitForTimeout(900); } await SEED_SCREEN(page, k);
+    if (DRIVEN.test(k)) await page.evaluate(DRIVE, k).catch(e => errs.push('drive ' + e.message)); if (READY[k] && !(await page.waitForSelector(READY[k], { state: 'attached', timeout: 6000 }).catch(() => null))) errs.push(`${k}: chưa tới trạng thái (${READY[k]}) – ảnh chụp sai màn · có: ${await page.evaluate(sel => sel.split(' ').map((_, i, a) => a.slice(0, i + 1).join(' ')).map(x => { try { return x + '=' + document.querySelectorAll(x).length; } catch (e) { return x + '=?'; } }).join(' | ') + ' · hash ' + location.hash + ' · data-st ' + [...document.querySelectorAll('[data-st]')].map(e => e.dataset.st + (e.hasAttribute('data-cur') ? '*' : '')).join(','), READY[k]).catch(e => e.message)}`);
     await page.addStyleTag({ content: '#toast{display:none!important}' }).catch(() => {});
     await page.evaluate(() => { if (document.activeElement) document.activeElement.blur(); scrollTo(0, 0); document.querySelectorAll('*').forEach(e => { if (e.scrollTop) e.scrollTop = 0; }); }).catch(() => {}); await page.waitForTimeout(200);
     { const b = await page.screenshot(); fs.writeFileSync(path.join(OUT, `desk-${k}-${scheme}.png`), b); await auditContrast(page, b, `${k}-${scheme}-1366`); }
+    if (k === 'home') { const dh = await page.evaluate(() => { const v = document.getElementById('view'); return Math.min(4000, Math.ceil(Math.max(document.documentElement.scrollHeight, v ? v.scrollHeight + v.getBoundingClientRect().top : 0))); }); await page.setViewportSize({ width: 1366, height: Math.max(900, dh) }); await page.waitForTimeout(300); fs.writeFileSync(path.join(OUT, `desk-full-${k}-${scheme}.png`), await page.screenshot()); await page.setViewportSize({ width: 1366, height: 900 }); } // ảnh desktop đủ cao để thấy các khối dưới màn đầu (Lộ trình)
   }
   await ctx.close();
 }
@@ -184,7 +208,7 @@ try { for (const k of Object.keys(SCREENS)) { const a = []; for (const sc of ['d
 // ---- cổng ----
 const bad = [];
 for (const [k, v] of Object.entries(res)) { const l = LIM[k] || {}; for (const m of ['ssim', 'rows']) if (l[m] != null && v[m] < l[m]) bad.push(`${k} ${m} ${v[m]} < ${l[m]}`); for (const [n, lim] of Object.entries(l.reg || {})) if (v.reg && v.reg[n] < lim) bad.push(`${k} vùng ${n} ssim ${v.reg[n]} < ${lim}`); }
-for (const [k, v] of Object.entries(qc)) { if (v.hscroll || (v.over || []).length) bad.push(`tràn ngang ${k}: ${(v.over || []).join(' | ')}`); if ((v.clip || []).length) bad.push(`chữ bị cắt ${k}: ${v.clip.join(' | ')}`); if (v.logo && !/icon\.svg/.test(v.logo.src)) bad.push(`logo ${k}: ${v.logo.src}`); }
+for (const [k, v] of Object.entries(qc)) { if (!v.error && !v.canary) bad.push(`gác QC khổ máy ${k} KHÔNG bắt chữ bị cắt giả lập (ca đối chứng dương) – phép đo chữ cắt bị vô hiệu`); if (v.hscroll || (v.over || []).length) bad.push(`tràn ngang ${k}: ${(v.over || []).join(' | ')}`); if ((v.clip || []).length) bad.push(`chữ bị cắt ${k}: ${v.clip.join(' | ')}`); if (v.logo && !/icon\.svg/.test(v.logo.src)) bad.push(`logo ${k}: ${v.logo.src}`); }
 const cmiss = Object.entries(contrast).flatMap(([k, v]) => v.miss.map(m => ({ k, ...m }))).sort((a, b) => a.cr / a.need - b.cr / b.need);
 if (cmiss.length) bad.push(`tương phản: ${cmiss.length} chỗ < ngưỡng (xem bảng)`);
 for (const [k, v] of Object.entries(ph)) if (v.length) bad.push(`giữ chỗ ${k}: ${v.join(' | ')}`);

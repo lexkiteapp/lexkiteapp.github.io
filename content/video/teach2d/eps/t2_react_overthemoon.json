@@ -98,5 +98,46 @@
   "words": 40,
   "seconds": 27.1,
   "wpm": 89
+ },
+ "publish": {
+  "title": "Passed your driving test?",
+  "keyword": "over the moon",
+  "value": "\"Over the moon\" means extremely happy and pleased.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#phrasalverbs",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 32,
+  "platforms": {
+   "youtube": {
+    "title": "Passed your driving test?",
+    "description": "\"Over the moon\" means extremely happy and pleased.\n\nLearn real phrases, free: https://lexkite.com/app/#/phrases\n\nSeries: Say it like a native · Teacher: Carlos\n\n#learnenglish #englishtips #phrasalverbs #englishteacher",
+    "tags": [
+     "over the moon",
+     "Say it like a native",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Passed your driving test?\n\n\"Over the moon\" means extremely happy and pleased.\n\nLearn real phrases, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Passed your driving test?\n\n\"Over the moon\" means extremely happy and pleased.\n\nLearn real phrases: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#phrasalverbs",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Passed your driving test? #learnenglish #englishtips #phrasalverbs"
+   }
+  },
+  "first_comment": "Did you get it? You're over the moon. \"Over the moon\" means extremely happy and pleased. More practice like this (free): {link}"
  }
 }

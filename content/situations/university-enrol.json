@@ -1,0 +1,899 @@
+{
+ "id": "university-enrol",
+ "group": "study",
+ "cefr": "B1",
+ "title": {
+  "en": "Enrolling at university",
+  "vi": "Đăng ký nhập học đại học",
+  "es": "Matricularse en la universidad",
+  "pt": "Matricular-se na universidade",
+  "fr": "S'inscrire à l'université",
+  "de": "An der Universität einschreiben",
+  "id": "Mendaftar di universitas",
+  "th": "ลงทะเบียนเข้ามหาวิทยาลัย",
+  "zh": "办理大学入学注册",
+  "ja": "大学の入学手続き",
+  "ko": "대학 등록하기",
+  "hi": "विश्वविद्यालय में दाख़िला",
+  "ar": "التسجيل في الجامعة",
+  "ru": "Зачисление в университет",
+  "tr": "Üniversiteye kayıt olma"
+ },
+ "goal": {
+  "en": "Sort out your enrolment step by step!",
+  "vi": "Làm xong thủ tục nhập học từng bước một!",
+  "es": "¡Resuelve tu matrícula paso a paso!",
+  "pt": "Resolva sua matrícula passo a passo!",
+  "fr": "Réglez votre inscription étape par étape !",
+  "de": "Erledige deine Einschreibung Schritt für Schritt!",
+  "id": "Selesaikan pendaftaranmu selangkah demi selangkah!",
+  "th": "จัดการเรื่องลงทะเบียนเรียนทีละขั้นตอน!",
+  "zh": "一步一步办好入学注册！",
+  "ja": "入学手続きを一つずつ済ませよう！",
+  "ko": "등록 절차를 차근차근 마쳐요!",
+  "hi": "दाख़िले की प्रक्रिया क़दम-दर-क़दम पूरी करें!",
+  "ar": "أنجز إجراءات تسجيلك خطوة بخطوة!",
+  "ru": "Оформи зачисление шаг за шагом!",
+  "tr": "Kayıt işlemlerini adım adım hallet!"
+ },
+ "roles": [
+  "customer",
+  "barista"
+ ],
+ "stages": [
+  {
+   "id": "enrol",
+   "title": {
+    "en": "Enrol",
+    "vi": "Đăng ký nhập học",
+    "es": "Matricularse",
+    "pt": "Matricular-se",
+    "fr": "S'inscrire",
+    "de": "Sich einschreiben",
+    "id": "Mendaftar",
+    "th": "ลงทะเบียน",
+    "zh": "注册入学",
+    "ja": "入学手続き",
+    "ko": "등록하기",
+    "hi": "दाख़िला लें",
+    "ar": "التسجيل",
+    "ru": "Зачисление",
+    "tr": "Kayıt"
+   },
+   "lines": [
+    "e1",
+    "e2",
+    "e3",
+    "e4"
+   ]
+  },
+  {
+   "id": "docs",
+   "title": {
+    "en": "Documents",
+    "vi": "Giấy tờ",
+    "es": "Documentos",
+    "pt": "Documentos",
+    "fr": "Documents",
+    "de": "Unterlagen",
+    "id": "Dokumen",
+    "th": "เอกสาร",
+    "zh": "材料",
+    "ja": "書類",
+    "ko": "서류",
+    "hi": "दस्तावेज़",
+    "ar": "المستندات",
+    "ru": "Документы",
+    "tr": "Belgeler"
+   },
+   "lines": [
+    "d1",
+    "d2",
+    "d3",
+    "d4"
+   ]
+  },
+  {
+   "id": "fees",
+   "title": {
+    "en": "Fees and timetable",
+    "vi": "Học phí và thời khóa biểu",
+    "es": "Tasas y horario",
+    "pt": "Taxas e horário",
+    "fr": "Frais et emploi du temps",
+    "de": "Gebühren und Stundenplan",
+    "id": "Biaya dan jadwal",
+    "th": "ค่าเล่าเรียนและตารางเรียน",
+    "zh": "学费与课表",
+    "ja": "学費と時間割",
+    "ko": "수업료와 시간표",
+    "hi": "फ़ीस और समय-सारणी",
+    "ar": "الرسوم والجدول",
+    "ru": "Оплата и расписание",
+    "tr": "Harç ve ders programı"
+   },
+   "lines": [
+    "t1",
+    "t2",
+    "t3",
+    "t4"
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "id": "e1",
+   "who": "customer",
+   "en": "Hello, I'd like to enrol on the international business course starting in September.",
+   "variants": {
+    "polite": "Good morning. I'd like to enrol on the international business course that begins in September.",
+    "casual": "Hi, I want to sign up for the international business course in September."
+   },
+   "gloss": {
+    "en": "Saying which course you want to join.",
+    "vi": "Xin chào, tôi muốn đăng ký khóa kinh doanh quốc tế bắt đầu vào tháng Chín.",
+    "es": "Hola, quisiera matricularme en el curso de negocios internacionales que empieza en septiembre.",
+    "pt": "Olá, gostaria de me matricular no curso de negócios internacionais que começa em setembro.",
+    "fr": "Bonjour, je voudrais m'inscrire au cursus de commerce international qui commence en septembre.",
+    "de": "Guten Tag, ich möchte mich für den Studiengang Internationales Business einschreiben, der im September beginnt.",
+    "id": "Halo, saya ingin mendaftar ke program bisnis internasional yang dimulai bulan September.",
+    "th": "สวัสดีค่ะ ฉันอยากลงทะเบียนเรียนหลักสูตรธุรกิจระหว่างประเทศที่เริ่มในเดือนกันยายนค่ะ",
+    "zh": "您好，我想报名九月开课的国际商务课程。",
+    "ja": "こんにちは、9月開講の国際ビジネスコースに入学したいのですが。",
+    "ko": "안녕하세요, 9월에 시작하는 국제 비즈니스 과정에 등록하고 싶어요.",
+    "hi": "नमस्ते, मैं सितंबर से शुरू होने वाले अंतरराष्ट्रीय व्यापार पाठ्यक्रम में दाख़िला लेना चाहती हूँ।",
+    "ar": "مرحبًا، أودّ التسجيل في مقرر الأعمال الدولية الذي يبدأ في سبتمبر.",
+    "ru": "Здравствуйте, я хотела бы записаться на курс международного бизнеса, который начинается в сентябре.",
+    "tr": "Merhaba, Eylül'de başlayan uluslararası işletme programına kayıt olmak istiyorum."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "enrol",
+     "ipa": "/ɪnˈroʊl/",
+     "hi": "en-ROLL",
+     "note": {
+      "en": "Stress the second syllable: en-ROLL.",
+      "vi": "Nhấn âm tiết thứ hai: en-ROL, như “roll” trong “rock and roll”.",
+      "es": "Acentúa la segunda sílaba: en-ROUL.",
+      "pt": "Acentue a segunda sílaba: en-ROUL.",
+      "fr": "Accentuez la deuxième syllabe : en-ROUL.",
+      "de": "Betone die zweite Silbe: en-ROUL.",
+      "id": "Tekankan suku kata kedua: en-ROL.",
+      "th": "เน้นพยางค์ที่สอง: เอน-โรล",
+      "zh": "重音在第二个音节：en-ROLL。",
+      "ja": "2番目の音節を強く：エン・ロール。",
+      "ko": "두 번째 음절에 강세: 인-롤.",
+      "hi": "दूसरे अक्षर पर ज़ोर दें: इन-रोल।",
+      "ar": "شدّد على المقطع الثاني: إن-رول.",
+      "ru": "Ударение на второй слог: ин-РОУЛ.",
+      "tr": "Vurgu ikinci hecede: en-ROUL."
+     }
+    }
+   ]
+  },
+  {
+   "id": "e2",
+   "who": "barista",
+   "en": "Of course. Have you completed the online application form?",
+   "variants": {
+    "polite": "Certainly. May I ask whether you have completed the online application form?",
+    "casual": "Sure. Did you fill in the online form?"
+   },
+   "gloss": {
+    "en": "The officer asks about your application.",
+    "vi": "Vâng. Anh/chị đã hoàn thành đơn đăng ký trực tuyến chưa?",
+    "es": "Por supuesto. ¿Ha completado el formulario de solicitud en línea?",
+    "pt": "Claro. O senhor/a senhora já preencheu o formulário de inscrição on-line?",
+    "fr": "Bien sûr. Avez-vous rempli le formulaire de candidature en ligne ?",
+    "de": "Natürlich. Haben Sie das Online-Bewerbungsformular schon ausgefüllt?",
+    "id": "Tentu. Apakah Anda sudah mengisi formulir pendaftaran daring?",
+    "th": "ได้ค่ะ คุณกรอกใบสมัครออนไลน์เรียบร้อยแล้วหรือยังคะ",
+    "zh": "好的。您已经填完在线申请表了吗？",
+    "ja": "かしこまりました。オンラインの出願フォームはもう記入されましたか？",
+    "ko": "네. 온라인 지원서는 작성하셨나요?",
+    "hi": "ज़रूर। क्या आपने ऑनलाइन आवेदन फ़ॉर्म भर लिया है?",
+    "ar": "بالتأكيد. هل أكملت نموذج التقديم عبر الإنترنت؟",
+    "ru": "Конечно. Вы уже заполнили онлайн-заявление?",
+    "tr": "Tabii. Çevrimiçi başvuru formunu doldurdunuz mu?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "e3",
+   "who": "customer",
+   "en": "Yes, I submitted it last week, but I haven't received a confirmation email.",
+   "variants": {
+    "polite": "Yes, I submitted it last week, but I haven't received a confirmation email yet.",
+    "casual": "Yes, I sent it last week, but no confirmation email yet."
+   },
+   "gloss": {
+    "en": "Explaining that no confirmation has arrived.",
+    "vi": "Rồi ạ, tôi đã nộp tuần trước nhưng chưa nhận được email xác nhận.",
+    "es": "Sí, la envié la semana pasada, pero no he recibido ningún correo de confirmación.",
+    "pt": "Sim, enviei na semana passada, mas não recebi o e-mail de confirmação.",
+    "fr": "Oui, je l'ai envoyé la semaine dernière, mais je n'ai pas reçu d'e-mail de confirmation.",
+    "de": "Ja, ich habe es letzte Woche abgeschickt, aber ich habe keine Bestätigungs-E-Mail bekommen.",
+    "id": "Sudah, saya mengirimkannya minggu lalu, tetapi belum menerima email konfirmasi.",
+    "th": "กรอกแล้วค่ะ ส่งไปตั้งแต่สัปดาห์ที่แล้ว แต่ยังไม่ได้รับอีเมลยืนยันเลยค่ะ",
+    "zh": "填完了，我上周提交的，但还没有收到确认邮件。",
+    "ja": "はい、先週提出したのですが、確認メールがまだ届いていません。",
+    "ko": "네, 지난주에 제출했는데 확인 이메일을 아직 못 받았어요.",
+    "hi": "जी हाँ, मैंने पिछले हफ़्ते जमा किया था, लेकिन पुष्टि वाला ईमेल अभी तक नहीं आया।",
+    "ar": "نعم، قدّمته الأسبوع الماضي لكنني لم أتلقَّ بريد تأكيد.",
+    "ru": "Да, я отправила его на прошлой неделе, но письмо с подтверждением так и не пришло.",
+    "tr": "Evet, geçen hafta gönderdim ama henüz onay e-postası almadım."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "e4",
+   "who": "barista",
+   "en": "Let me look up your application. Could you spell your surname for me?",
+   "variants": {
+    "polite": "Let me look up your application. Would you mind spelling your surname for me?",
+    "casual": "I'll check. Can you spell your surname?"
+   },
+   "gloss": {
+    "en": "The officer asks you to spell your surname.",
+    "vi": "Để tôi tra đơn của anh/chị. Anh/chị đánh vần họ giúp tôi được không?",
+    "es": "Voy a buscar su solicitud. ¿Podría deletrearme su apellido?",
+    "pt": "Vou procurar a sua inscrição. Poderia soletrar seu sobrenome?",
+    "fr": "Je vais retrouver votre dossier. Pourriez-vous épeler votre nom de famille ?",
+    "de": "Ich suche Ihre Bewerbung heraus. Könnten Sie mir Ihren Nachnamen buchstabieren?",
+    "id": "Biar saya cari berkas pendaftaran Anda. Bisa tolong eja nama keluarga Anda?",
+    "th": "ขอตรวจใบสมัครของคุณก่อนนะคะ ช่วยสะกดนามสกุลให้หน่อยได้ไหมคะ",
+    "zh": "我来查一下您的申请。请您拼一下姓氏好吗？",
+    "ja": "出願情報を調べますね。姓のスペルを教えていただけますか？",
+    "ko": "지원서를 찾아볼게요. 성의 철자를 불러 주시겠어요?",
+    "hi": "मैं आपका आवेदन देखती हूँ। क्या आप अपना उपनाम बोलकर लिखवा सकते हैं?",
+    "ar": "سأبحث عن طلبك. هل يمكنك تهجئة اسم عائلتك لي؟",
+    "ru": "Сейчас найду вашу заявку. Не могли бы вы продиктовать фамилию по буквам?",
+    "tr": "Başvurunuza bakayım. Soyadınızı harf harf söyleyebilir misiniz?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "d1",
+   "who": "customer",
+   "en": "Which documents do I need to bring to complete my registration?",
+   "variants": {
+    "polite": "Could you tell me which documents I need to bring to complete my registration?",
+    "casual": "What documents do I need to bring?"
+   },
+   "gloss": {
+    "en": "Asking which documents are required.",
+    "vi": "Tôi cần mang những giấy tờ nào để hoàn tất đăng ký?",
+    "es": "¿Qué documentos necesito traer para completar mi matrícula?",
+    "pt": "Quais documentos preciso levar para concluir minha matrícula?",
+    "fr": "Quels documents dois-je apporter pour finaliser mon inscription ?",
+    "de": "Welche Unterlagen muss ich mitbringen, um meine Einschreibung abzuschließen?",
+    "id": "Dokumen apa saja yang perlu saya bawa untuk menyelesaikan pendaftaran?",
+    "th": "ต้องนำเอกสารอะไรมาบ้างเพื่อให้การลงทะเบียนเสร็จสมบูรณ์คะ",
+    "zh": "我需要带哪些材料才能完成注册？",
+    "ja": "登録を完了するには、どの書類を持ってくる必要がありますか？",
+    "ko": "등록을 마치려면 어떤 서류를 가져와야 하나요?",
+    "hi": "पंजीकरण पूरा करने के लिए मुझे कौन-से दस्तावेज़ लाने होंगे?",
+    "ar": "ما المستندات التي يجب أن أحضرها لإكمال تسجيلي؟",
+    "ru": "Какие документы нужно принести, чтобы завершить регистрацию?",
+    "tr": "Kaydımı tamamlamak için hangi belgeleri getirmem gerekiyor?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "documents",
+     "ipa": "/ˈdɑː.kjə.mənts/",
+     "hi": "DOK",
+     "note": {
+      "en": "Stress the first syllable: DOK-yoo-ments.",
+      "vi": "Nhấn âm tiết đầu: DOK-iu-mầnts.",
+      "es": "Acentúa la primera sílaba: DOK-iu-ments.",
+      "pt": "Acentue a primeira sílaba: DÓK-iu-ments.",
+      "fr": "Accentuez la première syllabe : DOK-iou-ments.",
+      "de": "Betone die erste Silbe: DOK-ju-ments.",
+      "id": "Tekankan suku kata pertama: DOK-yu-men.",
+      "th": "เน้นพยางค์แรก: ด็อก-คิว-เมนต์ส",
+      "zh": "重音在第一个音节：DOK-yoo-ments。",
+      "ja": "最初の音節を強く：ドキュメンツ。",
+      "ko": "첫 음절에 강세: 다-큐-먼츠.",
+      "hi": "पहले अक्षर पर ज़ोर दें: डॉक-यू-मेंट्स।",
+      "ar": "شدّد على المقطع الأول: دوك-يو-منتس.",
+      "ru": "Ударение на первый слог: ДОК-ю-ментс.",
+      "tr": "Vurgu ilk hecede: DOK-yu-ments."
+     }
+    }
+   ]
+  },
+  {
+   "id": "d2",
+   "who": "barista",
+   "en": "You'll need your passport, your certificates and proof of language level.",
+   "variants": {
+    "polite": "You will need to bring your passport, your certificates and proof of your language level.",
+    "casual": "Passport, certificates and a language test result."
+   },
+   "gloss": {
+    "en": "The officer lists the required documents.",
+    "vi": "Anh/chị cần hộ chiếu, các chứng chỉ và giấy chứng nhận trình độ ngoại ngữ.",
+    "es": "Necesitará su pasaporte, sus certificados y un justificante de su nivel de idioma.",
+    "pt": "O senhor/a senhora vai precisar do passaporte, dos certificados e de um comprovante de nível de idioma.",
+    "fr": "Il vous faudra votre passeport, vos diplômes et un justificatif de niveau de langue.",
+    "de": "Sie brauchen Ihren Reisepass, Ihre Zeugnisse und einen Nachweis Ihrer Sprachkenntnisse.",
+    "id": "Anda memerlukan paspor, sertifikat, dan bukti kemampuan bahasa.",
+    "th": "คุณต้องมีหนังสือเดินทาง ใบรับรองต่างๆ และหลักฐานระดับภาษาค่ะ",
+    "zh": "您需要带护照、各类证书和语言水平证明。",
+    "ja": "パスポート、各種証明書、語学力の証明書が必要です。",
+    "ko": "여권, 증명서, 그리고 어학 능력 증빙 서류가 필요해요.",
+    "hi": "आपको पासपोर्ट, प्रमाण-पत्र और भाषा स्तर का प्रमाण चाहिए होगा।",
+    "ar": "ستحتاج إلى جواز سفرك وشهاداتك وإثبات مستواك في اللغة.",
+    "ru": "Вам понадобятся паспорт, ваши сертификаты и подтверждение уровня языка.",
+    "tr": "Pasaportunuz, sertifikalarınız ve dil seviyenizi gösteren bir belge gerekecek."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "d3",
+   "who": "customer",
+   "en": "My certificates are in my own language. Do they need an official translation?",
+   "variants": {
+    "polite": "My certificates are in my own language. Would they need an official translation?",
+    "casual": "My certificates aren't in English. Do I need a translation?"
+   },
+   "gloss": {
+    "en": "Asking whether certificates must be translated.",
+    "vi": "Các chứng chỉ của tôi bằng tiếng mẹ đẻ. Chúng có cần bản dịch chính thức không?",
+    "es": "Mis certificados están en mi idioma. ¿Necesitan una traducción oficial?",
+    "pt": "Meus certificados estão no meu idioma. Eles precisam de tradução oficial?",
+    "fr": "Mes diplômes sont dans ma langue. Faut-il une traduction officielle ?",
+    "de": "Meine Zeugnisse sind in meiner Muttersprache. Brauchen sie eine offizielle Übersetzung?",
+    "id": "Sertifikat saya berbahasa ibu saya. Apakah perlu diterjemahkan secara resmi?",
+    "th": "ใบรับรองของฉันเป็นภาษาของประเทศฉัน ต้องมีคำแปลอย่างเป็นทางการไหมคะ",
+    "zh": "我的证书是用母语写的，需要官方翻译件吗？",
+    "ja": "私の証明書は母国語で書かれています。公的な翻訳は必要ですか？",
+    "ko": "제 증명서는 모국어로 되어 있는데, 공식 번역이 필요한가요?",
+    "hi": "मेरे प्रमाण-पत्र मेरी अपनी भाषा में हैं। क्या उनका आधिकारिक अनुवाद चाहिए?",
+    "ar": "شهاداتي مكتوبة بلغتي الأم. هل تحتاج إلى ترجمة رسمية؟",
+    "ru": "Мои сертификаты на моём родном языке. Нужен ли официальный перевод?",
+    "tr": "Sertifikalarım kendi dilimde. Resmî bir çeviri gerekiyor mu?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "d4",
+   "who": "barista",
+   "en": "Yes, a certified translation is required, and it must be dated within six months.",
+   "variants": {
+    "polite": "Yes, a certified translation is required, and it should be dated within the last six months.",
+    "casual": "Yes, certified, and no older than six months."
+   },
+   "gloss": {
+    "en": "The officer explains the translation rule.",
+    "vi": "Có, cần bản dịch công chứng, và bản đó không được cũ quá sáu tháng.",
+    "es": "Sí, se requiere una traducción jurada con fecha de los últimos seis meses.",
+    "pt": "Sim, é exigida tradução juramentada, com data dos últimos seis meses.",
+    "fr": "Oui, une traduction certifiée est exigée, datée de moins de six mois.",
+    "de": "Ja, eine beglaubigte Übersetzung ist erforderlich, und sie darf nicht älter als sechs Monate sein.",
+    "id": "Ya, terjemahan tersumpah diperlukan, dan tanggalnya tidak boleh lebih dari enam bulan lalu.",
+    "th": "ต้องมีค่ะ ต้องเป็นคำแปลรับรอง และลงวันที่ไม่เกินหกเดือนค่ะ",
+    "zh": "是的，需要经认证的翻译件，且日期必须在六个月以内。",
+    "ja": "はい、認証付きの翻訳が必要で、発行日から6か月以内のものに限ります。",
+    "ko": "네, 공증 번역본이 필요하고 발급일이 6개월 이내여야 해요.",
+    "hi": "जी हाँ, प्रमाणित अनुवाद ज़रूरी है, और उस पर छह महीने के भीतर की तारीख़ होनी चाहिए।",
+    "ar": "نعم، الترجمة المعتمدة مطلوبة، ويجب ألا يتجاوز تاريخها ستة أشهر.",
+    "ru": "Да, нужен заверенный перевод, выданный не более шести месяцев назад.",
+    "tr": "Evet, onaylı bir çeviri gerekiyor ve tarihi son altı ay içinde olmalı."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "certified",
+     "ipa": "/ˈsɜːr.tɪ.faɪd/",
+     "hi": "SUR",
+     "note": {
+      "en": "Stress the first syllable: SUR-ti-fyd, ending like the word “eyed”.",
+      "vi": "Nhấn âm tiết đầu: SƠ-ti-fai-đ, kết thúc giống từ “eyed”.",
+      "es": "Acentúa la primera sílaba: SER-ti-faid, que termina como “eyed”.",
+      "pt": "Acentue a primeira sílaba: SÂR-ti-faid, terminando como “eyed”.",
+      "fr": "Accentuez la première syllabe : SEUR-ti-faïd, qui finit comme « eyed ».",
+      "de": "Betone die erste Silbe: SÖR-ti-faid, am Ende wie „eyed“.",
+      "id": "Tekankan suku kata pertama: SER-ti-faid, berakhir seperti “eyed”.",
+      "th": "เน้นพยางค์แรก: เซอร์-ทิ-ไฟด์ ลงท้ายเหมือนคำว่า eyed",
+      "zh": "重音在第一个音节：SUR-ti-fyd，结尾像 eyed。",
+      "ja": "最初の音節を強く：サーティファイド。語尾は eyed と同じ。",
+      "ko": "첫 음절에 강세: 서-티-파이드. 끝은 eyed처럼.",
+      "hi": "पहले अक्षर पर ज़ोर दें: सर-टि-फ़ाइड, अंत ‘eyed’ जैसा।",
+      "ar": "شدّد على المقطع الأول: سيرتِ-فايد، وينتهي مثل eyed.",
+      "ru": "Ударение на первый слог: СЁР-ти-файд, окончание как в eyed.",
+      "tr": "Vurgu ilk hecede: SÖR-ti-fayd, sonu “eyed” gibi."
+     }
+    }
+   ]
+  },
+  {
+   "id": "t1",
+   "who": "customer",
+   "en": "How much are the tuition fees, and can I pay in instalments?",
+   "variants": {
+    "polite": "Could you tell me how much the tuition fees are, and whether I can pay in instalments?",
+    "casual": "How much are the fees? Can I pay in instalments?"
+   },
+   "gloss": {
+    "en": "Asking about fees and instalments.",
+    "vi": "Học phí là bao nhiêu, và tôi có thể trả góp không?",
+    "es": "¿Cuánto cuesta la matrícula y puedo pagar a plazos?",
+    "pt": "Quanto custa a mensalidade e posso pagar em parcelas?",
+    "fr": "Combien coûtent les frais de scolarité, et puis-je payer en plusieurs fois ?",
+    "de": "Wie hoch sind die Studiengebühren, und kann ich in Raten zahlen?",
+    "id": "Berapa biaya kuliahnya, dan apakah saya bisa membayar secara dicicil?",
+    "th": "ค่าเล่าเรียนเท่าไรคะ และผ่อนจ่ายเป็นงวดได้ไหม",
+    "zh": "学费是多少？可以分期付款吗？",
+    "ja": "授業料はいくらですか？分割払いはできますか？",
+    "ko": "수업료가 얼마이고 분할 납부가 가능한가요?",
+    "hi": "ट्यूशन फ़ीस कितनी है, और क्या मैं किस्तों में भुगतान कर सकती हूँ?",
+    "ar": "كم تبلغ الرسوم الدراسية، وهل يمكنني الدفع بالتقسيط؟",
+    "ru": "Сколько стоит обучение, и можно ли платить в рассрочку?",
+    "tr": "Öğrenim ücreti ne kadar ve taksitle ödeyebilir miyim?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "tuition",
+     "ipa": "/tuˈɪʃ.ən/",
+     "hi": "ISH",
+     "note": {
+      "en": "Stress the second syllable: too-ISH-un.",
+      "vi": "Nhấn âm tiết thứ hai: tu-ÍT-sần, âm “sh” ở giữa.",
+      "es": "Acentúa la segunda sílaba: tu-ISH-en.",
+      "pt": "Acentue a segunda sílaba: tu-ISH-en.",
+      "fr": "Accentuez la deuxième syllabe : tou-ICH-eune.",
+      "de": "Betone die zweite Silbe: tu-ISCH-en.",
+      "id": "Tekankan suku kata kedua: tu-ISH-en.",
+      "th": "เน้นพยางค์ที่สอง: ทู-อิช-เชิน",
+      "zh": "重音在第二个音节：too-ISH-un。",
+      "ja": "2番目の音節を強く：トゥ・イッシュン。",
+      "ko": "두 번째 음절에 강세: 투-이-션.",
+      "hi": "दूसरे अक्षर पर ज़ोर दें: टू-इश-न।",
+      "ar": "شدّد على المقطع الثاني: تو-إيش-ن.",
+      "ru": "Ударение на второй слог: ту-И-шн.",
+      "tr": "Vurgu ikinci hecede: tu-İŞ-ın."
+     }
+    }
+   ]
+  },
+  {
+   "id": "t2",
+   "who": "barista",
+   "en": "You can split it into three payments. The first one is due before the term starts.",
+   "variants": {
+    "polite": "It can be divided into three payments, with the first due before the term starts.",
+    "casual": "Three payments. The first one's due before term."
+   },
+   "gloss": {
+    "en": "The officer explains the payment plan.",
+    "vi": "Anh/chị có thể chia làm ba lần trả. Lần đầu phải đóng trước khi học kỳ bắt đầu.",
+    "es": "Puede dividirlo en tres pagos. El primero vence antes de que empiece el trimestre.",
+    "pt": "Você pode dividir em três pagamentos. O primeiro vence antes do início do período.",
+    "fr": "Vous pouvez le répartir en trois paiements. Le premier est dû avant le début du trimestre.",
+    "de": "Sie können den Betrag in drei Raten aufteilen. Die erste ist vor Beginn des Semesters fällig.",
+    "id": "Anda bisa membaginya menjadi tiga kali pembayaran. Pembayaran pertama jatuh tempo sebelum semester dimulai.",
+    "th": "แบ่งจ่ายได้สามงวดค่ะ งวดแรกต้องชำระก่อนเปิดภาคเรียน",
+    "zh": "可以分三次付款，第一笔需要在开学前缴清。",
+    "ja": "3回に分けてお支払いいただけます。最初の支払いは学期が始まる前が期限です。",
+    "ko": "세 번에 나누어 낼 수 있어요. 첫 번째 납부는 학기 시작 전까지예요.",
+    "hi": "आप इसे तीन किस्तों में बाँट सकते हैं। पहली किस्त सत्र शुरू होने से पहले देनी होगी।",
+    "ar": "يمكنك تقسيمها إلى ثلاث دفعات. الدفعة الأولى مستحقة قبل بدء الفصل الدراسي.",
+    "ru": "Сумму можно разделить на три платежа. Первый нужно внести до начала семестра.",
+    "tr": "Üç taksite bölebilirsiniz. İlk taksit dönem başlamadan önce ödenmeli."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "t3",
+   "who": "customer",
+   "en": "When will I be able to choose my modules and see my timetable?",
+   "variants": {
+    "polite": "Could you let me know when I'll be able to choose my modules and see my timetable?",
+    "casual": "When can I pick modules and see my timetable?"
+   },
+   "gloss": {
+    "en": "Asking when modules and timetable open.",
+    "vi": "Khi nào tôi có thể chọn học phần và xem thời khóa biểu?",
+    "es": "¿Cuándo podré elegir mis asignaturas y ver mi horario?",
+    "pt": "Quando poderei escolher minhas disciplinas e ver meu horário?",
+    "fr": "Quand pourrai-je choisir mes modules et consulter mon emploi du temps ?",
+    "de": "Wann kann ich meine Module auswählen und meinen Stundenplan sehen?",
+    "id": "Kapan saya bisa memilih mata kuliah dan melihat jadwal saya?",
+    "th": "เมื่อไรฉันจะเลือกรายวิชาและดูตารางเรียนได้คะ",
+    "zh": "我什么时候可以选课并查看课表？",
+    "ja": "いつから履修科目を選んで時間割を見られますか？",
+    "ko": "언제부터 수강 과목을 고르고 시간표를 볼 수 있나요?",
+    "hi": "मैं अपने मॉड्यूल कब चुन पाऊँगी और समय-सारणी कब देख पाऊँगी?",
+    "ar": "متى سأتمكن من اختيار مقرراتي ورؤية جدولي؟",
+    "ru": "Когда я смогу выбрать модули и увидеть своё расписание?",
+    "tr": "Derslerimi ne zaman seçip ders programımı görebileceğim?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "t4",
+   "who": "barista",
+   "en": "Module selection opens on the first of September, and your timetable appears a week later.",
+   "variants": {
+    "polite": "Module selection opens on the first of September, and your timetable will appear a week later.",
+    "casual": "Modules open on the first of September. Timetable's a week later."
+   },
+   "gloss": {
+    "en": "The officer gives the dates.",
+    "vi": "Việc chọn học phần mở vào ngày mồng một tháng Chín, và thời khóa biểu hiện ra sau đó một tuần.",
+    "es": "La elección de asignaturas se abre el uno de septiembre y su horario aparece una semana después.",
+    "pt": "A escolha de disciplinas abre em primeiro de setembro, e o seu horário aparece uma semana depois.",
+    "fr": "Le choix des modules ouvre le premier septembre, et votre emploi du temps apparaît une semaine plus tard.",
+    "de": "Die Modulwahl öffnet am ersten September, und Ihr Stundenplan erscheint eine Woche später.",
+    "id": "Pemilihan mata kuliah dibuka pada tanggal satu September, dan jadwal Anda muncul seminggu kemudian.",
+    "th": "การเลือกรายวิชาเปิดวันที่หนึ่งกันยายน และตารางเรียนจะขึ้นหลังจากนั้นหนึ่งสัปดาห์ค่ะ",
+    "zh": "选课于九月一日开放，课表会在一周后出现。",
+    "ja": "履修登録は9月1日に始まり、時間割はその1週間後に表示されます。",
+    "ko": "수강 신청은 9월 1일에 열리고, 시간표는 일주일 뒤에 나와요.",
+    "hi": "मॉड्यूल चयन एक सितंबर को खुलता है, और आपकी समय-सारणी उसके एक हफ़्ते बाद दिखाई देगी।",
+    "ar": "يفتح اختيار المقررات في الأول من سبتمبر، ويظهر جدولك بعد ذلك بأسبوع.",
+    "ru": "Выбор модулей открывается первого сентября, а расписание появится неделей позже.",
+    "tr": "Ders seçimi bir Eylül'de açılır, ders programınız bir hafta sonra görünür."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q1",
+   "who": "barista",
+   "open": true,
+   "en": "Could you tell me why you chose this course?",
+   "keywords": [
+    "career",
+    "job",
+    "interested",
+    "interest",
+    "future",
+    "passion",
+    "business",
+    "international",
+    "experience",
+    "learn",
+    "skills",
+    "company",
+    "travel",
+    "work",
+    "dream"
+   ],
+   "variants": {
+    "polite": "May I ask what made you choose this course?",
+    "casual": "Why did you pick this course?"
+   },
+   "gloss": {
+    "en": "Asking why you chose the course.",
+    "vi": "Anh/chị cho tôi biết vì sao chọn khóa học này nhé?",
+    "es": "¿Podría decirme por qué eligió este curso?",
+    "pt": "Poderia me dizer por que escolheu este curso?",
+    "fr": "Pourriez-vous me dire pourquoi vous avez choisi ce cursus ?",
+    "de": "Können Sie mir sagen, warum Sie diesen Studiengang gewählt haben?",
+    "id": "Bisa ceritakan mengapa Anda memilih program ini?",
+    "th": "ช่วยเล่าให้ฟังหน่อยได้ไหมคะว่าทำไมคุณถึงเลือกหลักสูตรนี้",
+    "zh": "能说说您为什么选择这门课程吗？",
+    "ja": "このコースを選んだ理由を教えていただけますか？",
+    "ko": "이 과정을 선택한 이유를 말씀해 주시겠어요?",
+    "hi": "क्या आप बता सकते हैं कि आपने यह पाठ्यक्रम क्यों चुना?",
+    "ar": "هل يمكنك أن تخبرني لماذا اخترت هذا المقرر؟",
+    "ru": "Не могли бы вы рассказать, почему выбрали этот курс?",
+    "tr": "Bu programı neden seçtiğinizi söyleyebilir misiniz?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q2",
+   "who": "barista",
+   "open": true,
+   "en": "Do you have any questions about student housing or support?",
+   "keywords": [
+    "yes",
+    "no",
+    "accommodation",
+    "housing",
+    "dormitory",
+    "visa",
+    "scholarship",
+    "support",
+    "hostel",
+    "rent",
+    "nothing",
+    "not now",
+    "residence",
+    "apartment",
+    "insurance"
+   ],
+   "variants": {
+    "polite": "Would you like to ask anything about student housing or support services?",
+    "casual": "Any questions about housing or support?"
+   },
+   "gloss": {
+    "en": "Asking if you need housing or support.",
+    "vi": "Anh/chị có câu hỏi nào về chỗ ở sinh viên hoặc hỗ trợ không?",
+    "es": "¿Tiene alguna pregunta sobre el alojamiento estudiantil o los servicios de apoyo?",
+    "pt": "Tem alguma dúvida sobre moradia estudantil ou apoio ao estudante?",
+    "fr": "Avez-vous des questions sur le logement étudiant ou l'accompagnement ?",
+    "de": "Haben Sie Fragen zu Wohnheimplätzen oder zur Studierendenberatung?",
+    "id": "Apakah Anda punya pertanyaan tentang tempat tinggal mahasiswa atau layanan dukungan?",
+    "th": "คุณมีคำถามเรื่องที่พักนักศึกษาหรือบริการช่วยเหลือไหมคะ",
+    "zh": "您对学生住宿或学生支持服务有什么问题吗？",
+    "ja": "学生寮やサポートについて、ご質問はありますか？",
+    "ko": "학생 기숙사나 지원 서비스에 대해 궁금한 점이 있으세요?",
+    "hi": "क्या आपको छात्र आवास या सहायता सेवाओं के बारे में कोई सवाल है?",
+    "ar": "هل لديك أسئلة عن سكن الطلاب أو خدمات الدعم؟",
+    "ru": "У вас есть вопросы о студенческом общежитии или поддержке?",
+    "tr": "Öğrenci yurdu veya destek hizmetleri hakkında sormak istediğiniz bir şey var mı?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  }
+ ],
+ "culture": {
+  "en": "Universities in English-speaking countries often ask for original documents plus a certified translation, and deadlines are strict. Arrive early with copies of everything, and ask the admissions office to confirm each step by email.",
+  "vi": "Các trường đại học ở các nước nói tiếng Anh thường yêu cầu bản gốc cùng bản dịch công chứng, và hạn nộp rất nghiêm. Hãy đến sớm, mang theo bản sao mọi giấy tờ và nhờ phòng tuyển sinh xác nhận từng bước qua email.",
+  "es": "Las universidades de los países anglófonos suelen pedir los documentos originales y una traducción jurada, y los plazos son estrictos. Llega con tiempo, lleva copias de todo y pide a la oficina de admisiones que confirme cada paso por correo electrónico.",
+  "pt": "As universidades de países de língua inglesa costumam exigir os documentos originais e uma tradução juramentada, e os prazos são rígidos. Chegue cedo com cópias de tudo e peça à secretaria de admissões que confirme cada etapa por e-mail.",
+  "fr": "Les universités des pays anglophones demandent souvent les documents originaux et une traduction certifiée, et les délais sont stricts. Arrivez tôt avec des copies de tout et demandez au service des admissions de confirmer chaque étape par e-mail.",
+  "de": "Universitäten in englischsprachigen Ländern verlangen oft Originaldokumente und eine beglaubigte Übersetzung, und die Fristen sind streng. Komm früh, bring von allem Kopien mit und bitte das Studierendensekretariat, jeden Schritt per E-Mail zu bestätigen.",
+  "id": "Universitas di negara berbahasa Inggris sering meminta dokumen asli beserta terjemahan tersumpah, dan tenggat waktunya ketat. Datanglah lebih awal dengan salinan semua berkas, dan minta bagian penerimaan mahasiswa mengonfirmasi tiap langkah lewat email.",
+  "th": "มหาวิทยาลัยในประเทศที่ใช้ภาษาอังกฤษมักขอเอกสารต้นฉบับพร้อมคำแปลรับรอง และกำหนดเวลาเข้มงวดมาก ควรไปแต่เนิ่นๆ พร้อมสำเนาเอกสารทั้งหมด และขอให้ฝ่ายรับสมัครยืนยันทุกขั้นตอนทางอีเมล",
+  "zh": "英语国家的大学通常要求提供原件和经认证的翻译件，而且截止日期很严格。请提前到场，带上所有材料的复印件，并请招生办公室通过邮件确认每一步。",
+  "ja": "英語圏の大学では、原本と公的な認証付き翻訳の提出を求められることが多く、期限も厳格です。早めに窓口へ行き、書類のコピーを全部持参して、各手順をメールで確認してもらいましょう。",
+  "ko": "영어권 대학은 원본 서류와 공증 번역본을 요구하는 경우가 많고 마감도 엄격해요. 일찍 가서 모든 서류의 사본을 챙기고, 입학처에 각 단계를 이메일로 확인해 달라고 요청하세요.",
+  "hi": "अंग्रेज़ी भाषी देशों के विश्वविद्यालय अक्सर मूल दस्तावेज़ों के साथ प्रमाणित अनुवाद माँगते हैं, और समय-सीमाएँ सख़्त होती हैं। जल्दी पहुँचें, सबकी प्रतियाँ साथ रखें और प्रवेश कार्यालय से हर चरण की पुष्टि ईमेल पर करने को कहें।",
+  "ar": "كثيرًا ما تطلب الجامعات في الدول الناطقة بالإنجليزية الوثائق الأصلية مع ترجمة معتمدة، والمواعيد النهائية صارمة. احرص على الحضور مبكرًا مع نسخ من كل شيء، واطلب من مكتب القبول تأكيد كل خطوة بالبريد الإلكتروني.",
+  "ru": "Университеты англоязычных стран часто требуют оригиналы документов и заверенный перевод, а сроки соблюдаются строго. Приходите заранее с копиями всех бумаг и просите приёмную комиссию подтверждать каждый шаг по электронной почте.",
+  "tr": "İngilizce konuşulan ülkelerdeki üniversiteler genellikle belgelerin aslını ve onaylı bir çeviriyi ister, son tarihler de katıdır. Erken gidin, her şeyin kopyasını yanınızda taşıyın ve kabul ofisinden her adımı e-postayla onaylamasını isteyin."
+ },
+ "dialogue": [
+  {
+   "who": "barista",
+   "en": "Good morning. How can I help you today?"
+  },
+  {
+   "who": "customer",
+   "en": "Hello, I'd like to enrol on the international business course."
+  },
+  {
+   "who": "barista",
+   "en": "Of course. Have you completed the online application form?"
+  },
+  {
+   "who": "customer",
+   "en": "Yes, I submitted it last week. Which documents do I need to bring?"
+  },
+  {
+   "who": "barista",
+   "en": "Your passport, your certificates and proof of language level."
+  },
+  {
+   "who": "customer",
+   "en": "How much are the tuition fees, and can I pay in instalments?"
+  },
+  {
+   "who": "barista",
+   "en": "You can split it into three payments."
+  },
+  {
+   "who": "customer",
+   "en": "That's very helpful. Thank you for your time."
+  },
+  {
+   "who": "barista",
+   "en": "You're welcome. We look forward to seeing you in September."
+  }
+ ],
+ "listening": [
+  {
+   "id": "l1",
+   "turns": [
+    {
+     "who": "barista",
+     "en": "Registration closes on Friday at five o'clock."
+    },
+    {
+     "who": "customer",
+     "en": "Is it possible to register on Monday instead?"
+    },
+    {
+     "who": "barista",
+     "en": "I'm afraid not. After Friday, you would have to wait until next term."
+    },
+    {
+     "who": "customer",
+     "en": "Then I'll finish it today."
+    }
+   ],
+   "q": {
+    "en": "When does registration close?",
+    "vi": "Đăng ký đóng vào lúc nào?",
+    "es": "¿Cuándo se cierra la matrícula?",
+    "pt": "Quando a matrícula é encerrada?",
+    "fr": "Quand les inscriptions sont-elles closes ?",
+    "de": "Wann endet die Anmeldefrist?",
+    "id": "Kapan pendaftaran ditutup?",
+    "th": "การลงทะเบียนปิดเมื่อไร",
+    "zh": "注册什么时候截止？",
+    "ja": "登録はいつ締め切られますか？",
+    "ko": "등록은 언제 마감되나요?",
+    "hi": "पंजीकरण कब बंद होता है?",
+    "ar": "متى يُغلق التسجيل؟",
+    "ru": "Когда заканчивается регистрация?",
+    "tr": "Kayıt ne zaman kapanıyor?"
+   },
+   "answer": "friday at five"
+  },
+  {
+   "id": "l2",
+   "turns": [
+    {
+     "who": "customer",
+     "en": "Do I need to pay everything now?"
+    },
+    {
+     "who": "barista",
+     "en": "No, you can pay a deposit of two hundred dollars today."
+    },
+    {
+     "who": "customer",
+     "en": "And the rest?"
+    },
+    {
+     "who": "barista",
+     "en": "The rest is due in October."
+    }
+   ],
+   "q": {
+    "en": "How much is the deposit?",
+    "vi": "Tiền đặt cọc là bao nhiêu?",
+    "es": "¿Cuánto es el depósito?",
+    "pt": "Qual é o valor do depósito?",
+    "fr": "À combien s'élève l'acompte ?",
+    "de": "Wie hoch ist die Anzahlung?",
+    "id": "Berapa uang mukanya?",
+    "th": "เงินมัดจำเท่าไร",
+    "zh": "押金是多少？",
+    "ja": "保証金はいくらですか？",
+    "ko": "보증금은 얼마인가요?",
+    "hi": "जमा राशि कितनी है?",
+    "ar": "كم تبلغ الدفعة المقدّمة؟",
+    "ru": "Какова сумма задатка?",
+    "tr": "Ön ödeme ne kadar?"
+   },
+   "answer": "two hundred dollars"
+  }
+ ],
+ "mission": {
+  "tasks": [
+   {
+    "id": "enrol",
+    "title": {
+     "en": "Say which course you want",
+     "vi": "Nói khóa học bạn muốn",
+     "es": "Di qué curso quieres",
+     "pt": "Diga qual curso você quer",
+     "fr": "Dire quel cursus vous voulez",
+     "de": "Sagen, welchen Studiengang du willst",
+     "id": "Sebutkan program yang diinginkan",
+     "th": "บอกว่าอยากเรียนหลักสูตรไหน",
+     "zh": "说出想报的课程",
+     "ja": "希望するコースを伝える",
+     "ko": "원하는 과정 말하기",
+     "hi": "बताएँ कि कौन-सा पाठ्यक्रम चाहिए",
+     "ar": "اذكر المقرر الذي تريده",
+     "ru": "Назови нужный курс",
+     "tr": "İstediğin programı söyle"
+    },
+    "intents": [
+     "e1"
+    ]
+   },
+   {
+    "id": "docs",
+    "title": {
+     "en": "Ask about documents",
+     "vi": "Hỏi về giấy tờ cần mang",
+     "es": "Pregunta por los documentos",
+     "pt": "Pergunte sobre os documentos",
+     "fr": "Demander les documents",
+     "de": "Nach den Unterlagen fragen",
+     "id": "Tanyakan soal dokumen",
+     "th": "ถามเรื่องเอกสาร",
+     "zh": "询问所需材料",
+     "ja": "必要書類を尋ねる",
+     "ko": "서류 물어보기",
+     "hi": "दस्तावेज़ों के बारे में पूछें",
+     "ar": "اسأل عن المستندات",
+     "ru": "Спроси о документах",
+     "tr": "Belgeleri sor"
+    },
+    "intents": [
+     "d1"
+    ]
+   },
+   {
+    "id": "fees",
+    "title": {
+     "en": "Ask about fees",
+     "vi": "Hỏi về học phí",
+     "es": "Pregunta por las tasas",
+     "pt": "Pergunte sobre as taxas",
+     "fr": "Demander les frais",
+     "de": "Nach den Gebühren fragen",
+     "id": "Tanyakan soal biaya",
+     "th": "ถามเรื่องค่าเล่าเรียน",
+     "zh": "询问学费",
+     "ja": "学費を尋ねる",
+     "ko": "수업료 물어보기",
+     "hi": "फ़ीस के बारे में पूछें",
+     "ar": "اسأل عن الرسوم",
+     "ru": "Спроси об оплате",
+     "tr": "Harcı sor"
+    },
+    "intents": [
+     "t1"
+    ]
+   }
+  ]
+ }
+}

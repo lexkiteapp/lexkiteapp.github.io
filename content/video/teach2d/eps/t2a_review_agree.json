@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_agree",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: agree.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means to have the same opinion as someone else.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "I agree with you completely.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "agree",
+  "ipa": "/əˈɡriː/",
+  "mean": "to have the same opinion as someone else",
+  "ex": "I agree with you completely.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=agree",
+  "link": "https://lexkite.com/app/#/review?w=agree",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 40,
+  "seconds": 24.7,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "What does \"agree\" mean?",
+  "keyword": "agree",
+  "value": "Agree means to have the same opinion as someone else.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=agree",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"agree\" mean?",
+    "description": "Agree means to have the same opinion as someone else.\n\nReview your words, free: https://lexkite.com/app/#/review?w=agree\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "agree",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"agree\" mean?\n\nAgree means to have the same opinion as someone else.\n\nReview your words, free: https://lexkite.com/app/#/review?w=agree"
+   },
+   "instagram": {
+    "caption": "What does \"agree\" mean?\n\nAgree means to have the same opinion as someone else.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"agree\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means to have the same opinion as someone else. Agree means to have the same opinion as someone else. More practice like this (free): {link}"
+ }
+}

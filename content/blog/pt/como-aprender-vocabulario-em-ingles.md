@@ -25,7 +25,7 @@ O maior erro cometido por quem estuda sozinho é copiar listas gigantescas de pa
 
 Em vez de anotar apenas "sustainable" com a tradução "sustentável", crie um modelo de uso prático: "The company needs to find sustainable solutions to reduce carbon emissions". Dessa forma, você aprende simultaneamente a preposição que acompanha o adjetivo, o substantivo com o qual ele costuma se combinar e o tom formal em que ele normalmente aparece. Se você já leu nosso artigo sobre [como aprender inglês sozinho](/pt/blog/como-aprender-ingles-sozinho/), sabe que a eficiência do estudo depende diretamente da relevância do material selecionado.
 
-Explore as [listas de vocabulário temáticas](/tu-vung/) para identificar termos que realmente aparecem em exames e situações profissionais, evitando gastar energia com jargões obsoletos.
+Explore as [listas de vocabulário temáticas](/en/vocabulary/) para identificar termos que realmente aparecem em exames e situações profissionais, evitando gastar energia com jargões obsoletos.
 
 ## Passo 1 e 2: Filtrar termos por nível e focar em famílias de palavras
 

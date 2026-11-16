@@ -5,9 +5,11 @@
  *   (* = phải đăng nhập lại ≤ 15 phút)
  * Mọi op ghi key_audit (chi tiết: id/last4/số lượng – không bao giờ giá trị khóa); op ghi còn ghi admin_log ('keys.<op>').
  * Giới hạn tốc độ: adminGate 120/phút/IP + ghi 30/phút/admin + kiểm khóa 6/phút/admin. Phản hồi đi qua lưới chặn dạng-khóa (looksSecret). */
+import { aiMix, mixAlerts } from './_aimix.js';
 import { adminGate, adminAudit, adminCors } from './admin.js';
 import { limit } from './sync.js';
 import * as K from './_keys.js';
+import { readText, bodyFail } from './_body.js';
 
 const MAX_BODY = 65536, MAX_LINES = 50, MAX_IDS = 200;
 const json = (req, status, data, extra = {}) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...adminCors(req), ...extra } });
@@ -22,10 +24,11 @@ async function view(env) { const now = Date.now(), p = await K.loadPool(env, { f
 
 export const OPS = {
   async list(env, b, who, ctx) {
-    const v = await view(env), f = K.filterRows(v.rows, b), summary = K.summarize(v.p.rows, v.now, v.err24), alerts = K.evalAlerts(summary);
+    const v = await view(env), f = K.filterRows(v.rows, b), summary = K.summarize(v.p.rows, v.now, v.err24), [mix1h, mix24] = await Promise.all([aiMix(env.DB, 3600e3, v.now), aiMix(env.DB, 86400e3, v.now)]);
+    const alerts = [...K.evalAlerts(summary), ...mixAlerts(mix1h)]; // + tỉ lệ model phục vụ người dùng (_aimix.js)
     if (ctx.waitUntil) ctx.waitUntil((v.rows.length && K.healthStale(v.p, v.now) ? K.healthCheck(env).then(() => K.refreshAlerts(env)) : K.syncAlerts(env, alerts, v.now)).catch(() => {})); // kiểm lười > 6 h
     return { configured: { enc: K.encReady(env), mail: !!env.MAIL }, providers: Object.fromEntries(K.PROVIDER_IDS.map(p => [p, { name: K.PROVIDERS[p].name, cap: K.PROVIDERS[p].cap, env: K.PROVIDERS[p].env }])),
-      ...f, summary, alerts, health: v.p.health || null, threshold: K.ALERT_MIN, _d: { n: f.total } };
+      ...f, summary, alerts, mix: { h1: mix1h, h24: mix24 }, health: v.p.health || null, threshold: K.ALERT_MIN, _d: { n: f.total } };
   },
   async add(env, b, who) {
     if (!K.encReady(env)) throw new E('not-configured', 503);
@@ -107,8 +110,7 @@ async function keyAudit(env, email, op, ok, detail) {
 export const onRequestOptions = ({ request }) => new Response(null, { status: 204, headers: adminCors(request) });
 
 export async function onRequestPost({ request, env, waitUntil }) {
-  const raw = await request.text().catch(() => '');
-  if (raw.length > MAX_BODY) return json(request, 413, { error: 'too-large' });
+  let raw; try { raw = await readText(request, MAX_BODY); } catch (e) { const f = bodyFail(e); return json(request, f.status, { error: f.error }); }
   let b; try { b = JSON.parse(raw || '{}'); } catch (e) { return json(request, 400, { error: 'json' }); }
   if (!b || typeof b !== 'object' || Array.isArray(b)) return json(request, 400, { error: 'json' });
   const g = await adminGate(request, env, 'keys'); if (!g.who) return json(request, g.status, { error: g.error });

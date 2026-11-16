@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Blog - Practical Study Guides for IELTS, TOEFL &amp; TOEIC</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-surface-variant": "#A9BDBB",
+            "on-primary-fixed-variant": "#00504b",
+            "surface-dim": "#091518",
+            "on-tertiary-container": "#392900",
+            "tertiary-fixed": "#ffdf9e",
+            "secondary-fixed": "#ffdad3",
+            "primary-fixed": "#88f5ea",
+            "on-background": "#E8F1F0",
+            "tertiary": "#f4bf40",
+            "on-secondary-fixed": "#3f0300",
+            "surface-tint": "#6bd8ce",
+            "surface-container-high": "#202c2f",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "surface-container-low": "#121d20",
+            "surface-variant": "#2b373a",
+            "on-secondary-fixed-variant": "#900f00",
+            "on-primary": "#003733",
+            "on-secondary-container": "#ffa493",
+            "tertiary-fixed-dim": "#f4bf40",
+            "secondary-container": "#981201",
+            "tertiary-container": "#ba8b00",
+            "background": "#091518",
+            "on-surface": "#E8F1F0",
+            "on-primary-fixed": "#00201e",
+            "primary-fixed-dim": "#6bd8ce",
+            "on-secondary": "#660800",
+            "on-error": "#690005",
+            "secondary": "#ffb4a6",
+            "inverse-surface": "#d8e5e9",
+            "surface-bright": "#2f3b3e",
+            "on-tertiary-fixed": "#261a00",
+            "on-tertiary": "#402e00",
+            "surface-container-highest": "#26383C",
+            "secondary-fixed-dim": "#ffb4a6",
+            "surface-container": "#172427",
+            "on-error-container": "#ffdad6",
+            "on-primary-container": "#00322e",
+            "surface-container-lowest": "#10191B",
+            "primary": "#6bd8ce",
+            "error-container": "#93000a",
+            "primary-container": "#2ba39a",
+            "outline": "#879391",
+            "inverse-primary": "#006a64",
+            "outline-variant": "#26383C",
+            "inverse-on-surface": "#263236",
+            "error": "#ffb4ab",
+            "surface": "#091518",
+            "coral-accent": "#FF5C38",
+            "coral-shadow": "#D64220",
+            "teal-card": "#172427",
+            "teal-card-raised": "#1E2F33",
+            "teal-border": "#26383C",
+            "teal-border-light": "#26393E"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "3xl": "1.25rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "body-sm": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "title-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "display-lg-mobile": ["34px", { "lineHeight": "42px", "letterSpacing": "-0.025em", "fontWeight": "800" }],
+            "label-lg": ["15px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "700" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "title-md": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "display-lg": ["44px", { "lineHeight": "52px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+    .tactile-btn-coral {
+      background-color: #FF5C38;
+      box-shadow: 0 4px 0 #D64220;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-btn-coral:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #D64220;
+    }
+    .tactile-btn-teal {
+      background-color: #2BA39A;
+      box-shadow: 0 4px 0 #18605A;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-btn-teal:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #18605A;
+    }
+    .tactile-btn-dark {
+      background-color: #1E2F33;
+      box-shadow: 0 3px 0 #10191B;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-btn-dark:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #10191B;
+    }
+    .tactile-card {
+      border: 1.5px solid #26383C;
+      box-shadow: 0 4px 0 #10191B;
+    }
+    .recessed-box {
+      background-color: #121D20;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+      border: 1px solid #26383C;
+    }
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased flex justify-center min-h-screen">
+<!-- Mobile Viewport Wrapper (390px fixed preview frame) -->
+<div class="w-full max-w-[390px] bg-surface min-h-screen flex flex-col relative shadow-2xl border-x border-[#172427]">
+<!-- TopAppBar -->
+<header class="docked full-width top-0 sticky z-50 bg-[#10191B] border-b border-[#26383C] shadow-sm">
+<div class="flex justify-between items-center w-full px-4 h-16 max-w-7xl mx-auto">
+<!-- Leading: Menu button (min 44x44px target) -->
+<button aria-label="Open Navigation Menu" class="w-11 h-11 flex items-center justify-center rounded-xl bg-[#1E2F33] text-[#E8F1F0] hover:bg-[#26383C] active:translate-y-0.5 transition-transform duration-150 border border-[#26383C]" type="button">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<!-- Brand Wordmark with Kite Anchor -->
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-coral-accent" data-icon="school" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="text-headline-md font-headline-md text-[#E8F1F0] tracking-tight font-extrabold">Lexkite</span>
+</div>
+<!-- Trailing Action: Language selector (min 44x44px target) -->
+<button aria-label="Select Language" class="h-11 px-3 flex items-center justify-center gap-1 rounded-xl bg-[#1E2F33] text-[#E8F1F0] hover:bg-[#26383C] text-label-md font-label-md active:translate-y-0.5 transition-transform duration-150 border border-[#26383C]" type="button">
+<span class="material-symbols-outlined text-sm text-[#4DD0C4]" data-icon="language">language</span>
+<span>EN ▾</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-4 py-5 flex flex-col gap-6">
+<!-- Breadcrumb & Blog Hero -->
+<section class="flex flex-col gap-2">
+<nav aria-label="Breadcrumbs" class="flex items-center gap-1 text-label-md font-label-md text-on-surface-variant flex-wrap">
+<span class="hover:text-primary transition-colors cursor-pointer">Lexkite</span>
+<span class="material-symbols-outlined text-xs leading-none text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+<span class="text-primary font-bold">Study Blog</span>
+</nav>
+<h1 class="text-headline-lg-mobile font-headline-lg-mobile text-[#E8F1F0] tracking-tight">
+          Lexkite Blog
+        </h1>
+<p class="text-body-md font-body-md text-on-surface-variant">
+          Practical study guides, exam vocabulary breakdowns, and proven self-study strategies for IELTS, TOEFL, and TOEIC.
+        </p>
+</section>
+<!-- Carlos Tutor Advice Card (Tactile scholastic card) -->
+<section class="bg-[#172427] rounded-2xl p-4 tactile-card flex flex-col gap-3">
+<div class="flex items-start gap-3.5">
+<!-- Placeholder: Teacher Slot (No human photos/illustrations) -->
+<div aria-label="Teacher avatar placeholder" class="w-14 h-14 rounded-xl border-2 border-dashed border-[#2BA39A] bg-[#121D20] flex flex-col items-center justify-center shrink-0 text-center p-1">
+<span class="text-label-sm font-label-sm text-[#4DD0C4] font-bold leading-tight">[teacher-slot]</span>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center gap-1 text-[#4DD0C4]">
+<span class="material-symbols-outlined text-sm text-[#4DD0C4]" data-icon="tips_and_updates" style="font-variation-settings: 'FILL' 1;">tips_and_updates</span>
+<span class="text-label-md font-label-md text-[#E8F1F0] font-bold">Carlos · Study Mentor</span>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant mt-0.5">Quick Study Habit</p>
+</div>
+</div>
+<div class="recessed-box rounded-xl p-3">
+<p class="text-body-sm font-body-sm text-[#E8F1F0] italic">
+            “Focus on topic collocations in 15-minute bursts rather than memorizing isolated word lists.”
+          </p>
+</div>
+</section>
+<!-- Search Input Box -->
+<section>
+<form class="relative flex items-center" role="search">
+<div class="absolute left-3.5 text-[#4DD0C4] flex items-center pointer-events-none">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</div>
+<input aria-label="Search articles, vocabulary topics, or test tips" class="w-full h-12 pl-11 pr-12 rounded-xl bg-[#172427] border border-[#26383C] text-body-sm font-body-sm text-[#E8F1F0] placeholder:text-[#A9BDBB]/60 focus:outline-none focus:border-[#2BA39A] focus:ring-2 focus:ring-[#2BA39A]/20 transition-all" placeholder="Search articles, vocabulary topics, or test tips..." type="search"/>
+<button aria-label="Submit search" class="absolute right-1 w-11 h-11 flex items-center justify-center rounded-lg text-[#4DD0C4] hover:bg-[#1E2F33] active:scale-95 transition-transform" type="submit">
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</form>
+</section>
+<!-- Filter Chips (Touch Target >= 44px) -->
+<section aria-label="Topic Categories">
+<div class="flex items-center gap-2 overflow-x-auto hide-scrollbar py-1 -mx-4 px-4">
+<!-- Active Pill -->
+<button class="h-11 px-5 rounded-full tactile-btn-teal text-white text-label-md font-label-md whitespace-nowrap flex items-center justify-center shrink-0 font-bold" type="button">
+            All guides
+          </button>
+<!-- Inactive Pills with minimum 44px touch height -->
+<button class="h-11 px-4 rounded-full tactile-btn-dark border border-[#26383C] text-[#E8F1F0] hover:text-[#4DD0C4] text-label-md font-label-md whitespace-nowrap flex items-center justify-center shrink-0" type="button">
+            IELTS
+          </button>
+<button class="h-11 px-4 rounded-full tactile-btn-dark border border-[#26383C] text-[#E8F1F0] hover:text-[#4DD0C4] text-label-md font-label-md whitespace-nowrap flex items-center justify-center shrink-0" type="button">
+            TOEIC
+          </button>
+<button class="h-11 px-4 rounded-full tactile-btn-dark border border-[#26383C] text-[#E8F1F0] hover:text-[#4DD0C4] text-label-md font-label-md whitespace-nowrap flex items-center justify-center shrink-0" type="button">
+            TOEFL
+          </button>
+<button class="h-11 px-4 rounded-full tactile-btn-dark border border-[#26383C] text-[#E8F1F0] hover:text-[#4DD0C4] text-label-md font-label-md whitespace-nowrap flex items-center justify-center shrink-0" type="button">
+            Grammar
+          </button>
+<button class="h-11 px-4 rounded-full tactile-btn-dark border border-[#26383C] text-[#E8F1F0] hover:text-[#4DD0C4] text-label-md font-label-md whitespace-nowrap flex items-center justify-center shrink-0" type="button">
+            Vocabulary
+          </button>
+</div>
+</section>
+<!-- Featured Article Card -->
+<article class="bg-[#172427] rounded-2xl p-5 tactile-card flex flex-col gap-3 relative">
+<div class="flex items-center justify-between gap-2 flex-wrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#381B15] text-[#FF8566] border border-[#52251D] text-label-sm font-label-sm font-bold tracking-wide">
+<span class="material-symbols-outlined text-xs" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+            FEATURED GUIDE
+          </span>
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-[#1E2F33] text-[#4DD0C4] border border-[#26383C] text-label-sm font-label-sm font-semibold">
+            IELTS &amp; TOEFL
+          </span>
+</div>
+<h2 class="text-title-md font-title-md text-[#E8F1F0] font-bold">
+          Mastering Academic Collocations: How to Sound Natural in Speaking &amp; Writing
+        </h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+          Discover high-yield adjective-noun and verb-noun pairings that elevate your discourse without sounding artificial or forced.
+        </p>
+<div class="flex items-center gap-1.5 text-label-sm font-label-sm text-on-surface-variant pt-1 border-t border-[#26383C]">
+<span class="material-symbols-outlined text-sm text-[#4DD0C4]" data-icon="schedule">schedule</span>
+<span>7 min read · Updated weekly</span>
+</div>
+<div class="pt-2">
+<a class="w-full h-12 rounded-xl tactile-btn-coral text-white text-label-lg font-label-lg flex items-center justify-center gap-2" href="#">
+<span>Read Guide</span>
+<span class="material-symbols-outlined text-base" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Article Feed List -->
+<section aria-label="Latest Articles" class="flex flex-col gap-4">
+<!-- Feed Card 1 -->
+<article class="bg-[#172427] rounded-2xl p-4 tactile-card flex flex-col gap-2.5">
+<div class="flex items-center justify-between gap-2 flex-wrap">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-[#1E2F33] text-[#4DD0C4] border border-[#26383C] text-label-sm font-label-sm font-bold">
+              IELTS Writing Task 2
+            </span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">5 min read · Yesterday</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-[#E8F1F0]">
+            Cohesion and Coherence: Transition Words That Won't Sound Generic
+          </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+            Replace robotic connectors like 'furthermore' and 'moreover' with nuanced clausal linkers that improve flow.
+          </p>
+<div class="pt-1">
+<a class="inline-flex items-center gap-1 text-[#4DD0C4] text-label-md font-label-md font-bold hover:underline min-h-[44px]" href="#">
+<span>Read article</span>
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</a>
+</div>
+</article>
+<!-- Feed Card 2 -->
+<article class="bg-[#172427] rounded-2xl p-4 tactile-card flex flex-col gap-2.5">
+<div class="flex items-center justify-between gap-2 flex-wrap">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-[#1E2F33] text-[#4DD0C4] border border-[#26383C] text-label-sm font-label-sm font-bold">
+              Vocabulary
+            </span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">6 min read · 3 days ago</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-[#E8F1F0]">
+            12 High-Yield Business Verbs for the TOEIC Listening &amp; Reading
+          </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+            Key workplace expressions for memos, negotiations, and scheduling that appear frequently in Part 5 and 7.
+          </p>
+<div class="pt-1">
+<a class="inline-flex items-center gap-1 text-[#4DD0C4] text-label-md font-label-md font-bold hover:underline min-h-[44px]" href="#">
+<span>Read article</span>
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</a>
+</div>
+</article>
+<!-- Feed Card 3 -->
+<article class="bg-[#172427] rounded-2xl p-4 tactile-card flex flex-col gap-2.5">
+<div class="flex items-center justify-between gap-2 flex-wrap">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-[#1E2F33] text-[#4DD0C4] border border-[#26383C] text-label-sm font-label-sm font-bold">
+              TOEFL Speaking
+            </span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">8 min read · 4 days ago</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-[#E8F1F0]">
+            Structuring 45-Second Independent Speaking Responses
+          </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+            A clean 3-part framework to organize your thoughts immediately without stalling or filler words.
+          </p>
+<div class="pt-1">
+<a class="inline-flex items-center gap-1 text-[#4DD0C4] text-label-md font-label-md font-bold hover:underline min-h-[44px]" href="#">
+<span>Read article</span>
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</a>
+</div>
+</article>
+<!-- Feed Card 4 -->
+<article class="bg-[#172427] rounded-2xl p-4 tactile-card flex flex-col gap-2.5">
+<div class="flex items-center justify-between gap-2 flex-wrap">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-[#1E2F33] text-[#4DD0C4] border border-[#26383C] text-label-sm font-label-sm font-bold">
+              Grammar
+            </span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">6 min read · 1 week ago</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-[#E8F1F0]">
+            Conditionals in Academic Essays: Moving Beyond the Basics
+          </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+            Using mixed conditionals and inverted structures to express nuanced hypothesis and cause-effect arguments.
+          </p>
+<div class="pt-1">
+<a class="inline-flex items-center gap-1 text-[#4DD0C4] text-label-md font-label-md font-bold hover:underline min-h-[44px]" href="#">
+<span>Read article</span>
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</a>
+</div>
+</article>
+</section>
+<!-- Pagination Navigation -->
+<nav aria-label="Blog Pagination" class="flex items-center justify-between gap-1 py-2">
+<!-- Previous (Disabled state, touch target 44px) -->
+<button aria-label="Previous page" class="h-11 px-3 rounded-xl border border-[#26383C] text-outline bg-[#121D20] opacity-40 cursor-not-allowed flex items-center justify-center gap-1 text-label-md font-label-md" disabled="" type="button">
+<span class="material-symbols-outlined text-base" data-icon="chevron_left">chevron_left</span>
+<span>Prev</span>
+</button>
+<!-- Numeric Page Buttons (min 44px target) -->
+<div class="flex items-center gap-1">
+<button aria-current="page" aria-label="Page 1" class="w-11 h-11 rounded-xl tactile-btn-teal text-white text-label-md font-label-md flex items-center justify-center font-bold" type="button">
+            1
+          </button>
+<button aria-label="Page 2" class="w-11 h-11 rounded-xl tactile-btn-dark border border-[#26383C] text-[#E8F1F0] text-label-md font-label-md flex items-center justify-center font-semibold hover:text-[#4DD0C4]" type="button">
+            2
+          </button>
+<button aria-label="Page 3" class="w-11 h-11 rounded-xl tactile-btn-dark border border-[#26383C] text-[#E8F1F0] text-label-md font-label-md flex items-center justify-center font-semibold hover:text-[#4DD0C4]" type="button">
+            3
+          </button>
+</div>
+<!-- Next button (Active state, touch target 44px) -->
+<button aria-label="Next page" class="h-11 px-3 rounded-xl tactile-btn-dark border border-[#26383C] text-[#E8F1F0] hover:text-[#4DD0C4] flex items-center justify-center gap-1 text-label-md font-label-md font-semibold" type="button">
+<span>Next</span>
+<span class="material-symbols-outlined text-base" data-icon="chevron_right">chevron_right</span>
+</button>
+</nav>
+<!-- Newsletter Box (Tactile educational callout) -->
+<section class="bg-[#172427] rounded-2xl p-5 border border-[#26383C] shadow-lg flex flex-col gap-3">
+<div class="flex items-center gap-2 text-[#4DD0C4]">
+<span class="material-symbols-outlined text-xl text-[#4DD0C4]" data-icon="mark_email_unread" style="font-variation-settings: 'FILL' 1;">mark_email_unread</span>
+<h2 class="text-title-md font-title-md text-[#E8F1F0] font-bold">Weekly Study Tip</h2>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+          Get weekly study guides delivered straight to your inbox. High-frequency collocations, sample responses, and practice notes.
+        </p>
+<form class="flex flex-col gap-2.5 pt-1" onsubmit="event.preventDefault();">
+<input aria-label="Email address for weekly study guides" class="w-full h-12 px-3.5 rounded-xl bg-[#10191B] border border-[#26383C] text-body-sm font-body-sm text-[#E8F1F0] placeholder:text-[#A9BDBB]/60 focus:outline-none focus:border-[#2BA39A] focus:ring-2 focus:ring-[#2BA39A]/20" placeholder="Enter your study email address" required="" type="email"/>
+<button class="w-full h-12 rounded-xl tactile-btn-teal text-white text-label-lg font-label-lg flex items-center justify-center gap-2 font-bold" type="submit">
+<span>Subscribe for Free</span>
+<span class="material-symbols-outlined text-base" data-icon="send">send</span>
+</button>
+</form>
+</section>
+</main>
+<!-- Footer Component (From Shared Components JSON) -->
+<footer class="w-full bg-[#10191B] border-t border-[#26383C] mt-6">
+<div class="flex flex-col items-center justify-center w-full px-4 py-8 space-y-4 max-w-7xl mx-auto text-center">
+<!-- Brand Logo text -->
+<span class="text-headline-sm font-headline-sm text-[#E8F1F0] font-bold tracking-tight">Lexkite</span>
+<!-- Navigation Links -->
+<div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-label-md font-label-md">
+<a class="text-on-surface-variant font-normal hover:text-[#4DD0C4] underline transition-colors duration-150 py-1" href="#">Guides</a>
+<a class="text-on-surface-variant font-normal hover:text-[#4DD0C4] underline transition-colors duration-150 py-1" href="#">Method</a>
+<a class="text-on-surface-variant font-normal hover:text-[#4DD0C4] underline transition-colors duration-150 py-1" href="#">Privacy</a>
+<a class="text-on-surface-variant font-normal hover:text-[#4DD0C4] underline transition-colors duration-150 py-1" href="#">Terms</a>
+<a class="text-on-surface-variant font-normal hover:text-[#4DD0C4] underline transition-colors duration-150 py-1" href="#">Contact</a>
+</div>
+<!-- Copyright -->
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+          © 2024 Lexkite Education. All rights reserved.
+        </p>
+</div>
+</footer>
+</div>
+</body></html>

@@ -52,6 +52,8 @@ publishAt: 2026-12-05T07:20:00+05:30
 
 In the Academic Reading test you have 60 minutes for three passages and 40 questions. A matching headings task usually looks like this:
 
+To put this into practice, try [IELTS Reading time management](/en/blog/ielts-reading-time-management-strategies/).
+
 - A list of headings labelled with Roman numerals (i, ii, iii…).
 - Instructions to choose the correct heading for some or all of the paragraphs (A, B, C…).
 - More headings than paragraphs, so some are never used.

@@ -104,6 +104,10 @@ Kişisel gelişim sürecinizi doğrudan [uygulamadaki öğrenme rotasından](/#/
 
 {{youtube: | IELTS calisma plani sifirdan 6.5 seviyesine adim adim rehber}}
 
+Deneme sınavı aşamasına geldiğinizde [IELTS Reading zaman yönetimi stratejisi](/tr/blog/ielts-reading-zaman-yonetimi-60-dakika-stratejisi/) 60 dakikayı üç pasaja bölmenize yardımcı olur.
+
+Hangi sınavı seçeceğinize karar verirken [yeni TOEFL formatı ve hazırlık rehberi](/tr/blog/yeni-toefl-format-2026-hazirlik-rehberi/) size fikir verebilir.
+
 ## Sıkça Sorulan Sorular
 
 ### Sıfırdan veya B1 seviyesinden 6.5 bandına çıkmak kaç ay sürer?

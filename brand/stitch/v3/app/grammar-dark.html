@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Grammar Units (CEFR A1–C1)</title>
+<!-- Plus Jakarta Sans Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Rounded -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,0,0" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            night: {
+              bg: '#10191B',
+              card: '#172427',
+              surface: '#1E2F33',
+              border: '#26383C',
+              borderLight: '#2F454A',
+              ledge: '#0B1214',
+              text: '#E8F1F0',
+              textMuted: '#A9BDBB',
+              mint: '#2DD4BF',
+              mintDark: '#134e4a',
+              amber: '#F59E0B',
+              coral: '#EA580C',
+              coralLedge: '#9A3412',
+              ink: '#1A0D00'
+            }
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #10191B;
+      color: #E8F1F0;
+      -webkit-font-smoothing: antialiased;
+      margin: 0;
+      padding: 0;
+    }
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Tactile button ledge - Amber/Coral for dark theme */
+    .tactile-cta {
+      background-color: #F59E0B;
+      color: #1A0D00;
+      box-shadow: 0 4px 0 0 #B45309;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-cta:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #B45309;
+    }
+    .tactile-secondary {
+      background-color: #1E2F33;
+      color: #E8F1F0;
+      box-shadow: 0 4px 0 0 #0B1214;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-secondary:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #0B1214;
+    }
+    .tactile-subtle {
+      box-shadow: 0 3px 0 0 #0B1214;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-subtle:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #0B1214;
+    }
+    /* Teacher slot placeholder */
+    .teacher-slot {
+      border: 2px dashed #2DD4BF;
+      background-color: #10191B;
+    }
+    /* Hide scrollbar for tabs */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-[#10191B] min-h-screen text-[#E8F1F0] antialiased flex flex-col justify-between">
+<!-- Mobile Viewport Container 390px edge-to-edge -->
+<div class="w-full max-w-[390px] mx-auto min-h-screen flex flex-col bg-[#10191B] relative pb-[84px]">
+<!-- INNER TOP APP BAR (Sticky) -->
+<header class="sticky top-0 z-40 bg-[#10191B]/95 backdrop-blur border-b border-[#26383C] px-4 py-3 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<button aria-label="Go back" class="w-11 h-11 flex items-center justify-center rounded-xl bg-[#172427] border border-[#26383C] text-[#E8F1F0] shadow-sm active:translate-y-0.5" type="button">
+<span class="material-symbols-rounded text-2xl">arrow_back</span>
+</button>
+<div>
+<h1 class="text-lg font-bold text-[#E8F1F0] leading-tight">Grammar Master</h1>
+<p class="text-[12px] font-semibold text-[#A9BDBB]">CEFR A1 to C1 Progression</p>
+</div>
+</div>
+<div class="flex items-center gap-1.5">
+<button aria-label="Search rules and units" class="w-11 h-11 flex items-center justify-center rounded-xl bg-[#172427] border border-[#26383C] text-[#E8F1F0] shadow-sm active:translate-y-0.5" type="button">
+<span class="material-symbols-rounded text-2xl">search</span>
+</button>
+<button aria-label="Bookmarks" class="w-11 h-11 flex items-center justify-center rounded-xl bg-[#172427] border border-[#26383C] text-[#E8F1F0] shadow-sm active:translate-y-0.5" type="button">
+<span class="material-symbols-rounded text-2xl">bookmark</span>
+</button>
+</div>
+</header>
+<!-- MAIN SCROLL CONTENT -->
+<main class="flex-1 px-4 pt-3.5 space-y-4">
+<!-- CEFR LEVEL SELECTOR / COMPLETION PILLS -->
+<section aria-label="CEFR Levels" class="overflow-x-auto no-scrollbar -mx-4 px-4 flex items-center gap-2 pb-1"><!-- A1 Completed -->
+<button class="flex-shrink-0 min-h-[44px] flex items-center gap-1.5 px-3 py-2 rounded-full bg-[#1E2F33] border border-[#2F454A] text-[#E8F1F0] font-bold text-xs shadow-sm">
+<span class="w-5 h-5 rounded-full bg-[#2DD4BF]/20 text-[#2DD4BF] flex items-center justify-center text-[10px] font-extrabold">✓</span>
+<span>A1 Beginner</span>
+<span class="text-[11px] font-semibold text-[#2DD4BF] bg-[#2DD4BF]/15 px-1.5 py-0.5 rounded-md">100%</span>
+</button>
+<!-- A2 Completed -->
+<button class="flex-shrink-0 min-h-[44px] flex items-center gap-1.5 px-3 py-2 rounded-full bg-[#1E2F33] border border-[#2F454A] text-[#E8F1F0] font-bold text-xs shadow-sm">
+<span class="w-5 h-5 rounded-full bg-[#2DD4BF]/20 text-[#2DD4BF] flex items-center justify-center text-[10px] font-extrabold">✓</span>
+<span>A2 Elementary</span>
+<span class="text-[11px] font-semibold text-[#2DD4BF] bg-[#2DD4BF]/15 px-1.5 py-0.5 rounded-md">100%</span>
+</button>
+<!-- B1 Current Active -->
+<button class="flex-shrink-0 min-h-[44px] flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-[#2DD4BF] text-[#091518] font-extrabold text-xs shadow-md">
+<span class="w-2 h-2 rounded-full bg-[#F59E0B] animate-pulse"></span>
+<span>B1 Intermediate</span>
+<span class="text-[11px] font-bold text-[#1A0D00] bg-[#F59E0B] px-1.5 py-0.5 rounded-md">68%</span>
+</button>
+<!-- B2 Next -->
+<button class="flex-shrink-0 min-h-[44px] flex items-center gap-1.5 px-3 py-2 rounded-full bg-[#172427] border border-[#26383C] text-[#A9BDBB] font-bold text-xs shadow-sm">
+<span class="material-symbols-rounded text-sm text-[#A9BDBB]">lock</span>
+<span>B2 Upper-Int</span>
+<span class="text-[11px] font-semibold text-[#A9BDBB] bg-[#1E2F33] px-1.5 py-0.5 rounded-md">0%</span>
+</button>
+<!-- C1 Advanced -->
+<button class="flex-shrink-0 min-h-[44px] flex items-center gap-1.5 px-3 py-2 rounded-full bg-[#172427] border border-[#26383C] text-[#A9BDBB] font-bold text-xs shadow-sm">
+<span class="material-symbols-rounded text-sm text-[#A9BDBB]">lock</span>
+<span>C1 Advanced</span>
+<span class="text-[11px] font-semibold text-[#A9BDBB] bg-[#1E2F33] px-1.5 py-0.5 rounded-md">0%</span>
+</button></section>
+<!-- ACTIVE HERO UNIT CARD: "Present perfect vs past simple" -->
+<section class="bg-[#172427] rounded-3xl border border-[#26383C] p-4 shadow-[0_4px_0_0_#0B1214] relative overflow-hidden">
+<!-- Top Status Bar in Card -->
+<div class="flex items-center justify-between gap-2 mb-3">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="px-2.5 py-1 rounded-full bg-[#2DD4BF]/15 border border-[#2DD4BF]/30 text-[#2DD4BF] font-extrabold text-[11px] tracking-wide uppercase">
+              Current Unit • B1.4
+            </span>
+<span class="px-2 py-0.5 rounded-md bg-[#EA580C]/20 border border-[#EA580C]/30 text-[#F59E0B] font-bold text-[11px]">
+              High Exam Frequency
+            </span>
+</div>
+<!-- Circular Progress Ring (62% Complete) -->
+<div class="relative w-11 h-11 flex-shrink-0 flex items-center justify-center">
+<svg class="w-11 h-11 transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-[#1E2F33]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<path class="text-[#2DD4BF]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="62, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<span class="absolute text-[11px] font-black text-[#2DD4BF]">62%</span>
+</div>
+</div>
+<!-- Unit Title -->
+<h2 class="text-xl font-extrabold text-[#E8F1F0] leading-snug break-words mb-1.5">
+          Present perfect vs past simple
+        </h2>
+<p class="text-xs text-[#A9BDBB] leading-relaxed mb-3.5">
+          Distinguish unfinished time periods and life experiences from specific completed moments in the past.
+        </p>
+<!-- Empty Teacher Slot & Tip Bubble -->
+<div class="bg-[#10191B] rounded-2xl p-3 border border-[#26383C] flex items-start gap-3 mb-4">
+<!-- Empty rounded placeholder labelled teacher-slot -->
+<div class="teacher-slot w-14 h-14 rounded-2xl flex-shrink-0 flex flex-col items-center justify-center text-center p-1" title="Teacher avatar placeholder">
+<span class="text-[9px] font-black uppercase tracking-wider text-[#2DD4BF] leading-tight break-all">teacher-slot</span>
+</div>
+<!-- Speech / Coach tip -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5 mb-0.5">
+<span class="w-2 h-2 rounded-full bg-[#2DD4BF]"></span>
+<span class="text-[11px] font-bold text-[#2DD4BF] uppercase tracking-wider">Carlos • Tutor Tip</span>
+</div>
+<p class="text-xs text-[#E8F1F0] font-medium leading-normal">“Look out for exact past time markers like <span class="font-bold underline decoration-[#2DD4BF] text-[#2DD4BF] decoration-2">yesterday</span>, <span class="font-bold underline decoration-[#2DD4BF] text-[#2DD4BF] decoration-2">in 2021</span>, and <span class="font-bold underline decoration-[#2DD4BF] text-[#2DD4BF] decoration-2">ago</span>!”</p>
+</div>
+</div>
+<!-- QUICK REFERENCE TABLE PREVIEW -->
+<div class="mb-4">
+<div class="flex items-center justify-between mb-2">
+<h3 class="text-xs font-bold text-[#E8F1F0] uppercase tracking-wider flex items-center gap-1.5">
+<span class="material-symbols-rounded text-sm text-[#2DD4BF]">table_chart</span>
+<span>Quick Reference Comparison</span>
+</h3>
+<span class="text-[11px] font-bold text-[#2DD4BF]">Summary Card</span>
+</div>
+<div class="rounded-xl border border-[#26383C] overflow-hidden bg-[#172427] text-left text-xs">
+<div class="grid grid-cols-2 bg-[#1E2F33] border-b border-[#26383C] px-2.5 py-1.5 font-bold text-[#E8F1F0]">
+<div>Present Perfect</div>
+<div>Past Simple</div>
+</div>
+<div class="divide-y divide-[#26383C]">
+<div class="grid grid-cols-2 px-2.5 py-2 gap-2 text-[11px] leading-snug">
+<div>
+<span class="font-bold text-[#E8F1F0] block">Connected to now</span>
+<span class="text-[#A9BDBB]">Unfinished time span, recent news, or life experience.</span>
+</div>
+<div>
+<span class="font-bold text-[#E8F1F0] block">Finished period</span>
+<span class="text-[#A9BDBB]">Fixed point in the past, completely over and done.</span>
+</div>
+</div>
+<div class="grid grid-cols-2 px-2.5 py-2 gap-2 text-[11px] leading-snug bg-[#1E2F33]/60">
+<div class="font-medium text-[#E8F1F0]">
+<span class="text-[#2DD4BF] font-bold block mb-0.5">Key Markers:</span>
+                  already, yet, since, ever, never, for 3 years
+                </div>
+<div class="font-medium text-[#E8F1F0]">
+<span class="text-[#F59E0B] font-bold block mb-0.5">Key Markers:</span>
+                  yesterday, last week, in 1998, 5 minutes ago
+                </div>
+</div>
+<div class="grid grid-cols-2 px-2.5 py-2 gap-2 text-[11px] leading-snug">
+<div class="italic text-[#E8F1F0]">
+                  “I <span class="font-bold text-[#2DD4BF] not-italic">have visited</span> Tokyo twice.”
+                </div>
+<div class="italic text-[#E8F1F0]">
+                  “I <span class="font-bold text-[#F59E0B] not-italic">visited</span> Tokyo in May 2019.”
+                </div>
+</div>
+</div>
+</div>
+</div>
+<!-- ACTION BUTTONS: Learn & Practise (Never shrink, ≥44px height, tactile ledge) -->
+<div class="grid grid-cols-2 gap-2.5 pt-1">
+<!-- Learn Button -->
+<button class="tactile-secondary w-full min-h-[48px] px-3 py-2.5 rounded-2xl font-extrabold text-sm flex items-center justify-center gap-2 border border-[#2F454A]" type="button">
+<span class="material-symbols-rounded text-lg text-[#2DD4BF]">auto_stories</span>
+<span class="leading-tight text-[#E8F1F0]">Learn Unit</span>
+</button>
+<!-- Practise Button with coral CTA tactile ledge -->
+<button class="tactile-cta w-full min-h-[48px] px-3 py-2.5 rounded-2xl font-extrabold text-sm flex items-center justify-center gap-2 text-[#1A0D00]" type="button">
+<span class="material-symbols-rounded text-lg">bolt</span>
+<span class="leading-tight">Practise (12)</span>
+</button>
+</div>
+</section>
+<!-- CEFR UNITS LIST GROUPED BY LEVEL -->
+<section class="space-y-3 pt-1">
+<div class="flex items-center justify-between">
+<h2 class="text-sm font-extrabold text-[#E8F1F0] uppercase tracking-wider flex items-center gap-1.5">
+<span class="material-symbols-rounded text-base text-[#2DD4BF]">list_alt</span>
+<span>All Units in B1 Intermediate</span>
+</h2>
+<span class="text-xs font-bold text-[#A9BDBB]">5 of 8 mastered</span>
+</div>
+<!-- UNIT ITEM 1 (Completed) -->
+<div class="bg-[#172427] rounded-2xl border border-[#26383C] p-3.5 flex items-center justify-between gap-3 shadow-sm hover:border-[#2DD4BF]/40 transition-colors">
+<!-- Completion Ring Check -->
+<div class="w-10 h-10 rounded-full bg-[#1E2F33] border border-[#2DD4BF]/40 flex items-center justify-center flex-shrink-0 text-[#2DD4BF]">
+<span class="material-symbols-rounded text-xl">check</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 mb-0.5">
+<span class="text-[11px] font-bold text-[#2DD4BF] uppercase">Unit B1.1</span>
+<span class="text-[10px] font-extrabold text-[#2DD4BF] bg-[#2DD4BF]/15 px-1.5 py-0.2 rounded">100%</span>
+</div>
+<h3 class="text-sm font-bold text-[#E8F1F0] truncate">Narrative Tenses &amp; Past Continuous</h3>
+<p class="text-[11px] text-[#A9BDBB] truncate">Background events vs interrupting main actions</p>
+</div>
+<button aria-label="Review Unit B1.1" class="w-11 h-11 flex items-center justify-center rounded-xl bg-[#1E2F33] border border-[#2F454A] text-[#2DD4BF] active:translate-y-0.5 flex-shrink-0 shadow-sm" type="button">
+<span class="material-symbols-rounded text-xl">replay</span>
+</button>
+</div>
+<!-- UNIT ITEM 2 (Completed) -->
+<div class="bg-[#172427] rounded-2xl border border-[#26383C] p-3.5 flex items-center justify-between gap-3 shadow-sm hover:border-[#2DD4BF]/40 transition-colors">
+<!-- Completion Ring Check -->
+<div class="w-10 h-10 rounded-full bg-[#1E2F33] border border-[#2DD4BF]/40 flex items-center justify-center flex-shrink-0 text-[#2DD4BF]">
+<span class="material-symbols-rounded text-xl">check</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 mb-0.5">
+<span class="text-[11px] font-bold text-[#2DD4BF] uppercase">Unit B1.2</span>
+<span class="text-[10px] font-extrabold text-[#2DD4BF] bg-[#2DD4BF]/15 px-1.5 py-0.2 rounded">100%</span>
+</div>
+<h3 class="text-sm font-bold text-[#E8F1F0] truncate">Conditionals: Real &amp; Unreal (0, 1, 2)</h3>
+<p class="text-[11px] text-[#A9BDBB] truncate">Hypothetical scenarios and future probabilities</p>
+</div>
+<button aria-label="Review Unit B1.2" class="w-11 h-11 flex items-center justify-center rounded-xl bg-[#1E2F33] border border-[#2F454A] text-[#2DD4BF] active:translate-y-0.5 flex-shrink-0 shadow-sm" type="button">
+<span class="material-symbols-rounded text-xl">replay</span>
+</button>
+</div>
+<!-- UNIT ITEM 3 (Completed) -->
+<div class="bg-[#172427] rounded-2xl border border-[#26383C] p-3.5 flex items-center justify-between gap-3 shadow-sm hover:border-[#2DD4BF]/40 transition-colors">
+<div class="w-10 h-10 rounded-full bg-[#1E2F33] border border-[#2DD4BF]/40 flex items-center justify-center flex-shrink-0 text-[#2DD4BF]">
+<span class="material-symbols-rounded text-xl">check</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 mb-0.5">
+<span class="text-[11px] font-bold text-[#2DD4BF] uppercase">Unit B1.3</span>
+<span class="text-[10px] font-extrabold text-[#2DD4BF] bg-[#2DD4BF]/15 px-1.5 py-0.2 rounded">100%</span>
+</div>
+<h3 class="text-sm font-bold text-[#E8F1F0] truncate">Passive Voice in News &amp; Reports</h3>
+<p class="text-[11px] text-[#A9BDBB] truncate">Agent suppression and objective reporting forms</p>
+</div>
+<button aria-label="Review Unit B1.3" class="w-11 h-11 flex items-center justify-center rounded-xl bg-[#1E2F33] border border-[#2F454A] text-[#2DD4BF] active:translate-y-0.5 flex-shrink-0 shadow-sm" type="button">
+<span class="material-symbols-rounded text-xl">replay</span>
+</button>
+</div>
+<!-- UNIT ITEM 4 (Active in Progress - Highlighted) -->
+<div class="bg-[#172427] rounded-2xl border-2 border-[#F59E0B] p-3.5 flex items-center justify-between gap-3 shadow-sm">
+<!-- Circular Ring 62% -->
+<div class="relative w-10 h-10 flex-shrink-0 flex items-center justify-center">
+<svg class="w-10 h-10 transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-[#1E2F33]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="4"></path>
+<path class="text-[#F59E0B]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="62, 100" stroke-linecap="round" stroke-width="4"></path>
+</svg>
+<span class="absolute text-[10px] font-black text-[#F59E0B]">62%</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5 mb-0.5">
+<span class="text-[11px] font-black text-[#F59E0B] uppercase">Unit B1.4 • ACTIVE</span>
+</div>
+<h3 class="text-sm font-extrabold text-[#E8F1F0] truncate">Present perfect vs past simple</h3>
+<p class="text-[11px] text-[#A9BDBB] truncate">12 drill cards left to complete</p>
+</div>
+<button aria-label="Resume Unit B1.4" class="tactile-cta min-h-[44px] px-3.5 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1 flex-shrink-0 text-[#1A0D00]" type="button">
+<span>Resume</span>
+<span class="material-symbols-rounded text-base">arrow_forward</span>
+</button>
+</div>
+<!-- UNIT ITEM 5 (Locked / Next) -->
+<div class="bg-[#172427]/80 rounded-2xl border border-[#26383C] p-3.5 flex items-center justify-between gap-3 opacity-90">
+<div class="w-10 h-10 rounded-full bg-[#1E2F33] border border-[#26383C] flex items-center justify-center flex-shrink-0 text-[#64748B]">
+<span class="material-symbols-rounded text-lg">lock</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 mb-0.5">
+<span class="text-[11px] font-bold text-[#A9BDBB] uppercase">Unit B1.5</span>
+<span class="text-[10px] font-semibold text-[#A9BDBB] bg-[#1E2F33] px-1.5 py-0.2 rounded border border-[#2F454A]">Locked</span>
+</div>
+<h3 class="text-sm font-bold text-[#E8F1F0] truncate">Modals of Deduction: Must, Can't, Might</h3>
+<p class="text-[11px] text-[#A9BDBB] truncate">Logical inferences in present and past contexts</p>
+</div>
+<span class="material-symbols-rounded text-[#64748B] text-xl flex-shrink-0">chevron_right</span>
+</div>
+<!-- UNIT ITEM 6 (Locked / Next) -->
+<div class="bg-[#172427]/80 rounded-2xl border border-[#26383C] p-3.5 flex items-center justify-between gap-3 opacity-90">
+<div class="w-10 h-10 rounded-full bg-[#1E2F33] border border-[#26383C] flex items-center justify-center flex-shrink-0 text-[#64748B]">
+<span class="material-symbols-rounded text-lg">lock</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 mb-0.5">
+<span class="text-[11px] font-bold text-[#A9BDBB] uppercase">Unit B1.6</span>
+<span class="text-[10px] font-semibold text-[#A9BDBB] bg-[#1E2F33] px-1.5 py-0.2 rounded border border-[#2F454A]">Locked</span>
+</div>
+<h3 class="text-sm font-bold text-[#E8F1F0] truncate">Relative Clauses: Defining &amp; Non-defining</h3>
+<p class="text-[11px] text-[#A9BDBB] truncate">Punctuation, pronouns, and essential details</p>
+</div>
+<span class="material-symbols-rounded text-[#64748B] text-xl flex-shrink-0">chevron_right</span>
+</div>
+</section>
+<!-- UPCOMING CEFR B2 PREVIEW BANNER -->
+<section class="bg-[#172427] rounded-2xl border border-[#26383C] p-3.5 flex items-center justify-between gap-3 shadow-[0_2px_0_0_#0B1214]">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-[#1E2F33] border border-[#2F454A] flex items-center justify-center text-[#2DD4BF] flex-shrink-0 font-extrabold text-sm">
+            B2
+          </div>
+<div>
+<h4 class="text-xs font-extrabold text-[#E8F1F0]">Next Stage: CEFR B2 Vantage</h4>
+<p class="text-[11px] text-[#A9BDBB]">Inversion, mixed conditionals &amp; subjunctive</p>
+</div>
+</div>
+<span class="px-2 py-1 rounded-lg bg-[#1E2F33] border border-[#2F454A] text-[11px] font-bold text-[#2DD4BF] flex-shrink-0">
+          6 Units
+        </span>
+</section>
+</main>
+<!-- CANONICAL MOBILE BOTTOM TAB BAR (Fixed 5 Tabs: Today, Vocab, Skills, Tests, Me) -->
+<nav aria-label="Bottom Navigation" class="fixed bottom-0 left-0 right-0 z-50 bg-[#10191B] border-t border-[#26383C] h-[68px] max-w-[390px] mx-auto flex items-center justify-around px-2 shadow-[0_-4px_12px_rgba(0,0,0,0.4)]">
+<!-- 1. Today -->
+<a aria-label="Today" class="flex flex-col items-center justify-center w-16 h-12 text-[#A9BDBB] hover:text-[#E8F1F0] active:scale-95 transition-transform" href="#/today">
+<span class="material-symbols-rounded text-2xl mb-0.5">calendar_today</span>
+<span class="text-[11px] font-bold leading-none">Today</span>
+</a>
+<!-- 2. Vocab -->
+<a aria-label="Vocabulary" class="flex flex-col items-center justify-center w-16 h-12 text-[#A9BDBB] hover:text-[#E8F1F0] active:scale-95 transition-transform" href="#/vocab">
+<span class="material-symbols-rounded text-2xl mb-0.5">menu_book</span>
+<span class="text-[11px] font-bold leading-none">Vocab</span>
+</a>
+<!-- 3. Skills (ACTIVE DESTINATION) -->
+<a aria-current="page" aria-label="Skills" class="flex flex-col items-center justify-center w-16 h-12 active:scale-95 transition-transform" href="#/skills">
+<div class="px-3.5 py-1 rounded-full bg-[#1E2F33] border border-[#2DD4BF]/40 flex flex-col items-center justify-center">
+<span class="material-symbols-rounded text-2xl text-[#2DD4BF] mb-0.5">psychology</span>
+<span class="text-[11px] font-extrabold text-[#2DD4BF] leading-none">Skills</span>
+</div>
+</a>
+<!-- 4. Tests -->
+<a aria-label="Tests" class="flex flex-col items-center justify-center w-16 h-12 text-[#A9BDBB] hover:text-[#E8F1F0] active:scale-95 transition-transform" href="#/tests">
+<span class="material-symbols-rounded text-2xl mb-0.5">assignment</span>
+<span class="text-[11px] font-bold leading-none">Tests</span>
+</a>
+<!-- 5. Me -->
+<a aria-label="Profile and Settings" class="flex flex-col items-center justify-center w-16 h-12 text-[#A9BDBB] hover:text-[#E8F1F0] active:scale-95 transition-transform" href="#/me">
+<span class="material-symbols-rounded text-2xl mb-0.5">person</span>
+<span class="text-[11px] font-bold leading-none">Me</span>
+</a>
+</nav>
+</div>
+</body></html>

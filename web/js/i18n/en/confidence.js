@@ -3,7 +3,6 @@
   const D = g.I18N_DICT = g.I18N_DICT || {};
   D.en = Object.assign(D.en || {}, {
    "Điểm tự tin {n} lần gần nhất": "Your last {n} confidence scores",
-   "Đã xong": "Done",
    "Mỗi bài là một tình huống thật, 5–8 phút: nghe, học cụm câu, nói theo, rồi tự tin nói chuyện. Sai cũng không sao – cứ nói!": "Each lesson is one real situation, 5–8 minutes: listen, learn phrases, repeat, then talk with confidence. Mistakes are fine – just speak!",
    "Điểm tự tin": "Confidence score",
    "Lần gần nhất: {n}/100 · chuỗi {d} ngày": "Last time: {n}/100 · {d}-day streak",
@@ -12,7 +11,6 @@
    "Thử thách 2 phút hôm nay": "Today's 2-minute challenge",
    "Bộ công cụ tự tin": "Confidence toolkit",
    "Sắp có": "Coming soon",
-   "{a}/{b} bài": "{a}/{b} lessons",
    "Âm thanh của bạn chỉ ở trên máy này: Lexkite không tải lên và không lưu bản ghi.": "Your audio stays on this device: Lexkite does not upload or keep your recordings.",
    "Nghe hội thoại mẫu": "Listen to the model dialogue",
    "Cụm câu nên nói": "Phrases to use",

@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_caller",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: caller.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means a person who makes a phone call.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "The caller asked to speak to the sales manager.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "caller",
+  "ipa": "/ˈkɔːlər/",
+  "mean": "a person who makes a phone call",
+  "ex": "The caller asked to speak to the sales manager.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=caller",
+  "link": "https://lexkite.com/app/#/review?w=caller",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 43,
+  "seconds": 26.2,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"caller\" mean?",
+  "keyword": "caller",
+  "value": "Caller means a person who makes a phone call.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=caller",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"caller\" mean?",
+    "description": "Caller means a person who makes a phone call.\n\nReview your words, free: https://lexkite.com/app/#/review?w=caller\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "caller",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"caller\" mean?\n\nCaller means a person who makes a phone call.\n\nReview your words, free: https://lexkite.com/app/#/review?w=caller"
+   },
+   "instagram": {
+    "caption": "What does \"caller\" mean?\n\nCaller means a person who makes a phone call.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"caller\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a person who makes a phone call. Caller means a person who makes a phone call. More practice like this (free): {link}"
+ }
+}

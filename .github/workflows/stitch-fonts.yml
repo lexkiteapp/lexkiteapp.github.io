@@ -1,0 +1,34 @@
+# 🔣 Dựng lại phông icon Material Symbols (web/fonts/msym*.woff2 + msym.json) + CSS Stitch theo HỢP danh sách icon của nhánh.
+# Vì sao: gộp main vào PR Stitch hay xung đột 3 tệp nhị phân này; chỉ dựng lại được khi có mạng tới Google Fonts (máy bị chặn) → chạy trên CI.
+# KHÔNG đẩy vào nhánh (luật no-pr-branch-push, #424): kết quả → artifact bot-output-stitch-fonts.
+# Dùng: gh workflow run stitch-fonts.yml -f ref=<nhánh PR>  →  bash scripts/ci/bot-output.sh stitch-fonts <nhánh>  → git add web/fonts web/css && commit.
+name: stitch-fonts
+on:
+  workflow_dispatch:
+    inputs:
+      ref: { description: 'nhánh PR cần dựng lại phông icon (không phải main)', required: true }
+concurrency:
+  group: stitch-fonts-${{ inputs.ref }}
+  cancel-in-progress: false
+permissions:
+  contents: read
+jobs:
+  fonts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Chặn main
+        env: { REF: '${{ inputs.ref }}' }
+        run: case "$REF" in main|refs/heads/main|'') echo "::error::stitch-fonts không chạy trên main"; exit 1;; esac
+      - uses: actions/checkout@v4
+        with: { ref: '${{ inputs.ref }}' }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Dựng phông icon theo hợp danh sách icon (+ CSS Stitch)
+        run: |
+          npm i --no-save --no-audit --no-fund tailwindcss@3.4.17 >/dev/null
+          node scripts/build-stitch-css.mjs --fonts
+          node scripts/build-stitch-css.mjs --check
+      - name: Kết quả → artifact (không đẩy vào nhánh)
+        uses: ./.github/actions/bot-output
+        with: { name: stitch-fonts, paths: 'web/fonts web/css' }

@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Report a problem</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-secondary": "#660800",
+            "on-error": "#690005",
+            "inverse-primary": "#006a64",
+            "on-background": "#d8e5e9",
+            "secondary": "#ffb4a6",
+            "on-tertiary": "#402e00",
+            "on-primary-container": "#00322e",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "secondary-container": "#981201",
+            "on-surface-variant": "#bcc9c7",
+            "on-surface": "#d8e5e9",
+            "on-primary": "#003733",
+            "error-container": "#93000a",
+            "surface-container": "#162125",
+            "background": "#091518",
+            "surface-tint": "#6bd8ce",
+            "surface-variant": "#2b373a",
+            "surface-dim": "#091518",
+            "on-secondary-container": "#ffa493",
+            "surface-container-highest": "#2b373a",
+            "on-primary-fixed": "#00201e",
+            "surface-container-high": "#202c2f",
+            "primary-container": "#2ba39a",
+            "error": "#ffb4ab",
+            "surface-container-low": "#121d20",
+            "primary-fixed-dim": "#6bd8ce",
+            "primary-fixed": "#88f5ea",
+            "tertiary": "#f4bf40",
+            "surface-container-lowest": "#051013",
+            "inverse-on-surface": "#263236",
+            "outline": "#879391",
+            "surface": "#091518",
+            "primary": "#6bd8ce",
+            "on-tertiary-fixed": "#261a00",
+            "on-secondary-fixed": "#3f0300",
+            "tertiary-container": "#ba8b00",
+            "surface-bright": "#2f3b3e",
+            "secondary-fixed": "#ffdad3",
+            "secondary-fixed-dim": "#ffb4a6",
+            "outline-variant": "#3d4947",
+            "on-primary-fixed-variant": "#00504b",
+            "inverse-surface": "#d8e5e9",
+            "tertiary-fixed-dim": "#f4bf40",
+            "on-error-container": "#ffdad6",
+            "tertiary-fixed": "#ffdf9e",
+            "on-secondary-fixed-variant": "#900f00",
+            "on-tertiary-container": "#392900"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-md": "16px",
+            "space-xs": "4px",
+            "space-sm": "8px",
+            "space-lg": "24px",
+            "space-xl": "32px",
+            "margin": "16px",
+            "gutter": "16px"
+          },
+          fontFamily: {
+            "label": ["Plus Jakarta Sans"],
+            "title": ["Plus Jakarta Sans"],
+            "display": ["Plus Jakarta Sans"],
+            "body": ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            "label": ["12px", { lineHeight: "16px", letterSpacing: "0.06em", fontWeight: "800" }],
+            "title": ["22px", { lineHeight: "28px", fontWeight: "700" }],
+            "display": ["32px", { lineHeight: "38px", fontWeight: "800" }],
+            "body": ["16px", { lineHeight: "24px", fontWeight: "500" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      background-color: #FFF7EA;
+      color: #0F3D3E;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined[data-weight="fill"] {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    
+    /* Tactile 3D physical ledges */
+    .tactile-card {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      border-bottom: 5px solid #D8CFBC;
+      border-radius: 18px;
+      transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .tactile-card-selected {
+      background: #F0F9F8;
+      border: 2px solid #2BA39A;
+      border-bottom: 5px solid #1F7D76;
+      border-radius: 18px;
+    }
+    .tactile-cta {
+      background: linear-gradient(135deg, #F2553B 0%, #FF884D 100%);
+      border: 2px solid #D44229;
+      border-bottom: 6px solid #B53A22;
+      color: #1B0B04;
+      font-weight: 800;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+      transition: transform 0.08s ease, border-bottom-width 0.08s ease;
+    }
+    .tactile-cta:active {
+      transform: translateY(3px);
+      border-bottom-width: 3px;
+    }
+    .tactile-secondary {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      border-bottom: 5px solid #D8CFBC;
+      color: #0F3D3E;
+      font-weight: 700;
+      transition: transform 0.08s ease, border-bottom-width 0.08s ease;
+    }
+    .tactile-secondary:active {
+      transform: translateY(2px);
+      border-bottom-width: 3px;
+    }
+    .tactile-chip {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      border-bottom: 4px solid #D8CFBC;
+      cursor: pointer;
+      transition: transform 0.1s ease, border-color 0.15s ease;
+    }
+    .tactile-chip:hover {
+      border-color: #D6C6AD;
+    }
+    .tactile-chip:active {
+      transform: translateY(2px);
+      border-bottom-width: 2px;
+    }
+    .tactile-chip.active {
+      background: #F0FAF9;
+      border: 2px solid #2BA39A;
+      border-bottom: 4px solid #1D7C75;
+    }
+  </style>
+</head>
+<body class="bg-[#FFF7EA] text-[#0F3D3E] min-h-screen flex flex-col font-body selection:bg-[#2BA39A]/20">
+<!-- Desktop App Shell Container -->
+<div class="flex w-full min-h-screen">
+<!-- 1. Left Sidebar (Docked 260px, cream surface #FBF3E6 with border-r-2 #EADEC8) -->
+<aside class="w-[260px] flex-shrink-0 bg-[#FBF3E6] border-r-2 border-[#EADEC8] flex flex-col justify-between p-4 sticky top-0 h-screen z-30 select-none">
+<!-- Top Cluster -->
+<div class="flex flex-col gap-5">
+<!-- Brand Header: Geometric kite emblem + wordmark -->
+<div class="flex items-center gap-3 px-2 pt-1">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#2BA39A] to-[#6BD8CE] border-2 border-[#1E7770] border-b-[4px] border-b-[#145752] flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-white text-[22px]" data-weight="fill">navigation</span>
+</div>
+<div class="flex flex-col">
+<span class="font-display text-[22px] font-extrabold tracking-tight text-[#0F3D3E] leading-none">Lexkite</span>
+<span class="text-[11px] font-bold tracking-wider text-[#4E6668] uppercase mt-1">Tactile Academy</span>
+</div>
+</div>
+<!-- Top User Stats: Streak & XP -->
+<div class="grid grid-cols-2 gap-2">
+<!-- Streak -->
+<div class="bg-[#FFFFFF] border-2 border-[#EADEC8] border-b-4 border-b-[#D8CFBC] rounded-xl p-2 flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-[#FFF2E0] border border-[#FAD6A5] flex items-center justify-center text-[#F2553B]">
+<span class="material-symbols-outlined text-[20px]" data-weight="fill">local_fire_department</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-[#4E6668] tracking-wider uppercase">Streak</span>
+<span class="text-[13px] font-extrabold text-[#0F3D3E] leading-none">14 Days</span>
+</div>
+</div>
+<!-- XP -->
+<div class="bg-[#FFFFFF] border-2 border-[#EADEC8] border-b-4 border-b-[#D8CFBC] rounded-xl p-2 flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-[#FEF9E7] border border-[#FDE396] flex items-center justify-center text-[#FFB054]">
+<span class="material-symbols-outlined text-[20px]" data-weight="fill">bolt</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-[#4E6668] tracking-wider uppercase">XP Level</span>
+<span class="text-[13px] font-extrabold text-[#0F3D3E] leading-none">820 XP</span>
+</div>
+</div>
+</div>
+<!-- Primary Navigation List (5 Items verbatim) -->
+<nav class="flex flex-col gap-1.5 mt-1">
+<!-- Today -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-[#4E6668] hover:bg-[#F3E7D3] hover:text-[#0F3D3E] font-label text-label transition-all" href="#">
+<span class="material-symbols-outlined text-[22px]">calendar_today</span>
+<span class="font-bold text-[14px]">Today</span>
+</a>
+<!-- Vocab -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-[#4E6668] hover:bg-[#F3E7D3] hover:text-[#0F3D3E] font-label text-label transition-all" href="#">
+<span class="material-symbols-outlined text-[22px]">menu_book</span>
+<span class="font-bold text-[14px]">Vocab</span>
+</a>
+<!-- Skills -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-[#4E6668] hover:bg-[#F3E7D3] hover:text-[#0F3D3E] font-label text-label transition-all" href="#">
+<span class="material-symbols-outlined text-[22px]">psychology</span>
+<span class="font-bold text-[14px]">Skills</span>
+</a>
+<!-- Tests -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-[#4E6668] hover:bg-[#F3E7D3] hover:text-[#0F3D3E] font-label text-label transition-all" href="#">
+<span class="material-symbols-outlined text-[22px]">quiz</span>
+<span class="font-bold text-[14px]">Tests</span>
+</a>
+<!-- Me -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-[#4E6668] hover:bg-[#F3E7D3] hover:text-[#0F3D3E] font-label text-label transition-all" href="#">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="font-bold text-[14px]">Me</span>
+</a>
+</nav>
+</div>
+<!-- Bottom Profile & Support Cluster -->
+<div class="flex flex-col gap-2 pt-4 border-t-2 border-[#EADEC8]">
+<!-- Active Help/Feedback indicator button -->
+<div class="flex items-center justify-between px-3 py-2 bg-[#E9F6F5] border-2 border-[#2BA39A] border-b-4 border-b-[#1C7A73] rounded-xl text-[#00322e]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-[#2BA39A]" data-weight="fill">help_center</span>
+<span class="text-[12px] font-extrabold tracking-wide uppercase">Report Issue</span>
+</div>
+<span class="inline-flex w-2.5 h-2.5 rounded-full bg-[#2BA39A] animate-pulse"></span>
+</div>
+<!-- Learner Profile Box -->
+<div class="bg-[#FFFFFF] border-2 border-[#EADEC8] border-b-4 border-b-[#D8CFBC] rounded-xl p-3 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-lg bg-[#2BA39A]/15 border border-[#2BA39A]/40 flex items-center justify-center font-extrabold text-[#003733] text-sm">
+              LK
+            </div>
+<div class="flex flex-col">
+<span class="text-[13px] font-bold text-[#0F3D3E] leading-tight">Learner Kai</span>
+<span class="text-[11px] font-semibold text-[#4E6668]">Band 7.5 Target</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#879391] text-[18px]">verified</span>
+</div>
+</div>
+</aside>
+<!-- 2. Main Content Canvas -->
+<div class="flex-1 flex flex-col min-w-0 bg-[#FFF7EA]">
+<!-- Top Header Bar (Breadcrumbs + Live Support Status + Language Dropdown) -->
+<header class="h-14 border-b-2 border-[#EADEC8] bg-[#FFF8F0]/90 backdrop-blur-md px-8 flex items-center justify-between sticky top-0 z-20">
+<!-- Breadcrumbs -->
+<div class="flex items-center gap-2 text-[13px] font-bold">
+<span class="text-[#4E6668] hover:text-[#0F3D3E] cursor-pointer transition-colors">Support &amp; Quality</span>
+<span class="material-symbols-outlined text-[16px] text-[#A69B88]">chevron_right</span>
+<span class="text-[#0F3D3E] bg-[#EAE0CD] px-2 py-0.5 rounded-md font-extrabold">Report a problem</span>
+</div>
+<!-- Right Header Items -->
+<div class="flex items-center gap-4">
+<!-- Status Badge -->
+<div class="flex items-center gap-2 bg-[#E9F6F5] border border-[#2BA39A]/30 px-3 py-1 rounded-full text-[12px] font-bold text-[#006a64]">
+<span class="w-2 h-2 rounded-full bg-[#2BA39A]"></span>
+<span>Live Support • 24h Review Guarantee</span>
+</div>
+<!-- Language Dropdown Indicator -->
+<div class="flex items-center gap-1.5 bg-[#FFFFFF] border-2 border-[#EADEC8] border-b-[3px] border-b-[#D8CFBC] px-3 py-1 rounded-xl text-[12px] font-extrabold text-[#0F3D3E] cursor-pointer hover:bg-[#FDF9F3]">
+<span class="material-symbols-outlined text-[16px] text-[#4E6668]">translate</span>
+<span>EN / Global</span>
+<span class="material-symbols-outlined text-[16px] text-[#4E6668]">arrow_drop_down</span>
+</div>
+</div>
+</header>
+<!-- Center Stage Form Scroll Container -->
+<main class="flex-1 overflow-y-auto px-8 py-8 flex justify-center">
+<div class="w-full max-w-4xl flex flex-col gap-8 pb-16">
+<!-- Header Section -->
+<div class="flex flex-col gap-2">
+<div class="inline-flex items-center gap-1.5 self-start bg-[#FEF2E8] border border-[#F9CDB0] text-[#981201] px-3 py-1 rounded-md text-[11px] font-black tracking-widest uppercase">
+<span class="material-symbols-outlined text-[14px]" data-weight="fill">verified_user</span>
+<span>LEXKITE QUALITY ASSURANCE</span>
+</div>
+<h1 class="font-display text-[32px] md:text-[36px] font-extrabold text-[#0F3D3E] tracking-tight leading-tight">
+              Report a problem
+            </h1>
+<p class="font-body text-[16px] text-[#4E6668] max-w-3xl leading-relaxed">
+              Help Carlos &amp; Ama polish our IELTS and TOEFL drills. Every submission is reviewed directly by our editorial linguists within 24 hours.
+            </p>
+</div>
+<!-- Teacher Guidance Note (Teacher Carlos Code-composited slot + speech bubble) -->
+<div class="tactile-card p-5 bg-[#FFFFFF] flex flex-col sm:flex-row items-center gap-5">
+<!-- Empty dashed placeholder strictly labelled 'teacher-slot' (no photo/person) -->
+<div class="w-[130px] h-[140px] flex-shrink-0 border-2 border-dashed border-[#BCC9C7] rounded-2xl bg-[#F6F8F8] flex flex-col items-center justify-center p-3 text-center">
+<span class="material-symbols-outlined text-[#4E6668] text-[36px] mb-1">co_present</span>
+<span class="text-[11px] font-black text-[#0F3D3E] uppercase tracking-wider">teacher-slot</span>
+<span class="text-[10px] font-bold text-[#879391]">Carlos (Linguist)</span>
+</div>
+<!-- Speech Bubble -->
+<div class="flex-1 relative bg-[#FFF9F0] border-2 border-[#EADEC8] border-b-4 border-b-[#D8CFBC] rounded-2xl p-4 sm:p-5">
+<div class="flex items-center gap-2 mb-2 text-[#981201]">
+<span class="material-symbols-outlined text-[20px]" data-weight="fill">chat_bubble</span>
+<span class="font-display text-[15px] font-extrabold text-[#0F3D3E]">Teacher Carlos:</span>
+</div>
+<p class="font-body text-[15px] text-[#0F3D3E] leading-relaxed">
+                “Spotted a confusing distractor or a bug in Question #04? Tell us what felt off and we will review the corpus with Cambridge exam standards.”
+              </p>
+<div class="mt-3 flex items-center gap-2 text-[12px] font-bold text-[#2BA39A]">
+<span class="material-symbols-outlined text-[16px]" data-weight="fill">check_circle</span>
+<span>Verified Cambridge CELTA reviewer on duty today</span>
+</div>
+</div>
+</div>
+<!-- The Interactive Feedback & Problem Reporting Form -->
+<form class="flex flex-col gap-8" onsubmit="event.preventDefault();">
+<!-- 1. Category Selection -->
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<label class="font-display text-[16px] font-extrabold text-[#0F3D3E]">
+                  What type of issue is this? <span class="text-[#F2553B]">*</span>
+</label>
+<span class="text-[12px] font-bold text-[#4E6668]">Select single category</span>
+</div>
+<!-- 4 Tactile Category Cards Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+<!-- Category 1: Wrong answer (ACTIVE / SELECTED STATE) -->
+<div class="tactile-chip active p-4 rounded-2xl flex flex-col justify-between h-[110px] relative">
+<div class="flex items-center justify-between">
+<div class="w-9 h-9 rounded-xl bg-[#2BA39A]/15 text-[#006a64] flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-weight="fill">cancel</span>
+</div>
+<!-- Selected Checkmark Badge -->
+<span class="w-6 h-6 rounded-full bg-[#2BA39A] text-white flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]" data-weight="fill">check</span>
+</span>
+</div>
+<div>
+<span class="font-display text-[15px] font-extrabold text-[#003733] block">Wrong answer</span>
+<span class="text-[11px] font-semibold text-[#4E6668]">Key or answer rubric mismatch</span>
+</div>
+</div>
+<!-- Category 2: Bug / Glitch -->
+<div class="tactile-chip p-4 rounded-2xl flex flex-col justify-between h-[110px]">
+<div class="flex items-center justify-between">
+<div class="w-9 h-9 rounded-xl bg-[#F6EFE3] text-[#4E6668] flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">bug_report</span>
+</div>
+</div>
+<div>
+<span class="font-display text-[15px] font-extrabold text-[#0F3D3E] block">Bug / Glitch</span>
+<span class="text-[11px] font-semibold text-[#4E6668]">UI froze or audio failed</span>
+</div>
+</div>
+<!-- Category 3: Translation issue -->
+<div class="tactile-chip p-4 rounded-2xl flex flex-col justify-between h-[110px]">
+<div class="flex items-center justify-between">
+<div class="w-9 h-9 rounded-xl bg-[#F6EFE3] text-[#4E6668] flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">translate</span>
+</div>
+</div>
+<div>
+<span class="font-display text-[15px] font-extrabold text-[#0F3D3E] block">Translation issue</span>
+<span class="text-[11px] font-semibold text-[#4E6668]">Awkward or unnatural phrasing</span>
+</div>
+</div>
+<!-- Category 4: Idea / Suggestion -->
+<div class="tactile-chip p-4 rounded-2xl flex flex-col justify-between h-[110px]">
+<div class="flex items-center justify-between">
+<div class="w-9 h-9 rounded-xl bg-[#F6EFE3] text-[#4E6668] flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">lightbulb</span>
+</div>
+</div>
+<div>
+<span class="font-display text-[15px] font-extrabold text-[#0F3D3E] block">Idea / Suggestion</span>
+<span class="text-[11px] font-semibold text-[#4E6668]">New rule or clearer tip</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 2. Description Section -->
+<div class="flex flex-col gap-2">
+<div class="flex items-baseline justify-between">
+<label class="font-display text-[16px] font-extrabold text-[#0F3D3E]" for="feedback-details">
+                  Details &amp; Context <span class="text-[#F2553B]">*</span>
+</label>
+<span class="text-[12px] font-bold text-[#4E6668]">194 / 1,000 characters</span>
+</div>
+<p class="text-[13px] font-medium text-[#4E6668] -mt-1">
+                Explain what went wrong or why Cambridge/ETS guidelines suggest another answer.
+              </p>
+<!-- Textarea Card -->
+<div class="tactile-card p-3 bg-white focus-within:border-[#2BA39A] focus-within:border-b-[#1C7A73]">
+<textarea aria-describedby="char-count" class="w-full border-none p-2 text-[15px] font-body text-[#0F3D3E] focus:ring-0 resize-y outline-none leading-relaxed" id="feedback-details" rows="4">In Question #04 (Gerund vs Infinitive), Cambridge IELTS 18 lists option B as valid in informal discourse. However, the feedback panel marked it incorrect without citing the formal rubric rule.</textarea>
+</div>
+</div>
+<!-- 3. Screenshot Attachment Container -->
+<div class="tactile-card p-5 bg-white flex flex-col gap-4">
+<!-- Toggle Row -->
+<div class="flex items-center justify-between pb-3 border-b-2 border-[#EADEC8]">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-[#E9F6F5] text-[#2BA39A] flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">photo_camera</span>
+</div>
+<div class="flex flex-col">
+<span class="font-display text-[15px] font-extrabold text-[#0F3D3E]">Attach screen context</span>
+<span class="text-[12px] font-semibold text-[#4E6668]">Automatically attaches question state snapshot for quick verification</span>
+</div>
+</div>
+<!-- Active Tactile Toggle Switch -->
+<button aria-checked="true" class="w-14 h-8 bg-[#2BA39A] rounded-full p-1 border-2 border-[#1E7770] flex items-center justify-end cursor-pointer" role="switch" type="button">
+<div class="w-6 h-6 rounded-full bg-white shadow-sm border border-[#1E7770]"></div>
+</button>
+</div>
+<!-- Two Attachment Columns -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Auto-captured Thumbnail Card -->
+<div class="bg-[#FFFBF5] border-2 border-[#EADEC8] border-b-4 border-b-[#D8CFBC] rounded-xl p-3 flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-[11px] font-black uppercase text-[#2BA39A]">
+<span class="material-symbols-outlined text-[14px]" data-weight="fill">check_circle</span>
+<span>Auto-captured</span>
+</div>
+<span class="text-[11px] font-bold text-[#879391]">2 minutes ago</span>
+</div>
+<!-- Mock Preview Snippet -->
+<div class="h-24 bg-white border border-[#E0D4BE] rounded-lg p-2.5 flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between text-[11px] text-[#4E6668] font-bold border-b border-[#F0E6D4] pb-1">
+<span>Grammar Drill: Unit 4</span>
+<span class="text-[#F2553B]">Q#04 Marked ✕</span>
+</div>
+<div class="text-[12px] font-extrabold text-[#0F3D3E] truncate">
+                      "I enjoy [to read / reading] periodicals on weekends."
+                    </div>
+<div class="flex items-center gap-1 text-[11px] font-semibold text-[#4E6668]">
+<span class="material-symbols-outlined text-[14px]">history</span>
+<span>Session ID: LK-IELTS-40892</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<button class="text-[12px] font-bold text-[#0F3D3E] hover:text-[#2BA39A] flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">zoom_in</span>
+<span>Zoom preview</span>
+</button>
+<button class="text-[12px] font-bold text-[#981201] hover:text-[#F2553B] flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+<span>Remove</span>
+</button>
+</div>
+</div>
+<!-- Alternative File Upload Dashed Zone -->
+<div class="border-2 border-dashed border-[#C5BBA7] hover:border-[#2BA39A] rounded-xl p-4 flex flex-col items-center justify-center text-center bg-[#FDFBF7] cursor-pointer transition-colors group">
+<div class="w-10 h-10 rounded-full bg-[#EAE0CD] group-hover:bg-[#E9F6F5] text-[#0F3D3E] group-hover:text-[#2BA39A] flex items-center justify-center mb-2 transition-colors">
+<span class="material-symbols-outlined text-[22px]">upload_file</span>
+</div>
+<span class="font-display text-[13px] font-extrabold text-[#0F3D3E]">
+                    Drop custom image or diagnostic log
+                  </span>
+<span class="text-[11px] font-medium text-[#4E6668] mt-1">
+                    PNG, JPG, PDF up to 10MB
+                  </span>
+</div>
+</div>
+</div>
+<!-- 4. Contact Info Field -->
+<div class="flex flex-col gap-2">
+<label class="font-display text-[16px] font-extrabold text-[#0F3D3E]" for="contact-email">
+                Your email address <span class="text-[13px] font-semibold text-[#4E6668]">(Optional)</span>
+</label>
+<div class="tactile-card px-3 py-2 bg-white flex items-center gap-2 focus-within:border-[#2BA39A] focus-within:border-b-[#1C7A73]">
+<span class="material-symbols-outlined text-[#4E6668] text-[20px]">mail</span>
+<input class="w-full border-none p-1 text-[15px] font-body text-[#0F3D3E] focus:ring-0 outline-none font-bold" id="contact-email" placeholder="name@domain.com" type="email" value="kai.learner@lexkite.org"/>
+</div>
+<div class="flex items-center gap-1.5 text-[12px] font-bold text-[#0F3D3E]">
+<span class="material-symbols-outlined text-[#FFB054] text-[18px]" data-weight="fill">stars</span>
+<span>We will email you when Teacher Carlos verifies the correction (<span class="text-[#2BA39A] font-extrabold">+20 XP bonus</span>).</span>
+</div>
+</div>
+<!-- 5. Form Footer & Actions -->
+<div class="flex flex-col gap-4 pt-4 border-t-2 border-[#EADEC8]">
+<!-- Privacy Note -->
+<div class="flex items-start gap-2.5 bg-[#F6EFE3]/70 p-3 rounded-xl border border-[#E2D5BE]">
+<span class="material-symbols-outlined text-[#4E6668] text-[20px] flex-shrink-0 mt-0.5" data-weight="fill">shield</span>
+<p class="text-[12px] text-[#4E6668] leading-relaxed font-medium">
+                  Your submission only contains drill ID and telemetry necessary to locate the issue. No private browsing data or third-party cookies are ever shared.
+                </p>
+</div>
+<!-- Button Actions -->
+<div class="flex flex-col sm:flex-row items-center justify-end gap-3.5 mt-2">
+<!-- Secondary Cancel Action -->
+<button class="tactile-secondary w-full sm:w-auto min-w-[200px] h-[52px] px-6 rounded-2xl flex items-center justify-center gap-2 text-[15px] cursor-pointer" type="button">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+<span>Cancel &amp; resume drill</span>
+</button>
+<!-- Primary CTA: Send report -->
+<button class="tactile-cta w-full sm:w-auto min-w-[240px] h-[54px] px-8 rounded-2xl flex items-center justify-center gap-2 text-[16px] tracking-wide cursor-pointer uppercase" type="submit">
+<span>Send report</span>
+<span class="material-symbols-outlined text-[20px]" data-weight="fill">send</span>
+</button>
+</div>
+</div>
+</form>
+</div>
+</main>
+</div>
+</div>
+</body></html>

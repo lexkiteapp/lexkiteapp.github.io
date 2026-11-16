@@ -1,0 +1,914 @@
+{
+ "id": "gym-signup",
+ "group": "services",
+ "cefr": "A2",
+ "title": {
+  "en": "Joining a gym",
+  "vi": "Đăng ký phòng tập",
+  "es": "Apuntarse al gimnasio",
+  "pt": "Entrar na academia",
+  "fr": "S'inscrire à la salle de sport",
+  "de": "Im Fitnessstudio anmelden",
+  "id": "Mendaftar ke gym",
+  "th": "สมัครฟิตเนส",
+  "zh": "报名健身房",
+  "ja": "ジムの入会",
+  "ko": "헬스장 등록",
+  "hi": "जिम में दाख़िला",
+  "ar": "الاشتراك في النادي الرياضي",
+  "ru": "Запись в спортзал",
+  "tr": "Spor salonuna kayıt"
+ },
+ "goal": {
+  "en": "Join the gym and ask about hours!",
+  "vi": "Đăng ký phòng tập và hỏi giờ mở cửa!",
+  "es": "¡Apúntate al gimnasio y pregunta el horario!",
+  "pt": "Entre na academia e pergunte o horário!",
+  "fr": "Inscrivez-vous et demandez les horaires !",
+  "de": "Melde dich an und frag nach den Öffnungszeiten!",
+  "id": "Daftar gym dan tanya jam bukanya!",
+  "th": "สมัครฟิตเนสและถามเวลาเปิด-ปิด!",
+  "zh": "报名健身房，问问营业时间！",
+  "ja": "ジムに入会して営業時間を聞こう！",
+  "ko": "헬스장에 등록하고 운영 시간을 물어봐요!",
+  "hi": "जिम जॉइन करें और खुलने का समय पूछें!",
+  "ar": "اشترك في النادي واسأل عن مواعيد العمل!",
+  "ru": "Запишись в зал и узнай часы работы!",
+  "tr": "Salona kaydol ve çalışma saatlerini sor!"
+ },
+ "roles": [
+  "customer",
+  "barista"
+ ],
+ "stages": [
+  {
+   "id": "join",
+   "title": {
+    "en": "Join",
+    "vi": "Đăng ký",
+    "es": "Apuntarse",
+    "pt": "Entrar",
+    "fr": "S'inscrire",
+    "de": "Anmelden",
+    "id": "Mendaftar",
+    "th": "สมัคร",
+    "zh": "报名",
+    "ja": "入会",
+    "ko": "등록",
+    "hi": "जॉइन करें",
+    "ar": "الاشتراك",
+    "ru": "Запись",
+    "tr": "Kayıt"
+   },
+   "lines": [
+    "j1",
+    "j2",
+    "j3",
+    "j4"
+   ]
+  },
+  {
+   "id": "plans",
+   "title": {
+    "en": "Plans",
+    "vi": "Gói thành viên",
+    "es": "Planes",
+    "pt": "Planos",
+    "fr": "Formules",
+    "de": "Tarife",
+    "id": "Paket",
+    "th": "แพ็กเกจ",
+    "zh": "会员套餐",
+    "ja": "プラン",
+    "ko": "회원권",
+    "hi": "प्लान",
+    "ar": "الباقات",
+    "ru": "Абонементы",
+    "tr": "Üyelik paketleri"
+   },
+   "lines": [
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ]
+  },
+  {
+   "id": "hours",
+   "title": {
+    "en": "Hours",
+    "vi": "Giờ mở cửa",
+    "es": "Horario",
+    "pt": "Horários",
+    "fr": "Horaires",
+    "de": "Öffnungszeiten",
+    "id": "Jam buka",
+    "th": "เวลาเปิด-ปิด",
+    "zh": "营业时间",
+    "ja": "営業時間",
+    "ko": "운영 시간",
+    "hi": "समय",
+    "ar": "المواعيد",
+    "ru": "Часы работы",
+    "tr": "Saatler"
+   },
+   "lines": [
+    "h1",
+    "h2",
+    "h3",
+    "h4"
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "id": "j1",
+   "who": "customer",
+   "en": "Hi, I'd like to join the gym.",
+   "variants": {
+    "polite": "Hello, I would like to join the gym, please.",
+    "casual": "Hi, I want to join."
+   },
+   "gloss": {
+    "en": "Saying you want to join the gym.",
+    "vi": "Xin chào, tôi muốn đăng ký phòng tập.",
+    "es": "Hola, quisiera apuntarme al gimnasio.",
+    "pt": "Olá, quero entrar na academia.",
+    "fr": "Bonjour, je voudrais m'inscrire à la salle de sport.",
+    "de": "Hallo, ich möchte mich im Fitnessstudio anmelden.",
+    "id": "Halo, saya ingin mendaftar gym.",
+    "th": "สวัสดีค่ะ อยากสมัครฟิตเนสค่ะ",
+    "zh": "你好，我想报名健身房。",
+    "ja": "こんにちは、ジムに入会したいです。",
+    "ko": "안녕하세요, 헬스장에 등록하고 싶어요.",
+    "hi": "नमस्ते, मुझे जिम जॉइन करना है।",
+    "ar": "مرحبًا، أودّ الاشتراك في النادي الرياضي.",
+    "ru": "Здравствуйте, я хочу записаться в спортзал.",
+    "tr": "Merhaba, spor salonuna üye olmak istiyorum."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "gym",
+     "ipa": "/dʒɪm/",
+     "hi": "JIM",
+     "note": {
+      "en": "Say JIM, like the name Jim.",
+      "vi": "Đọc JIM, như tên Jim.",
+      "es": "Di JIM, como el nombre Jim; empieza con un sonido “dy”.",
+      "pt": "Diga JIM, como o nome Jim; começa com o som “dj”.",
+      "fr": "Dites DJIM, comme le prénom Jim.",
+      "de": "Sprich DSCHIM, wie der Name Jim.",
+      "id": "Ucapkan JIM, seperti nama Jim.",
+      "th": "ออกเสียง จิม เหมือนชื่อ Jim",
+      "zh": "读 JIM，像人名 Jim。",
+      "ja": "「ジム」と読みます。人名のJimと同じです。",
+      "ko": "‘짐’처럼 발음해요. 사람 이름 Jim과 같아요.",
+      "hi": "जिम बोलें, जैसे नाम Jim।",
+      "ar": "انطقها جِم مثل الاسم Jim.",
+      "ru": "Говори ДЖИМ, как имя Jim.",
+      "tr": "CİM de, Jim adı gibi."
+     }
+    }
+   ]
+  },
+  {
+   "id": "j2",
+   "who": "barista",
+   "en": "Welcome! Have you visited our gym before?",
+   "variants": {
+    "polite": "Welcome! Have you been to our gym before?",
+    "casual": "Hi! Been here before?"
+   },
+   "gloss": {
+    "en": "The staff member asks if you have been here before.",
+    "vi": "Chào mừng! Anh/chị đã đến phòng tập của chúng tôi bao giờ chưa?",
+    "es": "¡Bienvenido! ¿Ha venido antes a nuestro gimnasio?",
+    "pt": "Bem-vindo! Você já veio à nossa academia antes?",
+    "fr": "Bienvenue ! Êtes-vous déjà venu dans notre salle ?",
+    "de": "Willkommen! Waren Sie schon einmal bei uns?",
+    "id": "Selamat datang! Apakah Anda pernah ke gym kami sebelumnya?",
+    "th": "ยินดีต้อนรับค่ะ เคยมาที่ฟิตเนสของเราไหมคะ",
+    "zh": "欢迎！您以前来过我们健身房吗？",
+    "ja": "いらっしゃいませ！以前に当ジムへ来たことはありますか？",
+    "ko": "어서 오세요! 전에 저희 헬스장에 와 보신 적 있나요?",
+    "hi": "स्वागत है! क्या आप पहले हमारे जिम आए हैं?",
+    "ar": "أهلًا بك! هل زرت ناديَنا من قبل؟",
+    "ru": "Добро пожаловать! Вы уже бывали у нас в зале?",
+    "tr": "Hoş geldiniz! Daha önce salonumuza geldiniz mi?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "j3",
+   "who": "customer",
+   "en": "No, it's my first time. Can I look around?",
+   "variants": {
+    "polite": "No, it's my first visit. May I look around, please?",
+    "casual": "No, first time. Can I look around?"
+   },
+   "gloss": {
+    "en": "Saying it is your first visit and asking to look around.",
+    "vi": "Chưa, đây là lần đầu. Tôi xem quanh được không?",
+    "es": "No, es mi primera vez. ¿Puedo echar un vistazo?",
+    "pt": "Não, é a minha primeira vez. Posso dar uma olhada?",
+    "fr": "Non, c'est ma première fois. Je peux jeter un œil ?",
+    "de": "Nein, zum ersten Mal. Darf ich mich umsehen?",
+    "id": "Belum, ini pertama kali. Boleh saya lihat-lihat?",
+    "th": "ไม่เคยค่ะ มาครั้งแรก ขอเดินดูรอบ ๆ ได้ไหมคะ",
+    "zh": "没有，这是第一次。我可以到处看看吗？",
+    "ja": "いいえ、初めてです。見学してもいいですか？",
+    "ko": "아니요, 처음이에요. 둘러봐도 될까요?",
+    "hi": "नहीं, पहली बार आना हुआ है। क्या थोड़ा घूमकर देखा जा सकता है?",
+    "ar": "لا، هذه أول مرة. هل يمكنني التجول والاطلاع؟",
+    "ru": "Нет, я здесь впервые. Можно осмотреться?",
+    "tr": "Hayır, ilk kez geliyorum. Etrafa bakabilir miyim?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "j4",
+   "who": "customer",
+   "en": "Do you have a free trial day?",
+   "variants": {
+    "polite": "Do you offer a free trial day, please?",
+    "casual": "Is there a free trial?"
+   },
+   "gloss": {
+    "en": "Asking if you can try the gym for free.",
+    "vi": "Ở đây có buổi tập thử miễn phí không?",
+    "es": "¿Tienen un día de prueba gratis?",
+    "pt": "Vocês têm um dia de teste grátis?",
+    "fr": "Avez-vous une journée d'essai gratuite ?",
+    "de": "Gibt es einen kostenlosen Probetag?",
+    "id": "Apakah ada hari percobaan gratis?",
+    "th": "มีวันทดลองใช้ฟรีไหมคะ",
+    "zh": "你们有免费体验日吗？",
+    "ja": "無料体験日はありますか？",
+    "ko": "무료 체험일이 있나요?",
+    "hi": "क्या आपके यहाँ मुफ़्त ट्रायल डे है?",
+    "ar": "هل لديكم يوم تجريبي مجاني؟",
+    "ru": "У вас есть бесплатный пробный день?",
+    "tr": "Ücretsiz deneme günü var mı?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "trial",
+     "ipa": "/ˈtraɪ.əl/",
+     "hi": "TRY",
+     "note": {
+      "en": "Say TRY-uhl: it sounds like “try” plus a short “l”.",
+      "vi": "Đọc TRAI-ồl: giống “try” thêm âm “l” ngắn.",
+      "es": "Di TRAI-ol: suena como “try” más una “l” corta.",
+      "pt": "Diga TRAI-ol: soa como “try” mais um “l” curto.",
+      "fr": "Dites TRAÏ-eul : comme « try » plus un « l » bref.",
+      "de": "Sprich TRAI-el: wie „try“ plus ein kurzes „l“.",
+      "id": "Ucapkan TRAI-el: seperti “try” plus “l” singkat.",
+      "th": "ออกเสียง ไทร-เออล: เหมือน “try” บวก l สั้น ๆ",
+      "zh": "读 TRY-uhl：像 try 加一个短的 l。",
+      "ja": "「トライアル」に近い音：TRY-uhl。tryに短いlが付きます。",
+      "ko": "‘트라이-얼’: try에 짧은 l이 붙은 소리예요.",
+      "hi": "ट्राय-अल बोलें: try के बाद छोटा ‘l’।",
+      "ar": "انطقها ترآي-ال: مثل try ثم لام قصيرة.",
+      "ru": "Говори ТРАЙ-эл: как «try» плюс короткое «л».",
+      "tr": "TRAY-ıl de: “try” sesi ve kısa bir “l”."
+     }
+    }
+   ]
+  },
+  {
+   "id": "m1",
+   "who": "customer",
+   "en": "What kinds of membership do you have?",
+   "variants": {
+    "polite": "Could you tell me about your membership types?",
+    "casual": "What memberships are there?"
+   },
+   "gloss": {
+    "en": "Asking what membership plans exist.",
+    "vi": "Ở đây có những gói thành viên nào?",
+    "es": "¿Qué tipos de membresía tienen?",
+    "pt": "Que tipos de plano vocês têm?",
+    "fr": "Quels types d'abonnement proposez-vous ?",
+    "de": "Welche Mitgliedschaften gibt es bei Ihnen?",
+    "id": "Paket keanggotaan apa saja yang ada?",
+    "th": "มีแพ็กเกจสมาชิกแบบไหนบ้างคะ",
+    "zh": "你们有哪些会员类型？",
+    "ja": "どんな会員プランがありますか？",
+    "ko": "어떤 종류의 회원권이 있나요?",
+    "hi": "आपके यहाँ किस तरह की मेंबरशिप हैं?",
+    "ar": "ما أنواع العضوية لديكم؟",
+    "ru": "Какие у вас бывают абонементы?",
+    "tr": "Ne tür üyelik paketleriniz var?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "m2",
+   "who": "barista",
+   "en": "We have monthly and yearly plans. Monthly is thirty.",
+   "variants": {
+    "polite": "We offer monthly and yearly plans. Monthly costs thirty.",
+    "casual": "Monthly or yearly. Monthly is thirty."
+   },
+   "gloss": {
+    "en": "The staff member lists the plans and the monthly price.",
+    "vi": "Chúng tôi có gói tháng và gói năm. Gói tháng là ba mươi.",
+    "es": "Tenemos planes mensuales y anuales. El mensual cuesta treinta.",
+    "pt": "Temos planos mensais e anuais. O mensal custa trinta.",
+    "fr": "Nous avons des formules mensuelles et annuelles. La mensuelle coûte trente.",
+    "de": "Wir haben Monats- und Jahrestarife. Der Monatstarif kostet dreißig.",
+    "id": "Kami punya paket bulanan dan tahunan. Yang bulanan tiga puluh.",
+    "th": "เรามีแพ็กเกจรายเดือนและรายปีค่ะ รายเดือนสามสิบค่ะ",
+    "zh": "我们有月卡和年卡。月卡三十。",
+    "ja": "月額プランと年額プランがあります。月額は30です。",
+    "ko": "월 회원권과 연 회원권이 있어요. 월 회원권은 30이에요.",
+    "hi": "हमारे यहाँ मासिक और वार्षिक प्लान हैं। मासिक तीस का है।",
+    "ar": "لدينا باقات شهرية وسنوية. الشهرية بثلاثين.",
+    "ru": "У нас есть месячный и годовой абонементы. Месячный — тридцать.",
+    "tr": "Aylık ve yıllık paketlerimiz var. Aylık otuz."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "yearly",
+     "ipa": "/ˈjɪə.li/",
+     "hi": "YEAR",
+     "note": {
+      "en": "Start with Y: YEAR-ly, not “JEAR-ly”.",
+      "vi": "Bắt đầu bằng âm Y: YIR-li, không phải “JIR-li”.",
+      "es": "Empieza con Y: YIR-li, no “JIR-li”.",
+      "pt": "Comece com Y: YIR-li, não “DJIR-li”.",
+      "fr": "Commencez par Y : YIR-li, pas « DJIR-li ».",
+      "de": "Beginne mit dem Laut wie deutsches „J“: JIR-li, nicht „DSCH“.",
+      "id": "Mulai dengan bunyi Y: YIR-li, bukan JIR-li.",
+      "th": "ขึ้นต้นด้วยเสียง ย: เยีย-ลี ไม่ใช่ เจีย-ลี",
+      "zh": "以 Y 音开头：YEAR-ly，不要读成 JEAR-ly。",
+      "ja": "最初はY音で：イヤ・リー。「ジヤ」ではありません。",
+      "ko": "처음에 Y 소리를 내세요: ‘이어-리’, ‘지어-리’가 아니에요.",
+      "hi": "शुरुआत Y की ध्वनि से करें: यीअर-ली, ‘जीअर-ली’ नहीं।",
+      "ar": "ابدأ بصوت Y: ييرلي، وليس جيرلي.",
+      "ru": "Начинай со звука Y: ЙИР-ли, а не ДЖИР-ли.",
+      "tr": "Y sesiyle başla: YİR-li, “CİR-li” değil."
+     }
+    }
+   ]
+  },
+  {
+   "id": "m3",
+   "who": "customer",
+   "en": "Is there a student discount?",
+   "variants": {
+    "polite": "Do you offer a student discount, please?",
+    "casual": "Any student discount?"
+   },
+   "gloss": {
+    "en": "Asking if students pay less.",
+    "vi": "Có giảm giá cho sinh viên không?",
+    "es": "¿Hay descuento para estudiantes?",
+    "pt": "Há desconto para estudantes?",
+    "fr": "Y a-t-il une réduction pour les étudiants ?",
+    "de": "Gibt es einen Studentenrabatt?",
+    "id": "Apakah ada diskon pelajar?",
+    "th": "มีส่วนลดสำหรับนักศึกษาไหมคะ",
+    "zh": "有学生折扣吗？",
+    "ja": "学割はありますか？",
+    "ko": "학생 할인이 있나요?",
+    "hi": "क्या छात्रों के लिए छूट है?",
+    "ar": "هل يوجد خصم للطلاب؟",
+    "ru": "Есть скидка для студентов?",
+    "tr": "Öğrenci indirimi var mı?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "student",
+     "ipa": "/ˈstjuː.dənt/",
+     "hi": "STEW",
+     "note": {
+      "en": "Stress the first syllable: STEW-dent.",
+      "vi": "Nhấn âm tiết đầu: STIU-dần.",
+      "es": "Acentúa la primera sílaba: STIU-dent.",
+      "pt": "Acentue a primeira sílaba: STIU-dent.",
+      "fr": "Accentuez la première syllabe : STIOU-deunt.",
+      "de": "Betone die erste Silbe: STJUU-dent.",
+      "id": "Tekankan suku kata pertama: STYU-den.",
+      "th": "เน้นพยางค์แรก: สตู-เดินท์",
+      "zh": "重音在第一个音节：STEW-dent。",
+      "ja": "最初の音節を強く：ステュー・デント。",
+      "ko": "첫 음절에 강세: ‘스튜-던트’.",
+      "hi": "पहले अक्षर पर ज़ोर दें: स्ट्यू-डेंट।",
+      "ar": "شدّد على المقطع الأول: ستيو-دنت.",
+      "ru": "Ударение на первый слог: СТЬЮ-дент.",
+      "tr": "Vurgu ilk hecede: STYU-dınt."
+     }
+    }
+   ]
+  },
+  {
+   "id": "m4",
+   "who": "customer",
+   "en": "Can I cancel anytime?",
+   "variants": {
+    "polite": "Is it possible to cancel at any time?",
+    "casual": "Can I cancel whenever I want?"
+   },
+   "gloss": {
+    "en": "Asking if you can stop the membership at any time.",
+    "vi": "Tôi có thể hủy bất cứ lúc nào không?",
+    "es": "¿Puedo cancelar en cualquier momento?",
+    "pt": "Posso cancelar a qualquer momento?",
+    "fr": "Puis-je résilier à tout moment ?",
+    "de": "Kann ich jederzeit kündigen?",
+    "id": "Bisakah saya berhenti kapan saja?",
+    "th": "ยกเลิกเมื่อไหร่ก็ได้ไหมคะ",
+    "zh": "我可以随时取消吗？",
+    "ja": "いつでも解約できますか？",
+    "ko": "언제든지 해지할 수 있나요?",
+    "hi": "क्या इसे कभी भी रद्द किया जा सकता है?",
+    "ar": "هل يمكنني الإلغاء في أي وقت؟",
+    "ru": "Можно отменить в любой момент?",
+    "tr": "İstediğim zaman iptal edebilir miyim?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "h1",
+   "who": "customer",
+   "en": "What time do you open in the morning?",
+   "variants": {
+    "polite": "Could you tell me when you open in the morning?",
+    "casual": "When do you open?"
+   },
+   "gloss": {
+    "en": "Asking when the gym opens.",
+    "vi": "Buổi sáng mấy giờ phòng tập mở cửa?",
+    "es": "¿A qué hora abren por la mañana?",
+    "pt": "Que horas vocês abrem de manhã?",
+    "fr": "À quelle heure ouvrez-vous le matin ?",
+    "de": "Wann öffnen Sie morgens?",
+    "id": "Jam berapa buka di pagi hari?",
+    "th": "ตอนเช้าเปิดกี่โมงคะ",
+    "zh": "你们早上几点开门？",
+    "ja": "朝は何時に開きますか？",
+    "ko": "아침에 몇 시에 문을 여나요?",
+    "hi": "आप सुबह कितने बजे खुलते हैं?",
+    "ar": "متى تفتحون في الصباح؟",
+    "ru": "Во сколько вы открываетесь утром?",
+    "tr": "Sabah saat kaçta açılıyorsunuz?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "h2",
+   "who": "barista",
+   "en": "We open at six and close at ten at night.",
+   "variants": {
+    "polite": "We open at six a.m. and close at ten p.m.",
+    "casual": "Six in the morning to ten at night."
+   },
+   "gloss": {
+    "en": "The staff member gives the opening hours.",
+    "vi": "Chúng tôi mở cửa lúc sáu giờ và đóng cửa lúc mười giờ tối.",
+    "es": "Abrimos a las seis y cerramos a las diez de la noche.",
+    "pt": "Abrimos às seis e fechamos às dez da noite.",
+    "fr": "Nous ouvrons à six heures et fermons à dix heures du soir.",
+    "de": "Wir öffnen um sechs Uhr und schließen um zehn Uhr abends.",
+    "id": "Kami buka jam enam pagi dan tutup jam sepuluh malam.",
+    "th": "เราเปิดหกโมงเช้า ปิดสี่ทุ่มค่ะ",
+    "zh": "我们早上六点开门，晚上十点关门。",
+    "ja": "朝6時に開いて、夜10時に閉まります。",
+    "ko": "아침 6시에 열고 밤 10시에 닫아요.",
+    "hi": "हम सुबह छह बजे खुलते हैं और रात दस बजे बंद होते हैं।",
+    "ar": "نفتح في السادسة صباحًا ونغلق في العاشرة مساءً.",
+    "ru": "Мы открываемся в шесть утра и закрываемся в десять вечера.",
+    "tr": "Sabah altıda açıyor, gece onda kapatıyoruz."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "h3",
+   "who": "customer",
+   "en": "Are you open on Sundays?",
+   "variants": {
+    "polite": "Are you open on Sundays, please?",
+    "casual": "Open on Sundays?"
+   },
+   "gloss": {
+    "en": "Asking if the gym is open on Sundays.",
+    "vi": "Chủ nhật có mở cửa không?",
+    "es": "¿Abren los domingos?",
+    "pt": "Vocês abrem aos domingos?",
+    "fr": "Êtes-vous ouverts le dimanche ?",
+    "de": "Haben Sie sonntags geöffnet?",
+    "id": "Apakah buka pada hari Minggu?",
+    "th": "วันอาทิตย์เปิดไหมคะ",
+    "zh": "周日营业吗？",
+    "ja": "日曜日は開いていますか？",
+    "ko": "일요일에도 문을 여나요?",
+    "hi": "क्या आप रविवार को खुले रहते हैं?",
+    "ar": "هل أنتم مفتوحون يوم الأحد؟",
+    "ru": "Вы работаете по воскресеньям?",
+    "tr": "Pazar günleri açık mısınız?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "h4",
+   "who": "customer",
+   "en": "Are towels and lockers included?",
+   "variants": {
+    "polite": "Are towels and lockers included in the price?",
+    "casual": "Do I get a towel and locker?"
+   },
+   "gloss": {
+    "en": "Asking if towels and lockers come with the price.",
+    "vi": "Giá đã bao gồm khăn tắm và tủ khóa chưa?",
+    "es": "¿Las toallas y las taquillas están incluidas?",
+    "pt": "Toalhas e armários estão incluídos?",
+    "fr": "Les serviettes et les casiers sont-ils inclus ?",
+    "de": "Sind Handtücher und Schließfächer inklusive?",
+    "id": "Apakah handuk dan loker sudah termasuk?",
+    "th": "รวมผ้าเช็ดตัวและตู้ล็อกเกอร์แล้วไหมคะ",
+    "zh": "毛巾和储物柜包含在内吗？",
+    "ja": "タオルとロッカーは含まれていますか？",
+    "ko": "수건과 사물함도 포함되어 있나요?",
+    "hi": "क्या तौलिये और लॉकर शामिल हैं?",
+    "ar": "هل المناشف والخزائن مشمولة؟",
+    "ru": "Полотенца и шкафчики включены?",
+    "tr": "Havlu ve dolap dahil mi?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "towels",
+     "ipa": "/ˈtaʊ.əlz/",
+     "hi": "TOW",
+     "note": {
+      "en": "Say TOW-ulz, like “tower” with a z.",
+      "vi": "Đọc TAU-ờlz, giống “tower” thêm âm z.",
+      "es": "Di TAU-ols, como “tower” más una z.",
+      "pt": "Diga TAU-ols, como “tower” mais um z.",
+      "fr": "Dites TAOU-eulz, comme « tower » plus un z.",
+      "de": "Sprich TAU-elz, wie „tower“ plus ein z.",
+      "id": "Ucapkan TAU-elz, seperti “tower” plus z.",
+      "th": "ออกเสียง เทา-เอิลซ์ เหมือน “tower” บวกเสียง z",
+      "zh": "读 TOW-ulz，像 tower 再加一个 z。",
+      "ja": "「タウアルズ」：towerの音にzが付きます。",
+      "ko": "‘타우-얼즈’: tower에 z 소리가 붙어요.",
+      "hi": "टाउ-अल्ज़ बोलें: tower के साथ z की ध्वनि।",
+      "ar": "انطقها تاو-ألز: مثل tower مع صوت z.",
+      "ru": "Говори ТАУ-элз: как «tower» плюс звук z.",
+      "tr": "TAU-ılz de: “tower” sesi ve sonunda z."
+     }
+    }
+   ]
+  },
+  {
+   "id": "q1",
+   "who": "barista",
+   "open": true,
+   "en": "What do you want to do at the gym?",
+   "keywords": [
+    "weights",
+    "run",
+    "running",
+    "treadmill",
+    "swim",
+    "yoga",
+    "lose weight",
+    "muscle",
+    "fitness",
+    "classes",
+    "healthy",
+    "cardio"
+   ],
+   "variants": {
+    "polite": "What would you like to do at the gym?",
+    "casual": "What's your goal?"
+   },
+   "gloss": {
+    "en": "The staff member asks what you want to do here.",
+    "vi": "Anh/chị muốn tập gì ở phòng tập?",
+    "es": "¿Qué quiere hacer en el gimnasio?",
+    "pt": "O que você quer fazer na academia?",
+    "fr": "Que voulez-vous faire à la salle ?",
+    "de": "Was möchten Sie im Fitnessstudio machen?",
+    "id": "Apa yang ingin Anda lakukan di gym?",
+    "th": "อยากทำอะไรที่ฟิตเนสคะ",
+    "zh": "您想在健身房做什么？",
+    "ja": "ジムでは何をしたいですか？",
+    "ko": "헬스장에서 무엇을 하고 싶으세요?",
+    "hi": "आप जिम में क्या करना चाहते हैं?",
+    "ar": "ماذا تريد أن تفعل في النادي؟",
+    "ru": "Чем вы хотите заниматься в зале?",
+    "tr": "Salonda ne yapmak istiyorsunuz?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q2",
+   "who": "barista",
+   "open": true,
+   "en": "How many days a week will you come?",
+   "keywords": [
+    "one",
+    "two",
+    "three",
+    "four",
+    "five",
+    "six",
+    "seven",
+    "once",
+    "twice",
+    "every day",
+    "weekend",
+    "monday"
+   ],
+   "variants": {
+    "polite": "How many days a week will you visit?",
+    "casual": "How many days a week?"
+   },
+   "gloss": {
+    "en": "The staff member asks how often you will come.",
+    "vi": "Mỗi tuần anh/chị sẽ đến mấy ngày?",
+    "es": "¿Cuántos días a la semana vendrá?",
+    "pt": "Quantos dias por semana você virá?",
+    "fr": "Combien de jours par semaine viendrez-vous ?",
+    "de": "An wie vielen Tagen pro Woche kommen Sie?",
+    "id": "Berapa hari seminggu Anda akan datang?",
+    "th": "จะมากี่วันต่อสัปดาห์คะ",
+    "zh": "您每周来几天？",
+    "ja": "週に何日来ますか？",
+    "ko": "일주일에 며칠 오실 건가요?",
+    "hi": "आप हफ़्ते में कितने दिन आएँगे?",
+    "ar": "كم يومًا في الأسبوع ستأتي؟",
+    "ru": "Сколько дней в неделю вы будете приходить?",
+    "tr": "Haftada kaç gün geleceksiniz?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  }
+ ],
+ "dialogue": [
+  {
+   "who": "barista",
+   "en": "Hi! How can I help you?"
+  },
+  {
+   "who": "customer",
+   "en": "Hi, I'd like to join the gym."
+  },
+  {
+   "who": "barista",
+   "en": "Great! We have monthly and yearly plans."
+  },
+  {
+   "who": "customer",
+   "en": "What does the monthly plan cost?"
+  },
+  {
+   "who": "barista",
+   "en": "It's thirty a month."
+  },
+  {
+   "who": "customer",
+   "en": "Is there a student discount?"
+  },
+  {
+   "who": "barista",
+   "en": "Yes, students get ten percent off."
+  },
+  {
+   "who": "customer",
+   "en": "What time do you open?"
+  },
+  {
+   "who": "barista",
+   "en": "We open at six and close at ten."
+  },
+  {
+   "who": "customer",
+   "en": "Perfect. I'd like the monthly plan."
+  }
+ ],
+ "listening": [
+  {
+   "id": "l1",
+   "turns": [
+    {
+     "who": "barista",
+     "en": "Are you a student?"
+    },
+    {
+     "who": "customer",
+     "en": "Yes, here is my student card."
+    },
+    {
+     "who": "barista",
+     "en": "Great. That's twenty-five a month, not thirty."
+    }
+   ],
+   "q": {
+    "en": "How much is the monthly plan for students?",
+    "vi": "Gói tháng cho sinh viên giá bao nhiêu?",
+    "es": "¿Cuánto cuesta el plan mensual para estudiantes?",
+    "pt": "Quanto custa o plano mensal para estudantes?",
+    "fr": "Combien coûte la formule mensuelle pour les étudiants ?",
+    "de": "Wie viel kostet der Monatstarif für Studierende?",
+    "id": "Berapa harga paket bulanan untuk pelajar?",
+    "th": "แพ็กเกจรายเดือนสำหรับนักศึกษาราคาเท่าไหร่",
+    "zh": "学生月卡多少钱？",
+    "ja": "学生の月額プランはいくらですか？",
+    "ko": "학생 월 회원권은 얼마인가요?",
+    "hi": "छात्रों के लिए मासिक प्लान कितने का है?",
+    "ar": "كم سعر الباقة الشهرية للطلاب؟",
+    "ru": "Сколько стоит месячный абонемент для студентов?",
+    "tr": "Öğrenciler için aylık paket ne kadar?"
+   },
+   "answer": "twenty-five"
+  },
+  {
+   "id": "l2",
+   "turns": [
+    {
+     "who": "customer",
+     "en": "Are you open on Sundays?"
+    },
+    {
+     "who": "barista",
+     "en": "Yes, but we close early on Sundays, at four."
+    },
+    {
+     "who": "customer",
+     "en": "OK, thanks!"
+    }
+   ],
+   "q": {
+    "en": "What time does the gym close on Sundays?",
+    "vi": "Chủ nhật phòng tập đóng cửa lúc mấy giờ?",
+    "es": "¿A qué hora cierra el gimnasio los domingos?",
+    "pt": "A que horas a academia fecha aos domingos?",
+    "fr": "À quelle heure la salle ferme-t-elle le dimanche ?",
+    "de": "Wann schließt das Studio sonntags?",
+    "id": "Jam berapa gym tutup pada hari Minggu?",
+    "th": "วันอาทิตย์ฟิตเนสปิดกี่โมง",
+    "zh": "周日健身房几点关门？",
+    "ja": "日曜日、ジムは何時に閉まりますか？",
+    "ko": "일요일에 헬스장은 몇 시에 닫나요?",
+    "hi": "रविवार को जिम कितने बजे बंद होता है?",
+    "ar": "متى يُغلق النادي يوم الأحد؟",
+    "ru": "Во сколько зал закрывается в воскресенье?",
+    "tr": "Pazar günü salon saat kaçta kapanıyor?"
+   },
+   "answer": "at four"
+  }
+ ],
+ "mission": {
+  "tasks": [
+   {
+    "id": "join",
+    "title": {
+     "en": "Say you want to join",
+     "vi": "Nói bạn muốn đăng ký",
+     "es": "Di que quieres apuntarte",
+     "pt": "Diga que quer entrar",
+     "fr": "Dire que vous voulez vous inscrire",
+     "de": "Sag, dass du beitreten willst",
+     "id": "Katakan ingin mendaftar",
+     "th": "บอกว่าอยากสมัคร",
+     "zh": "说你想报名",
+     "ja": "入会したいと伝える",
+     "ko": "등록하고 싶다고 말하기",
+     "hi": "बताएँ कि जॉइन करना है",
+     "ar": "قل إنك تريد الاشتراك",
+     "ru": "Скажи, что хочешь записаться",
+     "tr": "Üye olmak istediğini söyle"
+    },
+    "intents": [
+     "j1"
+    ]
+   },
+   {
+    "id": "plans",
+    "title": {
+     "en": "Ask about plans and discounts",
+     "vi": "Hỏi gói thành viên và giảm giá",
+     "es": "Pregunta por planes y descuentos",
+     "pt": "Pergunte sobre planos e descontos",
+     "fr": "Demander les formules et réductions",
+     "de": "Nach Tarifen und Rabatten fragen",
+     "id": "Tanyakan paket dan diskon",
+     "th": "ถามแพ็กเกจและส่วนลด",
+     "zh": "询问套餐和折扣",
+     "ja": "プランと割引を聞く",
+     "ko": "회원권과 할인 물어보기",
+     "hi": "प्लान और छूट के बारे में पूछें",
+     "ar": "اسأل عن الباقات والخصومات",
+     "ru": "Узнай про абонементы и скидки",
+     "tr": "Paketleri ve indirimleri sor"
+    },
+    "intents": [
+     "m1",
+     "m3"
+    ]
+   },
+   {
+    "id": "hours",
+    "title": {
+     "en": "Ask the opening hours",
+     "vi": "Hỏi giờ mở cửa",
+     "es": "Pregunta el horario",
+     "pt": "Pergunte o horário",
+     "fr": "Demander les horaires",
+     "de": "Nach den Öffnungszeiten fragen",
+     "id": "Tanyakan jam buka",
+     "th": "ถามเวลาเปิด-ปิด",
+     "zh": "询问营业时间",
+     "ja": "営業時間を聞く",
+     "ko": "운영 시간 물어보기",
+     "hi": "खुलने का समय पूछें",
+     "ar": "اسأل عن مواعيد العمل",
+     "ru": "Узнай часы работы",
+     "tr": "Çalışma saatlerini sor"
+    },
+    "intents": [
+     "h1"
+    ]
+   }
+  ]
+ },
+ "culture": {
+  "en": "Many gyms ask you to fill in a short form and sign a contract. Before you sign, ask how to cancel, whether there is a joining fee, and whether the price changes after the first months. A free trial day is a good way to see the equipment first.",
+  "vi": "Nhiều phòng tập yêu cầu điền một mẫu đơn ngắn và ký hợp đồng. Trước khi ký, hãy hỏi cách hủy, có phí gia nhập không và giá có đổi sau vài tháng đầu không. Một ngày tập thử miễn phí là cách tốt để xem thiết bị trước.",
+  "es": "Muchos gimnasios piden rellenar un formulario corto y firmar un contrato. Antes de firmar, pregunta cómo se cancela, si hay cuota de inscripción y si el precio cambia después de los primeros meses. Un día de prueba gratis es una buena forma de ver primero las instalaciones.",
+  "pt": "Muitas academias pedem que você preencha um formulário curto e assine um contrato. Antes de assinar, pergunte como cancelar, se há taxa de matrícula e se o preço muda depois dos primeiros meses. Um dia de teste grátis é uma boa forma de conhecer os equipamentos antes.",
+  "fr": "Beaucoup de salles demandent de remplir un court formulaire et de signer un contrat. Avant de signer, demandez comment résilier, s'il y a des frais d'inscription et si le prix change après les premiers mois. Une journée d'essai gratuite permet de voir d'abord le matériel.",
+  "de": "Viele Studios lassen dich ein kurzes Formular ausfüllen und einen Vertrag unterschreiben. Frag vor der Unterschrift, wie man kündigt, ob es eine Aufnahmegebühr gibt und ob sich der Preis nach den ersten Monaten ändert. Ein kostenloser Probetag ist eine gute Möglichkeit, zuerst die Geräte zu sehen.",
+  "id": "Banyak gym meminta Anda mengisi formulir singkat dan menandatangani kontrak. Sebelum menandatangani, tanyakan cara berhenti, apakah ada biaya pendaftaran, dan apakah harga berubah setelah beberapa bulan pertama. Hari percobaan gratis adalah cara yang baik untuk melihat peralatannya lebih dulu.",
+  "th": "ฟิตเนสหลายแห่งให้กรอกแบบฟอร์มสั้น ๆ และเซ็นสัญญา ก่อนเซ็นควรถามว่ายกเลิกอย่างไร มีค่าสมัครไหม และราคาเปลี่ยนหลังผ่านไปไม่กี่เดือนแรกหรือเปล่า วันทดลองใช้ฟรีเป็นวิธีที่ดีในการดูอุปกรณ์ก่อน",
+  "zh": "许多健身房会让你填一张简短的表格并签合同。签字前，先问清怎么取消、有没有入会费，以及头几个月之后价格会不会变。免费体验日是先看看器械的好办法。",
+  "ja": "多くのジムでは、短い申込用紙への記入と契約書への署名が必要です。署名する前に、解約の方法、入会金の有無、最初の数か月後に料金が変わるかを確認しましょう。無料体験日は、先に設備を見るのに良い方法です。",
+  "ko": "많은 헬스장에서는 간단한 신청서를 쓰고 계약서에 서명하게 해요. 서명하기 전에 해지 방법, 가입비가 있는지, 처음 몇 달 뒤에 가격이 바뀌는지 물어보세요. 무료 체험일은 기구를 먼저 살펴보기에 좋은 방법이에요.",
+  "hi": "कई जिम में एक छोटा फ़ॉर्म भरना और अनुबंध पर हस्ताक्षर करना पड़ता है। हस्ताक्षर से पहले पूछें कि रद्द कैसे करें, क्या जॉइनिंग फ़ीस है, और क्या शुरुआती कुछ महीनों के बाद कीमत बदलती है। मुफ़्त ट्रायल डे से पहले उपकरण देख लेना अच्छा तरीका है।",
+  "ar": "تطلب كثير من النوادي ملء استمارة قصيرة وتوقيع عقد. قبل أن توقّع، اسأل عن طريقة الإلغاء، وهل هناك رسوم اشتراك، وهل يتغيّر السعر بعد الأشهر الأولى. اليوم التجريبي المجاني طريقة جيدة لرؤية الأجهزة أولًا.",
+  "ru": "Во многих залах нужно заполнить короткую анкету и подписать договор. Перед подписью узнай, как отказаться от абонемента, есть ли вступительный взнос и меняется ли цена после первых месяцев. Бесплатный пробный день — хороший способ сначала посмотреть оборудование.",
+  "tr": "Pek çok spor salonu kısa bir form doldurmanı ve sözleşme imzalamanı ister. İmzalamadan önce nasıl iptal edeceğini, kayıt ücreti olup olmadığını ve fiyatın ilk aylardan sonra değişip değişmediğini sor. Ücretsiz deneme günü, ekipmanı önce görmenin iyi bir yoludur."
+ }
+}

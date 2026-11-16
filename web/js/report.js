@@ -1,7 +1,8 @@
 /* ⚑ Báo lỗi – phần nặng, tải lười từ js/report-pill.js. API: functions/api/report.js · tài liệu docs/REPORTS.md
  *   LexReport.open({ dom, cat?, cid?, route? }) (cat: loại chọn sẵn, vd 'content'; cid: mã nội dung, vd 'explain:p|engaged|in') → hộp thoại gửi báo lỗi (loại, mô tả, ảnh chụp tùy chọn, email nếu muốn nhận cập nhật)
  *   LexReport.page(arg, q)   → route #/report/<mã riêng> (trạng thái) · #/report (báo lỗi của tôi) · #/report/new?d=<tên miền> (từ popup add-on)
- *   LexReport.poll()         → hỏi trạng thái các báo lỗi đã gửi từ máy này, nhắc khi có thay đổi
+ *   LexReport.poll()         → hỏi trạng thái các báo lỗi đã gửi từ máy này, nhắc khi có thay đổi (không tốn thư)
+ *   Thông báo trong app: mục 'lk.rpn' (chuông 🔔, js/notices.js) lưu KHÓA loại + mã phiếu, dịch lúc vẽ; xác nhận ngay khi gửi, báo tiếp khi đổi trạng thái. Chống trùng theo phiếu + lần cập nhật.
  * Tự gửi kèm: trang (#route, bỏ ?query), ngôn ngữ, phiên bản, nền tảng, khung nhìn, UA, 20 lỗi console gần nhất, cờ sandbox, mã nội dung.
  * Add-on: chỉ tên miền của trang đang xem (không URL đầy đủ, không nội dung trang). Không gửi dữ liệu học. */
 (function (w, d) {
@@ -11,19 +12,28 @@
   const CATS = [['bug', '🐞', 'Lỗi ứng dụng'], ['content', '📝', 'Nội dung sai'], ['i18n', '🌐', 'Bản dịch'], ['audio', '🔊', 'Âm thanh'], ['account', '💳', 'Thanh toán / tài khoản'], ['idea', '💡', 'Góp ý']];
   const ST = { new: 'Mới', ack: 'Đã tiếp nhận', prog: 'Đang xử lý', fixed: 'Đã sửa', wontfix: 'Không sửa', dup: 'Trùng lặp' };
   const CONTENT = /^(dict|topic|read|reading|grammar|model|task1|letters|course|toeic-test|listen-test|mock|toefl-p|roleplay|call|cbt|method|pron|phrases)$/; // trang có mã nội dung (từ, bài, đề…)
-  const MAXB = 300 * 1024, KEY = 'lk.rp';
+  const MAXB = 300 * 1024, MAXPX = 1600, KEY = 'lk.rp';
   const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const ls = { get(k, f) { try { const v = localStorage.getItem(k); return v == null ? f : JSON.parse(v); } catch (e) { return f; } }, set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* bỏ qua */ } } };
   const mine = () => (Array.isArray(ls.get(KEY, [])) ? ls.get(KEY, []) : []);
+  // Báo đẩy "đã sửa": sw.js đọc '/__rep' (cache lk-meta) khi có push rỗng → hỏi trạng thái các phiếu chưa sửa → "Lỗi LX-… đã được sửa" (chữ đã dịch sẵn ở đây)
+  const syncRep = a => { try { if (!('caches' in w)) return; caches.open('lk-meta').then(c => c.put('/__rep', new Response(JSON.stringify({ title: t('Lỗi {id} đã được sửa'), body: t('Cảm ơn bạn đã báo – chạm để xem chi tiết.'), rows: a.map(x => ({ t: x.t, id: x.id, st: x.st })) }), { headers: { 'Content-Type': 'application/json' } }))).catch(() => {}); } catch (e) { /* không có Cache API */ } };
+  const devId = () => { const p = ls.get('lk.push', null) || ls.get('lk.fcm', null) || ls.get('lk.rpush', null); return p && /^[a-f0-9]{32}$/.test(p.id || '') ? p.id : ''; }; // id thiết bị nhắc học (nếu đã bật)
   // Mốc xử lý dự kiến (máy chủ trả { kind, h } – cấu hình trong Quản trị) → chữ
   const etaText = e => !e ? '' : e.kind === 'feature' ? t('Đội ngũ sẽ xem xét đề xuất – bạn sẽ được báo nếu tính năng được làm.') : t('Dự kiến xử lý: {t}', { t: e.h < 48 ? t('trong {n} giờ', { n: e.h }) : e.h === 168 ? t('trong 1 tuần') : e.h % 24 === 0 && e.h <= 120 ? t('trong {a}–{b} ngày', { a: e.h / 24 - 1, b: e.h / 24 }) : t('trong {n} ngày', { n: Math.ceil(e.h / 24) }) });
+  // Thông báo trong app: hộp chuông giữ lại mọi cập nhật (không làm phiền); toast có trần riêng: "đã sửa" ≤ 1 lần/giờ, còn lại ≤ 1 lần/12 giờ, không bao giờ chen vào bài học
+  const NKEY = 'lk.rpn', TOAST_GAP = { fixed: 36e5, other: 432e5 };
+  const inbox = () => (Array.isArray(ls.get(NKEY, [])) ? ls.get(NKEY, []) : []);
+  const inboxAdd = it => { const a = inbox(); if (a.some(x => x.n === it.n)) return false; a.push(it); ls.set(NKEY, a.slice(-20)); try { d.dispatchEvent(new Event('lk:rpn')); } catch (e) { /* bỏ qua */ } return true; };
+  const noticeOf = (x, st, upd) => ({ n: `rp:${x.t.slice(0, 10)}:${st === 'fixed' ? 'fixed' : 'upd'}:${upd}`, k: st === 'fixed' ? 'fixed' : 'upd', id: x.id, t: x.t, at: upd });
+  const lessonOn = () => !!(w.LexPill && LexPill.b && LexPill.b.hidden) || !!(d.body && d.body.classList.contains('focus'));
   const LOCK = 30e3; let lastSent = 0; // chống gửi lặp: khóa nút 30 giây sau mỗi lần gửi
   const kit = (m, n) => (w.Kit && Kit.svg ? `<span class="lkr-kit" aria-hidden="true">${Kit.svg(m, n)}</span>` : '');
   const when = x => { try { return new Date(x).toLocaleString(I ? I.lang() : undefined, { dateStyle: 'medium', timeStyle: 'short' }); } catch (e) { return new Date(x).toISOString(); } };
 
   // Bản tiếng Anh của module này nằm riêng (js/i18n/en/report.js) để khung app không phình – nạp trước khi vẽ
   let dictP;
-  const have = l => w.I18N_DICT && w.I18N_DICT[l] && w.I18N_DICT[l]['Báo cáo sự cố'];
+  const have = l => (w.I18N && w.I18N.has ? w.I18N.has(l, 'Báo cáo sự cố') : !!(w.I18N_DICT && w.I18N_DICT[l] && w.I18N_DICT[l]['Báo cáo sự cố'])); // gói khóa băm → I18N.has (dự phòng: i18n.js cũ trong bộ đệm)
   const dict = () => dictP || (dictP = (!I || I.lang() === 'vi' || (have('en') && (I.lang() === 'en' || have(I.lang())))) ? Promise.resolve() : new Promise(r => {
     const l = I.lang(), loadOne = src => new Promise(res => { const s = d.createElement('script'); s.src = src; s.onload = s.onerror = () => res(); d.head.appendChild(s); });
     loadOne('js/i18n/en/report.js').then(() => (l !== 'en' && l !== 'vi' ? loadOne(`js/i18n/${l}/report.js`) : null)).then(r);
@@ -71,30 +81,55 @@
     return { route: h.slice(0, 120), lang: I ? I.lang() : '', ver: await version(), plat: plat(), vw: innerWidth + 'x' + innerHeight, dpr: w.devicePixelRatio || 1, ua: navigator.userAgent.slice(0, 300), sandbox: sandbox(), cid: cid.slice(0, 120), dom: o.dom || '', tz, online: navigator.onLine };
   }
   const device = () => { try { const v = localStorage.getItem('lk.vid') || ''; return /^[A-Za-z0-9_-]{16,64}$/.test(v) ? v : ''; } catch (e) { return ''; } };
-  async function post(body, auth) {
+  async function post(body, auth, again) {
     const h = { 'Content-Type': 'application/json' }, dv = device(); if (dv) h['X-Lexkite-Device'] = dv;
     try { const u = auth && w.Sync && Sync.user; if (u && u.getIdToken) h.Authorization = 'Bearer ' + await u.getIdToken(); } catch (e) { /* khách */ }
+    if (body.op === 'create' && !h.Authorization && w.UI && UI.human) { const H = await UI.human(); if (H) { await H.ticket(!!again); H.headers(h); } }
     const r = await fetch(API, { method: 'POST', headers: h, body: JSON.stringify(body) });
-    const j = await r.json().catch(() => ({})); j._s = r.status; return j;
+    const j = await r.json().catch(() => ({})); j._s = r.status;
+    if (r.status === 403 && j.error === 'human' && !again) return post(body, auth, true);
+    return j;
   }
 
   // ---------- Ảnh chụp: người dùng đính kèm/dán ảnh → nén WebP/JPEG ≤ 300 KB ngay trên máy ----------
-  async function shrink(file) {
+  // Trần ảnh (MAXB, MAXPX): đo trên CI bằng OCR (scripts/report-shot-bench.mjs, workflow report-shots.yml) – chỉ hạ khi chữ vẫn đọc rõ như trần cũ
+  async function shrink(file, max0 = MAXPX, maxb = MAXB) {
     if (!file || !/^image\//.test(file.type)) throw new Error('type');
     const src = URL.createObjectURL(file);
     try {
       const img = await new Promise((y, n) => { const i = new Image(); i.onload = () => y(i); i.onerror = n; i.src = src; });
-      let max = 1600, q = 0.82;
+      let max = max0, q = 0.82;
       for (let k = 0; k < 9; k++) {
         const s = Math.min(1, max / Math.max(img.naturalWidth, img.naturalHeight)), c = d.createElement('canvas');
         c.width = Math.max(1, Math.round(img.naturalWidth * s)); c.height = Math.max(1, Math.round(img.naturalHeight * s));
         const g = c.getContext('2d'); g.fillStyle = '#fff'; g.fillRect(0, 0, c.width, c.height); g.drawImage(img, 0, 0, c.width, c.height);
         let out = c.toDataURL('image/webp', q); if (!/^data:image\/webp/.test(out)) out = c.toDataURL('image/jpeg', q);
-        if (out.length * 0.75 <= MAXB) return out;
+        if (out.length * 0.75 <= maxb) return out;
         if (q > 0.5) q -= 0.12; else { q = 0.72; max = Math.round(max * 0.72); }
       }
       throw new Error('big');
     } finally { URL.revokeObjectURL(src); }
+  }
+
+  // ---------- "Báo cho tôi khi sửa xong" (màn cảm ơn): chỉ khi máy CHƯA có thông báo đẩy; bấm mới xin quyền (không tự bật) ----------
+  // iOS Safari chưa thêm vào Màn hình chính / app gốc / add-on / đã chặn quyền → ẩn nút (dựa vào thư + nhắc trong app). Đăng ký "chỉ báo lỗi" (ro):
+  // máy chủ không gửi lời nhắc học cho thiết bị này (bật nhắc học sau sẽ dùng chung đăng ký). Khóa VAPID + cờ từ /api/push?op=cfg.
+  const isIOS = () => /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const standalone = () => !!(navigator.standalone || (w.matchMedia && w.matchMedia('(display-mode: standalone)').matches));
+  async function fixPushKey() {
+    if (devId() || w.Capacitor || /^chrome-extension:/.test(location.protocol) || !('serviceWorker' in navigator) || !('PushManager' in w) || !('Notification' in w) || Notification.permission === 'denied' || (isIOS() && !standalone())) return '';
+    const c = await fetch(BASE + '/api/push?op=cfg').then(x => (x.ok ? x.json() : {})).catch(() => ({}));
+    return c && c.on && /^[A-Za-z0-9_-]{40,200}$/.test(c.key || '') ? c.key : '';
+  }
+  async function fixPushOn(tok, key) {
+    if ((await Notification.requestPermission()) !== 'granted') return false;
+    const reg = await navigator.serviceWorker.ready, pad = '='.repeat((4 - key.length % 4) % 4), k = Uint8Array.from(atob((key + pad).replace(/-/g, '+').replace(/_/g, '/')), c => c.charCodeAt(0));
+    const sub = (await reg.pushManager.getSubscription()) || await reg.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: k });
+    let tz = 'UTC'; try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC'; } catch (e) { /* cũ */ }
+    const r = await (await fetch(BASE + '/api/push', { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ op: 'sub', k: 'web', ro: 1, ep: sub.toJSON().endpoint, lmin: 1200, tz, lang: I ? I.lang() : 'en' }) })).json();
+    if (!/^[a-f0-9]{32}$/.test(r.id || '')) return false;
+    ls.set('lk.rpush', { id: r.id });
+    await post({ op: 'pid', t: tok, pid: r.id }); return true;
   }
 
   // ---------- Hộp thoại gửi ----------
@@ -137,11 +172,11 @@
       if (msg.length < 10) { err(t('Hãy mô tả ít nhất 10 ký tự.')); $('#lkrMsg').focus(); return; }
       if (notify && !/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email)) { err(t('Email không hợp lệ.')); $('#lkrEm').focus(); return; }
       const go = $('#lkrGo'); go.disabled = true; go.textContent = t('Đang gửi…');
-      let r; try { r = await post({ op: 'create', cat: (dlg.querySelector('input[name=cat]:checked') || {}).value, msg, notify, email, ctx: await ctxP, errs: (w.__lkErrs || []).slice(-20), shot, hp: dlg.querySelector('input[name=website]').value, ms: Date.now() - ms0 }, true); } catch (x) { r = { _s: 0 }; }
+      let r; try { r = await post({ op: 'create', cat: (dlg.querySelector('input[name=cat]:checked') || {}).value, msg, notify, email, ctx: await ctxP, errs: (w.__lkErrs || []).slice(-20), shot, pid: devId(), hp: dlg.querySelector('input[name=website]').value, ms: Date.now() - ms0 }, true); } catch (x) { r = { _s: 0 }; }
       go.disabled = false; go.textContent = t('Gửi');
-      if (!r.ok) { err(r._s === 429 ? t('Bạn gửi hơi nhiều – thử lại sau ít phút.') : r.error === 'email' ? t('Email không hợp lệ.') : r.error === 'short' ? t('Hãy mô tả ít nhất 10 ký tự.') : r.error === 'shot' ? t('Ảnh quá lớn hoặc không đọc được.') : t('Không gửi được. Kiểm tra kết nối rồi thử lại.')); return; }
+      if (!r.ok) { err(r._s === 429 ? t('Bạn gửi hơi nhiều – thử lại sau ít phút.') : r.error === 'email' ? t('Email không hợp lệ.') : r.error === 'short' ? t('Hãy mô tả ít nhất 10 ký tự.') : r.error === 'shot' ? t('Ảnh quá lớn hoặc không đọc được.') : r.error === 'human' || r.error === 'turnstile' ? t('Chưa xác minh được bạn là người thật – hãy thử lại sau ít phút.') : t('Không gửi được. Kiểm tra kết nối rồi thử lại.')); return; }
       lastSent = Date.now(); ls.set('lk.rpl', lastSent);
-      if (r.token) { const a = mine().filter(x => x.t !== r.token); a.push({ t: r.token, id: r.id, at: Date.now(), upd: Date.now(), st: 'new', cat: (dlg.querySelector('input[name=cat]:checked') || {}).value }); ls.set(KEY, a.slice(-20)); }
+      if (r.token) { const a = mine().filter(x => x.t !== r.token); a.push({ t: r.token, id: r.id, at: Date.now(), upd: Date.now(), st: 'new', cat: (dlg.querySelector('input[name=cat]:checked') || {}).value }); ls.set(KEY, a.slice(-20)); syncRep(a.slice(-20)); inboxAdd({ n: `rp:${r.token.slice(0, 10)}:ack:0`, k: 'ack', id: r.id, t: r.token, at: Date.now(), r: 1 }); } // xác nhận trong app (đã đọc: người báo đang nhìn màn cảm ơn)
       done(r, notify);
     };
     function done(r, notify) {
@@ -152,7 +187,12 @@
         ${r.eta ? `<p class="lkr-eta">⏱ ${esc(etaText(r.eta))}</p>` : ''}
         ${notify ? '' : `<p class="lkr-note">${esc(t('Bạn sẽ thấy cập nhật ngay trong app (mục Báo lỗi của tôi).'))}</p>`}</div>
         ${link ? `<label class="lkr-lb" for="lkrLink">${esc(t('Lưu đường dẫn riêng này để theo dõi trạng thái:'))}</label><div class="lkr-row"><input type="text" id="lkrLink" readonly value="${esc(link)}" style="flex:1"><button type="button" class="btn ghost sm" id="lkrCp">${esc(t('Sao chép liên kết'))}</button></div>` : ''}
+        <div class="lkr-row" id="lkrPushRow" hidden><button type="button" class="btn ghost sm" id="lkrPush">🔔 ${esc(t('Báo cho tôi khi sửa xong'))}</button><span class="lkr-note" id="lkrPushMsg" aria-live="polite"></span></div>
         <div class="lkr-act">${r.token ? `<a class="btn primary" href="#/report/${esc(r.token)}" data-x>${esc(t('Theo dõi tiến độ'))}</a>` : ''}<button type="button" class="btn ghost" data-x>${esc(t('Đóng'))}</button></div></div>`;
+      if (r.token) fixPushKey().then(key => { const row = dlg && dlg.querySelector('#lkrPushRow'), bt = row && row.querySelector('#lkrPush'); if (!key || !bt) return; row.hidden = false;
+        bt.onclick = async () => { bt.disabled = true; let ok = false; try { ok = await fixPushOn(r.token, key); } catch (e) { ok = false; }
+          if (ok) { bt.remove(); } else bt.disabled = false;
+          dlg.querySelector('#lkrPushMsg').textContent = ok ? t('Đã bật – bạn sẽ nhận thông báo khi lỗi được sửa.') : t('Chưa bật được thông báo – bạn vẫn thấy cập nhật trong app.'); }; }).catch(() => {});
       dlg.querySelectorAll('[data-x]').forEach(b => b.addEventListener('click', close));
       const cp = dlg.querySelector('#lkrCp'); if (cp) cp.onclick = async () => { const i = dlg.querySelector('#lkrLink'); try { await navigator.clipboard.writeText(i.value); } catch (e) { i.select(); try { d.execCommand('copy'); } catch (x) { /* bỏ qua */ } } cp.textContent = t('Đã sao chép'); };
       (dlg.querySelector('.btn.primary') || dlg).focus();
@@ -193,7 +233,7 @@
     view.innerHTML = `<div class="lkr-page" aria-busy="true"><h1>${esc(t('Trạng thái báo lỗi'))}</h1><p class="muted">${esc(t('Đang tải…'))}</p></div>`;
     let r; try { r = await post({ op: 'status', t: tok }); } catch (e) { r = { _s: 0 }; }
     if (!r.id) { view.innerHTML = `<div class="lkr-page"><h1>${esc(t('Trạng thái báo lỗi'))}</h1><p>${esc(r._s === 404 ? t('Không tìm thấy báo lỗi này.') : t('Không gửi được. Kiểm tra kết nối rồi thử lại.'))}</p><div>${newBtn}</div></div>`; wire(); return; }
-    const a = mine(), me = a.find(x => x.t === tok); if (me) { me.st = r.status; me.upd = r.upd; me.seen = r.upd; ls.set(KEY, a); }
+    const a = mine(), me = a.find(x => x.t === tok); if (me) { me.st = r.status; me.upd = r.upd; me.seen = r.upd; ls.set(KEY, a); post({ op: 'seen', t: tok }).catch(() => {}); }
     view.innerHTML = `<div class="lkr-page"><h1>${esc(t('Trạng thái báo lỗi'))}</h1>
       <div class="card"><div class="lkr-row" style="justify-content:space-between"><div class="lkr-tid">${esc(r.id)}</div>${chip(r.status)}</div>
         <p class="muted small">${esc(catName(r.cat))} · ${esc(t('Gửi lúc {d}', { d: when(r.at) }))}${r.upd > r.at ? ' · ' + esc(t('Cập nhật {d}', { d: when(r.upd) })) : ''}</p>
@@ -211,20 +251,30 @@
     const a = mine(); ls.set('lk.rpc', Date.now());
     if (!a.length) return [];
     let r; try { r = await post({ op: 'mine', ts: a.map(x => x.t) }); } catch (e) { return []; }
-    const rows = r.rows || [], changed = [];
-    for (const x of a) { const s = rows.find(y => y.t === x.t); if (!s) continue; if (s.upd > (x.seen || x.upd || 0)) changed.push({ ...x, st: s.status }); x.st = s.status; x.upd = s.upd; }
-    ls.set(KEY, a);
-    if (changed.length && d.body) {
+    const rows = r.rows || [], changed = [], now = Date.now(), last = +ls.get('lk.rpt', 0) || 0;
+    for (const x of a) { const s = rows.find(y => y.t === x.t); if (!s) continue; if (s.upd > (x.seen || x.upd || 0)) { changed.push({ x, s }); inboxAdd(noticeOf(x, s.status, s.upd)); } else { x.st = s.status; x.upd = s.upd; } }
+    // Nhiều thay đổi cùng lúc → một toast (ưu tiên "đã sửa"), còn lại nằm trong chuông. Bị chặn (trần/đang học) → giữ cho lượt sau, chuông đã có.
+    const c = changed.filter(y => y.s.status === 'fixed').pop() || changed[changed.length - 1];
+    const can = c && d.body && !lessonOn() && now - last >= (c.s.status === 'fixed' ? TOAST_GAP.fixed : TOAST_GAP.other);
+    if (can) for (const y of changed) { y.x.st = y.s.status; y.x.upd = y.s.upd; y.x.seen = y.s.upd; } // đã nhắc → không nhắc lại (kể cả phiếu từng mở trang trạng thái, có x.seen cũ)
+    ls.set(KEY, a); await dict(); syncRep(a);
+    if (can) {
+      ls.set('lk.rpt', now);
       await dict(); style();
-      const c = changed[changed.length - 1], el = d.createElement('div');
-      el.className = 'lkr-toast'; el.setAttribute('role', 'status');
-      el.innerHTML = `<span>⚑ ${esc(t('Báo lỗi {id}: {s}', { id: c.id, s: t(ST[c.st] || c.st) }))}</span><span class="lkr-row"><a class="btn ghost sm" href="#/report/${esc(c.t)}">${esc(t('Xem trạng thái'))}</a><button type="button" class="lkr-x" aria-label="${esc(t('Đóng'))}">✕</button></span>`;
-      const rm = () => el.remove();
-      el.querySelector('button').onclick = rm; el.querySelector('a').addEventListener('click', rm);
-      d.body.appendChild(el); setTimeout(rm, 15000);
+      const msg = t('Báo lỗi {id}: {s}', { id: c.x.id, s: t(ST[c.s.status] || c.s.status) }), href = '#/report/' + c.x.t;
+      post({ op: 'seen', t: c.x.t }).catch(() => {});
+      if (w.UI && UI.toast) UI.toast(msg, { action: t('Xem trạng thái'), onAction: () => { location.hash = href; } }); // chuẩn thông báo: một hệ toast chung, xếp hàng sau hộp thoại, né nút đáy
+      else {
+        const el = d.createElement('div');
+        el.className = 'lkr-toast'; el.setAttribute('role', 'status');
+        el.innerHTML = `<span>⚑ ${esc(msg)}</span><span class="lkr-row"><a class="btn ghost sm" href="${esc(href)}">${esc(t('Xem trạng thái'))}</a><button type="button" class="lkr-x" aria-label="${esc(t('Đóng'))}">✕</button></span>`;
+        const rm = () => el.remove();
+        el.querySelector('button').onclick = rm; el.querySelector('a').addEventListener('click', rm);
+        d.body.appendChild(el); setTimeout(rm, 15000);
+      }
     }
-    return changed;
+    return changed.map(y => ({ ...y.x, st: y.s.status }));
   }
 
-  w.LexReport = { open, page, poll, _t: { shrink, context, etaText, timeline, CATS, ST, mine } };
+  w.LexReport = { open, page, poll, _t: { shrink, context, etaText, timeline, CATS, ST, mine, fixPushKey, fixPushOn, inbox, TOAST_GAP } };
 })(window, document);

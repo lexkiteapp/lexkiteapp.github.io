@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin › Phân tích – Chi tiết · 30 ngày – Lexkite</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              teal: '#2dd4bf',
+              'teal-dark': '#14b8a6',
+              'teal-deep': '#0f766e',
+              'teal-light': '#134e4a',
+              coral: '#f06543',
+              'coral-hover': '#e05332',
+            }
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .material-symbols-rounded.filled {
+      font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Lexkite Tactile Night cards & surfaces */
+    .tactile-card {
+      background: #0f1f24;
+      border: 1px solid #1a333a;
+      box-shadow: 0 3px 0 0 #081418;
+      border-radius: 16px;
+    }
+    .tactile-subcard {
+      background: #13272d;
+      border: 1px solid #1d3b43;
+      border-radius: 12px;
+    }
+    .tactile-btn-coral {
+      background: #f06543;
+      border: 1px solid #ff7b5c;
+      box-shadow: 0 3px 0 0 #982d16;
+      color: #ffffff;
+    }
+    .tactile-btn-coral:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #982d16;
+    }
+    /* Hide scrollbars but keep usability */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-[#060e10] text-[#f1f5f9] font-sans antialiased min-h-screen pb-14 selection:bg-[#2dd4bf] selection:text-[#060e10]">
+<!-- WRAPPER (Strict Native Mobile Max-Width 430px centered) -->
+<div class="max-w-[390px] mx-auto min-h-screen bg-[#091518] flex flex-col relative shadow-[0_0_50px_rgba(0,0,0,0.5)] border-x border-[#16292f]">
+<!-- 1. SLIM TOP APP BAR -->
+<header class="sticky top-0 z-30 bg-[#091518]/95 backdrop-blur-md border-b border-[#183138] px-3 py-2 flex items-center justify-between">
+<!-- Left: Menu button with min 44x44px target -->
+<button aria-label="Menu quản trị" class="min-w-[44px] min-h-[44px] w-11 h-11 rounded-xl bg-[#0f1f24] border border-[#1e3b43] shadow-[0_1.5px_0_0_#071216] flex items-center justify-center text-[#2dd4bf] hover:bg-[#152a30] active:translate-y-0.5 transition" type="button">
+<span class="material-symbols-rounded text-2xl">menu</span>
+</button>
+<!-- Center: Screen title & subtitle -->
+<div class="flex flex-col items-center text-center px-2 min-w-0">
+<div class="flex items-center gap-1.5 text-[11px] font-semibold text-[#8ba3a7] uppercase tracking-wider">
+<span>Admin</span>
+<span class="text-[#517075]">›</span>
+<span class="text-[#2dd4bf]">Phân tích</span>
+</div>
+<h1 class="text-sm font-bold text-[#f1f5f9] leading-tight truncate">Chi tiết · 30 ngày</h1>
+</div>
+<!-- Right: Initials Avatar with min 44x44px target -->
+<div class="min-w-[44px] min-h-[44px] w-11 h-11 flex items-center justify-end">
+<div class="w-9 h-9 rounded-full bg-[#134e4a] text-[#5eead4] flex items-center justify-center font-bold text-xs shadow-sm ring-2 ring-[#22434d]" title="Minh Anh (Admin nhóm nhỏ)">
+          MA
+        </div>
+</div>
+</header>
+<!-- MAIN SCROLLABLE CONTENT -->
+<main class="flex-1 px-3 py-3.5 space-y-3.5">
+<!-- BADGE / TOP META STATUS -->
+<div class="flex items-center justify-between bg-[#0f1f24] border border-[#1a333a] rounded-xl px-3 py-2 text-xs">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-[#2dd4bf] animate-pulse"></span>
+<span class="font-medium text-[#cbd5e1]">Dữ liệu tự host · Không cookie</span>
+</div>
+<span class="font-mono text-[11px] text-[#8ba3a7]">Cập nhật 09:30</span>
+</div>
+<!-- SEGMENTED RANGE CONTROL (Hôm nay, 7 ngày, 30 ngày, 90 ngày) -->
+<div aria-label="Khoảng thời gian phân tích" class="bg-[#0b181c] p-1 rounded-xl flex items-center gap-1 border border-[#162d33]" role="tablist">
+<button aria-selected="false" class="flex-1 min-h-[44px] py-2 px-1 text-center text-xs font-semibold text-[#8ba3a7] hover:text-[#f1f5f9] rounded-lg transition" role="tab" type="button">
+          Hôm nay
+        </button>
+<button aria-selected="false" class="flex-1 min-h-[44px] py-2 px-1 text-center text-xs font-semibold text-[#8ba3a7] hover:text-[#f1f5f9] rounded-lg transition" role="tab" type="button">
+          7 ngày
+        </button>
+<button aria-selected="true" class="flex-1 min-h-[44px] py-2 px-1 text-center text-xs font-bold text-[#2dd4bf] bg-[#13272d] rounded-lg shadow-[0_2px_0_0_#081418] border border-[#22434d] transition" role="tab" type="button">
+          30 ngày
+        </button>
+<button aria-selected="false" class="flex-1 min-h-[44px] py-2 px-1 text-center text-xs font-semibold text-[#8ba3a7] hover:text-[#f1f5f9] rounded-lg transition" role="tab" type="button">
+          90 ngày
+        </button>
+</div>
+<!-- SUMMARY STRIP: Modest real sample numbers for a young app -->
+<div class="tactile-card p-3.5">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-semibold text-[#8ba3a7] uppercase tracking-wide">Tổng quan 30 ngày</span>
+<span class="text-[11px] px-2 py-0.5 rounded-md bg-[#134e4a]/60 text-[#5eead4] font-bold border border-[#1d5c56]">+12% vs trước</span>
+</div>
+<div class="grid grid-cols-3 gap-2 text-center pt-1">
+<div class="tactile-subcard p-2">
+<div class="text-[11px] text-[#8ba3a7] leading-tight">Khách thật</div>
+<div class="text-base font-bold text-[#f1f5f9] font-mono mt-0.5">1.842</div>
+<div class="text-[10px] text-[#698589]">~61 khách/ngày</div>
+</div>
+<div class="tactile-subcard p-2">
+<div class="text-[11px] text-[#8ba3a7] leading-tight">Tổng phiên</div>
+<div class="text-base font-bold text-[#f1f5f9] font-mono mt-0.5">3.914</div>
+<div class="text-[10px] text-[#698589]">2,13 phiên/khách</div>
+</div>
+<div class="tactile-subcard p-2">
+<div class="text-[11px] text-[#8ba3a7] leading-tight">Thời lượng TB</div>
+<div class="text-base font-bold text-[#f1f5f9] font-mono mt-0.5">6p 48s</div>
+<div class="text-[10px] text-[#698589]">Học từ vựng</div>
+</div>
+</div>
+</div>
+<!-- CARD 1: "Phiên theo ngày" BAR CHART (30 days with day labels perfectly fitting 390px mobile) -->
+<section class="tactile-card p-3.5 space-y-2.5">
+<div class="flex items-start justify-between">
+<div>
+<h2 class="text-sm font-bold text-[#f1f5f9] flex items-center gap-1.5">
+<span class="material-symbols-rounded text-lg text-[#2dd4bf]">bar_chart</span>
+              Phiên theo ngày (30 ngày)
+            </h2>
+<p class="text-xs text-[#8ba3a7] mt-0.5">Dao động tự nhiên từ 85 đến 168 phiên/ngày</p>
+</div>
+<div class="text-right shrink-0">
+<span class="text-[11px] font-mono font-semibold text-[#5eead4] bg-[#134e4a]/50 px-2 py-0.5 rounded border border-[#1d5c56]">
+              Đỉnh: 168
+            </span>
+</div>
+</div>
+<!-- 30-day mini bar graph container -->
+<div class="bg-[#13272d] border border-[#1e3b43] rounded-xl p-2.5">
+<!-- Bars Area -->
+<div class="h-28 flex items-end justify-between gap-[2px] pt-4 pb-1 border-b border-[#1f3b43]">
+<!-- 30 bars representing days 1 to 30 -->
+<!-- d1 --> <div class="flex-1 flex flex-col items-center group relative h-full justify-end" title="07/02: 92 phiên"><div class="w-full bg-[#14b8a6]/70 rounded-t-sm" style="height: 54%"></div></div>
+<!-- d2 --> <div class="flex-1 flex flex-col items-center group relative h-full justify-end" title="08/02: 104 phiên"><div class="w-full bg-[#14b8a6]/70 rounded-t-sm" style="height: 61%"></div></div>
+<!-- d3 --> <div class="flex-1 flex flex-col items-center group relative h-full justify-end" title="09/02: 118 phiên"><div class="w-full bg-[#14b8a6]/70 rounded-t-sm" style="height: 70%"></div></div>
+<!-- d4 --> <div class="flex-1 flex flex-col items-center group relative h-full justify-end" title="10/02: 88 phiên"><div class="w-full bg-[#14b8a6]/70 rounded-t-sm" style="height: 52%"></div></div>
+<!-- d5 --> <div class="flex-1 flex flex-col items-center group relative h-full justify-end" title="11/02: 96 phiên"><div class="w-full bg-[#14b8a6]/70 rounded-t-sm" style="height: 57%"></div></div>
+<!-- d6 --> <div class="flex-1 flex flex-col items-center group relative h-full justify-end" title="12/02: 110 phiên"><div class="w-full bg-[#14b8a6]/70 rounded-t-sm" style="height: 65%"></div></div>
+<!-- d7 --> <div class="flex-1 flex flex-col items-center group relative h-full justify-end" title="13/02: 124 phiên"><div class="w-full bg-[#14b8a6]/70 rounded-t-sm" style="height: 73%"></div></div>
+<!-- d8 --> <div class="flex-1 flex flex-col items-center group relative h-full justify-end" title="14/02: 85 phiên"><div class="w-full bg-[#14b8a6]/70 rounded-t-sm" style="height: 50%"></div></div>
+<!-- d9 --> <div class="flex-1 flex flex-col items-center group relative h-full justify-end" title="15/02: 102 phiên"><div class="w-full bg-[#14b8a6]/70 rounded-t-sm" style="height: 60%"></div></div>
+<!-- d10 --> <div class="flex-1 flex flex-col items-center group relative h-full justify-end" title="16/02: 130 phiên"><div class="w-full bg-[#2dd4bf] rounded-t-sm" style="height: 77%"></div></div>
+<!-- d11 --> <div class="flex-1 flex flex-col items-center group relative h-full justify-end" title="17/02: 122 phiên"><div class="w-full bg-[#14b8a6]/70 rounded-t-sm" style="height: 72%"></div></div>
+<!-- d12 --> <div class="flex-1 flex flex-col items-center group relative h-full justify-end" title="18/02: 115 phiên"><div class="w-full bg-[#14b8a6]/70 rounded-t-sm" style="height: 68%"></div></div>
+<!-- d13 --> <div class="flex-1 flex flex-col items-center group relative h-full justify-end" title="19/02: 134 phiên"><div class="w-full bg-[#14b8a6]/70 rounded-t-sm" style="height: 79%"></div></div>
+<!-- d14 --> <div class="flex-1 flex flex-col items-center group relative h-full justify-end" title="20/02: 98 phiên"><div class="w-full bg-[#14b8a6]/70 rounded-t-sm" style="height: 58%"></div></div>
+<!-- d15 --> <div class="flex-1 flex flex-col items-center group relative h-full justify-end" title="21/02: 112 phiên"><div class="w-full bg-[#14b8a6]/70 rounded-t-sm" style="height: 66%"></div></div>
+<!-- d16 --> <div class="flex-1 flex flex-col items-center group relative h-full justify-end" title="22/02: 140 phiên"><div class="w-full bg-[#2dd4bf] rounded-t-sm" style="height: 83%"></div></div>
+<!-- d17 --> <div class="flex-1 flex flex-col items-center group relative h-full justify-end" title="23/02: 128 phiên"><div class="w-full bg-[#14b8a6]/70 rounded-t-sm" style="height: 76%"></div></div>
+<!-- d18 --> <div class="flex-1 flex flex-col items-center group relative h-full justify-end" title="24/02: 105 phiên"><div class="w-full bg-[#14b8a6]/70 rounded-t-sm" style="height: 62%"></div></div>
+<!-- d19 --> <div class="flex-1 flex flex-col items-center group relative h-full justify-end" title="25/02: 119 phiên"><div class="w-full bg-[#14b8a6]/70 rounded-t-sm" style="height: 70%"></div></div>
+<!-- d20 --> <div class="flex-1 flex flex-col items-center group relative h-full justify-end" title="26/02: 145 phiên"><div class="w-full bg-[#2dd4bf] rounded-t-sm" style="height: 86%"></div></div>
+<!-- d21 --> <div class="flex-1 flex flex-col items-center group relative h-full justify-end" title="27/02: 138 phiên"><div class="w-full bg-[#14b8a6]/70 rounded-t-sm" style="height: 82%"></div></div>
+<!-- d22 --> <div class="flex-1 flex flex-col items-center group relative h-full justify-end" title="28/02: 120 phiên"><div class="w-full bg-[#14b8a6]/70 rounded-t-sm" style="height: 71%"></div></div>
+<!-- d23 --> <div class="flex-1 flex flex-col items-center group relative h-full justify-end" title="01/03: 152 phiên"><div class="w-full bg-[#2dd4bf] rounded-t-sm" style="height: 90%"></div></div>
+<!-- d24 --> <div class="flex-1 flex flex-col items-center group relative h-full justify-end" title="02/03: 135 phiên"><div class="w-full bg-[#14b8a6]/70 rounded-t-sm" style="height: 80%"></div></div>
+<!-- d25 --> <div class="flex-1 flex flex-col items-center group relative h-full justify-end" title="03/03: 142 phiên"><div class="w-full bg-[#2dd4bf] rounded-t-sm" style="height: 84%"></div></div>
+<!-- d26 --> <div class="flex-1 flex flex-col items-center group relative h-full justify-end" title="04/03: 158 phiên"><div class="w-full bg-[#2dd4bf] rounded-t-sm" style="height: 94%"></div></div>
+<!-- d27 --> <div class="flex-1 flex flex-col items-center group relative h-full justify-end" title="05/03: 146 phiên"><div class="w-full bg-[#2dd4bf] rounded-t-sm" style="height: 86%"></div></div>
+<!-- d28 --> <div class="flex-1 flex flex-col items-center group relative h-full justify-end" title="06/03: 168 phiên (Đỉnh)"><div class="w-full bg-[#f97316] rounded-t-sm shadow-sm" style="height: 100%"></div></div>
+<!-- d29 --> <div class="flex-1 flex flex-col items-center group relative h-full justify-end" title="07/03: 154 phiên"><div class="w-full bg-[#2dd4bf] rounded-t-sm" style="height: 91%"></div></div>
+<!-- d30 (Hôm nay) --> <div class="flex-1 flex flex-col items-center group relative h-full justify-end" title="Hôm nay: 148 phiên"><div class="w-full bg-[#2dd4bf] rounded-t-sm" style="height: 88%"></div></div>
+</div>
+<!-- Day Labels Axis -->
+<div class="flex justify-between text-[10px] text-[#8ba3a7] font-mono pt-1.5">
+<span>07 Th02</span>
+<span>14 Th02</span>
+<span>21 Th02</span>
+<span>28 Th02</span>
+<span class="text-[#2dd4bf] font-semibold">Hôm nay</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-[11px] text-[#8ba3a7] pt-0.5">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="inline-block w-2.5 h-2.5 bg-[#2dd4bf] rounded-sm"></span>
+<span>Ngày thường</span>
+<span class="inline-block w-2.5 h-2.5 bg-[#f97316] rounded-sm ml-1"></span>
+<span>Đỉnh phát hành bài mới</span>
+</div>
+<span class="font-mono text-[#cbd5e1] shrink-0">TB: 130 phiên/ng</span>
+</div>
+</section>
+<!-- CARD 2: "Nguồn truy cập" LIST WITH BARS -->
+<section class="tactile-card p-3.5 space-y-2.5">
+<div class="flex items-center justify-between">
+<h2 class="text-sm font-bold text-[#f1f5f9] flex items-center gap-1.5">
+<span class="material-symbols-rounded text-lg text-[#2dd4bf]">share</span>
+            Nguồn truy cập
+          </h2>
+<span class="text-xs text-[#8ba3a7] font-mono">1.842 khách</span>
+</div>
+<div class="space-y-2.5">
+<!-- 1. Trực tiếp -->
+<div class="space-y-1">
+<div class="flex items-center justify-between text-xs">
+<span class="font-semibold text-[#f1f5f9] flex items-center gap-1.5">
+<span class="material-symbols-rounded text-sm text-[#2dd4bf]">link</span>
+                Trực tiếp (Direct / Bookmark)
+              </span>
+<div class="text-right font-mono">
+<span class="font-bold text-[#2dd4bf]">718</span>
+<span class="text-[#8ba3a7] text-[11px] ml-1">(39,0%)</span>
+</div>
+</div>
+<div class="w-full h-2 bg-[#13272d] rounded-full overflow-hidden border border-[#1b343b]">
+<div class="h-full bg-[#2dd4bf] rounded-full" style="width: 39.0%"></div>
+</div>
+</div>
+<!-- 2. Google -->
+<div class="space-y-1">
+<div class="flex items-center justify-between text-xs">
+<span class="font-semibold text-[#f1f5f9] flex items-center gap-1.5">
+<span class="material-symbols-rounded text-sm text-[#2dd4bf]">search</span>
+                Tìm kiếm Google (Tự nhiên)
+              </span>
+<div class="text-right font-mono">
+<span class="font-bold text-[#2dd4bf]">496</span>
+<span class="text-[#8ba3a7] text-[11px] ml-1">(26,9%)</span>
+</div>
+</div>
+<div class="w-full h-2 bg-[#13272d] rounded-full overflow-hidden border border-[#1b343b]">
+<div class="h-full bg-[#14b8a6] rounded-full" style="width: 26.9%"></div>
+</div>
+</div>
+<!-- 3. Chrome Web Store -->
+<div class="space-y-1">
+<div class="flex items-center justify-between text-xs">
+<span class="font-semibold text-[#f1f5f9] flex items-center gap-1.5">
+<span class="material-symbols-rounded text-sm text-[#2dd4bf]">extension</span>
+                Chrome Web Store
+              </span>
+<div class="text-right font-mono">
+<span class="font-bold text-[#2dd4bf]">324</span>
+<span class="text-[#8ba3a7] text-[11px] ml-1">(17,6%)</span>
+</div>
+</div>
+<div class="w-full h-2 bg-[#13272d] rounded-full overflow-hidden border border-[#1b343b]">
+<div class="h-full bg-[#0d9488] rounded-full" style="width: 17.6%"></div>
+</div>
+</div>
+<!-- 4. Facebook -->
+<div class="space-y-1">
+<div class="flex items-center justify-between text-xs">
+<span class="font-semibold text-[#f1f5f9] flex items-center gap-1.5">
+<span class="material-symbols-rounded text-sm text-[#2dd4bf]">groups</span>
+                Nhóm học viên Facebook
+              </span>
+<div class="text-right font-mono">
+<span class="font-bold text-[#2dd4bf]">218</span>
+<span class="text-[#8ba3a7] text-[11px] ml-1">(11,8%)</span>
+</div>
+</div>
+<div class="w-full h-2 bg-[#13272d] rounded-full overflow-hidden border border-[#1b343b]">
+<div class="h-full bg-[#0f766e] rounded-full" style="width: 11.8%"></div>
+</div>
+</div>
+<!-- 5. Khác -->
+<div class="space-y-1">
+<div class="flex items-center justify-between text-xs">
+<span class="font-semibold text-[#f1f5f9] flex items-center gap-1.5">
+<span class="material-symbols-rounded text-sm text-[#8ba3a7]">more_horiz</span>
+                Khác (Zalo, Notion, Telegram)
+              </span>
+<div class="text-right font-mono">
+<span class="font-bold text-[#2dd4bf]">86</span>
+<span class="text-[#8ba3a7] text-[11px] ml-1">(4,7%)</span>
+</div>
+</div>
+<div class="w-full h-2 bg-[#13272d] rounded-full overflow-hidden border border-[#1b343b]">
+<div class="h-full bg-[#115e59] rounded-full" style="width: 4.7%"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- CARD 3: "Quốc gia" RANKED LIST -->
+<section class="tactile-card p-3.5 space-y-2.5">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="text-sm font-bold text-[#f1f5f9] flex items-center gap-1.5">
+<span class="material-symbols-rounded text-lg text-[#2dd4bf]">public</span>
+              Quốc gia
+            </h2>
+<p class="text-xs text-[#8ba3a7] mt-0.5">Xác định tại Cloudflare edge (không cookie)</p>
+</div>
+<span class="text-xs font-mono font-semibold text-[#5eead4] bg-[#134e4a]/50 px-2 py-0.5 rounded border border-[#1d5c56]">
+            11 nước
+          </span>
+</div>
+<div class="divide-y divide-[#183138]">
+<!-- 1. Việt Nam -->
+<div class="py-2 flex items-center justify-between">
+<div class="flex items-center gap-2 min-w-0 pr-2">
+<span aria-hidden="true" class="text-base select-none">🇻🇳</span>
+<div class="min-w-0">
+<div class="text-xs font-bold text-[#f1f5f9] truncate">Việt Nam</div>
+<div class="text-[11px] text-[#8ba3a7]">Hà Nội, TP.HCM, Đà Nẵng</div>
+</div>
+</div>
+<div class="text-right font-mono shrink-0">
+<div class="text-xs font-bold text-[#2dd4bf]">1.468</div>
+<div class="text-[10px] text-[#8ba3a7]">79,7%</div>
+</div>
+</div>
+<!-- 2. Nhật Bản -->
+<div class="py-2 flex items-center justify-between">
+<div class="flex items-center gap-2 min-w-0 pr-2">
+<span aria-hidden="true" class="text-base select-none">🇯🇵</span>
+<div class="min-w-0">
+<div class="text-xs font-bold text-[#f1f5f9] truncate">Nhật Bản</div>
+<div class="text-[11px] text-[#8ba3a7]">Du học sinh &amp; kỹ sư</div>
+</div>
+</div>
+<div class="text-right font-mono shrink-0">
+<div class="text-xs font-bold text-[#2dd4bf]">142</div>
+<div class="text-[10px] text-[#8ba3a7]">7,7%</div>
+</div>
+</div>
+<!-- 3. Hoa Kỳ -->
+<div class="py-2 flex items-center justify-between">
+<div class="flex items-center gap-2 min-w-0 pr-2">
+<span aria-hidden="true" class="text-base select-none">🇺🇸</span>
+<div class="min-w-0">
+<div class="text-xs font-bold text-[#f1f5f9] truncate">Hoa Kỳ</div>
+<div class="text-[11px] text-[#8ba3a7]">California, Washington</div>
+</div>
+</div>
+<div class="text-right font-mono shrink-0">
+<div class="text-xs font-bold text-[#2dd4bf]">94</div>
+<div class="text-[10px] text-[#8ba3a7]">5,1%</div>
+</div>
+</div>
+<!-- 4. Úc -->
+<div class="py-2 flex items-center justify-between">
+<div class="flex items-center gap-2 min-w-0 pr-2">
+<span aria-hidden="true" class="text-base select-none">🇦🇺</span>
+<div class="min-w-0">
+<div class="text-xs font-bold text-[#f1f5f9] truncate">Úc (Australia)</div>
+<div class="text-[11px] text-[#8ba3a7]">Melbourne, Sydney</div>
+</div>
+</div>
+<div class="text-right font-mono shrink-0">
+<div class="text-xs font-bold text-[#2dd4bf]">62</div>
+<div class="text-[10px] text-[#8ba3a7]">3,4%</div>
+</div>
+</div>
+<!-- 5. Hàn Quốc -->
+<div class="py-2 flex items-center justify-between">
+<div class="flex items-center gap-2 min-w-0 pr-2">
+<span aria-hidden="true" class="text-base select-none">🇰🇷</span>
+<div class="min-w-0">
+<div class="text-xs font-bold text-[#f1f5f9] truncate">Hàn Quốc</div>
+<div class="text-[11px] text-[#8ba3a7]">Seoul, Busan</div>
+</div>
+</div>
+<div class="text-right font-mono shrink-0">
+<div class="text-xs font-bold text-[#2dd4bf]">48</div>
+<div class="text-[10px] text-[#8ba3a7]">2,6%</div>
+</div>
+</div>
+<!-- 6. Các quốc gia khác -->
+<div class="py-2 flex items-center justify-between">
+<div class="flex items-center gap-2 min-w-0 pr-2">
+<span aria-hidden="true" class="text-base select-none">🌐</span>
+<div class="min-w-0">
+<div class="text-xs font-medium text-[#cbd5e1] truncate">Các quốc gia khác</div>
+<div class="text-[11px] text-[#8ba3a7]">Singapore, Anh, Canada...</div>
+</div>
+</div>
+<div class="text-right font-mono shrink-0">
+<div class="text-xs font-bold text-[#2dd4bf]">28</div>
+<div class="text-[10px] text-[#8ba3a7]">1,5%</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CARD 4: "Trang vào đầu tiên" ROUTES -->
+<section class="tactile-card p-3.5 space-y-2.5">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="text-sm font-bold text-[#f1f5f9] flex items-center gap-1.5">
+<span class="material-symbols-rounded text-lg text-[#2dd4bf]">login</span>
+              Trang vào đầu tiên
+            </h2>
+<p class="text-xs text-[#8ba3a7] mt-0.5">Điểm chạm mở đầu khi vào phiên học mới</p>
+</div>
+<span class="text-xs text-[#8ba3a7] font-mono">3.914 phiên</span>
+</div>
+<div class="space-y-2">
+<!-- Route 1 -->
+<div class="tactile-subcard p-2.5 flex items-center justify-between gap-2">
+<div class="min-w-0">
+<div class="font-mono text-xs font-semibold text-[#5eead4] truncate">/blog/ielts-academic-word-list</div>
+<div class="text-[11px] text-[#8ba3a7] truncate">Bài viết từ vựng học thuật AWL 570 từ</div>
+</div>
+<div class="text-right font-mono shrink-0 pl-1">
+<div class="text-xs font-bold text-[#f1f5f9]">1.420</div>
+<div class="text-[10px] text-[#8ba3a7]">36,3%</div>
+</div>
+</div>
+<!-- Route 2 -->
+<div class="tactile-subcard p-2.5 flex items-center justify-between gap-2">
+<div class="min-w-0">
+<div class="font-mono text-xs font-semibold text-[#5eead4] truncate">/app/today (Trang chủ ứng dụng)</div>
+<div class="text-[11px] text-[#8ba3a7] truncate">Ôn nhịp 10 phút, streak &amp; từ trong ngày</div>
+</div>
+<div class="text-right font-mono shrink-0 pl-1">
+<div class="text-xs font-bold text-[#f1f5f9]">1.135</div>
+<div class="text-[10px] text-[#8ba3a7]">29,0%</div>
+</div>
+</div>
+<!-- Route 3 -->
+<div class="tactile-subcard p-2.5 flex items-center justify-between gap-2">
+<div class="min-w-0">
+<div class="font-mono text-xs font-semibold text-[#5eead4] truncate">/toeic/listening-part-1</div>
+<div class="text-[11px] text-[#8ba3a7] truncate">Luyện nghe mô tả tranh 10 câu</div>
+</div>
+<div class="text-right font-mono shrink-0 pl-1">
+<div class="text-xs font-bold text-[#f1f5f9]">612</div>
+<div class="text-[10px] text-[#8ba3a7]">15,6%</div>
+</div>
+</div>
+<!-- Route 4 -->
+<div class="tactile-subcard p-2.5 flex items-center justify-between gap-2">
+<div class="min-w-0">
+<div class="font-mono text-xs font-semibold text-[#5eead4] truncate">/vocab/irregular-verbs</div>
+<div class="text-[11px] text-[#8ba3a7] truncate">Bảng &amp; micro-drill động từ bất quy tắc</div>
+</div>
+<div class="text-right font-mono shrink-0 pl-1">
+<div class="text-xs font-bold text-[#f1f5f9]">458</div>
+<div class="text-[10px] text-[#8ba3a7]">11,7%</div>
+</div>
+</div>
+<!-- Route 5 -->
+<div class="tactile-subcard p-2.5 flex items-center justify-between gap-2">
+<div class="min-w-0">
+<div class="font-mono text-xs font-semibold text-[#5eead4] truncate">/toefl/reading-drill</div>
+<div class="text-[11px] text-[#8ba3a7] truncate">Luyện đọc chẩn đoán ngữ cảnh ETS</div>
+</div>
+<div class="text-right font-mono shrink-0 pl-1">
+<div class="text-xs font-bold text-[#f1f5f9]">289</div>
+<div class="text-[10px] text-[#8ba3a7]">7,4%</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CARD 5: "Tần suất (số phiên mỗi khách)" -->
+<section class="tactile-card p-3.5 space-y-2.5">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="text-sm font-bold text-[#f1f5f9] flex items-center gap-1.5">
+<span class="material-symbols-rounded text-lg text-[#2dd4bf]">repeat</span>
+              Tần suất (số phiên mỗi khách)
+            </h2>
+<p class="text-xs text-[#8ba3a7] mt-0.5">Mức độ quay lại luyện tập trong 30 ngày</p>
+</div>
+<span class="text-xs font-mono font-bold text-[#2dd4bf]">2,13 phiên/khách</span>
+</div>
+<div class="space-y-2 pt-1">
+<!-- 1× -->
+<div class="flex items-center gap-2 text-xs">
+<span class="font-mono font-bold w-11 text-[#cbd5e1] shrink-0">1×</span>
+<div class="flex-1 h-3.5 bg-[#13272d] border border-[#1c383f] rounded-md overflow-hidden p-0.5">
+<div class="h-full bg-[#14b8a6] rounded-sm" style="width: 48.5%"></div>
+</div>
+<div class="w-16 text-right font-mono shrink-0">
+<span class="font-bold text-[#f1f5f9]">894</span>
+<span class="text-[10px] text-[#8ba3a7] ml-0.5">48,5%</span>
+</div>
+</div>
+<!-- 2× -->
+<div class="flex items-center gap-2 text-xs">
+<span class="font-mono font-bold w-11 text-[#cbd5e1] shrink-0">2×</span>
+<div class="flex-1 h-3.5 bg-[#13272d] border border-[#1c383f] rounded-md overflow-hidden p-0.5">
+<div class="h-full bg-[#2dd4bf] rounded-sm" style="width: 22.8%"></div>
+</div>
+<div class="w-16 text-right font-mono shrink-0">
+<span class="font-bold text-[#f1f5f9]">420</span>
+<span class="text-[10px] text-[#8ba3a7] ml-0.5">22,8%</span>
+</div>
+</div>
+<!-- 3–5× -->
+<div class="flex items-center gap-2 text-xs">
+<span class="font-mono font-bold w-11 text-[#cbd5e1] shrink-0">3–5×</span>
+<div class="flex-1 h-3.5 bg-[#13272d] border border-[#1c383f] rounded-md overflow-hidden p-0.5">
+<div class="h-full bg-[#5eead4] rounded-sm" style="width: 17.6%"></div>
+</div>
+<div class="w-16 text-right font-mono shrink-0">
+<span class="font-bold text-[#f1f5f9]">324</span>
+<span class="text-[10px] text-[#8ba3a7] ml-0.5">17,6%</span>
+</div>
+</div>
+<!-- 6–10× -->
+<div class="flex items-center gap-2 text-xs">
+<span class="font-mono font-bold w-11 text-[#cbd5e1] shrink-0">6–10×</span>
+<div class="flex-1 h-3.5 bg-[#13272d] border border-[#1c383f] rounded-md overflow-hidden p-0.5">
+<div class="h-full bg-[#38bdf8] rounded-sm" style="width: 7.2%"></div>
+</div>
+<div class="w-16 text-right font-mono shrink-0">
+<span class="font-bold text-[#f1f5f9]">132</span>
+<span class="text-[10px] text-[#8ba3a7] ml-0.5">7,2%</span>
+</div>
+</div>
+<!-- 10×+ -->
+<div class="flex items-center gap-2 text-xs">
+<span class="font-mono font-bold w-11 text-[#f97316] shrink-0">10×+</span>
+<div class="flex-1 h-3.5 bg-[#13272d] border border-[#1c383f] rounded-md overflow-hidden p-0.5">
+<div class="h-full bg-[#f97316] rounded-sm" style="width: 3.9%"></div>
+</div>
+<div class="w-16 text-right font-mono shrink-0">
+<span class="font-bold text-[#f97316]">72</span>
+<span class="text-[10px] text-[#8ba3a7] ml-0.5">3,9%</span>
+</div>
+</div>
+</div>
+<div class="bg-[#13272d] border border-[#1e3b43] rounded-lg p-2.5 text-[11px] text-[#cbd5e1] flex items-center gap-2 mt-1">
+<span class="material-symbols-rounded text-base text-[#f97316] shrink-0">workspace_premium</span>
+<span>72 học viên đạt 10+ phiên (đạt chuỗi ôn 7 ngày liên tục và hoàn thành chẩn đoán AWL).</span>
+</div>
+</section>
+<!-- CARD 6: "Nền tảng · 30 ngày" TABLE WITH ZERO HORIZONTAL SCROLL -->
+<section class="tactile-card p-3.5 space-y-2.5">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="text-sm font-bold text-[#f1f5f9] flex items-center gap-1.5">
+<span class="material-symbols-rounded text-lg text-[#2dd4bf]">devices</span>
+              Nền tảng · 30 ngày
+            </h2>
+<p class="text-xs text-[#8ba3a7] mt-0.5">Trình duyệt &amp; thiết bị người học truy cập</p>
+</div>
+<span class="text-xs text-[#8ba3a7] font-mono">100% khớp</span>
+</div>
+<!-- Zero-scroll mobile table -->
+<div class="w-full bg-[#13272d] border border-[#1e3b43] rounded-xl overflow-hidden">
+<table class="w-full border-collapse text-left table-fixed">
+<thead>
+<tr class="bg-[#0f1f24] text-[11px] font-bold text-[#8ba3a7] border-b border-[#1b373f]">
+<th class="py-2 px-2 w-[38%]">Nền tảng</th>
+<th class="py-2 px-1 text-right w-[18%]">Khách</th>
+<th class="py-2 px-1 text-right w-[18%]">Phiên</th>
+<th class="py-2 px-2 text-right w-[26%]">Tỉ lệ</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#1b373f] text-xs">
+<!-- Row 1: iOS Safari -->
+<tr class="hover:bg-[#183138]/50 transition">
+<td class="py-2 px-2">
+<div class="font-semibold text-[#f1f5f9] leading-tight break-words">iOS Safari</div>
+<div class="text-[10px] text-[#8ba3a7]">iPhone</div>
+</td>
+<td class="py-2 px-1 text-right font-mono font-medium text-[#cbd5e1]">824</td>
+<td class="py-2 px-1 text-right font-mono font-medium text-[#cbd5e1]">1.782</td>
+<td class="py-2 px-2 text-right font-mono">
+<div class="font-bold text-[#2dd4bf]">44,7%</div>
+<div class="w-full h-1 bg-[#091518] rounded-full mt-1 overflow-hidden">
+<div class="h-full bg-[#2dd4bf] rounded-full" style="width: 44.7%"></div>
+</div>
+</td>
+</tr>
+<!-- Row 2: Android Chrome -->
+<tr class="hover:bg-[#183138]/50 transition">
+<td class="py-2 px-2">
+<div class="font-semibold text-[#f1f5f9] leading-tight break-words">Android Chrome</div>
+<div class="text-[10px] text-[#8ba3a7]">Mobile web</div>
+</td>
+<td class="py-2 px-1 text-right font-mono font-medium text-[#cbd5e1]">516</td>
+<td class="py-2 px-1 text-right font-mono font-medium text-[#cbd5e1]">1.094</td>
+<td class="py-2 px-2 text-right font-mono">
+<div class="font-bold text-[#2dd4bf]">28,0%</div>
+<div class="w-full h-1 bg-[#091518] rounded-full mt-1 overflow-hidden">
+<div class="h-full bg-[#14b8a6] rounded-full" style="width: 28.0%"></div>
+</div>
+</td>
+</tr>
+<!-- Row 3: Chrome Extension -->
+<tr class="hover:bg-[#183138]/50 transition">
+<td class="py-2 px-2">
+<div class="font-semibold text-[#f1f5f9] leading-tight break-words">Chrome Tiện ích</div>
+<div class="text-[10px] text-[#8ba3a7]">v1.2.0 Popup</div>
+</td>
+<td class="py-2 px-1 text-right font-mono font-medium text-[#cbd5e1]">318</td>
+<td class="py-2 px-1 text-right font-mono font-medium text-[#cbd5e1]">682</td>
+<td class="py-2 px-2 text-right font-mono">
+<div class="font-bold text-[#2dd4bf]">17,3%</div>
+<div class="w-full h-1 bg-[#091518] rounded-full mt-1 overflow-hidden">
+<div class="h-full bg-[#0d9488] rounded-full" style="width: 17.3%"></div>
+</div>
+</td>
+</tr>
+<!-- Row 4: Desktop PC/Mac -->
+<tr class="hover:bg-[#183138]/50 transition">
+<td class="py-2 px-2">
+<div class="font-semibold text-[#f1f5f9] leading-tight break-words">Desktop PC/Mac</div>
+<div class="text-[10px] text-[#8ba3a7]">Màn hình lớn</div>
+</td>
+<td class="py-2 px-1 text-right font-mono font-medium text-[#cbd5e1]">148</td>
+<td class="py-2 px-1 text-right font-mono font-medium text-[#cbd5e1]">278</td>
+<td class="py-2 px-2 text-right font-mono">
+<div class="font-bold text-[#2dd4bf]">8,0%</div>
+<div class="w-full h-1 bg-[#091518] rounded-full mt-1 overflow-hidden">
+<div class="h-full bg-[#0f766e] rounded-full" style="width: 8.0%"></div>
+</div>
+</td>
+</tr>
+<!-- Row 5: Khác (iPad, Safari macOS) -->
+<tr class="hover:bg-[#183138]/50 transition">
+<td class="py-2 px-2">
+<div class="font-semibold text-[#f1f5f9] leading-tight break-words">Khác (Tablet / Mac)</div>
+<div class="text-[10px] text-[#8ba3a7]">iPadOS / Safari</div>
+</td>
+<td class="py-2 px-1 text-right font-mono font-medium text-[#cbd5e1]">36</td>
+<td class="py-2 px-1 text-right font-mono font-medium text-[#cbd5e1]">78</td>
+<td class="py-2 px-2 text-right font-mono">
+<div class="font-bold text-[#2dd4bf]">2,0%</div>
+<div class="w-full h-1 bg-[#091518] rounded-full mt-1 overflow-hidden">
+<div class="h-full bg-[#115e59] rounded-full" style="width: 2.0%"></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- PRIMARY ACTION BUTTON: ONE WARM CORAL ACTION PER VIEW -->
+<div class="pt-1">
+<button class="w-full min-h-[48px] py-3 px-4 tactile-btn-coral font-bold text-sm rounded-xl flex items-center justify-center gap-2 transition cursor-pointer active:translate-y-0.5" type="button">
+<span class="material-symbols-rounded text-lg">download</span>
+<span>Xuất báo cáo chi tiết 30 ngày (.csv)</span>
+</button>
+</div>
+<!-- FOOTER NOTE (MUTED TEXT, ANONYMOUS STATS) -->
+<footer class="pt-2 pb-6 px-1 text-center">
+<div class="flex items-center justify-center gap-1.5 text-[#8ba3a7] text-[11px] font-semibold mb-1">
+<span class="material-symbols-rounded text-sm text-[#2dd4bf]">verified_user</span>
+<span>Hạ tầng tự vận hành · Chuẩn bảo mật nội bộ</span>
+</div>
+<p class="text-[11px] leading-relaxed text-[#698589]">
+          Thống kê ẩn danh tự xây: không cookie, không lưu IP; quốc gia do Cloudflare xác định. Chỉ tính người thật.
+        </p>
+<div class="mt-2 text-[10px] text-[#517075] font-mono">
+          Lexkite Engine v4.2 · Nhóm nội bộ
+        </div>
+</footer>
+</main>
+</div>
+</body></html>
