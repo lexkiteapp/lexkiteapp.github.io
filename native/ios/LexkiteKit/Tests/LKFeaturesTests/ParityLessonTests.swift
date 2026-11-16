@@ -6,6 +6,7 @@ import LKStrings
 import LKDesign
 import LKCore
 import LKStore
+import LKSync
 
 /// Deterministic fake recognizer: returns the scores in order.
 @MainActor final class FakeScorer: SpeechScoring {
