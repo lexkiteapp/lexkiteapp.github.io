@@ -195,7 +195,7 @@
           ]
         },
         "en": {
-          "hook": "Is your home really a mansion?",
+          "hook": "\"Apartment\" is not understood in E",
           "tip": "A mansion is a huge house. A normal home in a building is an apartment.",
           "caption": "Do you say this? “My mansion is small.” 😅 In English a mansion is a huge house. A normal home in a building is an apartment. The natural way is “My apartment is small.” Listen to Carlos and repeat! Practice more in the Lexkite app."
         }
@@ -1115,7 +1115,7 @@
           ]
         },
         "en": {
-          "hook": "Is “consent” a power plug?",
+          "hook": "\"Outlet\" is not English! It might ",
           "tip": "Consent means permission. A wall socket is an outlet.",
           "caption": "Do you say this? “My room has no consent.” 😅 In English, consent means permission. A wall socket is an outlet. The natural way is “My room has no outlet.” Listen to Ama and repeat! Practice more in the Lexkite app."
         }
@@ -1156,7 +1156,7 @@
         },
         "en": {
           "hook": "Do you know where is...? Check it!",
-          "tip": "Inside a longer question, use normal order: subject, then verb.",
+          "tip": "Interrogative sentences placed within a sentence have the same word order as normal sentences. Something like where the station is.",
           "caption": "Do you say this? “Do you know where is the station?” 😅 Inside a longer question, use normal word order. The natural way is “Do you know where the station is?” Listen to Carlos and repeat! Practice more in the Lexkite app."
         }
       }
@@ -1275,7 +1275,7 @@
           ]
         },
         "en": {
-          "hook": "Since: study or have studied?",
+          "hook": "Is the verb form correct in the se",
           "tip": "Use the present perfect with since, not the present.",
           "caption": "Do you say this? “I study English since last year.” 😅 With since, English needs the present perfect. The natural way is “I have studied English since last year.” Listen to Ama and repeat! Practice more in the Lexkite app."
         }
@@ -1356,7 +1356,7 @@
         },
         "en": {
           "hook": "Is it “said me”?",
-          "tip": "Say told me, not said me.",
+          "tip": "\"Tell me\" means tell me. You cannot put me immediately after say (say to me is OK).",
           "caption": "Do you say this? “She said me to wait.” 😅 Japanese speakers often use say for every kind of “say.” The natural way is “She told me to wait.” Listen to Ama and repeat! Practice more in the Lexkite app."
         }
       }
@@ -1476,7 +1476,7 @@
         },
         "en": {
           "hook": "Married with her?",
-          "tip": "Say married her, with no with.",
+          "tip": "There is no need to use with after marry. Place the person directly.",
           "caption": "Do you say this? “He married with her.” 😅 Do not add with after marry. The natural way is “He married her.” Listen to Carlos and repeat! Practice more in the Lexkite app."
         }
       }
@@ -1596,7 +1596,7 @@
         },
         "en": {
           "hook": "Just raise your voice?",
-          "tip": "In a question, put are before you.",
+          "tip": "In Japanese, if you raise the end of a sentence, it becomes a question, but in English, you change the word order.",
           "caption": "Do you say this? “You are a student?” 😅 Do not only raise your voice. The natural way is “Are you a student?” Listen to Ama and repeat! Practice more in the Lexkite app."
         }
       }
@@ -1676,7 +1676,7 @@
         },
         "en": {
           "hook": "In May 5, or on?",
-          "tip": "Use on with a day, in with a month.",
+          "tip": "On for the date. If it's just the month, it's in May.",
           "caption": "Do you say this? “I was born in May 5.” 😅 With a day, use on. The natural way is “I was born on May 5.” Listen to Ama and repeat! Practice more in the Lexkite app."
         }
       }
@@ -1756,7 +1756,7 @@
         },
         "en": {
           "hook": "Go to shopping?",
-          "tip": "Say go shopping, with no to.",
+          "tip": "\"Go shopping\" is go shopping. The same goes for go swimming, to is unnecessary.",
           "caption": "Do you say this? “I will go to shopping.” 😅 Do not add to in go shopping. The natural way is “I will go shopping.” Listen to Ama and repeat! Practice more in the Lexkite app."
         }
       }
@@ -1836,7 +1836,7 @@
         },
         "en": {
           "hook": "Please say again?",
-          "tip": "Say it again, not only say again.",
+          "tip": "In Japanese, we omit the object, but in English we say it like say it.",
           "caption": "Do you say this? “Please say again.” 😅 English needs it after say. The natural way is “Please say it again.” Listen to Ama and repeat! Practice more in the Lexkite app."
         }
       }
@@ -1876,7 +1876,7 @@
         },
         "en": {
           "hook": "Am having a car?",
-          "tip": "For things you own, say have.",
+          "tip": "\"Have\" is ok with just have. I won't make it be+-ing.",
           "caption": "Do you say this? “I am having a car.” 😅 Do not use am having for things you own. The natural way is “I have a car.” Listen to Carlos and repeat! Practice more in the Lexkite app."
         }
       }
@@ -1916,7 +1916,7 @@
         },
         "en": {
           "hook": "If it will rain?",
-          "tip": "After if, use the simple form: rains.",
+          "tip": "After if, the present tense is used even when talking about the future. Will is not used.",
           "caption": "Do you say this? “If it will rain tomorrow, I will stay home.” 😅 Do not use will right after if. The natural way is “If it rains tomorrow, I will stay home.” Listen to Ama and repeat! Practice more in the Lexkite app."
         }
       }
@@ -1956,7 +1956,7 @@
         },
         "en": {
           "hook": "Is “claim” a complaint?",
-          "tip": "Use complaint when something is wrong.",
+          "tip": "The katakana word ``claim'' means complaint. Claim means \"claim\" or \"request.\"",
           "caption": "Do you say this? “I made a claim to the store.” 😅 Claim is not the word for complaint. The natural way is “I made a complaint to the store.” Listen to Carlos and repeat! Practice more in the Lexkite app."
         }
       }
@@ -1996,7 +1996,7 @@
         },
         "en": {
           "hook": "Is it “your sign”?",
-          "tip": "Use signature for your name.",
+          "tip": "The ``sign'' used to write one's name is a noun. If it's a verb, sign here.",
           "caption": "Do you say this? “Please write your sign here.” 😅 Use signature as the word for your name. The natural way is “Please write your signature here.” Listen to Ama and repeat! Practice more in the Lexkite app."
         }
       }
@@ -2356,7 +2356,7 @@
         },
         "en": {
           "hook": "Everyone are?",
-          "tip": "Say everyone is, not everyone are.",
+          "tip": "``Everyone'' is a plural image, but everyone is treated as singular and we use is.",
           "caption": "Do you say this? “Everyone are here.” 😅 Everyone is one group, so use is. The natural way is “Everyone is here.” Listen to Carlos and repeat! Practice more in the Lexkite app."
         }
       }
@@ -2396,7 +2396,7 @@
         },
         "en": {
           "hook": "Took a good score?",
-          "tip": "Use got for a score.",
+          "tip": "The ``take'' in ``to score'' is often translated as ``take,'' but the score is ``get.''",
           "caption": "Do you say this? “I took a good score on the test.” 😅 Do not use took for a score. The natural way is “I got a good score on the test.” Listen to Ama and repeat! Practice more in the Lexkite app."
         }
       }
@@ -2596,7 +2596,7 @@
         },
         "en": {
           "hook": "Do you say “explain you”?",
-          "tip": "Say explain the rule to you.",
+          "tip": "When using explain, put the content to be explained first, and add to for the person.",
           "caption": "Do you say this? “I will explain you the rule.” 😅 In Japanese you can say the person first, but English puts the thing first. The natural way is “I will explain the rule to you.” Listen to Carlos and repeat! Practice more in the Lexkite app."
         }
       }
@@ -2676,7 +2676,7 @@
         },
         "en": {
           "hook": "Is “cunning” cheating?",
-          "tip": "Cheat is the verb for cheating on a test.",
+          "tip": "\"Cheating\" in Japanese is \"cheat\" in English. Cunning means \"sly.\"",
           "caption": "Do you say this? “He did cunning on the exam.” 😅 The Japanese loan word sounds like English, but it is not the English word. The natural way is “He cheated on the exam.” Listen to Carlos and repeat! Practice more in the Lexkite app."
         }
       }
@@ -3035,7 +3035,7 @@
           ]
         },
         "en": {
-          "hook": "Did you drop it?",
+          "hook": "Isn't it missing at the end of the",
           "tip": "Like needs something after it: like it.",
           "caption": "Do you say this? “I tried sushi, but I didn't like.” 😅 Japanese often skips the thing you talk about, but English needs it. The natural way is “I tried sushi, but I didn't like it.” Listen to Ama and repeat! Practice more in the Lexkite app."
         }
@@ -3236,7 +3236,7 @@
         },
         "en": {
           "hook": "Do you borrow the bathroom?",
-          "tip": "Say use the bathroom.",
+          "tip": "For toilets, use is used instead of borrow.",
           "caption": "Do you say this? “Can I borrow the bathroom?” 😅 The Japanese 借りる does not work for a bathroom in English. The natural way is “Can I use the bathroom?” Listen to Carlos and repeat! Practice more in the Lexkite app."
         }
       }
@@ -3476,7 +3476,7 @@
         },
         "en": {
           "hook": "Because or because of?",
-          "tip": "Use because before a full sentence.",
+          "tip": "When \"because\" is followed by \"subject + verb\", do not add \"of\".",
           "caption": "Do you say this? “I cried because of the movie was sad.” 😅 Because of is not for a full sentence. The natural way is “I cried because the movie was sad.” Listen to Carlos and repeat! Practice more in the Lexkite app."
         }
       }
