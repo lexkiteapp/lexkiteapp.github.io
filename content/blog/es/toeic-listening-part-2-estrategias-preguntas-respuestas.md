@@ -144,6 +144,10 @@ Para entrenar el oído con los sonidos que se te escapan, la [biblioteca de pron
 
 ![Biblioteca de pronunciación IPA de Lexkite: vocales simples, diptongos y consonantes con palabras de ejemplo y práctica por sonido](media:pron "Practica sonidos concretos, como los que se confunden en las trampas fonéticas")
 
+Antes de la parte 2, calienta el oído con las fotografías: [TOEIC parte 1 fotografías](/es/blog/toeic-parte-1-fotografias-trucos-y-practica/).
+
+Cuando domines las respuestas de la Parte 2, da el paso siguiente con las estrategias de [TOEIC parte 3 y 4](/es/blog/toeic-parte-3-y-4-estrategias/), que concentran 69 de las 100 preguntas de Listening.
+
 ## Preguntas frecuentes sobre TOEIC Listening Part 2
 
 ### ¿Qué debo hacer si no entendí en absoluto la pregunta que acaban de decir?
