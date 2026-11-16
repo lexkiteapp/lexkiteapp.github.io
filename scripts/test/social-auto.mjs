@@ -237,7 +237,7 @@ ok(S.key && S.webhook && S.cfg.daily_calls === 10 && S.budget_left === 2 && S.up
   ok(d.sync_h === 3, 'đồng bộ trạng thái 3 giờ/lần để sớm biết bài lỗi');
 
   // Môi trường sạch cho từng ca
-  const reset = cfg => { sql.exec("DELETE FROM soc_board; DELETE FROM dist_social; DELETE FROM soc_lock; DELETE FROM soc_meta"); GC.posts = {}; GC.fail = {}; sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES ('auto', ?, ?)").run(JSON.stringify({ sync_h: 24, plan_daily: false, ...cfg }), now); sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES ('auto_state', ?, ?)").run(JSON.stringify({ last_sync: { at: now } }), now); };
+  const reset = cfg => { sql.exec("DELETE FROM soc_board; DELETE FROM dist_social; DELETE FROM soc_lock; DELETE FROM soc_meta"); GC.posts = {}; GC.fail = {}; sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES ('auto', ?, ?)").run(JSON.stringify({ policy: A.POLICY, auto_approve: true, auto_queue: true, manual_first: 0, autopub: { youtube: true }, sync_h: 24, plan_daily: false, ...cfg }), now); sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES ('auto_state', ?, ?)").run(JSON.stringify({ last_sync: { at: now } }), now); };
   const dueAt = (clip, ch, h) => sql.prepare("INSERT INTO dist_social (clip, channel_id, platform, slot_ms, source, rule, state, updated) VALUES (?, ?, ?, ?, 'auto', 0, 'planned', ?)").run(clip, ch, /^gc-([a-z_]+)-/.exec(ch)[1], now + h * H, now);
   const stNow = () => JSON.parse(sql.prepare("SELECT v FROM soc_meta WHERE k = 'auto_state'").get().v);
 
