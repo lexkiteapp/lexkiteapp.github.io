@@ -38,6 +38,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
+import { classify, needed, prPaths, relevantFiles } from '../ci/pr-scope.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const WF = path.join(ROOT, '.github/workflows');
@@ -312,6 +313,32 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     ok(/MAX_UPDATES = 6\b/.test(ap) && /isPriority\(pr, now\)/.test(ap) && /isRecent\(pr, now\)/.test(ap), 'luật 15: autopilot giữ trần 6 PR + chỉ đụng PR ưu tiên (isPriority/isRecent)');
     // luật 15b: hàng chờ > 30 → ngừng đẩy nhánh; mỗi PR tối đa 1 lần đẩy / 3 giờ (cả gỡ xung đột lẫn gộp main)
     ok(/QUEUE_MAX = 30\b/.test(ap) && /UPDATE_GAP_H = 3\b/.test(ap) && /budget\(m\.busy, m\.queued\)/.test(ap) && (ap.match(/!updatedRecently\(/g) || []).length >= 2, 'luật 15b: autopilot dừng khi hàng chờ > 30 và mỗi PR ≤ 1 lần đẩy/3 giờ (QUEUE_MAX, UPDATE_GAP_H, updatedRecently)'); }
+  { // luật 16 (15/11 – hàng chờ 200–330: PR chỉ đổi nội dung/chữ dịch vẫn chạy ~19–32 job UI nặng): job nặng bỏ qua theo PHẠM VI PR ở mức JOB
+    //  (scripts/ci/pr-scope.mjs trong job gate; KHÔNG dùng `paths:` mức workflow; skipped = đạt với required-gate). Mặc định coi là giao diện → chỉ bớt khi MỌI file đều là nội dung/chữ dịch/backend.
+    const SCOPED = { 'stitch-diff': 'ui', 'frame-consistency': 'ui', 'journey-matrix': 'ui', 'qa-bot': 'ui', 'scroll-perf': 'ui', 'ux-cards': 'ui', 'teacher-native': 'ui', 'visual-qa': 'ui,text', 'mobile-qa': 'ui,text', 'journey-e2e': 'ui,text' };
+    for (const [w, need] of Object.entries(SCOPED)) {
+      const src = (srcs.find(([f]) => f === w + '.yml') || [])[1] || '', g = jobs(src).find(j => j.id === 'gate');
+      ok(!!g, `luật 16: ${w}.yml thiếu job gate`); if (!g) continue;
+      ok(g.text.includes(`node scripts/ci/pr-scope.mjs --repo "$REPO" --pr "$PR" --workflow .github/workflows/${w}.yml --need ${need}\n`) && g.text.includes(`scripts/ci/pr-scope.mjs .github/workflows/${w}.yml; do gh api`) && !/actions\/checkout@/.test(g.text), `luật 16: ${w}.yml gate phải chạy pr-scope.mjs --workflow … --need ${need}, lấy file qua API (không checkout: no-prod-hosts/luật 14)`);
+      ok(/outputs:\s*\{\s*go:[^\n]*steps\.g\.outputs\.go == ''true''[^\n]*steps\.s\.outputs\.ok != ''false''/.test(g.text), `luật 16: ${w}.yml output go phải gộp steps.s.outputs.ok != 'false' (lỗi API → mở cổng, không mất kiểm)`);
+      ok(/id: s\n\s+if: github\.event_name == 'pull_request'\n\s+continue-on-error: true/.test(g.text), `luật 16: ${w}.yml bước scope chỉ chạy trên PR và continue-on-error (không làm đỏ gate)`);
+      ok(/pull-requests: read/.test(g.text), `luật 16: ${w}.yml gate cần pull-requests: read để đọc danh sách file PR`);
+    }
+    for (const [f, src] of srcs) if (/pr-scope\.mjs/.test(src) && !SCOPED[f.replace(/\.yml$/, '')]) ok(false, `luật 16: ${f} dùng pr-scope.mjs nhưng chưa khai báo trong SCOPED (ci-policy.mjs) – thêm để có gác`);
+    const sc = f => classify(f.split(',')), nd = (f, n) => needed(f.split(','), n);
+    ok(!sc('web/cpack/a/b.json,content/blog/en/x.md,docs/A.md,web/de/index.html').ui, 'luật 16: cpack/blog/docs/trang SEO = không phải UI');
+    ok(!sc('web/js/i18n/de/a.js,extension/app/js/i18n/de/a.js,i18n/ui/de/a.js').ui && sc('web/js/i18n/de/a.js').text, 'luật 16: chữ dịch = text, không phải ui');
+    ok(sc('web/css/a.css').ui && sc('web/js/app.js').ui && sc('extension/app/js/x.js').ui && sc('brand/stitch/v2/a.html').ui && sc('web/index.html').ui && sc('web/sw.js').ui, 'luật 16: css/js/app/add-on/Stitch/index/sw = UI');
+    ok(sc('web/cpack/a.json,web/css/a.css').ui, 'luật 16: PR lẫn nội dung + UI → vẫn UI (chạy đủ)');
+    ok(sc('scripts/test/stitch-diff.mjs').ui && sc('.github/workflows/x.yml').ui && sc('package.json').ui && sc('some/unknown/file.bin').ui, 'luật 16: script test / workflow / file lạ = UI (mặc định an toàn)');
+    ok(!nd('functions/api/a.js,web/js/admin-x.js', 'ui,text') && nd('functions/api/a.js,web/js/i18n/de/a.js', 'ui,text') && !nd('web/js/i18n/de/a.js', 'ui'), 'luật 16: backend bỏ qua cả ui,text; chữ dịch chạy ui,text nhưng bỏ qua ui');
+    { const pp = prPaths("on:\n  pull_request:\n    paths: ['web/**', '!web/**/*.md', 'a/b.js']\n  push:\n    paths: ['x']\n") || [];
+      ok(pp.join('|') === 'web/**|!web/**/*.md|a/b.js', 'luật 16: prPaths đọc paths của pull_request (không lẫn push)');
+      ok(relevantFiles(['web/a.js', 'web/a.md', 'z/y', 'a/b.js'], pp).join() === 'web/a.js,a/b.js', 'luật 16: relevantFiles = file khớp paths, trừ phủ định');
+      ok(relevantFiles(['q'], null).join() === 'q' && relevantFiles(['.github/workflows/w.yml'], ['web/**'], '.github/workflows/w.yml').length === 1, 'luật 16: không paths → mọi file; file workflow tự nó luôn tính');
+      const own = f => needed(relevantFiles(f.split(','), pp), 'ui');
+      ok(!own('web/cpack/x.json,scripts/test/other.mjs') && own('web/css/a.css,web/cpack/x.json'), 'luật 16: chỉ file KÍCH workflow mới tính (file lạc đề như scripts/test/other.mjs không kéo workflow chạy)'); }
+    ok(nd('', 'ui') && needed([], 'ui'), 'luật 16: không đọc được danh sách file → chạy (mở cổng)'); }
   { // luật 16 (15/11): ảnh QC Stitch → R2 + MỘT bình luận PR (scripts/ci/stitch-shots.mjs) – giám khảo UI đọc link, không tải artifact; không nới luật CI
     const sd = (srcs.find(([f]) => f === 'stitch-diff.yml') || [])[1] || '', st = (sd.match(/- name: Ảnh QC → R2 \+ bình luận PR\n[\s\S]*$/) || [''])[0];
     ok(/stitch-shots\.mjs/.test(st) && /timeout-minutes:/.test(st) && /continue-on-error: true/.test(st), 'luật 16: stitch-diff.yml có bước stitch-shots (timeout + continue-on-error)');
