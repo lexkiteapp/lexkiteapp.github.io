@@ -33,8 +33,12 @@ ok(c.rows[1].missing.length === 0 && c.rows[0].have === 1 && c.rows[0].missing.l
 const r = report(c);
 ok(r.bad.length === 1 && /Lexkite English/.test(r.text) && /1\/2 kênh đủ/.test(r.text.replace('1/2', '1/2')) && /17\.\.|2026-11-17/.test(r.text), 'báo cáo nêu kênh và khoảng trống');
 
+const yt = c.platforms.find(p => p.platform === 'youtube'), fb = c.platforms.find(p => p.platform === 'facebook_page');
+ok(yt.want === 15 && yt.channels === 1 && yt.unconnected === 14 && yt.total === 450 && fb.total === 450 && fb.unconnected === 15, 'mẫu số 15 kênh × 30 ngày = 450 trang-ngày mỗi nền tảng, kênh chưa nối được tính là thiếu');
+ok(/youtube: mới nối 1\/15 kênh → thiếu 14/.test(r.text) && r.miss.length === 2 && /\| youtube \| 1\/15 \| 1\/450 \|/.test(r.table), 'báo cáo nêu kênh chưa nối + bảng tuần có mẫu số 450');
 // nối dây: workflow + op + job đăng ký
 const wf = fs.readFileSync('.github/workflows/social-coverage.yml', 'utf8'), api = fs.readFileSync('functions/api/social-auto.js', 'utf8'), jobs = JSON.parse(fs.readFileSync('infra/jobs.json', 'utf8')).jobs;
+ok(/WEEKLY|getUTCDay/.test(fs.readFileSync('scripts/social/coverage.mjs', 'utf8')), 'bảng phủ theo trang gửi mỗi tuần (thứ Hai)');
 ok(/cron: '41 3 \* \* \*'/.test(wf) && /scripts\/social\/coverage\.mjs/.test(wf) && /issues: write/.test(wf), 'workflow chạy hằng ngày và được mở issue');
 ok(/b\.op === 'coverage'/.test(api) && /cliVerify/.test(api), 'op coverage đi sau chữ ký HMAC');
 ok(jobs.some(j => j.id === 'social-coverage' && j.workflow === 'social-coverage.yml'), 'đã đăng ký infra/jobs.json');

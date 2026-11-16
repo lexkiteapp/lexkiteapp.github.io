@@ -3,6 +3,8 @@
 import { localDate, normCfg, foreignAccount } from './_distribution.js';
 
 export const COVER_DAYS = 30;
+/** Số trang/kênh owner muốn phủ (16/11): 15 trang Facebook + 15 kênh YouTube theo ngôn ngữ, mỗi nơi 1 video/ngày. Thiếu kênh nối được → cũng là chỗ trống (450 trang-ngày/nền tảng). */
+export const EXPECT = { facebook_page: 15, youtube: 15, instagram: 1, tiktok: 1 };
 /** Ngày (theo múi giờ kênh) từ NGÀY MAI đến +days chưa có bài nào: 'YYYY-MM-DD'[] – hôm nay bỏ qua vì giờ đăng có thể đã qua. */
 export function gapsOf(slotsMs, tz, now, days = COVER_DAYS) {
   const have = new Set((slotsMs || []).map(ms => localDate(ms, tz))), [y, m, d] = localDate(now, tz).split('-').map(Number), out = [];
@@ -16,5 +18,7 @@ export async function coverage(db, now = Date.now(), days = COVER_DAYS) {
   const slots = new Map(); for (const r of await all("SELECT channel_id, slot_ms FROM dist_social WHERE slot_ms BETWEEN ? AND ? AND state NOT IN ('failed', 'cancelled')", now - 864e5, now + (days + 2) * 864e5)) (slots.get(r.channel_id) || slots.set(r.channel_id, []).get(r.channel_id)).push(r.slot_ms);
   const rows = [];
   for (const c of ext) { const cf = normCfg(cfg.get(c.channel_id) || {}); if (cf.active === 0) continue; const miss = gapsOf(slots.get(c.channel_id), cf.tz, now, days); rows.push({ channel_id: c.channel_id, platform: c.platform, title: c.title, tz: cf.tz, have: days - miss.length, missing: miss }); }
-  return { days, at: now, channels: rows.length, rows, short: rows.filter(r => r.missing.length).length };
+  const per = {}; for (const r of rows) { const x = per[r.platform] || (per[r.platform] = { channels: 0, have: 0 }); x.channels++; x.have += r.have; }
+  const platforms = Object.entries(EXPECT).map(([p, want]) => { const x = per[p] || { channels: 0, have: 0 }; return { platform: p, want, channels: x.channels, have: x.have, total: want * days, unconnected: Math.max(0, want - x.channels) }; });
+  return { days, at: now, channels: rows.length, rows, platforms, short: rows.filter(r => r.missing.length).length };
 }
