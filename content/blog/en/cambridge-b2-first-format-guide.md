@@ -9,7 +9,7 @@ tags: [cambridge, b2-first, fce, exam-format]
 keyword: "cambridge b2 first format"
 cover: practice
 coverAlt: "Lexkite practice page with games and exercises including a test and a writing room"
-publishAt:
+publishAt: 2027-01-22T12:11:00+05:30
 factChecked: 2026-11-15
 author: Lexkite
 status: ready
