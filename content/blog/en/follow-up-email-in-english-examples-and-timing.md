@@ -22,6 +22,7 @@ diagrams: [
   {id: d1, type: compare, title: 'Four follow-up situations', cols: ['Situation and goal', 'Often sent', 'Tone'], rows: [['After an interview: thank you, restate fit', 'within a day or so', 'warm, brief, confident'], ['After a meeting: confirm decisions and owners', 'the same day or next morning', 'clear, neutral'], ['Chasing a reply: get an answer or a decision', 'after a few working days', 'friendly, specific, easy to answer'], ['After networking: keep the connection alive', 'within a few days', 'personal, low pressure']]},
   {id: d2, type: boxes, title: 'Anatomy of a follow-up', parts: [{t: 'Subject line', r: 'name the topic and the date'}, {t: 'Opening', r: 'a thank-you or a short reminder of context'}, {t: 'The point', r: 'one clear question or next step'}, {t: 'Closing', r: 'make replying easy and say thanks'}]}
 ]
+publishAt: 2027-02-04T21:36:00+05:30
 ---
 
 A good **follow up email in English** is short, specific and easy to answer. It reminds the reader who you are, names the exact thing you need or want to confirm, and makes the next step obvious. It is not an apology for existing in someone's inbox, and it is not a complaint.

@@ -9,7 +9,7 @@ tags: [ielts, band-score, scoring, strategy]
 keyword: "ielts band scores"
 cover: mock
 coverAlt: "Lexkite IELTS mock test setup screen with the four skills Listening, Reading, Writing and Speaking and a history of earlier attempts"
-publishAt:
+publishAt: 2027-02-06T12:55:00+05:30
 factChecked: 2026-11-15
 author: Lexkite
 status: ready
