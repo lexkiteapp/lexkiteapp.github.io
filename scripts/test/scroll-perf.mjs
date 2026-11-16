@@ -8,6 +8,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { serve } from '../quality/serve.mjs';
 import { RUNS, medianRuns } from './lib/perf-median.mjs';
+import { rateFor } from './lib/perf-calibrate.mjs';
 
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
 const ROOT = path.resolve(arg('root', 'dist')), OUT = path.resolve(arg('out', 'sp-out')), DEVICE = arg('device', 'phone');
@@ -118,7 +119,7 @@ async function measure(ctx, sc, cold) {
   const page = await ctx.newPage(); const errs = []; page.on('pageerror', e => errs.push(String(e.message).slice(0, 140)));
   const cdp = DEV.launcher === chromium ? await ctx.newCDPSession(page) : null, ev = [];
   if (cdp) {
-    if (DEV.cpu > 1) await cdp.send('Emulation.setCPUThrottlingRate', { rate: DEV.cpu });
+    if (DEV.cpu > 1) await cdp.send('Emulation.setCPUThrottlingRate', { rate: (await rateFor(browser, DEV.cpu)).rate }); // hiệu chuẩn theo tốc độ thật của runner
     if (DEV.net) { await cdp.send('Network.enable'); await cdp.send('Network.emulateNetworkConditions', { offline: false, latency: DEV.net.latency, downloadThroughput: DEV.net.down, uploadThroughput: DEV.net.up }); }
     cdp.on('Tracing.dataCollected', d => ev.push(...d.value));
     await cdp.send('Tracing.start', { categories: 'devtools.timeline,disabled-by-default-devtools.timeline,disabled-by-default-devtools.timeline.frame,toplevel,blink.user_timing', transferMode: 'ReportEvents' });
@@ -190,12 +191,14 @@ for (const theme of THEMES) {
     // Runner CI ồn: số đo thời gian (khung rớt/task dài/layout) vượt ngưỡng → đo đủ RUNS lượt, chấm TRUNG VỊ từng chỉ số (lib/perf-median.mjs).
     // Ngưỡng giữ nguyên; khựng thật lặp ở đa số lượt vẫn đỏ. CLS, nhảy cuộn, listener… tất định – lấy từ lượt đầu, không đo lại.
     const B0 = BUDGET[DEVICE] || {}, tr = x => x.trace || {};
-    const noisy = x => !x.crash && DEVICE !== 'webkit' && x.dist > 40 && (x.droppedPct > B0.droppedPct || (tr(x).longMax ?? 0) > B0.longMaxMs || (tr(x).layoutMs ?? 0) > B0.layoutMs);
+    // 16/11: CLS cũng đo lại khi vượt ngưỡng – "phone/light dict: CLS 0.0537 > 0.05 ← toast.show + top-stats" đỏ #1427/#362 không đụng trang đó: dịch chuyển do toast/số liệu tải lệch vài chục ms
+    // theo tốc độ runner. Lấy TRUNG VỊ 3 lượt (ngưỡng KHÔNG đổi); dịch chuyển thật lặp ở đa số lượt vẫn đỏ.
+    const noisy = x => !x.crash && DEVICE !== 'webkit' && ((x.dist > 40 && (x.droppedPct > B0.droppedPct || (tr(x).longMax ?? 0) > B0.longMaxMs || (tr(x).layoutMs ?? 0) > B0.layoutMs)) || x.cls > B0.cls || x.scrollCls > B0.scrollCls);
     if (noisy(r)) {
       const runs = [r];
       for (let i = 1; i < RUNS; i++) { try { runs.push(await measure(ctx, sc)); } catch (e) { runs.push({ crash: String(e.message).slice(0, 120) }); } }
-      console.log(`    ↻ ${sc.id}: ${runs.length} lượt ` + runs.map(x => x.crash ? 'lỗi' : `rớt ${x.droppedPct}% long ${tr(x).longMax ?? 0}ms layout ${tr(x).layoutMs ?? 0}ms`).join(' · ') + ' → trung vị');
-      r = medianRuns(runs, ['droppedPct', 'p95', 'worst', 'jank50'], ['longMax', 'longN', 'layoutMs']);
+      console.log(`    ↻ ${sc.id}: ${runs.length} lượt ` + runs.map(x => x.crash ? 'lỗi' : `rớt ${x.droppedPct}% long ${tr(x).longMax ?? 0}ms layout ${tr(x).layoutMs ?? 0}ms cls ${x.cls} cuộn ${x.scrollCls}`).join(' · ') + ' → trung vị');
+      r = medianRuns(runs, ['droppedPct', 'p95', 'worst', 'jank50', 'cls', 'scrollCls'], ['longMax', 'longN', 'layoutMs']);
     }
     r.theme = theme; r.device = DEVICE; all.push(r);
     const t = r.trace || {};

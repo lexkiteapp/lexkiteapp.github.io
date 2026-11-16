@@ -514,7 +514,11 @@ const CLI_OPS = {
     const lang = x.explicit_lang ? x.cfg.lang : 'en', taken = new Set((await all(db, "SELECT clip FROM yt_queue WHERE status IN ('queued', 'uploading', 'done') OR video_id IS NOT NULL")).map(r => r.clip));
     const held = new Map((await all(db, 'SELECT clip, state, deleted FROM clip_review')).map(r => [r.clip, r])), items = (await manifest(env)).items || [];
     const pick = b.clip ? fillPick(items.filter(i => i && i.id === String(b.clip)), lang, taken, held, 1)[0] : fillPick(items, lang, taken, held, 1)[0];
-    if (!pick) return { status: 404, error: 'no-clip', lang };
+    if (!pick) { // mọi clip bản ngữ đã xếp lịch (fill) → dùng lại hàng autopub xa nhất của kênh (chưa tải): chỉ đổi sang public tải ngay, hàng được fill bù ở lượt sau
+      const re = await one(db, "SELECT clip FROM yt_queue WHERE status = 'queued' AND approved_by = 'autopub@lexkite.com' AND channel_id = ? ORDER BY publish_at DESC LIMIT 1", ch.channel_id); if (!re) return { status: 404, error: 'no-clip', lang };
+      await run(db, "UPDATE yt_queue SET privacy = 'public', publish_at = NULL, approved_by = 'probe', approved_at = 1 WHERE clip = ? AND status = 'queued'", re.clip);
+      return { ok: true, clip: re.clip, channel_id: ch.channel_id, title: ch.title, lang, reused: true };
+    }
     const r = await approveClips(db, { ids: [pick.id], privacy: 'private' }, { email: 'probe@lexkite.com' }, env); if (!(r.queued || []).length) return { status: 409, error: 'not-approved', skipped: r.skipped };
     await run(db, "UPDATE yt_queue SET channel_id = ?, privacy = 'public', publish_at = NULL, approved_by = 'probe', approved_at = 1 WHERE clip = ? AND status = 'queued'", ch.channel_id, pick.id);
     return { ok: true, clip: pick.id, channel_id: ch.channel_id, title: ch.title, lang };
