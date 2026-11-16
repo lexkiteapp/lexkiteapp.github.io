@@ -167,6 +167,8 @@ publishAt: 2026-12-09T20:57:00+09:00
              └── NO (복수형이거나 셀 수 없는 명사) ➔ 【무관사(Ø)】
 ```
 
+관사가 빠지기 쉬운 예로 *have an effect on* 같은 연어를 [affect effect 차이](/ko/blog/affect-effect-chai-gubunbeop/) 글에서도 확인할 수 있습니다.
+
 ## 한국인 학습자가 자주 틀리는 대표 오류 Top 5
 
 | 대표 오답 문장 | 오류 원인 분석 | 올바른 표준 문장 |
@@ -183,3 +185,5 @@ publishAt: 2026-12-09T20:57:00+09:00
 
 
 이민용 IELTS에서도 관사 오류는 감점으로 이어지니, 목표 밴드는 [이민 IELTS 점수 총정리](/ko/blog/ielts-imin-jeomsu-kaenada-hoju-yeongguk/)와 함께 보세요.
+
+관사와 전치사가 자유 빈칸 문제로 나오는 모습은 [케임브리지 B2 First 시험 구성](/ko/blog/cambridge-b2-first-sihom-guseong-fce/) 글에서 볼 수 있습니다.

@@ -168,3 +168,5 @@ Memorising whole sentences to reproduce in the exam is risky because they may no
 ### How can I tell if a combination I made up is correct?
 
 Check whether it appears in example sentences in a reliable learner's dictionary or in published texts. If you cannot find it, choose a combination you have already seen used.
+
+To see how vocabulary is marked, read about [lexical resource in IELTS](/en/blog/lexical-resource-ielts/).

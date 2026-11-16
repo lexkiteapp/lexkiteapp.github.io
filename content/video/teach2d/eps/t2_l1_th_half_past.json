@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_half_past",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say three thirty!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: It is three half.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: It is three thirty.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "For :30, say thirty.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Thirty! It is five thirty.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "It is three half.",
+  "right": "It is three thirty.",
+  "strike": "half",
+  "why": "For :30, say thirty.",
+  "memory": "Three thirty.",
+  "quiz": {
+   "stem": "It is 5:30. It is five ___.",
+   "options": [
+    "half",
+    "thirty"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "สามโมงครึ่ง = three thirty",
+   "tip": "ภาษาไทยพูด “สามโมงครึ่ง” จึงมักแปลตรง ๆ ว่า three half แต่ภาษาอังกฤษแบบอเมริกันพูดว่า thirty: “It is three thirty.”",
+   "caption": "คุณเคยพูดว่า “It is three half.” ไหม? 😅 ภาษาไทยพูด “สามโมงครึ่ง” จึงมักแปลตรง ๆ ว่า three half แต่ภาษาอังกฤษแบบอเมริกันพูดว่า thirty: “It is three thirty.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “thirty” จำไว้ให้ดีนะ! ลองพูดประโยคตัวอย่างออกเสียงหนึ่งรอบ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “three thirty”!",
+   "tip": "Thai says the hour and then half, but English says thirty.",
+   "caption": "Do you say “It is three half.” 😅 Thai says the hour and then half, but English says thirty. Say “It is three thirty.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "สามโมงครึ่ง = three thirty"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 40,
+  "seconds": 25.1,
+  "wpm": 95
+ },
+ "publish": {
+  "title": "สามโมงครึ่ง = three thirty",
+  "keyword": "It is three thirty.",
+  "value": "ภาษาไทยพูด “สามโมงครึ่ง” จึงมักแปลตรง ๆ ว่า three half แต่ภาษาอังกฤษแบบอเมริกันพูดว่า thirty: “It is three thirty.”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "สามโมงครึ่ง = three thirty",
+    "description": "ภาษาไทยพูด “สามโมงครึ่ง” จึงมักแปลตรง ๆ ว่า three half แต่ภาษาอังกฤษแบบอเมริกันพูดว่า thirty: “It is three thirty.”\n\nคุณเคยพูดว่า “It is three half.” ไหม? 😅 ภาษาไทยพูด “สามโมงครึ่ง” จึงมักแปลตรง ๆ ว่า three half แต่ภาษาอังกฤษแบบอเมริกันพูดว่า thirty: “It is three thirty.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "It is three thirty.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “It is three half.” ไหม? 😅 ภาษาไทยพูด “สามโมงครึ่ง” จึงมักแปลตรง ๆ ว่า three half แต่ภาษาอังกฤษแบบอเมริกันพูดว่า thirty: “It is three thirty.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "สามโมงครึ่ง = three thirty\n\nภาษาไทยพูด “สามโมงครึ่ง” จึงมักแปลตรง ๆ ว่า three half แต่ภาษาอังกฤษแบบอเมริกันพูดว่า thirty: “It is three thirty.”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "สามโมงครึ่ง = three thirty ภาษาไทยพูด “สามโมงครึ่ง” จึงมักแปลตรง ๆ ว่า three half แต่ภาษาอังกฤษแบบอเมริกันพูด… #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “thirty” จำไว้ให้ดีนะ! ลองพูดประโยคตัวอย่างออกเสียงหนึ่งรอบ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

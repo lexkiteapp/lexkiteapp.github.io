@@ -9,7 +9,7 @@ tags: [ielts, writing, task-1, maps]
 keyword: "ielts writing task 1 map"
 cover: write
 coverAlt: "Lexkite Writing room with prompts and a planning frame for a report"
-publishAt:
+publishAt: 2027-02-19T07:05:00+05:30
 factChecked: 2026-11-15
 author: Lexkite
 status: ready

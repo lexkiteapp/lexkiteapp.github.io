@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_mostpeople",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say most people, not most of!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Most of people like tea.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Most people like tea.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Before a plain noun, say most.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Most! Most students like games.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Most of people like tea.",
+  "right": "Most people like tea.",
+  "strike": "most of people",
+  "why": "Before a plain noun, say most.",
+  "memory": "Most people.",
+  "quiz": {
+   "stem": "___ students like games.",
+   "options": [
+    "Most of",
+    "Most"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“大多数人”是 most people！",
+   "tip": "“大多数”后面直接接名词时，用 most，不加 of：most people。",
+   "caption": "你是不是也会说 “Most of people like tea.”😅 “大多数人”后面直接接名词，英语不加 of：“Most people like tea.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“Most people like tea.”免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Most people, not “most of”!",
+   "tip": "Before a plain noun, say most, with no of.",
+   "caption": "Do you say “Most of people like tea.” 😅 Before a plain noun, say most with no of: “Most people like tea.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“大多数人”是 most people！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“大多数人”是 most people！",
+  "keyword": "Most people like tea.",
+  "value": "“大多数”后面直接接名词时，用 most，不加 of：most people。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "“大多数人”是 most people！",
+    "description": "“大多数”后面直接接名词时，用 most，不加 of：most people。\n\n你是不是也会说 “Most of people like tea.”😅 “大多数人”后面直接接名词，英语不加 of：“Most people like tea.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "Most people like tea.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “Most of people like tea.”😅 “大多数人”后面直接接名词，英语不加 of：“Most people like tea.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“大多数人”是 most people！\n\n“大多数”后面直接接名词时，用 most，不加 of：most people。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“大多数人”是 most people！ “大多数”后面直接接名词时，用 most，不加 of：most people。 #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“Most people like tea.”免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

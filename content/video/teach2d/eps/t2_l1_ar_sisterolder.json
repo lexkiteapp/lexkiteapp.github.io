@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_sisterolder",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Older, not bigger, for age!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: My sister is bigger than me.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My sister is older than me.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use older for age, not bigger.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Older! My brother is two years older than me.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "My sister is bigger than me.",
+  "right": "My sister is older than me.",
+  "strike": "bigger",
+  "why": "Use older for age, not bigger.",
+  "memory": "Older sister.",
+  "quiz": {
+   "stem": "My brother is two years ___ than me.",
+   "options": [
+    "bigger",
+    "older"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "هل تقول “bigger than me”؟",
+   "tip": "نقول «أختي أكبر مني»، أما في الإنجليزية فنقول older للعمر: “My sister is older than me.” وليس “My sister is bigger than me.”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “My sister is bigger than me.” 😅 نقول «أختي أكبر مني»، أما في الإنجليزية فنقول older للعمر، فالجملة الصحيحة “My sister is older than me.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “older” — للعمر نقول older. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “bigger than me”?",
+   "tip": "In Arabic we say «أختي أكبر مني», but in English we say older for age: “My sister is older than me.” not “My sister is bigger than me.”",
+   "caption": "Do you sometimes say this? “My sister is bigger than me.” 😅 In Arabic we say «أختي أكبر مني», but in English we say older for age, so the right sentence is “My sister is older than me.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “bigger than me”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "هل تقول “bigger than me”؟",
+  "keyword": "My sister is older than me.",
+  "value": "نقول «أختي أكبر مني»، أما في الإنجليزية فنقول older للعمر: “My sister is older than me.” وليس “My sister is bigger than me.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 46,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “bigger than me”؟",
+    "description": "نقول «أختي أكبر مني»، أما في الإنجليزية فنقول older للعمر: “My sister is older than me.” وليس “My sister is bigger than me.”\n\nهل تقول أحيانًا هذه الجملة؟ “My sister is bigger than me.” 😅 نقول «أختي أكبر مني»، أما في الإنجليزية فنقول older للعمر، فالجملة الصحيحة “My sister is older than me.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "My sister is older than me.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا هذه الجملة؟ “My sister is bigger than me.” 😅 نقول «أختي أكبر مني»، أما في الإنجليزية فنقول older للعمر، فالجملة الصحيحة “My sister is older than me.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول “bigger than me”؟\n\nنقول «أختي أكبر مني»، أما في الإنجليزية فنقول older للعمر: “My sister is older than me.” وليس “My sister is bigger than me.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “bigger than me”؟ نقول «أختي أكبر مني»، أما في الإنجليزية فنقول older للعمر: “My sister i… #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “older” — للعمر نقول older. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+  "lang": "ar"
+ }
+}

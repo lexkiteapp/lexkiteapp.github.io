@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_pregnant",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Not embarrassed. Say pregnant!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: My sister is embarrassed. She will have a baby.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My sister is pregnant. She will have a baby.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Embarrassed means you feel shy.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Pregnant! She is pregnant.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "My sister is embarrassed. She will have a baby.",
+  "right": "My sister is pregnant. She will have a baby.",
+  "strike": "embarrassed",
+  "why": "Embarrassed means you feel shy.",
+  "memory": "Baby = pregnant.",
+  "quiz": {
+   "stem": "She is ___. A baby comes in May.",
+   "options": [
+    "embarrassed",
+    "pregnant"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "¿“Embarrassed” es “embarazada”?",
+   "tip": "“Embarrassed” significa “avergonzada”. Para “embarazada” se dice “pregnant.”",
+   "caption": "Muchos dicen “My sister is embarrassed. She will have a baby.” 🙈 Aunque se parezcan, “embarrassed” significa “avergonzada”. Para “embarazada” se dice: “My sister is pregnant. She will have a baby.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “pregnant”. “Embarrassed” es “avergonzado”. “Embarazada” es “pregnant”. Escribe una frase tuya con “pregnant”. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#falsosamigos",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Embarrassed” means embarazada?",
+   "tip": "“Embarrassed” means “avergonzada”. For “embarazada” English says “pregnant.”",
+   "caption": "Many learners say “My sister is embarrassed. She will have a baby.” They look alike, but “embarrassed” means “avergonzada”. For “embarazada” say: “My sister is pregnant. She will have a baby.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿“Embarrassed” es “embarazada”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 51,
+  "seconds": 30.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "¿“Embarrassed” es “embarazada”?",
+  "keyword": "My sister is pregnant. She will have a baby.",
+  "value": "“Embarrassed” significa “avergonzada”. Para “embarazada” se dice “pregnant.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#falsosamigos",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 45,
+  "platforms": {
+   "youtube": {
+    "title": "¿“Embarrassed” es “embarazada”?",
+    "description": "“Embarrassed” significa “avergonzada”. Para “embarazada” se dice “pregnant.”\n\nMuchos dicen “My sister is embarrassed. She will have a baby.” 🙈 Aunque se parezcan, “embarrassed” significa “avergonzada”. Para “embarazada” se dice: “My sister is pregnant. She will have a baby.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #falsosamigos #lexkite",
+    "tags": [
+     "My sister is pregnant. She will have a baby.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "Muchos dicen “My sister is embarrassed. She will have a baby.” 🙈 Aunque se parezcan, “embarrassed” significa “avergonzada”. Para “embarazada” se dice: “My sister is pregnant. She will have a baby.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "¿“Embarrassed” es “embarazada”?\n\n“Embarrassed” significa “avergonzada”. Para “embarazada” se dice “pregnant.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#falsosamigos",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿“Embarrassed” es “embarazada”? “Embarrassed” significa “avergonzada”. Para “embarazada” se dice “pregnant… #aprenderingles #inglesfacil #falsosamigos"
+   }
+  },
+  "first_comment": "Respuesta: “pregnant”. “Embarrassed” es “avergonzado”. “Embarazada” es “pregnant”. Escribe una frase tuya con “pregnant”. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}

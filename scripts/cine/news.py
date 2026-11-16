@@ -199,7 +199,7 @@ def ring_card(txt, prog, y0=CARD_Y + 40):
     d.text((x0 + 130, y0 + 62), txt, font=f, fill=INK, anchor='lm')
     return shadowed(im), (int(x0), y0, int(x0 + w), y0 + 124)
 def follow_chip(y0=CARD_Y + 60):
-    im = layer(); d = ImageDraw.Draw(im); f = font(FH, 50); t = 'Follow for more'; tw = d.textlength(t, font=f); x0 = CX - (tw + 80) / 2
+    im = layer(); d = ImageDraw.Draw(im); f = font(FH, 50); t = 'Free practice on lexkite.com'; tw = d.textlength(t, font=f); x0 = CX - (tw + 80) / 2
     d.rounded_rectangle([x0, y0, x0 + tw + 80, y0 + 96], 48, fill=ORANGE + (255,)); d.text((CX, y0 + 48), t, font=f, fill='white', anchor='mm')
     return shadowed(im), (int(x0), y0, int(x0 + tw + 80), y0 + 96)
 # karaoke caption: one line per page, current word yellow; pages split so each fits 900 px at >= 74 px

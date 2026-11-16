@@ -48,7 +48,7 @@
   // Chọn chỗ đặt toast không đè vật cản: vị trí CSS gốc → ngay trên từng vật cản ở nửa dưới màn (≤ 55 %) → mép trên (dưới tai thỏ); hết chỗ thì giữ gốc
   function toastLift(t) {
     t.style.removeProperty('--ty'); delete t.dataset.at; const H = g.innerHeight || document.documentElement.clientHeight || 0, W = g.innerWidth || document.documentElement.clientWidth || 0; if (!H) return;
-    const tr = t.getBoundingClientRect(), h = tr.height || 48, tw = Math.min(tr.width || W, W), x0 = (W - tw) / 2, x1 = x0 + tw; // không getComputedStyle (chậm)
+    const tr = t.getBoundingClientRect(), h = tr.height || 48, tw = Math.min(tr.width || W, W), x0 = (W - tw) / 2, x1 = x0 + tw;
     const base = tr.height ? H - tr.bottom + (t.classList.contains('show') ? 0 : 20) : 28; // chưa .show: translateY(20px)
     const obs = [...document.querySelectorAll(AVOID)].map(el => el.getBoundingClientRect()).filter(r => r.height && r.width && r.top < H && r.bottom > 0 && (!W || (r.left < x1 && r.right > x0)));
     const free = (top, bot) => !obs.some(r => r.top < bot && r.bottom > top);
@@ -63,12 +63,17 @@
   }
   function toastShow(msg, ms, o) {
     const t = $('#toast'); if (!t) return;
+    if (t.classList.contains('show') || toast._sw) { // đổi chữ tại chỗ khi đang hiện = hộp đổi cỡ (CLS @#/dict) → mờ hết rồi mới đổi, dồn nhiều câu giữ câu cuối
+      toast._sa = t._msg = [msg, ms, o]; clearTimeout(toast._t);
+      if (!toast._sw) { t.classList.remove('show', 'act'); toast._sw = setTimeout(() => { toast._sw = 0; const a = toast._sa; if (a && t._msg === a) { t._msg = null; toastShow(...a); } }, 230); }
+      return;
+    }
     t.textContent = msg; t._msg = [msg, ms, o]; t._at = Date.now(); toast._last = [msg, t._at];
-    // Nút hành động (vd. "Thử lại"): báo lỗi bình tĩnh luôn kèm cách sửa; chỉ toast có nút mới nhận chạm (.act), còn lại không chặn thao tác bên dưới
+    // chỉ toast có nút hành động mới nhận chạm (.act)
     t.classList.toggle('act', !!(o && o.action));
     if (o && o.action) { const b = document.createElement('button'); b.type = 'button'; b.className = 'toast-act'; b.textContent = o.action; b.onclick = () => { if (!t._msg || t._msg[2] !== o) return; toastHide(t); try { o.onAction && o.onAction(); } catch (e) { /* bỏ qua */ } }; t.append(' ', b); }
     toastLift(t); t.classList.add('show');
-    // Màn vẽ lại khi toast đang hiện (vd. hết bài → màn "Bạn đã học xong") → đặt lại chỗ để không đè nút mới
+    // màn vẽ lại khi toast đang hiện → đặt lại chỗ để không đè nút mới
     const v = document.getElementById('view'); if (v && g.MutationObserver && !toast._mo) { let q = 0; toast._mo = new MutationObserver(() => { if (q) return; q = 1; (g.requestAnimationFrame || setTimeout)(() => { q = 0; if (t._msg) toastLift(t); }); }); toast._mo.observe(v, { childList: true, subtree: true }); }
     toastTimer(t, ms);
   }

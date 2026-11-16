@@ -5,6 +5,8 @@
 export const R2_LANGS = ['es', 'ja', 'id', 'pt', 'fr', 'de', 'tr', 'ru', 'ar', 'hi', 'ko', 'zh', 'th'];
 export const R2_TIMEOUT_MS = 1500;
 export const CACHE_CONTROL = 'public, max-age=0, s-maxage=3600, stale-while-revalidate=86400';
+// Function trả Response riêng nên KHÔNG qua web/_headers của Pages → lặp lại bộ tiêu đề bảo mật của khối /* (docs/SEO-AUDIT-1511.md #3). CSP report-only không lặp (dài, chỉ báo cáo).
+export const SECURITY_HEADERS = { 'x-frame-options': 'SAMEORIGIN', 'x-content-type-options': 'nosniff', 'referrer-policy': 'strict-origin-when-cross-origin', 'strict-transport-security': 'max-age=31536000; includeSubDomains', 'cross-origin-opener-policy': 'same-origin-allow-popups', 'permissions-policy': 'camera=(), microphone=(self), geolocation=(), payment=(), usb=(), browsing-topics=()' };
 const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
 /** Khoá R2 cho đường dẫn đã tách; null = không thuộc phạm vi (→ next). */
@@ -22,14 +24,17 @@ export async function onRequest(context) {
     if (!['GET', 'HEAD'].includes(request.method) || !env || !env.WORDS || String(env.WORDS_R2) === '0') return context.next();
     const rest = [].concat(params.path || []);
     const url = new URL(request.url), slash = url.pathname.endsWith('/');
-    if (rest.length && slash) return context.next();            // /xx/words/slug/ → để Pages xử lý (chuyển hướng như cũ)
+    if (rest.length && slash) {                                 // /xx/words/slug/ → 308 về /xx/words/slug như Pages vẫn làm cho file tĩnh (file đã rời dist nên Pages tự trả 404 – SEO-AUDIT-1511 #2)
+      if (rest.length === 1 && keyOf(String(params.lang), rest)) return new Response(null, { status: 308, headers: { location: url.pathname.slice(0, -1) + url.search, 'cache-control': CACHE_CONTROL, ...SECURITY_HEADERS } });
+      return context.next();
+    }
     const key = keyOf(String(params.lang), rest);
     if (!key) return context.next();
     const cache = typeof caches !== 'undefined' ? caches.default : null, ck = new Request(url.origin + url.pathname, { method: 'GET' });
     if (cache) { try { const hit = await cache.match(ck); if (hit) return request.method === 'HEAD' ? new Response(null, hit) : hit; } catch (e) { /* bỏ qua cache */ } }
     const obj = await withTimeout(env.WORDS.get(key), R2_TIMEOUT_MS);
     if (!obj) return context.next();
-    const headers = { 'content-type': 'text/html; charset=utf-8', 'cache-control': CACHE_CONTROL };
+    const headers = { 'content-type': 'text/html; charset=utf-8', 'cache-control': CACHE_CONTROL, ...SECURITY_HEADERS };
     if (obj.httpEtag) headers.etag = obj.httpEtag;
     const body = await withTimeout(obj.arrayBuffer(), R2_TIMEOUT_MS);
     const res = new Response(body, { status: 200, headers });

@@ -1,0 +1,149 @@
+{
+ "id": "t2_l1_vi_by_bus",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Is it with bus or by bus?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I go to work with bus.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I go to work by bus.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say by bus.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "By! She goes to school by train.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I go to work with bus.",
+  "right": "I go to work by bus.",
+  "strike": "with",
+  "why": "Say by bus.",
+  "memory": "Travel by bus.",
+  "quiz": {
+   "stem": "She goes to school ___ train.",
+   "options": [
+    "by",
+    "with"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Đi “bằng” xe buýt nói sao?",
+   "tip": "“Bằng” trong tiếng Việt hay bị dịch thành “with”, nhưng đi bằng phương tiện nào thì tiếng Anh dùng “by”.",
+   "caption": "Bạn có hay nói “I go to work with bus.” không? 🚌 Đi bằng phương tiện nào thì dùng “by”: “I go to work by bus.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “by.” Hãy nói to một câu về cách bạn đi làm hoặc đi học, bắt đầu bằng “I go … by…” nhé. Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#loisaithuonggap",
+    "#nguphaptienganh",
+    "#tienganhcoban",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Is it “with bus” or “by bus”?",
+   "tip": "Learners often turn the Vietnamese word into “with”, but English uses “by” for travel.",
+   "caption": "Do you often say this? “I go to work with bus.” For how you travel, use “by”: “I go to work by bus.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Đi “bằng” xe buýt nói sao?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Đi “bằng” xe buýt nói sao?",
+  "keyword": "I go to work by bus.",
+  "value": "“Bằng” trong tiếng Việt hay bị dịch thành “with”, nhưng đi bằng phương tiện nào thì tiếng Anh dùng “by”.",
+  "hashtags": [
+   "#hoctienganh",
+   "#loisaithuonggap",
+   "#nguphaptienganh",
+   "#tienganhcoban",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "Đi “bằng” xe buýt nói sao?",
+    "description": "“Bằng” trong tiếng Việt hay bị dịch thành “with”, nhưng đi bằng phương tiện nào thì tiếng Anh dùng “by”.\n\nBạn có hay nói “I go to work with bus.” không? 🚌 Đi bằng phương tiện nào thì dùng “by”: “I go to work by bus.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #loisaithuonggap #nguphaptienganh #tienganhcoban #lexkite",
+    "tags": [
+     "I go to work by bus.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “I go to work with bus.” không? 🚌 Đi bằng phương tiện nào thì dùng “by”: “I go to work by bus.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Đi “bằng” xe buýt nói sao?\n\n“Bằng” trong tiếng Việt hay bị dịch thành “with”, nhưng đi bằng phương tiện nào thì tiếng Anh dùng “by”.\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#loisaithuonggap",
+     "#nguphaptienganh",
+     "#tienganhcoban",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Đi “bằng” xe buýt nói sao? “Bằng” trong tiếng Việt hay bị dịch thành “with”, nhưng đi bằng phương tiện… #hoctienganh #loisaithuonggap #nguphaptienganh"
+   }
+  },
+  "first_comment": "Đáp án: “by.” Hãy nói to một câu về cách bạn đi làm hoặc đi học, bắt đầu bằng “I go … by…” nhé. Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

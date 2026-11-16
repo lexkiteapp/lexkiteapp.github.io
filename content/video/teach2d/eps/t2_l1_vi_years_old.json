@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_years_old",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "How do you say your age?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am 25 years.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am 25 years old.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say years old.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Years old! She is 8 years old.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am 25 years.",
+  "right": "I am 25 years old.",
+  "strike": "years",
+  "why": "Say years old.",
+  "memory": "Age needs old.",
+  "quiz": {
+   "stem": "How old is she? She is 8 ___.",
+   "options": [
+    "years old",
+    "years"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Nói tuổi mà thiếu một từ?",
+   "tip": "“Tuổi” chỉ là một từ, còn tiếng Anh cần nói đủ hai từ: “years old”.",
+   "caption": "Bạn có hay nói “I am 25 years.” không? 🎂 Nói tuổi phải đủ “years old”: “I am 25 years old.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “years old.” Hãy nói to tuổi của bạn bằng “I am … years old.” nhé. Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#nguphaptienganh",
+    "#tienganhgiaotiep",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Is one word missing in your age?",
+   "tip": "One Vietnamese word covers your age, but English needs two: “years old”.",
+   "caption": "Do you often say this? “I am 25 years.” To say your age, use “years old”: “I am 25 years old.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Nói tuổi mà thiếu một từ?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Nói tuổi mà thiếu một từ?",
+  "keyword": "I am 25 years old.",
+  "value": "“Tuổi” chỉ là một từ, còn tiếng Anh cần nói đủ hai từ: “years old”.",
+  "hashtags": [
+   "#hoctienganh",
+   "#nguphaptienganh",
+   "#tienganhgiaotiep",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "Nói tuổi mà thiếu một từ?",
+    "description": "“Tuổi” chỉ là một từ, còn tiếng Anh cần nói đủ hai từ: “years old”.\n\nBạn có hay nói “I am 25 years.” không? 🎂 Nói tuổi phải đủ “years old”: “I am 25 years old.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #nguphaptienganh #tienganhgiaotiep #lexkite",
+    "tags": [
+     "I am 25 years old.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “I am 25 years.” không? 🎂 Nói tuổi phải đủ “years old”: “I am 25 years old.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Nói tuổi mà thiếu một từ?\n\n“Tuổi” chỉ là một từ, còn tiếng Anh cần nói đủ hai từ: “years old”.\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#nguphaptienganh",
+     "#tienganhgiaotiep",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Nói tuổi mà thiếu một từ? “Tuổi” chỉ là một từ, còn tiếng Anh cần nói đủ hai từ: “years old”. #hoctienganh #nguphaptienganh #tienganhgiaotiep"
+   }
+  },
+  "first_comment": "Đáp án: “years old.” Hãy nói to tuổi của bạn bằng “I am … years old.” nhé. Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

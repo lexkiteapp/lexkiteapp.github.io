@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_the_most",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "The most, not the more!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She is the more intelligent student.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She is the most intelligent student.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "For number one, say the most.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Most! She is the most beautiful girl in class.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She is the more intelligent student.",
+  "right": "She is the most intelligent student.",
+  "strike": "more",
+  "why": "For number one, say the most.",
+  "memory": "The most.",
+  "quiz": {
+   "stem": "She is the ___ beautiful girl in class.",
+   "options": [
+    "more",
+    "most"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "¿“The more intelligent”? ¡Ojo!",
+   "tip": "En español “la más inteligente” usa siempre “más”, pero en inglés, para el número uno, se dice “the most.”",
+   "caption": "Muchos dicen “She is the more intelligent student.” 🙈 En español “la más inteligente” usa siempre “más”, pero en inglés para la número uno se dice “the most”: “She is the most intelligent student.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “the most”. Para la mejor del grupo se usa “the most”, no “the more”. Di en voz alta una frase tuya con “the most”. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#gramatica",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“The more intelligent”? Careful!",
+   "tip": "Spanish “la más inteligente” always uses “más”, but English says “the most” for number one.",
+   "caption": "Many learners say “She is the more intelligent student.” Spanish “la más inteligente” always uses “más”, but for number one English says “the most”: “She is the most intelligent student.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿“The more intelligent”? ¡Ojo!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "¿“The more intelligent”? ¡Ojo!",
+  "keyword": "She is the most intelligent student.",
+  "value": "En español “la más inteligente” usa siempre “más”, pero en inglés, para el número uno, se dice “the most.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#gramatica",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 46,
+  "platforms": {
+   "youtube": {
+    "title": "¿“The more intelligent”? ¡Ojo!",
+    "description": "En español “la más inteligente” usa siempre “más”, pero en inglés, para el número uno, se dice “the most.”\n\nMuchos dicen “She is the more intelligent student.” 🙈 En español “la más inteligente” usa siempre “más”, pero en inglés para la número uno se dice “the most”: “She is the most intelligent student.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #gramatica #lexkite",
+    "tags": [
+     "She is the most intelligent student.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "Muchos dicen “She is the more intelligent student.” 🙈 En español “la más inteligente” usa siempre “más”, pero en inglés para la número uno se dice “the most”: “She is the most intelligent student.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "¿“The more intelligent”? ¡Ojo!\n\nEn español “la más inteligente” usa siempre “más”, pero en inglés, para el número uno, se dice “the most.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#gramatica",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿“The more intelligent”? ¡Ojo! En español “la más inteligente” usa siempre “más”, pero en inglés, para el núm… #aprenderingles #inglesfacil #gramatica"
+   }
+  },
+  "first_comment": "Respuesta: “the most”. Para la mejor del grupo se usa “the most”, no “the more”. Di en voz alta una frase tuya con “the most”. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}

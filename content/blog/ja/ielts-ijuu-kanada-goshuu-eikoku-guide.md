@@ -136,6 +136,10 @@ General Training を受ける方は、ライティングのタスク1で手紙�
 
 **答え：** 1. General Training のみ。2. B2。3. I want to live in Canada because it has beautiful nature.（nature に a をつけない）。4. 総合6.5以上（2026年11月5日に公式ページで確認）。
 
+オーバーオールと技能別の最低点の関係は、[IELTS バンドスコアの計算方法](/ja/blog/ielts-band-score-keisan-overall-mokuhyou/)で計算例を確認できます。
+
+英国ビザで求められるIELTS for UKVIの意味と申し込みの手順は、[IELTS UKVIとは](/ja/blog/ielts-ukvi-toha-chigai-moushikomi/)で詳しく解説しています。
+
 ## よくある質問（FAQ）
 
 ### Q1. IELTSのAcademicとGeneral Training、移住にはどちらを受けるべきですか。

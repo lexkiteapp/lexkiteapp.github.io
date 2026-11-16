@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_near_of",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Near or near with?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: The shop is near with the station.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: The shop is near the station.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Near needs no with.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Near! I live near the park.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "The shop is near with the station.",
+  "right": "The shop is near the station.",
+  "strike": "with",
+  "why": "Near needs no with.",
+  "memory": "Near the station.",
+  "quiz": {
+   "stem": "I live ___ the park.",
+   "options": [
+    "near with",
+    "near"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Near with или near?",
+   "tip": "«Рядом с» — просто “near”, без “with”: “The shop is near the station.”",
+   "caption": "Ты тоже говоришь “The shop is near with the station”? 😅 Русское «рядом с» подсказывает лишнее “with”, но после “near” оно не нужно. Правильно: “The shop is near the station.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “near.” После near не нужно with. Скажи вслух, что находится рядом с твоим домом: “My home is near the park.” Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#учуанглийский",
+    "#английскийдляначинающих",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Near with or near?",
+   "tip": "Say “near,” not “near with”: “The shop is near the station.”",
+   "caption": "Do you also say “The shop is near with the station”? 😅 The Russian phrase adds “with,” but English just says near. Correct: “The shop is near the station.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Near with или near?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Near with или near?",
+  "keyword": "The shop is near the station.",
+  "value": "«Рядом с» — просто “near”, без “with”: “The shop is near the station.”",
+  "hashtags": [
+   "#английскийязык",
+   "#учуанглийский",
+   "#английскийдляначинающих",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "Near with или near?",
+    "description": "«Рядом с» — просто “near”, без “with”: “The shop is near the station.”\n\nТы тоже говоришь “The shop is near with the station”? 😅 Русское «рядом с» подсказывает лишнее “with”, но после “near” оно не нужно. Правильно: “The shop is near the station.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #учуанглийский #английскийдляначинающих #lexkite",
+    "tags": [
+     "The shop is near the station.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “The shop is near with the station”? 😅 Русское «рядом с» подсказывает лишнее “with”, но после “near” оно не нужно. Правильно: “The shop is near the station.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Near with или near?\n\n«Рядом с» — просто “near”, без “with”: “The shop is near the station.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#учуанглийский",
+     "#английскийдляначинающих",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Near with или near? «Рядом с» — просто “near”, без “with”: “The shop is near the station.” #английскийязык #учуанглийский #английскийдляначинающих"
+   }
+  },
+  "first_comment": "Ответ: “near.” После near не нужно with. Скажи вслух, что находится рядом с твоим домом: “My home is near the park.” Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

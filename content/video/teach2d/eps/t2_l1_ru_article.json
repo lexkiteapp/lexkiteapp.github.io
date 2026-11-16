@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Do you forget a?",
+   "text": "Did you forget a?",
    "pause": 0.42
   },
   {
@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "Ты забываешь “a”?",
-   "tip": "Перед одним предметом ставь a: “I have a dog”.",
-   "caption": "Ты тоже говоришь “I have dog.”? 😅 В русском нет артиклей, поэтому “a” легко потерять: “I have a dog”. Правильно: “I have a dog.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.",
-   "comment": "Ответ: “a”. Нет артиклей — частая беда. Бесплатный тест для практики здесь: {link}",
+   "tip": "Перед одним предметом ставь “a”: “I have a dog.”",
+   "caption": "Ты тоже говоришь “I have dog”? 😅 В русском нет артиклей, поэтому “a” легко потерять. Правильно: “I have a dog.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “a.” Нет артиклей — частая беда. Бесплатный тест для практики здесь: {link}",
    "hashtags": [
     "#английскийязык",
     "#английский",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "Do you forget a?",
-   "tip": "Before one thing, put a: “I have a dog”.",
-   "caption": "Do you also say “I have dog.”? 😅 Russian has no articles, so “a” is easy to lose: “I have a dog”. Correct: “I have a dog.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+   "hook": "Did you forget a?",
+   "tip": "Before one thing, put “a”: “I have a dog.”",
+   "caption": "Do you also say “I have dog”? 😅 The little word “a” is easy to lose. Correct: “I have a dog.” Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "Ты забываешь “a”?",
   "keyword": "I have a dog.",
-  "value": "Перед одним предметом ставь a: “I have a dog”.",
+  "value": "Перед одним предметом ставь “a”: “I have a dog.”",
   "hashtags": [
    "#английскийязык",
    "#английский",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "Ты забываешь “a”?",
-    "description": "Ты тоже говоришь “I have dog.”? 😅 В русском нет артиклей, поэтому “a” легко потерять: “I have a dog”. Правильно: “I have a dog.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #английский #изучениеанглийского #lexkite",
+    "description": "Перед одним предметом ставь “a”: “I have a dog.”\n\nТы тоже говоришь “I have dog”? 😅 В русском нет артиклей, поэтому “a” легко потерять. Правильно: “I have a dog.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #английский #изучениеанглийского #lexkite",
     "tags": [
      "I have a dog.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Ты тоже говоришь “I have dog.”? 😅 В русском нет артиклей, поэтому “a” легко потерять: “I have a dog”. Правильно: “I have a dog.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Ты тоже говоришь “I have dog”? 😅 В русском нет артиклей, поэтому “a” легко потерять. Правильно: “I have a dog.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Ты тоже говоришь “I have dog.”? 😅 В русском нет артиклей, поэтому “a” легко потерять: “I have a dog”. Правильно: “I have a dog.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.\n\nlexkite.com",
+    "caption": "Ты забываешь “a”?\n\nПеред одним предметом ставь “a”: “I have a dog.”\n\nlexkite.com",
     "hashtags": [
      "#английскийязык",
      "#английский",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "Ты забываешь “a”? #английскийязык #английский #изучениеанглийского"
+    "caption": "Ты забываешь “a”? Перед одним предметом ставь “a”: “I have a dog.” #английскийязык #английский #изучениеанглийского"
    }
   },
-  "first_comment": "Ответ: “a”. Нет артиклей — частая беда. Бесплатный тест для практики здесь: {link}",
+  "first_comment": "Ответ: “a.” Нет артиклей — частая беда. Бесплатный тест для практики здесь: {link}",
   "lang": "ru"
  }
 }

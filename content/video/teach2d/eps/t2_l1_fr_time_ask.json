@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_time_ask",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Ask for the time!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Do you have the hour?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Do you have the time?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "To ask the time, say the time.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The time! Do you have the time?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Do you have the hour?",
+  "right": "Do you have the time?",
+  "strike": "the hour",
+  "why": "To ask the time, say the time.",
+  "memory": "Time, not hour.",
+  "quiz": {
+   "stem": "Excuse me, do you have ___?",
+   "options": [
+    "the hour",
+    "the time"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "« Avez-vous l’heure ? » : “time”",
+   "tip": "En français, on demande « l’heure ». En anglais, on demande “the time”.",
+   "caption": "Vous dites “Do you have the hour?” ? En français, on dit « l’heure ». En anglais, pour demander l’heure, on dit “the time”. Dites plutôt “Do you have the time?” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “Do you have the time?” — En français, on dit « l’heure ». En anglais, pour demander l’heure, on dit “the time”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Ask for “the time”!",
+   "tip": "French asks for “l’heure”. English asks for “the time”.",
+   "caption": "Do you say this? “Do you have the hour?” French asks for “l’heure”. English asks for “the time”. Say “Do you have the time?” Listen to Ama and repeat with her! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "« Avez-vous l’heure ? » : “time”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "« Avez-vous l’heure ? » : “time”",
+  "keyword": "Do you have the time?",
+  "value": "En français, on demande « l’heure ». En anglais, on demande “the time”.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "« Avez-vous l’heure ? » : “time”",
+    "description": "En français, on demande « l’heure ». En anglais, on demande “the time”.\n\nVous dites “Do you have the hour?” ? En français, on dit « l’heure ». En anglais, pour demander l’heure, on dit “the time”. Dites plutôt “Do you have the time?” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "Do you have the time?",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Vous dites “Do you have the hour?” ? En français, on dit « l’heure ». En anglais, pour demander l’heure, on dit “the time”. Dites plutôt “Do you have the time?” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "« Avez-vous l’heure ? » : “time”\n\nEn français, on demande « l’heure ». En anglais, on demande “the time”.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "« Avez-vous l’heure ? » : “time” En français, on demande « l’heure ». En anglais, on demande “the ti… #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “Do you have the time?” — En français, on dit « l’heure ». En anglais, pour demander l’heure, on dit “the time”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}

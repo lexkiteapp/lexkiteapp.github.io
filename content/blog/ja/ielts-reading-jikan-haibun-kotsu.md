@@ -185,3 +185,7 @@ IELTSリーディングでは、超難問の1点も、冒頭の平易な名詞�
 {{youtube: | IELTSリーディングの時間配分：60分の使い方と90秒ルール}}
 
 {{cta: /#/mock | IELTSリーディングの模擬試験を通しで解く：3パッセージ、40問、60分の時計つき}}
+
+問題形式ごとの解き方は、[IELTS リーディングの問題形式一覧](/ja/blog/ielts-reading-mondai-keishiki-ichiran/)で確認できます。
+
+リーディングの練習を1週間の中にどう組み込むかは、[IELTS 勉強スケジュール](/ja/blog/ielts-benkyou-schedule-1kagetsu-3kagetsu-plan/)に週ごとの例があります。
