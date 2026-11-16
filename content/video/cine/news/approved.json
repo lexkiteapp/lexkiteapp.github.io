@@ -457,5 +457,376 @@
    "owner_note": "Duyệt 6 tập. Lưu vào approved.json làm chuẩn sản xuất.",
    "superseded_by": "v14-board 27/10/2026"
   }
- ]
+ ],
+ "templates": [
+  {
+   "id": "l1",
+   "engine": "teach2d",
+   "status": "approved",
+   "spec": "content/video/teach2d/eps/*.json",
+   "approved": "2026-11-13",
+   "note": "bank.json: 159 banked, QC 100 short+wide",
+   "sample": "content/video/teach2d/bank.json (artifact tv-bank-<run>, 90 days)",
+   "qc": 100,
+   "by": "coordinator (bank.py gate: short+wide >= 90, all qc.py gates)"
+  },
+  {
+   "id": "review",
+   "engine": "teach2d",
+   "status": "approved",
+   "spec": "content/video/teach2d/eps/*.json",
+   "approved": "2026-11-13",
+   "note": "bank.json: 7 banked, QC 100 short+wide",
+   "sample": "content/video/teach2d/bank.json (artifact tv-bank-<run>, 90 days)",
+   "qc": 100,
+   "by": "coordinator (bank.py gate: short+wide >= 90, all qc.py gates)"
+  },
+  {
+   "id": "stress",
+   "engine": "teach2d",
+   "status": "approved",
+   "spec": "content/video/teach2d/eps/*.json",
+   "approved": "2026-11-13",
+   "note": "bank.json: 7 banked, QC 100 short+wide",
+   "sample": "content/video/teach2d/bank.json (artifact tv-bank-<run>, 90 days)",
+   "qc": 100,
+   "by": "coordinator (bank.py gate: short+wide >= 90, all qc.py gates)"
+  },
+  {
+   "id": "usuk",
+   "engine": "teach2d",
+   "status": "approved",
+   "spec": "content/video/teach2d/eps/*.json",
+   "approved": "2026-11-13",
+   "note": "bank.json: 6 banked, QC 100 short+wide",
+   "sample": "content/video/teach2d/bank.json (artifact tv-bank-<run>, 90 days)",
+   "qc": 100,
+   "by": "coordinator (bank.py gate: short+wide >= 90, all qc.py gates)"
+  },
+  {
+   "id": "verbs",
+   "engine": "teach2d",
+   "status": "approved",
+   "spec": "content/video/teach2d/eps/*.json",
+   "approved": "2026-11-13",
+   "note": "bank.json: 2 banked, QC 100 short+wide",
+   "sample": "content/video/teach2d/bank.json (artifact tv-bank-<run>, 90 days)",
+   "qc": 100,
+   "by": "coordinator (bank.py gate: short+wide >= 90, all qc.py gates)"
+  },
+  {
+   "id": "call",
+   "engine": "teach2d",
+   "status": "draft",
+   "spec": "content/video/teach2d/eps/*.json",
+   "note": "no banked clip with QC>=90 yet (bank.json)"
+  },
+  {
+   "id": "dictation",
+   "engine": "teach2d",
+   "status": "draft",
+   "spec": "content/video/teach2d/eps/*.json",
+   "note": "no banked clip with QC>=90 yet (bank.json)"
+  },
+  {
+   "id": "grammar",
+   "engine": "teach2d",
+   "status": "draft",
+   "spec": "content/video/teach2d/eps/*.json",
+   "note": "no banked clip with QC>=90 yet (bank.json)"
+  },
+  {
+   "id": "guess",
+   "engine": "teach2d",
+   "status": "draft",
+   "spec": "content/video/teach2d/eps/*.json",
+   "note": "no banked clip with QC>=90 yet (bank.json)"
+  },
+  {
+   "id": "level",
+   "engine": "teach2d",
+   "status": "draft",
+   "spec": "content/video/teach2d/eps/*.json",
+   "note": "no banked clip with QC>=90 yet (bank.json)"
+  },
+  {
+   "id": "mistake",
+   "engine": "teach2d",
+   "status": "draft",
+   "spec": "content/video/teach2d/eps/*.json",
+   "note": "no banked clip with QC>=90 yet (bank.json)"
+  },
+  {
+   "id": "native",
+   "engine": "teach2d",
+   "status": "draft",
+   "spec": "content/video/teach2d/eps/*.json",
+   "note": "no banked clip with QC>=90 yet (bank.json)"
+  },
+  {
+   "id": "pair",
+   "engine": "teach2d",
+   "status": "draft",
+   "spec": "content/video/teach2d/eps/*.json",
+   "note": "no banked clip with QC>=90 yet (bank.json)"
+  },
+  {
+   "id": "pattern",
+   "engine": "teach2d",
+   "status": "draft",
+   "spec": "content/video/teach2d/eps/*.json",
+   "note": "no banked clip with QC>=90 yet (bank.json)"
+  },
+  {
+   "id": "phrasal",
+   "engine": "teach2d",
+   "status": "draft",
+   "spec": "content/video/teach2d/eps/*.json",
+   "note": "no banked clip with QC>=90 yet (bank.json)"
+  },
+  {
+   "id": "prep",
+   "engine": "teach2d",
+   "status": "draft",
+   "spec": "content/video/teach2d/eps/*.json",
+   "note": "no banked clip with QC>=90 yet (bank.json)"
+  },
+  {
+   "id": "react",
+   "engine": "teach2d",
+   "status": "draft",
+   "spec": "content/video/teach2d/eps/*.json",
+   "note": "no banked clip with QC>=90 yet (bank.json)"
+  },
+  {
+   "id": "toeic",
+   "engine": "teach2d",
+   "status": "draft",
+   "spec": "content/video/teach2d/eps/*.json",
+   "note": "no banked clip with QC>=90 yet (bank.json)"
+  },
+  {
+   "id": "drill",
+   "engine": "motion",
+   "status": "approved",
+   "spec": "content/video/cine/news/templates-motion/drill.json",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/43579205747 (artifact motion-drill-short, phone copy)",
+   "qc": 100,
+   "motion_qc": "ok, 42 gates, 0 failed",
+   "approved": "2026-11-14",
+   "by": "coordinator (CI gates; owner praised the Motion set 15/11)",
+   "note": "hand-built Motion template; first green run 30/10 (#228)"
+  },
+  {
+   "id": "mistake",
+   "engine": "motion",
+   "status": "draft",
+   "spec": "content/video/cine/news/templates-motion/mistake.json",
+   "note": "re-render dispatched 15/11 (video-motion); approve after the clip passes qc_v9 + motion gates"
+  },
+  {
+   "id": "tip",
+   "engine": "motion",
+   "status": "draft",
+   "spec": "content/video/cine/news/templates-motion/tip.json",
+   "note": "re-render dispatched 15/11 (video-motion); approve after the clip passes qc_v9 + motion gates"
+  },
+  {
+   "id": "ready",
+   "engine": "motion",
+   "status": "draft",
+   "spec": "content/video/cine/news/templates-motion/ready.json",
+   "note": "re-render dispatched 15/11 (video-motion); approve after the clip passes qc_v9 + motion gates"
+  },
+  {
+   "id": "collocation",
+   "engine": "motion",
+   "status": "draft",
+   "spec": "content/video/cine/news/motion/*.json",
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+  },
+  {
+   "id": "confusing-pair",
+   "engine": "motion",
+   "status": "draft",
+   "spec": "content/video/cine/news/motion/*.json",
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+  },
+  {
+   "id": "gap",
+   "engine": "motion",
+   "status": "draft",
+   "spec": "content/video/cine/news/motion/*.json",
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+  },
+  {
+   "id": "idiom-vs-textbook",
+   "engine": "motion",
+   "status": "draft",
+   "spec": "content/video/cine/news/motion/*.json",
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+  },
+  {
+   "id": "ielts-speaking",
+   "engine": "motion",
+   "status": "draft",
+   "spec": "content/video/cine/news/motion/*.json",
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+  },
+  {
+   "id": "ielts-writing-phrase",
+   "engine": "motion",
+   "status": "draft",
+   "spec": "content/video/cine/news/motion/*.json",
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+  },
+  {
+   "id": "irregular-verb",
+   "engine": "motion",
+   "status": "draft",
+   "spec": "content/video/cine/news/motion/*.json",
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+  },
+  {
+   "id": "native",
+   "engine": "motion",
+   "status": "draft",
+   "spec": "content/video/cine/news/motion/*.json",
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+  },
+  {
+   "id": "pair",
+   "engine": "motion",
+   "status": "draft",
+   "spec": "content/video/cine/news/motion/*.json",
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+  },
+  {
+   "id": "pattern",
+   "engine": "motion",
+   "status": "draft",
+   "spec": "content/video/cine/news/motion/*.json",
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+  },
+  {
+   "id": "phrasal",
+   "engine": "motion",
+   "status": "draft",
+   "spec": "content/video/cine/news/motion/*.json",
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+  },
+  {
+   "id": "phrasal-verb",
+   "engine": "motion",
+   "status": "draft",
+   "spec": "content/video/cine/news/motion/*.json",
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+  },
+  {
+   "id": "polite-request",
+   "engine": "motion",
+   "status": "draft",
+   "spec": "content/video/cine/news/motion/*.json",
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+  },
+  {
+   "id": "pronunciation-pair",
+   "engine": "motion",
+   "status": "draft",
+   "spec": "content/video/cine/news/motion/*.json",
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+  },
+  {
+   "id": "quiz-ab",
+   "engine": "motion",
+   "status": "draft",
+   "spec": "content/video/cine/news/motion/*.json",
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+  },
+  {
+   "id": "recall",
+   "engine": "motion",
+   "status": "draft",
+   "spec": "content/video/cine/news/motion/*.json",
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+  },
+  {
+   "id": "roleplay",
+   "engine": "motion",
+   "status": "draft",
+   "spec": "content/video/cine/news/motion/*.json",
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+  },
+  {
+   "id": "spot",
+   "engine": "motion",
+   "status": "draft",
+   "spec": "content/video/cine/news/motion/*.json",
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+  },
+  {
+   "id": "spot-the-mistake",
+   "engine": "motion",
+   "status": "draft",
+   "spec": "content/video/cine/news/motion/*.json",
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+  },
+  {
+   "id": "tf",
+   "engine": "motion",
+   "status": "draft",
+   "spec": "content/video/cine/news/motion/*.json",
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+  },
+  {
+   "id": "three-words",
+   "engine": "motion",
+   "status": "draft",
+   "spec": "content/video/cine/news/motion/*.json",
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+  },
+  {
+   "id": "upgrade-your-english",
+   "engine": "motion",
+   "status": "draft",
+   "spec": "content/video/cine/news/motion/*.json",
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+  },
+  {
+   "id": "word-of-the-day",
+   "engine": "motion",
+   "status": "draft",
+   "spec": "content/video/cine/news/motion/*.json",
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+  },
+  {
+   "id": "templates-v1",
+   "engine": "legacy",
+   "status": "retired",
+   "spec": "content/video/cine/news/templates-v1/*.json",
+   "note": "Studio/PIL pilots v5-v9; superseded by Motion"
+  },
+  {
+   "id": "templates-v2",
+   "engine": "legacy",
+   "status": "retired",
+   "spec": "content/video/cine/news/templates-v2/*.json",
+   "note": "3D/whiteboard engine v12-v14 (27/10 approved episodes stay in \"approved\" list as history); superseded by Motion"
+  },
+  {
+   "id": "cine-news-pil",
+   "engine": "legacy",
+   "status": "retired",
+   "spec": "scripts/cine/news.py",
+   "note": "old PIL overlay of cine/news; Kit restyle (#1353) kept only as fallback, default is Motion"
+  },
+  {
+   "id": "content-templates-legacy-render",
+   "engine": "legacy",
+   "status": "retired",
+   "spec": "scripts/video/tpl/render_v5.py",
+   "note": "render_v5/render_tpl engine for content/video/templates; replaced by tpl2motion (Motion)"
+  }
+ ],
+ "_templates_note": "ONE approval book (owner 15/11). status approved|draft|retired; only approved may enter the posting queue (scripts/video/approved_templates.py, scripts/test/template-approval.py, autopub_gate). Never delete: move to retired with a note."
 }

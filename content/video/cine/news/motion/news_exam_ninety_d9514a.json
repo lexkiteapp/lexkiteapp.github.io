@@ -1,0 +1,230 @@
+{
+ "id": "mo_news_exam_ninety_d9514a",
+ "template": "mistake",
+ "title": "News Motion – Stop saying \"The number of student are increasing.\" – say \"The number of students is increasing.\" (news_exam_ninety_d9514a)",
+ "teacher": "ama",
+ "clips": [
+  "ga11_talk",
+  "ga11_explain",
+  "ga11_happy",
+  "ga11_thinking",
+  "ga11_surprise_3"
+ ],
+ "listen": [
+  "ga11_listen_2"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy2",
+ "active": "mint",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "grammar-check",
+  "link": "",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Grammar Fix",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "90% get this wrong."
+  },
+  {
+   "id": "b0",
+   "text": "Many learners say: The number of student are increasing.",
+   "gap": 0.7
+  },
+  {
+   "id": "b1",
+   "text": "Pause and guess. What sounds right?",
+   "gap": 0.7
+  },
+  {
+   "id": "b2",
+   "text": "Say: The number of students is increasing.",
+   "gap": 0.7
+  },
+  {
+   "id": "b3",
+   "text": "The number takes is. A number takes are.",
+   "gap": 0.7
+  },
+  {
+   "id": "b4",
+   "text": "Is 'The number of student are increasing' correct? No.",
+   "gap": 0.7
+  },
+  {
+   "id": "b5",
+   "text": "Repeat after me: The number of students is increasing.",
+   "gap": 0.7
+  },
+  {
+   "id": "b6",
+   "text": "Now at normal speed: The number of students is increasing.",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "The number of student are increasing.",
+      "white"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Common mistake",
+      "tone": "coral"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "The number of "
+       ],
+       [
+        "student are",
+        "ink"
+       ],
+       [
+        " increasing."
+       ]
+      ]
+     }
+    ],
+    "strike": [
+     {
+      "line": 0,
+      "run": 1,
+      "at": [
+       "b0",
+       6
+      ]
+     }
+    ]
+   },
+   {
+    "id": "no",
+    "at": [
+     "b5",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Also say",
+      "tone": "teal"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "The number of students is increasing.",
+        "teal"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "better",
+    "at": [
+     "b2",
+     0
+    ],
+    "tone": "green",
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Better",
+      "tone": "green"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "The number of students is increasing.",
+        "green"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "hook_text": "The number of student are increasing.",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ }
+}
