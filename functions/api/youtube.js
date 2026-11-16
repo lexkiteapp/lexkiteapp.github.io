@@ -104,7 +104,9 @@ export function videoResource(row, meta = {}) {
 export function pickNext(rows, used, now = Date.now(), max = 6, inserted = 0) {
   const n = Math.min(max, uploadsLeft(used, inserted));
   const due = rows.filter(r => r.status === 'queued' || (r.status === 'failed' && (+r.attempts || 0) < MAX_TRIES) || (r.status === 'uploading' && now - (+r.session_at || 0) > 2 * 3600e3));
-  return due.sort((a, b) => (+a.approved_at || 0) - (+b.approved_at || 0)).slice(0, n);
+  // bài hẹn giờ GẦN nhất tải trước (16/11: 132 hàng fill – tải theo thứ tự duyệt thì bài ngày mai có thể còn nằm sau bài 3 tuần nữa); không hẹn giờ (probe, tải ngay) lên đầu; cùng giờ → duyệt cũ trước
+  const pa = r => (r.publish_at ? Date.parse(r.publish_at) || 0 : 0);
+  return due.sort((a, b) => pa(a) - pa(b) || (+a.approved_at || 0) - (+b.approved_at || 0)).slice(0, n);
 }
 
 // ---------- manual path (Studio upload + read-only sync) – pure, tested in scripts/test/yt-manual.mjs ----------
@@ -512,9 +514,13 @@ const CLI_OPS = {
     const lang = x.explicit_lang ? x.cfg.lang : 'en', taken = new Set((await all(db, "SELECT clip FROM yt_queue WHERE status IN ('queued', 'uploading', 'done') OR video_id IS NOT NULL")).map(r => r.clip));
     const held = new Map((await all(db, 'SELECT clip, state, deleted FROM clip_review')).map(r => [r.clip, r])), items = (await manifest(env)).items || [];
     const pick = b.clip ? fillPick(items.filter(i => i && i.id === String(b.clip)), lang, taken, held, 1)[0] : fillPick(items, lang, taken, held, 1)[0];
-    if (!pick) return { status: 404, error: 'no-clip', lang };
+    if (!pick) { // mọi clip bản ngữ đã xếp lịch (fill) → dùng lại hàng autopub xa nhất của kênh (chưa tải): chỉ đổi sang public tải ngay, hàng được fill bù ở lượt sau
+      const re = await one(db, "SELECT clip FROM yt_queue WHERE status = 'queued' AND approved_by = 'autopub@lexkite.com' AND channel_id = ? ORDER BY publish_at DESC LIMIT 1", ch.channel_id); if (!re) return { status: 404, error: 'no-clip', lang };
+      await run(db, "UPDATE yt_queue SET privacy = 'public', publish_at = NULL, approved_by = 'probe', approved_at = 1 WHERE clip = ? AND status = 'queued'", re.clip);
+      return { ok: true, clip: re.clip, channel_id: ch.channel_id, title: ch.title, lang, reused: true };
+    }
     const r = await approveClips(db, { ids: [pick.id], privacy: 'private' }, { email: 'probe@lexkite.com' }, env); if (!(r.queued || []).length) return { status: 409, error: 'not-approved', skipped: r.skipped };
-    await run(db, "UPDATE yt_queue SET channel_id = ?, privacy = 'public', publish_at = NULL, approved_by = 'probe' WHERE clip = ? AND status = 'queued'", ch.channel_id, pick.id);
+    await run(db, "UPDATE yt_queue SET channel_id = ?, privacy = 'public', publish_at = NULL, approved_by = 'probe', approved_at = 1 WHERE clip = ? AND status = 'queued'", ch.channel_id, pick.id);
     return { ok: true, clip: pick.id, channel_id: ch.channel_id, title: ch.title, lang };
   },
   async probe_status(db, b, who, env) {
@@ -573,7 +579,7 @@ const CLI_OPS = {
     if ((await modeOf(db, env)) !== 'api') return { items: [], quota: await quotaInfo(db), channel: null, mode: 'manual' }; // manual mode: owner uploads in Studio
     const ch = await channelRow(db); if (!ch) return { items: [], quota: await quotaInfo(db), channel: null };
     const rows = await all(db, "SELECT * FROM yt_queue WHERE status IN ('queued', 'failed', 'uploading')");
-    const pick = pickNext(rows, await used(db), Date.now(), Math.min(Math.max(1, +b.max || 6), 6), await used(db, INS));
+    const pick = pickNext(rows, await used(db), Date.now(), Math.min(Math.max(1, +b.max || 6), 30), await used(db, INS));
     const counts = Object.fromEntries((await all(db, 'SELECT status, COUNT(*) AS n FROM yt_queue GROUP BY status')).map(r => [r.status, +r.n]));
     return { items: pick.map(r => ({ id: r.clip, lesson: r.lesson, privacy: r.privacy, publish_at: r.publish_at, resume: !!(r.upload_url && Date.now() - r.session_at < SESSION_TTL) })), quota: await quotaInfo(db), channel: { title: ch.title }, counts };
   },

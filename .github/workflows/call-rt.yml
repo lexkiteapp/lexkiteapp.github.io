@@ -36,7 +36,7 @@ jobs:
     needs: gate
     if: needs.gate.outputs.go == 'true'
     runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
-    timeout-minutes: 25
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
       - if: github.event_name == 'pull_request'

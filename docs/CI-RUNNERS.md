@@ -77,5 +77,9 @@ Mỗi PR UI có ~17 workflow nặng × 1 job `gate`; gate chạy **2 lần** (l�
 - Gác: ci-policy luật 17 (mọi `heavy-gate` có điều kiện run_attempt) + `scripts/test/heavy-rerun.mjs` (gate skipped → chạy lại; gate skipped mà đã có job nặng chạy → không).
 - RỦI RO cần soi sau merge: `POST /rerun` trên lượt toàn skipped – nếu GitHub từ chối thì heavy không bao giờ chạy (required-gate sẽ pending, không xanh giả). Kiểm bằng PR UI đầu tiên sau merge.
 
+
 ## learn-flow chập chờn 1/234 – gốc (16/11)
 Test đóng băng `Date.now` của app (bảo vệ chạm đúp 250 ms) rồi **trả về giờ thật**: giờ thật có thể nhỏ hơn mốc ảo (+300 ms) → máy nhanh thì `nextQ` bị chặn, không có tiến độ, ✕ không hỏi xác nhận. Sửa gốc: rã đông thì chạy tiếp liên tục từ mốc ảo (không nhảy ngược); chờ modal bằng `until()` thay vì `tick` cố định. Máy gác: `learn-flow-stress.yml` (10 máy × 5 lượt, chạy khi PR đụng `learn-flow.mjs`/`study.js` hoặc chạy tay).
+
+## Chập chờn hiệu năng – gốc là CPU runner khác nhau tới 2,2× (16/11)
+call-rt (nói chen ≈300 ms, fps 48), story-stage (fps 48 so với 50), scroll-perf phone (CLS 0,0537 so với 0,05) lúc đỏ lúc xanh cùng mã. Đo 10 runner `ubuntu-24.04` bằng vòng lặp CPU cố định (workflow `perf-baseline`): Xeon 6975P ≈ 445 ms · EPYC 9V45 ≈ 720 · EPYC 9V74 ≈ 890 · EPYC 7763 ≈ 986 – ổn định ±1 % trong 1 máy, nên "CPU 4×" trên máy EPYC 7763 thực chất nặng gấp ~2,2×. Cách chữa (ngưỡng KHÔNG đổi): `scripts/test/lib/perf-calibrate.mjs` đo tốc độ runner rồi chỉnh hệ số giảm tốc (`rateFor`) – chỉ nới khi runner chậm hơn chuẩn > 15 %, runner nhanh không bị siết; `call-rt` đo lại đúng 1 lần khi trượt chỉ số thời gian (ghi cả 2 mẫu, cổng chấm mẫu 2); `scroll-perf` đo lại lấy trung vị cả CLS. Báo cáo hằng tuần: `perf-flake-report.yml` (thứ Hai) → tỉ lệ chạy-lại-mới-xanh theo workflow; ≥ 10 % thì xem lại hiệu chuẩn. Test: `scripts/test/perf-calibrate.mjs`, `perf-flake.mjs`.
