@@ -35,7 +35,7 @@ ok(r.bad.length === 1 && /Lexkite English/.test(r.text) && /1\/2 kênh đủ/.te
 
 const yt = c.platforms.find(p => p.platform === 'youtube'), fb = c.platforms.find(p => p.platform === 'facebook_page');
 ok(yt.want === 15 && yt.channels === 1 && yt.unconnected === 14 && yt.total === 450 && fb.total === 450 && fb.unconnected === 15, 'mẫu số 15 kênh × 30 ngày = 450 trang-ngày mỗi nền tảng, kênh chưa nối được tính là thiếu');
-ok(/youtube: mới nối 1\/15 kênh → thiếu 14/.test(r.text) && r.miss.length === 2 && /\| youtube \| 1\/15 \| 1\/450 \|/.test(r.table), 'báo cáo nêu kênh chưa nối + bảng tuần có mẫu số 450');
+ok(/youtube: mới nối 1\/15 kênh → thiếu 14/.test(r.text) && r.miss.length === 3 && /\| youtube \| 1\/15 \| 1\/450 \|/.test(r.table), 'báo cáo nêu kênh chưa nối + bảng tuần có mẫu số 450');
 // nối dây: workflow + op + job đăng ký
 const wf = fs.readFileSync('.github/workflows/social-coverage.yml', 'utf8'), api = fs.readFileSync('functions/api/social-auto.js', 'utf8'), jobs = JSON.parse(fs.readFileSync('infra/jobs.json', 'utf8')).jobs;
 ok(/WEEKLY|getUTCDay/.test(fs.readFileSync('scripts/social/coverage.mjs', 'utf8')), 'bảng phủ theo trang gửi mỗi tuần (thứ Hai)');
