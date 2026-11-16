@@ -33,10 +33,10 @@ export async function normalizeFile(src, dst, enc = MP3_24K) {
   if (!Number.isFinite(m0.I)) throw new Error(`clip lặng ${src}`);
   const tmp = dst + '.norm.tmp' + (dst.match(/\.\w+$/) || [''])[0];
   // Bộ giới hạn đỉnh kéo I xuống → nhắm thấp hơn đích một chút (−16,4: vẫn trong ±1 LU), bắt đầu với trần −2 dBTP (mp3 vượt đỉnh ~0,5–1 dB),
-  // rồi đo lại và chỉnh (≤ 6 lượt). Giữ lượt ĐẠT gần đích nhất. Ngưỡng chuẩn không đổi (TARGET/TOL/MAX_TP ở trên).
+  // rồi đo lại và chỉnh (≤ 10 lượt). Giữ lượt ĐẠT gần đích nhất. Ngưỡng chuẩn không đổi (TARGET/TOL/MAX_TP ở trên).
   const AIM = TARGET_LUFS - 0.4;
   let gain = AIM - m0.I, ceil = MAX_TP - 1, last = null, best = null;
-  for (let k = 0; k < 6; k++) {
+  for (let k = 0; k < 10; k++) {
     const needLim = m0.TP == null || m0.TP + gain > ceil;
     const lim = Math.pow(10, ceil / 20).toFixed(4);
     const af = [`volume=${gain.toFixed(2)}dB`, ...(needLim ? ['aresample=96000', `alimiter=limit=${lim}:attack=1:release=40:level=false`, 'aresample=24000'] : [])].join(',');
@@ -51,9 +51,9 @@ export async function normalizeFile(src, dst, enc = MP3_24K) {
     if (last.TP > MAX_TP) ceil -= (last.TP - MAX_TP) + 0.4; // mp3 vượt đỉnh sau mã hoá → hạ trần
     // Clip có vài đỉnh nhọn: bộ giới hạn ghim ở trần nên tăng gain không nâng được I (kẹt ~−17,1 dù TP ≈ −2,2) → nới trần dần tới sát MAX_TP, rồi luật trên hạ lại nếu mp3 vượt đỉnh.
     else if (last.TP != null && last.TP < MAX_TP - 0.5 && last.I < TARGET_LUFS - TOL_LU * 0.7) ceil = Math.min(MAX_TP - 0.3, ceil + 0.5);
-    gain += AIM - last.I;
+    gain += (AIM - last.I) * (needLim ? 1.5 : 1); // bộ giới hạn nuốt ~⅓ mức tăng → clip nhiều đỉnh nhọn hội tụ chậm, bước 1,5×
   }
   fs.rmSync(tmp, { force: true });
-  if (!best) throw new Error(`không đạt chuẩn sau 6 lượt ${src}: I=${last.I} TP=${last.TP}`);
+  if (!best) throw new Error(`không đạt chuẩn sau 10 lượt ${src}: I=${last.I} TP=${last.TP}`);
   const { d, ...res } = best; return res;
 }
