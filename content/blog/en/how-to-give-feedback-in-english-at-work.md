@@ -115,3 +115,5 @@ Developing spoken elegance during sensitive evaluations requires systematic audi
 To construct an authoritative executive toolkit, explore our companion workplace communication guides. Study [business phone calls in English](/en/blog/business-phone-calls-in-english-guide/) for agile telephoning, master [business meeting phrases](/en/blog/business-english-meeting-phrases-guide/) to guide executive discussions, sharpen your written communication through our [formal email writing guide](/en/blog/how-to-write-a-formal-email/), and review [business negotiation techniques](/en/blog/business-english-negotiation-phrases-guide/) to align stakeholder interests.
 
 When you master the art of delivering clear, empathetic, and objective evaluations, feedback ceases to feel like a stressful confrontation. Instead, it becomes your most influential leadership asset for cultivating high-performing, loyal international teams.
+
+Softening language is covered in [polite requests in English](/en/blog/polite-requests-in-english-could-you-would-you-mind/).

@@ -1,0 +1,752 @@
+{
+ "irrelevant": {
+  "mis": [
+   {
+    "w": "That comment is irrelevant with our discussion.",
+    "r": "That comment is irrelevant to our discussion.",
+    "why": "Sau irrelevant dùng giới từ 'to', không dùng 'with'."
+   },
+   {
+    "w": "Your age is irrelevance for this job.",
+    "r": "Your age is irrelevant for this job.",
+    "why": "Sau 'is' cần tính từ irrelevant; irrelevance là danh từ nên không dùng ở đây."
+   }
+  ],
+  "u": "Irrelevant chỉ điều không liên quan đến vấn đề đang bàn hoặc đang quyết định. Từ này rất thường gặp trong họp, báo cáo và bài thi: bỏ các chi tiết irrelevant, một câu hỏi irrelevant. Cấu trúc chuẩn là irrelevant to something, không bao giờ dùng with. Nó mạnh hơn unimportant, vì một thông tin irrelevant có thể đúng nhưng không giúp ích gì cho vấn đề. Danh từ là irrelevance, từ trái nghĩa là relevant. Trong văn viết trang trọng hay gặp cụm largely irrelevant."
+ },
+ "kit": {
+  "mis": [
+   {
+    "w": "The mechanic carried a kit of tool.",
+    "r": "The mechanic carried a kit of tools.",
+    "why": "Sau 'kit of' dùng danh từ số nhiều cho các món đồ riêng lẻ."
+   },
+   {
+    "w": "Each new employee receives a kit safety.",
+    "r": "Each new employee receives a safety kit.",
+    "why": "Tiếng Anh đặt danh từ bổ nghĩa trước danh từ chính: safety kit, không đảo như tiếng Việt."
+   }
+  ],
+  "u": "Kit là danh từ đếm được chỉ một bộ dụng cụ, linh kiện hoặc quần áo cần cho một mục đích: bộ sơ cứu (first-aid kit), bộ đồ sửa chữa (repair kit), bộ lắp mô hình. Trong tiếng Anh Anh, kit còn là đồng phục thể thao như football kit, còn người Mỹ thường nói uniform. Kit cụ thể hơn equipment, vì equipment là danh từ không đếm được và chỉ thiết bị nói chung. Set là một nhóm đồ cùng loại bất kỳ, còn kit gồm các món được gói lại để làm một việc."
+ },
+ "lane": {
+  "mis": [
+   {
+    "w": "The truck is driving at the slow lane.",
+    "r": "The truck is driving in the slow lane.",
+    "why": "Khi nói xe đang đi ở làn nào, dùng giới từ 'in' với lane."
+   },
+   {
+    "w": "She won the race in the third line of the pool.",
+    "r": "She won the race in the third lane of the pool.",
+    "why": "Dải được kẻ riêng trong bể bơi, đường đua hay đường phố là lane, không phải line."
+   }
+  ],
+  "u": "Lane là một dải hẹp dành cho một dòng xe hoặc một vận động viên, trên đường, trong bể bơi hay trên đường chạy. Trên đường ta lái xe in a lane và đổi làn là change lanes. Fast lane là làn vượt xe, và cụm này còn dùng nghĩa bóng cho lối sống hối hả. Trong tiếng Anh Anh, lane cũng có thể là con đường nhỏ ở vùng quê, còn tiếng Anh Mỹ ít dùng nghĩa này. Đừng nhầm với line, vốn chỉ một vạch hoặc một hàng bất kỳ."
+ },
+ "lately": {
+  "mis": [
+   {
+    "w": "I am very busy lately.",
+    "r": "I have been very busy lately.",
+    "why": "Lately chỉ khoảng thời gian cho đến nay, nên dùng hiện tại hoàn thành, không dùng hiện tại đơn."
+   },
+   {
+    "w": "I didn't see him lately.",
+    "r": "I haven't seen him lately.",
+    "why": "Lately không dùng với quá khứ đơn; phải dùng hiện tại hoàn thành."
+   }
+  ],
+  "u": "Lately nghĩa là 'trong thời gian gần đây, cho đến bây giờ', chỉ một khoảng thời gian chứ không phải một thời điểm. Từ này thường đi với hiện tại hoàn thành hoặc hoàn thành tiếp diễn: I have been sleeping badly lately. Nó nghe tự nhiên trong lời nói và văn thân mật, hay xuất hiện trong câu hỏi và câu phủ định (Have you seen Tom lately?). Đừng nhầm với late, có thể là tính từ hoặc trạng từ chỉ sự muộn. Recently linh hoạt hơn vì còn dùng được với quá khứ đơn."
+ },
+ "lawn": {
+  "mis": [
+   {
+    "w": "Please do not walk in the lawn.",
+    "r": "Please do not walk on the lawn.",
+    "why": "Dùng 'on' cho bề mặt mà ta đi hoặc ngồi lên, như bãi cỏ."
+   },
+   {
+    "w": "The lawn needs mow every week.",
+    "r": "The lawn needs mowing every week.",
+    "why": "Sau 'need' dùng dạng -ing khi chủ ngữ là vật chịu tác động của hành động."
+   }
+  ],
+  "u": "Lawn là bãi cỏ được cắt ngắn và chăm sóc gọn gàng, thường nằm cạnh nhà, trong công viên hoặc sân golf. Đây là danh từ đếm được: a large front lawn, two lawns. Động từ chuẩn là mow, máy cắt gọi là lawn mower, và người ta ngồi hoặc chơi on the lawn. Đừng dùng grass như danh từ đếm được cho nghĩa này, vì grass là loài cây cỏ. Lawn chỉ phần cỏ được trồng và cắt tỉa, chứ không dùng cho đồng cỏ hoang."
+ },
+ "leak": {
+  "mis": [
+   {
+    "w": "There is a leak on the roof.",
+    "r": "There is a leak in the roof.",
+    "why": "Dùng 'in' khi nói lỗ hoặc chỗ hỏng nằm trong một cấu trúc."
+   },
+   {
+    "w": "The pipe leaked out of water all night.",
+    "r": "The pipe leaked water all night.",
+    "why": "Leak có thể nhận chất lỏng làm tân ngữ trực tiếp, nên không cần 'out of'."
+   }
+  ],
+  "u": "Leak vừa là danh từ vừa là động từ. Danh từ chỉ lỗ hoặc vết nứt làm chất lỏng hay khí thoát ra: a gas leak, a leak in the ceiling. Động từ có thể không có tân ngữ (the roof leaks) hoặc đi kèm chất lỏng làm tân ngữ (the tank leaked oil). Từ này cũng có nghĩa bóng trong tin tức và kinh doanh: lộ tài liệu mật, hoặc ai đó rò rỉ thông tin cho báo chí. Ta nói fix hoặc repair a leak, và plug hoặc seal một chỗ rò."
+ },
+ "lease": {
+  "mis": [
+   {
+    "w": "We signed a lease of the office for three years.",
+    "r": "We signed a lease for the office for three years.",
+    "why": "Sau lease dùng giới từ 'for' (hoặc 'on'), không dùng 'of'."
+   },
+   {
+    "w": "The company leased the building to a bank, so it pays rent every month.",
+    "r": "The company leased the building from a landlord, so it pays rent every month.",
+    "why": "Người trả tiền thuê là bên thuê, nên dùng 'lease from' chứ không phải 'lease to'."
+   }
+  ],
+  "u": "Lease là hợp đồng bằng văn bản để thuê đất, nhà, xe hoặc thiết bị trong một thời hạn cố định, và cũng là động từ. Điểm dễ nhầm là chiều của hành động: chủ sở hữu lease something to người thuê, còn người thuê lease it from chủ sở hữu. Các cụm thường gặp là sign, renew, extend hoặc terminate a lease. Lease dài hạn và trang trọng hơn việc thuê tạm, vì nó ghi rõ tiền thuê và điều kiện. Động từ let là cách nói của người Anh, chủ yếu dùng với bất động sản."
+ },
+ "lifetime": {
+  "mis": [
+   {
+    "w": "I have never seen such a thing on my lifetime.",
+    "r": "I have never seen such a thing in my lifetime.",
+    "why": "Cụm cố định là 'in my lifetime', không dùng 'on'."
+   },
+   {
+    "w": "This is a chance of once in lifetime.",
+    "r": "This is a once-in-a-lifetime chance.",
+    "why": "Cụm này cần mạo từ 'a', và khi đứng trước danh từ thì nối bằng dấu gạch ngang."
+   }
+  ],
+  "u": "Lifetime là toàn bộ quãng đời của một người, hoặc khoảng thời gian một vật tồn tại hay hoạt động. Ta nói in my lifetime, the lifetime of a battery, hoặc lifetime guarantee. Khi làm tính từ, nó đứng trước danh từ: lifetime membership, giải thưởng thành tựu trọn đời. Once in a lifetime chỉ cơ hội hiếm có, và khi bổ nghĩa cho danh từ thì viết once-in-a-lifetime. Lifespan gần nghĩa nhưng mang tính khoa học hơn, dùng cho tuổi thọ của một loài hay sản phẩm, còn lifetime rộng và mang tính cá nhân hơn."
+ },
+ "loyal": {
+  "mis": [
+   {
+    "w": "She has always been loyal with her friends.",
+    "r": "She has always been loyal to her friends.",
+    "why": "Loyal đi với giới từ 'to', không dùng 'with'."
+   },
+   {
+    "w": "The company thanks all its loyalty customers.",
+    "r": "The company thanks all its loyal customers.",
+    "why": "Trước danh từ dùng tính từ loyal; loyalty là danh từ."
+   }
+  ],
+  "u": "Loyal là tính từ chỉ người luôn trung thành và ủng hộ một người, nhóm, công ty hay lý tưởng, nhất là khi gặp khó khăn. Cấu trúc đúng là loyal to: loyal to the team, loyal to your principles. Từ này mang nghĩa tích cực trong kinh doanh, khi khách hàng loyal tiếp tục mua cùng một thương hiệu, và trong đời sống, khi người bạn loyal không phản bội mình. Faithful gần nghĩa nhưng hay dùng cho bạn đời và thú cưng; devoted nghĩa là yêu mến sâu sắc hơn, còn committed nhấn mạnh sự nỗ lực."
+ },
+ "loyalty": {
+  "mis": [
+   {
+    "w": "He showed great loyal to the team.",
+    "r": "He showed great loyalty to the team.",
+    "why": "Sau 'great' cần danh từ, và danh từ ở đây là loyalty."
+   },
+   {
+    "w": "Many shops offer a loyalty card for loyalty customers.",
+    "r": "Many shops offer a loyalty card for loyal customers.",
+    "why": "Trước 'customers' dùng tính từ loyal; loyalty card là cụm danh từ cố định."
+   }
+  ],
+  "u": "Loyalty là danh từ không đếm được chỉ sự trung thành với ai hoặc điều gì. Sau nó là to: loyalty to the brand, loyalty to your country. Trong kinh doanh, customer loyalty và brand loyalty đo mức độ khách quay lại, còn loyalty program hay loyalty card tặng điểm thưởng cho họ. Trong quan hệ cá nhân, nó hàm ý bổn phận, nên divided loyalties nghĩa là bị giằng xé giữa hai phía. Tính từ là loyal, đừng dùng loyalty thay cho nó."
+ },
+ "machinery": {
+  "mis": [
+   {
+    "w": "The factory bought three new machineries last year.",
+    "r": "The factory bought three new machines last year.",
+    "why": "Machinery không đếm được và không có số nhiều; muốn đếm thì dùng machines."
+   },
+   {
+    "w": "This machinery are very expensive to repair.",
+    "r": "This machinery is very expensive to repair.",
+    "why": "Machinery không đếm được nên đi với động từ số ít."
+   }
+  ],
+  "u": "Machinery là danh từ không đếm được, nghĩa là máy móc nói chung hoặc các bộ phận hoạt động bên trong một cỗ máy. Nó không bao giờ thêm -s và luôn đi với động từ số ít: the machinery is old. Muốn đếm thì nói a piece of machinery hoặc dùng machine: three machines. Các cụm hay gặp là heavy machinery, farm machinery và operate machinery. Từ này dùng nhiều trong nhà máy, nông nghiệp và xây dựng. Nghĩa bóng, the machinery of government là bộ máy giúp một cơ quan vận hành."
+ },
+ "malfunction": {
+  "mis": [
+   {
+    "w": "The printer malfunction yesterday and stopped working.",
+    "r": "The printer malfunctioned yesterday and stopped working.",
+    "why": "Quá khứ đơn cần đuôi -ed: malfunctioned."
+   },
+   {
+    "w": "The malfunction of the machine was caused from a loose wire.",
+    "r": "The malfunction of the machine was caused by a loose wire.",
+    "why": "Trong câu bị động, nguyên nhân hoặc tác nhân được dẫn bằng 'by'."
+   }
+  ],
+  "u": "Malfunction là sự cố khiến máy móc, thiết bị hoặc hệ thống không hoạt động bình thường. Từ này vừa là danh từ (a malfunction in the engine) vừa là động từ (the alarm malfunctioned). Nó trang trọng và mang tính kỹ thuật hơn breakdown hay problem, và hàm ý lỗi nằm bên trong thiết bị chứ không phải do dùng sai. Từ hay gặp trong hàng không, y tế và máy tính: equipment malfunction, a system malfunction. Người ta thường nói have hoặc experience a malfunction. Cụm wardrobe malfunction là một cách dùng đùa vui."
+ },
+ "maximize": {
+  "mis": [
+   {
+    "w": "We must maximize the most profit.",
+    "r": "We must maximize profit.",
+    "why": "Maximize đã có nghĩa 'làm lớn nhất có thể', nên thêm 'the most' là thừa."
+   },
+   {
+    "w": "This tool helps you to maximize of your time.",
+    "r": "This tool helps you to maximize your time.",
+    "why": "Maximize là ngoại động từ, đi thẳng với tân ngữ, không có 'of'."
+   }
+  ],
+  "u": "Maximize nghĩa là làm cho điều gì lớn nhất hoặc nhiều nhất có thể, và là ngoại động từ: maximize profits, maximize efficiency. Tiếng Anh Mỹ viết với z; tiếng Anh Anh cũng chấp nhận maximise. Vì từ này đã có nghĩa 'tối đa', đừng kết hợp với 'most' hay 'as much as possible'. Nó rất hay gặp trong kinh doanh và công nghệ, và từ trái nghĩa là minimize. Maximize mạnh hơn increase vì ngụ ý đạt đến giới hạn trên, còn optimize là tìm điểm cân bằng tốt nhất chứ không nhất thiết là nhiều nhất."
+ },
+ "meaningful": {
+  "mis": [
+   {
+    "w": "She wants a meaningless job where she can help others.",
+    "r": "She wants a meaningful job where she can help others.",
+    "why": "Meaningless nghĩa là vô nghĩa; để chỉ việc có ý nghĩa phải dùng meaningful."
+   },
+   {
+    "w": "It was a meaningful for me day.",
+    "r": "It was a meaningful day for me.",
+    "why": "Tính từ đứng trước danh từ; cụm 'for me' phải đặt sau cụm danh từ."
+   }
+  ],
+  "u": "Meaningful chỉ điều có mục đích, giá trị hoặc tầm quan trọng, thường mang cảm xúc: meaningful work, a meaningful conversation. Trong kinh doanh và thống kê, nó còn chỉ kết quả đủ đáng kể để có ý nghĩa, như a meaningful difference. Đừng nhầm với meaningless, từ trái nghĩa, hay với meaning là danh từ. Trong văn viết trang trọng đôi khi nó hơi mơ hồ, nên significant hoặc substantial có thể chính xác hơn. Trong lời nói hằng ngày, từ này hay dùng cho công việc, mối quan hệ và mục tiêu cảm thấy đáng giá."
+ },
+ "meantime": {
+  "mis": [
+   {
+    "w": "In meantime, please take a seat.",
+    "r": "In the meantime, please take a seat.",
+    "why": "Cụm cố định cần mạo từ: in the meantime."
+   },
+   {
+    "w": "The delay is long, but in the meantime of that we will serve snacks.",
+    "r": "The delay is long, but in the meantime we will serve snacks.",
+    "why": "Không thêm 'of that'; 'in the meantime' tự đứng như một trạng ngữ."
+   }
+  ],
+  "u": "Meantime là danh từ gần như chỉ dùng trong cụm in the meantime, nghĩa là trong khoảng thời gian giữa hai sự kiện: Phòng chưa sẵn sàng; in the meantime, xin mời chờ ở sảnh. Nó luôn có 'the' và đứng một mình, không theo sau bởi 'of'. Meanwhile gần nghĩa và có thể đứng đầu câu, nhưng còn dùng để chỉ sự tương phản, còn in the meantime nhấn mạnh việc chờ một điều sắp xảy ra. For the meantime nghĩa là tạm thời, nghe giống một giải pháp tạm."
+ },
+ "meanwhile": {
+  "mis": [
+   {
+    "w": "I'll cook dinner. In meanwhile, you can set the table.",
+    "r": "I'll cook dinner. Meanwhile, you can set the table.",
+    "why": "Meanwhile là trạng từ dùng một mình; không nói 'in meanwhile'."
+   },
+   {
+    "w": "Meanwhile of the meeting, he checked his phone.",
+    "r": "During the meeting, he checked his phone.",
+    "why": "Meanwhile không đi với 'of'; trước danh từ phải dùng 'during'."
+   }
+  ],
+  "u": "Meanwhile là trạng từ nối hai sự việc xảy ra cùng lúc, hoặc hai tình huống trái ngược: Người giàu ngày càng giàu; meanwhile, lương của người nghèo không tăng. Nó thường đứng đầu câu hoặc sau dấu chấm phẩy, và không đi kèm danh từ phía sau. Trong kể chuyện và tin tức, nó chuyển sự chú ý sang địa điểm hoặc nhân vật khác. In the meantime tương tự nhưng thường nói về việc chờ đợi. Đừng dùng 'in meanwhile' hoặc 'during meanwhile'."
+ },
+ "method": {
+  "mis": [
+   {
+    "w": "The method of teach children is changing.",
+    "r": "The method of teaching children is changing.",
+    "why": "Sau giới từ 'of' dùng dạng V-ing."
+   },
+   {
+    "w": "The company uses many methods of payments.",
+    "r": "The company uses many methods of payment.",
+    "why": "Trong cụm cố định 'method of payment', payment luôn ở số ít."
+   }
+  ],
+  "u": "Method là danh từ đếm được chỉ một cách làm có kế hoạch và hệ thống: a teaching method, the scientific method, a method of payment. Cấu trúc hay gặp là method of hoặc for + V-ing, hoặc method for + danh từ; ít khi dùng to-V sau nó. Method trang trọng và có tổ chức hơn way, còn technique hẹp hơn và liên quan đến kỹ năng. Trong nghiên cứu, mục Methods giải thích nghiên cứu được tiến hành thế nào."
+ },
+ "mileage": {
+  "mis": [
+   {
+    "w": "The car has a high mileages.",
+    "r": "The car has a high mileage.",
+    "why": "Mileage ở nghĩa này không đếm được, không thêm -s."
+   },
+   {
+    "w": "I drove the long mileage to Hanoi.",
+    "r": "I drove a long distance to Hanoi.",
+    "why": "Mileage là tổng số dặm hoặc mức tiêu hao, không phải một chuyến đi; chuyến đi dùng distance."
+   }
+  ],
+  "u": "Mileage là số dặm mà một chiếc xe đã đi, hoặc số dặm xe đi được với một lượng nhiên liệu nhất định. Xe cũ được mô tả là có mileage cao hoặc thấp, và công ty có thể trả mileage allowance cho chuyến công tác. Trong tiếng Anh Mỹ, nó còn chỉ mức tiết kiệm xăng (good gas mileage), người Anh thường nói fuel economy. Từ này không dùng cho một chuyến đi riêng lẻ, khi đó dùng distance. Nghĩa bóng, get mileage out of something là tận dụng điều gì được lâu nhất."
+ },
+ "nationwide": {
+  "mis": [
+   {
+    "w": "The shop delivers goods in nationwide.",
+    "r": "The shop delivers goods nationwide.",
+    "why": "Ở đây nationwide là trạng từ nên không cần giới từ đứng trước."
+   },
+   {
+    "w": "We are launching a nationwide in September.",
+    "r": "We are launching a nationwide campaign in September.",
+    "why": "Khi là tính từ, nationwide phải đứng trước một danh từ."
+   }
+  ],
+  "u": "Nationwide chỉ điều bao phủ hoặc diễn ra trên toàn quốc. Nó là tính từ (a nationwide survey) và cũng là trạng từ (the store delivers nationwide). Khi là trạng từ, nó đứng sau động từ và không cần giới từ. Từ này phổ biến trong tin tức và quảng cáo, khi công ty thông báo ra mắt, thu hồi hay phủ sóng nationwide. National rộng nghĩa hơn vì còn có nghĩa thuộc về quốc gia, còn nationwide nhấn mạnh phạm vi địa lý. Cách tạo từ này cũng gặp ở worldwide và citywide."
+ },
+ "neat": {
+  "mis": [
+   {
+    "w": "She keeps her desk very neatly.",
+    "r": "She keeps her desk very neat.",
+    "why": "Sau 'keep' + tân ngữ, dùng tính từ chứ không dùng trạng từ."
+   },
+   {
+    "w": "My room is neat and tidily.",
+    "r": "My room is neat and tidy.",
+    "why": "Sau 'is' dùng tính từ tidy, không dùng trạng từ tidily."
+   }
+  ],
+  "u": "Neat nghĩa là gọn gàng, ngăn nắp và dễ nhìn: neat handwriting, a neat desk. Nó cũng chỉ một ý tưởng hay giải pháp khéo (a neat trick), và trong tiếng Anh Mỹ đôi khi chỉ nghĩa là 'tuyệt'. A neat drink là rượu uống nguyên chất, không đá, nước hay chất pha. Neat thường mang nghĩa tích cực và hơi thân mật; tidy phổ biến hơn cho căn phòng, còn orderly nghe trang trọng."
+ },
+ "needy": {
+  "mis": [
+   {
+    "w": "The charity helps the needies in our town.",
+    "r": "The charity helps the needy in our town.",
+    "why": "'The needy' là tính từ dùng như danh từ số nhiều nên không thêm -s."
+   },
+   {
+    "w": "He is very needy of help.",
+    "r": "He is very much in need of help.",
+    "why": "Needy không đi với 'of'; nghĩa này dùng 'in need of'."
+   }
+  ],
+  "u": "Needy là tính từ chỉ những người không có đủ tiền, thức ăn hay sự hỗ trợ cơ bản: needy families, học bổng cho needy students. Khi có the, nó là danh từ số nhiều, the needy, và không bao giờ thêm -s. Trong tiếng Anh thân mật, nó còn chỉ người luôn đòi hỏi sự chú ý hoặc trấn an, mang nghĩa tiêu cực: a needy friend. Cẩn thận, needy không phải cách nói lịch sự khi mô tả ai đó trước mặt họ. In need of là cụm để nói cần một thứ cụ thể."
+ },
+ "noon": {
+  "mis": [
+   {
+    "w": "The meeting starts on noon.",
+    "r": "The meeting starts at noon.",
+    "why": "Dùng 'at' với một thời điểm như noon."
+   },
+   {
+    "w": "Please send it before 12 noon p.m.",
+    "r": "Please send it before 12 noon.",
+    "why": "Noon đã là 12 giờ trưa nên thêm p.m. là thừa."
+   }
+  ],
+  "u": "Noon là mười hai giờ trưa, giữa ngày. Nó đi với at: at noon, và dùng by noon cho hạn chót hoặc before noon cho buổi sáng. Midday là từ thay thế cũng phổ biến, nhất là trong tiếng Anh Anh. Đừng thêm p.m. hay a.m. sau noon, và trong văn trang trọng tránh 'twelve noon' trừ khi cần phân biệt với midnight. High noon theo nghĩa bóng là thời khắc đối đầu quyết định. Noon là một thời điểm chứ không phải khoảng thời gian, nên không nói 'in noon'."
+ },
+ "oblige": {
+  "mis": [
+   {
+    "w": "The law obliges to pay tax.",
+    "r": "The law obliges us to pay tax.",
+    "why": "Oblige cần có tân ngữ đứng trước 'to'; không thể nối thẳng với động từ nguyên mẫu."
+   },
+   {
+    "w": "I feel obligation to help her.",
+    "r": "I feel obliged to help her.",
+    "why": "Sau 'feel' dùng tính từ obliged; obligation là danh từ và cần mạo từ."
+   }
+  ],
+  "u": "Oblige là động từ trang trọng nghĩa là buộc ai làm gì vì quy định, bổn phận hay ân nghĩa. Cấu trúc là oblige somebody to do something, thường ở bị động: be obliged to leave. Feel obliged là cảm thấy mình phải làm, thường vì lịch sự, còn required và forced mạnh hơn. Nó cũng nghĩa là giúp đỡ: I would be obliged if you could reply by Friday. Much obliged và happy to oblige là những câu lịch sự, hơi cổ."
+ },
+ "officially": {
+  "mis": [
+   {
+    "w": "The mayor will official open the bridge on Monday.",
+    "r": "The mayor will officially open the bridge on Monday.",
+    "why": "Để bổ nghĩa cho động từ phải dùng trạng từ officially, không dùng tính từ official."
+   },
+   {
+    "w": "She was official appointed as head of the department.",
+    "r": "She was officially appointed as head of the department.",
+    "why": "Dùng trạng từ officially để bổ nghĩa cho phân từ appointed."
+   }
+  ],
+  "u": "Officially nghĩa là một cách chính thức, công khai hoặc được cho phép: officially announced, officially opened. Nó cũng đối lập điều được nói với sự thật: Officially he is on holiday, but he is actually working. Trạng từ thường đứng trước động từ chính nhưng sau be, như He is officially retired. Nó hay dùng trong tin tức về chính phủ và công ty. Formally tương tự nhưng nhấn mạnh sự lịch sự hoặc đúng thủ tục; publicly nhấn mạnh mọi người có thể thấy. Nhớ tính từ là official."
+ },
+ "outfit": {
+  "mis": [
+   {
+    "w": "She bought a new outfit for the party and she looks well in it.",
+    "r": "She bought a new outfit for the party and she looks good in it.",
+    "why": "Sau 'look' dùng tính từ good; 'well' dùng cho sức khỏe hoặc cách thức."
+   },
+   {
+    "w": "I need to buy a clothes for the wedding.",
+    "r": "I need to buy an outfit for the wedding.",
+    "why": "Clothes là số nhiều và không dùng 'a'; muốn nói một bộ đồ hoàn chỉnh dùng outfit."
+   }
+  ],
+  "u": "Outfit là danh từ đếm được chỉ một bộ quần áo mặc cùng nhau cho một dịp, nên ta mua an outfit chứ không phải a clothes: a casual outfit, a wedding outfit. Clothes là số nhiều và không dùng với số đếm, còn clothing là danh từ không đếm được. Outfit rất hay dùng khi nói về thời trang. Nghĩa thân mật khác là một nhóm hoặc tổ chức: a small software outfit. Động từ to outfit nghĩa là trang bị, như outfit a team with uniforms."
+ },
+ "outlet": {
+  "mis": [
+   {
+    "w": "This outlet store sells clothes in half-price.",
+    "r": "This outlet store sells clothes at half price.",
+    "why": "Dùng 'at' với giá: at half price, at a discount."
+   },
+   {
+    "w": "Sport is a good outlet to stress.",
+    "r": "Sport is a good outlet for stress.",
+    "why": "Khi outlet nghĩa là cách giải tỏa cảm xúc, dùng giới từ 'for'."
+   }
+  ],
+  "u": "Outlet có nhiều nghĩa. Trong tiếng Anh Mỹ, đó là ổ cắm điện trên tường, người Anh gọi là socket. Nó còn là cửa hàng bán sản phẩm của một công ty (a retail outlet, outlet store bán hàng giảm giá) hoặc một cơ quan báo chí (a media outlet). Nó cũng là cách giải tỏa cảm xúc hay năng lượng: an outlet for creativity, đi với giới từ 'for'. Vì nghĩa khác nhau nên ngữ cảnh rất quan trọng. Đừng nhầm outlet với plug, là phần phích bạn cắm vào đó."
+ },
+ "outstanding": {
+  "mis": [
+   {
+    "w": "She is outstanding student in our class.",
+    "r": "She is an outstanding student in our class.",
+    "why": "Danh từ đếm được số ít cần mạo từ: an outstanding student."
+   },
+   {
+    "w": "Please pay the outstanding of $200.",
+    "r": "Please pay the outstanding balance of $200.",
+    "why": "Outstanding là tính từ nên cần danh từ như balance đi sau."
+   }
+  ],
+  "u": "Outstanding có hai nghĩa chính. Thứ nhất là cực kỳ tốt: an outstanding performance, an outstanding student. Thứ hai, trong kinh doanh và pháp lý, là chưa thanh toán, chưa làm hoặc chưa giải quyết: an outstanding invoice, outstanding issues. Ngữ cảnh cho biết nghĩa nào, nên cẩn thận với cụm outstanding balance, vốn là một khoản nợ chứ không phải lời khen. Từ này mạnh hơn good hay very good, và gần với excellent. Cấu trúc thường gặp là outstanding at doing something, hoặc outstanding in his field."
+ },
+ "pad": {
+  "mis": [
+   {
+    "w": "I wrote the number on a pad paper.",
+    "r": "I wrote the number on a pad of paper.",
+    "why": "Dùng 'pad of' + danh từ để chỉ một xấp giấy."
+   },
+   {
+    "w": "Football players must wear a shoulder pad.",
+    "r": "Football players must wear shoulder pads.",
+    "why": "Miếng đệm vai đi thành cặp nên thường dùng số nhiều."
+   }
+  ],
+  "u": "Pad là danh từ đếm được với nhiều cách dùng. Nó có thể là xấp giấy dính ở một cạnh (a notepad, a pad of paper), miếng đệm mềm để bảo vệ hoặc cho êm (shoulder pads, knee pads), hoặc một bề mặt phẳng như launch pad hay mouse pad. Trong tiếng lóng cả Anh và Mỹ, nó còn có nghĩa là nhà của ai đó: my pad. Động từ pad nghĩa là lót đệm, hoặc thêm chữ thừa để văn bản dài hơn."
+ },
+ "physical": {
+  "mis": [
+   {
+    "w": "He is physical strong for his age.",
+    "r": "He is physically strong for his age.",
+    "why": "Để bổ nghĩa cho tính từ 'strong' phải dùng trạng từ physically."
+   },
+   {
+    "w": "She needs a physical therapy for her back.",
+    "r": "She needs physical therapy for her back.",
+    "why": "Physical therapy là danh từ không đếm được nên không dùng 'a'."
+   }
+  ],
+  "u": "Physical là tính từ nghĩa là thuộc về cơ thể hoặc vật chất, đối lập với tinh thần: physical health, physical exercise, a physical object. Nó đối lập với mental và emotional. Trong tiếng Anh Mỹ, a physical còn là danh từ chỉ buổi khám sức khỏe tổng quát. Physically là trạng từ: physically fit. Từ này có thể mô tả sự tiếp xúc, sức mạnh, và cả những thứ có thể chạm vào thay vì kỹ thuật số, như a physical copy của cuốn sách. Khi nhận xét ngoại hình ai đó, nó có thể nghe hơi thiếu tế nhị."
+ },
+ "pill": {
+  "mis": [
+   {
+    "w": "I eat a pill for my headache every morning.",
+    "r": "I take a pill for my headache every morning.",
+    "why": "Thuốc viên không dùng eat; động từ thông dụng là take."
+   },
+   {
+    "w": "The doctor told me to take two pills for day.",
+    "r": "The doctor told me to take two pills a day.",
+    "why": "Dùng 'a day', không phải 'for day', để chỉ tần suất."
+   }
+  ],
+  "u": "Pill là danh từ đếm được chỉ viên thuốc nhỏ và tròn mà bạn nuốt. Động từ tự nhiên là take, không dùng eat hay drink: take a pill, take two pills a day. Pill là từ đời thường, tablet nghe mang tính y khoa hơn, còn capsule là viên có vỏ. Các cụm cố định gồm sleeping pill, the pill (thuốc tránh thai) và a bitter pill to swallow, nghĩa là một sự thật khó chấp nhận. Trong tiếng Anh Anh, tablet phổ biến hơn."
+ },
+ "placement": {
+  "mis": [
+   {
+    "w": "The placement of the new staff are decided by HR.",
+    "r": "The placement of the new staff is decided by HR.",
+    "why": "Chủ ngữ là 'the placement' số ít nên động từ là 'is'."
+   },
+   {
+    "w": "She did a placement of two months in a hospital.",
+    "r": "She did a two-month placement in a hospital.",
+    "why": "Khi bổ nghĩa cho danh từ, 'two-month' có gạch nối và giữ số ít."
+   }
+  ],
+  "u": "Placement là danh từ của động từ place và có nhiều nghĩa. Nó có thể là hành động đặt vật vào vị trí: the placement of furniture, product placement trong phim. Trong giáo dục và việc làm, nó là một vị trí tạm thời để lấy kinh nghiệm (a work placement, a student placement). Placement test kiểm tra trình độ người học để xếp đúng lớp. Placement agency tìm việc cho ứng viên. Nó không chỉ đơn giản là từ đồng nghĩa với location."
+ },
+ "plow": {
+  "mis": [
+   {
+    "w": "The farmer plows his field with a tractor, then he plow it again.",
+    "r": "The farmer plows his field with a tractor, then he plows it again.",
+    "why": "Với 'he' ở hiện tại đơn, động từ thêm -s."
+   },
+   {
+    "w": "The truck plowed through of the snow.",
+    "r": "The truck plowed through the snow.",
+    "why": "Plow through đi thẳng với tân ngữ, không có 'of'."
+   }
+  ],
+  "u": "Plow là cách viết kiểu Mỹ của plough. Danh từ chỉ dụng cụ nông nghiệp kéo qua đất để lật đất trước khi gieo trồng, và snow plow là xe dọn tuyết trên đường. Động từ nghĩa là cày đất hoặc dùng sức đẩy qua một thứ gì: plow through the snow. Nghĩa bóng, plow ahead là tiếp tục làm dù gặp khó khăn, và plow money into là đổ tiền đầu tư vào. Tiếng Anh Anh viết là plough, nhưng cả hai phát âm giống nhau."
+ },
+ "plug": {
+  "mis": [
+   {
+    "w": "Please plug the computer to the socket.",
+    "r": "Please plug the computer into the socket.",
+    "why": "Plug đi với 'into', không dùng 'to', cho chỗ cắm dây."
+   },
+   {
+    "w": "The printer is not working, so plug it in the wall.",
+    "r": "The printer is not working, so plug it into the wall.",
+    "why": "'In' là trạng từ; tân ngữ theo sau cần 'into'."
+   }
+  ],
+  "u": "Plug vừa là động từ vừa là danh từ. Động từ nghĩa là cắm thiết bị vào nguồn điện (plug in the kettle, plug it into the wall) hoặc bịt lỗ (plug a leak). Danh từ là phần có chân kim loại cắm vào ổ, hoặc cái nút bồn rửa. Pull the plug nghĩa là dừng một dự án hoặc tắt máy. Trong lời nói thân mật, plug a product là quảng bá sản phẩm, như tác giả quảng bá sách. Động từ ngược nghĩa là unplug."
+ },
+ "predict": {
+  "mis": [
+   {
+    "w": "He predicted that the team will win last week.",
+    "r": "He predicted that the team would win last week.",
+    "why": "Sau động từ tường thuật ở quá khứ, 'will' chuyển thành 'would'."
+   },
+   {
+    "w": "Experts predict the economy to grow next year.",
+    "r": "Experts predict that the economy will grow next year.",
+    "why": "Sau predict dùng mệnh đề that, không dùng tân ngữ + to-V."
+   }
+  ],
+  "u": "Predict là động từ nghĩa là nói điều sẽ xảy ra trong tương lai, dựa trên kiến thức, dữ liệu hoặc kinh nghiệm. Sau nó là danh từ hoặc mệnh đề that: predict the winner, predict that prices will rise. Khác với expect, nó không đi với tân ngữ + to-V, nên nói 'experts predict that the economy will grow'. Nó cụ thể hơn guess vì có lý do phía sau. Danh từ là prediction và tính từ là predictable. Forecast chủ yếu dùng cho thời tiết và tài chính."
+ },
+ "prescribe": {
+  "mis": [
+   {
+    "w": "The doctor prescribed antibiotics to my infection.",
+    "r": "The doctor prescribed antibiotics for my infection.",
+    "why": "Dùng 'for' với bệnh được điều trị."
+   },
+   {
+    "w": "You can buy this medicine without prescribing.",
+    "r": "You can buy this medicine without a prescription.",
+    "why": "Prescribing là dạng động từ; thứ bác sĩ viết ra là prescription."
+   }
+  ],
+  "u": "Prescribe nghĩa là bác sĩ chính thức yêu cầu bệnh nhân dùng thuốc hoặc liệu pháp: prescribe antibiotics, prescribe rest. Cấu trúc là prescribe something for a condition, và thứ được viết ra gọi là prescription. Thuốc mua tự do gọi là over-the-counter. Nghĩa rộng hơn, prescribe là quy định điều phải làm theo luật lệ hoặc thẩm quyền: the prescribed procedure. Đừng nhầm với describe, nghĩa là tả lại một điều gì. Từ này hàm ý thẩm quyền và khá trang trọng."
+ },
+ "prestigious": {
+  "mis": [
+   {
+    "w": "He graduated from a prestige university.",
+    "r": "He graduated from a prestigious university.",
+    "why": "Dùng tính từ prestigious; prestige là danh từ."
+   },
+   {
+    "w": "It is a very prestigious for me chance.",
+    "r": "It is a very prestigious chance for me.",
+    "why": "Tính từ đứng ngay trước danh từ; 'for me' đứng sau."
+   }
+  ],
+  "u": "Prestigious chỉ điều được kính trọng và ngưỡng mộ, thường nhờ danh tiếng hoặc địa vị cao: a prestigious university, a prestigious award. Danh từ là prestige. Từ này thường mang nghĩa tốt nhưng đôi khi được dùng để phê phán biểu tượng địa vị. Các cụm quen thuộc là highly prestigious và a prestigious post. Nó mạnh hơn famous: một thứ có thể nổi tiếng mà không prestigious. Từ này thường gặp trong giáo dục, kinh doanh và nghệ thuật."
+ },
+ "preview": {
+  "mis": [
+   {
+    "w": "We saw a preview about the new model.",
+    "r": "We saw a preview of the new model.",
+    "why": "Dùng 'of' sau preview để nói cái được xem trước."
+   },
+   {
+    "w": "The company previewed us its new phone.",
+    "r": "The company previewed its new phone for us.",
+    "why": "Preview không nhận tân ngữ gián tiếp trực tiếp."
+   }
+  ],
+  "u": "Preview vừa là danh từ vừa là động từ. Danh từ là cơ hội xem điều gì trước khi công chúng thấy, như đoạn trailer phim hoặc buổi xem trước triển lãm dành cho báo chí. Động từ nghĩa là cho xem hoặc xem sớm: phần mềm cho phép preview một tệp trước khi in. Print preview là chức năng máy tính. Giới từ sau danh từ là of: a preview of the season. Sneak preview mang tính thân mật và không chính thức. Đừng nhầm với review, xảy ra sau đó."
+ },
+ "productive": {
+  "mis": [
+   {
+    "w": "The meeting was very productivity.",
+    "r": "The meeting was very productive.",
+    "why": "Sau 'was very' cần tính từ; productivity là danh từ."
+   },
+   {
+    "w": "She is productive in writing reports.",
+    "r": "She is productive at writing reports.",
+    "why": "Productive đi với 'at' trước một hoạt động."
+   }
+  ],
+  "u": "Productive mô tả người hoặc việc đạt được nhiều, hoặc cho kết quả tốt: a productive meeting, a productive day. Các cụm hay gặp gồm highly productive và productive use of time. Danh từ là productivity, đo lượng việc làm được so với thời gian hoặc chi phí. Từ trái nghĩa là unproductive. Productive cũng mô tả đất cho năng suất cao, và trong ngữ pháp mô tả quy tắc tạo được từ mới. Nó không chỉ đơn giản là bận rộn: bạn có thể bận mà không productive."
+ },
+ "professional": {
+  "mis": [
+   {
+    "w": "She is a professional of marketing.",
+    "r": "She is a marketing professional.",
+    "why": "Làm danh từ, professional đi sau từ chỉ lĩnh vực: marketing professional."
+   },
+   {
+    "w": "He behaved very professionally attitude.",
+    "r": "He behaved in a very professional manner.",
+    "why": "Dùng tính từ professional với 'manner'; professionally là trạng từ."
+   }
+  ],
+  "u": "Professional là tính từ cho công việc đòi hỏi đào tạo đặc biệt, và cho hành vi chuyên nghiệp, lịch sự, đáng tin: professional advice, a professional attitude. Làm danh từ, nó là người làm nghề lấy tiền, đối lập với amateur: a professional footballer. Healthcare professionals và legal professionals là các cụm thường gặp. Trạng từ là professionally. Trong kinh doanh, nói ai đó professional là khen cả kỹ năng lẫn cách ứng xử. Nó không đơn giản nghĩa là nghiêm túc."
+ },
+ "prospective": {
+  "mis": [
+   {
+    "w": "We are meeting a prospective of client tomorrow.",
+    "r": "We are meeting a prospective client tomorrow.",
+    "why": "Prospective là tính từ và đứng ngay trước danh từ."
+   },
+   {
+    "w": "The prospective is very good for our company.",
+    "r": "The prospects are very good for our company.",
+    "why": "Prospective là tính từ; danh từ nghĩa cơ hội là prospects."
+   }
+  ],
+  "u": "Prospective là tính từ trang trọng nghĩa là có khả năng trở thành điều gì trong tương lai: a prospective client, a prospective buyer. Nó luôn đứng trước danh từ và không đứng một mình. Hay dùng trong bán hàng, giáo dục và tuyển dụng để chỉ người có thể mua, tham gia hoặc nộp đơn, còn potential rộng hơn và dùng được cho vật (potential risks). Danh từ prospect nghĩa là cơ hội hoặc người có thể thành khách hàng. Prospective không giống perspective."
+ },
+ "protective": {
+  "mis": [
+   {
+    "w": "She is very protective with her children.",
+    "r": "She is very protective of her children.",
+    "why": "Dùng 'of' sau protective để nói người được bảo vệ."
+   },
+   {
+    "w": "Workers must wear a protective clothes.",
+    "r": "Workers must wear protective clothing.",
+    "why": "Clothes là số nhiều và không đi với 'a'; dùng danh từ không đếm được clothing."
+   }
+  ],
+  "u": "Protective là tính từ có hai nghĩa phổ biến. Thứ nhất, được thiết kế để giữ an toàn cho ai hoặc vật gì: protective clothing, protective gear. Thứ hai, muốn che chở ai khỏi nguy hiểm: a protective parent, protective of his family. Giới từ là of cho người hoặc vật được bảo vệ. Overly protective có thể hàm ý kiểm soát quá mức. Quy định an toàn trong nhà máy và phòng thí nghiệm thường liệt kê protective equipment, gồm kính và găng tay. Danh từ là protection và động từ là protect."
+ },
+ "publish": {
+  "mis": [
+   {
+    "w": "The book was publish last year.",
+    "r": "The book was published last year.",
+    "why": "Bị động cần quá khứ phân từ: published."
+   },
+   {
+    "w": "The report is publishing next week.",
+    "r": "The report will be published next week.",
+    "why": "Báo cáo là vật chịu tác động nên dùng bị động: will be published."
+   }
+  ],
+  "u": "Publish nghĩa là chuẩn bị và phát hành sách, bài báo, tạp chí hoặc nội dung trực tuyến cho công chúng: publish a novel, publish research. Chủ ngữ thường là nhà xuất bản hoặc tác giả: The company published the report; She published three papers. Nó thường ở bị động: The results were published in a journal. Publish online và published by rất phổ biến. Release rộng hơn, dùng cho phim và phần mềm, còn issue nghe chính thức. Lưu ý danh từ chỉ hành động là publication."
+ },
+ "ray": {
+  "mis": [
+   {
+    "w": "The sun's ray are harmful to your skin.",
+    "r": "The sun's rays are harmful to your skin.",
+    "why": "Ray là danh từ đếm được; nói chung chung dùng số nhiều rays."
+   },
+   {
+    "w": "A ray of hopes appeared.",
+    "r": "A ray of hope appeared.",
+    "why": "Trong cụm 'a ray of hope', hope không đếm được và để số ít."
+   }
+  ],
+  "u": "Ray là danh từ đếm được chỉ một tia hẹp của ánh sáng hoặc năng lượng: a ray of sunlight, ultraviolet rays, X-rays. Nghĩa bóng, a ray of hope là dấu hiệu nhỏ của sự cải thiện, và cụm này giữ hope ở số ít. Trong khoa học, rays còn gồm gamma rays và cosmic rays. Beam là từ tương tự, nhưng ray thường mảnh hơn và hay chỉ nguồn tự nhiên. Ray cũng là tên một loài cá dẹt dưới biển, nên nghĩa phụ thuộc vào ngữ cảnh."
+ },
+ "react": {
+  "mis": [
+   {
+    "w": "How did she react on the news?",
+    "r": "How did she react to the news?",
+    "why": "React đi với 'to' cho điều gây ra phản ứng."
+   },
+   {
+    "w": "The customers reacted angry when the price went up.",
+    "r": "The customers reacted angrily when the price went up.",
+    "why": "Dùng trạng từ để nói ai đó phản ứng thế nào."
+   }
+  ],
+  "u": "React nghĩa là hành xử hoặc cảm thấy theo một cách nào đó do điều đã xảy ra. Nó đi với to: react to criticism, react to the news. Dùng trạng từ để chỉ cách phản ứng: react quickly, react calmly. React against là chống lại điều gì, còn trong hóa học hoặc y học các chất react with nhau. Danh từ là reaction. Nghĩa rộng hơn respond, vốn hàm ý câu trả lời có chủ ý; react có thể là phản xạ tự động hoặc cảm xúc."
+ },
+ "rearrange": {
+  "mis": [
+   {
+    "w": "Let's rearrange the meeting at Friday.",
+    "r": "Let's rearrange the meeting for Friday.",
+    "why": "Dùng 'for' với ngày mới: rearrange something for a day."
+   },
+   {
+    "w": "She rearranged again the books on the shelf.",
+    "r": "She rearranged the books on the shelf again.",
+    "why": "'Again' đứng sau tân ngữ, không chen giữa động từ và tân ngữ."
+   }
+  ],
+  "u": "Rearrange nghĩa là thay đổi thứ tự, vị trí hoặc thời gian của sự vật. Nó dùng cho đồ vật (rearrange the furniture) và kế hoạch (rearrange a meeting for next week), khi đó nghĩa là hẹn lại giờ khác. Reschedule chỉ tập trung vào thời gian, còn reorganize hàm ý thay đổi cả một hệ thống. Tiền tố re- nghĩa là lại. Các trạng từ như again hay completely đứng sau tân ngữ. Danh từ là rearrangement. Trong trò chơi chữ, rearrange the letters là sắp xếp lại để tạo từ mới."
+ },
+ "rebate": {
+  "mis": [
+   {
+    "w": "I got a rebate from my tax.",
+    "r": "I got a rebate on my tax.",
+    "why": "Dùng 'on' cho thứ mà khoản hoàn tiền áp dụng."
+   },
+   {
+    "w": "You must send the receipt to claim for the rebate.",
+    "r": "You must send the receipt to claim the rebate.",
+    "why": "Claim ở đây là ngoại động từ nên đi thẳng với tân ngữ, không có 'for'."
+   }
+  ],
+  "u": "Rebate là khoản tiền hoàn lại một phần số tiền bạn đã trả, được đưa sau đó: a tax rebate, a mail-in rebate on a laptop. Thường bạn mua với giá đầy đủ rồi điền mẫu hoặc gửi hóa đơn để nhận rebate. Discount thì giảm giá ngay lúc mua. Rebate từ công ty thường là khuyến mãi, và chính phủ cũng hoàn thuế. Cấu trúc điển hình là a rebate on something. Rebate phổ biến trong mua sắm và kinh doanh ở Mỹ."
+ },
+ "recipient": {
+  "mis": [
+   {
+    "w": "She is the recipient from the prize.",
+    "r": "She is the recipient of the prize.",
+    "why": "Dùng 'of' sau recipient."
+   },
+   {
+    "w": "Please check the email address of recipient.",
+    "r": "Please check the email address of the recipient.",
+    "why": "Danh từ đếm được số ít cần mạo từ: the recipient."
+   }
+  ],
+  "u": "Recipient là người hoặc tổ chức nhận một thứ gì, như giải thưởng, thư, khoản tiền hoặc một cơ quan nội tạng: the recipient of the prize, an email recipient. Nó đi với of. Từ này trang trọng và nhấn mạnh bên nhận, thường đối lập với sender hoặc donor. Trong email, recipient là người bạn gửi tới, còn intended recipient là người mà thư nhắm đến. Receiver phổ biến hơn cho thiết bị hoặc thể thao, còn beneficiary hàm ý người được hưởng lợi."
+ },
+ "redesign": {
+  "mis": [
+   {
+    "w": "They redesigned again the website.",
+    "r": "They redesigned the website again.",
+    "why": "'Again' đứng sau tân ngữ, không chen giữa động từ và tân ngữ."
+   },
+   {
+    "w": "The redesign of website will launch in May.",
+    "r": "The redesign of the website will launch in May.",
+    "why": "Danh từ đếm được số ít cần mạo từ: the website."
+   }
+  ],
+  "u": "Redesign vừa là động từ vừa là danh từ, nghĩa là thiết kế lại điều gì để nó hoạt động hoặc trông tốt hơn. Bạn redesign một website, logo, sản phẩm hay bố cục; a redesign là kết quả hoặc quá trình. Tiền tố re- cho thấy đang thay đổi thứ đã có, nên a complete redesign lớn hơn một bản cập nhật nhỏ. Revamp thân mật hơn và overhaul hàm ý thay đổi sâu."
+ },
+ "relieve": {
+  "mis": [
+   {
+    "w": "This medicine relieves me from the headache.",
+    "r": "This medicine relieves my headache.",
+    "why": "Relieve nhận cơn đau làm tân ngữ trực tiếp; không dùng 'relieve from'."
+   },
+   {
+    "w": "I was very relieve when the test ended.",
+    "r": "I was very relieved when the test ended.",
+    "why": "Sau 'was' dùng tính từ relieved."
+   }
+  ],
+  "u": "Relieve là động từ nghĩa là làm cơn đau, lo lắng hay áp lực dịu bớt: relieve stress, relieve pain. Nó nhận vấn đề làm tân ngữ trực tiếp. Trong công việc, to relieve someone là thay ca cho họ, ví dụ một y tá relieve người khác cuối ca. Tính từ relieved mô tả cảm giác sau khi hết lo (I am relieved), và danh từ là relief. Relieve trang trọng hơn ease và nhấn mạnh việc giảm bớt chứ không phải chữa khỏi."
+ },
+ "reluctant": {
+  "mis": [
+   {
+    "w": "She was reluctant to going to the meeting.",
+    "r": "She was reluctant to go to the meeting.",
+    "why": "Sau 'reluctant to' dùng động từ nguyên mẫu."
+   },
+   {
+    "w": "He is reluctant of sharing his opinion.",
+    "r": "He is reluctant to share his opinion.",
+    "why": "Reluctant đi với to-V, không dùng 'of'."
+   }
+  ],
+  "u": "Reluctant mô tả người không sẵn lòng hoặc ngần ngại làm điều gì, thường vì nghi ngờ hoặc khó chịu: reluctant to admit, a reluctant agreement. Cấu trúc thường dùng là reluctant + to-V, và trạng từ là reluctantly. Reluctant nhẹ hơn refuse; người đó vẫn có thể làm. Nó khác unable, vì vấn đề là sự sẵn lòng chứ không phải khả năng. Từ này hay gặp trong tin tức và kinh doanh, như reluctant buyers. Danh từ là reluctance."
+ }
+}

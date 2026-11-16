@@ -37,7 +37,7 @@ assert.equal(app.slice(app.indexOf('const ROUTE_BUNDLE'), app.indexOf('};', app.
   for (const c of d.ch) { const t = c.rows[c.rows.length - 1]; assert.ok(t.test && /^#\/grammar\/mix\?ch=\d+$/.test(t.href), 'hàng cuối mỗi chương = Kiểm tra chương'); assert.equal(c.dn, 0); assert.equal(c.total, c.rows.length - 1); }
   const all = d.ch.flatMap(ids); assert.equal(new Set(all).size, all.length, 'không bài nào hiện 2 lần'); assert.ok(all.length >= 80, 'đủ bài'); assert.match(d.sub, new RegExp(`^${all.length} bài học trực quan$`));
   assert.ok(d.ch[0].rows.every(r => r.test || r.pct == null), 'chưa học: mọi hàng = plain (không chip %)');
-  assert.deepEqual(d.cards.map(c => c.href), ['#/grammar/mix', '#/grammar/mix?n=40', '#/verb', '#/fix'], 'đủ đề 20 + 40 câu + 2 công cụ ngữ pháp');
+  assert.deepEqual(d.cards.map(c => c.href), ['#/grammar/mix', '#/grammar/mix?n=40', '#/irregular', '#/verb', '#/fix'], 'đủ đề 20 + 40 câu + 3 công cụ ngữ pháp (kèm Động từ bất quy tắc)');
   assert.match(d.cards[0].t, /20/); assert.match(d.cards[1].t, /40/); }
 
 // 3. Đang học dở: bài < 80% là bài nên học tiếp (nhãn "Làm lại cho chắc"), chương của nó mở; ≥ 80% = đã đạt, đếm tiến độ

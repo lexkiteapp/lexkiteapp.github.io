@@ -1,0 +1,236 @@
+{
+ "_doc": "Từ điển (#/dict, #/dict/<từ>) – d do web/js/dict-page.js dựng. Khung Stitch v2 dict (tải một phần): đầu trang (Back + tiêu đề + chip ngôn ngữ nghĩa) · ô tìm (loa/kính lúp = nút gửi, X xóa chữ) · Tìm gần đây (xóa được) · Khám phá nhanh (chỉ khi chưa tra) · ô #result giữ nguyên thẻ kết quả/khung chờ/không thấy (đầu mục từ, thẻ lưu ngữ cảnh… còn khung cũ – port ở PR sau, vì dict-entry-layout kiểm cấu trúc .entry-head). Phần mẫu bỏ: gợi ý gõ dở (app chưa có), thẻ mục từ/hình thái/khung chờ/không thấy mẫu (trạng thái do khung cũ vẽ). Khung chung kiểu pron-hub: bỏ st+v2on sau mount.",
+ "remove": [
+  ":scope > main > div > div:nth-child(1) > div:nth-child(2)",
+  ":scope > main > div > section:nth-child(6)",
+  ":scope > main > div > section:nth-child(5)",
+  ":scope > main > div > section:nth-child(4)",
+  ":scope > main > div > section:nth-child(3)"
+ ],
+ "swap": {
+  "sticky": "",
+  "top-0": "",
+  "z-30": "",
+  "backdrop-blur-md": "",
+  "w-[390px]": "w-full",
+  "max-w-full": "",
+  "min-h-screen": "min-h-0"
+ },
+ "html": {
+  ":scope > main > header > h1": "e(d.title)",
+  ":scope > main > header > button:nth-child(3) > span:nth-child(2)": "e(d.langChip)"
+ },
+ "after": {
+  ":scope > main > header": "d.sub",
+  ":scope > main > div > section:nth-child(2)": "d.res"
+ },
+ "attr": {
+  ":scope > main > header > button:nth-child(1)": {
+   "data-href": "d.back",
+   "aria-label": "d.backL"
+  },
+  ":scope > main > header > button:nth-child(3)": {
+   "data-href": "d.langHref"
+  },
+  ":scope > main > div > div:nth-child(1) > div:nth-child(1)": {
+   "id": "'searchForm'",
+   "role": "'search'"
+  },
+  ":scope > main > div > div:nth-child(1) > div:nth-child(1) > input": {
+   "id": "'q'",
+   "placeholder": "d.ph",
+   "value": "d.q",
+   "aria-label": "d.ph",
+   "autocomplete": "'off'",
+   "enterkeyhint": "'search'",
+   "autocapitalize": "'off'",
+   "autocorrect": "'off'",
+   "spellcheck": "'false'",
+   "type": "'search'",
+   "lang": "'en'",
+   "dir": "'ltr'"
+  },
+  ":scope > main > div > div:nth-child(1) > div:nth-child(1) > span": {
+   "id": "'qGo'",
+   "tabindex": "'-1'",
+   "aria-hidden": "'true'"
+  },
+  ":scope > main > div > div:nth-child(1) > div:nth-child(1) > button": {
+   "id": "'qClear'",
+   "type": "'button'",
+   "aria-label": "d.clearL"
+  }
+ },
+ "addClass": {
+  ":scope > main > header > h1": "min-w-0 flex-1 [font-family:var(--font-display)] [text-wrap:balance]",
+  ":scope > main > header > button:nth-child(3)": "shrink-0",
+  ":scope > main > header": "gap-2 px-0",
+  ":scope > main > div > div:nth-child(1) > div:nth-child(1) > span": "min-w-[44px] min-h-[44px] justify-center left-0 cursor-pointer",
+  ":scope > main > div > div:nth-child(1) > div:nth-child(1) > input": "[font-size:16px] [text-overflow:ellipsis]",
+  ":scope > main > header > button:nth-child(1) > span": "ms-flip"
+ },
+ "repeat": [
+  {
+   "list": "d.recentBlk",
+   "as": "b",
+   "samples": ":scope > main > div > section:nth-child(2) > div:nth-child(1)",
+   "variants": {
+    "one": ":scope > main > div > section:nth-child(2) > div:nth-child(1)"
+   },
+   "bind": {
+    "one": {
+     "repeat": [
+      {
+       "list": "b.items",
+       "as": "r",
+       "samples": ":scope > div:nth-child(2) > span",
+       "variants": {
+        "one": ":scope > div:nth-child(2) > span:nth-child(1)"
+       },
+       "bind": {
+        "one": {
+         "html": {
+          ":scope": "e(r.w)"
+         },
+         "attr": {
+          ":scope": {
+           "href": "r.href",
+           "lang": "'en'"
+          }
+         },
+         "addClass": {
+          ":scope": "relative inline-flex items-center no-underline after:absolute after:-inset-1.5 after:content-['']"
+         },
+         "tag": {
+          ":scope": {
+           "to": "a"
+          }
+         }
+        }
+       }
+      }
+     ],
+     "html": {
+      ":scope > div:nth-child(1) > div > h2": "e(d.recentL)",
+      ":scope > div:nth-child(1) > button": "e(d.recClearL)"
+     },
+     "attr": {
+      ":scope > div:nth-child(1) > button": {
+       "id": "'recClear'",
+       "type": "'button'",
+       "aria-label": "d.recentL + ' · ' + d.recClearL"
+      }
+     },
+     "cls": {
+      ":scope > div:nth-child(2)": {
+       "gap-1.5": "''"
+      }
+     },
+     "addClass": {
+      ":scope > div:nth-child(2)": "gap-3"
+     }
+    }
+   }
+  },
+  {
+   "list": "d.browseBlk",
+   "as": "b",
+   "samples": ":scope > main > div > section:nth-child(2) > div",
+   "variants": {
+    "one": ":scope > main > div > section:nth-child(2) > div"
+   },
+   "bind": {
+    "one": {
+     "html": {
+      ":scope > div:nth-child(1) > h2": "e(b.title)"
+     },
+     "repeat": [
+      {
+       "list": "b.items",
+       "as": "r",
+       "samples": ":scope > div:nth-child(2) > button",
+       "variants": {
+        "one": ":scope > div:nth-child(2) > button:nth-child(1)"
+       },
+       "bind": {
+        "one": {
+         "html": {
+          ":scope": "e(r.w)"
+         },
+         "attr": {
+          ":scope": {
+           "href": "r.href",
+           "lang": "'en'",
+           "type": "null"
+          }
+         },
+         "addClass": {
+          ":scope": "relative inline-flex items-center no-underline after:absolute after:-inset-1.5 after:content-['']"
+         },
+         "tag": {
+          ":scope": {
+           "to": "a"
+          }
+         }
+        }
+       }
+      }
+     ],
+     "cls": {
+      ":scope > div:nth-child(2)": {
+       "gap-1.5": "''"
+      }
+     },
+     "addClass": {
+      ":scope > div:nth-child(2)": "gap-3"
+     }
+    }
+   }
+  }
+ ],
+ "i18n": {
+  "Select target languages": "Chọn ngôn ngữ giải nghĩa",
+  "Go back": "Quay lại",
+  "Dictionary search": "Ô tra từ",
+  "Clear search": "Xóa chữ đã nhập"
+ },
+ "colors": {
+  "#717978": "color:var(--muted)",
+  "#eadec8": "color:var(--line-2)",
+  "#eadec8/60": "color:var(--line-2)",
+  "#eadec8/70": "color:var(--line-2)",
+  "#eadec8/80": "color:var(--line-2)",
+  "dk:#4fd1c5": "color:var(--accent-text)",
+  "dk:#4fd1c5/20": "color:var(--accent-text)",
+  "lt:#006a64": "color:var(--accent-text)",
+  "dk:#006a64": "color:var(--accent-text)",
+  "lt:#1c1c18": "color:var(--text)",
+  "lt:#f1ede7": "color:var(--surface-2)",
+  "#0f3d3e": "color:var(--text)",
+  "lt:#2ba39a": "color:var(--accent-text)"
+ },
+ "cls": {
+  ":scope > main": {
+   "shadow-xl": "''",
+   "sm:rounded-[36px]": "''",
+   "border": "''",
+   "overflow-x-hidden": "''"
+  },
+  ":scope > main > header": {
+   "px-4": "''"
+  },
+  ":scope > main > header > h1": {
+   "text-[20px]": "''",
+   "leading-[28px]": "''",
+   "font-[600]": "'font-bold'"
+  },
+  ":scope > main > div > div:nth-child(1) > div:nth-child(1) > span": {
+   "left-3.5": "''"
+  },
+  ":scope > main > div > div:nth-child(1) > div:nth-child(1) > input": {
+   "focus:outline-none": "''"
+  }
+ },
+ "styles": true,
+ "rootClass": "![font-family:inherit]"
+}
