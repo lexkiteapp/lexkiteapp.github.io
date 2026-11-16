@@ -107,6 +107,8 @@ FSRSは固定されたルールではなく、学習者の過去の正答・誤�
 
 {{youtube: | Spaced Repetition FSRS Vocabulary Mastery}}
 
+復習のタイミングに加えて「答えを見る前に思い出す」ことが大切な理由は、[アクティブリコール 英単語のやり方](/ja/blog/active-recall-eitango-yarikata/)で説明しています。
+
 ## よくある質問（FAQ）
 
 ### Q1. 1日に新しく学習する単語は何語くらいが適切ですか？
