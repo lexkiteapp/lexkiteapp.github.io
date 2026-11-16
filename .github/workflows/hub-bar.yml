@@ -3,7 +3,7 @@
 name: Hub bar guard
 on:
   pull_request:
-    paths: ['web/app/index.html', 'web/css/style.css', 'web/css/lazy-ui.css', 'web/css/st-*', 'web/js/st/v2/**', 'web/js/ux1*.js', 'web/js/app.js', 'web/js/lang-menu.js', 'web/js/hubs.js', 'brand/stitch/v2/bind/today*', 'scripts/build-stitch-css.mjs', 'web/js/hubs.js', 'web/js/st/common.js', 'scripts/test/hub-bar.mjs', '.github/workflows/hub-bar.yml']
+    paths: ['web/app/index.html', 'web/css/style.css', 'web/css/lazy-ui.css', 'web/css/st-*', 'web/js/st/v2/**', 'web/js/ux1*.js', 'web/js/app.js', 'web/js/lang-menu.js', 'web/js/hubs.js', 'brand/stitch/v2/bind/today*', 'scripts/build-stitch-css.mjs', 'web/js/hubs.js', 'web/js/st/common.js', 'scripts/test/hub-bar.mjs', 'scripts/test/ios-e2e/**', 'mobile/**', '.github/workflows/hub-bar.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -49,3 +49,74 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with: { name: hub-bar, path: out/hub-bar, retention-days: 14 }
+  # iPhone THẬT trong Simulator (Capacitor, WKWebView + safe-area px thật): 5 tab × sáng/tối, đo thanh hub nằm dưới thanh trạng thái, một thanh, không icon rỗng, nhãn tab một kiểu + chụp ảnh.
+  ios-build:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
+    runs-on: macos-15
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Chọn Xcode 26
+        run: |
+          X=$(ls -d /Applications/Xcode_26*.app 2>/dev/null | sort -V | tail -1)
+          [ -n "$X" ] && sudo xcode-select -s "$X/Contents/Developer"; xcodebuild -version
+      - uses: actions/cache@v4
+        with:
+          path: ~/.npm/_libvips
+          key: sharp-libvips-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('mobile/package-lock.json') }}
+      - name: Build web → cap sync → chèn harness (chế độ hubbar)
+        env: { E2E_MODE: hubbar }
+        run: |
+          bash scripts/ci/npm-retry.sh ci --prefix mobile --no-audit --no-fund
+          ./scripts/build-mobile.sh
+          bash scripts/test/ios-e2e/inject.sh
+      - name: xcodebuild (iphonesimulator, không ký)
+        working-directory: mobile/ios/App
+        run: |
+          set -o pipefail
+          xcodebuild -project App.xcodeproj -scheme App -configuration Debug -sdk iphonesimulator \
+            -destination 'generic/platform=iOS Simulator' -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO build | tail -30
+          cd build/Build/Products/Debug-iphonesimulator && zip -qry "$GITHUB_WORKSPACE/app-hubbar.zip" App.app
+      - uses: actions/upload-artifact@v4
+        with: { name: app-hubbar, path: app-hubbar.zip, retention-days: 3 }
+  ios-test:
+    needs: [gate, ios-build]
+    if: needs.gate.outputs.go == 'true'
+    runs-on: macos-15
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { tag: iphone, device: 'iPhone 1' }
+          - { tag: se, device: 'iPhone SE' }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Chọn Xcode 26
+        run: |
+          X=$(ls -d /Applications/Xcode_26*.app 2>/dev/null | sort -V | tail -1)
+          [ -n "$X" ] && sudo xcode-select -s "$X/Contents/Developer"
+      - uses: actions/download-artifact@v4
+        with: { name: app-hubbar }
+      - name: Chạy kịch bản ${{ matrix.tag }}
+        run: |
+          unzip -q app-hubbar.zip -d "$RUNNER_TEMP/app"
+          node scripts/test/ios-e2e/driver.mjs --app "$RUNNER_TEMP/app/App.app" --device '${{ matrix.device }}' --tag ${{ matrix.tag }} --out e2e-out --minutes 25 --minsteps 8
+      - name: Cổng — lỗi thanh hub / icon rỗng / safe-area
+        run: |
+          node -e "
+          const r=JSON.parse(require('fs').readFileSync('e2e-out/${{ matrix.tag }}/results.json','utf8'));
+          const bad=r.events.filter(e=>e.type==='step').flatMap(e=>(e.issues||[]).filter(i=>i.kind==='hubbar').map(i=>i.msg));
+          const safe=r.events.filter(e=>e.type==='info'&&e.key==='hubbar').map(e=>e.route+'='+e.safe);
+          console.log('safe-area-inset-top:',safe.join(' '));
+          if(!safe.length) bad.push('không đo được tab nào (kịch bản không chạy tới bước hub)');
+          bad.forEach(m=>console.error('✗',m)); console.log(bad.length?bad.length+' lỗi':'đạt'); process.exit(bad.length?1:0);"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: 'hub-bar-ios-${{ matrix.tag }}', path: e2e-out/, retention-days: 14 }
