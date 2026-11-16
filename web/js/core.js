@@ -20,7 +20,7 @@
     rq.onupgradeneeded = () => rq.result.createObjectStore('kv');
     rq.onsuccess = () => migrateOldDb(rq.result).then(() => res(rq.result), () => res(rq.result)); rq.onerror = () => rej(rq.error); rq.onblocked = () => rej(new Error('blocked'));
   }));
-  // Chuyển dữ liệu từ CSDL tên cũ "vocaband" (1 lần): chỉ chép khóa còn thiếu, chép xong mới xóa CSDL cũ → không mất tiến độ học
+  // Chuyển 1 lần từ CSDL cũ "vocaband": chỉ chép khóa còn thiếu, xong mới xóa
   async function migrateOldDb(db) {
     try { if (localStorage.getItem('lk.idbMoved')) return; } catch (e) { return; }
     if (indexedDB.databases) { const list = await indexedDB.databases().catch(() => null); if (list && !list.some(d => d.name === 'vocaband')) { try { localStorage.setItem('lk.idbMoved', '1'); } catch (e) { /* bỏ qua */ } return; } }
@@ -264,7 +264,7 @@
   const Cards = {
     async all() { return normalize(await Store.get('cards', {})); },
     async save(map) { return serial(() => Store.set('cards', normalize(map))); },
-    // Đọc–sửa–ghi trong cùng khóa với add/ôn tập: gộp đồng bộ không đè câu trả lời ghi giữa lúc chờ mạng (docs/specs/account-flow.md)
+    // Đọc–sửa–ghi cùng khóa với add/ôn tập: gộp đồng bộ không đè câu trả lời ghi lúc chờ mạng
     async mutate(fn) { return serial(async () => Store.set('cards', normalize(fn(normalize(await Store.get('cards', {})))))); },
 
     make(entry, extra = {}) {
@@ -383,10 +383,10 @@
       const newCount = Math.min(newAvail, Math.max(0, (settings || DEFAULT_SETTINGS).dailyNew - introduced));
       return { due, newCount, total: due + newCount };
     },
-    // Thẻ mới đã xem mà chưa chấm (thoát giữa phiên): lần sau xuống cuối hàng, gặp từ chưa xem trước. Lưu theo máy, tối đa 400 từ.
+    // Thẻ mới đã xem chưa chấm (thoát giữa phiên): lần sau xuống cuối hàng; lưu theo máy, ≤ 400 từ
     seenNew() { try { return JSON.parse(localStorage.getItem('lk.newSeen') || '{}') || {}; } catch (e) { return {}; } },
     markSeen(word) { try { const m = Cards.seenNew(); m[String(word).toLowerCase()] = Date.now(); const k = Object.keys(m); if (k.length > 400) k.sort((a, b) => m[a] - m[b]).slice(0, k.length - 400).forEach(x => delete m[x]); localStorage.setItem('lk.newSeen', JSON.stringify(m)); } catch (e) { /* bỏ qua */ } },
-    // Thẻ mới vào phiên ôn hôm nay (chưa xem trước, rồi cũ nhất trước, tối đa newCount) – dùng chung cho phiên ôn (study.js) và số liệu màn Ôn (ux1.js)
+    // Thẻ mới vào phiên ôn hôm nay (chưa xem trước, rồi cũ nhất trước, ≤ newCount); dùng chung study.js + ux1.js
     newToday(map, settings, stats) {
       const n = Cards.dueCount(map, settings, stats).newCount, seen = Cards.seenNew(), at = c => seen[String(c.word).toLowerCase()] || 0;
       return Object.values(map).filter(c => c.srs.reps === 0 && !c.srs.last).sort((a, b) => at(a) - at(b) || a.added - b.added).slice(0, n);
