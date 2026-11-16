@@ -27,7 +27,7 @@ jobs:
         timeout-minutes: 10
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          bash scripts/ci/pw-install.sh --with-deps chromium
+          bash scripts/ci/pw-install.sh --with-deps chromium webkit
       - name: Dò CSP
         timeout-minutes: 15
         run: node scripts/test/csp-probe.mjs "$LX_BASE" out/csp $LX_STRICT
