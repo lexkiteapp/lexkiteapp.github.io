@@ -16,15 +16,16 @@ export async function coverage(db, now = Date.now(), days = COVER_DAYS) {
   const ext = (await all("SELECT channel_id, platform, title FROM dist_ext WHERE status = 'ok' ORDER BY platform, title")).filter(c => !foreignAccount({ title: c.title }));
   const cfg = new Map(); for (const r of await all('SELECT channel_id, cfg FROM yt_chan_cfg')) { try { cfg.set(r.channel_id, JSON.parse(r.cfg || '{}')); } catch (e) { /* cấu hình hỏng → mặc định */ } }
   const slots = new Map(); for (const r of await all("SELECT channel_id, slot_ms FROM dist_social WHERE slot_ms BETWEEN ? AND ? AND state NOT IN ('failed', 'cancelled')", now - 864e5, now + (days + 2) * 864e5)) (slots.get(r.channel_id) || slots.set(r.channel_id, []).get(r.channel_id)).push(r.slot_ms);
+  const posted = new Map(); for (const r of await all("SELECT channel_id, COUNT(*) AS n FROM dist_social WHERE slot_ms BETWEEN ? AND ? AND state IN ('pushed', 'published') GROUP BY channel_id", now - 864e5, now)) posted.set(r.channel_id, +r.n || 0); // 24 giờ qua: kênh có bài đã đẩy/đăng không?
   const rows = [];
   // YouTube có 2 đường (docs/VIDEO.md): API trực tiếp (yt_channel UC… + yt_plan) và GrabCast (dist_ext gc-youtube-* + dist_social). Cùng 1 kênh thật (trùng tên) thì GỘP lịch hai đường, không đếm hai lần.
   const norm = t => String(t || '').toLowerCase().replace(/\s+/g, ' ').trim(), direct = (await all("SELECT channel_id, title FROM yt_channel WHERE status = 'ok'")), plan = new Map();
   for (const r of await all('SELECT channel_id, slot_ms FROM yt_plan WHERE slot_ms BETWEEN ? AND ?', now - 864e5, now + (days + 2) * 864e5)) (plan.get(r.channel_id) || plan.set(r.channel_id, []).get(r.channel_id)).push(r.slot_ms);
   const byTitle = new Map(ext.filter(c => c.platform === 'youtube').map(c => [norm(c.title), c])), used = new Set();
-  const add = (id, platform, title, tz, ms) => { const miss = gapsOf(ms, tz, now, days); rows.push({ channel_id: id, platform, title, tz, have: days - miss.length, missing: miss }); };
-  for (const d of direct) { const cf = normCfg(cfg.get(d.channel_id) || {}); if (cf.active === 0) continue; const g = byTitle.get(norm(d.title)); if (g) used.add(g.channel_id); add(d.channel_id, 'youtube', d.title, cf.tz, [...(plan.get(d.channel_id) || []), ...(g ? slots.get(g.channel_id) || [] : [])]); }
+  const add = (id, platform, title, tz, ms) => { const miss = gapsOf(ms, tz, now, days); rows.push({ channel_id: id, platform, title, tz, have: days - miss.length, missing: miss, last24h: posted.get(id) || 0 }); };
+  for (const d of direct) { const cf = normCfg(cfg.get(d.channel_id) || {}); if (cf.active === 0) continue; const g = byTitle.get(norm(d.title)); if (g) used.add(g.channel_id); add(d.channel_id, 'youtube', d.title, cf.tz, [...(plan.get(d.channel_id) || []), ...(g ? slots.get(g.channel_id) || [] : [])]); if (g) rows[rows.length - 1].last24h += posted.get(g.channel_id) || 0; }
   for (const c of ext) { if (used.has(c.channel_id)) continue; const cf = normCfg(cfg.get(c.channel_id) || {}); if (cf.active === 0) continue; add(c.channel_id, c.platform, c.title, cf.tz, slots.get(c.channel_id)); }
   const per = {}; for (const r of rows) { const x = per[r.platform] || (per[r.platform] = { channels: 0, have: 0 }); x.channels++; x.have += r.have; }
   const platforms = Object.entries(EXPECT).map(([p, want]) => { const x = per[p] || { channels: 0, have: 0 }; return { platform: p, want, channels: x.channels, have: x.have, total: want * days, unconnected: Math.max(0, want - x.channels) }; });
-  return { days, at: now, channels: rows.length, rows, platforms, short: rows.filter(r => r.missing.length).length };
+  return { days, at: now, channels: rows.length, rows, platforms, short: rows.filter(r => r.missing.length).length, idle24: rows.filter(r => !r.last24h).length };
 }
