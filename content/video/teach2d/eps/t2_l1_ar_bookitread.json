@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_bookitread",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "No extra it!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: The book that I read it was good.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: The book that I read was good.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Do not add it after read.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Was! The song that I heard was nice.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "The book that I read it was good.",
+  "right": "The book that I read was good.",
+  "strike": "it",
+  "why": "Do not add it after read.",
+  "memory": "The book I read.",
+  "quiz": {
+   "stem": "The song that I heard ___ nice.",
+   "options": [
+    "was",
+    "it was"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "هل تضيف “it” زائدة؟",
+   "tip": "في العربية نقول «الكتاب الذي قرأتُه» بضمير عائد، لكن في الإنجليزية: “The book that I read was good.” وليس “…read it was good.”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “The book that I read it was good.” 😅 لا نعيد الضمير بعد الفعل في الجملة الموصولة، فالجملة الصحيحة “The book that I read was good.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “was” — لا نعيد الضمير بعد الفعل في الجملة الموصولة. اختبار مجاني هنا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you add an extra “it”?",
+   "tip": "We do not repeat the pronoun: “The book that I read was good.” not “The book that I read it was good.”",
+   "caption": "Do you sometimes say this? “The book that I read it was good.” 😅 In English we do not add it after the verb, so the right sentence is “The book that I read was good.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تضيف “it” زائدة؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "هل تضيف “it” زائدة؟",
+  "keyword": "The book that I read was good.",
+  "value": "في العربية نقول «الكتاب الذي قرأتُه» بضمير عائد، لكن في الإنجليزية: “The book that I read was good.” وليس “…read it was good.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 46,
+  "platforms": {
+   "youtube": {
+    "title": "هل تضيف “it” زائدة؟",
+    "description": "في العربية نقول «الكتاب الذي قرأتُه» بضمير عائد، لكن في الإنجليزية: “The book that I read was good.” وليس “…read it was good.”\n\nهل تقول أحيانًا هذه الجملة؟ “The book that I read it was good.” 😅 لا نعيد الضمير بعد الفعل في الجملة الموصولة، فالجملة الصحيحة “The book that I read was good.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "The book that I read was good.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا هذه الجملة؟ “The book that I read it was good.” 😅 لا نعيد الضمير بعد الفعل في الجملة الموصولة، فالجملة الصحيحة “The book that I read was good.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تضيف “it” زائدة؟\n\nفي العربية نقول «الكتاب الذي قرأتُه» بضمير عائد، لكن في الإنجليزية: “The book that I read was good.” وليس “…read it was good.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تضيف “it” زائدة؟ في العربية نقول «الكتاب الذي قرأتُه» بضمير عائد، لكن في الإنجليزية: “The book… #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “was” — لا نعيد الضمير بعد الفعل في الجملة الموصولة. اختبار مجاني هنا: {link}",
+  "lang": "ar"
+ }
+}

@@ -95,6 +95,8 @@ En pratiquant le shadowing dix minutes par jour sur des enregistrements de l'IEL
 
 {{cta: /#/listening | S'entraîner à l'IELTS Listening}}
 
+Pour aller plus loin, chaque format a sa méthode et son piège : voyez [IELTS Listening types de questions](/fr/blog/ielts-listening-types-de-questions-methode/).
+
 ## Questions fréquentes
 
 ### Est-il préférable d'écrire les réponses tout en majuscules ?

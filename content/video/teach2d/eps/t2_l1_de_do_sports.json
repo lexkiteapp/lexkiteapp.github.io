@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_do_sports",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Play sports, not make sports!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I make sports every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I play sports every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say play sports.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Play! I play sports every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I make sports every day.",
+  "right": "I play sports every day.",
+  "strike": "make",
+  "why": "Say play sports.",
+  "memory": "Play sports.",
+  "quiz": {
+   "stem": "I ___ sports every day.",
+   "options": [
+    "play",
+    "make"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "„Sport machen“ = „play sports“!",
+   "tip": "Im Deutschen sagen wir „Sport machen“. Im Englischen sagen Sie „play sports“, nicht „make sports“.",
+   "caption": "Sagen Sie „make sports“? ⚽ Falsch: “I make sports every day.” Richtig: “I play sports every day.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “play”. Richtig heißt es: “I play sports every day.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “play sports”!",
+   "tip": "German says “Sport machen.” English says “play sports,” not “make sports.”",
+   "caption": "Say “play sports”! Wrong: “I make sports every day.” Right: “I play sports every day.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "„Sport machen“ = „play sports“!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "„Sport machen“ = „play sports“!",
+  "keyword": "I play sports every day.",
+  "value": "Im Deutschen sagen wir „Sport machen“. Im Englischen sagen Sie „play sports“, nicht „make sports“.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "„Sport machen“ = „play sports“!",
+    "description": "Im Deutschen sagen wir „Sport machen“. Im Englischen sagen Sie „play sports“, nicht „make sports“.\n\nSagen Sie „make sports“? ⚽ Falsch: “I make sports every day.” Richtig: “I play sports every day.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "I play sports every day.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Sagen Sie „make sports“? ⚽ Falsch: “I make sports every day.” Richtig: “I play sports every day.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "„Sport machen“ = „play sports“!\n\nIm Deutschen sagen wir „Sport machen“. Im Englischen sagen Sie „play sports“, nicht „make sports“.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "„Sport machen“ = „play sports“! Im Deutschen sagen wir „Sport machen“. Im Englischen sagen Sie „play s… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “play”. Richtig heißt es: “I play sports every day.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

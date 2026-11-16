@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_on_foot",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "By foot or on foot?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I go to school by foot.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I go to school on foot.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say on foot.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "On! She goes to work on foot.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I go to school by foot.",
+  "right": "I go to school on foot.",
+  "strike": "by foot",
+  "why": "Say on foot.",
+  "memory": "On foot.",
+  "quiz": {
+   "stem": "She goes to work ___ foot.",
+   "options": [
+    "on",
+    "by"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "«Пешком» — by foot или on foot?",
+   "tip": "Пешком — “on foot”: “I go to school on foot.”",
+   "caption": "Ты тоже говоришь “I go to school by foot”? 😅 По-русски «пешком» — одно слово, поэтому по аналогии с “by bus” и “by car” хочется сказать “by foot”, но верно “on foot.” Правильно: “I go to school on foot.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “on.” Пешком — on foot. Скажи вслух: “I go to … on foot.” Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#изучениеанглийского",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "By foot or on foot?",
+   "tip": "To walk somewhere, use “on foot”: “I go to school on foot.”",
+   "caption": "Do you also say “I go to school by foot”? 😅 In Russian it is one word, so “by bus” and “by car” pull you to “by foot”, but the right phrase is “on foot.” Correct: “I go to school on foot.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "«Пешком» — by foot или on foot?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "«Пешком» — by foot или on foot?",
+  "keyword": "I go to school on foot.",
+  "value": "Пешком — “on foot”: “I go to school on foot.”",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#изучениеанглийского",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "«Пешком» — by foot или on foot?",
+    "description": "Пешком — “on foot”: “I go to school on foot.”\n\nТы тоже говоришь “I go to school by foot”? 😅 По-русски «пешком» — одно слово, поэтому по аналогии с “by bus” и “by car” хочется сказать “by foot”, но верно “on foot.” Правильно: “I go to school on foot.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #английский #изучениеанглийского #lexkite",
+    "tags": [
+     "I go to school on foot.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “I go to school by foot”? 😅 По-русски «пешком» — одно слово, поэтому по аналогии с “by bus” и “by car” хочется сказать “by foot”, но верно “on foot.” Правильно: “I go to school on foot.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "«Пешком» — by foot или on foot?\n\nПешком — “on foot”: “I go to school on foot.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#изучениеанглийского",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "«Пешком» — by foot или on foot? Пешком — “on foot”: “I go to school on foot.” #английскийязык #английский #изучениеанглийского"
+   }
+  },
+  "first_comment": "Ответ: “on.” Пешком — on foot. Скажи вслух: “I go to … on foot.” Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

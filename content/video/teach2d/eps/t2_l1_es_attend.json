@@ -56,7 +56,7 @@
   "right": "I attended the class yesterday.",
   "strike": "assisted",
   "why": "Assist means help. Attend means go to.",
-  "memory": "Attend = asistir.",
+  "memory": "Attend = go to.",
   "quiz": {
    "stem": "I ___ the meeting.",
    "options": [
@@ -68,7 +68,7 @@
   "native": {
    "hook": "“Assist” no es “asistir”",
    "tip": "Falso amigo: “assist” es “ayudar”. Para “asistir a clase” usa “attend”.",
-   "caption": "Falso amigo traicionero 🎓 No digas “I assisted the class yesterday.”, sino “I attended the class yesterday.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+   "caption": "Falso amigo traicionero 🎓 No digas “I assisted the class yesterday.”, sino “I attended the class yesterday.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
    "comment": "Respuesta: “attended”. “Assist” = ayudar; “attend” = asistir. Practica más con un quiz gratis aquí: {link}",
    "hashtags": [
     "#aprenderingles",
@@ -80,7 +80,7 @@
   "en": {
    "hook": "“Assist” is not “asistir”",
    "tip": "False friend: “assist” means “ayudar”. For “asistir a clase” use “attend”.",
-   "caption": "A sneaky false friend! Do not say “I assisted the class yesterday.”, say “I attended the class yesterday.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+   "caption": "A sneaky false friend! Do not say “I assisted the class yesterday.”, say “I attended the class yesterday.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "“Assist” no es “asistir”",
-    "description": "Falso amigo traicionero 🎓 No digas “I assisted the class yesterday.”, sino “I attended the class yesterday.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #falsosamigos #lexkite",
+    "description": "Falso amigo: “assist” es “ayudar”. Para “asistir a clase” usa “attend”.\n\nFalso amigo traicionero 🎓 No digas “I assisted the class yesterday.”, sino “I attended the class yesterday.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #falsosamigos #lexkite",
     "tags": [
      "I attended the class yesterday.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Falso amigo traicionero 🎓 No digas “I assisted the class yesterday.”, sino “I attended the class yesterday.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Falso amigo traicionero 🎓 No digas “I assisted the class yesterday.”, sino “I attended the class yesterday.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Falso amigo traicionero 🎓 No digas “I assisted the class yesterday.”, sino “I attended the class yesterday.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nlexkite.com",
+    "caption": "“Assist” no es “asistir”\n\nFalso amigo: “assist” es “ayudar”. Para “asistir a clase” usa “attend”.\n\nlexkite.com",
     "hashtags": [
      "#aprenderingles",
      "#inglesfacil",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "“Assist” no es “asistir” #aprenderingles #inglesfacil #falsosamigos"
+    "caption": "“Assist” no es “asistir” Falso amigo: “assist” es “ayudar”. Para “asistir a clase” usa “attend”. #aprenderingles #inglesfacil #falsosamigos"
    }
   },
   "first_comment": "Respuesta: “attended”. “Assist” = ayudar; “attend” = asistir. Practica más con un quiz gratis aquí: {link}",

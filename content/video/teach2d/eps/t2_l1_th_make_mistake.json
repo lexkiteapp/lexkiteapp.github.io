@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_make_mistake",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Make a mistake!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I did a mistake in my test.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I made a mistake in my test.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "We say make a mistake.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Made! I made a mistake.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I did a mistake in my test.",
+  "right": "I made a mistake in my test.",
+  "strike": "did",
+  "why": "We say make a mistake.",
+  "memory": "Make a mistake.",
+  "quiz": {
+   "stem": "Oops, I ___ a mistake.",
+   "options": [
+    "did",
+    "made"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "ทำผิด = make a mistake!",
+   "tip": "ภาษาไทยใช้ “ทำ” กับแทบทุกอย่าง (ทำผิด ทำการบ้าน) จึงมักพูด did แต่ mistake ใช้คู่กับ make: “I made a mistake in my test.”",
+   "caption": "คุณเคยพูดว่า “I did a mistake in my test.” ไหม? 😅 ภาษาไทยใช้ “ทำ” กับแทบทุกอย่าง (ทำผิด ทำการบ้าน) จึงมักพูด did แต่ mistake ใช้คู่กับ make: “I made a mistake in my test.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “made” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยคด้วยคำนี้ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “make a mistake”!",
+   "tip": "Thai uses one word for do and make, so many people say did a mistake, but English says made a mistake.",
+   "caption": "Do you say “I did a mistake in my test.” 😅 Thai uses one word for do and make, so many people say did a mistake, but English says made a mistake. Say “I made a mistake in my test.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "ทำผิด = make a mistake!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "ทำผิด = make a mistake!",
+  "keyword": "I made a mistake in my test.",
+  "value": "ภาษาไทยใช้ “ทำ” กับแทบทุกอย่าง (ทำผิด ทำการบ้าน) จึงมักพูด did แต่ mistake ใช้คู่กับ make: “I made a mistake in my test.”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "ทำผิด = make a mistake!",
+    "description": "ภาษาไทยใช้ “ทำ” กับแทบทุกอย่าง (ทำผิด ทำการบ้าน) จึงมักพูด did แต่ mistake ใช้คู่กับ make: “I made a mistake in my test.”\n\nคุณเคยพูดว่า “I did a mistake in my test.” ไหม? 😅 ภาษาไทยใช้ “ทำ” กับแทบทุกอย่าง (ทำผิด ทำการบ้าน) จึงมักพูด did แต่ mistake ใช้คู่กับ make: “I made a mistake in my test.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "I made a mistake in my test.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “I did a mistake in my test.” ไหม? 😅 ภาษาไทยใช้ “ทำ” กับแทบทุกอย่าง (ทำผิด ทำการบ้าน) จึงมักพูด did แต่ mistake ใช้คู่กับ make: “I made a mistake in my test.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "ทำผิด = make a mistake!\n\nภาษาไทยใช้ “ทำ” กับแทบทุกอย่าง (ทำผิด ทำการบ้าน) จึงมักพูด did แต่ mistake ใช้คู่กับ make: “I made a mistake in my test.”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ทำผิด = make a mistake! ภาษาไทยใช้ “ทำ” กับแทบทุกอย่าง (ทำผิด ทำการบ้าน) จึงมักพูด did แต่ mistake ใช้คู่กับ… #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “made” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยคด้วยคำนี้ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

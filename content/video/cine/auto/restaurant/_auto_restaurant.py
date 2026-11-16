@@ -91,6 +91,6 @@ def emit():
             shot(b['id'], c, n / FPS, (lambda fr: lambda m: fr[:m])(fr), [(c, w, []) for w in ws], [], ov=b['ov'], foley=b['foley'])
         elif b['kind'] == 'prop':
             pc, f0, d, snd, at = PROP; shot('prop', pc, n / FPS, lambda m: list(range(f0, f0 + m)), [], [], foley=[(FD + snd, at / FPS)] if snd else [])
-        else: shot('loop', MASTER, n / FPS, lambda m: list(range(h0 + m - 1, h0 - 1, -1)), [(MASTER, w, []) for w in hws], [], ov=[('Follow', 0.0, None, 'Follow for daily English|lexkite.com')])
+        else: shot('loop', MASTER, n / FPS, lambda m: list(range(h0 + m - 1, h0 - 1, -1)), [(MASTER, w, []) for w in hws], [], ov=[('Follow', 0.0, None, 'Free practice on lexkite.com|lexkite.com')])
 def vend(recap, clip=None):
     hold('recap', clip or BREACT, 2.8, ov=[('Recap', 0.0, 2.5, recap + '|')]); PEND.append(dict(kind='loop', id='loop', d=1.0, opt=False, pad=False, on=True)); fit(); emit()

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_must_not",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Do not have to, not must not!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: You must not bring a gift.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: You do not have to bring a gift.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Not needed? Say do not have to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Do not have to! You do not have to bring a gift.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "You must not bring a gift.",
+  "right": "You do not have to bring a gift.",
+  "strike": "must not",
+  "why": "Not needed? Say do not have to.",
+  "memory": "Do not have to.",
+  "quiz": {
+   "stem": "You ___ bring a gift. It is not needed.",
+   "options": [
+    "do not have to",
+    "must not"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "„Nicht müssen“ ≠ „must not“!",
+   "tip": "„Sie müssen nicht kommen“ heißt „You do not have to come“. „Must not“ bedeutet „nicht dürfen“.",
+   "caption": "Sagen Sie „must not“ für „nicht müssen“? 🎁 Falsch: “You must not bring a gift.” Richtig: “You do not have to bring a gift.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “do not have to”. Richtig heißt es: “You do not have to bring a gift.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Nicht müssen” is not “must not”!",
+   "tip": "“Nicht müssen” is “do not have to”. “Must not” means “nicht dürfen”.",
+   "caption": "“Nicht müssen” is not “must not”! Wrong: “You must not bring a gift.” Right: “You do not have to bring a gift.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "„Nicht müssen“ ≠ „must not“!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 60,
+  "seconds": 35.0,
+  "wpm": 103
+ },
+ "publish": {
+  "title": "„Nicht müssen“ ≠ „must not“!",
+  "keyword": "You do not have to bring a gift.",
+  "value": "„Sie müssen nicht kommen“ heißt „You do not have to come“. „Must not“ bedeutet „nicht dürfen“.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 54,
+  "platforms": {
+   "youtube": {
+    "title": "„Nicht müssen“ ≠ „must not“!",
+    "description": "„Sie müssen nicht kommen“ heißt „You do not have to come“. „Must not“ bedeutet „nicht dürfen“.\n\nSagen Sie „must not“ für „nicht müssen“? 🎁 Falsch: “You must not bring a gift.” Richtig: “You do not have to bring a gift.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "You do not have to bring a gift.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Sagen Sie „must not“ für „nicht müssen“? 🎁 Falsch: “You must not bring a gift.” Richtig: “You do not have to bring a gift.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "„Nicht müssen“ ≠ „must not“!\n\n„Sie müssen nicht kommen“ heißt „You do not have to come“. „Must not“ bedeutet „nicht dürfen“.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "„Nicht müssen“ ≠ „must not“! „Sie müssen nicht kommen“ heißt „You do not have to come“. „Must not“ bed… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “do not have to”. Richtig heißt es: “You do not have to bring a gift.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

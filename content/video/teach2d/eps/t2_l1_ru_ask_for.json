@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_ask_for",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Ask about or ask for?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She asked me about help.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She asked me for help.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Ask for help.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "For! I will ask my teacher for help.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She asked me about help.",
+  "right": "She asked me for help.",
+  "strike": "about",
+  "why": "Ask for help.",
+  "memory": "Ask for help.",
+  "quiz": {
+   "stem": "I will ask my teacher ___ help.",
+   "options": [
+    "about",
+    "for"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Просить помощи: “ask for”",
+   "tip": "Просить помощи — “ask for”: “She asked me for help.”",
+   "caption": "Ты тоже говоришь “She asked me about help”? 😅 По-русски «просить о помощи» — с «о», поэтому тянет сказать “about”, но когда просят что-то, нужен “for.” Правильно: “She asked me for help.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “for.” Просить помощи — ask for. Напиши своё предложение с “I asked for.” Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#учуанглийский",
+    "#английскийдляначинающих",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Ask about or ask for?",
+   "tip": "To request something, use “ask for”: “She asked me for help.”",
+   "caption": "Do you also say “She asked me about help”? 😅 In Russian you ask “about” help, so “about” slips in, but English needs “for.” Correct: “She asked me for help.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Просить помощи: “ask for”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Просить помощи: “ask for”",
+  "keyword": "She asked me for help.",
+  "value": "Просить помощи — “ask for”: “She asked me for help.”",
+  "hashtags": [
+   "#английскийязык",
+   "#учуанглийский",
+   "#английскийдляначинающих",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Просить помощи: “ask for”",
+    "description": "Просить помощи — “ask for”: “She asked me for help.”\n\nТы тоже говоришь “She asked me about help”? 😅 По-русски «просить о помощи» — с «о», поэтому тянет сказать “about”, но когда просят что-то, нужен “for.” Правильно: “She asked me for help.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #учуанглийский #английскийдляначинающих #lexkite",
+    "tags": [
+     "She asked me for help.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “She asked me about help”? 😅 По-русски «просить о помощи» — с «о», поэтому тянет сказать “about”, но когда просят что-то, нужен “for.” Правильно: “She asked me for help.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Просить помощи: “ask for”\n\nПросить помощи — “ask for”: “She asked me for help.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#учуанглийский",
+     "#английскийдляначинающих",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Просить помощи: “ask for” Просить помощи — “ask for”: “She asked me for help.” #английскийязык #учуанглийский #английскийдляначинающих"
+   }
+  },
+  "first_comment": "Ответ: “for.” Просить помощи — ask for. Напиши своё предложение с “I asked for.” Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

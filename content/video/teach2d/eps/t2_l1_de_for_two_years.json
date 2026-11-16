@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_for_two_years",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "I have lived here for two years!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have lived here since two years.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have lived here for two years.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use for with a length of time.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "For! I have lived here for two years.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have lived here since two years.",
+  "right": "I have lived here for two years.",
+  "strike": "since",
+  "why": "Use for with a length of time.",
+  "memory": "For two years.",
+  "quiz": {
+   "stem": "I have lived here ___ two years.",
+   "options": [
+    "for",
+    "since"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "„Seit zwei Jahren“ = „for“!",
+   "tip": "Im Deutschen sagen wir „seit zwei Jahren“. Bei einer Zeitdauer heißt es im Englischen „for“, nicht „since“.",
+   "caption": "Sagen Sie „since two years“? ⏰ Falsch: “I have lived here since two years.” Richtig: “I have lived here for two years.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “for”. Richtig heißt es: “I have lived here for two years.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "German “seit” can be “for”!",
+   "tip": "German says “seit zwei Jahren.” For a length of time, English says “for,” not “since.”",
+   "caption": "German “seit” can be “for”! Wrong: “I have lived here since two years.” Right: “I have lived here for two years.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "„Seit zwei Jahren“ = „for“!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 56,
+  "seconds": 33.0,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "„Seit zwei Jahren“ = „for“!",
+  "keyword": "I have lived here for two years.",
+  "value": "Im Deutschen sagen wir „seit zwei Jahren“. Bei einer Zeitdauer heißt es im Englischen „for“, nicht „since“.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 50,
+  "platforms": {
+   "youtube": {
+    "title": "„Seit zwei Jahren“ = „for“!",
+    "description": "Im Deutschen sagen wir „seit zwei Jahren“. Bei einer Zeitdauer heißt es im Englischen „for“, nicht „since“.\n\nSagen Sie „since two years“? ⏰ Falsch: “I have lived here since two years.” Richtig: “I have lived here for two years.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "I have lived here for two years.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Sagen Sie „since two years“? ⏰ Falsch: “I have lived here since two years.” Richtig: “I have lived here for two years.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "„Seit zwei Jahren“ = „for“!\n\nIm Deutschen sagen wir „seit zwei Jahren“. Bei einer Zeitdauer heißt es im Englischen „for“, nicht „since“.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "„Seit zwei Jahren“ = „for“! Im Deutschen sagen wir „seit zwei Jahren“. Bei einer Zeitdauer heißt es im… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “for”. Richtig heißt es: “I have lived here for two years.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

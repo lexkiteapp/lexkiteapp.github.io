@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_relatives",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Parents are only mom and dad!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have many parents in this city.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have many relatives in this city.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Parents are only mom and dad.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Relatives! My aunts are my relatives.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have many parents in this city.",
+  "right": "I have many relatives in this city.",
+  "strike": "parents",
+  "why": "Parents are only mom and dad.",
+  "memory": "Family = relatives.",
+  "quiz": {
+   "stem": "My cousins and aunts are my ___.",
+   "options": [
+    "parents",
+    "relatives"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "¿“Parents” son los “parientes”?",
+   "tip": "En español “parientes” son todos los familiares, pero “parents” en inglés son solo padre y madre. Para familiares: “relatives.”",
+   "caption": "Muchos dicen “I have many parents in this city.” 🙈 En español “parientes” son todos los familiares, pero “parents” son solo padre y madre. Para los demás se dice: “I have many relatives in this city.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “relatives”. “Parents” son solo padre y madre. Los demás son “relatives”. Escribe una frase tuya con “relatives”. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#falsosamigos",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Does “parents” mean “parientes”?",
+   "tip": "In Spanish “parientes” are all family, but English “parents” are only mom and dad. For the rest, say “relatives.”",
+   "caption": "Many learners say “I have many parents in this city.” In Spanish “parientes” are all family, but English “parents” are only mom and dad. For the rest, say: “I have many relatives in this city.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿“Parents” son los “parientes”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "¿“Parents” son los “parientes”?",
+  "keyword": "I have many relatives in this city.",
+  "value": "En español “parientes” son todos los familiares, pero “parents” en inglés son solo padre y madre. Para familiares: “relatives.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#falsosamigos",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 46,
+  "platforms": {
+   "youtube": {
+    "title": "¿“Parents” son los “parientes”?",
+    "description": "En español “parientes” son todos los familiares, pero “parents” en inglés son solo padre y madre. Para familiares: “relatives.”\n\nMuchos dicen “I have many parents in this city.” 🙈 En español “parientes” son todos los familiares, pero “parents” son solo padre y madre. Para los demás se dice: “I have many relatives in this city.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #falsosamigos #lexkite",
+    "tags": [
+     "I have many relatives in this city.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "Muchos dicen “I have many parents in this city.” 🙈 En español “parientes” son todos los familiares, pero “parents” son solo padre y madre. Para los demás se dice: “I have many relatives in this city.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "¿“Parents” son los “parientes”?\n\nEn español “parientes” son todos los familiares, pero “parents” en inglés son solo padre y madre. Para familiares: “relatives.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#falsosamigos",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿“Parents” son los “parientes”? En español “parientes” son todos los familiares, pero “parents” en inglés… #aprenderingles #inglesfacil #falsosamigos"
+   }
+  },
+  "first_comment": "Respuesta: “relatives”. “Parents” son solo padre y madre. Los demás son “relatives”. Escribe una frase tuya con “relatives”. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_eat_already",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Eat or ate? Let's check.",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I eat already.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I ate already.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say ate, not eat.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Ate! I ate already.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I eat already.",
+  "right": "I ate already.",
+  "strike": "eat",
+  "why": "Say ate, not eat.",
+  "memory": "I ate already.",
+  "quiz": {
+   "stem": "I ___ already.",
+   "options": [
+    "ate",
+    "eat"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Ăn rồi” nói sao?",
+   "tip": "Tiếng Việt nói “ăn rồi”, động từ không đổi, nên dễ nói “I eat already”, nhưng tiếng Anh đổi thành “ate.”",
+   "caption": "Bạn có hay nói “I eat already.” không? 🍚 Động từ cần đổi thành “ate”: “I ate already.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “I ate already.” Hãy nói to một câu về bữa sáng của bạn, có “ate” nhé. Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#tienganhcongso",
+    "#tienganhmoingay",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "How do you say “ăn rồi”?",
+   "tip": "Vietnamese says “ăn rồi” and the verb stays the same, so “I eat already” is easy to say, but English says “ate.”",
+   "caption": "Do you often say this? “I eat already.” The verb needs to change to “ate”: “I ate already.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Ăn rồi” nói sao?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 39,
+  "seconds": 24.7,
+  "wpm": 95
+ },
+ "publish": {
+  "title": "“Ăn rồi” nói sao?",
+  "keyword": "I ate already.",
+  "value": "Tiếng Việt nói “ăn rồi”, động từ không đổi, nên dễ nói “I eat already”, nhưng tiếng Anh đổi thành “ate.”",
+  "hashtags": [
+   "#hoctienganh",
+   "#tienganhcongso",
+   "#tienganhmoingay",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 33,
+  "platforms": {
+   "youtube": {
+    "title": "“Ăn rồi” nói sao?",
+    "description": "Tiếng Việt nói “ăn rồi”, động từ không đổi, nên dễ nói “I eat already”, nhưng tiếng Anh đổi thành “ate.”\n\nBạn có hay nói “I eat already.” không? 🍚 Động từ cần đổi thành “ate”: “I ate already.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #tienganhcongso #tienganhmoingay #lexkite",
+    "tags": [
+     "I ate already.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “I eat already.” không? 🍚 Động từ cần đổi thành “ate”: “I ate already.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Ăn rồi” nói sao?\n\nTiếng Việt nói “ăn rồi”, động từ không đổi, nên dễ nói “I eat already”, nhưng tiếng Anh đổi thành “ate.”\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#tienganhcongso",
+     "#tienganhmoingay",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Ăn rồi” nói sao? Tiếng Việt nói “ăn rồi”, động từ không đổi, nên dễ nói “I eat already”, nhưng tiếng A… #hoctienganh #tienganhcongso #tienganhmoingay"
+   }
+  },
+  "first_comment": "Đáp án: “I ate already.” Hãy nói to một câu về bữa sáng của bạn, có “ate” nhé. Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

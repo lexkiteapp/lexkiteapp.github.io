@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_finish_eat",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say finished eating!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I finished eat lunch.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I finished eating lunch.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After finish, use eating.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Doing! She finished doing her homework.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I finished eat lunch.",
+  "right": "I finished eating lunch.",
+  "strike": "eat",
+  "why": "After finish, use eating.",
+  "memory": "Finish eating.",
+  "quiz": {
+   "stem": "She finished ___ her homework.",
+   "options": [
+    "do",
+    "doing"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "finish ต้องตามด้วย -ing!",
+   "tip": "ภาษาไทยพูด “กินเสร็จ” โดยวางกริยาติดกันได้เลย แต่ภาษาอังกฤษหลัง finish ต้องเติม -ing: “I finished eating lunch.”",
+   "caption": "คุณเคยพูดว่า “I finished eat lunch.” ไหม? 😅 ภาษาไทยพูด “กินเสร็จ” โดยวางกริยาติดกันได้เลย แต่ภาษาอังกฤษหลัง finish ต้องเติม -ing: “I finished eating lunch.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “doing” จำไว้ให้ดีนะ! ลองพูดประโยคตัวอย่างออกเสียงหนึ่งรอบ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "After finish, add -ing!",
+   "tip": "Thai joins two verbs directly, but English needs -ing after finish.",
+   "caption": "Do you say “I finished eat lunch.” 😅 Thai joins two verbs directly, but English needs -ing after finish. Say “I finished eating lunch.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "finish ต้องตามด้วย -ing!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 41,
+  "seconds": 25.6,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "finish ต้องตามด้วย -ing!",
+  "keyword": "I finished eating lunch.",
+  "value": "ภาษาไทยพูด “กินเสร็จ” โดยวางกริยาติดกันได้เลย แต่ภาษาอังกฤษหลัง finish ต้องเติม -ing: “I finished eating lunch.”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "finish ต้องตามด้วย -ing!",
+    "description": "ภาษาไทยพูด “กินเสร็จ” โดยวางกริยาติดกันได้เลย แต่ภาษาอังกฤษหลัง finish ต้องเติม -ing: “I finished eating lunch.”\n\nคุณเคยพูดว่า “I finished eat lunch.” ไหม? 😅 ภาษาไทยพูด “กินเสร็จ” โดยวางกริยาติดกันได้เลย แต่ภาษาอังกฤษหลัง finish ต้องเติม -ing: “I finished eating lunch.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "I finished eating lunch.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “I finished eat lunch.” ไหม? 😅 ภาษาไทยพูด “กินเสร็จ” โดยวางกริยาติดกันได้เลย แต่ภาษาอังกฤษหลัง finish ต้องเติม -ing: “I finished eating lunch.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "finish ต้องตามด้วย -ing!\n\nภาษาไทยพูด “กินเสร็จ” โดยวางกริยาติดกันได้เลย แต่ภาษาอังกฤษหลัง finish ต้องเติม -ing: “I finished eating lunch.”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "finish ต้องตามด้วย -ing! ภาษาไทยพูด “กินเสร็จ” โดยวางกริยาติดกันได้เลย แต่ภาษาอังกฤษหลัง finish ต้องเติม -ing… #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “doing” จำไว้ให้ดีนะ! ลองพูดประโยคตัวอย่างออกเสียงหนึ่งรอบ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

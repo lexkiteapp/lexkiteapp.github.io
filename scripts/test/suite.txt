@@ -86,6 +86,7 @@ node scripts/test/pron-pairs.mjs
 node scripts/test/pron-coach.mjs
 node scripts/test/pron-shadow.mjs
 node scripts/test/call-engine.mjs
+node scripts/test/call-rt.mjs
 node scripts/test/feedback-eval.mjs
 node scripts/test/route-race.mjs
 node scripts/test/exit-guard.mjs
@@ -105,6 +106,8 @@ node scripts/test/social-proxy.mjs
 node scripts/test/social-ui.mjs
 node scripts/test/social-mgr.mjs
 node scripts/test/social-auto.mjs
+node scripts/test/social-coverage.mjs
+node scripts/test/yt-fill.mjs
 node scripts/test/social-preview.mjs
 node scripts/test/dist-channels.mjs
 node scripts/test/social-admin.mjs
@@ -388,6 +391,10 @@ node scripts/test/ci-guards.mjs
 node scripts/test/workflow-cd-paths.mjs
 node scripts/test/apt-install.mjs
 node scripts/test/perf-median.mjs
+node scripts/test/perf-calibrate.mjs
+node scripts/test/perf-flake.mjs
+node scripts/test/gate-relevance.mjs
+node scripts/test/native-qa-scope.mjs
 node scripts/test/pr-unconflict.mjs
 node scripts/test/regen-conflicts.mjs
 node scripts/test/gen-pr-clean.mjs
@@ -395,6 +402,7 @@ node scripts/test/main-red-sweep.mjs
 node scripts/test/ci-queue-gate.mjs
 node scripts/test/android-xml-comments.mjs
 node scripts/test/retry5xx.mjs
+node scripts/test/gh-tree.mjs
 node scripts/test/sparse-imports.mjs
 node scripts/test/stitch-today-contrast.mjs
 node scripts/test/is-main-guard.mjs
@@ -442,3 +450,4 @@ node scripts/test/body-limit.mjs
 node scripts/test/ai-task.mjs
 node scripts/test/video-junk.mjs
 node scripts/test/dict-add.mjs
+node scripts/test/ci-portable.mjs

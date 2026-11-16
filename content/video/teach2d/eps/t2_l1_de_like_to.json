@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_like_to",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Like to, not gladly!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I swim gladly.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I like to swim.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say like to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Like to swim! I like to swim in summer.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I swim gladly.",
+  "right": "I like to swim.",
+  "strike": "gladly",
+  "why": "Say like to.",
+  "memory": "Like to.",
+  "quiz": {
+   "stem": "I ___ in summer.",
+   "options": [
+    "swim gladly",
+    "like to swim"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "„Gerne“ ist nicht „gladly“!",
+   "tip": "Im Deutschen sagen Sie „Ich schwimme gerne“. Im Englischen sagen Sie „I like to swim“, nicht „gladly“.",
+   "caption": "Schwimmen Sie „gladly“? 🏊 Falsch: “I swim gladly.” Richtig: “I like to swim.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “like to swim”. Richtig heißt es: “I like to swim.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Gerne” is not “gladly”!",
+   "tip": "German says “Ich schwimme gerne”. English says “I like to swim”, not “gladly”.",
+   "caption": "“Gerne” is not “gladly”! Wrong: “I swim gladly.” Right: “I like to swim.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "„Gerne“ ist nicht „gladly“!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "„Gerne“ ist nicht „gladly“!",
+  "keyword": "I like to swim.",
+  "value": "Im Deutschen sagen Sie „Ich schwimme gerne“. Im Englischen sagen Sie „I like to swim“, nicht „gladly“.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "„Gerne“ ist nicht „gladly“!",
+    "description": "Im Deutschen sagen Sie „Ich schwimme gerne“. Im Englischen sagen Sie „I like to swim“, nicht „gladly“.\n\nSchwimmen Sie „gladly“? 🏊 Falsch: “I swim gladly.” Richtig: “I like to swim.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "I like to swim.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Schwimmen Sie „gladly“? 🏊 Falsch: “I swim gladly.” Richtig: “I like to swim.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "„Gerne“ ist nicht „gladly“!\n\nIm Deutschen sagen Sie „Ich schwimme gerne“. Im Englischen sagen Sie „I like to swim“, nicht „gladly“.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "„Gerne“ ist nicht „gladly“! Im Deutschen sagen Sie „Ich schwimme gerne“. Im Englischen sagen Sie „I li… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “like to swim”. Richtig heißt es: “I like to swim.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

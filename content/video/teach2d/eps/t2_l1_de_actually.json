@@ -11,22 +11,22 @@
  "lines": [
   {
    "id": "h",
-   "text": "Actually does not mean now!",
+   "text": "Actual does not mean now!",
    "pause": 0.42
   },
   {
    "id": "w",
-   "text": "Many learners say: Actually, it is raining now.",
+   "text": "Many learners say: The actual weather is bad.",
    "pause": 0.42
   },
   {
    "id": "r",
-   "text": "Better: Right now, it is raining.",
+   "text": "Better: The current weather is bad.",
    "pause": 0.42
   },
   {
    "id": "y",
-   "text": "Actually means in fact, not now.",
+   "text": "Actual means real. Current means now.",
    "pause": 0.42
   },
   {
@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "Right now! It is raining right now.",
+   "text": "Current! Here is the current weather for today.",
    "pause": 0.42
   },
   {
@@ -52,24 +52,24 @@
   }
  ],
  "data": {
-  "wrong": "Actually, it is raining now.",
-  "right": "Right now, it is raining.",
-  "strike": "Actually",
-  "why": "Actually means in fact, not now.",
-  "memory": "Now is right now.",
+  "wrong": "The actual weather is bad.",
+  "right": "The current weather is bad.",
+  "strike": "actual",
+  "why": "Actual means real. Current means now.",
+  "memory": "Current is now.",
   "quiz": {
-   "stem": "It is raining ___.",
+   "stem": "Here is the ___ weather for today.",
    "options": [
-    "actually",
-    "right now"
+    "current",
+    "actual"
    ],
-   "answer": 1
+   "answer": 0
   },
   "native": {
-   "hook": "Willst du „gerade jetzt“ sagen?",
-   "tip": "„Actually“ heißt „eigentlich“. Für „aktuell“ oder „gerade“ sagst du „right now“.",
-   "caption": "Willst du „gerade jetzt“ sagen? 🌧️ Falsch: “Actually, it is raining now.” Richtig: “Right now, it is raining.” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.",
-   "comment": "Lösung: “right now”. Richtig heißt es: “Right now, it is raining.” Übe mehr mit einem kostenlosen Quiz: {link}",
+   "hook": "„Aktuell“ heißt nicht „actual“!",
+   "tip": "„Actual“ heißt „tatsächlich“. Für „aktuell“ sagen Sie „current“.",
+   "caption": "Heißt „aktuell“ im Englischen „actual“? 🌧️ Falsch: “The actual weather is bad.” Richtig: “The current weather is bad.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “current”. Richtig heißt es: “The current weather is bad.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
    "hashtags": [
     "#englischlernen",
     "#englischtipps",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "Do you want to say “gerade jetzt”?",
-   "tip": "“Actually” means “eigentlich”. For “aktuell” or “gerade” you say “right now”.",
-   "caption": "“Actually” means eigentlich in German, not aktuell. Wrong: “Actually, it is raining now.” Right: “Right now, it is raining.” Listen to Ama and repeat! Practice more in the Lexkite app."
+   "hook": "“Aktuell” is not “actual”!",
+   "tip": "“Actual” means “tatsächlich”. For “aktuell” you say “current”.",
+   "caption": "Does “aktuell” mean “actual”? Wrong: “The actual weather is bad.” Right: “The current weather is bad.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -91,21 +91,21 @@
  },
  "hook": {
   "line": "h",
-  "text": "Willst du „gerade jetzt“ sagen?"
+  "text": "„Aktuell“ heißt nicht „actual“!"
  },
  "src": {
   "l1": true
  },
  "lang": "de",
  "est": {
-  "words": 48,
-  "seconds": 29.1,
+  "words": 49,
+  "seconds": 29.6,
   "wpm": 99
  },
  "publish": {
-  "title": "Willst du „gerade jetzt“ sagen?",
-  "keyword": "Right now, it is raining.",
-  "value": "„Actually“ heißt „eigentlich“. Für „aktuell“ oder „gerade“ sagst du „right now“.",
+  "title": "„Aktuell“ heißt nicht „actual“!",
+  "keyword": "The current weather is bad.",
+  "value": "„Actual“ heißt „tatsächlich“. Für „aktuell“ sagen Sie „current“.",
   "hashtags": [
    "#englischlernen",
    "#englischtipps",
@@ -113,22 +113,22 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 42,
+  "script_words": 43,
   "platforms": {
    "youtube": {
-    "title": "Willst du „gerade jetzt“ sagen?",
-    "description": "Willst du „gerade jetzt“ sagen? 🌧️ Falsch: “Actually, it is raining now.” Richtig: “Right now, it is raining.” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "title": "„Aktuell“ heißt nicht „actual“!",
+    "description": "„Actual“ heißt „tatsächlich“. Für „aktuell“ sagen Sie „current“.\n\nHeißt „aktuell“ im Englischen „actual“? 🌧️ Falsch: “The actual weather is bad.” Richtig: “The current weather is bad.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
     "tags": [
-     "Right now, it is raining.",
+     "The current weather is bad.",
      "learn english",
      "de"
     ]
    },
    "facebook": {
-    "text": "Willst du „gerade jetzt“ sagen? 🌧️ Falsch: “Actually, it is raining now.” Richtig: “Right now, it is raining.” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Heißt „aktuell“ im Englischen „actual“? 🌧️ Falsch: “The actual weather is bad.” Richtig: “The current weather is bad.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Willst du „gerade jetzt“ sagen? 🌧️ Falsch: “Actually, it is raining now.” Richtig: “Right now, it is raining.” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.\n\nlexkite.com",
+    "caption": "„Aktuell“ heißt nicht „actual“!\n\n„Actual“ heißt „tatsächlich“. Für „aktuell“ sagen Sie „current“.\n\nlexkite.com",
     "hashtags": [
      "#englischlernen",
      "#englischtipps",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "Willst du „gerade jetzt“ sagen? #englischlernen #englischtipps #sprachenlernen"
+    "caption": "„Aktuell“ heißt nicht „actual“! „Actual“ heißt „tatsächlich“. Für „aktuell“ sagen Sie „current“. #englischlernen #englischtipps #sprachenlernen"
    }
   },
-  "first_comment": "Lösung: “right now”. Richtig heißt es: “Right now, it is raining.” Übe mehr mit einem kostenlosen Quiz: {link}",
+  "first_comment": "Lösung: “current”. Richtig heißt es: “The current weather is bad.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
   "lang": "de"
  }
 }

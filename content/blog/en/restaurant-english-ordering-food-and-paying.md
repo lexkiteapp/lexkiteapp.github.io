@@ -22,6 +22,7 @@ diagrams: [
   {id: d1, type: compare, title: 'Menu and restaurant words by country', cols: ['US / Canada', 'UK / Australia'], rows: [['appetizer, starter', 'starter (UK), entrée (AU/NZ: the small first course)'], ['entrée (US: the main dish)', 'main, main course'], ['takeout, to go', 'takeaway, to take away'], ['check', 'bill'], ['server, waiter, waitress', 'waiter, waitress, waiting staff'], ['soda', 'fizzy drink, soft drink']]},
   {id: d2, type: boxes, title: 'A polite order in four parts', parts: [{t: 'Get attention', r: 'Excuse me, we are ready to order'}, {t: 'Start with a softener', r: 'I would like / Could I have'}, {t: 'Name the dish', r: 'the grilled salmon, please'}, {t: 'Add a change or a need', r: 'without the sauce, and I have a nut allergy'}]}
 ]
+publishAt: 2027-02-27T12:00:00+05:30
 ---
 
 If you want **English phrases for ordering food at a restaurant**, start with one frame: *I'd like the…, please* to order, *Could I have…?* to ask, and *Could we have the check, please?* (US/Canada) or *the bill* (UK/Australia) to pay. Add *Excuse me* to get attention and *Does this contain…?* for allergies, and you can handle most meals anywhere.
