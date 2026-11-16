@@ -124,7 +124,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
       chips: ['all', 'ielts', 'toeic'].map(k => ({ k, l: short[k], t: lbl[k], on: gtab === k })),
       ch: ch.length ? ch : [{ empty: true, h: t('Đang cập nhật bài học…') }],
       cards: [card('#/grammar/mix', t('Đề tổng hợp {n} câu', { n: 20 }), t('Trộn câu hỏi từ các bài đã học (hoặc mọi bài)')), card('#/grammar/mix?n=40', t('Đề tổng hợp {n} câu', { n: 40 }), t('Ôn toàn bộ chương trình – như bài thi cuối khóa')),
-        card('#/verb', t('Chia động từ'), t('Mọi thì, bị động, cách đọc -ed/-s')), card('#/fix', t('Sửa ngữ pháp'), t('Dán đoạn văn – gạch chân lỗi, sửa 1 chạm'))],
+        card('#/irregular', t('Động từ bất quy tắc'), t('Mở bảng động từ bất quy tắc')), card('#/verb', t('Chia động từ'), t('Mọi thì, bị động, cách đọc -ed/-s')), card('#/fix', t('Sửa ngữ pháp'), t('Dán đoạn văn – gạch chân lỗi, sửa 1 chạm'))],
     };
   };
   routes.grammar = function (id, q, keepFocus) {

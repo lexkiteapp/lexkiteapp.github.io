@@ -900,6 +900,8 @@
   "verb.typeAVerbE": "اكتب فعلًا، على سبيل المثال. go, went, studies",
   "verb.searchForAVerb": "ابحث عن فعل",
   "verb.conjugate": "مترافق",
+  "verb.irregularVerbs": "الأفعال الشاذة",
+  "verb.openIrregularTable": "افتح جدول الأفعال الشاذة",
   "verb.verbSuggestions": "اقتراحات الفعل",
   "verb.irregular": "غير منتظم",
   "verb.englishVerbConjugator": "تصريف الأفعال الإنجليزية",

@@ -900,6 +900,8 @@
   "verb.typeAVerbE": "동사를 입력하세요. go, went, studies",
   "verb.searchForAVerb": "동사 검색",
   "verb.conjugate": "공액",
+  "verb.irregularVerbs": "불규칙 동사",
+  "verb.openIrregularTable": "불규칙 동사표 열기",
   "verb.verbSuggestions": "동사 제안",
   "verb.irregular": "불규칙",
   "verb.englishVerbConjugator": "영어 동사 활용형",

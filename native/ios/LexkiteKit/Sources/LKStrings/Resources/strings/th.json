@@ -900,6 +900,8 @@
   "verb.typeAVerbE": "พิมพ์คำกริยา เช่น go, went, studies",
   "verb.searchForAVerb": "ค้นหาคำกริยา",
   "verb.conjugate": "คอนจูเกต",
+  "verb.irregularVerbs": "คำกริยาไม่ปกติ",
+  "verb.openIrregularTable": "เปิดตารางคำกริยาไม่ปกติ",
   "verb.verbSuggestions": "คำแนะนำกริยา",
   "verb.irregular": "ไม่สม่ำเสมอ",
   "verb.englishVerbConjugator": "การผันกริยาภาษาอังกฤษ",

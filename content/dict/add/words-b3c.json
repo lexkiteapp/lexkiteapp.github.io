@@ -1,0 +1,852 @@
+{
+  "remove": {
+    "ipaUS": "/rɪˈmuːv/",
+    "col": [
+      "remove a stain",
+      "remove an obstacle",
+      "remove from the list",
+      "remove the lid",
+      "remove a post from the site",
+      "remove your shoes"
+    ],
+    "syn": [
+      "take away",
+      "eliminate",
+      "get rid of",
+      "delete"
+    ]
+  },
+  "renown": {
+    "ipaUS": "/rɪˈnaʊn/",
+    "col": [
+      "of great renown",
+      "international renown",
+      "gain renown",
+      "a chef of renown",
+      "win renown",
+      "renown as"
+    ],
+    "syn": [
+      "fame",
+      "prestige",
+      "celebrity",
+      "distinction"
+    ]
+  },
+  "repeatedly": {
+    "ipaUS": "/rɪˈpiːtɪdli/",
+    "col": [
+      "repeatedly warn",
+      "repeatedly ask",
+      "repeatedly fail",
+      "repeatedly deny",
+      "repeatedly told",
+      "hit repeatedly"
+    ],
+    "syn": [
+      "again and again",
+      "over and over",
+      "time after time",
+      "frequently"
+    ]
+  },
+  "replacement": {
+    "ipaUS": "/rɪˈpleɪsmənt/",
+    "col": [
+      "find a replacement",
+      "replacement part",
+      "replacement cost",
+      "a temporary replacement",
+      "replacement for",
+      "free replacement"
+    ],
+    "syn": [
+      "substitute",
+      "successor",
+      "stand-in",
+      "spare"
+    ]
+  },
+  "residence": {
+    "ipaUS": "/ˈrezɪdəns/",
+    "col": [
+      "place of residence",
+      "permanent residence",
+      "official residence",
+      "residence permit",
+      "in residence",
+      "private residence"
+    ],
+    "syn": [
+      "home",
+      "dwelling",
+      "address",
+      "abode"
+    ]
+  },
+  "retreat": {
+    "ipaUS": "/rɪˈtriːt/",
+    "col": [
+      "company retreat",
+      "mountain retreat",
+      "a yoga retreat",
+      "beat a retreat",
+      "go on a retreat",
+      "strategic retreat"
+    ],
+    "syn": [
+      "withdrawal",
+      "hideaway",
+      "refuge",
+      "getaway"
+    ]
+  },
+  "retrieve": {
+    "ipaUS": "/rɪˈtriːv/",
+    "col": [
+      "retrieve data",
+      "retrieve a file",
+      "retrieve information",
+      "retrieve a password",
+      "retrieve the ball",
+      "retrieve from storage"
+    ],
+    "syn": [
+      "recover",
+      "fetch",
+      "get back",
+      "recapture"
+    ]
+  },
+  "seldom": {
+    "ipaUS": "/ˈseldəm/",
+    "col": [
+      "seldom seen",
+      "seldom used",
+      "seldom if ever",
+      "very seldom",
+      "seldom happens",
+      "seldom visit"
+    ],
+    "syn": [
+      "rarely",
+      "hardly ever",
+      "infrequently",
+      "not often"
+    ]
+  },
+  "separately": {
+    "ipaUS": "/ˈsepərətli/",
+    "col": [
+      "sold separately",
+      "pay separately",
+      "treated separately",
+      "separately wrapped",
+      "live separately",
+      "considered separately"
+    ],
+    "syn": [
+      "individually",
+      "apart",
+      "independently",
+      "one by one"
+    ]
+  },
+  "sketch": {
+    "ipaUS": "/sketʃ/",
+    "col": [
+      "a rough sketch",
+      "make a sketch",
+      "sketch of the building",
+      "comedy sketch",
+      "pencil sketch",
+      "sketch out a plan"
+    ],
+    "syn": [
+      "drawing",
+      "outline",
+      "draft",
+      "doodle"
+    ]
+  },
+  "skim": {
+    "ipaUS": "/skɪm/",
+    "col": [
+      "skim through",
+      "skim a report",
+      "skim the headlines",
+      "skim milk",
+      "skim over",
+      "skim the surface"
+    ],
+    "syn": [
+      "glance through",
+      "scan",
+      "browse",
+      "flip through"
+    ]
+  },
+  "specialty": {
+    "ipaUS": "/ˈspeʃəlti/",
+    "col": [
+      "house specialty",
+      "regional specialty",
+      "medical specialty",
+      "a specialty of the region",
+      "specialty store",
+      "chef's specialty"
+    ],
+    "syn": [
+      "specialism",
+      "forte",
+      "strength",
+      "specialization"
+    ]
+  },
+  "specific": {
+    "ipaUS": "/spəˈsɪfɪk/",
+    "col": [
+      "specific requirements",
+      "specific example",
+      "be specific about",
+      "a specific purpose",
+      "specific to",
+      "specific details"
+    ],
+    "syn": [
+      "particular",
+      "precise",
+      "exact",
+      "definite"
+    ]
+  },
+  "spill": {
+    "ipaUS": "/spɪl/",
+    "col": [
+      "spill coffee",
+      "spill the beans",
+      "spill over",
+      "spilled milk",
+      "spill on the carpet",
+      "spill out"
+    ],
+    "syn": [
+      "slop",
+      "tip over",
+      "overflow",
+      "knock over"
+    ]
+  },
+  "spite": {
+    "ipaUS": "/spaɪt/",
+    "col": [
+      "in spite of",
+      "in spite of the rain",
+      "out of spite",
+      "in spite of everything",
+      "spite fence",
+      "petty spite"
+    ],
+    "syn": [
+      "malice",
+      "ill will",
+      "resentment",
+      "pettiness"
+    ]
+  },
+  "spouse": {
+    "ipaUS": "/spaʊs/",
+    "col": [
+      "your spouse",
+      "surviving spouse",
+      "spouse visa",
+      "spouse and children",
+      "a former spouse",
+      "spouse benefits"
+    ],
+    "syn": [
+      "husband or wife",
+      "partner",
+      "mate",
+      "better half"
+    ]
+  },
+  "spray": {
+    "ipaUS": "/spreɪ/",
+    "col": [
+      "spray paint",
+      "spray water",
+      "spray on",
+      "insect spray",
+      "hair spray",
+      "spray with"
+    ],
+    "syn": [
+      "spritz",
+      "squirt",
+      "mist",
+      "sprinkle"
+    ]
+  },
+  "statistics": {
+    "ipaUS": "/stəˈtɪstɪks/",
+    "col": [
+      "official statistics",
+      "crime statistics",
+      "according to statistics",
+      "collect statistics",
+      "statistics show",
+      "a statistics course"
+    ],
+    "syn": [
+      "figures",
+      "data",
+      "numbers",
+      "stats"
+    ]
+  },
+  "strategy": {
+    "ipaUS": "/ˈstrætədʒi/",
+    "col": [
+      "marketing strategy",
+      "develop a strategy",
+      "long-term strategy",
+      "business strategy",
+      "strategy for growth",
+      "adopt a strategy"
+    ],
+    "syn": [
+      "plan",
+      "approach",
+      "game plan",
+      "scheme"
+    ]
+  },
+  "streamline": {
+    "ipaUS": "/ˈstriːmlaɪn/",
+    "col": [
+      "streamline operations",
+      "streamline the process",
+      "streamline procedures",
+      "streamline production",
+      "streamline the workflow",
+      "streamline costs"
+    ],
+    "syn": [
+      "simplify",
+      "rationalize",
+      "modernize",
+      "optimize"
+    ]
+  },
+  "strictly": {
+    "ipaUS": "/ˈstrɪktli/",
+    "col": [
+      "strictly forbidden",
+      "strictly speaking",
+      "strictly prohibited",
+      "strictly enforced",
+      "strictly business",
+      "strictly limited"
+    ],
+    "syn": [
+      "rigidly",
+      "firmly",
+      "absolutely",
+      "severely"
+    ]
+  },
+  "subscribe": {
+    "ipaUS": "/səbˈskraɪb/",
+    "col": [
+      "subscribe to a newsletter",
+      "subscribe to a channel",
+      "subscribe to a magazine",
+      "subscribe online",
+      "subscribe to a service",
+      "subscribe for a year"
+    ],
+    "syn": [
+      "sign up",
+      "enroll",
+      "register",
+      "take out a subscription"
+    ]
+  },
+  "subscription": {
+    "ipaUS": "/səbˈskrɪpʃn/",
+    "col": [
+      "annual subscription",
+      "cancel a subscription",
+      "subscription fee",
+      "monthly subscription",
+      "renew a subscription",
+      "subscription to a magazine"
+    ],
+    "syn": [
+      "membership",
+      "enrollment",
+      "sign-up",
+      "standing order"
+    ]
+  },
+  "subsidize": {
+    "ipaUS": "/ˈsʌbsɪdaɪz/",
+    "col": [
+      "subsidize farmers",
+      "subsidize housing",
+      "heavily subsidized",
+      "subsidize the cost",
+      "subsidize public transport",
+      "government subsidizes"
+    ],
+    "syn": [
+      "fund",
+      "finance",
+      "support financially",
+      "sponsor"
+    ]
+  },
+  "sue": {
+    "ipaUS": "/suː/",
+    "col": [
+      "sue for damages",
+      "sue the company",
+      "threaten to sue",
+      "sue for compensation",
+      "sue for divorce",
+      "be sued by"
+    ],
+    "syn": [
+      "take to court",
+      "bring a lawsuit against",
+      "prosecute",
+      "litigate"
+    ]
+  },
+  "suspicious": {
+    "ipaUS": "/səˈspɪʃəs/",
+    "col": [
+      "suspicious behavior",
+      "suspicious of",
+      "look suspicious",
+      "suspicious package",
+      "highly suspicious",
+      "suspicious circumstances"
+    ],
+    "syn": [
+      "doubtful",
+      "distrustful",
+      "dubious",
+      "fishy"
+    ]
+  },
+  "tactic": {
+    "ipaUS": "/ˈtæktɪk/",
+    "col": [
+      "delaying tactic",
+      "sales tactic",
+      "change tactics",
+      "effective tactic",
+      "aggressive tactics",
+      "scare tactics"
+    ],
+    "syn": [
+      "maneuver",
+      "approach",
+      "ploy",
+      "technique"
+    ]
+  },
+  "tag": {
+    "ipaUS": "/tæɡ/",
+    "col": [
+      "price tag",
+      "name tag",
+      "tag a photo",
+      "luggage tag",
+      "hashtag",
+      "tag along"
+    ],
+    "syn": [
+      "label",
+      "ticket",
+      "sticker",
+      "marker"
+    ]
+  },
+  "tempt": {
+    "ipaUS": "/tempt/",
+    "col": [
+      "tempt someone to",
+      "be tempted by",
+      "tempt fate",
+      "tempt customers",
+      "tempted to buy",
+      "hard to resist temptation"
+    ],
+    "syn": [
+      "entice",
+      "lure",
+      "attract",
+      "seduce"
+    ]
+  },
+  "terrific": {
+    "ipaUS": "/təˈrɪfɪk/",
+    "col": [
+      "a terrific idea",
+      "do a terrific job",
+      "feel terrific",
+      "look terrific",
+      "terrific news",
+      "terrific value"
+    ],
+    "syn": [
+      "wonderful",
+      "fantastic",
+      "excellent",
+      "great"
+    ]
+  },
+  "textbook": {
+    "ipaUS": "/ˈtekstbʊk/",
+    "col": [
+      "school textbook",
+      "textbook case",
+      "read a textbook",
+      "a chemistry textbook",
+      "textbook example",
+      "open your textbook"
+    ],
+    "syn": [
+      "coursebook",
+      "manual",
+      "study guide",
+      "reader"
+    ]
+  },
+  "theft": {
+    "ipaUS": "/θeft/",
+    "col": [
+      "car theft",
+      "identity theft",
+      "commit theft",
+      "report a theft",
+      "petty theft",
+      "theft of property"
+    ],
+    "syn": [
+      "stealing",
+      "robbery",
+      "burglary",
+      "larceny"
+    ]
+  },
+  "thrill": {
+    "ipaUS": "/θrɪl/",
+    "col": [
+      "the thrill of",
+      "a thrill to",
+      "get a thrill",
+      "thrill ride",
+      "feel a thrill",
+      "the thrill of victory"
+    ],
+    "syn": [
+      "excitement",
+      "rush",
+      "buzz",
+      "kick"
+    ]
+  },
+  "timely": {
+    "ipaUS": "/ˈtaɪmli/",
+    "col": [
+      "timely manner",
+      "a timely reminder",
+      "timely intervention",
+      "timely arrival",
+      "timely delivery",
+      "timely response"
+    ],
+    "syn": [
+      "well-timed",
+      "punctual",
+      "opportune",
+      "prompt"
+    ]
+  },
+  "traditionally": {
+    "ipaUS": "/trəˈdɪʃənəli/",
+    "col": [
+      "traditionally made",
+      "traditionally held",
+      "traditionally associated with",
+      "traditionally, women",
+      "traditionally eaten",
+      "as is traditionally done"
+    ],
+    "syn": [
+      "customarily",
+      "conventionally",
+      "historically",
+      "by custom"
+    ]
+  },
+  "unless": {
+    "ipaUS": "/ənˈles/",
+    "col": [
+      "unless otherwise stated",
+      "unless you",
+      "unless told otherwise",
+      "unless necessary",
+      "unless I'm mistaken",
+      "unless specified"
+    ],
+    "syn": [
+      "except if",
+      "if not",
+      "barring",
+      "save that"
+    ]
+  },
+  "unreliable": {
+    "ipaUS": "/ˌʌnrɪˈlaɪəbl/",
+    "col": [
+      "unreliable source",
+      "unreliable witness",
+      "unreliable service",
+      "highly unreliable",
+      "prove unreliable",
+      "unreliable narrator"
+    ],
+    "syn": [
+      "undependable",
+      "untrustworthy",
+      "erratic",
+      "inconsistent"
+    ]
+  },
+  "upgrade": {
+    "ipaUS": "/ʌpˈɡreɪd/",
+    "col": [
+      "upgrade your plan",
+      "upgrade to",
+      "free upgrade",
+      "upgrade the software",
+      "upgrade the system",
+      "upgrade a seat"
+    ],
+    "syn": [
+      "improve",
+      "modernize",
+      "enhance",
+      "update"
+    ]
+  },
+  "vacancy": {
+    "ipaUS": "/ˈveɪkənsi/",
+    "col": [
+      "job vacancy",
+      "fill a vacancy",
+      "no vacancy",
+      "vacancy for",
+      "advertise a vacancy",
+      "vacancy rate"
+    ],
+    "syn": [
+      "opening",
+      "opportunity",
+      "free room",
+      "position"
+    ]
+  },
+  "vend": {
+    "ipaUS": "/vend/",
+    "col": [
+      "vend goods",
+      "street vendor",
+      "vending machine",
+      "vend snacks",
+      "licensed to vend",
+      "vend at a stall"
+    ],
+    "syn": [
+      "sell",
+      "peddle",
+      "hawk",
+      "retail"
+    ]
+  },
+  "venue": {
+    "ipaUS": "/ˈvenjuː/",
+    "col": [
+      "wedding venue",
+      "concert venue",
+      "book a venue",
+      "conference venue",
+      "sports venue",
+      "venue for"
+    ],
+    "syn": [
+      "location",
+      "site",
+      "place",
+      "setting"
+    ]
+  },
+  "waive": {
+    "ipaUS": "/weɪv/",
+    "col": [
+      "waive a fee",
+      "waive the requirement",
+      "waive your rights",
+      "waive the penalty",
+      "waive an objection",
+      "fee waived"
+    ],
+    "syn": [
+      "give up",
+      "forgo",
+      "dispense with",
+      "relinquish"
+    ]
+  },
+  "wildlife": {
+    "ipaUS": "/ˈwaɪldlaɪf/",
+    "col": [
+      "protect wildlife",
+      "wildlife reserve",
+      "wildlife photography",
+      "local wildlife",
+      "wildlife documentary",
+      "endangered wildlife"
+    ],
+    "syn": [
+      "fauna",
+      "wild animals",
+      "nature",
+      "creatures"
+    ]
+  },
+  "willingness": {
+    "ipaUS": "/ˈwɪlɪŋnəs/",
+    "col": [
+      "willingness to learn",
+      "show willingness",
+      "lack of willingness",
+      "willingness to pay",
+      "willingness to help",
+      "a clear willingness"
+    ],
+    "syn": [
+      "readiness",
+      "eagerness",
+      "inclination",
+      "openness"
+    ]
+  },
+  "withdrawal": {
+    "ipaUS": "/wɪðˈdrɔːəl/",
+    "col": [
+      "cash withdrawal",
+      "withdrawal limit",
+      "make a withdrawal",
+      "withdrawal from",
+      "troop withdrawal",
+      "withdrawal slip"
+    ],
+    "syn": [
+      "removal",
+      "pullout",
+      "retreat",
+      "extraction"
+    ]
+  },
+  "wrinkle": {
+    "ipaUS": "/ˈrɪŋkl/",
+    "col": [
+      "wrinkle cream",
+      "deep wrinkles",
+      "wrinkle-free shirt",
+      "smooth out wrinkles",
+      "wrinkle your nose",
+      "fine wrinkles"
+    ],
+    "syn": [
+      "crease",
+      "line",
+      "fold",
+      "furrow"
+    ]
+  },
+  "aboard": {
+    "ipaUS": "/əˈbɔːrd/",
+    "col": [
+      "welcome aboard",
+      "all aboard",
+      "come aboard",
+      "aboard the ship",
+      "aboard a plane",
+      "go aboard"
+    ],
+    "syn": [
+      "on board",
+      "on",
+      "embarked",
+      "onto"
+    ]
+  },
+  "advertisement": {
+    "ipaUS": "/ˌædvərˈtaɪzmənt/",
+    "col": [
+      "place an advertisement",
+      "TV advertisement",
+      "job advertisement",
+      "advertisement for",
+      "newspaper advertisement",
+      "run an advertisement"
+    ],
+    "syn": [
+      "ad",
+      "commercial",
+      "promotion",
+      "notice"
+    ]
+  },
+  "advertiser": {
+    "ipaUS": "/ˈædvərtaɪzər/",
+    "col": [
+      "online advertiser",
+      "major advertiser",
+      "attract advertisers",
+      "advertiser pays",
+      "advertiser revenue",
+      "local advertiser"
+    ],
+    "syn": [
+      "sponsor",
+      "promoter",
+      "marketer",
+      "client"
+    ]
+  },
+  "afterward": {
+    "ipaUS": "/ˈæftərwərd/",
+    "col": [
+      "shortly afterward",
+      "soon afterward",
+      "not long afterward",
+      "a week afterward",
+      "and afterward",
+      "afterward, we"
+    ],
+    "syn": [
+      "later",
+      "subsequently",
+      "after that",
+      "then"
+    ]
+  }
+}
