@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Like it very much!",
+   "text": "I like it very much!",
    "pause": 0.42
   },
   {
@@ -98,8 +98,8 @@
  },
  "lang": "id",
  "est": {
-  "words": 45,
-  "seconds": 27.6,
+  "words": 46,
+  "seconds": 28.1,
   "wpm": 98
  },
  "publish": {
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 39,
+  "script_words": 40,
   "platforms": {
    "youtube": {
     "title": "“I very like” itu salah!",

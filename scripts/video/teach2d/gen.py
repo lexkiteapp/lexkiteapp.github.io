@@ -795,9 +795,20 @@ def verify():   # live re-check of every auto row: (ok ids, stale [(id, problems
     return ok, stale
 
 
+GRADE_F = f'{ROOT}/content/video/teach2d/l1-grade.json'   # independent-grader verdict per L1 row: {id: score >= 90} (or "final-round-pass" for rows graded before per-row scores were kept)
+
+
+def l1_graded(i, G):   # an L1 row is rendered only when an independent grader gave it >= 90 (coordinator 16/11): unscored or <90 rows never become a video
+    g = G.get(i); return g == 'final-round-pass' or (isinstance(g, (int, float)) and g >= 90)
+
+
 def todo():
     ok, stale = verify(); B = (json.load(open(BANK_F)) if os.path.exists(BANK_F) else {}).get('eps', {})
     for i, b in stale: print(f'::warning::stale (fact changed, not rendered): {i}: {b}', file=sys.stderr)
+    G = json.load(open(GRADE_F)).get('grades', {}) if os.path.exists(GRADE_F) else {}; L1 = {r['id'] for r in load_l1()}
+    for i in sorted(L1 & set(ok)):
+        if not l1_graded(i, G): print(f'::warning::L1 row without grader score >= 90 (not rendered): {i}', file=sys.stderr)
+    ok = [i for i in ok if i not in L1 or l1_graded(i, G)]
     return [i for i in ok if not (B.get(i, {}).get('state') == 'banked' or B.get(i, {}).get('tries', 0) >= 2)]   # 2 red renders -> left for a person (sheet lists it)
 
 

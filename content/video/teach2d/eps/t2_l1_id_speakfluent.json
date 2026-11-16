@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "Quickly! She speaks quickly now.",
+   "text": "Fluently! She speaks English fluently.",
    "pause": 0.42
   },
   {
@@ -58,18 +58,18 @@
   "why": "Say fluently here.",
   "memory": "Speak fluently.",
   "quiz": {
-   "stem": "She speaks ___ now.",
+   "stem": "She speaks English ___.",
    "options": [
-    "quickly",
-    "quick"
+    "fluently",
+    "fluent"
    ],
    "answer": 0
   },
   "native": {
    "hook": "“Speak fluent”? Pakai “fluently”",
-   "tip": "Di bahasa Indonesia “lancar” tetap, tapi bahasa Inggris pakai -ly untuk kata kerja: fluently. (Bisa: I speak fluent English.)",
+   "tip": "Di bahasa Indonesia “lancar” tak berubah, tapi Inggris menambah -ly untuk menerangkan kata kerja: fluently. (Atau: I speak fluent English.)",
    "caption": "Pernah bilang begini? “I speak English fluent.” 😅 Untuk menjelaskan kata kerja, pakai fluently: “I speak English fluently.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
-   "comment": "Jawaban: “quickly”. Coba bilang “I speak English slowly”, lalu fluently. Latihan gratis lainnya di sini: {link}",
+   "comment": "Jawaban: “fluently”. Coba bilang “I speak English slowly”, lalu fluently. Latihan gratis lainnya di sini: {link}",
    "hashtags": [
     "#belajarbahasainggris",
     "#grammaringgris",
@@ -79,7 +79,7 @@
   },
   "en": {
    "hook": "“Speak fluent”? Use “fluently”",
-   "tip": "In Indonesian “lancar” stays the same, but English uses -ly for verbs: fluently. (Also OK: I speak fluent English.)",
+   "tip": "In Indonesian “lancar” never changes, but English adds -ly to describe a verb: fluently. (Also OK: I speak fluent English.)",
    "caption": "Ever say this? “I speak English fluent.” 😅 To describe a verb, use fluently: “I speak English fluently.” Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
  },
@@ -105,7 +105,7 @@
  "publish": {
   "title": "“Speak fluent”? Pakai “fluently”",
   "keyword": "I speak English fluently.",
-  "value": "Di bahasa Indonesia “lancar” tetap, tapi bahasa Inggris pakai -ly untuk kata kerja: fluently. (Bisa: I speak fluent English.)",
+  "value": "Di bahasa Indonesia “lancar” tak berubah, tapi Inggris menambah -ly untuk menerangkan kata kerja: fluently. (Atau: I speak fluent English.)",
   "hashtags": [
    "#belajarbahasainggris",
    "#grammaringgris",
@@ -140,7 +140,7 @@
     "caption": "“Speak fluent”? Pakai “fluently” #belajarbahasainggris #grammaringgris #bahasainggris"
    }
   },
-  "first_comment": "Jawaban: “quickly”. Coba bilang “I speak English slowly”, lalu fluently. Latihan gratis lainnya di sini: {link}",
+  "first_comment": "Jawaban: “fluently”. Coba bilang “I speak English slowly”, lalu fluently. Latihan gratis lainnya di sini: {link}",
   "lang": "id"
  }
 }

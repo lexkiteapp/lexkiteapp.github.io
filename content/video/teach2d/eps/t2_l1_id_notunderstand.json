@@ -26,7 +26,7 @@
   },
   {
    "id": "y",
-   "text": "Not needs do.",
+   "text": "Verb? Use don't.",
    "pause": 0.42
   },
   {
@@ -55,8 +55,8 @@
   "wrong": "I am not understand.",
   "right": "I don't understand.",
   "strike": "am",
-  "why": "Not needs do.",
-  "memory": "Do not.",
+  "why": "Verb? Use don't.",
+  "memory": "I don't + verb.",
   "quiz": {
    "stem": "I ___ not know.",
    "options": [

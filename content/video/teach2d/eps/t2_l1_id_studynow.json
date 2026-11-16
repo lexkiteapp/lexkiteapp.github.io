@@ -26,7 +26,7 @@
   },
   {
    "id": "y",
-   "text": "Now? Use am studying.",
+   "text": "Right now: use am studying.",
    "pause": 0.42
   },
   {
@@ -55,7 +55,7 @@
   "wrong": "I study English now.",
   "right": "I am studying English now.",
   "strike": "study",
-  "why": "Now? Use am studying.",
+  "why": "Right now: use am studying.",
   "memory": "Now: am + ing.",
   "quiz": {
    "stem": "I am ___ now.",
@@ -98,9 +98,9 @@
  },
  "lang": "id",
  "est": {
-  "words": 42,
-  "seconds": 26.1,
-  "wpm": 96
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
  },
  "publish": {
   "title": "“Sedang belajar” = am studying",
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 36,
+  "script_words": 37,
   "platforms": {
    "youtube": {
     "title": "“Sedang belajar” = am studying",

@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Two child? Fix it!",
+   "text": "Two child? Say two children!",
    "pause": 0.42
   },
   {
@@ -66,9 +66,9 @@
    "answer": 1
   },
   "native": {
-   "hook": "สองคนขึ้นไป ต้องเป็นพหูพจน์!",
+   "hook": "สองขึ้นไป ต้องเป็นพหูพจน์!",
    "tip": "ภาษาไทยไม่มีรูปพหูพจน์ แต่อังกฤษต้องมี: child → children",
-   "caption": "คุณเคยพูดว่า “I have two child.” ไหม? 😅 ภาษาไทยไม่เติมพหูพจน์หลังตัวเลข แต่ภาษาอังกฤษต้องใช้พหูพจน์ child จึงเป็น children: “I have two children.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "caption": "คุณเคยพูดว่า “I have two child.” ไหม? 😅 ภาษาไทยไม่เปลี่ยนคำนามหลังตัวเลข แต่ภาษาอังกฤษต้องใช้พหูพจน์ และ child มีรูปพิเศษคือ children: “I have two children.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
    "comment": "เฉลย: “children” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
    "hashtags": [
     "#เรียนภาษาอังกฤษ",
@@ -78,7 +78,7 @@
    ]
   },
   "en": {
-   "hook": "Is your plural missing?",
+   "hook": "Two or more? Make it plural!",
    "tip": "Thai has no plural form, but after two or more English needs one: child becomes children",
    "caption": "Do you say “I have two child”? 😅 Thai does not mark the plural, but English nouns after two or more must be plural. Child is special: children. Say “I have two children”! Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
@@ -91,19 +91,19 @@
  },
  "hook": {
   "line": "h",
-  "text": "สองคนขึ้นไป ต้องเป็นพหูพจน์!"
+  "text": "สองขึ้นไป ต้องเป็นพหูพจน์!"
  },
  "src": {
   "l1": true
  },
  "lang": "th",
  "est": {
-  "words": 43,
-  "seconds": 26.6,
+  "words": 44,
+  "seconds": 27.1,
   "wpm": 97
  },
  "publish": {
-  "title": "สองคนขึ้นไป ต้องเป็นพหูพจน์!",
+  "title": "สองขึ้นไป ต้องเป็นพหูพจน์!",
   "keyword": "I have two children.",
   "value": "ภาษาไทยไม่มีรูปพหูพจน์ แต่อังกฤษต้องมี: child → children",
   "hashtags": [
@@ -113,11 +113,11 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 37,
+  "script_words": 38,
   "platforms": {
    "youtube": {
-    "title": "สองคนขึ้นไป ต้องเป็นพหูพจน์!",
-    "description": "คุณเคยพูดว่า “I have two child.” ไหม? 😅 ภาษาไทยไม่เติมพหูพจน์หลังตัวเลข แต่ภาษาอังกฤษต้องใช้พหูพจน์ child จึงเป็น children: “I have two children.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "title": "สองขึ้นไป ต้องเป็นพหูพจน์!",
+    "description": "คุณเคยพูดว่า “I have two child.” ไหม? 😅 ภาษาไทยไม่เปลี่ยนคำนามหลังตัวเลข แต่ภาษาอังกฤษต้องใช้พหูพจน์ และ child มีรูปพิเศษคือ children: “I have two children.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
     "tags": [
      "I have two children.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "คุณเคยพูดว่า “I have two child.” ไหม? 😅 ภาษาไทยไม่เติมพหูพจน์หลังตัวเลข แต่ภาษาอังกฤษต้องใช้พหูพจน์ child จึงเป็น children: “I have two children.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+    "text": "คุณเคยพูดว่า “I have two child.” ไหม? 😅 ภาษาไทยไม่เปลี่ยนคำนามหลังตัวเลข แต่ภาษาอังกฤษต้องใช้พหูพจน์ และ child มีรูปพิเศษคือ children: “I have two children.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "คุณเคยพูดว่า “I have two child.” ไหม? 😅 ภาษาไทยไม่เติมพหูพจน์หลังตัวเลข แต่ภาษาอังกฤษต้องใช้พหูพจน์ child จึงเป็น children: “I have two children.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nlexkite.com",
+    "caption": "คุณเคยพูดว่า “I have two child.” ไหม? 😅 ภาษาไทยไม่เปลี่ยนคำนามหลังตัวเลข แต่ภาษาอังกฤษต้องใช้พหูพจน์ และ child มีรูปพิเศษคือ children: “I have two children.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nlexkite.com",
     "hashtags": [
      "#เรียนภาษาอังกฤษ",
      "#ภาษาอังกฤษ",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "สองคนขึ้นไป ต้องเป็นพหูพจน์! #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+    "caption": "สองขึ้นไป ต้องเป็นพหูพจน์! #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
    }
   },
   "first_comment": "เฉลย: “children” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",

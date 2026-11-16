@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Age? Say old!",
+   "text": "Your age? Add old!",
    "pause": 0.42
   },
   {
@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "“25 years” kurang “old”",
-   "tip": "“25 tahun” saja belum cukup. Bilang “I am 25” atau “I am 25 years old”.",
+   "tip": "“Umur saya 25 tahun” jangan jadi I am 25 years. Bilang I am 25 atau I am 25 years old, dua-duanya benar.",
    "caption": "Pernah bilang begini? “I am 25 years.” 😅 Untuk umur, tambahkan old: “I am 25 years old.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
-   "comment": "Jawaban: “old”. Sebutkan umurmu lengkap: “I am ... years old” Latihan gratis lainnya di sini: {link}",
+   "comment": "Jawaban: “old”. Sebutkan umurmu lengkap: “I am ... years old.” Latihan gratis lainnya di sini: {link}",
    "hashtags": [
     "#belajarbahasainggris",
     "#grammaringgris",
@@ -79,7 +79,7 @@
   },
   "en": {
    "hook": "“25 years” needs “old”",
-   "tip": "“25 tahun” alone is not enough. Say “I am 25” or “I am 25 years old”.",
+   "tip": "Don't turn “Umur saya 25 tahun” into I am 25 years. Say I am 25 or I am 25 years old; both are right.",
    "caption": "Ever say this? “I am 25 years.” 😅 For your age, add old: “I am 25 years old.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
@@ -98,14 +98,14 @@
  },
  "lang": "id",
  "est": {
-  "words": 42,
-  "seconds": 26.1,
-  "wpm": 96
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
  },
  "publish": {
   "title": "“25 years” kurang “old”",
   "keyword": "I am 25 years old.",
-  "value": "“25 tahun” saja belum cukup. Bilang “I am 25” atau “I am 25 years old”.",
+  "value": "“Umur saya 25 tahun” jangan jadi I am 25 years. Bilang I am 25 atau I am 25 years old, dua-duanya benar.",
   "hashtags": [
    "#belajarbahasainggris",
    "#grammaringgris",
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 36,
+  "script_words": 37,
   "platforms": {
    "youtube": {
     "title": "“25 years” kurang “old”",
@@ -140,7 +140,7 @@
     "caption": "“25 years” kurang “old” #belajarbahasainggris #grammaringgris #bahasainggris"
    }
   },
-  "first_comment": "Jawaban: “old”. Sebutkan umurmu lengkap: “I am ... years old” Latihan gratis lainnya di sini: {link}",
+  "first_comment": "Jawaban: “old”. Sebutkan umurmu lengkap: “I am ... years old.” Latihan gratis lainnya di sini: {link}",
   "lang": "id"
  }
 }

@@ -676,7 +676,7 @@
     },
     "en": {
      "hook": "“25 years” needs “old”",
-     "tip": "“Umur saya 25 tahun” is not I am 25 years. Say I am 25 or I am 25 years old, both are right.",
+     "tip": "Don't turn “Umur saya 25 tahun” into I am 25 years. Say I am 25 or I am 25 years old; both are right.",
      "caption": "Ever say this? “I am 25 years.” 😅 For your age, add old: “I am 25 years old.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
@@ -1104,7 +1104,7 @@
     "answer_say": "Fluently! She speaks English fluently.",
     "native": {
      "hook": "“Speak fluent”? Pakai “fluently”",
-     "tip": "Di bahasa Indonesia “lancar” tak berubah, tapi bahasa Inggris menambah -ly untuk kata kerja: fluently. (Bisa juga: I speak fluent English.)",
+     "tip": "Di bahasa Indonesia “lancar” tak berubah, tapi Inggris menambah -ly untuk menerangkan kata kerja: fluently. (Atau: I speak fluent English.)",
      "caption": "Pernah bilang begini? “I speak English fluent.” 😅 Untuk menjelaskan kata kerja, pakai fluently: “I speak English fluently.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
      "comment": "Jawaban: “fluently”. Coba bilang “I speak English slowly”, lalu fluently. Latihan gratis lainnya di sini: {link}",
      "hashtags": [

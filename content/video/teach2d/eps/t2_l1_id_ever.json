@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Drop ever here!",
+   "text": "I have been, no ever!",
    "pause": 0.42
   },
   {
@@ -26,7 +26,7 @@
   },
   {
    "id": "y",
-   "text": "No ever in yes answers.",
+   "text": "No ever in statements.",
    "pause": 0.42
   },
   {
@@ -55,7 +55,7 @@
   "wrong": "I have ever been to Bali.",
   "right": "I have been to Bali.",
   "strike": "ever",
-  "why": "No ever in yes answers.",
+  "why": "No ever in statements.",
   "memory": "I have been.",
   "quiz": {
    "stem": "I ___ to Bali.",
@@ -98,9 +98,9 @@
  },
  "lang": "id",
  "est": {
-  "words": 46,
-  "seconds": 28.1,
-  "wpm": 98
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
  },
  "publish": {
   "title": "“Pernah” ≠ “ever”!",
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 40,
+  "script_words": 41,
   "platforms": {
    "youtube": {
     "title": "“Pernah” ≠ “ever”!",

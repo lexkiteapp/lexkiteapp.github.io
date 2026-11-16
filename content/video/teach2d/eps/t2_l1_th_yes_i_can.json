@@ -66,8 +66,8 @@
    "answer": 1
   },
   "native": {
-   "hook": "ตอบ “ได้” ≠ Can.!",
-   "tip": "ไทยตอบ “ได้” คำเดียวพอ แต่อังกฤษควรตอบเต็มประโยค: “Yes, I can”",
+   "hook": "ตอบ “ได้” อย่าพูดแค่ Can!",
+   "tip": "ไทยตอบ “ได้” คำเดียวพอ แต่อังกฤษมักตอบ yes พร้อมประธาน: “Yes, I can”",
    "caption": "คุณเคยพูดว่า “Can you swim? Can.” ไหม? 😅 ภาษาไทยตอบว่า “ได้” คำเดียวก็พอ แต่ภาษาอังกฤษควรตอบ yes พร้อมประธาน: “Can you swim? Yes, I can.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
    "comment": "เฉลย: “Yes, I can.” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
    "hashtags": [
@@ -80,7 +80,7 @@
   "en": {
    "hook": "Don't just answer “Can”!",
    "tip": "Thai can answer with one word, but English usually answers with yes plus a subject: “Yes, I can”",
-   "caption": "Do you say “Can you swim? Can”? 😅 Thai can answer with one word, but English usually answers with yes plus a subject. Say “Can you swim? Yes, I can”! Listen to Ama and repeat! Practice more in the Lexkite app."
+   "caption": "Do you answer “Can you swim?” with just “Can”? 😅 Thai can answer with one word, but English usually answers with yes plus a subject. Say “Can you swim? Yes, I can”! Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "ตอบ “ได้” ≠ Can.!"
+  "text": "ตอบ “ได้” อย่าพูดแค่ Can!"
  },
  "src": {
   "l1": true
@@ -103,9 +103,9 @@
   "wpm": 100
  },
  "publish": {
-  "title": "ตอบ “ได้” ≠ Can.!",
+  "title": "ตอบ “ได้” อย่าพูดแค่ Can!",
   "keyword": "Can you swim? Yes, I can.",
-  "value": "ไทยตอบ “ได้” คำเดียวพอ แต่อังกฤษควรตอบเต็มประโยค: “Yes, I can”",
+  "value": "ไทยตอบ “ได้” คำเดียวพอ แต่อังกฤษมักตอบ yes พร้อมประธาน: “Yes, I can”",
   "hashtags": [
    "#เรียนภาษาอังกฤษ",
    "#ภาษาอังกฤษ",
@@ -116,7 +116,7 @@
   "script_words": 44,
   "platforms": {
    "youtube": {
-    "title": "ตอบ “ได้” ≠ Can.!",
+    "title": "ตอบ “ได้” อย่าพูดแค่ Can!",
     "description": "คุณเคยพูดว่า “Can you swim? Can.” ไหม? 😅 ภาษาไทยตอบว่า “ได้” คำเดียวก็พอ แต่ภาษาอังกฤษควรตอบ yes พร้อมประธาน: “Can you swim? Yes, I can.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
     "tags": [
      "Can you swim? Yes, I can.",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "ตอบ “ได้” ≠ Can.! #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+    "caption": "ตอบ “ได้” อย่าพูดแค่ Can! #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
    }
   },
   "first_comment": "เฉลย: “Yes, I can.” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",

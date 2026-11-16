@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "Boring! The movie is boring.",
+   "text": "Bored! There is nothing to do. I'm bored.",
    "pause": 0.42
   },
   {
@@ -58,18 +58,18 @@
   "why": "Bored is how you feel.",
   "memory": "I feel bored.",
   "quiz": {
-   "stem": "The movie is ___.",
+   "stem": "There is nothing to do. I'm ___.",
    "options": [
-    "bored",
-    "boring"
+    "boring",
+    "bored"
    ],
    "answer": 1
   },
   "native": {
    "hook": "ความรู้สึก ใช้ bored!",
-   "tip": "bored คือเรารู้สึกเบื่อ boring คือสิ่งที่น่าเบื่อ",
+   "tip": "bored คือเรารู้สึกเบื่อ ส่วน boring คือสิ่งที่น่าเบื่อ: “I am bored today”",
    "caption": "คุณเคยพูดว่า “I am boring today.” ไหม? 😅 ภาษาอังกฤษความรู้สึกเบื่อของเราต้องใช้ bored ส่วน boring ใช้กับสิ่งที่น่าเบื่อ: “I am bored today.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
-   "comment": "เฉลย: “boring” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "comment": "เฉลย: “bored” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
    "hashtags": [
     "#เรียนภาษาอังกฤษ",
     "#ภาษาอังกฤษ",
@@ -78,7 +78,7 @@
    ]
   },
   "en": {
-   "hook": "Boring or bored?",
+   "hook": "For feelings, use “bored”!",
    "tip": "Bored is how you feel, boring is what makes you feel it: “I am bored today”",
    "caption": "Do you say “I am boring today”? 😅 Your feeling is bored, and the thing that causes it is boring. Say “I am bored today”! Listen to Ama and repeat! Practice more in the Lexkite app."
   }
@@ -98,14 +98,14 @@
  },
  "lang": "th",
  "est": {
-  "words": 42,
-  "seconds": 26.1,
-  "wpm": 96
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
  },
  "publish": {
   "title": "ความรู้สึก ใช้ bored!",
   "keyword": "I am bored today.",
-  "value": "bored คือเรารู้สึกเบื่อ boring คือสิ่งที่น่าเบื่อ",
+  "value": "bored คือเรารู้สึกเบื่อ ส่วน boring คือสิ่งที่น่าเบื่อ: “I am bored today”",
   "hashtags": [
    "#เรียนภาษาอังกฤษ",
    "#ภาษาอังกฤษ",
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 36,
+  "script_words": 39,
   "platforms": {
    "youtube": {
     "title": "ความรู้สึก ใช้ bored!",
@@ -140,7 +140,7 @@
     "caption": "ความรู้สึก ใช้ bored! #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
    }
   },
-  "first_comment": "เฉลย: “boring” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "first_comment": "เฉลย: “bored” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
   "lang": "th"
  }
 }
