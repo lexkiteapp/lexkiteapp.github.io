@@ -1,0 +1,816 @@
+{
+  "getaway": {
+    "ipaUS": "/ˈɡetəweɪ/",
+    "col": [
+      "weekend getaway",
+      "romantic getaway",
+      "a quick getaway",
+      "getaway car",
+      "plan a getaway",
+      "a peaceful getaway"
+    ],
+    "syn": [
+      "short break",
+      "escape",
+      "retreat"
+    ]
+  },
+  "gossip": {
+    "ipaUS": "/ˈɡɑːsəp/",
+    "col": [
+      "office gossip",
+      "spread gossip",
+      "idle gossip",
+      "juicy gossip",
+      "gossip column",
+      "celebrity gossip"
+    ],
+    "syn": [
+      "rumor",
+      "hearsay",
+      "chatter",
+      "tittle-tattle"
+    ]
+  },
+  "graph": {
+    "ipaUS": "/ɡræf/",
+    "col": [
+      "line graph",
+      "bar graph",
+      "draw a graph",
+      "plot a graph",
+      "graph shows",
+      "a graph of sales"
+    ],
+    "syn": [
+      "chart",
+      "diagram",
+      "plot"
+    ]
+  },
+  "handbook": {
+    "ipaUS": "/ˈhændbʊk/",
+    "col": [
+      "employee handbook",
+      "staff handbook",
+      "student handbook",
+      "safety handbook",
+      "read the handbook",
+      "handbook for new members"
+    ],
+    "syn": [
+      "manual",
+      "guidebook",
+      "guide"
+    ]
+  },
+  "hiker": {
+    "ipaUS": "/ˈhaɪkər/",
+    "col": [
+      "experienced hiker",
+      "keen hiker",
+      "hiker's trail",
+      "lost hiker",
+      "group of hikers",
+      "day hiker"
+    ],
+    "syn": [
+      "walker",
+      "trekker",
+      "rambler"
+    ]
+  },
+  "homeowner": {
+    "ipaUS": "/ˈhoʊmoʊnər/",
+    "col": [
+      "first-time homeowner",
+      "homeowner insurance",
+      "local homeowners",
+      "become a homeowner",
+      "homeowners association",
+      "proud homeowner"
+    ],
+    "syn": [
+      "house owner",
+      "property owner",
+      "owner-occupier"
+    ]
+  },
+  "hometown": {
+    "ipaUS": "/ˈhoʊmtaʊn/",
+    "col": [
+      "my hometown",
+      "return to my hometown",
+      "grow up in a hometown",
+      "small hometown",
+      "miss my hometown",
+      "hometown food"
+    ],
+    "syn": [
+      "birthplace",
+      "home city",
+      "native town"
+    ]
+  },
+  "honestly": {
+    "ipaUS": "/ˈɑːnəstli/",
+    "col": [
+      "answer honestly",
+      "speak honestly",
+      "honestly speaking",
+      "tell me honestly",
+      "honestly believe",
+      "quite honestly"
+    ],
+    "syn": [
+      "truthfully",
+      "frankly",
+      "sincerely",
+      "candidly"
+    ]
+  },
+  "hotline": {
+    "ipaUS": "/ˈhɑːtlaɪn/",
+    "col": [
+      "call the hotline",
+      "customer hotline",
+      "24-hour hotline",
+      "hotline number",
+      "emergency hotline",
+      "health hotline"
+    ],
+    "syn": [
+      "helpline",
+      "support line",
+      "emergency number"
+    ]
+  },
+  "hourly": {
+    "ipaUS": "/ˈaʊrli/",
+    "col": [
+      "hourly wage",
+      "hourly rate",
+      "paid hourly",
+      "hourly basis",
+      "hourly bus service",
+      "hourly update"
+    ],
+    "syn": [
+      "every hour",
+      "per-hour",
+      "by the hour"
+    ]
+  },
+  "housekeeper": {
+    "ipaUS": "/ˈhaʊskipər/",
+    "col": [
+      "hotel housekeeper",
+      "head housekeeper",
+      "work as a housekeeper",
+      "live-in housekeeper",
+      "housekeeper service",
+      "hire a housekeeper"
+    ],
+    "syn": [
+      "cleaner",
+      "maid",
+      "domestic helper"
+    ]
+  },
+  "hurricane": {
+    "ipaUS": "/ˈhɜːrəkeɪn/",
+    "col": [
+      "hurricane season",
+      "hurricane warning",
+      "category 4 hurricane",
+      "hurricane damage",
+      "hit by a hurricane",
+      "hurricane-force winds"
+    ],
+    "syn": [
+      "tropical storm",
+      "cyclone",
+      "typhoon"
+    ]
+  },
+  "inconvenience": {
+    "ipaUS": "/ˌɪnkənˈviːnjəns/",
+    "col": [
+      "apologize for the inconvenience",
+      "cause inconvenience",
+      "minor inconvenience",
+      "any inconvenience caused",
+      "great inconvenience",
+      "sorry for the inconvenience"
+    ],
+    "syn": [
+      "trouble",
+      "bother",
+      "nuisance",
+      "hassle"
+    ]
+  },
+  "indoor": {
+    "ipaUS": "/ˈɪndɔːr/",
+    "col": [
+      "indoor pool",
+      "indoor activity",
+      "indoor plants",
+      "indoor sports",
+      "indoor temperature",
+      "indoor market"
+    ],
+    "syn": [
+      "interior",
+      "inside",
+      "covered"
+    ]
+  },
+  "interpreter": {
+    "ipaUS": "/ɪnˈtɜːrprətər/",
+    "col": [
+      "work as an interpreter",
+      "simultaneous interpreter",
+      "through an interpreter",
+      "hire an interpreter",
+      "court interpreter",
+      "sign language interpreter"
+    ],
+    "syn": [
+      "translator",
+      "linguist",
+      "language mediator"
+    ]
+  },
+  "irritate": {
+    "ipaUS": "/ˈɪrɪteɪt/",
+    "col": [
+      "irritate customers",
+      "be irritated by",
+      "irritate the skin",
+      "easily irritated",
+      "irritate the eyes",
+      "deeply irritated"
+    ],
+    "syn": [
+      "annoy",
+      "bother",
+      "exasperate",
+      "aggravate"
+    ]
+  },
+  "jewelry": {
+    "ipaUS": "/ˈdʒuːəlri/",
+    "col": [
+      "gold jewelry",
+      "jewelry store",
+      "costume jewelry",
+      "a piece of jewelry",
+      "wear jewelry",
+      "jewelry box"
+    ],
+    "syn": [
+      "jewels",
+      "accessories",
+      "trinkets"
+    ]
+  },
+  "keyboard": {
+    "ipaUS": "/ˈkiːbɔːrd/",
+    "col": [
+      "computer keyboard",
+      "wireless keyboard",
+      "type on a keyboard",
+      "keyboard shortcut",
+      "piano keyboard",
+      "keyboard layout"
+    ],
+    "syn": [
+      "keypad",
+      "keys",
+      "typing board"
+    ]
+  },
+  "lecturer": {
+    "ipaUS": "/ˈlektʃərər/",
+    "col": [
+      "university lecturer",
+      "guest lecturer",
+      "senior lecturer",
+      "lecturer in English",
+      "lecturer at a university",
+      "visiting lecturer"
+    ],
+    "syn": [
+      "professor",
+      "teacher",
+      "academic",
+      "instructor"
+    ]
+  },
+  "lighter": {
+    "ipaUS": "/ˈlaɪtər/",
+    "col": [
+      "cigarette lighter",
+      "gas lighter",
+      "disposable lighter",
+      "flick a lighter",
+      "lighter fluid",
+      "borrow a lighter"
+    ],
+    "syn": [
+      "firelighter",
+      "igniter",
+      "flame starter"
+    ]
+  },
+  "memorize": {
+    "ipaUS": "/ˈmeməraɪz/",
+    "col": [
+      "memorize a poem",
+      "memorize vocabulary",
+      "memorize word lists",
+      "memorize a number",
+      "memorize the rules",
+      "difficult to memorize"
+    ],
+    "syn": [
+      "learn by heart",
+      "commit to memory",
+      "remember"
+    ]
+  },
+  "messenger": {
+    "ipaUS": "/ˈmesəndʒər/",
+    "col": [
+      "bike messenger",
+      "send a messenger",
+      "messenger service",
+      "a trusted messenger",
+      "instant messenger",
+      "hire a messenger"
+    ],
+    "syn": [
+      "courier",
+      "delivery person",
+      "runner",
+      "envoy"
+    ]
+  },
+  "mower": {
+    "ipaUS": "/ˈmoʊər/",
+    "col": [
+      "lawn mower",
+      "ride-on mower",
+      "push a mower",
+      "electric mower",
+      "start the mower",
+      "mower blade"
+    ],
+    "syn": [
+      "lawnmower",
+      "grass cutter",
+      "trimmer"
+    ]
+  },
+  "newsstand": {
+    "ipaUS": "/ˈnuːzstænd/",
+    "col": [
+      "buy at a newsstand",
+      "corner newsstand",
+      "newsstand sales",
+      "airport newsstand",
+      "magazine newsstand",
+      "newsstand price"
+    ],
+    "syn": [
+      "newsagent",
+      "kiosk",
+      "news kiosk"
+    ]
+  },
+  "optional": {
+    "ipaUS": "/ˈɑːpʃənl/",
+    "col": [
+      "optional extra",
+      "optional course",
+      "strictly optional",
+      "optional attendance",
+      "optional equipment",
+      "remain optional"
+    ],
+    "syn": [
+      "voluntary",
+      "elective",
+      "non-compulsory"
+    ]
+  },
+  "organizer": {
+    "ipaUS": "/ˈɔːrɡənaɪzər/",
+    "col": [
+      "event organizer",
+      "wedding organizer",
+      "main organizer",
+      "organizer of the festival",
+      "personal organizer",
+      "tour organizer"
+    ],
+    "syn": [
+      "planner",
+      "coordinator",
+      "host"
+    ]
+  },
+  "outdoor": {
+    "ipaUS": "/ˈaʊtdɔːr/",
+    "col": [
+      "outdoor activity",
+      "outdoor pool",
+      "outdoor café",
+      "outdoor clothing",
+      "outdoor sports",
+      "outdoor event"
+    ],
+    "syn": [
+      "open-air",
+      "exterior",
+      "alfresco"
+    ]
+  },
+  "overtime": {
+    "ipaUS": "/ˈoʊvərtaɪm/",
+    "col": [
+      "work overtime",
+      "overtime pay",
+      "paid overtime",
+      "unpaid overtime",
+      "overtime hours",
+      "overtime ban"
+    ],
+    "syn": [
+      "extra hours",
+      "additional hours"
+    ]
+  },
+  "paperback": {
+    "ipaUS": "/ˈpeɪpərbæk/",
+    "col": [
+      "paperback edition",
+      "paperback novel",
+      "in paperback",
+      "a cheap paperback",
+      "paperback bestseller",
+      "paperback copy"
+    ],
+    "syn": [
+      "softcover",
+      "softback",
+      "pocket edition"
+    ]
+  },
+  "paperwork": {
+    "ipaUS": "/ˈpeɪpərwɜːrk/",
+    "col": [
+      "fill out paperwork",
+      "do the paperwork",
+      "complete the paperwork",
+      "mountain of paperwork",
+      "legal paperwork",
+      "visa paperwork"
+    ],
+    "syn": [
+      "documentation",
+      "admin",
+      "forms"
+    ]
+  },
+  "performer": {
+    "ipaUS": "/pərˈfɔːrmər/",
+    "col": [
+      "street performer",
+      "live performer",
+      "talented performer",
+      "top performer",
+      "circus performer",
+      "performer on stage"
+    ],
+    "syn": [
+      "artist",
+      "entertainer",
+      "player",
+      "artiste"
+    ]
+  },
+  "pharmacist": {
+    "ipaUS": "/ˈfɑːrməsɪst/",
+    "col": [
+      "qualified pharmacist",
+      "hospital pharmacist",
+      "ask the pharmacist",
+      "pharmacist's advice",
+      "work as a pharmacist",
+      "community pharmacist"
+    ],
+    "syn": [
+      "chemist",
+      "druggist",
+      "dispenser"
+    ]
+  },
+  "photocopier": {
+    "ipaUS": "/ˈfoʊtoʊˌkɑːpiər/",
+    "col": [
+      "use the photocopier",
+      "photocopier is jammed",
+      "office photocopier",
+      "colour photocopier",
+      "photocopier paper",
+      "photocopier toner"
+    ],
+    "syn": [
+      "copier",
+      "copy machine",
+      "duplicator"
+    ]
+  },
+  "photographer": {
+    "ipaUS": "/fəˈtɑːɡrəfər/",
+    "col": [
+      "professional photographer",
+      "wedding photographer",
+      "freelance photographer",
+      "press photographer",
+      "amateur photographer",
+      "photographer's studio"
+    ],
+    "syn": [
+      "cameraman",
+      "shutterbug",
+      "snapper",
+      "lensman"
+    ]
+  },
+  "photography": {
+    "ipaUS": "/fəˈtɑːɡrəfi/",
+    "col": [
+      "digital photography",
+      "portrait photography",
+      "study photography",
+      "photography exhibition",
+      "wildlife photography",
+      "photography course"
+    ],
+    "syn": [
+      "picture-taking",
+      "camera work",
+      "imaging"
+    ]
+  },
+  "planner": {
+    "ipaUS": "/ˈplænər/",
+    "col": [
+      "wedding planner",
+      "event planner",
+      "daily planner",
+      "financial planner",
+      "town planner",
+      "use a planner"
+    ],
+    "syn": [
+      "organizer",
+      "scheduler",
+      "diary",
+      "strategist"
+    ]
+  },
+  "plumber": {
+    "ipaUS": "/ˈplʌmər/",
+    "col": [
+      "call a plumber",
+      "qualified plumber",
+      "emergency plumber",
+      "plumber's bill",
+      "plumber fixed the leak",
+      "hire a plumber"
+    ],
+    "syn": [
+      "pipe fitter",
+      "repairman",
+      "tradesman"
+    ]
+  },
+  "poorly": {
+    "ipaUS": "/ˈpuːrli/",
+    "col": [
+      "poorly paid",
+      "poorly designed",
+      "perform poorly",
+      "poorly written",
+      "poorly lit",
+      "poorly maintained"
+    ],
+    "syn": [
+      "badly",
+      "inadequately",
+      "unsatisfactorily"
+    ]
+  },
+  "portable": {
+    "ipaUS": "/ˈpɔːrtəbl/",
+    "col": [
+      "portable charger",
+      "portable speaker",
+      "portable device",
+      "lightweight and portable",
+      "portable toilet",
+      "portable heater"
+    ],
+    "syn": [
+      "handy",
+      "mobile",
+      "compact",
+      "carry-on"
+    ]
+  },
+  "postcode": {
+    "ipaUS": "/ˈpoʊstkoʊd/",
+    "col": [
+      "enter a postcode",
+      "postcode area",
+      "check your postcode",
+      "postcode lottery",
+      "valid postcode",
+      "include the postcode"
+    ],
+    "syn": [
+      "zip code",
+      "postal code",
+      "area code"
+    ]
+  },
+  "pottery": {
+    "ipaUS": "/ˈpɑːtəri/",
+    "col": [
+      "pottery class",
+      "Bat Trang pottery",
+      "handmade pottery",
+      "ancient pottery",
+      "pottery workshop",
+      "piece of pottery"
+    ],
+    "syn": [
+      "ceramics",
+      "earthenware",
+      "clayware"
+    ]
+  },
+  "prediction": {
+    "ipaUS": "/prɪˈdɪkʃn/",
+    "col": [
+      "make a prediction",
+      "accurate prediction",
+      "weather prediction",
+      "bold prediction",
+      "prediction of growth",
+      "prediction about the future"
+    ],
+    "syn": [
+      "forecast",
+      "projection",
+      "prophecy",
+      "estimate"
+    ]
+  },
+  "presenter": {
+    "ipaUS": "/prɪˈzentər/",
+    "col": [
+      "TV presenter",
+      "radio presenter",
+      "news presenter",
+      "presenter of the show",
+      "guest presenter",
+      "conference presenter"
+    ],
+    "syn": [
+      "host",
+      "broadcaster",
+      "speaker",
+      "anchor"
+    ]
+  },
+  "projector": {
+    "ipaUS": "/prəˈdʒektər/",
+    "col": [
+      "turn on the projector",
+      "video projector",
+      "projector screen",
+      "overhead projector",
+      "connect to the projector",
+      "projector lamp"
+    ],
+    "syn": [
+      "LCD projector",
+      "slide projector",
+      "display"
+    ]
+  },
+  "punctual": {
+    "ipaUS": "/ˈpʌŋktʃuəl/",
+    "col": [
+      "punctual for a meeting",
+      "always punctual",
+      "be punctual",
+      "punctual and reliable",
+      "punctual delivery",
+      "punctual arrival"
+    ],
+    "syn": [
+      "on time",
+      "prompt",
+      "timely"
+    ]
+  },
+  "purse": {
+    "ipaUS": "/pɜːrs/",
+    "col": [
+      "leather purse",
+      "coin purse",
+      "open a purse",
+      "purse and keys",
+      "evening purse",
+      "snatch a purse"
+    ],
+    "syn": [
+      "handbag",
+      "pouch",
+      "wallet"
+    ]
+  },
+  "redecorate": {
+    "ipaUS": "/ˌriːˈdekəreɪt/",
+    "col": [
+      "redecorate a room",
+      "redecorate the house",
+      "redecorate completely",
+      "redecorate the kitchen",
+      "time to redecorate",
+      "redecorate in blue"
+    ],
+    "syn": [
+      "renovate",
+      "refurbish",
+      "revamp",
+      "do up"
+    ]
+  },
+  "refresh": {
+    "ipaUS": "/rɪˈfreʃ/",
+    "col": [
+      "refresh the page",
+      "refresh your memory",
+      "refresh your drink",
+      "feel refreshed",
+      "refresh the browser",
+      "refresh the feed"
+    ],
+    "syn": [
+      "reload",
+      "revive",
+      "renew",
+      "freshen"
+    ]
+  },
+  "relaxation": {
+    "ipaUS": "/ˌriːlækˈseɪʃn/",
+    "col": [
+      "relaxation techniques",
+      "time for relaxation",
+      "relaxation exercise",
+      "muscle relaxation",
+      "relaxation room",
+      "a place for relaxation"
+    ],
+    "syn": [
+      "rest",
+      "leisure",
+      "unwinding",
+      "calm"
+    ]
+  },
+  "renter": {
+    "ipaUS": "/ˈrentər/",
+    "col": [
+      "renter's insurance",
+      "first-time renter",
+      "long-term renter",
+      "renter and landlord",
+      "car renter",
+      "rights of renters"
+    ],
+    "syn": [
+      "tenant",
+      "lodger",
+      "lessee"
+    ]
+  }
+}
