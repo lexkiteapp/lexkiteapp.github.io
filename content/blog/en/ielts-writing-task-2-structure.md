@@ -170,3 +170,5 @@ Either order is allowed. Because Task 2 counts for more, many candidates start w
 
 ### Do my examples need real statistics?
 No. Examples can be realistic situations from everyday life, work or study. Inventing precise figures that sound official is risky; a believable, specific scenario is more convincing.
+
+For the most common Task 2 question type, read our plan for an [IELTS opinion essay](/en/blog/ielts-opinion-essay/).
