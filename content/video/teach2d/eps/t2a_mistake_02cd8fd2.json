@@ -1,0 +1,129 @@
+{
+ "id": "t2a_mistake_02cd8fd2",
+ "template": "mistake",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Stop saying work hardly!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She works hardly every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She works hard every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Hardly means almost not. For doing something with effort, use hard.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Hard! She works hard every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She works hardly every day.",
+  "right": "She works hard every day.",
+  "strike": "hardly",
+  "why": "Hardly means almost not. For doing something with effort, use hard.",
+  "memory": "Hard works, hardly almost not",
+  "quiz": {
+   "stem": "She works ___ every day.",
+   "options": [
+    "hardly",
+    "hard"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Stop saying “work hardly”"
+ },
+ "src": {
+  "gold": "sb_02cd8fd2",
+  "pid": "w:hardly#adv"
+ },
+ "est": {
+  "words": 51,
+  "seconds": 30.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Stop saying \"hardly\"? Say this instead",
+  "keyword": "hardly",
+  "value": "Say \"She works hard every day\", not \"She works hardly every day\". Hardly means almost not. For doing something with effort, use hard.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#englishgrammar",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 45,
+  "platforms": {
+   "youtube": {
+    "title": "Stop saying \"hardly\"? Say this instead",
+    "description": "Say \"She works hard every day\", not \"She works hardly every day\". Hardly means almost not. For doing something with effort, use hard.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix\n\nSeries: Stop Saying This · Teacher: Ama\n\n#learnenglish #englishtips #englishgrammar #englishteacher",
+    "tags": [
+     "hardly",
+     "Stop Saying This",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Stop saying \"hardly\"? Say this instead\n\nSay \"She works hard every day\", not \"She works hardly every day\". Hardly means almost not. For doing something with effort, use hard.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Stop saying \"hardly\"? Say this instead\n\nSay \"She works hard every day\", not \"She works hardly every day\". Hardly means almost not. For doing something with effort, use hard.\n\nCheck your grammar: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#englishgrammar",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Stop saying \"hardly\"? Say this instead #learnenglish #englishtips #englishgrammar"
+   }
+  },
+  "first_comment": "Answer: Hard! She works hard every day. Say \"She works hard every day\", not \"She works hardly every day\". Hardly means almost not. For doing something with effort, use hard. Try the full lesson and quiz here: {link}"
+ }
+}

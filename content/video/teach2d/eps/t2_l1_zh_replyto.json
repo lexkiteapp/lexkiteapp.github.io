@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_replyto",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say reply to me!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Please reply me soon.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Please reply to me soon.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Reply needs to before me.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Reply to! Please reply to me soon.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Please reply me soon.",
+  "right": "Please reply to me soon.",
+  "strike": "reply me",
+  "why": "Reply needs to before me.",
+  "memory": "Reply to me.",
+  "quiz": {
+   "stem": "Please ___ me soon.",
+   "options": [
+    "reply",
+    "reply to"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "reply 后面要加 to！",
+   "tip": "中文说“回复我”，“我”直接跟在后面。英语 reply 后面要加 to。",
+   "caption": "你是不是也会说 “Please reply me soon.”😅 中文说“回复我”不用介词，英语 reply 后面要加 to：“Please reply to me soon.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“Please reply to me soon.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Add “to” after reply!",
+   "tip": "Chinese puts me right after the verb, but English needs to.",
+   "caption": "Do you say “Please reply me soon.” 😅 English needs to between reply and me: “Please reply to me soon.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "reply 后面要加 to！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "reply 后面要加 to！",
+  "keyword": "Please reply to me soon.",
+  "value": "中文说“回复我”，“我”直接跟在后面。英语 reply 后面要加 to。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "reply 后面要加 to！",
+    "description": "中文说“回复我”，“我”直接跟在后面。英语 reply 后面要加 to。\n\n你是不是也会说 “Please reply me soon.”😅 中文说“回复我”不用介词，英语 reply 后面要加 to：“Please reply to me soon.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "Please reply to me soon.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “Please reply me soon.”😅 中文说“回复我”不用介词，英语 reply 后面要加 to：“Please reply to me soon.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "reply 后面要加 to！\n\n中文说“回复我”，“我”直接跟在后面。英语 reply 后面要加 to。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "reply 后面要加 to！ 中文说“回复我”，“我”直接跟在后面。英语 reply 后面要加 to。 #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“Please reply to me soon.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

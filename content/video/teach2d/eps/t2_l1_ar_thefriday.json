@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_thefriday",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "The Friday? Just Friday!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I rest on the Friday.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I rest on Friday.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "No the before a day.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! On Friday.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I rest on the Friday.",
+  "right": "I rest on Friday.",
+  "strike": "the",
+  "why": "No the before a day.",
+  "memory": "On Friday.",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "On the Friday.",
+    "On Friday."
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "هل تقول “on the Friday”؟",
+   "tip": "في العربية نقول «يوم الجمعة» بالألف واللام، أما في الإنجليزية فلا نضع the قبل اليوم: “I rest on Friday.” وليس “I rest on the Friday.”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “I rest on the Friday.” 😅 في العربية نقول «يوم الجمعة» بالألف واللام، أما في الإنجليزية فلا نضع the قبل اليوم، فالجملة الصحيحة “I rest on Friday.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “Friday” — في العربية نقول «يوم الجمعة» بالألف واللام، أما في الإنجليزية فلا نضع the قبل اليوم. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “on the Friday”?",
+   "tip": "In Arabic «الجمعة» has the article, but in English we do not put the before a day: “I rest on Friday.” not “I rest on the Friday.”",
+   "caption": "Do you sometimes say this? “I rest on the Friday.” 😅 In Arabic «الجمعة» has the article, but in English we do not put the before a day, so the right sentence is “I rest on Friday.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “on the Friday”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "هل تقول “on the Friday”؟",
+  "keyword": "I rest on Friday.",
+  "value": "في العربية نقول «يوم الجمعة» بالألف واللام، أما في الإنجليزية فلا نضع the قبل اليوم: “I rest on Friday.” وليس “I rest on the Friday.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “on the Friday”؟",
+    "description": "في العربية نقول «يوم الجمعة» بالألف واللام، أما في الإنجليزية فلا نضع the قبل اليوم: “I rest on Friday.” وليس “I rest on the Friday.”\n\nهل تقول أحيانًا هذه الجملة؟ “I rest on the Friday.” 😅 في العربية نقول «يوم الجمعة» بالألف واللام، أما في الإنجليزية فلا نضع the قبل اليوم، فالجملة الصحيحة “I rest on Friday.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "I rest on Friday.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا هذه الجملة؟ “I rest on the Friday.” 😅 في العربية نقول «يوم الجمعة» بالألف واللام، أما في الإنجليزية فلا نضع the قبل اليوم، فالجملة الصحيحة “I rest on Friday.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول “on the Friday”؟\n\nفي العربية نقول «يوم الجمعة» بالألف واللام، أما في الإنجليزية فلا نضع the قبل اليوم: “I rest on Friday.” وليس “I rest on the Friday.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “on the Friday”؟ في العربية نقول «يوم الجمعة» بالألف واللام، أما في الإنجليزية فلا نضع th… #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “Friday” — في العربية نقول «يوم الجمعة» بالألف واللام، أما في الإنجليزية فلا نضع the قبل اليوم. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+  "lang": "ar"
+ }
+}

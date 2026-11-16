@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_statq",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "At night, not in the night!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I often study in the night.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I often study at night.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say at night.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "At! I read at night.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I often study in the night.",
+  "right": "I often study at night.",
+  "strike": "in the",
+  "why": "Say at night.",
+  "memory": "At night.",
+  "quiz": {
+   "stem": "I read ___ night.",
+   "options": [
+    "in the",
+    "at"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "晚上要说 at night！",
+   "tip": "中文说“在晚上”，很多人就直译成 in the night。英语里表示“晚上”通常说 at night。",
+   "caption": "你是不是也会说 “I often study in the night.”😅 中文说“在晚上”，英语里“晚上”要说 at night：“I often study at night.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“I often study at night.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say at night!",
+   "tip": "A word-for-word translation gives in the night, but English says at night.",
+   "caption": "Do you say “I often study in the night.” 😅 Word for word gives in the night, but English says at night: “I often study at night.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "晚上要说 at night！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "晚上要说 at night！",
+  "keyword": "I often study at night.",
+  "value": "中文说“在晚上”，很多人就直译成 in the night。英语里表示“晚上”通常说 at night。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "晚上要说 at night！",
+    "description": "中文说“在晚上”，很多人就直译成 in the night。英语里表示“晚上”通常说 at night。\n\n你是不是也会说 “I often study in the night.”😅 中文说“在晚上”，英语里“晚上”要说 at night：“I often study at night.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "I often study at night.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “I often study in the night.”😅 中文说“在晚上”，英语里“晚上”要说 at night：“I often study at night.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "晚上要说 at night！\n\n中文说“在晚上”，很多人就直译成 in the night。英语里表示“晚上”通常说 at night。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "晚上要说 at night！ 中文说“在晚上”，很多人就直译成 in the night。英语里表示“晚上”通常说 at night。 #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“I often study at night.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

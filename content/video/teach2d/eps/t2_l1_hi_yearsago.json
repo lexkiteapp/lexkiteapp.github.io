@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_yearsago",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say ago, not before!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I came here two years before.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I came here two years ago.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Ago counts back from now.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Ago! We met three days ago.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I came here two years before.",
+  "right": "I came here two years ago.",
+  "strike": "before",
+  "why": "Ago counts back from now.",
+  "memory": "Two years ago.",
+  "quiz": {
+   "stem": "We met three days ___.",
+   "options": [
+    "before",
+    "ago"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“years before” नहीं, “years ago”!",
+   "tip": "हिंदी में “दो साल पहले” का “पहले” अंग्रेज़ी में before बन जाता है; आज से गिनते समय ago बोलें।",
+   "caption": "क्या आप भी यही कहते हैं? “I came here two years before.” 😅 सही रूप है “I came here two years ago.” क्योंकि आज से पीछे गिनने के लिए ago आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “ago”। अब इसी तरह अपना एक वाक्य लिखिए। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “years ago”!",
+   "tip": "Many learners use before when counting back from today, but English uses ago.",
+   "caption": "Do you say this? “I came here two years before.” 😅 The right way is “I came here two years ago.” This is right because ago counts back from today. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“years before” नहीं, “years ago”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“years before” नहीं, “years ago”!",
+  "keyword": "I came here two years ago.",
+  "value": "हिंदी में “दो साल पहले” का “पहले” अंग्रेज़ी में before बन जाता है; आज से गिनते समय ago बोलें।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "“years before” नहीं, “years ago”!",
+    "description": "हिंदी में “दो साल पहले” का “पहले” अंग्रेज़ी में before बन जाता है; आज से गिनते समय ago बोलें।\n\nक्या आप भी यही कहते हैं? “I came here two years before.” 😅 सही रूप है “I came here two years ago.” क्योंकि आज से पीछे गिनने के लिए ago आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "I came here two years ago.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी यही कहते हैं? “I came here two years before.” 😅 सही रूप है “I came here two years ago.” क्योंकि आज से पीछे गिनने के लिए ago आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“years before” नहीं, “years ago”!\n\nहिंदी में “दो साल पहले” का “पहले” अंग्रेज़ी में before बन जाता है; आज से गिनते समय ago बोलें।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“years before” नहीं, “years ago”! हिंदी में “दो साल पहले” का “पहले” अंग्रेज़ी में before बन जाता है; आज… #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “ago”। अब इसी तरह अपना एक वाक्य लिखिए। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

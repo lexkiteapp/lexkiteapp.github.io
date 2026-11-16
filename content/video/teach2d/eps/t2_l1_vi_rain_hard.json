@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_rain_hard",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Is the rain big or hard?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: It is raining very big.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: It is raining very hard.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say raining hard, not big.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Hard! It rained hard last night.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "It is raining very big.",
+  "right": "It is raining very hard.",
+  "strike": "big",
+  "why": "Say raining hard, not big.",
+  "memory": "It is raining hard.",
+  "quiz": {
+   "stem": "It rained ___ last night.",
+   "options": [
+    "hard",
+    "big"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Mưa to” nói sao?",
+   "tip": "Tiếng Việt nói “mưa to”, nên dễ thành “rain big”, nhưng tiếng Anh nói “rain hard.”",
+   "caption": "Bạn có hay nói “It is raining very big.” không? 🌧️ Tiếng Anh dùng “hard” cho mưa to: “It is raining very hard.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “It rained hard last night.” Hãy nói to một câu về cơn mưa gần đây, có “hard” nhé. Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#meotienganh",
+    "#tienganhmoingay",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Is the rain “big” or “hard”?",
+   "tip": "Vietnamese says “mưa to”, so “rain big” is easy to say, but English says “rain hard.”",
+   "caption": "Do you often say this? “It is raining very big.” English uses “hard” for heavy rain: “It is raining very hard.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Mưa to” nói sao?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“Mưa to” nói sao?",
+  "keyword": "It is raining very hard.",
+  "value": "Tiếng Việt nói “mưa to”, nên dễ thành “rain big”, nhưng tiếng Anh nói “rain hard.”",
+  "hashtags": [
+   "#hoctienganh",
+   "#meotienganh",
+   "#tienganhmoingay",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "“Mưa to” nói sao?",
+    "description": "Tiếng Việt nói “mưa to”, nên dễ thành “rain big”, nhưng tiếng Anh nói “rain hard.”\n\nBạn có hay nói “It is raining very big.” không? 🌧️ Tiếng Anh dùng “hard” cho mưa to: “It is raining very hard.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #meotienganh #tienganhmoingay #lexkite",
+    "tags": [
+     "It is raining very hard.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “It is raining very big.” không? 🌧️ Tiếng Anh dùng “hard” cho mưa to: “It is raining very hard.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Mưa to” nói sao?\n\nTiếng Việt nói “mưa to”, nên dễ thành “rain big”, nhưng tiếng Anh nói “rain hard.”\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#meotienganh",
+     "#tienganhmoingay",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Mưa to” nói sao? Tiếng Việt nói “mưa to”, nên dễ thành “rain big”, nhưng tiếng Anh nói “rain hard.” #hoctienganh #meotienganh #tienganhmoingay"
+   }
+  },
+  "first_comment": "Đáp án: “It rained hard last night.” Hãy nói to một câu về cơn mưa gần đây, có “hard” nhé. Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

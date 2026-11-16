@@ -66,9 +66,9 @@
    "answer": 1
   },
   "native": {
-   "hook": "¿“Work like” profesor? Es “as”",
-   "tip": "Para profesión o función usa “as”. “Like” significa “parecido a”.",
-   "caption": "En español “como” sirve para todo 👩‍🏫 En inglés no digas “I work like a teacher.”, sino “I work as a teacher.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+   "hook": "¿“Work like a teacher”? ¡Es “as”!",
+   "tip": "Para profesión o función usa “as.” “Like” significa “parecido a.”",
+   "caption": "En español “como” sirve para todo 👩‍🏫 En inglés no digas “I work like a teacher.”, sino “I work as a teacher.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
    "comment": "Respuesta: “as”. “As” = profesión; “like” = parecido. Practica más con un quiz gratis aquí: {link}",
    "hashtags": [
     "#aprenderingles",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "“Work like” a teacher? It is “as”",
-   "tip": "For a job or role use “as”. “Like” means “similar to”.",
-   "caption": "In Spanish “como” works for both. In English do not say “I work like a teacher.”, say “I work as a teacher.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+   "hook": "“Work like a teacher”? It's “as”!",
+   "tip": "For a job or role use “as.” “Like” means “similar to.”",
+   "caption": "“Como” works for everything, but not in English. Do not say “I work like a teacher.”, say “I work as a teacher.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "¿“Work like” profesor? Es “as”"
+  "text": "¿“Work like a teacher”? ¡Es “as”!"
  },
  "src": {
   "l1": true
@@ -103,9 +103,9 @@
   "wpm": 98
  },
  "publish": {
-  "title": "¿“Work like” profesor? Es “as”",
+  "title": "¿“Work like a teacher”? ¡Es “as”!",
   "keyword": "I work as a teacher.",
-  "value": "Para profesión o función usa “as”. “Like” significa “parecido a”.",
+  "value": "Para profesión o función usa “as.” “Like” significa “parecido a.”",
   "hashtags": [
    "#aprenderingles",
    "#inglesfacil",
@@ -116,8 +116,8 @@
   "script_words": 40,
   "platforms": {
    "youtube": {
-    "title": "¿“Work like” profesor? Es “as”",
-    "description": "En español “como” sirve para todo 👩‍🏫 En inglés no digas “I work like a teacher.”, sino “I work as a teacher.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #preposiciones #lexkite",
+    "title": "¿“Work like a teacher”? ¡Es “as”!",
+    "description": "Para profesión o función usa “as.” “Like” significa “parecido a.”\n\nEn español “como” sirve para todo 👩‍🏫 En inglés no digas “I work like a teacher.”, sino “I work as a teacher.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #preposiciones #lexkite",
     "tags": [
      "I work as a teacher.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "En español “como” sirve para todo 👩‍🏫 En inglés no digas “I work like a teacher.”, sino “I work as a teacher.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "En español “como” sirve para todo 👩‍🏫 En inglés no digas “I work like a teacher.”, sino “I work as a teacher.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "En español “como” sirve para todo 👩‍🏫 En inglés no digas “I work like a teacher.”, sino “I work as a teacher.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nlexkite.com",
+    "caption": "¿“Work like a teacher”? ¡Es “as”!\n\nPara profesión o función usa “as.” “Like” significa “parecido a.”\n\nlexkite.com",
     "hashtags": [
      "#aprenderingles",
      "#inglesfacil",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "¿“Work like” profesor? Es “as” #aprenderingles #inglesfacil #preposiciones"
+    "caption": "¿“Work like a teacher”? ¡Es “as”! Para profesión o función usa “as.” “Like” significa “parecido a.” #aprenderingles #inglesfacil #preposiciones"
    }
   },
   "first_comment": "Respuesta: “as”. “As” = profesión; “like” = parecido. Practica más con un quiz gratis aquí: {link}",

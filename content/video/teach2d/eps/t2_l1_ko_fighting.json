@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_fighting",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Fighting? Say good luck!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Fighting! You can do it.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Good luck! You can do it.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say good luck, not fighting.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Good luck! Say good luck before a test.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Fighting! You can do it.",
+  "right": "Good luck! You can do it.",
+  "strike": "Fighting",
+  "why": "Say good luck, not fighting.",
+  "memory": "Good luck!",
+  "quiz": {
+   "stem": "You have a test today. ___!",
+   "options": [
+    "Fighting",
+    "Good luck"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Fighting!”은 응원이 아니에요!",
+   "tip": "한국어 “파이팅!”은 응원할 때 쓰지만, 영어 fighting은 싸움이라는 뜻이라 어색해요. 시험 전엔 Good luck!이라고 해요. 이렇게 말해요 👉 “Good luck! You can do it.”",
+   "caption": "“Fighting! You can do it.”처럼 말하고 있나요? 😅 한국어 “파이팅!”은 응원할 때 쓰지만, 영어 fighting은 싸움이라는 뜻이라 어색해요. 시험 전엔 Good luck!이라고 해요. 맞는 문장 ✅ “Good luck! You can do it.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답: “Good luck”! 이 표현을 넣어 소리 내어 한 문장 말해 보세요. 무료 퀴즈로 더 연습해요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Fighting!” is not a cheer!",
+   "tip": "In English, fighting means a fight. Say “Good luck! You can do it.”",
+   "caption": "Do you say it like this? 😅 “Fighting! You can do it.” In English, fighting means a fight. Right: “Good luck! You can do it.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Fighting!”은 응원이 아니에요!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“Fighting!”은 응원이 아니에요!",
+  "keyword": "Good luck! You can do it.",
+  "value": "한국어 “파이팅!”은 응원할 때 쓰지만, 영어 fighting은 싸움이라는 뜻이라 어색해요. 시험 전엔 Good luck!이라고 해요. 이렇게 말해요 👉 “Good luck! You can do it.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "“Fighting!”은 응원이 아니에요!",
+    "description": "한국어 “파이팅!”은 응원할 때 쓰지만, 영어 fighting은 싸움이라는 뜻이라 어색해요. 시험 전엔 Good luck!이라고 해요. 이렇게 말해요 👉 “Good luck! You can do it.”\n\n“Fighting! You can do it.”처럼 말하고 있나요? 😅 한국어 “파이팅!”은 응원할 때 쓰지만, 영어 fighting은 싸움이라는 뜻이라 어색해요. 시험 전엔 Good luck!이라고 해요. 맞는 문장 ✅ “Good luck! You can do it.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "Good luck! You can do it.",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“Fighting! You can do it.”처럼 말하고 있나요? 😅 한국어 “파이팅!”은 응원할 때 쓰지만, 영어 fighting은 싸움이라는 뜻이라 어색해요. 시험 전엔 Good luck!이라고 해요. 맞는 문장 ✅ “Good luck! You can do it.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Fighting!”은 응원이 아니에요!\n\n한국어 “파이팅!”은 응원할 때 쓰지만, 영어 fighting은 싸움이라는 뜻이라 어색해요. 시험 전엔 Good luck!이라고 해요. 이렇게 말해요 👉 “Good luck! You can do it.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Fighting!”은 응원이 아니에요! 한국어 “파이팅!”은 응원할 때 쓰지만, 영어 fighting은 싸움이라는 뜻이라 어색해요. 시험 전엔 Good luck!이라고 해요. 이렇게 말해요 👉 “Good luck! You can do… #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “Good luck”! 이 표현을 넣어 소리 내어 한 문장 말해 보세요. 무료 퀴즈로 더 연습해요: {link}",
+  "lang": "ko"
+ }
+}

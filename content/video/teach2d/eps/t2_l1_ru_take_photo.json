@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_take_photo",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Make or take?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Can I make a photo of you?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Can I take a photo of you?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "A photo goes with take.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Take! Let me take a photo.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Can I make a photo of you?",
+  "right": "Can I take a photo of you?",
+  "strike": "make",
+  "why": "A photo goes with take.",
+  "memory": "Take a photo.",
+  "quiz": {
+   "stem": "Let me ___ a photo.",
+   "options": [
+    "make",
+    "take"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Photo — make или take?",
+   "tip": "Фото — с глаголом “take”: “Can I take a photo of you?”",
+   "caption": "Ты тоже говоришь “Can I make a photo of you”? 😅 По-русски «сделать фото», и хочется “make”, но с photo нужно “take.” Правильно: “Can I take a photo of you?” Послушай Аму и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “take.” С photo — take. Напиши своё предложение с “take a photo.” Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#учуанглийский",
+    "#английскийдляначинающих",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Make or take?",
+   "tip": "With photo, use “take”: “Can I take a photo of you?”",
+   "caption": "Do you also say “Can I make a photo of you”? 😅 In Russian you “make” a photo, so “make” feels right, but with photo you need “take.” Correct: “Can I take a photo of you?” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Photo — make или take?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Photo — make или take?",
+  "keyword": "Can I take a photo of you?",
+  "value": "Фото — с глаголом “take”: “Can I take a photo of you?”",
+  "hashtags": [
+   "#английскийязык",
+   "#учуанглийский",
+   "#английскийдляначинающих",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "Photo — make или take?",
+    "description": "Фото — с глаголом “take”: “Can I take a photo of you?”\n\nТы тоже говоришь “Can I make a photo of you”? 😅 По-русски «сделать фото», и хочется “make”, но с photo нужно “take.” Правильно: “Can I take a photo of you?” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #учуанглийский #английскийдляначинающих #lexkite",
+    "tags": [
+     "Can I take a photo of you?",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “Can I make a photo of you”? 😅 По-русски «сделать фото», и хочется “make”, но с photo нужно “take.” Правильно: “Can I take a photo of you?” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Photo — make или take?\n\nФото — с глаголом “take”: “Can I take a photo of you?”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#учуанглийский",
+     "#английскийдляначинающих",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Photo — make или take? Фото — с глаголом “take”: “Can I take a photo of you?” #английскийязык #учуанглийский #английскийдляначинающих"
+   }
+  },
+  "first_comment": "Ответ: “take.” С photo — take. Напиши своё предложение с “take a photo.” Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}
