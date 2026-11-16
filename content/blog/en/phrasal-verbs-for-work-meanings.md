@@ -42,6 +42,7 @@ quiz: [
     explain: "Follow up means to take further action or contact someone again about something already discussed."
   }
 ]
+publishAt: 2027-02-23T09:24:00+05:30
 ---
 Reading a job advert, joining a call or writing a quick message to a manager: phrasal verbs are everywhere, and they are rarely explained in a business course. This guide covers the **phrasal verbs for work meaning** you will hear most, grouped by situation: meetings, tasks and deadlines, working with people, and email. Each one comes with a plain definition, an example you can adapt, and a note when the verb is informal or differs between American and British English.
 

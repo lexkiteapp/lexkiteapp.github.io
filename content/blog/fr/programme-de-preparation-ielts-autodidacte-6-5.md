@@ -22,6 +22,8 @@ Vous visez l'immigration ? Notre guide [IELTS pour immigrer](/fr/blog/ielts-pour
 
 Dans ce guide complet, nous détaillons une feuille de route en quatre phases distinctes, les principes de gestion du temps quotidien entre Listening, Reading, Writing et Speaking, ainsi que l'utilisation de la répétition espacée FSRS pour pérenniser votre vocabulaire académique. Si votre niveau de départ nécessite une remise à niveau générale, consultez d'abord notre guide pour [apprendre l'anglais seul](/fr/blog/apprendre-anglais-seul/). Vous pouvez également explorer nos listes de [vocabulaire anglais](/fr/vocabulary/) pour consolider vos bases lexicales.
 
+Si votre date d'examen est fixée, adaptez ce programme avec [notre planning de révision IELTS en 4, 8 ou 12 semaines](/fr/blog/planning-revision-ielts-4-8-12-semaines/).
+
 ## Bilan initial : évaluer votre point de départ réel
 
 L'erreur la plus fréquente des autodidactes consiste à ouvrir immédiatement un recueil de tests Cambridge et à tenter des épreuves chronométrées intégrales dès la première semaine. Si votre socle lexical et votre maîtrise de la grammaire de base se situent encore en dessous du niveau B1 ou B2 du CECRL, vous confronter directement à des textes universitaires complexes ne produira que découragement et fatigue mentale.
@@ -99,6 +101,8 @@ Pour progresser sans épuisement, une routine hebdomadaire d'environ 10 à 12 he
 Vous pouvez suivre votre progression pas à pas directement dans [le parcours d'apprentissage de l'application](/#/path).
 
 {{youtube: | Programme de preparation IELTS autodidacte de zero a 6.5}}
+
+Pour la partie écoute de votre plan, [IELTS Listening types de questions](/fr/blog/ielts-listening-types-de-questions-methode/) donne une méthode pour chaque format.
 
 ## Foire aux questions sur la préparation autodidacte à l'IELTS
 

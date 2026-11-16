@@ -129,6 +129,7 @@ export function violations(file, src) {
   const out = [], t = triggers(src);
   for (const j of jobs(src)) if (usesPlaywright(j.text) && badRunner(j.text)) out.push(`${file}: luật 14 – job "${j.id}" dùng Playwright/Chromium mà runs-on không phải vars.PW_RUNNER (mặc định ubuntu-24.04; ubuntu-latest = 26.04, Playwright chưa hỗ trợ, 13/11)`);
   for (const j of jobs(src)) if (!/^    uses:/m.test(j.text) && !/^    timeout-minutes:/m.test(j.text)) out.push(`${file}: job "${j.id}" thiếu timeout-minutes`);
+  const cg = (src.match(/^concurrency:.*$/m) || [''])[0]; if (/\binputs\.(templates|lessons|eps|ids|list)\b/.test(cg) && !reason(src, 'group-inputs')) out.push(`${file}: concurrency.group nhúng cả danh sách input (templates/lessons/eps/ids) – danh sách dài làm lượt dispatch lỗi 0 job (video-motion 15/11); dùng github.run_id hoặc ghi "# ci-policy: group-inputs – <lý do>"`);
   // 15/11 (luật chủ 13/11: video ≤ 3 máy khi còn việc khác): ma trận của workflow video/dựng phim PHẢI có max-parallel – 10 job video-motion từng chiếm 10/40 máy, 260 job PR xếp hàng
   if (/^(video|cine|teach)-/.test(file)) for (const j of jobs(src)) if (/^\s+strategy:/m.test(j.text) && /\bmatrix:/.test(j.text) && !/max-parallel:/.test(j.text) && !reason(j.text, 'no-max-parallel')) out.push(`${file}: job "${j.id}" có matrix mà thiếu strategy.max-parallel (video chiếm hết máy; hoặc dòng "# ci-policy: no-max-parallel – <lý do>")`);
   const hasConc = /^concurrency:/m.test(src) || jobs(src).some(j => /^    concurrency:/m.test(j.text));
@@ -202,6 +203,8 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   ok(violations('x.yml', base.replace('    timeout-minutes: 5\n', '')).some(v => /timeout-minutes/.test(v)), 'job thiếu timeout → lỗi');
   ok(violations('x.yml', base.replace('    timeout-minutes: 5\n', '').replace('    runs-on: ubuntu-latest\n', '    uses: ./.github/workflows/y.yml\n')).length === 0, 'job uses: (workflow tái dùng) không cần timeout');
   ok(violations('x.yml', base.replace('concurrency: { group: x }\n', '')).some(v => /thiếu concurrency/.test(v)), 'push thiếu concurrency → lỗi');
+  ok(violations('x.yml', base.replace('group: x', "group: 'v-${{ github.event.inputs.templates }}'")).some(v => /danh sách input/.test(v)), 'concurrency group nhúng danh sách input → lỗi');
+  ok(!violations('x.yml', '# ci-policy: group-inputs – danh sách ngắn có lý do\n' + base.replace('group: x', "group: 'v-${{ github.event.inputs.templates }}'")).some(v => /danh sách input/.test(v)), 'group-inputs có lý do → qua');
   ok(violations('x.yml', base.replace('concurrency: { group: x }\n', '').replace('steps: []', 'concurrency: { group: y }\n    steps: []')).length === 0, 'concurrency mức job cũng được');
   ok(violations('x.yml', base.replace("    paths: ['a/**']\n", '')).some(v => /không có paths/.test(v)), 'push main không paths → lỗi');
   ok(violations('x.yml', '# ci-policy: all-paths – check bắt buộc của ruleset\n' + base.replace("    paths: ['a/**']\n", '')).length === 0, 'all-paths có lý do → đạt');

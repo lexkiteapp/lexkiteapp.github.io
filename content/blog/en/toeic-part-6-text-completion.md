@@ -9,7 +9,7 @@ tags: [toeic, reading, part-6, text-completion]
 keyword: "toeic part 6"
 cover: toeic
 coverAlt: "Lexkite TOEIC practice hub with mock tests and practice by part"
-publishAt:
+publishAt: 2027-03-03T07:24:00+05:30
 factChecked: 2026-11-15
 author: Lexkite
 status: ready
