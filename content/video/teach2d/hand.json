@@ -745,6 +745,222 @@
    "strike": "compatible to",
    "template": "mistake",
    "held_reason": "grader>=90 but episode duration outside 18-28 s (needs shorter hook/strike)"
+  },
+  {
+   "gold": "sb_0af41253",
+   "hook_say": "The hotel stuff were friendly",
+   "strike": "stuff",
+   "score": 90,
+   "template": "mistake",
+   "held_reason": "grader>=90 but gold row is not in bank/g0000.jsonl (the audited bank gen.py loads); needs the bank file added to GOLD first"
+  },
+  {
+   "gold": "sb_eeb76e00",
+   "hook_say": "My college helped me finish",
+   "strike": "college",
+   "score": 93,
+   "template": "mistake",
+   "held_reason": "grader>=90 but gold row is not in bank/g0000.jsonl (the audited bank gen.py loads); needs the bank file added to GOLD first"
+  },
+  {
+   "gold": "sb_33de58cb",
+   "hook_say": "I sent you a massage",
+   "strike": "massage",
+   "score": 94,
+   "template": "mistake",
+   "held_reason": "grader>=90 but gold row is not in bank/g0000.jsonl (the audited bank gen.py loads); needs the bank file added to GOLD first"
+  },
+  {
+   "gold": "sb_c8af63dc",
+   "hook_say": "Wildlife conversation is important",
+   "strike": "conversation",
+   "score": 90,
+   "template": "mistake",
+   "held_reason": "grader>=90 but gold row is not in bank/g0000.jsonl (the audited bank gen.py loads); needs the bank file added to GOLD first"
+  },
+  {
+   "gold": "sb_e02f5a9c",
+   "hook_say": "Animals adopt to cold weather",
+   "strike": "adopt",
+   "score": 93,
+   "template": "mistake",
+   "held_reason": "grader>=90 but gold row is not in bank/g0000.jsonl (the audited bank gen.py loads); needs the bank file added to GOLD first"
+  },
+  {
+   "gold": "sb_99ee8cfb",
+   "hook_say": "A lot of pleasure on students",
+   "strike": "pleasure",
+   "score": 90,
+   "template": "mistake",
+   "held_reason": "grader>=90 but gold row is not in bank/g0000.jsonl (the audited bank gen.py loads); needs the bank file added to GOLD first"
+  },
+  {
+   "gold": "sb_209d5928",
+   "hook_say": "I need to make my homework.",
+   "strike": "make",
+   "score": 94,
+   "template": "mistake",
+   "held_reason": "grader>=90 but gold row is not in bank/g0000.jsonl (the audited bank gen.py loads); needs the bank file added to GOLD first"
+  },
+  {
+   "gold": "sb_d762c9a4",
+   "hook_say": "I lost the bus today.",
+   "strike": "lost",
+   "score": 93,
+   "template": "mistake",
+   "held_reason": "grader>=90 but gold row is not in bank/g0000.jsonl (the audited bank gen.py loads); needs the bank file added to GOLD first"
+  },
+  {
+   "gold": "sb_a90fd6ec",
+   "hook_say": "I like hearing to music.",
+   "strike": "hearing",
+   "score": 90,
+   "template": "mistake",
+   "held_reason": "grader>=90 but gold row is not in bank/g0000.jsonl (the audited bank gen.py loads); needs the bank file added to GOLD first"
+  },
+  {
+   "gold": "sb_95408ad1",
+   "hook_say": "Someone robbed my phone.",
+   "strike": "robbed",
+   "score": 94,
+   "template": "mistake",
+   "held_reason": "grader>=90 but gold row is not in bank/g0000.jsonl (the audited bank gen.py loads); needs the bank file added to GOLD first"
+  },
+  {
+   "gold": "sb_068cf065",
+   "hook_say": "I'm considering to buy a car.",
+   "strike": "considering to buy",
+   "score": 95,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s / duplicate gold / L1 dup / level>B1 word: countable, podcast, ing, adjective)"
+  },
+  {
+   "gold": "sb_0ce10d3a",
+   "hook_say": "I met her three years before.",
+   "strike": "before",
+   "score": 91,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s / duplicate gold / L1 dup / level>B1 word: countable, podcast, ing, adjective)"
+  },
+  {
+   "gold": "sb_00e987d4",
+   "hook_say": "I'm looking for a work.",
+   "strike": "a work",
+   "score": 90,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s / duplicate gold / L1 dup / level>B1 word: countable, podcast, ing, adjective)"
+  },
+  {
+   "gold": "sb_0f8cdbf0",
+   "hook_say": "I like listening music.",
+   "strike": "listening music",
+   "score": 91,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s / duplicate gold / L1 dup / level>B1 word: countable, podcast, ing, adjective)"
+  },
+  {
+   "gold": "sb_05b65d49",
+   "hook_say": "I decided going home.",
+   "strike": "decided going",
+   "score": 94,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s / duplicate gold / L1 dup / level>B1 word: countable, podcast, ing, adjective)"
+  },
+  {
+   "gold": "sb_136af047",
+   "hook_say": "He said me that.",
+   "strike": "said me",
+   "score": 90,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s / duplicate gold / L1 dup / level>B1 word: countable, podcast, ing, adjective)"
+  },
+  {
+   "gold": "sb_3e77d39c",
+   "hook_say": "Please rise your hand.",
+   "strike": "rise",
+   "score": 93,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s / duplicate gold / L1 dup / level>B1 word: countable, podcast, ing, adjective)"
+  },
+  {
+   "gold": "sb_116f3374",
+   "hook_say": "I hate wait.",
+   "strike": "wait",
+   "score": 90,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s / duplicate gold / L1 dup / level>B1 word: countable, podcast, ing, adjective)"
+  },
+  {
+   "gold": "sb_1dff6fb4",
+   "hook_say": "Can you help me carrying this?",
+   "strike": "carrying",
+   "score": 94,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s / duplicate gold / L1 dup / level>B1 word: countable, podcast, ing, adjective)"
+  },
+  {
+   "gold": "sb_66fda57a",
+   "hook_say": "Edison discovered the light bulb",
+   "strike": "discovered the light bulb",
+   "score": 93,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s / duplicate gold / L1 dup / level>B1 word: countable, podcast, ing, adjective)"
+  },
+  {
+   "gold": "sb_37234b0e",
+   "hook_say": "She did a mistake",
+   "strike": "did a mistake",
+   "score": 95,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s / duplicate gold / L1 dup / level>B1 word: countable, podcast, ing, adjective)"
+  },
+  {
+   "gold": "sb_7432d6cb",
+   "hook_say": "We won the other team",
+   "strike": "won the other team",
+   "score": 94,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s / duplicate gold / L1 dup / level>B1 word: countable, podcast, ing, adjective)"
+  },
+  {
+   "gold": "sb_466c0a2d",
+   "hook_say": "They don't allow to smoke",
+   "strike": "allow to smoke",
+   "score": 92,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s / duplicate gold / L1 dup / level>B1 word: countable, podcast, ing, adjective)"
+  },
+  {
+   "gold": "sb_01002079",
+   "hook_say": "I keep putting off to call",
+   "strike": "putting off to call",
+   "score": 92,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s / duplicate gold / L1 dup / level>B1 word: countable, podcast, ing, adjective)"
+  },
+  {
+   "gold": "sb_21612f29",
+   "hook_say": "Committed to reduce waste",
+   "strike": "committed to reduce",
+   "score": 90,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s / duplicate gold / L1 dup / level>B1 word: countable, podcast, ing, adjective)"
+  },
+  {
+   "gold": "sb_4e852243",
+   "hook_say": "I feel like to sleep.",
+   "strike": "to sleep",
+   "score": 95,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s / duplicate gold / L1 dup / level>B1 word: countable, podcast, ing, adjective)"
+  },
+  {
+   "gold": "sb_5b373a0c",
+   "hook_say": "My bag is too much heavy.",
+   "strike": "too much heavy",
+   "score": 94,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s / duplicate gold / L1 dup / level>B1 word: countable, podcast, ing, adjective)"
   }
  ]
 }
