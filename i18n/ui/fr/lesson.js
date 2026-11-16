@@ -60,7 +60,7 @@
 "Xếp thành câu":"Construisez la phrase",
 "{a}/{b} cặp":"{a}/{b} paires",
 "Ôn lỗi":"Corriger ses erreurs",
-"Ôn lỗi trước bài mới":"Revoir vos erreurs",
+"Ôn lỗi trước bài mới":"Revoir d’abord les mots fragiles",
 "Đang nghe bạn nói…":"Je vous écoute…",
 "Đáp án của bạn":"Ta réponse",
 "Đây là gì?":"Qu'est-ce que c'est ?",

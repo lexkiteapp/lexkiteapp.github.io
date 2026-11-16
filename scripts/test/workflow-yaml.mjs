@@ -2,6 +2,8 @@
 // Lý do: workflow lỗi cú pháp thì run của pull_request không hề sinh ra (PR vẫn xanh) còn run push thành "failure" không job → required-gate đỏ sau khi đã vào nhánh
 // (vd teacher-rig.yml 05/11: `run: { echo …; } >> …` là flow-mapping sai). Chạy: node scripts/test/workflow-yaml.mjs
 import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 const DIR = '.github/workflows', files = fs.readdirSync(DIR).filter(f => /\.ya?ml$/.test(f)).sort();
 // Khóa trùng (vd. `env: { A: 1, A: 1 }` sau gộp nhánh, 11/11 vocab-img-scene trên claude/sec-448-v2): PyYAML nuốt âm thầm nhưng GitHub từ chối cả file → run push "failure" 0 job.
@@ -29,3 +31,11 @@ const r = spawnSync('python3', ['-c', PY, ...files.map(f => `${DIR}/${f}`)], { e
 if (r.error || /No module named/.test(r.stderr || '')) { console.error('✗ workflow-yaml: cần python3 + PyYAML', r.stderr || r.error); process.exit(2); }
 if (r.status !== 0) { console.error(r.stdout + `workflow-yaml: ${files.length} file, có file YAML không đọc được`); process.exit(1); }
 console.log(`✓ workflow-yaml: ${files.length} workflow đều đọc được`);
+
+// Tự kiểm (15/11, gen-sync.yml: `run: bash x \"Bản sinh: …\"` – dấu ': ' trong scalar thường làm GitHub bỏ cả file): bộ đọc PHẢI bắt được lỗi đó, không thì làn nhanh vô dụng.
+const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'wfy-')), bad = path.join(tmp, 'bad.yml');
+fs.writeFileSync(bad, 'name: x\non: { push: { branches: [main] } }\njobs:\n  a:\n    runs-on: ubuntu-latest\n    steps:\n      - run: bash s.sh "Bản sinh: gói dịch"\n');
+const rb = spawnSync('python3', ['-c', PY, bad], { encoding: 'utf8' });
+fs.rmSync(tmp, { recursive: true, force: true });
+if (rb.status === 0) { console.error('✗ workflow-yaml: tự kiểm – bộ đọc KHÔNG bắt được `: ` trong scalar thường'); process.exit(1); }
+console.log('✓ workflow-yaml: tự kiểm bắt được `: ` trong scalar thường');

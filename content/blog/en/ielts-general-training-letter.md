@@ -179,6 +179,8 @@ For more practice material, browse our [IELTS model essays and letters](/en/samp
 
 {{youtube: | Video idea: planning and writing a semi-formal IELTS letter to a landlord in 20 minutes}}
 
+Not sure which version you need? Read [IELTS General vs Academic for immigration](/en/blog/ielts-general-vs-academic-immigration/).
+
 ## Frequently asked questions
 
 ### How many words should an IELTS General Training letter be?

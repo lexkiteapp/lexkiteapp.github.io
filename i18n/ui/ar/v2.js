@@ -22,6 +22,7 @@
 "Chạm một từ rồi chạm nghĩa để nối":"اضغط على كلمة ثم على معناها لتوصيلهما",
 "Chỉ 5 phút mỗi ngày là giữ được chuỗi ngày.":"5 دقائق فقط يوميًا تحافظ على سلسلتك.",
 "Chọn ngôn ngữ giao diện":"اختر اللغة",
+"Chọn ngôn ngữ giải nghĩa":"اختيار اللغات المستهدفة",
 "Chọn ngôn ngữ học":"اختيار اللغة",
 "Chọn ngôn ngữ mục tiêu để cá nhân hóa lộ trình học của bạn.":"اختر لغتك المستهدفة لتخصيص مسار تعلّمك.",
 "Các bài học":"الدروس",

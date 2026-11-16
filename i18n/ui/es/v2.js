@@ -22,6 +22,7 @@
 "Chạm một từ rồi chạm nghĩa để nối":"Toca una palabra y luego su significado para unirlos",
 "Chỉ 5 phút mỗi ngày là giữ được chuỗi ngày.":"Solo 5 minutos al día mantienen viva tu racha.",
 "Chọn ngôn ngữ giao diện":"Elige el idioma",
+"Chọn ngôn ngữ giải nghĩa":"Elegir idiomas de traducción",
 "Chọn ngôn ngữ học":"Elige el idioma",
 "Chọn ngôn ngữ mục tiêu để cá nhân hóa lộ trình học của bạn.":"Elige tu idioma objetivo para personalizar tu ruta de aprendizaje.",
 "Các bài học":"Lecciones",

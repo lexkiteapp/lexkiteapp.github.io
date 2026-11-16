@@ -123,6 +123,7 @@
 .day-steps a.ok{border-color:var(--good)}.day-steps a.next{border:2px solid var(--primary);box-shadow:0 3px 0 color-mix(in srgb,var(--primary) 40%,transparent)}
 .day-steps .ds-em{font-size:1.5rem;width:2rem;text-align:center;flex:none}.day-steps .ds-min{margin-left:auto;font-size:.8rem;color:var(--muted);flex:none}
 .day-hero{display:flex;gap:1rem;align-items:center}.day-hero .dh-n{flex:none;width:72px;height:72px;border-radius:22px;display:grid;place-items:center;color:#fff;font-weight:800;font-size:1.6rem;background:var(--sc,var(--primary))}
+.day-v2 .lv-card{flex-direction:column;align-items:stretch;gap:.5rem}.day-v2 .lv-card img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:12px}.day-v2 .lv-card .lv-play{position:absolute;inset-inline-end:1.2rem;top:calc(50% - 1.2rem)}.day-v2 .lv-card{position:relative}.day-v2 a.next>div:first-child>div:first-child svg.i{width:28px;height:28px}
 @media (prefers-reduced-motion:reduce){.node.current{animation:none}}`;
     document.head.appendChild(s);
   }
@@ -228,13 +229,14 @@
     const cta = nx ? { t: (okN ? t('Tiếp tục Ngày {n}', { n: d.n }) : t('Bắt đầu Ngày {n}', { n: d.n })) + ': ' + nx.name, href: nx.href, k: nx.k }
       : { t: more ? t('Học tiếp Ngày {n}', { n: d.n + 1 }) : t('Lộ trình từ vựng'), href: more ? '#/day/' + (d.n + 1) : '#/path', k: null };
     const done = !nx ? `<div role="status" class="mt-3 rounded-[0.75rem] border p-4 text-center font-bold bg-[color:var(--surface)] border-[color:var(--line)]"><span aria-hidden="true">${UI.icon('party-popper')}</span> ${t('Hoàn thành Ngày {n}!', { n: d.n })}</div>${nextDay ? '' : nextBox(d.tr)}` : '';
+    const xpAt = i => { let c = 0; for (let j = 0; j <= i; j++) c += Math.floor(15 / st.length) + (j < 15 % st.length ? 1 : 0); return c; }; // thanh +15 XP của ngày: xong bước i → đạt xpAt(i)/15 (chỉ là tiến tới thưởng; +15 trao 1 lần khi xong cả ngày)
     const root = ST2.mount(view, 'day', {
       title: t('Ngày {n}', { n: d.n }), sub: d.unit.topic.name, back: t('Quay lại'), lp: t('Tiến độ trong ngày'), la: t('Các hoạt động của ngày'), tn: t('Cô Ama'), teacher: Chars.slot('ama', { pose: 'point', size: 's', lazy: false }),
       n: String(d.n), chip: stage.name, h1: `${t('Ngày {n}', { n: d.n })}: ${d.unit.topic.name}`,
       words: t('{n} từ mới', { n: d.topic.words.length }), dur: t('≈ {m} phút', { m: minsOf(st) }) + (stage.band === '' || !stage.cefr ? '' : ' · CEFR ' + stage.cefr),
       pt: `${cnt} (${pct}%)`, cnt: `${okN}/${st.length} · ${t('+{n} XP', { n: 15 })}`, pct, okN, total: st.length, cta, extra: done,
-      steps: st.map((s, i) => ({ v: s.ok ? 'done' : s === nx ? 'next' : 'todo', k: s.k, href: s.href, t: `${i + 1}. ${s.name}`, s: s.sub || '', m: t('{m} phút', { m: s.mins }), tag: s.ok ? t('Đã xong') : t('Tiếp theo'), ico: stepIco(s), go: chev })),
-      lv: `<div class="lv-slot" hidden data-lv="${esc(JSON.stringify({ mode: 'day', seed: d.n, words: d.topic.words.map(w => String(w.word || '').toLowerCase()).slice(0, 12), level: stage.cefr || '' }))}"></div>`,
+      steps: st.map((s, i) => ({ v: s.ok ? 'done' : s === nx ? 'next' : 'todo', k: s.k, href: s.href, t: `${i + 1}. ${s.name}`, s: s.sub || '', m: t('{m} phút', { m: s.mins }), tag: s.ok ? t('Đã xong') : t('Tiếp theo'), ico: stepIco(s), go: chev, xp: xpAt(i) + '/15 XP' })),
+      lv: `<section hidden data-lvwrap class="mt-4 rounded-[0.75rem] border p-3 bg-[color:var(--surface)] border-[color:var(--line)]"><div class="lv-slot" hidden data-lv="${esc(JSON.stringify({ mode: 'day', seed: d.n, words: d.topic.words.map(w => String(w.word || '').toLowerCase()).slice(0, 12), level: stage.cefr || '' }))}"></div></section>`,
       h: { path: '#/path', words: '#/topic/' + encodeURIComponent(d.unit.topic.id) } }, null);
     root.classList.add('day-v2'); document.body.classList.remove('st', 'v2on'); // trang con 'inner': thanh trên + #bnav + lề #view chung của app (như vocab-hub), khung Stitch chỉ là nội dung
     $$('[data-step]', view).forEach(a => a.addEventListener('click', () => {
@@ -243,7 +245,7 @@
       if (s && s.tap && !s.ok) { mark(d.key, s.k); finishIf(find(d.id)); }
       else if (s && s.ext) ls('dayExt', JSON.stringify({ id: d.key, k: s.k, c: s.ext, base: today()[s.ext] || 0, day: Core.todayKey() }));
     }));
-    App.lazy('lvideo').then(() => g.LessonVideo && LessonVideo.scan(view)).catch(() => {}); // 🎬 "Video của ngày" (ẩn nếu chưa có video)
+    App.lazy('lvideo').then(() => g.LessonVideo && LessonVideo.scan(view)).then(() => { const w = view.querySelector('[data-lvwrap]'), sl = w && w.querySelector('.lv-slot'); if (w && sl && !sl.hidden) w.hidden = false; }).catch(() => {}); // 🎬 "Video của ngày": thẻ Stitch chỉ hiện khi có video (facade nhẹ: poster, player chỉ tải khi bấm)
   }
 
   // ---------- Thanh tiến độ buổi học trên trang bài tập ----------

@@ -22,6 +22,7 @@
   "Chạm một từ rồi chạm nghĩa để nối": "Tap a word and its translation to connect",
   "Chỉ 5 phút mỗi ngày là giữ được chuỗi ngày.": "Just 5 minutes a day keeps your streak alive.",
   "Chọn ngôn ngữ giao diện": "Select Language",
+  "Chọn ngôn ngữ giải nghĩa": "Select target languages",
   "Chọn ngôn ngữ học": "Choose language",
   "Chọn ngôn ngữ mục tiêu để cá nhân hóa lộ trình học của bạn.": "Pick your target language to personalise your path.",
   "Các bài học": "Lessons",

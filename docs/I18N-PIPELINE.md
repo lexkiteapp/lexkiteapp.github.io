@@ -21,6 +21,7 @@ Một khóa chỉ có **một** bản tiếng Anh: không khai báo trùng khóa
 - Tra cứu: `web/js/i18n.js` thử `D[lang][câu]` rồi `D[lang][hk(câu)]` (chỉ khi en có khóa đó → chuỗi lạ không trùng nhầm). Hai khóa trùng băm, hoặc khóa có bản dịch mà en không có → gói giữ **nguyên câu** làm khóa. Khóa nguyên câu dạng `_abc12` bị cấm (lỗi khi dựng).
 - Mã cần tra một ngôn ngữ cụ thể: `I18N.has(l, câu)` / `I18N.tr(l, câu)` – **không** đọc `I18N_DICT[l][câu]`. Add-on: `xd(src)` trong `extension/{background,content,popup,writecheck}.js` (tra băm trước, vì nền en của background giữ khóa nguyên câu). Script Node đọc **nguồn**: `loadLang(lang)` / `loadSrc(lang, nhóm)` trong `scripts/lib/i18n-pack.mjs`.
 - Ai sinh lại gói: `build-i18n.sh`, `gen-i18n.mjs`, `i18n-fix.mjs`, `confidence/build.mjs --write`, `build-extension.sh`, `mergecheck.sh`; bot `i18n.yml` add cả `i18n/ui` lẫn `web/js/i18n`. Kiểm: `node scripts/i18n-pack.mjs --check` (trong `i18n-qa.mjs`) và `scripts/test/i18n-pack.mjs` (ghép lại 100 % chuỗi mọi ngôn ngữ, trùng băm, chạy thật `i18n.js` từng ngôn ngữ, add-on).
+- **Gói chạy KHÔNG commit trong PR (15/11)**: PR chỉ sửa nguồn `i18n/ui/**`; `npm ci` trên CI chạy `scripts/ci/regen-generated.mjs` (i18n-pack + build-extension) nên test thấy gói khớp nguồn PR; bot `gen-sync.yml` commit `web/js/i18n/<lang>`, `pn-*`, `extension/app` lên main sau gộp, rồi kiểm khớp (`ext-sync` + `i18n-pack`). `scripts/build-web.sh` tự chạy `i18n-pack` nên site đúng ngay cả khi bot chưa kịp commit. Cổng `scripts/test/gen-pr-clean.mjs`; gỡ PR lỡ commit: `node scripts/ci/regen-conflicts.mjs --strip`.
 - **PR đang sửa `web/js/i18n/<lang>/…` (không phải en)**: chuyển thay đổi sang `i18n/ui/<lang>/…` rồi `node scripts/i18n-pack.mjs`. Xung đột ở gói chạy: lấy bên nào cũng được rồi chạy lại `i18n-pack` (preview-resolve hợp khóa cả `i18n/ui/**`).
 
 ## 2. Quy tắc khi thêm chữ mới vào giao diện
@@ -46,6 +47,11 @@ Khóa chỉ module tải lười dùng nằm ở `en/lazyui.js` (gói `i18nl`, A
 `node scripts/test/i18n-switch.mjs --scan` (t() lúc nạp module, báo file:dòng) và `i18n-switch.mjs` (dùng app bằng tiếng Việt → đổi sang es/ja/ar, từ điển về muộn → quét chữ tiếng Việt) chạy trong `npm test`.
 
 Khóa thiếu → giao diện tự hiện tiếng Anh (en.js nạp trước), không bao giờ hiện tiếng Việt.
+
+### 3b. Giọng & xưng hô theo ngôn ngữ (14/11/2026, chốt theo chữ native đã phát hành)
+- **de = Sie** (Ihr/Ihnen, mệnh lệnh "Starten Sie"), **fr = vous**, **ja = です・ます**, **ko = 해요체 (-요)**. Không trộn du/tu trong cùng app. Câu cứng thì dùng nguyên mẫu/danh từ hóa ("Wörter hinzufügen").
+- Máy gác: `i18n-qa.mjs` (cột "lẫn xưng hô", `INFORMAL` trong `scripts/lib/i18n-rules.mjs`) lỗi khi du/tu lọt vào nguồn `i18n/ui/{de,fr}`. Ngoại lệ duy nhất: khóa native đã phát hành còn xưng thân mật ở `scripts/i18n-register-legacy.json` (chỉ gỡ khi mở khóa native, PR riêng + snapshot). Khóa mới KHÔNG được thêm vào danh sách này.
+- Hiệu đính hàng loạt: `node scripts/i18n-rewrite.mjs extract <lang> <nhóm|informal> --size 120 <thư mục>` → người viết lại (Sonnet) → `apply <lang> <kết quả.json>` (kiểm biến/thẻ/tiếng Anh mẫu/VI; ghi vào `i18n-fixed.json` nếu khóa ở đó, còn lại vào nguồn) → `node scripts/i18n-fix.mjs && node scripts/i18n-pack.mjs`. Người chấm độc lập phải là phiên khác người viết, ≥ 90.
 
 ### Nội dung bài học viết gốc tiếng Anh (O5)
 Khóa có `content/i18n/en-src/*.json` { "<chuỗi vi>": "<en GV bản xứ>" }: `gen-content-i18n.mjs` cho en hiện thẳng bản gốc, L1 dịch **từ en** (dấu `content/i18n/from-en.json`, dịch lại khi en đổi); bản đã sửa `content/i18n/native-fixed.json` đứng trên hết. `i18n-native-score.yml` (dispatch, 4 shard): A dịch ngược L1→en, B khác họ chấm 1–5 → `content/i18n-native-score.json` (content-score đọc `avg`); cổng avg ≥ 4,3, không mục < 3,5; `--fix` viết lại mục < 4 thẳng từ en. Rút khóa một bài: `node scripts/i18n-native-score.mjs --keys <id>`. Test: `scripts/test/i18n-native-score.mjs`.

@@ -26,7 +26,7 @@ const cyc = a => { let i = 0; return () => a[i++ % a.length]; };
 const SPK_FILES = ['web/js/speak/data.js'];
 const SPEAK_FILES = ['web/cpack/speak/samples.js', 'web/cpack/speak/more2.js', 'web/cpack/speak/more3.js', 'web/js/speak/more.js'];
 const PRON_FILES = ['web/cpack/pron/sounds.js', 'web/cpack/pron/skills.js'];
-const RP_FILES = ['web/js/roleplay/data-everyday.js', 'web/js/roleplay/data-a.js', 'web/js/roleplay/data-b.js', 'web/cpack/roleplay/data-lot1.js'];
+const RP_FILES = ['web/js/roleplay/data-everyday.js', 'web/js/roleplay/data-a.js', 'web/js/roleplay/data-b.js', 'web/cpack/roleplay/data-lot1.js', 'web/cpack/roleplay/data-lot2.js'];
 const sbox = (extra = {}) => { const sb = { console, Math, JSON, t: tt, ...extra }; sb.self = sb; sb.window = sb; sb.globalThis = sb; vm.createContext(sb); return sb; };
 const run = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
 let CONTENT = null;
@@ -615,7 +615,7 @@ async function roleplayVectors() {
   await chat('server-signed-in', 'signed in ⇒ AI left is unlimited (99) and the request carries Authorization: Bearer <id token>', { ls: { 'vb.rp.day': undefined }, signedIn: true, server: srv, actions: [{ say: 'Could I get a latte, please?' }], random: [0.9] });
   { const P = await open({ ls: { 'vb.rp.day': undefined }, server: srv }); const modes = []; for (let n = 0; n < 4; n++) { await start(P, 'cafe'); modes.push(tk(unesc(/<span id="rpMode">([^<]*)<\/span>/.exec(P.view.innerHTML)[1]))); }
     out.ai.push({ id: 'guest-budget', why: 'guests get GUEST_AI = 2 AI conversations per day: conversations 1 and 2 use the server (counter vb.rp.day n = 1, 2), the 3rd and later the script; the counter resets when the date changes (yyyy-mm-dd, UTC)', input: { guestAiPerDay: 2, today: new Date(NOW).toISOString().slice(0, 10) }, out: { modes, counter: P.writes.filter(w => w.key === 'vb.rp.day').map(w => JSON.parse(w.value)) } }); }
-  out.ai.push({ id: 'prompts', why: 'the AI system prompt (sysOf) and the scoring prompt are built from the script: copy the templates from the request bodies below; the nano (Gemini Nano) path is a web-only on-device model: ports use their own on-device model or skip straight to the server/script', input: { script: 'cafe', level: 1 }, out: await (async () => { const P = await open({ ls: { 'vb.rp.day': undefined }, server: srv }); await start(P, 'cafe'); P.$('#rpIn').value = 'Could I get a latte, please?'; await P.$('#rpSend').onclick(); await settle(8); return { systemPrompt: P.fetches[0].body.sys, turnPrompt: P.fetches[0].body.prompt }; })() });
+  out.ai.push({ id: 'prompts', why: 'the AI system prompt (sysOf) and the scoring prompt are built from the script: copy the templates from the request bodies below; the nano (Gemini Nano) path is a web-only on-device model: ports use their own on-device model or skip straight to the server/script', input: { script: 'cafe', level: 1 }, out: await (async () => { const P = await open({ ls: { 'vb.rp.day': undefined }, server: srv }); await start(P, 'cafe'); P.$('#rpIn').value = 'Could I get a latte, please?'; await P.$('#rpSend').onclick(); await settle(8); const fb = P.fetches[0].body; return { systemPrompt: fb.sys ?? (await import('../../functions/api/_aitask.js')).rpSys(fb.rp), turnPrompt: P.fetches[0].body.prompt }; })() });
   return out;
 }
 

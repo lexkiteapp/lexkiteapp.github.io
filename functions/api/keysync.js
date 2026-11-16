@@ -7,6 +7,7 @@
  * Khóa đã có (trùng dấu vân tay, kể cả nhập tay) → giữ nguyên trạng thái; khóa do lần đồng bộ trước thêm mà nay không còn trong secret → xóa. */
 import { verifyOidc } from './lexai.js';
 import * as K from './_keys.js';
+import { readJSON, bodyFail } from './_body.js';
 
 const AUD = 'lexkite-keysync', WF = 'lexkiteapp/lexkiteapp.github.io/.github/workflows/ai-keys-sync.yml@refs/heads/main', NOTE = 'ci-sync', MAX = 400;
 const out = (status, data) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } });
@@ -17,7 +18,7 @@ export async function onRequestPost({ request, env }) {
   const c = await verifyOidc((request.headers.get('Authorization') || '').replace(/^Bearer\s+/i, ''), Date.now(), AUD).catch(() => null);
   if (!allowed(c)) return out(401, { error: 'auth' });
   if (!env.DB || !K.encReady(env)) return out(500, { error: 'not-configured' });
-  let b; try { b = await request.json(); } catch (e) { return out(400, { error: 'json' }); }
+  let b; try { b = await readJSON(request, 200000); } catch (e) { const f = bodyFail(e); return out(f.status, { error: f.error }); }
   const provider = b && b.provider;
   if (provider !== 'gemini' && provider !== 'groq') return out(400, { error: 'provider' });
   const re = K.PROVIDERS[provider].re, keys = [...new Set((Array.isArray(b.keys) ? b.keys : []).map(k => K.cleanKey(k)).filter(k => re.test(k)))].slice(0, MAX);

@@ -207,7 +207,7 @@ const RV = T1.vectorJson, RD = T1.rigJson;
     ok(Buffer.byteLength(K1) < 700 * 1024 && gz < 250 * 1024, `skills-pack.json size: ${(Buffer.byteLength(K1) / 1024) | 0} KB raw (< 700) / ${(gz / 1024) | 0} KB gzip (< 250); not in the extension or app shell`);
     if (!/^[0-9a-f]{12}$/.test(PK.v) || PK.schema !== 1) bp.push('v/schema');
     if (PK.listening.length !== 40 || new Set(PK.listening.map(p => p.test)).size !== 10 || [...Array(10).keys()].some(t => [1, 2, 3, 4].some(k => !PK.listening.find(p => p.id === `t${t + 1}p${k}`)))) bp.push('listening is not 10 tests x 4 parts');
-    if (PK.readings.length !== 57 || new Set(PK.readings.map(r => r.id)).size !== 57) bp.push('readings is not 57 distinct passages');
+    if (PK.readings.length !== SV.counts.readings || new Set(PK.readings.map(r => r.id)).size !== SV.counts.readings) bp.push("readings are not " + SV.counts.readings + " distinct passages (vectors counts)");
     const JS = x => JSON.stringify(x);
     if (SV.data.listening.some(p => JS(PK.listening.find(q => q.id === p.id)) !== JS(p))) bp.push('listening parts differ from skills.json data.listening');
     if (SV.data.readings.some(r => JS(PK.readings.find(q => q.id === r.id)) !== JS(r))) bp.push('readings differ from skills.json data.readings');
@@ -215,7 +215,7 @@ const RV = T1.vectorJson, RD = T1.rigJson;
     for (const sk of Object.keys(Q.band)) if (JS(Q.band[sk]) !== JS(Array.from({ length: 41 }, (_, r) => (PK.consts.band[sk].find(([m]) => r >= m) || [0, 0])[1]))) bp.push('band ' + sk);
     if (PK.consts.kvoice.narrator !== 'bm_george' || Object.keys(PK.consts.kvoice.pools).length !== 6 || SV.shared.kvoice.voices.some(c => c.out._narrator !== PK.consts.kvoice.narrator)) bp.push('kvoice consts');
     if (PK.consts.stopwords.length < 40 || !PK.consts.stopwords.includes('the')) bp.push('stopwords');
-    ok(bp.length === 0, `skills-pack.json: 10 tests / 40 parts, 57 readings, shape = skills.json data.*, consts (band, voice pools, stopwords) match the vectors${bp.length ? ' – ' + bp.join('; ') : ''}`);
+    ok(bp.length === 0, `skills-pack.json: 10 tests / 40 parts, readings = vectors counts, shape = skills.json data.*, consts (band, voice pools, stopwords) match the vectors${bp.length ? ' – ' + bp.join('; ') : ''}`);
   }
   // strings: every literal t() key on the P06 screens (listening, reading, qengine, qtips, choice-kit) is mapped by strings.json
   const have8 = new Set(Object.values(JSON.parse(rd('native/shared/strings.json')))), keys8 = new Set();
@@ -275,12 +275,12 @@ const RV = T1.vectorJson, RD = T1.rigJson;
     if (!/^[0-9a-f]{12}$/.test(PK.v) || PK.schema !== 1) bp.push('v/schema');
     if (PK.speaking.bank.length < 30 || Object.keys(PK.speaking.samples).length < 300 || Object.keys(PK.speaking.parts).join() !== 'p1,p2,p3' || !PK.speaking.fillers.includes('you know')) bp.push('speaking');
     if (PK.pron.lessons.length !== 62 || PK.pron.pairs.contrasts.length !== 23 || Object.keys(PK.pron.pairs.tips).length !== 23 || PK.pron.coach.sentences.length !== 12 || Object.keys(PK.consts.weak).length < 35) bp.push('pron');
-    if (PK.roleplay.scripts.length !== 33 || PK.roleplay.guestAiPerDay !== 2 || PK.roleplay.rate.join() !== '0.82,0.92,1' || Object.keys(PK.roleplay.names).length < 16 || PK.roleplay.errors.length !== 11) bp.push('roleplay');
+    if (PK.roleplay.scripts.length !== V.counts.scripts || PK.roleplay.scripts.length < 33 || PK.roleplay.guestAiPerDay !== 2 || PK.roleplay.rate.join() !== '0.82,0.92,1' || Object.keys(PK.roleplay.names).length < 16 || PK.roleplay.errors.length !== 11) bp.push('roleplay');
     const JS = x => JSON.stringify(x);
     if (V.data.pron.lessons.some(l => JS(PK.pron.lessons.find(q => q.id === l.id)) !== JS(l)) || JS(V.data.pron.pairs) !== JS(PK.pron.pairs) || V.data.roleplay.some(r => JS(PK.roleplay.scripts.find(q => q.id === r.id)) !== JS(r))) bp.push('data.* differs from the pack');
     if (JS(PK.consts.speakScore) !== JS(V.shared.speak.cal) || JS(PK.speaking.parts) !== JS(V.data.speaking.parts)) bp.push('consts vs vectors');
     if (ST.speaking.bank.length !== 8 || ST.pron.lessons.length !== 8 || ST.roleplay.scripts.length !== 6 || JS(ST.pron.pairs) !== JS(PK.pron.pairs) || ST.speaking.bank.some((b, i) => JS(b) !== JS(PK.speaking.bank[i]))) bp.push('starter is not a subset of the pack');
-    ok(bp.length === 0, `speak-pack.json: ${PK.speaking.bank.length} speaking topics + ${Object.keys(PK.speaking.samples).length} sample answers, 62 pronunciation lessons + pair/coach tables, 33 roleplay scripts + constants; shape = speak.json data.*; starter = 8 topics / 8 lessons / 6 scripts${bp.length ? ' – ' + bp.join('; ') : ''}`);
+    ok(bp.length === 0, `speak-pack.json: ${PK.speaking.bank.length} speaking topics + ${Object.keys(PK.speaking.samples).length} sample answers, 62 pronunciation lessons + pair/coach tables, roleplay scripts (count = vectors counts, >= 33) + constants; shape = speak.json data.*; starter = 8 topics / 8 lessons / 6 scripts${bp.length ? ' – ' + bp.join('; ') : ''}`);
   }
   // strings: every t() key of the P07 screens (literal calls + keys that arrive as data) is mapped by strings.json
   {
