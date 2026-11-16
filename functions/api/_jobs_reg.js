@@ -1337,6 +1337,22 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "social-coverage",
+   "workflow": "social-coverage.yml",
+   "cron": [
+    "41 3 * * *"
+   ],
+   "priority": "publishing",
+   "resources": [
+    "d1_main"
+   ],
+   "minutes": 1,
+   "est": {
+    "d1_main_reads": 700
+   },
+   "lease": false
+  },
+  {
    "id": "upgrade-audit",
    "workflow": "upgrade-audit.yml",
    "cron": [

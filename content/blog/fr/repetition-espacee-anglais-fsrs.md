@@ -61,6 +61,8 @@ Dans cet article complet, nous explorons les fondements neurologiques de la cour
 ![Carte mémoire de révision de vocabulaire avec phonétique dans Lexkite](media:review)
 *Interface de révision par répétition espacée avec évaluation de la difficulté.*
 
+L'espacement décide du moment de la révision ; [le rappel actif](/fr/blog/rappel-actif-apprendre-vocabulaire-anglais/) décide de la manière. Les deux se complètent.
+
 ## La courbe de l'oubli d'Ebbinghaus : Pourquoi le bachotage échoue
 
 À la fin du XIXe siècle, le philosophe et psychologue allemand Hermann Ebbinghaus a conduit des séries d'expérimentations rigoureuses sur lui-même en mémorisant des suites de syllabes sans signification. Ses mesures ont révélé une régularité mathématique implacable : le taux de déperdition de l'information suit une courbe logarithmique descendante fulgurante.

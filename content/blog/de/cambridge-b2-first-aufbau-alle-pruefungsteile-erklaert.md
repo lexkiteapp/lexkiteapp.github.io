@@ -9,7 +9,7 @@ tags: [cambridge, b2-first, fce, exam-format]
 keyword: "cambridge b2 first aufbau"
 cover: practice
 coverAlt: "Lexkite Übungsseite mit Spielen und Aufgaben, darunter ein Test und eine Schreibwerkstatt"
-publishAt:
+publishAt: 2026-12-30T12:46:00+01:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
