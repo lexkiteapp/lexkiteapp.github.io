@@ -108,7 +108,7 @@
   const todayKey = (d = new Date()) =>
     `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
   const startOfToday = () => { const d = new Date(); d.setHours(0, 0, 0, 0); return d.getTime(); };
-  const endOfToday = () => startOfToday() + DAY - 1;
+  const endOfToday = () => { const d = new Date(); d.setHours(24, 0, 0, 0); return d.getTime() - 1; }; // 23:59:59.999 địa phương – KHÔNG phải đầu ngày + 24 h (ngày đổi giờ mùa hè dài 23/25 h → lệch 1 giờ thẻ đến hạn)
 
   // ---------- SRS: FSRS-5 (Free Spaced Repetition Scheduler – thuật toán Anki dùng từ 2023) + bước học ----------
   // grade: 0 = Quên, 1 = Khó, 2 = Nhớ, 3 = Dễ  (FSRS: Again/Hard/Good/Easy = 1..4)

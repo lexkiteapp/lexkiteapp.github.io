@@ -442,3 +442,4 @@ node scripts/test/video-junk.mjs
 node scripts/test/dict-add.mjs
 node scripts/test/ci-portable.mjs
 node scripts/test/sw-reminder-day.mjs
+node scripts/test/core-day.mjs
