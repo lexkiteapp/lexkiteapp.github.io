@@ -61,6 +61,12 @@
    "why": "vision: no (too few blocks and no table)",
    "b": "43686093463"
   },
+  "altimeter#n": {
+   "at": "2026-11-16",
+   "tries": 6,
+   "why": "clip-sentence sim 0.1932; vision description-sentence sim 0.1352",
+   "b": "43774288955"
+  },
   "anecdotal#adj": {
    "at": "2026-11-15",
    "tries": 42,
@@ -72,6 +78,12 @@
    "tries": 24,
    "why": "vision: text",
    "b": "43534254933"
+  },
+  "apothecary#n": {
+   "at": "2026-11-16",
+   "tries": 6,
+   "why": "size > 6 KB",
+   "b": "43774288955"
   },
   "applause#n": {
    "at": "2026-11-14",
@@ -192,6 +204,12 @@
    "tries": 36,
    "why": "vision: no (large stone building, looping)",
    "b": "43534254933"
+  },
+  "biochemist#n": {
+   "at": "2026-11-16",
+   "tries": 6,
+   "why": "vision: no (beaker and looking action)",
+   "b": "43774288955"
   },
   "black#n": {
    "at": "2026-11-14",
@@ -439,6 +457,12 @@
    "why": "meaning check: no (Is a person giving a simple document that accompan)",
    "b": "43686093463"
   },
+  "crankshaft#n": {
+   "at": "2026-11-16",
+   "tries": 6,
+   "why": "vision description-sentence sim 0.1203",
+   "b": "43774288955"
+  },
   "credit rating#n": {
    "at": "2026-11-15",
    "tries": 36,
@@ -456,6 +480,12 @@
    "tries": 30,
    "why": "meaning check: no (Is a seller offering an extra related item to a bu)",
    "b": "43534254933"
+  },
+  "curfew#n": {
+   "at": "2026-11-16",
+   "tries": 6,
+   "why": "vision: no (parent and dark night)",
+   "b": "43774288955"
   },
   "customer acquisition cost#n": {
    "at": "2026-11-15",
@@ -1117,6 +1147,12 @@
    "why": "meaning check: no (Are the two people engaged in a secret plan to opp)",
    "b": "43534254933"
   },
+  "interferometer#n": {
+   "at": "2026-11-16",
+   "tries": 6,
+   "why": "meaning check: no (Is there an instrument with two arms and a light b)",
+   "b": "43774288955"
+  },
   "interrogate#v": {
    "at": "2026-11-14",
    "tries": 36,
@@ -1165,11 +1201,23 @@
    "why": "meaning check: no (Is there a very large sea turtle with a flexible l)",
    "b": "43686093463"
   },
+  "leek#n": {
+   "at": "2026-11-16",
+   "tries": 6,
+   "why": "meaning check: no (Is there a vegetable with a white stalk and flat g)",
+   "b": "43774288955"
+  },
   "legislator#n": {
    "at": "2026-11-15",
    "tries": 42,
    "why": "meaning check: no (Is there a person speaking at a podium to make law)",
    "b": "43686093463"
+  },
+  "leukocyte#n": {
+   "at": "2026-11-16",
+   "tries": 6,
+   "why": "meaning check: no (Is there a white blood cell with a dark central nu)",
+   "b": "43774288955"
   },
   "lexicographer#n": {
    "at": "2026-11-14",
@@ -1206,6 +1254,12 @@
    "tries": 36,
    "why": "size > 6 KB",
    "b": "43686093463"
+  },
+  "marketplace#n": {
+   "at": "2026-11-16",
+   "tries": 6,
+   "why": "size > 6 KB",
+   "b": "43774288955"
   },
   "mascot#n": {
    "at": "2026-11-15",
@@ -1471,6 +1525,12 @@
    "why": "meaning check: no (Is the person standing next to a newly made large )",
    "b": "43686093463"
   },
+  "plasterboard#n": {
+   "at": "2026-11-16",
+   "tries": 6,
+   "why": "meaning check: no (Is there a flat gray board used for building walls)",
+   "b": "43774288955"
+  },
   "poaching#n": {
    "at": "2026-11-15",
    "tries": 36,
@@ -1572,6 +1632,12 @@
    "tries": 24,
    "why": "meaning check: no (Are the two people sharing a piece of traditional )",
    "b": "43534254933"
+  },
+  "pulpit#n": {
+   "at": "2026-11-16",
+   "tries": 6,
+   "why": "vision: no (church and robe details)",
+   "b": "43774288955"
   },
   "punctuality#n": {
    "at": "2026-11-14",
@@ -1722,6 +1788,12 @@
    "tries": 36,
    "why": "meaning check: no (Is the boat shown moving back and forth while the )",
    "b": "43686093463"
+  },
+  "rouge#n": {
+   "at": "2026-11-16",
+   "tries": 6,
+   "why": "vision: no (wrong powder color and brush)",
+   "b": "43774288955"
   },
   "routinely#adv": {
    "at": "2026-11-15",
@@ -1951,6 +2023,12 @@
    "why": "meaning check: no (Is the person creating a new arrangement of puzzle)",
    "b": "43686093463"
   },
+  "thievery#n": {
+   "at": "2026-11-16",
+   "tries": 6,
+   "why": "vision: no (girl, dark hoodie not clear)",
+   "b": "43774288955"
+  },
   "tidal#adj": {
    "at": "2026-11-14",
    "tries": 24,
@@ -1992,6 +2070,12 @@
    "tries": 30,
    "why": "size > 6 KB",
    "b": "43534254933"
+  },
+  "truce#n": {
+   "at": "2026-11-16",
+   "tries": 6,
+   "why": "vision: text",
+   "b": "43774288955"
   },
   "unaccountably#adv": {
    "at": "2026-11-14",

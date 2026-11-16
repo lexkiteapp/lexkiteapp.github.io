@@ -43,6 +43,8 @@ for (const l of langs) {
     const lost = missingSegments(k, EN[k], v); if (lost.length) eng.push(`${k} ⇢ ${lost.join(' | ')}`);
   }
   const shortMissing = Object.keys(EN).filter(k => short(k) && !(fixed[k] && fixed[k][l]));
+  // Nguồn bản dịch tay phải đúng Sie/vous cho khóa đang dùng: bot i18n áp lại i18n-fixed.json mỗi lần chạy, sửa ở ui/<lang> mà quên nguồn thì main đỏ lại (16/11: #1419 → bot ghi lại "du")
+  if (INFORMAL[l]) for (const [k, v] of Object.entries(fixed)) if (v[l] && k in D && INFORMAL[l].test(v[l]) && !(legacy[l] || []).includes(k) && !reg.includes(k)) { reg.push(k); console.log(`  ↳ ${l}: i18n-fixed.json còn xưng thân mật (sửa ở nguồn này): ${JSON.stringify(k.slice(0, 50))}`); }
   const line = `${l}: thiếu ${miss.length} · sai biến/thẻ ${ph.length} · lẫn tiếng Việt ${mix.length} · dịch sai đã biết ${bad.length} · mất tiếng Anh mẫu ${eng.length} · lẫn xưng hô ${reg.length} · nhãn ngắn chưa dịch tay ${shortMissing.length}`;
   report.push((miss.length + ph.length + mix.length + bad.length + eng.length + reg.length ? '✗ ' : '✓ ') + line);
   for (const [name, arr] of [['thiếu', miss], ['sai biến/thẻ', ph], ['lẫn tiếng', mix], ['dịch sai', bad], ['mất tiếng Anh mẫu', eng], ['lẫn xưng hô', reg]]) if (arr.length) report.push(`   ${name}: ${arr.slice(0, 5).map(k => JSON.stringify(k)).join(', ')}${arr.length > 5 ? ' …' : ''}`);
