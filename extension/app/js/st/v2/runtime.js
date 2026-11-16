@@ -67,6 +67,8 @@
   // Nối nút cho màn KHÔNG tự nối (Hôm nay/Hôm nay-mới đã gọi Ux1.headBtns + langBtn trong ux1.js): tra từ · chuông · tài khoản qua Ux1.headBtns, 🌐 mở bộ chọn ngôn ngữ chung.
   S.hubWire = root => { const h = root.querySelector('.hb'); if (!h) return; if (window.Ux1 && Ux1.headBtns) Ux1.headBtns(h); else h.querySelectorAll('[data-act="search"]').forEach(b => b.addEventListener('click', () => { location.hash = '#/dict'; }));
     h.querySelectorAll('[data-act="lang"]').forEach(b => b.addEventListener('click', e => { e.preventDefault(); UI.modal(`<div class="ux1-lang"><h2>${t('Chọn ngôn ngữ giao diện')}</h2><p>${App.langPicker ? App.langPicker() : ''}</p></div>`); })); };
+  // Trang cũ (Thi): gắn thanh hub vào đầu #view + ẩn thanh trên cũ
+  S.hubPage = v => { document.body.classList.add('hb-on'); v.insertAdjacentHTML('afterbegin', S.hubbar({ hdr: S.hdr() })); S.hubWire(v); if (self.App && App.onCleanup) App.onCleanup(() => document.body.classList.remove('hb-on')); };
   const HUBK = ['today', 'today-new', 'vocab-hub'];
   let bound = false;
   S.mount = (view, k, d, tab) => {
