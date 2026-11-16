@@ -394,7 +394,7 @@ Since I work near the gym, I was thinking of trying a lunchtime class taught by 
 
 Regards,
 Tomasz Wilk`,
-          groups: [ { type: 'mcq', instr: 'Questions 176-180 refer to the following Web page and e-mail.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[20], items: [
             { n: 176, q: 'Which class has Mr. Wilk had trouble joining?', options: ['Morning Yoga', 'Indoor Cycling', 'Strength Basics', 'Aqua Fitness'], a: 1, cue: 'the evening class on Tuesdays and Thursdays',
               explain: 'Kết hợp 2 văn bản: lớp buổi tối thứ Ba/thứ Năm là Indoor Cycling (19h, Tue/Thu), lớp giới hạn 20 người nên hay kín chỗ.' },
             { n: 177, q: 'What class is Mr. Wilk considering trying?', options: ['Morning Yoga', 'Aqua Fitness', 'Indoor Cycling', 'Strength Basics'], a: 3, cue: 'a lunchtime class taught by the same instructor',

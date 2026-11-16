@@ -47,9 +47,13 @@ Wer aus Deutschland, Österreich oder der Schweiz zum Thema **IELTS Auswandern**
 
 Vorweg drei Grenzen. Das hier ist keine Rechtsberatung und kein Visaversprechen. Wir sagen kein offizielles Band für Sie voraus. Und Regeln ändern sich: Prüfen Sie jede Zahl am Tag Ihrer Buchung noch einmal auf der Behördenseite.
 
+
+Für britische Visa-Routen mit Testpflicht erklärt [IELTS UKVI](/de/blog/ielts-ukvi-erklaert/) die Unterschiede zum normalen Test.
 ## IELTS Auswandern: Welche Variante brauche ich zuerst?
 
 IELTS gibt es in zwei Varianten, die sich in Reading und Writing unterscheiden, während Listening und Speaking gleich aufgebaut sind. **Academic** ist für Studium und viele Berufszulassungen gedacht, **General Training** für Alltag, Arbeit und Migration. Dazu kommen Sonderformen wie IELTS for UKVI, die nur für bestimmte britische Verfahren gelten.
+
+Wie aus vier Teilbändern der Gesamtscore entsteht und wie die Halbband-Rundung funktioniert, erklärt unser Beitrag [IELTS Band Score berechnen](/de/blog/ielts-band-score-berechnen/).
 
 Der häufigste Anfängerfehler ist deshalb nicht ein schlechtes Band, sondern die falsche Variante. Wer Academic bucht, obwohl die Einwanderungsbehörde General Training verlangt, verliert Geld und Monate. Fragen Sie sich also zuerst:
 

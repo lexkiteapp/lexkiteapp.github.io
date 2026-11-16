@@ -16,7 +16,7 @@ status: ready
 qualityScore: 93
 ---
 
-Um im IELTS-Test ein herausragendes Ergebnis zu erzielen – insbesondere ein Band 7.0 oder höher im Bewertungskriterium Lexical Resource –, reicht es nicht aus, bloß seltene und hochkomplexe Vokabeln auswendig zu lernen. Was Muttersprachler und Prüfer unmittelbar überzeugt, ist das präzise und idiomatische Zusammenspiel der Wörter. Das Beherrschen von **ielts kollokationen englisch** verleiht Ihren Aufsätzen und Redebeiträgen eine natürliche Eleganz und schützt Sie zuverlässig vor holprigen Eins-zu-eins-Übersetzungen aus dem Deutschen.
+Um im IELTS-Test ein herausragendes Ergebnis zu erzielen – insbesondere ein Band 7.0 oder höher im Bewertungskriterium Lexical Resource –, reicht es nicht aus, bloß seltene und hochkomplexe Vokabeln auswendig zu lernen. Was Muttersprachler und Prüfer unmittelbar überzeugt, ist das präzise und idiomatische Zusammenspiel der Wörter. Das Beherrschen von **ielts kollokationen englisch** verleiht Ihren Aufsätzen und Redebeiträgen eine natürliche Eleganz und schützt Sie zuverlässig vor holprigen Eins-zu-eins-Übersetzungen aus dem Deutschen. Ein Ausgangspunkt für Wortfamilien und ihre Verbindungen ist die [Academic Word List](/de/blog/academic-word-list-awl-wortschatz/).
 
 Viele deutschsprachige Lernende neigen aus Gewohnheit dazu, Ausdrücke wie *"make a research"* oder *"do a decision"* zu konstruieren. Obwohl der Sinn im Gespräch meist verstanden wird, sind diese Wortverbindungen im Englischen fehlerhaft. Das natürliche Idiom verlangt zwingend *conduct research* und *make a decision*. Es gibt keine mathematisch herleitbare Grammatikregel für solche Paarungen; es handelt sich vielmehr um über Jahrhunderte gewachsene Konventionen.
 
@@ -114,6 +114,8 @@ So überführen Sie Kollokationen vom passiven Verstehen in den aktiven, automat
 2. **Einsprachige Wörterbücher konsultieren:** Schlagen Sie Zweifelsfälle in einem [einsprachiges woerterbuch englisch nutzen](/de/blog/einsprachiges-woerterbuch-englisch-nutzen/) oder direkt im [Lexkite Wörterbuch](/#/dict) nach, um die exakten Präpositionen zu prüfen.
 3. **Spaced Repetition gezielt einsetzen:** Nutzen Sie das Modul [Smart Learn](/#/practice/learn) in Lexkite. Der FSRS-Algorithmus präsentiert Ihnen Testfragen genau zu dem Zeitpunkt, an dem die Verbindung im Gedächtnis zu verblassen droht.
 4. **Beim Paraphrasieren anwenden:** Trainieren Sie die Kunst des Umschreibens mit Hilfe unserer Anleitung zu [ielts paraphrasieren techniken beispiele](/de/blog/ielts-paraphrasieren-techniken-beispiele/) und verinnerlichen Sie den Grundsatz [auf englisch denken ohne uebersetzen](/de/blog/auf-englisch-denken-ohne-uebersetzen/). Für die Vertiefung grundlegender Satzstrukturen steht Ihnen unsere Grammatikrubrik unter [/ngu-phap/](/ngu-phap/) zur Verfügung.
+
+Wie Kollokationen in vollständigen Sprechantworten wirken, siehst du in [IELTS Speaking Band 7 Beispielantworten](/de/blog/ielts-speaking-band-7-beispielantworten/).
 
 ## Häufig gestellte Fragen (FAQ)
 

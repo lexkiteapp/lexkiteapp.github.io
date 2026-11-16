@@ -9,7 +9,7 @@ tags: [toeic, listening, part-3, part-4]
 keyword: "toeic part 3 and 4"
 cover: toeic
 coverAlt: "Lexkite TOEIC practice hub with mock tests and practice by part"
-publishAt:
+publishAt: 2027-03-02T19:53:00+05:30
 factChecked: 2026-11-15
 author: Lexkite
 status: ready
