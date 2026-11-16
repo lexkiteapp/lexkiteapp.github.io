@@ -35,7 +35,6 @@ export const scopeFor = mode => (mode === 'api' ? SCOPE : SCOPE_RO);
 export const STUDIO = 'https://studio.youtube.com/';
 export const QUOTA = { day: 60000, uploads: 1000, insert: 1, thumb: 50, list: 1, reserve: 1000 }; // day = default bucket units; uploads = videos.insert bucket (calls)
 export const PRIVACY = ['private', 'unlisted'];
-export const PRIVACY_UP = [...PRIVACY, 'public']; // 'public' chỉ đi qua op probe (CLI, chủ duyệt 16/11: thử 1 video public để biết project có bị khoá Private không); duyệt/autoq vẫn chỉ private|unlisted
 const STATE_TTL = 600, SESSION_TTL = 20 * 3600e3, MAX_TRIES = 3;
 const json = (req, status, data, extra = {}) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...adminCors(req), ...extra } });
 const one = async (db, sql, ...a) => (await db.prepare(sql).bind(...a).first()) || null;
@@ -88,7 +87,7 @@ export function slotToIso(slot, now = Date.now()) {
 const clean = (s, n) => String(s || '').replace(/[<>]/g, '').replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f]/g, '').trim().slice(0, n);
 /** YouTube video resource for an approved queue row + CI metadata. Enforces: private|unlisted only, #shorts, Education, AI disclosure, not for kids. */
 export function videoResource(row, meta = {}) {
-  const privacy = PRIVACY_UP.includes(row.privacy) ? row.privacy : 'private';
+  const privacy = PRIVACY.includes(row.privacy) || (row.privacy === 'public' && row.approved_by === 'probe') ? row.privacy : 'private'; // 'public' CHỈ cho hàng do op probe tạo (chủ OK 16/11: thử 1 video public để biết project có bị khoá Private không); mọi đường khác bị ép private
   let title = clean(meta.title, 100) || clean(row.title, 100) || 'English in 30 seconds';
   let desc = clean(meta.description, 4800);
   if (!/https:\/\/lexkite\.com\//.test(desc)) desc += '\n\nPractice it free: https://lexkite.com/';
