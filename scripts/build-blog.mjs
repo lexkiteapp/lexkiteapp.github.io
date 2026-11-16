@@ -2,6 +2,7 @@
 // BLOG_DRAFTS=1 xem trước mọi bài). Sinh: bài /blog/<slug>/, danh sách + phân trang, chuyên mục, thẻ, RSS, sitemap-blog.xml.
 // Ảnh: CDN repo lexkite-media (content/blog/config.json → mediaBase); BLOG_MEDIA_LOCAL=1 chép ảnh .media/out vào dist để xem thử.
 import fs from 'node:fs'; import path from 'node:path';
+import { fitTitle } from './lib/title-fit.mjs';
 import { loadPosts, parse, FAQ_RE, isLive, publishTime, wordCount, config, CATEGORIES, ROOT, loadMedia } from './lib/blog-content.mjs';
 import { specOf, mediaId, diagramHtml, pickThumb } from './lib/blog-images.mjs';
 import { joinPath } from './lib/url-guard.mjs';
@@ -277,7 +278,7 @@ function layout({ lang, title, desc, url, alt = [], to = () => null, img, imgAlt
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>${esc(title)}</title>
+<title>${esc(fitTitle(title))}</title>
 <meta name="description" content="${esc(desc)}">
 <meta name="robots" content="${robots}">
 <meta name="author" content="Lexkite Editorial Team">

@@ -2,7 +2,7 @@
 // và ghi từng vi phạm: directive, blockedURI, sourceFile:dòng, mẫu mã. Nghe `securitypolicyviolation` (mọi frame, trước mã trang) + thông báo console CSP (cả worker).
 // Dùng: node scripts/test/csp-probe.mjs [base=https://lexkite.com] [thư-mục-ra=out/csp]   Env: LEXKITE_CI_HEADER
 //   --strict : thoát 1 nếu còn vi phạm (cổng CI sau khi sửa gốc); mặc định chỉ ghi báo cáo (chế độ dò nguồn).
-import { chromium } from 'playwright';
+import { chromium, webkit } from 'playwright';
 import fs from 'node:fs';
 import { routeCiHeader } from '../lib/http.mjs';
 const argv = process.argv.slice(2), STRICT = argv.includes('--strict'), pos = argv.filter(a => !a.startsWith('--'));
@@ -17,35 +17,48 @@ const LAZY = [ // thư viện tải lười: nạp đúng URL như mã app (ui.j
   ['pdf.js', `new Promise((ok, no) => { const s = document.createElement('script'); s.src = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js'; s.onload = async () => { try { pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js'; const d = await pdfjsLib.getDocument({ data: new Uint8Array(0) }).promise.catch(() => 0); ok(1); } catch (e) { ok(0); } }; s.onerror = () => no(new Error('load')); document.head.appendChild(s); })`],
   ['onnx-wasm', `(async () => { const m = await import('https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.7.5/dist/transformers.min.js'); const o = m.env && m.env.backends && m.env.backends.onnx; if (o && o.wasm) { o.wasm.numThreads = 1; } try { await new m.Tensor('float32', new Float32Array(4), [2, 2]); } catch (e) {} return 1; })()`],
 ];
-const found = new Map(), log = [];
+const found = new Map(), log = [], CONTROL = {};
 const add = (where, v) => { const k = [v.directive, v.blocked, v.file, v.line].join('|'); const e = found.get(k) || { ...v, where: new Set(), n: 0 }; e.where.add(where); e.n++; found.set(k, e); };
 const INIT = () => {
   const post = e => { try { (window.__csp = window.__csp || []).push({ directive: e.effectiveDirective || e.violatedDirective, blocked: String(e.blockedURI || '').slice(0, 160), file: String(e.sourceFile || '').slice(0, 200), line: e.lineNumber, col: e.columnNumber, sample: String(e.sample || '').slice(0, 120), disp: e.disposition }); } catch (x) { /* bỏ */ } };
   document.addEventListener('securitypolicyviolation', post, true);
   addEventListener('securitypolicyviolation', post, true);
 };
+const NOISE = /frame-ancestors' is ignored|report-only mode|report-uri/i; // WebKit: frame-ancestors không áp dụng ở Report-Only (sẽ có hiệu lực khi enforce) – không phải vi phạm
 const CSP_MSG = /Content[- ]Security[- ]Policy|\[Report Only\]|report-only policy|unsafe-eval|wasm-eval/i;
 
-const browser = await chromium.launch({ args: ['--use-fake-ui-for-media-stream', '--use-fake-device-for-media-stream', '--autoplay-policy=no-user-gesture-required'] });
-async function session(label, fn) {
-  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, permissions: ['microphone'] });
+const ENGINES = { chromium: await chromium.launch({ args: ['--use-fake-ui-for-media-stream', '--use-fake-device-for-media-stream', '--autoplay-policy=no-user-gesture-required'] }), webkit: await webkit.launch() };
+let browser = ENGINES.chromium, eng = 'chromium';
+async function session(label0, fn) {
+  const label = eng + ' ' + label0;
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, permissions: eng === 'chromium' ? ['microphone'] : [] });
   await routeCiHeader(ctx, BASE, CI);
   await ctx.addInitScript(INIT);
   const page = await ctx.newPage();
-  page.on('console', m => { const t = m.text(); if (CSP_MSG.test(t)) { const l = m.location(); add(label, { directive: (t.match(/directive[^"']*["']([^"']+)/i) || t.match(/(script-src[-\w]*|unsafe-eval)/i) || [])[1] || 'console', blocked: 'console', file: l.url || '', line: l.lineNumber, col: l.columnNumber, sample: t.slice(0, 200), disp: 'report' }); } });
+  page.on('console', m => { const t = m.text(); if (CSP_MSG.test(t) && !NOISE.test(t)) { const l = m.location(); add(label, { directive: (t.match(/directive[^"']*["']([^"']+)/i) || t.match(/(script-src[-\w]*|unsafe-eval)/i) || [])[1] || 'console', blocked: 'console', file: l.url || '', line: l.lineNumber, col: l.columnNumber, sample: t.slice(0, 200), disp: 'report' }); } });
   page.on('pageerror', e => log.push(`${label}: exception ${String(e.message).slice(0, 160)}`));
   try { await fn(page); } catch (e) { log.push(`${label}: ${String(e.message).slice(0, 200)}`); }
   for (const f of page.frames()) { try { for (const v of await f.evaluate(() => window.__csp || [])) add(label + (f === page.mainFrame() ? '' : ' (frame)'), v); } catch (e) { /* frame đã đóng */ } }
   await ctx.close();
 }
-for (const r of ROUTES) await session('route ' + (r || '/'), async page => { await page.goto(APP + r, { waitUntil: 'load', timeout: 60000 }); await page.waitForTimeout(r.includes('call') || r.includes('lesson') ? 14000 : 5000); });
-for (const [name, code] of LAZY) await session('lazy ' + name, async page => { await page.goto(APP, { waitUntil: 'load', timeout: 60000 }); await page.waitForTimeout(2000); log.push(`lazy ${name}: ${JSON.stringify(await page.evaluate(code).catch(e => 'lỗi ' + String(e.message).slice(0, 120)))}`); await page.waitForTimeout(4000); });
-await browser.close();
+// KHÔNG dùng page.waitForFunction: Playwright dựng hàm bằng eval → chính nó gây "unsafe-eval" mỗi lần thăm dò (2617 lần ở lượt đầu; scripts/test/rig-live.mjs IGNORE vì thế) – thăm dò bằng evaluate
+const RIG = async page => { for (let i = 0; i < 40; i++) { if (await page.evaluate(() => (window.__lkRigs || []).some(r => r.stats.ready && r.stats.frames > 20)).catch(() => false)) return; await page.waitForTimeout(1000); } log.push('rig chưa sẵn sàng sau 40 s'); };
+for (eng of ['chromium', 'webkit']) {
+  browser = ENGINES[eng];
+  // ĐỐI CHỨNG: new Function() phải bị báo (không có 'unsafe-eval') – nếu không thì cách nghe bị mù, kết quả "0 vi phạm" vô nghĩa
+  await session('đối chứng new Function', async page => { await page.goto(APP, { waitUntil: 'load', timeout: 60000 }); await page.addScriptTag({ content: "try { new Function('return 1')(); } catch (e) {} try { eval('1'); } catch (e) {} try { setTimeout('1', 0); } catch (e) {}" }); await page.waitForTimeout(3000); });
+  CONTROL[eng] = [...found.values()].some(e => e.where.has(eng + ' đối chứng new Function'));
+  for (const r of ROUTES) await session('route ' + (r || '/'), async page => { await page.goto(APP + r, { waitUntil: 'load', timeout: 60000 }); if (/lesson|call/.test(r)) await RIG(page); await page.waitForTimeout(r.includes('call') || r.includes('lesson') ? 6000 : 5000); });
+  if (eng === 'chromium') for (const [name, code] of LAZY) await session('lazy ' + name, async page => { await page.goto(APP, { waitUntil: 'load', timeout: 60000 }); await page.waitForTimeout(2000); log.push(`lazy ${name}: ${JSON.stringify(await page.evaluate(code).catch(e => 'lỗi ' + String(e.message).slice(0, 120)))}`); await page.waitForTimeout(4000); });
+}
+for (const b of Object.values(ENGINES)) await b.close();
 
-const rows = [...found.values()].map(e => ({ ...e, where: [...e.where] }));
+for (const [k, v] of Object.entries(CONTROL)) log.push(`đối chứng ${k}: ${v ? 'nghe được' : 'MÙ – không thấy vi phạm cố ý'}`);
+const rows = [...found.values()].map(e => ({ ...e, where: [...e.where] })).filter(e => !e.where.every(w => /đối chứng/.test(w)));
 fs.writeFileSync(`${OUT}/violations.json`, JSON.stringify(rows, null, 1));
 const md = ['# Vi phạm CSP trên ' + BASE, '', `Tổng ${rows.length} nguồn khác nhau.`, '', '| directive | blocked | nguồn:dòng | lần | nơi | mẫu |', '|---|---|---|---|---|---|', ...rows.map(e => `| ${e.directive} | ${e.blocked} | ${e.file}:${e.line} | ${e.n} | ${e.where.join(', ')} | ${(e.sample || '').replace(/\|/g, '/').slice(0, 100)} |`), '', '## Nhật ký', ...log.map(l => '- ' + l)].join('\n');
 fs.writeFileSync(`${OUT}/report.md`, md + '\n'); console.log(md);
 if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, md + '\n');
+if (Object.values(CONTROL).some(v => !v)) { console.error('✗ csp-probe: đối chứng thất bại – cách nghe vi phạm không hoạt động trên engine này'); if (STRICT) process.exit(1); }
 if (STRICT && rows.length) { console.error(`✗ csp-probe: ${rows.length} vi phạm CSP`); process.exit(1); }
 console.log(`${rows.length ? '⚠' : '✓'} csp-probe: ${rows.length} nguồn vi phạm${STRICT ? '' : ' (chế độ dò – chưa chặn)'}`);
