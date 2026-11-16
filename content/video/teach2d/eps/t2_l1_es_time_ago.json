@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_time_ago",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Ago goes at the end!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I came here ago two years.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I came here two years ago.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Ago comes after the time.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Two years ago! I came here two years ago.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I came here ago two years.",
+  "right": "I came here two years ago.",
+  "strike": "ago",
+  "why": "Ago comes after the time.",
+  "memory": "Years ago.",
+  "quiz": {
+   "stem": "I came here ___.",
+   "options": [
+    "ago two years",
+    "two years ago"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Hace dos años” = “two years ago”",
+   "tip": "En español “hace” va delante, pero en inglés “ago” va al final: “two years ago.”",
+   "caption": "🙈 Error común: “I came here ago two years.” “Ago” va después del tiempo: “I came here two years ago.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “two years ago”. “Hace dos años” se dice con “ago” después del tiempo. Escribe una frase tuya con “ago” o dila en voz alta: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#tiempos",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Ago” goes last",
+   "tip": "Learners put “ago” first, like “hace”, but English puts it last: “two years ago.”",
+   "caption": "Common mistake: “I came here ago two years.” “Ago” goes after the time: “I came here two years ago.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Hace dos años” = “two years ago”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 51,
+  "seconds": 30.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“Hace dos años” = “two years ago”",
+  "keyword": "I came here two years ago.",
+  "value": "En español “hace” va delante, pero en inglés “ago” va al final: “two years ago.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#tiempos",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 45,
+  "platforms": {
+   "youtube": {
+    "title": "“Hace dos años” = “two years ago”",
+    "description": "En español “hace” va delante, pero en inglés “ago” va al final: “two years ago.”\n\n🙈 Error común: “I came here ago two years.” “Ago” va después del tiempo: “I came here two years ago.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #tiempos #lexkite",
+    "tags": [
+     "I came here two years ago.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "🙈 Error común: “I came here ago two years.” “Ago” va después del tiempo: “I came here two years ago.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Hace dos años” = “two years ago”\n\nEn español “hace” va delante, pero en inglés “ago” va al final: “two years ago.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#tiempos",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Hace dos años” = “two years ago” En español “hace” va delante, pero en inglés “ago” va al final: “two years ag… #aprenderingles #inglesfacil #tiempos"
+   }
+  },
+  "first_comment": "Respuesta: “two years ago”. “Hace dos años” se dice con “ago” después del tiempo. Escribe una frase tuya con “ago” o dila en voz alta: {link}",
+  "lang": "es"
+ }
+}

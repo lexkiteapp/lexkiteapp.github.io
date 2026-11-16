@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "Some! I need some advice.",
+   "text": "Some! I need some information.",
    "pause": 0.42
   },
   {
@@ -58,7 +58,7 @@
   "why": "Information has no a or an.",
   "memory": "Some information.",
   "quiz": {
-   "stem": "I need ___ advice.",
+   "stem": "I need ___ information.",
    "options": [
     "an",
     "some"
@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "¿Pides “an information”? ¡No!",
-   "tip": "“Information” no se cuenta: no lleva “a/an” ni plural. Usa “some information”.",
-   "caption": "En español “una información”, en inglés no 🙈 No digas “I need an information.”, mejor “I need some information.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
-   "comment": "Respuesta: “some”. “Advice” e “information” no llevan “a/an”. Practica más con un quiz gratis aquí: {link}",
+   "tip": "“Information” no se cuenta: no lleva “a/an” ni plural. Usa “some information.”",
+   "caption": "En español “una información”, en inglés no 🙈 No digas “I need an information.”, mejor “I need some information.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “some”. “Information” no lleva “a/an”. Practica más con un quiz gratis aquí: {link}",
    "hashtags": [
     "#aprenderingles",
     "#inglesfacil",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "Do you ask for “an information”? No!",
-   "tip": "“Information” is uncountable: no “a/an” and no plural. Use “some information”.",
-   "caption": "In Spanish “una información”, not in English. Do not say “I need an information.”, say “I need some information.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+   "hook": "“An information”? No!",
+   "tip": "“Information” is uncountable: no “a/an” and no plural. Use “some information.”",
+   "caption": "Learners say “una información”, but English does not. Do not say “I need an information.”, say “I need some information.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "¿Pides “an information”? ¡No!",
   "keyword": "I need some information.",
-  "value": "“Information” no se cuenta: no lleva “a/an” ni plural. Usa “some information”.",
+  "value": "“Information” no se cuenta: no lleva “a/an” ni plural. Usa “some information.”",
   "hashtags": [
    "#aprenderingles",
    "#inglesfacil",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "¿Pides “an information”? ¡No!",
-    "description": "En español “una información”, en inglés no 🙈 No digas “I need an information.”, mejor “I need some information.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
+    "description": "“Information” no se cuenta: no lleva “a/an” ni plural. Usa “some information.”\n\nEn español “una información”, en inglés no 🙈 No digas “I need an information.”, mejor “I need some information.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
     "tags": [
      "I need some information.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "En español “una información”, en inglés no 🙈 No digas “I need an information.”, mejor “I need some information.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "En español “una información”, en inglés no 🙈 No digas “I need an information.”, mejor “I need some information.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "En español “una información”, en inglés no 🙈 No digas “I need an information.”, mejor “I need some information.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nlexkite.com",
+    "caption": "¿Pides “an information”? ¡No!\n\n“Information” no se cuenta: no lleva “a/an” ni plural. Usa “some information.”\n\nlexkite.com",
     "hashtags": [
      "#aprenderingles",
      "#inglesfacil",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "¿Pides “an information”? ¡No! #aprenderingles #inglesfacil #vocabulario"
+    "caption": "¿Pides “an information”? ¡No! “Information” no se cuenta: no lleva “a/an” ni plural. Usa “some information.” #aprenderingles #inglesfacil #vocabulario"
    }
   },
-  "first_comment": "Respuesta: “some”. “Advice” e “information” no llevan “a/an”. Practica más con un quiz gratis aquí: {link}",
+  "first_comment": "Respuesta: “some”. “Information” no lleva “a/an”. Practica más con un quiz gratis aquí: {link}",
   "lang": "es"
  }
 }

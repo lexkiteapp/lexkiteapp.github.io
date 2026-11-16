@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_attached",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Check your email English!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: The file follows attached.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: The file is attached.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "In English, the file is attached.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The first! My résumé is attached.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "The file follows attached.",
+  "right": "The file is attached.",
+  "strike": "follows attached",
+  "why": "In English, the file is attached.",
+  "memory": "The file is attached.",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "My résumé is attached.",
+    "My résumé follows attached."
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Você escreve “follows attached”?",
+   "tip": "Em e-mails, em vez de “segue anexo”, escreva “is attached”: “The file is attached.”",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente escreve “The file follows attached.” O certo é “The file is attached.” Em português escrevemos “segue anexo”, mas em inglês o certo é “is attached”. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “My résumé is attached.” Agora diga em voz alta uma frase sua com esse ponto e treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you write “follows attached”?",
+   "tip": "In emails, instead of “segue anexo”, write “is attached”: “The file is attached.”",
+   "caption": "Watch out for this common mistake! Many people write “The file follows attached.” The right way is “The file is attached.” In Portuguese we write “segue anexo”, but in English the right way is “is attached”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Você escreve “follows attached”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Você escreve “follows attached”?",
+  "keyword": "The file is attached.",
+  "value": "Em e-mails, em vez de “segue anexo”, escreva “is attached”: “The file is attached.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "Você escreve “follows attached”?",
+    "description": "Em e-mails, em vez de “segue anexo”, escreva “is attached”: “The file is attached.”\n\nCuidado com este erro comum! 😬 Muita gente escreve “The file follows attached.” O certo é “The file is attached.” Em português escrevemos “segue anexo”, mas em inglês o certo é “is attached”. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "The file is attached.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente escreve “The file follows attached.” O certo é “The file is attached.” Em português escrevemos “segue anexo”, mas em inglês o certo é “is attached”. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Você escreve “follows attached”?\n\nEm e-mails, em vez de “segue anexo”, escreva “is attached”: “The file is attached.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Você escreve “follows attached”? Em e-mails, em vez de “segue anexo”, escreva “is attached”: “The file is… #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “My résumé is attached.” Agora diga em voz alta uma frase sua com esse ponto e treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

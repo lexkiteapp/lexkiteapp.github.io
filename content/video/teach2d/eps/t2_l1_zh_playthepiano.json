@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_playthepiano",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say three times a week!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I play the piano three times one week.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I play the piano three times a week.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say a week, not one week.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "A week! I play the piano three times a week.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I play the piano three times one week.",
+  "right": "I play the piano three times a week.",
+  "strike": "one week",
+  "why": "Say a week, not one week.",
+  "memory": "Three times a week.",
+  "quiz": {
+   "stem": "I play the piano three times ___.",
+   "options": [
+    "one week",
+    "a week"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“每周三次”要说 a week！",
+   "tip": "中文说“一周三次”，但英语不说 one week，要说 “three times a week”。",
+   "caption": "你是不是也会说 “I play the piano three times one week.”😅 英语里要说 a week：“I play the piano three times a week.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“I play the piano three times a week.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “three times a week”!",
+   "tip": "Chinese says “one week,” but English says “three times a week.”",
+   "caption": "Do you say “I play the piano three times one week.” 😅 English says a week, not one week: “I play the piano three times a week.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“每周三次”要说 a week！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 57,
+  "seconds": 33.5,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "“每周三次”要说 a week！",
+  "keyword": "I play the piano three times a week.",
+  "value": "中文说“一周三次”，但英语不说 one week，要说 “three times a week”。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 51,
+  "platforms": {
+   "youtube": {
+    "title": "“每周三次”要说 a week！",
+    "description": "中文说“一周三次”，但英语不说 one week，要说 “three times a week”。\n\n你是不是也会说 “I play the piano three times one week.”😅 英语里要说 a week：“I play the piano three times a week.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "I play the piano three times a week.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “I play the piano three times one week.”😅 英语里要说 a week：“I play the piano three times a week.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“每周三次”要说 a week！\n\n中文说“一周三次”，但英语不说 one week，要说 “three times a week”。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“每周三次”要说 a week！ 中文说“一周三次”，但英语不说 one week，要说 “three times a week”。 #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“I play the piano three times a week.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

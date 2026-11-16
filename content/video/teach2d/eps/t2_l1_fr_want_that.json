@@ -66,10 +66,10 @@
    "answer": 1
   },
   "native": {
-   "hook": "« Je veux que tu » : “want you to”",
-   "tip": "En français, « je veux que tu viennes ». En anglais, on ne met pas “that” : “want you to”.",
-   "caption": "Tu dis “I want that you come tomorrow.” ? Pas de “that” ! Dis “I want you to come tomorrow.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.",
-   "comment": "Réponse : “want you to”. Pas de “that” après “want”. Teste d'autres pièges avec un quiz gratuit : {link}",
+   "hook": "« Je veux que » : “want you to”",
+   "tip": "En français, « je veux que vous veniez ». En anglais, pas de “that” : “want you to”.",
+   "caption": "Vous dites “I want that you come tomorrow.” ? Pas de “that” ! Dites plutôt “I want you to come tomorrow.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “to be” — Pas de “that” après “want” : on dit “want someone to”. Testez d’autres pièges avec un quiz gratuit : {link}",
    "hashtags": [
     "#apprendrelanglais",
     "#anglaisfacile",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "“I want that you come”: no!",
-   "tip": "French says « je veux que tu viennes ». In English, no “that”: “want you to”.",
-   "caption": "Do you say “I want that you come tomorrow.”? No “that”! Say “I want you to come tomorrow.”. Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+   "tip": "In English, no “that” after “want”: say “want you to”.",
+   "caption": "Do you say this? “I want that you come tomorrow.” No “that”! Say “I want you to come tomorrow.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
   }
  },
  "cta": {
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "« Je veux que tu » : “want you to”"
+  "text": "« Je veux que » : “want you to”"
  },
  "src": {
   "l1": true
@@ -103,9 +103,9 @@
   "wpm": 99
  },
  "publish": {
-  "title": "« Je veux que tu » : “want you to”",
+  "title": "« Je veux que » : “want you to”",
   "keyword": "I want you to come tomorrow.",
-  "value": "En français, « je veux que tu viennes ». En anglais, on ne met pas “that” : “want you to”.",
+  "value": "En français, « je veux que vous veniez ». En anglais, pas de “that” : “want you to”.",
   "hashtags": [
    "#apprendrelanglais",
    "#anglaisfacile",
@@ -116,8 +116,8 @@
   "script_words": 43,
   "platforms": {
    "youtube": {
-    "title": "« Je veux que tu » : “want you to”",
-    "description": "Tu dis “I want that you come tomorrow.” ? Pas de “that” ! Dis “I want you to come tomorrow.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "title": "« Je veux que » : “want you to”",
+    "description": "En français, « je veux que vous veniez ». En anglais, pas de “that” : “want you to”.\n\nVous dites “I want that you come tomorrow.” ? Pas de “that” ! Dites plutôt “I want you to come tomorrow.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
     "tags": [
      "I want you to come tomorrow.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Tu dis “I want that you come tomorrow.” ? Pas de “that” ! Dis “I want you to come tomorrow.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Vous dites “I want that you come tomorrow.” ? Pas de “that” ! Dites plutôt “I want you to come tomorrow.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Tu dis “I want that you come tomorrow.” ? Pas de “that” ! Dis “I want you to come tomorrow.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.\n\nlexkite.com",
+    "caption": "« Je veux que » : “want you to”\n\nEn français, « je veux que vous veniez ». En anglais, pas de “that” : “want you to”.\n\nlexkite.com",
     "hashtags": [
      "#apprendrelanglais",
      "#anglaisfacile",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "« Je veux que tu » : “want you to” #apprendrelanglais #anglaisfacile #coursdanglais"
+    "caption": "« Je veux que » : “want you to” En français, « je veux que vous veniez ». En anglais, pas de “that”… #apprendrelanglais #anglaisfacile #coursdanglais"
    }
   },
-  "first_comment": "Réponse : “want you to”. Pas de “that” après “want”. Teste d'autres pièges avec un quiz gratuit : {link}",
+  "first_comment": "Réponse : “to be” — Pas de “that” après “want” : on dit “want someone to”. Testez d’autres pièges avec un quiz gratuit : {link}",
   "lang": "fr"
  }
 }

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_mistake",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Did or made a mistake?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I did a mistake.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I made a mistake.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "We make a mistake.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Made! She made a mistake.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I did a mistake.",
+  "right": "I made a mistake.",
+  "strike": "did",
+  "why": "We make a mistake.",
+  "memory": "Make a mistake.",
+  "quiz": {
+   "stem": "She ___ a mistake.",
+   "options": [
+    "made",
+    "did"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Did a mistake? Нет!",
+   "tip": "По-русски «сделать ошибку», поэтому тянет на “did.” В английском: “make a mistake.”",
+   "caption": "Ты тоже говоришь “I did a mistake”? 😅 По-русски «сделать ошибку», вот и хочется сказать “did”, а в английском “make a mistake.” Правильно: “I made a mistake.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “made.” Mistake — make. Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английский",
+    "#грамматика",
+    "#английскийонлайн",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Did a mistake? No!",
+   "tip": "English says “make a mistake”, not “do.”",
+   "caption": "Do you also say “I did a mistake”? 😅 The word did feels natural, but English says “make a mistake.” Correct: “I made a mistake.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Did a mistake? Нет!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "Did a mistake? Нет!",
+  "keyword": "I made a mistake.",
+  "value": "По-русски «сделать ошибку», поэтому тянет на “did.” В английском: “make a mistake.”",
+  "hashtags": [
+   "#английский",
+   "#грамматика",
+   "#английскийонлайн",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "Did a mistake? Нет!",
+    "description": "По-русски «сделать ошибку», поэтому тянет на “did.” В английском: “make a mistake.”\n\nТы тоже говоришь “I did a mistake”? 😅 По-русски «сделать ошибку», вот и хочется сказать “did”, а в английском “make a mistake.” Правильно: “I made a mistake.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английский #грамматика #английскийонлайн #lexkite",
+    "tags": [
+     "I made a mistake.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “I did a mistake”? 😅 По-русски «сделать ошибку», вот и хочется сказать “did”, а в английском “make a mistake.” Правильно: “I made a mistake.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Did a mistake? Нет!\n\nПо-русски «сделать ошибку», поэтому тянет на “did.” В английском: “make a mistake.”\n\nlexkite.com",
+    "hashtags": [
+     "#английский",
+     "#грамматика",
+     "#английскийонлайн",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Did a mistake? Нет! По-русски «сделать ошибку», поэтому тянет на “did.” В английском: “make a mistake.” #английский #грамматика #английскийонлайн"
+   }
+  },
+  "first_comment": "Ответ: “made.” Mistake — make. Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

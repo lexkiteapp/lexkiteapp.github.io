@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_years_old",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "I have 30 years? I am 30!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have thirty years.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am thirty years old.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say I am for age.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Am! I am thirty years old.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have thirty years.",
+  "right": "I am thirty years old.",
+  "strike": "have",
+  "why": "Say I am for age.",
+  "memory": "I am thirty.",
+  "quiz": {
+   "stem": "I ___ thirty years old.",
+   "options": [
+    "have",
+    "am"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "¿“I have 30 years”? Es “I am”",
+   "tip": "En español “tengo 30 años” usa “tener”, pero en inglés la edad lleva “am.”",
+   "caption": "¿Dices “I have thirty years.”? 🎂 En español “tengo treinta años”, pero en inglés: “I am thirty years old.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “am”. La edad lleva “be”: “I am”, nunca “I have”. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#gramatica",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“I have 30 years”? Say “I am”",
+   "tip": "The phrase “tengo 30 años” uses “tener”, but English uses “am” for age.",
+   "caption": "Do you say “I have thirty years.”? Learners say “tengo treinta años”, but in English: “I am thirty years old.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿“I have 30 years”? Es “I am”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "¿“I have 30 years”? Es “I am”",
+  "keyword": "I am thirty years old.",
+  "value": "En español “tengo 30 años” usa “tener”, pero en inglés la edad lleva “am.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#gramatica",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "¿“I have 30 years”? Es “I am”",
+    "description": "En español “tengo 30 años” usa “tener”, pero en inglés la edad lleva “am.”\n\n¿Dices “I have thirty years.”? 🎂 En español “tengo treinta años”, pero en inglés: “I am thirty years old.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #gramatica #lexkite",
+    "tags": [
+     "I am thirty years old.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "¿Dices “I have thirty years.”? 🎂 En español “tengo treinta años”, pero en inglés: “I am thirty years old.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "¿“I have 30 years”? Es “I am”\n\nEn español “tengo 30 años” usa “tener”, pero en inglés la edad lleva “am.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#gramatica",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿“I have 30 years”? Es “I am” En español “tengo 30 años” usa “tener”, pero en inglés la edad lleva “am.” #aprenderingles #inglesfacil #gramatica"
+   }
+  },
+  "first_comment": "Respuesta: “am”. La edad lleva “be”: “I am”, nunca “I have”. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}

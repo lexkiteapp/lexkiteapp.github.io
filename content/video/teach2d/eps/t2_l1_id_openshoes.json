@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_openshoes",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Shoes? Take them off!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Please open your shoes.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Please take off your shoes.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "For shoes, say take off.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Take off! Please take off your shoes here.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Please open your shoes.",
+  "right": "Please take off your shoes.",
+  "strike": "open",
+  "why": "For shoes, say take off.",
+  "memory": "Shoes: take off.",
+  "quiz": {
+   "stem": "Please ___ your shoes here.",
+   "options": [
+    "open",
+    "take off"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Buka sepatu” jadi “open”?",
+   "tip": "Kita bilang “buka sepatu”, tapi bahasa Inggris pakai take off: take off your shoes.",
+   "caption": "Pernah bilang begini? “Please open your shoes.” 😅 Untuk sepatu dan baju, pakai take off: “Please take off your shoes.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “take off”. Ucapkan dengan lantang: “Please take off your shoes.” Lalu ganti shoes dengan jacket. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#katasehari",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Buka sepatu”? Not “open”!",
+   "tip": "We say “buka sepatu”, but English uses take off: take off your shoes.",
+   "caption": "Ever say this? “Please open your shoes.” 😅 For shoes and clothes, use take off: “Please take off your shoes.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Buka sepatu” jadi “open”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“Buka sepatu” jadi “open”?",
+  "keyword": "Please take off your shoes.",
+  "value": "Kita bilang “buka sepatu”, tapi bahasa Inggris pakai take off: take off your shoes.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#katasehari",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "“Buka sepatu” jadi “open”?",
+    "description": "Kita bilang “buka sepatu”, tapi bahasa Inggris pakai take off: take off your shoes.\n\nPernah bilang begini? “Please open your shoes.” 😅 Untuk sepatu dan baju, pakai take off: “Please take off your shoes.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #katasehari #bahasainggris #lexkite",
+    "tags": [
+     "Please take off your shoes.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “Please open your shoes.” 😅 Untuk sepatu dan baju, pakai take off: “Please take off your shoes.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Buka sepatu” jadi “open”?\n\nKita bilang “buka sepatu”, tapi bahasa Inggris pakai take off: take off your shoes.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#katasehari",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Buka sepatu” jadi “open”? Kita bilang “buka sepatu”, tapi bahasa Inggris pakai take off: take off y… #belajarbahasainggris #katasehari #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “take off”. Ucapkan dengan lantang: “Please take off your shoes.” Lalu ganti shoes dengan jacket. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

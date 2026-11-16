@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_anasbook",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Where is Ana’s book?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: The book of Ana is on the table.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Ana’s book is on the table.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Put ’s after the name.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! Ana’s phone is here.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "The book of Ana is on the table.",
+  "right": "Ana’s book is on the table.",
+  "strike": "The book of Ana",
+  "why": "Put ’s after the name.",
+  "memory": "Ana’s book.",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "The phone of Ana is here.",
+    "Ana’s phone is here."
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Você diz “The book of Ana”?",
+   "tip": "Para dizer de quem é algo, é mais natural usar “’s” depois do nome.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “The book of Ana is on the table.” O certo é “Ana’s book is on the table.” Em português dizemos “o livro da Ana”, mas em inglês colocamos o dono antes: “Ana’s book”. Ouça a Ama e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “Ana’s phone is here.” Agora escreva uma frase sua com esse ponto e treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “The book of Ana”?",
+   "tip": "To show who owns something, it is more natural to add “’s” after the name.",
+   "caption": "Watch out for this common mistake! Many people say “The book of Ana is on the table.” The right way is “Ana’s book is on the table.” In Portuguese we say “o livro da Ana”, but in English the owner comes first: “Ana’s book”. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Você diz “The book of Ana”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Você diz “The book of Ana”?",
+  "keyword": "Ana’s book is on the table.",
+  "value": "Para dizer de quem é algo, é mais natural usar “’s” depois do nome.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "Você diz “The book of Ana”?",
+    "description": "Para dizer de quem é algo, é mais natural usar “’s” depois do nome.\n\nCuidado com este erro comum! 😬 Muita gente diz “The book of Ana is on the table.” O certo é “Ana’s book is on the table.” Em português dizemos “o livro da Ana”, mas em inglês colocamos o dono antes: “Ana’s book”. Ouça a Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "Ana’s book is on the table.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “The book of Ana is on the table.” O certo é “Ana’s book is on the table.” Em português dizemos “o livro da Ana”, mas em inglês colocamos o dono antes: “Ana’s book”. Ouça a Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Você diz “The book of Ana”?\n\nPara dizer de quem é algo, é mais natural usar “’s” depois do nome.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Você diz “The book of Ana”? Para dizer de quem é algo, é mais natural usar “’s” depois do nome. #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “Ana’s phone is here.” Agora escreva uma frase sua com esse ponto e treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

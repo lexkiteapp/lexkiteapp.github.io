@@ -1,0 +1,129 @@
+{
+ "id": "t2a_mistake_24aedfd4",
+ "template": "mistake",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Stop saying protects of!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Sunscreen protects of the sun.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Sunscreen protects you from the sun.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Protect someone from danger.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "From! This coat protects me from the rain.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Sunscreen protects of the sun.",
+  "right": "Sunscreen protects you from the sun.",
+  "strike": "protects of",
+  "why": "Protect someone from danger.",
+  "memory": "protect + someone + FROM",
+  "quiz": {
+   "stem": "This coat protects me ___ the rain.",
+   "options": [
+    "of",
+    "from"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Stop saying “protects of”"
+ },
+ "src": {
+  "gold": "sb_24aedfd4",
+  "pid": "u:p:protect:from"
+ },
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Stop saying \"protects of\"? Say this instead",
+  "keyword": "protects of",
+  "value": "Say \"Sunscreen protects you from the sun\", not \"Sunscreen protects of the sun\". Protect someone from danger.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#englishgrammar",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "Stop saying \"protects of\"? Say this instead",
+    "description": "Say \"Sunscreen protects you from the sun\", not \"Sunscreen protects of the sun\". Protect someone from danger.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix\n\nSeries: Stop Saying This · Teacher: Ama\n\n#learnenglish #englishtips #englishgrammar #englishteacher",
+    "tags": [
+     "protects of",
+     "Stop Saying This",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Stop saying \"protects of\"? Say this instead\n\nSay \"Sunscreen protects you from the sun\", not \"Sunscreen protects of the sun\". Protect someone from danger.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Stop saying \"protects of\"? Say this instead\n\nSay \"Sunscreen protects you from the sun\", not \"Sunscreen protects of the sun\". Protect someone from danger.\n\nCheck your grammar: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#englishgrammar",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Stop saying \"protects of\"? Say this instead #learnenglish #englishtips #englishgrammar"
+   }
+  },
+  "first_comment": "Quiz answer: From! This coat protects me from the rain. Say \"Sunscreen protects you from the sun\", not \"Sunscreen protects of the sun\". Protect someone from danger. Practice it with a free quiz: {link}"
+ }
+}

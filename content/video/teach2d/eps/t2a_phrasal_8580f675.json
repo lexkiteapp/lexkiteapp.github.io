@@ -1,0 +1,136 @@
+{
+ "id": "t2a_phrasal_8580f675",
+ "template": "phrasal",
+ "series": "Phrasal Verb in 30s",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Don't say write the form!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Not: Please write the form.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Say: Please fill out the form.",
+   "pause": 0.42
+  },
+  {
+   "id": "m",
+   "text": "Fill out means write your details.",
+   "pause": 0.42
+  },
+  {
+   "id": "k",
+   "text": "British speakers often say fill in!",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one sounds natural?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Fill out! Please fill out this form.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "pv": "fill out",
+  "wrong": "Please write the form.",
+  "right": "Please fill out the form.",
+  "strike": "write the form",
+  "mean": "= write your details on a form",
+  "aha": "British speakers often say fill in!",
+  "ex": "I filled out the form online.",
+  "quiz": {
+   "stem": "Please ___ this form.",
+   "options": [
+    "write",
+    "fill out"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn phrasal verbs"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Don't say “write the form”"
+ },
+ "src": {
+  "gold": "sb_8580f675",
+  "pid": "w:fill out#phr v"
+ },
+ "est": {
+  "words": 52,
+  "seconds": 31.5,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Say \"fill out\" like a native",
+  "keyword": "fill out",
+  "value": "Fill out = write your details on a form. Say \"Please fill out the form\", not \"Please write the form\".",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#phrasalverbs",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 45,
+  "platforms": {
+   "youtube": {
+    "title": "Say \"fill out\" like a native",
+    "description": "Fill out = write your details on a form. Say \"Please fill out the form\", not \"Please write the form\".\n\nLearn phrasal verbs, free: https://lexkite.com/app/#/phrases\n\nSeries: Phrasal Verb in 30s · Teacher: Ama\n\n#learnenglish #englishtips #phrasalverbs #englishteacher",
+    "tags": [
+     "fill out",
+     "Phrasal Verb in 30s",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Say \"fill out\" like a native\n\nFill out = write your details on a form. Say \"Please fill out the form\", not \"Please write the form\".\n\nLearn phrasal verbs, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Say \"fill out\" like a native\n\nFill out = write your details on a form. Say \"Please fill out the form\", not \"Please write the form\".\n\nLearn phrasal verbs: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#phrasalverbs",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Say \"fill out\" like a native #learnenglish #englishtips #phrasalverbs"
+   }
+  },
+  "first_comment": "Quiz answer: Fill out! Please fill out this form. Fill out = write your details on a form. Say \"Please fill out the form\", not \"Please write the form\". Practice it with a free quiz: {link}"
+ }
+}

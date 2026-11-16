@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_make_mistake",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Not do, make a mistake!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I did a mistake in my homework.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I made a mistake in my homework.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say make a mistake.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Makes! Everyone makes a mistake sometimes.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I did a mistake in my homework.",
+  "right": "I made a mistake in my homework.",
+  "strike": "did",
+  "why": "Say make a mistake.",
+  "memory": "I made a mistake in my homework.",
+  "quiz": {
+   "stem": "Everyone ___ a mistake sometimes.",
+   "options": [
+    "does",
+    "makes"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Do a mistake” değil, “make”!",
+   "tip": "Türkçede “hata yapmak” deriz; “yapmak” burada İngilizcede “do” değil “make” olur: “I made a mistake in my homework.”",
+   "caption": "“I did a mistake in my homework” mi diyorsun? 😅 Türkçedeki “hata yapmak” İngilizcede “make a mistake” olur, “do” gelmez. Doğrusu “I made a mistake in my homework.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “makes”. “Mistake” ile “make” kullanılır. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “make a mistake”!",
+   "tip": "Use “make,” not “do”: “I made a mistake in my homework.”",
+   "caption": "Do you say “I did a mistake in my homework”? 😅 In English we say “make a mistake,” not “do a mistake.” The right sentence is “I made a mistake in my homework.” Listen to Ama and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Do a mistake” değil, “make”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“Do a mistake” değil, “make”!",
+  "keyword": "I made a mistake in my homework.",
+  "value": "Türkçede “hata yapmak” deriz; “yapmak” burada İngilizcede “do” değil “make” olur: “I made a mistake in my homework.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "“Do a mistake” değil, “make”!",
+    "description": "Türkçede “hata yapmak” deriz; “yapmak” burada İngilizcede “do” değil “make” olur: “I made a mistake in my homework.”\n\n“I did a mistake in my homework” mi diyorsun? 😅 Türkçedeki “hata yapmak” İngilizcede “make a mistake” olur, “do” gelmez. Doğrusu “I made a mistake in my homework.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "I made a mistake in my homework.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“I did a mistake in my homework” mi diyorsun? 😅 Türkçedeki “hata yapmak” İngilizcede “make a mistake” olur, “do” gelmez. Doğrusu “I made a mistake in my homework.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Do a mistake” değil, “make”!\n\nTürkçede “hata yapmak” deriz; “yapmak” burada İngilizcede “do” değil “make” olur: “I made a mistake in my homework.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Do a mistake” değil, “make”! Türkçede “hata yapmak” deriz; “yapmak” burada İngilizcede “do” değil “make… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “makes”. “Mistake” ile “make” kullanılır. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+  "lang": "tr"
+ }
+}

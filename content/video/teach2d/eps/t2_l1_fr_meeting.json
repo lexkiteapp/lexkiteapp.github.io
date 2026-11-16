@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_meeting",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Reunion is a false friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: We have a reunion at three o'clock.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: We have a meeting at three o'clock.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "A work meeting is a meeting.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Meeting! I have a meeting.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "We have a reunion at three o'clock.",
+  "right": "We have a meeting at three o'clock.",
+  "strike": "reunion",
+  "why": "A work meeting is a meeting.",
+  "memory": "Work: meeting.",
+  "quiz": {
+   "stem": "I have a ___ with my boss at three.",
+   "options": [
+    "reunion",
+    "meeting"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Reunion” ≠ « réunion »",
+   "tip": "En anglais, “reunion” veut dire « retrouvailles ». Pour une réunion de travail, dites “meeting”.",
+   "caption": "Vous dites “We have a reunion at three o'clock.” ? En anglais, “reunion” veut dire « retrouvailles ». Pour une réunion de travail, dites “meeting”. Dites plutôt “We have a meeting at three o'clock.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “We have a meeting at three o'clock.” — En anglais, “reunion” veut dire « retrouvailles ». Pour une réunion de travail, dites “meeting”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Reunion” is a trap!",
+   "tip": "In English, “reunion” means getting together again. For a work meeting, say “meeting”.",
+   "caption": "Do you say this? “We have a reunion at three o'clock.” In English, “reunion” means getting together again. For a work meeting, say “meeting”. Say “We have a meeting at three o'clock.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Reunion” ≠ « réunion »"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“Reunion” ≠ « réunion »",
+  "keyword": "We have a meeting at three o'clock.",
+  "value": "En anglais, “reunion” veut dire « retrouvailles ». Pour une réunion de travail, dites “meeting”.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "“Reunion” ≠ « réunion »",
+    "description": "En anglais, “reunion” veut dire « retrouvailles ». Pour une réunion de travail, dites “meeting”.\n\nVous dites “We have a reunion at three o'clock.” ? En anglais, “reunion” veut dire « retrouvailles ». Pour une réunion de travail, dites “meeting”. Dites plutôt “We have a meeting at three o'clock.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "We have a meeting at three o'clock.",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Vous dites “We have a reunion at three o'clock.” ? En anglais, “reunion” veut dire « retrouvailles ». Pour une réunion de travail, dites “meeting”. Dites plutôt “We have a meeting at three o'clock.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Reunion” ≠ « réunion »\n\nEn anglais, “reunion” veut dire « retrouvailles ». Pour une réunion de travail, dites “meeting”.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Reunion” ≠ « réunion » En anglais, “reunion” veut dire « retrouvailles ». Pour une réunion de trava… #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “We have a meeting at three o'clock.” — En anglais, “reunion” veut dire « retrouvailles ». Pour une réunion de travail, dites “meeting”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}
