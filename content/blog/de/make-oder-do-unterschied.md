@@ -137,6 +137,8 @@ Und vorher immer kurz prüfen: Passt hier vielleicht *take, have* oder *go* bess
 
 ## Typische Fehler deutschsprachiger Lernender
 
+Auch im Essay fallen solche Kollokationsfehler auf, mehr dazu bei den [häufigsten IELTS Writing Fehlern](/de/blog/ielts-writing-fehler-vermeiden/).
+
 | ✗ Falsch | ✓ Richtig |
 |---|---|
 | *I did a mistake.* | *I made a mistake.* |
@@ -183,6 +185,8 @@ Kollokationen bleiben hängen, wenn du sie in eigenen Sätzen benutzt und regelm
 {{cta: /app/#/usage/make | Wendungen mit make und do üben}}
 
 {{youtube: | Videoidee: Machen ist nicht immer make – zehn Sätze, die Deutsche oft falsch sagen}}
+
+Ein ähnlich häufiges Verwechslungspaar erklärt [Affect oder Effect](/de/blog/affect-oder-effect-unterschied/).
 
 ## Häufig gestellte Fragen
 
