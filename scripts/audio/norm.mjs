@@ -49,6 +49,8 @@ export async function normalizeFile(src, dst, enc = MP3_24K) {
       if (d <= TOL_LU * 0.7) break;
     }
     if (last.TP > MAX_TP) ceil -= (last.TP - MAX_TP) + 0.4; // mp3 vượt đỉnh sau mã hoá → hạ trần
+    // Clip có vài đỉnh nhọn: bộ giới hạn ghim ở trần nên tăng gain không nâng được I (kẹt ~−17,1 dù TP ≈ −2,2) → nới trần dần tới sát MAX_TP, rồi luật trên hạ lại nếu mp3 vượt đỉnh.
+    else if (last.TP != null && last.TP < MAX_TP - 0.5 && last.I < TARGET_LUFS - TOL_LU * 0.7) ceil = Math.min(MAX_TP - 0.3, ceil + 0.5);
     gain += AIM - last.I;
   }
   fs.rmSync(tmp, { force: true });
