@@ -12,6 +12,8 @@ const wr = (name, status, conclusion, run_number = 1, extra = {}) => ({ name, st
 const st = (context, state, updated_at = '2026-11-01T00:00:00Z') => ({ context, state, updated_at });
 
 // ---------- 1) đánh giá ----------
+ok(evaluate({ checkRuns: [{ name: 'npm test', status: 'in_progress', conclusion: 'success', completed_at: '2026-11-16T07:49:05Z' }] }).state === 'success', 'check ma: in_progress nhưng đã có conclusion+completed_at → xong (#1448 treo 1h20)');
+ok(evaluate({ checkRuns: [{ name: 'npm test', status: 'in_progress', conclusion: 'success' }, cr('lint', 'completed', 'success')] }).state === 'pending', 'in_progress chưa có completed_at → vẫn CHỜ');
 ok(evaluate({}).state === 'pending', 'không có check nào → CHỜ (CI chưa chạy), không xanh');
 ok(evaluate({ workflowRuns: [wr('report-autofix', 'completed', 'skipped')] }).state === 'pending', 'chỉ có lượt skipped → CHỜ, không xanh (sự cố #584 ngày 05/11)');
 ok(evaluate({ checkRuns: [cr('lint', 'completed', 'neutral')] }).state === 'pending', 'chỉ neutral → CHỜ, không xanh');

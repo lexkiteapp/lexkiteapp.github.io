@@ -23,6 +23,9 @@ const BAD = new Set(['failure', 'timed_out', 'cancelled', 'startup_failure', 'st
 export const MAX_AUTO_RERUN = 2;
 
 /** Hàm thuần: { checkRuns, statuses, workflowRuns } (dạng REST API) → { state, description, failed, pending, total }. */
+/** Check-run "ma" của GitHub: status vẫn in_progress nhưng đã có conclusion + completed_at (16/11: npm test treo #1448 1h20) → coi là đã xong. */
+export const effStatus = c => (c.status !== 'completed' && c.conclusion && c.completed_at) ? 'completed' : c.status;
+
 export function evaluate({ checkRuns = [], statuses = [], workflowRuns = [] } = {}) {
   const items = [];
   // check-run: lấy bản mới nhất theo tên (API filter=latest đã làm, làm lại cho chắc khi gộp nhiều trang/bộ)
@@ -32,7 +35,7 @@ export function evaluate({ checkRuns = [], statuses = [], workflowRuns = [] } = 
     const prev = cr.get(c.name);
     if (!prev || (c.id || 0) > (prev.id || 0)) cr.set(c.name, c);
   }
-  for (const c of cr.values()) items.push({ name: c.name, status: c.status, conclusion: c.conclusion });
+  for (const c of cr.values()) items.push({ name: c.name, status: effStatus(c), conclusion: c.conclusion });
   // workflow run: bản mới nhất theo workflow (lượt cũ bị hủy do concurrency hay lượt "ma" queued không tính)
   const wr = new Map();
   for (const r of workflowRuns) {
@@ -159,7 +162,7 @@ export function dirtyShas({ shas, runs, seen, now, recheckMs = 10 * 60e3, probes
 
 /** Chữ ký check-runs của 1 sha: đổi khi bất kỳ check nào đổi id/trạng thái/kết luận/lượt chạy lại. active = còn check queued/in_progress. */
 export function probeOf(checkRuns = []) {
-  const act = c => c.status !== 'completed';
+  const act = c => effStatus(c) !== 'completed';
   return { sig: checkRuns.map(c => `${c.id}:${c.status}:${c.conclusion || ''}:${c.completed_at || ''}`).sort().join('|'), active: checkRuns.some(act), n: checkRuns.length,
     bad: checkRuns.filter(c => c.name !== SELF_JOB && c.status === 'completed' && BAD.has(c.conclusion)).length };
 }
