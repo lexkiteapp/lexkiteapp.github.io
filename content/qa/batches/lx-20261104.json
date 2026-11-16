@@ -1,0 +1,125 @@
+{
+ "id": "20261104",
+ "source": "lexicon-expand",
+ "n": 29,
+ "checked": [
+  {
+   "id": "wile#n",
+   "ok": true
+  },
+  {
+   "id": "loyalist#n",
+   "ok": true
+  },
+  {
+   "id": "dexterity#n",
+   "ok": true
+  },
+  {
+   "id": "innumerable#adj",
+   "ok": true
+  },
+  {
+   "id": "fanatical#adj",
+   "ok": true
+  },
+  {
+   "id": "interrogator#n",
+   "ok": true
+  },
+  {
+   "id": "sociologist#n",
+   "ok": true
+  },
+  {
+   "id": "detonation#n",
+   "ok": true
+  },
+  {
+   "id": "inconceivable#adj",
+   "ok": true
+  },
+  {
+   "id": "objectivity#n",
+   "ok": true
+  },
+  {
+   "id": "hallucinogenic#adj",
+   "ok": true
+  },
+  {
+   "id": "importation#n",
+   "ok": true
+  },
+  {
+   "id": "irreplaceable#adj",
+   "ok": true
+  },
+  {
+   "id": "regularity#n",
+   "ok": true
+  },
+  {
+   "id": "overlord#n",
+   "ok": true
+  },
+  {
+   "id": "commendable#adj",
+   "ok": true
+  },
+  {
+   "id": "psychoanalysis#n",
+   "ok": true
+  },
+  {
+   "id": "extricate#v",
+   "ok": true
+  },
+  {
+   "id": "wearer#n",
+   "ok": true
+  },
+  {
+   "id": "assent#n",
+   "ok": true
+  },
+  {
+   "id": "astute#adj",
+   "ok": true
+  },
+  {
+   "id": "primordial#adj",
+   "ok": true
+  },
+  {
+   "id": "inappropriately#adv",
+   "ok": true
+  },
+  {
+   "id": "aquaculture#n",
+   "ok": true
+  },
+  {
+   "id": "actuality#n",
+   "ok": true
+  },
+  {
+   "id": "unforgivable#adj",
+   "ok": true
+  },
+  {
+   "id": "cannibal#n",
+   "ok": true
+  },
+  {
+   "id": "toothed#adj",
+   "ok": true
+  },
+  {
+   "id": "nanotechnology#n",
+   "ok": true
+  }
+ ],
+ "at": "2026-11-05",
+ "status": "published"
+}

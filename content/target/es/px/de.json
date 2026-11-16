@@ -1,0 +1,53 @@
+{
+ "ui": {
+  "ti": "Aussprache des Spanischen",
+  "pk": "Wähle einen Laut zum Üben",
+  "ex": "Beispiele anhören",
+  "pp": "Minimalpaare",
+  "dc": "Diktat",
+  "sy": "Nachsprechen",
+  "qp": "Welches Wort hörst du?",
+  "qd": "Schreibe, was du hörst",
+  "qs": "Mikrofon antippen und das Wort sagen",
+  "mic": "Zum Sprechen tippen",
+  "hd": "Ich habe verstanden: „{h}“",
+  "rt": "Nicht verstanden. Versuch es noch einmal.",
+  "sk": "Überspringen",
+  "nm": "Hier gibt es kein Mikrofon. Übe mit Paaren oder Diktat.",
+  "tp": "Tipp"
+ },
+ "tp": {
+  "vow": {
+   "t": "Fünf reine Vokale",
+   "x": "Spanisch hat nur fünf Vokale, a, e, i, o, u, und jeder klingt immer gleich: kurz, klar und stabil, ohne Gleiten in einen zweiten Laut. Sprich „casa“ und „solo“ und halte den Mund von Anfang bis Ende ruhig."
+  },
+  "rr": {
+   "t": "Einfaches r und gerolltes rr",
+   "x": "Ein einzelnes r zwischen Vokalen ist ein kurzer Zungenschlag: „pero“. Am Wortanfang oder als rr geschrieben wird es gerollt: „rojo“, „perro“. Ein Buchstabe ändert die Bedeutung: „pero“ (aber) und „perro“ (Hund)."
+  },
+  "bv": {
+   "t": "b und v klingen gleich",
+   "x": "Die Buchstaben b und v stehen für einen einzigen Laut. Am Wortanfang oder nach m oder n ist es ein festes /b/ („vaca“, „bola“). Zwischen Vokalen berühren sich die Lippen kaum („uva“, „lobo“). Setze nie die Zähne auf die Lippe wie beim deutschen w. Welcher Buchstabe geschrieben wird, ist Rechtschreibung, nicht Klang."
+  },
+  "seseo": {
+   "t": "c, z und s: ein Laut",
+   "x": "Im lateinamerikanischen Spanisch sind c (vor e, i), z und s alle /s/: „cielo“, „zapato“, „casa“. Es gibt kein „th“ wie in Spanien. Darum klingen „casa“ und „caza“ gleich; der Kontext liefert den Sinn, die Schreibung muss man lernen."
+  },
+  "stress": {
+   "t": "Betonung und Akzentzeichen",
+   "x": "Die Betonung liegt auf der vorletzten Silbe, wenn das Wort auf Vokal, n oder s endet, sonst auf der letzten. Ein Akzentzeichen bricht die Regel und markiert den betonten Vokal: „papa“ (Kartoffel) und „papá“ (Papa), „canto“ (ich singe) und „cantó“ (er sang). Die Betonung kann die Bedeutung ändern."
+  },
+  "link": {
+   "t": "Wörter verbinden",
+   "x": "Spanisch fließt: Der Vokal am Wortende verbindet sich ohne Pause mit dem Vokal am Beginn des nächsten Wortes. „la hora“ klingt wie „laora“, „mi amigo“ wie „miamigo“. Mach keine Pause zwischen den Wörtern."
+  },
+  "jg": {
+   "t": "j, g und gu",
+   "x": "j, und g vor e oder i, ist ein gehauchtes /x/ hinten im Rachen, wie das ch in „Bach“: „jarra“, „gente“. g vor a, o, u ist ein hartes /g/: „gato“. Damit g vor e oder i hart bleibt, schreibt man gu und spricht das u nicht: „guerra“."
+  },
+  "hq": {
+   "t": "ñ, ll, h, ch, qu",
+   "x": "ñ klingt wie „nj“ in „Champagner“: „año“. ll und y klingen wie ein weiches „j“: „pollo“. Das h ist immer stumm: „hola“, „hora“. qu ist /k/ und das u bleibt stumm: „queso“. ch wie in „Tschüss“: „chico“."
+  }
+ }
+}

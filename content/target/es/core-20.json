@@ -1,0 +1,341 @@
+{
+ "v": 1,
+ "tl": "es",
+ "variant": "es-419",
+ "status": "reviewed",
+ "source": {
+  "name": "FrequencyWords (hermitdave) – OpenSubtitles 2018 es_50k",
+  "url": "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/es/es_50k.txt",
+  "license": "CC BY-SA 4.0 (dữ liệu) – chỉ dùng thứ hạng để chọn từ; ghi công trong spec"
+ },
+ "words": [
+  {
+   "word": "cuidado",
+   "pos": "n",
+   "gender": "m",
+   "plural": "cuidados",
+   "ipa": "kwiˈðaðo",
+   "gl": {
+    "vi": "sự cẩn thận, sự chăm sóc",
+    "en": "care, caution",
+    "es": "cuidado",
+    "pt": "cuidado",
+    "fr": "soin, attention",
+    "de": "Vorsicht, Pflege",
+    "id": "perhatian, kehati-hatian",
+    "th": "ความระมัดระวัง, การดูแล",
+    "zh": "小心, 照顾",
+    "ja": "注意, 世話",
+    "ko": "조심, 주의",
+    "hi": "सावधानी, देखभाल",
+    "ar": "حذر, عناية",
+    "ru": "осторожность, уход",
+    "tr": "dikkat, bakım"
+   },
+   "ex": {
+    "es": "Ten cuidado al cruzar la calle.",
+    "en": "Be careful when crossing the street."
+   },
+   "rank": 379,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "aunque",
+   "pos": "conj",
+   "ipa": "ˈawnke",
+   "gl": {
+    "vi": "mặc dù",
+    "en": "although, even though",
+    "es": "aunque",
+    "pt": "embora, mesmo que",
+    "fr": "bien que, même si",
+    "de": "obwohl",
+    "id": "meskipun",
+    "th": "แม้ว่า, ถึงแม้ว่า",
+    "zh": "虽然",
+    "ja": "〜けれども",
+    "ko": "비록 ~일지라도",
+    "hi": "हालांकि",
+    "ar": "بالرغم من",
+    "ru": "хотя",
+    "tr": "rağmen, -e rağmen"
+   },
+   "ex": {
+    "es": "Voy a salir aunque está lloviendo.",
+    "en": "I am going out although it is raining."
+   },
+   "rank": 405,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaAi": "ˈawn.ke"
+   }
+  },
+  {
+   "word": "arriba",
+   "pos": "adv",
+   "ipa": "aˈriβa",
+   "gl": {
+    "vi": "ở trên, lên trên",
+    "en": "above, up, upstairs",
+    "es": "arriba",
+    "pt": "acima, para cima",
+    "fr": "en haut, au-dessus",
+    "de": "oben, hinauf",
+    "id": "di atas, ke atas",
+    "th": "ข้างบน, ขึ้นไป",
+    "zh": "在上面, 向上",
+    "ja": "上に",
+    "ko": "위로, 위에",
+    "hi": "ऊपर",
+    "ar": "أعلى, في الأعلى",
+    "ru": "вверху, наверх",
+    "tr": "yukarıda, yukarıya"
+   },
+   "ex": {
+    "es": "Mi dormitorio está arriba.",
+    "en": "My bedroom is upstairs."
+   },
+   "rank": 420,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "cuerpo",
+   "pos": "n",
+   "gender": "m",
+   "plural": "cuerpos",
+   "ipa": "ˈkweɾpo",
+   "gl": {
+    "vi": "cơ thể, thân thể",
+    "en": "body",
+    "es": "cuerpo",
+    "pt": "corpo",
+    "fr": "corps",
+    "de": "Körper",
+    "id": "tubuh, badan",
+    "th": "ร่างกาย",
+    "zh": "身体",
+    "ja": "体",
+    "ko": "몸, 신체",
+    "hi": "शरीर",
+    "ar": "جسم, جسد",
+    "ru": "тело",
+    "tr": "vücut, beden"
+   },
+   "ex": {
+    "es": "Hacer ejercicio es bueno para el cuerpo.",
+    "en": "Exercising is good for the body."
+   },
+   "rank": 435,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "abajo",
+   "pos": "adv",
+   "ipa": "aˈβaxo",
+   "gl": {
+    "vi": "ở dưới, xuống dưới",
+    "en": "down, below, downstairs",
+    "es": "abajo",
+    "pt": "abaixo, para baixo",
+    "fr": "en bas, ci-dessous",
+    "de": "unten, hinunter",
+    "id": "di bawah, ke bawah",
+    "th": "ข้างล่าง, ลงข้างล่าง",
+    "zh": "在下面, 向下",
+    "ja": "下に",
+    "ko": "아래로, 아래에",
+    "hi": "नीचे",
+    "ar": "أسفل, في الأسفل",
+    "ru": "внизу, вниз",
+    "tr": "aşağıda, aşağıya"
+   },
+   "ex": {
+    "es": "Los niños están jugando abajo.",
+    "en": "The children are playing downstairs."
+   },
+   "rank": 462,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "malo",
+   "pos": "adj",
+   "ipa": "ˈmalo",
+   "gl": {
+    "es": "malo",
+    "en": "bad",
+    "pt": "ruim",
+    "fr": "mauvais",
+    "de": "schlecht",
+    "vi": "xấu",
+    "id": "buruk",
+    "th": "แย่",
+    "zh": "坏",
+    "ja": "悪い",
+    "ko": "나쁜",
+    "hi": "बुरा",
+    "ar": "سيء",
+    "ru": "плохой",
+    "tr": "kötü"
+   },
+   "ex": {
+    "es": "El clima está malo hoy.",
+    "en": "The weather is bad today."
+   },
+   "rank": 476,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.8-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "spot": true
+   }
+  },
+  {
+   "word": "par",
+   "pos": "n",
+   "gender": "m",
+   "plural": "pares",
+   "ipa": "ˈpaɾ",
+   "gl": {
+    "es": "par",
+    "en": "pair",
+    "pt": "par",
+    "fr": "paire",
+    "de": "Paar",
+    "vi": "cặp",
+    "id": "pasangan",
+    "th": "คู่",
+    "zh": "对",
+    "ja": "ペア",
+    "ko": "쌍",
+    "hi": "जोड़ी",
+    "ar": "زوج",
+    "ru": "пара",
+    "tr": "çift"
+   },
+   "ex": {
+    "es": "Compré un par de zapatos.",
+    "en": "I bought a pair of shoes."
+   },
+   "rank": 509,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.8-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "además",
+   "pos": "adv",
+   "ipa": "aðeˈmas",
+   "gl": {
+    "es": "además",
+    "en": "also, besides",
+    "pt": "também",
+    "fr": "aussi",
+    "de": "auch",
+    "vi": "hơn nữa, ngoài ra",
+    "id": "juga",
+    "th": "อีกด้วย",
+    "zh": "也",
+    "ja": "さらに",
+    "ko": "또한",
+    "hi": "भी",
+    "ar": "أيضا",
+    "ru": "также",
+    "tr": "ayrıca"
+   },
+   "ex": {
+    "es": "Además, viene mi hermano.",
+    "en": "Also, my brother is coming."
+   },
+   "rank": 541,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.8-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  }
+ ],
+ "review": {
+  "by": "sonnet-review-B",
+  "at": "2026-11-09",
+  "checked": 8,
+  "fixed": 2,
+  "dropped": 0,
+  "sample": 5
+ }
+}

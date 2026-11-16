@@ -154,5 +154,26 @@
  },
  "ntMoreSenses": {
   "message": "+{n}개 뜻"
+ },
+ "ntQzTag": {
+  "message": "빠른 퀴즈"
+ },
+ "ntQzQ": {
+  "message": "알맞은 뜻을 고르세요"
+ },
+ "ntQzTime": {
+  "message": "{s}초"
+ },
+ "ntQzRight": {
+  "message": "정답!"
+ },
+ "ntQzWrong": {
+  "message": "아쉬워요 — 곧 다시 나옵니다"
+ },
+ "ntQzTimeout": {
+  "message": "시간 초과, 괜찮아요"
+ },
+ "ntQzSkip": {
+  "message": "건너뛰기"
  }
 }

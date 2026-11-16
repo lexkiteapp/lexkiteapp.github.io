@@ -10,10 +10,10 @@ const INV = JSON.parse(fs.readFileSync('content/framework/grammar-inventory.json
 const TGT = JSON.parse(fs.readFileSync('content/pipeline/targets.json', 'utf8'));
 const clone = o => JSON.parse(JSON.stringify(o));
 const pt = (inv, id) => inv.points.find(p => p.id === id);
-const run = (inv, tgt) => {
+const run = (inv, tgt, tl) => {
   const a = path.join(dir, 'inv.json'), b = path.join(dir, 't.json');
   fs.writeFileSync(a, JSON.stringify(inv)); fs.writeFileSync(b, JSON.stringify(tgt));
-  return spawnSync('node', ['scripts/content-qa/grammar-map-check.mjs', '--inv', a, '--targets', b, '--report', path.join(dir, 'r.json')], { encoding: 'utf8' });
+  return spawnSync('node', ['scripts/content-qa/grammar-map-check.mjs', '--inv', a, '--targets', b, '--report', path.join(dir, 'r.json'), ...(tl ? ['--tl', tl] : [])], { encoding: 'utf8', env: { ...process.env, CI: '', LT_URL: '' } });
 };
 let bad = 0, n = 0;
 const expect = (name, r, ok, re) => {
@@ -38,6 +38,15 @@ expect('bản thật xanh', run(INV, TGT), true);
 { const i = clone(INV); i.points.push(clone(i.points[0])); expect('id trùng', run(i, TGT), false, /id trùng/); }
 { const i = clone(INV); i.points[0].example = 'Tôi là Lan.'; expect('ví dụ không phải tiếng Anh', run(i, TGT), false, /ví dụ phải là tiếng Anh/); }
 { const i = clone(INV); i.points[1].can_do_en = i.points[0].can_do_en; expect('can_do_en trùng', run(i, TGT), false, /trùng can_do_en/); }
+// --tl es (spanish-course.md W2): kho es xanh; ví dụ vosotros, thì lạ, thiếu example_en, gắn bài, cắt dưới 200 điểm → đỏ
+const ES = JSON.parse(fs.readFileSync('content/target/es/grammar-inventory.json', 'utf8'));
+expect('es: bản thật xanh', run(ES, TGT, 'es'), true);
+{ const i = clone(ES); i.points[0].example = '¿Vosotros sois de aquí?'; expect('es: ví dụ vosotros', run(i, TGT, 'es'), false, /lệch chuẩn es/); }
+{ const i = clone(ES); i.points.find(p => p.tenses).tenses.push('pluscuamperfecto'); expect('es: thì lạ', run(i, TGT, 'es'), false, /không có trong bộ chia động từ/); }
+{ const i = clone(ES); delete i.points[2].example_en; expect('es: thiếu example_en', run(i, TGT, 'es'), false, /thiếu example_en/); }
+{ const i = clone(ES); i.points[3].lessons = ['present-simple']; expect('es: gắn bài khi chưa có bài es', run(i, TGT, 'es'), false, /lessons phải rỗng/); }
+{ const i = clone(ES); i.points = i.points.slice(0, 150); expect('es: cắt dưới 200 điểm', run(i, TGT, 'es'), false, /< 200/); }
+{ const r = spawnSync('node', ['scripts/content-qa/grammar-map-check.mjs', '--tl', 'es', '--report', path.join(dir, 'r.json')], { encoding: 'utf8', env: { ...process.env, CI: 'true', LT_URL: '' } }); expect('es: CI thiếu LanguageTool', r, false, /thiếu LT_URL/); }
 fs.rmSync(dir, { recursive: true, force: true });
 if (bad) { console.log(`✗ grammar-inventory test: ${bad} ca sai`); process.exit(1); }
 console.log(`✓ grammar-inventory test: cổng bắt đủ ${n} kiểu hỏng`);

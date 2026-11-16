@@ -72,5 +72,46 @@
   "words": 39,
   "seconds": 24.2,
   "wpm": 97
+ },
+ "publish": {
+  "title": "What does \"bin\" mean?",
+  "keyword": "bin",
+  "value": "Bin means a container for storing things.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=bin",
+  "script_words": 33,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"bin\" mean?",
+    "description": "Bin means a container for storing things.\n\nReview your words, free: https://lexkite.com/app/#/review?w=bin\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "bin",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"bin\" mean?\n\nBin means a container for storing things.\n\nReview your words, free: https://lexkite.com/app/#/review?w=bin"
+   },
+   "instagram": {
+    "caption": "What does \"bin\" mean?\n\nBin means a container for storing things.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"bin\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means a container for storing things. Bin means a container for storing things. Try the full lesson and quiz here: {link}"
  }
 }

@@ -81,7 +81,7 @@ def enc_webm(frames, path, crf):
 def enc_stacked(frames, path, crf):   # như build.py: màu nhân alpha trên, alpha dưới, yuv420p, faststart
     st = b''.join(np.concatenate([(f[..., :3].astype(float) * f[..., 3:] / 255).round().astype(np.uint8), np.repeat(f[..., 3:], 3, 2)], 0).tobytes() for f in frames)
     p = subprocess.run(['ffmpeg', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H * 2}', '-r', str(FPS), '-i', '-',
-                        '-c:v', 'libx264', '-profile:v', 'main', '-preset', 'veryslow', '-crf', str(crf), '-tune', 'animation', '-pix_fmt', 'yuv420p',
+                        '-c:v', 'libx264', '-color_range', 'tv', '-colorspace', 'bt709', '-color_primaries', 'bt709', '-color_trc', 'bt709', '-profile:v', 'main', '-preset', 'veryslow', '-crf', str(crf), '-tune', 'animation', '-pix_fmt', 'yuv420p',
                         '-g', str(len(frames)), '-an', '-movflags', '+faststart', path], input=st, capture_output=True)
     if p.returncode: raise SystemExit(p.stderr.decode()[-400:])
 

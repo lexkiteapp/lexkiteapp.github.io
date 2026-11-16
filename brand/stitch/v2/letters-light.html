@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite v2.1 Light — Letters</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300..900;1,6..12,300..900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,0,0" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            canvas: '#FBF7F1',
+            surface: '#FFFFFF',
+            'surface-warm': '#F6EFE6',
+            'deep-teal': '#0F3D3E',
+            'teal-muted': '#195657',
+            'teal-accent': '#2BA39A',
+            'teal-soft': '#E6F4F2',
+            coral: '#F2553B',
+            'coral-soft': '#FDEEEB',
+            sand: '#EADEC8',
+            'sand-light': '#F4ECE0',
+            'ink-primary': '#192829',
+            'ink-muted': '#566968',
+            'ink-soft': '#7A8C8B',
+            amber: '#D97706',
+            'amber-soft': '#FEF3C7',
+            success: '#15803D',
+            'success-soft': '#DCFCE7',
+          },
+          fontFamily: {
+            sans: ['"Nunito Sans"', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', '"Nunito Sans"', 'sans-serif'],
+          },
+          boxShadow: {
+            'tactile-sm': '0 2px 0 0 #EADEC8',
+            'tactile-md': '0 3px 0 0 #E2D3B8',
+            'tactile-teal': '0 3px 0 0 #0A2B2C',
+            'tactile-coral': '0 3px 0 0 #B83520',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #FBF7F1;
+      color: #192829;
+      font-family: 'Nunito Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    .material-symbols-rounded.filled {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    textarea:focus {
+      outline: none;
+    }
+    /* Hide scrollbar for tabs */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-canvas min-h-screen flex justify-center selection:bg-teal-soft selection:text-deep-teal">
+
+  <!-- Mobile Frame (390px fixed width, edge-to-edge content) -->
+  <main class="w-full max-w-[390px] min-h-screen bg-canvas flex flex-col pb-10">
+
+    <!-- Top App Bar / Inner Screen Nav -->
+    <header class="sticky top-0 z-30 bg-canvas/95 backdrop-blur-md px-4 pt-3 pb-2 border-b border-sand/80 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <button type="button" aria-label="Go back to writing modules" class="min-w-[44px] min-h-[44px] w-11 h-11 flex items-center justify-center rounded-xl bg-surface border border-sand shadow-tactile-sm text-deep-teal active:translate-y-0.5 active:shadow-none transition-all">
+          <span class="material-symbols-rounded text-[22px]">arrow_back</span>
+        </button>
+        <div>
+          <span class="text-[11px] font-bold tracking-wider uppercase text-teal-muted flex items-center gap-1 font-display">
+            <span class="w-1.5 h-1.5 rounded-full bg-teal-accent"></span>
+            IELTS General Training
+          </span>
+          <h1 class="text-[17px] font-extrabold text-deep-teal leading-tight font-display">
+            Letter Practice
+          </h1>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <!-- Calm Desk Timer Button -->
+        <button id="timerBtn" type="button" class="min-h-[44px] px-3.5 flex items-center gap-1.5 rounded-xl bg-surface border border-sand shadow-tactile-sm text-deep-teal active:translate-y-0.5 transition-all text-left" title="Tap to pause or resume timer">
+          <span class="material-symbols-rounded text-[18px] text-teal-accent">timer</span>
+          <span id="timerDigits" class="font-mono font-bold text-[13px] text-deep-teal">20:00</span>
+        </button>
+      </div>
+    </header>
+
+    <div class="px-4 pt-3 flex flex-col gap-4">
+
+      <!-- Tone Selector Tabs -->
+      <section aria-label="Letter tone filter">
+        <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1">
+          <button type="button" class="min-h-[44px] px-3.5 py-2 rounded-xl text-[13px] font-bold text-ink-muted bg-surface/70 border border-sand/70 hover:bg-surface transition-all flex items-center gap-1">
+            All <span class="text-[11px] text-ink-soft bg-sand-light px-1.5 py-0.5 rounded-md">12</span>
+          </button>
+          <button type="button" class="min-h-[44px] px-3.5 py-2 rounded-xl text-[13px] font-bold text-ink-muted bg-surface/70 border border-sand/70 hover:bg-surface transition-all flex items-center gap-1">
+            Formal <span class="text-[11px] text-ink-soft bg-sand-light px-1.5 py-0.5 rounded-md">4</span>
+          </button>
+          <button type="button" class="min-h-[44px] px-3.5 py-2 rounded-xl text-[13px] font-bold text-deep-teal bg-teal-soft border-2 border-teal-accent shadow-tactile-sm flex items-center gap-1" aria-current="page">
+            Semi-formal <span class="text-[11px] text-deep-teal bg-white/80 px-1.5 py-0.5 rounded-md font-extrabold">5</span>
+          </button>
+          <button type="button" class="min-h-[44px] px-3.5 py-2 rounded-xl text-[13px] font-bold text-ink-muted bg-surface/70 border border-sand/70 hover:bg-surface transition-all flex items-center gap-1">
+            Informal <span class="text-[11px] text-ink-soft bg-sand-light px-1.5 py-0.5 rounded-md">3</span>
+          </button>
+        </div>
+
+        <!-- Tone Guidance Callout (Calm & Clear) -->
+        <div class="mt-2.5 px-3.5 py-2.5 rounded-xl bg-surface-warm border border-sand/90 flex items-start gap-2.5">
+          <span class="material-symbols-rounded text-teal-accent text-[20px] mt-0.5 shrink-0">tips_and_updates</span>
+          <p class="text-[12.5px] leading-relaxed text-ink-primary">
+            <strong class="font-extrabold text-deep-teal">Semi-formal tone tip:</strong> Polite and neighbourly, but firm. Use warm salutations (<em class="italic">"Dear Mr Hall,"</em> or <em class="italic">"Dear Neighbour,"</em>) and avoid overly casual slang.
+          </p>
+        </div>
+      </section>
+
+      <!-- Active Practice Prompt Card -->
+      <section class="bg-surface rounded-2xl border-2 border-sand p-4 shadow-tactile-md relative overflow-hidden">
+        <!-- Accent top line -->
+        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-accent via-teal-muted to-deep-teal"></div>
+
+        <div class="flex items-center justify-between gap-2 mb-2">
+          <div class="flex items-center gap-1.5">
+            <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-teal-soft text-deep-teal font-extrabold text-[11px] border border-teal-accent/40 font-display">
+              <span class="w-1.5 h-1.5 rounded-full bg-teal-accent"></span>
+              Semi-formal Letter
+            </span>
+            <span class="inline-flex items-center gap-1 px-2 py-1 rounded-lg bg-sand-light text-ink-muted font-bold text-[11px]">
+              Task 1 • 20 mins
+            </span>
+          </div>
+
+          <!-- Draft Status Chip -->
+          <div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-amber-soft text-amber font-bold text-[11px] border border-amber/30">
+            <span>✍️</span>
+            <span id="promptDraftCount">168 words draft</span>
+          </div>
+        </div>
+
+        <!-- Title / Bilingual Anchor -->
+        <h2 class="text-[16px] font-black text-deep-teal tracking-tight leading-snug font-display mt-1">
+          Complaint about a noisy neighbour
+        </h2>
+        <p class="text-[11.5px] text-ink-muted mt-0.5">
+          Thư phàn nàn gửi hàng xóm về tiếng ồn đêm muộn (Căn hộ chung cư)
+        </p>
+
+        <!-- Prompt Situation Box -->
+        <div class="mt-3 p-3 rounded-xl bg-surface-warm/70 border border-sand/70 text-[13px] text-ink-primary leading-relaxed">
+          <p class="mb-2">
+            You live in an apartment and your neighbour plays loud music late at night. Write a letter to the neighbour. In your letter:
+          </p>
+          <ul class="space-y-1.5 text-[12.5px] text-ink-primary pl-1">
+            <li class="flex items-start gap-2">
+              <span class="material-symbols-rounded text-teal-accent text-[17px] mt-0.5 shrink-0">arrow_right</span>
+              <span><strong>Describe the problem</strong> and when the music occurs</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="material-symbols-rounded text-teal-accent text-[17px] mt-0.5 shrink-0">arrow_right</span>
+              <span><strong>Explain how it affects you</strong>, your work, or your sleep</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="material-symbols-rounded text-teal-accent text-[17px] mt-0.5 shrink-0">arrow_right</span>
+              <span><strong>Suggest a cooperative solution</strong> or mutually agreeable quiet hours</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Card Buttons: Practice & Model Answer -->
+        <div class="mt-3.5 pt-3 border-t border-sand/70 flex items-center justify-between gap-2.5">
+          <button type="button" class="min-h-[44px] flex-1 px-3 py-2 rounded-xl bg-deep-teal text-white font-bold text-[12.5px] shadow-tactile-teal active:translate-y-0.5 active:shadow-none transition-all flex items-center justify-center gap-1.5">
+            <span class="material-symbols-rounded text-[17px] text-teal-accent">edit_note</span>
+            <span>Practice writing</span>
+          </button>
+          
+          <button id="toggleModelBtn" type="button" class="min-h-[44px] flex-1 px-3 py-2 rounded-xl bg-surface border border-sand text-deep-teal font-bold text-[12.5px] shadow-tactile-sm hover:bg-surface-warm active:translate-y-0.5 active:shadow-none transition-all flex items-center justify-center gap-1.5">
+            <span class="material-symbols-rounded text-[17px] text-amber">verified</span>
+            <span>Model answer</span>
+          </button>
+        </div>
+
+        <!-- Expandable Model Answer Preview (Hidden by default, calm desk drawer style) -->
+        <div id="modelAnswerSection" class="hidden mt-3 p-3 rounded-xl bg-teal-soft/60 border border-teal-accent/30 text-[12.5px] text-deep-teal leading-relaxed">
+          <div class="flex items-center justify-between mb-1.5 pb-1 border-b border-teal-accent/20">
+            <span class="font-extrabold uppercase tracking-wider text-[11px] text-teal-muted font-display">Band 8.5 Model Template</span>
+            <span class="text-[11px] font-bold text-teal-accent">172 words</span>
+          </div>
+          <p class="font-serif text-[12px] italic text-ink-primary leading-normal">
+            "Dear Mr Hall,<br><br>
+            I am writing to politely bring to your attention an issue regarding noise levels from your apartment, unit 4B.<br><br>
+            Over the past two weeks, loud music has been playing late into the night, particularly between 11:30 PM and 1:30 AM. Because our bedrooms share a common wall, the heavy bass vibrates through my room and makes it virtually impossible to fall asleep.<br><br>
+            As a result, I have been arriving at work exhausted, which is severely impacting my focus during early morning meetings.<br><br>
+            Could I kindly suggest that we observe the building’s designated quiet hours after 10:30 PM? Alternatively, using headphones during late hours would be greatly appreciated.<br><br>
+            Yours sincerely,<br>
+            David Miller"
+          </p>
+        </div>
+      </section>
+
+      <!-- Writing Desk & Editor Area -->
+      <section class="bg-surface rounded-2xl border-2 border-sand p-4 shadow-tactile-md flex flex-col gap-3">
+        
+        <!-- Writing Header Row: Auto-save status + Dynamic Word Count Chip -->
+        <div class="flex items-center justify-between gap-2">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-rounded text-[18px] text-deep-teal">history_edu</span>
+            <span class="text-[14px] font-black text-deep-teal font-display">Your Letter Draft</span>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <!-- Auto-save pulse -->
+            <span id="saveStatus" class="inline-flex items-center gap-1 text-[11px] text-teal-muted font-semibold transition-opacity duration-300">
+              <span class="w-1.5 h-1.5 rounded-full bg-teal-accent animate-pulse"></span>
+              Auto-saved
+            </span>
+
+            <!-- Word Counter Chip (Target 150+ words) -->
+            <div id="wordCountBadge" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-teal-soft text-teal-accent border border-teal-accent/40 font-mono font-extrabold text-[12px] shadow-sm">
+              <span class="material-symbols-rounded text-[14px]">check_circle</span>
+              <span id="wordCountNumber">168</span>/150w
+            </div>
+          </div>
+        </div>
+
+        <!-- Writing Surface (Clean, lined feeling without distraction) -->
+        <div class="relative rounded-xl border border-sand bg-canvas/40 p-3 focus-within:border-teal-accent focus-within:bg-white transition-all">
+          <label for="letterDraft" class="sr-only">Type your IELTS General Training letter</label>
+          <textarea
+            id="letterDraft"
+            rows="10"
+            class="w-full bg-transparent text-[13.5px] leading-relaxed text-ink-primary resize-none placeholder:text-ink-soft/70 font-sans"
+            placeholder="Start your letter here (e.g. Dear Mr Hall,)..."
+            spellcheck="false">Dear Mr Hall,
+
+I am writing to you directly regarding the loud music originating from your flat over the last fortnight.
+
+For the past several nights, music with intense bass frequencies has been played past midnight, typically until 1:30 AM. As our living units share a partition wall, the noise echoes prominently into my master bedroom, causing persistent disruptions.
+
+This lack of uninterrupted sleep has left me severely fatigued, which is already impairing my productivity as an architect with demanding early morning responsibilities.
+
+I would truly appreciate it if we could reach a friendly agreement to lower the audio volume after 10:30 PM, or perhaps consider using wireless headphones during late evening hours. Thank you very much for your kind understanding and neighbourly cooperation.
+
+Yours sincerely,
+Nguyen Minh</textarea>
+        </div>
+
+        <!-- Writing Actions & Check Button -->
+        <div class="flex items-center justify-between gap-3 pt-1">
+          <div class="flex items-center gap-2">
+            <button id="clearBtn" type="button" class="min-h-[44px] px-3 py-2 rounded-xl text-ink-muted hover:text-coral hover:bg-coral-soft/50 text-[12px] font-bold transition-all flex items-center gap-1" title="Reset text to default starter">
+              <span class="material-symbols-rounded text-[16px]">restart_alt</span>
+              <span>Reset</span>
+            </button>
+            <button id="formatHintBtn" type="button" class="min-h-[44px] px-3 py-2 rounded-xl text-teal-muted hover:bg-teal-soft text-[12px] font-bold transition-all flex items-center gap-1" title="Quick check of paragraphing">
+              <span class="material-symbols-rounded text-[16px]">format_align_left</span>
+              <span>4 Paragraphs</span>
+            </button>
+          </div>
+
+          <!-- Main CTA: Check Button with Tactile Ledge -->
+          <button id="checkLetterBtn" type="button" class="min-h-[44px] px-6 py-2.5 rounded-xl bg-deep-teal hover:bg-teal-muted text-white font-extrabold text-[13.5px] font-display shadow-tactile-teal active:translate-y-0.5 active:shadow-none transition-all flex items-center justify-center gap-2">
+            <span class="material-symbols-rounded text-[18px] text-teal-accent">rule</span>
+            <span>Check Letter</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Feedback & Supportive Checklist (Calm Desk Feedback - Never Scolding) -->
+      <section id="feedbackCard" class="bg-surface rounded-2xl border-2 border-sand p-4 shadow-tactile-md flex flex-col gap-3">
+        <div class="flex items-center justify-between border-b border-sand/70 pb-2.5">
+          <div class="flex items-center gap-2">
+            <span class="w-7 h-7 rounded-lg bg-teal-soft flex items-center justify-center text-teal-accent">
+              <span class="material-symbols-rounded text-[18px]">fact_check</span>
+            </span>
+            <div>
+              <h3 class="text-[14px] font-black text-deep-teal font-display leading-tight">
+                Supportive IELTS Checks
+              </h3>
+              <p class="text-[11px] text-ink-muted">Band criteria verification for General Training Task 1</p>
+            </div>
+          </div>
+          <span class="px-2.5 py-1 rounded-full bg-success-soft text-success text-[11px] font-extrabold border border-success/30 flex items-center gap-1 font-display">
+            <span>●</span> Ready for Band 7.5+
+          </span>
+        </div>
+
+        <!-- 4 to 5 Supportive Result Check Lines -->
+        <ul class="space-y-2.5 text-[12.5px]">
+          <!-- Check 1: Length -->
+          <li class="p-2.5 rounded-xl bg-canvas/60 border border-sand/80 flex items-start gap-2.5">
+            <span class="text-[16px] shrink-0 mt-0.5">✅</span>
+            <div class="flex-1">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-deep-teal">Length requirement (150+ words)</span>
+                <span class="text-[11px] font-extrabold text-success font-mono">168 words</span>
+              </div>
+              <p class="text-[11.5px] text-ink-muted mt-0.5">
+                Exceeds the required threshold by 18 words without unnecessary padding. No penalty for length.
+              </p>
+            </div>
+          </li>
+
+          <!-- Check 2: Salutation -->
+          <li class="p-2.5 rounded-xl bg-canvas/60 border border-sand/80 flex items-start gap-2.5">
+            <span class="text-[16px] shrink-0 mt-0.5">✅</span>
+            <div class="flex-1">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-deep-teal">Greeting starts as expected</span>
+                <span class="text-[11px] font-bold text-teal-muted font-mono">'Dear Mr Hall,'</span>
+              </div>
+              <p class="text-[11.5px] text-ink-muted mt-0.5">
+                Appropriate semi-formal greeting followed by a comma. Sets a courteous, neighbourly boundary.
+              </p>
+            </div>
+          </li>
+
+          <!-- Check 3: Closing -->
+          <li class="p-2.5 rounded-xl bg-canvas/60 border border-sand/80 flex items-start gap-2.5">
+            <span class="text-[16px] shrink-0 mt-0.5">✅</span>
+            <div class="flex-1">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-deep-teal">Valediction / Closing sign-off</span>
+                <span class="text-[11px] font-bold text-teal-muted font-mono">'Yours sincerely,'</span>
+              </div>
+              <p class="text-[11.5px] text-ink-muted mt-0.5">
+                Harmonizes accurately with known recipient title. Full name provided cleanly below sign-off.
+              </p>
+            </div>
+          </li>
+
+          <!-- Check 4: Paragraphing -->
+          <li class="p-2.5 rounded-xl bg-canvas/60 border border-sand/80 flex items-start gap-2.5">
+            <span class="text-[16px] shrink-0 mt-0.5">✅</span>
+            <div class="flex-1">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-deep-teal">Logical paragraph progression</span>
+                <span class="text-[11px] font-bold text-teal-muted">5 distinct stanzas</span>
+              </div>
+              <p class="text-[11.5px] text-ink-muted mt-0.5">
+                Purpose statement, time/problem details, personal impact, and cooperative compromise are neatly isolated.
+              </p>
+            </div>
+          </li>
+
+          <!-- Check 5: Contractions & Tone Check (Supportive reminder) -->
+          <li class="p-2.5 rounded-xl bg-canvas/60 border border-sand/80 flex items-start gap-2.5">
+            <span class="text-[16px] shrink-0 mt-0.5">✅</span>
+            <div class="flex-1">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-deep-teal">Tone check & No informal contractions</span>
+                <span class="text-[11px] font-bold text-success">0 contractions</span>
+              </div>
+              <p class="text-[11.5px] text-ink-muted mt-0.5">
+                No informal shortcuts like <em class="italic text-coral font-medium">"can't"</em> or <em class="italic text-coral font-medium">"I'll"</em>. Natural, respectful vocabulary throughout.
+              </p>
+            </div>
+          </li>
+        </ul>
+
+        <!-- Re-assurance Footer note -->
+        <div class="mt-1 pt-2.5 border-t border-sand/70 flex items-center justify-between text-[11.5px] text-ink-muted">
+          <span class="flex items-center gap-1.5 text-teal-muted">
+            <span class="material-symbols-rounded text-[16px] text-teal-accent">verified_user</span>
+            <span>Autosaved copy synced to your Practice Hub</span>
+          </span>
+          <button type="button" class="min-h-[44px] px-2 text-deep-teal font-extrabold hover:underline flex items-center gap-0.5">
+            Review Lexicon
+            <span class="material-symbols-rounded text-[15px]">chevron_right</span>
+          </button>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script>
+    // Live Word Count & Auto-save simulation
+    const textarea = document.getElementById('letterDraft');
+    const wordCountNumber = document.getElementById('wordCountNumber');
+    const wordCountBadge = document.getElementById('wordCountBadge');
+    const saveStatus = document.getElementById('saveStatus');
+    const promptDraftCount = document.getElementById('promptDraftCount');
+
+    let saveTimeout = null;
+
+    function countWords(str) {
+      const trimmed = str.trim();
+      if (!trimmed) return 0;
+      return trimmed.split(/\s+/).filter(Boolean).length;
+    }
+
+    function updateWordCount() {
+      const text = textarea.value;
+      const count = countWords(text);
+      wordCountNumber.textContent = count;
+      promptDraftCount.textContent = count + ' words draft';
+
+      if (count >= 150) {
+        wordCountBadge.className = "inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-success-soft text-success border border-success/40 font-mono font-extrabold text-[12px] shadow-sm";
+      } else {
+        wordCountBadge.className = "inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-amber-soft text-amber border border-amber/40 font-mono font-extrabold text-[12px] shadow-sm";
+      }
+
+      // Simulate subtle auto-save prompt
+      if (saveStatus) {
+        saveStatus.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-amber animate-ping"></span> Saving...';
+        clearTimeout(saveTimeout);
+        saveTimeout = setTimeout(() => {
+          saveStatus.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-teal-accent animate-pulse"></span> Auto-saved';
+        }, 800);
+      }
+    }
+
+    textarea.addEventListener('input', updateWordCount);
+
+    // Model Answer toggle
+    const toggleModelBtn = document.getElementById('toggleModelBtn');
+    const modelSection = document.getElementById('modelAnswerSection');
+    if (toggleModelBtn && modelSection) {
+      toggleModelBtn.addEventListener('click', () => {
+        modelSection.classList.toggle('hidden');
+        if (modelSection.classList.contains('hidden')) {
+          toggleModelBtn.querySelector('span:last-child').textContent = 'Model answer';
+        } else {
+          toggleModelBtn.querySelector('span:last-child').textContent = 'Hide model';
+        }
+      });
+    }
+
+    // Soft Timer: 20:00 Countdown with tap start/pause
+    const timerBtn = document.getElementById('timerBtn');
+    const timerDigits = document.getElementById('timerDigits');
+    let totalSeconds = 20 * 60;
+    let timerRunning = false;
+    let timerInterval = null;
+
+    function formatTime(secs) {
+      const m = Math.floor(secs / 60);
+      const s = secs % 60;
+      return (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+    }
+
+    if (timerBtn && timerDigits) {
+      timerBtn.addEventListener('click', () => {
+        if (!timerRunning) {
+          timerRunning = true;
+          timerBtn.classList.add('bg-teal-soft', 'border-teal-accent');
+          timerInterval = setInterval(() => {
+            if (totalSeconds > 0) {
+              totalSeconds--;
+              timerDigits.textContent = formatTime(totalSeconds);
+            } else {
+              clearInterval(timerInterval);
+              timerRunning = false;
+            }
+          }, 1000);
+        } else {
+          timerRunning = false;
+          clearInterval(timerInterval);
+          timerBtn.classList.remove('bg-teal-soft', 'border-teal-accent');
+        }
+      });
+    }
+
+    // Check letter button feedback highlight
+    const checkBtn = document.getElementById('checkLetterBtn');
+    const feedbackCard = document.getElementById('feedbackCard');
+    if (checkBtn && feedbackCard) {
+      checkBtn.addEventListener('click', () => {
+        feedbackCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        feedbackCard.classList.add('ring-2', 'ring-teal-accent');
+        setTimeout(() => {
+          feedbackCard.classList.remove('ring-2', 'ring-teal-accent');
+        }, 1200);
+      });
+    }
+  </script>
+</body>
+</html>

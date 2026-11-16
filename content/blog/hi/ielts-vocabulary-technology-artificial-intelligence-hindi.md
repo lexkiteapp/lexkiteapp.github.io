@@ -8,7 +8,7 @@ translationKey: tu-vung-ielts-chu-de-cong-nghe-va-tri-tue-nhan-tao
 category: ielts
 tags: [ielts, vocabulary, technology, ai]
 cover: read-article
-coverAlt: "Màn hình chế độ reading đọc song ngữ trên Lexkite với bản dịch đoạn văn và bài đọc"
+coverAlt: "Lexkite में The Growing Problem of Space Debris रीडिंग: रंगीन मुख्य शब्द, छूकर खोजना और सहेजना, कीवर्ड सूची और True/False/Not Given प्रश्न"
 qualityScore: 95
 factChecked: 2026-10-15
 author: Lexkite

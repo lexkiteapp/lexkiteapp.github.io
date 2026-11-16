@@ -26,6 +26,10 @@ Aufbauend auf unserem Leitfaden zu [Englisch Vokabeln lernen](/de/blog/englisch-
 
 Innerhalb der 75-minuetigen Reading-Pruefung schliesst Part 7 direkt an Part 5 (30 Satzergaenzungen) und Part 6 (16 Textergaenzungen) an. Die Textbeispiele simulieren authentische Dokumente des internationalen Geschaeftsalltags: Geschaefts-E-Mails, interne Rundschreiben, Pressemitteilungen, Stellenanzeigen, Rechnungen, Bestellformulare und Instant-Messaging-Verlaeufe mehrerer Mitarbeiter.
 
+Den kompletten Testaufbau mit allen sieben Teilen und dem Zeitplan für den Leseteil erklärt [TOEIC Aufbau: Alle 7 Teile, Zeit und Punkte](/de/blog/toeic-aufbau-alle-7-teile-zeit-punkte/).
+
+Mehr dazu findest du in unserem Beitrag [TOEIC Lernplan für das Selbststudium](/de/blog/toeic-selbststudium-lernplan-guide/).
+
 Die 54 Fragen verteilen sich systematisch auf drei Textkategorien:
 
 | Kategorie | Dokumentstruktur | Fragenanzahl | Analytische Hauptherausforderung |
@@ -128,6 +132,8 @@ Trainieren Sie mentale Lesekraft mit diesem gezielten Ablauf:
 {{youtube: | TOEIC Part 7 vollstaendige Lesestrategien und Zeitmanagement}}
 
 ---
+
+Auch im Listening-Teil entscheidet die Technik, wie der Artikel [TOEIC Part 3 und 4](/de/blog/toeic-listening-part-3-und-4-strategien/).
 
 ## Erreichen Sie Ihr TOEIC-Wunschziel mit Lexkite
 

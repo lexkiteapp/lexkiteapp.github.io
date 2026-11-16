@@ -34,7 +34,7 @@ qualityScore: 95
 | **4. الاستنتاجات** | *Conclusions* | تشخيص الأسباب الجذرية المستندة حصرياً إلى الأدلة والوقائع المعروضة |
 | **5. التوصيات وخطة العمل** | *Recommendations* | خارطة طريق للتنفيذ العملي تشمل الجداول الزمنية، والميزانية، والمسؤولين |
 
-ولتعزيز مهارات التواصل الشامل في بيئة العمل، ننصحك بالاطلاع على [أدوات الربط في الإنجليزية: Linking Words](/ar/blog/adawat-al-rabt-fi-al-injliziyyah-linking-words/) و[الأفعال المركبة Phrasal Verbs في الإنجليزية](/ar/blog/al-afal-al-murakkaba/). كما يمكنك مراجعة [الجمل المركبة والمعقدة في كتابة الأيلتس](/ar/blog/al-jumal-al-muaqqadah-complex-sentences-ielts-writing/) و[المبني للمجهول Passive Voice في الإنجليزية](/ar/blog/al-mabni-lil-majhul-fi-al-injliziyyah-passive-voice/).
+ولتعزيز مهارات التواصل الشامل في بيئة العمل، ننصحك بالاطلاع على [أدوات الربط في الإنجليزية: Linking Words](/ar/blog/adawat-al-rabt-fi-al-injliziyyah-linking-words/) و[الأفعال المركبة Phrasal Verbs في الإنجليزية](/ar/blog/al-afal-al-murakkaba/). كما يمكنك مراجعة [الجمل المركبة والمعقدة في كتابة الأيلتس](/ar/blog/al-jumal-al-muaqqadah-complex-sentences-ielts-writing/) و[المبني للمجهول Passive Voice في الإنجليزية](/ar/blog/al-mabni-lil-majhul-fi-al-injliziyyah-passive-voice/). وعند الاتفاق مع زملائك أو مديرك على مواعيد تسليم التقرير، فستجد عبارات جاهزة لذلك في [إدارة الوقت بالإنجليزية في العمل](/ar/blog/idarat-al-waqt-bi-al-injliziyyah-fi-al-amal/).
 
 ## تعبيرات احترافية لعرض البيانات الكمية وتحليل الأرقام
 

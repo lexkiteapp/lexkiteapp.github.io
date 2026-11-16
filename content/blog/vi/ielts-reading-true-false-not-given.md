@@ -150,6 +150,8 @@ Nếu bạn hay nhầm chiều ý của câu, dạng ghép tiêu đề cũng có
 
 Điều quan trọng không phải số bài, mà là việc bạn **giải thích được** từng đáp án. Nếu không giải thích được vì sao một câu là Not Given, nghĩa là bạn đoán đúng, chưa phải hiểu đúng.
 
+Nên dành bao nhiêu phút cho mỗi passage, bạn có thể xem trong bài [phân bổ thời gian IELTS Reading 60 phút](/vi/blog/cach-phan-bo-thoi-gian-ielts-reading-60-phut/).
+
 ## Câu hỏi thường gặp
 
 ### Làm sao phân biệt False và Not Given nhanh nhất?

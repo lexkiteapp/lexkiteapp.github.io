@@ -52,7 +52,7 @@ En linguistique appliquée, l'apprentissage par "morceaux de phrases" (*lexical 
 2. **Respect des automatismes culturels**: Les anglophones privilégient souvent l'atténuation (*hedging*) pour rester courtois. Utiliser *« I might be wrong, but... »* au lieu d'un jugement abrupt est une marque d'aisance.
 3. **Réduction du stress à l'oral**: Disposer de phrases d'ouverture et de transition vous donne une assise solide pour démarrer n'importe quel échange imprévu.
 
-Pour vous entraîner à prononcer ces structures, utilisez le [module de pratique de l'oral Lexkite](/#/speaking) et vérifiez les définitions dans notre [dictionnaire interactif](/#/dict/resilient). Consultez également nos conseils pour [apprendre l'anglais en autonomie](/fr/blog/apprendre-anglais-seul/) et notre guide pour [penser en anglais sans traduire](/fr/blog/comment-penser-en-anglais-sans-traduire/). Pour explorer l'ensemble des ressources, visitez la [rubrique vocabulaire](/tu-vung/).
+Pour vous entraîner à prononcer ces structures, utilisez le [module de pratique de l'oral Lexkite](/#/speaking) et vérifiez les définitions dans notre [dictionnaire interactif](/#/dict/resilient). Consultez également nos conseils pour [apprendre l'anglais en autonomie](/fr/blog/apprendre-anglais-seul/) et notre guide pour [penser en anglais sans traduire](/fr/blog/comment-penser-en-anglais-sans-traduire/). Pour explorer l'ensemble des ressources, visitez la [rubrique vocabulaire](/en/vocabulary/).
 
 ## 1. Salutations et Prise de Contact Naturelle
 

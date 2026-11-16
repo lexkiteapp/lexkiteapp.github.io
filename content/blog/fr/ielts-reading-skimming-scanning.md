@@ -65,6 +65,8 @@ Dans ce guide méthodologique approfondi, nous décortiquons les différences fo
 
 Trop d'étudiants confondent encore ces deux compétences indispensables. Comprendre leur complémentarité est le premier pas vers l'efficacité :
 
+Pour aller plus loin, lisez aussi [la méthode des 60 minutes pour gérer son temps en IELTS Reading](/fr/blog/gestion-du-temps-en-ielts-reading-60-minutes/).
+
 ```
 Approches de lecture pour l'IELTS :
 ┌──────────────────────────────────────────────┐

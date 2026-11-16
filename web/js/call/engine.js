@@ -5,6 +5,11 @@
 (function (g) {
   const t = (s, v) => (g.t ? g.t(s, v) : s);
 
+  // Ngôn ngữ đích ≠ en (c.tl = 'es'…): so khớp/đếm từ trên chữ đã bỏ dấu + hạ chữ thường (regex nhánh viết không dấu, `\b` của JS chỉ hiểu ASCII);
+  // sửa ngữ pháp / nhầm cặp âm là luật riêng của tiếng Anh nên bỏ qua; độ trôi chảy dùng bảng đệm/liên từ của ngôn ngữ đó.
+  const fold = s => String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  const TLX = { es: { fill: /\b(e+h+|e+m+|m{2,}|o sea)\b/g, link: /\b(porque|pero|entonces|aunque|ademas|tambien|por ejemplo|cuando|mientras|sin embargo|por eso|ya que|asi que|ademas)\b/ } };
+
   // ---------- Đồ thị ----------
   function prep(c) {
     if (!c || c._ok) return c;
@@ -24,11 +29,11 @@
   /** step → { react, next (id|null), br (chỉ số nhánh, -1 = mặc định) } */
   function step(c, id, text) {
     prep(c); const n = c.nodes[id]; if (!n) return { react: '', next: null, br: -1 };
-    const s = String(text || '');
+    const s = c.tl ? fold(text) : String(text || '');
     const brs = n.br || [];
     for (let k = 0; k < brs.length; k++) {
       const [re, line, to] = brs[k];
-      try { if (new RegExp('\\b(' + re + ')', 'i').test(s)) return { react: line, next: to !== undefined ? to : (n.next || null), br: k }; } catch (e) { /* regex hỏng → bỏ nhánh */ }
+      try { if (new RegExp('\\b(' + (c.tl ? fold(re) : re) + ')', 'i').test(s)) return { react: line, next: to !== undefined ? to : (n.next || null), br: k }; } catch (e) { /* regex hỏng → bỏ nhánh */ }
     }
     return { react: n.re || '', next: n.next || null, br: -1 };
   }
@@ -37,27 +42,39 @@
   const PAST = { go: 'went', have: 'had', eat: 'ate', buy: 'bought', see: 'saw', do: 'did', make: 'made', take: 'took', get: 'got', meet: 'met', come: 'came', drink: 'drank', swim: 'swam', run: 'ran', sleep: 'slept', leave: 'left', spend: 'spent', watch: 'watched', visit: 'visited', play: 'played', cook: 'cooked', clean: 'cleaned', work: 'worked', walk: 'walked', stay: 'stayed', finish: 'finished', fix: 'fixed', call: 'called', study: 'studied', try: 'tried', relax: 'relaxed' };
   const S3 = { go: 'goes', do: 'does', have: 'has', work: 'works', like: 'likes', want: 'wants', need: 'needs', live: 'lives', watch: 'watches', study: 'studies', play: 'plays', make: 'makes', know: 'knows', think: 'thinks' };
   const MODAL = /\b(to|will|would|can|could|should|must|might|may|did|didn'?t|does|doesn'?t|do|don'?t|let'?s|let|make|help)\s+$/i;
+  const UNC = '(information|advice|furniture|equipment|homework|luggage|knowledge|baggage)';
+  const V3TO2 = { seen: 'saw', done: 'did', gone: 'went', eaten: 'ate', taken: 'took', given: 'gave', written: 'wrote', made: 'made', had: 'had', bought: 'bought', met: 'met', drunk: 'drank', slept: 'slept', left: 'left', spent: 'spent', got: 'got', gotten: 'got', found: 'found', heard: 'heard', read: 'read', lost: 'lost', paid: 'paid', told: 'told', sent: 'sent', built: 'built', won: 'won', flown: 'flew', driven: 'drove', ridden: 'rode', swum: 'swam' };
+  const V3P = "[a-z]+ed|been|" + Object.keys(V3TO2).join('|');
+  const PERF_AUX = new RegExp('^\\s+(?:' + V3P + ')\\b', 'i'); // "have" trợ động từ (have done) – không đổi thành "had"
+  const PAST3 = { goes: 'went', has: 'had', does: 'did', rains: 'rained', snows: 'snowed', works: 'worked', likes: 'liked', wants: 'wanted', needs: 'needed', lives: 'lived', watches: 'watched', studies: 'studied', plays: 'played', makes: 'made', comes: 'came', eats: 'ate', buys: 'bought', sees: 'saw', takes: 'took', gets: 'got', visits: 'visited', calls: 'called', says: 'said', tells: 'told' };
   const keepCase = (from, to) => (/^[A-Z]/.test(from) ? to[0].toUpperCase() + to.slice(1) : to);
   const RULES = [
     { why: () => t('“Agree” đã là động từ – không cần “am/is/are” đứng trước.'), fix: s => s.replace(/\b(I|we|they|you)\s+(am|are|'m|'re)\s+agree\b/i, (m, p) => p + ' agree') },
     { why: () => t('Với he/she/it, phủ định dùng “doesn’t”, không dùng “don’t”.'), fix: s => s.replace(/\b(he|she|it)\s+don'?t\b/i, (m, p) => p + " doesn't") },
     { why: () => t('Sau can/could/should/will không dùng “to”.'), fix: s => s.replace(/\b(can|could|should|will|must)\s+to\s+(\w+)/i, '$1 $2') },
     { why: () => t('Từ so sánh hơn như “better” đã mang nghĩa “hơn” – bỏ “more”.'), fix: s => s.replace(/\bmore\s+(better|easier|faster|bigger|cheaper|closer|worse)\b/i, '$1') },
-    { why: () => t('Danh từ không đếm được (information, advice…) không thêm -s.'), fix: s => s.replace(/\b(information|advice|furniture|equipment|homework|luggage)s\b/i, '$1') },
+    { why: () => t('Danh từ không đếm được (information, advice…) không thêm -s.'), fix: s => s.replace(new RegExp('\\b(?:(too|so|how)\\s+many|(many)|(an?))\\s+' + UNC + 's?\\b|\\b' + UNC + 's\\b', 'gi'), (m, q, many, a, u1, u2) => (q ? q + ' much ' + u1 : many ? keepCase(many, 'a lot of') + ' ' + u1 : a ? u1 : u2)) },
     { why: () => t('“Very” không đứng trước động từ – dùng “really” hoặc “very much” ở cuối câu.'), fix: s => s.replace(/\bI\s+very\s+(like|love|want|enjoy)\b/i, 'I really $1') },
     { why: () => t('Sau want/need/would like, động từ tiếp theo cần “to”.'), fix: s => s.replace(/\b(want|need|would like|'d like)\s+(go|eat|buy|see|try|have|book|make|visit|ask|join|pay|come)\b/i, '$1 to $2') },
     { why: () => t('Trước nghề nghiệp số ít cần mạo từ “a/an”.'), fix: s => s.replace(/\b(I'm|I am)\s+(engineer|teacher|student|developer|designer|manager|doctor|nurse|accountant|intern)\b/i, (m, p, w) => p + (/^[aeiou]/i.test(w) ? ' an ' : ' a ') + w) },
     { why: () => t('Với he/she/it ở thì hiện tại đơn, động từ thêm -s/-es.'), fix: s => s.replace(/\b(he|she)\s+(go|do|have|work|like|want|need|live|watch|study|play|make|know|think)\b/gi, (m, p, v, off, str) => (MODAL.test(str.slice(0, off)) ? m : p + ' ' + keepCase(v, S3[v.toLowerCase()]))) },
-    { past: true, why: () => t('Chuyện đã xảy ra (hôm qua, cuối tuần trước…) dùng động từ ở thì quá khứ.'), fix: s => s.replace(new RegExp('\\b(I|we|they|he|she)\\s+(' + Object.keys(PAST).join('|') + ')\\b', 'gi'), (m, p, v, off, str) => (MODAL.test(str.slice(0, off)) ? m : p + ' ' + keepCase(v, PAST[v.toLowerCase()]))) },
+    { past: true, own: true, why: () => t('Có mốc thời gian đã qua (hôm qua, năm ngoái…) thì dùng quá khứ đơn, không dùng “have + V3”.'), fix: s => s.replace(new RegExp("\\b(I|we|they|you|he|she|it)(?:\\s+(have|has)|'ve)\\s+(" + V3P + ')\\b', 'gi'), (m, p, h, v) => p + ' ' + (v.toLowerCase() === 'been' ? (/^(I|he|she|it)$/i.test(p) ? 'was' : 'were') : V3TO2[v.toLowerCase()] || v)) },
+    { past: true, why: () => t('Chuyện đã xảy ra (hôm qua, cuối tuần trước…) dùng động từ ở thì quá khứ.'), fix: s => s.replace(new RegExp('\\b(I|we|they|he|she|and)\\s+(' + Object.keys(PAST).join('|') + ')\\b', 'gi'), (m, p, v, off, str) => (MODAL.test(str.slice(0, off)) || (/^have$/i.test(v) && PERF_AUX.test(str.slice(off + m.length))) ? m : p + ' ' + keepCase(v, PAST[v.toLowerCase()]))) },
+    { past: true, own: true, why: () => t('Chuyện đã xảy ra (hôm qua, cuối tuần trước…) dùng động từ ở thì quá khứ.'), fix: s => s.replace(new RegExp('\\b(he|she|it)\\s+(' + Object.keys(PAST3).join('|') + ')\\b', 'gi'), (m, p, v) => p + ' ' + PAST3[v.toLowerCase()]) },
   ];
   const PAST_Q = /\b(did you|how was|what did|yesterday|last (night|week|weekend))\b/i;
+  const PAST_OWN = /\b(yesterday|last (night|week|weekend|month|year|summer|winter|time)|ago|in (19|20)\d\d)\b/i;
   function correct(text, prompt) {
+    // Áp MỌI luật theo thứ tự (trước 05/11 dừng ở luật đầu → câu "đã sửa" còn lỗi; đo: scripts/feedback/eval.mjs)
+    // own: chỉ khi CHÍNH câu người học có mốc quá khứ (câu hỏi "Did you…?" không đủ: "it says…", "I have done it" vẫn đúng)
+    const own = PAST_OWN.test(text), past = own || PAST_Q.test(prompt || ''), whys = [];
+    let good = String(text || '');
     for (const r of RULES) {
-      if (r.past && !(PAST_Q.test(prompt || '') || /\b(yesterday|last (night|week|weekend|month|year)|ago)\b/i.test(text))) continue;
-      const good = r.fix(text);
-      if (good !== text) return { bad: text, good, why: r.why() };
+      if (r.past && !past || r.own && !own) continue;
+      const g2 = r.fix(good);
+      if (g2 !== good) { good = g2; const w = r.why(); if (!whys.includes(w)) whys.push(w); }
     }
-    return null;
+    return good !== text ? { bad: text, good, why: whys[0], whys } : null;
   }
 
   // ---------- Nhầm cặp âm (bread ≠ breast): máy nghe ra từ "anh em" của từ cần nói ----------
@@ -76,7 +93,7 @@
   const STOP = new Set('this that there their they them then than with have from what when were will would your yours some like just very much make made'.split(' '));
   // id đối lập → bài phát âm để luyện (#/pron/<bài>): bài đầu tiên của đối lập trong pairs.js
   const skillOf = id => { const c = g.PronPairs && g.PronPairs.CONTRASTS && g.PronPairs.CONTRASTS.find(x => x.id === id); return (c && c.skills && c.skills[0]) || 'final-consonants'; };
-  const words = s => String(s || '').toLowerCase().replace(/[’']/g, "'").match(/[a-z][a-z']*/g) || [];
+  const words = (s, tl) => tl ? (fold(s).match(/[a-z]+/g) || []) : (String(s || '').toLowerCase().replace(/[’']/g, "'").match(/[a-z][a-z']*/g) || []);
   function slips(text, c, n) {
     const heard = new Set(words(text)), idx = pairIndex(), out = [];
     // Từ "cần nói": từ khóa của lượt + từ chủ đề + từ nội dung (≥ 4 chữ) trong câu gợi ý – từ ngắn (see/she, live/life…) dễ báo nhầm nên bỏ
@@ -91,10 +108,10 @@
   // ---------- Độ trôi chảy (đếm trên máy, không cần mô hình) ----------
   const FILL = /\b(um+|uh+|er+m?|hmm+|you know)\b/gi;
   const LINK = /\b(because|so|but|although|though|however|for example|for instance|actually|also|then|which|when|if|while|instead|especially)\b/i;
-  function fluency(text, n = {}, secs = 0) {
-    const ws = words(text), fillers = (String(text || '').match(FILL) || []).length, real = ws.length - fillers;
+  function fluency(text, n = {}, secs = 0, tl) {
+    const X = tl && TLX[tl], ws = words(text, tl), fillers = (X ? fold(text).match(X.fill) || [] : String(text || '').match(FILL) || []).length, real = ws.length - fillers;
     const min = n.min || 0;
-    return { words: real, fillers, short: !!min && real < min, link: LINK.test(text || ''), wpm: secs > 1 ? Math.round(real / secs * 60) : 0 };
+    return { words: real, fillers, short: !!min && real < min, link: (X ? X.link : LINK).test(X ? fold(text) : text || ''), wpm: secs > 1 ? Math.round(real / secs * 60) : 0 };
   }
 
   // ---------- Tổng kết ----------
@@ -104,18 +121,18 @@
     const exam = /^ielts/.test(c.exam || '');
     const turns = log.map(x => {
       const n = c.nodes[x.id] || {};
-      const fix = x.picked ? null : correct(x.text, n.m);
-      const sl = x.picked ? [] : slips(x.text, c, n);
-      const fl = fluency(x.text, n, x.secs);
+      const fix = x.picked || c.tl ? null : correct(x.text, n.m);
+      const sl = x.picked || c.tl ? [] : slips(x.text, c, n);
+      const fl = fluency(x.text, n, x.secs, c.tl);
       const weak = !x.picked && (!!fix || sl.length > 0 || fl.short); // không dùng điểm nhận dạng: câu tự do khác câu mẫu vẫn là câu tốt
       return { id: x.id, m: n.m, text: x.text, picked: !!x.picked, fix, slips: sl, fl, weak, model: (n.o || [])[0] || '' };
     });
     const spoken = turns.filter(x => !x.picked);
-    const said = new Set(spoken.flatMap(x => words(x.text)).map(stem));
+    const said = new Set(spoken.flatMap(x => words(x.text, c.tl)).map(stem));
     const target = [...new Set((c.words || []).map(w => w.toLowerCase()))];
-    const used = target.filter(w => w.split(/\s+/).every(p => said.has(stem(p))));
+    const used = target.filter(w => (c.tl ? fold(w) : w).split(/\s+/).every(p => said.has(stem(p))));
     const allWords = spoken.reduce((s, x) => s + x.fl.words, 0), fillers = spoken.reduce((s, x) => s + x.fl.fillers, 0);
-    const uniq = new Set(spoken.flatMap(x => words(x.text))).size;
+    const uniq = new Set(spoken.flatMap(x => words(x.text, c.tl))).size;
     const notes = [];
     const shortN = spoken.filter(x => x.fl.short).length;
     if (shortN) notes.push({ id: 'short', n: shortN });
@@ -157,5 +174,5 @@
     return e.sr ? (e.pref === 'cloud' ? 'cloud' : 'ask') : 'tap';
   }
 
-  g.CallEngine = { prep, depth, step, correct, slips, fluency, recap, retry, asrMode, words, pairIndex, EXTRA };
+  g.CallEngine = { fold, prep, depth, step, correct, slips, fluency, recap, retry, asrMode, words, pairIndex, EXTRA };
 })(typeof self !== 'undefined' ? self : this);

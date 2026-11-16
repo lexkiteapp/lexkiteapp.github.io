@@ -1,0 +1,896 @@
+{
+ "id": "ask-directions",
+ "group": "travel",
+ "cefr": "A2",
+ "title": {
+  "en": "Asking for directions",
+  "vi": "Hỏi đường",
+  "es": "Pedir indicaciones",
+  "pt": "Pedir direções",
+  "fr": "Demander son chemin",
+  "de": "Nach dem Weg fragen",
+  "id": "Bertanya arah",
+  "th": "ถามทาง",
+  "zh": "问路",
+  "ja": "道をたずねる",
+  "ko": "길 묻기",
+  "hi": "रास्ता पूछना",
+  "ar": "السؤال عن الطريق",
+  "ru": "Спросить дорогу",
+  "tr": "Yol sorma"
+ },
+ "goal": {
+  "en": "Find the station and understand the way!",
+  "vi": "Tìm ga tàu và hiểu đường đi!",
+  "es": "¡Encuentra la estación y entiende el camino!",
+  "pt": "Encontre a estação e entenda o caminho!",
+  "fr": "Trouvez la gare et comprenez le chemin !",
+  "de": "Finde den Bahnhof und verstehe den Weg!",
+  "id": "Temukan stasiun dan pahami jalannya!",
+  "th": "หาสถานีรถไฟและทำความเข้าใจเส้นทางให้ได้!",
+  "zh": "找到火车站，听懂怎么走！",
+  "ja": "駅を見つけて、道順を理解しよう！",
+  "ko": "기차역을 찾고 길 설명을 알아들어요!",
+  "hi": "स्टेशन ढूँढ़ें और रास्ता समझें!",
+  "ar": "اعثر على المحطة وافهم الطريق!",
+  "ru": "Найди вокзал и пойми дорогу!",
+  "tr": "İstasyonu bul ve tarifi anla!"
+ },
+ "roles": [
+  "customer",
+  "barista"
+ ],
+ "stages": [
+  {
+   "id": "ask",
+   "title": {
+    "en": "Ask the way",
+    "vi": "Hỏi đường",
+    "es": "Preguntar el camino",
+    "pt": "Perguntar o caminho",
+    "fr": "Demander le chemin",
+    "de": "Nach dem Weg fragen",
+    "id": "Tanya arah",
+    "th": "ถามทาง",
+    "zh": "问路",
+    "ja": "道を聞く",
+    "ko": "길 묻기",
+    "hi": "रास्ता पूछें",
+    "ar": "اسأل عن الطريق",
+    "ru": "Спросить дорогу",
+    "tr": "Yolu sor"
+   },
+   "lines": [
+    "a1",
+    "a2",
+    "a3",
+    "a4"
+   ]
+  },
+  {
+   "id": "repeat",
+   "title": {
+    "en": "Ask to repeat",
+    "vi": "Nhờ nhắc lại",
+    "es": "Pedir que repitan",
+    "pt": "Pedir para repetir",
+    "fr": "Demander de répéter",
+    "de": "Um Wiederholung bitten",
+    "id": "Minta diulang",
+    "th": "ขอให้พูดซ้ำ",
+    "zh": "请对方重复",
+    "ja": "繰り返しを頼む",
+    "ko": "다시 말해 달라고 하기",
+    "hi": "दोहराने को कहें",
+    "ar": "اطلب الإعادة",
+    "ru": "Попросить повторить",
+    "tr": "Tekrar rica et"
+   },
+   "lines": [
+    "r1",
+    "r2",
+    "r3",
+    "r4"
+   ]
+  },
+  {
+   "id": "map",
+   "title": {
+    "en": "Use the map",
+    "vi": "Dùng bản đồ",
+    "es": "Usar el mapa",
+    "pt": "Usar o mapa",
+    "fr": "Utiliser le plan",
+    "de": "Mit der Karte",
+    "id": "Pakai peta",
+    "th": "ใช้แผนที่",
+    "zh": "看地图",
+    "ja": "地図を使う",
+    "ko": "지도 활용하기",
+    "hi": "नक्शे का उपयोग",
+    "ar": "استخدم الخريطة",
+    "ru": "По карте",
+    "tr": "Haritayı kullan"
+   },
+   "lines": [
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "id": "a1",
+   "who": "customer",
+   "en": "Excuse me, where is the train station?",
+   "variants": {
+    "polite": "Excuse me, could you tell me where the train station is?",
+    "casual": "Hi, where's the train station?"
+   },
+   "gloss": {
+    "en": "Politely stopping a stranger to ask where the station is.",
+    "vi": "Xin lỗi, ga tàu ở đâu vậy ạ?",
+    "es": "Disculpe, ¿dónde está la estación de tren?",
+    "pt": "Com licença, onde fica a estação de trem?",
+    "fr": "Excusez-moi, où est la gare ?",
+    "de": "Entschuldigung, wo ist der Bahnhof?",
+    "id": "Permisi, di mana stasiun kereta?",
+    "th": "ขอโทษนะคะ สถานีรถไฟอยู่ที่ไหนคะ",
+    "zh": "打扰一下，请问火车站在哪儿？",
+    "ja": "すみません、駅はどこですか？",
+    "ko": "실례합니다, 기차역이 어디예요?",
+    "hi": "सुनिए, रेलवे स्टेशन कहाँ है?",
+    "ar": "عفوًا، أين محطة القطار؟",
+    "ru": "Извините, где находится вокзал?",
+    "tr": "Pardon, tren istasyonu nerede?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "station",
+     "ipa": "/ˈsteɪ.ʃən/",
+     "hi": "STAY",
+     "note": {
+      "en": "Stress the first syllable: STAY-shun, not sta-SYON.",
+      "vi": "Nhấn âm tiết đầu: XTÂY-shần, không phải sta-XI-ôn.",
+      "es": "Acentúa la primera sílaba: STEI-shun, no es-ta-SION.",
+      "pt": "Acentue a primeira sílaba: STEI-chun, não sta-SSÃO.",
+      "fr": "Accentuez la première syllabe : STÉ-chonn, pas sta-SION.",
+      "de": "Betone die erste Silbe: STEI-schn, nicht sta-ZION.",
+      "id": "Tekankan suku kata pertama: STEI-syen, bukan sta-SI-on.",
+      "th": "เน้นพยางค์แรก: สเตย์-เชิน ไม่ใช่ สะ-เตย์-เชิน",
+      "zh": "重音在第一个音节：STAY-shun。",
+      "ja": "最初の音節を強く：ステイ・ション。",
+      "ko": "첫 음절에 강세를 두세요: 스테이-션.",
+      "hi": "पहले अक्षर पर ज़ोर दें: स्टे-शन।",
+      "ar": "شدّد على المقطع الأول: ستِي-شن.",
+      "ru": "Ударение на первый слог: СТЭЙ-шн.",
+      "tr": "Vurgu ilk hecede: STEY-şın."
+     }
+    }
+   ]
+  },
+  {
+   "id": "a2",
+   "who": "barista",
+   "en": "Go straight, then take the second street on the right.",
+   "variants": {
+    "polite": "Go straight ahead, then take the second street on the right.",
+    "casual": "Straight on, then second right."
+   },
+   "gloss": {
+    "en": "Telling you to go straight, then take the second street on the right.",
+    "vi": "Đi thẳng, rồi rẽ vào con đường thứ hai bên phải.",
+    "es": "Siga recto y tome la segunda calle a la derecha.",
+    "pt": "Siga em frente e pegue a segunda rua à direita.",
+    "fr": "Allez tout droit, puis prenez la deuxième rue à droite.",
+    "de": "Gehen Sie geradeaus und nehmen Sie die zweite Straße rechts.",
+    "id": "Jalan lurus, lalu ambil jalan kedua di sebelah kanan.",
+    "th": "เดินตรงไป แล้วเลี้ยวขวาที่ถนนสายที่สองค่ะ",
+    "zh": "一直走，然后走第二条街，往右拐。",
+    "ja": "まっすぐ行って、2本目の通りを右に入ってください。",
+    "ko": "쭉 가시다가 두 번째 길에서 오른쪽으로 가세요.",
+    "hi": "सीधे जाइए, फिर दाईं ओर की दूसरी सड़क लीजिए।",
+    "ar": "امشِ مباشرةً ثم اسلك الشارع الثاني على اليمين.",
+    "ru": "Идите прямо, потом по второй улице направо.",
+    "tr": "Dümdüz gidin, sonra sağdaki ikinci sokağa girin."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "a3",
+   "who": "customer",
+   "en": "Is it far from here?",
+   "variants": {
+    "polite": "Is it very far from here?",
+    "casual": "Is it far?"
+   },
+   "gloss": {
+    "en": "Asking whether the place is far away.",
+    "vi": "Từ đây đến đó có xa không?",
+    "es": "¿Queda lejos de aquí?",
+    "pt": "Fica longe daqui?",
+    "fr": "C'est loin d'ici ?",
+    "de": "Ist es weit von hier?",
+    "id": "Apakah jauh dari sini?",
+    "th": "ไกลจากที่นี่ไหมคะ",
+    "zh": "离这儿远吗？",
+    "ja": "ここから遠いですか？",
+    "ko": "여기서 먼가요?",
+    "hi": "क्या यह यहाँ से दूर है?",
+    "ar": "هل هو بعيد من هنا؟",
+    "ru": "Это далеко отсюда?",
+    "tr": "Buradan uzak mı?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "a4",
+   "who": "barista",
+   "en": "No, it's about five minutes on foot.",
+   "variants": {
+    "polite": "No, it's only about five minutes on foot.",
+    "casual": "Nope, about a five-minute walk."
+   },
+   "gloss": {
+    "en": "Saying it is a short walk, about five minutes.",
+    "vi": "Không, đi bộ khoảng năm phút thôi.",
+    "es": "No, a unos cinco minutos andando.",
+    "pt": "Não, uns cinco minutos a pé.",
+    "fr": "Non, c'est à environ cinq minutes à pied.",
+    "de": "Nein, zu Fuß sind es etwa fünf Minuten.",
+    "id": "Tidak, jalan kaki sekitar lima menit.",
+    "th": "ไม่ไกลค่ะ เดินประมาณห้านาที",
+    "zh": "不远，走路大约五分钟。",
+    "ja": "いいえ、歩いて5分ほどです。",
+    "ko": "아니요, 걸어서 5분쯤 걸려요.",
+    "hi": "नहीं, पैदल लगभग पाँच मिनट लगते हैं।",
+    "ar": "لا، يستغرق نحو خمس دقائق سيرًا على الأقدام.",
+    "ru": "Нет, пешком минут пять.",
+    "tr": "Hayır, yürüyerek yaklaşık beş dakika."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "r1",
+   "who": "customer",
+   "en": "Sorry, could you say that again, please?",
+   "variants": {
+    "polite": "I'm sorry, could you repeat that, please?",
+    "casual": "Sorry, can you say that again?"
+   },
+   "gloss": {
+    "en": "Politely asking the person to repeat what they said.",
+    "vi": "Xin lỗi, bạn nói lại giúp tôi được không?",
+    "es": "Perdone, ¿podría repetirlo, por favor?",
+    "pt": "Desculpe, pode repetir, por favor?",
+    "fr": "Pardon, pourriez-vous répéter, s'il vous plaît ?",
+    "de": "Entschuldigung, könnten Sie das bitte wiederholen?",
+    "id": "Maaf, bisa diulang lagi, tolong?",
+    "th": "ขอโทษค่ะ ช่วยพูดอีกครั้งได้ไหมคะ",
+    "zh": "不好意思，能请您再说一遍吗？",
+    "ja": "すみません、もう一度言っていただけますか？",
+    "ko": "죄송한데, 다시 한번 말씀해 주시겠어요?",
+    "hi": "माफ़ कीजिए, क्या आप दोबारा कह सकते हैं?",
+    "ar": "آسف، هل يمكنك أن تعيد ما قلته من فضلك؟",
+    "ru": "Простите, не могли бы вы повторить?",
+    "tr": "Pardon, tekrar söyleyebilir misiniz lütfen?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "again",
+     "ipa": "/əˈɡen/",
+     "hi": "GEN",
+     "note": {
+      "en": "Stress the second syllable: uh-GEN. Many speakers also say uh-GAYN.",
+      "vi": "Nhấn âm tiết thứ hai: ơ-GEN. Nhiều người cũng đọc ơ-GEIN.",
+      "es": "Acentúa la segunda sílaba: a-GEN. Mucha gente también dice a-GUEIN.",
+      "pt": "Acentue a segunda sílaba: a-GÉN. Muitos também dizem a-GUEIN.",
+      "fr": "Accentuez la deuxième syllabe : eu-GÈNE. Beaucoup disent aussi eu-GUÉINE.",
+      "de": "Betone die zweite Silbe: e-GEN. Viele sagen auch e-GEIN.",
+      "id": "Tekankan suku kata kedua: e-GEN. Banyak orang juga mengucapkan e-GEIN.",
+      "th": "เน้นพยางค์ที่สอง: อะ-เก็น หลายคนก็พูดว่า อะ-เกน (เสียงยาว) ได้เช่นกัน",
+      "zh": "重音在第二个音节：uh-GEN，很多人也读作 uh-GAYN。",
+      "ja": "2番目の音節を強く：ア・ゲン。ア・ゲインと言う人も多いです。",
+      "ko": "두 번째 음절에 강세를 두세요: 어-겐. 어-게인이라고도 많이 해요.",
+      "hi": "दूसरे अक्षर पर ज़ोर दें: अ-गेन। कई लोग अ-गेइन भी बोलते हैं।",
+      "ar": "شدّد على المقطع الثاني: أ-جِن. وكثيرون ينطقونها أ-جِين أيضًا.",
+      "ru": "Ударение на второй слог: э-ГЕН. Многие говорят и э-ГЕЙН.",
+      "tr": "Vurgu ikinci hecede: ı-GEN. Birçok kişi ı-GEYN de der."
+     }
+    }
+   ]
+  },
+  {
+   "id": "r2",
+   "who": "customer",
+   "en": "Could you speak more slowly, please?",
+   "variants": {
+    "polite": "Would you mind speaking a little more slowly?",
+    "casual": "Can you go a bit slower, please?"
+   },
+   "gloss": {
+    "en": "Asking the speaker to slow down.",
+    "vi": "Bạn nói chậm hơn một chút được không?",
+    "es": "¿Podría hablar más despacio, por favor?",
+    "pt": "Pode falar mais devagar, por favor?",
+    "fr": "Pourriez-vous parler plus lentement, s'il vous plaît ?",
+    "de": "Könnten Sie bitte langsamer sprechen?",
+    "id": "Bisa bicara lebih pelan, tolong?",
+    "th": "ช่วยพูดช้าลงหน่อยได้ไหมคะ",
+    "zh": "能请您说慢一点吗？",
+    "ja": "もう少しゆっくり話していただけますか？",
+    "ko": "조금만 천천히 말씀해 주시겠어요?",
+    "hi": "क्या आप थोड़ा धीरे बोल सकते हैं?",
+    "ar": "هل يمكنك أن تتحدث ببطء أكثر من فضلك؟",
+    "ru": "Не могли бы вы говорить помедленнее?",
+    "tr": "Biraz daha yavaş konuşabilir misiniz lütfen?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "slowly",
+     "ipa": "/ˈsləʊ.li/",
+     "hi": "SLOW",
+     "note": {
+      "en": "Stress the first syllable: SLOW-lee, with the vowel as in 'go'.",
+      "vi": "Nhấn âm tiết đầu: XLÔ-li, nguyên âm giống từ “go”.",
+      "es": "Acentúa la primera sílaba: SLOU-li, con la vocal de “go”.",
+      "pt": "Acentue a primeira sílaba: SLÔU-li, com a vogal de “go”.",
+      "fr": "Accentuez la première syllabe : SLO-li, avec la voyelle de « go ».",
+      "de": "Betone die erste Silbe: SLOU-li, mit dem Vokal wie in „go“.",
+      "id": "Tekankan suku kata pertama: SLOU-li, vokalnya seperti pada “go”.",
+      "th": "เน้นพยางค์แรก: สโลว์-ลี เสียงสระเหมือนคำว่า go",
+      "zh": "重音在第一个音节：SLOW-lee，元音和 go 一样。",
+      "ja": "最初の音節を強く：スロウ・リー。母音は go と同じです。",
+      "ko": "첫 음절에 강세를 두세요: 슬로-리. 모음은 go와 같아요.",
+      "hi": "पहले अक्षर पर ज़ोर दें: स्लो-ली, स्वर go जैसा।",
+      "ar": "شدّد على المقطع الأول: سلو-لي، والحرف المتحرك كما في go.",
+      "ru": "Ударение на первый слог: СЛОУ-ли, гласный как в go.",
+      "tr": "Vurgu ilk hecede: SLOW-li, ünlü go’daki gibi."
+     }
+    }
+   ]
+  },
+  {
+   "id": "r3",
+   "who": "barista",
+   "en": "Sure. Go straight, then take the second right.",
+   "variants": {
+    "polite": "Of course. Go straight, then take the second right.",
+    "casual": "Sure. Straight on, then second right."
+   },
+   "gloss": {
+    "en": "Repeating the directions slowly and clearly.",
+    "vi": "Được ạ. Đi thẳng, rồi rẽ phải ở ngã rẽ thứ hai.",
+    "es": "Claro. Siga recto y tome la segunda a la derecha.",
+    "pt": "Claro. Siga em frente e pegue a segunda à direita.",
+    "fr": "Bien sûr. Tout droit, puis la deuxième à droite.",
+    "de": "Gern. Geradeaus, dann die zweite Straße rechts.",
+    "id": "Tentu. Jalan lurus, lalu ambil belokan kedua ke kanan.",
+    "th": "ได้ค่ะ เดินตรงไป แล้วเลี้ยวขวาตรงทางแยกที่สองนะคะ",
+    "zh": "好的。一直走，然后在第二个路口右拐。",
+    "ja": "もちろん。まっすぐ行って、2つ目を右です。",
+    "ko": "네. 쭉 가시다가 두 번째에서 오른쪽이에요.",
+    "hi": "ज़रूर। सीधे जाइए, फिर दूसरी सड़क से दाएँ मुड़िए।",
+    "ar": "بالتأكيد. امشِ مباشرةً ثم خذ المنعطف الثاني يمينًا.",
+    "ru": "Конечно. Прямо, а потом второй поворот направо.",
+    "tr": "Tabii. Dümdüz gidin, sonra ikinci sağdan dönün."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "r4",
+   "who": "customer",
+   "en": "So I take the second street on the right?",
+   "variants": {
+    "polite": "So I take the second street on the right, correct?",
+    "casual": "Second street on the right, right?"
+   },
+   "gloss": {
+    "en": "Checking that you understood the route correctly.",
+    "vi": "Vậy là tôi rẽ vào con đường thứ hai bên phải, đúng không?",
+    "es": "Entonces tomo la segunda calle a la derecha, ¿correcto?",
+    "pt": "Então pego a segunda rua à direita, certo?",
+    "fr": "Donc je prends la deuxième rue à droite, c'est bien ça ?",
+    "de": "Also nehme ich die zweite Straße rechts, richtig?",
+    "id": "Jadi saya ambil jalan kedua di kanan, benar?",
+    "th": "แปลว่าเลี้ยวขวาที่ถนนสายที่สอง ใช่ไหมคะ",
+    "zh": "所以我走第二条街往右拐，对吗？",
+    "ja": "つまり、2本目の通りを右ですね？",
+    "ko": "그러니까 두 번째 길에서 오른쪽이 맞죠?",
+    "hi": "तो मुझे दाईं ओर की दूसरी सड़क लेनी है, सही?",
+    "ar": "إذًا أسلك الشارع الثاني على اليمين، صحيح؟",
+    "ru": "То есть мне нужна вторая улица направо, верно?",
+    "tr": "Yani sağdaki ikinci sokağa giriyorum, doğru mu?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "m1",
+   "who": "customer",
+   "en": "Can you show me on the map?",
+   "variants": {
+    "polite": "Could you show me on the map, please?",
+    "casual": "Show me on the map?"
+   },
+   "gloss": {
+    "en": "Asking the person to point to the place on a map.",
+    "vi": "Bạn chỉ giúp tôi trên bản đồ được không?",
+    "es": "¿Me lo puede mostrar en el mapa?",
+    "pt": "Pode me mostrar no mapa?",
+    "fr": "Vous pouvez me le montrer sur la carte ?",
+    "de": "Können Sie es mir auf der Karte zeigen?",
+    "id": "Bisa tunjukkan di peta?",
+    "th": "ช่วยชี้บนแผนที่ให้หน่อยได้ไหมคะ",
+    "zh": "您能在地图上指给我看吗？",
+    "ja": "地図で教えてもらえますか？",
+    "ko": "지도에서 보여 주시겠어요?",
+    "hi": "क्या आप नक्शे पर दिखा सकते हैं?",
+    "ar": "هل يمكنك أن تريني على الخريطة؟",
+    "ru": "Можете показать на карте?",
+    "tr": "Bana haritada gösterebilir misiniz?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "m2",
+   "who": "barista",
+   "en": "We are here, and the station is over there.",
+   "variants": {
+    "polite": "We are here, and the station is just over there.",
+    "casual": "We're here. The station's over there."
+   },
+   "gloss": {
+    "en": "Pointing at the map: this is where you are and where the station is.",
+    "vi": "Mình đang ở đây, còn ga ở chỗ kia.",
+    "es": "Estamos aquí y la estación está allí.",
+    "pt": "Estamos aqui e a estação fica ali.",
+    "fr": "Nous sommes ici, et la gare est là.",
+    "de": "Wir sind hier, und der Bahnhof ist dort.",
+    "id": "Kita di sini, dan stasiunnya di sana.",
+    "th": "ตอนนี้เราอยู่ตรงนี้ และสถานีอยู่ตรงนั้นค่ะ",
+    "zh": "我们现在在这儿，车站在那儿。",
+    "ja": "今ここにいて、駅はあそこです。",
+    "ko": "지금 여기고, 역은 저기예요.",
+    "hi": "हम यहाँ हैं और स्टेशन वहाँ है।",
+    "ar": "نحن هنا، والمحطة هناك.",
+    "ru": "Мы здесь, а вокзал вон там.",
+    "tr": "Biz buradayız, istasyon da şurada."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "m3",
+   "who": "customer",
+   "en": "Is there a bus stop near here?",
+   "variants": {
+    "polite": "Excuse me, is there a bus stop near here?",
+    "casual": "Any bus stop near here?"
+   },
+   "gloss": {
+    "en": "Asking if a bus stop is close by.",
+    "vi": "Gần đây có trạm xe buýt không?",
+    "es": "¿Hay una parada de autobús cerca de aquí?",
+    "pt": "Tem algum ponto de ônibus perto daqui?",
+    "fr": "Il y a un arrêt de bus près d'ici ?",
+    "de": "Gibt es hier in der Nähe eine Bushaltestelle?",
+    "id": "Apakah ada halte bus di dekat sini?",
+    "th": "แถวนี้มีป้ายรถเมล์ไหมคะ",
+    "zh": "这附近有公交站吗？",
+    "ja": "この近くにバス停はありますか？",
+    "ko": "이 근처에 버스 정류장이 있나요?",
+    "hi": "क्या यहाँ पास में कोई बस स्टॉप है?",
+    "ar": "هل توجد محطة حافلات قريبة من هنا؟",
+    "ru": "Здесь рядом есть автобусная остановка?",
+    "tr": "Buraya yakın bir otobüs durağı var mı?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "m4",
+   "who": "barista",
+   "en": "Yes, it's opposite the bakery, next to the park.",
+   "variants": {
+    "polite": "Yes, it's opposite the bakery, just next to the park.",
+    "casual": "Yep, across from the bakery."
+   },
+   "gloss": {
+    "en": "Describing the bus stop with landmarks: opposite the bakery, next to the park.",
+    "vi": "Có, nó ở đối diện tiệm bánh, cạnh công viên.",
+    "es": "Sí, está enfrente de la panadería, junto al parque.",
+    "pt": "Sim, fica em frente à padaria, ao lado do parque.",
+    "fr": "Oui, il est en face de la boulangerie, à côté du parc.",
+    "de": "Ja, sie ist gegenüber der Bäckerei, neben dem Park.",
+    "id": "Ada, di seberang toko roti, di samping taman.",
+    "th": "มีค่ะ อยู่ตรงข้ามร้านเบเกอรี่ ข้างสวนสาธารณะ",
+    "zh": "有，在面包店对面，公园旁边。",
+    "ja": "ありますよ。パン屋の向かい、公園の隣です。",
+    "ko": "네, 빵집 맞은편, 공원 옆에 있어요.",
+    "hi": "हाँ, बेकरी के सामने, पार्क के बगल में है।",
+    "ar": "نعم، تقع مقابل المخبز، بجانب الحديقة.",
+    "ru": "Да, напротив пекарни, рядом с парком.",
+    "tr": "Evet, fırının karşısında, parkın yanında."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "opposite",
+     "ipa": "/ˈɒp.ə.zɪt/",
+     "hi": "OP",
+     "note": {
+      "en": "Stress the first syllable: OP-uh-zit, ending in a short 'it', not 'site'.",
+      "vi": "Nhấn âm tiết đầu: OP-ơ-dịt, kết thúc bằng “it” ngắn, không phải “sait”.",
+      "es": "Acentúa la primera sílaba: OP-a-zit, terminando en una “it” corta, no “sait”.",
+      "pt": "Acentue a primeira sílaba: ÓP-a-zit, terminando em “it” curto, não “sait”.",
+      "fr": "Accentuez la première syllabe : OP-eu-zit, avec un « it » bref, pas « saït ».",
+      "de": "Betone die erste Silbe: OP-e-sit, mit kurzem „it“ am Ende, nicht „sait“.",
+      "id": "Tekankan suku kata pertama: OP-e-zit, berakhir dengan “it” pendek, bukan “sait”.",
+      "th": "เน้นพยางค์แรก: ออพ-พะ-ซิท ลงท้ายด้วย “อิท” สั้น ๆ ไม่ใช่ “ไซต์”",
+      "zh": "重音在第一个音节：OP-uh-zit，结尾是短的 it，不是 site。",
+      "ja": "最初の音節を強く：オプ・ア・ジット。最後は短い「イット」で、「サイト」ではありません。",
+      "ko": "첫 음절에 강세를 두세요: 업-어-짓. 끝은 짧은 ‘잇’이고 ‘사이트’가 아니에요.",
+      "hi": "पहले अक्षर पर ज़ोर दें: ऑप-अ-ज़िट, अंत में छोटा “इट”, “साइट” नहीं।",
+      "ar": "شدّد على المقطع الأول: أوب-ا-زِت، وتنتهي بـ it قصيرة وليس sait.",
+      "ru": "Ударение на первый слог: ОП-э-зит, на конце короткое «ит», а не «сайт».",
+      "tr": "Vurgu ilk hecede: OP-ı-zit, sonu kısa “it”, “sayt” değil."
+     }
+    }
+   ]
+  },
+  {
+   "id": "q1",
+   "who": "barista",
+   "en": "Where are you trying to go?",
+   "open": true,
+   "keywords": [
+    "station",
+    "museum",
+    "hotel",
+    "airport",
+    "bus stop",
+    "bank",
+    "hospital",
+    "pharmacy",
+    "supermarket",
+    "park",
+    "library",
+    "market"
+   ],
+   "variants": {
+    "polite": "Where are you trying to get to?",
+    "casual": "Where to?"
+   },
+   "gloss": {
+    "en": "A passer-by asks where you want to go.",
+    "vi": "Bạn đang muốn đi đâu vậy?",
+    "es": "¿A dónde intenta ir?",
+    "pt": "Para onde você quer ir?",
+    "fr": "Où essayez-vous d'aller ?",
+    "de": "Wohin möchten Sie denn?",
+    "id": "Anda mau pergi ke mana?",
+    "th": "คุณกำลังจะไปที่ไหนคะ",
+    "zh": "您想去哪儿？",
+    "ja": "どちらへ行きたいのですか？",
+    "ko": "어디로 가시려고 하세요?",
+    "hi": "आप कहाँ जाना चाहते हैं?",
+    "ar": "إلى أين تريد أن تذهب؟",
+    "ru": "Куда вам нужно попасть?",
+    "tr": "Nereye gitmeye çalışıyorsunuz?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q2",
+   "who": "barista",
+   "en": "Are you walking or taking the bus?",
+   "open": true,
+   "keywords": [
+    "walking",
+    "walk",
+    "on foot",
+    "bus",
+    "taxi",
+    "train",
+    "bike",
+    "subway",
+    "metro",
+    "car"
+   ],
+   "variants": {
+    "polite": "Will you be walking, or taking the bus?",
+    "casual": "Walking or bus?"
+   },
+   "gloss": {
+    "en": "The passer-by asks how you plan to travel.",
+    "vi": "Bạn đi bộ hay đi xe buýt?",
+    "es": "¿Va andando o en autobús?",
+    "pt": "Você vai a pé ou de ônibus?",
+    "fr": "Vous y allez à pied ou en bus ?",
+    "de": "Gehen Sie zu Fuß oder nehmen Sie den Bus?",
+    "id": "Anda jalan kaki atau naik bus?",
+    "th": "จะเดินหรือนั่งรถเมล์คะ",
+    "zh": "您是走路去还是坐公交？",
+    "ja": "歩きですか、それともバスですか？",
+    "ko": "걸어가세요, 아니면 버스를 타세요?",
+    "hi": "आप पैदल जाएँगे या बस से?",
+    "ar": "هل ستمشي أم ستركب الحافلة؟",
+    "ru": "Вы пойдёте пешком или поедете на автобусе?",
+    "tr": "Yürüyerek mi gideceksiniz, otobüsle mi?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  }
+ ],
+ "dialogue": [
+  {
+   "who": "customer",
+   "en": "Excuse me, could you help me? I'm looking for the train station."
+  },
+  {
+   "who": "barista",
+   "en": "Of course. Go straight, then take the second street on the right."
+  },
+  {
+   "who": "customer",
+   "en": "Sorry, could you say that again, please?"
+  },
+  {
+   "who": "barista",
+   "en": "Sure. Straight on, then the second right."
+  },
+  {
+   "who": "customer",
+   "en": "So I take the second street on the right?"
+  },
+  {
+   "who": "barista",
+   "en": "That's right. You'll see a big clock on the station."
+  },
+  {
+   "who": "customer",
+   "en": "Is it far from here?"
+  },
+  {
+   "who": "barista",
+   "en": "No, it's about five minutes on foot."
+  },
+  {
+   "who": "customer",
+   "en": "Thank you so much for your help!"
+  },
+  {
+   "who": "barista",
+   "en": "You're welcome. Have a nice day!"
+  }
+ ],
+ "listening": [
+  {
+   "id": "l1",
+   "turns": [
+    {
+     "who": "customer",
+     "en": "Excuse me, is there a pharmacy near here?"
+    },
+    {
+     "who": "barista",
+     "en": "Yes, go past the traffic lights and it's on your left."
+    },
+    {
+     "who": "customer",
+     "en": "Is it far?"
+    },
+    {
+     "who": "barista",
+     "en": "No, it's just next to the supermarket."
+    }
+   ],
+   "q": {
+    "en": "Where exactly is the pharmacy?",
+    "vi": "Hiệu thuốc chính xác ở đâu?",
+    "es": "¿Dónde está exactamente la farmacia?",
+    "pt": "Onde fica exatamente a farmácia?",
+    "fr": "Où se trouve exactement la pharmacie ?",
+    "de": "Wo genau ist die Apotheke?",
+    "id": "Di mana tepatnya apotek itu?",
+    "th": "ร้านขายยาอยู่ตรงไหนกันแน่",
+    "zh": "药店具体在哪儿？",
+    "ja": "薬局は具体的にどこにありますか？",
+    "ko": "약국은 정확히 어디에 있나요?",
+    "hi": "दवा की दुकान ठीक-ठीक कहाँ है?",
+    "ar": "أين تقع الصيدلية بالضبط؟",
+    "ru": "Где именно находится аптека?",
+    "tr": "Eczane tam olarak nerede?"
+   },
+   "answer": "next to the supermarket"
+  },
+  {
+   "id": "l2",
+   "turns": [
+    {
+     "who": "customer",
+     "en": "Excuse me, how do I get to the museum?"
+    },
+    {
+     "who": "barista",
+     "en": "Take bus number twelve from the stop opposite the bakery."
+    },
+    {
+     "who": "customer",
+     "en": "How long does it take?"
+    },
+    {
+     "who": "barista",
+     "en": "About ten minutes."
+    }
+   ],
+   "q": {
+    "en": "Which bus goes to the museum?",
+    "vi": "Xe buýt nào đi đến bảo tàng?",
+    "es": "¿Qué autobús va al museo?",
+    "pt": "Qual ônibus vai ao museu?",
+    "fr": "Quel bus va au musée ?",
+    "de": "Welcher Bus fährt zum Museum?",
+    "id": "Bus nomor berapa yang ke museum?",
+    "th": "รถเมล์สายไหนไปพิพิธภัณฑ์",
+    "zh": "哪路公交车去博物馆？",
+    "ja": "博物館へ行くのはどのバスですか？",
+    "ko": "박물관에 가는 버스는 몇 번인가요?",
+    "hi": "संग्रहालय के लिए कौन-सी बस जाती है?",
+    "ar": "أي حافلة تذهب إلى المتحف؟",
+    "ru": "Какой автобус идёт до музея?",
+    "tr": "Müzeye hangi otobüs gidiyor?"
+   },
+   "answer": "bus number twelve"
+  }
+ ],
+ "mission": {
+  "tasks": [
+   {
+    "id": "where-station",
+    "title": {
+     "en": "Ask where the station is",
+     "vi": "Hỏi ga tàu ở đâu",
+     "es": "Pregunta dónde está la estación",
+     "pt": "Pergunte onde fica a estação",
+     "fr": "Demander où est la gare",
+     "de": "Nach dem Bahnhof fragen",
+     "id": "Tanyakan di mana stasiunnya",
+     "th": "ถามว่าสถานีอยู่ที่ไหน",
+     "zh": "问火车站在哪儿",
+     "ja": "駅の場所をたずねる",
+     "ko": "역이 어디인지 묻기",
+     "hi": "पूछें कि स्टेशन कहाँ है",
+     "ar": "اسأل أين المحطة",
+     "ru": "Спроси, где вокзал",
+     "tr": "İstasyonun nerede olduğunu sor"
+    },
+    "intents": [
+     "a1"
+    ]
+   },
+   {
+    "id": "say-again",
+    "title": {
+     "en": "Ask them to repeat",
+     "vi": "Nhờ nhắc lại",
+     "es": "Pide que lo repitan",
+     "pt": "Peça para repetir",
+     "fr": "Demander de répéter",
+     "de": "Um Wiederholung bitten",
+     "id": "Minta diulang",
+     "th": "ขอให้พูดซ้ำ",
+     "zh": "请对方再说一遍",
+     "ja": "もう一度言ってもらう",
+     "ko": "다시 말해 달라고 하기",
+     "hi": "दोहराने को कहें",
+     "ar": "اطلب الإعادة",
+     "ru": "Попроси повторить",
+     "tr": "Tekrar etmesini iste"
+    },
+    "intents": [
+     "r1",
+     "r2"
+    ]
+   },
+   {
+    "id": "check-route",
+    "title": {
+     "en": "Check the route",
+     "vi": "Xác nhận lại đường đi",
+     "es": "Confirma la ruta",
+     "pt": "Confirme o caminho",
+     "fr": "Vérifier l'itinéraire",
+     "de": "Den Weg bestätigen",
+     "id": "Pastikan rutenya",
+     "th": "ยืนยันเส้นทาง",
+     "zh": "确认路线",
+     "ja": "道順を確認する",
+     "ko": "길 확인하기",
+     "hi": "रास्ता पक्का करें",
+     "ar": "تأكد من الطريق",
+     "ru": "Уточни маршрут",
+     "tr": "Yolu doğrula"
+    },
+    "intents": [
+     "r4"
+    ]
+   }
+  ]
+ },
+ "culture": {
+  "en": "In English-speaking countries, start with “Excuse me” before asking a stranger for help. Locals often give directions with landmarks (“turn left at the bank”) and walking time rather than street names or distances. If you did not catch it, “Sorry, could you say that again?” is completely normal and polite.",
+  "vi": "Ở các nước nói tiếng Anh, hãy mở lời bằng “Excuse me” trước khi nhờ người lạ giúp. Người địa phương thường chỉ đường bằng các mốc như “rẽ trái ở ngân hàng” và thời gian đi bộ hơn là tên phố hay khoảng cách. Nếu chưa nghe rõ, nói “Sorry, could you say that again?” là hòan toàn bình thường và lịch sự.",
+  "es": "En los países de habla inglesa, empieza con “Excuse me” antes de pedir ayuda a un desconocido. Los lugareños suelen dar indicaciones con puntos de referencia (“gire a la izquierda en el banco”) y el tiempo andando, más que con nombres de calles o distancias. Si no lo has entendido, decir “Sorry, could you say that again?” es totalmente normal y educado.",
+  "pt": "Nos países de língua inglesa, comece com “Excuse me” antes de pedir ajuda a um desconhecido. Os moradores costumam dar direções com pontos de referência (“vire à esquerda no banco”) e o tempo a pé, em vez de nomes de ruas ou distâncias. Se não entendeu, dizer “Sorry, could you say that again?” é totalmente normal e educado.",
+  "fr": "Dans les pays anglophones, commencez par « Excuse me » avant de demander de l'aide à un inconnu. Les habitants indiquent souvent le chemin avec des repères (« tournez à gauche à la banque ») et le temps de marche plutôt qu'avec des noms de rues ou des distances. Si vous n'avez pas compris, dire « Sorry, could you say that again? » est tout à fait normal et poli.",
+  "de": "In englischsprachigen Ländern beginnt man mit „Excuse me“, bevor man einen Fremden um Hilfe bittet. Einheimische erklären den Weg oft mit Orientierungspunkten („an der Bank links“) und der Gehzeit statt mit Straßennamen oder Entfernungen. Wenn du etwas nicht verstanden hast, ist „Sorry, could you say that again?“ völlig normal und höflich.",
+  "id": "Di negara berbahasa Inggris, mulailah dengan “Excuse me” sebelum meminta bantuan orang asing. Penduduk setempat biasanya memberi arah dengan patokan (“belok kiri di bank”) dan waktu jalan kaki, bukan nama jalan atau jarak. Kalau belum jelas, mengatakan “Sorry, could you say that again?” sangat wajar dan sopan.",
+  "th": "ในประเทศที่พูดภาษาอังกฤษ ให้เริ่มด้วย “Excuse me” ก่อนขอความช่วยเหลือจากคนแปลกหน้า คนท้องถิ่นมักบอกทางด้วยจุดสังเกต (“เลี้ยวซ้ายตรงธนาคาร”) และเวลาที่เดิน มากกว่าชื่อถนนหรือระยะทาง ถ้าฟังไม่ทัน การพูดว่า “Sorry, could you say that again?” เป็นเรื่องปกติและสุภาพมาก",
+  "zh": "在英语国家，向陌生人求助前先说一句 “Excuse me”。当地人指路常常用地标（“在银行那儿左拐”）和步行时间，而不是街名或距离。如果没听清，说 “Sorry, could you say that again?” 完全正常，也很礼貌。",
+  "ja": "英語圏では、見知らぬ人に頼む前にまず “Excuse me” と声をかけます。道案内は、通りの名前や距離よりも、目印（「銀行のところを左」）や徒歩での所要時間で説明されることがよくあります。聞き取れなかったときに “Sorry, could you say that again?” と言うのはごく普通で、丁寧な表現です。",
+  "ko": "영어권에서는 모르는 사람에게 도움을 청하기 전에 “Excuse me”로 말을 시작하세요. 현지인들은 거리 이름이나 거리(미터) 대신 랜드마크(“은행에서 왼쪽”)와 도보 시간으로 길을 알려 주는 경우가 많습니다. 잘 못 들었다면 “Sorry, could you say that again?”이라고 말하는 것은 아주 자연스럽고 예의 바른 표현입니다.",
+  "hi": "अंग्रेज़ी बोलने वाले देशों में किसी अजनबी से मदद माँगने से पहले “Excuse me” कहकर शुरुआत करें। स्थानीय लोग अक्सर सड़कों के नाम या दूरी के बजाय पहचान की जगहों (“बैंक के पास बाएँ मुड़ें”) और पैदल समय से रास्ता बताते हैं। अगर आप समझ नहीं पाए, तो “Sorry, could you say that again?” कहना बिल्कुल सामान्य और विनम्र है।",
+  "ar": "في الدول الناطقة بالإنجليزية، ابدأ بعبارة “Excuse me” قبل أن تطلب المساعدة من شخص غريب. غالبًا ما يصف السكان الطريق بمعالم (“انعطف يسارًا عند البنك”) وبمدة المشي بدلًا من أسماء الشوارع أو المسافات. وإذا لم تسمع جيدًا فقول “Sorry, could you say that again?” أمر طبيعي ومهذب تمامًا.",
+  "ru": "В англоязычных странах, прежде чем обратиться за помощью к незнакомцу, начинайте со слов «Excuse me». Местные чаще объясняют дорогу по ориентирам («у банка поверните налево») и по времени пешком, а не по названиям улиц и расстояниям. Если вы не расслышали, фраза «Sorry, could you say that again?» совершенно нормальна и вежлива.",
+  "tr": "İngilizce konuşulan ülkelerde, yabancıdan yardım istemeden önce “Excuse me” diyerek başlayın. Yerel halk yolu çoğunlukla sokak adları ya da mesafe yerine yer işaretleriyle (“bankadan sola dönün”) ve yürüme süresiyle tarif eder. Anlamadıysanız “Sorry, could you say that again?” demek tamamen doğal ve naziktir."
+ }
+}

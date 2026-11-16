@@ -64,9 +64,6 @@
 .vb-mis .bad{color:var(--again-text);font-weight:800}.vb-mis .good{color:var(--good-text);font-weight:800}
 .vb-chips{display:flex;flex-wrap:wrap;gap:.4rem}.vb-chips a{font-size:.9rem;padding:.3rem .8rem;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--text);font-weight:600;transition:border-color .15s,transform .15s}
 .vb-chips a:hover{border-color:var(--primary);transform:translateY(-1px)}
-.vb-irr{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:.4rem;margin-top:.8rem}
-.vb-ir{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.4rem;padding:.55rem .8rem;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--text);transition:border-color .15s,background .15s}
-.vb-ir:hover{border-color:var(--primary);background:var(--primary-soft)}.vb-ir b{color:var(--text)}.vb-ir span{color:var(--muted);overflow-wrap:anywhere}
 .vb-modal{display:grid;gap:.5rem;margin-top:.8rem}.vb-modal>div{display:flex;gap:.8rem;justify-content:space-between;padding:.6rem .8rem;background:var(--surface-2);border-radius:12px;flex-wrap:wrap}
 @media (max-width:720px){.vb-forms{grid-template-columns:repeat(2,minmax(0,1fr))}.vb-forms .vb-form:first-child{grid-column:1/-1}.vb-grid2{grid-template-columns:1fr}
 .vb-pol{display:inline-flex}.vb-ts[data-pol=aff] .c-neg,.vb-ts[data-pol=aff] .c-q,.vb-ts[data-pol=neg] .c-aff,.vb-ts[data-pol=neg] .c-q,.vb-ts[data-pol=q] .c-aff,.vb-ts[data-pol=q] .c-neg{display:none}}`;
@@ -123,26 +120,13 @@
 
   // ---------- Trang chính: bảng động từ bất quy tắc ----------
   function landing() {
-    const list = V.irregularList(), PAT = { AAA: t('3 dạng giống nhau'), ABB: t('V2 = V3'), ABA: t('V1 = V3'), ABC: t('3 dạng khác nhau') };
+    const list = V.irregularList();
     const chip = w => `<a href="#/verb/${encodeURIComponent(w)}" lang="en" translate="no">${esc(w)}</a>`;
     view.innerHTML = head() + searchBox('') + `
       <h3 class="set-h hub-h">⭐ ${t('Hay tra nhất')}</h3><div class="vb-chips">${'be have do go get make take come see know think say give find tell'.split(' ').map(chip).join('')}</div>
       <h3 class="set-h hub-h">🧠 ${t('Dễ nhầm')}</h3><div class="vb-chips">${'lie lay rise raise learn dream can must study stop panic travel'.split(' ').map(chip).join('')}</div>
-      <div class="vb-bar"><h2>📋 ${t('Bảng {n} động từ bất quy tắc', { n: list.length })}</h2>
-        <input class="input" id="vbF" style="max-width:240px" placeholder="${t('Lọc nhanh…')}" aria-label="${t('Lọc động từ bất quy tắc')}" spellcheck="false" autocapitalize="off"></div>
-      <div class="vb-seg" role="group" aria-label="${t('Lọc theo mẫu')}" id="vbPat">${[['', t('Tất cả')], ...Object.entries(PAT)].map(([k, l], i) => `<button type="button" data-p="${k}" aria-pressed="${i === 0}">${esc(l)}</button>`).join('')}</div>
-      <p class="small muted" id="vbCnt" aria-live="polite"></p>
-      <div class="vb-irr" id="vbIrr"></div>`;
-    let pat = '';
-    const draw = () => {
-      const q = ($('#vbF').value || '').trim().toLowerCase();
-      const rows = list.filter(x => (!pat || x.pattern === pat) && (!q || [x.base, ...x.past.map(y => y.w), ...x.pp.map(y => y.w)].some(w => w.startsWith(q))));
-      $('#vbIrr').innerHTML = rows.map(x => `<a class="vb-ir" href="#/verb/${encodeURIComponent(x.base)}" lang="en" translate="no" aria-label="${esc(x.base + ', ' + x.past.map(y => y.w).join('/') + ', ' + x.pp.map(y => y.w).join('/'))}"><b>${esc(x.base)}</b><span>${esc(x.past.map(y => y.w).join('/'))}</span><span>${esc(x.pp.map(y => y.w).join('/'))}</span></a>`).join('') || `<p class="muted">${t('Không có động từ phù hợp.')}</p>`;
-      $('#vbCnt').textContent = t('{n} động từ', { n: rows.length });
-    };
-    $('#vbF').oninput = draw;
-    $$('#vbPat button').forEach(b => b.onclick = () => { pat = b.dataset.p; $$('#vbPat button').forEach(x => x.setAttribute('aria-pressed', String(x === b))); draw(); });
-    draw(); bindSearch(); $('#vbQ').focus();
+      <a class="card hover hub-card" id="vbIrrCard" href="#/irregular" style="margin-top:1rem"><span class="hub-ic" aria-hidden="true">📋</span><span class="hub-tx"><b>${t('Động từ bất quy tắc')}</b><small>${t('Mở bảng động từ bất quy tắc')} · ${t('{n} động từ', { n: list.length })}</small></span></a>`;
+    bindSearch(); $('#vbQ').focus();
   }
 
   // ---------- Động từ khuyết thiếu ----------

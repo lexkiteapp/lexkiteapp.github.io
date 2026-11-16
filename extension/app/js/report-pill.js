@@ -12,12 +12,12 @@
   d.addEventListener('DOMContentLoaded', function () {
     var b = d.createElement('button'), L = w.t ? t('Báo lỗi') : 'Report', html = d.documentElement, wide = w.matchMedia ? w.matchMedia('(min-width: 901px)') : null;
     b.type = 'button'; b.className = 'lk-rep'; b.id = 'lkRep'; b.title = L; b.setAttribute('data-i18n-title', 'Báo lỗi');
-    b.innerHTML = '<span aria-hidden="true">⚑</span><span class="lk-rep-l" data-i18n="Báo lỗi">' + L + '</span>';
+    b.innerHTML = '<span class="ic"><svg class="i" aria-hidden="true"><use href="#i-flag"/></svg></span><span class="lk-rep-l" data-i18n="Báo lỗi">' + L + '</span>';
     b.onclick = function () { b.disabled = true; load().then(function (R) { R.open(); }, function () {}).then(function () { b.disabled = false; }); };
     var place = function () { // rộng: chân thanh bên
       var f = d.querySelector('.side-foot'), side = !!(wide && wide.matches && f);
       b.classList.toggle('in-side', side);
-      if (side) { if (b.parentNode !== f) f.appendChild(b); } else if (b.parentNode !== d.body) d.body.appendChild(b);
+      if (side) { if (!f.contains(b)) ((w.LexPill || 0).inMenu || f).appendChild(b); } else if (b.parentNode !== d.body) d.body.appendChild(b);
       html.classList.toggle('lk-fab', !side && !b.hidden);
     };
     var sync = function () { b.hidden = HIDE.test(location.hash); b.classList.remove('off'); place(); };

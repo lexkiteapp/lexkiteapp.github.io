@@ -57,6 +57,7 @@
     purge: { b: '🗑 Xóa vĩnh viễn', t: 'Xóa vĩnh viễn {n} người?', d: 'Xóa ngay mọi dữ liệu đồng bộ, bảng xếp hạng, lớp học, lượt đọc thông báo của những người đang ở Thùng rác. Không thể hoàn tác.', danger: true, cls: 'danger', past: 'xóa vĩnh viễn', trash: 1 },
   };
   const NORMAL = ['tagAdd', 'tagRemove', 'aiGrant', 'aiRevoke', 'block', 'unblock', 'delete'], TRASH = ['restore', 'purge'];
+  const COLW = { ck: 2.75, user: 13.5, role: 6.5, status: 7.5, plat: 6.5, cc: 7.75, created: 6.5, seen: 7.25, n: 4, act: matchMedia('(pointer: coarse)').matches ? 11.5 : 10.5 }; // rem; cột Người dùng lấy phần dư, tối thiểu user
   const COLS = [['role', 'Vai trò'], ['status', 'Trạng thái'], ['plat', 'Nền tảng'], ['cc', 'Quốc gia'], ['created', 'Ngày tạo'], ['seen', 'Hoạt động gần nhất'], ['n', 'Số lần vào']];
   const FKEYS = ['q', 'role', 'status', 'plat', 'cc', 'from', 'to', 'tag', 'perk', 'blocked', 'seen', 'nMin', 'trash'];
   const BLANK = { q: '', role: '', status: '', plat: '', cc: '', from: '', to: '', tag: '', perk: '', blocked: '', seen: '', nMin: '', trash: '', sort: 'seen', dir: '', offset: 0, limit: 50 };
@@ -91,7 +92,7 @@
     const query = () => { const q = { ...f, ...(SEEN[f.seen] || {}), trash: f.trash ? 1 : '' }; delete q.seen; return q; };
     const save = () => { try { sessionStorage.setItem('adm.uf', JSON.stringify(f)); } catch (e) { /* bỏ qua */ } };
     const selN = () => (allMode ? filtered : sel.size);
-    const opt = (id, label, opts, key) => `<label class="u-sel"><span>${T(label)}</span><select id="${id}">${opts.map(([v, t]) => `<option value="${esc(v)}" ${String(f[key]) === String(v) ? 'selected' : ''}>${esc(T(t))}</option>`).join('')}</select></label>`;
+    const opt = (id, label, opts, key) => `<label class="u-sel"><span title="${esc(T(label))}">${T(label)}</span><select id="${id}">${opts.map(([v, t]) => `<option value="${esc(v)}" ${String(f[key]) === String(v) ? 'selected' : ''}>${esc(T(t))}</option>`).join('')}</select></label>`;
 
     c.setActions(`<label class="u-sel u-view"><span class="sr-only">${T('Chế độ xem')}</span><select id="uview" aria-label="${esc(T('Chế độ xem'))}"></select></label>
       <button type="button" class="btn sm" id="ucolsb" aria-haspopup="true" aria-expanded="false">▦ ${T('Cột')}</button>
@@ -293,11 +294,13 @@
           const tg = tagsOf(u), nm = u.name || T('(không tên)');
           return `<tr data-i="${i}" data-row="${esc(u.uid)}" tabindex="-1"><td class="u-ckc" data-label=""><label class="u-ckh"><input type="checkbox" class="u-ck" data-ck="${esc(u.uid)}" aria-label="${esc(T('Chọn {e}', { e: mask(u.email || u.name || u.uid) }))}"></label></td>
           <td class="u-c-who" data-label=""><div class="u-who"><span class="u-av" aria-hidden="true">${esc((u.name || u.email || '?').trim().charAt(0).toUpperCase())}</span><span class="u-who-t"><b class="u-nm ${priv ? 'u-pii' : ''}" title="${esc(mask(nm))}">${esc(mask(nm))}</b> ${!show('status') && u.blocked ? `<span class="chip bad sm">⛔ ${T('Bị khóa')}</span>` : ''}<span class="small muted u-em ${priv ? 'u-pii' : ''}" title="${esc(mask(u.email || u.uid))}">${esc(mask(u.email || u.uid))}</span>${tg.length ? `<div class="u-tags">${tg.map(t => `<button type="button" class="chip sm" data-tagf="${esc(t)}">${esc(t)}</button>`).join('')}</div>` : ''}</span></div></td>
-          ${show('role') ? `<td>${c.rolePill(u.isAdmin)}</td>` : ''}${show('status') ? `<td class="u-badges">${badges(u)}</td>` : ''}
-          ${show('plat') ? `<td class="nowrap">${c.platIcon(u.plat)} ${esc(c.platName(u.plat))}</td>` : ''}${show('cc') ? `<td class="nowrap">${ccCell(u.cc)}</td>` : ''}${show('created') ? `<td class="small nowrap">${rel(u.created)}</td>` : ''}
+          ${show('role') ? `<td>${c.rolePill(u.isAdmin)}</td>` : ''}${show('status') ? `<td class="u-badges"><div class="u-bw">${badges(u)}</div></td>` : ''}
+          ${show('plat') ? `<td class="nowrap u-clip" title="${esc(c.platName(u.plat))}">${c.platIcon(u.plat)} ${esc(c.platName(u.plat))}</td>` : ''}${show('cc') ? `<td class="nowrap u-clip" title="${esc(u.cc ? ccName(u.cc) : T('Chưa rõ'))}">${ccCell(u.cc)}</td>` : ''}${show('created') ? `<td class="small nowrap">${rel(u.created)}</td>` : ''}
           ${show('seen') ? `<td class="small nowrap"><span class="dot ${Date.now() - u.seen < 7 * 864e5 ? 'ok' : Date.now() - u.seen > 30 * 864e5 ? '' : 'warn'}"></span>${rel(u.seen)}</td>` : ''}${show('n') ? `<td class="num">${num(u.n)}</td>` : ''}
-          <td class="nowrap u-c-act" data-label=""><button type="button" class="btn ghost sm" data-uid="${esc(u.uid)}">${T('Chi tiết')}</button>${u.deleted ? '' : ` <button type="button" class="btn ghost sm" data-notif="${esc(u.uid)}" data-em="${esc(u.email || u.name || '')}" title="${esc(T('Gửi thông báo'))}">📣 ${T('Gửi')}</button> <button type="button" class="btn ghost sm danger" data-del="${esc(u.uid)}" data-em="${esc(u.email || '')}">${T('Xóa dữ liệu')}</button>`}</td></tr>`;
+          <td class="nowrap u-c-act" data-label=""><button type="button" class="btn ghost sm" data-uid="${esc(u.uid)}">${T('Chi tiết')}</button>${u.deleted ? '' : ` <button type="button" class="btn ghost sm" data-notif="${esc(u.uid)}" data-em="${esc(u.email || u.name || '')}" title="${esc(T('Gửi thông báo'))}" aria-label="${esc(T('Gửi thông báo'))}"><span aria-hidden="true">📣</span><span class="u-bl"> ${T('Gửi')}</span></button> <button type="button" class="btn ghost sm danger" data-del="${esc(u.uid)}" data-em="${esc(u.email || '')}" title="${esc(T('Xóa dữ liệu'))}" aria-label="${esc(T('Xóa dữ liệu'))}"><span aria-hidden="true">🗑</span><span class="u-bl"> ${T('Xóa dữ liệu')}</span></button>`}</td></tr>`;
         }).join('') || `<tr><td colspan="${3 + cols.length}">${f.trash ? emptyState(T('Không có người dùng trong Thùng rác'), T('Người bị xóa mềm nằm đây 30 ngày trước khi bị xóa vĩnh viễn.'), '🗑') : emptyState(T('Không có người dùng khớp bộ lọc'), T('Thử bỏ bớt bộ lọc hoặc từ khóa.'))}${anyF() ? `<p class="center"><button type="button" class="btn sm" data-clrf>${T('Bỏ lọc')}</button></p>` : ''}</td></tr>`}</tbody></table>`;
+      const cw = [COLW.ck, COLW.user, ...COLS.filter(([k]) => show(k)).map(([k]) => COLW[k]), COLW.act], tb = $('#uTable table');
+      tb.style.setProperty('--u-min', cw.reduce((a, x) => a + x, 0) + 'rem'); tb.insertAdjacentHTML('afterbegin', `<colgroup>${cw.map((x, i) => i === 1 ? '<col>' : `<col style="width:${x}rem">`).join('')}</colgroup>`);
       kb = -1; drawSel();
     }
     const T_ = $('#uTable');

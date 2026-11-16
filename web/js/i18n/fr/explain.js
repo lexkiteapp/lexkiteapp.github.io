@@ -1,3 +1,2 @@
-/* SINH từ i18n/ui/fr/explain.js bằng scripts/i18n-pack.mjs – đừng sửa tay */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["fr"] = Object.assign(D["fr"] || {}, {"_19q4gg9":"Structure","_alp76b":"Voir l’explication complète","_kznktn":"Pourquoi votre choix est faux","_xp0oh3":"Indice dans le texte","_1ob6vgt":"Nuance de sens","_44ncyk":"Autres exemples","_34zw0g":"Même structure","_13yzwdi":"Ajouter aux révisions","_11weuv7":"Signaler une erreur dans cette explication","_1de95jp":"Écouter l’exemple"});
-})(typeof self !== 'undefined' ? self : this);
+/* SINH từ i18n/ui/fr/explain.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.fr=Object.assign(D.fr||{},{_euv7:"Signaler une erreur dans cette explication",_oh3:"Indice dans le texte",_zw0g:"Même structure",_4gg9:"Structure",_95jp:"Écouter l’exemple","Sắc thái nghĩa":"Nuance de sens",_zwdi:"Ajouter aux révisions",_nktn:"Pourquoi votre choix est faux",_ncyk:"Autres exemples",_p76b:"Voir l’explication complète"});})(typeof self!=='undefined'?self:this);

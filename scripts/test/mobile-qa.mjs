@@ -115,7 +115,7 @@ async function open(browser, vp) {
   await page.addInitScript(() => {
     window.__cls = 0; window.__ev = []; window.__sh = [];
     const sel = n => n && n.tagName ? n.tagName.toLowerCase() + [...n.classList].slice(0, 2).map(c => '.' + c).join('') + (n.id ? '#' + n.id : '') : '?';
-    try { new PerformanceObserver(l => { for (const e of l.getEntries()) if (!e.hadRecentInput) { window.__cls += e.value; window.__sh.push([+e.value.toFixed(4), (e.sources || []).slice(0, 3).map(s => sel(s.node) + '@' + [s.previousRect.y, s.previousRect.height, s.currentRect.y, s.currentRect.height].map(Math.round).join(',')).join(' ') + ' ' + location.hash.slice(0, 30)]); } }).observe({ type: 'layout-shift', buffered: true }); } catch (e) {}
+    try { new PerformanceObserver(l => { for (const e of l.getEntries()) if (!e.hadRecentInput) { window.__cls += e.value; window.__sh.push([+e.value.toFixed(4), (e.sources || []).slice(0, 3).map(s => sel(s.node) + '@' + [s.previousRect.y, s.previousRect.height, s.currentRect.y, s.currentRect.height].map(Math.round).join(',') + (Math.round(s.previousRect.x) !== Math.round(s.currentRect.x) || Math.round(s.previousRect.width) !== Math.round(s.currentRect.width) ? ' x:' + [s.previousRect.x, s.previousRect.width, s.currentRect.x, s.currentRect.width].map(Math.round).join(',') : '')).join(' ') + ' ' + location.hash.slice(0, 30) + ' t=' + Math.round(e.startTime) + ' y=' + Math.round(scrollY)]); } }).observe({ type: 'layout-shift', buffered: true }); } catch (e) {}
     try { new PerformanceObserver(l => { for (const e of l.getEntries()) if (e.interactionId) window.__ev.push([e.interactionId, e.duration, e.name, (e.target && e.target.className || '') + ' trễ ' + Math.round(e.processingStart - e.startTime) + '/xử lý ' + Math.round(e.processingEnd - e.processingStart) + '/vẽ ' + Math.round(e.startTime + e.duration - e.processingEnd)]); }).observe({ type: 'event', durationThreshold: 16, buffered: true }); } catch (e) {}
   });
   await page.goto(`${BASE}/app/?sandbox=1&hl=en#/welcome/setup`, { waitUntil: 'networkidle' }).catch(() => {});
@@ -123,8 +123,11 @@ async function open(browser, vp) {
 }
 async function visit(page, route) {
   // người dùng chuyển trang bằng CHẠM → chạm thật vào chỗ trống (không phải nút) rồi đổi hash; dịch chuyển > 500 ms sau chạm vẫn bị tính CLS
-  const pt = await page.evaluate(() => { for (let y = innerHeight - 140; y > 80; y -= 37) for (const x of [8, innerWidth / 2, innerWidth - 8]) { const e = document.elementFromPoint(x, y); if (e && !e.closest('a,button,input,select,textarea,label,summary,[onclick],[role=button],[tabindex],.option,.flash')) return [x, y]; } return null; });
+  // [tabindex] loại cả <main id="view" tabindex="-1"> (đích focus của skip-link, không bấm được) → trước 14/11 MỌI điểm bị loại, KHÔNG lượt nào chạm
+  // → CLS đo như đổi trang không có chạm (#1311: thanh trên hiện lúc rời màn thiết lập = 0.0757). Chỉ miễn #view (vùng nội dung); [tabindex=-1] khác có thể bắt click (mở modal → che màn sau, mqa 14/11) nên vẫn loại. Không có chỗ chạm = lỗi (fails).
+  const pt = await page.evaluate(() => { for (let y = innerHeight - 140; y > 80; y -= 37) for (const x of [8, innerWidth / 2, innerWidth - 8]) { const e = document.elementFromPoint(x, y); if (e && !e.closest('a,button,input,select,textarea,label,summary,[onclick],[role=button],[tabindex]:not(#view),.option,.flash')) return [x, y]; } return null; });
   if (pt) await page.touchscreen.tap(pt[0], pt[1]).catch(() => {});
+  else errs.push(`${page.viewportSize().width} #/${route}: không có chỗ trống để chạm trước khi đổi trang (CLS đo không có chạm)`);
   await page.evaluate(h => { location.hash = h; scrollTo(0, 0); }, '#/' + route);
   await page.waitForTimeout(1100);
 }
@@ -264,6 +267,7 @@ if (hasOffer && offerSeen < VPS.length) fails.push(`ô Cơ hội thứ 2/Nhân �
 if (LH && lh.length < 4) fails.push(`Lighthouse chỉ chạy được ${lh.length} route`);
 if (errs.some(e => /không tới được thẻ kết quả|Nhân đôi XP/.test(e))) fails.push('luồng quiz/kết quả lỗi');
 if (errs.some(e => /nút ngôn ngữ/.test(e))) fails.push('nút đổi ngôn ngữ không hiện/không bấm được');
+if (errs.some(e => /không có chỗ trống để chạm/.test(e))) fails.push('kịch bản không chạm được trước khi đổi trang – số CLS không đáng tin');
 if (errs.some(e => /nút Thoát màn học/.test(e))) fails.push('nút Thoát màn học không hiện/không bấm được');
 
 const report = { at: new Date().toISOString(), pages, count, maxCls, maxInp, maxLcp, maxTbt, lh, perf, issues, errs, fails, hasOffer, offerSeen };

@@ -17,7 +17,7 @@ paras: [
 ],
 groups: [
 { type: 'tfng',
-instr: 'Do the following statements agree with the information given in Reading Passage 1? Write TRUE if the statement agrees with the information, FALSE if the statement contradicts the information, NOT GIVEN if there is no information on this.',
+instr: g.RTI[1],
 items: [
 { n: 1, text: 'If there were no bees, the main staple crops such as wheat and rice would still be pollinated.', a: 'TRUE', cue: 'such as wheat, rice and maize, are pollinated by the wind' },
 { n: 2, text: 'Almond trees in California are in flower for only a short period each year.', a: 'TRUE', cue: 'for a few weeks the orchards need enormous numbers of bees' },
@@ -27,7 +27,7 @@ items: [
 { n: 6, text: 'The number of managed bee colonies in the United States has fallen sharply.', a: 'FALSE', cue: 'the total number of managed colonies in the country has not fallen sharply' },
 ] },
 { type: 'note', title: 'Alternatives and additions to hired honeybees',
-instr: 'Complete the notes below. Choose ONE WORD ONLY from the passage for each answer.', limit: 1,
+instr: g.RTI[20], limit: 1,
 items: [
 { n: 7, text: 'Hand pollination (Sichuan): workers use brushes or bundles of ___', a: ['feathers'], cue: 'using brushes or bundles of feathers' },
 { n: 8, text: 'Hand pollination: only economical in places where ___ is cheap', a: ['labour', 'labor'], cue: 'it is only economical where labour is cheap' },
@@ -35,7 +35,7 @@ items: [
 { n: 10, text: 'Wild pollinators: helped by wildflower strips and by keeping ___ where insects can nest', a: ['hedgerows'], cue: 'keeping hedgerows where insects can nest' },
 ] },
 { type: 'match',
-instr: 'Reading Passage 1 has seven paragraphs, A–G. Which paragraph contains the following information? NB You may use any letter more than once.',
+instr: g.RTI[5],
 options: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
 items: [
 { n: 11, text: 'a reason why few wild insects are found in a particular farming area', a: 'B', cue: 'for the rest of the year the landscape offers almost nothing for them to eat' },
@@ -74,7 +74,7 @@ paras: [
 ],
 groups: [
 { type: 'match',
-instr: 'Reading Passage 2 has six paragraphs, A–F. Choose the correct heading for each paragraph from the list of headings below.',
+instr: g.RTI[9],
 options: [
 'i Why traditional buildings are being studied again',
 'ii Walls and roofs that delay and release heat',
@@ -95,14 +95,14 @@ items: [
 { n: 19, text: 'Paragraph F', a: 'viii', cue: 'Whether such methods can be applied today is a matter of debate' },
 ] },
 { type: 'table', title: 'Traditional cooling features',
-instr: 'Complete the table below. Choose NO MORE THAN TWO WORDS from the passage for each answer.', limit: 2,
+instr: g.RTI[14], limit: 2,
 items: [
 { n: 20, text: 'Thick mud-brick walls – heat from the sun only arrives inside in the ___', a: ['late evening'], cue: 'it arrives inside only in the late evening' },
 { n: 21, text: 'Courtyard – at night fills with ___, which remains until the next morning', a: ['cold air'], cue: 'At night the courtyard fills with cold air' },
 { n: 22, text: 'Windcatcher – on still days, works in the same way as a ___', a: ['chimney'], cue: 'in the same way as a chimney' },
 { n: 23, text: 'Ice production – shallow pools placed in the shadow of a ___', a: ['high wall'], cue: 'shallow pools that lay in the shadow of a high wall' },
 ] },
-{ type: 'mcq', instr: 'Choose the correct letter, A, B, C or D.',
+{ type: 'mcq', instr: g.RTI[3],
 items: [
 { n: 24, q: 'According to paragraph B, one reason why desert roofs were often built as domes or vaults was that',
 options: ['wood was hard to obtain in the desert.', 'they were easier to decorate than flat roofs.', 'they prevented sand from collecting on top.', 'they reflected all of the sunlight that reached them.'],
@@ -146,7 +146,7 @@ paras: [
 { k: 'G', t: "What these cases suggest is that revitalisation is less about restoring the past than about choosing a future. Some communities seek to make their language once again the main language of daily life, while others aim for a smaller role in ceremony, song and personal identity. Both goals are legitimate. The proper role for outside linguists is to support them through documentation, training and advice, rather than to decide on a community's behalf what its language should become. Governments, meanwhile, should recognise that revival is measured in generations, not electoral cycles, and fund it accordingly. The experience of Myaamia, Manx and others should persuade us to retire the word 'extinct'. Unlike a species, a language that has fallen silent may yet be heard again." },
 ],
 groups: [
-{ type: 'mcq', instr: 'Choose the correct letter, A, B, C or D.',
+{ type: 'mcq', instr: g.RTI[3],
 items: [
 { n: 27, q: "What is the writer's view of the term 'sleeping' in paragraph A?",
 options: ['It is simply a polite way of avoiding an unpleasant fact.', 'It reflects a genuine difference between languages and species.', 'It should be applied to every language that has lost its speakers.', 'It was first introduced by professional linguists.'],
@@ -162,12 +162,12 @@ options: ['It has been disproved by the revival of Manx.', 'It is sound in princ
 a: 1, cue: 'applied rigidly it seems to me too narrow' },
 ] },
 { type: 'ynng',
-instr: 'Do the following statements agree with the claims of the writer in Reading Passage 3? Write YES if the statement agrees with the claims of the writer, NO if the statement contradicts the claims of the writer, NOT GIVEN if it is impossible to say what the writer thinks about this.',
+instr: g.RTI[0],
 items: [
 { n: 31, text: 'Most of the world’s languages have been thoroughly recorded.', a: 'NO', cue: "for the great majority of the world's languages, such records are thin or entirely absent" },
 { n: 32, text: 'A revived language should be allowed to differ from its earlier forms.', a: 'YES', cue: 'a language that is permitted only to repeat its past is being preserved, not revived' },
-{ n: 33, text: 'New speakers of Galician now outnumber those who grew up speaking it.', a: 'NOT GIVEN', cue: "sometimes called neofalantes or 'new speakers'" },
-{ n: 34, text: 'Linguists from outside a community should decide what form its language takes.', a: 'NO', cue: "rather than to decide on a community's behalf what its language should become" },
+{ n: 33, text: 'New speakers of Galician now outnumber those who grew up speaking it.', a: 'NOT GIVEN', cue: g.RTI[26] },
+{ n: 34, text: 'Linguists from outside a community should decide what form its language takes.', a: 'NO', cue: g.RTI[21] },
 { n: 35, text: 'Funding for language revival should be planned over long periods of time.', a: 'YES', cue: 'revival is measured in generations, not electoral cycles, and fund it accordingly' },
 ] },
 { type: 'match',

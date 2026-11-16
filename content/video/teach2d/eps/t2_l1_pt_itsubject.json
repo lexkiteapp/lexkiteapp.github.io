@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_itsubject",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Never forget the subject!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Is cold today.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: It is cold today.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "English sentences need a subject.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "It! It is hot today.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Is cold today.",
+  "right": "It is cold today.",
+  "strike": "Is cold",
+  "why": "English sentences need a subject.",
+  "memory": "Always say it.",
+  "quiz": {
+   "stem": "___ is hot today.",
+   "options": [
+    "It",
+    "Is"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Você diz “Is cold today”?",
+   "tip": "Em inglês, a frase precisa de sujeito: “It is cold”.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “Is cold today.”. O certo é “It is cold today.”. Em português dizemos “está frio”, sem sujeito. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “It”. Treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “Is cold today”?",
+   "tip": "In English, the sentence needs a subject: “It is cold”.",
+   "caption": "Watch out for this common mistake! Many people say “Is cold today.”. The right way is “It is cold today.”. In Portuguese we say “está frio” with no subject. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Você diz “Is cold today”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 41,
+  "seconds": 25.6,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "Você diz “Is cold today”?",
+  "keyword": "It is cold today.",
+  "value": "Em inglês, a frase precisa de sujeito: “It is cold”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "Você diz “Is cold today”?",
+    "description": "Cuidado com este erro comum! 😬 Muita gente diz “Is cold today.”. O certo é “It is cold today.”. Em português dizemos “está frio”, sem sujeito. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "It is cold today.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “Is cold today.”. O certo é “It is cold today.”. Em português dizemos “está frio”, sem sujeito. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Cuidado com este erro comum! 😬 Muita gente diz “Is cold today.”. O certo é “It is cold today.”. Em português dizemos “está frio”, sem sujeito. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Você diz “Is cold today”? #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “It”. Treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

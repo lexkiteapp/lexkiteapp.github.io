@@ -13,7 +13,7 @@
 
 ## Web (#/say)
 - `web/js/say.js` (tải lười `BUNDLES.say`): `#/say` danh sách loạt; `#/say/<loạt>/<thẻ>` thẻ, chạm lật. Link sâu `https://lexkite.com/app/#/say/<loạt>/<thẻ>`.
-- Khung: `brand/stitch/v2/say-{front,back}-{light,dark}.html` → bind `brand/stitch/v2/bind/say-front|say-back.json` → `ST2.mount` (cách port: `STITCH-V2-PORT.md`). Thanh tab Stitch → thanh tab chung (tab Luyện).
+- Khung: `brand/stitch/v2/say-{front,back}-{light,dark}.html` → bind `brand/stitch/v2/bind/say-front|say-back.json` → `ST2.mount` (cách port: `STITCH-V2-PORT.md`). Thanh tab Stitch → thanh tab chung (tab Kỹ năng).
 - Giáo viên: `Chars.still(<giáo viên loạt>, <pose thẻ>)` vào chỗ trống; 🔊 `UI.tts(say, 'en-US', …, { voice: Chars.voice(<giáo viên>) })`, 🎧 chậm 0.7, 🎤 `UI.recognize` (% giống), ⚑ `LexReport` cid `say:<loạt>/<thẻ>`.
 - Chia sẻ: Canvas 1:1 (1080²) và 4:5 (1080×1350), không chứa câu "đừng nói"; `LKFile.save` / tải ảnh / chép link.
 - Danh sách loạt chưa có ref Stitch riêng → dùng token thẻ của mặt trước (chủ duyệt ảnh; cần thì vẽ ref).

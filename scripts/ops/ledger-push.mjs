@@ -1,6 +1,7 @@
 // Đẩy sổ sao lưu (infra/backups/*.json) lên main KHÔNG chết vì xung đột rebase (1/11: release-archive #181 đỏ do `git pull --rebase` dừng giữa chừng
 // rồi 4 lần thử sau cùng vấp "unmerged files"). Khi xung đột: huỷ rebase, lấy main mới, GỘP sổ của mình vào sổ của main (hợp theo khoá run|name), commit lại, push.
 //   node scripts/ops/ledger-push.mjs <file> "<commit message>"
+import { isMain } from '../lib/is-main.mjs';
 import fs from 'fs';
 import { execFileSync } from 'child_process';
 
@@ -39,4 +40,4 @@ export function main(file, msg, tries = 5) {
   }
   console.error('✗ ledger-push: không đẩy được sau ' + tries + ' lần'); return 1;
 }
-if (process.argv[1] && import.meta.url === 'file://' + process.argv[1]) process.exit(main(process.argv[2], process.argv[3]));
+if (isMain(import.meta.url)) process.exit(main(process.argv[2], process.argv[3]));

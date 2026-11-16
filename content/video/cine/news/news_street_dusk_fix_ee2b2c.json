@@ -102,5 +102,17 @@
  "link": "https://lexkite.com/app/#/usage?c=pair",
  "cta": "Compare tricky words on lexkite.com",
  "est": 23.1,
- "end_alt": "n_ee2b2c_e2"
+ "end_alt": "n_ee2b2c_e2",
+ "publish": {
+  "title": "Stop saying \"she said me\"",
+  "keyword": "say vs tell",
+  "value": "She told me, not she said me. Say vs tell.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#speakenglish",
+   "#a2english"
+  ],
+  "first_comment": "Tell needs a person: tell me, tell her. Say doesn't: she said it was late. Try the say/tell quiz: {link}"
+ }
 }

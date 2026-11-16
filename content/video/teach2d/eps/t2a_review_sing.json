@@ -72,5 +72,46 @@
   "words": 41,
   "seconds": 25.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"sing\" mean?",
+  "keyword": "sing",
+  "value": "Sing means to make musical sounds with your voice.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=sing",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"sing\" mean?",
+    "description": "Sing means to make musical sounds with your voice.\n\nReview your words, free: https://lexkite.com/app/#/review?w=sing\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "sing",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"sing\" mean?\n\nSing means to make musical sounds with your voice.\n\nReview your words, free: https://lexkite.com/app/#/review?w=sing"
+   },
+   "instagram": {
+    "caption": "What does \"sing\" mean?\n\nSing means to make musical sounds with your voice.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"sing\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to make musical sounds with your voice. Sing means to make musical sounds with your voice. Try the full lesson and quiz here: {link}"
  }
 }

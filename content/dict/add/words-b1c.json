@@ -1,0 +1,800 @@
+{
+ "biography": {
+  "ipaUS": "/baɪˈɑːɡrəfi/",
+  "col": [
+   "short biography",
+   "write a biography",
+   "official biography",
+   "a biography of Steve Jobs",
+   "speaker biography",
+   "read a biography"
+  ],
+  "syn": [
+   "life story",
+   "memoir",
+   "profile"
+  ]
+ },
+ "blanket": {
+  "ipaUS": "/ˈblæŋkɪt/",
+  "col": [
+   "wool blanket",
+   "extra blanket",
+   "electric blanket",
+   "wrap in a blanket",
+   "blanket of snow",
+   "blanket ban"
+  ],
+  "syn": [
+   "cover",
+   "throw",
+   "quilt"
+  ]
+ },
+ "boardroom": {
+  "ipaUS": "/ˈbɔːrdruːm/",
+  "col": [
+   "boardroom table",
+   "in the boardroom",
+   "boardroom meeting",
+   "boardroom battle",
+   "book the boardroom",
+   "boardroom politics"
+  ],
+  "syn": [
+   "conference room",
+   "meeting room"
+  ]
+ },
+ "brainstorm": {
+  "ipaUS": "/ˈbreɪnstɔːrm/",
+  "col": [
+   "brainstorm ideas",
+   "brainstorming session",
+   "brainstorm solutions",
+   "brainstorm with the team",
+   "brainstorm names",
+   "brainstorm a slogan"
+  ],
+  "syn": [
+   "generate ideas",
+   "think up",
+   "come up with ideas"
+  ]
+ },
+ "broaden": {
+  "ipaUS": "/ˈbrɔːdn/",
+  "col": [
+   "broaden horizons",
+   "broaden the range",
+   "broaden your mind",
+   "broaden the appeal",
+   "broaden the scope",
+   "broaden your knowledge"
+  ],
+  "syn": [
+   "widen",
+   "expand",
+   "extend"
+  ]
+ },
+ "broker": {
+  "ipaUS": "/ˈbroʊkər/",
+  "col": [
+   "real estate broker",
+   "insurance broker",
+   "stock broker",
+   "broker a deal",
+   "broker a peace agreement",
+   "broker's fee"
+  ],
+  "syn": [
+   "agent",
+   "dealer",
+   "middleman"
+  ]
+ },
+ "by-law": {
+  "ipaUS": "/ˈbaɪlɔː/",
+  "col": [
+   "company by-laws",
+   "local by-law",
+   "comply with the by-laws",
+   "amend the by-laws",
+   "city by-law",
+   "by-law violation"
+  ],
+  "syn": [
+   "regulation",
+   "ordinance",
+   "rule"
+  ]
+ },
+ "cabin": {
+  "ipaUS": "/ˈkæbɪn/",
+  "col": [
+   "cabin crew",
+   "cabin baggage",
+   "first-class cabin",
+   "log cabin",
+   "cabin pressure",
+   "book a cabin"
+  ],
+  "syn": [
+   "compartment",
+   "hut",
+   "berth"
+  ]
+ },
+ "calculation": {
+  "ipaUS": "/ˌkælkjuˈleɪʃn/",
+  "col": [
+   "make a calculation",
+   "rough calculation",
+   "careful calculation",
+   "by my calculation",
+   "a complex calculation",
+   "calculation error"
+  ],
+  "syn": [
+   "computation",
+   "estimate",
+   "reckoning"
+  ]
+ },
+ "cargo": {
+  "ipaUS": "/ˈkɑːrɡoʊ/",
+  "col": [
+   "cargo ship",
+   "air cargo",
+   "cargo hold",
+   "load the cargo",
+   "cargo plane",
+   "cargo container"
+  ],
+  "syn": [
+   "freight",
+   "load",
+   "shipment"
+  ]
+ },
+ "carrier": {
+  "ipaUS": "/ˈkæriər/",
+  "col": [
+   "airline carrier",
+   "mobile carrier",
+   "carrier bag",
+   "freight carrier",
+   "choose a carrier",
+   "budget carrier"
+  ],
+  "syn": [
+   "transporter",
+   "shipper",
+   "provider"
+  ]
+ },
+ "cartridge": {
+  "ipaUS": "/ˈkɑːrtrɪdʒ/",
+  "col": [
+   "ink cartridge",
+   "replace a cartridge",
+   "toner cartridge",
+   "printer cartridge",
+   "empty cartridge",
+   "refill a cartridge"
+  ],
+  "syn": [
+   "canister",
+   "ink refill",
+   "toner"
+  ]
+ },
+ "cater": {
+  "ipaUS": "/ˈkeɪtər/",
+  "col": [
+   "cater an event",
+   "cater to",
+   "cater for",
+   "cater a wedding",
+   "cater to all tastes",
+   "cater for large groups"
+  ],
+  "syn": [
+   "provide food",
+   "supply",
+   "serve"
+  ]
+ },
+ "caterer": {
+  "ipaUS": "/ˈkeɪtərər/",
+  "col": [
+   "hire a caterer",
+   "wedding caterer",
+   "event caterer",
+   "local caterer",
+   "book a caterer",
+   "outside caterer"
+  ],
+  "syn": [
+   "food supplier",
+   "catering company"
+  ]
+ },
+ "caution": {
+  "ipaUS": "/ˈkɔːʃn/",
+  "col": [
+   "use caution",
+   "with caution",
+   "exercise caution",
+   "caution sign",
+   "throw caution to the wind",
+   "word of caution"
+  ],
+  "syn": [
+   "care",
+   "wariness",
+   "warning"
+  ]
+ },
+ "certificate": {
+  "ipaUS": "/sərˈtɪfɪkət/",
+  "col": [
+   "training certificate",
+   "gift certificate",
+   "birth certificate",
+   "award a certificate",
+   "certificate of completion",
+   "hold a certificate"
+  ],
+  "syn": [
+   "diploma",
+   "credential",
+   "document"
+  ]
+ },
+ "certification": {
+  "ipaUS": "/ˌsɜːrtɪfɪˈkeɪʃn/",
+  "col": [
+   "professional certification",
+   "get certification",
+   "safety certification",
+   "certification exam",
+   "require certification",
+   "valid certification"
+  ],
+  "syn": [
+   "accreditation",
+   "qualification",
+   "approval"
+  ]
+ },
+ "certify": {
+  "ipaUS": "/ˈsɜːrtɪfaɪ/",
+  "col": [
+   "certified accountant",
+   "certify that",
+   "certified copy",
+   "certify a document",
+   "officially certify",
+   "certified by the manufacturer"
+  ],
+  "syn": [
+   "confirm",
+   "verify",
+   "authorize"
+  ]
+ },
+ "chairperson": {
+  "ipaUS": "/ˈtʃerpɜːrsn/",
+  "col": [
+   "committee chairperson",
+   "elect a chairperson",
+   "act as chairperson",
+   "chairperson of the board",
+   "appoint a chairperson",
+   "acting chairperson"
+  ],
+  "syn": [
+   "chair",
+   "head",
+   "president"
+  ]
+ },
+ "cheer": {
+  "ipaUS": "/tʃɪr/",
+  "col": [
+   "cheer for",
+   "cheer up",
+   "cheer loudly",
+   "cheer on",
+   "cheers and applause",
+   "cheer the team"
+  ],
+  "syn": [
+   "applaud",
+   "shout support",
+   "root for"
+  ]
+ },
+ "circulate": {
+  "ipaUS": "/ˈsɜːrkjəleɪt/",
+  "col": [
+   "circulate a memo",
+   "circulate information",
+   "circulate widely",
+   "blood circulates",
+   "circulate to staff",
+   "rumors circulate"
+  ],
+  "syn": [
+   "distribute",
+   "pass around",
+   "spread"
+  ]
+ },
+ "classify": {
+  "ipaUS": "/ˈklæsɪfaɪ/",
+  "col": [
+   "classify documents",
+   "classified information",
+   "classify into categories",
+   "classify as",
+   "be classified by type",
+   "top-secret classified"
+  ],
+  "syn": [
+   "categorize",
+   "sort",
+   "group"
+  ]
+ },
+ "clerk": {
+  "ipaUS": "/klɜːrk/",
+  "col": [
+   "desk clerk",
+   "sales clerk",
+   "file clerk",
+   "hotel clerk",
+   "bank clerk",
+   "clerk at a store"
+  ],
+  "syn": [
+   "assistant",
+   "receptionist",
+   "office worker"
+  ]
+ },
+ "closure": {
+  "ipaUS": "/ˈkloʊʒər/",
+  "col": [
+   "road closure",
+   "factory closure",
+   "temporary closure",
+   "announce a closure",
+   "school closure",
+   "closure of the store"
+  ],
+  "syn": [
+   "shutdown",
+   "closing",
+   "end"
+  ]
+ },
+ "collector": {
+  "ipaUS": "/kəˈlektər/",
+  "col": [
+   "art collector",
+   "tax collector",
+   "stamp collector",
+   "private collector",
+   "ticket collector",
+   "garbage collector"
+  ],
+  "syn": [
+   "enthusiast",
+   "gatherer",
+   "hobbyist"
+  ]
+ },
+ "commonly": {
+  "ipaUS": "/ˈkɑːmənli/",
+  "col": [
+   "commonly used",
+   "commonly known",
+   "commonly called",
+   "commonly found",
+   "commonly believed",
+   "commonly referred to as"
+  ],
+  "syn": [
+   "usually",
+   "frequently",
+   "widely"
+  ]
+ },
+ "communicate": {
+  "ipaUS": "/kəˈmjuːnɪkeɪt/",
+  "col": [
+   "communicate effectively",
+   "communicate with",
+   "communicate clearly",
+   "communicate a message",
+   "communicate by email",
+   "fail to communicate"
+  ],
+  "syn": [
+   "convey",
+   "interact",
+   "express"
+  ]
+ },
+ "compartment": {
+  "ipaUS": "/kəmˈpɑːrtmənt/",
+  "col": [
+   "overhead compartment",
+   "storage compartment",
+   "glove compartment",
+   "luggage compartment",
+   "separate compartment",
+   "secret compartment"
+  ],
+  "syn": [
+   "section",
+   "bin",
+   "space"
+  ]
+ },
+ "completion": {
+  "ipaUS": "/kəmˈpliːʃn/",
+  "col": [
+   "on completion",
+   "completion date",
+   "upon completion",
+   "near completion",
+   "project completion",
+   "completion of the course"
+  ],
+  "syn": [
+   "finish",
+   "end",
+   "conclusion"
+  ]
+ },
+ "complimentary": {
+  "ipaUS": "/ˌkɑːmpləˈmentri/",
+  "col": [
+   "complimentary breakfast",
+   "complimentary ticket",
+   "complimentary copy",
+   "complimentary remarks",
+   "complimentary drink",
+   "offered complimentary"
+  ],
+  "syn": [
+   "free",
+   "courtesy",
+   "praising"
+  ]
+ },
+ "comprehension": {
+  "ipaUS": "/ˌkɑːmprɪˈhenʃn/",
+  "col": [
+   "reading comprehension",
+   "listening comprehension",
+   "beyond comprehension",
+   "comprehension skills",
+   "test comprehension",
+   "lack of comprehension"
+  ],
+  "syn": [
+   "understanding",
+   "grasp",
+   "perception"
+  ]
+ },
+ "confidential": {
+  "ipaUS": "/ˌkɑːnfɪˈdenʃl/",
+  "col": [
+   "confidential information",
+   "keep confidential",
+   "strictly confidential",
+   "confidential report",
+   "private and confidential",
+   "confidential agreement"
+  ],
+  "syn": [
+   "secret",
+   "private",
+   "classified"
+  ]
+ },
+ "congratulate": {
+  "ipaUS": "/kənˈɡrætʃuleɪt/",
+  "col": [
+   "congratulate on",
+   "warmly congratulate",
+   "congratulate someone on winning",
+   "congratulate yourself",
+   "congratulate the team",
+   "heartily congratulate"
+  ],
+  "syn": [
+   "praise",
+   "applaud",
+   "salute"
+  ]
+ },
+ "consecutive": {
+  "ipaUS": "/kənˈsekjətɪv/",
+  "col": [
+   "consecutive days",
+   "consecutive years",
+   "third consecutive",
+   "consecutive wins",
+   "five consecutive months",
+   "consecutive order"
+  ],
+  "syn": [
+   "successive",
+   "straight",
+   "running"
+  ]
+ },
+ "context": {
+  "ipaUS": "/ˈkɑːntekst/",
+  "col": [
+   "in this context",
+   "social context",
+   "historical context",
+   "out of context",
+   "depend on the context",
+   "context clues"
+  ],
+  "syn": [
+   "background",
+   "setting",
+   "circumstances"
+  ]
+ },
+ "contractor": {
+  "ipaUS": "/ˈkɑːntræktər/",
+  "col": [
+   "building contractor",
+   "independent contractor",
+   "hire a contractor",
+   "general contractor",
+   "subcontractor",
+   "defense contractor"
+  ],
+  "syn": [
+   "builder",
+   "freelancer",
+   "supplier"
+  ]
+ },
+ "convenience": {
+  "ipaUS": "/kənˈviːniəns/",
+  "col": [
+   "for your convenience",
+   "at your earliest convenience",
+   "convenience store",
+   "modern conveniences",
+   "a matter of convenience",
+   "convenience food"
+  ],
+  "syn": [
+   "ease",
+   "comfort",
+   "practicality"
+  ]
+ },
+ "coordinator": {
+  "ipaUS": "/koʊˈɔːrdɪneɪtər/",
+  "col": [
+   "project coordinator",
+   "event coordinator",
+   "program coordinator",
+   "coordinator of the team",
+   "assign a coordinator",
+   "volunteer coordinator"
+  ],
+  "syn": [
+   "organizer",
+   "manager",
+   "administrator"
+  ]
+ },
+ "correspondence": {
+  "ipaUS": "/ˌkɔːrəˈspɑːndəns/",
+  "col": [
+   "business correspondence",
+   "email correspondence",
+   "handle correspondence",
+   "correspondence course",
+   "in correspondence with",
+   "official correspondence"
+  ],
+  "syn": [
+   "letters",
+   "communication",
+   "mail"
+  ]
+ },
+ "cosmetic": {
+  "ipaUS": "/kɑːzˈmetɪk/",
+  "col": [
+   "cosmetic products",
+   "cosmetic changes",
+   "cosmetic surgery",
+   "cosmetic damage",
+   "cosmetics industry",
+   "purely cosmetic"
+  ],
+  "syn": [
+   "superficial",
+   "decorative",
+   "beauty"
+  ]
+ },
+ "costly": {
+  "ipaUS": "/ˈkɔːstli/",
+  "col": [
+   "costly mistake",
+   "costly repairs",
+   "costly delay",
+   "costly process",
+   "prove costly",
+   "costly error"
+  ],
+  "syn": [
+   "expensive",
+   "pricey",
+   "high-priced"
+  ]
+ },
+ "counselor": {
+  "ipaUS": "/ˈkaʊnsələr/",
+  "col": [
+   "career counselor",
+   "financial counselor",
+   "school counselor",
+   "counselor at camp",
+   "see a counselor",
+   "marriage counselor"
+  ],
+  "syn": [
+   "adviser",
+   "therapist",
+   "mentor"
+  ]
+ },
+ "courier": {
+  "ipaUS": "/ˈkʊriər/",
+  "col": [
+   "courier service",
+   "send by courier",
+   "motorbike courier",
+   "courier company",
+   "hire a courier",
+   "express courier"
+  ],
+  "syn": [
+   "messenger",
+   "delivery person",
+   "carrier"
+  ]
+ },
+ "courtesy": {
+  "ipaUS": "/ˈkɜːrtəsi/",
+  "col": [
+   "courtesy call",
+   "courtesy shuttle",
+   "as a courtesy",
+   "common courtesy",
+   "courtesy of",
+   "show courtesy"
+  ],
+  "syn": [
+   "politeness",
+   "respect",
+   "civility"
+  ]
+ },
+ "credit": {
+  "ipaUS": "/ˈkredɪt/",
+  "col": [
+   "access to credit",
+   "give credit",
+   "buy on credit",
+   "credit card",
+   "take credit for",
+   "line of credit"
+  ],
+  "syn": [
+   "loan",
+   "recognition",
+   "praise"
+  ]
+ },
+ "culinary": {
+  "ipaUS": "/ˈkʌləneri/",
+  "col": [
+   "culinary skills",
+   "culinary school",
+   "culinary arts",
+   "culinary tradition",
+   "culinary award",
+   "culinary tour"
+  ],
+  "syn": [
+   "cooking",
+   "gastronomic",
+   "kitchen"
+  ]
+ },
+ "cumulative": {
+  "ipaUS": "/ˈkjuːmjələtɪv/",
+  "col": [
+   "cumulative effect",
+   "cumulative total",
+   "cumulative score",
+   "cumulative impact",
+   "cumulative sales",
+   "cumulative damage"
+  ],
+  "syn": [
+   "accumulated",
+   "total",
+   "growing"
+  ]
+ },
+ "dealership": {
+  "ipaUS": "/ˈdiːlərʃɪp/",
+  "col": [
+   "car dealership",
+   "authorized dealership",
+   "dealership network",
+   "visit a dealership",
+   "franchise dealership",
+   "dealership owner"
+  ],
+  "syn": [
+   "showroom",
+   "retailer",
+   "car lot"
+  ]
+ },
+ "decoration": {
+  "ipaUS": "/ˌdekəˈreɪʃn/",
+  "col": [
+   "holiday decorations",
+   "interior decoration",
+   "Christmas decorations",
+   "wall decoration",
+   "party decorations",
+   "put up decorations"
+  ],
+  "syn": [
+   "ornament",
+   "trimming",
+   "adornment"
+  ]
+ },
+ "dedication": {
+  "ipaUS": "/ˌdedɪˈkeɪʃn/",
+  "col": [
+   "hard work and dedication",
+   "dedication to",
+   "show dedication",
+   "years of dedication",
+   "dedication to duty",
+   "book dedication"
+  ],
+  "syn": [
+   "commitment",
+   "devotion",
+   "loyalty"
+  ]
+ }
+}

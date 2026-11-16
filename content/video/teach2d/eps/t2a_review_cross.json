@@ -72,5 +72,46 @@
   "words": 45,
   "seconds": 27.2,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"cross\" mean?",
+  "keyword": "cross",
+  "value": "Cross means to go from one side of something to the other.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=cross",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"cross\" mean?",
+    "description": "Cross means to go from one side of something to the other.\n\nReview your words, free: https://lexkite.com/app/#/review?w=cross\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "cross",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"cross\" mean?\n\nCross means to go from one side of something to the other.\n\nReview your words, free: https://lexkite.com/app/#/review?w=cross"
+   },
+   "instagram": {
+    "caption": "What does \"cross\" mean?\n\nCross means to go from one side of something to the other.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"cross\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means to go from one side of something to the other. Cross means to go from one side of something to the other. Practice it with a free quiz: {link}"
  }
 }

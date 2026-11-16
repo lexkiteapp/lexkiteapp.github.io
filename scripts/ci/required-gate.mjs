@@ -11,12 +11,16 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isZombie } from './zombie.mjs';
+import { retry5xx } from '../lib/retry5xx.mjs';
 
 export const CONTEXT = 'required-gate';            // tên commit status (thứ ruleset sẽ yêu cầu)
 export const SELF_JOB = 'required-gate-eval';      // tên job của chính workflow này – không tự chờ mình (bộ canh chạy trên main nên không bám head PR)
 export const SELF_PATH = '.github/workflows/required-gate.yml';
 const OK = new Set(['success', 'skipped', 'neutral']);
 const BAD = new Set(['failure', 'timed_out', 'cancelled', 'startup_failure', 'stale', 'error']);
+// 15/11: 'cancelled' KHÔNG phải lỗi thật – concurrency (cancel-in-progress) / runner mất huỷ lượt chạy mà không có lượt mới hơn cùng sha. Trước đây gate đỏ oan (#1340, #1324…).
+// Lượt workflow mới nhất của sha bị huỷ → CHỜ + bộ canh tự chạy lại (≤ MAX_AUTO_RERUN lần); quá số lần đó mới tính đỏ. Lỗi thật (failure/timed_out…) vẫn đỏ ngay.
+export const MAX_AUTO_RERUN = 2;
 
 /** Hàm thuần: { checkRuns, statuses, workflowRuns } (dạng REST API) → { state, description, failed, pending, total }. */
 export function evaluate({ checkRuns = [], statuses = [], workflowRuns = [] } = {}) {
@@ -36,7 +40,7 @@ export function evaluate({ checkRuns = [], statuses = [], workflowRuns = [] } = 
     const k = r.workflow_id ?? r.name, prev = wr.get(k);
     if (!prev || (r.run_number || 0) > (prev.run_number || 0) || ((r.run_number || 0) === (prev.run_number || 0) && (r.id || 0) > (prev.id || 0))) wr.set(k, r);
   }
-  for (const r of wr.values()) items.push({ name: 'workflow: ' + r.name, status: r.status, conclusion: r.conclusion });
+  for (const r of wr.values()) items.push({ name: 'workflow: ' + r.name, status: r.status, conclusion: r.conclusion, runId: r.id, attempt: r.run_attempt });
   // commit status: mới nhất theo context, bỏ chính mình
   const st = new Map();
   for (const s of statuses) {
@@ -46,10 +50,13 @@ export function evaluate({ checkRuns = [], statuses = [], workflowRuns = [] } = 
   }
   for (const s of st.values()) items.push(s.state === 'pending' ? { name: s.context, status: 'in_progress' } : { name: s.context, status: 'completed', conclusion: s.state });
 
-  const failed = [], pending = [];
+  const failed = [], pending = [], cancelled = [];
+  const retry = items.some(i => i.runId && i.conclusion === 'cancelled' && i.status === 'completed' && (i.attempt || 1) <= MAX_AUTO_RERUN);   // có lượt workflow bị huỷ còn được chạy lại
   for (const i of items) {
     if (i.status !== 'completed') pending.push(i.name);
     else if (OK.has(i.conclusion)) continue;
+    else if (i.conclusion === 'cancelled' && i.runId && (i.attempt || 1) <= MAX_AUTO_RERUN) { cancelled.push({ runId: i.runId, attempt: i.attempt || 1, name: i.name }); pending.push(`${i.name} (huỷ – chạy lại)`); }
+    else if (i.conclusion === 'cancelled' && !i.runId && retry) pending.push(`${i.name} (huỷ – chờ lượt chạy lại)`);   // job/check của lượt workflow đang được chạy lại
     else if (BAD.has(i.conclusion)) failed.push(`${i.name} (${i.conclusion})`);
     else pending.push(`${i.name} (${i.conclusion || 'chưa rõ'})`);   // action_required (PR fork chờ duyệt chạy) … → chờ, không đỏ
   }
@@ -66,11 +73,24 @@ export function evaluate({ checkRuns = [], statuses = [], workflowRuns = [] } = 
   let state, description;
   if (failed.length) { state = 'failure'; description = say(`Đỏ ${failed.length}/${total}`, failed); }
   else if (pending.length) { state = 'pending'; description = say(`Chờ ${pending.length}/${total}`, pending); }
-  else { state = 'success'; description = total ? `Xanh: ${total} check đều đạt` : 'Không có check nào chạy trên commit này'; }
-  return { state, description, failed, pending, total };
+  // 05/11: không có check THẬT nào đạt (0 check, hoặc chỉ skipped/neutral) = CI chưa chạy (vd. commit đẩy bằng token không kích workflow) → CHỜ, không xanh.
+  // Trước đây trường hợp này báo xanh → #584 gộp vào main khi chưa có CI nào chạy trên head.
+  else if (!items.some((i) => i.status === 'completed' && i.conclusion === 'success')) { state = 'pending'; description = total ? `Chưa có check thật nào đạt (${total} bỏ qua) – đẩy commit thường để chạy CI` : 'Chưa có check nào chạy trên commit này – đẩy commit thường để chạy CI'; }
+  else { state = 'success'; description = `Xanh: ${total} check đều đạt`; }
+  return { state, description, failed, pending, total, cancelled };
 }
 
 // ---------- bộ canh (3/11): thay ~20 lượt workflow_run/commit bằng 1 runner canh liên tục ----------
+// 15/11 (#1316 lọt cổng Sie): CI của PR chạy trên head + main LÚC ĐÓ; nếu sau đó main đổi chính FILE CỔNG (i18n-qa, bộ luật, test, workflow) thì kết quả xanh cũ chưa qua cổng mới.
+// → gate xanh mà main đã đổi file cổng kể từ lần gộp main cuối của PR = CHỜ ("gộp lại main rồi chờ CI"). Chỉ tệp SỬA/XOÁ/ĐỔI TÊN trong scripts/test (tệp test mới thêm không đổi cổng cũ); workflow/i18n-qa/luật: mọi trạng thái.
+export const GATE_ANY = [/^\.github\/workflows\//, /^scripts\/i18n-qa\.mjs$/, /^scripts\/lib\/[^/]*rules[^/]*\.mjs$/, /^scripts\/ci\/required-gate\.mjs$/];
+export const GATE_CHANGED = [/^scripts\/test\//];
+/** Hàm thuần: files = [{ filename, status }] main đã đổi kể từ merge-base của PR → danh sách tệp cổng đã đổi. */
+export const gateDrift = (files = []) => files.filter(f => GATE_ANY.some(r => r.test(f.filename)) || (GATE_CHANGED.some(r => r.test(f.filename)) && f.status !== 'added')).map(f => f.filename);
+/** Gate xanh nhưng main đã đổi tệp cổng → CHỜ (thuần). Không đụng đỏ/chờ. */
+export const applyDrift = (res, drift) => res.state === 'success' && drift.length
+  ? { ...res, state: 'pending', description: `Main đã đổi tệp cổng (${drift.slice(0, 2).map(f => f.split('/').pop()).join(', ')}${drift.length > 2 ? ` +${drift.length - 2}` : ''}): gộp lại main rồi chờ CI`.slice(0, 140), drift }
+  : res;
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const WF = path.join(ROOT, '.github/workflows');
 
@@ -107,16 +127,39 @@ const mine = r => r.path === SELF_PATH || (r.path || '').startsWith(SELF_PATH + 
  * Còn pending và vẫn có lượt khác của sha đang chạy → bỏ qua (gate chỉ có thể vẫn pending) trừ khi vừa có lượt đỏ;
  * gate đã xanh/đỏ mà có lượt mới đổi (chạy lại) → đánh giá; pending lâu không đổi (status/app ngoài) → đánh giá lại sau recheckMs.
  */
-export function dirtyShas({ shas, runs, seen, now, recheckMs = 10 * 60e3 }) {
-  const out = [];
+export function dirtyShas({ shas, runs, seen, now, recheckMs = 10 * 60e3, probes = null, staleMs = 5 * 60e3, why = null }) {
+  const out = [], mark = (sha, r) => { out.push(sha); why?.set(sha, r); };
   for (const sha of shas) {
     const s = seen.get(sha);
-    if (!s) { out.push(sha); continue; }
-    const own = runs.filter(r => r.head_sha === sha && !mine(r)), changed = own.filter(r => Date.parse(r.updated_at) > s.at);
-    if (!changed.length) { if ((s.state === 'pending' && now - s.at >= recheckMs) || (s.recheckAt && now >= s.recheckAt)) out.push(sha); continue; }
-    if (s.state !== 'pending' || changed.some(DONE_BAD) || !own.some(r => r.status !== 'completed')) out.push(sha);
+    if (!s) { mark(sha, 'new'); continue; }
+    // GỐC LỖI (PR #710 05/11, #602 04/11): danh sách /actions/runs?per_page=100 là 100 lượt MỚI TẠO nhất của cả repo (sắp theo created_at).
+    // Lượt 'QA bot' tạo sớm bị 100 lượt filler/cron chen ra ngoài trang → job sau (needs:) xong muộn, run.updated_at đổi mà ta không bao giờ thấy;
+    // lượt chạy lại (rerun) giữ run_id, chỉ tăng run_attempt, cũng trượt như vậy. Nên ngoài so updated_at, (1) so run_attempt, (2) với sha đang pending
+    // mỗi vòng thăm dò check-runs của chính sha đó (probes: sha → { sig, active }; ETag, 304 miễn phí) – chữ ký đổi → đánh giá lại,
+    // (3) lưới cuối: pending ≥ staleMs mà không còn check nào queued/in_progress → bắt buộc đánh giá lại.
+    const own = runs.filter(r => r.head_sha === sha && !mine(r));
+    const changed = own.filter(r => Date.parse(r.updated_at) > s.at || (r.run_attempt || 1) > ((s.attempts && s.attempts[r.id]) || 1));
+    const pr = probes && probes.get(sha);
+    if (pr && s.state === 'pending' && s.sig != null && pr.sig !== s.sig) { mark(sha, 'sig'); continue; }
+    // 10/11 (#1004, #1002 treo hàng giờ): gate ĐỎ, job đỏ được chạy lại thành xanh. Lượt rerun giữ created_at cũ → trượt khỏi trang
+    // recentRuns, và trước đây chỉ sha pending mới được thăm dò → đỏ mãi. Nay sha đỏ cũng được thăm dò: check-runs mới nhất không còn
+    // cái nào đỏ và chữ ký khác lần đánh giá trước (kể cả lần đầu sau khi bộ canh khởi động lại) → đánh giá lại.
+    if (pr && s.state === 'failure' && !pr.bad && pr.sig !== s.sig) { mark(sha, 'rerun'); continue; }
+    if (!changed.length) {
+      if (pr && s.state === 'pending' && !pr.active && now - s.at >= staleMs) { mark(sha, 'stale'); continue; }
+      if ((s.state === 'pending' && now - s.at >= recheckMs) || (s.recheckAt && now >= s.recheckAt)) mark(sha, 'recheck');
+      continue;
+    }
+    if (s.state !== 'pending' || changed.some(DONE_BAD) || !own.some(r => r.status !== 'completed')) mark(sha, 'changed');
   }
   return out;
+}
+
+/** Chữ ký check-runs của 1 sha: đổi khi bất kỳ check nào đổi id/trạng thái/kết luận/lượt chạy lại. active = còn check queued/in_progress. */
+export function probeOf(checkRuns = []) {
+  const act = c => c.status !== 'completed';
+  return { sig: checkRuns.map(c => `${c.id}:${c.status}:${c.conclusion || ''}:${c.completed_at || ''}`).sort().join('|'), active: checkRuns.some(act), n: checkRuns.length,
+    bad: checkRuns.filter(c => c.name !== SELF_JOB && c.status === 'completed' && BAD.has(c.conclusion)).length };
 }
 
 // ---------- API (chỉ đọc + ghi 1 status) ----------
@@ -124,7 +167,7 @@ export function api(token, repo, fetchImpl = globalThis.fetch) {
   const base = `https://api.github.com/repos/${repo}`, etags = new Map(), rate = { remaining: Infinity, reset: 0 };
   const call = async (p, init = {}) => {
     const u = p.startsWith('http') ? p : base + p, get = !init.method || init.method === 'GET', c = get && etags.get(u);
-    const r = await fetchImpl(u, { ...init, headers: { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28', ...(c ? { 'If-None-Match': c.etag } : {}), ...(init.headers || {}) } });
+    const r = await retry5xx(() => fetchImpl(u, { ...init, headers: { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28', ...(c ? { 'If-None-Match': c.etag } : {}), ...(init.headers || {}) } }));
     const h = k => r.headers?.get?.(k);
     if (h('x-ratelimit-remaining') != null) { rate.remaining = +h('x-ratelimit-remaining'); rate.reset = +h('x-ratelimit-reset') * 1000; }
     if (r.status === 304 && c) return c.body;   // GET có điều kiện: 304 không trừ hạn mức API
@@ -151,6 +194,13 @@ export function api(token, repo, fetchImpl = globalThis.fetch) {
       workflowRuns: await pages(`/actions/runs?head_sha=${sha}`, 'workflow_runs', 3),
     }),
     post: (sha, { state, description }, targetUrl) => call(`/statuses/${sha}`, { method: 'POST', body: JSON.stringify({ state, description, context: CONTEXT, ...(targetUrl ? { target_url: targetUrl } : {}) }) }),
+    rerun: id => call(`/actions/runs/${id}/rerun`, { method: 'POST', body: '{}' }),
+    // tệp main đã đổi kể từ merge-base với sha (2 lệnh, chỉ gọi cho sha sắp xanh); lỗi API → [] (mở cổng, không chặn oan)
+    drift: async sha => {
+      const mb = (await call(`/compare/main...${sha}`)).merge_base_commit?.sha; if (!mb) return [];
+      const c = await call(`/compare/${mb}...main`), fs_ = c.files || [];
+      return gateDrift(c.total_commits > 0 && fs_.length >= 300 ? [...fs_, { filename: '.github/workflows/(>300 tệp đổi)', status: 'modified' }] : fs_);
+    },
     pr: n => call(`/pulls/${n}`),
     openPrs: () => pages('/pulls?state=open&sort=updated&direction=desc', null, 2),
     // tự nối (3/11): cron GitHub có lúc bỏ lượt hàng giờ (02/11: ci-triage + free-tier-guard 13 giờ) → bộ canh tự xếp lượt kế tiếp
@@ -158,6 +208,8 @@ export function api(token, repo, fetchImpl = globalThis.fetch) {
     lastRun: async file => ((await call(`/actions/workflows/${file}/runs?per_page=1`)).workflow_runs || [])[0] || null,
     dispatchFile: async (file, ref) => call(`/actions/workflows/${file}/dispatches`, { method: 'POST', body: JSON.stringify({ ref }) }),
     dispatchSelf: async ref => call(`/actions/workflows/${path.basename(SELF_PATH)}/dispatches`, { method: 'POST', body: JSON.stringify({ ref }) }),
+    // thăm dò nhẹ cho sha đang pending: 1 trang check-runs (ETag → 304 không trừ hạn mức)
+    probe: async sha => probeOf((await call(`/commits/${sha}/check-runs?filter=latest&per_page=100`)).check_runs || []),
     gateState: async sha => ((await call(`/commits/${sha}/status?per_page=100`)).statuses || []).find(s => s.context === CONTEXT),
   };
 }
@@ -170,14 +222,23 @@ export const chainAlive = (runs, since) => runs.some(r => Date.parse(r.created_a
 export const PACED = { 'ci-filler.yml': 10, 'd1-usage-watch.yml': 20 };
 /** Tới nhịp chưa (thuần): không có lượt đang chờ/chạy thật và lượt cuối đã quá khoảng lịch. */
 export const paceDue = (last, gapMin, now) => !last || (last.status === 'completed' || isZombie(last, now)) && now - Date.parse(last.created_at) >= gapMin * 6e4;
+/** Chạy lại các lượt workflow bị huỷ (res.cancelled); mỗi runId:attempt chỉ 1 lần mỗi lượt canh. */
+export async function rerunCancelled(A, res, done, log = console.log) {
+  for (const c of res.cancelled || []) {
+    const k = c.runId + ':' + c.attempt; if (done.has(k)) continue; done.add(k);
+    try { await A.rerun(c.runId); log(`↻ chạy lại ${c.name} (lượt huỷ #${c.runId}, lần ${c.attempt})`); } catch (e) { log(`::warning::không chạy lại được ${c.name}: ${e.message}`); }
+  }
+}
 export async function run(argv, env = process.env, A = null, log = console.log, clock = { now: () => Date.now(), sleep: ms => new Promise(r => setTimeout(r, ms)) }) {
   const arg = k => { const i = argv.indexOf(k); return i >= 0 ? argv[i + 1] : undefined; };
   const dry = argv.includes('--dry'), url = env.RUN_URL || '';
   A = A || api(env.GITHUB_TOKEN, env.GITHUB_REPOSITORY);
+  const reran = new Set();
+  const withDrift = async (res, sha) => { if (res.state !== 'success' || !A.drift) return res; try { return applyDrift(res, await A.drift(sha)); } catch (e) { log('::warning::đo tệp cổng lỗi (mở cổng): ' + e.message); return res; } };
   const one = async sha => {
-    const res = evaluate(await A.gather(sha));
+    const res = await withDrift(evaluate(await A.gather(sha)), sha);
     log(`${sha.slice(0, 8)} → ${res.state}: ${res.description}`);
-    if (!dry) await A.post(sha, res, url);
+    if (!dry) { await A.post(sha, res, url); await rerunCancelled(A, res, reran, log); }
     return res;
   };
   if (arg('--sha')) return [await one(arg('--sha'))];
@@ -222,24 +283,35 @@ export async function run(argv, env = process.env, A = null, log = console.log, 
         try { if (paceDue(await A.lastRun(file), gap, clock.now())) { await A.dispatchFile(file, env.GATE_CHAIN_REF); log(`⏱ nhịp ${file}: đã dispatch`); paceAt.set(file, clock.now() + gap * 60e3); } } catch (e) { log(`::warning::nhịp ${file}: ${e.message}`); }
       }
       if (!chained && end - clock.now() <= CHAIN_BEFORE) { chained = true; try { await A.dispatchSelf(env.GATE_CHAIN_REF); chainAt = clock.now(); log('↻ đã xếp lượt canh kế tiếp'); } catch (e) { log('::warning::không tự nối được (lịch 17,47 vẫn là lưới): ' + e.message); } }
-      const t = clock.now(), prs = (await A.openPrs()).filter(p => Date.parse(p.updated_at) >= since()), shas = [...new Set(prs.map(p => p.head.sha))];
+      // 15/11 (#1355, #1376 kẹt pending phải dispatch tay): 1 lỗi API (502/429) ném ra khỏi vòng làm bộ canh chết tới lượt nối kế (15–30 phút) → vòng nào lỗi thì ghi cảnh báo, chờ rồi thử lại
+      let t, prs, shas;
+      try { t = clock.now(); prs = (await A.openPrs()).filter(p => Date.parse(p.updated_at) >= since()); shas = [...new Set(prs.map(p => p.head.sha))]; }
+      catch (e) { log('::warning::liệt kê PR lỗi API – thử lại sau 60 s: ' + e.message); if (clock.now() + 60e3 >= end) break; await clock.sleep(60e3); continue; }
       if (first) {   // mồi: gate đã xanh/đỏ thì ghi nhận (1 lệnh/PR), pending/thiếu thì đánh giá ngay
         for (const sha of shas) { const g = await A.gateState(sha); if (g && g.state !== 'pending') seen.set(sha, { at: Date.parse(g.updated_at || g.created_at) || t, state: g.state, desc: g.description }); }
         first = false;
       }
-      const dirty = dirtyShas({ shas, runs: await A.recentRuns(), seen, now: t }).slice(0, 25);   // ≤ 25 sha/vòng: hạn mức GITHUB_TOKEN 1.000 lệnh/giờ
+      let runs; try { runs = await A.recentRuns(); } catch (e) { log('::warning::liệt kê lượt chạy lỗi API – thử lại sau 60 s: ' + e.message); if (clock.now() + 60e3 >= end) break; await clock.sleep(60e3); continue; }
+      const probes = new Map(), why = new Map();
+      // thăm dò chỉ khi còn hạn mức dư (≥ 400/giờ): lúc CI bận ETag đổi liên tục, 20 sha × 60–120 vòng/giờ có thể ăn hết 1.000 lệnh của GITHUB_TOKEN → nhường cho đánh giá chính (lưới recheck 10 phút vẫn còn)
+      if (A.probe && ((A.rate && A.rate.remaining) ?? Infinity) >= 400) for (const sha of shas.filter(x => ['pending', 'failure'].includes(seen.get(x)?.state)).slice(0, 20)) try { probes.set(sha, await A.probe(sha)); } catch (e) { log('::warning::probe ' + sha.slice(0, 8) + ': ' + e.message); }
+      const dirty = dirtyShas({ shas, runs, seen, now: t, probes, why }).slice(0, 25);   // ≤ 25 sha/vòng: hạn mức GITHUB_TOKEN 1.000 lệnh/giờ
       for (const p of prs) if (!born.has(p.head.sha)) born.set(p.head.sha, first ? Date.parse(p.updated_at) : t);   // lượt mồi: lấy lúc PR cập nhật
-      for (const sha of dirty) {
+      for (const sha of dirty) try {
         const at = clock.now(), s = seen.get(sha);
-        let res = evaluate(await A.gather(sha)), recheckAt = 0;
+        if (why.get(sha) === 'stale' || why.get(sha) === 'rerun') log(`gate-${why.get(sha)}: PR #${prs.find(p => p.head.sha === sha)?.number} tự đánh giá lại`);
+        let res = await withDrift(evaluate(await A.gather(sha)), sha), recheckAt = 0;
         if (res.state === 'success' && at - born.get(sha) < YOUNG) { recheckAt = born.get(sha) + YOUNG; res = { ...res, state: 'pending', description: 'Chờ workflow khởi động trên commit mới' }; }
         if (!s || s.state !== res.state || s.desc !== res.description) {
           log(`${sha.slice(0, 8)} → ${res.state}: ${res.description}`);
           if (!dry) await A.post(sha, res, url);
           out.push({ sha, ...res });
         }
-        seen.set(sha, { at: at - 5e3, state: res.state, desc: res.description, recheckAt });   // lùi 5 s: lượt xong sát lúc đọc vẫn được thấy ở vòng sau
-      }
+        if (!dry) await rerunCancelled(A, res, reran, log);
+        const attempts = {}; for (const r of runs) if (r.head_sha === sha) attempts[r.id] = r.run_attempt || 1;
+        let sig = null; if (A.probe && (res.state === 'pending' || res.state === 'failure')) try { sig = (probes.get(sha) || await A.probe(sha)).sig; } catch { /* lần sau */ }
+        seen.set(sha, { at: at - 5e3, state: res.state, desc: res.description, recheckAt, attempts, sig });   // lùi 5 s: lượt xong sát lúc đọc vẫn được thấy ở vòng sau
+      } catch (e) { log(`::warning::đánh giá ${sha.slice(0, 8)} lỗi API – giữ nguyên, thử lại vòng sau: ${e.message}`); }
       for (const k of seen.keys()) if (!shas.includes(k)) seen.delete(k), born.delete(k);   // PR đã gộp/đóng/đẩy commit mới
       const rate = A.rate || { remaining: Infinity };
       const wait = rate.remaining < 150 ? Math.max(60e3, rate.reset - clock.now()) : [...seen.values()].some(v => v.state === 'pending') || dirty.length ? 30e3 : 60e3;

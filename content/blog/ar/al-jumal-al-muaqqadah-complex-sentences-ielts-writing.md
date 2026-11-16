@@ -8,7 +8,7 @@ translationKey: ngu-phap-ielts-cau-phuc
 category: ielts
 tags: [ielts, writing, complex-sentences, qawaid]
 cover: write
-coverAlt: "Phòng viết writing IELTS Task 2 trên Lexkite với gợi ý ý tưởng và bài mẫu band 8"
+coverAlt: "غرفة كتابة IELTS Task 2 في Lexkite: اختيار الموضوع، أفكار مقترحة، مفردات، هيكل المقال ونموذج إجابة باند 8 مع شروحات"
 qualityScore: 95
 factChecked: 2026-10-15
 author: Lexkite
@@ -127,7 +127,7 @@ publishAt: 2026-11-25T21:43:00+03:00
 
 تحقق من حروف الجر والروابط الأكاديمية الصحيحة في [قاموس Lexkite المتقدم](/#/dict/resilient).
 
-![قاموس ثنائي اللغة Lexkite: البحث عن كلمة resilient مع النسخ الصوتي الصوتي البريطاني/الأمريكي وجمل أمثلة](media:dict "البحث عن الكلمات والمتلازمات الأكاديمية وجمل الأمثلة المترجمة في قاموس Lexkite")
+![قاموس Lexkite: البحث عن كلمة resilient مع النطق البريطاني/الأمريكي والمعنى وجمل الأمثلة والمتلازمات اللفظية والمرادفات](media:dict "البحث عن الكلمات والمتلازمات الأكاديمية وجمل الأمثلة المترجمة في قاموس Lexkite")
 
 ## تمارين دمج الجمل المعقدة (Sentence Combining Practice)
 

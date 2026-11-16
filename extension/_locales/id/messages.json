@@ -154,5 +154,26 @@
  },
  "ntMoreSenses": {
   "message": "+{n} arti"
+ },
+ "ntQzTag": {
+  "message": "Kuis kilat"
+ },
+ "ntQzQ": {
+  "message": "Pilih arti yang benar"
+ },
+ "ntQzTime": {
+  "message": "{s} detik"
+ },
+ "ntQzRight": {
+  "message": "Benar!"
+ },
+ "ntQzWrong": {
+  "message": "Belum tepat — kata ini akan muncul lagi"
+ },
+ "ntQzTimeout": {
+  "message": "Waktu habis, tidak apa-apa"
+ },
+ "ntQzSkip": {
+  "message": "Lewati"
  }
 }

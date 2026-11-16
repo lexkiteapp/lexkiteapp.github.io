@@ -67,6 +67,7 @@ window.App = {
   saveSettings: async () => true,
   reward: async d => { rewarded += d.xp || 0; },
   cleanups: [],
+  homeHref: () => '#/home',
 };
 
 // 1. Nạp web/js/quick.js
@@ -82,6 +83,7 @@ const view = window.App.view;
 
 // 2. Chơi nhanh: render, CSS nạp khi mở, đáp án đúng duy nhất, phương án nhiễu khác nghĩa
 window.App.routes.quick();
+await sleep(60); // câu 1 chuẩn bị theo lát (không tác vụ dài) rồi mới vẽ
 assert(document.getElementById('qk-css'), 'CSS #qk-css nạp khi mở route');
 assert(document.querySelector('.qk-timer-pill'), 'Có đồng hồ 15s');
 for (let i = 0; i < 4; i++) {
@@ -106,6 +108,7 @@ console.log('✓ routes.quick: 4 câu, 1 đáp án đúng, phản hồi, kết q
 // 3. Hết giờ giữa lúc đang xem phản hồi → không vẽ lại câu hỏi đè lên màn kết quả
 const realNow = Date.now;
 window.App.routes.quick();
+await sleep(60);
 document.querySelector('#qkOpts .qk-btn').click();
 Date.now = () => realNow() + 16000;
 await sleep(1000);
@@ -133,6 +136,8 @@ console.log('✓ routes.style: 6 câu, kết quả, lưu, liên kết gợi ý')
 const appCode = fs.readFileSync('web/js/app.js', 'utf8');
 assert(appCode.includes("quick: ['js/i18n/en/quick.js', 'js/quick.js']"), 'bundle quick');
 assert(appCode.includes("quick: ['words', 'quick']") && appCode.includes("style: 'quick'"), 'route quick/style');
-assert(appCode.includes('href="#/quick"') && appCode.includes('href="#/style"'), 'lối vào #/quick, #/style');
+// #/style: lối vào ở Welcome (mẫu Stitch, web/js/st/v2/welcome.js, bind d.lkStyle) – vẫn phải có
+const welcomeCode = fs.readFileSync('web/js/st/v2/welcome.js', 'utf8');
+assert(appCode.includes('href="#/quick"') && (appCode.includes('href="#/style"') || welcomeCode.includes("href=\"${e('#/style')}\"")), 'lối vào #/quick, #/style');
 console.log('--- ALL QUICK PLAY & STYLE TESTS PASSED ---');
 process.exit(0);

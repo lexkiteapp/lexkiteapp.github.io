@@ -15,6 +15,8 @@ def gate(name, ok, detail='', w=10): G[name] = dict(ok=bool(ok), detail=detail i
 # --- script
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import script_rules as SR
 ri = SR.check(sp, L); gate('script_rules', not ri, ri[:5], 10)
+import publish_meta as PM
+pe = PM.validate(sp.get('publish')); gate('publish_meta', not pe, pe, 6)  # tiêu đề, mô tả, hashtag phải có từ lúc sản xuất
 J = Q.get('judge') or {}; gate('ai_script_judge', J.get('ok') is True, (J.get('judge') or {}).get('issues') or J.get('error') or 'missing', 10)
 # --- scene
 P = Q.get('placement') or {}; gate('scene_placement', P.get('ok') is True, {k: P.get(k) for k in ('bg', 'eye_dev', 'cam_ty', 'host_dy')}, 8)

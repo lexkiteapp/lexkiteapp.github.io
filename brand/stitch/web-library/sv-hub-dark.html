@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Kit - IELTS Essay Library (Tactile Night)</title>
+<!-- Load Tailwind CSS v3 with forms & container queries plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            night: {
+              canvas: '#081518',
+              surface: '#0E1E22',
+              card: '#13272C',
+              cardElevated: '#183036',
+              border: '#1A363D',
+              borderHighlight: '#244952',
+              ledge: '#061012',
+              textPrimary: '#EEF6F7',
+              textMuted: '#A9BFC1',
+              textSubtle: '#789599'
+            },
+            coral: {
+              DEFAULT: '#F2553B',
+              hover: '#FF6347',
+              ledge: '#A82D18',
+              ink: '#1B0B04'
+            },
+            mint: {
+              DEFAULT: '#2DD4BF',
+              dim: '#134E48',
+              glow: '#5EEAD4'
+            },
+            bandEmerald: {
+              bg: '#064E3B',
+              border: '#059669',
+              text: '#34D399'
+            },
+            bandCyan: {
+              bg: '#0E3B43',
+              border: '#0891B2',
+              text: '#38BDF8'
+            },
+            bandAmber: {
+              bg: '#451A03',
+              border: '#D97706',
+              text: '#FBBF24'
+            }
+          },
+          boxShadow: {
+            'tactile-card': '0 4px 0 0 #061012, 0 10px 20px -3px rgba(0, 0, 0, 0.4)',
+            'tactile-btn': '0 4px 0 0 #A82D18',
+            'tactile-btn-teal': '0 4px 0 0 #0C2B30',
+            'tactile-input': 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.4)'
+          }
+        }
+      }
+    };
+  </script>
+<!-- BEGIN: Custom tactile styles -->
+<style data-purpose="tactile-effects">
+    /* Tactile bottom ledge utility for physical pressable elements */
+    .tactile-press {
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-press:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 0 #061012;
+    }
+    .tactile-coral-press:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 0 #A82D18;
+    }
+  </style>
+<!-- END: Custom tactile styles -->
+</head>
+<body class="bg-night-canvas text-night-textPrimary min-h-screen font-sans antialiased selection:bg-mint/30 selection:text-white">
+<!-- BEGIN: MainHeader -->
+<header class="border-b-2 border-night-border bg-night-surface sticky top-0 z-50 shadow-md">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+<!-- Brand & Navigation links -->
+<div class="flex items-center space-x-10">
+<!-- Logo -->
+<a class="flex items-center space-x-3 group" href="#">
+<div class="w-10 h-10 rounded-xl bg-night-card border-2 border-night-borderHighlight flex items-center justify-center shadow-tactile-card group-hover:border-mint transition-colors">
+<!-- Diamond kite SVG icon -->
+<svg class="w-6 h-6 text-mint transform rotate-12" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2L21 12L12 22L3 12L12 2Z"></path>
+</svg>
+</div>
+<div class="flex flex-col">
+<span class="text-xl font-black tracking-tight text-night-textPrimary">LEXKITE</span>
+<span class="text-[10px] uppercase font-bold tracking-widest text-mint">Tactile IELTS Lab</span>
+</div>
+</a>
+<!-- Main Navigation Links -->
+<nav class="hidden md:flex items-center space-x-1">
+<a class="px-4 py-2 rounded-lg text-sm font-semibold text-night-textMuted hover:text-white hover:bg-night-card transition-colors" href="#">Curriculum</a>
+<a class="px-4 py-2 rounded-lg text-sm font-semibold bg-night-card border border-night-borderHighlight text-mint shadow-inner" href="#">Essay Library</a>
+<a class="px-4 py-2 rounded-lg text-sm font-semibold text-night-textMuted hover:text-white hover:bg-night-card transition-colors" href="#">Vocabulary Decks</a>
+<a class="px-4 py-2 rounded-lg text-sm font-semibold text-night-textMuted hover:text-white hover:bg-night-card transition-colors" href="#">Band 9 Models</a>
+<a class="px-4 py-2 rounded-lg text-sm font-semibold text-night-textMuted hover:text-white hover:bg-night-card transition-colors" href="#">Examiner Reviews</a>
+</nav>
+</div>
+<!-- Action items & User Profile -->
+<div class="flex items-center space-x-4">
+<button class="hidden sm:flex items-center space-x-2 px-3 py-1.5 rounded-lg bg-night-card border border-night-border text-night-textMuted text-xs font-medium hover:border-night-borderHighlight">
+<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+<span>Task 2 Daily Challenge</span>
+</button>
+<!-- Primary Call to Action -->
+<button class="tactile-press tactile-coral-press bg-coral text-coral-ink font-bold text-sm px-5 py-2.5 rounded-xl border-2 border-[#FFA08C] shadow-tactile-btn flex items-center space-x-2">
+<svg class="w-4 h-4 stroke-[2.5]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 4.5v15m7.5-7.5h-15" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span>Submit Essay</span>
+</button>
+<!-- User Avatar with tactile rim -->
+<div class="w-10 h-10 rounded-xl bg-night-card border-2 border-night-borderHighlight overflow-hidden p-0.5 shadow-sm">
+<img alt="Student Profile" class="w-full h-full object-cover rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCM-8KL1ojAXfPUFC9ZQHQV8-QKfhPreta_P-G66r8y_MzpkHBbU6yfmyYAVI6v9Gw34opcXF7D541ZVMrgzyeCOn4UHQ7N9WeiSIvG_pwMVidd01NyxprhhXtGu9ou0YFJ4gBU9zA52Wq8-LX-PyaQH-WhBwCl_YSeIxdOoijuos-mjrc0kbzxqaG18A6P-DDxYo6iaVmw_e3o8MPBvSbylpt65FBJlgmAcpmcgYXPAiAHoRG_DYLoy_aG8iE8NFN5_un9YO0B7sc"/>
+</div>
+</div>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: HeroAndHeaderBanner -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-6">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-night-border">
+<div>
+<div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-night-surface border border-night-borderHighlight text-mint text-xs font-semibold uppercase tracking-wider mb-3">
+<span>Task 1 &amp; Task 2 Vault</span>
+<span class="text-night-textSubtle">•</span>
+<span>1,420 Verified Samples</span>
+</div>
+<h1 class="text-3xl sm:text-4xl font-black text-night-textPrimary tracking-tight">IELTS Model Essay Vault</h1>
+<p class="mt-2 text-night-textMuted text-base max-w-2xl">
+          Calibrated examiner responses with interactive cohesion scoring, collocation counts, and examiner commentary designed for band acceleration.
+        </p>
+</div>
+<!-- Quick Metrics Pills -->
+<div class="flex items-center gap-3">
+<div class="px-4 py-3 bg-night-surface rounded-xl border-2 border-night-border text-center shadow-tactile-card min-w-[110px]">
+<span class="block text-2xl font-black text-mint">8.7</span>
+<span class="text-[11px] font-bold text-night-textMuted uppercase tracking-wider">Avg Band</span>
+</div>
+<div class="px-4 py-3 bg-night-surface rounded-xl border-2 border-night-border text-center shadow-tactile-card min-w-[110px]">
+<span class="block text-2xl font-black text-night-textPrimary">380+</span>
+<span class="text-[11px] font-bold text-night-textMuted uppercase tracking-wider">Band 9.0s</span>
+</div>
+<div class="px-4 py-3 bg-night-surface rounded-xl border-2 border-night-border text-center shadow-tactile-card min-w-[110px]">
+<span class="block text-2xl font-black text-coral">100%</span>
+<span class="text-[11px] font-bold text-night-textMuted uppercase tracking-wider">Examiner OK</span>
+</div>
+</div>
+</div>
+</section>
+<!-- END: HeroAndHeaderBanner -->
+<!-- BEGIN: SearchAndFilterBar -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+<div class="bg-night-surface border-2 border-night-border rounded-2xl p-4 shadow-tactile-card flex flex-col lg:flex-row gap-4 items-stretch lg:items-center justify-between">
+<!-- Search Input Container -->
+<div class="relative flex-1">
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+<svg class="w-5 h-5 text-night-textSubtle" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<input class="w-full pl-11 pr-4 py-2.5 bg-night-card border-2 border-night-border rounded-xl text-night-textPrimary placeholder-night-textSubtle text-sm font-medium focus:outline-none focus:border-mint focus:ring-0 transition-colors shadow-tactile-input" placeholder="Search by topic prompt, keyword (e.g. 'automation', 'climate change')..." type="text" value="Artificial intelligence in education"/>
+</div>
+<!-- Filters & Selectors -->
+<div class="flex flex-wrap items-center gap-3">
+<!-- Task Type Selector -->
+<div class="relative">
+<select class="appearance-none bg-night-card border-2 border-night-border rounded-xl pl-3.5 pr-8 py-2.5 text-xs font-bold text-night-textPrimary focus:outline-none focus:border-mint cursor-pointer shadow-tactile-input">
+<option>Task 2: Academic</option>
+<option>Task 1: Academic Graph</option>
+<option>Task 2: General Training</option>
+<option>Task 1: GT Formal Letter</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-night-textMuted">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+</div>
+<!-- Target Band Filter -->
+<div class="relative">
+<select class="appearance-none bg-night-card border-2 border-night-border rounded-xl pl-3.5 pr-8 py-2.5 text-xs font-bold text-night-textPrimary focus:outline-none focus:border-mint cursor-pointer shadow-tactile-input">
+<option>Band 8.5 &amp; 9.0 Only</option>
+<option>Band 8.0 &amp; Above</option>
+<option>Band 7.5 Benchmark</option>
+<option>All Bands</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-night-textMuted">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+</div>
+<!-- Essay Type -->
+<div class="relative">
+<select class="appearance-none bg-night-card border-2 border-night-border rounded-xl pl-3.5 pr-8 py-2.5 text-xs font-bold text-night-textPrimary focus:outline-none focus:border-mint cursor-pointer shadow-tactile-input">
+<option>Agree / Disagree</option>
+<option>Discussion + Opinion</option>
+<option>Problem &amp; Solution</option>
+<option>Two-Part Question</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-night-textMuted">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+</div>
+<!-- Reset Button -->
+<button class="tactile-press px-3.5 py-2.5 bg-night-card hover:bg-night-cardElevated border-2 border-night-border text-night-textMuted hover:text-white rounded-xl text-xs font-bold flex items-center space-x-1.5 shadow-tactile-input">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Reset</span>
+</button>
+</div>
+</div>
+<!-- Active Topic Filter Badges -->
+<div class="flex items-center gap-2 mt-4 overflow-x-auto pb-1 text-xs">
+<span class="text-night-textSubtle font-semibold whitespace-nowrap">Active Topics:</span>
+<span class="inline-flex items-center px-3 py-1 rounded-lg bg-night-surface border border-night-borderHighlight text-mint font-medium">
+        Technology &amp; AI <button class="ml-2 hover:text-white">×</button>
+</span>
+<span class="inline-flex items-center px-3 py-1 rounded-lg bg-night-surface border border-night-borderHighlight text-mint font-medium">
+        Higher Education <button class="ml-2 hover:text-white">×</button>
+</span>
+<span class="inline-flex items-center px-3 py-1 rounded-lg bg-night-surface border border-night-borderHighlight text-night-textMuted font-medium hover:border-mint cursor-pointer">
+        + Add Topic Filter
+      </span>
+</div>
+</section>
+<!-- END: SearchAndFilterBar -->
+<!-- BEGIN: EssayGridSection -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1: Band 9.0 Emerald -->
+<article class="tactile-press bg-night-surface rounded-2xl border-2 border-night-border p-5 flex flex-col justify-between shadow-tactile-card hover:border-night-borderHighlight transition-all group">
+<div>
+<!-- Card Header Badges -->
+<div class="flex items-center justify-between gap-2 mb-3">
+<span class="px-2.5 py-1 rounded-md text-[11px] font-bold uppercase tracking-wider bg-bandEmerald-bg text-bandEmerald-text border border-bandEmerald-border">
+              Band 9.0 Official
+            </span>
+<div class="flex items-center space-x-1.5 text-xs text-night-textMuted font-medium">
+<svg class="w-3.5 h-3.5 text-mint" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>5 min read</span>
+</div>
+</div>
+<!-- Essay Question Title -->
+<h2 class="text-base font-bold text-night-textPrimary group-hover:text-mint transition-colors line-clamp-2 leading-snug">
+            Will Artificial Intelligence Replace University Lecturers in Higher Education?
+          </h2>
+<!-- Snippet Description -->
+<p class="mt-2.5 text-xs text-night-textMuted leading-relaxed line-clamp-3">
+            "While automation optimizes didactic content delivery, pedagogical empathy and nuanced mentorship remain uniquely anchored within human cognitive agency..."
+          </p>
+<!-- Metrics Ribbon -->
+<div class="mt-4 pt-3 border-t border-night-border flex items-center justify-between text-xs text-night-textSubtle">
+<span class="flex items-center space-x-1 font-semibold text-night-textMuted">
+<svg class="w-3.5 h-3.5 text-coral" fill="currentColor" viewbox="0 0 20 20"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path><path clip-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" fill-rule="evenodd"></path></svg>
+<span>348 Words</span>
+</span>
+<span class="font-semibold text-night-textMuted">24 C2 Collocations</span>
+<span class="text-emerald-400 font-bold bg-bandEmerald-bg/60 px-2 py-0.5 rounded border border-bandEmerald-border/40">TR 9.0 • CC 9.0</span>
+</div>
+</div>
+<!-- Card Footer: Author Slot and CTA -->
+<div class="mt-5 pt-3.5 border-t border-night-border flex items-center justify-between">
+<div class="flex items-center space-x-2.5">
+<div class="w-8 h-8 rounded-lg bg-night-card border border-night-borderHighlight overflow-hidden">
+<img alt="Examiner" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVmQX-WCMQWHF1jYoM4SB9vBJIJcDxB4rzQ-mQnJMXA3z9szUXYYotAUhdtvlW3iJ22AAr7Jjx_tI7Z2q_rn1w5aotwBfnYv10gb_mrkS6HeHtqeWSojFZlmQB6ms7It01ZPqy9GUYn6eDulnPeBBRXusUOEyrY1XDafbvu6C4kJDwIjOcUJAcxzJ63Alrzk4Ortj4arf-12XHlPsonG36X1fXWa2SInpJySuUGpDQTzp6S4tkdsCuiMngtNlAgnTov9HC-Z13bL8"/>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-bold text-night-textPrimary leading-none">Dr. Alistair Finch</span>
+<span class="text-[10px] text-night-textSubtle leading-tight mt-0.5">Ex-British Council Examiner</span>
+</div>
+</div>
+<a class="px-3 py-1.5 rounded-lg bg-night-card hover:bg-night-cardElevated border border-night-borderHighlight text-mint text-xs font-bold inline-flex items-center space-x-1 group-hover:border-mint transition-colors" href="#">
+<span>Read</span>
+<span>→</span>
+</a>
+</div>
+</article>
+<!-- Card 2: Band 8.5 Cyan -->
+<article class="tactile-press bg-night-surface rounded-2xl border-2 border-night-border p-5 flex flex-col justify-between shadow-tactile-card hover:border-night-borderHighlight transition-all group">
+<div>
+<!-- Card Header Badges -->
+<div class="flex items-center justify-between gap-2 mb-3">
+<span class="px-2.5 py-1 rounded-md text-[11px] font-bold uppercase tracking-wider bg-bandCyan-bg text-bandCyan-text border border-bandCyan-border">
+              Band 8.5 Model
+            </span>
+<div class="flex items-center space-x-1.5 text-xs text-night-textMuted font-medium">
+<svg class="w-3.5 h-3.5 text-mint" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>4 min read</span>
+</div>
+</div>
+<!-- Essay Question Title -->
+<h2 class="text-base font-bold text-night-textPrimary group-hover:text-mint transition-colors line-clamp-2 leading-snug">
+            Should Governments Implement Congestion Pricing in Megacity Metropolises?
+          </h2>
+<!-- Snippet Description -->
+<p class="mt-2.5 text-xs text-night-textMuted leading-relaxed line-clamp-3">
+            "Levying targeted tariffs on private vehicles circumvents transit gridlock while funneling municipal revenue directly into decarbonized rail networks..."
+          </p>
+<!-- Metrics Ribbon -->
+<div class="mt-4 pt-3 border-t border-night-border flex items-center justify-between text-xs text-night-textSubtle">
+<span class="flex items-center space-x-1 font-semibold text-night-textMuted">
+<svg class="w-3.5 h-3.5 text-coral" fill="currentColor" viewbox="0 0 20 20"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path><path clip-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" fill-rule="evenodd"></path></svg>
+<span>292 Words</span>
+</span>
+<span class="font-semibold text-night-textMuted">18 C2 Collocations</span>
+<span class="text-cyan-400 font-bold bg-bandCyan-bg/60 px-2 py-0.5 rounded border border-bandCyan-border/40">TR 8.5 • CC 9.0</span>
+</div>
+</div>
+<!-- Card Footer: Author Slot and CTA -->
+<div class="mt-5 pt-3.5 border-t border-night-border flex items-center justify-between">
+<div class="flex items-center space-x-2.5">
+<div class="w-8 h-8 rounded-lg bg-night-card border border-night-borderHighlight overflow-hidden">
+<img alt="Examiner" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwnXO3ta4jtVJhR85jkX9yIYNKw7_xfi9KKX2YBVx4OgzyCxsXVCfqBlRYzZL0RRub608pkLdlT1sCmSXm6CQvDK14KBVq8RPSiEPSM5Xqck3Sm0TTob1X-BXSjWDnKZHDsF1HQdoM8uoWB-ErVVFVo3w7Xvw0cxAYxSoC985wDxIABbQvKHH5_iNlTUdeBPkZAX2h8NBoJ4zlwXrxOkP_Im0P08Bif3rVfhWlTVMufDfnQBpgoYptsR_ayx66sULBIh1BWSjHy2I"/>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-bold text-night-textPrimary leading-none">Marcus Vance, M.Ed.</span>
+<span class="text-[10px] text-night-textSubtle leading-tight mt-0.5">Senior Lexkite Trainer</span>
+</div>
+</div>
+<a class="px-3 py-1.5 rounded-lg bg-night-card hover:bg-night-cardElevated border border-night-borderHighlight text-mint text-xs font-bold inline-flex items-center space-x-1 group-hover:border-mint transition-colors" href="#">
+<span>Read</span>
+<span>→</span>
+</a>
+</div>
+</article>
+<!-- Card 3: Band 9.0 Emerald -->
+<article class="tactile-press bg-night-surface rounded-2xl border-2 border-night-border p-5 flex flex-col justify-between shadow-tactile-card hover:border-night-borderHighlight transition-all group">
+<div>
+<!-- Card Header Badges -->
+<div class="flex items-center justify-between gap-2 mb-3">
+<span class="px-2.5 py-1 rounded-md text-[11px] font-bold uppercase tracking-wider bg-bandEmerald-bg text-bandEmerald-text border border-bandEmerald-border">
+              Band 9.0 Official
+            </span>
+<div class="flex items-center space-x-1.5 text-xs text-night-textMuted font-medium">
+<svg class="w-3.5 h-3.5 text-mint" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>6 min read</span>
+</div>
+</div>
+<!-- Essay Question Title -->
+<h2 class="text-base font-bold text-night-textPrimary group-hover:text-mint transition-colors line-clamp-2 leading-snug">
+            Preserving Indigenous Dialects vs Global Linguistic Homogenization
+          </h2>
+<!-- Snippet Description -->
+<p class="mt-2.5 text-xs text-night-textMuted leading-relaxed line-clamp-3">
+            "The gradual extinction of ancestral languages threatens not merely lexical diversity, but untranslatable epistemology and cultural identity..."
+          </p>
+<!-- Metrics Ribbon -->
+<div class="mt-4 pt-3 border-t border-night-border flex items-center justify-between text-xs text-night-textSubtle">
+<span class="flex items-center space-x-1 font-semibold text-night-textMuted">
+<svg class="w-3.5 h-3.5 text-coral" fill="currentColor" viewbox="0 0 20 20"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path><path clip-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" fill-rule="evenodd"></path></svg>
+<span>362 Words</span>
+</span>
+<span class="font-semibold text-night-textMuted">29 C2 Collocations</span>
+<span class="text-emerald-400 font-bold bg-bandEmerald-bg/60 px-2 py-0.5 rounded border border-bandEmerald-border/40">TR 9.0 • GRA 9.0</span>
+</div>
+</div>
+<!-- Card Footer: Author Slot and CTA -->
+<div class="mt-5 pt-3.5 border-t border-night-border flex items-center justify-between">
+<div class="flex items-center space-x-2.5">
+<div class="w-8 h-8 rounded-lg bg-night-card border border-night-borderHighlight overflow-hidden">
+<img alt="Examiner" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCk2T8S1dOTkluv0MDVljlFRaEU1KeCd4nFP42GuX0yd6d_5gz2zMHCkJ_i-8ZhsYQy4w3gVrmVAKYFfJa_MYdTE5QkujRHJ8w-q6uEejkW9ISgS6YFSJ-ZoKJBKmMCWQtBNrmbXwaxHY9qOgpvr4U3LkqHeAAcbjZFXp_of_tTBNVz2wyf90clHP3EavqCIO6XDJHuJezoduPrwsIwCiQQwH4Z2ZYUPdbVKhgq1WXNUHTbZx0tWwJinkSWq23cU-NvwsGiazn0jZ8"/>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-bold text-night-textPrimary leading-none">Elena Rostova</span>
+<span class="text-[10px] text-night-textSubtle leading-tight mt-0.5">Cambridge CELTA Assessor</span>
+</div>
+</div>
+<a class="px-3 py-1.5 rounded-lg bg-night-card hover:bg-night-cardElevated border border-night-borderHighlight text-mint text-xs font-bold inline-flex items-center space-x-1 group-hover:border-mint transition-colors" href="#">
+<span>Read</span>
+<span>→</span>
+</a>
+</div>
+</article>
+<!-- Card 4: Band 8.0 Amber -->
+<article class="tactile-press bg-night-surface rounded-2xl border-2 border-night-border p-5 flex flex-col justify-between shadow-tactile-card hover:border-night-borderHighlight transition-all group">
+<div>
+<!-- Card Header Badges -->
+<div class="flex items-center justify-between gap-2 mb-3">
+<span class="px-2.5 py-1 rounded-md text-[11px] font-bold uppercase tracking-wider bg-bandAmber-bg text-bandAmber-text border border-bandAmber-border">
+              Band 8.0 Solid
+            </span>
+<div class="flex items-center space-x-1.5 text-xs text-night-textMuted font-medium">
+<svg class="w-3.5 h-3.5 text-mint" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>4 min read</span>
+</div>
+</div>
+<!-- Essay Question Title -->
+<h2 class="text-base font-bold text-night-textPrimary group-hover:text-mint transition-colors line-clamp-2 leading-snug">
+            Is Space Exploration Justified Amid Unresolved Terrestrial Crises?
+          </h2>
+<!-- Snippet Description -->
+<p class="mt-2.5 text-xs text-night-textMuted leading-relaxed line-clamp-3">
+            "Skeptics argue budget deficits necessitate earthbound priority, yet spinoff breakthroughs in photovoltaic science directly bolster green sustainability..."
+          </p>
+<!-- Metrics Ribbon -->
+<div class="mt-4 pt-3 border-t border-night-border flex items-center justify-between text-xs text-night-textSubtle">
+<span class="flex items-center space-x-1 font-semibold text-night-textMuted">
+<svg class="w-3.5 h-3.5 text-coral" fill="currentColor" viewbox="0 0 20 20"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path><path clip-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" fill-rule="evenodd"></path></svg>
+<span>284 Words</span>
+</span>
+<span class="font-semibold text-night-textMuted">16 C2 Collocations</span>
+<span class="text-amber-400 font-bold bg-bandAmber-bg/60 px-2 py-0.5 rounded border border-bandAmber-border/40">TR 8.0 • LR 8.0</span>
+</div>
+</div>
+<!-- Card Footer: Author Slot and CTA -->
+<div class="mt-5 pt-3.5 border-t border-night-border flex items-center justify-between">
+<div class="flex items-center space-x-2.5">
+<div class="w-8 h-8 rounded-lg bg-night-card border border-night-borderHighlight overflow-hidden">
+<img alt="Examiner" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEvGD2jIU9i5oxXB_pN_zXxBCylaZQHsbnN_8_roo7AtrG9oYRDQqdWWRLLO-261HwQZuJpaJg8QVUIci5lml20P9bMzHIk7q8s_UNKDGsh_k4Ar07pu9ayykH0R9EQBMX0BZmql8kUSWL8ZuCiFjWeRXxJaKcfjJXRQooWKwyVp0ozp-fU52I85ImDDm9OEH8y9c4KUsybGD6vJJPWAxaQfdktOI24r9ZeCsyZcLfdppHSsmfVSvXQiHbpq5sVs79Qr7CM5Wez74"/>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-bold text-night-textPrimary leading-none">Kenneth Thorpe</span>
+<span class="text-[10px] text-night-textSubtle leading-tight mt-0.5">IELTS Writing Lead</span>
+</div>
+</div>
+<a class="px-3 py-1.5 rounded-lg bg-night-card hover:bg-night-cardElevated border border-night-borderHighlight text-mint text-xs font-bold inline-flex items-center space-x-1 group-hover:border-mint transition-colors" href="#">
+<span>Read</span>
+<span>→</span>
+</a>
+</div>
+</article>
+<!-- Card 5: Band 8.5 Cyan -->
+<article class="tactile-press bg-night-surface rounded-2xl border-2 border-night-border p-5 flex flex-col justify-between shadow-tactile-card hover:border-night-borderHighlight transition-all group">
+<div>
+<!-- Card Header Badges -->
+<div class="flex items-center justify-between gap-2 mb-3">
+<span class="px-2.5 py-1 rounded-md text-[11px] font-bold uppercase tracking-wider bg-bandCyan-bg text-bandCyan-text border border-bandCyan-border">
+              Band 8.5 Model
+            </span>
+<div class="flex items-center space-x-1.5 text-xs text-night-textMuted font-medium">
+<svg class="w-3.5 h-3.5 text-mint" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>5 min read</span>
+</div>
+</div>
+<!-- Essay Question Title -->
+<h2 class="text-base font-bold text-night-textPrimary group-hover:text-mint transition-colors line-clamp-2 leading-snug">
+            Mandatory Retirement Ages vs Age-Blind Performance Reviews
+          </h2>
+<!-- Snippet Description -->
+<p class="mt-2.5 text-xs text-night-textMuted leading-relaxed line-clamp-3">
+            "Arbitrary chronologic thresholds overlook seasoned expertise, yet structural turnover is imperative to foster upward trajectory for younger cohorts..."
+          </p>
+<!-- Metrics Ribbon -->
+<div class="mt-4 pt-3 border-t border-night-border flex items-center justify-between text-xs text-night-textSubtle">
+<span class="flex items-center space-x-1 font-semibold text-night-textMuted">
+<svg class="w-3.5 h-3.5 text-coral" fill="currentColor" viewbox="0 0 20 20"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path><path clip-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" fill-rule="evenodd"></path></svg>
+<span>318 Words</span>
+</span>
+<span class="font-semibold text-night-textMuted">21 C2 Collocations</span>
+<span class="text-cyan-400 font-bold bg-bandCyan-bg/60 px-2 py-0.5 rounded border border-bandCyan-border/40">TR 8.5 • CC 8.5</span>
+</div>
+</div>
+<!-- Card Footer: Author Slot and CTA -->
+<div class="mt-5 pt-3.5 border-t border-night-border flex items-center justify-between">
+<div class="flex items-center space-x-2.5">
+<div class="w-8 h-8 rounded-lg bg-night-card border border-night-borderHighlight overflow-hidden">
+<img alt="Examiner" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9iA_vMsdFFlqw4hn-RzDEDnAukOV61ldZTtPlAzeA2j_YB3VzaYfde-GJCQ5jTpuLMiO4I364XN-zcEJ9H1Fvt8w_5cDbTLtFzCIHajxGOAmZ8OMIg09Dl9Xh2xfrbA7wtaSVEth_0erVkuEykzL72RWnZ28ChVPwmnxIYnT5YZXpOdFqrXJhg4qgcK7wOqjb-8TpkYp1NDcd8PN2ULlgnDDa6VZZ_mmZHWajBY87tV8O34kDw0v8ntrc7__Hc4Rt_u5uX7vX_Ig"/>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-bold text-night-textPrimary leading-none">Claire Sterling</span>
+<span class="text-[10px] text-night-textSubtle leading-tight mt-0.5">Senior Examiner</span>
+</div>
+</div>
+<a class="px-3 py-1.5 rounded-lg bg-night-card hover:bg-night-cardElevated border border-night-borderHighlight text-mint text-xs font-bold inline-flex items-center space-x-1 group-hover:border-mint transition-colors" href="#">
+<span>Read</span>
+<span>→</span>
+</a>
+</div>
+</article>
+<!-- Card 6: Band 9.0 Emerald -->
+<article class="tactile-press bg-night-surface rounded-2xl border-2 border-night-border p-5 flex flex-col justify-between shadow-tactile-card hover:border-night-borderHighlight transition-all group">
+<div>
+<!-- Card Header Badges -->
+<div class="flex items-center justify-between gap-2 mb-3">
+<span class="px-2.5 py-1 rounded-md text-[11px] font-bold uppercase tracking-wider bg-bandEmerald-bg text-bandEmerald-text border border-bandEmerald-border">
+              Band 9.0 Official
+            </span>
+<div class="flex items-center space-x-1.5 text-xs text-night-textMuted font-medium">
+<svg class="w-3.5 h-3.5 text-mint" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>5 min read</span>
+</div>
+</div>
+<!-- Essay Question Title -->
+<h2 class="text-base font-bold text-night-textPrimary group-hover:text-mint transition-colors line-clamp-2 leading-snug">
+            Economic Consumerism and the Rise of Disposable Fast Fashion
+          </h2>
+<!-- Snippet Description -->
+<p class="mt-2.5 text-xs text-night-textMuted leading-relaxed line-clamp-3">
+            "Hyper-accelerated apparel life cycles exacerbate ecological degradation across global value chains, necessitating circular economy legislation..."
+          </p>
+<!-- Metrics Ribbon -->
+<div class="mt-4 pt-3 border-t border-night-border flex items-center justify-between text-xs text-night-textSubtle">
+<span class="flex items-center space-x-1 font-semibold text-night-textMuted">
+<svg class="w-3.5 h-3.5 text-coral" fill="currentColor" viewbox="0 0 20 20"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path><path clip-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" fill-rule="evenodd"></path></svg>
+<span>355 Words</span>
+</span>
+<span class="font-semibold text-night-textMuted">27 C2 Collocations</span>
+<span class="text-emerald-400 font-bold bg-bandEmerald-bg/60 px-2 py-0.5 rounded border border-bandEmerald-border/40">TR 9.0 • LR 9.0</span>
+</div>
+</div>
+<!-- Card Footer: Author Slot and CTA -->
+<div class="mt-5 pt-3.5 border-t border-night-border flex items-center justify-between">
+<div class="flex items-center space-x-2.5">
+<div class="w-8 h-8 rounded-lg bg-night-card border border-night-borderHighlight overflow-hidden">
+<img alt="Examiner" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjzTI1AhombE0jDOW7jPhysnemHrz9qEn-YpFp7cpT8U2oIm1kasHaHx_N53L2J4c9-dnyzOSDDuGB7ONKmUu2r1k2QtRhcQ6V38RCaZuAZ2_FW6oYlLYhzQWHFkBngk0PlfRVDxLY2bWQy2y4-fU9TwE6Nx7_oNsPysniPKMNmDKIuKxOEFoFUkU9XlTEQcPmlCzLxtqJaM8QA0U14Hxxxu58PuOVpKW7Xyl2k-Symw3-Cnd-AzXH5t1eTZqXucT31cx5xQvlaJc"/>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-bold text-night-textPrimary leading-none">Hannah Wu, Ph.D.</span>
+<span class="text-[10px] text-night-textSubtle leading-tight mt-0.5">Linguistics Fellow</span>
+</div>
+</div>
+<a class="px-3 py-1.5 rounded-lg bg-night-card hover:bg-night-cardElevated border border-night-borderHighlight text-mint text-xs font-bold inline-flex items-center space-x-1 group-hover:border-mint transition-colors" href="#">
+<span>Read</span>
+<span>→</span>
+</a>
+</div>
+</article>
+</div>
+</main>
+<!-- END: EssayGridSection -->
+<!-- BEGIN: BottomPaginationAndFooter -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-b border-night-border py-6">
+<span class="text-xs font-bold text-night-textMuted">
+        Showing <span class="text-mint font-extrabold">1 – 6</span> of 1,420 essays
+      </span>
+<!-- Pagination Buttons with Tactile Depth -->
+<div class="flex items-center space-x-2">
+<button class="tactile-press px-3.5 py-2 rounded-xl bg-night-surface border-2 border-night-border text-night-textSubtle text-xs font-bold shadow-tactile-card disabled:opacity-50 cursor-not-allowed">
+          Previous
+        </button>
+<button class="tactile-press px-4 py-2 rounded-xl bg-mint text-night-canvas font-black text-xs border-2 border-mint-glow shadow-tactile-btn-teal">
+          1
+        </button>
+<button class="tactile-press px-3.5 py-2 rounded-xl bg-night-surface hover:bg-night-card border-2 border-night-border text-night-textMuted text-xs font-bold shadow-tactile-card">
+          2
+        </button>
+<button class="tactile-press px-3.5 py-2 rounded-xl bg-night-surface hover:bg-night-card border-2 border-night-border text-night-textMuted text-xs font-bold shadow-tactile-card">
+          3
+        </button>
+<span class="px-2 text-night-textSubtle font-bold">...</span>
+<button class="tactile-press px-3.5 py-2 rounded-xl bg-night-surface hover:bg-night-card border-2 border-night-border text-night-textMuted text-xs font-bold shadow-tactile-card">
+          237
+        </button>
+<button class="tactile-press px-3.5 py-2 rounded-xl bg-night-surface hover:bg-night-card border-2 border-night-border text-night-textMuted text-xs font-bold shadow-tactile-card">
+          Next
+        </button>
+</div>
+<!-- Quick Jump dropdown -->
+<div class="flex items-center space-x-2 text-xs text-night-textMuted">
+<span>Go to page:</span>
+<input class="w-14 px-2 py-1 bg-night-card border border-night-border rounded-lg text-center text-night-textPrimary font-bold text-xs focus:outline-none focus:border-mint" max="237" min="1" type="number" value="1"/>
+</div>
+</div>
+</section>
+<!-- Global Footer -->
+<footer class="bg-night-surface border-t-2 border-night-border mt-12 py-10">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex items-center space-x-3">
+<div class="w-7 h-7 rounded-lg bg-night-card border border-night-borderHighlight flex items-center justify-center">
+<svg class="w-4 h-4 text-mint transform rotate-12" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2L21 12L12 22L3 12L12 2Z"></path>
+</svg>
+</div>
+<span class="text-sm font-bold text-night-textPrimary">Lexkite Tactile Learning System</span>
+<span class="text-xs text-night-textSubtle">• IELTS Academic &amp; General Training Prep</span>
+</div>
+<div class="flex items-center space-x-6 text-xs text-night-textSubtle">
+<a class="hover:text-mint transition-colors" href="#">Scoring Rubrics</a>
+<a class="hover:text-mint transition-colors" href="#">Band Descriptors</a>
+<a class="hover:text-mint transition-colors" href="#">Cohesion Glossary</a>
+<a class="hover:text-mint transition-colors" href="#">Privacy &amp; Terms</a>
+</div>
+</div>
+</footer>
+<!-- END: BottomPaginationAndFooter -->
+</body></html>

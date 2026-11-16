@@ -61,6 +61,8 @@ En esta guía metodológica completa, aprenderás a aplicar el *skimming* para m
 
 Muchos candidatos confunden ambos conceptos o los aplican de manera desordenada. Entender la función de cada técnica es el primer paso:
 
+Si quieres profundizar, lee también [la estrategia de gestión del tiempo en IELTS Reading](/es/blog/gestion-del-tiempo-en-ielts-reading-60-minutos/).
+
 ### 1. Skimming (Lectura panorámica de barrido)
 - **Objetivo:** Obtener la idea general (*gist*), el tono y el mapa conceptual del artículo.
 - **Velocidad:** Muy rápida (unas 400 a 500 palabras por minuto).

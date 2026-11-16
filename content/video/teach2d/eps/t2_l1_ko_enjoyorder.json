@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_enjoyorder",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Enjoy the thing first!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I enjoyed very much the movie.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I enjoyed the movie very much.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Put very much at the end.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The film very much! I enjoyed the film very much.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I enjoyed very much the movie.",
+  "right": "I enjoyed the movie very much.",
+  "strike": "very much",
+  "why": "Put very much at the end.",
+  "memory": "Enjoy it very much.",
+  "quiz": {
+   "stem": "I enjoyed ___.",
+   "options": [
+    "very much the film",
+    "the film very much"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "very much 위치가 틀렸어요!",
+   "tip": "very much는 문장 끝에! “I enjoyed the movie very much”예요.",
+   "caption": "“I enjoyed very much the movie”라고 말하고 있나요? 😅 동사 바로 뒤에는 목적어가 오고, very much는 문장 끝에 둬요. “I enjoyed the movie very much”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답: “the film very much”. very much는 맨 뒤로! 무료 퀴즈로 더 연습해 보세요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "very much 자리가 틀렸어요!",
+   "tip": "Put very much at the end. Say “I enjoyed the movie very much”.",
+   "caption": "Do you say “I enjoyed very much the movie”? 😅 The object comes right after the verb, and very much goes last. “I enjoyed the movie very much” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "very much 위치가 틀렸어요!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "very much 위치가 틀렸어요!",
+  "keyword": "I enjoyed the movie very much.",
+  "value": "very much는 문장 끝에! “I enjoyed the movie very much”예요.",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 46,
+  "platforms": {
+   "youtube": {
+    "title": "very much 위치가 틀렸어요!",
+    "description": "“I enjoyed very much the movie”라고 말하고 있나요? 😅 동사 바로 뒤에는 목적어가 오고, very much는 문장 끝에 둬요. “I enjoyed the movie very much”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "I enjoyed the movie very much.",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“I enjoyed very much the movie”라고 말하고 있나요? 😅 동사 바로 뒤에는 목적어가 오고, very much는 문장 끝에 둬요. “I enjoyed the movie very much”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“I enjoyed very much the movie”라고 말하고 있나요? 😅 동사 바로 뒤에는 목적어가 오고, very much는 문장 끝에 둬요. “I enjoyed the movie very much”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "very much 위치가 틀렸어요! #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “the film very much”. very much는 맨 뒤로! 무료 퀴즈로 더 연습해 보세요: {link}",
+  "lang": "ko"
+ }
+}

@@ -72,5 +72,46 @@
   "words": 44,
   "seconds": 26.7,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"participate\" mean?",
+  "keyword": "participate",
+  "value": "Participate means to take part with others in doing something.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=participate",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"participate\" mean?",
+    "description": "Participate means to take part with others in doing something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=participate\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "participate",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"participate\" mean?\n\nParticipate means to take part with others in doing something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=participate"
+   },
+   "instagram": {
+    "caption": "What does \"participate\" mean?\n\nParticipate means to take part with others in doing something.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"participate\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to take part with others in doing something. Participate means to take part with others in doing something. Try the full lesson and quiz here: {link}"
  }
 }

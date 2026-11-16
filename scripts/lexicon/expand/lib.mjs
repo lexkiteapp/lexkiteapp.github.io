@@ -1,7 +1,7 @@
 // Mở rộng kho từ – cổng + nạp mục đã xuất (một nguồn: content/lexicon/expand/<lô>.json). docs/LEXICON.md §Mở rộng 20k.
 // Mọi giao diện/việc hạ nguồn đọc mục mở rộng QUA ĐÂY (loadExpand / expandRows) – test scripts/test/lexicon-consumers.mjs chặn việc bỏ sót.
 import fs from 'fs';
-import { ROOT, rd } from '../lib.mjs';
+import { ROOT, rd, loadAll } from '../lib.mjs';
 import { badChars, ukStyleBad } from '../ipa.mjs';
 import { agree, trIssues, VI, CE, SCRIPT } from '../../content-qa/lib.mjs';
 export const LANGS = ['es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr'];
@@ -232,12 +232,16 @@ export function doneWords({ queue = true } = {}) {
   return s;
 }
 // Mục ĐÃ XUẤT: lô ở content/lexicon/expand/<lô>.json có tệp kiểm mẫu content/qa/batches/lx-<lô>.json đạt (status published)
+// Từ KHÔNG dấu trùng dạng gấp dấu của một từ gốc CÓ dấu (cafe ↔ café) là bản trùng: mục đứng riêng chặn lối tra "không dấu → có dấu" (lex.mjs) → không xuất
+const foldW = w => String(w).normalize('NFD').replace(/[\u0300-\u036f]/g, '').normalize('NFC').toLowerCase();
+let accentedFolds;
+const accentDup = w => (accentedFolds ||= new Set(loadAll().map(r => String(r.row[0]).normalize('NFC').toLowerCase()).filter(w2 => foldW(w2) !== w2).map(foldW))).has(String(w).normalize('NFC').toLowerCase());
 export function loadExpand() {
   const out = [];
   for (const f of files('')) {
     const b = J(f), bf = `content/qa/batches/lx-${b.id}.json`;
     if (!ex(bf) || J(bf).status !== 'published') continue;
-    for (const [k, e] of Object.entries(b.items)) out.push({ k, e, batch: b.id, file: f });
+    for (const [k, e] of Object.entries(b.items)) { if (accentDup(e.w)) continue; out.push({ k, e, batch: b.id, file: f }); }
   }
   return out;
 }
@@ -273,15 +277,53 @@ export function wsdUnwrap(o, ids) {
 // 03/11 hạn ngạch retry: mục làm lại (rớt vi/ví dụ, đã thử một lần với nguồn hiện tại) chỉ chiếm ≤ share × N để ứng viên MỚI luôn được xử lý;
 // ứng viên mới ít hơn phần còn lại → retry lấp chỗ trống (không bỏ phí lượt). Thứ tự giữ nguyên (tần suất giảm dần). Thuần hàm, có test.
 export const RETRY_SHARE = 0.25;
+/** shard của mục (FNV-1a trên từ#loại) – job.mjs --shard i/n: các shard song song không trùng mục */
+export const shardOf = (k, n) => { let h = 2166136261; for (const c of String(k)) h = Math.imul(h ^ c.charCodeAt(0), 16777619) >>> 0; return h % n; };
+// 13/11 rescue hàng duyệt (9.750 mục «dịch vi» từ lô 10/11, trước nguồn Wikidata-vi #980): CHỌN mục làm lại theo lớp lỗi, cổng KHÔNG đổi (retry chạy lại đúng gateEntry).
+//  wd      = chỉ rớt vi/ví dụ VÀ nguồn mới (Wikidata) có nhãn vi cho mục đó VÀ rớt trước ngày nguồn vào (--before) → có thông tin mới để thử; mục không có nhãn Wikidata KHÔNG đổi nguồn → retry chỉ tốn neuron.
+//  rewrite = chỉ rớt nghĩa/def/ví dụ (không vi/IPA/CEFR/giám khảo): retry viết lại def/ví dụ qua AI rồi qua lại cổng.
+//  `done` = id đã rescue một lần (retry/rescued.json) → không vòng lặp; `limit` = cỡ pilot; thứ tự id tăng dần (tất định).
+export const RESCUE_ONLY = { wd: /^(dịch vi|ví dụ):/, rewrite: /^(nghĩa|def|ví dụ)(\/định nghĩa)?:/ };
+export function rescueSelect(items, mode, { wd = {}, before = '', done = {}, limit = Infinity } = {}) {
+  const re = RESCUE_ONLY[mode]; if (!re) throw new Error('rescue mode: wd | rewrite');
+  return items.filter(x => x.src === 'lexicon-expand' && (x.why || []).length > 0 && x.why.every(y => re.test(y)) && !done[x.id]
+    && (mode !== 'wd' || ((wd[x.id] || []).length > 0 && x.why.some(y => /^dịch vi:/.test(y)))) && (!before || String(x.at || '') < before))
+    .sort((a, b) => (a.id < b.id ? -1 : 1)).slice(0, limit);
+}
 export function mixPool(retryList, fresh, N, share = RETRY_SHARE) {
   const cap = Math.max(0, Math.min(retryList.length, Math.ceil(N * Math.min(1, Math.max(0, share)))));
   const f = fresh.slice(0, N - cap), r = retryList.slice(0, Math.max(cap, N - f.length));
   return [...r, ...f].slice(0, N);
 }
 // sản lượng tách theo nguồn mục: mới vs làm lại (cầu dao chuỗi đo trên mục MỚI – mục retry là phần còn lại khó, không đại diện cho kho ứng viên)
+/** Hạn mức AI cạn (07/11, lexicon-expand đỏ 4 lượt liền: mọi khoá Gemini 429 → AI.gen trả null): 0 mục đạt mà MỌI lệnh gọi AI đều thất bại = hết hạn mức, KHÔNG phải lỗi thật (cảnh báo vàng, lịch 3 giờ thử lại).
+ *  Có lệnh gọi thành công mà 0 mục đạt = lỗi chất lượng/cổng → vẫn đỏ. */
+export function quotaDry(stat, pass) { return !pass && (stat.calls || 0) > 0 && (stat.fail || 0) >= stat.calls; }
+// 08/11 (run 42457106947: 4 shard, mỗi shard 5–8 mục còn lại đều «gap» → 0 đạt → đỏ giả): dưới cỡ mẫu tối thiểu của cầu dao chuỗi thì 0 đạt chưa kết luận được gì. Từ 50 mục trở lên vẫn đỏ.
+export const MIN_SAMPLE = 50;
+/** câu trả lời lxvi của một mục: {vi:"…"} hoặc chuỗi trần (một số mô hình bỏ tầng bọc) */
+export const viAnswer = o => { const v = typeof o === 'string' ? o : o && o.vi; return typeof v === 'string' ? v.trim() : ''; };
+export function thinPool(n, infra, pass) { return !pass && n - (infra || 0) < MIN_SAMPLE; }
 export function yieldSplit(rows) {
   const o = { fresh: { judged: 0, pass: 0, yield: 0 }, retry: { judged: 0, pass: 0, yield: 0 } };
   for (const r of rows) { const g = o[r.retry ? 'retry' : 'fresh']; if (r.judged) g.judged++; if (r.pass) g.pass++; }
   for (const g of Object.values(o)) g.yield = +(g.pass / Math.max(1, g.judged)).toFixed(3);
   return o;
 }
+
+/** 08/11 lọc trước AI (job.mjs --no-prefilter để tắt): cận TRÊN số nguồn NGƯỜI VIẾT của một ứng viên – vi (Wiktionary en vi/bảng dịch · Wiktionary vi) và câu chứa từ
+ *  (examples.py · ví dụ Wiktionary · ví dụ WordNet mọi nghĩa). vi = 0 hoặc ex < 2 → chắc trượt cổng (viKeep cần nguồn người viết; ví dụ cần 2 câu người viết). */
+/** gộp các bảng {word#pos:[vi…]} của nguồn đối chiếu, không trùng */
+export const mergeViSources = (...maps) => { const o = {}; for (const m of maps) for (const [k, v] of Object.entries(m)) o[k] = [...new Set([...(o[k] || []), ...v])]; return o; };
+/** Lượt gần như rỗng → không thuê runner / không dispatch (ci-filler, cron, bước plan của workflow, left.mjs).
+ *  11/11 (48 h: mọi lượt nFresh 0, 4,2 % đạt, ~35 phút × 4 shard cho 7–16 mục/shard): cộng CÁC SHARD CỦA CÙNG MỘT LƯỢT (last-run/s*.json có `run`) – trước đây s0 của lượt mới
+ *  trộn với s1–s3 của lượt cũ nên tổng vượt ngưỡng; ngưỡng 40 → 100 (4,2 % đạt ⇒ dưới 100 mục chỉ ~4 mục nhận). Retry tăng ≥ 50 hoặc kết quả > 24 h → chạy lại. */
+export const EMPTY_RUN = 100;
+export const laneEmpty = (runs, retryNow, now = Date.now()) => {
+  const a = runs.filter(r => r && now - Date.parse(r.at) < 864e5); if (!a.length) return false;
+  const last = a.reduce((m, r) => (Date.parse(r.at) > Date.parse(m.at) ? r : m)), g = a.filter(r => (r.run || '') === (last.run || ''));
+  return g.reduce((t, r) => t + r.n, 0) < EMPTY_RUN && retryNow <= Math.max(...g.map(r => r.retry)) + 50; };
+export const humanSrc = (e, k, wv, ext) => { if (k.err) return { vi: 1, ex: 2 }; const re = inflRe(e.w); // kaikki lỗi mạng = hạ tầng → không lọc (luồng cũ xử lý)
+  const vi = (k.vi || []).length + (wv || []).length + (k.trg || []).reduce((n, g) => n + ((g.tr || {}).vi || []).length, 0);
+  const ex = ((ext || {}).ex || []).length + (k.exs || []).filter(x => re.test(x.t)).length + Math.max(0, ...(e.senses && e.senses.length ? e.senses : [e]).map(s => (s.wnex || []).length));
+  return { vi, ex }; }; // cận TRÊN số nguồn (không lọc nghĩa) – chỉ loại mục chắc chắn trượt

@@ -15,7 +15,7 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
-        with: { sparse-checkout: "scripts/ci\ninfra", sparse-checkout-cone-mode: true }
+        with: { sparse-checkout: "scripts/ci\nscripts/lib\ninfra", sparse-checkout-cone-mode: true }
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - id: g

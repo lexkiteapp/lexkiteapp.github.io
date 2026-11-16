@@ -97,7 +97,7 @@ jobs:
           done
           if [ -z "$ref" ]; then echo "result=TODO: post-deploy-check.yml chưa có (main hay ci/post-deploy-check)" >> $GITHUB_OUTPUT; exit 0; fi
           sleep 60   # chờ bản deploy phân phối
-          gh workflow run post-deploy-check.yml --ref "$ref" -f base_url="$PREVIEW_URL"
+          bash scripts/ci/gh-retry.sh gh workflow run post-deploy-check.yml --ref "$ref" -f base_url="$PREVIEW_URL"
           sleep 20
           id=$(gh run list --workflow post-deploy-check.yml --branch "$ref" --event workflow_dispatch --limit 1 --json databaseId --jq '.[0].databaseId')
           if timeout 1500 gh run watch "$id" --exit-status >/dev/null 2>&1; then r=PASS; else r=FAIL; fi

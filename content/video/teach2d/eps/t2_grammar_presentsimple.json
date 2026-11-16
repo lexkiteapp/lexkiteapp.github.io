@@ -89,5 +89,46 @@
   "words": 49,
   "seconds": 29.6,
   "wpm": 99
+ },
+ "publish": {
+  "title": "Present Simple. One rule!",
+  "keyword": "Present Simple",
+  "value": "Say \"She doesn't like crowded places\", not \"She don't like crowded places\".",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#englishgrammar",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/grammar/present-simple",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "Present Simple. One rule!",
+    "description": "Say \"She doesn't like crowded places\", not \"She don't like crowded places\".\n\nLearn this rule, free: https://lexkite.com/app/#/grammar/present-simple\n\nSeries: Grammar in 60s · Teacher: Carlos\n\n#learnenglish #englishtips #englishgrammar #englishteacher",
+    "tags": [
+     "Present Simple",
+     "Grammar in 60s",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Present Simple. One rule!\n\nSay \"She doesn't like crowded places\", not \"She don't like crowded places\".\n\nLearn this rule, free: https://lexkite.com/app/#/grammar/present-simple"
+   },
+   "instagram": {
+    "caption": "Present Simple. One rule!\n\nSay \"She doesn't like crowded places\", not \"She don't like crowded places\".\n\nLearn this rule: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#englishgrammar",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Present Simple. One rule! #learnenglish #englishtips #englishgrammar"
+   }
+  },
+  "first_comment": "Did you get it? Watches! My father watches the news every evening. Say \"She doesn't like crowded places\", not \"She don't like crowded places\". More practice like this (free): {link}"
  }
 }

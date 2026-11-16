@@ -9,7 +9,7 @@ permissions:
   contents: read
 jobs:
   shots:
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
@@ -20,7 +20,7 @@ jobs:
         env: { BEFORE: "${{ github.event.inputs.before }}" }
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          npx playwright install --with-deps chromium
+          bash scripts/ci/pw-install.sh --with-deps chromium
           git worktree add -q /tmp/before "$BEFORE"
           node scripts/test/review-shots.mjs web /tmp/before/web out/p2
       - if: always()

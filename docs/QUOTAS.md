@@ -14,14 +14,16 @@ và người trong danh sách cho phép được dùng không giới hạn.
 
 | Endpoint / Worker | Tốn gì | Trước đây | Bây giờ |
 |---|---|---|---|
-| `/api/ai` (chấm Writing/Speaking) | Gemini (≈20 lượt/ngày/khóa) → Workers AI (10k neuron/ngày) | 6/phút; 5/ngày (đăng nhập), 3/ngày (khách, theo IP); trần chung 400/ngày | tính năng `ai` + cầu dao `gemini`/`ai` |
+| `/api/ai` (chấm Writing/Speaking) | Gemini Flash (≈20 lượt/ngày/khóa) → Groq gpt-oss-120b (≈1.000/khóa) → báo bận (`docs/AI-CHAIN.md`) | 6/phút; 5/ngày (đăng nhập), 3/ngày (khách, theo IP); trần chung 400/ngày | tính năng `ai` + cầu dao `gemini`/`groq` |
 | `/api/ai` kind `rp` (Roleplay for Work) | như trên | 60/ngày, khách 16, trần 1.500 | tính năng `chat` + cầu dao |
 | `/api/handoff` put (chuyển máy QR) | D1 ghi blob ≤ 1,5 MB | 6 lượt/10 phút/IP | giữ + tính năng `handoff` (theo thiết bị + IP) |
 | `/api/handoff` get | D1 đọc | 20/10 phút/IP | giữ nguyên |
 | `/api/contact` (thư qua Worker `lexkite-mail`) | D1 + gửi thư | 5 tin/giờ/IP (D1), Turnstile, ô bẫy | giữ + tính năng `contact` + cầu dao `mail` |
 | `/api/sync` | D1 đọc/ghi | 1 lần/20 giây/op/uid | giữ + tính năng `sync` (đếm ở biên) |
+| `/api/aiearn` (ôn thẻ → +lượt AI, đợt 1 #10) | D1 đọc gói đồng bộ | 3 lần/tính năng/ngày/uid (mỗi 10 thẻ: ai +2, chat +5) | giữ `sync`; bằng chứng = min(bộ đếm meta, số thẻ có `srs.last` trong ngày), sổ `rv|…` idempotent; cộng bằng `credit()` |
 | `/api/league` | D1 | 12/phút/uid | giữ + tính năng `league` (đếm ở biên) |
 | `/api/class` | D1 | 30/phút/uid · tham gia lớp 10/10 phút (chống dò mã) | giữ + tính năng `classroom` (đếm ở biên) |
+| `/api/community` (cờ `COMMUNITY`, mặc định tắt) | D1 | 30/phút/uid · báo cáo 5/phút, 20/ngày | giữ + tính năng `community` (đếm ở biên) |
 | `/api/hit` (thống kê) | Functions + D1 ghi | add-on 20/giờ/máy; `hit_rate` lấy mẫu | giữ + tính năng `hit` theo IP (vượt → bỏ qua im lặng, 204) |
 | `/api/img` (ảnh minh họa) | Wikipedia/Openverse khi trượt bộ đệm | bộ đệm biên 7–30 ngày | tính năng `img` – **chỉ lượt trượt bộ đệm** |
 | `/api/dictlookup` (từ điển + dịch máy gtx của web/app) | dictionaryapi.dev, Google gtx khi trượt bộ đệm | đệm biên: từ điển 30 ngày, dịch 1 ngày, lỗi nguồn 60 s; trình duyệt 1 ngày/1 giờ | tính năng `translate` – **chỉ lượt trượt bộ đệm**; vượt/nguồn lỗi → 200 `null` (không 429, máy khách tự dự phòng). Add-on gọi thẳng (host_permissions, không tốn trần Functions) |
@@ -51,6 +53,8 @@ Không đi qua module: file tĩnh, dữ liệu từ điển, bài học, ôn t�
 |---|---|---|---|---|---|
 | `ai` – chấm bài | 5 / 10 | 5 / 30 | 3 | D1 | `gemini`, `ai` (50 neuron/lượt) |
 | `chat` – Roleplay | 10 / 20 | 20 / 60 | 3 | D1 | `gemini`, `ai` (8 neuron/lượt) |
+| `import` – Nhập tài liệu: AI điền nghĩa (đếm theo từ, ≤ 20 từ/lời gọi) | – (cần đăng nhập) | 20 / 120 | 3 | D1 | `gemini`, `ai` (40 neuron/lượt) |
+| `readable` – `/api/readable` (đọc bài từ liên kết) | 3 / 20 | 6 / 60 | 3 | biên | – |
 | `handoff` – tạo mã QR | 3 / 10 | 3 / 10 | 3 | D1 | – |
 | `contact` – form liên hệ | 2 / 5 | 2 / 5 | 2 | D1 | `mail` |
 | `sync` | – (cần đăng nhập) | 6 / 1.500 | 10 | biên | – |
@@ -72,8 +76,9 @@ Không đi qua module: file tĩnh, dữ liệu từ điển, bài học, ôn t�
 
 | Provider | Trần/ngày | Gần trần (≥ 80%) thì |
 |---|---|---|
-| `gemini` | 20 lượt × số khóa | chỉ dùng Workers AI |
-| `ai` (Workers AI) | 10.000 neuron | chỉ dùng Gemini; cả hai gần trần → 429 `quota.busy` → máy khách chấm nhanh theo quy tắc / Roleplay chuyển kịch bản soạn sẵn |
+| `gemini` | 20 lượt × số khóa | bỏ Gemini, dùng Groq |
+| `groq` | 1.000 lượt × số khóa | bỏ Groq; cả Gemini lẫn Groq gần trần → 429 `quota.busy` (không rơi về Llama 8B – `AI-CHAIN.md`) |
+| `ai` (Workers AI) | 10.000 neuron | chỉ người gọi nội bộ Quản trị; người học: báo bận → máy khách chấm nhanh theo quy tắc / Roleplay chuyển kịch bản soạn sẵn |
 | `mail` | 100 thư | vẫn lưu tin nhắn (Quản trị → Hộp thư), chỉ không chuyển thư |
 
 Tính năng học cốt lõi không bao giờ phụ thuộc cầu dao.
@@ -91,6 +96,7 @@ Các nơi xử lý: `ai.js` (chấm bài → hiện lý do + chấm nhanh), `rol
 
 - Một id/IP bị từ chối ≥ 20 lần trong 10 phút = 1 **lỗi** (ghi `quota_flag`, tối đa 1 lần/10 phút).
 - 3 lỗi trong 24 giờ → **khóa tạm** 15 phút × 2^(lần khóa − 1), tối đa 7 ngày. Số lần khóa tự về 0 sau 7 ngày sạch.
+- Lượt thưởng (quảng cáo SSV, ôn thẻ) cộng bằng `credit()` (trừ bộ đếm ngày). Dấu "hết lượt" ở biên chỉ tránh lượt ghi: gặp dấu, `gate` đọc lại bộ đếm (1 lượt đọc), đã được cộng thì gỡ dấu – không chặn oan tới nửa đêm.
 - Quản trị thấy id bị gắn cờ, có thể mở khóa (xóa cả khóa tự động) hoặc khóa thủ công (id, email, hoặc IP gốc → tự băm).
 
 ## 7. Bảng D1 (tự tạo khi chạy lần đầu)

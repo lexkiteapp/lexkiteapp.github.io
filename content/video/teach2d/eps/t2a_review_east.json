@@ -72,5 +72,46 @@
   "words": 39,
   "seconds": 24.2,
   "wpm": 97
+ },
+ "publish": {
+  "title": "What does \"east\" mean?",
+  "keyword": "east",
+  "value": "East means the direction where the sun rises.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=east",
+  "script_words": 33,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"east\" mean?",
+    "description": "East means the direction where the sun rises.\n\nReview your words, free: https://lexkite.com/app/#/review?w=east\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "east",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"east\" mean?\n\nEast means the direction where the sun rises.\n\nReview your words, free: https://lexkite.com/app/#/review?w=east"
+   },
+   "instagram": {
+    "caption": "What does \"east\" mean?\n\nEast means the direction where the sun rises.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"east\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means the direction where the sun rises. East means the direction where the sun rises. More practice like this (free): {link}"
  }
 }

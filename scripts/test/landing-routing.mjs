@@ -66,7 +66,7 @@ ok(runRoute(`${S}/?home=1`).session['lk.home'] === '1', 'route: ?home=1 ghi nh�
   let threw = false; try { vm.runInNewContext(ROUTE_JS, ctx); } catch { threw = true; } ok(!threw, 'route: storage bị chặn → không ném lỗi'); }
 
 // ---------- 2) Trang giới thiệu tĩnh ----------
-const expectHref = l => l === 'vi' ? 'https://lexkite.com/' : `https://lexkite.com/${l}/`;
+const expectHref = l => `https://lexkite.com/${l}/`;
 for (const l of LANGS) {
   const f = fileOf(l);
   if (!fs.existsSync(f)) { ok(false, `${f} chưa có – chạy node scripts/build-landing.mjs`); continue; }
@@ -79,7 +79,7 @@ for (const l of LANGS) {
   ok([...html.replace(/<noscript>[\s\S]*?<\/noscript>/g, '').matchAll(/<link\b[^>]*rel="stylesheet"[^>]*>/g)].every(([t]) => /\smedia="print"/.test(t) && /\sdata-swap[\s>]/.test(t)), `${f}: không có stylesheet chặn hiển thị (chỉ media="print" data-swap + bản <noscript>)`);
   ok(head.includes(`<link rel="canonical" href="${expectHref(l)}">`), `${f}: canonical tự trỏ`);
   const alts = [...head.matchAll(/<link rel="alternate" hreflang="([a-z-]+)" href="([^"]+)">/g)];
-  ok(alts.length === 16 && LANGS.every(x => alts.some(a => a[1] === x && a[2] === expectHref(x))) && alts.some(a => a[1] === 'x-default' && a[2] === expectHref('en')), `${f}: cần 15 hreflang + x-default (/en/)`);
+  ok(alts.length === 16 && LANGS.every(x => alts.some(a => a[1] === x && a[2] === expectHref(x))) && alts.some(a => a[1] === 'x-default' && a[2] === 'https://lexkite.com/'), `${f}: cần 15 hreflang + x-default (/en/)`);
   ok(!/name="robots" content="[^"]*noindex/.test(head), `${f}: trang giới thiệu phải index được`);
   const t = (head.match(/<title>([^<]+)<\/title>/) || [])[1] || '', d = (head.match(/<meta name="description" content="([^"]+)"/) || [])[1] || '';
   const w = x => [...x].reduce((a, c) => a + (/[\u3000-\u9fff\uac00-\ud7af\uff00-\uffef]/.test(c) ? 2 : 1), 0); // chữ CJK rộng gấp đôi trên kết quả tìm kiếm
@@ -93,7 +93,7 @@ for (const l of LANGS) {
   ok(html.includes(`href="/app/?hl=${l}#/welcome/setup"`) && html.includes(`href="/app/?hl=${l}#/welcome/login"`), `${f}: CTA "Bắt đầu"/"Đăng nhập" vào /app/?hl=${l}#/…`);
   ok(html.includes(`href="/${l}/blog/"`), `${f}: liên kết blog cùng ngôn ngữ /${l}/blog/`);
   ok(!/href="\/(\?[^"#]*)?#\//.test(html), `${f}: còn liên kết kiểu cũ "/#/…" (phải là /app/#/…)`);
-  ok(LANGS.every(x => html.includes(`<a href="${x === 'vi' ? '/' : `/${x}/`}" lang="${x}" hreflang="${x}"`)), `${f}: thanh đổi ngôn ngữ đủ 15 trang`);
+  ok(LANGS.every(x => html.includes(`<a href="/${x}/" lang="${x}" hreflang="${x}"`)), `${f}: thanh đổi ngôn ngữ đủ 15 trang`);
   // Một thước với size-budget: gzip chuẩn (pako, scripts/lib/gz-canon.mjs) + ngưỡng budget.landingGz. zlib của Node đổi theo phiên bản
   // (Node 22 trên CI ≠ Node 26 trên máy, lệch ~1 %) → trước đây máy xanh, CI đỏ cùng một file.
   const gz = gzSize(Buffer.from(html));
@@ -122,17 +122,17 @@ async function hint(file, langs, local = {}) {
   return dom.window;
 }
 {
-  let w = await hint('web/index.html', ['ja-JP', 'en']);
+  let w = await hint('web/vi/index.html', ['ja-JP', 'en']);
   const b = w.document.querySelector('.lhint');
   ok(b && b.getAttribute('lang') === 'ja' && b.querySelector('a').getAttribute('href') === '/ja/' && /日本語/.test(b.textContent), 'gợi ý: trình duyệt tiếng Nhật ở / → dải "日本語で見る" trỏ /ja/');
   b && b.querySelector('button').click();
   ok(!w.document.querySelector('.lhint') && w.localStorage.getItem('lk.lhint') === '1', 'gợi ý: bấm × → ẩn và nhớ lựa chọn');
-  w = await hint('web/index.html', ['vi-VN']); ok(!w.document.querySelector('.lhint'), 'gợi ý: đúng ngôn ngữ trang → không hiện');
+  w = await hint('web/vi/index.html', ['vi-VN']); ok(!w.document.querySelector('.lhint'), 'gợi ý: đúng ngôn ngữ trang → không hiện');
   w = await hint('web/en/index.html', ['ja'], { 'lk.lhint': '1' }); ok(!w.document.querySelector('.lhint'), 'gợi ý: đã đóng trước đó → không hiện lại');
   w = await hint('web/en/index.html', ['en-US'], { 'vb.uiLang': 'ar' }); const a = w.document.querySelector('.lhint');
   ok(a && a.getAttribute('dir') === 'rtl' && a.querySelector('a').getAttribute('href') === '/ar/', 'gợi ý: ưu tiên ngôn ngữ đã chọn trong app (vb.uiLang), RTL cho ar');
   w = await hint('web/en/index.html', ['sw-KE']); ok(!w.document.querySelector('.lhint'), 'gợi ý: ngôn ngữ không hỗ trợ → không hiện');
-  ok(!rd('web/index.html').includes('class="lhint"'), 'gợi ý: không có sẵn trong HTML (bot thấy trang sạch)');
+  ok(!rd('web/vi/index.html').includes('class="lhint"'), 'gợi ý: không có sẵn trong HTML (bot thấy trang sạch)');
 }
 
 // ---------- 3b) Nút đổi ngôn ngữ đầu trang (web/js/lang-menu.js – dùng chung mọi trang tĩnh + app) ----------
@@ -234,6 +234,15 @@ ok(!!CUR, 'sw: có hằng CACHE');
   const off = await sw('https://lexkite.com/app/', { cache: { [CUR]: { '/app/': 'app shell' } }, online: false });
   const r = await (await off.wait('fetch', { request: { url: 'https://lexkite.com/app/?hl=ja', mode: 'navigate', method: 'GET' } }));
   ok(r && (await r.text()) === 'app shell', 'sw /app/: mất mạng → mở app từ cache');
+  { // Hồi quy mobile-qa (webkit): fetch tới lexkite.com/api/* khác nguồn khi mất mạng + không có trong cache → respondWith(undefined) = 'Returned response is null'
+    const x = await sw('https://localhost:8080/app/', { online: false });
+    const rsp = await x.wait('fetch', { request: { url: 'https://lexkite.com/api/notices?lang=vi', mode: 'cors', method: 'GET' } });
+    ok(rsp !== undefined, 'sw: gọi lexkite.com khác nguồn có respondWith');
+    const v = await rsp;
+    ok(v instanceof Response && !v.ok && v.status === 503, 'sw: lexkite.com khác nguồn, mất mạng + chưa có cache → trả phản hồi 503 hợp lệ, thân rỗng (không phải null/undefined, không nội dung sai)');
+    const c = await sw('https://localhost:8080/app/', { cache: { [CUR]: { '/api/notices': 'cached' } }, online: false });
+    ok((await (await c.wait('fetch', { request: { url: 'https://lexkite.com/api/notices?lang=vi', mode: 'cors', method: 'GET' } })).text()) === 'cached', 'sw: lexkite.com khác nguồn, mất mạng, đã có cache → trả bản cache');
+  }
   ok(/'\/app\/#\/review'/.test(SW) && !/'\.\/#\//.test(SW), 'sw: thông báo mở /app/#/review (không còn ./#/ = trang giới thiệu)');
   ok(!/indexedDB|localStorage/.test(SW.replace(/\/\*[\s\S]*?\*\/|\/\/.*$/gm, '')), 'sw: không đụng tới IndexedDB/localStorage (dữ liệu học an toàn)');
 }

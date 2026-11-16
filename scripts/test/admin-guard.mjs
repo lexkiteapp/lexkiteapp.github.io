@@ -7,12 +7,13 @@
 //       node scripts/test/admin-guard.mjs --compare out/admin-guard → sheet-*.jpg (TRƯỚC | SAU, thu nhỏ)   CI: .github/workflows/admin-guard.yml
 import fs from 'node:fs'; import path from 'node:path';
 import { scan, ADMIN_SEL } from '../lib/layout-scan.mjs';
+import { tableScan, checkMapColors } from '../lib/admin-table-scan.mjs';
 import { FX, BFX, VFX, VIT, NOW } from './fixtures/admin-fx.mjs';
 import { buildRows, readFixture, unitMap } from '../ads/report.mjs';
 import { stats, guardOf, revPack } from '../../functions/api/_ads.js';
 let pw; try { pw = await import('playwright'); } catch (e) { console.log('admin-guard: playwright chưa cài – bỏ qua'); process.exit(0); }
 const browser = await pw.chromium.launch(process.env.PW_CHANNEL ? { channel: process.env.PW_CHANNEL } : {}); // PW_CHANNEL=chrome: chạy thử nhanh bằng Chrome có sẵn
-const SHOTS = [['users', 390, 'dark'], ['users', 360, 'light'], ['users~sheet', 390, 'dark'], ['users~bulk', 390, 'light'], ['users~menu', 360, 'dark'], ['backlinks', 390, 'dark'], ['dist', 360, 'light'], ['growth', 390, 'light'], ['video/overview', 1736, 'dark'], ['video/overview', 390, 'light'], ['overview', 1440, 'dark'], ['analytics', 1280, 'light'], ['ads', 1920, 'light'], ['growth', 820, 'dark'], ['analytics', 360, 'dark'], ['quota', 390, 'light']];
+const SHOTS = [['users', 390, 'dark'], ['users', 360, 'light'], ['users~sheet', 390, 'dark'], ['users~bulk', 390, 'light'], ['users~menu', 360, 'dark'], ['backlinks', 390, 'dark'], ['dist', 360, 'light'], ['growth', 390, 'light'], ['video/overview', 1736, 'dark'], ['video/overview', 390, 'light'], ['overview', 1440, 'dark'], ['analytics', 1280, 'light'], ['ads', 1920, 'light'], ['growth', 820, 'dark'], ['analytics', 360, 'dark'], ['quota', 390, 'light'], ['reports', 1280, 'light'], ['reports', 1440, 'dark'], ['reports', 390, 'light'], ['reports', 390, 'dark']];
 
 if (process.argv[2] === '--compare') { // TRƯỚC | SAU cạnh nhau, thu nhỏ để soát nhanh
   const OUT = process.argv[3] || 'out/admin-guard', made = [];
@@ -44,8 +45,18 @@ const QUOTA = { day: iso(0).slice(0, 10), breaker: 0.8, providers: [{ p: 'gemini
   flags: [{ id: 'u9', feature: 'explain', strikes: 2, last: NOW }], allow: [{ id: 'u1', note: 'tester', by: 'admin@example.com', at: NOW }],
   features: [{ feature: 'explain', free: 20, anon: 5, store: 'kv', custom: false, ipx: 3, bans: 0 }, { feature: 'tts', free: 50, anon: 10, store: 'kv', custom: true, ipx: 2, bans: 1 }],
   audit: [{ at: NOW, by: 'admin@example.com', op: 'block', target: 'ip:ff00', detail: '24h' }] };
+// owner 4/11: tên + email rất dài, không tên, nhiều chip/nhãn (bảng #users phải giữ cột, cắt "…"); đủ 5 nhóm khách để đo màu bản đồ
+SHOTS.push(['users', 1280, 'light'], ['users', 1440, 'dark'], ['analytics', 1440, 'dark']);
+const DAY = 864e5, USERS = { ...FX.users, rows: [{ uid: 'L1', email: 'nguyen.thi.bich.ngoc.very.long.mailbox.address@subdomain.example-university.edu.vn', name: 'Nguyễn Thị Bích Ngọc Trần Lê Phạm Hoàng Đặng Bùi Võ Dương', created: NOW - 9 * DAY, seen: NOW - 3600e3, plat: 'web', n: 5, isAdmin: false, cc: 'VN' }, { uid: 'L2', email: 'old@example.com', name: 'Bo', created: NOW - 90 * DAY, seen: NOW - 40 * DAY, plat: 'ios', n: 2, isAdmin: false, cc: null, blocked: 1, ai: 1, tags: '["beta","vip","teacher-program-long-tag"]' }, { uid: 'L3', email: 'a'.repeat(70) + '@example.com', name: 'Wolfeschlegelsteinhausenbergerdorffwelchevoralternwaren', created: NOW - 3 * DAY, seen: NOW - 2 * DAY, plat: 'ext', n: 1234, isAdmin: true, cc: 'US' }, { uid: 'L4', email: '', name: '', created: NOW - 3 * DAY, seen: NOW - DAY, plat: 'android', n: 1, isAdmin: false, cc: 'JP' }, ...FX.users.rows] };
+const MAP_CC = { VN: 1, US: 3, JP: 12, DE: 50, BR: 300 }, LIVE = { ...FX.live, countries: [...Object.entries(MAP_CC).map(([k, n]) => ({ k, n })), { k: 'XX', n: 2 }] };
 // owner 3/11: bảng Nền tảng tràn thẻ + tên nước bị cắt ở cột ~300 px → thêm 360 (tối), 768, 1024. ADMIN_GUARD_W=360,1440 = chỉ chạy các bề rộng đó (thử nhanh)
-const CONFIGS = [[1280, 'light', 'vi'], [1440, 'dark', 'vi'], [1736, 'dark', 'vi'], [1920, 'light', 'en'], [1024, 'light', 'en'], [820, 'dark', 'vi'], [768, 'light', 'vi'], [390, 'light', 'en'], [390, 'dark', 'vi'], [360, 'dark', 'vi'], [360, 'light', 'en']]
+// Hộp báo lỗi (/api/report): dữ liệu mẫu, chỉ sandbox – không người thật
+const REP = (() => { const L = ['Audio stops after the first tap on the vocabulary card', 'Không bấm được nút Tiếp tục trong truyện sau câu hỏi giữa bài, phải tải lại trang', 'Wrong example sentence in the grammar lesson about the present perfect', 'Please add an automatic flip mode for flashcards'], S = ['new', 'prog', 'new', 'ack'], P = ['P1', 'P1', 'P2', 'P3'], C = ['audio', 'bug', 'content', 'idea'];
+  const rows = Array.from({ length: 14 }, (_, i) => ({ tid: 'LX-' + (1001 + i), id: i + 1, at: NOW - (i + 1) * 36e5, upd: NOW - i * 36e5, status: S[i % 4], cat: C[i % 4], area: ['vocab', 'reading', 'grammar', 'other'][i % 4], msg: L[i % 4], ai_sum: L[i % 4], lang: ['zh', 'vi', 'fr', 'en'][i % 4], plat: ['web', 'ios', 'android', 'ext'][i % 4], ver: '1.0.' + i, sev: P[i % 4], people: i % 5 === 0 ? 3 : 1, has_shot: i % 3 === 0 ? 1 : 0, notify: i % 4 === 0 ? 1 : 0, sandbox: 1, asg: i % 6 === 0 ? 'admin@example.com' : '' }));
+  return { list: { rows, total: rows.length, counts: { new: 6, ack: 3, prog: 4, fixed: 18, wontfix: 2, dup: 5, ideas: 3 }, sevs: { P0: 1, P1: 6 }, areas: { vocab: 5, reading: 4 }, spam: 2, admins: ['admin@example.com'], gh: true },
+    get: { ...rows[0], ctx: { route: 'vocab/flash', vw: '390x844', dpr: 3, tz: 'Asia/Shanghai', ua: 'Mozilla/5.0 (sample)' }, errs: ['TypeError: sample error at audio.js:42'], events: [{ at: NOW, by: 'ai', act: 'triage', note: 'P1 · ai' }, { at: NOW - 36e5, by: 'reporter', act: 'create' }], dups: ['LX-1006'], gh: true, ai: { by: 'ai', severity: 'P1', summary_vi: 'Âm thanh dừng sau lần chạm đầu ở thẻ từ vựng', area: 'vocab', type: 'bug', confidence: 0.86, likely_cause: 'AudioContext chưa được mở lại sau khi tạm dừng.', suggested_fix: 'Gọi resume() trước khi phát.' }, tpl: { thanks: '感谢你的反馈!我们的团队已收到,很快会查看。', prog: '我们的团队正在处理此问题,完成后会立即通知你。', fixed: '此问题已修复。感谢你的反馈!请重新加载应用以使用新版本。', more: '我们的团队需要更多信息。' }, tpl_vi: { thanks: 'Cảm ơn bạn đã báo! Đội ngũ đã nhận được và sẽ xem sớm.', prog: 'Đội ngũ đang xử lý.', fixed: 'Vấn đề này đã được sửa.', more: 'Đội ngũ cần thêm chút thông tin.' } },
+    cfg: { notify: 'instant', eta: { serious: 24, normal: 72, content: 168 } } }; })();
+const CONFIGS = [[1280, 'light', 'vi'], [1440, 'dark', 'vi'], [1736, 'dark', 'vi'], [1920, 'light', 'en'], [1024, 'light', 'en'], [820, 'dark', 'vi'], [768, 'light', 'vi'], [390, 'light', 'en'], [390, 'dark', 'vi', ['reports']], [360, 'dark', 'vi'], [360, 'light', 'en']]
   .filter(([w]) => !process.env.ADMIN_GUARD_W || process.env.ADMIN_GUARD_W.split(',').includes(String(w)));
 // Điện thoại (<640 px, owner 3/11 iPhone): vùng chạm ≥ 44 px, chữ không ngắt giữa từ, bảng không cuộn ngang (phải thành thẻ), thanh trên không tràn.
 const MOBILE = () => {
@@ -76,14 +87,29 @@ const FB = `window.firebase = { initializeApp() {}, auth: Object.assign(() => wi
 const api = (pathn, b) => {
   if (pathn === '/api/admin-shorts') return b.op === 'list' ? VIDEO : { error: 'needs-token' };
   if (pathn === '/api/admin-prefs') return b.op === 'get' ? { ok: true, pref: { tab: 'overview', lang: 'vi', theme: 'auto', autoLogoutMin: 0, alertTypes: ['js_error'], jsErrorThreshold: 10, quotaThresholdPct: 70 } } : { ok: true, rows: [] };
-  if (pathn === '/api/admin') return FX[b.op] || (b.op === 'adsStats' ? ADS : /^(growth|ext)/i.test(b.op) ? GROW : { ok: true, rows: [] });
+  if (pathn === '/api/admin') return { users: USERS, live: LIVE }[b.op] || FX[b.op] || (b.op === 'adsStats' ? ADS : /^(growth|ext)/i.test(b.op) ? GROW : { ok: true, rows: [] });
   if (pathn === '/api/backlinks') return BFX[b.op] || { ok: true };
+  if (pathn === '/api/report') return REP[b.op] || { ok: true, rows: [] };
   if (pathn === '/api/drive') return { alerts: [] };
   if (pathn === '/api/quota') return b.op === 'state' ? QUOTA : { day: QUOTA.day, jobs: [], runs: [], leases: [], budget: {} };
   return { ok: true, rows: [] };
 };
+// Bản đồ: đọc màu THẬT trên SVG (không tin token) – 0 khách + 5 nhóm so với nền thật ở theme đang hiện; đổi theme bằng nút và theo hệ điều hành thì phải vẽ lại
+const mapRead = page => page.evaluate(cc => { const fill = c => { const e = document.querySelector(`#worldMap .jvm-region[data-code="${c}"]`); return e && getComputedStyle(e).fill; }; let n = document.querySelector('#worldMap'), bg = ''; while (n && (!bg || /rgba\(0, 0, 0, 0\)|transparent/.test(bg))) { bg = getComputedStyle(n).backgroundColor; n = n.parentElement; } return { bg, zero: fill('FR'), buckets: cc.map(fill) }; }, Object.keys(MAP_CC));
+const mapCheck = async (page, full) => {
+  await page.waitForSelector('#worldMap .jvm-region', { state: 'attached', timeout: 8000 }).catch(() => {});
+  const look = async tag => { const m = await mapRead(page); return [m, m.zero ? checkMapColors([m.zero, ...m.buckets], m.bg, tag) : [`${tag}: không thấy vùng bản đồ`]]; }, o = (await look('hiện tại'))[1];
+  if (!full) return o;
+  const set = m => page.evaluate(v => { const b = document.querySelector('#thm'); for (let i = 0; i < 3 && localStorage.getItem('lk.admTheme') !== v; i++) b.click(); }, m).then(() => page.waitForTimeout(350));
+  const start = await page.evaluate(() => localStorage.getItem('lk.admTheme')), step = async (tag, act) => { await act(); const [m, e] = await look(tag); o.push(...e); return m.zero; };
+  const light = await step('bấm sáng', () => set('light')), dark = await step('bấm tối', () => set('dark')); if (light === dark) o.push(`đổi sáng/tối mà nước 0 khách vẫn ${dark} (không vẽ lại)`);
+  await set('auto'); const scheme = await page.evaluate(() => matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'), other = scheme === 'dark' ? 'light' : 'dark', was = scheme === 'dark' ? dark : light;
+  if (await step('hệ điều hành đổi', () => page.emulateMedia({ colorScheme: other }).then(() => page.waitForTimeout(350))) === was) o.push('hệ điều hành đổi theme mà bản đồ không vẽ lại');
+  await page.emulateMedia({ colorScheme: scheme }); await set(start);
+  return o;
+};
 const found = {}, errs = [], add = (k, v) => { (found[k] ||= []).push(v); };
-for (const [width, scheme, lang] of CONFIGS) {
+for (const [width, scheme, lang, only] of CONFIGS) {
   const vp = width < 768 ? { viewport: { width, height: 844 }, deviceScaleFactor: 1, isMobile: true, hasTouch: true } : { viewport: { width, height: 900 } };
   const ctx = await browser.newContext({ ...vp, colorScheme: scheme, serviceWorkers: 'block' });
   await ctx.addInitScript(([l, th]) => { try { localStorage.setItem('lk.admLang', l); localStorage.setItem('lk.admTheme', th); } catch (e) { /* bỏ qua */ } }, [lang, scheme]);
@@ -100,12 +126,14 @@ for (const [width, scheme, lang] of CONFIGS) {
   await page.goto('https://lk.test/admin.html#overview', { waitUntil: 'load' });
   await page.waitForSelector('body.adm-in #tabs a[data-tab]', { state: 'attached', timeout: 15000 }); await page.waitForTimeout(800);
   const tabs = await page.$$eval('#tabs a[data-tab]', a => a.map(x => x.dataset.tab));
-  const routes = [...tabs, ...['overview', 'review', 'library', 'qc', 'scripts', 'channels', 'archive'].map(s => 'video/' + s)];
+  const routes = only || [...tabs, ...['overview', 'review', 'library', 'qc', 'scripts', 'channels', 'archive'].map(s => 'video/' + s)];
   for (const r of routes) {
     cur = r;
     await page.evaluate(h => { location.hash = h; }, r); await page.waitForTimeout(r.startsWith('video/') ? 900 : 700);
     await page.waitForFunction(() => !document.querySelector('#main [aria-busy="true"], #main .sk'), null, { timeout: 5000 }).catch(() => {});
     const res = await page.evaluate(scan, { root: '.adm-content', sel: ADMIN_SEL, okScroll: '.tbl-x, .cl-vp, .vx-nav', boxes: '.card, .ds-card, .lt, .kpi' }).catch(e => ({ err: [e.message] }));
+    res.table = await page.evaluate(tableScan).catch(e => [e.message]);
+    if (r === 'analytics') res.map = await mapCheck(page, width === 1280);
     // khung: tràn ngang trang, nội dung lấp khung (không cột trống giữa thanh bên và nội dung)
     res.shell = await page.evaluate(() => {
       const o = [], over = document.scrollingElement.scrollWidth - innerWidth;

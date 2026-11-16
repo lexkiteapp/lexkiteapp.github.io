@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_see_you_soon",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Bald is not bald!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: See you bald.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: See you soon.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Bald means no hair in English.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Soon! See you soon!",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "See you bald.",
+  "right": "See you soon.",
+  "strike": "bald",
+  "why": "Bald means no hair in English.",
+  "memory": "Soon, not bald.",
+  "quiz": {
+   "stem": "See you ___!",
+   "options": [
+    "bald",
+    "soon"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Verabschieden mit „Bis bald“?",
+   "tip": "Das englische „bald“ heißt „kahl“. „Bis bald“ sagst du mit „See you soon“.",
+   "caption": "Wie verabschiedest du dich mit „Bis bald“? 👋 Falsch: “See you bald.” Richtig: “See you soon.” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “soon”. Richtig heißt es: “See you soon.” Übe mehr mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "How do you say goodbye with “Bis bald”?",
+   "tip": "The English “bald” means kahl. For “Bis bald” say “See you soon”.",
+   "caption": "How do you say goodbye with “Bis bald”? Wrong: “See you bald.” Right: “See you soon.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Verabschieden mit „Bis bald“?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 40,
+  "seconds": 25.1,
+  "wpm": 95
+ },
+ "publish": {
+  "title": "Verabschieden mit „Bis bald“?",
+  "keyword": "See you soon.",
+  "value": "Das englische „bald“ heißt „kahl“. „Bis bald“ sagst du mit „See you soon“.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "Verabschieden mit „Bis bald“?",
+    "description": "Wie verabschiedest du dich mit „Bis bald“? 👋 Falsch: “See you bald.” Richtig: “See you soon.” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "See you soon.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Wie verabschiedest du dich mit „Bis bald“? 👋 Falsch: “See you bald.” Richtig: “See you soon.” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Wie verabschiedest du dich mit „Bis bald“? 👋 Falsch: “See you bald.” Richtig: “See you soon.” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Verabschieden mit „Bis bald“? #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “soon”. Richtig heißt es: “See you soon.” Übe mehr mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

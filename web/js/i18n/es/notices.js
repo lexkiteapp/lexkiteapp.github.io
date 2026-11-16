@@ -1,3 +1,2 @@
-/* SINH từ i18n/ui/es/notices.js bằng scripts/i18n-pack.mjs – đừng sửa tay */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["es"] = Object.assign(D["es"] || {}, {"_1kkzwis":"Marcar todo como leído","_1aqpffv":"No hay notificaciones nuevas","_7vdlnl":"Aviso importante","_mem4lx":"Recién","_cilyra":"No leído","_1dkub36":"{n} no leído"});
-})(typeof self !== 'undefined' ? self : this);
+/* SINH từ i18n/ui/es/notices.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.es=Object.assign(D.es||{},{_pffv:"No hay notificaciones nuevas",_lyra:"No leído",_wyuq:"Toca para ver el estado más reciente.",_62kr:"Novedades del informe {id}",_uu8l:"Gracias por avisarnos. Recarga la app para usar la nueva versión.",_tb6i:"Gracias: Lexkite te contará los avances aquí mismo.",_dlnl:"Aviso importante",_m4lx:"Recién",_erjf:"Ver informe",_ub36:"{n} no leído",_z2ii:"Hemos recibido el informe {id}",_2tyo:"Informe {id} solucionado",_zwis:"Marcar todo como leído"});})(typeof self!=='undefined'?self:this);

@@ -129,6 +129,8 @@ Düzenli bir antrenmanla okuma dayanıklılığınızı zirveye çıkarın:
 
 ---
 
+Haftalık programınızı kurmak için [TOEIC bireysel çalışma planı rehberine](/tr/blog/toeic-bireysel-calisma-plani-rehber/) bakın.
+
 ## Lexkite ile TOEIC Hedefinize Güvenle Ulaşın
 
 Sınavda 850 üzeri elit bir puan elde etmek, keskin bir okuma hızını geniş bir sözcük hazinesiyle birleştirmeyi gerektirir:

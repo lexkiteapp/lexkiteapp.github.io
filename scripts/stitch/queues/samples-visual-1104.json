@@ -1,0 +1,109 @@
+[
+ {
+  "id": "sv-hub",
+  "mode": "light",
+  "kind": "gen",
+  "device": "DESKTOP",
+  "prompt": "A public library index page of the Lexkite website (free, playful English-learning app for IELTS/TOEIC learners). Same site header as the Lexkite home page: kite logo + 'Lexkite', a few nav links, a candy-orange 'Start free' tactile button; friendly footer. The page shows 80 IELTS Writing Task 2 sample essays. Open with a spotlight hero rather than a plain title: a big friendly headline, one short line, three glanceable stat badges (essays, question types, band 8) each a chunky icon with a big number, and the teacher-slot standing on the hero floor. Right below, a bento mosaic of six big tappable tiles, one per question type (Agree/Disagree, Discussion, Problem–Solution, Advantages–Disadvantages, Positive/Negative, Two-part question): every tile is its own colour with its own large glossy illustrated badge, the type name and a count; one tile is larger than the others. Then a slim search field with a row of filter pills that clearly continues sideways: the pill at the edge is never chopped mid-word, a soft fade and a small round chevron show there is more. Then one group of essays: a big featured card first, spanning wider, then smaller cards. Each essay card is scanned by eye: a coloured illustrated topic badge, a short 2–4 word topic headline such as 'Free university education' in large type, one quiet line of the question below, and a small band ring with a little row of icon-and-number marks for length, phrases and reading time. No repeated type label on the cards. Not a uniform grid of text boxes. Feel: playful and warm, candy-like tactile surfaces with a soft ledge, glossy illustrated badges, rounded chunky cards, lots of breathing room. You understand the page by glancing, not by reading: almost no text, short labels only, every card recognisable by its picture and colour from across the room. Use the Lexkite Kit design system, Bright Day light theme. Every label stays easy to read (at least 4.5:1), every tap target comfortable for a thumb, labels can grow 40% longer and wrap without breaking. Draw only the page itself: no device frame, no browser chrome, no photos, no drawn people: leave one empty rounded 'teacher-slot' where a teacher character will stand on the hero floor."
+ },
+ {
+  "id": "sv-hub-phone",
+  "mode": "light",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "A public library index page of the Lexkite website (free, playful English-learning app for IELTS/TOEIC learners). Same site header as the Lexkite home page: kite logo + 'Lexkite', a few nav links, a candy-orange 'Start free' tactile button; friendly footer. The page shows 80 IELTS Writing Task 2 sample essays. Open with a spotlight hero rather than a plain title: a big friendly headline, one short line, three glanceable stat badges (essays, question types, band 8) each a chunky icon with a big number, and the teacher-slot standing on the hero floor. Right below, a bento mosaic of six big tappable tiles, one per question type (Agree/Disagree, Discussion, Problem–Solution, Advantages–Disadvantages, Positive/Negative, Two-part question): every tile is its own colour with its own large glossy illustrated badge, the type name and a count; one tile is larger than the others. Then a slim search field with a row of filter pills that clearly continues sideways: the pill at the edge is never chopped mid-word, a soft fade and a small round chevron show there is more. Then one group of essays: a big featured card first, spanning wider, then smaller cards. Each essay card is scanned by eye: a coloured illustrated topic badge, a short 2–4 word topic headline such as 'Free university education' in large type, one quiet line of the question below, and a small band ring with a little row of icon-and-number marks for length, phrases and reading time. No repeated type label on the cards. Not a uniform grid of text boxes. Phone layout, one column for the featured card, bento two columns. Feel: playful and warm, candy-like tactile surfaces with a soft ledge, glossy illustrated badges, rounded chunky cards, lots of breathing room. You understand the page by glancing, not by reading: almost no text, short labels only, every card recognisable by its picture and colour from across the room. Use the Lexkite Kit design system, Bright Day light theme. Every label stays easy to read (at least 4.5:1), every tap target comfortable for a thumb, labels can grow 40% longer and wrap without breaking. Draw only the page itself: no device frame, no browser chrome, no photos, no drawn people: leave one empty rounded 'teacher-slot' where a teacher character will stand on the hero floor."
+ },
+ {
+  "id": "sv-art-writing",
+  "mode": "light",
+  "kind": "gen",
+  "device": "DESKTOP",
+  "prompt": "Lexkite Kit illustration sheet for an English-learning website. Draw a single clean sheet: one neat grid of 6 large square glossy illustrated badges on the page background, no header, no footer, no navigation, no captions, no words or letters anywhere, each badge its own colour and a single bold simple object, drawn as crisp vector shapes (inline SVG), same style family, same size, soft ledge under each: a thumbs up and thumbs down pair; two speech bubbles facing each other; a wrench fixing a broken gear; a balance scale; a plus and minus coin pair; a two-part split question mark. Lexkite Kit, Bright Day theme, playful and warm."
+ },
+ {
+  "id": "sv-art-topics1",
+  "mode": "light",
+  "kind": "gen",
+  "device": "DESKTOP",
+  "prompt": "Lexkite Kit illustration sheet for an English-learning website. Draw a single clean sheet: one neat grid of 6 large square glossy illustrated badges on the page background, no header, no footer, no navigation, no captions, no words, letters or numbers anywhere, each badge its own colour and a single bold simple object, drawn as crisp vector shapes (inline SVG, one svg element per badge, viewBox square), same style family, same size, soft ledge under each, object filling the badge and recognisable even at a small size: a graduation cap; an open laptop; a green leaf on a small globe; a briefcase; a paper plane over a cloud; a heart with a pulse line. Lexkite Kit, Bright Day theme, playful and warm."
+ },
+ {
+  "id": "sv-art-topics2",
+  "mode": "light",
+  "kind": "gen",
+  "device": "DESKTOP",
+  "prompt": "Lexkite Kit illustration sheet for an English-learning website. Draw a single clean sheet: one neat grid of 6 large square glossy illustrated badges on the page background, no header, no footer, no navigation, no captions, no words, letters or numbers anywhere, each badge its own colour and a single bold simple object, drawn as crisp vector shapes (inline SVG, one svg element per badge, viewBox square), same style family, same size, soft ledge under each, object filling the badge and recognisable even at a small size: a folded newspaper; a city skyline with three towers; a classical temple with columns; three linked rounded circles forming a community; a pair of theatre masks; a golden trophy. Lexkite Kit, Bright Day theme, playful and warm."
+ },
+ {
+  "id": "sv-art-topics3",
+  "mode": "light",
+  "kind": "gen",
+  "device": "DESKTOP",
+  "prompt": "Lexkite Kit illustration sheet for an English-learning website. Draw a single clean sheet: one neat grid of 6 large square glossy illustrated badges on the page background, no header, no footer, no navigation, no captions, no words, letters or numbers anywhere, each badge its own colour and a single bold simple object, drawn as crisp vector shapes (inline SVG, one svg element per badge, viewBox square), same style family, same size, soft ledge under each, object filling the badge and recognisable even at a small size: a steaming noodle bowl with chopsticks; a shopping bag; a speech bubble with a small globe inside; a laboratory flask with bubbles; a friendly owl; a judge's gavel on a block. Lexkite Kit, Bright Day theme, playful and warm."
+ },
+ {
+  "id": "sv-art-mix1",
+  "mode": "light",
+  "kind": "gen",
+  "device": "DESKTOP",
+  "prompt": "Lexkite Kit illustration sheet for an English-learning website. Draw a single clean sheet: one neat grid of 6 large square glossy illustrated badges on the page background, no header, no footer, no navigation, no captions, no words, letters or numbers anywhere, each badge its own colour and a single bold simple object, drawn as crisp vector shapes (inline SVG, one svg element per badge, viewBox square), same style family, same size, soft ledge under each, object filling the badge and recognisable even at a small size: a shield with a keyhole; a stack of gold coins beside a rising arrow; a big green tick and a big red cross side by side; a lit lightbulb untying a knot; a sealed envelope with a red wax seal; an open envelope with a card rising out. Lexkite Kit, Bright Day theme, playful and warm."
+ },
+ {
+  "id": "sv-art-mix2",
+  "mode": "light",
+  "kind": "gen",
+  "device": "DESKTOP",
+  "prompt": "Lexkite Kit illustration sheet for an English-learning website. Draw a single clean sheet: one neat grid of 6 large square glossy illustrated badges on the page background, no header, no footer, no navigation, no captions, no words, letters or numbers anywhere, each badge its own colour and a single bold simple object, drawn as crisp vector shapes (inline SVG, one svg element per badge, viewBox square), same style family, same size, soft ledge under each, object filling the badge and recognisable even at a small size: a postcard with a little heart stamp; a stack of paper documents; a square, circle and triangle block set; a gold star medal with a ribbon; a highlighter pen drawing a stroke; an alarm clock. Lexkite Kit, Bright Day theme, playful and warm."
+ },
+ {
+  "id": "sv-art-vocab1",
+  "mode": "light",
+  "kind": "gen",
+  "device": "DESKTOP",
+  "prompt": "Lexkite Kit illustration sheet for an English-learning website. Draw a single clean sheet: one neat grid of 6 large square glossy illustrated badges on the page background, no header, no footer, no navigation, no captions, no words, letters or numbers anywhere, each badge its own colour and a single bold simple object, drawn as crisp vector shapes (inline SVG, one svg element per badge, viewBox square), same style family, same size, soft ledge under each, object filling the badge and recognisable even at a small size: an open book with a bookmark; a pen nib with a small ink drop; a studio microphone; a stack of three books with a cap on top; three toy building cubes; an ID lanyard badge. Lexkite Kit, Bright Day theme, playful and warm."
+ },
+ {
+  "id": "sv-art-vocab2",
+  "mode": "light",
+  "kind": "gen",
+  "device": "DESKTOP",
+  "prompt": "Lexkite Kit illustration sheet for an English-learning website. Draw a single clean sheet: one neat grid of 6 large square glossy illustrated badges on the page background, no header, no footer, no navigation, no captions, no words, letters or numbers anywhere, each badge its own colour and a single bold simple object, drawn as crisp vector shapes (inline SVG, one svg element per badge, viewBox square), same style family, same size, soft ledge under each, object filling the badge and recognisable even at a small size: an open toolbox; a clipboard with a check list of ticks; a brick wall section; an hourglass; two meshing gears; two interlocking puzzle pieces. Lexkite Kit, Bright Day theme, playful and warm."
+ },
+ {
+  "id": "sv-art-gram",
+  "mode": "light",
+  "kind": "gen",
+  "device": "DESKTOP",
+  "prompt": "Lexkite Kit illustration sheet for an English-learning website. Draw a single clean sheet: one neat grid of 6 large square glossy illustrated badges on the page background, no header, no footer, no navigation, no captions, no words, letters or numbers anywhere, each badge its own colour and a single bold simple object, drawn as crisp vector shapes (inline SVG, one svg element per badge, viewBox square), same style family, same size, soft ledge under each, object filling the badge and recognisable even at a small size: two chain links joined; a paper scroll with a feather quill; a pair of open smiling lips with a small tongue; two connected sound waves curving into each other; a sound wave hitting a solid block; a bullseye target with an arrow. Lexkite Kit, Bright Day theme, playful and warm."
+ },
+ {
+  "id": "sv-art-pron",
+  "mode": "light",
+  "kind": "gen",
+  "device": "DESKTOP",
+  "prompt": "Lexkite Kit illustration sheet for an English-learning website. Draw a single clean sheet: one neat grid of 6 large square glossy illustrated badges on the page background, no header, no footer, no navigation, no captions, no words, letters or numbers anywhere, each badge its own colour and a single bold simple object, drawn as crisp vector shapes (inline SVG, one svg element per badge, viewBox square), same style family, same size, soft ledge under each, object filling the badge and recognisable even at a small size: a megaphone with a rising wave; a line chart on a small card with a rising line; a bar chart with four bars; a pie chart with one slice lifted; a small table grid with a highlighted row; a cycle of three curved arrows. Lexkite Kit, Bright Day theme, playful and warm."
+ },
+ {
+  "id": "sv-art-misc",
+  "mode": "light",
+  "kind": "gen",
+  "device": "DESKTOP",
+  "prompt": "Lexkite Kit illustration sheet for an English-learning website. Draw a single clean sheet: one neat grid of 6 large square glossy illustrated badges on the page background, no header, no footer, no navigation, no captions, no words, letters or numbers anywhere, each badge its own colour and a single bold simple object, drawn as crisp vector shapes (inline SVG, one svg element per badge, viewBox square), same style family, same size, soft ledge under each, object filling the badge and recognisable even at a small size: a folded map with a location pin; a chat bubble holding a question mark; a tick inside a shield; an open letter with a pen; a small notebook with a ribbon; a play button on a small sound wave. Lexkite Kit, Bright Day theme, playful and warm."
+ },
+ {
+  "id": "sv-hub",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "DESKTOP",
+  "from": "sv-hub/light",
+  "prompt": "Convert this exact screen to the Tactile Night dark theme of the Lexkite Kit. Keep the identical layout, components, every text string and the same illustrated badges with their own colours. Calm deep teal-black page, slightly raised cards, all text and icons easy to read, no grey on grey."
+ },
+ {
+  "id": "sv-hub-phone",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "sv-hub-phone/light",
+  "prompt": "Convert this exact screen to the Tactile Night dark theme of the Lexkite Kit. Keep the identical layout, components, every text string and the same illustrated badges with their own colours. Calm deep teal-black page, slightly raised cards, all text and icons easy to read, no grey on grey."
+ }
+]

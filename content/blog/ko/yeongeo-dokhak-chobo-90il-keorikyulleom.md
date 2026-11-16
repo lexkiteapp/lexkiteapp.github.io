@@ -99,7 +99,7 @@ publishAt: 2026-12-08T07:29:00+09:00
   - [영어 쉐도잉 훈련법](/ko/blog/yeongeo-shadowing-bangbeop/)으로 원어민의 억양과 리듬을 실시간 모방 낭독.
   - [영어 의문문 만들기 공식](/ko/blog/yeongeo-uimunmun-mandeulgi-gongsig/)을 마스터하여 상대방에게 되묻는 대화형 질문 던지기.
   - [영어로 생각하기 훈련](/ko/blog/yeongeo-ro-saenggakhagi-beonyeok-eopsi/)을 통해 머릿속 한국어 번역 습관 끊기.
-  - 실전 독해 감각을 위해 [IELTS 리딩 True False Not Given 풀이법](/ko/blog/ielts-reading-true-false-not-given-haebeop/)을 참고하거나 [어휘 보관함 라이브러리](/tu-vung/)에서 유의어를 확장하기.
+  - 실전 독해 감각을 위해 [IELTS 리딩 True False Not Given 풀이법](/ko/blog/ielts-reading-true-false-not-given-haebeop/)을 참고하거나 [어휘 보관함 라이브러리](/en/vocabulary/)에서 유의어를 확장하기.
 
 ## 성인 직장인을 위한 매일 40분 실천 시간표
 

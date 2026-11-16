@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_very_like",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Don't say I very like!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I very like music.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I like music very much.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Very does not go before a verb.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Very much! I like pizza very much.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I very like music.",
+  "right": "I like music very much.",
+  "strike": "very",
+  "why": "Very does not go before a verb.",
+  "memory": "Like it very much.",
+  "quiz": {
+   "stem": "I like pizza ___.",
+   "options": [
+    "very",
+    "very much"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Đừng nói “I very like” nhé!",
+   "tip": "Tiếng Việt nói “rất thích”, nhưng tiếng Anh phải nói “like … very much”.",
+   "caption": "Bạn có nói “I very like music” không? 🙈 Người bản xứ nói “I like music very much”. Nghe Ama đọc rồi lặp lại theo nhé! Luyện thêm cách nói tự nhiên trong app Lexkite.",
+   "comment": "Đáp án: “very much”. Thử đặt một câu về món bạn thích nhất, rồi luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#tienganhgiaotiep",
+    "#nguphaptienganh",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Don't say “I very like”!",
+   "tip": "In Vietnamese you say “very like”, but in English you must say “like … very much”.",
+   "caption": "Do you say “I very like music”? Native speakers say “I like music very much”. Listen to Ama read it, then repeat after her! Practice more natural phrases in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Đừng nói “I very like” nhé!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Đừng nói “I very like” nhé!",
+  "keyword": "I like music very much.",
+  "value": "Tiếng Việt nói “rất thích”, nhưng tiếng Anh phải nói “like … very much”.",
+  "hashtags": [
+   "#hoctienganh",
+   "#tienganhgiaotiep",
+   "#nguphaptienganh",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "Đừng nói “I very like” nhé!",
+    "description": "Bạn có nói “I very like music” không? 🙈 Người bản xứ nói “I like music very much”. Nghe Ama đọc rồi lặp lại theo nhé! Luyện thêm cách nói tự nhiên trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #tienganhgiaotiep #nguphaptienganh #lexkite",
+    "tags": [
+     "I like music very much.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có nói “I very like music” không? 🙈 Người bản xứ nói “I like music very much”. Nghe Ama đọc rồi lặp lại theo nhé! Luyện thêm cách nói tự nhiên trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Bạn có nói “I very like music” không? 🙈 Người bản xứ nói “I like music very much”. Nghe Ama đọc rồi lặp lại theo nhé! Luyện thêm cách nói tự nhiên trong app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#tienganhgiaotiep",
+     "#nguphaptienganh",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Đừng nói “I very like” nhé! #hoctienganh #tienganhgiaotiep #nguphaptienganh"
+   }
+  },
+  "first_comment": "Đáp án: “very much”. Thử đặt một câu về món bạn thích nhất, rồi luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

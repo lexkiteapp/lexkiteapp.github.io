@@ -33,7 +33,7 @@ ok(pill.hidden, 'ẩn khi đang luyện tập'); w.location.hash = '#/dict/recor
 // Không che nội dung: nút tròn 44 px, tên đọc được, .view chừa đáy (--fab-space), ẩn khi cuộn xuống/gõ phím/có thanh dính đáy
 ok(lazyTag && fs.statSync(new URL('../../web/js/report-pill.js', import.meta.url)).size < 3072, 'lõi report-pill.js < 3 KB, tự nạp phần lười report-pill-ui.js');
 ok(CSS && !d.querySelector('style') && /\.lk-rep\{/.test(CSS), 'kiểu nút nằm trong css/style.css (nạp cùng khung – không chèn <style> bằng JS)');
-ok(/\.side-foot:not\(\.sf-ok\)>a:not\(\[data-blog\]\)/.test(CSS) && /\.side-foot:not\(\.sf-ok\) \.lk-rep\.in-side\{margin-top:calc\(\.4rem \+ 44px\)\}/.test(CSS) && d.querySelector('.side-foot').classList.contains('sf-ok') && d.querySelector('.side-foot>.sf-more .sf-m a[href="/contact"]') && d.querySelector('.side-foot>a[data-blog]') && d.querySelector('.side-foot>a[data-l=about]'), 'chân thanh bên: link phụ vào ⋯ Xem thêm, giữ Blog/Giới thiệu; ẩn sẵn link phụ + chừa hàng 44 px tới khi gom xong (.sf-ok) → không xô bố cục');
+ok(/\.side-foot:not\(\.sf-ok\)>a:not\(\[data-blog\]\)/.test(CSS) && /\.side-foot:not\(\.sf-ok\) \.lk-rep\.in-side\{margin-top:44px\}/.test(CSS) && d.querySelector('.side-foot').classList.contains('sf-ok') && d.querySelector('.side-foot>.sf-more .sf-m a[href="/contact"]') && d.querySelector('.side-foot.sp-on .sf-m a[data-blog]') && d.querySelector('.side-foot.sp-on .sf-m a[data-l=about]') && /\.sidebar \.side-foot:not\(\.sf-ok\)\{display:none\}/.test(CSS), 'chân thanh bên gọn (05/11): mọi link phụ + Blog/Giới thiệu vào menu ⋯ của hàng hồ sơ; ẩn sẵn chân cũ trên máy tính (fallback .sf-ok) → không xô bố cục');
 ok(pill.querySelector('.lk-rep-l') && pill.querySelector('.lk-rep-l').textContent === 'Report' && /width:44px;height:44px/.test(CSS), 'nút gọn 44×44 px, nhãn "Report" cho trình đọc màn hình (data-i18n – đổi ngôn ngữ vẫn dịch)');
 ok(d.documentElement.classList.contains('lk-fab') && /--fab-space:\d+px/.test(CSS) && /html\.lk-fab body:not\(\.cbt-mode\):not\(\.bare\) \.view\{padding-bottom:calc\([^}]*var\(--fab-space\)/.test(CSS), 'html.lk-fab + .view padding-bottom có var(--fab-space) → nội dung cuối trang không bị nút che');
 ok(/:has\([^)]*\.learn-bar[^)]*\.grade-bar[^)]*#modal:not\(\[hidden\]\)[^)]*dialog\[open\]/.test(CSS) && /body\.focus \.lk-rep/.test(CSS), 'ẩn khi có thanh "Tiếp tục"/thanh chấm/hộp thoại/màn tập trung');
@@ -119,7 +119,20 @@ ok(v.querySelector('.lkr-list a[href="#/report/' + 'T'.repeat(24) + '"]'), '#/re
   const c2 = await R.poll(), me = JSON.parse(w.localStorage.getItem('lk.rp')).find(x => x.t === TK);
   ok(c2.length === 1 && !d.querySelector('.lkr-toast') && me.st === 'prog', 'poll: trong 12 giờ không nhắc lần 2, thay đổi được giữ');
   w.localStorage.setItem('lk.rpt', String(Date.now() - 13 * 3600e3));
-  const c3 = await R.poll(); ok(c3.length === 1 && d.querySelector('.lkr-toast') && d.querySelector('.lkr-toast').textContent.includes('Fixed'), 'poll: sau 12 giờ nhắc thay đổi đã giữ (Đã sửa)'); clr(); }
+  const c3 = await R.poll(); ok(c3.length === 1 && d.querySelector('.lkr-toast') && d.querySelector('.lkr-toast').textContent.includes('Fixed'), 'poll: sau 12 giờ nhắc thay đổi đã giữ (Đã sửa)'); clr();
+  // Thông báo trong app: chống trùng, trần, không chen vào bài học, không nhắc lặp
+  const box = () => JSON.parse(w.localStorage.getItem('lk.rpn') || '[]'), rec = () => JSON.parse(w.localStorage.getItem('lk.rp')).find(x => x.t === TK);
+  ok(box().some(x => x.k === 'ack' && x.r === 1 && x.t === TK), 'gửi báo lỗi → xác nhận trong app (chuông), đã đọc, không badge');
+  ok(box().filter(x => x.k === 'fixed').length >= 1, 'đã sửa → vào chuông');
+  const c4 = await R.poll(); ok(c4.length === 0 && !d.querySelector('.lkr-toast'), 'đã nhắc rồi: không nhắc lại (kể cả phiếu có x.seen cũ)');
+  const nb = box().length; await R.poll(); ok(box().length === nb, 'chạy lại poll: chuông không có mục trùng');
+  rec(); u += 1000; reply = b => (b.op === 'mine' ? { rows: [{ t: TK, status: 'fixed', upd: u }] } : {}); w.localStorage.setItem('lk.rpt', String(Date.now() - 2 * 3600e3));
+  sent = []; const c5 = await R.poll(); ok(c5.length === 1 && d.querySelector('.lkr-toast'), 'đã sửa: trần riêng 1 giờ (quá 1 giờ thì báo)'); clr(); await tick(5); ok(sent.some(x => x.b.op === 'seen' && x.b.t === TK), 'đã hiện → báo máy chủ "đã xem"');
+  u += 1000; reply = b => (b.op === 'mine' ? { rows: [{ t: TK, status: 'prog', upd: u }] } : {}); w.localStorage.setItem('lk.rpt', String(Date.now() - 2 * 3600e3));
+  const c6 = await R.poll(); ok(c6.length === 1 && !d.querySelector('.lkr-toast'), 'cập nhật thường: giữ trần 12 giờ'); ok(box().some(x => x.k === 'upd' && x.at === u), 'bị trần vẫn có trong chuông');
+  w.localStorage.setItem('lk.rpt', '0'); const pl = w.LexPill.b, h0 = pl.hidden; pl.hidden = true; const c7 = await R.poll(); ok(c7.length === 1 && !d.querySelector('.lkr-toast'), 'đang làm bài (nút ⚑ ẩn): không chen toast'); pl.hidden = h0;
+  let tm = null; w.UI = { toast: (m, o) => { tm = [m, o]; } }; const c8 = await R.poll(); ok(c8.length === 1 && tm && /Report/.test(tm[0]) && tm[1].action && !d.querySelector('.lkr-toast'), 'có UI.toast: dùng hệ toast chung, kèm nút Xem'); delete w.UI; }
+{ const src = rd('js/report-pill-ui.js'); ok(/144e5/.test(src) && /864e5/.test(src), 'hỏi trạng thái: còn phiếu mở 4 giờ, đóng hết 1 ngày'); }
 
 // Thẻ Chất lượng › Cài đặt & bí mật: báo rõ khóa còn thiếu + chỗ nhập (không giá trị bí mật)
 { w.eval(rd('js/admin-reports.js')); const C = w.AdminReports._t.checks, by = (c, k) => C(c).find(i => i.k === k);

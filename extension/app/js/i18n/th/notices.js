@@ -1,3 +1,2 @@
-/* SINH từ i18n/ui/th/notices.js bằng scripts/i18n-pack.mjs – đừng sửa tay */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["th"] = Object.assign(D["th"] || {}, {"_1kkzwis":"ทำเครื่องหมายว่าอ่านทั้งหมดแล้ว","_1aqpffv":"ไม่มีการแจ้งเตือนใหม่","_7vdlnl":"ประกาศสำคัญ","_mem4lx":"เมื่อสักครู่","_cilyra":"ยังไม่ได้อ่าน","_1dkub36":"{n} ยังไม่ได้อ่าน"});
-})(typeof self !== 'undefined' ? self : this);
+/* SINH từ i18n/ui/th/notices.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.th=Object.assign(D.th||{},{_pffv:"ไม่มีการแจ้งเตือนใหม่",_lyra:"ยังไม่ได้อ่าน",_wyuq:"แตะเพื่อดูสถานะล่าสุด",_62kr:"มีความคืบหน้าของรายงาน {id}",_uu8l:"ขอบคุณที่แจ้งเข้ามา โหลดแอปใหม่เพื่อใช้เวอร์ชันล่าสุด",_tb6i:"ขอบคุณ – Lexkite จะแจ้งความคืบหน้าที่นี่",_dlnl:"ประกาศสำคัญ",_m4lx:"เมื่อสักครู่",_erjf:"ดูรายงาน",_ub36:"{n} ยังไม่ได้อ่าน",_z2ii:"ได้รับรายงาน {id} แล้ว",_2tyo:"แก้ไขรายงาน {id} แล้ว",_zwis:"ทำเครื่องหมายว่าอ่านทั้งหมดแล้ว"});})(typeof self!=='undefined'?self:this);

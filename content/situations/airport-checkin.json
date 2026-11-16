@@ -1,0 +1,883 @@
+{
+ "id": "airport-checkin",
+ "group": "transport",
+ "cefr": "B1",
+ "title": {
+  "en": "Airport check-in",
+  "vi": "Làm thủ tục tại sân bay",
+  "es": "Facturación en el aeropuerto",
+  "pt": "Check-in no aeroporto",
+  "fr": "Enregistrement à l'aéroport",
+  "de": "Check-in am Flughafen",
+  "id": "Check-in di bandara",
+  "th": "เช็กอินที่สนามบิน",
+  "zh": "机场值机",
+  "ja": "空港のチェックイン",
+  "ko": "공항 체크인",
+  "hi": "एयरपोर्ट चेक-इन",
+  "ar": "إنهاء إجراءات السفر في المطار",
+  "ru": "Регистрация в аэропорту",
+  "tr": "Havalimanında check-in"
+ },
+ "goal": {
+  "en": "Check in and catch your flight!",
+  "vi": "Làm thủ tục và kịp chuyến bay nhé!",
+  "es": "¡Haz el check-in y llega a tu vuelo!",
+  "pt": "Faça o check-in e pegue o seu voo!",
+  "fr": "Enregistrez-vous et prenez votre vol !",
+  "de": "Check ein und erwisch deinen Flug!",
+  "id": "Check-in dan kejar penerbanganmu!",
+  "th": "เช็กอินแล้วไปให้ทันเที่ยวบิน!",
+  "zh": "办好值机，赶上你的航班！",
+  "ja": "チェックインして、フライトに間に合おう！",
+  "ko": "체크인하고 비행기를 타요!",
+  "hi": "चेक-इन करें और अपनी फ़्लाइट पकड़ें!",
+  "ar": "أنهِ إجراءات السفر والحق برحلتك!",
+  "ru": "Зарегистрируйся и успей на рейс!",
+  "tr": "Check-in yap ve uçuşuna yetiş!"
+ },
+ "roles": [
+  "customer",
+  "barista"
+ ],
+ "stages": [
+  {
+   "id": "checkin",
+   "title": {
+    "en": "Check in",
+    "vi": "Làm thủ tục",
+    "es": "Facturar",
+    "pt": "Check-in",
+    "fr": "Enregistrement",
+    "de": "Einchecken",
+    "id": "Check-in",
+    "th": "เช็กอิน",
+    "zh": "办理值机",
+    "ja": "チェックイン",
+    "ko": "체크인",
+    "hi": "चेक-इन",
+    "ar": "إنهاء الإجراءات",
+    "ru": "Регистрация",
+    "tr": "Check-in"
+   },
+   "lines": [
+    "c1",
+    "c2",
+    "c3",
+    "c4"
+   ]
+  },
+  {
+   "id": "bags",
+   "title": {
+    "en": "Bags & fees",
+    "vi": "Hành lý & phí",
+    "es": "Equipaje y tarifas",
+    "pt": "Bagagem e taxas",
+    "fr": "Bagages et frais",
+    "de": "Gepäck & Gebühren",
+    "id": "Bagasi & biaya",
+    "th": "สัมภาระและค่าธรรมเนียม",
+    "zh": "行李和费用",
+    "ja": "手荷物と料金",
+    "ko": "수하물과 요금",
+    "hi": "बैगेज और शुल्क",
+    "ar": "الأمتعة والرسوم",
+    "ru": "Багаж и доплата",
+    "tr": "Bagaj ve ücret"
+   },
+   "lines": [
+    "b1",
+    "b2",
+    "b3",
+    "b4"
+   ]
+  },
+  {
+   "id": "gate",
+   "title": {
+    "en": "Seat & gate",
+    "vi": "Chỗ ngồi & cửa bay",
+    "es": "Asiento y puerta",
+    "pt": "Assento e portão",
+    "fr": "Place et porte",
+    "de": "Sitzplatz & Gate",
+    "id": "Kursi & gerbang",
+    "th": "ที่นั่งและประตู",
+    "zh": "座位和登机口",
+    "ja": "座席とゲート",
+    "ko": "좌석과 게이트",
+    "hi": "सीट और गेट",
+    "ar": "المقعد والبوابة",
+    "ru": "Место и выход",
+    "tr": "Koltuk ve kapı"
+   },
+   "lines": [
+    "g1",
+    "g2",
+    "g3",
+    "g4"
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "id": "c1",
+   "who": "customer",
+   "en": "Hi, I'd like to check in for my flight to Chicago.",
+   "variants": {
+    "polite": "Good morning. I'd like to check in for my flight to Chicago, please.",
+    "casual": "Hi, checking in for the Chicago flight."
+   },
+   "gloss": {
+    "en": "Telling the desk you want to check in for your flight to Chicago.",
+    "vi": "Xin chào, tôi muốn làm thủ tục cho chuyến bay đến Chicago.",
+    "es": "Hola, quisiera facturar para mi vuelo a Chicago.",
+    "pt": "Olá, eu gostaria de fazer o check-in do meu voo para Chicago.",
+    "fr": "Bonjour, je voudrais m'enregistrer pour mon vol à destination de Chicago.",
+    "de": "Hallo, ich möchte für meinen Flug nach Chicago einchecken.",
+    "id": "Halo, saya ingin check-in untuk penerbangan ke Chicago.",
+    "th": "สวัสดีค่ะ ขอเช็กอินเที่ยวบินไปชิคาโกค่ะ",
+    "zh": "你好，我想办理去芝加哥的航班值机。",
+    "ja": "こんにちは、シカゴ行きのチェックインをお願いします。",
+    "ko": "안녕하세요, 시카고행 항공편 체크인하려고 합니다.",
+    "hi": "नमस्ते, मुझे शिकागो की अपनी फ़्लाइट का चेक-इन करवाना है।",
+    "ar": "مرحبًا، أودّ إنهاء إجراءات رحلتي إلى شيكاغو.",
+    "ru": "Здравствуйте, мне нужно зарегистрироваться на рейс в Чикаго.",
+    "tr": "Merhaba, Chicago uçuşum için check-in yaptırmak istiyorum."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "c2",
+   "who": "barista",
+   "en": "Of course. May I see your passport and booking reference, please?",
+   "variants": {
+    "polite": "Certainly. Could I see your passport and booking reference, please?",
+    "casual": "Sure. Passport and booking reference, please."
+   },
+   "gloss": {
+    "en": "The agent asks for your passport and booking reference.",
+    "vi": "Vâng. Cho tôi xem hộ chiếu và mã đặt chỗ của anh/chị nhé.",
+    "es": "Claro. ¿Me permite ver su pasaporte y su código de reserva, por favor?",
+    "pt": "Claro. Posso ver o seu passaporte e o código da reserva, por favor?",
+    "fr": "Bien sûr. Puis-je voir votre passeport et votre numéro de réservation, s'il vous plaît ?",
+    "de": "Natürlich. Darf ich bitte Ihren Reisepass und Ihre Buchungsnummer sehen?",
+    "id": "Tentu. Boleh saya lihat paspor dan kode booking Anda?",
+    "th": "ได้ค่ะ ขอดูหนังสือเดินทางและรหัสการจองหน่อยนะคะ",
+    "zh": "好的。请出示您的护照和订单号。",
+    "ja": "かしこまりました。パスポートと予約番号を拝見できますか？",
+    "ko": "네. 여권과 예약 번호를 보여 주시겠어요?",
+    "hi": "ज़रूर। क्या मैं आपका पासपोर्ट और बुकिंग रेफ़रेंस देख सकता हूँ?",
+    "ar": "بالتأكيد. هل يمكنني رؤية جواز سفرك ورقم الحجز من فضلك؟",
+    "ru": "Конечно. Можно ваш паспорт и номер бронирования, пожалуйста?",
+    "tr": "Tabii. Pasaportunuzu ve rezervasyon numaranızı görebilir miyim?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "passport",
+     "ipa": "/ˈpæs.pɔːrt/",
+     "hi": "PASS",
+     "note": {
+      "en": "Stress the first syllable: PASS-port, not pass-PORT.",
+      "vi": "Nhấn âm đầu: PÁT-pót, không phải pat-PÓT.",
+      "es": "Acentúa la primera sílaba: PASS-port, no pass-PORT.",
+      "pt": "Acentue a primeira sílaba: PÁSS-port, não pass-PORT.",
+      "fr": "Accentuez la première syllabe : PASS-port, pas pass-PORT.",
+      "de": "Betone die erste Silbe: PASS-port, nicht pass-PORT.",
+      "id": "Tekankan suku kata pertama: PAS-port, bukan pas-PORT.",
+      "th": "เน้นพยางค์แรก: แพส-พอร์ต ไม่ใช่เน้นพยางค์หลัง",
+      "zh": "重音在第一个音节：PASS-port，而不是 pass-PORT。",
+      "ja": "最初の音節を強く：パス・ポート。後ろを強く読まないでください。",
+      "ko": "첫 음절에 강세를 두세요: PASS-port. 뒤를 세게 읽지 마세요.",
+      "hi": "पहले अक्षर पर ज़ोर दें: PASS-port, न कि pass-PORT।",
+      "ar": "شدّد على المقطع الأول: PASS-port وليس pass-PORT.",
+      "ru": "Ударение на первый слог: PASS-port, а не pass-PORT.",
+      "tr": "Vurgu ilk hecede: PASS-port, pass-PORT değil."
+     }
+    }
+   ]
+  },
+  {
+   "id": "c3",
+   "who": "customer",
+   "en": "Sure, here's my passport. The booking reference is on my phone.",
+   "variants": {
+    "polite": "Certainly, here's my passport. I have the booking reference on my phone.",
+    "casual": "Here you go. The reference is on my phone."
+   },
+   "gloss": {
+    "en": "Handing over your passport and saying the booking reference is on your phone.",
+    "vi": "Dạ đây là hộ chiếu của tôi. Mã đặt chỗ nằm trong điện thoại của tôi.",
+    "es": "Claro, aquí tiene mi pasaporte. El código de reserva está en mi móvil.",
+    "pt": "Claro, aqui está meu passaporte. O código da reserva está no meu celular.",
+    "fr": "Bien sûr, voici mon passeport. Mon numéro de réservation est sur mon téléphone.",
+    "de": "Klar, hier ist mein Reisepass. Die Buchungsnummer ist auf meinem Handy.",
+    "id": "Tentu, ini paspor saya. Kode booking-nya ada di ponsel saya.",
+    "th": "ได้ค่ะ นี่หนังสือเดินทางค่ะ รหัสการจองอยู่ในโทรศัพท์ค่ะ",
+    "zh": "好的，这是我的护照。订单号在我手机里。",
+    "ja": "はい、パスポートです。予約番号は携帯に入っています。",
+    "ko": "네, 여권 여기 있습니다. 예약 번호는 제 휴대폰에 있어요.",
+    "hi": "जी, यह रहा मेरा पासपोर्ट। बुकिंग रेफ़रेंस मेरे फ़ोन में है।",
+    "ar": "بالتأكيد، هذا جواز سفري. رقم الحجز موجود على هاتفي.",
+    "ru": "Конечно, вот мой паспорт. Номер бронирования у меня в телефоне.",
+    "tr": "Tabii, pasaportum burada. Rezervasyon numarası telefonumda."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "c4",
+   "who": "barista",
+   "en": "Thanks. Are you checking in any bags today?",
+   "variants": {
+    "polite": "Thank you. Will you be checking in any bags today?",
+    "casual": "Thanks. Any bags to check?"
+   },
+   "gloss": {
+    "en": "The agent asks if you have bags to check.",
+    "vi": "Cảm ơn. Hôm nay anh/chị có ký gửi hành lý không?",
+    "es": "Gracias. ¿Va a facturar alguna maleta hoy?",
+    "pt": "Obrigado. Vai despachar alguma mala hoje?",
+    "fr": "Merci. Enregistrez-vous des bagages aujourd'hui ?",
+    "de": "Danke. Möchten Sie heute Gepäck aufgeben?",
+    "id": "Terima kasih. Apakah Anda akan menitipkan bagasi hari ini?",
+    "th": "ขอบคุณค่ะ วันนี้มีกระเป๋าที่จะเช็กอินไหมคะ",
+    "zh": "谢谢。您今天有行李要托运吗？",
+    "ja": "ありがとうございます。本日お預けになる荷物はありますか？",
+    "ko": "감사합니다. 오늘 부치실 짐이 있으세요?",
+    "hi": "धन्यवाद। क्या आज आप कोई बैग चेक-इन कराएँगे?",
+    "ar": "شكرًا. هل لديك أي حقائب لتسجيلها اليوم؟",
+    "ru": "Спасибо. Вы сдаёте сегодня багаж?",
+    "tr": "Teşekkürler. Bugün teslim edeceğiniz bavul var mı?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "b1",
+   "who": "customer",
+   "en": "I'd like to check this suitcase. What's the weight limit?",
+   "variants": {
+    "polite": "I'd like to check this suitcase, please. Could you tell me the weight limit?",
+    "casual": "Checking this one. What's the weight limit?"
+   },
+   "gloss": {
+    "en": "Asking how heavy your suitcase can be.",
+    "vi": "Tôi muốn ký gửi vali này. Giới hạn cân nặng là bao nhiêu?",
+    "es": "Quisiera facturar esta maleta. ¿Cuál es el límite de peso?",
+    "pt": "Gostaria de despachar esta mala. Qual é o limite de peso?",
+    "fr": "Je voudrais enregistrer cette valise. Quelle est la limite de poids ?",
+    "de": "Ich möchte diesen Koffer aufgeben. Wie hoch ist die Gewichtsgrenze?",
+    "id": "Saya ingin menitipkan koper ini. Berapa batas beratnya?",
+    "th": "ขอเช็กอินกระเป๋าใบนี้ค่ะ น้ำหนักจำกัดเท่าไหร่คะ",
+    "zh": "我想托运这个行李箱。重量限制是多少？",
+    "ja": "このスーツケースを預けたいです。重量制限はいくつですか？",
+    "ko": "이 캐리어를 부치고 싶어요. 무게 제한이 얼마예요?",
+    "hi": "मुझे यह सूटकेस चेक-इन कराना है। वज़न की सीमा कितनी है?",
+    "ar": "أودّ تسجيل هذه الحقيبة. ما هو الحد الأقصى للوزن؟",
+    "ru": "Мне нужно сдать этот чемодан. Какой лимит по весу?",
+    "tr": "Bu bavulu teslim etmek istiyorum. Ağırlık sınırı ne kadar?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "weight",
+     "ipa": "/weɪt/",
+     "hi": "silent",
+     "note": {
+      "en": "The gh is silent: say WAYT, like \"wait\".",
+      "vi": "Âm gh câm: đọc là UÊT, giống \"wait\".",
+      "es": "La gh es muda: se dice WEIT, como \"wait\".",
+      "pt": "O gh é mudo: diz-se UEIT, como \"wait\".",
+      "fr": "Le gh est muet : on dit OUÈTE, comme « wait ».",
+      "de": "Das gh ist stumm: sprich WEIT, wie „wait“.",
+      "id": "Huruf gh tidak dibaca: ucapkan WEIT, seperti \"wait\".",
+      "th": "gh ไม่ออกเสียง: อ่านว่า เวท เหมือน \"wait\"",
+      "zh": "gh 不发音：读作 WAYT，和 \"wait\" 一样。",
+      "ja": "ghは発音しません。「ウェイト」、wait と同じ音です。",
+      "ko": "gh는 발음하지 않아요. ‘웨이트’, wait와 같은 소리예요.",
+      "hi": "gh नहीं बोला जाता: ‘वेट’ बोलें, जैसे \"wait\"।",
+      "ar": "حرفا gh صامتان: يُنطق ويت، مثل \"wait\".",
+      "ru": "Буквы gh не читаются: говорите ВЭЙТ, как \"wait\".",
+      "tr": "gh okunmaz: WEYT diye söyleyin, \"wait\" gibi."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b2",
+   "who": "barista",
+   "en": "It's twenty-three kilos, and your bag is two kilos over, I'm afraid.",
+   "variants": {
+    "polite": "The limit is twenty-three kilos, and I'm afraid your bag is two kilos over.",
+    "casual": "Limit's twenty-three kilos. You're two over."
+   },
+   "gloss": {
+    "en": "The agent says your bag is two kilos over the limit.",
+    "vi": "Là hai mươi ba ký, và vali của anh/chị nặng hơn hai ký, tiếc là vậy.",
+    "es": "Son veintitrés kilos y su maleta se pasa por dos kilos, me temo.",
+    "pt": "São vinte e três quilos, e sua mala passa dois quilos, infelizmente.",
+    "fr": "C'est vingt-trois kilos, et votre valise dépasse de deux kilos, je le crains.",
+    "de": "Es sind dreiundzwanzig Kilo, und Ihr Koffer hat leider zwei Kilo Übergewicht.",
+    "id": "Batasnya dua puluh tiga kilo, dan koper Anda kelebihan dua kilo, sayangnya.",
+    "th": "ไม่เกินยี่สิบสามกิโลค่ะ แต่กระเป๋าของคุณเกินมาสองกิโล เสียใจด้วยนะคะ",
+    "zh": "限额是二十三公斤，您的行李超重了两公斤，恐怕要处理一下。",
+    "ja": "上限は23キロで、あいにくお客様のスーツケースは2キロ超過しています。",
+    "ko": "한도는 23킬로그램인데, 죄송하지만 짐이 2킬로그램 초과예요.",
+    "hi": "सीमा तेईस किलो है, और माफ़ कीजिए, आपका बैग दो किलो ज़्यादा है।",
+    "ar": "الحد الأقصى ثلاثة وعشرون كيلوغرامًا، ويؤسفني أن حقيبتك تزيد بكيلوغرامين.",
+    "ru": "Лимит — двадцать три килограмма, и, к сожалению, ваш чемодан тяжелее на два килограмма.",
+    "tr": "Sınır yirmi üç kilo ve maalesef bavulunuz iki kilo fazla."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "b3",
+   "who": "customer",
+   "en": "How much is the fee for the extra weight?",
+   "variants": {
+    "polite": "Could you tell me how much the fee is for the extra weight?",
+    "casual": "What's the extra weight fee?"
+   },
+   "gloss": {
+    "en": "Asking what you have to pay for the extra weight.",
+    "vi": "Phí cho phần cân nặng vượt quá là bao nhiêu?",
+    "es": "¿Cuánto cuesta el cargo por el exceso de peso?",
+    "pt": "Quanto é a taxa pelo excesso de peso?",
+    "fr": "Quel est le supplément pour l'excédent de poids ?",
+    "de": "Wie hoch ist die Gebühr für das Übergewicht?",
+    "id": "Berapa biaya untuk kelebihan beratnya?",
+    "th": "ค่าธรรมเนียมน้ำหนักส่วนเกินเท่าไหร่คะ",
+    "zh": "超重部分要收多少费用？",
+    "ja": "超過分の料金はいくらですか？",
+    "ko": "초과 무게 요금은 얼마예요?",
+    "hi": "ज़्यादा वज़न का शुल्क कितना है?",
+    "ar": "كم رسوم الوزن الزائد؟",
+    "ru": "Сколько стоит доплата за перевес?",
+    "tr": "Fazla ağırlık ücreti ne kadar?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "b4",
+   "who": "barista",
+   "en": "It's forty dollars, or you can take a few things out.",
+   "variants": {
+    "polite": "The fee is forty dollars, or you're welcome to take a few things out.",
+    "casual": "Forty dollars, or take some stuff out."
+   },
+   "gloss": {
+    "en": "The agent gives the fee or suggests removing some items.",
+    "vi": "Phí là bốn mươi đô la, hoặc anh/chị có thể lấy bớt vài món ra.",
+    "es": "Son cuarenta dólares, o puede sacar algunas cosas.",
+    "pt": "São quarenta dólares, ou você pode tirar algumas coisas.",
+    "fr": "C'est quarante dollars, ou vous pouvez sortir quelques affaires.",
+    "de": "Das kostet vierzig Dollar, oder Sie nehmen ein paar Sachen heraus.",
+    "id": "Biayanya empat puluh dolar, atau Anda bisa mengeluarkan beberapa barang.",
+    "th": "สี่สิบดอลลาร์ค่ะ หรือจะเอาของออกบางอย่างก็ได้ค่ะ",
+    "zh": "四十美元，或者您可以拿出几件东西。",
+    "ja": "40ドルです。または、荷物をいくつか取り出していただくこともできます。",
+    "ko": "40달러입니다. 아니면 짐을 몇 개 빼셔도 돼요.",
+    "hi": "चालीस डॉलर लगेंगे, या आप कुछ सामान निकाल सकते हैं।",
+    "ar": "أربعون دولارًا، أو يمكنك إخراج بعض الأغراض.",
+    "ru": "Сорок долларов, или можете вынуть несколько вещей.",
+    "tr": "Kırk dolar, ya da birkaç eşyayı çıkarabilirsiniz."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "g1",
+   "who": "customer",
+   "en": "Could I have an aisle seat, please?",
+   "variants": {
+    "polite": "Would it be possible to have an aisle seat, please?",
+    "casual": "Can I get an aisle seat?"
+   },
+   "gloss": {
+    "en": "Asking for a seat next to the aisle.",
+    "vi": "Cho tôi ghế cạnh lối đi được không?",
+    "es": "¿Podría darme un asiento de pasillo, por favor?",
+    "pt": "Posso ficar com um assento no corredor, por favor?",
+    "fr": "Pourrais-je avoir une place côté couloir, s'il vous plaît ?",
+    "de": "Könnte ich bitte einen Gangplatz bekommen?",
+    "id": "Boleh saya minta kursi di dekat lorong?",
+    "th": "ขอที่นั่งริมทางเดินได้ไหมคะ",
+    "zh": "请问可以给我一个靠过道的座位吗？",
+    "ja": "通路側の席をお願いできますか？",
+    "ko": "통로 쪽 좌석으로 주시겠어요?",
+    "hi": "क्या मुझे गलियारे वाली सीट मिल सकती है?",
+    "ar": "هل يمكنني الحصول على مقعد بجانب الممر من فضلك؟",
+    "ru": "Можно мне место у прохода, пожалуйста?",
+    "tr": "Koridor tarafında bir koltuk alabilir miyim, lütfen?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "aisle",
+     "ipa": "/aɪl/",
+     "hi": "silent",
+     "note": {
+      "en": "The s is silent: say AIL, the same as \"I'll\".",
+      "vi": "Chữ s câm: đọc là AIL, giống \"I'll\".",
+      "es": "La s es muda: se dice AIL, igual que \"I'll\".",
+      "pt": "O s é mudo: diz-se AIL, igual a \"I'll\".",
+      "fr": "Le s est muet : on dit AÏL, comme « I'll ».",
+      "de": "Das s ist stumm: sprich AIL, genau wie „I'll“.",
+      "id": "Huruf s tidak dibaca: ucapkan AIL, sama seperti \"I'll\".",
+      "th": "s ไม่ออกเสียง: อ่านว่า ไอล์ เหมือน \"I'll\"",
+      "zh": "s 不发音：读作 AIL，和 \"I'll\" 一样。",
+      "ja": "sは発音しません。「アイル」、I'll と同じ音です。",
+      "ko": "s는 발음하지 않아요. ‘아일’, I'll과 같은 소리예요.",
+      "hi": "s नहीं बोला जाता: ‘आइल’ बोलें, \"I'll\" जैसा।",
+      "ar": "حرف s صامت: يُنطق آيل، مثل \"I'll\".",
+      "ru": "Буква s не читается: говорите АЙЛ, как \"I'll\".",
+      "tr": "s harfi okunmaz: AYL deyin, \"I'll\" ile aynı."
+     }
+    }
+   ]
+  },
+  {
+   "id": "g2",
+   "who": "barista",
+   "en": "Seat 14C is free. Here's your boarding pass. Boarding starts at ten forty at gate B12.",
+   "variants": {
+    "polite": "Seat 14C is available. Here is your boarding pass; boarding starts at ten forty at gate B12.",
+    "casual": "14C's free. Here's your pass. Gate B12, boarding at ten forty."
+   },
+   "gloss": {
+    "en": "The agent gives you a seat, your boarding pass, the gate and the boarding time.",
+    "vi": "Ghế 14C còn trống. Thẻ lên máy bay của anh/chị đây. Việc lên máy bay bắt đầu lúc mười giờ bốn mươi tại cửa B12.",
+    "es": "El asiento 14C está libre. Aquí tiene su tarjeta de embarque. El embarque empieza a las diez y cuarenta en la puerta B12.",
+    "pt": "O assento 14C está livre. Aqui está o seu cartão de embarque. O embarque começa às dez e quarenta no portão B12.",
+    "fr": "La place 14C est libre. Voici votre carte d'embarquement. L'embarquement commence à dix heures quarante à la porte B12.",
+    "de": "Platz 14C ist frei. Hier ist Ihre Bordkarte. Das Boarding beginnt um zehn Uhr vierzig an Gate B12.",
+    "id": "Kursi 14C masih kosong. Ini boarding pass Anda. Boarding dimulai pukul sepuluh empat puluh di gerbang B12.",
+    "th": "ที่นั่ง 14C ว่างค่ะ นี่บัตรโดยสารของคุณ เริ่มขึ้นเครื่องสิบโมงสี่สิบนาทีที่ประตู B12 ค่ะ",
+    "zh": "14C 座位有空。这是您的登机牌。十点四十分在 B12 登机口开始登机。",
+    "ja": "14Cの席が空いています。こちらが搭乗券です。搭乗は10時40分にB12ゲートで始まります。",
+    "ko": "14C 좌석이 비어 있습니다. 탑승권 여기 있습니다. 탑승은 10시 40분에 B12 게이트에서 시작해요.",
+    "hi": "सीट 14C खाली है। यह रहा आपका बोर्डिंग पास। बोर्डिंग दस बजकर चालीस मिनट पर गेट B12 पर शुरू होगी।",
+    "ar": "المقعد 14C متاح. هذه بطاقة صعودك إلى الطائرة. يبدأ الصعود في العاشرة وأربعين دقيقة عند البوابة B12.",
+    "ru": "Место 14C свободно. Вот ваш посадочный талон. Посадка начнётся в десять сорок у выхода B12.",
+    "tr": "14C koltuğu boş. İşte biniş kartınız. Biniş saat on kırkta B12 kapısında başlıyor."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "g3",
+   "who": "customer",
+   "en": "The board says my flight is delayed. Is that right?",
+   "variants": {
+    "polite": "Excuse me, the board says my flight is delayed. Is that correct?",
+    "casual": "My flight's showing as delayed. Is that right?"
+   },
+   "gloss": {
+    "en": "Checking whether the delay on the screen is true.",
+    "vi": "Bảng thông tin ghi chuyến bay của tôi bị hoãn. Có đúng không?",
+    "es": "El panel dice que mi vuelo está retrasado. ¿Es correcto?",
+    "pt": "O painel diz que meu voo está atrasado. Isso está certo?",
+    "fr": "Le tableau indique que mon vol est retardé. C'est exact ?",
+    "de": "Auf der Anzeigetafel steht, mein Flug sei verspätet. Stimmt das?",
+    "id": "Papan informasi bilang penerbangan saya tertunda. Benarkah?",
+    "th": "บนจอบอกว่าเที่ยวบินของฉันล่าช้า จริงไหมคะ",
+    "zh": "显示屏上说我的航班延误了。是真的吗？",
+    "ja": "案内板に私の便が遅れていると出ています。本当ですか？",
+    "ko": "안내 화면에 제 항공편이 지연됐다고 나와요. 맞나요?",
+    "hi": "बोर्ड पर लिखा है कि मेरी फ़्लाइट लेट है। क्या यह सही है?",
+    "ar": "تقول اللوحة إن رحلتي متأخرة. هل هذا صحيح؟",
+    "ru": "На табло написано, что мой рейс задерживается. Это правда?",
+    "tr": "Ekranda uçuşumun gecikmeli olduğu yazıyor. Doğru mu?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "g4",
+   "who": "barista",
+   "en": "Yes, it's delayed by forty minutes, so boarding is now at eleven twenty.",
+   "variants": {
+    "polite": "Yes, I'm sorry, it's delayed by forty minutes, so boarding is now at eleven twenty.",
+    "casual": "Yep, forty minutes late. Boarding's at eleven twenty."
+   },
+   "gloss": {
+    "en": "The agent confirms the delay and gives the new boarding time.",
+    "vi": "Vâng, chuyến bay trễ bốn mươi phút nên giờ lên máy bay là mười một giờ hai mươi.",
+    "es": "Sí, está retrasado cuarenta minutos, así que el embarque ahora es a las once y veinte.",
+    "pt": "Sim, está atrasado quarenta minutos, então o embarque agora é às onze e vinte.",
+    "fr": "Oui, il a quarante minutes de retard, donc l'embarquement est maintenant à onze heures vingt.",
+    "de": "Ja, er hat vierzig Minuten Verspätung, das Boarding ist jetzt um elf Uhr zwanzig.",
+    "id": "Ya, tertunda empat puluh menit, jadi boarding sekarang pukul sebelas dua puluh.",
+    "th": "ใช่ค่ะ ล่าช้าสี่สิบนาที ตอนนี้ขึ้นเครื่องสิบเอ็ดโมงยี่สิบนาทีค่ะ",
+    "zh": "是的，航班延误了四十分钟，所以现在十一点二十分登机。",
+    "ja": "はい、40分遅れていますので、搭乗は11時20分になりました。",
+    "ko": "네, 40분 지연되어서 탑승은 이제 11시 20분입니다.",
+    "hi": "जी हाँ, यह चालीस मिनट लेट है, इसलिए अब बोर्डिंग ग्यारह बजकर बीस मिनट पर है।",
+    "ar": "نعم، هي متأخرة أربعين دقيقة، لذلك أصبح الصعود إلى الطائرة الساعة الحادية عشرة وعشرين دقيقة.",
+    "ru": "Да, рейс задерживается на сорок минут, поэтому посадка теперь в одиннадцать двадцать.",
+    "tr": "Evet, kırk dakika gecikmeli, bu yüzden biniş artık on bir yirmide."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "delayed",
+     "ipa": "/dɪˈleɪd/",
+     "hi": "LAYD",
+     "note": {
+      "en": "Stress the second syllable: di-LAYD.",
+      "vi": "Nhấn âm thứ hai: đi-LÂYD.",
+      "es": "Acentúa la segunda sílaba: di-LEID.",
+      "pt": "Acentue a segunda sílaba: di-LEID.",
+      "fr": "Accentuez la deuxième syllabe : di-LÈDE.",
+      "de": "Betone die zweite Silbe: di-LEID.",
+      "id": "Tekankan suku kata kedua: di-LEID.",
+      "th": "เน้นพยางค์ที่สอง: ดิ-เลด",
+      "zh": "重音在第二个音节：di-LAYD。",
+      "ja": "2番目の音節を強く：ディ・レイド。",
+      "ko": "두 번째 음절에 강세: 디-레이드.",
+      "hi": "दूसरे अक्षर पर ज़ोर दें: डि-लेड।",
+      "ar": "شدّد على المقطع الثاني: دي-ليد.",
+      "ru": "Ударение на второй слог: ди-ЛЭЙД.",
+      "tr": "Vurgu ikinci hecede: di-LEYD."
+     }
+    }
+   ]
+  },
+  {
+   "id": "q1",
+   "who": "barista",
+   "en": "Would you like a window seat or an aisle seat?",
+   "variants": {
+    "polite": "Would you prefer a window seat or an aisle seat?",
+    "casual": "Window or aisle?"
+   },
+   "gloss": {
+    "en": "The agent asks which seat you prefer. Answer in your own words.",
+    "vi": "Anh/chị muốn ngồi cạnh cửa sổ hay cạnh lối đi?",
+    "es": "¿Quiere asiento de ventanilla o de pasillo?",
+    "pt": "Quer assento na janela ou no corredor?",
+    "fr": "Vous préférez une place côté hublot ou côté couloir ?",
+    "de": "Möchten Sie einen Fensterplatz oder einen Gangplatz?",
+    "id": "Mau kursi dekat jendela atau dekat lorong?",
+    "th": "รับที่นั่งริมหน้าต่างหรือริมทางเดินคะ",
+    "zh": "您想要靠窗的座位还是靠过道的？",
+    "ja": "窓側と通路側、どちらの席がよろしいですか？",
+    "ko": "창가 좌석과 통로 좌석 중 어느 쪽이 좋으세요?",
+    "hi": "आपको खिड़की वाली सीट चाहिए या गलियारे वाली?",
+    "ar": "هل تفضّل مقعدًا بجانب النافذة أم بجانب الممر؟",
+    "ru": "Вам место у окна или у прохода?",
+    "tr": "Cam kenarı mı, koridor tarafı mı istersiniz?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [],
+   "open": true,
+   "keywords": [
+    "window",
+    "aisle",
+    "middle",
+    "front",
+    "extra legroom",
+    "exit row",
+    "next to"
+   ]
+  },
+  {
+   "id": "q2",
+   "who": "barista",
+   "en": "Is there anything else I can help you with?",
+   "variants": {
+    "polite": "Is there anything else I can help you with today?",
+    "casual": "Anything else?"
+   },
+   "gloss": {
+    "en": "The agent asks if you need anything else. Answer in your own words.",
+    "vi": "Tôi còn giúp gì được cho anh/chị nữa không?",
+    "es": "¿Hay algo más en lo que pueda ayudarle?",
+    "pt": "Posso ajudar com mais alguma coisa?",
+    "fr": "Puis-je vous aider pour autre chose ?",
+    "de": "Kann ich sonst noch etwas für Sie tun?",
+    "id": "Ada lagi yang bisa saya bantu?",
+    "th": "มีอะไรให้ช่วยอีกไหมคะ",
+    "zh": "还有什么需要我帮忙的吗？",
+    "ja": "ほかにお手伝いできることはありますか？",
+    "ko": "더 도와드릴 일이 있을까요?",
+    "hi": "क्या मैं आपकी और कोई मदद कर सकता हूँ?",
+    "ar": "هل هناك أي شيء آخر يمكنني مساعدتك به؟",
+    "ru": "Могу ли я вам ещё чем-нибудь помочь?",
+    "tr": "Size yardımcı olabileceğim başka bir şey var mı?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [],
+   "open": true,
+   "keywords": [
+    "gate",
+    "lounge",
+    "boarding",
+    "delay",
+    "delayed",
+    "bag",
+    "meal",
+    "wheelchair",
+    "assistance",
+    "thank"
+   ]
+  }
+ ],
+ "dialogue": [
+  {
+   "who": "barista",
+   "en": "Good morning. Where are you flying to today?"
+  },
+  {
+   "who": "customer",
+   "en": "Hi, I'd like to check in for my flight to Chicago."
+  },
+  {
+   "who": "barista",
+   "en": "Of course. May I see your passport and booking reference, please?"
+  },
+  {
+   "who": "customer",
+   "en": "Sure, here's my passport. The booking reference is on my phone."
+  },
+  {
+   "who": "barista",
+   "en": "Thanks. Are you checking in any bags today?"
+  },
+  {
+   "who": "customer",
+   "en": "I'd like to check this suitcase. What's the weight limit?"
+  },
+  {
+   "who": "barista",
+   "en": "It's twenty-three kilos, and your bag is two kilos over, I'm afraid."
+  },
+  {
+   "who": "customer",
+   "en": "How much is the fee for the extra weight?"
+  },
+  {
+   "who": "barista",
+   "en": "It's forty dollars, or you can take a few things out."
+  }
+ ],
+ "listening": [
+  {
+   "id": "l1",
+   "turns": [
+    {
+     "who": "barista",
+     "en": "Good evening. Your flight to Madrid is delayed by an hour."
+    },
+    {
+     "who": "customer",
+     "en": "Oh no. What's the new departure time?"
+    },
+    {
+     "who": "barista",
+     "en": "It will now leave at half past six."
+    }
+   ],
+   "q": {
+    "en": "What is the new departure time?",
+    "vi": "Giờ khởi hành mới là mấy giờ?",
+    "es": "¿Cuál es la nueva hora de salida?",
+    "pt": "Qual é o novo horário de partida?",
+    "fr": "Quelle est la nouvelle heure de départ ?",
+    "de": "Wie ist die neue Abflugzeit?",
+    "id": "Jam berapa keberangkatan yang baru?",
+    "th": "เวลาออกเดินทางใหม่คือกี่โมง",
+    "zh": "新的起飞时间是几点？",
+    "ja": "新しい出発時刻は何時ですか？",
+    "ko": "새 출발 시간은 몇 시인가요?",
+    "hi": "नई उड़ान का समय क्या है?",
+    "ar": "ما هو موعد الإقلاع الجديد؟",
+    "ru": "Какое новое время вылета?",
+    "tr": "Yeni kalkış saati kaç?"
+   },
+   "answer": "half past six"
+  },
+  {
+   "id": "l2",
+   "turns": [
+    {
+     "who": "customer",
+     "en": "Hello, can I check this bag here?"
+    },
+    {
+     "who": "barista",
+     "en": "Yes. It weighs twenty-six kilos, and the limit is twenty-three."
+    },
+    {
+     "who": "customer",
+     "en": "OK, I'll take a few things out."
+    },
+    {
+     "who": "barista",
+     "en": "Thank you. Your boarding gate is gate forty-two."
+    }
+   ],
+   "q": {
+    "en": "Which gate does the passenger need?",
+    "vi": "Hành khách cần ra cửa số mấy?",
+    "es": "¿A qué puerta tiene que ir el pasajero?",
+    "pt": "A que portão o passageiro precisa ir?",
+    "fr": "À quelle porte le passager doit-il aller ?",
+    "de": "Zu welchem Gate muss der Passagier?",
+    "id": "Penumpang harus pergi ke gerbang berapa?",
+    "th": "ผู้โดยสารต้องไปที่ประตูหมายเลขอะไร",
+    "zh": "乘客要去几号登机口？",
+    "ja": "乗客はどのゲートに行く必要がありますか？",
+    "ko": "승객은 몇 번 게이트로 가야 하나요?",
+    "hi": "यात्री को किस गेट पर जाना है?",
+    "ar": "إلى أي بوابة يجب أن يذهب المسافر؟",
+    "ru": "К какому выходу должен идти пассажир?",
+    "tr": "Yolcu hangi kapıya gitmeli?"
+   },
+   "answer": "gate forty-two"
+  }
+ ],
+ "mission": {
+  "tasks": [
+   {
+    "id": "check-in-desk",
+    "title": {
+     "en": "Check in for your flight",
+     "vi": "Làm thủ tục cho chuyến bay",
+     "es": "Haz el check-in de tu vuelo",
+     "pt": "Faça o check-in do seu voo",
+     "fr": "Enregistrez-vous pour votre vol",
+     "de": "Für deinen Flug einchecken",
+     "id": "Check-in untuk penerbanganmu",
+     "th": "เช็กอินเที่ยวบินของคุณ",
+     "zh": "办理航班值机",
+     "ja": "フライトのチェックインをする",
+     "ko": "항공편 체크인하기",
+     "hi": "अपनी फ़्लाइट का चेक-इन करें",
+     "ar": "أنهِ إجراءات رحلتك",
+     "ru": "Зарегистрируйся на рейс",
+     "tr": "Uçuşun için check-in yap"
+    },
+    "intents": [
+     "c1",
+     "c3"
+    ]
+   },
+   {
+    "id": "bag-fee",
+    "title": {
+     "en": "Ask about the bag fee",
+     "vi": "Hỏi phí hành lý",
+     "es": "Pregunta por el cargo del equipaje",
+     "pt": "Pergunte a taxa da bagagem",
+     "fr": "Demander le prix du bagage",
+     "de": "Nach der Gepäckgebühr fragen",
+     "id": "Tanyakan biaya bagasi",
+     "th": "ถามค่าธรรมเนียมสัมภาระ",
+     "zh": "询问行李费用",
+     "ja": "手荷物の料金を聞く",
+     "ko": "수하물 요금 물어보기",
+     "hi": "बैगेज शुल्क पूछें",
+     "ar": "اسأل عن رسوم الأمتعة",
+     "ru": "Спроси про доплату за багаж",
+     "tr": "Bagaj ücretini sor"
+    },
+    "intents": [
+     "b3"
+    ]
+   },
+   {
+    "id": "aisle-seat",
+    "title": {
+     "en": "Ask for an aisle seat",
+     "vi": "Xin ghế cạnh lối đi",
+     "es": "Pide un asiento de pasillo",
+     "pt": "Peça um assento no corredor",
+     "fr": "Demander une place couloir",
+     "de": "Um einen Gangplatz bitten",
+     "id": "Minta kursi lorong",
+     "th": "ขอที่นั่งริมทางเดิน",
+     "zh": "要一个靠过道的座位",
+     "ja": "通路側の席を頼む",
+     "ko": "통로 쪽 좌석 요청하기",
+     "hi": "गलियारे वाली सीट माँगें",
+     "ar": "اطلب مقعدًا بجانب الممر",
+     "ru": "Попроси место у прохода",
+     "tr": "Koridor tarafı koltuk iste"
+    },
+    "intents": [
+     "g1"
+    ]
+   }
+  ]
+ },
+ "culture": {
+  "en": "Check-in desks usually open two to three hours before an international flight and close about an hour before departure. Many airlines let you check in online, so you may only need to drop your bag. Always check your airline's baggage limits before you pack.",
+  "vi": "Quầy làm thủ tục thường mở trước chuyến bay quốc tế hai đến ba tiếng và đóng khoảng một tiếng trước giờ khởi hành. Nhiều hãng cho phép làm thủ tục trực tuyến, nên bạn có thể chỉ cần gửi hành lý. Luôn kiểm tra quy định hành lý của hãng trước khi đóng đồ.",
+  "es": "Los mostradores de facturación suelen abrir de dos a tres horas antes de un vuelo internacional y cierran aproximadamente una hora antes de la salida. Muchas aerolíneas permiten hacer el check-in en línea, así que quizá solo tengas que dejar la maleta. Consulta siempre los límites de equipaje de tu aerolínea antes de hacer la maleta.",
+  "pt": "Os balcões de check-in costumam abrir de duas a três horas antes de um voo internacional e fecham cerca de uma hora antes da partida. Muitas companhias permitem fazer o check-in on-line, então talvez você só precise despachar a mala. Confira sempre os limites de bagagem da sua companhia antes de fazer a mala.",
+  "fr": "Les comptoirs d'enregistrement ouvrent généralement deux à trois heures avant un vol international et ferment environ une heure avant le départ. Beaucoup de compagnies permettent de s'enregistrer en ligne : il suffit alors de déposer son bagage. Vérifiez toujours les limites de bagages de votre compagnie avant de faire votre valise.",
+  "de": "Die Check-in-Schalter öffnen meist zwei bis drei Stunden vor einem internationalen Flug und schließen etwa eine Stunde vor dem Abflug. Viele Fluggesellschaften bieten Online-Check-in an, sodass du vielleicht nur noch dein Gepäck abgeben musst. Informiere dich vor dem Packen immer über die Gepäckregeln deiner Airline.",
+  "id": "Konter check-in biasanya buka dua sampai tiga jam sebelum penerbangan internasional dan tutup sekitar satu jam sebelum keberangkatan. Banyak maskapai menyediakan check-in online, jadi kamu mungkin hanya perlu menitipkan bagasi. Selalu periksa batas bagasi maskapaimu sebelum mengemas barang.",
+  "th": "เคาน์เตอร์เช็กอินมักเปิดก่อนเที่ยวบินระหว่างประเทศสองถึงสามชั่วโมง และปิดประมาณหนึ่งชั่วโมงก่อนเครื่องออก สายการบินหลายแห่งให้เช็กอินออนไลน์ได้ คุณจึงอาจต้องแค่ฝากกระเป๋า ควรตรวจสอบเกณฑ์น้ำหนักสัมภาระของสายการบินก่อนจัดกระเป๋าเสมอ",
+  "zh": "国际航班的值机柜台通常在起飞前两到三小时开放，并在起飞前约一小时关闭。许多航空公司支持在线值机，这样你可能只需要托运行李。打包前一定要先查看航空公司的行李限额。",
+  "ja": "国際線のチェックインカウンターは、通常、出発の2〜3時間前に開き、約1時間前に閉まります。多くの航空会社はオンラインチェックインに対応しているので、荷物を預けるだけで済むこともあります。荷造りの前に、必ず航空会社の手荷物制限を確認しましょう。",
+  "ko": "국제선 체크인 카운터는 보통 출발 2~3시간 전에 열리고 출발 약 1시간 전에 닫힙니다. 많은 항공사가 온라인 체크인을 지원해서 짐만 부치면 되는 경우도 있어요. 짐을 싸기 전에 항상 항공사의 수하물 규정을 확인하세요.",
+  "hi": "अंतरराष्ट्रीय उड़ान के चेक-इन काउंटर आमतौर पर प्रस्थान से दो से तीन घंटे पहले खुलते हैं और लगभग एक घंटा पहले बंद हो जाते हैं। कई एयरलाइंस ऑनलाइन चेक-इन की सुविधा देती हैं, इसलिए आपको शायद सिर्फ़ अपना बैग जमा करना होगा। सामान पैक करने से पहले हमेशा अपनी एयरलाइन की बैगेज सीमा देख लें।",
+  "ar": "تفتح مكاتب إنهاء الإجراءات عادةً قبل الرحلات الدولية بساعتين إلى ثلاث ساعات، وتُغلق قبل الإقلاع بنحو ساعة. تتيح شركات طيران كثيرة تسجيل الوصول عبر الإنترنت، فقد تحتاج فقط إلى تسليم حقيبتك. تحقق دائمًا من حدود الأمتعة لدى شركة الطيران قبل أن تحزم أمتعتك.",
+  "ru": "Стойки регистрации на международные рейсы обычно открываются за два-три часа до вылета и закрываются примерно за час. Многие авиакомпании предлагают онлайн-регистрацию, так что вам, возможно, останется только сдать багаж. Перед сборами всегда проверяйте нормы багажа вашей авиакомпании.",
+  "tr": "Check-in gişeleri genellikle uluslararası uçuşlardan iki üç saat önce açılır ve kalkıştan yaklaşık bir saat önce kapanır. Birçok havayolu çevrimiçi check-in sunar; bu durumda yalnızca bavulunuzu teslim etmeniz yeterli olabilir. Bavul hazırlamadan önce havayolunuzun bagaj sınırlarını mutlaka kontrol edin."
+ }
+}

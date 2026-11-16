@@ -72,5 +72,46 @@
   "words": 43,
   "seconds": 26.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"ability\" mean?",
+  "keyword": "ability",
+  "value": "Ability means the skill or power to do something.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=ability",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"ability\" mean?",
+    "description": "Ability means the skill or power to do something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=ability\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "ability",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"ability\" mean?\n\nAbility means the skill or power to do something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=ability"
+   },
+   "instagram": {
+    "caption": "What does \"ability\" mean?\n\nAbility means the skill or power to do something.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"ability\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means the skill or power to do something. Ability means the skill or power to do something. More practice like this (free): {link}"
  }
 }

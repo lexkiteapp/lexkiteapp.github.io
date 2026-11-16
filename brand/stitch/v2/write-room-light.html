@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite - write-room</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,0,0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              teal: '#0F3D3E',
+              'teal-dark': '#092627',
+              'teal-light': '#E6F3F3',
+              coral: '#F26D21',
+              'coral-hover': '#DE5D14',
+              'coral-shadow': '#A63F05',
+              cream: '#FFF8F3',
+              'card-border': '#ECD8C9',
+              'ink-dark': '#152528',
+              'ink-muted': '#496064',
+            }
+          },
+          boxShadow: {
+            'tactile': '0 4px 0 #ECD8C9',
+            'tactile-coral': '0 4px 0 #A63F05',
+            'tactile-subtle': '0 3px 0 #E2CCC0',
+            'tactile-press': '0 1px 0 #A63F05',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+    }
+    body {
+      background-color: #FFF8F3;
+      color: #152528;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    /* Touch target guarantee */
+    .touch-target-44 {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  </style>
+</head>
+<body class="flex justify-center bg-[#FBF7F1] min-h-screen text-[#152528]">
+  <main class="w-[390px] max-w-[390px] min-h-screen flex flex-col bg-[#FBF7F1] pb-10">
+    <header class="sticky top-0 z-30 bg-[#FBF7F1]/95 backdrop-blur-md border-b-2 border-[#ECD8C9] px-4 py-2 flex items-center gap-3">
+      <button type="button" aria-label="Back" class="touch-target-44 flex items-center justify-center rounded-xl bg-white border-2 border-[#ECD8C9] shadow-tactile-subtle text-[#0F3D3E]"><span class="material-symbols-rounded text-2xl">arrow_back</span></button>
+      <div><h1 class="text-[20px] font-extrabold text-[#0F3D3E] leading-tight">Writing Room</h1><p class="text-[12px] font-semibold text-[#496064]">IELTS Task 2</p></div>
+    </header>
+    <div class="px-4 pt-3 flex flex-col gap-4">
+ <div class="bg-white rounded-2xl border-2 border-[#ECD8C9] p-4 shadow-tactile flex flex-col gap-3"><div class="flex gap-2"><span class="touch-target-44 inline-flex items-center px-3.5 py-2 rounded-full bg-[#E6F3F3] border-2 border-[#0F3D3E] text-[#0F3D3E] font-bold text-[14px]">Agree/Disagree</span><span class="touch-target-44 inline-flex items-center px-3.5 py-2 rounded-full bg-white border-2 border-[#ECD8C9] text-[#152528] font-bold text-[14px]">Prompt 3</span></div><h2 class="text-[16px] font-extrabold text-[#152528] leading-tight">Some people believe university education should be free. To what extent do you agree?</h2><button type="button" class="touch-target-44 w-full rounded-full bg-white border-2 border-[#ECD8C9] text-[#0F3D3E] font-extrabold text-[14px] px-4 py-2 shadow-tactile-subtle">Quick ideas</button></div>
+ <div class="bg-white rounded-2xl border-2 border-[#ECD8C9] p-4 shadow-tactile flex flex-col gap-3"><div class="min-h-[180px] rounded-xl border-2 border-[#ECD8C9] p-3 text-[14px] font-semibold text-[#496064]">Start writing your essay here…</div>
+  <div class="flex items-center justify-between"><span class="text-[12px] font-extrabold text-[#0F3D3E] bg-[#E6F3F3] px-2 py-0.5 rounded-md border border-[#B8DCDB]">0 words</span><span class="text-[14px] font-extrabold text-[#152528]">40:00</span></div><button type="button" class="touch-target-44 w-full rounded-full bg-[#F26D21] text-[#1A0D00] font-extrabold text-[15px] px-4 py-3 shadow-tactile-coral border-b-4 border-[#A63F05]">Analyse my essay</button></div>
+ <div class="bg-white rounded-2xl border-2 border-[#ECD8C9] p-4 shadow-tactile flex flex-col gap-3"><h2 class="text-[16px] font-extrabold text-[#152528] leading-tight">Saved essays</h2><div class="flex items-center justify-between gap-2 touch-target-44 border-b border-[#E6DCCB]"><span class="text-[14px] font-bold text-[#152528]">Prompt 3 · 202 words</span><span class="text-[12px] font-semibold text-[#496064]">LR ~6.0</span></div><div class="flex items-center justify-between gap-2 touch-target-44 border-b border-[#E6DCCB]"><span class="text-[14px] font-bold text-[#152528]">Prompt 2 · 251 words</span><span class="text-[12px] font-semibold text-[#496064]">LR ~7.5</span></div></div></div>
+  </main>
+</body>
+</html>

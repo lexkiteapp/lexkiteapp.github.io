@@ -7,6 +7,7 @@
  * Tài khoản Firebase Authentication: xóa qua REST accounts:delete bằng chính ID token của người dùng (không cần khóa quản trị). */
 import { claims as verifyClaims, limit } from './sync.js';
 import { docsDb } from './_shard.js';
+import { readJSON, bodyFail } from './_body.js';
 
 const RECENT_SEC = 600; // phải đăng nhập lại trong 10 phút gần nhất
 // Khóa API web Firebase của dự án lexkite-app – công khai theo thiết kế (giống web/js/firebase-config.js); env.FIREBASE_API_KEY đè nếu có
@@ -31,6 +32,9 @@ export const DELETE_SQL = [
   'DELETE FROM class_member WHERE uid = ?1 OR cls IN (SELECT id FROM classes WHERE owner = ?1)',
   'DELETE FROM class_task WHERE cls IN (SELECT id FROM classes WHERE owner = ?1)',
   'DELETE FROM classes WHERE owner = ?1',
+  'DELETE FROM cm_block WHERE uid = ?1 OR other = ?1', // cộng đồng: chặn (2 chiều), báo cáo tôi gửi, hồ sơ công khai
+  'DELETE FROM cm_report WHERE by = ?1',
+  'DELETE FROM cm_profile WHERE uid = ?1',
   "UPDATE reports SET uid = '', email = '', notify = 0 WHERE uid = ?1",
   'DELETE FROM users WHERE uid = ?1',
 ];
@@ -62,7 +66,7 @@ export async function handle(request, env, deps = {}) {
   const uid = who && who.sub;
   if (!uid) return json(request, 401, { error: 'auth' });
   let req;
-  try { req = await request.json(); } catch (e) { return json(request, 400, { error: 'json' }); }
+  try { req = await readJSON(request, 16384); } catch (e) { const f = bodyFail(e); return json(request, f.status, { error: f.error }); }
   if (!req || typeof req !== 'object' || req.op !== 'delete') return json(request, 400, { error: 'op' });
   if (req.confirm !== 'DELETE') return json(request, 400, { error: 'confirm' });
   if (!(typeof who.auth_time === 'number' && now - who.auth_time <= RECENT_SEC)) return json(request, 401, { error: 'reauth' });

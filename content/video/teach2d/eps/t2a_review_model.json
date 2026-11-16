@@ -72,5 +72,46 @@
   "words": 45,
   "seconds": 27.2,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"model\" mean?",
+  "keyword": "model",
+  "value": "Model means a copy that represents an object or standard.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=model",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"model\" mean?",
+    "description": "Model means a copy that represents an object or standard.\n\nReview your words, free: https://lexkite.com/app/#/review?w=model\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "model",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"model\" mean?\n\nModel means a copy that represents an object or standard.\n\nReview your words, free: https://lexkite.com/app/#/review?w=model"
+   },
+   "instagram": {
+    "caption": "What does \"model\" mean?\n\nModel means a copy that represents an object or standard.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"model\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means a copy that represents an object or standard. Model means a copy that represents an object or standard. Try the full lesson and quiz here: {link}"
  }
 }

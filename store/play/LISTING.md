@@ -1,8 +1,8 @@
 # Lexkite – Google Play store listing (com.lexkite.app)
 
 Text source: `store/metadata/<locale>.json` (one file per language, shared with the App Store; lint `node scripts/store-metadata.mjs --check`). Copy each block into **Play Console → Grow users → Store presence → Main store listing** (default language en-US), then **Manage translations → Add your own translations** for the other languages.
-Images: built on GitHub Actions by `scripts/play-shots.mjs` (workflow **Ảnh Google Play**, `.github/workflows/play-shots.yml`) → orphan branch `play-shots`:
-`icon-512.png` (512×512, 32-bit) · `<lang>/feature-1024x500.png` · `<lang>/phone-1..7.png` (1080×1920, 24-bit, no alpha).
+Images: built on GitHub Actions by `scripts/play-shots.mjs` (workflow **Ảnh + video cửa hàng**, `.github/workflows/store-shots.yml`) → orphan branch `store-assets-v2`:
+`play/icon-512.png` (512×512, 32-bit) · `play/<lang>/feature-1024x500.png` · `play/<lang>/phone-1..7.png` (1080×1920, 24-bit, no alpha). Slot map: `store/assets-v2/UPLOAD.md`.
 Character counts below are Unicode characters (what Play Console counts). Every claim was checked against the code in `web/js` and `mobile/android` on 17/10/2026.
 
 ## App details
@@ -24,13 +24,13 @@ Policy notes: no "best / #1 / top" or ranking claims, no price or "free" text in
 
 | # | Screen (live app, `?sandbox=1&demo=1`) | Headline (en) |
 |---|---|---|
-| 1 | `#/home` – today's plan | Learn English words a little every day |
-| 2 | `#/review` – flashcard flipped, FSRS rating buttons | Review right before you forget |
-| 3 | `#/dict/resilience` – word detail | Every word, clearly explained |
-| 4 | `#/tests` – IELTS / TOEIC / TOEFL practice tests | Practice tests with explanations |
-| 5 | `#/usage/affect-effect` – usage note | Fix the mistakes learners often make |
-| 6 | `#/stats` – streak, XP, progress | Watch your streak grow |
-| 7 | `#/practice` in dark mode | Study your way, day or night |
+| 1 | `#/home` – Today + daily path | Learn English a little every day |
+| 2 | `#/lesson?demo=1` – lesson | Short lessons that really stick |
+| 3 | `#/vocab` – Vocabulary | Words you will actually remember |
+| 4 | `#/skills` – Skills | Listening, speaking, reading & writing |
+| 5 | `#/call` – video calls with Ama & Carlos | Video calls with Ama & Carlos |
+| 6 | `#/streak` in dark mode | Keep your streak alive |
+| 7 | `#/tests` in dark mode | Practice tests with explanations |
 
 ---
 

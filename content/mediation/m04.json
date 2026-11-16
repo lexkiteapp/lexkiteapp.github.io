@@ -1,0 +1,107 @@
+{
+ "id": "m04",
+ "level": "A2",
+ "lo": "M.A2.03",
+ "activity": "relay",
+ "title": "A film afternoon for families",
+ "scenario": "You hear this announcement at the community centre. Your neighbour Mr Ortiz has two grandchildren, aged four and nine, and loves to take them out. You meet him in the lift and tell him about it.",
+ "source": {
+  "kind": "announcement",
+  "text": [
+   "Good morning, everyone. This is Riverside Community Centre with news of this month's family film afternoon.",
+   "The film starts at three o'clock on Saturday 14 June in Hall B.",
+   "Tickets cost five dollars for adults. Children under five come in free.",
+   "You can buy popcorn at the door.",
+   "We are also looking for two volunteers to help with the chairs. Please speak to Mrs Lopez at the front desk."
+  ]
+ },
+ "task": {
+  "mode": "speak",
+  "audience": "a neighbour with young grandchildren",
+  "prompt": "Tell Mr Ortiz about the event (30–55 words). Say when and where it is and what it costs for his family.",
+  "min_words": 30,
+  "max_words": 55
+ },
+ "points": [
+  {
+   "id": "when",
+   "idea": "It is on Saturday 14 June at 3 o'clock.",
+   "checks": [
+    [
+     "saturday"
+    ],
+    [
+     "3 o'clock",
+     "at 3",
+     "3 pm",
+     "three"
+    ]
+   ]
+  },
+  {
+   "id": "where",
+   "idea": "It is in Hall B at the community centre.",
+   "checks": [
+    [
+     "hall b"
+    ]
+   ]
+  },
+  {
+   "id": "price",
+   "idea": "Adults pay five dollars.",
+   "checks": [
+    [
+     "five dollars",
+     "5 dollars",
+     "$5"
+    ]
+   ]
+  },
+  {
+   "id": "free",
+   "idea": "The four-year-old goes in free (under five).",
+   "checks": [
+    [
+     "free"
+    ],
+    [
+     "under five",
+     "under 5",
+     "four",
+     "younger"
+    ]
+   ]
+  }
+ ],
+ "leave_out": [
+  {
+   "idea": "Popcorn at the door.",
+   "checks": [
+    [
+     "popcorn"
+    ]
+   ]
+  },
+  {
+   "idea": "The call for volunteers.",
+   "checks": [
+    [
+     "volunteer",
+     "chairs"
+    ]
+   ]
+  }
+ ],
+ "model": "Hello, Mr Ortiz! There's a film for families at the community centre. It's on Saturday 14 June at 3 in the afternoon, in Hall B. Adults pay five dollars, but your younger grandchild can come in free because she is under five.",
+ "useful": [
+  "There's a film for families on …",
+  "It's in … at …",
+  "It costs …, but children under … are free."
+ ],
+ "tips": [
+  "Choose the details a person can act on: day, time, place, price. Then add the one fact that matters for THIS family (the free ticket).",
+  "When you speak, say the date and time slowly and in a clear order. The listener cannot go back and read it again."
+ ],
+ "explain": "The listener needs when, where and the price, plus the free place for the under-five child. Popcorn and the call for volunteers are interesting but do not help Mr Ortiz decide or go."
+}

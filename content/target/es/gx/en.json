@@ -1,0 +1,502 @@
+{
+"ser-identity": {
+"t": "Ser: who you are",
+"x": "Use \"ser\" to say who someone is, where they are from, and their job. Examples: \"soy\", \"es\"."
+},
+"estar-location": {
+"t": "Estar: where things are",
+"x": "Use \"estar\" to say where a person, place or thing is. Examples: \"está\", \"están\"."
+},
+"estar-feelings": {
+"t": "Estar: states and feelings",
+"x": "Use \"estar\" for how someone feels or a temporary state. Examples: \"estoy cansado\", \"está contenta\"."
+},
+"ser-estar-intro": {
+"t": "Ser or estar?",
+"x": "Use \"ser\" for lasting traits like origin, job and identity. Use \"estar\" for temporary states and places. Examples: \"es mexicano\", \"está enferma\"."
+},
+"hay-existence": {
+"t": "Hay: there is, there are",
+"x": "Use \"hay\" to say that something exists in a place. It stays the same for one or many things. Example: \"Hay un parque.\""
+},
+"present-ar": {
+"t": "Present tense: -ar verbs",
+"x": "Regular -ar verbs take these endings: -o, -as, -a, -amos, -an. Examples: \"hablo\", \"trabaja\"."
+},
+"present-er-ir": {
+"t": "Present tense: -er and -ir verbs",
+"x": "Regular -er and -ir verbs take -o, -es, -e, -en. In the \"nosotros\" form they take -emos or -imos. Examples: \"como\", \"escribe\"."
+},
+"present-irregular-yo": {
+"t": "Verbs with an irregular yo form",
+"x": "Some verbs change only in the \"yo\" form. Hacer becomes \"hago\", salir becomes \"salgo\", poner becomes \"pongo\". The other forms are regular."
+},
+"tener-present": {
+"t": "Tener: age and having",
+"x": "Use \"tener\" to say how old you are and what you have. Forms: tengo, tienes, tiene, tenemos, tienen. Example: \"Tengo veinte años.\""
+},
+"ir-present": {
+"t": "Ir: going to a place",
+"x": "Use \"ir\" with \"a\" to say where you go. Forms: voy, vas, va, vamos, van. Example: \"Voy a la escuela.\""
+},
+"stem-change-e-ie": {
+"t": "Verbs: e changes to ie",
+"x": "In some verbs, the stem vowel e changes to ie in all forms except \"nosotros\". Examples: \"quiero\", \"empieza\", but \"queremos\"."
+},
+"stem-change-o-ue": {
+"t": "Verbs: o changes to ue",
+"x": "In some verbs, the stem vowel o changes to ue in all forms except \"nosotros\". Examples: \"puedo\", \"duerme\", but \"podemos\"."
+},
+"reflexive-daily": {
+"t": "Reflexive verbs for routines",
+"x": "Reflexive verbs use a pronoun before the verb: me, te, se, nos. The pronoun matches the subject. Example: \"Yo me levanto.\""
+},
+"gustar-basic": {
+"t": "Gustar: saying what you like",
+"x": "Use \"gusta\" for one thing or an action, and \"gustan\" for many things. The person who likes comes first: me, te, le, nos, les. Example: \"Me gustan los gatos.\""
+},
+"noun-gender": {
+"t": "Masculine and feminine nouns",
+"x": "Every Spanish noun is masculine or feminine. Many nouns ending in -o are masculine and many ending in -a are feminine. Articles and adjectives must match. Example: \"el libro rojo\"."
+},
+"noun-plural": {
+"t": "Plural of nouns",
+"x": "Add -s to nouns ending in a vowel and -es to nouns ending in a consonant. A final z changes to c before -es. Examples: \"libros\", \"lápices\"."
+},
+"definite-articles": {
+"t": "The: el, la, los, las",
+"x": "Use el and la for one masculine or feminine noun, and los and las for many. They match the noun. Examples: \"el niño\", \"las casas\"."
+},
+"indefinite-articles": {
+"t": "A and some: un, una",
+"x": "Use un and una for one new thing, and unos and unas for some. They match the noun. Examples: \"un jardín\", \"unas flores\"."
+},
+"adjective-agreement": {
+"t": "Adjective agreement",
+"x": "Adjectives match the noun in gender and number. Change -o to -a for feminine and add -s for plural. Examples: \"casa pequeña\", \"carros rápidos\"."
+},
+"possessive-short": {
+"t": "Short possessives",
+"x": "The short possessives are mi, tu, su, nuestro. They agree with the thing owned, not the owner. Add -s for plural. Examples: \"mi casa\", \"mis libros\"."
+},
+"demonstratives": {
+"t": "This, that, that over there",
+"x": "Este means this, close to me. Ese means that, close to you. Aquel means that, far from both. They match the noun. Examples: \"esta casa\", \"aquel parque\"."
+},
+"subject-pronouns": {
+"t": "Subject pronouns",
+"x": "The subject pronouns are yo, tú, él, ella, usted, nosotros, ustedes, ellos. Use them to make the subject clear or to contrast people. Example: \"Yo trabajo y ella estudia.\""
+},
+"question-words": {
+"t": "Question words",
+"x": "Question words have an accent and start the question. Qué is what, quién is who, dónde is where, cuándo is when, cómo is how, cuántos is how many. Example: \"¿Dónde vives?\""
+},
+"yes-no-questions": {
+"t": "Yes or no questions",
+"x": "To ask a yes or no question, keep the word order and raise your voice. In writing, use ¿ and ?. Answer with \"sí\" or \"no\". Example: \"¿Hablas inglés?\""
+},
+"negation-no": {
+"t": "Making sentences negative",
+"x": "Put \"no\" before the verb to make a sentence negative. Do not add a word like \"do\". Examples: \"No tengo hermanos.\", \"No me gusta el café.\""
+},
+"prep-a-de-en": {
+"t": "Prepositions: a, de, en",
+"x": "Use \"a\" for direction, \"de\" for origin or possession, and \"en\" for place. Examples: \"Voy a Lima.\", \"Soy de Chile.\", \"Vivo en Quito.\""
+},
+"contractions-al-del": {
+"t": "Contractions: al and del",
+"x": "Spanish joins \"a\" and \"el\" into \"al\", and \"de\" and \"el\" into \"del\". This happens only with \"el\". Examples: \"al banco\", \"del trabajo\"."
+},
+"numbers-0-100": {
+"t": "Numbers from 0 to 100",
+"x": "Learn the numbers from cero to cien. From 31 to 99, join tens and ones with \"y\". Examples: \"treinta y cinco\", \"noventa y ocho\"."
+},
+"time-clock": {
+"t": "Telling the time",
+"x": "Use \"es la\" for one o'clock and \"son las\" for other hours. Add \"y media\" for half past. Examples: \"Es la una.\", \"Son las tres y media.\""
+},
+"days-months-dates": {
+"t": "Days, months and dates",
+"x": "The days are lunes, martes, miércoles, jueves, viernes, sábado, domingo. Say a date with a number and \"de\" before the month. Example: \"el cinco de mayo\"."
+},
+"weather-hacer": {
+"t": "Talking about the weather",
+"x": "Use \"hace\" for most weather, like \"hace calor\" and \"hace frío\". Use \"hay\" with some nouns, like \"hay lluvia\". Use \"llueve\" for rain."
+},
+"muy-mucho": {
+"t": "Muy and mucho",
+"x": "Use \"muy\" before an adjective or adverb. Use \"mucho\" after a verb. Examples: \"muy rico\", \"como mucho\"."
+},
+"tambien-tampoco": {
+"t": "También and tampoco",
+"x": "Use \"también\" to agree with a positive sentence. Use \"tampoco\" to agree with a negative sentence. Examples: \"Yo también trabajo.\", \"Ella tampoco come carne.\""
+},
+"formal-usted": {
+"t": "Tú and usted",
+"x": "Use \"tú\" with friends, family and children. Use \"usted\" for polite speech with older or unknown people. Usted takes the same verb form as él and ella. Example: \"¿Cómo está usted?\""
+},
+"basic-connectors": {
+"t": "Connecting words: y, pero, o",
+"x": "Use \"y\" to add, \"pero\" for contrast, \"o\" for a choice, and \"porque\" for a reason. Example: \"Estudio español porque me gusta.\""
+},
+"ir-a-near-future": {
+"t": "Ir a + infinitive",
+"x": "Use a form of \"ir\", then \"a\", then an infinitive to say what you are going to do. Example: \"Voy a comer.\""
+},
+"pret-regular": {
+"t": "Past tense of regular verbs",
+"x": "Use the preterite for finished actions. For -ar verbs add -é, -aste, -ó, -amos, -aron. For -er and -ir verbs add -í, -iste, -ió, -imos, -ieron, as in \"hablé\" and \"comí\"."
+},
+"pret-ser-ir": {
+"t": "Past tense of ser and ir",
+"x": "The verbs \"ser\" and \"ir\" have the same preterite forms: fui, fuiste, fue, fuimos, fueron. The context shows whether the meaning is \"was\" or \"went\"."
+},
+"pret-irregular-common": {
+"t": "Common irregular past forms",
+"x": "Some common verbs have an irregular stem in the preterite, such as \"hacer\" (hic-), \"tener\" (tuv-) and \"dar\" (di-). Their endings have no written accent, as in \"hice\" and \"tuvo\"."
+},
+"pret-stem-change-3rd": {
+"t": "Past stem changes e to i",
+"x": "In the preterite, -ir verbs with a stem change in the present change e to i or o to u only in the third person: \"pidió\", \"durmió\", \"pidieron\", \"durmieron\"."
+},
+"pret-spelling-changes": {
+"t": "Past spelling changes",
+"x": "In the preterite, some verbs change spelling to keep the sound. In the yo form, -car becomes -qué, -gar becomes -gué and -zar becomes -cé, as in \"busqué\" and \"llegué\"."
+},
+"imperfect-regular": {
+"t": "Imperfect of regular verbs",
+"x": "Use the imperfect to describe habits and ongoing situations in the past. Add -aba, -abas, -aba, -ábamos, -aban to -ar verbs and -ía, -ías, -ía, -íamos, -ían to -er and -ir verbs."
+},
+"imperfect-irregular": {
+"t": "Imperfect of ser, ir, ver",
+"x": "Only three verbs are irregular in the imperfect: \"ser\" (era, eras, era, éramos, eran), \"ir\" (iba, ibas, iba, íbamos, iban) and \"ver\" (veía, veías, veía, veíamos, veían)."
+},
+"pret-vs-imperfect-intro": {
+"t": "Preterite or imperfect",
+"x": "Use the imperfect for a background action in progress or a habit. Use the preterite for a finished action or a sudden event, as in \"Dormía cuando sonó el teléfono.\""
+},
+"present-progressive": {
+"t": "Doing something right now",
+"x": "To say what is happening now, use \"estar\" plus a gerund. The gerund ends in -ando for -ar verbs and -iendo for -er and -ir verbs, as in \"estoy cocinando\"."
+},
+"present-perfect-intro": {
+"t": "Present perfect",
+"x": "To talk about recent experiences, use \"haber\" in the present plus a past participle: he, has, ha, hemos, han + hablado or comido. Example: \"he comido\"."
+},
+"participle-irregular": {
+"t": "Irregular past participles",
+"x": "Some verbs have an irregular past participle, for example \"hacer\" gives \"hecho\", \"ver\" gives \"visto\", \"abrir\" gives \"abierto\" and \"escribir\" gives \"escrito\"."
+},
+"imperative-tu-affirmative": {
+"t": "Commands with tú: affirmative",
+"x": "To give an affirmative command to someone you call \"tú\", use the third person present form: \"abre\", \"cierra\". Eight verbs are irregular, such as \"ven\", \"di\", \"haz\", \"ve\"."
+},
+"imperative-tu-negative": {
+"t": "Commands with tú: negative",
+"x": "For a negative command with \"tú\", use \"no\" plus the present subjunctive form: \"no abras\", \"no hables\". The -ar verbs take -es and the -er and -ir verbs take -as."
+},
+"imperative-usted": {
+"t": "Commands with usted",
+"x": "To give a polite command to someone you call \"usted\", use the present subjunctive form: \"pase\", \"escriba\". Add the reflexive pronoun after an affirmative command: \"siéntese\"."
+},
+"reflexive-more-verbs": {
+"t": "Reflexive verbs in the past",
+"x": "Reflexive verbs keep their pronoun in every tense. Put me, te, se, nos or se before the conjugated verb, as in \"me desperté\" and \"nos vestimos\"."
+},
+"reciprocal-nos": {
+"t": "Actions between each other",
+"x": "To say that people do something to each other, use the plural pronouns \"nos\" or \"se\" with the verb, as in \"nos vemos\" and \"se escriben\"."
+},
+"gustar-type-verbs": {
+"t": "Verbs like gustar",
+"x": "With \"gustar\", \"encantar\" and \"interesar\", the verb agrees with the thing liked, not the person. Use \"le gusta\" for one thing and \"le gustan\" for several things."
+},
+"indirect-object-pronouns": {
+"t": "Indirect object pronouns",
+"x": "Indirect object pronouns tell who receives something: me, te, le, nos, les. They go before the conjugated verb, as in \"Le doy un regalo\"."
+},
+"direct-object-pronouns": {
+"t": "Direct object pronouns",
+"x": "Direct object pronouns replace the thing or person receiving the action: lo, la, los, las. They agree in gender and number with that noun and go before the verb."
+},
+"pronoun-position-infinitive": {
+"t": "Pronouns with infinitives",
+"x": "With an infinitive or a gerund, the object pronoun can be attached to the end of the verb. Add an accent on the gerund, as in \"verla\" and \"leyéndola\"."
+},
+"prepositional-pronouns": {
+"t": "Pronouns after prepositions",
+"x": "After most prepositions, use these pronouns: mí, ti, él, ella, usted, nosotros, ellos. With \"con\", \"mí\" and \"ti\" become \"conmigo\" and \"contigo\"."
+},
+"personal-a": {
+"t": "Personal a",
+"x": "Put \"a\" before a direct object that is a specific person or a pet. Do not use it for things, as in \"Veo a mi tío\" but \"Veo la casa\"."
+},
+"saber-conocer": {
+"t": "Saber or conocer",
+"x": "Use \"saber\" for facts and skills: \"sé nadar\". Use \"conocer\" for people and places you are familiar with: \"conozco a Ana\"."
+},
+"ser-estar-contrast": {
+"t": "Ser or estar",
+"x": "Use \"ser\" for lasting traits, such as \"es alta\". Use \"estar\" for a state or condition that can change, such as \"está enfermo\"."
+},
+"tener-que-hay-que": {
+"t": "Tener que and hay que",
+"x": "Use \"tener que\" plus an infinitive for a personal obligation: \"tengo que\". Use \"hay que\" plus an infinitive for a general rule, with no subject."
+},
+"poder-querer-infinitive": {
+"t": "Poder and querer",
+"x": "After \"poder\" and \"querer\", use the infinitive directly with no preposition: \"puedo ayudar\", \"quiero comer\". Both verbs change the stem e to ie or o to ue."
+},
+"acabar-de": {
+"t": "Just did something",
+"x": "Use \"acabar de\" plus an infinitive to say that something happened a moment ago. Conjugate only \"acabar\" in the present: \"acabo de llegar\"."
+},
+"por-para-basics": {
+"t": "Por and para",
+"x": "Use \"para\" for a purpose, a goal or a deadline, as in \"para el viernes\". Use \"por\" for a place you pass through or a reason, as in \"por el parque\" and \"gracias por\"."
+},
+"comparatives-regular": {
+"t": "Comparing with más and menos",
+"x": "To compare two things, use \"más\" or \"menos\" plus an adjective, then \"que\": \"Mi casa es más grande que la tuya\"."
+},
+"superlatives": {
+"t": "The most and the best",
+"x": "For the superlative, use the article plus \"más\" or \"menos\" and an adjective, then \"de\": \"el más alto de la clase\". The irregular forms are \"mejor\" and \"peor\"."
+},
+"tan-como": {
+"t": "As much as, as many as",
+"x": "To say two things are equal, use \"tan\" plus an adjective plus \"como\". With nouns, use \"tanto\" and match it to the noun: \"tantos libros como tú\"."
+},
+"adverbs-mente": {
+"t": "Adverbs ending in -mente",
+"x": "To make many adverbs, add \"-mente\" to the feminine form of an adjective: \"rápida\" becomes \"rápidamente\". Keep the accent of the adjective, as in \"fácilmente\"."
+},
+"frequency-adverbs": {
+"t": "How often adverbs",
+"x": "Frequency adverbs say how often you do something: \"siempre\" always, \"a veces\" sometimes, \"nunca\" never. With \"nunca\" before the verb, do not add \"no\"."
+},
+"ya-todavia": {
+"t": "Ya and todavía",
+"x": "Use \"ya\" to say that something has already happened. Use \"todavía\" to say that something is still true or has not happened yet, as in \"todavía no\"."
+},
+"numbers-100-plus": {
+"t": "Numbers above one hundred",
+"x": "Hundreds agree with the noun in gender: \"doscientos pesos\", \"doscientas casas\". Use \"cien\" alone and \"ciento\" before other numbers, as in \"ciento veinte\"."
+},
+"ordinal-numbers": {
+"t": "Ordinal numbers",
+"x": "Ordinal numbers such as \"primero\", \"segundo\" and \"tercero\" agree with the noun. \"Primero\" and \"tercero\" become \"primer\" and \"tercer\" before a masculine noun."
+},
+"place-prepositions": {
+"t": "Prepositions of place",
+"x": "Phrases such as \"debajo de\", \"enfrente de\" and \"cerca de\" say where something is. Before \"el\", \"de\" becomes \"del\": \"enfrente del banco\"."
+},
+"time-hace": {
+"t": "Hace for time ago",
+"x": "Use \"hace\" plus a time period after a past verb to say how long ago it happened: \"Llegué hace una semana\". Use \"desde hace\" for something that continues now."
+},
+"question-por-que": {
+"t": "Por qué and porque",
+"x": "Write \"por qué\" as two words with an accent for questions. Write \"porque\" as one word without an accent for answers: \"¿Por qué estudias? Porque me gusta\"."
+},
+"cause-consequence-simple": {
+"t": "Because and so",
+"x": "Use \"porque\" to give a reason. Use \"así que\" or \"por eso\" to give the result: \"Llovía, así que me quedé en casa\"."
+},
+"relative-que-simple": {
+"t": "Relative clauses with que",
+"x": "Use \"que\" to join a noun with more information about it. It can refer to people or things: \"el libro que compré\"."
+},
+"future-simple-regular": {
+"t": "Simple future, regular verbs",
+"x": "To talk about the future, add endings to the whole infinitive: -é, -ás, -á, -emos, -án. Example: \"hablaré\", \"comerán\"."
+},
+"future-irregular": {
+"t": "Irregular future stems",
+"x": "Some verbs change the stem in the future but keep the same endings: \"tendr-\", \"har-\", \"podr-\", \"dir-\", \"saldr-\", \"vendr-\"."
+},
+"future-probability": {
+"t": "Future for guessing",
+"x": "We can use the future tense to guess about the present. It means \"probably\". Example: \"Estará en casa\" means \"He is probably at home\"."
+},
+"conditional-polite": {
+"t": "Polite requests with conditional",
+"x": "The conditional makes requests softer and more polite. Use \"podría\", \"querría\" and \"me gustaría\". Example: \"¿Podría ayudarme?\""
+},
+"conditional-advice": {
+"t": "Giving advice",
+"x": "To give advice, use the conditional of \"deber\" or the phrase \"yo que tú\" plus the conditional. Example: \"Deberías descansar\"."
+},
+"past-perfect": {
+"t": "Past perfect",
+"x": "Use \"había\" plus a participle for a past action that happened before another past action. Example: \"Ya había salido\" means \"He had already left\"."
+},
+"pret-vs-imperfect-narrative": {
+"t": "Preterite and imperfect in stories",
+"x": "In a story, use the imperfect for the background and for repeated actions. Use the preterite for events that happen and finish. Example: \"Dormía cuando sonó el teléfono\"."
+},
+"pret-meaning-change": {
+"t": "Verbs that change in preterite",
+"x": "Some verbs change meaning in the preterite. \"Supe\" means \"I found out\", \"conocí\" means \"I met\", and \"pude\" means \"I managed to\"."
+},
+"perfect-vs-preterite": {
+"t": "Present perfect or preterite",
+"x": "Use the present perfect for experience up to now or a period that is not finished. Use the preterite for a finished time. Example: \"Esta semana he trabajado\" and \"Ayer trabajé\"."
+},
+"past-progressive": {
+"t": "Past actions in progress",
+"x": "Use \"estaba\" plus a gerund to describe an action in progress in the past. Example: \"Estaba cocinando cuando llegaste\"."
+},
+"subj-present-forms": {
+"t": "Present subjunctive forms",
+"x": "For the present subjunctive, take the \"yo\" form of the present, remove -o, and add the opposite vowel: -e for -ar verbs, -a for -er and -ir verbs. Example: \"tenga\", \"cierres\"."
+},
+"subj-wishes": {
+"t": "Subjunctive after wishes",
+"x": "After verbs of wanting, asking and preferring, use \"que\" and the subjunctive when the subject changes. Example: \"Quiero que vengas\"."
+},
+"subj-emotion": {
+"t": "Subjunctive after emotions",
+"x": "After expressions of feeling, such as \"me alegra que\" and \"lamento que\", use the subjunctive when the subject changes. Example: \"Me alegra que estés aquí\"."
+},
+"subj-doubt": {
+"t": "Subjunctive after doubt",
+"x": "After doubt or denial, such as \"dudo que\" and \"no creo que\", use the subjunctive. Example: \"Dudo que llegue\"."
+},
+"subj-impersonal": {
+"t": "Subjunctive after impersonal phrases",
+"x": "After phrases such as \"es importante que\", \"es mejor que\" and \"es posible que\", use the subjunctive. Example: \"Es mejor que vayas\"."
+},
+"subj-recommend": {
+"t": "Subjunctive after recommending",
+"x": "After verbs such as \"recomendar\", \"pedir\" and \"sugerir\", use \"que\" and the subjunctive. Example: \"Te recomiendo que leas este libro\"."
+},
+"subj-irregular-forms": {
+"t": "Irregular subjunctive forms",
+"x": "Six common verbs have irregular present subjunctive forms: \"sea\" (ser), \"esté\" (estar), \"vaya\" (ir), \"sepa\" (saber), \"haya\" (haber) and \"dé\" (dar)."
+},
+"subj-cuando-future": {
+"t": "Cuando with the subjunctive",
+"x": "When \"cuando\" refers to a future event that has not happened yet, use the subjunctive. Example: \"Cuando llegue, te llamo\"."
+},
+"subj-para-que": {
+"t": "Purpose with para que",
+"x": "Use \"para que\" and the subjunctive to say the purpose of an action when the other clause has a different subject. Example: \"Te lo explico para que lo entiendas\"."
+},
+"indicative-vs-subjunctive": {
+"t": "Creer: indicative or subjunctive",
+"x": "After \"creo que\" and \"pienso que\", use the indicative. After \"no creo que\", use the subjunctive. Example: \"Creo que viene\" and \"No creo que venga\"."
+},
+"imperative-clitics-affirmative": {
+"t": "Commands with attached pronouns",
+"x": "In affirmative commands, attach the pronouns to the end of the verb. Often a written accent is needed. Example: \"Dímelo\" and \"Siéntate\"."
+},
+"imperative-clitics-negative": {
+"t": "Negative commands with pronouns",
+"x": "In negative commands, put the pronouns before the verb, and use the subjunctive form. Example: \"No me lo digas\"."
+},
+"imperative-ustedes": {
+"t": "Commands for ustedes",
+"x": "To give a command to a group, use the \"ustedes\" form of the present subjunctive. Example: \"Pasen\" and \"Siéntense\"."
+},
+"double-object-pronouns": {
+"t": "Two object pronouns together",
+"x": "When two object pronouns appear together, the indirect one goes first: \"me lo\", \"te la\", \"nos los\". Example: \"Me lo dio\"."
+},
+"se-lo-rule": {
+"t": "Se before lo, la, los, las",
+"x": "When \"le\" or \"les\" comes before \"lo\", \"la\", \"los\" or \"las\", it changes to \"se\". Example: \"Se lo expliqué\" and not \"le lo expliqué\"."
+},
+"se-accidental": {
+"t": "Accidents with se me",
+"x": "Use \"se\" plus \"me\", \"te\", \"le\", \"nos\" or \"les\" for something that happens by accident. The verb agrees with the thing, not the person. Example: \"Se me cayó el vaso\"."
+},
+"passive-se": {
+"t": "Passive with se",
+"x": "Use \"se\" and the verb to say what is done without saying who does it. The verb agrees with the thing. Example: \"Se vende casa\" and \"Se venden casas\"."
+},
+"impersonal-se": {
+"t": "Impersonal se",
+"x": "Use \"se\" with a singular verb to talk about people in general, without a specific subject. Example: \"Se puede entrar\"."
+},
+"passive-ser-intro": {
+"t": "Passive with ser",
+"x": "To say what was done to something, use \"ser\" plus a participle. The participle agrees with the noun. Example: \"La casa fue construida\"."
+},
+"llevar-gerund": {
+"t": "Llevar plus gerund",
+"x": "Use \"llevar\" plus a time expression and a gerund to say how long you have been doing something. Example: \"Llevo un año estudiando\"."
+},
+"seguir-gerund": {
+"t": "Seguir plus gerund",
+"x": "Use \"seguir\" plus a gerund to say that an action continues. Example: \"Sigo trabajando\" means \"I am still working\"."
+},
+"soler-volver-a": {
+"t": "Soler and volver a",
+"x": "Use \"soler\" plus an infinitive for what you usually do. Use \"volver a\" plus an infinitive for doing something again. Example: \"Suelo caminar\" and \"Vuelvo a llamar\"."
+},
+"deber-deber-de": {
+"t": "Deber and deber de",
+"x": "Use \"deber\" plus an infinitive for obligation. Use \"deber de\" plus an infinitive for a guess. Example: \"Debes dormir\" and \"Debe de estar cansado\"."
+},
+"comparatives-irregular": {
+"t": "Irregular comparatives",
+"x": "Four comparatives are irregular: \"mejor\" (better), \"peor\" (worse), \"mayor\" (older) and \"menor\" (younger). Do not use \"más\" before them."
+},
+"adjective-position": {
+"t": "Adjective position and short forms",
+"x": "Before a masculine singular noun, \"bueno\" and \"malo\" become \"buen\" and \"mal\". Before any singular noun, \"grande\" becomes \"gran\" and means \"great\". Example: \"un buen amigo\", \"una gran ciudad\"."
+},
+"relative-quien-donde": {
+"t": "Relatives quien, donde, lo que",
+"x": "Use \"quien\" for a person, \"donde\" for a place, and \"lo que\" for an idea or thing in general. Example: \"La mujer con quien hablé\"."
+},
+"lo-neutral": {
+"t": "Lo plus adjective",
+"x": "Use \"lo\" plus a masculine singular adjective to talk about an idea in general. Example: \"Lo importante\" means \"the important thing\"."
+},
+"si-real-conditions": {
+"t": "Real conditions with si",
+"x": "For a likely condition, use \"si\" plus the present. The result is in the present or the future. Example: \"Si llueve, nos quedamos\"."
+},
+"si-hypothetical": {
+"t": "Imaginary situations with si",
+"x": "For an unlikely or imaginary situation, use \"si\" plus the imperfect subjunctive, and the conditional in the result. Example: \"Si tuviera tiempo, viajaría\"."
+},
+"por-para-contrast": {
+"t": "Por or para",
+"x": "Use \"por\" for cause, thanks and exchange. Use \"para\" for the person who receives something and for a deadline. Example: \"Es para ti\" and \"Gracias por todo\"."
+},
+"verb-preposition-pairs": {
+"t": "Verbs with fixed prepositions",
+"x": "Some verbs always take a certain preposition: \"soñar con\", \"pensar en\", \"depender de\". Learn the verb and its preposition together."
+},
+"aunque-indicative": {
+"t": "Aunque with a real fact",
+"x": "Use \"aunque\" with the indicative when you state a fact that you know is true. Example: \"Aunque estoy cansado, sigo trabajando\"."
+},
+"reported-simple": {
+"t": "Reporting what someone said",
+"x": "To report what someone said, use \"dijo que\" and move the verb into the past. Example: \"Ana dijo: Estoy cansada\" becomes \"Ana dijo que estaba cansada\"."
+},
+"indirect-questions": {
+"t": "Questions inside sentences",
+"x": "After phrases such as \"no sé\", \"me preguntó\" and \"dime\", the question word keeps its accent but there are no question marks. Example: \"No sé dónde vive\"."
+},
+"tag-questions": {
+"t": "Confirming with tags",
+"x": "Add \"¿verdad?\" or \"¿no?\" at the end of a statement to ask the listener to confirm it. Example: \"Vienes mañana, ¿verdad?\""
+},
+"exclamations-que": {
+"t": "Exclamations with qué and cuánto",
+"x": "Use \"qué\" before an adjective in an exclamation. Use \"cuánto\" or \"cuánta\" before a noun, and match the noun. Example: \"¡Qué bonito!\" and \"¡Cuánta gente!\""
+},
+"diminutives": {
+"t": "Diminutives -ito and -ita",
+"x": "Add -ito or -ita to a word to say small or to show affection. The ending matches the gender and number of the noun. Example: \"perrito\", \"casita\"."
+},
+"years-dates-long": {
+"t": "Years and full dates",
+"x": "Say years in full: \"mil novecientos noventa\" or \"dos mil veinticinco\". Say dates as day, \"de\", month, \"de\", year. Example: \"el cinco de marzo de dos mil veinticinco\"."
+}
+}

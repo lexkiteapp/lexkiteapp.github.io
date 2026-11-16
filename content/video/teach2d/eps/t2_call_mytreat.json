@@ -79,5 +79,46 @@
   "words": 50,
   "seconds": 29.6,
   "wpm": 101
+ },
+ "publish": {
+  "title": "What does my treat mean?",
+  "keyword": "my treat",
+  "value": "\"My treat\" means I will pay for you.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#speakenglish",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/call/coffee",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does my treat mean?",
+    "description": "\"My treat\" means I will pay for you.\n\nPractice a real call, free: https://lexkite.com/app/#/call/coffee\n\nSeries: Ask Ama · Teacher: Ama\n\n#learnenglish #englishtips #speakenglish #englishteacher",
+    "tags": [
+     "my treat",
+     "Ask Ama",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does my treat mean?\n\n\"My treat\" means I will pay for you.\n\nPractice a real call, free: https://lexkite.com/app/#/call/coffee"
+   },
+   "instagram": {
+    "caption": "What does my treat mean?\n\n\"My treat\" means I will pay for you.\n\nPractice a real call: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#speakenglish",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does my treat mean? #learnenglish #englishtips #speakenglish"
+   }
+  },
+  "first_comment": "Quiz answer: It's my treat! I will pay for you. \"My treat\" means I will pay for you. Practice it with a free quiz: {link}"
  }
 }

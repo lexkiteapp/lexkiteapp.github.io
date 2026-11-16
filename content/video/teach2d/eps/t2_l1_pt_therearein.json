@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_therearein",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Is it has or there is?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: It has a lot of people here.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: There are a lot of people here.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use there are for amounts.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "There are! There are many people here.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "It has a lot of people here.",
+  "right": "There are a lot of people here.",
+  "strike": "It has",
+  "why": "Use there are for amounts.",
+  "memory": "Tem is there is.",
+  "quiz": {
+   "stem": "___ many people here.",
+   "options": [
+    "There are",
+    "It has"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Tem” não é “has” aqui!",
+   "tip": "Para dizer que existe algo, use “there is” ou “there are”.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “It has a lot of people here.”. O certo é “There are a lot of people here.”. O verbo “ter” do português tem dois usos; em inglês são dois verbos. Ouça o Ama e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “There are”. Treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#inglesfacil",
+    "#falaringles",
+    "#inglesdodia",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Tem” is not “has” here!",
+   "tip": "To say that something exists, use “there is” or “there are”.",
+   "caption": "Watch out for this common mistake! Many people say “It has a lot of people here.”. The right way is “There are a lot of people here.”. The Portuguese “ter” has two uses; English uses two different verbs. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Tem” não é “has” aqui!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "“Tem” não é “has” aqui!",
+  "keyword": "There are a lot of people here.",
+  "value": "Para dizer que existe algo, use “there is” ou “there are”.",
+  "hashtags": [
+   "#inglesfacil",
+   "#falaringles",
+   "#inglesdodia",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 46,
+  "platforms": {
+   "youtube": {
+    "title": "“Tem” não é “has” aqui!",
+    "description": "Cuidado com este erro comum! 😬 Muita gente diz “It has a lot of people here.”. O certo é “There are a lot of people here.”. O verbo “ter” do português tem dois usos; em inglês são dois verbos. Ouça o Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#inglesfacil #falaringles #inglesdodia #lexkite",
+    "tags": [
+     "There are a lot of people here.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “It has a lot of people here.”. O certo é “There are a lot of people here.”. O verbo “ter” do português tem dois usos; em inglês são dois verbos. Ouça o Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Cuidado com este erro comum! 😬 Muita gente diz “It has a lot of people here.”. O certo é “There are a lot of people here.”. O verbo “ter” do português tem dois usos; em inglês são dois verbos. Ouça o Ama e repita! Treine mais no app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#inglesfacil",
+     "#falaringles",
+     "#inglesdodia",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Tem” não é “has” aqui! #inglesfacil #falaringles #inglesdodia"
+   }
+  },
+  "first_comment": "Resposta: “There are”. Treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

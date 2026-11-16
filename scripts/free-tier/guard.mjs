@@ -50,6 +50,21 @@ export function cfUsage({ a, y }, { second = false } = {}) {
   return out;
 }
 
+/** Cộng đồng: Durable Objects (hôm qua) + Realtime TURN (từ đầu tháng). Truy vấn RIÊNG để tên dataset lạ không làm hỏng cfGraphql. */
+export async function cfRealtime(tok, acct, now, fetcher = fetch) {
+  const y = dayOf(now - DAY), month = dayOf(now).slice(0, 8) + '01T00:00:00Z';
+  const query = `query { viewer { accounts(filter:{accountTag:"${acct}"}) {
+    dor: durableObjectsInvocationsAdaptiveGroups(limit:50, filter:{date:"${y}"}) { sum { requests } }
+    turn: callsTurnUsageAdaptiveGroups(limit:50, filter:{datetimeMinute_geq:"${month}"}) { sum { egressBytes ingressBytes } } } } }`;
+  const r = await fetcher('https://api.cloudflare.com/client/v4/graphql', { method: 'POST', headers: { Authorization: 'Bearer ' + tok, 'Content-Type': 'application/json' }, body: JSON.stringify({ query }) });
+  const j = await r.json().catch(() => ({}));
+  const a = (((j.data || {}).viewer || {}).accounts || [])[0];
+  if (!r.ok || !a) throw new Error(`graphql ${r.status} ${JSON.stringify(j.errors || '').slice(0, 200)}`);
+  const sum = (g, k) => (g || []).reduce((s, x) => s + (+x.sum[k] || 0), 0);
+  return [{ key: 'do_requests', value: sum(a.dor, 'requests'), note: `hôm qua ${y}` },
+    { key: 'turn_bytes', value: sum(a.turn, 'egressBytes') + sum(a.turn, 'ingressBytes'), note: 'từ đầu tháng' }];
+}
+
 /** Đếm build Pages từ đầu tháng (UTC). Commit có [CF-Pages-Skip] không build → không đếm; Direct Upload (wrangler, trigger ad_hoc) không dùng
  *  hệ build Cloudflare → không đếm (docs/FREE-TIER.md §7). Dừng khi gặp bản trước đầu tháng. */
 export async function pagesBuilds(tok, acct, project, now, fetcher = fetch, maxPages = 100) {
@@ -114,6 +129,7 @@ async function main() {
   const tok = env.CF_ANALYTICS_TOKEN, acct = String(env.CF_ACCOUNT_ID || '').replace(/[^a-f0-9]/gi, '');
   if (tok && acct) {
     try { usage.push(...cfUsage(await cfGraphql(tok, acct, now))); } catch (e) { errors.push('Cloudflare GraphQL: ' + e.message); }
+    try { usage.push(...(await cfRealtime(tok, acct, now))); } catch (e) { skipped.push(`Durable Objects/TURN: ${e.message} (Cộng đồng chưa bật – đợt 3/5)`); }
     try { usage.push({ key: 'pages_builds', ...(await pagesBuilds(tok, acct, 'lexkite', now)) }); } catch (e) { skipped.push(`Pages build/tháng: ${e.message} (khoá cần thêm quyền "Cloudflare Pages: Read")`); }
   } else skipped.push('Cloudflare tài khoản chính: chưa có secret CF_ANALYTICS_TOKEN (Account Analytics: Read + Cloudflare Pages: Read) – docs/FREE-TIER.md §5');
   const tok2 = env.CF_ANALYTICS_TOKEN_2, acct2 = String(env.CF_ACCOUNT_2 || '').replace(/[^a-f0-9]/gi, '');
@@ -149,6 +165,8 @@ export async function intradayMain({ dry = false, now = Date.now(), env = proces
   if (d.level === 'alert' && !ev.alerts.length) ev.alerts.push(ev.rows[0]); // giữ mức trong ngày (không hạ)
   const md = markdown(ev, { date: d.day }) + `\nMức trong ngày: **${d.level}** (${(d.pct * 100).toFixed(1)} %) · chế độ **${d.mode}**${d.pause ? ' · dừng: ' + PAUSE_NOTE : ''}\n`;
   console.log(md);
+  const pf = scripts['pages-functions'] || 0; // Pages Functions riêng (trang từ R2 thêm lượt) – cảnh báo sớm > 50 % trần ngày (docs/specs/words-off-pages.md)
+  if (pf > 50000) console.log(`::warning::Pages Functions hôm nay ${pf} lượt > 50 % trần 100.000 (trang từ R2 + /api): kiểm functions/[lang]/words, cân nhắc WORDS_R2=0`);
   if (d.level !== 'ok') console.log(`::warning::Workers + Functions hôm nay ${(d.pct * 100).toFixed(0)} % (thực tế ${p.total}, ngoại suy ${p.projected})`);
   if (env.GITHUB_STEP_SUMMARY) fs.appendFileSync(env.GITHUB_STEP_SUMMARY, md);
   // Chốt $0 R2: ≥ 80 % hạn mức Free tháng → issue; ≥ 90 % → tên miền về Worker (nguồn GitHub) + đóng băng ghi R2 (state r2 = frozen)

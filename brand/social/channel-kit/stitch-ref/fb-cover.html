@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite Facebook Page Cover</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #030a0c;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    
+    .cover-frame {
+      width: 1640px;
+      height: 624px;
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(circle at 50% 30%, #0d282c 0%, #091a1e 50%, #051013 100%);
+      box-shadow: 0 25px 60px -15px rgba(0,0,0,0.8), 0 0 0 1px rgba(43, 163, 154, 0.2);
+    }
+
+    .tactile-glow {
+      position: absolute;
+      width: 800px;
+      height: 400px;
+      background: radial-gradient(ellipse at center, rgba(43, 163, 154, 0.22) 0%, rgba(242, 85, 59, 0.08) 55%, transparent 75%);
+      filter: blur(50px);
+      pointer-events: none;
+    }
+
+    .tactile-pill {
+      background: linear-gradient(180deg, #FF6F52 0%, #F2553B 100%);
+      box-shadow: 0 6px 0 0 #B53A22, 0 12px 24px -4px rgba(242, 85, 59, 0.45);
+      transition: all 0.15s ease-out;
+    }
+    .tactile-pill:hover {
+      transform: translateY(2px);
+      box-shadow: 0 4px 0 0 #B53A22, 0 8px 16px -4px rgba(242, 85, 59, 0.4);
+    }
+
+    .badge-subtle {
+      background: rgba(18, 45, 50, 0.7);
+      border: 1.5px solid rgba(43, 163, 154, 0.4);
+      box-shadow: 0 4px 0 0 rgba(8, 25, 28, 0.9);
+      backdrop-filter: blur(8px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Facebook Page Cover Canvas (1640x624 px) -->
+  <div class="cover-frame select-none">
+    
+    <!-- Background Atmospheric Lighting & Ambient Dots Grid -->
+    <div class="tactile-glow top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+    <div class="absolute inset-0 opacity-15" style="background-image: radial-gradient(#2ba39a 1px, transparent 1px); background-size: 32px 32px;"></div>
+
+    <!-- Soft Top Border Accent -->
+    <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-transparent via-[#2BA39A] to-[#F2553B] opacity-75"></div>
+
+    <!-- Animated / Stylized Vector Paper Kite with Dotted Flight Path -->
+    <svg class="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1640 624" fill="none">
+      <!-- Dotted Trail -->
+      <path d="M 280 490 C 360 380, 480 340, 620 310 C 760 280, 890 220, 1020 180 C 1140 140, 1220 120, 1310 95" 
+            stroke="#2BA39A" 
+            stroke-width="3" 
+            stroke-dasharray="8 10" 
+            stroke-linecap="round" 
+            opacity="0.45" />
+
+      <!-- Golden Warm Sparkles across Sky -->
+      <!-- Sparkle 1 -->
+      <g transform="translate(680, 140) scale(1.1)">
+        <path d="M 0 -14 Q 0 0 14 0 Q 0 0 0 14 Q 0 0 -14 0 Q 0 0 0 -14 Z" fill="#FFB054" />
+        <circle cx="0" cy="0" r="3" fill="#FFE2B8" />
+      </g>
+      <!-- Sparkle 2 -->
+      <g transform="translate(1010, 110) scale(0.85)">
+        <path d="M 0 -14 Q 0 0 14 0 Q 0 0 0 14 Q 0 0 -14 0 Q 0 0 0 -14 Z" fill="#FFC94A" />
+      </g>
+      <!-- Sparkle 3 -->
+      <g transform="translate(430, 240) scale(0.7)">
+        <path d="M 0 -14 Q 0 0 14 0 Q 0 0 0 14 Q 0 0 -14 0 Q 0 0 0 -14 Z" fill="#2BA39A" opacity="0.8" />
+      </g>
+      <!-- Sparkle 4 -->
+      <g transform="translate(1260, 200) scale(0.8)">
+        <path d="M 0 -14 Q 0 0 14 0 Q 0 0 0 14 Q 0 0 -14 0 Q 0 0 0 -14 Z" fill="#FFB054" opacity="0.9" />
+      </g>
+      <!-- Sparkle 5 -->
+      <g transform="translate(320, 160) scale(0.65)">
+        <circle cx="0" cy="0" r="4" fill="#FFB054" opacity="0.75" />
+      </g>
+
+      <!-- The 3D Tactile Paper Origami Kite -->
+      <g transform="translate(1310, 95) rotate(-16)">
+        <!-- Subtle Kite Drop Shadow -->
+        <polygon points="0,-48 38,0 0,64 -38,0" fill="rgba(0,15,18,0.45)" transform="translate(4, 12)" />
+        
+        <!-- Facets of the Lexkite diamond -->
+        <!-- Top Left Facet (Teal) -->
+        <polygon points="0,-48 0,0 -38,0" fill="#2BA39A" />
+        <!-- Top Right Facet (Light Teal Highlight) -->
+        <polygon points="0,-48 38,0 0,0" fill="#4FD1C5" />
+        <!-- Bottom Left Facet (Coral) -->
+        <polygon points="0,0 0,64 -38,0" fill="#F2553B" />
+        <!-- Bottom Right Facet (Warm Amber Highlight) -->
+        <polygon points="0,0 38,0 0,64" fill="#FFB054" />
+        
+        <!-- Inner Cross Struts (Paper spine) -->
+        <line x1="0" y1="-48" x2="0" y2="64" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" />
+        <line x1="-38" y1="0" x2="38" y2="0" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" />
+        <!-- Center Gem Dot -->
+        <circle cx="0" cy="0" r="2.5" fill="#FFFFFF" />
+
+        <!-- Playful Ribbon Tail with Bows -->
+        <path d="M 0 64 Q 15 90 5 115 T 22 155 T 10 195" stroke="#FFB054" stroke-width="2.5" fill="none" stroke-linecap="round" />
+        <!-- Bow 1 -->
+        <path d="M 1 98 L 10 93 L 1 106 L -8 93 Z" fill="#F2553B" />
+        <circle cx="1" cy="99" r="2" fill="#FFE3DE" />
+        <!-- Bow 2 -->
+        <path d="M 12 136 L 21 131 L 12 144 L 3 131 Z" fill="#2BA39A" />
+        <circle cx="12" cy="137" r="2" fill="#E2FFFF" />
+        <!-- Bow 3 -->
+        <path d="M 17 175 L 25 170 L 17 182 L 9 170 Z" fill="#FFB054" />
+      </g>
+    </svg>
+
+    <!-- CENTERED 60% HERO MESSAGING CONTAINER (Safe from mobile viewport cropping) -->
+    <!-- Positioned safely: left 20% to 80% (approx 980px center zone) -->
+    <div class="absolute inset-y-0 left-0 right-0 flex items-center justify-center pointer-events-none">
+      <div class="w-[980px] max-w-[62%] px-4 flex flex-col items-center text-center pointer-events-auto z-20">
+        
+        <!-- App Identity Micro-Badge -->
+        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full badge-subtle mb-6">
+          <div class="w-3 h-3 rotate-45 bg-[#2BA39A] rounded-sm shadow-[0_0_8px_#2BA39A]"></div>
+          <span class="text-[#E2FFFF] text-[13px] font-extrabold tracking-wider uppercase">LEXKITE • 100% FREE PRACTICE</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-[#FFB054]"></span>
+          <span class="text-[#A9BFC1] text-[12px] font-semibold">NO PAYWALLS</span>
+        </div>
+
+        <!-- Main Headline -->
+        <h1 class="text-[#FFF7EA] text-[54px] leading-[1.08] font-extrabold tracking-tight mb-4 drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)]">
+          Learn English words <br class="hidden sm:inline" />that <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#FF927A] via-[#F2553B] to-[#FFB054] underline decoration-[#F2553B]/50 decoration-wavy decoration-4 underline-offset-8">stick</span>.
+        </h1>
+
+        <!-- Supporting Subline -->
+        <p class="text-[#CFE1E3] text-[20px] leading-relaxed font-semibold max-w-[700px] mb-8">
+          Free vocabulary for IELTS, TOEIC and everyday English
+        </p>
+
+        <!-- Call to Action Coral Pill (lexkite.com) -->
+        <div class="flex items-center justify-center">
+          <a href="https://lexkite.com" target="_blank" rel="noopener noreferrer" 
+             class="tactile-pill inline-flex items-center justify-center gap-3 px-9 py-3.5 rounded-full text-[#1B0B04] text-[19px] font-extrabold tracking-wide cursor-pointer">
+            <!-- Small subtle globe icon -->
+            <svg class="w-5 h-5 text-[#1B0B04]" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+            <span>lexkite.com</span>
+            <svg class="w-5 h-5 text-[#1B0B04]" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- BOTTOM-LEFT AREA KEPT CLEAR FOR FACEBOOK PROFILE PICTURE -->
+    <!-- Profile picture on desktop covers circular area (approx 168x168) at bottom-left corner with border -->
+    <!-- We purposefully leave X: 40px to 320px completely empty of critical text/graphics -->
+
+    <!-- FRIENDLY FLAT 2D ILLUSTRATED TEACHER (AMA) WAIST-UP AT THE RIGHT EDGE -->
+    <!-- Grounded directly on bottom edge (bottom-0), standing proud with clean flat shapes, no outer border or halo -->
+    <div class="absolute right-0 bottom-0 w-[420px] h-[510px] pointer-events-none z-10 flex items-end justify-end">
+      <svg class="w-full h-full" viewBox="0 0 420 510" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <clipPath id="teacher-clip">
+            <rect width="420" height="510" fill="white" />
+          </clipPath>
+        </defs>
+        
+        <g clip-path="url(#teacher-clip)">
+          <!-- Voluminous Curly Natural Hair Back Silhouette -->
+          <path d="M 230 140 
+                   C 190 100, 160 140, 150 180 
+                   C 135 230, 140 290, 170 325 
+                   C 190 350, 230 365, 260 365 
+                   C 340 365, 385 320, 395 240 
+                   C 405 160, 360 85, 290 80 
+                   C 260 78, 245 110, 230 140 Z" 
+                fill="#12181A" />
+          
+          <!-- Individual Hair Puffs / Texture bumps -->
+          <circle cx="165" cy="190" r="38" fill="#12181A" />
+          <circle cx="155" cy="250" r="42" fill="#12181A" />
+          <circle cx="180" cy="305" r="40" fill="#12181A" />
+          <circle cx="280" cy="90" r="42" fill="#12181A" />
+          <circle cx="340" cy="115" r="45" fill="#12181A" />
+          <circle cx="380" cy="175" r="44" fill="#12181A" />
+          <circle cx="385" cy="245" r="46" fill="#12181A" />
+          <circle cx="360" cy="310" r="42" fill="#12181A" />
+
+          <!-- Torso: Navy Blue Professional Blazer -->
+          <!-- Shoulder base -->
+          <path d="M 125 510 L 155 385 C 170 365, 220 355, 275 355 C 330 355, 380 365, 395 385 L 420 510 Z" fill="#0C2028" />
+          
+          <!-- Inner Blouse (Coral Accent #F2553B) -->
+          <path d="M 235 355 L 275 450 L 315 355 Z" fill="#F2553B" />
+          
+          <!-- Blazer Lapels (Layered Dark Navy) -->
+          <path d="M 205 365 L 275 480 L 225 510 L 135 510 Z" fill="#132F3A" />
+          <path d="M 345 365 L 275 480 L 325 510 L 415 510 Z" fill="#0E252E" />
+
+          <!-- Smart Teacher ID / Lapel Star Pin -->
+          <circle cx="225" cy="425" r="6" fill="#FFB054" />
+          <circle cx="225" cy="425" r="3" fill="#FFEEDB" />
+
+          <!-- Neck (Rich Deep Warm Skin Tone) -->
+          <rect x="252" y="280" width="46" height="85" rx="10" fill="#663A21" />
+          <!-- Neck Shadow under chin -->
+          <path d="M 252 280 C 270 300, 280 300, 298 280 L 298 300 C 275 315, 270 315, 252 300 Z" fill="#4D2A16" />
+
+          <!-- Head / Face (Friendly, Oval, Elegant) -->
+          <path d="M 230 190 C 230 145, 320 145, 320 190 C 320 250, 305 295, 275 295 C 245 295, 230 250, 230 190 Z" fill="#754326" />
+
+          <!-- Ears with Golden Hoop Earrings -->
+          <circle cx="228" cy="205" r="14" fill="#663A21" />
+          <circle cx="224" cy="216" r="8" stroke="#FFC94A" stroke-width="3" fill="none" />
+          <circle cx="322" cy="205" r="14" fill="#663A21" />
+          <circle cx="326" cy="216" r="8" stroke="#FFC94A" stroke-width="3" fill="none" />
+
+          <!-- Signature Sunny Yellow Headband (Lexkite Kit) -->
+          <path d="M 225 160 C 245 130, 305 130, 325 160 L 328 175 C 305 145, 245 145, 222 175 Z" fill="#FFC94A" />
+          <circle cx="275" cy="148" r="4" fill="#FFF2CC" />
+
+          <!-- Hair Front bangs / texture -->
+          <circle cx="240" cy="145" r="18" fill="#12181A" />
+          <circle cx="275" cy="138" r="20" fill="#12181A" />
+          <circle cx="310" cy="145" r="18" fill="#12181A" />
+
+          <!-- Warm Eyes & Lashes -->
+          <ellipse cx="255" cy="195" rx="6.5" ry="7" fill="#12181A" />
+          <circle cx="253" cy="193" r="2.5" fill="#FFFFFF" />
+          <path d="M 246 186 C 252 182, 260 183, 264 186" stroke="#12181A" stroke-width="2.5" stroke-linecap="round" />
+
+          <ellipse cx="295" cy="195" rx="6.5" ry="7" fill="#12181A" />
+          <circle cx="293" cy="193" r="2.5" fill="#FFFFFF" />
+          <path d="M 286 186 C 292 182, 300 183, 304 186" stroke="#12181A" stroke-width="2.5" stroke-linecap="round" />
+
+          <!-- Eyebrows -->
+          <path d="M 244 177 C 252 173, 262 175, 266 179" stroke="#12181A" stroke-width="3" stroke-linecap="round" />
+          <path d="M 284 179 C 288 175, 298 173, 306 177" stroke="#12181A" stroke-width="3" stroke-linecap="round" />
+
+          <!-- Gentle Nose -->
+          <path d="M 273 195 C 275 210, 271 216, 276 218 C 278 219, 281 217, 281 216" stroke="#522C16" stroke-width="2.5" stroke-linecap="round" fill="none" />
+
+          <!-- Rosy Cheeks -->
+          <ellipse cx="245" cy="214" rx="8" ry="4.5" fill="rgba(242, 85, 59, 0.25)" />
+          <ellipse cx="305" cy="214" rx="8" ry="4.5" fill="rgba(242, 85, 59, 0.25)" />
+
+          <!-- Warm Genuine Smile -->
+          <path d="M 258 238 C 266 256, 284 256, 292 238" stroke="#12181A" stroke-width="3" stroke-linecap="round" fill="none" />
+          <!-- Friendly Teeth -->
+          <path d="M 261 239 C 268 250, 282 250, 289 239 Z" fill="#FFFFFF" />
+          <path d="M 265 248 C 271 254, 279 254, 285 248" fill="#F2553B" opacity="0.8" />
+
+          <!-- Right Arm: Raised in a Welcoming Gesture -->
+          <path d="M 155 385 C 130 420, 95 460, 85 490 L 125 510 C 140 480, 170 435, 185 410 Z" fill="#132F3A" />
+          <!-- Hand / Forearm -->
+          <circle cx="82" cy="495" r="16" fill="#663A21" />
+        </g>
+      </svg>
+    </div>
+
+  </div>
+
+</body>
+</html>

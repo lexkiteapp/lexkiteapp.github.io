@@ -154,5 +154,26 @@
  },
  "ntMoreSenses": {
   "message": "+{n} anlam"
+ },
+ "ntQzTag": {
+  "message": "Hızlı sınav"
+ },
+ "ntQzQ": {
+  "message": "Doğru anlamı seç"
+ },
+ "ntQzTime": {
+  "message": "{s} saniye"
+ },
+ "ntQzRight": {
+  "message": "Doğru!"
+ },
+ "ntQzWrong": {
+  "message": "Tam değil — kelime yakında tekrar gelecek"
+ },
+ "ntQzTimeout": {
+  "message": "Süre doldu, sorun değil"
+ },
+ "ntQzSkip": {
+  "message": "Atla"
  }
 }

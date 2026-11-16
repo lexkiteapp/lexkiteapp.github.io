@@ -1,0 +1,860 @@
+{
+ "allergy": {
+  "ipaUS": "/ˈælərdʒi/",
+  "col": [
+   "food allergy",
+   "peanut allergy",
+   "allergy to pollen",
+   "have an allergy",
+   "allergy symptoms",
+   "severe allergy",
+   "allergy medicine"
+  ],
+  "syn": [
+   "sensitivity",
+   "intolerance",
+   "hypersensitivity"
+  ]
+ },
+ "announcer": {
+  "ipaUS": "/əˈnaʊnsər/",
+  "col": [
+   "radio announcer",
+   "TV announcer",
+   "airport announcer",
+   "sports announcer",
+   "station announcer",
+   "public address announcer"
+  ],
+  "syn": [
+   "presenter",
+   "broadcaster",
+   "newsreader"
+  ]
+ },
+ "appetizer": {
+  "ipaUS": "/ˈæpɪtaɪzər/",
+  "col": [
+   "order an appetizer",
+   "appetizer menu",
+   "cold appetizer",
+   "hot appetizer",
+   "share an appetizer",
+   "light appetizer",
+   "appetizer platter"
+  ],
+  "syn": [
+   "starter",
+   "hors d'oeuvre",
+   "first course"
+  ]
+ },
+ "athlete": {
+  "ipaUS": "/ˈæθliːt/",
+  "col": [
+   "professional athlete",
+   "elite athlete",
+   "Olympic athlete",
+   "student athlete",
+   "athlete's foot",
+   "top athlete",
+   "train like an athlete"
+  ],
+  "syn": [
+   "sportsperson",
+   "competitor",
+   "sportsman",
+   "sportswoman"
+  ]
+ },
+ "banker": {
+  "ipaUS": "/ˈbæŋkər/",
+  "col": [
+   "investment banker",
+   "personal banker",
+   "senior banker",
+   "merchant banker",
+   "central banker",
+   "banker's draft"
+  ],
+  "syn": [
+   "financier",
+   "bank manager"
+  ]
+ },
+ "beforehand": {
+  "ipaUS": "/bɪˈfɔːrhænd/",
+  "col": [
+   "notify beforehand",
+   "prepare beforehand",
+   "pay beforehand",
+   "book beforehand",
+   "tell someone beforehand",
+   "know beforehand",
+   "check beforehand"
+  ],
+  "syn": [
+   "in advance",
+   "ahead of time",
+   "earlier",
+   "previously"
+  ]
+ },
+ "booklet": {
+  "ipaUS": "/ˈbʊklət/",
+  "col": [
+   "information booklet",
+   "instruction booklet",
+   "free booklet",
+   "booklet of stamps",
+   "safety booklet",
+   "training booklet"
+  ],
+  "syn": [
+   "pamphlet",
+   "leaflet",
+   "brochure"
+  ]
+ },
+ "booth": {
+  "ipaUS": "/buːθ/",
+  "col": [
+   "ticket booth",
+   "phone booth",
+   "exhibition booth",
+   "information booth",
+   "voting booth",
+   "photo booth",
+   "visit our booth"
+  ],
+  "syn": [
+   "stand",
+   "stall",
+   "kiosk",
+   "cubicle"
+  ]
+ },
+ "briefcase": {
+  "ipaUS": "/ˈbriːfkeɪs/",
+  "col": [
+   "leather briefcase",
+   "carry a briefcase",
+   "open a briefcase",
+   "lock a briefcase",
+   "heavy briefcase",
+   "briefcase full of documents"
+  ],
+  "syn": [
+   "attaché case",
+   "document case",
+   "portfolio"
+  ]
+ },
+ "businessperson": {
+  "ipaUS": "/ˈbɪznəspɜːrsn/",
+  "col": [
+   "successful businessperson",
+   "local businessperson",
+   "female businessperson",
+   "experienced businessperson",
+   "independent businessperson",
+   "prominent businessperson"
+  ],
+  "syn": [
+   "entrepreneur",
+   "executive",
+   "businessman",
+   "businesswoman"
+  ]
+ },
+ "caller": {
+  "ipaUS": "/ˈkɔːlər/",
+  "col": [
+   "anonymous caller",
+   "regular caller",
+   "caller ID",
+   "first-time caller",
+   "nuisance caller",
+   "phone caller",
+   "return a caller's call"
+  ],
+  "syn": [
+   "person ringing",
+   "person calling"
+  ]
+ },
+ "captain": {
+  "ipaUS": "/ˈkæptən/",
+  "col": [
+   "flight captain",
+   "team captain",
+   "ship's captain",
+   "captain of the team",
+   "army captain",
+   "police captain",
+   "appoint a captain"
+  ],
+  "syn": [
+   "skipper",
+   "pilot",
+   "commander",
+   "leader"
+  ]
+ },
+ "careless": {
+  "ipaUS": "/ˈkerləs/",
+  "col": [
+   "careless mistake",
+   "careless driving",
+   "careless error",
+   "careless remark",
+   "careless attitude",
+   "careless with money",
+   "careless about details"
+  ],
+  "syn": [
+   "negligent",
+   "sloppy",
+   "thoughtless",
+   "reckless"
+  ]
+ },
+ "carpenter": {
+  "ipaUS": "/ˈkɑːrpəntər/",
+  "col": [
+   "skilled carpenter",
+   "hire a carpenter",
+   "master carpenter",
+   "carpenter's tools",
+   "carpenter ant",
+   "trained carpenter"
+  ],
+  "syn": [
+   "woodworker",
+   "joiner",
+   "cabinetmaker"
+  ]
+ },
+ "closet": {
+  "ipaUS": "/ˈklɑːzət/",
+  "col": [
+   "walk-in closet",
+   "bedroom closet",
+   "hall closet",
+   "broom closet",
+   "closet space",
+   "clean out the closet"
+  ],
+  "syn": [
+   "wardrobe",
+   "cupboard",
+   "storage room"
+  ]
+ },
+ "cloth": {
+  "ipaUS": "/klɔːθ/",
+  "col": [
+   "cotton cloth",
+   "clean cloth",
+   "damp cloth",
+   "piece of cloth",
+   "wipe with a cloth",
+   "woven cloth",
+   "dish cloth"
+  ],
+  "syn": [
+   "fabric",
+   "material",
+   "textile",
+   "rag"
+  ]
+ },
+ "colleague": {
+  "ipaUS": "/ˈkɑːliːɡ/",
+  "col": [
+   "work colleague",
+   "former colleague",
+   "fellow colleague",
+   "colleagues and friends",
+   "a colleague of mine",
+   "valued colleague",
+   "senior colleague"
+  ],
+  "syn": [
+   "coworker",
+   "workmate",
+   "associate",
+   "teammate"
+  ]
+ },
+ "comfortably": {
+  "ipaUS": "/ˈkʌmftərbli/",
+  "col": [
+   "sit comfortably",
+   "sleep comfortably",
+   "comfortably numb",
+   "live comfortably",
+   "comfortably off",
+   "fit comfortably",
+   "win comfortably"
+  ],
+  "syn": [
+   "easily",
+   "cosily",
+   "snugly",
+   "with ease"
+  ]
+ },
+ "conditioner": {
+  "ipaUS": "/kənˈdɪʃənər/",
+  "col": [
+   "hair conditioner",
+   "air conditioner",
+   "fabric conditioner",
+   "deep conditioner",
+   "leave-in conditioner",
+   "shampoo and conditioner"
+  ],
+  "syn": [
+   "softener",
+   "moisturizer"
+  ]
+ },
+ "container": {
+  "ipaUS": "/kənˈteɪnər/",
+  "col": [
+   "plastic container",
+   "shipping container",
+   "food container",
+   "airtight container",
+   "container ship",
+   "container terminal",
+   "empty container"
+  ],
+  "syn": [
+   "box",
+   "vessel",
+   "receptacle",
+   "crate"
+  ]
+ },
+ "convenient": {
+  "ipaUS": "/kənˈviːniənt/",
+  "col": [
+   "convenient location",
+   "convenient time",
+   "convenient for me",
+   "convenient way",
+   "convenient to use",
+   "at your convenience",
+   "more convenient"
+  ],
+  "syn": [
+   "handy",
+   "practical",
+   "accessible",
+   "suitable"
+  ]
+ },
+ "conveniently": {
+  "ipaUS": "/kənˈviːniəntli/",
+  "col": [
+   "conveniently located",
+   "conveniently situated",
+   "conveniently close",
+   "conveniently placed",
+   "conveniently timed",
+   "conveniently forget"
+  ],
+  "syn": [
+   "easily",
+   "handily",
+   "readily"
+  ]
+ },
+ "cooler": {
+  "ipaUS": "/ˈkuːlər/",
+  "col": [
+   "cooler weather",
+   "cooler temperature",
+   "picnic cooler",
+   "wine cooler",
+   "water cooler",
+   "cooler bag",
+   "ice cooler"
+  ],
+  "syn": [
+   "chilly",
+   "fresher",
+   "ice box",
+   "chiller"
+  ]
+ },
+ "copier": {
+  "ipaUS": "/ˈkɑːpiər/",
+  "col": [
+   "office copier",
+   "color copier",
+   "copier paper",
+   "copier machine",
+   "jammed copier",
+   "use the copier",
+   "copier toner"
+  ],
+  "syn": [
+   "photocopier",
+   "copy machine",
+   "duplicator"
+  ]
+ },
+ "cord": {
+  "ipaUS": "/kɔːrd/",
+  "col": [
+   "power cord",
+   "extension cord",
+   "phone cord",
+   "electrical cord",
+   "telephone cord",
+   "retractable cord",
+   "unplug the cord"
+  ],
+  "syn": [
+   "cable",
+   "wire",
+   "lead",
+   "string"
+  ]
+ },
+ "cordless": {
+  "ipaUS": "/ˈkɔːrdləs/",
+  "col": [
+   "cordless phone",
+   "cordless drill",
+   "cordless vacuum",
+   "cordless kettle",
+   "cordless mouse",
+   "cordless tool",
+   "cordless headphones"
+  ],
+  "syn": [
+   "wireless",
+   "battery-powered",
+   "portable"
+  ]
+ },
+ "countryside": {
+  "ipaUS": "/ˈkʌntrisaɪd/",
+  "col": [
+   "quiet countryside",
+   "beautiful countryside",
+   "English countryside",
+   "in the countryside",
+   "countryside walk",
+   "rural countryside",
+   "open countryside"
+  ],
+  "syn": [
+   "rural area",
+   "country",
+   "farmland"
+  ]
+ },
+ "coworker": {
+  "ipaUS": "/ˈkoʊwɜːrkər/",
+  "col": [
+   "friendly coworker",
+   "fellow coworker",
+   "new coworker",
+   "coworker relationship",
+   "get along with a coworker",
+   "coworker complaint"
+  ],
+  "syn": [
+   "colleague",
+   "workmate",
+   "teammate"
+  ]
+ },
+ "cushion": {
+  "ipaUS": "/ˈkʊʃn/",
+  "col": [
+   "soft cushion",
+   "sofa cushion",
+   "seat cushion",
+   "floor cushion",
+   "cushion cover",
+   "cushion the fall",
+   "comfortable cushion"
+  ],
+  "syn": [
+   "pillow",
+   "pad",
+   "padding",
+   "buffer"
+  ]
+ },
+ "departure": {
+  "ipaUS": "/dɪˈpɑːrtʃər/",
+  "col": [
+   "departure time",
+   "departure gate",
+   "departure lounge",
+   "departure date",
+   "early departure",
+   "departure from",
+   "departure board"
+  ],
+  "syn": [
+   "leaving",
+   "exit",
+   "going",
+   "takeoff"
+  ]
+ },
+ "diamond": {
+  "ipaUS": "/ˈdaɪmənd/",
+  "col": [
+   "diamond ring",
+   "diamond necklace",
+   "uncut diamond",
+   "rough diamond",
+   "diamond mine",
+   "blue diamond",
+   "diamond anniversary"
+  ],
+  "syn": [
+   "gem",
+   "jewel",
+   "brilliant"
+  ]
+ },
+ "dislike": {
+  "ipaUS": "/dɪsˈlaɪk/",
+  "col": [
+   "strongly dislike",
+   "dislike intensely",
+   "mutual dislike",
+   "dislike doing",
+   "likes and dislikes",
+   "personal dislike",
+   "take a dislike to"
+  ],
+  "syn": [
+   "hate",
+   "object to",
+   "loathe",
+   "not care for"
+  ]
+ },
+ "documentary": {
+  "ipaUS": "/ˌdɑːkjuˈmentri/",
+  "col": [
+   "watch a documentary",
+   "nature documentary",
+   "documentary film",
+   "TV documentary",
+   "documentary series",
+   "award-winning documentary",
+   "documentary about"
+  ],
+  "syn": [
+   "factual film",
+   "feature",
+   "non-fiction film"
+  ]
+ },
+ "donate": {
+  "ipaUS": "/ˈdoʊneɪt/",
+  "col": [
+   "donate money",
+   "donate blood",
+   "donate to charity",
+   "donate generously",
+   "donate clothes",
+   "donate an organ",
+   "donate a book"
+  ],
+  "syn": [
+   "give",
+   "contribute",
+   "hand over",
+   "present"
+  ]
+ },
+ "doorman": {
+  "ipaUS": "/ˈdɔːrmæn/",
+  "col": [
+   "hotel doorman",
+   "building doorman",
+   "uniformed doorman",
+   "doorman building",
+   "night doorman",
+   "greeted by the doorman"
+  ],
+  "syn": [
+   "porter",
+   "concierge",
+   "gatekeeper",
+   "attendant"
+  ]
+ },
+ "earthquake": {
+  "ipaUS": "/ˈɜːrθkweɪk/",
+  "col": [
+   "strong earthquake",
+   "earthquake damage",
+   "earthquake zone",
+   "earthquake warning",
+   "earthquake survivors",
+   "devastating earthquake",
+   "earthquake drill"
+  ],
+  "syn": [
+   "quake",
+   "tremor",
+   "seismic event"
+  ]
+ },
+ "electrician": {
+  "ipaUS": "/ɪˌlekˈtrɪʃn/",
+  "col": [
+   "call an electrician",
+   "licensed electrician",
+   "qualified electrician",
+   "hire an electrician",
+   "electrician's tools",
+   "emergency electrician"
+  ],
+  "syn": [
+   "electrical engineer",
+   "wireman",
+   "technician"
+  ]
+ },
+ "energetic": {
+  "ipaUS": "/ˌenərˈdʒetɪk/",
+  "col": [
+   "energetic person",
+   "energetic team",
+   "energetic performance",
+   "energetic young",
+   "energetic approach",
+   "remain energetic",
+   "full of energy"
+  ],
+  "syn": [
+   "lively",
+   "active",
+   "dynamic",
+   "vigorous"
+  ]
+ },
+ "erase": {
+  "ipaUS": "/ɪˈreɪs/",
+  "col": [
+   "erase data",
+   "erase a file",
+   "erase the board",
+   "erase memory",
+   "erase a mistake",
+   "erase completely",
+   "erase from history"
+  ],
+  "syn": [
+   "delete",
+   "wipe",
+   "remove",
+   "rub out"
+  ]
+ },
+ "experiment": {
+  "ipaUS": "/ɪkˈsperəmənt/",
+  "col": [
+   "conduct an experiment",
+   "carry out an experiment",
+   "scientific experiment",
+   "experiment on animals",
+   "experiment with",
+   "laboratory experiment",
+   "controlled experiment"
+  ],
+  "syn": [
+   "test",
+   "trial",
+   "investigation",
+   "study"
+  ]
+ },
+ "explorer": {
+  "ipaUS": "/ɪkˈsplɔːrər/",
+  "col": [
+   "polar explorer",
+   "famous explorer",
+   "early explorer",
+   "space explorer",
+   "deep-sea explorer",
+   "intrepid explorer"
+  ],
+  "syn": [
+   "adventurer",
+   "traveler",
+   "discoverer",
+   "pioneer"
+  ]
+ },
+ "extinguisher": {
+  "ipaUS": "/ɪkˈstɪŋɡwɪʃər/",
+  "col": [
+   "fire extinguisher",
+   "portable extinguisher",
+   "use an extinguisher",
+   "extinguisher inspection",
+   "water extinguisher",
+   "extinguisher sign"
+  ],
+  "syn": [
+   "fire-fighting device",
+   "suppressor"
+  ]
+ },
+ "farewell": {
+  "ipaUS": "/ˌferˈwel/",
+  "col": [
+   "farewell party",
+   "bid farewell",
+   "say farewell",
+   "farewell speech",
+   "farewell dinner",
+   "tearful farewell",
+   "farewell to"
+  ],
+  "syn": [
+   "goodbye",
+   "send-off",
+   "parting",
+   "adieu"
+  ]
+ },
+ "fasten": {
+  "ipaUS": "/ˈfæsn/",
+  "col": [
+   "fasten a seat belt",
+   "fasten securely",
+   "fasten tightly",
+   "fasten the lid",
+   "fasten a button",
+   "fasten with a clip",
+   "please fasten"
+  ],
+  "syn": [
+   "attach",
+   "secure",
+   "tie",
+   "buckle"
+  ]
+ },
+ "firstly": {
+  "ipaUS": "/ˈfɜːrstli/",
+  "col": [
+   "firstly, the cost",
+   "firstly ... secondly",
+   "firstly, let me explain",
+   "firstly, we need",
+   "firstly because",
+   "firstly, we should"
+  ],
+  "syn": [
+   "first of all",
+   "to begin with",
+   "in the first place"
+  ]
+ },
+ "flavor": {
+  "ipaUS": "/ˈfleɪvər/",
+  "col": [
+   "rich flavor",
+   "new flavor",
+   "natural flavor",
+   "flavor of the month",
+   "ice cream flavor",
+   "enhance the flavor",
+   "artificial flavor"
+  ],
+  "syn": [
+   "taste",
+   "savor",
+   "tang",
+   "seasoning"
+  ]
+ },
+ "flour": {
+  "ipaUS": "/ˈflaʊər/",
+  "col": [
+   "wheat flour",
+   "plain flour",
+   "all-purpose flour",
+   "bag of flour",
+   "white flour",
+   "sift the flour",
+   "self-raising flour"
+  ],
+  "syn": [
+   "meal",
+   "powder",
+   "ground grain"
+  ]
+ },
+ "flyer": {
+  "ipaUS": "/ˈflaɪər/",
+  "col": [
+   "hand out flyers",
+   "print flyers",
+   "advertising flyer",
+   "event flyer",
+   "flyer design",
+   "distribute flyers",
+   "frequent flyer"
+  ],
+  "syn": [
+   "leaflet",
+   "handbill",
+   "circular",
+   "pamphlet"
+  ]
+ },
+ "fountain": {
+  "ipaUS": "/ˈfaʊntn/",
+  "col": [
+   "water fountain",
+   "drinking fountain",
+   "fountain pen",
+   "marble fountain",
+   "fountain in the square",
+   "fountain of youth",
+   "ornamental fountain"
+  ],
+  "syn": [
+   "spring",
+   "jet",
+   "spout",
+   "water feature"
+  ]
+ },
+ "gasoline": {
+  "ipaUS": "/ˈɡæsəliːn/",
+  "col": [
+   "gasoline prices",
+   "unleaded gasoline",
+   "fill up with gasoline",
+   "gasoline tank",
+   "gasoline engine",
+   "run out of gasoline",
+   "gallon of gasoline"
+  ],
+  "syn": [
+   "gas",
+   "petrol",
+   "fuel"
+  ]
+ }
+}

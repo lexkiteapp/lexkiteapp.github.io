@@ -72,5 +72,46 @@
   "words": 41,
   "seconds": 25.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"fish\" mean?",
+  "keyword": "fish",
+  "value": "Fish means an animal that lives and swims in water.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=fish",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"fish\" mean?",
+    "description": "Fish means an animal that lives and swims in water.\n\nReview your words, free: https://lexkite.com/app/#/review?w=fish\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "fish",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"fish\" mean?\n\nFish means an animal that lives and swims in water.\n\nReview your words, free: https://lexkite.com/app/#/review?w=fish"
+   },
+   "instagram": {
+    "caption": "What does \"fish\" mean?\n\nFish means an animal that lives and swims in water.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"fish\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means an animal that lives and swims in water. Fish means an animal that lives and swims in water. More practice like this (free): {link}"
  }
 }

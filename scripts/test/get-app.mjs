@@ -45,15 +45,19 @@ const store = (cfg.match(/store: '([^']+)'/) || [])[1];
   ok(r.beacons.some(b => b.t === 'q' && b.ev === 'app_head_play'), 'Android: bấm → /api/hit app_head_play'); }
 // 2) Android chưa có bản Play → không mời
 { const r = run(UA.android, { apps: { play: '', ios: '' } }); ok(r.head.hidden && r.foot.hidden, 'Android không có link Play: ẩn'); }
-// 3) iPhone (chưa có App Store) → hướng dẫn Thêm vào MH chính, không rời trang
-{ const r = run(UA.iphone);
+// 3) iPhone (App Store trống trong cấu hình thử) → hướng dẫn Thêm vào MH chính, không rời trang
+{ const r = run(UA.iphone, { apps: { play, ios: "" } });
   ok(!r.head.hidden && r.head.dataset.kind === 'a2hs' && r.head.getAttribute('role') === 'button', 'iPhone: nút mở hướng dẫn cài (role=button)');
   const ev = new r.w.MouseEvent('click', { bubbles: true, cancelable: true }); r.head.dispatchEvent(ev);
   ok(ev.defaultPrevented && r.beacons.some(b => b.ev === 'app_head_a2hs'), 'iPhone: bấm không điều hướng, đếm app_head_a2hs');
   ok(r.w.document.querySelector('script[src="/js/get-app-guide.js"]'), 'iPhone: nạp js/get-app-guide.js khi bấm'); }
 // 4) iPad (UA giống Mac, có cảm ứng) → hướng dẫn, không coi là Safari Mac
-{ const r = run(UA.ipad, { touch: 5 }); ok(r.head.dataset.kind === 'a2hs', 'iPad: hướng dẫn Thêm vào MH chính'); }
-// 5) App Store đã có → link App Store + ct
+{ const r = run(UA.ipad, { touch: 5, apps: { play, ios: '' } }); ok(r.head.dataset.kind === 'a2hs', 'iPad: hướng dẫn Thêm vào MH chính'); }
+// 5) App Store đã có (cấu hình THẬT web/js/ext-config.js: link chính thức app public 1.0) → link App Store + ct, mở tab mới, không vỡ nút
+{ const real = run(UA.iphone), ipad = run(UA.ipad, { touch: 5 });
+  ok(real.w.LK_APPS.ios === 'https://apps.apple.com/app/id6824714708', 'ext-config: LK_APPS.ios = link App Store chính thức');
+  ok(!real.head.hidden && real.head.href === 'https://apps.apple.com/app/id6824714708?ct=get_app_head' && real.head.dataset.kind === 'ios' && real.head.target === '_blank' && /noopener/.test(real.head.rel), 'iPhone (cấu hình thật): nút → App Store, tab mới');
+  ok(ipad.head.dataset.kind === 'ios' && ipad.foot.href.startsWith('https://apps.apple.com/app/id6824714708?ct=get_app_foot'), 'iPad (cấu hình thật): đầu + chân trang → App Store'); }
 { const r = run(UA.iphone, { apps: { play, ios: 'https://apps.apple.com/app/id6824714708' } }); ok(r.head.href === 'https://apps.apple.com/app/id6824714708?ct=get_app_head', 'iPhone có App Store: link + ct'); }
 // 6) Safari Mac ≥ 17 → hướng dẫn Thêm vào Dock; Safari 16 → web app (chỉ chân trang)
 { const r = run(UA.macSafari); ok(r.head.dataset.kind === 'dock' && !r.head.hidden, 'Safari Mac 18: hướng dẫn Thêm vào Dock'); }
@@ -78,4 +82,4 @@ for (const l of ['vi', 'en', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko
   if (l !== 'vi') ok(!/[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i.test(JSON.stringify(t)), `get-app/${l}.json không lẫn tiếng Việt`);
 }
 if (fail) { console.error(`✗ get-app: ${fail}/${n} kiểm tra lỗi`); process.exit(1); }
-console.log(`✓ get-app: ${n} kiểm tra – Android→Play, Chrome→CWS, iPhone/iPad/Mac→hướng dẫn, Firefox→web app, ẩn khi đã cài`);
+console.log(`✓ get-app: ${n} kiểm tra – Android→Play, Chrome→CWS, iPhone/iPad→App Store (trống→hướng dẫn), Mac→hướng dẫn, Firefox→web app, ẩn khi đã cài`);

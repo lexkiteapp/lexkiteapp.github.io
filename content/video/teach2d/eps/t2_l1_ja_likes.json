@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_likes",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Does needs no s!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: He doesn't likes it.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: He doesn't like it.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After doesn't, the verb has no s.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Like! She doesn't like it.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "He doesn't likes it.",
+  "right": "He doesn't like it.",
+  "strike": "likes",
+  "why": "After doesn't, the verb has no s.",
+  "memory": "He doesn't like it.",
+  "quiz": {
+   "stem": "She doesn't ___ it.",
+   "options": [
+    "like",
+    "likes"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "doesn't のあとに s をつけてない？",
+   "tip": "doesn't がすでに三単現の s を持っているので、動詞は原形に。",
+   "caption": "“He doesn't likes it.”と言っていませんか？😅 否定文では doesn't が三人称単数を担当します。そのため like は s のない原形になります。 “He doesn't like it.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“like”。doesn't のあとは原形。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you add s after doesn't?",
+   "tip": "Doesn't already carries the s. Use the plain verb: like.",
+   "caption": "Do you say “He doesn't likes it.”? 😅 In negatives, doesn't handles the third person, so the verb stays plain. The natural way is “He doesn't like it.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "doesn't のあとに s をつけてない？"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "doesn't のあとに s をつけてない？",
+  "keyword": "He doesn't like it.",
+  "value": "doesn't がすでに三単現の s を持っているので、動詞は原形に。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "doesn't のあとに s をつけてない？",
+    "description": "“He doesn't likes it.”と言っていませんか？😅 否定文では doesn't が三人称単数を担当します。そのため like は s のない原形になります。 “He doesn't like it.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "He doesn't like it.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“He doesn't likes it.”と言っていませんか？😅 否定文では doesn't が三人称単数を担当します。そのため like は s のない原形になります。 “He doesn't like it.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“He doesn't likes it.”と言っていませんか？😅 否定文では doesn't が三人称単数を担当します。そのため like は s のない原形になります。 “He doesn't like it.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "doesn't のあとに s をつけてない？ #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“like”。doesn't のあとは原形。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

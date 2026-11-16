@@ -1,0 +1,752 @@
+{
+  "inexperience": {
+    "mis": [
+      {
+        "w": "He failed because of his inexperience on managing teams.",
+        "r": "He failed because of his inexperience in managing teams.",
+        "why": "Sau inexperience dùng giới từ 'in' (hoặc 'with') trước lĩnh vực, không dùng 'on'."
+      },
+      {
+        "w": "She is very inexperience for this role.",
+        "r": "She is very inexperienced for this role.",
+        "why": "Inexperience là danh từ; tính từ miêu tả người là inexperienced."
+      }
+    ],
+    "u": "Inexperience là danh từ không đếm được, chỉ tình trạng chưa có đủ thực hành. Từ này thường giải thích lỗi mà không chê tính cách: lỗi do thiếu kinh nghiệm, không phải cẩu thả. Cấu trúc hay gặp là 'inexperience in/with something' và 'through/due to inexperience'. Từ hơi trang trọng; khi nói nhiều người dùng 'lack of experience'. Tính từ inexperienced mô tả người, còn từ đối lập là experience hoặc expertise."
+  },
+  "influential": {
+    "mis": [
+      {
+        "w": "He is very influential on young voters.",
+        "r": "He is very influential with young voters.",
+        "why": "Influential đi với 'with' cho nhóm người và 'in' cho lĩnh vực; 'on' dùng với danh từ influence."
+      },
+      {
+        "w": "She is an influence person in the fashion industry.",
+        "r": "She is an influential person in the fashion industry.",
+        "why": "Trước danh từ phải dùng tính từ influential; influence là danh từ."
+      }
+    ],
+    "u": "Influential miêu tả người, cuốn sách, ý tưởng hay nhóm làm thay đổi suy nghĩ hoặc hành động của người khác. Từ mang sắc thái tôn trọng, hay gặp trong báo chí, kinh doanh, học thuật: an influential economist, an influential report. Cấu trúc thường dùng là 'influential in + V-ing' và 'influential with + nhóm người'. Nó không có nghĩa là giàu hay nổi tiếng. Powerful nhấn vào quyền lực, còn influential nhấn vào tác động lên quan điểm và quyết định."
+  },
+  "informative": {
+    "mis": [
+      {
+        "w": "The website is informed and easy to use.",
+        "r": "The website is informative and easy to use.",
+        "why": "Informed mô tả người đã nắm thông tin; informative mô tả nguồn cung cấp thông tin."
+      },
+      {
+        "w": "I found the museum tour very information.",
+        "r": "I found the museum tour very informative.",
+        "why": "Informative là tính từ cho thứ cung cấp nhiều thông tin; information là danh từ nên không dùng để miêu tả chuyến tham quan."
+      }
+    ],
+    "u": "Informative miêu tả thứ cung cấp nhiều thông tin hữu ích, như bài nói, bài báo, trang web hay biển báo. Từ mang nghĩa tích cực, trung tính về ngữ vực nên hợp với đánh giá và nhận xét: 'The guide was clear and informative.' Đừng nhầm với informed, dùng cho người đã nắm thông tin, hay informational, một từ ít gặp chỉ loại nội dung. Cặp từ hay gặp là 'informative and easy to follow'."
+  },
+  "innovative": {
+    "mis": [
+      {
+        "w": "The innovative of this phone is its camera.",
+        "r": "The innovation of this phone is its camera.",
+        "why": "Innovative là tính từ; danh từ chỉ ý tưởng mới là innovation."
+      },
+      {
+        "w": "She is an innovative of the company.",
+        "r": "She is an innovator at the company.",
+        "why": "Người tạo ra ý tưởng mới là innovator; innovative chỉ dùng để miêu tả."
+      }
+    ],
+    "u": "Innovative miêu tả ý tưởng, sản phẩm hay phương pháp mới và thông minh, không chỉ khác lạ. Từ này rất hay dùng trong quảng cáo và kinh doanh nên dễ thành lời khen sáo rỗng nếu không nêu chi tiết: an innovative way of recycling batteries. Từ liên quan: innovation là danh từ, innovate là động từ, innovator là người. Original nhấn vào tính chưa từng có, còn innovative gợi ý ý tưởng đó cũng dùng được hiệu quả trong thực tế."
+  },
+  "inquire": {
+    "mis": [
+      {
+        "w": "I wrote to inquire the price of the room.",
+        "r": "I wrote to inquire about the price of the room.",
+        "why": "Inquire không nhận tân ngữ trực tiếp ở nghĩa này, cần 'about' trước điều muốn hỏi."
+      },
+      {
+        "w": "He inquired me about the schedule.",
+        "r": "He inquired about the schedule.",
+        "why": "Inquire không nhận người làm tân ngữ trực tiếp; muốn nêu người thì dùng 'ask him'."
+      }
+    ],
+    "u": "Inquire là động từ trang trọng để hỏi thông tin, hay gặp trong email kinh doanh và chăm sóc khách hàng: 'I am writing to inquire about your rates.' Dùng 'about' cho chủ đề và 'into' cho việc điều tra chính thức, ví dụ 'inquire into the cause of the fire'. Anh Mỹ ưa inquire và inquiry; Anh Anh còn dùng enquire và enquiry. Trong văn nói thường chỉ cần dùng ask."
+  },
+  "insufficient": {
+    "mis": [
+      {
+        "w": "We have insufficient of time to finish.",
+        "r": "We have insufficient time to finish.",
+        "why": "Insufficient là tính từ đứng ngay trước danh từ, không dùng 'of'."
+      },
+      {
+        "w": "The budget is insufficient to cover for all costs.",
+        "r": "The budget is insufficient to cover all costs.",
+        "why": "'Cover' đã có nghĩa chi trả nên nhận tân ngữ trực tiếp, không thêm 'for'."
+      }
+    ],
+    "u": "Insufficient là cách nói trang trọng của 'không đủ'. Từ này xuất hiện trong ngân hàng, luật và báo cáo: insufficient funds, insufficient evidence. Dùng với danh từ không đếm được và số nhiều, thường theo sau là 'for' hoặc 'to + động từ': insufficient for our needs, insufficient to pay the bill. Từ đối nghĩa là sufficient. Trong giao tiếp hằng ngày người ta nói 'not enough', nghe tự nhiên và gần gũi hơn."
+  },
+  "interfere": {
+    "mis": [
+      {
+        "w": "Noise interfered my sleep last night.",
+        "r": "Noise interfered with my sleep last night.",
+        "why": "Interfere không nhận tân ngữ trực tiếp, cần 'with' trước thứ bị ảnh hưởng."
+      },
+      {
+        "w": "Parents should not interfere with their adult children's marriage choices.",
+        "r": "Parents should not interfere in their adult children's marriage choices.",
+        "why": "'Interfere in' là xen vào chuyện của người khác; 'interfere with' là cản trở một việc."
+      }
+    ],
+    "u": "Interfere có hai cấu trúc hay bị nhầm. 'Interfere with' nghĩa là cản trở hoặc làm phiền: bad weather interfered with the flight. 'Interfere in' nghĩa là xen vào chuyện của người khác, thường không được hoan nghênh: one country interfering in another's elections. Danh từ là interference. Từ này thường mang nghĩa tiêu cực, nên sự tham gia có ích hãy nói bằng help hoặc support."
+  },
+  "intern": {
+    "mis": [
+      {
+        "w": "She is an intern in a bank.",
+        "r": "She is an intern at a bank.",
+        "why": "Lĩnh vực đi với 'in' (internship in marketing); không dùng 'of' ở đây."
+      },
+      {
+        "w": "I will intern to a law firm.",
+        "r": "I will intern at a law firm.",
+        "why": "Dùng 'at' cho nơi làm việc; 'to' chỉ hướng di chuyển."
+      }
+    ],
+    "u": "Intern chủ yếu là danh từ chỉ sinh viên hoặc người mới tốt nghiệp làm việc ngắn hạn tại công ty để lấy kinh nghiệm, đôi khi không lương. Nó cũng là động từ: she interned at a hospital. Nơi làm việc đi sau 'at' hoặc 'with'. Internship là khoảng thời gian thực tập, nên đừng nói 'an intern of three months'. Tiếng Anh Anh còn dùng trainee và work-experience student."
+  },
+  "internationally": {
+    "mis": [
+      {
+        "w": "The firm has an internationally office in Tokyo.",
+        "r": "The firm has an international office in Tokyo.",
+        "why": "Trước danh từ dùng tính từ international; internationally là trạng từ."
+      },
+      {
+        "w": "They sell their products international.",
+        "r": "They sell their products internationally.",
+        "why": "Bổ nghĩa cho động từ cần trạng từ; international là tính từ."
+      }
+    ],
+    "u": "Internationally là trạng từ nghĩa là ở hoặc giữa nhiều quốc gia. Nó thường đứng trước phân từ (internationally recognized) hoặc sau động từ (sell internationally). Từ này chính xác hơn globally khi bạn muốn nói vài quốc gia chứ không phải toàn thế giới. Đừng nhầm với tính từ international, như trong an international airport. Trong văn bản kinh doanh, nó thường mô tả mở rộng thị trường, danh tiếng và thương mại."
+  },
+  "internship": {
+    "mis": [
+      {
+        "w": "I am looking for an internship of marketing.",
+        "r": "I am looking for an internship in marketing.",
+        "why": "Nơi làm việc đi với 'at' (hoặc 'with'), không dùng 'in'."
+      },
+      {
+        "w": "She gave an internship at the bank.",
+        "r": "She did an internship at the bank.",
+        "why": "Sinh viên 'do' thực tập, còn công ty mới 'offer' vị trí đó."
+      }
+    ],
+    "u": "Internship là khoảng thời gian thực tập có thời hạn, thường cho sinh viên hoặc người mới tốt nghiệp, kéo dài vài tuần đến vài tháng, có thể có lương hoặc không. Động từ hay đi kèm: do, complete, apply for, land an internship; công ty thì offer hoặc advertise. Dùng 'at' cho tổ chức và 'in' cho lĩnh vực: an internship at Google in marketing. Khác với apprenticeship, vốn dài hơn và đào tạo nghề có tay nghề."
+  },
+  "invaluable": {
+    "mis": [
+      {
+        "w": "Her advice was very invaluable to me.",
+        "r": "Her advice was invaluable to me.",
+        "why": "Invaluable đã mang nghĩa cực kỳ giá trị nên không thêm 'very'."
+      },
+      {
+        "w": "Old books are invaluable because nobody wants them.",
+        "r": "Old books are worthless because nobody wants them.",
+        "why": "Invaluable nghĩa là vô giá, rất hữu ích, không phải 'không có giá trị'; nghĩa đó là worthless."
+      }
+    ],
+    "u": "Invaluable là từ dễ bẫy: dù bắt đầu bằng in-, nghĩa của nó là cực kỳ giá trị, không phải vô giá trị. Muốn nói không có giá trị, dùng worthless. Đây là tính từ khen mạnh cho sự giúp đỡ, lời khuyên, kinh nghiệm hay nguồn lực: an invaluable source of information. Từ này vốn đã ở mức cao nhất nên ít khi được tăng thêm, vì vậy tránh 'very invaluable'; có thể dùng 'truly' hoặc 'absolutely'. Cấu trúc thường là 'invaluable to someone' hoặc 'invaluable in doing something'."
+  },
+  "inventory": {
+    "mis": [
+      {
+        "w": "We count our inventories every week.",
+        "r": "We count our inventory every week.",
+        "why": "Hàng tồn kho là danh từ không đếm được."
+      },
+      {
+        "w": "The inventory are low this month.",
+        "r": "The inventory is low this month.",
+        "why": "Inventory nghĩa này là số ít nên dùng is."
+      }
+    ],
+    "u": "Inventory có hai nghĩa chính trong kinh doanh: hàng hóa công ty giữ để bán (tiếng Anh Anh gọi là stock) hoặc bản danh sách chi tiết hàng đó hay đồ đạc trong nhà. Động từ đi kèm: take, check, update, reduce inventory. Khi chỉ hàng tồn kho nó thường không đếm được: 'high inventory levels'. Ở Mỹ inventory là từ thông dụng; ở Anh người ta hay dùng stock trong cửa hàng."
+  },
+  "involve": {
+    "mis": [
+      {
+        "w": "The job involves to travel a lot.",
+        "r": "The job involves traveling a lot.",
+        "why": "Involve đi với danh từ hoặc V-ing, không đi với to-V."
+      },
+      {
+        "w": "He was involved to the accident.",
+        "r": "He was involved in the accident.",
+        "why": "Be involved đi với 'in' cho sự việc, hoạt động và 'with' cho người."
+      }
+    ],
+    "u": "Involve nghĩa là bao gồm một thứ như phần cần thiết: the project involves a lot of paperwork. Nó cũng nói về sự tham gia: be involved in a campaign, get involved with a charity. Theo sau là danh động từ, không bao giờ là động từ nguyên mẫu. Lưu ý 'be involved with someone' có thể gợi ý quan hệ tình cảm. Entail trang trọng hơn và nhấn vào điều tất yếu theo sau, còn include chỉ liệt kê các phần."
+  },
+  "journalism": {
+    "mis": [
+      {
+        "w": "She wants to be a journalism.",
+        "r": "She wants to be a journalist.",
+        "why": "Journalism là lĩnh vực; người làm nghề là journalist."
+      },
+      {
+        "w": "He studies a journalism at university.",
+        "r": "He studies journalism at university.",
+        "why": "Journalism là danh từ không đếm được nên không dùng mạo từ."
+      }
+    ],
+    "u": "Journalism là danh từ không đếm được chỉ công việc thu thập, viết và đăng tin, trên báo giấy, truyền hình hay mạng; đồng thời là tên một ngành đại học. Dùng với các mảng và loại hình: investigative journalism, sports journalism, a degree in journalism. Người làm nghề là journalist hoặc reporter. Đừng nhầm với journal, nghĩa là tạp chí chuyên ngành hoặc nhật ký."
+  },
+  "junior": {
+    "mis": [
+      {
+        "w": "He is junior than me in the company.",
+        "r": "He is junior to me in the company.",
+        "why": "Junior so sánh cấp bậc bằng 'to', không dùng 'than'."
+      },
+      {
+        "w": "She is a junior of the team.",
+        "r": "She is a junior member of the team.",
+        "why": "Junior là tính từ chỉ cấp bậc, thường cần danh từ như member hoặc staff theo sau."
+      }
+    ],
+    "u": "Junior chỉ cấp bậc thấp hơn hoặc ít kinh nghiệm hơn, không nhất thiết trẻ tuổi hơn: a junior accountant. Khi so sánh với người cấp cao dùng 'to': he is junior to her, không có dạng 'than'. Ở Mỹ, junior còn là sinh viên năm ba của trường trung học hoặc đại học, và Jr. sau tên là con trai trùng tên cha. Từ đối nghĩa là senior."
+  },
+  "ladder": {
+    "mis": [
+      {
+        "w": "He quickly climbed up on the career ladder.",
+        "r": "He quickly climbed the career ladder.",
+        "why": "Trong thành ngữ này climb nhận thẳng ladder."
+      },
+      {
+        "w": "He fell down on the ladder and hurt his back.",
+        "r": "He fell off the ladder and hurt his back.",
+        "why": "Dùng 'fall off' a ladder; 'fall down' không đi trực tiếp với vật mình đứng trên."
+      }
+    ],
+    "u": "Ladder là dụng cụ có bậc để trèo, nhưng cũng xuất hiện trong cụm cố định về sự thăng tiến: the career ladder, the property ladder, climb the corporate ladder. Dùng 'on the ladder' cho vị trí và 'up the ladder' cho sự thăng tiến. Stepladder tự đứng vững; extension ladder dài hơn. Tiếng Anh Anh còn dùng ladder cho vết tuột sợi trên tất. Ladder là danh từ đếm được."
+  },
+  "layoff": {
+    "mis": [
+      {
+        "w": "The company laid off ten workers last week, and there were many layoff.",
+        "r": "The company laid off ten workers last week, and there were many layoffs.",
+        "why": "Danh từ layoff đếm được nên sau 'many' phải dùng số nhiều."
+      },
+      {
+        "w": "He layoff many staff to save money.",
+        "r": "He laid off many staff to save money.",
+        "why": "Động từ là hai từ 'lay off', quá khứ 'laid off'; layoff là danh từ."
+      }
+    ],
+    "u": "Layoff là danh từ chỉ việc chấm dứt hợp đồng với người lao động, thường vì công ty thiếu việc hoặc thiếu tiền chứ không phải do làm kém. Động từ viết thành hai từ: lay off, laid off. Ở Anh, thuật ngữ thông dụng là redundancy. Việc cho nghỉ có thể chỉ tạm thời hoặc là vĩnh viễn. Từ này trung tính trong tin tức và nhân sự, còn fire nghĩa là đuổi việc vì lỗi."
+  },
+  "lecture": {
+    "mis": [
+      {
+        "w": "The professor made a lecture about economics.",
+        "r": "The professor gave a lecture on economics.",
+        "why": "Lecture đi với give hoặc deliver, không dùng make; chủ đề thường dùng 'on'."
+      },
+      {
+        "w": "I will go to the lecture of physics.",
+        "r": "I will go to the physics lecture.",
+        "why": "Dùng danh từ bổ nghĩa đứng trước lecture; 'of physics' nghe thiếu tự nhiên."
+      }
+    ],
+    "u": "Lecture là bài giảng trang trọng, thường ở đại học, trong đó một người dạy nhiều người. Bạn give hoặc deliver một bài giảng, còn người nghe attend hoặc sit through. Chủ đề đi sau 'on': a lecture on climate change. Là động từ, nó còn có nghĩa mắng dài dòng: she lectured him about being late. Lecture dài và mang tính học thuật hơn talk."
+  },
+  "lengthy": {
+    "mis": [
+      {
+        "w": "He explained the rules lengthy.",
+        "r": "He explained the rules at length.",
+        "why": "Lengthy là tính từ; ý trạng từ phải nói là 'at length'."
+      },
+      {
+        "w": "His lengthy of speech bored everyone.",
+        "r": "His lengthy speech bored everyone.",
+        "why": "Lengthy là tính từ, không đi với 'of'."
+      }
+    ],
+    "u": "Lengthy nghĩa là dài về thời gian hoặc số chữ, và thường gợi ý là quá dài hoặc nhàm chán: a lengthy delay, a lengthy contract. Dùng cho quy trình, báo cáo, cuộc thảo luận, hiếm khi cho vật thể như sợi dây. Long trung tính; lengthy thường mang chút chê trách. Protracted trang trọng hơn và hợp với tranh chấp, bệnh kéo dài."
+  },
+  "letterhead": {
+    "mis": [
+      {
+        "w": "Please write the letter in company letterhead.",
+        "r": "Please write the letter on company letterhead.",
+        "why": "Dùng 'on' cho tờ giấy mà nội dung được in hoặc viết lên."
+      },
+      {
+        "w": "The company needs a new letterheads paper.",
+        "r": "The company needs new letterhead paper.",
+        "why": "Danh từ làm bổ nghĩa luôn giữ số ít."
+      }
+    ],
+    "u": "Letterhead là phần đầu tờ giấy in sẵn tên công ty, logo và địa chỉ, đồng thời là loại giấy có phần đó. Thư thương mại và thông báo chính thức thường được in 'on letterhead' để trông đáng tin. Tiếng Anh Anh gọi là headed paper. Khi chỉ giấy, nó không đếm được: 'Do we have any letterhead left?' Đây là văn phòng phẩm trang trọng, không dùng cho ghi chú thân mật."
+  },
+  "locally": {
+    "mis": [
+      {
+        "w": "The vegetables are produced local.",
+        "r": "The vegetables are produced locally.",
+        "why": "Phân từ quá khứ được bổ nghĩa bằng trạng từ, không phải tính từ."
+      },
+      {
+        "w": "We buy locally products at the market.",
+        "r": "We buy local products at the market.",
+        "why": "Trước danh từ dùng tính từ local; locally là trạng từ."
+      }
+    ],
+    "u": "Locally là trạng từ nghĩa là ở hoặc gần nơi đang nói, như trong 'locally grown', 'shop locally' hay 'locally known as'. Từ này phổ biến trong thực phẩm và cộng đồng vì hỗ trợ nông trại và doanh nghiệp gần đó. Đừng dùng trước danh từ: nói local news, không nói locally news. Phạm vi nhỏ hơn nationally hay internationally."
+  },
+  "logical": {
+    "mis": [
+      {
+        "w": "It is logic to leave early to avoid traffic.",
+        "r": "It is logical to leave early to avoid traffic.",
+        "why": "Sau 'be' cần tính từ; logic là danh từ."
+      },
+      {
+        "w": "Her argument sounds logically.",
+        "r": "Her argument sounds logical.",
+        "why": "Sau sound, seem, look dùng tính từ, không dùng trạng từ."
+      }
+    ],
+    "u": "Logical miêu tả cách nghĩ hoặc các bước theo lập luận rõ ràng nên kết luận hợp lý: the logical next step. Từ trung tính hơn rational, vốn thường dùng cho người suy nghĩ sáng suốt, và mạnh hơn reasonable. Danh từ là logic và trạng từ là logically. Từ trái nghĩa là illogical và irrational. Đây là tính từ mang sắc thái bình tĩnh, khách quan khi tranh luận và giải quyết vấn đề."
+  },
+  "luncheon": {
+    "mis": [
+      {
+        "w": "We are going to have a luncheon with a friend at home.",
+        "r": "We are going to have lunch with a friend at home.",
+        "why": "Luncheon trang trọng, cho sự kiện có tổ chức; bữa thường ngày là lunch."
+      },
+      {
+        "w": "She invited me to a luncheon of the company.",
+        "r": "She invited me to the company luncheon.",
+        "why": "Dùng danh từ bổ nghĩa trước luncheon thay vì 'of the company'."
+      }
+    ],
+    "u": "Luncheon là từ trang trọng chỉ bữa trưa, thường tổ chức cho một nhóm: a business luncheon, an awards luncheon. Từ này hay thấy trên thiệp mời và lịch sự kiện nhưng nghe hơi cổ khi nói chuyện, nơi người ta dùng lunch. Luncheon thường có phát biểu hoặc chương trình. Đừng dùng cho bữa sandwich ăn vội tại bàn làm việc."
+  },
+  "major": {
+    "mis": [
+      {
+        "w": "This is the most major problem we face.",
+        "r": "This is the biggest problem we face.",
+        "why": "Major thường không đi với most; dùng biggest hoặc main."
+      },
+      {
+        "w": "She majors on biology at university.",
+        "r": "She majors in biology at university.",
+        "why": "Động từ major đi với 'in' để nêu môn học."
+      }
+    ],
+    "u": "Major là tính từ nghĩa rất lớn hoặc quan trọng: a major problem, a major city. Hiếm khi có dạng so sánh. Nó còn là động từ và danh từ trong tiếng Anh Mỹ chỉ chuyên ngành chính: she majors in biology; his major is law. Tiếng Anh Anh nói 'study' hoặc 'read'. Trong âm nhạc, major là âm giai trưởng, trái với minor. Main và chief chỉ thứ quan trọng nhất, còn major chỉ nói là lớn."
+  },
+  "managerial": {
+    "mis": [
+      {
+        "w": "He has a good managerial of experience.",
+        "r": "He has good managerial experience.",
+        "why": "Managerial là tính từ và cần danh từ theo ngay sau."
+      },
+      {
+        "w": "She was promoted to a manager position.",
+        "r": "She was promoted to a managerial position.",
+        "why": "Dùng tính từ managerial cho loại công việc; manager là người."
+      }
+    ],
+    "u": "Managerial là tính từ trang trọng chỉ công việc, kỹ năng hay cấp bậc của người quản lý: managerial responsibilities, managerial staff. Từ hay gặp trong tin tuyển dụng và văn bản kinh doanh. Managerial position là vị trí cao hơn nhân viên thường. Cần phân biệt với management là nhóm hoặc quá trình quản lý, và manager là người. Hiếm khi đứng sau 'be': người ta nói a managerial post chứ ít nói 'the post is managerial'."
+  },
+  "mandatory": {
+    "mis": [
+      {
+        "w": "Attendance is mandatory to all employees.",
+        "r": "Attendance is mandatory for all employees.",
+        "why": "Mandatory đi với 'for' khi nêu đối tượng áp dụng."
+      },
+      {
+        "w": "It is mandatory to wearing a helmet.",
+        "r": "It is mandatory to wear a helmet.",
+        "why": "Sau mandatory dùng to-V (hoặc mệnh đề 'that')."
+      }
+    ],
+    "u": "Mandatory nghĩa là bắt buộc theo quy định hoặc luật, không có lựa chọn: mandatory safety training, mandatory military service. Mạnh hơn recommended hay advisable. Compulsory là từ tương đương thông dụng của Anh, đặc biệt trong trường học. Từ trái nghĩa là optional hoặc voluntary. Mẫu hay dùng: 'It is mandatory for staff to...' hoặc 'mandatory for all visitors'."
+  },
+  "mask": {
+    "mis": [
+      {
+        "w": "He put off his mask at home.",
+        "r": "He took off his mask at home.",
+        "why": "Put off nghĩa là hoãn; muốn tháo mặt nạ dùng take off."
+      },
+      {
+        "w": "He wears a mask for avoiding dust.",
+        "r": "He wears a mask to avoid dust.",
+        "why": "Mục đích đi với động từ dùng to + nguyên mẫu, không dùng for + V-ing."
+      }
+    ],
+    "u": "Mask là vật đeo trên mặt để bảo vệ, che giấu hoặc trang trí: a surgical mask, a Halloween mask, an oxygen mask. Bạn put on, wear, take off hoặc remove nó. Nó còn là động từ, nghĩa là che giấu mùi hoặc cảm xúc: the sauce masked the bitter taste. Mask đếm được. Từ sau đại dịch, mask thường được hiểu là khẩu trang y tế."
+  },
+  "mechanic": {
+    "mis": [
+      {
+        "w": "He works as a mechanical in a garage.",
+        "r": "He works as a mechanic in a garage.",
+        "why": "Người làm nghề là mechanic; mechanical là tính từ."
+      },
+      {
+        "w": "I need a mechanic to repair for my car.",
+        "r": "I need a mechanic to repair my car.",
+        "why": "Repair là ngoại động từ; không thêm 'for' trước tân ngữ."
+      }
+    ],
+    "u": "Mechanic là người sửa chữa và bảo dưỡng động cơ, máy móc, thường nhất là ô tô. Bạn đưa xe đến thợ máy để họ sửa. Từ này trung tính, phổ biến và hay có thêm loại đứng trước: aircraft mechanic, bike mechanic. Trọng âm rơi vào âm tiết thứ hai. Đừng nhầm với mechanical (tính từ) hay mechanics (ngành cơ học và cách vận hành)."
+  },
+  "mechanical": {
+    "mis": [
+      {
+        "w": "The plane had a mechanic failure.",
+        "r": "The plane had a mechanical failure.",
+        "why": "Trước danh từ dùng tính từ mechanical; mechanic là người."
+      },
+      {
+        "w": "The car was repaired by a mechanical.",
+        "r": "The car was repaired by a mechanic.",
+        "why": "Người sửa xe là mechanic; mechanical không phải danh từ."
+      }
+    ],
+    "u": "Mechanical liên quan đến máy móc hoặc bộ phận và chuyển động của chúng: a mechanical failure, a mechanical clock. Khác với electrical hay digital vì dựa vào bộ phận vật lý. Khi nói về cách cư xử nó có thể nghĩa là làm không suy nghĩ, như a mechanical answer. Trạng từ là mechanically. Mechanical engineering là ngành; mechanical engineer thiết kế máy, khác mechanic là người sửa máy."
+  },
+  "medical": {
+    "mis": [
+      {
+        "w": "She studies medical at university.",
+        "r": "She studies medicine at university.",
+        "why": "Medical là tính từ; môn học là medicine."
+      },
+      {
+        "w": "He needs a medicine treatment.",
+        "r": "He needs medical treatment.",
+        "why": "Tính từ medical mô tả loại điều trị; medicine là danh từ chỉ thuốc hoặc ngành y."
+      }
+    ],
+    "u": "Medical là tính từ cho mọi thứ liên quan đến điều trị bệnh và chấn thương: medical care, a medical examination, medical insurance. Nó còn là danh từ chỉ việc khám sức khỏe: she had a medical before the job. Medicine là ngành y hoặc thuốc. Đừng nói 'medical doctor' trừ khi cần chính xác; chỉ cần doctor."
+  },
+  "medication": {
+    "mis": [
+      {
+        "w": "The doctor gave me many medications to my cough.",
+        "r": "The doctor gave me medication for my cough.",
+        "why": "Medication thường không đếm được và dùng 'for' trước bệnh."
+      },
+      {
+        "w": "I drank medication this morning.",
+        "r": "I took medication this morning.",
+        "why": "Động từ đi với medication là take, không phải drink."
+      }
+    ],
+    "u": "Medication là từ trang trọng cho thuốc dùng để chữa hoặc phòng bệnh. Hầu như không đếm được: take medication, be on medication, prescription medication. Bạn take thuốc, không dùng eat hay drink. Medicine thông dụng hơn và còn chỉ ngành y. Medication xuất hiện trong lời dặn bác sĩ, nhãn thuốc và đơn bảo hiểm, thường với 'for' bệnh: medication for high blood pressure."
+  },
+  "merchandise": {
+    "mis": [
+      {
+        "w": "The store has many merchandises on sale.",
+        "r": "The store has a lot of merchandise on sale.",
+        "why": "Merchandise không đếm được và không có số nhiều."
+      },
+      {
+        "w": "We bought a merchandise at the gift shop.",
+        "r": "We bought an item of merchandise at the gift shop.",
+        "why": "Vì không đếm được, nói một món phải dùng 'an item of'."
+      }
+    ],
+    "u": "Merchandise nghĩa là hàng hóa được mua bán, đặc biệt trong cửa hàng. Nó không đếm được: 'The merchandise arrived damaged.' Để đếm dùng 'item' hoặc 'piece': three items of merchandise. Từ này cũng chỉ sản phẩm mang thương hiệu gắn với phim, ban nhạc hay đội bóng, thường rút gọn thành merch. Là động từ, nghĩa là quảng bá hàng trong cửa hàng. Goods và products chung hơn; merchandise mang sắc thái thương mại."
+  },
+  "merchant": {
+    "mis": [
+      {
+        "w": "He is a merchandise of cloth.",
+        "r": "He is a cloth merchant.",
+        "why": "Người bán là merchant; merchandise là hàng hóa."
+      },
+      {
+        "w": "She works as a merchant at a clothing store.",
+        "r": "She works as a salesperson at a clothing store.",
+        "why": "Merchant là người kinh doanh; nhân viên cửa hàng là salesperson."
+      }
+    ],
+    "u": "Merchant là người mua bán hàng với số lượng lớn, đặc biệt buôn bán giữa các nơi. Từ phổ biến trong lịch sử và các cụm cố định: wine merchant, merchant ship, merchant bank. Trong kinh doanh hiện đại, merchant còn là đơn vị chấp nhận thanh toán thẻ. Trang trọng hơn seller hay trader và không dùng cho nhân viên cửa hàng thông thường. Merchant điều hành việc buôn bán, không chỉ là nhân viên."
+  },
+  "merge": {
+    "mis": [
+      {
+        "w": "The two firms merged together last year.",
+        "r": "The two firms merged last year.",
+        "why": "Merge đã nghĩa là hợp lại, nên 'together' là thừa."
+      },
+      {
+        "w": "Our company will merge to a larger group.",
+        "r": "Our company will merge with a larger group.",
+        "why": "Merge dùng 'with' cho đối tác và 'into' cho kết quả."
+      }
+    ],
+    "u": "Merge nghĩa là hợp thành một, dù là công ty, tập tin hay làn xe. Có thể là nội động từ (the firms merged) hoặc ngoại động từ (merge two files). Giới từ quan trọng: merge with another company, merge into a single group. Merge hợp hơn combine khi hai thứ hòa vào nhau và mất nét riêng. Danh từ là merger, dùng cho công ty; khi lái xe, bạn merge onto a highway."
+  },
+  "merger": {
+    "mis": [
+      {
+        "w": "The merger of the two companies were approved.",
+        "r": "The merger of the two companies was approved.",
+        "why": "Chủ ngữ là merger, số ít."
+      },
+      {
+        "w": "The company will merger next month.",
+        "r": "The company will merge next month.",
+        "why": "Merge là động từ; merger là danh từ."
+      }
+    ],
+    "u": "Merger là việc hai hoặc nhiều công ty hợp nhất thành một, thường là thương vụ giữa các bên ngang nhau. Là danh từ đếm được: a proposed merger, a merger between two banks. Bạn announce, approve, complete hoặc block một merger. Acquisition khác vì một công ty mua công ty kia. Mẫu: 'merger of A and B', 'merger between A and B', và 'A's merger with B'."
+  },
+  "merit": {
+    "mis": [
+      {
+        "w": "She got the job by her merits.",
+        "r": "She got the job on merit.",
+        "why": "Cụm cố định là 'on merit', không số nhiều, không dùng 'by'."
+      },
+      {
+        "w": "The idea has many merit.",
+        "r": "The idea has many merits.",
+        "why": "Với nghĩa các điểm tốt, merit đếm được và sau many phải ở số nhiều."
+      }
+    ],
+    "u": "Merit là phẩm chất xứng đáng được khen hoặc thưởng. Không đếm được trong 'judged on merit', và đếm được khi nói về các điểm tốt: the merits of the plan. Động từ: have merit, weigh the merits. Từ trang trọng, hay gặp khi bàn về tuyển dụng, điểm số và chính sách. Hệ thống dựa trên merit thưởng theo thành tích chứ không theo quan hệ hay thâm niên."
+  },
+  "minimize": {
+    "mis": [
+      {
+        "w": "We should minimize as much as possible the risk.",
+        "r": "We should minimize the risk as much as possible.",
+        "why": "Tân ngữ phải đứng ngay sau động từ, trước cụm trạng ngữ."
+      },
+      {
+        "w": "The new method minimizes the cost to the lowest.",
+        "r": "The new method minimizes the cost.",
+        "why": "Minimize đã mang nghĩa giảm đến mức nhỏ nhất nên 'to the lowest' là thừa."
+      }
+    ],
+    "u": "Minimize nghĩa là giảm một thứ xuống mức nhỏ nhất có thể: minimize risk, costs, damage. Trang trọng và mạnh, còn reduce chỉ là làm nhỏ đi. Nghĩa khác là xem nhẹ tầm quan trọng của thứ gì: do not minimize her achievements. Trên máy tính, nó là thu nhỏ cửa sổ. Tiếng Anh Anh cũng viết minimise."
+  },
+  "misidentify": {
+    "mis": [
+      {
+        "w": "The witness misidentify the suspect.",
+        "r": "The witness misidentified the suspect.",
+        "why": "Sự việc đã xảy ra cần dùng thì quá khứ -ed."
+      },
+      {
+        "w": "The bird was misidentified for a hawk.",
+        "r": "The bird was misidentified as a hawk.",
+        "why": "Mẫu là 'identify/misidentify X as Y', không dùng 'for'."
+      }
+    ],
+    "u": "Misidentify nghĩa là nhận dạng sai người hay vật: misidentify a suspect, a species, a symptom. Trang trọng, hay gặp trong báo cáo cảnh sát, khoa học và y học. Mẫu là 'misidentify X as Y'. Đừng nói 'wrongly misidentify' vì thừa; tiền tố mis- đã có nghĩa sai. Mistake X for Y là cách nói gần nghĩa."
+  },
+  "misplace": {
+    "mis": [
+      {
+        "w": "I misplace my keys yesterday.",
+        "r": "I misplaced my keys yesterday.",
+        "why": "Yesterday cần thì quá khứ misplaced."
+      },
+      {
+        "w": "She misplaced her trust on a dishonest partner.",
+        "r": "She misplaced her trust in a dishonest partner.",
+        "why": "Trust đi với 'in' trước người hoặc vật."
+      }
+    ],
+    "u": "Misplace nghĩa là để nhầm chỗ và tạm thời không tìm thấy: bạn misplace chìa khóa hay tài liệu. Nhẹ hơn lose, vốn có thể là mất hẳn. Trong văn viết nó còn mô tả cảm xúc đặt sai chỗ: misplaced loyalty, misplaced trust. Tính từ misplaced thường dùng theo nghĩa thứ hai. Mislay là từ đồng nghĩa của Anh."
+  },
+  "morale": {
+    "mis": [
+      {
+        "w": "The workers morale is low.",
+        "r": "The workers' morale is low.",
+        "why": "Sở hữu cách của danh từ số nhiều cần dấu nháy sau s."
+      },
+      {
+        "w": "Moral of the team is high.",
+        "r": "Morale of the team is high.",
+        "why": "Morale (tinh thần) khác moral (đạo đức)."
+      }
+    ],
+    "u": "Morale là sự tự tin, nhiệt huyết và kỷ luật của một nhóm tại một thời điểm: staff morale, team morale. Không đếm được và gần như luôn đi với high, low, boost, improve hay damage. Đừng nhầm với moral, liên quan đến đúng sai. Trọng âm rơi vào âm tiết thứ hai. Quản lý có thể nâng morale bằng lời khen, lương công bằng hoặc mục tiêu rõ ràng."
+  },
+  "network": {
+    "mis": [
+      {
+        "w": "She has a good network on contacts.",
+        "r": "She has a good network of contacts.",
+        "why": "Network dùng 'of' để chỉ thành phần của mạng."
+      },
+      {
+        "w": "I networked to many people at the event.",
+        "r": "I networked with many people at the event.",
+        "why": "Động từ network là nội động từ và đi với 'with'."
+      }
+    ],
+    "u": "Network là danh từ chỉ hệ thống kết nối giữa người, máy tính hay tuyến: a rail network, a TV network, a business network. Là động từ, nó nghĩa là gặp gỡ để có lợi ích nghề nghiệp: bạn network với đồng nghiệp ở sự kiện. Đếm được. Dùng 'of' cho thành phần: a network of friends. Networking có chủ đích hơn việc chỉ làm quen với người khác."
+  },
+  "newsletter": {
+    "mis": [
+      {
+        "w": "Please subscribe our newsletter.",
+        "r": "Please subscribe to our newsletter.",
+        "why": "Subscribe cần 'to'."
+      },
+      {
+        "w": "The newsletter are sent every month.",
+        "r": "The newsletter is sent every month.",
+        "why": "Newsletter là số ít nên dùng is."
+      }
+    ],
+    "u": "Newsletter là bản tin định kỳ gửi cho thành viên, khách hàng hoặc nhân viên, hiện nay chủ yếu qua email. Mọi người subscribe, còn tổ chức thì send out hoặc publish. Ngắn và ít trang trọng hơn tạp chí, thường tập trung hẹp: a monthly newsletter from a charity. Bộ phận marketing dùng newsletter để cập nhật cho khách hàng. Opt in là đồng ý nhận; unsubscribe là hủy nhận."
+  },
+  "nominate": {
+    "mis": [
+      {
+        "w": "They nominated her to the best actress award.",
+        "r": "They nominated her for the best actress award.",
+        "why": "Nominate đi với 'for' khi nêu giải thưởng hay vị trí."
+      },
+      {
+        "w": "He was nominated the chairman by the board.",
+        "r": "He was nominated as chairman by the board.",
+        "why": "Dùng 'as' để nêu chức vụ sau nominate."
+      }
+    ],
+    "u": "Nominate nghĩa là chính thức đề cử ai đó cho công việc, giải thưởng hay cuộc bầu cử. Mẫu thường dùng: 'nominate someone for an award' và 'nominate someone as chairman'. Nominee là người được đề cử. Không có nghĩa là đã thắng; đó chỉ là bước đầu. Đừng nhầm với appoint, nghĩa là giao chức vụ."
+  },
+  "notify": {
+    "mis": [
+      {
+        "w": "Please notify to us when the goods arrive.",
+        "r": "Please notify us when the goods arrive.",
+        "why": "Notify nhận tân ngữ trực tiếp là người, không có 'to'."
+      },
+      {
+        "w": "He notified the manager the delay.",
+        "r": "He notified the manager of the delay.",
+        "why": "Notify someone of something cần 'of'."
+      }
+    ],
+    "u": "Notify nghĩa là chính thức báo cho ai điều gì, thường bằng văn bản hoặc kênh chính thức: notify the police of the theft, notify staff in advance. Người nhận là tân ngữ trực tiếp và thông tin theo sau 'of': notify you of the delay. Trang trọng hơn tell và phổ biến trong kinh doanh, luật và ứng dụng. Notification là chính thông báo đó."
+  },
+  "obligate": {
+    "mis": [
+      {
+        "w": "I obligate to pay the fine.",
+        "r": "I am obligated to pay the fine.",
+        "why": "Obligate thường ở dạng bị động: be obligated to do something."
+      },
+      {
+        "w": "She felt obligated for helping him.",
+        "r": "She felt obligated to help him.",
+        "why": "Obligated theo sau là to + động từ."
+      }
+    ],
+    "u": "Obligate nghĩa là buộc ai đó về pháp lý hoặc đạo đức phải làm điều gì; chủ yếu dùng ở bị động: we are obligated to pay taxes; he felt obligated to reply. Đây là dạng chuẩn của Anh Mỹ, còn Anh Anh ưa oblige. Danh từ là obligation. Cảm thấy obligated nghe như áp lực, không phải lựa chọn; obliged còn có thể nghĩa là biết ơn. Required là cách nói đơn giản."
+  },
+  "occupancy": {
+    "mis": [
+      {
+        "w": "The hotel has high occupation this month.",
+        "r": "The hotel has high occupancy this month.",
+        "why": "Occupancy là tỷ lệ phòng được lấp; occupation là nghề hoặc chiếm đóng."
+      },
+      {
+        "w": "The hotel's occupancy rate was 80 percents.",
+        "r": "The hotel's occupancy rate was 80 percent.",
+        "why": "Percent giữ nguyên số ít sau con số."
+      }
+    ],
+    "u": "Occupancy là tình trạng hoặc tỷ lệ phòng hay tòa nhà đang được sử dụng. Trong khách sạn, occupancy rate cho biết phần trăm phòng có khách. Biển báo ghi 'maximum occupancy 50 people', còn 'single occupancy' là mỗi phòng một người. Không đếm được và chủ yếu là thuật ngữ kinh doanh. Occupant là người dùng không gian, còn occupation thường là nghề nghiệp."
+  },
+  "occupation": {
+    "mis": [
+      {
+        "w": "Please write your occupation at the form.",
+        "r": "Please write your occupation on the form.",
+        "why": "Dùng 'on' cho biểu mẫu hoặc tờ giấy."
+      },
+      {
+        "w": "What is your occupancy?",
+        "r": "What is your occupation?",
+        "why": "Occupancy là việc sử dụng phòng; occupation là nghề."
+      }
+    ],
+    "u": "Occupation là từ trang trọng chỉ nghề nghiệp, dùng trong biểu mẫu và thống kê: name, age, occupation. Trong giao tiếp thường ngày hãy nói job hoặc work. Nó còn có nghĩa chiếm đóng một nơi bằng vũ lực: the occupation of the city, hoặc thời gian ở trong một tòa nhà. Đừng nhầm với occupancy. Động từ là occupy."
+  },
+  "occurrence": {
+    "mis": [
+      {
+        "w": "Accidents are common occurrence here.",
+        "r": "Accidents are a common occurrence here.",
+        "why": "Occurrence đếm được nên ở số ít cần mạo từ."
+      },
+      {
+        "w": "The accident was occurred last night.",
+        "r": "The accident occurred last night.",
+        "why": "Occur là nội động từ nên không có dạng bị động."
+      }
+    ],
+    "u": "Occurrence là danh từ trang trọng chỉ điều xảy ra hoặc việc nó xảy ra: a rare occurrence, the occurrence of errors. Phổ biến trong khoa học, kinh doanh, tin tức và đếm được. Động từ là occur, viết hai chữ r ở occurred và occurring. Event chung hơn; incident thường gợi chuyện không hay. Nó cũng đo tần suất: a low rate of occurrence."
+  },
+  "omit": {
+    "mis": [
+      {
+        "w": "She omitted the name in the list.",
+        "r": "She omitted the name from the list.",
+        "why": "Omit đi với 'from' cho nơi bị bỏ sót."
+      },
+      {
+        "w": "Please do not omit out any details.",
+        "r": "Please do not omit any details.",
+        "why": "Omit đã nghĩa là bỏ ra nên 'out' là thừa."
+      }
+    ],
+    "u": "Omit nghĩa là bỏ sót hoặc cố ý bỏ ra: omit a word, omit a name from the list. Mẫu là 'omit X from Y'. Trang trọng, nên khi nói hãy dùng leave out. Chính tả: omit có một t nhưng omitted và omitting gấp đôi. Danh từ là omission. Trong báo cáo bạn có thể omit các chi tiết không cần thiết để văn bản ngắn gọn."
+  },
+  "operational": {
+    "mis": [
+      {
+        "w": "The new factory will be operation next month.",
+        "r": "The new factory will be operational next month.",
+        "why": "Sau 'be' cần tính từ; operation là danh từ."
+      },
+      {
+        "w": "The machine is operating fully now.",
+        "r": "The machine is fully operational now.",
+        "why": "Operating là dạng động từ; operational mới là trạng thái đang hoạt động."
+      }
+    ],
+    "u": "Operational có hai cách dùng. Nó nghĩa là đang hoạt động và sẵn sàng dùng: the system is fully operational. Nó cũng nghĩa là liên quan đến việc vận hành hằng ngày của doanh nghiệp: operational costs, operational plans. Đừng nhầm với operative hay operating room. Nghĩa trái ngược là ngừng hoạt động. Từ trang trọng, phổ biến trong kinh doanh, kỹ thuật và quân sự."
+  }
+}

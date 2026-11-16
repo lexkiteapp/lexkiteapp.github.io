@@ -54,7 +54,7 @@ quiz: [
 
 Çok uluslu bir şirkette çalışıyorsanız, yabancı müşterilerle temas halindeyse veya uzaktan global bir ekibe dahil olduysanız, iş hayatınızın önemli bir bölümü çevrim içi ve yüz yüze toplantılarda geçer. Birçok profesyonel teknik konulara son derece hakim olmasına rağmen toplantılarda sessiz kalır, söz almaya çekinir veya düşüncelerini doğru diplomatik tonda ifade edemez. Doğru bir **ingilizce toplanti kaliplari is hayati** rehberi ve diplomatik iletişim şablonları, sesinizi duyurmanızı ve kariyerinizde liderlik pozisyonlarına yükselmenizi sağlar.
 
-Bu kapsamlı rehberde toplantı açılışından gündem belirlemeye, söz istemekten kibarca itiraz etmeye, teknik sorunları bildirmekten aksiyon adımlarını özetlemeye kadar iş hayatında en çok ihtiyaç duyacağınız tüm İngilizce kalıpları adım adım inceleyeceğiz.
+Bu kapsamlı rehberde toplantı açılışından gündem belirlemeye, söz istemekten kibarca itiraz etmeye, teknik sorunları bildirmekten aksiyon adımlarını özetlemeye kadar iş hayatında en çok ihtiyaç duyacağınız tüm İngilizce kalıpları adım adım inceleyeceğiz. Toplantı notlarında ve takip e-postalarında geçen TBD, EOD gibi kısaltmaları da [iş hayatında İngilizce kısaltmalar](/tr/blog/is-hayatinda-ingilizce-kisaltmalar-email-rehberi/) yazımızda topladık.
 
 ## Ingilizce Toplanti Kaliplari Is Hayati İletişiminin Önemi
 

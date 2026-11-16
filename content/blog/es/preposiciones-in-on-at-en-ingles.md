@@ -61,6 +61,8 @@ La clave definitiva para no volver a dudar reside en visualizar el modelo de la 
 
 Imagina un triángulo invertido dividido en tres secciones horizontales:
 
+Si quieres profundizar, lee también [las estrategias de TOEIC Part 5](/es/blog/toeic-part-5-estrategias-gramatica-tiempo/).
+
 1. **IN (La cúspide amplia):** Espacios y periodos generales, no específicos, tridimensionales y de larga duración.
 2. **ON (El tramo medio):** Superficies bidimensionales, vías de tránsito y días o fechas puntuales del calendario.
 3. **AT (El vértice afilado):** Puntos geográficos exactos, direcciones con número postal y horas precisas del reloj.

@@ -98,6 +98,7 @@ Chú thích cột: **Mục tiêu** đo được · **Cổng QA** tự động (p
 | P0-E | Schema nghĩa v2 + `sense-check` + lô thử 100 từ lõi | `scripts/build-lexicon.mjs`, `LEXICON.md` | lô thử 100 % xanh, rồi CI chạy 3.000 từ theo đêm |
 | P0-F | Ngân hàng lỗi L1 (6 ngôn ngữ đầu, rồi 14) | `web/js/grammar/l1/*`, `scripts/content-qa/l1-check.mjs` | 150 mục đầu xanh, ghép vào khối `mistake` sẵn có |
 | P0-G | Nguồn giải thích en + `native-score` | `web/i18n/content/*`, `scripts/i18n-native-score.mjs` | trung bình ≥ 4,3/5, không mục < 3,5 |
+| P0-H | **Dễ học – dễ nhớ** (sư phạm): 12 tiêu chí có nghiên cứu → luật máy đo tầng 0 ([spec](specs/learnability.md)), mảng mới trong `content:score`, hàng sửa lô 25 | `scripts/content-qa/learnability.mjs`, `content/pipeline/LEARN.md` | mọi bài được chấm, sàn chỉ tăng, lô 1 sửa xong · **02/11**: tổng 84,3 (ngữ pháp 91,6 · lộ trình 78,3 · bộ từ 71,8 · kỹ năng 95,4); lô 1 = 25 cặp dễ nhầm cho 25 bộ từ yếu nhất |
 
 
 ## 6. Lộ trình SCORE ≥ 95 (3/11, anh chủ: > 95/100; không đổi chuẩn đích/trọng số)

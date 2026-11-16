@@ -122,7 +122,7 @@ for who, P in R['people'].items():
              f"[pm][ar]vstack=2,split[f][r];[r]reverse,trim=start_frame=1:end_frame={N - 1},setpts=N/({fps})/TB[b];[f][b]concat=n=2:v=1,setpts=N/({fps})/TB,format=yuv420p")
         o = f'{OUT}/{who}/{pose}.mp4'
         def enc(q, cq):
-            run('ffmpeg', '-v', 'error', '-y', '-i', cf, '-i', cm, '-filter_complex', g, '-an', '-r', fps, '-c:v', 'libx264', '-profile:v', 'main', '-preset', 'veryslow',
+            run('ffmpeg', '-v', 'error', '-y', '-i', cf, '-i', cm, '-filter_complex', g, '-an', '-r', fps, '-c:v', 'libx264', '-color_range', 'tv', '-colorspace', 'bt709', '-color_primaries', 'bt709', '-color_trc', 'bt709', '-profile:v', 'main', '-preset', 'veryslow',
                 '-crf', str(q), '-tune', 'animation', '-x264-params', f'chroma-qp-offset={cq}', '-movflags', '+faststart', o)
             return os.path.getsize(o) <= 240 * 1024
         # vượt 240 KB → nén thêm từng nấc (≤ +4); nấc nào lộ viền xanh do nén (lem chroma) → dồn bit cho chroma (offset −2/−4) thay vì hạ ngưỡng
@@ -143,7 +143,7 @@ for who, P in R['people'].items():
         if pose in ('talk', 'listen'):   # clip HD cho chỗ lớn sống (Call): 2× điểm ảnh, ≤ 900 KB
             oh = f'{OUT}/{who}/{pose}-hd.mp4'
             run('ffmpeg', '-v', 'error', '-y', '-i', cf, '-i', cm, '-filter_complex', g.replace(f',{SC},{FA}[a]', f',{SC2},{FA2}[a]').replace(f',{SC},format=rgba[c]', f',{SC2},format=rgba[c]'),
-                '-an', '-r', fps, '-c:v', 'libx264', '-profile:v', 'main', '-preset', 'veryslow', '-crf', str(F['crf']), '-tune', 'animation', '-movflags', '+faststart', oh)
+                '-an', '-r', fps, '-c:v', 'libx264', '-color_range', 'tv', '-colorspace', 'bt709', '-color_primaries', 'bt709', '-color_trc', 'bt709', '-profile:v', 'main', '-preset', 'veryslow', '-crf', str(F['crf']), '-tune', 'animation', '-movflags', '+faststart', oh)
             if probe(oh, 'width,height,nb_read_frames') != f'{W * 2},{H * 4},{2 * N - 2}': errs.append(f'{oh}: sai cỡ/khung')
             if os.path.getsize(oh) > 900 * 1024: errs.append(f'{oh}: {os.path.getsize(oh) // 1024} KB > 900 KB')
     cf, cm = f'{G}/kfull_pro/{t0}.mp4', f'{G}/kmask_pro/{t0}.mkv'

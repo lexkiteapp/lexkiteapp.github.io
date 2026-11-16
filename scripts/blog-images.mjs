@@ -196,7 +196,7 @@ function suggest() {
   const f = args[1]; if (!f) { console.error('Dùng: node scripts/blog-images.mjs suggest content/blog/<lang>/<slug>.md'); process.exit(2); }
   const p = loadPosts().find(x => path.resolve(x.file) === path.resolve(f)); if (!p) { console.error('không thấy bài', f); process.exit(2); }
   const words = s => (s || '').toLowerCase().split(/[^a-z0-9]+/).filter(Boolean), have = new Set([...words(p.slug), ...(p.tags || []).flatMap(words), ...words(p.keyword)]);
-  const gids = []; for (const g of fs.readdirSync('web/js/grammar').filter(f => f.endsWith('.js'))) for (const m of fs.readFileSync(`web/js/grammar/${g}`, 'utf8').matchAll(/id: ?'([a-z0-9-]+)'/g)) gids.push(m[1]);
+  const gids = []; for (const d of ['web/js/grammar', 'web/cpack/grammar']) for (const g of fs.readdirSync(d).filter(f => f.endsWith('.js'))) for (const m of fs.readFileSync(`${d}/${g}`, 'utf8').matchAll(/id: ?'([a-z0-9-]+)'/g)) gids.push(m[1]);
   const shots = [], gram = gids.filter(id => id.split('-').every(w => have.has(w))).sort((a, b) => b.length - a.length)[0];
   if (gram) shots.push(`{route: '#/grammar/${gram}', crop: main}`);
   const ital = [...new Set([...p.body.matchAll(/(?<![*\w])\*([a-z]{4,18})\*(?!\*)/g)].map(m => m[1]))].slice(0, 2);

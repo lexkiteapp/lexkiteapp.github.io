@@ -104,6 +104,8 @@ qualityScore: 94
 
 {{youtube: | Phaen kan rian IELTS duay tua eng chak sun thueng 6 5}}
 
+หากยังลังเลระหว่าง IELTS กับ TOEFL ดู[คู่มือเตรียมตัว TOEFL ใหม่ 2026](/th/blog/toefl-mai-2026-khu-mue-triam-tua/)ประกอบการตัดสินใจ
+
 ## คำถามที่พบบ่อย (FAQ)
 
 ### จากพื้นฐานระดับกลางต้องใช้เวลากี่เดือนถึงจะได้ Band 6.5?

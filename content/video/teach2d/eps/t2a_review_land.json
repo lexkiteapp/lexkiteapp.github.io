@@ -72,5 +72,46 @@
   "words": 39,
   "seconds": 24.2,
   "wpm": 97
+ },
+ "publish": {
+  "title": "What does \"land\" mean?",
+  "keyword": "land",
+  "value": "Land means the earth.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=land",
+  "script_words": 33,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"land\" mean?",
+    "description": "Land means the earth.\n\nReview your words, free: https://lexkite.com/app/#/review?w=land\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "land",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"land\" mean?\n\nLand means the earth.\n\nReview your words, free: https://lexkite.com/app/#/review?w=land"
+   },
+   "instagram": {
+    "caption": "What does \"land\" mean?\n\nLand means the earth.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"land\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means the earth. Land means the earth. Try the full lesson and quiz here: {link}"
  }
 }

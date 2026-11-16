@@ -46,13 +46,16 @@ async function pipe(bytes, stream, cap) {
   return all;
 }
 /** Thân tài liệu thẻ `{z: base64 gzip}` | `{json}` → làm sạch ctx/src → thân mới (hoặc nguyên bản nếu không đổi). Lỗi định dạng → ném. */
+/** Thân tài liệu đồng bộ `{z}` | `{json}` → chuỗi JSON gốc (giải nén có trần DOC_RAW_MAX). Lỗi định dạng → ném. Dùng chung: làm sạch ctx, /api/aiearn. */
+export async function docJson(body) {
+  const d = typeof body === 'string' ? JSON.parse(body) : body;
+  if (d && typeof d.z === 'string') return new TextDecoder().decode(await pipe(b2u(d.z), new DecompressionStream('gzip'), DOC_RAW_MAX));
+  if (d && typeof d.json === 'string') return d.json;
+  throw new Error('shape');
+}
 export async function cleanDocBody(body) {
   const d = JSON.parse(body);
-  let json;
-  if (d && typeof d.z === 'string') json = new TextDecoder().decode(await pipe(b2u(d.z), new DecompressionStream('gzip'), DOC_RAW_MAX));
-  else if (d && typeof d.json === 'string') json = d.json;
-  else throw new Error('shape');
-  const map = JSON.parse(json);
+  const map = JSON.parse(await docJson(d));
   if (!cleanCards(map)) return body;
   const out = JSON.stringify(map);
   if (d.z === undefined) return JSON.stringify({ json: out });

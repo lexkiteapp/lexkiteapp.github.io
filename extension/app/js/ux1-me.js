@@ -4,6 +4,16 @@
  * (icons của #/league cũng khai ở đây) @icons celebration trending_down trending_flat light_mode dark_mode brightness_auto language track_changes notifications_active volume_up explore flag bar_chart ios_share emoji_events school fact_check badge military_tech local_library psychology verified alarm schedule local_fire_department ac_unit auto_awesome cloud admin_panel_settings settings install_mobile science newspaper info public article tune open_in_new chevron_right hotel_class flash_on lock */
 (function () {
   const App = window.App; if (!App || !App.routes || !App.routes.me) return;
+  // Nhãn hàng là <a> bên trong span màu chữ → màu liên kết toàn cục (san hô) đè lên, trông như cảnh báo; tấm Tìm hiểu thêm
+  try { if (!document.getElementById('meCss')) { const st = document.createElement('style'); st.id = 'meCss'; st.textContent = `.v2-me [data-row] a{color:inherit;text-decoration:none}
+.me-more{list-style:none;padding:0;margin:0;display:grid}
+#modal .me-more a,.me-more a{display:flex;align-items:center;gap:.75rem;min-height:48px;padding:.25rem .25rem;color:var(--text);text-decoration:none;font-weight:600;border-top:1px solid var(--line);text-decoration:none!important}
+.me-more li:first-child a{border-top:0}
+.me-more a:hover{background:var(--surface-2)}
+.me-more .material-symbols-outlined{font-size:20px;color:var(--heading)}
+.me-more a>span:nth-child(2){flex:1;min-width:0}
+.me-more .me-more-c{color:var(--muted)}
+[dir=rtl] .me-more .me-more-c{transform:scaleX(-1)}`; document.head.appendChild(st); } } catch (e) { /* bỏ qua */ }
   const { state, routes } = App, view = App.view, old = routes.me;
   const on = () => !!(self.ST2 && ST2.me && App.ux1On && App.ux1On());
   const num = n => (n || 0).toLocaleString(I18N.lang());
@@ -20,12 +30,22 @@
     const masteredC = deck.filter(c => c.srs.interval >= 21).length, learningC = deck.filter(c => (c.srs.reps > 0 || c.srs.last) && !(c.srs.interval >= 21)).length;
     const dueC = totalC ? Core.Cards.dueCount(cards, se, state.stats).due : 0, forgettingC = (App.forgetting ? App.forgetting() : []).length;
     let openMistakes = 0; try { const list = window.Core && Core.Store ? await w(Core.Store.get('mistakes', [])) : []; openMistakes = (list || []).filter(x => !x.fixed).length; } catch (e) { openMistakes = 0; }
-    const cap = p => Promise.race([p, new Promise(r => setTimeout(() => r(false), 500))]);
-    const [isAdmin, blogOn] = await w(Promise.all([cap(App.isAdmin ? App.isAdmin().catch(() => false) : false), cap(App.blogLive ? App.blogLive().catch(() => false) : false)]));
+    // Vẽ NGAY (cùng thanh tab): chỉ lấy đáp án đã có sẵn trong bộ nhớ đệm (isAdmin/blogLive trả ngay khi đã nhớ); chưa có thì vẽ như "không" rồi vẽ lại khi mạng trả lời
+    //   (trước đây chờ mạng ≤ 500 ms trước khi vẽ gì → WebKit CI: thanh tab Tôi hiện muộn > 1 s). late = true khi đáp án thật khác bản đã vẽ.
+    const cap = p => Promise.race([p, new Promise(r => setTimeout(() => r(undefined), 0))]), ask = f => (f ? f().catch(() => false) : Promise.resolve(false));
+    const pa = ask(App.isAdmin), pb = ask(App.blogLive);
+    const [a0, b0] = await w(Promise.all([cap(pa), cap(pb)])), isAdmin = !!a0, blogOn = !!b0;
+    const late = Promise.all([pa, pb]).then(([x, y]) => !!x !== isAdmin || !!y !== blogOn);
     const sameSite = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname), name = window.Sync && Sync.nice ? Sync.nice((u && u.displayName) || t('Bạn')) : (u && u.displayName) || t('Bạn');
     const goal = se.goal && se.goal.exam ? ex.short + ' ' + App.goalLabel(se.goal) : ex.short;
     const th = THEMES[se.theme] || THEMES.auto, lang = I18N.LANGS && I18N.LANGS[I18N.lang()] ? I18N.LANGS[I18N.lang()][1] : I18N.lang();
     const R = (k, icon, label, o = {}) => Object.assign({ k, icon, label, value: '', chev: 'chevron_right' }, o);
+    // 📚 Liên kết đọc thêm (blog, giới thiệu, tài nguyên…) gom vào một tấm (act 'more') – trang Tôi gọn, không bỏ liên kết nào
+    const more = [R('method', 'science', t('Cách Lexkite giúp bạn nhớ lâu'), { href: '#/method' }),
+        R('blog', 'newspaper', t('Blog học tiếng Anh'), { href: App.blogHref(blogOn), ext: !sameSite, chev: sameSite ? 'chevron_right' : 'open_in_new' }),
+        R('about', 'info', t('Trang giới thiệu'), { href: App.aboutUrl(), ext: !sameSite, chev: sameSite ? 'chevron_right' : 'open_in_new' }),
+        R('res', 'public', t('Tài nguyên miễn phí'), { href: '#/resources' }),
+        ...(I18N.lang() === 'vi' ? [['samples', 'Bài mẫu Writing Task 2'], ['speaking', 'Chủ đề Speaking'], ['tu-vung', 'Từ vựng theo chủ đề'], ['ngu-phap', 'Ngữ pháp tiếng Anh'], ['viet-thu', 'Thư mẫu IELTS General']].map(([p, l]) => R('vi-' + p, 'article', l, { href: 'https://lexkite.com/' + p + '/', ext: 1, chev: 'open_in_new' })) : [])];
     const secs = [
       { icon: 'tune', title: t('Tùy chọn'), rows: [
         R('theme', th[0], t('Chế độ màu'), { act: 'theme', value: th[1]() }),
@@ -56,31 +76,44 @@
         ...(isAdmin ? [R('admin', 'admin_panel_settings', t('Quản trị hệ thống'), { href: App.adminUrl(), ext: 1, chev: 'open_in_new' })] : []),
         R('settings', 'settings', t('Cài đặt'), { href: '#/settings' }),
         R('getapp', 'install_mobile', t('Tải app'), { href: '#/me', hook: ' data-get-app="me"' })] },
-      { icon: 'info', title: t('Tìm hiểu thêm'), rows: [
-        R('method', 'science', t('Cách Lexkite giúp bạn nhớ lâu'), { href: '#/method' }),
-        R('blog', 'newspaper', t('Blog học tiếng Anh'), { href: App.blogHref(blogOn), ext: !sameSite, chev: sameSite ? 'chevron_right' : 'open_in_new' }),
-        R('about', 'info', t('Trang giới thiệu'), { href: App.aboutUrl(), ext: !sameSite, chev: sameSite ? 'chevron_right' : 'open_in_new' }),
-        R('res', 'public', t('Tài nguyên miễn phí'), { href: '#/resources' }),
-        ...(I18N.lang() === 'vi' ? [['samples', 'Bài mẫu Writing Task 2'], ['speaking', 'Chủ đề Speaking'], ['tu-vung', 'Từ vựng theo chủ đề'], ['ngu-phap', 'Ngữ pháp tiếng Anh'], ['viet-thu', 'Thư mẫu IELTS General']].map(([p, l]) => R('vi-' + p, 'article', l, { href: 'https://lexkite.com/' + p + '/', ext: 1, chev: 'open_in_new' })) : [])] }
+      { icon: 'info', title: t('Tìm hiểu thêm'), rows: [R('more', 'info', t('Tìm hiểu thêm'), { act: 'more', value: String(more.length) })] }
     ];
     secs.forEach(s => s.rows.forEach((r, i) => { r.v = r.tog ? 'tg' : r.value ? ['n1', 'n2', 'n3'][i % 3] : 'n2'; }));
     secs.forEach(s => { const out = []; s.rows.forEach((r, i) => { if (i) out.push({ v: 'hr' }); out.push(r); }); s.rows = out; });
     const have = g.badges || {}, B = (Game.BADGES || []).slice().sort((a, b) => (have[b.id] ? 1 : 0) - (have[a.id] ? 1 : 0) || (have[b.id] || 0) - (have[a.id] || 0));
     const ach = B.slice(0, 3).map((b, i) => ({ icon: BADGE_IC[b.id] || ACH_IC.first, name: b.name, sub: have[b.id] ? t('Đã đạt') : t('Chưa đạt'), v: 'a' + (1 + i) }));
     const photo = u && u.photoURL ? u.photoURL : '';
-    return { ini: ini((u && (u.displayName || u.email)) || name), photo, name, target: goal, lEdit: t('Cài đặt'), lStreak: t('Chuỗi ngày'), lXp: t('Tổng XP'), lSaved: t('Đã lưu'), streak: num(streak || 0), xp: num(g.xp || 0), saved: num(totalC),
-      lAch: t('Huy hiệu'), lAll: t('Xem tất cả'), ach, secs, out: u ? t('Đăng xuất') : (window.Sync && Sync.can === false ? '' : t('Đăng nhập')), ver: 'Lexkite' + (L.title ? ' · ' + L.title : '') };
+    return { late, ini: ini((u && (u.displayName || u.email)) || name), photo, name, target: goal, lEdit: t('Cài đặt'), lStreak: t('Chuỗi ngày'), lXp: t('Tổng XP'), lSaved: t('Đã lưu'), streak: num(streak || 0), xp: num(g.xp || 0), saved: num(totalC),
+      lAch: t('Huy hiệu'), lAll: t('Xem tất cả'), ach, secs, more, out: u ? t('Đăng xuất') : (window.Sync && Sync.can === false ? '' : t('Đăng nhập')), ver: 'Lexkite' + (L.title ? ' · ' + L.title : '') };
   }
 
   const langModal = () => UI.modal(`<h2 style="margin-top:0">${esc(t('Ngôn ngữ'))}</h2><ul style="list-style:none;padding:0;margin:0;display:grid;gap:.4rem">${I18N.SUPPORTED.map(l => `<li><button type="button" class="btn block" data-lang="${l}" lang="${l}" dir="${l === 'ar' ? 'rtl' : 'ltr'}" aria-pressed="${l === I18N.lang()}" style="width:100%;justify-content:flex-start">${esc(I18N.LANGS[l][1])}</button></li>`).join('')}</ul>`);
   const esc = s => UI.esc(s);
+  // Tấm "Tìm hiểu thêm": cùng danh sách liên kết cũ, mỗi hàng ≥ 44 px, liên kết ngoài mở tab mới
+  const moreModal = list => UI.modal(`<h2 style="margin-top:0">${esc(t('Tìm hiểu thêm'))}</h2><ul class="me-more">${list.map(r => `<li><a href="${esc(r.href)}"${r.ext ? ' target="_blank" rel="noopener"' : ''}${r.hook || ''}><span class="material-symbols-outlined" aria-hidden="true">${esc(r.icon)}</span><span>${esc(r.label)}</span><span class="material-symbols-outlined me-more-c" aria-hidden="true">${r.ext ? 'open_in_new' : 'chevron_right'}</span></a></li>`).join('')}</ul>`);
 
+  // Đầu trang Tôi trên điện thoại (< 1024 px, thanh trên của app ẩn): như mọi trang chính – có logo + nút tra từ (cùng ô #gq của app, Ux1.headBtns).
+  //   4 viên số của mẫu Stitch giữ nguyên chỗ; logo 24 px + nút tra từ tròn 32 px đứng cạnh avatar (khoảng trống của mẫu). < 375 px: viên XP nhường chỗ
+  //   (style.css – Tổng XP lớn ngay dưới trong trang Tôi).
+  function hubHead(root) {
+    const h = root.querySelector(':scope > header'), av = h && h.querySelector('a[href="#/me"]'); if (!av) return;
+    const logo = document.createElement('img'); Object.assign(logo, { className: 'logo', src: 'icons/icon.svg?v=3', alt: 'Lexkite', width: 24, height: 24 }); logo.style.cssText = 'width:24px;height:24px;border-radius:7px;box-shadow:none';
+    const sb = document.createElement('button'); sb.type = 'button'; sb.dataset.act = 'search'; sb.setAttribute('aria-label', t('Tra từ'));
+    sb.className = "w-8 h-8 rounded-[9999px] flex items-center justify-center shrink-0 lt:bg-[#f2f4f3] dk:bg-[#162528] dk:border dk:border-[#213438] relative after:absolute after:-inset-1.5 after:content-['']";
+    sb.innerHTML = '<svg class="i" aria-hidden="true" focusable="false"><use href="#i-search"/></svg>';
+    const right = document.createElement('div'); right.className = 'flex items-center shrink-0'; right.style.gap = '4px'; av.before(right); right.append(logo, sb, av);
+    if (window.Ux1 && Ux1.headBtns) Ux1.headBtns(h);
+  }
   const render = App.guard ? App.guard : f => f;
-  let paint = null;
+  let paint = null, lastMore = [];
   const me = render(async function () {
-    const d = await build(), y = window.scrollY, ae = document.activeElement && document.activeElement.getAttribute && document.activeElement.getAttribute('data-act');
+    const d = await build(); lastMore = d.more; const y = window.scrollY, ae = document.activeElement && document.activeElement.getAttribute && document.activeElement.getAttribute('data-act');
     const root = ST2.mount(view, 'me', d, 'me');
+    d.late.then(ch => { if (ch && /^#\/me(\?|$)/.test(location.hash) && view.querySelector('.v2s-me')) me(); }, () => {}); // đáp án mạng về sau: chỉ vẽ lại khi vẫn ở trang Tôi
+    hubHead(root);
     if (App.getApp) App.getApp(view);
+    // Chưa đăng nhập: icon logout → login (đổi trong JS nên phải khai @icons login để có trong msym.woff2, nếu không chữ "login" hiện ra bị cắt – stitch-diff 06/11)
+    if (!state.user) root.querySelectorAll('[data-act="out"] .material-symbols-outlined, [data-act="out"] .material-symbols-rounded').forEach(ic => { if (ic.textContent.trim() === 'logout') ic.textContent = 'login'; });
     view.querySelectorAll('[data-row="getapp"]').forEach(row => { const a = row.querySelector('[data-get-app]'); const sync = () => { row.hidden = !a || a.hidden || a.hasAttribute('data-off'); }; sync(); if (a && window.MutationObserver) new MutationObserver(sync).observe(a, { attributes: true, attributeFilter: ['hidden', 'data-off'] }); });
     if (ae) { const b = root.querySelector('[data-act="' + ae + '"]'); if (b) b.focus({ preventScroll: true }); window.scrollTo(0, y); }
     paint = () => me();
@@ -89,6 +122,7 @@
       const b = e.target.closest && e.target.closest('[data-act]'); if (!b) return; const a = b.getAttribute('data-act'), s = state.settings;
       if (a === 'theme') { const o = ['auto', 'light', 'dark']; s.theme = o[(o.indexOf(s.theme) + 1) % 3]; App.settingsDeps.applyTheme(); App.saveSettings(); paint(); }
       else if (a === 'lang') langModal();
+      else if (a === 'more') { moreModal(lastMore); const m = document.querySelector('#modal .me-more'); if (m) m.addEventListener('click', ev => { if (ev.target.closest('a[href^="#"]')) UI.closeModal(); }); }
       else if (a === 'exam') App.examPicker();
       else if (a === 'notif') { s.reminderOn = !s.reminderOn; App.saveSettings(); if (window.Sync) Sync.schedule(); paint(); }
       else if (a === 'sfx') { s.sfx = s.sfx === false; Core.sfxOff = !s.sfx; App.saveSettings(); if (window.Sync) Sync.schedule(); if (s.sfx && window.Sfx) Sfx.correct(); paint(); }

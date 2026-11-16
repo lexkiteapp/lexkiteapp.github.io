@@ -43,6 +43,8 @@ El Alfabeto Fonético Internacional (IPA) asigna un único símbolo para cada so
 
 El español cuenta con un sistema fonológico muy limpio de 5 vocales puras y unas 19 consonantes. El inglés, en cambio, utiliza entre 12 y 14 sonidos vocálicos puros, 8 diptongos y 24 consonantes. Intentar encajar los 22 sonidos vocálicos del inglés en nuestras 5 vocales es la razón directa de que confundamos pares vitales como *ship* (barco) y *sheep* (oveja), o *bitch* y *beach*.
 
+Te puede interesar además: [la guía para mejorar la pronunciación en inglés](/es/blog/como-mejorar-la-pronunciacion-en-ingles-guia/).
+
 Además, en español no distinguimos entre /b/ y /v/, ni entre /s/ y /z/, lo que hace que nuestro cerebro filtre esos contrastes como si fueran el mismo sonido. La transcripción fonética te permite ver en papel lo que tu oído aún no ha aprendido a diferenciar.
 
 ## La tabla completa de vocales en inglés: cortas, largas y schwa

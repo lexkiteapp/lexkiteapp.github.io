@@ -72,5 +72,46 @@
   "words": 44,
   "seconds": 26.7,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"remain\" mean?",
+  "keyword": "remain",
+  "value": "Remain means to be left behind, to continue to exist.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=remain",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"remain\" mean?",
+    "description": "Remain means to be left behind, to continue to exist.\n\nReview your words, free: https://lexkite.com/app/#/review?w=remain\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "remain",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"remain\" mean?\n\nRemain means to be left behind, to continue to exist.\n\nReview your words, free: https://lexkite.com/app/#/review?w=remain"
+   },
+   "instagram": {
+    "caption": "What does \"remain\" mean?\n\nRemain means to be left behind, to continue to exist.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"remain\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means to be left behind, to continue to exist. Remain means to be left behind, to continue to exist. More practice like this (free): {link}"
  }
 }

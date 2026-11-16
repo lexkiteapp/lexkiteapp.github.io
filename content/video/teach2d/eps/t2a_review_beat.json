@@ -72,5 +72,46 @@
   "words": 43,
   "seconds": 26.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"beat\" mean?",
+  "keyword": "beat",
+  "value": "Beat means to win against another person or team.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=beat",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"beat\" mean?",
+    "description": "Beat means to win against another person or team.\n\nReview your words, free: https://lexkite.com/app/#/review?w=beat\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "beat",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"beat\" mean?\n\nBeat means to win against another person or team.\n\nReview your words, free: https://lexkite.com/app/#/review?w=beat"
+   },
+   "instagram": {
+    "caption": "What does \"beat\" mean?\n\nBeat means to win against another person or team.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"beat\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to win against another person or team. Beat means to win against another person or team. Try the full lesson and quiz here: {link}"
  }
 }

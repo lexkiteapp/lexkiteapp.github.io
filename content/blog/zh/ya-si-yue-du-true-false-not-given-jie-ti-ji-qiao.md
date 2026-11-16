@@ -95,6 +95,8 @@ qualityScore: 94
 2. **错题本深度归因：** 每道做错的题目会自动同步至 [错题本](/#/mistakes)，每周定期回顾，分析失分究竟是由于生词同义替换识别障碍，还是逻辑推导过度。
 3. **多维阅读能力互补：** 结合 [ya-si-da-pei-collocations-ti-fen-zhi-nan](/zh/blog/ya-si-da-pei-collocations-ti-fen-zhi-nan/) 掌握高分词汇搭配，利用 [ya-si-tong-yi-ti-huan-paraphrase-ji-qiao](/zh/blog/ya-si-tong-yi-ti-huan-paraphrase-ji-qiao/) 提升改写敏感度。学习单词时依托 [jian-ge-chong-fu-bei-dan-ci-fsrs](/zh/blog/jian-ge-chong-fu-bei-dan-ci-fsrs/) 进行科学抗遗忘复习，查阅语法体系时可随时参考 [/ngu-phap/](/ngu-phap/) 专题。若想摆脱中文依赖，可参阅 [ru-he-yong-ying-yu-si-wei-bu-fan-yi](/zh/blog/ru-he-yong-ying-yu-si-wei-bu-fan-yi/)。
 
+每篇文章该花多少时间，可以参考[雅思阅读时间分配全攻略](/zh/blog/ya-si-yue-du-shi-jian-fen-pei-ji-qiao/)。
+
 ## 常见问题解答（FAQ）
 
 ### True/False/Not Given 和 Yes/No/Not Given 有何区别？

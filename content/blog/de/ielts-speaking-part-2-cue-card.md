@@ -55,7 +55,7 @@ Die mündliche Prüfung im IELTS ist für viele Kandidaten der nervenaufreibends
 
 Der größte Fehler vieler Deutschsprachiger besteht darin, vorgefertigte Musterantworten auswendig zu lernen. Geschulte Prüfer erkennen auswendig gelernte Textbausteine innerhalb von Sekunden und werten solche Passagen rigoros ab. Statt starre Monologe zu pauken, benötigst du ein **flexibles narratives Gerüst**, das dir bei jedem noch so überraschenden Thema erlaubt, zwei Minuten lang frei, bildhaft und abwechslungsreich zu sprechen.
 
-In dieser praxisnahen Anleitung erfährst du, wie du deine 60 Sekunden Vorbereitungszeit optimal nutzt, wie du deinen Vortrag dramaturgisch aufbaust und wie du in Part 3 mit der AREA-Methode analytisch glänzt.
+In dieser praxisnahen Anleitung erfährst du, wie du deine 60 Sekunden Vorbereitungszeit optimal nutzt, wie du deinen Vortrag dramaturgisch aufbaust und wie du in Part 3 mit der AREA-Methode analytisch glänzt. Für Visa-Ziele: [IELTS Auswandern – welcher Test für Kanada und UK](/de/blog/ielts-fuer-auswanderung-kanada-australien-uk/).
 
 ## Die vier offiziellen Bewertungskriterien im Speaking
 
@@ -153,6 +153,8 @@ Für den schriftlichen Teil lies unsere Empfehlungen zu [IELTS Writing Task 2 Ti
 {{cta: /app/#/speaking | IELTS Speaking auf Lexkite trainieren}}
 
 {{youtube: | IELTS Speaking Part 2 Cue Card Strategie und Vorlagen}}
+
+Schwächere und stärkere Antworten zu allen drei Teilen im direkten Vergleich findest du in [IELTS Speaking Band 7 Beispielantworten](/de/blog/ielts-speaking-band-7-beispielantworten/).
 
 ## Häufig gestellte Fragen
 

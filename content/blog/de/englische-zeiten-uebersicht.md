@@ -23,6 +23,8 @@ Der wesentliche Unterschied zwischen den beiden Sprachen liegt in der Betrachtun
 
 Das englische Verbalsystem baut auf einer logischen 3×4-Matrix auf. Es gibt drei Zeitstufen (Past, Present, Future) und jeweils vier Aspekte (Simple, Continuous/Progressive, Perfect, Perfect Continuous):
 
+Mehr dazu findest du in unserem Beitrag [TOEIC Part 5: Strategien für Grammatik und Wortschatz](/de/blog/toeic-part-5-strategien-grammatik-wortschatz/).
+
 1. **Simple Aspect (Einfache Formen):** Betrachtet Handlungen als Fakten, Zustände oder regelmäßige Wiederholungen.
 2. **Continuous / Progressive Aspect (Verlaufsformen):** Betont die Dauer, den temporären Verlauf oder die Unvollständigkeit einer Handlung zu einem bestimmten Moment (*to be* + Infinitiv mit *-ing*).
 3. **Perfect Aspect (Vollendete Formen):** Schlägt eine Brücke zwischen zwei Zeitpunkten; betrachtet das Resultat einer früheren Handlung aus der Sicht eines späteren Zeitpunkts (*have/has/had* + Past Participle).

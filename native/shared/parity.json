@@ -1,0 +1,293 @@
+{
+  "_doc": "Parity list for the native rewrite (docs/specs/native-apps.md §2). Every web route (docs/codemap.json) and cross-cutting capability of the live Capacitor app must map to exactly one item. An item is 'done' only when BOTH test names exist in native code and pass on CI (scripts/test/native-parity.mjs). The Capacitor app stays live until every item is done.",
+  "items": [
+    {
+      "id": "P01",
+      "m": 1,
+      "title": "App frame: 5 tabs Today/Vocab/Skills/Tests/Me, hub/inner/focus top bars, Back/X ≥44, system back + iOS swipe",
+      "routes": [
+        "#/home",
+        "#/vocab",
+        "#/skills",
+        "#/skill",
+        "#/tests",
+        "#/me"
+      ],
+      "status": "done"
+    },
+    {
+      "id": "P02",
+      "m": 1,
+      "title": "Today: path map (units, steps, stars, START, milestone, sticky Continue), daily goal, streak pill, XP, next step, day plan",
+      "routes": [
+        "#/train",
+        "#/path",
+        "#/day",
+        "#/tracks",
+        "#/course",
+        "#/courses"
+      ],
+      "status": "done"
+    },
+    {
+      "id": "P03",
+      "m": 2,
+      "title": "Lesson player: match/type/gap/build/say/pic/tr, segmented bar, Check, feedback sheet + teacher, gold bank, combo, retries, stories/radio, lesson complete + celebration",
+      "routes": [
+        "#/lesson"
+      ],
+   "status": "done"
+    },
+    {
+      "id": "P04",
+      "m": 3,
+      "title": "Review & practice (FSRS-5 cards, grades, learning steps, due queue, mistakes queue)",
+      "routes": [
+        "#/review",
+        "#/practice",
+        "#/mistakes",
+        "#/deck"
+      ],
+      "status": "done"
+    },
+    {
+      "id": "P05",
+      "m": 3,
+      "title": "Vocabulary: dictionary + word card (UK/US IPA, audio, images, senses, examples), library/topics, word book, letters, verbs, phrases/models, usage, ideas, paraphrase",
+      "routes": [
+        "#/dict",
+        "#/library",
+        "#/topic",
+        "#/letters",
+        "#/verb",
+        "#/phrases",
+        "#/model",
+        "#/models",
+        "#/usage",
+        "#/ideas",
+        "#/paraphrase"
+      ],
+      "status": "done"
+    },
+    {
+      "id": "P06",
+      "m": 4,
+      "title": "Listening & reading: dictation, listen, listen-test, reading, read",
+      "routes": [
+        "#/listening",
+        "#/listen",
+        "#/listen-test",
+        "#/dictation",
+        "#/reading",
+        "#/read"
+      ],
+      "status": "done"
+    },
+    {
+      "id": "P07",
+      "m": 4,
+      "title": "Speaking & pronunciation: Play & Speak, speaking, pron (GOP), say, say-it-like-a-native, reflex, rtype, roleplay, handsfree",
+      "routes": [
+        "#/speak",
+        "#/speaking",
+        "#/pron",
+        "#/say",
+        "#/reflex",
+        "#/rtype",
+        "#/roleplay",
+        "#/handsfree"
+      ],
+      "status": "done"
+    },
+    {
+      "id": "P08",
+      "m": 4,
+      "title": "Live call with Ama/Carlos (on-device/edge AI tiers, captions, lip sync)",
+      "routes": [
+        "#/call"
+      ],
+      "status": "done"
+    },
+    {
+      "id": "P09",
+      "m": 4,
+      "title": "Writing & grammar: write, task1, fixer, grammar, criteria, method, quick/style, confidence, qtips/qstats",
+      "routes": [
+        "#/write",
+        "#/task1",
+        "#/fix",
+        "#/grammar",
+        "#/criteria",
+        "#/method",
+        "#/quick",
+        "#/style",
+        "#/confidence",
+        "#/qstats"
+      ],
+      "status": "done"
+    },
+    {
+      "id": "P10",
+      "m": 5,
+      "title": "Tests: readiness/goal, mock, CBT, placement, TOEIC (R, SW, test), TOEFL (+practice), IELTS, Cambridge",
+      "routes": [
+        "#/goal",
+        "#/mock",
+        "#/cbt",
+        "#/placement",
+        "#/toeic",
+        "#/toeic-r",
+        "#/toeic-sw",
+        "#/toeic-test",
+        "#/toefl",
+        "#/toefl-p",
+        "#/cambridge"
+      ]
+    },
+    {
+      "id": "P11",
+      "m": 6,
+      "title": "Me: stats, streak (freeze), league, settings (theme, language, goal, reminders, voice), report a bug, contact, resources, classroom, add-on handoff, welcome/onboarding",
+      "routes": [
+        "#/stats",
+        "#/streak",
+        "#/league",
+        "#/settings",
+        "#/report",
+        "#/contact",
+        "#/resources",
+        "#/class",
+        "#/handoff",
+        "#/welcome"
+      ]
+    },
+    {
+      "id": "P12",
+      "m": 6,
+      "title": "Learn from YouTube video (official player, A-B, speed, notes, save word)",
+      "routes": [
+        "#/watch"
+      ]
+    },
+    {
+      "id": "P13",
+      "m": 6,
+      "title": "Mediation: relay a read/heard English source to one specific person (write or say), self-check points, model answer",
+      "routes": [
+        "#/mediate"
+      ]
+    },
+    {
+      "id": "C01",
+      "m": 1,
+      "title": "Auth: Firebase Google + Apple sign-in, same project, guest mode, delete account",
+      "routes": [],
+      "status": "done"
+    },
+    {
+      "id": "C02",
+      "m": 1,
+      "title": "Offline-first store (SwiftData/Room) + sync: Drive appDataFolder primary, D1 /api/sync fallback, deterministic 2-way merge with tombstones",
+      "routes": [],
+      "status": "done"
+    },
+    {
+      "id": "C03",
+      "m": 1,
+      "title": "Migration from the Capacitor app: import IndexedDB data (cards, stats, settings, streak) on first native launch, zero loss",
+      "routes": [],
+      "status": "done"
+    },
+    {
+      "id": "C04",
+      "m": 2,
+      "title": "Audio: Kokoro prerendered files from the CDN (multi-origin fallback), offline pack, live free TTS tier, system TTS last; Ama female / Carlos male",
+      "routes": [],
+   "status": "done"
+    },
+    {
+      "id": "C05",
+      "m": 2,
+      "title": "Teachers Ama/Carlos 2D: native port of the web TeacherRig (Rive-style viseme/emotion/gesture inputs, no Rive runtime), viseme lip sync ±33 ms, gestures/emotions, reduced motion",
+      "routes": [],
+   "status": "done"
+    },
+    {
+      "id": "C06",
+      "m": 6,
+      "title": "Push (FCM/APNs) + local reminders: soft permission after value, caps ≤1/day, quiet hours, back-off, kind copy, 15 languages",
+      "routes": []
+    },
+    {
+      "id": "C07",
+      "m": 6,
+      "title": "Widgets: word of the day + streak/goal (iOS WidgetKit, Android Glance), 15 languages, light/dark",
+      "routes": []
+    },
+    {
+      "id": "C08",
+      "m": 1,
+      "title": "Deep links: lexkite://review, lexkite://word/<w>, https://lexkite.com universal/app links to routes",
+      "routes": [],
+      "status": "done"
+    },
+    {
+      "id": "C09",
+      "m": 1,
+      "title": "Haptics (correct/wrong/complete), respects system settings",
+      "routes": [],
+      "status": "done"
+    },
+    {
+      "id": "C10",
+      "m": 1,
+      "title": "i18n 15 languages + RTL (ar) + +40 % text growth; generated from web i18n",
+      "routes": [],
+      "status": "done"
+    },
+    {
+      "id": "C11",
+      "m": 1,
+      "title": "Themes: Bright Day (light) / Tactile Night (dark) / follow system; generated tokens; contrast ≥4.5:1",
+      "routes": [],
+      "status": "done"
+    },
+    {
+      "id": "C12",
+      "m": 6,
+      "title": "On-device AI: Apple Foundation Models + Translation (iOS), Gemini Nano (Android), tiered fallback to /api/ai",
+      "routes": []
+    },
+    {
+      "id": "C13",
+      "m": 6,
+      "title": "Ads: AdMob banner/interstitial rules + rewarded (ads-reward), consent (UMP), friendly caps",
+      "routes": []
+    },
+    {
+      "id": "C14",
+      "m": 6,
+      "title": "In-app update prompt + remote content updates through the data API (replaces web OTA)",
+      "routes": []
+    },
+    {
+      "id": "C15",
+      "m": 6,
+      "title": "Share sheet (word card, progress), store review prompt",
+      "routes": []
+    },
+    {
+      "id": "C16",
+      "m": 6,
+      "title": "Target languages beyond English (Spanish course) through the same content API",
+      "routes": []
+    },
+    {
+      "id": "C17",
+      "m": 1,
+      "title": "First-run onboarding: splash → Welcome → native language/goal/level/daily time → Today first lesson; never the blog; try before sign-up",
+      "routes": [],
+      "status": "done"
+    }
+  ]
+}

@@ -290,10 +290,10 @@
   ":scope > :nth-child(9) > :nth-child(2) > :nth-child(1) > :nth-child(1)": "e(d.langLabel)"
  },
  "after": {
-  ":scope > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1)": "'<img src=\"/icons/icon.svg?v=2\" width=\"40\" height=\"40\" alt=\"\">'",
+  ":scope > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1)": "'<img src=\"/icons/icon.svg?v=3\" width=\"40\" height=\"40\" alt=\"\">'",
   ":scope > :nth-child(2) > :nth-child(2) > :nth-child(3) > :nth-child(1)": "d.ama",
   ":scope > :nth-child(5) > :nth-child(2) > :nth-child(2) > :nth-child(2) > :nth-child(1)": "d.carlos",
-  ":scope > :nth-child(9) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1)": "'<img src=\"/icons/icon.svg?v=2\" width=\"32\" height=\"32\" alt=\"\">'",
+  ":scope > :nth-child(9) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1)": "'<img src=\"/icons/icon.svg?v=3\" width=\"32\" height=\"32\" alt=\"\">'",
   ":scope > :nth-child(9) > :nth-child(1) > :nth-child(1) > :nth-child(3)": "d.getApp",
   ":scope > :nth-child(9) > :nth-child(2) > :nth-child(1) > :nth-child(2)": "d.menu2",
   ":scope > :nth-child(9) > :nth-child(2) > :nth-child(2)": "d.pill",

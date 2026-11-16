@@ -1,7 +1,7 @@
 // 👁 Soát giao diện tự động (máy dò lỗi hiển thị, không cần nhìn ảnh): tràn ngang, nút đè chữ, chữ bị ép cột 1–2 từ,
 // chữ cắt "…" không có title, trang cuộn ngang, vùng chạm < 40px (điện thoại), tương phản màu (axe), lỗi RTL (ar), link danh sách lệch hàng, icon tàng hình (icon trùng màu nền nút).
-// Ma trận: màn hình chính × 375/820/1440 × sáng/tối × en/vi/es/ar (+ de/ru chỉ 375). Chạy trên GitHub Actions (visual-qa.yml).
-// Dùng: node scripts/test/visual-qa.mjs <base> <thư-mục-ra>  → report.md + report.json + shots/ (ảnh cắt cho nhóm lỗi đầu bảng)
+// Ma trận: màn hình chính × 375/820/1440 × sáng/tối × en/vi/es/ar/ja (+ de/ru chỉ 375). Mỗi route còn đo: lỗi JS/console (js-error), CLS > 0.1 (cls), vùng chạm 40–44 px (tap<44). Chạy trên GitHub Actions (visual-qa.yml).
+// Dùng: node scripts/test/visual-qa.mjs <base> <thư-mục-ra>  → report.md + report.json + contact.html (tờ ảnh nhóm bị đánh dấu) + shots/ (ảnh cắt cho nhóm lỗi đầu bảng)
 // Ngưỡng chống lùi: scripts/test/visual-qa.budget.json (số nhóm lỗi tối đa theo loại; vượt → exit 1).
 import { chromium } from 'playwright';
 import { noProd } from './lib/no-prod.mjs';
@@ -16,7 +16,7 @@ const AXE = fs.readFileSync(require.resolve('axe-core'), 'utf8');
 const ROUTES = ['home', 'path', 'day/1', 'review', 'dict/hello', 'library', 'grammar', 'grammar/ed-s-endings', 'tests', 'cbt', 'qstats', 'quick', 'me', 'settings'];
 const VPS = { m: { width: 375, height: 812, isMobile: true, hasTouch: true }, t: { width: 820, height: 1180, isMobile: true, hasTouch: true }, d: { width: 1440, height: 900 } };
 const combos = [];
-for (const v of QUICK ? ['m'] : ['m', 't', 'd']) for (const s of ['light', 'dark']) for (const l of QUICK ? ['es', 'ar'] : ['en', 'vi', 'es', 'ar']) combos.push({ v, s, l });
+for (const v of QUICK ? ['m'] : ['m', 't', 'd']) for (const s of ['light', 'dark']) for (const l of QUICK ? ['es', 'ar'] : ['en', 'vi', 'es', 'ar', 'ja']) combos.push({ v, s, l });
 if (!QUICK) for (const l of ['de', 'ru']) for (const s of ['light', 'dark']) combos.push({ v: 'm', s, l });
 
 // ---- Máy dò chạy trong trang: trả về [{t: loại, k: selector, x: chữ mẫu, r: [x,y,w,h]}]
@@ -71,11 +71,13 @@ function detect(opt) {
       const ix = Math.min(br.right, tr.right) - Math.max(br.left, tr.left), iy = Math.min(br.bottom, tr.bottom) - Math.max(br.top, tr.top);
       if (ix > 3 && iy > 3 && ix * iy > 0.15 * Math.min(br.width * br.height, tr.width * tr.height)) { const ps = getComputedStyle(t).position, pb = getComputedStyle(b).position; if (ps === 'static' && pb === 'static') continue; add('btn-overlap', b, br); break; }
     }
+    { // chữ tràn khỏi nút (nowrap + nhãn dài ar/de/ru: chữ thò 2 mép, icon ra ngoài khung – nút Google thanh bên 05/11)
+      const cs = getComputedStyle(b); if (cs.overflowX === 'visible' && cs.display !== 'inline' && (b.innerText || '').trim() && b.scrollWidth > b.clientWidth + 2 && b.clientWidth > 0) add('btn-text-overflow', b, br); }
     if (opt.mobile) { // vùng chạm nhỏ (bỏ link nằm trong đoạn văn)
       const cs = getComputedStyle(b); if (cs.display === 'inline' && b.closest('p,li,small,span,label')) continue;
       if (/^(checkbox|radio)$/.test(b.type) && b.closest('label')) continue;
       const af = getComputedStyle(b, '::after'), ext = af.content !== 'none' && af.position === 'absolute' ? Math.min(parseFloat(af.minWidth) || 0, parseFloat(af.minHeight) || 0) : 0, m = Math.max(Math.min(br.width, br.height), ext);
-      if (m < 40) add(m < 32 ? 'tap<32' : 'tap<40', b, br);
+      if (m < 44) add(m < 32 ? 'tap<32' : m < 40 ? 'tap<40' : 'tap<44', b, br); // DESIGN-SYSTEM §5: mọi vùng chạm ≥ 44 px (--tap)
     }
   }
   return out;
@@ -158,24 +160,41 @@ async function openCombo(browser, c) {
   const vp = VPS[c.v];
   const ctx = await browser.newContext({ viewport: { width: vp.width, height: vp.height }, isMobile: !!vp.isMobile, hasTouch: !!vp.hasTouch, colorScheme: c.s, locale: c.l, reducedMotion: 'reduce' });
   await noProd(ctx); // CI: media/audio → GitHub, /api → offline (0 lượt prod)
+  // CLS: cộng layout-shift không do thao tác (chuẩn web-vitals); visit() đặt lại về 0 trước mỗi route
+  // + ghi phần tử xê dịch nhiều nhất (sources[].node) để báo cáo chỉ đúng chỗ cần giữ chỗ (min-height/aspect-ratio)
+  await ctx.addInitScript(() => { window.__vqaCls = 0; window.__vqaClsSrc = {}; const nm = n => { if (!n || !n.tagName) return '?'; const one = x => x.tagName.toLowerCase() + [...x.classList].slice(0, 2).map(c => '.' + c).join('') + (x.id && !/\d/.test(x.id) ? '#' + x.id : ''); return (n.parentElement && n.parentElement !== document.body ? one(n.parentElement) + ' > ' : '') + one(n); };
+    try { new PerformanceObserver(l => { for (const e of l.getEntries()) if (!e.hadRecentInput) { window.__vqaCls += e.value; for (const s of e.sources || []) { const k = nm(s.node); window.__vqaClsSrc[k] = (window.__vqaClsSrc[k] || 0) + e.value; } } }).observe({ type: 'layout-shift', buffered: true }); } catch (e) {} });
   const page = await ctx.newPage();
-  page.on('pageerror', e => errs.push(`${tagOf(c)}: ${String(e.message).slice(0, 120)}`));
+  page.__vqaErr = [];
+  page.on('pageerror', e => { errs.push(`${tagOf(c)}: ${String(e.message).slice(0, 120)}`); page.__vqaErr.push(String(e.message)); });
+  // console.error của app (bỏ 'Failed to load resource' = lỗi mạng của /api offline trong CI, đã có quality-sweep đo 4xx/5xx)
+  // + bỏ lỗi CORS của host NGOÀI (vd. api.datamuse.com từ máy CI: CDN của họ đệm theo origin) – app đã chịu lỗi (dictionary.js nghỉ 5 phút; test datamuse-resilience); CORS tới chính origin vẫn tính
+  page.on('console', m => { const x = m.text(); if (m.type() !== 'error' || /Failed to load resource/.test(x)) return; const u = (x.match(/Access to \w+ at '([^']+)' from origin/) || [])[1]; if (u && /blocked by CORS policy/.test(x) && !u.startsWith(BASE)) return; page.__vqaErr.push(x); });
   await page.goto(`${BASE}/app/?sandbox=1&hl=${c.l}#/welcome/setup`, { waitUntil: 'networkidle' }).catch(() => {});
   await page.waitForSelector('#obNext, #go', { timeout: 8000 }).catch(() => {}); for (let i = 0; i < 8 && !(await page.$('#go')) && (await page.$('#obNext')); i++) { await page.click('#obNext').catch(() => {}); await page.waitForTimeout(150); } const go = await page.$('#go'); if (go) { await go.click().catch(() => {}); await page.waitForTimeout(1800); } // thiết lập từng bước (onboard.js): Tiếp tục tới màn cuối rồi Bắt đầu
   return { ctx, page };
 }
+// visit(): nhấn Shift trước khi đổi route = thao tác như người bấm menu → xê dịch ≤ 500 ms sau đổi màn không tính CLS (chuẩn hadRecentInput); xê dịch muộn vẫn tính
 async function visit(page, c, route) {
   if (route === 'landing') await page.goto(`${BASE}/${c.l === 'vi' ? '' : c.l + '/'}`, { waitUntil: 'networkidle' }).catch(() => {});
-  else { if (!page.url().includes('/app/')) await page.goto(`${BASE}/app/?sandbox=1&hl=${c.l}#/home`, { waitUntil: 'networkidle' }).catch(() => {}); await page.evaluate(h => { location.hash = h; scrollTo(0, 0); }, '#/' + route); await page.waitForTimeout(900); }
+  else { if (!page.url().includes('/app/')) await page.goto(`${BASE}/app/?sandbox=1&hl=${c.l}#/home`, { waitUntil: 'networkidle' }).catch(() => {}); await page.keyboard.press('Shift').catch(() => {}); await page.evaluate(h => { location.hash = h; scrollTo(0, 0); }, '#/' + route); await page.waitForTimeout(900); }
   await page.addStyleTag({ content: STILL }).catch(() => {});
   await page.evaluate(() => document.fonts && document.fonts.ready).catch(() => {});
+}
+// Lỗi JS/console + CLS của route vừa vẽ → mục báo cáo (gom theo thông điệp đã bỏ số/URL); gọi xong thì đặt lại bộ đếm cho route sau
+async function vitals(page) {
+  const out = [], [cls, src] = await page.evaluate(() => { const v = window.__vqaCls || 0, s = Object.entries(window.__vqaClsSrc || {}).sort((a, b) => b[1] - a[1])[0]; window.__vqaCls = 0; window.__vqaClsSrc = {}; return [v, s ? s[0] : '?']; }).catch(() => [0, '?']);
+  if (cls > 0.1) out.push({ t: 'cls', k: 'layout-shift ' + src, x: 'CLS ' + cls.toFixed(3) + ' > 0.1', r: [0, 0, 0, 0] });
+  for (const m of page.__vqaErr.splice(0)) out.push({ t: 'js-error', k: m.replace(/https?:\/\/\S+/g, '<url>').replace(/\d+/g, 'N').slice(0, 90), x: m.slice(0, 50), r: [0, 0, 0, 0] });
+  return out;
 }
 async function runCombo(browser, c) {
   const { ctx, page } = await openCombo(browser, c);
   for (const route of [...ROUTES, 'landing']) {
     try {
+      page.__vqaErr.length = 0; await page.evaluate(() => { window.__vqaCls = 0; }).catch(() => {});
       await visit(page, c, route); pages++;
-      const list = [...await page.evaluate(detect, { mobile: c.v === 'm', rtl: c.l === 'ar' }), ...await page.evaluate(icons)];
+      const list = [...await page.evaluate(detect, { mobile: c.v === 'm', rtl: c.l === 'ar' }), ...await page.evaluate(icons), ...await vitals(page)];
       if (c.v !== 't') { // tương phản màu (axe) ở 375 và 1440
         if (!(await page.evaluate(() => !!window.axe))) await page.addScriptTag({ content: AXE });
         const v = await page.evaluate(async () => { const r = await axe.run(document, { runOnly: ['color-contrast'], resultTypes: ['violations'] }); return r.violations.flatMap(x => x.nodes.map(n => ({ s: n.target.join(' '), x: (n.any[0] && n.any[0].message || '').slice(0, 90) }))); });
@@ -189,10 +208,10 @@ async function runCombo(browser, c) {
 
 const browser = await chromium.launch();
 const stateCombos = []; for (const v of QUICK ? ['m', 'd'] : ['m', 't', 'd']) for (const l of ['en', 'ar']) for (const sc of v === 'm' ? ['light', 'dark'] : ['light']) stateCombos.push({ v, s: sc, l });
-const queue = [...combos, ...stateCombos.map(c => ({ ...c, states: 1 }))]; await Promise.all([0, 1, 2].map(async () => { while (queue.length) { const c = queue.shift(); await (c.states ? runStates : runCombo)(browser, c); } }));
+const queue = [...combos, ...stateCombos.map(c => ({ ...c, states: 1 }))]; await Promise.all([0, 1, 2, 3].map(async () => { while (queue.length) { const c = queue.shift(); await (c.states ? runStates : runCombo)(browser, c); } }));
 
 // ---- Báo cáo + ảnh cắt cho nhóm lỗi đầu bảng
-const order = ['icon-invisible', 'clipped', 'list-misaligned', 'ovl-offcentre', 'ovl-offscreen', 'ovl-covers', 'ovl-on-nav', 'hscroll', 'squeezed', 'btn-overlap', 'overflow-x', 'ellipsis-no-title', 'rtl-text-left', 'rtl-arrow', 'contrast-dark', 'contrast-light', 'tap<32', 'tap<40'];
+const order = ['js-error', 'cls', 'icon-invisible', 'clipped', 'list-misaligned', 'ovl-offcentre', 'ovl-offscreen', 'ovl-covers', 'ovl-on-nav', 'hscroll', 'squeezed', 'btn-overlap', 'btn-text-overflow', 'overflow-x', 'ellipsis-no-title', 'rtl-text-left', 'rtl-arrow', 'contrast-dark', 'contrast-light', 'tap<32', 'tap<40', 'tap<44'];
 const list = [...groups.values()].sort((a, b) => order.indexOf(a.t) - order.indexOf(b.t) || b.where.size - a.where.size);
 const byType = {}; for (const g of list) byType[g.t] = (byType[g.t] || 0) + 1;
 const SHOTS = +(process.env.VQA_SHOTS || 12); let si = 0;
@@ -212,8 +231,12 @@ const md = [`# Visual QA – ${new Date().toISOString().slice(0, 16)} · ${pages
   ...list.slice(0, 80).map(g => `| ${g.t} | \`${g.k.replace(/\|/g, '/')}\` | ${g.where.size} | ${g.ex.c && tagOf(g.ex.c)} #/${g.ex.route} | ${g.ex.x.replace(/\|/g, '/')} | ${g.shot || ''} |`),
   '', errs.length ? `Lỗi chạy (${errs.length}): ` + [...new Set(errs)].slice(0, 10).join(' · ') : ''];
 fs.writeFileSync(OUT + '/report.md', md.join('\n'));
+// Tờ ảnh: chỉ các nhóm bị đánh dấu có ảnh cắt (mở 1 file thay vì từng ảnh)
+const H = x => String(x).replace(/[&<>"]/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[ch]);
+fs.writeFileSync(OUT + '/contact.html', `<!doctype html><meta charset=utf-8><title>Visual QA contact sheet</title><style>body{font:13px system-ui;margin:16px;background:#111;color:#eee}main{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}figure{margin:0;background:#222;padding:8px;border-radius:8px}img{width:100%;height:auto}figcaption{margin-top:6px;word-break:break-word}</style><h1>Visual QA · ${H(new Date().toISOString().slice(0, 16))} · ${list.length} nhóm</h1><main>${list.filter(g => g.shot).map(g => `<figure><img src="${H(g.shot)}" loading=lazy alt=""><figcaption><b>${H(g.t)}</b> ${H(g.k)} · ${g.where.size} màn · ${H(tagOf(g.ex.c))} #/${H(g.ex.route)}</figcaption></figure>`).join('')}</main>`);
 fs.writeFileSync(OUT + '/report.json', JSON.stringify({ byType, groups: list.map(g => ({ t: g.t, k: g.k, screens: g.where.size, ex: [...g.where].slice(0, 4), x: g.ex.x })) }));
 console.log(md.slice(0, 4 + Object.keys(byType).length).join('\n'));
 let fail = 0; try { const bud = JSON.parse(fs.readFileSync(new URL('./visual-qa.budget.json', import.meta.url))); for (const [t, max] of Object.entries(bud)) if ((byType[t] || 0) > max) { fail++; console.log(`✗ ${t}: ${byType[t]} nhóm > ngưỡng ${max}`); } } catch (e) {}
+if (pages < combos.length * 5) { fail++; console.log(`✗ visual-qa: chỉ soát được ${pages} trang (< ${combos.length * 5}) – app không mở được = không có tín hiệu, không được báo xanh (METHODS §4)`); }
 console.log(fail ? `✗ visual-qa: ${fail} loại vượt ngưỡng` : '✓ visual-qa: trong ngưỡng');
 process.exit(fail && !QUICK ? 1 : 0);

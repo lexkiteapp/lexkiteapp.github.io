@@ -72,5 +72,46 @@
   "words": 39,
   "seconds": 24.2,
   "wpm": 97
+ },
+ "publish": {
+  "title": "What does \"body\" mean?",
+  "keyword": "body",
+  "value": "Body means a person's physical self.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=body",
+  "script_words": 33,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"body\" mean?",
+    "description": "Body means a person's physical self.\n\nReview your words, free: https://lexkite.com/app/#/review?w=body\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "body",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"body\" mean?\n\nBody means a person's physical self.\n\nReview your words, free: https://lexkite.com/app/#/review?w=body"
+   },
+   "instagram": {
+    "caption": "What does \"body\" mean?\n\nBody means a person's physical self.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"body\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means a person's physical self. Body means a person's physical self. Try the full lesson and quiz here: {link}"
  }
 }

@@ -72,5 +72,46 @@
   "words": 45,
   "seconds": 27.2,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"advertising\" mean?",
+  "keyword": "advertising",
+  "value": "Advertising means the activity of promoting products through paid messages.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=advertising",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"advertising\" mean?",
+    "description": "Advertising means the activity of promoting products through paid messages.\n\nReview your words, free: https://lexkite.com/app/#/review?w=advertising\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "advertising",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"advertising\" mean?\n\nAdvertising means the activity of promoting products through paid messages.\n\nReview your words, free: https://lexkite.com/app/#/review?w=advertising"
+   },
+   "instagram": {
+    "caption": "What does \"advertising\" mean?\n\nAdvertising means the activity of promoting products through paid messages.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"advertising\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means the activity of promoting products through paid messages. Advertising means the activity of promoting products through paid messages. Practice it with a free quiz: {link}"
  }
 }

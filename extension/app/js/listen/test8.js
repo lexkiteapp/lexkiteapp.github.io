@@ -25,7 +25,7 @@ script: [
 { s: 'B', t: "I was going to say seven, but a lot of people are coming straight from work. Let's make it seven thirty." },
 { s: 'A', t: 'Seven thirty. No problem.' },
 { pause: 1.5 },
-{ say: 'Before you hear the rest of the conversation, you have some time to look at questions 7 to 10.' }, { pause: 3 },
+{ say: g.LTI[3] }, { pause: 3 },
 { s: 'A', t: "Now, food. We offer a cold buffet, a hot buffet, or a sit-down meal." },
 { s: 'B', t: "A sit-down meal feels a bit formal. And November evenings are chilly, so I think the hot buffet would be best." },
 { s: 'A', t: "Good choice. There are always vegetarian dishes in the buffet. Does anyone have other dietary needs?" },
@@ -39,7 +39,7 @@ script: [
 { s: 'A', t: "You're welcome. I'll email you the menu and an invoice for the deposit today." },
 ],
 groups: [
-{ type: 'form', title: 'The Old Granary – Function booking', instr: 'Complete the form below. Write ONE WORD AND/OR A NUMBER for each answer.', limit: 2,
+{ type: 'form', title: 'The Old Granary – Function booking', instr: g.LTI[1], limit: 2,
 items: [
 { n: 1, text: 'Name: Martin ___', a: ['Okafor'], cue: 'O, K, A, F, O, R', explain: 'Họ được đánh vần O-K-A-F-O-R. Câu nghe được: “O, K, A, F, O, R.”' },
 { n: 2, text: 'Occasion: ___ party', a: ['retirement'], cue: "it's really a retirement party", explain: 'Bẫy: mọi người tưởng là tiệc sinh nhật (birthday), thật ra là tiệc nghỉ hưu.' },
@@ -48,7 +48,7 @@ items: [
 { n: 5, text: 'Room: the ___ Room', a: ['Mill'], cue: "So I'd suggest the Mill Room.", explain: 'Garden Room chỉ chứa 40 người – quá nhỏ cho 42 khách.' },
 { n: 6, text: 'Start time: ___ p.m.', a: ['7.30', '7:30', 'seven thirty'], cue: "Let's make it seven thirty.", explain: 'Ban đầu định 7 giờ, nhưng đổi sang 7 giờ 30 vì nhiều người đi làm về.' },
 ] },
-{ type: 'note', title: 'Food and other arrangements', instr: 'Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer.', limit: 2,
+{ type: 'note', title: 'Food and other arrangements', instr: g.LTI[4], limit: 2,
 items: [
 { n: 7, text: 'Food: a ___ buffet', a: ['hot'], cue: 'I think the hot buffet would be best', explain: 'Bữa ngồi bàn quá trang trọng, tiệc nguội không hợp tối tháng 11 lạnh.' },
 { n: 8, text: 'Number of vegan meals needed: ___', a: ['3', 'three'], cue: "we'll need three vegan meals", explain: 'Món chay (vegetarian) luôn có sẵn; cần thêm 3 suất thuần chay (vegan).' },
@@ -91,7 +91,7 @@ script: [
 { s: 'A', t: "We want you to watch, ask questions and learn, so that next time you might be able to fix it yourself." },
 { s: 'A', t: "If you happen to have a spare part, then bring it along, but please don't go out and buy one specially. Our volunteers will tell you if you need anything." },
 { pause: 1.5 },
-{ say: 'Now look at questions 15 to 20.' }, { pause: 3 },
+{ say: g.LTI[5] }, { pause: 3 },
 { s: 'A', t: "Now let me introduce some of our wonderful volunteers, because they really are the heart of the café." },
 { s: 'A', t: "Derek has been with us from the very beginning. He used to look after the bikes, but these days he's our expert on clocks and watches. He's got incredibly steady hands." },
 { s: 'A', t: "Bikes are now handled by Phil, who's a keen cyclist. He can fix anything from a flat tyre to a broken chain." },
@@ -182,7 +182,7 @@ script: [
 { s: 'B', t: "OK, that's another one we disagree on. That should make for a good discussion." },
 ],
 groups: [
-{ type: 'mcq', instr: 'Choose the correct letter, A, B or C.',
+{ type: 'mcq', instr: g.LTI[0],
 items: [
 { n: 21, q: 'What did Tom find most surprising about citizen science?', options: ['how long some projects have existed', 'how accurate volunteers’ data is', 'how many people take part'], a: 0, cue: 'how long some projects have been going', explain: 'Độ chính xác của dữ liệu là điều làm Sophie ngạc nhiên; Tom thấy số người tham gia đúng như dự đoán.' },
 { n: 22, q: 'According to Sophie, why do most volunteers take part?', options: ['to learn new skills', 'to spend time outdoors', 'to contribute to real science'], a: 2, cue: 'they feel part of real science', explain: 'Học kỹ năng là ý của các khảo sát Tom đọc; Sophie cho rằng lý do chính là cảm giác được góp phần vào khoa học thật.' },
@@ -244,7 +244,7 @@ script: [
 { s: 'A', t: "In our next session, we'll compare this with other industries that were wiped out by new technology." },
 ],
 groups: [
-{ type: 'note', title: 'The natural ice trade', instr: 'Complete the notes below. Write ONE WORD ONLY for each answer.', limit: 1,
+{ type: 'note', title: 'The natural ice trade', instr: g.LTI[2], limit: 1,
 items: [
 { n: 31, text: 'Ice was cut in blocks from frozen ___ in New England', a: ['ponds'], cue: 'The ice was cut from frozen ponds in large blocks', explain: 'Băng được cắt thành khối từ các ao (ponds) đóng băng. Câu nghe được: “The ice was cut from frozen ponds in large blocks.”' },
 { n: 32, text: 'Best insulation material: ___', a: ['sawdust'], cue: 'The material that worked best was sawdust', explain: 'Rơm (straw) được thử trước nhưng bị mục khi ẩm.' },

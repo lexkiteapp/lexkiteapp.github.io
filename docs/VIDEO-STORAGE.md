@@ -22,7 +22,7 @@ Duyệt 22/10/2026. Liên quan: `docs/SHORTS-ACCESS.md` (thư viện quản tr�
 2. `drive-shorts.yml` (sau mỗi cine-render + 04:23 UTC): bù tải nếu thiếu → **luật kho** `scripts/video/shorts-archive.mjs` → manifest quản trị lên kho.
 3. Luật kho (giữ dung lượng):
    - clip **đã duyệt / đã đăng / trong hàng chờ YouTube** (`content/video/web/approved.json`, `/api/youtube` op `ids`, `youtube_id`) → master + bìa **2 bản trên 2 Drive khác nhau** (`set_want 2` → `repair` chép phía máy chủ);
-   - clip **chưa duyệt / mẫu thử** → 1 bản; quá **30 ngày** → `retire` (thùng rác Google, Google xoá hẳn sau 30 ngày nữa); công thức + bìa + manifest giữ nguyên, thư viện ghi "dựng lại từ công thức";
+   - clip **chưa duyệt / tạm dừng** → 1 bản, giữ nguyên (từ 04/11/2026 không tự xóa); clip **bị loại** quá **30 ngày** → `retire`, và chỉ khi đọc được danh sách đã duyệt không rỗng (thùng rác Google, Google xoá hẳn sau 30 ngày nữa); công thức + bìa + manifest giữ nguyên, thư viện ghi "dựng lại từ công thức";
    - **cân bằng**: kế hoạch `rebalance` (chênh > 10 %, ví dụ khi nối Drive mới) → áp dụng theo lô ≤ 10 file/≤ 1 GB mỗi lượt, nghỉ 4 s, tối đa 10 lượt/ngày; phần còn lại chạy tiếp lần sau (kế hoạch tính lại từ sổ kho = tiếp tục được).
 4. Thẻ Drive trong Quản trị → Kho Drive: phần dung lượng shorts trên mỗi Drive + "còn chứa ≈ N clip" (≈ 10 MB/master, tới ngưỡng 90 %).
 
@@ -51,3 +51,12 @@ từ workflow video-motion (docs/VIDEO-MOTION.md §Embedded). `LessonVideo.embed
 R2/YouTube (chờ chủ OK). Gác: `lesson-embed.yml` (fixture = artifact `motion-<t>-embed-*`, `scripts/test/lesson-embed-e2e.mjs`).
 
 Kiểm thử: `node scripts/test/shorts-scale.mjs` (công thức tất định, schema manifest, hàng chờ YouTube giả lập, tải resumable, luật kho, sức chứa, mặt tiền jsdom).
+
+## 6. Dọn video rác (5/11) – manifest → cách ly → xoá có chứng minh
+
+`scripts/video/junk.py` (Python stdlib + ffprobe, 1 tiến trình, băm theo nhóm dung lượng – nhẹ cho Mac). Mọi lệnh mặc định dry-run, cần `--apply`.
+- `scan --root <thư viện> --out m.json`: `broken` (ffprobe hỏng / 0 khung / 0 byte) · `dup-sha` (giữ bản cũ nhất/được tham chiếu nhiều nhất) · `failed-qc` (qc*.json `ok=false`/`score<90`, thư mục rejected/red) · `unreferenced` (grep content/docs/scripts/web/infra không thấy). In GB theo lý do.
+- **Không bao giờ là rác**: footage Mei/Kai/Daniel, thư mục bank/nguồn (`green`, `bg`, `chars`, `clips`…), cache render có khoá băm (`render5_shots/`, `*_cache/` – tên file không bao giờ nằm trong repo), mục trong `archive-manifest.json` và sổ đăng ký (`characters.json`, `library*.json`, `bank*.json`) – luật no-cuts.
+- `quarantine --manifest m.json --to <thư mục cùng ổ>` → `<to>/<ngày>/<đường dẫn gốc>` + `restore.json`; `restore --quarantine <to>` trả lại.
+- `purge --quarantine <to> --min-days 7`: chỉ xoá mục ≥ 7 ngày, grep mới vẫn không tham chiếu, và (sha có bản sao lưu: manifest/`--backup-shas` như `shorts/index.json` · HOẶC broken/dup-sha có bản giữ đã kiểm sha). Ghi `purge-log.json` (byte giải phóng).
+- Artifact Actions: `scripts/video/junk-artifacts.mjs` (lượt hỏng / bị thay bản mới **cùng tên đầy đủ + cùng nhánh** – số giữa tên như `t2`/`t4`, `e2e-100` là bản khác, không gộp / tập đã bỏ; không đụng `tv-bank-*` của lượt thành công trên main); workflow `video-junk.yml` (lịch tuần chỉ liệt kê; `apply=true` chạy tay mới xoá). Test: `scripts/test/video-junk.py`.

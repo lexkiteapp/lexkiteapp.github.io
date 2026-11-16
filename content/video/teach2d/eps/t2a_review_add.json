@@ -72,5 +72,46 @@
   "words": 40,
   "seconds": 24.7,
   "wpm": 97
+ },
+ "publish": {
+  "title": "What does \"add\" mean?",
+  "keyword": "add",
+  "value": "Add means to put something with something else.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=add",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"add\" mean?",
+    "description": "Add means to put something with something else.\n\nReview your words, free: https://lexkite.com/app/#/review?w=add\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "add",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"add\" mean?\n\nAdd means to put something with something else.\n\nReview your words, free: https://lexkite.com/app/#/review?w=add"
+   },
+   "instagram": {
+    "caption": "What does \"add\" mean?\n\nAdd means to put something with something else.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"add\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means to put something with something else. Add means to put something with something else. More practice like this (free): {link}"
  }
 }

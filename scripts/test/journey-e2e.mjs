@@ -100,11 +100,13 @@ async function journey(id, name, lang, dev, fn, opts = {}) {
     async go(hash) { await page.evaluate(x => { location.hash = x; }, hash); await sleep(900); },
     /** Hộp "Lên cấp N!" (app.js → modal) bật trễ sau khi cộng XP → che nút đang bấm (J2 en: #cfGo timeout). Người dùng thật bấm "Tuyệt vời!" rồi đi tiếp. */
     async dismissLevelUp() { const b = page.locator('#modal:not([hidden]) #modalBox > .celebrate:has(> .em:text-is("🎖️")) > button[data-close]').first(); if (!(await b.isVisible().catch(() => false))) return false; notes.push('đóng hộp "Lên cấp"'); await b.click({ timeout: 5000 }).catch(() => {}); await page.locator('#modal').waitFor({ state: 'hidden', timeout: 5000 }).catch(() => {}); return true; },
+    /** Tờ mời cài app (js/install-sheet.js) hiện ~6 s sau bài đầu tiên trên điện thoại Android/iPhone → che nút đang bấm. Người dùng thật bấm "Để sau" rồi đi tiếp (docs/INSTALL-GROWTH.md). */
+    async dismissInstall() { const b = page.locator('#modal:not([hidden]) #isNo').first(); if (!(await b.isVisible().catch(() => false))) return false; notes.push('đóng tờ mời cài app'); await b.click({ timeout: 5000 }).catch(() => {}); await page.locator('#modal').waitFor({ state: 'hidden', timeout: 5000 }).catch(() => {}); return true; },
     async click(sel, o = {}) {
       const l = page.locator(sel).first(); await l.waitFor({ state: 'visible', timeout: o.timeout || 10000 }); await l.scrollIntoViewIfNeeded().catch(() => {});
       const end = Date.now() + 20000, inModal = /#modal/.test(sel);
       for (;;) { // chờ tới khi bấm được (tối đa 20 s), mỗi vòng gỡ hộp "Lên cấp" nếu nó vừa bật đè lên
-        if (!inModal) await h.dismissLevelUp();
+        if (!inModal) { await h.dismissLevelUp(); await h.dismissInstall(); }
         try { await l.click({ timeout: 5000 }); break; } catch (e) { if (Date.now() > end) throw new Error(`click ${sel}: ${String(e.message).split('\n')[0]}`); }
       }
       await sleep(o.wait ?? 400);
@@ -151,8 +153,8 @@ async function toLast(h) { for (let i = 0; i < 8 && !(await h.has('#go')); i++) 
 async function setup(h, { test = false } = {}) {
   await h.boot('/welcome/setup', h.q);
   if (await h.has('#noAcct')) await h.click('#noAcct');
-  await h.click('button.trk-opt'); await h.click('#obNext', { wait: 250 });
-  await h.click(test ? '[data-lv="test"]' : '.trk-lv [data-lv]:not([data-lv="test"])');
+  await h.click('[data-track]'); await h.click('#obNext', { wait: 250 });
+  await h.click(test ? '[data-lv="test"]' : '[data-lv]:not([data-lv="test"])');
   await toLast(h);
   await h.click('#go', { wait: 1500 });
 }
@@ -169,7 +171,7 @@ const softAskShown = h => h.has('#modal:not([hidden]) #raY');
 // ---------- 1. Lần đầu: giới thiệu → app → kiểm tra đầu vào → bài đầu tiên → hỏi nhắc học ĐÚNG 1 lần sau bài → từ chối → không bao giờ hỏi lại ----------
 async function j1(h) {
   const { page, lang } = h;
-  await page.goto(`${O}/${lang === 'vi' ? '' : lang + '/'}`, { waitUntil: 'load' });
+  await page.goto(`${O}/${lang}/`, { waitUntil: 'load' });
   const cta = page.locator('[data-cta=start], .ctas a.btn.lg').first()  /* nút chính hero (khung Stitch: data-cta=start) */;
   const href = await cta.getAttribute('href');
   h.ok(href && href.startsWith(`/app/?hl=${lang}#/welcome/setup`), `trang giới thiệu: nút chính trỏ ${href}`);
@@ -181,7 +183,7 @@ async function j1(h) {
   h.ok(!(await softAskShown(h)), 'KHÔNG hỏi nhắc học lúc mở app lần đầu');
   await h.audit('first-load');
   if (await h.has('#noAcct')) await h.click('#noAcct');
-  await h.click('button.trk-opt'); await h.click('#obNext', { wait: 250 }); await h.click('[data-lv="test"]'); await toLast(h); await h.click('#go', { wait: 1500 });
+  await h.click('[data-track]'); await h.click('#obNext', { wait: 250 }); await h.click('[data-lv="test"]'); await toLast(h); await h.click('#go', { wait: 1500 });
   h.ok(/#\/placement/.test(page.url()), 'chọn "kiểm tra đầu vào" → #/placement');
   await h.click('#go', { wait: 600 });
   for (let i = 0; i < 26 && !(await h.has('.pl-result')); i++) { const o = page.locator('.pl-wrap .option[data-k]:not([data-k="-1"])'); if (await o.count()) { await o.nth(i % 2).click().catch(() => {}); } await sleep(520); }
@@ -189,7 +191,7 @@ async function j1(h) {
   h.ok(!(await softAskShown(h)), 'không hỏi nhắc học ngay sau kiểm tra đầu vào (chưa phải bài học)');
   await h.click('.pl-result a[href="#/path"]', { wait: 1200 });
   await h.click('a.path-cta', { wait: 1200 });
-  await h.click('ol.day-steps a[data-step="learn"]', { wait: 1200 });
+  await h.click('.dayv2-steps a[data-step="learn"]', { wait: 1200 });
   h.ok(await learnLesson(h), 'xong bài học đầu tiên (Học từ mới)');
   const stat = await page.locator('#learnStats').textContent().catch(() => '');
   h.ok(!/^\s*0\D/.test(stat || ''), 'học xong mà 0 câu trả lời → không hiện "0 câu trả lời · 0 lần sai": ' + stat);
@@ -213,10 +215,10 @@ async function j1(h) {
   if (await h.has('#again')) { await h.click('#again', { wait: 900 }); await learnLesson(h); await sleep(3500); h.ok(!(await softAskShown(h)), 'bài thứ 2: không hỏi lại'); }
   await h.reload();
   h.ok(!/welcome/.test(page.url()), 'tải lại: không quay về màn chào (đã lưu onboarded)');
-  await h.go('#/day/1'); await h.click('ol.day-steps a[data-step="learn"]', { wait: 1000 }); await learnLesson(h); await sleep(3500);
+  await h.go('#/day/1'); await h.click('.dayv2-steps a[data-step="learn"]', { wait: 1000 }); await learnLesson(h); await sleep(3500);
   h.ok(!(await softAskShown(h)), 'sau tải lại + bài mới: không hỏi lại');
   await h.audit('after-reload');
-  await h.offline('/day/1', () => page.locator('ol.day-steps a[data-step="learn"].ok').count().then(n => n > 0), 'Ngày 1 vẫn ghi "Học từ mới" đã xong');
+  await h.offline('/day/1', async () => { await page.waitForSelector('.dayv2-steps a', { timeout: 10000 }).catch(() => {}); return page.locator('.dayv2-steps a[data-step="learn"].ok').count().then(n => n > 0); }, 'Ngày 1 vẫn ghi "Học từ mới" đã xong');
 }
 
 // ---------- 2. Học viên quay lại: home → ngày lộ trình có ngữ pháp + phát âm → xong → "Tiếp theo" → bài tự tin B2 → nhập vai B2 ----------
@@ -227,28 +229,28 @@ async function j2(h) {
   h.ok(!/welcome/.test(page.url()) && await h.has('#view h1, #view .card'), 'quay lại: vào thẳng trang chủ');
   await h.audit('home');
   await h.go('#/day/1');
-  const gl = await page.locator('ol.day-steps a[data-step="gl"]').count(), pr = await page.locator('ol.day-steps a[data-step="pr"]').count();
+  const gl = await page.locator('.dayv2-steps a[data-step="gl"]').count(), pr = await page.locator('.dayv2-steps a[data-step="pr"]').count();
   h.ok(gl === 1, 'Ngày 1 có bước ngữ pháp (gl)'); h.ok(pr === 1, 'Ngày 1 có bước phát âm (pr)');
   if (gl) {
-    await h.click('ol.day-steps a[data-step="gl"]', { wait: 1200 });
+    await h.click('.dayv2-steps a[data-step="gl"]', { wait: 1200 });
     const u = new URL(page.url()); if (!/view=full/.test(u.hash)) await h.go(u.hash.split('?')[0] + '?view=full');
     const items = page.locator('#gQuiz .q-item');
     for (let i = 0; i < await items.count(); i++) { await items.nth(i).locator('.opts button').first().click().catch(() => {}); await sleep(250); }
     await h.audit('grammar');
     await h.go('#/day/1'); await sleep(600);
-    h.ok(await page.locator('ol.day-steps a[data-step="gl"].ok').count(), 'bước ngữ pháp được đánh dấu xong');
+    h.ok(await page.locator('.dayv2-steps a[data-step="gl"].ok').count(), 'bước ngữ pháp được đánh dấu xong');
   }
   if (pr) {
-    await h.click('ol.day-steps a[data-step="pr"]', { wait: 1200 });
+    await h.click('.dayv2-steps a[data-step="pr"]', { wait: 1200 });
     await h.wait('#view .q-item, #startPairs', 8000);
     const items = page.locator('#view .q-item');
     if (!(await items.count()) && await h.has('#startPairs')) { await h.click('#startPairs', { wait: 900 }); for (let r = 0; r < 10 && !(await h.has('#startPairs2')); r++) { await page.locator('#pairGame .option').first().click().catch(() => {}); await sleep(1100); } }
     for (let i = 0; i < await items.count(); i++) { await items.nth(i).locator('.opts button').first().click().catch(() => {}); await sleep(250); }
     await h.audit('pron');
     await h.go('#/day/1'); await sleep(600);
-    h.ok(await page.locator('ol.day-steps a[data-step="pr"].ok').count(), 'bước phát âm được đánh dấu xong');
+    h.ok(await page.locator('.dayv2-steps a[data-step="pr"].ok').count(), 'bước phát âm được đánh dấu xong');
   }
-  await h.click('ol.day-steps a[data-step="learn"]', { wait: 1000 });
+  await h.click('.dayv2-steps a[data-step="learn"]', { wait: 1000 });
   h.ok(await learnLesson(h), 'xong bước Học từ mới');
   h.ok(await h.wait('.celebrate .path-reward', 6000), 'màn "Tiếp theo" (path-reward) hiện');
   const next = await page.locator('.path-reward a.btn.primary').first().getAttribute('href').catch(() => null);
@@ -278,6 +280,17 @@ async function j2(h) {
     try { await h.go('#/say'); await h.wait('#sayList a', 8000); await h.shot('say-list-dark'); await h.click('#sayList a', { wait: 1200 }); await h.shot('say-front-dark'); await h.click('#sFlip', { wait: 900 }); await h.shot('say-back-dark'); }
     finally { await page.emulateMedia({ colorScheme: 'light' }); }
   } else console.log('⚠ journey: chưa có web/data/say.json (CI say-native.yml chưa dịch xong) – bỏ qua bước Say it like a native');
+  // 🔤 Động từ bất quy tắc (#/irregular): bảng → tờ chi tiết → luyện; sáng + tối (ảnh để soát với ref Stitch irv-*)
+  if (await page.evaluate(() => fetch('js/irv/core.json').then(r => r.ok, () => false))) {
+    await h.go('#/irregular'); await h.wait('#irvList article', 8000);
+    h.ok(await page.locator('#irvList article').count() >= 20, 'Động từ bất quy tắc: bảng có hàng');
+    await h.audit('irregular-table'); await h.shot('irregular-table');
+    await h.go('#/irregular/go'); await h.wait('#irvH', 8000); await h.audit('irregular-detail'); await h.shot('irregular-detail');
+    await h.go('#/irregular/practice'); await h.wait('#irvIn', 8000); await h.audit('irregular-drill'); await h.shot('irregular-drill');
+    await page.emulateMedia({ colorScheme: 'dark' });
+    try { await h.go('#/irregular'); await h.wait('#irvList article', 8000); await h.shot('irregular-table-dark'); await h.go('#/irregular/go'); await h.wait('#irvH', 8000); await h.shot('irregular-detail-dark'); await h.go('#/irregular/practice'); await h.wait('#irvIn', 8000); await h.shot('irregular-drill-dark'); }
+    finally { await page.emulateMedia({ colorScheme: 'light' }); }
+  } else console.log('⚠ journey: chưa có web/js/irv/core.json – bỏ qua bước Động từ bất quy tắc');
   await h.go('#/roleplay/salary');
   const lv = await page.locator('.rp-seg button[aria-pressed="true"]').first().innerText().catch(() => '');
   h.ok(/B2/.test(lv), 'nhập vai: mức chọn sẵn B2 (' + lv + ')');
@@ -291,8 +304,8 @@ async function j2(h) {
   }
   await h.audit('roleplay');
   await h.reload(); await h.go('#/day/1');
-  h.ok(await page.locator('ol.day-steps a.ok').count() >= 1 + (gl ? 1 : 0) + (pr ? 1 : 0), 'tải lại: tiến độ Ngày 1 còn nguyên');
-  await h.offline('/day/1', () => page.locator('ol.day-steps a.ok').count().then(n => n >= 1), 'tiến độ Ngày 1 còn khi mất mạng');
+  h.ok(await page.locator('.dayv2-steps a.ok').count() >= 1 + (gl ? 1 : 0) + (pr ? 1 : 0), 'tải lại: tiến độ Ngày 1 còn nguyên');
+  await h.offline('/day/1', async () => { await page.waitForSelector('.dayv2-steps a', { timeout: 10000 }).catch(() => {}); return page.locator('.dayv2-steps a.ok').count().then(n => n >= 1); }, 'tiến độ Ngày 1 còn khi mất mạng');
 }
 
 // ---------- 3. Ôn tập trộn lật/gõ/nghe + thẻ "câu của bạn" (từ add-on) → điểm lưu → đồng bộ khứ hồi (giả lập) ----------
@@ -387,13 +400,13 @@ async function j4(h) {
 // ---------- 5. Cài đặt nhắc học → tải lại → còn; cờ quảng cáo TẮT → không ô quảng cáo ở đâu cả ----------
 async function j5(h) {
   const { page } = h;
-  await h.boot('/settings');
+  await h.boot('/settings/remind'); // Cài đặt = mục lục + trang con (docs/specs/me-settings-ux.md): ô nhắc học ở #/settings/remind
   if (!(await page.locator('#sRem').isChecked())) await page.locator('#sRem').check();
   const set = async (sel, v) => { await page.locator(sel).fill(v); await page.locator(sel).dispatchEvent('change'); await sleep(250); };
   await set('#sTime', '07:30'); await set('#sQ1', '23:00'); await set('#sQ2', '06:30');
   if (await page.locator('#sTy_week').isChecked()) { await page.locator('#sTy_week').uncheck(); await sleep(250); }
   await h.audit('settings');
-  await h.reload(); await h.go('#/settings');
+  await h.reload(); await h.go('#/settings/remind');
   const v = await page.evaluate(() => ({ t: document.querySelector('#sTime').value, a: document.querySelector('#sQ1').value, b: document.querySelector('#sQ2').value, w: document.querySelector('#sTy_week').checked, d: document.querySelector('#sTy_due').checked, on: document.querySelector('#sRem').checked }));
   h.ok(v.on && v.t === '07:30' && v.a === '23:00' && v.b === '06:30' && !v.w && v.d, 'cài đặt nhắc học còn sau tải lại: ' + JSON.stringify(v));
   const plan = await page.evaluate(() => (JSON.parse(localStorage.getItem('lk.remp') || '[]')).length);
@@ -418,7 +431,7 @@ async function j6(h) {
   await h.click('#crJoin button[type="submit"], #crJoin .btn.primary', { wait: 1500 });
   h.ok(st.cls && st.cls.joined, 'vào lớp bằng mã (API giả lập)');
   h.ok((await h.ls('lk.edu')) === '1', 'đánh dấu tài khoản lớp học (lk.edu)');
-  await h.go('#/day/1'); await h.click('ol.day-steps a[data-step="learn"]', { wait: 1000 });
+  await h.go('#/day/1'); await h.click('.dayv2-steps a[data-step="learn"]', { wait: 1000 });
   h.ok(await learnLesson(h), 'học sinh làm xong 1 bài');
   await sleep(4000);
   h.ok(!(await softAskShown(h)), 'học sinh lớp học: KHÔNG hỏi nhắc học');
@@ -431,6 +444,8 @@ async function j6(h) {
 // ---------- 7. Add-on: tra từ → lưu kèm câu → thẻ tab mới → mở app ----------
 async function j7(lang) {
   const tag = `j7-${lang}`, fails = [], t0 = Date.now(), fail = m => { fails.push(m); console.log(`  ✗ [${tag}] ${m}`); }, ok = (c, m) => (c || fail(m), !!c);
+  // Cờ route fetch từ SW (dòng 27, cần cho J8) làm hỏng SW MV3 của add-on (#416, cùng lý do ext-e2e tắt): lúc xanh 8 s, lúc bảng tra không bao giờ hiện → "shadowRoot của null". Playwright đọc cờ khi tạo SW; J7 chạy tuần tự sau cùng nên tắt riêng ở đây là đủ.
+  const swFlag = process.env.PW_EXPERIMENTAL_SERVICE_WORKER_NETWORK_EVENTS; delete process.env.PW_EXPERIMENTAL_SERVICE_WORKER_NETWORK_EVENTS;
   const EXTD = path.resolve('extension'), prof = fs.mkdtempSync(path.join(os.tmpdir(), 'lkj7-'));
   const ctx = await chromium.launchPersistentContext(prof, { channel: 'chromium', headless: true, locale: LOCALE[lang], viewport: { width: 1280, height: 860 }, args: [`--disable-extensions-except=${EXTD}`, `--load-extension=${EXTD}`, `--lang=${LOCALE[lang]}`] });
   const errs = [];
@@ -440,14 +455,24 @@ async function j7(lang) {
     await ctx.route(/lexkite\.com|googleapis|dictionaryapi|tatoeba|wiktionary|datamuse|mymemory|wikimedia/, r => r.fulfill({ status: 200, contentType: 'application/json', body: '{}' }));
     ctx.on('page', p => p.on('pageerror', e => errs.push('pageerror ' + p.url().slice(0, 80) + ': ' + e.message.slice(0, 90) + ' @ ' + String(e.stack || '').split('\n').slice(1, 3).map(x => x.trim()).join(' ').slice(0, 200))));
     let [sw] = ctx.serviceWorkers(); if (!sw) sw = await ctx.waitForEvent('serviceworker');
+    for (let i = 0; i < 75 && !(await sw.evaluate(() => !!(self.chrome && chrome.storage && chrome.storage.local)).catch(() => false)); i++) await sleep(200); // API add-on gắn sau sự kiện serviceworker
     const base = `chrome-extension://${new URL(sw.url()).host}/`;
+    // SW vừa khởi động có thể chưa gắn chrome.storage (đỏ ngẫu nhiên "reading 'local'" ở 0 s): chờ sẵn sàng rồi mới dùng, hết hạn thì để lỗi thật lộ ra
+    for (let i = 0; i < 50 && !await sw.evaluate(() => !!(globalThis.chrome && chrome.storage && chrome.storage.local)).catch(() => false); i++) await sleep(100);
     await sw.evaluate(l => chrome.storage.local.set({ uiLang: l }), lang);
     await sw.evaluate(() => chrome.storage.local.get('settings').then(({ settings }) => chrome.storage.local.set({ settings: { ...(settings || {}), selectMode: 'icon', dblclickOn: true } })));
     await sleep(1500); for (const p of ctx.pages()) if (p.url().startsWith(base)) await p.close().catch(() => {});
     const pg = await ctx.newPage(); await pg.goto('https://news.example.test/article'); await sleep(1200);
     // boot.js chạy lúc document_idle rồi mới nhờ SW chèn content.js → chờ ĐIỀU KIỆN (bảng tra hiện), nhấp đúp lại nếu lần trước rơi vào lúc mồi chưa gắn
     const popUp = () => pg.waitForFunction(() => { const b = document.querySelector('ielts-lexi-popup')?.shadowRoot?.querySelector('.box'); return !!(b && !b.hidden && b.getBoundingClientRect().height > 0); }, null, { timeout: 8000 }).then(() => true, () => false);
-    for (let i = 0; i < 4; i++) { await pg.locator('#w').dblclick(); if (await popUp()) break; }
+    let shown = false; for (let i = 0; i < 4 && !shown; i++) { await pg.locator('#w').dblclick(); shown = await popUp(); }
+    // Đỏ ngẫu nhiên (1 lần ở #760, ar): bảng tra không hiện mà không pageerror → ghi trạng thái từng khâu để lần sau chỉ thẳng gốc
+    // (mồi boot.js có chạy/tự gỡ không · content.js đã chèn chưa · SW còn trả lkInject · phần tử bảng tra có trong DOM không)
+    if (!shown) {
+      const dom = await pg.evaluate(() => ({ el: !!document.querySelector('ielts-lexi-popup'), sr: !!document.querySelector('ielts-lexi-popup')?.shadowRoot, sel: String(getSelection() || '') })).catch(e => ({ err: e.message }));
+      const iso = await sw.evaluate(async () => { const [t] = await chrome.tabs.query({ url: 'https://news.example.test/*' }); if (!t) return { tab: 0 }; const [r] = await chrome.scripting.executeScript({ target: { tabId: t.id }, func: () => ({ boot: !!window.__lkBoot, off: !!(window.__lkBoot && window.__lkBoot.off), cs: !!window.__lkCS }) }); return { tab: t.id, ...(r && r.result) }; }).catch(e => ({ err: String(e.message || e).slice(0, 120) }));
+      fail('chẩn đoán bảng tra không hiện: ' + JSON.stringify({ dom, iso }));
+    }
     await pg.waitForFunction(() => { const r = document.querySelector('ielts-lexi-popup')?.shadowRoot; return !!(r && r.querySelector('#save') && /\S/.test((r.querySelector('.ctx') || {}).innerText || '')); }, null, { timeout: 15000 }).catch(() => {});
     const pop = () => pg.evaluate(() => { const r = document.querySelector('ielts-lexi-popup')?.shadowRoot; return r ? { box: !!(r.querySelector('.box') && !r.querySelector('.box').hidden), ctx: (r.querySelector('.ctx') || {}).innerText || '', save: !!r.querySelector('#save'), saved: !!(r.querySelector('#save') || {}).disabled } : null; });
     const p1 = await pop();
@@ -473,6 +498,7 @@ async function j7(lang) {
   results.push({ id: 7, name: 'add-on', lang, dev: 'desktop', ok: !fails.length, fails, notes: [], ms: Date.now() - t0 });
   console.log(`${fails.length ? '✗' : '✓'} J7 add-on [${lang}] ${Math.round((Date.now() - t0) / 1000)} s`);
   await ctx.close();
+  if (swFlag) process.env.PW_EXPERIMENTAL_SERVICE_WORKER_NETWORK_EVENTS = swFlag;
 }
 
 

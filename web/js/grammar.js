@@ -1,7 +1,7 @@
 /* Ngữ pháp IELTS: danh sách bài theo chủ điểm, bài học trực quan (dòng thời gian, công thức màu, sơ đồ, thang đo), bài tập có chấm điểm. */
 (function () {
   /*icons*/UI.addIcons('<symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol><symbol id="i-blocks" viewBox="0 0 24 24"><rect width="7" height="7" x="14" y="3" rx="1"/><path d="M10 21V8a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1H3"/></symbol><symbol id="i-scale" viewBox="0 0 24 24"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></symbol><symbol id="i-package" viewBox="0 0 24 24"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/><path d="M12 22V12"/><path d="m3.3 7 7.703 4.734a2 2 0 0 0 1.994 0L20.7 7"/><path d="m7.5 4.27 9 5.15"/></symbol><symbol id="i-paintbrush" viewBox="0 0 24 24"><path d="m14.622 17.897-10.68-2.913"/><path d="M18.376 2.622a1 1 0 1 1 3.002 3.002L17.36 9.643a.5.5 0 0 0 0 .707l.944.944a2.41 2.41 0 0 1 0 3.408l-.944.944a.5.5 0 0 1-.707 0L8.354 7.348a.5.5 0 0 1 0-.707l.944-.944a2.41 2.41 0 0 1 3.408 0l.944.944a.5.5 0 0 0 .707 0z"/><path d="M9 8c-1.804 2.71-3.97 3.46-6.583 3.948a.507.507 0 0 0-.302.819l7.32 8.883a1 1 0 0 0 1.185.204C12.735 20.405 16 16.792 16 15"/></symbol><symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/></symbol><symbol id="i-link-2" viewBox="0 0 24 24"><path d="M9 17H7A5 5 0 0 1 7 7h2"/><path d="M15 7h2a5 5 0 1 1 0 10h-2"/><line x1="8" x2="16" y1="12" y2="12"/></symbol><symbol id="i-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></symbol><symbol id="i-ban" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/></symbol><symbol id="i-hash" viewBox="0 0 24 24"><line x1="4" x2="20" y1="9" y2="9"/><line x1="4" x2="20" y1="15" y2="15"/><line x1="10" x2="8" y1="3" y2="21"/><line x1="16" x2="14" y1="3" y2="21"/></symbol><symbol id="i-scroll-text" viewBox="0 0 24 24"><path d="M15 12h-5"/><path d="M15 8h-5"/><path d="M19 17V5a2 2 0 0 0-2-2H4"/><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"/></symbol><symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol><symbol id="i-tag" viewBox="0 0 24 24"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></symbol><symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol><symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></symbol><symbol id="i-flip-horizontal" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h3"/><path d="M16 3h3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-3"/><path d="M12 20v2"/><path d="M12 14v2"/><path d="M12 8v2"/><path d="M12 2v2"/></symbol><symbol id="i-magnet" viewBox="0 0 24 24"><path d="m6 15-4-4 6.75-6.77a7.79 7.79 0 0 1 11 11L13 22l-4-4 6.39-6.36a2.14 2.14 0 0 0-3-3L6 15"/><path d="m5 8 4 4"/><path d="m12 15 4 4"/></symbol><symbol id="i-calculator" viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></symbol><symbol id="i-handshake" viewBox="0 0 24 24"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></symbol><symbol id="i-equal" viewBox="0 0 24 24"><line x1="5" x2="19" y1="9" y2="9"/><line x1="5" x2="19" y1="15" y2="15"/></symbol><symbol id="i-footprints" viewBox="0 0 24 24"><path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.38c0-2.12 1.03-3.12 1-5.62-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4"/><path d="M4 13h4"/></symbol><symbol id="i-hand" viewBox="0 0 24 24"><path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2"/><path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2"/><path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></symbol><symbol id="i-circle-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol><symbol id="i-diamond" viewBox="0 0 24 24"><path d="M2.7 10.3a2.41 2.41 0 0 0 0 3.41l7.59 7.59a2.41 2.41 0 0 0 3.41 0l7.59-7.59a2.41 2.41 0 0 0 0-3.41l-7.59-7.59a2.41 2.41 0 0 0-3.41 0Z"/></symbol><symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol><symbol id="i-shuffle" viewBox="0 0 24 24"><path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22"/><path d="m18 2 4 4-4 4"/><path d="M2 6h1.9c1.5 0 2.9.9 3.6 2.2"/><path d="M22 18h-5.9c-1.3 0-2.6-.7-3.3-1.8l-.5-.8"/><path d="m18 14 4 4-4 4"/></symbol><symbol id="i-dumbbell" viewBox="0 0 24 24"><path d="M14.4 14.4 9.6 9.6"/><path d="M18.657 21.485a2 2 0 1 1-2.829-2.828l-1.767 1.768a2 2 0 1 1-2.829-2.829l6.364-6.364a2 2 0 1 1 2.829 2.829l-1.768 1.767a2 2 0 1 1 2.828 2.829z"/><path d="m21.5 21.5-1.4-1.4"/><path d="M3.9 3.9 2.5 2.5"/><path d="M6.404 12.768a2 2 0 1 1-2.829-2.829l1.768-1.767a2 2 0 1 1-2.828-2.829l2.828-2.828a2 2 0 1 1 2.829 2.828l1.767-1.768a2 2 0 1 1 2.829 2.829z"/></symbol><symbol id="i-droplet" viewBox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></symbol><symbol id="i-clapperboard" viewBox="0 0 24 24"><path d="M20.2 6 3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3Z"/><path d="m6.2 5.3 3.1 3.9"/><path d="m12.4 3.4 3.1 4"/><path d="M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></symbol><symbol id="i-film" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 3v18"/><path d="M3 7.5h4"/><path d="M3 12h18"/><path d="M3 16.5h4"/><path d="M17 3v18"/><path d="M17 7.5h4"/><path d="M17 16.5h4"/></symbol><symbol id="i-apple" viewBox="0 0 24 24"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"/><path d="M10 2c1 .5 2 2 2 5"/></symbol><symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></symbol><symbol id="i-cloud-fog" viewBox="0 0 24 24"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M16 17H7"/><path d="M17 21H9"/></symbol><symbol id="i-circle-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></symbol><symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><path d="M8.12 8.12 12 12"/><path d="M20 4 8.12 15.88"/><circle cx="6" cy="18" r="3"/><path d="M14.8 14.8 20 20"/></symbol><symbol id="i-triangle-alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol><symbol id="i-umbrella" viewBox="0 0 24 24"><path d="M22 12a10.06 10.06 1 0 0-20 0Z"/><path d="M12 12v8a2 2 0 0 0 4 0"/><path d="M12 2v1"/></symbol><symbol id="i-rewind" viewBox="0 0 24 24"><polygon points="11 19 2 12 11 5 11 19"/><polygon points="22 19 13 12 22 5 22 19"/></symbol><symbol id="i-arrow-left-right" viewBox="0 0 24 24"><path d="M8 3 4 7l4 4"/><path d="M4 7h16"/><path d="m16 21 4-4-4-4"/><path d="M20 17H4"/></symbol><symbol id="i-list-ordered" viewBox="0 0 24 24"><path d="M10 12h11"/><path d="M10 18h11"/><path d="M10 6h11"/><path d="M4 10h2"/><path d="M4 6h1v4"/><path d="M6 18H4c0-1 2-2 2-3s-1-1.5-2-1"/></symbol><symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></symbol>');/*/icons*/
-  const { $, $$, esc, speak, ring } = UI;
+  const { $, $$, esc, speak } = UI;
   const GI = {'🔗': 'link', '🎯': 'target', '🧱': 'brick-wall', '🧩': 'puzzle', '🔁': 'repeat', '🏗': 'blocks', '⚖': 'scale', '🗣': 'message-circle', '🔄': 'refresh-cw', '📦': 'package', '📊': 'chart-column', '👥': 'users', '🎨': 'paintbrush', '🎁': 'gift', '⏳': 'hourglass', '🪢': 'link-2', '🧷': 'paperclip', '🟣': 'circle', '🟢': 'circle', '🔵': 'circle', '🚫': 'ban', '🔮': 'sparkles', '🔤': 'a-large-small', '🔢': 'hash', '🔑': 'key-round', '📜': 'scroll-text', '📍': 'map-pin', '💬': 'message-circle', '🏷': 'tag', '🎩': 'crown', '➡': 'arrow-right', '➕': 'plus', '⚡': 'zap', '⚙': 'settings', '🪞': 'flip-horizontal', '🧲': 'magnet', '🧮': 'calculator', '🧠': 'brain', '🤝': 'handshake', '🟰': 'equal', '🚶': 'footprints', '🚀': 'rocket', '🙋': 'hand', '🙂': 'smile', '😮': 'circle-alert', '🖋': 'pen-line', '🕰': 'clock', '🔹': 'diamond', '🔧': 'wrench', '🔥': 'flame', '🔒': 'lock', '🔍': 'search', '🔊': 'volume-2', '🔀': 'shuffle', '📰': 'newspaper', '📣': 'megaphone', '📢': 'megaphone', '📏': 'ruler', '💭': 'cloud', '💪': 'dumbbell', '💧': 'droplet', '👯': 'users', '👨‍👩‍👧': 'users', '👉': 'arrow-right', '🏠': 'house', '🏃': 'footprints', '🎭': 'smile', '🎬': 'clapperboard', '🎞': 'film', '🎓': 'graduation-cap', '🍎': 'apple', '🍂': 'leaf', '🌫': 'cloud-fog', '🌗': 'sun-moon', '🅰': 'a-large-small', '⬅': 'arrow-left', '❗': 'circle-alert', '❓': 'circle-help', '✒': 'pen-line', '✍': 'pen-line', '✅': 'circle-check', '✂': 'scissors', '⛔': 'ban', '⚠': 'triangle-alert', '☂': 'umbrella', '⏪': 'rewind', '⌛': 'hourglass', '↔': 'arrow-left-right', '3⃣': 'list-ordered', '👀': 'eye', '🕵': 'search', '💡': 'lightbulb', '✏': 'pencil', '📘': 'book-open'}; // emoji dữ liệu bài ngữ pháp → icon Lucide (dữ liệu giữ nguyên, chỉ đổi lúc vẽ)
   const DOT = { '🟣': '#8b5cf6', '🟢': '#16a34a', '🔵': '#2563eb' }; // giữ tín hiệu màu của nhóm phát âm (/ɪd/ /t/ /d/…)
   const gi = e => { const k = String(e == null ? '' : e).replace(/\uFE0F/g, ''), n = GI[k]; const h = UI.icon(n || 'book-open'); return DOT[k] ? h.replace('<svg ', `<svg style="color:${DOT[k]};fill:currentColor" `) : h; };
@@ -20,6 +20,7 @@
 [dir="rtl"] .g-l1{border-left:1px solid var(--line);border-right:4px solid var(--accent);border-radius:14px 0 0 14px}
 ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:not([data-theme="light"])')}}
 @media (max-width:420px){.g-block,.g-visual{padding:.9rem .85rem}.g-hero h1{font-size:1.4rem;line-height:1.25}.fp{font-size:.84rem;padding:.2rem .5rem}.srow{grid-template-columns:84px minmax(0,1fr) 40px}.g-mistake,.g-recap,.g-l1{padding:.7rem .8rem}.unum{width:24px;height:24px}.steps small{font-size:.66rem}}
+.v2s-grammar summary::-webkit-details-marker{display:none}
 @media (forced-colors:active){mark.g-hl{forced-color-adjust:none;background:Mark;color:MarkText}}`;
   const L = () => CHAPTERS.flatMap(c => lessonsOf(c));
   const UNITS = [
@@ -64,59 +65,83 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
   // Ví dụ đánh dấu [[…]] = phần cấu trúc mục tiêu. Tách 1 lần: ex = chữ thuần (đọc, xếp câu, lưu), exm = bản đánh dấu (chỉ để vẽ)
   const prepHL = () => { for (const x of window.GRAMMAR || []) { if (x._hl) continue; x._hl = 1; for (const b of x.blocks || []) for (const o of b.type === 'uses' ? b.items : b.type === 'formula' ? b.rows : b.type === 'ielts' ? [b] : []) if (typeof o.ex === 'string' && o.ex.includes('[[')) { o.exm = o.ex; o.ex = o.ex.replace(/\[\[|\]\]/g, ''); } } };
   prepHL();
+  // Bài rút gọn (x.lazy = tên gói, lazy-a1/c2.js): đủ tên/cấp/tóm tắt để lên danh sách, đếm, tìm; nội dung ở gói grammarA1/grammarC2 → chờ nạp rồi file nguồn thay bài tại chỗ.
+  // loadScript nuốt lỗi mạng (gói báo xong mà bài vẫn rút gọn) → tải lại 1 lần; vẫn hỏng thì ném lỗi, lần bấm sau tải lại tiếp.
+  const stubKeys = ls => [...new Set(ls.map(x => x && x.lazy).filter(Boolean))].filter(k => (window.GRAMMAR || []).some(x => x.lazy === k));
+  const needFull = async ls => {
+    const ks = stubKeys(ls); if (!ks.length) return;
+    await App.lazy(...ks);
+    const miss = stubKeys(ls); if (miss.length) { await Promise.all(miss.map(App.reneed)); if (stubKeys(ls).length) throw new Error('grammar bundle'); }
+    prepHL();
+  };
+  const loading = () => { view.innerHTML = `<div class="skel-page" aria-busy="true" aria-label="${t('Đang tải…')}"><div class="skel skel-h"></div><div class="skel skel-l"></div></div>`; };
+  const loadFail = () => UI.toast(t('Không tải được – thử lại sau'));
   const hx = o => o.exm ? esc(o.exm).replace(/\[\[(.+?)\]\]/g, '<mark class="g-hl">$1</mark>') : esc(o.ex || '');
   // CSS riêng của bài ngữ pháp: nạp cùng gói grammar (tải lười) – không làm nặng khung app (style.css nằm trong SHELL)
   if (!document.getElementById('gCss')) { const st = document.createElement('style'); st.id = 'gCss'; st.textContent = G_CSS; document.head.appendChild(st); }
-  // 🌐 Lỗi hay gặp theo tiếng mẹ đẻ (giao diện ≠ en): js/grammar/l1/<lang>.js, viết tay bằng chính ngôn ngữ đó, tải khi mở bài
-  const L1_LANGS = 'vi es pt fr de id th zh ja ko hi ar ru tr'.split(' ');
+  // 🌐 Lỗi hay gặp theo tiếng mẹ đẻ (giao diện ≠ en): cpack/grammar-l1/<lang>.js, viết tay bằng chính ngôn ngữ đó, tải khi mở bài
+  // đường dẫn viết ĐỦ chữ (build-cpack băm tên + sửa tham chiếu; gói không nêu ở đây = mồ côi → đỏ): thêm ngôn ngữ mới = thêm 1 dòng + 1 tệp
+  const L1_PACK = { vi: 'cpack/grammar-l1/vi.js', es: 'cpack/grammar-l1/es.js', pt: 'cpack/grammar-l1/pt.js', fr: 'cpack/grammar-l1/fr.js', de: 'cpack/grammar-l1/de.js', id: 'cpack/grammar-l1/id.js', th: 'cpack/grammar-l1/th.js', zh: 'cpack/grammar-l1/zh.js', ja: 'cpack/grammar-l1/ja.js', ko: 'cpack/grammar-l1/ko.js', hi: 'cpack/grammar-l1/hi.js', ar: 'cpack/grammar-l1/ar.js', ru: 'cpack/grammar-l1/ru.js', tr: 'cpack/grammar-l1/tr.js' };
   let l1P = null;
-  const loadL1 = () => { const lg = I18N.lang(); if (!L1_LANGS.includes(lg)) return Promise.resolve(null); if (window.GRAMMAR_L1 && GRAMMAR_L1.lang === lg) return Promise.resolve(GRAMMAR_L1);
-    return l1P || (l1P = new Promise(res => { const s = document.createElement('script'); s.src = `js/grammar/l1/${lg}.js`; s.onload = () => res(window.GRAMMAR_L1 && GRAMMAR_L1.lang === lg ? GRAMMAR_L1 : null); s.onerror = () => { l1P = null; res(null); }; document.head.appendChild(s); })); };
+  const loadL1 = () => { const lg = I18N.lang(); if (!L1_PACK[lg]) return Promise.resolve(null); if (window.GRAMMAR_L1 && GRAMMAR_L1.lang === lg) return Promise.resolve(GRAMMAR_L1);
+    return l1P || (l1P = new Promise(res => { const s = document.createElement('script'); s.src = L1_PACK[lg]; s.onload = () => res(window.GRAMMAR_L1 && GRAMMAR_L1.lang === lg ? GRAMMAR_L1 : null); s.onerror = () => { l1P = null; res(null); }; document.head.appendChild(s); })); };
+  // Mục L1: [✗, ✓, vì sao, l1Form?] – l1Form = câu/cấu trúc tiếng mẹ đẻ gây lỗi (“Vì bạn nghĩ theo tiếng …: <câu L1> → "<dịch sát>"”); D.because = nhãn viết bằng chính ngôn ngữ đó
+  const l1It = ([w, r, why, f], D) => `<div class="g-l1-it"><div><span class="bad" role="img" aria-label="${t('Sai')}">✗</span> <s lang="en" dir="ltr">${esc(w)}</s></div>${sayLine(`<span class="good" role="img" aria-label="${t('Đúng')}">✓</span> <b lang="en" dir="ltr">${esc(r)}</b>`, r)}${f && D && D.because ? `<div class="g-l1-form small"><b>${esc(D.because)}</b> ${esc(f)}</div>` : ''}<div class="small muted">${esc(why)}</div></div>`;
   const l1Html = (x, D) => { const ns = D && D.notes[x.id]; if (!ns || !ns.length) return '';
-    return `<section class="g-l1" translate="no" aria-labelledby="gL1h-${esc(x.id)}"><h3 id="gL1h-${esc(x.id)}">${UI.icon('globe')} ${esc(D.title)}</h3>${ns.map(([w, r, why]) => `<div class="g-l1-it"><div><span class="bad" role="img" aria-label="${t('Sai')}">✗</span> <s lang="en" dir="ltr">${esc(w)}</s></div>${sayLine(`<span class="good" role="img" aria-label="${t('Đúng')}">✓</span> <b lang="en" dir="ltr">${esc(r)}</b>`, r)}<div class="small muted">${esc(why)}</div></div>`).join('')}</section>`; };
+    return `<section class="g-l1" translate="no" aria-labelledby="gL1h-${esc(x.id)}"><h3 id="gL1h-${esc(x.id)}">${UI.icon('globe')} ${esc(D.title)}</h3>${ns.map(n => l1It(n, D)).join('')}</section>`; };
+  // Trả lời sai → hiện ghi chú tiếng mẹ đẻ của bài gần câu hỏi nhất (trùng từ tiếng Anh giữa ghi chú ✗/✓ và câu hỏi + đáp án); không trùng → ghi chú đầu bài
+  const l1Words = s => new Set(String(s).toLowerCase().match(/[a-z']{3,}/g) || []);
+  const l1Best = (ns, q) => { const qw = l1Words(q.q + ' ' + q.options.join(' ')); let b = ns[0], bs = -1; for (const n of ns) { let c = 0; for (const w of l1Words(n[0] + ' ' + n[1])) if (qw.has(w)) c++; if (c > bs) { bs = c; b = n; } } return b; };
+  const l1Wrong = (x, q, el) => loadL1().then(D => { const ns = D && D.notes[x.id]; if (!ns || !ns.length || !el.isConnected) return; el.insertAdjacentHTML('beforeend', `<section class="g-l1 g-l1-wa" translate="no"><h3>${UI.icon('globe')} ${esc(D.title)}</h3>${l1It(l1Best(ns, q), D)}</section>`); }).catch(() => {});
   const fillL1 = x => loadL1().then(D => { const slot = document.querySelector(`.g-l1-slot[data-l1="${x.id}"]`); if (slot && !slot.childElementCount) { const h = l1Html(x, D); if (h) { slot.innerHTML = h; App.bindCommon(); } } });
   const l1Slot = x => `<div class="g-l1-slot" data-l1="${esc(x.id)}"></div>`;
 
-  routes.grammar = function (id) {
-    if (id === 'mix') return mix(arguments[1]);
-    if (id) return lesson(id, arguments[1]);
+  // Hub Ngữ pháp: dữ liệu d cho khung Stitch (brand/stitch/v2/grammar-*.html, bind/grammar.json) dựng từ bài thật
+  const FOCUS = { // Tab trọng tâm theo kỳ thi (luyện cấp tốc): chỉ hiện bài & tiến độ của nhóm đã chọn
+    ielts: 'participle-clauses passive-reporting-causative hedging nominalisation inversion-cleft comparison-special numbers-data-language purpose-result reason-contrast relative-clauses conditionals-2-3 parallel-structure punctuation sequence-of-tenses determiners'.split(' '),
+    toeic: 'parts-of-speech-patterns word-formation prepositions dependent-prepositions conjunctions subject-verb-agreement pronouns countable-uncountable adjectives-adverbs tenses-ielts modals-obligation-advice verb-types'.split(' '),
+  };
+  const hubData = (d, gtab) => {
     const all = L();
-    const d = done();
     // Bài nên học tiếp: bài chưa đạt 80% (đang dở) → bài đầu tiên chưa học theo thứ tự chương
     const order = CHAPTERS.flatMap(c => lessonsOf(c).map(x => ({ x, c })));
-    // Tab trọng tâm theo kỳ thi (luyện cấp tốc): chỉ hiện bài & tiến độ của nhóm đã chọn
-    const FOCUS = {
-      ielts: 'participle-clauses passive-reporting-causative hedging nominalisation inversion-cleft comparison-special numbers-data-language purpose-result reason-contrast relative-clauses conditionals-2-3 parallel-structure punctuation sequence-of-tenses determiners'.split(' '),
-      toeic: 'parts-of-speech-patterns word-formation prepositions dependent-prepositions conjunctions subject-verb-agreement pronouns countable-uncountable adjectives-adverbs tenses-ielts modals-obligation-advice verb-types'.split(' '),
-    };
-    let gtab = 'all'; try { gtab = sessionStorage.getItem('g.tab') || 'all'; } catch (e) { /* bỏ qua */ }
-    if (!FOCUS[gtab]) gtab = 'all';
     const nx = order.find(o => d[o.x.id] != null && d[o.x.id] < 80) || order.find(o => d[o.x.id] == null);
     const nDone = Object.keys(d).filter(k => d[k] >= 80).length;
     // Không lẫn tiếng: giao diện tiếng Việt → tên Việt + tên Anh; ngôn ngữ khác → tên đã dịch, chưa dịch thì dùng tên tiếng Anh
-    const vi = I18N.lang() === 'vi', TT = x => vi ? x.title : (t(x.title) !== x.title ? t(x.title) : x.en), SUB = x => vi ? x.en : (TT(x) !== x.en ? x.en : '');
+    const vi = I18N.lang() === 'vi', SUB = x => vi ? x.en : (TTL(x) !== x.en ? x.en : '');
     const SUM = x => vi || t(x.summary) !== x.summary ? t(x.summary) : '';
-    const row = (x, c) => `<a class="g-row" href="#/grammar/${x.id}"><span class="em" aria-hidden="true">${gi(x.emoji)}</span><span class="g-tx"><b>${esc(TT(x))}</b>${SUB(x) ? `<small>${esc(SUB(x))}</small>` : ''}</span>${d[x.id] != null ? `<span class="chip ${d[x.id] >= 80 ? 'ok' : ''}">${d[x.id] >= 80 ? '✓ ' : ''}${d[x.id]}%</span>` : levelChip(x.level)}</a>`;
-    view.innerHTML = `
-      <div class="page-head"><div><h1>${UI.icon('ruler')} ${t('Ngữ pháp')}</h1><p class="muted">${t('{n} bài học trực quan: dòng thời gian, công thức tô màu, sơ đồ biến đổi câu, lỗi người Việt hay mắc và bài tập chấm điểm ngay.', { n: all.length })}</p></div>
-        ${ring(all.length ? nDone / all.length * 100 : 0, `${nDone}/${all.length}`, 'var(--good)')}</div>
-      ${nx ? `<a class="card hover hub-hero" href="#/grammar/${nx.x.id}"><span class="hub-ic" aria-hidden="true">${gi(nx.x.emoji)}</span><span class="hub-tx"><small>${d[nx.x.id] != null ? t('Làm lại cho chắc · lần trước {pct}%', { pct: d[nx.x.id] }) : t('Bài tiếp theo')} · ${t('Chương {n}', { n: nx.c.n })}</small><b>${esc(TT(nx.x))}</b>${SUM(nx.x) ? `<small>${esc(SUM(nx.x))}</small>` : ''}</span><span class="btn primary sm">${t('Học ngay')} →</span></a>` : ''}
-      <div class="tabs seg g-tabs" id="gTabs" role="tablist">${[['all', t('Tất cả {n} bài', { n: all.length })], ['ielts', UI.icon('graduation-cap') + ' ' + t('Trọng tâm IELTS 7.0+')], ['toeic', UI.icon('briefcase') + ' ' + t('Bí kíp TOEIC Part 5 & 6')]].map(([k, l]) => `<button type="button" role="tab" aria-selected="${gtab === k}" class="${gtab === k ? 'on' : ''}" data-gt="${k}">${l}</button>`).join('')}</div>
-      ${gtab !== 'all' ? (() => { const ls = FOCUS[gtab].map(id => all.find(x => x.id === id)).filter(Boolean), dn = ls.filter(x => d[x.id] >= 80).length; return `<div class="card g-focus"><div class="row between" style="margin-bottom:.6rem"><b>${gtab === 'ielts' ? UI.icon('graduation-cap') + ' ' + t('Trọng tâm IELTS 7.0+') : UI.icon('briefcase') + ' ' + t('Bí kíp TOEIC Part 5 & 6')}</b>${ring(ls.length ? dn / ls.length * 100 : 0, `${dn}/${ls.length}`, 'var(--good)')}</div><div class="g-list">${ls.map(x => row(x, chapterOf(x.id))).join('')}</div></div>`; })() : `<div class="g-chapters">${CHAPTERS.map(c => {
-        const ls = lessonsOf(c); if (!ls.length) return '';
-        const dn = ls.filter(x => d[x.id] >= 80).length, open = nx && nx.c === c;
-        return `<details class="g-chap" id="chap${c.n}" ${open ? 'open' : ''} style="--cc:${c.color}"><summary><span class="em" aria-hidden="true">${gi(c.emoji)}</span><span class="g-tx"><b>${t('Chương {n}', { n: c.n })} · ${esc(t(c.name))}</b><small>${esc(t(c.desc))}</small></span><span class="g-prog"><span class="small muted">${dn}/${ls.length}</span><span class="progress thin"><i style="width:${dn / ls.length * 100}%"></i></span></span></summary>
-          <div class="g-list">${ls.map(x => row(x, c)).join('')}<a class="g-row g-test" href="#/grammar/mix?ch=${c.n}"><span class="em" aria-hidden="true">${UI.icon('file-pen')}</span><span class="g-tx"><b>${t('Kiểm tra chương')}</b><small>${t('Trộn câu hỏi của cả chương')}</small></span><span aria-hidden="true">›</span></a></div></details>`;
-      }).join('') || `<div class="card empty"><div class="em">${UI.icon('ruler')}</div>${t('Đang cập nhật bài học…')}</div>`}</div>`}
-      <h3 class="set-h hub-h">${UI.icon('file-pen')} ${t('Kiểm tra tổng hợp')}</h3>
-      <div class="hub-grid"><a class="card hover hub-card" href="#/grammar/mix"><span class="hub-ic" aria-hidden="true">${UI.icon('shuffle')}</span><span class="hub-tx"><b>${t('Đề tổng hợp {n} câu', { n: 20 })}</b><small>${t('Trộn câu hỏi từ các bài đã học (hoặc mọi bài)')}</small></span></a>
-        <a class="card hover hub-card" href="#/grammar/mix?n=40"><span class="hub-ic" aria-hidden="true">${UI.icon('flag')}</span><span class="hub-tx"><b>${t('Đề tổng hợp {n} câu', { n: 40 })}</b><small>${t('Ôn toàn bộ chương trình – như bài thi cuối khóa')}</small></span></a></div>
-      <h3 class="set-h hub-h">🧰 ${t('Công cụ ngữ pháp')}</h3>
-      <div class="hub-grid"><a class="card hover hub-card" href="#/verb"><span class="hub-ic" aria-hidden="true">${UI.icon('a-large-small')}</span><span class="hub-tx"><b>${t('Chia động từ')}</b><small>${t('Mọi thì, bị động, cách đọc -ed/-s')}</small></span></a>
-        <a class="card hover hub-card" href="#/fix"><span class="hub-ic" aria-hidden="true">${UI.icon('pen-line')}</span><span class="hub-tx"><b>${t('Sửa ngữ pháp')}</b><small>${t('Dán đoạn văn – gạch chân lỗi, sửa 1 chạm')}</small></span></a></div>`;
-    $$('[data-gt]').forEach(b => b.onclick = () => { try { sessionStorage.setItem('g.tab', b.dataset.gt); } catch (e) { /* bỏ qua */ } routes.grammar(); });
+    const nb = s => String(s).replace(/(^|[\s(,])-(?=\w)/g, '$1\u2011').replace(/, (?=\u2011)/g, ',\u00a0').replace(/(\S) ([/·&]) (?=\S)/g, '$1\u00a0$2\u00a0'); // chỉ dữ liệu hiển thị: "-ed, -ing", "am / is / are", "A & B", "Chương N · tên" không bị tách dòng (360 px)
+    const row = x => ({ id: x.id, href: '#/grammar/' + x.id, t: nb(TTL(x)), s: SUB(x), lv: x.level || '', pct: d[x.id] != null ? d[x.id] : null });
+    const grp = (id, h, desc, ls, open, extra, eyebrow) => { const dn = ls.filter(x => d[x.id] >= 80).length; return { id, h, eyebrow: eyebrow || '', desc, dn, total: ls.length, cnt: t('{done}/{n} bài đã đạt', { done: dn, n: ls.length }), pct: Math.round(dn / ls.length * 100), open, rows: ls.map(row).concat(extra || []) }; };
+    const lbl = { all: t('Tất cả {n} bài', { n: all.length }), ielts: t('Trọng tâm IELTS 7.0+'), toeic: t('Bí kíp TOEIC Part 5 & 6') }, short = { all: lbl.all, ielts: 'IELTS 7.0+', toeic: 'TOEIC' }; // chip ngắn như mẫu (tên kỳ thi giữ nguyên mọi ngôn ngữ); tên đầy đủ ở tiêu đề thẻ nhóm
+    let ch;
+    if (gtab !== 'all') ch = [grp('gFocus', lbl[gtab], '', FOCUS[gtab].map(id => all.find(x => x.id === id)).filter(Boolean), true)];
+    else ch = CHAPTERS.map(c => { const ls = lessonsOf(c); return ls.length ? grp('chap' + c.n, nb(t(c.name)), t(c.desc), ls, !!(nx && nx.c === c), [{ test: true, href: '#/grammar/mix?ch=' + c.n, t: t('Kiểm tra chương'), s: t('Trộn câu hỏi của cả chương') }], t('Chương {n}', { n: c.n })) : null; }).filter(Boolean);
+    const card = (href, h, s) => ({ href, t: h, s });
+    return {
+      title: t('Ngữ pháp'), sub: t('{n} bài học trực quan', { n: all.length }), pct: all.length ? Math.round(nDone / all.length * 100) : 0, prog: t('{done}/{n} bài đã đạt', { done: nDone, n: all.length }), cta: t('Học ngay'),
+      nx: nx && { href: '#/grammar/' + nx.x.id, h: nb(TTL(nx.x)), sub: [t('Bài tiếp theo'), t('{n} bài học trực quan', { n: all.length }), d[nx.x.id] != null ? t('Làm lại cho chắc · lần trước {pct}%', { pct: d[nx.x.id] }) : '', t('Chương {n}', { n: nx.c.n }), SUM(nx.x)].filter(Boolean).join(' · ') },
+      chips: ['all', 'ielts', 'toeic'].map(k => ({ k, l: short[k], t: lbl[k], on: gtab === k })),
+      ch: ch.length ? ch : [{ empty: true, h: t('Đang cập nhật bài học…') }],
+      cards: [card('#/grammar/mix', t('Đề tổng hợp {n} câu', { n: 20 }), t('Trộn câu hỏi từ các bài đã học (hoặc mọi bài)')), card('#/grammar/mix?n=40', t('Đề tổng hợp {n} câu', { n: 40 }), t('Ôn toàn bộ chương trình – như bài thi cuối khóa')),
+        card('#/irregular', t('Động từ bất quy tắc'), t('Mở bảng động từ bất quy tắc')), card('#/verb', t('Chia động từ'), t('Mọi thì, bị động, cách đọc -ed/-s')), card('#/fix', t('Sửa ngữ pháp'), t('Dán đoạn văn – gạch chân lỗi, sửa 1 chạm'))],
+    };
   };
-  const levelChip = l => l ? `<span class="chip lv ${esc(l)}">${esc(l)}</span>` : '';
+  routes.grammar = function (id, q, keepFocus) {
+    if (id === 'mix') return mix(q);
+    if (id) return lesson(id, q);
+    let gtab = 'all'; try { gtab = sessionStorage.getItem('g.tab') || 'all'; } catch (e) { /* bỏ qua */ }
+    if (!FOCUS[gtab]) gtab = 'all';
+    const root = ST2.mount(view, 'grammar', hubData(done(), gtab), null);
+    document.body.classList.remove('st', 'v2on'); // khung "inner": giữ thanh trên (Back) + 5 tab + lề #view chung của app (cùng cách tab Từ vựng) – ST2.mount bật st + v2on
+    root.querySelectorAll('details[data-open="1"]').forEach(x => { x.open = true; }); // chương nên học tiếp mở sẵn (thuộc tính open không gắn được theo dữ liệu)
+    root.addEventListener('click', e => {
+      const b = e.target.closest && e.target.closest('[data-gt],[data-gh]'); if (!b) return;
+      if (b.dataset.gh) { if (history.length > 1) history.back(); else location.hash = '#/skills'; return; }
+      try { sessionStorage.setItem('g.tab', b.dataset.gt); } catch (er) { /* bỏ qua */ } routes.grammar(null, null, true);
+    });
+    if (keepFocus) { const on = root.querySelector('[data-gt][aria-pressed="true"]'); if (on) on.focus(); } // vẽ lại cả trang khi đổi tab → trả tiêu điểm bàn phím về viên vừa chọn
+  };
 
   // ---------- Các khối hiển thị ----------
   function timeline(b) {
@@ -153,8 +178,9 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
   function mix(query) {
     const ch = query && +query.get('ch'), n = (query && +query.get('n')) || 20;
     const chap = ch && CHAPTERS.find(c => c.n === ch);
-    const all = chap ? lessonsOf(chap) : L(), d = done();
-    const pool = (!chap && Object.keys(d).length >= 3 ? all.filter(x => d[x.id] != null) : all).flatMap(x => [...x.quiz.map(q => ({ q, x })), ...drillsOf(x).map(d => ({ d, x }))]);
+    const all = chap ? lessonsOf(chap) : L(), d = done(), pick = !chap && Object.keys(d).length >= 3 ? all.filter(x => d[x.id] != null) : all;
+    if (pick.some(x => x.lazy)) { loading(); return needFull(pick).then(() => mix(query), () => { loadFail(); routes.grammar(); }); }
+    const pool = pick.flatMap(x => [...x.quiz.map(q => ({ q, x })), ...drillsOf(x).map(d => ({ d, x }))]);
     const qs = UI.shuffle(pool).slice(0, n);
     let i = 0, right = 0;
     const next = () => {
@@ -176,7 +202,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
           $('#nx').onclick = () => { i++; next(); }; $('#nx').focus();
         };
         if (d.t === 'error') $$('.dr-part', item).forEach(b => b.onclick = () => { if (!item.dataset.locked) done(gradeDrill(item, d, +b.dataset.j)); });
-        else { const go = () => { if (!item.dataset.locked) done(gradeDrill(item, d)); }; $('.dr-chk', item).onclick = go; const inp = $('.dr-in', item); inp.focus(); inp.addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); go(); } }); }
+        else { const go = () => { if (!item.dataset.locked) done(gradeDrill(item, d, null, x)); }; $('.dr-chk', item).onclick = go; const inp = $('.dr-in', item); inp.focus(); inp.addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); go(); } }); }
         return;
       }
       view.innerHTML = `<div class="study-wrap"><div class="study-top"><a class="icon-btn" href="#/grammar">✕</a><div class="progress"><i style="width:${i / qs.length * 100}%"></i></div><span class="small muted">${i + 1}/${qs.length}</span></div>
@@ -226,6 +252,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
       if (!ok && App.logMistake) App.logMistake({ kind: 'grammar', q: q.q, answer: q.options[q.answer], given: q.options[+btn.dataset.v], explain: q.explain, ref: x.id });
       const ex = $('[data-explain]', item); ex.hidden = false; ex.innerHTML = ok ? `${UI.icon('circle-check')} ${esc(q.explain)}` : `❌ ${t('Bạn chọn:')} <s>${esc(q.options[+btn.dataset.v])}</s> · ${t('Đáp án: <b>{a}</b>', { a: esc(q.options[q.answer]) })}<div>${esc(q.explain)}</div>`;
       xcGram(x, q, ok, q.options[+btn.dataset.v], ex);
+      if (!ok) l1Wrong(x, q, ex);
       const nextItem = item.nextElementSibling; if (nextItem && nextItem.classList.contains('q-item')) setTimeout(() => nextItem.scrollIntoView({ behavior: 'smooth', block: 'center' }), 500);
       if (answered === x.quiz.length) {
         const pct = Math.round(right / x.quiz.length * 100);
@@ -248,7 +275,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
       ${m ? `<div class="small" style="margin-top:.4rem"><span class="bad" role="img" aria-label="${t('Sai')}">✗</span> <s lang="en">${esc(m.wrong)}</s> → <span class="good" role="img" aria-label="${t('Đúng')}">✓</span> <b lang="en">${esc(m.right)}</b></div>` : ''}</div>`;
   }
   // ---------- Bài tập tự luận: chia động từ, dạng từ, điền từ, viết lại câu, nối câu, tìm lỗi sai ----------
-  const dkind = k => { const K = { verb: UI.icon('a-large-small') + ' ' + t('Chia động từ'), form: '🧬 ' + t('Dạng đúng của từ'), fill: UI.icon('pencil') + ' ' + t('Điền từ'), rewrite: UI.icon('repeat') + ' ' + t('Viết lại câu'), combine: '🔗 ' + t('Nối câu'), error: '🕵️ ' + t('Tìm lỗi sai') }; return K[k] || K.fill; };
+  const dkind = k => { const K = { verb: UI.icon('a-large-small') + ' ' + t('Chia động từ'), form: '🧬 ' + t('Dạng đúng của từ'), fill: UI.icon('pencil') + ' ' + t('Điền từ'), rewrite: UI.icon('repeat') + ' ' + t('Viết lại câu'), combine: '🔗 ' + t('Nối câu'), error: '🕵️ ' + t('Tìm lỗi sai'), own: '💬 ' + t('Tự đặt câu') }; return K[k] || K.fill; };
   const dnorm = s => ' ' + String(s || '').toLowerCase().replace(/[’‘`]/g, "'").replace(/won't/g, 'will not').replace(/can't|can not/g, 'cannot').replace(/n't\b/g, ' not').replace(/'re\b/g, ' are').replace(/'ve\b/g, ' have').replace(/'ll\b/g, ' will').replace(/'m\b/g, ' am')
     .replace(/[.,!?;:"“”()]/g, ' ').replace(/\s+/g, ' ').trim() + ' ';
   // Chuẩn hóa thêm: chính tả Anh–Mỹ (-ize/-ise), "per cent"/"percent" → "%"
@@ -266,13 +293,34 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
   function drillItem(d, k) {
     const head = `<span class="chip" style="font-size:.75rem">${dkind(d.t)}</span>`;
     if (d.t === 'error') return `<div class="q-item dr" data-d="${k}">${head}<div class="dr-q" style="margin:.5rem 0;font-size:1.05rem;line-height:2">${d.parts.map((p, j) => `<button class="dr-part" data-j="${j}"><u>${esc(p)}</u><sub>${'ABCD'[j] || j + 1}</sub></button>`).join(' ')}</div><div class="small muted">${t('Bấm vào phần sai.')}</div><div class="small" data-fb hidden aria-live="polite"></div></div>`;
+    // 💬 Tự đặt câu (drills-own.js): câu thật về bản thân, chấm theo cấu trúc của bài (GRAMMAR_CHECK) chứ không theo một đáp án
+    if (d.t === 'own') return `<div class="q-item dr" data-d="${k}">${head}<div style="margin:.5rem 0" lang="en">${esc(d.q)}</div>${d.hint ? `<div class="small muted">${t('Gợi ý')}: <span lang="en">${esc(d.hint)}</span></div>` : ''}<textarea class="dr-in" rows="2" spellcheck="true" lang="en" placeholder="${t('Viết câu của bạn…')}"></textarea><div class="tiny muted">${t('Câu của bạn có thể khác câu mẫu: máy chỉ kiểm bạn đã dùng đúng cấu trúc của bài.')}</div><div class="row" style="margin-top:.4rem"><button class="btn sm primary dr-chk">${t('Kiểm tra')}</button></div><div class="small" data-fb hidden aria-live="polite"></div></div>`;
     const long = d.t === 'rewrite' || d.t === 'combine';
     const q = long ? `<div style="margin:.5rem 0">${esc(d.q)}${d.hint ? ` <span class="muted small">(${esc(d.hint)})</span>` : ''}</div><textarea class="dr-in" rows="2" spellcheck="false" placeholder="${t('Viết câu của bạn…')}">${esc(d.start ? d.start + ' ' : '')}</textarea>`
       : `<div style="margin:.5rem 0;line-height:2.2">${esc(d.q).replace('___', `<input class="dr-in gap" size="14" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="${esc(t('Điền từ'))}">`)}</div>`;
     return `<div class="q-item dr" data-d="${k}">${head}${q}<div class="row" style="margin-top:.4rem"><button class="btn sm primary dr-chk">${t('Kiểm tra')}</button></div><div class="small" data-fb hidden aria-live="polite"></div></div>`;
   }
+  // Chấm câu tự đặt (t: 'own') bằng mẫu nhận diện cấu trúc của bài x (GRAMMAR_CHECK + VBStruct) – cùng luật với Thử thách tự đặt câu
+  function gradeOwn(item, d, x) {
+    const fb = $('[data-fb]', item), inp = $('.dr-in', item), given = inp.value.trim().replace(/\s+/g, ' ');
+    if (!given) return null;
+    if (given.split(' ').length < 4 || !/[a-z]/i.test(given)) { fb.hidden = false; fb.textContent = t('Hãy viết một câu hoàn chỉnh (ít nhất 4 từ).'); return null; }
+    const gc = x && (window.GRAMMAR_CHECK || {})[x.id], m = gc ? given.match(new RegExp(gc[0], 'iu')) : null;
+    const st = !m && x && window.VBStruct ? VBStruct.analyze(given, 20).find(r => r.lesson === x.id) : null;
+    const hit = m ? m[0] : st ? st.match : '', ok = gc ? !!hit : matchAnswer(given, d.a), answer = d.a[0];
+    const i = hit ? given.toLowerCase().indexOf(hit.toLowerCase()) : -1;
+    const marked = i >= 0 ? esc(given.slice(0, i)) + `<mark class="g-ok">${esc(given.slice(i, i + hit.length))}</mark>` + esc(given.slice(i + hit.length)) : esc(given);
+    inp.classList.toggle('ok', ok); inp.classList.toggle('no', !ok); inp.readOnly = true;
+    const c = $('.dr-chk', item); if (c) c.remove();
+    item.dataset.locked = 1; fb.hidden = false;
+    fb.innerHTML = `${ok ? `<div lang="en">${marked}</div>${UI.icon('circle-check')} <b>${t('Tuyệt! Bạn đã dùng đúng cấu trúc của bài.')}</b>` : `❌ ${t('Chưa thấy cấu trúc của bài trong câu.')}${gc ? ` ${t('Công thức')}: <b translate="no">${esc(gc[1])}</b>` : ''}`}
+      <div class="muted">${t('Câu mẫu:')} <span lang="en">${esc(answer)}</span></div>${d.ex ? `<div class="muted">${esc(d.ex)}</div>` : ''}`;
+    Sfx.answer(ok, { el: item, answer });
+    return { ok, given, answer };
+  }
   // Chấm 1 câu, trả về true/false (null nếu chưa làm)
-  function gradeDrill(item, d, picked) {
+  function gradeDrill(item, d, picked, x) {
+    if (d.t === 'own') return gradeOwn(item, d, x);
     const fb = $('[data-fb]', item);
     let ok, given, answer, typoR = null;
     if (d.t === 'error') {
@@ -320,7 +368,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
       const meta = r => r && Object.assign(r, { q: d.t === 'error' ? d.parts.join(' ') : d.q, ex: d.ex });
       if (d.t === 'error') $$('.dr-part', item).forEach(b => b.onclick = () => { if (!item.dataset.locked) after(meta(gradeDrill(item, d, +b.dataset.j))); });
       else {
-        const go = () => { if (!item.dataset.locked) after(meta(gradeDrill(item, d))); };
+        const go = () => { if (!item.dataset.locked) after(meta(gradeDrill(item, d, null, x))); };
         $('.dr-chk', item).onclick = go;
         $('.dr-in', item).addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); go(); } });
       }
@@ -332,6 +380,8 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
       <p style="margin:.6rem 0 0;opacity:.95">${esc(x.summary)}</p></div>`;
 
   function lesson(id, query) {
+    const st = L().find(x => x.id === id);
+    if (st && st.lazy) { loading(); return needFull([st]).then(() => lesson(id, query), () => { loadFail(); routes.grammar(); }); }
     prepHL();
     if (query && query.get('view') === 'full') return lessonFull(id);
     return lessonSteps(id);
@@ -400,7 +450,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
     // Câu dùng cho bài "xếp chữ": lấy từ ví dụ trong bài, 5–12 từ
     const sents = [...formulas.flatMap(f => f.rows.map(r => r.ex)), ...uses.flatMap(u => u.items.map(it => it.ex))]
       .filter(Boolean).filter(t => { const n = tokenize(t).length; return n >= 5 && n <= 12; });
-    const builds = UI.shuffle([...new Set(sents)]).slice(0, 3);
+    const builds = UI.shuffle([...new Set(sents)]).slice(0, 3), WPICK = 'border:2px solid var(--line);cursor:pointer;font-size:.95rem;padding:.35rem .7rem';
     const steps = [];
     steps.push({ name: t('Hình dung'), em: '👀', html: () => `${visual.map(b => R[b.type](b)).join('') || ''}<div class="g-tip" style="margin-top:1rem">🧠 <b>${t('Ghi nhớ:')}</b> ${esc(x.summary)}</div>` });
     if (formulas.length && formulas[0].rows[0]) steps.push({ name: t('Ghép công thức'), em: '🧮', html: () => {
@@ -422,20 +472,21 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
     if (mistakes.length) steps.push({ name: t('Bắt lỗi'), em: '🕵️', html: () => `<div class="stack"><div class="small muted">${t('Đọc câu sai, tự tìm lỗi trong đầu rồi bấm để kiểm tra – cách nhớ lâu nhất là tự phát hiện.')}</div>${mistakes.map((m, k) => `<div class="g-mistake"><div><span class="bad" role="img" aria-label="${t('Sai')}">✗</span> <span lang="en">${esc(m.wrong)}</span></div><button class="btn sm" data-reveal="${k}" style="margin-top:.5rem">${UI.icon('search')} ${t('Tôi đã tìm ra lỗi – xem đáp án')}</button><div data-ans="${k}" hidden style="margin-top:.4rem" aria-live="polite"><div><span class="good" role="img" aria-label="${t('Đúng')}">✓</span> <b lang="en">${esc(m.right)}</b></div><div class="small muted">${esc(m.why)}</div></div></div>`).join('')}${l1Slot(x)}</div>`,
       bind: () => $$('[data-reveal]').forEach(b => b.onclick = () => { $(`[data-ans="${b.dataset.reveal}"]`).hidden = false; b.remove(); Sfx.flip(); }) });
     if (builds.length) steps.push({ name: t('Xếp câu'), em: '🧩', html: () => `<div class="stack">${builds.map((s, k) => `<div class="g-block" data-build="${k}"><h3>🧩 ${t('Xếp các từ thành câu đúng')}</h3><div class="build-slot" data-slot="${k}"></div>
-        <div class="row" data-pool="${k}" style="margin-top:.6rem">${UI.shuffle(tokenize(s).map((w, j) => ({ w, j }))).map(({ w, j }) => `<button class="chip wpick" data-j="${j}" style="border:2px solid var(--line);cursor:pointer;font-size:.95rem;padding:.35rem .7rem">${esc(w)}</button>`).join('')}</div>
+        <div class="row" data-pool="${k}" style="margin-top:.6rem">${UI.shuffle(tokenize(s).map((w, j) => ({ w, j }))).map(({ w, j }) => `<button type="button" class="chip wpick" data-i="${j}" style="${WPICK}">${esc(w)}</button>`).join('')}</div>
         <div class="row" style="margin-top:.6rem"><button class="btn sm" data-undo="${k}">↺ ${t('Làm lại')}</button><span class="small" data-msg="${k}"></span></div></div>`).join('')}</div>`,
       bind: () => builds.forEach((s, k) => {
-        const words = tokenize(s); let built = [];
+        const words = tokenize(s); let built = [], done = false;
         const pool = $(`[data-pool="${k}"]`), slot = $(`[data-slot="${k}"]`), msg = $(`[data-msg="${k}"]`);
         const check = () => {
           if (built.length < words.length) return;
           const ok = built.map(j => words[j]).join(' ') === words.join(' ');
           msg.innerHTML = ok ? `${UI.icon('circle-check')} <b>${t('Chính xác!')}</b>` : `❌ ${t('Đáp án: <i>{a}</i>', { a: esc(s) })}`; Sfx.answer(ok, { el: slot, answer: s });
           if (ok) UI.speak(s, state.settings.accent);
-          slot.classList.add(ok ? 'ok' : 'no');
+          slot.classList.add(ok ? 'ok' : 'no'); done = true;
         };
-        $$('.wpick', pool).forEach(b => b.onclick = () => { built.push(+b.dataset.j); slot.insertAdjacentHTML('beforeend', `<span class="chip" style="font-size:.95rem;padding:.35rem .7rem">${esc(b.textContent)}</span>`); b.hidden = true; Sfx.pop(); check(); });
-        $(`[data-undo="${k}"]`).onclick = () => { built = []; slot.innerHTML = ''; slot.className = 'build-slot'; msg.textContent = ''; $$('.wpick', pool).forEach(b => b.hidden = false); };
+        const draw = () => { slot.innerHTML = built.map(j => `<button type="button" class="chip wpick" data-a="${j}" style="${WPICK}">${esc(words[j])}</button>`).join(''); };
+        const arr = WordArrange.bind({ ans: slot, bank: pool, sel: '.wpick', scope: slot.closest('[data-build]'), get: () => built, set: o => { built = o; }, draw, locked: () => done, word: j => words[j], t, onPlace: () => Sfx.pop(), onChange: check });
+        $(`[data-undo="${k}"]`).onclick = () => { built = []; done = false; slot.classList.remove('ok', 'no'); msg.textContent = ''; arr.reset(); };
       }) });
     if (drillsOf(x).length) steps.push({ name: t('Tự luận'), em: '✍️', html: () => drillsHtml(x), bind: () => bindDrills(x) });
     steps.push({ name: t('Luyện tập'), em: '✏️', html: () => quizHtml(x), bind: () => bindQuiz(x, next, () => lessonSteps(id)) });

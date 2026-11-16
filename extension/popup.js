@@ -22,7 +22,7 @@
     'Mặc định chữ chỉ được soát ngay trên máy. Kiểm nâng cao gửi chữ trong ô bạn đang gõ tới LanguageTool. Không bao giờ soát ô mật khẩu, email, thẻ thanh toán và trang ngân hàng.': 'By default your text is checked on your device only. Advanced check sends the text of the box you are typing in to LanguageTool. Password, email and payment card fields and banking sites are never checked.',
     'Mở trên điện thoại (mã QR)': 'Open on phone (QR code)', 'Báo cáo sự cố': 'Report a problem', 'Không tìm thấy “{q}”.': 'No results for “{q}”.', ' Dịch: <b>{vi}</b>': ' Translation: <b>{vi}</b>', 'Chính sách quyền riêng tư': 'Privacy policy', 'Quét bằng camera điện thoại để học:': 'Scan with your phone camera to study:',
   };
-  const hk = s => { let x = 0x811c9dc5; for (let i = 0; i < s.length; i++) { x ^= s.charCodeAt(i); x = Math.imul(x, 0x01000193); } return '_' + (x >>> 0).toString(36); }; // = hk của web/js/i18n.js (gói ngôn ngữ khóa băm, scripts/lib/i18n-pack.mjs)
+  const hk = s => { let x = 0x811c9dc5; for (let i = 0; i < s.length; i++) { x ^= s.charCodeAt(i); x = Math.imul(x, 0x01000193); } return '_' + ((x >>> 0) % 1679616).toString(36); }; // = hk của web/js/i18n.js (gói ngôn ngữ khóa băm, scripts/lib/i18n-pack.mjs)
   // Từ điển background: gói ngôn ngữ (khóa băm, hoặc nguyên câu khi trùng băm) chồng lên nền en (nguyên câu) → tra băm trước
   const xd = src => (typeof src === 'string' && XD[hk(src)]) || XD[src];
   const tx = (src, vars) => { let s = UI_LANG === 'vi' ? src : (xd(src) || EN[src] || src); if (vars) s = s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] != null ? vars[k] : m)); return s; };

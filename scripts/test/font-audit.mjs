@@ -65,7 +65,7 @@ function serve() {
 const LANGS = ['vi', 'en', 'ja', 'zh', 'ko', 'ar', 'hi', 'th', 'ru', 'es'];
 const APP_ROUTES = ['home', 'library', 'review', 'practice', 'skills', 'tests', 'stats', 'settings', 'contact', 'verb/take', 'goal', 'placement', 'usage', 'dict', 'confidence', 'handsfree', 'practice/learn?src=topic:ngsl1', 'practice/mcq?src=topic:ngsl1'];
 const PARTS = {
-  landing: b => ['/', ...LANGS.filter(l => l !== 'vi').map(l => `/${l}/`)].map(p => b + p),
+  landing: b => ['/', ...LANGS.map(l => `/${l}/`)].map(p => b + p),
   legal: b => ['/privacy.html', '/terms.html', '/credits.html', '/schools.html', '/404.html', '/bye.html', '/en/privacy.html', '/ja/terms.html', '/ar/schools.html'].map(p => b + p),
   app: b => APP_ROUTES.flatMap(r => ['vi', 'en'].map(l => `${b}/app/?sandbox=1&hl=${l}#/${r}`)),
   admin: b => [b + '/admin.html'],

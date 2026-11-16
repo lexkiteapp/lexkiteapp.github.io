@@ -72,5 +72,46 @@
   "words": 43,
   "seconds": 26.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"start\" mean?",
+  "keyword": "start",
+  "value": "Start means to begin doing something, or to begin to happen.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=start",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"start\" mean?",
+    "description": "Start means to begin doing something, or to begin to happen.\n\nReview your words, free: https://lexkite.com/app/#/review?w=start\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "start",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"start\" mean?\n\nStart means to begin doing something, or to begin to happen.\n\nReview your words, free: https://lexkite.com/app/#/review?w=start"
+   },
+   "instagram": {
+    "caption": "What does \"start\" mean?\n\nStart means to begin doing something, or to begin to happen.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"start\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means to begin doing something, or to begin to happen. Start means to begin doing something, or to begin to happen. More practice like this (free): {link}"
  }
 }

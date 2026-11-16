@@ -72,5 +72,46 @@
   "words": 45,
   "seconds": 27.2,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"phone\" mean?",
+  "keyword": "phone",
+  "value": "Phone means a device you use to talk to people who are far away.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=phone",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"phone\" mean?",
+    "description": "Phone means a device you use to talk to people who are far away.\n\nReview your words, free: https://lexkite.com/app/#/review?w=phone\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "phone",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"phone\" mean?\n\nPhone means a device you use to talk to people who are far away.\n\nReview your words, free: https://lexkite.com/app/#/review?w=phone"
+   },
+   "instagram": {
+    "caption": "What does \"phone\" mean?\n\nPhone means a device you use to talk to people who are far away.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"phone\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means a device you use to talk to people who are far away. Phone means a device you use to talk to people who are far away. Try the full lesson and quiz here: {link}"
  }
 }

@@ -4,7 +4,7 @@
 //   content/confidence/units/*.json + content/confidence/i18n/<lang>.json.
 // Ghi: dist/<lang>/words/**, dist/<lang>/conversations/**, dist/sitemap-words-<lang>.xml, dist/sitemap-conversations.xml,
 //   dist/data/seo-twins.json (app → bản tĩnh, web/js/seo-twin.js), .seo-urls.txt (URL + băm nội dung cho IndexNow – không deploy).
-// Chạy trong build-web.sh sau build-samples*/blog, trước build-sitemap-index. Tắt: SEO_PAGES=0. N: SEO_N_MAIN (1500), SEO_N_OTHER (400).
+// Chạy trong build-web.sh sau build-samples*/blog, trước build-sitemap-index. Tắt: SEO_PAGES=0. N: SEO_N_MAIN (1500), SEO_N_PRIORITY (650), SEO_N_OTHER (400).
 import fs from 'node:fs'; import path from 'node:path'; import crypto from 'node:crypto'; import { execFileSync } from 'node:child_process';
 import { CSS, SEO_CSS, UI_JS, esc, themePage, clip, ld, siteHeader, siteFooter, crumbsHtml, landingHref, appHref, LANG_NAMES } from './lib/site-layout.mjs';
 import { LANGS, S, POS, YOU, fill } from './lib/seo-pages-i18n.mjs';
@@ -16,8 +16,9 @@ const toolLine = l => { const s = toolStrings(l); return s ? `<p><a href="${tool
 
 if (process.env.SEO_PAGES === '0') { console.log('· SEO pages: tắt (SEO_PAGES=0)'); process.exit(0); }
 const SITE = 'https://lexkite.com', D = process.env.SEO_DIST || 'dist';
+const { r2Langs, WORDS_DIR } = await import('./lib/words-r2.mjs'), R2L = new Set(r2Langs()); // trang /<lang>/words/** của các ngôn ngữ này ghi ra dist-words/ (đồng bộ R2, Function đọc ra)
 // Chọn trang + nội dung trang từ: scripts/lib/seo-words.mjs (dùng chung với hộp từ của build-blog.mjs) – nạp sau công tắc SEO_PAGES
-const { J, RTL, cap, setOf, idxW, slug, gloss, wPath, bodyOf, en, appLink, cta } = await import('./lib/seo-words.mjs');
+const { J, RTL, cap, setOf, idxW, slug, gloss, wPath, bodyOf, en, appLink, cta, goLine } = await import('./lib/seo-words.mjs');
 const today = new Date().toISOString().slice(0, 10);
 const gitDate = (...f) => { try { return execFileSync('git', ['log', '-1', '--format=%cs', '--', ...f], { encoding: 'utf8' }).trim() || today; } catch { return today; } };
 
@@ -26,7 +27,7 @@ const urls = []; // [url, lastmod, alts, type, lang]
 const hashes = [];
 const LM = lastmodStore();
 const url = p => SITE + p;
-const fileOf = p => path.join(D, p.endsWith('/') ? p + 'index.html' : p + '.html');
+const fileOf = p => path.join(R2L.has(p.split('/')[1]) && p.split('/')[2] === 'words' ? WORDS_DIR : D, p.endsWith('/') ? p + 'index.html' : p + '.html');
 const usedT = new Set(), usedD = new Set(); // tiêu đề/mô tả duy nhất trong mỗi ngôn ngữ (cổng seo-pages)
 const uniq = (set, l, s, alt) => { let v = s; if (set.has(l + v)) v = alt; set.add(l + v); return v; };
 const write = (p, html, { lm, alts, type, lang, index }) => {
@@ -36,11 +37,11 @@ const write = (p, html, { lm, alts, type, lang, index }) => {
 };
 const hl = alts => alts.map(([l, p]) => `<link rel="alternate" hreflang="${l}" href="${url(p)}">`).join('');
 const withDefault = (alts, enPath) => (alts.length ? [...alts, ['x-default', enPath || alts[0][1]]] : []);
-const CSS2 = `.wd .mean{font-size:1.25rem;margin:.2rem 0 .6rem}.wd .ipa{font-family:var(--ipa,inherit)}.wd .pr{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}.wd blockquote{margin:.4rem 0;padding:.6rem .9rem;border-inline-start:4px solid var(--accent);background:var(--accent-soft);border-radius:8px}.wd .chips a,.wd .chips span{display:inline-flex;align-items:center;min-height:44px;box-sizing:border-box;margin:.2rem .3rem .2rem 0;padding:.25rem .6rem;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:inherit}.wd .note{margin:.3rem 0}.wd .mt{font-size:.8rem;color:var(--muted)}.az{columns:3 12rem;column-gap:1.5rem}.az li{break-inside:avoid;margin:.15rem 0}.az small{color:var(--muted)}.letters{display:flex;flex-wrap:wrap;gap:.4rem;margin:.8rem 0}.letters a{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;box-sizing:border-box;padding:.2rem .5rem;border:1px solid var(--line);border-radius:6px;text-decoration:none}.dlg p{margin:.35rem 0}.dlg b{display:inline-block;min-width:4.5rem}.ph{border:1px solid var(--line);border-radius:12px;padding:.8rem 1rem;margin:.7rem 0;background:var(--surface)}.ph .say{font-size:1.1rem;font-weight:600}.ph .no{color:var(--muted);text-decoration:line-through}.pager{display:flex;justify-content:space-between;gap:1rem;margin:1.2rem 0}.wd section{margin:1.1rem 0}.wd h2{font-size:1.15rem;margin:.2rem 0 .4rem}.wd h3{font-size:1rem;margin:.6rem 0 .3rem}.wd .senses{padding-inline-start:1.3rem}.wd .senses li,.wd .pat li,.wd .mis li,.wd .cf li{margin:.4rem 0}.wd .senses .mean{font-size:1.05rem}.wd .no{color:var(--muted);text-decoration:line-through}.wd details{border:1px solid var(--line);border-radius:10px;padding:0 .8rem;margin:.4rem 0}.wd summary{cursor:pointer;font-weight:600;min-height:44px;display:flex;align-items:center}.wd details p{margin:0 0 .6rem}.wd .chips small{margin-inline-start:.4em;color:var(--muted);font-size:.85em}`;
+const CSS2 = `.wd .mean{font-size:1.25rem;margin:.2rem 0 .6rem}.wd .ipa{font-family:var(--ipa,inherit)}.wd .pr{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}.wd blockquote{margin:.4rem 0;padding:.6rem .9rem;border-inline-start:4px solid var(--accent);background:var(--accent-soft);border-radius:8px}.wd .chips a,.wd .chips span{display:inline-flex;align-items:center;min-height:44px;box-sizing:border-box;margin:.2rem .3rem .2rem 0;padding:.25rem .6rem;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:inherit}.wd .note{margin:.3rem 0}.wd .mt{font-size:.8rem;color:var(--muted)}.az{columns:3 12rem;column-gap:1.5rem}.az li{break-inside:avoid;margin:.15rem 0}.az small{color:var(--muted)}.letters{display:flex;flex-wrap:wrap;gap:.4rem;margin:.8rem 0}.letters a{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;box-sizing:border-box;padding:.2rem .5rem;border:1px solid var(--line);border-radius:6px;text-decoration:none}.dlg p{margin:.35rem 0}.dlg b{display:inline-block;min-width:4.5rem}.ph{border:1px solid var(--line);border-radius:12px;padding:.8rem 1rem;margin:.7rem 0;background:var(--surface)}.ph .say{font-size:1.1rem;font-weight:600}.ph .no{color:var(--muted);text-decoration:line-through}.pager{display:flex;justify-content:space-between;gap:1rem;margin:1.2rem 0}.wd section{margin:1.1rem 0}.wd h2{font-size:1.15rem;margin:.2rem 0 .4rem}.wd h3{font-size:1rem;margin:.6rem 0 .3rem}.wd .senses{padding-inline-start:1.3rem}.wd .senses li,.wd .pat li,.wd .mis li,.wd .cf li,.wd .xt li{margin:.4rem 0}.wd .senses .mean{font-size:1.05rem}.wd .no{color:var(--muted);text-decoration:line-through}.wd details{border:1px solid var(--line);border-radius:10px;padding:0 .8rem;margin:.4rem 0}.wd summary{cursor:pointer;font-weight:600;min-height:44px;display:flex;align-items:center}.wd details p{margin:0 0 .6rem}.wd .chips small{margin-inline-start:.4em;color:var(--muted);font-size:.85em}`;
 const page = ({ lang, title, desc, p, alts, crumbs, body, jsonld = [], robots = '', langHref, section }) => {
   const t = S[lang], dir = RTL.has(lang) ? ' dir="rtl"' : '';
   const nav = [[`/${lang}/blog/`, 'Blog'], [`/${lang}/words/`, t.words], [`/${lang}/conversations/`, t.conv]].map(([h, n]) => [h, esc(n), h === section ? ' aria-current="page"' : '']);
-  const head = `<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title><meta name="description" content="${esc(desc)}">${robots ? `<meta name="robots" content="${robots}">` : ''}<meta name="theme-color" content="#0F3D3E"><link rel="canonical" href="${url(p)}">${hl(alts)}<meta property="og:type" content="article"><meta property="og:site_name" content="Lexkite"><meta property="og:url" content="${url(p)}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:image" content="${SITE}/og-default.png"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/icons/icon.svg?v=2" type="image/svg+xml"><link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=2">${[...jsonld, crumbsLd(crumbs)].map(ld).join('')}`;
+  const head = `<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title><meta name="description" content="${esc(desc)}">${robots ? `<meta name="robots" content="${robots}">` : ''}<meta name="theme-color" content="#0F3D3E"><link rel="canonical" href="${url(p)}">${hl(alts)}<meta property="og:type" content="article"><meta property="og:site_name" content="Lexkite"><meta property="og:url" content="${url(p)}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:image" content="${SITE}/og-default.png"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/icons/icon.svg?v=3" type="image/svg+xml"><link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=3">${[...jsonld, crumbsLd(crumbs)].map(ld).join('')}`;
   return `<!doctype html><html lang="${lang}"${dir}><head>${head}<style>${CSS}\n${SEO_CSS}\n${CSS2}</style></head><body><a class="skip" href="#nd">${esc(t.skip)}</a>
 ${siteHeader({ nav, open: [appHref(lang), esc(t.open)], home: landingHref(lang), lang, langHref })}
 <main id="nd">
@@ -54,7 +55,7 @@ const crumbsLd = items => ({ '@context': 'https://schema.org', '@type': 'Breadcr
 
 // ---------- Trang từ ----------
 // Độ dày (docs/specs/seo-words-depth.md): khối nào có dữ liệu thật mới hiện; trang dưới DEPTH_MIN → noindex,follow (vẫn sinh, vẫn được liên kết).
-const lmW = gitDate('web/js/data.js', 'web/js/lib', 'web/packs', 'web/js/notes', 'web/js/usage', 'content/dict/wordnet.json', 'web/js/models.js', 'web/js/speak/samples.js', 'scripts/dict/build.mjs', 'scripts/build-seo-pages.mjs', 'scripts/lib/seo-words.mjs', 'scripts/lib/seo-pages-i18n.mjs', 'scripts/lib/word-depth.mjs');
+const lmW = gitDate('web/js/data.js', 'web/js/lib', 'web/packs', 'web/js/notes', 'web/js/usage', 'content/dict/wordnet.json', 'web/cpack/write/models.js', 'web/cpack/speak/samples.js', 'scripts/dict/build.mjs', 'scripts/build-seo-pages.mjs', 'scripts/lib/seo-words.mjs', 'scripts/lib/seo-pages-i18n.mjs', 'scripts/lib/word-depth.mjs');
 const twins = { v: 1, w: {}, c: {}, t: {} };
 const built = {}; // l → Map(mục → { body, faq, m }) – dựng ở scripts/lib/seo-words.mjs (bodyOf), cùng nguồn với hộp từ của blog
 let nW = 0, nWthin = 0, nWshallow = 0;
@@ -88,7 +89,7 @@ for (const l of LANGS) {
   const body = `<article class="page"><header class="hero"><h1>${esc(title)}</h1><p>${esc(desc)}</p></header>
 <nav class="letters" aria-label="A–Z">${Object.keys(by).map(c => `<a href="#l-${c}">${c}</a>`).join('')}</nav>
 ${Object.entries(by).map(([c, es]) => `<section aria-labelledby="l-${c}"><h2 id="l-${c}">${c}</h2><ul class="az">${es.map(e => `<li><a href="${wPath(l, e)}" lang="en" dir="ltr">${esc(e.word)}</a> <small>${esc(clip(l === 'en' ? e.def : l === 'vi' ? e.vi : gloss(l, e)[0], 40))}</small></li>`).join('')}</ul></section>`).join('\n')}
-${cta(t.ctaB, t.ctaWn, appLink(l, 'vocab'), t.open)}${toolLine(l)}</article>`;
+${cta(t.ctaB, t.ctaWn, appLink(l, 'vocab'), t.open)}${goLine(l, 'hub')}${toolLine(l)}</article>`;
   const jl = { '@context': 'https://schema.org', '@type': 'DefinedTermSet', name: t.words, description: desc, inLanguage: l, url: url(hp) };
   write(hp, page({ lang: l, title: title + ' | Lexkite', desc, p: hp, alts, crumbs: [[t.home, landingHref(l)], [t.words, hp]], body, jsonld: [jl], langHref: x => `/${x}/words/`, section: hp }), { lm: lmW, alts, type: 'words', lang: l, index: true });
 }
@@ -117,7 +118,7 @@ for (const l of LANGS) {
 <header class="hero"><h1><span class="em" aria-hidden="true">${esc(u.em || '')}</span>${esc(ti)}</h1><p>${esc(goal)}</p><div class="sub"><span class="chip">${esc(fill(t.lv, { l: u.level }))}</span><span class="chip">${esc(t.phrases)}: ${u.phrases.length}</span></div></header>
 <section aria-labelledby="h-d"><h2 id="h-d">${esc(t.dlg)}</h2><div class="dlg" lang="en" dir="ltr">${dl.lines.map(([s, line]) => `<p><b>${esc(who(s))}:</b> ${esc(line)}</p>`).join('')}</div></section>
 <section aria-labelledby="h-ph"><h2 id="h-ph">${esc(t.phrases)}</h2>${u.phrases.map(ph => `<div class="ph"><p class="say" lang="en" dir="ltr">${esc(ph.say)}</p><p>${esc(tr(l, ph.mean, x))}</p>${ph.not ? `<p><b>${esc(t.not)}:</b> <span class="no" lang="en" dir="ltr">${esc(ph.not)}</span></p>` : ''}${ph.why ? `<p><b>${esc(t.why)}:</b> ${esc(tr(l, ph.why, x))}</p>` : ''}</div>`).join('')}</section>
-${cta(t.ctaC, t.ctaCn, appLink(l, 'confidence/' + u.id), t.ctaB)}
+${cta(t.ctaC, t.ctaCn, appLink(l, 'confidence/' + u.id), t.ctaB)}${goLine(l, 'conv')}
 <nav class="pager" aria-label="${esc(t.conv)}">${prev ? `<a href="${cPath(l, prev)}" rel="prev">← ${esc(tr(l, prev.title, { n: 0, t: 0 }))}</a>` : '<span></span>'}${next ? `<a href="${cPath(l, next)}" rel="next">${esc(tr(l, next.title, { n: 0, t: 0 }))} →</a>` : ''}</nav>
 </article>`;
     const jl = { '@context': 'https://schema.org', '@type': 'LearningResource', name: ti, description: goal, inLanguage: [l, 'en'], url: url(p), learningResourceType: 'Lesson', educationalLevel: u.level, isAccessibleForFree: true, teaches: u.phrases.map(q => q.say).slice(0, 8), isPartOf: { '@type': 'Course', name: t.conv, url: `${SITE}/${l}/conversations/` }, provider: { '@type': 'Organization', name: 'Lexkite', url: SITE + '/' } };
@@ -128,7 +129,7 @@ ${cta(t.ctaC, t.ctaCn, appLink(l, 'confidence/' + u.id), t.ctaB)}
   const alts = withDefault(LANGS.map(y => [y, `/${y}/conversations/`]), '/en/conversations/');
   const body = `<article class="page"><header class="hero"><h1>${esc(title)}</h1><p>${esc(desc)}</p></header>
 ${LEVELS.map(lv => { const us = units.filter(u => u.level === lv); return us.length ? `<section class="grp" aria-labelledby="lv-${lv}"><h2 id="lv-${lv}">${esc(fill(t.lv, { l: lv }))}</h2><ul>${us.map(u => `<li><a href="${cPath(l, u)}">${esc(u.em || '')} ${esc(tr(l, u.title, { n: 0, t: 0 }))}</a> – ${esc(tr(l, u.goal, { n: 0, t: 0 }))}</li>`).join('')}</ul></section>` : ''; }).join('\n')}
-${cta(t.ctaC, t.ctaCn, appLink(l, 'confidence'), t.ctaB)}</article>`;
+${cta(t.ctaC, t.ctaCn, appLink(l, 'confidence'), t.ctaB)}${goLine(l, 'conv')}</article>`;
   const jl = { '@context': 'https://schema.org', '@type': 'Course', name: t.conv, description: desc, inLanguage: l, url: url(hp), isAccessibleForFree: true, provider: { '@type': 'Organization', name: 'Lexkite', url: SITE + '/' }, hasPart: units.map(u => ({ '@type': 'LearningResource', name: tr(l, u.title, { n: 0, t: 0 }), url: url(cPath(l, u)) })) };
   write(hp, page({ lang: l, title: title + ' | Lexkite', desc, p: hp, alts, crumbs: [[t.home, landingHref(l)], [t.conv, hp]], body, jsonld: [jl], langHref: y => `/${y}/conversations/`, section: hp }), { lm: lmC, alts, type: 'conversations', lang: l, index: true });
 }

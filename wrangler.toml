@@ -38,3 +38,9 @@ service = "lexkite-gemini"
 # [[r2_buckets]]
 # binding = "REPORT_SHOTS"
 # bucket_name = "lexkite-report-shots"
+
+# Trang từ điển của các ngôn ngữ trong content/seo/words-r2.json nằm ở R2 (docs/specs/words-off-pages.md); functions/[lang]/words/[[path]].js đọc ra.
+# Thiếu binding / thiếu đối tượng → Function gọi next() (Pages phục vụ file tĩnh như cũ).
+[[r2_buckets]]
+binding = "WORDS"
+bucket_name = "lexkite-words"

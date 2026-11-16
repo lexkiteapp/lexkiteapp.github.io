@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_onbus",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Bus has its own word!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am in the bus now.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am on the bus now.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Buses and trains use on.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "On! I am on the train.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am in the bus now.",
+  "right": "I am on the bus now.",
+  "strike": "in the bus",
+  "why": "Buses and trains use on.",
+  "memory": "On the bus, in the car.",
+  "quiz": {
+   "stem": "I am ___ the train.",
+   "options": [
+    "on",
+    "in"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Você diz “in the bus”?",
+   "tip": "Para ônibus, trem e avião, usamos “on”. Para carro, “in”.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I am in the bus now.”. O certo é “I am on the bus now.”. Em português dizemos “no ônibus”, mas inglês separa. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “on”. Treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#inglesfacil",
+    "#falaringles",
+    "#inglesdodia",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “in the bus”?",
+   "tip": "For buses, trains and planes, we use “on”. For cars, “in”.",
+   "caption": "Watch out for this common mistake! Many people say “I am in the bus now.”. The right way is “I am on the bus now.”. In Portuguese it is always “no”, but English splits them. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Você diz “in the bus”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Você diz “in the bus”?",
+  "keyword": "I am on the bus now.",
+  "value": "Para ônibus, trem e avião, usamos “on”. Para carro, “in”.",
+  "hashtags": [
+   "#inglesfacil",
+   "#falaringles",
+   "#inglesdodia",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "Você diz “in the bus”?",
+    "description": "Cuidado com este erro comum! 😬 Muita gente diz “I am in the bus now.”. O certo é “I am on the bus now.”. Em português dizemos “no ônibus”, mas inglês separa. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#inglesfacil #falaringles #inglesdodia #lexkite",
+    "tags": [
+     "I am on the bus now.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “I am in the bus now.”. O certo é “I am on the bus now.”. Em português dizemos “no ônibus”, mas inglês separa. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I am in the bus now.”. O certo é “I am on the bus now.”. Em português dizemos “no ônibus”, mas inglês separa. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#inglesfacil",
+     "#falaringles",
+     "#inglesdodia",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Você diz “in the bus”? #inglesfacil #falaringles #inglesdodia"
+   }
+  },
+  "first_comment": "Resposta: “on”. Treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

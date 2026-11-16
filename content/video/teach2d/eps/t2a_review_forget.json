@@ -72,5 +72,46 @@
   "words": 37,
   "seconds": 23.3,
   "wpm": 95
+ },
+ "publish": {
+  "title": "What does \"forget\" mean?",
+  "keyword": "forget",
+  "value": "Forget means to not remember something.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=forget",
+  "script_words": 31,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"forget\" mean?",
+    "description": "Forget means to not remember something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=forget\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "forget",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"forget\" mean?\n\nForget means to not remember something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=forget"
+   },
+   "instagram": {
+    "caption": "What does \"forget\" mean?\n\nForget means to not remember something.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"forget\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means to not remember something. Forget means to not remember something. Practice it with a free quiz: {link}"
  }
 }

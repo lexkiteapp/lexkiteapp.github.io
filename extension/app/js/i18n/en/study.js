@@ -23,7 +23,6 @@
 'Thêm từ mới': 'Add new words',
 'Nhớ lại từ tiếng Anh, rồi chạm để lật': 'Recall the English word, then tap to flip',
 'Đoán nghĩa, rồi chạm để lật': 'Guess the meaning, then tap to flip',
-'Thoát': 'Exit',
 'Thẻ đang ở bước học (1–10 phút) sẽ quay lại trong phiên': 'Cards in the learning step (1–10 min) come back in this session',
 '<b>{n}</b> thẻ còn lại': '<b>{n}</b> cards left',
 'TỪ MỚI': 'NEW',
@@ -44,7 +43,6 @@
 'Nhớ': 'Good',
 'Dễ': 'Easy',
 'Câu cần có từ “{word}” nhé': 'Your sentence needs to include “{word}”',
-'Đã lưu': 'Saved',
 
 /* ---------- study.js: practice hub & questions ---------- */
 'Trắc nghiệm': 'Multiple choice',
@@ -58,11 +56,9 @@
 'Từ tiếng Anh nghĩa là “{vi}”?': 'Which English word means “{vi}”?',
 'Điền từ: {sentence}': 'Fill in: {sentence}',
 'Nghĩa của “{word}”?': 'What does “{word}” mean?',
-'Chính xác!': 'Correct!',
 'Tuyệt vời!': 'Awesome!',
 'Giỏi lắm!': 'Well done!',
 'Chưa đúng · Đáp án: {answer}': 'Not quite · Answer: {answer}',
-'Nghe': 'Listen',
 'Nghe câu': 'Play sentence',
 'Dịch câu': 'Translate sentence',
 'Tiếp tục': 'Continue',
@@ -76,7 +72,6 @@
 'bắt đầu bằng “{letter}”, {n} ký tự': 'starts with “{letter}”, {n} letters',
 'Gõ từ tiếng Anh': 'Type the English word',
 'Gõ đáp án…': 'Type your answer…',
-'Kiểm tra': 'Check',
 'Không biết – xem đáp án': 'I don’t know – show answer',
 'Gần đúng rồi! Kiểm tra lại chính tả': 'Almost! Check your spelling',
 '{score}/{total} câu đúng': '{score}/{total} correct',
@@ -88,7 +83,6 @@
 '<b>Hoàn thành bài!</b> Các từ đã được thêm vào flashcard để ôn đúng thời điểm vàng.': '<b>Unit complete!</b> These words were added to your flashcards so you can review them at the optimal time.',
 'Cần đạt <b>80%</b> để hoàn thành bài – ôn lại các từ sai rồi thử lại nhé.': 'You need <b>80%</b> to complete the unit – review the words you missed and try again.',
 'Về lộ trình': 'Back to path',
-'Làm lại': 'Try again',
 'Làm lượt mới': 'New round',
 'Đổi chế độ': 'Change mode',
 'Đã thêm vào flashcard': 'Added to flashcards',
@@ -98,7 +92,6 @@
 
 /* ---------- study.js: Smart Learn ---------- */
 '{done}/{total} từ': '{done}/{total} words',
-'Nghe chậm': 'Play slowly',
 'Từ mới': 'New words',
 'Chạm để lật': 'Tap to flip',
 'Mình đã biết từ này': 'I already know this word',
@@ -113,7 +106,6 @@
 
 /* ---------- study.js: Match & pronunciation ---------- */
 'Chơi lại': 'Play again',
-'Trình duyệt không hỗ trợ nhận dạng giọng nói – hãy dùng Chrome hoặc Edge.': 'This browser doesn’t support speech recognition – please use Chrome or Edge.',
 'Bỏ qua': 'Skip',
 'ước tính': 'estimated',
 'Xuất sắc!': 'Excellent!',
@@ -122,7 +114,6 @@
 
 /* ---------- plan.js: mistake notebook ---------- */
 'Từ vựng': 'Vocabulary',
-'Ngữ pháp': 'Grammar',
 'Đọc hiểu': 'Reading',
 'Sổ lỗi sai': 'Mistake notebook',
 'Mọi câu bạn làm sai đều được ghi lại tự động. Ôn lại lỗi sai là cách tăng điểm nhanh nhất – xem lại vì sao sai rồi đánh dấu “Đã hiểu”.': 'Every question you get wrong is saved automatically. Reviewing mistakes is the fastest way to raise your score – see why you got it wrong, then mark it “Got it”.',
@@ -131,7 +122,6 @@
 'Tất cả ({n})': 'All ({n})',
 'sai {n} lần': 'missed {n} times',
 'Đã hiểu': 'Got it',
-'Xem lại bài': 'Review lesson',
 'Tra lại từ': 'Look up again',
 'Đọc lại bài': 'Reread passage',
 'Nghe lại phần này': 'Replay this part',
@@ -151,8 +141,8 @@
 'Bắt đầu →': 'Start →',
 
 /* ---------- plan.js: today's plan ---------- */
-'Làm bài kiểm tra đầu vào (5 phút)': 'Take the placement test (5 min)',
 'Để Lexkite cá nhân hóa lộ trình cho bạn': 'So Lexkite can personalize your path',
+'Làm bài kiểm tra đầu vào': 'Take the placement test', // Hôm nay (plan.js, khung app) cần ngay – không để ở pathx (gói lười) kẻo ngôn ngữ khác hiện tiếng Việt
 'Ôn tập thẻ đến hạn': 'Review due cards',
 'Lặp lại ngắt quãng – ưu tiên số 1': 'Spaced repetition – top priority',
 'đã học {pct}%': '{pct}% learned',
@@ -211,11 +201,10 @@
 '{done}/{total} bài hoàn thành · Học theo vòng: giới thiệu → luyện → nghe → kiểm tra, rồi ôn lại đúng thời điểm vàng.': '{done}/{total} units complete · Learn in cycles: introduce → practice → listen → test, then review at the optimal time.',
 'Bài này đang khóa': 'This unit is locked',
 'Hoàn thành bài trước (kiểm tra đạt ≥ 80%) hoặc học ≥ 80% số từ của bài này để mở khóa.': 'Complete the previous unit (score ≥ 80% on its test) or learn ≥ 80% of this unit’s words to unlock it.',
-'điểm kiểm tra {score}%': 'test score {score}%',
+
 'Đóng': 'Close',
 
 /* ---------- method.js ---------- */
-'Đường cong quên lãng': 'Forgetting curve',
 '{n} thẻ đang ở thời điểm vàng': '{n} cards at their optimal time',
 'Không còn thẻ đến hạn': 'No cards due',
 'Lặp lại ngắt quãng': 'Spaced repetition',
@@ -223,9 +212,7 @@
 '1 bài ngữ pháp': '1 grammar lesson',
 'Nghe 1 phần': 'Listen to 1 part',
 'Luyện Speaking': 'Practice Speaking',
-'Ghép thẻ tính giờ': 'Timed matching',
 '{n} từ đang sắp quên': '{n} words fading',
-'Đọc bài': 'Read',
 
 'Luyện phát âm từ': 'Practice word pronunciation',
 'Thư viện phát âm': 'Pronunciation library',
