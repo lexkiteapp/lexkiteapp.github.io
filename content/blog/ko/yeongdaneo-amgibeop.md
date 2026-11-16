@@ -112,6 +112,10 @@ qualityScore: 94
 
 {{cta: /#/library | 맞춤형 어휘 라이브러리 시작하기}}
 
+외운 단어가 오래 남지 않는다면 복습 방식을 [액티브 리콜 영어 단어 공부법](/ko/blog/aekteubeu-rikol-yeongeo-daneo-amgi/)으로 바꿔 보는 것도 좋습니다.
+
+학술 어휘를 체계적으로 외우고 싶다면 단어군 단위로 정리하는 [아카데믹 워드 리스트(AWL) 공부법](/ko/blog/awl-akademik-weodeu-riseuteu-gongbubeop/)을 함께 보세요.
+
 ## 자주 묻는 질문
 
 ### 하루에 몇 단어씩 외우는 것이 가장 적당한가요?

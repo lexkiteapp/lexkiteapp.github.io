@@ -166,4 +166,6 @@ Often yes, if the version and the scores meet the other country's rules and the 
 
 Both are accepted. The better one is the one that gives you the higher CLB numbers in your lowest skills, after you have tried the formats.
 
+Preparing for Canada? Read our list of [CELPIP speaking phrases](/en/blog/celpip-speaking-everyday-phrases/) for each task.
+
 Lexkite is an independent practice tool; it is not connected with IRCC, CELPIP, IELTS or any government.

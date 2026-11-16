@@ -287,6 +287,13 @@ ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 
     const huge = mk(1200);   // quá 10 trang → vẫn cắt cụt → dấu hiệu chờ (không đo được, không mở cổng oan)
     ok((await api('t', 'o/r', fake({ mainFiles: huge, prFiles: [{ filename: 'a.md', status: 'modified' }] })).drift('sha')).join() === '.github/workflows/(>300 tệp đổi)', 'main đổi > 1000 tệp (cắt cụt) → vẫn chờ');
     ok((await api('t', 'o/r', fake({ mainFiles: [learn], prFiles: mk(1200), src: srcs })).drift('sha')).join() === 'scripts/test/learn-flow.mjs', 'PR > 1000 tệp (không biết đủ) → tính hết như cách cũ'); }
+  // 16/11: suite.txt (danh sách test) đổi → chỉ bắt PR đụng đúng test có trong danh sách
+  { const suite = 'node scripts/test/learn-flow.mjs\nnode scripts/test/required-gate.mjs\n', src = { 'scripts/test/suite.txt': suite };
+    const f = [F('scripts/test/suite.txt')];
+    ok(gateDrift(f, ['web/js/app.js', 'scripts/test/not-in-suite.mjs'], src).length === 0, 'suite.txt đổi, PR không đụng test nào trong danh sách → KHÔNG bắt gộp lại');
+    ok(gateDrift(f, ['scripts/test/learn-flow.mjs'], src).length === 1, 'PR đụng một test có trong danh sách → bắt');
+    ok(gateDrift(f, ['scripts/test/suite.txt'], src).length === 1, 'PR tự sửa suite.txt → bắt');
+    ok(gateDrift(f, ['web/js/app.js'], {}).length === 1, 'không tải được nguồn suite.txt → giữ cách cũ (bắt)'); }
   const green = { state: 'success', description: 'Xanh: 5 check đều đạt', failed: [], pending: [], total: 5, cancelled: [] };
   const w = applyDrift(green, ['scripts/i18n-qa.mjs', 'scripts/lib/i18n-rules.mjs', '.github/workflows/a.yml']);
   ok(w.state === 'pending' && /gộp lại main/.test(w.description) && w.description.length <= 140 && /\+1/.test(w.description), 'xanh + cổng đổi → CHỜ, mô tả ≤140 ký tự: ' + w.description);

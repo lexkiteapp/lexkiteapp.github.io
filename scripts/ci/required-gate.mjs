@@ -113,6 +113,8 @@ export const gateDrift = (files = [], prFiles = null, srcs = {}) => files.filter
   }
   if (!(GATE_ANY.some(r => r.test(n)) || (GATE_CHANGED.some(r => r.test(n)) && f.status !== 'added')) || f.status === 'removed') return false;
   if (!prFiles || prFiles.includes(n)) return true;
+  // 16/11 (điều phối): suite.txt = DANH SÁCH test, đổi mỗi khi thêm/bớt test → chỉ bắt PR khi PR đụng ĐÚNG một test có trong danh sách (khớp nguyên đường dẫn), không phải mọi PR chạm scripts/test
+  if (n === 'scripts/test/suite.txt' && typeof srcs[n] === 'string') { const listed = new Set(srcs[n].split('\n').flatMap(l => l.match(/scripts\/test\/[\w./-]+/g) || [])); return prFiles.some(f => listed.has(f)); }
   return typeof srcs[n] !== 'string' || readsAny(srcs[n], prFiles);
 }).map(f => f.filename);
 /** Gate xanh nhưng main đã đổi tệp cổng → CHỜ (thuần). Không đụng đỏ/chờ. */

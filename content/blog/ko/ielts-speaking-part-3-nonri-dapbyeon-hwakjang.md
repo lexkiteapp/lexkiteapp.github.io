@@ -146,6 +146,8 @@ Ultimately, I would argue that schools ought to measure success more broadly, th
 
 ---
 
+파트 1부터 3까지 답변의 수준 차이를 한눈에 보고 싶다면 [아이엘츠 스피킹 7점 답변](/ko/blog/ielts-speaking-7jeom-dapbyeon-yesi/) 글의 예시도 함께 읽어 보세요.
+
 ## 아이엘츠 스피킹 Part 3 관련 자주 묻는 질문
 
 ### 1. Part 3에서 한 질문당 발화 시간은 어느 정도가 적당한가요?
