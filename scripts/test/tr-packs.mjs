@@ -12,7 +12,7 @@ const fail = (l, m) => { bad++; console.error(`✗ tr-packs ${l}: ${m}`); };
 for (const L of LANGS) {
   const d = `web/packs/tr/${L}/`, m = {};
   if (!fs.existsSync(d)) { fail(L, 'thiếu thư mục kho'); continue; }
-  for (let k = 0; k < 64; k++) { const f = d + k + '.json'; if (!fs.existsSync(f)) { fail(L, 'thiếu mảnh ' + k); continue; } Object.assign(m, JSON.parse(fs.readFileSync(f, 'utf8'))); }
+  for (let k = 0; k < 16; k++) { const f = d + k + '.json'; if (!fs.existsSync(f)) { fail(L, 'thiếu mảnh ' + k); continue; } Object.assign(m, JSON.parse(fs.readFileSync(f, 'utf8'))); }
   const keys = Object.keys(m), orphan = keys.filter(h => !byH.has(h));
   if (orphan.length) fail(L, `${orphan.length} mục không còn trong dữ liệu (chạy lại gen-tr-packs)`);
   const cov = keys.length ? keys.filter(h => byH.has(h)).length / all.length : 0;

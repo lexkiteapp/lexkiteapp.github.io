@@ -1,5 +1,5 @@
 // Kho DỊCH SẴN câu có trong dữ liệu (câu ví dụ `ex` + định nghĩa `def` của mọi từ) → bảng bôi đen "Dịch" hiện tức thì, không gọi mạng (web/js/tr-fast.js).
-// Ra: web/packs/tr/<lang>/<0…63>.json = { "<băm 8 hex>": "bản dịch" } – khóa = TrFast.hash(TrFast.norm(câu EN)) (một nguồn: web/js/tr-fast.js).
+// Ra: web/packs/tr/<lang>/<0…15>.json = { "<băm 8 hex>": "bản dịch" } – khóa = TrFast.hash(TrFast.norm(câu EN)) (một nguồn: web/js/tr-fast.js).
 // Nguồn bản dịch: câu ví dụ lấy lại từ web/packs/sent (cùng câu EN → không dịch lại); còn lại Google gtx theo lô (như gen-sent-packs, chạy trên CI).
 // Chạy lại = chỉ dịch câu mới/đổi; câu đã bỏ khỏi dữ liệu bị xóa. Đụng băm (2 câu khác nhau cùng khóa) → thóat lỗi.
 //   node scripts/gen-tr-packs.mjs <lang|all> [--max N] [--offline]   (--offline: chỉ dựng từ kho sent + kho cũ, không gọi mạng)
@@ -47,7 +47,7 @@ async function run(lang, { max = 1e9, offline = false } = {}) {
   }
   fs.mkdirSync(dir, { recursive: true });
   const shards = {}; for (const [h, v] of Object.entries(have)) (shards[shardOf(h)] ||= {})[h] = v;
-  for (let k = 0; k < 64; k++) fs.writeFileSync(new URL(k + '.json', dir), JSON.stringify(Object.fromEntries(Object.entries(shards[k] || {}).sort())));
+  for (let k = 0; k < 16; k++) fs.writeFileSync(new URL(k + '.json', dir), JSON.stringify(Object.fromEntries(Object.entries(shards[k] || {}).sort())));
   console.log(lang, 'có', Object.keys(have).length, '/', all.length, stop && !offline ? '(dừng: mạng/giới hạn – chạy lại để tiếp)' : '');
 }
 

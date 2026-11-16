@@ -68,7 +68,7 @@ const time = async p => { const t0 = Date.now(); const v = await p; return [v, D
 // ---- TrFast: kho dịch sẵn → IDB → mạng, ngân sách, bản đến muộn ----
 const S = 'Hard work does not always guarantee promotion.';
 { const E0 = env(); const h = E0.F.hash(E0.F.norm(S)), sh = E0.F.shardOf(h);
-  ok(/^[0-9a-f]{8}$/.test(h) && +sh >= 0 && +sh < 64, `băm 8 hex, mảnh 0…63 (${h} → ${sh})`);
+  ok(/^[0-9a-f]{8}$/.test(h) && +sh >= 0 && +sh < 16, `băm 8 hex, mảnh 0…15 (${h} → ${sh})`);
   ok(E0.F.norm('  “Hard  work does not always guarantee promotion”. ') === E0.F.norm('hard work does not always guarantee promotion'), 'norm bỏ dấu câu đầu/cuối, khoảng trắng, hoa/thường, ngoặc cong');
   // 10) Câu có sẵn → kho dịch sẵn, không gọi mạng dịch, < 300 ms (p95 trên 20 lượt, mỗi lượt môi trường mới)
   const T = [];

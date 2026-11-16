@@ -7,7 +7,7 @@
 (function (g) {
   const norm = s => String(s || '').replace(/[‘’]/g, "'").replace(/[“”]/g, '"').replace(/\s+/g, ' ').trim().replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, '').toLowerCase();
   const hash = s => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193); } return (h >>> 0).toString(16).padStart(8, '0'); }; // FNV-1a 32 bit
-  const shardOf = h => String(parseInt(h.slice(0, 2), 16) >> 2); // 64 mảnh "0"…"63"
+  const shardOf = h => String(parseInt(h.slice(0, 2), 16) >> 4); // 16 mảnh "0"…"15" (ít file hơn: dist < 18.000 file, docs/SEO-ARCH.md)
   const sleep = ms => new Promise(r => setTimeout(r, ms));
   const api = { norm, hash, shardOf };
   if (typeof document === 'undefined' && typeof indexedDB === 'undefined') { g.TrFast = api; return; } // Node (bộ sinh kho, test) chỉ cần norm/hash
