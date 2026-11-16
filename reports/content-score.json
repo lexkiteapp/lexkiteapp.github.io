@@ -1,5 +1,5 @@
 {
- "total": 70.8,
+ "total": 71.1,
  "areas": {
   "vocab": {
    "name": "Kho từ",
@@ -284,8 +284,8 @@
   },
   "exam": {
    "name": "Đề thi",
-   "score": 47.8,
-   "coverage": 47.8,
+   "score": 50.8,
+   "coverage": 50.8,
    "pass": 100,
    "errors": 0,
    "parts": [
@@ -326,14 +326,14 @@
     },
     {
      "k": "TOEIC Listening",
-     "have": 700,
+     "have": 1000,
      "std": 1000,
      "w": 5,
      "future": false
     },
     {
      "k": "TOEIC Reading",
-     "have": 700,
+     "have": 1000,
      "std": 1000,
      "w": 5,
      "future": false
@@ -433,8 +433,8 @@
     },
     {
      "k": "nội dung có lo hợp lệ",
-     "have": 11185,
-     "std": 11185,
+     "have": 11206,
+     "std": 11206,
      "w": 35,
      "future": false
     },

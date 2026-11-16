@@ -2,7 +2,7 @@
 
 Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipeline/score.budget.json` · kế hoạch `docs/CONTENT-WORLD-PLAN.md` §3.5. Điểm = độ phủ so với chuẩn × tỉ lệ qua cổng.
 
-**Tổng: 70.8 / 100**
+**Tổng: 71.1 / 100**
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
@@ -10,7 +10,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | Ngữ pháp | **72.8** | 72.8 | 72.8% | 100% | 0 |
 | Giao tiếp | **81.3** | 68.3 | 81.3% | 100% | 0 |
 | 4 kỹ năng | **69.5** | 62.9 | 69.5% | 100% | 0 |
-| Đề thi | **47.8** | 31.7 | 47.8% | 100% | 0 |
+| Đề thi | **50.8** | 31.7 | 50.8% | 100% | 0 |
 | Khung Can-do | **81.7** | 81.3 | 81.7% | 100% | 0 |
 | Dễ học – dễ nhớ | **91.8** | 91.7 | 91.8% | 100% | 0 |
 | i18n | **62.6** | 62.7 | 62.6% | 100% | 0 |
@@ -79,8 +79,8 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | IELTS Reading GT | 200 / 400 | 50% | 5 |
 | IELTS Writing Task 2 | 80 / 200 | 40% | 5 |
 | IELTS Writing Task 1 Academic | 38 / 80 | 48% | 5 |
-| TOEIC Listening | 700 / 1000 | 70% | 5 |
-| TOEIC Reading | 700 / 1000 | 70% | 5 |
+| TOEIC Listening | 1000 / 1000 | 100% | 5 |
+| TOEIC Reading | 1000 / 1000 | 100% | 5 |
 | TOEIC Speaking & Writing | 78 / 190 | 41% | 5 |
 | TOEFL Reading | 300 / 500 | 60% | 5 |
 | TOEFL Listening | 282 / 400 | 71% | 5 |
@@ -98,7 +98,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 |---|---|---|---|
 | mục tiêu LKF tự soạn | 585 / 600 | 98% | 25 |
 | ô kỹ năng × cấp đủ ≥ 15 | 36 / 36 | 100% | 15 |
-| nội dung có lo hợp lệ | 11185 / 11185 | 100% | 35 |
+| nội dung có lo hợp lệ | 11206 / 11206 | 100% | 35 |
 | mục tiêu đã có nội dung luyện | 176 / 600 | 29% | 25 |
 
 ## Dễ học – dễ nhớ

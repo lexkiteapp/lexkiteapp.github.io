@@ -207,7 +207,7 @@ script: [
 { s: 'M1', t: "Great. I'll send someone up with a new key card and to help you with your luggage in ten minutes." },
 { pause: 6 },
 
-{ say: 'Questions 35 through 37 refer to the following conversation.' }, { pause: 1 },
+{ say: g.TQL[99] }, { pause: 1 },
 { s: 'W2', t: "Raymond, I've just finished reading the customer survey results for our new line of frozen meals." },
 { s: 'M2', t: 'And? What did people think?' },
 { s: 'W2', t: 'Most customers love the taste. But a lot of them said the portions are too small for the price.' },

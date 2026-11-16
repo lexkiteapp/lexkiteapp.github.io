@@ -82,6 +82,8 @@ Um bei kniffligen Textstellen nicht ins Schleudern zu geraten, sollten Sie währ
 * **Verdeckte Negationen:** Vorsilben wie *un-*, *in-*, *dis-* oder Adjektive wie *reluctant*, *unlikely* und *scarcely* wandeln eine scheinbar positive Aussage in ihr Gegenteil um. Prüfen Sie genau, ob das Prädikat im Fragesatz bejahend oder verneinend formuliert ist.
 * **Mengenangaben und Proportionen:** Achten Sie auf den Unterschied zwischen *the majority* (über 50 Prozent) und *a substantial proportion* (ein beachtlicher Teil, der jedoch keineswegs die Mehrheit sein muss). Eine Verwechslung dieser Nuancen führt verlässlich zur falschen Antwort.
 
+Einen Überblick über alle anderen Aufgaben im Reading, von Matching Headings bis Summary Completion, bietet der Beitrag zu den [IELTS Reading Fragetypen](/de/blog/ielts-reading-fragetypen-strategie-fuer-jede-aufgabe/).
+
 ## Häufige Denkfehler und wie man sie vermeidet
 
 Vermeiden Sie diese typischen psychologischen Fallstricke im Examen:
