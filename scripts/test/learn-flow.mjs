@@ -28,6 +28,8 @@ require('./lazyfix.js')(w, fs, path, WEB, errors);
 const tick = (ms = 40) => new Promise(r => setTimeout(r, ms));
 const $ = (s, r = w.document) => r.querySelector(s), $$ = (s, r = w.document) => [...r.querySelectorAll(s)];
 const go = async (h, ms = 150) => { w.location.hash = h; await tick(ms); };
+// chờ có điều kiện thay vì ngủ cố định: máy CI chậm không làm test đỏ chập chờn
+const until = async (fn, ms = 3000) => { const t = Date.now(); while (!fn() && Date.now() - t < ms) await tick(20); return fn(); };
 const click = el => el && el.dispatchEvent(new w.MouseEvent('click', { bubbles: true, cancelable: true }));
 const cs = el => w.getComputedStyle(el);
 w.UI.speak = () => {}; w.speechSynthesis = { speak() {}, cancel() {}, getVoices: () => [], pause() {}, resume() {} };
@@ -122,7 +124,7 @@ if (found) {
   ok($('.study-wrap').style.getPropertyValue('--sheet-h') && /\.study-wrap:has\(\.sheet-up\) \{ padding-bottom: calc\(var\(--sheet-h/.test(css) && $('#fb .sheet').classList.contains('sheet-up'), 'chừa đáy bằng đúng chiều cao bảng phản hồi (gắn .sheet-up sau lần vẽ – INP)');
   // ✕ giữa chừng → hỏi lại
   await tick(300); const x = $('.study-top a.icon-btn'), before = w.location.hash; click($('#nextQ')); await tick(400);
-  click($('.study-top a.icon-btn')); await tick(40);
+  click($('.study-top a.icon-btn')); await until(() => !$('#modal').hidden && /Thoát giữa chừng/.test($('#modalBox').textContent));
   ok(!$('#modal').hidden && /Thoát giữa chừng/.test($('#modalBox').textContent) && w.location.hash === before, '✕ giữa phiên học → hỏi xác nhận, không mất tiến độ ngay');
   click($('#modalBox [data-close].primary')); await tick(30);
   ok(x && $('#modal').hidden, 'Làm tiếp → đóng hộp thoại, ở lại phiên');
