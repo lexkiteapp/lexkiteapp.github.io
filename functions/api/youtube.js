@@ -96,9 +96,10 @@ export function videoResource(row, meta = {}) {
   if (row.clip && !markersOf(desc).includes(row.clip)) desc += '\n' + markerLine(row.clip); // same marker as the manual pack → sync matches both paths
   let tags = (Array.isArray(meta.tags) ? meta.tags : []).map(t => clean(t, 30).replace(/[",]/g, '')).filter(Boolean), total = 0;
   tags = tags.filter(t => (total += t.length + 2) <= 450).slice(0, 30);
+  const lang = /^[a-z]{2,3}(-[A-Za-z]{2,4})?$/.test(String(meta.lang || '')) ? String(meta.lang) : 'en';
   const status = { privacyStatus: privacy, selfDeclaredMadeForKids: false, containsSyntheticMedia: true, embeddable: true, license: 'youtube' };
   if (privacy === 'private' && row.publish_at && Date.parse(row.publish_at) > Date.now()) status.publishAt = row.publish_at; // YouTube flips it public at that time (owner-approved schedule)
-  return { snippet: { title, description: desc.slice(0, 5000), tags, categoryId: '27', defaultLanguage: 'en', defaultAudioLanguage: 'en' }, status };
+  return { snippet: { title, description: desc.slice(0, 5000), tags, categoryId: '27', defaultLanguage: lang, defaultAudioLanguage: lang }, status };
 }
 /** Rows the CI may upload now (oldest approval first), within today's quota. */
 export function pickNext(rows, used, now = Date.now(), max = 6, inserted = 0) {
@@ -569,7 +570,8 @@ const CLI_OPS = {
     const ch = await channelRow(db); if (!ch) return { items: [], quota: await quotaInfo(db), channel: null };
     const rows = await all(db, "SELECT * FROM yt_queue WHERE status IN ('queued', 'failed', 'uploading')");
     const pick = pickNext(rows, await used(db), Date.now(), Math.min(Math.max(1, +b.max || 6), 6), await used(db, INS));
-    return { items: pick.map(r => ({ id: r.clip, lesson: r.lesson, privacy: r.privacy, publish_at: r.publish_at, resume: !!(r.upload_url && Date.now() - r.session_at < SESSION_TTL) })), quota: await quotaInfo(db), channel: { title: ch.title } };
+    const counts = Object.fromEntries((await all(db, 'SELECT status, COUNT(*) AS n FROM yt_queue GROUP BY status')).map(r => [r.status, +r.n]));
+    return { items: pick.map(r => ({ id: r.clip, lesson: r.lesson, privacy: r.privacy, publish_at: r.publish_at, resume: !!(r.upload_url && Date.now() - r.session_at < SESSION_TTL) })), quota: await quotaInfo(db), channel: { title: ch.title }, counts };
   },
   /** Open (or resume) the resumable upload session → upload_url for CI. Quota is charged once per new session. */
   async session(db, b, who, env) {

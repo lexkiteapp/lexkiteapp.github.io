@@ -22,4 +22,12 @@ const vr = videoResource({ clip: 'en-aaa', privacy: 'public', publish_at: new Da
 ok(vr.status.privacyStatus === 'public' && !vr.status.publishAt && vp.status.privacyStatus === 'private' && vp.status.publishAt, 'public tải ngay không publishAt; private giữ publishAt');
 ok(videoResource({ clip: 'x', privacy: 'bogus' }, {}).status.privacyStatus === 'private', 'giá trị lạ → private');
 ok(/async probe\(db, b, who, env\)/.test(yt) && /async probe_status/.test(yt) && /yt-probe\.mjs/.test(wf) && /driveSign/.test(fs.readFileSync('scripts/social/yt-probe.mjs', 'utf8')), 'op probe + probe_status trong CLI_OPS, workflow gọi yt-probe');
+// uploader: clip không có kịch bản cine-news vẫn tải được (metadata từ manifest), thiếu tiêu đề thì nêu lý do
+const { metaFromItem } = await import('../video/yt-upload.mjs');
+const mi = metaFromItem({ id: 't2-l1-de-since', lang: 'de', point: 'since', publish: { title: 'Since oder for?', value: 'Seit = since.', keyword: 'since', hashtags: ['#learnenglish', 'Deutsch'] }, link: 'https://lexkite.com/de/' });
+ok(mi && mi.title === 'Since oder for?' && mi.lang === 'de' && /#shorts/.test(mi.description) && /#learnenglish/.test(mi.description) && /lexkite\.com\/de\//.test(mi.description) && /AI-generated/.test(mi.description) && mi.tags[0] === 'since', 'metaFromItem: tiêu đề/mô tả/hashtag/ngôn ngữ từ publish của manifest');
+ok(metaFromItem({ id: 'x' }) === null && metaFromItem({ id: 'x', title: 'Só título' }).title === 'Só título', 'không có tiêu đề → null (uploader nêu lý do), có it.title thì dùng');
+const ytsrc = fs.readFileSync('scripts/video/yt-upload.mjs', 'utf8');
+ok(/Hàng đợi tải trống/.test(ytsrc) && /bỏ qua \$\{q\.id\}/.test(ytsrc), 'uploader in lý do khi hàng đợi trống / bỏ qua từng clip (không im 0)');
+ok(videoResource({ clip: 'x', privacy: 'private' }, { lang: 'de' }).snippet.defaultLanguage === 'de' && videoResource({ clip: 'x', privacy: 'private' }, { lang: 'zz!' }).snippet.defaultLanguage === 'en', 'ngôn ngữ video theo clip, giá trị lạ → en');
 console.log(`✓ yt-fill: ${n} kiểm`);
