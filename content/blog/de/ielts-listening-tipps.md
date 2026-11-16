@@ -15,13 +15,15 @@ author: Lexkite
 status: ready
 qualityScore: 94
 ---
-Der Hörverständnisteil des IELTS (International English Language Testing System) verlangt höchste Konzentration: Die Tonaufnahmen werden genau ein einziges Mal abgespielt. Wer hier zögert oder ein Wort falsch buchstabiert, verliert sofort wertvolle Punkte. Die besten ielts listening tipps setzen deshalb nicht nur auf passives Hören von Podcasts, sondern auf eine methodische Zerlegung der vier Prüfungsabschnitte und das systematische Erkennen typischer Ablenkungsfallen.
+Der Hörverständnisteil des IELTS (International English Language Testing System) verlangt höchste Konzentration: Die Tonaufnahmen werden genau ein einziges Mal abgespielt. Wer hier zögert oder ein Wort falsch buchstabiert, verliert sofort wertvolle Punkte. Die besten ielts listening tipps setzen deshalb nicht nur auf passives Hören von Podcasts, sondern auf eine methodische Zerlegung der vier Prüfungsabschnitte und das systematische Erkennen typischer Ablenkungsfallen. Eine Methode für jeden einzelnen Fragetyp finden Sie in den [IELTS Listening Aufgabentypen](/de/blog/ielts-listening-aufgabentypen/).
 
 Egal ob Sie den Test für ein Masterstudium im Ausland, für die Einwanderung nach Kanada oder Australien oder für Ihre berufliche Karriere ablegen: Ein Score von Band 7.5 oder höher im Listening ist mit der richtigen Vorbereitung absolut erreichbar. In diesem Leitfaden erfahren Sie, wie Sie die Vorbereitungszeit vor jeder Audio-Sequenz optimal nutzen, typische Selbstkorrekturen der Sprecher durchschauen und Ihre Treffsicherheit bei Zahlen und Namen perfektionieren.
 
 ## Die wichtigsten IELTS Listening Tipps für die Vorbereitungszeit
 
 Der Test dauert rund 30 Minuten und umfasst 40 Fragen, aufgeteilt auf vier Abschnitte mit steigendem Schwierigkeitsgrad. Nach dem Anhören haben Kandidaten beim papierbasierten Test 10 Minuten Zeit, um ihre Antworten auf den Antwortbogen zu übertragen; beim computerbasierten Test verbleiben lediglich 2 Minuten zur kurzen Überprüfung.
+
+Wie viele richtige Antworten im Listening später welchem Band entsprechen und wie der Gesamtscore gerundet wird, steht in [IELTS Band Score berechnen](/de/blog/ielts-band-score-berechnen/).
 
 Vor jedem Abschnitt erhalten Sie etwa 30 bis 45 Sekunden Zeit, um die Fragen zu überfliegen. Diese Sekunden entscheiden über Erfolg oder Misserfolg. Lesen Sie niemals passiv, sondern unterstreichen Sie sofort Signalwörter (Keywords) und antizipieren Sie die Wortart, die in die Lücke passt: Benötigen Sie ein Substantiv, eine Zahl, eine Uhrzeit, einen Wochentag oder ein Adjektiv?
 

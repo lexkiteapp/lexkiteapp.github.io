@@ -119,6 +119,8 @@ You can practice your pronunciation and pacing for every meeting phrase in the s
 2. **Speak within the first ten minutes:** Behavioral studies show that participants who contribute early—even through a concise greeting, a supportive comment, or a clarifying inquiry—experience significantly less performance anxiety throughout the remaining session.
 3. **Anchor statements with objective evidence:** Whenever presenting recommendations or disagreeing with an existing plan, reference measurable data, user feedback, or timeline benchmarks rather than personal opinions.
 
+Meeting online? Read [English for video calls and remote work](/en/blog/english-for-video-calls-and-remote-work/).
+
 ## Frequently Asked Questions (FAQ)
 
 ### What should I say if I fail to understand a colleague's fast speech or accent?

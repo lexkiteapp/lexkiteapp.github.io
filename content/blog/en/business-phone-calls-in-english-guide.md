@@ -120,3 +120,5 @@ Eliminating phone anxiety requires deliberate auditory immersion and structured 
 To complement your telephoning capabilities, develop a broader suite of workplace communication skills. Read our comprehensive guide on [writing formal business emails](/en/blog/how-to-write-a-formal-email/) to master written correspondence, study essential [business English idioms](/en/blog/business-english-idioms-workplace-guide/) to decode colloquial boardroom expressions, explore [business English meeting phrases](/en/blog/business-english-meeting-phrases-guide/) for productive conferences, and review [business negotiation strategies](/en/blog/business-english-negotiation-phrases-guide/) to protect commercial interests.
 
 When you possess a dependable catalog of professional telephoning expressions and maintain an organized mindset, telephone calls cease to be a source of stress and become your most effective tool for establishing trust with global stakeholders.
+
+For video, see [English for video calls and remote work](/en/blog/english-for-video-calls-and-remote-work/).
