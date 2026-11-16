@@ -1,0 +1,752 @@
+{
+  "wholesale": {
+    "mis": [
+      {
+        "w": "They sell goods in wholesale to small shops.",
+        "r": "They sell goods wholesale to small shops.",
+        "why": "Ở đây wholesale là trạng từ nghĩa là bán số lượng lớn, nên không đi với giới từ 'in'."
+      },
+      {
+        "w": "She works for a wholesales company.",
+        "r": "She works for a wholesale company.",
+        "why": "Wholesale là tính từ nên không thêm -s khi đứng trước danh từ."
+      }
+    ],
+    "u": "Wholesale chỉ việc bán hàng với số lượng lớn, thường cho cửa hàng chứ không bán cho người tiêu dùng; từ đối lập là retail. Từ này làm tính từ (wholesale price), trạng từ (buy wholesale) và đôi khi là danh từ. Người bán buôn có giá mỗi đơn vị thấp hơn vì mua với số lượng lớn. Trong báo chí, wholesale còn mang nghĩa triệt để, toàn bộ: a wholesale reform là cuộc cải tổ hoàn toàn, thường hàm ý phê phán."
+  },
+  "wiring": {
+    "mis": [
+      {
+        "w": "The building has very old wirings.",
+        "r": "The building has very old wiring.",
+        "why": "Wiring là danh từ không đếm được nên không có dạng số nhiều."
+      },
+      {
+        "w": "The wiring in the kitchen are faulty.",
+        "r": "The wiring in the kitchen is faulty.",
+        "why": "Chủ ngữ là danh từ không đếm được số ít 'wiring', nên động từ phải là is, không phải are."
+      }
+    ],
+    "u": "Wiring là toàn bộ hệ thống dây điện bên trong tòa nhà, xe hoặc máy móc. Đây là danh từ không đếm được, nên nói faulty wiring chứ không nói a wiring hay wirings. Thợ điện dùng rewire khi thay dây cũ, và hỏa hoạn thường được cho là do wiring kém. Một sợi riêng lẻ gọi là wire. Từ mang tính kỹ thuật, thực tế, hay gặp trong xây dựng, an toàn và bảo hiểm."
+  },
+  "aisle": {
+    "mis": [
+      {
+        "w": "Cleaning products are in isle five.",
+        "r": "Cleaning products are in aisle five.",
+        "why": "Isle nghĩa là hòn đảo nhỏ; lối đi giữa các kệ hoặc hàng ghế viết là aisle, chữ s câm."
+      },
+      {
+        "w": "The shampoo is at aisle seven.",
+        "r": "The shampoo is in aisle seven.",
+        "why": "Aisle là một lối đi hẹp mà ta đứng bên trong, nên dùng giới từ in, không dùng at."
+      }
+    ],
+    "u": "Aisle là lối đi giữa các hàng kệ trong cửa hàng hoặc giữa các hàng ghế trên máy bay, nhà thờ, rạp hát. Chính tả dễ nhầm vì phát âm giống hệt isle (hòn đảo) và I'll. Siêu thị đánh số từng aisle, còn trên máy bay bạn chọn ghế aisle seat hoặc window seat. Cụm walk down the aisle còn có nghĩa là kết hôn, vì cô dâu đi dọc lối đi trong nhà thờ."
+  },
+  "amuse": {
+    "mis": [
+      {
+        "w": "I am amusing by his jokes.",
+        "r": "I am amused by his jokes.",
+        "why": "Dùng dạng -ed cho người cảm thấy, còn dạng -ing cho vật hoặc điều gây ra cảm xúc."
+      },
+      {
+        "w": "The film was very amused.",
+        "r": "The film was very amusing.",
+        "why": "Bộ phim gây ra cảm xúc nên cần tính từ -ing là amusing, không phải amused."
+      }
+    ],
+    "u": "Amuse nghĩa là làm ai đó mỉm cười, bật cười hoặc giải trí. Từ này nhẹ nhàng hơn entertain và thường gợi niềm vui vô hại. Cặp amused và amusing theo quy tắc quen thuộc: bạn amused by một câu đùa, còn câu đùa đó amusing. Cấu trúc be amused at hoặc by something rất phổ biến. Amuse yourself là tự tìm cách giết thời gian, chẳng hạn khi chờ đợi. Amusing nhẹ hơn hilarious (cực kỳ hài hước)."
+  },
+  "annoy": {
+    "mis": [
+      {
+        "w": "I was annoyed for the noise.",
+        "r": "I was annoyed by the noise.",
+        "why": "Sau annoyed dùng by hoặc at với sự việc, with với người; không dùng for."
+      },
+      {
+        "w": "The long delay was very annoyed.",
+        "r": "The long delay was very annoying.",
+        "why": "Sự chậm trễ là thứ gây ra cảm xúc nên dùng tính từ -ing là annoying, không dùng annoyed."
+      }
+    ],
+    "u": "Annoy nghĩa là làm ai đó hơi bực bội hoặc mất kiên nhẫn. Từ này nhẹ hơn anger hay infuriate, dùng cho phiền toái thường ngày như tiếng ồn, sự chậm trễ. Hai tính từ khác nhau: người thì annoyed, vật gây khó chịu thì annoying. Giới từ cũng quan trọng: annoyed with một người, annoyed at hoặc by một sự việc. Irritate và bother gần nghĩa; annoy phổ biến nhất trong lời nói, dùng được cả văn thân mật lẫn lịch sự."
+  },
+  "anyhow": {
+    "mis": [
+      {
+        "w": "I'm not sure, but I will try any how.",
+        "r": "I'm not sure, but I will try anyhow.",
+        "why": "Trạng từ này viết liền thành một từ anyhow, không tách thành hai từ."
+      },
+      {
+        "w": "The meeting was cancelled, but we anyhow went.",
+        "r": "The meeting was cancelled, but we went anyhow.",
+        "why": "Anyhow thường đứng cuối hoặc đầu mệnh đề, không chen giữa chủ ngữ và động từ."
+      }
+    ],
+    "u": "Anyhow là trạng từ thân mật, gần nghĩa anyway. Từ này dùng để quay lại chủ đề hoặc cho thấy việc vẫn xảy ra bất chấp khó khăn: Anyhow, let's start. Trong tiếng Anh Anh, nó còn có nghĩa là cẩu thả, bừa bãi, như sách bị ném anyhow. Trong văn trang trọng nên chọn nevertheless hoặc in any case. Cả anyhow và anyway đều ổn khi nói; anyway an toàn và phổ biến hơn."
+  },
+  "assignment": {
+    "mis": [
+      {
+        "w": "I must make my assignment before Friday.",
+        "r": "I must do my assignment before Friday.",
+        "why": "Kết hợp đúng là do hoặc complete an assignment; không dùng make cho bài tập thầy cô giao."
+      },
+      {
+        "w": "The teacher gave us many assignment.",
+        "r": "The teacher gave us many assignments.",
+        "why": "Ở đây assignment là danh từ đếm được nên sau many phải có -s số nhiều."
+      }
+    ],
+    "u": "Assignment là nhiệm vụ được giao cho ai đó, thường bởi giáo viên hoặc quản lý. Ở trường đó là bài phải nộp, như bài luận; ở nơi làm việc có thể là một dự án hoặc đợt công tác, ví dụ overseas assignment. Từ này đếm được. Động từ thường đi kèm là complete, submit, hand in, còn do dùng cho bài tập về nhà. Task có nghĩa rộng hơn, còn homework là danh từ không đếm được."
+  },
+  "athletic": {
+    "mis": [
+      {
+        "w": "He is an athletic who trains every day.",
+        "r": "He is an athlete who trains every day.",
+        "why": "Athletic là tính từ; người thi đấu thể thao gọi là athlete."
+      },
+      {
+        "w": "She bought new athletics shoes.",
+        "r": "She bought new athletic shoes.",
+        "why": "Trước danh từ dùng tính từ athletic; athletics là danh từ chỉ môn điền kinh."
+      }
+    ],
+    "u": "Athletic mô tả những gì liên quan đến thể thao hoặc người khỏe mạnh, rắn rỏi, giỏi vận động. Từ thường đứng trước danh từ: athletic shoes, athletic build. Đừng nhầm các dạng: athlete là người chơi thể thao, còn athletics nghĩa là điền kinh trong tiếng Anh Anh, hoặc thể thao nói chung trong tiếng Anh Mỹ. Sporty thân mật hơn, còn athletic có thể gợi năng khiếu tự nhiên hoặc thân hình thon, cơ bắp."
+  },
+  "attendant": {
+    "mis": [
+      {
+        "w": "Over three hundred attendants joined the seminar.",
+        "r": "Over three hundred attendees joined the seminar.",
+        "why": "Attendant là nhân viên phục vụ; người tham dự một sự kiện gọi là attendee."
+      },
+      {
+        "w": "Please sign the attendant sheet at the door.",
+        "r": "Please sign the attendance sheet at the door.",
+        "why": "Attendance là danh từ chỉ việc có mặt; attendant chỉ một người."
+      }
+    ],
+    "u": "Attendant là người có công việc hỗ trợ hoặc phục vụ công chúng tại một nơi cụ thể: flight attendant, parking attendant, museum attendant. Đừng nhầm với attendee (người tham dự cuộc họp) hay attendance (sự có mặt, hoặc số người có mặt). Từ mang sắc thái trung tính, rất hay xuất hiện trong chức danh công việc. Steward dùng cho máy bay hoặc tàu thủy, còn server dùng cho nhà hàng."
+  },
+  "bake": {
+    "mis": [
+      {
+        "w": "My mother is baking bread in the stove.",
+        "r": "My mother is baking bread in the oven.",
+        "why": "Nướng bánh diễn ra trong lò nướng (oven); stove là bếp nấu dùng cho nồi và chảo."
+      },
+      {
+        "w": "The bread is baken fresh every morning.",
+        "r": "The bread is baked fresh every morning.",
+        "why": "Bake là động từ có quy tắc nên quá khứ phân từ là baked, không phải baken."
+      }
+    ],
+    "u": "Bake nghĩa là nấu thức ăn bằng nhiệt khô trong lò nướng, chủ yếu là bánh mì, bánh ngọt và bánh nướng. Roast dùng cho thịt và rau củ, nhấn mạnh độ vàng, còn fry dùng dầu trong chảo. Động từ có quy tắc: baked, baked. Các từ baker, bakery, baked goods đều bắt nguồn từ đây. Bake cũng dùng cho thời tiết rất nóng: it is baking outside, cách nói cường điệu thân mật."
+  },
+  "ballroom": {
+    "mis": [
+      {
+        "w": "She teaches ball dancing at a studio.",
+        "r": "She teaches ballroom dancing at a studio.",
+        "why": "Tên cố định của loại hình khiêu vũ này là ballroom dancing; dịch từng chữ sẽ thành cụm sai."
+      },
+      {
+        "w": "The reception is on the hotel ballroom.",
+        "r": "The reception is in the hotel ballroom.",
+        "why": "Ballroom là căn phòng mà người ta ở bên trong nên dùng in, không dùng on."
+      }
+    ],
+    "u": "Ballroom là căn phòng rất lớn trong khách sạn hoặc dinh thự, dùng cho khiêu vũ, tiệc, đám cưới và hội nghị. Từ này đặt tên cho ballroom dancing, các điệu nhảy đôi trang trọng như waltz và tango. Trong tiếng Anh kinh doanh, khách sạn quảng cáo grand ballroom cho sự kiện. Banquet hall tương tự nhưng nhấn mạnh bữa tiệc, còn function room là cách nói thông dụng của người Anh cho không gian sự kiện nhỏ hơn."
+  },
+  "battery": {
+    "mis": [
+      {
+        "w": "My laptop's battery is finished.",
+        "r": "My laptop's battery has run out.",
+        "why": "Trong tiếng Anh pin cạn là run out hoặc go dead; 'finished' là cách dịch từng chữ."
+      },
+      {
+        "w": "Please buy two battery for the remote.",
+        "r": "Please buy two batteries for the remote.",
+        "why": "Battery đếm được, và danh từ tận cùng phụ âm + y đổi thành -ies ở số nhiều."
+      }
+    ],
+    "u": "Battery là thiết bị lưu trữ năng lượng hóa học và cấp điện cho điện thoại, ô tô, đồ chơi, điều khiển từ xa. Từ đếm được: two batteries. Sự cố hay mô tả bằng dead battery, flat battery (Anh) hoặc low battery. Pin có thể lasts, drains hoặc runs out, và bạn charge loại sạc được. Battery life là thời gian thiết bị chạy sau một lần sạc. Trong luật, battery còn nghĩa là hành vi tấn công thể xác."
+  },
+  "beverage": {
+    "mis": [
+      {
+        "w": "She drank a beverage of orange juice.",
+        "r": "She drank a glass of orange juice.",
+        "why": "Beverage là tên chung cho đồ uống, không dùng như đơn vị đong đo như glass hay cup."
+      },
+      {
+        "w": "Hot and cold beverage are available in the lobby.",
+        "r": "Hot and cold beverages are available in the lobby.",
+        "why": "Khi nói nhiều loại đồ uống khác nhau, beverage đếm được và cần -s số nhiều."
+      }
+    ],
+    "u": "Beverage là từ trang trọng chỉ mọi loại đồ uống, xuất hiện trên thực đơn, nhãn mác và trong kinh doanh: ngành food and beverage, beverage service. Trong lời nói hằng ngày người ta chỉ dùng drink. Từ này đếm được khi chỉ các loại đồ uống (hot beverages) và thường chỉ chất lỏng không phải nước lọc. Hãng hàng không và khách sạn dùng nó cho trà, cà phê, nước ngọt phục vụ khách."
+  },
+  "browse": {
+    "mis": [
+      {
+        "w": "Customers can browse about our catalogue online.",
+        "r": "Customers can browse through our catalogue online.",
+        "why": "Browse đi với through (hoặc không giới từ), không đi với about, khi xem lướt các mục."
+      },
+      {
+        "w": "You can browsing our website at any time.",
+        "r": "You can browse our website at any time.",
+        "why": "Sau động từ khuyết thiếu như can phải dùng động từ nguyên mẫu."
+      }
+    ],
+    "u": "Browse nghĩa là xem lướt qua nhiều thứ một cách thong thả, không nhắm mua hay tìm một món cụ thể. Ở cửa hàng, đó là việc khách làm trước khi chọn: I'm just browsing. Trên mạng, bạn browse một website hoặc the web. Mẫu hay dùng: browse through a catalogue hoặc browse the shelves. Khác với search có mục tiêu cụ thể, và khác với read là đọc kỹ, chậm hơn."
+  },
+  "ceiling": {
+    "mis": [
+      {
+        "w": "There is a lamp on the roof of the living room.",
+        "r": "There is a lamp on the ceiling of the living room.",
+        "why": "Roof là mái bên ngoài của tòa nhà; mặt phía trên bên trong căn phòng là ceiling."
+      },
+      {
+        "w": "The government set a ceiling to rent prices.",
+        "r": "The government set a ceiling on rent prices.",
+        "why": "Cụm đúng là a ceiling on something, nghĩa là mức trần đặt lên thứ đó."
+      }
+    ],
+    "u": "Ceiling là mặt phẳng phía trên đầu trong căn phòng, nơi người ta treo đèn và quạt. Đừng nhầm với roof, tức mái che bên ngoài tòa nhà. Ceiling còn là mức giới hạn tối đa, như price ceiling hay debt ceiling, thường dùng với set a ceiling on something. Glass ceiling là rào cản vô hình ngăn một số nhóm, thường là phụ nữ, lên được vị trí cao nhất."
+  },
+  "checkup": {
+    "mis": [
+      {
+        "w": "I did a health checkup yesterday.",
+        "r": "I had a health checkup yesterday.",
+        "why": "Động từ tự nhiên với checkup là have, get hoặc go for, không phải do."
+      },
+      {
+        "w": "I have a checkup on the hospital tomorrow.",
+        "r": "I have a checkup at the hospital tomorrow.",
+        "why": "Dùng at cho nơi chốn xem như điểm cung cấp dịch vụ, như at the hospital."
+      }
+    ],
+    "u": "Checkup là đợt khám sức khỏe hoặc nha khoa tổng quát để chắc rằng bạn khỏe mạnh, chứ không phải vì đang ốm. Đây là danh từ đếm được viết liền; cụm động từ là check up (on someone). Trong tiếng Anh Mỹ, checkup còn gọi là physical. Mẫu hay dùng: have an annual checkup, go for a checkup, get a checkup. Công ty thường chi trả cho nhân viên khám sức khỏe định kỳ."
+  },
+  "chilly": {
+    "mis": [
+      {
+        "w": "It was a chilly morning, so I felt chill.",
+        "r": "It was a chilly morning, so I felt chilly.",
+        "why": "Sau feel cần tính từ, và tính từ nghĩa hơi lạnh là chilly, không phải chill."
+      },
+      {
+        "w": "I added a spoon of chilly to the soup.",
+        "r": "I added a spoon of chilli to the soup.",
+        "why": "Chilly nghĩa là lạnh; quả ớt cay viết là chilli (Anh) hoặc chili (Mỹ)."
+      }
+    ],
+    "u": "Chilly mô tả thời tiết hoặc nơi chốn mát đến mức khó chịu nhưng chưa tới mức giá rét: a chilly morning, a chilly wind. Từ này nằm giữa cool và cold, và cũng dùng cho cảm giác của người: I feel chilly. Nghĩa bóng, a chilly reception là sự đón tiếp lạnh nhạt. Đừng nhầm với chilli hoặc chili, tức quả ớt cay, hay với động từ chill nghĩa là thư giãn hoặc làm lạnh."
+  },
+  "clue": {
+    "mis": [
+      {
+        "w": "The police found a clue of the murderer.",
+        "r": "The police found a clue to the murderer.",
+        "why": "Mẫu thông dụng là a clue to something, tức manh mối giúp giải thích điều đó."
+      },
+      {
+        "w": "I have no clue what is the answer.",
+        "r": "I have no clue what the answer is.",
+        "why": "Trong câu hỏi lồng phải dùng trật tự câu khẳng định: what the answer is, không phải what is the answer."
+      }
+    ],
+    "u": "Clue là thông tin giúp bạn tìm ra đáp án hoặc giải một bí ẩn, thường dùng bởi thám tử, người giải ô chữ và giáo viên. Mẫu thông dụng là a clue to something, hoặc a clue as to why. Trong lời nói, I have no clue là cách rất phổ biến, thân mật, để nói tôi không biết. Hint nhẹ nhàng hơn và được đưa ra có chủ ý, còn lead là manh mối đáng lần theo."
+  },
+  "community": {
+    "mis": [
+      {
+        "w": "He is a member in the local community.",
+        "r": "He is a member of the local community.",
+        "why": "Giới từ đúng sau member là of, không phải in."
+      },
+      {
+        "w": "Technology is changing the community very fast.",
+        "r": "Technology is changing society very fast.",
+        "why": "Community chỉ một nhóm hoặc khu vực cụ thể; society là toàn thể con người trong một quốc gia hoặc thế giới."
+      }
+    ],
+    "u": "Community là những người sống trong cùng một khu vực, hoặc một nhóm có chung sở thích, tôn giáo, nghề nghiệp: the local community, the business community. Từ đếm được, và trong tiếng Anh Anh có thể đi với động từ số ít hoặc số nhiều. Cảm giác thuộc về một tập thể là a sense of community. Community nhỏ và gần gũi hơn society, vốn chỉ con người nói chung. Community service là công việc không lương vì lợi ích chung."
+  },
+  "contestant": {
+    "mis": [
+      {
+        "w": "Three contestants participated at the show.",
+        "r": "Three contestants participated in the show.",
+        "why": "Động từ participate đi với in, không phải at, trước sự kiện."
+      },
+      {
+        "w": "The contester answered every question correctly.",
+        "r": "The contestant answered every question correctly.",
+        "why": "Người tham gia một cuộc thi là contestant, không phải contester."
+      }
+    ],
+    "u": "Contestant là người tham gia một cuộc thi, nhất là gameshow, chương trình tài năng hoặc cuộc thi hoa hậu. Từ dùng cho các cuộc thi có tổ chức, có giám khảo hoặc luật chơi và giải thưởng. Competitor rộng hơn, phổ biến trong thể thao và kinh doanh, còn entrant nhấn mạnh người đã đăng ký. Contest dạng danh từ là cuộc thi, dạng động từ có nghĩa là phản đối một kết quả."
+  },
+  "crane": {
+    "mis": [
+      {
+        "w": "They used a crane for lift the heavy container.",
+        "r": "They used a crane to lift the heavy container.",
+        "why": "Dùng to + động từ nguyên mẫu để chỉ mục đích, không dùng for + động từ nguyên mẫu."
+      },
+      {
+        "w": "Two crane stood by the river, looking for fish.",
+        "r": "Two cranes stood by the river, looking for fish.",
+        "why": "Sau two cần danh từ đếm được số nhiều nên danh từ chỉ chim cần -s."
+      }
+    ],
+    "u": "Crane có hai nghĩa không liên quan. Đó là máy cao có cánh tay dài dùng ở công trường và cảng để nâng vật nặng, do crane operator điều khiển. Đó cũng là loài chim lớn chân dài, cổ dài, gắn với vùng đầm lầy và, trong văn hóa châu Á, với sự trường thọ. Động từ crane your neck nghĩa là vươn cổ về phía trước để nhìn cho rõ."
+  },
+  "daytime": {
+    "mis": [
+      {
+        "w": "She works at daytime and studies at night.",
+        "r": "She works during the daytime and studies at night.",
+        "why": "Dùng during hoặc in the daytime; at chỉ dùng cho mốc cố định như at night."
+      },
+      {
+        "w": "Daytimes temperatures can reach thirty-five degrees.",
+        "r": "Daytime temperatures can reach thirty-five degrees.",
+        "why": "Danh từ đứng trước danh từ khác giữ số ít nên daytime không thêm -s ở đây."
+      }
+    ],
+    "u": "Daytime là khoảng thời gian trời sáng, từ lúc mặt trời mọc đến lúc lặn. Nó đối lập với nighttime. Thường đứng trước danh từ như daytime temperatures, a daytime job, daytime television, hoặc đứng sau in, during. Lưu ý giới từ: during the daytime nhưng at night. Day một mình có thể chỉ 24 giờ, còn daytime chỉ riêng những giờ có ánh sáng."
+  },
+  "decorate": {
+    "mis": [
+      {
+        "w": "We decorated the hall by balloons and flowers.",
+        "r": "We decorated the hall with balloons and flowers.",
+        "why": "Dùng with, không dùng by, cho vật liệu dùng để trang trí."
+      },
+      {
+        "w": "They are decorating for the hall for the party.",
+        "r": "They are decorating the hall for the party.",
+        "why": "Decorate là ngoại động từ, đi thẳng với tân ngữ mà không có for."
+      }
+    ],
+    "u": "Decorate nghĩa là làm nơi chốn hoặc đồ vật đẹp hơn bằng cách thêm sơn, hoa, đèn: decorate a room, decorate a cake. Vật liệu đi với with: decorate the hall with balloons. Trong tiếng Anh Anh, decorate còn là sơn hoặc dán giấy tường cho ngôi nhà. Decorator là người làm việc đó, còn decoration là món đồ được thêm vào. Từ cũng có nghĩa là trao huân chương cho ai."
+  },
+  "deluxe": {
+    "mis": [
+      {
+        "w": "The suite was very deluxe.",
+        "r": "The suite was very luxurious.",
+        "why": "Deluxe là nhãn hạng sản phẩm, không dùng như tính từ có mức độ với very; luxurious mới là từ mô tả."
+      },
+      {
+        "w": "We stayed in a delux room.",
+        "r": "We stayed in a deluxe room.",
+        "why": "Từ này viết là deluxe, kết thúc bằng -xe."
+      }
+    ],
+    "u": "Deluxe nghĩa là chất lượng cao hoặc sang trọng hơn bản tiêu chuẩn. Từ chủ yếu xuất hiện trong tiếp thị: a deluxe room, a deluxe edition, a deluxe package. Nó là nhãn phân loại sản phẩm chứ không diễn tả cảm giác, nên khi mô tả thông thường luxurious là từ tốt hơn. Chính tả bắt nguồn từ tiếng Pháp de luxe. Premium tương tự, còn upmarket mô tả cửa hàng hoặc sản phẩm nhắm đến khách giàu."
+  },
+  "device": {
+    "mis": [
+      {
+        "w": "A smartphone is a useful device for communicate.",
+        "r": "A smartphone is a useful device for communicating.",
+        "why": "Sau giới từ for, động từ ở dạng -ing."
+      },
+      {
+        "w": "The new devise saves a lot of energy.",
+        "r": "The new device saves a lot of energy.",
+        "why": "Danh từ viết là device với c; devise với s là động từ nghĩa là nghĩ ra."
+      }
+    ],
+    "u": "Device là vật được chế tạo cho một công việc nhất định, thường nhỏ và hay là thiết bị điện tử: a mobile device, a safety device, a storage device. Đây là danh từ đếm được, còn dạng động từ viết là devise: devise a plan (nghĩ ra kế hoạch). Gadget thân mật, gợi một món máy nhỏ thông minh, còn appliance dùng cho đồ gia dụng như tủ lạnh. Device là lựa chọn trung tính, phổ biến trong văn kỹ thuật."
+  },
+  "disconnect": {
+    "mis": [
+      {
+        "w": "The line was disconnect, so I called again.",
+        "r": "The line was disconnected, so I called again.",
+        "why": "Sau was cần quá khứ phân từ disconnected để mô tả trạng thái."
+      },
+      {
+        "w": "Disconnect the printer to the computer first.",
+        "r": "Disconnect the printer from the computer first.",
+        "why": "Disconnect đi với from, không phải to, cho vật bị tách ra."
+      }
+    ],
+    "u": "Disconnect nghĩa là cắt liên kết giữa hai thứ, như thiết bị và nguồn điện, hoặc giữa bạn và một dịch vụ. Mẫu thông dụng là disconnect A from B. Cuộc gọi bị disconnected khi đường truyền rớt, và khách hàng bị disconnected nếu công ty ngắt dịch vụ. Unplug là từ thường ngày cho phích cắm điện, còn disconnect còn dùng cho mạng, cuộc gọi và tiện ích."
+  },
+  "discovery": {
+    "mis": [
+      {
+        "w": "He made an important discovering last year.",
+        "r": "He made an important discovery last year.",
+        "why": "Danh từ là discovery; discovering là dạng -ing của động từ."
+      },
+      {
+        "w": "The discovery of the tomb was made on 1922.",
+        "r": "The discovery of the tomb was made in 1922.",
+        "why": "Dùng in trước năm, không dùng on."
+      }
+    ],
+    "u": "Discovery là hành động tìm ra điều chưa từng được biết, hoặc chính thứ được tìm ra: the discovery of penicillin. Danh từ đếm được và thường đi với make: make a discovery. Invention khác, vì tạo ra thứ mới chứ không phải tìm thấy thứ vốn có. Nhà khoa học công bố discovery, nhà thám hiểm thực hiện discovery, còn đời thường bạn có thể có discovery thú vị như một quán cà phê mới."
+  },
+  "drill": {
+    "mis": [
+      {
+        "w": "Please drill a hole on the wall.",
+        "r": "Please drill a hole in the wall.",
+        "why": "Lỗ nằm sâu vào tường nên dùng in; on chỉ có nghĩa là trên bề mặt."
+      },
+      {
+        "w": "We made a fire drill every month.",
+        "r": "We held a fire drill every month.",
+        "why": "Động từ tự nhiên với drill là hold hoặc carry out; make không dùng cho buổi diễn tập có kế hoạch."
+      }
+    ],
+    "u": "Drill có hai cách dùng chính. Là danh từ, đó là dụng cụ khoan lỗ, thường là power drill, và là động từ thì bạn drill a hole in a wall. Nó cũng nghĩa là bài luyện tập: fire drill huấn luyện mọi người thoát khỏi tòa nhà an toàn, còn lớp ngôn ngữ dùng grammar drills để lặp lại. Trường học và công ty hold hoặc carry out các buổi diễn tập. Ý lặp lại đến khi thành phản xạ nối hai nghĩa."
+  },
+  "ferry": {
+    "mis": [
+      {
+        "w": "We went to the island by a ferry.",
+        "r": "We went to the island by ferry.",
+        "why": "Trong cấu trúc by + phương tiện, danh từ không có mạo từ."
+      },
+      {
+        "w": "The ferrys leave every hour.",
+        "r": "The ferries leave every hour.",
+        "why": "Danh từ tận cùng phụ âm + y đổi y thành ies ở số nhiều."
+      }
+    ],
+    "u": "Ferry là tàu hoặc thuyền chở khách, thường cả xe, đều đặn qua sông, vịnh hoặc đoạn biển ngắn. Bạn đi by ferry, nhưng take a ferry hoặc catch the ferry cho một chuyến cụ thể. Số nhiều là ferries. Car ferry chở xe cộ, còn ferry terminal là bến tàu. Là động từ, ferry nghĩa là chở người từ nơi này sang nơi khác nhiều lần."
+  },
+  "fry": {
+    "mis": [
+      {
+        "w": "She fryed the eggs in a little oil.",
+        "r": "She fried the eggs in a little oil.",
+        "why": "Động từ tận cùng phụ âm + y đổi y thành ied ở quá khứ."
+      },
+      {
+        "w": "Do not fry the food in too much oils.",
+        "r": "Do not fry the food in too much oil.",
+        "why": "Oil là danh từ không đếm được khi chỉ dầu ăn nên dùng much oil, không dùng oils."
+      }
+    ],
+    "u": "Fry nghĩa là nấu thức ăn trong dầu hoặc mỡ nóng trên chảo. Deep fry dùng nhiều dầu để ngập thức ăn, còn stir-fry là xào nhanh các miếng nhỏ khi đảo liên tục. Sear và pan-fry dùng ít dầu và mang tính chuyên môn hơn. Fry theo quy tắc: fries, fried. Hãy nhớ fry là nấu bằng chất béo, còn boil dùng nước và bake dùng lò nướng. Fried rice và french fries đều xuất phát từ động từ này."
+  },
+  "glove": {
+    "mis": [
+      {
+        "w": "She bought a new glove for the winter.",
+        "r": "She bought a new pair of gloves for the winter.",
+        "why": "Găng tay đi theo đôi nên dùng a pair of gloves hoặc số nhiều."
+      },
+      {
+        "w": "These gloves is too small for me.",
+        "r": "These gloves are too small for me.",
+        "why": "Gloves là số nhiều nên động từ phải là are."
+      }
+    ],
+    "u": "Glove là vật che bàn tay, có ngăn riêng cho từng ngón, dùng để giữ ấm, bảo vệ hoặc chơi thể thao. Người ta hầu như luôn nói găng tay theo đôi: a pair of gloves. Các loại hay gặp là leather gloves, rubber gloves để dọn dẹp, oven glove và boxing gloves. Mitten chỉ có một ngăn chung cho bốn ngón nên ấm hơn. Thành ngữ fits like a glove nghĩa là vừa khít hoàn hảo."
+  },
+  "goods": {
+    "mis": [
+      {
+        "w": "The goods is delivered to the customer today.",
+        "r": "The goods are delivered to the customer today.",
+        "why": "Với nghĩa hàng hóa, goods luôn số nhiều và đi với động từ số nhiều."
+      },
+      {
+        "w": "We ship the good by sea every week.",
+        "r": "We ship the goods by sea every week.",
+        "why": "Hàng để bán gọi là goods, nghĩa này không có dạng số ít."
+      }
+    ],
+    "u": "Goods nghĩa là những thứ được làm ra để bán, như quần áo, dụng cụ, thực phẩm. Với nghĩa này từ luôn số nhiều và đi với động từ số nhiều: the goods are ready. Không có dạng số ít, nên nói một món thì dùng item hoặc product. Goods đối lập với services, và cặp goods and services là cách nói chuẩn trong kinh tế. Deliver the goods còn là thành ngữ nghĩa là làm đúng điều đã hứa."
+  },
+  "gymnasium": {
+    "mis": [
+      {
+        "w": "She practices gymnasium every day after school.",
+        "r": "She practices gymnastics every day after school.",
+        "why": "Gymnasium là địa điểm; môn thể thao gọi là gymnastics."
+      },
+      {
+        "w": "Please wear sports shoes when you enter in the gymnasium.",
+        "r": "Please wear sports shoes when you enter the gymnasium.",
+        "why": "Enter là ngoại động từ ở nghĩa này và không đi với giới từ."
+      }
+    ],
+    "u": "Gymnasium là căn phòng hoặc tòa nhà lớn có trang bị cho thể thao và tập luyện. Trong lời nói hằng ngày, từ được rút gọn thành gym. Ở trường học Mỹ, đó là hội trường dùng cho bóng rổ và các buổi tập trung; trong tiếng Anh Anh thường gọi là sports hall. Đừng nhầm với gymnastics, tức môn thể dục dụng cụ. Ở một số nước châu Âu, gymnasium là loại trường trung học, hoàn toàn khác nghĩa."
+  },
+  "icy": {
+    "mis": [
+      {
+        "w": "The roads were ice this morning, so drive slowly.",
+        "r": "The roads were icy this morning, so drive slowly.",
+        "why": "Sau were cần tính từ icy; ice là danh từ."
+      },
+      {
+        "w": "The lake was covered by ices.",
+        "r": "The lake was covered by ice.",
+        "why": "Ice theo nghĩa nước đóng băng là không đếm được, không có số nhiều."
+      }
+    ],
+    "u": "Icy mô tả thứ gì phủ băng hoặc cực kỳ lạnh. Đường có thể icy, rất nguy hiểm cho người lái xe, và icy wind là cơn gió lạnh buốt. Từ còn dùng nghĩa bóng: an icy stare hay an icy reply là ánh nhìn hoặc câu trả lời lạnh lùng, thiếu thân thiện. Frosty tương tự và nhẹ hơn, còn freezing nhấn mạnh nhiệt độ. Tính từ icy xuất phát từ danh từ ice, vốn không đếm được."
+  },
+  "incomplete": {
+    "mis": [
+      {
+        "w": "The form is uncomplete, so please fill it in again.",
+        "r": "The form is incomplete, so please fill it in again.",
+        "why": "Từ trái nghĩa của complete là incomplete, tạo bằng tiền tố in-."
+      },
+      {
+        "w": "Your application is incomplete of two documents.",
+        "r": "Your application is incomplete: it is missing two documents.",
+        "why": "Incomplete không đi với of; dùng missing hoặc lacking để nêu phần còn thiếu."
+      }
+    ],
+    "u": "Incomplete nghĩa là chưa hoàn thành hoặc thiếu một số phần. Từ xuất hiện liên tục trong biểu mẫu và hành chính: một đơn incomplete sẽ không được xử lý. Nó mô tả toàn bộ sự vật, còn phần thiếu được nêu bằng missing hoặc lacking, không dùng of. Unfinished thân mật hơn và dùng cho công việc đang làm dở, như bức tranh unfinished, còn incomplete gợi ý có thứ bắt buộc đang vắng."
+  },
+  "inexpensive": {
+    "mis": [
+      {
+        "w": "This restaurant is unexpensive but good.",
+        "r": "This restaurant is inexpensive but good.",
+        "why": "Từ phủ định của expensive là inexpensive, không phải unexpensive."
+      },
+      {
+        "w": "I want an inexpensive price for this laptop.",
+        "r": "I want a low price for this laptop.",
+        "why": "Giá thì cao hoặc thấp; inexpensive mô tả hàng hóa, không mô tả giá."
+      }
+    ],
+    "u": "Inexpensive nghĩa là không tốn nhiều tiền, và nghe tích cực hơn cheap, vốn có thể gợi chất lượng kém. Dùng cho hàng hóa, khách sạn và bữa ăn: an inexpensive hotel. Từ mô tả món đồ chứ không mô tả giá, nên nói a low price. Tiền tố phủ định là in-, không phải un-. Affordable nhấn mạnh người bình thường đủ khả năng mua, còn budget phổ biến trong quảng cáo du lịch."
+  },
+  "ingredient": {
+    "mis": [
+      {
+        "w": "Butter is the main ingredient on this cake.",
+        "r": "Butter is the main ingredient in this cake.",
+        "why": "Giới từ sau ingredient là in (hoặc of), không phải on."
+      },
+      {
+        "w": "The recipe needs five ingredient.",
+        "r": "The recipe needs five ingredients.",
+        "why": "Ingredient đếm được nên sau số lượng cần dạng số nhiều."
+      }
+    ],
+    "u": "Ingredient là một trong các thực phẩm hoặc chất được trộn lại để làm món ăn hay sản phẩm. Công thức bắt đầu bằng danh sách ingredients, và nhãn bao bì cũng liệt kê chúng. Danh từ đếm được. Mẫu hay dùng: the main ingredient in a cake, hoặc the key ingredient of success khi dùng nghĩa bóng. Component là từ kỹ thuật chung, còn ingredient dùng cho thực phẩm, mỹ phẩm, và nghĩa bóng là yếu tố làm nên thành công."
+  },
+  "invoice": {
+    "mis": [
+      {
+        "w": "Please send me the invoice of the order.",
+        "r": "Please send me the invoice for the order.",
+        "why": "Hóa đơn được lập cho hàng hóa hoặc dịch vụ; giới từ thường dùng là for, không phải of."
+      },
+      {
+        "w": "Please pay this invoice until June 30.",
+        "r": "Please pay this invoice by June 30.",
+        "why": "Dùng by cho hạn chót; until chỉ khoảng thời gian kéo dài đến lúc đó."
+      }
+    ],
+    "u": "Invoice là chứng từ người bán gửi để yêu cầu khách trả tiền cho hàng hóa hoặc dịch vụ, ghi mặt hàng, giá và hạn thanh toán. Công ty issue an invoice và khách hàng thanh toán. Từ cũng là động từ: we will invoice you for the work. Invoice trang trọng hơn bill và dùng chủ yếu giữa các doanh nghiệp; receipt là biên nhận chứng minh đã thanh toán xong."
+  },
+  "junk": {
+    "mis": [
+      {
+        "w": "He sold many junks at the market.",
+        "r": "He sold a lot of junk at the market.",
+        "why": "Junk không đếm được nên dùng a lot of hoặc much, không dùng many và không thêm -s."
+      },
+      {
+        "w": "My garage is full with junk.",
+        "r": "My garage is full of junk.",
+        "why": "Tính từ full đi với of, không phải with."
+      }
+    ],
+    "u": "Junk nghĩa là những thứ cũ, hỏng hoặc vô giá trị, và là danh từ không đếm được: a lot of junk. Từ mang tính thân mật. Nó xuất hiện trong các từ ghép như junk food (đồ ăn vặt không lành mạnh), junk mail (thư quảng cáo không mong muốn) và junk shop (cửa hàng bán đồ cũ rẻ). Là động từ trong tiếng Anh Mỹ, junk something là vứt bỏ nó. Rubbish là từ chung của người Anh cho rác."
+  },
+  "laundry": {
+    "mis": [
+      {
+        "w": "I have to make the laundry this weekend.",
+        "r": "I have to do the laundry this weekend.",
+        "why": "Động từ đi với laundry là do, không phải make."
+      },
+      {
+        "w": "She hung her wet laundries on the line.",
+        "r": "She hung her wet laundry on the line.",
+        "why": "Laundry là danh từ không đếm được và không có số nhiều."
+      }
+    ],
+    "u": "Laundry là quần áo, ga giường cần giặt hoặc vừa mới giặt, đồng thời là nơi hoặc dịch vụ giặt đồ. Danh từ không đếm được: do the laundry, a pile of laundry, a laundry basket. Trong tiếng Anh Anh, washing cũng dùng với ý đó. Dùng dry cleaning cho đồ không giặt nước được. Dirty laundry nghĩa bóng là những chuyện riêng tư đáng xấu hổ."
+  },
+  "lightweight": {
+    "mis": [
+      {
+        "w": "This lightweight laptop is weight only one kilo.",
+        "r": "This lightweight laptop weighs only one kilo.",
+        "why": "Weight là danh từ; động từ chỉ có khối lượng là weigh."
+      },
+      {
+        "w": "She bought a light weighted jacket.",
+        "r": "She bought a lightweight jacket.",
+        "why": "Tính từ ghép là lightweight, viết liền, không phải light weighted."
+      }
+    ],
+    "u": "Lightweight mô tả những thứ nặng ít, như áo khoác, laptop hay khung, và thường là từ tích cực trong mô tả sản phẩm: lightweight and portable. Từ trái nghĩa là heavy hoặc heavyweight. Nghĩa bóng, gọi người hay ý tưởng là lightweight mang tính chê, nghĩa là không quan trọng hoặc không nghiêm túc. Trong quyền anh, lightweight là võ sĩ thuộc hạng cân nhất định."
+  },
+  "lounge": {
+    "mis": [
+      {
+        "w": "Passengers wait in lounge before boarding.",
+        "r": "Passengers wait in the lounge before boarding.",
+        "why": "Danh từ đếm được số ít cần mạo từ, ở đây là the."
+      },
+      {
+        "w": "The hotel has a lounge for relax.",
+        "r": "The hotel has a lounge for relaxing.",
+        "why": "Sau giới từ for dùng dạng -ing, hoặc dùng to relax."
+      }
+    ],
+    "u": "Lounge là phòng thoải mái nơi người ta ngồi nghỉ hoặc chờ: airport lounge, hotel lounge, staff lounge. Trong tiếng Anh Anh, lounge còn có nghĩa là phòng khách ở nhà. Là động từ, lounge nghĩa là ngồi hoặc nằm thư thả. Business lounge ở sân bay cung cấp ghế, đồ ăn nhẹ và Wi-Fi cho hành khách hạng cao. Waiting room đơn giản hơn, dùng ở phòng khám hoặc văn phòng."
+  },
+  "mild": {
+    "mis": [
+      {
+        "w": "The cheese tastes very mildly.",
+        "r": "The cheese tastes very mild.",
+        "why": "Sau taste dùng như động từ nối phải là tính từ, không phải trạng từ."
+      },
+      {
+        "w": "I like mild spicy food.",
+        "r": "I like mildly spicy food.",
+        "why": "Để bổ nghĩa cho tính từ spicy cần trạng từ mildly, không dùng tính từ mild."
+      }
+    ],
+    "u": "Mild mô tả những thứ không mạnh, không nghiêm trọng hay cực đoan: mild weather, a mild flavour, a mild infection. Về khí hậu nghĩa là ấm dễ chịu, không khắc nghiệt, còn với người nghĩa là hiền hòa: a mild manner. Trạng từ là mildly, như mildly surprised, và to put it mildly là cách lịch sự mở đầu một nhận xét thẳng thắn. Moderate gần nghĩa nhưng gợi mức trung bình, còn mild ở mức nhẹ hơn."
+  },
+  "nail": {
+    "mis": [
+      {
+        "w": "He hit the nail by a hammer.",
+        "r": "He hit the nail with a hammer.",
+        "why": "Dụng cụ dùng để làm việc gì được dẫn bằng with, không phải by."
+      },
+      {
+        "w": "I am going to a nails shop after work.",
+        "r": "I am going to a nail salon after work.",
+        "why": "Danh từ bổ nghĩa giữ số ít: nail salon, không phải nails shop."
+      }
+    ],
+    "u": "Nail có hai nghĩa phổ biến. Đó là chiếc đinh kim loại mỏng, nhọn đóng vào gỗ để nối hoặc treo đồ, và là phần cứng ở đầu ngón tay, ngón chân, tức móng. Dùng hammer a nail cho nghĩa đầu, còn cut hoặc bite your nails cho nghĩa sau. Nail polish và nail salon thuộc lĩnh vực làm đẹp. Là động từ, nail something thân mật là làm hoàn hảo."
+  },
+  "nap": {
+    "mis": [
+      {
+        "w": "I did a nap after lunch.",
+        "r": "I took a nap after lunch.",
+        "why": "Cụm đúng là take hoặc have a nap, không phải do a nap."
+      },
+      {
+        "w": "She is napping since two o'clock.",
+        "r": "She has been napping since two o'clock.",
+        "why": "Với since phải dùng thì hiện tại hoàn thành tiếp diễn, không dùng hiện tại tiếp diễn."
+      }
+    ],
+    "u": "Nap là giấc ngủ ngắn, thường vào ban ngày và hay sau bữa trưa. Danh từ đếm được và đi với take hoặc have: take a nap. Power nap là giấc ngủ rất ngắn để lấy lại năng lượng ở chỗ làm. Là động từ, nap nghĩa là ngủ nhẹ trong thời gian ngắn, còn doze là ngủ gà ngủ gật mà không chủ ý. Siesta là từ gốc Tây Ban Nha chỉ giấc nghỉ buổi chiều ở vùng nóng."
+  },
+  "pan": {
+    "mis": [
+      {
+        "w": "Fry the eggs in a pot.",
+        "r": "Fry the eggs in a pan.",
+        "why": "Pan rộng và nông để chiên; pot sâu để luộc và hầm."
+      },
+      {
+        "w": "Put the pan in the stove and turn on the heat.",
+        "r": "Put the pan on the stove and turn on the heat.",
+        "why": "Chảo đặt lên mặt bếp nên dùng on, không dùng in."
+      }
+    ],
+    "u": "Pan là dụng cụ kim loại đáy phẳng, có cán dài, dùng để chiên và nấu trên bếp. Frying pan rộng và nông, saucepan có nắp và thành sâu, còn pot lớn và sâu hơn để nấu canh hoặc luộc. Trong tiếng Anh Mỹ, baking pan dùng trong lò nướng. Là động từ, pan có thể nghĩa là chê bai nặng nề, hoặc xoay máy quay theo chiều ngang."
+  },
+  "pastry": {
+    "mis": [
+      {
+        "w": "I ate three pastry for breakfast.",
+        "r": "I ate three pastries for breakfast.",
+        "why": "Khi nói từng chiếc bánh riêng lẻ, pastry đếm được và có số nhiều pastries."
+      },
+      {
+        "w": "She rolled out the pastries for the pie.",
+        "r": "She rolled out the pastry for the pie.",
+        "why": "Bột làm bánh nướng là pastry không đếm được; pastries nghĩa là nhiều chiếc bánh ngọt nhỏ."
+      }
+    ],
+    "u": "Pastry có hai nghĩa. Là danh từ không đếm được, đó là bột nhào từ bột mì, bơ và nước dùng làm bánh nướng và tart: puff pastry, shortcrust pastry. Là danh từ đếm được, a pastry là chiếc bánh ngọt nướng nhỏ như croissant hay bánh Danish. Từ đó có pastry chef, đầu bếp chuyên làm bánh tráng miệng. Khác với bread, pastry nhiều chất béo và ngọt hoặc có nhân."
+  },
+  "paycheck": {
+    "mis": [
+      {
+        "w": "My paycheck arrive every Friday.",
+        "r": "My paycheck arrives every Friday.",
+        "why": "Chủ ngữ số ít ở thì hiện tại đơn cần động từ thêm -s."
+      },
+      {
+        "w": "She spends all of her paycheck for rent.",
+        "r": "She spends all of her paycheck on rent.",
+        "why": "Spend money on something, không dùng for."
+      }
+    ],
+    "u": "Paycheck là khoản tiền bạn nhận khi làm việc, hoặc tờ séc hay khoản chi trả đó. Từ chủ yếu dùng ở Mỹ; tiếng Anh Anh dùng pay cheque, wage hoặc salary. Danh từ đếm được: a monthly paycheck, a bigger paycheck. Live paycheck to paycheck nghĩa là không có tiền tiết kiệm, tiêu hết mỗi kỳ lương trước khi kỳ sau tới. Salary là mức cố định theo năm, wages thường theo giờ, còn paycheck nhấn mạnh khoản tiền thực nhận."
+  },
+  "pollute": {
+    "mis": [
+      {
+        "w": "Factories pollute to the river.",
+        "r": "Factories pollute the river.",
+        "why": "Pollute là ngoại động từ, đi trực tiếp với tân ngữ, không cần giới từ."
+      },
+      {
+        "w": "Pollute is a serious problem in big cities.",
+        "r": "Pollution is a serious problem in big cities.",
+        "why": "Danh từ chỉ vấn đề là pollution; pollute là động từ."
+      }
+    ],
+    "u": "Pollute nghĩa là làm không khí, nước hoặc đất bẩn hay có hại, thường do thêm hóa chất, chất thải hoặc khói. Đây là ngoại động từ: factories pollute rivers. Danh từ là pollution, tính từ là polluted, và chất gây ô nhiễm là pollutant. Contaminate gần nghĩa nhưng thường chỉ một chất độc hại cụ thể, chẳng hạn thực phẩm bị nhiễm vi khuẩn, còn pollute mô tả môi trường rộng hơn."
+  },
+  "quit": {
+    "mis": [
+      {
+        "w": "She quit from her job last month.",
+        "r": "She quit her job last month.",
+        "why": "Quit đi thẳng với tân ngữ là công việc, không cần giới từ."
+      },
+      {
+        "w": "He quit to smoke last year.",
+        "r": "He quit smoking last year.",
+        "why": "Quit theo sau là dạng -ing, không phải to + động từ nguyên mẫu."
+      }
+    ],
+    "u": "Quit nghĩa là rời bỏ công việc hoặc ngừng làm điều gì. Mẫu chính là quit a job và quit + -ing: quit smoking. Dạng không theo quy tắc: quit, quit, quit, dù quitted hiếm gặp. Ở công sở, resign là từ trang trọng cho việc nghỉ việc, còn quit thẳng hơn và hay đột ngột. Trong máy tính, quit nghĩa là đóng chương trình. Give up rộng hơn và nghĩa là thôi cố gắng."
+  }
+}

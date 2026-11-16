@@ -1,0 +1,312 @@
+{
+ "id": "mo_news_coffee_counter_three_e0b1b7",
+ "template": "tip",
+ "title": "News Motion – ordering coffee: can I get, to go, pay by card (news_coffee_counter_three_e0b1b7)",
+ "teacher": "ama",
+ "clips": [
+  "ga11_talk",
+  "ga11_explain",
+  "ga11_happy",
+  "ga11_thinking",
+  "ga11_surprise_3"
+ ],
+ "listen": [
+  "ga11_listen_2"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy2",
+ "active": "mint",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Cafe English",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "Ordering coffee today?"
+  },
+  {
+   "id": "t0",
+   "text": "Can I get a medium latte, please?",
+   "gap": 0.7
+  },
+  {
+   "id": "t1",
+   "text": "Sure. Anything else?",
+   "gap": 0.7
+  },
+  {
+   "id": "t2",
+   "text": "Could I get that to go?",
+   "gap": 0.7
+  },
+  {
+   "id": "t3",
+   "text": "No problem.",
+   "gap": 0.7
+  },
+  {
+   "id": "t4",
+   "text": "Can I pay by card?",
+   "gap": 0.7
+  },
+  {
+   "id": "t5",
+   "text": "Yes, just tap here.",
+   "gap": 0.7
+  },
+  {
+   "id": "r",
+   "text": "Teacher's tip: save these three phrases today.",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "ORDERING",
+      "white"
+     ]
+    ],
+    [
+     [
+      "COFFEE?",
+      "yellow"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Cafe English · Order like a local",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "ORDERING"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "COFFEE?"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "sum",
+    "at": [
+     "r",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Remember",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "Can I get a medium latte?",
+        "gold"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "Could I get that to go?",
+        "teal"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "Can I pay by card?",
+        "coral"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "rules",
+    "at": [
+     "t0",
+     0
+    ],
+    "rows": [
+     {
+      "t": "tile",
+      "tag": "PHRASE 1",
+      "tone": "gold",
+      "lines": [
+       [
+        [
+         "Can I get + [drink]?",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "Can I get a medium latte?",
+        "gold"
+       ]
+      ],
+      "ex_at": [
+       "t0",
+       0
+      ],
+      "at": [
+       "t0",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "PHRASE 2",
+      "tone": "teal",
+      "lines": [
+       [
+        [
+         "to go = take it with you",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "Could I get that to go?",
+        "teal"
+       ]
+      ],
+      "ex_at": [
+       "t2",
+       0
+      ],
+      "at": [
+       "t2",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "PHRASE 3",
+      "tone": "coral",
+      "lines": [
+       [
+        [
+         "pay by card / in cash",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "Can I pay by card?",
+        "coral"
+       ]
+      ],
+      "ex_at": [
+       "t4",
+       0
+      ],
+      "at": [
+       "t4",
+       0
+      ]
+     }
+    ]
+   }
+  ],
+  "hook_text": "ORDERING COFFEE?",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ }
+}

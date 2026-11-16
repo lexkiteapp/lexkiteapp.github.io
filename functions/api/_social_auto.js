@@ -234,7 +234,7 @@ export async function autoQueue(env, db, cfg, now, max = 30) {
   for (const it of cand) {
     if (n >= max) break;
     if (seen.has(it.id) || clipHeld(it, review.get(it.id))) continue;
-    const r = await run(db, "INSERT INTO yt_queue (clip, lesson, status, privacy, approved_by, approved_at, attempts, updated, title) VALUES (?, ?, 'social', 'unlisted', ?, ?, 0, ?, ?) ON CONFLICT(clip) DO NOTHING", it.id, it.lesson || '', 'autopilot-qc', now, now, String(it.title || '').slice(0, 100));
+    const r = await run(db, "INSERT INTO yt_queue (clip, lesson, status, privacy, approved_by, approved_at, attempts, updated, title) VALUES (?, ?, 'social', 'private', ?, ?, 0, ?, ?) ON CONFLICT(clip) DO NOTHING", it.id, it.lesson || '', 'autopilot-qc', now, now, String(it.title || '').slice(0, 100));
     n += (r && r.meta && r.meta.changes) || 0;
   }
   return n;

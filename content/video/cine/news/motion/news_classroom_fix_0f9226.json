@@ -1,0 +1,233 @@
+{
+ "id": "mo_news_classroom_fix_0f9226",
+ "template": "mistake",
+ "title": "News Motion – agree is a verb: I agree, not I am agree (news_classroom_fix_0f9226)",
+ "teacher": "ama",
+ "clips": [
+  "ga11_talk",
+  "ga11_explain",
+  "ga11_happy",
+  "ga11_thinking",
+  "ga11_surprise_3"
+ ],
+ "listen": [
+  "ga11_listen_2"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy2",
+ "active": "mint",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "grammar",
+  "link": "https://lexkite.com/app/#/grammar",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Grammar Fix",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "Do you say this?"
+  },
+  {
+   "id": "b0",
+   "text": "A lot of learners say: I am agree.",
+   "gap": 0.7
+  },
+  {
+   "id": "b1",
+   "text": "Just say: I agree.",
+   "gap": 0.7
+  },
+  {
+   "id": "b2",
+   "text": "I agree with you.",
+   "gap": 0.7
+  },
+  {
+   "id": "b3",
+   "text": "I don't agree with that.",
+   "gap": 0.7
+  },
+  {
+   "id": "b4",
+   "text": "So no am before agree.",
+   "gap": 0.7
+  },
+  {
+   "id": "b5",
+   "text": "Repeat after me: I agree.",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "I am agree.",
+      "white"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Common mistake",
+      "tone": "coral"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "I "
+       ],
+       [
+        "am",
+        "ink"
+       ],
+       [
+        " agree."
+       ]
+      ]
+     }
+    ],
+    "strike": [
+     {
+      "line": 0,
+      "run": 1,
+      "at": [
+       "b0",
+       6
+      ]
+     }
+    ]
+   },
+   {
+    "id": "no",
+    "at": [
+     "b3",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Also say",
+      "tone": "teal"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "I don't agree.",
+        "teal"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "better",
+    "at": [
+     "b1",
+     0
+    ],
+    "tone": "green",
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Better",
+      "tone": "green"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "I agree.",
+        "green"
+       ]
+      ]
+     },
+     {
+      "t": "sub",
+      "runs": [
+       [
+        "agree is a verb, no am"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "hook_text": "I am agree.",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ }
+}

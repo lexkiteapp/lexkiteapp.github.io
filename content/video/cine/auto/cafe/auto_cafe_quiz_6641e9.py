@@ -10,7 +10,7 @@ VIRAL_HOOK = 'Which is *right?*|?'; SERIES = 'Café English #12'; KEYWORDS.updat
 vhook(VIRAL_HOOK)
 prop(pad=True)
 hold('setup', B1, 2.0, ov=[('Choice', 0.0, None, Q, 0)])
-hold('ring', BREACT, 1.5, ov=[('Choice', 0.0, None, Q, 0), ('Ring', 0.0, 3.0, 'Comment A or B 👇|')])
+hold('ring', BREACT, 1.5, ov=[('Choice', 0.0, None, Q, 0), ('Ring', 0.0, 3.0, 'Pick A or B 👇|')])
 hold('ring_b', B2, 1.5, ov=[('Choice', 0.0, None, Q, 0)])
 hold('reveal', BREACT, 2.0, ov=[('Choice', 0.0, None, Q, 1)])
 talk('right', MCU, 'ama', 'gc_2c97c9f9')
