@@ -88,7 +88,7 @@ const TEXT = JSON.parse(fs.readFileSync(path.join(FX, 'text.json'), 'utf8'));
 
 async function run(tag, cfg, calls, o = {}) {
   const vp = o.vp || { width: 375, height: 812 };
-  const ctx = await browser.newContext({ bypassCSP: true, locale: 'en', permissions: ['microphone'], serviceWorkers: 'block', viewport: vp, deviceScaleFactor: 1, ...(o.video ? { recordVideo: { dir: path.join(OUT, 'video-' + tag), size: vp } } : {}) });
+  const ctx = await browser.newContext({ locale: 'en', permissions: ['microphone'], serviceWorkers: 'block', viewport: vp, deviceScaleFactor: 1, ...(o.video ? { recordVideo: { dir: path.join(OUT, 'video-' + tag), size: vp } } : {}) });
   await ctx.route(BASE + '**', serve);
   await ctx.route(/audio\.lexkite\.com|github\.io\/(lexkite-media|audio)/, r => r.abort());
   await ctx.route('https://lexkite.com/api/**', r => r.fulfill({ status: 200, contentType: 'application/json', headers: { 'Access-Control-Allow-Origin': '*' }, body: '{"ok":true}' }));
