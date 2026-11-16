@@ -78,6 +78,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 03:17 | `ai-keys-sync` | `17 3 * * 1` | reports | gh_minutes | 1 | — | — |
 | 03:20 | `visual-qa` | `20 3 * * 1` | reports | gh_minutes | 30 | — | — |
 | 03:40 | `mobile-qa` | `40 3 * * 1` | reports | gh_minutes | 30 | — | — |
+| 03:40 | `native-qa-nightly` | `40 3 * * *` | reports | gh_minutes | 8 | — | — |
 | 03:41 | `content-evidence` | `41 3 * * *`<br>`23 4 1 * *` | reports | gh_minutes | 30 | — | — |
 | 03:41 | `storage-watch` | `41 3 * * 1` | reports | gh_minutes | 5 | d1_internal_reads≈10 | ✓ |
 | 03:41 | `social-coverage` | `41 3 * * *` | publishing | d1_main | 1 | d1_main_reads≈700 | — |
