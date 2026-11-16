@@ -1,65 +1,65 @@
 {
- "total": 71.1,
+ "total": 74.3,
  "areas": {
   "vocab": {
    "name": "Kho từ",
-   "score": 58.6,
-   "coverage": 58.6,
+   "score": 59.2,
+   "coverage": 59.2,
    "pass": 100,
    "errors": 0,
    "parts": [
     {
      "k": "từ#loại duy nhất",
-     "have": 10201,
+     "have": 10287,
      "std": 20000,
      "w": 25,
      "future": false
     },
     {
      "k": "IPA·nghĩa·định nghĩa·ví dụ·CEFR",
-     "have": 10201,
-     "std": 10201,
+     "have": 10287,
+     "std": 10287,
      "w": 20,
      "future": false
     },
     {
      "k": "collocation",
-     "have": 4979,
+     "have": 5019,
      "std": 20000,
      "w": 12,
      "future": false
     },
     {
      "k": "đồng nghĩa",
-     "have": 3081,
+     "have": 3106,
      "std": 20000,
      "w": 8,
      "future": false
     },
     {
      "k": "IPA Mỹ",
-     "have": 6822,
+     "have": 6884,
      "std": 20000,
      "w": 5,
      "future": false
     },
     {
      "k": "ảnh theo nghĩa",
-     "have": 7920,
+     "have": 8014,
      "std": 20000,
      "w": 15,
      "future": false
     },
     {
      "k": "C2",
-     "have": 969,
+     "have": 1022,
      "std": 1000,
      "w": 10,
      "future": false
     },
     {
      "k": "A1",
-     "have": 868,
+     "have": 869,
      "std": 1000,
      "w": 5,
      "future": false
@@ -284,8 +284,8 @@
   },
   "exam": {
    "name": "Đề thi",
-   "score": 50.8,
-   "coverage": 50.8,
+   "score": 57.1,
+   "coverage": 57.1,
    "pass": 100,
    "errors": 0,
    "parts": [
@@ -347,28 +347,28 @@
     },
     {
      "k": "TOEFL Reading",
-     "have": 300,
+     "have": 500,
      "std": 500,
      "w": 5,
      "future": false
     },
     {
      "k": "TOEFL Listening",
-     "have": 282,
+     "have": 470,
      "std": 400,
      "w": 5,
      "future": false
     },
     {
      "k": "TOEFL Writing",
-     "have": 104,
+     "have": 160,
      "std": 200,
      "w": 5,
      "future": false
     },
     {
      "k": "TOEFL Speaking",
-     "have": 183,
+     "have": 271,
      "std": 300,
      "w": 5,
      "future": false
@@ -433,8 +433,8 @@
     },
     {
      "k": "nội dung có lo hợp lệ",
-     "have": 11206,
-     "std": 11206,
+     "have": 11400,
+     "std": 11400,
      "w": 35,
      "future": false
     },
@@ -486,8 +486,8 @@
   },
   "i18n": {
    "name": "i18n",
-   "score": 62.6,
-   "coverage": 62.6,
+   "score": 81,
+   "coverage": 81,
    "pass": 100,
    "errors": 0,
    "parts": [
@@ -514,7 +514,7 @@
     },
     {
      "k": "điểm bản xứ (native-score/5)",
-     "have": 0,
+     "have": 3.7,
      "std": 5,
      "w": 25,
      "future": true
@@ -522,7 +522,5 @@
    ]
   }
  },
- "fails": [
-  "i18n: 62.6 < sàn 62.7 (điểm giảm)"
- ]
+ "fails": []
 }
