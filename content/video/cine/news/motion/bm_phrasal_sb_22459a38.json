@@ -1,0 +1,273 @@
+{
+ "id": "mo_bm_phrasal_sb_22459a38",
+ "template": "phrasal",
+ "title": "Motion phrasal – stem from (phr v): to be caused by something (sb_22459a38)",
+ "teacher": "carlos",
+ "clips": [
+  "gc11_talk",
+  "gc11_explain",
+  "gc11_happy",
+  "gc11_thinking",
+  "gc11_surprise_2"
+ ],
+ "listen": [
+  "gc11_listen"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy2",
+ "active": "mint",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "idiom-phrasal",
+  "link": "https://lexkite.com/app/",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Tech",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say this instead",
+   "gap": 0.7
+  },
+  {
+   "id": "m",
+   "text": "stem from means: to be caused by something.",
+   "gap": 0.7
+  },
+  {
+   "id": "e0",
+   "text": "Her fear stems from a car crash.",
+   "gap": 0.7
+  },
+  {
+   "id": "e1",
+   "text": "Many errors stem from stress.",
+   "gap": 0.7
+  },
+  {
+   "id": "w",
+   "text": "Stem from means is caused by.",
+   "gap": 0.7
+  },
+  {
+   "id": "a",
+   "text": "Like a plant growing from a stem!",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "Say this",
+      "white"
+     ]
+    ],
+    [
+     [
+      "instead",
+      "yellow"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Phrase of the day",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "Say this"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "instead"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "mean",
+    "at": [
+     "m",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Meaning",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "stem from"
+       ]
+      ]
+     },
+     {
+      "t": "sub",
+      "runs": [
+       [
+        "to be caused by something"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "rules",
+    "at": [
+     "e0",
+     0
+    ],
+    "rows": [
+     {
+      "t": "tile",
+      "tag": "EXAMPLE 1",
+      "tone": "teal",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "Her fear stems from a car crash.",
+        "teal"
+       ]
+      ],
+      "ex_at": [
+       "e0",
+       0
+      ],
+      "at": [
+       "e0",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "EXAMPLE 2",
+      "tone": "gold",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "Many errors stem from stress.",
+        "gold"
+       ]
+      ],
+      "ex_at": [
+       "e1",
+       0
+      ],
+      "at": [
+       "e1",
+       0
+      ]
+     }
+    ]
+   }
+  ],
+  "hook_text": "Say this instead",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ },
+ "uses": {
+  "template": "phrasal",
+  "row": "sb_22459a38",
+  "teacher": "carlos",
+  "accent": "navy2",
+  "active": "mint",
+  "tones": 1
+ }
+}

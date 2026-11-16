@@ -1,0 +1,292 @@
+{
+ "id": "mo_tp_roleplay_interview-about-yourself",
+ "template": "roleplay",
+ "title": "Motion roleplay – roleplay: interview-about-yourself (tp_roleplay_interview-about-yourself)",
+ "teacher": "carlos",
+ "clips": [
+  "gc11_talk",
+  "gc11_explain",
+  "gc11_happy",
+  "gc11_thinking",
+  "gc11_surprise_2"
+ ],
+ "listen": [
+  "gc11_listen"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy",
+ "active": "yellow",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "roleplay",
+  "link": "https://lexkite.com/app/",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Roleplay",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "Talk about… myself?",
+   "gap": 0.7
+  },
+  {
+   "id": "s0",
+   "text": "At a job interview.",
+   "gap": 0.7
+  },
+  {
+   "id": "s1",
+   "text": "Let's start easy. Tell me about yourself.",
+   "gap": 0.7
+  },
+  {
+   "id": "s2",
+   "text": "I'm a designer. I've worked on shopping apps for three years, and now I'd love to grow here.",
+   "gap": 0.7
+  },
+  {
+   "id": "s3",
+   "text": "Nice and clear. So why do you want to join us?",
+   "gap": 0.7
+  },
+  {
+   "id": "t",
+   "text": "Tip: present, past, future. Who you are, what you've done, and what you want next.",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "Talk about…",
+      "white"
+     ]
+    ],
+    [
+     [
+      "myself?",
+      "yellow"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Roleplay",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "Talk about…"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "myself?"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "sum",
+    "at": [
+     "t",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Tip",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "present, past, future. Who you are, what you've"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "rules",
+    "at": [
+     "s1",
+     0
+    ],
+    "rows": [
+     {
+      "t": "tile",
+      "tag": "STAFF",
+      "tone": "gold",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "Let's start easy. Tell me about yourself.",
+        "gold"
+       ]
+      ],
+      "ex_at": [
+       "s1",
+       0
+      ],
+      "at": [
+       "s1",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "YOU",
+      "tone": "teal",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "I'm a designer. I've worked on shopping apps",
+        "teal"
+       ]
+      ],
+      "ex_at": [
+       "s2",
+       0
+      ],
+      "at": [
+       "s2",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "STAFF",
+      "tone": "coral",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "Nice and clear. So why do you want to join us?",
+        "coral"
+       ]
+      ],
+      "ex_at": [
+       "s3",
+       0
+      ],
+      "at": [
+       "s3",
+       0
+      ]
+     }
+    ]
+   }
+  ],
+  "hook_text": "Talk about… myself?",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ },
+ "uses": {
+  "template": "roleplay",
+  "row": "tp_roleplay_interview-about-yourself",
+  "teacher": "carlos",
+  "accent": "navy",
+  "active": "yellow",
+  "tones": 2
+ }
+}
