@@ -172,6 +172,8 @@ N'oubliez pas d'harmoniser vos révisions avec les autres sections de l'examen g
 
 {{youtube: | Stratégies de skimming et scanning pour réussir l IELTS Reading}}
 
+Pour savoir quelle méthode appliquer à chaque exercice, parcourez les [types de questions de l'IELTS Reading](/fr/blog/types-de-questions-ielts-reading-methodes/).
+
 ## Foire aux questions
 
 ### Faut-il lire l'intégralité du texte avant de regarder les questions ?

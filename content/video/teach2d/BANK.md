@@ -145,7 +145,7 @@
 | t2_l1_hi_whereyouare | 100.0 | 100.0 | banked | 43250170409 |
 | t2_l1_ja_agree | 100.0 | 100.0 | banked | 43250170409 |
 | t2_l1_ja_arrived | 100.0 | 100.0 | banked | 43250170409 |
-| t2_l1_ja_ate | – | – | red ×1: short: no render; wide: no render | 43250170409 |
+| t2_l1_ja_ate | – | – | red ×2: short: no render; wide: no render | 43819248827 |
 | t2_l1_ja_bored | 100.0 | 100.0 | banked | 43129502972 |
 | t2_l1_ja_can | 100.0 | 100.0 | banked | 43250170409 |
 | t2_l1_ja_children | 100.0 | 100.0 | banked | 43250170409 |
@@ -168,7 +168,7 @@
 | t2_l1_ja_taxi | 100.0 | 100.0 | banked | 43250170409 |
 | t2_l1_ja_time | 100.0 | 100.0 | banked | 43250170409 |
 | t2_l1_ja_yesno | 100.0 | 100.0 | banked | 43250170409 |
-| t2_l1_ko_adoctor | 94.9 | 100.0 | red ×1: short: score 94.9 gates file | 43250170409 |
+| t2_l1_ko_adoctor | 94.9 | 100.0 | red ×2: short: score 94.9 gates file | 43819248827 |
 | t2_l1_ko_agree | 100.0 | 100.0 | banked | 43250170409 |
 | t2_l1_ko_alotofmoney | 100.0 | 100.0 | banked | 43250170409 |
 | t2_l1_ko_ate | 100.0 | 100.0 | banked | 43250170409 |
@@ -306,7 +306,7 @@
 | t2_l1_vi_went_last | – | – | red ×1: short: no render; wide: no render | 43250175181 |
 | t2_l1_vi_where_do | – | – | red ×1: short: no render; wide: no render | 43250175181 |
 | t2_l1_vi_yes_i_do | – | – | red ×1: short: no render; wide: no render | 43250175181 |
-| t2_l1_zh_advice | – | – | red ×1: short: no render; wide: no render | 43250175181 |
+| t2_l1_zh_advice | – | – | red ×2: short: no render; wide: no render | 43819248827 |
 | t2_l1_zh_agree | – | – | red ×1: short: no render; wide: no render | 43250175181 |
 | t2_l1_zh_amwork | – | – | red ×1: short: no render; wide: no render | 43250175181 |
 | t2_l1_zh_athome | – | – | red ×1: short: no render; wide: no render | 43250175181 |
