@@ -5,6 +5,8 @@ import json, os, subprocess, sys, tempfile
 ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..'))
 sys.path.insert(0, f'{ROOT}/scripts/video/teach2d')
 import store as S   # noqa: E402
+import autopub_gate as _G   # noqa: E402
+_G.AT.status = lambda tid, engine=None: 'approved'   # fixture episode is a draft template; the approval-book gate has its own cases in teach2d-autopub.py
 fails = []; EP = 't2_call_mytreat'; LV = {'my': 'A1', 'treat': 'B1'}
 
 

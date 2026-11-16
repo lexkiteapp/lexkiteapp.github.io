@@ -36,7 +36,7 @@ def lines_for(g, h6, host, hook_line, mode, cta):
     guess = 'Pause and guess. What sounds right?' if mode == 'strong' else 'Pause and guess. What sounds better?'
     L = dict(h=hook_line, m=f"Many learners say: {g['w']}", g=guess, k=f"Say: {g['r']}", y=g['y'],
              rn=f"Now at normal speed: {g['r']}", r2="Teacher's tip: save these lines.",
-             e=f"Quiz: {pre} blank{(' ' + post) if post else ''}{'' if post.endswith(('?', '!')) else '.'} {cap(qa)}, or {qb}? Comment below.", s=f'{cta}.')
+             e=f"Quiz: {pre} blank{(' ' + post) if post else ''}{'' if post.endswith(('?', '!')) else '.'} {cap(qa)}, or {qb}? Pick your answer first.", s=f'{cta}.')
     return [dict(id=f'n_{h6}_{k}', who=host, text=v) for k, v in L.items()], (pre, post, qa, qb)
 
 def make(g, plate, host, clip, area, series, formula, quote=None, mode='strong', out=None, eco=None):

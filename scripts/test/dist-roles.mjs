@@ -153,5 +153,9 @@ ok(retired.length === 2 && reported.join() === 'gone-clip' && idx.items.map(x =>
   ok(D.pausedAccount({ status: 'paused' }) && D.pausedAccount({ publishing_paused: true }) && !D.pausedAccount({ status: 'active' }) && !D.pausedAccount({}), 'pausedAccount: kênh Pause publishing trên GrabCast');
 }
 
+// owner 15/11: YouTube chỉ private + publishAt – hàng yt_queue 'social' (sổ cái, không upload) không được sinh ra với privacy unlisted/public
+{ const src = (await import('node:fs')).readFileSync(new URL('../../functions/api/_social_auto.js', import.meta.url), 'utf8');
+  ok(!/INSERT INTO yt_queue[^`]*'social', '(unlisted|public)'/.test(src) && /INSERT INTO yt_queue[^`]*'social', 'private'/.test(src), "yt_queue 'social' rows are private (owner rule: YouTube = private + publishAt)"); }
+
 console.log(`dist-roles: ${n - fails}/${n} ok`);
 if (fails) process.exit(1);

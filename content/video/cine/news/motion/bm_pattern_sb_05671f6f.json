@@ -1,0 +1,265 @@
+{
+ "id": "mo_bm_pattern_sb_05671f6f",
+ "template": "pattern",
+ "title": "Motion pattern – fit + for: suitable or healthy enough for (sb_05671f6f)",
+ "teacher": "carlos",
+ "clips": [
+  "gc11_talk",
+  "gc11_explain",
+  "gc11_happy",
+  "gc11_thinking",
+  "gc11_surprise_2"
+ ],
+ "listen": [
+  "gc11_listen"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy",
+ "active": "yellow",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "collocation",
+  "link": "https://lexkite.com/app/",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Shopping",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "Guess before I tell you",
+   "gap": 0.7
+  },
+  {
+   "id": "x",
+   "text": "Not: This room is not fit to a party.",
+   "gap": 0.7
+  },
+  {
+   "id": "b",
+   "text": "Say: This room is not fit for a party.",
+   "gap": 0.7
+  },
+  {
+   "id": "w",
+   "text": "Fit for means good enough for.",
+   "gap": 0.7
+  },
+  {
+   "id": "m",
+   "text": "Remember: fit FOR = good enough for.",
+   "gap": 0.7
+  },
+  {
+   "id": "a",
+   "text": "Fit for a king means very, very good!",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "Guess before",
+      "white"
+     ]
+    ],
+    [
+     [
+      "I tell you",
+      "yellow"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Pattern",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "Guess before"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "I tell you"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "mem",
+    "at": [
+     "m",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Remember",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "fit FOR = good enough for"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "rules",
+    "at": [
+     "x",
+     0
+    ],
+    "rows": [
+     {
+      "t": "tile",
+      "tag": "NOT",
+      "tone": "coral",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "This room is not fit to a party.",
+        "coral"
+       ]
+      ],
+      "ex_at": [
+       "x",
+       1
+      ],
+      "at": [
+       "x",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "SAY",
+      "tone": "teal",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "This room is not fit for a party.",
+        "teal"
+       ]
+      ],
+      "ex_at": [
+       "b",
+       1
+      ],
+      "at": [
+       "b",
+       0
+      ]
+     }
+    ]
+   }
+  ],
+  "hook_text": "Guess before I tell you",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ },
+ "uses": {
+  "template": "pattern",
+  "row": "sb_05671f6f",
+  "teacher": "carlos",
+  "accent": "navy",
+  "active": "yellow",
+  "tones": 2
+ }
+}
