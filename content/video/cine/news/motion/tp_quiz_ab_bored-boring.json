@@ -1,0 +1,242 @@
+{
+ "id": "mo_tp_quiz_ab_bored-boring",
+ "template": "quiz-ab",
+ "title": "Motion quiz-ab – quiz-ab: bored-boring (tp_quiz_ab_bored-boring)",
+ "teacher": "carlos",
+ "clips": [
+  "gc11_talk",
+  "gc11_explain",
+  "gc11_happy",
+  "gc11_thinking",
+  "gc11_surprise_2"
+ ],
+ "listen": [
+  "gc11_listen"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy2",
+ "active": "yellow",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "quiz-ab",
+  "link": "https://lexkite.com/app/",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Quiz Ab",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "Quick quiz!",
+   "gap": 0.7
+  },
+  {
+   "id": "q",
+   "text": "Bored or boring?",
+   "gap": 0.7
+  },
+  {
+   "id": "o",
+   "text": "A: I'm boring in class? Or B: I'm bored in class?",
+   "gap": 0.7
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "a",
+   "text": "It's B! I'm bored is how you feel. I'm boring means I'm no fun.",
+   "gap": 0.7
+  },
+  {
+   "id": "w",
+   "text": "Tip: bored is how you feel. Boring is what makes you feel that way.",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "Quick quiz!",
+      "white"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Quick quiz",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "Quick quiz!"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "q",
+    "at": [
+     "q",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "A or B?",
+      "tone": "teal",
+      "ring": "_count"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "Bored or boring?"
+       ]
+      ]
+     }
+    ],
+    "xp": [
+     {
+      "at": [
+       "a",
+       0
+      ],
+      "n": 10
+     }
+    ]
+   },
+   {
+    "id": "note",
+    "at": [
+     "w",
+     0
+    ],
+    "tone": "coral",
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Tip",
+      "tone": "coral"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "bored is how you feel. Boring is what makes you"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "opts",
+    "id": "opts",
+    "opts": [
+     "I'm boring in class.",
+     "I'm bored in class."
+    ],
+    "cues": [
+     [
+      "o",
+      1
+     ],
+     [
+      "o",
+      7
+     ]
+    ],
+    "reveal": [
+     "a",
+     0
+    ],
+    "right": 1
+   }
+  ],
+  "hook_text": "Quick quiz!",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ },
+ "uses": {
+  "template": "quiz-ab",
+  "row": "tp_quiz_ab_bored-boring",
+  "teacher": "carlos",
+  "accent": "navy2",
+  "active": "yellow",
+  "tones": 0
+ }
+}

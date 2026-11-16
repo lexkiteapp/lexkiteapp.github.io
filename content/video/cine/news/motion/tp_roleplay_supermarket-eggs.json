@@ -1,0 +1,307 @@
+{
+ "id": "mo_tp_roleplay_supermarket-eggs",
+ "template": "roleplay",
+ "title": "Motion roleplay – roleplay: supermarket-eggs (tp_roleplay_supermarket-eggs)",
+ "teacher": "carlos",
+ "clips": [
+  "gc11_talk",
+  "gc11_explain",
+  "gc11_happy",
+  "gc11_thinking",
+  "gc11_surprise_2"
+ ],
+ "listen": [
+  "gc11_listen"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy",
+ "active": "mint",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "roleplay",
+  "link": "https://lexkite.com/app/",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Roleplay",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "Wait, where are the eggs?",
+   "gap": 0.7
+  },
+  {
+   "id": "s0",
+   "text": "At the supermarket.",
+   "gap": 0.7
+  },
+  {
+   "id": "s1",
+   "text": "Looking for something? I can help.",
+   "gap": 0.7
+  },
+  {
+   "id": "s2",
+   "text": "Yes, please. Where can I find the eggs?",
+   "gap": 0.7
+  },
+  {
+   "id": "s3",
+   "text": "They're in aisle five, next to the milk.",
+   "gap": 0.7
+  },
+  {
+   "id": "t",
+   "text": "Tip: excuse me, where can I find… works in any store.",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "Wait, where",
+      "white"
+     ]
+    ],
+    [
+     [
+      "are the",
+      "yellow"
+     ]
+    ],
+    [
+     [
+      "eggs?",
+      "yellow"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Roleplay",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "Wait, where"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "are the"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "eggs?"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "sum",
+    "at": [
+     "t",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Tip",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "excuse me, where can I find… works in any store."
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "rules",
+    "at": [
+     "s1",
+     0
+    ],
+    "rows": [
+     {
+      "t": "tile",
+      "tag": "STAFF",
+      "tone": "gold",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "Looking for something? I can help.",
+        "gold"
+       ]
+      ],
+      "ex_at": [
+       "s1",
+       0
+      ],
+      "at": [
+       "s1",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "YOU",
+      "tone": "teal",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "Yes, please. Where can I find the eggs?",
+        "teal"
+       ]
+      ],
+      "ex_at": [
+       "s2",
+       0
+      ],
+      "at": [
+       "s2",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "STAFF",
+      "tone": "coral",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "They're in aisle five, next to the milk.",
+        "coral"
+       ]
+      ],
+      "ex_at": [
+       "s3",
+       0
+      ],
+      "at": [
+       "s3",
+       0
+      ]
+     }
+    ]
+   }
+  ],
+  "hook_text": "Wait, where are the eggs?",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ },
+ "uses": {
+  "template": "roleplay",
+  "row": "tp_roleplay_supermarket-eggs",
+  "teacher": "carlos",
+  "accent": "navy",
+  "active": "mint",
+  "tones": 1
+ }
+}

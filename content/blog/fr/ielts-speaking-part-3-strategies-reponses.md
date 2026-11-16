@@ -158,3 +158,5 @@ Aucune pénalité n'est appliquée lorsque vous demandez courtoisement une clari
 Enregistrez vos réponses spontanées à partir de sujets officiels, réécoutez-les pour traquer les tics de langage et réenregistrez en intégrant des connecteurs académiques. Associez les modules interactifs de [Lexkite Speaking](/#/speaking) aux simulateurs de [pratique orale guidée](/#/practice/speak) pour consolider vos réflexes.
 
 {{cta: /#/speaking | Perfectionnez vos réponses académiques à l IELTS Speaking Part 3 avec Lexkite}}
+
+Vous trouverez des exemples de réponses commentées pour les trois parties dans notre article sur l’[IELTS Speaking band 7](/fr/blog/reponses-ielts-speaking-band-7-exemples/).

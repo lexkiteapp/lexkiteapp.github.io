@@ -485,9 +485,9 @@ for i, (lab, opt, wd) in enumerate([('A', QA.lower(), QA), ('B', QB, QB.split()[
     TICKS.append(to)
 y += 112 + (112 + 24 if STACK else 0) + 40; tcm = ln.t('Comment')
 CD_T = []
-if CD:   # v4: 'Comment your answer' + a 3-2-1 countdown ring in the same row, then the answer reveal (correct option bounces + green check, the other dims)
-    lf_ = F('head', TYPE['label']); lw_ = int(lf_.getlength('Comment your answer')) + 8; x_ = X0 + (FULL - (lw_ + 32 + RING)) // 2
-    words_block('e.cta', 'Comment your answer', TYPE['label'], 'head', x_, y + (RING - int(TYPE['label'] * LEAD)) // 2, lw_, g, None, b['vout'], color=SUB, reveal='fade', after=tcm)
+if CD:   # v4: 'Think of your answer' + a 3-2-1 countdown ring in the same row, then the answer reveal (correct option bounces + green check, the other dims)
+    lf_ = F('head', TYPE['label']); lw_ = int(lf_.getlength('Think of your answer')) + 8; x_ = X0 + (FULL - (lw_ + 32 + RING)) // 2
+    words_block('e.cta', 'Think of your answer', TYPE['label'], 'head', x_, y + (RING - int(TYPE['label'] * LEAD)) // 2, lw_, g, None, b['vout'], color=SUB, reveal='fade', after=tcm)
     T_CD = ln.at + ln.end + CD['lead']; T_REV = round(T_CD + CD['n'] * CD['step'], 3); CD_T = [T_CD + i * CD['step'] for i in range(CD['n'])]
     def ring_img(t, d=RING, ss=4):
         el = max(0.0, t - T_CD); D = d * ss; im = Image.new('RGBA', (D, D), (0, 0, 0, 0)); dr = ImageDraw.Draw(im); lw = int(D * 0.09)
@@ -506,7 +506,7 @@ if CD:   # v4: 'Comment your answer' + a 3-2-1 countdown ring in the same row, t
     El('e.ok', ok_, oc.x, oc.y, g, T_REV, b['vout'], enter='pop', d_in='base', z=8, inset=oc.inset, bounce=T_REV)   # hops with its option
     OPTS[1 - ANS].dim = (T_REV, 0.4, g)
 else:
-    words_block('e.cta', 'Comment your answer', TYPE['label'], 'head', X0, y, FULL, g, None, b['vout'], color=SUB, align='center', reveal='fade', after=tcm)
+    words_block('e.cta', 'Think of your answer', TYPE['label'], 'head', X0, y, FULL, g, None, b['vout'], color=SUB, align='center', reveal='fade', after=tcm)
 
 # share / end card --------------------------------------------------------
 b = BEAT['s']; ln = L['s']; g = 's'; ST('s')
