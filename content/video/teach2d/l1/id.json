@@ -50,7 +50,7 @@
     "hook_say": "Don't forget is!",
     "wrong": "She beautiful.",
     "right": "She is beautiful.",
-    "strike": "She",
+    "strike": "She beautiful",
     "why": "Add is after she.",
     "memory": "She + is.",
     "quiz": {
@@ -66,7 +66,7 @@
      "hook": "She beautiful… kurang “is”!",
      "tip": "Di bahasa Indonesia “dia cantik” tanpa kata kerja, tapi bahasa Inggris butuh is/am/are.",
      "caption": "Pernah bilang begini? “She beautiful.” 😅 Jangan lupa is setelah she: “She is beautiful.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “He is tall.”. Buat tiga kalimat pendek dengan is hari ini. Latihan gratis lainnya di sini: {link}",
+     "comment": "Jawaban: “He is tall.” Buat tiga kalimat pendek dengan is hari ini. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -127,7 +127,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Very goes after like!",
+    "hook_say": "Like it very much!",
     "wrong": "I very like coffee.",
     "right": "I like coffee very much.",
     "strike": "very like",
@@ -196,7 +196,7 @@
     },
     "en": {
      "hook": "“Where you go?” is not complete",
-     "tip": "In Indonesian the short question is fine, but English needs are and going.",
+     "tip": "In Indonesian “Kamu mau ke mana?” is short, but English needs are and going.",
      "caption": "Ever say this? “Where you go?” 😅 Ask the full question: “Where are you going?” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
@@ -424,7 +424,7 @@
     "answer_say": "Go! I go home at night.",
     "native": {
      "hook": "“Go to home”? Tanpa “to”!",
-     "tip": "Kita bilang “pergi ke rumah”, tapi di bahasa Inggris home tidak pakai to.",
+     "tip": "Kita bilang “pulang ke rumah”, tapi di bahasa Inggris cukup go home, tanpa to.",
      "caption": "Pernah bilang begini? “I go to home after work.” 😅 Dengan home, tidak perlu to: “I go home after work.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
      "comment": "Jawaban: “go”. Ucapkan “I go home” lima kali. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
@@ -436,37 +436,37 @@
     },
     "en": {
      "hook": "“Go to home”? No “to”!",
-     "tip": "We say “pergi ke rumah”, but in English home takes no to.",
+     "tip": "We say “pulang ke rumah”, but in English it is just go home, with no to.",
      "caption": "Ever say this? “I go to home after work.” 😅 With home, you do not need to: “I go home after work.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
   {
-   "id": "t2_l1_id_iverytired",
+   "id": "t2_l1_id_sincefor",
    "lang": "id",
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Say I am very tired!",
-    "wrong": "I very tired today.",
-    "right": "I am very tired today.",
-    "strike": "I very",
-    "why": "Add am before very.",
-    "memory": "I + am.",
+    "hook_say": "For two years, not since!",
+    "wrong": "I have lived here since two years.",
+    "right": "I have lived here for two years.",
+    "strike": "since",
+    "why": "Time length? Use for.",
+    "memory": "For + time length.",
     "quiz": {
-     "stem": "Which is right?",
+     "stem": "I have worked here ___ three years.",
      "options": [
-      "I am very hungry.",
-      "I very hungry."
+      "for",
+      "since"
      ],
      "answer": 0
     },
-    "answer_say": "I am very hungry! Yes!",
+    "answer_say": "For! I have worked here for three years.",
     "native": {
-     "hook": "“I very tired” kurang “am”",
-     "tip": "Di bahasa Indonesia “saya sangat capek” tanpa kata kerja, tapi bahasa Inggris butuh am.",
-     "caption": "Pernah bilang begini? “I very tired today.” 😅 Jangan lupa am sebelum very: “I am very tired today.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “I am very hungry.”. Bilang “I am very ...” untuk perasaanmu. Latihan gratis lainnya di sini: {link}",
+     "hook": "“Since two years”? Pakai “for”",
+     "tip": "“Sejak dua tahun” bukan since two years. Untuk lamanya waktu pakai for; since untuk titik awal (since 2020).",
+     "caption": "Pernah bilang begini? “I have lived here since two years.” 😅 Untuk lamanya waktu, pakai for: “I have lived here for two years.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+     "comment": "Jawaban: “for”. Ceritakan sudah berapa lama kamu belajar bahasa Inggris dengan for. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -475,38 +475,38 @@
      ]
     },
     "en": {
-     "hook": "“I very tired” needs “am”",
-     "tip": "In Indonesian “saya sangat capek” has no verb, but English needs am.",
-     "caption": "Ever say this? “I very tired today.” 😅 Do not forget am before very: “I am very tired today.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "hook": "“Since two years”? Use “for”",
+     "tip": "Not “since two years”. For is the length of time; since is the starting point (since 2020).",
+     "caption": "Ever say this? “I have lived here since two years.” 😅 For a length of time, use for: “I have lived here for two years.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
   {
-   "id": "t2_l1_id_sleeplate",
+   "id": "t2_l1_id_ever",
    "lang": "id",
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Slept, not sleep!",
-    "wrong": "Last night I sleep only five hours.",
-    "right": "Last night I slept only five hours.",
-    "strike": "sleep",
-    "why": "Yesterday: slept.",
-    "memory": "Past: slept.",
+    "hook_say": "Drop ever here!",
+    "wrong": "I have ever been to Bali.",
+    "right": "I have been to Bali.",
+    "strike": "ever",
+    "why": "No ever in yes answers.",
+    "memory": "I have been.",
     "quiz": {
-     "stem": "Last night I ___ well.",
+     "stem": "I ___ to Bali.",
      "options": [
-      "sleep",
-      "slept"
+      "have been",
+      "have ever been"
      ],
-     "answer": 1
+     "answer": 0
     },
-    "answer_say": "Slept! Last night I slept well.",
+    "answer_say": "Have been! I have been to Bali.",
     "native": {
-     "hook": "“Yesterday I sleep”? Pakai slept",
-     "tip": "Kata kerja bahasa Indonesia tidak berubah menurut waktu, tapi bahasa Inggris berubah: sleep jadi slept.",
-     "caption": "Pernah bilang begini? “Last night I sleep only five hours.” 😅 Untuk kemarin, pakai slept: “Last night I slept only five hours.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “slept”. Ceritakan tidurmu semalam dengan slept. Latihan gratis lainnya di sini: {link}",
+     "hook": "“Pernah” ≠ “ever”!",
+     "tip": "“Saya pernah ke Bali” cukup I have been to Bali. Ever dipakai di pertanyaan: Have you ever been to Bali?",
+     "caption": "Pernah bilang begini? “I have ever been to Bali.” 😅 Dalam kalimat biasa, buang ever: “I have been to Bali.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+     "comment": "Jawaban: “have been”. Tanya temanmu: “Have you ever been to ...?” Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -515,9 +515,9 @@
      ]
     },
     "en": {
-     "hook": "“Yesterday I sleep”? Say slept",
-     "tip": "Indonesian verbs do not change with time, but English does: sleep becomes slept.",
-     "caption": "Ever say this? “Last night I sleep only five hours.” 😅 For last night, use slept: “Last night I slept only five hours.” Listen to Ama and repeat! Practice more in the Lexkite app."
+     "hook": "“Pernah” ≠ “ever”!",
+     "tip": "“Saya pernah ke Bali” is just I have been to Bali. Use ever in questions: Have you ever been to Bali?",
+     "caption": "Ever say this? “I have ever been to Bali.” 😅 In a normal sentence, drop ever: “I have been to Bali.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -704,7 +704,7 @@
     "answer_say": "Live! I live in a small town.",
     "native": {
      "hook": "“I am live”? Cukup “live”",
-     "tip": "Banyak yang menambah am. Di bahasa Inggris, live sudah kata kerja.",
+     "tip": "Banyak yang mengira “I am” = “saya”. Padahal live sudah kata kerja: cukup I live.",
      "caption": "Pernah bilang begini? “I am live in Jakarta.” 😅 Cukup bilang I live: “I live in Jakarta.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
      "comment": "Jawaban: “live”. Perkenalkan tempat tinggalmu: “I live in ...”. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
@@ -716,7 +716,7 @@
     },
     "en": {
      "hook": "“I am live”? Just “live”",
-     "tip": "Many learners add am. In English, live is already a verb.",
+     "tip": "Many think “I am” = “saya”. But live is already a verb: just say I live.",
      "caption": "Ever say this? “I am live in Jakarta.” 😅 Just say I live: “I live in Jakarta.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
@@ -842,31 +842,31 @@
    }
   },
   {
-   "id": "t2_l1_id_willtogo",
+   "id": "t2_l1_id_letswego",
    "lang": "id",
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Will? No to!",
-    "wrong": "I will to go tomorrow.",
-    "right": "I will go tomorrow.",
-    "strike": "to",
-    "why": "After will, no to.",
-    "memory": "Will + verb.",
+    "hook_say": "Just say let's go!",
+    "wrong": "Let's we go!",
+    "right": "Let's go!",
+    "strike": "we",
+    "why": "Let's already has us.",
+    "memory": "Let's = let us.",
     "quiz": {
-     "stem": "I will ___ you.",
+     "stem": "___ eat now!",
      "options": [
-      "help",
-      "to help"
+      "Let's",
+      "Let's we"
      ],
      "answer": 0
     },
-    "answer_say": "Help! I will help you.",
+    "answer_say": "Let's! Let's eat now!",
     "native": {
-     "hook": "“Will to”? Tanpa “to”!",
-     "tip": "Karena sering dengar “want to” dan “need to”, kita ikut menambah to. Setelah will, langsung kata kerja.",
-     "caption": "Pernah bilang begini? “I will to go tomorrow.” 😅 Setelah will, langsung kata kerja: “I will go tomorrow.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “help”. Bilang rencanamu besok: “I will ...”. Latihan gratis lainnya di sini: {link}",
+     "hook": "“Let's we go”? Buang “we”",
+     "tip": "“Ayo kita pergi” jadi let's we go, padahal let's = let us, sudah ada “kita”.",
+     "caption": "Pernah bilang begini? “Let's we go!” 😅 Let's sudah berarti let us, jadi cukup: “Let's go!” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+     "comment": "Jawaban: “Let's”. Ajak temanmu dengan “Let's ...!” Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -875,9 +875,9 @@
      ]
     },
     "en": {
-     "hook": "“Will to”? No “to”!",
-     "tip": "Because we often hear “want to” and “need to”, we add to too. After will, go straight to the verb.",
-     "caption": "Ever say this? “I will to go tomorrow.” 😅 After will, use the verb directly: “I will go tomorrow.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "hook": "“Let's we go”? Drop “we”",
+     "tip": "“Ayo kita pergi” becomes let's we go, but let's = let us, so “we” is already inside.",
+     "caption": "Ever say this? “Let's we go!” 😅 Let's already means let us, so just say: “Let's go!” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -916,7 +916,7 @@
     },
     "en": {
      "hook": "“Afraid with”? Use “of”",
-     "tip": "We may say “takut dengan”, but English uses afraid of.",
+     "tip": "We say “takut dengan”, but English uses afraid of.",
      "caption": "Ever say this? “I am afraid with dogs.” 😅 For fear, use of: “I am afraid of dogs.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
@@ -1024,7 +1024,7 @@
     "answer_say": "To! Don't forget to call me.",
     "native": {
      "hook": "“Forgot bring”? Pakai “to”",
-     "tip": "Di bahasa Indonesia “lupa bawa” langsung dua kata, tapi bahasa Inggris pakai to sebelum kata kerja kedua.",
+     "tip": "“Lupa bawa” langsung dua kata, tapi bahasa Inggris: forgot to + kata kerja. (Forgot + -ing: lupa pernah melakukannya.)",
      "caption": "Pernah bilang begini? “I forgot bring my book.” 😅 Setelah forgot, pakai to: “I forgot to bring my book.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
      "comment": "Jawaban: “to”. Bilang “I forgot to ...” untuk hal yang kamu lupa. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
@@ -1036,7 +1036,7 @@
     },
     "en": {
      "hook": "“Forgot bring”? Add “to”",
-     "tip": "In Indonesian “lupa bawa” goes straight on, but English uses to before the second verb.",
+     "tip": "“Lupa bawa” goes straight on, but English is forgot to + verb. (Forgot + -ing: forgot you did it.)",
      "caption": "Ever say this? “I forgot bring my book.” 😅 After forgot, use to: “I forgot to bring my book.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
@@ -1104,7 +1104,7 @@
     "answer_say": "Quickly! She speaks quickly now.",
     "native": {
      "hook": "“Speak fluent”? Pakai “fluently”",
-     "tip": "Bahasa Indonesia: “lancar” tetap sama. Untuk menjelaskan kata kerja Inggris pakai -ly: fluently. (Atau: I speak fluent English.)",
+     "tip": "Di bahasa Indonesia “lancar” tetap, tapi bahasa Inggris pakai -ly untuk kata kerja: fluently. (Bisa: I speak fluent English.)",
      "caption": "Pernah bilang begini? “I speak English fluent.” 😅 Untuk menjelaskan kata kerja, pakai fluently: “I speak English fluently.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
      "comment": "Jawaban: “quickly”. Coba bilang “I speak English slowly”, lalu “fluently”. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
@@ -1116,7 +1116,7 @@
     },
     "en": {
      "hook": "“Speak fluent”? Use “fluently”",
-     "tip": "In Indonesian “lancar” does not change, but to describe an English verb, use -ly: fluently. (You can also say: I speak fluent English.)",
+     "tip": "In Indonesian “lancar” stays the same, but English uses -ly for verbs: fluently. (Also OK: I speak fluent English.)",
      "caption": "Ever say this? “I speak English fluent.” 😅 To describe a verb, use fluently: “I speak English fluently.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
@@ -1169,7 +1169,7 @@
    "in": {
     "hook_say": "Do not understand!",
     "wrong": "I am not understand.",
-    "right": "I do not understand.",
+    "right": "I don't understand.",
     "strike": "am",
     "why": "Not needs do.",
     "memory": "Do not.",
@@ -1184,8 +1184,8 @@
     "answer_say": "Do! I do not know.",
     "native": {
      "hook": "“I am not understand” salah",
-     "tip": "Bahasa Indonesia cukup “tidak mengerti”, jadi orang menambah am. Di bahasa Inggris pakai do not.",
-     "caption": "Pernah bilang begini? “I am not understand.” 😅 Untuk kalimat negatif dengan kata kerja, pakai do not: “I do not understand.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+     "tip": "“I am” tidak sama dengan “saya”. Understand itu kata kerja, jadi negatifnya pakai do not (don't).",
+     "caption": "Pernah bilang begini? “I am not understand.” 😅 Untuk kalimat negatif dengan kata kerja, pakai do not: “I don't understand.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
      "comment": "Jawaban: “do”. Latih “I do not understand” dengan tenang. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
@@ -1196,8 +1196,8 @@
     },
     "en": {
      "hook": "“I am not understand” is wrong",
-     "tip": "Indonesian says “tidak mengerti”, so learners add am. English uses do not.",
-     "caption": "Ever say this? “I am not understand.” 😅 To make a verb negative, use do not: “I do not understand.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "“I am” is not “saya”. Understand is a verb, so its negative uses do not (don't).",
+     "caption": "Ever say this? “I am not understand.” 😅 To make a verb negative, use do not: “I don't understand.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1225,7 +1225,7 @@
     "native": {
      "hook": "“More cheaper”? Cukup “cheaper”",
      "tip": "“Lebih murah” jadi more cheaper, padahal -er sudah berarti lebih.",
-     "caption": "Pernah bilang begini? “This bag is more cheaper.” 😅 Pilih satu: cheaper, tanpa more: “This bag is cheaper.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+     "caption": "Pernah bilang begini? “This bag is more cheaper.” 😅 Cukup cheaper, tanpa more: “This bag is cheaper.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
      "comment": "Jawaban: “cheaper”. Bandingkan dua barang dengan -er. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
@@ -1237,36 +1237,36 @@
     "en": {
      "hook": "“More cheaper”? Just “cheaper”",
      "tip": "“Lebih murah” turns into more cheaper, but -er already means more.",
-     "caption": "Ever say this? “This bag is more cheaper.” 😅 Pick one: cheaper, no more: “This bag is cheaper.” Listen to Ama and repeat! Practice more in the Lexkite app."
+     "caption": "Ever say this? “This bag is more cheaper.” 😅 Just cheaper, without more: “This bag is cheaper.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
   {
-   "id": "t2_l1_id_likeplay",
+   "id": "t2_l1_id_samewith",
    "lang": "id",
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Like to play!",
-    "wrong": "I like play football.",
-    "right": "I like to play football.",
-    "strike": "play",
-    "why": "Like + to + verb.",
-    "memory": "Like to play.",
+    "hook_say": "The same as, not same with!",
+    "wrong": "My phone is same with yours.",
+    "right": "My phone is the same as yours.",
+    "strike": "same with",
+    "why": "Say the same as.",
+    "memory": "The same as.",
     "quiz": {
-     "stem": "I like ___ movies.",
+     "stem": "Her bag is ___ mine.",
      "options": [
-      "to watch",
-      "watch"
+      "the same as",
+      "same with"
      ],
      "answer": 0
     },
-    "answer_say": "To watch! I like to watch movies.",
+    "answer_say": "The same as! Her bag is the same as mine.",
     "native": {
-     "hook": "“Like play”? Tambahkan “to”",
-     "tip": "“Suka main” langsung dua kata di bahasa Indonesia, tapi bahasa Inggris butuh to setelah like. (atau like + -ing: I like playing football)",
-     "caption": "Pernah bilang begini? “I like play football.” 😅 Setelah like, pakai to: “I like to play football.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “to watch”. Bilang “I like to ...” untuk hobimu. Latihan gratis lainnya di sini: {link}",
+     "hook": "“Same with”? Pakai “the same as”",
+     "tip": "“Sama dengan” bukan same with. Bahasa Inggris pakai the same as.",
+     "caption": "Pernah bilang begini? “My phone is same with yours.” 😅 Untuk menyamakan, pakai the same as: “My phone is the same as yours.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+     "comment": "Jawaban: “the same as”. Bandingkan barangmu dengan milik teman pakai the same as. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -1275,9 +1275,9 @@
      ]
     },
     "en": {
-     "hook": "“Like play”? Add “to”",
-     "tip": "In Indonesian “suka main” goes straight on, but English needs to after like. (or like + -ing: I like playing football)",
-     "caption": "Ever say this? “I like play football.” 😅 After like, use to: “I like to play football.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "hook": "“Same with”? Use “the same as”",
+     "tip": "“Sama dengan” is not same with. English uses the same as.",
+     "caption": "Ever say this? “My phone is same with yours.” 😅 To say two things match, use the same as: “My phone is the same as yours.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1290,18 +1290,18 @@
     "hook_say": "Waiting for you!",
     "wrong": "I am waiting you.",
     "right": "I am waiting for you.",
-    "strike": "waiting",
+    "strike": "waiting you",
     "why": "Waiting needs for.",
     "memory": "Wait for you.",
     "quiz": {
-     "stem": "I wait ___ the bus.",
+     "stem": "I am waiting ___ the bus.",
      "options": [
       "for",
       "to"
      ],
      "answer": 0
     },
-    "answer_say": "For! I wait for the bus.",
+    "answer_say": "For! I am waiting for the bus.",
     "native": {
      "hook": "“Waiting you”? Tambahkan “for”",
      "tip": "Kita bilang “menunggu kamu”, tapi bahasa Inggris pakai wait for.",

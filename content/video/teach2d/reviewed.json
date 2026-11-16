@@ -15936,7 +15936,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "Very goes after like!",
+    "h": "Like it very much!",
     "w": "Many learners say: I very like coffee.",
     "r": "Better: I like coffee very much.",
     "y": "Say very much at the end.",
@@ -16031,23 +16031,6 @@
     "c": "Save this. Free on lexkite.com."
    }
   },
-  "t2_l1_id_openthelight": {
-   "template": "l1",
-   "hook": "Lampu itu “turn on”, bukan “open”",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
-   "script": {
-    "h": "Turn on the light!",
-    "w": "Many learners say: Please open the light.",
-    "r": "Better: Please turn on the light.",
-    "y": "Light on? Turn on.",
-    "q": "Quick quiz! Which one fits?",
-    "a": "Turn on! Please turn on the radio.",
-    "sh": "Send this to a friend!",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
   "t2_l1_id_gotohome": {
    "template": "l1",
    "hook": "“Go to home”? Tanpa “to”!",
@@ -16061,40 +16044,6 @@
     "y": "Home has no to.",
     "q": "Quick quiz! Which one fits?",
     "a": "Go! I go home at night.",
-    "sh": "Send this to a friend!",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2_l1_id_iverytired": {
-   "template": "l1",
-   "hook": "“I very tired” kurang “am”",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
-   "script": {
-    "h": "Say I am very tired!",
-    "w": "Many learners say: I very tired today.",
-    "r": "Better: I am very tired today.",
-    "y": "Add am before very.",
-    "q": "Quick quiz! Which one fits?",
-    "a": "I am very hungry! Yes!",
-    "sh": "Send this to a friend!",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
-  "t2_l1_id_sleeplate": {
-   "template": "l1",
-   "hook": "“Yesterday I sleep”? Pakai slept",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
-   "script": {
-    "h": "Slept, not sleep!",
-    "w": "Many learners say: Last night I sleep only five hours.",
-    "r": "Better: Last night I slept only five hours.",
-    "y": "Yesterday: slept.",
-    "q": "Quick quiz! Which one fits?",
-    "a": "Slept! Last night I slept well.",
     "sh": "Send this to a friend!",
     "c": "Save this. Free on lexkite.com."
    }
@@ -16235,23 +16184,6 @@
     "c": "Save this. Free on lexkite.com."
    }
   },
-  "t2_l1_id_willtogo": {
-   "template": "l1",
-   "hook": "“Will to”? Tanpa “to”!",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
-   "script": {
-    "h": "Will? No to!",
-    "w": "Many learners say: I will to go tomorrow.",
-    "r": "Better: I will go tomorrow.",
-    "y": "After will, no to.",
-    "q": "Quick quiz! Which one fits?",
-    "a": "Help! I will help you.",
-    "sh": "Send this to a friend!",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
   "t2_l1_id_afraidwith": {
    "template": "l1",
    "hook": "“Afraid with”? Pakai “of”",
@@ -16380,7 +16312,7 @@
    "script": {
     "h": "Do not understand!",
     "w": "Many learners say: I am not understand.",
-    "r": "Better: I do not understand.",
+    "r": "Better: I don't understand.",
     "y": "Not needs do.",
     "q": "Quick quiz! Which one fits?",
     "a": "Do! I do not know.",
@@ -16405,23 +16337,6 @@
     "c": "Save this. Free on lexkite.com."
    }
   },
-  "t2_l1_id_likeplay": {
-   "template": "l1",
-   "hook": "“Like play”? Tambahkan “to”",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
-   "script": {
-    "h": "Like to play!",
-    "w": "Many learners say: I like play football.",
-    "r": "Better: I like to play football.",
-    "y": "Like + to + verb.",
-    "q": "Quick quiz! Which one fits?",
-    "a": "To watch! I like to watch movies.",
-    "sh": "Send this to a friend!",
-    "c": "Save this. Free on lexkite.com."
-   }
-  },
   "t2_l1_id_waitingyou": {
    "template": "l1",
    "hook": "“Waiting you”? Tambahkan “for”",
@@ -16434,7 +16349,7 @@
     "r": "Better: I am waiting for you.",
     "y": "Waiting needs for.",
     "q": "Quick quiz! Which one fits?",
-    "a": "For! I wait for the bus.",
+    "a": "For! I am waiting for the bus.",
     "sh": "Send this to a friend!",
     "c": "Save this. Free on lexkite.com."
    }
@@ -17047,6 +16962,74 @@
     "y": "You give it: lend.",
     "q": "Quick quiz! Which one fits?",
     "a": "Lend! Can you lend me some money?",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_id_sincefor": {
+   "template": "l1",
+   "hook": "“Since two years”? Pakai “for”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "For two years, not since!",
+    "w": "Many learners say: I have lived here since two years.",
+    "r": "Better: I have lived here for two years.",
+    "y": "Time length? Use for.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "For! I have worked here for three years.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_id_ever": {
+   "template": "l1",
+   "hook": "“Pernah” ≠ “ever”!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Drop ever here!",
+    "w": "Many learners say: I have ever been to Bali.",
+    "r": "Better: I have been to Bali.",
+    "y": "No ever in yes answers.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Have been! I have been to Bali.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_id_letswego": {
+   "template": "l1",
+   "hook": "“Let's we go”? Buang “we”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Just say let's go!",
+    "w": "Many learners say: Let's we go!",
+    "r": "Better: Let's go!",
+    "y": "Let's already has us.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Let's! Let's eat now!",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_id_samewith": {
+   "template": "l1",
+   "hook": "“Same with”? Pakai “the same as”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "The same as, not same with!",
+    "w": "Many learners say: My phone is same with yours.",
+    "r": "Better: My phone is the same as yours.",
+    "y": "Say the same as.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "The same as! Her bag is the same as mine.",
     "sh": "Send this to a friend!",
     "c": "Save this. Free on lexkite.com."
    }
