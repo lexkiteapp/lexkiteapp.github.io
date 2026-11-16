@@ -47,12 +47,12 @@
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Don't say I very like!",
-    "wrong": "I very like music.",
+    "hook_say": "Very much goes last!",
+    "wrong": "I like very much music.",
     "right": "I like music very much.",
-    "strike": "very",
-    "why": "Very does not go before a verb.",
-    "memory": "Like it very much.",
+    "strike": "very much music",
+    "why": "Put very much after the thing you like.",
+    "memory": "Like music very much.",
     "quiz": {
      "stem": "I like pizza ___.",
      "options": [
@@ -63,9 +63,9 @@
     },
     "answer_say": "Very much! I like pizza very much.",
     "native": {
-     "hook": "ไม่พูดว่า “I very like”!",
-     "tip": "very ใช้ขยายคำคุณศัพท์ ไม่วางหน้ากริยา พูดว่า “like … very much” หรือ “really like”",
-     "caption": "คุณเคยพูดว่า “I very like music.” ไหม? 😅 ภาษาไทยพูดว่า “ชอบมาก” ได้เลย แต่ในภาษาอังกฤษ very ใช้ขยายคำคุณศัพท์ ไม่วางหน้ากริยา ต้องพูดว่า “I like music very much” หรือ “I really like music” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+     "hook": "very much ไว้ท้ายประโยค!",
+     "tip": "ไทยพูด “ชอบดนตรีมาก” เลยติดวาง very much ไว้กลาง แต่อังกฤษวางหลังสิ่งที่ชอบ: “I like music very much”",
+     "caption": "คุณเคยพูดว่า “I like very much music.” ไหม? 😅 ภาษาไทยพูดว่า “ชอบดนตรีมาก” เลยติดวาง very much ไว้กลางประโยค แต่ภาษาอังกฤษวางไว้หลังสิ่งที่ชอบ: “I like music very much.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
      "comment": "เฉลย: “very much” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
      "hashtags": [
       "#เรียนภาษาอังกฤษ",
@@ -75,9 +75,9 @@
      ]
     },
     "en": {
-     "hook": "Don't say “I very like”!",
-     "tip": "Very describes adjectives, not verbs. Say “like … very much” or “really like”",
-     "caption": "Do you say “I very like music”? 😅 In Thai “very” can come after the verb, but in English very does not go before a verb. Say “I like music very much” or “I really like music”! Listen to Ama and repeat! Practice more in the Lexkite app."
+     "hook": "Very much goes at the end!",
+     "tip": "Thai puts “very” at the end, so learners say “like very much music”. English says “like music very much”",
+     "caption": "Do you say “I like very much music”? 😅 Thai puts “very” at the end, so learners say “like very much music”. English says “like music very much”. Say “I like music very much”! Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -207,11 +207,11 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Jobs need a!",
+    "hook_say": "Say a or an before a job!",
     "wrong": "She is teacher.",
     "right": "She is a teacher.",
     "strike": "teacher",
-    "why": "Use a before a job.",
+    "why": "Use a or an before a job.",
     "memory": "She is a teacher.",
     "quiz": {
      "stem": "My brother is ___.",
@@ -304,8 +304,8 @@
     "answer_say": "Walks! She walks to school.",
     "native": {
      "hook": "เดินไป ใช้ walk ไม่ใช่ by walk!",
-     "tip": "ไทยพูด “เดินไป” แต่อังกฤษไม่พูด by walk ใช้กริยา walk: “I walk to work”",
-     "caption": "คุณเคยพูดว่า “I go to work by walk.” ไหม? 😅 ภาษาไทยพูดว่า “เดินไปทำงาน” แต่ภาษาอังกฤษไม่ใช้ by walk ต้องใช้กริยา walk: “I walk to work.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+     "tip": "by bus, by car ได้ แต่ by walk ไม่ได้ ใช้กริยา walk: “I walk to work”",
+     "caption": "คุณเคยพูดว่า “I go to work by walk.” ไหม? 😅 เราพูด by bus, by car ได้ แต่ไม่พูด by walk ต้องใช้กริยา walk (หรือ on foot): “I walk to work.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
      "comment": "เฉลย: “walks” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
      "hashtags": [
       "#เรียนภาษาอังกฤษ",
@@ -316,8 +316,8 @@
     },
     "en": {
      "hook": "Walk to work, not “by walk”!",
-     "tip": "Thai says “walk go”, but English uses the verb walk, not by walk: “I walk to work”",
-     "caption": "Do you say “I go to work by walk”? 😅 Thai can say “walk to work” in one go, but English does not use by walk. Use the verb walk. Say “I walk to work”! Listen to Ama and repeat! Practice more in the Lexkite app."
+     "tip": "We say by bus or by car, but not by walk. Use the verb: “I walk to work”",
+     "caption": "Do you say “I go to work by walk”? 😅 We say by bus and by car, but not by walk. Use the verb walk. Say “I walk to work”! Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -327,7 +327,7 @@
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Listen needs to!",
+    "hook_say": "Listen to music, not listen music!",
     "wrong": "I listen music every day.",
     "right": "I listen to music every day.",
     "strike": "listen music",
@@ -557,7 +557,7 @@
     "en": {
      "hook": "“Play Facebook” is not English!",
      "tip": "Thai says “play Facebook”, but English uses use or be on with apps: “I use Facebook”",
-     "caption": "Do you say “I play Facebook every night”? 😅 In Thai we “play” Facebook, but English does not use play with apps. Say use or be on. Say “I use Facebook every night”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "caption": "Do you say “I play Facebook every night”? 😅 In Thai you play Facebook, but English does not use play for it. Say “I use Facebook every night”! Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -647,7 +647,7 @@
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Say it before raining!",
+    "hook_say": "Raining now? Add it!",
     "wrong": "Raining now.",
     "right": "It is raining now.",
     "strike": "Raining",
@@ -745,7 +745,7 @@
     "native": {
      "hook": "borrow หรือ lend?",
      "tip": "lend คือให้ยืม borrow คือยืมมา: “lend me a pen”",
-     "caption": "คุณเคยพูดว่า “Can you borrow me a pen?” ไหม? 😅 ภาษาไทยใช้คำว่า “ยืม” ทั้งยืมมาและให้ยืม (ให้ยืม) แต่ภาษาอังกฤษแยกเป็นสองคำ: lend = ให้ยืม, borrow = ยืมมา ต้องพูดว่า “Can you lend me a pen?” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+     "caption": "คุณเคยพูดว่า “Can you borrow me a pen?” ไหม? 😅 ภาษาไทยใช้ “ยืม” กับ “ให้ยืม” ซึ่งมาจากคำเดียวกัน แต่ภาษาอังกฤษใช้คนละคำ: lend = ให้ยืม, borrow = ยืมมา ต้องพูดว่า “Can you lend me a pen?” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
      "comment": "เฉลย: “lend” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
      "hashtags": [
       "#เรียนภาษาอังกฤษ",
@@ -823,7 +823,7 @@
     },
     "answer_say": "There is! There is a park near my house.",
     "native": {
-     "hook": "มี… ≠ have เสมอ!",
+     "hook": "“มี” ไม่ใช่ have เสมอไป!",
      "tip": "ไทยใช้ “มี” ทั้ง have และ there is แต่ถ้าบอกว่ามีอะไรอยู่ที่ไหน ใช้ “there is/are”",
      "caption": "คุณเคยพูดว่า “In Bangkok have many cars.” ไหม? 😅 ภาษาไทยใช้ “มี” ทั้ง have และ there is แต่ภาษาอังกฤษบอกว่ามีอะไรอยู่ที่ไหนต้องใช้ there is หรือ there are: “There are many cars in Bangkok.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
      "comment": "เฉลย: “There is” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
@@ -882,31 +882,31 @@
    }
   },
   {
-   "id": "t2_l1_th_knowing",
+   "id": "t2_l1_th_take_medicine",
    "lang": "th",
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Say know, not am knowing!",
-    "wrong": "I am knowing the answer.",
-    "right": "I know the answer.",
-    "strike": "am knowing",
-    "why": "Know stays simple.",
-    "memory": "I know.",
+    "hook_say": "Take medicine, don't eat it!",
+    "wrong": "I eat medicine every morning.",
+    "right": "I take medicine every morning.",
+    "strike": "eat",
+    "why": "We take medicine, we do not eat it.",
+    "memory": "Take medicine.",
     "quiz": {
-     "stem": "I ___ her name.",
+     "stem": "Don't forget to ___ your medicine.",
      "options": [
-      "know",
-      "am knowing"
+      "eat",
+      "take"
      ],
-     "answer": 0
+     "answer": 1
     },
-    "answer_say": "Know! I know her name.",
+    "answer_say": "Take! Don't forget to take your medicine.",
     "native": {
-     "hook": "know ไม่ใช้ am knowing!",
-     "tip": "know บอกสภาวะ ไม่ใช้ -ing: “I know the answer”",
-     "caption": "คุณเคยพูดว่า “I am knowing the answer.” ไหม? 😅 know เป็นกริยาบอกสภาวะ ไม่ใช้รูป -ing แม้จะหมายถึงตอนนี้ ต้องพูดว่า “I know the answer.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
-     "comment": "เฉลย: “know” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+     "hook": "กินยา ≠ eat medicine!",
+     "tip": "ไทยพูด “กินยา” แต่อังกฤษใช้ take กับยา: “I take medicine”",
+     "caption": "คุณเคยพูดว่า “I eat medicine every morning.” ไหม? 😅 ภาษาไทยพูดว่า “กินยา” แต่ภาษาอังกฤษใช้ take กับยา ไม่ใช้ eat: “I take medicine every morning.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+     "comment": "เฉลย: “take” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
      "hashtags": [
       "#เรียนภาษาอังกฤษ",
       "#ภาษาอังกฤษ",
@@ -915,9 +915,9 @@
      ]
     },
     "en": {
-     "hook": "No “am knowing”!",
-     "tip": "Know describes a state, so it takes no -ing, even for right now: “I know the answer”",
-     "caption": "Do you say “I am knowing the answer”? 😅 Know is a state verb, so it takes no -ing, even for right now. Say “I know the answer”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "hook": "Take medicine, don't eat it!",
+     "tip": "Thai “eats” medicine, but English uses take: “I take medicine”",
+     "caption": "Do you say “I eat medicine every morning”? 😅 Thai says “eat” for medicine, but English uses take. Say “I take medicine every morning”! Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1104,8 +1104,8 @@
     "answer_say": "Yes, I can! Can you cook? Yes, I can.",
     "native": {
      "hook": "ตอบ “ได้” ≠ Can.!",
-     "tip": "ไทยตอบ “ได้” คำเดียวพอ แต่อังกฤษต้องตอบ “Yes, I can”",
-     "caption": "คุณเคยพูดว่า “Can you swim? Can.” ไหม? 😅 ภาษาไทยตอบว่า “ได้” คำเดียวก็พอ แต่ภาษาอังกฤษต้องตอบ yes พร้อมประธาน: “Can you swim? Yes, I can.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+     "tip": "ไทยตอบ “ได้” คำเดียวพอ แต่อังกฤษควรตอบเต็มประโยค: “Yes, I can”",
+     "caption": "คุณเคยพูดว่า “Can you swim? Can.” ไหม? 😅 ภาษาไทยตอบว่า “ได้” คำเดียวก็พอ แต่ภาษาอังกฤษควรตอบ yes พร้อมประธาน: “Can you swim? Yes, I can.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
      "comment": "เฉลย: “Yes, I can.” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
      "hashtags": [
       "#เรียนภาษาอังกฤษ",
@@ -1116,8 +1116,8 @@
     },
     "en": {
      "hook": "Don't just answer “Can”!",
-     "tip": "Thai can answer with one word, but English needs yes plus a subject: “Yes, I can”",
-     "caption": "Do you say “Can you swim? Can”? 😅 Thai can answer with one word, but English needs yes plus a subject. Say “Can you swim? Yes, I can”! Listen to Ama and repeat! Practice more in the Lexkite app."
+     "tip": "Thai can answer with one word, but English usually answers with yes plus a subject: “Yes, I can”",
+     "caption": "Do you say “Can you swim? Can”? 😅 Thai can answer with one word, but English usually answers with yes plus a subject. Say “Can you swim? Yes, I can”! Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1128,9 +1128,9 @@
    "theme": "dusk",
    "in": {
     "hook_say": "Do you say the subject twice?",
-    "wrong": "My sister she is a nurse.",
-    "right": "My sister is a nurse.",
-    "strike": "she",
+    "wrong": "My friend he lives in Phuket.",
+    "right": "My friend lives in Phuket.",
+    "strike": "he",
     "why": "Say the person once, not twice.",
     "memory": "Say the person once.",
     "quiz": {
@@ -1144,8 +1144,8 @@
     "answer_say": "Is! My dad is tall.",
     "native": {
      "hook": "ไม่ต้องพูดประธานซ้ำ!",
-     "tip": "ไทยพูดซ้ำประธานได้ แต่อังกฤษพูดครั้งเดียวพอ",
-     "caption": "คุณเคยพูดว่า “My sister she is a nurse.” ไหม? 😅 ภาษาไทยมักพูดซ้ำประธานได้ แต่ภาษาอังกฤษพูดถึงคนครั้งเดียวก็พอ: “My sister is a nurse.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+     "tip": "ไทยพูดซ้ำประธานได้ แต่อังกฤษพูดครั้งเดียวพอ: “My friend lives in Phuket”",
+     "caption": "คุณเคยพูดว่า “My friend he lives in Phuket.” ไหม? 😅 ภาษาไทยมักพูดซ้ำประธานได้ แต่ภาษาอังกฤษพูดถึงคนครั้งเดียวก็พอ: “My friend lives in Phuket.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
      "comment": "เฉลย: “is” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
      "hashtags": [
       "#เรียนภาษาอังกฤษ",
@@ -1156,8 +1156,8 @@
     },
     "en": {
      "hook": "“My sister she…” is too much!",
-     "tip": "Thai can repeat the subject, but English says it only once: “My sister is a nurse”",
-     "caption": "Do you say “My sister she is a nurse”? 😅 Thai can repeat the subject, but English names the person only once. Say “My sister is a nurse”! Listen to Ama and repeat! Practice more in the Lexkite app."
+     "tip": "Thai can repeat the subject, but English says it only once: “My friend lives in Phuket”",
+     "caption": "Do you say “My friend he lives in Phuket”? 😅 Thai can repeat the subject, but English names the person only once. Say “My friend lives in Phuket”! Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
