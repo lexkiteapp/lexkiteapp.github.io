@@ -1,0 +1,21 @@
+# Máy gác lịch đăng (owner 16/11: mỗi kênh đúng 1 video/ngày, không ngày nào trống): mỗi ngày 1 lượt → POST /api/social-auto op coverage (chỉ đọc D1, 0 lượt GrabCast)
+# → kênh-ngày trống trong 30 ngày tới thì mở/bình luận 1 issue nhãn social-alert. Đăng ký: infra/jobs.json id "social-coverage".
+name: social-coverage
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '41 3 * * *'
+concurrency: { group: social-coverage, cancel-in-progress: false }
+permissions: { contents: read, issues: write }
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}', GITHUB_TOKEN: '${{ github.token }}' }
+    steps:
+      - uses: actions/checkout@v4
+        with: { sparse-checkout: 'scripts', sparse-checkout-cone-mode: true }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Kênh-ngày trống trong 30 ngày tới
+        run: node scripts/social/coverage.mjs

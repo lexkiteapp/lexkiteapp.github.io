@@ -1,0 +1,20 @@
+/* Máy gác lịch đăng (owner 16/11: mỗi kênh đúng 1 video mỗi ngày, không ngày nào trống). Chỉ ĐỌC D1: 2 truy vấn (kênh + cấu hình) + 1 truy vấn lịch theo chỉ mục slot_ms.
+ * gapsOf = hàm thuần (test); coverage = op 'coverage' của /api/social-auto, CI social-coverage.yml gọi mỗi ngày và mở issue nhãn social-alert khi có kênh-ngày trống. */
+import { localDate, normCfg, foreignAccount } from './_distribution.js';
+
+export const COVER_DAYS = 30;
+/** Ngày (theo múi giờ kênh) từ NGÀY MAI đến +days chưa có bài nào: 'YYYY-MM-DD'[] – hôm nay bỏ qua vì giờ đăng có thể đã qua. */
+export function gapsOf(slotsMs, tz, now, days = COVER_DAYS) {
+  const have = new Set((slotsMs || []).map(ms => localDate(ms, tz))), [y, m, d] = localDate(now, tz).split('-').map(Number), out = [];
+  for (let i = 1; i <= days; i++) { const day = new Date(Date.UTC(y, m - 1, d + i)).toISOString().slice(0, 10); if (!have.has(day)) out.push(day); }
+  return out;
+}
+export async function coverage(db, now = Date.now(), days = COVER_DAYS) {
+  const all = async (sql, ...p) => ((await db.prepare(sql).bind(...p).all()) || {}).results || [];
+  const ext = (await all("SELECT channel_id, platform, title FROM dist_ext WHERE status = 'ok' ORDER BY platform, title")).filter(c => !foreignAccount({ title: c.title }));
+  const cfg = new Map(); for (const r of await all('SELECT channel_id, cfg FROM yt_chan_cfg')) { try { cfg.set(r.channel_id, JSON.parse(r.cfg || '{}')); } catch (e) { /* cấu hình hỏng → mặc định */ } }
+  const slots = new Map(); for (const r of await all("SELECT channel_id, slot_ms FROM dist_social WHERE slot_ms BETWEEN ? AND ? AND state NOT IN ('failed', 'cancelled')", now - 864e5, now + (days + 2) * 864e5)) (slots.get(r.channel_id) || slots.set(r.channel_id, []).get(r.channel_id)).push(r.slot_ms);
+  const rows = [];
+  for (const c of ext) { const cf = normCfg(cfg.get(c.channel_id) || {}); if (cf.active === 0) continue; const miss = gapsOf(slots.get(c.channel_id), cf.tz, now, days); rows.push({ channel_id: c.channel_id, platform: c.platform, title: c.title, tz: cf.tz, have: days - miss.length, missing: miss }); }
+  return { days, at: now, channels: rows.length, rows, short: rows.filter(r => r.missing.length).length };
+}
