@@ -11,6 +11,9 @@ Q = dict(score=100, ok=True, gates=dict(pace=dict(ok=True, wpm=120), caption_syn
 BASE = dict(ep=EP, entry=dict(sha=dict(short='aa', wide='bb')), qc=dict(short=Q, wide=Q), levels=LV, area_map=AREAS, posted=[])
 
 
+_status = A.AT.status; A.AT.status = lambda tid, engine=None: 'approved'   # fixture episode is a draft template: the per-reason cases below run with the book stubbed, the book gate has its own cases at the end
+
+
 def run(**kw): return A.gate(**copy.deepcopy(dict(BASE, **kw)))
 
 

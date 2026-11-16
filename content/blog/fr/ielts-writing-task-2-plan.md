@@ -19,6 +19,8 @@ L'épreuve de rédaction de l'IELTS Academic est redoutée par de nombreux candi
 
 Le Task 2 compte pour les deux tiers de la note globale du module Writing, ce qui lui donne deux fois plus de poids que le Task 1. Une dissertation claire et bien charpentée peut compenser d'éventuelles faiblesses sur la description du graphique. Dans ce guide complet, nous décortiquons les attentes des correcteurs, vous présentons le plan idéal en 4 paragraphes et vous livrons les formules académiques indispensables pour franchir le seuil du Band 7 ou 8.
 
+Pour répartir ce travail d'écriture sur les semaines qui vous restent, voyez [le planning de révision IELTS en 4, 8 ou 12 semaines](/fr/blog/planning-revision-ielts-4-8-12-semaines/).
+
 ## Comprendre les 4 critères d'évaluation de l'IELTS
 
 Pour décrocher un score élevé, votre rédaction doit répondre avec précision aux quatre grilles officielles du barème IELTS, chacune pesant 25 % de la note finale :
@@ -96,6 +98,8 @@ Retrouvez des modèles types de dissertations dans notre section de [textes d'ex
 
 Le schéma avis, raison, exemple, nuance fonctionne aussi en format court pour la [TOEFL Academic Discussion](/fr/blog/toefl-academic-discussion-conseils/).
 
+Une fois votre plan prêt, repérez les pièges de la copie avec notre liste des [erreurs fréquentes en IELTS Writing](/fr/blog/erreurs-ielts-writing-task-1-et-2/).
+
 {{cta: /#/write | Entraîne-toi à la rédaction IELTS sur Lexkite}}
 
 ## Exercice d'auto-évaluation (Self-Check)
@@ -133,6 +137,8 @@ Testez votre compréhension de la méthodologie IELTS Writing Task 2 :
 3. **A :** Lorsque la consigne vous demande votre avis, l'omettre constitue une faute grave dans le critère Task Achievement.
 4. **B :** Dès la lecture de la première phrase du paragraphe, le correcteur doit comprendre la thèse de ce bloc.
 5. **B :** Cinq minutes de planification permettent de clarifier ses arguments et évitent les pannes d'idées en cours de route.
+
+Si votre sujet demande « Do you agree or disagree? », appliquez ce plan en défendant une position unique, comme l'explique notre guide de l'[IELTS opinion essay](/fr/blog/ielts-opinion-essay-exprimer-son-avis/).
 
 ## Foire aux questions (FAQ)
 

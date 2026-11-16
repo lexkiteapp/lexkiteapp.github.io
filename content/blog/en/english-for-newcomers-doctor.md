@@ -42,6 +42,7 @@ quiz: [
     explain: "How often asks about frequency, so the answer gives a number of times in a period, such as twice a day."
   }
 ]
+publishAt: 2027-02-01T09:03:00+05:30
 ---
 A visit to the doctor is one of the hardest conversations to have in a second language. You are worried, the words are technical, and the person across the desk is busy. The good news is that **English phrases at the doctor** follow a short, predictable pattern: you book, you describe what is wrong, you answer a few questions, and you leave knowing what to do next. Learn about thirty phrases and the pattern becomes easy to follow, even when you do not understand every word.
 

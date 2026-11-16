@@ -9,7 +9,7 @@ tags: [ielts, listening, question-types, strategy]
 keyword: "ielts listening aufgabentypen"
 cover: listening
 coverAlt: "Hörübungen in Lexkite mit Aufnahmen, nach Niveau geordnet"
-publishAt:
+publishAt: 2027-01-08T21:40:00+01:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
