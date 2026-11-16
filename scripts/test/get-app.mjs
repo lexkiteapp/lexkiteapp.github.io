@@ -32,7 +32,7 @@ function run(ua, { touch = 0, standalone = false, ext = null, apps = null } = {}
   const els = [...w.document.querySelectorAll('[data-get-app]')];
   return { w, els, beacons, head: els.find(e => e.dataset.getApp === 'head'), foot: els.find(e => e.dataset.getApp === 'foot') };
 }
-const play = 'https://play.google.com/store/apps/details?id=com.lexkite.app';
+const play = (cfg.match(/play: '([^']+)'/) || [])[1], ios = (cfg.match(/ios: '([^']+)'/) || [])[1];
 const store = (cfg.match(/store: '([^']+)'/) || [])[1];
 
 // 1) Android → Google Play + referrer utm, mở tab mới

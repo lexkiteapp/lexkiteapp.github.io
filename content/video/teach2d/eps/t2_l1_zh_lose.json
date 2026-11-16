@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_lose",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say lose weight!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I want to reduce weight.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I want to lose weight.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "We say lose weight.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Lose! I want to lose weight.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I want to reduce weight.",
+  "right": "I want to lose weight.",
+  "strike": "reduce",
+  "why": "We say lose weight.",
+  "memory": "Lose weight.",
+  "quiz": {
+   "stem": "I want to ___ weight.",
+   "options": [
+    "reduce",
+    "lose"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "减肥要说 lose weight！",
+   "tip": "“减肥”别直译成 reduce weight，英语的固定说法是 lose weight。",
+   "caption": "你是不是也会说 “I want to reduce weight.”😅 中文的“减肥”容易直译成 reduce weight，英语的固定说法是 lose weight：“I want to lose weight.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“I want to lose weight.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “lose weight”!",
+   "tip": "Do not translate word for word. English says lose weight, not reduce weight.",
+   "caption": "Do you say “I want to reduce weight.” 😅 English says lose weight: “I want to lose weight.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "减肥要说 lose weight！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "减肥要说 lose weight！",
+  "keyword": "I want to lose weight.",
+  "value": "“减肥”别直译成 reduce weight，英语的固定说法是 lose weight。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "减肥要说 lose weight！",
+    "description": "“减肥”别直译成 reduce weight，英语的固定说法是 lose weight。\n\n你是不是也会说 “I want to reduce weight.”😅 中文的“减肥”容易直译成 reduce weight，英语的固定说法是 lose weight：“I want to lose weight.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "I want to lose weight.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “I want to reduce weight.”😅 中文的“减肥”容易直译成 reduce weight，英语的固定说法是 lose weight：“I want to lose weight.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "减肥要说 lose weight！\n\n“减肥”别直译成 reduce weight，英语的固定说法是 lose weight。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "减肥要说 lose weight！ “减肥”别直译成 reduce weight，英语的固定说法是 lose weight。 #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“I want to lose weight.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

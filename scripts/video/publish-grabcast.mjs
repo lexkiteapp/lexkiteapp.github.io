@@ -8,6 +8,7 @@ import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
 import { withUtm, clipLang, FC_MODE, fcIssue, FC_MAX } from '../../functions/api/_first_comment.js';
+import { withInstall } from '../../functions/api/_install_links.js'; // link cài theo nền tảng: infra/install-links.json (docs/VIDEO.md)
 
 const args = process.argv.slice(2), flag = n => args.includes('--' + n), opt = n => { const i = args.indexOf('--' + n); return i >= 0 ? args[i + 1] : undefined; };
 const die = m => { console.error('✗ publish-grabcast: ' + m); process.exit(1); };
@@ -29,7 +30,11 @@ const cap0 = m.caption || m.description || raw.caption || '', link = m.link || r
 // UTM theo ngôn ngữ clip (page/ngôn ngữ nhận ra được trong báo cáo web): source=grabcast medium=page campaign=<lang> content=<clip>
 const LANG = clipLang(m.id || raw.id || (process.env.JOB || ''), m.lang || raw.lang || 'en');
 const linkU = withUtm(link, { utm_source: 'grabcast', utm_medium: 'page', utm_campaign: LANG, utm_content: String(m.id || raw.id || process.env.JOB || '').slice(0, 80), utm_term: LANG });
-const caption = [cap0.split(link).join(linkU), /^https:\/\/lexkite\.com\//.test(link) && !cap0.includes(link) ? linkU : '', hashtags].filter(Boolean).join('\n\n').trim();
+const caption0 = [cap0.split(link).join(linkU), /^https:\/\/lexkite\.com\//.test(link) && !cap0.includes(link) ? linkU : '', hashtags].filter(Boolean).join('\n\n').trim();
+const CLIP = String(process.env.JOB || (FILE ? path.basename(FILE, path.extname(FILE)) : '') || raw.id || m.id || '');
+const CAP_MAX = { threads: 500, tiktok: 2200, instagram: 2200, facebook: 5000, facebook_page: 5000, youtube: 5000 };
+const capFor = p => (caption0 ? withInstall(caption0, p, CLIP, CAP_MAX[p] || 2200) : '');
+const caption = capFor('social');
 if (!caption && !STORE_ONLY) die('meta thiếu caption/description');
 const scrub = s => (KEY ? String(s).split(KEY).join('***') : String(s));
 
@@ -105,7 +110,7 @@ const used = await gc('POST', `storage/objects/${encodeURIComponent(oid)}/use`, 
 const mediaId = pick(used, 'media_id') || pick(used.media || {}, 'id') || pick(used, 'id');
 if (!mediaId) die('GrabCast không trả về media_id');
 // 3) validate → tạo bài → lên lịch
-const payload = post([mediaId]); payload.targets = targetsAcc.map(a => ({ account_id: a.id, kind: kindFor(a), options: fcOptions(a) }));
+const payload = post([mediaId]); payload.targets = targetsAcc.map(a => { const o = platOf(a) && capFor(platOf(a)); return { account_id: a.id, kind: kindFor(a), options: fcOptions(a), ...(o && o !== caption ? { caption_override: o } : {}) }; }); // link đo riêng từng nền tảng
 const v = await gc('POST', 'validate', payload), errs = [...(v.errors || []), ...((v.targets || []).flatMap(t => t.errors || []))];
 if (v.valid === false || v.ok === false || errs.length) die('validate không qua: ' + JSON.stringify(errs.length ? errs : v).slice(0, 600));
 const created = await gc('POST', 'posts', payload, { 'Idempotency-Key': idemFor(targetsAcc.map(a => String(a.id))) });

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_enjoyplay",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Enjoyed to play?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I enjoyed to play tennis.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I enjoyed playing tennis.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After enjoy, use playing, not to play.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Running! I enjoyed playing tennis.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I enjoyed to play tennis.",
+  "right": "I enjoyed playing tennis.",
+  "strike": "to play",
+  "why": "After enjoy, use playing, not to play.",
+  "memory": "I enjoyed playing tennis.",
+  "quiz": {
+   "stem": "She enjoys ___ every day.",
+   "options": [
+    "to run",
+    "running"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "「enjoyed to play」はNG？",
+   "tip": "enjoy のあとに「to＋動詞」は使えません。-ing 形にします。",
+   "caption": "“I enjoyed to play tennis.”と言っていませんか？😅 「楽しむ」の後に to を付けたくなりますが、enjoy のあとは -ing です。“I enjoyed playing tennis.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“running”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Enjoyed to play?",
+   "tip": "After enjoy, use -ing: enjoyed playing.",
+   "caption": "Do you say this? “I enjoyed to play tennis.” 😅 After enjoy, we use -ing, not to. The natural way is “I enjoyed playing tennis.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "「enjoyed to play」はNG？"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "「enjoyed to play」はNG？",
+  "keyword": "I enjoyed playing tennis.",
+  "value": "enjoy のあとに「to＋動詞」は使えません。-ing 形にします。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "「enjoyed to play」はNG？",
+    "description": "enjoy のあとに「to＋動詞」は使えません。-ing 形にします。\n\n“I enjoyed to play tennis.”と言っていませんか？😅 「楽しむ」の後に to を付けたくなりますが、enjoy のあとは -ing です。“I enjoyed playing tennis.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "I enjoyed playing tennis.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“I enjoyed to play tennis.”と言っていませんか？😅 「楽しむ」の後に to を付けたくなりますが、enjoy のあとは -ing です。“I enjoyed playing tennis.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "「enjoyed to play」はNG？\n\nenjoy のあとに「to＋動詞」は使えません。-ing 形にします。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「enjoyed to play」はNG？ enjoy のあとに「to＋動詞」は使えません。-ing 形にします。 #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“running”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

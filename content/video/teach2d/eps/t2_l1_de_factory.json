@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_factory",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Not fabric, say factory!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: He works in a fabric.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: He works in a factory.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "A fabric is cloth.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Factory! My dad works in a factory.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "He works in a fabric.",
+  "right": "He works in a factory.",
+  "strike": "fabric",
+  "why": "A fabric is cloth.",
+  "memory": "Factory.",
+  "quiz": {
+   "stem": "My dad works in a ___.",
+   "options": [
+    "factory",
+    "fabric"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "„Fabrik“ ist nicht „fabric“!",
+   "tip": "„Fabrik“ heißt im Englischen „factory“. „Fabric“ ist ein Stoff.",
+   "caption": "Arbeiten Sie in einer „fabric“ statt „factory“? 🏭 Falsch: “He works in a fabric.” Richtig: “He works in a factory.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “factory”. Richtig heißt es: “He works in a factory.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Fabrik” is not “fabric”!",
+   "tip": "“Fabrik” is “factory” in English. “Fabric” means cloth.",
+   "caption": "“Fabrik” is not “fabric”! Wrong: “He works in a fabric.” Right: “He works in a factory.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "„Fabrik“ ist nicht „fabric“!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "„Fabrik“ ist nicht „fabric“!",
+  "keyword": "He works in a factory.",
+  "value": "„Fabrik“ heißt im Englischen „factory“. „Fabric“ ist ein Stoff.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "„Fabrik“ ist nicht „fabric“!",
+    "description": "„Fabrik“ heißt im Englischen „factory“. „Fabric“ ist ein Stoff.\n\nArbeiten Sie in einer „fabric“ statt „factory“? 🏭 Falsch: “He works in a fabric.” Richtig: “He works in a factory.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "He works in a factory.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Arbeiten Sie in einer „fabric“ statt „factory“? 🏭 Falsch: “He works in a fabric.” Richtig: “He works in a factory.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "„Fabrik“ ist nicht „fabric“!\n\n„Fabrik“ heißt im Englischen „factory“. „Fabric“ ist ein Stoff.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "„Fabrik“ ist nicht „fabric“! „Fabrik“ heißt im Englischen „factory“. „Fabric“ ist ein Stoff. #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “factory”. Richtig heißt es: “He works in a factory.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

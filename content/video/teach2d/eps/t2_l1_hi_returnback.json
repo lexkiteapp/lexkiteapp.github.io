@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_returnback",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Just return, not return back!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Please return back my book.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Please return my book.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Return already means give back.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Return! Can you return my pen tomorrow?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Please return back my book.",
+  "right": "Please return my book.",
+  "strike": "back",
+  "why": "Return already means give back.",
+  "memory": "Return my book.",
+  "quiz": {
+   "stem": "Can you ___ my pen tomorrow?",
+   "options": [
+    "return back",
+    "return"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“return back” नहीं, “return”!",
+   "tip": "हिंदी में “वापस लौटा दो” कहते हैं, इसलिए लोग return back बोल देते हैं। return में ही “वापस” का भाव है।",
+   "caption": "क्या आप भी ऐसा बोलते हैं? “Please return back my book.” 😅 सही वाक्य है: “Please return my book.” ध्यान रखें: return में ही “वापस” का भाव है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “return”। याद रखें: return में ही “वापस” का भाव है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “return”, not “return back”!",
+   "tip": "Many learners add back, but return already means give back.",
+   "caption": "Do you say this? “Please return back my book.” 😅 The right sentence is: “Please return my book.” Remember: Return already means give back. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“return back” नहीं, “return”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“return back” नहीं, “return”!",
+  "keyword": "Please return my book.",
+  "value": "हिंदी में “वापस लौटा दो” कहते हैं, इसलिए लोग return back बोल देते हैं। return में ही “वापस” का भाव है।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "“return back” नहीं, “return”!",
+    "description": "हिंदी में “वापस लौटा दो” कहते हैं, इसलिए लोग return back बोल देते हैं। return में ही “वापस” का भाव है।\n\nक्या आप भी ऐसा बोलते हैं? “Please return back my book.” 😅 सही वाक्य है: “Please return my book.” ध्यान रखें: return में ही “वापस” का भाव है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "Please return my book.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी ऐसा बोलते हैं? “Please return back my book.” 😅 सही वाक्य है: “Please return my book.” ध्यान रखें: return में ही “वापस” का भाव है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“return back” नहीं, “return”!\n\nहिंदी में “वापस लौटा दो” कहते हैं, इसलिए लोग return back बोल देते हैं। return में ही “वापस” का भाव है।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“return back” नहीं, “return”! हिंदी में “वापस लौटा दो” कहते हैं, इसलिए लोग return back बोल देते हैं। re… #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “return”। याद रखें: return में ही “वापस” का भाव है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_nolike",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Do not, not no!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I no like fish.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I do not like fish.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "With verbs, we say do not.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! I do not like fish.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I no like fish.",
+  "right": "I do not like fish.",
+  "strike": "no like",
+  "why": "With verbs, we say do not.",
+  "memory": "I do not like.",
+  "quiz": {
+   "stem": "I ___ like fish.",
+   "options": [
+    "no",
+    "do not"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Diga “I do not like”!",
+   "tip": "Em português basta “não” antes do verbo: “não gosto”. Em inglês, use “do not” antes do verbo.",
+   "caption": "Você também diz isso? “I no like fish.” 😅 O certo é “I do not like fish.” Em português basta “não” antes do verbo: “não gosto”. Em inglês, use “do not” antes do verbo. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “do not”. Agora diga em voz alta “I do not like fish.” e treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “I do not like”!",
+   "tip": "In Portuguese “não” before the verb is enough: “não gosto”. In English, use “do not” before the verb.",
+   "caption": "Do you say this too? “I no like fish.” 😅 The right way is “I do not like fish.” In Portuguese “não” before the verb is enough: “não gosto”. In English, use “do not” before the verb. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Diga “I do not like”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Diga “I do not like”!",
+  "keyword": "I do not like fish.",
+  "value": "Em português basta “não” antes do verbo: “não gosto”. Em inglês, use “do not” antes do verbo.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Diga “I do not like”!",
+    "description": "Em português basta “não” antes do verbo: “não gosto”. Em inglês, use “do not” antes do verbo.\n\nVocê também diz isso? “I no like fish.” 😅 O certo é “I do not like fish.” Em português basta “não” antes do verbo: “não gosto”. Em inglês, use “do not” antes do verbo. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "I do not like fish.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Você também diz isso? “I no like fish.” 😅 O certo é “I do not like fish.” Em português basta “não” antes do verbo: “não gosto”. Em inglês, use “do not” antes do verbo. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Diga “I do not like”!\n\nEm português basta “não” antes do verbo: “não gosto”. Em inglês, use “do not” antes do verbo.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Diga “I do not like”! Em português basta “não” antes do verbo: “não gosto”. Em inglês, use “do not” antes… #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “do not”. Agora diga em voz alta “I do not like fish.” e treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

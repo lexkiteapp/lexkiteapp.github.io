@@ -30,7 +30,7 @@ final class CallVectorTests: XCTestCase {
     let vi = L10n(lang: "vi")
     static let root = Vectors.dir.appendingPathComponent("../../../..").standardized
     func vectorText() throws -> String { try String(contentsOf: Vectors.dir.appendingPathComponent("call.json"), encoding: .utf8) }
-    /// the full 35-call pack of the web (https://lexkite.com/data/call-pack.json)
+    /// the full 60-call pack of the web (https://lexkite.com/data/call-pack.json)
     func fullPack() throws -> CallPack {
         let text = try String(contentsOf: Self.root.appendingPathComponent("web/data/call-pack.json"), encoding: .utf8)
         return try XCTUnwrap(CallPack.decode(text), "web/data/call-pack.json is a call pack")

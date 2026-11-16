@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_last_night",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Last night, not yesterday night!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I slept late yesterday night.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I slept late last night.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say last night.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Last night! I saw my sister last night.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I slept late yesterday night.",
+  "right": "I slept late last night.",
+  "strike": "yesterday night",
+  "why": "Say last night.",
+  "memory": "I slept late last night.",
+  "quiz": {
+   "stem": "I saw my sister ___.",
+   "options": [
+    "yesterday night",
+    "last night"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Last night” de!",
+   "tip": "Türkçede “dün gece” deriz; İngilizcede “yesterday night” denmez, “last night” denir: “I slept late last night.”",
+   "caption": "“I slept late yesterday night” mi diyorsun? 😅 “Dün gece” için “last night” kullanılır. Doğrusu “I slept late last night.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “last night”. “Dün gece” İngilizcede “last night” olur. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “last night”!",
+   "tip": "Do not say “yesterday night”; say “last night”: “I slept late last night.”",
+   "caption": "Do you say “I slept late yesterday night”? 😅 In English for the night before today we say last night, not yesterday night. The right sentence is “I slept late last night.” Listen to Ama and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Last night” de!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“Last night” de!",
+  "keyword": "I slept late last night.",
+  "value": "Türkçede “dün gece” deriz; İngilizcede “yesterday night” denmez, “last night” denir: “I slept late last night.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "“Last night” de!",
+    "description": "Türkçede “dün gece” deriz; İngilizcede “yesterday night” denmez, “last night” denir: “I slept late last night.”\n\n“I slept late yesterday night” mi diyorsun? 😅 “Dün gece” için “last night” kullanılır. Doğrusu “I slept late last night.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "I slept late last night.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“I slept late yesterday night” mi diyorsun? 😅 “Dün gece” için “last night” kullanılır. Doğrusu “I slept late last night.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Last night” de!\n\nTürkçede “dün gece” deriz; İngilizcede “yesterday night” denmez, “last night” denir: “I slept late last night.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Last night” de! Türkçede “dün gece” deriz; İngilizcede “yesterday night” denmez, “last night” denir: “I… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “last night”. “Dün gece” İngilizcede “last night” olur. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+  "lang": "tr"
+ }
+}

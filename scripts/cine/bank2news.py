@@ -33,7 +33,7 @@ L = [('h', 'ama', hook_say), ('m', 'ama', f"Many learners say: {b['wrong']}"), (
      ('y', 'carlos', b['why']), ('c', 'ama', f"Is '{b['wrong'].rstrip('.!?')}' correct? No."), ('rs', 'carlos', f"Repeat after me: {b['right']}"),
      ('rn', 'ama', f"Now at normal speed: {b['right']}"), ('r', 'carlos', "Teacher's tip: save these lines."), ('r2', 'ama', "Teacher's tip: save these lines."),
      ('s', 'ama', 'Send this to a friend who needs it.'),   # owner 23/10: own share beat after the quiz (card: SHARE | who says "<mistake>")
-     ('e', 'ama', f"Quiz: {qtxt}. {opts.capitalize()}? Comment below."), ('e2', 'carlos', f"Quiz: {qtxt}. {opts.capitalize()}? Comment below.")]
+     ('e', 'ama', f"Quiz: {qtxt}. {opts.capitalize()}? Pick your answer first."), ('e2', 'carlos', f"Quiz: {qtxt}. {opts.capitalize()}? Pick your answer first.")]
 LJ = json.load(open(f'{D}/lines.json')); by = {l['id']: l for l in LJ['lines']}
 for suf, who, text in L:
     i = f'n_{h6}_{suf}'; l = by.get(i) or {}; l.update(id=i, who=who, text=text); l.pop('speed', None)

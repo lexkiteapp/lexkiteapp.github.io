@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_her_job",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Ana loves her job!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Ana is a nurse. She loves his job.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Ana is a nurse. She loves her job.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Ana is a woman, so we say her.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Her! She loves her own job.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Ana is a nurse. She loves his job.",
+  "right": "Ana is a nurse. She loves her job.",
+  "strike": "his",
+  "why": "Ana is a woman, so we say her.",
+  "memory": "Ana, her.",
+  "quiz": {
+   "stem": "Ana is a nurse. She loves ___ own job.",
+   "options": [
+    "his",
+    "her"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "¿“She loves his job”? ¡Ojo!",
+   "tip": "En español “su trabajo” sirve para él y para ella, pero en inglés dices “his” o “her”: “Ana is a nurse. She loves her job.”",
+   "caption": "Muchos dicen “Ana is a nurse. She loves his job.” 🙈 En español “su” sirve para él y para ella, pero en inglés usas “his” o “her” según quién sea el dueño: “Ana is a nurse. She loves her job.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “her”. Ana es una mujer, así que va “her”. Escribe una frase tuya con “his” o “her”. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#gramatica",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“She loves his job”? Careful!",
+   "tip": "In Spanish “su” works for him and for her, but in English you choose “his” or “her”: “Ana is a nurse. She loves her job.”",
+   "caption": "Many learners say “Ana is a nurse. She loves his job.” In Spanish “su” works for him and for her, but in English you choose “his” or “her” by the owner: “Ana is a nurse. She loves her job.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿“She loves his job”? ¡Ojo!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 54,
+  "seconds": 32.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "¿“She loves his job”? ¡Ojo!",
+  "keyword": "Ana is a nurse. She loves her job.",
+  "value": "En español “su trabajo” sirve para él y para ella, pero en inglés dices “his” o “her”: “Ana is a nurse. She loves her job.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#gramatica",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 48,
+  "platforms": {
+   "youtube": {
+    "title": "¿“She loves his job”? ¡Ojo!",
+    "description": "En español “su trabajo” sirve para él y para ella, pero en inglés dices “his” o “her”: “Ana is a nurse. She loves her job.”\n\nMuchos dicen “Ana is a nurse. She loves his job.” 🙈 En español “su” sirve para él y para ella, pero en inglés usas “his” o “her” según quién sea el dueño: “Ana is a nurse. She loves her job.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #gramatica #lexkite",
+    "tags": [
+     "Ana is a nurse. She loves her job.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "Muchos dicen “Ana is a nurse. She loves his job.” 🙈 En español “su” sirve para él y para ella, pero en inglés usas “his” o “her” según quién sea el dueño: “Ana is a nurse. She loves her job.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "¿“She loves his job”? ¡Ojo!\n\nEn español “su trabajo” sirve para él y para ella, pero en inglés dices “his” o “her”: “Ana is a nurse. She loves her job.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#gramatica",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿“She loves his job”? ¡Ojo! En español “su trabajo” sirve para él y para ella, pero en inglés dices “his” o “… #aprenderingles #inglesfacil #gramatica"
+   }
+  },
+  "first_comment": "Respuesta: “her”. Ana es una mujer, así que va “her”. Escribe una frase tuya con “his” o “her”. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}

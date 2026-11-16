@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_selfie",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say selfie, not selca!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Let's take a selca.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Let's take a selfie.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Selca is not an English word.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Selfie! Let's take a selfie.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Let's take a selca.",
+  "right": "Let's take a selfie.",
+  "strike": "selca",
+  "why": "Selca is not an English word.",
+  "memory": "Take a selfie.",
+  "quiz": {
+   "stem": "Let's take a ___.",
+   "options": [
+    "selfie",
+    "selca"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“selca”가 아니라 selfie!",
+   "tip": "‘셀카’는 한국에서 만든 말이에요. 영어로는 selfie! 이렇게 말해요 👉 “Let's take a selfie.”",
+   "caption": "“Let's take a selca”처럼 말하고 있나요? 😅 ‘셀카’는 한국식 영어라서 영어로는 잘 통하지 않아요. 내 사진을 직접 찍는 것은 selfie라고 해요. 맞는 문장 ✅ “Let's take a selfie.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답 ✅ “Let's take a selfie.” 소리 내어 한 번 말해 보고, 나만의 문장도 하나 써 보세요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say selfie, not “selca”!",
+   "tip": "“Selca” is not English. Say selfie. Say “Let's take a selfie.”",
+   "caption": "Do you say “Let's take a selca” in English? 😅 Selca is not an English word, so say selfie! “Let's take a selfie” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“selca”가 아니라 selfie!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“selca”가 아니라 selfie!",
+  "keyword": "Let's take a selfie.",
+  "value": "‘셀카’는 한국에서 만든 말이에요. 영어로는 selfie! 이렇게 말해요 👉 “Let's take a selfie.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "“selca”가 아니라 selfie!",
+    "description": "‘셀카’는 한국에서 만든 말이에요. 영어로는 selfie! 이렇게 말해요 👉 “Let's take a selfie.”\n\n“Let's take a selca”처럼 말하고 있나요? 😅 ‘셀카’는 한국식 영어라서 영어로는 잘 통하지 않아요. 내 사진을 직접 찍는 것은 selfie라고 해요. 맞는 문장 ✅ “Let's take a selfie.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "Let's take a selfie.",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“Let's take a selca”처럼 말하고 있나요? 😅 ‘셀카’는 한국식 영어라서 영어로는 잘 통하지 않아요. 내 사진을 직접 찍는 것은 selfie라고 해요. 맞는 문장 ✅ “Let's take a selfie.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“selca”가 아니라 selfie!\n\n‘셀카’는 한국에서 만든 말이에요. 영어로는 selfie! 이렇게 말해요 👉 “Let's take a selfie.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“selca”가 아니라 selfie! ‘셀카’는 한국에서 만든 말이에요. 영어로는 selfie! 이렇게 말해요 👉 “Let's take a selfie.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답 ✅ “Let's take a selfie.” 소리 내어 한 번 말해 보고, 나만의 문장도 하나 써 보세요: {link}",
+  "lang": "ko"
+ }
+}

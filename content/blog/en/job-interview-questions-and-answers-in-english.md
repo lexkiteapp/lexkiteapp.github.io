@@ -128,3 +128,5 @@ Unless the recruiter explicitly initiates the compensation topic, focus entirely
 
 ### How should I set up my space for a remote video interview?
 Ensure strong front-facing lighting, test your microphone and internet connection beforehand, position the camera at eye level, and eliminate background distractions. Keep a notepad and a glass of water within comfortable reach.
+
+If you are new to the country, our guide to [job interview English for newcomers](/en/blog/job-interview-english-newcomers/) covers the language for the interview itself.

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_timesaweek",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Three times in a week?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I go to the gym three times in a week.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I go to the gym three times a week.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say a week to count how often.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "A week! I go to the gym three times a week.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I go to the gym three times in a week.",
+  "right": "I go to the gym three times a week.",
+  "strike": "in a week",
+  "why": "Say a week to count how often.",
+  "memory": "I go to the gym three times a week.",
+  "quiz": {
+   "stem": "I go three times ___.",
+   "options": [
+    "a week",
+    "in a week"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "「週に3回」は in a week？",
+   "tip": "「週に〜回」は three times a week と言います。in は不要です。",
+   "caption": "“I go to the gym three times in a week.”と言っていませんか？😅 「週に」の「に」を in で訳しがちです。“I go to the gym three times a week.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“a week”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “in a week”?",
+   "tip": "Say three times a week. No in.",
+   "caption": "Do you say this? “I go to the gym three times in a week.” 😅 The Japanese に makes people add in. The natural way is “I go to the gym three times a week.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "「週に3回」は in a week？"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 62,
+  "seconds": 35.9,
+  "wpm": 104
+ },
+ "publish": {
+  "title": "「週に3回」は in a week？",
+  "keyword": "I go to the gym three times a week.",
+  "value": "「週に〜回」は three times a week と言います。in は不要です。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 56,
+  "platforms": {
+   "youtube": {
+    "title": "「週に3回」は in a week？",
+    "description": "「週に〜回」は three times a week と言います。in は不要です。\n\n“I go to the gym three times in a week.”と言っていませんか？😅 「週に」の「に」を in で訳しがちです。“I go to the gym three times a week.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "I go to the gym three times a week.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“I go to the gym three times in a week.”と言っていませんか？😅 「週に」の「に」を in で訳しがちです。“I go to the gym three times a week.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "「週に3回」は in a week？\n\n「週に〜回」は three times a week と言います。in は不要です。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「週に3回」は in a week？ 「週に〜回」は three times a week と言います。in は不要です。 #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“a week”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

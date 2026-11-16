@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_what_time",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Not how late, what time!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: How late is it?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: What time is it?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Ask what time.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "What time! What time is it?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "How late is it?",
+  "right": "What time is it?",
+  "strike": "How late",
+  "why": "Ask what time.",
+  "memory": "What time?",
+  "quiz": {
+   "stem": "___ is it? Look at the clock.",
+   "options": [
+    "How late",
+    "What time"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "„Wie spät ist es?“ auf Englisch?",
+   "tip": "„Wie spät“ heißt Wort für Wort „how late“. Im Englischen fragen Sie „What time is it?“",
+   "caption": "Wie fragen Sie nach der Uhrzeit? ⏰ Falsch: “How late is it?” Richtig: “What time is it?” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “What time”. Richtig heißt es: “What time is it?” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Wie spät ist es?” in English?",
+   "tip": "“Wie spät” word for word is “how late”. In English you ask “What time is it?”",
+   "caption": "“Wie spät ist es?” in English? Wrong: “How late is it?” Right: “What time is it?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "„Wie spät ist es?“ auf Englisch?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "„Wie spät ist es?“ auf Englisch?",
+  "keyword": "What time is it?",
+  "value": "„Wie spät“ heißt Wort für Wort „how late“. Im Englischen fragen Sie „What time is it?“",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "„Wie spät ist es?“ auf Englisch?",
+    "description": "„Wie spät“ heißt Wort für Wort „how late“. Im Englischen fragen Sie „What time is it?“\n\nWie fragen Sie nach der Uhrzeit? ⏰ Falsch: “How late is it?” Richtig: “What time is it?” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "What time is it?",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Wie fragen Sie nach der Uhrzeit? ⏰ Falsch: “How late is it?” Richtig: “What time is it?” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "„Wie spät ist es?“ auf Englisch?\n\n„Wie spät“ heißt Wort für Wort „how late“. Im Englischen fragen Sie „What time is it?“\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "„Wie spät ist es?“ auf Englisch? „Wie spät“ heißt Wort für Wort „how late“. Im Englischen fragen Sie „… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “What time”. Richtig heißt es: “What time is it?” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

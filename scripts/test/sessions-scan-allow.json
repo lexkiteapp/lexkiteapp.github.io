@@ -1,4 +1,5 @@
 {
+  "017fe6401ec1": "admin.js LEGACY.live số thiết bị khác nhau (thẻ Nền tảng) – chỉ khi ADMIN_ROLLUP=0, đệm 20 giây/10 phút; đường thường devPlats(m) đọc bảng tổng hợp",
   "e6e0f37ddff6": "admin.js LEGACY.analytics (giờ cao điểm) – chỉ chạy khi ADMIN_ROLLUP=0 (quay lại SQL cũ); đường thường đọc stats_day (#543)",
   "02ece404bf8c": "admin.js LEGACY.analytics (thứ trong tuần) – chỉ khi ADMIN_ROLLUP=0",
   "3cea311b4d1d": "admin.js LEGACY.live tổng toàn thời gian – chỉ khi ADMIN_ROLLUP=0, đệm 10 phút",

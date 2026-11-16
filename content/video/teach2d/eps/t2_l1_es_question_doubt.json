@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_question_doubt",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "A doubt? No, a question!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have a doubt about this word.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have a question about this word.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "To ask for help, say question, not doubt.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Question! I have a question about this word.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have a doubt about this word.",
+  "right": "I have a question about this word.",
+  "strike": "doubt",
+  "why": "To ask for help, say question, not doubt.",
+  "memory": "I have a question.",
+  "quiz": {
+   "stem": "I have a ___ about this word.",
+   "options": [
+    "question",
+    "doubt"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Tengo una duda” no es “doubt”",
+   "tip": "En español decimos “tengo una duda”, pero en inglés para pedir ayuda se dice “I have a question.”",
+   "caption": "🙈 Error común: “I have a doubt about this word.” En inglés “doubt” suena a desconfianza; para preguntar algo se dice “I have a question about this word.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “question”. Para pedir ayuda se dice “I have a question”, no “I have a doubt”. Escribe una frase tuya con “I have a question” o dila en voz alta: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#vocabulario",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “question”, not “doubt”",
+   "tip": "Learners say “tengo una duda”, but in English you say “I have a question.”",
+   "caption": "Common mistake: “I have a doubt about this word.” In English, “doubt” sounds like you do not trust something. Say “I have a question about this word.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Tengo una duda” no es “doubt”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 55,
+  "seconds": 32.5,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "“Tengo una duda” no es “doubt”",
+  "keyword": "I have a question about this word.",
+  "value": "En español decimos “tengo una duda”, pero en inglés para pedir ayuda se dice “I have a question.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#vocabulario",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 49,
+  "platforms": {
+   "youtube": {
+    "title": "“Tengo una duda” no es “doubt”",
+    "description": "En español decimos “tengo una duda”, pero en inglés para pedir ayuda se dice “I have a question.”\n\n🙈 Error común: “I have a doubt about this word.” En inglés “doubt” suena a desconfianza; para preguntar algo se dice “I have a question about this word.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
+    "tags": [
+     "I have a question about this word.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "🙈 Error común: “I have a doubt about this word.” En inglés “doubt” suena a desconfianza; para preguntar algo se dice “I have a question about this word.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Tengo una duda” no es “doubt”\n\nEn español decimos “tengo una duda”, pero en inglés para pedir ayuda se dice “I have a question.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#vocabulario",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Tengo una duda” no es “doubt” En español decimos “tengo una duda”, pero en inglés para pedir ayuda se dice… #aprenderingles #inglesfacil #vocabulario"
+   }
+  },
+  "first_comment": "Respuesta: “question”. Para pedir ayuda se dice “I have a question”, no “I have a doubt”. Escribe una frase tuya con “I have a question” o dila en voz alta: {link}",
+  "lang": "es"
+ }
+}

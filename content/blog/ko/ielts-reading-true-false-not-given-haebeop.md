@@ -109,6 +109,10 @@ IELTS 리딩에서 수험생들이 오답을 내는 가장 큰 원인 중 하나
 
 지문마다 몇 분을 쓸지 정하는 방법은 [아이엘츠 리딩 60분 시간 배분 전략](/ko/blog/ielts-reading-sigan-baebun-jeollyak/)에서 이어서 볼 수 있습니다.
 
+다른 유형과 함께 전체 흐름을 보고 싶다면 [아이엘츠 리딩 문제 유형 총정리](/ko/blog/ielts-reading-munje-yuhyeong-jeollyak/)에서 네 계열의 풀이 순서를 비교해 보세요.
+
+문장이 바뀌어 나오는 동의어 치환에 대비하려면 [아카데믹 워드 리스트(AWL) 공부법](/ko/blog/awl-akademik-weodeu-riseuteu-gongbubeop/)으로 학술 어휘를 단어군 단위로 익혀 두세요.
+
 ## 자주 묻는 질문 (FAQ)
 
 ### True/False/Not Given과 Yes/No/Not Given은 무엇이 다른가요?

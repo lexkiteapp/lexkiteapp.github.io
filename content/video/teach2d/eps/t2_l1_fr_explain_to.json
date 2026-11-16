@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_explain_to",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Explain it to me!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She explained me the problem.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She explained the problem to me.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say the thing first. Then to me.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "He explained the rule to me!",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She explained me the problem.",
+  "right": "She explained the problem to me.",
+  "strike": "explained me",
+  "why": "Say the thing first. Then to me.",
+  "memory": "Thing first, then to me.",
+  "quiz": {
+   "stem": "Which one is correct?",
+   "options": [
+    "He explained me the rule.",
+    "He explained the rule to me."
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "« Explain me » ? Non !",
+   "tip": "En français, on dit « il m’a expliqué le problème ». En anglais, la chose vient d’abord, puis “to me”.",
+   "caption": "Vous dites “She explained me the problem.” ? Avec “explain”, on place d’abord la chose, puis “to” et la personne. Dites plutôt “She explained the problem to me.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “She explained the problem to me.” — Avec “explain”, on place d’abord la chose, puis “to” et la personne. Testez d’autres pièges avec un quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Explain me” is wrong!",
+   "tip": "It sounds natural to say “explain me”, but English puts the thing first, then “to me”.",
+   "caption": "Do you say this? “She explained me the problem.” With “explain”, put the thing first, then “to” and the person. Say “She explained the problem to me.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "« Explain me » ? Non !"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "« Explain me » ? Non !",
+  "keyword": "She explained the problem to me.",
+  "value": "En français, on dit « il m’a expliqué le problème ». En anglais, la chose vient d’abord, puis “to me”.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "« Explain me » ? Non !",
+    "description": "En français, on dit « il m’a expliqué le problème ». En anglais, la chose vient d’abord, puis “to me”.\n\nVous dites “She explained me the problem.” ? Avec “explain”, on place d’abord la chose, puis “to” et la personne. Dites plutôt “She explained the problem to me.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "She explained the problem to me.",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Vous dites “She explained me the problem.” ? Avec “explain”, on place d’abord la chose, puis “to” et la personne. Dites plutôt “She explained the problem to me.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "« Explain me » ? Non !\n\nEn français, on dit « il m’a expliqué le problème ». En anglais, la chose vient d’abord, puis “to me”.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "« Explain me » ? Non ! En français, on dit « il m’a expliqué le problème ». En anglais, la chose vie… #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “She explained the problem to me.” — Avec “explain”, on place d’abord la chose, puis “to” et la personne. Testez d’autres pièges avec un quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}

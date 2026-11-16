@@ -1,0 +1,262 @@
+{
+ "id": "mo_bm_recall_sb_18d9514a",
+ "template": "recall",
+ "title": "Motion recall – Stop saying \"The number of student are increasing.\" – say \"The number  (sb_18d9514a)",
+ "teacher": "carlos",
+ "clips": [
+  "gc11_talk",
+  "gc11_explain",
+  "gc11_happy",
+  "gc11_thinking",
+  "gc11_surprise_2"
+ ],
+ "listen": [
+  "gc11_listen"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy",
+ "active": "yellow",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "stop-saying",
+  "link": "https://lexkite.com/app/",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Exam",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say it before I do.",
+   "gap": 0.7
+  },
+  {
+   "id": "q",
+   "text": "How do you say this correctly? Many learners say: The number of student are increasing.",
+   "gap": 0.7
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "a",
+   "text": "The number of students is increasing. The number takes is. A number takes are.",
+   "gap": 0.7
+  },
+  {
+   "id": "w",
+   "text": "A number of students are here. Both rules work!",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "Say it",
+      "white"
+     ]
+    ],
+    [
+     [
+      "before I do.",
+      "yellow"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Your turn",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "Say it"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "before I do."
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "q",
+    "at": [
+     "q",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Say it right",
+      "tone": "teal",
+      "ring": "_count"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "Fix: The number of student are increasing."
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "The number of "
+       ],
+       [
+        "_____",
+        "muted"
+       ],
+       [
+        " increasing."
+       ]
+      ],
+      "slot": {
+       "run": 1,
+       "word": "students is"
+      }
+     }
+    ],
+    "reveal": [
+     "a",
+     0
+    ],
+    "xp": [
+     {
+      "at": [
+       "a",
+       0
+      ],
+      "n": 10
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "better",
+    "at": [
+     "a",
+     0
+    ],
+    "tone": "green",
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Better",
+      "tone": "green"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "The number of students is increasing.",
+        "green"
+       ]
+      ]
+     },
+     {
+      "t": "sub",
+      "runs": [
+       [
+        "The number takes is. A number takes are."
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "hook_text": "Say it before I do.",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ },
+ "uses": {
+  "template": "recall",
+  "row": "sb_18d9514a",
+  "teacher": "carlos",
+  "accent": "navy",
+  "active": "yellow",
+  "tones": 0
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_take_photo",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Can you take a photo?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Can you pull a photo of us?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Can you take a photo of us?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say take a photo.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Take! Please take a photo of me.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Can you pull a photo of us?",
+  "right": "Can you take a photo of us?",
+  "strike": "pull",
+  "why": "Say take a photo.",
+  "memory": "Can you take a photo of us?",
+  "quiz": {
+   "stem": "Please ___ a photo of me.",
+   "options": [
+    "pull",
+    "take"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Pull” değil, “take a photo”!",
+   "tip": "Türkçede “fotoğraf çekmek” deriz; İngilizcede “pull” değil, “take” kullanılır: “Can you take a photo of us?”",
+   "caption": "“Can you pull a photo of us?” mi diyorsun? 😅 “Fotoğraf çekmek” İngilizcede “pull” ile değil, “take a photo” ile söylenir. Doğrusu “Can you take a photo of us?” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “take”. Fotoğraf için “take a photo” de. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “take a photo,” not “pull”!",
+   "tip": "In English we say “take a photo,” not “pull”: “Can you take a photo of us?”",
+   "caption": "Do you say “Can you pull a photo of us?” 😅 In English we say “take a photo” and never “pull a photo” for this. The right sentence is “Can you take a photo of us?” Listen to Carlos and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Pull” değil, “take a photo”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“Pull” değil, “take a photo”!",
+  "keyword": "Can you take a photo of us?",
+  "value": "Türkçede “fotoğraf çekmek” deriz; İngilizcede “pull” değil, “take” kullanılır: “Can you take a photo of us?”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "“Pull” değil, “take a photo”!",
+    "description": "Türkçede “fotoğraf çekmek” deriz; İngilizcede “pull” değil, “take” kullanılır: “Can you take a photo of us?”\n\n“Can you pull a photo of us?” mi diyorsun? 😅 “Fotoğraf çekmek” İngilizcede “pull” ile değil, “take a photo” ile söylenir. Doğrusu “Can you take a photo of us?” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "Can you take a photo of us?",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“Can you pull a photo of us?” mi diyorsun? 😅 “Fotoğraf çekmek” İngilizcede “pull” ile değil, “take a photo” ile söylenir. Doğrusu “Can you take a photo of us?” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Pull” değil, “take a photo”!\n\nTürkçede “fotoğraf çekmek” deriz; İngilizcede “pull” değil, “take” kullanılır: “Can you take a photo of us?”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Pull” değil, “take a photo”! Türkçede “fotoğraf çekmek” deriz; İngilizcede “pull” değil, “take” kullanı… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “take”. Fotoğraf için “take a photo” de. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+  "lang": "tr"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_on_vacation",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "I am on vacation!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am in vacation now.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am on vacation now.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "With vacation, we say on.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "On! We are on vacation.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am in vacation now.",
+  "right": "I am on vacation now.",
+  "strike": "in",
+  "why": "With vacation, we say on.",
+  "memory": "Vacation: on.",
+  "quiz": {
+   "stem": "We are ___ vacation this summer.",
+   "options": [
+    "in",
+    "on"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "« En vacances » : “on vacation”",
+   "tip": "En français, on dit « en vacances ». En anglais, on dit “on vacation”.",
+   "caption": "Vous dites “I am in vacation now.” ? En français, on dit « en vacances ». En anglais, on dit “on vacation”. Dites plutôt “I am on vacation now.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “I am on vacation now.” — En français, on dit « en vacances ». En anglais, on dit “on vacation”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “on vacation”!",
+   "tip": "French says « en vacances ». English says “on vacation”.",
+   "caption": "Do you say this? “I am in vacation now.” French says « en vacances ». English says “on vacation”. Say “I am on vacation now.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "« En vacances » : “on vacation”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "« En vacances » : “on vacation”",
+  "keyword": "I am on vacation now.",
+  "value": "En français, on dit « en vacances ». En anglais, on dit “on vacation”.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "« En vacances » : “on vacation”",
+    "description": "En français, on dit « en vacances ». En anglais, on dit “on vacation”.\n\nVous dites “I am in vacation now.” ? En français, on dit « en vacances ». En anglais, on dit “on vacation”. Dites plutôt “I am on vacation now.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "I am on vacation now.",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Vous dites “I am in vacation now.” ? En français, on dit « en vacances ». En anglais, on dit “on vacation”. Dites plutôt “I am on vacation now.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "« En vacances » : “on vacation”\n\nEn français, on dit « en vacances ». En anglais, on dit “on vacation”.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "« En vacances » : “on vacation” En français, on dit « en vacances ». En anglais, on dit “on vacation… #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “I am on vacation now.” — En français, on dit « en vacances ». En anglais, on dit “on vacation”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}
