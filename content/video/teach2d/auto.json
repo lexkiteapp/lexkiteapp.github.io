@@ -7827,6 +7827,338 @@
     "strike": "lack of",
     "answer_say": "Salt! This soup lacks salt."
    }
+  },
+  {
+   "id": "t2a_mistake_42fa0282",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "u:v:suggest:m0",
+   "hash": "fa68f51188ac",
+   "heads": [
+    "sb_42fa0282"
+   ],
+   "taught": [
+    "I",
+    "suggest",
+    "you",
+    "to",
+    "go",
+    "I",
+    "suggest",
+    "you",
+    "go",
+    "suggest",
+    "you",
+    "to"
+   ],
+   "in": {
+    "gold": "sb_42fa0282",
+    "hook_say": "Stop saying suggest you to!",
+    "hook_text": "Stop saying “suggest you to”",
+    "wrong_say": "I suggest you to go.",
+    "right_say": "I suggest you go.",
+    "strike": "suggest you to",
+    "answer_say": "Leave! I suggest you leave early."
+   }
+  },
+  {
+   "id": "t2a_mistake_17b6d916",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "u:v:have:obare",
+   "hash": "bddb37126ed4",
+   "heads": [
+    "sb_17b6d916"
+   ],
+   "taught": [
+    "I",
+    "had",
+    "him",
+    "to",
+    "fix",
+    "my",
+    "car",
+    "I",
+    "had",
+    "him",
+    "fix",
+    "my",
+    "car",
+    "had",
+    "him",
+    "to"
+   ],
+   "in": {
+    "gold": "sb_17b6d916",
+    "hook_say": "Stop saying had him to!",
+    "hook_text": "Stop saying “had him to”",
+    "wrong_say": "I had him to fix my car.",
+    "right_say": "I had him fix my car.",
+    "strike": "had him to",
+    "answer_say": "Help! I had my brother help me."
+   }
+  },
+  {
+   "id": "t2a_mistake_03115b51",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "u:p:skilled:in",
+   "hash": "783331f1ae0b",
+   "heads": [
+    "sb_03115b51"
+   ],
+   "taught": [
+    "She",
+    "is",
+    "skilled",
+    "on",
+    "design",
+    "She",
+    "is",
+    "skilled",
+    "in",
+    "design",
+    "skilled",
+    "on"
+   ],
+   "in": {
+    "gold": "sb_03115b51",
+    "hook_say": "Stop saying skilled on!",
+    "hook_text": "Stop saying “skilled on”",
+    "wrong_say": "She is skilled on design.",
+    "right_say": "She is skilled in design.",
+    "strike": "skilled on",
+    "answer_say": "In! She's skilled in language teaching."
+   }
+  },
+  {
+   "id": "t2a_mistake_01420199",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "m:heater#n",
+   "hash": "059c4c4eb5ed",
+   "heads": [
+    "sb_01420199"
+   ],
+   "taught": [
+    "It's",
+    "cold",
+    "Turn",
+    "on",
+    "the",
+    "warmer",
+    "It's",
+    "cold",
+    "Turn",
+    "on",
+    "the",
+    "heater",
+    "warmer"
+   ],
+   "in": {
+    "gold": "sb_01420199",
+    "hook_say": "Say heater, not warmer!",
+    "hook_text": "Say “heater, not warmer”",
+    "wrong_say": "It's cold. Turn on the warmer.",
+    "right_say": "It's cold. Turn on the heater.",
+    "strike": "warmer",
+    "answer_say": "Heater! It's freezing. Can you turn on the heater?"
+   }
+  },
+  {
+   "id": "t2a_mistake_2ac8da2b",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "u:s:wish",
+   "hash": "a72406f8f388",
+   "heads": [
+    "sb_2ac8da2b"
+   ],
+   "taught": [
+    "I",
+    "wish",
+    "it",
+    "doesn't",
+    "rain",
+    "tomorrow",
+    "I",
+    "hope",
+    "it",
+    "doesn't",
+    "rain",
+    "tomorrow",
+    "wish"
+   ],
+   "in": {
+    "gold": "sb_2ac8da2b",
+    "hook_say": "Stop saying wish it doesn't!",
+    "hook_text": "Stop saying “wish it doesn't”",
+    "wrong_say": "I wish it doesn't rain tomorrow.",
+    "right_say": "I hope it doesn't rain tomorrow.",
+    "strike": "wish",
+    "answer_say": "Hope! I hope you enjoy the party!"
+   }
+  },
+  {
+   "id": "t2a_mistake_0ec1a128",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "u:s:if-2",
+   "hash": "8d9fbd71b8bc",
+   "heads": [
+    "sb_0ec1a128"
+   ],
+   "taught": [
+    "If",
+    "I",
+    "will",
+    "be",
+    "rich",
+    "I",
+    "would",
+    "travel",
+    "If",
+    "I",
+    "were",
+    "rich",
+    "I",
+    "would",
+    "travel",
+    "will",
+    "be"
+   ],
+   "in": {
+    "gold": "sb_0ec1a128",
+    "hook_say": "Stop saying if I will be!",
+    "hook_text": "Stop saying “if I will be”",
+    "wrong_say": "If I will be rich, I would travel.",
+    "right_say": "If I were rich, I would travel.",
+    "strike": "will be",
+    "answer_say": "Had! If I had a car, I would drive to work."
+   }
+  },
+  {
+   "id": "t2a_mistake_23d1d6e3",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "u:v:think:pass",
+   "hash": "a1f7a722074a",
+   "heads": [
+    "sb_23d1d6e3"
+   ],
+   "taught": [
+    "He",
+    "is",
+    "thought",
+    "be",
+    "very",
+    "smart",
+    "He",
+    "is",
+    "thought",
+    "to",
+    "be",
+    "very",
+    "smart",
+    "thought",
+    "be"
+   ],
+   "in": {
+    "gold": "sb_23d1d6e3",
+    "hook_say": "Stop saying thought be!",
+    "hook_text": "Stop saying “thought be”",
+    "wrong_say": "He is thought be very smart.",
+    "right_say": "He is thought to be very smart.",
+    "strike": "thought be",
+    "answer_say": "To be! The castle is thought to be 500 years old."
+   }
+  },
+  {
+   "id": "t2a_mistake_3040fca3",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "u:a:near:nearly",
+   "hash": "5d3c7a0d9143",
+   "heads": [
+    "sb_3040fca3"
+   ],
+   "taught": [
+    "I",
+    "near",
+    "missed",
+    "the",
+    "bus",
+    "I",
+    "nearly",
+    "missed",
+    "the",
+    "bus",
+    "near",
+    "missed"
+   ],
+   "in": {
+    "gold": "sb_3040fca3",
+    "hook_say": "Stop saying near missed!",
+    "hook_text": "Stop saying “near missed”",
+    "wrong_say": "I near missed the bus.",
+    "right_say": "I nearly missed the bus.",
+    "strike": "near missed",
+    "answer_say": "Nearly! We nearly won the game."
+   }
+  },
+  {
+   "id": "t2a_mistake_112e385b",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "u:v:make:pass",
+   "hash": "b9d5385880c3",
+   "heads": [
+    "sb_112e385b"
+   ],
+   "taught": [
+    "We",
+    "were",
+    "made",
+    "wait",
+    "for",
+    "hours",
+    "We",
+    "were",
+    "made",
+    "to",
+    "wait",
+    "for",
+    "hours",
+    "made",
+    "wait"
+   ],
+   "in": {
+    "gold": "sb_112e385b",
+    "hook_say": "Stop saying were made wait!",
+    "hook_text": "Stop saying “were made wait”",
+    "wrong_say": "We were made wait for hours.",
+    "right_say": "We were made to wait for hours.",
+    "strike": "made wait",
+    "answer_say": "To fill! She was made to fill the form again."
+   }
   }
  ]
 }

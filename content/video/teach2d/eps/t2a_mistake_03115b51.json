@@ -1,0 +1,129 @@
+{
+ "id": "t2a_mistake_03115b51",
+ "template": "mistake",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Stop saying skilled on!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She is skilled on design.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She is skilled in design.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Skilled in or at a subject.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "In! She's skilled in language teaching.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She is skilled on design.",
+  "right": "She is skilled in design.",
+  "strike": "skilled on",
+  "why": "Skilled in or at a subject.",
+  "memory": "skilled IN / AT",
+  "quiz": {
+   "stem": "She's skilled ___ language teaching.",
+   "options": [
+    "on",
+    "in"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Stop saying “skilled on”"
+ },
+ "src": {
+  "gold": "sb_03115b51",
+  "pid": "u:p:skilled:in"
+ },
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Stop saying \"skilled on\"? Say this instead",
+  "keyword": "skilled on",
+  "value": "Say \"She is skilled in design\", not \"She is skilled on design\". Skilled in or at a subject.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#englishgrammar",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Stop saying \"skilled on\"? Say this instead",
+    "description": "Say \"She is skilled in design\", not \"She is skilled on design\". Skilled in or at a subject.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix\n\nSeries: Stop Saying This · Teacher: Ama\n\n#learnenglish #englishtips #englishgrammar #englishteacher",
+    "tags": [
+     "skilled on",
+     "Stop Saying This",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Stop saying \"skilled on\"? Say this instead\n\nSay \"She is skilled in design\", not \"She is skilled on design\". Skilled in or at a subject.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Stop saying \"skilled on\"? Say this instead\n\nSay \"She is skilled in design\", not \"She is skilled on design\". Skilled in or at a subject.\n\nCheck your grammar: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#englishgrammar",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Stop saying \"skilled on\"? Say this instead #learnenglish #englishtips #englishgrammar"
+   }
+  },
+  "first_comment": "Quiz answer: In! She's skilled in language teaching. Say \"She is skilled in design\", not \"She is skilled on design\". Skilled in or at a subject. Practice it with a free quiz: {link}"
+ }
+}

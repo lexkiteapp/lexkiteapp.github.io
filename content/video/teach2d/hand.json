@@ -138,6 +138,60 @@
    "hook_say": "Stop saying they lack of!",
    "strike": "lack of",
    "score": 92
+  },
+  {
+   "gold": "sb_42fa0282",
+   "hook_say": "Stop saying suggest you to!",
+   "strike": "suggest you to",
+   "score": 93
+  },
+  {
+   "gold": "sb_17b6d916",
+   "hook_say": "Stop saying had him to!",
+   "strike": "had him to",
+   "score": 94
+  },
+  {
+   "gold": "sb_03115b51",
+   "hook_say": "Stop saying skilled on!",
+   "strike": "skilled on",
+   "score": 93
+  },
+  {
+   "gold": "sb_01420199",
+   "hook_say": "Say heater, not warmer!",
+   "strike": "warmer",
+   "score": 92
+  },
+  {
+   "gold": "sb_2ac8da2b",
+   "hook_say": "Stop saying wish it doesn't!",
+   "strike": "wish",
+   "score": 90
+  },
+  {
+   "gold": "sb_0ec1a128",
+   "hook_say": "Stop saying if I will be!",
+   "strike": "will be",
+   "score": 90
+  },
+  {
+   "gold": "sb_23d1d6e3",
+   "hook_say": "Stop saying thought be!",
+   "strike": "thought be",
+   "score": 92
+  },
+  {
+   "gold": "sb_3040fca3",
+   "hook_say": "Stop saying near missed!",
+   "strike": "near missed",
+   "score": 90
+  },
+  {
+   "gold": "sb_112e385b",
+   "hook_say": "Stop saying were made wait!",
+   "strike": "made wait",
+   "score": 93
   }
  ],
  "phrasal": [
@@ -152,12 +206,6 @@
   }
  ],
  "held": [
-  {
-   "gold": "sb_14363e18",
-   "hook_say": "Stop saying effect to!",
-   "strike": "effect to",
-   "template": "mistake"
-  },
   {
    "gold": "sb_1445ca42",
    "hook_say": "Stop saying solution for!",
@@ -174,18 +222,6 @@
    "gold": "sb_18d9514a",
    "hook_say": "Number of students: is or are?",
    "strike": "student are",
-   "template": "mistake"
-  },
-  {
-   "gold": "sb_42fa0282",
-   "hook_say": "Stop saying suggest you to!",
-   "strike": "suggest you to",
-   "template": "mistake"
-  },
-  {
-   "gold": "sb_1c747068",
-   "hook_say": "Stop saying responsible of!",
-   "strike": "responsible of",
    "template": "mistake"
   },
   {
@@ -267,12 +303,6 @@
    "template": "mistake"
   },
   {
-   "gold": "sb_0ec1a128",
-   "hook_say": "Stop saying if I will!",
-   "strike": "If I will",
-   "template": "mistake"
-  },
-  {
    "gold": "sb_05c6285e",
    "hook_say": "Stop saying long to home!",
    "strike": "long to",
@@ -285,21 +315,9 @@
    "template": "mistake"
   },
   {
-   "gold": "sb_23d1d6e3",
-   "hook_say": "Stop saying thought be!",
-   "strike": "thought be",
-   "template": "mistake"
-  },
-  {
    "gold": "sb_24ac31f5",
    "hook_say": "Stop saying swimming how!",
    "strike": "swimming how",
-   "template": "mistake"
-  },
-  {
-   "gold": "sb_3040fca3",
-   "hook_say": "Stop saying near missed!",
-   "strike": "near missed",
    "template": "mistake"
   },
   {
@@ -315,18 +333,6 @@
    "template": "mistake"
   },
   {
-   "gold": "sb_05db3dfa",
-   "hook_say": "Stop saying compatible to!",
-   "strike": "compatible to",
-   "template": "mistake"
-  },
-  {
-   "gold": "sb_112e385b",
-   "hook_say": "Stop saying were made wait!",
-   "strike": "made wait",
-   "template": "mistake"
-  },
-  {
    "gold": "sb_20315a8f",
    "hook_say": "Its or it's?",
    "strike": "it's",
@@ -336,24 +342,6 @@
    "gold": "sb_2ed92c40",
    "hook_say": "Stop saying sit besides!",
    "strike": "besides",
-   "template": "mistake"
-  },
-  {
-   "gold": "sb_01e335e7",
-   "hook_say": "Stop saying identical than!",
-   "strike": "identical than",
-   "template": "mistake"
-  },
-  {
-   "gold": "sb_17b6d916",
-   "hook_say": "Stop saying had him to!",
-   "strike": "had him to",
-   "template": "mistake"
-  },
-  {
-   "gold": "sb_03115b51",
-   "hook_say": "Stop saying skilled on!",
-   "strike": "skilled on",
    "template": "mistake"
   },
   {
@@ -393,12 +381,6 @@
    "template": "mistake"
   },
   {
-   "gold": "sb_29c61515",
-   "hook_say": "Stop saying hesitate contacting!",
-   "strike": "hesitate contacting",
-   "template": "mistake"
-  },
-  {
    "gold": "sb_14617767",
    "hook_say": "Stop saying congratulate you for!",
    "strike": "congratulate you for",
@@ -414,18 +396,6 @@
    "gold": "sb_0d55586c",
    "hook_say": "Stop saying eat diet!",
    "strike": "eat diet",
-   "template": "mistake"
-  },
-  {
-   "gold": "sb_033d190d",
-   "hook_say": "Stop saying follow number!",
-   "strike": "follow number",
-   "template": "mistake"
-  },
-  {
-   "gold": "sb_01420199",
-   "hook_say": "Warmer or heater?",
-   "strike": "warmer",
    "template": "mistake"
   },
   {
@@ -480,12 +450,6 @@
    "gold": "sb_16c56ea4",
    "hook_say": "Stop saying dare to saying!",
    "strike": "dare to saying",
-   "template": "mistake"
-  },
-  {
-   "gold": "sb_2ac8da2b",
-   "hook_say": "Stop saying wish it doesn't!",
-   "strike": "wish",
    "template": "mistake"
   },
   {
@@ -739,6 +703,48 @@
    "mean_say": "Save up means collect money.",
    "mean_card": "= collect money for later",
    "template": "phrasal"
+  },
+  {
+   "gold": "sb_14363e18",
+   "hook_say": "Stop saying effect to!",
+   "strike": "effect to",
+   "template": "mistake",
+   "held_reason": "grader>=90 but episode duration outside 18-28 s (needs shorter hook/strike)"
+  },
+  {
+   "gold": "sb_1c747068",
+   "hook_say": "Stop saying responsible of!",
+   "strike": "responsible of",
+   "template": "mistake",
+   "held_reason": "grader>=90 but episode duration outside 18-28 s (needs shorter hook/strike)"
+  },
+  {
+   "gold": "sb_01e335e7",
+   "hook_say": "Stop saying identical than!",
+   "strike": "identical than",
+   "template": "mistake",
+   "held_reason": "grader>=90 but episode duration outside 18-28 s (needs shorter hook/strike)"
+  },
+  {
+   "gold": "sb_29c61515",
+   "hook_say": "Stop saying hesitate contacting!",
+   "strike": "hesitate contacting",
+   "template": "mistake",
+   "held_reason": "grader>=90 but episode duration outside 18-28 s (needs shorter hook/strike)"
+  },
+  {
+   "gold": "sb_033d190d",
+   "hook_say": "Stop saying follow number!",
+   "strike": "follow number",
+   "template": "mistake",
+   "held_reason": "grader>=90 but episode duration outside 18-28 s (needs shorter hook/strike)"
+  },
+  {
+   "gold": "sb_05db3dfa",
+   "hook_say": "Stop saying compatible to!",
+   "strike": "compatible to",
+   "template": "mistake",
+   "held_reason": "grader>=90 but episode duration outside 18-28 s (needs shorter hook/strike)"
   }
  ]
 }
