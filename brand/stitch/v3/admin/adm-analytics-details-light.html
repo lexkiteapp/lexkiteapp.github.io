@@ -1,1219 +1,812 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lexkite Quản trị — Phân tích chi tiết (30 ngày)</title>
-  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <!-- Material Symbols Outlined -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Quản trị — Phân tích chi tiết (30 ngày)</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
     tailwind.config = {
+      darkMode: "class",
       theme: {
         extend: {
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
-            mono: ['"JetBrains Mono"', 'monospace'],
+          "colors": {
+            "primary-fixed": "#b6ede7",
+            "on-tertiary-fixed-variant": "#00504b",
+            "surface": "#f3fbf9",
+            "on-secondary": "#ffffff",
+            "surface-container-low": "#edf5f3",
+            "background": "#f3fbf9",
+            "surface-bright": "#f3fbf9",
+            "surface-container-high": "#e1eae8",
+            "on-background": "#151d1c",
+            "on-surface": "#151d1c",
+            "tertiary-fixed": "#a6f0e8",
+            "on-surface-variant": "#404847",
+            "primary-container": "#114b47",
+            "inverse-primary": "#9bd1cb",
+            "primary-fixed-dim": "#9bd1cb",
+            "on-error": "#ffffff",
+            "inverse-on-surface": "#eaf2f0",
+            "on-tertiary": "#ffffff",
+            "secondary": "#b52705",
+            "outline": "#707977",
+            "on-primary-fixed-variant": "#164f4b",
+            "inverse-surface": "#2a3231",
+            "on-error-container": "#93000a",
+            "on-secondary-fixed-variant": "#8b1900",
+            "on-secondary-fixed": "#3d0600",
+            "on-primary-container": "#85bab4",
+            "secondary-fixed-dim": "#ffb4a3",
+            "surface-tint": "#326762",
+            "tertiary": "#003330",
+            "surface-container-lowest": "#ffffff",
+            "surface-container": "#e7f0ee",
+            "primary": "#003330",
+            "on-tertiary-container": "#73bdb6",
+            "tertiary-container": "#004c47",
+            "on-primary": "#ffffff",
+            "surface-variant": "#dce4e2",
+            "secondary-container": "#ff5c38",
+            "on-primary-fixed": "#00201e",
+            "surface-dim": "#d3dcda",
+            "surface-container-highest": "#dce4e2",
+            "error-container": "#ffdad6",
+            "tertiary-fixed-dim": "#8ad4cc",
+            "error": "#ba1a1a",
+            "outline-variant": "#bfc8c6",
+            "on-tertiary-fixed": "#00201e",
+            "on-secondary-container": "#5b0d00",
+            "secondary-fixed": "#ffdad2"
           },
-          colors: {
-            brand: {
-              teal: '#134e4a',
-              'teal-dark': '#0d3835',
-              'teal-light': '#e6f3f1',
-              'teal-subtle': '#f0f7f6',
-              coral: '#ff5c38',
-              'coral-hover': '#e84c29',
-              'coral-soft': '#fff1ee',
-            },
-            surface: {
-              canvas: '#f7f5f0',
-              card: '#ffffff',
-              subtle: '#faf9f6',
-              muted: '#f2eee8',
-              border: '#e6e1d7',
-              'border-subtle': '#eee9e0',
-            }
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
           },
-          boxShadow: {
-            'tactile': '0 1px 3px rgba(19, 78, 74, 0.04), 0 2px 0 0 #e6e1d7',
-            'tactile-subtle': '0 1px 2px rgba(19, 78, 74, 0.03), 0 1px 0 0 #eee9e0',
-            'ledge-sm': '0 2px 0 0 #d9d3c5',
-            'ledge-coral': '0 2px 0 0 #cf4425',
+          "spacing": {
+            "gutter-sm": "0.5rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "space-xl": "1.5rem",
+            "margin": "1rem",
+            "space-md": "0.75rem",
+            "space-lg": "1rem",
+            "space-2xl": "2rem",
+            "margin-lg": "1.5rem",
+            "gutter": "1rem"
+          },
+          "fontFamily": {
+            "label-md": ["Plus Jakarta Sans"],
+            "title-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "data-mono": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "title-sm": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "title-md": ["16px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "data-mono": ["13px", { "lineHeight": "16px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "title-sm": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-lg": ["26px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "headline-md": ["20px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "700" }]
           }
-        }
-      }
+        },
+      },
     }
   </script>
-  <style>
+<style>
     .material-symbols-outlined {
-      font-variation-settings: 'FILL' 0, 'wght' 450, 'GRAD' 0, 'opsz' 22;
-      vertical-align: middle;
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
     }
-    /* Custom scrollbars */
-    ::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
+    
+    /* Tactile Shadows & Ledges from Design System */
+    .tactile-card {
+      background-color: #ffffff;
+      border: 1px solid #d3dcda;
+      box-shadow: 0 1px 0 0 #ded6c5, 0 3px 6px -1px rgba(17, 75, 71, 0.05);
     }
-    ::-webkit-scrollbar-track {
-      background: #f7f5f0;
+    .tactile-btn-primary {
+      background-color: #d64a2b;
+      box-shadow: 0 3px 0 0 #a33219;
+      transition: all 0.1s ease;
     }
-    ::-webkit-scrollbar-thumb {
-      background: #d8d2c6;
-      border-radius: 9999px;
+    .tactile-btn-primary:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #a33219;
+    }
+    .tactile-btn-secondary {
+      background-color: #ffffff;
+      border: 1px solid #d3dcda;
+      box-shadow: 0 2px 0 0 #ded6c5;
+      transition: all 0.1s ease;
+    }
+    .tactile-btn-secondary:active {
+      transform: translateY(1px);
+      box-shadow: 0 1px 0 0 #ded6c5;
+    }
+    .inset-well {
+      box-shadow: inset 0 1px 2px 0 rgba(17, 75, 71, 0.06);
+      border: 1px solid #d3dcda;
     }
   </style>
 </head>
-<body class="bg-surface-canvas text-stone-800 font-sans antialiased min-h-screen flex selection:bg-brand-teal selection:text-white">
-
-  <!-- LEFT SIDEBAR -->
-  <aside class="w-64 flex-shrink-0 bg-[#fbf9f5] border-r border-surface-border flex flex-col justify-between h-screen sticky top-0 overflow-y-auto">
-    <div class="p-5">
-      <!-- App Header / Logo -->
-      <div class="flex items-center justify-between pb-5 border-b border-surface-border-subtle">
-        <div class="flex items-center gap-2.5">
-          <!-- Lexkite Kite Geometric Mark -->
-          <div class="w-9 h-9 rounded-xl bg-brand-teal flex items-center justify-center text-white shadow-sm shadow-teal-950/20">
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2L19 9L12 22L5 9L12 2Z" />
-              <path d="M12 2V22" stroke-opacity="0.6" stroke-width="1.8" />
-              <path d="M5 9H19" stroke-opacity="0.6" stroke-width="1.8" />
-            </svg>
-          </div>
-          <div>
-            <div class="flex items-center gap-1.5">
-              <span class="font-extrabold text-base tracking-tight text-stone-900 leading-none">Lexkite</span>
-              <span class="text-[10px] font-bold uppercase tracking-wider bg-brand-teal-light text-brand-teal px-1.5 py-0.5 rounded">Quản trị</span>
-            </div>
-            <p class="text-[11px] text-stone-500 font-medium mt-0.5">Tiếng Anh thực chiến · Miễn phí</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Navigation Groups -->
-      <nav class="mt-5 space-y-6">
-        <!-- Group: TỔNG QUAN -->
-        <div>
-          <div class="text-[11px] font-bold tracking-wider uppercase text-stone-500 px-2.5 mb-1.5">Tổng quan</div>
-          <div class="space-y-0.5">
-            <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg text-[13px] font-medium text-stone-600 hover:text-stone-900 hover:bg-surface-muted transition-colors">
-              <span class="material-symbols-outlined text-[19px] text-stone-500">grid_view</span>
-              <span>Tổng quan</span>
-            </a>
-            <!-- Selected Navigation Item -->
-            <a href="#" class="flex items-center justify-between px-3 py-2 rounded-lg text-[13px] font-semibold bg-brand-teal text-white shadow-sm shadow-teal-950/20 transition-all">
-              <div class="flex items-center gap-3">
-                <span class="material-symbols-outlined text-[19px] text-white">analytics</span>
-                <span>Phân tích</span>
-              </div>
-              <span class="w-1.5 h-1.5 rounded-full bg-brand-coral"></span>
-            </a>
-            <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg text-[13px] font-medium text-stone-600 hover:text-stone-900 hover:bg-surface-muted transition-colors">
-              <span class="material-symbols-outlined text-[19px] text-stone-500">campaign</span>
-              <span>Quảng cáo</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Group: NGƯỜI DÙNG -->
-        <div>
-          <div class="text-[11px] font-bold tracking-wider uppercase text-stone-500 px-2.5 mb-1.5">Người dùng</div>
-          <div class="space-y-0.5">
-            <a href="#" class="flex items-center justify-between px-3 py-2 rounded-lg text-[13px] font-medium text-stone-600 hover:text-stone-900 hover:bg-surface-muted transition-colors">
-              <div class="flex items-center gap-3">
-                <span class="material-symbols-outlined text-[19px] text-stone-500">group</span>
-                <span>Người dùng</span>
-              </div>
-              <span class="text-[11px] font-semibold text-stone-500 font-mono">184</span>
-            </a>
-            <a href="#" class="flex items-center justify-between px-3 py-2 rounded-lg text-[13px] font-medium text-stone-600 hover:text-stone-900 hover:bg-surface-muted transition-colors">
-              <div class="flex items-center gap-3">
-                <span class="material-symbols-outlined text-[19px] text-stone-500">mail</span>
-                <span>Hộp thư</span>
-              </div>
-              <span class="text-[11px] font-semibold bg-stone-200 text-stone-700 px-1.5 py-0.2 rounded-full font-mono">3</span>
-            </a>
-            <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg text-[13px] font-medium text-stone-600 hover:text-stone-900 hover:bg-surface-muted transition-colors">
-              <span class="material-symbols-outlined text-[19px] text-stone-500">notifications</span>
-              <span>Thông báo</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Group: CHẤT LƯỢNG -->
-        <div>
-          <div class="text-[11px] font-bold tracking-wider uppercase text-stone-500 px-2.5 mb-1.5">Chất lượng</div>
-          <div class="space-y-0.5">
-            <a href="#" class="flex items-center justify-between px-3 py-2 rounded-lg text-[13px] font-medium text-stone-600 hover:text-stone-900 hover:bg-surface-muted transition-colors">
-              <div class="flex items-center gap-3">
-                <span class="material-symbols-outlined text-[19px] text-stone-500">warning</span>
-                <span>Cảnh báo</span>
-              </div>
-              <span class="w-2 h-2 rounded-full bg-amber-500"></span>
-            </a>
-            <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg text-[13px] font-medium text-stone-600 hover:text-stone-900 hover:bg-surface-muted transition-colors">
-              <span class="material-symbols-outlined text-[19px] text-stone-500">bug_report</span>
-              <span>Báo lỗi</span>
-            </a>
-            <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg text-[13px] font-medium text-stone-600 hover:text-stone-900 hover:bg-surface-muted transition-colors">
-              <span class="material-symbols-outlined text-[19px] text-stone-500">verified</span>
-              <span>Chất lượng</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Group: NỘI DUNG & VIDEO -->
-        <div>
-          <div class="text-[11px] font-bold tracking-wider uppercase text-stone-500 px-2.5 mb-1.5">Nội dung & Video</div>
-          <div class="space-y-0.5">
-            <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg text-[13px] font-medium text-stone-600 hover:text-stone-900 hover:bg-surface-muted transition-colors">
-              <span class="material-symbols-outlined text-[19px] text-stone-500">hub</span>
-              <span>Kênh & phân phối</span>
-            </a>
-            <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg text-[13px] font-medium text-stone-600 hover:text-stone-900 hover:bg-surface-muted transition-colors">
-              <span class="material-symbols-outlined text-[19px] text-stone-500">share</span>
-              <span>Video & Social</span>
-            </a>
-            <a href="#" class="flex items-center justify-between px-3 py-2 rounded-lg text-[13px] font-medium text-stone-600 hover:text-stone-900 hover:bg-surface-muted transition-colors">
-              <div class="flex items-center gap-3">
-                <span class="material-symbols-outlined text-[19px] text-stone-500">smart_display</span>
-                <span>Video Studio</span>
-              </div>
-              <span class="text-[11px] font-semibold text-stone-500 font-mono">12</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Group: HỆ THỐNG -->
-        <div>
-          <div class="text-[11px] font-bold tracking-wider uppercase text-stone-500 px-2.5 mb-1.5">Hệ thống</div>
-          <div class="space-y-0.5">
-            <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg text-[13px] font-medium text-stone-600 hover:text-stone-900 hover:bg-surface-muted transition-colors">
-              <span class="material-symbols-outlined text-[19px] text-stone-500">speed</span>
-              <span>Hạn mức</span>
-            </a>
-            <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg text-[13px] font-medium text-stone-600 hover:text-stone-900 hover:bg-surface-muted transition-colors">
-              <span class="material-symbols-outlined text-[19px] text-stone-500">cloud_queue</span>
-              <span>Kho Drive</span>
-            </a>
-            <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg text-[13px] font-medium text-stone-600 hover:text-stone-900 hover:bg-surface-muted transition-colors">
-              <span class="material-symbols-outlined text-[19px] text-stone-500">key</span>
-              <span>Khóa API</span>
-            </a>
-          </div>
-        </div>
-      </nav>
-    </div>
-
-    <!-- Bottom Settings & System Status -->
-    <div class="p-4 border-t border-surface-border-subtle bg-[#f7f5f0]/60 space-y-2">
-      <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg text-[13px] font-medium text-stone-700 hover:text-stone-900 hover:bg-surface-muted transition-colors">
-        <span class="material-symbols-outlined text-[19px] text-stone-500">settings</span>
-        <span>Cài đặt</span>
-      </a>
-      <div class="flex items-center justify-between px-3 py-1.5 text-[11px] text-stone-500">
-        <span class="flex items-center gap-1.5">
-          <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse"></span>
-          <span>Máy chủ ổn định</span>
-        </span>
-        <span class="font-mono text-stone-500">v2.4.1</span>
-      </div>
-    </div>
-  </aside>
-
-  <!-- MAIN CONTENT AREA -->
-  <div class="flex-1 flex flex-col min-w-0 overflow-y-auto">
-
-    <!-- SLIM TOP BAR -->
-    <header class="h-16 bg-[#ffffff]/90 backdrop-blur-sm border-b border-surface-border px-8 flex items-center justify-between sticky top-0 z-30">
-      <!-- Breadcrumb & Title -->
-      <div class="flex items-center gap-3 min-w-0">
-        <div class="flex items-center gap-2 text-[13px] text-stone-500 font-medium">
-          <span>Admin</span>
-          <span class="text-stone-400">›</span>
-          <span class="text-stone-900 font-bold">Phân tích</span>
-          <span class="text-stone-400">›</span>
-          <span class="text-brand-teal font-semibold">Chi tiết · 30 ngày</span>
-        </div>
-        <span class="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-brand-teal-light text-brand-teal border border-brand-teal/15">
-          <span class="w-1.5 h-1.5 rounded-full bg-brand-teal"></span>
-          Quyền riêng tư cao
-        </span>
-      </div>
-
-      <!-- Center / Right Top Controls -->
-      <div class="flex items-center gap-4">
-        <!-- Command Search Bar -->
-        <div class="relative w-72">
-          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-stone-500">
-            <span class="material-symbols-outlined text-[18px]">search</span>
-          </div>
-          <input
-            type="text"
-            readonly
-            value="Tìm tuyến đường, chỉ số..."
-            class="w-full bg-[#fbf9f6] text-stone-700 text-xs rounded-lg pl-9 pr-14 py-2 border border-surface-border focus:outline-none focus:border-brand-teal transition-all cursor-pointer font-medium"
-          />
-          <div class="absolute inset-y-0 right-0 pr-2 flex items-center">
-            <kbd class="px-1.5 py-0.5 text-[10px] font-semibold text-stone-500 bg-white border border-surface-border rounded shadow-[0_1px_0_0_#e6e1d7] font-mono">Ctrl K</kbd>
-          </div>
-        </div>
-
-        <!-- Language Switcher: VI | EN -->
-        <div class="flex items-center bg-[#f7f5f0] p-1 rounded-lg border border-surface-border text-xs font-bold">
-          <button class="px-2.5 py-1 rounded bg-white text-brand-teal shadow-sm border border-stone-200">VI</button>
-          <button class="px-2.5 py-1 rounded text-stone-500 hover:text-stone-800 transition-colors">EN</button>
-        </div>
-
-        <!-- Admin Initials Avatar -->
-        <div class="flex items-center gap-2.5 pl-2 border-l border-surface-border">
-          <div class="w-9 h-9 rounded-full bg-brand-teal text-white flex items-center justify-center font-bold text-xs ring-2 ring-brand-teal/20 tracking-wider shadow-sm">
-            HM
-          </div>
-          <div class="hidden xl:block text-left">
-            <div class="text-xs font-bold text-stone-900 leading-tight">Hoàng Minh</div>
-            <div class="text-[11px] text-stone-500 leading-tight">Admin · Lexkite Core</div>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <!-- MAIN DASHBOARD BODY -->
-    <main class="p-8 max-w-7xl w-full mx-auto space-y-7">
-
-      <!-- SECTION TITLE & SEGMENTED RANGE BAR -->
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-surface-border-subtle">
-        <div>
-          <div class="flex items-center gap-2.5">
-            <h1 class="text-2xl font-extrabold tracking-tight text-stone-900">Chi tiết · 30 ngày</h1>
-            <span class="text-xs font-semibold px-2 py-0.5 rounded bg-emerald-100/70 text-emerald-800 border border-emerald-300/40">
-              Số liệu thực tế
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col font-body-md overflow-x-hidden selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- ==================== SIDE NAV BAR (FIXED 64 = 256px) ==================== -->
+<aside class="fixed top-0 left-0 h-screen w-64 bg-surface-container-lowest border-r border-outline-variant/40 shadow-sm flex flex-col justify-between shrink-0 z-40 select-none">
+<!-- Sidebar Top: Brand & CTA & Main Navigation -->
+<div class="flex flex-col h-full overflow-hidden">
+<!-- Brand Header -->
+<div class="p-4 border-b border-outline-variant/30 flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center text-on-primary shadow-sm ring-2 ring-primary-fixed-dim/30">
+<span class="material-symbols-outlined text-primary-fixed" data-icon="school">school</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm font-bold text-primary tracking-tight leading-none">Lexkite</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant mt-1">Admin Console</div>
+</div>
+</div>
+<!-- Quick CTA Button: "Báo cáo mới" with WCAG AA > 5.5:1 (Contrast: #ffffff on #d64a2b > 5.6:1) -->
+<div class="px-4 pt-3 pb-2">
+<button class="w-full min-h-[44px] px-4 py-2.5 rounded-lg tactile-btn-primary text-white font-bold font-title-sm text-title-sm flex items-center justify-center gap-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary" type="button">
+<span class="material-symbols-outlined" data-icon="add_chart">add_chart</span>
+<span>Báo cáo mới</span>
+</button>
+</div>
+<!-- Navigation Links Scroll Area -->
+<nav aria-label="Menu quản trị" class="flex-1 overflow-y-auto px-3 py-2 space-y-1 text-on-surface">
+<!-- Tổng quan -->
+<a class="flex items-center gap-3 px-3 min-h-[44px] rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low/60 transition-colors duration-150" href="#tongquan">
+<span class="material-symbols-outlined text-[#114b47]" data-icon="dashboard">dashboard</span>
+<span class="font-title-sm text-title-sm">Tổng quan</span>
+</a>
+<!-- Phân tích (ACTIVE ITEM: Semantic Lock to Current Page) -->
+<a class="flex items-center gap-3 px-3 min-h-[44px] rounded-lg bg-surface-container-low text-primary font-semibold border-l-4 border-primary shadow-xs" href="#phantich">
+<span class="material-symbols-outlined text-primary font-bold" data-icon="analytics" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="font-title-sm text-title-sm font-bold text-[#003330]">Phân tích</span>
+</a>
+<!-- Quảng cáo -->
+<a class="flex items-center gap-3 px-3 min-h-[44px] rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low/60 transition-colors duration-150" href="#quangcao">
+<span class="material-symbols-outlined text-[#114b47]" data-icon="campaign">campaign</span>
+<span class="font-title-sm text-title-sm">Quảng cáo</span>
+</a>
+<!-- Người dùng -->
+<a class="flex items-center gap-3 px-3 min-h-[44px] rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low/60 transition-colors duration-150" href="#nguoidung">
+<span class="material-symbols-outlined text-[#114b47]" data-icon="group">group</span>
+<span class="font-title-sm text-title-sm">Người dùng</span>
+</a>
+<!-- Hộp thư -->
+<a class="flex items-center gap-3 px-3 min-h-[44px] rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low/60 transition-colors duration-150" href="#hopthu">
+<span class="material-symbols-outlined text-[#114b47]" data-icon="mail">mail</span>
+<span class="font-title-sm text-title-sm">Hộp thư</span>
+</a>
+<!-- Thông báo -->
+<a class="flex items-center gap-3 px-3 min-h-[44px] rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low/60 transition-colors duration-150" href="#thongbao">
+<span class="material-symbols-outlined text-[#114b47]" data-icon="notifications">notifications</span>
+<span class="font-title-sm text-title-sm">Thông báo</span>
+</a>
+<!-- Cảnh báo -->
+<a class="flex items-center gap-3 px-3 min-h-[44px] rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low/60 transition-colors duration-150" href="#canhbao">
+<span class="material-symbols-outlined text-[#114b47]" data-icon="warning">warning</span>
+<span class="font-title-sm text-title-sm">Cảnh báo</span>
+</a>
+<!-- Báo lỗi -->
+<a class="flex items-center gap-3 px-3 min-h-[44px] rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low/60 transition-colors duration-150" href="#baoloi">
+<span class="material-symbols-outlined text-[#114b47]" data-icon="bug_report">bug_report</span>
+<span class="font-title-sm text-title-sm">Báo lỗi</span>
+</a>
+<!-- Chất lượng -->
+<a class="flex items-center gap-3 px-3 min-h-[44px] rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low/60 transition-colors duration-150" href="#chatluong">
+<span class="material-symbols-outlined text-[#114b47]" data-icon="verified">verified</span>
+<span class="font-title-sm text-title-sm">Chất lượng</span>
+</a>
+<!-- Kênh & phân phối -->
+<a class="flex items-center gap-3 px-3 min-h-[44px] rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low/60 transition-colors duration-150" href="#kenh">
+<span class="material-symbols-outlined text-[#114b47]" data-icon="share">share</span>
+<span class="font-title-sm text-title-sm">Kênh &amp; phân phối</span>
+</a>
+<!-- Video & Social -->
+<a class="flex items-center gap-3 px-3 min-h-[44px] rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low/60 transition-colors duration-150" href="#videosocial">
+<span class="material-symbols-outlined text-[#114b47]" data-icon="video_library">video_library</span>
+<span class="font-title-sm text-title-sm">Video &amp; Social</span>
+</a>
+<!-- Video Studio -->
+<a class="flex items-center gap-3 px-3 min-h-[44px] rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low/60 transition-colors duration-150" href="#videostudio">
+<span class="material-symbols-outlined text-[#114b47]" data-icon="movie_edit">movie_edit</span>
+<span class="font-title-sm text-title-sm">Video Studio</span>
+</a>
+<!-- Hạn mức -->
+<a class="flex items-center gap-3 px-3 min-h-[44px] rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low/60 transition-colors duration-150" href="#hanmuc">
+<span class="material-symbols-outlined text-[#114b47]" data-icon="data_usage">data_usage</span>
+<span class="font-title-sm text-title-sm">Hạn mức</span>
+</a>
+<!-- Kho Drive -->
+<a class="flex items-center gap-3 px-3 min-h-[44px] rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low/60 transition-colors duration-150" href="#khodrive">
+<span class="material-symbols-outlined text-[#114b47]" data-icon="cloud_queue">cloud_queue</span>
+<span class="font-title-sm text-title-sm">Kho Drive</span>
+</a>
+<!-- Khóa API -->
+<a class="flex items-center gap-3 px-3 min-h-[44px] rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low/60 transition-colors duration-150" href="#khoaapi">
+<span class="material-symbols-outlined text-[#114b47]" data-icon="key">key</span>
+<span class="font-title-sm text-title-sm">Khóa API</span>
+</a>
+<!-- Cài đặt -->
+<a class="flex items-center gap-3 px-3 min-h-[44px] rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low/60 transition-colors duration-150" href="#caidat">
+<span class="material-symbols-outlined text-[#114b47]" data-icon="settings">settings</span>
+<span class="font-title-sm text-title-sm">Cài đặt</span>
+</a>
+</nav>
+<!-- Sidebar Footer (Help & Logout) -->
+<div class="p-3 border-t border-outline-variant/30 space-y-1 bg-surface-container-lowest">
+<a class="flex items-center gap-3 px-3 min-h-[44px] rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low/60 transition-colors duration-150" href="#trogiup">
+<span class="material-symbols-outlined text-[#114b47]" data-icon="help">help</span>
+<span class="font-title-sm text-title-sm">Trợ giúp</span>
+</a>
+<a class="flex items-center gap-3 px-3 min-h-[44px] rounded-lg text-secondary hover:bg-error-container/40 transition-colors duration-150 font-medium" href="#dangxuat">
+<span class="material-symbols-outlined text-secondary" data-icon="logout">logout</span>
+<span class="font-title-sm text-title-sm">Đăng xuất</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- ==================== TOP NAV BAR (PL-64 = 256px docked) ==================== -->
+<header class="fixed top-0 left-0 right-0 h-16 pl-64 z-30 bg-surface border-b border-outline-variant/40 shadow-sm flex items-center justify-between px-6">
+<!-- Left Search area -->
+<div class="flex items-center gap-4 w-96">
+<div class="relative w-full">
+<label class="sr-only" for="admin-search">Tìm kiếm bảng điều khiển</label>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-lg" data-icon="search">search</span>
+<input class="w-full min-h-[44px] pl-10 pr-12 py-2 rounded-lg bg-surface-container-lowest border border-outline-variant/60 text-on-surface font-body-sm text-body-sm focus:border-primary-container focus:ring-1 focus:ring-primary-container inset-well placeholder:text-outline" id="admin-search" placeholder="Tìm phân tích, học viên, bài giảng... (Ctrl + K)" type="text"/>
+<kbd class="absolute right-3 top-1/2 -translate-y-1/2 px-1.5 py-0.5 text-[11px] font-semibold bg-surface-container-high border border-outline-variant/60 rounded text-on-surface-variant">⌘K</kbd>
+</div>
+</div>
+<!-- Center Navigation Links -->
+<div class="hidden md:flex items-center gap-6">
+<a class="text-on-surface-variant hover:text-on-surface font-title-sm text-title-sm min-h-[44px] flex items-center px-1" href="#bangdieukhien">Bảng điều khiển</a>
+<a class="text-primary font-bold border-b-2 border-primary font-title-sm text-title-sm min-h-[44px] flex items-center px-1" href="#phantich-top">Phân tích</a>
+<a class="text-on-surface-variant hover:text-on-surface font-title-sm text-title-sm min-h-[44px] flex items-center px-1" href="#kiemduyet">Kiểm duyệt</a>
+</div>
+<!-- Trailing Action Cluster -->
+<div class="flex items-center gap-2">
+<!-- Language Switcher: min 44x44px -->
+<button class="min-w-[44px] min-h-[44px] px-2.5 rounded-lg tactile-btn-secondary text-primary font-bold font-label-md text-label-md flex items-center justify-center hover:bg-surface-container-low transition-colors" title="Chuyển đổi ngôn ngữ" type="button">
+        VI | EN
+      </button>
+<!-- Trailing Action: "Tạo mới" -->
+<button class="min-h-[44px] px-3.5 rounded-lg tactile-btn-secondary text-primary font-semibold font-title-sm text-title-sm flex items-center gap-1.5 hover:bg-surface-container-low transition-colors" type="button">
+<span class="material-symbols-outlined text-primary text-base" data-icon="add">add</span>
+<span>Tạo mới</span>
+</button>
+<!-- Trailing Icon Action: Tune -->
+<button aria-label="Bộ lọc nâng cao" class="w-11 h-11 rounded-lg tactile-btn-secondary text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors" title="Bộ lọc nâng cao" type="button">
+<span class="material-symbols-outlined" data-icon="tune">tune</span>
+</button>
+<!-- Trailing Icon Action: Notifications -->
+<div class="relative">
+<button aria-label="Thông báo hệ thống" class="w-11 h-11 rounded-lg tactile-btn-secondary text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors" title="Thông báo hệ thống" type="button">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<span class="absolute top-1.5 right-1.5 w-2.5 h-2.5 bg-secondary-container rounded-full ring-2 ring-surface"></span>
+</div>
+<!-- Avatar HM Badge: min 44x44px -->
+<div class="flex items-center gap-2 pl-2 border-l border-outline-variant/40 ml-1">
+<button class="w-11 h-11 rounded-full bg-primary-container text-primary-fixed flex items-center justify-center font-bold text-sm ring-2 ring-outline-variant/30 hover:ring-primary focus:outline-none transition-all shadow-xs" title="Hồ sơ quản trị HM" type="button">
+          HM
+        </button>
+</div>
+</div>
+</header>
+<!-- ==================== MAIN CONTENT CANVAS (1280px screen canvas) ==================== -->
+<main class="ml-64 pt-16 flex-1 bg-background">
+<!-- Constrained Container for 1280px Viewport (max-w-[1024px] inside a 1280px screen with 256px sidebar leaves exactly 1024px) -->
+<div class="w-full max-w-[1024px] mx-auto px-6 py-6 space-y-6">
+<!-- Breadcrumbs & Header Section -->
+<section class="space-y-2">
+<nav aria-label="Breadcrumb" class="flex items-center gap-1.5 text-on-surface-variant font-label-md text-label-md">
+<a class="hover:text-primary transition-colors" href="#admin">Admin</a>
+<span class="material-symbols-outlined text-xs text-outline" data-icon="chevron_right">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#analytics">Phân tích</a>
+<span class="material-symbols-outlined text-xs text-outline" data-icon="chevron_right">chevron_right</span>
+<span class="text-primary font-bold">Chi tiết · 30 ngày</span>
+</nav>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-1">
+<div>
+<h1 class="font-headline-xl text-headline-xl font-extrabold text-primary tracking-tight">Phân tích chi tiết (30 ngày)</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mt-1 leading-snug">
+              Báo cáo hoạt động tự nhiên, không theo dõi danh tính, chu kỳ 15 Tháng 2 – 16 Tháng 3, 2025. Ước tính theo Daily Hash. Server time: GMT+7.
+            </p>
+</div>
+<!-- Time Frame Filter & CSV Export Actions -->
+<div class="flex items-center gap-2 self-start sm:self-auto flex-wrap">
+<div aria-label="Bộ lọc chu kỳ" class="inline-flex rounded-lg p-1 bg-surface-container-high border border-outline-variant/40" role="group">
+<button class="min-w-[44px] min-h-[44px] px-3 rounded-md text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors" type="button">Hôm nay</button>
+<button class="min-w-[44px] min-h-[44px] px-3 rounded-md text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors" type="button">7 ngày</button>
+<!-- 30 ngày [Active] -->
+<button aria-pressed="true" class="min-w-[44px] min-h-[44px] px-3.5 rounded-md bg-primary-container text-white font-bold font-label-md text-label-md shadow-xs" type="button">30 ngày</button>
+<button class="min-w-[44px] min-h-[44px] px-3 rounded-md text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors" type="button">90 ngày</button>
+</div>
+<!-- Xuất dữ liệu CSV Button: min 44x44px, high contrast -->
+<button class="min-h-[44px] px-4 rounded-lg tactile-btn-secondary text-[#0f2d2b] font-bold font-title-sm text-title-sm flex items-center gap-2 hover:bg-surface-container-low transition-colors" title="Tải xuống tệp CSV phân tích" type="button">
+<span class="material-symbols-outlined text-primary text-base" data-icon="download">download</span>
+<span>Xuất dữ liệu CSV</span>
+</button>
+</div>
+</div>
+</section>
+<!-- 4 THẺ KPI THỐNG KÊ CHÍNH -->
+<section aria-label="Số liệu đo lường chính" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- KPI 1: Tổng phiên học -->
+<div class="tactile-card rounded-lg p-4 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm text-on-surface-variant font-medium">Tổng phiên học</span>
+<span class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="history_edu">history_edu</span>
+</span>
+</div>
+<div class="my-2">
+<div class="font-headline-xl text-headline-xl font-extrabold text-primary tracking-tight">4,812</div>
+</div>
+<div class="flex items-center justify-between text-xs pt-1 border-t border-outline-variant/30">
+<span class="inline-flex items-center gap-1 font-bold text-[#114b47] bg-primary-fixed/40 px-1.5 py-0.5 rounded">
+<span class="material-symbols-outlined text-xs" data-icon="trending_up">trending_up</span>
+              +14.2%
             </span>
-          </div>
-          <p class="text-xs text-stone-500 mt-1">Báo cáo hoạt động tự nhiên, không theo dõi định danh, chu kỳ 15 Tháng 2 – 16 Tháng 3, 2025.</p>
-        </div>
-
-        <!-- Controls: Segmented Range + Single Warm Coral CTA -->
-        <div class="flex items-center gap-3">
-          <!-- Segmented Range Control -->
-          <div class="inline-flex p-1 bg-surface-muted border border-surface-border rounded-xl shadow-tactile-subtle">
-            <button class="px-3 py-1.5 text-xs font-medium text-stone-600 hover:text-stone-900 rounded-lg transition-colors">Hôm nay</button>
-            <button class="px-3 py-1.5 text-xs font-medium text-stone-600 hover:text-stone-900 rounded-lg transition-colors">7 ngày</button>
-            <!-- 30 ngày Selected with tactile badge -->
-            <button class="px-3.5 py-1.5 text-xs font-bold bg-brand-teal text-white rounded-lg shadow-sm shadow-teal-950/20">30 ngày</button>
-            <button class="px-3 py-1.5 text-xs font-medium text-stone-600 hover:text-stone-900 rounded-lg transition-colors">90 ngày</button>
-          </div>
-
-          <!-- Single Warm Coral Primary Action -->
-          <button class="inline-flex items-center gap-2 px-4 py-2 bg-brand-coral hover:bg-brand-coral-hover active:translate-y-0.5 text-white font-bold text-xs rounded-xl shadow-ledge-coral transition-all">
-            <span class="material-symbols-outlined text-[17px]">download</span>
-            <span>Xuất dữ liệu CSV</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- HONEST KPI SUMMARY TILES (Calm, modest numbers for a young app) -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <!-- Tile 1 -->
-        <div class="bg-surface-card rounded-2xl p-4 border border-surface-border shadow-tactile">
-          <div class="flex items-center justify-between text-stone-500 mb-1.5">
-            <span class="text-xs font-medium">Tổng phiên học</span>
-            <span class="material-symbols-outlined text-[18px] text-brand-teal">timelapse</span>
-          </div>
-          <div class="flex items-baseline gap-2">
-            <span class="text-2xl font-extrabold text-stone-900 font-mono tracking-tight">4,812</span>
-            <span class="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded">+6.2%</span>
-          </div>
-          <p class="text-[11px] text-stone-500 mt-1">Trung bình ~160 phiên / ngày</p>
-        </div>
-
-        <!-- Tile 2 -->
-        <div class="bg-surface-card rounded-2xl p-4 border border-surface-border shadow-tactile">
-          <div class="flex items-center justify-between text-stone-500 mb-1.5">
-            <span class="text-xs font-medium">Khách truy cập (Uniques)</span>
-            <span class="material-symbols-outlined text-[18px] text-brand-teal">person_outline</span>
-          </div>
-          <div class="flex items-baseline gap-2">
-            <span class="text-2xl font-extrabold text-stone-900 font-mono tracking-tight">1,840</span>
-            <span class="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded">+8.4%</span>
-          </div>
-          <p class="text-[11px] text-stone-500 mt-1">Ước tính theo Daily Hash</p>
-        </div>
-
-        <!-- Tile 3 -->
-        <div class="flex flex-col justify-between bg-surface-card rounded-2xl p-4 border border-surface-border shadow-tactile">
-          <div>
-            <div class="flex items-center justify-between text-stone-500 mb-1.5">
-              <span class="text-xs font-medium">Thời lượng trung bình</span>
-              <span class="material-symbols-outlined text-[18px] text-brand-teal">hourglass_top</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">160.4 phiên/ngày</span>
+</div>
+</div>
+<!-- KPI 2: Khách duy nhất (Hash) -->
+<div class="tactile-card rounded-lg p-4 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm text-on-surface-variant font-medium">Khách duy nhất (Hash)</span>
+<span class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="fingerprint">fingerprint</span>
+</span>
+</div>
+<div class="my-2">
+<div class="font-headline-xl text-headline-xl font-extrabold text-primary tracking-tight">1,840</div>
+</div>
+<div class="flex items-center justify-between text-xs pt-1 border-t border-outline-variant/30">
+<span class="font-bold text-[#114b47]">Quay lại 38.3%</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate max-w-[120px]" title="Không cookie PII">Zero PII Tracking</span>
+</div>
+</div>
+<!-- KPI 3: Tỷ lệ hoàn thành bài -->
+<div class="tactile-card rounded-lg p-4 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm text-on-surface-variant font-medium">Tỷ lệ hoàn thành bài</span>
+<span class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="task_alt">task_alt</span>
+</span>
+</div>
+<div class="my-2">
+<div class="font-headline-xl text-headline-xl font-extrabold text-[#003330] tracking-tight">72.4%</div>
+</div>
+<div class="flex items-center justify-between text-xs pt-1 border-t border-outline-variant/30">
+<span class="inline-flex items-center gap-1 font-bold text-[#114b47] bg-primary-fixed/40 px-1.5 py-0.5 rounded">
+<span class="material-symbols-outlined text-xs" data-icon="trending_up">trending_up</span>
+              +3.1% điểm
+            </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">TB: 8.6 phút/phiên</span>
+</div>
+</div>
+<!-- KPI 4: Tra cứu từ vựng -->
+<div class="tactile-card rounded-lg p-4 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm text-on-surface-variant font-medium">Tra cứu từ vựng</span>
+<span class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="translate">translate</span>
+</span>
+</div>
+<div class="my-2">
+<div class="font-headline-xl text-headline-xl font-extrabold text-primary tracking-tight">14,280</div>
+</div>
+<div class="flex items-center justify-between text-xs pt-1 border-t border-outline-variant/30">
+<span class="font-bold text-[#114b47]">2.97 từ/phiên</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">TTS: 9,120 lần</span>
+</div>
+</div>
+</section>
+<!-- BIỂU ĐỒ PHÂN TÍCH CỘT 30 NGÀY -->
+<section class="tactile-card rounded-lg p-5">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4 pb-3 border-b border-outline-variant/30">
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm font-bold text-primary">Lượt học theo ngày trong 30 ngày</h2>
+<span class="px-2 py-0.5 text-xs font-bold rounded bg-primary-fixed text-[#00201e]">Xếp hạng 30 ngày</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Phân tích nhịp độ học tập giữa ngày thường (Thứ 2 - Thứ 6) và cuối tuần (Thứ 7 - CN).</p>
+</div>
+<!-- Legend indicators -->
+<div class="flex items-center gap-4 text-xs font-semibold">
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded-xs bg-[#114b47]"></span>
+<span class="text-on-surface-variant">Ngày thường</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded-xs bg-secondary-container"></span>
+<span class="text-on-surface-variant">Cuối tuần (Đỉnh tải)</span>
+</div>
+</div>
+</div>
+<!-- Chart Grid with Y-Axis and Bars -->
+<div class="relative pt-4 pb-2">
+<!-- Horizontal Grid Lines with Y Labels -->
+<div class="relative h-56 flex flex-col justify-between text-[11px] text-[#404847] font-semibold border-b border-[#ded6c5]">
+<div class="flex items-center gap-2 w-full">
+<span class="w-8 text-right shrink-0">250</span>
+<div class="w-full border-t border-dashed border-outline-variant/50"></div>
+</div>
+<div class="flex items-center gap-2 w-full">
+<span class="w-8 text-right shrink-0">200</span>
+<div class="w-full border-t border-dashed border-outline-variant/50"></div>
+</div>
+<div class="flex items-center gap-2 w-full">
+<span class="w-8 text-right shrink-0">150</span>
+<div class="w-full border-t border-dashed border-outline-variant/50"></div>
+</div>
+<div class="flex items-center gap-2 w-full">
+<span class="w-8 text-right shrink-0">100</span>
+<div class="w-full border-t border-dashed border-outline-variant/50"></div>
+</div>
+<div class="flex items-center gap-2 w-full">
+<span class="w-8 text-right shrink-0">50</span>
+<div class="w-full border-t border-dashed border-outline-variant/50"></div>
+</div>
+<div class="flex items-center gap-2 w-full">
+<span class="w-8 text-right shrink-0">0</span>
+<div class="w-full border-t border-outline-variant"></div>
+</div>
+<!-- Absolute Overlaid Columns (30 Days) -->
+<div class="absolute inset-0 left-10 flex items-end justify-between px-2 gap-1.5 pb-[1px]">
+<!-- Day 1-5 (Week 1) -->
+<div class="w-full bg-[#114b47] rounded-t-xs hover:opacity-80 transition-all cursor-pointer group relative" style="height: 52%;" title="15/02: 130 phiên">
+<span class="hidden group-hover:block absolute -top-7 left-1/2 -translate-x-1/2 bg-inverse-surface text-white text-[10px] px-1 rounded whitespace-nowrap z-10">130</span>
+</div>
+<div class="w-full bg-[#114b47] rounded-t-xs hover:opacity-80 transition-all cursor-pointer group relative" style="height: 58%;" title="16/02: 145 phiên"></div>
+<div class="w-full bg-[#114b47] rounded-t-xs hover:opacity-80 transition-all cursor-pointer group relative" style="height: 64%;" title="17/02: 160 phiên"></div>
+<div class="w-full bg-[#114b47] rounded-t-xs hover:opacity-80 transition-all cursor-pointer group relative" style="height: 60%;" title="18/02: 150 phiên"></div>
+<div class="w-full bg-[#114b47] rounded-t-xs hover:opacity-80 transition-all cursor-pointer group relative" style="height: 70%;" title="19/02: 175 phiên"></div>
+<!-- Weekend 1 -->
+<div class="w-full bg-secondary-container rounded-t-xs hover:opacity-80 transition-all cursor-pointer group relative" style="height: 86%;" title="20/02 (T7): 215 phiên"></div>
+<div class="w-full bg-secondary-container rounded-t-xs hover:opacity-80 transition-all cursor-pointer group relative" style="height: 94%;" title="21/02 (CN): 235 phiên">
+<span class="hidden group-hover:block absolute -top-7 left-1/2 -translate-x-1/2 bg-inverse-surface text-white text-[10px] px-1 rounded whitespace-nowrap z-10">235</span>
+</div>
+<!-- Day 8-12 (Week 2) -->
+<div class="w-full bg-[#114b47] rounded-t-xs hover:opacity-80 transition-all" style="height: 62%;"></div>
+<div class="w-full bg-[#114b47] rounded-t-xs hover:opacity-80 transition-all" style="height: 66%;"></div>
+<div class="w-full bg-[#114b47] rounded-t-xs hover:opacity-80 transition-all" style="height: 72%;"></div>
+<div class="w-full bg-[#114b47] rounded-t-xs hover:opacity-80 transition-all" style="height: 68%;"></div>
+<div class="w-full bg-[#114b47] rounded-t-xs hover:opacity-80 transition-all" style="height: 76%;"></div>
+<!-- Weekend 2 -->
+<div class="w-full bg-secondary-container rounded-t-xs hover:opacity-80 transition-all" style="height: 88%;"></div>
+<div class="w-full bg-secondary-container rounded-t-xs hover:opacity-80 transition-all" style="height: 92%;"></div>
+<!-- Day 15-19 (Week 3) -->
+<div class="w-full bg-[#114b47] rounded-t-xs hover:opacity-80 transition-all" style="height: 60%;"></div>
+<div class="w-full bg-[#114b47] rounded-t-xs hover:opacity-80 transition-all" style="height: 64%;"></div>
+<div class="w-full bg-[#114b47] rounded-t-xs hover:opacity-80 transition-all" style="height: 70%;"></div>
+<div class="w-full bg-[#114b47] rounded-t-xs hover:opacity-80 transition-all" style="height: 75%;"></div>
+<div class="w-full bg-[#114b47] rounded-t-xs hover:opacity-80 transition-all" style="height: 78%;"></div>
+<!-- Weekend 3 -->
+<div class="w-full bg-secondary-container rounded-t-xs hover:opacity-80 transition-all" style="height: 90%;"></div>
+<div class="w-full bg-secondary-container rounded-t-xs hover:opacity-80 transition-all" style="height: 96%;"></div>
+<!-- Day 22-26 (Week 4) -->
+<div class="w-full bg-[#114b47] rounded-t-xs hover:opacity-80 transition-all" style="height: 64%;"></div>
+<div class="w-full bg-[#114b47] rounded-t-xs hover:opacity-80 transition-all" style="height: 68%;"></div>
+<div class="w-full bg-[#114b47] rounded-t-xs hover:opacity-80 transition-all" style="height: 74%;"></div>
+<div class="w-full bg-[#114b47] rounded-t-xs hover:opacity-80 transition-all" style="height: 78%;"></div>
+<div class="w-full bg-[#114b47] rounded-t-xs hover:opacity-80 transition-all" style="height: 82%;"></div>
+<!-- Weekend 4 -->
+<div class="w-full bg-secondary-container rounded-t-xs hover:opacity-80 transition-all" style="height: 92%;"></div>
+<div class="w-full bg-secondary-container rounded-t-xs hover:opacity-80 transition-all" style="height: 98%;"></div>
+<!-- Day 29-30 (End of period) -->
+<div class="w-full bg-[#114b47] rounded-t-xs hover:opacity-80 transition-all" style="height: 76%;"></div>
+<div class="w-full bg-[#114b47] rounded-t-xs hover:opacity-80 transition-all" style="height: 80%;"></div>
+</div>
+</div>
+<!-- X-Axis Labels -->
+<div class="flex justify-between pl-10 pt-2 text-[11px] font-semibold text-on-surface-variant">
+<span>15/02 (Bắt đầu)</span>
+<span>22/02</span>
+<span>01/03</span>
+<span>08/03</span>
+<span>16/03 (Hôm nay)</span>
+</div>
+</div>
+</section>
+<!-- BẢNG TOP 5 ĐƯỜNG DẪN & PHÂN BỐ THIẾT BỊ / KHU VỰC (BENTO 2 CỘT) -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- CỘT TRÁI (2/3): BẢNG TOP 5 ĐƯỜNG DẪN HỌC TẬP -->
+<section class="lg:col-span-2 tactile-card rounded-lg overflow-hidden flex flex-col justify-between">
+<div class="p-4 border-b border-outline-variant/30 flex items-center justify-between">
+<div>
+<h2 class="font-headline-sm text-headline-sm font-bold text-primary">Top 5 đường dẫn học tập nhiều nhất</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Thống kê nội dung bài đọc và bộ flashcard có lưu lượng cao nhất.</p>
+</div>
+<div class="px-2.5 py-1 rounded bg-surface-container-high border border-outline-variant/40 text-xs font-bold text-primary">
+              Tổng: 4,812 phiên
             </div>
-            <div class="flex items-baseline gap-2">
-              <span class="text-2xl font-extrabold text-stone-900 font-mono tracking-tight">6m 48s</span>
-              <span class="text-[11px] font-bold text-stone-500 font-mono">FSRS flashcard</span>
-            </div>
-          </div>
-          <p class="text-[11px] text-stone-500 mt-1">Hoàn thành bài tập trung</p>
-        </div>
-
-        <!-- Tile 4 -->
-        <div class="bg-surface-card rounded-2xl p-4 border border-surface-border shadow-tactile">
-          <div class="flex items-center justify-between text-stone-500 mb-1.5">
-            <span class="text-xs font-medium">Tỉ lệ hoàn thành phiên</span>
-            <span class="material-symbols-outlined text-[18px] text-brand-teal">check_circle</span>
-          </div>
-          <div class="flex items-baseline gap-2">
-            <span class="text-2xl font-extrabold text-stone-900 font-mono tracking-tight">72.4%</span>
-            <span class="text-[11px] font-bold text-brand-teal bg-brand-teal-light px-1.5 py-0.2 rounded">Cao</span>
-          </div>
-          <p class="text-[11px] text-stone-500 mt-1">≥5 thẻ ôn ngắt quãng</p>
-        </div>
-      </div>
-
-      <!-- CARD 1: PHIÊN THEO NGÀY (30-day Bar Chart with Day Labels) -->
-      <section class="bg-surface-card rounded-2xl p-6 border border-surface-border shadow-tactile">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-5 mb-5 border-b border-surface-border-subtle gap-3">
-          <div>
-            <div class="flex items-center gap-2">
-              <h2 class="text-base font-bold text-stone-900">Phiên theo ngày</h2>
-              <span class="text-xs font-medium text-stone-500 font-mono">(15/02 – 16/03)</span>
-            </div>
-            <p class="text-xs text-stone-500 mt-0.5">Số lượng phiên học thực tế phân bổ theo từng ngày trong 30 ngày qua.</p>
-          </div>
-          <div class="flex items-center gap-4 text-xs">
-            <div class="flex items-center gap-2">
-              <span class="w-3 h-3 rounded-sm bg-brand-teal"></span>
-              <span class="font-medium text-stone-600">Ngày thường (Thứ 2–6)</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <span class="w-3 h-3 rounded-sm bg-[#528784]"></span>
-              <span class="font-medium text-stone-600">Cuối tuần (Thứ 7, CN)</span>
-            </div>
-            <div class="pl-3 border-l border-surface-border text-stone-500 font-mono">
-              Đỉnh: <span class="font-bold text-stone-800">214</span> phiên
-            </div>
-          </div>
-        </div>
-
-        <!-- 30-Day Bar Chart Graphic -->
-        <div class="relative pt-6">
-          <!-- Background Grid Lines -->
-          <div class="absolute inset-0 flex flex-col justify-between pointer-events-none text-[10px] text-stone-500 font-mono pb-8">
-            <div class="border-b border-stone-200/80 w-full flex justify-between"><span>250</span></div>
-            <div class="border-b border-stone-200/60 w-full flex justify-between"><span>200</span></div>
-            <div class="border-b border-stone-200/60 w-full flex justify-between"><span>150</span></div>
-            <div class="border-b border-stone-200/60 w-full flex justify-between"><span>100</span></div>
-            <div class="border-b border-stone-200/60 w-full flex justify-between"><span>50</span></div>
-            <div class="border-b border-stone-300 w-full flex justify-between"><span>0</span></div>
-          </div>
-
-          <!-- Bars container: 30 bars -->
-          <div class="relative z-10 grid grid-cols-30 gap-1 sm:gap-1.5 h-48 items-end pl-7 pb-8" style="grid-template-columns: repeat(30, minmax(0, 1fr));">
-            <!-- 30 Daily bars with calibrated heights (scaled to max 250px => percentage) -->
-            <!-- 15 Feb -->
-            <div class="group relative flex flex-col items-center h-full justify-end">
-              <div class="w-full bg-[#528784] hover:bg-brand-coral rounded-t-sm transition-all shadow-[0_1px_0_0_#345f5c]" style="height: 52%;" title="15/02: 130 phiên"></div>
-              <span class="absolute -bottom-6 text-[9px] font-mono text-stone-500">15</span>
-            </div>
-            <!-- 16 Feb -->
-            <div class="group relative flex flex-col items-center h-full justify-end">
-              <div class="w-full bg-[#528784] hover:bg-brand-coral rounded-t-sm transition-all shadow-[0_1px_0_0_#345f5c]" style="height: 48%;" title="16/02: 121 phiên"></div>
-              <span class="absolute -bottom-6 text-[9px] font-mono text-stone-500 opacity-0 group-hover:opacity-100">16</span>
-            </div>
-            <!-- 17 Feb -->
-            <div class="group relative flex flex-col items-center h-full justify-end">
-              <div class="w-full bg-brand-teal hover:bg-brand-coral rounded-t-sm transition-all shadow-[0_1px_0_0_#0d3835]" style="height: 65%;" title="17/02: 162 phiên"></div>
-              <span class="absolute -bottom-6 text-[9px] font-mono text-stone-500 opacity-0 group-hover:opacity-100">17</span>
-            </div>
-            <!-- 18 Feb -->
-            <div class="group relative flex flex-col items-center h-full justify-end">
-              <div class="w-full bg-brand-teal hover:bg-brand-coral rounded-t-sm transition-all shadow-[0_1px_0_0_#0d3835]" style="height: 68%;" title="18/02: 170 phiên"></div>
-              <span class="absolute -bottom-6 text-[9px] font-mono text-stone-500 opacity-0 group-hover:opacity-100">18</span>
-            </div>
-            <!-- 19 Feb -->
-            <div class="group relative flex flex-col items-center h-full justify-end">
-              <div class="w-full bg-brand-teal hover:bg-brand-coral rounded-t-sm transition-all shadow-[0_1px_0_0_#0d3835]" style="height: 62%;" title="19/02: 155 phiên"></div>
-              <span class="absolute -bottom-6 text-[9px] font-mono text-stone-500 opacity-0 group-hover:opacity-100">19</span>
-            </div>
-            <!-- 20 Feb -->
-            <div class="group relative flex flex-col items-center h-full justify-end">
-              <div class="w-full bg-brand-teal hover:bg-brand-coral rounded-t-sm transition-all shadow-[0_1px_0_0_#0d3835]" style="height: 72%;" title="20/02: 180 phiên"></div>
-              <span class="absolute -bottom-6 text-[9px] font-mono text-stone-500">20</span>
-            </div>
-            <!-- 21 Feb -->
-            <div class="group relative flex flex-col items-center h-full justify-end">
-              <div class="w-full bg-brand-teal hover:bg-brand-coral rounded-t-sm transition-all shadow-[0_1px_0_0_#0d3835]" style="height: 70%;" title="21/02: 175 phiên"></div>
-              <span class="absolute -bottom-6 text-[9px] font-mono text-stone-500 opacity-0 group-hover:opacity-100">21</span>
-            </div>
-            <!-- 22 Feb -->
-            <div class="group relative flex flex-col items-center h-full justify-end">
-              <div class="w-full bg-[#528784] hover:bg-brand-coral rounded-t-sm transition-all shadow-[0_1px_0_0_#345f5c]" style="height: 56%;" title="22/02: 140 phiên"></div>
-              <span class="absolute -bottom-6 text-[9px] font-mono text-stone-500 opacity-0 group-hover:opacity-100">22</span>
-            </div>
-            <!-- 23 Feb -->
-            <div class="group relative flex flex-col items-center h-full justify-end">
-              <div class="w-full bg-[#528784] hover:bg-brand-coral rounded-t-sm transition-all shadow-[0_1px_0_0_#345f5c]" style="height: 54%;" title="23/02: 135 phiên"></div>
-              <span class="absolute -bottom-6 text-[9px] font-mono text-stone-500 opacity-0 group-hover:opacity-100">23</span>
-            </div>
-            <!-- 24 Feb -->
-            <div class="group relative flex flex-col items-center h-full justify-end">
-              <div class="w-full bg-brand-teal hover:bg-brand-coral rounded-t-sm transition-all shadow-[0_1px_0_0_#0d3835]" style="height: 74%;" title="24/02: 185 phiên"></div>
-              <span class="absolute -bottom-6 text-[9px] font-mono text-stone-500 opacity-0 group-hover:opacity-100">24</span>
-            </div>
-            <!-- 25 Feb -->
-            <div class="group relative flex flex-col items-center h-full justify-end">
-              <div class="w-full bg-brand-teal hover:bg-brand-coral rounded-t-sm transition-all shadow-[0_1px_0_0_#0d3835]" style="height: 78%;" title="25/02: 195 phiên"></div>
-              <span class="absolute -bottom-6 text-[9px] font-mono text-stone-500">25</span>
-            </div>
-            <!-- 26 Feb -->
-            <div class="group relative flex flex-col items-center h-full justify-end">
-              <div class="w-full bg-brand-teal hover:bg-brand-coral rounded-t-sm transition-all shadow-[0_1px_0_0_#0d3835]" style="height: 69%;" title="26/02: 172 phiên"></div>
-              <span class="absolute -bottom-6 text-[9px] font-mono text-stone-500 opacity-0 group-hover:opacity-100">26</span>
-            </div>
-            <!-- 27 Feb -->
-            <div class="group relative flex flex-col items-center h-full justify-end">
-              <div class="w-full bg-brand-teal hover:bg-brand-coral rounded-t-sm transition-all shadow-[0_1px_0_0_#0d3835]" style="height: 64%;" title="27/02: 160 phiên"></div>
-              <span class="absolute -bottom-6 text-[9px] font-mono text-stone-500 opacity-0 group-hover:opacity-100">27</span>
-            </div>
-            <!-- 28 Feb -->
-            <div class="group relative flex flex-col items-center h-full justify-end">
-              <div class="w-full bg-brand-teal hover:bg-brand-coral rounded-t-sm transition-all shadow-[0_1px_0_0_#0d3835]" style="height: 60%;" title="28/02: 150 phiên"></div>
-              <span class="absolute -bottom-6 text-[9px] font-mono text-stone-500 opacity-0 group-hover:opacity-100">28</span>
-            </div>
-            <!-- 01 Mar -->
-            <div class="group relative flex flex-col items-center h-full justify-end">
-              <div class="w-full bg-[#528784] hover:bg-brand-coral rounded-t-sm transition-all shadow-[0_1px_0_0_#345f5c]" style="height: 50%;" title="01/03: 125 phiên"></div>
-              <span class="absolute -bottom-6 text-[9px] font-mono text-stone-700 font-bold">1/3</span>
-            </div>
-            <!-- 02 Mar -->
-            <div class="group relative flex flex-col items-center h-full justify-end">
-              <div class="w-full bg-[#528784] hover:bg-brand-coral rounded-t-sm transition-all shadow-[0_1px_0_0_#345f5c]" style="height: 46%;" title="02/03: 115 phiên"></div>
-              <span class="absolute -bottom-6 text-[9px] font-mono text-stone-500 opacity-0 group-hover:opacity-100">02</span>
-            </div>
-            <!-- 03 Mar -->
-            <div class="group relative flex flex-col items-center h-full justify-end">
-              <div class="w-full bg-brand-teal hover:bg-brand-coral rounded-t-sm transition-all shadow-[0_1px_0_0_#0d3835]" style="height: 72%;" title="03/03: 180 phiên"></div>
-              <span class="absolute -bottom-6 text-[9px] font-mono text-stone-500 opacity-0 group-hover:opacity-100">03</span>
-            </div>
-            <!-- 04 Mar -->
-            <div class="group relative flex flex-col items-center h-full justify-end">
-              <div class="w-full bg-brand-teal hover:bg-brand-coral rounded-t-sm transition-all shadow-[0_1px_0_0_#0d3835]" style="height: 76%;" title="04/03: 190 phiên"></div>
-              <span class="absolute -bottom-6 text-[9px] font-mono text-stone-500 opacity-0 group-hover:opacity-100">04</span>
-            </div>
-            <!-- 05 Mar -->
-            <div class="group relative flex flex-col items-center h-full justify-end">
-              <div class="w-full bg-brand-teal hover:bg-brand-coral rounded-t-sm transition-all shadow-[0_1px_0_0_#0d3835]" style="height: 80%;" title="05/03: 200 phiên"></div>
-              <span class="absolute -bottom-6 text-[9px] font-mono text-stone-500">05</span>
-            </div>
-            <!-- 06 Mar -->
-            <div class="group relative flex flex-col items-center h-full justify-end">
-              <div class="w-full bg-brand-teal hover:bg-brand-coral rounded-t-sm transition-all shadow-[0_1px_0_0_#0d3835]" style="height: 73%;" title="06/03: 183 phiên"></div>
-              <span class="absolute -bottom-6 text-[9px] font-mono text-stone-500 opacity-0 group-hover:opacity-100">06</span>
-            </div>
-            <!-- 07 Mar -->
-            <div class="group relative flex flex-col items-center h-full justify-end">
-              <div class="w-full bg-brand-teal hover:bg-brand-coral rounded-t-sm transition-all shadow-[0_1px_0_0_#0d3835]" style="height: 71%;" title="07/03: 178 phiên"></div>
-              <span class="absolute -bottom-6 text-[9px] font-mono text-stone-500 opacity-0 group-hover:opacity-100">07</span>
-            </div>
-            <!-- 08 Mar -->
-            <div class="group relative flex flex-col items-center h-full justify-end">
-              <div class="w-full bg-[#528784] hover:bg-brand-coral rounded-t-sm transition-all shadow-[0_1px_0_0_#345f5c]" style="height: 52%;" title="08/03: 130 phiên"></div>
-              <span class="absolute -bottom-6 text-[9px] font-mono text-stone-500 opacity-0 group-hover:opacity-100">08</span>
-            </div>
-            <!-- 09 Mar -->
-            <div class="group relative flex flex-col items-center h-full justify-end">
-              <div class="w-full bg-[#528784] hover:bg-brand-coral rounded-t-sm transition-all shadow-[0_1px_0_0_#345f5c]" style="height: 55%;" title="09/03: 138 phiên"></div>
-              <span class="absolute -bottom-6 text-[9px] font-mono text-stone-500 opacity-0 group-hover:opacity-100">09</span>
-            </div>
-            <!-- 10 Mar -->
-            <div class="group relative flex flex-col items-center h-full justify-end">
-              <div class="w-full bg-brand-teal hover:bg-brand-coral rounded-t-sm transition-all shadow-[0_1px_0_0_#0d3835]" style="height: 78%;" title="10/03: 195 phiên"></div>
-              <span class="absolute -bottom-6 text-[9px] font-mono text-stone-500">10</span>
-            </div>
-            <!-- 11 Mar -->
-            <div class="group relative flex flex-col items-center h-full justify-end">
-              <div class="w-full bg-brand-teal hover:bg-brand-coral rounded-t-sm transition-all shadow-[0_1px_0_0_#0d3835]" style="height: 82%;" title="11/03: 205 phiên"></div>
-              <span class="absolute -bottom-6 text-[9px] font-mono text-stone-500 opacity-0 group-hover:opacity-100">11</span>
-            </div>
-            <!-- 12 Mar (Peak) -->
-            <div class="group relative flex flex-col items-center h-full justify-end">
-              <div class="w-full bg-brand-teal hover:bg-brand-coral rounded-t-sm transition-all shadow-[0_1px_0_0_#0d3835]" style="height: 86%;" title="12/03: 214 phiên (Đỉnh)"></div>
-              <span class="absolute -bottom-6 text-[9px] font-mono text-stone-500 opacity-0 group-hover:opacity-100">12</span>
-            </div>
-            <!-- 13 Mar -->
-            <div class="group relative flex flex-col items-center h-full justify-end">
-              <div class="w-full bg-brand-teal hover:bg-brand-coral rounded-t-sm transition-all shadow-[0_1px_0_0_#0d3835]" style="height: 75%;" title="13/03: 188 phiên"></div>
-              <span class="absolute -bottom-6 text-[9px] font-mono text-stone-500 opacity-0 group-hover:opacity-100">13</span>
-            </div>
-            <!-- 14 Mar -->
-            <div class="group relative flex flex-col items-center h-full justify-end">
-              <div class="w-full bg-brand-teal hover:bg-brand-coral rounded-t-sm transition-all shadow-[0_1px_0_0_#0d3835]" style="height: 68%;" title="14/03: 170 phiên"></div>
-              <span class="absolute -bottom-6 text-[9px] font-mono text-stone-500 opacity-0 group-hover:opacity-100">14</span>
-            </div>
-            <!-- 15 Mar -->
-            <div class="group relative flex flex-col items-center h-full justify-end">
-              <div class="w-full bg-[#528784] hover:bg-brand-coral rounded-t-sm transition-all shadow-[0_1px_0_0_#345f5c]" style="height: 56%;" title="15/03: 140 phiên"></div>
-              <span class="absolute -bottom-6 text-[9px] font-mono text-stone-500">15</span>
-            </div>
-            <!-- 16 Mar (Hôm nay) -->
-            <div class="group relative flex flex-col items-center h-full justify-end">
-              <div class="w-full bg-brand-teal hover:bg-brand-coral rounded-t-sm transition-all shadow-[0_1px_0_0_#0d3835] ring-2 ring-brand-coral/40" style="height: 62%;" title="16/03 (Hôm nay): 155 phiên"></div>
-              <span class="absolute -bottom-6 text-[9px] font-mono text-brand-teal font-bold">Nay</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="pt-4 mt-2 flex items-center justify-between text-xs text-stone-500 border-t border-surface-border-subtle">
-          <span>* Di chuột vào từng cột để xem số phiên chi tiết theo ngày.</span>
-          <span class="font-mono">Tổng 30 ngày: <strong class="text-stone-800">4,812</strong> phiên</span>
-        </div>
-      </section>
-
-      <!-- TWO-COLUMN GRID: Nguồn truy cập + Quốc gia -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-
-        <!-- CARD 2: NGUỒN TRUY CẬP (List with proportional bars) -->
-        <section class="bg-surface-card rounded-2xl p-6 border border-surface-border shadow-tactile flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between pb-4 mb-4 border-b border-surface-border-subtle">
-              <div>
-                <h2 class="text-base font-bold text-stone-900">Nguồn truy cập</h2>
-                <p class="text-xs text-stone-500 mt-0.5">Kênh dẫn người dùng vào học hoặc cài add-on.</p>
-              </div>
-              <span class="text-xs font-mono text-stone-500 bg-surface-muted px-2.5 py-1 rounded-md border border-surface-border">
-                Tổng: 4,812 phiên
+</div>
+<!-- Table Container -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant/40 font-label-md text-label-md text-on-surface-variant">
+<th class="py-2.5 px-4 font-bold text-primary">Đường dẫn khóa học</th>
+<th class="py-2.5 px-3 font-bold text-right text-primary">Phiên</th>
+<th class="py-2.5 px-3 font-bold text-right text-primary">Hoàn thành</th>
+<th class="py-2.5 px-4 font-bold text-right text-primary">Thời lượng TB</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/30 font-body-sm text-body-sm">
+<!-- Item 1 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3 px-4">
+<div class="font-bold text-primary hover:underline cursor-pointer">/ielts-cambridge-18/test-1-reading</div>
+<div class="text-xs text-on-surface-variant">Luyện đọc học thuật chuyên sâu · Cam 18</div>
+</td>
+<td class="py-3 px-3 text-right font-data-mono text-data-mono font-bold text-[#114b47]">1,420</td>
+<td class="py-3 px-3 text-right">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-bold bg-[#114b47] text-white">78.5%</span>
+</td>
+<td class="py-3 px-4 text-right font-data-mono text-data-mono text-[#003330]">11p 42s</td>
+</tr>
+<!-- Item 2 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3 px-4">
+<div class="font-bold text-primary hover:underline cursor-pointer">/vocab-core-3000/oxford-b2-c1</div>
+<div class="text-xs text-on-surface-variant">Bộ flashcard 3000 từ chuẩn CEFR</div>
+</td>
+<td class="py-3 px-3 text-right font-data-mono text-data-mono font-bold text-[#114b47]">1,180</td>
+<td class="py-3 px-3 text-right">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-bold bg-[#114b47]/90 text-white">82.1%</span>
+</td>
+<td class="py-3 px-4 text-right font-data-mono text-data-mono text-[#003330]">8p 15s</td>
+</tr>
+<!-- Item 3 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3 px-4">
+<div class="font-bold text-primary hover:underline cursor-pointer">/grammar-master/inversion-clauses</div>
+<div class="text-xs text-on-surface-variant">Chuyên đề đảo ngữ nâng cao &amp; câu điều kiện</div>
+</td>
+<td class="py-3 px-3 text-right font-data-mono text-data-mono font-bold text-[#114b47]">840</td>
+<td class="py-3 px-3 text-right">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-bold bg-[#114b47]/75 text-white">67.4%</span>
+</td>
+<td class="py-3 px-4 text-right font-data-mono text-data-mono text-[#003330]">7p 50s</td>
+</tr>
+<!-- Item 4 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3 px-4">
+<div class="font-bold text-primary hover:underline cursor-pointer">/shadowing/business-podcasts-ep14</div>
+<div class="text-xs text-on-surface-variant">Kỹ thuật nhại âm thương mại Kokoro TTS</div>
+</td>
+<td class="py-3 px-3 text-right font-data-mono text-data-mono font-bold text-[#114b47]">712</td>
+<td class="py-3 px-3 text-right">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-bold bg-[#114b47]/60 text-white">61.2%</span>
+</td>
+<td class="py-3 px-4 text-right font-data-mono text-data-mono text-[#003330]">9p 30s</td>
+</tr>
+<!-- Item 5 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3 px-4">
+<div class="font-bold text-primary hover:underline cursor-pointer">/collocations/academic-writing-task2</div>
+<div class="text-xs text-on-surface-variant">Từ kết hợp học thuật cho bài viết luận</div>
+</td>
+<td class="py-3 px-3 text-right font-data-mono text-data-mono font-bold text-[#114b47]">660</td>
+<td class="py-3 px-3 text-right">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-bold bg-[#114b47]/75 text-white">72.9%</span>
+</td>
+<td class="py-3 px-4 text-right font-data-mono text-data-mono text-[#003330]">6p 45s</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- THANH PHÂN TRANG (PAGINATION) - FIXED MACHINE QC:
+               Tất cả các nút min 44x44px.
+               Chữ số "4" và "5" chữ đậm #134e4a / #0f2d2b trên nền #edf5f3 viền rõ ràng đạt tỷ lệ tương phản > 5.5:1. -->
+<div class="p-3 bg-surface-container-low border-t border-outline-variant/30 flex items-center justify-between flex-wrap gap-2">
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">Hiển thị 1 - 5 trong tổng số 32 đường dẫn</span>
+<div aria-label="Phân trang danh sách bài học" class="flex items-center gap-1.5" role="navigation">
+<!-- Nút "Trước" -->
+<button class="min-w-[44px] min-h-[44px] px-2.5 rounded tactile-btn-secondary text-[#134e4a] font-bold text-xs flex items-center justify-center gap-1 hover:bg-surface-container-high transition-colors" title="Trang trước" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_left">chevron_left</span>
+<span>Trước</span>
+</button>
+<!-- Trang 1 [Active] -->
+<button aria-current="page" class="w-11 h-11 rounded bg-primary-container text-white font-bold text-sm flex items-center justify-center shadow-xs" type="button">
+                1
+              </button>
+<!-- Trang 2 -->
+<button class="w-11 h-11 rounded tactile-btn-secondary text-[#134e4a] font-bold text-sm flex items-center justify-center hover:bg-surface-container-high transition-colors" type="button">
+                2
+              </button>
+<!-- Trang 3 -->
+<button class="w-11 h-11 rounded tactile-btn-secondary text-[#134e4a] font-bold text-sm flex items-center justify-center hover:bg-surface-container-high transition-colors" type="button">
+                3
+              </button>
+<!-- Trang 4 (Machine-QC Round 10 Fix: Text color #0f2d2b on #edf5f3, contrast ratio > 6:1, min 44x44px) -->
+<button aria-label="Đến trang 4" class="w-11 h-11 rounded border border-[#bfc8c6] bg-[#edf5f3] text-[#0f2d2b] font-extrabold text-sm flex items-center justify-center shadow-xs hover:bg-surface-container-high transition-colors" type="button">
+                4
+              </button>
+<!-- Trang 5 (Machine-QC Round 10 Fix: Text color #0f2d2b on #edf5f3, contrast ratio > 6:1, min 44x44px) -->
+<button aria-label="Đến trang 5" class="w-11 h-11 rounded border border-[#bfc8c6] bg-[#edf5f3] text-[#0f2d2b] font-extrabold text-sm flex items-center justify-center shadow-xs hover:bg-surface-container-high transition-colors" type="button">
+                5
+              </button>
+<!-- Nút "Sau" -->
+<button class="min-w-[44px] min-h-[44px] px-2.5 rounded tactile-btn-secondary text-[#134e4a] font-bold text-xs flex items-center justify-center gap-1 hover:bg-surface-container-high transition-colors" title="Trang kế tiếp" type="button">
+<span>Sau</span>
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- CỘT PHẢI (1/3): THIẾT BỊ & PHÂN BỐ KHU VỰC ĐỊA LÝ -->
+<div class="space-y-6 flex flex-col justify-between">
+<!-- Phân bố thiết bị -->
+<section class="tactile-card rounded-lg p-4">
+<h2 class="font-headline-sm text-headline-sm font-bold text-primary mb-3">Phân bố thiết bị</h2>
+<!-- Progress Bar Stacked -->
+<div class="w-full h-3 rounded-full bg-surface-container-high overflow-hidden flex mb-3">
+<div class="bg-[#114b47] h-full" style="width: 59%;" title="Máy tính: 59%"></div>
+<div class="bg-secondary-container h-full" style="width: 41%;" title="Điện thoại: 41%"></div>
+</div>
+<div class="space-y-2 text-xs font-semibold">
+<div class="flex items-center justify-between">
+<span class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-base text-[#114b47]" data-icon="desktop_windows">desktop_windows</span>
+                  Máy tính (Desktop / Laptop)
+                </span>
+<span class="font-data-mono text-data-mono font-bold text-[#114b47]">59% (2,839)</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-base text-secondary-container" data-icon="smartphone">smartphone</span>
+                  Điện thoại (Mobile Web)
+                </span>
+<span class="font-data-mono text-data-mono font-bold text-secondary-container">41% (1,973)</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-outline" data-icon="tablet_mac">tablet_mac</span>
+                  Máy tính bảng (Tablet)
+                </span>
+<span class="font-data-mono text-data-mono font-bold text-outline">0% (0)</span>
+</div>
+</div>
+</section>
+<!-- Phân bố khu vực địa lý -->
+<section class="tactile-card rounded-lg p-4 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3">
+<h2 class="font-headline-sm text-headline-sm font-bold text-primary">Phân bố địa lý</h2>
+<span class="text-xs font-bold text-[#114b47]">6 Quốc gia chính</span>
+</div>
+<!-- List with Flags & Percentages -->
+<div class="space-y-2.5 text-xs font-medium">
+<!-- Vietnam -->
+<div>
+<div class="flex items-center justify-between mb-1">
+<span class="font-bold text-[#114b47]">🇻🇳 Việt Nam</span>
+<span class="font-data-mono text-[#003330] font-bold">3,120 phiên (64.8%)</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-high overflow-hidden">
+<div class="bg-[#114b47] h-full rounded-full" style="width: 64.8%;"></div>
+</div>
+</div>
+<!-- Japan -->
+<div>
+<div class="flex items-center justify-between mb-1">
+<span class="font-bold text-[#114b47]">🇯🇵 Nhật Bản</span>
+<span class="font-data-mono text-[#003330] font-bold">648 phiên (13.5%)</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-high overflow-hidden">
+<div class="bg-[#114b47]/80 h-full rounded-full" style="width: 13.5%;"></div>
+</div>
+</div>
+<!-- South Korea -->
+<div>
+<div class="flex items-center justify-between mb-1">
+<span class="font-bold text-[#114b47]">🇰🇷 Hàn Quốc</span>
+<span class="font-data-mono text-[#003330] font-bold">420 phiên (8.7%)</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-high overflow-hidden">
+<div class="bg-[#114b47]/70 h-full rounded-full" style="width: 8.7%;"></div>
+</div>
+</div>
+<!-- USA -->
+<div>
+<div class="flex items-center justify-between mb-1">
+<span class="font-bold text-[#114b47]">🇺🇸 Hoa Kỳ</span>
+<span class="font-data-mono text-[#003330] font-bold">280 phiên (5.8%)</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-high overflow-hidden">
+<div class="bg-[#114b47]/60 h-full rounded-full" style="width: 5.8%;"></div>
+</div>
+</div>
+<!-- Germany (Machine-QC High Contrast Label Check) -->
+<div>
+<div class="flex items-center justify-between mb-1">
+<span class="font-bold text-[#0f2d2b]">🇩🇪 Đức (Berlin, Munich, Frankfurt)</span>
+<span class="font-data-mono text-[#003330] font-bold">144 phiên (3.0%)</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-high overflow-hidden">
+<div class="bg-[#114b47]/50 h-full rounded-full" style="width: 3.0%;"></div>
+</div>
+</div>
+<!-- Other -->
+<div>
+<div class="flex items-center justify-between mb-1 text-on-surface-variant">
+<span>🌐 Quốc gia khác</span>
+<span class="font-data-mono text-[#003330] font-bold">200 phiên (4.2%)</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-high overflow-hidden">
+<div class="bg-outline/40 h-full rounded-full" style="width: 4.2%;"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Server Node Edge Status -->
+<div class="mt-3 pt-2 border-t border-outline-variant/30 flex items-center justify-between text-[11px] text-on-surface-variant font-medium">
+<span class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+                Cloudflare Edge VN
               </span>
-            </div>
-
-            <div class="space-y-4">
-              <!-- Item 1: Trực tiếp -->
-              <div>
-                <div class="flex items-center justify-between text-xs mb-1.5">
-                  <div class="flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-brand-teal"></span>
-                    <span class="font-bold text-stone-800">Trực tiếp</span>
-                    <span class="text-stone-500 text-[11px]">(Bookmark, gõ URL lexkite.app)</span>
-                  </div>
-                  <div class="flex items-center gap-3 font-mono">
-                    <span class="font-bold text-stone-900">2,310</span>
-                    <span class="text-stone-500 w-12 text-right">48.0%</span>
-                  </div>
-                </div>
-                <div class="w-full h-2 bg-stone-100 rounded-full overflow-hidden">
-                  <div class="h-full bg-brand-teal rounded-full" style="width: 48%;"></div>
-                </div>
-              </div>
-
-              <!-- Item 2: Google -->
-              <div>
-                <div class="flex items-center justify-between text-xs mb-1.5">
-                  <div class="flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-teal-600"></span>
-                    <span class="font-bold text-stone-800">Google</span>
-                    <span class="text-stone-500 text-[11px]">(Tìm kiếm tự nhiên, blog, IELTS lexis)</span>
-                  </div>
-                  <div class="flex items-center gap-3 font-mono">
-                    <span class="font-bold text-stone-900">1,348</span>
-                    <span class="text-stone-500 w-12 text-right">28.0%</span>
-                  </div>
-                </div>
-                <div class="w-full h-2 bg-stone-100 rounded-full overflow-hidden">
-                  <div class="h-full bg-teal-600 rounded-full" style="width: 28%;"></div>
-                </div>
-              </div>
-
-              <!-- Item 3: Facebook -->
-              <div>
-                <div class="flex items-center justify-between text-xs mb-1.5">
-                  <div class="flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-[#3b82f6]"></span>
-                    <span class="font-bold text-stone-800">Facebook</span>
-                    <span class="text-stone-500 text-[11px]">(Hội nhóm tự học IELTS / TOEIC)</span>
-                  </div>
-                  <div class="flex items-center gap-3 font-mono">
-                    <span class="font-bold text-stone-900">577</span>
-                    <span class="text-stone-500 w-12 text-right">12.0%</span>
-                  </div>
-                </div>
-                <div class="w-full h-2 bg-stone-100 rounded-full overflow-hidden">
-                  <div class="h-full bg-[#3b82f6] rounded-full" style="width: 12%;"></div>
-                </div>
-              </div>
-
-              <!-- Item 4: Chrome Web Store -->
-              <div>
-                <div class="flex items-center justify-between text-xs mb-1.5">
-                  <div class="flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-amber-500"></span>
-                    <span class="font-bold text-stone-800">Chrome Web Store</span>
-                    <span class="text-stone-500 text-[11px]">(Trang chi tiết tiện ích tra từ)</span>
-                  </div>
-                  <div class="flex items-center gap-3 font-mono">
-                    <span class="font-bold text-stone-900">385</span>
-                    <span class="text-stone-500 w-12 text-right">8.0%</span>
-                  </div>
-                </div>
-                <div class="w-full h-2 bg-stone-100 rounded-full overflow-hidden">
-                  <div class="h-full bg-amber-500 rounded-full" style="width: 8%;"></div>
-                </div>
-              </div>
-
-              <!-- Item 5: Khác -->
-              <div>
-                <div class="flex items-center justify-between text-xs mb-1.5">
-                  <div class="flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-stone-400"></span>
-                    <span class="font-bold text-stone-800">Khác</span>
-                    <span class="text-stone-500 text-[11px]">(Telegram, Zalo chia sẻ link, Github)</span>
-                  </div>
-                  <div class="flex items-center gap-3 font-mono">
-                    <span class="font-bold text-stone-900">192</span>
-                    <span class="text-stone-500 w-12 text-right">4.0%</span>
-                  </div>
-                </div>
-                <div class="w-full h-2 bg-stone-100 rounded-full overflow-hidden">
-                  <div class="h-full bg-stone-400 rounded-full" style="width: 4%;"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="mt-5 pt-3 border-t border-surface-border-subtle text-[11px] text-stone-500 flex items-center justify-between">
-            <span>Dữ liệu đo qua Header HTTP Referrer không thu thập chuỗi query định danh.</span>
-            <span class="font-semibold text-brand-teal">5 nguồn xác định</span>
-          </div>
-        </section>
-
-        <!-- CARD 3: QUỐC GIA (Ranked list with flags, full country names, counts) -->
-        <section class="bg-surface-card rounded-2xl p-6 border border-surface-border shadow-tactile flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between pb-4 mb-4 border-b border-surface-border-subtle">
-              <div>
-                <h2 class="text-base font-bold text-stone-900">Quốc gia</h2>
-                <p class="text-xs text-stone-500 mt-0.5">Xác định tự động qua tầng mạng Cloudflare Edge.</p>
-              </div>
-              <span class="text-xs font-mono text-stone-500 bg-surface-muted px-2.5 py-1 rounded-md border border-surface-border">
-                Xếp hạng 30 ngày
-              </span>
-            </div>
-
-            <!-- Ranked Countries List -->
-            <div class="divide-y divide-surface-border-subtle">
-              <!-- #1 Vietnam -->
-              <div class="py-2.5 flex items-center justify-between text-xs">
-                <div class="flex items-center gap-3">
-                  <span class="font-mono text-xs font-bold text-stone-500 w-4">#1</span>
-                  <span class="text-base leading-none">🇻🇳</span>
-                  <div>
-                    <div class="font-bold text-stone-900">Việt Nam</div>
-                    <div class="text-[11px] text-stone-500">Hà Nội, TP.HCM, Đà Nẵng, Cần Thơ</div>
-                  </div>
-                </div>
-                <div class="text-right font-mono">
-                  <div class="font-bold text-stone-900">3,128 <span class="text-stone-500 text-[11px] font-normal">phiên</span></div>
-                  <div class="text-[11px] text-emerald-700 font-semibold">65.0%</div>
-                </div>
-              </div>
-
-              <!-- #2 Japan -->
-              <div class="py-2.5 flex items-center justify-between text-xs">
-                <div class="flex items-center gap-3">
-                  <span class="font-mono text-xs font-bold text-stone-500 w-4">#2</span>
-                  <span class="text-base leading-none">🇯🇵</span>
-                  <div>
-                    <div class="font-bold text-stone-900">Nhật Bản</div>
-                    <div class="text-[11px] text-stone-500">Du học sinh & kỹ sư Việt tại Tokyo, Osaka</div>
-                  </div>
-                </div>
-                <div class="text-right font-mono">
-                  <div class="font-bold text-stone-900">481 <span class="text-stone-500 text-[11px] font-normal">phiên</span></div>
-                  <div class="text-[11px] text-stone-600">10.0%</div>
-                </div>
-              </div>
-
-              <!-- #3 South Korea -->
-              <div class="py-2.5 flex items-center justify-between text-xs">
-                <div class="flex items-center gap-3">
-                  <span class="font-mono text-xs font-bold text-stone-500 w-4">#3</span>
-                  <span class="text-base leading-none">🇰🇷</span>
-                  <div>
-                    <div class="font-bold text-stone-900">Hàn Quốc</div>
-                    <div class="text-[11px] text-stone-500">Seoul, Busan, Incheon</div>
-                  </div>
-                </div>
-                <div class="text-right font-mono">
-                  <div class="font-bold text-stone-900">385 <span class="text-stone-500 text-[11px] font-normal">phiên</span></div>
-                  <div class="text-[11px] text-stone-600">8.0%</div>
-                </div>
-              </div>
-
-              <!-- #4 United States -->
-              <div class="py-2.5 flex items-center justify-between text-xs">
-                <div class="flex items-center gap-3">
-                  <span class="font-mono text-xs font-bold text-stone-500 w-4">#4</span>
-                  <span class="text-base leading-none">🇺🇸</span>
-                  <div>
-                    <div class="font-bold text-stone-900">Hoa Kỳ</div>
-                    <div class="text-[11px] text-stone-500">California, Texas, Washington</div>
-                  </div>
-                </div>
-                <div class="text-right font-mono">
-                  <div class="font-bold text-stone-900">337 <span class="text-stone-500 text-[11px] font-normal">phiên</span></div>
-                  <div class="text-[11px] text-stone-600">7.0%</div>
-                </div>
-              </div>
-
-              <!-- #5 Australia -->
-              <div class="py-2.5 flex items-center justify-between text-xs">
-                <div class="flex items-center gap-3">
-                  <span class="font-mono text-xs font-bold text-stone-500 w-4">#5</span>
-                  <span class="text-base leading-none">🇦🇺</span>
-                  <div>
-                    <div class="font-bold text-stone-900">Úc</div>
-                    <div class="text-[11px] text-stone-500">Melbourne, Sydney (ôn luyện PTE / IELTS)</div>
-                  </div>
-                </div>
-                <div class="text-right font-mono">
-                  <div class="font-bold text-stone-900">240 <span class="text-stone-500 text-[11px] font-normal">phiên</span></div>
-                  <div class="text-[11px] text-stone-600">5.0%</div>
-                </div>
-              </div>
-
-              <!-- #6 Germany -->
-              <div class="py-2.5 flex items-center justify-between text-xs">
-                <div class="flex items-center gap-3">
-                  <span class="font-mono text-xs font-bold text-stone-500 w-4">#6</span>
-                  <span class="text-base leading-none">🇩🇪</span>
-                  <div>
-                    <div class="font-bold text-stone-900">Đức</div>
-                    <div class="text-[11px] text-stone-500">Berlin, Munich, Frankfurt</div>
-                  </div>
-                </div>
-                <div class="text-right font-mono">
-                  <div class="font-bold text-stone-900">144 <span class="text-stone-500 text-[11px] font-normal">phiên</span></div>
-                  <div class="text-[11px] text-stone-600">3.0%</div>
-                </div>
-              </div>
-
-              <!-- #7 Others -->
-              <div class="py-2.5 flex items-center justify-between text-xs">
-                <div class="flex items-center gap-3">
-                  <span class="font-mono text-xs font-bold text-stone-500 w-4">#7</span>
-                  <span class="text-base leading-none">🌐</span>
-                  <div>
-                    <div class="font-bold text-stone-800">Các quốc gia khác</div>
-                    <div class="text-[11px] text-stone-500">Singapore, Đài Loan, Canada,...</div>
-                  </div>
-                </div>
-                <div class="text-right font-mono">
-                  <div class="font-bold text-stone-900">97 <span class="text-stone-500 text-[11px] font-normal">phiên</span></div>
-                  <div class="text-[11px] text-stone-600">2.0%</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="mt-3 pt-3 border-t border-surface-border-subtle text-[11px] text-stone-500 flex items-center justify-between">
-            <span>Dữ liệu dựa trên Cloudflare CF-IPCountry header, ẩn danh 100%.</span>
-            <span class="font-semibold text-brand-teal">7 khu vực ghi nhận</span>
-          </div>
-        </section>
-      </div>
-
-      <!-- TWO-COLUMN GRID: Trang vào đầu tiên + Tần suất (Histogram) -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-
-        <!-- CARD 4: TRANG VÀO ĐẦU TIÊN (List of Routes) -->
-        <section class="bg-surface-card rounded-2xl p-6 border border-surface-border shadow-tactile flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between pb-4 mb-4 border-b border-surface-border-subtle">
-              <div>
-                <h2 class="text-base font-bold text-stone-900">Trang vào đầu tiên</h2>
-                <p class="text-xs text-stone-500 mt-0.5">Tuyến đường (landing route) bắt đầu phiên của học viên.</p>
-              </div>
-              <span class="text-xs font-mono text-stone-500 bg-surface-muted px-2.5 py-1 rounded-md border border-surface-border">
-                Top 5 đường dẫn
-              </span>
-            </div>
-
-            <!-- Route table-like entries with clean wrapping -->
-            <div class="space-y-3">
-              <!-- Route 1 -->
-              <div class="p-3 rounded-xl bg-surface-subtle border border-surface-border-subtle hover:border-surface-border transition-colors">
-                <div class="flex items-start justify-between gap-4">
-                  <div class="min-w-0">
-                    <div class="flex items-center gap-2">
-                      <span class="font-mono text-xs font-bold text-brand-teal break-all">/</span>
-                      <span class="text-[10px] uppercase font-bold px-1.5 py-0.5 rounded bg-stone-200 text-stone-700">Trang chủ</span>
-                    </div>
-                    <p class="text-xs text-stone-500 mt-1">Trang đích giới thiệu web app và cài đặt tiện ích Chrome</p>
-                  </div>
-                  <div class="text-right font-mono shrink-0">
-                    <span class="text-xs font-extrabold text-stone-900">2,021</span>
-                    <span class="block text-[11px] text-stone-500 font-normal">42.0%</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Route 2 -->
-              <div class="p-3 rounded-xl bg-surface-subtle border border-surface-border-subtle hover:border-surface-border transition-colors">
-                <div class="flex items-start justify-between gap-4">
-                  <div class="min-w-0">
-                    <div class="flex items-center gap-2">
-                      <span class="font-mono text-xs font-bold text-brand-teal break-all">/app/today</span>
-                      <span class="text-[10px] uppercase font-bold px-1.5 py-0.5 rounded bg-teal-100 text-teal-800">Học hàng ngày</span>
-                    </div>
-                    <p class="text-xs text-stone-500 mt-1">Học viên quay lại ôn tập 10 phút lexis sprint</p>
-                  </div>
-                  <div class="text-right font-mono shrink-0">
-                    <span class="text-xs font-extrabold text-stone-900">1,251</span>
-                    <span class="block text-[11px] text-stone-500 font-normal">26.0%</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Route 3 -->
-              <div class="p-3 rounded-xl bg-surface-subtle border border-surface-border-subtle hover:border-surface-border transition-colors">
-                <div class="flex items-start justify-between gap-4">
-                  <div class="min-w-0">
-                    <div class="flex items-center gap-2">
-                      <span class="font-mono text-xs font-bold text-brand-teal break-all">/blog/collocations-ielts-writing</span>
-                      <span class="text-[10px] uppercase font-bold px-1.5 py-0.5 rounded bg-blue-100 text-blue-800">Bài viết SEO</span>
-                    </div>
-                    <p class="text-xs text-stone-500 mt-1">Cụm từ học thuật tự nhiên cho bài thi Writing Task 2</p>
-                  </div>
-                  <div class="text-right font-mono shrink-0">
-                    <span class="text-xs font-extrabold text-stone-900">674</span>
-                    <span class="block text-[11px] text-stone-500 font-normal">14.0%</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Route 4 -->
-              <div class="p-3 rounded-xl bg-surface-subtle border border-surface-border-subtle hover:border-surface-border transition-colors">
-                <div class="flex items-start justify-between gap-4">
-                  <div class="min-w-0">
-                    <div class="flex items-center gap-2">
-                      <span class="font-mono text-xs font-bold text-brand-teal break-all">/app/deck</span>
-                      <span class="text-[10px] uppercase font-bold px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800">Bộ thẻ lưu</span>
-                    </div>
-                    <p class="text-xs text-stone-500 mt-1">Xem bộ 248 từ vựng cá nhân đã lưu khi đọc báo web</p>
-                  </div>
-                  <div class="text-right font-mono shrink-0">
-                    <span class="text-xs font-extrabold text-stone-900">529</span>
-                    <span class="block text-[11px] text-stone-500 font-normal">11.0%</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Route 5 -->
-              <div class="p-3 rounded-xl bg-surface-subtle border border-surface-border-subtle hover:border-surface-border transition-colors">
-                <div class="flex items-start justify-between gap-4">
-                  <div class="min-w-0">
-                    <div class="flex items-center gap-2">
-                      <span class="font-mono text-xs font-bold text-brand-teal break-all">/app/skills/sentence-patterns</span>
-                      <span class="text-[10px] uppercase font-bold px-1.5 py-0.5 rounded bg-purple-100 text-purple-800">Mẫu câu</span>
-                    </div>
-                    <p class="text-xs text-stone-500 mt-1">Kho mẫu câu Academic Stance & Counter-argument</p>
-                  </div>
-                  <div class="text-right font-mono shrink-0">
-                    <span class="text-xs font-extrabold text-stone-900">337</span>
-                    <span class="block text-[11px] text-stone-500 font-normal">7.0%</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="mt-4 pt-3 border-t border-surface-border-subtle text-[11px] text-stone-500">
-            <span>Không cắt ngắn URL; các route dài tự động co giãn và xuống dòng nguyên vẹn.</span>
-          </div>
-        </section>
-
-        <!-- CARD 5: TẦN SUẤT (SỐ PHIÊN MỖI KHÁCH) - Histogram -->
-        <section class="bg-surface-card rounded-2xl p-6 border border-surface-border shadow-tactile flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between pb-4 mb-4 border-b border-surface-border-subtle">
-              <div>
-                <h2 class="text-base font-bold text-stone-900">Tần suất (số phiên mỗi khách)</h2>
-                <p class="text-xs text-stone-500 mt-0.5">Mức độ quay lại luyện tập đều đặn trong 30 ngày qua.</p>
-              </div>
-              <span class="text-xs font-semibold text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">
-                Thói quen tốt: 48% &gt;2 phiên
-              </span>
-            </div>
-
-            <!-- Histogram Columns -->
-            <div class="bg-surface-subtle p-5 rounded-xl border border-surface-border-subtle">
-              <div class="h-44 flex items-end justify-between gap-4 pt-4 pb-2 border-b border-surface-border">
-                <!-- Bin 1: 1x -->
-                <div class="flex-1 flex flex-col items-center h-full justify-end group">
-                  <span class="text-xs font-mono font-bold text-stone-700 mb-1">957</span>
-                  <div class="w-full bg-[#528784] hover:bg-brand-coral rounded-t-lg transition-all shadow-[0_2px_0_0_#345f5c]" style="height: 100%;"></div>
-                </div>
-
-                <!-- Bin 2: 2x -->
-                <div class="flex-1 flex flex-col items-center h-full justify-end group">
-                  <span class="text-xs font-mono font-bold text-stone-700 mb-1">368</span>
-                  <div class="w-full bg-brand-teal hover:bg-brand-coral rounded-t-lg transition-all shadow-[0_2px_0_0_#0d3835]" style="height: 38.5%;"></div>
-                </div>
-
-                <!-- Bin 3: 3–5x -->
-                <div class="flex-1 flex flex-col items-center h-full justify-end group">
-                  <span class="text-xs font-mono font-bold text-stone-700 mb-1">294</span>
-                  <div class="w-full bg-brand-teal hover:bg-brand-coral rounded-t-lg transition-all shadow-[0_2px_0_0_#0d3835]" style="height: 30.7%;"></div>
-                </div>
-
-                <!-- Bin 4: 6–10x -->
-                <div class="flex-1 flex flex-col items-center h-full justify-end group">
-                  <span class="text-xs font-mono font-bold text-stone-700 mb-1">147</span>
-                  <div class="w-full bg-brand-teal hover:bg-brand-coral rounded-t-lg transition-all shadow-[0_2px_0_0_#0d3835]" style="height: 15.4%;"></div>
-                </div>
-
-                <!-- Bin 5: 10x+ (Hardcore habit) -->
-                <div class="flex-1 flex flex-col items-center h-full justify-end group">
-                  <span class="text-xs font-mono font-bold text-stone-700 mb-1">74</span>
-                  <div class="w-full bg-brand-teal hover:bg-brand-coral rounded-t-lg transition-all shadow-[0_2px_0_0_#0d3835]" style="height: 7.7%;"></div>
-                </div>
-              </div>
-
-              <!-- Bin Labels under histogram -->
-              <div class="flex justify-between gap-4 mt-2 text-center text-xs">
-                <div class="flex-1">
-                  <div class="font-bold text-stone-900 font-mono">1×</div>
-                  <div class="text-[10px] text-stone-500">52% khách</div>
-                </div>
-                <div class="flex-1">
-                  <div class="font-bold text-stone-900 font-mono">2×</div>
-                  <div class="text-[10px] text-stone-500">20% khách</div>
-                </div>
-                <div class="flex-1">
-                  <div class="font-bold text-stone-900 font-mono">3–5×</div>
-                  <div class="text-[10px] text-stone-500">16% khách</div>
-                </div>
-                <div class="flex-1">
-                  <div class="font-bold text-stone-900 font-mono">6–10×</div>
-                  <div class="text-[10px] text-stone-500">8% khách</div>
-                </div>
-                <div class="flex-1">
-                  <div class="font-bold text-stone-900 font-mono">10×+</div>
-                  <div class="text-[10px] text-stone-500">4% khách</div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Descriptive Note -->
-            <div class="mt-4 p-3 rounded-xl bg-brand-teal-subtle border border-brand-teal/20 text-xs text-stone-700 flex items-start gap-2.5">
-              <span class="material-symbols-outlined text-[18px] text-brand-teal mt-0.5 shrink-0">psychology</span>
-              <div>
-                <span class="font-bold text-brand-teal">Chỉ số thói quen học:</span>
-                Nhóm học viên đạt mốc <strong class="font-semibold text-stone-900">3–10+ phiên</strong> chủ yếu bật thông báo ôn tập ngắt quãng (FSRS v5) vào 20:00 mỗi tối.
-              </div>
-            </div>
-          </div>
-
-          <div class="mt-4 pt-3 border-t border-surface-border-subtle text-[11px] text-stone-500 flex items-center justify-between">
-            <span>Dựa trên khóa ẩn danh xoay vòng 30 ngày (không liên kết hồ sơ cá nhân).</span>
-            <span class="font-mono text-stone-700">1,840 người học độc lập</span>
-          </div>
-        </section>
-      </div>
-
-      <!-- CARD 6: NỀN TẢNG · 30 NGÀY (Table with right-aligned numbers and inline bars) -->
-      <section class="bg-surface-card rounded-2xl p-6 border border-surface-border shadow-tactile">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-4 border-b border-surface-border-subtle gap-2">
-          <div>
-            <div class="flex items-center gap-2">
-              <h2 class="text-base font-bold text-stone-900">Nền tảng · 30 ngày</h2>
-              <span class="text-xs font-semibold px-2 py-0.5 rounded bg-stone-100 text-stone-700 border border-stone-200">
-                Web & Tiện ích trình duyệt
-              </span>
-            </div>
-            <p class="text-xs text-stone-500 mt-0.5">Phân bố thiết bị truy cập và công cụ học từ vựng trực tiếp.</p>
-          </div>
-          <div class="text-xs text-stone-500 font-mono">
-            Tổng cộng: <strong class="text-stone-900">1,840</strong> khách · <strong class="text-stone-900">4,812</strong> phiên
-          </div>
-        </div>
-
-        <!-- Table Container with robust spacing -->
-        <div class="overflow-x-auto">
-          <table class="w-full text-left text-xs">
-            <thead>
-              <tr class="border-b border-surface-border text-stone-500 uppercase tracking-wider text-[11px] font-bold">
-                <th scope="col" class="pb-3 pl-2 font-bold">Nền tảng</th>
-                <th scope="col" class="pb-3 text-right font-bold w-28">Khách</th>
-                <th scope="col" class="pb-3 text-right font-bold w-28">Phiên</th>
-                <th scope="col" class="pb-3 text-right font-bold w-24">Tỉ lệ</th>
-                <th scope="col" class="pb-3 pl-8 pr-2 font-bold w-64">Phân bố trực quan</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-surface-border-subtle font-normal text-stone-700">
-              <!-- Row 1: Chrome Desktop -->
-              <tr class="hover:bg-surface-subtle transition-colors">
-                <td class="py-3.5 pl-2 font-medium">
-                  <div class="flex items-center gap-3">
-                    <span class="w-7 h-7 rounded-lg bg-teal-50 border border-teal-200/60 flex items-center justify-center text-brand-teal">
-                      <span class="material-symbols-outlined text-[17px]">laptop_mac</span>
-                    </span>
-                    <div>
-                      <div class="font-bold text-stone-900 text-[13px]">Chrome Desktop (Windows, macOS)</div>
-                      <div class="text-[11px] text-stone-500">Bao gồm cả người dùng tiện ích Lexkite lookup</div>
-                    </div>
-                  </div>
-                </td>
-                <td class="py-3.5 text-right font-mono font-bold text-stone-900 text-xs">957</td>
-                <td class="py-3.5 text-right font-mono font-bold text-stone-900 text-xs">2,502</td>
-                <td class="py-3.5 text-right font-mono font-bold text-brand-teal text-xs">52.0%</td>
-                <td class="py-3.5 pl-8 pr-2">
-                  <div class="flex items-center gap-3">
-                    <div class="w-full h-2.5 bg-stone-100 rounded-full overflow-hidden">
-                      <div class="h-full bg-brand-teal rounded-full" style="width: 52%;"></div>
-                    </div>
-                    <span class="text-[11px] font-mono text-stone-500 w-10 text-right">52%</span>
-                  </div>
-                </td>
-              </tr>
-
-              <!-- Row 2: Mobile Safari -->
-              <tr class="hover:bg-surface-subtle transition-colors">
-                <td class="py-3.5 pl-2 font-medium">
-                  <div class="flex items-center gap-3">
-                    <span class="w-7 h-7 rounded-lg bg-sky-50 border border-sky-200/60 flex items-center justify-center text-sky-700">
-                      <span class="material-symbols-outlined text-[17px]">phone_iphone</span>
-                    </span>
-                    <div>
-                      <div class="font-bold text-stone-900 text-[13px]">Mobile Safari (iPhone iOS)</div>
-                      <div class="text-[11px] text-stone-500">Giao diện điện thoại 390px (Web App responsive)</div>
-                    </div>
-                  </div>
-                </td>
-                <td class="py-3.5 text-right font-mono font-bold text-stone-900 text-xs">497</td>
-                <td class="py-3.5 text-right font-mono font-bold text-stone-900 text-xs">1,299</td>
-                <td class="py-3.5 text-right font-mono font-bold text-stone-800 text-xs">27.0%</td>
-                <td class="py-3.5 pl-8 pr-2">
-                  <div class="flex items-center gap-3">
-                    <div class="w-full h-2.5 bg-stone-100 rounded-full overflow-hidden">
-                      <div class="h-full bg-[#528784] rounded-full" style="width: 27%;"></div>
-                    </div>
-                    <span class="text-[11px] font-mono text-stone-500 w-10 text-right">27%</span>
-                  </div>
-                </td>
-              </tr>
-
-              <!-- Row 3: Mobile Chrome -->
-              <tr class="hover:bg-surface-subtle transition-colors">
-                <td class="py-3.5 pl-2 font-medium">
-                  <div class="flex items-center gap-3">
-                    <span class="w-7 h-7 rounded-lg bg-emerald-50 border border-emerald-200/60 flex items-center justify-center text-emerald-700">
-                      <span class="material-symbols-outlined text-[17px]">smartphone</span>
-                    </span>
-                    <div>
-                      <div class="font-bold text-stone-900 text-[13px]">Mobile Chrome (Android)</div>
-                      <div class="text-[11px] text-stone-500">Samsung, Xiaomi, Pixel truy cập web</div>
-                    </div>
-                  </div>
-                </td>
-                <td class="py-3.5 text-right font-mono font-bold text-stone-900 text-xs">258</td>
-                <td class="py-3.5 text-right font-mono font-bold text-stone-900 text-xs">674</td>
-                <td class="py-3.5 text-right font-mono font-bold text-stone-800 text-xs">14.0%</td>
-                <td class="py-3.5 pl-8 pr-2">
-                  <div class="flex items-center gap-3">
-                    <div class="w-full h-2.5 bg-stone-100 rounded-full overflow-hidden">
-                      <div class="h-full bg-emerald-600 rounded-full" style="width: 14%;"></div>
-                    </div>
-                    <span class="text-[11px] font-mono text-stone-500 w-10 text-right">14%</span>
-                  </div>
-                </td>
-              </tr>
-
-              <!-- Row 4: Firefox Desktop -->
-              <tr class="hover:bg-surface-subtle transition-colors">
-                <td class="py-3.5 pl-2 font-medium">
-                  <div class="flex items-center gap-3">
-                    <span class="w-7 h-7 rounded-lg bg-orange-50 border border-orange-200/60 flex items-center justify-center text-orange-700">
-                      <span class="material-symbols-outlined text-[17px]">public</span>
-                    </span>
-                    <div>
-                      <div class="font-bold text-stone-900 text-[13px]">Firefox Desktop</div>
-                      <div class="text-[11px] text-stone-500">Trình duyệt desktop tiêu chuẩn</div>
-                    </div>
-                  </div>
-                </td>
-                <td class="py-3.5 text-right font-mono font-bold text-stone-900 text-xs">74</td>
-                <td class="py-3.5 text-right font-mono font-bold text-stone-900 text-xs">192</td>
-                <td class="py-3.5 text-right font-mono font-bold text-stone-800 text-xs">4.0%</td>
-                <td class="py-3.5 pl-8 pr-2">
-                  <div class="flex items-center gap-3">
-                    <div class="w-full h-2.5 bg-stone-100 rounded-full overflow-hidden">
-                      <div class="h-full bg-orange-500 rounded-full" style="width: 4%;"></div>
-                    </div>
-                    <span class="text-[11px] font-mono text-stone-500 w-10 text-right">4%</span>
-                  </div>
-                </td>
-              </tr>
-
-              <!-- Row 5: Edge & Other -->
-              <tr class="hover:bg-surface-subtle transition-colors">
-                <td class="py-3.5 pl-2 font-medium">
-                  <div class="flex items-center gap-3">
-                    <span class="w-7 h-7 rounded-lg bg-stone-100 border border-stone-200 flex items-center justify-center text-stone-600">
-                      <span class="material-symbols-outlined text-[17px]">devices</span>
-                    </span>
-                    <div>
-                      <div class="font-bold text-stone-900 text-[13px]">Microsoft Edge & Khác</div>
-                      <div class="text-[11px] text-stone-500">Brave, Arc, Opera và máy tính bảng iPad</div>
-                    </div>
-                  </div>
-                </td>
-                <td class="py-3.5 text-right font-mono font-bold text-stone-900 text-xs">54</td>
-                <td class="py-3.5 text-right font-mono font-bold text-stone-900 text-xs">145</td>
-                <td class="py-3.5 text-right font-mono font-bold text-stone-800 text-xs">3.0%</td>
-                <td class="py-3.5 pl-8 pr-2">
-                  <div class="flex items-center gap-3">
-                    <div class="w-full h-2.5 bg-stone-100 rounded-full overflow-hidden">
-                      <div class="h-full bg-stone-400 rounded-full" style="width: 3%;"></div>
-                    </div>
-                    <span class="text-[11px] font-mono text-stone-500 w-10 text-right">3%</span>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-            <tfoot>
-              <tr class="border-t-2 border-surface-border text-stone-800 font-bold bg-[#faf8f4]">
-                <td class="py-3 pl-2 text-stone-900">Tổng cộng (5 nhóm nền tảng)</td>
-                <td class="py-3 text-right font-mono text-stone-900">1,840</td>
-                <td class="py-3 text-right font-mono text-stone-900">4,812</td>
-                <td class="py-3 text-right font-mono text-brand-teal">100.0%</td>
-                <td class="py-3 pl-8 pr-2 text-stone-500 text-[11px] font-medium font-sans">
-                  Tỉ lệ máy tính : điện thoại ≈ 59% : 41%
-                </td>
-              </tr>
-            </tfoot>
-          </table>
-        </div>
-      </section>
-
-      <!-- PRIVACY MANDATORY FOOTER NOTE -->
-      <footer class="pt-2 pb-8">
-        <div class="p-4 rounded-xl bg-surface-card border border-surface-border text-stone-500 text-xs flex items-center justify-between shadow-tactile-subtle">
-          <div class="flex items-center gap-2.5">
-            <span class="material-symbols-outlined text-[19px] text-brand-teal">shield</span>
-            <span class="font-medium text-stone-600">Thống kê ẩn danh tự xây: không cookie, không lưu IP; quốc gia do Cloudflare xác định. Chỉ tính người thật.</span>
-          </div>
-          <div class="flex items-center gap-4 text-[11px] text-stone-500 font-mono">
-            <span>Server time: GMT+7 (Asia/Ho_Chi_Minh)</span>
-            <span>•</span>
-            <span class="text-brand-teal font-semibold">Tự động làm mới mỗi 15 phút</span>
-          </div>
-        </div>
-      </footer>
-
-    </main>
-  </div>
-
-</body>
-</html>
+<span>Độ trễ TB: 18ms</span>
+</div>
+</section>
+</div>
+</div>
+<!-- CHÍNH SÁCH BẢO MẬT & ZERO PII FOOTNOTE BANNER -->
+<footer class="tactile-card rounded-lg p-4 bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-on-surface-variant border border-outline-variant/40">
+<div class="flex items-center gap-3">
+<span class="w-9 h-9 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shadow-xs">
+<span class="material-symbols-outlined text-lg" data-icon="lock">lock</span>
+</span>
+<div>
+<div class="font-bold text-primary">Tuân thủ tiêu chuẩn bảo vệ quyền riêng tư người học (Zero PII Policy)</div>
+<p class="text-on-surface-variant text-[11px] mt-0.5">
+              Hệ thống không thu thập địa chỉ IP công khai, không gắn cookie theo dõi chéo và mã hóa chu kỳ định danh sau 24h. Dữ liệu lưu trữ độc lập trên cụm máy chủ Cloudflare Edge Việt Nam.
+            </p>
+</div>
+</div>
+<div class="shrink-0 text-right">
+<span class="font-label-sm text-label-sm text-outline font-semibold">Lexkite Enterprise Analytics · v4.2.1-QC10</span>
+</div>
+</footer>
+</div>
+</main>
+</body></html>

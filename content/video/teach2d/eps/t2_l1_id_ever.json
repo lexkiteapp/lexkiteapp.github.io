@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_ever",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "I have been, no ever!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have ever been to Bali.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have been to Bali.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "No ever in statements.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Have been! I have been to Bali.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have ever been to Bali.",
+  "right": "I have been to Bali.",
+  "strike": "ever",
+  "why": "No ever in statements.",
+  "memory": "I have been.",
+  "quiz": {
+   "stem": "I ___ to Bali.",
+   "options": [
+    "have been",
+    "have ever been"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Pernah” ≠ “ever”!",
+   "tip": "“Saya pernah ke Bali” cukup I have been to Bali. Ever dipakai di pertanyaan: Have you ever been to Bali?",
+   "caption": "Pernah bilang begini? “I have ever been to Bali.” 😅 Dalam kalimat biasa, buang ever: “I have been to Bali.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “have been”. Tanya temanmu: “Have you ever been to ...?” Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#grammaringgris",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Pernah” ≠ “ever”!",
+   "tip": "“Saya pernah ke Bali” is just I have been to Bali. Use ever in questions: Have you ever been to Bali?",
+   "caption": "Ever say this? “I have ever been to Bali.” 😅 In a normal sentence, drop ever: “I have been to Bali.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Pernah” ≠ “ever”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“Pernah” ≠ “ever”!",
+  "keyword": "I have been to Bali.",
+  "value": "“Saya pernah ke Bali” cukup I have been to Bali. Ever dipakai di pertanyaan: Have you ever been to Bali?",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#grammaringgris",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "“Pernah” ≠ “ever”!",
+    "description": "“Saya pernah ke Bali” cukup I have been to Bali. Ever dipakai di pertanyaan: Have you ever been to Bali?\n\nPernah bilang begini? “I have ever been to Bali.” 😅 Dalam kalimat biasa, buang ever: “I have been to Bali.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #grammaringgris #bahasainggris #lexkite",
+    "tags": [
+     "I have been to Bali.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “I have ever been to Bali.” 😅 Dalam kalimat biasa, buang ever: “I have been to Bali.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Pernah” ≠ “ever”!\n\n“Saya pernah ke Bali” cukup I have been to Bali. Ever dipakai di pertanyaan: Have you ever been to Bali?\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#grammaringgris",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Pernah” ≠ “ever”! “Saya pernah ke Bali” cukup I have been to Bali. Ever dipakai di pertanyaan:… #belajarbahasainggris #grammaringgris #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “have been”. Tanya temanmu: “Have you ever been to ...?” Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

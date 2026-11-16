@@ -60,10 +60,12 @@ export function routeAll(rules, cfgs, clip, fallback) {
 /** Bộ 16 fanpage Lexkite: 1 page EN chung + 15 page theo ngôn ngữ người học. Tên kênh (GrabCast) → mã ngôn ngữ; không nhận ra = '' (page chung = 'en').
  *  Khớp tên riêng ngôn ngữ (endonym), tên tiếng Anh, tên tiếng Việt, hoặc mã trong ngoặc/sau gạch: "Lexkite Español", "Lexkite (VI)", "Lexkite – Japanese". */
 const LANG_NAMES = { vi: ['tiếng việt', 'việt nam', 'vietnam', 'vietnamese'], es: ['español', 'espanol', 'spanish', 'tây ban nha', 'aprende inglés', 'aprender inglés', 'aprende ingles'], pt: ['português', 'portugues', 'portuguese', 'brasil', 'bồ đào nha', 'aprenda inglês', 'aprender inglês', 'aprenda ingles'],
-  fr: ['français', 'francais', 'french', 'tiếng pháp', "apprendre l'anglais", 'apprendre l’anglais'], de: ['deutsch', 'german', 'tiếng đức', 'englisch lernen'], id: ['indonesia', 'bahasa'], th: ['ไทย', 'thai', 'thái lan'], zh: ['中文', '汉语', '漢語', 'chinese', 'trung quốc', 'tiếng trung'],
-  ja: ['日本語', 'japanese', 'nhật bản', 'tiếng nhật'], ko: ['한국어', 'korean', 'hàn quốc', 'tiếng hàn'], hi: ['हिन्दी', 'हिंदी', 'hindi'], ar: ['العربية', 'arabic', 'ả rập'], ru: ['русский', 'russian', 'tiếng nga'],
+  fr: ['français', 'francais', 'french', 'tiếng pháp', "apprendre l'anglais", 'apprendre l’anglais'], de: ['deutsch', 'german', 'tiếng đức', 'englisch lernen'], id: ['indonesia', 'bahasa'], th: ['ไทย', 'thai', 'thái lan', 'เรียนภาษาอังกฤษ', 'ภาษาอังกฤษ'], zh: ['中文', '汉语', '漢語', '学英语', '學英語', '英语', 'chinese', 'trung quốc', 'tiếng trung'],
+  ja: ['日本語', '英語学習', 'japanese', 'nhật bản', 'tiếng nhật'], ko: ['한국어', '영어 공부', '영어', 'korean', 'hàn quốc', 'tiếng hàn'], hi: ['हिन्दी', 'हिंदी', 'hindi'], ar: ['العربية', 'arabic', 'ả rập'], ru: ['русский', 'russian', 'tiếng nga'],
   tr: ['türkçe', 'turkce', 'turkish', 'thổ nhĩ kỳ', 'ngilizce öğren', 'ngilizce ogren'], en: ['english', 'global', 'tiếng anh'] };
 export const SOCIAL_LANGS = Object.keys(LANG_NAMES);
+/** Múi giờ bản địa của người học theo ngôn ngữ kênh – dùng khi kênh CHƯA lưu cfg.tz (mặc định America/New_York làm kênh Thái/Hàn/Nhật… lên lịch theo giờ New York, 16/11). */
+export const LANG_TZ = { vi: 'Asia/Ho_Chi_Minh', en: 'America/New_York', es: 'America/Mexico_City', pt: 'America/Sao_Paulo', fr: 'Europe/Paris', de: 'Europe/Berlin', id: 'Asia/Jakarta', th: 'Asia/Bangkok', zh: 'Asia/Shanghai', ja: 'Asia/Tokyo', ko: 'Asia/Seoul', hi: 'Asia/Kolkata', ar: 'Asia/Riyadh', ru: 'Europe/Moscow', tr: 'Europe/Istanbul' };
 /** Tên page nói người HỌC là ai: "Học tiếng Anh/Nhật…" = page cho người Việt (10/11: "Lexkite - Học Tiếng Anh" bị nhận nhầm 'en' vì chứa "tiếng anh"). Xét trước LANG_NAMES. */
 const LEARNER_VI = /(?:^|[^\p{L}])(?:học|hoc)\s+(?:tiếng|tieng)(?:[^\p{L}]|$)/u;
 export function langOfChannel(title) {

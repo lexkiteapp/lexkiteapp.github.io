@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_ifrains",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Is raining? Say it is raining!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Is raining today.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: It is raining today.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Start with it.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! It is cold today.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Is raining today.",
+  "right": "It is raining today.",
+  "strike": "Is raining",
+  "why": "Start with it.",
+  "memory": "It is raining. It is cold.",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "Is cold today.",
+    "It is cold today."
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "هل تقول “Is raining”؟",
+   "tip": "في العربية نقول «تمطر اليوم» دون كلمة قبل الفعل، أما في الإنجليزية فنبدأ بـ it: “It is raining today.” وليس “Is raining today.”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “Is raining today.” 😅 في العربية نقول «تمطر اليوم» دون كلمة قبل الفعل، أما في الإنجليزية فنبدأ بـ it، فالجملة الصحيحة “It is raining today.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “It is raining” — في العربية نقول «تمطر اليوم» دون كلمة قبل الفعل، أما في الإنجليزية فنبدأ بـ it. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “Is raining”?",
+   "tip": "In Arabic we say «تمطر اليوم» with no word before the verb, but in English we start with it: “It is raining today.” not “Is raining today.”",
+   "caption": "Do you sometimes say this? “Is raining today.” 😅 In Arabic we say «تمطر اليوم» with no word before the verb, but in English we start with it, so the right sentence is “It is raining today.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “Is raining”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "هل تقول “Is raining”؟",
+  "keyword": "It is raining today.",
+  "value": "في العربية نقول «تمطر اليوم» دون كلمة قبل الفعل، أما في الإنجليزية فنبدأ بـ it: “It is raining today.” وليس “Is raining today.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “Is raining”؟",
+    "description": "في العربية نقول «تمطر اليوم» دون كلمة قبل الفعل، أما في الإنجليزية فنبدأ بـ it: “It is raining today.” وليس “Is raining today.”\n\nهل تقول أحيانًا هذه الجملة؟ “Is raining today.” 😅 في العربية نقول «تمطر اليوم» دون كلمة قبل الفعل، أما في الإنجليزية فنبدأ بـ it، فالجملة الصحيحة “It is raining today.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "It is raining today.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا هذه الجملة؟ “Is raining today.” 😅 في العربية نقول «تمطر اليوم» دون كلمة قبل الفعل، أما في الإنجليزية فنبدأ بـ it، فالجملة الصحيحة “It is raining today.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول “Is raining”؟\n\nفي العربية نقول «تمطر اليوم» دون كلمة قبل الفعل، أما في الإنجليزية فنبدأ بـ it: “It is raining today.” وليس “Is raining today.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “Is raining”؟ في العربية نقول «تمطر اليوم» دون كلمة قبل الفعل، أما في الإنجليزية فنبدأ بـ… #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “It is raining” — في العربية نقول «تمطر اليوم» دون كلمة قبل الفعل، أما في الإنجليزية فنبدأ بـ it. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+  "lang": "ar"
+ }
+}

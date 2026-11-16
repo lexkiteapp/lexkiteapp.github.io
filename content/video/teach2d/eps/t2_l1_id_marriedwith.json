@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_marriedwith",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Married to, not with!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She is married with a doctor.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She is married to a doctor.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Married goes with to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "To! He is married to my sister.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She is married with a doctor.",
+  "right": "She is married to a doctor.",
+  "strike": "with",
+  "why": "Married goes with to.",
+  "memory": "Married to.",
+  "quiz": {
+   "stem": "He is married ___ my sister.",
+   "options": [
+    "with",
+    "to"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Menikah dengan” jadi “with”?",
+   "tip": "Kita bilang “menikah dengan dokter”, tapi bahasa Inggris pakai married to.",
+   "caption": "Pernah bilang begini? “She is married with a doctor.” 😅 Untuk “menikah dengan”, pakai married to: “She is married to a doctor.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “to”. Ucapkan dengan lantang: “She is married to a doctor.” Lalu buat satu contoh tentang kenalanmu. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#kosakata",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Married to” becomes “with”?",
+   "tip": "We say “menikah dengan dokter”, but English uses married to.",
+   "caption": "Ever say this? “She is married with a doctor.” 😅 For “menikah dengan”, use married to: “She is married to a doctor.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Menikah dengan” jadi “with”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“Menikah dengan” jadi “with”?",
+  "keyword": "She is married to a doctor.",
+  "value": "Kita bilang “menikah dengan dokter”, tapi bahasa Inggris pakai married to.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#kosakata",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "“Menikah dengan” jadi “with”?",
+    "description": "Kita bilang “menikah dengan dokter”, tapi bahasa Inggris pakai married to.\n\nPernah bilang begini? “She is married with a doctor.” 😅 Untuk “menikah dengan”, pakai married to: “She is married to a doctor.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #kosakata #bahasainggris #lexkite",
+    "tags": [
+     "She is married to a doctor.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “She is married with a doctor.” 😅 Untuk “menikah dengan”, pakai married to: “She is married to a doctor.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Menikah dengan” jadi “with”?\n\nKita bilang “menikah dengan dokter”, tapi bahasa Inggris pakai married to.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#kosakata",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Menikah dengan” jadi “with”? Kita bilang “menikah dengan dokter”, tapi bahasa Inggris pakai married t… #belajarbahasainggris #kosakata #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “to”. Ucapkan dengan lantang: “She is married to a doctor.” Lalu buat satu contoh tentang kenalanmu. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_during_for",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "During or for two years?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I studied English during two years.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I studied English for two years.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use for with a number of years.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "For! I lived there for three years.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I studied English during two years.",
+  "right": "I studied English for two years.",
+  "strike": "during",
+  "why": "Use for with a number of years.",
+  "memory": "For two years.",
+  "quiz": {
+   "stem": "I lived there ___ three years.",
+   "options": [
+    "during",
+    "for"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Два года — for two years",
+   "tip": "Сколько длилось — “for”: “I studied English for two years.”",
+   "caption": "Ты тоже говоришь “I studied English during two years”? 😅 По-русски «в течение двух лет» подсказывает слово “during”, но когда называем сколько длилось, по-английски нужен “for.” Правильно: “I studied English for two years.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “for.” Сколько длилось — for. Напиши своё предложение с “for two years.” Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#учуанглийский",
+    "#английскийдляначинающих",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Two years: during or for?",
+   "tip": "To say how long, use “for”: “I studied English for two years.”",
+   "caption": "Do you also say “I studied English during two years”? 😅 In Russian «в течение» points to “during”, but to say how long, English uses “for.” Correct: “I studied English for two years.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Два года — for two years"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 51,
+  "seconds": 30.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Два года — for two years",
+  "keyword": "I studied English for two years.",
+  "value": "Сколько длилось — “for”: “I studied English for two years.”",
+  "hashtags": [
+   "#английскийязык",
+   "#учуанглийский",
+   "#английскийдляначинающих",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 45,
+  "platforms": {
+   "youtube": {
+    "title": "Два года — for two years",
+    "description": "Сколько длилось — “for”: “I studied English for two years.”\n\nТы тоже говоришь “I studied English during two years”? 😅 По-русски «в течение двух лет» подсказывает слово “during”, но когда называем сколько длилось, по-английски нужен “for.” Правильно: “I studied English for two years.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #учуанглийский #английскийдляначинающих #lexkite",
+    "tags": [
+     "I studied English for two years.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “I studied English during two years”? 😅 По-русски «в течение двух лет» подсказывает слово “during”, но когда называем сколько длилось, по-английски нужен “for.” Правильно: “I studied English for two years.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Два года — for two years\n\nСколько длилось — “for”: “I studied English for two years.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#учуанглийский",
+     "#английскийдляначинающих",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Два года — for two years Сколько длилось — “for”: “I studied English for two years.” #английскийязык #учуанглийский #английскийдляначинающих"
+   }
+  },
+  "first_comment": "Ответ: “for.” Сколько длилось — for. Напиши своё предложение с “for two years.” Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

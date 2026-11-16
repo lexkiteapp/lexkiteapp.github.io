@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_enter_room",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Enter to or enter?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She entered to the room.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She entered the room.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Enter needs no to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "No word! He entered the house.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She entered to the room.",
+  "right": "She entered the room.",
+  "strike": "to",
+  "why": "Enter needs no to.",
+  "memory": "Enter the room.",
+  "quiz": {
+   "stem": "He entered ___ the house.",
+   "options": [
+    "to",
+    "no word"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Enter to — лишнее “to”",
+   "tip": "После “enter” “to” не нужно: “She entered the room.”",
+   "caption": "Ты тоже говоришь “She entered to the room”? 😅 По-русски «вошла в комнату» — с предлогом «в», и хочется поставить “to”, но глагол enter сам ведёт к месту. Правильно: “She entered the room.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “no word.” После enter — сразу место. Напиши своё предложение с “entered the.” Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#учуанглийский",
+    "#английскийдляначинающих",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Enter to: drop the “to”",
+   "tip": "After “enter”, no “to”: “She entered the room.”",
+   "caption": "Do you also say “She entered to the room”? 😅 In Russian «в» comes with the verb, so “to” slips in, but “enter” leads straight to the place. Correct: “She entered the room.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Enter to — лишнее “to”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "Enter to — лишнее “to”",
+  "keyword": "She entered the room.",
+  "value": "После “enter” “to” не нужно: “She entered the room.”",
+  "hashtags": [
+   "#английскийязык",
+   "#учуанглийский",
+   "#английскийдляначинающих",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "Enter to — лишнее “to”",
+    "description": "После “enter” “to” не нужно: “She entered the room.”\n\nТы тоже говоришь “She entered to the room”? 😅 По-русски «вошла в комнату» — с предлогом «в», и хочется поставить “to”, но глагол enter сам ведёт к месту. Правильно: “She entered the room.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #учуанглийский #английскийдляначинающих #lexkite",
+    "tags": [
+     "She entered the room.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “She entered to the room”? 😅 По-русски «вошла в комнату» — с предлогом «в», и хочется поставить “to”, но глагол enter сам ведёт к месту. Правильно: “She entered the room.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Enter to — лишнее “to”\n\nПосле “enter” “to” не нужно: “She entered the room.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#учуанглийский",
+     "#английскийдляначинающих",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Enter to — лишнее “to” После “enter” “to” не нужно: “She entered the room.” #английскийязык #учуанглийский #английскийдляначинающих"
+   }
+  },
+  "first_comment": "Ответ: “no word.” После enter — сразу место. Напиши своё предложение с “entered the.” Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

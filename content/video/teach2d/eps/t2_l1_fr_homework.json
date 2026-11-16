@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "Les devoirs : « do », pas « make »",
-   "tip": "On ne « fait » pas ses devoirs avec “make” : en anglais, c'est “do my homework”.",
-   "caption": "Tu dis “I make my homework every night.” ? En français on « fait » tout. En anglais, dis “I do my homework every night.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.",
-   "comment": "Réponse : “does”. Les devoirs se disent avec “do”, pas avec “make”. Teste d'autres pièges avec un quiz gratuit : {link}",
+   "tip": "On « fait » ses devoirs en français, mais en anglais : “do my homework”, pas “make”.",
+   "caption": "Vous dites “I make my homework every night.” ? Pour les devoirs, l’anglais n’emploie pas “make”. Dites plutôt “I do my homework every night.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “does” — Les devoirs se disent avec “do”, pas avec “make”. Testez d’autres pièges avec un quiz gratuit : {link}",
    "hashtags": [
     "#apprendrelanglais",
     "#anglaisfacile",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "Homework: “do”, not “make”",
-   "tip": "You do not “make” homework. In English it is “do my homework”.",
-   "caption": "Do you say “I make my homework every night.”? French uses “faire” for everything. In English, say “I do my homework every night.”. Listen to Ama and repeat with her! More exercises in the Lexkite app."
+   "tip": "Learners often say “make my homework”. In English, homework goes with “do”.",
+   "caption": "Do you say this? “I make my homework every night.” With homework, English uses “do”. Say “I do my homework every night.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "Les devoirs : « do », pas « make »",
   "keyword": "I do my homework every night.",
-  "value": "On ne « fait » pas ses devoirs avec “make” : en anglais, c'est “do my homework”.",
+  "value": "On « fait » ses devoirs en français, mais en anglais : “do my homework”, pas “make”.",
   "hashtags": [
    "#apprendrelanglais",
    "#anglaisfacile",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "Les devoirs : « do », pas « make »",
-    "description": "Tu dis “I make my homework every night.” ? En français on « fait » tout. En anglais, dis “I do my homework every night.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "description": "On « fait » ses devoirs en français, mais en anglais : “do my homework”, pas “make”.\n\nVous dites “I make my homework every night.” ? Pour les devoirs, l’anglais n’emploie pas “make”. Dites plutôt “I do my homework every night.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
     "tags": [
      "I do my homework every night.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Tu dis “I make my homework every night.” ? En français on « fait » tout. En anglais, dis “I do my homework every night.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Vous dites “I make my homework every night.” ? Pour les devoirs, l’anglais n’emploie pas “make”. Dites plutôt “I do my homework every night.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Tu dis “I make my homework every night.” ? En français on « fait » tout. En anglais, dis “I do my homework every night.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.\n\nlexkite.com",
+    "caption": "Les devoirs : « do », pas « make »\n\nOn « fait » ses devoirs en français, mais en anglais : “do my homework”, pas “make”.\n\nlexkite.com",
     "hashtags": [
      "#apprendrelanglais",
      "#anglaisfacile",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "Les devoirs : « do », pas « make » #apprendrelanglais #anglaisfacile #coursdanglais"
+    "caption": "Les devoirs : « do », pas « make » On « fait » ses devoirs en français, mais en anglais : “do my hom… #apprendrelanglais #anglaisfacile #coursdanglais"
    }
   },
-  "first_comment": "Réponse : “does”. Les devoirs se disent avec “do”, pas avec “make”. Teste d'autres pièges avec un quiz gratuit : {link}",
+  "first_comment": "Réponse : “does” — Les devoirs se disent avec “do”, pas avec “make”. Testez d’autres pièges avec un quiz gratuit : {link}",
   "lang": "fr"
  }
 }

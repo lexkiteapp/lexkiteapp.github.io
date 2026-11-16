@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_shehave",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She has, not have!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She have a new car.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She has a new car.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "She, he: has.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Has! He has a big house.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She have a new car.",
+  "right": "She has a new car.",
+  "strike": "have",
+  "why": "She, he: has.",
+  "memory": "She has.",
+  "quiz": {
+   "stem": "He ___ a big house.",
+   "options": [
+    "have",
+    "has"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“She have”? Pakai “has”!",
+   "tip": "Kata kerja bahasa Indonesia sama untuk semua orang, tapi bahasa Inggris pakai has setelah she dan he.",
+   "caption": "Pernah bilang begini? “She have a new car.” 😅 Setelah she atau he, pakai has: “She has a new car.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “has”. Ceritakan temanmu: “He has ...” Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#grammaringgris",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“She have”? Use “has”!",
+   "tip": "Indonesian verbs stay the same for everyone, but English uses has after she and he.",
+   "caption": "Ever say this? “She have a new car.” 😅 After she or he, use has: “She has a new car.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“She have”? Pakai “has”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“She have”? Pakai “has”!",
+  "keyword": "She has a new car.",
+  "value": "Kata kerja bahasa Indonesia sama untuk semua orang, tapi bahasa Inggris pakai has setelah she dan he.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#grammaringgris",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "“She have”? Pakai “has”!",
+    "description": "Kata kerja bahasa Indonesia sama untuk semua orang, tapi bahasa Inggris pakai has setelah she dan he.\n\nPernah bilang begini? “She have a new car.” 😅 Setelah she atau he, pakai has: “She has a new car.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #grammaringgris #bahasainggris #lexkite",
+    "tags": [
+     "She has a new car.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “She have a new car.” 😅 Setelah she atau he, pakai has: “She has a new car.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“She have”? Pakai “has”!\n\nKata kerja bahasa Indonesia sama untuk semua orang, tapi bahasa Inggris pakai has setelah she dan he.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#grammaringgris",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“She have”? Pakai “has”! Kata kerja bahasa Indonesia sama untuk semua orang, tapi bahasa Inggris… #belajarbahasainggris #grammaringgris #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “has”. Ceritakan temanmu: “He has ...” Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

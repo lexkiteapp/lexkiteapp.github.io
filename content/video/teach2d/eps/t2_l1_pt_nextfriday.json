@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_nextfriday",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "No in before next!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I will see you in the next Friday.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I will see you next Friday.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "We do not use in the.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The first! I will see you next Friday.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I will see you in the next Friday.",
+  "right": "I will see you next Friday.",
+  "strike": "in the next",
+  "why": "We do not use in the.",
+  "memory": "Next Friday.",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "I will see you next Friday.",
+    "I will see you in the next Friday."
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Sem “in the” antes de “next”!",
+   "tip": "Em português dizemos “na próxima sexta”; em inglês, diga só “next Friday”, sem “in the”.",
+   "caption": "Você também diz isso? “I will see you in the next Friday.” 😅 O certo é “I will see you next Friday.” Em português dizemos “na próxima sexta”; em inglês, diga só “next Friday”, sem “in the”. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “I will see you next Friday.” Agora diga em voz alta “I will see you next Friday.” e treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "No “in the” before “next”!",
+   "tip": "In Portuguese we say “na próxima sexta”; in English, just say “next Friday”, without “in the”.",
+   "caption": "Do you say this too? “I will see you in the next Friday.” 😅 The right way is “I will see you next Friday.” In Portuguese we say “na próxima sexta”; in English, just say “next Friday”, without “in the”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Sem “in the” antes de “next”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "Sem “in the” antes de “next”!",
+  "keyword": "I will see you next Friday.",
+  "value": "Em português dizemos “na próxima sexta”; em inglês, diga só “next Friday”, sem “in the”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 46,
+  "platforms": {
+   "youtube": {
+    "title": "Sem “in the” antes de “next”!",
+    "description": "Em português dizemos “na próxima sexta”; em inglês, diga só “next Friday”, sem “in the”.\n\nVocê também diz isso? “I will see you in the next Friday.” 😅 O certo é “I will see you next Friday.” Em português dizemos “na próxima sexta”; em inglês, diga só “next Friday”, sem “in the”. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "I will see you next Friday.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Você também diz isso? “I will see you in the next Friday.” 😅 O certo é “I will see you next Friday.” Em português dizemos “na próxima sexta”; em inglês, diga só “next Friday”, sem “in the”. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Sem “in the” antes de “next”!\n\nEm português dizemos “na próxima sexta”; em inglês, diga só “next Friday”, sem “in the”.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Sem “in the” antes de “next”! Em português dizemos “na próxima sexta”; em inglês, diga só “next Friday”, s… #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “I will see you next Friday.” Agora diga em voz alta “I will see you next Friday.” e treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

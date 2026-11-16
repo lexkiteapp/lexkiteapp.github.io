@@ -1,0 +1,752 @@
+{
+ "mediation": {
+  "mis": [
+   {
+    "w": "The two firms agreed to go to a mediation.",
+    "r": "The two firms agreed to go to mediation.",
+    "why": "Mediation as a process is uncountable and takes no article after go to."
+   },
+   {
+    "w": "The dispute was solved by mediation of a neutral lawyer.",
+    "r": "The dispute was settled through the mediation of a neutral lawyer.",
+    "why": "Use 'through the mediation of' for the means; 'by mediation of' is not idiomatic."
+   }
+  ],
+  "u": "Mediation is a way of settling a dispute with the help of a neutral third person, the mediator, who guides the talks but does not decide the outcome. That separates it from arbitration, where the arbitrator imposes a ruling. It is common in family, workplace and commercial conflicts, and often cheaper than court. As a general process it is uncountable: the case went to mediation."
+ },
+ "migration": {
+  "mis": [
+   {
+    "w": "The migration from rural areas to cities are rising.",
+    "r": "The migration from rural areas to cities is rising.",
+    "why": "Migration is a singular noun, so the verb must be singular, not plural."
+   },
+   {
+    "w": "Many birds make a migration to the south every winter.",
+    "r": "Many birds migrate to the south every winter.",
+    "why": "The verb migrate is more natural than make a migration; the noun is wordy here."
+   }
+  ],
+  "u": "Migration means movement from one place to another, used for people, animals and, in IT, data or software. Phrases such as rural-urban migration, seasonal migration and data migration are standard. For people it is usually neutral and slightly formal; it does not say whether the move is legal. Do not confuse it with immigration, which describes entering a new country to live there."
+ },
+ "mold": {
+  "mis": [
+   {
+    "w": "The metal is poured to a mold and left to cool.",
+    "r": "The metal is poured into a mold and left to cool.",
+    "why": "Pour takes 'into' for the container receiving the liquid, not 'to'."
+   },
+   {
+    "w": "Bread left in the kitchen got a mold after a week.",
+    "r": "Bread left in the kitchen grew mold after a week.",
+    "why": "Mold is uncountable when it means the fungus, so it takes no article."
+   }
+  ],
+  "u": "In US English mold has two unrelated meanings: a hollow shape that gives form to liquid material such as plastic, metal or jelly, and the fuzzy fungus that grows on damp food or walls. British English spells both mould. In manufacturing, an injection mold is a tool, so it is countable; the fungus meaning is uncountable. The idiom break the mold means to do something in a new way."
+ },
+ "neurology": {
+  "mis": [
+   {
+    "w": "She is a neurology and works at the city hospital.",
+    "r": "She is a neurologist and works at the city hospital.",
+    "why": "Neurology is the field; the doctor is a neurologist."
+   },
+   {
+    "w": "He studied the neurology of Vietnam University.",
+    "r": "He studied neurology at Vietnam University.",
+    "why": "Use 'at' for a university and no 'the' or 'of' before the subject."
+   }
+  ],
+  "u": "Neurology is the medical specialty that diagnoses and treats diseases of the brain, spinal cord and nerves, such as epilepsy, stroke and Parkinson's disease. The doctor is a neurologist, and the department is often called neurology. It is uncountable and takes a singular verb. Do not mix it up with neuroscience, which is research on the nervous system rather than patient care, or neurosurgery, which means operating."
+ },
+ "notarize": {
+  "mis": [
+   {
+    "w": "I need to notarize my passport copy by a notary.",
+    "r": "I need to have my passport copy notarized by a notary.",
+    "why": "Notarize means to certify; to ask someone to do it, use have/get + object + past participle."
+   },
+   {
+    "w": "The notary will notarizing your signature tomorrow.",
+    "r": "The notary will notarize your signature tomorrow.",
+    "why": "After 'will' use the base form of the verb, not -ing."
+   }
+  ],
+  "u": "To notarize a document is to have a notary public check the identity of the signer and officially certify the signature or the copy. People usually do not notarize things themselves; they get or have a document notarized. It is a formal, legal verb used with contracts, powers of attorney and translations. British English often spells it notarise. Do not confuse it with simply signing or witnessing."
+ },
+ "notary": {
+  "mis": [
+   {
+    "w": "The contract was notary by a lawyer yesterday.",
+    "r": "The contract was notarized by a notary yesterday.",
+    "why": "Notary is a noun for the person; the verb is notarize."
+   },
+   {
+    "w": "Please bring your ID to notary.",
+    "r": "Please bring your ID to the notary.",
+    "why": "A singular countable noun needs an article; here the specific notary needs 'the'."
+   }
+  ],
+  "u": "A notary, or notary public, is an official authorized to witness signatures, certify copies and administer oaths. The role differs by country: in the US a notary mainly checks identity, while in many civil-law countries, including Vietnam, a notary has wider legal duties and usually needs legal training. The person is a notary; the act is to notarize. Say go to the notary or see a notary."
+ },
+ "oncology": {
+  "mis": [
+   {
+    "w": "She works as an oncology in a big hospital.",
+    "r": "She works as an oncologist in a big hospital.",
+    "why": "Oncology is the field; the specialist is an oncologist."
+   },
+   {
+    "w": "The oncology are very busy this week.",
+    "r": "The oncology department is very busy this week.",
+    "why": "Oncology is a field, not a group of people; name the department to talk about staff."
+   }
+  ],
+  "u": "Oncology is the branch of medicine that studies and treats cancer. A doctor in this field is an oncologist, and the main branches are medical, surgical and radiation oncology. The word is uncountable and formal, common in hospital names such as the oncology unit and in news about treatment. A patient is usually described as being under oncology or on an oncology ward."
+ },
+ "orthopedics": {
+  "mis": [
+   {
+    "w": "Orthopedics are the study of bones and joints.",
+    "r": "Orthopedics is the study of bones and joints.",
+    "why": "Names of fields ending in -ics, like orthopedics, take a singular verb."
+   },
+   {
+    "w": "He is an orthopedics and he treats knees.",
+    "r": "He is an orthopedist and he treats knees.",
+    "why": "Orthopedics is the field; the doctor is an orthopedist or orthopedic surgeon."
+   }
+  ],
+  "u": "Orthopedics is the medical specialty for bones, joints, muscles and ligaments, including fractures and joint replacements. American English spells it orthopedics; British English uses orthopaedics. Despite the final -s it is singular and uncountable. The doctor is an orthopedist or orthopedic surgeon, and the adjective is orthopedic: an orthopedic shoe or an orthopedic mattress."
+ },
+ "outpatient": {
+  "mis": [
+   {
+    "w": "He was treated like an outpatient at the hospital.",
+    "r": "He was treated as an outpatient at the hospital.",
+    "why": "Use 'as' for a role or status, not 'like'."
+   },
+   {
+    "w": "Many outpatient is waiting in the clinic.",
+    "r": "Many outpatients are waiting in the clinic.",
+    "why": "Many needs a plural noun and a plural verb."
+   }
+  ],
+  "u": "An outpatient is someone who visits a hospital or clinic for treatment or tests but does not stay overnight; the opposite is an inpatient. The word also works as an adjective: outpatient surgery, an outpatient clinic. In the UK a day patient is similar. Hospitals report numbers of outpatients and inpatients separately."
+ },
+ "overhaul": {
+  "mis": [
+   {
+    "w": "The old engine was overhaul last year.",
+    "r": "The old engine was overhauled last year.",
+    "why": "The passive needs the past participle overhauled, not the base form."
+   },
+   {
+    "w": "The government will overhaul to the education system.",
+    "r": "The government will overhaul the education system.",
+    "why": "The verb overhaul takes a direct object, with no 'to'."
+   }
+  ],
+  "u": "Overhaul can be a noun or a verb. In engineering it means a thorough inspection and repair of a machine, such as an aircraft engine. In wider use it means a radical reform of a system, as in a tax overhaul or to overhaul the school curriculum. It is stronger than adjust or tweak and suggests changing nearly everything. Typical partners are major, complete and total."
+ },
+ "pathology": {
+  "mis": [
+   {
+    "w": "The pathology of the patient are serious.",
+    "r": "The pathology of the patient is serious.",
+    "why": "Pathology is singular and uncountable, so use a singular verb."
+   },
+   {
+    "w": "She is a pathology at the hospital.",
+    "r": "She is a pathologist at the hospital.",
+    "why": "Pathology is the field; the doctor is a pathologist."
+   }
+  ],
+  "u": "Pathology is the study of diseases, their causes and effects, and in hospitals it usually means the lab that examines tissue and blood samples to reach a diagnosis. A pathologist is the specialist; a pathology report is what a biopsy produces. Forensic pathology investigates causes of death. The word can also mean abnormal changes caused by disease, as in the pathology of the liver. It is formal and uncountable."
+ },
+ "pediatrics": {
+  "mis": [
+   {
+    "w": "Pediatrics are a popular specialty among students.",
+    "r": "Pediatrics is a popular specialty among students.",
+    "why": "A field name ending in -ics is singular and takes 'is'."
+   },
+   {
+    "w": "She is a pediatrics and treats babies.",
+    "r": "She is a pediatrician and treats babies.",
+    "why": "Pediatrics is the field; the doctor is a pediatrician."
+   }
+  ],
+  "u": "Pediatrics is the branch of medicine for babies, children and teenagers. The doctor is a pediatrician, and the adjective is pediatric: a pediatric nurse, pediatric dose. British English writes paediatrics. The word is singular and uncountable even though it ends in -s. People say she works in pediatrics or he is training in pediatrics, and the hospital area is the pediatrics ward or the children's ward."
+ },
+ "peripheral": {
+  "mis": [
+   {
+    "w": "The mouse and printer are peripheral of the computer.",
+    "r": "The mouse and printer are peripherals of the computer.",
+    "why": "As a noun it needs the plural -s here; 'peripheral' alone is an adjective."
+   },
+   {
+    "w": "This problem is peripheral with our main goal.",
+    "r": "This problem is peripheral to our main goal.",
+    "why": "The adjective peripheral takes 'to', not 'with'."
+   }
+  ],
+  "u": "Peripheral is mainly an adjective meaning on the edge or of minor importance: peripheral vision, a peripheral issue. In computing it is also a noun for a device attached to a computer, such as a printer, mouse or scanner, and then it is countable and usually plural. The pattern be peripheral to something is common in formal writing, and the opposite idea is central or core."
+ },
+ "pharmacology": {
+  "mis": [
+   {
+    "w": "Pharmacology are difficult for many students.",
+    "r": "Pharmacology is difficult for many students.",
+    "why": "Pharmacology is a singular uncountable noun, so use 'is'."
+   },
+   {
+    "w": "He studies the pharmacology of the university.",
+    "r": "He studies pharmacology at the university.",
+    "why": "Use 'at' for the place and no 'the...of' before the subject."
+   }
+  ],
+  "u": "Pharmacology is the science of how drugs act on the body, covering doses, effects, side effects and interactions. It is different from pharmacy, which is about preparing and dispensing medicines. A researcher in the field is a pharmacologist, and the adjective is pharmacological. The word is uncountable and formal, common in medical courses, journals and phrases like clinical pharmacology."
+ },
+ "physiology": {
+  "mis": [
+   {
+    "w": "The physiology of the heart are complex.",
+    "r": "The physiology of the heart is complex.",
+    "why": "The subject noun is physiology, which is singular."
+   },
+   {
+    "w": "I like physiological because it explains the body.",
+    "r": "I like physiology because it explains the body.",
+    "why": "Physiological is an adjective; use the noun physiology as the object of like."
+   }
+  ],
+  "u": "Physiology is the science of how living bodies work: how organs, cells and systems function. It differs from anatomy, which studies structure, and from psychology, which studies the mind. The adjective is physiological and the specialist a physiologist. It is uncountable and can describe humans, animals or plants. Common uses are human physiology, exercise physiology and the physiology of sleep."
+ },
+ "physiotherapy": {
+  "mis": [
+   {
+    "w": "He needs a physiotherapy after the operation.",
+    "r": "He needs physiotherapy after the operation.",
+    "why": "Physiotherapy is uncountable and takes no 'a'."
+   },
+   {
+    "w": "She is a physiotherapy at the hospital.",
+    "r": "She is a physiotherapist at the hospital.",
+    "why": "Physiotherapy is the treatment; the practitioner is a physiotherapist."
+   }
+  ],
+  "u": "Physiotherapy is treatment that uses exercise, massage and movement to restore strength and mobility after injury, surgery or illness. It is the usual word in British and Australian English; Americans say physical therapy, and the practitioner is a physical therapist. The British form is physiotherapist, often shortened to physio in speech. It is uncountable: have physiotherapy, not a physiotherapy."
+ },
+ "pipeline": {
+  "mis": [
+   {
+    "w": "A new project is on the pipeline.",
+    "r": "A new project is in the pipeline.",
+    "why": "The idiom is 'in the pipeline', meaning being planned or developed."
+   },
+   {
+    "w": "The oil pipe line runs across the desert.",
+    "r": "The oil pipeline runs across the desert.",
+    "why": "Pipeline is one closed compound word, not two."
+   }
+  ],
+  "u": "A pipeline is a long line of pipes for carrying oil, gas or water over distance. Figuratively, in the pipeline means being prepared and expected to arrive soon: new products are in the pipeline. In business a sales pipeline is the set of deals at different stages, and in software a data or CI pipeline is a chain of automated steps. The idiom needs the preposition in, not on."
+ },
+ "plaintiff": {
+  "mis": [
+   {
+    "w": "The defendant filed the lawsuit against the company.",
+    "r": "The plaintiff filed the lawsuit against the company.",
+    "why": "The plaintiff starts a civil case; the defendant is the party being sued."
+   },
+   {
+    "w": "The plaintiff sued to the company for damages.",
+    "r": "The plaintiff sued the company for damages.",
+    "why": "Sue takes a direct object, with no 'to'."
+   }
+  ],
+  "u": "A plaintiff is the person or party that starts a civil lawsuit and asks the court for a remedy, usually money. The opposite party is the defendant. In criminal cases there is no plaintiff, because the state brings the charge through a prosecutor. In England and Wales the modern term is claimant. It is a legal, formal noun and countable: the plaintiffs filed a joint complaint."
+ },
+ "pneumatic": {
+  "mis": [
+   {
+    "w": "This tool is pneumatically and very powerful.",
+    "r": "This tool is pneumatic and very powerful.",
+    "why": "After 'is' you need an adjective; pneumatic is the adjective, pneumatically is an adverb."
+   },
+   {
+    "w": "The brakes on this truck are pneumatical.",
+    "r": "The brakes on this truck are pneumatic.",
+    "why": "The adjective is pneumatic; there is no -al form."
+   }
+  ],
+  "u": "Pneumatic describes anything operated by compressed air or gas, as in a pneumatic drill, pneumatic brakes or a pneumatic tire. It is a technical adjective found in engineering and factory work. The p is silent, so it begins with the sound /nu/. Compare hydraulic, which uses liquid under pressure. Pneumatic systems are lighter and cleaner but give less force than hydraulic ones."
+ },
+ "precision": {
+  "mis": [
+   {
+    "w": "The machine works with a high precise.",
+    "r": "The machine works with high precision.",
+    "why": "After 'with' use the noun precision, not the adjective precise."
+   },
+   {
+    "w": "She measured the parts by precision.",
+    "r": "She measured the parts with precision.",
+    "why": "The manner is expressed with 'with precision', not 'by precision'."
+   }
+  ],
+  "u": "Precision is the quality of being exact, often used for tools, measurements and careful work. In science and engineering it differs slightly from accuracy: accuracy means close to the true value, precision means repeatable and fine detail. The adjective is precise, the adverb precisely. It is usually uncountable and works as a modifier: precision tools, precision engineering. Common pattern: with precision, not by precision."
+ },
+ "processor": {
+  "mis": [
+   {
+    "w": "My computer has a slow processing.",
+    "r": "My computer has a slow processor.",
+    "why": "Processing is the action; the hardware part is a processor."
+   },
+   {
+    "w": "The processor of this phone are very fast.",
+    "r": "The processor of this phone is very fast.",
+    "why": "The subject is the singular processor, not phone, so the verb is 'is'."
+   }
+  ],
+  "u": "A processor is the part of a computer or phone that executes instructions; CPU is the common term for the main one, and a chip may hold several cores. Speed is measured in gigahertz and cores. The word also appears in other compounds: a word processor is software for writing documents, and a food processor is a kitchen machine. A processor is countable: the phone has an eight-core processor."
+ },
+ "procurement": {
+  "mis": [
+   {
+    "w": "The procurements of new laptops took three months.",
+    "r": "The procurement of new laptops took three months.",
+    "why": "Procurement as a process is uncountable, so no plural -s."
+   },
+   {
+    "w": "We are in charge of the procurement for office supplies.",
+    "r": "We are in charge of the procurement of office supplies.",
+    "why": "Use 'of' after procurement to name the goods acquired."
+   }
+  ],
+  "u": "Procurement is the formal process by which an organization obtains goods, services or works, including finding suppliers, comparing bids and signing contracts. It is a business and government term, more formal than buying or purchasing, and implies rules and approval steps. Public procurement concerns state spending. A procurement officer or manager runs it. The word is uncountable and normally followed by of."
+ },
+ "prognosis": {
+  "mis": [
+   {
+    "w": "The doctor made a prognostic for the patient.",
+    "r": "The doctor gave a prognosis for the patient.",
+    "why": "Prognosis is the noun; prognostic is an adjective. The collocation is give a prognosis."
+   },
+   {
+    "w": "The prognosis for these patients are good.",
+    "r": "The prognosis for these patients is good.",
+    "why": "The subject is singular prognosis, not patients, so use 'is'."
+   }
+  ],
+  "u": "Prognosis is a doctor's judgment of how an illness is likely to develop and whether the patient will recover. It looks forward, unlike diagnosis, which identifies the illness now. People talk about a good, poor or uncertain prognosis. The plural is prognoses. It is formal and medical, but is also used figuratively for any forecast: the economic prognosis. Typical pattern: the prognosis for something."
+ },
+ "prosecution": {
+  "mis": [
+   {
+    "w": "He escaped from prosecution by leaving the country.",
+    "r": "He escaped prosecution by leaving the country.",
+    "why": "Escape takes a direct object here, with no 'from'."
+   },
+   {
+    "w": "He faces prosecute for stealing.",
+    "r": "He faces prosecution for stealing.",
+    "why": "After the verb 'faces' you need a noun, prosecution, not the verb prosecute."
+   }
+  ],
+  "u": "Prosecution has two meanings: the act of bringing criminal charges against someone and conducting the case, and the legal team that does so, as in the prosecution called three witnesses. In the second sense it can take a singular or plural verb in British English. The person who does the work is a prosecutor. A defendant may face prosecution, escape prosecution or be immune from it. It is a formal legal word."
+ },
+ "prosecutor": {
+  "mis": [
+   {
+    "w": "The prosecutor defended the accused in court.",
+    "r": "The defense lawyer defended the accused in court.",
+    "why": "A prosecutor accuses on behalf of the state; the one who defends is a defense lawyer."
+   },
+   {
+    "w": "He works as prosecutor in Hanoi.",
+    "r": "He works as a prosecutor in Hanoi.",
+    "why": "A job title as a singular countable noun after 'as' needs 'a'."
+   }
+  ],
+  "u": "A prosecutor is a lawyer who brings criminal charges and presents the case against the accused on behalf of the state. In the US the title is often district attorney or state attorney; in Britain, Crown prosecutor. The prosecutor works for the state, so do not confuse the role with the defense lawyer who protects the accused. The verb is prosecute and the noun for the case is prosecution."
+ },
+ "psychiatry": {
+  "mis": [
+   {
+    "w": "He is a psychiatry and works at a hospital.",
+    "r": "He is a psychiatrist and works at a hospital.",
+    "why": "Psychiatry is the field; the doctor is a psychiatrist."
+   },
+   {
+    "w": "A psychiatrist can prescribe, but a psychology cannot.",
+    "r": "A psychiatrist can prescribe, but a psychologist cannot.",
+    "why": "Compare the two people: psychiatrist and psychologist; psychology is the subject."
+   }
+  ],
+  "u": "Psychiatry is the medical specialty that diagnoses and treats mental illness, such as depression, schizophrenia and anxiety disorders. A psychiatrist is a medical doctor and can prescribe drugs. This separates the role from a psychologist, who studies behavior and usually offers therapy without medication. The word is uncountable, and phrases like psychiatry ward or child psychiatry are common in hospitals."
+ },
+ "quarantine": {
+  "mis": [
+   {
+    "w": "He stayed in a quarantine for ten days.",
+    "r": "He stayed in quarantine for ten days.",
+    "why": "Quarantine as a state is uncountable here, so no article."
+   },
+   {
+    "w": "The travelers were quarantine for two weeks.",
+    "r": "The travelers were quarantined for two weeks.",
+    "why": "The passive needs the past participle quarantined."
+   }
+  ],
+  "u": "Quarantine is the isolation of people or animals who may carry a disease but are not yet known to be ill, to stop it spreading. It differs from isolation, which separates people who are confirmed sick. It works as a noun and a verb: be in quarantine, to quarantine someone. It is used with in, not a: go into quarantine. A quarantine period is the number of days of separation required."
+ },
+ "quotation": {
+  "mis": [
+   {
+    "w": "Please send me a quotation about the repair.",
+    "r": "Please send me a quotation for the repair.",
+    "why": "A quotation is a price offer for a job; the preposition is 'for'."
+   },
+   {
+    "w": "The quotation price are valid for 30 days.",
+    "r": "The quotation price is valid for 30 days.",
+    "why": "The subject is the singular noun price, so use 'is'."
+   }
+  ],
+  "u": "A quotation has two senses: words repeated from a text or speaker, and in business a document stating the price you will charge for goods or a job, valid for a period. People often shorten it to quote in speech. A quotation is a firm offer, while an estimate is only approximate. Typical phrases are get a quotation from a supplier and a quotation for the repair."
+ },
+ "radiotherapy": {
+  "mis": [
+   {
+    "w": "She had a radiotherapy last month.",
+    "r": "She had radiotherapy last month.",
+    "why": "Radiotherapy is uncountable, so no 'a'."
+   },
+   {
+    "w": "She received radiotherapies for six weeks.",
+    "r": "She received radiotherapy for six weeks.",
+    "why": "Radiotherapy is uncountable and has no plural."
+   }
+  ],
+  "u": "Radiotherapy is cancer treatment that uses controlled doses of radiation to destroy tumor cells. It is often combined with surgery or chemotherapy. In American English radiation therapy is more common, and the specialist is a radiation oncologist. Radiotherapy is uncountable; for individual treatments say a session or a course of radiotherapy. Patients typically have it daily over several weeks."
+ },
+ "refactor": {
+  "mis": [
+   {
+    "w": "Please refactoring this function.",
+    "r": "Please refactor this function.",
+    "why": "After 'please' use the base form of the verb."
+   },
+   {
+    "w": "Let's refactor to the old module.",
+    "r": "Let's refactor the old module.",
+    "why": "Refactor is transitive and takes the code directly with no 'to'."
+   }
+  ],
+  "u": "To refactor is to restructure existing code so it is cleaner and easier to maintain without changing what it does for users. It is not the same as rewriting or adding features, and good practice is to refactor with tests in place so you notice any change in behavior. The noun is refactoring: this class needs refactoring. It is informal-technical, used by developers daily, and almost always transitive."
+ },
+ "regression": {
+  "mis": [
+   {
+    "w": "The update caused a regression of the login feature.",
+    "r": "The update caused a regression in the login feature.",
+    "why": "Use 'in' for a defect inside a feature; 'of' is not idiomatic here."
+   },
+   {
+    "w": "The release contains regression.",
+    "r": "The release contains a regression.",
+    "why": "In the software sense a regression is a countable bug and needs an article."
+   }
+  ],
+  "u": "In software, a regression is a bug in a feature that used to work, usually caused by a recent change. Teams run regression tests to catch these after every release. The word comes from regress, meaning move backward. Outside IT it can mean a return to an earlier state, as in psychology, or statistical regression, a method of modeling relationships. Context decides which sense is meant."
+ },
+ "repository": {
+  "mis": [
+   {
+    "w": "Please commit your changes on the repository.",
+    "r": "Please commit your changes to the repository.",
+    "why": "Changes are committed to a repository, not on it."
+   },
+   {
+    "w": "Our team has three repository on GitHub.",
+    "r": "Our team has three repositories on GitHub.",
+    "why": "Three needs a plural noun; repository becomes repositories."
+   }
+  ],
+  "u": "A repository is a place where things are stored. In software it is the location, usually managed with Git, that holds a project's code and its full change history; developers shorten it to repo. You clone, push to and pull from a repository, which may be local or remote. In general English a repository of knowledge means a person or place that holds a lot of information. The main stress falls on the second syllable."
+ },
+ "respiratory": {
+  "mis": [
+   {
+    "w": "He has a respiratory of problems.",
+    "r": "He has respiratory problems.",
+    "why": "Respiratory is an adjective and goes straight before the noun; no 'of'."
+   },
+   {
+    "w": "The respiration system is damaged by smoke.",
+    "r": "The respiratory system is damaged by smoke.",
+    "why": "Respiration is a noun; the adjective before system is respiratory."
+   }
+  ],
+  "u": "Respiratory is a formal medical adjective meaning relating to breathing and the organs used for it, mainly the lungs and airways. It appears in respiratory system, respiratory infection, respiratory failure and respiratory rate. The related noun respiration means the act of breathing, and a person who helps breathing uses a respirator. In everyday speech people say breathing problems rather than respiratory problems."
+ },
+ "runtime": {
+  "mis": [
+   {
+    "w": "The error appears in runtime, not when we compile.",
+    "r": "The error appears at runtime, not when we compile.",
+    "why": "The fixed phrase is 'at runtime'."
+   },
+   {
+    "w": "A runtime error is a mistake that is found when writing the code.",
+    "r": "A runtime error is a mistake that occurs when the program is running.",
+    "why": "Runtime refers to when the program executes, not when it is written."
+   }
+  ],
+  "u": "Runtime is the period during which a program is executing, or the software environment that supports that execution, such as the Java runtime. A runtime error happens while the program runs, unlike a compile-time error caught before it starts. Developers say at runtime. As a noun it is written as one word or as two words, run time. Do not confuse it with a film's running time."
+ },
+ "securities": {
+  "mis": [
+   {
+    "w": "He bought securities of a safe company.",
+    "r": "He bought securities in a safe company.",
+    "why": "Securities are bought in a company, not 'of' it."
+   },
+   {
+    "w": "The securities is traded on the exchange.",
+    "r": "Securities are traded on the exchange.",
+    "why": "In this meaning the noun is plural, so use 'are'."
+   }
+  ],
+  "u": "Securities are tradable financial assets, mainly shares, bonds and similar instruments, that can be bought and sold on a market. In this sense the word is used in the plural: securities are regulated. It has no link to personal safety, where the singular security is uncountable. Terms such as securities exchange, securities fraud and securities firm belong to finance and law, and the regulator checks that investors are protected."
+ },
+ "shaft": {
+  "mis": [
+   {
+    "w": "The engine's shaft is rotate at high speed.",
+    "r": "The engine's shaft is rotating at high speed.",
+    "why": "After 'is' the progressive needs the -ing form rotating."
+   },
+   {
+    "w": "The workers went down in the mine shaft by elevator.",
+    "r": "The workers went down the mine shaft by elevator.",
+    "why": "Go down takes a direct object like the shaft without 'in'."
+   }
+  ],
+  "u": "A shaft has several senses. In machinery it is a rotating rod that transmits power, as in a drive shaft. It can also mean a narrow vertical passage, such as a mine shaft or a lift shaft in British English, and a beam of light: a shaft of sunlight. Check context, since the word is also used as a rude slang term."
+ },
+ "sterile": {
+  "mis": [
+   {
+    "w": "The doctor wore a sterilize glove.",
+    "r": "The doctor wore a sterile glove.",
+    "why": "After 'a' you need an adjective; sterile, not the verb sterilize."
+   },
+   {
+    "w": "The instruments must be sterile by heating.",
+    "r": "The instruments must be sterilized by heating.",
+    "why": "Sterile is a state; the process described with 'by heating' needs the passive sterilized."
+   }
+  ],
+  "u": "Sterile means completely free from living bacteria and other germs, as with surgical instruments, needles and dressings. The verb is sterilize and the noun sterility. It has a second meaning, unable to produce offspring, and a third, figurative one for something lifeless or lacking creativity, such as a sterile debate. Sterile is stronger than clean or hygienic, since clean items can still carry germs."
+ },
+ "subsidiary": {
+  "mis": [
+   {
+    "w": "The company is a subsidiary from a Japanese group.",
+    "r": "The company is a subsidiary of a Japanese group.",
+    "why": "Use 'of' to link a subsidiary with its parent."
+   },
+   {
+    "w": "They own three subsidiarys abroad.",
+    "r": "They own three subsidiaries abroad.",
+    "why": "Nouns ending in consonant + y change to -ies in the plural."
+   }
+  ],
+  "u": "A subsidiary is a company controlled by another company, called the parent, which owns more than half of its shares. A wholly owned subsidiary is fully owned. Unlike a branch, a subsidiary is a separate legal entity with its own accounts. The pattern is subsidiary of the parent group. Subsidiary can also be an adjective meaning secondary, as in a subsidiary question, and is then more formal."
+ },
+ "suture": {
+  "mis": [
+   {
+    "w": "The nurse sutured with the wound.",
+    "r": "The nurse sutured the wound.",
+    "why": "Suture as a verb takes a direct object, with no preposition."
+   },
+   {
+    "w": "He has ten suture in his arm.",
+    "r": "He has ten sutures in his arm.",
+    "why": "Ten requires a plural noun."
+   }
+  ],
+  "u": "A suture is a stitch or the thread used by a surgeon to close a wound or join tissue; it can also be a verb. The word is formal and clinical, used by medical staff, while patients usually say stitches. Sutures may be absorbable, which dissolve by themselves, or non-absorbable, which must be removed. You get sutures put in, and your doctor removes them after a week or so."
+ },
+ "testimony": {
+  "mis": [
+   {
+    "w": "The witness gave a lot of testimonies in court.",
+    "r": "The witness gave a lot of testimony in court.",
+    "why": "Testimony is usually uncountable, so no plural after a lot of."
+   },
+   {
+    "w": "She made a testimony before the judge.",
+    "r": "She gave testimony before the judge.",
+    "why": "The collocation is give testimony, not make a testimony."
+   }
+  ],
+  "u": "Testimony is a formal statement made by a witness, usually under oath in court. It is generally uncountable: give testimony, hear testimony, false testimony. It also has a figurative use: something is a testimony to a person's skill, meaning clear proof of it. Testimony is spoken evidence, unlike documents or objects, which are other kinds of evidence. The verb is testify, and the person who gives it is a witness."
+ },
+ "tolerance": {
+  "mis": [
+   {
+    "w": "She has no tolerance of spicy food.",
+    "r": "She has no tolerance for spicy food.",
+    "why": "Tolerance for a thing or behavior takes 'for'."
+   },
+   {
+    "w": "The part is outside of tolerance and must be rejected.",
+    "r": "The part is out of tolerance and must be rejected.",
+    "why": "The engineering phrase is 'out of tolerance'."
+   }
+  ],
+  "u": "Tolerance has three common senses. Socially it means accepting views or behavior you do not share: religious tolerance. In medicine it is the body's ability to endure a drug or substance, as in alcohol tolerance. In engineering it is the allowed amount of variation in a measurement; a shaft of 20 mm with a tolerance of 0.1 mm may measure between 19.9 and 20.1. The adjective is tolerant, and zero tolerance means no exceptions."
+ },
+ "torque": {
+  "mis": [
+   {
+    "w": "The engine produces a lot of torques at low speed.",
+    "r": "The engine produces a lot of torque at low speed.",
+    "why": "Torque in this sense is uncountable and has no plural after a lot of."
+   },
+   {
+    "w": "Tighten the bolt with the specified torque.",
+    "r": "Tighten the bolt to the specified torque.",
+    "why": "Tighten takes 'to' before a target torque value."
+   }
+  ],
+  "u": "Torque is a twisting force that causes rotation, measured in newton-meters or pound-feet. A bolt must be tightened to a specified torque using a torque wrench, and a car engine is rated by peak torque. It is related to power but not the same: torque is the turning effort and power is how fast the work is done. The word is technical and, in this sense, uncountable. The q is pronounced like k."
+ },
+ "transformer": {
+  "mis": [
+   {
+    "w": "The transformer change the voltage from 220 to 12.",
+    "r": "The transformer changes the voltage from 220 to 12.",
+    "why": "A singular subject takes the -s verb in the present simple."
+   },
+   {
+    "w": "We need a transformator for this device.",
+    "r": "We need a transformer for this device.",
+    "why": "The English word is transformer; 'transformator' is a form borrowed from other languages."
+   }
+  ],
+  "u": "A transformer is a device that raises or lowers the voltage of alternating current using two coils of wire. Step-up transformers increase voltage for long-distance transmission and step-down transformers lower it for homes. It does not work with direct current. In film and toys, the word also means a robot that changes shape. The word comes from transform and is countable."
+ },
+ "troubleshooting": {
+  "mis": [
+   {
+    "w": "We did a lot of troubleshootings yesterday.",
+    "r": "We did a lot of troubleshooting yesterday.",
+    "why": "Troubleshooting is uncountable and has no plural."
+   },
+   {
+    "w": "He is troubleshooting to the printer.",
+    "r": "He is troubleshooting the printer.",
+    "why": "The verb troubleshoot takes a direct object, with no 'to'."
+   }
+  ],
+  "u": "Troubleshooting is a systematic process of finding the cause of a fault and fixing it, common in IT, electronics and engineering. The verb is troubleshoot, and the person is a troubleshooter. A troubleshooting guide lists symptoms and fixes. It differs from debugging, which refers only to software errors, and from repair, which is the physical fix. The noun is uncountable: do some troubleshooting."
+ },
+ "ultrasound": {
+  "mis": [
+   {
+    "w": "She did an ultrasound at the clinic yesterday.",
+    "r": "She had an ultrasound at the clinic yesterday.",
+    "why": "A patient has a scan done; the doctor does it. Use have."
+   },
+   {
+    "w": "The doctor checked the baby by an ultrasound.",
+    "r": "The doctor checked the baby with an ultrasound.",
+    "why": "Use 'with' for the instrument used."
+   }
+  ],
+  "u": "Ultrasound is imaging that uses high-frequency sound waves to show organs or a baby in the womb; it is safe and does not use radiation. The same word names the sound itself, above human hearing. In a clinic it can be countable (she had an ultrasound) or used as an adjective (ultrasound scan). Technicians who perform it are sonographers, and the image is a sonogram."
+ },
+ "uptime": {
+  "mis": [
+   {
+    "w": "The server has an uptime of 99.9 percents.",
+    "r": "The server has an uptime of 99.9 percent.",
+    "why": "Percent does not take -s after a number in this usage."
+   },
+   {
+    "w": "The site had a long uptime, so customers could not log in.",
+    "r": "The site had a long downtime, so customers could not log in.",
+    "why": "Uptime is when the system works; a period when users cannot log in is downtime."
+   }
+  ],
+  "u": "Uptime is the amount or percentage of time a system, website or machine is working and available. Providers promise uptime in service agreements, often 99.9 percent, which allows roughly nine hours of downtime a year. The opposite is downtime. Uptime is uncountable and informal-technical. It differs from availability only slightly: uptime is the measured time, while availability is how usable the service is."
+ },
+ "valuation": {
+  "mis": [
+   {
+    "w": "The valuation of the company are 5 million dollars.",
+    "r": "The valuation of the company is 5 million dollars.",
+    "why": "The subject valuation is singular, so use 'is'."
+   },
+   {
+    "w": "We need to valuate the house before selling.",
+    "r": "We need a valuation of the house before selling.",
+    "why": "Valuate is rare; the standard noun is valuation, the verb is value."
+   }
+  ],
+  "u": "A valuation is an estimate of how much a company, property or asset is worth, usually by a professional. It is used in investment, insurance and property sales. A start-up may have a high valuation based on expected growth rather than profits. The verb is value, not valuate, and a person is a valuer in British English or an appraiser in American English. It is countable: three different valuations."
+ },
+ "verdict": {
+  "mis": [
+   {
+    "w": "The jury made a verdict of guilty.",
+    "r": "The jury reached a verdict of guilty.",
+    "why": "The collocation is reach or return a verdict, not make a verdict."
+   },
+   {
+    "w": "The jury's verdict was announce yesterday.",
+    "r": "The jury's verdict was announced yesterday.",
+    "why": "The passive needs the past participle announced."
+   }
+  ],
+  "u": "A verdict is the formal decision of a jury, or a judge in some trials, on whether the accused is guilty or not guilty. It differs from a sentence, which is the punishment, and from a ruling, which is a judge's decision on a point of law. Verdict can also mean any strong opinion: the critics' verdict on the film was kind. Typical phrases are reach a verdict and a unanimous verdict."
+ },
+ "virtualization": {
+  "mis": [
+   {
+    "w": "Virtualization let us run many servers on one machine.",
+    "r": "Virtualization lets us run many servers on one machine.",
+    "why": "A singular subject needs -s on the present simple verb."
+   },
+   {
+    "w": "We use virtualize to run many servers.",
+    "r": "We use virtualization to run many servers.",
+    "why": "After 'use' you need the noun virtualization, not the verb."
+   }
+  ],
+  "u": "Virtualization is the technology that creates virtual versions of computers, storage devices or networks on top of physical hardware, so one machine can run several isolated systems. A hypervisor is the software that manages them. It reduces costs and allows quick backups. The word is uncountable; British spelling is virtualisation. Do not confuse it with virtual reality, which is a simulated environment for users."
+ },
+ "voltage": {
+  "mis": [
+   {
+    "w": "The voltage of this cable are very high.",
+    "r": "The voltage of this cable is very high.",
+    "why": "Voltage is singular and uncountable, so use 'is'."
+   },
+   {
+    "w": "The voltage runs through the wire.",
+    "r": "Current runs through the wire.",
+    "why": "Current flows; voltage is the force that pushes it, so voltage does not run through."
+   }
+  ],
+  "u": "Voltage is the electrical pressure that pushes current through a circuit, measured in volts. A 230-volt supply is mains voltage in much of the world, and a battery may give 1.5 volts. Learners often mix it up with current, which is the flow of charge measured in amperes, and with power, measured in watts. Voltage is uncountable; you measure it across a component and talk about high or low voltage."
+ }
+}

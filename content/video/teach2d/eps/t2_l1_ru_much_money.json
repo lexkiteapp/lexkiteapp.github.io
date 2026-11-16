@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_much_money",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Many or much money?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I don't have many money.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I don't have much money.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use much with money.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Much! How much water do you drink?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I don't have many money.",
+  "right": "I don't have much money.",
+  "strike": "many",
+  "why": "Use much with money.",
+  "memory": "Much money.",
+  "quiz": {
+   "stem": "How ___ water do you drink?",
+   "options": [
+    "many",
+    "much"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Много денег — much, не many",
+   "tip": "Деньги — “much”: “I don't have much money.”",
+   "caption": "Ты тоже говоришь “I don't have many money”? 😅 По-русски «много» подходит ко всему — и к деньгам, и к людям, поэтому хочется сказать “many.” Но с деньгами и водой по-английски нужно “much.” Правильно: “I don't have much money.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “much.” Деньги, вода — much. Напиши одно предложение: “I don't have much …” Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#учуанглийский",
+    "#английскийдляначинающих",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Many or much money?",
+   "tip": "With money, use “much”: “I don't have much money.”",
+   "caption": "Do you also say “I don't have many money”? 😅 In Russian one word for a lot fits everything, so “many” feels right. But with money and water, English uses “much.” Correct: “I don't have much money.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Много денег — much, не many"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Много денег — much, не many",
+  "keyword": "I don't have much money.",
+  "value": "Деньги — “much”: “I don't have much money.”",
+  "hashtags": [
+   "#английскийязык",
+   "#учуанглийский",
+   "#английскийдляначинающих",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "Много денег — much, не many",
+    "description": "Деньги — “much”: “I don't have much money.”\n\nТы тоже говоришь “I don't have many money”? 😅 По-русски «много» подходит ко всему — и к деньгам, и к людям, поэтому хочется сказать “many.” Но с деньгами и водой по-английски нужно “much.” Правильно: “I don't have much money.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #учуанглийский #английскийдляначинающих #lexkite",
+    "tags": [
+     "I don't have much money.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “I don't have many money”? 😅 По-русски «много» подходит ко всему — и к деньгам, и к людям, поэтому хочется сказать “many.” Но с деньгами и водой по-английски нужно “much.” Правильно: “I don't have much money.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Много денег — much, не many\n\nДеньги — “much”: “I don't have much money.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#учуанглийский",
+     "#английскийдляначинающих",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Много денег — much, не many Деньги — “much”: “I don't have much money.” #английскийязык #учуанглийский #английскийдляначинающих"
+   }
+  },
+  "first_comment": "Ответ: “much.” Деньги, вода — much. Напиши одно предложение: “I don't have much …” Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

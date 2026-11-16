@@ -22,6 +22,7 @@ diagrams: [
   {id: d1, type: compare, title: 'Getting around: UK vs US words', cols: ['UK', 'US / Canada', 'Australia'], rows: [['underground, the tube', 'subway (metro in some cities)', 'train, metro (Melbourne: tram)'], ['pavement', 'sidewalk', 'footpath'], ['petrol station', 'gas station', 'service station'], ['return ticket', 'round-trip ticket', 'return ticket'], ['lift', 'elevator', 'lift'], ['flyover, roundabout', 'overpass, traffic circle', 'overpass, roundabout']]},
   {id: d2, type: boxes, title: 'A polite way to ask for directions', parts: [{t: 'Get attention', r: 'Excuse me,'}, {t: 'Ask politely', r: 'could you tell me how to get to'}, {t: 'Name the place', r: 'the central station?'}, {t: 'Check and thank', r: 'So, straight on, then left? Thanks so much.'}]}
 ]
+publishAt: 2027-01-21T12:38:00+05:30
 ---
 
 You can read a map, but real directions come as quick spoken English from a stranger. **Asking for directions in English** is easier when you know three things: a polite way to ask, the small set of words people use to answer, and how to check that you understood. This guide covers all three, then moves on to buses, trains, taxis and delay announcements.

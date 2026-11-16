@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_luck",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Chance is a false friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I wish you good chance!",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I wish you good luck!",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Chance means a possibility. Luck is good fortune.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Luck! Good luck!",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I wish you good chance!",
+  "right": "I wish you good luck!",
+  "strike": "chance",
+  "why": "Chance means a possibility. Luck is good fortune.",
+  "memory": "Good fortune: luck.",
+  "quiz": {
+   "stem": "Before a test, I say, “Good ___!”",
+   "options": [
+    "chance",
+    "luck"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "« Bonne chance ! » : “good luck”",
+   "tip": "En anglais, “chance” veut dire « possibilité ». Pour « bonne chance », dites “good luck”.",
+   "caption": "Vous dites “I wish you good chance!” ? “Chance” veut dire « possibilité », pas « chance ». Pour souhaiter bonne chance, dites “good luck”. Dites plutôt “I wish you good luck!” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “I wish you good luck!” — “Chance” veut dire « possibilité », pas « chance ». Pour souhaiter bonne chance, dites “good luck”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “good luck”!",
+   "tip": "In English, “chance” means a possibility. To wish someone well, say “good luck”.",
+   "caption": "Do you say this? “I wish you good chance!” In English, “chance” means a possibility. To wish someone well, say “good luck”. Say “I wish you good luck!” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "« Bonne chance ! » : “good luck”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "« Bonne chance ! » : “good luck”",
+  "keyword": "I wish you good luck!",
+  "value": "En anglais, “chance” veut dire « possibilité ». Pour « bonne chance », dites “good luck”.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "« Bonne chance ! » : “good luck”",
+    "description": "En anglais, “chance” veut dire « possibilité ». Pour « bonne chance », dites “good luck”.\n\nVous dites “I wish you good chance!” ? “Chance” veut dire « possibilité », pas « chance ». Pour souhaiter bonne chance, dites “good luck”. Dites plutôt “I wish you good luck!” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "I wish you good luck!",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Vous dites “I wish you good chance!” ? “Chance” veut dire « possibilité », pas « chance ». Pour souhaiter bonne chance, dites “good luck”. Dites plutôt “I wish you good luck!” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "« Bonne chance ! » : “good luck”\n\nEn anglais, “chance” veut dire « possibilité ». Pour « bonne chance », dites “good luck”.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "« Bonne chance ! » : “good luck” En anglais, “chance” veut dire « possibilité ». Pour « bonne chance… #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “I wish you good luck!” — “Chance” veut dire « possibilité », pas « chance ». Pour souhaiter bonne chance, dites “good luck”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}

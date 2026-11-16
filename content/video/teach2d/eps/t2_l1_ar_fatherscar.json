@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_fatherscar",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Car of my father? Say father's car!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: This is the car of my father.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: This is my father's car.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use 's for who has it.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! This is my sister's bag.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "This is the car of my father.",
+  "right": "This is my father's car.",
+  "strike": "the car of my father",
+  "why": "Use 's for who has it.",
+  "memory": "Ali's car.",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "This is the bag of my sister.",
+    "This is my sister's bag."
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "هل تقول “the car of my father”؟",
+   "tip": "نقول «سيارة أبي»، أما هنا فنضيف 's إلى صاحب الشيء: “This is my father's car.” وليس “This is the car of my father.”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “This is the car of my father.” 😅 نقول «سيارة أبي»، أما هنا فنضيف 's إلى صاحب الشيء، فالجملة الصحيحة “This is my father's car.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “my father's car” — نقول «سيارة أبي»، أما هنا فنضيف 's إلى صاحب الشيء. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “the car of my father”?",
+   "tip": "In Arabic we say «سيارة أبي», but here we add 's to the owner: “This is my father's car.” not “This is the car of my father.”",
+   "caption": "Do you sometimes say this? “This is the car of my father.” 😅 In Arabic we say «سيارة أبي», but here we add 's to the owner, so the right sentence is “This is my father's car.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “the car of my father”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "هل تقول “the car of my father”؟",
+  "keyword": "This is my father's car.",
+  "value": "نقول «سيارة أبي»، أما هنا فنضيف 's إلى صاحب الشيء: “This is my father's car.” وليس “This is the car of my father.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 46,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “the car of my father”؟",
+    "description": "نقول «سيارة أبي»، أما هنا فنضيف 's إلى صاحب الشيء: “This is my father's car.” وليس “This is the car of my father.”\n\nهل تقول أحيانًا هذه الجملة؟ “This is the car of my father.” 😅 نقول «سيارة أبي»، أما هنا فنضيف 's إلى صاحب الشيء، فالجملة الصحيحة “This is my father's car.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "This is my father's car.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا هذه الجملة؟ “This is the car of my father.” 😅 نقول «سيارة أبي»، أما هنا فنضيف 's إلى صاحب الشيء، فالجملة الصحيحة “This is my father's car.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول “the car of my father”؟\n\nنقول «سيارة أبي»، أما هنا فنضيف 's إلى صاحب الشيء: “This is my father's car.” وليس “This is the car of my father.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “the car of my father”؟ نقول «سيارة أبي»، أما هنا فنضيف 's إلى صاحب الشيء: “This is my fa… #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “my father's car” — نقول «سيارة أبي»، أما هنا فنضيف 's إلى صاحب الشيء. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+  "lang": "ar"
+ }
+}

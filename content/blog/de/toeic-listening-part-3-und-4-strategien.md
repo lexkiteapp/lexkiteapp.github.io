@@ -9,7 +9,7 @@ tags: [toeic, listening, part-3, part-4]
 keyword: "toeic part 3 und 4"
 cover: toeic
 coverAlt: "Lexkite TOEIC-Bereich mit Probetests und Übungen nach Teilen"
-publishAt:
+publishAt: 2027-01-17T21:39:00+01:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

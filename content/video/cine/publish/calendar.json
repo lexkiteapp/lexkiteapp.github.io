@@ -43,7 +43,7 @@
    "id": "news_clothing_store_ab_b20f1c",
    "scene": "news",
    "template": "ab",
-   "title": "\"Can I try on it?\" or \"Can I try it on?\"? Comment A or B",
+   "title": "\"Can I try on it?\" or \"Can I try it on?\"? A or B",
    "pack": "content/video/cine/publish/news_clothing_store_ab_b20f1c.json"
   },
   {
@@ -98,7 +98,7 @@
    "id": "news_gym_ab_a76472",
    "scene": "news",
    "template": "ab",
-   "title": "\"I do yoga.\" or \"I make yoga.\"? Comment A or B",
+   "title": "\"I do yoga.\" or \"I make yoga.\"? A or B",
    "pack": "content/video/cine/publish/news_gym_ab_a76472.json"
   },
   {
@@ -142,7 +142,7 @@
    "id": "news_kitchen_ab_a30db6",
    "scene": "news",
    "template": "ab",
-   "title": "\"I'll do dinner.\" or \"I'll make dinner.\"? Comment A or B",
+   "title": "\"I'll do dinner.\" or \"I'll make dinner.\"? A or B",
    "pack": "content/video/cine/publish/news_kitchen_ab_a30db6.json"
   },
   {
@@ -263,7 +263,7 @@
    "id": "news_taxi_interior_ab_4828ed",
    "scene": "news",
    "template": "ab",
-   "title": "\"I got in the taxi.\" or \"I got on the taxi.\"? Comment A or B",
+   "title": "\"I got in the taxi.\" or \"I got on the taxi.\"? A or B",
    "pack": "content/video/cine/publish/news_taxi_interior_ab_4828ed.json"
   },
   {

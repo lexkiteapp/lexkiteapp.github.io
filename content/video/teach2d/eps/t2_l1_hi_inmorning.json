@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_inmorning",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say in the morning!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I saw him in morning.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I saw him in the morning.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Put the before morning.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "In the morning! I study in the morning.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I saw him in morning.",
+  "right": "I saw him in the morning.",
+  "strike": "in morning",
+  "why": "Put the before morning.",
+  "memory": "In the morning.",
+  "quiz": {
+   "stem": "I study ___.",
+   "options": [
+    "in morning",
+    "in the morning"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“in morning” नहीं!",
+   "tip": "हिंदी में “सुबह” अकेला चलता है, पर अंग्रेज़ी में in the morning बोलें।",
+   "caption": "क्या आप भी बोलते हैं: “I saw him in morning.” 😅 सही वाक्य है: “I saw him in the morning.” ध्यान रखें: morning से पहले the लगता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “in the morning”। याद रखें: morning से पहले the लगता है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “in the morning”!",
+   "tip": "Many learners drop the, but English says in the morning.",
+   "caption": "Do you say: “I saw him in morning.” 😅 The right sentence is: “I saw him in the morning.” Remember: Put the before morning. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“in morning” नहीं!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“in morning” नहीं!",
+  "keyword": "I saw him in the morning.",
+  "value": "हिंदी में “सुबह” अकेला चलता है, पर अंग्रेज़ी में in the morning बोलें।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "“in morning” नहीं!",
+    "description": "हिंदी में “सुबह” अकेला चलता है, पर अंग्रेज़ी में in the morning बोलें।\n\nक्या आप भी बोलते हैं: “I saw him in morning.” 😅 सही वाक्य है: “I saw him in the morning.” ध्यान रखें: morning से पहले the लगता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "I saw him in the morning.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी बोलते हैं: “I saw him in morning.” 😅 सही वाक्य है: “I saw him in the morning.” ध्यान रखें: morning से पहले the लगता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“in morning” नहीं!\n\nहिंदी में “सुबह” अकेला चलता है, पर अंग्रेज़ी में in the morning बोलें।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“in morning” नहीं! हिंदी में “सुबह” अकेला चलता है, पर अंग्रेज़ी में in the morning बोलें। #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “in the morning”। याद रखें: morning से पहले the लगता है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

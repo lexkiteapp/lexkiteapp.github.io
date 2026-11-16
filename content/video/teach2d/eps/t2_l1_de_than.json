@@ -11,12 +11,12 @@
  "lines": [
   {
    "id": "h",
-   "text": "Than or then?",
+   "text": "Not taller as, taller than!",
    "pause": 0.42
   },
   {
    "id": "w",
-   "text": "Many learners say: She is taller then me.",
+   "text": "Many learners say: She is taller as me.",
    "pause": 0.42
   },
   {
@@ -52,24 +52,24 @@
   }
  ],
  "data": {
-  "wrong": "She is taller then me.",
+  "wrong": "She is taller as me.",
   "right": "She is taller than me.",
-  "strike": "then",
+  "strike": "as",
   "why": "Use than to compare.",
   "memory": "Taller than.",
   "quiz": {
    "stem": "He is older ___ me.",
    "options": [
-    "then",
+    "as",
     "than"
    ],
    "answer": 1
   },
   "native": {
-   "hook": "„Als“ ist „than“, nicht „then“!",
-   "tip": "„Then“ heißt „dann“. Beim Vergleich sagst du „than“: „taller than“.",
-   "caption": "Verwechselst du „than“ und „then“? 🤏 Falsch: “She is taller then me.” Richtig: “She is taller than me.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.",
-   "comment": "Lösung: “than”. Richtig heißt es: “She is taller than me.” Übe mehr mit einem kostenlosen Quiz: {link}",
+   "hook": "„Größer als“ heißt „taller than“!",
+   "tip": "Beim Vergleich wird „als“ zu „than“. „As“ nur in „as tall as“.",
+   "caption": "Sagen Sie „größer als“ mit „as“? 📏 Falsch: “She is taller as me.” Richtig: “She is taller than me.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “than”. Richtig heißt es: “She is taller than me.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
    "hashtags": [
     "#englischlernen",
     "#englischtipps",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "Do you mix up “than” and “then”?",
-   "tip": "“Then” means “dann”. When you compare, use “than”.",
-   "caption": "Do you mix up “than” and “then”? Wrong: “She is taller then me.” Right: “She is taller than me.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+   "hook": "“Größer als” is “taller than”!",
+   "tip": "When you compare, “als” is “than”. Use “as” only in “as tall as”.",
+   "caption": "Do you say “größer als” with “as”? Wrong: “She is taller as me.” Right: “She is taller than me.” Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -91,21 +91,21 @@
  },
  "hook": {
   "line": "h",
-  "text": "„Als“ ist „than“, nicht „then“!"
+  "text": "„Größer als“ heißt „taller than“!"
  },
  "src": {
   "l1": true
  },
  "lang": "de",
  "est": {
-  "words": 43,
-  "seconds": 26.6,
-  "wpm": 97
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
  },
  "publish": {
-  "title": "„Als“ ist „than“, nicht „then“!",
+  "title": "„Größer als“ heißt „taller than“!",
   "keyword": "She is taller than me.",
-  "value": "„Then“ heißt „dann“. Beim Vergleich sagst du „than“: „taller than“.",
+  "value": "Beim Vergleich wird „als“ zu „than“. „As“ nur in „as tall as“.",
   "hashtags": [
    "#englischlernen",
    "#englischtipps",
@@ -113,11 +113,11 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 37,
+  "script_words": 39,
   "platforms": {
    "youtube": {
-    "title": "„Als“ ist „than“, nicht „then“!",
-    "description": "Verwechselst du „than“ und „then“? 🤏 Falsch: “She is taller then me.” Richtig: “She is taller than me.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "title": "„Größer als“ heißt „taller than“!",
+    "description": "Beim Vergleich wird „als“ zu „than“. „As“ nur in „as tall as“.\n\nSagen Sie „größer als“ mit „as“? 📏 Falsch: “She is taller as me.” Richtig: “She is taller than me.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
     "tags": [
      "She is taller than me.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Verwechselst du „than“ und „then“? 🤏 Falsch: “She is taller then me.” Richtig: “She is taller than me.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Sagen Sie „größer als“ mit „as“? 📏 Falsch: “She is taller as me.” Richtig: “She is taller than me.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Verwechselst du „than“ und „then“? 🤏 Falsch: “She is taller then me.” Richtig: “She is taller than me.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.\n\nlexkite.com",
+    "caption": "„Größer als“ heißt „taller than“!\n\nBeim Vergleich wird „als“ zu „than“. „As“ nur in „as tall as“.\n\nlexkite.com",
     "hashtags": [
      "#englischlernen",
      "#englischtipps",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "„Als“ ist „than“, nicht „then“! #englischlernen #englischtipps #sprachenlernen"
+    "caption": "„Größer als“ heißt „taller than“! Beim Vergleich wird „als“ zu „than“. „As“ nur in „as tall as“. #englischlernen #englischtipps #sprachenlernen"
    }
   },
-  "first_comment": "Lösung: “than”. Richtig heißt es: “She is taller than me.” Übe mehr mit einem kostenlosen Quiz: {link}",
+  "first_comment": "Lösung: “than”. Richtig heißt es: “She is taller than me.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
   "lang": "de"
  }
 }

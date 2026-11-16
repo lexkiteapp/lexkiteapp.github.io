@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_hottoday",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Weather? Start with it!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Is hot today.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: It is hot today.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Start with it.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "It! It is hot today.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Is hot today.",
+  "right": "It is hot today.",
+  "strike": "Is",
+  "why": "Start with it.",
+  "memory": "It is hot today.",
+  "quiz": {
+   "stem": "___ is hot today.",
+   "options": [
+    "Is",
+    "It"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Kalimat cuaca perlu “it”",
+   "tip": "Kita bisa bilang “Panas hari ini”, tapi bahasa Inggris butuh it di awal: It is hot today.",
+   "caption": "Pernah bilang begini? “Is hot today.” 😅 Kalau bicara cuaca, mulai dengan it: “It is hot today.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “It”. Tulis satu kalimat tentang cuaca hari ini dengan It is. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#cuaca",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Weather talk needs “it”",
+   "tip": "We can say “Panas hari ini”, but English needs it at the start: It is hot today.",
+   "caption": "Ever say this? “Is hot today.” 😅 For the weather, start with it: “It is hot today.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Kalimat cuaca perlu “it”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 39,
+  "seconds": 24.7,
+  "wpm": 95
+ },
+ "publish": {
+  "title": "Kalimat cuaca perlu “it”",
+  "keyword": "It is hot today.",
+  "value": "Kita bisa bilang “Panas hari ini”, tapi bahasa Inggris butuh it di awal: It is hot today.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#cuaca",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 33,
+  "platforms": {
+   "youtube": {
+    "title": "Kalimat cuaca perlu “it”",
+    "description": "Kita bisa bilang “Panas hari ini”, tapi bahasa Inggris butuh it di awal: It is hot today.\n\nPernah bilang begini? “Is hot today.” 😅 Kalau bicara cuaca, mulai dengan it: “It is hot today.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #cuaca #bahasainggris #lexkite",
+    "tags": [
+     "It is hot today.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “Is hot today.” 😅 Kalau bicara cuaca, mulai dengan it: “It is hot today.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Kalimat cuaca perlu “it”\n\nKita bisa bilang “Panas hari ini”, tapi bahasa Inggris butuh it di awal: It is hot today.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#cuaca",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Kalimat cuaca perlu “it” Kita bisa bilang “Panas hari ini”, tapi bahasa Inggris butuh it di awal: It is h… #belajarbahasainggris #cuaca #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “It”. Tulis satu kalimat tentang cuaca hari ini dengan It is. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

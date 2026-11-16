@@ -1,0 +1,129 @@
+{
+ "id": "t2a_mistake_7c00a5f9",
+ "template": "mistake",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Make an effort, not do.",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: You should do an effort to learn.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: You should make an effort to learn.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "We make an effort. We do not do an effort.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Make! You should make an effort to learn.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "You should do an effort to learn.",
+  "right": "You should make an effort to learn.",
+  "strike": "do an effort",
+  "why": "We make an effort. We do not do an effort.",
+  "memory": "Make an effort",
+  "quiz": {
+   "stem": "You should ___ an effort to learn.",
+   "options": [
+    "make",
+    "do"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Make an effort, not do."
+ },
+ "src": {
+  "gold": "sb_7c00a5f9",
+  "pid": "w:effort#n"
+ },
+ "est": {
+  "words": 57,
+  "seconds": 33.5,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "Stop saying \"do an effort\"? Say this instead",
+  "keyword": "do an effort",
+  "value": "Say \"You should make an effort to learn\", not \"You should do an effort to learn\". We make an effort. We do not do an effort.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#englishgrammar",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 51,
+  "platforms": {
+   "youtube": {
+    "title": "Stop saying \"do an effort\"? Say this instead",
+    "description": "Say \"You should make an effort to learn\", not \"You should do an effort to learn\". We make an effort. We do not do an effort.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix\n\nSeries: Stop Saying This · Teacher: Ama\n\n#learnenglish #englishtips #englishgrammar #englishteacher",
+    "tags": [
+     "do an effort",
+     "Stop Saying This",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Stop saying \"do an effort\"? Say this instead\n\nSay \"You should make an effort to learn\", not \"You should do an effort to learn\". We make an effort. We do not do an effort.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Stop saying \"do an effort\"? Say this instead\n\nSay \"You should make an effort to learn\", not \"You should do an effort to learn\". We make an effort. We do not do an effort.\n\nCheck your grammar: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#englishgrammar",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Stop saying \"do an effort\"? Say this instead #learnenglish #englishtips #englishgrammar"
+   }
+  },
+  "first_comment": "Did you get it? Make! You should make an effort to learn. Say \"You should make an effort to learn\", not \"You should do an effort to learn\". We make an effort. We do not do an effort. More practice like this (free): {link}"
+ }
+}
