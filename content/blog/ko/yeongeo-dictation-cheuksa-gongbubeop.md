@@ -120,6 +120,8 @@ publishAt: 2026-11-25T20:24:00+09:00
 
 딕테이션을 토익에 적용하고 싶다면 [토익 파트2 공부법](/ko/blog/toeic-listening-part-2-gongbubeop-jeonryak/)에서 짧은 질의응답을 다루는 요령을 참고하세요.
 
+받아쓰기로 익힌 귀를 시험 형식에 연결하고 싶다면 [IELTS 리스닝 문제 유형 총정리](/ko/blog/ielts-listening-munje-yuhyeong-gongryak/)에서 유형별 철자와 단복수 함정을 확인해 보세요.
+
 ## 영어 딕테이션에 관한 자주 묻는 질문 (FAQ)
 
 ### 하루에 딕테이션을 몇 시간씩 해야 하나요?

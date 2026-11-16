@@ -140,6 +140,8 @@ Practica simulaciones completas con cronómetro en el [módulo de simulacro de e
 
 {{youtube: | Técnicas de skimming y scanning para IELTS Reading Academic}}
 
+Cuando domines el skimming y el scanning, aplícalos a cada formato con la guía de [tipos de preguntas de IELTS Reading](/es/blog/tipos-de-preguntas-ielts-reading/).
+
 ## Preguntas frecuentes
 
 ### ¿Debo leer el texto completo antes de mirar las preguntas?
