@@ -26,7 +26,7 @@
   },
   {
    "id": "y",
-   "text": "Say tell me.",
+   "text": "Use told before a person: told me.",
    "pause": 0.42
   },
   {
@@ -55,8 +55,8 @@
   "wrong": "He said me a story.",
   "right": "He told me a story.",
   "strike": "said",
-  "why": "Say tell me.",
-  "memory": "Tell me.",
+  "why": "Use told before a person: told me.",
+  "memory": "Tell me. Say to me.",
   "quiz": {
    "stem": "She ___ me the truth.",
    "options": [
@@ -98,9 +98,9 @@
  },
  "lang": "ar",
  "est": {
-  "words": 45,
-  "seconds": 27.6,
-  "wpm": 98
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
  },
  "publish": {
   "title": "هل تقول “said me”؟",
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 39,
+  "script_words": 43,
   "platforms": {
    "youtube": {
     "title": "هل تقول “said me”؟",

@@ -23,9 +23,9 @@
     },
     "answer_say": "A teacher! He is a teacher.",
     "native": {
-     "hook": "「I am student」で止まってない？",
+     "hook": "「I am student」と言ってない？",
      "tip": "職業の前には a が必要。日本語にない「a」を忘れずに！",
-     "caption": "“I am student.”と言っていませんか？😅 日本語には冠詞がないので、つい抜けがち。職業の前には a をつけます。 “I am a student.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+     "caption": "“I am student.”と言っていませんか？😅 日本語には冠詞がないので、つい抜けがち。職業の前には a をつけます。“I am a student.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
      "comment": "答え：“a”。a を入れて自然な英語に。無料クイズで練習：{link}",
      "hashtags": [
       "#英語学習",
@@ -986,7 +986,7 @@
      "hook": "「Went to Kyoto」、「I」を忘れてない？",
      "tip": "日本語は主語を省くのが普通。でも英語では I を省かずに言おう。",
      "caption": "“Went to Kyoto yesterday.”と言っていませんか？😅 日本語では「京都に行った」で通じますが、英語では主語の I が必要です。“I went to Kyoto yesterday.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
-     "comment": "答え：“I went to Kyoto yesterday.” 主語の I を忘れずに。無料クイズで練習：{link}",
+     "comment": "答え：“I went to Kyoto.” 主語の I を忘れずに。無料クイズで練習：{link}",
      "hashtags": [
       "#英語学習",
       "#英会話",

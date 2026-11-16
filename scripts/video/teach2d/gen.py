@@ -795,11 +795,11 @@ def verify():   # live re-check of every auto row: (ok ids, stale [(id, problems
     return ok, stale
 
 
-GRADE_F = f'{ROOT}/content/video/teach2d/l1-grade.json'   # independent-grader verdict per L1 row: {id: score >= 90} (or "final-round-pass" for rows graded before per-row scores were kept)
+GRADE_F = f'{ROOT}/content/video/teach2d/l1-grade.json'   # independent-grader verdict per L1 row: {id: score >= 90}
 
 
 def l1_graded(i, G):   # an L1 row is rendered only when an independent grader gave it >= 90 (coordinator 16/11): unscored or <90 rows never become a video
-    g = G.get(i); return g == 'final-round-pass' or (isinstance(g, (int, float)) and g >= 90)
+    g = G.get(i); return isinstance(g, (int, float)) and g >= 90
 
 
 def todo():

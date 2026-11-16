@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Two nos? Not in English!",
+   "text": "No double negatives in English!",
    "pause": 0.42
   },
   {
@@ -66,7 +66,7 @@
    "answer": 1
   },
   "native": {
-   "hook": "¿Doble negación? En inglés, no",
+   "hook": "¿Doble negación? ¡En inglés, no!",
    "tip": "En inglés no se doblan los negativos: “don't” + “anything”, no “nothing.”",
    "caption": "En español “no sé nada” lleva dos negaciones, pero en inglés solo una 🤓 Di “I don't know anything.”, no “I don't know nothing.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
    "comment": "Respuesta: “anything”. Una sola negación por frase. Practica más con un quiz gratis aquí: {link}",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "Double negative? Not in English",
+   "hook": "Double negative? Not in English!",
    "tip": "English does not double negatives: “don't” + “anything”, not “nothing.”",
-   "caption": "Learners say “no sé nada” has two negatives, but English has only one. Say “I don't know anything.”, not “I don't know nothing.” Listen to Ama and repeat! Practice more in the Lexkite app."
+   "caption": "“No sé nada” has two negatives, but English uses only one. Say “I don't know anything.”, not “I don't know nothing.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "¿Doble negación? En inglés, no"
+  "text": "¿Doble negación? ¡En inglés, no!"
  },
  "src": {
   "l1": true
@@ -103,7 +103,7 @@
   "wpm": 96
  },
  "publish": {
-  "title": "¿Doble negación? En inglés, no",
+  "title": "¿Doble negación? ¡En inglés, no!",
   "keyword": "I don't know anything.",
   "value": "En inglés no se doblan los negativos: “don't” + “anything”, no “nothing.”",
   "hashtags": [
@@ -116,7 +116,7 @@
   "script_words": 36,
   "platforms": {
    "youtube": {
-    "title": "¿Doble negación? En inglés, no",
+    "title": "¿Doble negación? ¡En inglés, no!",
     "description": "En español “no sé nada” lleva dos negaciones, pero en inglés solo una 🤓 Di “I don't know anything.”, no “I don't know nothing.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #gramatica #lexkite",
     "tags": [
      "I don't know anything.",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "¿Doble negación? En inglés, no #aprenderingles #inglesfacil #gramatica"
+    "caption": "¿Doble negación? ¡En inglés, no! #aprenderingles #inglesfacil #gramatica"
    }
   },
   "first_comment": "Respuesta: “anything”. Una sola negación por frase. Practica más con un quiz gratis aquí: {link}",

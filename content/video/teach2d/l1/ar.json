@@ -531,8 +531,8 @@
     "wrong": "He said me a story.",
     "right": "He told me a story.",
     "strike": "said",
-    "why": "Say tell me.",
-    "memory": "Tell me.",
+    "why": "Use told before a person: told me.",
+    "memory": "Tell me. Say to me.",
     "quiz": {
      "stem": "She ___ me the truth.",
      "options": [

@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Say the person only once!",
+   "text": "Don't say the subject twice!",
    "pause": 0.42
   },
   {
@@ -78,7 +78,7 @@
    ]
   },
   "en": {
-   "hook": "Do not repeat with “she”!",
+   "hook": "Don't add “she” after the subject!",
    "tip": "Say the person only once: after my mother, do not add she.",
    "caption": "Do you say “My mother she is a teacher.” 😅 Say the person only once: “My mother is a teacher.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }

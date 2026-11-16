@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Since needs have!",
+   "text": "Since 2020? Say have lived!",
    "pause": 0.42
   },
   {
@@ -26,7 +26,7 @@
   },
   {
    "id": "y",
-   "text": "Since needs have, not am.",
+   "text": "With since, use have lived, not am living.",
    "pause": 0.42
   },
   {
@@ -55,7 +55,7 @@
   "wrong": "I am living here since 2020.",
   "right": "I have lived here since 2020.",
   "strike": "am living",
-  "why": "Since needs have, not am.",
+  "why": "With since, use have lived, not am living.",
   "memory": "Have lived since.",
   "quiz": {
    "stem": "I ___ here since May.",
@@ -98,9 +98,9 @@
  },
  "lang": "hi",
  "est": {
-  "words": 48,
-  "seconds": 29.1,
-  "wpm": 99
+  "words": 53,
+  "seconds": 31.5,
+  "wpm": 101
  },
  "publish": {
   "title": "“since” के साथ “am living” नहीं",
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 42,
+  "script_words": 47,
   "platforms": {
    "youtube": {
     "title": "“since” के साथ “am living” नहीं",

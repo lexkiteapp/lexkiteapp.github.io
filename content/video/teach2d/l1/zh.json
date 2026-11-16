@@ -287,7 +287,7 @@
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Say the person only once!",
+    "hook_say": "Don't say the subject twice!",
     "wrong": "My mother she is a teacher.",
     "right": "My mother is a teacher.",
     "strike": "she",
@@ -315,7 +315,7 @@
      ]
     },
     "en": {
-     "hook": "Do not repeat with “she”!",
+     "hook": "Don't add “she” after the subject!",
      "tip": "Say the person only once: after my mother, do not add she.",
      "caption": "Do you say “My mother she is a teacher.” 😅 Say the person only once: “My mother is a teacher.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
@@ -986,7 +986,7 @@
      "hook": "形容词前面别漏掉 is！",
      "tip": "中文可以说“她很漂亮”，但英语用形容词描述主语时，前面要有 is/am/are。",
      "caption": "你是不是也会说 “She very pretty.”😅 中文里“她很漂亮”不用动词，英语的形容词前面却要有 is/am/are：“She is very pretty.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
-     "comment": "答案：“She is very pretty.”免费测验在这里：{link}",
+     "comment": "答案：“is very”，形容词前面要有 is！免费测验在这里：{link}",
      "hashtags": [
       "#学英语",
       "#英语口语",
@@ -1306,7 +1306,7 @@
      "hook": "“这里有很多人”不是 There have！",
      "tip": "中文“有”既表示拥有也表示存在；说“某处有……”要用 there is/are，不用 have。",
      "caption": "你是不是也会说 “There have many people here.”😅 中文的“有”也表示存在，但英语说“某处有……”要用 there is/are：“There are many people here.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
-     "comment": "答案：“There are many people here.”免费测验在这里：{link}",
+     "comment": "答案：“are”，表示存在要用 there are，不用 have！免费测验在这里：{link}",
      "hashtags": [
       "#学英语",
       "#英语口语",

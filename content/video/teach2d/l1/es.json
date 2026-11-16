@@ -195,9 +195,9 @@
      ]
     },
     "en": {
-     "hook": "Do you say “people is”? Watch out",
-     "tip": "Learners say “la gente” is singular, but in English “people” is plural: “people are.”",
-     "caption": "Learners say “la gente es”, but not in English! Say “The people are nice.”, not “The people is nice.” Listen to Ama and repeat! Practice more in the Lexkite app."
+     "hook": "Do you say “people is”? Watch out!",
+     "tip": "“La gente” is singular, but in English “people” is plural: “people are.”",
+     "caption": "“La gente es” is singular, but not in English! Say “The people are nice.”, not “The people is nice.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -223,7 +223,7 @@
     },
     "answer_say": "Is! The news is good.",
     "native": {
-     "hook": "¿Dices “the news are”? No",
+     "hook": "¿Dices “the news are”? ¡No!",
      "tip": "“News” parece plural por la “s”, pero es singular: “the news is.”",
      "caption": "En español “las noticias” es plural, pero en inglés “news” es singular 📰 No digas “The news are bad.”, sino “The news is bad.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
      "comment": "Respuesta: “is”. “News” es singular aunque termine en “s”. Practica más con un quiz gratis aquí: {link}",
@@ -235,9 +235,9 @@
      ]
     },
     "en": {
-     "hook": "Do you say “the news are”? No",
+     "hook": "Do you say “the news are”? No!",
      "tip": "“News” looks plural because of the “s”, but it is singular: “the news is.”",
-     "caption": "Learners say “las noticias” is plural, but in English “news” is singular. Do not say “The news are bad.”, say “The news is bad.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "caption": "“Las noticias” is plural, but in English “news” is singular. Do not say “The news are bad.”, say “The news is bad.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -254,19 +254,19 @@
     "why": "Information has no a or an.",
     "memory": "Some information.",
     "quiz": {
-     "stem": "I need ___ advice.",
+     "stem": "I need ___ information.",
      "options": [
       "an",
       "some"
      ],
      "answer": 1
     },
-    "answer_say": "Some! I need some advice.",
+    "answer_say": "Some! I need some information.",
     "native": {
      "hook": "¿Pides “an information”? ¡No!",
      "tip": "“Information” no se cuenta: no lleva “a/an” ni plural. Usa “some information.”",
      "caption": "En español “una información”, en inglés no 🙈 No digas “I need an information.”, mejor “I need some information.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
-     "comment": "Respuesta: “some”. “Advice” e “information” no llevan “a/an”. Practica más con un quiz gratis aquí: {link}",
+     "comment": "Respuesta: “some”. “Information” no lleva “a/an”. Practica más con un quiz gratis aquí: {link}",
      "hashtags": [
       "#aprenderingles",
       "#inglesfacil",
@@ -277,7 +277,7 @@
     "en": {
      "hook": "“An information”? No!",
      "tip": "“Information” is uncountable: no “a/an” and no plural. Use “some information.”",
-     "caption": "Learners say “una información”, not in English. Do not say “I need an information.”, say “I need some information.” Listen to Ama and repeat! Practice more in the Lexkite app."
+     "caption": "Learners say “una información”, but English does not. Do not say “I need an information.”, say “I need some information.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -303,9 +303,9 @@
     },
     "answer_say": "For! I waited for two hours.",
     "native": {
-     "hook": "¿Dices “since two years”? Ojo",
+     "hook": "¿“Since two years”? ¡Ojo!",
      "tip": "Para una duración usa “for” (for two years). “Since” es para un punto de inicio.",
-     "caption": "En español “desde hace dos años”, pero en inglés no 😅 Di “I have lived here for two years.”, no “I live here since two years.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+     "caption": "En español decimos “desde hace dos años”, pero en inglés no se traduce así 😅 Di “I have lived here for two years.”, no “I live here since two years.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
      "comment": "Respuesta: “for”. “For” + duración; “since” + fecha de inicio. Practica más con un quiz gratis aquí: {link}",
      "hashtags": [
       "#aprenderingles",
@@ -315,9 +315,9 @@
      ]
     },
     "en": {
-     "hook": "“Since two years”? Careful",
+     "hook": "“Since two years”? Careful!",
      "tip": "For a length of time use “for” (for two years). “Since” is for a starting point.",
-     "caption": "Learners say “desde hace dos años”, but not in English. Say “I have lived here for two years.”, not “I live here since two years.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "caption": "Learners translate “desde hace dos años” word for word. Say “I have lived here for two years.”, not “I live here since two years.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -357,7 +357,7 @@
     "en": {
      "hook": "“Make” homework? It is “do”!",
      "tip": "With homework and chores use “do”: “do homework”. “Make” is for creating something.",
-     "caption": "Learners say “hacer” works for everything, but not in English. Say “I do my homework.”, not “I make my homework.” Listen to Ama and repeat! Practice more in the Lexkite app."
+     "caption": "“Hacer” works for everything, but not in English. Say “I do my homework.”, not “I make my homework.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -407,7 +407,7 @@
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Two nos? Not in English!",
+    "hook_say": "No double negatives in English!",
     "wrong": "I don't know nothing.",
     "right": "I don't know anything.",
     "strike": "nothing",
@@ -423,7 +423,7 @@
     },
     "answer_say": "Anything! I don't see anything.",
     "native": {
-     "hook": "¿Doble negación? En inglés, no",
+     "hook": "¿Doble negación? ¡En inglés, no!",
      "tip": "En inglés no se doblan los negativos: “don't” + “anything”, no “nothing.”",
      "caption": "En español “no sé nada” lleva dos negaciones, pero en inglés solo una 🤓 Di “I don't know anything.”, no “I don't know nothing.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
      "comment": "Respuesta: “anything”. Una sola negación por frase. Practica más con un quiz gratis aquí: {link}",
@@ -435,9 +435,9 @@
      ]
     },
     "en": {
-     "hook": "Double negative? Not in English",
+     "hook": "Double negative? Not in English!",
      "tip": "English does not double negatives: “don't” + “anything”, not “nothing.”",
-     "caption": "Learners say “no sé nada” has two negatives, but English has only one. Say “I don't know anything.”, not “I don't know nothing.” Listen to Ama and repeat! Practice more in the Lexkite app."
+     "caption": "“No sé nada” has two negatives, but English uses only one. Say “I don't know anything.”, not “I don't know nothing.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -823,8 +823,8 @@
     },
     "answer_say": "As! He works as a doctor.",
     "native": {
-     "hook": "¿“Work like” profesor? Es “as”",
-     "tip": "Para profesión o función usa “as”. “Like” significa “parecido a”.",
+     "hook": "¿“Work like a teacher”? ¡Es “as”!",
+     "tip": "Para profesión o función usa “as.” “Like” significa “parecido a.”",
      "caption": "En español “como” sirve para todo 👩‍🏫 En inglés no digas “I work like a teacher.”, sino “I work as a teacher.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
      "comment": "Respuesta: “as”. “As” = profesión; “like” = parecido. Practica más con un quiz gratis aquí: {link}",
      "hashtags": [
@@ -835,9 +835,9 @@
      ]
     },
     "en": {
-     "hook": "“Work like” a teacher? It is “as”",
-     "tip": "For a job or role use “as”. “Like” means “similar to”.",
-     "caption": "Learners say “como” works for both. In English do not say “I work like a teacher.”, say “I work as a teacher.” Listen to Ama and repeat! Practice more in the Lexkite app."
+     "hook": "“Work like a teacher”? It's “as”!",
+     "tip": "For a job or role use “as.” “Like” means “similar to.”",
+     "caption": "“Como” works for everything, but not in English. Do not say “I work like a teacher.”, say “I work as a teacher.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },

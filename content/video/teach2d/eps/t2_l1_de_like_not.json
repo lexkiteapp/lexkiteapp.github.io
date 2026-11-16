@@ -66,7 +66,7 @@
    "answer": 0
   },
   "native": {
-   "hook": "Nicht hinter dem Verb!",
+   "hook": "„Nicht“ steht nicht am Ende!",
    "tip": "Im Deutschen verneinen Sie direkt: „Ich mag Kaffee nicht“. Im Englischen brauchen Sie das Hilfsverb „do“: „I do not like“.",
    "caption": "Wo steht „nicht“ im Englischen? 🙅 Falsch: “I like coffee not.” Richtig: “I do not like coffee.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
    "comment": "Lösung: “do not”. Richtig heißt es: “I do not like coffee.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "Not after the verb!",
+   "hook": "“Not” does not go at the end!",
    "tip": "“Ich mag nicht” puts “nicht” after the verb. In English you need “do not”.",
-   "caption": "Not after the verb! Wrong: “I like coffee not.” Right: “I do not like coffee.” Listen to Ama and repeat! Practice more in the Lexkite app."
+   "caption": "Where does “not” go? Wrong: “I like coffee not.” Right: “I do not like coffee.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "Nicht hinter dem Verb!"
+  "text": "„Nicht“ steht nicht am Ende!"
  },
  "src": {
   "l1": true
@@ -103,7 +103,7 @@
   "wpm": 97
  },
  "publish": {
-  "title": "Nicht hinter dem Verb!",
+  "title": "„Nicht“ steht nicht am Ende!",
   "keyword": "I do not like coffee.",
   "value": "Im Deutschen verneinen Sie direkt: „Ich mag Kaffee nicht“. Im Englischen brauchen Sie das Hilfsverb „do“: „I do not like“.",
   "hashtags": [
@@ -116,7 +116,7 @@
   "script_words": 37,
   "platforms": {
    "youtube": {
-    "title": "Nicht hinter dem Verb!",
+    "title": "„Nicht“ steht nicht am Ende!",
     "description": "Wo steht „nicht“ im Englischen? 🙅 Falsch: “I like coffee not.” Richtig: “I do not like coffee.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
     "tags": [
      "I do not like coffee.",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "Nicht hinter dem Verb! #englischlernen #englischtipps #sprachenlernen"
+    "caption": "„Nicht“ steht nicht am Ende! #englischlernen #englischtipps #sprachenlernen"
    }
   },
   "first_comment": "Lösung: “do not”. Richtig heißt es: “I do not like coffee.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",

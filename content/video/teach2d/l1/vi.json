@@ -374,19 +374,19 @@
     "why": "Since needs have plus lived.",
     "memory": "Since: have lived.",
     "quiz": {
-     "stem": "I have ___ here for years.",
+     "stem": "I ___ here since 2020.",
      "options": [
       "live",
-      "lived"
+      "have lived"
      ],
      "answer": 1
     },
-    "answer_say": "Lived! I have lived here for years.",
+    "answer_say": "Have lived! I have lived here since 2020.",
     "native": {
      "hook": "Nói “since” mà dùng “live”?",
      "tip": "Với “since/for” cần hiện tại hoàn thành: have + quá khứ phân từ.",
      "caption": "Bạn có hay nói “I live here since 2020.” không? 😅 Có “since” thì dùng have + V3: “I have lived here since 2020.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-     "comment": "Đáp án: “lived.” Kể xem bạn đã sống ở đâu và được bao lâu, bắt đầu bằng “I have lived…” nhé. Luyện thêm miễn phí tại đây: {link}",
+     "comment": "Đáp án: “have lived.” Kể xem bạn đã sống ở đâu và được bao lâu, bắt đầu bằng “I have lived…” nhé. Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
       "#hoctienganh",
       "#nguphaptienganh",
@@ -487,7 +487,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Listen needs to.",
+    "hook_say": "Not listen music. Say listen to music!",
     "wrong": "I listen music every day.",
     "right": "I listen to music every day.",
     "strike": "listen",
@@ -504,7 +504,7 @@
     "answer_say": "Listen to! I listen to the radio.",
     "native": {
      "hook": "“Nghe nhạc” mà thiếu “to”?",
-     "tip": "Tiếng Việt nói “nghe nhạc”, nhưng tiếng Anh cần “to”: “listen to music.”",
+     "tip": "Nhiều bạn nói “listen music”, nhưng tiếng Anh cần “to”: “listen to music.”",
      "caption": "Bạn có hay nói “I listen music every day.” không? 😅 “Listen” cần “to”: “I listen to music every day.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
      "comment": "Đáp án: “listen to.” Kể bạn hay nghe gì bằng “I listen to…” nhé. Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
@@ -516,7 +516,7 @@
     },
     "en": {
      "hook": "“Listen music”: missing a word!",
-     "tip": "Vietnamese says “nghe nhạc”, but English needs “to”: “listen to music.”",
+     "tip": "Many learners say “listen music,” but English needs “to”: “listen to music.”",
      "caption": "Do you often say this? “I listen music every day.” “Listen” needs “to”: “I listen to music every day.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
     }
    }
@@ -544,8 +544,8 @@
     "answer_say": "Watch! I watch movies at home.",
     "native": {
      "hook": "“See TV” hay “watch TV”?",
-     "tip": "Tiếng Việt dùng “xem” cho mọi thứ. Tiếng Anh: “watch” TV, phim; “see” là nhìn thấy.",
-     "caption": "Bạn có hay nói “I see TV every night.” không? 😅 Xem TV: “watch”, không phải “see”: “I watch TV every night.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+     "tip": "Nhiều bạn dùng một động từ cho cả hai. Tiếng Anh “watch” TV và phim; “see” là nhìn thấy.",
+     "caption": "Bạn có hay nói “I see TV every night.” không? 😅 Xem TV thì dùng “watch”, không dùng “see”: “I watch TV every night.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
      "comment": "Đáp án: “watch.” Bạn xem gì tối nay? Nói “I watch…” nhé. Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
       "#hoctienganh",
@@ -556,7 +556,7 @@
     },
     "en": {
      "hook": "“See TV” or “watch TV”?",
-     "tip": "Vietnamese uses “xem” for everything. In English you “watch” TV and movies; “see” means to notice.",
+     "tip": "Many learners use one verb for both. In English you “watch” TV and movies; “see” means to notice.",
      "caption": "Do you often say this? “I see TV every night.” You watch TV, not see: “I watch TV every night.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
     }
    }
@@ -687,7 +687,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Explain needs to.",
+    "hook_say": "Not explain me. Explain it to me!",
     "wrong": "Can you explain me this word?",
     "right": "Can you explain this word to me?",
     "strike": "explain me",
@@ -704,7 +704,7 @@
     "answer_say": "To me! Please explain it to me.",
     "native": {
      "hook": "Đừng nói “explain me” nhé!",
-     "tip": "Tiếng Việt nói “giải thích cho tôi”, nhưng tiếng Anh cần “to”: “explain it to me.”",
+     "tip": "Nhiều bạn nói “explain me”, nhưng tiếng Anh cần “to”: “explain it to me.”",
      "caption": "Bạn có hay nói “Can you explain me this word?” không? 😅 Phải có “to”: “Can you explain this word to me?” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
      "comment": "Đáp án: “to me.” Nhờ bạn bè giải thích một từ bằng “Can you explain… to me?” nhé. Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
@@ -715,8 +715,8 @@
      ]
     },
     "en": {
-     "hook": "Do not say “explain me”!",
-     "tip": "Vietnamese says “giải thích cho tôi”, but English needs “to”: “explain it to me.”",
+     "hook": "Don't say “explain me”!",
+     "tip": "Many learners say “explain me,” but English needs “to”: “explain it to me.”",
      "caption": "Do you often say this? “Can you explain me this word?” You need “to”: “Can you explain this word to me?” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
     }
    }
@@ -887,7 +887,7 @@
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Your name needs one more word!",
+    "hook_say": "My name Anna? Add one little word!",
     "wrong": "My name Anna.",
     "right": "My name is Anna.",
     "strike": "name",
@@ -906,7 +906,7 @@
      "hook": "Giới thiệu tên mà thiếu “is”?",
      "tip": "Tiếng Việt nói “Tôi tên Anna” không cần “là”, nhưng tiếng Anh bắt buộc có “is.”",
      "caption": "Bạn có hay nói “My name Anna.” không? 😄 Phải có “is”: “My name is Anna.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-     "comment": "Đáp án: “is.” Thử viết “My name is…” kèm tên bạn ở phần bình luận nhé! Luyện thêm miễn phí tại đây: {link}",
+     "comment": "Đáp án: “My name is Anna.” Thử viết “My name is…” kèm tên bạn ở phần bình luận nhé! Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
       "#hoctienganh",
       "#nguphaptienganh",
@@ -1291,8 +1291,8 @@
     "wrong": "I have a car red.",
     "right": "I have a red car.",
     "strike": "car red",
-    "why": "Put the color before the noun.",
-    "memory": "Color, then noun.",
+    "why": "Say a red car, a big house.",
+    "memory": "Describing word, then noun.",
     "quiz": {
      "stem": "She has a ___.",
      "options": [
@@ -1304,7 +1304,7 @@
     "answer_say": "Big house! She has a big house.",
     "native": {
      "hook": "“Xe đỏ” là “car red” à?",
-     "tip": "Tiếng Việt đặt tính từ sau danh từ (“xe đỏ”), nhưng tiếng Anh đặt trước: “a red car.”",
+     "tip": "Nhiều bạn đặt tính từ sau danh từ, nhưng tiếng Anh đặt trước: “a red car.”",
      "caption": "Bạn có hay nói “I have a car red.” không? 🚗 Tính từ đứng trước danh từ: “I have a red car.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
      "comment": "Đáp án: “big house.” Tả đồ của bạn bằng “a + tính từ + danh từ” nhé. Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
@@ -1316,7 +1316,7 @@
     },
     "en": {
      "hook": "“A car red”? Wrong word order!",
-     "tip": "Vietnamese puts the adjective after the noun (“xe đỏ”), but English puts it before: “a red car.”",
+     "tip": "Many learners put the adjective after the noun, but English puts it before: “a red car.”",
      "caption": "Do you often say this? “I have a car red.” The adjective goes before the noun: “I have a red car.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
     }
    }

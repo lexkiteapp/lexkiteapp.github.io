@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "Some! I need some advice.",
+   "text": "Some! I need some information.",
    "pause": 0.42
   },
   {
@@ -58,7 +58,7 @@
   "why": "Information has no a or an.",
   "memory": "Some information.",
   "quiz": {
-   "stem": "I need ___ advice.",
+   "stem": "I need ___ information.",
    "options": [
     "an",
     "some"
@@ -69,7 +69,7 @@
    "hook": "¿Pides “an information”? ¡No!",
    "tip": "“Information” no se cuenta: no lleva “a/an” ni plural. Usa “some information.”",
    "caption": "En español “una información”, en inglés no 🙈 No digas “I need an information.”, mejor “I need some information.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
-   "comment": "Respuesta: “some”. “Advice” e “information” no llevan “a/an”. Practica más con un quiz gratis aquí: {link}",
+   "comment": "Respuesta: “some”. “Information” no lleva “a/an”. Practica más con un quiz gratis aquí: {link}",
    "hashtags": [
     "#aprenderingles",
     "#inglesfacil",
@@ -80,7 +80,7 @@
   "en": {
    "hook": "“An information”? No!",
    "tip": "“Information” is uncountable: no “a/an” and no plural. Use “some information.”",
-   "caption": "Learners say “una información”, not in English. Do not say “I need an information.”, say “I need some information.” Listen to Ama and repeat! Practice more in the Lexkite app."
+   "caption": "Learners say “una información”, but English does not. Do not say “I need an information.”, say “I need some information.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -140,7 +140,7 @@
     "caption": "¿Pides “an information”? ¡No! #aprenderingles #inglesfacil #vocabulario"
    }
   },
-  "first_comment": "Respuesta: “some”. “Advice” e “information” no llevan “a/an”. Practica más con un quiz gratis aquí: {link}",
+  "first_comment": "Respuesta: “some”. “Information” no lleva “a/an”. Practica más con un quiz gratis aquí: {link}",
   "lang": "es"
  }
 }

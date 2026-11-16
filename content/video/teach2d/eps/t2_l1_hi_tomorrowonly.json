@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Tomorrow, no only!",
+   "text": "Just say tomorrow!",
    "pause": 0.42
   },
   {
@@ -26,7 +26,7 @@
   },
   {
    "id": "y",
-   "text": "Do not add only for stress. Just say tomorrow.",
+   "text": "Don't add only. Just say tomorrow.",
    "pause": 0.42
   },
   {
@@ -55,7 +55,7 @@
   "wrong": "I will do it tomorrow only.",
   "right": "I will do it tomorrow.",
   "strike": "only",
-  "why": "Do not add only for stress. Just say tomorrow.",
+  "why": "Don't add only. Just say tomorrow.",
   "memory": "I will do it tomorrow.",
   "quiz": {
    "stem": "I will call you ___.",
@@ -98,9 +98,9 @@
  },
  "lang": "hi",
  "est": {
-  "words": 49,
-  "seconds": 29.6,
-  "wpm": 99
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
  },
  "publish": {
   "title": "“tomorrow only” क्यों अटपटा है?",
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 43,
+  "script_words": 40,
   "platforms": {
    "youtube": {
     "title": "“tomorrow only” क्यों अटपटा है?",

@@ -647,7 +647,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Since needs have lived!",
+    "hook_say": "Have lived, not live!",
     "wrong": "I live here since 2020.",
     "right": "I have lived here since 2020.",
     "strike": "live",
@@ -663,8 +663,8 @@
     },
     "answer_say": "Have lived! I have lived here since 2020.",
     "native": {
-     "hook": "since 앞엔 현재완료예요!",
-     "tip": "since와 함께는 현재완료! “I have lived here since 2020.”",
+     "hook": "since엔 현재완료를 써요!",
+     "tip": "since가 나오면 현재완료! “I have lived here since 2020.”",
      "caption": "“I live here since 2020”처럼 말하고 있나요? 😅 since가 나오면 과거부터 지금까지를 뜻해서 현재완료를 써요. 맞는 문장 ✅ “I have lived here since 2020.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
      "comment": "정답: “have lived”! since엔 have lived! 무료 퀴즈로 더 연습해 보세요: {link}",
      "hashtags": [
@@ -826,7 +826,7 @@
      "hook": "“do diet” 틀렸어요!",
      "tip": "다이어트하다는 do diet가 아니라 go on a diet예요!",
      "caption": "“I will do diet”처럼 말하고 있나요? 😅 ‘다이어트를 하다’는 go on a diet라는 표현으로 말해요. 맞는 문장 ✅ “I will go on a diet.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-     "comment": "정답: “on”! go on a diet로! 무료 퀴즈로 더 연습해 보세요: {link}",
+     "comment": "정답: “go on”! 다이어트는 go on a diet! 무료 퀴즈로 더 연습해 보세요: {link}",
      "hashtags": [
       "#영어공부",
       "#영어회화",
@@ -970,13 +970,13 @@
     "hook_say": "Want you to help!",
     "wrong": "I want you help me.",
     "right": "I want you to help me.",
-    "strike": "help",
+    "strike": "you help",
     "why": "Say want you to.",
     "memory": "Want you to help.",
     "quiz": {
      "stem": "I want ___ help me.",
      "options": [
-      "you help",
+      "you",
       "you to"
      ],
      "answer": 1

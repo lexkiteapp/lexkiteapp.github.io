@@ -54,13 +54,13 @@
  "data": {
   "wrong": "I want you help me.",
   "right": "I want you to help me.",
-  "strike": "help",
+  "strike": "you help",
   "why": "Say want you to.",
   "memory": "Want you to help.",
   "quiz": {
    "stem": "I want ___ help me.",
    "options": [
-    "you help",
+    "you",
     "you to"
    ],
    "answer": 1

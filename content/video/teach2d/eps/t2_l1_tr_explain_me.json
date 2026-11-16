@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "To! Please explain it to me.",
+   "text": "This word to me! Please explain this word to me.",
    "pause": 0.42
   },
   {
@@ -66,10 +66,10 @@
    "answer": 1
   },
   "native": {
-   "hook": "Explain me değil, explain to me!",
+   "hook": "“Explain me” değil, “to me” de!",
    "tip": "Önce şeyi, sonra “to” ile kişiyi söyle: “Please explain this word to me.”",
    "caption": "“Please explain me this word” mi diyorsun? 😅 İngilizcede “explain” kişiyi doğrudan almaz. Doğrusu “Please explain this word to me.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
-   "comment": "Cevap: “to”. Önce şey, sonra to me. Ücretsiz testle pratik yap: {link}",
+   "comment": "Cevap: “this word to me”. Önce şey, sonra “to me”. Ücretsiz testle pratik yap: {link}",
    "hashtags": [
     "#ingilizceöğren",
     "#ingilizcekonuşma",
@@ -78,7 +78,7 @@
    ]
   },
   "en": {
-   "hook": "Not “explain me”, but “explain to me”!",
+   "hook": "Not “explain me”, say “to me”!",
    "tip": "Say the thing first, then “to” and the person: “Please explain this word to me.”",
    "caption": "Do you say “Please explain me this word”? 😅 In English “explain” does not take the person directly. The right sentence is “Please explain this word to me.” Listen to Carlos and repeat! Open the Lexkite app and practice more."
   }
@@ -91,19 +91,19 @@
  },
  "hook": {
   "line": "h",
-  "text": "Explain me değil, explain to me!"
+  "text": "“Explain me” değil, “to me” de!"
  },
  "src": {
   "l1": true
  },
  "lang": "tr",
  "est": {
-  "words": 46,
-  "seconds": 28.1,
-  "wpm": 98
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
  },
  "publish": {
-  "title": "Explain me değil, explain to me!",
+  "title": "“Explain me” değil, “to me” de!",
   "keyword": "Please explain this word to me.",
   "value": "Önce şeyi, sonra “to” ile kişiyi söyle: “Please explain this word to me.”",
   "hashtags": [
@@ -113,10 +113,10 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 40,
+  "script_words": 44,
   "platforms": {
    "youtube": {
-    "title": "Explain me değil, explain to me!",
+    "title": "“Explain me” değil, “to me” de!",
     "description": "“Please explain me this word” mi diyorsun? 😅 İngilizcede “explain” kişiyi doğrudan almaz. Doğrusu “Please explain this word to me.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
     "tags": [
      "Please explain this word to me.",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "Explain me değil, explain to me! #ingilizceöğren #ingilizcekonuşma #ingilizce"
+    "caption": "“Explain me” değil, “to me” de! #ingilizceöğren #ingilizcekonuşma #ingilizce"
    }
   },
-  "first_comment": "Cevap: “to”. Önce şey, sonra to me. Ücretsiz testle pratik yap: {link}",
+  "first_comment": "Cevap: “this word to me”. Önce şey, sonra “to me”. Ücretsiz testle pratik yap: {link}",
   "lang": "tr"
  }
 }

@@ -181,12 +181,12 @@
      ],
      "answer": 1
     },
-    "answer_say": "To! Please explain it to me.",
+    "answer_say": "This word to me! Please explain this word to me.",
     "native": {
-     "hook": "Explain me değil, explain to me!",
+     "hook": "“Explain me” değil, “to me” de!",
      "tip": "Önce şeyi, sonra “to” ile kişiyi söyle: “Please explain this word to me.”",
      "caption": "“Please explain me this word” mi diyorsun? 😅 İngilizcede “explain” kişiyi doğrudan almaz. Doğrusu “Please explain this word to me.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
-     "comment": "Cevap: “to”. Önce şey, sonra to me. Ücretsiz testle pratik yap: {link}",
+     "comment": "Cevap: “this word to me”. Önce şey, sonra “to me”. Ücretsiz testle pratik yap: {link}",
      "hashtags": [
       "#ingilizceöğren",
       "#ingilizcekonuşma",
@@ -195,7 +195,7 @@
      ]
     },
     "en": {
-     "hook": "Not “explain me”, but “explain to me”!",
+     "hook": "Not “explain me”, say “to me”!",
      "tip": "Say the thing first, then “to” and the person: “Please explain this word to me.”",
      "caption": "Do you say “Please explain me this word”? 😅 In English “explain” does not take the person directly. The right sentence is “Please explain this word to me.” Listen to Carlos and repeat! Open the Lexkite app and practice more."
     }
@@ -784,7 +784,7 @@
     "answer_say": "Works! She works in a shop.",
     "native": {
      "hook": "“He work” değil, “he works”!",
-     "tip": "Türkçede fiil “o” için ayrı ek almaz gibi görünse de İngilizcede he/she/it ile fiile -s eklenir: “He works in a bank.”",
+     "tip": "Türkçede “o çalışır” deriz; İngilizcede he/she/it ile fiile -s eklenir: “He works in a bank.”",
      "caption": "“He work in a bank” mi diyorsun? 😅 He, she, it ile fiile -s eklenir. Doğrusu “He works in a bank.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
      "comment": "Cevap: “works”. He, she, it: -s. Ücretsiz testle pratik yap: {link}",
      "hashtags": [

@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Your name needs one more word!",
+   "text": "My name Anna? Add one little word!",
    "pause": 0.42
   },
   {
@@ -69,7 +69,7 @@
    "hook": "Giới thiệu tên mà thiếu “is”?",
    "tip": "Tiếng Việt nói “Tôi tên Anna” không cần “là”, nhưng tiếng Anh bắt buộc có “is.”",
    "caption": "Bạn có hay nói “My name Anna.” không? 😄 Phải có “is”: “My name is Anna.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-   "comment": "Đáp án: “is.” Thử viết “My name is…” kèm tên bạn ở phần bình luận nhé! Luyện thêm miễn phí tại đây: {link}",
+   "comment": "Đáp án: “My name is Anna.” Thử viết “My name is…” kèm tên bạn ở phần bình luận nhé! Luyện thêm miễn phí tại đây: {link}",
    "hashtags": [
     "#hoctienganh",
     "#nguphaptienganh",
@@ -98,9 +98,9 @@
  },
  "lang": "vi",
  "est": {
-  "words": 44,
-  "seconds": 27.1,
-  "wpm": 97
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
  },
  "publish": {
   "title": "Giới thiệu tên mà thiếu “is”?",
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 38,
+  "script_words": 39,
   "platforms": {
    "youtube": {
     "title": "Giới thiệu tên mà thiếu “is”?",
@@ -140,7 +140,7 @@
     "caption": "Giới thiệu tên mà thiếu “is”? #hoctienganh #nguphaptienganh #tienganhgiaotiep"
    }
   },
-  "first_comment": "Đáp án: “is.” Thử viết “My name is…” kèm tên bạn ở phần bình luận nhé! Luyện thêm miễn phí tại đây: {link}",
+  "first_comment": "Đáp án: “My name is Anna.” Thử viết “My name is…” kèm tên bạn ở phần bình luận nhé! Luyện thêm miễn phí tại đây: {link}",
   "lang": "vi"
  }
 }

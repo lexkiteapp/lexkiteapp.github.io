@@ -63,10 +63,10 @@
     },
     "answer_say": "Poison! It has poison in it.",
     "native": {
-     "hook": "„Gift“ ist kein „gift“!",
+     "hook": "„gift“ heißt nicht Gift!",
      "tip": "Das englische „gift“ ist ein Geschenk. Unser „Gift“ heißt „poison“.",
-     "caption": "Das Wort „gift“ sieht vertraut aus, aber Vorsicht! 🎁 “Gift” heißt Geschenk. Falsch: “This water has gift in it.” Richtig: “This water has poison in it.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
-     "comment": "Lösung: “poison”. Richtig heißt es: “This water has poison in it.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
+     "caption": "Das Wort „gift“ sieht vertraut aus, aber Vorsicht! 🎁 Auf Englisch heißt „gift“ Geschenk. Falsch: „This water has gift in it.“ Richtig: „This water has poison in it.“ Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: „poison“. Richtig heißt es: „This water has poison in it.“ Üben Sie mehr mit einem kostenlosen Quiz: {link}",
      "hashtags": [
       "#englischlernen",
       "#englischtipps",
@@ -75,9 +75,9 @@
      ]
     },
     "en": {
-     "hook": "“Gift” means a present!",
-     "tip": "“Gift” means “Geschenk”. For the German “Gift”, say “poison”.",
-     "caption": "“Gift” means Geschenk, not poison. Wrong: “This water has gift in it.” Right: “This water has poison in it.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "hook": "“gift” is not poison!",
+     "tip": "“Gift” means a present. The word for something deadly is “poison.”",
+     "caption": "The word “gift” looks familiar, but be careful! 🎁 “gift” means a present, not poison. Wrong: “This water has gift in it.” Right: “This water has poison in it.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -727,11 +727,11 @@
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Feel, do not be!",
+    "hook_say": "Say I feel sick, not bad!",
     "wrong": "I am very bad today.",
-    "right": "I feel sick today.",
+    "right": "I feel very sick today.",
     "strike": "am very bad",
-    "why": "For your health, say I feel sick.",
+    "why": "When you are sick, say I feel sick.",
     "memory": "I feel sick.",
     "quiz": {
      "stem": "I have a fever. I ___ today.",
@@ -741,12 +741,12 @@
      ],
      "answer": 0
     },
-    "answer_say": "Feel sick! I feel sick today.",
+    "answer_say": "Feel sick! I feel very sick today.",
     "native": {
      "hook": "Nicht „I am bad“ sagen!",
-     "tip": "„I am bad“ klingt nach „Ich bin schlecht“. Wenn es Ihnen schlecht geht, sagen Sie „I feel sick“.",
-     "caption": "Geht es Ihnen schlecht? 🤒 Falsch: “I am very bad today.” Richtig: “I feel sick today.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
-     "comment": "Lösung: “feel sick”. Richtig heißt es: “I feel sick today.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
+     "tip": "„I am bad“ kann nach „Ich bin ein schlechter Mensch“ klingen. Wenn Sie krank sind, sagen Sie „I feel sick.“",
+     "caption": "Geht es Ihnen schlecht? 🤒 Falsch: „I am very bad today.“ Richtig: „I feel very sick today.“ Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: „feel sick“. Richtig heißt es: „I feel very sick today.“ Üben Sie mehr mit einem kostenlosen Quiz: {link}",
      "hashtags": [
       "#englischlernen",
       "#englischtipps",
@@ -756,8 +756,8 @@
     },
     "en": {
      "hook": "Do not say “I am bad”!",
-     "tip": "“I am bad” sounds like you are a bad person. For your health, say “I feel sick”.",
-     "caption": "Do you feel unwell? Wrong: “I am very bad today.” Right: “I feel sick today.” Listen to Ama and repeat! Practice more in the Lexkite app."
+     "tip": "“I am bad” can sound like you are a bad person. When you are sick, say “I feel sick.”",
+     "caption": "Do you feel unwell? Wrong: “I am very bad today.” Right: “I feel very sick today.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -864,7 +864,7 @@
     "answer_say": "Kind! What kind of food do you like?",
     "native": {
      "hook": "„Welche Art Musik“ auf Englisch?",
-     "tip": "„Welche Art von Musik“ sagen Sie auf Englisch mit „kind of“. „Art“ ist Kunst.",
+     "tip": "„Welche Art von Musik“ heißt auf Englisch „what kind of music“. Das englische „art“ bedeutet Kunst.",
      "caption": "Fragen Sie nach der Art von Musik? 🎵 Falsch: “What art of music do you like?” Richtig: “What kind of music do you like?” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
      "comment": "Lösung: “kind”. Richtig heißt es: “What kind of music do you like?” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
      "hashtags": [
@@ -875,9 +875,9 @@
      ]
     },
     "en": {
-     "hook": "Asking for the Art of music?",
+     "hook": "“Welche Art Musik” in English?",
      "tip": "For “Art von” say “kind of”. “Art” means Kunst.",
-     "caption": "Are you asking about the Art of music? Wrong: “What art of music do you like?” Right: “What kind of music do you like?” Listen to Ama and repeat! Practice more in the Lexkite app."
+     "caption": "How do you say “welche Art Musik” in English? Wrong: “What art of music do you like?” Right: “What kind of music do you like?” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -934,14 +934,14 @@
     "why": "Say I am hungry.",
     "memory": "I am hungry.",
     "quiz": {
-     "stem": "I ___. Let us eat!",
+     "stem": "I ___. Can we eat now?",
      "options": [
       "am hungry",
       "have hunger"
      ],
      "answer": 0
     },
-    "answer_say": "I am hungry! Let us eat!",
+    "answer_say": "I am hungry! Can we eat now?",
     "native": {
      "hook": "„Ich habe Hunger“ auf Englisch?",
      "tip": "Im Englischen „hat“ man keinen Hunger, man „ist“ hungrig: „I am hungry“.",
@@ -1007,7 +1007,7 @@
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Listen needs to!",
+    "hook_say": "Say listen to, not listen!",
     "wrong": "I listen music every day.",
     "right": "I listen to music every day.",
     "strike": "listen",
@@ -1025,7 +1025,7 @@
     "native": {
      "hook": "Ein Wörtchen fehlt beim Hören!",
      "tip": "Im Deutschen „hören“ Sie Musik. Im Englischen sagen Sie „listen to music“.",
-     "caption": "Ihnen fehlt ein kleines Wort beim Musikhören! 🎧 Falsch: “I listen music every day.” Richtig: “I listen to music every day.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "caption": "Beim Musikhören fehlt oft ein kleines Wort! 🎧 Falsch: “I listen music every day.” Richtig: “I listen to music every day.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
      "comment": "Lösung: “to”. Richtig heißt es: “I listen to music every day.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
      "hashtags": [
       "#englischlernen",
@@ -1037,7 +1037,7 @@
     "en": {
      "hook": "A little word is missing here!",
      "tip": "“Musik hören” has no extra word. In English you say “listen to music”.",
-     "caption": "A little word is missing when you listen to music! Wrong: “I listen music every day.” Right: “I listen to music every day.” Listen to Ama and repeat! Practice more in the Lexkite app."
+     "caption": "A little word is often missing! Wrong: “I listen music every day.” Right: “I listen to music every day.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1103,7 +1103,7 @@
     },
     "answer_say": "Do not! I do not like tea.",
     "native": {
-     "hook": "Nicht hinter dem Verb!",
+     "hook": "„Nicht“ steht nicht am Ende!",
      "tip": "Im Deutschen verneinen Sie direkt: „Ich mag Kaffee nicht“. Im Englischen brauchen Sie das Hilfsverb „do“: „I do not like“.",
      "caption": "Wo steht „nicht“ im Englischen? 🙅 Falsch: “I like coffee not.” Richtig: “I do not like coffee.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
      "comment": "Lösung: “do not”. Richtig heißt es: “I do not like coffee.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
@@ -1115,9 +1115,9 @@
      ]
     },
     "en": {
-     "hook": "Not after the verb!",
+     "hook": "“Not” does not go at the end!",
      "tip": "“Ich mag nicht” puts “nicht” after the verb. In English you need “do not”.",
-     "caption": "Not after the verb! Wrong: “I like coffee not.” Right: “I do not like coffee.” Listen to Ama and repeat! Practice more in the Lexkite app."
+     "caption": "Where does “not” go? Wrong: “I like coffee not.” Right: “I do not like coffee.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },

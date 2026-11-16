@@ -26,7 +26,7 @@
   },
   {
    "id": "y",
-   "text": "Put the color before the noun.",
+   "text": "Say a red car, a big house.",
    "pause": 0.42
   },
   {
@@ -55,8 +55,8 @@
   "wrong": "I have a car red.",
   "right": "I have a red car.",
   "strike": "car red",
-  "why": "Put the color before the noun.",
-  "memory": "Color, then noun.",
+  "why": "Say a red car, a big house.",
+  "memory": "Describing word, then noun.",
   "quiz": {
    "stem": "She has a ___.",
    "options": [
@@ -67,7 +67,7 @@
   },
   "native": {
    "hook": "“Xe đỏ” là “car red” à?",
-   "tip": "Tiếng Việt đặt tính từ sau danh từ (“xe đỏ”), nhưng tiếng Anh đặt trước: “a red car.”",
+   "tip": "Nhiều bạn đặt tính từ sau danh từ, nhưng tiếng Anh đặt trước: “a red car.”",
    "caption": "Bạn có hay nói “I have a car red.” không? 🚗 Tính từ đứng trước danh từ: “I have a red car.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
    "comment": "Đáp án: “big house.” Tả đồ của bạn bằng “a + tính từ + danh từ” nhé. Luyện thêm miễn phí tại đây: {link}",
    "hashtags": [
@@ -79,7 +79,7 @@
   },
   "en": {
    "hook": "“A car red”? Wrong word order!",
-   "tip": "Vietnamese puts the adjective after the noun (“xe đỏ”), but English puts it before: “a red car.”",
+   "tip": "Many learners put the adjective after the noun, but English puts it before: “a red car.”",
    "caption": "Do you often say this? “I have a car red.” The adjective goes before the noun: “I have a red car.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
   }
  },
@@ -98,14 +98,14 @@
  },
  "lang": "vi",
  "est": {
-  "words": 47,
-  "seconds": 28.6,
+  "words": 48,
+  "seconds": 29.1,
   "wpm": 99
  },
  "publish": {
   "title": "“Xe đỏ” là “car red” à?",
   "keyword": "I have a red car.",
-  "value": "Tiếng Việt đặt tính từ sau danh từ (“xe đỏ”), nhưng tiếng Anh đặt trước: “a red car.”",
+  "value": "Nhiều bạn đặt tính từ sau danh từ, nhưng tiếng Anh đặt trước: “a red car.”",
   "hashtags": [
    "#hoctienganh",
    "#nguphaptienganh",
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 41,
+  "script_words": 42,
   "platforms": {
    "youtube": {
     "title": "“Xe đỏ” là “car red” à?",

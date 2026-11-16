@@ -11,12 +11,12 @@
  "lines": [
   {
    "id": "h",
-   "text": "No at before home!",
+   "text": "Don't say go to home!",
    "pause": 0.42
   },
   {
    "id": "w",
-   "text": "Many learners say: I go at home after work.",
+   "text": "Many learners say: I go to home after work.",
    "pause": 0.42
   },
   {
@@ -52,24 +52,24 @@
   }
  ],
  "data": {
-  "wrong": "I go at home after work.",
+  "wrong": "I go to home after work.",
   "right": "I go home after work.",
-  "strike": "at",
+  "strike": "to",
   "why": "After go, say home. Nothing more.",
-  "memory": "Go home. No at.",
+  "memory": "Go home. No to.",
   "quiz": {
    "stem": "After class, I go ___.",
    "options": [
-    "at home",
+    "to home",
     "home"
    ],
    "answer": 1
   },
   "native": {
    "hook": "« Aller à la maison » : piège !",
-   "tip": "On traduit « à la maison » par “at home”, mais après “go”, “home” se passe de préposition : “go home”.",
-   "caption": "Vous dites “I go at home after work.” ? Après “go”, le mot “home” se passe de préposition. Dites plutôt “I go home after work.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
-   "comment": "Réponse : “I go home after work.” — Après “go”, le mot “home” se passe de préposition. Testez d’autres pièges avec un quiz gratuit : {link}",
+   "tip": "On traduit « aller à la maison » par “go to home”, mais après “go”, “home” se passe de préposition : “go home”.",
+   "caption": "Vous dites « I go to home after work. » ? Après “go”, le mot “home” se passe de préposition. Dites plutôt “I go home after work.” Écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “home” — Après “go”, le mot “home” se passe de préposition. Testez d’autres pièges avec un quiz gratuit : {link}",
    "hashtags": [
     "#apprendrelanglais",
     "#anglaisfacile",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "Go home, no “at”!",
-   "tip": "“Home” after “go” takes no preposition. Do not say “at home”.",
-   "caption": "Do you say this? “I go at home after work.” After “go”, “home” needs no preposition. Say “I go home after work.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+   "hook": "Go home, no “to”!",
+   "tip": "After “go”, “home” takes no preposition. Do not say “go to home”.",
+   "caption": "Do you say this? “I go to home after work.” After “go”, “home” needs no preposition. Say “I go home after work.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
   }
  },
  "cta": {
@@ -98,14 +98,14 @@
  },
  "lang": "fr",
  "est": {
-  "words": 47,
-  "seconds": 28.6,
+  "words": 48,
+  "seconds": 29.1,
   "wpm": 99
  },
  "publish": {
   "title": "« Aller à la maison » : piège !",
   "keyword": "I go home after work.",
-  "value": "On traduit « à la maison » par “at home”, mais après “go”, “home” se passe de préposition : “go home”.",
+  "value": "On traduit « aller à la maison » par “go to home”, mais après “go”, “home” se passe de préposition : “go home”.",
   "hashtags": [
    "#apprendrelanglais",
    "#anglaisfacile",
@@ -113,11 +113,11 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 41,
+  "script_words": 42,
   "platforms": {
    "youtube": {
     "title": "« Aller à la maison » : piège !",
-    "description": "Vous dites “I go at home after work.” ? Après “go”, le mot “home” se passe de préposition. Dites plutôt “I go home after work.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "description": "Vous dites « I go to home after work. » ? Après “go”, le mot “home” se passe de préposition. Dites plutôt “I go home after work.” Écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
     "tags": [
      "I go home after work.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Vous dites “I go at home after work.” ? Après “go”, le mot “home” se passe de préposition. Dites plutôt “I go home after work.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Vous dites « I go to home after work. » ? Après “go”, le mot “home” se passe de préposition. Dites plutôt “I go home after work.” Écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Vous dites “I go at home after work.” ? Après “go”, le mot “home” se passe de préposition. Dites plutôt “I go home after work.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nlexkite.com",
+    "caption": "Vous dites « I go to home after work. » ? Après “go”, le mot “home” se passe de préposition. Dites plutôt “I go home after work.” Écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nlexkite.com",
     "hashtags": [
      "#apprendrelanglais",
      "#anglaisfacile",
@@ -140,7 +140,7 @@
     "caption": "« Aller à la maison » : piège ! #apprendrelanglais #anglaisfacile #coursdanglais"
    }
   },
-  "first_comment": "Réponse : “I go home after work.” — Après “go”, le mot “home” se passe de préposition. Testez d’autres pièges avec un quiz gratuit : {link}",
+  "first_comment": "Réponse : “home” — Après “go”, le mot “home” se passe de préposition. Testez d’autres pièges avec un quiz gratuit : {link}",
   "lang": "fr"
  }
 }

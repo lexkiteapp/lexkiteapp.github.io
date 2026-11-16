@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Listen needs to!",
+   "text": "Say listen to, not listen!",
    "pause": 0.42
   },
   {
@@ -68,7 +68,7 @@
   "native": {
    "hook": "Ein Wörtchen fehlt beim Hören!",
    "tip": "Im Deutschen „hören“ Sie Musik. Im Englischen sagen Sie „listen to music“.",
-   "caption": "Ihnen fehlt ein kleines Wort beim Musikhören! 🎧 Falsch: “I listen music every day.” Richtig: “I listen to music every day.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "caption": "Beim Musikhören fehlt oft ein kleines Wort! 🎧 Falsch: “I listen music every day.” Richtig: “I listen to music every day.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
    "comment": "Lösung: “to”. Richtig heißt es: “I listen to music every day.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
    "hashtags": [
     "#englischlernen",
@@ -80,7 +80,7 @@
   "en": {
    "hook": "A little word is missing here!",
    "tip": "“Musik hören” has no extra word. In English you say “listen to music”.",
-   "caption": "A little word is missing when you listen to music! Wrong: “I listen music every day.” Right: “I listen to music every day.” Listen to Ama and repeat! Practice more in the Lexkite app."
+   "caption": "A little word is often missing! Wrong: “I listen music every day.” Right: “I listen to music every day.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -98,9 +98,9 @@
  },
  "lang": "de",
  "est": {
-  "words": 44,
-  "seconds": 27.1,
-  "wpm": 97
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
  },
  "publish": {
   "title": "Ein Wörtchen fehlt beim Hören!",
@@ -113,11 +113,11 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 38,
+  "script_words": 40,
   "platforms": {
    "youtube": {
     "title": "Ein Wörtchen fehlt beim Hören!",
-    "description": "Ihnen fehlt ein kleines Wort beim Musikhören! 🎧 Falsch: “I listen music every day.” Richtig: “I listen to music every day.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "description": "Beim Musikhören fehlt oft ein kleines Wort! 🎧 Falsch: “I listen music every day.” Richtig: “I listen to music every day.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
     "tags": [
      "I listen to music every day.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Ihnen fehlt ein kleines Wort beim Musikhören! 🎧 Falsch: “I listen music every day.” Richtig: “I listen to music every day.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Beim Musikhören fehlt oft ein kleines Wort! 🎧 Falsch: “I listen music every day.” Richtig: “I listen to music every day.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Ihnen fehlt ein kleines Wort beim Musikhören! 🎧 Falsch: “I listen music every day.” Richtig: “I listen to music every day.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nlexkite.com",
+    "caption": "Beim Musikhören fehlt oft ein kleines Wort! 🎧 Falsch: “I listen music every day.” Richtig: “I listen to music every day.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nlexkite.com",
     "hashtags": [
      "#englischlernen",
      "#englischtipps",

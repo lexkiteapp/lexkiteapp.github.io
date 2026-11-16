@@ -344,7 +344,7 @@
     "answer_say": "Bookstore! I buy books at the bookstore.",
     "native": {
      "hook": "« Library » ≠ librairie !",
-     "tip": "« Library » veut dire {m:library}. Pour acheter des livres, allez dans « a bookstore ».",
+     "tip": "« Library » veut dire {m:library}. Pour acheter des livres, on dit « bookstore ».",
      "caption": "Vous dites “I go to the library to buy books.” ? Attention, faux ami ! « Library » signifie {m:library}, pas librairie. Dites plutôt “I go to the bookstore to buy books.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
      "comment": "Réponse : “bookstore” — Une bibliothèque prête des livres, une librairie les vend. Testez d’autres pièges avec un quiz gratuit : {link}",
      "hashtags": [
@@ -436,7 +436,7 @@
     },
     "en": {
      "hook": "Do you say “I am boring”?",
-     "tip": "“Boring” describes a thing, “bored” describes your feeling. For your feeling, say bored!",
+     "tip": "“Boring” describes a thing. “Bored” describes your feeling. For your feeling, say bored!",
      "caption": "Do you say this? “I am boring.” 😅 That means “I am a dull person.” To say how you feel, say “I am bored.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }

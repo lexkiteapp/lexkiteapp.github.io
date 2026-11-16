@@ -410,7 +410,7 @@
     "hook_say": "Demand is too strong!",
     "wrong": "Can I demand you something?",
     "right": "Can I ask you something?",
-    "strike": "demanded",
+    "strike": "demand",
     "why": "Demand is strong. Ask is normal.",
     "memory": "Just ask.",
     "quiz": {
@@ -567,7 +567,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "No the for music!",
+    "hook_say": "Say music, not the music!",
     "wrong": "I love the music, especially rock.",
     "right": "I love music, especially rock.",
     "strike": "the",
@@ -583,7 +583,7 @@
     },
     "answer_say": "Coffee! In general, I like coffee.",
     "native": {
-     "hook": "« J'aime la musique » : sans “the”",
+     "hook": "« J’aime la musique » : sans “the”",
      "tip": "En français, on met « la ». En anglais, pour parler en général, on enlève “the”.",
      "caption": "Vous dites “I love the music, especially rock.” ? Pour parler en général, pas de “the” ! Dites plutôt “I love music, especially rock.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
      "comment": "Réponse : “coffee” — Pour parler en général, on n’utilise pas “the”. Testez d’autres pièges avec un quiz gratuit : {link}",
@@ -967,16 +967,16 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "No at before home!",
-    "wrong": "I go at home after work.",
+    "hook_say": "Don't say go to home!",
+    "wrong": "I go to home after work.",
     "right": "I go home after work.",
-    "strike": "at",
+    "strike": "to",
     "why": "After go, say home. Nothing more.",
-    "memory": "Go home. No at.",
+    "memory": "Go home. No to.",
     "quiz": {
      "stem": "After class, I go ___.",
      "options": [
-      "at home",
+      "to home",
       "home"
      ],
      "answer": 1
@@ -984,9 +984,9 @@
     "answer_say": "Home! I go home after class.",
     "native": {
      "hook": "« Aller à la maison » : piège !",
-     "tip": "On traduit « à la maison » par “at home”, mais après “go”, “home” se passe de préposition : “go home”.",
-     "caption": "Vous dites “I go at home after work.” ? Après “go”, le mot “home” se passe de préposition. Dites plutôt “I go home after work.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
-     "comment": "Réponse : “I go home after work.” — Après “go”, le mot “home” se passe de préposition. Testez d’autres pièges avec un quiz gratuit : {link}",
+     "tip": "On traduit « aller à la maison » par “go to home”, mais après “go”, “home” se passe de préposition : “go home”.",
+     "caption": "Vous dites « I go to home after work. » ? Après “go”, le mot “home” se passe de préposition. Dites plutôt “I go home after work.” Écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+     "comment": "Réponse : “home” — Après “go”, le mot “home” se passe de préposition. Testez d’autres pièges avec un quiz gratuit : {link}",
      "hashtags": [
       "#apprendrelanglais",
       "#anglaisfacile",
@@ -995,9 +995,9 @@
      ]
     },
     "en": {
-     "hook": "Go home, no “at”!",
-     "tip": "“Home” after “go” takes no preposition. Do not say “at home”.",
-     "caption": "Do you say this? “I go at home after work.” After “go”, “home” needs no preposition. Say “I go home after work.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+     "hook": "Go home, no “to”!",
+     "tip": "After “go”, “home” takes no preposition. Do not say “go to home”.",
+     "caption": "Do you say this? “I go to home after work.” After “go”, “home” needs no preposition. Say “I go home after work.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
     }
    }
   },

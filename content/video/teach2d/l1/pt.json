@@ -1007,7 +1007,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Bus has its own word!",
+    "hook_say": "On the bus, not in the bus!",
     "wrong": "I am in the bus now.",
     "right": "I am on the bus now.",
     "strike": "in the bus",
@@ -1024,8 +1024,8 @@
     "answer_say": "On! I am on the train.",
     "native": {
      "hook": "Você diz “in the bus”?",
-     "tip": "Para ônibus, trem e avião, usamos “on”. Para carro, “in”.",
-     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I am in the bus now.” O certo é “I am on the bus now.” Em português dizemos “no ônibus”, mas o inglês separa “on” e “in”. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+     "tip": "Para ônibus, trem e avião, usamos “on.” Para carro, “in.”",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I am in the bus now.” O certo é “I am on the bus now.” Em português dizemos “no ônibus”, mas o inglês separa “on” e “in.” Ouça o Carlos e repita! Treine mais no app Lexkite.",
      "comment": "Resposta: “on”. Treine mais com um quiz grátis aqui: {link}",
      "hashtags": [
       "#inglesfacil",
@@ -1036,8 +1036,8 @@
     },
     "en": {
      "hook": "Do you say “in the bus”?",
-     "tip": "For buses, trains and planes, we use “on”. For cars, “in”.",
-     "caption": "Watch out for this common mistake! Many people say “I am in the bus now.” The right way is “I am on the bus now.” Learners say “no ônibus”, but English splits “on” and “in”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "For buses, trains, and planes, we use “on.” For cars, “in.”",
+     "caption": "Watch out for this common mistake! Many people say “I am in the bus now.” The right way is “I am on the bus now.” In your language, it is “no ônibus”, but English splits “on” and “in.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },

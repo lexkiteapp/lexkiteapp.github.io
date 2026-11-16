@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Listen needs to.",
+   "text": "Not listen music. Say listen to music!",
    "pause": 0.42
   },
   {
@@ -67,7 +67,7 @@
   },
   "native": {
    "hook": "“Nghe nhạc” mà thiếu “to”?",
-   "tip": "Tiếng Việt nói “nghe nhạc”, nhưng tiếng Anh cần “to”: “listen to music.”",
+   "tip": "Nhiều bạn nói “listen music”, nhưng tiếng Anh cần “to”: “listen to music.”",
    "caption": "Bạn có hay nói “I listen music every day.” không? 😅 “Listen” cần “to”: “I listen to music every day.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
    "comment": "Đáp án: “listen to.” Kể bạn hay nghe gì bằng “I listen to…” nhé. Luyện thêm miễn phí tại đây: {link}",
    "hashtags": [
@@ -79,7 +79,7 @@
   },
   "en": {
    "hook": "“Listen music”: missing a word!",
-   "tip": "Vietnamese says “nghe nhạc”, but English needs “to”: “listen to music.”",
+   "tip": "Many learners say “listen music,” but English needs “to”: “listen to music.”",
    "caption": "Do you often say this? “I listen music every day.” “Listen” needs “to”: “I listen to music every day.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
   }
  },
@@ -98,14 +98,14 @@
  },
  "lang": "vi",
  "est": {
-  "words": 45,
-  "seconds": 27.6,
-  "wpm": 98
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
  },
  "publish": {
   "title": "“Nghe nhạc” mà thiếu “to”?",
   "keyword": "I listen to music every day.",
-  "value": "Tiếng Việt nói “nghe nhạc”, nhưng tiếng Anh cần “to”: “listen to music.”",
+  "value": "Nhiều bạn nói “listen music”, nhưng tiếng Anh cần “to”: “listen to music.”",
   "hashtags": [
    "#hoctienganh",
    "#gioitu",
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 39,
+  "script_words": 43,
   "platforms": {
    "youtube": {
     "title": "“Nghe nhạc” mà thiếu “to”?",

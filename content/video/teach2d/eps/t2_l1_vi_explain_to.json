@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Explain needs to.",
+   "text": "Not explain me. Explain it to me!",
    "pause": 0.42
   },
   {
@@ -67,7 +67,7 @@
   },
   "native": {
    "hook": "Đừng nói “explain me” nhé!",
-   "tip": "Tiếng Việt nói “giải thích cho tôi”, nhưng tiếng Anh cần “to”: “explain it to me.”",
+   "tip": "Nhiều bạn nói “explain me”, nhưng tiếng Anh cần “to”: “explain it to me.”",
    "caption": "Bạn có hay nói “Can you explain me this word?” không? 😅 Phải có “to”: “Can you explain this word to me?” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
    "comment": "Đáp án: “to me.” Nhờ bạn bè giải thích một từ bằng “Can you explain… to me?” nhé. Luyện thêm miễn phí tại đây: {link}",
    "hashtags": [
@@ -78,8 +78,8 @@
    ]
   },
   "en": {
-   "hook": "Do not say “explain me”!",
-   "tip": "Vietnamese says “giải thích cho tôi”, but English needs “to”: “explain it to me.”",
+   "hook": "Don't say “explain me”!",
+   "tip": "Many learners say “explain me,” but English needs “to”: “explain it to me.”",
    "caption": "Do you often say this? “Can you explain me this word?” You need “to”: “Can you explain this word to me?” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
   }
  },
@@ -98,14 +98,14 @@
  },
  "lang": "vi",
  "est": {
-  "words": 48,
-  "seconds": 29.1,
-  "wpm": 99
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
  },
  "publish": {
   "title": "Đừng nói “explain me” nhé!",
   "keyword": "Can you explain this word to me?",
-  "value": "Tiếng Việt nói “giải thích cho tôi”, nhưng tiếng Anh cần “to”: “explain it to me.”",
+  "value": "Nhiều bạn nói “explain me”, nhưng tiếng Anh cần “to”: “explain it to me.”",
   "hashtags": [
    "#hoctienganh",
    "#nguphaptienganh",
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 42,
+  "script_words": 46,
   "platforms": {
    "youtube": {
     "title": "Đừng nói “explain me” nhé!",

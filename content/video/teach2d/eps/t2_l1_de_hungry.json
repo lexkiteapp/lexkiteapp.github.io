@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "I am hungry! Let us eat!",
+   "text": "I am hungry! Can we eat now?",
    "pause": 0.42
   },
   {
@@ -58,7 +58,7 @@
   "why": "Say I am hungry.",
   "memory": "I am hungry.",
   "quiz": {
-   "stem": "I ___. Let us eat!",
+   "stem": "I ___. Can we eat now?",
    "options": [
     "am hungry",
     "have hunger"
@@ -98,8 +98,8 @@
  },
  "lang": "de",
  "est": {
-  "words": 41,
-  "seconds": 25.6,
+  "words": 42,
+  "seconds": 26.1,
   "wpm": 96
  },
  "publish": {
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 35,
+  "script_words": 36,
   "platforms": {
    "youtube": {
     "title": "„Ich habe Hunger“ auf Englisch?",

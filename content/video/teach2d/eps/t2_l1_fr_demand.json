@@ -54,7 +54,7 @@
  "data": {
   "wrong": "Can I demand you something?",
   "right": "Can I ask you something?",
-  "strike": "demanded",
+  "strike": "demand",
   "why": "Demand is strong. Ask is normal.",
   "memory": "Just ask.",
   "quiz": {

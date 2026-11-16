@@ -67,7 +67,7 @@
   },
   "native": {
    "hook": "« Library » ≠ librairie !",
-   "tip": "« Library » veut dire {m:library}. Pour acheter des livres, allez dans « a bookstore ».",
+   "tip": "« Library » veut dire {m:library}. Pour acheter des livres, on dit « bookstore ».",
    "caption": "Vous dites “I go to the library to buy books.” ? Attention, faux ami ! « Library » signifie {m:library}, pas librairie. Dites plutôt “I go to the bookstore to buy books.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
    "comment": "Réponse : “bookstore” — Une bibliothèque prête des livres, une librairie les vend. Testez d’autres pièges avec un quiz gratuit : {link}",
    "hashtags": [
@@ -105,7 +105,7 @@
  "publish": {
   "title": "« Library » ≠ librairie !",
   "keyword": "I go to the bookstore to buy books.",
-  "value": "« Library » veut dire {m:library}. Pour acheter des livres, allez dans « a bookstore ».",
+  "value": "« Library » veut dire {m:library}. Pour acheter des livres, on dit « bookstore ».",
   "hashtags": [
    "#apprendrelanglais",
    "#anglaisfacile",
