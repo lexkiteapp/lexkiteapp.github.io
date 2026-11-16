@@ -23,6 +23,13 @@
   ":scope > main > header > button": {
    "data-href": "d.back",
    "aria-label": "d.backL"
+  },
+  ":scope > main > div:nth-child(2) > section:nth-child(1) > div > div:nth-child(3)": {
+   "aria-valuenow": "Math.round(d.pct)",
+   "aria-label": "d.count + ' · ' + d.doneL"
+  },
+  ":scope > main > div:nth-child(2) > section:nth-child(1) > div > div:nth-child(3) > div": {
+   "style": "'width:' + Math.round(d.pct * 10) / 10 + '%'"
   }
  },
  "cls": {
@@ -230,9 +237,6 @@
            "top-1": "'top-0'",
            "right-1": "'right-0'"
           },
-          ":scope > span:nth-child(3)": {
-           "text-[11px]": "'text-[12px]'"
-          },
           ":scope > span:nth-child(1) > span": {
            "text-[13px]": "'text-[16px]'"
           }
@@ -261,9 +265,6 @@
          "cls": {
           ":scope": {
            "border-dashed": "x.unv ? 'border-dashed' : 'border-solid'"
-          },
-          ":scope > span:nth-child(2)": {
-           "text-[11px]": "'text-[12px]'"
           }
          },
          "addClass": {
@@ -305,9 +306,6 @@
           ":scope > span:nth-child(1)": {
            "top-1": "'top-2'",
            "right-1": "'right-2'"
-          },
-          ":scope > span:nth-child(3)": {
-           "text-[11px]": "'text-[12px]'"
           }
          }
         }

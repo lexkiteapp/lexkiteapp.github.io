@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_in_country",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Of the country? No, in!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: It is the biggest city of the country.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: It is the biggest city in the country.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After biggest city, use in.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "In! It is the biggest city in the country.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "It is the biggest city of the country.",
+  "right": "It is the biggest city in the country.",
+  "strike": "of",
+  "why": "After biggest city, use in.",
+  "memory": "Biggest in.",
+  "quiz": {
+   "stem": "It is the biggest city ___ the country.",
+   "options": [
+    "of",
+    "in"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Del país” = “in the country”",
+   "tip": "En español “la ciudad más grande del país”, pero en inglés se dice “in the country.”",
+   "caption": "🙈 Error común: “It is the biggest city of the country.” Después de un superlativo, “de” se vuelve “in”: “It is the biggest city in the country.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “in”. Con “el más grande de un lugar” se usa “in”, no “of”. Escribe una frase tuya con “in” o dila en voz alta: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#comparaciones",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Of the country” = “in the country",
+   "tip": "Learners say “del país”, but after “biggest” English says “in the country.”",
+   "caption": "Common mistake: “It is the biggest city of the country.” After a superlative, “de” becomes “in”: “It is the biggest city in the country.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Del país” = “in the country”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 55,
+  "seconds": 32.5,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "“Del país” = “in the country”",
+  "keyword": "It is the biggest city in the country.",
+  "value": "En español “la ciudad más grande del país”, pero en inglés se dice “in the country.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#comparaciones",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 49,
+  "platforms": {
+   "youtube": {
+    "title": "“Del país” = “in the country”",
+    "description": "En español “la ciudad más grande del país”, pero en inglés se dice “in the country.”\n\n🙈 Error común: “It is the biggest city of the country.” Después de un superlativo, “de” se vuelve “in”: “It is the biggest city in the country.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #comparaciones #lexkite",
+    "tags": [
+     "It is the biggest city in the country.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "🙈 Error común: “It is the biggest city of the country.” Después de un superlativo, “de” se vuelve “in”: “It is the biggest city in the country.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Del país” = “in the country”\n\nEn español “la ciudad más grande del país”, pero en inglés se dice “in the country.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#comparaciones",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Del país” = “in the country” En español “la ciudad más grande del país”, pero en inglés se dice “in the… #aprenderingles #inglesfacil #comparaciones"
+   }
+  },
+  "first_comment": "Respuesta: “in”. Con “el más grande de un lugar” se usa “in”, no “of”. Escribe una frase tuya con “in” o dila en voz alta: {link}",
+  "lang": "es"
+ }
+}

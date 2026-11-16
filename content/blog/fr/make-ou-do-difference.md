@@ -188,3 +188,5 @@ Toujours *make a mistake*. Une erreur est quelque chose que votre action produit
 
 ### Pourquoi dit-on « take a photo » et pas « make a photo » ?
 C'est l'usage : en anglais, on « prend » une photo, comme on « prend » une pause (*take a break*). *Make a photo* se comprend, mais sonne immédiatement comme une traduction du français.
+
+Sur le même principe de petits mots qu’on confond, voyez aussi [affect ou effect](/fr/blog/affect-ou-effect-difference-anglais/).

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_happybirthday",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Happy birthday to you!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Happy birthday for you!",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Happy birthday to you!",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use to in this wish.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "To! Happy birthday to you!",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Happy birthday for you!",
+  "right": "Happy birthday to you!",
+  "strike": "for",
+  "why": "Use to in this wish.",
+  "memory": "Happy birthday to you!",
+  "quiz": {
+   "stem": "Happy birthday ___ you!",
+   "options": [
+    "for",
+    "to"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "birthday to you",
+   "tip": "Kita bilang “selamat ulang tahun untuk kamu”. Di bahasa Inggris, lagu dan ucapannya pakai to, bukan for.",
+   "caption": "Pernah bilang begini? “Happy birthday for you!” 😅 Ucapan ulang tahun pakai to: “Happy birthday to you!” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “to”. Ucapkan dengan lantang: “Happy birthday to you!” lalu tulis ucapan untuk temanmu. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#ucapan",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Birthday wish: “to you”",
+   "tip": "We say “selamat ulang tahun untuk kamu”. In English, the wish uses to, not for.",
+   "caption": "Ever say this? “Happy birthday for you!” 😅 The birthday wish uses to: “Happy birthday to you!” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "birthday to you"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "birthday to you",
+  "keyword": "Happy birthday to you!",
+  "value": "Kita bilang “selamat ulang tahun untuk kamu”. Di bahasa Inggris, lagu dan ucapannya pakai to, bukan for.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#ucapan",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "birthday to you",
+    "description": "Kita bilang “selamat ulang tahun untuk kamu”. Di bahasa Inggris, lagu dan ucapannya pakai to, bukan for.\n\nPernah bilang begini? “Happy birthday for you!” 😅 Ucapan ulang tahun pakai to: “Happy birthday to you!” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #ucapan #bahasainggris #lexkite",
+    "tags": [
+     "Happy birthday to you!",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “Happy birthday for you!” 😅 Ucapan ulang tahun pakai to: “Happy birthday to you!” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "birthday to you\n\nKita bilang “selamat ulang tahun untuk kamu”. Di bahasa Inggris, lagu dan ucapannya pakai to, bukan for.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#ucapan",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "birthday to you Kita bilang “selamat ulang tahun untuk kamu”. Di bahasa Inggris, lagu dan ucapannya paka… #belajarbahasainggris #ucapan #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “to”. Ucapkan dengan lantang: “Happy birthday to you!” lalu tulis ucapan untuk temanmu. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_lookat",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Look to me? Say look at me!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Look to me, please.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Look at me, please.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After look, say at.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "At! Look at the board.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Look to me, please.",
+  "right": "Look at me, please.",
+  "strike": "to",
+  "why": "After look, say at.",
+  "memory": "Look at me.",
+  "quiz": {
+   "stem": "Look ___ the board.",
+   "options": [
+    "to",
+    "at"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "هل تقول “look to me”؟",
+   "tip": "نقول بالعربية «انظر إليّ»، أما في الإنجليزية فنقول look at: “Look at me, please.” وليس “Look to me, please.”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “Look to me, please.” 😅 نقول بالعربية «انظر إليّ»، أما في الإنجليزية فنقول look at، فالجملة الصحيحة “Look at me, please.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “at” — نقول بالعربية «انظر إليّ»، أما في الإنجليزية فنقول look at. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “look to me”?",
+   "tip": "In Arabic we say «انظر إليّ», but in English we say look at: “Look at me, please.” not “Look to me, please.”",
+   "caption": "Do you sometimes say this? “Look to me, please.” 😅 In Arabic we say «انظر إليّ», but in English we say look at, so the right sentence is “Look at me, please.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “look to me”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "هل تقول “look to me”؟",
+  "keyword": "Look at me, please.",
+  "value": "نقول بالعربية «انظر إليّ»، أما في الإنجليزية فنقول look at: “Look at me, please.” وليس “Look to me, please.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “look to me”؟",
+    "description": "نقول بالعربية «انظر إليّ»، أما في الإنجليزية فنقول look at: “Look at me, please.” وليس “Look to me, please.”\n\nهل تقول أحيانًا هذه الجملة؟ “Look to me, please.” 😅 نقول بالعربية «انظر إليّ»، أما في الإنجليزية فنقول look at، فالجملة الصحيحة “Look at me, please.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "Look at me, please.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا هذه الجملة؟ “Look to me, please.” 😅 نقول بالعربية «انظر إليّ»، أما في الإنجليزية فنقول look at، فالجملة الصحيحة “Look at me, please.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول “look to me”؟\n\nنقول بالعربية «انظر إليّ»، أما في الإنجليزية فنقول look at: “Look at me, please.” وليس “Look to me, please.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “look to me”؟ نقول بالعربية «انظر إليّ»، أما في الإنجليزية فنقول look at: “Look at me, pl… #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “at” — نقول بالعربية «انظر إليّ»، أما في الإنجليزية فنقول look at. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+  "lang": "ar"
+ }
+}

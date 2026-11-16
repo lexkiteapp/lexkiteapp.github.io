@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_wantthat",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Want you to, not want that!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I want that you come early.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I want you to come early.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After want, use the person and to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Me to! She wants me to help her.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I want that you come early.",
+  "right": "I want you to come early.",
+  "strike": "that you come",
+  "why": "After want, use the person and to.",
+  "memory": "I want you to come.",
+  "quiz": {
+   "stem": "She wants ___ help her.",
+   "options": [
+    "that I",
+    "me to"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“want that” नहीं, “want you to”!",
+   "tip": "हिंदी में “मैं चाहता हूँ कि तुम आओ” का “कि” अंग्रेज़ी में that बन जाता है; want के बाद “व्यक्ति + to” आता है।",
+   "caption": "क्या आप भी यही कहते हैं? “I want that you come early.” 😅 सही रूप है “I want you to come early.” क्योंकि want के बाद व्यक्ति और to आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “me to”। अब इसी तरह अपना एक वाक्य लिखिए। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “want you to”!",
+   "tip": "Many learners use that after want, but English uses the person and to.",
+   "caption": "Do you say this? “I want that you come early.” 😅 The right way is “I want you to come early.” This is right because want takes the person and to. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“want that” नहीं, “want you to”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 53,
+  "seconds": 31.5,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "“want that” नहीं, “want you to”!",
+  "keyword": "I want you to come early.",
+  "value": "हिंदी में “मैं चाहता हूँ कि तुम आओ” का “कि” अंग्रेज़ी में that बन जाता है; want के बाद “व्यक्ति + to” आता है।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 47,
+  "platforms": {
+   "youtube": {
+    "title": "“want that” नहीं, “want you to”!",
+    "description": "हिंदी में “मैं चाहता हूँ कि तुम आओ” का “कि” अंग्रेज़ी में that बन जाता है; want के बाद “व्यक्ति + to” आता है।\n\nक्या आप भी यही कहते हैं? “I want that you come early.” 😅 सही रूप है “I want you to come early.” क्योंकि want के बाद व्यक्ति और to आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "I want you to come early.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी यही कहते हैं? “I want that you come early.” 😅 सही रूप है “I want you to come early.” क्योंकि want के बाद व्यक्ति और to आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“want that” नहीं, “want you to”!\n\nहिंदी में “मैं चाहता हूँ कि तुम आओ” का “कि” अंग्रेज़ी में that बन जाता है; want के बाद “व्यक्ति + to” आता है।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“want that” नहीं, “want you to”! हिंदी में “मैं चाहता हूँ कि तुम आओ” का “कि” अंग्रेज़ी में that बन जाता… #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “me to”। अब इसी तरह अपना एक वाक्य लिखिए। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

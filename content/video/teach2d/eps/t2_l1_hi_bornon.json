@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_bornon",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "On May 5, not in!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I was born in May 5.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I was born on May 5.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use on with a day.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "On! My birthday is on May 10.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I was born in May 5.",
+  "right": "I was born on May 5.",
+  "strike": "in",
+  "why": "Use on with a day.",
+  "memory": "Born on May 5.",
+  "quiz": {
+   "stem": "My birthday is ___ May 10.",
+   "options": [
+    "in",
+    "on"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "तारीख़ के साथ “on”, “in” नहीं!",
+   "tip": "हिंदी में “5 मई को” कहते हैं, पर अंग्रेज़ी में तारीख़ से पहले on लगता है। सिर्फ़ महीने से पहले in लगता है, जैसे in May।",
+   "caption": "क्या आप भी बोलते हैं: “I was born in May 5.” 😅 सही वाक्य है: “I was born on May 5.” ध्यान रखें: तारीख़ से पहले on लगता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “on”। याद रखें: तारीख़ से पहले on लगता है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Use “on” with a date!",
+   "tip": "Many learners say in with a date, but English uses on with a day. Use in only with a month, like in May.",
+   "caption": "Do you say: “I was born in May 5.” 😅 The right sentence is: “I was born on May 5.” Remember: Use on before a date. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "तारीख़ के साथ “on”, “in” नहीं!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "तारीख़ के साथ “on”, “in” नहीं!",
+  "keyword": "I was born on May 5.",
+  "value": "हिंदी में “5 मई को” कहते हैं, पर अंग्रेज़ी में तारीख़ से पहले on लगता है। सिर्फ़ महीने से पहले in लगता है, जैसे in May।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "तारीख़ के साथ “on”, “in” नहीं!",
+    "description": "हिंदी में “5 मई को” कहते हैं, पर अंग्रेज़ी में तारीख़ से पहले on लगता है। सिर्फ़ महीने से पहले in लगता है, जैसे in May।\n\nक्या आप भी बोलते हैं: “I was born in May 5.” 😅 सही वाक्य है: “I was born on May 5.” ध्यान रखें: तारीख़ से पहले on लगता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "I was born on May 5.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी बोलते हैं: “I was born in May 5.” 😅 सही वाक्य है: “I was born on May 5.” ध्यान रखें: तारीख़ से पहले on लगता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "तारीख़ के साथ “on”, “in” नहीं!\n\nहिंदी में “5 मई को” कहते हैं, पर अंग्रेज़ी में तारीख़ से पहले on लगता है। सिर्फ़ महीने से पहले in लगता है, जैसे in May।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "तारीख़ के साथ “on”, “in” नहीं! हिंदी में “5 मई को” कहते हैं, पर अंग्रेज़ी में तारीख़ से पहले on लगता है… #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “on”। याद रखें: तारीख़ से पहले on लगता है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

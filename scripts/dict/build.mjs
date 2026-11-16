@@ -49,7 +49,7 @@ export function loadSources(blogLangs = ENABLED) {
   for (const k of U.KINDS) for (const e of U.load(k)) for (const x of e.items || []) for (const q of x.ex || []) addS(U.example(q).text);
   for (const a of corpus.values()) a.sort((x, y) => x.length - y.length || x.localeCompare(y));
   const wn = fs.existsSync('content/dict/wordnet.json') ? J('content/dict/wordnet.json').words : {}; // Open English WordNet (CC BY 4.0) – scripts/dict/wordnet.mjs
-  const addF = n => (fs.existsSync(`content/dict/add/${n}.json`) ? J(`content/dict/add/${n}.json`) : {}), add = { w: addF('words'), en: addF('en'), vi: addF('vi') }; // bổ sung tự viết cho từ chưa đạt ngưỡng (docs §12)
+  const addF = n => Object.assign({}, ...fs.readdirSync('content/dict/add').filter(f => f === `${n}.json` || (f.startsWith(`${n}-b`) && f.endsWith('.json'))).sort().map(f => J(`content/dict/add/${f}`))), add = { w: addF('words'), en: addF('en'), vi: addF('vi') }; // bổ sung tự viết cho từ chưa đạt ngưỡng (docs §12)
   return { INDEX, audioKey, notes, U, usage, blog, corpus, wn, add };
 }
 
@@ -215,7 +215,8 @@ export function purgeCss(css, used) {
     for (; i < src.length; i++) { const c = src[i]; if (c === '{') depth++; else if (c === '}' && --depth === 0) { const r = src.slice(start, i + 1).trim(), b = r.indexOf('{'), sel = r.slice(0, b).trim();
       if (/^@(media|supports)/.test(sel)) { const inner = walk(r.slice(b + 1, -1)); if (inner) out += `${sel}{${inner}}`; } else if (sel.startsWith('@') || keepSel(sel)) out += r; start = i + 1; } }
     return out; };
-  return walk(css.replace(/\/\*[\s\S]*?\*\//g, ''));
+  // gọn thêm 'thuộc tính: giá trị' → 'thuộc tính:giá trị' và ';}' → '}' (không đụng chuỗi nháy: lookahead dừng ở { }), trừ ~120 B gzip mỗi trang
+  return walk(css.replace(/\/\*[\s\S]*?\*\//g, '')).replace(/;}/g, '}').replace(/([\w)%\]]): (?=[^{}"']*[;}])/g, '$1:');
 }
 export const usedClasses = (htmls, js) => { const u = new Set(); for (const h of htmls) for (const m of h.matchAll(/class="([^"]*)"/g)) m[1].split(/\s+/).forEach(c => c && u.add(c)); for (const m of js.matchAll(/class(?:Name\s*=\s*|=\\?)(["'`])((?:\$\{[^}]*\}|(?!\1)[^])*)/g)) { for (const t of m[2].replace(/\$\{([^}]*)\}/g, ' $1 ').matchAll(/(?<![\w$.(])[a-zA-Z][\w-]*/g)) u.add(t[0]); for (const q of m[2].matchAll(/['"]([\w -]+)['"]/g)) q[1].split(/\s+/).forEach(c => c && u.add(c)); } // class do mã dựng/script gán: chỉ trong giá trị class=/className= (không gom MỌI chuỗi JS → .ext/.q của trang khác không lọt)
   for (const m of js.matchAll(/['"`]([\w -]+)['"`]/g)) if (/^(?:A1|A2|B1|B2|C1|C2)(?: (?:A1|A2|B1|B2|C1|C2))*$/.test(m[1])) m[1].split(/\s+/).forEach(c => u.add(c)); return u; };

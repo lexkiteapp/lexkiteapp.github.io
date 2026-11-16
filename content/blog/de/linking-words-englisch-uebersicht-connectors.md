@@ -198,6 +198,8 @@ Mustertexte und Formulierungshilfen finden Sie zudem in unserem Bereich für [Sc
 
 ---
 
+Ein vollständiger Musteraufsatz, in dem diese Verbindungswörter im Zusammenhang stehen, steht im Beitrag zum [IELTS Agree or Disagree Essay](/de/blog/ielts-agree-disagree-essay-meinung-aufbau/).
+
 ## Häufig gestellte Fragen (FAQ)
 
 ### Q1. Ist es ein Fehler, zu viele Linking Words in einem Essay zu verwenden?

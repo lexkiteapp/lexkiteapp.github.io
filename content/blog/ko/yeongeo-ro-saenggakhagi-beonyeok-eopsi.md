@@ -161,6 +161,8 @@ quiz: [
 ### 시나리오 3: 퇴근길 저녁 운동할 때
 *„It was a pretty hectic day at work, but hitting the gym always helps blow off some steam. Let's do a brisk ten-minute warm-up on the treadmill first to get my heart rate up. My legs feel slightly heavy, but once the endorphins kick in, I'll power through three sets of squats and lunges. Consistency is truly the key to long-term vitality.“*
 
+상황별로 바로 꺼내 쓸 표현 열두 가지는 [영어 말하기 자신감 키우기](/ko/blog/yeongeo-malhagi-jasingam-sanghwangbyeol-pyohyeon/)에 모아 두었습니다.
+
 ## 자주 묻는 질문 (FAQ)
 
 ### 영영사전은 언제부터 사용하는 것이 좋은가요?

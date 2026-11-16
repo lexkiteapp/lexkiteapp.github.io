@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_energy",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say energy, not tension!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have no tension today.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have no energy today.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Tension means stress or worry.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Energy! I have no energy today.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have no tension today.",
+  "right": "I have no energy today.",
+  "strike": "tension",
+  "why": "Tension means stress or worry.",
+  "memory": "No energy.",
+  "quiz": {
+   "stem": "I have no ___ today.",
+   "options": [
+    "energy",
+    "tension"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“tension”이 아니라 energy!",
+   "tip": "‘텐션’은 한국에서는 ‘기운’처럼 쓰지만 영어 tension은 ‘긴장’이에요! 이렇게 말해요 👉 “I have no energy today.”",
+   "caption": "“I have no tension today”처럼 말하고 있나요? 😅 한국에서는 ‘텐션이 없다’를 기운이 없다는 뜻으로 쓰지만, 영어 tension은 ‘긴장’이라는 뜻이에요. 기운은 energy라고 해요. 맞는 문장 ✅ “I have no energy today.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답 ✅ “I have no energy today.” 소리 내어 한 번 말해 보고, 나만의 문장도 하나 써 보세요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say energy, not “tension”!",
+   "tip": "Tension means stress. For no power, say energy. Say “I have no energy today.”",
+   "caption": "Do you say “I have no tension today” in English? 😅 In Korean “tension” can mean energy, but in English it means stress! “I have no energy today” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“tension”이 아니라 energy!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“tension”이 아니라 energy!",
+  "keyword": "I have no energy today.",
+  "value": "‘텐션’은 한국에서는 ‘기운’처럼 쓰지만 영어 tension은 ‘긴장’이에요! 이렇게 말해요 👉 “I have no energy today.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "“tension”이 아니라 energy!",
+    "description": "‘텐션’은 한국에서는 ‘기운’처럼 쓰지만 영어 tension은 ‘긴장’이에요! 이렇게 말해요 👉 “I have no energy today.”\n\n“I have no tension today”처럼 말하고 있나요? 😅 한국에서는 ‘텐션이 없다’를 기운이 없다는 뜻으로 쓰지만, 영어 tension은 ‘긴장’이라는 뜻이에요. 기운은 energy라고 해요. 맞는 문장 ✅ “I have no energy today.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "I have no energy today.",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“I have no tension today”처럼 말하고 있나요? 😅 한국에서는 ‘텐션이 없다’를 기운이 없다는 뜻으로 쓰지만, 영어 tension은 ‘긴장’이라는 뜻이에요. 기운은 energy라고 해요. 맞는 문장 ✅ “I have no energy today.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“tension”이 아니라 energy!\n\n‘텐션’은 한국에서는 ‘기운’처럼 쓰지만 영어 tension은 ‘긴장’이에요! 이렇게 말해요 👉 “I have no energy today.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“tension”이 아니라 energy! ‘텐션’은 한국에서는 ‘기운’처럼 쓰지만 영어 tension은 ‘긴장’이에요! 이렇게 말해요 👉 “I have no energy today.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답 ✅ “I have no energy today.” 소리 내어 한 번 말해 보고, 나만의 문장도 하나 써 보세요: {link}",
+  "lang": "ko"
+ }
+}

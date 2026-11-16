@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_explainme",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say the lesson first!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: He explained to me the lesson.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: He explained the lesson to me.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say the thing first, then to me.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! Show the map to me.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "He explained to me the lesson.",
+  "right": "He explained the lesson to me.",
+  "strike": "to me the lesson",
+  "why": "Say the thing first, then to me.",
+  "memory": "Explain it to me.",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "Show to me the map.",
+    "Show the map to me."
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "هل تقول “explained to me”؟",
+   "tip": "نقول «شرح لي الدرس»، أما في الإنجليزية فنقول the lesson أولًا: “He explained the lesson to me.” وليس “He explained to me the lesson.”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “He explained to me the lesson.” 😅 نقول «شرح لي الدرس»، أما في الإنجليزية فنقول the lesson أولًا، فالجملة الصحيحة “He explained the lesson to me.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “Show the map to me.” — نقول «شرح لي الدرس»، أما في الإنجليزية فنقول الشيء أولًا ثم to me. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “explained to me”?",
+   "tip": "In Arabic we say «شرح لي الدرس», but in English the lesson comes first: “He explained the lesson to me.” not “He explained to me the lesson.”",
+   "caption": "Do you sometimes say this? “He explained to me the lesson.” 😅 In Arabic we say «شرح لي الدرس», but in English the lesson comes first, so the right sentence is “He explained the lesson to me.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “explained to me”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "هل تقول “explained to me”؟",
+  "keyword": "He explained the lesson to me.",
+  "value": "نقول «شرح لي الدرس»، أما في الإنجليزية فنقول the lesson أولًا: “He explained the lesson to me.” وليس “He explained to me the lesson.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “explained to me”؟",
+    "description": "نقول «شرح لي الدرس»، أما في الإنجليزية فنقول the lesson أولًا: “He explained the lesson to me.” وليس “He explained to me the lesson.”\n\nهل تقول أحيانًا هذه الجملة؟ “He explained to me the lesson.” 😅 نقول «شرح لي الدرس»، أما في الإنجليزية فنقول the lesson أولًا، فالجملة الصحيحة “He explained the lesson to me.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "He explained the lesson to me.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا هذه الجملة؟ “He explained to me the lesson.” 😅 نقول «شرح لي الدرس»، أما في الإنجليزية فنقول the lesson أولًا، فالجملة الصحيحة “He explained the lesson to me.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول “explained to me”؟\n\nنقول «شرح لي الدرس»، أما في الإنجليزية فنقول the lesson أولًا: “He explained the lesson to me.” وليس “He explained to me the lesson.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “explained to me”؟ نقول «شرح لي الدرس»، أما في الإنجليزية فنقول the lesson أولًا: “He exp… #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “Show the map to me.” — نقول «شرح لي الدرس»، أما في الإنجليزية فنقول الشيء أولًا ثم to me. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+  "lang": "ar"
+ }
+}

@@ -1,0 +1,290 @@
+{
+ "id": "mo_news_waiting_room_ways_7b5d0d",
+ "template": "tip",
+ "title": "News Motion – booking a doctor's appointment: polite to casual (news_waiting_room_ways_7b5d0d)",
+ "teacher": "ama",
+ "clips": [
+  "ga11_talk",
+  "ga11_explain",
+  "ga11_happy",
+  "ga11_thinking",
+  "ga11_surprise_3"
+ ],
+ "listen": [
+  "ga11_listen_2"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy2",
+ "active": "mint",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "speaking",
+  "link": "https://lexkite.com/en/speaking/",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Health English",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "Need to see a doctor?"
+  },
+  {
+   "id": "t0",
+   "text": "You call the doctor's office. Many learners say: I want a doctor.",
+   "gap": 0.7
+  },
+  {
+   "id": "t1",
+   "text": "Pause and guess. What sounds polite?",
+   "gap": 0.7
+  },
+  {
+   "id": "t2",
+   "text": "Say: I'd like to make an appointment, please.",
+   "gap": 0.7
+  },
+  {
+   "id": "t3",
+   "text": "I'd like is soft. It sounds polite.",
+   "gap": 0.7
+  },
+  {
+   "id": "t4",
+   "text": "Is 'I want a doctor' polite on the phone? No.",
+   "gap": 0.7
+  },
+  {
+   "id": "t5",
+   "text": "Repeat after me: I'd like to make an appointment, please.",
+   "gap": 0.7
+  },
+  {
+   "id": "t6",
+   "text": "Now at normal speed: I'd like to make an appointment, please.",
+   "gap": 0.7
+  },
+  {
+   "id": "r",
+   "text": "Teacher's tip: save these lines.",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "SEE A",
+      "white"
+     ]
+    ],
+    [
+     [
+      "DOCTOR?",
+      "yellow"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Health English · Booking a visit",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "SEE A"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "DOCTOR?"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "sum",
+    "at": [
+     "r",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Remember",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "I'd like to make an appointment, please.",
+        "gold"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "Do you have anything today?",
+        "teal"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "Can I see a doctor this morning?",
+        "coral"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "rules",
+    "at": [
+     "t1",
+     0
+    ],
+    "rows": [
+     {
+      "t": "tile",
+      "tag": "GUESS",
+      "tone": "gold",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "What sounds right?",
+        "gold"
+       ]
+      ],
+      "ex_at": [
+       "t1",
+       0
+      ],
+      "at": [
+       "t1",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "WHY",
+      "tone": "teal",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "I'd like is soft. It sounds polite.",
+        "teal"
+       ]
+      ],
+      "ex_at": [
+       "t3",
+       0
+      ],
+      "at": [
+       "t3",
+       0
+      ]
+     }
+    ]
+   }
+  ],
+  "hook_text": "SEE A DOCTOR?",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ }
+}

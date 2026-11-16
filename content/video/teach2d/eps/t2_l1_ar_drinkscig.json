@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_drinkscig",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Drinks? No, he smokes!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: He drinks cigarettes.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: He smokes cigarettes.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "We smoke cigarettes. We drink tea.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Smokes! My uncle smokes cigarettes.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "He drinks cigarettes.",
+  "right": "He smokes cigarettes.",
+  "strike": "drinks",
+  "why": "We smoke cigarettes. We drink tea.",
+  "memory": "Smoke it. Drink it.",
+  "quiz": {
+   "stem": "My uncle ___ cigarettes.",
+   "options": [
+    "drinks",
+    "smokes"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "هل تقول “drinks cigarettes”؟",
+   "tip": "نقول بالعربية «يشرب السجائر» بفعل الشرب، أما في الإنجليزية فنستخدم smoke: “He smokes cigarettes.” وليس “He drinks cigarettes.”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “He drinks cigarettes.” 😅 نقول بالعربية «يشرب السجائر» بفعل الشرب، أما في الإنجليزية فنستخدم smoke، فالجملة الصحيحة “He smokes cigarettes.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “smokes” — نقول بالعربية «يشرب السجائر» بفعل الشرب، أما في الإنجليزية فنستخدم smoke. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “drinks cigarettes”?",
+   "tip": "In Arabic we say «يشرب السجائر» with the verb for drink, but in English we use smoke: “He smokes cigarettes.” not “He drinks cigarettes.”",
+   "caption": "Do you sometimes say this? “He drinks cigarettes.” 😅 In Arabic we say «يشرب السجائر» with the verb for drink, but in English we use smoke, so the right sentence is “He smokes cigarettes.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “drinks cigarettes”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 41,
+  "seconds": 25.6,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "هل تقول “drinks cigarettes”؟",
+  "keyword": "He smokes cigarettes.",
+  "value": "نقول بالعربية «يشرب السجائر» بفعل الشرب، أما في الإنجليزية فنستخدم smoke: “He smokes cigarettes.” وليس “He drinks cigarettes.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “drinks cigarettes”؟",
+    "description": "نقول بالعربية «يشرب السجائر» بفعل الشرب، أما في الإنجليزية فنستخدم smoke: “He smokes cigarettes.” وليس “He drinks cigarettes.”\n\nهل تقول أحيانًا هذه الجملة؟ “He drinks cigarettes.” 😅 نقول بالعربية «يشرب السجائر» بفعل الشرب، أما في الإنجليزية فنستخدم smoke، فالجملة الصحيحة “He smokes cigarettes.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "He smokes cigarettes.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا هذه الجملة؟ “He drinks cigarettes.” 😅 نقول بالعربية «يشرب السجائر» بفعل الشرب، أما في الإنجليزية فنستخدم smoke، فالجملة الصحيحة “He smokes cigarettes.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول “drinks cigarettes”؟\n\nنقول بالعربية «يشرب السجائر» بفعل الشرب، أما في الإنجليزية فنستخدم smoke: “He smokes cigarettes.” وليس “He drinks cigarettes.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “drinks cigarettes”؟ نقول بالعربية «يشرب السجائر» بفعل الشرب، أما في الإنجليزية فنستخدم s… #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “smokes” — نقول بالعربية «يشرب السجائر» بفعل الشرب، أما في الإنجليزية فنستخدم smoke. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+  "lang": "ar"
+ }
+}

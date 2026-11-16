@@ -89,6 +89,8 @@ FalseとNot Givenの境界線を体感するために、次の模擬テキスト
 2. **間違いノートでの原因分析:** 不正解だった問題は自動的に [Mistake Log](/#/mistakes) に集約されます。語彙のパラフレーズを見落としたのか、限定詞の比較を誤ったのかを定期的に分析します。
 3. **総合的な読解力の補強:** [ielts collocation shizen na rengo eigo](/ja/blog/ielts-collocation-shizen-na-rengo-eigo/) で学術コロケーションの知識を蓄え、[eigo dictation yarikata listening](/ja/blog/eigo-dictation-yarikata-listening/) で精読力を鍛えます。語彙の定着には [bunsan gakushuu eitango anki fsrs](/ja/blog/bunsan-gakushuu-eitango-anki-fsrs/) を活用し、英英辞典の定義確認法として [eiei jisho tsukaikata osusume](/ja/blog/eiei-jisho-tsukaikata-osusume/) も併せてご参照ください。文法確認には当サイトの [/ngu-phap/](/ngu-phap/) ページをご参照ください。
 
+ほかの問題形式の解き方も知りたい人は、[IELTS リーディングの問題形式一覧](/ja/blog/ielts-reading-mondai-keishiki-ichiran/)で全形式を比べられます。
+
 ## よくある質問（FAQ）
 
 ### True/False/Not Given と Yes/No/Not Given の違いは何ですか？

@@ -1,0 +1,143 @@
+{
+ "id": "t2_l1_pt_peopleare",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "People is more than one!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: People is very nice here.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: People are very nice here.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "People means many.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Are! People are happy here.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "People is very nice here.",
+  "right": "People are very nice here.",
+  "strike": "is",
+  "why": "People means many.",
+  "memory": "People are many.",
+  "quiz": {
+   "stem": "People ___ happy here.",
+   "options": [
+    "are",
+    "is"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“People is” ou “people are”?",
+   "tip": "Em português “gente” e “povo” são singulares, mas em inglês “people” é plural e pede “are”.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “People is very nice here.” O certo é “People are very nice here.” Palavras como “gente” e “povo” são singulares em português, mas “people” é plural. Ouça a Ama e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “are”. Treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#inglesonline",
+    "#dicasdeingles",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“People is” or “people are”?",
+   "tip": "“Gente” and “povo” are singular, but in English “people” is plural and takes “are”.",
+   "caption": "Watch out for this common mistake! Many people say “People is very nice here.” The right way is “People are very nice here.” Words like “gente” and “povo” are singular, but “people” is plural. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“People is” ou “people are”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“People is” ou “people are”?",
+  "keyword": "People are very nice here.",
+  "value": "Em português “gente” e “povo” são singulares, mas em inglês “people” é plural e pede “are”.",
+  "hashtags": [
+   "#inglesonline",
+   "#dicasdeingles",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "“People is” ou “people are”?",
+    "description": "Em português “gente” e “povo” são singulares, mas em inglês “people” é plural e pede “are”.\n\nCuidado com este erro comum! 😬 Muita gente diz “People is very nice here.” O certo é “People are very nice here.” Palavras como “gente” e “povo” são singulares em português, mas “people” é plural. Ouça a Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#inglesonline #dicasdeingles #lexkite",
+    "tags": [
+     "People are very nice here.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “People is very nice here.” O certo é “People are very nice here.” Palavras como “gente” e “povo” são singulares em português, mas “people” é plural. Ouça a Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“People is” ou “people are”?\n\nEm português “gente” e “povo” são singulares, mas em inglês “people” é plural e pede “are”.\n\nlexkite.com",
+    "hashtags": [
+     "#inglesonline",
+     "#dicasdeingles",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“People is” ou “people are”? Em português “gente” e “povo” são singulares, mas em inglês “people” é plural e pe… #inglesonline #dicasdeingles #lexkite"
+   }
+  },
+  "first_comment": "Resposta: “are”. Treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

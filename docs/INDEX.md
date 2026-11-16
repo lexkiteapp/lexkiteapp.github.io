@@ -5,6 +5,7 @@
 
 ## Tài liệu hiện hành (docs/)
 - [ADMIN-SECURITY.md](ADMIN-SECURITY.md) — Các lớp bảo vệ trang /admin: adminGate ở API (Origin, rate-limit, Firebase token + email_verified + ADMIN_EMAILS), cổng whoami ở trình duyệt; đọc khi: sửa trang/API quản trị hoặc bật Cloudflare Access
+- [HUMAN.md](HUMAN.md) — Người thật (Turnstile, vé 12 h /api/human), prompt cố định /api/ai theo task, giới hạn body, ghim OIDC, cờ AI_HUMAN_ENFORCE; đọc khi sửa /api/ai, contact, report, lexai
 - [ADS.md](ADS.md) — Thiết kế quảng cáo một lần, mọi cờ TẮT: AdMob (app), AdSense (web), add-on Chrome không bao giờ; chỉ đặt ở điểm nghỉ của bài học; đọc khi: đụng tới quảng cáo, đồng ý, hoặc bật nền tảng quảng cáo mới
 - [ADSENSE-READY.md](ADSENSE-READY.md) — Checklist sẵn sàng duyệt AdSense/AdMob kèm bằng chứng và 3 cú bấm của chủ; đọc khi: gửi lại duyệt quảng cáo hoặc đổi trang bắt buộc/ads.txt
 - [API-KEYS.md](API-KEYS.md) — Bộ quản lý khóa API (Gemini, Groq, OpenRouter, Anthropic, OpenAI, Resend, Brevo, Cloudflare) trong một kho mã hóa, tự xoay vòng và báo sức khỏe; đọc khi: thêm/xoay khóa hoặc sửa _keys.js
@@ -92,6 +93,7 @@
 - [LESSON-UX-V2.md](LESSON-UX-V2.md) — Bài học v2 kiểu Duolingo: gốc lỗi, ma trận dạng bài (đề → ô trả lời → gợi ý → chấm), luật nội dung CI, bản dịch câu 15 ngôn ngữ; đọc khi: sửa đề/gợi ý/dạng bài
 - [SAY-NATIVE.md](SAY-NATIVE.md) — Say it like a native: thẻ 2 mặt #/say (Stitch v2 say-front/back, Ama/Carlos 2D, nghĩa 15 ngôn ngữ trên CI, chia sẻ 1:1/4:5) + video react
 - [CALL.md](CALL.md) — Cuộc gọi Ama/Carlos #/call (kịch bản IELTS/TOEIC rẽ nhánh, nhận dạng trên máy, tổng kết sửa lỗi, luyện lại câu yếu) + nhịp câu/shadowing phát âm; đọc khi: sửa call*.js, pron/coach.js, pron/rhythm.js
+- [specs/call-realtime.md](specs/call-realtime.md) — Call thời gian thực (cờ lk.call_rt): Silero VAD trên máy, nói chen, câu đệm, phản hồi kiểu bản xứ, nói tự do có rào; đọc khi: sửa call/{endpoint,rt,fillers}.js, call-rt.yml
 - [LEARNING-PATH.md](LEARNING-PATH.md) — Lộ trình bản đồ chặng (cờ ux1): tâm lý người học → luật (SDT, flow, FSRS, i+1, chống nản), chặng theo mục tiêu thi + trình độ, nút kiểm tra kỹ năng thi; đọc khi: sửa thứ tự chặng/nút bản đồ hoặc 5 tab ux1
 - [specs/play-and-speak-path.md](specs/play-and-speak-path.md) — Spec lộ trình v3: 7 phần lớn luôn mở, bài nhỏ khoá tuần tự A1→C1, nhảy cóc, thứ tự theo trí nhớ người học, nói lưu loát, ngữ pháp theo kỳ thi (M1–M5); đọc khi: sửa bản đồ học/khoá bài/xếp lớp
 - [LEXICON.md](LEXICON.md) — Kho từ vựng một nguồn sự thật: quy tắc chuẩn hóa build-lexicon, CEFR, nghĩa 13 ngôn ngữ, giọng đọc, hiển thị, ảnh minh họa; đọc khi: sửa từ vựng/nghĩa/ảnh từ
@@ -114,6 +116,7 @@
 - [specs/funnel.md](specs/funnel.md) — Phễu kênh UTM → /go → app → bài đầu → D1/D7+, bảng Quản trị Kênh & mã bài; đọc khi: sửa _funnel.js, beacon at/fl, admin-channels.js.
 - [specs/referral.md](specs/referral.md) — Vòng giới thiệu: link mời, thưởng XP + đóng băng chuỗi hai phía, trần chống lạm dụng; đọc khi: sửa nút mời, api/ref.js.
 - [SEO-AUDIT-1211.md](SEO-AUDIT-1211.md) — Audit trang từ × 15 ngôn ngữ: quy mô index, lastmod, liên kết /go; đọc khi: chọn việc SEO cho thị trường CPM cao.
+- [SEO-AUDIT-1511.md](SEO-AUDIT-1511.md) — Soát live blog/từ R2/đề thi: lỗi + mức ưu tiên, đã sửa gì; đọc khi: làm SEO, sitemap, lastmod hoặc trang từ R2.
 - [specs/seo-words-depth.md](specs/seo-words-depth.md) — Spec độ dày trang từ /<lang>/words/: khối nội dung từ dữ liệu thật 15 ngôn ngữ, cổng DEPTH_MIN (noindex dưới ngưỡng), ảnh trước/sau, hộp blog → /words/ 13 ngôn ngữ (lib seo-words/blog-words); đọc khi: sửa build-seo-pages.mjs, seo-words.mjs, word-depth.mjs, blog-words.mjs
 - [specs/words-off-pages.md](specs/words-off-pages.md) — Spec chuyển trang từ 13 ngôn ngữ sang R2 + Pages Function (giữ URL) để nâng 650 → 1.000 trong ngân sách file; đọc khi: làm SEO-ARCH § Ngân sách file
 - [specs/notifications.md](specs/notifications.md) — Chuẩn mọi thông báo (push, nhắc học, toast, banner, báo lỗi): hỏi quyền sau giá trị, tắt dễ, ≤1/ngày, giọng không dọa, toast một-cái có nút sửa, 15 ngôn ngữ; bảng chỗ lệch; đọc khi: thêm/sửa thông báo/toast
@@ -124,6 +127,7 @@
 - [specs/sense-v2.md](specs/sense-v2.md) — Mô hình nghĩa từ v2 (P0.2): nhiều nghĩa/từ#loại, CEFR theo nghĩa, ví dụ theo độ dài cấp, collocation, pattern, register, họ từ; cổng sense-check; đọc khi sửa/sinh content/lexicon/senses.json
 - [specs/mediation.md](specs/mediation.md) — Trung gian (O3): định dạng content/mediation/m<NN>.json gắn Can-do M.*, nguồn theo cấp, ý cần/ý bỏ, bài mẫu; cổng mediation-check; đọc khi viết/soát lô S-MED hoặc làm màn luyện trung gian
 - [specs/spanish-course.md](specs/spanish-course.md) — Khóa tiếng Tây Ban Nha (tl `es`) cho 14 ngôn ngữ: mở rộng Target, nguồn miễn phí + giấy phép, 8 đợt W0–W7, ước tính token/CI, 6 cổng QC, điểm chủ quyết.
+- [specs/french-course.md](specs/french-course.md) — Khóa tiếng Pháp (tl `fr`) cho 14 ngôn ngữ: cùng engine với es, nguồn miễn phí, 8 đợt W0–W7, h muet/aspiré + tu/vous, cổng QC; đọc khi thêm ngôn ngữ đích thứ ba hoặc đụng `content/target/fr/`.
 - [specs/spanish-exam-w5.md](specs/spanish-exam-w5.md) — W5 luyện định dạng DELE/SIELE (spec + trạng thái đợt 1); đọc khi làm thi thử TBN
 - [specs/report-scale.md](specs/report-scale.md) — Báo lỗi quy mô triệu người: cụm lỗi (chữ ký ngữ cảnh + embedding), trần AI riêng, Turnstile/hạn mức/chế độ bão/low-signal, repro Playwright + resolve/mở lại sau live; đọc khi: sửa gom trùng, AI phân loại, chống spam, workflow repro báo lỗi
 - [specs/content-private.md](specs/content-private.md) — Chuyển đề/lời giải/bài học/kho từ sang repo private lexkite-content ($0, runner public + deploy key, fixtures, cổng chống lộ); đọc khi: sửa dữ liệu nội dung, workflow sinh nội dung, build/deploy hoặc job đỏ content-leak

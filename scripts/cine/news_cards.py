@@ -53,7 +53,7 @@ def card_one(kind, text, sub=None, num=None, y0=None, ic=None, formula=None):
         if r_: inline = (tx_i, r_)
     if inline:
         tx, (f, fs, lines) = inline; lh = int(round(fs * 1.32)); h = PAD + max(lh, 52) + PAD - 6
-        d.rounded_rectangle([x0, y0, x0 + w, y0 + h], 28, fill=CARD_BG + (248,), outline=CARD_LINE + (255,), width=4); cy = y0 + h // 2; tb, cols = [], []
+        d.rounded_rectangle([x0, y0, x0 + w, y0 + h], 40, fill=CARD_BG + (250,), outline=CARD_LINE + (255,), width=4); cy = y0 + h // 2; tb, cols = [], []
         if label: _, b_, c_ = _chip(d, ix0, cy, label, ORANGE); tb.append(b_); cols.append(c_)
         if ic: icon(d, ic, ix1 - 26, cy, 26); tb.append([ix1 - 52, cy - 26, ix1, cy + 26])
         if mk: mark(d, tx - 48, cy, 30, kind == 'v'); tb.append([tx - 78, cy - 30, tx - 18, cy + 30])
@@ -64,7 +64,7 @@ def card_one(kind, text, sub=None, num=None, y0=None, ic=None, formula=None):
     sf = sfs = None
     if sub_: sf, sfs, _ = must_fit(d, sub_, FB, ix1 - tx, 40, 30, 1)
     h = PAD + (48 + 18 if chip else 0) + len(lines) * lh + (18 + int(sfs * 1.3) if sub_ else 0) + PAD - 6
-    d.rounded_rectangle([x0, y0, x0 + w, y0 + h], 28, fill=CARD_BG + (248,), outline=CARD_LINE + (255,), width=4)
+    d.rounded_rectangle([x0, y0, x0 + w, y0 + h], 40, fill=CARD_BG + (250,), outline=CARD_LINE + (255,), width=4)
     tb, cols = [], []; y = y0 + PAD
     if chip:
         cy = y + 24
@@ -179,9 +179,9 @@ def cap_key_map(spec):
 def cap_img(lines_, k, fs=CAP_FS, idx=None, line=None):
     """caption chunk: white, dark stroke; ONLY the taught slot is coloured (wrong red / right green), no karaoke word colour."""
     im = layer(); d = ImageDraw.Draw(im); f = font(FB, fs); x0b, x1b = 9999, 0; km = CAPKEY.get(line, {}); n = 0; tb, cols = [], []
-    stroke = (20, 22, 28)
+    stroke = (20, 22, 28)   # Kit plate: stroke only without a plate
     if CAP_BOX:
-        wmax = max(d.textlength(' '.join(lw), font=f) for lw in lines_); d.rounded_rectangle([CX - wmax / 2 - 22, CAP_Y - 10, CX + wmax / 2 + 22, CAP_Y + (len(lines_) - 1) * CAP_LH + fs * 1.25 + 4], 18, fill=(18, 22, 28, 200))
+        wmax = max(d.textlength(' '.join(lw), font=f) for lw in lines_); d.rounded_rectangle([CX - wmax / 2 - 22, CAP_Y - 10, CX + wmax / 2 + 22, CAP_Y + (len(lines_) - 1) * CAP_LH + fs * 1.25 + 4], 24, fill=globals().get('CAP_PLATE', (18, 22, 28, 200)))
     for li, lw in enumerate(lines_):
         txt = ' '.join(lw); tw = d.textlength(txt, font=f); x = CX - tw / 2; y = CAP_Y + li * CAP_LH; x0b, x1b = min(x0b, x), max(x1b, x + tw)
         for w_ in lw:

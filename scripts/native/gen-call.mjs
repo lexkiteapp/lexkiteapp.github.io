@@ -19,7 +19,7 @@ const unesc = x => (typeof x === 'string' ? x.replace(/&lt;/g, '<').replace(/&gt
 const strip = h => unesc(String(h || '').replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim());
 
 // ---------- the files (same bundle order as web/js/app.js `call`) ----------
-const PAIR_FILE = 'web/js/pron/pairs.js', CALL_FILES = ['web/js/call/calls.js', 'web/js/call/calls-exam.js', 'web/js/call/calls-lot1.js', 'web/js/call/calls-lot2.js'], ENGINE_FILE = 'web/js/call/engine.js', PAGE_FILE = 'web/js/call.js';
+const PAIR_FILE = 'web/js/pron/pairs.js', CALL_FILES = ['web/js/call/calls.js', 'web/js/call/calls-exam.js', 'web/js/call/calls-lot1.js', 'web/js/call/calls-lot2.js', 'web/cpack/call/calls-lot3.js', 'web/cpack/call/calls-lot4.js'], ENGINE_FILE = 'web/js/call/engine.js', PAGE_FILE = 'web/js/call.js';
 /** t() that keeps the KEY and its variables: "key" or "key⟦{vars}⟧" – parse with tk(). The vectors carry the Vietnamese keys exactly as the web passes them to t(). */
 const RT = (k, v) => (v ? String(k) + '⟦' + JSON.stringify(v) + '⟧' : String(k));
 const tk = str => { const m = /^([\s\S]*?)⟦([\s\S]*)⟧$/.exec(String(str)); if (!m) return { k: unesc(String(str)) }; const v = JSON.parse(m[2]); for (const [a, b] of Object.entries(v)) if (typeof b === 'string') { const u = unesc(b); v[a] = /⟦/.test(u) ? tk(u) : u; } return { k: unesc(m[1]), v }; };

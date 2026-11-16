@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_two_child",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Two child? Say two children!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have two child.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have two children.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Child has a special plural: children.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Children! I have two children.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have two child.",
+  "right": "I have two children.",
+  "strike": "child",
+  "why": "Child has a special plural: children.",
+  "memory": "I have two children.",
+  "quiz": {
+   "stem": "I have two ___.",
+   "options": [
+    "child",
+    "children"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "สองขึ้นไป ต้องเป็นพหูพจน์!",
+   "tip": "ภาษาไทยไม่มีรูปพหูพจน์ แต่อังกฤษต้องมี: child → children",
+   "caption": "คุณเคยพูดว่า “I have two child.” ไหม? 😅 ภาษาไทยไม่เปลี่ยนคำนามหลังตัวเลข แต่ภาษาอังกฤษต้องใช้พหูพจน์ และ child มีรูปพิเศษคือ children: “I have two children.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “children” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Two or more? Make it plural!",
+   "tip": "Thai has no plural form, but after two or more English needs one: child becomes children",
+   "caption": "Do you say “I have two child”? 😅 Thai does not mark the plural, but English nouns after two or more must be plural. Child is special: children. Say “I have two children”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "สองขึ้นไป ต้องเป็นพหูพจน์!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "สองขึ้นไป ต้องเป็นพหูพจน์!",
+  "keyword": "I have two children.",
+  "value": "ภาษาไทยไม่มีรูปพหูพจน์ แต่อังกฤษต้องมี: child → children",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "สองขึ้นไป ต้องเป็นพหูพจน์!",
+    "description": "ภาษาไทยไม่มีรูปพหูพจน์ แต่อังกฤษต้องมี: child → children\n\nคุณเคยพูดว่า “I have two child.” ไหม? 😅 ภาษาไทยไม่เปลี่ยนคำนามหลังตัวเลข แต่ภาษาอังกฤษต้องใช้พหูพจน์ และ child มีรูปพิเศษคือ children: “I have two children.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "I have two children.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “I have two child.” ไหม? 😅 ภาษาไทยไม่เปลี่ยนคำนามหลังตัวเลข แต่ภาษาอังกฤษต้องใช้พหูพจน์ และ child มีรูปพิเศษคือ children: “I have two children.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "สองขึ้นไป ต้องเป็นพหูพจน์!\n\nภาษาไทยไม่มีรูปพหูพจน์ แต่อังกฤษต้องมี: child → children\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "สองขึ้นไป ต้องเป็นพหูพจน์! ภาษาไทยไม่มีรูปพหูพจน์ แต่อังกฤษต้องมี: child → children #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “children” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

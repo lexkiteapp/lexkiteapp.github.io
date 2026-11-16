@@ -1,0 +1,275 @@
+{
+ "id": "mo_tp_idiom_vs_textbook_im-down",
+ "template": "idiom-vs-textbook",
+ "title": "Motion idiom-vs-textbook – idiom-vs-textbook: im-down (tp_idiom_vs_textbook_im-down)",
+ "teacher": "carlos",
+ "clips": [
+  "gc11_talk",
+  "gc11_explain",
+  "gc11_happy",
+  "gc11_thinking",
+  "gc11_surprise_2"
+ ],
+ "listen": [
+  "gc11_listen"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy",
+ "active": "mint",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "idiom-vs-textbook",
+  "link": "https://lexkite.com/app/",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Idiom Vs Textbook",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "Wait, \"I'm down\" means sad?",
+   "gap": 0.7
+  },
+  {
+   "id": "s0",
+   "text": "Textbook: My textbook says: I would be happy to join you?",
+   "gap": 0.7
+  },
+  {
+   "id": "s1",
+   "text": "Natives say: Like this: \"Pizza after work?\" \"I'm down!\"",
+   "gap": 0.7
+  },
+  {
+   "id": "s2",
+   "text": "That's fine, but I'm down just means I'm in. Super casual.",
+   "gap": 0.7
+  },
+  {
+   "id": "t",
+   "text": "Tip: I'm down is for friends. At work, say I'd love to.",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "Wait, \"I'm",
+      "white"
+     ]
+    ],
+    [
+     [
+      "down\" means",
+      "yellow"
+     ]
+    ],
+    [
+     [
+      "sad?",
+      "yellow"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Sound natural",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "Wait, \"I'm"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "down\" means"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "sad?"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "sum",
+    "at": [
+     "t",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Tip",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "I'm down is for friends. At work, say I'd love to."
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "rules",
+    "at": [
+     "s0",
+     0
+    ],
+    "rows": [
+     {
+      "t": "tile",
+      "tag": "TEXTBOOK",
+      "tone": "gold",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "I would be happy to join you.",
+        "gold"
+       ]
+      ],
+      "ex_at": [
+       "s0",
+       0
+      ],
+      "at": [
+       "s0",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "NATIVE",
+      "tone": "teal",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "I'm down!",
+        "teal"
+       ]
+      ],
+      "ex_at": [
+       "s1",
+       0
+      ],
+      "at": [
+       "s1",
+       0
+      ]
+     }
+    ]
+   }
+  ],
+  "hook_text": "Wait, \"I'm down\" means sad?",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ },
+ "uses": {
+  "template": "idiom-vs-textbook",
+  "row": "tp_idiom_vs_textbook_im-down",
+  "teacher": "carlos",
+  "accent": "navy",
+  "active": "mint",
+  "tones": 1
+ }
+}

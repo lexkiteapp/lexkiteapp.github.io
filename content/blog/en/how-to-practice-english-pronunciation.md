@@ -214,3 +214,7 @@ While you speak, you hear your voice partly through the bones of your head, so i
 
 ### Which sound should I work on first?
 Start with the error that changes meaning or causes the most misunderstandings: missing final consonants (*-s*, *-ed*), word stress and the vowel pairs such as *sheep* / *ship*. The *th* sounds matter, but many listeners accept /s/ or /t/ in their place more easily than a wrong stress or a missing ending.
+
+For reading a short text aloud clearly, see [PTE read aloud pronunciation tips](/en/blog/pte-read-aloud-pronunciation/).
+
+The melody of a sentence matters too: see [English intonation](/en/blog/english-intonation/) for rising and falling patterns.

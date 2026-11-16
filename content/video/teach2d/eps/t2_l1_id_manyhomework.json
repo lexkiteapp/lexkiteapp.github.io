@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_manyhomework",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "A lot of homework!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have many homework.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have a lot of homework.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "We can't count homework. Say a lot of.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "A lot of! I have a lot of homework today.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have many homework.",
+  "right": "I have a lot of homework.",
+  "strike": "many",
+  "why": "We can't count homework. Say a lot of.",
+  "memory": "I have a lot of homework.",
+  "quiz": {
+   "stem": "I have ___ homework today.",
+   "options": [
+    "many",
+    "a lot of"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "a lot of homework",
+   "tip": "Kita bilang “banyak PR” tanpa bentuk jamak. Di bahasa Inggris, homework tidak bisa dihitung, jadi pakai a lot of, bukan many.",
+   "caption": "Pernah bilang begini? “I have many homework.” 😅 Homework tidak bisa dihitung, jadi pakai a lot of: “I have a lot of homework.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “a lot of”. Ucapkan dengan lantang: “I have a lot of homework.” lalu tulis satu kalimat tentang PR-mu. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#kosakata",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Homework: a lot of",
+   "tip": "We say “banyak PR” with no plural form. In English, homework cannot be counted, so use a lot of, not many.",
+   "caption": "Ever say this? “I have many homework.” 😅 Homework cannot be counted, so use a lot of: “I have a lot of homework.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "a lot of homework"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "a lot of homework",
+  "keyword": "I have a lot of homework.",
+  "value": "Kita bilang “banyak PR” tanpa bentuk jamak. Di bahasa Inggris, homework tidak bisa dihitung, jadi pakai a lot of, bukan many.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#kosakata",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 46,
+  "platforms": {
+   "youtube": {
+    "title": "a lot of homework",
+    "description": "Kita bilang “banyak PR” tanpa bentuk jamak. Di bahasa Inggris, homework tidak bisa dihitung, jadi pakai a lot of, bukan many.\n\nPernah bilang begini? “I have many homework.” 😅 Homework tidak bisa dihitung, jadi pakai a lot of: “I have a lot of homework.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #kosakata #bahasainggris #lexkite",
+    "tags": [
+     "I have a lot of homework.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “I have many homework.” 😅 Homework tidak bisa dihitung, jadi pakai a lot of: “I have a lot of homework.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "a lot of homework\n\nKita bilang “banyak PR” tanpa bentuk jamak. Di bahasa Inggris, homework tidak bisa dihitung, jadi pakai a lot of, bukan many.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#kosakata",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "a lot of homework Kita bilang “banyak PR” tanpa bentuk jamak. Di bahasa Inggris, homework tidak bisa d… #belajarbahasainggris #kosakata #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “a lot of”. Ucapkan dengan lantang: “I have a lot of homework.” lalu tulis satu kalimat tentang PR-mu. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}
