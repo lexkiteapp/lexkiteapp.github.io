@@ -1,0 +1,752 @@
+{
+  "getaway": {
+    "mis": [
+      {
+        "w": "We are planning a weekend get away to Dalat.",
+        "r": "We are planning a weekend getaway to Dalat.",
+        "why": "As a noun it is written as one word; 'get away' is a verb phrase."
+      },
+      {
+        "w": "I need getaway from work.",
+        "r": "I need a getaway from work.",
+        "why": "Getaway is a countable noun, so a singular form needs 'a' or another determiner."
+      }
+    ],
+    "u": "Getaway is an informal noun for a short trip to relax, usually somewhere quiet or romantic: a weekend getaway, a romantic getaway. It is common in travel ads and hotel offers. It has a second meaning in crime stories: the getaway car is the vehicle used to escape after a robbery. Holiday is longer and more general, while getaway stresses leaving daily life for a brief rest."
+  },
+  "gossip": {
+    "mis": [
+      {
+        "w": "She told me many gossips about our boss.",
+        "r": "She told me a lot of gossip about our boss.",
+        "why": "Gossip meaning idle talk is uncountable, so it has no plural form."
+      },
+      {
+        "w": "They gossiped me during lunch.",
+        "r": "They gossiped about me during lunch.",
+        "why": "As a verb, gossip is intransitive and needs 'about' before the topic."
+      }
+    ],
+    "u": "Gossip can be a noun for casual talk about other people's private lives, or a verb meaning to chat in that way. As an uncountable noun it takes no plural: some gossip, a piece of gossip. The person who spreads it is a gossip too, often with a negative tone. Rumor is closer to unverified news in general, while gossip is mainly personal and social, so it is rarely neutral."
+  },
+  "graph": {
+    "mis": [
+      {
+        "w": "The graph describes about the sales in 2020.",
+        "r": "The graph describes the sales in 2020.",
+        "why": "Describe is transitive, so it takes the object directly with no 'about'."
+      },
+      {
+        "w": "Look at the graph in the page 5.",
+        "r": "Look at the graph on page 5.",
+        "why": "Use 'on' with page numbers, and no article before the number."
+      }
+    ],
+    "u": "A graph is a diagram that shows how numbers or quantities relate, usually with lines or bars on two axes. In IELTS Writing Task 1 you describe line graphs and bar graphs: the graph shows, the graph illustrates. We plot or draw a graph, and a point lies on it. Chart is a wider word that includes pie charts and tables, whereas graph suggests changing values."
+  },
+  "handbook": {
+    "mis": [
+      {
+        "w": "Please read the handbook of employee.",
+        "r": "Please read the employee handbook.",
+        "why": "English puts the modifying noun first: employee handbook, not 'handbook of employee'."
+      },
+      {
+        "w": "Check the handbook for informations about leave.",
+        "r": "Check the handbook for information about leave.",
+        "why": "Information is uncountable and never takes a plural -s."
+      }
+    ],
+    "u": "A handbook is a small book of rules, instructions or basic facts on one subject. Companies give new staff an employee handbook covering leave, conduct and safety, and schools issue a student handbook. It is practical rather than academic. Manual usually explains how to operate a machine, while handbook covers procedures and policies. A handbook for gardeners is also called a guide, but handbook sounds more official."
+  },
+  "hiker": {
+    "mis": [
+      {
+        "w": "I like hiker on weekends.",
+        "r": "I like hiking on weekends.",
+        "why": "Hiker is the person; the activity is 'hiking' or 'go hiking'."
+      },
+      {
+        "w": "She is a hiker experienced.",
+        "r": "She is an experienced hiker.",
+        "why": "Adjectives come before the noun in English, unlike in Vietnamese."
+      }
+    ],
+    "u": "A hiker is someone who walks long distances in the countryside or mountains for pleasure. The activity is hiking, and the verb is hike or go hiking. In British English people often say walker or rambler, and trekker suggests a longer, more demanding journey in remote areas. Typical contexts are trails, camping, and rescue news: a lost hiker was found, hikers should carry water."
+  },
+  "homeowner": {
+    "mis": [
+      {
+        "w": "He is the homeowner of this apartment.",
+        "r": "He is the owner of this apartment.",
+        "why": "Homeowner names a general role; with a specific property use 'owner of'."
+      },
+      {
+        "w": "Homeowner must pay property tax every year.",
+        "r": "Homeowners must pay property tax every year.",
+        "why": "A general statement about a group needs the plural noun."
+      }
+    ],
+    "u": "A homeowner is a person who owns the home they live in, as opposed to a renter. The word appears mostly in finance, insurance and property news: homeowner insurance, a first-time homeowner, mortgage payments. It is normally written as one word in American English. It describes status, not a specific building, so for one particular property we say the owner of the house. Landlord is someone who rents property out."
+  },
+  "hometown": {
+    "mis": [
+      {
+        "w": "I grew up at my hometown.",
+        "r": "I grew up in my hometown.",
+        "why": "Use 'in' with towns and cities when saying where someone lived."
+      },
+      {
+        "w": "Vietnam is my hometown.",
+        "r": "Vietnam is my homeland.",
+        "why": "Hometown means a town or city; for a whole country use 'homeland' or 'home country'."
+      }
+    ],
+    "u": "Your hometown is the town or city where you were born or spent your childhood. It is a common topic in IELTS Speaking and in small talk: Where is your hometown? I'm from a small town near Hue. It is a place smaller than a country, so use homeland for the nation. Hometown carries warm feelings of memory, food and family, and is usually written as one word."
+  },
+  "honestly": {
+    "mis": [
+      {
+        "w": "He answered me honest.",
+        "r": "He answered me honestly.",
+        "why": "A word describing how someone does an action must be an adverb: honestly."
+      },
+      {
+        "w": "She is honestly and hardworking.",
+        "r": "She is honest and hardworking.",
+        "why": "After 'be', describing a person needs the adjective 'honest', not the adverb."
+      }
+    ],
+    "u": "Honestly is an adverb with two jobs. It can describe how someone acts, as in answer honestly, meaning without lying. It can also open a sentence to show frankness or mild frustration: Honestly, I don't like it. In speech it often softens or strengthens an opinion. Honest is the adjective for people, so say an honest person. Frankly is similar but more blunt; sincerely suggests genuine feeling."
+  },
+  "hotline": {
+    "mis": [
+      {
+        "w": "Please call to the hotline.",
+        "r": "Please call the hotline.",
+        "why": "Call is transitive here; do not add 'to' before the number or service."
+      },
+      {
+        "w": "Call our hotline for advices.",
+        "r": "Call our hotline for advice.",
+        "why": "Advice is uncountable and has no plural form."
+      }
+    ],
+    "u": "A hotline is a telephone number set up to give fast help or information on a particular issue, often free and open all day. Companies run a customer hotline, and governments run emergency or health hotlines. We call or ring a hotline, and it is staffed by operators. British English often says helpline for support services, while hotline can also mean a direct line between two leaders."
+  },
+  "hourly": {
+    "mis": [
+      {
+        "w": "He is paid by hourly.",
+        "r": "He is paid hourly.",
+        "why": "Hourly is already an adverb here, so no preposition is needed before it."
+      },
+      {
+        "w": "She earns an hourly of ten dollars.",
+        "r": "She earns an hourly wage of ten dollars.",
+        "why": "Hourly is an adjective and needs a noun, such as wage or rate."
+      }
+    ],
+    "u": "Hourly works as both adjective and adverb. As an adjective it means happening every hour (an hourly bus) or calculated per hour (an hourly wage, hourly rate). As an adverb it means once every hour or paid per hour: the staff are paid hourly. In job ads it contrasts with salaried positions. It differs from by the hour only in style; hourly is shorter and more business-like."
+  },
+  "housekeeper": {
+    "mis": [
+      {
+        "w": "She works as housekeeper in a hotel.",
+        "r": "She works as a housekeeper in a hotel.",
+        "why": "A singular countable job title needs 'a' after 'as'."
+      },
+      {
+        "w": "She works in the housekeeper department.",
+        "r": "She works in the housekeeping department.",
+        "why": "The department is 'housekeeping'; 'housekeeper' names the person."
+      }
+    ],
+    "u": "A housekeeper is a person employed to clean and look after rooms in a hotel or a private home, and sometimes to cook and manage supplies. In hotels the team forms the housekeeping department, led by a head housekeeper. The job title is neutral and polite, whereas maid can sound old-fashioned. Cleaner is more general and used for offices, schools and shops as well."
+  },
+  "hurricane": {
+    "mis": [
+      {
+        "w": "A powerful hurricane hit central Vietnam last week.",
+        "r": "A powerful typhoon hit central Vietnam last week.",
+        "why": "Such storms are called typhoons in the western Pacific, hurricanes in the Atlantic."
+      },
+      {
+        "w": "The hurricane caused serious damages to the coast.",
+        "r": "The hurricane caused serious damage to the coast.",
+        "why": "Damage meaning harm is uncountable; plural 'damages' means legal compensation."
+      }
+    ],
+    "u": "A hurricane is a violent tropical storm with winds above 74 miles per hour, formed over the Atlantic or the northeastern Pacific. The same kind of storm is a typhoon in the northwest Pacific, including near Vietnam, and a cyclone in the Indian Ocean. News uses hurricane season, hurricane warning and hurricane-force winds. Storms are ranked in categories one to five."
+  },
+  "inconvenience": {
+    "mis": [
+      {
+        "w": "We apologize for the inconvenient.",
+        "r": "We apologize for the inconvenience.",
+        "why": "After 'the' you need the noun 'inconvenience', not the adjective 'inconvenient'."
+      },
+      {
+        "w": "We apologize you for the delay.",
+        "r": "We apologize for the delay.",
+        "why": "Apologize takes 'to' for the person and 'for' for the reason; never a direct object."
+      }
+    ],
+    "u": "Inconvenience is a noun for a small problem or trouble that makes things difficult or uncomfortable. It is typical of polite notices: We apologize for any inconvenience. It can be countable (a minor inconvenience) or uncountable (cause inconvenience). The adjective is inconvenient, as in an inconvenient time. Hassle and nuisance are more informal, while inconvenience sounds formal and courteous."
+  },
+  "indoor": {
+    "mis": [
+      {
+        "w": "We should stay indoor when it rains.",
+        "r": "We should stay indoors when it rains.",
+        "why": "After a verb, the adverb 'indoors' with -s is needed; 'indoor' is an adjective."
+      },
+      {
+        "w": "The hotel has an indoors pool.",
+        "r": "The hotel has an indoor pool.",
+        "why": "Before a noun use the adjective 'indoor' without -s."
+      }
+    ],
+    "u": "Indoor is an adjective for things done, used or located inside a building: an indoor pool, indoor sports, indoor plants. The matching adverb is indoors, written with -s: stay indoors, go indoors. The opposite is outdoor and outdoors. Indoor is typical in hotel descriptions and weather advice, and it often suggests comfort or protection from bad weather."
+  },
+  "interpreter": {
+    "mis": [
+      {
+        "w": "A translator translated the speech simultaneously at the conference.",
+        "r": "An interpreter translated the speech simultaneously at the conference.",
+        "why": "Translators work with written text; people who translate speech aloud are interpreters."
+      },
+      {
+        "w": "She interpreted me what the guide said.",
+        "r": "She interpreted what the guide said for me.",
+        "why": "Interpret takes the thing interpreted as object; the listener comes after 'for'."
+      }
+    ],
+    "u": "An interpreter translates spoken words from one language to another, either at once (simultaneous) or after the speaker pauses (consecutive). A translator, in contrast, works with written text. We use interpreters in courts, meetings and tourism, and we speak through an interpreter. The verb is interpret, which can also mean explaining the meaning of data or behavior, as in interpret the results."
+  },
+  "irritate": {
+    "mis": [
+      {
+        "w": "The noise irritated with me.",
+        "r": "The noise irritated me.",
+        "why": "Irritate is transitive and takes its object directly, with no preposition."
+      },
+      {
+        "w": "I am irritating by the loud music.",
+        "r": "I am irritated by the loud music.",
+        "why": "Use the -ed adjective for how a person feels; -ing describes the cause."
+      }
+    ],
+    "u": "Irritate means to annoy someone, especially by something repeated, or to make part of the body sore. We say a habit irritates people, and that someone is irritated by noise or irritated with a person. Used for skin and eyes it is medical: smoke irritates the throat. It is stronger than bother but milder than infuriate. The related adjectives are irritating and irritated."
+  },
+  "jewelry": {
+    "mis": [
+      {
+        "w": "She bought three jewelries.",
+        "r": "She bought three pieces of jewelry.",
+        "why": "Jewelry is uncountable; count it with 'pieces of'."
+      },
+      {
+        "w": "Her jewelry were stolen.",
+        "r": "Her jewelry was stolen.",
+        "why": "Jewelry is uncountable and takes a singular verb."
+      }
+    ],
+    "u": "Jewelry means decorative items such as rings, necklaces and bracelets worn on the body. It is uncountable, so we say some jewelry or a piece of jewelry, never jewelries. British English spells it jewellery. Costume jewelry is cheap and made of non-precious materials, while fine jewelry uses gold, silver and gems. A single item can be called a piece of jewelry or, in a shop, a jewel."
+  },
+  "keyboard": {
+    "mis": [
+      {
+        "w": "I typed my name in the keyboard.",
+        "r": "I typed my name on the keyboard.",
+        "why": "Use 'on' for the device you type on; 'in' is for the text field."
+      },
+      {
+        "w": "I bought a new keyboard computer.",
+        "r": "I bought a new computer keyboard.",
+        "why": "In a noun phrase the main noun comes last: computer keyboard."
+      }
+    ],
+    "u": "A keyboard is the set of keys used to type on a computer or to play an instrument. We type on a keyboard, press a key, and use a keyboard shortcut. The word also names piano-style instruments: she plays keyboards in a band. Compound order puts the type first, as in computer keyboard, wireless keyboard, gaming keyboard. Keypad is a smaller set of keys, as on a phone or calculator."
+  },
+  "lecturer": {
+    "mis": [
+      {
+        "w": "She is a lecturer of English at Hanoi University.",
+        "r": "She is a lecturer in English at Hanoi University.",
+        "why": "The subject after lecturer takes 'in': a lecturer in English."
+      },
+      {
+        "w": "The lecturer explained us the formula.",
+        "r": "The lecturer explained the formula to us.",
+        "why": "Explain takes the thing as object; the listener needs 'to'."
+      }
+    ],
+    "u": "A lecturer is a person who teaches at a university or college, giving lectures to large groups and leading seminars. In Britain it is a formal rank below senior lecturer and professor, while in the US the word is often used for a part-time or non-tenured teacher. Guest lecturers come to give a single talk. Teacher is used for schools, not universities."
+  },
+  "lighter": {
+    "mis": [
+      {
+        "w": "He lit the candle by a lighter.",
+        "r": "He lit the candle with a lighter.",
+        "why": "Use 'with' for the tool used to do something, not 'by'."
+      },
+      {
+        "w": "Lighters aren't allow on the plane.",
+        "r": "Lighters aren't allowed on the plane.",
+        "why": "The passive needs the past participle 'allowed', not the base form."
+      }
+    ],
+    "u": "A lighter is a small device that makes a flame, used to light cigarettes, candles or a stove. It can be gas or electric and is often disposable. Do not confuse it with the comparative of light, as in a lighter bag or lighter colors; the sound is the same but the meaning differs. Airlines and venues often restrict lighters. In British English, people may simply say light, as in Have you got a light?"
+  },
+  "memorize": {
+    "mis": [
+      {
+        "w": "I memorized by heart the whole poem.",
+        "r": "I memorized the whole poem.",
+        "why": "Memorize already means learn by heart, so adding it is redundant."
+      },
+      {
+        "w": "I memorized about the new vocabulary.",
+        "r": "I memorized the new vocabulary.",
+        "why": "Memorize is transitive and takes its object with no preposition."
+      }
+    ],
+    "u": "Memorize means to learn something so that you can remember it exactly, such as a poem, a phone number or a list of words. It is deliberate and often involves repetition, unlike simply remembering. British spelling is memorise. Commit to memory is a formal alternative, and learn by heart is a common phrase. Memorizing without understanding is called rote learning and is often criticized in education."
+  },
+  "messenger": {
+    "mis": [
+      {
+        "w": "He sent me a messenger on Zalo.",
+        "r": "He sent me a message on Zalo.",
+        "why": "A message is the text; a messenger is the person or app that carries it."
+      },
+      {
+        "w": "He worked as messenger for a law firm.",
+        "r": "He worked as a messenger for a law firm.",
+        "why": "A singular job title needs 'a' after 'as'."
+      }
+    ],
+    "u": "A messenger is a person whose job is to deliver messages or small packages, such as a bike messenger in a busy city. In history and literature the word also means someone carrying news: don't shoot the messenger. Today it also names chat apps, as in instant messenger. The thing sent is a message, not a messenger. Courier is a close word but suggests faster, longer-distance delivery."
+  },
+  "mower": {
+    "mis": [
+      {
+        "w": "I bought a grass cut machine.",
+        "r": "I bought a lawn mower.",
+        "why": "English has a specific word: a lawn mower, not a descriptive phrase."
+      },
+      {
+        "w": "My father is mow the lawn now.",
+        "r": "My father is mowing the lawn now.",
+        "why": "The present continuous needs 'be' plus the -ing form."
+      }
+    ],
+    "u": "A mower is a machine that cuts grass, most often called a lawn mower or lawnmower. Types include push mowers, electric mowers and ride-on mowers for large gardens. The verb is mow, with the past participle mown or mowed: he mowed the lawn. The word is typical of gardening and household contexts. A trimmer or strimmer is a lighter tool for edges and long grass."
+  },
+  "newsstand": {
+    "mis": [
+      {
+        "w": "He sells newspapers at a newsstand since 2010.",
+        "r": "He has sold newspapers at a newsstand since 2010.",
+        "why": "Use the present perfect with 'since' for an action continuing to now."
+      },
+      {
+        "w": "There are two newsstand near the station.",
+        "r": "There are two newsstands near the station.",
+        "why": "A countable noun after 'two' needs the plural -s."
+      }
+    ],
+    "u": "A newsstand is a small stall or kiosk, often on a street corner or in a station, that sells newspapers, magazines and sometimes snacks. It is the American term. British English uses newsagent for the person or shop, or newspaper kiosk for a stall. Magazine publishers talk about newsstand sales or newsstand price, meaning single copies sold in shops, not subscriptions. Many modern newsstands also sell phone cards and tickets."
+  },
+  "optional": {
+    "mis": [
+      {
+        "w": "Attending the workshop is optional to students.",
+        "r": "Attending the workshop is optional for students.",
+        "why": "Optional is followed by 'for' with the people it applies to."
+      },
+      {
+        "w": "You can choose an optional to pay by card.",
+        "r": "You can choose an option to pay by card.",
+        "why": "Optional is an adjective; the noun for a choice is 'option'."
+      }
+    ],
+    "u": "Optional is an adjective describing something you may choose to have or do but need not. It is the opposite of compulsory or mandatory. You see it on forms (optional field), in schools (an optional course) and in shops (optional extras like insurance). The noun is option, so say you have an option, not an optional. In formal English voluntary stresses free will, while elective is used for courses."
+  },
+  "organizer": {
+    "mis": [
+      {
+        "w": "She was the organizator of the festival.",
+        "r": "She was the organizer of the festival.",
+        "why": "'Organizator' does not exist in English; the noun is 'organizer'."
+      },
+      {
+        "w": "He is a event organizer.",
+        "r": "He is an event organizer.",
+        "why": "Use 'an' before a vowel sound: an event organizer."
+      }
+    ],
+    "u": "An organizer is a person or group that plans and arranges an event, such as a conference, festival or wedding. We say the organizer of the festival, and event organizer is a common job title. It can also mean a notebook or app for planning daily tasks, called a personal organizer. British spelling is organiser. Planner is similar, while coordinator suggests managing people and tasks rather than the overall idea."
+  },
+  "outdoor": {
+    "mis": [
+      {
+        "w": "I like outdoors activities.",
+        "r": "I like outdoor activities.",
+        "why": "Before a noun use the adjective 'outdoor' without -s."
+      },
+      {
+        "w": "I love the outdoor.",
+        "r": "I love the outdoors.",
+        "why": "As a noun meaning nature, the word takes -s: the outdoors."
+      }
+    ],
+    "u": "Outdoor is an adjective for things that happen or are used outside a building: outdoor activities, an outdoor pool, outdoor clothing. The adverb is outdoors, as in eat outdoors. The outdoors is a noun for the open air and nature, always with -s. It appears in sport, travel and weather forecasts. Open-air is more descriptive of events like concerts, and alfresco is mainly for dining."
+  },
+  "overtime": {
+    "mis": [
+      {
+        "w": "I worked three overtimes last week.",
+        "r": "I worked three hours of overtime last week.",
+        "why": "Overtime is uncountable; use a unit such as 'hours of'."
+      },
+      {
+        "w": "I have to work over time tonight.",
+        "r": "I have to work overtime tonight.",
+        "why": "Overtime is written as one word."
+      }
+    ],
+    "u": "Overtime is time worked beyond normal hours, or the extra pay for it. It is usually uncountable: work overtime, overtime pay, unpaid overtime. In many countries employers must pay a higher rate for it. As an adverb, we say work overtime. In American sports it also means extra play when a game is tied, while British English says extra time. Extra hours is a plain alternative in conversation."
+  },
+  "paperback": {
+    "mis": [
+      {
+        "w": "I prefer paperback than hardcover.",
+        "r": "I prefer paperback to hardcover.",
+        "why": "Prefer is followed by 'to', not 'than'."
+      },
+      {
+        "w": "The novel was published in paperback cover.",
+        "r": "The novel was published in paperback.",
+        "why": "'In paperback' is the fixed phrase; 'cover' is unnecessary."
+      }
+    ],
+    "u": "A paperback is a book with a flexible paper cover, cheaper and lighter than a hardback. Publishers often release a novel first in hardback and later in paperback. We say the book is available in paperback, or a paperback edition. It is also used as a noun: she read a paperback on the plane. Softcover is a more neutral technical term, and pocket editions are smaller paperbacks."
+  },
+  "paperwork": {
+    "mis": [
+      {
+        "w": "I have many paperworks to finish.",
+        "r": "I have a lot of paperwork to finish.",
+        "why": "Paperwork is uncountable, so use 'a lot of', never a plural."
+      },
+      {
+        "w": "I need to fill the paperwork.",
+        "r": "I need to fill out the paperwork.",
+        "why": "The phrasal verb is 'fill out' or 'fill in' for forms."
+      }
+    ],
+    "u": "Paperwork is the routine documents, forms and records you must complete for official or office work. It is uncountable: some paperwork, a pile of paperwork. Typical verbs are do, fill out, complete and process. It often suggests dull but necessary administration, such as visa paperwork or insurance paperwork. In computers the same work may be digital, yet people still call it paperwork. Documentation is more technical."
+  },
+  "performer": {
+    "mis": [
+      {
+        "w": "The performer of the band was amazing.",
+        "r": "The performance of the band was amazing.",
+        "why": "A performer is a person; the show itself is a 'performance'."
+      },
+      {
+        "w": "She is one of the best performer in our team.",
+        "r": "She is one of the best performers in our team.",
+        "why": "After 'one of the', the noun must be plural."
+      }
+    ],
+    "u": "A performer is a person who entertains an audience, such as an actor, singer, dancer or musician. It is also used in business for how well someone does their job: a top performer, a poor performer. The act is a performance, and the verb is perform. Entertainer sounds lighter and more popular, while artist implies creative depth. Street performer and circus performer are common fixed pairs."
+  },
+  "pharmacist": {
+    "mis": [
+      {
+        "w": "She works as a pharmacy.",
+        "r": "She works as a pharmacist.",
+        "why": "A pharmacy is a place; a pharmacist is the trained person."
+      },
+      {
+        "w": "I went to the pharmacist to buy some medicine.",
+        "r": "I went to the pharmacy to buy some medicine.",
+        "why": "In American English you go to a place, the pharmacy, not to a person."
+      }
+    ],
+    "u": "A pharmacist is a trained professional who prepares and sells medicines and advises patients about them. They work in a pharmacy or in a hospital. The shop is a pharmacy in American English, a chemist's in British English, so the word pharmacist is about the person. Pharmacists check prescriptions, warn about side effects and answer simple health questions. Druggist is old-fashioned."
+  },
+  "photocopier": {
+    "mis": [
+      {
+        "w": "Can you photocopier these pages?",
+        "r": "Can you photocopy these pages?",
+        "why": "The machine is a photocopier; the action verb is 'photocopy'."
+      },
+      {
+        "w": "The photocopy is out of paper.",
+        "r": "The photocopier is out of paper.",
+        "why": "A photocopy is the page produced; the machine is the photocopier."
+      }
+    ],
+    "u": "A photocopier is a machine that makes copies of documents by scanning them and printing. It is common in offices, schools and libraries. The copy it produces is a photocopy, and the verb is photocopy: photocopy the form. Typical problems are that the photocopier is jammed or out of toner. Copier and copy machine are shorter and often used in American English."
+  },
+  "photographer": {
+    "mis": [
+      {
+        "w": "He works as a photograph.",
+        "r": "He works as a photographer.",
+        "why": "The person is a photographer; a photograph is the picture."
+      },
+      {
+        "w": "The photographer took a photography of us.",
+        "r": "The photographer took a photograph of us.",
+        "why": "Photography is the art or craft; one picture is a photograph."
+      }
+    ],
+    "u": "A photographer is a person who takes photographs, either professionally or as a hobby. Common types are wedding photographers, press photographers and freelance photographers. The stress falls on the second syllable: /fəˈtɑːɡrəfər/, which differs from photograph. A photographer takes photos or shoots a scene. Cameraman usually refers to film or TV, and snapper is informal British slang for a news photographer."
+  },
+  "photography": {
+    "mis": [
+      {
+        "w": "I'm interested to photography.",
+        "r": "I'm interested in photography.",
+        "why": "Interested takes the preposition 'in'."
+      },
+      {
+        "w": "She has taken many photographies of the lake.",
+        "r": "She has taken many photographs of the lake.",
+        "why": "Photography is uncountable; individual pictures are 'photographs'."
+      }
+    ],
+    "u": "Photography is the art, craft or practice of taking photographs. It is uncountable and used with types: digital photography, portrait photography, wildlife photography. We study photography, take up photography as a hobby, or visit a photography exhibition. The stress is on the second syllable: /fəˈtɑːɡrəfi/. Photography names the field, the person is a photographer, and each picture is a photograph."
+  },
+  "planner": {
+    "mis": [
+      {
+        "w": "I wrote the date at my planner.",
+        "r": "I wrote the date in my planner.",
+        "why": "Use 'in' for notes written inside a diary or planner."
+      },
+      {
+        "w": "A planner is a person plans events.",
+        "r": "A planner is a person who plans events.",
+        "why": "A relative pronoun like 'who' is needed to link the clause to the noun."
+      }
+    ],
+    "u": "A planner is either a person who plans things professionally, such as a wedding planner or town planner, or a diary used to organize the day, week or month. Context decides: she is a financial planner, or I wrote it in my planner. Planner is the one who plans; plan is the idea or arrangement. Organizer can also mean a person or a notebook, while scheduler stresses timetables."
+  },
+  "plumber": {
+    "mis": [
+      {
+        "w": "I need a plumber for fix the sink.",
+        "r": "I need a plumber to fix the sink.",
+        "why": "Use 'to' + verb to express purpose, not 'for' + verb."
+      },
+      {
+        "w": "Our house has a plumber problem.",
+        "r": "Our house has a plumbing problem.",
+        "why": "The trade is 'plumbing'; 'plumber' names the person."
+      }
+    ],
+    "u": "A plumber is a skilled worker who installs and repairs water pipes, toilets, taps and heating systems. The b is silent, so the word sounds like /ˈplʌmər/. The work is called plumbing, and the system of pipes is also plumbing. We call a plumber when there is a leak or a blocked drain. In many countries plumbers need a licence and charge by the hour."
+  },
+  "poorly": {
+    "mis": [
+      {
+        "w": "The team played poor in the final.",
+        "r": "The team played poorly in the final.",
+        "why": "A word describing how a verb is done must be an adverb."
+      },
+      {
+        "w": "My English is poorly.",
+        "r": "My English is poor.",
+        "why": "After 'be', use the adjective 'poor' to describe the noun."
+      }
+    ],
+    "u": "Poorly is mainly an adverb meaning badly or to a low standard: poorly paid, poorly designed, perform poorly. It often combines with past participles. In British English, poorly can also be an adjective meaning slightly ill: she is feeling poorly. Do not use it for lack of money; say poor or badly off. Compare: a poor result (adjective) and the results were poorly presented."
+  },
+  "portable": {
+    "mis": [
+      {
+        "w": "This laptop is portable to carry.",
+        "r": "This laptop is portable.",
+        "why": "Portable already means easy to carry, so 'to carry' is redundant."
+      },
+      {
+        "w": "Is this printer small enough to be carry?",
+        "r": "Is this printer small enough to be carried?",
+        "why": "After 'to be', a passive needs the past participle 'carried'."
+      }
+    ],
+    "u": "Portable is an adjective for something easy to carry or move: a portable charger, a portable speaker, portable heaters. It suggests small size and light weight. In computing, portable can also mean software that runs on different systems. The noun portability is formal. Mobile is used for phones, while portable is more physical, describing objects you can pick up and take with you."
+  },
+  "postcode": {
+    "mis": [
+      {
+        "w": "Write your postcode in the end of the address.",
+        "r": "Write your postcode at the end of the address.",
+        "why": "The fixed phrase is 'at the end of'."
+      },
+      {
+        "w": "In the US, you write your postcode on the envelope.",
+        "r": "In the US, you write your zip code on the envelope.",
+        "why": "Americans say 'zip code'; 'postcode' is the British term."
+      }
+    ],
+    "u": "A postcode is a short group of letters and numbers added to an address to help sort mail. It is the British term; Americans say zip code, and many other countries say postal code. UK postcodes are very precise and can identify a few houses, for example SW1A 1AA. Online forms often ask you to enter your postcode to find nearby shops or delivery options."
+  },
+  "pottery": {
+    "mis": [
+      {
+        "w": "She bought a pottery in Bat Trang.",
+        "r": "She bought a piece of pottery in Bat Trang.",
+        "why": "Pottery as a material is uncountable; use 'a piece of'."
+      },
+      {
+        "w": "He works as a pottery in Bat Trang.",
+        "r": "He works as a potter in Bat Trang.",
+        "why": "The craftsperson is a potter; pottery is the craft or the objects."
+      }
+    ],
+    "u": "Pottery means objects made from baked clay, such as bowls and vases, and also the craft of making them. It is uncountable: some pottery, a piece of pottery. The person is a potter, and the place where it is made is a pottery. Famous examples include Bat Trang pottery in Vietnam. Ceramics is a wider technical term that includes tiles and industrial products, while earthenware means a softer, porous clay."
+  },
+  "prediction": {
+    "mis": [
+      {
+        "w": "She did a prediction about next year's sales.",
+        "r": "She made a prediction about next year's sales.",
+        "why": "The usual collocation is 'make a prediction', not 'do'."
+      },
+      {
+        "w": "It is hard to prediction the result.",
+        "r": "It is hard to predict the result.",
+        "why": "After 'to', use the verb 'predict', not the noun."
+      }
+    ],
+    "u": "A prediction is a statement about what you think will happen in the future, based on knowledge, experience or data. We make a prediction, and it can be accurate or wrong. The verb is predict and the adjective is predictable. Forecast is used for weather and economics and is based on analysis, while prophecy has a religious or magical tone. Projection is a numerical estimate of future figures."
+  },
+  "presenter": {
+    "mis": [
+      {
+        "w": "She gave a presenter at the conference.",
+        "r": "She gave a presentation at the conference.",
+        "why": "A presenter is the person; the talk itself is a 'presentation'."
+      },
+      {
+        "w": "The presenter introduced about the new product.",
+        "r": "The presenter introduced the new product.",
+        "why": "Introduce is transitive; do not add 'about' before the object."
+      }
+    ],
+    "u": "A presenter is a person who gives a talk or presentation, or who hosts a TV or radio programme. In British English a TV presenter is the main host; Americans often say host or anchor. At conferences the presenters are the speakers on stage. The activity is a presentation, and the verb is present. A presenter should speak clearly and look at the audience."
+  },
+  "projector": {
+    "mis": [
+      {
+        "w": "I'll show the photos with the projection.",
+        "r": "I'll show the photos with the projector.",
+        "why": "A projector is the machine; projection is the act or a forecast."
+      },
+      {
+        "w": "Turn on the projector for we can see slides.",
+        "r": "Turn on the projector so we can see the slides.",
+        "why": "Use 'so' to give a result clause; 'for' cannot do this before a subject."
+      }
+    ],
+    "u": "A projector is a machine that shows images or video on a screen or wall. It is common in classrooms, offices and cinemas. You connect a laptop to it by cable or wifi, turn on the projector, and the slides appear on the projector screen. The older overhead projector used transparent sheets. Do not confuse it with projection, which can also mean a forecast. Beamer is a word used in Germany, but native English speakers say projector."
+  },
+  "punctual": {
+    "mis": [
+      {
+        "w": "He is always punctual in the meeting.",
+        "r": "He is always punctual for the meeting.",
+        "why": "Punctual is followed by 'for' with an event."
+      },
+      {
+        "w": "Please punctual at eight.",
+        "r": "Please be punctual at eight.",
+        "why": "The adjective needs the verb 'be' in the sentence."
+      }
+    ],
+    "u": "Punctual describes a person or action that arrives or happens exactly at the agreed time. It is a positive quality at work and school: be punctual for appointments. It differs from early, which means before the time. The noun is punctuality, and the adverb is punctually. Prompt is similar but stresses speed of response, while on time is the common spoken form."
+  },
+  "purse": {
+    "mis": [
+      {
+        "w": "He took money from his purse and paid.",
+        "r": "He took money from his wallet and paid.",
+        "why": "A man's small money holder is called a wallet; 'purse' suggests a woman's bag."
+      },
+      {
+        "w": "She bought a purse of leather.",
+        "r": "She bought a leather purse.",
+        "why": "Material comes before the noun: a leather purse."
+      }
+    ],
+    "u": "Purse has different meanings by region. In the UK it is a small case for coins and cards, usually carried by women. In the US it means a handbag. It is also a verb: pursed lips show disapproval or concentration. Wallet is the usual word for a man's flat money holder in both countries. A coin purse is a small pouch just for change."
+  },
+  "redecorate": {
+    "mis": [
+      {
+        "w": "We need to re-decoration the kitchen.",
+        "r": "We need to redecorate the kitchen.",
+        "why": "After 'need to', use the verb 'redecorate', not the noun."
+      },
+      {
+        "w": "We redecorate the bedroom last month.",
+        "r": "We redecorated the bedroom last month.",
+        "why": "A finished action in the past needs the past tense."
+      }
+    ],
+    "u": "To redecorate means to paint, wallpaper or change the style of a room or house. It focuses on appearance, not structure: we redecorated the living room in white. Renovate is bigger and may involve repairs or building work, while refurbish suggests making something like new. In British English, do up is informal. Many people redecorate before selling a house."
+  },
+  "refresh": {
+    "mis": [
+      {
+        "w": "A cold drink is very refresh.",
+        "r": "A cold drink is very refreshing.",
+        "why": "Use the adjective 'refreshing' for what causes the feeling."
+      },
+      {
+        "w": "I feel refreshing after a nap.",
+        "r": "I feel refreshed after a nap.",
+        "why": "Use the -ed adjective for how a person feels."
+      }
+    ],
+    "u": "Refresh means to make fresh or lively again, or, in computing, to reload a webpage or data: press F5 to refresh the page. People refresh themselves with a break or a cold drink, and refresh their memory by reviewing facts. The adjective refreshing describes something that renews you, and refreshed describes how you feel. Reload is a purely technical alternative."
+  },
+  "relaxation": {
+    "mis": [
+      {
+        "w": "I listen to music for relax.",
+        "r": "I listen to music for relaxation.",
+        "why": "After 'for', use the noun 'relaxation', not the verb."
+      },
+      {
+        "w": "He needs some relaxations after work.",
+        "r": "He needs some relaxation after work.",
+        "why": "Relaxation is uncountable and takes no plural -s."
+      }
+    ],
+    "u": "Relaxation is the state of rest and calm, or activities that help you reach it. It is usually uncountable: time for relaxation, relaxation techniques, muscle relaxation. Spas, yoga and quiet music are common forms. The verb is relax and the adjective is relaxing or relaxed. Leisure describes free time in general, while relaxation focuses on reducing stress and tension."
+  },
+  "renter": {
+    "mis": [
+      {
+        "w": "The renter collects the rent every month.",
+        "r": "The landlord collects the rent every month.",
+        "why": "The renter pays rent; the owner who collects it is the landlord."
+      },
+      {
+        "w": "I want to renter a flat near the station.",
+        "r": "I want to rent a flat near the station.",
+        "why": "The verb is 'rent'; 'renter' is the person."
+      }
+    ],
+    "u": "A renter is a person who rents something, usually a home or a car, and pays regular fees. In American English it often means a tenant living in a rented flat, as opposed to a homeowner. The owner who rents it out is the landlord. Tenant is the formal legal word and is more common in British English. Renter's insurance protects the belongings of someone who rents a home."
+  }
+}

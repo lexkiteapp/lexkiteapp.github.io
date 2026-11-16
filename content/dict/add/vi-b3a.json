@@ -1,0 +1,752 @@
+{
+  "dependence": {
+    "mis": [
+      {
+        "w": "We should reduce our dependence of imported goods.",
+        "r": "We should reduce our dependence on imported goods.",
+        "why": "Sau dependence phải dùng giới từ 'on', không dùng 'of'."
+      },
+      {
+        "w": "Our company has a big depend on one client.",
+        "r": "Our company has a big dependence on one client.",
+        "why": "Depend là động từ; danh từ đúng là dependence."
+      }
+    ],
+    "u": "Dependence là danh từ chỉ việc phải dựa vào một người, vật hay hệ thống, và luôn đi với giới từ on: dependence on tourism. Từ này không đếm được, trong kinh doanh thường mang nghĩa tiêu cực (heavy dependence), còn trong khoa học thì trung tính. Trong y học nó còn chỉ sự nghiện, ví dụ alcohol dependence. Reliance gần nghĩa nhưng nhẹ hơn; dependence nhấn mạnh khó có thể thiếu thứ đó. Tính từ là dependent, còn dependant là danh từ (người phụ thuộc) trong tiếng Anh Anh."
+  },
+  "descriptive": {
+    "mis": [
+      {
+        "w": "The report was very describe, so it was easy to follow.",
+        "r": "The report was very descriptive, so it was easy to follow.",
+        "why": "Sau 'very' cần tính từ descriptive, không dùng động từ describe."
+      },
+      {
+        "w": "Please write a descriptive of the product.",
+        "r": "Please write a description of the product.",
+        "why": "Descriptive là tính từ; danh từ cần dùng ở đây là description."
+      }
+    ],
+    "u": "Descriptive là tính từ, nghĩa là cho biết sự vật như thế nào mà không đánh giá hay giải thích nguyên nhân. Bạn sẽ gặp trong descriptive title (tiêu đề mô tả rõ), descriptive essay và descriptive statistics, tức thống kê mô tả dùng để tóm tắt dữ liệu chứ không kiểm định giả thuyết. Từ này đối lập với prescriptive (nêu cái nên làm) và với văn phân tích, lập luận. Giọng văn trung tính, dùng nhiều trong học thuật và công sở. Không dùng như danh từ; danh từ là description."
+  },
+  "detach": {
+    "mis": [
+      {
+        "w": "Please detach the form of the booklet.",
+        "r": "Please detach the form from the booklet.",
+        "why": "Detach đi với giới từ 'from' để chỉ vật bị tách ra khỏi."
+      },
+      {
+        "w": "The strap is detachable, so you can detach it easy.",
+        "r": "The strap is detachable, so you can detach it easily.",
+        "why": "Bổ nghĩa cho động từ cần trạng từ easily, không dùng tính từ easy."
+      }
+    ],
+    "u": "Detach nghĩa là tách một vật ra khỏi vật mà nó đang gắn vào, thường gọn gàng và có chủ đích: detach the coupon (xé phiếu), detach the camera lens. Cấu trúc là detach X from Y. Trang trọng hơn take off, hay gặp trong hướng dẫn và biểu mẫu. Nó cũng dùng cho người theo nghĩa tinh thần: detach yourself from a problem (tách mình khỏi vấn đề). Từ trái nghĩa là attach. Tính từ detached có thể chỉ sự lạnh lùng, xa cách, còn detached house trong tiếng Anh Anh là nhà riêng biệt."
+  },
+  "devastate": {
+    "mis": [
+      {
+        "w": "The news was very devastated for the family.",
+        "r": "The news was devastating for the family.",
+        "why": "Vật gây ra cú sốc dùng -ing (devastating), người chịu tác động mới dùng -ed."
+      },
+      {
+        "w": "The storm devastated by the whole village.",
+        "r": "The storm devastated the whole village.",
+        "why": "Devastate là ngoại động từ, nối thẳng với tân ngữ, không thêm 'by'."
+      }
+    ],
+    "u": "Devastate là động từ mạnh, nghĩa là tàn phá một nơi nào đó hoặc làm ai đó choáng váng, đau buồn tột độ. Dùng cho chuyện nghiêm trọng như lũ lụt, chiến tranh, khủng hoảng, tin dữ, không dùng cho thất vọng nhỏ. Cả hai dạng tính từ đều phổ biến: a devastating loss (mất mát khủng khiếp) và she was devastated (cô ấy suy sụp). Trong lời nói hằng ngày devastated nghĩa là cực kỳ buồn. Ruin nhẹ và chung chung hơn, còn destroy hàm ý phá hủy hoàn toàn."
+  },
+  "dine": {
+    "mis": [
+      {
+        "w": "She dined at her colleagues last night.",
+        "r": "She dined with her colleagues last night.",
+        "why": "Người cùng ăn dùng 'with', còn địa điểm dùng 'at'."
+      },
+      {
+        "w": "Let's dine the new Italian restaurant tonight.",
+        "r": "Let's dine at the new Italian restaurant tonight.",
+        "why": "Dine là nội động từ, trước địa điểm cần giới từ 'at'."
+      }
+    ],
+    "u": "Dine là từ trang trọng, lịch sự để chỉ việc dùng bữa, thường là bữa tối, và gợi cảm giác dễ chịu. Đây là nội động từ nên ta nói dine at một nơi, dine with một người, hoặc dine on một món: dine on lobster. Dine out là đi ăn nhà hàng; dine in là ăn tại nhà hoặc ngay trong nhà hàng của khách sạn. Trong hội thoại thân mật người ta chỉ nói have dinner hoặc eat. Từ này hay xuất hiện trong quảng cáo khách sạn, hàng không và nhà hàng."
+  },
+  "disagreement": {
+    "mis": [
+      {
+        "w": "They had a disagreement for the budget.",
+        "r": "They had a disagreement over the budget.",
+        "why": "Chủ đề của bất đồng dùng 'over' hoặc 'about'."
+      },
+      {
+        "w": "There is a disagreement on the two reports.",
+        "r": "There is a disagreement between the two reports.",
+        "why": "Khi nói sự khác biệt giữa hai thứ, dùng giới từ 'between'."
+      }
+    ],
+    "u": "Disagreement là danh từ đếm được chỉ tình huống mọi người có ý kiến khác nhau, nhẹ hơn argument hay fight. Các mẫu thường gặp: a disagreement with someone, between people, và over hoặc about một vấn đề. Từ trung tính, hợp văn bản công sở: there was some disagreement over the schedule. In disagreement nghĩa là giữ quan điểm trái ngược. Dispute mạnh hơn và hay mang tính chính thức hoặc pháp lý, còn a difference of opinion nghe lịch sự hơn."
+  },
+  "disappointment": {
+    "mis": [
+      {
+        "w": "She was disappointment with the results.",
+        "r": "She was disappointed with the results.",
+        "why": "Mô tả cảm xúc của người dùng tính từ disappointed, không dùng danh từ."
+      },
+      {
+        "w": "To my disappointed, the flight was cancelled.",
+        "r": "To my disappointment, the flight was cancelled.",
+        "why": "Sau 'To my' cần danh từ disappointment."
+      }
+    ],
+    "u": "Disappointment vừa là danh từ không đếm được (cảm giác thất vọng) vừa là danh từ đếm được (người hay vật không đạt kỳ vọng): the film was a disappointment. Cụm to my disappointment dùng để đưa ra tin không mong muốn. Giới từ hay gặp: disappointment at, with hoặc about một kết quả, và disappointment in một người. Tính từ chỉ người là disappointed, chỉ vật gây ra là disappointing. Từ nhẹ hơn despair, thường dùng trong lời phàn nàn lịch sự và bài đánh giá."
+  },
+  "discrepancy": {
+    "mis": [
+      {
+        "w": "There is a discrepancy among the invoice and the order.",
+        "r": "There is a discrepancy between the invoice and the order.",
+        "why": "So sánh hai vật dùng 'between'; 'among' dành cho từ ba trở lên."
+      },
+      {
+        "w": "We found a lot of discrepancy in the figures.",
+        "r": "We found a lot of discrepancies in the figures.",
+        "why": "Discrepancy đếm được, nhiều chỗ lệch thì dùng số nhiều discrepancies."
+      }
+    ],
+    "u": "Discrepancy là danh từ đếm được, trang trọng, chỉ sự khác biệt giữa hai thứ lẽ ra phải khớp nhau, như số liệu, sổ sách, lời khai hay hồ sơ. Dùng discrepancy between A and B hoặc discrepancy in the data. Từ rất phổ biến trong kế toán, kiểm toán, luật và hậu cần, báo hiệu một lỗi cần điều tra. Nó cụ thể hơn difference: difference có thể bình thường, còn discrepancy gợi ý sự sai lệch hay nhầm lẫn. Inconsistency là từ gần nghĩa."
+  },
+  "disgust": {
+    "mis": [
+      {
+        "w": "The smell disgust me.",
+        "r": "The smell disgusts me.",
+        "why": "Disgust cũng là động từ, chủ ngữ ngôi thứ ba số ít nên thêm -s."
+      },
+      {
+        "w": "I was very disgust at the dirty kitchen.",
+        "r": "I was very disgusted at the dirty kitchen.",
+        "why": "Mô tả cảm giác của người bằng tính từ -ed là disgusted."
+      }
+    ],
+    "u": "Disgust là cảm giác ghê tởm mạnh, thường do thứ bẩn, trái đạo đức hoặc khó chịu về thể chất gây ra. Là danh từ nó không đếm được: she turned away in disgust (cô quay đi vì ghê tởm). Nó cũng là động từ: the smell disgusts me. Nhớ cặp tính từ: disgusted cho người, disgusting cho vật. Từ mạnh hơn nhiều so với dislike hay annoyance, nên cẩn thận khi dùng trong văn bản kinh doanh lịch sự; distaste là lựa chọn nhẹ và trang trọng hơn."
+  },
+  "dispatch": {
+    "mis": [
+      {
+        "w": "We will dispatch you the parcel tomorrow.",
+        "r": "We will dispatch the parcel to you tomorrow.",
+        "why": "Dispatch đặt vật gửi trước, rồi 'to' và người nhận."
+      },
+      {
+        "w": "The goods will be dispatch on Friday.",
+        "r": "The goods will be dispatched on Friday.",
+        "why": "Câu bị động cần quá khứ phân từ dispatched."
+      }
+    ],
+    "u": "Dispatch là động từ trang trọng chỉ việc gửi hàng, tin nhắn hoặc người đến một nơi, thường nhanh chóng hoặc có mục đích chính thức: dispatch an ambulance, dispatch an order. Cấu trúc là dispatch something to someone hoặc somewhere. Trong tiếng Anh Anh còn có dạng cũ despatch. Dispatch cũng là danh từ, nghĩa là hành động gửi đi hoặc một bản báo cáo chính thức. Trong hậu cần nó nghe chính xác hơn send; ship thường dùng cho hàng vận chuyển đường dài."
+  },
+  "disrupt": {
+    "mis": [
+      {
+        "w": "The storm disrupted to our schedule.",
+        "r": "The storm disrupted our schedule.",
+        "why": "Disrupt là ngoại động từ, nối thẳng với tân ngữ, không có 'to'."
+      },
+      {
+        "w": "The disrupt caused long delays.",
+        "r": "The disruption caused long delays.",
+        "why": "Danh từ của disrupt là disruption."
+      }
+    ],
+    "u": "Disrupt nghĩa là làm gián đoạn hoạt động bình thường của thứ gì, tạm thời hoặc lâu dài: strikes disrupt transport (đình công làm đảo lộn giao thông), noise disrupts a class. Đây là ngoại động từ nên theo sau là đối tượng bị ảnh hưởng. Danh từ là disruption, tính từ là disruptive. Trong kinh doanh, to disrupt a market mang sắc thái tích cực, nghĩa là sản phẩm mới thay đổi cả ngành. Interrupt thiên về việc cắt ngang một hành động hay lời nói, còn disrupt tác động lên cả quy trình."
+  },
+  "distract": {
+    "mis": [
+      {
+        "w": "Don't distract me of my work.",
+        "r": "Don't distract me from my work.",
+        "why": "Sau distract dùng 'from' để chỉ việc bị mất tập trung."
+      },
+      {
+        "w": "I was distracting by the noise outside.",
+        "r": "I was distracted by the noise outside.",
+        "why": "Người bị mất tập trung là distracted, không phải distracting."
+      }
+    ],
+    "u": "Distract nghĩa là kéo sự chú ý của ai ra khỏi việc đang làm: loud music distracts students. Cấu trúc là distract someone from something. Dùng -ed cho người (I am distracted) và -ing cho nguyên nhân (a distracting noise). Danh từ là distraction, có thể đếm được (a distraction, thứ gây xao nhãng) hoặc không đếm được (to distraction nghĩa là đến mức cực độ). Từ nhẹ hơn disrupt, vì disrupt tác động lên cả quy trình chứ không chỉ sự tập trung của một người."
+  },
+  "dive": {
+    "mis": [
+      {
+        "w": "He dived in the pool from the edge.",
+        "r": "He dived into the pool from the edge.",
+        "why": "Chuyển động đi vào nước dùng giới từ 'into'."
+      },
+      {
+        "w": "They went to scuba diving in Nha Trang.",
+        "r": "They went scuba diving in Nha Trang.",
+        "why": "Sau 'go' chỉ hoạt động dùng -ing trực tiếp, không có 'to'."
+      }
+    ],
+    "u": "Dive nghĩa là lao đầu xuống nước, hoặc rơi nhanh, giảm mạnh. Từ này cũng mô tả số liệu tụt đột ngột: share prices dived (giá cổ phiếu lao dốc). Giới từ: dive into water, dive off a board. Dùng thân mật, dive in hoặc dive into a topic nghĩa là hăng hái bắt đầu. Quá khứ là dived trong tiếng Anh Anh, còn tiếng Anh Mỹ có thể dùng dived hoặc dove, nhưng dived luôn an toàn, và phân từ là dived. Plummet nghe trang trọng hơn khi nói về mức giảm sâu."
+  },
+  "dividend": {
+    "mis": [
+      {
+        "w": "The company gave a dividend to its shareholders last month.",
+        "r": "The company paid a dividend to its shareholders last month.",
+        "why": "Động từ tự nhiên đi với dividend là pay hoặc declare, không phải give."
+      },
+      {
+        "w": "Shareholders received a high dividend of the company.",
+        "r": "Shareholders received a high dividend from the company.",
+        "why": "Nguồn của khoản chi trả được chỉ bằng 'from'."
+      }
+    ],
+    "u": "Dividend là phần lợi nhuận công ty chia cho cổ đông, thường bằng tiền mặt và hay trả theo quý hoặc năm. Các động từ thường đi kèm: pay, declare, cut, raise a dividend. Từ đếm được: shareholders receive dividends. Dividend yield là tỷ suất cổ tức, tính theo phần trăm giá cổ phiếu. Nó khác với interest (lãi), vốn trả cho khoản vay và tiền gửi. Theo nghĩa bóng, peace dividend hay a dividend from hard work chỉ lợi ích thu được về sau."
+  },
+  "downsize": {
+    "mis": [
+      {
+        "w": "The firm downsized 200 employees last year.",
+        "r": "The firm downsized its workforce by 200 employees last year.",
+        "why": "Downsize thường đi với tập thể như workforce, không trực tiếp với từng người."
+      },
+      {
+        "w": "They downsized the company by cut fifty jobs.",
+        "r": "They downsized the company by cutting fifty jobs.",
+        "why": "Sau 'by' dùng dạng -ing: cutting."
+      }
+    ],
+    "u": "Downsize nghĩa là thu nhỏ quy mô một tổ chức, chủ yếu bằng cắt giảm việc làm, và cũng có thể là chuyển sang nhà hoặc văn phòng nhỏ hơn. Đây là cách nói giảm nhẹ trong kinh doanh nên nhân viên có thể thấy lạnh lùng; layoffs thẳng hơn, còn restructure nghe còn nhẹ hơn nữa. Tân ngữ thường là the workforce, operations hoặc the company: downsize the workforce. Không nói downsize someone; hãy dùng lay off hoặc let go. Danh từ là downsizing."
+  },
+  "dull": {
+    "mis": [
+      {
+        "w": "The lecture was very bored.",
+        "r": "The lecture was very dull.",
+        "why": "Mô tả sự việc dùng dull hoặc boring; bored dùng cho người."
+      },
+      {
+        "w": "I need to sharp this dull knife.",
+        "r": "I need to sharpen this dull knife.",
+        "why": "Sharp là tính từ; động từ là sharpen."
+      }
+    ],
+    "u": "Dull là tính từ linh hoạt với nhiều nghĩa: không thú vị (a dull speech), không sáng (dull weather, dull colours), không sắc (a dull knife) và không rõ rệt (a dull pain, cơn đau âm ỉ). Ngữ cảnh quyết định nghĩa. Các từ trái nghĩa cũng khác nhau: exciting, bright, sharp. Nói về người, nó chỉ người nhạt nhẽo, khá thô lỗ, còn nói về bài giảng thì trong giao tiếp người ta thường dùng boring. Dull as dishwater là thành ngữ cố định nghĩa là cực kỳ chán."
+  },
+  "elevate": {
+    "mis": [
+      {
+        "w": "She was elevated at the position of director.",
+        "r": "She was elevated to the position of director.",
+        "why": "Nâng ai lên một chức vụ thì dùng giới từ 'to'."
+      },
+      {
+        "w": "The test showed elevate blood pressure.",
+        "r": "The test showed elevated blood pressure.",
+        "why": "Trước danh từ cần tính từ dạng phân từ elevated."
+      }
+    ],
+    "u": "Elevate là động từ trang trọng, nghĩa là nâng một vật lên cao hoặc nâng lên mức cao hơn về cấp bậc, chất lượng, tầm quan trọng: elevate standards, elevate someone to a post. Từ này phổ biến trong báo cáo y tế, nơi elevated levels nghĩa là cao hơn bình thường, và trong marketing, khi thương hiệu elevate trải nghiệm khách hàng. Trong lời nói thường ngày, raise hoặc lift tự nhiên hơn. Danh từ là elevation, còn có nghĩa là độ cao so với mực nước biển."
+  },
+  "embassy": {
+    "mis": [
+      {
+        "w": "I went to the American embassy for to get a visa.",
+        "r": "I went to the American embassy to get a visa.",
+        "why": "Mục đích diễn đạt bằng 'to + động từ', không dùng 'for to'."
+      },
+      {
+        "w": "Please call the embassy staffs for details.",
+        "r": "Please call the embassy staff for details.",
+        "why": "Staff không đếm được, nghĩa này không thêm -s."
+      }
+    ],
+    "u": "Embassy là cơ quan đại diện ngoại giao chính của một nước tại thủ đô nước khác, do đại sứ đứng đầu. Nơi này lo quan hệ chính trị và hỗ trợ công dân của nước mình ở nước ngoài. Consulate (lãnh sự quán) nhỏ hơn, thường ở các thành phố khác, xử lý thị thực và giấy tờ. Dùng at the embassy để chỉ địa điểm và the Vietnamese embassy in Washington để chỉ nước sở hữu. Nhân viên đại sứ quán còn gọi là diplomats. Đây là danh từ đếm được."
+  },
+  "embed": {
+    "mis": [
+      {
+        "w": "The nail was embedded to the wall.",
+        "r": "The nail was embedded in the wall.",
+        "why": "Embedded đi với 'in' hoặc 'into' cho vật bao quanh."
+      },
+      {
+        "w": "The habit is deep embed in our culture.",
+        "r": "The habit is deeply embedded in our culture.",
+        "why": "Cần trạng từ deeply và phân từ embedded."
+      }
+    ],
+    "u": "Embed nghĩa là gắn chặt một thứ vào bên trong một khối hoặc hệ thống: a nail embedded in wood (cái đinh cắm sâu vào gỗ), a journalist embedded with troops. Trong công nghệ, nó là chèn video, liên kết hay mã vào trang web, như embed a video in a website. Nó cũng mô tả ý tưởng ăn sâu vào văn hóa: deeply embedded values. Dạng quá khứ là embedded, gấp đôi chữ d. Biến thể chính tả imbed vẫn có nhưng hiếm gặp."
+  },
+  "engagement": {
+    "mis": [
+      {
+        "w": "They announced their engagement with a party.",
+        "r": "They announced their engagement at a party.",
+        "why": "Sự kiện nơi việc xảy ra dùng 'at', không dùng 'with'."
+      },
+      {
+        "w": "Our engagement to customers has increased.",
+        "r": "Our engagement with customers has increased.",
+        "why": "Sự tương tác với người hoặc nhóm dùng giới từ 'with'."
+      }
+    ],
+    "u": "Engagement có nhiều nghĩa. Trong marketing và công việc, nó chỉ sự gắn kết, quan tâm: customer engagement, staff engagement. Nó cũng là lễ đính hôn (an engagement ring) hoặc một cam kết đã lên lịch như a speaking engagement (buổi diễn thuyết) hay a prior engagement, cách lịch sự để từ chối lời mời vì đã có hẹn. Dùng engagement with cho nhóm hay dự án, và engagement to cho người sẽ kết hôn. Nghĩa đầu thường không đếm được, các nghĩa còn lại đếm được."
+  },
+  "environment": {
+    "mis": [
+      {
+        "w": "We must protect environment for our children.",
+        "r": "We must protect the environment for our children.",
+        "why": "Environment theo nghĩa thiên nhiên cần mạo từ 'the'."
+      },
+      {
+        "w": "The company has a friendly environmental to work in.",
+        "r": "The company has a friendly environment to work in.",
+        "why": "Environmental là tính từ; danh từ là environment."
+      }
+    ],
+    "u": "Environment có hai cách dùng chính. Đi với the, nó chỉ thế giới tự nhiên: protect the environment, damage to the environment. Không có the, kèm tính từ, nó chỉ điều kiện xung quanh bạn: a friendly working environment, a stressful home environment. Đừng nhầm với environmental, là tính từ (environmental policy). Trong tin học, development environment là bộ phần mềm thiết lập để lập trình. Surroundings gần nghĩa với nghĩa chung; habitat dành cho động vật."
+  },
+  "ethics": {
+    "mis": [
+      {
+        "w": "She teaches an ethics at the university.",
+        "r": "She teaches ethics at the university.",
+        "why": "Ethics ở đây không dùng mạo từ 'an'."
+      },
+      {
+        "w": "He studies ethic at university.",
+        "r": "He studies ethics at university.",
+        "why": "Tên môn học luôn có -s ở cuối: ethics."
+      }
+    ],
+    "u": "Ethics chỉ các quy tắc đạo đức hướng dẫn hành vi, hoặc môn học nghiên cứu đúng sai. Từ tận cùng bằng -s nhưng đi với động từ số nhiều khi nói về chuẩn mực (the ethics of the firm are questioned) hoặc động từ số ít khi nói về môn học (ethics is a required course). Các cụm thường gặp: business ethics, medical ethics, a code of ethics. Tính từ là ethical, trái nghĩa unethical. Ethics trang trọng và mang tính nghề nghiệp hơn morals, vốn gắn với niềm tin cá nhân."
+  },
+  "evenly": {
+    "mis": [
+      {
+        "w": "Please divide the cake even between the children.",
+        "r": "Please divide the cake evenly between the children.",
+        "why": "Động từ cần trạng từ evenly, không dùng tính từ even."
+      },
+      {
+        "w": "The two teams were even matched.",
+        "r": "The two teams were evenly matched.",
+        "why": "Trước phân từ matched cần trạng từ evenly."
+      }
+    ],
+    "u": "Evenly là trạng từ, nghĩa là theo cách đều đặn, bằng nhau hoặc mượt mà. Hay đi với động từ trải, chia, cách quãng: spread the butter evenly, evenly spaced rows (các hàng cách đều). Evenly matched mô tả hai đối thủ sức ngang nhau, còn evenly paced là tốc độ ổn định. Từ gần với equally, nhưng equally thường liên quan đến phần chia hoặc sự công bằng (shared equally), trong khi evenly nhấn mạnh sự phân bố đều. Nhớ rằng even còn là tính từ và từ nhấn mạnh."
+  },
+  "excessive": {
+    "mis": [
+      {
+        "w": "The hotel charged us excess prices.",
+        "r": "The hotel charged us excessive prices.",
+        "why": "Excess là danh từ; tính từ nghĩa là quá mức là excessive."
+      },
+      {
+        "w": "The cost is excessive high for us.",
+        "r": "The cost is excessively high for us.",
+        "why": "Bổ nghĩa cho tính từ cần trạng từ excessively."
+      }
+    ],
+    "u": "Excessive mô tả lượng hoặc mức độ vượt quá cần thiết, hợp lý hay chấp nhận được, và luôn mang sắc thái tiêu cực: excessive force, excessive noise. Từ này mạnh hơn too much và phổ biến trong hợp đồng, tin tức, báo cáo. Trạng từ là excessively. Danh từ excess cũng đứng trước danh từ trong một số cụm như excess baggage. Exorbitant gần nghĩa nhưng chỉ dùng cho giá cả. Dùng excessive khi người nói rõ ràng không đồng tình với mức đó."
+  },
+  "fabric": {
+    "mis": [
+      {
+        "w": "I bought two fabrics for the curtains.",
+        "r": "I bought two pieces of fabric for the curtains.",
+        "why": "Fabric chỉ chất liệu thường không đếm được; dùng 'pieces of'."
+      },
+      {
+        "w": "This dress is made by cotton fabric.",
+        "r": "This dress is made of cotton fabric.",
+        "why": "Chất liệu làm nên vật dùng 'made of', không dùng 'by'."
+      }
+    ],
+    "u": "Fabric là vải được dệt hoặc đan, từ dùng trong quần áo, nội thất và rèm cửa. Thường không đếm được: a soft fabric thì được, nhưng đếm theo mảnh hoặc mét vải (pieces or metres of fabric). Dạng số nhiều fabrics nghĩa là các loại vải khác nhau. Cloth đơn giản hơn và có thể chỉ miếng giẻ, còn textile mang tính kỹ thuật và công nghiệp. Theo nghĩa bóng, the fabric of society là cấu trúc nền tảng của xã hội."
+  },
+  "faulty": {
+    "mis": [
+      {
+        "w": "The machine is fault and needs repair.",
+        "r": "The machine is faulty and needs repair.",
+        "why": "Sau 'is' cần tính từ faulty, không dùng danh từ fault."
+      },
+      {
+        "w": "I want to return the faulty one because it is break.",
+        "r": "I want to return the faulty one because it is broken.",
+        "why": "Trạng thái hỏng cần tính từ broken, không dùng nguyên mẫu."
+      }
+    ],
+    "u": "Faulty mô tả vật không hoạt động đúng do lỗi: faulty wiring (dây điện lỗi), a faulty switch. Đây là từ thông dụng trong khiếu nại và đổi trả sản phẩm, rất phổ biến trong tiếng Anh Anh. Defective gần nghĩa nhưng trang trọng hơn, dùng trong pháp lý và sản xuất. Người thì không bị faulty, nhưng lập luận thì có: faulty logic. Đừng nhầm tính từ này với danh từ fault, nghĩa là lỗi lầm hoặc khuyết điểm."
+  },
+  "finalize": {
+    "mis": [
+      {
+        "w": "We finalized the contract for sign next week.",
+        "r": "We finalized the contract for signing next week.",
+        "why": "Sau giới từ dùng danh động từ, không dùng nguyên mẫu."
+      },
+      {
+        "w": "We will finalize the details until Friday.",
+        "r": "We will finalize the details by Friday.",
+        "why": "Hạn chót dùng 'by'; 'until' dành cho việc kéo dài đến một mốc."
+      }
+    ],
+    "u": "Finalize nghĩa là hoàn tất những chi tiết cuối cùng của kế hoạch hoặc thỏa thuận để sẵn sàng: finalize the schedule, finalize a deal. Phổ biến trong kinh doanh, nghe trang trọng hơn finish. Nó không chỉ là kết thúc một hoạt động, mà là chốt cho nên chính thức. Trong tiếng Anh Anh cũng viết finalise. Danh từ liên quan là finalization. Settle thường hợp với tranh chấp, còn conclude hợp với cuộc họp hoặc đàm phán."
+  },
+  "flaw": {
+    "mis": [
+      {
+        "w": "The plan has a flaw of the logic.",
+        "r": "The plan has a flaw in the logic.",
+        "why": "Lỗi nằm bên trong cái gì thì dùng 'in'."
+      },
+      {
+        "w": "The diamond has some flaw.",
+        "r": "The diamond has some flaws.",
+        "why": "Flaw đếm được; nhiều lỗi thì dùng số nhiều flaws."
+      }
+    ],
+    "u": "Flaw là lỗi, điểm yếu hoặc sự không hoàn hảo của một thứ, có thể làm nó kém hiệu quả hoặc kém giá trị: a flaw in the design, a flaw in someone's argument. Từ đếm được, mẫu thường dùng là a flaw in something. Với người, đó là a character flaw. Tính từ flawed mô tả thứ có vấn đề, còn flawless nghĩa là hoàn hảo. Defect mang tính kỹ thuật hơn, dùng cho hàng sản xuất, còn flaw dùng được cho lập luận, kế hoạch và đá quý."
+  },
+  "fleet": {
+    "mis": [
+      {
+        "w": "Our company has a fleet vehicles of fifty trucks.",
+        "r": "Our company has a fleet of fifty trucks.",
+        "why": "Mẫu đúng là 'a fleet of + danh từ số nhiều'."
+      },
+      {
+        "w": "We own a fleet of fifty truck.",
+        "r": "We own a fleet of fifty trucks.",
+        "why": "Sau 'fleet of' và số đếm, danh từ phải ở số nhiều."
+      }
+    ],
+    "u": "Fleet là nhóm xe, tàu hoặc máy bay thuộc sở hữu hay do một tổ chức quản lý: a fleet of delivery vans, an airline's fleet (đội bay của hãng). Trong kinh doanh, fleet management là quản lý bảo trì, nhiên liệu và tài xế. Đây là danh từ tập thể, nên tiếng Anh Anh có thể dùng động từ số nhiều, còn tiếng Anh Mỹ thích động từ số ít. Fleet lớn và có tổ chức hơn convoy, vốn chỉ đoàn di chuyển cùng nhau trong một chuyến."
+  },
+  "freight": {
+    "mis": [
+      {
+        "w": "We sent many freights by sea.",
+        "r": "We sent a lot of freight by sea.",
+        "why": "Freight không đếm được nên không có dạng số nhiều 'freights'."
+      },
+      {
+        "w": "The goods will travel in air freight.",
+        "r": "The goods will travel by air freight.",
+        "why": "Phương tiện vận chuyển dùng giới từ 'by'."
+      }
+    ],
+    "u": "Freight chỉ hàng hóa vận chuyển bằng tàu, máy bay, xe tải hoặc tàu hỏa, và cả chi phí hay hệ thống vận chuyển đó: air freight, freight charges. Từ không đếm được, chủ yếu dùng trong ngành vận tải. Tiếng Anh Mỹ dùng freight cho mọi loại vận chuyển, còn tiếng Anh Anh thường dùng cargo cho tàu và máy bay. Freight forwarder là công ty thu xếp lô hàng. Shipment là một lô hàng riêng, còn freight là hàng hóa nói chung."
+  },
+  "fundraise": {
+    "mis": [
+      {
+        "w": "The club fundraised 5,000 dollars for charity.",
+        "r": "The club raised 5,000 dollars for charity.",
+        "why": "Có số tiền cụ thể dùng 'raise'; fundraise đi với 'for'."
+      },
+      {
+        "w": "We are fundraising to the local hospital.",
+        "r": "We are fundraising for the local hospital.",
+        "why": "Fundraise đi với 'for' để chỉ mục đích gây quỹ."
+      }
+    ],
+    "u": "Fundraise là động từ nghĩa là gây quỹ cho một mục đích, tổ chức từ thiện hoặc dự án, thường qua sự kiện, chiến dịch và quyên góp. Đây là nội động từ, thường đi với for: fundraise for the school. Cách nói raise funds tự nhiên hơn trong văn nói trang trọng. Danh từ là fundraising hoặc fundraiser, có thể là sự kiện hoặc người tổ chức. Không nói fundraise money; ta nói raise money hoặc fundraise for a cause."
+  },
+  "graphic": {
+    "mis": [
+      {
+        "w": "He gave a graphic of the accident.",
+        "r": "He gave a graphic account of the accident.",
+        "why": "Là tính từ, graphic cần danh từ đi sau như 'account'."
+      },
+      {
+        "w": "She studies graphics design at university.",
+        "r": "She studies graphic design at university.",
+        "why": "Trước 'design' dùng tính từ số ít graphic."
+      }
+    ],
+    "u": "Graphic là tính từ có hai cách dùng chính. Liên quan đến vẽ, thiết kế hay nghệ thuật thị giác: graphic design, a graphic artist, a graphic novel (tiểu thuyết tranh). Hoặc rất chi tiết, nhất là về điều bạo lực hay khó chịu: a graphic description, graphic scenes. Cảnh báo thường ghi contains graphic content. Nó cũng có thể là danh từ chỉ hình ảnh trên máy tính, nhưng graphics phổ biến hơn. Vivid gần nghĩa khi tả sinh động, còn explicit nhấn mạnh sự thẳng thắn về chủ đề nhạy cảm."
+  },
+  "graphics": {
+    "mis": [
+      {
+        "w": "The graphics of this game is amazing.",
+        "r": "The graphics of this game are amazing.",
+        "why": "Với nghĩa hình ảnh, graphics đi với động từ số nhiều."
+      },
+      {
+        "w": "I need a new graphic card for my PC.",
+        "r": "I need a new graphics card for my PC.",
+        "why": "Cụm cố định là graphics card."
+      }
+    ],
+    "u": "Graphics chỉ hình ảnh thị giác, nhất là do máy tính tạo ra hoặc dùng trong thiết kế: computer graphics, game graphics, motion graphics (đồ họa chuyển động). Với nghĩa này, nó đi với động từ số nhiều: the graphics look great. Khi là tên môn học, graphics có thể đi với động từ số ít. Graphics card là card xử lý hình ảnh trong máy tính. Thuật ngữ rộng hơn graphic, vốn chủ yếu là tính từ hoặc một hình ảnh đơn lẻ. Visuals là cách nói thân mật phổ biến."
+  },
+  "guidance": {
+    "mis": [
+      {
+        "w": "She gave me a useful guidance.",
+        "r": "She gave me useful guidance.",
+        "why": "Guidance không đếm được nên không dùng 'a'."
+      },
+      {
+        "w": "I need guidances on my project.",
+        "r": "I need guidance on my project.",
+        "why": "Không thêm -s vào guidance; cần thì dùng 'some' hoặc 'a piece of'."
+      }
+    ],
+    "u": "Guidance nghĩa là sự giúp đỡ, lời khuyên hay chỉ dẫn dành cho ai đó, nhất là từ người có kinh nghiệm. Danh từ không đếm được, nên nói some guidance hoặc a piece of guidance. Các cụm thường gặp: seek guidance, provide guidance, under the guidance of a teacher. Career guidance giúp học sinh chọn nghề, còn parental guidance là nhãn phim cần cha mẹ hướng dẫn. Từ trang trọng hơn advice và hàm ý sự hỗ trợ liên tục. Động từ là guide."
+  },
+  "handy": {
+    "mis": [
+      {
+        "w": "The hotel is handy of the station.",
+        "r": "The hotel is handy for the station.",
+        "why": "Handy đi với 'for' để chỉ nơi gần với địa điểm nào."
+      },
+      {
+        "w": "A flashlight will come in handily.",
+        "r": "A flashlight will come in handy.",
+        "why": "Thành ngữ 'come in handy' dùng tính từ."
+      }
+    ],
+    "u": "Handy là tính từ thân mật, nghĩa là tiện dụng, tiện lợi hoặc ở gần tầm tay: a handy tool, a handy tip. Hay gặp trong thành ngữ come in handy, nghĩa là tỏ ra hữu ích, và keep something handy, nghĩa là để gần sẵn. Handy for còn mô tả nơi gần một địa điểm: the flat is handy for the station. Nghe thân thiện và bớt trang trọng hơn convenient. Nó cũng có thể chỉ người khéo tay, như handyman."
+  },
+  "hesitant": {
+    "mis": [
+      {
+        "w": "He is hesitant of investing in the company.",
+        "r": "He is hesitant about investing in the company.",
+        "why": "Hesitant đi với 'about' + V-ing, hoặc 'to' + động từ nguyên mẫu."
+      },
+      {
+        "w": "I am hesitant to answering the question.",
+        "r": "I am hesitant to answer the question.",
+        "why": "Sau 'hesitant to' dùng động từ nguyên mẫu."
+      }
+    ],
+    "u": "Hesitant mô tả người chậm nói hoặc chậm làm vì không chắc chắn hay lo lắng. Theo sau là to + động từ hoặc about + V-ing: I'm hesitant to commit, hesitant about moving. Từ cũng mô tả cách thức: a hesitant voice, a hesitant start. Nhẹ hơn reluctant, vốn hàm ý không muốn, vì người hesitant có thể vẫn đồng ý sau đó. Danh từ là hesitation, động từ là hesitate, thường trong câu lịch sự do not hesitate to ask."
+  },
+  "highway": {
+    "mis": [
+      {
+        "w": "We drove through the highway to Hanoi.",
+        "r": "We drove along the highway to Hanoi.",
+        "why": "Đi dọc theo đường thì dùng 'along' hoặc 'on'."
+      },
+      {
+        "w": "There is a heavy traffic on the highway.",
+        "r": "There is heavy traffic on the highway.",
+        "why": "Traffic không đếm được nên không dùng 'a'."
+      }
+    ],
+    "u": "Highway là đường công cộng chính nối các thị trấn hoặc thành phố. Trong tiếng Anh Mỹ nó là đường lớn, thường nhiều làn, còn tiếng Anh Anh dùng motorway cho đường cao tốc và main road cho đường chính. Cụm hay gặp: highway code (luật giao thông ở Anh), highway patrol, và highway robbery nghĩa là giá cắt cổ. Từ này viết liền một chữ. Freeway và expressway là các thuật ngữ Mỹ cho đường cao tốc có kiểm soát lối vào."
+  },
+  "humidity": {
+    "mis": [
+      {
+        "w": "The humidity are very high today.",
+        "r": "The humidity is very high today.",
+        "why": "Humidity là danh từ số ít, không đếm được, nên dùng 'is'."
+      },
+      {
+        "w": "There is a lot of humid in the air.",
+        "r": "There is a lot of humidity in the air.",
+        "why": "Humid là tính từ; danh từ là humidity."
+      }
+    ],
+    "u": "Humidity là lượng hơi nước trong không khí, danh từ không đếm được. Ta nói high humidity hoặc low humidity và relative humidity (độ ẩm tương đối) theo phần trăm. Ở xứ nóng, độ ẩm cao khiến không khí nồm và nặng nề. Tính từ là humid. Moisture ướt hơn và chung hơn, còn dampness chỉ bề mặt ẩm ướt trong nhà. Dùng humidity cho khí hậu, bản tin thời tiết và điều kiện sản xuất hoặc bảo quản."
+  },
+  "imperative": {
+    "mis": [
+      {
+        "w": "Imperative is that all staff attend.",
+        "r": "It is imperative that all staff attend.",
+        "why": "Imperative là tính từ nên cần chủ ngữ 'It is'."
+      },
+      {
+        "w": "It is imperative of us to act.",
+        "r": "It is imperative for us to act.",
+        "why": "Mẫu đúng là imperative for + người + to."
+      }
+    ],
+    "u": "Imperative là tính từ trang trọng, nghĩa là tuyệt đối cần thiết: it is imperative that we act now. Mẫu phổ biến là imperative that + động từ nguyên mẫu trong văn trang trọng, hoặc imperative for someone to do something. Trong ngữ pháp, imperative mood là câu mệnh lệnh, như Close the door. Làm danh từ, an imperative là điều bắt buộc phải làm, như a moral imperative (mệnh lệnh đạo đức). Mạnh hơn important và gần với essential hoặc vital."
+  },
+  "inclusive": {
+    "mis": [
+      {
+        "w": "The price is inclusive tax.",
+        "r": "The price is inclusive of tax.",
+        "why": "Inclusive cần 'of' trước danh từ."
+      },
+      {
+        "w": "The fee is inclusive with tax.",
+        "r": "The fee is inclusive of tax.",
+        "why": "Inclusive đi với 'of', không dùng 'with'."
+      }
+    ],
+    "u": "Inclusive nghĩa là bao gồm tất cả, hoặc chào đón mọi người. Với giá và phạm vi, dùng inclusive of: the fee is inclusive of tax; Monday to Friday inclusive (tính cả hai ngày). Với con người, an inclusive workplace là nơi mọi người có cơ hội như nhau. All-inclusive là tính từ có gạch nối cho gói bao gồm bữa ăn và hoạt động. Trái nghĩa là exclusive. Trong lời nói thường ngày, including phổ biến hơn inclusive of."
+  },
+  "indeed": {
+    "mis": [
+      {
+        "w": "Indeed you will come to the party?",
+        "r": "Will you really come to the party?",
+        "why": "Indeed dùng để khẳng định, không phải từ để hỏi."
+      },
+      {
+        "w": "It is very good indeed, but I am not agree.",
+        "r": "It is very good indeed, but I do not agree.",
+        "why": "Agree là động từ nên không dùng 'am not'."
+      }
+    ],
+    "u": "Indeed là trạng từ dùng để xác nhận hoặc nhấn mạnh thêm cho điều vừa nói: it was a difficult year; indeed, we nearly closed. Có thể đứng sau very cộng tính từ để nhấn mạnh: very good indeed. Khi trả lời, yes, indeed là đồng ý trang trọng. Nó mang màu sắc văn chương hơn really hay in fact và đôi khi nghe cổ trong lời nói. Đừng đặt trước mọi câu; chỉ dùng khi nó thêm sức nhấn hoặc đưa ra ý mạnh hơn."
+  },
+  "individually": {
+    "mis": [
+      {
+        "w": "The students were tested individual.",
+        "r": "The students were tested individually.",
+        "why": "Động từ cần trạng từ individually."
+      },
+      {
+        "w": "Each of the items is wrapped individual.",
+        "r": "Each of the items is wrapped individually.",
+        "why": "Phân từ wrapped cần trạng từ để bổ nghĩa."
+      }
+    ],
+    "u": "Individually là trạng từ nghĩa là riêng lẻ, từng cái một thay vì theo nhóm: the candidates were interviewed individually. Nó cũng mô tả sản phẩm được đóng gói từng cái: individually wrapped sweets. Có thể mang nghĩa theo cách riêng của mỗi người, như each person can respond individually. Tính từ là individual, còn danh từ individual chỉ một cá nhân. Singly trang trọng hơn, còn separately là từ thay thế phổ biến nhất."
+  },
+  "inefficient": {
+    "mis": [
+      {
+        "w": "The process is not efficiency and wastes time.",
+        "r": "The process is not efficient and wastes time.",
+        "why": "Sau 'is not' cần tính từ efficient."
+      },
+      {
+        "w": "This heater is ineffective because it wastes so much electricity.",
+        "r": "This heater is inefficient because it wastes so much electricity.",
+        "why": "Lãng phí nguồn lực là inefficient; ineffective là không đạt kết quả."
+      }
+    ],
+    "u": "Inefficient mô tả thứ lãng phí thời gian, tiền bạc, năng lượng hay công sức và không cho kết quả tốt nhất: an inefficient heating system. Nó nói về cách một thứ vận hành, trong khi ineffective nói về việc nó có hiệu quả hay không. Một hệ thống có thể effective nhưng inefficient. Mẫu thường dùng là inefficient in its use of hoặc at doing something. Danh từ là inefficiency. Wasteful nhấn mạnh sự hao phí tài nguyên, còn unproductive nhấn mạnh đầu ra kém."
+  },
+  "inference": {
+    "mis": [
+      {
+        "w": "We can make an inference of the data.",
+        "r": "We can make an inference from the data.",
+        "why": "Nguồn bằng chứng dùng giới từ 'from'."
+      },
+      {
+        "w": "She inference that he was late.",
+        "r": "She inferred that he was late.",
+        "why": "Inference là danh từ; động từ là infer."
+      }
+    ],
+    "u": "Inference là kết luận rút ra từ bằng chứng và suy luận, chứ không phải điều được nói thẳng: from her smile, I drew the inference that she agreed. Danh từ đếm được, phổ biến trong logic, khoa học và bài đọc hiểu. Động từ thường đi kèm: make, draw, support. Động từ là infer, hay bị nhầm với imply: người nói imply, người nghe infer. Statistical inference là suy luận thống kê, ước lượng đặc điểm của tổng thể từ mẫu. Deduction chặt chẽ và chắc chắn hơn."
+  },
+  "inflate": {
+    "mis": [
+      {
+        "w": "He inflated the tyre by a pump.",
+        "r": "He inflated the tyre with a pump.",
+        "why": "Dụng cụ dùng đến đi với 'with', không phải 'by'."
+      },
+      {
+        "w": "Prices are inflating by the shops.",
+        "r": "Prices are being inflated by the shops.",
+        "why": "Ở đây giá do cửa hàng đẩy lên nên cần dạng bị động."
+      }
+    ],
+    "u": "Inflate nghĩa là bơm đầy khí vào một vật như lốp xe hay bóng bay, và làm cho thứ gì lớn hơn hoặc cao hơn mức đáng có: inflate prices, inflate profits. Trong tài chính và tin tức, từ này thường mang sắc thái tiêu cực, gợi giá hay số liệu bị đẩy lên giả tạo. Trái nghĩa là deflate. Danh từ inflation chỉ lạm phát, giá cả chung tăng trong nền kinh tế. Exaggerate thiên về lời nói, còn inflate dùng cho số lượng và kích cỡ."
+  },
+  "ink": {
+    "mis": [
+      {
+        "w": "We need to buy more inks for the printer.",
+        "r": "We need to buy more ink for the printer.",
+        "why": "Ink chỉ chất liệu là danh từ không đếm được, không có số nhiều."
+      },
+      {
+        "w": "Please sign with ink pen.",
+        "r": "Please sign in ink.",
+        "why": "'In ink' là cụm cố định chỉ việc viết bằng mực."
+      }
+    ],
+    "u": "Ink là chất lỏng có màu dùng để viết, vẽ và in. Là vật liệu, nó thường không đếm được: the printer ran out of ink. Cụm cố định in ink nghĩa là viết bằng bút mực chứ không phải bút chì: sign in ink. Mực in được mua dạng hộp (cartridge), và hình xăm cũng dùng ink. Toner là bột dùng cho máy in laser, không phải mực lỏng. Theo nghĩa thành ngữ, to ink a deal là ký kết thỏa thuận; ink là động từ trong tin tức thân mật."
+  },
+  "intently": {
+    "mis": [
+      {
+        "w": "She listened intent to the speaker.",
+        "r": "She listened intently to the speaker.",
+        "why": "Động từ listened cần trạng từ intently."
+      },
+      {
+        "w": "He listened intently the teacher.",
+        "r": "He listened intently to the teacher.",
+        "why": "Listen luôn cần 'to' trước tân ngữ."
+      }
+    ],
+    "u": "Intently là trạng từ nghĩa là với sự tập trung cao độ: she listened intently, he stared intently at the map. Hay đi với động từ tri giác như listen, watch, look, stare. Hơi văn chương. Tính từ là intent, thường nằm trong mẫu intent on doing something. Attentively trang trọng và trung tính hơn, còn closely đời thường hơn. Intently gợi sự quan tâm mạnh, không chỉ là theo dõi cẩn thận."
+  },
+  "interactive": {
+    "mis": [
+      {
+        "w": "This lesson is very interact and fun.",
+        "r": "This lesson is very interactive and fun.",
+        "why": "Sau 'very' dùng tính từ interactive, không dùng động từ interact."
+      },
+      {
+        "w": "Students can interactive with the website.",
+        "r": "Students can interact with the website.",
+        "why": "Sau 'can' cần động từ interact, không phải tính từ."
+      }
+    ],
+    "u": "Interactive mô tả thứ cho phép giao tiếp hai chiều, tức người dùng phản hồi và hệ thống đáp lại: an interactive map, an interactive lesson. Trong giáo dục, nó nghĩa là người học tham gia thay vì chỉ nghe. Trong công nghệ, nó chỉ trò chơi, trang web và màn hình phản ứng với thao tác. Danh từ là interaction, động từ là interact. Hands-on nhấn mạnh trải nghiệm thực hành, còn participatory nhấn mạnh sự tham gia vào quyết định."
+  },
+  "interrupt": {
+    "mis": [
+      {
+        "w": "Sorry for interrupt you.",
+        "r": "Sorry for interrupting you.",
+        "why": "Sau giới từ dùng dạng -ing."
+      },
+      {
+        "w": "He interrupted to me while I was speaking.",
+        "r": "He interrupted me while I was speaking.",
+        "why": "Interrupt là ngoại động từ, không có 'to'."
+      }
+    ],
+    "u": "Interrupt nghĩa là làm ngừng ai đó khi đang nói hoặc làm việc, hoặc làm gián đoạn sự liên tục của việc gì: interrupt a meeting, interrupt the signal. Là ngoại động từ: interrupt someone. Câu mở đầu lịch sự là sorry to interrupt. Khi là nội động từ, nó đứng một mình được: please do not interrupt. Danh từ là interruption. Interrupt là một lần cắt ngang hành động, còn disrupt tác động nghiêm trọng hơn lên cả hệ thống hay quy trình."
+  },
+  "introductory": {
+    "mis": [
+      {
+        "w": "The shop has an introduction offer this month.",
+        "r": "The shop has an introductory offer this month.",
+        "why": "Tính từ đứng trước 'offer' là introductory."
+      },
+      {
+        "w": "She teaches an introductory of grammar.",
+        "r": "She teaches an introductory course in grammar.",
+        "why": "Introductory là tính từ nên cần một danh từ đi sau."
+      }
+    ],
+    "u": "Introductory là tính từ nghĩa là đầu tiên hoặc dùng làm phần giới thiệu: an introductory course, introductory remarks, an introductory paragraph. Trong marketing, an introductory offer hay price là mức giá ưu đãi cho khách hàng mới. Nó còn mô tả trình độ: an introductory textbook là sách nhập môn cho người mới. Nó không dùng thay cho danh từ. Danh từ là introduction, động từ là introduce. Preliminary dành cho thứ đi trước phần chính, còn beginner dành cho người."
+  }
+}

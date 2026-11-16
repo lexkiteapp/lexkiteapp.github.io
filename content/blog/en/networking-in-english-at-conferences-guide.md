@@ -192,3 +192,5 @@ Networking at international conferences is not reserved for extroverts. It is a 
 1. **Prepare 3–4 open-ended technical questions** to anchor your conversation in shared industry topics.
 2. **Apply the 70/30 listening rule** to understand your peer's challenges before talking about your own solutions.
 3. **Execute the 24-hour follow-up protocol** with a tangible engineering asset to turn brief encounters into long-term professional partnerships.
+
+Keep new contacts warm with a [follow-up email](/en/blog/follow-up-email-in-english-examples-and-timing/).

@@ -45,3 +45,5 @@ adm-users2-table 683962452cdf4bdbb081139292b1e29f 08fb183955f347939c6b844a1c763e
 adm-users2-table-m 37d7f6ee1e574512a1a8174911e067d4 dc80e54bbca842e0bdfc71b40612a9a5 MOBILE PASS | key4 project 16660982915050208874
 adm-video 026a0f5d3a934c6d9e5f59b7043115d1 e55ac4221311481482ade8ae62ca1498 DESKTOP QC | key5 project 7022870386131391655 · QC: light: 9 vùng chạm < 44px (vd "Admin 64×30") · light: tương phản 1 chữ (vd "|" 2.12<4.5) · sáng/tối lệch nội dung: 481 vs 688 chữ
 adm-video-m ba020f4a545643b09beaa096be80577e 44561a61fc7d4aa1a36ffc9f56644f0a MOBILE PASS | key5 project 7022870386131391655
+adm-reports2 06506472df724a4a8abcdad8216d248b e59ff7918e2a489cb0ab6966506c763d DESKTOP QC | key1 project 7268539912208977707
+adm-reports2-m 9b1f51f6dc8f4e138815effe3714f2db 01d0a0a85308439fb0d8aa8f00d0882e MOBILE QC | key1 project 7268539912208977707

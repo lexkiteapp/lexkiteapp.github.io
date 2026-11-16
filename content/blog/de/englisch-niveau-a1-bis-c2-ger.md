@@ -160,6 +160,8 @@ Englischsprachige Wortlisten nach Thema findest du außerdem auf der [Vocabulary
 
 {{youtube: | Videoidee: A1 bis C2 in fünf Minuten – woran du dein Englisch-Niveau erkennst}}
 
+Eine Prüfung, die genau auf Stufe B2 zielt, ist der Cambridge B2 First; seinen Ablauf beschreibt der Beitrag zum [Cambridge B2 First Aufbau](/de/blog/cambridge-b2-first-aufbau-alle-pruefungsteile-erklaert/).
+
 ## Häufig gestellte Fragen
 
 ### Welches Englisch-Niveau habe ich nach dem Abitur?
