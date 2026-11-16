@@ -51,13 +51,15 @@ quiz: [
 ]
 ---
 
-Beim TOEIC Listening & Reading Test bleiben viele Lernende zwischen 450 und 550 Punkten hängen. Einfache Gespräche verstehen Sie, doch die Dialoge in Part 3 laufen zu schnell, und die E-Mails und Aushänge in Part 7 füllen das Arbeitsgedächtnis, bevor Sie bei den Fragen ankommen. Um von 450 auf 750 zu kommen, brauchen Sie einen **TOEIC-Lernplan für das Selbststudium**, der zuerst Wortschatz und Grammatik schließt, dann das Hören trainiert und erst danach das Tempo.
+Beim TOEIC Listening & Reading Test bleiben viele Lernende zwischen 450 und 550 Punkten hängen. Einfache Gespräche verstehen Sie, doch die Dialoge in Part 3 laufen zu schnell, und die E-Mails und Aushänge in Part 7 füllen das Arbeitsgedächtnis, bevor Sie bei den Fragen ankommen. Um von 450 auf 750 zu kommen, brauchen Sie einen **TOEIC-Lernplan für das Selbststudium**, der zuerst Wortschatz und Grammatik schließt, dann das Hören trainiert und erst danach das Tempo. Für den schnellen Einstieg in Part 1 lohnt sich der Leitfaden [TOEIC Part 1 Fotos](/de/blog/toeic-part-1-fotos-beschreiben/).
 
 Dieser Leitfaden stellt den Plan in drei Phasen vor, mit einem Wochenplan für vor oder nach der Arbeit und einem Fehlerprotokoll, damit jeder Übungstest etwas lehrt. Die Zeitangaben sind Planungsbeispiele, keine Versprechen: Wie schnell Sie vorankommen, hängt von Ihrem Ausgangsniveau und Ihren Lernstunden ab.
 
 ## Aufbau und Phasen im TOEIC-Lernplan für das Selbststudium
 
 Viele glauben, endlose Probetests seien der schnellste Weg zu mehr Punkten. Ein Test misst aber nur, was Sie heute können. Die Wortschatz- und Grammatiklücken, die zu den Fehlern führten, schließt er nicht.
+
+Einen Überblick über alle sieben Teile, die Zeitverteilung und die Punktelogik finden Sie im Beitrag [TOEIC Aufbau: Alle 7 Teile, Zeit und Punkte](/de/blog/toeic-aufbau-alle-7-teile-zeit-punkte/).
 
 Deshalb steht im Plan die Sprache an erster Stelle und die Testgeschwindigkeit an zweiter. Jede Phase endet mit einem Probetest, aus dem Sie Ihre Punkteschätzung ablesen.
 
@@ -159,6 +161,8 @@ Alle Parts und kompletten Tests finden Sie auf der [TOEIC-Übungsseite](/#/toeic
 {{youtube: | TOEIC Lernplan von 450 auf 750 Punkte Schritt für Schritt erklärt}}
 
 {{cta: /#/toeic | Probetest machen und die geschätzte Punktzahl (10 bis 990) sehen}}
+
+Für den größten Punkteblock im Listening-Teil lies [TOEIC Part 3 und 4](/de/blog/toeic-listening-part-3-und-4-strategien/).
 
 ## Häufig gestellte Fragen zum Selbststudium für den TOEIC
 
