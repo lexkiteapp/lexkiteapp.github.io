@@ -50,6 +50,10 @@
     if (window.Sync && Sync.schedule) Sync.schedule();
     return n;
   }
+  // Ngôn ngữ đang học trong bộ chọn của chip đầu trang (hubs.js examPicker): chỉ khi có ngôn ngữ beta bật cho người này (nhóm %, lk.<tl>, quản trị)
+  App.tlPick = () => { const h = document.getElementById('tlPick'); if (!h) return; const c = Target.cur(), r = k => Target.table(k);
+    h.innerHTML = `<h3 class="set-h" style="margin-top:1rem">${t('Ngôn ngữ đang học')}</h3><div class="exam-list">${Target.avail().map(k => `<button type="button" class="exam-opt ${k === c ? 'on' : ''}" data-tl="${k}"><span class="em" aria-hidden="true">${r(k).em}</span><span><b translate="no" lang="${k}">${r(k).name}</b></span>${k === c ? '<span class="tick" aria-hidden="true">✓</span>' : ''}</button>`).join('')}</div>`;
+    h.querySelectorAll('[data-tl]').forEach(b => b.onclick = () => { UI.closeModal(); if (b.dataset.tl !== c) { Target.set(b.dataset.tl); App.updateExamChip(); App.route(); } }); };
   routes.settings = function () {
     const s = state.settings;
     // 🗂 Trang con (docs/specs/me-settings-ux.md): #/settings = mục lục nhóm; #/settings/<mục> = chỉ một nhóm, nút Quay lại về mục lục.

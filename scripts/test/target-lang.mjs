@@ -64,7 +64,7 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
   cfg({ es_course: '0' }); ok(T.enabled('es'), 'quản trị thấy es kể cả cờ es_course=0');
   cfg({ es_kill: '1' }); ok(!T.enabled('es') && T.enabled('fr'), 'es_kill=1 vẫn tắt es cho quản trị (công tắc khẩn)');
   ls.delete('lk.adm'); ok(!T.enabled('fr'), 'bỏ lk.adm → fr tắt lại');
-  ok(/lk\.adm/.test(rd('web/js/app.js')) && /data-tl/.test(rd('web/js/hubs.js')), 'App.isAdmin ghi lk.adm + chip kỳ thi có bộ chọn ngôn ngữ đích');
+  ok(/lk\.adm/.test(rd('web/js/app.js')) && /App\.tlPick/.test(rd('web/js/hubs.js')) && /App\.tlPick = /.test(rd('web/js/settings.js')), 'App.isAdmin ghi lk.adm + chip kỳ thi có bộ chọn ngôn ngữ đích');
   ls.delete('lk.esb'); cfg({ es_course_pct: '50' }); T.enabled('es'); ok(/^\d{1,2}$/.test(ls.get('lk.esb')), 'nhóm lk.esb được tạo 1 lần (0–99)');
   ls.set('lk.tb', '1'); ls.set('lk.esb', '50'); cfg({ es_course_pct: '10' }); ok(!T.enabled('es'), 'lk.tb (cổng bot teacher-bubble) không ảnh hưởng nhóm lk.esb');
   ls.set('lk.esb', ''); cfg({ es_course_pct: '1' }); ok(!T.enabled('es') || /^\d{1,2}$/.test(ls.get('lk.esb')), 'lk.esb rỗng/hỏng → chọn lại nhóm hợp lệ');

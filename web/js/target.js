@@ -4,18 +4,16 @@
  * (functions/api/config.js → lk.cfg; docs/specs/spanish-course.md). Mọi cờ tắt → cur() luôn 'en'. Thêm ngôn ngữ = thêm DÒNG bảng, không thêm nhánh code. */
 (function (g) {
   'use strict';
-  // Bảng theo ngôn ngữ: speech = lang cho speechSynthesis/nhận giọng (null = giọng Anh–Anh/Anh–Mỹ theo Cài đặt như cũ),
-  // kokoro = mã giọng dựng sẵn theo accent, voices = giọng giáo viên (Ama nữ, Carlos nam), prefix = lọc giọng máy, wordFiles = có file audio/w dựng sẵn,
-  // fallback = lang dự phòng khi máy không có giọng/nhận giọng `speech`, flag/ls = cờ bật thử, label = tên ở Cài đặt (chuỗi thông báo: settings.js TL_TOAST).
+  // Bảng theo ngôn ngữ (chi tiết cột: docs/specs/target-language.md): speech/rec/fallback = lang giọng, kokoro/voices = giọng dựng sẵn, flag/pct/kill/ls = cờ.
   const TABLE = {
     en: { em: '🇬🇧', name: 'English', speech: null, rec: null, prefix: 'en', kokoro: { 'en-GB': 'bf_emma', 'en-US': 'af_heart' }, voices: {} /* = Chars.voice() như cũ */, wordFiles: true },
-    // pt-BR: Kokoro-82M + âm vị espeak-ng pt-br (kokoro-js chỉ tự phiên âm tiếng Anh) – lý do + lượt mẫu: spec §Giọng. Chưa dựng file từ → giọng máy pt-BR.
+    // pt-BR: lý do chọn giọng: spec §Giọng.
     pt: { em: '🇧🇷', name: 'Português', speech: 'pt-BR', rec: 'pt-BR', fallback: [], prefix: 'pt', kokoro: { 'pt-BR': 'pf_dora' }, voices: { ama: 'pf_dora', carlos: 'pm_alex' }, wordFiles: false,
       flag: 'pt_pilot', ls: 'lk.pt', label: 'Português (beta)' },
-    // es: tiếng TBN Mỹ Latinh trung tính (seseo – spanish-course.md §8): es-419, máy thiếu giọng es-419 → es-MX → es-US. Kokoro ef_dora/em_alex chờ lượt mẫu W0.
+    // es: TBN Mỹ Latinh trung tính (spanish-course.md §8): es-419 → es-MX → es-US.
     es: { em: '🇪🇸', name: 'Español', home: '#/practice/esd', speech: 'es-419', rec: 'es-MX' /* Web Speech nhận giọng chưa có es-419 ổn định → es-MX (chuẩn trung tính gần nhất) */, fallback: ['es-MX', 'es-US'], prefix: 'es', kokoro: { 'es-419': 'ef_dora', 'es-MX': 'ef_dora', 'es-US': 'ef_dora' }, voices: { ama: 'ef_dora', carlos: 'em_alex' }, wordFiles: false,
       flag: 'es_course', pct: 'es_course_pct', kill: 'es_kill', ls: 'lk.es', label: 'Español (beta)' },
-    // fr: tiếng Pháp chuẩn của Pháp (french-course.md §8): fr-FR, nhận giọng fr-FR, dự phòng fr-CA; Kokoro ff_siwis = giọng nữ duy nhất (Ama) – Carlos chờ lượt mẫu W0 (Piper fr_FR) hoặc "chỉ Ama".
+    // fr: tiếng Pháp chuẩn của Pháp (french-course.md §8); ff_siwis = giọng nữ duy nhất, Carlos chờ lượt mẫu.
     fr: { em: '🇫🇷', name: 'Français', speech: 'fr-FR', rec: 'fr-FR', fallback: ['fr-CA', 'fr-BE'], prefix: 'fr', kokoro: { 'fr-FR': 'ff_siwis', 'fr-CA': 'ff_siwis', 'fr-BE': 'ff_siwis' }, voices: { ama: 'ff_siwis', carlos: 'ff_siwis' }, wordFiles: false,
       flag: 'fr_course', pct: 'fr_course_pct', kill: 'fr_kill', ls: 'lk.fr', label: 'Français (bêta)' },
   };
