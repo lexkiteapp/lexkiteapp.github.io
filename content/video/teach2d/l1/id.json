@@ -7,7 +7,7 @@
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Yesterday needs went!",
+    "hook_say": "Yesterday? Say went!",
     "wrong": "Yesterday I go to school.",
     "right": "Yesterday I went to school.",
     "strike": "go",
@@ -25,8 +25,8 @@
     "native": {
      "hook": "Kemarin, tapi “go”?",
      "tip": "Bahasa Indonesia tidak mengubah kata kerja, tapi bahasa Inggris pakai bentuk lampau: go jadi went.",
-     "caption": "Kamu sering bilang “Yesterday I go to school.”? 😅 Untuk kejadian kemarin, pakai bentuk lampau: “Yesterday I went to school.”. Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “went”. Ceritakan harimu kemarin dengan went, ate, saw. Latihan gratis lebih banyak di sini: {link}",
+     "caption": "Pernah bilang begini? “Yesterday I go to school.” 😅 Untuk kejadian kemarin, pakai bentuk lampau: “Yesterday I went to school.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+     "comment": "Jawaban: “went”. Ceritakan harimu kemarin dengan went, ate, saw. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -37,7 +37,7 @@
     "en": {
      "hook": "“Go” for yesterday?",
      "tip": "Indonesian does not change verbs, but English uses the past form: go becomes went.",
-     "caption": "Do you say “Yesterday I go to school.”? 😅 For yesterday, use the past form: “Yesterday I went to school.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "caption": "Ever say this? “Yesterday I go to school.” 😅 For yesterday, use the past form: “Yesterday I went to school.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -47,26 +47,26 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "She needs is!",
+    "hook_say": "Don't forget is!",
     "wrong": "She beautiful.",
     "right": "She is beautiful.",
-    "strike": "beautiful",
+    "strike": "She",
     "why": "Add is after she.",
     "memory": "She + is.",
     "quiz": {
-     "stem": "He ___ tall.",
+     "stem": "Which is right?",
      "options": [
-      "is",
-      "tall"
+      "He is tall.",
+      "He tall."
      ],
      "answer": 0
     },
-    "answer_say": "Is! He is tall.",
+    "answer_say": "He is tall! Yes!",
     "native": {
      "hook": "She beautiful… kurang “is”!",
      "tip": "Di bahasa Indonesia “dia cantik” tanpa kata kerja, tapi bahasa Inggris butuh is/am/are.",
-     "caption": "Kamu sering bilang “She beautiful.”? 😅 Jangan lupa is setelah she: “She is beautiful.”. Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “is”. Buat tiga kalimat pendek dengan is hari ini. Latihan gratis lebih banyak di sini: {link}",
+     "caption": "Pernah bilang begini? “She beautiful.” 😅 Jangan lupa is setelah she: “She is beautiful.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+     "comment": "Jawaban: “He is tall.”. Buat tiga kalimat pendek dengan is hari ini. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -77,7 +77,7 @@
     "en": {
      "hook": "She beautiful… no “is”!",
      "tip": "In Indonesian “dia cantik” has no verb, but English needs is, am or are.",
-     "caption": "Do you say “She beautiful.”? 😅 Do not forget is after she: “She is beautiful.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "caption": "Ever say this? “She beautiful.” 😅 Do not forget is after she: “She is beautiful.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -105,8 +105,8 @@
     "native": {
      "hook": "Dua buku, kurang “s”!",
      "tip": "Bahasa Indonesia tidak menambah akhiran jamak, tapi bahasa Inggris menambah -s setelah angka lebih dari satu.",
-     "caption": "Kamu sering bilang “I have two book.”? 😅 Dari dua ke atas, tambahkan s: “I have two books.”. Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “pens”. Hitung benda di sekitarmu dan tambahkan s. Latihan gratis lebih banyak di sini: {link}",
+     "caption": "Pernah bilang begini? “I have two book.” 😅 Dari dua ke atas, tambahkan s: “I have two books.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+     "comment": "Jawaban: “pens”. Hitung benda di sekitarmu dan tambahkan s. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -117,7 +117,7 @@
     "en": {
      "hook": "Two books, add “s”!",
      "tip": "Indonesian has no plural ending, but English adds -s after a number above one.",
-     "caption": "Do you say “I have two book.”? 😅 With two or more, add s: “I have two books.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "caption": "Ever say this? “I have two book.” 😅 With two or more, add s: “I have two books.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -145,8 +145,8 @@
     "native": {
      "hook": "“I very like” itu salah!",
      "tip": "“Saya sangat suka” tidak bisa diterjemahkan kata per kata. Pakai like ... very much.",
-     "caption": "Kamu sering bilang “I very like coffee.”? 😅 Letakkan very much di akhir: “I like coffee very much.”. Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “like”. Coba bilang “I like ... very much” untuk makananmu. Latihan gratis lebih banyak di sini: {link}",
+     "caption": "Pernah bilang begini? “I very like coffee.” 😅 Letakkan very much di akhir: “I like coffee very much.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+     "comment": "Jawaban: “like”. Coba bilang “I like ... very much” untuk makananmu. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -157,7 +157,7 @@
     "en": {
      "hook": "“I very like” is wrong!",
      "tip": "“Saya sangat suka” cannot be translated word for word. Use like ... very much.",
-     "caption": "Do you say “I very like coffee.”? 😅 Put very much at the end: “I like coffee very much.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "caption": "Ever say this? “I very like coffee.” 😅 Put very much at the end: “I like coffee very much.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -185,8 +185,8 @@
     "native": {
      "hook": "“Where you go?” kurang lengkap",
      "tip": "Di bahasa Indonesia “Kamu mau ke mana?” cukup singkat, tapi bahasa Inggris butuh are dan going.",
-     "caption": "Kamu sering bilang “Where you go?”? 😅 Tanyakan dengan lengkap: “Where are you going?”. Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “are”. Tanya temanmu: “Where are you going?” Latihan gratis lebih banyak di sini: {link}",
+     "caption": "Pernah bilang begini? “Where you go?” 😅 Tanyakan dengan lengkap: “Where are you going?” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+     "comment": "Jawaban: “are”. Tanya temanmu: “Where are you going?” Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -197,7 +197,7 @@
     "en": {
      "hook": "“Where you go?” is not complete",
      "tip": "In Indonesian the short question is fine, but English needs are and going.",
-     "caption": "Do you say “Where you go?”? 😅 Ask the full question: “Where are you going?”. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "caption": "Ever say this? “Where you go?” 😅 Ask the full question: “Where are you going?” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -207,7 +207,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Already needs ate!",
+    "hook_say": "Already? Say ate!",
     "wrong": "I already eat breakfast.",
     "right": "I already ate breakfast.",
     "strike": "eat",
@@ -225,8 +225,8 @@
     "native": {
      "hook": "“Already eat” kurang tepat",
      "tip": "Kata “sudah” di bahasa Indonesia tidak mengubah kata kerja, tapi bahasa Inggris pakai bentuk lampau: ate.",
-     "caption": "Kamu sering bilang “I already eat breakfast.”? 😅 Untuk yang sudah selesai, pakai ate: “I already ate breakfast.”. Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “ate”. Bilang “I already ate” saat ditanya sudah makan. Latihan gratis lebih banyak di sini: {link}",
+     "caption": "Pernah bilang begini? “I already eat breakfast.” 😅 Untuk yang sudah selesai, pakai ate: “I already ate breakfast.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+     "comment": "Jawaban: “ate”. Bilang “I already ate” saat ditanya sudah makan. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -237,7 +237,7 @@
     "en": {
      "hook": "“Already eat” is not right",
      "tip": "Indonesian “sudah” does not change the verb, but English uses the past form: ate.",
-     "caption": "Do you say “I already eat breakfast.”? 😅 For something done, use ate: “I already ate breakfast.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "caption": "Ever say this? “I already eat breakfast.” 😅 For something done, use ate: “I already ate breakfast.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -265,8 +265,8 @@
     "native": {
      "hook": "“My friend she”? Cukup satu!",
      "tip": "Kita sering bilang “teman saya, dia baik”, tapi di bahasa Inggris subjek tidak diulang.",
-     "caption": "Kamu sering bilang “My friend she is nice.”? 😅 Subjek cukup disebut sekali: “My friend is nice.”. Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “is”. Ceritakan temanmu tanpa kata she tambahan. Latihan gratis lebih banyak di sini: {link}",
+     "caption": "Pernah bilang begini? “My friend she is nice.” 😅 Subjek cukup disebut sekali: “My friend is nice.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+     "comment": "Jawaban: “is”. Ceritakan temanmu tanpa kata she tambahan. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -277,7 +277,7 @@
     "en": {
      "hook": "“My friend she”? One is enough!",
      "tip": "We often say “teman saya, dia baik”, but English does not repeat the subject.",
-     "caption": "Do you say “My friend she is nice.”? 😅 Say the subject only once: “My friend is nice.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "caption": "Ever say this? “My friend she is nice.” 😅 Say the subject only once: “My friend is nice.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -304,9 +304,9 @@
     "answer_say": "Are! There are many cars.",
     "native": {
      "hook": "Banyak orang → “are”!",
-     "tip": "Bahasa Indonesia tidak membedakan tunggal dan jamak, tapi bahasa Inggris pakai there are untuk banyak benda.",
-     "caption": "Kamu sering bilang “There is many people here.”? 😅 Untuk banyak, pakai there are: “There are many people here.”. Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “are”. Lihat sekitarmu dan bilang “There are ...”. Latihan gratis lebih banyak di sini: {link}",
+     "tip": "Bahasa Indonesia pakai “ada” untuk satu atau banyak, tapi bahasa Inggris pakai there are untuk jamak.",
+     "caption": "Pernah bilang begini? “There is many people here.” 😅 Untuk banyak, pakai there are: “There are many people here.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+     "comment": "Jawaban: “are”. Lihat sekitarmu dan bilang “There are ...”. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -316,8 +316,8 @@
     },
     "en": {
      "hook": "Many people: say “are”!",
-     "tip": "Indonesian does not separate one and many, but English uses there are for many things.",
-     "caption": "Do you say “There is many people here.”? 😅 For many, use there are: “There are many people here.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "Indonesian uses “ada” for one or many, but English uses there are for plural.",
+     "caption": "Ever say this? “There is many people here.” 😅 For many, use there are: “There are many people here.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -344,9 +344,9 @@
     "answer_say": "Bored! I am bored in class.",
     "native": {
      "hook": "“Bosan” itu bored, bukan boring",
-     "tip": "Di bahasa Indonesia “bosan” cuma satu kata, tapi bahasa Inggris beda: bored untuk perasaanmu, boring untuk hal yang membosankan.",
-     "caption": "Kamu sering bilang “I am boring today.”? 😅 Perasaanmu? Pakai bored: “I am bored today.”. Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “bored”. Ingat: kamu bored, filmnya boring. Latihan gratis lebih banyak di sini: {link}",
+     "tip": "Bosan = bored (perasaanmu). Membosankan = boring (hal yang bikin bosan). “I am boring” artinya “aku membosankan”!",
+     "caption": "Pernah bilang begini? “I am boring today.” 😅 Perasaanmu? Pakai bored: “I am bored today.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+     "comment": "Jawaban: “bored”. Ingat: kamu bored, filmnya boring. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -356,37 +356,37 @@
     },
     "en": {
      "hook": "“Bosan” is bored, not boring",
-     "tip": "Indonesian has one word for it, but English differs: bored is your feeling, boring is the thing.",
-     "caption": "Do you say “I am boring today.”? 😅 Your feeling? Use bored: “I am bored today.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "tip": "Bored = how you feel. Boring = a thing that makes you bored. “I am boring” means “I am a boring person”!",
+     "caption": "Ever say this? “I am boring today.” 😅 Your feeling? Use bored: “I am bored today.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
   {
-   "id": "t2_l1_id_openthelight",
+   "id": "t2_l1_id_lendborrow",
    "lang": "id",
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Turn on the light!",
-    "wrong": "Please open the light.",
-    "right": "Please turn on the light.",
-    "strike": "open",
-    "why": "Light on? Turn on.",
-    "memory": "Light: turn on.",
+    "hook_say": "Lend, not borrow!",
+    "wrong": "Can you borrow me your pen?",
+    "right": "Can you lend me your pen?",
+    "strike": "borrow",
+    "why": "You give it: lend.",
+    "memory": "Give: lend.",
     "quiz": {
-     "stem": "Please ___ the radio.",
+     "stem": "Can you ___ me some money?",
      "options": [
-      "open",
-      "turn on"
+      "lend",
+      "borrow"
      ],
-     "answer": 1
+     "answer": 0
     },
-    "answer_say": "Turn on! Please turn on the radio.",
+    "answer_say": "Lend! Can you lend me some money?",
     "native": {
-     "hook": "Lampu itu “turn on”, bukan “open”",
-     "tip": "Kita sering bilang “buka lampu”, tapi bahasa Inggris pakai turn on.",
-     "caption": "Kamu sering bilang “Please open the light.”? 😅 Untuk lampu dan radio, pakai turn on: “Please turn on the light.”. Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “turn on”. Nyalakan lampu sambil bilang “Turn on the light”. Latihan gratis lebih banyak di sini: {link}",
+     "hook": "“Borrow me”? Pakai “lend”",
+     "tip": "“Pinjam” bisa berarti borrow atau lend. Minta orang meminjamkan? Pakai lend.",
+     "caption": "Pernah bilang begini? “Can you borrow me your pen?” 😅 Minta orang meminjamkan? Pakai lend: “Can you lend me your pen?” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+     "comment": "Jawaban: “lend”. Minta temanmu meminjamkan sesuatu dengan lend. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -395,9 +395,9 @@
      ]
     },
     "en": {
-     "hook": "Light: “turn on”, not “open”",
-     "tip": "We often say “buka lampu”, but English uses turn on.",
-     "caption": "Do you say “Please open the light.”? 😅 For lights and radio, use turn on: “Please turn on the light.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "hook": "“Borrow me”? Use “lend”",
+     "tip": "“Pinjam” can mean borrow or lend. Asking someone to lend you something? Use lend.",
+     "caption": "Ever say this? “Can you borrow me your pen?” 😅 Asking someone to lend? Use lend: “Can you lend me your pen?” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -425,8 +425,8 @@
     "native": {
      "hook": "“Go to home”? Tanpa “to”!",
      "tip": "Kita bilang “pergi ke rumah”, tapi di bahasa Inggris home tidak pakai to.",
-     "caption": "Kamu sering bilang “I go to home after work.”? 😅 Dengan home, tidak perlu to: “I go home after work.”. Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “go”. Ucapkan “I go home” lima kali. Latihan gratis lebih banyak di sini: {link}",
+     "caption": "Pernah bilang begini? “I go to home after work.” 😅 Dengan home, tidak perlu to: “I go home after work.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+     "comment": "Jawaban: “go”. Ucapkan “I go home” lima kali. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -437,7 +437,7 @@
     "en": {
      "hook": "“Go to home”? No “to”!",
      "tip": "We say “pergi ke rumah”, but in English home takes no to.",
-     "caption": "Do you say “I go to home after work.”? 😅 With home, you do not need to: “I go home after work.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "caption": "Ever say this? “I go to home after work.” 😅 With home, you do not need to: “I go home after work.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -447,26 +447,26 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Very tired needs am!",
+    "hook_say": "Say I am very tired!",
     "wrong": "I very tired today.",
     "right": "I am very tired today.",
-    "strike": "very tired",
+    "strike": "I very",
     "why": "Add am before very.",
     "memory": "I + am.",
     "quiz": {
-     "stem": "I ___ very hungry.",
+     "stem": "Which is right?",
      "options": [
-      "am",
-      "very"
+      "I am very hungry.",
+      "I very hungry."
      ],
      "answer": 0
     },
-    "answer_say": "Am! I am very hungry.",
+    "answer_say": "I am very hungry! Yes!",
     "native": {
      "hook": "“I very tired” kurang “am”",
      "tip": "Di bahasa Indonesia “saya sangat capek” tanpa kata kerja, tapi bahasa Inggris butuh am.",
-     "caption": "Kamu sering bilang “I very tired today.”? 😅 Jangan lupa am sebelum very: “I am very tired today.”. Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “am”. Bilang “I am very ...” untuk perasaanmu. Latihan gratis lebih banyak di sini: {link}",
+     "caption": "Pernah bilang begini? “I very tired today.” 😅 Jangan lupa am sebelum very: “I am very tired today.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+     "comment": "Jawaban: “I am very hungry.”. Bilang “I am very ...” untuk perasaanmu. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -477,7 +477,7 @@
     "en": {
      "hook": "“I very tired” needs “am”",
      "tip": "In Indonesian “saya sangat capek” has no verb, but English needs am.",
-     "caption": "Do you say “I very tired today.”? 😅 Do not forget am before very: “I am very tired today.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "caption": "Ever say this? “I very tired today.” 😅 Do not forget am before very: “I am very tired today.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -488,8 +488,8 @@
    "theme": "dusk",
    "in": {
     "hook_say": "Slept, not sleep!",
-    "wrong": "Yesterday I sleep late.",
-    "right": "Yesterday I slept late.",
+    "wrong": "Last night I sleep only five hours.",
+    "right": "Last night I slept only five hours.",
     "strike": "sleep",
     "why": "Yesterday: slept.",
     "memory": "Past: slept.",
@@ -503,10 +503,10 @@
     },
     "answer_say": "Slept! Last night I slept well.",
     "native": {
-     "hook": "“Kemarin I sleep”? Pakai slept",
+     "hook": "“Yesterday I sleep”? Pakai slept",
      "tip": "Kata kerja bahasa Indonesia tidak berubah menurut waktu, tapi bahasa Inggris berubah: sleep jadi slept.",
-     "caption": "Kamu sering bilang “Yesterday I sleep late.”? 😅 Untuk semalam, pakai slept: “Yesterday I slept late.”. Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “slept”. Ceritakan tidurmu semalam dengan slept. Latihan gratis lebih banyak di sini: {link}",
+     "caption": "Pernah bilang begini? “Last night I sleep only five hours.” 😅 Untuk kemarin, pakai slept: “Last night I slept only five hours.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+     "comment": "Jawaban: “slept”. Ceritakan tidurmu semalam dengan slept. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -517,7 +517,7 @@
     "en": {
      "hook": "“Yesterday I sleep”? Say slept",
      "tip": "Indonesian verbs do not change with time, but English does: sleep becomes slept.",
-     "caption": "Do you say “Yesterday I sleep late.”? 😅 For last night, use slept: “Yesterday I slept late.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "caption": "Ever say this? “Last night I sleep only five hours.” 😅 For last night, use slept: “Last night I slept only five hours.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -545,8 +545,8 @@
     "native": {
      "hook": "“Sedang belajar” = am studying",
      "tip": "“Saya sedang belajar” butuh am dan -ing di bahasa Inggris, bukan hanya study.",
-     "caption": "Kamu sering bilang “I study English now.”? 😅 Untuk yang sedang terjadi, pakai am studying: “I am studying English now.”. Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “studying”. Bilang apa yang sedang kamu lakukan sekarang. Latihan gratis lebih banyak di sini: {link}",
+     "caption": "Pernah bilang begini? “I study English now.” 😅 Untuk yang sedang terjadi, pakai am studying: “I am studying English now.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+     "comment": "Jawaban: “studying”. Bilang apa yang sedang kamu lakukan sekarang. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -557,7 +557,7 @@
     "en": {
      "hook": "“Sedang belajar” is am studying",
      "tip": "“Saya sedang belajar” needs am and -ing in English, not only study.",
-     "caption": "Do you say “I study English now.”? 😅 For right now, use am studying: “I am studying English now.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "caption": "Ever say this? “I study English now.” 😅 For right now, use am studying: “I am studying English now.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -583,10 +583,10 @@
     },
     "answer_say": "Has! He has a big house.",
     "native": {
-     "hook": "She have? Pakai “has”!",
+     "hook": "“She have”? Pakai “has”!",
      "tip": "Kata kerja bahasa Indonesia sama untuk semua orang, tapi bahasa Inggris pakai has setelah she dan he.",
-     "caption": "Kamu sering bilang “She have a new car.”? 😅 Setelah she atau he, pakai has: “She has a new car.”. Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “has”. Ceritakan temanmu: “He has ...”. Latihan gratis lebih banyak di sini: {link}",
+     "caption": "Pernah bilang begini? “She have a new car.” 😅 Setelah she atau he, pakai has: “She has a new car.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+     "comment": "Jawaban: “has”. Ceritakan temanmu: “He has ...”. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -597,7 +597,7 @@
     "en": {
      "hook": "“She have”? Use “has”!",
      "tip": "Indonesian verbs stay the same for everyone, but English uses has after she and he.",
-     "caption": "Do you say “She have a new car.”? 😅 After she or he, use has: “She has a new car.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "caption": "Ever say this? “She have a new car.” 😅 After she or he, use has: “She has a new car.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -623,10 +623,10 @@
     },
     "answer_say": "Doesn't! She doesn't like tea.",
     "native": {
-     "hook": "“He don't” → “doesn't”",
+     "hook": "“He don't”? Pakai “doesn't”",
      "tip": "Bahasa Indonesia tidak mengubah kata kerja bantu, tapi bahasa Inggris pakai doesn't setelah he dan she.",
-     "caption": "Kamu sering bilang “He don't like fish.”? 😅 Setelah he atau she, pakai doesn't: “He doesn't like fish.”. Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “doesn't”. Bilang tiga hal yang temanmu tidak suka. Latihan gratis lebih banyak di sini: {link}",
+     "caption": "Pernah bilang begini? “He don't like fish.” 😅 Setelah he atau she, pakai doesn't: “He doesn't like fish.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+     "comment": "Jawaban: “doesn't”. Bilang tiga hal yang temanmu tidak suka. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -635,9 +635,9 @@
      ]
     },
     "en": {
-     "hook": "“He don't” → “doesn't”",
+     "hook": "“He don't”? Use “doesn't”",
      "tip": "Indonesian does not change the helper word, but English uses doesn't after he and she.",
-     "caption": "Do you say “He don't like fish.”? 😅 After he or she, use doesn't: “He doesn't like fish.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "caption": "Ever say this? “He don't like fish.” 😅 After he or she, use doesn't: “He doesn't like fish.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -647,7 +647,7 @@
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Age needs old!",
+    "hook_say": "Age? Say old!",
     "wrong": "I am 25 years.",
     "right": "I am 25 years old.",
     "strike": "years",
@@ -664,9 +664,9 @@
     "answer_say": "Old! I am 30 years old.",
     "native": {
      "hook": "“25 years” kurang “old”",
-     "tip": "Di bahasa Indonesia “25 tahun” sudah cukup, tapi bahasa Inggris perlu years old.",
-     "caption": "Kamu sering bilang “I am 25 years.”? 😅 Untuk umur, tambahkan old: “I am 25 years old.”. Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “old”. Sebutkan umurmu lengkap: “I am ... years old”. Latihan gratis lebih banyak di sini: {link}",
+     "tip": "Di bahasa Indonesia “25 tahun” sudah cukup, tapi bahasa Inggris bilang “I am 25” atau “I am 25 years old”, bukan “25 years” saja.",
+     "caption": "Pernah bilang begini? “I am 25 years.” 😅 Untuk umur, tambahkan old: “I am 25 years old.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+     "comment": "Jawaban: “old”. Sebutkan umurmu lengkap: “I am ... years old”. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -676,8 +676,8 @@
     },
     "en": {
      "hook": "“25 years” needs “old”",
-     "tip": "In Indonesian “25 tahun” is enough, but English needs years old.",
-     "caption": "Do you say “I am 25 years.”? 😅 For your age, add old: “I am 25 years old.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "tip": "In Indonesian “25 tahun” is enough, but English says “I am 25” or “I am 25 years old”, not just “25 years”.",
+     "caption": "Ever say this? “I am 25 years.” 😅 For your age, add old: “I am 25 years old.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -705,8 +705,8 @@
     "native": {
      "hook": "“I am live”? Cukup “live”",
      "tip": "Banyak yang menambah am. Di bahasa Inggris, live sudah kata kerja.",
-     "caption": "Kamu sering bilang “I am live in Jakarta.”? 😅 Cukup bilang I live: “I live in Jakarta.”. Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “live”. Perkenalkan tempat tinggalmu: “I live in ...”. Latihan gratis lebih banyak di sini: {link}",
+     "caption": "Pernah bilang begini? “I am live in Jakarta.” 😅 Cukup bilang I live: “I live in Jakarta.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+     "comment": "Jawaban: “live”. Perkenalkan tempat tinggalmu: “I live in ...”. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -717,7 +717,7 @@
     "en": {
      "hook": "“I am live”? Just “live”",
      "tip": "Many learners add am. In English, live is already a verb.",
-     "caption": "Do you say “I am live in Jakarta.”? 😅 Just say I live: “I live in Jakarta.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "caption": "Ever say this? “I am live in Jakarta.” 😅 Just say I live: “I live in Jakarta.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -728,25 +728,25 @@
    "theme": "dusk",
    "in": {
     "hook_say": "My friend and I!",
-    "wrong": "Me and my friend are late.",
+    "wrong": "I and my friend are late.",
     "right": "My friend and I are late.",
-    "strike": "Me",
+    "strike": "I and my friend",
     "why": "Say my friend and I.",
     "memory": "Friend and I.",
     "quiz": {
-     "stem": "My sister and ___ are home.",
+     "stem": "___ are home.",
      "options": [
-      "I",
-      "me"
+      "My sister and I",
+      "I and my sister"
      ],
      "answer": 0
     },
-    "answer_say": "I! My sister and I are home.",
+    "answer_say": "My sister and I! My sister and I are home.",
     "native": {
-     "hook": "“Me and my friend”? Pakai “I”",
-     "tip": "Kita bilang “saya dan teman saya”, jadi mudah tertukar. Di bahasa Inggris, subjek pakai I dan taruh diri sendiri terakhir.",
-     "caption": "Kamu sering bilang “Me and my friend are late.”? 😅 Sebagai subjek, pakai “My friend and I”: “My friend and I are late.”. Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “I”. Bilang “My friend and I” saat bercerita. Latihan gratis lebih banyak di sini: {link}",
+     "hook": "“I and my friend”? Balik urutannya",
+     "tip": "Kita bilang “saya dan teman saya”, jadi muncul “I and my friend”. Di bahasa Inggris, sebut diri sendiri terakhir: my friend and I.",
+     "caption": "Pernah bilang begini? “I and my friend are late.” 😅 Sebut dirimu terakhir: “My friend and I are late.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+     "comment": "Jawaban: “My sister and I”. Bilang “My friend and I” saat bercerita. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -755,9 +755,9 @@
      ]
     },
     "en": {
-     "hook": "“Me and my friend”? Use “I”",
-     "tip": "It is easy to mix up. In English, use I as the subject and put yourself last.",
-     "caption": "Do you say “Me and my friend are late.”? 😅 As the subject, use “My friend and I”: “My friend and I are late.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "hook": "“I and my friend”? Flip the order",
+     "tip": "We say “saya dan teman saya”, so “I and my friend” appears. In English, name yourself last: my friend and I.",
+     "caption": "Ever say this? “I and my friend are late.” 😅 Name yourself last: “My friend and I are late.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -767,7 +767,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Can has no to!",
+    "hook_say": "Can? No to!",
     "wrong": "I can to swim.",
     "right": "I can swim.",
     "strike": "to",
@@ -784,9 +784,9 @@
     "answer_say": "Swim! I can swim well.",
     "native": {
      "hook": "“Can to”? Tanpa “to”!",
-     "tip": "Bahasa Indonesia pakai “bisa untuk”, jadi kita menambah to. Di bahasa Inggris, can langsung diikuti kata kerja.",
-     "caption": "Kamu sering bilang “I can to swim.”? 😅 Setelah can, langsung kata kerja: “I can swim.”. Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “swim”. Bilang “I can ...” untuk tiga hal yang kamu bisa. Latihan gratis lebih banyak di sini: {link}",
+     "tip": "Karena sering dengar “want to” dan “need to”, kita ikut menambah to. Setelah can, langsung kata kerja.",
+     "caption": "Pernah bilang begini? “I can to swim.” 😅 Setelah can, langsung kata kerja: “I can swim.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+     "comment": "Jawaban: “swim”. Bilang “I can ...” untuk tiga hal yang kamu bisa. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -796,8 +796,8 @@
     },
     "en": {
      "hook": "“Can to”? No “to”!",
-     "tip": "Because of “bisa untuk”, learners add to. In English, can goes straight to the verb.",
-     "caption": "Do you say “I can to swim.”? 😅 After can, use the verb directly: “I can swim.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "Because we often hear “want to” and “need to”, we add to too. After can, go straight to the verb.",
+     "caption": "Ever say this? “I can to swim.” 😅 After can, use the verb directly: “I can swim.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -807,7 +807,7 @@
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Want needs to!",
+    "hook_say": "Want to go home!",
     "wrong": "I want go home.",
     "right": "I want to go home.",
     "strike": "go",
@@ -825,8 +825,8 @@
     "native": {
      "hook": "“Want go”? Tambahkan “to”",
      "tip": "“Mau pulang” tidak butuh kata penghubung, tapi bahasa Inggris butuh to setelah want.",
-     "caption": "Kamu sering bilang “I want go home.”? 😅 Setelah want, pakai to: “I want to go home.”. Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “to”. Bilang “I want to ...” tiga kali hari ini. Latihan gratis lebih banyak di sini: {link}",
+     "caption": "Pernah bilang begini? “I want go home.” 😅 Setelah want, pakai to: “I want to go home.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+     "comment": "Jawaban: “to”. Bilang “I want to ...” tiga kali hari ini. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -837,7 +837,7 @@
     "en": {
      "hook": "“Want go”? Add “to”",
      "tip": "“Mau pulang” needs no linking word, but English needs to after want.",
-     "caption": "Do you say “I want go home.”? 😅 After want, use to: “I want to go home.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "caption": "Ever say this? “I want go home.” 😅 After want, use to: “I want to go home.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -847,7 +847,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Will has no to!",
+    "hook_say": "Will? No to!",
     "wrong": "I will to go tomorrow.",
     "right": "I will go tomorrow.",
     "strike": "to",
@@ -864,9 +864,9 @@
     "answer_say": "Help! I will help you.",
     "native": {
      "hook": "“Will to”? Tanpa “to”!",
-     "tip": "Mirip “akan untuk”, tapi di bahasa Inggris will langsung diikuti kata kerja.",
-     "caption": "Kamu sering bilang “I will to go tomorrow.”? 😅 Setelah will, langsung kata kerja: “I will go tomorrow.”. Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “help”. Bilang rencanamu besok: “I will ...”. Latihan gratis lebih banyak di sini: {link}",
+     "tip": "Karena sering dengar “want to” dan “need to”, kita ikut menambah to. Setelah will, langsung kata kerja.",
+     "caption": "Pernah bilang begini? “I will to go tomorrow.” 😅 Setelah will, langsung kata kerja: “I will go tomorrow.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+     "comment": "Jawaban: “help”. Bilang rencanamu besok: “I will ...”. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -876,8 +876,8 @@
     },
     "en": {
      "hook": "“Will to”? No “to”!",
-     "tip": "It sounds like “akan untuk”, but in English will goes straight to the verb.",
-     "caption": "Do you say “I will to go tomorrow.”? 😅 After will, use the verb directly: “I will go tomorrow.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "Because we often hear “want to” and “need to”, we add to too. After will, go straight to the verb.",
+     "caption": "Ever say this? “I will to go tomorrow.” 😅 After will, use the verb directly: “I will go tomorrow.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -905,8 +905,8 @@
     "native": {
      "hook": "“Afraid with”? Pakai “of”",
      "tip": "Kita bilang “takut dengan”, tapi di bahasa Inggris pakai afraid of.",
-     "caption": "Kamu sering bilang “I am afraid with dogs.”? 😅 Untuk rasa takut, pakai of: “I am afraid of dogs.”. Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “of”. Hafalkan “afraid of” bersama benda yang kamu takuti. Latihan gratis lebih banyak di sini: {link}",
+     "caption": "Pernah bilang begini? “I am afraid with dogs.” 😅 Untuk rasa takut, pakai of: “I am afraid of dogs.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+     "comment": "Jawaban: “of”. Hafalkan “afraid of” bersama benda yang kamu takuti. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -917,7 +917,7 @@
     "en": {
      "hook": "“Afraid with”? Use “of”",
      "tip": "We may say “takut dengan”, but English uses afraid of.",
-     "caption": "Do you say “I am afraid with dogs.”? 😅 For fear, use of: “I am afraid of dogs.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "caption": "Ever say this? “I am afraid with dogs.” 😅 For fear, use of: “I am afraid of dogs.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -945,8 +945,8 @@
     "native": {
      "hook": "“Good in”? Pakai “at”",
      "tip": "Kita bilang “pandai dalam”, tapi di bahasa Inggris pakai good at.",
-     "caption": "Kamu sering bilang “I am good in English.”? 😅 Untuk keahlian, pakai at: “I am good at English.”. Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “at”. Bilang “I am good at ...” untuk kemampuanmu. Latihan gratis lebih banyak di sini: {link}",
+     "caption": "Pernah bilang begini? “I am good in English.” 😅 Untuk keahlian, pakai at: “I am good at English.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+     "comment": "Jawaban: “at”. Bilang “I am good at ...” untuk kemampuanmu. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -957,7 +957,7 @@
     "en": {
      "hook": "“Good in”? Use “at”",
      "tip": "We say “pandai dalam”, but English uses good at.",
-     "caption": "Do you say “I am good in English.”? 😅 For a skill, use at: “I am good at English.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "caption": "Ever say this? “I am good in English.” 😅 For a skill, use at: “I am good at English.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -974,19 +974,19 @@
     "why": "Noun? Use because of.",
     "memory": "Because of + noun.",
     "quiz": {
-     "stem": "I am late ___ rain.",
+     "stem": "I am late ___ the rain.",
      "options": [
       "because of",
       "because"
      ],
      "answer": 0
     },
-    "answer_say": "Because of! I am late because of rain.",
+    "answer_say": "Because of! I am late because of the rain.",
     "native": {
      "hook": "“Because traffic”? Pakai “of”",
-     "tip": "“Karena macet” cukup satu kata di bahasa Indonesia, tapi bahasa Inggris pakai because of sebelum kata benda.",
-     "caption": "Kamu sering bilang “I am late because traffic.”? 😅 Sebelum kata benda, pakai because of: “I am late because of traffic.”. Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “because of”. Ceritakan alasanmu terlambat dengan because of. Latihan gratis lebih banyak di sini: {link}",
+     "tip": "Di bahasa Indonesia cukup “karena”, tapi sebelum kata benda bahasa Inggris pakai because of.",
+     "caption": "Pernah bilang begini? “I am late because traffic.” 😅 Sebelum kata benda, pakai because of: “I am late because of traffic.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+     "comment": "Jawaban: “because of”. Ceritakan alasanmu terlambat dengan because of. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -996,8 +996,8 @@
     },
     "en": {
      "hook": "“Because traffic”? Add “of”",
-     "tip": "“Karena macet” is one word in Indonesian, but English uses because of before a noun.",
-     "caption": "Do you say “I am late because traffic.”? 😅 Before a noun, use because of: “I am late because of traffic.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "tip": "In Indonesian “karena” is enough, but before a noun English uses because of.",
+     "caption": "Ever say this? “I am late because traffic.” 😅 Before a noun, use because of: “I am late because of traffic.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1007,26 +1007,26 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Forgot needs to!",
+    "hook_say": "Don't forget to!",
     "wrong": "I forgot bring my book.",
     "right": "I forgot to bring my book.",
     "strike": "bring",
     "why": "Forgot + to + verb.",
     "memory": "Forgot to.",
     "quiz": {
-     "stem": "Do not forget ___ call me.",
+     "stem": "Don't forget ___ call me.",
      "options": [
       "to",
       "for"
      ],
      "answer": 0
     },
-    "answer_say": "To! Do not forget to call me.",
+    "answer_say": "To! Don't forget to call me.",
     "native": {
      "hook": "“Forgot bring”? Pakai “to”",
      "tip": "Di bahasa Indonesia “lupa bawa” langsung dua kata, tapi bahasa Inggris pakai to sebelum kata kerja kedua.",
-     "caption": "Kamu sering bilang “I forgot bring my book.”? 😅 Setelah forgot, pakai to: “I forgot to bring my book.”. Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “to”. Bilang “I forgot to ...” untuk hal yang kamu lupa. Latihan gratis lebih banyak di sini: {link}",
+     "caption": "Pernah bilang begini? “I forgot bring my book.” 😅 Setelah forgot, pakai to: “I forgot to bring my book.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+     "comment": "Jawaban: “to”. Bilang “I forgot to ...” untuk hal yang kamu lupa. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -1037,7 +1037,7 @@
     "en": {
      "hook": "“Forgot bring”? Add “to”",
      "tip": "In Indonesian “lupa bawa” goes straight on, but English uses to before the second verb.",
-     "caption": "Do you say “I forgot bring my book.”? 😅 After forgot, use to: “I forgot to bring my book.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "caption": "Ever say this? “I forgot bring my book.” 😅 After forgot, use to: “I forgot to bring my book.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1054,19 +1054,19 @@
     "why": "Add the before office.",
     "memory": "Go to the office.",
     "quiz": {
-     "stem": "She is at ___ market.",
+     "stem": "I walk to ___ every day.",
      "options": [
-      "the",
-      "a"
+      "the office",
+      "office"
      ],
      "answer": 0
     },
-    "answer_say": "The! She is at the market.",
+    "answer_say": "The office! I walk to the office every day.",
     "native": {
      "hook": "“To office”? Pakai “the”",
      "tip": "Bahasa Indonesia tidak punya kata the, tapi bahasa Inggris butuh the sebelum tempat tertentu.",
-     "caption": "Kamu sering bilang “I go to office by bus.”? 😅 Sebelum tempat tertentu, pakai the: “I go to the office by bus.”. Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “the”. Ceritakan perjalananmu: “I go to the ...”. Latihan gratis lebih banyak di sini: {link}",
+     "caption": "Pernah bilang begini? “I go to office by bus.” 😅 Sebelum tempat tertentu, pakai the: “I go to the office by bus.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+     "comment": "Jawaban: “the office”. Ceritakan perjalananmu: “I go to the ...”. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -1077,7 +1077,7 @@
     "en": {
      "hook": "“To office”? Add “the”",
      "tip": "Indonesian has no word like the, but English needs the before a specific place.",
-     "caption": "Do you say “I go to office by bus.”? 😅 Before a specific place, use the: “I go to the office by bus.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "caption": "Ever say this? “I go to office by bus.” 😅 Before a specific place, use the: “I go to the office by bus.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1104,9 +1104,9 @@
     "answer_say": "Quickly! She speaks quickly now.",
     "native": {
      "hook": "“Speak fluent”? Pakai “fluently”",
-     "tip": "Bahasa Indonesia memakai kata yang sama untuk “lancar”, tapi bahasa Inggris menambah -ly setelah kata kerja.",
-     "caption": "Kamu sering bilang “I speak English fluent.”? 😅 Setelah kata kerja, pakai fluently: “I speak English fluently.”. Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “quickly”. Latih “I speak slowly” dulu, lalu fluently. Latihan gratis lebih banyak di sini: {link}",
+     "tip": "Bahasa Indonesia: “lancar” tetap sama. Untuk menjelaskan kata kerja Inggris pakai -ly: fluently. (Atau: I speak fluent English.)",
+     "caption": "Pernah bilang begini? “I speak English fluent.” 😅 Untuk menjelaskan kata kerja, pakai fluently: “I speak English fluently.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+     "comment": "Jawaban: “quickly”. Coba bilang “I speak English slowly”, lalu “fluently”. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -1116,8 +1116,8 @@
     },
     "en": {
      "hook": "“Speak fluent”? Use “fluently”",
-     "tip": "Indonesian uses one word for “lancar”, but English adds -ly after a verb.",
-     "caption": "Do you say “I speak English fluent.”? 😅 After a verb, use fluently: “I speak English fluently.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "In Indonesian “lancar” does not change, but to describe an English verb, use -ly: fluently. (You can also say: I speak fluent English.)",
+     "caption": "Ever say this? “I speak English fluent.” 😅 To describe a verb, use fluently: “I speak English fluently.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1145,8 +1145,8 @@
     "native": {
      "hook": "“Do you can”? Pakai “Can you”",
      "tip": "“Apakah kamu bisa” tampak cocok dengan do you can, tapi di bahasa Inggris can sendiri yang dipindah ke depan.",
-     "caption": "Kamu sering bilang “Do you can speak English?”? 😅 Untuk bertanya bisa, mulai dengan can: “Can you speak English?”. Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “Can you”. Tanya temanmu: “Can you ...?” Latihan gratis lebih banyak di sini: {link}",
+     "caption": "Pernah bilang begini? “Do you can speak English?” 😅 Untuk bertanya bisa, mulai dengan can: “Can you speak English?” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+     "comment": "Jawaban: “Can you”. Tanya temanmu: “Can you ...?” Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -1157,7 +1157,7 @@
     "en": {
      "hook": "“Do you can”? Say “Can you”",
      "tip": "“Apakah kamu bisa” seems to fit do you can, but English moves can to the front by itself.",
-     "caption": "Do you say “Do you can speak English?”? 😅 To ask about ability, start with can: “Can you speak English?”. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "caption": "Ever say this? “Do you can speak English?” 😅 To ask about ability, start with can: “Can you speak English?” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1185,8 +1185,8 @@
     "native": {
      "hook": "“I am not understand” salah",
      "tip": "Bahasa Indonesia cukup “tidak mengerti”, jadi orang menambah am. Di bahasa Inggris pakai do not.",
-     "caption": "Kamu sering bilang “I am not understand.”? 😅 Untuk menyangkal kata kerja, pakai do not: “I do not understand.”. Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “do”. Latih “I do not understand” dengan tenang. Latihan gratis lebih banyak di sini: {link}",
+     "caption": "Pernah bilang begini? “I am not understand.” 😅 Untuk kalimat negatif dengan kata kerja, pakai do not: “I do not understand.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+     "comment": "Jawaban: “do”. Latih “I do not understand” dengan tenang. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -1197,7 +1197,7 @@
     "en": {
      "hook": "“I am not understand” is wrong",
      "tip": "Indonesian says “tidak mengerti”, so learners add am. English uses do not.",
-     "caption": "Do you say “I am not understand.”? 😅 To deny a verb, use do not: “I do not understand.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "caption": "Ever say this? “I am not understand.” 😅 To make a verb negative, use do not: “I do not understand.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1212,7 +1212,7 @@
     "right": "This bag is cheaper.",
     "strike": "more",
     "why": "Cheaper has no more.",
-    "memory": "One way only.",
+    "memory": "Cheaper, no more.",
     "quiz": {
      "stem": "My bag is ___.",
      "options": [
@@ -1225,8 +1225,8 @@
     "native": {
      "hook": "“More cheaper”? Cukup “cheaper”",
      "tip": "“Lebih murah” jadi more cheaper, padahal -er sudah berarti lebih.",
-     "caption": "Kamu sering bilang “This bag is more cheaper.”? 😅 Pilih satu: cheaper, tanpa more: “This bag is cheaper.”. Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “cheaper”. Bandingkan dua barang dengan -er. Latihan gratis lebih banyak di sini: {link}",
+     "caption": "Pernah bilang begini? “This bag is more cheaper.” 😅 Pilih satu: cheaper, tanpa more: “This bag is cheaper.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+     "comment": "Jawaban: “cheaper”. Bandingkan dua barang dengan -er. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -1237,7 +1237,7 @@
     "en": {
      "hook": "“More cheaper”? Just “cheaper”",
      "tip": "“Lebih murah” turns into more cheaper, but -er already means more.",
-     "caption": "Do you say “This bag is more cheaper.”? 😅 Pick one: cheaper, no more: “This bag is cheaper.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "caption": "Ever say this? “This bag is more cheaper.” 😅 Pick one: cheaper, no more: “This bag is cheaper.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1254,19 +1254,19 @@
     "why": "Like + to + verb.",
     "memory": "Like to play.",
     "quiz": {
-     "stem": "I like ___ music.",
+     "stem": "I like ___ movies.",
      "options": [
-      "to listen to",
-      "listen"
+      "to watch",
+      "watch"
      ],
      "answer": 0
     },
-    "answer_say": "To listen to! I like to listen to music.",
+    "answer_say": "To watch! I like to watch movies.",
     "native": {
      "hook": "“Like play”? Tambahkan “to”",
-     "tip": "“Suka main” langsung dua kata di bahasa Indonesia, tapi bahasa Inggris butuh to setelah like.",
-     "caption": "Kamu sering bilang “I like play football.”? 😅 Setelah like, pakai to: “I like to play football.”. Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “to listen to”. Bilang “I like to ...” untuk hobimu. Latihan gratis lebih banyak di sini: {link}",
+     "tip": "“Suka main” langsung dua kata di bahasa Indonesia, tapi bahasa Inggris butuh to setelah like. (atau like + -ing: I like playing football)",
+     "caption": "Pernah bilang begini? “I like play football.” 😅 Setelah like, pakai to: “I like to play football.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+     "comment": "Jawaban: “to watch”. Bilang “I like to ...” untuk hobimu. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -1276,8 +1276,8 @@
     },
     "en": {
      "hook": "“Like play”? Add “to”",
-     "tip": "In Indonesian “suka main” goes straight on, but English needs to after like.",
-     "caption": "Do you say “I like play football.”? 😅 After like, use to: “I like to play football.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "In Indonesian “suka main” goes straight on, but English needs to after like. (or like + -ing: I like playing football)",
+     "caption": "Ever say this? “I like play football.” 😅 After like, use to: “I like to play football.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1305,8 +1305,8 @@
     "native": {
      "hook": "“Waiting you”? Tambahkan “for”",
      "tip": "Kita bilang “menunggu kamu”, tapi bahasa Inggris pakai wait for.",
-     "caption": "Kamu sering bilang “I am waiting you.”? 😅 Setelah wait, pakai for: “I am waiting for you.”. Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “for”. Bilang “I am waiting for ...” ke temanmu. Latihan gratis lebih banyak di sini: {link}",
+     "caption": "Pernah bilang begini? “I am waiting you.” 😅 Setelah wait, pakai for: “I am waiting for you.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+     "comment": "Jawaban: “for”. Bilang “I am waiting for ...” ke temanmu. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -1317,7 +1317,7 @@
     "en": {
      "hook": "“Waiting you”? Add “for”",
      "tip": "We say “menunggu kamu”, but English uses wait for.",
-     "caption": "Do you say “I am waiting you.”? 😅 After wait, use for: “I am waiting for you.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "caption": "Ever say this? “I am waiting you.” 😅 After wait, use for: “I am waiting for you.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1327,7 +1327,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Mother is she!",
+    "hook_say": "Mother? Say she!",
     "wrong": "My mother is a nurse. He works hard.",
     "right": "My mother is a nurse. She works hard.",
     "strike": "He",
@@ -1345,8 +1345,8 @@
     "native": {
      "hook": "Ibu itu “she”, bukan “he”",
      "tip": "Bahasa Indonesia pakai “dia” untuk semua, tapi bahasa Inggris membedakan he dan she.",
-     "caption": "Kamu sering bilang “My mother is a nurse. He works hard.”? 😅 Pria: he. Wanita: she: “My mother is a nurse. She works hard.”. Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
-     "comment": "Jawaban: “He”. Ceritakan keluargamu dengan he dan she yang tepat. Latihan gratis lebih banyak di sini: {link}",
+     "caption": "Pernah bilang begini? “My mother is a nurse. He works hard.” 😅 Untuk perempuan pakai she, untuk laki-laki he: “My mother is a nurse. She works hard.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+     "comment": "Jawaban: “He”. Ceritakan keluargamu dengan he dan she yang tepat. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
       "#belajarbahasainggris",
       "#grammaringgris",
@@ -1357,7 +1357,7 @@
     "en": {
      "hook": "Mother is “she”, not “he”",
      "tip": "Indonesian uses “dia” for everyone, but English separates he and she.",
-     "caption": "Do you say “My mother is a nurse. He works hard.”? 😅 Man: he. Woman: she: “My mother is a nurse. She works hard.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "caption": "Ever say this? “My mother is a nurse. He works hard.” 😅 For a woman use she, for a man he: “My mother is a nurse. She works hard.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   }
