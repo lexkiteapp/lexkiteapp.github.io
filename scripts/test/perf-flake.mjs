@@ -1,0 +1,13 @@
+import { summarize, toMarkdown } from '../ci/perf-flake.mjs';
+let bad = 0; const ok = (c, m) => { if (!c) { bad++; console.error('✗ ' + m); } else console.log('✓ ' + m); };
+const r = (c, a = 1, sha = 'a') => ({ conclusion: c, run_attempt: a, head_sha: sha });
+const s = summarize([r('success'), r('success'), r('success', 2, 'b'), r('failure', 1, 'c'), r('failure', 3, 'c'), r('cancelled'), r(null)]);
+ok(s.runs === 5, 'chỉ tính lượt có kết luận về mã (bỏ huỷ/đang chạy)');
+ok(s.failed === 2 && s.flaky === 1, 'đỏ 2, xanh-sau-chạy-lại 1');
+ok(s.repeatRed === 1, 'cùng sha đỏ ≥ 2 lượt tính là đỏ lặp');
+ok(s.flakePct === 20 && s.failPct === 40, 'tỉ lệ %');
+ok(summarize([]).runs === 0 && summarize().flakePct === 0, 'rỗng không chia 0');
+const md = toMarkdown([['call-rt', { runs: 10, failed: 3, flaky: 2, repeatRed: 0, flakePct: 20, failPct: 30 }], ['x', summarize([])]], 7, new Date('2026-11-16T00:00:00Z'));
+ok(/call-rt \| 10 \| 3 \| 30 \| 2 \| 20/.test(md) && /Chập chờn ≥ 10 %: call-rt/.test(md), 'markdown có hàng + cảnh báo ≥ 10 %');
+ok(/Không workflow nào/.test(toMarkdown([['y', summarize([r('success')])]], 7)), 'sạch → báo không chập chờn');
+if (bad) { console.error(`✗ perf-flake: ${bad} lỗi`); process.exit(1); } console.log('✓ perf-flake: đạt');
