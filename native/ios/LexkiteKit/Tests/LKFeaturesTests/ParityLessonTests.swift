@@ -115,7 +115,7 @@ final class ParityLessonTests: XCTestCase {
         // results → saved callback: wrong words get grade 0, never grade for words answered only right (when not due)
         let r = await LessonFixtures.model(seed: 9)
         var got: [LessonEngine.Result] = []
-        r.saved = { res, _, _ in got = res }
+        r.saved = { res, _, _, _, _ in got = res }
         var n = 0
         while let it = r.cur, !(it.type == "gap" || it.type == "mean"), n < 50 { n += 1; LessonFixtures.answerRight(r); if r.phase == .feedback { r.next() } }
         if let it = r.cur { r.pick = it.options?.first { $0 != it.answer }; r.submit(); r.next() }
@@ -202,5 +202,22 @@ final class ParityLessonTests: XCTestCase {
         // reading text is cleaned like the web (IPA / labels / emoji never spoken)
         XCTAssertEqual(VoiceCore.ttsClean("📚 curriculum /kəˈrɪkjələm/ UK US n 💬 Ví dụ Many people have a curriculum."), "Many people have a curriculum.")
         XCTAssertEqual(VoiceCore.split("One. Two! Three?"), ["One.", "Two!", "Three?"])
+    }
+
+    /// Same counters as Android LessonWriter.reward / web Game.track: quizzes/spoken/perfect per day, `total.*` only for keys already there, xp everywhere.
+    func testRewardCountersMatchAndroid() {
+        let game: JSON = .object(["xp": .number(100), "total": .object(["quizzes": .number(4), "perfect": .number(1)]), "days": .object(["2026-11-16": .object(["xp": .number(20), "quizzes": .number(1)])])])
+        let g = LessonStore.reward(game, xp: 17, spoken: 3, perfect: true, day: "2026-11-16")
+        XCTAssertEqual(JSON.num(g["xp"]), 117)
+        let d = JSON.spread(JSON.spread(g["days"])["2026-11-16"])
+        XCTAssertEqual(JSON.num(d["xp"]), 37); XCTAssertEqual(JSON.num(d["quizzes"]), 2)
+        XCTAssertEqual(JSON.num(d["spoken"]), 3); XCTAssertEqual(JSON.num(d["perfect"]), 1)
+        let t = JSON.spread(g["total"])
+        XCTAssertEqual(JSON.num(t["quizzes"]), 5); XCTAssertEqual(JSON.num(t["perfect"]), 2)
+        XCTAssertNil(t["spoken"], "total.spoken is not invented when the key was absent")
+        // nothing spoken, not perfect → only quizzes counts; fresh game doc works
+        let f = LessonStore.reward(nil, xp: 10, spoken: 0, perfect: false, day: "2026-11-16")
+        let fd = JSON.spread(JSON.spread(f["days"])["2026-11-16"])
+        XCTAssertEqual(JSON.num(fd["quizzes"]), 1); XCTAssertNil(fd["spoken"]); XCTAssertNil(fd["perfect"]); XCTAssertEqual(JSON.num(f["xp"]), 10)
     }
 }
