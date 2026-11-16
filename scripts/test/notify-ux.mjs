@@ -54,7 +54,8 @@ ok(UI && typeof UI.toast === 'function', 'ui.js: dựng được UI.toast trong 
 if (UI && UI.toast) {
   ok(T.getAttribute('aria-live') === 'polite' && T.getAttribute('role') === 'status', 'toast: role=status + aria-live=polite');
   UI.toast('Một', 300); ok(T.classList.contains('show') && T.textContent === 'Một' && !T.classList.contains('act'), 'toast: hiện, không nhận chạm khi không có nút');
-  UI.toast('Hai', 300); ok(T.textContent === 'Hai' && d.querySelectorAll('.toast.show').length === 1, 'toast: câu mới thay câu cũ – chỉ một toast mỗi lúc');
+  UI.toast('Hai', 300); ok(!T.classList.contains('show') && T.textContent === 'Một', 'toast: câu mới khi đang hiện → câu cũ mờ trước, KHÔNG đổi chữ tại chỗ (hộp đổi cỡ khi còn thấy = layout shift)');
+  await sleep(300); ok(T.textContent === 'Hai' && d.querySelectorAll('.toast.show').length === 1, 'toast: câu mới thay câu cũ – chỉ một toast mỗi lúc');
   const t0 = T._at; await sleep(20); UI.toast('Hai', 300); ok(T._at === t0, 'toast: cùng câu đang hiện → chỉ gia hạn, không nháy lại');
   await sleep(2300); ok(!T.classList.contains('show'), 'toast: tự ẩn (thời gian đọc theo độ dài)');
   UI.toast('Hai', 300); ok(!T.classList.contains('show'), 'toast: cùng câu vừa ẩn < 3 s → bỏ (mạng chập chờn không xả hàng loạt)');

@@ -64,7 +64,7 @@ const seen = {};
 for (const n of ['AdminDrive', 'AdminKeys', 'AdminQuota', 'AdminSocial', 'AdminStudio']) w[n] = { render(box) { seen[n] = w.location.hash; box.innerHTML = `<div class="card" id="stub-${n}">stub</div>`; } };
 w.AdminReports = { render(box) { box.innerHTML = '<div class="card" id="stub-rep">stub</div>'; }, card(box) { box.innerHTML = '<div class="card">reports card</div>'; } };
 w.AdminClips = {}; /* lưới cũ: không nạp admin-clips.js trong jsdom */ w.eval(rd('web/js/admin-backlinks.js')); w.eval(rd('web/js/admin-video.js')); w.eval(rd('web/js/admin-prefs.js'));
-w.eval(rd("web/js/admin-chart.js")); w.eval(rd("web/js/admin-users.js")); w.eval(ADM);
+w.eval(rd("web/js/admin-chart.js")); w.eval(rd("web/js/admin-plat.js")); w.eval(rd("web/js/admin-series.js")); w.eval(rd("web/js/admin-users.js")); w.eval(ADM);
 await tick(80);
 const h1 = () => ($('.pg-t') || {}).textContent;
 const lastCall = op => [...calls].reverse().find(c => c.b.op === op);
@@ -153,6 +153,12 @@ w.location.hash = '#users'; await tick(30);
 ok($('.cf-dlg'), 'đổi #hash khi chưa lưu → hỏi xác nhận');
 $('.cf-dlg [data-yes]').click(); await tick(40);
 ok(h1() === 'Users' && $('#tabs a[aria-current]').dataset.tab === 'users', 'Bỏ thay đổi → sang Người dùng');
+
+// ---------- 4b) Thanh trên điện thoại: menu ⋯ chứa Về app / sáng-tối / ngôn ngữ / Thoát (owner 3/11 iPhone) ----------
+ok($('#meMore') && $('#meMenu #out') && $('#meMenu #lng') && $('#meMenu #thm'), 'menu ⋯ chứa nút thanh trên');
+$('#meMore').click(); ok($('#meMenu').classList.contains('open') && $('#meMore').getAttribute('aria-expanded') === 'true', 'bấm ⋯ → mở menu');
+w.document.body.click(); ok(!$('#meMenu').classList.contains('open'), 'bấm ngoài → đóng menu');
+ok($('#uTable td.u-ckc .u-ckh') && $('#uTable td.u-c-who .u-em[title]'), 'Người dùng: ô chọn có vùng chạm, email có title (hiện đủ khi rê/chạm)');
 
 // ---------- 5) Xóa dữ liệu: gõ lại UID ----------
 $('[data-del="u1"]').click(); await tick();
