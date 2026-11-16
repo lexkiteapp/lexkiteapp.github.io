@@ -349,7 +349,7 @@ explain: 'Mệnh đề danh từ "how + S + V" làm tân ngữ của "learned". 
 * WRITING · Write an Email
 * =================================================================== */
 TF.writing.push({
-id: 'tf7-em1', set: 1, task: 'email', title: 'Asking for a Recommendation Letter', minutes: 7,
+id: 'tf11-em1', set: 1, task: 'email', title: 'Asking for a Recommendation Letter', minutes: 7,
 scenario: 'You are applying for a summer research program, and the application requires a letter from a professor who knows your work. You took two courses with Professor Reyes and did well in both.',
 to: 'Professor Reyes',
 points: ['Explain why you are writing.', 'Describe why you think she is a good person to ask.', 'Give the deadline and offer to send any materials she needs.'],
@@ -358,7 +358,7 @@ checklist: ['Nêu mục đích viết thư ngay đoạn đầu', 'Giải thích 
 tips: 'Thư xin giới thiệu nên làm giáo sư dễ nhận lời: nêu cụ thể mối quan hệ học thuật, hạn chót rõ ràng và tài liệu bạn sẽ chuẩn bị sẵn.',
 });
 TF.writing.push({
-id: 'tf7-em2', set: 2, task: 'email', title: 'Noise from Construction Near the Library', minutes: 7,
+id: 'tf11-em2', set: 2, task: 'email', title: 'Noise from Construction Near the Library', minutes: 7,
 scenario: 'Construction work next to the main library has been very loud every morning for two weeks. You and other students find it impossible to concentrate during exam preparation.',
 to: 'the Facilities Office',
 points: ['Describe the problem.', 'Explain how it affects students.', 'Suggest a reasonable solution.'],
@@ -367,7 +367,7 @@ checklist: ['Mô tả vấn đề cụ thể (ở đâu, từ khi nào, giờ n�
 tips: 'Khi phản ánh, hãy nêu số liệu nhỏ (hai tuần, 8 giờ đến trưa) để vấn đề nghe có thật và đáng giải quyết; kết thư bằng đề xuất thay vì than phiền.',
 });
 TF.writing.push({
-id: 'tf8-em1', set: 3, task: 'email', title: 'Changing Your Laboratory Section', minutes: 7,
+id: 'tf12-em1', set: 3, task: 'email', title: 'Changing Your Laboratory Section', minutes: 7,
 scenario: 'You were placed in a chemistry lab section that meets on Thursday afternoons, but you recently started a part-time job that begins at 3 p.m. on Thursdays. Other sections still have space.',
 to: 'Dr. Okafor, the lab coordinator',
 points: ['Explain the schedule conflict.', 'Describe what you have already tried.', 'Ask politely for a specific change.'],
@@ -376,7 +376,7 @@ checklist: ['Nêu rõ môn học, nhóm hiện tại và lý do xung đột lị
 tips: 'Yêu cầu càng cụ thể (đúng nhóm, đúng giờ) thì người nhận càng dễ đồng ý. Việc cho thấy bạn đã tự thử giải quyết cũng tạo thiện cảm.',
 });
 TF.writing.push({
-id: 'tf8-em2', set: 4, task: 'email', title: 'Proposing a New Student Club', minutes: 7,
+id: 'tf12-em2', set: 4, task: 'email', title: 'Proposing a New Student Club', minutes: 7,
 scenario: 'You and several classmates want to start a photography club at your university, but you need approval and a small room for weekly meetings.',
 to: 'Mr. Brooks, Director of Student Activities',
 points: ['Introduce the idea for the club.', 'Explain how the club would benefit students.', 'Ask for what you need and offer to meet.'],
@@ -385,7 +385,7 @@ checklist: ['Giới thiệu bản thân và ý tưởng ngay đầu thư', 'Nêu
 tips: 'Thư đề xuất nên trả lời hai câu hỏi của người duyệt: "Điều này có ích cho sinh viên không?" và "Cần gì từ nhà trường?". Hãy nêu cả hai thật rõ.',
 });
 TF.writing.push({
-id: 'tf9-em1', set: 5, task: 'email', title: 'Explaining a Missed Midterm Exam', minutes: 7,
+id: 'tf13-em1', set: 5, task: 'email', title: 'Explaining a Missed Midterm Exam', minutes: 7,
 scenario: 'You missed your history midterm exam yesterday because you had a high fever and went to the health center. You have a doctor\'s note from the health center.',
 to: 'Professor Lang',
 points: ['Explain why you missed the exam.', 'Say what documents you can provide.', 'Ask about taking a make-up exam.'],
@@ -394,7 +394,7 @@ checklist: ['Xin lỗi ngắn gọn và nêu lý do vắng mặt', 'Nhắc đế
 tips: 'Với giảng viên, hãy nêu lý do thật ngắn gọn, đính kèm bằng chứng, rồi tập trung vào giải pháp (thi bù) cùng lịch rảnh của bạn.',
 });
 TF.writing.push({
-id: 'tf9-em2', set: 6, task: 'email', title: 'Asking the Career Center about Internships', minutes: 7,
+id: 'tf13-em2', set: 6, task: 'email', title: 'Asking the Career Center about Internships', minutes: 7,
 scenario: 'You are a second-year business student and want to find a summer internship, but you do not know how to start. Your university has a career center.',
 to: 'the Career Center',
 points: ['Introduce yourself and your goal.', 'Explain what you have already done.', 'Ask for specific help.'],
@@ -407,7 +407,7 @@ tips: 'Hãy cho thấy bạn đã chủ động thử trước rồi mới nhờ
 * WRITING · Write for an Academic Discussion
 * =================================================================== */
 TF.writing.push({
-id: 'tf7-ad1', set: 1, task: 'discussion', title: 'Should Museums Be Free?', minutes: 10,
+id: 'tf11-ad1', set: 1, task: 'discussion', title: 'Should Museums Be Free?', minutes: 10,
 professor: { name: 'Professor Haddad', text: 'In our unit on arts and public life, we are discussing access to culture. Some cities make public museums free for everyone, paying for them with taxes. Others charge admission so that visitors, rather than all taxpayers, cover the costs. Which approach do you think is better, and why?' },
 students: [
 { name: 'Elena', text: 'Museums should be free. Culture is part of education, and ticket prices keep out families with low incomes. Everyone should have the chance to see great art.' },
@@ -418,7 +418,7 @@ checklist: ['Nêu rõ quan điểm ngay câu đầu', 'Phản hồi ý của Ele
 tips: 'Khi hai bạn đối lập, một giải pháp dung hòa có ví dụ thực tế thường thuyết phục hơn việc chọn hẳn một phía.',
 });
 TF.writing.push({
-id: 'tf7-ad2', set: 2, task: 'discussion', title: 'Nuclear Energy and Climate Change', minutes: 10,
+id: 'tf11-ad2', set: 2, task: 'discussion', title: 'Nuclear Energy and Climate Change', minutes: 10,
 professor: { name: 'Dr. Sato', text: 'In our environmental science course, we have been studying ways to reduce carbon emissions. Some experts say countries should build more nuclear power plants because they produce large amounts of electricity without burning fossil fuels. Others worry about safety, cost, and radioactive waste, and prefer solar and wind power. What is your view?' },
 students: [
 { name: 'Priya', text: 'Nuclear power is necessary. Solar and wind do not work when the weather is bad, but nuclear plants run all day and night. We cannot reach climate goals without them.' },
@@ -429,7 +429,7 @@ checklist: ['Nêu rõ quan điểm', 'Nhắc và phản hồi cả Priya lẫn M
 tips: 'Với đề khoa học – chính sách, hãy cân nhắc ít nhất hai tiêu chí (chi phí, độ tin cậy) thay vì chỉ nói "tốt" hay "xấu".',
 });
 TF.writing.push({
-id: 'tf8-ad1', set: 3, task: 'discussion', title: 'Learning History: Dates or Stories?', minutes: 10,
+id: 'tf12-ad1', set: 3, task: 'discussion', title: 'Learning History: Dates or Stories?', minutes: 10,
 professor: { name: 'Professor Walker', text: 'This week we are looking at how history should be taught. Some teachers say students need to memorize key dates and events so that they have a shared factual base. Others say history is best learned through personal stories and primary sources, such as letters and diaries. Which approach do you think helps students learn more, and why?' },
 students: [
 { name: 'Chloe', text: 'Stories work better for me. When I read a soldier\'s letter, I remembered the war for years. A list of dates is forgotten after the exam.' },
@@ -440,7 +440,7 @@ checklist: ['Nêu quan điểm rõ', 'Phản hồi cả Chloe và Ahmed', 'Đưa
 tips: 'Ví dụ cụ thể (một cuốn nhật ký, một thập niên) làm lập luận trừu tượng trở nên thuyết phục; hãy gắn ví dụ vào ý chính của bạn.',
 });
 TF.writing.push({
-id: 'tf8-ad2', set: 4, task: 'discussion', title: 'AI Tools in Writing Classes', minutes: 10,
+id: 'tf12-ad2', set: 4, task: 'discussion', title: 'AI Tools in Writing Classes', minutes: 10,
 professor: { name: 'Dr. Morgan', text: 'Many students now use AI writing assistants. Some instructors allow them for brainstorming and grammar checks, while others ban them completely because they believe students should develop their own writing skills. What rule would you recommend for writing classes, and why?' },
 students: [
 { name: 'Sofia', text: 'I think they should be banned. If a tool writes the sentences, students never learn to organize their own ideas, and grades stop meaning anything.' },
@@ -451,7 +451,7 @@ checklist: ['Nêu rõ quy tắc đề xuất', 'Phản hồi Sofia và Daniel', 
 tips: 'Đề "nên đặt quy tắc gì" cần một đề xuất cụ thể (ai làm gì, lúc nào), không chỉ ủng hộ hay phản đối.',
 });
 TF.writing.push({
-id: 'tf9-ad1', set: 5, task: 'discussion', title: 'Should Cities Ban Cars from Downtown?', minutes: 10,
+id: 'tf13-ad1', set: 5, task: 'discussion', title: 'Should Cities Ban Cars from Downtown?', minutes: 10,
 professor: { name: 'Professor Ito', text: 'In our urban sociology unit, we are discussing the future of city centers. Some cities have banned private cars from their downtown areas to reduce pollution and make streets safer. Business owners often worry that customers will stay away. Do you think cities should ban cars from downtown? Why or why not?' },
 students: [
 { name: 'Grace', text: 'Yes. Streets without cars are quieter and cleaner, and people walk more. Shops often do better when people can stroll instead of rushing past.' },
@@ -462,7 +462,7 @@ checklist: ['Nêu quan điểm (cấm một phần, có ngoại lệ)', 'Phản 
 tips: 'Với vấn đề chính sách, đề xuất lộ trình từng bước (thí điểm → đo → mở rộng) cho thấy tư duy thực tế và thường được đánh giá cao.',
 });
 TF.writing.push({
-id: 'tf9-ad2', set: 6, task: 'discussion', title: 'Is Studying Abroad Worth the Cost?', minutes: 10,
+id: 'tf13-ad2', set: 6, task: 'discussion', title: 'Is Studying Abroad Worth the Cost?', minutes: 10,
 professor: { name: 'Dr. Fernandez', text: 'Our class is discussing international education. Studying abroad for a semester can be expensive, and some students worry that it delays their graduation. Supporters say it builds independence and language skills. Do you think universities should encourage all students to study abroad? Explain your opinion.' },
 students: [
 { name: 'Lena', text: 'Absolutely. Living in another country taught me to solve problems alone and made my language skills much stronger. It changed how I see the world.' },
@@ -477,7 +477,7 @@ tips: 'Thừa nhận lợi ích của một bên và mối lo của bên kia, r�
 * SPEAKING · Listen and Repeat (bộ 7)
 * =================================================================== */
 TF.speaking.push({
-id: 'tf7-rp1', set: 5, task: 'repeat', title: 'Art Gallery Docent', accent: 'en-US',
+id: 'tf11-rp1', set: 5, task: 'repeat', title: 'Art Gallery Docent', accent: 'en-US',
 context: 'You are a volunteer guide at a small art gallery. Listen to the curator and repeat exactly what you hear.',
 sentences: [
 { t: 'Good morning, and welcome to the gallery.', tip: 'Nối âm "Good morning" /gʊdˈmɔːrnɪŋ/; nhấn "WEL" trong welcome.' },
@@ -490,7 +490,7 @@ sentences: [
 ],
 });
 TF.speaking.push({
-id: 'tf7-rp2', set: 6, task: 'repeat', title: 'Lab Safety Instructor', accent: 'en-GB',
+id: 'tf11-rp2', set: 6, task: 'repeat', title: 'Lab Safety Instructor', accent: 'en-GB',
 context: 'You are attending a laboratory safety briefing. Listen to the instructor and repeat exactly what you hear.',
 sentences: [
 { t: 'Please put on your safety glasses.', tip: 'Cụm "put on" nối âm /pʊtɒn/; nhấn "SAFety GLASSes".' },
@@ -503,7 +503,7 @@ sentences: [
 ],
 });
 TF.speaking.push({
-id: 'tf7-rp3', set: 1, task: 'repeat', title: 'Study Abroad Advisor', accent: 'en-US',
+id: 'tf11-rp3', set: 1, task: 'repeat', title: 'Study Abroad Advisor', accent: 'en-US',
 context: 'You are visiting the study abroad office. Listen to the advisor and repeat exactly what you hear.',
 sentences: [
 { t: 'Thanks for stopping by the office.', tip: '"Thanks" /θæŋks/ – âm /θ/; "stopping by" nối nhẹ.' },
@@ -520,7 +520,7 @@ sentences: [
 * SPEAKING · Take an Interview (bộ 7)
 * =================================================================== */
 TF.speaking.push({
-id: 'tf7-iv1', set: 2, task: 'interview', title: 'Learning a New Skill', seconds: 45, accent: 'en-GB',
+id: 'tf11-iv1', set: 2, task: 'interview', title: 'Learning a New Skill', seconds: 45, accent: 'en-GB',
 context: 'A researcher is interviewing students about learning new skills. Answer each question. You will have about 45 seconds for each answer.',
 questions: [
 { q: 'To begin, what is one new skill you have learned recently?',

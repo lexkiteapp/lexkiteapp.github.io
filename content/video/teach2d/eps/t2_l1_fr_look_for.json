@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_look_for",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Keys? Say look for!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am searching my keys.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am looking for my keys.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "We look for things. We search a place.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Looking for! I am looking for my phone.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am searching my keys.",
+  "right": "I am looking for my keys.",
+  "strike": "searching",
+  "why": "We look for things. We search a place.",
+  "memory": "Look for things.",
+  "quiz": {
+   "stem": "I lost my phone. I am ___ it.",
+   "options": [
+    "searching",
+    "looking for"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "« Chercher » : “look for”",
+   "tip": "En anglais, “search” se dit pour fouiller un lieu. Pour « chercher » un objet, dites “look for”.",
+   "caption": "Vous dites “I am searching my keys.” ? En anglais, “search” s’emploie pour fouiller un lieu. Pour « chercher » un objet, dites “look for”. Dites plutôt “I am looking for my keys.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “I am looking for my keys.” — En anglais, “search” s’emploie pour fouiller un lieu. Pour « chercher » un objet, dites “look for”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “look for”!",
+   "tip": "In English, we “search” a place. To find a thing, we “look for” it.",
+   "caption": "Do you say this? “I am searching my keys.” In English, we “search” a place. To find a thing, we “look for” it. Say “I am looking for my keys.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "« Chercher » : “look for”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 51,
+  "seconds": 30.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "« Chercher » : “look for”",
+  "keyword": "I am looking for my keys.",
+  "value": "En anglais, “search” se dit pour fouiller un lieu. Pour « chercher » un objet, dites “look for”.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 45,
+  "platforms": {
+   "youtube": {
+    "title": "« Chercher » : “look for”",
+    "description": "En anglais, “search” se dit pour fouiller un lieu. Pour « chercher » un objet, dites “look for”.\n\nVous dites “I am searching my keys.” ? En anglais, “search” s’emploie pour fouiller un lieu. Pour « chercher » un objet, dites “look for”. Dites plutôt “I am looking for my keys.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "I am looking for my keys.",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Vous dites “I am searching my keys.” ? En anglais, “search” s’emploie pour fouiller un lieu. Pour « chercher » un objet, dites “look for”. Dites plutôt “I am looking for my keys.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "« Chercher » : “look for”\n\nEn anglais, “search” se dit pour fouiller un lieu. Pour « chercher » un objet, dites “look for”.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "« Chercher » : “look for” En anglais, “search” se dit pour fouiller un lieu. Pour « chercher » un ob… #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “I am looking for my keys.” — En anglais, “search” s’emploie pour fouiller un lieu. Pour « chercher » un objet, dites “look for”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}

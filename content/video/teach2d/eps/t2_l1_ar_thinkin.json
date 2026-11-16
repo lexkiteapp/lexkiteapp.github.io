@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_thinkin",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Think in? Say think about!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I think in my family.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I think about my family.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use about after think.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "About! I often think about my job.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I think in my family.",
+  "right": "I think about my family.",
+  "strike": "in",
+  "why": "Use about after think.",
+  "memory": "Think about it.",
+  "quiz": {
+   "stem": "I often think ___ my job.",
+   "options": [
+    "in",
+    "about"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "هل تقول “think in”؟",
+   "tip": "نقول بالعربية «أفكر في عائلتي» بحرف في، لكن مع think نستخدم about: “I think about my family.” وليس “I think in my family.”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “I think in my family.” 😅 نقول بالعربية «أفكر في عائلتي» بحرف في، لكن مع think نستخدم about، فالجملة الصحيحة “I think about my family.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “about” — نقول بالعربية «أفكر في عائلتي» بحرف في، لكن مع think نستخدم about. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “think in”?",
+   "tip": "In Arabic we say «أفكر في عائلتي» with «في», but after think we use about: “I think about my family.” not “I think in my family.”",
+   "caption": "Do you sometimes say this? “I think in my family.” 😅 In Arabic we say «أفكر في عائلتي» with «في», but after think we use about, so the right sentence is “I think about my family.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “think in”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "هل تقول “think in”؟",
+  "keyword": "I think about my family.",
+  "value": "نقول بالعربية «أفكر في عائلتي» بحرف في، لكن مع think نستخدم about: “I think about my family.” وليس “I think in my family.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “think in”؟",
+    "description": "نقول بالعربية «أفكر في عائلتي» بحرف في، لكن مع think نستخدم about: “I think about my family.” وليس “I think in my family.”\n\nهل تقول أحيانًا هذه الجملة؟ “I think in my family.” 😅 نقول بالعربية «أفكر في عائلتي» بحرف في، لكن مع think نستخدم about، فالجملة الصحيحة “I think about my family.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "I think about my family.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا هذه الجملة؟ “I think in my family.” 😅 نقول بالعربية «أفكر في عائلتي» بحرف في، لكن مع think نستخدم about، فالجملة الصحيحة “I think about my family.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول “think in”؟\n\nنقول بالعربية «أفكر في عائلتي» بحرف في، لكن مع think نستخدم about: “I think about my family.” وليس “I think in my family.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “think in”؟ نقول بالعربية «أفكر في عائلتي» بحرف في، لكن مع think نستخدم about: “I think a… #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “about” — نقول بالعربية «أفكر في عائلتي» بحرف في، لكن مع think نستخدم about. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+  "lang": "ar"
+ }
+}

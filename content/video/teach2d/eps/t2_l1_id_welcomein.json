@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_welcomein",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Welcome to, not welcome in!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Welcome in Indonesia!",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Welcome to Indonesia!",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use to after welcome.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "To! Welcome to my home!",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Welcome in Indonesia!",
+  "right": "Welcome to Indonesia!",
+  "strike": "in",
+  "why": "Use to after welcome.",
+  "memory": "Welcome to Indonesia!",
+  "quiz": {
+   "stem": "Welcome ___ my home!",
+   "options": [
+    "in",
+    "to"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Welcome to…",
+   "tip": "Kita bilang “selamat datang di Indonesia” dengan di. Di bahasa Inggris, setelah welcome pakai to, bukan in.",
+   "caption": "Pernah bilang begini? “Welcome in Indonesia!” 😅 Setelah welcome, pakai to: “Welcome to Indonesia!” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “to”. Ucapkan dengan lantang: “Welcome to Indonesia!” lalu tulis ucapan selamat datang untuk tamumu. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#ucapan",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Welcome “to”",
+   "tip": "We say “selamat datang di Indonesia” with di. In English, after welcome use to, not in.",
+   "caption": "Ever say this? “Welcome in Indonesia!” 😅 After welcome, use to: “Welcome to Indonesia!” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Welcome to…"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 40,
+  "seconds": 25.1,
+  "wpm": 95
+ },
+ "publish": {
+  "title": "Welcome to…",
+  "keyword": "Welcome to Indonesia!",
+  "value": "Kita bilang “selamat datang di Indonesia” dengan di. Di bahasa Inggris, setelah welcome pakai to, bukan in.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#ucapan",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "Welcome to…",
+    "description": "Kita bilang “selamat datang di Indonesia” dengan di. Di bahasa Inggris, setelah welcome pakai to, bukan in.\n\nPernah bilang begini? “Welcome in Indonesia!” 😅 Setelah welcome, pakai to: “Welcome to Indonesia!” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #ucapan #bahasainggris #lexkite",
+    "tags": [
+     "Welcome to Indonesia!",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “Welcome in Indonesia!” 😅 Setelah welcome, pakai to: “Welcome to Indonesia!” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Welcome to…\n\nKita bilang “selamat datang di Indonesia” dengan di. Di bahasa Inggris, setelah welcome pakai to, bukan in.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#ucapan",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Welcome to… Kita bilang “selamat datang di Indonesia” dengan di. Di bahasa Inggris, setelah welcome paka… #belajarbahasainggris #ucapan #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “to”. Ucapkan dengan lantang: “Welcome to Indonesia!” lalu tulis ucapan selamat datang untuk tamumu. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

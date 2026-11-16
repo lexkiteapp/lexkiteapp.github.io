@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_how_is_name",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "What is your name?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: How is your name?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: What is your name?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "For a name, ask what.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "What! What is your name?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "How is your name?",
+  "right": "What is your name?",
+  "strike": "How",
+  "why": "For a name, ask what.",
+  "memory": "What is your name?",
+  "quiz": {
+   "stem": "___ is your name?",
+   "options": [
+    "How",
+    "What"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "¿“How is your name”? ¡No!",
+   "tip": "En español “¿cómo te llamas?” usa “cómo”, pero en inglés se pregunta con “what.”",
+   "caption": "Muchos dicen “How is your name?” 🙈 En español “¿cómo te llamas?” usa “cómo”, pero en inglés para el nombre se usa “what”: “What is your name?” ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “What”. Para preguntar el nombre se usa “what”, no “how”. Di en voz alta una frase tuya con “What”. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#gramatica",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“How is your name”? No!",
+   "tip": "In Spanish “¿cómo te llamas?” uses “cómo”, but English asks with “what.”",
+   "caption": "Many learners say “How is your name?” In Spanish “¿cómo te llamas?” uses “cómo”, but for a name English asks with “what”: “What is your name?” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿“How is your name”? ¡No!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "¿“How is your name”? ¡No!",
+  "keyword": "What is your name?",
+  "value": "En español “¿cómo te llamas?” usa “cómo”, pero en inglés se pregunta con “what.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#gramatica",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "¿“How is your name”? ¡No!",
+    "description": "En español “¿cómo te llamas?” usa “cómo”, pero en inglés se pregunta con “what.”\n\nMuchos dicen “How is your name?” 🙈 En español “¿cómo te llamas?” usa “cómo”, pero en inglés para el nombre se usa “what”: “What is your name?” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #gramatica #lexkite",
+    "tags": [
+     "What is your name?",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "Muchos dicen “How is your name?” 🙈 En español “¿cómo te llamas?” usa “cómo”, pero en inglés para el nombre se usa “what”: “What is your name?” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "¿“How is your name”? ¡No!\n\nEn español “¿cómo te llamas?” usa “cómo”, pero en inglés se pregunta con “what.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#gramatica",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿“How is your name”? ¡No! En español “¿cómo te llamas?” usa “cómo”, pero en inglés se pregunta con “what.” #aprenderingles #inglesfacil #gramatica"
+   }
+  },
+  "first_comment": "Respuesta: “What”. Para preguntar el nombre se usa “what”, no “how”. Di en voz alta una frase tuya con “What”. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}

@@ -16,7 +16,7 @@
   },
   {
    "id": "w",
-   "text": "Many learners say: I live here since two years.",
+   "text": "Many learners say: I have lived here since two years.",
    "pause": 0.42
   },
   {
@@ -52,7 +52,7 @@
   }
  ],
  "data": {
-  "wrong": "I live here since two years.",
+  "wrong": "I have lived here since two years.",
   "right": "I have lived here for two years.",
   "strike": "since",
   "why": "Use for with a length of time.",
@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "« Depuis deux ans » : pas “since”",
-   "tip": "Avec une durée (deux ans, une heure), on dit “for”. “Since” est pour un point de départ.",
-   "caption": "Tu traduis « depuis » par “since” ? Attention. En anglais, dis “I have lived here for two years.”. Compare : “I live here since two years.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.",
-   "comment": "Réponse : “for”. Une durée se dit avec “for”. Teste d'autres pièges avec un quiz gratuit : {link}",
+   "tip": "Avec une durée (deux ans, une heure), on dit “for”. “Since” sert pour un point de départ.",
+   "caption": "Vous dites “I have lived here since two years.” ? Avec une durée, « depuis » se dit “for”. Dites plutôt “I have lived here for two years.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “for” — Une durée se dit avec “for”. Testez d’autres pièges avec un quiz gratuit : {link}",
    "hashtags": [
     "#apprendrelanglais",
     "#anglaisfacile",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "“Depuis 2 ans”: not “since”",
+   "hook": "“For two years”, not “since”",
    "tip": "With a length of time, say “for”. “Since” is for a starting point.",
-   "caption": "Do you translate « depuis » as “since”? Careful. In English, say “I have lived here for two years.”. Compare: “I live here since two years.”. Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+   "caption": "Do you say this? “I have lived here since two years.” With a length of time, use “for”. Say “I have lived here for two years.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
   }
  },
  "cta": {
@@ -98,14 +98,14 @@
  },
  "lang": "fr",
  "est": {
-  "words": 51,
-  "seconds": 30.5,
-  "wpm": 100
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
  },
  "publish": {
   "title": "« Depuis deux ans » : pas “since”",
   "keyword": "I have lived here for two years.",
-  "value": "Avec une durée (deux ans, une heure), on dit “for”. “Since” est pour un point de départ.",
+  "value": "Avec une durée (deux ans, une heure), on dit “for”. “Since” sert pour un point de départ.",
   "hashtags": [
    "#apprendrelanglais",
    "#anglaisfacile",
@@ -113,11 +113,11 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 45,
+  "script_words": 46,
   "platforms": {
    "youtube": {
     "title": "« Depuis deux ans » : pas “since”",
-    "description": "Tu traduis « depuis » par “since” ? Attention. En anglais, dis “I have lived here for two years.”. Compare : “I live here since two years.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "description": "Avec une durée (deux ans, une heure), on dit “for”. “Since” sert pour un point de départ.\n\nVous dites “I have lived here since two years.” ? Avec une durée, « depuis » se dit “for”. Dites plutôt “I have lived here for two years.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
     "tags": [
      "I have lived here for two years.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Tu traduis « depuis » par “since” ? Attention. En anglais, dis “I have lived here for two years.”. Compare : “I live here since two years.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Vous dites “I have lived here since two years.” ? Avec une durée, « depuis » se dit “for”. Dites plutôt “I have lived here for two years.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Tu traduis « depuis » par “since” ? Attention. En anglais, dis “I have lived here for two years.”. Compare : “I live here since two years.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.\n\nlexkite.com",
+    "caption": "« Depuis deux ans » : pas “since”\n\nAvec une durée (deux ans, une heure), on dit “for”. “Since” sert pour un point de départ.\n\nlexkite.com",
     "hashtags": [
      "#apprendrelanglais",
      "#anglaisfacile",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "« Depuis deux ans » : pas “since” #apprendrelanglais #anglaisfacile #coursdanglais"
+    "caption": "« Depuis deux ans » : pas “since” Avec une durée (deux ans, une heure), on dit “for”. “Since” sert p… #apprendrelanglais #anglaisfacile #coursdanglais"
    }
   },
-  "first_comment": "Réponse : “for”. Une durée se dit avec “for”. Teste d'autres pièges avec un quiz gratuit : {link}",
+  "first_comment": "Réponse : “for” — Une durée se dit avec “for”. Testez d’autres pièges avec un quiz gratuit : {link}",
   "lang": "fr"
  }
 }

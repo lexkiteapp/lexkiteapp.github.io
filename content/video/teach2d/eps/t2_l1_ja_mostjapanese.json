@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_mostjapanese",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Almost or most?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Almost Japanese people like rice.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Most Japanese people like rice.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use most for many people.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Most! Most Japanese people like rice.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Almost Japanese people like rice.",
+  "right": "Most Japanese people like rice.",
+  "strike": "Almost",
+  "why": "Use most for many people.",
+  "memory": "Most Japanese people like rice.",
+  "quiz": {
+   "stem": "___ people here like rice.",
+   "options": [
+    "Almost",
+    "Most"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "「ほとんどの」は almost？",
+   "tip": "「ほとんどの人」は most people。almost は使えません。",
+   "caption": "“Almost Japanese people like rice.”と言っていませんか？😅 「ほとんど」を almost と覚えているので、つい混ざります。“Most Japanese people like rice.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“Most”。“Most Japanese people like rice.” を声に出して言ってみよう。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Almost people?",
+   "tip": "Say most people, not almost people.",
+   "caption": "Do you say this? “Almost Japanese people like rice.” 😅 Most means the biggest part of a group. The natural way is “Most Japanese people like rice.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "「ほとんどの」は almost？"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "「ほとんどの」は almost？",
+  "keyword": "Most Japanese people like rice.",
+  "value": "「ほとんどの人」は most people。almost は使えません。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "「ほとんどの」は almost？",
+    "description": "「ほとんどの人」は most people。almost は使えません。\n\n“Almost Japanese people like rice.”と言っていませんか？😅 「ほとんど」を almost と覚えているので、つい混ざります。“Most Japanese people like rice.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "Most Japanese people like rice.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“Almost Japanese people like rice.”と言っていませんか？😅 「ほとんど」を almost と覚えているので、つい混ざります。“Most Japanese people like rice.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "「ほとんどの」は almost？\n\n「ほとんどの人」は most people。almost は使えません。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「ほとんどの」は almost？ 「ほとんどの人」は most people。almost は使えません。 #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“Most”。“Most Japanese people like rice.” を声に出して言ってみよう。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

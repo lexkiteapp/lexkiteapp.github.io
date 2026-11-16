@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_ifrain",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "After if, no will!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: If it will rain, I will stay home.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: If it rains, I will stay home.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After if, say rains, not will rain.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Comes! If he comes late, call me.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "If it will rain, I will stay home.",
+  "right": "If it rains, I will stay home.",
+  "strike": "will rain",
+  "why": "After if, say rains, not will rain.",
+  "memory": "If it rains, I stay home.",
+  "quiz": {
+   "stem": "If he ___ late, call me.",
+   "options": [
+    "will come",
+    "comes"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“If it will rain” नहीं!",
+   "tip": "हिंदी में “अगर बारिश होगी” भविष्य में कहते हैं, पर अंग्रेज़ी में if के बाद will नहीं लगता; “If it rains” कहें।",
+   "caption": "क्या आप भी यही कहते हैं? “If it will rain, I will stay home.” 😅 सही रूप है “If it rains, I will stay home.” क्योंकि if के बाद will नहीं लगता। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “comes”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “If it will rain”!",
+   "tip": "Hindi speakers often put will after if, but English uses rains there.",
+   "caption": "Do you say this? “If it will rain, I will stay home.” 😅 The right way is “If it rains, I will stay home.” This is right because if takes no will. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“If it will rain” नहीं!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 53,
+  "seconds": 31.5,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "“If it will rain” नहीं!",
+  "keyword": "If it rains, I will stay home.",
+  "value": "हिंदी में “अगर बारिश होगी” भविष्य में कहते हैं, पर अंग्रेज़ी में if के बाद will नहीं लगता; “If it rains” कहें।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 47,
+  "platforms": {
+   "youtube": {
+    "title": "“If it will rain” नहीं!",
+    "description": "हिंदी में “अगर बारिश होगी” भविष्य में कहते हैं, पर अंग्रेज़ी में if के बाद will नहीं लगता; “If it rains” कहें।\n\nक्या आप भी यही कहते हैं? “If it will rain, I will stay home.” 😅 सही रूप है “If it rains, I will stay home.” क्योंकि if के बाद will नहीं लगता। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "If it rains, I will stay home.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी यही कहते हैं? “If it will rain, I will stay home.” 😅 सही रूप है “If it rains, I will stay home.” क्योंकि if के बाद will नहीं लगता। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“If it will rain” नहीं!\n\nहिंदी में “अगर बारिश होगी” भविष्य में कहते हैं, पर अंग्रेज़ी में if के बाद will नहीं लगता; “If it rains” कहें।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“If it will rain” नहीं! हिंदी में “अगर बारिश होगी” भविष्य में कहते हैं, पर अंग्रेज़ी में if के बाद will… #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “comes”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_thanks_coming",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say thanks for coming!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Thank you for come.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Thank you for coming.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After for, use coming.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Helping! Thanks for helping me.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Thank you for come.",
+  "right": "Thank you for coming.",
+  "strike": "come",
+  "why": "After for, use coming.",
+  "memory": "For coming.",
+  "quiz": {
+   "stem": "Thanks for ___ me.",
+   "options": [
+    "help",
+    "helping"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "for ต้องตามด้วย -ing!",
+   "tip": "ภาษาไทยพูด “ขอบคุณที่มา” โดยใช้กริยาเดิม แต่ภาษาอังกฤษหลัง for ต้องเติม -ing: “Thank you for coming.”",
+   "caption": "คุณเคยพูดว่า “Thank you for come.” ไหม? 😅 ภาษาไทยพูด “ขอบคุณที่มา” โดยใช้กริยาเดิม แต่ภาษาอังกฤษหลัง for ต้องเติม -ing: “Thank you for coming.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “helping” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยคด้วยคำนี้ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "After for, add -ing!",
+   "tip": "Thai uses the plain verb after thanks, but English needs -ing after for.",
+   "caption": "Do you say “Thank you for come.” 😅 Thai uses the plain verb after thanks, but English needs -ing after for. Say “Thank you for coming.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "for ต้องตามด้วย -ing!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 41,
+  "seconds": 25.6,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "for ต้องตามด้วย -ing!",
+  "keyword": "Thank you for coming.",
+  "value": "ภาษาไทยพูด “ขอบคุณที่มา” โดยใช้กริยาเดิม แต่ภาษาอังกฤษหลัง for ต้องเติม -ing: “Thank you for coming.”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "for ต้องตามด้วย -ing!",
+    "description": "ภาษาไทยพูด “ขอบคุณที่มา” โดยใช้กริยาเดิม แต่ภาษาอังกฤษหลัง for ต้องเติม -ing: “Thank you for coming.”\n\nคุณเคยพูดว่า “Thank you for come.” ไหม? 😅 ภาษาไทยพูด “ขอบคุณที่มา” โดยใช้กริยาเดิม แต่ภาษาอังกฤษหลัง for ต้องเติม -ing: “Thank you for coming.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "Thank you for coming.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “Thank you for come.” ไหม? 😅 ภาษาไทยพูด “ขอบคุณที่มา” โดยใช้กริยาเดิม แต่ภาษาอังกฤษหลัง for ต้องเติม -ing: “Thank you for coming.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "for ต้องตามด้วย -ing!\n\nภาษาไทยพูด “ขอบคุณที่มา” โดยใช้กริยาเดิม แต่ภาษาอังกฤษหลัง for ต้องเติม -ing: “Thank you for coming.”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "for ต้องตามด้วย -ing! ภาษาไทยพูด “ขอบคุณที่มา” โดยใช้กริยาเดิม แต่ภาษาอังกฤษหลัง for ต้องเติม -ing: “Thank yo… #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “helping” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยคด้วยคำนี้ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

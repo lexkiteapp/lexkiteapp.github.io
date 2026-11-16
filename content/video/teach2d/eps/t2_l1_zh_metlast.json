@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_metlast",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Last week is past!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have met her last week.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I met her last week.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Last week is finished. Use met.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Met! I met him last year.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have met her last week.",
+  "right": "I met her last week.",
+  "strike": "have met",
+  "why": "Last week is finished. Use met.",
+  "memory": "Last week, met.",
+  "quiz": {
+   "stem": "I ___ him last year.",
+   "options": [
+    "have met",
+    "met"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "有“上周”，别用 have met！",
+   "tip": "中文“我上周见过她”里的“过”容易让人用 have met，但有明确的过去时间要用一般过去式。",
+   "caption": "你是不是也会说 “I have met her last week.”😅 受“见过她”中的“过”影响，很多人会用 have met；但句子里有“上周”这种明确的过去时间，就要用 met：“I met her last week.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“I met her last week.”免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Last week? Use met!",
+   "tip": "With a finished time like last week, use the simple past: met.",
+   "caption": "Do you say “I have met her last week.” 😅 With a finished time like last week, use the simple past: “I met her last week.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "有“上周”，别用 have met！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "有“上周”，别用 have met！",
+  "keyword": "I met her last week.",
+  "value": "中文“我上周见过她”里的“过”容易让人用 have met，但有明确的过去时间要用一般过去式。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "有“上周”，别用 have met！",
+    "description": "中文“我上周见过她”里的“过”容易让人用 have met，但有明确的过去时间要用一般过去式。\n\n你是不是也会说 “I have met her last week.”😅 受“见过她”中的“过”影响，很多人会用 have met；但句子里有“上周”这种明确的过去时间，就要用 met：“I met her last week.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "I met her last week.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “I have met her last week.”😅 受“见过她”中的“过”影响，很多人会用 have met；但句子里有“上周”这种明确的过去时间，就要用 met：“I met her last week.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "有“上周”，别用 have met！\n\n中文“我上周见过她”里的“过”容易让人用 have met，但有明确的过去时间要用一般过去式。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "有“上周”，别用 have met！ 中文“我上周见过她”里的“过”容易让人用 have met，但有明确的过去时间要用一般过去式。 #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“I met her last week.”免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

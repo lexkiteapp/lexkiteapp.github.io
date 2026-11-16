@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_subject",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Do not drop the subject!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Is very cold today.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: It is very cold today.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "English needs a subject.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "It! It is raining now.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Is very cold today.",
+  "right": "It is very cold today.",
+  "strike": "Is",
+  "why": "English needs a subject.",
+  "memory": "It is cold.",
+  "quiz": {
+   "stem": "___ is raining now.",
+   "options": [
+    "It",
+    "Is"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "영어는 주어를 빼면 안 돼요!",
+   "tip": "한국어는 주어를 자주 생략하지만 영어는 꼭 필요해요. “It is very cold today”!",
+   "caption": "“Is very cold today.”처럼 말하고 있나요? 😅 한국어처럼 주어를 생략하면 안 되고, 날씨 얘기에도 “It”이 꼭 필요해요. 맞는 문장 ✅ “It is very cold today.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답: “It”! 주어를 꼭 쓰세요! 무료 퀴즈로 더 연습해 보세요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Never drop the subject!",
+   "tip": "English always needs a subject, even for weather. Say “It is very cold today.”",
+   "caption": "Do you say “Is very cold today” in English? 😅 English needs a subject, even for weather. “It is very cold today” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "영어는 주어를 빼면 안 돼요!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "영어는 주어를 빼면 안 돼요!",
+  "keyword": "It is very cold today.",
+  "value": "한국어는 주어를 자주 생략하지만 영어는 꼭 필요해요. “It is very cold today”!",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "영어는 주어를 빼면 안 돼요!",
+    "description": "한국어는 주어를 자주 생략하지만 영어는 꼭 필요해요. “It is very cold today”!\n\n“Is very cold today.”처럼 말하고 있나요? 😅 한국어처럼 주어를 생략하면 안 되고, 날씨 얘기에도 “It”이 꼭 필요해요. 맞는 문장 ✅ “It is very cold today.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "It is very cold today.",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“Is very cold today.”처럼 말하고 있나요? 😅 한국어처럼 주어를 생략하면 안 되고, 날씨 얘기에도 “It”이 꼭 필요해요. 맞는 문장 ✅ “It is very cold today.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "영어는 주어를 빼면 안 돼요!\n\n한국어는 주어를 자주 생략하지만 영어는 꼭 필요해요. “It is very cold today”!\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "영어는 주어를 빼면 안 돼요! 한국어는 주어를 자주 생략하지만 영어는 꼭 필요해요. “It is very cold today”! #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “It”! 주어를 꼭 쓰세요! 무료 퀴즈로 더 연습해 보세요: {link}",
+  "lang": "ko"
+ }
+}

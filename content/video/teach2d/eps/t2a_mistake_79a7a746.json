@@ -1,0 +1,129 @@
+{
+ "id": "t2a_mistake_79a7a746",
+ "template": "mistake",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Stop saying two knifes.",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Please bring two knifes.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Please bring two knives.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "The plural of knife is knives.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Knives! Put the knives on the table.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Please bring two knifes.",
+  "right": "Please bring two knives.",
+  "strike": "knifes",
+  "why": "The plural of knife is knives.",
+  "memory": "Knife, knives, like wife",
+  "quiz": {
+   "stem": "Put the ___ on the table.",
+   "options": [
+    "knifes",
+    "knives"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Stop saying two knifes."
+ },
+ "src": {
+  "gold": "sb_79a7a746",
+  "pid": "w:knife#n"
+ },
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Say \"Please bring two knives\", not \"Please bring two knifes\"",
+  "keyword": "knifes",
+  "value": "Say \"Please bring two knives\", not \"Please bring two knifes\". The plural of knife is knives.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#englishgrammar",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "Say \"Please bring two knives\", not \"Please bring two knifes\"",
+    "description": "Say \"Please bring two knives\", not \"Please bring two knifes\". The plural of knife is knives.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix\n\nSeries: Stop Saying This · Teacher: Ama\n\n#learnenglish #englishtips #englishgrammar #englishteacher",
+    "tags": [
+     "knifes",
+     "Stop Saying This",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Say \"Please bring two knives\", not \"Please bring two knifes\"\n\nSay \"Please bring two knives\", not \"Please bring two knifes\". The plural of knife is knives.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Say \"Please bring two knives\", not \"Please bring two knifes\"\n\nSay \"Please bring two knives\", not \"Please bring two knifes\". The plural of knife is knives.\n\nCheck your grammar: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#englishgrammar",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Say \"Please bring two knives\", not \"Please bring two knifes\" #learnenglish #englishtips #englishgrammar"
+   }
+  },
+  "first_comment": "Quiz answer: Knives! Put the knives on the table. Say \"Please bring two knives\", not \"Please bring two knifes\". The plural of knife is knives. Practice it with a free quiz: {link}"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_where_the_bank_is",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Where the bank is, not where is!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Can you tell me where is the bank?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Can you tell me where the bank is?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say where the bank is.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! Where the bank is.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Can you tell me where is the bank?",
+  "right": "Can you tell me where the bank is?",
+  "strike": "where is the bank",
+  "why": "Say where the bank is.",
+  "memory": "Can you tell me where the bank is?",
+  "quiz": {
+   "stem": "Can you tell me where ___?",
+   "options": [
+    "is the bank",
+    "the bank is"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Where the bank is” de!",
+   "tip": "Tek başına soruda “Where is the bank?” deriz; ama “Can you tell me” sonrası düz sıra gelir: “Can you tell me where the bank is?”",
+   "caption": "“Can you tell me where is the bank?” mi diyorsun? 😅 “Can you tell me” sonrasında düz cümle sırası gelir: önce “the bank”, sonra “is”. Doğrusu “Can you tell me where the bank is?” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “the bank is”. Sıra düz cümle gibi olur. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “where the bank is”!",
+   "tip": "After “Can you tell me,” use a plain sentence order: “Can you tell me where the bank is?”",
+   "caption": "Do you say “Can you tell me where is the bank?” 😅 After “Can you tell me” the order is like a plain sentence: first “the bank” and then “is” at the end. The right sentence is “Can you tell me where the bank is?” Listen to Ama and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Where the bank is” de!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 54,
+  "seconds": 32.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "“Where the bank is” de!",
+  "keyword": "Can you tell me where the bank is?",
+  "value": "Tek başına soruda “Where is the bank?” deriz; ama “Can you tell me” sonrası düz sıra gelir: “Can you tell me where the bank is?”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 48,
+  "platforms": {
+   "youtube": {
+    "title": "“Where the bank is” de!",
+    "description": "Tek başına soruda “Where is the bank?” deriz; ama “Can you tell me” sonrası düz sıra gelir: “Can you tell me where the bank is?”\n\n“Can you tell me where is the bank?” mi diyorsun? 😅 “Can you tell me” sonrasında düz cümle sırası gelir: önce “the bank”, sonra “is”. Doğrusu “Can you tell me where the bank is?” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "Can you tell me where the bank is?",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“Can you tell me where is the bank?” mi diyorsun? 😅 “Can you tell me” sonrasında düz cümle sırası gelir: önce “the bank”, sonra “is”. Doğrusu “Can you tell me where the bank is?” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Where the bank is” de!\n\nTek başına soruda “Where is the bank?” deriz; ama “Can you tell me” sonrası düz sıra gelir: “Can you tell me where the bank is?”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Where the bank is” de! Tek başına soruda “Where is the bank?” deriz; ama “Can you tell me” sonrası düz… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “the bank is”. Sıra düz cümle gibi olur. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+  "lang": "tr"
+ }
+}

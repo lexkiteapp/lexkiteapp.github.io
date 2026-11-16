@@ -69,6 +69,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 02:00 | `upgrade-audit` | `0 2 * * 1` | reports | gh_minutes | 2 | — | — |
 | 02:10 | `nav-render` | `10 2 * * *` | render | gh_minutes | 20 | — | — |
 | 02:17 | `content-protect` | `17 2 * * 0` | reports | gh_minutes | 10 | — | — |
+| 02:17 | `perf-flake-report` | `17 2 * * 1` | reports | gh_minutes | 1 | — | — |
 | 02:20 | `font-audit` | `20 2 * * 1` | reports | gh_minutes | 10 | — | — |
 | 02:30 | `i18n` | `30 2 * * *` | render | gemini, gh_minutes | 90 | — | — |
 | 02:30 | `world-scorecard` | `30 2 * * 1` | reports | gh_minutes | 15 | — | — |
@@ -125,6 +126,7 @@ Sau mốc reset 00:00 UTC (hạn mức D1 miễn phí làm mới), thứ tự: v
 | `scripts/content-score.mjs` – content/pipeline/SCORE.md – điểm mảng Kho từ (đếm từ#loại kể cả mở rộng 20k, độ phủ trường, ảnh) | `loadAllPlus` | content-qa.yml (score) |
 | `scripts/content-qa/learnability.mjs` – reports/learnability.json + content/pipeline/LEARN.md – thước đo 'Dễ học – dễ nhớ' (12 tiêu chí; dùng cấp CEFR kho từ cho i+1, kể cả mục mở rộng 20k) | `loadAllPlus` | content-qa.yml (score) + npm test |
 | `scripts/content-qa/lkf-check.mjs` – reports/lkf-coverage.json – độ phủ lo của từ#loại (luật vocab theo cấp CEFR, kể cả mục mở rộng 20k) cho khung Can-do | `loadAllPlus` | npm test + content-qa.yml (score) |
+| `scripts/gen-word-packs.mjs` – web/i18n/words/<lang>: gói nghĩa từ 13 ngôn ngữ (nguồn từ gồm cả mục mở rộng 20k) | `loadAllPlus` | word-packs.yml (hằng đêm) |
 | `scripts/lexicon/shards.mjs` – mảnh tra từ (web, mobile, add-on qua Lex) + mảnh nghĩa 13 ngôn ngữ | `loadExpand` | build-web (mỗi lần deploy) |
 | `scripts/lexicon/surfaces.mjs` – dict-consistency: mảnh = INDEX | `loadBrowserIndex` | npm test |
 | `scripts/build-lexicon.mjs` – dist/lexicon.json (vimg, video-web, i18n) + cổng ảnh | `loadExpand` | build / npm test |

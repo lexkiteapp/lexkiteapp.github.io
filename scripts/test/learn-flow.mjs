@@ -119,7 +119,7 @@ if (found) {
   ok(others.length === 3 && others.every(x => D.posOf(x.pos) === 'v'), 'phương án nhiễu cho “live” đều là động từ: ' + others.map(x => x.word).join(', '));
   click(opts[0]); await tick(10);
   ok(!$('#fb .sheet'), 'chạm ngay khi vừa hiện câu (chạm đúp từ màn trước) bị bỏ qua');
-  clock += 300; click(opts[0]); await tick(40); w.Date.now = realNow; // đủ 250 ms theo đồng hồ app → chạm được nhận, rồi trả đồng hồ thật
+  clock += 300; click(opts[0]); await tick(40); const clockOff = clock - realNow(); w.Date.now = () => realNow() + clockOff; // đủ 250 ms theo đồng hồ app → chạm được nhận; rã đông thì chạy tiếp LIÊN TỤC từ mốc ảo (KHÔNG nhảy ngược về giờ thật: máy nhanh thì nextQ bị bảo vệ chạm đúp 250 ms chặn → không có tiến độ → ✕ không hỏi xác nhận, đỏ ~1/234)
   ok($('#fb .sheet'), 'chạm sau đó → hiện bảng phản hồi');
   ok($('.study-wrap').style.getPropertyValue('--sheet-h') && /\.study-wrap:has\(\.sheet-up\) \{ padding-bottom: calc\(var\(--sheet-h/.test(css) && $('#fb .sheet').classList.contains('sheet-up'), 'chừa đáy bằng đúng chiều cao bảng phản hồi (gắn .sheet-up sau lần vẽ – INP)');
   // ✕ giữa chừng → hỏi lại

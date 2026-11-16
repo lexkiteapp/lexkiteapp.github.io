@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_everyone",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Everyone is, not are!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Everyone are happy today.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Everyone is happy today.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Everyone acts like one person.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Is! Everyone is here.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Everyone are happy today.",
+  "right": "Everyone is happy today.",
+  "strike": "are",
+  "why": "Everyone acts like one person.",
+  "memory": "Everyone is.",
+  "quiz": {
+   "stem": "Everyone ___ here.",
+   "options": [
+    "is",
+    "are"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Everyone 뒤엔 is예요!",
+   "tip": "한국어 “모두가”는 여러 명처럼 느껴져서 are를 쓰기 쉬워요. 영어 everyone은 한 사람처럼 is를 써요. 이렇게 말해요 👉 “Everyone is happy today.”",
+   "caption": "“Everyone are happy today.”처럼 말하고 있나요? 😅 한국어 “모두가”는 여러 명처럼 느껴져서 are를 쓰기 쉬워요. 영어 everyone은 한 사람처럼 is를 써요. 맞는 문장 ✅ “Everyone is happy today.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답: “is”! 이 표현으로 나만의 문장을 하나 써 보세요. 무료 퀴즈로 더 연습해요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Everyone goes with is!",
+   "tip": "Everyone is like one person, so say is. Say “Everyone is happy today.”",
+   "caption": "Do you say it like this? 😅 “Everyone are happy today.” Everyone is like one person, so say is. Right: “Everyone is happy today.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Everyone 뒤엔 is예요!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 41,
+  "seconds": 25.6,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "Everyone 뒤엔 is예요!",
+  "keyword": "Everyone is happy today.",
+  "value": "한국어 “모두가”는 여러 명처럼 느껴져서 are를 쓰기 쉬워요. 영어 everyone은 한 사람처럼 is를 써요. 이렇게 말해요 👉 “Everyone is happy today.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "Everyone 뒤엔 is예요!",
+    "description": "한국어 “모두가”는 여러 명처럼 느껴져서 are를 쓰기 쉬워요. 영어 everyone은 한 사람처럼 is를 써요. 이렇게 말해요 👉 “Everyone is happy today.”\n\n“Everyone are happy today.”처럼 말하고 있나요? 😅 한국어 “모두가”는 여러 명처럼 느껴져서 are를 쓰기 쉬워요. 영어 everyone은 한 사람처럼 is를 써요. 맞는 문장 ✅ “Everyone is happy today.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "Everyone is happy today.",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“Everyone are happy today.”처럼 말하고 있나요? 😅 한국어 “모두가”는 여러 명처럼 느껴져서 are를 쓰기 쉬워요. 영어 everyone은 한 사람처럼 is를 써요. 맞는 문장 ✅ “Everyone is happy today.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Everyone 뒤엔 is예요!\n\n한국어 “모두가”는 여러 명처럼 느껴져서 are를 쓰기 쉬워요. 영어 everyone은 한 사람처럼 is를 써요. 이렇게 말해요 👉 “Everyone is happy today.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Everyone 뒤엔 is예요! 한국어 “모두가”는 여러 명처럼 느껴져서 are를 쓰기 쉬워요. 영어 everyone은 한 사람처럼 is를 써요. 이렇게 말해요 👉 “Everyone is happy today.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “is”! 이 표현으로 나만의 문장을 하나 써 보세요. 무료 퀴즈로 더 연습해요: {link}",
+  "lang": "ko"
+ }
+}

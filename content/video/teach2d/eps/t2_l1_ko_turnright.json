@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_turnright",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Right, not light!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Turn light at the corner.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Turn right at the corner.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Light is a lamp. Right is a side.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Right! Turn right at the corner.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Turn light at the corner.",
+  "right": "Turn right at the corner.",
+  "strike": "light",
+  "why": "Light is a lamp. Right is a side.",
+  "memory": "Turn right.",
+  "quiz": {
+   "stem": "Turn ___ at the corner.",
+   "options": [
+    "right",
+    "light"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "right를 light로 쓰지 마세요!",
+   "tip": "한국어는 ㄹ 하나로 r과 l을 말해서 헷갈리기 쉬워요. 오른쪽은 right! 이렇게 말해요 👉 “Turn right at the corner.”",
+   "caption": "“Turn light at the corner”처럼 말하고 있나요? 😅 한국어는 ㄹ 하나로 r과 l을 모두 말하다 보니 right와 light를 헷갈리기 쉬워요. 오른쪽으로 돌 때는 right예요. 맞는 문장 ✅ “Turn right at the corner.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답 ✅ “Turn right at the corner.” 소리 내어 한 번 말해 보고, 나만의 문장도 하나 써 보세요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do not write light for right!",
+   "tip": "Light is a lamp. Right is the side. Say “Turn right at the corner.”",
+   "caption": "Do you say “Turn light at the corner” in English? 😅 Light is a lamp, and right is the side you turn to! “Turn right at the corner” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "right를 light로 쓰지 마세요!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "right를 light로 쓰지 마세요!",
+  "keyword": "Turn right at the corner.",
+  "value": "한국어는 ㄹ 하나로 r과 l을 말해서 헷갈리기 쉬워요. 오른쪽은 right! 이렇게 말해요 👉 “Turn right at the corner.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "right를 light로 쓰지 마세요!",
+    "description": "한국어는 ㄹ 하나로 r과 l을 말해서 헷갈리기 쉬워요. 오른쪽은 right! 이렇게 말해요 👉 “Turn right at the corner.”\n\n“Turn light at the corner”처럼 말하고 있나요? 😅 한국어는 ㄹ 하나로 r과 l을 모두 말하다 보니 right와 light를 헷갈리기 쉬워요. 오른쪽으로 돌 때는 right예요. 맞는 문장 ✅ “Turn right at the corner.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "Turn right at the corner.",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“Turn light at the corner”처럼 말하고 있나요? 😅 한국어는 ㄹ 하나로 r과 l을 모두 말하다 보니 right와 light를 헷갈리기 쉬워요. 오른쪽으로 돌 때는 right예요. 맞는 문장 ✅ “Turn right at the corner.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "right를 light로 쓰지 마세요!\n\n한국어는 ㄹ 하나로 r과 l을 말해서 헷갈리기 쉬워요. 오른쪽은 right! 이렇게 말해요 👉 “Turn right at the corner.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "right를 light로 쓰지 마세요! 한국어는 ㄹ 하나로 r과 l을 말해서 헷갈리기 쉬워요. 오른쪽은 right! 이렇게 말해요 👉 “Turn right at the corner.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답 ✅ “Turn right at the corner.” 소리 내어 한 번 말해 보고, 나만의 문장도 하나 써 보세요: {link}",
+  "lang": "ko"
+ }
+}

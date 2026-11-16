@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_tookbath",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Entered the bath?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I entered the bath last night.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I took a bath last night.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say take a bath.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Took! I took a bath last night.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I entered the bath last night.",
+  "right": "I took a bath last night.",
+  "strike": "entered",
+  "why": "Say take a bath.",
+  "memory": "I took a bath last night.",
+  "quiz": {
+   "stem": "She ___ a bath after dinner.",
+   "options": [
+    "entered",
+    "took"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "「お風呂に入る」は enter？",
+   "tip": "「お風呂に入る」は take a bath。enter は使いません。",
+   "caption": "“I entered the bath last night.”と言っていませんか？😅 「入る」を enter で訳してしまいがちです。“I took a bath last night.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“took”。“I took a bath last night.” を声に出して言ってみよう。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you enter the bath?",
+   "tip": "Say take a bath.",
+   "caption": "Do you say this? “I entered the bath last night.” 😅 The Japanese 入る does not match enter here. The natural way is “I took a bath last night.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "「お風呂に入る」は enter？"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "「お風呂に入る」は enter？",
+  "keyword": "I took a bath last night.",
+  "value": "「お風呂に入る」は take a bath。enter は使いません。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "「お風呂に入る」は enter？",
+    "description": "「お風呂に入る」は take a bath。enter は使いません。\n\n“I entered the bath last night.”と言っていませんか？😅 「入る」を enter で訳してしまいがちです。“I took a bath last night.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "I took a bath last night.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“I entered the bath last night.”と言っていませんか？😅 「入る」を enter で訳してしまいがちです。“I took a bath last night.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "「お風呂に入る」は enter？\n\n「お風呂に入る」は take a bath。enter は使いません。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「お風呂に入る」は enter？ 「お風呂に入る」は take a bath。enter は使いません。 #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“took”。“I took a bath last night.” を声に出して言ってみよう。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

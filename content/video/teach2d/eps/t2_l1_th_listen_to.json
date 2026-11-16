@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_listen_to",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Listen to music, not listen music!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I listen music every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I listen to music every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say listen to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "To! She likes to listen to the radio.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I listen music every day.",
+  "right": "I listen to music every day.",
+  "strike": "listen music",
+  "why": "Say listen to.",
+  "memory": "Listen to music.",
+  "quiz": {
+   "stem": "She likes to listen ___ the radio.",
+   "options": [
+    "to",
+    "at"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "ฟังเพลง = listen to music!",
+   "tip": "ไทยพูด “ฟังเพลง” ไม่มีคำเชื่อม แต่อังกฤษต้อง “listen to music”",
+   "caption": "คุณเคยพูดว่า “I listen music every day.” ไหม? 😅 ภาษาไทยพูดว่า “ฟังเพลง” ได้เลย แต่ภาษาอังกฤษหลัง listen ต้องมี to: “I listen to music every day.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “to” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Listen needs “to”!",
+   "tip": "Thai says “listen music” with no linking word, but English needs “listen to music”",
+   "caption": "Do you say “I listen music every day”? 😅 In Thai there is no word between listen and music, but English needs to after listen. Say “I listen to music every day”! Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "ฟังเพลง = listen to music!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "ฟังเพลง = listen to music!",
+  "keyword": "I listen to music every day.",
+  "value": "ไทยพูด “ฟังเพลง” ไม่มีคำเชื่อม แต่อังกฤษต้อง “listen to music”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "ฟังเพลง = listen to music!",
+    "description": "ไทยพูด “ฟังเพลง” ไม่มีคำเชื่อม แต่อังกฤษต้อง “listen to music”\n\nคุณเคยพูดว่า “I listen music every day.” ไหม? 😅 ภาษาไทยพูดว่า “ฟังเพลง” ได้เลย แต่ภาษาอังกฤษหลัง listen ต้องมี to: “I listen to music every day.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "I listen to music every day.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “I listen music every day.” ไหม? 😅 ภาษาไทยพูดว่า “ฟังเพลง” ได้เลย แต่ภาษาอังกฤษหลัง listen ต้องมี to: “I listen to music every day.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "ฟังเพลง = listen to music!\n\nไทยพูด “ฟังเพลง” ไม่มีคำเชื่อม แต่อังกฤษต้อง “listen to music”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ฟังเพลง = listen to music! ไทยพูด “ฟังเพลง” ไม่มีคำเชื่อม แต่อังกฤษต้อง “listen to music” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “to” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}
