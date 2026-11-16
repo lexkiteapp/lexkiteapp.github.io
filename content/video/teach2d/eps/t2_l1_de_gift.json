@@ -66,10 +66,10 @@
    "answer": 0
   },
   "native": {
-   "hook": "Bekanntes Wort „Gift“ – Vorsicht!",
-   "tip": "Das englische „gift“ ist ein Geschenk. Gift im Wasser heißt „poison“.",
-   "caption": "Das Wort „gift“ sieht vertraut aus, aber Vorsicht! 🎁 “Gift” heißt Geschenk. Falsch: “This water has gift in it.” Richtig: “This water has poison in it.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.",
-   "comment": "Lösung: “poison”. Richtig heißt es: “This water has poison in it.” Übe mehr mit einem kostenlosen Quiz: {link}",
+   "hook": "„gift“ heißt nicht Gift!",
+   "tip": "Das englische „gift“ ist ein Geschenk. Unser „Gift“ heißt „poison“.",
+   "caption": "Das Wort „gift“ sieht vertraut aus, aber Vorsicht! 🎁 Auf Englisch heißt „gift“ Geschenk. Falsch: „This water has gift in it.“ Richtig: „This water has poison in it.“ Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: „poison“. Richtig heißt es: „This water has poison in it.“ Üben Sie mehr mit einem kostenlosen Quiz: {link}",
    "hashtags": [
     "#englischlernen",
     "#englischtipps",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "The word “gift” looks familiar, but be careful!",
-   "tip": "The English “gift” is a present. Poison in the water is “poison”.",
-   "caption": "“Gift” means Geschenk in English, not the German Gift. Wrong: “This water has gift in it.” Right: “This water has poison in it.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+   "hook": "“gift” is not poison!",
+   "tip": "“Gift” means a present. The word for something deadly is “poison.”",
+   "caption": "The word “gift” looks familiar, but be careful! 🎁 “gift” means a present, not poison. Wrong: “This water has gift in it.” Right: “This water has poison in it.” Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "Bekanntes Wort „Gift“ – Vorsicht!"
+  "text": "„gift“ heißt nicht Gift!"
  },
  "src": {
   "l1": true
@@ -103,9 +103,9 @@
   "wpm": 99
  },
  "publish": {
-  "title": "Bekanntes Wort „Gift“ – Vorsicht!",
+  "title": "„gift“ heißt nicht Gift!",
   "keyword": "This water has poison in it.",
-  "value": "Das englische „gift“ ist ein Geschenk. Gift im Wasser heißt „poison“.",
+  "value": "Das englische „gift“ ist ein Geschenk. Unser „Gift“ heißt „poison“.",
   "hashtags": [
    "#englischlernen",
    "#englischtipps",
@@ -116,8 +116,8 @@
   "script_words": 42,
   "platforms": {
    "youtube": {
-    "title": "Bekanntes Wort „Gift“ – Vorsicht!",
-    "description": "Das Wort „gift“ sieht vertraut aus, aber Vorsicht! 🎁 “Gift” heißt Geschenk. Falsch: “This water has gift in it.” Richtig: “This water has poison in it.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "title": "„gift“ heißt nicht Gift!",
+    "description": "Das englische „gift“ ist ein Geschenk. Unser „Gift“ heißt „poison“.\n\nDas Wort „gift“ sieht vertraut aus, aber Vorsicht! 🎁 Auf Englisch heißt „gift“ Geschenk. Falsch: „This water has gift in it.“ Richtig: „This water has poison in it.“ Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
     "tags": [
      "This water has poison in it.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Das Wort „gift“ sieht vertraut aus, aber Vorsicht! 🎁 “Gift” heißt Geschenk. Falsch: “This water has gift in it.” Richtig: “This water has poison in it.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Das Wort „gift“ sieht vertraut aus, aber Vorsicht! 🎁 Auf Englisch heißt „gift“ Geschenk. Falsch: „This water has gift in it.“ Richtig: „This water has poison in it.“ Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Das Wort „gift“ sieht vertraut aus, aber Vorsicht! 🎁 “Gift” heißt Geschenk. Falsch: “This water has gift in it.” Richtig: “This water has poison in it.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.\n\nlexkite.com",
+    "caption": "„gift“ heißt nicht Gift!\n\nDas englische „gift“ ist ein Geschenk. Unser „Gift“ heißt „poison“.\n\nlexkite.com",
     "hashtags": [
      "#englischlernen",
      "#englischtipps",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "Bekanntes Wort „Gift“ – Vorsicht! #englischlernen #englischtipps #sprachenlernen"
+    "caption": "„gift“ heißt nicht Gift! Das englische „gift“ ist ein Geschenk. Unser „Gift“ heißt „poison“. #englischlernen #englischtipps #sprachenlernen"
    }
   },
-  "first_comment": "Lösung: “poison”. Richtig heißt es: “This water has poison in it.” Übe mehr mit einem kostenlosen Quiz: {link}",
+  "first_comment": "Lösung: „poison“. Richtig heißt es: „This water has poison in it.“ Üben Sie mehr mit einem kostenlosen Quiz: {link}",
   "lang": "de"
  }
 }

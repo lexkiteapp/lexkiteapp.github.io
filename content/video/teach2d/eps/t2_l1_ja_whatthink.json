@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_whatthink",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "How do you think?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: How do you think about it?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: What do you think about it?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Ask for an idea with what, not how.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "What! What do you think about it?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "How do you think about it?",
+  "right": "What do you think about it?",
+  "strike": "How",
+  "why": "Ask for an idea with what, not how.",
+  "memory": "What do you think about it?",
+  "quiz": {
+   "stem": "___ do you think about this song?",
+   "options": [
+    "How",
+    "What"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "「どう思う？」は How？ What？",
+   "tip": "「どう思う？」の「どう」を how にしがちですが、意見を聞くときは what。",
+   "caption": "“How do you think about it?”と言っていませんか？😅 「どう」を how と訳して How do you think と言いがちです。“What do you think about it?” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“What”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "How do you think?",
+   "tip": "Use what to ask for an idea.",
+   "caption": "Do you say this? “How do you think about it?” 😅 Use what, not how, to ask for an idea. The natural way is “What do you think about it?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "「どう思う？」は How？ What？"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 51,
+  "seconds": 30.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "「どう思う？」は How？ What？",
+  "keyword": "What do you think about it?",
+  "value": "「どう思う？」の「どう」を how にしがちですが、意見を聞くときは what。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 45,
+  "platforms": {
+   "youtube": {
+    "title": "「どう思う？」は How？ What？",
+    "description": "「どう思う？」の「どう」を how にしがちですが、意見を聞くときは what。\n\n“How do you think about it?”と言っていませんか？😅 「どう」を how と訳して How do you think と言いがちです。“What do you think about it?” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "What do you think about it?",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“How do you think about it?”と言っていませんか？😅 「どう」を how と訳して How do you think と言いがちです。“What do you think about it?” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "「どう思う？」は How？ What？\n\n「どう思う？」の「どう」を how にしがちですが、意見を聞くときは what。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「どう思う？」は How？ What？ 「どう思う？」の「どう」を how にしがちですが、意見を聞くときは what。 #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“What”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

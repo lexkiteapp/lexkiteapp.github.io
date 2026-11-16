@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_havebreakfast",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Take breakfast? Have it!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I take breakfast at seven.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have breakfast at seven.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "We have breakfast.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Have! We have lunch at one.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I take breakfast at seven.",
+  "right": "I have breakfast at seven.",
+  "strike": "take",
+  "why": "We have breakfast.",
+  "memory": "Have breakfast.",
+  "quiz": {
+   "stem": "We ___ lunch at one.",
+   "options": [
+    "take",
+    "have"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "هل تقول “take breakfast”؟",
+   "tip": "في العربية نقول «أتناول الفطور»، أما في الإنجليزية فنقول have breakfast: “I have breakfast at seven.” وليس “I take breakfast at seven.”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “I take breakfast at seven.” 😅 في العربية نقول «أتناول الفطور»، أما في الإنجليزية فنقول have breakfast، فالجملة الصحيحة “I have breakfast at seven.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “have” — في العربية نقول «أتناول الفطور»، أما في الإنجليزية فنقول have breakfast. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “take breakfast”?",
+   "tip": "In Arabic we say «أتناول الفطور», but in English we say have breakfast: “I have breakfast at seven.” not “I take breakfast at seven.”",
+   "caption": "Do you sometimes say this? “I take breakfast at seven.” 😅 In Arabic we say «أتناول الفطور», but in English we say have breakfast, so the right sentence is “I have breakfast at seven.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “take breakfast”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "هل تقول “take breakfast”؟",
+  "keyword": "I have breakfast at seven.",
+  "value": "في العربية نقول «أتناول الفطور»، أما في الإنجليزية فنقول have breakfast: “I have breakfast at seven.” وليس “I take breakfast at seven.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “take breakfast”؟",
+    "description": "في العربية نقول «أتناول الفطور»، أما في الإنجليزية فنقول have breakfast: “I have breakfast at seven.” وليس “I take breakfast at seven.”\n\nهل تقول أحيانًا هذه الجملة؟ “I take breakfast at seven.” 😅 في العربية نقول «أتناول الفطور»، أما في الإنجليزية فنقول have breakfast، فالجملة الصحيحة “I have breakfast at seven.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "I have breakfast at seven.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا هذه الجملة؟ “I take breakfast at seven.” 😅 في العربية نقول «أتناول الفطور»، أما في الإنجليزية فنقول have breakfast، فالجملة الصحيحة “I have breakfast at seven.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول “take breakfast”؟\n\nفي العربية نقول «أتناول الفطور»، أما في الإنجليزية فنقول have breakfast: “I have breakfast at seven.” وليس “I take breakfast at seven.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “take breakfast”؟ في العربية نقول «أتناول الفطور»، أما في الإنجليزية فنقول have breakfast… #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “have” — في العربية نقول «أتناول الفطور»، أما في الإنجليزية فنقول have breakfast. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+  "lang": "ar"
+ }
+}

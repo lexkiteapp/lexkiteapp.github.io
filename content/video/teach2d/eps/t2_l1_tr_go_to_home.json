@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_go_to_home",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Go home, not go to home!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am going to home now.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am going home now.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "No to before home.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! Let's go home now.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am going to home now.",
+  "right": "I am going home now.",
+  "strike": "to",
+  "why": "No to before home.",
+  "memory": "I am going home now.",
+  "quiz": {
+   "stem": "Let's go ___ now.",
+   "options": [
+    "to home",
+    "home"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“To home” değil, “go home”!",
+   "tip": "Türkçede “eve gidiyorum” deriz, “-e” eki “to” gibi durur; İngilizcede “home” önüne “to” gelmez: “I am going home now.”",
+   "caption": "“I am going to home now” mi diyorsun? 😅 İngilizcede “go” sonrası “home” tek başına gelir, “to” kullanılmaz. Doğrusu “I am going home now.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “home”. “Go” sonrası “home” tek başına gelir. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “go home”!",
+   "tip": "Do not use “to” before “home”: “I am going home now.”",
+   "caption": "Do you say “I am going to home now”? 😅 In English “home” comes right after “go” with no “to” in between. The right sentence is “I am going home now.” Listen to Carlos and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“To home” değil, “go home”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“To home” değil, “go home”!",
+  "keyword": "I am going home now.",
+  "value": "Türkçede “eve gidiyorum” deriz, “-e” eki “to” gibi durur; İngilizcede “home” önüne “to” gelmez: “I am going home now.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "“To home” değil, “go home”!",
+    "description": "Türkçede “eve gidiyorum” deriz, “-e” eki “to” gibi durur; İngilizcede “home” önüne “to” gelmez: “I am going home now.”\n\n“I am going to home now” mi diyorsun? 😅 İngilizcede “go” sonrası “home” tek başına gelir, “to” kullanılmaz. Doğrusu “I am going home now.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "I am going home now.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“I am going to home now” mi diyorsun? 😅 İngilizcede “go” sonrası “home” tek başına gelir, “to” kullanılmaz. Doğrusu “I am going home now.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“To home” değil, “go home”!\n\nTürkçede “eve gidiyorum” deriz, “-e” eki “to” gibi durur; İngilizcede “home” önüne “to” gelmez: “I am going home now.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“To home” değil, “go home”! Türkçede “eve gidiyorum” deriz, “-e” eki “to” gibi durur; İngilizcede “home”… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “home”. “Go” sonrası “home” tek başına gelir. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+  "lang": "tr"
+ }
+}

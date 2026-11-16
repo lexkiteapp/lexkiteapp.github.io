@@ -61,11 +61,13 @@ def _noto(*pats):
         g = sorted(glob.glob(p_))
         if g: return g[0]
 FB = dict(cyr=_noto(f'{ROOT}/brand/social/src/fonts/NotoSans-Medium.ttf'), ara=_noto(f'{ROOT}/scripts/cine/fonts/NotoSansArabic.ttf', '/usr/share/fonts/truetype/noto/NotoSansArabic-*.ttf'),
-          dev=_noto('/usr/share/fonts/truetype/noto/NotoSansDevanagari-Bold.ttf', '/usr/share/fonts/truetype/noto/NotoSansDevanagari-*.ttf', '/usr/share/fonts/truetype/noto/NotoSansDevanagari*.ttf')); _fb = {}
+          dev=_noto('/usr/share/fonts/truetype/noto/NotoSansDevanagari-Bold.ttf', '/usr/share/fonts/truetype/noto/NotoSansDevanagari-*.ttf', '/usr/share/fonts/truetype/noto/NotoSansDevanagari*.ttf'),
+          tha=_noto('/usr/share/fonts/truetype/noto/NotoSansThai-Bold.ttf', '/usr/share/fonts/truetype/noto/NotoSansThai-*.ttf', '/usr/share/fonts/truetype/noto/NotoSansThai*.ttf')); _fb = {}
 def kind(c):
     o_ = ord(c)
     if 0x400 <= o_ <= 0x52f: return 'cyr'
     if 0x900 <= o_ <= 0x97f: return 'dev'
+    if 0xe00 <= o_ <= 0xe7f: return 'tha'   # Thai: no spaces between words (wrap() breaks an over-long run at syllable starts)
     if 0x600 <= o_ <= 0x6ff or 0xfb50 <= o_ <= 0xfeff: return 'ara'
     if 0xac00 <= o_ <= 0xd7af or 0x1100 <= o_ <= 0x11ff: return 'hangul'
     if re.match(f'[{CJK}]', c): return 'cjk'
@@ -86,6 +88,17 @@ def _seg(r, k, sz, ipa):
         if (k, sz) not in _fb: _fb[(k, sz)] = ImageFont.truetype(FB[k], sz)
         return _fb[(k, sz)].getlength(r) * 1.06   # Bold/shaping safety margin
     return len(r) * sz * 0.62
+
+
+def thai_split(w, sz, width, ipa=False):
+    """A Thai run longer than the card is cut at syllable starts (a leading vowel เแโใไ stays with its consonant; marks / following vowels never start a piece); other tokens pass through."""
+    if not re.search('[\u0e00-\u0e7f]', w) or tw(w.rstrip(), sz, ipa) <= width: return [w]
+    cl = [c for c in re.findall('[\u0e40-\u0e44]?[\u0e01-\u0e2e][\u0e30-\u0e3a\u0e45-\u0e4e]*|.', w, re.S)]
+    out, cur = [], ''
+    for c in cl:
+        if cur and tw(cur + c, sz, ipa) > width: out.append(cur); cur = ''
+        cur += c
+    return out + [cur] if cur else out
 
 
 # ---------------- timeline: lines, words, speech, pauses ----------------
@@ -135,6 +148,7 @@ class Card:
     def wrap(s, runs, sz, width=None, ipa=False):
         """runs [[text, colour token]] -> lines of runs, greedy word wrap at width (balanced when 2 lines)."""
         width = width or s.inner; toks = [(w, c) for txt, c in runs for w in re.findall(TOK, txt)]
+        toks = [(piece, c) for w, c in toks for piece in thai_split(w, sz, width, ipa)]
         lines, cur, cw = [], [], 0
         for w, c in toks:
             ww = tw(w.rstrip(), sz, ipa)
@@ -200,10 +214,14 @@ def runs_hl(text, hl, col='primary', base='ink'):
 
 
 def strike_on(tn, phrase, t_word):
-    """red strike drawn across `phrase` inside text node tn (draw 0.30 s, appears on its spoken word)."""
-    txt = ''.join(r[0] for r in tn['runs']); i = txt.lower().find(phrase.lower()); assert i >= 0, (phrase, txt)
-    x0 = tn['box'][0] + tw(txt[:i], tn['size']); x1 = x0 + tw(txt[i:i + len(phrase)], tn['size']); ym = (tn['box'][1] + tn['box'][3]) / 2 + 4
-    NODES.append(dict(id=nid('s'), type='strike', parent=tn['parent'] if 'parent' in tn else None, _rel=tn['id'], box=[x0 - 6, ym - 5, x1 + 6, ym + 5], **{'in': cue(t_word, 'draw')}))
+    """red strike drawn across `phrase` inside text node tn (draw 0.30 s, appears on its spoken word). tn = one node or the list of wrapped lines: a phrase that wraps gets one stroke per line."""
+    nodes = tn if isinstance(tn, list) else [tn]; txts = [''.join(r[0] for r in n['runs']) for n in nodes]
+    full = ' '.join(txts); i = full.lower().find(phrase.lower()); assert i >= 0, (phrase, full); j = i + len(phrase); off = 0
+    for n, txt in zip(nodes, txts):
+        a, b = max(i, off) - off, min(j, off + len(txt)) - off; off += len(txt) + 1
+        if b - a <= 0 or not txt[a:b].strip(): continue
+        x0 = n['box'][0] + tw(txt[:a], n['size']); x1 = x0 + tw(txt[a:b].rstrip(), n['size']); ym = (n['box'][1] + n['box'][3]) / 2 + 4
+        NODES.append(dict(id=nid('s'), type='strike', parent=n['parent'] if 'parent' in n else None, _rel=n['id'], box=[x0 - 6, ym - 5, x1 + 6, ym + 5], **{'in': cue(t_word, 'draw')}))
 
 
 def dots(c, syl, stress, t_in, t_hit, sz=96):
@@ -370,7 +388,7 @@ def T_mistake():
     y = title([['Stop saying', 'ink']], 96, RY0 + 120, None, t_h, hook=True)
     title([[f'“{ph}”!', 'coral']], 96, y, None, t_h, hook=True)
     c = Card(RY0, tone='bubble_bad', w=RW - 70, badge='cross', t_badge=start('w')); c.tail = 'l'
-    tn = c.text([[D['wrong'], 'onbad']], S['body'], start('w'))[0]; b1 = c.place(start('w'), t_out, 'a')
+    tn = c.text([[D['wrong'], 'onbad']], S['body'], start('w')); b1 = c.place(start('w'), t_out, 'a')
     strike_on(tn, D['strike'], at('w', D['strike'].split()[0]) + 0.15)
     if 'g' in LINES: NODES.append(dict(id='guess', type='qmark', size=96, box=[RX1 - 114, b1[1] + 20, RX1 - 4, b1[1] + 130], **{'in': cue(start('g'))}, out=dict(t=round(at('r', 'better') - 0.2, 3))))
     c = Card(b1[3] + 30, tone='bubble_good', x0=RX0 + 70, w=RW - 70, badge='check', t_badge=at('r', 'better')); c.tail = 'r'
@@ -393,7 +411,7 @@ def T_l1():
         if ch([[D['wrong'], 'x']], sb, w=RW - 70, badge='cross', t_badge=0) + ch([[D['right'], 'x']], sb, x0=RX0 + 70, w=RW - 70, badge='check', t_badge=0) + ch(tip, st) + 60 <= RY1 - RY0 - 4: break
     title([[N['hook'], 'coral']], 84, RY0 + 120, None, t_h, hook=True, rtl=rtl)
     c = Card(RY0, tone='bubble_bad', w=RW - 70, badge='cross', t_badge=start('w')); c.tail = 'l'   # the hook headline leaves at t_h, so the bubbles reuse its space (as in T_mistake)
-    tn = c.text([[D['wrong'], 'onbad']], sb, start('w'))[0]; b1 = c.place(start('w'), t_out, 'a')
+    tn = c.text([[D['wrong'], 'onbad']], sb, start('w')); b1 = c.place(start('w'), t_out, 'a')
     strike_on(tn, D['strike'], at('w', D['strike'].split()[0]) + 0.15)
     c = Card(b1[3] + 30, tone='bubble_good', x0=RX0 + 70, w=RW - 70, badge='check', t_badge=at('r', 'better')); c.tail = 'r'
     c.text([[D['right'], 'ongood']], sb, at('r', 'better')); b2 = c.place(at('r', 'better'), t_out, 'b')
@@ -429,7 +447,7 @@ def T_usuk():
 
 
 def _fix(D, t_hook_out, wrong_l, right_l, strike_tok_line):
-    c = Card(RY0, tone='bad', badge='cross', t_badge=start(wrong_l)); tn = c.text([[D['wrong'], 'ink']], S['body'], start(wrong_l))[0]; b1 = c.place(start(wrong_l), start('q') - 0.2, 'a')
+    c = Card(RY0, tone='bad', badge='cross', t_badge=start(wrong_l)); tn = c.text([[D['wrong'], 'ink']], S['body'], start(wrong_l)); b1 = c.place(start(wrong_l), start('q') - 0.2, 'a')
     strike_on(tn, D['strike'], at(wrong_l, D['strike'].split()[0]) + 0.15)
     return b1
 
@@ -505,7 +523,7 @@ def T_pattern():
     top('brick', [bx + bw + gap, y, bx + 2 * bw + gap, y + bh], at('r', 'to'), out=t_out, label='ALWAYS', word=D['pat'], tone='glow', size=72, pairs=[['#062A27', '#5FD9CC', 72]])
     y += bh + 36
     c = Card(y, tone='good', badge='check', t_badge=at('r', 'better')); c.text([[D['right'], 'ink']], S['body'], at('r', 'better')); b1 = c.place(at('r', 'better'), t_out, 'a')
-    c = Card(b1[3] + 24, tone='bad', badge='cross', t_badge=start('w')); tn = c.text([[D['wrong'], 'ink']], S['body'], start('w'))[0]; b2 = c.place(start('w'), t_out, 'b')
+    c = Card(b1[3] + 24, tone='bad', badge='cross', t_badge=start('w')); tn = c.text([[D['wrong'], 'ink']], S['body'], start('w')); b2 = c.place(start('w'), t_out, 'b')
     strike_on(tn, D['bad'].split()[-1], at('w', D['bad'].split()[-1]) + 0.15)
     c = Card(b2[3] + 24, tone='card'); c.text([['💡 ', 'accent'], [D['why'], 'ink']], S['sub'], start('y')); c.place(start('y'), t_out, 'c')
     q = D['quiz']; quiz_card([[q['stem'], 'ink']], q['options'], q['answer'], start('q'), at('a', 0), start('sh') - 0.2)
@@ -517,7 +535,7 @@ def T_native():
     """Stitch aaeb1673… 'Say it naturally': scene chip, TEXTBOOK card (muted, strike) → NATIVE card (teal glow, sparkle badge)."""
     D = EP['data']; series_chip(); t_out = start('q') - 0.2
     title([['Textbook', 'muted'], [' or ', 'ink'], ['real', 'primary'], ['?', 'ink']], 104, RY0 + 140, None, start('w') - 0.2, hook=True)
-    c = Card(RY0, tone='tile'); chip(c, f"TEXTBOOK · AT THE {D['scene'].upper()}", start('w')); tn = c.text([[D['wrong'], 'muted']], S['body'], start('w'))[0]; b1 = c.place(start('w'), t_out, 'a')
+    c = Card(RY0, tone='tile'); chip(c, f"TEXTBOOK · AT THE {D['scene'].upper()}", start('w')); tn = c.text([[D['wrong'], 'muted']], S['body'], start('w')); b1 = c.place(start('w'), t_out, 'a')
     strike_on(tn, D['strike'], at('w', D['strike']) + 0.1)
     c = Card(b1[3] + 30, tone='bubble_good'); chip(c, '✨ NATIVE', at('r', 'natives'), tone='good'); c.text(runs_hl(D['right'], D['hl'], 'onhl', 'ongood'), S['body'], at('r', 'natives'))
     c.text([[D['why'], 'ongood']], S['sub'], start('y')); c.place(at('r', 'natives'), t_out, 'b')
@@ -586,7 +604,7 @@ def T_grammar():
     y = title([[D['en'], 'ink'], [' · ' + D['level'], 'primary']], 84, RY0, None, t_out, hook=True) + 26
     b = D['bricks']; bricks_row([('WHO', b[0], 'dark', at('r', 0)), ('VERB', b[1], 'dark', at('r', 'verb')), ('ADD', b[2], 'glow', at('r', -1))], y, 124, t_out)
     y += 124 + 28
-    c = Card(y, tone='bad', badge='cross', t_badge=start('w')); tn = c.text([[D['wrong'], 'ink']], 52, start('w'))[0]; b1 = c.place(start('w'), t_out, 'a')
+    c = Card(y, tone='bad', badge='cross', t_badge=start('w')); tn = c.text([[D['wrong'], 'ink']], 52, start('w')); b1 = c.place(start('w'), t_out, 'a')
     strike_on(tn, D['strike'], at('w', D['strike']) + 0.1)
     c = Card(b1[3] + 20, tone='good', badge='check', t_badge=at('b', 'say')); c.text(runs_hl(D['right'], D['hl'], 'good'), 52, at('b', 'say')); c.place(at('b', 'say'), t_out, 'b')
     q = D['quiz']; quiz_card([[q['stem'], 'ink']], q['options'], q['answer'], start('q'), at('a', 0), start('sh') - 0.2)
@@ -702,7 +720,7 @@ def T_react():
     t_q = start('q'); y = RY0
     if D['dont']:   # shown, never voiced (the spoken line says 'Not this!'); rude = first letter + dots
         dn = D['dont']; c = Card(y, tone='bubble_bad', w=RW - 70, badge='cross', t_badge=t_s); c.tail = 'l'
-        badge_chip(c, f"{dn['reg'].upper()} · DON'T SAY", t_s, 'bad'); tn = c.text([[dn['text'], 'onbad']], S['big'], t_s)[0]; y = c.place(t_s, t_q - 0.2, 'a')[3] + 30
+        badge_chip(c, f"{dn['reg'].upper()} · DON'T SAY", t_s, 'bad'); tn = c.text([[dn['text'], 'onbad']], S['big'], t_s); y = c.place(t_s, t_q - 0.2, 'a')[3] + 30
         strike_on(tn, dn['text'].rstrip('!.?'), at('s', 'this') + 0.15)
     sw = D['swap']; t_w = at('s', 'Try') if D['dont'] else t_s
     c = Card(y, tone='bubble_good', x0=RX0 + 70, w=RW - 70, badge='check', t_badge=t_w); c.tail = 'r'
@@ -878,7 +896,14 @@ if SOCIAL:   # owner 29/10: whoosh + light music for social shorts (CC0 Lexkite 
     env = np.minimum(1, np.minimum(np.arange(len(mix)) / (0.6 * SR), (len(mix) - np.arange(len(mix))) / (0.8 * SR)))
     mix += mu * gain * env; SFX.append(dict(music=MUS, rms_db=-30, duck_db=-12))
     mix = np.tanh(mix * 1.1) / 1.1   # soft limiter
-wav_out(f'{o.public}/voice.wav', mix); os.remove(raw); os.remove(f'{o.public}/_voice_n.wav')
+def lufs(fn):
+    lo = subprocess.run(['ffmpeg', '-nostdin', '-hide_banner', '-i', fn, '-af', 'ebur128', '-f', 'null', '-'], capture_output=True, text=True).stderr; return float(re.findall(r'I:\s+(-?[\d.]+) LUFS', lo)[-1])
+wav_out(f'{o.public}/voice.wav', mix)
+for _ in range(3):   # single-pass loudnorm can land 1-2 LU low on a short, peaky voice (ko 17/11: -17.6, qc band -17.5..-14.5): trim the final mix to -16 LUFS, soft-limited so it never clips
+    I_ = lufs(f'{o.public}/voice.wav')
+    if abs(I_ + 16) <= 0.5: break
+    mix = np.tanh(mix * 1.1 * 10 ** (max(-6, min(6, -16 - I_)) / 20)) / 1.1; wav_out(f'{o.public}/voice.wav', mix)
+os.remove(raw); os.remove(f'{o.public}/_voice_n.wav')
 
 # ---------------- assets ----------------
 sys.path.insert(0, f'{ROOT}/scripts/media'); from origin import fetch as fetch_media   # noqa: E402  GitHub origin first, Worker last (2/11: Worker quota 429 broke every render)

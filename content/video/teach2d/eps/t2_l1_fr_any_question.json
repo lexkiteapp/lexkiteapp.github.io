@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_any_question",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Do you have any brothers?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Do you have some brothers?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Do you have any brothers?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "In a question, we usually say any.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Any! Do you have any questions?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Do you have some brothers?",
+  "right": "Do you have any brothers?",
+  "strike": "some",
+  "why": "In a question, we usually say any.",
+  "memory": "Question: any.",
+  "quiz": {
+   "stem": "Do you have ___ questions?",
+   "options": [
+    "some",
+    "any"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "« Des » en question : “any”",
+   "tip": "En français, on dit « Tu as des frères ? ». En anglais, dans une question, on dit plutôt “any”.",
+   "caption": "Vous dites “Do you have some brothers?” ? En français, on dit « Tu as des frères ? ». En anglais, dans une question, on dit plutôt “any”. Dites plutôt “Do you have any brothers?” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “Do you have any brothers?” — En français, on dit « Tu as des frères ? ». En anglais, dans une question, on dit plutôt “any”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Questions like “any”!",
+   "tip": "French says « des frères ». In an English question, we usually say “any”.",
+   "caption": "Do you say this? “Do you have some brothers?” French says « des frères ». In an English question, we usually say “any”. Say “Do you have any brothers?” Listen to Ama and repeat with her! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "« Des » en question : “any”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "« Des » en question : “any”",
+  "keyword": "Do you have any brothers?",
+  "value": "En français, on dit « Tu as des frères ? ». En anglais, dans une question, on dit plutôt “any”.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "« Des » en question : “any”",
+    "description": "En français, on dit « Tu as des frères ? ». En anglais, dans une question, on dit plutôt “any”.\n\nVous dites “Do you have some brothers?” ? En français, on dit « Tu as des frères ? ». En anglais, dans une question, on dit plutôt “any”. Dites plutôt “Do you have any brothers?” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "Do you have any brothers?",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Vous dites “Do you have some brothers?” ? En français, on dit « Tu as des frères ? ». En anglais, dans une question, on dit plutôt “any”. Dites plutôt “Do you have any brothers?” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "« Des » en question : “any”\n\nEn français, on dit « Tu as des frères ? ». En anglais, dans une question, on dit plutôt “any”.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "« Des » en question : “any” En français, on dit « Tu as des frères ? ». En anglais, dans une questio… #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “Do you have any brothers?” — En français, on dit « Tu as des frères ? ». En anglais, dans une question, on dit plutôt “any”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_suggestto",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Suggest to? Say suggest going!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I suggest to go to the park.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I suggest going to the park.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After suggest, say going, not to go.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! He suggests leaving early.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I suggest to go to the park.",
+  "right": "I suggest going to the park.",
+  "strike": "to go",
+  "why": "After suggest, say going, not to go.",
+  "memory": "Suggest going.",
+  "quiz": {
+   "stem": "He suggests ___ early.",
+   "options": [
+    "to leave",
+    "leaving"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "هل تقول “suggest to go”؟",
+   "tip": "نقول «أقترح أن نذهب»، أما بعد suggest فنستخدم الفعل مع ing: “I suggest going to the park.” وليس “I suggest to go to the park.”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “I suggest to go to the park.” 😅 نقول «أقترح أن نذهب»، أما بعد suggest فنستخدم الفعل مع ing، فالجملة الصحيحة “I suggest going to the park.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “suggest going” — نقول «أقترح أن نذهب»، أما بعد suggest فنستخدم الفعل مع ing. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “suggest to go”?",
+   "tip": "In Arabic we say «أقترح أن نذهب» with «أن», but after suggest we use the verb with ing: “I suggest going to the park.” not “I suggest to go to the park.”",
+   "caption": "Do you sometimes say this? “I suggest to go to the park.” 😅 In Arabic we say «أقترح أن نذهب» with «أن», but after suggest we use the verb with ing, so the right sentence is “I suggest going to the park.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “suggest to go”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 51,
+  "seconds": 30.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "هل تقول “suggest to go”؟",
+  "keyword": "I suggest going to the park.",
+  "value": "نقول «أقترح أن نذهب»، أما بعد suggest فنستخدم الفعل مع ing: “I suggest going to the park.” وليس “I suggest to go to the park.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 45,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “suggest to go”؟",
+    "description": "نقول «أقترح أن نذهب»، أما بعد suggest فنستخدم الفعل مع ing: “I suggest going to the park.” وليس “I suggest to go to the park.”\n\nهل تقول أحيانًا هذه الجملة؟ “I suggest to go to the park.” 😅 نقول «أقترح أن نذهب»، أما بعد suggest فنستخدم الفعل مع ing، فالجملة الصحيحة “I suggest going to the park.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "I suggest going to the park.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا هذه الجملة؟ “I suggest to go to the park.” 😅 نقول «أقترح أن نذهب»، أما بعد suggest فنستخدم الفعل مع ing، فالجملة الصحيحة “I suggest going to the park.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول “suggest to go”؟\n\nنقول «أقترح أن نذهب»، أما بعد suggest فنستخدم الفعل مع ing: “I suggest going to the park.” وليس “I suggest to go to the park.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “suggest to go”؟ نقول «أقترح أن نذهب»، أما بعد suggest فنستخدم الفعل مع ing: “I suggest g… #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “suggest going” — نقول «أقترح أن نذهب»، أما بعد suggest فنستخدم الفعل مع ing. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+  "lang": "ar"
+ }
+}

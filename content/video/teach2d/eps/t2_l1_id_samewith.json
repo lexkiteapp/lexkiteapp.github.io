@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_samewith",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "The same as, not same with!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: My phone is same with yours.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My phone is the same as yours.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say the same as.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The same as! Her bag is the same as mine.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "My phone is same with yours.",
+  "right": "My phone is the same as yours.",
+  "strike": "same with",
+  "why": "Say the same as.",
+  "memory": "The same as.",
+  "quiz": {
+   "stem": "Her bag is ___ mine.",
+   "options": [
+    "the same as",
+    "same with"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Same with”? Pakai “the same as”",
+   "tip": "“Sama dengan” bukan same with. Bahasa Inggris pakai the same as.",
+   "caption": "Pernah bilang begini? “My phone is same with yours.” 😅 Untuk menyamakan, pakai the same as: “My phone is the same as yours.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “the same as”. Bandingkan barangmu dengan milik teman pakai the same as. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#grammaringgris",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Same with”? Use “the same as”",
+   "tip": "“Sama dengan” is not same with. English uses the same as.",
+   "caption": "Ever say this? “My phone is same with yours.” 😅 To say two things match, use the same as: “My phone is the same as yours.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Same with”? Pakai “the same as”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 53,
+  "seconds": 31.5,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "“Same with”? Pakai “the same as”",
+  "keyword": "My phone is the same as yours.",
+  "value": "“Sama dengan” bukan same with. Bahasa Inggris pakai the same as.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#grammaringgris",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 47,
+  "platforms": {
+   "youtube": {
+    "title": "“Same with”? Pakai “the same as”",
+    "description": "“Sama dengan” bukan same with. Bahasa Inggris pakai the same as.\n\nPernah bilang begini? “My phone is same with yours.” 😅 Untuk menyamakan, pakai the same as: “My phone is the same as yours.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #grammaringgris #bahasainggris #lexkite",
+    "tags": [
+     "My phone is the same as yours.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “My phone is same with yours.” 😅 Untuk menyamakan, pakai the same as: “My phone is the same as yours.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Same with”? Pakai “the same as”\n\n“Sama dengan” bukan same with. Bahasa Inggris pakai the same as.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#grammaringgris",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Same with”? Pakai “the same as” “Sama dengan” bukan same with. Bahasa Inggris pakai the same as. #belajarbahasainggris #grammaringgris #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “the same as”. Bandingkan barangmu dengan milik teman pakai the same as. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

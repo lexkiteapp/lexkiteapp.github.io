@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_howmany",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Many, not much, for people!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: How much people are here?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: How many people are here?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "We can count people, so we say many.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! How many people are here?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "How much people are here?",
+  "right": "How many people are here?",
+  "strike": "much",
+  "why": "We can count people, so we say many.",
+  "memory": "How many people?",
+  "quiz": {
+   "stem": "How ___ people are here?",
+   "options": [
+    "much",
+    "many"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Diga “How many people”!",
+   "tip": "Em português dizemos “quanta gente”, mas em inglês “people” se conta: use “how many”.",
+   "caption": "Você também diz isso? “How much people are here?” 😅 O certo é “How many people are here?” Em português dizemos “quanta gente”, mas em inglês “people” se conta: use “how many”. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “many”. Agora diga em voz alta “How many people are here?” e treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “How many people”!",
+   "tip": "In Portuguese we say “quanta gente”, but in English “people” can be counted: use “how many”.",
+   "caption": "Do you say this too? “How much people are here?” 😅 The right way is “How many people are here?” In Portuguese we say “quanta gente”, but in English “people” can be counted: use “how many”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Diga “How many people”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Diga “How many people”!",
+  "keyword": "How many people are here?",
+  "value": "Em português dizemos “quanta gente”, mas em inglês “people” se conta: use “how many”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "Diga “How many people”!",
+    "description": "Em português dizemos “quanta gente”, mas em inglês “people” se conta: use “how many”.\n\nVocê também diz isso? “How much people are here?” 😅 O certo é “How many people are here?” Em português dizemos “quanta gente”, mas em inglês “people” se conta: use “how many”. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "How many people are here?",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Você também diz isso? “How much people are here?” 😅 O certo é “How many people are here?” Em português dizemos “quanta gente”, mas em inglês “people” se conta: use “how many”. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Diga “How many people”!\n\nEm português dizemos “quanta gente”, mas em inglês “people” se conta: use “how many”.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Diga “How many people”! Em português dizemos “quanta gente”, mas em inglês “people” se conta: use “how man… #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “many”. Agora diga em voz alta “How many people are here?” e treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

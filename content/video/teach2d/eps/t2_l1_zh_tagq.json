@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_tagq",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say aren't you!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: You are a teacher, isn't it?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: You are a teacher, aren't you?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Repeat the verb and the person.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Aren't you! You are tired, aren't you?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "You are a teacher, isn't it?",
+  "right": "You are a teacher, aren't you?",
+  "strike": "isn't it",
+  "why": "Repeat the verb and the person.",
+  "memory": "You are, aren't you?",
+  "quiz": {
+   "stem": "You are tired, ___?",
+   "options": [
+    "isn't it",
+    "aren't you"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "句尾提问不能固定说 isn't it！",
+   "tip": "中文的“是不是”“对吧”一个说法通用，所以容易总说 isn't it。英语要跟着前面的句子变。",
+   "caption": "你是不是也会说 “You are a teacher, isn't it?”😅 中文的“是不是”通用，英语的句尾提问要跟着前面的句子变：“You are a teacher, aren't you?”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“You are a teacher, aren't you?”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "The end question must change!",
+   "tip": "Chinese has one ending for all, but English changes it with the sentence.",
+   "caption": "Do you say “You are a teacher, isn't it?” 😅 English changes the ending question with the sentence: “You are a teacher, aren't you?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "句尾提问不能固定说 isn't it！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "句尾提问不能固定说 isn't it！",
+  "keyword": "You are a teacher, aren't you?",
+  "value": "中文的“是不是”“对吧”一个说法通用，所以容易总说 isn't it。英语要跟着前面的句子变。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "句尾提问不能固定说 isn't it！",
+    "description": "中文的“是不是”“对吧”一个说法通用，所以容易总说 isn't it。英语要跟着前面的句子变。\n\n你是不是也会说 “You are a teacher, isn't it?”😅 中文的“是不是”通用，英语的句尾提问要跟着前面的句子变：“You are a teacher, aren't you?”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "You are a teacher, aren't you?",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “You are a teacher, isn't it?”😅 中文的“是不是”通用，英语的句尾提问要跟着前面的句子变：“You are a teacher, aren't you?”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "句尾提问不能固定说 isn't it！\n\n中文的“是不是”“对吧”一个说法通用，所以容易总说 isn't it。英语要跟着前面的句子变。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "句尾提问不能固定说 isn't it！ 中文的“是不是”“对吧”一个说法通用，所以容易总说 isn't it。英语要跟着前面的句子变。 #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“You are a teacher, aren't you?”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}
