@@ -8159,6 +8159,1429 @@
     "strike": "made wait",
     "answer_say": "To fill! She was made to fill the form again."
    }
+  },
+  {
+   "id": "t2a_mistake_16707e4b",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "w:crime#n",
+   "hash": "e109bb8f0fd4",
+   "heads": [
+    "sb_16707e4b"
+   ],
+   "taught": [
+    "He",
+    "did",
+    "a",
+    "crime",
+    "last",
+    "year",
+    "He",
+    "committed",
+    "a",
+    "crime",
+    "last",
+    "year",
+    "did",
+    "a",
+    "crime"
+   ],
+   "in": {
+    "gold": "sb_16707e4b",
+    "hook_say": "Stop saying did a crime!",
+    "hook_text": "Stop saying “did a crime”",
+    "wrong_say": "He did a crime last year.",
+    "right_say": "He committed a crime last year.",
+    "strike": "did a crime",
+    "answer_say": "Committed! He committed a crime last year."
+   }
+  },
+  {
+   "id": "t2a_mistake_290c5183",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "w:break#n",
+   "hash": "891f75e44696",
+   "heads": [
+    "sb_290c5183"
+   ],
+   "taught": [
+    "Let's",
+    "do",
+    "a",
+    "break",
+    "for",
+    "ten",
+    "minutes",
+    "Let's",
+    "take",
+    "a",
+    "break",
+    "for",
+    "ten",
+    "minutes",
+    "do",
+    "a",
+    "break"
+   ],
+   "in": {
+    "gold": "sb_290c5183",
+    "hook_say": "Stop saying do a break!",
+    "hook_text": "Stop saying “do a break”",
+    "wrong_say": "Let's do a break for ten minutes.",
+    "right_say": "Let's take a break for ten minutes.",
+    "strike": "do a break",
+    "answer_say": "Take! Let's take a break for ten minutes."
+   }
+  },
+  {
+   "id": "t2a_mistake_a5326200",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "w:child#n",
+   "hash": "92f45e5e6ae5",
+   "heads": [
+    "sb_a5326200"
+   ],
+   "taught": [
+    "Three",
+    "childs",
+    "were",
+    "playing",
+    "outside",
+    "Three",
+    "children",
+    "were",
+    "playing",
+    "outside",
+    "childs"
+   ],
+   "in": {
+    "gold": "sb_a5326200",
+    "hook_say": "Stop saying childs!",
+    "hook_text": "Stop saying “childs”",
+    "wrong_say": "Three childs were playing outside.",
+    "right_say": "Three children were playing outside.",
+    "strike": "childs",
+    "answer_say": "Children! Three children were playing outside."
+   }
+  },
+  {
+   "id": "t2a_mistake_f0648eea",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "w:charge#n",
+   "hash": "285a68fc6a04",
+   "heads": [
+    "sb_f0648eea"
+   ],
+   "taught": [
+    "She",
+    "is",
+    "in",
+    "charge",
+    "for",
+    "the",
+    "project",
+    "She",
+    "is",
+    "in",
+    "charge",
+    "of",
+    "the",
+    "project",
+    "in",
+    "charge",
+    "for"
+   ],
+   "in": {
+    "gold": "sb_f0648eea",
+    "hook_say": "Stop saying in charge for!",
+    "hook_text": "Stop saying “in charge for”",
+    "wrong_say": "She is in charge for the project.",
+    "right_say": "She is in charge of the project.",
+    "strike": "in charge for",
+    "answer_say": "Of! She is in charge of the project."
+   }
+  },
+  {
+   "id": "t2a_mistake_f61282a1",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "w:join#v",
+   "hash": "26826cc845be",
+   "heads": [
+    "sb_f61282a1"
+   ],
+   "taught": [
+    "I",
+    "want",
+    "to",
+    "join",
+    "to",
+    "the",
+    "English",
+    "club",
+    "I",
+    "want",
+    "to",
+    "join",
+    "the",
+    "English",
+    "club",
+    "join",
+    "to"
+   ],
+   "in": {
+    "gold": "sb_f61282a1",
+    "hook_say": "Stop saying join to.",
+    "hook_text": "Stop saying join to.",
+    "wrong_say": "I want to join to the English club.",
+    "right_say": "I want to join the English club.",
+    "strike": "join to",
+    "answer_say": "Join! Please join us for dinner."
+   }
+  },
+  {
+   "id": "t2a_mistake_7dc78d29",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "w:joke#n",
+   "hash": "9f2672b7f01e",
+   "heads": [
+    "sb_7dc78d29"
+   ],
+   "taught": [
+    "Can",
+    "you",
+    "say",
+    "a",
+    "joke",
+    "Can",
+    "you",
+    "tell",
+    "a",
+    "joke",
+    "say",
+    "a",
+    "joke"
+   ],
+   "in": {
+    "gold": "sb_7dc78d29",
+    "hook_say": "Stop saying say a joke.",
+    "hook_text": "Stop saying say a joke.",
+    "wrong_say": "Can you say a joke?",
+    "right_say": "Can you tell a joke?",
+    "strike": "say a joke",
+    "answer_say": "Tell! Can you tell us a joke?"
+   }
+  },
+  {
+   "id": "t2a_mistake_79a7a746",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "w:knife#n",
+   "hash": "f6ba930a6609",
+   "heads": [
+    "sb_79a7a746"
+   ],
+   "taught": [
+    "Please",
+    "bring",
+    "two",
+    "knifes",
+    "Please",
+    "bring",
+    "two",
+    "knives",
+    "knifes"
+   ],
+   "in": {
+    "gold": "sb_79a7a746",
+    "hook_say": "Stop saying two knifes.",
+    "hook_text": "Stop saying two knifes.",
+    "wrong_say": "Please bring two knifes.",
+    "right_say": "Please bring two knives.",
+    "strike": "knifes",
+    "answer_say": "Knives! Put the knives on the table."
+   }
+  },
+  {
+   "id": "t2a_mistake_6e4b5fa0",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "w:laugh#v",
+   "hash": "d03206bc951a",
+   "heads": [
+    "sb_6e4b5fa0"
+   ],
+   "taught": [
+    "Don't",
+    "laugh",
+    "me",
+    "Don't",
+    "laugh",
+    "at",
+    "me",
+    "laugh",
+    "me"
+   ],
+   "in": {
+    "gold": "sb_6e4b5fa0",
+    "hook_say": "Stop saying laugh me.",
+    "hook_text": "Stop saying laugh me.",
+    "wrong_say": "Don't laugh me.",
+    "right_say": "Don't laugh at me.",
+    "strike": "laugh me",
+    "answer_say": "Laugh at! Please don't laugh at me."
+   }
+  },
+  {
+   "id": "t2a_mistake_325da830",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "w:learn#v",
+   "hash": "6e207c58acac",
+   "heads": [
+    "sb_325da830"
+   ],
+   "taught": [
+    "My",
+    "father",
+    "learned",
+    "me",
+    "to",
+    "swim",
+    "My",
+    "father",
+    "taught",
+    "me",
+    "to",
+    "swim",
+    "learned",
+    "me"
+   ],
+   "in": {
+    "gold": "sb_325da830",
+    "hook_say": "Stop saying learned me.",
+    "hook_text": "Stop saying learned me.",
+    "wrong_say": "My father learned me to swim.",
+    "right_say": "My father taught me to swim.",
+    "strike": "learned me",
+    "answer_say": "Taught! My uncle taught me to drive."
+   }
+  },
+  {
+   "id": "t2a_mistake_9a0040a5",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "w:clothes#n",
+   "hash": "aa505820eef3",
+   "heads": [
+    "sb_9a0040a5"
+   ],
+   "taught": [
+    "Your",
+    "clothes",
+    "is",
+    "dirty",
+    "Your",
+    "clothes",
+    "are",
+    "dirty",
+    "clothes",
+    "is"
+   ],
+   "in": {
+    "gold": "sb_9a0040a5",
+    "hook_say": "Stop saying clothes is!",
+    "hook_text": "Stop saying “clothes is”",
+    "wrong_say": "Your clothes is dirty.",
+    "right_say": "Your clothes are dirty.",
+    "strike": "clothes is",
+    "answer_say": "Are! Your clothes are dirty."
+   }
+  },
+  {
+   "id": "t2a_mistake_6486fb27",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "w:blame#v",
+   "hash": "e79ba6cccb59",
+   "heads": [
+    "sb_6486fb27"
+   ],
+   "taught": [
+    "She",
+    "blamed",
+    "me",
+    "about",
+    "the",
+    "mistake",
+    "She",
+    "blamed",
+    "me",
+    "for",
+    "the",
+    "mistake",
+    "blamed",
+    "me",
+    "about"
+   ],
+   "in": {
+    "gold": "sb_6486fb27",
+    "hook_say": "Stop saying blamed me about!",
+    "hook_text": "Stop saying “blamed me about”",
+    "wrong_say": "She blamed me about the mistake.",
+    "right_say": "She blamed me for the mistake.",
+    "strike": "blamed me about",
+    "answer_say": "For! She blamed me for the mistake."
+   }
+  },
+  {
+   "id": "t2a_mistake_49f8754d",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "w:attention#n",
+   "hash": "ac9868dd70f9",
+   "heads": [
+    "sb_49f8754d"
+   ],
+   "taught": [
+    "Pay",
+    "attention",
+    "on",
+    "the",
+    "teacher",
+    "Pay",
+    "attention",
+    "to",
+    "the",
+    "teacher",
+    "attention",
+    "on"
+   ],
+   "in": {
+    "gold": "sb_49f8754d",
+    "hook_say": "Stop saying attention on!",
+    "hook_text": "Stop saying “attention on”",
+    "wrong_say": "Pay attention on the teacher.",
+    "right_say": "Pay attention to the teacher.",
+    "strike": "attention on",
+    "answer_say": "To! Pay attention to the teacher."
+   }
+  },
+  {
+   "id": "t2a_mistake_878144b4",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "w:absent#adj",
+   "hash": "de95483fc666",
+   "heads": [
+    "sb_878144b4"
+   ],
+   "taught": [
+    "He",
+    "was",
+    "absent",
+    "in",
+    "class",
+    "yesterday",
+    "He",
+    "was",
+    "absent",
+    "from",
+    "class",
+    "yesterday",
+    "absent",
+    "in"
+   ],
+   "in": {
+    "gold": "sb_878144b4",
+    "hook_say": "Stop saying absent in!",
+    "hook_text": "Stop saying “absent in”",
+    "wrong_say": "He was absent in class yesterday.",
+    "right_say": "He was absent from class yesterday.",
+    "strike": "absent in",
+    "answer_say": "From! He was absent from class yesterday."
+   }
+  },
+  {
+   "id": "t2a_mistake_ac56922e",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "w:close#adj",
+   "hash": "b950906c5999",
+   "heads": [
+    "sb_ac56922e"
+   ],
+   "taught": [
+    "My",
+    "house",
+    "is",
+    "close",
+    "with",
+    "the",
+    "school",
+    "My",
+    "house",
+    "is",
+    "close",
+    "to",
+    "the",
+    "school",
+    "close",
+    "with"
+   ],
+   "in": {
+    "gold": "sb_ac56922e",
+    "hook_say": "Stop saying close with the school!",
+    "hook_text": "Stop saying “close with the school”",
+    "wrong_say": "My house is close with the school.",
+    "right_say": "My house is close to the school.",
+    "strike": "close with",
+    "answer_say": "To! My house is close to the school."
+   }
+  },
+  {
+   "id": "t2a_mistake_87515b33",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "w:despite#prep",
+   "hash": "5f110cee3c53",
+   "heads": [
+    "sb_87515b33"
+   ],
+   "taught": [
+    "Despite",
+    "of",
+    "the",
+    "rain",
+    "we",
+    "played",
+    "Despite",
+    "the",
+    "rain",
+    "we",
+    "played",
+    "Despite",
+    "of"
+   ],
+   "in": {
+    "gold": "sb_87515b33",
+    "hook_say": "Stop saying despite of!",
+    "hook_text": "Stop saying “despite of”",
+    "wrong_say": "Despite of the rain, we played.",
+    "right_say": "Despite the rain, we played.",
+    "strike": "Despite of",
+    "answer_say": "Despite! Despite the rain, we played football."
+   }
+  },
+  {
+   "id": "t2a_mistake_f3392adc",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "w:during#prep",
+   "hash": "43f7981b35a0",
+   "heads": [
+    "sb_f3392adc"
+   ],
+   "taught": [
+    "I",
+    "studied",
+    "during",
+    "three",
+    "hours",
+    "I",
+    "studied",
+    "for",
+    "three",
+    "hours",
+    "during",
+    "three",
+    "hours"
+   ],
+   "in": {
+    "gold": "sb_f3392adc",
+    "hook_say": "Stop saying during three hours!",
+    "hook_text": "Stop saying “during three hours”",
+    "wrong_say": "I studied during three hours.",
+    "right_say": "I studied for three hours.",
+    "strike": "during three hours",
+    "answer_say": "For! I studied for three hours."
+   }
+  },
+  {
+   "id": "t2a_mistake_02cd8fd2",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "w:hardly#adv",
+   "hash": "415ddd6e4da8",
+   "heads": [
+    "sb_02cd8fd2"
+   ],
+   "taught": [
+    "She",
+    "works",
+    "hardly",
+    "every",
+    "day",
+    "She",
+    "works",
+    "hard",
+    "every",
+    "day",
+    "hardly"
+   ],
+   "in": {
+    "gold": "sb_02cd8fd2",
+    "hook_say": "Stop saying work hardly!",
+    "hook_text": "Stop saying “work hardly”",
+    "wrong_say": "She works hardly every day.",
+    "right_say": "She works hard every day.",
+    "strike": "hardly",
+    "answer_say": "Hard! She works hard every day."
+   }
+  },
+  {
+   "id": "t2a_mistake_5a3afafa",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "w:enter#v",
+   "hash": "a35143f2f771",
+   "heads": [
+    "sb_5a3afafa"
+   ],
+   "taught": [
+    "Please",
+    "enter",
+    "to",
+    "the",
+    "room",
+    "Please",
+    "enter",
+    "the",
+    "room",
+    "enter",
+    "to"
+   ],
+   "in": {
+    "gold": "sb_5a3afafa",
+    "hook_say": "Stop saying enter to!",
+    "hook_text": "Stop saying “enter to”",
+    "wrong_say": "Please enter to the room.",
+    "right_say": "Please enter the room.",
+    "strike": "enter to",
+    "answer_say": "Enter! Please enter the room."
+   }
+  },
+  {
+   "id": "t2a_mistake_6ce1a133",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "w:tall#adj",
+   "hash": "34637a408401",
+   "heads": [
+    "sb_6ce1a133"
+   ],
+   "taught": [
+    "My",
+    "brother",
+    "is",
+    "a",
+    "high",
+    "man",
+    "My",
+    "brother",
+    "is",
+    "a",
+    "tall",
+    "man",
+    "high",
+    "man"
+   ],
+   "in": {
+    "gold": "sb_6ce1a133",
+    "hook_say": "Stop saying high man!",
+    "hook_text": "Stop saying “high man”",
+    "wrong_say": "My brother is a high man.",
+    "right_say": "My brother is a tall man.",
+    "strike": "high man",
+    "answer_say": "Tall! He is very tall."
+   }
+  },
+  {
+   "id": "t2a_mistake_df97e077",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "w:scared#adj",
+   "hash": "2248f548667f",
+   "heads": [
+    "sb_df97e077"
+   ],
+   "taught": [
+    "I",
+    "am",
+    "scared",
+    "from",
+    "dogs",
+    "I",
+    "am",
+    "scared",
+    "of",
+    "dogs",
+    "scared",
+    "from"
+   ],
+   "in": {
+    "gold": "sb_df97e077",
+    "hook_say": "Stop saying scared from!",
+    "hook_text": "Stop saying “scared from”",
+    "wrong_say": "I am scared from dogs.",
+    "right_say": "I am scared of dogs.",
+    "strike": "scared from",
+    "answer_say": "Of! He is scared of the dark."
+   }
+  },
+  {
+   "id": "t2a_mistake_a3e0f657",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "w:proud#adj",
+   "hash": "7eb652e62c41",
+   "heads": [
+    "sb_a3e0f657"
+   ],
+   "taught": [
+    "My",
+    "parents",
+    "are",
+    "proud",
+    "about",
+    "me",
+    "My",
+    "parents",
+    "are",
+    "proud",
+    "of",
+    "me",
+    "proud",
+    "about"
+   ],
+   "in": {
+    "gold": "sb_a3e0f657",
+    "hook_say": "Stop saying proud about!",
+    "hook_text": "Stop saying “proud about”",
+    "wrong_say": "My parents are proud about me.",
+    "right_say": "My parents are proud of me.",
+    "strike": "proud about",
+    "answer_say": "Of! We are proud of you."
+   }
+  },
+  {
+   "id": "t2a_mistake_9be78c2b",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "w:pleased#adj",
+   "hash": "a3e5f54cf7bf",
+   "heads": [
+    "sb_9be78c2b"
+   ],
+   "taught": [
+    "I",
+    "am",
+    "pleased",
+    "meeting",
+    "you",
+    "I",
+    "am",
+    "pleased",
+    "to",
+    "meet",
+    "you",
+    "pleased",
+    "meeting"
+   ],
+   "in": {
+    "gold": "sb_9be78c2b",
+    "hook_say": "Stop saying pleased meeting!",
+    "hook_text": "Stop saying “pleased meeting”",
+    "wrong_say": "I am pleased meeting you.",
+    "right_say": "I am pleased to meet you.",
+    "strike": "pleased meeting",
+    "answer_say": "To meet! I'm pleased to meet you."
+   }
+  },
+  {
+   "id": "t2a_mistake_e5f5579b",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "w:tend#v",
+   "hash": "8446dceba134",
+   "heads": [
+    "sb_e5f5579b"
+   ],
+   "taught": [
+    "Young",
+    "people",
+    "tend",
+    "using",
+    "phones",
+    "a",
+    "lot",
+    "Young",
+    "people",
+    "tend",
+    "to",
+    "use",
+    "phones",
+    "a",
+    "lot",
+    "tend",
+    "using"
+   ],
+   "in": {
+    "gold": "sb_e5f5579b",
+    "hook_say": "Stop saying tend using!",
+    "hook_text": "Stop saying “tend using”",
+    "wrong_say": "Young people tend using phones a lot.",
+    "right_say": "Young people tend to use phones a lot.",
+    "strike": "tend using",
+    "answer_say": "To be! He tends to be late."
+   }
+  },
+  {
+   "id": "t2a_mistake_344dfdad",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "w:pretend#v",
+   "hash": "383b8b5fb00e",
+   "heads": [
+    "sb_344dfdad"
+   ],
+   "taught": [
+    "He",
+    "pretended",
+    "being",
+    "sick",
+    "He",
+    "pretended",
+    "to",
+    "be",
+    "sick",
+    "pretended",
+    "being"
+   ],
+   "in": {
+    "gold": "sb_344dfdad",
+    "hook_say": "Stop saying pretended being!",
+    "hook_text": "Stop saying “pretended being”",
+    "wrong_say": "He pretended being sick.",
+    "right_say": "He pretended to be sick.",
+    "strike": "pretended being",
+    "answer_say": "To be! She pretended to be asleep."
+   }
+  },
+  {
+   "id": "t2a_mistake_46f96315",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "w:walk#v",
+   "hash": "7fbd20b5d589",
+   "heads": [
+    "sb_46f96315"
+   ],
+   "taught": [
+    "I",
+    "walk",
+    "to",
+    "home",
+    "every",
+    "day",
+    "I",
+    "walk",
+    "home",
+    "every",
+    "day",
+    "walk",
+    "to",
+    "home"
+   ],
+   "in": {
+    "gold": "sb_46f96315",
+    "hook_say": "Stop saying walk to home!",
+    "hook_text": "Stop saying “walk to home”",
+    "wrong_say": "I walk to home every day.",
+    "right_say": "I walk home every day.",
+    "strike": "walk to home",
+    "answer_say": "Home! I walk home after class."
+   }
+  },
+  {
+   "id": "t2a_mistake_ae8a3381",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "w:life#n",
+   "hash": "3a514adf5c3c",
+   "heads": [
+    "sb_ae8a3381"
+   ],
+   "taught": [
+    "Many",
+    "lifes",
+    "were",
+    "saved",
+    "Many",
+    "lives",
+    "were",
+    "saved",
+    "lifes"
+   ],
+   "in": {
+    "gold": "sb_ae8a3381",
+    "hook_say": "Stop saying lifes!",
+    "hook_text": "Stop saying “lifes”",
+    "wrong_say": "Many lifes were saved.",
+    "right_say": "Many lives were saved.",
+    "strike": "lifes",
+    "answer_say": "Lives! Doctors save lives."
+   }
+  },
+  {
+   "id": "t2a_mistake_ad193784",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "w:must#v",
+   "hash": "bf9b1d04a59c",
+   "heads": [
+    "sb_ad193784"
+   ],
+   "taught": [
+    "I",
+    "must",
+    "to",
+    "finish",
+    "this",
+    "today",
+    "I",
+    "must",
+    "finish",
+    "this",
+    "today",
+    "must",
+    "to"
+   ],
+   "in": {
+    "gold": "sb_ad193784",
+    "hook_say": "Stop saying must to!",
+    "hook_text": "Stop saying “must to”",
+    "wrong_say": "I must to finish this today.",
+    "right_say": "I must finish this today.",
+    "strike": "must to",
+    "answer_say": "Must! You must wear a seat belt."
+   }
+  },
+  {
+   "id": "t2a_mistake_3495dbab",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "w:full#adj",
+   "hash": "1758754cf880",
+   "heads": [
+    "sb_3495dbab"
+   ],
+   "taught": [
+    "The",
+    "bus",
+    "is",
+    "full",
+    "with",
+    "people",
+    "The",
+    "bus",
+    "is",
+    "full",
+    "of",
+    "people",
+    "full",
+    "with"
+   ],
+   "in": {
+    "gold": "sb_3495dbab",
+    "hook_say": "Full of, not full with.",
+    "hook_text": "Full of, not full with.",
+    "wrong_say": "The bus is full with people.",
+    "right_say": "The bus is full of people.",
+    "strike": "full with",
+    "answer_say": "Full of! The bus is full of people."
+   }
+  },
+  {
+   "id": "t2a_mistake_85b49008",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "w:different#adj",
+   "hash": "140f0ece6a50",
+   "heads": [
+    "sb_85b49008"
+   ],
+   "taught": [
+    "My",
+    "phone",
+    "is",
+    "different",
+    "with",
+    "yours",
+    "My",
+    "phone",
+    "is",
+    "different",
+    "from",
+    "yours",
+    "different",
+    "with"
+   ],
+   "in": {
+    "gold": "sb_85b49008",
+    "hook_say": "Different from, not with.",
+    "hook_text": "Different from, not with.",
+    "wrong_say": "My phone is different with yours.",
+    "right_say": "My phone is different from yours.",
+    "strike": "different with",
+    "answer_say": "From! My phone is different from yours."
+   }
+  },
+  {
+   "id": "t2a_mistake_7c00a5f9",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "w:effort#n",
+   "hash": "5738b879920b",
+   "heads": [
+    "sb_7c00a5f9"
+   ],
+   "taught": [
+    "You",
+    "should",
+    "do",
+    "an",
+    "effort",
+    "to",
+    "learn",
+    "You",
+    "should",
+    "make",
+    "an",
+    "effort",
+    "to",
+    "learn",
+    "do",
+    "an",
+    "effort"
+   ],
+   "in": {
+    "gold": "sb_7c00a5f9",
+    "hook_say": "Make an effort, not do.",
+    "hook_text": "Make an effort, not do.",
+    "wrong_say": "You should do an effort to learn.",
+    "right_say": "You should make an effort to learn.",
+    "strike": "do an effort",
+    "answer_say": "Make! You should make an effort to learn."
+   }
+  },
+  {
+   "id": "t2a_mistake_c864b070",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "w:drive#v",
+   "hash": "2ff1c35e3700",
+   "heads": [
+    "sb_c864b070"
+   ],
+   "taught": [
+    "He",
+    "drives",
+    "a",
+    "bike",
+    "to",
+    "school",
+    "He",
+    "rides",
+    "a",
+    "bike",
+    "to",
+    "school",
+    "drives",
+    "a",
+    "bike"
+   ],
+   "in": {
+    "gold": "sb_c864b070",
+    "hook_say": "You ride a bike.",
+    "hook_text": "You ride a bike.",
+    "wrong_say": "He drives a bike to school.",
+    "right_say": "He rides a bike to school.",
+    "strike": "drives a bike",
+    "answer_say": "Rides! He rides a bike to school."
+   }
+  },
+  {
+   "id": "t2a_mistake_e10eb8a3",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "w:deal#v",
+   "hash": "b4c23ffed89a",
+   "heads": [
+    "sb_e10eb8a3"
+   ],
+   "taught": [
+    "We",
+    "must",
+    "deal",
+    "the",
+    "problem",
+    "now",
+    "We",
+    "must",
+    "deal",
+    "with",
+    "the",
+    "problem",
+    "now",
+    "deal",
+    "the"
+   ],
+   "in": {
+    "gold": "sb_e10eb8a3",
+    "hook_say": "Deal with the problem.",
+    "hook_text": "Deal with the problem.",
+    "wrong_say": "We must deal the problem now.",
+    "right_say": "We must deal with the problem now.",
+    "strike": "deal the",
+    "answer_say": "Deal with! We must deal with the problem now."
+   }
+  },
+  {
+   "id": "t2a_mistake_e526a4e3",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "w:discount#n",
+   "hash": "ecf83f42540f",
+   "heads": [
+    "sb_e526a4e3"
+   ],
+   "taught": [
+    "The",
+    "shop",
+    "made",
+    "me",
+    "a",
+    "discount",
+    "The",
+    "shop",
+    "gave",
+    "me",
+    "a",
+    "discount",
+    "made",
+    "me",
+    "a",
+    "discount"
+   ],
+   "in": {
+    "gold": "sb_e526a4e3",
+    "hook_say": "Shops give a discount.",
+    "hook_text": "Shops give a discount.",
+    "wrong_say": "The shop made me a discount.",
+    "right_say": "The shop gave me a discount.",
+    "strike": "made me a discount",
+    "answer_say": "Gave! The shop gave me a discount."
+   }
+  },
+  {
+   "id": "t2a_mistake_95d90309",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "w:essay#n",
+   "hash": "d2be2c6bc6d7",
+   "heads": [
+    "sb_95d90309"
+   ],
+   "taught": [
+    "I",
+    "need",
+    "to",
+    "make",
+    "an",
+    "essay",
+    "tonight",
+    "I",
+    "need",
+    "to",
+    "write",
+    "an",
+    "essay",
+    "tonight",
+    "make",
+    "an",
+    "essay"
+   ],
+   "in": {
+    "gold": "sb_95d90309",
+    "hook_say": "Write an essay, not make.",
+    "hook_text": "Write an essay, not make.",
+    "wrong_say": "I need to make an essay tonight.",
+    "right_say": "I need to write an essay tonight.",
+    "strike": "make an essay",
+    "answer_say": "Write! I need to write an essay tonight."
+   }
+  },
+  {
+   "id": "t2a_mistake_fa69f2b5",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "w:fall#v",
+   "hash": "3411c85d2a22",
+   "heads": [
+    "sb_fa69f2b5"
+   ],
+   "taught": [
+    "He",
+    "fell",
+    "in",
+    "love",
+    "to",
+    "her",
+    "He",
+    "fell",
+    "in",
+    "love",
+    "with",
+    "her",
+    "in",
+    "love",
+    "to"
+   ],
+   "in": {
+    "gold": "sb_fa69f2b5",
+    "hook_say": "Fall in love with.",
+    "hook_text": "Fall in love with.",
+    "wrong_say": "He fell in love to her.",
+    "right_say": "He fell in love with her.",
+    "strike": "in love to",
+    "answer_say": "With! He fell in love with her."
+   }
+  },
+  {
+   "id": "t2a_mistake_e84afaab",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "w:reply#v",
+   "hash": "22c391c0f337",
+   "heads": [
+    "sb_e84afaab"
+   ],
+   "taught": [
+    "Please",
+    "reply",
+    "me",
+    "soon",
+    "Please",
+    "reply",
+    "to",
+    "me",
+    "soon",
+    "reply",
+    "me"
+   ],
+   "in": {
+    "gold": "sb_e84afaab",
+    "hook_say": "Reply needs to",
+    "hook_text": "Reply needs to",
+    "wrong_say": "Please reply me soon.",
+    "right_say": "Please reply to me soon.",
+    "strike": "reply me",
+    "answer_say": "Reply to! I will reply to your email tonight."
+   }
+  },
+  {
+   "id": "t2a_mistake_287f44f3",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "w:tired#adj",
+   "hash": "2981563cd46b",
+   "heads": [
+    "sb_287f44f3"
+   ],
+   "taught": [
+    "I",
+    "am",
+    "tired",
+    "for",
+    "waiting",
+    "I",
+    "am",
+    "tired",
+    "of",
+    "waiting",
+    "tired",
+    "for"
+   ],
+   "in": {
+    "gold": "sb_287f44f3",
+    "hook_say": "Tired of, not tired for",
+    "hook_text": "Tired of, not tired for",
+    "wrong_say": "I am tired for waiting.",
+    "right_say": "I am tired of waiting.",
+    "strike": "tired for",
+    "answer_say": "Of! He is tired of the noise."
+   }
+  },
+  {
+   "id": "t2a_mistake_ff076731",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "w:wear#v",
+   "hash": "c2dce67bca34",
+   "heads": [
+    "sb_ff076731"
+   ],
+   "taught": [
+    "She",
+    "is",
+    "wearing",
+    "a",
+    "glasses",
+    "She",
+    "is",
+    "wearing",
+    "glasses",
+    "a",
+    "glasses"
+   ],
+   "in": {
+    "gold": "sb_ff076731",
+    "hook_say": "Glasses has no A",
+    "hook_text": "Glasses has no A",
+    "wrong_say": "She is wearing a glasses.",
+    "right_say": "She is wearing glasses.",
+    "strike": "a glasses",
+    "answer_say": "Glasses! She wears glasses every day."
+   }
+  },
+  {
+   "id": "t2a_mistake_1c160466",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "grammar-check",
+   "point": "w:ought#v",
+   "hash": "a4e2b8c89110",
+   "heads": [
+    "sb_1c160466"
+   ],
+   "taught": [
+    "You",
+    "ought",
+    "go",
+    "to",
+    "the",
+    "doctor",
+    "You",
+    "ought",
+    "to",
+    "go",
+    "to",
+    "the",
+    "doctor",
+    "ought",
+    "go"
+   ],
+   "in": {
+    "gold": "sb_1c160466",
+    "hook_say": "Ought needs to",
+    "hook_text": "Ought needs to",
+    "wrong_say": "You ought go to the doctor.",
+    "right_say": "You ought to go to the doctor.",
+    "strike": "ought go",
+    "answer_say": "Ought to! You ought to see a doctor."
+   }
   }
  ]
 }

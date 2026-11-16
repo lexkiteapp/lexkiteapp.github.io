@@ -192,6 +192,240 @@
    "hook_say": "Stop saying were made wait!",
    "strike": "made wait",
    "score": 93
+  },
+  {
+   "gold": "sb_16707e4b",
+   "hook_say": "Stop saying did a crime!",
+   "strike": "did a crime",
+   "score": 92
+  },
+  {
+   "gold": "sb_290c5183",
+   "hook_say": "Stop saying do a break!",
+   "strike": "do a break",
+   "score": 90
+  },
+  {
+   "gold": "sb_a5326200",
+   "hook_say": "Stop saying childs!",
+   "strike": "childs",
+   "score": 94
+  },
+  {
+   "gold": "sb_f0648eea",
+   "hook_say": "Stop saying in charge for!",
+   "strike": "in charge for",
+   "score": 91
+  },
+  {
+   "gold": "sb_f61282a1",
+   "hook_say": "Stop saying join to.",
+   "strike": "join to",
+   "score": 93
+  },
+  {
+   "gold": "sb_7dc78d29",
+   "hook_say": "Stop saying say a joke.",
+   "strike": "say a joke",
+   "score": 94
+  },
+  {
+   "gold": "sb_79a7a746",
+   "hook_say": "Stop saying two knifes.",
+   "strike": "knifes",
+   "score": 95
+  },
+  {
+   "gold": "sb_6e4b5fa0",
+   "hook_say": "Stop saying laugh me.",
+   "strike": "laugh me",
+   "score": 94
+  },
+  {
+   "gold": "sb_325da830",
+   "hook_say": "Stop saying learned me.",
+   "strike": "learned me",
+   "score": 94
+  },
+  {
+   "gold": "sb_9a0040a5",
+   "hook_say": "Stop saying clothes is!",
+   "strike": "clothes is",
+   "score": 93
+  },
+  {
+   "gold": "sb_6486fb27",
+   "hook_say": "Stop saying blamed me about!",
+   "strike": "blamed me about",
+   "score": 92
+  },
+  {
+   "gold": "sb_49f8754d",
+   "hook_say": "Stop saying attention on!",
+   "strike": "attention on",
+   "score": 92
+  },
+  {
+   "gold": "sb_878144b4",
+   "hook_say": "Stop saying absent in!",
+   "strike": "absent in",
+   "score": 91
+  },
+  {
+   "gold": "sb_ac56922e",
+   "hook_say": "Stop saying close with the school!",
+   "strike": "close with",
+   "score": 91
+  },
+  {
+   "gold": "sb_87515b33",
+   "hook_say": "Stop saying despite of!",
+   "strike": "Despite of",
+   "score": 92
+  },
+  {
+   "gold": "sb_f3392adc",
+   "hook_say": "Stop saying during three hours!",
+   "strike": "during three hours",
+   "score": 93
+  },
+  {
+   "gold": "sb_02cd8fd2",
+   "hook_say": "Stop saying work hardly!",
+   "strike": "hardly",
+   "score": 92
+  },
+  {
+   "gold": "sb_5a3afafa",
+   "hook_say": "Stop saying enter to!",
+   "strike": "enter to",
+   "score": 93
+  },
+  {
+   "gold": "sb_6ce1a133",
+   "hook_say": "Stop saying high man!",
+   "strike": "high man",
+   "score": 93
+  },
+  {
+   "gold": "sb_df97e077",
+   "hook_say": "Stop saying scared from!",
+   "strike": "scared from",
+   "score": 93
+  },
+  {
+   "gold": "sb_a3e0f657",
+   "hook_say": "Stop saying proud about!",
+   "strike": "proud about",
+   "score": 92
+  },
+  {
+   "gold": "sb_9be78c2b",
+   "hook_say": "Stop saying pleased meeting!",
+   "strike": "pleased meeting",
+   "score": 90
+  },
+  {
+   "gold": "sb_e5f5579b",
+   "hook_say": "Stop saying tend using!",
+   "strike": "tend using",
+   "score": 91
+  },
+  {
+   "gold": "sb_344dfdad",
+   "hook_say": "Stop saying pretended being!",
+   "strike": "pretended being",
+   "score": 91
+  },
+  {
+   "gold": "sb_46f96315",
+   "hook_say": "Stop saying walk to home!",
+   "strike": "walk to home",
+   "score": 93
+  },
+  {
+   "gold": "sb_ae8a3381",
+   "hook_say": "Stop saying lifes!",
+   "strike": "lifes",
+   "score": 92
+  },
+  {
+   "gold": "sb_ad193784",
+   "hook_say": "Stop saying must to!",
+   "strike": "must to",
+   "score": 95
+  },
+  {
+   "gold": "sb_3495dbab",
+   "hook_say": "Full of, not full with.",
+   "strike": "full with",
+   "score": 93
+  },
+  {
+   "gold": "sb_85b49008",
+   "hook_say": "Different from, not with.",
+   "strike": "different with",
+   "score": 92
+  },
+  {
+   "gold": "sb_7c00a5f9",
+   "hook_say": "Make an effort, not do.",
+   "strike": "do an effort",
+   "score": 94
+  },
+  {
+   "gold": "sb_c864b070",
+   "hook_say": "You ride a bike.",
+   "strike": "drives a bike",
+   "score": 92
+  },
+  {
+   "gold": "sb_e10eb8a3",
+   "hook_say": "Deal with the problem.",
+   "strike": "deal the",
+   "score": 92
+  },
+  {
+   "gold": "sb_e526a4e3",
+   "hook_say": "Shops give a discount.",
+   "strike": "made me a discount",
+   "score": 90
+  },
+  {
+   "gold": "sb_95d90309",
+   "hook_say": "Write an essay, not make.",
+   "strike": "make an essay",
+   "score": 93
+  },
+  {
+   "gold": "sb_fa69f2b5",
+   "hook_say": "Fall in love with.",
+   "strike": "in love to",
+   "score": 93
+  },
+  {
+   "gold": "sb_e84afaab",
+   "hook_say": "Reply needs to",
+   "strike": "reply me",
+   "score": 90
+  },
+  {
+   "gold": "sb_287f44f3",
+   "hook_say": "Tired of, not tired for",
+   "strike": "tired for",
+   "score": 91
+  },
+  {
+   "gold": "sb_ff076731",
+   "hook_say": "Glasses has no A",
+   "strike": "a glasses",
+   "score": 92
+  },
+  {
+   "gold": "sb_1c160466",
+   "hook_say": "Ought needs to",
+   "strike": "ought go",
+   "score": 91
   }
  ],
  "phrasal": [
@@ -747,86 +981,6 @@
    "held_reason": "grader>=90 but episode duration outside 18-28 s (needs shorter hook/strike)"
   },
   {
-   "gold": "sb_0af41253",
-   "hook_say": "The hotel stuff were friendly",
-   "strike": "stuff",
-   "score": 90,
-   "template": "mistake",
-   "held_reason": "grader>=90 but gold row is not in bank/g0000.jsonl (the audited bank gen.py loads); needs the bank file added to GOLD first"
-  },
-  {
-   "gold": "sb_eeb76e00",
-   "hook_say": "My college helped me finish",
-   "strike": "college",
-   "score": 93,
-   "template": "mistake",
-   "held_reason": "grader>=90 but gold row is not in bank/g0000.jsonl (the audited bank gen.py loads); needs the bank file added to GOLD first"
-  },
-  {
-   "gold": "sb_33de58cb",
-   "hook_say": "I sent you a massage",
-   "strike": "massage",
-   "score": 94,
-   "template": "mistake",
-   "held_reason": "grader>=90 but gold row is not in bank/g0000.jsonl (the audited bank gen.py loads); needs the bank file added to GOLD first"
-  },
-  {
-   "gold": "sb_c8af63dc",
-   "hook_say": "Wildlife conversation is important",
-   "strike": "conversation",
-   "score": 90,
-   "template": "mistake",
-   "held_reason": "grader>=90 but gold row is not in bank/g0000.jsonl (the audited bank gen.py loads); needs the bank file added to GOLD first"
-  },
-  {
-   "gold": "sb_e02f5a9c",
-   "hook_say": "Animals adopt to cold weather",
-   "strike": "adopt",
-   "score": 93,
-   "template": "mistake",
-   "held_reason": "grader>=90 but gold row is not in bank/g0000.jsonl (the audited bank gen.py loads); needs the bank file added to GOLD first"
-  },
-  {
-   "gold": "sb_99ee8cfb",
-   "hook_say": "A lot of pleasure on students",
-   "strike": "pleasure",
-   "score": 90,
-   "template": "mistake",
-   "held_reason": "grader>=90 but gold row is not in bank/g0000.jsonl (the audited bank gen.py loads); needs the bank file added to GOLD first"
-  },
-  {
-   "gold": "sb_209d5928",
-   "hook_say": "I need to make my homework.",
-   "strike": "make",
-   "score": 94,
-   "template": "mistake",
-   "held_reason": "grader>=90 but gold row is not in bank/g0000.jsonl (the audited bank gen.py loads); needs the bank file added to GOLD first"
-  },
-  {
-   "gold": "sb_d762c9a4",
-   "hook_say": "I lost the bus today.",
-   "strike": "lost",
-   "score": 93,
-   "template": "mistake",
-   "held_reason": "grader>=90 but gold row is not in bank/g0000.jsonl (the audited bank gen.py loads); needs the bank file added to GOLD first"
-  },
-  {
-   "gold": "sb_a90fd6ec",
-   "hook_say": "I like hearing to music.",
-   "strike": "hearing",
-   "score": 90,
-   "template": "mistake",
-   "held_reason": "grader>=90 but gold row is not in bank/g0000.jsonl (the audited bank gen.py loads); needs the bank file added to GOLD first"
-  },
-  {
-   "gold": "sb_95408ad1",
-   "hook_say": "Someone robbed my phone.",
-   "strike": "robbed",
-   "score": 94,
-   "template": "mistake",
-   "held_reason": "grader>=90 but gold row is not in bank/g0000.jsonl (the audited bank gen.py loads); needs the bank file added to GOLD first"
-  },
-  {
    "gold": "sb_068cf065",
    "hook_say": "I'm considering to buy a car.",
    "strike": "considering to buy",
@@ -961,6 +1115,566 @@
    "score": 94,
    "template": "mistake",
    "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s / duplicate gold / L1 dup / level>B1 word: countable, podcast, ing, adjective)"
+  },
+  {
+   "gold": "sb_0af41253",
+   "hook_say": "The hotel stuff were friendly",
+   "strike": "stuff",
+   "score": 90,
+   "template": "mistake",
+   "held_reason": "grader>=90 but gold row is in another bank file (not g0000 / gold-curated-b)"
+  },
+  {
+   "gold": "sb_eeb76e00",
+   "hook_say": "My college helped me finish",
+   "strike": "college",
+   "score": 93,
+   "template": "mistake",
+   "held_reason": "grader>=90 but gold row is in another bank file (not g0000 / gold-curated-b)"
+  },
+  {
+   "gold": "sb_33de58cb",
+   "hook_say": "I sent you a massage",
+   "strike": "massage",
+   "score": 94,
+   "template": "mistake",
+   "held_reason": "grader>=90 but gold row is in another bank file (not g0000 / gold-curated-b)"
+  },
+  {
+   "gold": "sb_c8af63dc",
+   "hook_say": "Wildlife conversation is important",
+   "strike": "conversation",
+   "score": 90,
+   "template": "mistake",
+   "held_reason": "grader>=90 but gold row is in another bank file (not g0000 / gold-curated-b)"
+  },
+  {
+   "gold": "sb_e02f5a9c",
+   "hook_say": "Animals adopt to cold weather",
+   "strike": "adopt",
+   "score": 93,
+   "template": "mistake",
+   "held_reason": "grader>=90 but gold row is in another bank file (not g0000 / gold-curated-b)"
+  },
+  {
+   "gold": "sb_99ee8cfb",
+   "hook_say": "A lot of pleasure on students",
+   "strike": "pleasure",
+   "score": 90,
+   "template": "mistake",
+   "held_reason": "grader>=90 but gold row is in another bank file (not g0000 / gold-curated-b)"
+  },
+  {
+   "gold": "sb_209d5928",
+   "hook_say": "I need to make my homework.",
+   "strike": "make",
+   "score": 94,
+   "template": "mistake",
+   "held_reason": "grader>=90 but gold row is in another bank file (not g0000 / gold-curated-b)"
+  },
+  {
+   "gold": "sb_d762c9a4",
+   "hook_say": "I lost the bus today.",
+   "strike": "lost",
+   "score": 93,
+   "template": "mistake",
+   "held_reason": "grader>=90 but gold row is in another bank file (not g0000 / gold-curated-b)"
+  },
+  {
+   "gold": "sb_a90fd6ec",
+   "hook_say": "I like hearing to music.",
+   "strike": "hearing",
+   "score": 90,
+   "template": "mistake",
+   "held_reason": "grader>=90 but gold row is in another bank file (not g0000 / gold-curated-b)"
+  },
+  {
+   "gold": "sb_95408ad1",
+   "hook_say": "Someone robbed my phone.",
+   "strike": "robbed",
+   "score": 94,
+   "template": "mistake",
+   "held_reason": "grader>=90 but gold row is in another bank file (not g0000 / gold-curated-b)"
+  },
+  {
+   "gold": "sb_b430e6a3",
+   "hook_say": "Stop saying made an accident!",
+   "strike": "made an accident",
+   "score": 91,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_16e7bf04",
+   "hook_say": "Stop saying two billions!",
+   "strike": "two billions",
+   "score": 92,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_f7fada2b",
+   "hook_say": "Stop saying addicted with!",
+   "strike": "addicted with",
+   "score": 91,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_e4a9036c",
+   "hook_say": "Stop saying introduce about.",
+   "strike": "introduce about",
+   "score": 95,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_1b09af9d",
+   "hook_say": "Stop saying impressed about.",
+   "strike": "impressed about",
+   "score": 93,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_e847b5c6",
+   "hook_say": "Stop saying instead the.",
+   "strike": "instead the",
+   "score": 90,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_7a1cccd5",
+   "hook_say": "Stop saying good idea go.",
+   "strike": "idea go",
+   "score": 90,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_1ae9f54c",
+   "hook_say": "Stop saying invest on.",
+   "strike": "on",
+   "score": 94,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_a8d53d5c",
+   "hook_say": "Stop saying knock the door.",
+   "strike": "knock the door",
+   "score": 93,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_a958a159",
+   "hook_say": "Stop saying borrow me.",
+   "strike": "borrow me",
+   "score": 95,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_2a063eef",
+   "hook_say": "Stop saying a lots of.",
+   "strike": "a lots of",
+   "score": 94,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_77020772",
+   "hook_say": "Stop saying I am like.",
+   "strike": "am like",
+   "score": 94,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_c1d23040",
+   "hook_say": "Stop saying angry on!",
+   "strike": "angry on",
+   "score": 92,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_9762bb80",
+   "hook_say": "Stop saying arrived to!",
+   "strike": "arrived to",
+   "score": 92,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_88ab7735",
+   "hook_say": "Stop saying am agree!",
+   "strike": "am agree",
+   "score": 94,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_df31e3c5",
+   "hook_say": "Stop saying attended to the meeting!",
+   "strike": "attended to",
+   "score": 90,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_3d72433e",
+   "hook_say": "Stop saying argued to!",
+   "strike": "argued to",
+   "score": 91,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_389e26ad",
+   "hook_say": "Stop saying borrow me!",
+   "strike": "borrow me",
+   "score": 93,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_ff26f26a",
+   "hook_say": "Stop saying do an appointment!",
+   "strike": "do an appointment",
+   "score": 95,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_d6f13678",
+   "hook_say": "Stop saying describe about!",
+   "strike": "describe about",
+   "score": 94,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_6e9c9716",
+   "hook_say": "Stop saying discuss about!",
+   "strike": "discussed about",
+   "score": 93,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_2c8e8235",
+   "hook_say": "Stop saying divorce with!",
+   "strike": "divorced with",
+   "score": 92,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_6e59e923",
+   "hook_say": "Stop saying fail in the exam!",
+   "strike": "failed in",
+   "score": 90,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_5c008136",
+   "hook_say": "Stop saying make homework!",
+   "strike": "make my homework",
+   "score": 95,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_d8f735d9",
+   "hook_say": "Stop saying disagree to!",
+   "strike": "disagree to",
+   "score": 92,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_904eea31",
+   "hook_say": "Stop saying familiar to!",
+   "strike": "familiar to",
+   "score": 91,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_5ae0c1c8",
+   "hook_say": "Stop saying make a photo!",
+   "strike": "make a photo",
+   "score": 94,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_b2fdab23",
+   "hook_say": "Stop saying ready to the exam!",
+   "strike": "ready to",
+   "score": 90,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_8b6e2723",
+   "hook_say": "Stop saying survived from!",
+   "strike": "survived from",
+   "score": 92,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_538d91da",
+   "hook_say": "Stop saying at Hanoi!",
+   "strike": "at Hanoi",
+   "score": 94,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_3486e4c7",
+   "hook_say": "Stop saying managed finding!",
+   "strike": "managed finding",
+   "score": 92,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_5d41ed6c",
+   "hook_say": "Stop saying mention about!",
+   "strike": "mentioned about",
+   "score": 93,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_a8dac88f",
+   "hook_say": "Stop saying most of people!",
+   "strike": "Most of people",
+   "score": 92,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_ded82381",
+   "hook_say": "Stop saying do a mistake!",
+   "strike": "did a mistake",
+   "score": 95,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_0cc2c984",
+   "hook_say": "Stop saying eat medicine!",
+   "strike": "ate some medicine",
+   "score": 93,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_19a2c1a8",
+   "hook_say": "Stop saying love the nature!",
+   "strike": "love the nature",
+   "score": 92,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_651d1d1d",
+   "hook_say": "Stop saying notice about!",
+   "strike": "notice about",
+   "score": 90,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_d91b406f",
+   "hook_say": "Stop saying the next week!",
+   "strike": "the next week",
+   "score": 91,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_aa063c4b",
+   "hook_say": "Stop saying name is called!",
+   "strike": "is called",
+   "score": 93,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_2bf49caa",
+   "hook_say": "Stop saying nervous with!",
+   "strike": "nervous with",
+   "score": 92,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_b02a45a5",
+   "hook_say": "Stop saying attention on!",
+   "strike": "attention on",
+   "score": 95,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_02a04869",
+   "hook_say": "Stop saying prefer than!",
+   "strike": "prefer tea than",
+   "score": 92,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_6d557cd2",
+   "hook_say": "Grateful for your help.",
+   "strike": "grateful to",
+   "score": 90,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_0987b927",
+   "hook_say": "Difference between, not of.",
+   "strike": "difference of",
+   "score": 92,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_4bc6cc80",
+   "hook_say": "On the other hand.",
+   "strike": "In the other hand",
+   "score": 91,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_f1d764c9",
+   "hook_say": "No on after emphasize.",
+   "strike": "emphasized on",
+   "score": 90,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_4afeafcc",
+   "hook_say": "Interested in, not for.",
+   "strike": "interested for",
+   "score": 93,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_57fd10a9",
+   "hook_say": "Have an interview.",
+   "strike": "make a job interview",
+   "score": 91,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_cb81b434",
+   "hook_say": "Increase, not increase up.",
+   "strike": "increase up",
+   "score": 91,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_372b694c",
+   "hook_say": "Participate needs in",
+   "strike": "participated the",
+   "score": 92,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_324a7590",
+   "hook_say": "Refuse takes to, not going",
+   "strike": "refused going",
+   "score": 90,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_49256b98",
+   "hook_say": "Wait needs for",
+   "strike": "waiting you",
+   "score": 92,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_e70c4df1",
+   "hook_say": "Return already means back",
+   "strike": "returned back",
+   "score": 92,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_4b65ca0f",
+   "hook_say": "Permission has no A",
+   "strike": "a permission",
+   "score": 90,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_67e92c87",
+   "hook_say": "Work has no S here",
+   "strike": "works",
+   "score": 92,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_d60db28d",
+   "hook_say": "Offer takes to, not helping",
+   "strike": "offered helping",
+   "score": 91,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_2fce7296",
+   "hook_say": "Oppose needs no against",
+   "strike": "oppose against",
+   "score": 90,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_62da8cc9",
+   "hook_say": "Satisfied with, not of",
+   "strike": "satisfied of",
+   "score": 93,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_6d62d506",
+   "hook_say": "Surprised at, not for",
+   "strike": "surprised for",
+   "score": 90,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
+  },
+  {
+   "gold": "sb_99be1ee6",
+   "hook_say": "Live, not stay, for home",
+   "strike": "stayed",
+   "score": 90,
+   "template": "mistake",
+   "held_reason": "grader>=90 but failed a gen.py gate (duration 18-28 s, l1 duplicate, or level>B1 word)"
   }
  ]
 }

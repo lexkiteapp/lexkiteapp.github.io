@@ -12,8 +12,10 @@ REG = json.load(open(f'{ROOT}/web/teach/characters.json'))
 PIL = json.load(open(f'{ROOT}/content/video/teach2d/pilots.json'))
 PR_SMOKE_MAX = 1   # số tập teach-video render trên pull_request (ci-policy luật 11 khoá ≤ 2)
 GOLD = {}
-for x in open(f'{ROOT}/content/video/scripts/bank/g0000.jsonl'):
-    r = json.loads(x); GOLD[r['id']] = r
+GOLD_FILES = ('g0000', 'gold-curated-b')   # audited gold banks; a row id may live in only one file (teach2d-gen test)
+for _f in GOLD_FILES:
+    for x in open(f'{ROOT}/content/video/scripts/bank/{_f}.jsonl'):
+        r = json.loads(x); assert r['id'] not in GOLD, ('gold id in two bank files', r['id'], _f); GOLD[r['id']] = r
 APP = 'https://lexkite.com/app/'
 
 

@@ -18006,6 +18006,981 @@
     "sh": "Send this to a friend!",
     "c": "Save this. Free on lexkite.com."
    }
+  },
+  "t2a_mistake_16707e4b": {
+   "template": "mistake",
+   "hook": "Stop saying “did a crime”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --hand gates v1 (data == gold bank row · level <= B1 NGSL · hook <= 6 words, true for the facts · no duplicate gold row / approved sample / L1 error) + independent review by a fresh Opus reviewer 15/11/2026, score >= 90 per row (hand.json)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "e109bb8f0fd4",
+   "script": {
+    "h": "Stop saying did a crime!",
+    "w": "Many learners say: He did a crime last year.",
+    "r": "Better: He committed a crime last year.",
+    "y": "Use commit with crime. We do not say do a crime.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Committed! He committed a crime last year.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_mistake_290c5183": {
+   "template": "mistake",
+   "hook": "Stop saying “do a break”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --hand gates v1 (data == gold bank row · level <= B1 NGSL · hook <= 6 words, true for the facts · no duplicate gold row / approved sample / L1 error) + independent review by a fresh Opus reviewer 15/11/2026, score >= 90 per row (hand.json)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "891f75e44696",
+   "script": {
+    "h": "Stop saying do a break!",
+    "w": "Many learners say: Let's do a break for ten minutes.",
+    "r": "Better: Let's take a break for ten minutes.",
+    "y": "Use take a break or have a break.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Take! Let's take a break for ten minutes.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_mistake_a5326200": {
+   "template": "mistake",
+   "hook": "Stop saying “childs”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --hand gates v1 (data == gold bank row · level <= B1 NGSL · hook <= 6 words, true for the facts · no duplicate gold row / approved sample / L1 error) + independent review by a fresh Opus reviewer 15/11/2026, score >= 90 per row (hand.json)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "92f45e5e6ae5",
+   "script": {
+    "h": "Stop saying childs!",
+    "w": "Many learners say: Three childs were playing outside.",
+    "r": "Better: Three children were playing outside.",
+    "y": "The plural of child is children.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Children! Three children were playing outside.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_mistake_f0648eea": {
+   "template": "mistake",
+   "hook": "Stop saying “in charge for”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --hand gates v1 (data == gold bank row · level <= B1 NGSL · hook <= 6 words, true for the facts · no duplicate gold row / approved sample / L1 error) + independent review by a fresh Opus reviewer 15/11/2026, score >= 90 per row (hand.json)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "285a68fc6a04",
+   "script": {
+    "h": "Stop saying in charge for!",
+    "w": "Many learners say: She is in charge for the project.",
+    "r": "Better: She is in charge of the project.",
+    "y": "Use in charge of, not in charge for.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Of! She is in charge of the project.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_mistake_f61282a1": {
+   "template": "mistake",
+   "hook": "Stop saying join to.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --hand gates v1 (data == gold bank row · level <= B1 NGSL · hook <= 6 words, true for the facts · no duplicate gold row / approved sample / L1 error) + independent review by a fresh Opus reviewer 15/11/2026, score >= 90 per row (hand.json)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "26826cc845be",
+   "script": {
+    "h": "Stop saying join to.",
+    "w": "Many learners say: I want to join to the English club.",
+    "r": "Better: I want to join the English club.",
+    "y": "Join takes the group directly, with no to.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Join! Please join us for dinner.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_mistake_7dc78d29": {
+   "template": "mistake",
+   "hook": "Stop saying say a joke.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --hand gates v1 (data == gold bank row · level <= B1 NGSL · hook <= 6 words, true for the facts · no duplicate gold row / approved sample / L1 error) + independent review by a fresh Opus reviewer 15/11/2026, score >= 90 per row (hand.json)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "9f2672b7f01e",
+   "script": {
+    "h": "Stop saying say a joke.",
+    "w": "Many learners say: Can you say a joke?",
+    "r": "Better: Can you tell a joke?",
+    "y": "We tell a joke. We do not say one.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Tell! Can you tell us a joke?",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_mistake_79a7a746": {
+   "template": "mistake",
+   "hook": "Stop saying two knifes.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --hand gates v1 (data == gold bank row · level <= B1 NGSL · hook <= 6 words, true for the facts · no duplicate gold row / approved sample / L1 error) + independent review by a fresh Opus reviewer 15/11/2026, score >= 90 per row (hand.json)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "f6ba930a6609",
+   "script": {
+    "h": "Stop saying two knifes.",
+    "w": "Many learners say: Please bring two knifes.",
+    "r": "Better: Please bring two knives.",
+    "y": "The plural of knife is knives.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Knives! Put the knives on the table.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_mistake_6e4b5fa0": {
+   "template": "mistake",
+   "hook": "Stop saying laugh me.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --hand gates v1 (data == gold bank row · level <= B1 NGSL · hook <= 6 words, true for the facts · no duplicate gold row / approved sample / L1 error) + independent review by a fresh Opus reviewer 15/11/2026, score >= 90 per row (hand.json)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "d03206bc951a",
+   "script": {
+    "h": "Stop saying laugh me.",
+    "w": "Many learners say: Don't laugh me.",
+    "r": "Better: Don't laugh at me.",
+    "y": "Laugh needs at before the person or thing.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Laugh at! Please don't laugh at me.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_mistake_325da830": {
+   "template": "mistake",
+   "hook": "Stop saying learned me.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --hand gates v1 (data == gold bank row · level <= B1 NGSL · hook <= 6 words, true for the facts · no duplicate gold row / approved sample / L1 error) + independent review by a fresh Opus reviewer 15/11/2026, score >= 90 per row (hand.json)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "6e207c58acac",
+   "script": {
+    "h": "Stop saying learned me.",
+    "w": "Many learners say: My father learned me to swim.",
+    "r": "Better: My father taught me to swim.",
+    "y": "Learn is for the student. Teach is for the person giving lessons.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Taught! My uncle taught me to drive.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_mistake_9a0040a5": {
+   "template": "mistake",
+   "hook": "Stop saying “clothes is”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --hand gates v1 (data == gold bank row · level <= B1 NGSL · hook <= 6 words, true for the facts · no duplicate gold row / approved sample / L1 error) + independent review by a fresh Opus reviewer 15/11/2026, score >= 90 per row (hand.json)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "aa505820eef3",
+   "script": {
+    "h": "Stop saying clothes is!",
+    "w": "Many learners say: Your clothes is dirty.",
+    "r": "Better: Your clothes are dirty.",
+    "y": "Clothes is always plural, so use are, not is.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Are! Your clothes are dirty.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_mistake_6486fb27": {
+   "template": "mistake",
+   "hook": "Stop saying “blamed me about”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --hand gates v1 (data == gold bank row · level <= B1 NGSL · hook <= 6 words, true for the facts · no duplicate gold row / approved sample / L1 error) + independent review by a fresh Opus reviewer 15/11/2026, score >= 90 per row (hand.json)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "e79ba6cccb59",
+   "script": {
+    "h": "Stop saying blamed me about!",
+    "w": "Many learners say: She blamed me about the mistake.",
+    "r": "Better: She blamed me for the mistake.",
+    "y": "Use blame someone for something.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "For! She blamed me for the mistake.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_mistake_49f8754d": {
+   "template": "mistake",
+   "hook": "Stop saying “attention on”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --hand gates v1 (data == gold bank row · level <= B1 NGSL · hook <= 6 words, true for the facts · no duplicate gold row / approved sample / L1 error) + independent review by a fresh Opus reviewer 15/11/2026, score >= 90 per row (hand.json)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "ac9868dd70f9",
+   "script": {
+    "h": "Stop saying attention on!",
+    "w": "Many learners say: Pay attention on the teacher.",
+    "r": "Better: Pay attention to the teacher.",
+    "y": "Use pay attention to someone or something.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "To! Pay attention to the teacher.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_mistake_878144b4": {
+   "template": "mistake",
+   "hook": "Stop saying “absent in”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --hand gates v1 (data == gold bank row · level <= B1 NGSL · hook <= 6 words, true for the facts · no duplicate gold row / approved sample / L1 error) + independent review by a fresh Opus reviewer 15/11/2026, score >= 90 per row (hand.json)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "de95483fc666",
+   "script": {
+    "h": "Stop saying absent in!",
+    "w": "Many learners say: He was absent in class yesterday.",
+    "r": "Better: He was absent from class yesterday.",
+    "y": "Use absent from a place or an event.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "From! He was absent from class yesterday.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_mistake_ac56922e": {
+   "template": "mistake",
+   "hook": "Stop saying “close with the school”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --hand gates v1 (data == gold bank row · level <= B1 NGSL · hook <= 6 words, true for the facts · no duplicate gold row / approved sample / L1 error) + independent review by a fresh Opus reviewer 15/11/2026, score >= 90 per row (hand.json)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "b950906c5999",
+   "script": {
+    "h": "Stop saying close with the school!",
+    "w": "Many learners say: My house is close with the school.",
+    "r": "Better: My house is close to the school.",
+    "y": "Use close to for a place that is near.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "To! My house is close to the school.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_mistake_87515b33": {
+   "template": "mistake",
+   "hook": "Stop saying “despite of”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --hand gates v1 (data == gold bank row · level <= B1 NGSL · hook <= 6 words, true for the facts · no duplicate gold row / approved sample / L1 error) + independent review by a fresh Opus reviewer 15/11/2026, score >= 90 per row (hand.json)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "5f110cee3c53",
+   "script": {
+    "h": "Stop saying despite of!",
+    "w": "Many learners say: Despite of the rain, we played.",
+    "r": "Better: Despite the rain, we played.",
+    "y": "Despite is followed directly by a noun. Do not add of.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Despite! Despite the rain, we played football.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_mistake_f3392adc": {
+   "template": "mistake",
+   "hook": "Stop saying “during three hours”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --hand gates v1 (data == gold bank row · level <= B1 NGSL · hook <= 6 words, true for the facts · no duplicate gold row / approved sample / L1 error) + independent review by a fresh Opus reviewer 15/11/2026, score >= 90 per row (hand.json)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "43f7981b35a0",
+   "script": {
+    "h": "Stop saying during three hours!",
+    "w": "Many learners say: I studied during three hours.",
+    "r": "Better: I studied for three hours.",
+    "y": "For tells how long. During tells when something happens.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "For! I studied for three hours.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_mistake_02cd8fd2": {
+   "template": "mistake",
+   "hook": "Stop saying “work hardly”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --hand gates v1 (data == gold bank row · level <= B1 NGSL · hook <= 6 words, true for the facts · no duplicate gold row / approved sample / L1 error) + independent review by a fresh Opus reviewer 15/11/2026, score >= 90 per row (hand.json)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "415ddd6e4da8",
+   "script": {
+    "h": "Stop saying work hardly!",
+    "w": "Many learners say: She works hardly every day.",
+    "r": "Better: She works hard every day.",
+    "y": "Hardly means almost not. For doing something with effort, use hard.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Hard! She works hard every day.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_mistake_5a3afafa": {
+   "template": "mistake",
+   "hook": "Stop saying “enter to”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --hand gates v1 (data == gold bank row · level <= B1 NGSL · hook <= 6 words, true for the facts · no duplicate gold row / approved sample / L1 error) + independent review by a fresh Opus reviewer 15/11/2026, score >= 90 per row (hand.json)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "a35143f2f771",
+   "script": {
+    "h": "Stop saying enter to!",
+    "w": "Many learners say: Please enter to the room.",
+    "r": "Better: Please enter the room.",
+    "y": "Enter is followed directly by the place. No to.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Enter! Please enter the room.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_mistake_6ce1a133": {
+   "template": "mistake",
+   "hook": "Stop saying “high man”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --hand gates v1 (data == gold bank row · level <= B1 NGSL · hook <= 6 words, true for the facts · no duplicate gold row / approved sample / L1 error) + independent review by a fresh Opus reviewer 15/11/2026, score >= 90 per row (hand.json)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "34637a408401",
+   "script": {
+    "h": "Stop saying high man!",
+    "w": "Many learners say: My brother is a high man.",
+    "r": "Better: My brother is a tall man.",
+    "y": "Use tall for people. Use high for things like walls.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Tall! He is very tall.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_mistake_df97e077": {
+   "template": "mistake",
+   "hook": "Stop saying “scared from”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --hand gates v1 (data == gold bank row · level <= B1 NGSL · hook <= 6 words, true for the facts · no duplicate gold row / approved sample / L1 error) + independent review by a fresh Opus reviewer 15/11/2026, score >= 90 per row (hand.json)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "2248f548667f",
+   "script": {
+    "h": "Stop saying scared from!",
+    "w": "Many learners say: I am scared from dogs.",
+    "r": "Better: I am scared of dogs.",
+    "y": "Use scared of before the thing you fear.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Of! He is scared of the dark.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_mistake_a3e0f657": {
+   "template": "mistake",
+   "hook": "Stop saying “proud about”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --hand gates v1 (data == gold bank row · level <= B1 NGSL · hook <= 6 words, true for the facts · no duplicate gold row / approved sample / L1 error) + independent review by a fresh Opus reviewer 15/11/2026, score >= 90 per row (hand.json)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "7eb652e62c41",
+   "script": {
+    "h": "Stop saying proud about!",
+    "w": "Many learners say: My parents are proud about me.",
+    "r": "Better: My parents are proud of me.",
+    "y": "Be proud of someone or something.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Of! We are proud of you.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_mistake_9be78c2b": {
+   "template": "mistake",
+   "hook": "Stop saying “pleased meeting”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --hand gates v1 (data == gold bank row · level <= B1 NGSL · hook <= 6 words, true for the facts · no duplicate gold row / approved sample / L1 error) + independent review by a fresh Opus reviewer 15/11/2026, score >= 90 per row (hand.json)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "a3e5f54cf7bf",
+   "script": {
+    "h": "Stop saying pleased meeting!",
+    "w": "Many learners say: I am pleased meeting you.",
+    "r": "Better: I am pleased to meet you.",
+    "y": "After pleased, use to and the base verb.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "To meet! I'm pleased to meet you.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_mistake_e5f5579b": {
+   "template": "mistake",
+   "hook": "Stop saying “tend using”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --hand gates v1 (data == gold bank row · level <= B1 NGSL · hook <= 6 words, true for the facts · no duplicate gold row / approved sample / L1 error) + independent review by a fresh Opus reviewer 15/11/2026, score >= 90 per row (hand.json)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "8446dceba134",
+   "script": {
+    "h": "Stop saying tend using!",
+    "w": "Many learners say: Young people tend using phones a lot.",
+    "r": "Better: Young people tend to use phones a lot.",
+    "y": "Tend is followed by to and the base verb.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "To be! He tends to be late.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_mistake_344dfdad": {
+   "template": "mistake",
+   "hook": "Stop saying “pretended being”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --hand gates v1 (data == gold bank row · level <= B1 NGSL · hook <= 6 words, true for the facts · no duplicate gold row / approved sample / L1 error) + independent review by a fresh Opus reviewer 15/11/2026, score >= 90 per row (hand.json)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "383b8b5fb00e",
+   "script": {
+    "h": "Stop saying pretended being!",
+    "w": "Many learners say: He pretended being sick.",
+    "r": "Better: He pretended to be sick.",
+    "y": "Pretend is followed by to and the base verb.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "To be! She pretended to be asleep.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_mistake_46f96315": {
+   "template": "mistake",
+   "hook": "Stop saying “walk to home”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --hand gates v1 (data == gold bank row · level <= B1 NGSL · hook <= 6 words, true for the facts · no duplicate gold row / approved sample / L1 error) + independent review by a fresh Opus reviewer 15/11/2026, score >= 90 per row (hand.json)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "7fbd20b5d589",
+   "script": {
+    "h": "Stop saying walk to home!",
+    "w": "Many learners say: I walk to home every day.",
+    "r": "Better: I walk home every day.",
+    "y": "Home has no to after walk, go or come.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Home! I walk home after class.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_mistake_ae8a3381": {
+   "template": "mistake",
+   "hook": "Stop saying “lifes”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --hand gates v1 (data == gold bank row · level <= B1 NGSL · hook <= 6 words, true for the facts · no duplicate gold row / approved sample / L1 error) + independent review by a fresh Opus reviewer 15/11/2026, score >= 90 per row (hand.json)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "3a514adf5c3c",
+   "script": {
+    "h": "Stop saying lifes!",
+    "w": "Many learners say: Many lifes were saved.",
+    "r": "Better: Many lives were saved.",
+    "y": "The plural of life is lives.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Lives! Doctors save lives.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_mistake_ad193784": {
+   "template": "mistake",
+   "hook": "Stop saying “must to”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --hand gates v1 (data == gold bank row · level <= B1 NGSL · hook <= 6 words, true for the facts · no duplicate gold row / approved sample / L1 error) + independent review by a fresh Opus reviewer 15/11/2026, score >= 90 per row (hand.json)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "bf9b1d04a59c",
+   "script": {
+    "h": "Stop saying must to!",
+    "w": "Many learners say: I must to finish this today.",
+    "r": "Better: I must finish this today.",
+    "y": "After must, use the base verb without to.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Must! You must wear a seat belt.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_mistake_3495dbab": {
+   "template": "mistake",
+   "hook": "Full of, not full with.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --hand gates v1 (data == gold bank row · level <= B1 NGSL · hook <= 6 words, true for the facts · no duplicate gold row / approved sample / L1 error) + independent review by a fresh Opus reviewer 15/11/2026, score >= 90 per row (hand.json)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "1758754cf880",
+   "script": {
+    "h": "Full of, not full with.",
+    "w": "Many learners say: The bus is full with people.",
+    "r": "Better: The bus is full of people.",
+    "y": "Use full of, not full with.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Full of! The bus is full of people.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_mistake_85b49008": {
+   "template": "mistake",
+   "hook": "Different from, not with.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --hand gates v1 (data == gold bank row · level <= B1 NGSL · hook <= 6 words, true for the facts · no duplicate gold row / approved sample / L1 error) + independent review by a fresh Opus reviewer 15/11/2026, score >= 90 per row (hand.json)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "140f0ece6a50",
+   "script": {
+    "h": "Different from, not with.",
+    "w": "Many learners say: My phone is different with yours.",
+    "r": "Better: My phone is different from yours.",
+    "y": "Say different from. Do not say different with.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "From! My phone is different from yours.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_mistake_7c00a5f9": {
+   "template": "mistake",
+   "hook": "Make an effort, not do.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --hand gates v1 (data == gold bank row · level <= B1 NGSL · hook <= 6 words, true for the facts · no duplicate gold row / approved sample / L1 error) + independent review by a fresh Opus reviewer 15/11/2026, score >= 90 per row (hand.json)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "5738b879920b",
+   "script": {
+    "h": "Make an effort, not do.",
+    "w": "Many learners say: You should do an effort to learn.",
+    "r": "Better: You should make an effort to learn.",
+    "y": "We make an effort. We do not do an effort.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Make! You should make an effort to learn.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_mistake_c864b070": {
+   "template": "mistake",
+   "hook": "You ride a bike.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --hand gates v1 (data == gold bank row · level <= B1 NGSL · hook <= 6 words, true for the facts · no duplicate gold row / approved sample / L1 error) + independent review by a fresh Opus reviewer 15/11/2026, score >= 90 per row (hand.json)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "2ff1c35e3700",
+   "script": {
+    "h": "You ride a bike.",
+    "w": "Many learners say: He drives a bike to school.",
+    "r": "Better: He rides a bike to school.",
+    "y": "We drive cars and trucks. We ride bikes and horses.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Rides! He rides a bike to school.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_mistake_e10eb8a3": {
+   "template": "mistake",
+   "hook": "Deal with the problem.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --hand gates v1 (data == gold bank row · level <= B1 NGSL · hook <= 6 words, true for the facts · no duplicate gold row / approved sample / L1 error) + independent review by a fresh Opus reviewer 15/11/2026, score >= 90 per row (hand.json)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "b4c23ffed89a",
+   "script": {
+    "h": "Deal with the problem.",
+    "w": "Many learners say: We must deal the problem now.",
+    "r": "Better: We must deal with the problem now.",
+    "y": "Deal needs with before the problem you solve.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Deal with! We must deal with the problem now.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_mistake_e526a4e3": {
+   "template": "mistake",
+   "hook": "Shops give a discount.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --hand gates v1 (data == gold bank row · level <= B1 NGSL · hook <= 6 words, true for the facts · no duplicate gold row / approved sample / L1 error) + independent review by a fresh Opus reviewer 15/11/2026, score >= 90 per row (hand.json)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "ecf83f42540f",
+   "script": {
+    "h": "Shops give a discount.",
+    "w": "Many learners say: The shop made me a discount.",
+    "r": "Better: The shop gave me a discount.",
+    "y": "We give or get a discount. We do not make one.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Gave! The shop gave me a discount.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_mistake_95d90309": {
+   "template": "mistake",
+   "hook": "Write an essay, not make.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --hand gates v1 (data == gold bank row · level <= B1 NGSL · hook <= 6 words, true for the facts · no duplicate gold row / approved sample / L1 error) + independent review by a fresh Opus reviewer 15/11/2026, score >= 90 per row (hand.json)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "d2be2c6bc6d7",
+   "script": {
+    "h": "Write an essay, not make.",
+    "w": "Many learners say: I need to make an essay tonight.",
+    "r": "Better: I need to write an essay tonight.",
+    "y": "We write an essay. We do not make one.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Write! I need to write an essay tonight.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_mistake_fa69f2b5": {
+   "template": "mistake",
+   "hook": "Fall in love with.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --hand gates v1 (data == gold bank row · level <= B1 NGSL · hook <= 6 words, true for the facts · no duplicate gold row / approved sample / L1 error) + independent review by a fresh Opus reviewer 15/11/2026, score >= 90 per row (hand.json)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "3411c85d2a22",
+   "script": {
+    "h": "Fall in love with.",
+    "w": "Many learners say: He fell in love to her.",
+    "r": "Better: He fell in love with her.",
+    "y": "Use fall in love with a person.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "With! He fell in love with her.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_mistake_e84afaab": {
+   "template": "mistake",
+   "hook": "Reply needs to",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --hand gates v1 (data == gold bank row · level <= B1 NGSL · hook <= 6 words, true for the facts · no duplicate gold row / approved sample / L1 error) + independent review by a fresh Opus reviewer 15/11/2026, score >= 90 per row (hand.json)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "22c391c0f337",
+   "script": {
+    "h": "Reply needs to",
+    "w": "Many learners say: Please reply me soon.",
+    "r": "Better: Please reply to me soon.",
+    "y": "Reply needs to before the person or message.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Reply to! I will reply to your email tonight.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_mistake_287f44f3": {
+   "template": "mistake",
+   "hook": "Tired of, not tired for",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --hand gates v1 (data == gold bank row · level <= B1 NGSL · hook <= 6 words, true for the facts · no duplicate gold row / approved sample / L1 error) + independent review by a fresh Opus reviewer 15/11/2026, score >= 90 per row (hand.json)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "2981563cd46b",
+   "script": {
+    "h": "Tired of, not tired for",
+    "w": "Many learners say: I am tired for waiting.",
+    "r": "Better: I am tired of waiting.",
+    "y": "Tired of means bored or annoyed. Use of before the cause.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Of! He is tired of the noise.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_mistake_ff076731": {
+   "template": "mistake",
+   "hook": "Glasses has no A",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --hand gates v1 (data == gold bank row · level <= B1 NGSL · hook <= 6 words, true for the facts · no duplicate gold row / approved sample / L1 error) + independent review by a fresh Opus reviewer 15/11/2026, score >= 90 per row (hand.json)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "c2dce67bca34",
+   "script": {
+    "h": "Glasses has no A",
+    "w": "Many learners say: She is wearing a glasses.",
+    "r": "Better: She is wearing glasses.",
+    "y": "Glasses is always plural, so do not use a before it.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Glasses! She wears glasses every day.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_mistake_1c160466": {
+   "template": "mistake",
+   "hook": "Ought needs to",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --hand gates v1 (data == gold bank row · level <= B1 NGSL · hook <= 6 words, true for the facts · no duplicate gold row / approved sample / L1 error) + independent review by a fresh Opus reviewer 15/11/2026, score >= 90 per row (hand.json)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "a4e2b8c89110",
+   "script": {
+    "h": "Ought needs to",
+    "w": "Many learners say: You ought go to the doctor.",
+    "r": "Better: You ought to go to the doctor.",
+    "y": "Ought is always followed by to and the base verb.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Ought to! You ought to see a doctor.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
   }
  }
 }
