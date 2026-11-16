@@ -152,10 +152,20 @@ async function run(tag, cfg, calls, o = {}) {
 }
 
 const CALLS = ['coffee', 'weekend'];
+// 16/11 chập chờn trên runner chung (cùng mã: lúc xanh lúc đỏ – 1 mẫu nói chen ≈300 ms giữa 3 mẫu ≈100 ms; fps 48,2 so với 57 ở lượt sau): chỉ số THỜI GIAN trượt ngưỡng → đo lại ĐÚNG 1 lần,
+// ghi CẢ HAI mẫu (metrics.json › retried), cổng chấm theo mẫu thứ hai. Ngưỡng KHÔNG đổi: lỗi thật lặp lại ở lượt 2 → vẫn đỏ. Lỗi tất định (JS, thiếu lượt, sai nguồn VAD) KHÔNG đo lại.
+const perfBad = r => { const w = []; if (r.fps < 50) w.push(`fps ${r.fps.toFixed(1)}`); if (r.barge.some(x => x > 200)) w.push(`nói chen ${r.barge.map(x => x.toFixed(0))}`); if (r.first.length && pct(r.first, 0.95) > 1100) w.push('p95 trễ'); return w.join(', '); };
+const confirmed = async (tag, cfg, calls, o) => {
+  const a = await run(tag, cfg, calls, o); const why = a.turns >= 8 && !a.errs.length ? perfBad(a) : '';
+  if (!why) return a;
+  console.log(`↻ ${tag}: ${why} – đo lại 1 lần (mẫu 1 được ghi lại, cổng chấm mẫu 2)`);
+  const b = await run(tag, cfg, calls, o); b.retried = { why, first: { fps: a.fps, barge: a.barge, p50: pct(a.first, 0.5), p95: pct(a.first, 0.95), turns: a.turns } };
+  return b;
+};
 const R = {
-  on: await run('on', { flag: true }, CALLS, { barge: true, video: true, shot: true }),
-  energy: await run('energy', { flag: true, vad: 'energy' }, CALLS, { barge: true }),
-  off: await run('off', { flag: false }, CALLS),
+  on: await confirmed('on', { flag: true }, CALLS, { barge: true, video: true, shot: true }),
+  energy: await confirmed('energy', { flag: true, vad: 'energy' }, CALLS, { barge: true }),
+  off: await confirmed('off', { flag: false }, CALLS),
 };
 const row = (k, r) => `| ${k} | ${r.src || '–'} | ${r.turns} | ${pct(r.first, 0.5).toFixed(0)} / ${pct(r.first, 0.95).toFixed(0)} | ${pct(r.reply, 0.5).toFixed(0)} / ${pct(r.reply, 0.95).toFixed(0)} | ${r.barge.length ? r.barge.map(x => x.toFixed(0)).join(', ') : '–'} | ${r.fps.toFixed(1)} (p5 ${r.fpsP5.toFixed(0)}) | ${r.errs.length} |`;
 const md = `# Call RT – số đo (CPU chậm ${CPU}×, Chromium headless)\n\nGiả định: nhận dạng trên máy trả câu cuối ${FIN} ms sau stop(); cờ tắt = bộ chốt câu của Chrome ${EP} ms sau khi tiếng tắt.\n\n| chế độ | VAD | lượt | tắt tiếng → giáo viên có tiếng p50/p95 ms | → câu đáp p50/p95 ms | nói chen → giáo viên im ms | fps | lỗi JS |\n|---|---|---|---|---|---|---|---|\n${row('cờ bật', R.on)}\n${row('cờ bật, năng lượng', R.energy)}\n${row('cờ tắt (cũ)', R.off)}\n`;
