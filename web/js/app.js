@@ -1410,7 +1410,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     const u = window.Sync && Sync.user; if (!u) return false;
     let ok = null; try { ok = sessionStorage.getItem('lk.adm.' + u.uid); } catch (e) { /* bỏ qua */ }
     if (ok == null) { try { const r = await fetch((/^https?:/.test(location.protocol) ? '' : 'https://lexkite.com') + '/api/admin', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await u.getIdToken() }, body: '{"op":"ping"}' }); ok = r.ok ? '1' : '0'; try { sessionStorage.setItem('lk.adm.' + u.uid, ok); } catch (e) { /* bỏ qua */ } } catch (e) { return false; } }
-    try { ['lk.vimg.adm', 'lk.adm'].forEach(k => ok === '1' ? localStorage.setItem(k, '1') : localStorage.removeItem(k)); } catch (e) { /* bỏ qua */ }   // lk.adm: beta cho quản trị (target.js)
+    try { ['lk.vimg.adm', 'lk.adm'].forEach(k => ok === '1' ? localStorage.setItem(k, '1') : localStorage.removeItem(k)); } catch (e) { /* bỏ qua */ }
     return ok === '1';
   };
   // ================= CHÀO MỪNG & THIẾT LẬP BAN ĐẦU =================

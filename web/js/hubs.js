@@ -31,8 +31,8 @@
     if (!s.examTarget && s.goal && s.goal.exam === e) s.examTarget = App.goalLabel(s.goal); if (!s.examTarget && s.targets && s.targets[e]) s.examTarget = s.targets[e]; alignTrack(s, e); };
   // </exam-target>
   App.setExam = async e => { if (!EXAMS[e]) return; const s0 = state.settings; App.moveExamTarget(s0, App.exam(), e); s0.exam = e; alignTrack(s0, e); await App.saveSettings(); if (window.Sync) Sync.schedule(); App.updateExamChip(); toast(EXAMS[e].name); App.route(); };
-  App.updateExamChip = () => { App.fixExamTarget(); const b = document.getElementById('examChip'); if (!b) return; const x = EXAMS[App.exam()]; b.innerHTML = `<span aria-hidden="true">${UI.icon(x.ic)}</span> ${esc(x.short)} <span class="chev" aria-hidden="true">▾</span>`; b.title = t('Kỳ thi của bạn') + ': ' + x.name;
-    const f = document.getElementById('tlFlag'); if (f && window.Target) { f.textContent = Target.table(Target.cur()).em; f.parentNode.title = f.parentNode.ariaLabel = t('Ngôn ngữ đang học'); } };
+  App.updateExamChip = () => { App.fixExamTarget(); const b = document.getElementById('examChip'); if (!b) return; const x = EXAMS[App.exam()]; b.innerHTML = `<span class="tl-f" aria-hidden="true">${Target.table(Target.cur()).em}</span><span aria-hidden="true">${UI.icon(x.ic)}</span> ${esc(x.short)} <span class="chev" aria-hidden="true">▾</span>`; b.title = t('Kỳ thi của bạn') + ': ' + x.name;
+    const f = document.getElementById('tlFlag'); if (f) { f.textContent = Target.table(Target.cur()).em; f.parentNode.title = f.parentNode.ariaLabel = t('Ngôn ngữ đang học'); } };
   App.examPicker = () => {
     const cur = App.exam();
     UI.modal(`<h2 style="margin-top:0">${t('Bạn đang luyện kỳ thi nào?')}</h2><p class="muted small">${t('Nội dung Kỹ năng, Thi thử và kế hoạch hôm nay sẽ theo kỳ thi này. Đổi kỳ thi không xóa dữ liệu.')}</p>
