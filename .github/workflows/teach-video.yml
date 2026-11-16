@@ -43,6 +43,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/no-prod   # chặn DNS host prod (scripts/test/no-prod-hosts.mjs, #409)
       - name: Specs regenerate identically + reviewed scripts
+        env: { EV: '${{ github.event_name }}', BASE: '${{ github.base_ref }}' }
         run: |
           python3 scripts/video/teach2d/gen.py -q
           git status --porcelain content/video/teach2d/eps | grep . && { echo "::error::eps/*.json differ from gen.py output (pilots.json + auto.json) – regenerate and review"; exit 1; }
@@ -51,7 +52,9 @@ jobs:
           run() { n="$1"; shift; ( "$@" ) >"/tmp/pq-$n.log" 2>&1 & pids+=($!); names+=("$n"); }
           run gen   bash -c 'python3 scripts/test/teach2d-gen.py && python3 scripts/test/teach2d-autopub.py && python3 scripts/test/teach2d-store.py'   # batch generator gates (data / level / hook / dup) + spelling syllables, regression cases
           run mix   bash -c 'python3 scripts/video/teach2d/mix.py --check && python3 scripts/test/teach2d-mix.py'   # 0-credit build bank: mix.json regenerates identically, 0 repeats in the window, diversity >= 70
-          run qa    node scripts/video/teach2d/native-qa.mjs --online   # clip L1 (docs/VIDEO-TEACH2D.md): chữ bản địa theo i18n-qa + dịch ngược; đỏ = không render
+          # 16/11: gtx (dịch ngược miễn phí) đổi bản dịch giữa các lần chạy → hàng sát ngưỡng lúc đạt lúc trượt, đỏ cả PR không đụng hàng đó (t2_l1_ja_hard). PR: dịch ngược online CHỈ hàng PR thêm/sửa (kiểm tĩnh vẫn mọi hàng); main/dispatch + lịch đêm (native-qa-nightly.yml) chạy đủ.
+          QA_SCOPE=""; if [ "$EV" = pull_request ] && git fetch -q --depth=1 origin "$BASE"; then QA_SCOPE="--online-changed=origin/$BASE"; fi
+          run qa    node scripts/video/teach2d/native-qa.mjs --online $QA_SCOPE   # clip L1 (docs/VIDEO-TEACH2D.md): chữ bản địa theo i18n-qa + dịch ngược; đỏ = không render
           run pub   python3 scripts/video/teach2d/publish.py --check   # publish block of every episode (title / platforms) valid – docs/specs/video-production-v2.md §2
           bad=0; for i in "${!pids[@]}"; do if wait "${pids[$i]}"; then echo "✓ ${names[$i]}"; else echo "::error::✗ ${names[$i]}"; bad=1; fi; echo "::group::log ${names[$i]}"; cat "/tmp/pq-${names[$i]}.log"; echo "::endgroup::"; done
           [ "$bad" = 0 ] || exit 1

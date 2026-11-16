@@ -191,6 +191,8 @@ give, send, teach, show 같은 4형식 동사는 두 목적어 모두 주어가 
 
 ---
 
+수동태가 시험 답안에서 실제로 어떻게 쓰이는지 궁금하다면, 공정 과정을 설명하는 [IELTS 라이팅 Task 1 프로세스 쓰는 법](/ko/blog/ielts-writing-task-1-process-sseuneun-beop/)에서 단계별 수동태 문장을 확인해 보세요.
+
 ## 자주 묻는 질문 (FAQ)
 
 ### 왜 자동사는 수동태를 만들 수 없나요?
