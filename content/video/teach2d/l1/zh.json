@@ -1395,7 +1395,7 @@
           ]
         },
         "en": {
-          "hook": "Can asks alone, no do!",
+          "hook": "Do not add do before can in questions!",
           "tip": "In English, can makes a question by itself, so do not add do.",
           "caption": "Do you say “Do you can help me?” 😅 Can makes a question by itself, so do not add do: “Can you help me?” Listen to Ama and repeat! Practice more in the Lexkite app."
         }
