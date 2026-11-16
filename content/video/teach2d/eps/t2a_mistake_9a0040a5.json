@@ -1,0 +1,129 @@
+{
+ "id": "t2a_mistake_9a0040a5",
+ "template": "mistake",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Stop saying clothes is!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Your clothes is dirty.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Your clothes are dirty.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Clothes is always plural, so use are, not is.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Are! Your clothes are dirty.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Your clothes is dirty.",
+  "right": "Your clothes are dirty.",
+  "strike": "clothes is",
+  "why": "Clothes is always plural, so use are, not is.",
+  "memory": "Clothes are, never is",
+  "quiz": {
+   "stem": "Your clothes ___ dirty.",
+   "options": [
+    "is",
+    "are"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Stop saying “clothes is”"
+ },
+ "src": {
+  "gold": "sb_9a0040a5",
+  "pid": "w:clothes#n"
+ },
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Say \"Your clothes are dirty\", not \"Your clothes is dirty\"",
+  "keyword": "clothes is",
+  "value": "Say \"Your clothes are dirty\", not \"Your clothes is dirty\". Clothes is always plural, so use are, not is.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#englishgrammar",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Say \"Your clothes are dirty\", not \"Your clothes is dirty\"",
+    "description": "Say \"Your clothes are dirty\", not \"Your clothes is dirty\". Clothes is always plural, so use are, not is.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix\n\nSeries: Stop Saying This · Teacher: Ama\n\n#learnenglish #englishtips #englishgrammar #englishteacher",
+    "tags": [
+     "clothes is",
+     "Stop Saying This",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Say \"Your clothes are dirty\", not \"Your clothes is dirty\"\n\nSay \"Your clothes are dirty\", not \"Your clothes is dirty\". Clothes is always plural, so use are, not is.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Say \"Your clothes are dirty\", not \"Your clothes is dirty\"\n\nSay \"Your clothes are dirty\", not \"Your clothes is dirty\". Clothes is always plural, so use are, not is.\n\nCheck your grammar: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#englishgrammar",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Say \"Your clothes are dirty\", not \"Your clothes is dirty\" #learnenglish #englishtips #englishgrammar"
+   }
+  },
+  "first_comment": "Answer: Are! Your clothes are dirty. Say \"Your clothes are dirty\", not \"Your clothes is dirty\". Clothes is always plural, so use are, not is. Try the full lesson and quiz here: {link}"
+ }
+}

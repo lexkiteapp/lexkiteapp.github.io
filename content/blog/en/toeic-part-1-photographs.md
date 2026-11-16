@@ -9,7 +9,7 @@ tags: [toeic, listening, part-1, photographs]
 keyword: "toeic part 1"
 cover: toeic
 coverAlt: "Lexkite TOEIC practice hub with mock tests and practice by part"
-publishAt:
+publishAt: 2027-03-01T09:25:00+05:30
 factChecked: 2026-11-15
 author: Lexkite
 status: ready

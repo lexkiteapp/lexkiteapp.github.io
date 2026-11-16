@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_decimal_dot",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Write it like this: 1.5!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: The bottle is 1,5 liters.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: The bottle is 1.5 liters.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Write it with a point, like in 1.5.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! The bottle is 2.5 liters.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "The bottle is 1,5 liters.",
+  "right": "The bottle is 1.5 liters.",
+  "strike": "1,5",
+  "why": "Write it with a point, like in 1.5.",
+  "memory": "The bottle is 1.5 liters.",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "The bottle is 2,5 liters.",
+    "The bottle is 2.5 liters."
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Ondalıkta virgül değil nokta!",
+   "tip": "Türkçede “1,5” yazarız; İngilizcede ondalık sayıda virgül değil nokta kullanılır: “1.5”.",
+   "caption": "“The bottle is 1,5 liters” mi yazıyorsun? 😅 İngilizcede ondalık sayıda virgül yerine nokta yazılır. Doğrusu “The bottle is 1.5 liters.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “The bottle is 2.5 liters”. Ondalıkta nokta kullan. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "There is a period in the decimal, ",
+   "tip": "In English a number like one and a half is written “1.5”.",
+   "caption": "Do you write “The bottle is 1,5 liters”? 😅 In English we write 1.5 with a point, not with a comma like 1,5. The right sentence is “The bottle is 1.5 liters.” Listen to Carlos and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Ondalıkta virgül değil nokta!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 55,
+  "seconds": 32.5,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "Ondalıkta virgül değil nokta!",
+  "keyword": "The bottle is 1.5 liters.",
+  "value": "Türkçede “1,5” yazarız; İngilizcede ondalık sayıda virgül değil nokta kullanılır: “1.5”.",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "Ondalıkta virgül değil nokta!",
+    "description": "Türkçede “1,5” yazarız; İngilizcede ondalık sayıda virgül değil nokta kullanılır: “1.5”.\n\n“The bottle is 1,5 liters” mi yazıyorsun? 😅 İngilizcede ondalık sayıda virgül yerine nokta yazılır. Doğrusu “The bottle is 1.5 liters.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "The bottle is 1.5 liters.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“The bottle is 1,5 liters” mi yazıyorsun? 😅 İngilizcede ondalık sayıda virgül yerine nokta yazılır. Doğrusu “The bottle is 1.5 liters.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Ondalıkta virgül değil nokta!\n\nTürkçede “1,5” yazarız; İngilizcede ondalık sayıda virgül değil nokta kullanılır: “1.5”.\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Ondalıkta virgül değil nokta! Türkçede “1,5” yazarız; İngilizcede ondalık sayıda virgül değil nokta kull… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “The bottle is 2.5 liters”. Ondalıkta nokta kullan. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+  "lang": "tr"
+ }
+}

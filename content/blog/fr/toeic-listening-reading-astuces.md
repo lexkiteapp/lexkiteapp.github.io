@@ -20,6 +20,8 @@ Pourtant, le TOEIC n'évalue pas votre capacité à disserter sur la littératur
 
 Dans ce guide stratégique, découvrez comment optimiser vos 2 heures d'épreuve et aborder sereinement les 200 questions du test.
 
+Pour un tableau complet des parties et de la notation, voyez [le format du TOEIC en sept parties](/fr/blog/format-toeic-7-parties-duree-score/).
+
 ## La structure de l'épreuve du TOEIC
 
 Le test se compose de deux sections de 100 questions chacune, notées sur 495 points (score total sur 990) :
@@ -131,6 +133,8 @@ Entraînez-vous dans les conditions réelles du test grâce à notre [Mode d'ent
 
 {{cta: /#/practice/test | S'entraîner au TOEIC avec les tests blancs Lexkite}}
 
+Pour les six premières questions de l'écoute, consultez [TOEIC partie 1 photographies](/fr/blog/toeic-partie-1-photographies-astuces/).
+
 ## Foire aux questions
 
 ### Y a-t-il des points négatifs en cas de mauvaise réponse au TOEIC ?
@@ -144,3 +148,5 @@ Non, le règlement officiel d'ETS interdit formellement d'annoter ou de souligne
 
 ### Combien de temps faut-il pour progresser de 100 points au TOEIC ?
 En moyenne, il faut compter entre 40 et 60 heures de travail sérieux et ciblé (vocabulaire économique, entraînement chronométré, écoute d'accents variés) pour faire progresser son score de 100 points.
+
+Pour approfondir la partie la plus lourde du Listening, voyez la méthode du [TOEIC Part 3 et 4](/fr/blog/toeic-part-3-et-4-methode-conversations-exposes/).

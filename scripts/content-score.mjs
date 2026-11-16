@@ -85,7 +85,7 @@ const AREAS = {
     // chuẩn ~300 điểm A1–C2; "đã có bài đúng cấp" chỉ tăng khi viết bài mới cho điểm trong hàng chờ (targets.json "Ngữ pháp – bài <cấp>")
     ['kho điểm ngữ pháp', GI.points, 300, 12], ['điểm đã có bài đúng cấp', GI.taught, 300, 12]] },
   comm: { name: 'Giao tiếp', err: 0, parts: [
-    ['cuộc gọi Ama/Carlos', countRe(ls('web/js/call', /^calls.*\.js$/).map(f => 'web/js/call/' + f), /^\s*id: '/gm), 60, 20],
+    ['cuộc gọi Ama/Carlos', countRe(['web/js/call', 'web/cpack/call'].flatMap(d => ls(d, /^calls.*\.js$/).map(f => d + '/' + f)), /^\s*id: '/gm), 60, 20],
     ['roleplay', roleplay, 60, 20], ['tình huống Play & Speak', ls('content/situations', /\.json$/).length, 40, 20],
     ['mục gold (giải thích cách dùng)', (rd('web/cpack/lesson/gold.js').match(/":\[\{"why"/g) || []).length, 1000, 20],
     ['sổ mẫu câu theo chức năng', ex('content/framework/functions.json') ? (JSON.parse(rd('content/framework/functions.json')).functions || []).length : 0, 100, 20, 1]] },

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_dont_touch",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say Don't, not No!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: No touch it!",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Don't touch it!",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "To say stop, begin with don't.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Don't! Don't run here!",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "No touch it!",
+  "right": "Don't touch it!",
+  "strike": "No",
+  "why": "To say stop, begin with don't.",
+  "memory": "Don't + verb.",
+  "quiz": {
+   "stem": "___ run here!",
+   "options": [
+    "No",
+    "Don't"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "จะบอก “อย่า” ให้ใช้ Don't!",
+   "tip": "เราใช้ “อย่า” นำหน้ากริยา และเห็นป้าย “No smoking” บ่อย จึงพูด No + กริยา แต่ถ้าสั่งห้าม ต้องใช้ Don't: “Don't touch it!”",
+   "caption": "คุณเคยพูดว่า “No touch it!” ไหม? 😅 ภาษาไทยใช้ “อย่า” นำหน้ากริยา และเราเห็นป้าย “No smoking” บ่อย จึงมักพูด No + กริยา แต่ถ้าบอกให้ใครหยุดทำ ภาษาอังกฤษต้องใช้ Don't: “Don't touch it!” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “Don't” จำไว้ให้ดีนะ! ลองพูดประโยคตัวอย่างออกเสียงหนึ่งรอบ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "To say stop, use “Don't”!",
+   "tip": "Thai puts one word before the verb, and signs like “No smoking” make people say No, but to tell someone to stop, English needs Don't: “Don't touch it!”",
+   "caption": "Do you ever say this? “No touch it!” 😅 Thai puts one word before the verb, and signs like “No smoking” make people say No, but to tell someone to stop, English needs Don't. Say “Don't touch it!” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "จะบอก “อย่า” ให้ใช้ Don't!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 40,
+  "seconds": 25.1,
+  "wpm": 95
+ },
+ "publish": {
+  "title": "จะบอก “อย่า” ให้ใช้ Don't!",
+  "keyword": "Don't touch it!",
+  "value": "เราใช้ “อย่า” นำหน้ากริยา และเห็นป้าย “No smoking” บ่อย จึงพูด No + กริยา แต่ถ้าสั่งห้าม ต้องใช้ Don't: “Don't touch it!”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "จะบอก “อย่า” ให้ใช้ Don't!",
+    "description": "เราใช้ “อย่า” นำหน้ากริยา และเห็นป้าย “No smoking” บ่อย จึงพูด No + กริยา แต่ถ้าสั่งห้าม ต้องใช้ Don't: “Don't touch it!”\n\nคุณเคยพูดว่า “No touch it!” ไหม? 😅 ภาษาไทยใช้ “อย่า” นำหน้ากริยา และเราเห็นป้าย “No smoking” บ่อย จึงมักพูด No + กริยา แต่ถ้าบอกให้ใครหยุดทำ ภาษาอังกฤษต้องใช้ Don't: “Don't touch it!” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "Don't touch it!",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “No touch it!” ไหม? 😅 ภาษาไทยใช้ “อย่า” นำหน้ากริยา และเราเห็นป้าย “No smoking” บ่อย จึงมักพูด No + กริยา แต่ถ้าบอกให้ใครหยุดทำ ภาษาอังกฤษต้องใช้ Don't: “Don't touch it!” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "จะบอก “อย่า” ให้ใช้ Don't!\n\nเราใช้ “อย่า” นำหน้ากริยา และเห็นป้าย “No smoking” บ่อย จึงพูด No + กริยา แต่ถ้าสั่งห้าม ต้องใช้ Don't: “Don't touch it!”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "จะบอก “อย่า” ให้ใช้ Don't! เราใช้ “อย่า” นำหน้ากริยา และเห็นป้าย “No smoking” บ่อย จึงพูด No + กริยา แต่ถ้าสั… #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “Don't” จำไว้ให้ดีนะ! ลองพูดประโยคตัวอย่างออกเสียงหนึ่งรอบ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

@@ -146,6 +146,8 @@ Dedica cinco minutos diarios a esta rutina práctica:
 
 ---
 
+Antes del ritmo de la oración conviene dominar cada palabra: mira las [reglas del acento de palabra en inglés](/es/blog/acento-de-palabra-en-ingles-reglas/).
+
 ## Desarrolla tu expresión oral con la plataforma Lexkite
 
 El dominio del ritmo sonoro requiere herramientas interactivas que brinden retroalimentación continua:

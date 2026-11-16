@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_in_five_min",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say in five minutes!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I will be back after five minutes.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I will be back in five minutes.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "For a time from now, use in.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "In! The bus comes in five minutes.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I will be back after five minutes.",
+  "right": "I will be back in five minutes.",
+  "strike": "after",
+  "why": "For a time from now, use in.",
+  "memory": "In five minutes.",
+  "quiz": {
+   "stem": "The bus comes ___ five minutes.",
+   "options": [
+    "after",
+    "in"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "อีก 5 นาที ใช้ in ไม่ใช่ after!",
+   "tip": "ภาษาไทยพูด “อีกห้านาที” หรือ “หลังจากห้านาที” ได้ จึงมักเลือก after แต่บอกเวลาที่จะถึงจากตอนนี้ ใช้ in: “I will be back in five minutes.”",
+   "caption": "คุณเคยพูดว่า “I will be back after five minutes.” ไหม? 😅 ภาษาไทยพูด “อีกห้านาที” หรือ “หลังจากห้านาที” ได้ จึงมักเลือก after แต่บอกเวลาที่จะถึงจากตอนนี้ ใช้ in: “I will be back in five minutes.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “in” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยคด้วยคำนี้ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Use “in”, not “after”!",
+   "tip": "Thai can say after for a time from now, but English uses in.",
+   "caption": "Do you say “I will be back after five minutes.” 😅 Thai can say after for a time from now, but English uses in. Say “I will be back in five minutes.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "อีก 5 นาที ใช้ in ไม่ใช่ after!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "อีก 5 นาที ใช้ in ไม่ใช่ after!",
+  "keyword": "I will be back in five minutes.",
+  "value": "ภาษาไทยพูด “อีกห้านาที” หรือ “หลังจากห้านาที” ได้ จึงมักเลือก after แต่บอกเวลาที่จะถึงจากตอนนี้ ใช้ in: “I will be back in five minutes.”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 46,
+  "platforms": {
+   "youtube": {
+    "title": "อีก 5 นาที ใช้ in ไม่ใช่ after!",
+    "description": "ภาษาไทยพูด “อีกห้านาที” หรือ “หลังจากห้านาที” ได้ จึงมักเลือก after แต่บอกเวลาที่จะถึงจากตอนนี้ ใช้ in: “I will be back in five minutes.”\n\nคุณเคยพูดว่า “I will be back after five minutes.” ไหม? 😅 ภาษาไทยพูด “อีกห้านาที” หรือ “หลังจากห้านาที” ได้ จึงมักเลือก after แต่บอกเวลาที่จะถึงจากตอนนี้ ใช้ in: “I will be back in five minutes.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "I will be back in five minutes.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “I will be back after five minutes.” ไหม? 😅 ภาษาไทยพูด “อีกห้านาที” หรือ “หลังจากห้านาที” ได้ จึงมักเลือก after แต่บอกเวลาที่จะถึงจากตอนนี้ ใช้ in: “I will be back in five minutes.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "อีก 5 นาที ใช้ in ไม่ใช่ after!\n\nภาษาไทยพูด “อีกห้านาที” หรือ “หลังจากห้านาที” ได้ จึงมักเลือก after แต่บอกเวลาที่จะถึงจากตอนนี้ ใช้ in: “I will be back in five minutes.”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "อีก 5 นาที ใช้ in ไม่ใช่ after! ภาษาไทยพูด “อีกห้านาที” หรือ “หลังจากห้านาที” ได้ จึงมักเลือก after แต่บอกเวล… #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “in” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยคด้วยคำนี้ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

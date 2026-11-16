@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_get_up",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "I get up at six!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I stand up at six every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I get up at six every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Get up means leave your bed.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Get up! I get up at six every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I stand up at six every day.",
+  "right": "I get up at six every day.",
+  "strike": "stand up",
+  "why": "Get up means leave your bed.",
+  "memory": "Get up.",
+  "quiz": {
+   "stem": "I ___ at six every day.",
+   "options": [
+    "get up",
+    "stand up"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "„Aufstehen“ ≠ „stand up“",
+   "tip": "Im Deutschen heißt „aufstehen“ auch „aus dem Bett kommen“. Im Englischen sagen Sie dafür „get up“.",
+   "caption": "Sagen Sie „stand up“ für „aufstehen“? ⏰ Falsch: “I stand up at six every day.” Richtig: “I get up at six every day.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “get up”. Richtig heißt es: “I get up at six every day.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Aufstehen” from bed is “get up”!",
+   "tip": "German “aufstehen” also means leaving your bed. In English you say “get up” for that.",
+   "caption": "“Aufstehen” from bed is “get up”! Wrong: “I stand up at six every day.” Right: “I get up at six every day.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "„Aufstehen“ ≠ „stand up“"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 54,
+  "seconds": 32.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "„Aufstehen“ ≠ „stand up“",
+  "keyword": "I get up at six every day.",
+  "value": "Im Deutschen heißt „aufstehen“ auch „aus dem Bett kommen“. Im Englischen sagen Sie dafür „get up“.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 48,
+  "platforms": {
+   "youtube": {
+    "title": "„Aufstehen“ ≠ „stand up“",
+    "description": "Im Deutschen heißt „aufstehen“ auch „aus dem Bett kommen“. Im Englischen sagen Sie dafür „get up“.\n\nSagen Sie „stand up“ für „aufstehen“? ⏰ Falsch: “I stand up at six every day.” Richtig: “I get up at six every day.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "I get up at six every day.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Sagen Sie „stand up“ für „aufstehen“? ⏰ Falsch: “I stand up at six every day.” Richtig: “I get up at six every day.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "„Aufstehen“ ≠ „stand up“\n\nIm Deutschen heißt „aufstehen“ auch „aus dem Bett kommen“. Im Englischen sagen Sie dafür „get up“.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "„Aufstehen“ ≠ „stand up“ Im Deutschen heißt „aufstehen“ auch „aus dem Bett kommen“. Im Englischen sage… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “get up”. Richtig heißt es: “I get up at six every day.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

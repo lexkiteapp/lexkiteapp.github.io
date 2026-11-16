@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_care_of",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Is something missing here?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Take care yourself.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Take care of yourself.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After take care, we say of.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The first one! Take care of your mom.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Take care yourself.",
+  "right": "Take care of yourself.",
+  "strike": "care yourself",
+  "why": "After take care, we say of.",
+  "memory": "Take care of me.",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "Take care of your mom.",
+    "Take care your mom."
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Thiếu “of” trong “take care”",
+   "tip": "Tiếng Việt nói “chăm sóc bản thân” không cần từ nối, nhưng tiếng Anh cần “of”: “take care of yourself.”",
+   "caption": "Bạn có hay nói “Take care yourself.” không? 😅 Sau “take care” cần “of”: “Take care of yourself.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “Take care of your mom.” Hãy nói to câu “Take care of yourself.” với một người bạn quý. Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#nguphaptienganh",
+    "#tienganhgiaotiep",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Missing “of” in “take care”?",
+   "tip": "Say “take care of”: “take care of yourself.”",
+   "caption": "Do you often say this? “Take care yourself.” After “take care” you need “of”: “Take care of yourself.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Thiếu “of” trong “take care”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Thiếu “of” trong “take care”",
+  "keyword": "Take care of yourself.",
+  "value": "Tiếng Việt nói “chăm sóc bản thân” không cần từ nối, nhưng tiếng Anh cần “of”: “take care of yourself.”",
+  "hashtags": [
+   "#hoctienganh",
+   "#nguphaptienganh",
+   "#tienganhgiaotiep",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "Thiếu “of” trong “take care”",
+    "description": "Tiếng Việt nói “chăm sóc bản thân” không cần từ nối, nhưng tiếng Anh cần “of”: “take care of yourself.”\n\nBạn có hay nói “Take care yourself.” không? 😅 Sau “take care” cần “of”: “Take care of yourself.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #nguphaptienganh #tienganhgiaotiep #lexkite",
+    "tags": [
+     "Take care of yourself.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “Take care yourself.” không? 😅 Sau “take care” cần “of”: “Take care of yourself.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Thiếu “of” trong “take care”\n\nTiếng Việt nói “chăm sóc bản thân” không cần từ nối, nhưng tiếng Anh cần “of”: “take care of yourself.”\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#nguphaptienganh",
+     "#tienganhgiaotiep",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Thiếu “of” trong “take care” Tiếng Việt nói “chăm sóc bản thân” không cần từ nối, nhưng tiếng Anh cần… #hoctienganh #nguphaptienganh #tienganhgiaotiep"
+   }
+  },
+  "first_comment": "Đáp án: “Take care of your mom.” Hãy nói to câu “Take care of yourself.” với một người bạn quý. Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

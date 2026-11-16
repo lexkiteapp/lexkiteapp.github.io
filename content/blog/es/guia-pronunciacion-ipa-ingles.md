@@ -126,6 +126,8 @@ Equivocarse en la sílaba acentuada dificulta la comprensión mucho más que pro
 
 {{cta: /#/practice/speak | Entrena tu pronunciación en inglés con reconocimiento de voz}}
 
+Para predecir dónde va la marca ˈ en palabras largas, usa las [reglas del acento de palabra en inglés](/es/blog/acento-de-palabra-en-ingles-reglas/).
+
 ## Preguntas frecuentes sobre el IPA en inglés
 
 ### ¿Es necesario memorizar los 44 símbolos del tirón?

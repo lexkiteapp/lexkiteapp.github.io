@@ -66,10 +66,10 @@
    "answer": 1
   },
   "native": {
-   "hook": "„Eventuell“ auf Englisch falsch?",
-   "tip": "„Eventually“ heißt „schließlich“. Für „eventuell“ nimmst du „maybe“ oder „possibly“.",
-   "caption": "Sagst du „eventuell“ falsch auf Englisch? 🤔 Falsch: “Eventually I will call you.” Richtig: “Maybe I will call you.” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.",
-   "comment": "Lösung: “Maybe”. Richtig heißt es: “Maybe I will call you.” Übe mehr mit einem kostenlosen Quiz: {link}",
+   "hook": "„Eventuell“ ≠ „eventually“!",
+   "tip": "„Eventually“ heißt „schließlich“. Für „eventuell“ nehmen Sie „maybe“ oder „possibly“.",
+   "caption": "Sagen Sie „eventuell“ falsch auf Englisch? 🤔 Falsch: “Eventually I will call you.” Richtig: “Maybe I will call you.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “Maybe”. Richtig heißt es: “Maybe I will call you.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
    "hashtags": [
     "#englischlernen",
     "#englischtipps",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "Do you get “eventuell” wrong in English?",
+   "hook": "“Eventuell” is not “eventually”!",
    "tip": "“Eventually” means “schließlich”. For “eventuell” use “maybe” or “possibly”.",
-   "caption": "“Eventually” means schließlich in German, not eventuell. Wrong: “Eventually I will call you.” Right: “Maybe I will call you.” Listen to Ama and repeat! Practice more in the Lexkite app."
+   "caption": "“Eventually” means schließlich, not eventuell. Wrong: “Eventually I will call you.” Right: “Maybe I will call you.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "„Eventuell“ auf Englisch falsch?"
+  "text": "„Eventuell“ ≠ „eventually“!"
  },
  "src": {
   "l1": true
@@ -103,9 +103,9 @@
   "wpm": 99
  },
  "publish": {
-  "title": "„Eventuell“ auf Englisch falsch?",
+  "title": "„Eventuell“ ≠ „eventually“!",
   "keyword": "Maybe I will call you.",
-  "value": "„Eventually“ heißt „schließlich“. Für „eventuell“ nimmst du „maybe“ oder „possibly“.",
+  "value": "„Eventually“ heißt „schließlich“. Für „eventuell“ nehmen Sie „maybe“ oder „possibly“.",
   "hashtags": [
    "#englischlernen",
    "#englischtipps",
@@ -116,8 +116,8 @@
   "script_words": 41,
   "platforms": {
    "youtube": {
-    "title": "„Eventuell“ auf Englisch falsch?",
-    "description": "Sagst du „eventuell“ falsch auf Englisch? 🤔 Falsch: “Eventually I will call you.” Richtig: “Maybe I will call you.” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "title": "„Eventuell“ ≠ „eventually“!",
+    "description": "„Eventually“ heißt „schließlich“. Für „eventuell“ nehmen Sie „maybe“ oder „possibly“.\n\nSagen Sie „eventuell“ falsch auf Englisch? 🤔 Falsch: “Eventually I will call you.” Richtig: “Maybe I will call you.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
     "tags": [
      "Maybe I will call you.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Sagst du „eventuell“ falsch auf Englisch? 🤔 Falsch: “Eventually I will call you.” Richtig: “Maybe I will call you.” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Sagen Sie „eventuell“ falsch auf Englisch? 🤔 Falsch: “Eventually I will call you.” Richtig: “Maybe I will call you.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Sagst du „eventuell“ falsch auf Englisch? 🤔 Falsch: “Eventually I will call you.” Richtig: “Maybe I will call you.” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.\n\nlexkite.com",
+    "caption": "„Eventuell“ ≠ „eventually“!\n\n„Eventually“ heißt „schließlich“. Für „eventuell“ nehmen Sie „maybe“ oder „possibly“.\n\nlexkite.com",
     "hashtags": [
      "#englischlernen",
      "#englischtipps",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "„Eventuell“ auf Englisch falsch? #englischlernen #englischtipps #sprachenlernen"
+    "caption": "„Eventuell“ ≠ „eventually“! „Eventually“ heißt „schließlich“. Für „eventuell“ nehmen Sie „maybe“ oder… #englischlernen #englischtipps #sprachenlernen"
    }
   },
-  "first_comment": "Lösung: “Maybe”. Richtig heißt es: “Maybe I will call you.” Übe mehr mit einem kostenlosen Quiz: {link}",
+  "first_comment": "Lösung: “Maybe”. Richtig heißt es: “Maybe I will call you.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
   "lang": "de"
  }
 }

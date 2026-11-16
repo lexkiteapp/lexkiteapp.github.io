@@ -1,0 +1,233 @@
+{
+ "id": "mo_news_street_dusk_fix_ee2b2c",
+ "template": "mistake",
+ "title": "News Motion – say vs tell: she told me, not she said me (news_street_dusk_fix_ee2b2c)",
+ "teacher": "ama",
+ "clips": [
+  "ga11_talk",
+  "ga11_explain",
+  "ga11_happy",
+  "ga11_thinking",
+  "ga11_surprise_3"
+ ],
+ "listen": [
+  "ga11_listen_2"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy2",
+ "active": "mint",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "word-usage",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Word Fix",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "She said me? No."
+  },
+  {
+   "id": "b0",
+   "text": "People often say: she said me the news.",
+   "gap": 0.7
+  },
+  {
+   "id": "b1",
+   "text": "Say: she told me the news.",
+   "gap": 0.7
+  },
+  {
+   "id": "b2",
+   "text": "She said that it was late.",
+   "gap": 0.7
+  },
+  {
+   "id": "b3",
+   "text": "He told me to wait here.",
+   "gap": 0.7
+  },
+  {
+   "id": "b4",
+   "text": "Tell someone, say something.",
+   "gap": 0.7
+  },
+  {
+   "id": "b5",
+   "text": "Repeat after me: She told me the news.",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "She said me the news.",
+      "white"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Common mistake",
+      "tone": "coral"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "She "
+       ],
+       [
+        "said",
+        "ink"
+       ],
+       [
+        " me the news."
+       ]
+      ]
+     }
+    ],
+    "strike": [
+     {
+      "line": 0,
+      "run": 1,
+      "at": [
+       "b0",
+       4
+      ]
+     }
+    ]
+   },
+   {
+    "id": "no",
+    "at": [
+     "b2",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Also say",
+      "tone": "teal"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "She said it was late.",
+        "teal"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "better",
+    "at": [
+     "b1",
+     0
+    ],
+    "tone": "green",
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Better",
+      "tone": "green"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "She told me the news.",
+        "green"
+       ]
+      ]
+     },
+     {
+      "t": "sub",
+      "runs": [
+       [
+        "tell + person"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "hook_text": "She said me the news.",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ }
+}

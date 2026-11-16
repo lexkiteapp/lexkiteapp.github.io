@@ -9,7 +9,7 @@ import { guardBg } from './_d1guard.js';
 import { limit } from './sync.js';
 import { manifest } from './admin-shorts.js';
 import { setup, chanCfg, chanCfgs, pauseChannel } from './youtube.js';
-import { langOfChannel, foreignAccount, pausedAccount, extAccount, normCfg, route, routeAll, implicitSocialRules, pickEmbed, explain, platformOf, planAll, localDate, localHM, PLAN_DAYS } from './_distribution.js';
+import { LANG_TZ, langOfChannel, foreignAccount, pausedAccount, extAccount, normCfg, route, routeAll, implicitSocialRules, pickEmbed, explain, platformOf, planAll, localDate, localHM, PLAN_DAYS } from './_distribution.js';
 import { embedMeta, socialMeta, PLATFORMS } from './_role_meta.js';
 import { viewOf, typeOf } from './_clip_logic.js';
 import { TOPICS, SKILLS, EXAMS, CEFR, TYPES } from './_taxonomy.js';
@@ -25,10 +25,10 @@ const rules = async db => (await all(db, 'SELECT * FROM yt_rules ORDER BY pos, i
 async function channels(db) {
   // 2 reads in ONE round trip (db.batch) + ONE config query: the per-channel chanCfg loop made /api/distribution take ~16 s (≈400 ms per D1 trip × 32 channels)
   const [yt, ext] = (await db.batch([db.prepare('SELECT channel_id, title, thumb, status, email FROM yt_channel ORDER BY id'), db.prepare('SELECT channel_id, platform, account_id, title, thumb, status, info, updated FROM dist_ext ORDER BY platform, title')])).map(r => r.results || []);
-  const cf = await chanCfgs(db), get = id => cf.get(id) || { cfg: normCfg({}), explicit_lang: false, paused_reason: '' }, out = [];
+  const cf = await chanCfgs(db), get = id => cf.get(id) || { cfg: normCfg({}), explicit_lang: false, explicit_tz: false, paused_reason: '' }, out = [];
   for (const c of yt) { const x = get(c.channel_id); out.push({ channel_id: c.channel_id, title: c.title, thumb: c.thumb, status: c.status, cfg: x.cfg, paused_reason: x.paused_reason }); }
   for (const c of ext) { const x = get(c.channel_id), info = parseInfo(c.info); delete c.info;
-    out.push({ ...c, thumb: avatarUrl(info) || c.thumb, thumb_src: c.thumb, info, lang_src: x.explicit_lang ? 'cfg' : langOfChannel(c.title) ? 'name' : 'default', cfg: { ...x.cfg, role: 'social', lang: x.explicit_lang ? x.cfg.lang : (langOfChannel(c.title) || x.cfg.lang) }, paused_reason: x.paused_reason, ext: 1 }); }
+    out.push({ ...c, thumb: avatarUrl(info) || c.thumb, thumb_src: c.thumb, info, lang_src: x.explicit_lang ? 'cfg' : langOfChannel(c.title) ? 'name' : 'default', cfg: (lang => ({ ...x.cfg, role: 'social', lang, tz: x.explicit_tz ? x.cfg.tz : (LANG_TZ[lang || 'en'] || x.cfg.tz) }))(x.explicit_lang ? x.cfg.lang : (langOfChannel(c.title) || x.cfg.lang)), paused_reason: x.paused_reason, ext: 1 }); }
   return out.map(c => ({ ...c, platform: c.platform || platformOf(c.channel_id) }));
 }
 const parseInfo = v => { try { const o = JSON.parse(v || '{}'); return o && typeof o === 'object' && !Array.isArray(o) ? o : {}; } catch (e) { return {}; } };
