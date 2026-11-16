@@ -141,6 +141,8 @@ Ein stabiles Zeitgefühl unter Prüfungsstress erfordert schrittweises Training:
 
 Zur gezielten Wiederholung relevanter Fachbegriffe vor dem Examen nutzen Sie auch unsere übersichtliche Sammlung für [thematischen englischen Wortschatz](/en/vocabulary/) (die Wortlisten sind auf Englisch), um Ihr Textverständnis nachhaltig zu beschleunigen.
 
+Zu jedem einzelnen Aufgabentyp gibt es im Beitrag zu den [IELTS Reading Fragetypen](/de/blog/ielts-reading-fragetypen-strategie-fuer-jede-aufgabe/) eine passende Kurzmethode und typische Fallen.
+
 ## Häufige Fragen zum Zeitmanagement im IELTS Reading
 
 ### Soll ich den ganzen Text vor den Fragen lesen?
