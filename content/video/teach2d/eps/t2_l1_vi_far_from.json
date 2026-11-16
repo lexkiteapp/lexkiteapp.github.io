@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_far_from",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "What comes after far?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: My school is far here.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My school is far from here.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say far from.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Far from! The shop is far from my house.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "My school is far here.",
+  "right": "My school is far from here.",
+  "strike": "far",
+  "why": "Say far from.",
+  "memory": "Far needs from.",
+  "quiz": {
+   "stem": "The shop is ___ my house.",
+   "options": [
+    "far from",
+    "far"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Xa đây... thiếu từ nào?",
+   "tip": "Tiếng Việt nói “xa đây” mà không cần từ nối, nhưng tiếng Anh cần “from”: far from here.",
+   "caption": "Bạn có hay nói “My school is far here.” không? 🏫 Nói “xa đây” thì phải có “from”: “My school is far from here.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “from.” Hãy nói to một câu về nơi ở xa nhà bạn, bắt đầu bằng “… is far from…” nhé. Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#meotienganh",
+    "#tienganhmoingay",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Is a word missing after “far”?",
+   "tip": "Vietnamese can say “far here” with no extra word, but English needs “from”.",
+   "caption": "Do you often say this? “My school is far here.” After “far”, add “from”: “My school is far from here.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Xa đây... thiếu từ nào?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Xa đây... thiếu từ nào?",
+  "keyword": "My school is far from here.",
+  "value": "Tiếng Việt nói “xa đây” mà không cần từ nối, nhưng tiếng Anh cần “from”: far from here.",
+  "hashtags": [
+   "#hoctienganh",
+   "#meotienganh",
+   "#tienganhmoingay",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "Xa đây... thiếu từ nào?",
+    "description": "Tiếng Việt nói “xa đây” mà không cần từ nối, nhưng tiếng Anh cần “from”: far from here.\n\nBạn có hay nói “My school is far here.” không? 🏫 Nói “xa đây” thì phải có “from”: “My school is far from here.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #meotienganh #tienganhmoingay #lexkite",
+    "tags": [
+     "My school is far from here.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “My school is far here.” không? 🏫 Nói “xa đây” thì phải có “from”: “My school is far from here.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Xa đây... thiếu từ nào?\n\nTiếng Việt nói “xa đây” mà không cần từ nối, nhưng tiếng Anh cần “from”: far from here.\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#meotienganh",
+     "#tienganhmoingay",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Xa đây... thiếu từ nào? Tiếng Việt nói “xa đây” mà không cần từ nối, nhưng tiếng Anh cần “from”: far from… #hoctienganh #meotienganh #tienganhmoingay"
+   }
+  },
+  "first_comment": "Đáp án: “from.” Hãy nói to một câu về nơi ở xa nhà bạn, bắt đầu bằng “… is far from…” nhé. Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

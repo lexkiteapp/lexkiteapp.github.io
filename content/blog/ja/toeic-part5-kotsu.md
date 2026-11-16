@@ -147,6 +147,8 @@ The research committee made every effort to ------- the environmental standards 
 **【解答プロセス】**  
 選択肢には異なる動詞が並ぶ語彙問題です。空欄の後ろには目的語 `the environmental standards`（環境基準）が前置詞なしで直接置かれています。(A) `comply` は自動詞なので `comply with` が必要、(C) `listen` も `listen to`、(D) `agree` も `agree to/with` が必要です。前置詞なしで規則や基準を目的語に取り「（規則・基準を）遵守する」という意味を持つ他動詞は `(B) observe` だけです。頻出コロケーションの知識があれば15秒で確実に正解を選べます。
 
+Part 5 が試験全体のどこに位置し、何分で解くのが目安かは、[TOEIC 問題構成の解説](/ja/blog/toeic-mondai-kousei-part-betsu/)で確認できます。
+
 ## よくある質問
 
 ### Part 5が時間内に解き終わりません。どうすればスピードが上がりますか？

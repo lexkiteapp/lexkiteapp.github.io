@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_always_place",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Where does well go?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I speak well English.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I speak English well.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Put well at the end.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second one! He plays tennis well.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I speak well English.",
+  "right": "I speak English well.",
+  "strike": "well English",
+  "why": "Put well at the end.",
+  "memory": "English well.",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "He plays well tennis.",
+    "He plays tennis well."
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Где ставить well?",
+   "tip": "Well ставят в конец: “I speak English well.”",
+   "caption": "Ты тоже говоришь “I speak well English”? 😅 По-русски «хорошо говорю по-английски», и well встаёт перед English. В английском well ставят в конец. Правильно: “I speak English well.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “He plays tennis well.” Well — в конце. Скажи вслух: “I speak English well.” Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английский",
+    "#грамматика",
+    "#английскийонлайн",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Where does well go?",
+   "tip": "Put well at the end: “I speak English well.”",
+   "caption": "Do you also say “I speak well English”? 😅 In Russian well comes before the language, but in English it goes at the end. Correct: “I speak English well.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Где ставить well?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "Где ставить well?",
+  "keyword": "I speak English well.",
+  "value": "Well ставят в конец: “I speak English well.”",
+  "hashtags": [
+   "#английский",
+   "#грамматика",
+   "#английскийонлайн",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "Где ставить well?",
+    "description": "Well ставят в конец: “I speak English well.”\n\nТы тоже говоришь “I speak well English”? 😅 По-русски «хорошо говорю по-английски», и well встаёт перед English. В английском well ставят в конец. Правильно: “I speak English well.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английский #грамматика #английскийонлайн #lexkite",
+    "tags": [
+     "I speak English well.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “I speak well English”? 😅 По-русски «хорошо говорю по-английски», и well встаёт перед English. В английском well ставят в конец. Правильно: “I speak English well.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Где ставить well?\n\nWell ставят в конец: “I speak English well.”\n\nlexkite.com",
+    "hashtags": [
+     "#английский",
+     "#грамматика",
+     "#английскийонлайн",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Где ставить well? Well ставят в конец: “I speak English well.” #английский #грамматика #английскийонлайн"
+   }
+  },
+  "first_comment": "Ответ: “He plays tennis well.” Well — в конце. Скажи вслух: “I speak English well.” Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

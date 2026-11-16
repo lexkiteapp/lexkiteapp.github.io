@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_fiveofus",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "How do you count people?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: We were five in the car.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: There were five of us in the car.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say there were five of us.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Of us! There were three of us at the table.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "We were five in the car.",
+  "right": "There were five of us in the car.",
+  "strike": "We were five",
+  "why": "Say there were five of us.",
+  "memory": "Five of us.",
+  "quiz": {
+   "stem": "There were three ___ at the table.",
+   "options": [
+    "of us",
+    "we"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "«Нас было пятеро» — как?",
+   "tip": "«Нас было пятеро» — “There were five of us.”",
+   "caption": "Ты тоже говоришь “We were five in the car”? 😅 По-русски «нас было пятеро», а по-английски “There were five of us.” Правильно: “There were five of us in the car.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “of us.” Нас было трое — three of us. Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#изучениеанглийского",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "How do you count people?",
+   "tip": "Say “There were five of us.”",
+   "caption": "Do you also say “We were five in the car”? 😅 English says “There were five of us.” Correct: “There were five of us in the car.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "«Нас было пятеро» — как?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 55,
+  "seconds": 32.5,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "«Нас было пятеро» — как?",
+  "keyword": "There were five of us in the car.",
+  "value": "«Нас было пятеро» — “There were five of us.”",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#изучениеанглийского",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 49,
+  "platforms": {
+   "youtube": {
+    "title": "«Нас было пятеро» — как?",
+    "description": "«Нас было пятеро» — “There were five of us.”\n\nТы тоже говоришь “We were five in the car”? 😅 По-русски «нас было пятеро», а по-английски “There were five of us.” Правильно: “There were five of us in the car.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #английский #изучениеанглийского #lexkite",
+    "tags": [
+     "There were five of us in the car.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “We were five in the car”? 😅 По-русски «нас было пятеро», а по-английски “There were five of us.” Правильно: “There were five of us in the car.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "«Нас было пятеро» — как?\n\n«Нас было пятеро» — “There were five of us.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#изучениеанглийского",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "«Нас было пятеро» — как? «Нас было пятеро» — “There were five of us.” #английскийязык #английский #изучениеанглийского"
+   }
+  },
+  "first_comment": "Ответ: “of us.” Нас было трое — three of us. Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

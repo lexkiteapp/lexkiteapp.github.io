@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Tomorrow, no only!",
+   "text": "Just say tomorrow!",
    "pause": 0.42
   },
   {
@@ -26,7 +26,7 @@
   },
   {
    "id": "y",
-   "text": "Only here sounds odd.",
+   "text": "Don't add only. Just say tomorrow.",
    "pause": 0.42
   },
   {
@@ -55,8 +55,8 @@
   "wrong": "I will do it tomorrow only.",
   "right": "I will do it tomorrow.",
   "strike": "only",
-  "why": "Only here sounds odd.",
-  "memory": "Just tomorrow.",
+  "why": "Don't add only. Just say tomorrow.",
+  "memory": "I will do it tomorrow.",
   "quiz": {
    "stem": "I will call you ___.",
    "options": [
@@ -67,7 +67,7 @@
   },
   "native": {
    "hook": "“tomorrow only” क्यों अटपटा है?",
-   "tip": "हिंदी का “कल ही” सुनकर only जोड़ देते हैं; अंग्रेज़ी में बस “tomorrow” काफ़ी है।",
+   "tip": "हिंदी के “कल ही” वाला ज़ोर only से नहीं आता; अंग्रेज़ी में बस “tomorrow” बोलें।",
    "caption": "क्या आप भी कहते हैं “I will do it tomorrow only”? 😅 अंग्रेज़ी में “I will do it tomorrow” सही है, क्योंकि यहाँ only लगाने की ज़रूरत नहीं है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
    "comment": "उत्तर: “tomorrow”। only हटाकर सीधे “tomorrow” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
    "hashtags": [
@@ -78,8 +78,8 @@
    ]
   },
   "en": {
-   "hook": "Why does “tomorrow only” sound odd?",
-   "tip": "From the Hindi “kal hi” people add only; in English “tomorrow” is enough.",
+   "hook": "“tomorrow only” sounds odd. Why?",
+   "tip": "Learners often add only after tomorrow; in English tomorrow is enough.",
    "caption": "Do you say “I will do it tomorrow only”? 😅 In English “I will do it tomorrow” is right, because only is not needed here. Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
@@ -98,14 +98,14 @@
  },
  "lang": "hi",
  "est": {
-  "words": 44,
-  "seconds": 27.1,
-  "wpm": 97
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
  },
  "publish": {
   "title": "“tomorrow only” क्यों अटपटा है?",
   "keyword": "I will do it tomorrow.",
-  "value": "हिंदी का “कल ही” सुनकर only जोड़ देते हैं; अंग्रेज़ी में बस “tomorrow” काफ़ी है।",
+  "value": "हिंदी के “कल ही” वाला ज़ोर only से नहीं आता; अंग्रेज़ी में बस “tomorrow” बोलें।",
   "hashtags": [
    "#अंग्रेजीसीखें",
    "#englishspeaking",
@@ -113,11 +113,11 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 38,
+  "script_words": 40,
   "platforms": {
    "youtube": {
     "title": "“tomorrow only” क्यों अटपटा है?",
-    "description": "क्या आप भी कहते हैं “I will do it tomorrow only”? 😅 अंग्रेज़ी में “I will do it tomorrow” सही है, क्योंकि यहाँ only लगाने की ज़रूरत नहीं है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "description": "हिंदी के “कल ही” वाला ज़ोर only से नहीं आता; अंग्रेज़ी में बस “tomorrow” बोलें।\n\nक्या आप भी कहते हैं “I will do it tomorrow only”? 😅 अंग्रेज़ी में “I will do it tomorrow” सही है, क्योंकि यहाँ only लगाने की ज़रूरत नहीं है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
     "tags": [
      "I will do it tomorrow.",
      "learn english",
@@ -128,7 +128,7 @@
     "text": "क्या आप भी कहते हैं “I will do it tomorrow only”? 😅 अंग्रेज़ी में “I will do it tomorrow” सही है, क्योंकि यहाँ only लगाने की ज़रूरत नहीं है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "क्या आप भी कहते हैं “I will do it tomorrow only”? 😅 अंग्रेज़ी में “I will do it tomorrow” सही है, क्योंकि यहाँ only लगाने की ज़रूरत नहीं है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nlexkite.com",
+    "caption": "“tomorrow only” क्यों अटपटा है?\n\nहिंदी के “कल ही” वाला ज़ोर only से नहीं आता; अंग्रेज़ी में बस “tomorrow” बोलें।\n\nlexkite.com",
     "hashtags": [
      "#अंग्रेजीसीखें",
      "#englishspeaking",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "“tomorrow only” क्यों अटपटा है? #अंग्रेजीसीखें #englishspeaking #learnenglish"
+    "caption": "“tomorrow only” क्यों अटपटा है? हिंदी के “कल ही” वाला ज़ोर only से नहीं आता; अंग्रेज़ी में बस “tomorrow… #अंग्रेजीसीखें #englishspeaking #learnenglish"
    }
   },
   "first_comment": "उत्तर: “tomorrow”। only हटाकर सीधे “tomorrow” बोलें। मुफ़्त क्विज़ यहाँ: {link}",

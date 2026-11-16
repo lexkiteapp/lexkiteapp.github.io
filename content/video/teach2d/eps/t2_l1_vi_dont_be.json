@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_dont_be",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Is a word missing here?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Don't afraid.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Don't be afraid.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Add be after don't.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Don't be! Please don't be late.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Don't afraid.",
+  "right": "Don't be afraid.",
+  "strike": "afraid",
+  "why": "Add be after don't.",
+  "memory": "Don't be afraid.",
+  "quiz": {
+   "stem": "Please ___ late.",
+   "options": [
+    "don't be",
+    "don't"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Đừng sợ” nói sao cho đúng?",
+   "tip": "“Đừng sợ” không cần từ nối, nhưng tiếng Anh vẫn cần “be” sau “don't”: Don't be afraid.",
+   "caption": "Bạn có hay nói “Don't afraid.” không? 🦁 Sau “don't” còn cần “be”: “Don't be afraid.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “don't be.” Hãy nói to một câu khuyên bạn bè, bắt đầu bằng “Don't be…” nhé. Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#nguphaptienganh",
+    "#tienganhgiaotiep",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "What is missing: “Don't afraid”?",
+   "tip": "Vietnamese needs no extra word, but English needs “be” after “don't”.",
+   "caption": "Do you often say this? “Don't afraid.” After “don't”, add “be”: “Don't be afraid.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Đừng sợ” nói sao cho đúng?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 40,
+  "seconds": 25.1,
+  "wpm": 95
+ },
+ "publish": {
+  "title": "“Đừng sợ” nói sao cho đúng?",
+  "keyword": "Don't be afraid.",
+  "value": "“Đừng sợ” không cần từ nối, nhưng tiếng Anh vẫn cần “be” sau “don't”: Don't be afraid.",
+  "hashtags": [
+   "#hoctienganh",
+   "#nguphaptienganh",
+   "#tienganhgiaotiep",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "“Đừng sợ” nói sao cho đúng?",
+    "description": "“Đừng sợ” không cần từ nối, nhưng tiếng Anh vẫn cần “be” sau “don't”: Don't be afraid.\n\nBạn có hay nói “Don't afraid.” không? 🦁 Sau “don't” còn cần “be”: “Don't be afraid.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #nguphaptienganh #tienganhgiaotiep #lexkite",
+    "tags": [
+     "Don't be afraid.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “Don't afraid.” không? 🦁 Sau “don't” còn cần “be”: “Don't be afraid.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Đừng sợ” nói sao cho đúng?\n\n“Đừng sợ” không cần từ nối, nhưng tiếng Anh vẫn cần “be” sau “don't”: Don't be afraid.\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#nguphaptienganh",
+     "#tienganhgiaotiep",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Đừng sợ” nói sao cho đúng? “Đừng sợ” không cần từ nối, nhưng tiếng Anh vẫn cần “be” sau “don't”: Don… #hoctienganh #nguphaptienganh #tienganhgiaotiep"
+   }
+  },
+  "first_comment": "Đáp án: “don't be.” Hãy nói to một câu khuyên bạn bè, bắt đầu bằng “Don't be…” nhé. Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

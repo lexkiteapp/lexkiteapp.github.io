@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_late_for",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "On or for?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I was late on the lesson.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I was late for the lesson.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Late goes with for.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "For! We are late for the bus.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I was late on the lesson.",
+  "right": "I was late for the lesson.",
+  "strike": "on",
+  "why": "Late goes with for.",
+  "memory": "Late for class.",
+  "quiz": {
+   "stem": "We are late ___ the bus.",
+   "options": [
+    "for",
+    "on"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Опоздал на урок: “on” или “for”?",
+   "tip": "После late нужно “for”: “I was late for the lesson.”",
+   "caption": "Ты тоже говоришь “I was late on the lesson”? 😅 Русское «опоздал на урок» тянет за собой “on”, а нужно “for.” Правильно: “I was late for the lesson.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “for.” После late — for. Напиши своё предложение с “I was late for.” Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английский",
+    "#грамматика",
+    "#английскийонлайн",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "On or for?",
+   "tip": "After late, use “for”: “I was late for the lesson.”",
+   "caption": "Do you also say “I was late on the lesson”? 😅 Russian “late on the lesson” pulls you toward “on,” but English needs “for.” Correct: “I was late for the lesson.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Опоздал на урок: “on” или “for”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Опоздал на урок: “on” или “for”?",
+  "keyword": "I was late for the lesson.",
+  "value": "После late нужно “for”: “I was late for the lesson.”",
+  "hashtags": [
+   "#английский",
+   "#грамматика",
+   "#английскийонлайн",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Опоздал на урок: “on” или “for”?",
+    "description": "После late нужно “for”: “I was late for the lesson.”\n\nТы тоже говоришь “I was late on the lesson”? 😅 Русское «опоздал на урок» тянет за собой “on”, а нужно “for.” Правильно: “I was late for the lesson.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английский #грамматика #английскийонлайн #lexkite",
+    "tags": [
+     "I was late for the lesson.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “I was late on the lesson”? 😅 Русское «опоздал на урок» тянет за собой “on”, а нужно “for.” Правильно: “I was late for the lesson.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Опоздал на урок: “on” или “for”?\n\nПосле late нужно “for”: “I was late for the lesson.”\n\nlexkite.com",
+    "hashtags": [
+     "#английский",
+     "#грамматика",
+     "#английскийонлайн",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Опоздал на урок: “on” или “for”? После late нужно “for”: “I was late for the lesson.” #английский #грамматика #английскийонлайн"
+   }
+  },
+  "first_comment": "Ответ: “for.” После late — for. Напиши своё предложение с “I was late for.” Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

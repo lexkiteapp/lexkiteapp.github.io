@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_gotooffice",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Go to the office!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I go to office every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I go to the office every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Office needs the here.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The office! He goes to the office.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I go to office every day.",
+  "right": "I go to the office every day.",
+  "strike": "to office",
+  "why": "Office needs the here.",
+  "memory": "I go to the office.",
+  "quiz": {
+   "stem": "He goes to ___ every day.",
+   "options": [
+    "office",
+    "the office"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“to office” नहीं, “to the office”!",
+   "tip": "हिंदी में “ऑफ़िस जाता हूँ” बिना किसी छोटे शब्द के चलता है, पर अंग्रेज़ी में office के पहले the लगाएँ।",
+   "caption": "क्या आप भी यही कहते हैं? “I go to office every day.” 😅 सही रूप है “I go to the office every day.” क्योंकि office के पहले the लगता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “the office”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “to the office”!",
+   "tip": "Many learners skip the before office, but English needs it.",
+   "caption": "Do you say this? “I go to office every day.” 😅 The right way is “I go to the office every day.” This is right because office needs the. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“to office” नहीं, “to the office”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“to office” नहीं, “to the office”!",
+  "keyword": "I go to the office every day.",
+  "value": "हिंदी में “ऑफ़िस जाता हूँ” बिना किसी छोटे शब्द के चलता है, पर अंग्रेज़ी में office के पहले the लगाएँ।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "“to office” नहीं, “to the office”!",
+    "description": "हिंदी में “ऑफ़िस जाता हूँ” बिना किसी छोटे शब्द के चलता है, पर अंग्रेज़ी में office के पहले the लगाएँ।\n\nक्या आप भी यही कहते हैं? “I go to office every day.” 😅 सही रूप है “I go to the office every day.” क्योंकि office के पहले the लगता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "I go to the office every day.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी यही कहते हैं? “I go to office every day.” 😅 सही रूप है “I go to the office every day.” क्योंकि office के पहले the लगता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“to office” नहीं, “to the office”!\n\nहिंदी में “ऑफ़िस जाता हूँ” बिना किसी छोटे शब्द के चलता है, पर अंग्रेज़ी में office के पहले the लगाएँ।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“to office” नहीं, “to the office”! हिंदी में “ऑफ़िस जाता हूँ” बिना किसी छोटे शब्द के चलता है, पर अंग्रे… #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “the office”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

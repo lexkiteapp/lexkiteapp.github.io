@@ -162,6 +162,14 @@ Si también preparas el TOEFL, la misma lógica de postura, razón y ejemplo se 
 
 {{cta: /#/write | Practica redacción para IELTS en Lexkite}}
 
+Para la otra mitad del Writing, mira cómo describir un [diagrama de proceso en el Task 1](/es/blog/ielts-writing-task-1-diagrama-de-proceso-ejemplo/) con un informe modelo.
+
+Si además te toca describir datos, consulta el [método para el gráfico de barras en Task 1](/es/blog/ielts-writing-task-1-grafico-de-barras-ejemplo/).
+
+Si tu pregunta pide estar de acuerdo o no, practica con [cómo escribir un ensayo de opinión IELTS](/es/blog/ensayo-de-opinion-ielts-estar-de-acuerdo/), donde verás tres formas de defender una postura.
+
+Para completar tu revisión, consulta también los [errores comunes en IELTS Writing](/es/blog/errores-comunes-en-ielts-writing/) que más puntos cuestan y [cómo se calcula la nota de IELTS](/es/blog/como-se-calcula-la-nota-de-ielts-band/), porque así sabrás cuánto pesa la Task 2 en tu banda final.
+
 ## Preguntas frecuentes
 
 ### ¿Cuántas palabras son recomendables para no ser penalizado?

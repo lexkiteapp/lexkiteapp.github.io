@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_on_monday",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "On Monday, not at Monday!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: See you at Monday.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: See you on Monday.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Days need on.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "On! See you on Monday.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "See you at Monday.",
+  "right": "See you on Monday.",
+  "strike": "at",
+  "why": "Days need on.",
+  "memory": "On Monday.",
+  "quiz": {
+   "stem": "See you ___ Monday.",
+   "options": [
+    "at",
+    "on"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "„Am Montag“ heißt „on“!",
+   "tip": "Bei „am Montag“ denken viele an „at“. Im Englischen heißt es „on Monday“.",
+   "caption": "Sagen Sie „at Monday“? 📅 Falsch: “See you at Monday.” Richtig: “See you on Monday.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “on”. Richtig heißt es: “See you on Monday.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Am Montag” is “on Monday”!",
+   "tip": "“Am” makes many think of “at”. In English you say “on Monday”.",
+   "caption": "“Am Montag” is “on Monday”! Wrong: “See you at Monday.” Right: “See you on Monday.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "„Am Montag“ heißt „on“!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 41,
+  "seconds": 25.6,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "„Am Montag“ heißt „on“!",
+  "keyword": "See you on Monday.",
+  "value": "Bei „am Montag“ denken viele an „at“. Im Englischen heißt es „on Monday“.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "„Am Montag“ heißt „on“!",
+    "description": "Bei „am Montag“ denken viele an „at“. Im Englischen heißt es „on Monday“.\n\nSagen Sie „at Monday“? 📅 Falsch: “See you at Monday.” Richtig: “See you on Monday.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "See you on Monday.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Sagen Sie „at Monday“? 📅 Falsch: “See you at Monday.” Richtig: “See you on Monday.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "„Am Montag“ heißt „on“!\n\nBei „am Montag“ denken viele an „at“. Im Englischen heißt es „on Monday“.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "„Am Montag“ heißt „on“! Bei „am Montag“ denken viele an „at“. Im Englischen heißt es „on Monday“. #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “on”. Richtig heißt es: “See you on Monday.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

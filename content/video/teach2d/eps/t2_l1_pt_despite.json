@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_despite",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Despite needs no of!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: We went out despite of the rain.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: We went out despite the rain.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Despite does not need of.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! We went out despite the rain.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "We went out despite of the rain.",
+  "right": "We went out despite the rain.",
+  "strike": "despite of",
+  "why": "Despite does not need of.",
+  "memory": "Despite the rain.",
+  "quiz": {
+   "stem": "We went out despite ___ rain.",
+   "options": [
+    "of the",
+    "the"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Diga “despite the rain”!",
+   "tip": "Em português dizemos “apesar da chuva”, com “de”; em inglês, “despite” não leva “of”.",
+   "caption": "Você também diz isso? “We went out despite of the rain.” 😅 O certo é “We went out despite the rain.” Em português dizemos “apesar da chuva”, com “de”; em inglês, “despite” não leva “of”. Ouça a Ama e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “the”. Agora escreva uma frase sua com “Despite the rain” e treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “despite the rain”!",
+   "tip": "In Portuguese we say “apesar da chuva”, with “de”; in English, “despite” does not take “of”.",
+   "caption": "Do you say this too? “We went out despite of the rain.” 😅 The right way is “We went out despite the rain.” In Portuguese we say “apesar da chuva”, with “de”; in English, “despite” does not take “of”. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Diga “despite the rain”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Diga “despite the rain”!",
+  "keyword": "We went out despite the rain.",
+  "value": "Em português dizemos “apesar da chuva”, com “de”; em inglês, “despite” não leva “of”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "Diga “despite the rain”!",
+    "description": "Em português dizemos “apesar da chuva”, com “de”; em inglês, “despite” não leva “of”.\n\nVocê também diz isso? “We went out despite of the rain.” 😅 O certo é “We went out despite the rain.” Em português dizemos “apesar da chuva”, com “de”; em inglês, “despite” não leva “of”. Ouça a Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "We went out despite the rain.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Você também diz isso? “We went out despite of the rain.” 😅 O certo é “We went out despite the rain.” Em português dizemos “apesar da chuva”, com “de”; em inglês, “despite” não leva “of”. Ouça a Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Diga “despite the rain”!\n\nEm português dizemos “apesar da chuva”, com “de”; em inglês, “despite” não leva “of”.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Diga “despite the rain”! Em português dizemos “apesar da chuva”, com “de”; em inglês, “despite” não leva “… #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “the”. Agora escreva uma frase sua com “Despite the rain” e treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

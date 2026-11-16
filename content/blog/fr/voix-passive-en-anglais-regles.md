@@ -167,6 +167,8 @@ Consultez également nos [exercices de grammaire](/ngu-phap/) pour pratiquer ces
 
 ---
 
+Pour une application très concrète du passif, lisez [IELTS Writing Task 1 processus](/fr/blog/ielts-writing-task-1-processus-diagramme/), où chaque étape d'un schéma se décrit avec *is/are + participe passé*.
+
 ## Foire aux questions (FAQ)
 
 ### Pourquoi l'anglais préfère-t-il la voix passive au pronom "on" ?

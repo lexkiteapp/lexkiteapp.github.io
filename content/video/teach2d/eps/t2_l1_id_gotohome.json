@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_gotohome",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Go home, no to!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I go to home after work.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I go home after work.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Home has no to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Go! I go home at night.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I go to home after work.",
+  "right": "I go home after work.",
+  "strike": "to",
+  "why": "Home has no to.",
+  "memory": "Go home.",
+  "quiz": {
+   "stem": "I ___ home at night.",
+   "options": [
+    "go",
+    "go to"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Go to home”? Tanpa “to”!",
+   "tip": "Kita bilang “pulang ke rumah”, tapi di bahasa Inggris cukup go home, tanpa to.",
+   "caption": "Pernah bilang begini? “I go to home after work.” 😅 Dengan home, tidak perlu to: “I go home after work.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “go”. Ucapkan “I go home” lima kali. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#grammaringgris",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Go to home”? No “to”!",
+   "tip": "We say “pulang ke rumah”, but in English it is just go home, with no to.",
+   "caption": "Ever say this? “I go to home after work.” 😅 With home, you do not need to: “I go home after work.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Go to home”? Tanpa “to”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“Go to home”? Tanpa “to”!",
+  "keyword": "I go home after work.",
+  "value": "Kita bilang “pulang ke rumah”, tapi di bahasa Inggris cukup go home, tanpa to.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#grammaringgris",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "“Go to home”? Tanpa “to”!",
+    "description": "Kita bilang “pulang ke rumah”, tapi di bahasa Inggris cukup go home, tanpa to.\n\nPernah bilang begini? “I go to home after work.” 😅 Dengan home, tidak perlu to: “I go home after work.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #grammaringgris #bahasainggris #lexkite",
+    "tags": [
+     "I go home after work.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “I go to home after work.” 😅 Dengan home, tidak perlu to: “I go home after work.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Go to home”? Tanpa “to”!\n\nKita bilang “pulang ke rumah”, tapi di bahasa Inggris cukup go home, tanpa to.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#grammaringgris",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Go to home”? Tanpa “to”! Kita bilang “pulang ke rumah”, tapi di bahasa Inggris cukup go home, t… #belajarbahasainggris #grammaringgris #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “go”. Ucapkan “I go home” lima kali. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

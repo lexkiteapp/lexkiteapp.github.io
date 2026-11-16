@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_news_is",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "News: is or are?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: The news are good.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: The news is good.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "News is one thing: use is.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Is! The news is great.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "The news are good.",
+  "right": "The news is good.",
+  "strike": "are",
+  "why": "News is one thing: use is.",
+  "memory": "News is good.",
+  "quiz": {
+   "stem": "The news ___ great.",
+   "options": [
+    "are",
+    "is"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "News — is или are?",
+   "tip": "Слово news идёт с “is”: “The news is good.”",
+   "caption": "Ты тоже говоришь “The news are good”? 😅 По-русски «новости» во множественном числе, и хочется “are”, но в английском news идёт с “is.” Правильно: “The news is good.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “is.” News — это is. Напиши своё предложение с “The news is.” Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#изучениеанглийского",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "News: is or are?",
+   "tip": "News goes with “is”: “The news is good.”",
+   "caption": "Do you also say “The news are good”? 😅 In Russian the word for news is plural, so “are” feels right, but in English news goes with “is.” Correct: “The news is good.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "News — is или are?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "News — is или are?",
+  "keyword": "The news is good.",
+  "value": "Слово news идёт с “is”: “The news is good.”",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#изучениеанглийского",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "News — is или are?",
+    "description": "Слово news идёт с “is”: “The news is good.”\n\nТы тоже говоришь “The news are good”? 😅 По-русски «новости» во множественном числе, и хочется “are”, но в английском news идёт с “is.” Правильно: “The news is good.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #английский #изучениеанглийского #lexkite",
+    "tags": [
+     "The news is good.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “The news are good”? 😅 По-русски «новости» во множественном числе, и хочется “are”, но в английском news идёт с “is.” Правильно: “The news is good.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "News — is или are?\n\nСлово news идёт с “is”: “The news is good.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#изучениеанглийского",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "News — is или are? Слово news идёт с “is”: “The news is good.” #английскийязык #английский #изучениеанглийского"
+   }
+  },
+  "first_comment": "Ответ: “is.” News — это is. Напиши своё предложение с “The news is.” Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

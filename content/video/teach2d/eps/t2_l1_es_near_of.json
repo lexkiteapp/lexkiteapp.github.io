@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_near_of",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Is it near the park?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: My house is near of the park.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My house is near the park.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Near has no of after it.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Near! The bank is near the station.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "My house is near of the park.",
+  "right": "My house is near the park.",
+  "strike": "near of",
+  "why": "Near has no of after it.",
+  "memory": "Near the.",
+  "quiz": {
+   "stem": "The bank is ___ the station.",
+   "options": [
+    "near of",
+    "near"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "¿“Near of”? ¡Ojo!",
+   "tip": "En español “cerca de”, pero en inglés “near” va sin “of”: “near the park.”",
+   "caption": "Muchos dicen “My house is near of the park.” 🙈 En español “cerca de” lleva “de”, pero en inglés “near” va sin “of”: “My house is near the park.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “near”. Se dice “near the station”, sin “of”. Escribe una frase tuya con “near”. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#gramatica",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Near of”? Careful!",
+   "tip": "In Spanish “cerca de” has “de”, but in English “near” has no “of”: “near the park.”",
+   "caption": "Many learners say “My house is near of the park.” In Spanish “cerca de” has “de”, but in English “near” has no “of”: “My house is near the park.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿“Near of”? ¡Ojo!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 51,
+  "seconds": 30.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "¿“Near of”? ¡Ojo!",
+  "keyword": "My house is near the park.",
+  "value": "En español “cerca de”, pero en inglés “near” va sin “of”: “near the park.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#gramatica",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 45,
+  "platforms": {
+   "youtube": {
+    "title": "¿“Near of”? ¡Ojo!",
+    "description": "En español “cerca de”, pero en inglés “near” va sin “of”: “near the park.”\n\nMuchos dicen “My house is near of the park.” 🙈 En español “cerca de” lleva “de”, pero en inglés “near” va sin “of”: “My house is near the park.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #gramatica #lexkite",
+    "tags": [
+     "My house is near the park.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "Muchos dicen “My house is near of the park.” 🙈 En español “cerca de” lleva “de”, pero en inglés “near” va sin “of”: “My house is near the park.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "¿“Near of”? ¡Ojo!\n\nEn español “cerca de”, pero en inglés “near” va sin “of”: “near the park.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#gramatica",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿“Near of”? ¡Ojo! En español “cerca de”, pero en inglés “near” va sin “of”: “near the park.” #aprenderingles #inglesfacil #gramatica"
+   }
+  },
+  "first_comment": "Respuesta: “near”. Se dice “near the station”, sin “of”. Escribe una frase tuya con “near”. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}

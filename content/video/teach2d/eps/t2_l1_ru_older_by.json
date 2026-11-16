@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_older_by",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Older on two years?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: He is older than me on two years.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: He is older than me by two years.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use by for the gap.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "By! Younger by three years.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "He is older than me on two years.",
+  "right": "He is older than me by two years.",
+  "strike": "on",
+  "why": "Use by for the gap.",
+  "memory": "By two years.",
+  "quiz": {
+   "stem": "I am younger than him ___ three years.",
+   "options": [
+    "on",
+    "by"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "«На два года» — by two years",
+   "tip": "«На два года» — “by two years”: “He is older than me by two years.”",
+   "caption": "Ты тоже говоришь “He is older than me on two years”? 😅 По-русски «старше на два года» — с «на», и хочется сказать “on”, но разницу в английском показывает “by.” Правильно: “He is older than me by two years.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “by.” Разница — by. Напиши своё предложение с “older than me by.” Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#учуанглийский",
+    "#английскийдляначинающих",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Older on two years?",
+   "tip": "For the gap, use “by”: “He is older than me by two years.”",
+   "caption": "Do you also say “He is older than me on two years”? 😅 In Russian «на» shows the gap, so “on” feels right, but English uses “by.” Correct: “He is older than me by two years.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "«На два года» — by two years"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "«На два года» — by two years",
+  "keyword": "He is older than me by two years.",
+  "value": "«На два года» — “by two years”: “He is older than me by two years.”",
+  "hashtags": [
+   "#английскийязык",
+   "#учуанглийский",
+   "#английскийдляначинающих",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "«На два года» — by two years",
+    "description": "«На два года» — “by two years”: “He is older than me by two years.”\n\nТы тоже говоришь “He is older than me on two years”? 😅 По-русски «старше на два года» — с «на», и хочется сказать “on”, но разницу в английском показывает “by.” Правильно: “He is older than me by two years.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #учуанглийский #английскийдляначинающих #lexkite",
+    "tags": [
+     "He is older than me by two years.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “He is older than me on two years”? 😅 По-русски «старше на два года» — с «на», и хочется сказать “on”, но разницу в английском показывает “by.” Правильно: “He is older than me by two years.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "«На два года» — by two years\n\n«На два года» — “by two years”: “He is older than me by two years.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#учуанглийский",
+     "#английскийдляначинающих",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "«На два года» — by two years «На два года» — “by two years”: “He is older than me by two year… #английскийязык #учуанглийский #английскийдляначинающих"
+   }
+  },
+  "first_comment": "Ответ: “by.” Разница — by. Напиши своё предложение с “older than me by.” Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}
