@@ -139,7 +139,7 @@ async function run(tag, cfg, calls, o = {}) {
           const h = await page.evaluate(o => (window.__callRt.marks.find(x => x.name === 'hushed' && x.t > o) || {}).t, b.onset);
           res.barge.push(h ? h - b.onset : 9999);
           // vết xác suất từng khung quanh lần nói chen: [ms so với lúc tiếng bắt đầu, p×100] – để thấy độ trễ nằm ở khung nào (16/11: mẫu lẻ ~300 ms trong khi 3 khung liền > 0,8 đáng lẽ ≈ 100 ms)
-          res.bargeTrace.push({ ms: res.barge[res.barge.length - 1], fr: await page.evaluate(o => (window.__callRt.fr || []).filter(f => f[0] >= o - 150 && f[0] <= o + 700).map(f => [Math.round(f[0] - o), Math.round(f[1] * 100)]), b.onset) });
+{ const tr = { ms: res.barge[res.barge.length - 1], fr: await page.evaluate(o => (window.__callRt.fr || []).filter(f => f[0] >= o - 150 && f[0] <= o + 700).map(f => [Math.round(f[0] - o), Math.round(f[1] * 100)]), b.onset) }; res.bargeTrace.push(tr); lg(`nói chen ${tr.ms.toFixed ? tr.ms.toFixed(0) : tr.ms} ms · khung [ms,p×100]: ` + JSON.stringify(tr.fr.filter(f => f[0] >= -60 && f[0] <= 420))); }
           await page.waitForFunction(n => window.__callState().log.length > n || window.__callState().phase === 'done', n1, { timeout: 30000 }).catch(() => {});
         }
       }
