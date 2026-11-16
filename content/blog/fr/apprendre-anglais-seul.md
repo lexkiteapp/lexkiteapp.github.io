@@ -19,6 +19,8 @@ Oui, on peut apprendre l'anglais seul, même après des années de cours qui n'o
 
 Ce guide sert de point de départ : chaque grande étape renvoie vers un article détaillé. Vous y trouverez le plan jour par jour, les erreurs typiques des francophones et la façon de mesurer vos progrès sans professeur.
 
+Pour réviser le vocabulaire sans vous bercer d'illusions, découvrez [le rappel actif](/fr/blog/rappel-actif-apprendre-vocabulaire-anglais/).
+
 ## Pourquoi tant de francophones « bloquent » en anglais
 
 La plupart des adultes en France ont eu sept ans d'anglais ou plus au collège et au lycée. Ils ne partent donc pas de rien : ils reconnaissent *school*, *beautiful* ou *Wednesday*, et se souviennent vaguement que « à la troisième personne, on ajoute un s ». Ce qui manque, ce sont trois fondations.
@@ -192,3 +194,5 @@ Non. Ces examens supposent déjà des bases solides, autour de A2–B1. Suivez d
 
 ### Est-ce trop tard pour apprendre l'anglais à 40 ou 50 ans ?
 Non. Les adultes ont l'avantage de la discipline et de la compréhension des règles. L'accent restera peut-être français, mais une prononciation claire et compréhensible est tout à fait accessible, et c'est cela qui compte pour communiquer.
+
+Pour travailler l’oral au quotidien, vous pouvez aussi suivre nos [12 situations pour parler anglais avec confiance](/fr/blog/parler-anglais-avec-confiance-situations/), du café à l’entretien.
