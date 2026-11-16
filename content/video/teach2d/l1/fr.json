@@ -1,5 +1,5 @@
 {
- "_note": "L1 fr: 28 lignes supplémentaires (erreurs courantes des francophones), même schéma que l1.json.",
+ "_note": "L1 fr: 33 lignes supplémentaires (erreurs courantes des francophones), même schéma que l1.json.",
  "rows": [
   {
    "id": "t2_l1_fr_sensible",
@@ -918,6 +918,406 @@
      "hook": "“I want that you come”: no!",
      "tip": "French says « je veux que tu viennes ». In English, no “that”: “want you to”.",
      "caption": "Do you say “I want that you come tomorrow.”? No “that”! Say “I want you to come tomorrow.”. Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_fr_job_article",
+   "lang": "fr",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Jobs need a little word!",
+    "wrong": "My sister is nurse.",
+    "right": "My sister is a nurse.",
+    "strike": "is nurse",
+    "why": "Say a before a job.",
+    "memory": "Job? Add a.",
+    "quiz": {
+     "stem": "My brother works at a school. He ___.",
+     "options": [
+      "is teacher",
+      "is a teacher"
+     ],
+     "answer": 1
+    },
+    "answer_say": "He is a teacher!",
+    "native": {
+     "hook": "Métier : n’oubliez pas « a »",
+     "tip": "En français, « Elle est infirmière » se dit sans article. En anglais, ajoutez “a” devant le métier.",
+     "caption": "Vous dites “My sister is nurse.” ? En anglais, le métier prend “a” ou “an”, contrairement au français. Dites plutôt “My sister is a nurse.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+     "comment": "Réponse : “My sister is a nurse.” — En anglais, le métier prend “a” ou “an”, contrairement au français. Testez d’autres pièges avec un quiz gratuit : {link}",
+     "hashtags": [
+      "#apprendrelanglais",
+      "#anglaisfacile",
+      "#coursdanglais",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Jobs need “a”!",
+     "tip": "In French there is no article before a job. In English, add “a” or “an”.",
+     "caption": "Do you say “My sister is nurse.”? Unlike in French, a job needs “a” or “an” in English. Say “My sister is a nurse.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_fr_go_home",
+   "lang": "fr",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "No at before home!",
+    "wrong": "We go at home now.",
+    "right": "We go home now.",
+    "strike": "at home",
+    "why": "After go, say home. Nothing more.",
+    "memory": "Go home. No at.",
+    "quiz": {
+     "stem": "Class is over. We go ___ now.",
+     "options": [
+      "at home",
+      "home"
+     ],
+     "answer": 1
+    },
+    "answer_say": "We go home!",
+    "native": {
+     "hook": "« Aller à la maison » : piège !",
+     "tip": "On traduit « à la maison » par “at home”, mais après “go”, “home” se passe de préposition : “go home”.",
+     "caption": "Vous dites “We go at home now.” ? Après “go”, le mot “home” se passe de préposition. Dites plutôt “We go home now.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+     "comment": "Réponse : “We go home now.” — Après “go”, le mot “home” se passe de préposition. Testez d’autres pièges avec un quiz gratuit : {link}",
+     "hashtags": [
+      "#apprendrelanglais",
+      "#anglaisfacile",
+      "#coursdanglais",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Go home, no “at”!",
+     "tip": "“Home” after “go” takes no preposition. Do not say “at home”.",
+     "caption": "Do you say “We go at home now.”? After “go”, “home” needs no preposition. Say “We go home now.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_fr_explain_to",
+   "lang": "fr",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Explain needs to before me!",
+    "wrong": "She explained me the problem.",
+    "right": "She explained the problem to me.",
+    "strike": "explained me",
+    "why": "Say the thing first. Then to me.",
+    "memory": "Thing first, then to me.",
+    "quiz": {
+     "stem": "Which one is correct?",
+     "options": [
+      "He explained me the rule.",
+      "He explained the rule to me."
+     ],
+     "answer": 1
+    },
+    "answer_say": "He explained the rule to me!",
+    "native": {
+     "hook": "« Explain me » ? Non !",
+     "tip": "En français, on dit « il m’a expliqué le problème ». En anglais, la chose vient d’abord, puis “to me”.",
+     "caption": "Vous dites “She explained me the problem.” ? Avec “explain”, on place d’abord la chose, puis “to” et la personne. Dites plutôt “She explained the problem to me.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+     "comment": "Réponse : “She explained the problem to me.” — Avec “explain”, on place d’abord la chose, puis “to” et la personne. Testez d’autres pièges avec un quiz gratuit : {link}",
+     "hashtags": [
+      "#apprendrelanglais",
+      "#anglaisfacile",
+      "#coursdanglais",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Explain me” is wrong!",
+     "tip": "French says “il m’a expliqué”, but English puts the thing first, then “to me”.",
+     "caption": "Do you say “She explained me the problem.”? With “explain”, put the thing first, then “to” and the person. Say “She explained the problem to me.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_fr_wait_for",
+   "lang": "fr",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Wait needs for!",
+    "wrong": "I am waiting you at the station.",
+    "right": "I am waiting for you at the station.",
+    "strike": "waiting you",
+    "why": "We wait for people.",
+    "memory": "Wait for you.",
+    "quiz": {
+     "stem": "Which one is correct?",
+     "options": [
+      "I'm waiting you.",
+      "I'm waiting for you."
+     ],
+     "answer": 1
+    },
+    "answer_say": "I'm waiting for you!",
+    "native": {
+     "hook": "Attendre = “wait for” !",
+     "tip": "« Attendre quelqu’un » n’a pas de préposition en français, mais pour dire qui on attend, “wait” demande “for”.",
+     "caption": "Vous dites “I am waiting you at the station.” ? Pour dire qui ou ce qu’on attend, “wait” demande “for”. Dites plutôt “I am waiting for you at the station.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+     "comment": "Réponse : “I am waiting for you at the station.” — Pour dire qui ou ce qu’on attend, “wait” demande “for”. Testez d’autres pièges avec un quiz gratuit : {link}",
+     "hashtags": [
+      "#apprendrelanglais",
+      "#anglaisfacile",
+      "#coursdanglais",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Wait is not “attendre”!",
+     "tip": "French has no small word after “attendre”. English needs “for” after “wait”.",
+     "caption": "Do you say “I am waiting you at the station.”? English needs “for” after “wait”. Say “I am waiting for you at the station.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_fr_by_bus",
+   "lang": "fr",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "With the bus? Say by bus!",
+    "wrong": "I go to school with the bus.",
+    "right": "I go to school by bus.",
+    "strike": "with the bus",
+    "why": "With a bus? No. Say by bus.",
+    "memory": "Travel: by bus.",
+    "quiz": {
+     "stem": "How do you go to school?",
+     "options": [
+      "I go with the bus.",
+      "I go by bus."
+     ],
+     "answer": 1
+    },
+    "answer_say": "I go by bus!",
+    "native": {
+     "hook": "« En bus » = “by bus”",
+     "tip": "On dit souvent « avec le bus », d’où “with the bus”. Pour un moyen de transport, dites “by bus”, sans article.",
+     "caption": "Vous dites “I go to school with the bus.” ? Pour un moyen de transport, dites “by” suivi du nom, sans “the”. Dites plutôt “I go to school by bus.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+     "comment": "Réponse : “I go to school by bus.” — Pour un moyen de transport, dites “by” suivi du nom, sans “the”. Testez d’autres pièges avec un quiz gratuit : {link}",
+     "hashtags": [
+      "#apprendrelanglais",
+      "#anglaisfacile",
+      "#coursdanglais",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Not “with the bus”!",
+     "tip": "English uses “by” and no “the” for transport: “by bus”, “by car”.",
+     "caption": "Do you say “I go to school with the bus.”? English uses “by” and no “the” for transport. Say “I go to school by bus.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_fr_know_how",
+   "lang": "fr",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Know needs how!",
+    "wrong": "I know to cook.",
+    "right": "I know how to cook.",
+    "strike": "know to",
+    "why": "Say know how, then to.",
+    "memory": "Know how to.",
+    "quiz": {
+     "stem": "She ___ cook very well.",
+     "options": [
+      "knows to",
+      "knows how to"
+     ],
+     "answer": 1
+    },
+    "answer_say": "She knows how to cook!",
+    "native": {
+     "hook": "« Je sais cuisiner » en anglais",
+     "tip": "En français, « savoir » suffit devant un verbe. En anglais, dites “know how to”.",
+     "caption": "Vous dites “I know to cook.” ? Pour une compétence, “know” demande “how to” avant le verbe. Dites plutôt “I know how to cook.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+     "comment": "Réponse : “I know how to cook.” — Pour une compétence, “know” demande “how to” avant le verbe. Testez d’autres pièges avec un quiz gratuit : {link}",
+     "hashtags": [
+      "#apprendrelanglais",
+      "#anglaisfacile",
+      "#coursdanglais",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Know to” is wrong!",
+     "tip": "French uses “savoir” alone before a verb. English needs “know how to”.",
+     "caption": "Do you say “I know to cook.”? For a skill, “know” needs “how to” before the verb. Say “I know how to cook.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_fr_double_no",
+   "lang": "fr",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Two no words? Not in English!",
+    "wrong": "I don't see nobody here.",
+    "right": "I don't see anybody here.",
+    "strike": "nobody",
+    "why": "Use one no word. Not two.",
+    "memory": "One no only.",
+    "quiz": {
+     "stem": "I don't know ___ here.",
+     "options": [
+      "nobody",
+      "anybody"
+     ],
+     "answer": 1
+    },
+    "answer_say": "I don't know anybody!",
+    "native": {
+     "hook": "Double négation : pas en anglais",
+     "tip": "Le français dit « je ne vois personne ». En anglais, avec “don't”, on emploie “anybody”.",
+     "caption": "Vous dites “I don't see nobody here.” ? Une seule négation par phrase : avec “don't”, on dit “anybody”. Dites plutôt “I don't see anybody here.”. Écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+     "comment": "Réponse : “I don't see anybody here.” Une seule négation par phrase : avec “don't”, on dit “anybody”. Testez d’autres pièges avec un quiz gratuit : {link}",
+     "hashtags": [
+      "#apprendrelanglais",
+      "#anglaisfacile",
+      "#coursdanglais",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Only one no, please!",
+     "tip": "French says “ne … personne”. English has one no word, so use “anybody”.",
+     "caption": "Do you say “I don't see nobody here.”? One negative word is enough, so use “anybody”. Say “I don't see anybody here.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_fr_married_to",
+   "lang": "fr",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Married to, not with!",
+    "wrong": "He is married with Anna.",
+    "right": "He is married to Anna.",
+    "strike": "with",
+    "why": "We say married to a person.",
+    "memory": "Married to.",
+    "quiz": {
+     "stem": "He is married ___ Anna.",
+     "options": [
+      "with",
+      "to"
+     ],
+     "answer": 1
+    },
+    "answer_say": "To! He is married to Anna!",
+    "native": {
+     "hook": "« Marié avec » : dites “to” !",
+     "tip": "« Marié avec » se traduit mot à mot, mais en anglais on dit “married to”.",
+     "caption": "Vous dites “He is married with Anna.” ? Après “married”, la préposition est “to”, pas “with”. Dites plutôt “He is married to Anna.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+     "comment": "Réponse : “He is married to Anna.” — Après “married”, la préposition est “to”, pas “with”. Testez d’autres pièges avec un quiz gratuit : {link}",
+     "hashtags": [
+      "#apprendrelanglais",
+      "#anglaisfacile",
+      "#coursdanglais",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Married with” is wrong!",
+     "tip": "French says “marié avec”. English says “married to” a person.",
+     "caption": "Do you say “He is married with Anna.”? After “married”, the word is “to”, never “with”. Say “He is married to Anna.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_fr_interested_in",
+   "lang": "fr",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Interested in, not by!",
+    "wrong": "I am interested by history.",
+    "right": "I am interested in history.",
+    "strike": "by",
+    "why": "We are interested in things.",
+    "memory": "Interested in.",
+    "quiz": {
+     "stem": "She is interested ___ music.",
+     "options": [
+      "by",
+      "in"
+     ],
+     "answer": 1
+    },
+    "answer_say": "She is interested in music!",
+    "native": {
+     "hook": "« Intéressé par » ? Dites “in”",
+     "tip": "« Intéressé par » se traduit mot à mot, mais en anglais on dit “interested in”.",
+     "caption": "Vous dites “I am interested by history.” ? Après “interested”, on emploie “in”, pas “by”. Dites plutôt “I am interested in history.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+     "comment": "Réponse : “I am interested in history.” — Après “interested”, on emploie “in”, pas “by”. Testez d’autres pièges avec un quiz gratuit : {link}",
+     "hashtags": [
+      "#apprendrelanglais",
+      "#anglaisfacile",
+      "#coursdanglais",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Not “interested by”!",
+     "tip": "French says “intéressé par”. English says “interested in”.",
+     "caption": "Do you say “I am interested by history.”? After “interested”, we say “in”, not “by”. Say “I am interested in history.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_fr_same_as",
+   "lang": "fr",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Same needs as, not than!",
+    "wrong": "I have the same bag than you.",
+    "right": "I have the same bag as you.",
+    "strike": "than",
+    "why": "After the same thing, say as.",
+    "memory": "Same as.",
+    "quiz": {
+     "stem": "My phone is the same ___ yours.",
+     "options": [
+      "than",
+      "as"
+     ],
+     "answer": 1
+    },
+    "answer_say": "The same as yours!",
+    "native": {
+     "hook": "« Le même que » : “same as”",
+     "tip": "Le français dit « le même que ». En anglais, après “same”, on emploie “as”.",
+     "caption": "Vous dites “I have the same bag than you.” ? Pour comparer deux choses identiques, dites “the same as”. Dites plutôt “I have the same bag as you.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+     "comment": "Réponse : “I have the same bag as you.” — Pour comparer deux choses identiques, dites “the same as”. Testez d’autres pièges avec un quiz gratuit : {link}",
+     "hashtags": [
+      "#apprendrelanglais",
+      "#anglaisfacile",
+      "#coursdanglais",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Same as, not same than!",
+     "tip": "French says “le même que”. English uses “the same as”.",
+     "caption": "Do you say “I have the same bag than you.”? To compare two identical things, say “the same as”. Say “I have the same bag as you.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
     }
    }
   }

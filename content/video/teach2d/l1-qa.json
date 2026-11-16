@@ -5217,5 +5217,1061 @@
    "not_english": true
   },
   "glosses": []
+ },
+ "t2_l1_ar_myhe": {
+  "ok": true,
+  "lang": "ar",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_ar_bookitread": {
+  "ok": true,
+  "lang": "ar",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_ar_expensives": {
+  "ok": true,
+  "lang": "ar",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_ar_cityis": {
+  "ok": true,
+  "lang": "ar",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_ar_amnotlike": {
+  "ok": true,
+  "lang": "ar",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_ar_enteredto": {
+  "ok": true,
+  "lang": "ar",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_ar_askedto": {
+  "ok": true,
+  "lang": "ar",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_ar_amlive": {
+  "ok": true,
+  "lang": "ar",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_ar_mosttall": {
+  "ok": true,
+  "lang": "ar",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_ar_walkedto": {
+  "ok": true,
+  "lang": "ar",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_fr_job_article": {
+  "ok": true,
+  "lang": "fr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_fr_go_home": {
+  "ok": true,
+  "lang": "fr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_fr_explain_to": {
+  "ok": true,
+  "lang": "fr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_fr_wait_for": {
+  "ok": true,
+  "lang": "fr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_fr_by_bus": {
+  "ok": true,
+  "lang": "fr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_fr_know_how": {
+  "ok": true,
+  "lang": "fr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_fr_double_no": {
+  "ok": true,
+  "lang": "fr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_fr_married_to": {
+  "ok": true,
+  "lang": "fr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_fr_interested_in": {
+  "ok": true,
+  "lang": "fr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_fr_same_as": {
+  "ok": true,
+  "lang": "fr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_ja_raining": {
+  "ok": true,
+  "lang": "ja",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_ja_wentkyoto": {
+  "ok": true,
+  "lang": "ja",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_ja_forward": {
+  "ok": true,
+  "lang": "ja",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_ja_gasstand": {
+  "ok": true,
+  "lang": "ja",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_ja_outlet": {
+  "ok": true,
+  "lang": "ja",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_ja_whereis": {
+  "ok": true,
+  "lang": "ja",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_ja_weather": {
+  "ok": true,
+  "lang": "ja",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_ja_wentthere": {
+  "ok": true,
+  "lang": "ja",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_ja_since": {
+  "ok": true,
+  "lang": "ja",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_ja_friend": {
+  "ok": true,
+  "lang": "ja",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_tr_more_taller": {
+  "ok": true,
+  "lang": "tr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_tr_good_at": {
+  "ok": true,
+  "lang": "tr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_tr_come_here": {
+  "ok": true,
+  "lang": "tr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_tr_go_shopping": {
+  "ok": true,
+  "lang": "tr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_tr_she_not_he": {
+  "ok": true,
+  "lang": "tr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_tr_can_swim": {
+  "ok": true,
+  "lang": "tr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_tr_told_me": {
+  "ok": true,
+  "lang": "tr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_tr_nobody_called": {
+  "ok": true,
+  "lang": "tr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_tr_was_born": {
+  "ok": true,
+  "lang": "tr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_tr_a_my_friend": {
+  "ok": true,
+  "lang": "tr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_vi_my_name": {
+  "ok": true,
+  "lang": "vi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_vi_yesterday_was": {
+  "ok": true,
+  "lang": "vi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_vi_want_to_go": {
+  "ok": true,
+  "lang": "vi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_vi_know_how": {
+  "ok": true,
+  "lang": "vi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_vi_sister_she": {
+  "ok": true,
+  "lang": "vi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_vi_older_two_years": {
+  "ok": true,
+  "lang": "vi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_vi_slowly_more": {
+  "ok": true,
+  "lang": "vi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_vi_thank_helping": {
+  "ok": true,
+  "lang": "vi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_vi_where_is": {
+  "ok": true,
+  "lang": "vi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_vi_as_tall_as": {
+  "ok": true,
+  "lang": "vi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_vi_go_often": {
+  "ok": true,
+  "lang": "vi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_vi_how_much_time": {
+  "ok": true,
+  "lang": "vi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_vi_because_so": {
+  "ok": true,
+  "lang": "vi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_vi_how_think": {
+  "ok": true,
+  "lang": "vi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_vi_from_vietnamese": {
+  "ok": true,
+  "lang": "vi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_vi_pen_mine": {
+  "ok": true,
+  "lang": "vi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_zh_pretty": {
+  "ok": true,
+  "lang": "zh",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_zh_lastweek": {
+  "ok": true,
+  "lang": "zh",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_zh_sister": {
+  "ok": true,
+  "lang": "zh",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_zh_engineer": {
+  "ok": true,
+  "lang": "zh",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_zh_metlast": {
+  "ok": true,
+  "lang": "zh",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_zh_whyyou": {
+  "ok": true,
+  "lang": "zh",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_zh_wantgo": {
+  "ok": true,
+  "lang": "zh",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_zh_mothers": {
+  "ok": true,
+  "lang": "zh",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_zh_therearepeople": {
+  "ok": true,
+  "lang": "zh",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2_l1_zh_although": {
+  "ok": true,
+  "lang": "zh",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
  }
 }

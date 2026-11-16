@@ -1,5 +1,5 @@
 {
- "_note": "L1 tr clips (28 rows): Turkish speakers' common English mistakes.",
+ "_note": "L1 tr clips (34 rows): Turkish speakers' common English mistakes.",
  "rows": [
   {
    "id": "t2_l1_tr_depend",
@@ -958,6 +958,406 @@
      "hook": "Not “want that”, but “want you to”!",
      "tip": "Use want + person + to + verb: “I want you to come.”",
      "caption": "Do you say “I want that you come.”? 😅 English does not use “that” after “want”. The right sentence is “I want you to come.”. Listen to Ama and repeat! Open the Lexkite app and practice more."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_tr_more_taller",
+   "lang": "tr",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Taller, not more taller!",
+    "wrong": "He is more taller than me.",
+    "right": "He is taller than me.",
+    "strike": "more taller",
+    "why": "Taller already means more.",
+    "memory": "He is taller than me.",
+    "quiz": {
+     "stem": "She is ___ than her brother.",
+     "options": [
+      "more taller",
+      "taller"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Taller! She is taller than her brother.",
+    "native": {
+     "hook": "“More taller” değil, “taller”!",
+     "tip": "Türkçede “daha uzun” deriz; İngilizcede kısa sıfata -er gelir, “more” eklenmez: “taller”.",
+     "caption": "“He is more taller than me.” mi diyorsun? 😅 Doğrusu “He is taller than me.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+     "comment": "Cevap: “taller”. Kısa sıfatta -er yeter, more gerekmez. Ücretsiz testle pratik yap: {link}",
+     "hashtags": [
+      "#ingilizceöğren",
+      "#ingilizcekonuşma",
+      "#ingilizce",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Not “more taller”, but “taller”!",
+     "tip": "Turkish says “daha uzun”, but English adds -er only: “taller”.",
+     "caption": "Do you say “He is more taller than me.”? 😅 English adds -er to short words, without “more”. The right sentence is “He is taller than me.” Listen to Ama and repeat! Open the Lexkite app and practice more."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_tr_good_at",
+   "lang": "tr",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Good at, not good in!",
+    "wrong": "I am good in English.",
+    "right": "I am good at English.",
+    "strike": "in",
+    "why": "Say good at a skill.",
+    "memory": "Good at English.",
+    "quiz": {
+     "stem": "He is good ___ music.",
+     "options": [
+      "in",
+      "at"
+     ],
+     "answer": 1
+    },
+    "answer_say": "At! He is good at music.",
+    "native": {
+     "hook": "“Good in” değil, “good at”!",
+     "tip": "Türkçedeki “-de” eki bizi “in”e götürür; ama bir beceride iyi olmak için İngilizcede “good at” denir.",
+     "caption": "“I am good in English.” mi diyorsun? 😅 Doğrusu “I am good at English.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+     "comment": "Cevap: “at”. Bir konuda iyi olmak için good at denir. Ücretsiz testle pratik yap: {link}",
+     "hashtags": [
+      "#ingilizceöğren",
+      "#ingilizcekonuşma",
+      "#ingilizce",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Not “good in”, but “good at”!",
+     "tip": "Turkish uses “-de”, but English uses “good at”.",
+     "caption": "Do you say “I am good in English.”? 😅 English uses “at”, not “in”, after good. The right sentence is “I am good at English.” Listen to Carlos and repeat! Open the Lexkite app and practice more."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_tr_come_here",
+   "lang": "tr",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Come here, not come to here!",
+    "wrong": "Come to here, please.",
+    "right": "Come here, please.",
+    "strike": "to",
+    "why": "Here has no to.",
+    "memory": "Come here.",
+    "quiz": {
+     "stem": "Please ___ now.",
+     "options": [
+      "come to here",
+      "come here"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Come here! Please come here.",
+    "native": {
+     "hook": "“Come to here” değil, “come here”!",
+     "tip": "Türkçede “buraya” deriz; İngilizcede “here” zaten yönü gösterir, “to” gelmez.",
+     "caption": "“Come to here, please.” mi diyorsun? 😅 Doğrusu “Come here, please.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+     "comment": "Cevap: “come here”. Here kelimesinin önüne to konmaz. Ücretsiz testle pratik yap: {link}",
+     "hashtags": [
+      "#ingilizceöğren",
+      "#ingilizcekonuşma",
+      "#ingilizce",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Not “come to here”, but “come here”!",
+     "tip": "Turkish says “buraya”, but English needs no “to”.",
+     "caption": "Do you say “Come to here, please.”? 😅 English says “here” without “to”. The right sentence is “Come here, please.” Listen to Ama and repeat! Open the Lexkite app and practice more."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_tr_go_shopping",
+   "lang": "tr",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Go shopping, not go to shopping!",
+    "wrong": "I went to shopping.",
+    "right": "I went shopping.",
+    "strike": "to",
+    "why": "Say go shopping.",
+    "memory": "Go shopping.",
+    "quiz": {
+     "stem": "We often go ___ with friends.",
+     "options": [
+      "to shopping",
+      "shopping"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Shopping! We often go shopping.",
+    "native": {
+     "hook": "“Go to shopping” değil!",
+     "tip": "Türkçede “alışverişe gitmek” deriz ama İngilizcede “go shopping” denir.",
+     "caption": "“I went to shopping.” mi diyorsun? 😅 Doğrusu “I went shopping.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+     "comment": "Cevap: “shopping”. Go ile shopping arasına to girmez. Ücretsiz testle pratik yap: {link}",
+     "hashtags": [
+      "#ingilizceöğren",
+      "#ingilizcekonuşma",
+      "#ingilizce",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Not “go to shopping”, but “go shopping”!",
+     "tip": "Turkish says “alışverişe gitmek”, but English drops “to”.",
+     "caption": "Do you say “I went to shopping.”? 😅 English says go shopping, without “to”. The right sentence is “I went shopping.” Listen to Carlos and repeat! Open the Lexkite app and practice more."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_tr_she_not_he",
+   "lang": "tr",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "She, not he, for a woman!",
+    "wrong": "My sister is a nurse. He works hard.",
+    "right": "My sister is a nurse. She works hard.",
+    "strike": "He",
+    "why": "Use she for a woman.",
+    "memory": "She works hard.",
+    "quiz": {
+     "stem": "My mother is kind. ___ helps me.",
+     "options": [
+      "He",
+      "She"
+     ],
+     "answer": 1
+    },
+    "answer_say": "She! My mother is kind. She helps me.",
+    "native": {
+     "hook": "Kadın için “he” değil, “she”!",
+     "tip": "Türkçede “o” hem kadın hem erkek için geçer; İngilizcede kadın için “she” kullanılır.",
+     "caption": "“My sister is a nurse. He works hard.” mi diyorsun? 😅 Doğrusu “My sister is a nurse. She works hard.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+     "comment": "Cevap: “She”. Kadından söz ederken she denir. Ücretsiz testle pratik yap: {link}",
+     "hashtags": [
+      "#ingilizceöğren",
+      "#ingilizcekonuşma",
+      "#ingilizce",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "A woman is “she”, not “he”!",
+     "tip": "Turkish “o” is for both, but English has he and she.",
+     "caption": "Do you say “My sister is a nurse. He works hard.”? 😅 English uses she for a woman. The right sentence is “My sister is a nurse. She works hard.” Listen to Ama and repeat! Open the Lexkite app and practice more."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_tr_can_swim",
+   "lang": "tr",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Can swim, not can to swim!",
+    "wrong": "I can to swim well.",
+    "right": "I can swim well.",
+    "strike": "to",
+    "why": "No to after can.",
+    "memory": "I can swim.",
+    "quiz": {
+     "stem": "She can ___ very fast.",
+     "options": [
+      "to run",
+      "run"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Run! She can run very fast.",
+    "native": {
+     "hook": "“Can to swim” değil, “can swim”!",
+     "tip": "Türkçedeki mastar eki -mek’i “to” gibi düşünüp ekleriz; ama can’den sonra fiil “to” almadan yalın gelir.",
+     "caption": "“I can to swim well.” mi diyorsun? 😅 Doğrusu “I can swim well.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+     "comment": "Cevap: “run”. Can’den sonra fiil yalın gelir. Ücretsiz testle pratik yap: {link}",
+     "hashtags": [
+      "#ingilizceöğren",
+      "#ingilizcekonuşma",
+      "#ingilizce",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Not “can to swim”, but “can swim”!",
+     "tip": "We map Turkish -mek to “to”, but after can the verb takes no “to”.",
+     "caption": "Do you say “I can to swim well.”? 😅 English has no “to” after can. The right sentence is “I can swim well.” Listen to Carlos and repeat! Open the Lexkite app and practice more."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_tr_told_me",
+   "lang": "tr",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Told me, not said me!",
+    "wrong": "She said me the answer.",
+    "right": "She told me the answer.",
+    "strike": "said",
+    "why": "Say told me.",
+    "memory": "She told me.",
+    "quiz": {
+     "stem": "He ___ me his name.",
+     "options": [
+      "said",
+      "told"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Told! He told me his name.",
+    "native": {
+     "hook": "“Said me” değil, “told me”!",
+     "tip": "Türkçede “söylemek” hem say hem tell demek; kişiye söylerken “said me” değil, “told me” denir.",
+     "caption": "“She said me the answer.” mi diyorsun? 😅 Doğrusu “She told me the answer.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+     "comment": "Cevap: “told”. Kişiye söylerken told kullanılır. Ücretsiz testle pratik yap: {link}",
+     "hashtags": [
+      "#ingilizceöğren",
+      "#ingilizcekonuşma",
+      "#ingilizce",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Not “said me”, but “told me”!",
+     "tip": "Turkish says “bana söyledi”, but English uses “told me”.",
+     "caption": "Do you say “She said me the answer.”? 😅 English uses told before a person. The right sentence is “She told me the answer.” Listen to Ama and repeat! Open the Lexkite app and practice more."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_tr_nobody_called",
+   "lang": "tr",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Nobody called, not didn't!",
+    "wrong": "Nobody didn't call me.",
+    "right": "Nobody called me.",
+    "strike": "didn't",
+    "why": "Nobody is already no.",
+    "memory": "Nobody called me.",
+    "quiz": {
+     "stem": "Nobody ___ the door.",
+     "options": [
+      "didn't open",
+      "opened"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Opened! Nobody opened the door.",
+    "native": {
+     "hook": "“Nobody didn't” değil!",
+     "tip": "Türkçede “Kimse beni aramadı” deriz, fiil de olumsuz olur; İngilizcede nobody zaten olumsuz, fiil olumlu kalır.",
+     "caption": "“Nobody didn't call me.” mi diyorsun? 😅 Doğrusu “Nobody called me.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+     "comment": "Cevap: “opened”. Nobody ile fiil olumlu kullanılır. Ücretsiz testle pratik yap: {link}",
+     "hashtags": [
+      "#ingilizceöğren",
+      "#ingilizcekonuşma",
+      "#ingilizce",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Not “nobody didn't”, but “nobody called”!",
+     "tip": "Turkish negates both nobody and the verb; English negates only once.",
+     "caption": "Do you say “Nobody didn't call me.”? 😅 Nobody is already negative in English. The right sentence is “Nobody called me.” Listen to Carlos and repeat! Open the Lexkite app and practice more."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_tr_was_born",
+   "lang": "tr",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Was born, not I born!",
+    "wrong": "I born in Izmir.",
+    "right": "I was born in Izmir.",
+    "strike": "I born",
+    "why": "Say was born.",
+    "memory": "I was born.",
+    "quiz": {
+     "stem": "She ___ in 1995.",
+     "options": [
+      "born",
+      "was born"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Was born! She was born in 1995.",
+    "native": {
+     "hook": "“I born” değil, “I was born”!",
+     "tip": "Türkçede “doğdum” deriz; İngilizcede “born” önünde “was” ister.",
+     "caption": "“I born in Izmir.” mi diyorsun? 😅 Doğrusu “I was born in Izmir.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+     "comment": "Cevap: “was born”. Doğmak için was born denir. Ücretsiz testle pratik yap: {link}",
+     "hashtags": [
+      "#ingilizceöğren",
+      "#ingilizcekonuşma",
+      "#ingilizce",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Not “I born”, but “I was born”!",
+     "tip": "Turkish says “doğdum”, but English needs “was born”.",
+     "caption": "Do you say “I born in Izmir.”? 😅 English needs was before born. The right sentence is “I was born in Izmir.” Listen to Ama and repeat! Open the Lexkite app and practice more."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_tr_a_my_friend",
+   "lang": "tr",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "My friend, not a my friend!",
+    "wrong": "He is a my friend.",
+    "right": "He is my friend.",
+    "strike": "a",
+    "why": "No a before my.",
+    "memory": "He is my friend.",
+    "quiz": {
+     "stem": "She is ___ teacher.",
+     "options": [
+      "a my",
+      "my"
+     ],
+     "answer": 1
+    },
+    "answer_say": "My! She is my teacher.",
+    "native": {
+     "hook": "“A my friend” değil, “my friend”!",
+     "tip": "Türkçede “bir arkadaşım” deriz; İngilizcede “my” varken “a” gelmez.",
+     "caption": "“He is a my friend.” mi diyorsun? 😅 Doğrusu “He is my friend.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+     "comment": "Cevap: “my”. Sahiplik sözcüğünün önüne a konmaz. Ücretsiz testle pratik yap: {link}",
+     "hashtags": [
+      "#ingilizceöğren",
+      "#ingilizcekonuşma",
+      "#ingilizce",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Not “a my friend”, but “my friend”!",
+     "tip": "Turkish says “bir arkadaşım”, but English has no “a” before my.",
+     "caption": "Do you say “He is a my friend.”? 😅 English has no “a” before my. The right sentence is “He is my friend.” Listen to Carlos and repeat! Open the Lexkite app and practice more."
     }
    }
   }

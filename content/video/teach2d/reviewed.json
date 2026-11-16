@@ -8251,7 +8251,7 @@
   },
   "t2_l1_ar_muchmany": {
    "template": "l1",
-   "hook": "much أم many؟",
+   "hook": "هل تقول “much people”؟",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -8353,7 +8353,7 @@
   },
   "t2_l1_de_sympathetic": {
    "template": "l1",
-   "hook": "„Sympathisch“ ≠ „sympathetic“",
+   "hook": "Willst du „sympathisch“ sagen?",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -8370,7 +8370,7 @@
   },
   "t2_l1_de_gift": {
    "template": "l1",
-   "hook": "„Gift“ ist kein „gift“!",
+   "hook": "Bekanntes Wort „Gift“ – Vorsicht!",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -8387,7 +8387,7 @@
   },
   "t2_l1_de_actually": {
    "template": "l1",
-   "hook": "„Aktuell“ ist nicht „actually“",
+   "hook": "Willst du „gerade jetzt“ sagen?",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -8404,7 +8404,7 @@
   },
   "t2_l1_de_chef": {
    "template": "l1",
-   "hook": "Dein „Chef“ ist kein „chef“!",
+   "hook": "Sprichst du vom Chef im Büro?",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -8421,7 +8421,7 @@
   },
   "t2_l1_de_eventually": {
    "template": "l1",
-   "hook": "„Eventuell“ ist nicht „eventually“",
+   "hook": "„Eventuell“ auf Englisch falsch?",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -8438,7 +8438,7 @@
   },
   "t2_l1_de_article_job": {
    "template": "l1",
-   "hook": "Bei Berufen fehlt oft „a“!",
+   "hook": "Sagst du auch „I am teacher“?",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -8455,7 +8455,7 @@
   },
   "t2_l1_de_very_much": {
    "template": "l1",
-   "hook": "„Very much“ gehört ans Ende!",
+   "hook": "Nichts zwischen Verb und Objekt!",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -8506,7 +8506,7 @@
   },
   "t2_l1_de_saw_past": {
    "template": "l1",
-   "hook": "„Gestern habe ich …“ geht nicht!",
+   "hook": "Das deutsche Perfekt täuscht dich!",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -8540,7 +8540,7 @@
   },
   "t2_l1_de_take_photo": {
    "template": "l1",
-   "hook": "Ein Foto „machen“? Nicht „make“!",
+   "hook": "Wie sagt man „ein Foto machen“?",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -8642,7 +8642,7 @@
   },
   "t2_l1_de_brief": {
    "template": "l1",
-   "hook": "Ein „Brief“ ist kein „brief“!",
+   "hook": "„Brief“ schreiben auf Englisch?",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -8710,7 +8710,7 @@
   },
   "t2_l1_de_kind_of": {
    "template": "l1",
-   "hook": "„Art von“ = „kind of“",
+   "hook": "Fragst du nach der „Art“ Musik?",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -8744,7 +8744,7 @@
   },
   "t2_l1_de_see_you_soon": {
    "template": "l1",
-   "hook": "„Bis bald“ ist nicht „bald“!",
+   "hook": "Verabschieden mit „Bis bald“?",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -8761,7 +8761,7 @@
   },
   "t2_l1_de_tall": {
    "template": "l1",
-   "hook": "„Groß“ ist nicht immer „big“!",
+   "hook": "Willst du sagen, jemand ist groß?",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -8778,7 +8778,7 @@
   },
   "t2_l1_de_listen_to": {
    "template": "l1",
-   "hook": "„Listen“ braucht „to“!",
+   "hook": "Ein Wörtchen fehlt beim Hören!",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -8948,7 +8948,7 @@
   },
   "t2_l1_es_do_homework": {
    "template": "l1",
-   "hook": "¿“Make” la tarea? ¡Es “do”!",
+   "hook": "¿“Make homework”? ¡Es “do”!",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -9288,7 +9288,7 @@
   },
   "t2_l1_fr_sensible": {
    "template": "l1",
-   "hook": "« Sensible » ≠ sensible !",
+   "hook": "« Sensible » n’est pas “sensible”!",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -9594,7 +9594,7 @@
   },
   "t2_l1_fr_said_me": {
    "template": "l1",
-   "hook": "« Il m'a dit » : “told me”",
+   "hook": "“Said me” : pas de l’anglais !",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -9611,7 +9611,7 @@
   },
   "t2_l1_fr_than": {
    "template": "l1",
-   "hook": "« Plus grand que » : “than”",
+   "hook": "“Taller that” : faux !",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -9645,7 +9645,7 @@
   },
   "t2_l1_fr_disappoint": {
    "template": "l1",
-   "hook": "« Déception » ≠ “deception”",
+   "hook": "“Deception”, pas « déception »!",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -10155,7 +10155,7 @@
   },
   "t2_l1_ja_saw": {
    "template": "l1",
-   "hook": "yesterday に現在完了は使えない",
+   "hook": "yesterday と have seen？注意！",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -10461,7 +10461,7 @@
   },
   "t2_l1_ja_yesno": {
    "template": "l1",
-   "hook": "否定疑問への Yes/No、逆では？",
+   "hook": "Yes か No か？日本人の癖の罠！",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -10563,7 +10563,7 @@
   },
   "t2_l1_ko_listento": {
    "template": "l1",
-   "hook": "listen 뒤에 to 빠졌어요!",
+   "hook": "“to”를 잊지 마세요!",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -11430,7 +11430,7 @@
   },
   "t2_l1_ru_depend": {
    "template": "l1",
-   "hook": "“Depend from” или “depend on”?",
+   "hook": "Какое маленькое слово верное?",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -11464,7 +11464,7 @@
   },
   "t2_l1_ru_explain": {
    "template": "l1",
-   "hook": "“Explain me” — типичная ошибка",
+   "hook": "Скажи одним маленьким словом",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -11498,7 +11498,7 @@
   },
   "t2_l1_ru_information": {
    "template": "l1",
-   "hook": "Информация — без “s”!",
+   "hook": "Одно или много?",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -11634,7 +11634,7 @@
   },
   "t2_l1_ru_atwork": {
    "template": "l1",
-   "hook": "“On the work” — ошибка",
+   "hook": "Какое маленькое слово верное?",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -11685,7 +11685,7 @@
   },
   "t2_l1_ru_article": {
    "template": "l1",
-   "hook": "Забываешь “a”? Это частая беда",
+   "hook": "Ты забываешь “a”?",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -11736,7 +11736,7 @@
   },
   "t2_l1_ru_magazine": {
    "template": "l1",
-   "hook": "“Magazine” — не магазин!",
+   "hook": "Магазин — это “shop”?",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -11787,7 +11787,7 @@
   },
   "t2_l1_ru_question": {
    "template": "l1",
-   "hook": "Вопрос без “do” — ошибка",
+   "hook": "Порядок слов верный?",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -11804,7 +11804,7 @@
   },
   "t2_l1_ru_morebig": {
    "template": "l1",
-   "hook": "Более высокий — это taller",
+   "hook": "Это слово верное?",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -11855,7 +11855,7 @@
   },
   "t2_l1_ru_isverb": {
    "template": "l1",
-   "hook": "Забываешь “is”?",
+   "hook": "Ты забываешь “is”?",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -11872,7 +11872,7 @@
   },
   "t2_l1_ru_yesterday": {
    "template": "l1",
-   "hook": "“Yesterday I go” — ошибка",
+   "hook": "“Go” или “went”?",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -12331,7 +12331,7 @@
   },
   "t2_l1_vi_job_a": {
    "template": "l1",
-   "hook": "Quên “a” khi nói nghề nghiệp?",
+   "hook": "Quên “a” trước nghề của bạn?",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -12416,7 +12416,7 @@
   },
   "t2_l1_vi_it_dummy": {
    "template": "l1",
-   "hook": "Thiếu “it” khi nói thời tiết!",
+   "hook": "Tiếng Anh cần “it” cho thời tiết!",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -12467,7 +12467,7 @@
   },
   "t2_l1_vi_advice": {
    "template": "l1",
-   "hook": "“Advices” không có đâu!",
+   "hook": "Đừng thêm “s” vào advice!",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -12501,7 +12501,7 @@
   },
   "t2_l1_vi_where_do": {
    "template": "l1",
-   "hook": "Hỏi “Where you live?” sai chỗ nào?",
+   "hook": "Câu hỏi thiếu “do”!",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -12518,7 +12518,7 @@
   },
   "t2_l1_vi_go_home": {
    "template": "l1",
-   "hook": "Về nhà: “go to home”?",
+   "hook": "Đừng nói “go to home”!",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -12586,7 +12586,7 @@
   },
   "t2_l1_vi_yes_i_do": {
    "template": "l1",
-   "hook": "Trả lời ngắn: “Yes, I like”?",
+   "hook": "Trả lời ngắn thiếu “do”!",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -12654,7 +12654,7 @@
   },
   "t2_l1_vi_she_mom": {
    "template": "l1",
-   "hook": "Mẹ mà gọi “he”?",
+   "hook": "Nói về mẹ phải là “she”!",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -12807,7 +12807,7 @@
   },
   "t2_l1_zh_explain": {
    "template": "l1",
-   "hook": "explain 后不能直接加人！",
+   "hook": "explain 后面要用 “to”！",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -12994,7 +12994,7 @@
   },
   "t2_l1_zh_sincelive": {
    "template": "l1",
-   "hook": "since 前别用一般现在时！",
+   "hook": "since 要搭配 “have lived”！",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -13735,6 +13735,1128 @@
     "c": "Save this. Free on lexkite.com."
    },
    "score": 92
+  },
+  "t2_l1_ar_myhe": {
+   "template": "l1",
+   "hook": "هل تكرّر الفاعل؟",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Say it only once!",
+    "w": "Many learners say: My brother he is a doctor.",
+    "r": "Better: My brother is a doctor.",
+    "y": "One subject is enough.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Is! My sister is a nurse.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_ar_bookitread": {
+   "template": "l1",
+   "hook": "هل تضيف “it” زائدة؟",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "No extra it!",
+    "w": "Many learners say: The book that I read it was good.",
+    "r": "Better: The book that I read was good.",
+    "y": "Do not add it after read.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Was! The song that I heard was nice.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_ar_expensives": {
+   "template": "l1",
+   "hook": "هل تجمع الصفة؟",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "No s on this word!",
+    "w": "Many learners say: The books are expensives.",
+    "r": "Better: The books are expensive.",
+    "y": "Describing words never take s.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Cheap! The shoes are cheap.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_ar_cityis": {
+   "template": "l1",
+   "hook": "هل تنسى “there”؟",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Add there is!",
+    "w": "Many learners say: In my city is a park.",
+    "r": "Better: In my city there is a park.",
+    "y": "Use there is to say it exists.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "There is! In my room there is a bed.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_ar_amnotlike": {
+   "template": "l1",
+   "hook": "هل تقول “I am not understand”؟",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Do not use am!",
+    "w": "Many learners say: I am not understand the lesson.",
+    "r": "Better: I do not understand the lesson.",
+    "y": "Use do not with verbs.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Does not! She does not understand me.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_ar_enteredto": {
+   "template": "l1",
+   "hook": "هل تقول “entered to”؟",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Enter has no to!",
+    "w": "Many learners say: He entered to the room.",
+    "r": "Better: He entered the room.",
+    "y": "Enter needs no to.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "The! She entered the kitchen.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_ar_askedto": {
+   "template": "l1",
+   "hook": "هل تقول “asked from”؟",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Ask has no from!",
+    "w": "Many learners say: I asked from my teacher to help me.",
+    "r": "Better: I asked my teacher to help me.",
+    "y": "Ask needs no from before a person.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "My! I asked my friend for help.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_ar_amlive": {
+   "template": "l1",
+   "hook": "هل تقول “I am live”؟",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Live, not am live!",
+    "w": "Many learners say: I am live in Cairo.",
+    "r": "Better: I live in Cairo.",
+    "y": "Do not put am before live.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Live! We live in Cairo.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_ar_mosttall": {
+   "template": "l1",
+   "hook": "هل تقول “most tall”؟",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Most plus tall? No!",
+    "w": "Many learners say: She is the most tall girl.",
+    "r": "Better: She is the tallest girl.",
+    "y": "For short words, say the tallest.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Tallest! He is the tallest boy.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_ar_walkedto": {
+   "template": "l1",
+   "hook": "هل تقول “to home”؟",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Home needs no to!",
+    "w": "Many learners say: We walked to home.",
+    "r": "Better: We walked home.",
+    "y": "Home needs no to.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Home! They ran home after school.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_fr_job_article": {
+   "template": "l1",
+   "hook": "Métier : n’oubliez pas « a »",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Jobs need a little word!",
+    "w": "Many learners say: My sister is nurse.",
+    "r": "Better: My sister is a nurse.",
+    "y": "Say a before a job.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "He is a teacher!",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_fr_go_home": {
+   "template": "l1",
+   "hook": "« Aller à la maison » : piège !",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "No at before home!",
+    "w": "Many learners say: We go at home now.",
+    "r": "Better: We go home now.",
+    "y": "After go, say home. Nothing more.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "We go home!",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_fr_explain_to": {
+   "template": "l1",
+   "hook": "« Explain me » ? Non !",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Explain needs to before me!",
+    "w": "Many learners say: She explained me the problem.",
+    "r": "Better: She explained the problem to me.",
+    "y": "Say the thing first. Then to me.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "He explained the rule to me!",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_fr_wait_for": {
+   "template": "l1",
+   "hook": "Attendre = “wait for” !",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Wait needs for!",
+    "w": "Many learners say: I am waiting you at the station.",
+    "r": "Better: I am waiting for you at the station.",
+    "y": "We wait for people.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "I'm waiting for you!",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_fr_by_bus": {
+   "template": "l1",
+   "hook": "« En bus » = “by bus”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "With the bus? Say by bus!",
+    "w": "Many learners say: I go to school with the bus.",
+    "r": "Better: I go to school by bus.",
+    "y": "With a bus? No. Say by bus.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "I go by bus!",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_fr_know_how": {
+   "template": "l1",
+   "hook": "« Je sais cuisiner » en anglais",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Know needs how!",
+    "w": "Many learners say: I know to cook.",
+    "r": "Better: I know how to cook.",
+    "y": "Say know how, then to.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "She knows how to cook!",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_fr_double_no": {
+   "template": "l1",
+   "hook": "Double négation : pas en anglais",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Two no words? Not in English!",
+    "w": "Many learners say: I don't see nobody here.",
+    "r": "Better: I don't see anybody here.",
+    "y": "Use one no word. Not two.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "I don't know anybody!",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_fr_married_to": {
+   "template": "l1",
+   "hook": "« Marié avec » : dites “to” !",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Married to, not with!",
+    "w": "Many learners say: He is married with Anna.",
+    "r": "Better: He is married to Anna.",
+    "y": "We say married to a person.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "To! He is married to Anna!",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_fr_interested_in": {
+   "template": "l1",
+   "hook": "« Intéressé par » ? Dites “in”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Interested in, not by!",
+    "w": "Many learners say: I am interested by history.",
+    "r": "Better: I am interested in history.",
+    "y": "We are interested in things.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "She is interested in music!",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_fr_same_as": {
+   "template": "l1",
+   "hook": "« Le même que » : “same as”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Same needs as, not than!",
+    "w": "Many learners say: I have the same bag than you.",
+    "r": "Better: I have the same bag as you.",
+    "y": "After the same thing, say as.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "The same as yours!",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_ja_raining": {
+   "template": "l1",
+   "hook": "「Is raining」、主語が抜けてない？",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Who is raining?",
+    "w": "Many learners say: Is raining now.",
+    "r": "Better: It is raining now.",
+    "y": "English needs a subject, even for weather.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "It! It is sunny today.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_ja_wentkyoto": {
+   "template": "l1",
+   "hook": "「Went to Kyoto」、「I」を忘れてない？",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Who went? Say who!",
+    "w": "Many learners say: Went to Kyoto yesterday.",
+    "r": "Better: I went to Kyoto yesterday.",
+    "y": "Do not drop the subject.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "I ate pizza!",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_ja_forward": {
+   "template": "l1",
+   "hook": "look forward to の後ろ、動詞の形は大丈夫？",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "To see? Or seeing?",
+    "w": "Many learners say: I look forward to see you.",
+    "r": "Better: I look forward to seeing you.",
+    "y": "After this to, say seeing, not see.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Watching! We look forward to watching it.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_ja_gasstand": {
+   "template": "l1",
+   "hook": "「ガソリンスタンド」は和製英語って知ってた？",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Gas stand? Not English!",
+    "w": "Many learners say: I went to a gas stand.",
+    "r": "Better: I went to a gas station.",
+    "y": "Say gas station in American English.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Station! We need a gas station.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_ja_outlet": {
+   "template": "l1",
+   "hook": "「コンセント」は英語じゃない！通じないかも",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Is it consent?",
+    "w": "Many learners say: My room has no consent.",
+    "r": "Better: My room has no outlet.",
+    "y": "In American English, we call it an outlet.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Outlet! There is no outlet by my desk.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_ja_whereis": {
+   "template": "l1",
+   "hook": "「Do you know where is〜」、語順が逆かも",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Fix the word order!",
+    "w": "Many learners say: Do you know where is the station?",
+    "r": "Better: Do you know where the station is?",
+    "y": "Inside a sentence, use normal order: subject, then verb.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "The bank is! I know where the bank is.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_ja_weather": {
+   "template": "l1",
+   "hook": "weather に a をつけていませんか？",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "A weather? No!",
+    "w": "Many learners say: It was a nice weather today.",
+    "r": "Better: It was nice weather today.",
+    "y": "Weather has no a or an.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Good weather! We had good weather.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_ja_wentthere": {
+   "template": "l1",
+   "hook": "「went to there」の to は要らない！",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "To there? No to!",
+    "w": "Many learners say: I went to there yesterday.",
+    "r": "Better: I went there yesterday.",
+    "y": "There already means to there.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "There! She goes there every day.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_ja_since": {
+   "template": "l1",
+   "hook": "「since」の文、動詞の形は合ってる？",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Since? Use have!",
+    "w": "Many learners say: I study English since last year.",
+    "r": "Better: I have studied English since last year.",
+    "y": "Since needs the present perfect, not the present.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Have lived! I have lived here since May.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_ja_friend": {
+   "template": "l1",
+   "hook": "「a friend of me」、me じゃなくて…？",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Friend of me?",
+    "w": "Many learners say: He is a friend of me.",
+    "r": "Better: He is a friend of mine.",
+    "y": "In “a friend of ___,” use mine, not me.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Mine! She is a friend of mine.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_tr_more_taller": {
+   "template": "l1",
+   "hook": "“More taller” değil, “taller”!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Taller, not more taller!",
+    "w": "Many learners say: He is more taller than me.",
+    "r": "Better: He is taller than me.",
+    "y": "Taller already means more.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Taller! She is taller than her brother.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_tr_good_at": {
+   "template": "l1",
+   "hook": "“Good in” değil, “good at”!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Good at, not good in!",
+    "w": "Many learners say: I am good in English.",
+    "r": "Better: I am good at English.",
+    "y": "Say good at a skill.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "At! He is good at music.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_tr_come_here": {
+   "template": "l1",
+   "hook": "“Come to here” değil, “come here”!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Come here, not come to here!",
+    "w": "Many learners say: Come to here, please.",
+    "r": "Better: Come here, please.",
+    "y": "Here has no to.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Come here! Please come here.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_tr_go_shopping": {
+   "template": "l1",
+   "hook": "“Go to shopping” değil!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Go shopping, not go to shopping!",
+    "w": "Many learners say: I went to shopping.",
+    "r": "Better: I went shopping.",
+    "y": "Say go shopping.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Shopping! We often go shopping.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_tr_she_not_he": {
+   "template": "l1",
+   "hook": "Kadın için “he” değil, “she”!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "She, not he, for a woman!",
+    "w": "Many learners say: My sister is a nurse. He works hard.",
+    "r": "Better: My sister is a nurse. She works hard.",
+    "y": "Use she for a woman.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "She! My mother is kind. She helps me.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_tr_can_swim": {
+   "template": "l1",
+   "hook": "“Can to swim” değil, “can swim”!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Can swim, not can to swim!",
+    "w": "Many learners say: I can to swim well.",
+    "r": "Better: I can swim well.",
+    "y": "No to after can.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Run! She can run very fast.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_tr_told_me": {
+   "template": "l1",
+   "hook": "“Said me” değil, “told me”!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Told me, not said me!",
+    "w": "Many learners say: She said me the answer.",
+    "r": "Better: She told me the answer.",
+    "y": "Say told me.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Told! He told me his name.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_tr_nobody_called": {
+   "template": "l1",
+   "hook": "“Nobody didn't” değil!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Nobody called, not didn't!",
+    "w": "Many learners say: Nobody didn't call me.",
+    "r": "Better: Nobody called me.",
+    "y": "Nobody is already no.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Opened! Nobody opened the door.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_tr_was_born": {
+   "template": "l1",
+   "hook": "“I born” değil, “I was born”!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Was born, not I born!",
+    "w": "Many learners say: I born in Izmir.",
+    "r": "Better: I was born in Izmir.",
+    "y": "Say was born.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Was born! She was born in 1995.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_tr_a_my_friend": {
+   "template": "l1",
+   "hook": "“A my friend” değil, “my friend”!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "My friend, not a my friend!",
+    "w": "Many learners say: He is a my friend.",
+    "r": "Better: He is my friend.",
+    "y": "No a before my.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "My! She is my teacher.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_vi_my_name": {
+   "template": "l1",
+   "hook": "Giới thiệu tên mà thiếu “is”?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Do you forget one small word?",
+    "w": "Many learners say: My name Anna.",
+    "r": "Better: My name is Anna.",
+    "y": "Put is between name and Anna.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Is! My name is Anna.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_vi_yesterday_was": {
+   "template": "l1",
+   "hook": "Hôm qua mà vẫn nói “am”?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Yesterday needs a past verb!",
+    "w": "Many learners say: Yesterday I am tired.",
+    "r": "Better: Yesterday I was tired.",
+    "y": "Yesterday is past, so use was.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Was! She was at home.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_vi_want_to_go": {
+   "template": "l1",
+   "hook": "“Want go”? Thiếu một chữ đấy!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Do not forget a small word.",
+    "w": "Many learners say: I want go home.",
+    "r": "Better: I want to go home.",
+    "y": "After want, use to plus a verb.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "To drink! I want to drink water.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_vi_know_how": {
+   "template": "l1",
+   "hook": "“Biết bơi” nói sao cho đúng?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Can you swim? Say it right!",
+    "w": "Many learners say: I know swim.",
+    "r": "Better: I know how to swim.",
+    "y": "For a skill, say know how to.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "How to! I know how to cook.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_vi_sister_she": {
+   "template": "l1",
+   "hook": "“My sister she…” thừa chữ rồi!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Do you say the subject twice?",
+    "w": "Many learners say: My sister she is a nurse.",
+    "r": "Better: My sister is a nurse.",
+    "y": "Say the person once, not twice.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Is! My dad is tall.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_vi_older_two_years": {
+   "template": "l1",
+   "hook": "“Hơn hai tuổi” nói thế nào?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Put the number first!",
+    "w": "Many learners say: He is older than me two years.",
+    "r": "Better: He is two years older than me.",
+    "y": "Say the number before older.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Three years older! Say the number first.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_vi_slowly_more": {
+   "template": "l1",
+   "hook": "Nhờ nói chậm hơn mà sai thứ tự?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Can you speak more slowly?",
+    "w": "Many learners say: Can you speak slowly more?",
+    "r": "Better: Can you speak more slowly?",
+    "y": "Say more before slowly.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "More clearly! Please speak more clearly.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_vi_thank_helping": {
+   "template": "l1",
+   "hook": "Cảm ơn đã giúp: nói sao cho đúng?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Thank you for what?",
+    "w": "Many learners say: Thank you for help me.",
+    "r": "Better: Thank you for helping me.",
+    "y": "Say helping, not help.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Calling! Thanks for calling me.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_vi_where_is": {
+   "template": "l1",
+   "hook": "“Where is…” trong câu: sai ở đâu?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Ask it inside a sentence!",
+    "w": "Many learners say: I don't know where is the bank.",
+    "r": "Better: I don't know where the bank is.",
+    "y": "Inside a sentence, put the subject before is.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "The station is! I do not know where the station is.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_vi_as_tall_as": {
+   "template": "l1",
+   "hook": "“Cao bằng chị” mà thiếu một “as”?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Same height? Use two as.",
+    "w": "Many learners say: She is tall as her sister.",
+    "r": "Better: She is as tall as her sister.",
+    "y": "Same size needs as before and after.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "As tall as! He is as tall as his dad.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_vi_go_often": {
+   "template": "l1",
+   "hook": "“Often” để nhầm chỗ rồi!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Where does often go?",
+    "w": "Many learners say: I go often to the market.",
+    "r": "Better: I often go to the market.",
+    "y": "Put often before the verb.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Often walks! She often walks to school.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_vi_how_much_time": {
+   "template": "l1",
+   "hook": "“Thời gian”: many hay much?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Many or much with time?",
+    "w": "Many learners say: How many time do you need?",
+    "r": "Better: How much time do you need?",
+    "y": "Use much with time, not many.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Much! How much time do you have?",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_vi_because_so": {
+   "template": "l1",
+   "hook": "“Because” mà còn thêm “so”?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Because and so, not together!",
+    "w": "Many learners say: Because I am tired, so I sleep.",
+    "r": "Better: Because I am tired, I sleep.",
+    "y": "Use because or so, not both.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "I eat! Because I am hungry, I eat.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_vi_how_think": {
+   "template": "l1",
+   "hook": "“Bạn nghĩ thế nào” dịch sao đây?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "What do you think?",
+    "w": "Many learners say: How do you think about this?",
+    "r": "Better: What do you think about this?",
+    "y": "Ask what, not how, for ideas.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "What! What do you think about it?",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_vi_from_vietnamese": {
+   "template": "l1",
+   "hook": "“From Vietnamese”: có đúng không?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Country or people? Choose well.",
+    "w": "Many learners say: I am from Vietnamese.",
+    "r": "Better: I am from Vietnam.",
+    "y": "Say the country after from.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Vietnam! He is from Vietnam.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_vi_pen_mine": {
+   "template": "l1",
+   "hook": "“Của tôi”: my hay mine?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "My or mine? Listen!",
+    "w": "Many learners say: This pen is my.",
+    "r": "Better: This pen is mine.",
+    "y": "Alone, use mine, not my.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Mine! This bag is mine.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_zh_pretty": {
+   "template": "l1",
+   "hook": "形容词前面别漏掉 is！",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Do not forget is!",
+    "w": "Many learners say: She very pretty.",
+    "r": "Better: She is very pretty.",
+    "y": "Describing words need is, am or are.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Is very! My sister is very kind.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_zh_lastweek": {
+   "template": "l1",
+   "hook": "说了“昨天”，动词也要变过去式！",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Past time needs past verbs!",
+    "w": "Many learners say: Yesterday we play soccer.",
+    "r": "Better: Yesterday we played soccer.",
+    "y": "Yesterday means past. Use played.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Watched! I watched a movie last night.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_zh_sister": {
+   "template": "l1",
+   "hook": "超过一个，名词要加 s！",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Count more than one!",
+    "w": "Many learners say: She has three sister.",
+    "r": "Better: She has three sisters.",
+    "y": "More than one needs s.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Cousins! I have two cousins.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_zh_engineer": {
+   "template": "l1",
+   "hook": "说职业，前面别漏掉 a/an！",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Do not forget a!",
+    "w": "Many learners say: My father is engineer.",
+    "r": "Better: My father is an engineer.",
+    "y": "A job word needs a or an.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "A nurse! She is a nurse.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_zh_metlast": {
+   "template": "l1",
+   "hook": "有“上周”，别用 have met！",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Last week is past!",
+    "w": "Many learners say: I have met her last week.",
+    "r": "Better: I met her last week.",
+    "y": "Last week is finished. Use met.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Met! I met him last year.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_zh_whyyou": {
+   "template": "l1",
+   "hook": "疑问句里，are 要放在 you 前面！",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Questions need new order!",
+    "w": "Many learners say: Why you are late?",
+    "r": "Better: Why are you late?",
+    "y": "In questions, put are before you.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Are you! Why are you so tired?",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_zh_wantgo": {
+   "template": "l1",
+   "hook": "want 后面别漏掉 to！",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Do not forget to!",
+    "w": "Many learners say: I want go home.",
+    "r": "Better: I want to go home.",
+    "y": "Want is followed by to.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "To drink! I want to drink more water.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_zh_mothers": {
+   "template": "l1",
+   "hook": "单数第三人称，动词要加 s！",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "He, she, it needs s!",
+    "w": "Many learners say: My mother like tea.",
+    "r": "Better: My mother likes tea.",
+    "y": "With he or she, add s.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Likes! My brother likes coffee.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_zh_therearepeople": {
+   "template": "l1",
+   "hook": "“很多人”要用 There are！",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Many people are plural!",
+    "w": "Many learners say: There is many people here.",
+    "r": "Better: There are many people here.",
+    "y": "Many people means more than one. Use are.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Are! There are many cars.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_l1_zh_although": {
+   "template": "l1",
+   "hook": "although 和 but 只能留一个！",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
+   "script": {
+    "h": "Only one, not both!",
+    "w": "Many learners say: Although I am tired, but I keep working.",
+    "r": "Better: Although I am tired, I keep working.",
+    "y": "Use although or but, not both.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "We! Although it was late, we stayed.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
   }
  }
 }

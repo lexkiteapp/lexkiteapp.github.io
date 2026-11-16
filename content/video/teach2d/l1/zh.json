@@ -1,5 +1,5 @@
 {
- "_note": "L1 clip rows for zh (Simplified Chinese), batch 2; same schema as ../l1.json.",
+ "_note": "34 L1 clip rows for zh (Simplified Chinese), batch 3; same schema as ../l1.json.",
  "rows": [
   {
    "id": "t2_l1_zh_very",
@@ -958,6 +958,406 @@
      "hook": "Borrow or lend?",
      "tip": "Borrow means to take; lend means to give. Ask someone to lend you things.",
      "caption": "Do you say “Can you borrow me a pen?”? 😅 Borrow means taking, lend means giving: “Can you lend me a pen?”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_zh_pretty",
+   "lang": "zh",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Do not forget is!",
+    "wrong": "She very pretty.",
+    "right": "She is very pretty.",
+    "strike": "She very",
+    "why": "Describing words need is, am or are.",
+    "memory": "She is very pretty.",
+    "quiz": {
+     "stem": "My sister ___ kind.",
+     "options": [
+      "very",
+      "is very"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Is very! My sister is very kind.",
+    "native": {
+     "hook": "形容词前面别漏掉 is！",
+     "tip": "中文可以说“她很漂亮”，但英语用形容词描述主语时，前面要有 is/am/are。",
+     "caption": "你是不是也会说 “She very pretty.”？😅 中文里“她很漂亮”不用动词，英语的形容词前面却要有 is/am/are：“She is very pretty.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+     "comment": "答案：“She is very pretty.”免费测验在这里：{link}",
+     "hashtags": [
+      "#学英语",
+      "#英语口语",
+      "#英语学习",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Not “She very”!",
+     "tip": "In English, an adjective needs is, am or are before it.",
+     "caption": "Do you say “She very pretty.”? 😅 In English, an adjective needs is, am or are before it: “She is very pretty.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_zh_lastweek",
+   "lang": "zh",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Past time needs past verbs!",
+    "wrong": "Yesterday we play soccer.",
+    "right": "Yesterday we played soccer.",
+    "strike": "we play",
+    "why": "Yesterday means past. Use played.",
+    "memory": "Yesterday, played.",
+    "quiz": {
+     "stem": "Last night I ___ a movie.",
+     "options": [
+      "watch",
+      "watched"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Watched! I watched a movie last night.",
+    "native": {
+     "hook": "说了“昨天”，动词也要变过去式！",
+     "tip": "中文动词不变形，英语里说过去的事，动词要用过去式：played。",
+     "caption": "你是不是也会说 “Yesterday we play soccer.”？😅 中文靠“昨天”这类时间词表示过去，动词本身不变；英语的动词却要变成过去式：“Yesterday we played soccer.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+     "comment": "答案：“Yesterday we played soccer.”免费测验在这里：{link}",
+     "hashtags": [
+      "#学英语",
+      "#英语口语",
+      "#英语学习",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Past time, past verb!",
+     "tip": "Yesterday is in the past, so the verb must be past: played.",
+     "caption": "Do you say “Yesterday we play soccer.”? 😅 Yesterday is in the past, so the verb must change too: “Yesterday we played soccer.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_zh_sister",
+   "lang": "zh",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Count more than one!",
+    "wrong": "She has three sister.",
+    "right": "She has three sisters.",
+    "strike": "three sister",
+    "why": "More than one needs s.",
+    "memory": "Three sisters.",
+    "quiz": {
+     "stem": "I have two ___.",
+     "options": [
+      "cousin",
+      "cousins"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Cousins! I have two cousins.",
+    "native": {
+     "hook": "超过一个，名词要加 s！",
+     "tip": "中文“三个姐妹”名词不变，英语里超过一个，名词后面要加 s。",
+     "caption": "你是不是也会说 “She has three sister.”？😅 中文说“三个姐妹”，名词不用变；英语里数量超过一个，名词要加 s：“She has three sisters.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+     "comment": "答案：“She has three sisters.”免费测验在这里：{link}",
+     "hashtags": [
+      "#学英语",
+      "#英语口语",
+      "#英语学习",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Add s after three!",
+     "tip": "In English, a noun needs s when there is more than one.",
+     "caption": "Do you say “She has three sister.”? 😅 In English, a noun needs s after a number: “She has three sisters.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_zh_engineer",
+   "lang": "zh",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Do not forget a!",
+    "wrong": "My father is engineer.",
+    "right": "My father is an engineer.",
+    "strike": "is engineer",
+    "why": "A job word needs a or an.",
+    "memory": "He is an engineer.",
+    "quiz": {
+     "stem": "She is ___.",
+     "options": [
+      "nurse",
+      "a nurse"
+     ],
+     "answer": 1
+    },
+    "answer_say": "A nurse! She is a nurse.",
+    "native": {
+     "hook": "说职业，前面别漏掉 a/an！",
+     "tip": "中文“他是工程师”不用冠词，英语里说职业，前面要加 a 或 an。",
+     "caption": "你是不是也会说 “My father is engineer.”？😅 中文说“我爸爸是工程师”，职业前面什么都不用加；英语却要有 a/an：“My father is an engineer.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+     "comment": "答案：“My father is an engineer.”免费测验在这里：{link}",
+     "hashtags": [
+      "#学英语",
+      "#英语口语",
+      "#英语学习",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "A job needs a or an!",
+     "tip": "In English, a job word needs a or an before it.",
+     "caption": "Do you say “My father is engineer.”? 😅 In English, a job word needs a or an: “My father is an engineer.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_zh_metlast",
+   "lang": "zh",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Last week is past!",
+    "wrong": "I have met her last week.",
+    "right": "I met her last week.",
+    "strike": "have met",
+    "why": "Last week is finished. Use met.",
+    "memory": "Last week, met.",
+    "quiz": {
+     "stem": "I ___ him last year.",
+     "options": [
+      "have met",
+      "met"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Met! I met him last year.",
+    "native": {
+     "hook": "有“上周”，别用 have met！",
+     "tip": "中文“我上周见过她”里的“过”容易让人用 have met，但有明确的过去时间要用一般过去式。",
+     "caption": "你是不是也会说 “I have met her last week.”？😅 受“见过她”中的“过”影响，很多人会用 have met；但句子里有“上周”这种明确的过去时间，就要用 met：“I met her last week.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+     "comment": "答案：“I met her last week.”免费测验在这里：{link}",
+     "hashtags": [
+      "#学英语",
+      "#英语口语",
+      "#英语学习",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Last week? Use met!",
+     "tip": "With a finished time like last week, use the simple past: met.",
+     "caption": "Do you say “I have met her last week.”? 😅 With a finished time like last week, use the simple past: “I met her last week.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_zh_whyyou",
+   "lang": "zh",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Questions need new order!",
+    "wrong": "Why you are late?",
+    "right": "Why are you late?",
+    "strike": "you are",
+    "why": "In questions, put are before you.",
+    "memory": "Why are you late?",
+    "quiz": {
+     "stem": "Why ___ so tired?",
+     "options": [
+      "you are",
+      "are you"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Are you! Why are you so tired?",
+    "native": {
+     "hook": "疑问句里，are 要放在 you 前面！",
+     "tip": "中文“你为什么迟到”语序不变，英语疑问句要把 are 提到 you 前面。",
+     "caption": "你是不是也会说 “Why you are late?”？😅 中文问“你为什么迟到了”，语序和陈述句一样；英语的疑问句要把 are 放到 you 前面：“Why are you late?”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+     "comment": "答案：“Why are you late?”免费测验在这里：{link}",
+     "hashtags": [
+      "#学英语",
+      "#英语口语",
+      "#英语学习",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Are goes before you!",
+     "tip": "In an English question, put are before you.",
+     "caption": "Do you say “Why you are late?”? 😅 In an English question, put are before you: “Why are you late?”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_zh_wantgo",
+   "lang": "zh",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Do not forget to!",
+    "wrong": "I want go home.",
+    "right": "I want to go home.",
+    "strike": "want go",
+    "why": "Want is followed by to.",
+    "memory": "Want to go.",
+    "quiz": {
+     "stem": "I want ___ more water.",
+     "options": [
+      "drink",
+      "to drink"
+     ],
+     "answer": 1
+    },
+    "answer_say": "To drink! I want to drink more water.",
+    "native": {
+     "hook": "want 后面别漏掉 to！",
+     "tip": "中文“我想回家”中间不需要别的词，英语里 want 后面接动词要加 to。",
+     "caption": "你是不是也会说 “I want go home.”？😅 中文说“我想回家”，“想”后面直接接动词；英语里 want 后面的动词前要加 to：“I want to go home.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+     "comment": "答案：“I want to go home.”免费测验在这里：{link}",
+     "hashtags": [
+      "#学英语",
+      "#英语口语",
+      "#英语学习",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Want needs to!",
+     "tip": "After want, use to before a verb.",
+     "caption": "Do you say “I want go home.”? 😅 After want, use to before another verb: “I want to go home.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_zh_mothers",
+   "lang": "zh",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "He, she, it needs s!",
+    "wrong": "My mother like tea.",
+    "right": "My mother likes tea.",
+    "strike": "mother like",
+    "why": "With he or she, add s.",
+    "memory": "My mother likes tea.",
+    "quiz": {
+     "stem": "My brother ___ coffee.",
+     "options": [
+      "like",
+      "likes"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Likes! My brother likes coffee.",
+    "native": {
+     "hook": "单数第三人称，动词要加 s！",
+     "tip": "中文动词不变形；英语一般现在时，主语是 he/she/it 或单数名词（如 my mother）时，动词要加 s。",
+     "caption": "你是不是也会说 “My mother like tea.”？😅 中文里“我妈妈喜欢茶”动词不会变，英语一般现在时，主语是单数第三人称，动词要加 s：“My mother likes tea.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+     "comment": "答案：“My mother likes tea.”免费测验在这里：{link}",
+     "hashtags": [
+      "#学英语",
+      "#英语口语",
+      "#英语学习",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "One person, likes!",
+     "tip": "With he, she or one person, the verb needs s.",
+     "caption": "Do you say “My mother like tea.”? 😅 With one person like my mother, the verb needs s: “My mother likes tea.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_zh_therearepeople",
+   "lang": "zh",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Many people are plural!",
+    "wrong": "There is many people here.",
+    "right": "There are many people here.",
+    "strike": "is many",
+    "why": "Many people means more than one. Use are.",
+    "memory": "There are many people.",
+    "quiz": {
+     "stem": "There ___ many cars.",
+     "options": [
+      "is",
+      "are"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Are! There are many cars.",
+    "native": {
+     "hook": "“很多人”要用 There are！",
+     "tip": "中文“这里有很多人”一个“有”就够了，英语要看后面的名词：复数用 are。",
+     "caption": "你是不是也会说 “There is many people here.”？😅 中文说“这里有很多人”，“有”不分单复数；英语要看后面的名词，复数就用 There are：“There are many people here.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+     "comment": "答案：“There are many people here.”免费测验在这里：{link}",
+     "hashtags": [
+      "#学英语",
+      "#英语口语",
+      "#英语学习",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Many people? Use are!",
+     "tip": "Many people is plural, so use there are.",
+     "caption": "Do you say “There is many people here.”? 😅 Many people is plural, so use there are: “There are many people here.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_zh_although",
+   "lang": "zh",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Only one, not both!",
+    "wrong": "Although I am tired, but I keep working.",
+    "right": "Although I am tired, I keep working.",
+    "strike": "but",
+    "why": "Use although or but, not both.",
+    "memory": "Although, no but.",
+    "quiz": {
+     "stem": "Although it was late, ___ stayed.",
+     "options": [
+      "but we",
+      "we"
+     ],
+     "answer": 1
+    },
+    "answer_say": "We! Although it was late, we stayed.",
+    "native": {
+     "hook": "although 和 but 只能留一个！",
+     "tip": "中文“虽然……但是……”常常连用，英语里 although 和 but 不能在同一句里搭配使用，只留一个。",
+     "caption": "你是不是也会说 “Although I am tired, but I keep working.”？😅 中文可以说“虽然我很累，但是我还要继续工作”，英语里 although 和 but 只能用一个：“Although I am tired, I keep working.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+     "comment": "答案：“Although I am tired, I keep working.”免费测验在这里：{link}",
+     "hashtags": [
+      "#学英语",
+      "#英语口语",
+      "#英语学习",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Not both!",
+     "tip": "In English, use although or but in one sentence, not both.",
+     "caption": "Do you say “Although I am tired, but I keep working.”? 😅 In English, use although or but, not both: “Although I am tired, I keep working.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   }

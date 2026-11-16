@@ -1,5 +1,5 @@
 {
- "_note": "L1 ar: 28 extra rows for the reels pipeline",
+ "_note": "L1 ar: 32 extra rows for the reels pipeline",
  "rows": [
   {
    "id": "t2_l1_ar_hehave",
@@ -878,6 +878,407 @@
      "hook": "Do you say “Do you like tea? Yes, I like”?",
      "tip": "We answer do-questions with do: “Do you like tea? Yes, I do.” not “Do you like tea? Yes, I like.”.",
      "caption": "Do you sometimes say “Do you like tea? Yes, I like.” 😅 We answer do-questions with do, so the right sentence is “Do you like tea? Yes, I do.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_ar_myhe",
+   "lang": "ar",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Say it only once!",
+    "wrong": "My brother he is a doctor.",
+    "right": "My brother is a doctor.",
+    "strike": "he",
+    "why": "One subject is enough.",
+    "memory": "My brother is.",
+    "quiz": {
+     "stem": "My sister ___ a nurse.",
+     "options": [
+      "she is",
+      "is"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Is! My sister is a nurse.",
+    "native": {
+     "hook": "هل تكرّر الفاعل؟",
+     "tip": "في العربية نقول «أخي هو طبيب»، أما في الإنجليزية فلا نكرّر الفاعل بضمير: “My brother is a doctor.” وليس “My brother he is a doctor”",
+     "caption": "هل تقول أحيانًا “My brother he is a doctor.” 😅 لا نكرّر الفاعل بضمير بعد ذكره، فالجملة الصحيحة “My brother is a doctor.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+     "comment": "الإجابة: “is”. لا نكرّر الفاعل بضمير بعد ذكره. اختبار مجاني هنا: {link}",
+     "hashtags": [
+      "#تعلم_الانجليزية",
+      "#اللغة_الانجليزية",
+      "#englishlearning",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Do you say “My brother he is a doctor”?",
+     "tip": "We do not repeat the subject with a pronoun: “My brother is a doctor.” not “My brother he is a doctor”.",
+     "caption": "Do you sometimes say “My brother he is a doctor.” 😅 In English we do not repeat the subject with a pronoun, so the right sentence is “My brother is a doctor.” Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_ar_bookitread",
+   "lang": "ar",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "No extra it!",
+    "wrong": "The book that I read it was good.",
+    "right": "The book that I read was good.",
+    "strike": "it",
+    "why": "Do not add it after read.",
+    "memory": "The book I read.",
+    "quiz": {
+     "stem": "The song that I heard ___ nice.",
+     "options": [
+      "was",
+      "it was"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Was! The song that I heard was nice.",
+    "native": {
+     "hook": "هل تضيف “it” زائدة؟",
+     "tip": "في العربية نقول «الكتاب الذي قرأتُه» بضمير عائد، لكن في الإنجليزية: “The book that I read was good.” وليس “…read it was good”",
+     "caption": "هل تقول أحيانًا “The book that I read it was good.” 😅 لا نعيد الضمير بعد الفعل في الجملة الموصولة، فالجملة الصحيحة “The book that I read was good.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+     "comment": "الإجابة: “was”. لا نعيد الضمير بعد الفعل في الجملة الموصولة. اختبار مجاني هنا: {link}",
+     "hashtags": [
+      "#تعلم_الانجليزية",
+      "#اللغة_الانجليزية",
+      "#englishlearning",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Do you say “The book that I read it was good”?",
+     "tip": "We do not repeat the pronoun: “The book that I read was good.” not “The book that I read it was good”.",
+     "caption": "Do you sometimes say “The book that I read it was good.” 😅 In English we do not add it after the verb, so the right sentence is “The book that I read was good.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_ar_expensives",
+   "lang": "ar",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "No s on this word!",
+    "wrong": "The books are expensives.",
+    "right": "The books are expensive.",
+    "strike": "expensives",
+    "why": "Describing words never take s.",
+    "memory": "Books are expensive.",
+    "quiz": {
+     "stem": "The shoes are ___.",
+     "options": [
+      "cheap",
+      "cheaps"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Cheap! The shoes are cheap.",
+    "native": {
+     "hook": "هل تجمع الصفة؟",
+     "tip": "في العربية تُجمع الصفة مع الجمع العاقل «الطلاب أذكياء»، لكن في الإنجليزية لا تُجمع أبدًا: “The books are expensive.” وليس “expensives”",
+     "caption": "هل تقول أحيانًا “The books are expensives.” 😅 الصفة لا تُجمع ولا تأخذ s، فالجملة الصحيحة “The books are expensive.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+     "comment": "الإجابة: “cheap”. الصفة لا تُجمع ولا تأخذ s. اختبار مجاني هنا: {link}",
+     "hashtags": [
+      "#تعلم_الانجليزية",
+      "#اللغة_الانجليزية",
+      "#englishlearning",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Do you say “The books are expensives”?",
+     "tip": "Adjectives never take plural s: “The books are expensive.” not “The books are expensives”.",
+     "caption": "Do you sometimes say “The books are expensives.” 😅 In English adjectives never take plural s, so the right sentence is “The books are expensive.” Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_ar_cityis",
+   "lang": "ar",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Add there is!",
+    "wrong": "In my city is a park.",
+    "right": "In my city there is a park.",
+    "strike": "city is",
+    "why": "Use there is to say it exists.",
+    "memory": "There is a park.",
+    "quiz": {
+     "stem": "In my room ___ a bed.",
+     "options": [
+      "is",
+      "there is"
+     ],
+     "answer": 1
+    },
+    "answer_say": "There is! In my room there is a bed.",
+    "native": {
+     "hook": "هل تنسى “there”؟",
+     "tip": "في العربية نقول «في مدينتي حديقة» بلا فعل، لكن الإنجليزية تحتاج there is: “In my city there is a park.” وليس “In my city is a park”",
+     "caption": "هل تقول أحيانًا “In my city is a park.” 😅 للدلالة على الوجود نقول there is، فالجملة الصحيحة “In my city there is a park.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+     "comment": "الإجابة: “there is”. للدلالة على الوجود نقول there is. اختبار مجاني هنا: {link}",
+     "hashtags": [
+      "#تعلم_الانجليزية",
+      "#اللغة_الانجليزية",
+      "#englishlearning",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Do you say “In my city is a park”?",
+     "tip": "To say something exists, use there is: “In my city there is a park.” not “In my city is a park”.",
+     "caption": "Do you sometimes say “In my city is a park.” 😅 In English we use there is to say something exists, so the right sentence is “In my city there is a park.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_ar_amnotlike",
+   "lang": "ar",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Do not use am!",
+    "wrong": "I am not understand the lesson.",
+    "right": "I do not understand the lesson.",
+    "strike": "am not",
+    "why": "Use do not with verbs.",
+    "memory": "I do not understand.",
+    "quiz": {
+     "stem": "She ___ understand me.",
+     "options": [
+      "is not",
+      "does not"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Does not! She does not understand me.",
+    "native": {
+     "hook": "هل تقول “I am not understand”؟",
+     "tip": "نترجم «أنا» دائمًا إلى “I am”، لكن النفي مع الأفعال يكون بـ do not: “I do not understand the lesson.” وليس “I am not understand the lesson”",
+     "caption": "هل تقول أحيانًا “I am not understand the lesson.” 😅 النفي مع الأفعال يكون بـ do not، فالجملة الصحيحة “I do not understand the lesson.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+     "comment": "الإجابة: “does not”. النفي مع الأفعال يكون بـ do not. اختبار مجاني هنا: {link}",
+     "hashtags": [
+      "#تعلم_الانجليزية",
+      "#اللغة_الانجليزية",
+      "#englishlearning",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Do you say “I am not understand the lesson”?",
+     "tip": "With verbs we use do not: “I do not understand the lesson.” not “I am not understand the lesson”.",
+     "caption": "Do you sometimes say “I am not understand the lesson.” 😅 In English we use do not with verbs, so the right sentence is “I do not understand the lesson.” Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_ar_enteredto",
+   "lang": "ar",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Enter has no to!",
+    "wrong": "He entered to the room.",
+    "right": "He entered the room.",
+    "strike": "to",
+    "why": "Enter needs no to.",
+    "memory": "Enter the room.",
+    "quiz": {
+     "stem": "She entered ___ kitchen.",
+     "options": [
+      "the",
+      "to the"
+     ],
+     "answer": 0
+    },
+    "answer_say": "The! She entered the kitchen.",
+    "native": {
+     "hook": "هل تقول “entered to”؟",
+     "tip": "في العربية نقول «دخل إلى الغرفة»، أما enter فلا يحتاج إلى حرف جر: “He entered the room.” وليس “He entered to the room”",
+     "caption": "هل تقول أحيانًا “He entered to the room.” 😅 الفعل enter لا يحتاج إلى حرف جر، فالجملة الصحيحة “He entered the room.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+     "comment": "الإجابة: “the”. الفعل enter لا يحتاج إلى حرف جر. اختبار مجاني هنا: {link}",
+     "hashtags": [
+      "#تعلم_الانجليزية",
+      "#اللغة_الانجليزية",
+      "#englishlearning",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Do you say “He entered to the room”?",
+     "tip": "Enter needs no preposition: “He entered the room.” not “He entered to the room”.",
+     "caption": "Do you sometimes say “He entered to the room.” 😅 In English enter needs no preposition, so the right sentence is “He entered the room.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_ar_askedto",
+   "lang": "ar",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Ask has no from!",
+    "wrong": "I asked from my teacher to help me.",
+    "right": "I asked my teacher to help me.",
+    "strike": "from",
+    "why": "Ask needs no from before a person.",
+    "memory": "I asked him.",
+    "quiz": {
+     "stem": "I asked ___ friend for help.",
+     "options": [
+      "my",
+      "from my"
+     ],
+     "answer": 0
+    },
+    "answer_say": "My! I asked my friend for help.",
+    "native": {
+     "hook": "هل تقول “asked from”؟",
+     "tip": "نترجم «طلبتُ من معلمي» حرفيًا، لكن ask يأخذ الشخص بلا from: “I asked my teacher to help me.” وليس “I asked from my teacher”",
+     "caption": "هل تقول أحيانًا “I asked from my teacher to help me.” 😅 مع ask نذكر الشخص مباشرةً بلا from، فالجملة الصحيحة “I asked my teacher to help me.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+     "comment": "الإجابة: “my”. مع ask نذكر الشخص مباشرةً بلا from. اختبار مجاني هنا: {link}",
+     "hashtags": [
+      "#تعلم_الانجليزية",
+      "#اللغة_الانجليزية",
+      "#englishlearning",
+      "#lexkite"
+     ],
+     "ncap": "مع ask نذكر الشخص مباشرةً بلا from"
+    },
+    "en": {
+     "hook": "Do you say “I asked from my teacher to help me”?",
+     "tip": "Ask takes the person directly, with no from: “I asked my teacher to help me.” not “I asked from my teacher to help me”.",
+     "caption": "Do you sometimes say “I asked from my teacher to help me.” 😅 In English ask needs no from before a person, so the right sentence is “I asked my teacher to help me.” Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_ar_amlive",
+   "lang": "ar",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Live, not am live!",
+    "wrong": "I am live in Cairo.",
+    "right": "I live in Cairo.",
+    "strike": "am live",
+    "why": "Do not put am before live.",
+    "memory": "I live in Cairo.",
+    "quiz": {
+     "stem": "We ___ in Cairo.",
+     "options": [
+      "live",
+      "are live"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Live! We live in Cairo.",
+    "native": {
+     "hook": "هل تقول “I am live”؟",
+     "tip": "في العربية نقول «أنا ساكن في القاهرة» بلا فعل، فنضيف am خطأً، لكن live فعل يكفي وحده: “I live in Cairo.” وليس “I am live in Cairo”",
+     "caption": "هل تقول أحيانًا “I am live in Cairo.” 😅 live فعل يكفي وحده بلا am، فالجملة الصحيحة “I live in Cairo.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+     "comment": "الإجابة: “live”. live فعل يكفي وحده بلا am. اختبار مجاني هنا: {link}",
+     "hashtags": [
+      "#تعلم_الانجليزية",
+      "#اللغة_الانجليزية",
+      "#englishlearning",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Do you say “I am live in Cairo”?",
+     "tip": "Live is a verb by itself: “I live in Cairo.” not “I am live in Cairo”.",
+     "caption": "Do you sometimes say “I am live in Cairo.” 😅 In English live is a verb by itself, so the right sentence is “I live in Cairo.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_ar_mosttall",
+   "lang": "ar",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Most plus tall? No!",
+    "wrong": "She is the most tall girl.",
+    "right": "She is the tallest girl.",
+    "strike": "most tall",
+    "why": "For short words, say the tallest.",
+    "memory": "The tallest girl.",
+    "quiz": {
+     "stem": "He is the ___ boy.",
+     "options": [
+      "tallest",
+      "most tall"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Tallest! He is the tallest boy.",
+    "native": {
+     "hook": "هل تقول “most tall”؟",
+     "tip": "نترجم «الأكثر طولًا» حرفيًا، لكن الصفة القصيرة تأخذ est: “She is the tallest girl.” وليس “She is the most tall girl”",
+     "caption": "هل تقول أحيانًا “She is the most tall girl.” 😅 الصفة القصيرة تأخذ est، فالجملة الصحيحة “She is the tallest girl.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+     "comment": "الإجابة: “tallest”. الصفة القصيرة تأخذ est. اختبار مجاني هنا: {link}",
+     "hashtags": [
+      "#تعلم_الانجليزية",
+      "#اللغة_الانجليزية",
+      "#englishlearning",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Do you say “She is the most tall girl”?",
+     "tip": "Short adjectives take est: “She is the tallest girl.” not “She is the most tall girl”.",
+     "caption": "Do you sometimes say “She is the most tall girl.” 😅 In English short adjectives take est, so the right sentence is “She is the tallest girl.” Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_ar_walkedto",
+   "lang": "ar",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Home needs no to!",
+    "wrong": "We walked to home.",
+    "right": "We walked home.",
+    "strike": "to home",
+    "why": "Home needs no to.",
+    "memory": "Walk home.",
+    "quiz": {
+     "stem": "They ran ___ after school.",
+     "options": [
+      "home",
+      "to home"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Home! They ran home after school.",
+    "native": {
+     "hook": "هل تقول “to home”؟",
+     "tip": "في العربية نقول «مشينا إلى البيت»، أما home بعد أفعال الحركة فلا تحتاج إلى to: “We walked home.” وليس “We walked to home”",
+     "caption": "هل تقول أحيانًا “We walked to home.” 😅 كلمة home بعد أفعال الحركة لا تحتاج إلى to، فالجملة الصحيحة “We walked home.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+     "comment": "الإجابة: “home”. كلمة home بعد أفعال الحركة لا تحتاج إلى to. اختبار مجاني هنا: {link}",
+     "hashtags": [
+      "#تعلم_الانجليزية",
+      "#اللغة_الانجليزية",
+      "#englishlearning",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Do you say “We walked to home”?",
+     "tip": "After a verb of movement, home needs no to: “We walked home.” not “We walked to home”.",
+     "caption": "Do you sometimes say “We walked to home.” 😅 In English home needs no to, so the right sentence is “We walked home.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   }
