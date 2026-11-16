@@ -52,7 +52,7 @@ for (const l of fs.readFileSync('scripts/i18n-langs.txt', 'utf8').split('\n').fi
 
 // ---- (2) toast xếp hàng sau modal ----
 const T = $('#toast'), shown = () => T.classList.contains('show');
-w.UI.closeModal(); for (let i = 0; i < 100 && shown(); i++) await tick(100); // chờ toast "đã biết" của phần (1) tự tắt
+w.UI.closeModal(); for (let i = 0; i < 100 && (shown() || T._msg); i++) await tick(100); // chờ toast "đã biết" của phần (1) tự tắt
 ok(!shown(), 'toast cũ tự tắt');
 w.UI.modal('<h2>Nhận lời nhắc học nhẹ nhàng</h2><button class="btn primary">OK</button>'); await tick(30);
 w.UI.toast('Đã đánh dấu A');
