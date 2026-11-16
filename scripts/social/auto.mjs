@@ -3,6 +3,7 @@
 // Cảnh báo (failover sang Meta, token Meta sắp hết/bị thu hồi, GrabCast hồi phục, đăng trùng): máy chủ giao 1 lần trong run.alerts →
 // mở 1 issue nhãn social-alert (GitHub gửi email cho người theo dõi repo); trùng tiêu đề issue đang mở → thêm bình luận thay vì issue mới.
 import { driveCliKey, driveSign } from '../video/library.mjs';
+import { alert } from './alert.mjs';
 
 const BASE = String(process.env.LEXKITE_API_BASE || 'https://lexkite.com').replace(/\/+$/, '');
 const op = ['status', 'preview'].includes(process.argv[2]) ? process.argv[2] : 'run', key = driveCliKey();
@@ -18,15 +19,3 @@ console.log(op === 'run' ? `autopilot: đến hạn ${x.due} · tạo ${x.create
 if (x.health) console.log(`chuỗi đăng: kênh ${x.health.channels ? 'có' : 'CHƯA CÓ'} · clip đã duyệt ${x.health.approved ? 'có' : 'CHƯA CÓ'} · lịch sắp tới ${x.health.planned ? 'có' : 'CHƯA CÓ'}${x.health.newest_days != null ? ' · clip mới nhất ' + x.health.newest_days + ' ngày trước' : ''}${x.auto_queued ? ' · vừa duyệt theo QC ' + x.auto_queued + ' clip' : ''}${x.planned ? ' · vừa xếp ' + x.planned + ' bài' : ''}`);
 if (x.skipped && x.skipped.length) console.log('bỏ qua:', x.skipped.map(s => `${s.clip || ''}@${s.ch || ''}:${s.why}`).join(' '));
 for (const a of x.alerts || []) await alert(a);
-
-async function alert(a) {
-  const tok = process.env.GITHUB_TOKEN, repo = process.env.GITHUB_REPOSITORY;
-  const title = '🛰️ Social autopilot: ' + String(a.k || 'alert').split(':')[0], body = `${a.text}\n\n- khóa: \`${a.k}\`\n- lúc: ${new Date(a.at || Date.now()).toISOString()}\n- Quản trị › Video & Social › Hàng đợi › Autopilot · docs/DISTRIBUTION.md §6b`;
-  console.log('⚠️', a.k, '–', a.text);
-  if (!tok || !repo) return;
-  const gh = (path, init = {}) => fetch('https://api.github.com/repos/' + repo + path, { ...init, headers: { Authorization: 'Bearer ' + tok, Accept: 'application/vnd.github+json', 'Content-Type': 'application/json' } }).catch(() => null);
-  const open = await gh('/issues?state=open&labels=social-alert&per_page=30'), list = open && open.ok ? await open.json() : [];
-  const ex = list.find(i => i.title === title);
-  const r = ex ? await gh(`/issues/${ex.number}/comments`, { method: 'POST', body: JSON.stringify({ body }) }) : await gh('/issues', { method: 'POST', body: JSON.stringify({ title, body, labels: ['social-alert'] }) });
-  console.log(r && r.ok ? (ex ? '↳ bình luận issue #' + ex.number : '↳ đã mở issue') : '✗ không mở được issue ' + (r ? r.status : ''));
-}

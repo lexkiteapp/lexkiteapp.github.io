@@ -105,6 +105,8 @@ if (found) {
   ok($$('#fi .ctx-say').every(b => b.getAttribute('aria-label')), 'nút nghe câu ví dụ có nhãn');
   w.document.body.dispatchEvent(new w.KeyboardEvent('keydown', { key: ' ', bubbles: true })); await tick(30);
   ok(!errors.some(e => /flip is not defined/.test(e)), 'phím cách không gây lỗi (flip không tồn tại)');
+  // đóng băng đồng hồ của app: bảo vệ chạm đúp 250 ms (study.js shownAt) kiểm tất định, không phụ thuộc tốc độ máy CI (từng đỏ ~1/234 vì các kiểm tra giữa 2 lần chạm vượt 250 ms thật)
+  const realNow = w.Date.now.bind(w.Date); let clock = realNow(); w.Date.now = () => clock;
   click($('#gotIt')); click($('#gotIt')); await tick(60);
   ok($$('.options .option').length === 4, 'Tiếp tục → câu trắc nghiệm nghĩa (chạm đúp không nhảy 2 bước)');
   ok(!$$('.options .option').some(b => /right|wrong|picked/.test(b.className)), 'chưa chạm: không đáp án nào được tô');
@@ -115,7 +117,7 @@ if (found) {
   ok(others.length === 3 && others.every(x => D.posOf(x.pos) === 'v'), 'phương án nhiễu cho “live” đều là động từ: ' + others.map(x => x.word).join(', '));
   click(opts[0]); await tick(10);
   ok(!$('#fb .sheet'), 'chạm ngay khi vừa hiện câu (chạm đúp từ màn trước) bị bỏ qua');
-  await tick(300); click(opts[0]); await tick(40);
+  clock += 300; click(opts[0]); await tick(40); w.Date.now = realNow; // đủ 250 ms theo đồng hồ app → chạm được nhận, rồi trả đồng hồ thật
   ok($('#fb .sheet'), 'chạm sau đó → hiện bảng phản hồi');
   ok($('.study-wrap').style.getPropertyValue('--sheet-h') && /\.study-wrap:has\(\.sheet-up\) \{ padding-bottom: calc\(var\(--sheet-h/.test(css) && $('#fb .sheet').classList.contains('sheet-up'), 'chừa đáy bằng đúng chiều cao bảng phản hồi (gắn .sheet-up sau lần vẽ – INP)');
   // ✕ giữa chừng → hỏi lại
