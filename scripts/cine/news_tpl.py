@@ -17,11 +17,12 @@ STYLE = dict(dict(pattern=_h % 12, moves=[['push', 'slide', 'handheld'], ['pull'
 assert len(STYLE['moves']) <= 3, 'at most 3 camera moves per clip'
 ORANGE, TEAL = PALS[STYLE['palette']]; CARD_BG, CARD_LINE, CARD_INK = SKINS[STYLE['layout'] % 3]; CAP_BOX = STYLE['layout'] >= 3
 if STYLE['layout'] % 3 == 2: TEAL2 = (120, 200, 190)   # dark skin: lighter formula colour
+exec(open(f'{HERE}/news_kit.py').read()); kit_palette()   # owner 15/11: Stitch v2 Lexkite Kit tokens replace the old 8 palettes x 3 skins
 BREATH, JCUT = PACES[STYLE['pacing']]
 SIG = f"p{STYLE['pattern']}|{'+'.join(STYLE['moves'])}|{STYLE['transition']}|L{STYLE['layout']}|C{STYLE['palette']}|{STYLE['opener']}|{STYLE['pacing']}"
 QA = dict(template='news', signature=SIG, style=STYLE); AMB = f'{TL}/amb_studio.wav'; AMB_DB = -40; BG = os.environ.get('NEWS_BG') or SPEC['bg']; META['bg'] = BG   # NEWS_BG: placement / vision retry picked another background
 NW = lambda x_: len(re.findall(r"[A-Za-z0-9']+", x_)); need = lambda x_: max(1.2, 0.4 + 0.28 * NW(x_))
-exec(open(f'{HERE}/news_cards.py').read()); cap_key_map(SPEC)   # owner 23/10: text-fit engine + key-word colours (after the palette)
+exec(open(f'{HERE}/news_cards.py').read()); cap_key_map(SPEC); kit_renderers()   # owner 23/10: text-fit engine + key-word colours (after the palette)
 def at_for(line, lo, hi, br):   # lead-in so the shot lasts lo..hi s
     s0, s1 = speech(line); return max(0.07, lo - br - s1)
 # owner 22/10 v6: cinematic coverage - punch-in single hook, singles on the thirds (Carlos alternates front / 3/4), reaction lines instead of
@@ -135,9 +136,9 @@ if SPEC.get('share') and SPEC.get('wrong_line'):   # owner 23/10: share chip quo
     _a, _b, _bad, _ = key_tokens(SPEC['wrong_line'], SPEC['key_line']); _ix = [i_ for i_, x_ in enumerate(_a) if x_ in _bad]
     if _ix: SPEC['share'] = 'who says “' + ' '.join(_a[max(0, _ix[0] - 1):_ix[-1] + 1]) + '”'
 END_T = SHS['t0'] if SHS else lp['t0']
-RG0 = max(e['t0'] + 0.1, RCO['t'][1] + 0.05); RGT = 'Comment your answer' if SPEC.get('v') == 7 else 'Save this'; _, rbox = ring_card(RGT, 0); ov('Ring', RGT, RG0, END_T, rbox, 'end', part=0, img=lambda t, a=RG0, b=END_T: ring_card(RGT, min(1, (t - a) / (b - a)))[0], pop=True)
+RG0 = max(e['t0'] + 0.1, RCO['t'][1] + 0.05); RGT = 'Think of your answer' if SPEC.get('v') == 7 else 'Save this'; _, rbox = ring_card(RGT, 0); ov('Ring', RGT, RG0, END_T, rbox, 'end', part=0, img=lambda t, a=RG0, b=END_T: ring_card(RGT, min(1, (t - a) / (b - a)))[0], pop=True)
 if SHS: im, box = card_one('p', SPEC['share'], num='SHARE'); ov('Share', 'SHARE|' + SPEC['share'], SHS['t0'], SHS['t0'] + SHS['dur'], box, 'share', img=im, pop=True)   # §13 share trigger
-im, box, _ = hook_card('Free practice: Lexkite' if SPEC.get('v') == 7 else hk['card'], ''); ov('Follow', 'Free practice: Lexkite' if SPEC.get('v') == 7 else 'Follow for more', lp['t0'], lp['t0'] + lp['dur'], box, 'loop', img=im)
+im, box, _ = cta_pill('Free practice on lexkite.com'); ov('Follow', 'Free practice on lexkite.com', lp['t0'], lp['t0'] + lp['dur'], box, 'loop', img=im)
 T_ = sum(x['dur'] for x in S); SER_T, SER_S = SPEC['series']; SER_T = f"{SER_T} · PART {SPEC['part']}" if SPEC.get('part') else SER_T; _, sbox = series_bar(SER_T, SER_S, level=SPEC.get('difficulty'))
 ov('Series', f'{SER_T}|{SER_S}', 0.25, h['dur'], sbox, 'hook', img=lambda t, a=0.25, tp=SER_T, sb=SER_S, lv=SPEC.get('difficulty'): series_bar(tp, sb, prog=1 - (1 - min(1, (t - a) / 0.35)) ** 3, level=lv)[0])   # owner 23/10: series tag only under the hook (top band is head territory in MCU)   # payoff promise by 2 s
 SFX.append(('slide.wav', 0.25))
