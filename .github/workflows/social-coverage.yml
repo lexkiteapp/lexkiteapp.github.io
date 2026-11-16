@@ -3,6 +3,9 @@
 name: social-coverage
 on:
   workflow_dispatch:
+    inputs:
+      probe: { description: 'Phép thử audit YouTube (chủ OK 16/11): queue = đưa 1 clip QC-pass vào hàng tải PUBLIC · status = đọc lại privacy bằng clip bên dưới. Trống = chạy bình thường.', type: choice, options: ['', queue, status], default: '' }
+      clip: { description: 'probe=status: id clip', default: '' }
   schedule:
     - cron: '41 3 * * *'
 concurrency: { group: social-coverage, cancel-in-progress: false }
@@ -17,7 +20,13 @@ jobs:
         with: { sparse-checkout: 'scripts', sparse-checkout-cone-mode: true }
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
+      - name: Phép thử audit YouTube
+        if: ${{ inputs.probe != '' }}
+        env: { PROBE: '${{ inputs.probe }}', CLIP: '${{ inputs.clip }}' }
+        run: node scripts/social/yt-probe.mjs "$PROBE" ${CLIP:+"$CLIP"}
       - name: Lấp lịch YouTube trực tiếp (30 ngày × 1 video/ngày/kênh, clip bản ngữ)
+        if: ${{ inputs.probe == '' }}
         run: node scripts/social/yt-fill.mjs
       - name: Kênh-ngày trống trong 30 ngày tới
+        if: ${{ inputs.probe == '' }}
         run: node scripts/social/coverage.mjs

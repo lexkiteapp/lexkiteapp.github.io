@@ -35,6 +35,7 @@ export const scopeFor = mode => (mode === 'api' ? SCOPE : SCOPE_RO);
 export const STUDIO = 'https://studio.youtube.com/';
 export const QUOTA = { day: 60000, uploads: 1000, insert: 1, thumb: 50, list: 1, reserve: 1000 }; // day = default bucket units; uploads = videos.insert bucket (calls)
 export const PRIVACY = ['private', 'unlisted'];
+export const PRIVACY_UP = [...PRIVACY, 'public']; // 'public' chỉ đi qua op probe (CLI, chủ duyệt 16/11: thử 1 video public để biết project có bị khoá Private không); duyệt/autoq vẫn chỉ private|unlisted
 const STATE_TTL = 600, SESSION_TTL = 20 * 3600e3, MAX_TRIES = 3;
 const json = (req, status, data, extra = {}) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...adminCors(req), ...extra } });
 const one = async (db, sql, ...a) => (await db.prepare(sql).bind(...a).first()) || null;
@@ -87,7 +88,7 @@ export function slotToIso(slot, now = Date.now()) {
 const clean = (s, n) => String(s || '').replace(/[<>]/g, '').replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f]/g, '').trim().slice(0, n);
 /** YouTube video resource for an approved queue row + CI metadata. Enforces: private|unlisted only, #shorts, Education, AI disclosure, not for kids. */
 export function videoResource(row, meta = {}) {
-  const privacy = PRIVACY.includes(row.privacy) ? row.privacy : 'private';
+  const privacy = PRIVACY_UP.includes(row.privacy) ? row.privacy : 'private';
   let title = clean(meta.title, 100) || clean(row.title, 100) || 'English in 30 seconds';
   let desc = clean(meta.description, 4800);
   if (!/https:\/\/lexkite\.com\//.test(desc)) desc += '\n\nPractice it free: https://lexkite.com/';
@@ -498,6 +499,28 @@ const CLI_OPS = {
     }
     return { ok: true, ...out, short: out.channels.reduce((a, c) => a + c.short, 0), quota: await quotaInfo(db) };
   },
+  /** Phép thử audit (chủ OK 16/11): đưa 1 clip QC-pass (bản ngữ của kênh) vào hàng tải PUBLIC ngay, không hẹn giờ. youtube-upload.yml tải; op probe_status đọc lại videos.list part=status.
+   *  b = { channel_id? (mặc định kênh mặc định), clip? (mặc định clip QC-pass đầu tiên đúng ngôn ngữ kênh) }. Một lượt một clip, không ghi đè hàng đã tải. */
+  async probe(db, b, who, env) {
+    if ((await modeOf(db, env)) !== 'api') return { status: 409, error: 'mode-manual' };
+    const ch = await channelRow(db, b.channel_id ? String(b.channel_id) : ''), x = ch && await chanCfg(db, ch.channel_id); if (!ch) return { status: 412, error: 'not-connected' };
+    const lang = x.explicit_lang ? x.cfg.lang : 'en', taken = new Set((await all(db, "SELECT clip FROM yt_queue WHERE status IN ('queued', 'uploading', 'done') OR video_id IS NOT NULL")).map(r => r.clip));
+    const held = new Map((await all(db, 'SELECT clip, state, deleted FROM clip_review')).map(r => [r.clip, r])), items = (await manifest(env)).items || [];
+    const pick = b.clip ? fillPick(items.filter(i => i && i.id === String(b.clip)), lang, taken, held, 1)[0] : fillPick(items, lang, taken, held, 1)[0];
+    if (!pick) return { status: 404, error: 'no-clip', lang };
+    const r = await approveClips(db, { ids: [pick.id], privacy: 'private' }, { email: 'probe@lexkite.com' }, env); if (!(r.queued || []).length) return { status: 409, error: 'not-approved', skipped: r.skipped };
+    await run(db, "UPDATE yt_queue SET channel_id = ?, privacy = 'public', publish_at = NULL, approved_by = 'probe' WHERE clip = ? AND status = 'queued'", ch.channel_id, pick.id);
+    return { ok: true, clip: pick.id, channel_id: ch.channel_id, title: ch.title, lang };
+  },
+  async probe_status(db, b, who, env) {
+    const row = await one(db, 'SELECT clip, video_id, channel_id, privacy, status, err FROM yt_queue WHERE clip = ?', String(b.clip || '')); if (!row) return { status: 404, error: 'no-clip' };
+    if (!row.video_id) return { ok: true, uploaded: false, status_row: row.status, err: row.err || null };
+    const ch = await channelRow(db, row.channel_id); if (!ch) return { status: 412, error: 'not-connected' };
+    let at; try { at = await accessToken(env, db, ch); } catch (e) { return { status: 502, error: e.code || 'token' }; }
+    const r = await gfetch('https://www.googleapis.com/youtube/v3/videos?part=status&id=' + encodeURIComponent(row.video_id), { headers: { Authorization: 'Bearer ' + at } }); await spend(db, QUOTA.list);
+    const v = r.ok ? (((await r.json().catch(() => ({}))).items || [])[0] || null) : null; if (!v) return { ok: true, uploaded: true, video_id: row.video_id, found: false, http: r.status };
+    const st = v.status || {}; return { ok: true, uploaded: true, found: true, video_id: row.video_id, url: 'https://youtu.be/' + row.video_id, privacy: st.privacyStatus, upload: st.uploadStatus, rejection: st.rejectionReason || null, failure: st.failureReason || null, publish_at: st.publishAt || null };
+  },
   async quota(db) { return { quota: await quotaInfo(db) }; },
   /** Analytics (read-only, youtube.readonly): statistics of every channel + every uploaded video, snapshot per day in yt_stats (growth 7/30 d = diff of snapshots).
    *  Cost: channels.list 1 + videos.list 1 per 50 ids; stops when the default bucket is ≥ 80 % used (breaker). b = { snapshot: bool (default true) } */
@@ -622,7 +645,7 @@ const CLI_OPS = {
   },
 };
 const DANGER = new Set(['disconnect']); // revoke + delete a channel → sign-in ≤ 15 min old (same rule as drive.js)
-const WRITE = new Set(['connect', 'disconnect', 'setdefault', 'settings', 'approve', 'unqueue', 'session', 'done', 'fail', 'sync', 'link', 'pack', 'purged', 'fill', 'autoq']);
+const WRITE = new Set(['connect', 'disconnect', 'setdefault', 'settings', 'approve', 'unqueue', 'session', 'done', 'fail', 'sync', 'link', 'pack', 'purged', 'fill', 'autoq', 'probe']);
 
 export const onRequestOptions = ({ request }) => new Response(null, { status: 204, headers: adminCors(request) });
 
