@@ -390,6 +390,7 @@ node scripts/test/apt-install.mjs
 node scripts/test/perf-median.mjs
 node scripts/test/perf-calibrate.mjs
 node scripts/test/perf-flake.mjs
+node scripts/test/gate-relevance.mjs
 node scripts/test/pr-unconflict.mjs
 node scripts/test/regen-conflicts.mjs
 node scripts/test/gen-pr-clean.mjs
