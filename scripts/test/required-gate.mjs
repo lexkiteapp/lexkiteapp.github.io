@@ -79,6 +79,17 @@ ok(!prCapable('name: a\non:\n  push:\n    branches: [main]\n  schedule:\n    - c
 ok(!prCapable('name: a\non:\n  schedule:\n    - cron: \'0 0 * * *\'\n  workflow_dispatch:\njobs:\n  x:\n    if: github.event_name == \'pull_request\'\n'), 'chữ pull_request ngoài khối on: không tính');
 ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 'workflow_run → không');
 
+// 16/11: wip-guard startup_failure (GitHub brownout pull_request_target) là lỗi hạ tầng, không chặn PR xanh
+{
+  const wr2 = (name, conclusion, id = 1) => ({ name, path: `.github/workflows/${name}.yml`, workflow_id: id, status: 'completed', conclusion, run_number: 1, id, run_attempt: 1 });
+  const base = [cr('npm test', 'completed', 'success')];
+  const g = evaluate({ checkRuns: base, workflowRuns: [wr2('wip-guard', 'startup_failure', 7), wr2('npm test', 'success', 8)] });
+  ok(g.state === 'success' && g.infra.join() === 'wip-guard' && /bỏ qua wip-guard/.test(g.description) && g.description.length <= 140, 'wip-guard startup_failure → xanh, ghi chú hạ tầng: ' + g.description);
+  ok(evaluate({ checkRuns: base, workflowRuns: [wr2('wip-guard', 'failure', 7)] }).state === 'failure', 'wip-guard FAILURE thật vẫn đỏ');
+  ok(evaluate({ checkRuns: base, workflowRuns: [wr2('npm test', 'startup_failure', 8)] }).state === 'failure', 'workflow KHÁC startup_failure vẫn đỏ (không bỏ qua bừa)');
+  ok(evaluate({ workflowRuns: [wr2('wip-guard', 'startup_failure', 7)] }).state === 'pending', 'chỉ có wip-guard hỏng, chưa có check thật nào → vẫn CHỜ, không xanh');
+}
+
 // ---------- 3) workflow: bộ canh lịch, không quay lại ~20 runner/commit (3/11) ----------
 {
   const y = fs.readFileSync(new URL('../../.github/workflows/required-gate.yml', import.meta.url), 'utf8');

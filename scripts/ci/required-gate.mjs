@@ -22,6 +22,7 @@ const BAD = new Set(['failure', 'timed_out', 'cancelled', 'startup_failure', 'st
 // 15/11: 'cancelled' KHÔNG phải lỗi thật – concurrency (cancel-in-progress) / runner mất huỷ lượt chạy mà không có lượt mới hơn cùng sha. Trước đây gate đỏ oan (#1340, #1324…).
 // Lượt workflow mới nhất của sha bị huỷ → CHỜ + bộ canh tự chạy lại (≤ MAX_AUTO_RERUN lần); quá số lần đó mới tính đỏ. Lỗi thật (failure/timed_out…) vẫn đỏ ngay.
 export const MAX_AUTO_RERUN = 2;
+export const INFRA_STARTUP = new Set(['wip-guard']);   // workflow chỉ gác/gắn nhãn (không chấm mã PR): startup_failure = lỗi hạ tầng GitHub, không phải lỗi PR
 
 /** Hàm thuần: { checkRuns, statuses, workflowRuns } (dạng REST API) → { state, description, failed, pending, total }. */
 /** Check-run "ma" của GitHub: status vẫn in_progress nhưng đã có conclusion + completed_at (16/11: npm test treo #1448 1h20) → coi là đã xong. */
@@ -44,7 +45,14 @@ export function evaluate({ checkRuns = [], statuses = [], workflowRuns = [] } = 
     const k = r.workflow_id ?? r.name, prev = wr.get(k);
     if (!prev || (r.run_number || 0) > (prev.run_number || 0) || ((r.run_number || 0) === (prev.run_number || 0) && (r.id || 0) > (prev.id || 0))) wr.set(k, r);
   }
-  for (const r of wr.values()) items.push({ name: 'workflow: ' + r.name, status: r.status, conclusion: r.conclusion, runId: r.id, attempt: r.run_attempt });
+  // 16/11 (điều phối): GitHub brownout `pull_request_target` (16:00–18:00 UTC) → wip-guard startup_failure trên mọi PR mở lúc đó, KHÔNG chạy lại được (rerun 403, chỉ chạy khi PR mở/mở lại) → gate đỏ oan cả PR xanh.
+  // wip-guard chỉ gắn nhãn `frozen` (cảnh báo WIP), KHÔNG chấm mã PR → startup_failure của nó là lỗi hạ tầng: bỏ qua (neutral) và ghi vào `infra`, không chặn PR. Lỗi thật của wip-guard (failure) vẫn đỏ.
+  const infra = [];
+  for (const r of wr.values()) {
+    const isInfra = INFRA_STARTUP.has(r.name) && r.conclusion === 'startup_failure';
+    if (isInfra) infra.push(r.name);
+    items.push({ name: 'workflow: ' + r.name, status: r.status, conclusion: isInfra ? 'neutral' : r.conclusion, runId: r.id, attempt: r.run_attempt });
+  }
   // commit status: mới nhất theo context, bỏ chính mình
   const st = new Map();
   for (const s of statuses) {
@@ -80,8 +88,8 @@ export function evaluate({ checkRuns = [], statuses = [], workflowRuns = [] } = 
   // 05/11: không có check THẬT nào đạt (0 check, hoặc chỉ skipped/neutral) = CI chưa chạy (vd. commit đẩy bằng token không kích workflow) → CHỜ, không xanh.
   // Trước đây trường hợp này báo xanh → #584 gộp vào main khi chưa có CI nào chạy trên head.
   else if (!items.some((i) => i.status === 'completed' && i.conclusion === 'success')) { state = 'pending'; description = total ? `Chưa có check thật nào đạt (${total} bỏ qua) – đẩy commit thường để chạy CI` : 'Chưa có check nào chạy trên commit này – đẩy commit thường để chạy CI'; }
-  else { state = 'success'; description = `Xanh: ${total} check đều đạt`; }
-  return { state, description, failed, pending, total, cancelled };
+  else { state = 'success'; description = `Xanh: ${total} check đều đạt${infra.length ? ` (bỏ qua ${infra.join(', ')}: hạ tầng GitHub không khởi động)` : ''}`.slice(0, 140); }
+  return { state, description, failed, pending, total, cancelled, infra };
 }
 
 // ---------- bộ canh (3/11): thay ~20 lượt workflow_run/commit bằng 1 runner canh liên tục ----------
