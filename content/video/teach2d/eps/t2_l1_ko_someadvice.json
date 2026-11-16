@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_someadvice",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say some advice, not an advice!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Can you give me an advice?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Can you give me some advice?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "You do not count advice.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Some! Can you give me some advice?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Can you give me an advice?",
+  "right": "Can you give me some advice?",
+  "strike": "an",
+  "why": "You do not count advice.",
+  "memory": "Some advice.",
+  "quiz": {
+   "stem": "Can you give me ___ advice?",
+   "options": [
+    "an",
+    "some"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“an advice” 틀렸어요!",
+   "tip": "advice는 하나, 둘 셀 수 없는 말이라서 an을 붙이지 않아요. an 대신 some! 이렇게 말해요 👉 “Can you give me some advice?”",
+   "caption": "“Can you give me an advice?”처럼 말하고 있나요? 😅 advice는 하나, 둘 세지 않는 말이라서 an 대신 some을 써요. 맞는 문장 ✅ “Can you give me some advice?” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답 ✅ “Can you give me some advice?” 소리 내어 한 번 말해 보고, 나만의 문장도 하나 써 보세요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“An advice” is wrong!",
+   "tip": "You do not count advice, so say some. Say “Can you give me some advice?”",
+   "caption": "Do you say it like this? 😅 “Can you give me an advice?” You do not count advice, so say some. Right: “Can you give me some advice?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“an advice” 틀렸어요!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“an advice” 틀렸어요!",
+  "keyword": "Can you give me some advice?",
+  "value": "advice는 하나, 둘 셀 수 없는 말이라서 an을 붙이지 않아요. an 대신 some! 이렇게 말해요 👉 “Can you give me some advice?”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "“an advice” 틀렸어요!",
+    "description": "advice는 하나, 둘 셀 수 없는 말이라서 an을 붙이지 않아요. an 대신 some! 이렇게 말해요 👉 “Can you give me some advice?”\n\n“Can you give me an advice?”처럼 말하고 있나요? 😅 advice는 하나, 둘 세지 않는 말이라서 an 대신 some을 써요. 맞는 문장 ✅ “Can you give me some advice?” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "Can you give me some advice?",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“Can you give me an advice?”처럼 말하고 있나요? 😅 advice는 하나, 둘 세지 않는 말이라서 an 대신 some을 써요. 맞는 문장 ✅ “Can you give me some advice?” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“an advice” 틀렸어요!\n\nadvice는 하나, 둘 셀 수 없는 말이라서 an을 붙이지 않아요. an 대신 some! 이렇게 말해요 👉 “Can you give me some advice?”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“an advice” 틀렸어요! advice는 하나, 둘 셀 수 없는 말이라서 an을 붙이지 않아요. an 대신 some! 이렇게 말해요 👉 “Can you give me some advice?” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답 ✅ “Can you give me some advice?” 소리 내어 한 번 말해 보고, 나만의 문장도 하나 써 보세요: {link}",
+  "lang": "ko"
+ }
+}

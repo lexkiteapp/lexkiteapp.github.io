@@ -88,9 +88,7 @@
 <!-- TopAppBar -->
 <header class="sticky top-0 z-50 bg-[#0c181b] border-b border-[#213a42] shadow-md flex justify-between items-center w-full px-4 h-14">
 <div class="flex items-center gap-2 min-w-0">
-<button aria-label="Menu" class="w-10 h-10 -ml-1 flex items-center justify-center rounded-lg text-[#f1f5f9] hover:bg-[#16282d] active:scale-95 transition-transform duration-150" type="button">
-<span class="material-symbols-outlined text-[22px]">menu</span>
-</button>
+<button aria-label="Menu" class="min-w-[44px] min-h-[44px] h-11 w-11 -ml-1 flex items-center justify-center rounded-lg text-[#f1f5f9] hover:bg-[#16282d] active:scale-95 transition-transform duration-150" type="button"><span class="material-symbols-outlined text-[24px]">menu</span></button>
 <div class="flex flex-col min-w-0">
 <div class="flex items-center gap-1.5">
 <span class="text-[16px] font-semibold text-[#f1f5f9] truncate">Backlink &amp; Thương hiệu</span>
@@ -100,38 +98,13 @@
 </div>
 </div>
 <div class="flex items-center shrink-0">
-<div class="w-8 h-8 rounded-full bg-[#115e59] text-white flex items-center justify-center font-bold text-[12px] border border-[#2dd4bf]/40 shadow-sm">
-          HM
-        </div>
+<div class="min-w-[44px] min-h-[44px] w-11 h-11 rounded-full bg-[#115e59] text-white flex items-center justify-center font-bold text-[13px] border border-[#2dd4bf]/40 shadow-sm">HM</div>
 </div>
 </header>
 <!-- Main Content Canvas -->
 <main class="flex-1 px-4 py-4 space-y-4">
 <!-- 1. Bot Daily Scan status card -->
-<section class="bg-[#0f1d21] rounded-xl border border-[#213a42] ledge-card p-3.5">
-<div class="flex items-start justify-between gap-2 mb-2.5">
-<div class="space-y-1">
-<div class="flex items-center gap-1.5 flex-wrap">
-<span class="relative flex h-2.5 w-2.5">
-<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2dd4bf] opacity-75"></span>
-<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#14b8a6]"></span>
-</span>
-<h2 class="text-[13.5px] font-bold text-[#f1f5f9] leading-tight">Quét tự động hàng ngày (Daily Bot)</h2>
-</div>
-<div class="flex items-center gap-2 text-[12px] text-[#8ba2a8]">
-<span class="px-1.5 py-0.5 rounded bg-[#062c26] text-[#34d399] font-data-mono text-[12px] font-semibold border border-[#0f5c4e]">06:00</span>
-<span>Chu kỳ tiếp theo: 24h</span>
-</div>
-</div>
-<button class="shrink-0 px-3 py-2 bg-[#ff5c38] text-white text-[12px] font-bold rounded-lg shadow-sm border border-[#ff7a5c] hover:bg-[#ea580c] active:scale-95 transition-all duration-150 flex items-center gap-1" type="button">
-<span class="material-symbols-outlined text-[16px]">refresh</span>
-<span>Kiểm tra ngay</span>
-</button>
-</div>
-<div class="w-full bg-[#16282d] h-1.5 rounded-full overflow-hidden">
-<div class="bg-[#2dd4bf] h-full rounded-full w-[91.3%] shadow-[0_0_8px_#2dd4bf]"></div>
-</div>
-</section>
+<section class="bg-[#0f1d21] rounded-xl border border-[#213a42] ledge-card p-3.5"><div class="flex items-start justify-between gap-2 mb-2.5"><div class="space-y-1"><div class="flex items-center gap-1.5 flex-wrap"><span class="relative flex h-2.5 w-2.5"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2dd4bf] opacity-75"></span><span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#14b8a6]"></span></span><h2 class="text-[13.5px] font-bold text-[#f1f5f9] leading-tight">Quét tự động hàng ngày (Daily Bot)</h2></div><div class="flex items-center gap-2 text-[12px] text-[#cbd5e1]"><span class="px-1.5 py-0.5 rounded bg-[#062c26] text-[#34d399] font-data-mono text-[12px] font-semibold border border-[#0f5c4e]">06:00</span><span>Chu kỳ tiếp theo: 24h</span></div></div><button class="shrink-0 min-h-[44px] px-4 py-2.5 bg-[#991b1b] text-white text-[13px] font-bold rounded-lg shadow-sm border border-[#ef4444]/60 hover:bg-[#881337] active:scale-95 transition-all duration-150 flex items-center justify-center gap-1.5" type="button"><span class="material-symbols-outlined text-[18px]">refresh</span><span>Kiểm tra ngay</span></button></div><div class="w-full bg-[#16282d] h-1.5 rounded-full overflow-hidden"><div class="bg-[#2dd4bf] h-full rounded-full w-[91.3%] shadow-[0_0_8px_#2dd4bf]"></div></div></section>
 <!-- 2. 4 Metric Cards (2x2 Grid) -->
 <section class="grid grid-cols-2 gap-2.5">
 <!-- Metric 1 -->
@@ -195,262 +168,16 @@
 </div>
 </section>
 <!-- 3. Filter Tabs (Pill Style) -->
-<nav class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
-<button class="shrink-0 px-3.5 py-1.5 rounded-full text-[12px] font-bold bg-[#14b8a6] text-[#091518] shadow-sm flex items-center gap-1.5 active:scale-95 transition-transform" type="button">
-<span>Backlink &amp; PR</span>
-<span class="px-1.5 py-0.2 rounded-full bg-[#091518]/25 text-[10px] font-bold text-[#091518]">46</span>
-</button>
-<button class="shrink-0 px-3 py-1.5 rounded-full text-[12px] font-semibold bg-[#112226] text-[#94a3b8] border border-[#213a42] hover:bg-[#16282d] flex items-center gap-1.5 active:scale-95 transition-transform" type="button">
-<span>Tên miền nhái</span>
-<span class="px-1.5 py-0.2 rounded-full bg-[#3b0d14] text-[10px] text-[#fb7185] border border-[#5c1320] font-bold">2</span>
-</button>
-<button class="shrink-0 px-3 py-1.5 rounded-full text-[12px] font-semibold bg-[#112226] text-[#94a3b8] border border-[#213a42] hover:bg-[#16282d] flex items-center gap-1.5 active:scale-95 transition-transform" type="button">
-<span>MXH &amp; Re-up</span>
-<span class="px-1.5 py-0.2 rounded-full bg-[#0b2927] text-[10px] text-[#2dd4bf] border border-[#134e48] font-bold">5</span>
-</button>
-</nav>
+<nav class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1"><button class="shrink-0 min-h-[44px] px-4 py-2 rounded-full text-[12px] font-bold bg-[#14b8a6] text-[#091518] shadow-sm flex items-center justify-center gap-1.5 active:scale-95 transition-transform" type="button"><span>Backlink &amp; PR</span><span class="px-1.5 py-0.5 rounded-full bg-[#091518]/25 text-[11px] font-bold text-[#091518]">46</span></button><button class="shrink-0 min-h-[44px] px-4 py-2 rounded-full text-[12px] font-semibold bg-[#112226] text-[#e2e8f0] border border-[#213a42] hover:bg-[#16282d] flex items-center justify-center gap-1.5 active:scale-95 transition-transform" type="button"><span>Tên miền nhái</span><span class="px-1.5 py-0.5 rounded-full bg-[#450a14] text-[11px] text-[#fca5a5] border border-[#881337] font-bold">2</span></button><button class="shrink-0 min-h-[44px] px-4 py-2 rounded-full text-[12px] font-semibold bg-[#112226] text-[#e2e8f0] border border-[#213a42] hover:bg-[#16282d] flex items-center justify-center gap-1.5 active:scale-95 transition-transform" type="button"><span>MXH &amp; Re-up</span><span class="px-1.5 py-0.5 rounded-full bg-[#062c26] text-[11px] text-[#34d399] border border-[#0f5c4e] font-bold">5</span></button></nav>
 <!-- 4. DANH SÁCH TRỞ VỀ GẦN NHẤT (Recent Backlinks) -->
-<section class="bg-[#0f1d21] rounded-xl border border-[#213a42] ledge-card overflow-hidden">
-<!-- Card Header -->
-<div class="p-3.5 border-b border-[#213a42] bg-[#112226]">
-<div class="flex items-center justify-between gap-2 mb-1">
-<h3 class="text-[13px] uppercase tracking-wider text-[#f1f5f9] font-bold flex items-center gap-1.5">
-<span>DANH SÁCH TRỞ VỀ GẦN NHẤT</span>
-</h3>
-<span class="px-2 py-0.5 rounded text-[11px] font-bold bg-[#0a2727] text-[#2dd4bf] border border-[#134e48]">46 liên kết</span>
-</div>
-<p class="text-[12px] text-[#8ba2a8] leading-relaxed">
-            Giám sát 46 bài viết báo chí, blog công nghệ và hồ sơ giáo dục trỏ về lexkite.com.
-          </p>
-</div>
-<!-- Stacked Card Rows -->
-<div class="divide-y divide-[#1e343b]">
-<!-- Item 1: Spiderum -->
-<article class="p-3.5 hover:bg-[#14262c] transition-colors space-y-2">
-<div class="flex items-center justify-between gap-2">
-<div class="flex items-center gap-1.5 min-w-0">
-<span class="font-bold text-[14px] text-[#f1f5f9] truncate">Spiderum</span>
-<span class="text-[12px] text-[#527077]">/</span>
-<span class="text-[11px] font-semibold text-[#8ba2a8] truncate">Blog Review</span>
-</div>
-<!-- Status Pill: Còn sống -->
-<span class="shrink-0 inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-[#032b21] border border-[#0f5c4e] text-[#34d399]">
-<span class="w-1.5 h-1.5 rounded-full bg-[#34d399]"></span>
-                Còn sống
-              </span>
-</div>
-<div class="bg-[#091518] p-2 rounded border border-[#213a42] font-data-mono text-[12px] break-all text-[#2dd4bf]">
-              spiderum.com/bai-dang/tu-vung-ielts-lexkite-app-review
-            </div>
-<div class="flex items-center justify-between text-[12px] text-[#8ba2a8] pt-0.5">
-<div class="flex items-center gap-1 truncate max-w-[200px]">
-<span class="material-symbols-outlined text-[14px] text-[#527077]">anchor</span>
-<span class="text-[#e2e8f0] font-medium truncate">lexkite.com/app</span>
-</div>
-<span class="text-[#648087] text-[11px] shrink-0 font-data-mono">Hôm nay 06:00</span>
-</div>
-</article>
-<!-- Item 2: GenK -->
-<article class="p-3.5 hover:bg-[#14262c] transition-colors space-y-2">
-<div class="flex items-center justify-between gap-2">
-<div class="flex items-center gap-1.5 min-w-0">
-<span class="font-bold text-[14px] text-[#f1f5f9] truncate">GenK</span>
-<span class="text-[12px] text-[#527077]">/</span>
-<span class="text-[11px] font-semibold text-[#8ba2a8] truncate">PR Báo chí</span>
-</div>
-<span class="shrink-0 inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-[#032b21] border border-[#0f5c4e] text-[#34d399]">
-<span class="w-1.5 h-1.5 rounded-full bg-[#34d399]"></span>
-                Còn sống
-              </span>
-</div>
-<div class="bg-[#091518] p-2 rounded border border-[#213a42] font-data-mono text-[12px] break-all text-[#2dd4bf]">
-              genk.vn/ung-dung-hoc-tu-vung-viet-nam-ung-dung-ai-fsrs
-            </div>
-<div class="flex items-center justify-between text-[12px] text-[#8ba2a8] pt-0.5">
-<div class="flex items-center gap-1 truncate max-w-[200px]">
-<span class="material-symbols-outlined text-[14px] text-[#527077]">anchor</span>
-<span class="text-[#e2e8f0] font-medium truncate">Lexkite Web</span>
-</div>
-<span class="text-[#648087] text-[11px] shrink-0 font-data-mono">Hôm nay 06:00</span>
-</div>
-</article>
-<!-- Item 3: Tinhte.vn -->
-<article class="p-3.5 hover:bg-[#14262c] transition-colors space-y-2">
-<div class="flex items-center justify-between gap-2">
-<div class="flex items-center gap-1.5 min-w-0">
-<span class="font-bold text-[14px] text-[#f1f5f9] truncate">Tinhte.vn</span>
-<span class="text-[12px] text-[#527077]">/</span>
-<span class="text-[11px] font-semibold text-[#8ba2a8] truncate">Diễn đàn</span>
-</div>
-<!-- Status Pill: Cần xem -->
-<span class="shrink-0 inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-[#362106] border border-[#6d460d] text-[#fcd34d]">
-<span class="w-1.5 h-1.5 rounded-full bg-[#fbbf24]"></span>
-                Cần xem
-              </span>
-</div>
-<div class="bg-[#091518] p-2 rounded border border-[#213a42] font-data-mono text-[12px] break-all text-[#2dd4bf]">
-              tinhte.vn/thread/chia-se-cach-nho-2000-tu-anki-lexkite
-            </div>
-<div class="flex items-center justify-between text-[12px] text-[#8ba2a8] pt-0.5">
-<div class="flex items-center gap-1 truncate max-w-[200px]">
-<span class="text-[11px] font-bold text-[#fde047] bg-[#422006] px-1.5 py-0.5 rounded border border-[#713f12]">301 Redirect</span>
-<span class="text-[#8ba2a8] text-[11px] truncate">Chuyển hướng</span>
-</div>
-<span class="text-[#648087] text-[11px] shrink-0 font-data-mono">Hôm qua 06:00</span>
-</div>
-</article>
-<!-- Item 4: Medium -->
-<article class="p-3.5 hover:bg-[#14262c] transition-colors space-y-2">
-<div class="flex items-center justify-between gap-2">
-<div class="flex items-center gap-1.5 min-w-0">
-<span class="font-bold text-[14px] text-[#f1f5f9] truncate">Medium</span>
-<span class="text-[12px] text-[#527077]">/</span>
-<span class="text-[11px] font-semibold text-[#8ba2a8] truncate">Bài viết kỹ thuật</span>
-</div>
-<span class="shrink-0 inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-[#032b21] border border-[#0f5c4e] text-[#34d399]">
-<span class="w-1.5 h-1.5 rounded-full bg-[#34d399]"></span>
-                Còn sống
-              </span>
-</div>
-<div class="bg-[#091518] p-2 rounded border border-[#213a42] font-data-mono text-[12px] break-all text-[#2dd4bf]">
-              medium.com/@minh/building-lexkite-spaced-repetition-engine
-            </div>
-<div class="flex items-center justify-between text-[12px] text-[#8ba2a8] pt-0.5">
-<div class="flex items-center gap-1 truncate max-w-[200px]">
-<span class="material-symbols-outlined text-[14px] text-[#527077]">person</span>
-<span class="text-[#e2e8f0] font-medium truncate">@hoangminh_dev</span>
-</div>
-<span class="text-[#648087] text-[11px] shrink-0 font-data-mono">18/03 06:00</span>
-</div>
-</article>
-<!-- Item 5: VietNamNet -->
-<article class="p-3.5 hover:bg-[#14262c] transition-colors space-y-2">
-<div class="flex items-center justify-between gap-2">
-<div class="flex items-center gap-1.5 min-w-0">
-<span class="font-bold text-[14px] text-[#f1f5f9] truncate">VietNamNet</span>
-<span class="text-[12px] text-[#527077]">/</span>
-<span class="text-[11px] font-semibold text-[#8ba2a8] truncate">PR Báo chí</span>
-</div>
-<!-- Status Pill: Mất link -->
-<span class="shrink-0 inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-[#450a14] border border-[#881337] text-[#fda4af]">
-<span class="w-1.5 h-1.5 rounded-full bg-[#f43f5e]"></span>
-                Mất link
-              </span>
-</div>
-<div class="bg-[#360911]/50 p-2 rounded border border-[#701a28] font-data-mono text-[12px] break-all text-[#fca5a5]">
-              vietnamnet.vn/giao-duc/nguoi-tre-khoi-nghiep-app-hoc-lexkite
-            </div>
-<div class="flex items-center justify-between text-[12px] pt-0.5">
-<div class="flex items-center gap-1 text-[#f87171]">
-<span class="material-symbols-outlined text-[14px]">error</span>
-<span class="font-semibold text-[11px]">Lỗi 404 trang đích</span>
-</div>
-<span class="text-[#648087] text-[11px] shrink-0 font-data-mono">17/03 06:00</span>
-</div>
-</article>
-</div>
-<!-- Ledger Footer -->
-<div class="p-3 bg-[#0d1a1e] border-t-2 border-[#14b8a6] flex items-center justify-between text-[12px]">
-<span class="text-[#8ba2a8] font-medium">Đã xác thực tuần này</span>
-<span class="font-data-mono font-bold text-[#2dd4bf] text-[13px]">42 / 46 (91.3%)</span>
-</div>
-</section>
+<section class="bg-[#0f1d21] rounded-xl border border-[#213a42] ledge-card overflow-hidden"><div class="p-3.5 border-b border-[#213a42] bg-[#112226]"><div class="flex items-center justify-between gap-2 mb-1"><h3 class="text-[13px] uppercase tracking-wider text-[#f1f5f9] font-bold flex items-center gap-1.5"><span>DANH SÁCH TRỞ VỀ GẦN NHẤT</span></h3><span class="px-2 py-0.5 rounded text-[11px] font-bold bg-[#0a2727] text-[#2dd4bf] border border-[#134e48]">46 liên kết</span></div><p class="text-[12px] text-[#cbd5e1] leading-relaxed">Giám sát 46 bài viết báo chí, blog công nghệ và hồ sơ giáo dục trỏ về lexkite.com.</p></div><div class="divide-y divide-[#1e343b]"><article class="p-3.5 hover:bg-[#14262c] transition-colors space-y-2"><div class="flex items-center justify-between gap-2"><div class="flex items-center gap-1.5 min-w-0"><span class="font-bold text-[14px] text-[#f1f5f9] truncate">Spiderum</span><span class="text-[12px] text-[#94a3b8]">/</span><span class="text-[11px] font-semibold text-[#cbd5e1] truncate">Blog Review</span></div><span class="shrink-0 inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-[#032b21] border border-[#0f5c4e] text-[#34d399]"><span class="w-1.5 h-1.5 rounded-full bg-[#34d399]"></span>Còn sống</span></div><div class="bg-[#091518] p-2 rounded border border-[#213a42] font-data-mono text-[12px] break-all text-[#2dd4bf]">spiderum.com/bai-dang/tu-vung-ielts-lexkite-app-review</div><div class="flex items-center justify-between text-[12px] text-[#cbd5e1] pt-0.5"><div class="flex items-center gap-1 truncate max-w-[200px]"><span class="material-symbols-outlined text-[14px] text-[#2dd4bf]">anchor</span><span class="text-[#e2e8f0] font-medium truncate">lexkite.com/app</span></div><span class="text-[#94a3b8] text-[11px] shrink-0 font-data-mono">Hôm nay 06:00</span></div></article><article class="p-3.5 hover:bg-[#14262c] transition-colors space-y-2"><div class="flex items-center justify-between gap-2"><div class="flex items-center gap-1.5 min-w-0"><span class="font-bold text-[14px] text-[#f1f5f9] truncate">GenK</span><span class="text-[12px] text-[#94a3b8]">/</span><span class="text-[11px] font-semibold text-[#cbd5e1] truncate">PR Báo chí</span></div><span class="shrink-0 inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-[#032b21] border border-[#0f5c4e] text-[#34d399]"><span class="w-1.5 h-1.5 rounded-full bg-[#34d399]"></span>Còn sống</span></div><div class="bg-[#091518] p-2 rounded border border-[#213a42] font-data-mono text-[12px] break-all text-[#2dd4bf]">genk.vn/ung-dung-hoc-tu-vung-viet-nam-ung-dung-ai-fsrs</div><div class="flex items-center justify-between text-[12px] text-[#cbd5e1] pt-0.5"><div class="flex items-center gap-1 truncate max-w-[200px]"><span class="material-symbols-outlined text-[14px] text-[#2dd4bf]">anchor</span><span class="text-[#e2e8f0] font-medium truncate">Lexkite Web</span></div><span class="text-[#94a3b8] text-[11px] shrink-0 font-data-mono">Hôm nay 06:00</span></div></article><article class="p-3.5 hover:bg-[#14262c] transition-colors space-y-2"><div class="flex items-center justify-between gap-2"><div class="flex items-center gap-1.5 min-w-0"><span class="font-bold text-[14px] text-[#f1f5f9] truncate">Tinhte.vn</span><span class="text-[12px] text-[#94a3b8]">/</span><span class="text-[11px] font-semibold text-[#cbd5e1] truncate">Diễn đàn</span></div><span class="shrink-0 inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-[#362106] border border-[#6d460d] text-[#fcd34d]"><span class="w-1.5 h-1.5 rounded-full bg-[#fbbf24]"></span>Cần xem</span></div><div class="bg-[#091518] p-2 rounded border border-[#213a42] font-data-mono text-[12px] break-all text-[#2dd4bf]">tinhte.vn/thread/chia-se-cach-nho-2000-tu-anki-lexkite</div><div class="flex items-center justify-between text-[12px] text-[#cbd5e1] pt-0.5"><div class="flex items-center gap-1.5 truncate max-w-[200px]"><span class="text-[11px] font-bold text-[#fde047] bg-[#422006] px-1.5 py-0.5 rounded border border-[#713f12]">301 Redirect</span><span class="text-[#cbd5e1] text-[11px] truncate font-medium">Chuyển hướng</span></div><span class="text-[#94a3b8] text-[11px] shrink-0 font-data-mono">Hôm qua 06:00</span></div></article><article class="p-3.5 hover:bg-[#14262c] transition-colors space-y-2"><div class="flex items-center justify-between gap-2"><div class="flex items-center gap-1.5 min-w-0"><span class="font-bold text-[14px] text-[#f1f5f9] truncate">Medium</span><span class="text-[12px] text-[#94a3b8]">/</span><span class="text-[11px] font-semibold text-[#cbd5e1] truncate">Bài viết kỹ thuật</span></div><span class="shrink-0 inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-[#032b21] border border-[#0f5c4e] text-[#34d399]"><span class="w-1.5 h-1.5 rounded-full bg-[#34d399]"></span>Còn sống</span></div><div class="bg-[#091518] p-2 rounded border border-[#213a42] font-data-mono text-[12px] break-all text-[#2dd4bf]">medium.com/@minh/building-lexkite-spaced-repetition-engine</div><div class="flex items-center justify-between text-[12px] text-[#cbd5e1] pt-0.5"><div class="flex items-center gap-1 truncate max-w-[200px]"><span class="material-symbols-outlined text-[14px] text-[#2dd4bf]">person</span><span class="text-[#2dd4bf] font-medium truncate">@hoangminh_dev</span></div><span class="text-[#94a3b8] text-[11px] shrink-0 font-data-mono">18/03 06:00</span></div></article><article class="p-3.5 hover:bg-[#14262c] transition-colors space-y-2"><div class="flex items-center justify-between gap-2"><div class="flex items-center gap-1.5 min-w-0"><span class="font-bold text-[14px] text-[#f1f5f9] truncate">VietNamNet</span><span class="text-[12px] text-[#94a3b8]">/</span><span class="text-[11px] font-semibold text-[#cbd5e1] truncate">PR Báo chí</span></div><span class="shrink-0 inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-[#450a14] border border-[#881337] text-[#fda4af]"><span class="w-1.5 h-1.5 rounded-full bg-[#f43f5e]"></span>Mất link</span></div><div class="bg-[#360911]/50 p-2 rounded border border-[#701a28] font-data-mono text-[12px] break-all text-[#fca5a5]">vietnamnet.vn/giao-duc/nguoi-tre-khoi-nghiep-app-hoc-lexkite</div><div class="flex items-center justify-between text-[12px] pt-0.5"><div class="flex items-center gap-1 text-[#f87171]"><span class="material-symbols-outlined text-[14px]">error</span><span class="font-semibold text-[11px]">Lỗi 404 trang đích</span></div><span class="text-[#94a3b8] text-[11px] shrink-0 font-data-mono">17/03 06:00</span></div></article></div><div class="p-3 bg-[#0d1a1e] border-t-2 border-[#14b8a6] flex items-center justify-between text-[12px]"><span class="text-[#cbd5e1] font-medium">Đã xác thực tuần này</span><span class="font-data-mono font-bold text-[#2dd4bf] text-[13px]">42 / 46 (91.3%)</span></div></section>
 <!-- 5. Cảnh báo mạo danh & Vi phạm bản quyền -->
-<section class="bg-[#0f1d21] rounded-xl border border-[#213a42] ledge-card overflow-hidden">
-<!-- Header -->
-<div class="p-3.5 border-b border-[#213a42] bg-[#112226] flex items-center justify-between gap-2">
-<div class="flex items-center gap-2">
-<div class="w-7 h-7 rounded-lg bg-[#3b0d14] text-[#fb7185] flex items-center justify-center border border-[#5c1320]">
-<span class="material-symbols-outlined text-[18px]">gpp_maybe</span>
-</div>
-<div>
-<h3 class="text-[13px] text-[#f1f5f9] leading-tight font-bold">Cảnh báo mạo danh &amp; Vi phạm</h3>
-<p class="text-[11px] text-[#8ba2a8]">Bảo vệ nhãn hiệu &amp; tài sản số</p>
-</div>
-</div>
-<span class="px-2 py-0.5 rounded-full text-[11px] bg-[#991b1b] border border-[#ef4444]/60 text-white font-bold tracking-wide">2 Mới</span>
-</div>
-<div class="divide-y divide-[#1e343b]">
-<!-- Alert 1 -->
-<article class="p-3.5 space-y-2.5">
-<div class="flex items-start justify-between gap-2">
-<div>
-<div class="flex items-center gap-1.5 flex-wrap">
-<span class="font-bold text-[14px] text-[#f1f5f9]">Tên miền giả mạo</span>
-<span class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-[#450a14] text-[#fca5a5] border border-[#881337]">Phishing</span>
-</div>
-<p class="text-[11px] text-[#648087] font-data-mono mt-0.5">IP Server: Hong Kong (Cloudflare)</p>
-</div>
-</div>
-<div class="bg-[#240a10] p-2.5 rounded border border-[#5c1320] space-y-1">
-<div class="font-data-mono font-bold text-[13px] text-[#f87171] flex items-center gap-1">
-<span class="material-symbols-outlined text-[15px]">public_off</span>
-                lexkite-vip[.]com
-              </div>
-<p class="text-[12px] text-[#cbd5e1] leading-normal">
-                Trang web sao chép giao diện đăng nhập và yêu cầu người dùng trả phí trọn đời 299k qua mã QR giả.
-              </p>
-</div>
-<button class="w-full py-2 px-3 bg-[#16282d] text-[#f87171] border border-[#701a28] hover:bg-[#3b0d14]/40 rounded-lg text-[12px] font-semibold flex items-center justify-center gap-1.5 active:scale-98 transition-all" type="button">
-<span class="material-symbols-outlined text-[16px]">send_and_archive</span>
-<span>Gửi khiếu nại Registrar</span>
-</button>
-</article>
-<!-- Alert 2 -->
-<article class="p-3.5 space-y-2.5">
-<div class="flex items-start justify-between gap-2">
-<div>
-<div class="flex items-center gap-1.5 flex-wrap">
-<span class="font-bold text-[14px] text-[#f1f5f9]">Video re-up không nguồn</span>
-<span class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-[#082f49] text-[#7dd3fc] border border-[#0369a1]">TikTok</span>
-</div>
-<p class="text-[11px] text-[#648087] font-data-mono mt-0.5">34k Views • Đăng tải 2 ngày trước</p>
-</div>
-</div>
-<div class="bg-[#091518] p-2.5 rounded border border-[#213a42] space-y-1">
-<div class="font-data-mono font-semibold text-[13px] text-[#f1f5f9] flex items-center gap-1">
-<span class="material-symbols-outlined text-[15px] text-[#2dd4bf]">ondemand_video</span>
-                Kênh @ielts_flashcard_tips
-              </div>
-<p class="text-[12px] text-[#8ba2a8] leading-normal">
-                Copy toàn bộ chuỗi clip giải thích thuật toán FSRS của Ama/Carlos, cắt watermark và gắn bio bán khóa học.
-              </p>
-</div>
-<button class="w-full py-2 px-3 bg-[#112226] text-[#2dd4bf] border border-[#14b8a6]/60 hover:bg-[#16282d] rounded-lg text-[12px] font-semibold flex items-center justify-center gap-1.5 active:scale-98 transition-all shadow-sm" type="button">
-<span class="material-symbols-outlined text-[16px]">copyright</span>
-<span>Báo cáo DMCA</span>
-</button>
-</article>
-</div>
-</section>
+<section class="bg-[#0f1d21] rounded-xl border border-[#213a42] ledge-card overflow-hidden"><div class="p-3.5 border-b border-[#213a42] bg-[#112226] flex items-center justify-between gap-2"><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-lg bg-[#3b0d14] text-[#fb7185] flex items-center justify-center border border-[#5c1320]"><span class="material-symbols-outlined text-[18px]">gpp_maybe</span></div><div><h3 class="text-[13px] text-[#f1f5f9] leading-tight font-bold">Cảnh báo mạo danh &amp; Vi phạm</h3><p class="text-[11px] text-[#cbd5e1]">Bảo vệ nhãn hiệu &amp; tài sản số</p></div></div><span class="px-2 py-0.5 rounded-full text-[11px] bg-[#991b1b] border border-[#ef4444]/60 text-white font-bold tracking-wide">2 Mới</span></div><div class="divide-y divide-[#1e343b]"><article class="p-3.5 space-y-2.5"><div class="flex items-start justify-between gap-2"><div><div class="flex items-center gap-1.5 flex-wrap"><span class="font-bold text-[14px] text-[#f1f5f9]">Tên miền giả mạo</span><span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-[#450a14] text-[#fca5a5] border border-[#881337]">Phishing</span></div><p class="text-[11px] text-[#cbd5e1] font-data-mono mt-0.5">IP Server: Hong Kong (Cloudflare)</p></div></div><div class="bg-[#240a10] p-2.5 rounded border border-[#5c1320] space-y-1"><div class="font-data-mono font-bold text-[13px] text-[#f87171] flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">public_off</span>lexkite-vip[.]com</div><p class="text-[12px] text-[#cbd5e1] leading-normal">Trang web sao chép giao diện đăng nhập và yêu cầu người dùng trả phí trọn đời 299k qua mã QR giả.</p></div><button class="w-full min-h-[44px] py-3 px-4 bg-[#16282d] text-[#f87171] border border-[#701a28] hover:bg-[#3b0d14]/40 rounded-lg text-[13px] font-semibold flex items-center justify-center gap-1.5 active:scale-98 transition-all" type="button"><span class="material-symbols-outlined text-[16px]">send_and_archive</span><span>Gửi khiếu nại Registrar</span></button></article><article class="p-3.5 space-y-2.5"><div class="flex items-start justify-between gap-2"><div><div class="flex items-center gap-1.5 flex-wrap"><span class="font-bold text-[14px] text-[#f1f5f9]">Video re-up không nguồn</span><span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-[#082f49] text-[#7dd3fc] border border-[#0369a1]">TikTok</span></div><p class="text-[11px] text-[#cbd5e1] font-data-mono mt-0.5">34k Views • Đăng tải 2 ngày trước</p></div></div><div class="bg-[#091518] p-2.5 rounded border border-[#213a42] space-y-1"><div class="font-data-mono font-semibold text-[13px] text-[#f1f5f9] flex items-center gap-1"><span class="material-symbols-outlined text-[15px] text-[#2dd4bf]">ondemand_video</span>Kênh @ielts_flashcard_tips</div><p class="text-[12px] text-[#cbd5e1] leading-normal">Copy toàn bộ chuỗi clip giải thích thuật toán FSRS của Ama/Carlos, cắt watermark và gắn bio bán khóa học.</p></div><button class="w-full min-h-[44px] py-3 px-4 bg-[#112226] text-[#2dd4bf] border border-[#14b8a6]/60 hover:bg-[#16282d] rounded-lg text-[13px] font-semibold flex items-center justify-center gap-1.5 active:scale-98 transition-all shadow-sm" type="button"><span class="material-symbols-outlined text-[16px]">copyright</span><span>Báo cáo DMCA</span></button></article></div></section>
 <!-- 6. Footer Note -->
-<footer class="pt-2 pb-6 text-center text-[11px] text-[#648087]">
-<p>Hệ thống bảo vệ thương hiệu nội bộ • Lexkite EdTech 2025</p>
-</footer>
+<footer class="pt-2 pb-6 text-center text-[11px] text-[#94a3b8]"><p>Hệ thống bảo vệ thương hiệu nội bộ • Lexkite EdTech 2025</p></footer>
 </main>
 <!-- BottomNavBar -->
 <!-- Destination 3 "Thương hiệu" is ACTIVE according to prompt context -->
-<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-1 py-1 h-16 bg-[#0c181b] border-t border-[#213a42] shadow-lg max-w-[390px] left-1/2 -translate-x-1/2">
-<!-- Tab 1: Tổng quan -->
-<a class="flex flex-col items-center justify-center text-[#8ba2a8] py-1 min-w-[64px] min-h-[44px] hover:text-[#2dd4bf] active:scale-95 transition-transform duration-150" href="#overview">
-<span class="material-symbols-outlined text-[22px]">dashboard</span>
-<span class="text-[11px] font-medium mt-0.5">Tổng quan</span>
-</a>
-<!-- Tab 2: Nội dung -->
-<a class="flex flex-col items-center justify-center text-[#8ba2a8] py-1 min-w-[64px] min-h-[44px] hover:text-[#2dd4bf] active:scale-95 transition-transform duration-150" href="#content">
-<span class="material-symbols-outlined text-[22px]">article</span>
-<span class="text-[11px] font-medium mt-0.5">Nội dung</span>
-</a>
-<!-- Tab 3: Thương hiệu (ACTIVE) -->
-<a class="flex flex-col items-center justify-center text-[#2dd4bf] font-semibold py-1 min-w-[64px] min-h-[44px] active:scale-95 transition-transform duration-150" href="#brand">
-<span class="material-symbols-outlined text-[22px]" data-weight="fill">verified</span>
-<span class="text-[11px] font-semibold mt-0.5">Thương hiệu</span>
-</a>
-<!-- Tab 4: Cài đặt -->
-<a class="flex flex-col items-center justify-center text-[#8ba2a8] py-1 min-w-[64px] min-h-[44px] hover:text-[#2dd4bf] active:scale-95 transition-transform duration-150" href="#settings">
-<span class="material-symbols-outlined text-[22px]">settings</span>
-<span class="text-[11px] font-medium mt-0.5">Cài đặt</span>
-</a>
-</nav>
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-1 py-1 h-16 bg-[#0c181b] border-t border-[#213a42] shadow-lg max-w-[390px] left-1/2 -translate-x-1/2"><a class="flex flex-col items-center justify-center text-[#cbd5e1] py-2 min-w-[64px] min-h-[44px] hover:text-[#2dd4bf] active:scale-95 transition-transform duration-150" href="#overview"><span class="material-symbols-outlined text-[22px]">dashboard</span><span class="text-[11px] font-medium mt-0.5">Tổng quan</span></a><a class="flex flex-col items-center justify-center text-[#cbd5e1] py-2 min-w-[64px] min-h-[44px] hover:text-[#2dd4bf] active:scale-95 transition-transform duration-150" href="#content"><span class="material-symbols-outlined text-[22px]">article</span><span class="text-[11px] font-medium mt-0.5">Nội dung</span></a><a class="flex flex-col items-center justify-center text-[#2dd4bf] font-semibold py-2 min-w-[64px] min-h-[44px] active:scale-95 transition-transform duration-150" href="#brand"><span class="material-symbols-outlined text-[22px]" data-weight="fill">verified</span><span class="text-[11px] font-semibold mt-0.5">Thương hiệu</span></a><a class="flex flex-col items-center justify-center text-[#cbd5e1] py-2 min-w-[64px] min-h-[44px] hover:text-[#2dd4bf] active:scale-95 transition-transform duration-150" href="#settings"><span class="material-symbols-outlined text-[22px]">settings</span><span class="text-[11px] font-medium mt-0.5">Cài đặt</span></a></nav>
 </div>
 </body></html>

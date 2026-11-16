@@ -5,6 +5,7 @@
 // Chạy: node scripts/test/account-flow.mjs
 import fs from 'node:fs';
 import vm from 'node:vm';
+import zlib from 'node:zlib';
 
 let fails = 0, n = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log('✗', m); } };
 const CORE = fs.readFileSync('web/js/core.js', 'utf8'), SYNC = fs.readFileSync('web/js/sync.js', 'utf8');
@@ -12,18 +13,24 @@ const tick = () => new Promise(r => setImmediate(r));
 
 // ---------- máy chủ /api/sync giả: lưu tài liệu theo uid ----------
 function server() {
-  const rows = {}; let calls = { pull: 0, push: 0 }, down = false, delay = null;
+  const rows = {}, hh = {}, len = {}; let calls = { pull: 0, push: 0 }, down = false, delay = null, shrinks = 0;
   const fetch = async (url, init) => {
     if (down) throw new TypeError('Failed to fetch');
     const body = JSON.parse(init.body), uid = init.headers.Authorization.slice(7);
     if (delay) await delay();
-    const docs = rows[uid] || (rows[uid] = {});
+    const docs = rows[uid] || (rows[uid] = {}), H = hh[uid] || (hh[uid] = {}), L = len[uid] || (len[uid] = {});
     calls[body.op] = (calls[body.op] || 0) + 1;
-    if (body.op === 'push') for (const [k, d] of Object.entries(body.docs)) docs[k] = JSON.parse(d.body);
-    const out = body.op === 'pull' ? { docs: structuredClone(docs) } : { ok: true };
+    if (body.op === 'push') {
+      // như functions/api/sync.js: gói thẻ nhỏ đi hẳn (< ¼, gói cũ > 40 ký tự) → 409 shrink trừ khi force
+      if (body.force !== true) for (const [k, d] of Object.entries(body.docs)) if (/^cards_/.test(k) && L[k] > 40 && d.body.length * 4 < L[k]) { shrinks++; return { ok: false, status: 409, json: async () => ({ error: 'shrink', k }) }; }
+      for (const [k, d] of Object.entries(body.docs)) { docs[k] = JSON.parse(d.body); H[k] = d.h; L[k] = d.body.length; }
+    }
+    // pull tôn trọng `have`: chỉ trả tài liệu đã đổi (như máy chủ thật)
+    const have = body.have || {};
+    const out = body.op === 'pull' ? { docs: structuredClone(Object.fromEntries(Object.entries(docs).filter(([k]) => have[k] !== H[k]))) } : { ok: true };
     return { ok: true, status: 200, json: async () => out };
   };
-  return { rows, fetch, get calls() { return calls; }, set down(v) { down = v; }, set delay(f) { delay = f; } };
+  return { rows, fetch, get calls() { return calls; }, get shrinks() { return shrinks; }, set down(v) { down = v; }, set delay(f) { delay = f; } };
 }
 
 // ---------- 1 thiết bị = 1 vm với core + sync thật ----------
@@ -162,6 +169,44 @@ ok(J(M.game({ xp: 5, days: { d: { xp: 3 } }, total: {} }, { xp: 7, days: { d: { 
   d.login('u6'); await d.sync();
   const c = await d.cards();
   ok(c.p && c.q && Object.keys(c).length === 2 && asked.length === 0, 'đăng xuất/đăng nhập lại: giữ đủ, không hỏi');
+}
+
+// ---------- 8b) P0 16/11: "Xóa dữ liệu trên thiết bị này" không được làm rỗng cloud ----------
+const resetLocal = async d => { await d.C.Store.set('cards', {}); await d.C.Store.set('stats', { days: {}, newToday: { day: '', n: 0 } }); await d.C.Store.set('game', null); };
+const unpack = v => JSON.parse(v.json !== undefined ? v.json : zlib.gunzipSync(Buffer.from(v.z, 'base64')).toString('utf8'));
+const cloudCards = (srv, uid) => Object.keys(Object.assign({}, ...Object.entries(srv.rows[uid] || {}).filter(([k]) => /^cards_/.test(k)).map(([, v]) => unpack(v)))).sort().join();
+{
+  // đường nút Cài đặt (client gọi Sync.afterLocalReset): cloud còn nguyên, thẻ về lại máy
+  const srv = server(), d = device(srv); d.login('r1'); await d.add('alpha'); await d.add('beta'); await d.sync();
+  ok(cloudCards(srv, 'r1') === 'alpha,beta', 'S1 tiền đề: cloud có 2 thẻ');
+  await resetLocal(d); await d.S.afterLocalReset(); await d.sync(); await d.sync();
+  ok(cloudCards(srv, 'r1') === 'alpha,beta', 'S1: sau "Xóa dữ liệu trên thiết bị này" cloud vẫn còn 2 thẻ');
+  ok(Object.keys(await d.cards()).sort().join() === 'alpha,beta', 'S1: thẻ tải lại về máy từ cloud');
+}
+{
+  // máy khách cũ/đường khác xóa kho mà không báo (không gọi afterLocalReset): máy chủ chặn, máy khách tự kéo đủ → không mất
+  const srv = server(), d = device(srv); d.login('r2'); await d.add('alpha'); await d.add('beta'); await d.sync();
+  await resetLocal(d); await d.sync(); await d.sync(); await d.sync();
+  ok(cloudCards(srv, 'r2') === 'alpha,beta', 'S1 (không báo): máy chủ chặn gói rỗng, cloud còn 2 thẻ');
+  ok(srv.shrinks >= 1, 'S1 (không báo): có 409 shrink');
+  ok(Object.keys(await d.cards()).sort().join() === 'alpha,beta', 'S1 (không báo): máy tự kéo lại đủ thẻ');
+}
+{
+  // xóa thật (dấu xóa): sau khi gộp vẫn nhỏ hơn → gửi kèm force, cloud giảm đúng
+  const srv = server(), d = device(srv); d.login('r3'); for (let i = 0; i < 6; i++) await d.add('word' + i); await d.sync();
+  const D = await d.C.Store.get('deleted', {}); const c = await d.cards(); const now = Date.now() + 5000;
+  for (const w of Object.keys(c)) { D[w] = now; delete c[w]; } await d.C.Store.set('deleted', D); await d.C.Cards.save(c); await d.sync(); await d.sync(); await d.sync();
+  ok(cloudCards(srv, 'r3') === '', 'xóa thật 6 thẻ (có dấu xóa): cloud giảm đúng, không kẹt 409');
+}
+// ---------- 8c) P0 S2: đổi tài khoản + "Hủy" gộp + đăng nhập lại → không mất cloud tài khoản cũ ----------
+{
+  const srv = server(), slowNo = () => { const t = Date.now(); while (Date.now() - t < 60); return false; };
+  const d = device(srv, { confirm: slowNo });
+  d.login('B'); await d.add('b1'); await d.add('b2'); await d.sync();
+  d.login('A'); await d.sync();                       // máy có dữ liệu B → hỏi → Hủy thật: kho máy bị dọn, dùng dữ liệu A
+  d.login('B'); await d.sync(); await d.sync(); await d.sync();
+  ok(cloudCards(srv, 'B') === 'b1,b2', 'S2: Hủy gộp + đăng nhập lại B: cloud B còn nguyên 2 thẻ');
+  ok(Object.keys(await d.cards()).sort().join() === 'b1,b2', 'S2: máy lại có đủ 2 thẻ của B');
 }
 
 // ---------- 9) tỉ lệ lỗi đồng bộ: N vòng 2 thiết bị ngẫu nhiên, mạng chập chờn → hội tụ ----------

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_pricewhat",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Price? Say what, not how much!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: How much is the price?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: What is the price?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use what with the word price.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "What! What is the price of this bag?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "How much is the price?",
+  "right": "What is the price?",
+  "strike": "How much",
+  "why": "Use what with the word price.",
+  "memory": "What is the price?",
+  "quiz": {
+   "stem": "___ is the price of this bag?",
+   "options": [
+    "How much",
+    "What"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "هل تقول “How much is the price?”",
+   "tip": "نقول «كم السعر؟»، أما في الإنجليزية فنقول what مع كلمة price: “What is the price?” وليس “How much is the price?”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “How much is the price?” 😅 نقول «كم السعر؟»، أما في الإنجليزية فنقول what مع كلمة price، فالجملة الصحيحة “What is the price?” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “What” — مع كلمة price نقول what. اسأل عن سعر شيء بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Ever say “How much is the price?”",
+   "tip": "In Arabic we say «كم السعر؟», but in English we say what with the word price: “What is the price?” not “How much is the price?”",
+   "caption": "Do you sometimes say this? “How much is the price?” 😅 In Arabic we say «كم السعر؟», but in English we say what with the word price, so the right sentence is “What is the price?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “How much is the price?”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "هل تقول “How much is the price?”",
+  "keyword": "What is the price?",
+  "value": "نقول «كم السعر؟»، أما في الإنجليزية فنقول what مع كلمة price: “What is the price?” وليس “How much is the price?”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “How much is the price?”",
+    "description": "نقول «كم السعر؟»، أما في الإنجليزية فنقول what مع كلمة price: “What is the price?” وليس “How much is the price?”\n\nهل تقول أحيانًا هذه الجملة؟ “How much is the price?” 😅 نقول «كم السعر؟»، أما في الإنجليزية فنقول what مع كلمة price، فالجملة الصحيحة “What is the price?” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "What is the price?",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا هذه الجملة؟ “How much is the price?” 😅 نقول «كم السعر؟»، أما في الإنجليزية فنقول what مع كلمة price، فالجملة الصحيحة “What is the price?” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول “How much is the price?”\n\nنقول «كم السعر؟»، أما في الإنجليزية فنقول what مع كلمة price: “What is the price?” وليس “How much is the price?”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “How much is the price?” نقول «كم السعر؟»، أما في الإنجليزية فنقول what مع كلمة price: “W… #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “What” — مع كلمة price نقول what. اسأل عن سعر شيء بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+  "lang": "ar"
+ }
+}

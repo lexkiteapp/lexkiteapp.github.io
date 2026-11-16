@@ -45,6 +45,11 @@ jobs:
         if: ${{ !cancelled() }}
         timeout-minutes: 25
         run: node scripts/test/rig-live.mjs "$BASE" out/post-deploy
+      - name: Cổng CSP (csp-probe.mjs --strict, tuyến chính + thư viện lười, Chromium + WebKit, có đối chứng new Function)
+        id: csp
+        if: ${{ !cancelled() }}
+        timeout-minutes: 15
+        run: node scripts/test/csp-probe.mjs "$BASE" out/post-deploy/csp --strict
       - name: Tương phản màu (contrast.mjs, màn chính)
         id: contrast
         if: ${{ !cancelled() }}

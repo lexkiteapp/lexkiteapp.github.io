@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_dontworry",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Don't mind or don't worry?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Please don't mind.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Please don't worry.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use don't worry to say it is fine.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Worry! Please don't worry.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Please don't mind.",
+  "right": "Please don't worry.",
+  "strike": "mind",
+  "why": "Use don't worry to say it is fine.",
+  "memory": "Please don't worry.",
+  "quiz": {
+   "stem": "Please don't ___ about it.",
+   "options": [
+    "mind",
+    "worry"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "「気にしないで」は Don't mind？",
+   "tip": "「気にしないで」は Don't worry about it. が自然です。",
+   "caption": "“Please don't mind.”と言っていませんか？😅 「気にしない」の「気にする」を mind で訳しがちです。“Please don't worry.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“worry”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “Don't mind”?",
+   "tip": "To comfort someone, say Don't worry.",
+   "caption": "Do you say this? “Please don't mind.” 😅 The Japanese 気にしないで does not match mind in English. The natural way is “Please don't worry.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "「気にしないで」は Don't mind？"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "「気にしないで」は Don't mind？",
+  "keyword": "Please don't worry.",
+  "value": "「気にしないで」は Don't worry about it. が自然です。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "「気にしないで」は Don't mind？",
+    "description": "「気にしないで」は Don't worry about it. が自然です。\n\n“Please don't mind.”と言っていませんか？😅 「気にしない」の「気にする」を mind で訳しがちです。“Please don't worry.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "Please don't worry.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“Please don't mind.”と言っていませんか？😅 「気にしない」の「気にする」を mind で訳しがちです。“Please don't worry.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "「気にしないで」は Don't mind？\n\n「気にしないで」は Don't worry about it. が自然です。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「気にしないで」は Don't mind？ 「気にしないで」は Don't worry about it. が自然です。 #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“worry”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

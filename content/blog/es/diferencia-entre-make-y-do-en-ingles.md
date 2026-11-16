@@ -183,6 +183,8 @@ Revisa también los patrones verbales en [gerundio o infinitivo en inglés](/es/
 
 {{youtube: | Cuándo usar make y cuándo usar do en inglés sin dudar}}
 
+Si te gustan las parejas de palabras que se confunden, aprende también [la diferencia entre affect y effect](/es/blog/diferencia-entre-affect-y-effect-en-ingles/), que sigue el mismo método de colocaciones.
+
 ## Preguntas frecuentes
 
 ### ¿Por qué se dice 'make the bed' si es una tarea doméstica?

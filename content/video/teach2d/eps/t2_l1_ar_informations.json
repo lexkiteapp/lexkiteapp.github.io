@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "هل تجمع information؟",
-   "tip": "كلمة information لا تُجمع: “I need some information.” وليس “I need some informations.”.",
-   "caption": "هل تقول أحيانًا “I need some informations.” 😅 كلمة information لا تُجمع، فالجملة الصحيحة “I need some information.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
-   "comment": "الإجابة: “information”. كلمة information لا تُجمع. اختبار مجاني هنا: {link}",
+   "tip": "كلمة information لا تُجمع: “I need some information.” وليس “I need some informations.”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “I need some informations” 😅 كلمة information لا تُجمع، فالجملة الصحيحة “I need some information.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “information” — كلمة information لا تُجمع. اختبار مجاني هنا: {link}",
    "hashtags": [
     "#تعلم_الانجليزية",
     "#اللغة_الانجليزية",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "Do you say “I need some informations”?",
-   "tip": "Information has no plural: “I need some information.” not “I need some informations.”.",
-   "caption": "Do you sometimes say “I need some informations.” 😅 Information has no plural, so the right sentence is “I need some information.” Listen to Ama and repeat! Practice more in the Lexkite app."
+   "hook": "Do you make information plural?",
+   "tip": "Information has no plural: “I need some information.” not “I need some informations.”",
+   "caption": "Do you sometimes say this? “I need some informations” 😅 Information has no plural, so the right sentence is “I need some information.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "هل تجمع information؟",
   "keyword": "I need some information.",
-  "value": "كلمة information لا تُجمع: “I need some information.” وليس “I need some informations.”.",
+  "value": "كلمة information لا تُجمع: “I need some information.” وليس “I need some informations.”",
   "hashtags": [
    "#تعلم_الانجليزية",
    "#اللغة_الانجليزية",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "هل تجمع information؟",
-    "description": "هل تقول أحيانًا “I need some informations.” 😅 كلمة information لا تُجمع، فالجملة الصحيحة “I need some information.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "description": "كلمة information لا تُجمع: “I need some information.” وليس “I need some informations.”\n\nهل تقول أحيانًا هذه الجملة؟ “I need some informations” 😅 كلمة information لا تُجمع، فالجملة الصحيحة “I need some information.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
     "tags": [
      "I need some information.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "هل تقول أحيانًا “I need some informations.” 😅 كلمة information لا تُجمع، فالجملة الصحيحة “I need some information.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "هل تقول أحيانًا هذه الجملة؟ “I need some informations” 😅 كلمة information لا تُجمع، فالجملة الصحيحة “I need some information.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "هل تقول أحيانًا “I need some informations.” 😅 كلمة information لا تُجمع، فالجملة الصحيحة “I need some information.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nlexkite.com",
+    "caption": "هل تجمع information؟\n\nكلمة information لا تُجمع: “I need some information.” وليس “I need some informations.”\n\nlexkite.com",
     "hashtags": [
      "#تعلم_الانجليزية",
      "#اللغة_الانجليزية",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "هل تجمع information؟ #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+    "caption": "هل تجمع information؟ كلمة information لا تُجمع: “I need some information.” وليس “I need some info… #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
    }
   },
-  "first_comment": "الإجابة: “information”. كلمة information لا تُجمع. اختبار مجاني هنا: {link}",
+  "first_comment": "الإجابة: “information” — كلمة information لا تُجمع. اختبار مجاني هنا: {link}",
   "lang": "ar"
  }
 }

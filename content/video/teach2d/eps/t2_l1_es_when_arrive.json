@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_when_arrive",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "When I arrive, not will arrive!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I will call you when I will arrive.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I will call you when I arrive.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After when, use the simple form.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Arrive! Call me when you arrive there.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I will call you when I will arrive.",
+  "right": "I will call you when I arrive.",
+  "strike": "when I will",
+  "why": "After when, use the simple form.",
+  "memory": "When I arrive.",
+  "quiz": {
+   "stem": "Call me when you ___ there.",
+   "options": [
+    "will arrive",
+    "arrive"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "¿“When I will arrive”? ¡No!",
+   "tip": "En español “cuando llegue”, pero en inglés tras “when” va el presente: “when I arrive.”",
+   "caption": "Muchos dicen “I will call you when I will arrive.” 🙈 En español “cuando llegue” suena a futuro, pero en inglés después de “when” se usa el presente: “I will call you when I arrive.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “arrive”. Después de “when” va el presente, aunque hable del futuro. Di en voz alta una frase tuya con “arrive”. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#gramatica",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“When I will arrive”? No!",
+   "tip": "Spanish “cuando llegue” sounds like the future, but English uses the present after “when”: “when I arrive.”",
+   "caption": "Many learners say “I will call you when I will arrive.” Spanish “cuando llegue” sounds like the future, but after “when” English uses the present: “I will call you when I arrive.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿“When I will arrive”? ¡No!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 54,
+  "seconds": 32.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "¿“When I will arrive”? ¡No!",
+  "keyword": "I will call you when I arrive.",
+  "value": "En español “cuando llegue”, pero en inglés tras “when” va el presente: “when I arrive.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#gramatica",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 48,
+  "platforms": {
+   "youtube": {
+    "title": "¿“When I will arrive”? ¡No!",
+    "description": "En español “cuando llegue”, pero en inglés tras “when” va el presente: “when I arrive.”\n\nMuchos dicen “I will call you when I will arrive.” 🙈 En español “cuando llegue” suena a futuro, pero en inglés después de “when” se usa el presente: “I will call you when I arrive.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #gramatica #lexkite",
+    "tags": [
+     "I will call you when I arrive.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "Muchos dicen “I will call you when I will arrive.” 🙈 En español “cuando llegue” suena a futuro, pero en inglés después de “when” se usa el presente: “I will call you when I arrive.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "¿“When I will arrive”? ¡No!\n\nEn español “cuando llegue”, pero en inglés tras “when” va el presente: “when I arrive.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#gramatica",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿“When I will arrive”? ¡No! En español “cuando llegue”, pero en inglés tras “when” va el presente: “when I ar… #aprenderingles #inglesfacil #gramatica"
+   }
+  },
+  "first_comment": "Respuesta: “arrive”. Después de “when” va el presente, aunque hable del futuro. Di en voz alta una frase tuya con “arrive”. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}

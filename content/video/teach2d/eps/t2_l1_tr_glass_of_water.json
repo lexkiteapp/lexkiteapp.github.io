@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_glass_of_water",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "A glass of water, not glass water!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Can I have a glass water?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Can I have a glass of water?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say a glass of water.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! Can I have a glass of water?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Can I have a glass water?",
+  "right": "Can I have a glass of water?",
+  "strike": "glass water",
+  "why": "Say a glass of water.",
+  "memory": "Can I have a glass of water?",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "Can I have a glass water?",
+    "Can I have a glass of water?"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“A glass of water” de!",
+   "tip": "Türkçede “bir bardak su” deriz, arada bağlayıcı yoktur; İngilizcede “glass” ile içecek arasına “of” gelir: “Can I have a glass of water?”",
+   "caption": "“Can I have a glass water?” mı diyorsun? 😅 İngilizcede “glass” ile içecek arasına “of” gelir. Doğrusu “Can I have a glass of water?” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: ikinci cümle. “Glass” sonrası “of” gelir. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “a glass of water”!",
+   "tip": "Put “of” after “glass”: “Can I have a glass of water?”",
+   "caption": "Do you say “Can I have a glass water?” 😅 In English you need “of” between “glass” and the drink. The right sentence is “Can I have a glass of water?” Listen to Carlos and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“A glass of water” de!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 54,
+  "seconds": 32.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "“A glass of water” de!",
+  "keyword": "Can I have a glass of water?",
+  "value": "Türkçede “bir bardak su” deriz, arada bağlayıcı yoktur; İngilizcede “glass” ile içecek arasına “of” gelir: “Can I have a glass of water?”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 48,
+  "platforms": {
+   "youtube": {
+    "title": "“A glass of water” de!",
+    "description": "Türkçede “bir bardak su” deriz, arada bağlayıcı yoktur; İngilizcede “glass” ile içecek arasına “of” gelir: “Can I have a glass of water?”\n\n“Can I have a glass water?” mı diyorsun? 😅 İngilizcede “glass” ile içecek arasına “of” gelir. Doğrusu “Can I have a glass of water?” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "Can I have a glass of water?",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“Can I have a glass water?” mı diyorsun? 😅 İngilizcede “glass” ile içecek arasına “of” gelir. Doğrusu “Can I have a glass of water?” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“A glass of water” de!\n\nTürkçede “bir bardak su” deriz, arada bağlayıcı yoktur; İngilizcede “glass” ile içecek arasına “of” gelir: “Can I have a glass of water?”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“A glass of water” de! Türkçede “bir bardak su” deriz, arada bağlayıcı yoktur; İngilizcede “glass” ile i… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: ikinci cümle. “Glass” sonrası “of” gelir. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+  "lang": "tr"
+ }
+}

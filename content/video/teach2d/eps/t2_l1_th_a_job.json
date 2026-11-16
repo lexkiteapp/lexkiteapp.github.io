@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_a_job",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say a or an before a job!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She is teacher.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She is a teacher.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use a or an before a job.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "An engineer! My brother is an engineer.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She is teacher.",
+  "right": "She is a teacher.",
+  "strike": "teacher",
+  "why": "Use a or an before a job.",
+  "memory": "She is a teacher.",
+  "quiz": {
+   "stem": "My brother is ___.",
+   "options": [
+    "engineer",
+    "an engineer"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "อย่าลืม a/an หน้าอาชีพ!",
+   "tip": "ภาษาไทยไม่มี a/an แต่อังกฤษต้องใส่หน้าอาชีพ: “She is a teacher”",
+   "caption": "คุณเคยพูดว่า “She is teacher.” ไหม? 😅 ภาษาไทยไม่มีคำนำหน้านาม แต่ภาษาอังกฤษต้องใส่ a หรือ an หน้าอาชีพ: “She is a teacher.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “an engineer” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Don't forget a/an career page!",
+   "tip": "Thai has no a/an, but English puts one before a job: “She is a teacher”",
+   "caption": "Do you say “She is teacher”? 😅 Thai has no a or an, but English puts a or an before a job. Say “She is a teacher”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "อย่าลืม a/an หน้าอาชีพ!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "อย่าลืม a/an หน้าอาชีพ!",
+  "keyword": "She is a teacher.",
+  "value": "ภาษาไทยไม่มี a/an แต่อังกฤษต้องใส่หน้าอาชีพ: “She is a teacher”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "อย่าลืม a/an หน้าอาชีพ!",
+    "description": "ภาษาไทยไม่มี a/an แต่อังกฤษต้องใส่หน้าอาชีพ: “She is a teacher”\n\nคุณเคยพูดว่า “She is teacher.” ไหม? 😅 ภาษาไทยไม่มีคำนำหน้านาม แต่ภาษาอังกฤษต้องใส่ a หรือ an หน้าอาชีพ: “She is a teacher.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "She is a teacher.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “She is teacher.” ไหม? 😅 ภาษาไทยไม่มีคำนำหน้านาม แต่ภาษาอังกฤษต้องใส่ a หรือ an หน้าอาชีพ: “She is a teacher.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "อย่าลืม a/an หน้าอาชีพ!\n\nภาษาไทยไม่มี a/an แต่อังกฤษต้องใส่หน้าอาชีพ: “She is a teacher”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "อย่าลืม a/an หน้าอาชีพ! ภาษาไทยไม่มี a/an แต่อังกฤษต้องใส่หน้าอาชีพ: “She is a teacher” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “an engineer” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

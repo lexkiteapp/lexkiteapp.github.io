@@ -187,6 +187,12 @@ Para parafrasear con confianza cualquier premisa en 2 minutos durante la prueba:
 
 {{cta: /#/write | Accede al Laboratorio de Escritura Lexkite y practica la paráfrase de ensayos con retroalimentación instantánea}}
 
+La paráfrasis también abre bien el Task 1: practícala con el [modelo de diagrama de proceso](/es/blog/ielts-writing-task-1-diagrama-de-proceso-ejemplo/).
+
+Para practicar la paráfrasis de la primera frase de un informe de datos, prueba con el [IELTS Writing Task 1 gráfico de barras](/es/blog/ielts-writing-task-1-grafico-de-barras-ejemplo/).
+
+Un buen sitio para aplicar la paráfrasis es la introducción de un [ensayo de opinión IELTS](/es/blog/ensayo-de-opinion-ielts-estar-de-acuerdo/).
+
 ## Preguntas Frecuentes (FAQ)
 
 ### ¿Debo cambiar absolutamente todas las palabras del tema?

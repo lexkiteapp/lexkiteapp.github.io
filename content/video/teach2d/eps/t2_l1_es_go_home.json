@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_go_home",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Go to home? Just say go home!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I go to home at six.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I go home at six.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say go home.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Home! I go home at six.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I go to home at six.",
+  "right": "I go home at six.",
+  "strike": "to",
+  "why": "Say go home.",
+  "memory": "Go home.",
+  "quiz": {
+   "stem": "I go ___ at six.",
+   "options": [
+    "to home",
+    "home"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "¿“Go to home”? Di “go home”",
+   "tip": "En español “ir a casa” lleva “a”, pero en inglés “home” va solo: “go home.”",
+   "caption": "¿Dices “I go to home at six.”? 🏠 En español “voy a casa”, pero en inglés “home” no lleva “to”: “I go home at six.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “home”. “Go home”, sin “to”. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#gramatica",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Go to home”? Say “go home”",
+   "tip": "The phrase “ir a casa” has “a”, but in English “home” stands alone: “go home.”",
+   "caption": "Do you say “I go to home at six.”? Learners say “voy a casa”, but in English “home” takes no “to”: “I go home at six.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿“Go to home”? Di “go home”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "¿“Go to home”? Di “go home”",
+  "keyword": "I go home at six.",
+  "value": "En español “ir a casa” lleva “a”, pero en inglés “home” va solo: “go home.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#gramatica",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "¿“Go to home”? Di “go home”",
+    "description": "En español “ir a casa” lleva “a”, pero en inglés “home” va solo: “go home.”\n\n¿Dices “I go to home at six.”? 🏠 En español “voy a casa”, pero en inglés “home” no lleva “to”: “I go home at six.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #gramatica #lexkite",
+    "tags": [
+     "I go home at six.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "¿Dices “I go to home at six.”? 🏠 En español “voy a casa”, pero en inglés “home” no lleva “to”: “I go home at six.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "¿“Go to home”? Di “go home”\n\nEn español “ir a casa” lleva “a”, pero en inglés “home” va solo: “go home.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#gramatica",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿“Go to home”? Di “go home” En español “ir a casa” lleva “a”, pero en inglés “home” va solo: “go home.” #aprenderingles #inglesfacil #gramatica"
+   }
+  },
+  "first_comment": "Respuesta: “home”. “Go home”, sin “to”. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}

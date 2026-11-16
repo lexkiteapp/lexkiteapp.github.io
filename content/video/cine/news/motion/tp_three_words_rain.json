@@ -1,0 +1,287 @@
+{
+ "id": "mo_tp_three_words_rain",
+ "template": "three-words",
+ "title": "Motion three-words – three-words: rain (tp_three_words_rain)",
+ "teacher": "carlos",
+ "clips": [
+  "gc11_talk",
+  "gc11_explain",
+  "gc11_happy",
+  "gc11_thinking",
+  "gc11_surprise_2"
+ ],
+ "listen": [
+  "gc11_listen"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy2",
+ "active": "yellow",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "three-words",
+  "link": "https://lexkite.com/app/",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Three Words",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "Wait, only \"rainy\"?",
+   "gap": 0.7
+  },
+  {
+   "id": "s0",
+   "text": "drizzle. Light, soft rain.",
+   "gap": 0.7
+  },
+  {
+   "id": "s1",
+   "text": "shower. A short rain that stops fast.",
+   "gap": 0.7
+  },
+  {
+   "id": "s2",
+   "text": "downpour. Very heavy rain, so grab an umbrella.",
+   "gap": 0.7
+  },
+  {
+   "id": "t",
+   "text": "Tip: Next time, skip rainy.",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "Wait, only",
+      "white"
+     ]
+    ],
+    [
+     [
+      "\"rainy\"?",
+      "yellow"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Three better words",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "Wait, only"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "\"rainy\"?"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "sum",
+    "at": [
+     "t",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Tip",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "Next time, skip rainy."
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "rules",
+    "at": [
+     "s0",
+     0
+    ],
+    "rows": [
+     {
+      "t": "tile",
+      "tag": "DRIZZLE",
+      "tone": "gold",
+      "lines": [
+       [
+        [
+         "Light, soft rain.",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "drizzle",
+        "gold"
+       ]
+      ],
+      "ex_at": [
+       "s0",
+       0
+      ],
+      "at": [
+       "s0",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "SHOWER",
+      "tone": "teal",
+      "lines": [
+       [
+        [
+         "A short rain that stops fast.",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "shower",
+        "teal"
+       ]
+      ],
+      "ex_at": [
+       "s1",
+       0
+      ],
+      "at": [
+       "s1",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "DOWNPOUR",
+      "tone": "coral",
+      "lines": [
+       [
+        [
+         "Very heavy rain, so grab an umbrella.",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "downpour",
+        "coral"
+       ]
+      ],
+      "ex_at": [
+       "s2",
+       0
+      ],
+      "at": [
+       "s2",
+       0
+      ]
+     }
+    ]
+   }
+  ],
+  "hook_text": "Wait, only \"rainy\"?",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ },
+ "uses": {
+  "template": "three-words",
+  "row": "tp_three_words_rain",
+  "teacher": "carlos",
+  "accent": "navy2",
+  "active": "yellow",
+  "tones": 2
+ }
+}
