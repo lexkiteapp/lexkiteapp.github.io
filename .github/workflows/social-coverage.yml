@@ -1,5 +1,5 @@
 # Máy gác lịch đăng (owner 16/11: mỗi kênh đúng 1 video/ngày, không ngày nào trống): mỗi ngày 1 lượt → POST /api/social-auto op coverage (chỉ đọc D1, 0 lượt GrabCast)
-# → kênh-ngày trống trong 30 ngày tới thì mở/bình luận 1 issue nhãn social-alert. Đăng ký: infra/jobs.json id "social-coverage".
+# Trước đó 1 bước lấp lịch YouTube trực tiếp (op fill, clip bản ngữ đạt QC, private + publishAt). → kênh-ngày trống trong 30 ngày tới thì mở/bình luận 1 issue nhãn social-alert. Đăng ký: infra/jobs.json id "social-coverage".
 name: social-coverage
 on:
   workflow_dispatch:
@@ -17,5 +17,7 @@ jobs:
         with: { sparse-checkout: 'scripts', sparse-checkout-cone-mode: true }
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
+      - name: Lấp lịch YouTube trực tiếp (30 ngày × 1 video/ngày/kênh, clip bản ngữ)
+        run: node scripts/social/yt-fill.mjs
       - name: Kênh-ngày trống trong 30 ngày tới
         run: node scripts/social/coverage.mjs
