@@ -123,7 +123,8 @@ const avgOf = (s, n) => (n ? s / n : null);
 const webPlat = k => (k == null ? 'web' : k);
 // Thẻ Nền tảng: số thiết bị KHÁC NHAU (mọi nền tảng gộp) + số thiết bị dùng ≥ 2 nền tảng. Web và PWA cùng origin dùng chung vid (localStorage)
 // → một máy mở web rồi mở bản đã cài nằm ở CẢ HAI dòng plat; cộng các dòng sẽ đếm trùng, nên dòng Tổng lấy từ đây (bảng tổng hợp, không đọc sessions).
-const devPlatsSql = (db, H, day, op = '>=') => one(db, `SELECT COUNT(*) AS v, COALESCE(SUM(np > 1), 0) AS multi FROM (SELECT vid, COUNT(DISTINCT COALESCE(plat, 'web')) AS np FROM sessions WHERE ${H} AND day ${op} ? GROUP BY vid)`, day); // đường SQL cũ (LEGACY.live), test admin-rollup đối chiếu
+const devSql = c => `SELECT COUNT(*) AS v, COALESCE(SUM(np > 1), 0) AS multi FROM (SELECT vid, COUNT(DISTINCT COALESCE(plat, 'web')) AS np FROM sessions WHERE ${c} GROUP BY vid)`;
+const devPlatsSql = (db, H, day, eq) => one(db, eq ? devSql(`${H} AND day = ?`) : devSql(`${H} AND day >= ?`), day); // đường SQL cũ (LEGACY.live), test admin-rollup đối chiếu
 const devPlats = m => { const by = new Map(); for (const [k, e] of m.dm.plat) for (const v of e.v) (by.get(v) || by.set(v, new Set()).get(v)).add(webPlat(unkey(k))); return { v: m.vids.size, multi: [...by.values()].filter(x => x.size > 1).length }; };
 
 // Danh sách khóa Gemini (gộp khóa đơn cũ 'gemini_key' vào danh sách mới)
@@ -293,7 +294,7 @@ export const LEGACY = {
         all(db, `SELECT COALESCE(bot, 'admin') AS k, COUNT(*) AS s, COUNT(DISTINCT vid) AS v FROM sessions WHERE day = ? AND NOT (${H}) GROUP BY k ORDER BY s DESC`, d1),
         // Phiên gửi bù hôm nay (hit.js lateAt): máy khách giữ lại lúc /api chết rồi gửi lại → dấu hiệu đã có gián đoạn ghi thống kê
         one(db, "SELECT COALESCE(SUM(n), 0) AS n FROM ext_events WHERE day = ? AND kind = 'hit:late'", d1).catch(() => ({ n: 0 })),
-        devPlatsSql(db, H, d1, '='),
+        devPlatsSql(db, H, d1, true),
       ]);
       // Chưa có dữ liệu pageviews_day (trước khi cập nhật app) → dùng trang vào đầu tiên của phiên
       const fb = pagesToday.length ? null : await all(db, `SELECT path AS k, COUNT(*) AS n FROM sessions WHERE ${H} AND day = ? GROUP BY path ORDER BY n DESC LIMIT 10`, d1);
@@ -309,7 +310,7 @@ export const LEGACY = {
         all(db, 'SELECT path AS k, SUM(n) AS n FROM pageviews_day WHERE day >= ? GROUP BY path ORDER BY n DESC LIMIT 10', d7),
         // 🔊 Nguồn giọng 7 ngày (hit.js t:'vo'): PK (day, kind) → SEARCH theo khoảng ngày + tiền tố 'vo:' – tỷ lệ rơi về giọng máy
         all(db, VO_SQL, d7).catch(() => []),
-        devPlatsSql(db, H, d30),
+        devPlatsSql(db, H, d30, false),
       ]);
       const by = Object.fromEntries(series.map(r => [r.day, r]));
       return { total, plats30, dev30, at30: now, pages7, voice: voiceOf(vo7), series: Array.from({ length: 14 }, (_, i) => { const d = vday(now - (13 - i) * DAY); return { day: d, views: (by[d] || {}).views || 0, visitors: (by[d] || {}).visitors || 0 }; }) };
