@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Admin › Thông báo | Lexkite Console</title>
+<!-- Google Fonts: Plus Jakarta Sans & monospace -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration verbatim from Design System -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-lowest": "#ffffff",
+            "primary-fixed-dim": "#8fd3cd",
+            "surface-container": "#e6f0ee",
+            "on-surface": "#141d1c",
+            "tertiary-container": "#005c58",
+            "surface-bright": "#f2fbf9",
+            "on-tertiary": "#ffffff",
+            "secondary": "#ac3416",
+            "tertiary": "#00433f",
+            "on-tertiary-fixed-variant": "#00504c",
+            "on-primary-fixed": "#00201e",
+            "surface": "#f2fbf9",
+            "tertiary-fixed-dim": "#83d5ce",
+            "surface-container-highest": "#dbe5e2",
+            "on-secondary-fixed": "#3c0700",
+            "on-error-container": "#93000a",
+            "primary": "#004340",
+            "background": "#f2fbf9",
+            "secondary-container": "#fd6f4c",
+            "inverse-surface": "#293231",
+            "on-primary-fixed-variant": "#00504c",
+            "tertiary-fixed": "#9ff1eb",
+            "surface-variant": "#dbe5e2",
+            "surface-tint": "#216964",
+            "on-tertiary-container": "#82d3cd",
+            "inverse-on-surface": "#e9f3f1",
+            "error": "#ba1a1a",
+            "surface-container-low": "#ecf6f4",
+            "surface-container-high": "#e0eae8",
+            "outline-variant": "#bec9c7",
+            "error-container": "#ffdad6",
+            "primary-container": "#0d5c58",
+            "on-surface-variant": "#3f4947",
+            "on-error": "#ffffff",
+            "secondary-fixed": "#ffdad2",
+            "surface-dim": "#d2dcda",
+            "on-tertiary-fixed": "#00201e",
+            "outline": "#6f7978",
+            "on-secondary-container": "#661200",
+            "on-secondary": "#ffffff",
+            "on-primary-container": "#8ed2cc",
+            "primary-fixed": "#abefe9",
+            "on-background": "#141d1c",
+            "secondary-fixed-dim": "#ffb4a2",
+            "inverse-primary": "#8fd3cd",
+            "on-secondary-fixed-variant": "#8a1c00",
+            "on-primary": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter-mobile": "0.75rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "gutter": "1.5rem",
+            "margin-mobile": "1rem",
+            "margin": "2rem",
+            "space-xl": "2.5rem"
+          },
+          "fontFamily": {
+            "title-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "code-sm": ["monospace"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "display-hero": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Plus Jakarta Sans"],
+            "title-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "title-sm": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "code-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "500" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "display-hero": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "body-md": ["14px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "display-hero-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    
+    /* Tactile physical shadow ledges per design spec */
+    .tactile-card {
+      border: 1px solid #E6DDD2;
+      box-shadow: 0 1px 0 0 #D8CEBF, 0 2px 4px -1px rgba(27, 36, 35, 0.04);
+    }
+    .tactile-btn-primary {
+      background-color: #F06543;
+      border: 1px solid #D94E2C;
+      box-shadow: 0 2px 0 0 #C43D1D, 0 3px 6px rgba(240, 101, 67, 0.2);
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(1px);
+      box-shadow: 0 0 0 0 transparent;
+    }
+    .tactile-btn-secondary {
+      box-shadow: 0 2px 0 0 #E6DDD2;
+    }
+    .tactile-btn-secondary:active {
+      transform: translateY(1px);
+      box-shadow: 0 0 0 0 transparent;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased font-body-md min-h-screen flex flex-col justify-between items-center selection:bg-primary-fixed selection:text-on-primary-fixed overflow-x-hidden">
+<!-- Mobile Viewport Container: Strictly 390px Native Phone Canvas -->
+<div class="w-full max-w-[390px] min-h-screen flex flex-col bg-background relative shadow-2xl border-x border-[#E6DCCB] pb-24">
+<!-- 1. Shared Component: TopAppBar -->
+<header class="bg-surface-container-lowest text-primary shadow-[0_1px_0_0_#d8cebf] fixed top-0 left-0 right-0 max-w-[390px] mx-auto w-full z-50 flex items-center justify-between px-gutter-mobile h-14 select-none">
+<button aria-label="Menu điều hướng" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg text-primary hover:bg-surface-container-low active:translate-y-px transition-transform duration-100" type="button">
+<span class="material-symbols-outlined text-primary">menu</span>
+</button>
+<div class="text-title-md font-title-md font-bold text-primary tracking-tight text-center truncate px-2">
+        Admin › Thông báo
+      </div>
+<div class="min-w-[44px] min-h-[44px] flex items-center justify-end">
+<div class="w-9 h-9 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-label-md text-label-md font-bold border border-outline-variant shadow-sm" title="Minh Anh">
+          MA
+        </div>
+</div>
+</header>
+<!-- Main Content Flow (Padded for fixed top bar) -->
+<main class="w-full px-4 pt-16 mt-2 flex flex-col gap-4">
+<!-- Section Header -->
+<section class="mt-1">
+<h1 class="font-headline-sm text-headline-sm text-primary font-bold tracking-tight">
+          Gửi thông báo học viên
+        </h1>
+<p class="font-body-sm text-body-sm text-[#1D2F33] mt-1 leading-relaxed">Soạn tin nhắn hiển thị trực tiếp trong hộp chuông thông báo của ứng dụng học viên.</p>
+</section>
+<!-- 2. Form soạn thảo (Composer Card) -->
+<section class="bg-surface-container-lowest rounded-xl p-4 tactile-card flex flex-col gap-3.5">
+<!-- Loại thông báo (Segmented Tactile Control) -->
+<div>
+<label class="block font-label-md text-label-md text-primary font-bold mb-1.5">
+            Loại thông báo
+          </label>
+<div class="grid grid-cols-3 gap-1.5 p-1 bg-surface-container-low rounded-lg border border-[#E6DCCB]">
+<button class="min-h-[44px] rounded-md font-label-md text-label-md font-bold text-center transition-all bg-primary-container text-on-primary shadow-sm" id="tab-tintuc" onclick="selectType('Tin tức')" type="button">
+              Tin tức
+            </button>
+<button class="min-h-[44px] rounded-md font-label-md text-label-md font-semibold text-on-surface-variant hover:text-primary transition-all" id="tab-capnhat" onclick="selectType('Cập nhật')" type="button">
+              Cập nhật
+            </button>
+<button class="min-h-[44px] rounded-md font-label-md text-label-md font-semibold text-on-surface-variant hover:text-primary transition-all" id="tab-nhacnho" onclick="selectType('Nhắc nhở')" type="button">
+              Nhắc nhở
+            </button>
+</div>
+</div>
+<!-- Tiêu đề thông báo -->
+<div>
+<label class="block font-label-md text-label-md text-primary font-bold mb-1" for="input-title">
+            Tiêu đề thông báo <span class="text-secondary">*</span>
+</label>
+<input class="w-full h-11 px-3 text-body-md font-body-md text-on-surface bg-surface-container-lowest border border-[#DED4C4] rounded-lg focus:border-primary-container focus:ring-1 focus:ring-primary-container placeholder:text-outline transition-colors outline-none" id="input-title" oninput="updatePreviewTitle(this.value)" placeholder="Nhập tiêu đề ngắn gọn..." type="text" value="Thêm 50 collocation chủ đề IELTS Environment"/>
+</div>
+<!-- Nội dung chi tiết -->
+<div>
+<label class="block font-label-md text-label-md text-primary font-bold mb-1" for="input-body">
+            Nội dung chi tiết <span class="text-secondary">*</span>
+</label>
+<textarea class="w-full p-3 text-body-md font-body-md text-on-surface bg-surface-container-lowest border border-[#DED4C4] rounded-lg focus:border-primary-container focus:ring-1 focus:ring-primary-container placeholder:text-outline transition-colors outline-none resize-none leading-relaxed" id="input-body" oninput="updatePreviewBody(this.value)" placeholder="Nội dung thông báo học viên..." rows="3">Bộ từ vựng và bài đọc luyện phản xạ mới đã sẵn sàng trong mục Từ vựng. Hãy mở ứng dụng ôn 10 phút hôm nay!</textarea>
+</div>
+<!-- Liên kết điều hướng (tuỳ chọn) -->
+<div>
+<label class="block font-label-md text-label-md text-primary font-bold mb-1" for="input-link">
+            Liên kết điều hướng (tuỳ chọn)
+          </label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-outline pointer-events-none text-[18px]">link</span>
+<input class="w-full h-11 pl-9 pr-3 text-code-sm font-code-sm text-on-surface bg-surface-container-lowest border border-[#DED4C4] rounded-lg focus:border-primary-container focus:ring-1 focus:ring-primary-container placeholder:text-outline transition-colors outline-none" id="input-link" placeholder="/khoa-hoc/bai-hoc" type="text" value="/vocab/environment-collocations"/>
+</div>
+</div>
+<!-- Đối tượng người nhận (Audience chips) -->
+<div>
+<label class="block font-label-md text-label-md text-primary font-bold mb-1.5">
+            Đối tượng người nhận
+          </label>
+<div class="flex flex-wrap gap-1.5">
+<button class="min-h-[44px] px-3.5 py-2 rounded-full border border-primary-container bg-[#EAF2F2] text-primary-container font-label-md text-label-md font-bold flex items-center gap-1.5 transition-colors" onclick="toggleChip(this)" type="button">
+<span class="material-symbols-outlined text-[16px]">check</span>
+              Tất cả học viên
+            </button>
+<button class="min-h-[44px] px-3.5 py-2 rounded-full border border-[#DED4C4] bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md font-medium flex items-center gap-1.5 hover:border-primary transition-colors" onclick="toggleChip(this)" type="button">
+              Mới 7 ngày
+            </button>
+<button class="min-h-[44px] px-3.5 py-2 rounded-full border border-[#DED4C4] bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md font-medium flex items-center gap-1.5 hover:border-primary transition-colors" onclick="toggleChip(this)" type="button">
+              Đang học IELTS
+            </button>
+<button class="min-h-[44px] px-3.5 py-2 rounded-full border border-[#DED4C4] bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md font-medium flex items-center gap-1.5 hover:border-primary transition-colors" onclick="toggleChip(this)" type="button">
+              Đang học TOEIC
+            </button>
+</div>
+</div>
+<!-- Thời gian gửi (Radio options) -->
+<div class="pt-1">
+<label class="block font-label-md text-label-md text-primary font-bold mb-1.5">
+            Thời gian gửi
+          </label>
+<div class="grid grid-cols-2 gap-2"><label class="min-h-[44px] flex items-center gap-1 px-2 py-1 bg-surface-container-low border border-[#DED4C4] rounded-lg cursor-pointer hover:border-primary-container transition-colors select-none"><input checked="" class="min-w-[44px] min-h-[44px] w-5 h-5 text-primary-container focus:ring-primary-container border-[#A3B9B7] cursor-pointer shrink-0" name="send-time" type="radio"/><span class="font-label-md text-label-md font-bold text-on-surface pr-2">Gửi ngay</span></label><label class="min-h-[44px] flex items-center gap-1 px-2 py-1 bg-surface-container-lowest border border-[#DED4C4] rounded-lg cursor-pointer hover:border-primary-container transition-colors select-none"><input class="min-w-[44px] min-h-[44px] w-5 h-5 text-primary-container focus:ring-primary-container border-[#A3B9B7] cursor-pointer shrink-0" name="send-time" type="radio"/><span class="font-label-md text-label-md font-semibold text-[#1D2F33] pr-2">Lên lịch gửi</span></label></div>
+</div>
+<!-- Action Buttons -->
+<div class="pt-2 flex flex-col gap-2">
+<button class="min-h-[44px] w-full bg-[#B03718] text-[#ffffff] font-title-sm text-title-sm font-bold rounded-lg flex items-center justify-center gap-2 transition-all active:translate-y-px shadow-sm hover:bg-[#900F00]" type="button"><span class="material-symbols-outlined text-[18px] text-white">send</span><span>Gửi thông báo ngay</span></button>
+<button class="tactile-btn-secondary min-h-[44px] w-full bg-surface-container-lowest border-[1.5px] border-primary-container text-primary-container font-title-sm text-title-sm font-bold rounded-lg hover:bg-surface-container-low transition-all active:translate-y-px flex items-center justify-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[18px]">drafts</span>
+            Lưu nháp
+          </button>
+</div>
+</section>
+<!-- 3. Live Preview Card (Mô phỏng dropdown chuông thông báo học viên) -->
+<section class="bg-surface-container-lowest rounded-xl p-4 tactile-card flex flex-col gap-2.5">
+<div class="flex items-center justify-between pb-1 border-b border-[#F5EFE6]">
+<span class="font-label-md text-label-md text-primary font-bold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary-container text-[18px]">preview</span>
+            Bản xem trước trong chuông app
+          </span>
+<span class="font-code-sm text-code-sm text-[#33494F] font-medium">iOS / Android</span>
+</div>
+<!-- Simulated Phone Notification Dropdown Frame -->
+<div class="bg-surface-container-low border border-[#DED4C4] rounded-lg p-2.5 shadow-inner">
+<!-- Bell Header Mock -->
+<div class="flex items-center justify-between px-2 py-1.5 border-b border-[#DED4C4]/60 bg-surface-container-lowest rounded-t-md">
+<div class="flex items-center gap-2">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined text-primary-container text-[20px]">notifications</span>
+<span class="absolute -top-0.5 -right-0.5 w-2 h-2 bg-secondary-container rounded-full ring-1 ring-white"></span>
+</div>
+<span class="font-title-sm text-title-sm font-bold text-on-surface">Thông báo mới (1)</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary-container font-bold hover:underline cursor-pointer">Xem tất cả</span>
+</div>
+<!-- Notification Item inside Bell Dropdown -->
+<div class="bg-surface-container-lowest p-3 rounded-b-md border-t border-t-[#E6DCCB] flex items-start gap-2.5 relative"><div class="w-8 h-8 rounded-full bg-[#EAF2F2] text-primary-container flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px]">campaign</span>
+</div>
+<div class="flex-1 min-w-0 pr-2">
+<div class="flex items-center gap-1.5 mb-0.5">
+<span class="px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-[#17595A] text-[#ffffff] border border-primary-container" id="preview-badge">
+      Tin tức
+    </span>
+<span class="font-label-sm text-label-sm text-[#33494F] font-semibold">Vừa xong</span>
+</div>
+<p class="font-title-sm text-title-sm text-on-surface font-bold truncate leading-tight" id="preview-title">
+    Thêm 50 collocation chủ đề IELTS Environment
+  </p>
+<p class="font-body-sm text-body-sm text-[#1D2F33] line-clamp-2 mt-0.5 leading-snug" id="preview-body">
+    Bộ từ vựng và bài đọc luyện phản xạ mới đã sẵn sàng trong mục Từ vựng. Hãy mở ứng dụng ôn 10 phút hôm nay!
+  </p>
+</div>
+<span class="w-2 h-2 rounded-full bg-primary-container shrink-0 mt-1.5 self-start"></span></div>
+</div>
+</section>
+<!-- 4. Bảng 'Đã gửi gần đây' (Lịch sử thông báo đã gửi) -->
+<section class="bg-surface-container-lowest rounded-xl p-4 tactile-card flex flex-col gap-3">
+<div class="flex items-center justify-between pb-1 border-b border-[#F5EFE6]">
+<h2 class="font-title-md text-title-md font-bold text-primary">
+            Lịch sử thông báo đã gửi
+          </h2>
+<span class="font-label-sm text-label-sm text-[#33494F] font-semibold">3 thông báo</span>
+</div>
+<div class="flex flex-col gap-3"><!-- Item 1 -->
+<div class="p-3 bg-surface-container-low rounded-lg border border-[#E6DCCB] flex flex-col gap-2">
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-sm text-title-sm font-bold text-on-surface leading-snug">
+      Sửa lỗi phát âm bài nghe Part 1
+    </h3>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-bold uppercase bg-[#0F3D3E] text-white shrink-0">
+      Đã gửi
+    </span>
+</div>
+<div class="flex items-center justify-between font-body-sm text-body-sm text-[#1D2F33]">
+<div class="flex items-center gap-1 truncate text-[#1D2F33] font-medium">
+<span class="material-symbols-outlined text-[15px] text-primary-container">group</span>
+<span>Tất cả (Học viên TOEIC)</span>
+</div>
+<div class="font-code-sm text-code-sm font-bold text-primary bg-surface-container-lowest px-2 py-0.5 rounded border border-[#E6DCCB]">
+      34 / 78 đã đọc
+    </div>
+</div>
+<div class="flex items-center justify-between pt-1 border-t border-[#E6DCCB]/60">
+<span class="font-label-sm text-label-sm text-[#33494F] font-semibold">Hôm nay, 08:30</span>
+<button class="min-h-[44px] min-w-[44px] px-3 text-[#B03718] font-label-md text-label-md font-bold hover:underline flex items-center justify-center gap-1 active:translate-y-px rounded" type="button">
+<span class="material-symbols-outlined text-[16px]">undo</span>
+<span>Thu hồi</span>
+</button>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="p-3 bg-surface-container-low rounded-lg border border-[#E6DCCB] flex flex-col gap-2">
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-sm text-title-sm font-bold text-on-surface leading-snug">
+      Nhắc nhở chuỗi học tập 7 ngày
+    </h3>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-bold uppercase bg-[#B03718] text-white shrink-0">
+      Đang gửi
+    </span>
+</div>
+<div class="flex items-center justify-between font-body-sm text-body-sm text-[#1D2F33]">
+<div class="flex items-center gap-1 truncate text-[#1D2F33] font-medium">
+<span class="material-symbols-outlined text-[15px] text-primary-container">schedule</span>
+<span>Mới 7 ngày</span>
+</div>
+<div class="font-code-sm text-code-sm font-bold text-primary bg-surface-container-lowest px-2 py-0.5 rounded border border-[#E6DCCB]">
+      18 / 46 đã đọc
+    </div>
+</div>
+<div class="flex items-center justify-between pt-1 border-t border-[#E6DCCB]/60">
+<span class="font-label-sm text-label-sm text-[#33494F] font-semibold">Hôm qua, 19:15</span>
+<button class="min-h-[44px] min-w-[44px] px-3 text-[#B03718] font-label-md text-label-md font-bold hover:underline flex items-center justify-center gap-1 active:translate-y-px rounded" type="button">
+<span class="material-symbols-outlined text-[16px]">undo</span>
+<span>Thu hồi</span>
+</button>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="p-3 bg-surface-container-low rounded-lg border border-[#E6DCCB] flex flex-col gap-2">
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-sm text-title-sm font-bold text-on-surface leading-snug">
+      Khảo sát giao diện luyện từ vựng
+    </h3>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-bold uppercase bg-[#33494F] text-white shrink-0">
+      Đã kết thúc
+    </span>
+</div>
+<div class="flex items-center justify-between font-body-sm text-body-sm text-[#1D2F33]">
+<div class="flex items-center gap-1 truncate text-[#1D2F33] font-medium">
+<span class="material-symbols-outlined text-[15px] text-primary-container">group</span>
+<span>Tất cả học viên</span>
+</div>
+<div class="font-code-sm text-code-sm font-bold text-primary bg-surface-container-lowest px-2 py-0.5 rounded border border-[#E6DCCB]">
+      52 / 112 đã đọc
+    </div>
+</div>
+<div class="flex items-center justify-between pt-1 border-t border-[#E6DCCB]/60">
+<span class="font-label-sm text-label-sm text-[#33494F] font-semibold">02/10/2023</span>
+<button class="min-h-[44px] min-w-[44px] px-3 text-[#33494F] font-label-md text-label-md font-bold flex items-center justify-center gap-1 cursor-default rounded" disabled="" type="button">
+<span class="material-symbols-outlined text-[16px]">inventory_2</span>
+<span>Đã lưu</span>
+</button>
+</div>
+</div></div>
+</section>
+</main>
+<!-- 5. Shared Component: BottomNavBar -->
+<!-- Destination count: 4, mapped exactly with active destination 'Thông báo' based on context -->
+<nav class="bg-surface-container-lowest text-primary shadow-[0_-1px_0_0_#d8cebf] fixed bottom-0 left-0 right-0 max-w-[390px] mx-auto w-full z-50 flex justify-around items-center px-gutter-mobile py-2 select-none">
+<!-- Bảng tin -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant min-w-[44px] min-h-[44px] py-1 active:translate-y-px transition-transform duration-100 hover:text-primary" href="#bang-tin">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-label-sm font-label-sm mt-0.5">Bảng tin</span>
+</a>
+<!-- Thông báo (ACTIVE per Source of Truth Hierarchy) -->
+<a class="flex flex-col items-center justify-center text-primary font-bold min-w-[44px] min-h-[44px] py-1 active:translate-y-px transition-transform duration-100" href="#thong-bao">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">notifications</span>
+<span class="text-label-sm font-label-sm mt-0.5">Thông báo</span>
+</a>
+<!-- Người dùng -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant min-w-[44px] min-h-[44px] py-1 active:translate-y-px transition-transform duration-100 hover:text-primary" href="#nguoi-dung">
+<span class="material-symbols-outlined">group</span>
+<span class="text-label-sm font-label-sm mt-0.5">Người dùng</span>
+</a>
+<!-- Cài đặt -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant min-w-[44px] min-h-[44px] py-1 active:translate-y-px transition-transform duration-100 hover:text-primary" href="#cai-dat">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-label-sm font-label-sm mt-0.5">Cài đặt</span>
+</a>
+</nav>
+</div>
+<!-- Inline Micro-interactions for form dynamic state mirroring -->
+<script>
+    function updatePreviewTitle(val) {
+      const el = document.getElementById('preview-title');
+      if (el) el.innerText = val.trim() || 'Tiêu đề thông báo...';
+    }
+
+    function updatePreviewBody(val) {
+      const el = document.getElementById('preview-body');
+      if (el) el.innerText = val.trim() || 'Nội dung chi tiết thông báo sẽ xuất hiện ở đây...';
+    }
+
+    function selectType(typeName) {
+      const tabs = {
+        'Tin tức': document.getElementById('tab-tintuc'),
+        'Cập nhật': document.getElementById('tab-capnhat'),
+        'Nhắc nhở': document.getElementById('tab-nhacnho')
+      };
+      
+      const badge = document.getElementById('preview-badge');
+      if (badge) badge.innerText = typeName;
+
+      Object.keys(tabs).forEach(k => {
+        const btn = tabs[k];
+        if (k === typeName) {
+          btn.className = 'min-h-[44px] rounded-md font-label-md text-label-md font-bold text-center transition-all bg-primary-container text-on-primary shadow-sm';
+        } else {
+          btn.className = 'min-h-[44px] rounded-md font-label-md text-label-md font-semibold text-on-surface-variant hover:text-primary transition-all';
+        }
+      });
+    }
+
+    function toggleChip(btn) {
+      const isSelected = btn.classList.contains('bg-[#EAF2F2]');
+      if (isSelected) {
+        btn.className = 'min-h-[44px] px-3.5 py-2 rounded-full border border-[#DED4C4] bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md font-medium flex items-center gap-1.5 hover:border-primary transition-colors';
+        const checkIcon = btn.querySelector('.material-symbols-outlined');
+        if (checkIcon) checkIcon.remove();
+      } else {
+        btn.className = 'min-h-[44px] px-3.5 py-2 rounded-full border border-primary-container bg-[#EAF2F2] text-primary-container font-label-md text-label-md font-bold flex items-center gap-1.5 transition-colors';
+        const iconSpan = document.createElement('span');
+        iconSpan.className = 'material-symbols-outlined text-[16px]';
+        iconSpan.innerText = 'check';
+        btn.prepend(iconSpan);
+      }
+    }
+  </script>
+</body></html>

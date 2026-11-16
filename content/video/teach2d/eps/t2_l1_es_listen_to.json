@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_listen_to",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Listen music? Listen to it!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I listen music every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I listen to music every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Listen needs to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "To! I listen to music every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I listen music every day.",
+  "right": "I listen to music every day.",
+  "strike": "music",
+  "why": "Listen needs to.",
+  "memory": "Listen to.",
+  "quiz": {
+   "stem": "I listen ___ music every day.",
+   "options": [
+    "to",
+    "(nothing)"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Escuchar música”: “listen to”",
+   "tip": "En español “escucho música”, pero en inglés “listen” necesita “to”: “listen to music.”",
+   "caption": "🙈 Error común: “I listen music every day.” El verbo “listen” siempre va con “to”: “I listen to music every day.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “to”. Después de “listen” va “to” antes de lo que escuchas. Escribe una frase tuya con “to” o dila en voz alta: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#preposiciones",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Listen to” music",
+   "tip": "Learners say “escucho música”, but “listen” needs “to” in English.",
+   "caption": "Common mistake: “I listen music every day.” The verb “listen” always takes “to”: “I listen to music every day.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Escuchar música”: “listen to”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“Escuchar música”: “listen to”",
+  "keyword": "I listen to music every day.",
+  "value": "En español “escucho música”, pero en inglés “listen” necesita “to”: “listen to music.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#preposiciones",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "“Escuchar música”: “listen to”",
+    "description": "En español “escucho música”, pero en inglés “listen” necesita “to”: “listen to music.”\n\n🙈 Error común: “I listen music every day.” El verbo “listen” siempre va con “to”: “I listen to music every day.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #preposiciones #lexkite",
+    "tags": [
+     "I listen to music every day.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "🙈 Error común: “I listen music every day.” El verbo “listen” siempre va con “to”: “I listen to music every day.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Escuchar música”: “listen to”\n\nEn español “escucho música”, pero en inglés “listen” necesita “to”: “listen to music.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#preposiciones",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Escuchar música”: “listen to” En español “escucho música”, pero en inglés “listen” necesita “to”: “liste… #aprenderingles #inglesfacil #preposiciones"
+   }
+  },
+  "first_comment": "Respuesta: “to”. Después de “listen” va “to” antes de lo que escuchas. Escribe una frase tuya con “to” o dila en voz alta: {link}",
+  "lang": "es"
+ }
+}

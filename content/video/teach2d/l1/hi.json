@@ -1,1045 +1,3608 @@
 {
- "_note": "L1 clips for hi (Hindi speakers): 28 common mistakes, content lane of the daily reels",
- "rows": [
-  {
-   "id": "t2_l1_hi_discuss",
-   "lang": "hi",
-   "teacher": "ama",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Discuss, no about!",
-    "wrong": "We discussed about the plan.",
-    "right": "We discussed the plan.",
-    "strike": "about",
-    "why": "Discuss already means talk about.",
-    "memory": "Discuss the plan.",
-    "quiz": {
-     "stem": "We ___ the problem.",
-     "options": [
-      "discussed about",
-      "discussed"
-     ],
-     "answer": 1
+  "_note": "L1 clips for hi (Hindi speakers): 36 common mistakes, content lane of the daily reels",
+  "rows": [
+    {
+      "id": "t2_l1_hi_discuss",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Just discuss, no about!",
+        "wrong": "We discussed about the plan.",
+        "right": "We discussed the plan.",
+        "strike": "about",
+        "why": "Discuss already means talk about.",
+        "memory": "Discuss the plan.",
+        "quiz": {
+          "stem": "We ___ the problem.",
+          "options": [
+            "discussed about",
+            "discussed"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Discussed! We discussed the problem.",
+        "native": {
+          "hook": "“discuss about” न कहें!",
+          "tip": "हिंदी में “के बारे में चर्चा” चलता है, पर अंग्रेज़ी में discuss के बाद about नहीं आता।",
+          "caption": "क्या आप भी कहते हैं “We discussed about the plan”? 😅 अंग्रेज़ी में “We discussed the plan” सही है, क्योंकि discuss के बाद about नहीं लगता। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “discussed”। discuss के बाद सीधे विषय बोलें, about हटा दें। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do not say “discuss about”!",
+          "tip": "Many learners add about after discuss, but in English discuss takes no about.",
+          "caption": "Do you say “We discussed about the plan”? 😅 In English “We discussed the plan” is right, because discuss takes no about. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
     },
-    "answer_say": "Discussed! We discussed the problem.",
-    "native": {
-     "hook": "“discuss about” न कहें!",
-     "tip": "हिंदी में “के बारे में चर्चा” चलता है, पर अंग्रेज़ी में discuss के बाद about नहीं आता।",
-     "caption": "क्या आप भी कहते हैं “We discussed about the plan”? 😅 अंग्रेज़ी में “We discussed the plan” सही है, क्योंकि discuss के बाद about नहीं लगता। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
-     "comment": "उत्तर: “discussed”। discuss के बाद सीधे विषय बोलें, about हटा दें। मुफ़्त क्विज़ यहाँ: {link}",
-     "hashtags": [
-      "#अंग्रेजीसीखें",
-      "#englishspeaking",
-      "#learnenglish",
-      "#lexkite"
-     ]
+    {
+      "id": "t2_l1_hi_explainme",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Explain to me!",
+        "wrong": "He explained me the rule.",
+        "right": "He explained the rule to me.",
+        "strike": "explained me",
+        "why": "Say explain, then to me.",
+        "memory": "Explain it to me.",
+        "quiz": {
+          "stem": "She explained the rule ___ me.",
+          "options": [
+            "to",
+            "at"
+          ],
+          "answer": 0
+        },
+        "answer_say": "To! She explained the rule to me.",
+        "native": {
+          "hook": "“explain me” नहीं, “to me”!",
+          "tip": "अंग्रेज़ी में “explain me” नहीं बोलते; पहले चीज़ बताइए, फिर “to me” लगाइए।",
+          "caption": "क्या आप भी कहते हैं “He explained me the rule”? 🙈 अंग्रेज़ी में “He explained the rule to me” सही है, क्योंकि explain के बाद पहले चीज़ और फिर to me आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “to”। पहले चीज़ बोलें, फिर “to me” जोड़ें। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Not “explain me”, but “to me”!",
+          "tip": "Learners often say “explain me”; name the thing first, then add to me.",
+          "caption": "Do you say “He explained me the rule”? 🙈 In English “He explained the rule to me” is right, because explain puts the thing first and then to me. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
     },
-    "en": {
-     "hook": "Do not say “discuss about”!",
-     "tip": "In Hindi “chacha ke baare mein” works, but in English discuss takes no about.",
-     "caption": "Do you say “We discussed about the plan”? 😅 In English “We discussed the plan” is right, because discuss takes no about. Listen to Ama and repeat! Practice more in the Lexkite app."
+    {
+      "id": "t2_l1_hi_amagree",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Agree, no am!",
+        "wrong": "I am agree with you.",
+        "right": "I agree with you.",
+        "strike": "am agree",
+        "why": "Agree is a verb. No am.",
+        "memory": "I agree.",
+        "quiz": {
+          "stem": "I ___ with you.",
+          "options": [
+            "am agree",
+            "agree"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Agree! I agree with you.",
+        "native": {
+          "hook": "“I am agree” गलत है!",
+          "tip": "हिंदी के “मैं सहमत हूँ” की नकल में am न लगाएँ; अंग्रेज़ी में बस “I agree”।",
+          "caption": "क्या आप भी कहते हैं “I am agree with you”? 🤔 अंग्रेज़ी में “I agree with you” सही है, क्योंकि agree खुद क्रिया है, इसके साथ am नहीं लगता। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “agree”। am हटाकर सीधे “I agree” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "“I am agree” is wrong!",
+          "tip": "Learners often put am before agree; in English just say I agree.",
+          "caption": "Do you say “I am agree with you”? 🤔 In English “I agree with you” is right, because agree is a verb on its own, so no am. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_marriedwith",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Married to, not with!",
+        "wrong": "She is married with a doctor.",
+        "right": "She is married to a doctor.",
+        "strike": "with",
+        "why": "Married takes to, not with.",
+        "memory": "Married to.",
+        "quiz": {
+          "stem": "He is married ___ my sister.",
+          "options": [
+            "to",
+            "with"
+          ],
+          "answer": 0
+        },
+        "answer_say": "To! He is married to my sister.",
+        "native": {
+          "hook": "“married with” नहीं, “married to”",
+          "tip": "हिंदी में “से शादी” सुनकर with बोल देते हैं; अंग्रेज़ी में “married to” कहें।",
+          "caption": "क्या आप भी कहते हैं “She is married with a doctor”? 😉 अंग्रेज़ी में “She is married to a doctor” सही है, क्योंकि married के बाद to आता है, with नहीं। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “to”। with की जगह to बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “married to”, not “with”",
+          "tip": "Learners often say with after married; in English married takes to.",
+          "caption": "Do you say “She is married with a doctor”? 😉 In English “She is married to a doctor” is right, because married takes to, not with. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_hairare",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Hair is long!",
+        "wrong": "My hair are long.",
+        "right": "My hair is long.",
+        "strike": "are",
+        "why": "Hair is one thing. Use is.",
+        "memory": "Hair is.",
+        "quiz": {
+          "stem": "Her hair ___ black.",
+          "options": [
+            "is",
+            "are"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Is! Her hair is black.",
+        "native": {
+          "hook": "“My hair are” गलत है!",
+          "tip": "हिंदी में “बाल” बहुवचन लगता है, पर अंग्रेज़ी में hair के साथ is आता है।",
+          "caption": "क्या आप भी कहते हैं “My hair are long”? 🙈 अंग्रेज़ी में “My hair is long” सही है, क्योंकि hair एक समूह की तरह is के साथ चलता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “is”। are की जगह is बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "“My hair are” is wrong!",
+          "tip": "Hair feels plural to many learners, but in English hair takes is.",
+          "caption": "Do you say “My hair are long”? 🙈 In English “My hair is long” is right, because hair takes is like one group. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_advices",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Advice, no s!",
+        "wrong": "Give me some advices.",
+        "right": "Give me some advice.",
+        "strike": "advices",
+        "why": "Advice has no plural.",
+        "memory": "Some advice.",
+        "quiz": {
+          "stem": "I need some ___.",
+          "options": [
+            "advices",
+            "advice"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Advice! I need some advice.",
+        "native": {
+          "hook": "“advices” जैसा शब्द नहीं है!",
+          "tip": "advice का बहुवचन नहीं होता; “some advice” बोलें, “advices” नहीं।",
+          "caption": "क्या आप भी कहते हैं “Give me some advices”? 🤔 अंग्रेज़ी में “Give me some advice” सही है, क्योंकि advice गिना नहीं जाता, इसलिए s नहीं लगता। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “advice”। s हटाकर “some advice” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "“advices” is not a word!",
+          "tip": "Advice has no plural, so never add s to advice.",
+          "caption": "Do you say “Give me some advices”? 🤔 In English “Give me some advice” is right, because advice is not counted, so it takes no s. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_doubt",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Question, not doubt!",
+        "wrong": "I have a doubt.",
+        "right": "I have a question.",
+        "strike": "doubt",
+        "why": "Doubt means you are not sure.",
+        "memory": "Ask a question.",
+        "quiz": {
+          "stem": "Teacher, I have a ___. How do I spell it?",
+          "options": [
+            "doubt",
+            "question"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Question! I have a question.",
+        "native": {
+          "hook": "“I have a doubt” का मतलब अलग!",
+          "tip": "हिंदी का “डाउट” सवाल है, पर अंग्रेज़ी में doubt का मतलब शक है; सवाल के लिए question बोलें।",
+          "caption": "क्या आप भी कहते हैं “I have a doubt”? 😉 अंग्रेज़ी में “I have a question” सही है, क्योंकि doubt का मतलब शक है, सवाल नहीं। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “question”। सवाल पूछना हो तो question बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "“I have a doubt” is not a question",
+          "tip": "Many learners use doubt for a question, but in English doubt means being unsure; say question.",
+          "caption": "Do you say “I have a doubt”? 😉 In English “I have a question” is right, because doubt means being unsure, not a query. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_tomorrowonly",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Just say tomorrow!",
+        "wrong": "I will do it tomorrow only.",
+        "right": "I will do it tomorrow.",
+        "strike": "only",
+        "why": "Don't add only. Just say tomorrow.",
+        "memory": "I will do it tomorrow.",
+        "quiz": {
+          "stem": "I will call you ___.",
+          "options": [
+            "tomorrow only",
+            "tomorrow"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Tomorrow! I will call you tomorrow.",
+        "native": {
+          "hook": "“tomorrow only” क्यों अटपटा है?",
+          "tip": "हिंदी के “कल ही” वाला ज़ोर only से नहीं आता; अंग्रेज़ी में बस “tomorrow” बोलें।",
+          "caption": "क्या आप भी कहते हैं “I will do it tomorrow only”? 😅 अंग्रेज़ी में “I will do it tomorrow” सही है, क्योंकि यहाँ only लगाने की ज़रूरत नहीं है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “tomorrow”। only हटाकर सीधे “tomorrow” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "“tomorrow only” sounds odd. Why?",
+          "tip": "Learners often add only after tomorrow; in English tomorrow is enough.",
+          "caption": "Do you say “I will do it tomorrow only”? 😅 In English “I will do it tomorrow” is right, because only is not needed here. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_graduation",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say graduated!",
+        "wrong": "I did my graduation in 2020.",
+        "right": "I graduated in 2020.",
+        "strike": "did my graduation",
+        "why": "Say graduated.",
+        "memory": "I graduated.",
+        "quiz": {
+          "stem": "She ___ in 2019.",
+          "options": [
+            "did graduation",
+            "graduated"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Graduated! She graduated in 2019.",
+        "native": {
+          "hook": "“did my graduation” न कहें!",
+          "tip": "हिंदी के “ग्रेजुएशन किया” की जगह अंग्रेज़ी में सीधे “I graduated” बोलें।",
+          "caption": "क्या आप भी कहते हैं “I did my graduation in 2020”? 🙈 अंग्रेज़ी में “I graduated in 2020” सही है, क्योंकि graduated अपने आप में पूरी क्रिया है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “graduated”। “did my graduation” की जगह graduated बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do not say “did my graduation”!",
+          "tip": "Learners often say “did graduation”; in English just say I graduated.",
+          "caption": "Do you say “I did my graduation in 2020”? 🙈 In English “I graduated in 2020” is right, because graduated is a full verb on its own. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_openlight",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Turn on the light!",
+        "wrong": "Open the light.",
+        "right": "Turn on the light.",
+        "strike": "Open",
+        "why": "Light uses turn on.",
+        "memory": "Turn on, turn off.",
+        "quiz": {
+          "stem": "Please ___ the light.",
+          "options": [
+            "open",
+            "turn on"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Turn on! Please turn on the light.",
+        "native": {
+          "hook": "बत्ती के लिए “open” नहीं!",
+          "tip": "हिंदी में “लाइट खोलो” सुनकर open बोल देते हैं; अंग्रेज़ी में “turn on” कहें।",
+          "caption": "क्या आप भी कहते हैं “Open the light”? 🤔 अंग्रेज़ी में “Turn on the light” सही है, क्योंकि बत्ती के साथ turn on बोलते हैं, open नहीं। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “turn on”। बत्ती जलानी हो तो “turn on” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Not “open” for a light!",
+          "tip": "Learners often say open for a light; in English you turn on a light.",
+          "caption": "Do you say “Open the light”? 🤔 In English “Turn on the light” is right, because a light goes with turn on, not open. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_livingsince",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Since 2020? Say have lived!",
+        "wrong": "I am living here since 2020.",
+        "right": "I have lived here since 2020.",
+        "strike": "am living",
+        "why": "With since, use have lived, not am living.",
+        "memory": "Have lived since.",
+        "quiz": {
+          "stem": "I ___ here since May.",
+          "options": [
+            "am living",
+            "have lived"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Have lived! I have lived here since May.",
+        "native": {
+          "hook": "“since” के साथ “am living” नहीं",
+          "tip": "हिंदी में “2020 से रह रहा हूँ” कहते हैं, पर अंग्रेज़ी में since के साथ “have lived” आता है।",
+          "caption": "क्या आप भी कहते हैं “I am living here since 2020”? 😉 अंग्रेज़ी में “I have lived here since 2020” सही है, क्योंकि since के साथ “have lived” या “have been living” आता है, “am living” नहीं। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “have lived”। “am living” की जगह “have lived” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Not “am living” with “since”",
+          "tip": "Learners often use am living with since; in English use have lived.",
+          "caption": "Do you say “I am living here since 2020”? 😉 In English “I have lived here since 2020” is right, because since goes with have lived or have been living, not am living. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_bywalk",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "On foot, not by walk!",
+        "wrong": "I go to school by walk.",
+        "right": "I go to school on foot.",
+        "strike": "by walk",
+        "why": "Say on foot.",
+        "memory": "On foot.",
+        "quiz": {
+          "stem": "He goes to work ___.",
+          "options": [
+            "by walk",
+            "on foot"
+          ],
+          "answer": 1
+        },
+        "answer_say": "On foot! He goes to work on foot.",
+        "native": {
+          "hook": "“by walk” नहीं, “on foot”",
+          "tip": "हिंदी के “पैदल” का अंग्रेज़ी रूप “on foot” है, “by walk” नहीं।",
+          "caption": "क्या आप भी कहते हैं “I go to school by walk”? 😅 अंग्रेज़ी में “I go to school on foot” सही है, क्योंकि पैदल जाने के लिए “on foot” कहा जाता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “on foot”। “by walk” की जगह “on foot” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Not “by walk”, but “on foot”",
+          "tip": "Learners often say “by walk”; in English it is on foot.",
+          "caption": "Do you say “I go to school by walk”? 😅 In English “I go to school on foot” is right, because going somewhere by walking is on foot. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_moretaller",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Taller, no more!",
+        "wrong": "He is more taller than me.",
+        "right": "He is taller than me.",
+        "strike": "more taller",
+        "why": "Taller already means more.",
+        "memory": "Taller than.",
+        "quiz": {
+          "stem": "She is ___ than me.",
+          "options": [
+            "more taller",
+            "taller"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Taller! She is taller than me.",
+        "native": {
+          "hook": "“more taller” नहीं, “taller”",
+          "tip": "tall में -er लगाने के बाद more की ज़रूरत नहीं होती; “taller than” बोलें।",
+          "caption": "क्या आप भी कहते हैं “He is more taller than me”? 🙈 अंग्रेज़ी में “He is taller than me” सही है, क्योंकि taller में -er पहले से ही “ज़्यादा” का मतलब देता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “taller”। more हटाकर सिर्फ़ “taller” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Not “more taller”, but “taller”",
+          "tip": "Once you add -er to tall, you do not need more; say taller than.",
+          "caption": "Do you say “He is more taller than me”? 🙈 In English “He is taller than me” is right, because taller already carries the meaning of more. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_haveseen",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Yesterday? Use the simple past!",
+        "wrong": "I have seen him yesterday.",
+        "right": "I saw him yesterday.",
+        "strike": "have seen",
+        "why": "Yesterday needs the simple past.",
+        "memory": "Yesterday, saw.",
+        "quiz": {
+          "stem": "We ___ a movie last night.",
+          "options": [
+            "have seen",
+            "saw"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Saw! We saw a movie last night.",
+        "native": {
+          "hook": "“yesterday” के साथ “have seen”?",
+          "tip": "बीते हुए समय (कल, पिछली रात) के साथ “saw” जैसा सरल भूतकाल बोलें, “have seen” नहीं।",
+          "caption": "क्या आप भी कहते हैं “I have seen him yesterday”? 🤔 अंग्रेज़ी में “I saw him yesterday” सही है, क्योंकि कल जैसे तय समय के साथ simple past चलता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “saw”। “have seen” की जगह “saw” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "“have seen” with “yesterday”?",
+          "tip": "With a finished time like yesterday, use the simple past saw, not have seen.",
+          "caption": "Do you say “I have seen him yesterday”? 🤔 In English “I saw him yesterday” is right, because a fixed past time takes the simple past. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_outofstation",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Out of town!",
+        "wrong": "I am out of station.",
+        "right": "I am out of town.",
+        "strike": "station",
+        "why": "Say out of town.",
+        "memory": "Out of town.",
+        "quiz": {
+          "stem": "He is ___ this week.",
+          "options": [
+            "out of station",
+            "out of town"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Out of town! He is out of town this week.",
+        "native": {
+          "hook": "“out of station” नहीं, “town”!",
+          "tip": "भारत में “out of station” आम है, पर अंग्रेज़ी में शहर से बाहर होने के लिए “out of town” कहें।",
+          "caption": "क्या आप भी कहते हैं “I am out of station”? 😉 अंग्रेज़ी में “I am out of town” सही है, क्योंकि शहर से बाहर होने के लिए out of town बोला जाता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “out of town”। station की जगह town बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Not “out of station”, but “town”",
+          "tip": "To say you are away from your city, say out of town.",
+          "caption": "Do you say “I am out of station”? 😉 In English “I am out of town” is right, because away from your city is out of town. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        },
+        "teacher": "carlos"
+      }
+    },
+    {
+      "id": "t2_l1_hi_verymuch",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Very, not very much!",
+        "wrong": "I am very much hungry.",
+        "right": "I am very hungry.",
+        "strike": "very much",
+        "why": "Very much is not for hungry.",
+        "memory": "Very hungry.",
+        "quiz": {
+          "stem": "I am ___ tired.",
+          "options": [
+            "very much",
+            "very"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Very! I am very tired.",
+        "native": {
+          "hook": "“very much hungry” न कहें!",
+          "tip": "हिंदी के “बहुत ज़्यादा भूखा” की नकल में much न जोड़ें; “very hungry” कहें।",
+          "caption": "क्या आप भी कहते हैं “I am very much hungry”? 😅 अंग्रेज़ी में “I am very hungry” सही है, क्योंकि विशेषण से पहले very आता है, very much नहीं। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “very”। much हटाकर “very hungry” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do not say “very much hungry”!",
+          "tip": "Learners often add much after very; very hungry is enough.",
+          "caption": "Do you say “I am very much hungry”? 😅 In English “I am very hungry” is right, because before an adjective use very, not very much. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_whereyouare",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Are before you!",
+        "wrong": "Where you are going?",
+        "right": "Where are you going?",
+        "strike": "you are",
+        "why": "Put are before you.",
+        "memory": "Where are you?",
+        "quiz": {
+          "stem": "Where ___ going?",
+          "options": [
+            "you are",
+            "are you"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Are you! Where are you going?",
+        "native": {
+          "hook": "“Where you are” का क्रम ग़लत!",
+          "tip": "हिंदी में “आप कहाँ जा रहे हैं” का क्रम अलग है; अंग्रेज़ी सवाल में are पहले आता है।",
+          "caption": "क्या आप भी कहते हैं “Where you are going?” 🙈 अंग्रेज़ी में “Where are you going?” सही है, क्योंकि सवाल में are, you से पहले आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “are you”। क्रम बदलकर “are you” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Wrong order: “Where you are”",
+          "tip": "Learners often keep the statement order in a question; in English are comes first.",
+          "caption": "Do you say “Where you are going?” 🙈 In English “Where are you going?” is right, because in a question are comes before you. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_waitingyou",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Wait for!",
+        "wrong": "I am waiting you here.",
+        "right": "I am waiting for you here.",
+        "strike": "waiting you",
+        "why": "Wait needs for.",
+        "memory": "Wait for you.",
+        "quiz": {
+          "stem": "I wait ___ the bus.",
+          "options": [
+            "for",
+            "to"
+          ],
+          "answer": 0
+        },
+        "answer_say": "For! I wait for the bus.",
+        "native": {
+          "hook": "“waiting you” में for भूल गए!",
+          "tip": "हिंदी में “आपका इंतज़ार” कहते हैं, पर अंग्रेज़ी में wait के बाद for ज़रूरी है।",
+          "caption": "क्या आप भी कहते हैं “I am waiting you here”? 😉 अंग्रेज़ी में “I am waiting for you here” सही है, क्योंकि wait के बाद for लगाना ज़रूरी है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “for”। wait के बाद for जोड़ें। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "You forgot for in “waiting you”!",
+          "tip": "Learners often drop for after wait; English needs for after wait.",
+          "caption": "Do you say “I am waiting you here”? 😉 In English “I am waiting for you here” is right, because wait needs for after it. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_reachedto",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Reached home!",
+        "wrong": "I reached to home at six.",
+        "right": "I reached home at six.",
+        "strike": "to home",
+        "why": "Reach has no to.",
+        "memory": "Reached home.",
+        "quiz": {
+          "stem": "We ___ at six.",
+          "options": [
+            "reached home",
+            "reached to home"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Reached home! We reached home at six.",
+        "native": {
+          "hook": "“reached to home” गलत है!",
+          "tip": "हिंदी के “घर पहुँचा” की तरह to न जोड़ें; अंग्रेज़ी में “reached home” बोलें।",
+          "caption": "क्या आप भी कहते हैं “I reached to home at six”? 😅 अंग्रेज़ी में “I reached home at six” सही है, क्योंकि reach के बाद सीधे जगह आती है, to नहीं। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “reached home”। to हटाकर “reached home” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "“reached to home” is wrong!",
+          "tip": "Learners often add to after reached; reached home is enough.",
+          "caption": "Do you say “I reached to home at six”? 😅 In English “I reached home at six” is right, because reach takes the place directly, no to. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_doesnothas",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Does not have!",
+        "wrong": "She does not has a car.",
+        "right": "She does not have a car.",
+        "strike": "has",
+        "why": "After does not, use have.",
+        "memory": "Does not have.",
+        "quiz": {
+          "stem": "He does not ___ a bike.",
+          "options": [
+            "has",
+            "have"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Have! He does not have a bike.",
+        "native": {
+          "hook": "“does not has” में गलती कहाँ?",
+          "tip": "does not के बाद क्रिया का मूल रूप आता है, इसलिए has नहीं, have बोलें।",
+          "caption": "क्या आप भी कहते हैं “She does not has a car”? 🙈 अंग्रेज़ी में “She does not have a car” सही है, क्योंकि does not के बाद क्रिया बिना s वाले रूप में रहती है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “have”। has की जगह have बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "What is wrong in “does not has”?",
+          "tip": "After does not the base verb stays, so say have, not has.",
+          "caption": "Do you say “She does not has a car”? 🙈 In English “She does not have a car” is right, because after does not the verb keeps its base form. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_prepone",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Move it up!",
+        "wrong": "Can we prepone the meeting?",
+        "right": "Can we move up the meeting?",
+        "strike": "prepone",
+        "why": "Say move up.",
+        "memory": "Move it up.",
+        "quiz": {
+          "stem": "Let us ___ the class.",
+          "options": [
+            "prepone",
+            "move up"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Move up! Let us move up the class.",
+        "native": {
+          "hook": "“prepone” की जगह “move up”",
+          "tip": "भारत में “prepone” बहुत चलता है, पर अंग्रेज़ी में समय पहले करने के लिए “move up” कहें।",
+          "caption": "क्या आप भी कहते हैं “Can we prepone the meeting?” 🤔 अंग्रेज़ी में “Can we move up the meeting?” सही है, क्योंकि समय पहले करने के लिए move up बोला जाता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “move up”। prepone की जगह move up बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Not “prepone”, but “move up”",
+          "tip": "To make a time earlier, say move up.",
+          "caption": "Do you say “Can we prepone the meeting?” 🤔 In English “Can we move up the meeting?” is right, because making a time earlier is move up. Listen to Ama and repeat! Practice more in the Lexkite app."
+        },
+        "teacher": "ama"
+      }
+    },
+    {
+      "id": "t2_l1_hi_giveexam",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Take an exam!",
+        "wrong": "I will give an exam tomorrow.",
+        "right": "I will take an exam tomorrow.",
+        "strike": "give an exam",
+        "why": "Take an exam. Not give.",
+        "memory": "Take an exam.",
+        "quiz": {
+          "stem": "I will ___ my exam tomorrow.",
+          "options": [
+            "give",
+            "take"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Take! I will take my exam tomorrow.",
+        "native": {
+          "hook": "“give an exam” नहीं, “take”",
+          "tip": "हिंदी के “परीक्षा देना” की नकल में give न बोलें; अंग्रेज़ी में “take an exam” कहें।",
+          "caption": "क्या आप भी कहते हैं “I will give an exam tomorrow”? 😉 अंग्रेज़ी में “I will take an exam tomorrow” सही है, क्योंकि परीक्षा के साथ take आता है, give नहीं। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “take”। परीक्षा के साथ give नहीं, take बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “take an exam,” not “give”",
+          "tip": "Learners often say give with exam; in English you take an exam.",
+          "caption": "Do you say “I will give an exam tomorrow”? 😉 In English “I will take an exam tomorrow” is right, because an exam goes with take, not give. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_goodin",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Good at!",
+        "wrong": "He is good in math.",
+        "right": "He is good at math.",
+        "strike": "in",
+        "why": "Say good at.",
+        "memory": "Good at.",
+        "quiz": {
+          "stem": "I am good ___ cooking.",
+          "options": [
+            "at",
+            "in"
+          ],
+          "answer": 0
+        },
+        "answer_say": "At! I am good at cooking.",
+        "native": {
+          "hook": "“good in” नहीं, “good at”",
+          "tip": "किसी काम में माहिर होने के लिए “good at” बोलें, “good in” नहीं।",
+          "caption": "क्या आप भी कहते हैं “He is good in math”? 😅 अंग्रेज़ी में “He is good at math” सही है, क्योंकि किसी काम में अच्छा होने के साथ at आता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “at”। in की जगह at बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Not “good in”, but “good at”",
+          "tip": "To say you are skilled at something, use good at, not good in.",
+          "caption": "Do you say “He is good in math”? 😅 In English “He is good at math” is right, because good takes at for a skill. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_revert",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Reply, not revert!",
+        "wrong": "Please revert back to me.",
+        "right": "Please reply to me.",
+        "strike": "revert back",
+        "why": "Revert is not reply.",
+        "memory": "Please reply.",
+        "quiz": {
+          "stem": "Please ___ to my message.",
+          "options": [
+            "revert back",
+            "reply"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Reply! Please reply to my message.",
+        "native": {
+          "hook": "“revert back” का मतलब अलग है!",
+          "tip": "दफ़्तर में “revert back” जवाब के लिए चलता है, पर अंग्रेज़ी में revert का मतलब लौटना है; “reply” बोलें।",
+          "caption": "क्या आप भी कहते हैं “Please revert back to me”? 🙈 अंग्रेज़ी में “Please reply to me” सही है, क्योंकि revert का मतलब पुरानी हालत में लौटना है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “reply”। जवाब देने के लिए “reply” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "“revert back” is not reply!",
+          "tip": "“Revert back” is common at work for a reply, but in English revert means to go back; say reply.",
+          "caption": "Do you say “Please revert back to me”? 🙈 In English “Please reply to me” is right, because revert means to go back to an earlier state. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_cousinbrother",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Cousin is enough!",
+        "wrong": "I have a cousin brother.",
+        "right": "I have a cousin.",
+        "strike": "cousin brother",
+        "why": "Cousin is for a boy or a girl.",
+        "memory": "Just cousin.",
+        "quiz": {
+          "stem": "I met my ___ today.",
+          "options": [
+            "cousin brother",
+            "cousin"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Cousin! I met my cousin today.",
+        "native": {
+          "hook": "“cousin brother” नहीं, “cousin”",
+          "tip": "हिंदी में “चचेरा भाई” कहते हैं, पर अंग्रेज़ी में सिर्फ़ cousin काफ़ी है।",
+          "caption": "क्या आप भी कहते हैं “I have a cousin brother”? 🤔 अंग्रेज़ी में “I have a cousin” सही है, क्योंकि cousin लड़का या लड़की, दोनों के लिए चलता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “cousin”। brother हटाकर सिर्फ़ “cousin” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Not “cousin brother”, but “cousin”",
+          "tip": "Learners often add brother to cousin, but English just says cousin.",
+          "caption": "Do you say “I have a cousin brother”? 🤔 In English “I have a cousin” is right, because cousin works for a boy or a girl. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_afraidfrom",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Afraid of!",
+        "wrong": "I am afraid from dogs.",
+        "right": "I am afraid of dogs.",
+        "strike": "from",
+        "why": "Afraid takes of.",
+        "memory": "Afraid of.",
+        "quiz": {
+          "stem": "She is afraid ___ spiders.",
+          "options": [
+            "of",
+            "from"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Of! She is afraid of spiders.",
+        "native": {
+          "hook": "“afraid from” नहीं, “afraid of”",
+          "tip": "हिंदी के “कुत्तों से डर” की नकल में from न बोलें; अंग्रेज़ी में “afraid of” कहें।",
+          "caption": "क्या आप भी कहते हैं “I am afraid from dogs”? 😉 अंग्रेज़ी में “I am afraid of dogs” सही है, क्योंकि afraid के बाद of आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “of”। from की जगह of बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Not “afraid from”, but “afraid of”",
+          "tip": "Do not say 'from' in imitation of the Hindi word 'afraid of dogs'; Say “afraid of” in English.",
+          "caption": "Do you say “I am afraid from dogs”? 😉 In English “I am afraid of dogs” is right, because afraid takes of. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_myself",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say I am, not myself!",
+        "wrong": "Myself Ali.",
+        "right": "I am Ali.",
+        "strike": "Myself",
+        "why": "Say I am, then your name.",
+        "memory": "I am Ali.",
+        "quiz": {
+          "stem": "___ Ali.",
+          "options": [
+            "Myself",
+            "I am"
+          ],
+          "answer": 1
+        },
+        "answer_say": "I am! I am Ali.",
+        "native": {
+          "hook": "“Myself Ali” नहीं, “I am Ali”!",
+          "tip": "भारत में “Myself Ali” औपचारिक लगता है, पर अंग्रेज़ी में परिचय “I am” से करें।",
+          "caption": "क्या आप भी कहते हैं “Myself Ali”? 😅 अंग्रेज़ी में “I am Ali” सही है, क्योंकि myself खुद पर ज़ोर देने वाला शब्द है, इसलिए परिचय में “I am” आता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “I am”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Not “Myself Ali”, but “I am Ali”!",
+          "tip": "“Myself Ali” may sound formal, but to introduce yourself, start with I am.",
+          "caption": "Do you say “Myself Ali”? 😅 In English “I am Ali” is right, because myself only adds stress, so an introduction starts with I am. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_saidme",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Tell me, not say me!",
+        "wrong": "She said me to wait.",
+        "right": "She told me to wait.",
+        "strike": "said",
+        "why": "Say has no me. Use told me.",
+        "memory": "She told me.",
+        "quiz": {
+          "stem": "He ___ me to sit.",
+          "options": [
+            "said",
+            "told"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Told! He told me to sit.",
+        "native": {
+          "hook": "“said me” नहीं, “told me”!",
+          "tip": "हिंदी में “मुझसे कहा” के लिए एक ही क्रिया “कहना” चलती है; अंग्रेज़ी में “me” के साथ told आता है, said नहीं।",
+          "caption": "क्या आप भी कहते हैं “She said me to wait”? 😅 अंग्रेज़ी में “She told me to wait” सही है, क्योंकि said के बाद सीधे me नहीं आता, “told me” आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “told”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Not “said me”, but “told me”!",
+          "tip": "Learners often use said with me; in English me goes with told, not said.",
+          "caption": "Do you say “She said me to wait”? 😅 In English “She told me to wait” is right, because said does not take me directly, but told does. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_teacher",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Add a before teacher!",
+        "wrong": "My brother is teacher.",
+        "right": "My brother is a teacher.",
+        "strike": "is teacher",
+        "why": "Say a before the job.",
+        "memory": "He is a doctor.",
+        "quiz": {
+          "stem": "My sister is ___.",
+          "options": [
+            "doctor",
+            "a doctor"
+          ],
+          "answer": 1
+        },
+        "answer_say": "A doctor! My sister is a doctor.",
+        "native": {
+          "hook": "“is teacher” नहीं, “is a teacher”!",
+          "tip": "हिंदी में a/an जैसा शब्द नहीं होता (“वह टीचर है”); अंग्रेज़ी में काम बताते समय a या an ज़रूर लगाएँ।",
+          "caption": "क्या आप भी कहते हैं “My brother is teacher”? 😅 अंग्रेज़ी में “My brother is a teacher” सही है, क्योंकि अंग्रेज़ी में काम बताते समय a या an लगता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “a”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “is a teacher”!",
+          "tip": "There is no word like a/an in Hindi (“He is a teacher”); While describing work in English, make sure to use a or an.",
+          "caption": "Do you say “My brother is teacher”? 😅 In English “My brother is a teacher” is right, because English puts a or an before a job. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_listento",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Listen to songs!",
+        "wrong": "I listen songs every day.",
+        "right": "I listen to songs every day.",
+        "strike": "listen songs",
+        "why": "Listen needs to before songs.",
+        "memory": "Listen to music.",
+        "quiz": {
+          "stem": "I listen ___ music.",
+          "options": [
+            "to",
+            "at"
+          ],
+          "answer": 0
+        },
+        "answer_say": "To! I listen to music.",
+        "native": {
+          "hook": "“listen songs” नहीं, “listen to”!",
+          "tip": "हिंदी में “गाने सुनता हूँ” सीधा चलता है, बीच में कुछ नहीं लगता; अंग्रेज़ी में listen के बाद to ज़रूरी है।",
+          "caption": "क्या आप भी कहते हैं “I listen songs every day”? 😅 अंग्रेज़ी में “I listen to songs every day” सही है, क्योंकि listen के बाद to ज़रूरी है, जबकि हिंदी में “गाने सुनना” सीधा चलता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “to”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “listen to songs”!",
+          "tip": "Learners often skip to after listen; English needs to after listen.",
+          "caption": "Do you say “I listen songs every day”? 😅 In English “I listen to songs every day” is right, because listen needs to before what you hear. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_everyone",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Everyone is, not are!",
+        "wrong": "Everyone are here.",
+        "right": "Everyone is here.",
+        "strike": "are",
+        "why": "Everyone is one. Say is.",
+        "memory": "Everyone is happy.",
+        "quiz": {
+          "stem": "Everyone ___ happy.",
+          "options": [
+            "are",
+            "is"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Is! Everyone is happy.",
+        "native": {
+          "hook": "“Everyone are” नहीं, “is”!",
+          "tip": "हिंदी में “सब यहाँ हैं” बहुवचन “हैं” के साथ आता है; पर अंग्रेज़ी में everyone के साथ is लगता है।",
+          "caption": "क्या आप भी कहते हैं “Everyone are here”? 😅 अंग्रेज़ी में “Everyone is here” सही है, क्योंकि everyone एकवचन है, इसलिए is आता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “is”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Not “Everyone are”, but “is”!",
+          "tip": "Everyone feels plural to many learners; in English everyone takes is.",
+          "caption": "Do you say “Everyone are here”? 😅 In English “Everyone is here” is right, because everyone takes is, not are. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_sametosame",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Exactly the same!",
+        "wrong": "Your bag is same to same.",
+        "right": "Your bag is exactly the same as mine.",
+        "strike": "same to same",
+        "why": "Say exactly the same.",
+        "memory": "Exactly the same.",
+        "quiz": {
+          "stem": "Our shirts are ___.",
+          "options": [
+            "same to same",
+            "exactly the same"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Exactly the same! Our shirts are exactly the same.",
+        "native": {
+          "hook": "“same to same” नहीं!",
+          "tip": "हिंदी के “बिल्कुल एक जैसा” के लिए “same to same” न कहें; अंग्रेज़ी में “exactly the same” बोलें।",
+          "caption": "क्या आप भी कहते हैं “Your bag is same to same”? 😅 अंग्रेज़ी में “Your bag is exactly the same as mine” सही है, क्योंकि बिल्कुल एक जैसा बताने के लिए exactly the same बोला जाता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “exactly the same”। “same to same” की जगह यही बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Not “same to same”!",
+          "tip": "For things that match fully, say exactly the same.",
+          "caption": "Do you say “Your bag is same to same”? 😅 In English “Your bag is exactly the same as mine” is right, because things that match fully are exactly the same. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        },
+        "teacher": "carlos"
+      }
+    },
+    {
+      "id": "t2_l1_hi_whereis",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Where the bank is!",
+        "wrong": "I do not know where is the bank.",
+        "right": "I do not know where the bank is.",
+        "strike": "where is",
+        "why": "Say where, the bank, then is.",
+        "memory": "I know where he is.",
+        "quiz": {
+          "stem": "I do not know where ___.",
+          "options": [
+            "it is",
+            "is it"
+          ],
+          "answer": 0
+        },
+        "answer_say": "It is! I do not know where it is.",
+        "native": {
+          "hook": "“where is the bank” कब गलत?",
+          "tip": "हिंदी में “कहाँ है” का क्रम हर जगह वही रहता है; अंग्रेज़ी के छिपे सवाल में is आख़िर में जाता है।",
+          "caption": "क्या आप भी कहते हैं “I do not know where is the bank”? 😅 अंग्रेज़ी में “I do not know where the bank is” सही है, क्योंकि वाक्य के अंदर आए where वाले सवाल में is आख़िर में जाता है, सीधे सवाल की तरह आगे नहीं। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “it is”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “where the bank is”!",
+          "tip": "In a hidden question, is goes last, not right after where.",
+          "caption": "Do you say “I do not know where is the bank”? 😅 In English “I do not know where the bank is” is right, because in a hidden question, is goes last. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_tallerfrom",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Older than, not from!",
+        "wrong": "He is older from me.",
+        "right": "He is older than me.",
+        "strike": "from",
+        "why": "Older needs than, not from.",
+        "memory": "He is older than me.",
+        "quiz": {
+          "stem": "She is older ___ me.",
+          "options": [
+            "from",
+            "than"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Than! She is older than me.",
+        "native": {
+          "hook": "“older from” नहीं, “older than”!",
+          "tip": "हिंदी में “मुझसे बड़ा” का “से” अंग्रेज़ी में from बन जाता है; पर तुलना में than बोलें।",
+          "caption": "क्या आप भी कहते हैं “He is older from me”? 😅 अंग्रेज़ी में “He is older than me” सही है, क्योंकि हिंदी का “से” यहाँ from नहीं, than बनता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “than”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “older than”!",
+          "tip": "Learners often use from when comparing; in English comparing needs than.",
+          "caption": "Do you say “He is older from me”? 😅 In English “He is older than me” is right, because comparing needs than, not from. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_angryon",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Angry at, not on!",
+        "wrong": "She is angry on me.",
+        "right": "She is angry at me.",
+        "strike": "on",
+        "why": "Angry goes with at.",
+        "memory": "Do not be angry at me.",
+        "quiz": {
+          "stem": "He is angry ___ me.",
+          "options": [
+            "on",
+            "at"
+          ],
+          "answer": 1
+        },
+        "answer_say": "At! He is angry at me.",
+        "native": {
+          "hook": "“angry on” नहीं, “angry at”!",
+          "tip": "हिंदी में “मुझ पर गुस्सा” का “पर” अंग्रेज़ी में on बन जाता है; सही रूप “angry at” है।",
+          "caption": "क्या आप भी कहते हैं “She is angry on me”? 😅 अंग्रेज़ी में “She is angry at me” सही है, क्योंकि हिंदी का “पर” यहाँ on नहीं, at बनता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “at”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Not “angry on”, but “angry at”!",
+          "tip": "Learners often say on after angry; the right word is at.",
+          "caption": "Do you say “She is angry on me”? 😅 In English “She is angry at me” is right, because angry goes with at, not on. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_prefer",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Prefer to, not than!",
+        "wrong": "I prefer tea than coffee.",
+        "right": "I prefer tea to coffee.",
+        "strike": "than",
+        "why": "Prefer needs to.",
+        "memory": "I prefer tea to coffee.",
+        "quiz": {
+          "stem": "I prefer cats ___ dogs.",
+          "options": [
+            "than",
+            "to"
+          ],
+          "answer": 1
+        },
+        "answer_say": "To! I prefer cats to dogs.",
+        "native": {
+          "hook": "“prefer than” नहीं, “prefer to”!",
+          "tip": "हिंदी में “कॉफ़ी से ज़्यादा चाय” का “से” तुलना बनाता है, इसलिए than याद आता है; prefer के साथ to आता है।",
+          "caption": "क्या आप भी कहते हैं “I prefer tea than coffee”? 😅 अंग्रेज़ी में “I prefer tea to coffee” सही है। हिंदी के “से ज़्यादा” की वजह से than मन में आता है, पर prefer के साथ to आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “to”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “prefer tea to coffee”!",
+          "tip": "In Hindi, “se” in “more tea than coffee” makes comparison, hence than comes to mind; To comes with prefer.",
+          "caption": "Do you say “I prefer tea than coffee”? 😅 In English “I prefer tea to coffee” is right, because prefer takes to, not than. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_understand",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Just say understand!",
+        "wrong": "I am understanding you.",
+        "right": "I understand you.",
+        "strike": "am understanding",
+        "why": "We do not use am with understand.",
+        "memory": "I understand you.",
+        "quiz": {
+          "stem": "I ___ the lesson.",
+          "options": [
+            "am understanding",
+            "understand"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Understand! I understand the lesson.",
+        "native": {
+          "hook": "“am understanding” नहीं!",
+          "tip": "हिंदी में “समझ रहा हूँ” आम है, पर अंग्रेज़ी में understand के साथ am नहीं लगता; “I understand” कहें।",
+          "caption": "क्या आप भी यही कहते हैं? “I am understanding you.” 😅 सही रूप है “I understand you.” क्योंकि understand के साथ am नहीं लगता। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “understand”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Not “am understanding”!",
+          "tip": "Many learners say am understanding, but understand takes no am.",
+          "caption": "Do you say this? “I am understanding you.” 😅 The right way is “I understand you.” This is right because understand takes no am. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_thedog",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say the dog the second time!",
+        "wrong": "I saw a dog. Dog was big.",
+        "right": "I saw a dog. The dog was big.",
+        "strike": "Dog was",
+        "why": "Use the for something we already know.",
+        "memory": "I saw a dog. The dog was big.",
+        "quiz": {
+          "stem": "I saw a bird. ___ was small.",
+          "options": [
+            "Bird",
+            "The bird"
+          ],
+          "answer": 1
+        },
+        "answer_say": "The bird! The bird was small.",
+        "native": {
+          "hook": "दूसरी बार “The dog” कहें!",
+          "tip": "हिंदी में “कुत्ता बड़ा था” कहने के लिए अलग छोटा शब्द नहीं चाहिए, पर अंग्रेज़ी में पहले बताई चीज़ के आगे the लगाते हैं।",
+          "caption": "क्या आप भी यही कहते हैं? “I saw a dog. Dog was big.” 😅 सही रूप है “I saw a dog. The dog was big.” क्योंकि पहले बताई चीज़ के आगे the लगता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “The bird”। अब इसी तरह अपना एक वाक्य लिखिए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “The dog” the second time!",
+          "tip": "Many learners skip the, but in English use the for something already mentioned.",
+          "caption": "Do you say this? “I saw a dog. Dog was big.” 😅 The right way is “I saw a dog. The dog was big.” This is right because we use the for something already mentioned. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_gotooffice",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Go to the office!",
+        "wrong": "I go to office every day.",
+        "right": "I go to the office every day.",
+        "strike": "to office",
+        "why": "Office needs the here.",
+        "memory": "I go to the office.",
+        "quiz": {
+          "stem": "He goes to ___ every day.",
+          "options": [
+            "office",
+            "the office"
+          ],
+          "answer": 1
+        },
+        "answer_say": "The office! He goes to the office.",
+        "native": {
+          "hook": "“to office” नहीं, “to the office”!",
+          "tip": "हिंदी में “ऑफ़िस जाता हूँ” बिना किसी छोटे शब्द के चलता है, पर अंग्रेज़ी में office के पहले the लगाएँ।",
+          "caption": "क्या आप भी यही कहते हैं? “I go to office every day.” 😅 सही रूप है “I go to the office every day.” क्योंकि office के पहले the लगता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “the office”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “to the office”!",
+          "tip": "Many learners skip the before office, but English needs it.",
+          "caption": "Do you say this? “I go to office every day.” 😅 The right way is “I go to the office every day.” This is right because office needs the. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_amhaving",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say I have, not I am having!",
+        "wrong": "I am having two brothers.",
+        "right": "I have two brothers.",
+        "strike": "am having",
+        "why": "For family and things we own, say have.",
+        "memory": "I have two brothers.",
+        "quiz": {
+          "stem": "She ___ a car.",
+          "options": [
+            "is having",
+            "has"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Has! She has a car.",
+        "native": {
+          "hook": "“I am having” नहीं, “I have”!",
+          "tip": "हिंदी में “मेरे दो भाई हैं” को “I am having” बोल देते हैं; किसी चीज़ या रिश्ते के होने के लिए सिर्फ़ have बोलें।",
+          "caption": "क्या आप भी यही कहते हैं? “I am having two brothers.” 😅 सही रूप है “I have two brothers.” क्योंकि परिवार और अपनी चीज़ों के लिए have बोलते हैं। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “has”। अब अपने परिवार के बारे में एक वाक्य लिखिए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “I have”, not “I am having”!",
+          "tip": "Many learners say am having for family, but we just say have.",
+          "caption": "Do you say this? “I am having two brothers.” 😅 The right way is “I have two brothers.” This is right because for family and things we own, we say have. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_ifrain",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "After if, no will!",
+        "wrong": "If it will rain, I will stay home.",
+        "right": "If it rains, I will stay home.",
+        "strike": "will rain",
+        "why": "After if, say rains, not will rain.",
+        "memory": "If it rains, I stay home.",
+        "quiz": {
+          "stem": "If he ___ late, call me.",
+          "options": [
+            "will come",
+            "comes"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Comes! If he comes late, call me.",
+        "native": {
+          "hook": "“If it will rain” नहीं!",
+          "tip": "हिंदी में “अगर बारिश होगी” भविष्य में कहते हैं, पर अंग्रेज़ी में if के बाद will नहीं लगता; “If it rains” कहें।",
+          "caption": "क्या आप भी यही कहते हैं? “If it will rain, I will stay home.” 😅 सही रूप है “If it rains, I will stay home.” क्योंकि if के बाद will नहीं लगता। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “comes”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Not “If it will rain”!",
+          "tip": "Hindi speakers often put will after if, but English uses rains there.",
+          "caption": "Do you say this? “If it will rain, I will stay home.” 😅 The right way is “If it rains, I will stay home.” This is right because if takes no will. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_mademistake",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Make a mistake, not do!",
+        "wrong": "I did a mistake in the test.",
+        "right": "I made a mistake in the test.",
+        "strike": "did",
+        "why": "We say make a mistake.",
+        "memory": "I made a mistake.",
+        "quiz": {
+          "stem": "Sorry, I ___ a mistake.",
+          "options": [
+            "did",
+            "made"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Made! Sorry, I made a mistake.",
+        "native": {
+          "hook": "“did a mistake” नहीं, “made”!",
+          "tip": "हिंदी में “गलती की” कहते हैं, इसलिए do याद आता है; अंग्रेज़ी में mistake के साथ make बोलें।",
+          "caption": "क्या आप भी यही कहते हैं? “I did a mistake in the test.” 😅 सही रूप है “I made a mistake in the test.” क्योंकि mistake के साथ make आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “made”। अब इसी तरह अपना एक वाक्य लिखिए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “made a mistake”!",
+          "tip": "Many learners use do with mistake, but English uses make.",
+          "caption": "Do you say this? “I did a mistake in the test.” 😅 The right way is “I made a mistake in the test.” This is right because mistake goes with make. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_tenyears",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Do not forget old!",
+        "wrong": "My brother is ten years.",
+        "right": "My brother is ten years old.",
+        "strike": "ten years",
+        "why": "Say old after the number of years.",
+        "memory": "He is ten years old.",
+        "quiz": {
+          "stem": "My sister is ___.",
+          "options": [
+            "ten years",
+            "ten years old"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Ten years old! My sister is ten years old.",
+        "native": {
+          "hook": "“ten years” के बाद old लगाएँ!",
+          "tip": "हिंदी में “वह दस साल का है” कहते हैं; अंग्रेज़ी में उम्र बताते समय years के बाद old ज़रूर लगाएँ।",
+          "caption": "क्या आप भी यही कहते हैं? “My brother is ten years.” 😅 सही रूप है “My brother is ten years old.” क्योंकि उम्र में years के बाद old लगता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “ten years old”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Add old after “ten years”!",
+          "tip": "Many learners stop at the years, but English adds old.",
+          "caption": "Do you say this? “My brother is ten years.” 😅 The right way is “My brother is ten years old.” This is right because age needs old after years. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_sincemorning",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Since morning, not from!",
+        "wrong": "I have been waiting from morning.",
+        "right": "I have been waiting since morning.",
+        "strike": "from",
+        "why": "Use since for the start time.",
+        "memory": "Since morning.",
+        "quiz": {
+          "stem": "I have waited ___ morning.",
+          "options": [
+            "from",
+            "since"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Since! I have waited since morning.",
+        "native": {
+          "hook": "“from morning” नहीं, “since”!",
+          "tip": "हिंदी में “सुबह से” का “से” अंग्रेज़ी में from बन जाता है; शुरुआत का समय बताने के लिए since बोलें।",
+          "caption": "क्या आप भी यही कहते हैं? “I have been waiting from morning.” 😅 सही रूप है “I have been waiting since morning.” क्योंकि शुरुआत का समय बताने के लिए since आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “since”। अब इसी तरह अपना एक वाक्य लिखिए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Not “from morning”, but “since”!",
+          "tip": "Learners often use from for a start time, but English uses since.",
+          "caption": "Do you say this? “I have been waiting from morning.” 😅 The right way is “I have been waiting since morning.” This is right because since shows the start time. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_isnotit",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say don't you, not isn't it!",
+        "wrong": "You like tea, isn't it?",
+        "right": "You like tea, don't you?",
+        "strike": "isn't it",
+        "why": "The end must match the verb.",
+        "memory": "You like tea, don't you?",
+        "quiz": {
+          "stem": "She works here, ___?",
+          "options": [
+            "isn't it",
+            "doesn't she"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Doesn't she! She works here, doesn't she?",
+        "native": {
+          "hook": "“isn't it” हर जगह नहीं चलता!",
+          "tip": "हिंदी का “है ना?” हर वाक्य के अंत में चल जाता है; अंग्रेज़ी में अंत वाला हिस्सा क्रिया के अनुसार बदलता है, जैसे don't you।",
+          "caption": "क्या आप भी यही कहते हैं? “You like tea, isn't it?” 😅 सही रूप है “You like tea, don't you?” क्योंकि अंत वाला हिस्सा क्रिया के अनुसार बदलता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “doesn't she”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "“Isn’t it” doesn’t work everywhere",
+          "tip": "Many learners end every sentence with isn't it, but the end must match the verb.",
+          "caption": "Do you say this? “You like tea, isn't it?” 😅 The right way is “You like tea, don't you?” This is right because the end must match the verb. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_toogood",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Very good, not too good!",
+        "wrong": "The tea is too good.",
+        "right": "The tea is very good.",
+        "strike": "too",
+        "why": "Too means more than we want.",
+        "memory": "The tea is very good.",
+        "quiz": {
+          "stem": "The cake is ___ tasty.",
+          "options": [
+            "too",
+            "very"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Very! The cake is very tasty.",
+        "native": {
+          "hook": "अच्छी बात पर “too” नहीं, “very”!",
+          "tip": "हिंदी में “बहुत” हर जगह चलता है, पर अंग्रेज़ी में too का मतलब “ज़रूरत से ज़्यादा” होता है; अच्छी बात पर very बोलें।",
+          "caption": "क्या आप भी यही कहते हैं? “The tea is too good.” 😅 सही रूप है “The tea is very good.” क्योंकि too का मतलब ज़रूरत से ज़्यादा होता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “very”। अब इसी तरह अपना एक वाक्य लिखिए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “very”, not “too”!",
+          "tip": "Many learners use too for a lot, but too means more than we want.",
+          "caption": "Do you say this? “The tea is too good.” 😅 The right way is “The tea is very good.” This is right because too means more than we want. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_atthere",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say there, not at there!",
+        "wrong": "I will meet you at there.",
+        "right": "I will meet you there.",
+        "strike": "at there",
+        "why": "There already means in that place.",
+        "memory": "I will wait there.",
+        "quiz": {
+          "stem": "I will wait ___.",
+          "options": [
+            "at there",
+            "there"
+          ],
+          "answer": 1
+        },
+        "answer_say": "There! I will wait there.",
+        "native": {
+          "hook": "“at there” नहीं, सिर्फ़ “there”!",
+          "tip": "हिंदी में “वहाँ पर” कहते हैं, इसलिए at जुड़ जाता है; अंग्रेज़ी में there अकेला काफ़ी है।",
+          "caption": "क्या आप भी यही कहते हैं? “I will meet you at there.” 😅 सही रूप है “I will meet you there.” क्योंकि there के साथ at नहीं लगता। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “there”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “there”, not “at there”!",
+          "tip": "Many learners add at before there, but there is enough alone.",
+          "caption": "Do you say this? “I will meet you at there.” 😅 The right way is “I will meet you there.” This is right because there needs no at. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_wantthat",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Want you to, not want that!",
+        "wrong": "I want that you come early.",
+        "right": "I want you to come early.",
+        "strike": "that you come",
+        "why": "After want, use the person and to.",
+        "memory": "I want you to come.",
+        "quiz": {
+          "stem": "She wants ___ help her.",
+          "options": [
+            "that I",
+            "me to"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Me to! She wants me to help her.",
+        "native": {
+          "hook": "“want that” नहीं, “want you to”!",
+          "tip": "हिंदी में “मैं चाहता हूँ कि तुम आओ” का “कि” अंग्रेज़ी में that बन जाता है; want के बाद “व्यक्ति + to” आता है।",
+          "caption": "क्या आप भी यही कहते हैं? “I want that you come early.” 😅 सही रूप है “I want you to come early.” क्योंकि want के बाद व्यक्ति और to आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “me to”। अब इसी तरह अपना एक वाक्य लिखिए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “want you to”!",
+          "tip": "Many learners use that after want, but English uses the person and to.",
+          "caption": "Do you say this? “I want that you come early.” 😅 The right way is “I want you to come early.” This is right because want takes the person and to. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_newsis",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "News is one thing!",
+        "wrong": "The news are good.",
+        "right": "The news is good.",
+        "strike": "are",
+        "why": "News looks like many, but it is one.",
+        "memory": "The news is good.",
+        "quiz": {
+          "stem": "The news ___ sad.",
+          "options": [
+            "are",
+            "is"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Is! The news is sad.",
+        "native": {
+          "hook": "“The news are” गलत है!",
+          "tip": "हिंदी में “खबरें” बहुवचन है, इसलिए are याद आता है; अंग्रेज़ी में news के साथ is आता है।",
+          "caption": "क्या आप भी यही कहते हैं? “The news are good.” 😅 सही रूप है “The news is good.” क्योंकि news के साथ is आता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “is”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "“The news are” is wrong!",
+          "tip": "In Hindi “news” is plural, hence आ comes to mind; Is comes with news in English.",
+          "caption": "Do you say this? “The news are good.” 😅 The right way is “The news is good.” This is right because news takes is. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_yearsago",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say ago, not before!",
+        "wrong": "I came here two years before.",
+        "right": "I came here two years ago.",
+        "strike": "before",
+        "why": "Ago counts back from now.",
+        "memory": "Two years ago.",
+        "quiz": {
+          "stem": "We met three days ___.",
+          "options": [
+            "before",
+            "ago"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Ago! We met three days ago.",
+        "native": {
+          "hook": "“years before” नहीं, “years ago”!",
+          "tip": "हिंदी में “दो साल पहले” का “पहले” अंग्रेज़ी में before बन जाता है; आज से गिनते समय ago बोलें।",
+          "caption": "क्या आप भी यही कहते हैं? “I came here two years before.” 😅 सही रूप है “I came here two years ago.” क्योंकि आज से पीछे गिनने के लिए ago आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “ago”। अब इसी तरह अपना एक वाक्य लिखिए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “years ago”!",
+          "tip": "Many learners use before when counting back from today, but English uses ago.",
+          "caption": "Do you say this? “I came here two years before.” 😅 The right way is “I came here two years ago.” This is right because ago counts back from today. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_timeis",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say the door, not door!",
+        "wrong": "Please close door.",
+        "right": "Please close the door.",
+        "strike": "close door",
+        "why": "Say the door when we both know which door.",
+        "memory": "Please close the door.",
+        "quiz": {
+          "stem": "Please open ___ window.",
+          "options": [
+            "–",
+            "the"
+          ],
+          "answer": 1
+        },
+        "answer_say": "The! Please open the window.",
+        "native": {
+          "hook": "“door” नहीं, “the door”!",
+          "tip": "हिंदी में “दरवाज़ा बंद करो” कहते हैं, इसमें the जैसा कोई शब्द नहीं होता, इसलिए the छूट जाता है; अंग्रेज़ी में the door कहें।",
+          "caption": "क्या आप भी ऐसा बोलते हैं? “Please close door.” 😅 सही वाक्य है: “Please close the door.” क्योंकि जब हम दोनों जानते हैं कि कौन-सा दरवाज़ा, तब the door आता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “the”। याद रखें: जब दोनों जानते हैं कि कौन-सा दरवाज़ा, तब the door बोलें। अब the के साथ अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “the door”, not “door”!",
+          "tip": "Many learners leave out the, but English says the door when we both know which door.",
+          "caption": "Do you say this? “Please close door.” 😅 The right sentence is: “Please close the door.” This is right because we say the door when we both know which door. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_sisterhe",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Sister is she, not he!",
+        "wrong": "My sister is a nurse, and he works at night.",
+        "right": "My sister is a nurse, and she works at night.",
+        "strike": "he works",
+        "why": "A woman is she, not he.",
+        "memory": "My sister, she.",
+        "quiz": {
+          "stem": "My mother is kind, and ___ helps me.",
+          "options": [
+            "he",
+            "she"
+          ],
+          "answer": 1
+        },
+        "answer_say": "She! My mother is kind, and she helps me.",
+        "native": {
+          "hook": "बहन के लिए “he” नहीं, “she”!",
+          "tip": "हिंदी में “वह” पुरुष और स्त्री दोनों के लिए चलता है, इसलिए he/she में गड़बड़ी हो जाती है; बहन के लिए she बोलें।",
+          "caption": "क्या आप भी यही कहते हैं? “My sister is a nurse, and he works at night.” 😅 सही रूप है “My sister is a nurse, and she works at night.” क्योंकि स्त्री के लिए she आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “she”। अब इसी तरह अपना एक वाक्य लिखिए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “she” for a sister!",
+          "tip": "One Hindi word covers he and she, so learners mix them; use she for a woman.",
+          "caption": "Do you say this? “My sister is a nurse, and he works at night.” 😅 The right way is “My sister is a nurse, and she works at night.” This is right because a woman is she. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_afever",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say a fever!",
+        "wrong": "I have fever today.",
+        "right": "I have a fever today.",
+        "strike": "have fever",
+        "why": "Fever needs a here.",
+        "memory": "I have a fever.",
+        "quiz": {
+          "stem": "She has ___.",
+          "options": [
+            "fever",
+            "a fever"
+          ],
+          "answer": 1
+        },
+        "answer_say": "A fever! She has a fever.",
+        "native": {
+          "hook": "“have fever” नहीं, “a fever”!",
+          "tip": "हिंदी में “मुझे बुखार है” कहने के लिए अलग छोटा शब्द नहीं लगता, पर अंग्रेज़ी में fever के पहले a लगाएँ।",
+          "caption": "क्या आप भी यही कहते हैं? “I have fever today.” 😅 सही रूप है “I have a fever today.” क्योंकि fever के पहले a लगता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “a fever”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “a fever”!",
+          "tip": "Many learners skip a before fever, but English needs it.",
+          "caption": "Do you say this? “I have fever today.” 😅 The right way is “I have a fever today.” This is right because fever needs a. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_manypeople",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Many people, not much!",
+        "wrong": "There are much people here.",
+        "right": "There are many people here.",
+        "strike": "much",
+        "why": "We can count people, so we use many.",
+        "memory": "Many people.",
+        "quiz": {
+          "stem": "How ___ people came?",
+          "options": [
+            "much",
+            "many"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Many! How many people came?",
+        "native": {
+          "hook": "“much people” नहीं, “many”!",
+          "tip": "हिंदी में “बहुत लोग” का “बहुत” एक ही शब्द है, पर अंग्रेज़ी में गिने जा सकने वाले लोगों के साथ many आता है, much नहीं।",
+          "caption": "क्या आप भी यही कहते हैं? “There are much people here.” 😅 सही रूप है “There are many people here.” क्योंकि लोग गिने जा सकते हैं, इसलिए many आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “many”। अब इसी तरह अपना एक वाक्य लिखिए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “many people”!",
+          "tip": "Hindi uses one word for a lot, but English uses many with people.",
+          "caption": "Do you say this? “There are much people here.” 😅 The right way is “There are many people here.” This is right because we can count people. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_getoff",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Get off, not get down!",
+        "wrong": "I will get down at the next stop.",
+        "right": "I will get off at the next stop.",
+        "strike": "get down",
+        "why": "We get off a bus.",
+        "memory": "Get off the bus.",
+        "quiz": {
+          "stem": "I will ___ at this stop.",
+          "options": [
+            "get down",
+            "get off"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Get off! I will get off at this stop.",
+        "native": {
+          "hook": "“get down” नहीं, “get off”!",
+          "tip": "हिंदी में “यहाँ उतरूँगा” को get down कह देते हैं; बस या ट्रेन से उतरने के लिए get off बोलें।",
+          "caption": "क्या आप भी यही कहते हैं? “I will get down at the next stop.” 😅 सही रूप है “I will get off at the next stop.” क्योंकि बस से उतरने के लिए get off आता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “get off”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “get off”, not “get down”!",
+          "tip": "Many learners say get down for a bus, but English says get off.",
+          "caption": "Do you say this? “I will get down at the next stop.” 😅 The right way is “I will get off at the next stop.” This is right because we get off a bus. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_takemedicine",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Take medicine, not eat!",
+        "wrong": "I eat medicine twice a day.",
+        "right": "I take medicine twice a day.",
+        "strike": "eat",
+        "why": "We say take medicine.",
+        "memory": "I take medicine.",
+        "quiz": {
+          "stem": "He must ___ medicine.",
+          "options": [
+            "eat",
+            "take"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Take! He must take medicine.",
+        "native": {
+          "hook": "“eat medicine” नहीं, “take”!",
+          "tip": "हिंदी में “दवाई खाना” कहते हैं, इसलिए eat बोल देते हैं; अंग्रेज़ी में medicine के साथ take आता है।",
+          "caption": "क्या आप भी यही कहते हैं? “I eat medicine twice a day.” 😅 सही रूप है “I take medicine twice a day.” क्योंकि medicine के साथ take आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “take”। अब इसी तरह अपना एक वाक्य लिखिए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “take medicine”!",
+          "tip": "Many learners say eat medicine, but English says take.",
+          "caption": "Do you say this? “I eat medicine twice a day.” 😅 The right way is “I take medicine twice a day.” This is right because medicine goes with take. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_askfrom",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Ask him, no from!",
+        "wrong": "Ask from your teacher.",
+        "right": "Ask your teacher.",
+        "strike": "from",
+        "why": "Ask takes the person right away.",
+        "memory": "Ask your teacher.",
+        "quiz": {
+          "stem": "I will ___ my teacher.",
+          "options": [
+            "ask from",
+            "ask"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Ask! I will ask my teacher.",
+        "native": {
+          "hook": "“ask from” नहीं, सीधे “ask”!",
+          "tip": "हिंदी में “टीचर से पूछो” का “से” अंग्रेज़ी में from बन जाता है; ask के बाद सीधे व्यक्ति आता है।",
+          "caption": "क्या आप भी यही कहते हैं? “Ask from your teacher.” 😅 सही रूप है “Ask your teacher.” क्योंकि ask के बाद सीधे व्यक्ति आता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “ask”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “ask”, not “ask from”!",
+          "tip": "Many learners add from after ask, but ask takes the person directly.",
+          "caption": "Do you say this? “Ask from your teacher.” 😅 The right way is “Ask your teacher.” This is right because ask takes the person directly. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_knowhowto",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Know how to swim!",
+        "wrong": "Do you know to swim?",
+        "right": "Do you know how to swim?",
+        "strike": "know to",
+        "why": "We need how here.",
+        "memory": "I know how to swim.",
+        "quiz": {
+          "stem": "She knows ___ cook.",
+          "options": [
+            "to",
+            "how to"
+          ],
+          "answer": 1
+        },
+        "answer_say": "How to! She knows how to cook.",
+        "native": {
+          "hook": "“know to” नहीं, “know how to”!",
+          "tip": "हिंदी में “तैरना आता है” में “कैसे” जैसा कोई शब्द नहीं होता; अंग्रेज़ी में know के बाद how to लगाएँ।",
+          "caption": "क्या आप भी यही कहते हैं? “Do you know to swim?” 😅 सही रूप है “Do you know how to swim?” क्योंकि know के बाद how to आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “how to”। अब इसी तरह अपना एक वाक्य लिखिए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “know how to”!",
+          "tip": "Many learners skip how, but English says know how to.",
+          "caption": "Do you say this? “Do you know to swim?” 😅 The right way is “Do you know how to swim?” This is right because know needs how to. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_dearsir",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Start with Dear, not Respected!",
+        "wrong": "Respected Sir, I am writing to ask for a day off.",
+        "right": "Dear Sir, I am writing to ask for a day off.",
+        "strike": "Respected Sir",
+        "why": "Dear is the normal way to start.",
+        "memory": "Dear Sir.",
+        "quiz": {
+          "stem": "___ Sir, I need help.",
+          "options": [
+            "Respected",
+            "Dear"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Dear! Dear Sir, I need help.",
+        "native": {
+          "hook": "ईमेल में “Respected” नहीं, “Dear”!",
+          "tip": "हिंदी के “आदरणीय महोदय” का सीधा अनुवाद Respected Sir होता है; अंग्रेज़ी ईमेल में Dear Sir से शुरू करें।",
+          "caption": "क्या आप भी यही कहते हैं? “Respected Sir, I am writing to ask for a day off.” 😅 सही रूप है “Dear Sir, I am writing to ask for a day off.” क्योंकि ईमेल की सामान्य शुरुआत Dear से होती है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “Dear”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Start an email with “Dear”!",
+          "tip": "A direct word-for-word start sounds odd; an English email starts with Dear.",
+          "caption": "Do you say this? “Respected Sir, I am writing to ask for a day off.” 😅 The right way is “Dear Sir, I am writing to ask for a day off.” This is right because Dear is the normal start. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_myfriendandi",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "My friend and I!",
+        "wrong": "I and my friend went to the park.",
+        "right": "My friend and I went to the park.",
+        "strike": "I and my friend",
+        "why": "We put I last.",
+        "memory": "My friend and I.",
+        "quiz": {
+          "stem": "___ went home.",
+          "options": [
+            "I and my sister",
+            "My sister and I"
+          ],
+          "answer": 1
+        },
+        "answer_say": "My sister and I! My sister and I went home.",
+        "native": {
+          "hook": "“I and my friend” का क्रम बदलें!",
+          "tip": "हिंदी में “मैं और मेरा दोस्त” कहकर अपने से शुरुआत होती है; अंग्रेज़ी में विनम्रता के लिए I को आख़िर में रखते हैं।",
+          "caption": "क्या आप भी यही कहते हैं? “I and my friend went to the park.” 😅 सही रूप है “My friend and I went to the park.” क्योंकि अंग्रेज़ी में I को आख़िर में रखते हैं। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “My sister and I”। अब इसी तरह अपना एक वाक्य लिखिए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Change the order of “I and my frie",
+          "tip": "In Hindi, one starts with oneself by saying “Main aur mera dost”; In English, I is placed at the end for politeness.",
+          "caption": "Do you say this? “I and my friend went to the park.” 😅 The right way is “My friend and I went to the park.” This is right because we put I last. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_likeit",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Do you like it?",
+        "wrong": "I have a new bag. Do you like?",
+        "right": "I have a new bag. Do you like it?",
+        "strike": "Do you like?",
+        "why": "English needs it here.",
+        "memory": "Do you like it?",
+        "quiz": {
+          "stem": "This song is nice. ___",
+          "options": [
+            "Do you like?",
+            "Do you like it?"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Do you like it? This song is nice. Do you like it?",
+        "native": {
+          "hook": "“Do you like?” अधूरा है!",
+          "tip": "हिंदी में “तुम्हें पसंद है?” बिना “इसे” के पूरा लगता है; अंग्रेज़ी में like के बाद चीज़ का नाम या it ज़रूर बोलें।",
+          "caption": "क्या आप भी यही कहते हैं? “I have a new bag. Do you like?” 😅 सही रूप है “I have a new bag. Do you like it?” क्योंकि like के बाद चीज़ का नाम या it लगाना ज़रूरी है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर है “Do you like it?” इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "“Do you like?” is not complete!",
+          "tip": "Many learners drop it after like, but English needs a word after like.",
+          "caption": "Do you say this? “I have a new bag. Do you like?” 😅 The right way is “I have a new bag. Do you like it?” This is right because like needs a word after it, like it. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_lendme",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Lend me, not borrow me!",
+        "wrong": "Can you borrow me your pen?",
+        "right": "Can you lend me your pen?",
+        "strike": "borrow",
+        "why": "Lend means give for a short time.",
+        "memory": "Lend me your pen.",
+        "quiz": {
+          "stem": "Please ___ me your pen.",
+          "options": [
+            "borrow",
+            "lend"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Lend! Please lend me your pen.",
+        "native": {
+          "hook": "“borrow me” नहीं, “lend me”!",
+          "tip": "हिंदी में “उधार दो” और “उधार लो” में एक ही शब्द आता है, इसलिए borrow/lend उलझ जाते हैं; देने के लिए lend बोलें।",
+          "caption": "क्या आप भी यही कहते हैं? “Can you borrow me your pen?” 😅 सही रूप है “Can you lend me your pen?” क्योंकि देने के लिए lend आता है, borrow नहीं। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “lend”। अब इसी तरह अपना एक वाक्य लिखिए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “lend me”, not “borrow me”!",
+          "tip": "One Hindi word covers both, so learners mix them; use lend when you give.",
+          "caption": "Do you say this? “Can you borrow me your pen?” 😅 The right way is “Can you lend me your pen?” This is right because lend means to give for a short time. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_meetto",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say your name, not good name!",
+        "wrong": "What is your good name?",
+        "right": "What is your name?",
+        "strike": "good",
+        "why": "We do not need good when we ask a name.",
+        "memory": "What is your name?",
+        "quiz": {
+          "stem": "What is your ___?",
+          "options": [
+            "good name",
+            "name"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Name! What is your name?",
+        "native": {
+          "hook": "“good name” नहीं, सिर्फ़ “name”!",
+          "tip": "हिंदी में “आपका शुभ नाम क्या है?” कहते हैं, इसलिए good जुड़ जाता है; अंग्रेज़ी में सीधे name कहें।",
+          "caption": "क्या आप भी यही कहते हैं? “What is your good name?” 😅 सही रूप है “What is your name?” क्योंकि नाम पूछने में good नहीं लगता। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “name”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “name”, not “good name”!",
+          "tip": "Many learners add good before name, but English asks for a name directly.",
+          "caption": "Do you say this? “What is your good name?” 😅 The right way is “What is your name?” This is right because we do not use good when we ask a name. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_attthere",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say I do, not I like!",
+        "wrong": "Do you like tea? Yes, I like.",
+        "right": "Do you like tea? Yes, I do.",
+        "strike": "like",
+        "why": "We answer a short question with do.",
+        "memory": "Do you like tea? Yes, I do.",
+        "quiz": {
+          "stem": "Do you like tea? Yes, I ___.",
+          "options": [
+            "like",
+            "do"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Do! Yes, I do.",
+        "native": {
+          "hook": "“I like” नहीं, “I do” कहें!",
+          "tip": "हिंदी में “हाँ, पसंद है” कहकर वही क्रिया दोहराते हैं, इसलिए I like बोल देते हैं; अंग्रेज़ी में छोटे जवाब में do लगाएँ।",
+          "caption": "क्या आप भी यही कहते हैं? “Do you like tea? Yes, I like.” 😅 सही रूप है “Do you like tea? Yes, I do.” क्योंकि छोटे जवाब में do आता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “do”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “I do”, not “I like”!",
+          "tip": "Many learners repeat like in a short answer, but English uses do.",
+          "caption": "Do you say this? “Do you like tea? Yes, I like.” 😅 The right way is “Do you like tea? Yes, I do.” This is right because a short answer uses do. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_verywell",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say well, not good!",
+        "wrong": "He speaks English very good.",
+        "right": "He speaks English very well.",
+        "strike": "good",
+        "why": "Use well to say how you do something.",
+        "memory": "He speaks very well.",
+        "quiz": {
+          "stem": "She sings very ___.",
+          "options": [
+            "good",
+            "well"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Well! She sings very well.",
+        "native": {
+          "hook": "“very good” नहीं, “very well”!",
+          "tip": "हिंदी में “अच्छा” हर जगह चलता है, इसलिए लोग speaks very good बोल देते हैं। काम कैसे होता है, यह बताने के लिए well बोलें।",
+          "caption": "क्या आप भी ऐसा बोलते हैं? “He speaks English very good.” 😅 सही वाक्य है: “He speaks English very well.” ध्यान रखें: काम कैसे होता है, यह बताने के लिए well बोला जाता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “well”। याद रखें: काम कैसे होता है, यह बताने के लिए well बोला जाता है। अब अपना एक वाक्य लिखिए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “very well”, not “very good”!",
+          "tip": "Many learners use good everywhere, but to say how you do something, English uses well.",
+          "caption": "Do you say this? “He speaks English very good.” 😅 The right sentence is: “He speaks English very well.” Remember: Use well to say how you do something. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_thinkingof",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Think of, not think to!",
+        "wrong": "I am thinking to buy a car.",
+        "right": "I am thinking of buying a car.",
+        "strike": "to buy",
+        "why": "Think of goes with buying, not to buy.",
+        "memory": "Thinking of buying.",
+        "quiz": {
+          "stem": "I am thinking ___ a bike.",
+          "options": [
+            "to buy",
+            "of buying"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Of buying! I am thinking of buying a bike.",
+        "native": {
+          "hook": "“thinking to” नहीं!",
+          "tip": "हिंदी में “कार खरीदने की सोच रहा हूँ” कहते हैं, पर अंग्रेज़ी में thinking के बाद of और ing वाला शब्द आता है।",
+          "caption": "क्या आप भी बोलते हैं: “I am thinking to buy a car.” 😅 सही वाक्य है: “I am thinking of buying a car.” ध्यान रखें: thinking के बाद of और ing वाला शब्द लगता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “of buying”। याद रखें: thinking के बाद of और ing वाला शब्द लगता है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Not “thinking to”!",
+          "tip": "Many learners say thinking to buy, but English uses thinking of and an ing word.",
+          "caption": "Do you say: “I am thinking to buy a car.” 😅 The right sentence is: “I am thinking of buying a car.” Remember: After thinking, use of and an ing word. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_enjoyedit",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Enjoyed it, not just enjoyed!",
+        "wrong": "I enjoyed a lot.",
+        "right": "I enjoyed it a lot.",
+        "strike": "enjoyed a lot",
+        "why": "Enjoy needs a word after it, like it.",
+        "memory": "Enjoyed it a lot.",
+        "quiz": {
+          "stem": "I saw the movie and ___.",
+          "options": [
+            "I enjoyed a lot",
+            "I enjoyed it a lot"
+          ],
+          "answer": 1
+        },
+        "answer_say": "I enjoyed it a lot!",
+        "native": {
+          "hook": "“enjoyed” के बाद “it” लगाएँ!",
+          "tip": "हिंदी में “बहुत मज़ा आया” में कुछ जोड़ना नहीं पड़ता, पर अंग्रेज़ी में enjoy के बाद it या this जैसा शब्द चाहिए।",
+          "caption": "क्या आप भी बोलते हैं: “I enjoyed a lot.” 😅 सही वाक्य है: “I enjoyed it a lot.” ध्यान रखें: enjoy के बाद it जैसा शब्द आता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “I enjoyed it a lot”। याद रखें: enjoy के बाद it जैसा शब्द आता है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Add “it” after “enjoyed”!",
+          "tip": "In English enjoy needs a word after it, like it or this. Do not stop at enjoyed.",
+          "caption": "Do you say: “I enjoyed a lot.” 😅 The right sentence is: “I enjoyed it a lot.” Remember: Enjoy needs a word after it, like it. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_whichtime",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "What time, not which time!",
+        "wrong": "Which time will you come?",
+        "right": "What time will you come?",
+        "strike": "Which time",
+        "why": "Ask about the clock with what time.",
+        "memory": "What time is it?",
+        "quiz": {
+          "stem": "___ will you come home?",
+          "options": [
+            "Which time",
+            "What time"
+          ],
+          "answer": 1
+        },
+        "answer_say": "What time! What time will you come home?",
+        "native": {
+          "hook": "“Which time” नहीं, “What time”!",
+          "tip": "हिंदी में “कौन सा समय” कहते हैं, इसलिए लोग which time बोल देते हैं। अंग्रेज़ी में घड़ी का समय पूछने के लिए what time बोलें।",
+          "caption": "क्या आप भी बोलते हैं: “Which time will you come?” 😅 सही वाक्य है: “What time will you come?” ध्यान रखें: समय पूछने के लिए what time बोला जाता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “What time”। याद रखें: समय पूछने के लिए what time बोला जाता है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “What time”, not “Which time”!",
+          "tip": "Many learners copy which time word for word. To ask about the clock, we say what time.",
+          "caption": "Do you say: “Which time will you come?” 😅 The right sentence is: “What time will you come?” Remember: To ask about the clock, say what time. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_fathername",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say father's name!",
+        "wrong": "My father name is Ali.",
+        "right": "My father's name is Ali.",
+        "strike": "father name",
+        "why": "Add 's to show it is his name.",
+        "memory": "My father's name.",
+        "quiz": {
+          "stem": "This is my ___ name.",
+          "options": [
+            "mother",
+            "mother's"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Mother's! This is my mother's name.",
+        "native": {
+          "hook": "’s लगाना न भूलें!",
+          "tip": "हिंदी में “पिता का नाम” में “का” जुड़ता है। अंग्रेज़ी में यही काम ’s करता है, जैसे father's name।",
+          "caption": "क्या आप भी बोलते हैं: “My father name is Ali.” 😅 सही वाक्य है: “My father's name is Ali.” ध्यान रखें: “का” वाला भाव अंग्रेज़ी में 's से आता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “mother's”। याद रखें: “का” वाला भाव अंग्रेज़ी में 's से आता है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do not forget ’s!",
+          "tip": "Many learners leave out 's, but English shows whose name it is with 's, like father's name.",
+          "caption": "Do you say: “My father name is Ali.” 😅 The right sentence is: “My father's name is Ali.” Remember: English shows whose name it is with 's. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_sorrylate",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Sorry for being late!",
+        "wrong": "Sorry for late.",
+        "right": "Sorry for being late.",
+        "strike": "for late",
+        "why": "After for, say being late.",
+        "memory": "Sorry for being late.",
+        "quiz": {
+          "stem": "Sorry ___ late.",
+          "options": [
+            "for",
+            "for being"
+          ],
+          "answer": 1
+        },
+        "answer_say": "For being! Sorry for being late.",
+        "native": {
+          "hook": "“for late” नहीं, “for being late”!",
+          "tip": "हिंदी में “देर के लिए माफ़ी” कह देते हैं, पर अंग्रेज़ी में for के बाद being late पूरा बोलें।",
+          "caption": "क्या आप भी बोलते हैं: “Sorry for late.” 😅 सही वाक्य है: “Sorry for being late.” ध्यान रखें: for के बाद being late पूरा बोला जाता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “for being”। याद रखें: for के बाद being late पूरा बोला जाता है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “for being late”!",
+          "tip": "Many learners say sorry for late, but English needs the whole phrase being late.",
+          "caption": "Do you say: “Sorry for late.” 😅 The right sentence is: “Sorry for being late.” Remember: After for, say being late. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_congrats",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Congratulations on, not for!",
+        "wrong": "Congratulations for your new job.",
+        "right": "Congratulations on your new job.",
+        "strike": "for",
+        "why": "We say congratulations on something.",
+        "memory": "Congratulations on it.",
+        "quiz": {
+          "stem": "Congratulations ___ your new house!",
+          "options": [
+            "for",
+            "on"
+          ],
+          "answer": 1
+        },
+        "answer_say": "On! Congratulations on your new house!",
+        "native": {
+          "hook": "“congratulations for” नहीं!",
+          "tip": "हिंदी में “नौकरी के लिए बधाई” कहते हैं, इसलिए लोग for लगा देते हैं। अंग्रेज़ी में congratulations के बाद on आता है।",
+          "caption": "क्या आप भी बोलते हैं: “Congratulations for your new job.” 😅 सही वाक्य है: “Congratulations on your new job.” ध्यान रखें: congratulations के बाद on आता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “on”। याद रखें: congratulations के बाद on आता है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “congratulations on”!",
+          "tip": "Many learners use for because it sounds like the sentence in their language, but English says congratulations on.",
+          "caption": "Do you say: “Congratulations for your new job.” 😅 The right sentence is: “Congratulations on your new job.” Remember: We say congratulations on something. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_returnback",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Just return, not return back!",
+        "wrong": "Please return back my book.",
+        "right": "Please return my book.",
+        "strike": "back",
+        "why": "Return already means give back.",
+        "memory": "Return my book.",
+        "quiz": {
+          "stem": "Can you ___ my pen tomorrow?",
+          "options": [
+            "return back",
+            "return"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Return! Can you return my pen tomorrow?",
+        "native": {
+          "hook": "“return back” नहीं, “return”!",
+          "tip": "हिंदी में “वापस लौटा दो” कहते हैं, इसलिए लोग return back बोल देते हैं। return में ही “वापस” का भाव है।",
+          "caption": "क्या आप भी ऐसा बोलते हैं? “Please return back my book.” 😅 सही वाक्य है: “Please return my book.” ध्यान रखें: return में ही “वापस” का भाव है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “return”। याद रखें: return में ही “वापस” का भाव है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “return”, not “return back”!",
+          "tip": "Many learners add back, but return already means give back.",
+          "caption": "Do you say this? “Please return back my book.” 😅 The right sentence is: “Please return my book.” Remember: Return already means give back. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_wasdied",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "He died, not was died!",
+        "wrong": "My grandfather was died last year.",
+        "right": "My grandfather died last year.",
+        "strike": "was died",
+        "why": "Died is already the whole verb.",
+        "memory": "He died.",
+        "quiz": {
+          "stem": "My dog ___ last week.",
+          "options": [
+            "was died",
+            "died"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Died! My dog died last week.",
+        "native": {
+          "hook": "“was died” नहीं, “died”!",
+          "tip": "हिंदी में “गुज़र गए थे” जैसा रूप बनता है, इसलिए लोग was जोड़ देते हैं। अंग्रेज़ी में died अपने आप पूरा है।",
+          "caption": "क्या आप भी बोलते हैं: “My grandfather was died last year.” 😅 सही वाक्य है: “My grandfather died last year.” ध्यान रखें: died के साथ was नहीं लगता। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “died”। याद रखें: died के साथ was नहीं लगता। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “died”, not “was died”!",
+          "tip": "Many learners add was because of the pattern in their language, but died is already complete.",
+          "caption": "Do you say: “My grandfather was died last year.” 😅 The right sentence is: “My grandfather died last year.” Remember: Died is already complete, so do not add was. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_inmorning",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say in the morning!",
+        "wrong": "I saw him in morning.",
+        "right": "I saw him in the morning.",
+        "strike": "in morning",
+        "why": "Put the before morning.",
+        "memory": "In the morning.",
+        "quiz": {
+          "stem": "I study ___.",
+          "options": [
+            "in morning",
+            "in the morning"
+          ],
+          "answer": 1
+        },
+        "answer_say": "In the morning! I study in the morning.",
+        "native": {
+          "hook": "“in morning” नहीं!",
+          "tip": "हिंदी में “सुबह” अकेला चलता है, पर अंग्रेज़ी में in the morning बोलें।",
+          "caption": "क्या आप भी बोलते हैं: “I saw him in morning.” 😅 सही वाक्य है: “I saw him in the morning.” ध्यान रखें: morning से पहले the लगता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “in the morning”। याद रखें: morning से पहले the लगता है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “in the morning”!",
+          "tip": "Many learners drop the, but English says in the morning.",
+          "caption": "Do you say: “I saw him in morning.” 😅 The right sentence is: “I saw him in the morning.” Remember: Put the before morning. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_bornon",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "On May 5, not in!",
+        "wrong": "I was born in May 5.",
+        "right": "I was born on May 5.",
+        "strike": "in",
+        "why": "Use on with a day.",
+        "memory": "Born on May 5.",
+        "quiz": {
+          "stem": "My birthday is ___ May 10.",
+          "options": [
+            "in",
+            "on"
+          ],
+          "answer": 1
+        },
+        "answer_say": "On! My birthday is on May 10.",
+        "native": {
+          "hook": "तारीख़ के साथ “on”, “in” नहीं!",
+          "tip": "हिंदी में “5 मई को” कहते हैं, पर अंग्रेज़ी में तारीख़ से पहले on लगता है। सिर्फ़ महीने से पहले in लगता है, जैसे in May।",
+          "caption": "क्या आप भी बोलते हैं: “I was born in May 5.” 😅 सही वाक्य है: “I was born on May 5.” ध्यान रखें: तारीख़ से पहले on लगता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “on”। याद रखें: तारीख़ से पहले on लगता है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Use “on” with a date!",
+          "tip": "Many learners say in with a date, but English uses on with a day. Use in only with a month, like in May.",
+          "caption": "Do you say: “I was born in May 5.” 😅 The right sentence is: “I was born on May 5.” Remember: Use on before a date. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_twothree",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say two or three!",
+        "wrong": "I have two three friends.",
+        "right": "I have two or three friends.",
+        "strike": "two three",
+        "why": "Say or between the numbers.",
+        "memory": "Two or three.",
+        "quiz": {
+          "stem": "I have ___ books.",
+          "options": [
+            "two three",
+            "two or three"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Two or three! I have two or three books.",
+        "native": {
+          "hook": "“two three” नहीं, “two or three”!",
+          "tip": "हिंदी में “दो-तीन” बोलते हैं, पर अंग्रेज़ी में दोनों संख्याओं के बीच or आता है।",
+          "caption": "क्या आप भी बोलते हैं: “I have two three friends.” 😅 सही वाक्य है: “I have two or three friends.” ध्यान रखें: दोनों संख्याओं के बीच or लगता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “two or three”। याद रखें: दोनों संख्याओं के बीच or लगता है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “two or three”!",
+          "tip": "Many learners say two three, but English puts or between the numbers.",
+          "caption": "Do you say: “I have two three friends.” 😅 The right sentence is: “I have two or three friends.” Remember: Put or between the two numbers. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_thesame",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Add the before same!",
+        "wrong": "These two bags are same.",
+        "right": "These two bags are the same.",
+        "strike": "are same",
+        "why": "Same needs the before it.",
+        "memory": "The same.",
+        "quiz": {
+          "stem": "The two shirts are ___.",
+          "options": [
+            "same",
+            "the same"
+          ],
+          "answer": 1
+        },
+        "answer_say": "The same! The two shirts are the same.",
+        "native": {
+          "hook": "“same” से पहले “the”!",
+          "tip": "हिंदी में “एक जैसे” बिना किसी और शब्द के चलता है, पर अंग्रेज़ी में same से पहले the लगता है।",
+          "caption": "क्या आप भी बोलते हैं: “These two bags are same.” 😅 सही वाक्य है: “These two bags are the same.” ध्यान रखें: same से पहले the लगता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “the same”। याद रखें: same से पहले the लगता है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “the same”!",
+          "tip": "Many learners leave out the, but English puts the before same.",
+          "caption": "Do you say: “These two bags are same.” 😅 The right sentence is: “These two bags are the same.” Remember: Put the before same. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_helpwith",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Help me with this!",
+        "wrong": "Can you help me in this?",
+        "right": "Can you help me with this?",
+        "strike": "in",
+        "why": "Use with after help me.",
+        "memory": "Help me with this.",
+        "quiz": {
+          "stem": "Please help me ___ my homework.",
+          "options": [
+            "in",
+            "with"
+          ],
+          "answer": 1
+        },
+        "answer_say": "With! Please help me with my homework.",
+        "native": {
+          "hook": "“help in” नहीं, “help with”!",
+          "tip": "हिंदी में “इसमें मदद करो” कहते हैं, इसलिए लोग in बोल देते हैं। अंग्रेज़ी में help me with बोलें।",
+          "caption": "क्या आप भी बोलते हैं: “Can you help me in this?” 😅 सही वाक्य है: “Can you help me with this?” ध्यान रखें: help me के बाद with लगता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “with”। याद रखें: help me के बाद with लगता है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “help me with”!",
+          "tip": "Many learners say help me in, but English says help me with.",
+          "caption": "Do you say: “Can you help me in this?” 😅 The right sentence is: “Can you help me with this?” Remember: After help me, use with. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_feelingbored",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say bored, not boring!",
+        "wrong": "I am feeling boring today.",
+        "right": "I am feeling bored today.",
+        "strike": "boring",
+        "why": "Bored shows how you feel.",
+        "memory": "I am bored.",
+        "quiz": {
+          "stem": "I am ___ in class.",
+          "options": [
+            "boring",
+            "bored"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Bored! I am bored in class.",
+        "native": {
+          "hook": "“boring” नहीं, “bored”!",
+          "tip": "हिंदी में “बोर हो रहा हूँ” कहते हैं, पर अंग्रेज़ी में अपनी भावना के लिए bored बोलें। boring चीज़ के बारे में कहते हैं, जैसे a boring movie।",
+          "caption": "क्या आप भी बोलते हैं: “I am feeling boring today.” 😅 सही वाक्य है: “I am feeling bored today.” ध्यान रखें: अपनी भावना के लिए bored बोला जाता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “bored”। याद रखें: अपनी भावना के लिए bored बोला जाता है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “bored”, not “boring”!",
+          "tip": "Many learners say boring about themselves. To show how you feel, say bored. A boring movie makes you bored.",
+          "caption": "Do you say: “I am feeling boring today.” 😅 The right sentence is: “I am feeling bored today.” Remember: To show how you feel, say bored. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_goingshopping",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Going shopping, no for!",
+        "wrong": "I am going for shopping.",
+        "right": "I am going shopping.",
+        "strike": "for",
+        "why": "Say going shopping with no for.",
+        "memory": "Going shopping.",
+        "quiz": {
+          "stem": "We are ___ today.",
+          "options": [
+            "going for shopping",
+            "going shopping"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Going shopping! We are going shopping today.",
+        "native": {
+          "hook": "“going for shopping” नहीं!",
+          "tip": "हिंदी में “खरीदारी के लिए जा रहा हूँ” कहते हैं, पर अंग्रेज़ी में सीधे going shopping बोलते हैं।",
+          "caption": "क्या आप भी बोलते हैं: “I am going for shopping.” 😅 सही वाक्य है: “I am going shopping.” ध्यान रखें: going shopping में for नहीं लगता। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “going shopping”। याद रखें: going shopping में for नहीं लगता। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “going shopping”!",
+          "tip": "Many learners add for, but English says going shopping with no for.",
+          "caption": "Do you say: “I am going for shopping.” 😅 The right sentence is: “I am going shopping.” Remember: Say going shopping, with no for. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_pricelow",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Low price, not less price!",
+        "wrong": "The price is very less.",
+        "right": "The price is very low.",
+        "strike": "less",
+        "why": "Price goes with low or high.",
+        "memory": "The price is low.",
+        "quiz": {
+          "stem": "The price is very ___.",
+          "options": [
+            "less",
+            "low"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Low! The price is very low.",
+        "native": {
+          "hook": "“very less” नहीं, “very low”!",
+          "tip": "हिंदी में “कीमत कम है” कहते हैं, इसलिए लोग less बोलते हैं। price के साथ low या high बोलें; less मात्रा के लिए है, जैसे less sugar।",
+          "caption": "क्या आप भी ऐसा बोलते हैं? “The price is very less.” 😅 सही वाक्य है: “The price is very low.” ध्यान रखें: price के साथ low या high बोला जाता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “low”। याद रखें: price के साथ low या high बोला जाता है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “very low”, not “very less”!",
+          "tip": "Many learners use less for a price, but English says low or high price. Less is for things like less sugar.",
+          "caption": "Do you say this? “The price is very less.” 😅 The right sentence is: “The price is very low.” Remember: Price goes with low or high. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_onleave",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "On leave, not in leave!",
+        "wrong": "She is in leave today.",
+        "right": "She is on leave today.",
+        "strike": "in",
+        "why": "We say on leave.",
+        "memory": "On leave.",
+        "quiz": {
+          "stem": "He is ___ leave this week.",
+          "options": [
+            "in",
+            "on"
+          ],
+          "answer": 1
+        },
+        "answer_say": "On! He is on leave this week.",
+        "native": {
+          "hook": "“in leave” नहीं, “on leave”!",
+          "tip": "हिंदी में “छुट्टी में हैं” भी कहते हैं, इसलिए लोग in बोल देते हैं। अंग्रेज़ी में on leave कहा जाता है।",
+          "caption": "क्या आप भी बोलते हैं: “She is in leave today.” 😅 सही वाक्य है: “She is on leave today.” ध्यान रखें: leave के साथ on बोला जाता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “on”। याद रखें: leave के साथ on बोला जाता है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “on leave”!",
+          "tip": "Many learners say in leave, but English says on leave.",
+          "caption": "Do you say: “She is in leave today.” 😅 The right sentence is: “She is on leave today.” Remember: We say on leave. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_startsat",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Starts at nine, not from!",
+        "wrong": "The class starts from nine.",
+        "right": "The class starts at nine.",
+        "strike": "from",
+        "why": "Use at with a start time.",
+        "memory": "Starts at nine.",
+        "quiz": {
+          "stem": "The film starts ___ nine.",
+          "options": [
+            "from",
+            "at"
+          ],
+          "answer": 1
+        },
+        "answer_say": "At! The film starts at nine.",
+        "native": {
+          "hook": "“starts from” नहीं, “starts at”!",
+          "tip": "हिंदी में “नौ बजे से शुरू” कहते हैं, इसलिए लोग from बोल देते हैं। अंग्रेज़ी में शुरू होने के समय के लिए at लगता है।",
+          "caption": "क्या आप भी बोलते हैं: “The class starts from nine.” 😅 सही वाक्य है: “The class starts at nine.” ध्यान रखें: शुरू होने के समय से पहले at लगता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “at”। याद रखें: शुरू होने के समय से पहले at लगता है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “starts at”!",
+          "tip": "Many learners say starts from nine, but a start time takes at.",
+          "caption": "Do you say: “The class starts from nine.” 😅 The right sentence is: “The class starts at nine.” Remember: Use at with a start time. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_bybus",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "By bus, not in bus!",
+        "wrong": "I came here in bus.",
+        "right": "I came here by bus.",
+        "strike": "in",
+        "why": "Use by to say how you travel.",
+        "memory": "Come by bus.",
+        "quiz": {
+          "stem": "She goes to work ___ bus.",
+          "options": [
+            "in",
+            "by"
+          ],
+          "answer": 1
+        },
+        "answer_say": "By! She goes to work by bus.",
+        "native": {
+          "hook": "“in bus” नहीं, “by bus”!",
+          "tip": "हिंदी में “बस में” कहते हैं, इसलिए लोग in bus बोल देते हैं। अंग्रेज़ी में सफ़र के साधन के साथ by आता है।",
+          "caption": "क्या आप भी बोलते हैं: “I came here in bus.” 😅 सही वाक्य है: “I came here by bus.” ध्यान रखें: सफ़र के साधन से पहले by लगता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “by”। याद रखें: सफ़र के साधन से पहले by लगता है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “by bus”!",
+          "tip": "Many learners say in bus, but English uses by to say how you travel.",
+          "caption": "Do you say: “I came here in bus.” 😅 The right sentence is: “I came here by bus.” Remember: Use by to say how you travel. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_allnight",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "All night, not whole night!",
+        "wrong": "I studied whole night.",
+        "right": "I studied all night.",
+        "strike": "whole",
+        "why": "Say all night, or the whole night.",
+        "memory": "I studied all night.",
+        "quiz": {
+          "stem": "He worked ___ day.",
+          "options": [
+            "whole",
+            "all"
+          ],
+          "answer": 1
+        },
+        "answer_say": "All! He worked all day.",
+        "native": {
+          "hook": "“whole night” नहीं, “all night”!",
+          "tip": "हिंदी में “पूरी रात” कहते हैं, इसलिए लोग whole night बोल देते हैं। अंग्रेज़ी में all night या the whole night बोलें।",
+          "caption": "क्या आप भी ऐसा बोलते हैं? “I studied whole night.” 😅 सही वाक्य है: “I studied all night.” ध्यान रखें: “all night” या “the whole night.” ऐसे बोलें। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “all”। याद रखें: all night या the whole night बोलें। अब all night के साथ अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "“All night,” not “whole night”!",
+          "tip": "Many learners say “whole night,” but English says “all night” or “the whole night.”",
+          "caption": "Do you say this? “I studied whole night.” 😅 The right sentence is: “I studied all night.” Remember: say “all night” or “the whole night.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_whatcall",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "What do you call this?",
+        "wrong": "How do you call this?",
+        "right": "What do you call this?",
+        "strike": "How",
+        "why": "Ask for a name with what.",
+        "memory": "What is this called?",
+        "quiz": {
+          "stem": "___ do you call this?",
+          "options": [
+            "How",
+            "What"
+          ],
+          "answer": 1
+        },
+        "answer_say": "What! What do you call this?",
+        "native": {
+          "hook": "“How do you call” नहीं!",
+          "tip": "हिंदी में “इसे कैसे कहते हैं” बोलते हैं, इसलिए लोग how बोल देते हैं। अंग्रेज़ी में नाम पूछने के लिए what do you call बोलें।",
+          "caption": "क्या आप भी बोलते हैं: “How do you call this?” 😅 सही वाक्य है: “What do you call this?” ध्यान रखें: नाम पूछने के लिए what do you call बोला जाता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “What”। याद रखें: नाम पूछने के लिए what do you call बोला जाता है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “What do you call”!",
+          "tip": "Many learners say how do you call, but to ask for a name we say what.",
+          "caption": "Do you say: “How do you call this?” 😅 The right sentence is: “What do you call this?” Remember: To ask for a name, say what. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_callto",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Call you, with no to!",
+        "wrong": "I will call to you tonight.",
+        "right": "I will call you tonight.",
+        "strike": "to",
+        "why": "Call goes straight to the person.",
+        "memory": "Call you.",
+        "quiz": {
+          "stem": "I will call ___ tonight.",
+          "options": [
+            "to you",
+            "you"
+          ],
+          "answer": 1
+        },
+        "answer_say": "You! I will call you tonight.",
+        "native": {
+          "hook": "“call to” नहीं, सिर्फ़ “call you”!",
+          "tip": "लोग “को” का अनुवाद to करके call to you बोल देते हैं। अंग्रेज़ी में call के बाद सीधे you आता है।",
+          "caption": "क्या आप भी बोलते हैं: “I will call to you tonight.” 😅 सही वाक्य है: “I will call you tonight.” ध्यान रखें: call के बाद सीधे व्यक्ति आता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “you”। याद रखें: call के बाद सीधे व्यक्ति आता है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “call you”, not “call to”!",
+          "tip": "Many learners add to after call, but English puts the person right after call.",
+          "caption": "Do you say: “I will call to you tonight.” 😅 The right sentence is: “I will call you tonight.” Remember: Put the person right after call. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_becauseofi",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Because, not because of!",
+        "wrong": "I stayed home because of I was sick.",
+        "right": "I stayed home because I was sick.",
+        "strike": "because of",
+        "why": "Use because before a full sentence.",
+        "memory": "Because I was sick.",
+        "quiz": {
+          "stem": "I was late ___ I missed the bus.",
+          "options": [
+            "because of",
+            "because"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Because! I was late because I missed the bus.",
+        "native": {
+          "hook": "“because of I” नहीं!",
+          "tip": "“की वजह से” सुनकर लोग because of बोल देते हैं। पूरे वाक्य से पहले because आता है; of के साथ चीज़ आती है, जैसे because of rain।",
+          "caption": "क्या आप भी बोलते हैं: “I stayed home because of I was sick.” 😅 सही वाक्य है: “I stayed home because I was sick.” ध्यान रखें: पूरे वाक्य से पहले because आता है, of नहीं। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “because”। याद रखें: पूरे वाक्य से पहले because आता है, of नहीं। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Not “because of I”!",
+          "tip": "Many learners add of. Before a full sentence use because. Use because of with a thing, like because of rain.",
+          "caption": "Do you say: “I stayed home because of I was sick.” 😅 The right sentence is: “I stayed home because I was sick.” Remember: Before a full sentence, use because. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_althoughbut",
+      "lang": "hi",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Although, no but!",
+        "wrong": "Although he is rich, but he is sad.",
+        "right": "Although he is rich, he is sad.",
+        "strike": "but",
+        "why": "Although already joins the two ideas.",
+        "memory": "Although, no but.",
+        "quiz": {
+          "stem": "Although it rained, ___.",
+          "options": [
+            "but we went out",
+            "we went out"
+          ],
+          "answer": 1
+        },
+        "answer_say": "We went out! Although it rained, we went out.",
+        "native": {
+          "hook": "“Although” के साथ “but” नहीं!",
+          "tip": "हिंदी में “हालाँकि… लेकिन” दोनों बोलते हैं। अंग्रेज़ी में although के साथ but नहीं लगता।",
+          "caption": "क्या आप भी बोलते हैं: “Although he is rich, but he is sad.” 😅 सही वाक्य है: “Although he is rich, he is sad.” ध्यान रखें: although के साथ but नहीं लगता। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “we went out”। याद रखें: although के साथ but नहीं लगता। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do not use “but” with “although”!",
+          "tip": "Many learners use both although and but, but English needs only one of them.",
+          "caption": "Do you say: “Although he is rich, but he is sad.” 😅 The right sentence is: “Although he is rich, he is sad.” Remember: Although already joins the two ideas, so skip but. Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_hi_becauseso",
+      "lang": "hi",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Because, no so!",
+        "wrong": "Because it rained, so we stayed home.",
+        "right": "Because it rained, we stayed home.",
+        "strike": "so",
+        "why": "Because already gives the reason.",
+        "memory": "Because, no so.",
+        "quiz": {
+          "stem": "Because I was tired, ___.",
+          "options": [
+            "so I rested",
+            "I rested"
+          ],
+          "answer": 1
+        },
+        "answer_say": "I rested! Because I was tired, I rested.",
+        "native": {
+          "hook": "“Because” के साथ “so” नहीं!",
+          "tip": "हिंदी में “क्योंकि… इसलिए” दोनों बोलते हैं। अंग्रेज़ी में because के साथ so नहीं लगता।",
+          "caption": "क्या आप भी बोलते हैं: “Because it rained, so we stayed home.” 😅 सही वाक्य है: “Because it rained, we stayed home.” ध्यान रखें: because के साथ so नहीं लगता। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+          "comment": "उत्तर: “I rested”। याद रखें: because के साथ so नहीं लगता। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+          "hashtags": [
+            "#अंग्रेजीसीखें",
+            "#englishspeaking",
+            "#learnenglish",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do not use “so” with “because”!",
+          "tip": "Many learners use both because and so, but English needs only one of them.",
+          "caption": "Do you say: “Because it rained, so we stayed home.” 😅 The right sentence is: “Because it rained, we stayed home.” Remember: Because already gives the reason, so skip so. Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
     }
-   }
-  },
-  {
-   "id": "t2_l1_hi_explainme",
-   "lang": "hi",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Explain to me!",
-    "wrong": "He explained me the rule.",
-    "right": "He explained the rule to me.",
-    "strike": "explained me",
-    "why": "Say explain, then to me.",
-    "memory": "Explain it to me.",
-    "quiz": {
-     "stem": "She explained the rule ___ me.",
-     "options": [
-      "to",
-      "at"
-     ],
-     "answer": 0
-    },
-    "answer_say": "To! She explained the rule to me.",
-    "native": {
-     "hook": "“explain me” नहीं, “to me”!",
-     "tip": "अंग्रेज़ी में “explain me” नहीं बोलते; पहले चीज़ बताइए, फिर “to me” लगाइए।",
-     "caption": "क्या आप भी कहते हैं “He explained me the rule”? 🙈 अंग्रेज़ी में “He explained the rule to me” सही है, क्योंकि explain के बाद पहले चीज़ और फिर to me आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
-     "comment": "उत्तर: “to”। पहले चीज़ बोलें, फिर “to me” जोड़ें। मुफ़्त क्विज़ यहाँ: {link}",
-     "hashtags": [
-      "#अंग्रेजीसीखें",
-      "#englishspeaking",
-      "#learnenglish",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Not “explain me”, but “to me”!",
-     "tip": "English does not say “explain me”; name the thing first, then add “to me”.",
-     "caption": "Do you say “He explained me the rule”? 🙈 In English “He explained the rule to me” is right, because explain puts the thing first and then to me. Listen to Carlos and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_hi_amagree",
-   "lang": "hi",
-   "teacher": "ama",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Agree, no am!",
-    "wrong": "I am agree with you.",
-    "right": "I agree with you.",
-    "strike": "am agree",
-    "why": "Agree is a verb. No am.",
-    "memory": "I agree.",
-    "quiz": {
-     "stem": "I ___ with you.",
-     "options": [
-      "am agree",
-      "agree"
-     ],
-     "answer": 1
-    },
-    "answer_say": "Agree! I agree with you.",
-    "native": {
-     "hook": "“I am agree” गलत है!",
-     "tip": "हिंदी के “मैं सहमत हूँ” की नकल में am न लगाएँ; अंग्रेज़ी में बस “I agree”।",
-     "caption": "क्या आप भी कहते हैं “I am agree with you”? 🤔 अंग्रेज़ी में “I agree with you” सही है, क्योंकि agree खुद क्रिया है, इसके साथ am नहीं लगता। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
-     "comment": "उत्तर: “agree”। am हटाकर सीधे “I agree” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
-     "hashtags": [
-      "#अंग्रेजीसीखें",
-      "#englishspeaking",
-      "#learnenglish",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "“I am agree” is wrong!",
-     "tip": "Do not copy the Hindi “main sehmat hoon” with am; in English just say “I agree”.",
-     "caption": "Do you say “I am agree with you”? 🤔 In English “I agree with you” is right, because agree is a verb on its own, so no am. Listen to Ama and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_hi_marriedwith",
-   "lang": "hi",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Married to, not with!",
-    "wrong": "She is married with a doctor.",
-    "right": "She is married to a doctor.",
-    "strike": "with",
-    "why": "Married takes to, not with.",
-    "memory": "Married to.",
-    "quiz": {
-     "stem": "He is married ___ my sister.",
-     "options": [
-      "to",
-      "with"
-     ],
-     "answer": 0
-    },
-    "answer_say": "To! He is married to my sister.",
-    "native": {
-     "hook": "“married with” नहीं, “married to”",
-     "tip": "हिंदी में “से शादी” सुनकर with बोल देते हैं; अंग्रेज़ी में “married to” कहें।",
-     "caption": "क्या आप भी कहते हैं “She is married with a doctor”? 😉 अंग्रेज़ी में “She is married to a doctor” सही है, क्योंकि married के बाद to आता है, with नहीं। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
-     "comment": "उत्तर: “to”। with की जगह to बोलें। मुफ़्त क्विज़ यहाँ: {link}",
-     "hashtags": [
-      "#अंग्रेजीसीखें",
-      "#englishspeaking",
-      "#learnenglish",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Not “married with”, but “married to”",
-     "tip": "From the Hindi “se shaadi” people say with; in English say “married to”.",
-     "caption": "Do you say “She is married with a doctor”? 😉 In English “She is married to a doctor” is right, because married takes to, not with. Listen to Carlos and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_hi_hairare",
-   "lang": "hi",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Hair is long!",
-    "wrong": "My hair are long.",
-    "right": "My hair is long.",
-    "strike": "are",
-    "why": "Hair is one thing. Use is.",
-    "memory": "Hair is.",
-    "quiz": {
-     "stem": "Her hair ___ black.",
-     "options": [
-      "is",
-      "are"
-     ],
-     "answer": 0
-    },
-    "answer_say": "Is! Her hair is black.",
-    "native": {
-     "hook": "“My hair are” गलत है!",
-     "tip": "हिंदी में “बाल” बहुवचन लगता है, पर अंग्रेज़ी में hair के साथ is आता है।",
-     "caption": "क्या आप भी कहते हैं “My hair are long”? 🙈 अंग्रेज़ी में “My hair is long” सही है, क्योंकि hair एक समूह की तरह is के साथ चलता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
-     "comment": "उत्तर: “is”। are की जगह is बोलें। मुफ़्त क्विज़ यहाँ: {link}",
-     "hashtags": [
-      "#अंग्रेजीसीखें",
-      "#englishspeaking",
-      "#learnenglish",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "“My hair are” is wrong!",
-     "tip": "In Hindi “baal” feels plural, but in English hair takes is.",
-     "caption": "Do you say “My hair are long”? 🙈 In English “My hair is long” is right, because hair takes is like one group. Listen to Carlos and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_hi_advices",
-   "lang": "hi",
-   "teacher": "ama",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Advice, no s!",
-    "wrong": "Give me some advices.",
-    "right": "Give me some advice.",
-    "strike": "advices",
-    "why": "Advice has no plural.",
-    "memory": "Some advice.",
-    "quiz": {
-     "stem": "I need some ___.",
-     "options": [
-      "advices",
-      "advice"
-     ],
-     "answer": 1
-    },
-    "answer_say": "Advice! I need some advice.",
-    "native": {
-     "hook": "“advices” जैसा शब्द नहीं है!",
-     "tip": "advice का बहुवचन नहीं होता; “some advice” बोलें, “advices” नहीं।",
-     "caption": "क्या आप भी कहते हैं “Give me some advices”? 🤔 अंग्रेज़ी में “Give me some advice” सही है, क्योंकि advice गिना नहीं जाता, इसलिए s नहीं लगता। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
-     "comment": "उत्तर: “advice”। s हटाकर “some advice” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
-     "hashtags": [
-      "#अंग्रेजीसीखें",
-      "#englishspeaking",
-      "#learnenglish",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "“advices” is not a word!",
-     "tip": "Advice has no plural; say “some advice”, not “advices”.",
-     "caption": "Do you say “Give me some advices”? 🤔 In English “Give me some advice” is right, because advice is not counted, so it takes no s. Listen to Ama and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_hi_doubt",
-   "lang": "hi",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Question, not doubt!",
-    "wrong": "I have a doubt.",
-    "right": "I have a question.",
-    "strike": "doubt",
-    "why": "Doubt means you are not sure.",
-    "memory": "Ask a question.",
-    "quiz": {
-     "stem": "Teacher, I have a ___. How do I spell it?",
-     "options": [
-      "doubt",
-      "question"
-     ],
-     "answer": 1
-    },
-    "answer_say": "Question! I have a question.",
-    "native": {
-     "hook": "“I have a doubt” का मतलब अलग!",
-     "tip": "हिंदी का “डाउट” सवाल है, पर अंग्रेज़ी में doubt का मतलब शक है; सवाल के लिए question बोलें।",
-     "caption": "क्या आप भी कहते हैं “I have a doubt”? 😉 अंग्रेज़ी में “I have a question” सही है, क्योंकि doubt का मतलब शक है, सवाल नहीं। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
-     "comment": "उत्तर: “question”। सवाल पूछना हो तो question बोलें। मुफ़्त क्विज़ यहाँ: {link}",
-     "hashtags": [
-      "#अंग्रेजीसीखें",
-      "#englishspeaking",
-      "#learnenglish",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "“I have a doubt” means something else!",
-     "tip": "The Hindi “doubt” means a query, but in English doubt means being unsure; say question.",
-     "caption": "Do you say “I have a doubt”? 😉 In English “I have a question” is right, because doubt means being unsure, not a query. Listen to Carlos and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_hi_tomorrowonly",
-   "lang": "hi",
-   "teacher": "ama",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Tomorrow, no only!",
-    "wrong": "I will do it tomorrow only.",
-    "right": "I will do it tomorrow.",
-    "strike": "only",
-    "why": "Only here sounds odd.",
-    "memory": "Just tomorrow.",
-    "quiz": {
-     "stem": "I will call you ___.",
-     "options": [
-      "tomorrow only",
-      "tomorrow"
-     ],
-     "answer": 1
-    },
-    "answer_say": "Tomorrow! I will call you tomorrow.",
-    "native": {
-     "hook": "“tomorrow only” क्यों अटपटा है?",
-     "tip": "हिंदी का “कल ही” सुनकर only जोड़ देते हैं; अंग्रेज़ी में बस “tomorrow” काफ़ी है।",
-     "caption": "क्या आप भी कहते हैं “I will do it tomorrow only”? 😅 अंग्रेज़ी में “I will do it tomorrow” सही है, क्योंकि यहाँ only लगाने की ज़रूरत नहीं है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
-     "comment": "उत्तर: “tomorrow”। only हटाकर सीधे “tomorrow” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
-     "hashtags": [
-      "#अंग्रेजीसीखें",
-      "#englishspeaking",
-      "#learnenglish",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Why does “tomorrow only” sound odd?",
-     "tip": "From the Hindi “kal hi” people add only; in English “tomorrow” is enough.",
-     "caption": "Do you say “I will do it tomorrow only”? 😅 In English “I will do it tomorrow” is right, because only is not needed here. Listen to Ama and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_hi_graduation",
-   "lang": "hi",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Say graduated!",
-    "wrong": "I did my graduation in 2020.",
-    "right": "I graduated in 2020.",
-    "strike": "did my graduation",
-    "why": "Say graduated.",
-    "memory": "I graduated.",
-    "quiz": {
-     "stem": "She ___ in 2019.",
-     "options": [
-      "did graduation",
-      "graduated"
-     ],
-     "answer": 1
-    },
-    "answer_say": "Graduated! She graduated in 2019.",
-    "native": {
-     "hook": "“did my graduation” न कहें!",
-     "tip": "हिंदी के “ग्रेजुएशन किया” की जगह अंग्रेज़ी में सीधे “I graduated” बोलें।",
-     "caption": "क्या आप भी कहते हैं “I did my graduation in 2020”? 🙈 अंग्रेज़ी में “I graduated in 2020” सही है, क्योंकि graduated अपने आप में पूरी क्रिया है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
-     "comment": "उत्तर: “graduated”। “did my graduation” की जगह graduated बोलें। मुफ़्त क्विज़ यहाँ: {link}",
-     "hashtags": [
-      "#अंग्रेजीसीखें",
-      "#englishspeaking",
-      "#learnenglish",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Do not say “did my graduation”!",
-     "tip": "Instead of the Hindi “graduation kiya”, just say “I graduated” in English.",
-     "caption": "Do you say “I did my graduation in 2020”? 🙈 In English “I graduated in 2020” is right, because graduated is a full verb on its own. Listen to Carlos and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_hi_openlight",
-   "lang": "hi",
-   "teacher": "ama",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Turn on the light!",
-    "wrong": "Open the light.",
-    "right": "Turn on the light.",
-    "strike": "Open",
-    "why": "Light uses turn on.",
-    "memory": "Turn on, turn off.",
-    "quiz": {
-     "stem": "Please ___ the light.",
-     "options": [
-      "open",
-      "turn on"
-     ],
-     "answer": 1
-    },
-    "answer_say": "Turn on! Please turn on the light.",
-    "native": {
-     "hook": "बत्ती के लिए “open” नहीं!",
-     "tip": "हिंदी में “लाइट खोलो” सुनकर open बोल देते हैं; अंग्रेज़ी में “turn on” कहें।",
-     "caption": "क्या आप भी कहते हैं “Open the light”? 🤔 अंग्रेज़ी में “Turn on the light” सही है, क्योंकि बत्ती के साथ turn on बोलते हैं, open नहीं। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
-     "comment": "उत्तर: “turn on”। बत्ती जलानी हो तो “turn on” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
-     "hashtags": [
-      "#अंग्रेजीसीखें",
-      "#englishspeaking",
-      "#learnenglish",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Not “open” for a light!",
-     "tip": "From the Hindi “light kholo” people say open; in English say “turn on”.",
-     "caption": "Do you say “Open the light”? 🤔 In English “Turn on the light” is right, because a light goes with turn on, not open. Listen to Ama and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_hi_livingsince",
-   "lang": "hi",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Since needs have!",
-    "wrong": "I am living here since 2020.",
-    "right": "I have lived here since 2020.",
-    "strike": "am living",
-    "why": "Since needs have, not am.",
-    "memory": "Have lived since.",
-    "quiz": {
-     "stem": "I ___ here since May.",
-     "options": [
-      "am living",
-      "have lived"
-     ],
-     "answer": 1
-    },
-    "answer_say": "Have lived! I have lived here since May.",
-    "native": {
-     "hook": "“since” के साथ “am living” नहीं",
-     "tip": "हिंदी में “2020 से रह रहा हूँ” कहते हैं, पर अंग्रेज़ी में since के साथ “have lived” आता है।",
-     "caption": "क्या आप भी कहते हैं “I am living here since 2020”? 😉 अंग्रेज़ी में “I have lived here since 2020” सही है, क्योंकि since के साथ have + क्रिया का तीसरा रूप चलता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
-     "comment": "उत्तर: “have lived”। “am living” की जगह “have lived” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
-     "hashtags": [
-      "#अंग्रेजीसीखें",
-      "#englishspeaking",
-      "#learnenglish",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Not “am living” with “since”",
-     "tip": "Hindi says “2020 se reh raha hoon”, but English uses “have lived” with since.",
-     "caption": "Do you say “I am living here since 2020”? 😉 In English “I have lived here since 2020” is right, because since goes with have plus the past form. Listen to Carlos and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_hi_bywalk",
-   "lang": "hi",
-   "teacher": "ama",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "On foot, not by walk!",
-    "wrong": "I go to school by walk.",
-    "right": "I go to school on foot.",
-    "strike": "by walk",
-    "why": "Say on foot.",
-    "memory": "On foot.",
-    "quiz": {
-     "stem": "He goes to work ___.",
-     "options": [
-      "by walk",
-      "on foot"
-     ],
-     "answer": 1
-    },
-    "answer_say": "On foot! He goes to work on foot.",
-    "native": {
-     "hook": "“by walk” नहीं, “on foot”",
-     "tip": "हिंदी के “पैदल” का अंग्रेज़ी रूप “on foot” है, “by walk” नहीं।",
-     "caption": "क्या आप भी कहते हैं “I go to school by walk”? 😅 अंग्रेज़ी में “I go to school on foot” सही है, क्योंकि पैदल जाने के लिए “on foot” कहा जाता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
-     "comment": "उत्तर: “on foot”। “by walk” की जगह “on foot” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
-     "hashtags": [
-      "#अंग्रेजीसीखें",
-      "#englishspeaking",
-      "#learnenglish",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Not “by walk”, but “on foot”",
-     "tip": "The English for Hindi “paidal” is “on foot”, not “by walk”.",
-     "caption": "Do you say “I go to school by walk”? 😅 In English “I go to school on foot” is right, because walking from place to place is said “on foot”. Listen to Ama and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_hi_moretaller",
-   "lang": "hi",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Taller, no more!",
-    "wrong": "He is more taller than me.",
-    "right": "He is taller than me.",
-    "strike": "more taller",
-    "why": "Taller already means more.",
-    "memory": "Taller than.",
-    "quiz": {
-     "stem": "She is ___ than me.",
-     "options": [
-      "more taller",
-      "taller"
-     ],
-     "answer": 1
-    },
-    "answer_say": "Taller! She is taller than me.",
-    "native": {
-     "hook": "“more taller” नहीं, “taller”",
-     "tip": "tall में -er लगाने के बाद more की ज़रूरत नहीं होती; “taller than” बोलें।",
-     "caption": "क्या आप भी कहते हैं “He is more taller than me”? 🙈 अंग्रेज़ी में “He is taller than me” सही है, क्योंकि taller में -er पहले से ही “ज़्यादा” का मतलब देता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
-     "comment": "उत्तर: “taller”। more हटाकर सिर्फ़ “taller” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
-     "hashtags": [
-      "#अंग्रेजीसीखें",
-      "#englishspeaking",
-      "#learnenglish",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Not “more taller”, but “taller”",
-     "tip": "Once you add -er to tall you do not need more; say “taller than”.",
-     "caption": "Do you say “He is more taller than me”? 🙈 In English “He is taller than me” is right, because taller already carries the meaning of more. Listen to Carlos and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_hi_haveseen",
-   "lang": "hi",
-   "teacher": "ama",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Yesterday: past simple!",
-    "wrong": "I have seen him yesterday.",
-    "right": "I saw him yesterday.",
-    "strike": "have seen",
-    "why": "Yesterday needs past simple.",
-    "memory": "Yesterday, saw.",
-    "quiz": {
-     "stem": "We ___ a film last night.",
-     "options": [
-      "have seen",
-      "saw"
-     ],
-     "answer": 1
-    },
-    "answer_say": "Saw! We saw a film last night.",
-    "native": {
-     "hook": "“yesterday” के साथ “have seen”?",
-     "tip": "बीते हुए समय (कल, पिछली रात) के साथ “saw” जैसा सरल भूतकाल बोलें, “have seen” नहीं।",
-     "caption": "क्या आप भी कहते हैं “I have seen him yesterday”? 🤔 अंग्रेज़ी में “I saw him yesterday” सही है, क्योंकि कल जैसे तय समय के साथ simple past चलता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
-     "comment": "उत्तर: “saw”। “have seen” की जगह “saw” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
-     "hashtags": [
-      "#अंग्रेजीसीखें",
-      "#englishspeaking",
-      "#learnenglish",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "“have seen” with “yesterday”?",
-     "tip": "With a finished time like yesterday, use the simple past “saw”, not “have seen”.",
-     "caption": "Do you say “I have seen him yesterday”? 🤔 In English “I saw him yesterday” is right, because a fixed past time takes the simple past. Listen to Ama and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_hi_toldtome",
-   "lang": "hi",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Told me, no to!",
-    "wrong": "She told to me a story.",
-    "right": "She told me a story.",
-    "strike": "told to me",
-    "why": "Say told me. No to.",
-    "memory": "Told me.",
-    "quiz": {
-     "stem": "She ___ a story.",
-     "options": [
-      "told me",
-      "told to me"
-     ],
-     "answer": 0
-    },
-    "answer_say": "Told me! She told me a story.",
-    "native": {
-     "hook": "“told to me” गलत है!",
-     "tip": "हिंदी के “मुझसे कहा” की तरह to न जोड़ें; अंग्रेज़ी में सीधे “told me” बोलें।",
-     "caption": "क्या आप भी कहते हैं “She told to me a story”? 😉 अंग्रेज़ी में “She told me a story” सही है, क्योंकि told के बाद सीधे व्यक्ति आता है, to नहीं। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
-     "comment": "उत्तर: “told me”। to हटाकर “told me” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
-     "hashtags": [
-      "#अंग्रेजीसीखें",
-      "#englishspeaking",
-      "#learnenglish",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "“told to me” is wrong!",
-     "tip": "Do not add to like the Hindi “mujhse kaha”; in English say “told me”.",
-     "caption": "Do you say “She told to me a story”? 😉 In English “She told me a story” is right, because told is followed straight by the person, no to. Listen to Carlos and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_hi_verymuch",
-   "lang": "hi",
-   "teacher": "ama",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Very, not very much!",
-    "wrong": "I am very much hungry.",
-    "right": "I am very hungry.",
-    "strike": "very much",
-    "why": "Very much is not for hungry.",
-    "memory": "Very hungry.",
-    "quiz": {
-     "stem": "I am ___ tired.",
-     "options": [
-      "very much",
-      "very"
-     ],
-     "answer": 1
-    },
-    "answer_say": "Very! I am very tired.",
-    "native": {
-     "hook": "“very much hungry” न कहें!",
-     "tip": "हिंदी के “बहुत ज़्यादा भूखा” की नकल में much न जोड़ें; “very hungry” कहें।",
-     "caption": "क्या आप भी कहते हैं “I am very much hungry”? 😅 अंग्रेज़ी में “I am very hungry” सही है, क्योंकि विशेषण से पहले very आता है, very much नहीं। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
-     "comment": "उत्तर: “very”। much हटाकर “very hungry” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
-     "hashtags": [
-      "#अंग्रेजीसीखें",
-      "#englishspeaking",
-      "#learnenglish",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Do not say “very much hungry”!",
-     "tip": "Do not add much like the Hindi “bahut zyada bhookha”; say “very hungry”.",
-     "caption": "Do you say “I am very much hungry”? 😅 In English “I am very hungry” is right, because before an adjective use very, not very much. Listen to Ama and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_hi_whereyouare",
-   "lang": "hi",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Are before you!",
-    "wrong": "Where you are going?",
-    "right": "Where are you going?",
-    "strike": "you are",
-    "why": "Put are before you.",
-    "memory": "Where are you?",
-    "quiz": {
-     "stem": "Where ___ going?",
-     "options": [
-      "you are",
-      "are you"
-     ],
-     "answer": 1
-    },
-    "answer_say": "Are you! Where are you going?",
-    "native": {
-     "hook": "“Where you are” का क्रम ग़लत!",
-     "tip": "हिंदी में “आप कहाँ जा रहे हैं” का क्रम अलग है; अंग्रेज़ी सवाल में are पहले आता है।",
-     "caption": "क्या आप भी कहते हैं “Where you are going?”? 🙈 अंग्रेज़ी में “Where are you going?” सही है, क्योंकि सवाल में are, you से पहले आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
-     "comment": "उत्तर: “are you”। क्रम बदलकर “are you” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
-     "hashtags": [
-      "#अंग्रेजीसीखें",
-      "#englishspeaking",
-      "#learnenglish",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "“Where you are” has the wrong order!",
-     "tip": "The Hindi word order differs; in an English question are comes first.",
-     "caption": "Do you say “Where you are going?”? 🙈 In English “Where are you going?” is right, because in a question are comes before you. Listen to Carlos and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_hi_waitingyou",
-   "lang": "hi",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Wait for!",
-    "wrong": "I am waiting you here.",
-    "right": "I am waiting for you here.",
-    "strike": "waiting you",
-    "why": "Wait needs for.",
-    "memory": "Wait for you.",
-    "quiz": {
-     "stem": "I wait ___ the bus.",
-     "options": [
-      "for",
-      "to"
-     ],
-     "answer": 0
-    },
-    "answer_say": "For! I wait for the bus.",
-    "native": {
-     "hook": "“waiting you” में for भूल गए!",
-     "tip": "हिंदी में “आपका इंतज़ार” कहते हैं, पर अंग्रेज़ी में wait के बाद for ज़रूरी है।",
-     "caption": "क्या आप भी कहते हैं “I am waiting you here”? 😉 अंग्रेज़ी में “I am waiting for you here” सही है, क्योंकि wait के बाद for लगाना ज़रूरी है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
-     "comment": "उत्तर: “for”। wait के बाद for जोड़ें। मुफ़्त क्विज़ यहाँ: {link}",
-     "hashtags": [
-      "#अंग्रेजीसीखें",
-      "#englishspeaking",
-      "#learnenglish",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "You forgot for in “waiting you”!",
-     "tip": "Hindi says “aapka intezaar”, but English needs for after wait.",
-     "caption": "Do you say “I am waiting you here”? 😉 In English “I am waiting for you here” is right, because wait needs for after it. Listen to Carlos and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_hi_reachedto",
-   "lang": "hi",
-   "teacher": "ama",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Reached home!",
-    "wrong": "I reached to home at six.",
-    "right": "I reached home at six.",
-    "strike": "to home",
-    "why": "Reach has no to.",
-    "memory": "Reached home.",
-    "quiz": {
-     "stem": "We ___ at six.",
-     "options": [
-      "reached home",
-      "reached to home"
-     ],
-     "answer": 0
-    },
-    "answer_say": "Reached home! We reached home at six.",
-    "native": {
-     "hook": "“reached to home” गलत है!",
-     "tip": "हिंदी के “घर पहुँचा” की तरह to न जोड़ें; अंग्रेज़ी में “reached home” बोलें।",
-     "caption": "क्या आप भी कहते हैं “I reached to home at six”? 😅 अंग्रेज़ी में “I reached home at six” सही है, क्योंकि reach के बाद सीधे जगह आती है, to नहीं। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
-     "comment": "उत्तर: “reached home”। to हटाकर “reached home” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
-     "hashtags": [
-      "#अंग्रेजीसीखें",
-      "#englishspeaking",
-      "#learnenglish",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "“reached to home” is wrong!",
-     "tip": "Do not add to like the Hindi “ghar pahuncha”; say “reached home”.",
-     "caption": "Do you say “I reached to home at six”? 😅 In English “I reached home at six” is right, because reach takes the place directly, no to. Listen to Ama and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_hi_doesnothas",
-   "lang": "hi",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Does not have!",
-    "wrong": "She does not has a car.",
-    "right": "She does not have a car.",
-    "strike": "has",
-    "why": "After does not, use have.",
-    "memory": "Does not have.",
-    "quiz": {
-     "stem": "He does not ___ a bike.",
-     "options": [
-      "has",
-      "have"
-     ],
-     "answer": 1
-    },
-    "answer_say": "Have! He does not have a bike.",
-    "native": {
-     "hook": "“does not has” में गलती कहाँ?",
-     "tip": "does not के बाद क्रिया का मूल रूप आता है, इसलिए has नहीं, have बोलें।",
-     "caption": "क्या आप भी कहते हैं “She does not has a car”? 🙈 अंग्रेज़ी में “She does not have a car” सही है, क्योंकि does not के बाद क्रिया बिना s वाले रूप में रहती है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
-     "comment": "उत्तर: “have”। has की जगह have बोलें। मुफ़्त क्विज़ यहाँ: {link}",
-     "hashtags": [
-      "#अंग्रेजीसीखें",
-      "#englishspeaking",
-      "#learnenglish",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "What is wrong in “does not has”?",
-     "tip": "After does not the base verb stays, so say have, not has.",
-     "caption": "Do you say “She does not has a car”? 🙈 In English “She does not have a car” is right, because after does not the verb keeps its base form. Listen to Carlos and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_hi_informations",
-   "lang": "hi",
-   "teacher": "ama",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Information, no s!",
-    "wrong": "I need more informations.",
-    "right": "I need more information.",
-    "strike": "informations",
-    "why": "Information has no plural.",
-    "memory": "More information.",
-    "quiz": {
-     "stem": "I need more ___.",
-     "options": [
-      "informations",
-      "information"
-     ],
-     "answer": 1
-    },
-    "answer_say": "Information! I need more information.",
-    "native": {
-     "hook": "“informations” जैसा शब्द नहीं!",
-     "tip": "information का बहुवचन नहीं होता; “more information” बोलें।",
-     "caption": "क्या आप भी कहते हैं “I need more informations”? 🤔 अंग्रेज़ी में “I need more information” सही है, क्योंकि information गिना नहीं जाता, इसलिए s नहीं लगता। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
-     "comment": "उत्तर: “information”। s हटाकर “information” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
-     "hashtags": [
-      "#अंग्रेजीसीखें",
-      "#englishspeaking",
-      "#learnenglish",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "“informations” is not a word!",
-     "tip": "Information has no plural; say “more information”.",
-     "caption": "Do you say “I need more informations”? 🤔 In English “I need more information” is right, because information is not counted, so it takes no s. Listen to Ama and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_hi_giveexam",
-   "lang": "hi",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Take an exam!",
-    "wrong": "I will give exam tomorrow.",
-    "right": "I will take an exam tomorrow.",
-    "strike": "give exam",
-    "why": "Take an exam. Not give.",
-    "memory": "Take a test.",
-    "quiz": {
-     "stem": "She will ___ a test.",
-     "options": [
-      "give",
-      "take"
-     ],
-     "answer": 1
-    },
-    "answer_say": "Take! She will take a test.",
-    "native": {
-     "hook": "“give exam” नहीं, “take an exam”",
-     "tip": "हिंदी के “परीक्षा देना” की नकल में give न बोलें; अंग्रेज़ी में “take an exam” कहें।",
-     "caption": "क्या आप भी कहते हैं “I will give exam tomorrow”? 😉 अंग्रेज़ी में “I will take an exam tomorrow” सही है, क्योंकि परीक्षा के साथ take आता है, give नहीं। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
-     "comment": "उत्तर: “take”। “give” की जगह “take an” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
-     "hashtags": [
-      "#अंग्रेजीसीखें",
-      "#englishspeaking",
-      "#learnenglish",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Not “give exam”, but “take an exam”",
-     "tip": "Do not copy the Hindi “pariksha dena” with give; in English say “take an exam”.",
-     "caption": "Do you say “I will give exam tomorrow”? 😉 In English “I will take an exam tomorrow” is right, because an exam goes with take, not give. Listen to Carlos and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_hi_goodin",
-   "lang": "hi",
-   "teacher": "ama",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Good at!",
-    "wrong": "He is good in maths.",
-    "right": "He is good at maths.",
-    "strike": "in",
-    "why": "Say good at.",
-    "memory": "Good at.",
-    "quiz": {
-     "stem": "I am good ___ cooking.",
-     "options": [
-      "at",
-      "in"
-     ],
-     "answer": 0
-    },
-    "answer_say": "At! I am good at cooking.",
-    "native": {
-     "hook": "“good in” नहीं, “good at”",
-     "tip": "किसी काम में माहिर होने के लिए “good at” बोलें, “good in” नहीं।",
-     "caption": "क्या आप भी कहते हैं “He is good in maths”? 😅 अंग्रेज़ी में “He is good at maths” सही है, क्योंकि अच्छा होने के साथ at आता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
-     "comment": "उत्तर: “at”। in की जगह at बोलें। मुफ़्त क्विज़ यहाँ: {link}",
-     "hashtags": [
-      "#अंग्रेजीसीखें",
-      "#englishspeaking",
-      "#learnenglish",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Not “good in”, but “good at”",
-     "tip": "To say you are skilled at something, say “good at”, not “good in”.",
-     "caption": "Do you say “He is good in maths”? 😅 In English “He is good at maths” is right, because good takes at for a skill. Listen to Ama and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_hi_revert",
-   "lang": "hi",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Reply, not revert!",
-    "wrong": "Please revert back to me.",
-    "right": "Please reply to me.",
-    "strike": "revert back",
-    "why": "Revert is not reply.",
-    "memory": "Please reply.",
-    "quiz": {
-     "stem": "Please ___ to my message.",
-     "options": [
-      "revert back",
-      "reply"
-     ],
-     "answer": 1
-    },
-    "answer_say": "Reply! Please reply to my message.",
-    "native": {
-     "hook": "“revert back” का मतलब अलग है!",
-     "tip": "दफ़्तर में “revert back” जवाब के लिए चलता है, पर अंग्रेज़ी में revert का मतलब लौटना है; “reply” बोलें।",
-     "caption": "क्या आप भी कहते हैं “Please revert back to me”? 🙈 अंग्रेज़ी में “Please reply to me” सही है, क्योंकि revert का मतलब पुरानी हालत में लौटना है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
-     "comment": "उत्तर: “reply”। जवाब देने के लिए “reply” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
-     "hashtags": [
-      "#अंग्रेजीसीखें",
-      "#englishspeaking",
-      "#learnenglish",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "“revert back” means something else!",
-     "tip": "“Revert back” is common at work for a reply, but in English revert means to go back; say reply.",
-     "caption": "Do you say “Please revert back to me”? 🙈 In English “Please reply to me” is right, because revert means to go back to an earlier state. Listen to Carlos and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_hi_cousinbrother",
-   "lang": "hi",
-   "teacher": "ama",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Cousin is enough!",
-    "wrong": "I have a cousin brother.",
-    "right": "I have a cousin.",
-    "strike": "cousin brother",
-    "why": "Cousin is already brother or sister.",
-    "memory": "Just cousin.",
-    "quiz": {
-     "stem": "I met my ___ today.",
-     "options": [
-      "cousin brother",
-      "cousin"
-     ],
-     "answer": 1
-    },
-    "answer_say": "Cousin! I met my cousin today.",
-    "native": {
-     "hook": "“cousin brother” नहीं, “cousin”",
-     "tip": "हिंदी में “चचेरा भाई” कहते हैं, पर अंग्रेज़ी में सिर्फ़ cousin काफ़ी है।",
-     "caption": "क्या आप भी कहते हैं “I have a cousin brother”? 🤔 अंग्रेज़ी में “I have a cousin” सही है, क्योंकि cousin में भाई या बहन दोनों आ जाते हैं। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
-     "comment": "उत्तर: “cousin”। brother हटाकर सिर्फ़ “cousin” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
-     "hashtags": [
-      "#अंग्रेजीसीखें",
-      "#englishspeaking",
-      "#learnenglish",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Not “cousin brother”, but “cousin”",
-     "tip": "Hindi says “chachera bhai”, but English just says cousin.",
-     "caption": "Do you say “I have a cousin brother”? 🤔 In English “I have a cousin” is right, because cousin already covers brother or sister. Listen to Ama and repeat! Practice more in the Lexkite app."
-    }
-   }
-  },
-  {
-   "id": "t2_l1_hi_afraidfrom",
-   "lang": "hi",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "in": {
-    "hook_say": "Afraid of!",
-    "wrong": "I am afraid from dogs.",
-    "right": "I am afraid of dogs.",
-    "strike": "from",
-    "why": "Afraid takes of.",
-    "memory": "Afraid of.",
-    "quiz": {
-     "stem": "She is afraid ___ spiders.",
-     "options": [
-      "of",
-      "from"
-     ],
-     "answer": 0
-    },
-    "answer_say": "Of! She is afraid of spiders.",
-    "native": {
-     "hook": "“afraid from” नहीं, “afraid of”",
-     "tip": "हिंदी के “कुत्तों से डर” की नकल में from न बोलें; अंग्रेज़ी में “afraid of” कहें।",
-     "caption": "क्या आप भी कहते हैं “I am afraid from dogs”? 😉 अंग्रेज़ी में “I am afraid of dogs” सही है, क्योंकि afraid के बाद of आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
-     "comment": "उत्तर: “of”। from की जगह of बोलें। मुफ़्त क्विज़ यहाँ: {link}",
-     "hashtags": [
-      "#अंग्रेजीसीखें",
-      "#englishspeaking",
-      "#learnenglish",
-      "#lexkite"
-     ]
-    },
-    "en": {
-     "hook": "Not “afraid from”, but “afraid of”",
-     "tip": "Do not copy the Hindi “kutton se darr” with from; say “afraid of”.",
-     "caption": "Do you say “I am afraid from dogs”? 😉 In English “I am afraid of dogs” is right, because afraid takes of. Listen to Carlos and repeat! Practice more in the Lexkite app."
-    }
-   }
-  }
- ]
+  ]
 }

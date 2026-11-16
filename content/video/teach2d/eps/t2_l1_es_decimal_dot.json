@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_decimal_dot",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Write $2.50 with a point!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: It costs $2,50.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: It costs $2.50.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "In English, we use a point for cents.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "4.5! Four point five.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "It costs $2,50.",
+  "right": "It costs $2.50.",
+  "strike": "$2,50",
+  "why": "In English, we use a point for cents.",
+  "memory": "Point, not comma.",
+  "quiz": {
+   "stem": "How do you write 4 and a half?",
+   "options": [
+    "4,5",
+    "4.5"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "¿Escribes “$2,50” en inglés?",
+   "tip": "En España y gran parte de Sudamérica los decimales llevan coma, pero en inglés se usa un punto: “$2.50.”",
+   "caption": "Muchos escriben “It costs $2,50.” 🙈 En España y gran parte de Sudamérica los decimales llevan coma, pero en inglés se escribe un punto: “It costs $2.50.” ¡Mira a Carlos y practica! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “4.5”. En inglés los decimales llevan punto, no coma. Escribe una frase tuya con un precio, como “$2.50”. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#escritura",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you write “$2,50” in English?",
+   "tip": "Spain and much of South America use a comma for decimals, but English uses a point: “$2.50.”",
+   "caption": "Many learners write “It costs $2,50.” Spain and much of South America use a comma for decimals, but English uses a point: “It costs $2.50.” Watch Carlos and practice! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿Escribes “$2,50” en inglés?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "¿Escribes “$2,50” en inglés?",
+  "keyword": "It costs $2.50.",
+  "value": "En España y gran parte de Sudamérica los decimales llevan coma, pero en inglés se usa un punto: “$2.50.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#escritura",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "¿Escribes “$2,50” en inglés?",
+    "description": "En España y gran parte de Sudamérica los decimales llevan coma, pero en inglés se usa un punto: “$2.50.”\n\nMuchos escriben “It costs $2,50.” 🙈 En España y gran parte de Sudamérica los decimales llevan coma, pero en inglés se escribe un punto: “It costs $2.50.” ¡Mira a Carlos y practica! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #escritura #lexkite",
+    "tags": [
+     "It costs $2.50.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "Muchos escriben “It costs $2,50.” 🙈 En España y gran parte de Sudamérica los decimales llevan coma, pero en inglés se escribe un punto: “It costs $2.50.” ¡Mira a Carlos y practica! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "¿Escribes “$2,50” en inglés?\n\nEn España y gran parte de Sudamérica los decimales llevan coma, pero en inglés se usa un punto: “$2.50.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#escritura",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿Escribes “$2,50” en inglés? En España y gran parte de Sudamérica los decimales llevan coma, pero en inglés s… #aprenderingles #inglesfacil #escritura"
+   }
+  },
+  "first_comment": "Respuesta: “4.5”. En inglés los decimales llevan punto, no coma. Escribe una frase tuya con un precio, como “$2.50”. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}

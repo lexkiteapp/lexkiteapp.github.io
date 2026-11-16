@@ -9,7 +9,7 @@ tags: [ielts, writing, task-1, process-diagram, passive-voice]
 keyword: "ielts process diagramm beschreiben"
 cover: write
 coverAlt: "Schreibraum von Lexkite mit Aufgabenstellungen und einem Planungsraster für einen Bericht"
-publishAt:
+publishAt: 2027-01-09T08:19:00+01:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_how_do_you_say",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "How do you ask this?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: How to say this in English?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: How do you say this in English?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Ask with do you.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Do you! How do you say thanks in English?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "How to say this in English?",
+  "right": "How do you say this in English?",
+  "strike": "How to say",
+  "why": "Ask with do you.",
+  "memory": "How do you say?",
+  "quiz": {
+   "stem": "How ___ say thanks in English?",
+   "options": [
+    "do you",
+    "to"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Nói thế nào” ≠ “How to say”",
+   "tip": "Tiếng Việt hỏi “nói thế nào”, nhưng tiếng Anh cần câu hỏi đầy đủ: “How do you say…?”",
+   "caption": "Bạn có hay nói “How to say this in English?” không? 😅 Khi hỏi, hãy dùng câu hỏi đầy đủ: “How do you say this in English?” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “do you.” Hãy hỏi to một từ bạn chưa biết, bắt đầu bằng “How do you say.” Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#tuhoctienganh",
+    "#luyennoitienganh",
+    "#loisaiphobien",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “How to say”!",
+   "tip": "Ask with a full question: “How do you say…?”",
+   "caption": "Do you often say this? “How to say this in English?” Ask with a full question: “How do you say this in English?” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Nói thế nào” ≠ “How to say”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 51,
+  "seconds": 30.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“Nói thế nào” ≠ “How to say”",
+  "keyword": "How do you say this in English?",
+  "value": "Tiếng Việt hỏi “nói thế nào”, nhưng tiếng Anh cần câu hỏi đầy đủ: “How do you say…?”",
+  "hashtags": [
+   "#tuhoctienganh",
+   "#luyennoitienganh",
+   "#loisaiphobien",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 45,
+  "platforms": {
+   "youtube": {
+    "title": "“Nói thế nào” ≠ “How to say”",
+    "description": "Tiếng Việt hỏi “nói thế nào”, nhưng tiếng Anh cần câu hỏi đầy đủ: “How do you say…?”\n\nBạn có hay nói “How to say this in English?” không? 😅 Khi hỏi, hãy dùng câu hỏi đầy đủ: “How do you say this in English?” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#tuhoctienganh #luyennoitienganh #loisaiphobien #lexkite",
+    "tags": [
+     "How do you say this in English?",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “How to say this in English?” không? 😅 Khi hỏi, hãy dùng câu hỏi đầy đủ: “How do you say this in English?” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Nói thế nào” ≠ “How to say”\n\nTiếng Việt hỏi “nói thế nào”, nhưng tiếng Anh cần câu hỏi đầy đủ: “How do you say…?”\n\nlexkite.com",
+    "hashtags": [
+     "#tuhoctienganh",
+     "#luyennoitienganh",
+     "#loisaiphobien",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Nói thế nào” ≠ “How to say” Tiếng Việt hỏi “nói thế nào”, nhưng tiếng Anh cần câu hỏi đầy đủ: “How d… #tuhoctienganh #luyennoitienganh #loisaiphobien"
+   }
+  },
+  "first_comment": "Đáp án: “do you.” Hãy hỏi to một từ bạn chưa biết, bắt đầu bằng “How do you say.” Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_gym",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Health? Say the gym!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I go to health every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I go to the gym every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say the gym for a place to work out.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The gym! I work out at the gym after work.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I go to health every day.",
+  "right": "I go to the gym every day.",
+  "strike": "health",
+  "why": "Say the gym for a place to work out.",
+  "memory": "I go to the gym.",
+  "quiz": {
+   "stem": "I work out at ___ after work.",
+   "options": [
+    "health",
+    "the gym"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "‘헬스’는 the gym이에요!",
+   "tip": "운동하러 가는 ‘헬스장’을 health라고 하기 쉬워요. 영어 health는 ‘건강’이라는 뜻이고, 운동하는 곳은 the gym이라고 해요. 이렇게 말해요 👉 “I go to the gym every day.”",
+   "caption": "“I go to health every day.”처럼 말하고 있나요? 😅 운동하러 가는 ‘헬스장’을 health라고 하기 쉬워요. 영어 health는 ‘건강’이라는 뜻이고, 운동하는 곳은 the gym이라고 해요. 맞는 문장 ✅ “I go to the gym every day.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답: “the gym”! 이 표현으로 나만의 문장을 하나 써 보세요. 무료 퀴즈로 더 연습해요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say the gym, not health!",
+   "tip": "Health means how well your body is. Say “I go to the gym every day.”",
+   "caption": "Do you say it like this? 😅 “I go to health every day.” Health means how well your body is. Right: “I go to the gym every day.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "‘헬스’는 the gym이에요!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 56,
+  "seconds": 33.0,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "‘헬스’는 the gym이에요!",
+  "keyword": "I go to the gym every day.",
+  "value": "운동하러 가는 ‘헬스장’을 health라고 하기 쉬워요. 영어 health는 ‘건강’이라는 뜻이고, 운동하는 곳은 the gym이라고 해요. 이렇게 말해요 👉 “I go to the gym every day.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 50,
+  "platforms": {
+   "youtube": {
+    "title": "‘헬스’는 the gym이에요!",
+    "description": "운동하러 가는 ‘헬스장’을 health라고 하기 쉬워요. 영어 health는 ‘건강’이라는 뜻이고, 운동하는 곳은 the gym이라고 해요. 이렇게 말해요 👉 “I go to the gym every day.”\n\n“I go to health every day.”처럼 말하고 있나요? 😅 운동하러 가는 ‘헬스장’을 health라고 하기 쉬워요. 영어 health는 ‘건강’이라는 뜻이고, 운동하는 곳은 the gym이라고 해요. 맞는 문장 ✅ “I go to the gym every day.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "I go to the gym every day.",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“I go to health every day.”처럼 말하고 있나요? 😅 운동하러 가는 ‘헬스장’을 health라고 하기 쉬워요. 영어 health는 ‘건강’이라는 뜻이고, 운동하는 곳은 the gym이라고 해요. 맞는 문장 ✅ “I go to the gym every day.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "‘헬스’는 the gym이에요!\n\n운동하러 가는 ‘헬스장’을 health라고 하기 쉬워요. 영어 health는 ‘건강’이라는 뜻이고, 운동하는 곳은 the gym이라고 해요. 이렇게 말해요 👉 “I go to the gym every day.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "‘헬스’는 the gym이에요! 운동하러 가는 ‘헬스장’을 health라고 하기 쉬워요. 영어 health는 ‘건강’이라는 뜻이고, 운동하는 곳은 the gym이라고 해요. 이렇게 말해요 👉 “I go to the gym every d… #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “the gym”! 이 표현으로 나만의 문장을 하나 써 보세요. 무료 퀴즈로 더 연습해요: {link}",
+  "lang": "ko"
+ }
+}

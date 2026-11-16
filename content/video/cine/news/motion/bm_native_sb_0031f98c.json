@@ -1,0 +1,260 @@
+{
+ "id": "mo_bm_native_sb_0031f98c",
+ "template": "native",
+ "title": "Motion native – statute of limitations (n): the legal time limit for bringing a case (sb_0031f98c)",
+ "teacher": "carlos",
+ "clips": [
+  "gc11_talk",
+  "gc11_explain",
+  "gc11_happy",
+  "gc11_thinking",
+  "gc11_surprise_2"
+ ],
+ "listen": [
+  "gc11_listen"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy",
+ "active": "yellow",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "situational",
+  "link": "https://lexkite.com/app/",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Work",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "Guess before I tell you",
+   "gap": 0.7
+  },
+  {
+   "id": "x",
+   "text": "Textbook: The law time is over, so no case.",
+   "gap": 0.7
+  },
+  {
+   "id": "b",
+   "text": "Natural: The statute of limitations has run out.",
+   "gap": 0.7
+  },
+  {
+   "id": "w",
+   "text": "It's the legal time limit to start a case.",
+   "gap": 0.7
+  },
+  {
+   "id": "a",
+   "text": "Some crimes have no time limit at all!",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "Guess before",
+      "white"
+     ]
+    ],
+    [
+     [
+      "I tell you",
+      "yellow"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Sound natural",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "Guess before"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "I tell you"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "sum",
+    "at": [
+     "w",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Why",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "It's the legal time limit to start a case."
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "rules",
+    "at": [
+     "x",
+     0
+    ],
+    "rows": [
+     {
+      "t": "tile",
+      "tag": "TEXTBOOK",
+      "tone": "gold",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "The law time is over, so no case.",
+        "gold"
+       ]
+      ],
+      "ex_at": [
+       "x",
+       1
+      ],
+      "at": [
+       "x",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "NATURAL",
+      "tone": "teal",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "The statute of limitations has run out.",
+        "teal"
+       ]
+      ],
+      "ex_at": [
+       "b",
+       1
+      ],
+      "at": [
+       "b",
+       0
+      ]
+     }
+    ]
+   }
+  ],
+  "hook_text": "Guess before I tell you",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ },
+ "uses": {
+  "template": "native",
+  "row": "sb_0031f98c",
+  "teacher": "carlos",
+  "accent": "navy",
+  "active": "yellow",
+  "tones": 0
+ }
+}

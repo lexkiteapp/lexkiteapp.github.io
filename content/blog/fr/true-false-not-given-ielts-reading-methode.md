@@ -87,6 +87,8 @@ Pour que cette démarche devienne un réflexe naturel :
 2. **Exploitez le Journal des Erreurs :** Chaque question manquée est automatiquement archivée dans votre [journal des erreurs](/#/mistakes), ce qui vous permet de comprendre si vos faiblesses proviennent du lexique ou d'une mauvaise interprétation logique.
 3. **Approfondissez vos Compétences Textuelles :** Complétez votre entraînement en consultant nos fiches sur [comment paraphraser ielts techniques](/fr/blog/comment-paraphraser-ielts-techniques/) et découvrez notre sélection de [collocations anglaises pour ielts](/fr/blog/collocations-anglaises-pour-ielts/). Pour élargir votre palette de mots, parcourez notre guide pour [apprendre vocabulaire anglais](/fr/blog/apprendre-vocabulaire-anglais/) et revoyez les règles de syntaxe dans la section [/ngu-phap/](/ngu-phap/). Enfin, travaillez votre compréhension auditive avec [conseils ielts listening](/fr/blog/conseils-ielts-listening/).
 
+Ce format n'est qu'un des exercices de l'épreuve : retrouvez tous les [types de questions IELTS Reading](/fr/blog/types-de-questions-ielts-reading-methodes/).
+
 ## Foire Aux Questions (FAQ)
 
 ### Quelle est la différence entre True/False/Not Given et Yes/No/Not Given ?

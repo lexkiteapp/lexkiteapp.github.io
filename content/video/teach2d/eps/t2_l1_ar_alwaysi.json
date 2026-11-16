@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_alwaysi",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Always first? Put I first!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Always I drink tea in the morning.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I always drink tea in the morning.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "I first, then always.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! I always eat fish.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Always I drink tea in the morning.",
+  "right": "I always drink tea in the morning.",
+  "strike": "Always I",
+  "why": "I first, then always.",
+  "memory": "I always drink.",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "Always I eat fish.",
+    "I always eat fish."
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "هل تبدأ بـ“Always I”؟",
+   "tip": "نقول «دائمًا أشرب الشاي»، أما هنا فتأتي always بعد I: “I always drink tea in the morning.” وليس “Always I drink tea in the morning.”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “Always I drink tea in the morning.” 😅 نقول «دائمًا أشرب الشاي»، أما هنا فتأتي always بعد I، فالجملة الصحيحة “I always drink tea in the morning.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “I always” — نقول «دائمًا أشرب الشاي»، أما هنا فتأتي always بعد I. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you start with “Always I”?",
+   "tip": "In Arabic we say «دائمًا أشرب الشاي», but here always comes after I: “I always drink tea in the morning.” not “Always I drink tea in the morning.”",
+   "caption": "Do you sometimes say this? “Always I drink tea in the morning.” 😅 In Arabic we say «دائمًا أشرب الشاي», but here always comes after I, so the right sentence is “I always drink tea in the morning.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تبدأ بـ“Always I”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "هل تبدأ بـ“Always I”؟",
+  "keyword": "I always drink tea in the morning.",
+  "value": "نقول «دائمًا أشرب الشاي»، أما هنا فتأتي always بعد I: “I always drink tea in the morning.” وليس “Always I drink tea in the morning.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "هل تبدأ بـ“Always I”؟",
+    "description": "نقول «دائمًا أشرب الشاي»، أما هنا فتأتي always بعد I: “I always drink tea in the morning.” وليس “Always I drink tea in the morning.”\n\nهل تقول أحيانًا هذه الجملة؟ “Always I drink tea in the morning.” 😅 نقول «دائمًا أشرب الشاي»، أما هنا فتأتي always بعد I، فالجملة الصحيحة “I always drink tea in the morning.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "I always drink tea in the morning.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا هذه الجملة؟ “Always I drink tea in the morning.” 😅 نقول «دائمًا أشرب الشاي»، أما هنا فتأتي always بعد I، فالجملة الصحيحة “I always drink tea in the morning.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تبدأ بـ“Always I”؟\n\nنقول «دائمًا أشرب الشاي»، أما هنا فتأتي always بعد I: “I always drink tea in the morning.” وليس “Always I drink tea in the morning.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تبدأ بـ“Always I”؟ نقول «دائمًا أشرب الشاي»، أما هنا فتأتي always بعد I: “I always drink tea i… #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “I always” — نقول «دائمًا أشرب الشاي»، أما هنا فتأتي always بعد I. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+  "lang": "ar"
+ }
+}

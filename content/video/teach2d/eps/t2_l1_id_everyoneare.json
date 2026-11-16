@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_everyoneare",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Everyone is, not are!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Everyone are happy today.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Everyone is happy today.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Everyone is one group.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Is! Everyone is here.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Everyone are happy today.",
+  "right": "Everyone is happy today.",
+  "strike": "are",
+  "why": "Everyone is one group.",
+  "memory": "Everyone is.",
+  "quiz": {
+   "stem": "Everyone ___ here.",
+   "options": [
+    "are",
+    "is"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Semua orang” itu “is”",
+   "tip": "“Semua orang” terasa banyak, tapi bahasa Inggris memakai is setelah everyone.",
+   "caption": "Pernah bilang begini? “Everyone are happy today.” 😅 Setelah everyone, pakai is: “Everyone is happy today.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “is”. Ucapkan dengan lantang: “Everyone is happy today.” Lalu ganti happy dengan tired. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#grammaringgris",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Everyone” takes “is”",
+   "tip": "“Semua orang” feels like many, but English uses is after everyone.",
+   "caption": "Ever say this? “Everyone are happy today.” 😅 After everyone, use is: “Everyone is happy today.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Semua orang” itu “is”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 40,
+  "seconds": 25.1,
+  "wpm": 95
+ },
+ "publish": {
+  "title": "“Semua orang” itu “is”",
+  "keyword": "Everyone is happy today.",
+  "value": "“Semua orang” terasa banyak, tapi bahasa Inggris memakai is setelah everyone.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#grammaringgris",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "“Semua orang” itu “is”",
+    "description": "“Semua orang” terasa banyak, tapi bahasa Inggris memakai is setelah everyone.\n\nPernah bilang begini? “Everyone are happy today.” 😅 Setelah everyone, pakai is: “Everyone is happy today.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #grammaringgris #bahasainggris #lexkite",
+    "tags": [
+     "Everyone is happy today.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “Everyone are happy today.” 😅 Setelah everyone, pakai is: “Everyone is happy today.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Semua orang” itu “is”\n\n“Semua orang” terasa banyak, tapi bahasa Inggris memakai is setelah everyone.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#grammaringgris",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Semua orang” itu “is” “Semua orang” terasa banyak, tapi bahasa Inggris memakai is setelah every… #belajarbahasainggris #grammaringgris #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “is”. Ucapkan dengan lantang: “Everyone is happy today.” Lalu ganti happy dengan tired. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_how_think",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "What do you think?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: How do you think about this?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: What do you think about this?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Ask what, not how, for ideas.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "What! What do you think about it?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "How do you think about this?",
+  "right": "What do you think about this?",
+  "strike": "How",
+  "why": "Ask what, not how, for ideas.",
+  "memory": "What do you think.",
+  "quiz": {
+   "stem": "___ do you think about it?",
+   "options": [
+    "What",
+    "How"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Bạn nghĩ thế nào” dịch sao đây?",
+   "tip": "Tiếng Việt hỏi “nghĩ thế nào”, nhưng tiếng Anh hỏi “What do you think.”",
+   "caption": "Bạn có hay nói “How do you think about this?” không? 🤔 Hỏi ý kiến thì dùng “What”: “What do you think about this?” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “What.” Hỏi ý kiến bạn bè bằng “What do you think…” nhé! Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#tuhoctienganh",
+    "#luyennoitienganh",
+    "#loisaiphobien",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "How do you ask for an opinion?",
+   "tip": "English asks “What do you think”, not “How do you think.”",
+   "caption": "Do you often say this? “How do you think about this?” Say “What do you think about this?” instead. Listen to Carlos, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Bạn nghĩ thế nào” dịch sao đây?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“Bạn nghĩ thế nào” dịch sao đây?",
+  "keyword": "What do you think about this?",
+  "value": "Tiếng Việt hỏi “nghĩ thế nào”, nhưng tiếng Anh hỏi “What do you think.”",
+  "hashtags": [
+   "#tuhoctienganh",
+   "#luyennoitienganh",
+   "#loisaiphobien",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "“Bạn nghĩ thế nào” dịch sao đây?",
+    "description": "Tiếng Việt hỏi “nghĩ thế nào”, nhưng tiếng Anh hỏi “What do you think.”\n\nBạn có hay nói “How do you think about this?” không? 🤔 Hỏi ý kiến thì dùng “What”: “What do you think about this?” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#tuhoctienganh #luyennoitienganh #loisaiphobien #lexkite",
+    "tags": [
+     "What do you think about this?",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “How do you think about this?” không? 🤔 Hỏi ý kiến thì dùng “What”: “What do you think about this?” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Bạn nghĩ thế nào” dịch sao đây?\n\nTiếng Việt hỏi “nghĩ thế nào”, nhưng tiếng Anh hỏi “What do you think.”\n\nlexkite.com",
+    "hashtags": [
+     "#tuhoctienganh",
+     "#luyennoitienganh",
+     "#loisaiphobien",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Bạn nghĩ thế nào” dịch sao đây? Tiếng Việt hỏi “nghĩ thế nào”, nhưng tiếng Anh hỏi “What do you thin… #tuhoctienganh #luyennoitienganh #loisaiphobien"
+   }
+  },
+  "first_comment": "Đáp án: “What.” Hỏi ý kiến bạn bè bằng “What do you think…” nhé! Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

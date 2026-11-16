@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "Advice! I need some advice.",
+   "text": "Some advice! Let me give you some advice.",
    "pause": 0.42
   },
   {
@@ -58,18 +58,18 @@
   "why": "Advice has no a and no s.",
   "memory": "Some advice.",
   "quiz": {
-   "stem": "I need some ___.",
+   "stem": "Let me give you ___.",
    "options": [
-    "advice",
-    "an advice"
+    "an advice",
+    "some advice"
    ],
-   "answer": 0
+   "answer": 1
   },
   "native": {
    "hook": "advice 前不能加 an！",
    "tip": "advice 是不可数名词，不能加 a/an，也不加 s。",
-   "caption": "你是不是也会说 “Can you give me an advice?”？😅 advice 不可数，不加 a/an，也不加 s：“Can you give me some advice?”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
-   "comment": "答案：“some advice”。advice 不可数！免费测验在这里：{link}",
+   "caption": "你是不是也会说 “Can you give me an advice?”😅 advice 不可数，不加 a/an，也不加 s：“Can you give me some advice?”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“some advice”，advice 不可数！免费测验在这里：{link}",
    "hashtags": [
     "#学英语",
     "#英语口语",
@@ -80,7 +80,7 @@
   "en": {
    "hook": "No “an” before advice!",
    "tip": "Advice is uncountable: no a, no an, no s.",
-   "caption": "Do you say “Can you give me an advice?”? 😅 Advice is uncountable, so no a, an or s: “Can you give me some advice?”. Listen to Ama and repeat! Practice more in the Lexkite app."
+   "caption": "Do you say “Can you give me an advice?” 😅 Advice is uncountable, so no a, an or s: “Can you give me some advice?” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -98,9 +98,9 @@
  },
  "lang": "zh",
  "est": {
-  "words": 48,
-  "seconds": 29.1,
-  "wpm": 99
+  "words": 51,
+  "seconds": 30.5,
+  "wpm": 100
  },
  "publish": {
   "title": "advice 前不能加 an！",
@@ -113,11 +113,11 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 42,
+  "script_words": 45,
   "platforms": {
    "youtube": {
     "title": "advice 前不能加 an！",
-    "description": "你是不是也会说 “Can you give me an advice?”？😅 advice 不可数，不加 a/an，也不加 s：“Can you give me some advice?”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "description": "advice 是不可数名词，不能加 a/an，也不加 s。\n\n你是不是也会说 “Can you give me an advice?”😅 advice 不可数，不加 a/an，也不加 s：“Can you give me some advice?”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
     "tags": [
      "Can you give me some advice?",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "你是不是也会说 “Can you give me an advice?”？😅 advice 不可数，不加 a/an，也不加 s：“Can you give me some advice?”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+    "text": "你是不是也会说 “Can you give me an advice?”😅 advice 不可数，不加 a/an，也不加 s：“Can you give me some advice?”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "你是不是也会说 “Can you give me an advice?”？😅 advice 不可数，不加 a/an，也不加 s：“Can you give me some advice?”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nlexkite.com",
+    "caption": "advice 前不能加 an！\n\nadvice 是不可数名词，不能加 a/an，也不加 s。\n\nlexkite.com",
     "hashtags": [
      "#学英语",
      "#英语口语",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "advice 前不能加 an！ #学英语 #英语口语 #英语学习"
+    "caption": "advice 前不能加 an！ advice 是不可数名词，不能加 a/an，也不加 s。 #学英语 #英语口语 #英语学习"
    }
   },
-  "first_comment": "答案：“some advice”。advice 不可数！免费测验在这里：{link}",
+  "first_comment": "答案：“some advice”，advice 不可数！免费测验在这里：{link}",
   "lang": "zh"
  }
 }

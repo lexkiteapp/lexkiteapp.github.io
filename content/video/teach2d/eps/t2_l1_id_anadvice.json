@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_anadvice",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Some advice, not an advice.",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Can you give me an advice?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Can you give me some advice?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "We can't count advice. Say some.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Some! Can you give me some advice?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Can you give me an advice?",
+  "right": "Can you give me some advice?",
+  "strike": "an",
+  "why": "We can't count advice. Say some.",
+  "memory": "Give me some advice.",
+  "quiz": {
+   "stem": "Can you give me ___ advice?",
+   "options": [
+    "an",
+    "some"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "some advice",
+   "tip": "Di bahasa Indonesia, saran bisa dihitung: “dua saran”. Di bahasa Inggris, advice tidak bisa dihitung, jadi pakai some, bukan an.",
+   "caption": "Pernah bilang begini? “Can you give me an advice?” 😅 Advice tidak bisa dihitung, jadi pakai some: “Can you give me some advice?” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “some”. Ucapkan dengan lantang: “Can you give me some advice?” lalu tulis satu saran untuk temanmu. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#kosakata",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Some advice",
+   "tip": "In Indonesian, “saran” can be counted: “dua saran”. In English, advice cannot be counted, so use some, not an.",
+   "caption": "Ever say this? “Can you give me an advice?” 😅 Advice cannot be counted, so use some: “Can you give me some advice?” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "some advice"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "some advice",
+  "keyword": "Can you give me some advice?",
+  "value": "Di bahasa Indonesia, saran bisa dihitung: “dua saran”. Di bahasa Inggris, advice tidak bisa dihitung, jadi pakai some, bukan an.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#kosakata",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "some advice",
+    "description": "Di bahasa Indonesia, saran bisa dihitung: “dua saran”. Di bahasa Inggris, advice tidak bisa dihitung, jadi pakai some, bukan an.\n\nPernah bilang begini? “Can you give me an advice?” 😅 Advice tidak bisa dihitung, jadi pakai some: “Can you give me some advice?” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #kosakata #bahasainggris #lexkite",
+    "tags": [
+     "Can you give me some advice?",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “Can you give me an advice?” 😅 Advice tidak bisa dihitung, jadi pakai some: “Can you give me some advice?” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "some advice\n\nDi bahasa Indonesia, saran bisa dihitung: “dua saran”. Di bahasa Inggris, advice tidak bisa dihitung, jadi pakai some, bukan an.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#kosakata",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "some advice Di bahasa Indonesia, saran bisa dihitung: “dua saran”. Di bahasa Inggris, advice tidak bis… #belajarbahasainggris #kosakata #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “some”. Ucapkan dengan lantang: “Can you give me some advice?” lalu tulis satu saran untuk temanmu. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

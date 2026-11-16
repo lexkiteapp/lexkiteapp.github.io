@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_there_is",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say there are, not have!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: In Bangkok have many cars.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: There are many cars in Bangkok.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use there is or there are, not have.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "There is! There is a park near my house.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "In Bangkok have many cars.",
+  "right": "There are many cars in Bangkok.",
+  "strike": "have",
+  "why": "Use there is or there are, not have.",
+  "memory": "There are many cars.",
+  "quiz": {
+   "stem": "___ a park near my house.",
+   "options": [
+    "Have",
+    "There is"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“มี” ไม่ใช่ have เสมอไป!",
+   "tip": "ไทยใช้ “มี” ทั้ง have และ there is แต่ถ้าบอกว่ามีอะไรอยู่ที่ไหน ใช้ “there is/are”",
+   "caption": "คุณเคยพูดว่า “In Bangkok have many cars.” ไหม? 😅 ภาษาไทยใช้ “มี” ทั้ง have และ there is แต่ภาษาอังกฤษบอกว่ามีอะไรอยู่ที่ไหนต้องใช้ there is หรือ there are: “There are many cars in Bangkok.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “There is” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “have”, say “there are”!",
+   "tip": "Thai uses one word for have and there is, but English says there is/are for what is in a place",
+   "caption": "Do you say “In Bangkok have many cars”? 😅 Thai uses one word for have and there is, but English says there is or there are for what is in a place. Say “There are many cars in Bangkok”! Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“มี” ไม่ใช่ have เสมอไป!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 53,
+  "seconds": 31.5,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "“มี” ไม่ใช่ have เสมอไป!",
+  "keyword": "There are many cars in Bangkok.",
+  "value": "ไทยใช้ “มี” ทั้ง have และ there is แต่ถ้าบอกว่ามีอะไรอยู่ที่ไหน ใช้ “there is/are”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 47,
+  "platforms": {
+   "youtube": {
+    "title": "“มี” ไม่ใช่ have เสมอไป!",
+    "description": "ไทยใช้ “มี” ทั้ง have และ there is แต่ถ้าบอกว่ามีอะไรอยู่ที่ไหน ใช้ “there is/are”\n\nคุณเคยพูดว่า “In Bangkok have many cars.” ไหม? 😅 ภาษาไทยใช้ “มี” ทั้ง have และ there is แต่ภาษาอังกฤษบอกว่ามีอะไรอยู่ที่ไหนต้องใช้ there is หรือ there are: “There are many cars in Bangkok.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "There are many cars in Bangkok.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “In Bangkok have many cars.” ไหม? 😅 ภาษาไทยใช้ “มี” ทั้ง have และ there is แต่ภาษาอังกฤษบอกว่ามีอะไรอยู่ที่ไหนต้องใช้ there is หรือ there are: “There are many cars in Bangkok.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“มี” ไม่ใช่ have เสมอไป!\n\nไทยใช้ “มี” ทั้ง have และ there is แต่ถ้าบอกว่ามีอะไรอยู่ที่ไหน ใช้ “there is/are”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“มี” ไม่ใช่ have เสมอไป! ไทยใช้ “มี” ทั้ง have และ there is แต่ถ้าบอกว่ามีอะไรอยู่ที่ไหน ใช้ “there is/are” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “There is” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

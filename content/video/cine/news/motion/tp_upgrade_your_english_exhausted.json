@@ -1,0 +1,302 @@
+{
+ "id": "mo_tp_upgrade_your_english_exhausted",
+ "template": "upgrade-your-english",
+ "title": "Motion upgrade-your-english – upgrade-your-english: exhausted (tp_upgrade_your_english_exhausted)",
+ "teacher": "ama",
+ "clips": [
+  "ga11_talk",
+  "ga11_explain",
+  "ga11_happy",
+  "ga11_thinking",
+  "ga11_surprise_3"
+ ],
+ "listen": [
+  "ga11_listen_2"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy2",
+ "active": "yellow",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "upgrade-your-english",
+  "link": "https://lexkite.com/app/",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Upgrade Your English",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "Stop saying \"very tired.\"",
+   "gap": 0.7
+  },
+  {
+   "id": "s0",
+   "text": "After work, I'm very tired. Very, very tired. Is that boring?",
+   "gap": 0.7
+  },
+  {
+   "id": "s1",
+   "text": "Try exhausted. It means very, very tired.",
+   "gap": 0.7
+  },
+  {
+   "id": "s2",
+   "text": "After work, I'm exhausted. I just want my bed.",
+   "gap": 0.7
+  },
+  {
+   "id": "t",
+   "text": "Tip: very hungry becomes starving. Very scared becomes terrified.",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "Stop saying",
+      "white"
+     ]
+    ],
+    [
+     [
+      "\"very",
+      "yellow"
+     ]
+    ],
+    [
+     [
+      "tired.\"",
+      "yellow"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Upgrade",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "Stop saying"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "\"very"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "tired.\""
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "sum",
+    "at": [
+     "t",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Tip",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "very hungry becomes starving. Very scared becomes"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "rules",
+    "at": [
+     "s0",
+     0
+    ],
+    "rows": [
+     {
+      "t": "tile",
+      "tag": "BORING",
+      "tone": "coral",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "very tired",
+        "coral"
+       ]
+      ],
+      "ex_at": [
+       "s0",
+       0
+      ],
+      "at": [
+       "s0",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "UPGRADE",
+      "tone": "teal",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "exhausted",
+        "teal"
+       ]
+      ],
+      "ex_at": [
+       "s1",
+       0
+      ],
+      "at": [
+       "s1",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "BETTER",
+      "tone": "gold",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "After work, I'm exhausted. I just want my bed.",
+        "gold"
+       ]
+      ],
+      "ex_at": [
+       "s2",
+       0
+      ],
+      "at": [
+       "s2",
+       0
+      ]
+     }
+    ]
+   }
+  ],
+  "hook_text": "Stop saying \"very tired.\"",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ },
+ "uses": {
+  "template": "upgrade-your-english",
+  "row": "tp_upgrade_your_english_exhausted",
+  "teacher": "ama",
+  "accent": "navy2",
+  "active": "yellow",
+  "tones": 1
+ }
+}

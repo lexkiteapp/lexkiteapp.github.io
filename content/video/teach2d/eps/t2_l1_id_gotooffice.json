@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_gotooffice",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Go to THE office!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I go to office by bus.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I go to the office by bus.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Add the before office.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The office! I walk to the office every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I go to office by bus.",
+  "right": "I go to the office by bus.",
+  "strike": "office",
+  "why": "Add the before office.",
+  "memory": "Go to the office.",
+  "quiz": {
+   "stem": "I walk to ___ every day.",
+   "options": [
+    "the office",
+    "office"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“To office”? Pakai “the”",
+   "tip": "Bahasa Indonesia tidak punya artikel seperti the, tapi bahasa Inggris butuh the sebelum tempat tertentu.",
+   "caption": "Pernah bilang begini? “I go to office by bus.” 😅 Sebelum tempat tertentu, pakai the: “I go to the office by bus.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “the office”. Ceritakan perjalananmu: “I go to the ...” Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#grammaringgris",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“To office”? Add “the”",
+   "tip": "Indonesian has no article like the, but English needs the before a specific place.",
+   "caption": "Ever say this? “I go to office by bus.” 😅 Before a specific place, use the: “I go to the office by bus.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“To office”? Pakai “the”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“To office”? Pakai “the”",
+  "keyword": "I go to the office by bus.",
+  "value": "Bahasa Indonesia tidak punya artikel seperti the, tapi bahasa Inggris butuh the sebelum tempat tertentu.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#grammaringgris",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "“To office”? Pakai “the”",
+    "description": "Bahasa Indonesia tidak punya artikel seperti the, tapi bahasa Inggris butuh the sebelum tempat tertentu.\n\nPernah bilang begini? “I go to office by bus.” 😅 Sebelum tempat tertentu, pakai the: “I go to the office by bus.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #grammaringgris #bahasainggris #lexkite",
+    "tags": [
+     "I go to the office by bus.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “I go to office by bus.” 😅 Sebelum tempat tertentu, pakai the: “I go to the office by bus.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“To office”? Pakai “the”\n\nBahasa Indonesia tidak punya artikel seperti the, tapi bahasa Inggris butuh the sebelum tempat tertentu.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#grammaringgris",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“To office”? Pakai “the” Bahasa Indonesia tidak punya artikel seperti the, tapi bahasa Inggris b… #belajarbahasainggris #grammaringgris #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “the office”. Ceritakan perjalananmu: “I go to the ...” Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

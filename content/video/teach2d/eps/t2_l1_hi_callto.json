@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_callto",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Call you, with no to!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I will call to you tonight.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I will call you tonight.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Call goes straight to the person.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "You! I will call you tonight.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I will call to you tonight.",
+  "right": "I will call you tonight.",
+  "strike": "to",
+  "why": "Call goes straight to the person.",
+  "memory": "Call you.",
+  "quiz": {
+   "stem": "I will call ___ tonight.",
+   "options": [
+    "to you",
+    "you"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“call to” नहीं, सिर्फ़ “call you”!",
+   "tip": "लोग “को” का अनुवाद to करके call to you बोल देते हैं। अंग्रेज़ी में call के बाद सीधे you आता है।",
+   "caption": "क्या आप भी बोलते हैं: “I will call to you tonight.” 😅 सही वाक्य है: “I will call you tonight.” ध्यान रखें: call के बाद सीधे व्यक्ति आता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “you”। याद रखें: call के बाद सीधे व्यक्ति आता है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “call you”, not “call to”!",
+   "tip": "Many learners add to after call, but English puts the person right after call.",
+   "caption": "Do you say: “I will call to you tonight.” 😅 The right sentence is: “I will call you tonight.” Remember: Put the person right after call. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“call to” नहीं, सिर्फ़ “call you”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“call to” नहीं, सिर्फ़ “call you”!",
+  "keyword": "I will call you tonight.",
+  "value": "लोग “को” का अनुवाद to करके call to you बोल देते हैं। अंग्रेज़ी में call के बाद सीधे you आता है।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "“call to” नहीं, सिर्फ़ “call you”!",
+    "description": "लोग “को” का अनुवाद to करके call to you बोल देते हैं। अंग्रेज़ी में call के बाद सीधे you आता है।\n\nक्या आप भी बोलते हैं: “I will call to you tonight.” 😅 सही वाक्य है: “I will call you tonight.” ध्यान रखें: call के बाद सीधे व्यक्ति आता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "I will call you tonight.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी बोलते हैं: “I will call to you tonight.” 😅 सही वाक्य है: “I will call you tonight.” ध्यान रखें: call के बाद सीधे व्यक्ति आता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“call to” नहीं, सिर्फ़ “call you”!\n\nलोग “को” का अनुवाद to करके call to you बोल देते हैं। अंग्रेज़ी में call के बाद सीधे you आता है।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“call to” नहीं, सिर्फ़ “call you”! लोग “को” का अनुवाद to करके call to you बोल देते हैं। अंग्रेज़ी में c… #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “you”। याद रखें: call के बाद सीधे व्यक्ति आता है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

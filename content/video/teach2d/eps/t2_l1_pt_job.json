@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "A! He is a doctor.",
+   "text": "The first! He is a doctor.",
    "pause": 0.42
   },
   {
@@ -58,18 +58,18 @@
   "why": "Jobs need a or an.",
   "memory": "A job needs a.",
   "quiz": {
-   "stem": "He is ___ doctor.",
+   "stem": "Which one is right?",
    "options": [
-    "a",
-    "the"
+    "He is a doctor.",
+    "He is doctor."
    ],
    "answer": 0
   },
   "native": {
    "hook": "Você diz “She is teacher”?",
    "tip": "Em inglês, antes de uma profissão usamos “a” ou “an”.",
-   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “She is teacher.”. O certo é “She is a teacher.”. Em português não precisamos do artigo, mas em inglês ele é obrigatório. Ouça o Carlos e repita! Treine mais no app Lexkite.",
-   "comment": "Resposta: “a”. Treine mais com um quiz grátis aqui: {link}",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “She is teacher.” O certo é “She is a teacher.” Em português não precisamos do artigo, mas em inglês ele é obrigatório. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “He is a doctor.” Treine mais com um quiz grátis aqui: {link}",
    "hashtags": [
     "#aprenderingles",
     "#inglesfacil",
@@ -80,7 +80,7 @@
   "en": {
    "hook": "Do you say “She is teacher”?",
    "tip": "In English, before a job we use “a” or “an”.",
-   "caption": "Watch out for this common mistake! Many people say “She is teacher.”. The right way is “She is a teacher.”. In Portuguese the article is not needed, but in English it is a must. Listen to Carlos and repeat! Practice more in the Lexkite app."
+   "caption": "Watch out for this common mistake! Many people say “She is teacher.” The right way is “She is a teacher.” Many learners drop the article, but English needs it. Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -98,9 +98,9 @@
  },
  "lang": "pt",
  "est": {
-  "words": 42,
-  "seconds": 26.1,
-  "wpm": 96
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
  },
  "publish": {
   "title": "Você diz “She is teacher”?",
@@ -113,11 +113,11 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 36,
+  "script_words": 37,
   "platforms": {
    "youtube": {
     "title": "Você diz “She is teacher”?",
-    "description": "Cuidado com este erro comum! 😬 Muita gente diz “She is teacher.”. O certo é “She is a teacher.”. Em português não precisamos do artigo, mas em inglês ele é obrigatório. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "description": "Em inglês, antes de uma profissão usamos “a” ou “an”.\n\nCuidado com este erro comum! 😬 Muita gente diz “She is teacher.” O certo é “She is a teacher.” Em português não precisamos do artigo, mas em inglês ele é obrigatório. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
     "tags": [
      "She is a teacher.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Cuidado com este erro comum! 😬 Muita gente diz “She is teacher.”. O certo é “She is a teacher.”. Em português não precisamos do artigo, mas em inglês ele é obrigatório. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “She is teacher.” O certo é “She is a teacher.” Em português não precisamos do artigo, mas em inglês ele é obrigatório. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Cuidado com este erro comum! 😬 Muita gente diz “She is teacher.”. O certo é “She is a teacher.”. Em português não precisamos do artigo, mas em inglês ele é obrigatório. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nlexkite.com",
+    "caption": "Você diz “She is teacher”?\n\nEm inglês, antes de uma profissão usamos “a” ou “an”.\n\nlexkite.com",
     "hashtags": [
      "#aprenderingles",
      "#inglesfacil",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "Você diz “She is teacher”? #aprenderingles #inglesfacil #inglesonline"
+    "caption": "Você diz “She is teacher”? Em inglês, antes de uma profissão usamos “a” ou “an”. #aprenderingles #inglesfacil #inglesonline"
    }
   },
-  "first_comment": "Resposta: “a”. Treine mais com um quiz grátis aqui: {link}",
+  "first_comment": "Resposta: “He is a doctor.” Treine mais com um quiz grátis aqui: {link}",
   "lang": "pt"
  }
 }

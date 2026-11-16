@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_afraid_of",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Afraid dogs or afraid of dogs?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am afraid dogs.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am afraid of dogs.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say afraid of.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Of! She is afraid of spiders.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am afraid dogs.",
+  "right": "I am afraid of dogs.",
+  "strike": "afraid dogs",
+  "why": "Say afraid of.",
+  "memory": "Afraid of.",
+  "quiz": {
+   "stem": "She is afraid ___ spiders.",
+   "options": [
+    "no word",
+    "of"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Боюсь собак: “afraid of”",
+   "tip": "Бояться — “afraid of”: “I am afraid of dogs.”",
+   "caption": "Ты тоже говоришь “I am afraid dogs”? 😅 По-русски «я боюсь собак» — без предлога, поэтому его легко пропустить, но по-английски нужно “of.” Правильно: “I am afraid of dogs.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “of.” Бояться — afraid of. Напиши своё предложение с “I am afraid of.” Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#учуанглийский",
+    "#английскийдляначинающих",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Afraid dogs or afraid of dogs?",
+   "tip": "To fear something, use “afraid of”: “I am afraid of dogs.”",
+   "caption": "Do you also say “I am afraid dogs”? 😅 In Russian there is no small word here, so it is easy to miss, but English needs “of.” Correct: “I am afraid of dogs.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Боюсь собак: “afraid of”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "Боюсь собак: “afraid of”",
+  "keyword": "I am afraid of dogs.",
+  "value": "Бояться — “afraid of”: “I am afraid of dogs.”",
+  "hashtags": [
+   "#английскийязык",
+   "#учуанглийский",
+   "#английскийдляначинающих",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "Боюсь собак: “afraid of”",
+    "description": "Бояться — “afraid of”: “I am afraid of dogs.”\n\nТы тоже говоришь “I am afraid dogs”? 😅 По-русски «я боюсь собак» — без предлога, поэтому его легко пропустить, но по-английски нужно “of.” Правильно: “I am afraid of dogs.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #учуанглийский #английскийдляначинающих #lexkite",
+    "tags": [
+     "I am afraid of dogs.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “I am afraid dogs”? 😅 По-русски «я боюсь собак» — без предлога, поэтому его легко пропустить, но по-английски нужно “of.” Правильно: “I am afraid of dogs.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Боюсь собак: “afraid of”\n\nБояться — “afraid of”: “I am afraid of dogs.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#учуанглийский",
+     "#английскийдляначинающих",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Боюсь собак: “afraid of” Бояться — “afraid of”: “I am afraid of dogs.” #английскийязык #учуанглийский #английскийдляначинающих"
+   }
+  },
+  "first_comment": "Ответ: “of.” Бояться — afraid of. Напиши своё предложение с “I am afraid of.” Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

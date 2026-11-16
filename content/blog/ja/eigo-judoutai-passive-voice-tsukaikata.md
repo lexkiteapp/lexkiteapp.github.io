@@ -138,3 +138,5 @@ Task 2のエッセイでは、能動文と受動文を7:3から6:4程度の黄�
 文法表現の幅をさらに広げるために、[IELTS Writing複文（Complex Sentences）攻略法](/ja/blog/ielts-writing-fukubun-complex-sentences-koutsu/) や [英語のつなぎ言葉（Linking Words）一覧](/ja/blog/eigo-tsunagikotoba-linking-words-ichiran/) を併せて復習しましょう。また、[英語の仮定法if構文の使い方](/ja/blog/eigo-kateihou-if-koubun-tsukaikata/) や [パラフレーズ言い換え構文のコツ](/ja/blog/ielts-paraphrase-iikae-koubun-kotsu/) をマスターし、公式単語集 [/tu-vung/](/en/vocabulary/) を活用して、揺るぎないアカデミックライティング力を完成させてください。
 
 受動態を正しく使い分け、論理的で格調高い英文を着実に生み出していきましょう。
+
+受動態が実際の試験で活躍する場面として、工程を説明する IELTS Task 1 のプロセス図があります。具体的な書き方は[IELTS プロセス図の書き方](/ja/blog/ielts-process-diagram-kakikata/)をご覧ください。
