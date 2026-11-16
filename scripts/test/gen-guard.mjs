@@ -17,7 +17,7 @@ export function oneLineGrowth(diff) {
     if (l.startsWith('+++ ')) { file = l.replace(/^\+\+\+ (b\/)?/, ''); minus = []; continue; }
     if (l.startsWith('@@')) { minus = []; continue; }
     if (l.startsWith('-') && !l.startsWith('---')) { minus.push(l.slice(1)); continue; }
-    if (!l.startsWith('+') || l.startsWith('+++') || !/\.(m?js|cjs)$/.test(file) || /(^|\/)(extension\/app|web\/js\/i18n|i18n\/ui)\//.test(file)) continue;
+    if (!l.startsWith('+') || l.startsWith('+++') || !/\.(m?js|cjs)$/.test(file) || /(^|\/)(extension\/app|web\/js\/i18n|i18n\/ui)\//.test(file) || file === 'web/js/site.js') continue;
     const nw = l.slice(1);
     if (!/^\s*(export\s+)?((const|let|var)\s+)?[\w$.]+\s*=\s*\{/.test(nw) || /\{"[^"]*":/.test(nw)) continue; // chỉ dòng KHAI BÁO registry; JSON nén = tệp sinh (dựng lại, không gộp tay)
     const nk = keys(nw);
@@ -41,6 +41,7 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
   assert.equal(oneLineGrowth(`+++ b/web/js/x.js\n@@ -0,0 +1 @@\n+${reg(12)}`).length, 0, 'dòng mới hoàn toàn không tính (chỉ bắt dòng chung bị nối dài)');
   assert.equal(oneLineGrowth(`+++ b/web/js/app.js\n@@ -1 +1 @@\n-  const R = { a: 'k: v, b: c, d: e, f: g, h: i, j: k, l: m, n: o, p: q, r: s' };\n+  const R = { a: 'k: v, b: c, d: e, f: g, h: i, j: k, l: m, n: o, p: q, r: s, t: u' };`).length, 0, 'dấu hai chấm trong chuỗi không tính');
   assert.equal(oneLineGrowth(`+++ b/web/js/app.js\n@@ -1 +1 @@\n-${reg(11)}\n+${reg(12).replace('k0:', 'z0:')}`).length, 0, 'đổi tên khóa (không giữ mọi khóa cũ) không tính');
+  assert.equal(oneLineGrowth(`+++ b/web/js/site.js\n@@ -1 +1 @@\n-${reg(11)}\n+${reg(12)}`).length, 0, 'web/js/site.js là bản nén do build-landing sinh (--check khớp nguồn): không tính registry một dòng');
   // 2) diff thật của PR
   let diff = '';
   try { diff = execFileSync('git', ['diff', '-U0', process.env.GEN_GUARD_BASE || 'origin/main', 'HEAD', '--', '*.js', '*.mjs', '*.cjs'], { encoding: 'utf8', maxBuffer: 256 << 20, stdio: ['ignore', 'pipe', 'ignore'] }); } // GEN_GUARD_BASE: chạy tay với remote khác (vd. real/main)

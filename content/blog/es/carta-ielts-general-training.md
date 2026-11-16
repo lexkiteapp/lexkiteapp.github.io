@@ -157,6 +157,10 @@ El resto del examen General comparte Listening y Speaking con el Academic: revis
 
 {{youtube: | Idea de video: carta de IELTS General en 20 minutos – lo que nunca debes traducir del español}}
 
+Si necesitas el examen para un visado británico, descubre antes qué es [IELTS UKVI y cómo reservarlo](/es/blog/ielts-ukvi-que-es-y-como-reservar/).
+
+Si preparas el General Training para un trámite migratorio, lee antes [IELTS para inmigrar: qué versión y qué nota necesitas](/es/blog/ielts-para-inmigrar-version-y-nota/).
+
 ## Preguntas frecuentes
 
 ### ¿Cuántas palabras debe tener la carta de IELTS General Training?
