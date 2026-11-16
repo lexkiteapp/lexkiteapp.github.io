@@ -158,6 +158,8 @@ Writing polite inquiries is a vital skill for international communication; see o
 
 {{cta: /#/grammar | Master English question structures with interactive lessons}}
 
+Practise question forms in a real setting with [hotel English phrases](/en/blog/hotel-english-phrases-check-in-requests-complaints/).
+
 ## Frequently asked questions about question formation
 
 ### Why do we say "Who broke the window?" instead of "Who did break the window?"

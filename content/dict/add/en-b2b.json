@@ -1,0 +1,752 @@
+{
+  "opt": {
+    "mis": [
+      {
+        "w": "She opted the cheaper plan.",
+        "r": "She opted for the cheaper plan.",
+        "why": "Opt takes 'for' before a noun; only a to-infinitive follows it directly."
+      },
+      {
+        "w": "You can opt out the mailing list at any time.",
+        "r": "You can opt out of the mailing list at any time.",
+        "why": "Opt out is followed by 'of' before the thing you leave."
+      }
+    ],
+    "u": "Opt is a fairly formal verb meaning to make a choice, usually between a few clear alternatives. It appears often in business and customer-service writing: you opt for a plan, opt to do something, or opt out of a service. Opt in and opt out describe agreeing or declining to join a scheme. It sounds more decisive than choose and rarely takes a person as its object."
+  },
+  "optimistic": {
+    "mis": [
+      {
+        "w": "We are optimistic for next year's sales.",
+        "r": "We are optimistic about next year's sales.",
+        "why": "Optimistic is followed by 'about' (or 'that' + clause), not 'for'."
+      },
+      {
+        "w": "He is very optimist about the project.",
+        "r": "He is very optimistic about the project.",
+        "why": "Optimist is a noun; the adjective after 'is very' must be optimistic."
+      }
+    ],
+    "u": "Optimistic describes someone who expects good results, or a statement that reflects that hope. Pair it with about a topic, or with that plus a clause. Cautiously optimistic is a common hedge in business reports when results look promising but are not certain. The noun for the person is optimist and for the attitude optimism. Its opposite is pessimistic, while hopeful and upbeat are softer and more informal."
+  },
+  "orchestra": {
+    "mis": [
+      {
+        "w": "She plays the violin on the city orchestra.",
+        "r": "She plays the violin in the city orchestra.",
+        "why": "Use 'in' for membership of a group like an orchestra or band."
+      },
+      {
+        "w": "The orchestra are tuning its instruments.",
+        "r": "The orchestra is tuning its instruments.",
+        "why": "In American English a group noun takes a singular verb, matching 'its'."
+      }
+    ],
+    "u": "An orchestra is a large group of musicians who play together under a conductor, usually with string, wind, brass and percussion sections. In American English it takes a singular verb; British speakers sometimes use a plural one. In theaters, orchestra seats are the ones closest to the stage on the ground floor, a meaning that matters when booking tickets. A band or ensemble is smaller and less formal."
+  },
+  "organizational": {
+    "mis": [
+      {
+        "w": "She has good organization skills.",
+        "r": "She has good organizational skills.",
+        "why": "Use the adjective organizational before 'skills'; the noun organization is not used this way."
+      },
+      {
+        "w": "He is an organizational person who keeps his desk tidy.",
+        "r": "He is an organized person who keeps his desk tidy.",
+        "why": "Organizational relates to organizations; use organized for a tidy, orderly person."
+      }
+    ],
+    "u": "Organizational is a formal adjective that relates to how an organization is arranged and run, or to a person's ability to plan and arrange things. It is very common in job adverts: strong organizational skills means you can manage time, tasks and files well. In management writing it modifies culture, structure, change and chart. British spelling is organisational. Do not confuse it with organized, which describes a tidy person."
+  },
+  "outage": {
+    "mis": [
+      {
+        "w": "We experienced a lot of outage last week.",
+        "r": "We experienced several outages last week.",
+        "why": "Outage is countable: each failure is one outage, so use 'several outages'."
+      },
+      {
+        "w": "The server was outage for two hours.",
+        "r": "The server had an outage for two hours.",
+        "why": "Outage is a noun, not an adjective, so it needs a verb like 'had'."
+      }
+    ],
+    "u": "An outage is a period when a service such as electricity, internet or a website stops working. It is a noun and often follows power, network or service. Companies publish an outage notice or outage report to explain what happened. A blackout usually refers only to electricity, while downtime is the time a system is unavailable. Outage suggests a fault, not planned maintenance, which is normally called a shutdown."
+  },
+  "outdated": {
+    "mis": [
+      {
+        "w": "This software is out-dated and slow.",
+        "r": "This software is outdated and slow.",
+        "why": "Outdated is written as one word; with a hyphen it looks wrong."
+      },
+      {
+        "w": "The information in this file is outdate.",
+        "r": "The information in this file is outdated.",
+        "why": "The adjective ends in -ed; 'outdate' is not used this way."
+      }
+    ],
+    "u": "Outdated describes things that are no longer current or useful because newer versions exist: equipment, software, information or ideas. It is neutral to slightly negative. The phrase out of date means the same but is written as three words when used after a verb, as in 'the map is out of date'. Obsolete is stronger and means no longer used at all; old-fashioned is about style rather than function."
+  },
+  "outlook": {
+    "mis": [
+      {
+        "w": "The outlook of the economy is good.",
+        "r": "The outlook for the economy is good.",
+        "why": "Outlook meaning future prospects takes 'for', not 'of'."
+      },
+      {
+        "w": "She has a very positive outlooks.",
+        "r": "She has a very positive outlook.",
+        "why": "In this sense outlook is singular; 'a ... outlooks' mixes article and plural."
+      }
+    ],
+    "u": "Outlook has two main meanings. In business and news it means the expected future of something, as in the economic outlook for next year. It can also mean a person's general attitude to life, as in a positive outlook. Use for with the first meaning and on with the second: an outlook on life. It is more formal than prospects. Outlook is also the name of an email program."
+  },
+  "overcharge": {
+    "mis": [
+      {
+        "w": "The hotel overcharged me with the breakfast.",
+        "r": "The hotel overcharged me for the breakfast.",
+        "why": "Use 'for' before the item you were charged too much for, not 'with'."
+      },
+      {
+        "w": "The shop overcharged to me twenty dollars.",
+        "r": "The shop overcharged me twenty dollars.",
+        "why": "Overcharge takes the person directly as its object, with no 'to'."
+      }
+    ],
+    "u": "Overcharge means to ask a customer to pay more than the correct or fair price. The person is the object, and the extra item is introduced with for: the restaurant overcharged us for drinks. It is often used in the passive when you discover a bill is wrong. Its opposite is undercharge. Overcharge can describe an honest error, but rip off is informal and implies a deliberate trick."
+  },
+  "overcrowd": {
+    "mis": [
+      {
+        "w": "The train was overcrowd this morning.",
+        "r": "The train was overcrowded this morning.",
+        "why": "Describing a state uses the participle overcrowded, not the base verb."
+      },
+      {
+        "w": "The bus was overcrowded by passengers.",
+        "r": "The bus was overcrowded with passengers.",
+        "why": "Use 'with' for what fills a place; 'by' suggests an agent doing an action."
+      }
+    ],
+    "u": "Overcrowd is a verb meaning to fill a place with too many people or things, but you will meet it almost always as the adjective overcrowded. It describes trains, schools, prisons, cities and housing. Typical pattern: overcrowded with tourists. The noun is overcrowding, which is uncountable. Crowded is neutral and can be positive, such as a lively market; overcrowded always implies a problem."
+  },
+  "overdue": {
+    "mis": [
+      {
+        "w": "My payment is overdued by two weeks.",
+        "r": "My payment is two weeks overdue.",
+        "why": "Overdue is already an adjective with no -ed form; the time goes before it."
+      },
+      {
+        "w": "The report is overdue since Monday.",
+        "r": "The report has been overdue since Monday.",
+        "why": "With 'since' use a perfect tense: has been overdue."
+      }
+    ],
+    "u": "Overdue describes something that should have been paid, returned or done by a certain time but has not been. It is common with invoices, rent, library books and notices: an overdue payment may bring a late fee. Place the length of delay before it, as in ten days overdue. The phrase long overdue means something should have happened much earlier. Late is simpler; past due is a common US billing term."
+  },
+  "overhead": {
+    "mis": [
+      {
+        "w": "The company wants to reduce its overheads cost.",
+        "r": "The company wants to reduce its overhead costs.",
+        "why": "As a modifier, overhead stays singular: overhead costs."
+      },
+      {
+        "w": "Our overhead are very high this year.",
+        "r": "Our overhead is very high this year.",
+        "why": "In American English overhead is an uncountable noun, so the verb is singular."
+      }
+    ],
+    "u": "Overhead has two uses. As a noun, usually uncountable in American English, it means the regular costs of running a business, such as rent, utilities and administration, apart from the cost of making products. As an adjective or adverb it means above your head: overhead lights, a plane flying overhead. In accounting you will see overhead costs and overhead rate. British writing often prefers the plural overheads for the cost meaning."
+  },
+  "overlook": {
+    "mis": [
+      {
+        "w": "He overlooked about the mistake in the report.",
+        "r": "He overlooked the mistake in the report.",
+        "why": "Overlook is transitive, so no 'about' goes before its object."
+      },
+      {
+        "w": "The hotel room overlooks to the sea.",
+        "r": "The hotel room overlooks the sea.",
+        "why": "Overlook is transitive and takes no preposition before its object."
+      }
+    ],
+    "u": "Overlook has two unrelated meanings. First, to fail to notice something, such as a mistake or detail, or to choose to ignore a fault: I will overlook it this time. Second, to have a view over a place: our room overlooks the harbor. Both are transitive, so no preposition follows. Do not confuse overlook with oversee: oversee means supervise, while overlook usually means miss."
+  },
+  "overnight": {
+    "mis": [
+      {
+        "w": "We stayed overnight at in a small hotel.",
+        "r": "We stayed overnight in a small hotel.",
+        "why": "Overnight is an adverb here; do not add 'at' before the place."
+      },
+      {
+        "w": "I will send the parcel by overnight.",
+        "r": "I will send the parcel overnight.",
+        "why": "Overnight is an adverb of manner for delivery; it does not take 'by'."
+      }
+    ],
+    "u": "Overnight works as an adverb and an adjective. As an adverb it means during the night (stay overnight) or by next-day service (ship it overnight). As an adjective it comes before a noun: an overnight bag, overnight delivery, an overnight flight. It also means very suddenly, as in become famous overnight. Do not hyphenate it. Overnight delivery promises arrival the following morning."
+  },
+  "overpay": {
+    "mis": [
+      {
+        "w": "He overpayed the bill by mistake.",
+        "r": "He overpaid the bill by mistake.",
+        "why": "Pay is irregular: the past tense of overpay is overpaid."
+      },
+      {
+        "w": "He overpaid the bill with ten dollars.",
+        "r": "He overpaid the bill by ten dollars.",
+        "why": "The amount of the excess is introduced by 'by', not 'with'."
+      }
+    ],
+    "u": "Overpay means to pay more than is needed or owed, whether a bill, a tax or an employee's wage. It follows the irregular pattern of pay: overpay, overpaid, overpaid. You overpay for a product, or overpay by an amount: I overpaid by ten dollars. Overpaid also describes a worker thought to earn more than their work deserves. A company usually gives a refund or credit when a customer overpays."
+  },
+  "oversee": {
+    "mis": [
+      {
+        "w": "The auditor oversaw a small error in the report.",
+        "r": "The auditor overlooked a small error in the report.",
+        "why": "Oversee means supervise; to fail to notice something, use overlook."
+      },
+      {
+        "w": "She has overseen the factory since 2020, and she oversee 200 workers now.",
+        "r": "She has overseen the factory since 2020, and she oversees 200 workers now.",
+        "why": "Third-person singular present needs -s: oversees."
+      }
+    ],
+    "u": "Oversee is a formal verb meaning to watch over and be responsible for work done by others. A manager oversees a project, an inspector oversees safety, and a board oversees the company. It is irregular: oversee, oversaw, overseen. Supervise is nearly identical but more direct and day-to-day; oversee suggests a broader, more senior role. Do not mistake it for overlook, which means to miss something."
+  },
+  "overview": {
+    "mis": [
+      {
+        "w": "Here is a short overview about our services.",
+        "r": "Here is a short overview of our services.",
+        "why": "Overview is followed by 'of', not 'about'."
+      },
+      {
+        "w": "Here is some overview of the plan.",
+        "r": "Here is an overview of the plan.",
+        "why": "Overview is a countable noun, so use 'an', not 'some'."
+      }
+    ],
+    "u": "An overview is a short general description that covers the main points of a subject without the details. It is a countable noun, usually used with give, provide or offer, and followed by of: an overview of the budget. Presentations often begin with an overview slide. It is slightly more formal than summary. Summary condenses something already said, while overview introduces the big picture before details."
+  },
+  "packet": {
+    "mis": [
+      {
+        "w": "Please buy a packet of rice at the shop.",
+        "r": "Please buy a bag of rice at the shop.",
+        "why": "Rice is sold by the bag or sack; packet suits small flat items like biscuits."
+      },
+      {
+        "w": "Each guest receives a welcome packet of informations.",
+        "r": "Each guest receives a welcome packet of information.",
+        "why": "Information is uncountable and never takes -s."
+      }
+    ],
+    "u": "A packet is a small container or paper wrapper holding a product, such as a packet of crisps or sugar, or a set of papers handed out together, such as a welcome packet at a conference. British English uses packet for snacks, cigarettes and biscuits where Americans often say package or pack. In technology, a packet is a unit of data. Packet is smaller than parcel, which is something posted."
+  },
+  "pamphlet": {
+    "mis": [
+      {
+        "w": "The clinic gave me a pamphlet in healthy eating.",
+        "r": "The clinic gave me a pamphlet on healthy eating.",
+        "why": "A pamphlet about a subject takes 'on' or 'about', not 'in'."
+      },
+      {
+        "w": "He wrote a political pamphlets last year.",
+        "r": "He wrote a political pamphlet last year.",
+        "why": "The article 'a' needs a singular noun, so pamphlets becomes pamphlet."
+      }
+    ],
+    "u": "A pamphlet is a thin booklet with a few pages, often stapled, that gives information or argues a point. Clinics, councils and charities hand them out. Historically pamphlets carried political arguments. It is more substantial than a leaflet, which is usually a single sheet, and less glossy than a brochure, which promotes a product. Common patterns: a pamphlet on or about a subject."
+  },
+  "paraphrase": {
+    "mis": [
+      {
+        "w": "Please paraphrase me the second paragraph.",
+        "r": "Please paraphrase the second paragraph.",
+        "why": "Paraphrase takes only a direct object; it cannot take an indirect object like 'me'."
+      },
+      {
+        "w": "Students must paraphrase the text with their own words.",
+        "r": "Students must paraphrase the text in their own words.",
+        "why": "The fixed phrase is 'in your own words', not 'with'."
+      }
+    ],
+    "u": "Paraphrase means to express the meaning of a text or speech using different words, usually to make it simpler or to avoid copying. It is a key academic skill: you paraphrase a source and then cite it. Paraphrase is both a verb and a noun, with the noun meaning the reworded version. It keeps roughly the same length and detail, unlike summarize, which shortens. Copying with a few words changed is not a true paraphrase."
+  },
+  "partial": {
+    "mis": [
+      {
+        "w": "We received a partially payment from the client.",
+        "r": "We received a partial payment from the client.",
+        "why": "Before a noun use the adjective partial; partially is an adverb."
+      },
+      {
+        "w": "He is partial for chocolate cake.",
+        "r": "He is partial to chocolate cake.",
+        "why": "The adjective partial meaning 'fond of' takes 'to'."
+      }
+    ],
+    "u": "Partial is an adjective with two meanings. The common one is not complete: a partial refund, partial payment, or a partial view of the stage. The second, more informal meaning is being fond of something, followed by to: I am partial to tea. It can also mean biased, though that is less common. Its opposites are full and complete. The related adverb is partially."
+  },
+  "partially": {
+    "mis": [
+      {
+        "w": "The road is partial closed for repairs.",
+        "r": "The road is partially closed for repairs.",
+        "why": "An adjective like closed is modified by an adverb, so use partially."
+      },
+      {
+        "w": "The report is partially of my work.",
+        "r": "The report is partly my work.",
+        "why": "Partially modifies adjectives and verbs; before a noun phrase use partly."
+      }
+    ],
+    "u": "Partially is an adverb meaning not completely, and it usually modifies an adjective or a past participle: partially closed, partially covered, partially responsible. Partly is very similar and is preferred before a noun phrase or when giving reasons: partly because of the weather. Do not use partially where a noun is needed; use partial before nouns. It is neutral in tone and common in news and reports."
+  },
+  "password": {
+    "mis": [
+      {
+        "w": "Please type your password in the box, then press the Enter.",
+        "r": "Please type your password in the box, then press Enter.",
+        "why": "Key names like Enter are used without 'the'."
+      },
+      {
+        "w": "I forgot my pass word, so I cannot log in.",
+        "r": "I forgot my password, so I cannot log in.",
+        "why": "Password is written as one word."
+      }
+    ],
+    "u": "A password is a secret word or string of characters used to prove your identity on a computer, website or app. It is written as one word and is countable: use a different password for each account. Common verbs are enter, reset, change and forget. A passcode is often only numbers on a phone. For security, avoid short or obvious passwords. Do not confuse it with username, the public name you log in with."
+  },
+  "payroll": {
+    "mis": [
+      {
+        "w": "He has been in the payroll since 2019.",
+        "r": "He has been on the payroll since 2019.",
+        "why": "The fixed phrase is 'on the payroll'."
+      },
+      {
+        "w": "The payroll are processed on the last Friday.",
+        "r": "The payroll is processed on the last Friday.",
+        "why": "Payroll is a singular, uncountable noun, so it takes 'is'."
+      }
+    ],
+    "u": "Payroll is the system and list of a company's employees and the wages it pays them. To be on the payroll means to be officially employed, and the payroll department or payroll software handles the calculation of salaries and tax. It is usually uncountable and takes a singular verb. Run payroll means to process salary payments for a period. It is narrower than salary, which is what one person earns."
+  },
+  "penalize": {
+    "mis": [
+      {
+        "w": "Employees are penalized to arrive late.",
+        "r": "Employees are penalized for arriving late.",
+        "why": "Penalize takes 'for' plus a noun or -ing form, not a to-infinitive."
+      },
+      {
+        "w": "The company penalized me by a late report.",
+        "r": "The company penalized me for a late report.",
+        "why": "Penalize names the reason with 'for', not 'by'."
+      }
+    ],
+    "u": "Penalize means to punish someone or put them at a disadvantage for breaking a rule or making a mistake. The reason follows for: students were penalized for plagiarism. It is often passive, and a penalty can be a fine, lost points or a loss of privileges. British spelling is penalise. Punish is broader and stronger; penalize usually suggests a specific, official consequence, such as a fee in a contract."
+  },
+  "periodical": {
+    "mis": [
+      {
+        "w": "She subscribes on several periodicals.",
+        "r": "She subscribes to several periodicals.",
+        "why": "Subscribe takes 'to', not 'on'."
+      },
+      {
+        "w": "The library has many periodical.",
+        "r": "The library has many periodicals.",
+        "why": "After 'many' a countable noun takes the plural -s."
+      }
+    ],
+    "u": "A periodical is a magazine or journal published at regular intervals, such as weekly, monthly or quarterly. The word is formal and common in libraries and academic writing, where a periodicals section holds current issues. It covers both popular magazines and scholarly journals. As an adjective periodical means happening at regular times, but periodic is more usual. Newspapers are normally called newspapers, not periodicals."
+  },
+  "periodically": {
+    "mis": [
+      {
+        "w": "The machines are inspected periodic.",
+        "r": "The machines are inspected periodically.",
+        "why": "Modifying a verb needs the adverb periodically, not the adjective periodic."
+      },
+      {
+        "w": "We periodically are checking the system.",
+        "r": "We periodically check the system.",
+        "why": "Periodically signals repeated action, so use simple present, not continuous."
+      }
+    ],
+    "u": "Periodically is an adverb meaning at regular or repeated times, though not necessarily on a strict schedule. It is common in instructions and policies: back up your files periodically, or review the policy periodically. It suggests less frequency than often and more regularity than occasionally. It usually goes before the main verb or at the end of the sentence. Regularly stresses a fixed pattern; from time to time is more casual."
+  },
+  "permanently": {
+    "mis": [
+      {
+        "w": "The shop is closed permanent.",
+        "r": "The shop is closed permanently.",
+        "why": "The adverb permanently modifies the adjective closed."
+      },
+      {
+        "w": "She lives permanent in Hanoi.",
+        "r": "She lives permanently in Hanoi.",
+        "why": "A verb is modified by an adverb, not by the adjective permanent."
+      }
+    ],
+    "u": "Permanently is an adverb meaning in a way that lasts forever or for a very long time. It often appears with closed, deleted, damaged or employed: the file was permanently deleted. It contrasts with temporarily. Notice that permanently sounds firmer than for good, which is more casual. In job adverts, a permanent contract is open-ended, while a fixed-term contract has an end date."
+  },
+  "personalize": {
+    "mis": [
+      {
+        "w": "You can personalize to your phone with a photo.",
+        "r": "You can personalize your phone with a photo.",
+        "why": "Personalize is transitive; the thing changed is its direct object, with no 'to'."
+      },
+      {
+        "w": "We offer a personalize service for every client.",
+        "r": "We offer a personalized service for every client.",
+        "why": "Before a noun use the participle personalized, not the base verb."
+      }
+    ],
+    "u": "Personalize means to change something so that it suits a particular person's needs or carries their name, such as a personalized gift or a personalized email. In marketing, personalized recommendations are suggestions based on what a user has done. Customize is close but stresses adjusting settings; personalize stresses making it individual. British spelling is personalise. The noun is personalization."
+  },
+  "pharmaceutical": {
+    "mis": [
+      {
+        "w": "He works in the pharmacy company.",
+        "r": "He works in the pharmaceutical company.",
+        "why": "Pharmacy is a shop; the adjective before company is pharmaceutical."
+      },
+      {
+        "w": "Pharmaceutical are expensive to develop.",
+        "r": "Pharmaceuticals are expensive to develop.",
+        "why": "As a noun meaning medicines, use the plural pharmaceuticals."
+      }
+    ],
+    "u": "Pharmaceutical is mainly an adjective meaning related to the production and sale of medicines: a pharmaceutical company, the pharmaceutical industry. As a noun, pharmaceuticals means medicinal drugs, usually in plural. It is formal and technical, so everyday talk prefers medicine or drugs. Do not mix it up with pharmacy, which is a shop or the study of drugs, or pharmacist, the person who works there."
+  },
+  "pharmacy": {
+    "mis": [
+      {
+        "w": "I bought some medicine in pharmacist.",
+        "r": "I bought some medicine at the pharmacy.",
+        "why": "Pharmacist is the person; the shop is the pharmacy, and 'at' suits a shop."
+      },
+      {
+        "w": "I asked the pharmacy about the dosage.",
+        "r": "I asked the pharmacist about the dosage.",
+        "why": "Ask the person, the pharmacist; a pharmacy is the shop."
+      }
+    ],
+    "u": "A pharmacy is a shop or part of a hospital where medicines are prepared and sold. American English also says drugstore for a shop that sells snacks and cosmetics too; British English uses chemist's. The person who works there is a pharmacist. Pharmacy can also mean the study of drugs: she studies pharmacy at university. You usually go to or shop at the pharmacy, and you fill a prescription there."
+  },
+  "physician": {
+    "mis": [
+      {
+        "w": "I need to physician about my cough.",
+        "r": "I need to see a physician about my cough.",
+        "why": "Physician is a noun for a person; you 'see' or 'consult' one."
+      },
+      {
+        "w": "She is a physic at the city hospital.",
+        "r": "She is a physician at the city hospital.",
+        "why": "Physic is not the word for a doctor; the noun is physician."
+      }
+    ],
+    "u": "A physician is a medical doctor, especially one who treats illness with medicine rather than surgery. The word is formal and common in official or written contexts, such as consult your physician or a licensed physician. In everyday American speech people say doctor. In British English a physician is a specialist in internal medicine, while a general doctor is a GP. Do not confuse it with physicist, a scientist who studies physics."
+  },
+  "pole": {
+    "mis": [
+      {
+        "w": "The cat climbed up the pool.",
+        "r": "The cat climbed up the pole.",
+        "why": "Pole and pool sound close but are different words; a pole is a long stick."
+      },
+      {
+        "w": "She has a ski poles.",
+        "r": "She has a pair of ski poles.",
+        "why": "Poles are used in pairs, so say 'a pair of ski poles'; 'a' cannot go with a plural noun."
+      }
+    ],
+    "u": "A pole is a long, thin piece of wood or metal, often round, that stands upright or is held: a flagpole, telephone pole, fishing pole or ski pole. It is also one of the two ends of the earth, the North Pole and South Pole, and one of the two ends of a magnet. A post is usually shorter and thicker. Pole sounds like poll, a survey, so watch the spelling."
+  },
+  "polish": {
+    "mis": [
+      {
+        "w": "I need to polish my English skill.",
+        "r": "I need to polish my English skills.",
+        "why": "Skills used generally after a possessive takes the plural -s."
+      },
+      {
+        "w": "She polished her shoes by a cloth.",
+        "r": "She polished her shoes with a cloth.",
+        "why": "Use 'with' for the tool used to do something."
+      }
+    ],
+    "u": "Polish as a verb means to rub a surface until it is smooth and shiny, such as shoes or silver, or to improve something by small final changes, such as a speech or skills. Polish up is a common phrasal form: I need to polish up my English. As a noun it is the substance, shoe polish. Spelled with a capital P and pronounced differently, Polish means from Poland."
+  },
+  "popularity": {
+    "mis": [
+      {
+        "w": "The popularity of this song is increase.",
+        "r": "The popularity of this song is increasing.",
+        "why": "After 'is' use the -ing form: is increasing."
+      },
+      {
+        "w": "The game has great popularity between teenagers.",
+        "r": "The game has great popularity among teenagers.",
+        "why": "Among is used for a general group of people, not 'between'."
+      }
+    ],
+    "u": "Popularity is the state of being liked, admired or used by many people. It is uncountable and works with gain, enjoy, lose or grow: the app gained popularity quickly. Use of for the thing and among for the group: its popularity among young users. The adjective is popular, and the verb is popularize. Fame is wider public recognition, while popularity is about being liked."
+  },
+  "portfolio": {
+    "mis": [
+      {
+        "w": "She showed her portfolios to the interviewer.",
+        "r": "She showed her portfolio to the interviewer.",
+        "why": "A person has one portfolio of work; the plural is unnatural here."
+      },
+      {
+        "w": "His investment portfolio contains of five stocks.",
+        "r": "His investment portfolio contains five stocks.",
+        "why": "Contain is a transitive verb and takes no 'of'; 'consist of' would be correct."
+      }
+    ],
+    "u": "A portfolio has two main meanings. For artists, designers, writers and students it is a collection of work samples shown to employers or clients. In finance it is a group of investments owned by a person or fund, which can be balanced, diversified or risky. The plural is portfolios. A portfolio manager looks after investments. It can also mean the range of products a company sells."
+  },
+  "postage": {
+    "mis": [
+      {
+        "w": "We charge a postage of five dollars.",
+        "r": "We charge five dollars for postage.",
+        "why": "Postage is uncountable and is not used with 'a'."
+      },
+      {
+        "w": "The postages are included in the price.",
+        "r": "The postage is included in the price.",
+        "why": "Postage is uncountable and has no plural."
+      }
+    ],
+    "u": "Postage is the money you pay to send a letter or parcel by mail, or the stamps that show that you have paid. It is uncountable and takes a singular verb: postage is extra. In the United States you will often see postage and handling on order forms. Postage paid means the sender has already paid. Shipping is broader and covers any delivery company, while postage is about the postal service."
+  },
+  "postpone": {
+    "mis": [
+      {
+        "w": "The launch was postponed since next month.",
+        "r": "The launch was postponed until next month.",
+        "why": "After postpone, the new later time is introduced by 'until', not 'since'."
+      },
+      {
+        "w": "We postponed to hold the event.",
+        "r": "We postponed holding the event.",
+        "why": "Postpone is followed by an object or an -ing form, not a to-infinitive."
+      }
+    ],
+    "u": "Postpone means to move an event or action to a later time. It is followed by a noun or an -ing form: postpone the meeting, postpone signing the contract. The new time can be introduced by until or to. Postponed implies that the event will still happen, whereas cancelled means it will not. Put off is the informal phrasal verb, and reschedule means to set a new time."
+  },
+  "premium": {
+    "mis": [
+      {
+        "w": "He pays the premium of insurance every month.",
+        "r": "He pays the insurance premium every month.",
+        "why": "In English the type comes first: insurance premium, not premium of insurance."
+      },
+      {
+        "w": "This is a very premium product.",
+        "r": "This is a premium product.",
+        "why": "Premium already means top quality, so it is not usually modified by 'very'."
+      }
+    ],
+    "u": "Premium has three common uses. As a noun it is the regular payment you make for an insurance policy. As an adjective it means higher in quality, and often higher in price: premium coffee, a premium subscription. The phrase to pay a premium means to pay extra for something special. At a premium means something is scarce and costs more. It is a typical business and marketing word."
+  },
+  "prescription": {
+    "mis": [
+      {
+        "w": "You need a prescription for to buy this medicine.",
+        "r": "You need a prescription to buy this medicine.",
+        "why": "Purpose after 'need a prescription' uses 'to' alone; 'for to' is not English."
+      },
+      {
+        "w": "The doctor prescripted me some antibiotics.",
+        "r": "The doctor prescribed me some antibiotics.",
+        "why": "The verb is prescribe; its noun is prescription."
+      }
+    ],
+    "u": "A prescription is a written instruction from a doctor allowing a patient to receive a particular medicine. You fill a prescription at a pharmacy, and prescription drugs can only be bought with one. The verb is prescribe, and over-the-counter medicine needs no prescription. British English says on prescription for free or subsidized drugs. Prescription is countable: the doctor wrote two prescriptions."
+  },
+  "process": {
+    "mis": [
+      {
+        "w": "The process of to learn a language takes time.",
+        "r": "The process of learning a language takes time.",
+        "why": "After the preposition 'of' use an -ing form, not a to-infinitive."
+      },
+      {
+        "w": "We are in process to update the website.",
+        "r": "We are in the process of updating the website.",
+        "why": "The fixed phrase is 'in the process of' plus an -ing form."
+      }
+    ],
+    "u": "Process as a noun is a series of steps taken to reach a result, such as a hiring process or a manufacturing process. It is countable and often takes the: the process of learning. In the process of means in the middle of doing something. As a verb it means to handle data or requests: we process payments. In American English the noun is stressed on the first syllable."
+  },
+  "professionally": {
+    "mis": [
+      {
+        "w": "Please dress professional for the meeting.",
+        "r": "Please dress professionally for the meeting.",
+        "why": "A verb needs an adverb, so use professionally, not the adjective professional."
+      },
+      {
+        "w": "He plays football professional.",
+        "r": "He plays football professionally.",
+        "why": "Professionally is the adverb meaning as a paid job."
+      }
+    ],
+    "u": "Professionally is an adverb with two senses. It can mean in a way that shows skill and good manners at work: she handled the complaint professionally. It can also mean as a paid job, not as a hobby: he plays tennis professionally. It also modifies adjectives, as in professionally trained or professionally done. The opposite for the first sense is unprofessionally; for the second, it is as an amateur."
+  },
+  "promotional": {
+    "mis": [
+      {
+        "w": "The shop has a promotion price this week.",
+        "r": "The shop has a promotional price this week.",
+        "why": "As an adjective before 'price' use promotional, not the noun promotion."
+      },
+      {
+        "w": "She got a promotional at work.",
+        "r": "She got a promotion at work.",
+        "why": "Promotion is the noun for moving to a higher job; promotional is an adjective."
+      }
+    ],
+    "u": "Promotional is an adjective that relates to advertising or to making a product better known: a promotional offer, promotional materials, or a promotional price. It describes temporary activities and items rather than permanent ones. Do not use it for job advancement; that is a promotion, a noun. Promotional gifts are free items given to attract customers, such as pens or bags with a logo."
+  },
+  "promptly": {
+    "mis": [
+      {
+        "w": "Please answer promptly to my email.",
+        "r": "Please answer my email promptly.",
+        "why": "Answer takes its object directly; promptly goes after the object, with no 'to'."
+      },
+      {
+        "w": "The meeting begins prompt at nine.",
+        "r": "The meeting begins promptly at nine.",
+        "why": "The adverb promptly modifies the verb begins."
+      }
+    ],
+    "u": "Promptly is an adverb with two uses. It means quickly and without delay: respond promptly, pay promptly. It also means exactly at the stated time: the class starts promptly at eight. The adjective prompt describes a quick action, such as a prompt reply. Promptly is common in business emails and notices. Immediately is stronger and means right now, whereas promptly allows a short reasonable wait."
+  },
+  "proofread": {
+    "mis": [
+      {
+        "w": "I proofreaded the report twice.",
+        "r": "I proofread the report twice.",
+        "why": "Proofread is irregular: the past tense is proofread, pronounced like 'red'."
+      },
+      {
+        "w": "Please proofread for the typos in this letter.",
+        "r": "Please proofread this letter for typos.",
+        "why": "Proofread takes the text as its object; the errors you look for follow 'for'."
+      }
+    ],
+    "u": "Proofread means to read a piece of writing carefully and correct mistakes in spelling, grammar and punctuation before it is published or sent. It is a verb with irregular forms: proofread, proofread, proofread. It is often written proof-read in British English. Proofreading is the final check; editing deals with deeper changes in content, structure and style. Many people ask a colleague to proofread an important email."
+  },
+  "provider": {
+    "mis": [
+      {
+        "w": "They are the main provider for internet services.",
+        "r": "They are the main provider of internet services.",
+        "why": "Provider takes 'of' for what is supplied."
+      },
+      {
+        "w": "I changed my internet providor last month.",
+        "r": "I changed my internet provider last month.",
+        "why": "The noun ends in -er: provider."
+      }
+    ],
+    "u": "A provider is a person or company that supplies something, especially a service such as internet access, electricity or healthcare. Typical patterns: service provider, healthcare provider, and a provider of training. It can also describe a family member who earns money to support others. Supplier is more common for goods, while provider is more common for services. The verb is provide, which takes to or with."
+  },
+  "publicize": {
+    "mis": [
+      {
+        "w": "We publicize about the sale on social media.",
+        "r": "We publicize the sale on social media.",
+        "why": "Publicize is transitive and takes no 'about'."
+      },
+      {
+        "w": "The event was well publicity.",
+        "r": "The event was well publicized.",
+        "why": "After 'was well' use the participle publicized, not the noun publicity."
+      }
+    ],
+    "u": "Publicize means to make something known to the public, often to attract attention or customers: publicize an event, a product or a result. The related noun is publicity, which is uncountable, and the adjective in phrases like a widely publicized case is publicized. Publicize can be neutral or negative, as in a publicized scandal. Advertise is usually paid, while publicize can use news or social media for free."
+  },
+  "purchaser": {
+    "mis": [
+      {
+        "w": "The purchaser must to sign the form.",
+        "r": "The purchaser must sign the form.",
+        "why": "After a modal verb use the base form without 'to'."
+      },
+      {
+        "w": "He is a purchaser from this book.",
+        "r": "He is a purchaser of this book.",
+        "why": "Purchaser takes 'of' for the item bought."
+      }
+    ],
+    "u": "A purchaser is a person or organization that buys something, especially in a formal or legal context, such as a sales contract or property deal. Buyer is the everyday word. In companies a purchaser can also mean the employee who orders supplies. The related verb is purchase, and the noun purchase is the thing bought or the act of buying. Purchaser is correct for the one who buys, not for the shop."
+  },
+  "purser": {
+    "mis": [
+      {
+        "w": "The purser works in the airplane.",
+        "r": "The purser works on the airplane.",
+        "why": "A crew member works 'on' a plane or ship, not 'in' it."
+      },
+      {
+        "w": "Please ask to the purser for help.",
+        "r": "Please ask the purser for help.",
+        "why": "Ask takes the person directly, without 'to'."
+      }
+    ],
+    "u": "A purser is the officer on a ship or aircraft who is responsible for passengers' comfort, administration and cabin crew. On a plane the purser is the senior member of the cabin crew, below the captain but above flight attendants. On a ship the purser traditionally handled money and documents. The word is formal and mainly appears in travel and aviation contexts. It is a countable noun, written with a lowercase p."
+  },
+  "quarterly": {
+    "mis": [
+      {
+        "w": "We hold a meeting on quarterly basis.",
+        "r": "We hold a meeting on a quarterly basis.",
+        "why": "The fixed phrase needs an article: on a quarterly basis."
+      },
+      {
+        "w": "The report is published every quarterly.",
+        "r": "The report is published quarterly.",
+        "why": "Quarterly is already an adverb here, so 'every' is not needed."
+      }
+    ],
+    "u": "Quarterly means happening or published once every three months, four times a year. As an adjective it goes before a noun: quarterly report, quarterly meeting. As an adverb it follows the verb: the magazine is published quarterly. A quarter is a three-month period of the financial year, and the noun quarterly can also mean a magazine published four times a year. Companies publish quarterly earnings. Do not add every before quarterly."
+  },
+  "query": {
+    "mis": [
+      {
+        "w": "I have a query for your service.",
+        "r": "I have a query about your service.",
+        "why": "A query about a subject takes 'about' or 'regarding', not 'for'."
+      },
+      {
+        "w": "Please query to me if you have questions.",
+        "r": "Please send me your query if you have questions.",
+        "why": "Query as a verb means to question something; to ask for help, use the noun with 'send'."
+      }
+    ],
+    "u": "A query is a question, especially one asking for information or expressing a doubt, often sent to a company or help desk: a customer query, a billing query. In computing it means a request for data from a database or search engine. As a verb, query means to ask a question about whether something is correct: the accountant queried the invoice. Query is more formal than question and is common in service and technical settings."
+  }
+}

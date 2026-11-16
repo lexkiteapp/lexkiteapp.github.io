@@ -401,7 +401,7 @@ Finally, two of our team members will arrive late on November 5 because of a cli
 Best regards,
 Lucia Ferreira
 Operations Manager, Carrow Freight`,
-          groups: [ { type: 'mcq', instr: 'Questions 176-180 refer to the following Web page and e-mail.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[20], items: [
             { n: 176, q: 'What is indicated about the summit?', options: ['It is held every two years.', 'It includes an exhibition.', 'It is free for students.', 'It lasts three days.'], a: 1, cue: 'access to the exhibition hall, where more than 80 companies will display',
               explain: 'Trang web nêu sảnh triển lãm với hơn 80 công ty trưng bày thiết bị, phần mềm → có triển lãm (B). Vé sinh viên giá $120 (C sai); hội nghị diễn ra 2 ngày 5–6/11 (D sai); email nói công ty tham dự "every year" nên A sai.' },
             { n: 177, q: "What is the purpose of Ms. Ferreira's e-mail?", options: ['To cancel a registration', 'To propose a speaker', 'To make arrangements for colleagues', 'To complain about a price'], a: 2, cue: 'I would like to register six employees',
