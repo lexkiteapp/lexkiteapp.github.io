@@ -9,7 +9,7 @@ tags: [ielts, writing, task-2, opinion-essay]
 keyword: "ielts agree or disagree essay"
 cover: write
 coverAlt: "Lexkite Schreibwerkstatt mit Essayfragen nach Themen, Ideenhilfen und einem Aufbaugerüst"
-publishAt:
+publishAt: 2027-01-01T12:17:00+01:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
