@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_big_success",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Exit? No, success!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: The party was a big exit.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: The party was a big success.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Exit is a door. Success is a win.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Success! The party was a big success.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "The party was a big exit.",
+  "right": "The party was a big success.",
+  "strike": "exit",
+  "why": "Exit is a door. Success is a win.",
+  "memory": "Success.",
+  "quiz": {
+   "stem": "The party was a big ___.",
+   "options": [
+    "exit",
+    "success"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Éxito” no es “exit”",
+   "tip": "En español “éxito” se parece a “exit”, pero “exit” es la salida; “éxito” es “success.”",
+   "caption": "🙈 Error común: “The party was a big exit.” Cuidado, falso amigo: “éxito” es “success”: “The party was a big success.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “success”. “Exit” es la puerta de salida. Para “éxito” usa “success”. Escribe una frase tuya con “success” o dila en voz alta: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#falsosamigos",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Éxito” ≠ “exit”",
+   "tip": "“Éxito” looks like “exit”, but “exit” is a door. “Éxito” is “success.”",
+   "caption": "Common mistake: “The party was a big exit.” Careful, false friend: “éxito” is “success”: “The party was a big success.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Éxito” no es “exit”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“Éxito” no es “exit”",
+  "keyword": "The party was a big success.",
+  "value": "En español “éxito” se parece a “exit”, pero “exit” es la salida; “éxito” es “success.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#falsosamigos",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "“Éxito” no es “exit”",
+    "description": "En español “éxito” se parece a “exit”, pero “exit” es la salida; “éxito” es “success.”\n\n🙈 Error común: “The party was a big exit.” Cuidado, falso amigo: “éxito” es “success”: “The party was a big success.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #falsosamigos #lexkite",
+    "tags": [
+     "The party was a big success.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "🙈 Error común: “The party was a big exit.” Cuidado, falso amigo: “éxito” es “success”: “The party was a big success.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Éxito” no es “exit”\n\nEn español “éxito” se parece a “exit”, pero “exit” es la salida; “éxito” es “success.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#falsosamigos",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Éxito” no es “exit” En español “éxito” se parece a “exit”, pero “exit” es la salida; “éxito” es “success.” #aprenderingles #inglesfacil #falsosamigos"
+   }
+  },
+  "first_comment": "Respuesta: “success”. “Exit” es la puerta de salida. Para “éxito” usa “success”. Escribe una frase tuya con “success” o dila en voz alta: {link}",
+  "lang": "es"
+ }
+}

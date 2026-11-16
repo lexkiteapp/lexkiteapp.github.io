@@ -1,0 +1,280 @@
+{
+ "id": "mo_tp_ielts_writing_phrase_firmly-believe",
+ "template": "ielts-writing-phrase",
+ "title": "Motion ielts-writing-phrase – ielts-writing-phrase: firmly-believe (tp_ielts_writing_phrase_firmly-believe)",
+ "teacher": "ama",
+ "clips": [
+  "ga11_talk",
+  "ga11_explain",
+  "ga11_happy",
+  "ga11_thinking",
+  "ga11_surprise_3"
+ ],
+ "listen": [
+  "ga11_listen_2"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy",
+ "active": "mint",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "ielts-writing-phrase",
+  "link": "https://lexkite.com/app/",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Ielts Writing Phrase",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "Wait, \"I think\" again?",
+   "gap": 0.7
+  },
+  {
+   "id": "s0",
+   "text": "Task 2",
+   "gap": 0.7
+  },
+  {
+   "id": "s1",
+   "text": "My essay says: In my opinion, I think phones are bad. Is that okay?",
+   "gap": 0.7
+  },
+  {
+   "id": "s2",
+   "text": "I firmly believe that schools should limit phone use.",
+   "gap": 0.7
+  },
+  {
+   "id": "s3",
+   "text": "That gives your opinion twice. Use one strong phrase: I firmly believe that.",
+   "gap": 0.7
+  },
+  {
+   "id": "t",
+   "text": "Tip: use it once, in your introduction or conclusion, not in every paragraph.",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "Wait, \"I",
+      "white"
+     ]
+    ],
+    [
+     [
+      "think\"",
+      "yellow"
+     ]
+    ],
+    [
+     [
+      "again?",
+      "yellow"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "IELTS Writing",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "Wait, \"I"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "think\""
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "again?"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "sum",
+    "at": [
+     "t",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Tip",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "use it once, in your introduction or conclusion,"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "rules",
+    "at": [
+     "s1",
+     0
+    ],
+    "rows": [
+     {
+      "t": "tile",
+      "tag": "BASIC",
+      "tone": "coral",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "In my opinion, I think…",
+        "coral"
+       ]
+      ],
+      "ex_at": [
+       "s1",
+       0
+      ],
+      "at": [
+       "s1",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "BETTER",
+      "tone": "teal",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "I firmly believe that…",
+        "teal"
+       ]
+      ],
+      "ex_at": [
+       "s2",
+       0
+      ],
+      "at": [
+       "s2",
+       0
+      ]
+     }
+    ]
+   }
+  ],
+  "hook_text": "Wait, \"I think\" again?",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ },
+ "uses": {
+  "template": "ielts-writing-phrase",
+  "row": "tp_ielts_writing_phrase_firmly-believe",
+  "teacher": "ama",
+  "accent": "navy",
+  "active": "mint",
+  "tones": 0
+ }
+}

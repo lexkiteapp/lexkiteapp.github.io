@@ -172,6 +172,8 @@ publishAt: 2026-12-04T07:36:00+09:00
 
 비즈니스 실무 영어 실력을 한 단계 더 끌어올리고 싶다면 [비즈니스 영어 이메일 작성법](/ko/blog/business-yeongeo-email-pyohyeon/)과 [회의 핵심 영어 표현 정리](/ko/blog/business-yeongeo-meeting-pyohyeon/)도 함께 살펴보세요.
 
+헷갈리는 단어 중 가장 자주 묻는 한 쌍은 [affect effect 차이](/ko/blog/affect-effect-chai-gubunbeop/) 글에서 예외와 한국인의 전형적인 오류까지 따로 정리했습니다.
+
 ## 확인 퀴즈 (실전 테스트)
 
 문맥에 알맞은 올바른 단어를 골라보세요:

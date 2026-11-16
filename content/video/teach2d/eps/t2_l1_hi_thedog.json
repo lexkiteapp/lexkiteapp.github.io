@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_thedog",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say the dog the second time!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I saw a dog. Dog was big.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I saw a dog. The dog was big.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use the for something we already know.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The bird! The bird was small.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I saw a dog. Dog was big.",
+  "right": "I saw a dog. The dog was big.",
+  "strike": "Dog was",
+  "why": "Use the for something we already know.",
+  "memory": "I saw a dog. The dog was big.",
+  "quiz": {
+   "stem": "I saw a bird. ___ was small.",
+   "options": [
+    "Bird",
+    "The bird"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "दूसरी बार “The dog” कहें!",
+   "tip": "हिंदी में “कुत्ता बड़ा था” कहने के लिए अलग छोटा शब्द नहीं चाहिए, पर अंग्रेज़ी में पहले बताई चीज़ के आगे the लगाते हैं।",
+   "caption": "क्या आप भी यही कहते हैं? “I saw a dog. Dog was big.” 😅 सही रूप है “I saw a dog. The dog was big.” क्योंकि पहले बताई चीज़ के आगे the लगता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “The bird”। अब इसी तरह अपना एक वाक्य लिखिए। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “The dog” the second time!",
+   "tip": "Many learners skip the, but in English use the for something already mentioned.",
+   "caption": "Do you say this? “I saw a dog. Dog was big.” 😅 The right way is “I saw a dog. The dog was big.” This is right because we use the for something already mentioned. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "दूसरी बार “The dog” कहें!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 54,
+  "seconds": 32.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "दूसरी बार “The dog” कहें!",
+  "keyword": "I saw a dog. The dog was big.",
+  "value": "हिंदी में “कुत्ता बड़ा था” कहने के लिए अलग छोटा शब्द नहीं चाहिए, पर अंग्रेज़ी में पहले बताई चीज़ के आगे the लगाते हैं।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 48,
+  "platforms": {
+   "youtube": {
+    "title": "दूसरी बार “The dog” कहें!",
+    "description": "हिंदी में “कुत्ता बड़ा था” कहने के लिए अलग छोटा शब्द नहीं चाहिए, पर अंग्रेज़ी में पहले बताई चीज़ के आगे the लगाते हैं।\n\nक्या आप भी यही कहते हैं? “I saw a dog. Dog was big.” 😅 सही रूप है “I saw a dog. The dog was big.” क्योंकि पहले बताई चीज़ के आगे the लगता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "I saw a dog. The dog was big.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी यही कहते हैं? “I saw a dog. Dog was big.” 😅 सही रूप है “I saw a dog. The dog was big.” क्योंकि पहले बताई चीज़ के आगे the लगता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "दूसरी बार “The dog” कहें!\n\nहिंदी में “कुत्ता बड़ा था” कहने के लिए अलग छोटा शब्द नहीं चाहिए, पर अंग्रेज़ी में पहले बताई चीज़ के आगे the लगाते हैं।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "दूसरी बार “The dog” कहें! हिंदी में “कुत्ता बड़ा था” कहने के लिए अलग छोटा शब्द नहीं चाहिए, पर अंग्रेज़ी… #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “The bird”। अब इसी तरह अपना एक वाक्य लिखिए। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "هل تقول “peoples”؟",
-   "tip": "كلمة people جمع بنفسها: “Many people came.” وليس “Many peoples came.”.",
-   "caption": "هل تقول أحيانًا “Many peoples came.” 😅 كلمة people جمع بنفسها، فالجملة الصحيحة “Many people came.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
-   "comment": "الإجابة: “people”. كلمة people جمع بنفسها. اختبار مجاني هنا: {link}",
+   "tip": "كلمة people جمع بنفسها: “Many people came.” وليس “Many peoples came.”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “Many peoples came” 😅 كلمة people جمع بنفسها، فالجملة الصحيحة “Many people came.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “people” — كلمة people جمع بنفسها. اختبار مجاني هنا: {link}",
    "hashtags": [
     "#تعلم_الانجليزية",
     "#اللغة_الانجليزية",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "Do you say “Many peoples came”?",
-   "tip": "People is already a plural: “Many people came.” not “Many peoples came.”.",
-   "caption": "Do you sometimes say “Many peoples came.” 😅 People is already a plural, so the right sentence is “Many people came.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+   "hook": "Do you say “peoples”?",
+   "tip": "People is already a plural: “Many people came.” not “Many peoples came.”",
+   "caption": "Do you sometimes say this? “Many peoples came” 😅 People is already a plural, so the right sentence is “Many people came.” Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "هل تقول “peoples”؟",
   "keyword": "Many people came.",
-  "value": "كلمة people جمع بنفسها: “Many people came.” وليس “Many peoples came.”.",
+  "value": "كلمة people جمع بنفسها: “Many people came.” وليس “Many peoples came.”",
   "hashtags": [
    "#تعلم_الانجليزية",
    "#اللغة_الانجليزية",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "هل تقول “peoples”؟",
-    "description": "هل تقول أحيانًا “Many peoples came.” 😅 كلمة people جمع بنفسها، فالجملة الصحيحة “Many people came.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "description": "كلمة people جمع بنفسها: “Many people came.” وليس “Many peoples came.”\n\nهل تقول أحيانًا هذه الجملة؟ “Many peoples came” 😅 كلمة people جمع بنفسها، فالجملة الصحيحة “Many people came.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
     "tags": [
      "Many people came.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "هل تقول أحيانًا “Many peoples came.” 😅 كلمة people جمع بنفسها، فالجملة الصحيحة “Many people came.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "هل تقول أحيانًا هذه الجملة؟ “Many peoples came” 😅 كلمة people جمع بنفسها، فالجملة الصحيحة “Many people came.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "هل تقول أحيانًا “Many peoples came.” 😅 كلمة people جمع بنفسها، فالجملة الصحيحة “Many people came.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nlexkite.com",
+    "caption": "هل تقول “peoples”؟\n\nكلمة people جمع بنفسها: “Many people came.” وليس “Many peoples came.”\n\nlexkite.com",
     "hashtags": [
      "#تعلم_الانجليزية",
      "#اللغة_الانجليزية",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "هل تقول “peoples”؟ #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+    "caption": "هل تقول “peoples”؟ كلمة people جمع بنفسها: “Many people came.” وليس “Many peoples came.” #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
    }
   },
-  "first_comment": "الإجابة: “people”. كلمة people جمع بنفسها. اختبار مجاني هنا: {link}",
+  "first_comment": "الإجابة: “people” — كلمة people جمع بنفسها. اختبار مجاني هنا: {link}",
   "lang": "ar"
  }
 }

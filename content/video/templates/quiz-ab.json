@@ -33,7 +33,7 @@
   { "id": "cta", "beat": "cta", "role": "asker", "emotions": ["cta"], "maxWords": 8, "text": ["Take more quizzes free on lexkite.com", "Test yourself free on lexkite.com"], "expr": "happy smile", "gesture": "waving hello" }
  ],
  "keywords": ["{{kw}}"],
- "caption": ["Quick quiz: {{question}} Comment A or B!", "Can you answer in 3 seconds? {{question}}"],
+ "caption": ["Quick quiz: {{question}} Pick A or B!", "Can you answer in 3 seconds? {{question}}"],
  "hashtags": ["englishquiz", "grammarquiz", "testyourenglish", "learnenglish", "englishgrammar"],
  "writing": {
   "do": ["Câu đố 1 điểm ngữ pháp/từ vựng, đáp án chắc chắn đúng", "A và B chỉ khác đúng điểm cần đố", "Đếm ngược \"Three, two, one!\" ở cuối câu situation – người xem có thời gian nghĩ", "Caption mời bình luận A hoặc B (tăng tương tác)"],

@@ -1,0 +1,752 @@
+{
+ "rack": {
+  "mis": [
+   {
+    "w": "She hung her jacket in the coat rack.",
+    "r": "She hung her jacket on the coat rack.",
+    "why": "Đồ vật được treo hoặc đặt lên giá nên dùng 'on' chứ không dùng 'in'."
+   },
+   {
+    "w": "We need two more rack for the storeroom.",
+    "r": "We need two more racks for the storeroom.",
+    "why": "Rack là danh từ đếm được, sau số đếm hoặc 'more' phải thêm -s."
+   }
+  ],
+  "u": "Rack là khung hở, thường có thanh hoặc rãnh, dùng để treo hoặc đặt đồ: giá treo áo, giá để hành lý trên tàu, giá nóc ô tô, giá để rượu. Shelf là tấm ván phẳng gắn vào tường hoặc tủ, còn rack thường có chức năng riêng. Cụm rack up (tích lũy dần, ví dụ nợ) và rack your brains (vắt óc suy nghĩ) cũng rất hay gặp."
+ },
+ "rainfall": {
+  "mis": [
+   {
+    "w": "The region gets little rainfalls in winter.",
+    "r": "The region gets little rainfall in winter.",
+    "why": "Rainfall là danh từ không đếm được nên không có dạng số nhiều."
+   },
+   {
+    "w": "The rainfall in Hue is higher than Hanoi.",
+    "r": "The rainfall in Hue is higher than in Hanoi.",
+    "why": "Phải so sánh lượng mưa với lượng mưa: 'than in Hanoi', không phải 'than Hanoi'."
+   }
+  ],
+  "u": "Rainfall là lượng mưa rơi xuống một nơi trong một khoảng thời gian, thường đo bằng milimét. Đây là danh từ không đếm được, hay xuất hiện trong bản tin thời tiết, nông nghiệp và nghiên cứu khí hậu: annual rainfall, average rainfall. Mô tả bằng high, low, heavy hoặc light. Rain là nước đang rơi, còn precipitation là thuật ngữ khoa học rộng hơn, gồm cả tuyết và mưa đá."
+ },
+ "receipt": {
+  "mis": [
+   {
+    "w": "Please show me your receipt of the payment.",
+    "r": "Please show me your receipt for the payment.",
+    "why": "Biên lai cho khoản đã trả dùng 'for'; 'receipt of' chỉ hành động nhận."
+   },
+   {
+    "w": "We will ship the goods in receipt of your payment.",
+    "r": "We will ship the goods on receipt of your payment.",
+    "why": "Cụm cố định là 'on receipt of', nghĩa là ngay khi nhận được."
+   }
+  ],
+  "u": "Receipt là tờ giấy hoặc email xác nhận bạn đã thanh toán. Từ này còn có nghĩa trang trọng là việc nhận một thứ gì đó: on receipt of the goods, acknowledge receipt. Chữ p không đọc. Invoice là hóa đơn yêu cầu bạn trả tiền, còn receipt xác nhận bạn đã trả rồi. Hãy giữ receipt nếu có thể cần đổi trả hàng hoặc xin hoàn tiền."
+ },
+ "rewrite": {
+  "mis": [
+   {
+    "w": "He rewrited the report last night.",
+    "r": "He rewrote the report last night.",
+    "why": "Rewrite là động từ bất quy tắc: rewrite, rewrote, rewritten."
+   },
+   {
+    "w": "Please rewrite again the first paragraph.",
+    "r": "Please rewrite the first paragraph.",
+    "why": "Tiền tố re- đã có nghĩa là lại nên 'again' là thừa."
+   }
+  ],
+  "u": "Rewrite nghĩa là viết lại một thứ gì đó và thay đổi để tốt hơn. Khi là động từ, trọng âm rơi vào âm tiết thứ hai; khi là danh từ thì rơi vào âm đầu: a quick rewrite. Các dạng động từ là rewrote và rewritten. Từ này hay dùng cho báo cáo, kịch bản và mã nguồn. Revise gợi ý sửa nhỏ, còn rewrite là thay đổi lớn hơn. Rewrite history nghĩa là trình bày quá khứ theo cách khác."
+ },
+ "rug": {
+  "mis": [
+   {
+    "w": "We fitted a rug over the whole bedroom floor.",
+    "r": "We fitted a carpet over the whole bedroom floor.",
+    "why": "Rug chỉ là tấm nhỏ; trải kín cả sàn là carpet."
+   },
+   {
+    "w": "The cat is sleeping in the rug.",
+    "r": "The cat is sleeping on the rug.",
+    "why": "Rug nằm trên sàn nên giới từ là 'on'."
+   }
+  ],
+  "u": "Rug là tấm vải dày nhỏ phủ một phần sàn nhà, thường để trang trí hoặc giữ ấm. Carpet thường được trải kín từ tường này sang tường kia. Trong tiếng Anh Mỹ, area rug là cụm hay gặp trong cửa hàng. Thành ngữ sweep something under the rug nghĩa là giấu nhẹm một vấn đề; người Anh thường nói under the carpet. Hãy nhớ rug là tấm nhỏ, không phải thảm lót cả phòng."
+ },
+ "safely": {
+  "mis": [
+   {
+    "w": "Please handle the equipment safe.",
+    "r": "Please handle the equipment safely.",
+    "why": "Cần trạng từ để mô tả cách xử lý nên dùng safely."
+   },
+   {
+    "w": "I hope you will arrive safety.",
+    "r": "I hope you will arrive safely.",
+    "why": "Safety là danh từ; sau động từ arrive dùng trạng từ safely."
+   }
+  ],
+  "u": "Safely là trạng từ của safe. Nó cho biết hành động được thực hiện mà không gây hại hay rủi ro: arrive safely, drive safely, store chemicals safely. Từ này còn xuất hiện trong câu tự tin như 'I can safely say', hơi trang trọng. Safely nhấn mạnh tai nạn và thương tích, còn securely nhấn mạnh việc được bảo vệ khỏi trộm cắp hay tấn công. Có thể đứng trước phân từ: safely stored."
+ },
+ "salary": {
+  "mis": [
+   {
+    "w": "My salary is very cheap.",
+    "r": "My salary is very low.",
+    "why": "Lương được mô tả là high hoặc low, không dùng cheap hay expensive."
+   },
+   {
+    "w": "She asked for an increase of salary.",
+    "r": "She asked for an increase in salary.",
+    "why": "Sau increase dùng giới từ 'in'; 'of' dùng cho số lượng tăng."
+   }
+  ],
+  "u": "Salary là khoản tiền cố định do chủ lao động trả, thường theo tháng hoặc năm, cho công việc văn phòng hay chuyên môn. Wage thường tính theo giờ hoặc tuần, cho công việc chân tay hoặc thời vụ. Tin tuyển dụng hay ghi 'a salary of $60,000 a year'. Pay là từ chung nhất. Lương được earn hoặc receive, và thường được gọi là high hay low thay vì big."
+ },
+ "scenery": {
+  "mis": [
+   {
+    "w": "Sapa has beautiful sceneries.",
+    "r": "Sapa has beautiful scenery.",
+    "why": "Scenery là danh từ không đếm được, không có số nhiều."
+   },
+   {
+    "w": "The scenery of the accident was terrible.",
+    "r": "The scene of the accident was terrible.",
+    "why": "Scene là nơi sự việc xảy ra; scenery là cảnh thiên nhiên."
+   }
+  ],
+  "u": "Scenery chỉ các nét tự nhiên của một vùng như núi, rừng, biển khi nhìn thấy đẹp. Đây là danh từ không đếm được. Với nhà cao tầng trong thành phố thường dùng view hoặc skyline. Scene là một cảnh hoặc một sự việc, còn landscape là một dải đất cụ thể. Trong sân khấu, scenery còn là phông nền vẽ trên sân khấu. A change of scenery nghĩa là đổi không khí sang nơi mới."
+ },
+ "shipment": {
+  "mis": [
+   {
+    "w": "A shipment from ten containers arrived at the port.",
+    "r": "A shipment of ten containers arrived at the port.",
+    "why": "Dùng 'of' để nói lô hàng gồm những gì."
+   },
+   {
+    "w": "Free shipment on all orders over fifty dollars.",
+    "r": "Free shipping on all orders over fifty dollars.",
+    "why": "Dịch vụ hoặc phí vận chuyển là shipping, không phải shipment."
+   }
+  ],
+  "u": "Shipment là lượng hàng được gửi đi cùng nhau, hoặc hành động gửi hàng. Dù có chữ ship, từ này bao gồm cả vận chuyển đường biển, hàng không và đường bộ. Đây là danh từ đếm được: a shipment, three shipments. Shipping là dịch vụ hoặc phí vận chuyển, như free shipping, còn delivery là lúc hàng đến tay khách. Consignment là từ thương mại trang trọng hơn. Các động từ hay đi kèm là dispatch, track, delay, receive."
+ },
+ "sidewalk": {
+  "mis": [
+   {
+    "w": "The children were playing in the sidewalk.",
+    "r": "The children were playing on the sidewalk.",
+    "why": "Sidewalk là một bề mặt nên dùng 'on', không dùng 'in'."
+   },
+   {
+    "w": "In Chicago, children should not ride bicycles on the pavement.",
+    "r": "In Chicago, children should not ride bicycles on the sidewalk.",
+    "why": "Trong tiếng Anh Mỹ, lối đi bên đường là sidewalk; pavement chỉ mặt đường."
+   }
+  ],
+  "u": "Sidewalk là từ tiếng Anh Mỹ chỉ lối đi dành cho người đi bộ bên cạnh đường. Người Anh dùng pavement, người Úc nói footpath. Cần chú ý: ở Mỹ, pavement lại chỉ mặt đường cứng. Dùng giới từ on hoặc along: on the sidewalk, along the sidewalk. Ở Việt Nam, hàng quán thường chiếm vỉa hè nên cụm sidewalk vendor (người bán hàng rong trên vỉa hè) rất hay gặp."
+ },
+ "silently": {
+  "mis": [
+   {
+    "w": "Please talk silently in the library.",
+    "r": "Please talk quietly in the library.",
+    "why": "Silently là không phát ra âm thanh nào; nói chuyện phải dùng quietly."
+   },
+   {
+    "w": "He left the room silent.",
+    "r": "He left the room silently.",
+    "why": "Mô tả cách anh ấy rời đi cần trạng từ silently."
+   }
+  ],
+  "u": "Silently nghĩa là không phát ra bất kỳ âm thanh nào: read silently, nod silently, wait silently. Quietly nghĩa là chỉ gây tiếng động nhỏ, nên có thể talk quietly nhưng không thể talk silently, vì nói chuyện thì có âm thanh. Silent là tính từ, silently là trạng từ thêm -ly. Khi nói 'work silently' là hoàn toàn không tiếng động, còn 'work quietly' vẫn cho phép tiếng động nhẹ."
+ },
+ "sleeve": {
+  "mis": [
+   {
+    "w": "He wore a shirt with short sleeve.",
+    "r": "He wore a shirt with short sleeves.",
+    "why": "Áo có hai tay nên thường dùng số nhiều: sleeves."
+   },
+   {
+    "w": "I still have one more idea in my sleeve.",
+    "r": "I still have one more idea up my sleeve.",
+    "why": "Thành ngữ cố định là 'up your sleeve', nghĩa là kế hoạch giấu kín."
+   }
+  ],
+  "u": "Sleeve là phần của quần áo che cánh tay. Vì áo thường có hai tay nên dạng số nhiều rất phổ biến: short sleeves, a long-sleeved shirt. Roll up your sleeves nghĩa là xắn tay áo chuẩn bị làm việc chăm chỉ, còn have something up your sleeve nghĩa là còn giữ sẵn một kế hoạch bí mật. Từ này cũng chỉ vỏ bọc bảo vệ, như bìa đĩa than hoặc túi đựng laptop."
+ },
+ "smoothly": {
+  "mis": [
+   {
+    "w": "Everything went smooth at the meeting.",
+    "r": "Everything went smoothly at the meeting.",
+    "why": "Sau động từ 'went' cần trạng từ smoothly."
+   },
+   {
+    "w": "The surface of this road is smoothly.",
+    "r": "The surface of this road is smooth.",
+    "why": "Sau be dùng tính từ smooth, không dùng trạng từ."
+   }
+  ],
+  "u": "Smoothly nghĩa là không gặp khó khăn, không bị gián đoạn hay thay đổi đột ngột. Từ này đứng sau các động từ như go, run, work, operate: the launch went smoothly, make sure the system runs smoothly. Nó cũng mô tả chuyển động êm, ví dụ xe chạy êm. Sau động từ nối như be, feel, look phải dùng tính từ smooth. Từ này rất phổ biến trong báo cáo dự án và kinh doanh."
+ },
+ "specially": {
+  "mis": [
+   {
+    "w": "I like all fruit, specially mangoes.",
+    "r": "I like all fruit, especially mangoes.",
+    "why": "Để nhấn mạnh một thứ trong nhóm, dùng especially, không dùng specially."
+   },
+   {
+    "w": "The software is especially designed for hospitals.",
+    "r": "The software is specially designed for hospitals.",
+    "why": "Với nghĩa 'dành riêng cho mục đích', dùng specially trước phân từ."
+   }
+  ],
+  "u": "Specially nghĩa là dành riêng cho một mục đích cụ thể: specially designed software, specially trained staff. Từ này thường đứng trước phân từ quá khứ. Especially nghĩa là ở mức độ cao hoặc nêu bật một ví dụ: especially important, especially in winter. Khi nói, hai từ nghe gần giống nhau và người Mỹ có thể dùng especially cho cả hai, nhưng khi viết cẩn thận nên phân biệt. Special là tính từ."
+ },
+ "stack": {
+  "mis": [
+   {
+    "w": "There is a stack papers on my desk.",
+    "r": "There is a stack of papers on my desk.",
+    "why": "Sau stack phải có 'of' rồi mới đến vật được xếp chồng."
+   },
+   {
+    "w": "He stacked the boxes on top each other.",
+    "r": "He stacked the boxes on top of each other.",
+    "why": "Cụm đúng là 'on top of each other', không bỏ 'of'."
+   }
+  ],
+  "u": "Stack là chồng đồ xếp gọn, vật này đặt lên vật kia: a stack of papers, a stack of plates. Là động từ, nó nghĩa là xếp đồ thành chồng. Trong tiếng Anh Anh thân mật, stacks of nghĩa là rất nhiều: stacks of work. Trong tin học, stack là một cấu trúc dữ liệu, còn tech stack là bộ công cụ dùng để xây dựng sản phẩm. Pile thường lộn xộn hơn stack."
+ },
+ "stadium": {
+  "mis": [
+   {
+    "w": "Thousands of fans went to stadium on Sunday.",
+    "r": "Thousands of fans went to the stadium on Sunday.",
+    "why": "Stadium là danh từ đếm được, dạng số ít cần có mạo từ."
+   },
+   {
+    "w": "The stadium can contain forty thousand people.",
+    "r": "The stadium can hold forty thousand people.",
+    "why": "Động từ tự nhiên khi nói sức chứa là hold hoặc seat, không phải contain."
+   }
+  ],
+  "u": "Stadium là công trình lớn, lộ thiên hoặc có mái một phần, có hàng ghế bao quanh sân dùng cho thể thao hoặc hòa nhạc. Số nhiều là stadiums trong tiếng Anh Mỹ thường ngày và stadia trong văn viết trang trọng hoặc Anh. Dùng at the stadium cho sự kiện và in the stadium khi ở bên trong. Sức chứa diễn đạt bằng hold hoặc seat. Arena thường là nhà thi đấu trong nhà, như bóng rổ hoặc khúc côn cầu trên băng."
+ },
+ "stripe": {
+  "mis": [
+   {
+    "w": "She wore a stripe shirt to the interview.",
+    "r": "She wore a striped shirt to the interview.",
+    "why": "Trước danh từ phải dùng tính từ striped, không dùng danh từ stripe."
+   },
+   {
+    "w": "Cut the paper into narrow stripes.",
+    "r": "Cut the paper into narrow strips.",
+    "why": "Mảnh dài hẹp của vật liệu là strip; stripe là dải màu."
+   }
+  ],
+  "u": "Stripe là dải màu dài và hẹp khác với phần xung quanh, như trên ngựa vằn, lá cờ hay chiếc áo. Đừng nhầm với strip, mảnh vật liệu dài và hẹp: a strip of paper. Tính từ là striped. Stripes còn là vạch quân hàm trên quân phục, từ đó có thành ngữ earn your stripes, nghĩa là chứng tỏ năng lực qua kinh nghiệm thực tế."
+ },
+ "subtract": {
+  "mis": [
+   {
+    "w": "Subtract five to twenty and you get fifteen.",
+    "r": "Subtract five from twenty and you get fifteen.",
+    "why": "Cấu trúc là subtract A from B, không dùng 'to'."
+   },
+   {
+    "w": "You need to subtraction the cost from your income.",
+    "r": "You need to subtract the cost from your income.",
+    "why": "Sau 'to' dùng động từ subtract; subtraction là danh từ."
+   }
+  ],
+  "u": "Subtract nghĩa là lấy một số hoặc một khoản đi khỏi số khác: subtract 3 from 10 được 7. Danh từ là subtraction và từ trái nghĩa là add. Trong kế toán, bạn subtract chi phí khỏi doanh thu. Deduct trang trọng hơn và dùng khi tiền bị trừ vì một lý do, như thuế hay phí, còn take away là cách nói hằng ngày khi trẻ em học phép tính."
+ },
+ "tech": {
+  "mis": [
+   {
+    "w": "The company invests heavily in new techs.",
+    "r": "The company invests heavily in new tech.",
+    "why": "Tech, giống technology, là danh từ không đếm được, không có số nhiều."
+   },
+   {
+    "w": "She works for a techs company in Hanoi.",
+    "r": "She works for a tech company in Hanoi.",
+    "why": "Danh từ làm định ngữ giữ nguyên số ít: tech company."
+   }
+  ],
+  "u": "Tech là dạng viết tắt thân mật của technology, rất phổ biến trong tin tức kinh doanh và hội thoại hằng ngày: a tech company, tech support, the tech industry. Đây là danh từ không đếm được và khi làm định ngữ thì không thêm -s. Trong tin tuyển dụng, tech thường chỉ ngành công nghệ thông tin. Trong văn học thuật trang trọng, hãy dùng đầy đủ technology. Tech-savvy mô tả người dùng thiết bị và phần mềm thành thạo."
+ },
+ "tile": {
+  "mis": [
+   {
+    "w": "The bathroom is covered by tiles.",
+    "r": "The bathroom is covered with tiles.",
+    "why": "Sau covered, chất liệu đi với 'with'; 'by' chỉ người hoặc tác nhân."
+   },
+   {
+    "w": "We bought ten pieces of tiles.",
+    "r": "We bought ten tiles.",
+    "why": "Tile là danh từ đếm được nên đếm trực tiếp, không cần 'pieces of'."
+   }
+  ],
+  "u": "Tile là viên mỏng, phẳng, hình vuông hoặc chữ nhật làm bằng gốm, đá hay nhựa, dùng ốp sàn, tường và lợp mái. Đây là danh từ đếm được: lay ten tiles. Là động từ, tile nghĩa là ốp bề mặt bằng các viên này. Nói be covered with tiles. Tiếng lóng Anh on the tiles nghĩa là đi chơi uống rượu thâu đêm. Trong trò chơi và ứng dụng, tile còn là quân cờ hoặc ô trên màn hình."
+ },
+ "tray": {
+  "mis": [
+   {
+    "w": "The waiter brought the drinks in a tray.",
+    "r": "The waiter brought the drinks on a tray.",
+    "why": "Đồ vật nằm trên khay phẳng nên dùng 'on', không dùng 'in'."
+   },
+   {
+    "w": "She put the cake in the oven on a baking plate.",
+    "r": "She put the cake in the oven on a baking tray.",
+    "why": "Dụng cụ trong lò nướng gọi là baking tray, không phải baking plate."
+   }
+  ],
+  "u": "Tray là vật phẳng có gờ nhô lên để bưng hoặc đựng đồ. Các loại thường gặp là khay phục vụ ở nhà hàng, khay ăn sáng, khay nướng trong lò và khay giấy trong máy in. Nhân viên văn phòng còn có in-tray để đựng giấy tờ đến. Đồ được bưng on a tray. Plate là đĩa để ăn, và người Mỹ thường nói baking sheet thay cho baking tray."
+ },
+ "vacuum": {
+  "mis": [
+   {
+    "w": "She vacuum the carpet every morning.",
+    "r": "She vacuums the carpet every morning.",
+    "why": "Ngôi thứ ba số ít ở thì hiện tại cần -s: she vacuums."
+   },
+   {
+    "w": "Please vacuum cleaner the living room.",
+    "r": "Please vacuum the living room.",
+    "why": "Vacuum cleaner là danh từ; làm động từ chỉ cần nói vacuum."
+   }
+  ],
+  "u": "Vacuum dùng như động từ nghĩa là hút bụi bằng máy hút bụi: vacuum the carpet, vacuumed, vacuuming. Là danh từ, nó chỉ khoảng không không có không khí, như thực phẩm hút chân không, hoặc một khoảng trống, như power vacuum (khoảng trống quyền lực). Người Anh hay nói hoover cho động từ, theo tên một hãng, và gọi bình giữ nhiệt là vacuum flask. Chữ này có hai chữ u liền nhau."
+ },
+ "wisely": {
+  "mis": [
+   {
+    "w": "Please choose wise when you buy a laptop.",
+    "r": "Please choose wisely when you buy a laptop.",
+    "why": "Dùng trạng từ wisely để mô tả cách bạn chọn."
+   },
+   {
+    "w": "Please spend wisely your travel budget.",
+    "r": "Please spend your travel budget wisely.",
+    "why": "Không đặt trạng từ giữa động từ và tân ngữ của nó."
+   }
+  ],
+  "u": "Wisely nghĩa là một cách khôn ngoan, thể hiện óc phán đoán tốt, nhất là về tiền bạc, thời gian và rủi ro: spend wisely, invest wisely, use your time wisely. Từ này thường đứng sau tân ngữ, hoặc đứng trước động từ chính như một lời nhận xét: he wisely kept quiet. Cleverly nhấn mạnh sự khéo léo giải quyết vấn đề, còn wisely gợi sự sáng suốt về lâu dài. Wise là tính từ."
+ },
+ "wool": {
+  "mis": [
+   {
+    "w": "This sweater is made by wool.",
+    "r": "This sweater is made of wool.",
+    "why": "Chất liệu đi với 'of' (hoặc 'from'), không dùng 'by'."
+   },
+   {
+    "w": "I bought two wools sweaters.",
+    "r": "I bought two wool sweaters.",
+    "why": "Danh từ làm định ngữ giữ số ít, và wool là danh từ không đếm được."
+   }
+  ],
+  "u": "Wool là lông dày mềm của cừu, đồng thời là sợi hay vải làm từ đó. Đây là danh từ không đếm được: a jacket made of wool, a wool sweater. Tính từ woollen là kiểu Anh còn woolen là kiểu Mỹ. Len merino được đánh giá cao vì mềm và ấm. Pull the wool over someone's eyes nghĩa là lừa ai đó. Ở Anh, cotton wool là thứ mà người Mỹ gọi là cotton balls (bông gòn)."
+ },
+ "acute": {
+  "mis": [
+   {
+    "w": "He has a acute pain in his stomach.",
+    "r": "He has an acute pain in his stomach.",
+    "why": "Acute bắt đầu bằng âm nguyên âm nên mạo từ là 'an'."
+   },
+   {
+    "w": "He suffers from acute back pain for ten years.",
+    "r": "He suffers from chronic back pain for ten years.",
+    "why": "Acute là đột ngột, ngắn hạn; đau kéo dài là chronic."
+   }
+  ],
+  "u": "Acute là tính từ trang trọng với nhiều nghĩa. Trong y học, nó mô tả bệnh hoặc cơn đau xuất hiện đột ngột và nặng, trái với chronic là kéo dài lâu. Nó còn nghĩa là rất nghiêm trọng, như an acute shortage of water (thiếu nước trầm trọng), hoặc rất nhạy, như an acute sense of smell. Trong hình học, an acute angle là góc nhỏ hơn chín mươi độ."
+ },
+ "algorithm": {
+  "mis": [
+   {
+    "w": "The algorithm solves the problem by five steps.",
+    "r": "The algorithm solves the problem in five steps.",
+    "why": "Dùng 'in' với số bước, không dùng 'by'."
+   },
+   {
+    "w": "Social networks use algorithm to choose posts.",
+    "r": "Social networks use algorithms to choose posts.",
+    "why": "Algorithm là danh từ đếm được; nói chung thì dùng số nhiều."
+   }
+  ],
+  "u": "Algorithm là tập hợp các bước rõ ràng để giải một bài toán hoặc thực hiện phép tính, đặc biệt bằng máy tính. Đây là danh từ đếm được nên viết an algorithm hoặc algorithms. Các động từ hay đi kèm là design, run, implement, optimise. Người ta cũng nói the algorithm để chỉ quy tắc xếp hạng của một nền tảng, như thuật toán bảng tin. Trọng âm ở âm đầu và th đọc như trong từ the. Đừng nhầm với logarithm (lôgarit)."
+ },
+ "alloy": {
+  "mis": [
+   {
+    "w": "Bronze is an alloy from copper and tin.",
+    "r": "Bronze is an alloy of copper and tin.",
+    "why": "An alloy 'of' các kim loại nêu thành phần của nó."
+   },
+   {
+    "w": "Steel is alloy of iron and carbon.",
+    "r": "Steel is an alloy of iron and carbon.",
+    "why": "Alloy là danh từ đếm được nên dạng số ít cần 'an'."
+   }
+  ],
+  "u": "Alloy là kim loại tạo ra bằng cách nung chảy và trộn hai hay nhiều kim loại, hoặc một kim loại với nguyên tố khác. Thép là sắt với cacbon, đồng thau là đồng với kẽm, đồng thanh là đồng với thiếc. Hợp kim được chọn vì bền, nhẹ hoặc chống gỉ nên có khung hợp kim nhôm và alloy wheels trên ô tô. Cấu trúc là an alloy of A and B. Đây không phải kim loại nguyên chất."
+ },
+ "anatomy": {
+  "mis": [
+   {
+    "w": "My uncle is an anatomy at a hospital.",
+    "r": "My uncle is an anatomist at a hospital.",
+    "why": "Người làm nghề là anatomist; anatomy là môn học."
+   },
+   {
+    "w": "Anatomy studies how organs work.",
+    "r": "Physiology studies how organs work.",
+    "why": "Anatomy nói về cấu trúc; chức năng thuộc về physiology."
+   }
+  ],
+  "u": "Anatomy là môn nghiên cứu cấu trúc cơ thể người, động vật và thực vật, đồng thời chỉ chính cấu trúc đó: the anatomy of the human hand. Thường là danh từ không đếm được. Đây là môn học năm đầu quen thuộc của ngành y và sinh học. Physiology thì khác vì nghiên cứu các bộ phận hoạt động ra sao. Chuyên gia là anatomist. Nghĩa bóng, the anatomy of a crisis là phân tích chi tiết diễn biến của một cuộc khủng hoảng."
+ },
+ "array": {
+  "mis": [
+   {
+    "w": "The shop offers a wide array of product.",
+    "r": "The shop offers a wide array of products.",
+    "why": "Sau 'array of' dùng danh từ số nhiều."
+   },
+   {
+    "w": "There is a wide array in options.",
+    "r": "There is a wide array of options.",
+    "why": "Cấu trúc cố định là 'an array of', không dùng 'in'."
+   }
+  ],
+  "u": "Array là một tập hợp lớn hoặc ấn tượng các thứ, thường được bày ra có thứ tự: a dazzling array of colours, a wide array of choices. Sau nó là of và danh từ số nhiều. Từ này trang trọng hơn a lot of hay a bunch of. Trong tin học, array là danh sách các giá trị lưu cùng nhau và truy cập theo số vị trí. Solar array là cụm tấm pin mặt trời hoạt động cùng nhau."
+ },
+ "batch": {
+  "mis": [
+   {
+    "w": "Each batches is tested before it leaves the plant.",
+    "r": "Each batch is tested before it leaves the plant.",
+    "why": "Sau each dùng danh từ và động từ số ít: each batch is."
+   },
+   {
+    "w": "The factory produces the pills by batch.",
+    "r": "The factory produces the pills in batches.",
+    "why": "Cụm thông dụng là 'in batches', dùng số nhiều."
+   }
+  ],
+  "u": "Batch là nhóm các thứ được sản xuất, xử lý cùng lúc: a batch of cookies, a test batch, a batch number. Số nhiều là batches. Nhà máy kiểm tra và ghi nhận sản phẩm theo từng lô để kiểm soát chất lượng, còn batch processing trong tin học là chạy nhiều tác vụ cùng lúc mà không cần người can thiệp. Cũng dùng thân mật: a new batch of students arrived. Mẫu thường gặp là a batch of và in batches."
+ },
+ "beam": {
+  "mis": [
+   {
+    "w": "She beamed to me when I walked in.",
+    "r": "She beamed at me when I walked in.",
+    "why": "Động từ beam đi với 'at' khi mỉm cười với ai đó."
+   },
+   {
+    "w": "A beam of lights shone from the lighthouse.",
+    "r": "A beam of light shone from the lighthouse.",
+    "why": "Sau 'beam of', light là danh từ không đếm được."
+   }
+  ],
+  "u": "Beam là thanh dài chắc bằng gỗ, thép hoặc bê tông chống đỡ mái hay sàn. Nó cũng là luồng sáng hoặc bức xạ hẹp: a beam of light, a laser beam, đèn pha chế độ high beam. Là động từ, beam nghĩa là cười rạng rỡ, đi với at: she beamed at the crowd. Girder thường là dầm thép lớn trong cầu hoặc nhà cao tầng."
+ },
+ "benign": {
+  "mis": [
+   {
+    "w": "The biopsy showed a benign cancer.",
+    "r": "The biopsy showed a benign tumor.",
+    "why": "Ung thư vốn là ác tính; khối u lành mới gọi là benign tumor."
+   },
+   {
+    "w": "The old teacher gave us a benign.",
+    "r": "The old teacher gave us a benign smile.",
+    "why": "Benign là tính từ nên cần có danh từ đứng sau."
+   }
+  ],
+  "u": "Benign là tính từ trang trọng. Trong y học nó nghĩa là không phải ung thư và không nguy hiểm đến tính mạng, như a benign tumour, trái nghĩa là malignant. Nghĩa chung là hiền lành, nhẹ nhàng hoặc vô hại: a benign smile, a benign climate. Trọng âm rơi vào âm tiết thứ hai, và ign đọc như ine. Với người tốt bụng bình thường hãy nói kind, vì benign nghe giống từ của bác sĩ hay nhà văn."
+ },
+ "breakdown": {
+  "mis": [
+   {
+    "w": "My car had a break down on the highway.",
+    "r": "My car had a breakdown on the highway.",
+    "why": "Danh từ viết liền: breakdown; động từ là break down."
+   },
+   {
+    "w": "Please send me a breakdown about the costs.",
+    "r": "Please send me a breakdown of the costs.",
+    "why": "Breakdown 'of' chi phí là bảng chia nhỏ tổng chi phí."
+   }
+  ],
+  "u": "Là danh từ, breakdown viết liền một từ và nhấn trọng âm ở âm đầu. Nghĩa là sự hỏng của máy móc hoặc xe, sự đổ vỡ của đàm phán hay mối quan hệ, hoặc nervous breakdown (suy sụp tinh thần). Nó còn là bảng chi tiết chia nhỏ một tổng: a breakdown of costs. Động từ viết hai từ, break down: the car broke down. Tiếng Anh Anh nói breakdown van, người Mỹ nói tow truck."
+ },
+ "bribery": {
+  "mis": [
+   {
+    "w": "The officer received a bribery of five thousand dollars.",
+    "r": "The officer received a bribe of five thousand dollars.",
+    "why": "Khoản tiền là bribe; bribery là tội hối lộ nói chung."
+   },
+   {
+    "w": "He bribed to the customs officer.",
+    "r": "He bribed the customs officer.",
+    "why": "Bribe là ngoại động từ, đi thẳng với tân ngữ, không có 'to'."
+   }
+  ],
+  "u": "Bribery là tội đưa hoặc nhận tiền hay ân huệ để tác động đến người có chức quyền. Đây là danh từ trừu tượng không đếm được: be charged with bribery, a bribery scandal. Chính khoản tiền là bribe, đếm được: offer a bribe, take a bribe. Động từ bribe đi thẳng với tân ngữ, như bribe an official. Trên báo chí thường thấy cụm bribery and corruption đi cùng nhau."
+ },
+ "cache": {
+  "mis": [
+   {
+    "w": "Try clearing your browser cash.",
+    "r": "Try clearing your browser cache.",
+    "why": "Trong tin học từ đúng là cache, dù đọc giống cash."
+   },
+   {
+    "w": "The police found a cache with weapons in the garage.",
+    "r": "The police found a cache of weapons in the garage.",
+    "why": "Dùng 'of' để nói kho giấu chứa gì."
+   }
+  ],
+  "u": "Cache đọc giống hệt cash. Trong tin học, đây là bộ nhớ tạm giúp trang web và tệp tải nhanh hơn: browser cache, CPU cache. Nếu trang web hiện nội dung cũ, xóa cache thường giải quyết được. Là động từ, cache data nghĩa là lưu dữ liệu để dùng lại nhanh. Ngoài tin học, cache là kho giấu đồ, thường theo sau bởi of và danh từ số nhiều: a cache of weapons, a cache of documents."
+ },
+ "contagious": {
+  "mis": [
+   {
+    "w": "The flu is very contagion.",
+    "r": "The flu is very contagious.",
+    "why": "Sau 'very' dùng tính từ contagious; contagion là danh từ."
+   },
+   {
+    "w": "Malaria is a contagious disease spread by mosquitoes.",
+    "r": "Malaria is an infectious disease spread by mosquitoes.",
+    "why": "Contagious là lây qua tiếp xúc giữa người với người; bệnh do muỗi truyền là infectious."
+   }
+  ],
+  "u": "Contagious mô tả bệnh lây từ người sang người qua tiếp xúc, như thủy đậu hay cúm. Từ này cũng dùng nghĩa bóng: contagious laughter, contagious enthusiasm. Infectious là thuật ngữ y học rộng hơn, gồm cả bệnh do côn trùng, nước hoặc thức ăn mang, nên sốt rét là infectious chứ không phải contagious. Khi nói thường ngày, người ta hay dùng lẫn hai từ cho bệnh cảm. Danh từ là contagion."
+ },
+ "customs": {
+  "mis": [
+   {
+    "w": "I passed the custom at the airport quickly.",
+    "r": "I passed customs at the airport quickly.",
+    "why": "Điểm kiểm tra biên giới luôn là customs, có -s và không mạo từ."
+   },
+   {
+    "w": "It is a local customs to take off your shoes.",
+    "r": "It is a local custom to take off your shoes.",
+    "why": "Một tập quán đơn lẻ là custom; customs là số nhiều."
+   }
+  ],
+  "u": "Customs là cơ quan nhà nước và điểm kiểm tra ở sân bay, cảng, nơi hành lý và hàng hóa được kiểm tra và thu thuế nhập khẩu: go through customs, a customs officer. Thường dùng không có mạo từ: at customs. Dạng số nhiều này còn nghĩa là phong tục, như local customs, còn một phong tục đơn lẻ là a custom. Đừng nhầm customs, hải quan, với custom, thói quen."
+ },
+ "decree": {
+  "mis": [
+   {
+    "w": "The government released a new decree on taxes.",
+    "r": "The government issued a new decree on taxes.",
+    "why": "Văn bản chính thức được issue, không phải release."
+   },
+   {
+    "w": "The decree entered into force at 1 July.",
+    "r": "The decree entered into force on 1 July.",
+    "why": "Dùng 'on' với một ngày cụ thể."
+   }
+  ],
+  "u": "Decree là mệnh lệnh chính thức do nguyên thủ hoặc chính phủ ban hành, có hiệu lực như luật, đôi khi không cần quốc hội biểu quyết: a presidential decree, a royal decree. Đây cũng là động từ: the king decreed that taxes be cut. Các động từ hay đi kèm là issue, sign, revoke. Đây là từ trang trọng. Luật do cơ quan lập pháp thông qua, còn decree do nhánh hành pháp ban hành."
+ },
+ "defendant": {
+  "mis": [
+   {
+    "w": "The defendant lawyer asked for more time.",
+    "r": "The defendant's lawyer asked for more time.",
+    "why": "Dùng 's để chỉ luật sư thuộc về bị cáo."
+   },
+   {
+    "w": "The defendant is the person who sues the company.",
+    "r": "The plaintiff is the person who sues the company.",
+    "why": "Người khởi kiện vụ dân sự là plaintiff; defendant là người bị kiện."
+   }
+  ],
+  "u": "Defendant là người hoặc công ty bị buộc tội hình sự hoặc bị kiện trong vụ án dân sự. Đối lập trong vụ dân sự là plaintiff, tiếng Anh Anh gọi là claimant; trong vụ hình sự, nhà nước truy tố defendant. Trọng âm rơi vào âm tiết thứ hai. Defendant có thể plead guilty hoặc not guilty, và được acquit hoặc bị convict. Trong tin tức hình sự của Anh, the accused cũng rất thông dụng."
+ },
+ "deployment": {
+  "mis": [
+   {
+    "w": "We will deployment the new version tonight.",
+    "r": "We will deploy the new version tonight.",
+    "why": "Sau 'will' cần động từ deploy, không dùng danh từ."
+   },
+   {
+    "w": "The team finished the deployment on production last night.",
+    "r": "The team finished the deployment to production last night.",
+    "why": "Bạn deploy lên một môi trường nên danh từ đi với 'to'."
+   }
+  ],
+  "u": "Deployment là việc đưa một thứ vào sử dụng hoặc vào vị trí. Trong IT, nó nghĩa là phát hành phần mềm lên môi trường chạy thật: automated deployment, deployment pipeline, rollback sau một deployment thất bại. Trong quân sự, nó nghĩa là đưa quân vào vị trí. Động từ là deploy. Đừng nhầm với development, tức là viết phần mềm. Nói deploy to production hoặc deployment to a server."
+ },
+ "disinfect": {
+  "mis": [
+   {
+    "w": "Disinfect the wound by alcohol first.",
+    "r": "Disinfect the wound with alcohol first.",
+    "why": "Chất dùng để làm sạch đi với 'with'."
+   },
+   {
+    "w": "Please disinfectant the table after lunch.",
+    "r": "Please disinfect the table after lunch.",
+    "why": "Disinfectant là sản phẩm (danh từ); động từ là disinfect."
+   }
+  ],
+  "u": "Disinfect nghĩa là làm sạch bằng hóa chất để diệt vi trùng: disinfect a wound, disinfect surfaces with bleach. Sản phẩm là disinfectant và quá trình là disinfection. Clean chỉ loại bỏ bụi bẩn. Sterilize mạnh hơn và diệt mọi vi sinh vật, như với dụng cụ phẫu thuật, còn sanitize giảm vi trùng xuống mức an toàn và phổ biến trong tiếng Anh Mỹ cho tay và bàn."
+ },
+ "drilling": {
+  "mis": [
+   {
+    "w": "He is drilling a hole on the wall.",
+    "r": "He is drilling a hole in the wall.",
+    "why": "Lỗ nằm trong bề mặt nên dùng 'in'."
+   },
+   {
+    "w": "The company has a licence for drill oil at sea.",
+    "r": "The company has a licence for drilling oil at sea.",
+    "why": "Sau giới từ dùng dạng -ing: for drilling."
+   }
+  ],
+  "u": "Drilling là việc khoan lỗ bằng dụng cụ quay gọi là drill. Nó được dùng trong gia công cơ khí, nơi người ta khoan lỗ trên thép hoặc gỗ, và trong ngành dầu khí: an offshore drilling rig. Mẫu thường gặp là drill a hole in something và drill for oil. Drilling tạo lỗ mới, còn grinding làm nhẵn bề mặt. Từ này còn nghĩa là luyện tập lặp đi lặp lại, như huấn luyện quân sự hoặc drills ngôn ngữ."
+ },
+ "enact": {
+  "mis": [
+   {
+    "w": "Parliament acted a new law last year.",
+    "r": "Parliament enacted a new law last year.",
+    "why": "Để ban hành luật, động từ là enact, không phải act."
+   },
+   {
+    "w": "The company enacted a new dress code for staff.",
+    "r": "The company introduced a new dress code for staff.",
+    "why": "Enact dùng cho cơ quan lập pháp và chính phủ; công ty thì introduce quy định."
+   }
+  ],
+  "u": "Enact là động từ trang trọng nghĩa là biến một đề xuất thành luật: parliament enacts legislation, a bill is enacted. Chủ ngữ là cơ quan lập pháp hoặc chính phủ. Công ty không enact quy định mà introduce hoặc adopt chúng. Thể bị động rất phổ biến: the law was enacted in 2019. Danh từ là enactment. Enact còn nghĩa là diễn lại một cảnh. Enforce thì khác: nghĩa là buộc mọi người tuân theo luật."
+ },
+ "fitting": {
+  "mis": [
+   {
+    "w": "We bought new fittings of the bathroom.",
+    "r": "We bought new fittings for the bathroom.",
+    "why": "Dùng 'for' để nói phụ kiện dành cho thứ gì."
+   },
+   {
+    "w": "The shop sells brass fitting in many sizes.",
+    "r": "The shop sells brass fittings in many sizes.",
+    "why": "Các phụ kiện ống là đếm được nên dùng số nhiều fittings."
+   }
+  ],
+  "u": "Là danh từ, fitting là chi tiết nhỏ nối ống hoặc các bộ phận khác, như co hoặc khớp nối bằng đồng thau. Trong tiếng Anh Anh, fittings còn là thiết bị cố định trong nhà, như light fittings và bathroom fittings, và cụm pháp lý là fixtures and fittings. Fitting cũng là buổi thử quần áo ở tiệm may. Là tính từ, fitting nghĩa là phù hợp, như a fitting tribute (lời tri ân xứng đáng)."
+ },
+ "fraud": {
+  "mis": [
+   {
+    "w": "He made fraud against the insurance company.",
+    "r": "He committed fraud against the insurance company.",
+    "why": "Động từ đi với fraud là commit, không phải make."
+   },
+   {
+    "w": "He used a fraud signature on the contract.",
+    "r": "He used a fraudulent signature on the contract.",
+    "why": "Trước danh từ dùng tính từ fraudulent, không dùng fraud."
+   }
+  ],
+  "u": "Fraud là tội lừa đảo người khác để lấy tiền hoặc lợi thế: tax fraud, insurance fraud, credit card fraud. Khi nói tội danh chung, đây là danh từ không đếm được, như be convicted of fraud. Nó đếm được khi chỉ một vụ cụ thể, và người giả danh có thể bị gọi là a fraud. Tính từ là fraudulent. Fraud đòi hỏi cố ý nói dối, còn scam là từ thân mật."
+ },
+ "grinding": {
+  "mis": [
+   {
+    "w": "Grinding makes a hole in the metal plate.",
+    "r": "Drilling makes a hole in the metal plate.",
+    "why": "Grinding làm nhẵn bề mặt; tạo lỗ là drilling."
+   },
+   {
+    "w": "The mechanic heard a grinded noise from the brakes.",
+    "r": "The mechanic heard a grinding noise from the brakes.",
+    "why": "Grind là động từ bất quy tắc (ground); làm định ngữ dùng grinding."
+   }
+  ],
+  "u": "Grinding là quá trình gia công lấy đi một lượng vật liệu nhỏ bằng đá mài quay để có bề mặt nhẵn và chính xác: a grinding machine, surface grinding. Nó còn nghĩa là nghiền thành bột, như cà phê, và tiếng cọ xát khó chịu, như a grinding noise from the brakes. Grinding poverty là cảnh nghèo đói nặng nề, dai dẳng. Động từ bất quy tắc: grind, ground, ground."
+ },
+ "grounding": {
+  "mis": [
+   {
+    "w": "A good grounding on grammar helps you write well.",
+    "r": "A good grounding in grammar helps you write well.",
+    "why": "Cụm danh từ là 'a grounding in' một môn học."
+   },
+   {
+    "w": "We checked the groundings of the new factory.",
+    "r": "We checked the grounding of the new factory.",
+    "why": "Theo nghĩa điện, grounding là danh từ không đếm được nên không có số nhiều."
+   }
+  ],
+  "u": "Trong ngành điện, grounding nghĩa là nối thiết bị xuống đất để dòng điện rò thoát an toàn thay vì chạy qua người: a grounding wire, a grounding rod. Đây là thuật ngữ Mỹ; tiếng Anh Anh nói earthing. A grounding in a subject nghĩa là kiến thức nền về môn học: a good grounding in maths. Trong tin tức, the grounding of aircraft nghĩa là máy bay bị cấm bay."
+ },
+ "immunity": {
+  "mis": [
+   {
+    "w": "The vaccine gives immunity for the flu.",
+    "r": "The vaccine gives immunity to the flu.",
+    "why": "Bệnh mà bạn kháng lại đi sau 'immunity to' hoặc 'against'."
+   },
+   {
+    "w": "Vitamin C may strengthen your immune.",
+    "r": "Vitamin C may strengthen your immunity.",
+    "why": "Immune là tính từ; danh từ là immunity."
+   }
+  ],
+  "u": "Immunity là khả năng cơ thể chống lại nhiễm trùng, có được sau khi mắc bệnh hoặc tiêm vắc-xin: build immunity, herd immunity. Nó còn là sự bảo vệ pháp lý khỏi bị truy tố hoặc đóng thuế: diplomatic immunity, immunity from prosecution. Nói immunity to hoặc against một bệnh, và immunity from prosecution. Tính từ là immune, còn immune system là hệ cơ quan và tế bào bảo vệ cơ thể."
+ },
+ "latency": {
+  "mis": [
+   {
+    "w": "The latency of this game is big.",
+    "r": "The latency of this game is high.",
+    "why": "Latency được mô tả là high hoặc low, không dùng big."
+   },
+   {
+    "w": "We measure latency in Mbps.",
+    "r": "We measure latency in milliseconds.",
+    "why": "Latency là độ trễ tính bằng ms; Mbps đo băng thông."
+   }
+  ],
+  "u": "Latency là độ trễ giữa một hành động và phản hồi trong hệ thống, như thời gian dữ liệu đi qua mạng. Nó được đo bằng mili giây. Latency thấp rất quan trọng với game trực tuyến, gọi video và giao dịch. Không giống bandwidth, tức lượng dữ liệu truyền mỗi giây. Nói high hoặc low latency, và reduce hoặc cut latency. Latency còn là trạng thái tiềm ẩn, như virus tiềm ẩn (latent virus)."
+ },
+ "lathe": {
+  "mis": [
+   {
+    "w": "He shaped the wooden leg with a lather.",
+    "r": "He shaped the wooden leg with a lathe.",
+    "why": "Lathe là máy tiện; lather nghĩa là bọt xà phòng nên khác chính tả."
+   },
+   {
+    "w": "He made the table leg by a lathe.",
+    "r": "He made the table leg on a lathe.",
+    "why": "Công việc làm tại máy dùng 'on': on a lathe."
+   }
+  ],
+  "u": "Lathe là máy công cụ quay phôi kim loại hoặc gỗ trong khi dao cắt tạo hình, đây là cách làm trục, bu lông và chân bàn. CNC lathe được điều khiển bằng máy tính. Công việc làm on a lathe và động từ tương ứng là turn. Người vận hành là lathe operator. Chữ e cuối không đọc và th đọc như từ the. Đừng nhầm với lather, nghĩa là bọt xà phòng."
+ }
+}

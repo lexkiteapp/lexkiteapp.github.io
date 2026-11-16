@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_lateto",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Late, not lately!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I came lately to class.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I came late to class.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use late, not lately.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Late! I came late to work.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I came lately to class.",
+  "right": "I came late to class.",
+  "strike": "lately",
+  "why": "Use late, not lately.",
+  "memory": "I came late.",
+  "quiz": {
+   "stem": "I came ___ to work.",
+   "options": [
+    "lately",
+    "late"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "late, bukan lately",
+   "tip": "Kita bilang “Saya datang terlambat.” tanpa akhiran apa pun. Dalam bahasa Inggris juga cukup late, tanpa -ly. Lately artinya belakangan ini.",
+   "caption": "Pernah bilang begini? “I came lately to class.” 😅 Untuk terlambat, pakai late: “I came late to class.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “late”. Ucapkan dengan lantang: “I came late to class.” lalu tulis satu kalimat tentang kapan kamu terlambat. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#katabahasainggris",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Late, not lately",
+   "tip": "We say “Saya datang terlambat.” with no ending. In English, just say late, with no -ly. Lately means recently.",
+   "caption": "Ever say this? “I came lately to class.” 😅 For terlambat, use late: “I came late to class.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "late, bukan lately"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "late, bukan lately",
+  "keyword": "I came late to class.",
+  "value": "Kita bilang “Saya datang terlambat.” tanpa akhiran apa pun. Dalam bahasa Inggris juga cukup late, tanpa -ly. Lately artinya belakangan ini.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#katabahasainggris",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "late, bukan lately",
+    "description": "Kita bilang “Saya datang terlambat.” tanpa akhiran apa pun. Dalam bahasa Inggris juga cukup late, tanpa -ly. Lately artinya belakangan ini.\n\nPernah bilang begini? “I came lately to class.” 😅 Untuk terlambat, pakai late: “I came late to class.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #katabahasainggris #bahasainggris #lexkite",
+    "tags": [
+     "I came late to class.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “I came lately to class.” 😅 Untuk terlambat, pakai late: “I came late to class.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "late, bukan lately\n\nKita bilang “Saya datang terlambat.” tanpa akhiran apa pun. Dalam bahasa Inggris juga cukup late, tanpa -ly. Lately artinya belakangan ini.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#katabahasainggris",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "late, bukan lately Kita bilang “Saya datang terlambat.” tanpa akhiran apa pun. Dalam bahasa I… #belajarbahasainggris #katabahasainggris #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “late”. Ucapkan dengan lantang: “I came late to class.” lalu tulis satu kalimat tentang kapan kamu terlambat. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_in_english",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "In English, not on English!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: How do you say it on English?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: How do you say it in English?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say in English.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "In! How do you say it in English?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "How do you say it on English?",
+  "right": "How do you say it in English?",
+  "strike": "on",
+  "why": "Say in English.",
+  "memory": "In English.",
+  "quiz": {
+   "stem": "How do you say it ___ English?",
+   "options": [
+    "in",
+    "on"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "„Auf Englisch“ heißt „in“!",
+   "tip": "Im Deutschen sagen Sie „auf Englisch“, deshalb hört man oft „on English“. Im Englischen heißt es „in English“.",
+   "caption": "Sagen Sie „on English“? 💬 Falsch: “How do you say it on English?” Richtig: “How do you say it in English?” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “in”. Richtig heißt es: “How do you say it in English?” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Auf Englisch” is “in English”!",
+   "tip": "German says “auf Englisch”, so many say “on English”. In English it is “in English”.",
+   "caption": "“Auf Englisch” is “in English”! Wrong: “How do you say it on English?” Right: “How do you say it in English?” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "„Auf Englisch“ heißt „in“!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "„Auf Englisch“ heißt „in“!",
+  "keyword": "How do you say it in English?",
+  "value": "Im Deutschen sagen Sie „auf Englisch“, deshalb hört man oft „on English“. Im Englischen heißt es „in English“.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "„Auf Englisch“ heißt „in“!",
+    "description": "Im Deutschen sagen Sie „auf Englisch“, deshalb hört man oft „on English“. Im Englischen heißt es „in English“.\n\nSagen Sie „on English“? 💬 Falsch: “How do you say it on English?” Richtig: “How do you say it in English?” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "How do you say it in English?",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Sagen Sie „on English“? 💬 Falsch: “How do you say it on English?” Richtig: “How do you say it in English?” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "„Auf Englisch“ heißt „in“!\n\nIm Deutschen sagen Sie „auf Englisch“, deshalb hört man oft „on English“. Im Englischen heißt es „in English“.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "„Auf Englisch“ heißt „in“! Im Deutschen sagen Sie „auf Englisch“, deshalb hört man oft „on English“. I… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “in”. Richtig heißt es: “How do you say it in English?” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

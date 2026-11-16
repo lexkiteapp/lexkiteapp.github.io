@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_everyoneis",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Everyone are? Say is!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Everyone are ready.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Everyone is ready.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Everyone is one group.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Is! Everyone is happy today.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Everyone are ready.",
+  "right": "Everyone is ready.",
+  "strike": "are",
+  "why": "Everyone is one group.",
+  "memory": "Everyone is here.",
+  "quiz": {
+   "stem": "Everyone ___ happy today.",
+   "options": [
+    "are",
+    "is"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "هل تقول “Everyone are”؟",
+   "tip": "كلمة «الجميع» جمع في العربية، أما everyone في الإنجليزية فتأخذ is: “Everyone is ready.” وليس “Everyone are ready.”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “Everyone are ready.” 😅 كلمة «الجميع» جمع في العربية، أما everyone في الإنجليزية فتأخذ is، فالجملة الصحيحة “Everyone is ready.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “is” — كلمة «الجميع» جمع في العربية، أما everyone في الإنجليزية فتأخذ is. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “Everyone are”?",
+   "tip": "«الجميع» is plural in Arabic, but everyone takes is in English: “Everyone is ready.” not “Everyone are ready.”",
+   "caption": "Do you sometimes say this? “Everyone are ready.” 😅 «الجميع» is plural in Arabic, but everyone takes is in English, so the right sentence is “Everyone is ready.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “Everyone are”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 39,
+  "seconds": 24.7,
+  "wpm": 95
+ },
+ "publish": {
+  "title": "هل تقول “Everyone are”؟",
+  "keyword": "Everyone is ready.",
+  "value": "كلمة «الجميع» جمع في العربية، أما everyone في الإنجليزية فتأخذ is: “Everyone is ready.” وليس “Everyone are ready.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 33,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “Everyone are”؟",
+    "description": "كلمة «الجميع» جمع في العربية، أما everyone في الإنجليزية فتأخذ is: “Everyone is ready.” وليس “Everyone are ready.”\n\nهل تقول أحيانًا هذه الجملة؟ “Everyone are ready.” 😅 كلمة «الجميع» جمع في العربية، أما everyone في الإنجليزية فتأخذ is، فالجملة الصحيحة “Everyone is ready.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "Everyone is ready.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا هذه الجملة؟ “Everyone are ready.” 😅 كلمة «الجميع» جمع في العربية، أما everyone في الإنجليزية فتأخذ is، فالجملة الصحيحة “Everyone is ready.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول “Everyone are”؟\n\nكلمة «الجميع» جمع في العربية، أما everyone في الإنجليزية فتأخذ is: “Everyone is ready.” وليس “Everyone are ready.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “Everyone are”؟ كلمة «الجميع» جمع في العربية، أما everyone في الإنجليزية فتأخذ is: “Every… #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “is” — كلمة «الجميع» جمع في العربية، أما everyone في الإنجليزية فتأخذ is. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+  "lang": "ar"
+ }
+}

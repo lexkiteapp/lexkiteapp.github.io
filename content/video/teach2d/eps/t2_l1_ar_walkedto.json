@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_walkedto",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Home needs no to!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: We walked to home.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: We walked home.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Home needs no to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Home! They ran home after school.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "We walked to home.",
+  "right": "We walked home.",
+  "strike": "to home",
+  "why": "Home needs no to.",
+  "memory": "Walk home.",
+  "quiz": {
+   "stem": "They ran ___ after school.",
+   "options": [
+    "home",
+    "to home"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "هل تقول “to home”؟",
+   "tip": "في العربية نقول «مشينا إلى البيت»، أما home بعد أفعال الحركة فلا تحتاج إلى to: “We walked home.” وليس “We walked to home.”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “We walked to home.” 😅 كلمة home بعد أفعال الحركة لا تحتاج إلى to، فالجملة الصحيحة “We walked home.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “home” — كلمة home بعد أفعال الحركة لا تحتاج إلى to. اختبار مجاني هنا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “to home”?",
+   "tip": "After a verb of movement, home needs no to: “We walked home.” not “We walked to home.”",
+   "caption": "Do you sometimes say this? “We walked to home.” 😅 In English home needs no to, so the right sentence is “We walked home.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “to home”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 41,
+  "seconds": 25.6,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "هل تقول “to home”؟",
+  "keyword": "We walked home.",
+  "value": "في العربية نقول «مشينا إلى البيت»، أما home بعد أفعال الحركة فلا تحتاج إلى to: “We walked home.” وليس “We walked to home.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “to home”؟",
+    "description": "في العربية نقول «مشينا إلى البيت»، أما home بعد أفعال الحركة فلا تحتاج إلى to: “We walked home.” وليس “We walked to home.”\n\nهل تقول أحيانًا هذه الجملة؟ “We walked to home.” 😅 كلمة home بعد أفعال الحركة لا تحتاج إلى to، فالجملة الصحيحة “We walked home.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "We walked home.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا هذه الجملة؟ “We walked to home.” 😅 كلمة home بعد أفعال الحركة لا تحتاج إلى to، فالجملة الصحيحة “We walked home.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول “to home”؟\n\nفي العربية نقول «مشينا إلى البيت»، أما home بعد أفعال الحركة فلا تحتاج إلى to: “We walked home.” وليس “We walked to home.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “to home”؟ في العربية نقول «مشينا إلى البيت»، أما home بعد أفعال الحركة فلا تحتاج إلى to:… #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “home” — كلمة home بعد أفعال الحركة لا تحتاج إلى to. اختبار مجاني هنا: {link}",
+  "lang": "ar"
+ }
+}

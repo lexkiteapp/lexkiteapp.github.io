@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_priceexpensive",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Price is high, not expensive.",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: The price is expensive.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: The price is high.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Things are expensive. Price is high.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "High! The price of this bag is high.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "The price is expensive.",
+  "right": "The price is high.",
+  "strike": "expensive",
+  "why": "Things are expensive. Price is high.",
+  "memory": "The price is high.",
+  "quiz": {
+   "stem": "The price of this bag is ___.",
+   "options": [
+    "expensive",
+    "high"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Price + high",
+   "tip": "Kita bilang “harganya mahal”. Di bahasa Inggris, barangnya expensive, tapi harga (price) itu high.",
+   "caption": "Pernah bilang begini? “The price is expensive.” 😅 Barang itu expensive, harga itu high: “The price is high.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “high”. Ucapkan dengan lantang: “The price is high.” lalu tulis satu barang yang menurutmu mahal. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#kolokasi",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Price is “high”",
+   "tip": "We say “harganya mahal”. In English, a thing is expensive, but the price is high.",
+   "caption": "Ever say this? “The price is expensive.” 😅 A thing is expensive, the price is high: “The price is high.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Price + high"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Price + high",
+  "keyword": "The price is high.",
+  "value": "Kita bilang “harganya mahal”. Di bahasa Inggris, barangnya expensive, tapi harga (price) itu high.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#kolokasi",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "Price + high",
+    "description": "Kita bilang “harganya mahal”. Di bahasa Inggris, barangnya expensive, tapi harga (price) itu high.\n\nPernah bilang begini? “The price is expensive.” 😅 Barang itu expensive, harga itu high: “The price is high.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #kolokasi #bahasainggris #lexkite",
+    "tags": [
+     "The price is high.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “The price is expensive.” 😅 Barang itu expensive, harga itu high: “The price is high.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Price + high\n\nKita bilang “harganya mahal”. Di bahasa Inggris, barangnya expensive, tapi harga (price) itu high.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#kolokasi",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Price + high Kita bilang “harganya mahal”. Di bahasa Inggris, barangnya expensive, tapi harga (price)… #belajarbahasainggris #kolokasi #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “high”. Ucapkan dengan lantang: “The price is high.” lalu tulis satu barang yang menurutmu mahal. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

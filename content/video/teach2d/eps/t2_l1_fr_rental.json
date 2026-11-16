@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_rental",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Location is a false friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Where is the car location?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Where is the car rental?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Location means a place. Rental means you pay to use.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Rental! I go to the car rental.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Where is the car location?",
+  "right": "Where is the car rental?",
+  "strike": "location",
+  "why": "Location means a place. Rental means you pay to use.",
+  "memory": "Pay to use: rental.",
+  "quiz": {
+   "stem": "I pay to use a car. I go to the car ___.",
+   "options": [
+    "location",
+    "rental"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "« Location » ≠ “location” !",
+   "tip": "En anglais, “location” veut dire « endroit ». Pour « location de voiture », dites “car rental”.",
+   "caption": "Vous dites “Where is the car location?” ? “Location” veut dire « endroit », pas « location ». Pour louer une voiture, dites “car rental”. Dites plutôt “Where is the car rental?” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “Where is the car rental?” — “Location” veut dire « endroit », pas « location ». Pour louer une voiture, dites “car rental”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Location” is a trap!",
+   "tip": "In English, “location” means a place. To rent a car, say “car rental”.",
+   "caption": "Do you say this? “Where is the car location?” In English, “location” means a place. To rent a car, say “car rental”. Say “Where is the car rental?” Listen to Ama and repeat with her! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "« Location » ≠ “location” !"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "« Location » ≠ “location” !",
+  "keyword": "Where is the car rental?",
+  "value": "En anglais, “location” veut dire « endroit ». Pour « location de voiture », dites “car rental”.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 46,
+  "platforms": {
+   "youtube": {
+    "title": "« Location » ≠ “location” !",
+    "description": "En anglais, “location” veut dire « endroit ». Pour « location de voiture », dites “car rental”.\n\nVous dites “Where is the car location?” ? “Location” veut dire « endroit », pas « location ». Pour louer une voiture, dites “car rental”. Dites plutôt “Where is the car rental?” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "Where is the car rental?",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Vous dites “Where is the car location?” ? “Location” veut dire « endroit », pas « location ». Pour louer une voiture, dites “car rental”. Dites plutôt “Where is the car rental?” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "« Location » ≠ “location” !\n\nEn anglais, “location” veut dire « endroit ». Pour « location de voiture », dites “car rental”.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "« Location » ≠ “location” ! En anglais, “location” veut dire « endroit ». Pour « location de voiture… #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “Where is the car rental?” — “Location” veut dire « endroit », pas « location ». Pour louer une voiture, dites “car rental”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}

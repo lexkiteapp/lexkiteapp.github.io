@@ -125,6 +125,8 @@ Pour intégrer ces réflexes phonologiques sans stress, appliquez cette routine 
 
 Pour aller plus loin dans la maîtrise des sons difficiles, parcourez également nos [prononciation anglaise astuces](/fr/blog/prononciation-anglaise-astuces/) incontournables et découvrez nos [leçons d expression orale](/speaking/) pour vous exprimer avec fluidité et assurance.
 
+Le rythme de la phrase repose sur l'accent des mots : voyez les [règles d'accent tonique en anglais](/fr/blog/accent-tonique-anglais-regles-et-exemples/).
+
 {{cta: /app/#/pron | Entraîner sa prononciation et son accent}}
 
 {{youtube: | Comprendre le Connected Speech et les liaisons en anglais}}

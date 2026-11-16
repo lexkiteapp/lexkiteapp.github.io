@@ -137,6 +137,8 @@ Para organizar tu calendario de estudio sin agobiarte, distribuye los objetivos 
 
 {{youtube: | Cómo preparar el examen Cambridge C1 Advanced CAE con éxito}}
 
+Si vienes del nivel anterior, compara con el [formato del Cambridge B2 First](/es/blog/cambridge-b2-first-formato-del-examen/).
+
 ## Preguntas frecuentes
 
 ### ¿Qué puntuación en la Cambridge English Scale equivale a aprobar el C1?

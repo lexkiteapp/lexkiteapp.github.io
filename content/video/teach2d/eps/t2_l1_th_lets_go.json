@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_lets_go",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say let's, not let!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Let go home now.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Let's go home now.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "To say we go together, use let's.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Let's! Let's eat now.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Let go home now.",
+  "right": "Let's go home now.",
+  "strike": "Let",
+  "why": "To say we go together, use let's.",
+  "memory": "Let's go.",
+  "quiz": {
+   "stem": "___ eat now.",
+   "options": [
+    "Let",
+    "Let's"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "ชวนกันไป ใช้ Let's go!",
+   "tip": "ภาษาไทยไม่มีเสียง s ท้ายคำ จึงมักพูดและเขียนแค่ Let แต่ชวนกันทำอะไรต้องใช้ Let's: “Let's go home now.”",
+   "caption": "คุณเคยพูดว่า “Let go home now.” ไหม? 😅 ภาษาไทยไม่มีเสียง s ท้ายคำ จึงมักพูดและเขียนแค่ Let แต่ชวนกันทำอะไรต้องใช้ Let's: “Let's go home now.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “Let's” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยคด้วยคำนี้ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Invite with “Let's”!",
+   "tip": "Thai has no s sound at the end of words, so people drop the 's, but English invites with Let's.",
+   "caption": "Do you say “Let go home now.” 😅 Thai has no s sound at the end of words, so people drop the 's, but English invites with Let's. Say “Let's go home now.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "ชวนกันไป ใช้ Let's go!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "ชวนกันไป ใช้ Let's go!",
+  "keyword": "Let's go home now.",
+  "value": "ภาษาไทยไม่มีเสียง s ท้ายคำ จึงมักพูดและเขียนแค่ Let แต่ชวนกันทำอะไรต้องใช้ Let's: “Let's go home now.”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "ชวนกันไป ใช้ Let's go!",
+    "description": "ภาษาไทยไม่มีเสียง s ท้ายคำ จึงมักพูดและเขียนแค่ Let แต่ชวนกันทำอะไรต้องใช้ Let's: “Let's go home now.”\n\nคุณเคยพูดว่า “Let go home now.” ไหม? 😅 ภาษาไทยไม่มีเสียง s ท้ายคำ จึงมักพูดและเขียนแค่ Let แต่ชวนกันทำอะไรต้องใช้ Let's: “Let's go home now.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "Let's go home now.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “Let go home now.” ไหม? 😅 ภาษาไทยไม่มีเสียง s ท้ายคำ จึงมักพูดและเขียนแค่ Let แต่ชวนกันทำอะไรต้องใช้ Let's: “Let's go home now.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "ชวนกันไป ใช้ Let's go!\n\nภาษาไทยไม่มีเสียง s ท้ายคำ จึงมักพูดและเขียนแค่ Let แต่ชวนกันทำอะไรต้องใช้ Let's: “Let's go home now.”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ชวนกันไป ใช้ Let's go! ภาษาไทยไม่มีเสียง s ท้ายคำ จึงมักพูดและเขียนแค่ Let แต่ชวนกันทำอะไรต้องใช้ Let's: “Let… #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “Let's” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยคด้วยคำนี้ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

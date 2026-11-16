@@ -144,6 +144,8 @@ Consultez aussi notre [guide de rédaction](/viet-thu/) pour découvrir des cane
 
 ---
 
+Si votre Task 1 est un schéma plutôt qu'une courbe, la méthode change un peu : voyez [IELTS Writing Task 1 processus](/fr/blog/ielts-writing-task-1-processus-diagramme/) pour décrire des étapes avec le passif.
+
 ## Foire aux questions (FAQ)
 
 ### Que risque-t-on si le rapport fait moins de 150 mots ?

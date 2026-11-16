@@ -138,3 +138,5 @@ No. The prompts are there to help you. Covering them in a natural story order is
 
 ### What should I do if I forget a word in the middle?
 Keep going. Paraphrase it, use a simpler word or describe what it does. Smooth recovery is part of fluency, and a short paraphrase sounds far better than a long pause.
+
+Preparing for Canada? Read our list of [CELPIP speaking phrases](/en/blog/celpip-speaking-everyday-phrases/) for each task.

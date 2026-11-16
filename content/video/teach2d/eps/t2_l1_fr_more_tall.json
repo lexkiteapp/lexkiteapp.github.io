@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_more_tall",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Tall, taller, not more tall!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She is more tall than me.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She is taller than me.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Tall is a short word. We say taller.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Taller! He is taller than me.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She is more tall than me.",
+  "right": "She is taller than me.",
+  "strike": "more tall",
+  "why": "Tall is a short word. We say taller.",
+  "memory": "Tall: taller.",
+  "quiz": {
+   "stem": "My brother is ___ than me.",
+   "options": [
+    "more tall",
+    "taller"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "« Plus grande » : “taller”",
+   "tip": "En français, on dit « plus grande ». En anglais, avec un mot court comme “tall”, on ajoute “-er”.",
+   "caption": "Vous dites “She is more tall than me.” ? En français, on dit « plus grande ». En anglais, avec un mot court comme “tall”, on ajoute “-er”. Dites plutôt “She is taller than me.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “She is taller than me.” — En français, on dit « plus grande ». En anglais, avec un mot court comme “tall”, on ajoute “-er”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “taller”!",
+   "tip": "French says “plus grande”. In English, a short word like “tall” takes “-er”.",
+   "caption": "Do you say this? “She is more tall than me.” French says “plus grande”. In English, a short word like “tall” takes “-er”. Say “She is taller than me.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "« Plus grande » : “taller”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "« Plus grande » : “taller”",
+  "keyword": "She is taller than me.",
+  "value": "En français, on dit « plus grande ». En anglais, avec un mot court comme “tall”, on ajoute “-er”.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "« Plus grande » : “taller”",
+    "description": "En français, on dit « plus grande ». En anglais, avec un mot court comme “tall”, on ajoute “-er”.\n\nVous dites “She is more tall than me.” ? En français, on dit « plus grande ». En anglais, avec un mot court comme “tall”, on ajoute “-er”. Dites plutôt “She is taller than me.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "She is taller than me.",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Vous dites “She is more tall than me.” ? En français, on dit « plus grande ». En anglais, avec un mot court comme “tall”, on ajoute “-er”. Dites plutôt “She is taller than me.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "« Plus grande » : “taller”\n\nEn français, on dit « plus grande ». En anglais, avec un mot court comme “tall”, on ajoute “-er”.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "« Plus grande » : “taller” En français, on dit « plus grande ». En anglais, avec un mot court comme… #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “She is taller than me.” — En français, on dit « plus grande ». En anglais, avec un mot court comme “tall”, on ajoute “-er”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}

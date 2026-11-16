@@ -47,6 +47,15 @@ if r:
     ep = G.make(r); ok(G.hook_gate(r, ep), 'verbs hook gate rejects a true hook')
     bad = copy.deepcopy(r); bad['in']['P'] = 'breaked'; ok(not G.hook_gate(bad, ep), 'verbs hook gate accepts a false hook')
 
+# gold banks: gen.py loads every file in GOLD_FILES, no id lives in two files, every hand.json gold id resolves
+_seen = {}
+for _f in G.GOLD_FILES:
+    for _l in open(f'{ROOT}/content/video/scripts/bank/{_f}.jsonl'):
+        _i = json.loads(_l)['id']; ok(_i not in _seen, f'gold id {_i} in {_f} and {_seen.get(_i)}'); _seen[_i] = _f
+ok(set(_seen) == set(G.GOLD), f'GOLD ({len(G.GOLD)}) != bank files ({len(_seen)})')
+_hand = json.load(open(f'{ROOT}/content/video/teach2d/hand.json'))
+ok(all(r['gold'] in G.GOLD for k in ('mistake', 'phrasal') for r in _hand[k]), 'hand.json mistake/phrasal row points at a gold id not in GOLD')
+
 ids = json.loads(__import__('subprocess').run([sys.executable, f'{ROOT}/scripts/video/teach2d/gen.py', '--pick', '', '500', 'workflow_dispatch'], capture_output=True, text=True, check=True).stdout)
 ok(0 < len(ids) <= 120, f'--pick 500 gave {len(ids)} ids (render matrix 2 x eps must stay <= 256 jobs)')
 

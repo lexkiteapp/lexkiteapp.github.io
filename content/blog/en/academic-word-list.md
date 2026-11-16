@@ -145,3 +145,5 @@ At 8–12 families a day with regular reviews, most learners can work through th
 ### Is the AWL still relevant if it was published in 2000?
 
 Yes. Core academic vocabulary changes slowly, and words like *analyse*, *evidence* and *approach* remain central to academic English. Newer lists exist, notably the New Academic Word List (Browne and colleagues, 2013) and the Academic Vocabulary List (Gardner and Davies, 2014), which were built from larger, more recent corpora. They overlap heavily with the AWL, so the AWL remains a sound and widely used starting point, especially for exam preparation.
+
+To see how vocabulary is marked, read about [lexical resource in IELTS](/en/blog/lexical-resource-ielts/).

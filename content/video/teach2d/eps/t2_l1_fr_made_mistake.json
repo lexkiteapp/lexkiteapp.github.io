@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_made_mistake",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "I made a mistake.",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I did a mistake in the email.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I made a mistake in the email.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "With mistake, we say made.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Made! I made a mistake.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I did a mistake in the email.",
+  "right": "I made a mistake in the email.",
+  "strike": "did",
+  "why": "With mistake, we say made.",
+  "memory": "Mistake: made.",
+  "quiz": {
+   "stem": "Sorry, I ___ a mistake.",
+   "options": [
+    "did",
+    "made"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "« Faire une erreur » : “make”",
+   "tip": "En français, on « fait » une erreur. En anglais, on dit “make a mistake”, pas “do”.",
+   "caption": "Vous dites “I did a mistake in the email.” ? En français, on « fait » une erreur. En anglais, on dit “make a mistake”, pas “do”. Dites plutôt “I made a mistake in the email.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “I made a mistake in the email.” — En français, on « fait » une erreur. En anglais, on dit “make a mistake”, pas “do”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “make a mistake”!",
+   "tip": "French says « faire une erreur ». English says “make a mistake”, not “do”.",
+   "caption": "Do you say this? “I did a mistake in the email.” French says « faire une erreur ». English says “make a mistake”, not “do”. Say “I made a mistake in the email.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "« Faire une erreur » : “make”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "« Faire une erreur » : “make”",
+  "keyword": "I made a mistake in the email.",
+  "value": "En français, on « fait » une erreur. En anglais, on dit “make a mistake”, pas “do”.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "« Faire une erreur » : “make”",
+    "description": "En français, on « fait » une erreur. En anglais, on dit “make a mistake”, pas “do”.\n\nVous dites “I did a mistake in the email.” ? En français, on « fait » une erreur. En anglais, on dit “make a mistake”, pas “do”. Dites plutôt “I made a mistake in the email.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "I made a mistake in the email.",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Vous dites “I did a mistake in the email.” ? En français, on « fait » une erreur. En anglais, on dit “make a mistake”, pas “do”. Dites plutôt “I made a mistake in the email.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "« Faire une erreur » : “make”\n\nEn français, on « fait » une erreur. En anglais, on dit “make a mistake”, pas “do”.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "« Faire une erreur » : “make” En français, on « fait » une erreur. En anglais, on dit “make a mistak… #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “I made a mistake in the email.” — En français, on « fait » une erreur. En anglais, on dit “make a mistake”, pas “do”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}

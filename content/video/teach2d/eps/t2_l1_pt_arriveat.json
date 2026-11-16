@@ -1,0 +1,143 @@
+{
+ "id": "t2_l1_pt_arriveat",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Arrive does not take to!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I arrived to school late.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I arrived at school late.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Arrive goes with at.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "At! I arrived at school.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I arrived to school late.",
+  "right": "I arrived at school late.",
+  "strike": "to",
+  "why": "Arrive goes with at.",
+  "memory": "Arrive at school.",
+  "quiz": {
+   "stem": "I arrived ___ school.",
+   "options": [
+    "at",
+    "to"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Arrive to school”? Não!",
+   "tip": "Em português “cheguei à escola” usa “a”, que parece “to”; em inglês, com “arrive”, usa-se “at” ou “in”.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I arrived to school late.” O certo é “I arrived at school late.” O “a” de “chegar a” parece “to”, mas em inglês o certo é “arrive at”. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “at”. Treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Arrive to school”? No!",
+   "tip": "“Cheguei à escola” uses “a”, which looks like “to”; in English “arrive” takes “at” or “in”.",
+   "caption": "Watch out for this common mistake! Many people say “I arrived to school late.” The right way is “I arrived at school late.” The “a” of “chegar a” looks like “to”, but English says “arrive at”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Arrive to school”? Não!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“Arrive to school”? Não!",
+  "keyword": "I arrived at school late.",
+  "value": "Em português “cheguei à escola” usa “a”, que parece “to”; em inglês, com “arrive”, usa-se “at” ou “in”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "“Arrive to school”? Não!",
+    "description": "Em português “cheguei à escola” usa “a”, que parece “to”; em inglês, com “arrive”, usa-se “at” ou “in”.\n\nCuidado com este erro comum! 😬 Muita gente diz “I arrived to school late.” O certo é “I arrived at school late.” O “a” de “chegar a” parece “to”, mas em inglês o certo é “arrive at”. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #lexkite",
+    "tags": [
+     "I arrived at school late.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “I arrived to school late.” O certo é “I arrived at school late.” O “a” de “chegar a” parece “to”, mas em inglês o certo é “arrive at”. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Arrive to school”? Não!\n\nEm português “cheguei à escola” usa “a”, que parece “to”; em inglês, com “arrive”, usa-se “at” ou “in”.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Arrive to school”? Não! Em português “cheguei à escola” usa “a”, que parece “to”; em inglês, com “arrive”, usa… #aprenderingles #inglesfacil #lexkite"
+   }
+  },
+  "first_comment": "Resposta: “at”. Treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

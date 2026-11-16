@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_wasdied",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "He died, not was died!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: My grandfather was died last year.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My grandfather died last year.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Died is already the whole verb.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Died! My dog died last week.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "My grandfather was died last year.",
+  "right": "My grandfather died last year.",
+  "strike": "was died",
+  "why": "Died is already the whole verb.",
+  "memory": "He died.",
+  "quiz": {
+   "stem": "My dog ___ last week.",
+   "options": [
+    "was died",
+    "died"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“was died” नहीं, “died”!",
+   "tip": "हिंदी में “गुज़र गए थे” जैसा रूप बनता है, इसलिए लोग was जोड़ देते हैं। अंग्रेज़ी में died अपने आप पूरा है।",
+   "caption": "क्या आप भी बोलते हैं: “My grandfather was died last year.” 😅 सही वाक्य है: “My grandfather died last year.” ध्यान रखें: died के साथ was नहीं लगता। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “died”। याद रखें: died के साथ was नहीं लगता। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “died”, not “was died”!",
+   "tip": "Many learners add was because of the pattern in their language, but died is already complete.",
+   "caption": "Do you say: “My grandfather was died last year.” 😅 The right sentence is: “My grandfather died last year.” Remember: Died is already complete, so do not add was. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“was died” नहीं, “died”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“was died” नहीं, “died”!",
+  "keyword": "My grandfather died last year.",
+  "value": "हिंदी में “गुज़र गए थे” जैसा रूप बनता है, इसलिए लोग was जोड़ देते हैं। अंग्रेज़ी में died अपने आप पूरा है।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "“was died” नहीं, “died”!",
+    "description": "हिंदी में “गुज़र गए थे” जैसा रूप बनता है, इसलिए लोग was जोड़ देते हैं। अंग्रेज़ी में died अपने आप पूरा है।\n\nक्या आप भी बोलते हैं: “My grandfather was died last year.” 😅 सही वाक्य है: “My grandfather died last year.” ध्यान रखें: died के साथ was नहीं लगता। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "My grandfather died last year.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी बोलते हैं: “My grandfather was died last year.” 😅 सही वाक्य है: “My grandfather died last year.” ध्यान रखें: died के साथ was नहीं लगता। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“was died” नहीं, “died”!\n\nहिंदी में “गुज़र गए थे” जैसा रूप बनता है, इसलिए लोग was जोड़ देते हैं। अंग्रेज़ी में died अपने आप पूरा है।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“was died” नहीं, “died”! हिंदी में “गुज़र गए थे” जैसा रूप बनता है, इसलिए लोग was जोड़ देते हैं। अंग्रेज… #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “died”। याद रखें: died के साथ was नहीं लगता। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

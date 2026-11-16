@@ -1,0 +1,25 @@
+# Báo cáo tỉ lệ chập chờn hiệu năng hằng tuần (call-rt, story-stage, scroll-perf, mobile-qa, ux-cards): cùng mã xanh chỉ sau khi chạy lại. Chỉ ĐỌC API; kết quả trong tóm tắt job + artifact perf-flake.
+# Gốc: 16/11 ba bài đo trượt ngưỡng "sát nút" trên runner chung khi mã không đổi → cần số đo xu hướng, không đoán. Xem scripts/ci/perf-flake.mjs, scripts/test/lib/perf-calibrate.mjs.
+name: perf-flake-report
+on:
+  schedule:
+    - cron: '17 2 * * 1'   # thứ Hai 02:17 UTC
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: perf-flake-report
+  cancel-in-progress: false
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: node scripts/ci/perf-flake.mjs --days 7 --out perf-flake.md
+        env: { GITHUB_TOKEN: '${{ github.token }}' }
+      - uses: actions/upload-artifact@v4
+        with: { name: perf-flake, path: perf-flake.md }
