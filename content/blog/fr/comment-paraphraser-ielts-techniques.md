@@ -187,6 +187,8 @@ Pour acquérir une rapidité d'exécution sans stress, adoptez un réflexe en tr
 
 {{cta: /#/write | Accéder au laboratoire d'écriture Lexkite pour pratiquer la paraphrase avec correction intelligente}}
 
+Pour appliquer la paraphrase à l'introduction d'un essai d'opinion, consultez l'[IELTS opinion essay](/fr/blog/ielts-opinion-essay-exprimer-son-avis/).
+
 ## Foire aux questions (FAQ)
 
 ### Faut-il remplacer l'intégralité des termes du sujet ?
