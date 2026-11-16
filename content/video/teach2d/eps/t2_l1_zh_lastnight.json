@@ -68,8 +68,8 @@
   "native": {
    "hook": "“昨晚”是 last night！",
    "tip": "“昨晚”要说 “last night”，不说 yesterday night。",
-   "caption": "你是不是也会说 “I slept late yesterday night.”？😅 “昨晚”的固定说法是 last night：“I slept late last night.”。跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
-   "comment": "答案：“last night”。last night 是固定说法！免费测验在这里：{link}",
+   "caption": "你是不是也会说 “I slept late yesterday night.”😅 “昨晚”的固定说法是 last night：“I slept late last night.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“last night”，last night 是固定说法！免费测验在这里：{link}",
    "hashtags": [
     "#学英语",
     "#英语口语",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "It is “last night”!",
-   "tip": "The phrase for yesterday evening is “last night”, not “yesterday night”.",
-   "caption": "Do you say “I slept late yesterday night.”? 😅 The fixed phrase is last night, not yesterday night: “I slept late last night.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+   "tip": "The phrase for yesterday evening is “last night”, not “yesterday night.”",
+   "caption": "Do you say “I slept late yesterday night.” 😅 The fixed phrase is last night, not yesterday night: “I slept late last night.” Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "“昨晚”是 last night！",
-    "description": "你是不是也会说 “I slept late yesterday night.”？😅 “昨晚”的固定说法是 last night：“I slept late last night.”。跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "description": "“昨晚”要说 “last night”，不说 yesterday night。\n\n你是不是也会说 “I slept late yesterday night.”😅 “昨晚”的固定说法是 last night：“I slept late last night.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
     "tags": [
      "I slept late last night.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "你是不是也会说 “I slept late yesterday night.”？😅 “昨晚”的固定说法是 last night：“I slept late last night.”。跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+    "text": "你是不是也会说 “I slept late yesterday night.”😅 “昨晚”的固定说法是 last night：“I slept late last night.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "你是不是也会说 “I slept late yesterday night.”？😅 “昨晚”的固定说法是 last night：“I slept late last night.”。跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nlexkite.com",
+    "caption": "“昨晚”是 last night！\n\n“昨晚”要说 “last night”，不说 yesterday night。\n\nlexkite.com",
     "hashtags": [
      "#学英语",
      "#英语口语",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "“昨晚”是 last night！ #学英语 #英语口语 #英语学习"
+    "caption": "“昨晚”是 last night！ “昨晚”要说 “last night”，不说 yesterday night。 #学英语 #英语口语 #英语学习"
    }
   },
-  "first_comment": "答案：“last night”。last night 是固定说法！免费测验在这里：{link}",
+  "first_comment": "答案：“last night”，last night 是固定说法！免费测验在这里：{link}",
   "lang": "zh"
  }
 }

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_sorry_not_please",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Sorry? I did not hear you.",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Please? I did not hear you.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Sorry? I did not hear you.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use sorry when you did not hear.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Sorry is right! Sorry? I did not hear you.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Please? I did not hear you.",
+  "right": "Sorry? I did not hear you.",
+  "strike": "Please",
+  "why": "Use sorry when you did not hear.",
+  "memory": "Sorry?",
+  "quiz": {
+   "stem": "___? I did not hear you.",
+   "options": [
+    "Please",
+    "Sorry"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "„Bitte?“ ≠ „Please?“",
+   "tip": "Im Deutschen fragen wir „Bitte?“, wenn wir etwas nicht gehört haben. Im Englischen sagen Sie dann „Sorry?“.",
+   "caption": "Haben Sie etwas nicht gehört? 👂 Falsch: “Please? I did not hear you.” Richtig: “Sorry? I did not hear you.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “Sorry”. Richtig heißt es: “Sorry? I did not hear you.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "\"Please?\" ≠ “Please?”",
+   "tip": "German says “Bitte?” when you did not hear. English says “Sorry?” in that case.",
+   "caption": "“Bitte?” is “Sorry?” here! Wrong: “Please? I did not hear you.” Right: “Sorry? I did not hear you.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "„Bitte?“ ≠ „Please?“"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 54,
+  "seconds": 32.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "„Bitte?“ ≠ „Please?“",
+  "keyword": "Sorry? I did not hear you.",
+  "value": "Im Deutschen fragen wir „Bitte?“, wenn wir etwas nicht gehört haben. Im Englischen sagen Sie dann „Sorry?“.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 48,
+  "platforms": {
+   "youtube": {
+    "title": "„Bitte?“ ≠ „Please?“",
+    "description": "Im Deutschen fragen wir „Bitte?“, wenn wir etwas nicht gehört haben. Im Englischen sagen Sie dann „Sorry?“.\n\nHaben Sie etwas nicht gehört? 👂 Falsch: “Please? I did not hear you.” Richtig: “Sorry? I did not hear you.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "Sorry? I did not hear you.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Haben Sie etwas nicht gehört? 👂 Falsch: “Please? I did not hear you.” Richtig: “Sorry? I did not hear you.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "„Bitte?“ ≠ „Please?“\n\nIm Deutschen fragen wir „Bitte?“, wenn wir etwas nicht gehört haben. Im Englischen sagen Sie dann „Sorry?“.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "„Bitte?“ ≠ „Please?“ Im Deutschen fragen wir „Bitte?“, wenn wir etwas nicht gehört haben. Im Englische… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “Sorry”. Richtig heißt es: “Sorry? I did not hear you.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

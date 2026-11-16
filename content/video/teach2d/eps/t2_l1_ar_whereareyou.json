@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_whereareyou",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Where you are? Say where are you!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Where you are going?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Where are you going?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Put are before you.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! Where are you from?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Where you are going?",
+  "right": "Where are you going?",
+  "strike": "you are",
+  "why": "Put are before you.",
+  "memory": "Where are you? Where are you going?",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "Where you are from?",
+    "Where are you from?"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "هل تقول “Where you are”؟",
+   "tip": "نقول «إلى أين أنت ذاهب؟»، لكن في الإنجليزية نضع are قبل you: “Where are you going?” وليس “Where you are going?”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “Where you are going?” 😅 نقول «إلى أين أنت ذاهب؟»، لكن في الإنجليزية نضع are قبل you، فالجملة الصحيحة “Where are you going?” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “are you” — نقول «إلى أين أنت ذاهب؟»، لكن في الإنجليزية نضع are قبل you. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “Where you are”?",
+   "tip": "In Arabic we say «إلى أين أنت ذاهب؟», but in English we put are before you: “Where are you going?” not “Where you are going?”",
+   "caption": "Do you sometimes say this? “Where you are going?” 😅 In Arabic we say «إلى أين أنت ذاهب؟», but in English we put are before you, so the right sentence is “Where are you going?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “Where you are”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "هل تقول “Where you are”؟",
+  "keyword": "Where are you going?",
+  "value": "نقول «إلى أين أنت ذاهب؟»، لكن في الإنجليزية نضع are قبل you: “Where are you going?” وليس “Where you are going?”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “Where you are”؟",
+    "description": "نقول «إلى أين أنت ذاهب؟»، لكن في الإنجليزية نضع are قبل you: “Where are you going?” وليس “Where you are going?”\n\nهل تقول أحيانًا هذه الجملة؟ “Where you are going?” 😅 نقول «إلى أين أنت ذاهب؟»، لكن في الإنجليزية نضع are قبل you، فالجملة الصحيحة “Where are you going?” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "Where are you going?",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا هذه الجملة؟ “Where you are going?” 😅 نقول «إلى أين أنت ذاهب؟»، لكن في الإنجليزية نضع are قبل you، فالجملة الصحيحة “Where are you going?” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول “Where you are”؟\n\nنقول «إلى أين أنت ذاهب؟»، لكن في الإنجليزية نضع are قبل you: “Where are you going?” وليس “Where you are going?”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “Where you are”؟ نقول «إلى أين أنت ذاهب؟»، لكن في الإنجليزية نضع are قبل you: “Where are… #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “are you” — نقول «إلى أين أنت ذاهب؟»، لكن في الإنجليزية نضع are قبل you. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+  "lang": "ar"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_twothree",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say two or three!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have two three friends.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have two or three friends.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say or between the numbers.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Two or three! I have two or three books.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have two three friends.",
+  "right": "I have two or three friends.",
+  "strike": "two three",
+  "why": "Say or between the numbers.",
+  "memory": "Two or three.",
+  "quiz": {
+   "stem": "I have ___ books.",
+   "options": [
+    "two three",
+    "two or three"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“two three” नहीं, “two or three”!",
+   "tip": "हिंदी में “दो-तीन” बोलते हैं, पर अंग्रेज़ी में दोनों संख्याओं के बीच or आता है।",
+   "caption": "क्या आप भी बोलते हैं: “I have two three friends.” 😅 सही वाक्य है: “I have two or three friends.” ध्यान रखें: दोनों संख्याओं के बीच or लगता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “two or three”। याद रखें: दोनों संख्याओं के बीच or लगता है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “two or three”!",
+   "tip": "Many learners say two three, but English puts or between the numbers.",
+   "caption": "Do you say: “I have two three friends.” 😅 The right sentence is: “I have two or three friends.” Remember: Put or between the two numbers. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“two three” नहीं, “two or three”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“two three” नहीं, “two or three”!",
+  "keyword": "I have two or three friends.",
+  "value": "हिंदी में “दो-तीन” बोलते हैं, पर अंग्रेज़ी में दोनों संख्याओं के बीच or आता है।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "“two three” नहीं, “two or three”!",
+    "description": "हिंदी में “दो-तीन” बोलते हैं, पर अंग्रेज़ी में दोनों संख्याओं के बीच or आता है।\n\nक्या आप भी बोलते हैं: “I have two three friends.” 😅 सही वाक्य है: “I have two or three friends.” ध्यान रखें: दोनों संख्याओं के बीच or लगता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "I have two or three friends.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी बोलते हैं: “I have two three friends.” 😅 सही वाक्य है: “I have two or three friends.” ध्यान रखें: दोनों संख्याओं के बीच or लगता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“two three” नहीं, “two or three”!\n\nहिंदी में “दो-तीन” बोलते हैं, पर अंग्रेज़ी में दोनों संख्याओं के बीच or आता है।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“two three” नहीं, “two or three”! हिंदी में “दो-तीन” बोलते हैं, पर अंग्रेज़ी में दोनों संख्याओं के बीच… #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “two or three”। याद रखें: दोनों संख्याओं के बीच or लगता है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

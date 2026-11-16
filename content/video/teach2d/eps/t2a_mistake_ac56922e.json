@@ -1,0 +1,129 @@
+{
+ "id": "t2a_mistake_ac56922e",
+ "template": "mistake",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Stop saying close with the school!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: My house is close with the school.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My house is close to the school.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use close to for a place that is near.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "To! My house is close to the school.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "My house is close with the school.",
+  "right": "My house is close to the school.",
+  "strike": "close with",
+  "why": "Use close to for a place that is near.",
+  "memory": "Close to, not with",
+  "quiz": {
+   "stem": "My house is close ___ the school.",
+   "options": [
+    "to",
+    "with"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Stop saying “close with the school”"
+ },
+ "src": {
+  "gold": "sb_ac56922e",
+  "pid": "w:close#adj"
+ },
+ "est": {
+  "words": 57,
+  "seconds": 33.5,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "Stop saying \"close with\"? Say this instead",
+  "keyword": "close with",
+  "value": "Say \"My house is close to the school\", not \"My house is close with the school\". Use close to for a place that is near.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#englishgrammar",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 51,
+  "platforms": {
+   "youtube": {
+    "title": "Stop saying \"close with\"? Say this instead",
+    "description": "Say \"My house is close to the school\", not \"My house is close with the school\". Use close to for a place that is near.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix\n\nSeries: Stop Saying This · Teacher: Ama\n\n#learnenglish #englishtips #englishgrammar #englishteacher",
+    "tags": [
+     "close with",
+     "Stop Saying This",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Stop saying \"close with\"? Say this instead\n\nSay \"My house is close to the school\", not \"My house is close with the school\". Use close to for a place that is near.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Stop saying \"close with\"? Say this instead\n\nSay \"My house is close to the school\", not \"My house is close with the school\". Use close to for a place that is near.\n\nCheck your grammar: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#englishgrammar",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Stop saying \"close with\"? Say this instead #learnenglish #englishtips #englishgrammar"
+   }
+  },
+  "first_comment": "Quiz answer: To! My house is close to the school. Say \"My house is close to the school\", not \"My house is close with the school\". Use close to for a place that is near. Practice it with a free quiz: {link}"
+ }
+}

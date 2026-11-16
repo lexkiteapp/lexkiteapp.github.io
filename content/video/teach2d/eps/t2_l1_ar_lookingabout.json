@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_lookingabout",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Searching about? Say searching for!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am searching about a new job.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am searching for a new job.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use for when you try to find something.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "For! She is searching for her keys.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am searching about a new job.",
+  "right": "I am searching for a new job.",
+  "strike": "about",
+  "why": "Use for when you try to find something.",
+  "memory": "Search for it.",
+  "quiz": {
+   "stem": "She is searching ___ her keys.",
+   "options": [
+    "about",
+    "for"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "هل تقول “searching about”؟",
+   "tip": "نقول «أبحث عن وظيفة» بحرف عن، لكن نقول search for: “I am searching for a new job.” وليس “I am searching about a new job.”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “I am searching about a new job.” 😅 نقول بالعربية «أبحث عن وظيفة» بحرف عن، لكن في الإنجليزية نقول search for، فالجملة الصحيحة “I am searching for a new job.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “for” — نقول بالعربية «أبحث عن وظيفة» بحرف عن، لكن في الإنجليزية نقول search for. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “searching about”?",
+   "tip": "In Arabic we say «أبحث عن وظيفة» with «عن», but in English we say search for: “I am searching for a new job.” not “I am searching about a new job.”",
+   "caption": "Do you sometimes say this? “I am searching about a new job.” 😅 In Arabic we say «أبحث عن وظيفة» with «عن», but in English we say search for, so the right sentence is “I am searching for a new job.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “searching about”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 54,
+  "seconds": 32.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "هل تقول “searching about”؟",
+  "keyword": "I am searching for a new job.",
+  "value": "نقول «أبحث عن وظيفة» بحرف عن، لكن نقول search for: “I am searching for a new job.” وليس “I am searching about a new job.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 48,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “searching about”؟",
+    "description": "نقول «أبحث عن وظيفة» بحرف عن، لكن نقول search for: “I am searching for a new job.” وليس “I am searching about a new job.”\n\nهل تقول أحيانًا هذه الجملة؟ “I am searching about a new job.” 😅 نقول بالعربية «أبحث عن وظيفة» بحرف عن، لكن في الإنجليزية نقول search for، فالجملة الصحيحة “I am searching for a new job.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "I am searching for a new job.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا هذه الجملة؟ “I am searching about a new job.” 😅 نقول بالعربية «أبحث عن وظيفة» بحرف عن، لكن في الإنجليزية نقول search for، فالجملة الصحيحة “I am searching for a new job.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول “searching about”؟\n\nنقول «أبحث عن وظيفة» بحرف عن، لكن نقول search for: “I am searching for a new job.” وليس “I am searching about a new job.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “searching about”؟ نقول «أبحث عن وظيفة» بحرف عن، لكن نقول search for: “I am searching for… #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “for” — نقول بالعربية «أبحث عن وظيفة» بحرف عن، لكن في الإنجليزية نقول search for. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+  "lang": "ar"
+ }
+}

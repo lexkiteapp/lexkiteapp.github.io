@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "To! Please listen to the teacher.",
+   "text": "Listen to! Please listen to the teacher.",
    "pause": 0.42
   },
   {
@@ -58,17 +58,17 @@
   "why": "Listen needs to.",
   "memory": "Listen to me.",
   "quiz": {
-   "stem": "Please listen ___ the teacher.",
+   "stem": "Please ___ the teacher.",
    "options": [
-    "to",
-    "at"
+    "listen",
+    "listen to"
    ],
-   "answer": 0
+   "answer": 1
   },
   "native": {
    "hook": "“Listen me” değil, “listen to me”!",
    "tip": "Türkçede “beni dinle” deriz; İngilizcede “listen” fiilinden sonra “to” gelir.",
-   "caption": "“Listen me, please.” mi diyorsun? 😅 İngilizcede “listen” fiilinden sonra “to” unutulmaz. Doğrusu “Listen to me, please.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "caption": "“Listen me, please” mi diyorsun? 😅 İngilizcede “listen” fiilinden sonra “to” unutulmaz. Doğrusu “Listen to me, please.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
    "comment": "Cevap: “to”. Listen’dan sonra to gelir. Ücretsiz testle pratik yap: {link}",
    "hashtags": [
     "#ingilizceöğren",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "Not “listen me”, but “listen to me”!",
-   "tip": "Turkish says “dinle beni”, but English needs “to” after “listen”.",
-   "caption": "Do you say “Listen me, please.”? 😅 In English you must put “to” after “listen”. The right sentence is “Listen to me, please.”. Listen to Ama and repeat! Open the Lexkite app and practice more."
+   "tip": "English needs “to” after “listen”: “Listen to me.”",
+   "caption": "Do you say “Listen me, please”? 😅 In English you must put “to” after “listen”. The right sentence is “Listen to me, please.” Listen to Ama and repeat! Open the Lexkite app and practice more."
   }
  },
  "cta": {
@@ -98,8 +98,8 @@
  },
  "lang": "tr",
  "est": {
-  "words": 39,
-  "seconds": 24.7,
+  "words": 40,
+  "seconds": 25.1,
   "wpm": 95
  },
  "publish": {
@@ -113,11 +113,11 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 33,
+  "script_words": 34,
   "platforms": {
    "youtube": {
     "title": "“Listen me” değil, “listen to me”!",
-    "description": "“Listen me, please.” mi diyorsun? 😅 İngilizcede “listen” fiilinden sonra “to” unutulmaz. Doğrusu “Listen to me, please.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "description": "Türkçede “beni dinle” deriz; İngilizcede “listen” fiilinden sonra “to” gelir.\n\n“Listen me, please” mi diyorsun? 😅 İngilizcede “listen” fiilinden sonra “to” unutulmaz. Doğrusu “Listen to me, please.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
     "tags": [
      "Listen to me, please.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "“Listen me, please.” mi diyorsun? 😅 İngilizcede “listen” fiilinden sonra “to” unutulmaz. Doğrusu “Listen to me, please.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "“Listen me, please” mi diyorsun? 😅 İngilizcede “listen” fiilinden sonra “to” unutulmaz. Doğrusu “Listen to me, please.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "“Listen me, please.” mi diyorsun? 😅 İngilizcede “listen” fiilinden sonra “to” unutulmaz. Doğrusu “Listen to me, please.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nlexkite.com",
+    "caption": "“Listen me” değil, “listen to me”!\n\nTürkçede “beni dinle” deriz; İngilizcede “listen” fiilinden sonra “to” gelir.\n\nlexkite.com",
     "hashtags": [
      "#ingilizceöğren",
      "#ingilizcekonuşma",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "“Listen me” değil, “listen to me”! #ingilizceöğren #ingilizcekonuşma #ingilizce"
+    "caption": "“Listen me” değil, “listen to me”! Türkçede “beni dinle” deriz; İngilizcede “listen” fiilinden sonra “to… #ingilizceöğren #ingilizcekonuşma #ingilizce"
    }
   },
   "first_comment": "Cevap: “to”. Listen’dan sonra to gelir. Ücretsiz testle pratik yap: {link}",

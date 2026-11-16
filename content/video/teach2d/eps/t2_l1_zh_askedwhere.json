@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_askedwhere",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Asked me where I live!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: He asked me where do I live.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: He asked me where I live.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "No do after where here.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Where I work! She asked me where I work.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "He asked me where do I live.",
+  "right": "He asked me where I live.",
+  "strike": "do",
+  "why": "No do after where here.",
+  "memory": "Asked me where I live.",
+  "quiz": {
+   "stem": "She asked me ___.",
+   "options": [
+    "where do I work",
+    "where I work"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "asked me where 后不加 do！",
+   "tip": "中文不管是不是问句，语序都不变；学了英语问句要加 do 以后，就容易到处都加。英语里 asked me where 后面要用普通语序：where I live。",
+   "caption": "你是不是也会说 “He asked me where do I live.”😅 这里不是直接提问，不加 do：“He asked me where I live.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“He asked me where I live.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "No do after asked me where!",
+   "tip": "Inside a longer sentence, English does not add do after where.",
+   "caption": "Do you say “He asked me where do I live.” 😅 This is not a direct question, so do not add do: “He asked me where I live.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "asked me where 后不加 do！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "asked me where 后不加 do！",
+  "keyword": "He asked me where I live.",
+  "value": "中文不管是不是问句，语序都不变；学了英语问句要加 do 以后，就容易到处都加。英语里 asked me where 后面要用普通语序：where I live。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 46,
+  "platforms": {
+   "youtube": {
+    "title": "asked me where 后不加 do！",
+    "description": "中文不管是不是问句，语序都不变；学了英语问句要加 do 以后，就容易到处都加。英语里 asked me where 后面要用普通语序：where I live。\n\n你是不是也会说 “He asked me where do I live.”😅 这里不是直接提问，不加 do：“He asked me where I live.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "He asked me where I live.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “He asked me where do I live.”😅 这里不是直接提问，不加 do：“He asked me where I live.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "asked me where 后不加 do！\n\n中文不管是不是问句，语序都不变；学了英语问句要加 do 以后，就容易到处都加。英语里 asked me where 后面要用普通语序：where I live。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "asked me where 后不加 do！ 中文不管是不是问句，语序都不变；学了英语问句要加 do 以后，就容易到处都加。英语里 asked me where 后面要用普通语序：where I live。 #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“He asked me where I live.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

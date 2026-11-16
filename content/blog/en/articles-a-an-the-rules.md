@@ -168,3 +168,5 @@ Not directly, but you can use a unit word: *a piece of advice, an item of news, 
 
 ### Do article mistakes affect my IELTS score?
 They count as grammatical errors. Occasional slips are expected even at higher bands, but frequent article errors make writing harder to read and can limit your Grammatical Range and Accuracy score.
+
+Next, see our guide to [order of adjectives in English](/en/blog/order-of-adjectives/).

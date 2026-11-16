@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_moreslowly",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Slowly, not slow!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Please speak more slow.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Please speak more slowly.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "We use slowly to say how you speak.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! Please speak more slowly.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Please speak more slow.",
+  "right": "Please speak more slowly.",
+  "strike": "more slow",
+  "why": "We use slowly to say how you speak.",
+  "memory": "Speak more slowly.",
+  "quiz": {
+   "stem": "Please speak more ___.",
+   "options": [
+    "slow",
+    "slowly"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Diga “more slowly”!",
+   "tip": "Em português, “devagar” não muda; em inglês, depois de speak, use slowly, com ly.",
+   "caption": "Você também diz isso? “Please speak more slow.” 😅 O certo é “Please speak more slowly.” Em português, “devagar” não muda, mas em inglês usamos slowly, com ly. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “slowly”. Agora diga em voz alta “Please speak more slowly.” e treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “more slowly”!",
+   "tip": "In Portuguese, “devagar” does not change; in English, after speak, use slowly, with ly.",
+   "caption": "Do you say this too? “Please speak more slow.” 😅 The right way is “Please speak more slowly.” In Portuguese, “devagar” does not change, but in English we use slowly, with ly. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Diga “more slowly”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Diga “more slowly”!",
+  "keyword": "Please speak more slowly.",
+  "value": "Em português, “devagar” não muda; em inglês, depois de speak, use slowly, com ly.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "Diga “more slowly”!",
+    "description": "Em português, “devagar” não muda; em inglês, depois de speak, use slowly, com ly.\n\nVocê também diz isso? “Please speak more slow.” 😅 O certo é “Please speak more slowly.” Em português, “devagar” não muda, mas em inglês usamos slowly, com ly. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "Please speak more slowly.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Você também diz isso? “Please speak more slow.” 😅 O certo é “Please speak more slowly.” Em português, “devagar” não muda, mas em inglês usamos slowly, com ly. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Diga “more slowly”!\n\nEm português, “devagar” não muda; em inglês, depois de speak, use slowly, com ly.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Diga “more slowly”! Em português, “devagar” não muda; em inglês, depois de speak, use slowly, com ly. #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “slowly”. Agora diga em voz alta “Please speak more slowly.” e treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

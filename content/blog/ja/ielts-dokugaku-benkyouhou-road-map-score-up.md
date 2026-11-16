@@ -18,6 +18,8 @@ qualityScore: 94
 
 高額な専門スクールや個別指導に通わずに、独学でIELTSに挑戦することは決して不可能ではありません。毎年、数多くの日本人学習者が効果的な**ielts 独学 勉強法**を実践し、目標であるBand 6.5や7.0のスコアを獲得して海外留学や移住の夢を叶えています。独学で挫折しないための最大の鍵は、公式問題集を闇雲に解き散らかすことではなく、自身の現在地を客観的に把握し、段階的なロードマップに沿って計画的に学習を進めることです。
 
+Writing と Listening の具体的な型は、[opinion essay の書き方](/ja/blog/ielts-opinion-essay-kakikata/)と[リスニングの問題形式別ガイド](/ja/blog/ielts-listening-mondai-keishiki/)で確認できます。
+
 本記事では、基礎固めから目標達成までの4つのフェーズ、仕事や学業と両立できる1日90分のタイムスケジュール、そしてFSRS分散学習アルゴリズムを活用したアカデミック語彙の定着メソッドを体系的に解説します。英語の学び直しから始めたい方は、まず[英語独学やり直しロードマップ](/ja/blog/eigo-dokugaku-yarinaoshi-road-map/)をご覧ください。また、学術分野で必須となる[英語語彙リスト](/ja/vocabulary/)もあわせてご活用いただけます。
 
 ## スタート前の現在地診断：自分の実力を正確に知る
@@ -106,6 +108,16 @@ Band 6.5以上を確実に達成するためには、以下の4つの段階を�
 {{youtube: | IELTS独学勉強法 初心者からBand 6.5突破完全ロードマップ}}
 
 海外移住や永住権のためにIELTSを受ける方は、国ごとに必要な試験の種類とスコアが違うため、[IELTS 移住ガイド（カナダ・豪・英・NZの英語要件）](/ja/blog/ielts-ijuu-kanada-goshuu-eikoku-guide/)もあわせて確認してください。
+
+目標スコアの決め方やオーバーオールの丸めルールは、[IELTS バンドスコアの計算方法](/ja/blog/ielts-band-score-keisan-overall-mokuhyou/)で例つきで解説しています。
+
+試験日が決まっていて、期間が限られている方は、[IELTS 勉強スケジュール（4・8・12週間プラン）](/ja/blog/ielts-benkyou-schedule-1kagetsu-3kagetsu-plan/)で、残り週数ごとの配分を確認してください。
+
+英国のビザ申請が目的なら、通常のIELTSではなくSELTが必要な場合があります。違いは[IELTS UKVIとは](/ja/blog/ielts-ukvi-toha-chigai-moushikomi/)にまとめました。
+
+リーディングの設問タイプ別の解き方は[IELTS リーディング 問題形式一覧](/ja/blog/ielts-reading-mondai-keishiki-ichiran/)で確認できます。
+
+スピーキングの目標スコアを具体的にイメージするには、[IELTS Speaking Band 7 回答例](/ja/blog/ielts-speaking-band7-kaitourei/)で回答の違いを確認すると役立ちます。
 
 ## よくある質問（FAQ）
 

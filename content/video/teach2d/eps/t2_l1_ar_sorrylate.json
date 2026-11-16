@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_sorrylate",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Sorry for late? Add being!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am sorry for late.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am sorry for being late.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say being late, not just late.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! Sorry for being late.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am sorry for late.",
+  "right": "I am sorry for being late.",
+  "strike": "for late",
+  "why": "Say being late, not just late.",
+  "memory": "Sorry for being late.",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "Sorry for late.",
+    "Sorry for being late."
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "هل تقول “sorry for late”؟",
+   "tip": "نقول «آسف على التأخير»، أما في الإنجليزية فنقول sorry for being late: “I am sorry for being late.” وليس “I am sorry for late.”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “I am sorry for late.” 😅 نقول «آسف على التأخير»، أما في الإنجليزية فنقول sorry for being late، فالجملة الصحيحة “I am sorry for being late.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “being late” — نقول «آسف على التأخير»، أما في الإنجليزية فنقول sorry for being late. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “sorry for late”?",
+   "tip": "In Arabic we say «آسف على التأخير», but in English we say sorry for being late: “I am sorry for being late.” not “I am sorry for late.”",
+   "caption": "Do you sometimes say this? “I am sorry for late.” 😅 In Arabic we say «آسف على التأخير», but in English we say sorry for being late, so the right sentence is “I am sorry for being late.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “sorry for late”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "هل تقول “sorry for late”؟",
+  "keyword": "I am sorry for being late.",
+  "value": "نقول «آسف على التأخير»، أما في الإنجليزية فنقول sorry for being late: “I am sorry for being late.” وليس “I am sorry for late.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “sorry for late”؟",
+    "description": "نقول «آسف على التأخير»، أما في الإنجليزية فنقول sorry for being late: “I am sorry for being late.” وليس “I am sorry for late.”\n\nهل تقول أحيانًا هذه الجملة؟ “I am sorry for late.” 😅 نقول «آسف على التأخير»، أما في الإنجليزية فنقول sorry for being late، فالجملة الصحيحة “I am sorry for being late.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "I am sorry for being late.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا هذه الجملة؟ “I am sorry for late.” 😅 نقول «آسف على التأخير»، أما في الإنجليزية فنقول sorry for being late، فالجملة الصحيحة “I am sorry for being late.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول “sorry for late”؟\n\nنقول «آسف على التأخير»، أما في الإنجليزية فنقول sorry for being late: “I am sorry for being late.” وليس “I am sorry for late.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “sorry for late”؟ نقول «آسف على التأخير»، أما في الإنجليزية فنقول sorry for being late: “… #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “being late” — نقول «آسف على التأخير»، أما في الإنجليزية فنقول sorry for being late. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+  "lang": "ar"
+ }
+}

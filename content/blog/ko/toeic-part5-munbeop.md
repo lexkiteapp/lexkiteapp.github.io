@@ -143,6 +143,8 @@ qualityScore: 94
 
 {{cta: /#/toeic | 토익 파트5 실전 연습 시작}}
 
+파트 5가 전체 시험에서 차지하는 위치와 권장 시간은 [토익 시험 구성 총정리](/ko/blog/toeic-siheom-guseong-part-munhangsu-sigan/)에서 볼 수 있습니다.
+
 ## 자주 묻는 질문
 
 ### 파트5 한 문제당 목표 풀이 시간은 얼마가 적당한가요?

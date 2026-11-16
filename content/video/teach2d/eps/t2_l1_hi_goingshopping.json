@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_goingshopping",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Going shopping, no for!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am going for shopping.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am going shopping.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say going shopping with no for.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Going shopping! We are going shopping today.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am going for shopping.",
+  "right": "I am going shopping.",
+  "strike": "for",
+  "why": "Say going shopping with no for.",
+  "memory": "Going shopping.",
+  "quiz": {
+   "stem": "We are ___ today.",
+   "options": [
+    "going for shopping",
+    "going shopping"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“going for shopping” नहीं!",
+   "tip": "हिंदी में “खरीदारी के लिए जा रहा हूँ” कहते हैं, पर अंग्रेज़ी में सीधे going shopping बोलते हैं।",
+   "caption": "क्या आप भी बोलते हैं: “I am going for shopping.” 😅 सही वाक्य है: “I am going shopping.” ध्यान रखें: going shopping में for नहीं लगता। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “going shopping”। याद रखें: going shopping में for नहीं लगता। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “going shopping”!",
+   "tip": "Many learners add for, but English says going shopping with no for.",
+   "caption": "Do you say: “I am going for shopping.” 😅 The right sentence is: “I am going shopping.” Remember: Say going shopping, with no for. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“going for shopping” नहीं!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“going for shopping” नहीं!",
+  "keyword": "I am going shopping.",
+  "value": "हिंदी में “खरीदारी के लिए जा रहा हूँ” कहते हैं, पर अंग्रेज़ी में सीधे going shopping बोलते हैं।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "“going for shopping” नहीं!",
+    "description": "हिंदी में “खरीदारी के लिए जा रहा हूँ” कहते हैं, पर अंग्रेज़ी में सीधे going shopping बोलते हैं।\n\nक्या आप भी बोलते हैं: “I am going for shopping.” 😅 सही वाक्य है: “I am going shopping.” ध्यान रखें: going shopping में for नहीं लगता। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "I am going shopping.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी बोलते हैं: “I am going for shopping.” 😅 सही वाक्य है: “I am going shopping.” ध्यान रखें: going shopping में for नहीं लगता। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“going for shopping” नहीं!\n\nहिंदी में “खरीदारी के लिए जा रहा हूँ” कहते हैं, पर अंग्रेज़ी में सीधे going shopping बोलते हैं।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“going for shopping” नहीं! हिंदी में “खरीदारी के लिए जा रहा हूँ” कहते हैं, पर अंग्रेज़ी में सीधे going… #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “going shopping”। याद रखें: going shopping में for नहीं लगता। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

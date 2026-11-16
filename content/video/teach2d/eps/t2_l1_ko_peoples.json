@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "people에는 s 없어요!",
-   "tip": "people은 이미 복수예요. “Many people came”이라고 해요.",
-   "caption": "“Many peoples came to the party”라고 말하고 있나요? 😅 people 자체가 복수형이라서 s를 붙이지 않아요. “Many people came to the party”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-   "comment": "정답: “people”. people은 s 없이! 무료 퀴즈로 더 연습해 보세요: {link}",
+   "tip": "people은 이미 복수예요. 이렇게 말해요 👉 “Many people came.”",
+   "caption": "“Many peoples came to the party”처럼 말하고 있나요? 😅 people 자체가 복수형이라서 s를 붙이지 않아요. 맞는 문장 ✅ “Many people came to the party.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답: “people”! people은 s 없이! 무료 퀴즈로 더 연습해 보세요: {link}",
    "hashtags": [
     "#영어공부",
     "#영어회화",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "No s on people!",
-   "tip": "People is already plural. Say “Many people came”.",
-   "caption": "Do you say “Many peoples came to the party”? 😅 People is already plural, so you do not add an s. “Many people came to the party” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
+   "tip": "People is already plural. Say “Many people came”!",
+   "caption": "Do you say “Many peoples came to the party” in English? 😅 People is already plural, so you do not add an s. “Many people came to the party” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "people에는 s 없어요!",
   "keyword": "Many people came to the party.",
-  "value": "people은 이미 복수예요. “Many people came”이라고 해요.",
+  "value": "people은 이미 복수예요. 이렇게 말해요 👉 “Many people came.”",
   "hashtags": [
    "#영어공부",
    "#영어회화",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "people에는 s 없어요!",
-    "description": "“Many peoples came to the party”라고 말하고 있나요? 😅 people 자체가 복수형이라서 s를 붙이지 않아요. “Many people came to the party”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "description": "people은 이미 복수예요. 이렇게 말해요 👉 “Many people came.”\n\n“Many peoples came to the party”처럼 말하고 있나요? 😅 people 자체가 복수형이라서 s를 붙이지 않아요. 맞는 문장 ✅ “Many people came to the party.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
     "tags": [
      "Many people came to the party.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "“Many peoples came to the party”라고 말하고 있나요? 😅 people 자체가 복수형이라서 s를 붙이지 않아요. “Many people came to the party”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "“Many peoples came to the party”처럼 말하고 있나요? 😅 people 자체가 복수형이라서 s를 붙이지 않아요. 맞는 문장 ✅ “Many people came to the party.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "“Many peoples came to the party”라고 말하고 있나요? 😅 people 자체가 복수형이라서 s를 붙이지 않아요. “Many people came to the party”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nlexkite.com",
+    "caption": "people에는 s 없어요!\n\npeople은 이미 복수예요. 이렇게 말해요 👉 “Many people came.”\n\nlexkite.com",
     "hashtags": [
      "#영어공부",
      "#영어회화",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "people에는 s 없어요! #영어공부 #영어회화 #영어독학"
+    "caption": "people에는 s 없어요! people은 이미 복수예요. 이렇게 말해요 👉 “Many people came.” #영어공부 #영어회화 #영어독학"
    }
   },
-  "first_comment": "정답: “people”. people은 s 없이! 무료 퀴즈로 더 연습해 보세요: {link}",
+  "first_comment": "정답: “people”! people은 s 없이! 무료 퀴즈로 더 연습해 보세요: {link}",
   "lang": "ko"
  }
 }
