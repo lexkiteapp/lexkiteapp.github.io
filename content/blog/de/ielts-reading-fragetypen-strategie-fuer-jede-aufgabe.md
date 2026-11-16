@@ -9,7 +9,7 @@ tags: [ielts, reading, question-types, strategy]
 keyword: "ielts reading fragetypen"
 cover: reading
 coverAlt: "Lexkite Leseliste mit Texten von A2 bis C1"
-publishAt:
+publishAt: 2027-01-10T19:29:00+01:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
