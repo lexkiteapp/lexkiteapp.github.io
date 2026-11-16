@@ -129,6 +129,8 @@ Para mantener intacta la calificación de *Accuracy*, vigila con especial atenci
 | **Participio colgante (Dangling Participle)** | "Walking into the laboratory, the experiments were completed." | "Walking into the laboratory, the researchers noticed that the experiments were completed." |
 | **Error de pronombre relativo** | "The policy who was approved yesterday will take effect soon." | "The policy that was approved yesterday will take effect soon." |
 
+Para aplicar estas estructuras a una pregunta concreta de «agree or disagree», mira el [ensayo de opinión IELTS comentado](/es/blog/ensayo-de-opinion-ielts-estar-de-acuerdo/).
+
 ## Estrategia de redacción paso a paso para el día del examen
 
 Para aplicar estas fórmulas sin ralentizar tu tiempo de escritura durante los 40 minutos de Task 2, sigue este plan de acción:

@@ -148,6 +148,10 @@ RC 파트5와 파트7에서 시간 단축을 돕는 전략은 각각 [토익 파
 
 짧은 질문과 응답이 나오는 파트 2의 함정이 궁금하다면 [토익 파트2 공부법](/ko/blog/toeic-listening-part-2-gongbubeop-jeonryak/)도 함께 읽어 보세요.
 
+시험 전체 구성과 리딩까지 이어지는 흐름은 [토익 시험 구성 총정리](/ko/blog/toeic-siheom-guseong-part-munhangsu-sigan/)를 참고하세요.
+
+리스닝의 시작인 파트1도 놓치고 싶지 않다면 [토익 파트1 사진 묘사 공략](/ko/blog/toeic-part1-sajin-myosa-gongbubeop/)으로 사진 보기를 끝까지 듣는 습관부터 잡아 보세요.
+
 ## 자주 묻는 질문
 
 ### 리스닝 문제를 풀 때 지문을 다 듣고 나서 보기를 골라야 하나요, 들으면서 골라야 하나요?

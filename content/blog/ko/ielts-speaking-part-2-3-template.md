@@ -166,6 +166,12 @@ quiz: [
 *„Seeing her overwhelming frustration, I decided to step up and design a gentle, step-by-step tutorial. Rather than bombarding her with technical jargon, I crafted an illustrated handbook with colorful sticky notes and practiced simple recurring scenarios together every evening for a week.*  
 *The true breakthrough occurred when she successfully placed her very first organic produce order independently and tracked the courier in real time. Looking back on that milestone now with the benefit of hindsight, it gave me a profound sense of emotional fulfillment. It taught me that bridging the generational digital divide requires immense patience and empathy, and witnessing her newfound independence was truly priceless.“*
 
+답변이 6점대에서 7점대로 올라갈 때 무엇이 달라지는지는 [아이엘츠 스피킹 7점 답변 예시](/ko/blog/ielts-speaking-7jeom-dapbyeon-yesi/)에서 약한 답변과 강한 답변을 나란히 비교해 볼 수 있습니다.
+
+말하기 밴드가 오버올에 반영되는 방식은 [IELTS 밴드 점수 계산법](/ko/blog/ielts-band-jeomsu-gyesan-bangbeop/)에서, 시험일까지 연습 시간을 나누는 방법은 [IELTS 공부 계획 4주·8주·12주 플랜](/ko/blog/ielts-gongbu-gyehoek-4ju-8ju-12ju/)에서 확인할 수 있습니다.
+
+승인된 센터에서 치르는 영국 비자용 시험의 말하기 환경이 궁금하다면 [아이엘츠 UKVI란 무엇인가](/ko/blog/ielts-ukvi-yeongguk-bija-sineong-gaideu/)를 함께 읽어 보십시오.
+
 ## 자주 묻는 질문 (FAQ)
 
 ### 시험관이 2분이 다 되기 전에 중간에 말을 끊으면 감점인가요?

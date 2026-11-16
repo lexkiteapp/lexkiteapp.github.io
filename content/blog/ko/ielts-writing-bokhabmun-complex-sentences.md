@@ -134,6 +134,14 @@ IELTS 라이팅 Task 2 에세이를 작성할 때, 단어는 열심히 외워서
 
 완성한 복합문을 에세이 구조 안에 넣는 연습은 [IELTS Writing Task 2 4단락 템플릿](/ko/blog/ielts-writing-task-2-template-4danrak/)에서 이어서 해 보세요.
 
+복문을 그래프 설명에 적용하는 방법은 [아이엘츠 라이팅 task 1 막대 그래프](/ko/blog/ielts-writing-task-1-makdae-graph-model-answer/) 글에서 whereas와 compared with 예문으로 볼 수 있습니다.
+
+복합문을 실제 에세이 안에서 어떻게 쓰는지 보고 싶다면 [IELTS agree disagree 에세이 쓰는 법](/ko/blog/ielts-agree-disagree-essay-jakseongbeop/) 글의 모범 답안과 해설을 참고하세요.
+
+복문을 쓰기 전에 기본 문장에서 어떤 실수가 반복되는지 [아이엘츠 라이팅 실수 총정리](/ko/blog/ielts-writing-jaju-hanun-silsu-gyojeong/)로 확인하면 교정 순서를 잡기 쉽습니다.
+
+복문 연습을 라이팅 Task 1에도 적용하고 싶다면 once절로 두 단계를 한 문장에 묶는 방법을 다룬 [IELTS 라이팅 Task 1 프로세스 쓰는 법](/ko/blog/ielts-writing-task-1-process-sseuneun-beop/)을 참고하세요.
+
 ## IELTS 복합문에 관한 자주 묻는 질문 (FAQ)
 
 ### 에세이 전체 문장을 100% 복합문으로만 써야 하나요?

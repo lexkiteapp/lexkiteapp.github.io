@@ -125,3 +125,5 @@ Rotate between speakers. If you are comfortable with standard American accents, 
 Yes, provided the audio is calibrated to the learner's level. Beginners should begin with single sentences spoken at a deliberate tempo, focusing primarily on simple Present Simple statements and numbers before progressing to complex multi-speaker dialogues.
 
 To continue refining your overall study methodology, explore our practical guides on [how to improve English listening](/en/blog/how-to-improve-english-listening/) and [active reading strategies for IELTS](/en/blog/active-reading-strategies-for-ielts/), or explore authentic reading texts in [Reading samples](/en/reading/).
+
+For the most common Section 1 task, read our guide to [IELTS listening form completion](/en/blog/ielts-listening-form-completion/).
