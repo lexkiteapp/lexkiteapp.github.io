@@ -1,0 +1,16 @@
+import { prFilter, workflowMatches, readsAny, globRe } from '../ci/gate-relevance.mjs';
+let bad = 0; const ok = (c, m) => { if (!c) { bad++; console.error('✗ ' + m); } else console.log('✓ ' + m); };
+ok(JSON.stringify(prFilter("on:\n  pull_request:\n    paths: ['a/**', 'b.js']\n").paths) === '["a/**","b.js"]', 'paths 1 dòng');
+ok(JSON.stringify(prFilter("on:\n  pull_request:\n    paths:\n      - 'a/**'\n      - b.js\n  push:\n    branches: [main]\n").paths) === '["a/**","b.js"]', 'paths dạng danh sách nhiều dòng (không lấy nhầm của push)');
+ok(prFilter("on:\n  push:\n    paths: ['x']\n").pr === false, 'chỉ push → không có trigger pull_request');
+ok(prFilter("on: [push, pull_request]\n").pr === true && prFilter("on: [push, pull_request]\n").paths === null, 'on: [push, pull_request] → mọi PR');
+ok(prFilter("on:\n  pull_request:\n    types: [opened]\n    paths-ignore: ['docs/**']\n").ignore[0] === 'docs/**', 'paths-ignore');
+ok(globRe('web/js/**').test('web/js/a/b.js') && !globRe('web/js/*.js').test('web/js/a/b.js') && globRe('**/x.js').test('x.js'), 'glob ** / * / **/');
+ok(workflowMatches("on:\n  pull_request:\n    paths-ignore: ['docs/**']\n", ['docs/a.md']) === false && workflowMatches("on:\n  pull_request:\n    paths-ignore: ['docs/**']\n", ['docs/a.md', 'web/x.js']) === true, 'paths-ignore: chỉ bỏ khi MỌI tệp bị ignore');
+ok(workflowMatches("on:\n  pull_request:\n    paths: ['web/**', '!web/audio/**']\n", ['web/audio/a.mp3']) === false, '!loại trừ trong paths');
+ok(workflowMatches("on:\n  schedule: []\n", ['a']) === false, 'không có pull_request → false');
+ok(readsAny("x('web/js/study.js')", ['web/js/study.js']) && readsAny("rd('web/js/' + f)", ['web/js/app.js']), 'nhắc tệp / thư mục 2 cấp');
+ok(!readsAny("rd('web/js/' + f)", ['docs/CODEMAP.md']) && !readsAny("rd('web/js/')", ['web/blog/a.md']), 'không nhắc → false');
+ok(readsAny("readdirSync('docs')", ['docs/CODEMAP.md']) && readsAny("const D = 'web/'", ['web/x.css']), 'thư mục gốc dạng chuỗi riêng');
+ok(!readsAny("", ['a/b.js']) && !readsAny("x", []), 'rỗng');
+if (bad) { console.error(`✗ gate-relevance: ${bad} lỗi`); process.exit(1); } console.log('✓ gate-relevance: đạt');
