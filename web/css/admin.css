@@ -407,7 +407,7 @@ body.adm { --map-0: #8A9597; --map-1: #CC8600; --map-2: #D25E0D; --map-3: #BC3E1
    → lưới tràn, trình duyệt điện thoại thu nhỏ cả trang về ~480 px (ảnh owner 1/11; test chỉ ra thẻ Quốc gia/Tần suất). Ở điện thoại: 1 cột. */
 @media (max-width: 480px) { .adm-grid:has(> .card) { grid-template-columns: minmax(0, 1fr); } .adm-grid > .card { min-width: 0; } } /* mọi lưới thẻ (Trực tiếp, Chi tiết…); ô .adm-tile giữ 2 cột */
 .plat-tbl thead th:first-child { text-align: left; }
-.plat-tbl { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: .875rem; font-variant-numeric: tabular-nums; color: var(--text); }
+.plat-tbl { width: 100%; max-width: 28rem; table-layout: fixed; border-collapse: collapse; font-size: .875rem; font-variant-numeric: tabular-nums; color: var(--text); }
 .plat-tbl th, .plat-tbl td { height: 44px; padding: 0 .35rem; border-bottom: 1px solid color-mix(in srgb, var(--line-2) 70%, transparent); white-space: nowrap; vertical-align: middle; }
 .plat-tbl th:first-child { padding-left: 0; } .plat-tbl tr > :last-child { padding-right: 0; }
 .plat-tbl .c-n { width: 3.4em; } .plat-tbl .c-s { width: 28%; }
