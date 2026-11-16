@@ -7,6 +7,7 @@
 import { chromium } from 'playwright';
 import fs from 'fs';
 import path from 'path';
+import { rateFor } from './lib/perf-calibrate.mjs';
 
 const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : d; };
 const RUN_MS = +arg('--run-ms', 330000);
@@ -99,7 +100,7 @@ async function run(tag, cfg, calls, o = {}) {
   await page.waitForTimeout(1200);
   for (let i = 0; i < 8 && !(await page.$('#go')) && (await page.$('#obNext')); i++) { await page.click('#obNext').catch(() => {}); await page.waitForTimeout(150); }
   if (await page.$('#go')) { await page.click('#go').catch(() => {}); await page.waitForTimeout(800); }
-  const cdp = await ctx.newCDPSession(page); await cdp.send('Emulation.setCPUThrottlingRate', { rate: CPU });
+  const cdp = await ctx.newCDPSession(page); await cdp.send('Emulation.setCPUThrottlingRate', { rate: (await rateFor(browser, CPU)).rate }); // hiệu chuẩn theo tốc độ thật của runner (lib/perf-calibrate.mjs)
   const res = { first: [], reply: [], barge: [], fps: 0, src: '', turns: 0 };
   let w = 0;
   // Mỗi chế độ có ngân sách thời gian (5,5 phút) + nhật ký từng bước: kẹt ở đâu thấy ngay trong log CI, không im lặng tới khi job bị huỷ ở phút 25

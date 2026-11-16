@@ -8,6 +8,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { serve } from '../quality/serve.mjs';
 import { RUNS, medianRuns } from './lib/perf-median.mjs';
+import { rateFor } from './lib/perf-calibrate.mjs';
 
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
 const ROOT = path.resolve(arg('root', 'dist')), OUT = path.resolve(arg('out', 'sp-out')), DEVICE = arg('device', 'phone');
@@ -118,7 +119,7 @@ async function measure(ctx, sc, cold) {
   const page = await ctx.newPage(); const errs = []; page.on('pageerror', e => errs.push(String(e.message).slice(0, 140)));
   const cdp = DEV.launcher === chromium ? await ctx.newCDPSession(page) : null, ev = [];
   if (cdp) {
-    if (DEV.cpu > 1) await cdp.send('Emulation.setCPUThrottlingRate', { rate: DEV.cpu });
+    if (DEV.cpu > 1) await cdp.send('Emulation.setCPUThrottlingRate', { rate: (await rateFor(browser, DEV.cpu)).rate }); // hiệu chuẩn theo tốc độ thật của runner
     if (DEV.net) { await cdp.send('Network.enable'); await cdp.send('Network.emulateNetworkConditions', { offline: false, latency: DEV.net.latency, downloadThroughput: DEV.net.down, uploadThroughput: DEV.net.up }); }
     cdp.on('Tracing.dataCollected', d => ev.push(...d.value));
     await cdp.send('Tracing.start', { categories: 'devtools.timeline,disabled-by-default-devtools.timeline,disabled-by-default-devtools.timeline.frame,toplevel,blink.user_timing', transferMode: 'ReportEvents' });
