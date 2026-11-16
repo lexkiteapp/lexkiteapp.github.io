@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_oclock",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "What time is it?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: It is three hours now.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: It is three o'clock now.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Time uses o'clock.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The first! It is five o'clock now.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "It is three hours now.",
+  "right": "It is three o'clock now.",
+  "strike": "three hours",
+  "why": "Time uses o'clock.",
+  "memory": "Three o'clock.",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "It is five o'clock now.",
+    "It is five hours now."
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Você diz “three hours”?",
+   "tip": "Para dizer a hora cheia, use “o'clock”, não “hours”.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “It is three hours now.” O certo é “It is three o'clock now.” Em português dizemos “são três horas”, mas em inglês “hours” não serve para dizer a hora. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “It is five o'clock now.” Agora diga em voz alta uma frase sua com esse ponto e treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “three hours”?",
+   "tip": "To say the time on the hour, use “o'clock”, not “hours”.",
+   "caption": "Watch out for this common mistake! Many people say “It is three hours now.” The right way is “It is three o'clock now.” In Portuguese we say “são três horas”, but English “hours” does not tell the time. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Você diz “three hours”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "Você diz “three hours”?",
+  "keyword": "It is three o'clock now.",
+  "value": "Para dizer a hora cheia, use “o'clock”, não “hours”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "Você diz “three hours”?",
+    "description": "Para dizer a hora cheia, use “o'clock”, não “hours”.\n\nCuidado com este erro comum! 😬 Muita gente diz “It is three hours now.” O certo é “It is three o'clock now.” Em português dizemos “são três horas”, mas em inglês “hours” não serve para dizer a hora. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "It is three o'clock now.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “It is three hours now.” O certo é “It is three o'clock now.” Em português dizemos “são três horas”, mas em inglês “hours” não serve para dizer a hora. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Você diz “three hours”?\n\nPara dizer a hora cheia, use “o'clock”, não “hours”.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Você diz “three hours”? Para dizer a hora cheia, use “o'clock”, não “hours”. #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “It is five o'clock now.” Agora diga em voz alta uma frase sua com esse ponto e treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

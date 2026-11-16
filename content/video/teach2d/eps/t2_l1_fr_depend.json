@@ -68,8 +68,8 @@
   "native": {
    "hook": "« Ça dépend de » : pas “of”",
    "tip": "On traduit « dépendre de » par “depend on”, jamais “depend of”.",
-   "caption": "Tu dis “It depends of the weather.” ? Ce n'est pas “of” ! Dis “It depends on the weather.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.",
-   "comment": "Réponse : “on”. En anglais, on dit “depend on”. Teste d'autres pièges avec un quiz gratuit : {link}",
+   "caption": "Vous dites “It depends of the weather.” ? Ce n’est pas “of” ! Dites plutôt “It depends on the weather.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “on” — En anglais, on dit “depend on”. Testez d’autres pièges avec un quiz gratuit : {link}",
    "hashtags": [
     "#apprendrelanglais",
     "#anglaisfacile",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "“Depends of”: wrong!",
-   "tip": "“Dépendre de” becomes “depend on”, never “depend of”.",
-   "caption": "Do you say “It depends of the weather.”? It is not “of”! Say “It depends on the weather.”. Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+   "tip": "We translate “depende de” as “depend on”, never “depend of”.",
+   "caption": "Do you say this? “It depends of the weather.” It is not “of”! Say “It depends on the weather.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
   }
  },
  "cta": {
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "« Ça dépend de » : pas “of”",
-    "description": "Tu dis “It depends of the weather.” ? Ce n'est pas “of” ! Dis “It depends on the weather.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "description": "On traduit « dépendre de » par “depend on”, jamais “depend of”.\n\nVous dites “It depends of the weather.” ? Ce n’est pas “of” ! Dites plutôt “It depends on the weather.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
     "tags": [
      "It depends on the weather.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Tu dis “It depends of the weather.” ? Ce n'est pas “of” ! Dis “It depends on the weather.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Vous dites “It depends of the weather.” ? Ce n’est pas “of” ! Dites plutôt “It depends on the weather.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Tu dis “It depends of the weather.” ? Ce n'est pas “of” ! Dis “It depends on the weather.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.\n\nlexkite.com",
+    "caption": "« Ça dépend de » : pas “of”\n\nOn traduit « dépendre de » par “depend on”, jamais “depend of”.\n\nlexkite.com",
     "hashtags": [
      "#apprendrelanglais",
      "#anglaisfacile",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "« Ça dépend de » : pas “of” #apprendrelanglais #anglaisfacile #coursdanglais"
+    "caption": "« Ça dépend de » : pas “of” On traduit « dépendre de » par “depend on”, jamais “depend of”. #apprendrelanglais #anglaisfacile #coursdanglais"
    }
   },
-  "first_comment": "Réponse : “on”. En anglais, on dit “depend on”. Teste d'autres pièges avec un quiz gratuit : {link}",
+  "first_comment": "Réponse : “on” — En anglais, on dit “depend on”. Testez d’autres pièges avec un quiz gratuit : {link}",
   "lang": "fr"
  }
 }

@@ -1442,6 +1442,20 @@ export const REG = {
    "_note": "05/11 PR #719: đo hàng chờ CI mức job mỗi ngày (chờ p50/p90, phút, lượt trùng) so với mốc → issue ci-queue; chỉ đọc API"
   },
   {
+   "id": "perf-flake-report",
+   "workflow": "perf-flake-report.yml",
+   "cron": [
+    "17 2 * * 1"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 1,
+   "lease": false,
+   "_note": "16/11: tỉ lệ chập chờn hiệu năng hằng tuần (call-rt, story-stage, scroll-perf, mobile-qa, ux-cards); chỉ đọc API"
+  },
+  {
    "id": "social-metrics",
    "workflow": "social-metrics.yml",
    "cron": [

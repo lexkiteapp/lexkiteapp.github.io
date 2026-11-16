@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_taketest",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Take a test, not see!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I will see the test tomorrow.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I will take the test tomorrow.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "You take a test.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Take! I will take the test tomorrow.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I will see the test tomorrow.",
+  "right": "I will take the test tomorrow.",
+  "strike": "see",
+  "why": "You take a test.",
+  "memory": "Take a test.",
+  "quiz": {
+   "stem": "I will ___ the test tomorrow.",
+   "options": [
+    "see",
+    "take"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“see the test” 틀렸어요!",
+   "tip": "‘시험을 보다’의 ‘보다’를 see로 옮기기 쉬워요. 시험은 take! 이렇게 말해요 👉 “I will take the test tomorrow.”",
+   "caption": "“I will see the test tomorrow”처럼 말하고 있나요? 😅 ‘시험을 보다’는 영어로 take a test라고 해요. see는 눈으로 보는 것이라 시험에는 어울리지 않아요. 맞는 문장 ✅ “I will take the test tomorrow.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답 ✅ “I will take the test tomorrow.” 소리 내어 한 번 말해 보고, 나만의 문장도 하나 써 보세요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“See the test” is wrong!",
+   "tip": "You take a test, you do not see it. Say “I will take the test tomorrow.”",
+   "caption": "Do you say “I will see the test tomorrow” in English? 😅 You take a test, and you do not “see” it! “I will take the test tomorrow” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“see the test” 틀렸어요!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“see the test” 틀렸어요!",
+  "keyword": "I will take the test tomorrow.",
+  "value": "‘시험을 보다’의 ‘보다’를 see로 옮기기 쉬워요. 시험은 take! 이렇게 말해요 👉 “I will take the test tomorrow.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "“see the test” 틀렸어요!",
+    "description": "‘시험을 보다’의 ‘보다’를 see로 옮기기 쉬워요. 시험은 take! 이렇게 말해요 👉 “I will take the test tomorrow.”\n\n“I will see the test tomorrow”처럼 말하고 있나요? 😅 ‘시험을 보다’는 영어로 take a test라고 해요. see는 눈으로 보는 것이라 시험에는 어울리지 않아요. 맞는 문장 ✅ “I will take the test tomorrow.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "I will take the test tomorrow.",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“I will see the test tomorrow”처럼 말하고 있나요? 😅 ‘시험을 보다’는 영어로 take a test라고 해요. see는 눈으로 보는 것이라 시험에는 어울리지 않아요. 맞는 문장 ✅ “I will take the test tomorrow.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“see the test” 틀렸어요!\n\n‘시험을 보다’의 ‘보다’를 see로 옮기기 쉬워요. 시험은 take! 이렇게 말해요 👉 “I will take the test tomorrow.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“see the test” 틀렸어요! ‘시험을 보다’의 ‘보다’를 see로 옮기기 쉬워요. 시험은 take! 이렇게 말해요 👉 “I will take the test tomorrow.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답 ✅ “I will take the test tomorrow.” 소리 내어 한 번 말해 보고, 나만의 문장도 하나 써 보세요: {link}",
+  "lang": "ko"
+ }
+}

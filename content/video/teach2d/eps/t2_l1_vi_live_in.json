@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_live_in",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Which small word is right?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I live at the city.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I live in the city.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use in for a big place.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "In! My uncle lives in the city.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I live at the city.",
+  "right": "I live in the city.",
+  "strike": "at",
+  "why": "Use in for a big place.",
+  "memory": "Big place? Use in.",
+  "quiz": {
+   "stem": "My uncle lives ___ the city.",
+   "options": [
+    "in",
+    "at"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Dùng at hay in cho thành phố?",
+   "tip": "Tiếng Việt dùng một từ “ở” cho mọi nơi, còn tiếng Anh dùng “in” cho thành phố và những nơi rộng.",
+   "caption": "Bạn có hay nói “I live at the city.” không? 🏙️ Nơi rộng như thành phố thì dùng “in”: “I live in the city.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “in.” Hãy nói to một câu về nơi bạn sống, bắt đầu bằng “I live in…” nhé. Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#meotienganh",
+    "#tienganhmoingay",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Is it “in” or “at” for a city?",
+   "tip": "Vietnamese uses one word for every place, but English uses “in” for a city or a big place.",
+   "caption": "Do you often say this? “I live at the city.” For a big place like a city, use “in”: “I live in the city.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Dùng at hay in cho thành phố?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Dùng at hay in cho thành phố?",
+  "keyword": "I live in the city.",
+  "value": "Tiếng Việt dùng một từ “ở” cho mọi nơi, còn tiếng Anh dùng “in” cho thành phố và những nơi rộng.",
+  "hashtags": [
+   "#hoctienganh",
+   "#meotienganh",
+   "#tienganhmoingay",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "Dùng at hay in cho thành phố?",
+    "description": "Tiếng Việt dùng một từ “ở” cho mọi nơi, còn tiếng Anh dùng “in” cho thành phố và những nơi rộng.\n\nBạn có hay nói “I live at the city.” không? 🏙️ Nơi rộng như thành phố thì dùng “in”: “I live in the city.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #meotienganh #tienganhmoingay #lexkite",
+    "tags": [
+     "I live in the city.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “I live at the city.” không? 🏙️ Nơi rộng như thành phố thì dùng “in”: “I live in the city.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Dùng at hay in cho thành phố?\n\nTiếng Việt dùng một từ “ở” cho mọi nơi, còn tiếng Anh dùng “in” cho thành phố và những nơi rộng.\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#meotienganh",
+     "#tienganhmoingay",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Dùng at hay in cho thành phố? Tiếng Việt dùng một từ “ở” cho mọi nơi, còn tiếng Anh dùng “in” cho thành ph… #hoctienganh #meotienganh #tienganhmoingay"
+   }
+  },
+  "first_comment": "Đáp án: “in.” Hãy nói to một câu về nơi bạn sống, bắt đầu bằng “I live in…” nhé. Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

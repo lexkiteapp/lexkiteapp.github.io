@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_by_bus",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "With the bus? Say by bus!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I go to school with the bus.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I go to school by bus.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "With a bus? No. Say by bus.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "I go by bus!",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I go to school with the bus.",
+  "right": "I go to school by bus.",
+  "strike": "with the bus",
+  "why": "With a bus? No. Say by bus.",
+  "memory": "Travel: by bus.",
+  "quiz": {
+   "stem": "How do you go to school?",
+   "options": [
+    "I go with the bus.",
+    "I go by bus."
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "« En bus » = “by bus”",
+   "tip": "On dit souvent « avec le bus », d’où “with the bus”. Pour un moyen de transport, dites “by bus”, sans article.",
+   "caption": "Vous dites “I go to school with the bus.” ? Pour un moyen de transport, dites “by” suivi du nom, sans “the”. Dites plutôt “I go to school by bus.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “I go to school by bus.” — Pour un moyen de transport, dites “by” suivi du nom, sans “the”. Testez d’autres pièges avec un quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “with the bus”!",
+   "tip": "English uses “by” and no “the” for transport: “by bus”, “by car”.",
+   "caption": "Do you say this? “I go to school with the bus.” English uses “by” and no “the” for transport. Say “I go to school by bus.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "« En bus » = “by bus”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "« En bus » = “by bus”",
+  "keyword": "I go to school by bus.",
+  "value": "On dit souvent « avec le bus », d’où “with the bus”. Pour un moyen de transport, dites “by bus”, sans article.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "« En bus » = “by bus”",
+    "description": "On dit souvent « avec le bus », d’où “with the bus”. Pour un moyen de transport, dites “by bus”, sans article.\n\nVous dites “I go to school with the bus.” ? Pour un moyen de transport, dites “by” suivi du nom, sans “the”. Dites plutôt “I go to school by bus.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "I go to school by bus.",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Vous dites “I go to school with the bus.” ? Pour un moyen de transport, dites “by” suivi du nom, sans “the”. Dites plutôt “I go to school by bus.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "« En bus » = “by bus”\n\nOn dit souvent « avec le bus », d’où “with the bus”. Pour un moyen de transport, dites “by bus”, sans article.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "« En bus » = “by bus” On dit souvent « avec le bus », d’où “with the bus”. Pour un moyen de transpor… #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “I go to school by bus.” — Pour un moyen de transport, dites “by” suivi du nom, sans “the”. Testez d’autres pièges avec un quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}

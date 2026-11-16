@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_usedto",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say used to, without am!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am used to play soccer as a kid.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I used to play soccer as a kid.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "For an old habit, we say used to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! I used to play soccer.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am used to play soccer as a kid.",
+  "right": "I used to play soccer as a kid.",
+  "strike": "am used to",
+  "why": "For an old habit, we say used to.",
+  "memory": "I used to play.",
+  "quiz": {
+   "stem": "When I was young, I ___ play soccer.",
+   "options": [
+    "am used to",
+    "used to"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Só “used to”, sem “am”!",
+   "tip": "“Costumava” é só “used to”, sem “am”: “I used to play.”",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I am used to play soccer as a kid.” O certo é “I used to play soccer as a kid.” Para “eu costumava”, use só “used to”, sem “am”. Ouça a Ama e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “used to”. Agora diga em voz alta uma frase sua sobre um hábito do passado e treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Just “used to”, no “am”!",
+   "tip": "For “costumava”, use just “used to”, without “am”: “I used to play.”",
+   "caption": "Watch out for this common mistake! Many people say “I am used to play soccer as a kid.” The right way is “I used to play soccer as a kid.” For “eu costumava”, use just “used to”, without “am”. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Só “used to”, sem “am”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 57,
+  "seconds": 33.5,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "Só “used to”, sem “am”!",
+  "keyword": "I used to play soccer as a kid.",
+  "value": "“Costumava” é só “used to”, sem “am”: “I used to play.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 51,
+  "platforms": {
+   "youtube": {
+    "title": "Só “used to”, sem “am”!",
+    "description": "“Costumava” é só “used to”, sem “am”: “I used to play.”\n\nCuidado com este erro comum! 😬 Muita gente diz “I am used to play soccer as a kid.” O certo é “I used to play soccer as a kid.” Para “eu costumava”, use só “used to”, sem “am”. Ouça a Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "I used to play soccer as a kid.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “I am used to play soccer as a kid.” O certo é “I used to play soccer as a kid.” Para “eu costumava”, use só “used to”, sem “am”. Ouça a Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Só “used to”, sem “am”!\n\n“Costumava” é só “used to”, sem “am”: “I used to play.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Só “used to”, sem “am”! “Costumava” é só “used to”, sem “am”: “I used to play.” #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “used to”. Agora diga em voz alta uma frase sua sobre um hábito do passado e treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

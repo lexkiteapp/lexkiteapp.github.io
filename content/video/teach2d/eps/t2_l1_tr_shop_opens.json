@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_shop_opens",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "The store opens at nine!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: The store is opened at nine.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: The store opens at nine.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say opens. No is.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Opens! The bank opens at nine.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "The store is opened at nine.",
+  "right": "The store opens at nine.",
+  "strike": "is opened",
+  "why": "Say opens. No is.",
+  "memory": "The store opens at nine.",
+  "quiz": {
+   "stem": "The bank ___ at nine.",
+   "options": [
+    "is opened",
+    "opens"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Is opened” değil, “opens”!",
+   "tip": "Türkçede “açılır” edilgendir; İngilizcede bu cümle “opens” ile kurulur: “The store opens at nine.”",
+   "caption": "“The store is opened at nine” mi diyorsun? 😅 “Açılır” dediğimiz yerde İngilizcede “is opened” değil, “opens” deriz. Doğrusu “The store opens at nine.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “opens”. Dükkân saatini söylerken “opens” kullan. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “opens”, not “is opened”!",
+   "tip": "Use “opens” for the time a store starts: “The store opens at nine.”",
+   "caption": "Do you say “The store is opened at nine”? 😅 In English for opening times we say opens, not is opened. The right sentence is “The store opens at nine.” Listen to Carlos and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Is opened” değil, “opens”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“Is opened” değil, “opens”!",
+  "keyword": "The store opens at nine.",
+  "value": "Türkçede “açılır” edilgendir; İngilizcede bu cümle “opens” ile kurulur: “The store opens at nine.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "“Is opened” değil, “opens”!",
+    "description": "Türkçede “açılır” edilgendir; İngilizcede bu cümle “opens” ile kurulur: “The store opens at nine.”\n\n“The store is opened at nine” mi diyorsun? 😅 “Açılır” dediğimiz yerde İngilizcede “is opened” değil, “opens” deriz. Doğrusu “The store opens at nine.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "The store opens at nine.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“The store is opened at nine” mi diyorsun? 😅 “Açılır” dediğimiz yerde İngilizcede “is opened” değil, “opens” deriz. Doğrusu “The store opens at nine.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Is opened” değil, “opens”!\n\nTürkçede “açılır” edilgendir; İngilizcede bu cümle “opens” ile kurulur: “The store opens at nine.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Is opened” değil, “opens”! Türkçede “açılır” edilgendir; İngilizcede bu cümle “opens” ile kurulur: “The… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “opens”. Dükkân saatini söylerken “opens” kullan. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+  "lang": "tr"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_children",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Add do to the question!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Have you children?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Do you have children?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say do you have.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second one! Do you have children?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Have you children?",
+  "right": "Do you have children?",
+  "strike": "Have you",
+  "why": "Say do you have.",
+  "memory": "Do you have.",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "Have you children?",
+    "Do you have children?"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Fragen mit „Do“ bilden!",
+   "tip": "Im Deutschen sagen Sie „Haben Sie Kinder?“ Im Englischen steht „Do“ vor der Frage.",
+   "caption": "Fragen Sie wie im Deutschen? 👶 Falsch: “Have you children?” Richtig: “Do you have children?” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Richtig heißt es: “Do you have children?” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Make questions with “Do”!",
+   "tip": "In German you say “Haben Sie Kinder?” In English “Do” comes before the question.",
+   "caption": "Make questions with “Do”! Wrong: “Have you children?” Right: “Do you have children?” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Fragen mit „Do“ bilden!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "Fragen mit „Do“ bilden!",
+  "keyword": "Do you have children?",
+  "value": "Im Deutschen sagen Sie „Haben Sie Kinder?“ Im Englischen steht „Do“ vor der Frage.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "Fragen mit „Do“ bilden!",
+    "description": "Im Deutschen sagen Sie „Haben Sie Kinder?“ Im Englischen steht „Do“ vor der Frage.\n\nFragen Sie wie im Deutschen? 👶 Falsch: “Have you children?” Richtig: “Do you have children?” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "Do you have children?",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Fragen Sie wie im Deutschen? 👶 Falsch: “Have you children?” Richtig: “Do you have children?” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Fragen mit „Do“ bilden!\n\nIm Deutschen sagen Sie „Haben Sie Kinder?“ Im Englischen steht „Do“ vor der Frage.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Fragen mit „Do“ bilden! Im Deutschen sagen Sie „Haben Sie Kinder?“ Im Englischen steht „Do“ vor der Fr… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Richtig heißt es: “Do you have children?” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

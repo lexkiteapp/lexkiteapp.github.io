@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_make_decision",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Make a decision, not give!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I gave a decision today.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I made a decision today.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say made a decision.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Made! My friend made a decision.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I gave a decision today.",
+  "right": "I made a decision today.",
+  "strike": "gave",
+  "why": "Say made a decision.",
+  "memory": "I made a decision today.",
+  "quiz": {
+   "stem": "My friend ___ a decision.",
+   "options": [
+    "gave",
+    "made"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Give” değil, “make a decision”!",
+   "tip": "Türkçede “karar verdim” deriz; İngilizcede “decision” ile “make” kullanılır: “I made a decision today.”",
+   "caption": "“I gave a decision today” mi diyorsun? 😅 “Karar vermek” için “give” değil, “make” kullanılır. Doğrusu “I made a decision today.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “made”. “Karar verdim” için “I made a decision” de. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “made a decision”!",
+   "tip": "With “decision”, use “make”: “I made a decision today.”",
+   "caption": "Do you say “I gave a decision today”? 😅 In English we say make a decision, not give a decision. The right sentence is “I made a decision today.” Listen to Ama and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Give” değil, “make a decision”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“Give” değil, “make a decision”!",
+  "keyword": "I made a decision today.",
+  "value": "Türkçede “karar verdim” deriz; İngilizcede “decision” ile “make” kullanılır: “I made a decision today.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "“Give” değil, “make a decision”!",
+    "description": "Türkçede “karar verdim” deriz; İngilizcede “decision” ile “make” kullanılır: “I made a decision today.”\n\n“I gave a decision today” mi diyorsun? 😅 “Karar vermek” için “give” değil, “make” kullanılır. Doğrusu “I made a decision today.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "I made a decision today.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“I gave a decision today” mi diyorsun? 😅 “Karar vermek” için “give” değil, “make” kullanılır. Doğrusu “I made a decision today.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Give” değil, “make a decision”!\n\nTürkçede “karar verdim” deriz; İngilizcede “decision” ile “make” kullanılır: “I made a decision today.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Give” değil, “make a decision”! Türkçede “karar verdim” deriz; İngilizcede “decision” ile “make” kullan… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “made”. “Karar verdim” için “I made a decision” de. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+  "lang": "tr"
+ }
+}

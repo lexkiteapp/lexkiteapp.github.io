@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_named",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Is name the right form?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have a friend name Ali.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have a friend named Ali.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say named.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Named! I have a friend named Ali.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have a friend name Ali.",
+  "right": "I have a friend named Ali.",
+  "strike": "name",
+  "why": "Say named.",
+  "memory": "A friend named Ali.",
+  "quiz": {
+   "stem": "I have a friend ___ Ali.",
+   "options": [
+    "named",
+    "name"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Tên là” nói sao đúng?",
+   "tip": "Tiếng Việt chỉ cần “tên là”, còn tiếng Anh cần “named” (có đuôi -ed) sau người hoặc vật.",
+   "caption": "Bạn có hay nói “I have a friend name Ali.” không? 🧑‍🤝‍🧑 Sau người hoặc vật, hãy dùng “named”: “I have a friend named Ali.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “named.” Hãy nói to một câu về một người bạn, bắt đầu bằng “I have a friend named…” nhé. Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#meotienganh",
+    "#tienganhmoingay",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "How do you say “tên là”?",
+   "tip": "Vietnamese just says “tên là”, but English needs “named”, with -ed.",
+   "caption": "Do you often say this? “I have a friend name Ali.” After a person or thing, use “named”: “I have a friend named Ali.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Tên là” nói sao đúng?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“Tên là” nói sao đúng?",
+  "keyword": "I have a friend named Ali.",
+  "value": "Tiếng Việt chỉ cần “tên là”, còn tiếng Anh cần “named” (có đuôi -ed) sau người hoặc vật.",
+  "hashtags": [
+   "#hoctienganh",
+   "#meotienganh",
+   "#tienganhmoingay",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "“Tên là” nói sao đúng?",
+    "description": "Tiếng Việt chỉ cần “tên là”, còn tiếng Anh cần “named” (có đuôi -ed) sau người hoặc vật.\n\nBạn có hay nói “I have a friend name Ali.” không? 🧑‍🤝‍🧑 Sau người hoặc vật, hãy dùng “named”: “I have a friend named Ali.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #meotienganh #tienganhmoingay #lexkite",
+    "tags": [
+     "I have a friend named Ali.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “I have a friend name Ali.” không? 🧑‍🤝‍🧑 Sau người hoặc vật, hãy dùng “named”: “I have a friend named Ali.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Tên là” nói sao đúng?\n\nTiếng Việt chỉ cần “tên là”, còn tiếng Anh cần “named” (có đuôi -ed) sau người hoặc vật.\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#meotienganh",
+     "#tienganhmoingay",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Tên là” nói sao đúng? Tiếng Việt chỉ cần “tên là”, còn tiếng Anh cần “named” (có đuôi -ed) sau người hoặc… #hoctienganh #meotienganh #tienganhmoingay"
+   }
+  },
+  "first_comment": "Đáp án: “named.” Hãy nói to một câu về một người bạn, bắt đầu bằng “I have a friend named…” nhé. Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

@@ -1,0 +1,35 @@
+# ci-policy: fast-lane – chỉ chạy khi chính lib/script đo này đổi (đường dẫn hẹp, hiếm), không phải mọi PR; không chạy mã người dùng
+# ci-policy: matrix – 10 máy song song là cốt lõi: cần phân bố tốc độ CPU của NHIỀU runner thật khác nhau để chọn REF_MS (scripts/test/lib/perf-calibrate.mjs)
+# Đo tốc độ CPU thật của runner (vòng lặp cố định, không giảm tốc) → chọn mốc chuẩn REF_MS bằng số liệu. Chạy khi lib/script đổi hoặc chạy tay; kết quả: artifact perf-baseline-<máy> + tóm tắt trong log.
+name: perf-baseline
+on:
+  pull_request:
+    paths: ['scripts/test/lib/perf-calibrate.mjs', 'scripts/test/perf-baseline.mjs', '.github/workflows/perf-baseline.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: perf-baseline-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  bench:
+    name: benchMs (máy ${{ matrix.m }})
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        m: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Playwright
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          bash scripts/ci/pw-install.sh --with-deps chromium
+      - name: benchMs
+        env: { M: '${{ matrix.m }}' }
+        run: node scripts/test/perf-baseline.mjs | tee -a "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with: { name: 'perf-baseline-${{ matrix.m }}', path: perf-baseline/ }

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_cannot_stand",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Support noise? Stand it!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I can't support the noise.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I can't stand the noise.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Dislike a lot: can't stand.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Stand! I can't stand the noise.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I can't support the noise.",
+  "right": "I can't stand the noise.",
+  "strike": "support",
+  "why": "Dislike a lot: can't stand.",
+  "memory": "Can't stand.",
+  "quiz": {
+   "stem": "I can't ___ the noise.",
+   "options": [
+    "support",
+    "stand"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“No soporto” = “can't stand”",
+   "tip": "En español “no soporto el ruido”, pero “support” en inglés es apoyar: usa “can't stand.”",
+   "caption": "🙈 Error común: “I can't support the noise.” “Soportar” aquí es “stand”, no “support”: “I can't stand the noise.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “stand”. “Support” es apoyar. Para algo que no aguantas, “can't stand”. Escribe una frase tuya con “stand” o dila en voz alta: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#falsosamigos",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Soportar” = “stand”",
+   "tip": "“No soporto” sounds like “support”, but “support” means to help. Use “can't stand.”",
+   "caption": "Common mistake: “I can't support the noise.” “Soportar” here is “stand”, not “support”: “I can't stand the noise.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“No soporto” = “can't stand”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“No soporto” = “can't stand”",
+  "keyword": "I can't stand the noise.",
+  "value": "En español “no soporto el ruido”, pero “support” en inglés es apoyar: usa “can't stand.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#falsosamigos",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "“No soporto” = “can't stand”",
+    "description": "En español “no soporto el ruido”, pero “support” en inglés es apoyar: usa “can't stand.”\n\n🙈 Error común: “I can't support the noise.” “Soportar” aquí es “stand”, no “support”: “I can't stand the noise.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #falsosamigos #lexkite",
+    "tags": [
+     "I can't stand the noise.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "🙈 Error común: “I can't support the noise.” “Soportar” aquí es “stand”, no “support”: “I can't stand the noise.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“No soporto” = “can't stand”\n\nEn español “no soporto el ruido”, pero “support” en inglés es apoyar: usa “can't stand.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#falsosamigos",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“No soporto” = “can't stand” En español “no soporto el ruido”, pero “support” en inglés es apoyar: usa “ca… #aprenderingles #inglesfacil #falsosamigos"
+   }
+  },
+  "first_comment": "Respuesta: “stand”. “Support” es apoyar. Para algo que no aguantas, “can't stand”. Escribe una frase tuya con “stand” o dila en voz alta: {link}",
+  "lang": "es"
+ }
+}

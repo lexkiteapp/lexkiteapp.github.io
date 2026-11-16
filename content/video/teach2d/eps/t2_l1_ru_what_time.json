@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_what_time",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Which or what?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Which time is it?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: What time is it?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Ask the time with what.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "What! What time is it?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Which time is it?",
+  "right": "What time is it?",
+  "strike": "Which",
+  "why": "Ask the time with what.",
+  "memory": "What time is it?",
+  "quiz": {
+   "stem": "___ time is it?",
+   "options": [
+    "Which",
+    "What"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "«Который час» — which или what?",
+   "tip": "Время спрашивают так: “What time is it?”",
+   "caption": "Ты тоже говоришь “Which time is it”? 😅 Русское «который час» похоже на “which”, но по-английски нужно “what.” Правильно: “What time is it?” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “What.” Время спрашивают с what. Скажи вслух: “What time is it?” Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#изучениеанглийского",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Which or what?",
+   "tip": "This is how you ask the time: “What time is it?”",
+   "caption": "Do you also say “Which time is it”? 😅 The Russian “which hour” looks like “which”, but English needs “what.” Correct: “What time is it?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "«Который час» — which или what?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 41,
+  "seconds": 25.6,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "«Который час» — which или what?",
+  "keyword": "What time is it?",
+  "value": "Время спрашивают так: “What time is it?”",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#изучениеанглийского",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "«Который час» — which или what?",
+    "description": "Время спрашивают так: “What time is it?”\n\nТы тоже говоришь “Which time is it”? 😅 Русское «который час» похоже на “which”, но по-английски нужно “what.” Правильно: “What time is it?” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #английский #изучениеанглийского #lexkite",
+    "tags": [
+     "What time is it?",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “Which time is it”? 😅 Русское «который час» похоже на “which”, но по-английски нужно “what.” Правильно: “What time is it?” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "«Который час» — which или what?\n\nВремя спрашивают так: “What time is it?”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#изучениеанглийского",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "«Который час» — which или what? Время спрашивают так: “What time is it?” #английскийязык #английский #изучениеанглийского"
+   }
+  },
+  "first_comment": "Ответ: “What.” Время спрашивают с what. Скажи вслух: “What time is it?” Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

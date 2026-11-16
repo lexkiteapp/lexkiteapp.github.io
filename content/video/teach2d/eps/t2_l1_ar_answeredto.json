@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_answeredto",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Answered to? Just answered!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She answered to my question.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She answered my question.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Answer needs no to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! He answered the phone.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She answered to my question.",
+  "right": "She answered my question.",
+  "strike": "to",
+  "why": "Answer needs no to.",
+  "memory": "Answer it. No to.",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "He answered to the phone.",
+    "He answered the phone."
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "هل تقول “answered to”؟",
+   "tip": "في العربية نقول «أجابت عن السؤال» بحرف جر، أما answer فلا تحتاج إلى to: “She answered my question.” وليس “She answered to my question.”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “She answered to my question.” 😅 في العربية نقول «أجابت عن السؤال» بحرف جر، أما answer فلا تحتاج إلى to، فالجملة الصحيحة “She answered my question.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “answered” — في العربية نقول «أجابت عن السؤال» بحرف جر، أما answer فلا تحتاج إلى to. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “answered to”?",
+   "tip": "In Arabic we use a preposition after «أجاب», but answer needs no to: “She answered my question.” not “She answered to my question.”",
+   "caption": "Do you sometimes say this? “She answered to my question.” 😅 In Arabic we use a preposition after «أجاب», but answer needs no to, so the right sentence is “She answered my question.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “answered to”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "هل تقول “answered to”؟",
+  "keyword": "She answered my question.",
+  "value": "في العربية نقول «أجابت عن السؤال» بحرف جر، أما answer فلا تحتاج إلى to: “She answered my question.” وليس “She answered to my question.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “answered to”؟",
+    "description": "في العربية نقول «أجابت عن السؤال» بحرف جر، أما answer فلا تحتاج إلى to: “She answered my question.” وليس “She answered to my question.”\n\nهل تقول أحيانًا هذه الجملة؟ “She answered to my question.” 😅 في العربية نقول «أجابت عن السؤال» بحرف جر، أما answer فلا تحتاج إلى to، فالجملة الصحيحة “She answered my question.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "She answered my question.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا هذه الجملة؟ “She answered to my question.” 😅 في العربية نقول «أجابت عن السؤال» بحرف جر، أما answer فلا تحتاج إلى to، فالجملة الصحيحة “She answered my question.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول “answered to”؟\n\nفي العربية نقول «أجابت عن السؤال» بحرف جر، أما answer فلا تحتاج إلى to: “She answered my question.” وليس “She answered to my question.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “answered to”؟ في العربية نقول «أجابت عن السؤال» بحرف جر، أما answer فلا تحتاج إلى to: “S… #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “answered” — في العربية نقول «أجابت عن السؤال» بحرف جر، أما answer فلا تحتاج إلى to. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+  "lang": "ar"
+ }
+}

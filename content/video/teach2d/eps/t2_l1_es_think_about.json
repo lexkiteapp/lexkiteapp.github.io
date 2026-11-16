@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_think_about",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Think in you? Think about you!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I think in you every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I think about you every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use about after think.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "About! I think about you every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I think in you every day.",
+  "right": "I think about you every day.",
+  "strike": "in",
+  "why": "Use about after think.",
+  "memory": "Think about.",
+  "quiz": {
+   "stem": "I think ___ you every day.",
+   "options": [
+    "in",
+    "about"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "¿“Think in”? Mejor “think about”",
+   "tip": "En español “pienso en ti”, pero en inglés es “think about”, no “think in.”",
+   "caption": "🙈 Error común: “I think in you every day.” “Pensar en” alguien se dice “think about”: “I think about you every day.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “about”. Con “pensar en” alguien o algo se usa “think about”. Escribe una frase tuya con “about” o dila en voz alta: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#preposiciones",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Think about” you",
+   "tip": "Learners say “pienso en ti”, but English says “think about you.”",
+   "caption": "Common mistake: “I think in you every day.” “Pensar en” someone is “think about”: “I think about you every day.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿“Think in”? Mejor “think about”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "¿“Think in”? Mejor “think about”",
+  "keyword": "I think about you every day.",
+  "value": "En español “pienso en ti”, pero en inglés es “think about”, no “think in.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#preposiciones",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "¿“Think in”? Mejor “think about”",
+    "description": "En español “pienso en ti”, pero en inglés es “think about”, no “think in.”\n\n🙈 Error común: “I think in you every day.” “Pensar en” alguien se dice “think about”: “I think about you every day.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #preposiciones #lexkite",
+    "tags": [
+     "I think about you every day.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "🙈 Error común: “I think in you every day.” “Pensar en” alguien se dice “think about”: “I think about you every day.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "¿“Think in”? Mejor “think about”\n\nEn español “pienso en ti”, pero en inglés es “think about”, no “think in.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#preposiciones",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿“Think in”? Mejor “think about” En español “pienso en ti”, pero en inglés es “think about”, no “think in… #aprenderingles #inglesfacil #preposiciones"
+   }
+  },
+  "first_comment": "Respuesta: “about”. Con “pensar en” alguien o algo se usa “think about”. Escribe una frase tuya con “about” o dila en voz alta: {link}",
+  "lang": "es"
+ }
+}

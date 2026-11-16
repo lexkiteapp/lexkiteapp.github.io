@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_becauseofi",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Because, not because of!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I stayed home because of I was sick.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I stayed home because I was sick.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use because before a full sentence.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Because! I was late because I missed the bus.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I stayed home because of I was sick.",
+  "right": "I stayed home because I was sick.",
+  "strike": "because of",
+  "why": "Use because before a full sentence.",
+  "memory": "Because I was sick.",
+  "quiz": {
+   "stem": "I was late ___ I missed the bus.",
+   "options": [
+    "because of",
+    "because"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“because of I” नहीं!",
+   "tip": "“की वजह से” सुनकर लोग because of बोल देते हैं। पूरे वाक्य से पहले because आता है; of के साथ चीज़ आती है, जैसे because of rain।",
+   "caption": "क्या आप भी बोलते हैं: “I stayed home because of I was sick.” 😅 सही वाक्य है: “I stayed home because I was sick.” ध्यान रखें: पूरे वाक्य से पहले because आता है, of नहीं। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “because”। याद रखें: पूरे वाक्य से पहले because आता है, of नहीं। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “because of I”!",
+   "tip": "Many learners add of. Before a full sentence use because. Use because of with a thing, like because of rain.",
+   "caption": "Do you say: “I stayed home because of I was sick.” 😅 The right sentence is: “I stayed home because I was sick.” Remember: Before a full sentence, use because. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“because of I” नहीं!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 54,
+  "seconds": 32.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "“because of I” नहीं!",
+  "keyword": "I stayed home because I was sick.",
+  "value": "“की वजह से” सुनकर लोग because of बोल देते हैं। पूरे वाक्य से पहले because आता है; of के साथ चीज़ आती है, जैसे because of rain।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 48,
+  "platforms": {
+   "youtube": {
+    "title": "“because of I” नहीं!",
+    "description": "“की वजह से” सुनकर लोग because of बोल देते हैं। पूरे वाक्य से पहले because आता है; of के साथ चीज़ आती है, जैसे because of rain।\n\nक्या आप भी बोलते हैं: “I stayed home because of I was sick.” 😅 सही वाक्य है: “I stayed home because I was sick.” ध्यान रखें: पूरे वाक्य से पहले because आता है, of नहीं। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "I stayed home because I was sick.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी बोलते हैं: “I stayed home because of I was sick.” 😅 सही वाक्य है: “I stayed home because I was sick.” ध्यान रखें: पूरे वाक्य से पहले because आता है, of नहीं। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“because of I” नहीं!\n\n“की वजह से” सुनकर लोग because of बोल देते हैं। पूरे वाक्य से पहले because आता है; of के साथ चीज़ आती है, जैसे because of rain।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“because of I” नहीं! “की वजह से” सुनकर लोग because of बोल देते हैं। पूरे वाक्य से पहले because आता है;… #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “because”। याद रखें: पूरे वाक्य से पहले because आता है, of नहीं। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

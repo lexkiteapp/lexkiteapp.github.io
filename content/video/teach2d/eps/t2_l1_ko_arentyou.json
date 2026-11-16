@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_arentyou",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say aren't you!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: You are Ana, isn't it?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: You are Ana, aren't you?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "The end must match the start.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Aren't you! You are Ana, aren't you?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "You are Ana, isn't it?",
+  "right": "You are Ana, aren't you?",
+  "strike": "isn't it",
+  "why": "The end must match the start.",
+  "memory": "Aren't you?",
+  "quiz": {
+   "stem": "You are Ana, ___?",
+   "options": [
+    "isn't it",
+    "aren't you"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“isn’t it” 틀렸어요!",
+   "tip": "한국어 ‘그렇죠?’처럼 한 가지로 끝내기 쉬워요. 영어는 앞 문장에 맞춰요! 이렇게 말해요 👉 “You are Ana, aren't you?”",
+   "caption": "“You are Ana, isn't it”처럼 말하고 있나요? 😅 한국어는 ‘그렇죠?’ 하나로 끝낼 수 있지만, 영어는 앞 문장에 맞춰 aren't you처럼 말해요. 맞는 문장 ✅ “You are Ana, aren't you?” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답 ✅ “You are Ana, aren't you?” 소리 내어 한 번 말해 보고, 나만의 문장도 하나 써 보세요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Isn't it” is wrong!",
+   "tip": "The end must match the start. Say aren't you. Say “You are Ana, aren't you?”",
+   "caption": "Do you say “You are Ana, isn't it” in English? 😅 Korean can end with one word, but English matches the start of the sentence! “You are Ana, aren't you” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“isn’t it” 틀렸어요!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“isn’t it” 틀렸어요!",
+  "keyword": "You are Ana, aren't you?",
+  "value": "한국어 ‘그렇죠?’처럼 한 가지로 끝내기 쉬워요. 영어는 앞 문장에 맞춰요! 이렇게 말해요 👉 “You are Ana, aren't you?”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "“isn’t it” 틀렸어요!",
+    "description": "한국어 ‘그렇죠?’처럼 한 가지로 끝내기 쉬워요. 영어는 앞 문장에 맞춰요! 이렇게 말해요 👉 “You are Ana, aren't you?”\n\n“You are Ana, isn't it”처럼 말하고 있나요? 😅 한국어는 ‘그렇죠?’ 하나로 끝낼 수 있지만, 영어는 앞 문장에 맞춰 aren't you처럼 말해요. 맞는 문장 ✅ “You are Ana, aren't you?” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "You are Ana, aren't you?",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“You are Ana, isn't it”처럼 말하고 있나요? 😅 한국어는 ‘그렇죠?’ 하나로 끝낼 수 있지만, 영어는 앞 문장에 맞춰 aren't you처럼 말해요. 맞는 문장 ✅ “You are Ana, aren't you?” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“isn’t it” 틀렸어요!\n\n한국어 ‘그렇죠?’처럼 한 가지로 끝내기 쉬워요. 영어는 앞 문장에 맞춰요! 이렇게 말해요 👉 “You are Ana, aren't you?”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“isn’t it” 틀렸어요! 한국어 ‘그렇죠?’처럼 한 가지로 끝내기 쉬워요. 영어는 앞 문장에 맞춰요! 이렇게 말해요 👉 “You are Ana, aren't you?” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답 ✅ “You are Ana, aren't you?” 소리 내어 한 번 말해 보고, 나만의 문장도 하나 써 보세요: {link}",
+  "lang": "ko"
+ }
+}
