@@ -105,6 +105,8 @@ if (found) {
   ok($$('#fi .ctx-say').every(b => b.getAttribute('aria-label')), 'nút nghe câu ví dụ có nhãn');
   w.document.body.dispatchEvent(new w.KeyboardEvent('keydown', { key: ' ', bubbles: true })); await tick(30);
   ok(!errors.some(e => /flip is not defined/.test(e)), 'phím cách không gây lỗi (flip không tồn tại)');
+  // Đồng hồ đóng băng từ lúc vẽ câu tới lúc chạm "ngay": app bỏ chạm trong 250 ms đầu (chạm đúp từ màn trước) – trên CI chậm các phép kiểm ở giữa có thể vượt 250 ms thật → test chập chờn (đỏ #1397, #1447)
+  const realNow = w.Date.now, frozen = realNow.call(w.Date); w.Date.now = () => frozen;
   click($('#gotIt')); click($('#gotIt')); await tick(60);
   ok($$('.options .option').length === 4, 'Tiếp tục → câu trắc nghiệm nghĩa (chạm đúp không nhảy 2 bước)');
   ok(!$$('.options .option').some(b => /right|wrong|picked/.test(b.className)), 'chưa chạm: không đáp án nào được tô');
@@ -113,8 +115,10 @@ if (found) {
   const meanOf = w.App.meanOf, byMean = new Map(ALL.map(x => [meanOf(x), x]));
   const others = texts.filter(x => x !== meanOf(W('live'))).map(x => byMean.get(x)).filter(Boolean);
   ok(others.length === 3 && others.every(x => D.posOf(x.pos) === 'v'), 'phương án nhiễu cho “live” đều là động từ: ' + others.map(x => x.word).join(', '));
+  { const e = process.hrtime.bigint(); while (process.hrtime.bigint() - e < 400000000n); }
   click(opts[0]); await tick(10);
   ok(!$('#fb .sheet'), 'chạm ngay khi vừa hiện câu (chạm đúp từ màn trước) bị bỏ qua');
+  w.Date.now = realNow;
   await tick(300); click(opts[0]); await tick(40);
   ok($('#fb .sheet'), 'chạm sau đó → hiện bảng phản hồi');
   ok($('.study-wrap').style.getPropertyValue('--sheet-h') && /\.study-wrap:has\(\.sheet-up\) \{ padding-bottom: calc\(var\(--sheet-h/.test(css) && $('#fb .sheet').classList.contains('sheet-up'), 'chừa đáy bằng đúng chiều cao bảng phản hồi (gắn .sheet-up sau lần vẽ – INP)');
