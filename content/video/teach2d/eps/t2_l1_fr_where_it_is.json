@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_where_it_is",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "I don't know where it is.",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I don't know where is the station.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I don't know where the station is.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "In this kind of question, the verb goes last.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second one! I don't know where the bank is.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I don't know where is the station.",
+  "right": "I don't know where the station is.",
+  "strike": "where is the station",
+  "why": "In this kind of question, the verb goes last.",
+  "memory": "Last: the verb.",
+  "quiz": {
+   "stem": "I don't know ___.",
+   "options": [
+    "where is the bank",
+    "where the bank is"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "« I don’t know » : verbe à la fin",
+   "tip": "En français, on dit « Je ne sais pas où est la gare ». En anglais, après “I don’t know”, le verbe va à la fin : “where the station is”.",
+   "caption": "Vous dites “I don't know where is the station.” ? En français, on dit « Je ne sais pas où est la gare ». En anglais, après “I don’t know”, le verbe va à la fin : “where the station is”. Dites plutôt “I don't know where the station is.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “I don't know where the station is.” — En français, on dit « Je ne sais pas où est la gare ». En anglais, après “I don’t know”, le verbe va à la fin : “where the station is”. À vous : écrivez une phrase de votre cru. Quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "The verb goes last!",
+   "tip": "French says « où est la gare ». After “I don’t know”, English puts the verb last: “where the station is”.",
+   "caption": "Do you say this? “I don't know where is the station.” French says « où est la gare ». After “I don’t know”, English puts the verb last: “where the station is”. Say “I don't know where the station is.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "« I don’t know » : verbe à la fin"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 59,
+  "seconds": 34.5,
+  "wpm": 103
+ },
+ "publish": {
+  "title": "« I don’t know » : verbe à la fin",
+  "keyword": "I don't know where the station is.",
+  "value": "En français, on dit « Je ne sais pas où est la gare ». En anglais, après “I don’t know”, le verbe va à la fin : “where the station is”.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 53,
+  "platforms": {
+   "youtube": {
+    "title": "« I don’t know » : verbe à la fin",
+    "description": "En français, on dit « Je ne sais pas où est la gare ». En anglais, après “I don’t know”, le verbe va à la fin : “where the station is”.\n\nVous dites “I don't know where is the station.” ? En français, on dit « Je ne sais pas où est la gare ». En anglais, après “I don’t know”, le verbe va à la fin : “where the station is”. Dites plutôt “I don't know where the station is.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "I don't know where the station is.",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Vous dites “I don't know where is the station.” ? En français, on dit « Je ne sais pas où est la gare ». En anglais, après “I don’t know”, le verbe va à la fin : “where the station is”. Dites plutôt “I don't know where the station is.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "« I don’t know » : verbe à la fin\n\nEn français, on dit « Je ne sais pas où est la gare ». En anglais, après “I don’t know”, le verbe va à la fin : “where the station is”.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "« I don’t know » : verbe à la fin En français, on dit « Je ne sais pas où est la gare ». En anglais,… #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “I don't know where the station is.” — En français, on dit « Je ne sais pas où est la gare ». En anglais, après “I don’t know”, le verbe va à la fin : “where the station is”. À vous : écrivez une phrase de votre cru. Quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}

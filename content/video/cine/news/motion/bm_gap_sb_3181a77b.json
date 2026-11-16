@@ -1,0 +1,249 @@
+{
+ "id": "mo_bm_gap_sb_3181a77b",
+ "template": "gap",
+ "title": "Motion gap – wonder + wh: ask yourself (sb_3181a77b)",
+ "teacher": "ama",
+ "clips": [
+  "ga11_talk",
+  "ga11_explain",
+  "ga11_happy",
+  "ga11_thinking",
+  "ga11_surprise_3"
+ ],
+ "listen": [
+  "ga11_listen_2"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy",
+ "active": "mint",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "grammar",
+  "link": "https://lexkite.com/app/",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Exam",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "Fill the blank.",
+   "gap": 0.7
+  },
+  {
+   "id": "q",
+   "text": "I wonder blank.",
+   "gap": 0.7
+  },
+  {
+   "id": "o",
+   "text": "where she lives, or where does she live?",
+   "gap": 0.7
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "a",
+   "text": "where she lives! Use normal order after I wonder.",
+   "gap": 0.7
+  },
+  {
+   "id": "w",
+   "text": "Same with I don't know where it is!",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "Fill the",
+      "white"
+     ]
+    ],
+    [
+     [
+      "blank.",
+      "yellow"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Fill the blank",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "Fill the"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "blank."
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "q",
+    "at": [
+     "q",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Grammar",
+      "tone": "teal",
+      "ring": "_count"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "I wonder "
+       ],
+       [
+        "_____",
+        "muted"
+       ],
+       [
+        "."
+       ]
+      ],
+      "slot": {
+       "run": 1,
+       "word": "where she lives"
+      }
+     }
+    ],
+    "reveal": [
+     "a",
+     0
+    ],
+    "xp": [
+     {
+      "at": [
+       "a",
+       0
+      ],
+      "n": 10
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "opts",
+    "id": "opts",
+    "opts": [
+     "where she lives",
+     "where does she live"
+    ],
+    "cues": [
+     [
+      "o",
+      0
+     ],
+     [
+      "o",
+      4
+     ]
+    ],
+    "reveal": [
+     "a",
+     0
+    ],
+    "right": 0
+   }
+  ],
+  "hook_text": "Fill the blank.",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ },
+ "uses": {
+  "template": "gap",
+  "row": "sb_3181a77b",
+  "teacher": "ama",
+  "accent": "navy",
+  "active": "mint",
+  "tones": 2
+ }
+}

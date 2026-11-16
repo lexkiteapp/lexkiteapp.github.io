@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "“I did a mistake” 아니에요!",
-   "tip": "실수는 do가 아니라 make! “I made a mistake”라고 말해요.",
-   "caption": "“I did a mistake”라고 말하고 있진 않나요? 😅 영어에서는 실수를 “do”(하다)가 아니라 “make”(만들다)라고 해서 “I made a mistake”가 맞아요. Carlos 선생님 발음을 듣고 따라 해 보세요! Lexkite 앱에서 더 연습해요.",
-   "comment": "정답: “made”. 실수는 make a mistake! 무료 퀴즈로 더 연습해 보세요: {link}",
+   "tip": "실수는 do가 아니라 make! 이렇게 말해요 👉 “I made a mistake.”",
+   "caption": "“I did a mistake”라고 말하고 있진 않나요? 😅 영어에서는 실수를 “do”(하다)가 아니라 “make”(만들다)를 써요. 맞는 문장 ✅ “I made a mistake.” Carlos 선생님 발음을 듣고 따라 해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답: “made”! 실수는 make a mistake! 무료 퀴즈로 더 연습해 보세요: {link}",
    "hashtags": [
     "#영어공부",
     "#영어회화",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "Not “I did a mistake”!",
-   "tip": "For a mistake, use make, not do! Say “I made a mistake”.",
-   "caption": "Do you say “I did a mistake”? 😅 In English you “make” a mistake, so “I made a mistake” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
+   "tip": "For a mistake, use make, not do! Say “I made a mistake.”",
+   "caption": "Do you say “I did a mistake” in English? 😅 In English you “make” a mistake, so “I made a mistake” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "“I did a mistake” 아니에요!",
   "keyword": "I made a mistake.",
-  "value": "실수는 do가 아니라 make! “I made a mistake”라고 말해요.",
+  "value": "실수는 do가 아니라 make! 이렇게 말해요 👉 “I made a mistake.”",
   "hashtags": [
    "#영어공부",
    "#영어회화",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "“I did a mistake” 아니에요!",
-    "description": "“I did a mistake”라고 말하고 있진 않나요? 😅 영어에서는 실수를 “do”(하다)가 아니라 “make”(만들다)라고 해서 “I made a mistake”가 맞아요. Carlos 선생님 발음을 듣고 따라 해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "description": "실수는 do가 아니라 make! 이렇게 말해요 👉 “I made a mistake.”\n\n“I did a mistake”라고 말하고 있진 않나요? 😅 영어에서는 실수를 “do”(하다)가 아니라 “make”(만들다)를 써요. 맞는 문장 ✅ “I made a mistake.” Carlos 선생님 발음을 듣고 따라 해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
     "tags": [
      "I made a mistake.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "“I did a mistake”라고 말하고 있진 않나요? 😅 영어에서는 실수를 “do”(하다)가 아니라 “make”(만들다)라고 해서 “I made a mistake”가 맞아요. Carlos 선생님 발음을 듣고 따라 해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "“I did a mistake”라고 말하고 있진 않나요? 😅 영어에서는 실수를 “do”(하다)가 아니라 “make”(만들다)를 써요. 맞는 문장 ✅ “I made a mistake.” Carlos 선생님 발음을 듣고 따라 해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "“I did a mistake”라고 말하고 있진 않나요? 😅 영어에서는 실수를 “do”(하다)가 아니라 “make”(만들다)라고 해서 “I made a mistake”가 맞아요. Carlos 선생님 발음을 듣고 따라 해 보세요! Lexkite 앱에서 더 연습해요.\n\nlexkite.com",
+    "caption": "“I did a mistake” 아니에요!\n\n실수는 do가 아니라 make! 이렇게 말해요 👉 “I made a mistake.”\n\nlexkite.com",
     "hashtags": [
      "#영어공부",
      "#영어회화",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "“I did a mistake” 아니에요! #영어공부 #영어회화 #영어독학"
+    "caption": "“I did a mistake” 아니에요! 실수는 do가 아니라 make! 이렇게 말해요 👉 “I made a mistake.” #영어공부 #영어회화 #영어독학"
    }
   },
-  "first_comment": "정답: “made”. 실수는 make a mistake! 무료 퀴즈로 더 연습해 보세요: {link}",
+  "first_comment": "정답: “made”! 실수는 make a mistake! 무료 퀴즈로 더 연습해 보세요: {link}",
   "lang": "ko"
  }
 }

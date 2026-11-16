@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_was_born",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Was born, not I born!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I born in Bangkok.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I was born in Bangkok.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say was born.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Was born! She was born in 1995.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I born in Bangkok.",
+  "right": "I was born in Bangkok.",
+  "strike": "I born",
+  "why": "Say was born.",
+  "memory": "I was born.",
+  "quiz": {
+   "stem": "She ___ in 1995.",
+   "options": [
+    "born",
+    "was born"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "เกิด = was born!",
+   "tip": "ไทยพูด “ฉันเกิด” แต่อังกฤษต้องใช้ “was born”",
+   "caption": "คุณเคยพูดว่า “I born in Bangkok.” ไหม? 😅 ภาษาไทยพูดว่า “ฉันเกิดที่…” ได้เลย แต่ภาษาอังกฤษต้องใช้ was born: “I was born in Bangkok.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “was born” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “I born”, but “I was born”!",
+   "tip": "Thai says “I born”, but English needs was born: “I was born in Bangkok”",
+   "caption": "Do you say “I born in Bangkok”? 😅 Thai says “I born”, but English needs was before born. Say “I was born in Bangkok”! Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "เกิด = was born!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "เกิด = was born!",
+  "keyword": "I was born in Bangkok.",
+  "value": "ไทยพูด “ฉันเกิด” แต่อังกฤษต้องใช้ “was born”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "เกิด = was born!",
+    "description": "ไทยพูด “ฉันเกิด” แต่อังกฤษต้องใช้ “was born”\n\nคุณเคยพูดว่า “I born in Bangkok.” ไหม? 😅 ภาษาไทยพูดว่า “ฉันเกิดที่…” ได้เลย แต่ภาษาอังกฤษต้องใช้ was born: “I was born in Bangkok.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "I was born in Bangkok.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “I born in Bangkok.” ไหม? 😅 ภาษาไทยพูดว่า “ฉันเกิดที่…” ได้เลย แต่ภาษาอังกฤษต้องใช้ was born: “I was born in Bangkok.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "เกิด = was born!\n\nไทยพูด “ฉันเกิด” แต่อังกฤษต้องใช้ “was born”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "เกิด = was born! ไทยพูด “ฉันเกิด” แต่อังกฤษต้องใช้ “was born” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “was born” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_hobbyread",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Hobby is reading!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: My hobby is read books.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My hobby is reading books.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After my hobby is, use reading.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Reading! My hobby is reading books.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "My hobby is read books.",
+  "right": "My hobby is reading books.",
+  "strike": "read",
+  "why": "After my hobby is, use reading.",
+  "memory": "My hobby is reading books.",
+  "quiz": {
+   "stem": "My hobby is ___ books.",
+   "options": [
+    "read",
+    "reading"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "hobby is + -ing",
+   "tip": "Kita bilang “hobi saya membaca buku” tanpa mengubah kata kerja. Di bahasa Inggris, setelah My hobby is pakai bentuk -ing.",
+   "caption": "Pernah bilang begini? “My hobby is read books.” 😅 Setelah My hobby is, pakai -ing: “My hobby is reading books.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “reading”. Ucapkan dengan lantang: “My hobby is reading books.” lalu tulis hobimu dengan -ing. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#hobi",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Hobby + -ing",
+   "tip": "We say “hobi saya membaca buku” and the verb does not change. In English, after My hobby is use the -ing form.",
+   "caption": "Ever say this? “My hobby is read books.” 😅 After My hobby is, use -ing: “My hobby is reading books.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "hobby is + -ing"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "hobby is + -ing",
+  "keyword": "My hobby is reading books.",
+  "value": "Kita bilang “hobi saya membaca buku” tanpa mengubah kata kerja. Di bahasa Inggris, setelah My hobby is pakai bentuk -ing.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#hobi",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "hobby is + -ing",
+    "description": "Kita bilang “hobi saya membaca buku” tanpa mengubah kata kerja. Di bahasa Inggris, setelah My hobby is pakai bentuk -ing.\n\nPernah bilang begini? “My hobby is read books.” 😅 Setelah My hobby is, pakai -ing: “My hobby is reading books.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #hobi #bahasainggris #lexkite",
+    "tags": [
+     "My hobby is reading books.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “My hobby is read books.” 😅 Setelah My hobby is, pakai -ing: “My hobby is reading books.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "hobby is + -ing\n\nKita bilang “hobi saya membaca buku” tanpa mengubah kata kerja. Di bahasa Inggris, setelah My hobby is pakai bentuk -ing.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#hobi",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "hobby is + -ing Kita bilang “hobi saya membaca buku” tanpa mengubah kata kerja. Di bahasa Inggris, setelah… #belajarbahasainggris #hobi #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “reading”. Ucapkan dengan lantang: “My hobby is reading books.” lalu tulis hobimu dengan -ing. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

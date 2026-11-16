@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_itdepends",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say it depends!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: It is depend on you.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: It depends on you.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Depend is already the verb.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Depends! It depends on the weather.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "It is depend on you.",
+  "right": "It depends on you.",
+  "strike": "is depend",
+  "why": "Depend is already the verb.",
+  "memory": "It depends.",
+  "quiz": {
+   "stem": "It ___ on the weather.",
+   "options": [
+    "is depend",
+    "depends"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "depend 前面不加 is！",
+   "tip": "中文习惯先说“是”，所以容易说 It is depend。depend 本身就是动词，不加 is，要说 It depends。",
+   "caption": "你是不是也会说 “It is depend on you.”😅 depend 本身就是动词，前面不加 is：“It depends on you.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“It depends on you.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "No “is” before depend!",
+   "tip": "It is customary in Chinese to say \"yes\" first, so it is easy to say \"It is depend\". Depend itself is a verb, without adding is, you would say It depends.",
+   "caption": "Do you say “It is depend on you.” 😅 Depend is already a verb, so it needs no is: “It depends on you.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "depend 前面不加 is！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "depend 前面不加 is！",
+  "keyword": "It depends on you.",
+  "value": "中文习惯先说“是”，所以容易说 It is depend。depend 本身就是动词，不加 is，要说 It depends。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "depend 前面不加 is！",
+    "description": "中文习惯先说“是”，所以容易说 It is depend。depend 本身就是动词，不加 is，要说 It depends。\n\n你是不是也会说 “It is depend on you.”😅 depend 本身就是动词，前面不加 is：“It depends on you.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "It depends on you.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “It is depend on you.”😅 depend 本身就是动词，前面不加 is：“It depends on you.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "depend 前面不加 is！\n\n中文习惯先说“是”，所以容易说 It is depend。depend 本身就是动词，不加 is，要说 It depends。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "depend 前面不加 is！ 中文习惯先说“是”，所以容易说 It is depend。depend 本身就是动词，不加 is，要说 It depends。 #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“It depends on you.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

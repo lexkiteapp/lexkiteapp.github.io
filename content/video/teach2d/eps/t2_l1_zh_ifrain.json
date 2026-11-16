@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_ifrain",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say “If I were you!”",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: If I am you, I would tell her.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: If I were you, I would tell her.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say were after if.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! If I were you, I would go.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "If I am you, I would tell her.",
+  "right": "If I were you, I would tell her.",
+  "strike": "If I am you",
+  "why": "Say were after if.",
+  "memory": "If I were you.",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "If I am you, I would go.",
+    "If I were you, I would go."
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“如果我是你”要说 If I were you！",
+   "tip": "中文说“如果我是你”，但英语要用 were：“If I were you”，不用 am。",
+   "caption": "你是不是也会说 “If I am you, I would tell her.”😅 英语里想象的情况要说 were：“If I were you, I would tell her.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“If I were you, I would tell her.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “If I were you”!",
+   "tip": "In Chinese you say “if I am you,” but English uses “were,” not “am.”",
+   "caption": "Do you say “If I am you, I would tell her.” 😅 For an imagined situation, English uses “were”: “If I were you, I would tell her.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“如果我是你”要说 If I were you！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 54,
+  "seconds": 32.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "“如果我是你”要说 If I were you！",
+  "keyword": "If I were you, I would tell her.",
+  "value": "中文说“如果我是你”，但英语要用 were：“If I were you”，不用 am。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 48,
+  "platforms": {
+   "youtube": {
+    "title": "“如果我是你”要说 If I were you！",
+    "description": "中文说“如果我是你”，但英语要用 were：“If I were you”，不用 am。\n\n你是不是也会说 “If I am you, I would tell her.”😅 英语里想象的情况要说 were：“If I were you, I would tell her.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "If I were you, I would tell her.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “If I am you, I would tell her.”😅 英语里想象的情况要说 were：“If I were you, I would tell her.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“如果我是你”要说 If I were you！\n\n中文说“如果我是你”，但英语要用 were：“If I were you”，不用 am。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“如果我是你”要说 If I were you！ 中文说“如果我是你”，但英语要用 were：“If I were you”，不用 am。 #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“If I were you, I would tell her.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

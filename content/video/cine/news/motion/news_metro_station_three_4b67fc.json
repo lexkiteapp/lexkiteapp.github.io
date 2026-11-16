@@ -1,0 +1,297 @@
+{
+ "id": "mo_news_metro_station_three_4b67fc",
+ "template": "tip",
+ "title": "News Motion – subway directions: which line, transfer, how many stops (news_metro_station_three_4b67fc)",
+ "teacher": "ama",
+ "clips": [
+  "ga11_talk",
+  "ga11_explain",
+  "ga11_happy",
+  "ga11_thinking",
+  "ga11_surprise_3"
+ ],
+ "listen": [
+  "ga11_listen_2"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy2",
+ "active": "mint",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "listening",
+  "link": "https://lexkite.com/app/#/listening",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "City English",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "Lost on the subway?"
+  },
+  {
+   "id": "t0",
+   "text": "Which line goes downtown?",
+   "gap": 0.7
+  },
+  {
+   "id": "t1",
+   "text": "Take the red line.",
+   "gap": 0.7
+  },
+  {
+   "id": "t2",
+   "text": "Where do I transfer?",
+   "gap": 0.7
+  },
+  {
+   "id": "t3",
+   "text": "At Central Station.",
+   "gap": 0.7
+  },
+  {
+   "id": "t4",
+   "text": "How many stops is it?",
+   "gap": 0.7
+  },
+  {
+   "id": "t5",
+   "text": "It's about five stops.",
+   "gap": 0.7
+  },
+  {
+   "id": "r",
+   "text": "Teacher's tip: save these three phrases today.",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "SUBWAY LOST?",
+      "white"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "City English · Subway questions",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "SUBWAY LOST?"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "sum",
+    "at": [
+     "r",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Remember",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "Which line goes downtown?",
+        "gold"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "Where do I transfer?",
+        "teal"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "How many stops is it?",
+        "coral"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "rules",
+    "at": [
+     "t0",
+     0
+    ],
+    "rows": [
+     {
+      "t": "tile",
+      "tag": "PHRASE 1",
+      "tone": "gold",
+      "lines": [
+       [
+        [
+         "line = subway route",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "Which line goes downtown?",
+        "gold"
+       ]
+      ],
+      "ex_at": [
+       "t0",
+       0
+      ],
+      "at": [
+       "t0",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "PHRASE 2",
+      "tone": "teal",
+      "lines": [
+       [
+        [
+         "transfer = change trains",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "Where do I transfer?",
+        "teal"
+       ]
+      ],
+      "ex_at": [
+       "t2",
+       0
+      ],
+      "at": [
+       "t2",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "PHRASE 3",
+      "tone": "coral",
+      "lines": [
+       [
+        [
+         "stop = station on the way",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "How many stops is it?",
+        "coral"
+       ]
+      ],
+      "ex_at": [
+       "t4",
+       0
+      ],
+      "at": [
+       "t4",
+       0
+      ]
+     }
+    ]
+   }
+  ],
+  "hook_text": "SUBWAY LOST?",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ }
+}

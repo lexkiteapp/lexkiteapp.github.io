@@ -161,6 +161,8 @@ Contar lo que dijo otra persona (*My teacher once told me that…*) es una buena
 
 {{youtube: | Idea de video: la misma pregunta de parte 3 respondida en band 5, 6.5 y 8}}
 
+Si quieres ver cómo se transforma una respuesta corta en una de nivel alto, revisa los [ejemplos de IELTS Speaking band 7](/es/blog/ielts-speaking-band-7-ejemplos-de-respuestas/).
+
 ## Preguntas frecuentes
 
 ### ¿Cuánto debo hablar en cada respuesta de la parte 3?

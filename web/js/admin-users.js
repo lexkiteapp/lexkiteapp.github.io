@@ -107,8 +107,8 @@
         <section class="card u-wide" aria-labelledby="uRtH"><div class="card-h"><h2 class="h3" id="uRtH">${T('Giữ chân theo nhóm tuần đăng ký')}</h2><span class="small muted">${T('Tỉ lệ người còn quay lại ít nhất 1 / 7 / 30 ngày sau khi đăng ký.')}</span></div><div id="uRt"><span class="sk sk-block" style="margin:0"></span></div></section>
       </div>
       <div class="card mt">
-        <div class="u-tools">
-          <input type="search" id="uq" placeholder="${esc(T('🔎 Tìm email, tên hoặc UID'))}" value="${esc(f.q)}" aria-label="${esc(T('Tìm người dùng'))}" aria-keyshortcuts="/">
+        <div class="u-top"><input type="search" id="uq" placeholder="${esc(T('🔎 Tìm email, tên hoặc UID'))}" value="${esc(f.q)}" aria-label="${esc(T('Tìm người dùng'))}" aria-keyshortcuts="/">
+        <div class="u-tools" data-fsheet>
           ${opt('frole', 'Vai trò', [['', 'Tất cả'], ['admin', 'Quản trị'], ['learner', 'Người học']], 'role')}
           ${opt('fstatus', 'Trạng thái', [['', 'Tất cả'], ['active7', 'Hoạt động 7 ngày'], ['dormant', 'Ngủ đông >30 ngày'], ['new7', 'Mới 7 ngày']], 'status')}
           ${opt('fplat', 'Nền tảng', [['', 'Tất cả'], ['web', 'Web'], ['ios', 'iOS'], ['android', 'Android'], ['ext', 'Add-on Chrome'], ['app', 'App (cũ)']], 'plat')}
@@ -122,13 +122,14 @@
           <label class="u-sel"><span>${T('đến ngày')}</span><input type="date" id="fto" value="${esc(f.to)}"></label>
           ${opt('fsort', 'Sắp xếp', [['seen', 'Hoạt động gần nhất'], ['new', 'Mới nhất'], ['old', 'Tham gia sớm nhất'], ['n', 'Vào nhiều nhất'], ['email', 'Email'], ['name', 'Người dùng']], 'sort')}
           <button type="button" class="btn ghost sm" id="uclr" hidden>${T('Bỏ lọc')}</button>
-        </div>
+        </div></div>
         <div class="u-selbar" id="uSelBar" role="status" aria-live="polite" hidden></div>
         <div class="tbl-wrap scroll" id="uTable" aria-busy="true"><span class="sk sk-block" style="margin:0"></span></div>
         <div class="u-pager" id="uPager"></div>
       </div>
       <section class="card mt" aria-labelledby="uCcH"><div class="card-h"><h2 class="h3" id="uCcH">${T('🌍 Người dùng theo quốc gia')}</h2><span class="small muted">${T('Lần đồng bộ gần nhất · bấm để lọc')}</span></div><div id="uCc"><span class="sk sk-block" style="margin:0"></span></div></section>
       <div class="u-bulk" id="uBulk" role="toolbar" aria-label="${esc(T('Thao tác hàng loạt'))}" hidden></div>`;
+    $('#fsort').dataset.fsNc = ''; // sắp xếp không tính là bộ lọc đang bật (số trên nút Lọc)
     const anyF = () => FKEYS.some(k => f[k]);
 
     // ---------- Chế độ xem (có sẵn + của tôi, lưu ở máy này) ----------
@@ -318,7 +319,9 @@
       if (t.closest('[data-clrf]')) { applyF({ sort: f.sort, dir: f.dir }); return; }
       const d = t.closest('[data-uid]'); if (d) { c.userDialog(d.dataset.uid, load); return; }
       const x = t.closest('[data-del]'); if (x) { c.userDel(x.dataset.del, x.dataset.em, load); return; }
-      const nt = t.closest('[data-notif]'); if (nt) { try { sessionStorage.setItem('adm.targetUser', JSON.stringify({ uid: nt.dataset.notif, email: nt.dataset.em })); } catch (e) { /* bỏ qua */ } c.show('notices'); }
+      const nt = t.closest('[data-notif]'); if (nt) { try { sessionStorage.setItem('adm.targetUser', JSON.stringify({ uid: nt.dataset.notif, email: nt.dataset.em })); } catch (e) { /* bỏ qua */ } c.show('notices'); return; }
+      // điện thoại (dạng thẻ): chạm vào thẻ = mở chi tiết (ngoài ô chọn, nút, chip nhãn)
+      const tr = t.closest('tr[data-row]'); if (tr && tr.closest('table.tbl-cards') && !t.closest('a, button, input, label, select')) c.userDialog(tr.dataset.row, load);
     });
     // shift-click trên ô chọn: chặn bôi đen chữ
     T_.addEventListener('mousedown', ev => { if (ev.shiftKey && ev.target.classList && ev.target.classList.contains('u-ck')) ev.preventDefault(); });

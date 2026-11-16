@@ -133,6 +133,8 @@ Desarrolle resistencia mental mediante este esquema de práctica cotidiana:
 
 ---
 
+Si quieres ver todas las partes juntas y el reparto de tiempo, consulta el [formato del examen TOEIC](/es/blog/formato-del-examen-toeic-partes-y-puntuacion/).
+
 ## Supere sus metas en el examen TOEIC con Lexkite
 
 Alcanzar un puntaje sobresaliente en el examen exige velocidad de lectura y una sólida base léxica:

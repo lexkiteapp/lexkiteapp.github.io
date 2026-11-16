@@ -181,6 +181,8 @@ Para elegir audios de tu nivel, conviene saber dónde estás: repasa los [nivele
 
 {{youtube: | Idea de vídeo: analizar un fragmento de un minuto con el método de 5 escuchas}}
 
+Si te preparas para IELTS, consulta además [los tipos de preguntas IELTS Listening](/es/blog/tipos-de-preguntas-ielts-listening/) y cómo atacar cada uno.
+
 ## Preguntas frecuentes
 
 ### ¿Cuánto tiempo al día debo practicar el listening en inglés?

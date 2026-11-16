@@ -75,7 +75,11 @@
         ...(window.Sync && Sync.renderBox ? [R('acct', 'cloud', t('Tài khoản & đồng bộ'), { act: 'acct', value: u ? '' : t('Đăng nhập') })] : []),
         ...(isAdmin ? [R('admin', 'admin_panel_settings', t('Quản trị hệ thống'), { href: App.adminUrl(), ext: 1, chev: 'open_in_new' })] : []),
         R('settings', 'settings', t('Cài đặt'), { href: '#/settings' }),
-        R('getapp', 'install_mobile', t('Tải app'), { href: '#/me', hook: ' data-get-app="me"' })] },
+        R('getapp', 'install_mobile', t('Tải app'), { href: '#/me', hook: ' data-get-app="me"' }),
+        // đủ kênh (js/get-app.js [data-ch]: kênh chưa có link, app gốc/add-on → ẩn; tên cửa hàng là tên riêng, không dịch)
+        R('ch-ios', 'install_mobile', 'App Store', { href: '#/me', ext: 1, chev: 'open_in_new', hook: ' data-ch="ios" data-from="me" hidden' }),
+        R('ch-play', 'install_mobile', 'Google Play', { href: '#/me', ext: 1, chev: 'open_in_new', hook: ' data-ch="play" data-from="me" hidden' }),
+        R('ch-cws', 'extension', 'Chrome Web Store', { href: '#/me', ext: 1, chev: 'open_in_new', hook: ' data-ch="cws" data-from="me" hidden' })] },
       { icon: 'info', title: t('Tìm hiểu thêm'), rows: [R('more', 'info', t('Tìm hiểu thêm'), { act: 'more', value: String(more.length) })] }
     ];
     secs.forEach(s => s.rows.forEach((r, i) => { r.v = r.tog ? 'tg' : r.value ? ['n1', 'n2', 'n3'][i % 3] : 'n2'; }));
@@ -101,7 +105,7 @@
     if (App.getApp) App.getApp(view);
     // Chưa đăng nhập: icon logout → login (đổi trong JS nên phải khai @icons login để có trong msym.woff2, nếu không chữ "login" hiện ra bị cắt – stitch-diff 06/11)
     if (!state.user) root.querySelectorAll('[data-act="out"] .material-symbols-outlined, [data-act="out"] .material-symbols-rounded').forEach(ic => { if (ic.textContent.trim() === 'logout') ic.textContent = 'login'; });
-    view.querySelectorAll('[data-row="getapp"]').forEach(row => { const a = row.querySelector('[data-get-app]'); const sync = () => { row.hidden = !a || a.hidden || a.hasAttribute('data-off'); }; sync(); if (a && window.MutationObserver) new MutationObserver(sync).observe(a, { attributes: true, attributeFilter: ['hidden', 'data-off'] }); });
+    view.querySelectorAll('[data-row="getapp"],[data-row^="ch-"]').forEach(row => { const a = row.querySelector('[data-get-app],[data-ch]'); const sync = () => { row.hidden = !a || a.hidden || a.hasAttribute('data-off'); }; sync(); if (a && window.MutationObserver) new MutationObserver(sync).observe(a, { attributes: true, attributeFilter: ['hidden', 'data-off'] }); });
     if (ae) { const b = root.querySelector('[data-act="' + ae + '"]'); if (b) b.focus({ preventScroll: true }); window.scrollTo(0, y); }
     paint = () => me();
     if (root.__meBound) return; root.__meBound = 1;

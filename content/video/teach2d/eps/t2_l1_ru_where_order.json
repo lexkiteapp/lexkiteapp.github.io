@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_where_order",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Where is or where it is?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Please tell me where is the restroom.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Please tell me where the restroom is.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After tell me, use normal order.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "She is! Tell me where she is.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Please tell me where is the restroom.",
+  "right": "Please tell me where the restroom is.",
+  "strike": "where is the restroom",
+  "why": "After tell me, use normal order.",
+  "memory": "Where it is.",
+  "quiz": {
+   "stem": "Tell me where ___.",
+   "options": [
+    "is she",
+    "she is"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Порядок слов после “tell me”",
+   "tip": "После “tell me” порядок обычный: “Please tell me where the restroom is.”",
+   "caption": "Ты тоже говоришь “Please tell me where is the restroom”? 😅 По-русски «скажи, где туалет» — порядок такой же, как в вопросе, и английский строят так же, но после “tell me” нужен обычный порядок слов. Правильно: “Please tell me where the restroom is.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “she is.” После tell me — обычный порядок. Скажи вслух: “Please tell me where the … is.” Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#изучениеанглийского",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Word order after “tell me”",
+   "tip": "After “tell me”, use normal order: “Please tell me where the restroom is.”",
+   "caption": "Do you also say “Please tell me where is the restroom”? 😅 In Russian the order stays the same as in a question, so people copy it, but after “tell me” English needs normal order. Correct: “Please tell me where the restroom is.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Порядок слов после “tell me”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 53,
+  "seconds": 31.5,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "Порядок слов после “tell me”",
+  "keyword": "Please tell me where the restroom is.",
+  "value": "После “tell me” порядок обычный: “Please tell me where the restroom is.”",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#изучениеанглийского",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 47,
+  "platforms": {
+   "youtube": {
+    "title": "Порядок слов после “tell me”",
+    "description": "После “tell me” порядок обычный: “Please tell me where the restroom is.”\n\nТы тоже говоришь “Please tell me where is the restroom”? 😅 По-русски «скажи, где туалет» — порядок такой же, как в вопросе, и английский строят так же, но после “tell me” нужен обычный порядок слов. Правильно: “Please tell me where the restroom is.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #английский #изучениеанглийского #lexkite",
+    "tags": [
+     "Please tell me where the restroom is.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “Please tell me where is the restroom”? 😅 По-русски «скажи, где туалет» — порядок такой же, как в вопросе, и английский строят так же, но после “tell me” нужен обычный порядок слов. Правильно: “Please tell me where the restroom is.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Порядок слов после “tell me”\n\nПосле “tell me” порядок обычный: “Please tell me where the restroom is.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#изучениеанглийского",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Порядок слов после “tell me” После “tell me” порядок обычный: “Please tell me where the restroom is.” #английскийязык #английский #изучениеанглийского"
+   }
+  },
+  "first_comment": "Ответ: “she is.” После tell me — обычный порядок. Скажи вслух: “Please tell me where the … is.” Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

@@ -211,6 +211,12 @@ qualityScore: 93
 
 듣기 영역에서 파트 2에 특히 약하다면 [토익 파트2 오답 함정 피하는 공부법](/ko/blog/toeic-listening-part-2-gongbubeop-jeonryak/)을 먼저 살펴보세요.
 
+파트별 문항 수와 시간 배분을 표로 다시 확인하고 싶다면 [토익 시험 구성 총정리](/ko/blog/toeic-siheom-guseong-part-munhangsu-sigan/)를 함께 보세요.
+
+단어장을 읽기만 하는 습관을 바꾸고 싶다면 [액티브 리콜 영어 단어 공부법](/ko/blog/aekteubeu-rikol-yeongeo-daneo-amgi/)을 참고하십시오.
+
+리스닝 문제 중 가장 앞에 나오는 사진 묘사 6문항은 [토익 파트1 사진 묘사 공략](/ko/blog/toeic-part1-sajin-myosa-gongbubeop/)에서 따로 연습할 수 있습니다.
+
 ## 자주 묻는 질문
 
 ### 독학으로 450점에서 750점까지 얼마나 걸리나요?
