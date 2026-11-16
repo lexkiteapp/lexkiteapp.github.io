@@ -200,6 +200,14 @@ Reading is not the same as speaking under pressure. Open the [renting lesson](/a
 
 {{youtube: | Suggested video: a short role-play of a flat viewing with an agent and a tenant}}
 
+Arriving in a new country first? See [airport English phrases for immigration, check-in and delays](/en/blog/airport-english-phrases-immigration-check-in-delays/).
+
+Once you are settled, learn [English at the doctor: describing symptoms](/en/blog/english-at-the-doctor-describing-symptoms/).
+
+Next on the newcomer list: [English for opening a bank account abroad](/en/blog/english-for-opening-a-bank-account-abroad/).
+
+To get around your new city, read [asking for directions and using public transport in English](/en/blog/asking-for-directions-and-using-public-transport-in-english/).
+
 Health is another early need: see [English phrases at the doctor](/en/blog/english-for-newcomers-doctor/) and [English phrases at the bank](/en/blog/english-for-newcomers-bank/).
 
 ## Frequently asked questions

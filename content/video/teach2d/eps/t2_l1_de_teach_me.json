@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_teach_me",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She teaches me English!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She learns me English.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She teaches me English.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Teach means give lessons.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Teaches! She teaches me English.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She learns me English.",
+  "right": "She teaches me English.",
+  "strike": "learns",
+  "why": "Teach means give lessons.",
+  "memory": "She teaches me.",
+  "quiz": {
+   "stem": "She ___ me English.",
+   "options": [
+    "learns",
+    "teaches"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Lehrer „teach“, Schüler „learn“",
+   "tip": "Umgangssprachlich sagen viele „Ich lerne dir das“. Im Englischen heißt es: Lehrer „teach“, Schüler „learn“.",
+   "caption": "Wer gibt den Unterricht? 🎓 Falsch: “She learns me English.” Richtig: “She teaches me English.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “teaches”. Richtig heißt es: “She teaches me English.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Teachers teach, students learn!",
+   "tip": "Some Germans say “Ich lerne dir das”. In English, teachers “teach” and students “learn”.",
+   "caption": "Teachers teach, students learn! Wrong: “She learns me English.” Right: “She teaches me English.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Lehrer „teach“, Schüler „learn“"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 41,
+  "seconds": 25.6,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "Lehrer „teach“, Schüler „learn“",
+  "keyword": "She teaches me English.",
+  "value": "Umgangssprachlich sagen viele „Ich lerne dir das“. Im Englischen heißt es: Lehrer „teach“, Schüler „learn“.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "Lehrer „teach“, Schüler „learn“",
+    "description": "Umgangssprachlich sagen viele „Ich lerne dir das“. Im Englischen heißt es: Lehrer „teach“, Schüler „learn“.\n\nWer gibt den Unterricht? 🎓 Falsch: “She learns me English.” Richtig: “She teaches me English.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "She teaches me English.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Wer gibt den Unterricht? 🎓 Falsch: “She learns me English.” Richtig: “She teaches me English.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Lehrer „teach“, Schüler „learn“\n\nUmgangssprachlich sagen viele „Ich lerne dir das“. Im Englischen heißt es: Lehrer „teach“, Schüler „learn“.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Lehrer „teach“, Schüler „learn“ Umgangssprachlich sagen viele „Ich lerne dir das“. Im Englischen heißt… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “teaches”. Richtig heißt es: “She teaches me English.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

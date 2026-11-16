@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_preferto",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Prefer than? Not quite!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I prefer coffee than tea.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I prefer coffee to tea.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After prefer, we say to, not than.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! I prefer cats to dogs.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I prefer coffee than tea.",
+  "right": "I prefer coffee to tea.",
+  "strike": "than",
+  "why": "After prefer, we say to, not than.",
+  "memory": "Prefer this to that.",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "I prefer cats than dogs.",
+    "I prefer cats to dogs."
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Você diz “prefer than”?",
+   "tip": "Com “prefer”, use “to”: “prefer coffee to tea”.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I prefer coffee than tea.” O certo é “I prefer coffee to tea.” Em português dizemos “prefiro café do que chá”, mas em inglês é “prefer ... to”. Ouça a Ama e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “I prefer cats to dogs.” Agora diga em voz alta uma frase sua com esse ponto e treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “prefer than”?",
+   "tip": "With “prefer”, use “to”: “prefer coffee to tea”.",
+   "caption": "Watch out for this common mistake! Many people say “I prefer coffee than tea.” The right way is “I prefer coffee to tea.” In Portuguese we say “prefiro café do que chá”, but in English it is “prefer ... to”. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Você diz “prefer than”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Você diz “prefer than”?",
+  "keyword": "I prefer coffee to tea.",
+  "value": "Com “prefer”, use “to”: “prefer coffee to tea”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "Você diz “prefer than”?",
+    "description": "Com “prefer”, use “to”: “prefer coffee to tea”.\n\nCuidado com este erro comum! 😬 Muita gente diz “I prefer coffee than tea.” O certo é “I prefer coffee to tea.” Em português dizemos “prefiro café do que chá”, mas em inglês é “prefer ... to”. Ouça a Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "I prefer coffee to tea.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “I prefer coffee than tea.” O certo é “I prefer coffee to tea.” Em português dizemos “prefiro café do que chá”, mas em inglês é “prefer ... to”. Ouça a Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Você diz “prefer than”?\n\nCom “prefer”, use “to”: “prefer coffee to tea”.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Você diz “prefer than”? Com “prefer”, use “to”: “prefer coffee to tea”. #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “I prefer cats to dogs.” Agora diga em voz alta uma frase sua com esse ponto e treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

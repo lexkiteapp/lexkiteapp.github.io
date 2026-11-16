@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_prefer",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Prefer to, not than!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I prefer tea than coffee.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I prefer tea to coffee.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Prefer needs to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "To! I prefer cats to dogs.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I prefer tea than coffee.",
+  "right": "I prefer tea to coffee.",
+  "strike": "than",
+  "why": "Prefer needs to.",
+  "memory": "I prefer tea to coffee.",
+  "quiz": {
+   "stem": "I prefer cats ___ dogs.",
+   "options": [
+    "than",
+    "to"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“prefer than” नहीं, “prefer to”!",
+   "tip": "हिंदी में “कॉफ़ी से ज़्यादा चाय” का “से” तुलना बनाता है, इसलिए than याद आता है; prefer के साथ to आता है।",
+   "caption": "क्या आप भी कहते हैं “I prefer tea than coffee”? 😅 अंग्रेज़ी में “I prefer tea to coffee” सही है। हिंदी के “से ज़्यादा” की वजह से than मन में आता है, पर prefer के साथ to आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “to”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “prefer tea to coffee”!",
+   "tip": "In Hindi, “se” in “more tea than coffee” makes comparison, hence than comes to mind; To comes with prefer.",
+   "caption": "Do you say “I prefer tea than coffee”? 😅 In English “I prefer tea to coffee” is right, because prefer takes to, not than. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“prefer than” नहीं, “prefer to”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“prefer than” नहीं, “prefer to”!",
+  "keyword": "I prefer tea to coffee.",
+  "value": "हिंदी में “कॉफ़ी से ज़्यादा चाय” का “से” तुलना बनाता है, इसलिए than याद आता है; prefer के साथ to आता है।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "“prefer than” नहीं, “prefer to”!",
+    "description": "हिंदी में “कॉफ़ी से ज़्यादा चाय” का “से” तुलना बनाता है, इसलिए than याद आता है; prefer के साथ to आता है।\n\nक्या आप भी कहते हैं “I prefer tea than coffee”? 😅 अंग्रेज़ी में “I prefer tea to coffee” सही है। हिंदी के “से ज़्यादा” की वजह से than मन में आता है, पर prefer के साथ to आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "I prefer tea to coffee.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी कहते हैं “I prefer tea than coffee”? 😅 अंग्रेज़ी में “I prefer tea to coffee” सही है। हिंदी के “से ज़्यादा” की वजह से than मन में आता है, पर prefer के साथ to आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“prefer than” नहीं, “prefer to”!\n\nहिंदी में “कॉफ़ी से ज़्यादा चाय” का “से” तुलना बनाता है, इसलिए than याद आता है; prefer के साथ to आता है।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“prefer than” नहीं, “prefer to”! हिंदी में “कॉफ़ी से ज़्यादा चाय” का “से” तुलना बनाता है, इसलिए than या… #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “to”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

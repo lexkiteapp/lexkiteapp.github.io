@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_onfoot",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "On foot, not by foot!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I go to school by foot.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I go to school on foot.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say on foot.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "On foot! We go home on foot.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I go to school by foot.",
+  "right": "I go to school on foot.",
+  "strike": "by foot",
+  "why": "Say on foot.",
+  "memory": "On foot.",
+  "quiz": {
+   "stem": "We go home ___.",
+   "options": [
+    "by foot",
+    "on foot"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "by foot 아니고 on foot!",
+   "tip": "한국어 “걸어서”는 ‘버스로, 지하철로’의 ‘~로’와 비슷하게 느껴져서 by foot으로 옮기기 쉬워요. 이렇게 말해요 👉 “I go to school on foot.”",
+   "caption": "“I go to school by foot.”처럼 말하고 있나요? 😅 한국어 “걸어서”는 ‘버스로, 지하철로’의 ‘~로’와 비슷하게 느껴져서 by foot으로 옮기기 쉬워요. 맞는 문장 ✅ “I go to school on foot.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답: “on foot”! 이 표현을 넣어 소리 내어 한 문장 말해 보세요. 무료 퀴즈로 더 연습해요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "On foot, not by foot!",
+   "tip": "Use on foot, not by foot. Say “I go to school on foot.”",
+   "caption": "Do you say it like this? 😅 “I go to school by foot.” Use on foot, not by foot. Right: “I go to school on foot.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "by foot 아니고 on foot!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "by foot 아니고 on foot!",
+  "keyword": "I go to school on foot.",
+  "value": "한국어 “걸어서”는 ‘버스로, 지하철로’의 ‘~로’와 비슷하게 느껴져서 by foot으로 옮기기 쉬워요. 이렇게 말해요 👉 “I go to school on foot.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "by foot 아니고 on foot!",
+    "description": "한국어 “걸어서”는 ‘버스로, 지하철로’의 ‘~로’와 비슷하게 느껴져서 by foot으로 옮기기 쉬워요. 이렇게 말해요 👉 “I go to school on foot.”\n\n“I go to school by foot.”처럼 말하고 있나요? 😅 한국어 “걸어서”는 ‘버스로, 지하철로’의 ‘~로’와 비슷하게 느껴져서 by foot으로 옮기기 쉬워요. 맞는 문장 ✅ “I go to school on foot.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "I go to school on foot.",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“I go to school by foot.”처럼 말하고 있나요? 😅 한국어 “걸어서”는 ‘버스로, 지하철로’의 ‘~로’와 비슷하게 느껴져서 by foot으로 옮기기 쉬워요. 맞는 문장 ✅ “I go to school on foot.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "by foot 아니고 on foot!\n\n한국어 “걸어서”는 ‘버스로, 지하철로’의 ‘~로’와 비슷하게 느껴져서 by foot으로 옮기기 쉬워요. 이렇게 말해요 👉 “I go to school on foot.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "by foot 아니고 on foot! 한국어 “걸어서”는 ‘버스로, 지하철로’의 ‘~로’와 비슷하게 느껴져서 by foot으로 옮기기 쉬워요. 이렇게 말해요 👉 “I go to school on foot.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “on foot”! 이 표현을 넣어 소리 내어 한 문장 말해 보세요. 무료 퀴즈로 더 연습해요: {link}",
+  "lang": "ko"
+ }
+}

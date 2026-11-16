@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_thesame",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say the same!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: My bag is same as yours.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My bag is the same as yours.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Same needs the.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The same! Your bag is the same as mine.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "My bag is same as yours.",
+  "right": "My bag is the same as yours.",
+  "strike": "same",
+  "why": "Same needs the.",
+  "memory": "The same as.",
+  "quiz": {
+   "stem": "Your bag is ___ as mine.",
+   "options": [
+    "same",
+    "the same"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "same 앞에 the가 빠졌어요!",
+   "tip": "한국어 “같아요”에는 관사가 없어서 same 앞의 the를 빼기 쉬워요. 이렇게 말해요 👉 “My bag is the same as yours.”",
+   "caption": "“My bag is same as yours.”처럼 말하고 있나요? 😅 한국어 “같아요”에는 관사가 없어서 same 앞의 the를 빼기 쉬워요. 맞는 문장 ✅ “My bag is the same as yours.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답: “the same”! 이 표현으로 나만의 문장을 하나 써 보세요. 무료 퀴즈로 더 연습해요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Add the before same!",
+   "tip": "Say the same, not just same. Say “My bag is the same as yours.”",
+   "caption": "Do you say it like this? 😅 “My bag is same as yours.” Say the same, not just same. Right: “My bag is the same as yours.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "same 앞에 the가 빠졌어요!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "same 앞에 the가 빠졌어요!",
+  "keyword": "My bag is the same as yours.",
+  "value": "한국어 “같아요”에는 관사가 없어서 same 앞의 the를 빼기 쉬워요. 이렇게 말해요 👉 “My bag is the same as yours.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "same 앞에 the가 빠졌어요!",
+    "description": "한국어 “같아요”에는 관사가 없어서 same 앞의 the를 빼기 쉬워요. 이렇게 말해요 👉 “My bag is the same as yours.”\n\n“My bag is same as yours.”처럼 말하고 있나요? 😅 한국어 “같아요”에는 관사가 없어서 same 앞의 the를 빼기 쉬워요. 맞는 문장 ✅ “My bag is the same as yours.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "My bag is the same as yours.",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“My bag is same as yours.”처럼 말하고 있나요? 😅 한국어 “같아요”에는 관사가 없어서 same 앞의 the를 빼기 쉬워요. 맞는 문장 ✅ “My bag is the same as yours.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "same 앞에 the가 빠졌어요!\n\n한국어 “같아요”에는 관사가 없어서 same 앞의 the를 빼기 쉬워요. 이렇게 말해요 👉 “My bag is the same as yours.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "same 앞에 the가 빠졌어요! 한국어 “같아요”에는 관사가 없어서 same 앞의 the를 빼기 쉬워요. 이렇게 말해요 👉 “My bag is the same as yours.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “the same”! 이 표현으로 나만의 문장을 하나 써 보세요. 무료 퀴즈로 더 연습해요: {link}",
+  "lang": "ko"
+ }
+}

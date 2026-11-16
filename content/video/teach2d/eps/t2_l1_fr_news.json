@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_news",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "News has no a!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have a good news for you.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have good news for you.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "News is one thing, but we do not use a with it.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Good news! I have good news.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have a good news for you.",
+  "right": "I have good news for you.",
+  "strike": "a good news",
+  "why": "News is one thing, but we do not use a with it.",
+  "memory": "News: no a.",
+  "quiz": {
+   "stem": "I have ___ for you.",
+   "options": [
+    "a good news",
+    "good news"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "« Une bonne nouvelle » : sans “a”",
+   "tip": "En français, on dit « une nouvelle ». En anglais, “news” ne prend jamais “a”.",
+   "caption": "Vous dites “I have a good news for you.” ? En français, « nouvelle » prend « une ». En anglais, “news” ne prend jamais “a” : “good news”. Dites plutôt “I have good news for you.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “I have good news for you.” — En français, « nouvelle » prend « une ». En anglais, “news” ne prend jamais “a” : “good news”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "No “a” before news!",
+   "tip": "In English, “news” never takes “a”. Just say “good news”.",
+   "caption": "Do you say this? “I have a good news for you.” In English, “news” never takes “a”. Just say “good news”. Say “I have good news for you.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "« Une bonne nouvelle » : sans “a”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 55,
+  "seconds": 32.5,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "« Une bonne nouvelle » : sans “a”",
+  "keyword": "I have good news for you.",
+  "value": "En français, on dit « une nouvelle ». En anglais, “news” ne prend jamais “a”.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 49,
+  "platforms": {
+   "youtube": {
+    "title": "« Une bonne nouvelle » : sans “a”",
+    "description": "En français, on dit « une nouvelle ». En anglais, “news” ne prend jamais “a”.\n\nVous dites “I have a good news for you.” ? En français, « nouvelle » prend « une ». En anglais, “news” ne prend jamais “a” : “good news”. Dites plutôt “I have good news for you.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "I have good news for you.",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Vous dites “I have a good news for you.” ? En français, « nouvelle » prend « une ». En anglais, “news” ne prend jamais “a” : “good news”. Dites plutôt “I have good news for you.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "« Une bonne nouvelle » : sans “a”\n\nEn français, on dit « une nouvelle ». En anglais, “news” ne prend jamais “a”.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "« Une bonne nouvelle » : sans “a” En français, on dit « une nouvelle ». En anglais, “news” ne prend… #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “I have good news for you.” — En français, « nouvelle » prend « une ». En anglais, “news” ne prend jamais “a” : “good news”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}

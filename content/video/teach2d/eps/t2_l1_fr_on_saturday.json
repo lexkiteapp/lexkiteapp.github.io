@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_on_saturday",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Days need on!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I play tennis the Saturdays.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I play tennis on Saturdays.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use on before a day. No the.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "On! We meet on Saturdays.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I play tennis the Saturdays.",
+  "right": "I play tennis on Saturdays.",
+  "strike": "the",
+  "why": "Use on before a day. No the.",
+  "memory": "Day: on.",
+  "quiz": {
+   "stem": "We meet ___ Saturdays.",
+   "options": [
+    "the",
+    "on"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "« Le samedi » : “on Saturdays”",
+   "tip": "En français, « le samedi » prend « le ». En anglais, devant un jour, on dit “on” sans “the”.",
+   "caption": "Vous dites “I play tennis the Saturdays.” ? En français, on dit « le samedi ». En anglais, devant un jour, employez “on” et pas “the”. Dites plutôt “I play tennis on Saturdays.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “I play tennis on Saturdays.” — En français, on dit « le samedi ». En anglais, devant un jour, employez “on” et pas “the”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Saturday”: “on Saturdays”",
+   "tip": "French says “le samedi”. English says “on Saturdays”, with no “the”.",
+   "caption": "Do you say this? “I play tennis the Saturdays.” French says “le samedi”. English says “on Saturdays”, with no “the”. Say “I play tennis on Saturdays.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "« Le samedi » : “on Saturdays”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "« Le samedi » : “on Saturdays”",
+  "keyword": "I play tennis on Saturdays.",
+  "value": "En français, « le samedi » prend « le ». En anglais, devant un jour, on dit “on” sans “the”.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "« Le samedi » : “on Saturdays”",
+    "description": "En français, « le samedi » prend « le ». En anglais, devant un jour, on dit “on” sans “the”.\n\nVous dites “I play tennis the Saturdays.” ? En français, on dit « le samedi ». En anglais, devant un jour, employez “on” et pas “the”. Dites plutôt “I play tennis on Saturdays.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "I play tennis on Saturdays.",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Vous dites “I play tennis the Saturdays.” ? En français, on dit « le samedi ». En anglais, devant un jour, employez “on” et pas “the”. Dites plutôt “I play tennis on Saturdays.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "« Le samedi » : “on Saturdays”\n\nEn français, « le samedi » prend « le ». En anglais, devant un jour, on dit “on” sans “the”.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "« Le samedi » : “on Saturdays” En français, « le samedi » prend « le ». En anglais, devant un jour,… #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “I play tennis on Saturdays.” — En français, on dit « le samedi ». En anglais, devant un jour, employez “on” et pas “the”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}

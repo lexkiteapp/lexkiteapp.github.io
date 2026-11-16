@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_whatthink",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "What do you think, not how!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: How do you think about it?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: What do you think about it?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Ask what you think.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "What! What do you think about my idea?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "How do you think about it?",
+  "right": "What do you think about it?",
+  "strike": "How",
+  "why": "Ask what you think.",
+  "memory": "What do you think?",
+  "quiz": {
+   "stem": "___ do you think about my idea?",
+   "options": [
+    "How",
+    "What"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“你怎么想”要用 What！",
+   "tip": "中文说“你怎么想”，很多人就直译成 How do you think。英语问别人的看法要说 What do you think。",
+   "caption": "你是不是也会说 “How do you think about it?”😅 中文说“怎么想”，英语要用 what：“What do you think about it?”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“What do you think about it?”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say what do you think!",
+   "tip": "A word-for-word translation gives how, but English asks what do you think.",
+   "caption": "Do you say “How do you think about it?” 😅 English asks with what: “What do you think about it?” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“你怎么想”要用 What！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“你怎么想”要用 What！",
+  "keyword": "What do you think about it?",
+  "value": "中文说“你怎么想”，很多人就直译成 How do you think。英语问别人的看法要说 What do you think。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "“你怎么想”要用 What！",
+    "description": "中文说“你怎么想”，很多人就直译成 How do you think。英语问别人的看法要说 What do you think。\n\n你是不是也会说 “How do you think about it?”😅 中文说“怎么想”，英语要用 what：“What do you think about it?”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "What do you think about it?",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “How do you think about it?”😅 中文说“怎么想”，英语要用 what：“What do you think about it?”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“你怎么想”要用 What！\n\n中文说“你怎么想”，很多人就直译成 How do you think。英语问别人的看法要说 What do you think。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“你怎么想”要用 What！ 中文说“你怎么想”，很多人就直译成 How do you think。英语问别人的看法要说 What do you think。 #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“What do you think about it?”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

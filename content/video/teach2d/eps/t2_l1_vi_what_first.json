@@ -1,0 +1,149 @@
+{
+ "id": "t2_l1_vi_what_first",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Where does the question word go?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Your job is what?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: What is your job?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Put what first.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The first one! What is your name?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Your job is what?",
+  "right": "What is your job?",
+  "strike": "is what",
+  "why": "Put what first.",
+  "memory": "Question word first.",
+  "quiz": {
+   "stem": "Which question is right?",
+   "options": [
+    "What is your name?",
+    "Your name is what?"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Là gì” đứng ở đâu?",
+   "tip": "Tiếng Việt để “gì” ở cuối câu hỏi, còn tiếng Anh đưa từ để hỏi lên đầu câu.",
+   "caption": "Bạn có hay nói “Your job is what?” không? ❓ Từ để hỏi phải đứng đầu câu: “What is your job?” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “What is your name?” Hãy viết một câu hỏi bắt đầu bằng “What…” để hỏi bạn của mình nhé. Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#loisaithuonggap",
+    "#nguphaptienganh",
+    "#tienganhcoban",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Where does “what” go?",
+   "tip": "Vietnamese puts the question word at the end, but English moves it to the start.",
+   "caption": "Do you often say this? “Your job is what?” The question word goes first: “What is your job?” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Là gì” đứng ở đâu?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“Là gì” đứng ở đâu?",
+  "keyword": "What is your job?",
+  "value": "Tiếng Việt để “gì” ở cuối câu hỏi, còn tiếng Anh đưa từ để hỏi lên đầu câu.",
+  "hashtags": [
+   "#hoctienganh",
+   "#loisaithuonggap",
+   "#nguphaptienganh",
+   "#tienganhcoban",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "“Là gì” đứng ở đâu?",
+    "description": "Tiếng Việt để “gì” ở cuối câu hỏi, còn tiếng Anh đưa từ để hỏi lên đầu câu.\n\nBạn có hay nói “Your job is what?” không? ❓ Từ để hỏi phải đứng đầu câu: “What is your job?” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #loisaithuonggap #nguphaptienganh #tienganhcoban #lexkite",
+    "tags": [
+     "What is your job?",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “Your job is what?” không? ❓ Từ để hỏi phải đứng đầu câu: “What is your job?” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Là gì” đứng ở đâu?\n\nTiếng Việt để “gì” ở cuối câu hỏi, còn tiếng Anh đưa từ để hỏi lên đầu câu.\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#loisaithuonggap",
+     "#nguphaptienganh",
+     "#tienganhcoban",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Là gì” đứng ở đâu? Tiếng Việt để “gì” ở cuối câu hỏi, còn tiếng Anh đưa từ để hỏi lên đầu câu. #hoctienganh #loisaithuonggap #nguphaptienganh"
+   }
+  },
+  "first_comment": "Đáp án: “What is your name?” Hãy viết một câu hỏi bắt đầu bằng “What…” để hỏi bạn của mình nhé. Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

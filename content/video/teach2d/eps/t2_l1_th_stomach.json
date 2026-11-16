@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_stomach",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say hurts, not pain!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: My stomach pain.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My stomach hurts.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Pain is not the verb. Say hurts.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Hurts! My head hurts.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "My stomach pain.",
+  "right": "My stomach hurts.",
+  "strike": "pain",
+  "why": "Pain is not the verb. Say hurts.",
+  "memory": "It hurts.",
+  "quiz": {
+   "stem": "My head ___.",
+   "options": [
+    "pain",
+    "hurts"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "ปวดใช้ hurts ไม่ใช่ pain!",
+   "tip": "ไทยพูด “ปวดท้อง” ใช้ “ปวด” เป็นกริยา แต่ pain เป็นคำนาม ให้ใช้ hurts: “My stomach hurts”",
+   "caption": "คุณเคยพูดว่า “My stomach pain.” ไหม? 😅 ภาษาไทยพูดว่า “ปวดท้อง” โดยใช้ “ปวด” เป็นกริยา แต่ pain เป็นคำนาม ภาษาอังกฤษใช้ hurts: “My stomach hurts.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “hurts” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยค แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “hurts”, not “pain”!",
+   "tip": "Thai uses one word as the verb, but pain is a noun in English. Say hurts: “My stomach hurts”",
+   "caption": "Do you say “My stomach pain”? 😅 Thai uses one word as the verb, but pain is a noun in English, so say hurts. Say “My stomach hurts”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "ปวดใช้ hurts ไม่ใช่ pain!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 41,
+  "seconds": 25.6,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "ปวดใช้ hurts ไม่ใช่ pain!",
+  "keyword": "My stomach hurts.",
+  "value": "ไทยพูด “ปวดท้อง” ใช้ “ปวด” เป็นกริยา แต่ pain เป็นคำนาม ให้ใช้ hurts: “My stomach hurts”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "ปวดใช้ hurts ไม่ใช่ pain!",
+    "description": "ไทยพูด “ปวดท้อง” ใช้ “ปวด” เป็นกริยา แต่ pain เป็นคำนาม ให้ใช้ hurts: “My stomach hurts”\n\nคุณเคยพูดว่า “My stomach pain.” ไหม? 😅 ภาษาไทยพูดว่า “ปวดท้อง” โดยใช้ “ปวด” เป็นกริยา แต่ pain เป็นคำนาม ภาษาอังกฤษใช้ hurts: “My stomach hurts.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "My stomach hurts.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “My stomach pain.” ไหม? 😅 ภาษาไทยพูดว่า “ปวดท้อง” โดยใช้ “ปวด” เป็นกริยา แต่ pain เป็นคำนาม ภาษาอังกฤษใช้ hurts: “My stomach hurts.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "ปวดใช้ hurts ไม่ใช่ pain!\n\nไทยพูด “ปวดท้อง” ใช้ “ปวด” เป็นกริยา แต่ pain เป็นคำนาม ให้ใช้ hurts: “My stomach hurts”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ปวดใช้ hurts ไม่ใช่ pain! ไทยพูด “ปวดท้อง” ใช้ “ปวด” เป็นกริยา แต่ pain เป็นคำนาม ให้ใช้ hurts: “My stomach h… #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “hurts” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยค แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

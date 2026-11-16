@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_you_like",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Do you like, not are you like!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Are you like spicy food?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Do you like spicy food?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "In questions with like, use do, not are.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Do! Do you like coffee?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Are you like spicy food?",
+  "right": "Do you like spicy food?",
+  "strike": "Are",
+  "why": "In questions with like, use do, not are.",
+  "memory": "Do you like...?",
+  "quiz": {
+   "stem": "___ you like coffee?",
+   "options": [
+    "Do",
+    "Are"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "ถามว่าชอบไหม ใช้ Do ไม่ใช่ Are!",
+   "tip": "คนไทยมักขึ้นต้นคำถามด้วย Are แต่ประโยคที่มีกริยา เช่น like ต้องขึ้นต้นด้วย Do: “Do you like spicy food?”",
+   "caption": "คุณเคยพูดว่า “Are you like spicy food?” ไหม? 😅 ประโยคคำถามที่มีกริยา เช่น like ต้องขึ้นต้นด้วย Do ไม่ใช่ Are: “Do you like spicy food?” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “Do” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยค แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Use “Do”, not “Are”!",
+   "tip": "Thai learners often start questions with are, but questions with a verb such as like start with do: “Do you like spicy food?”",
+   "caption": "Do you say “Are you like spicy food”? 😅 Questions with a verb such as like start with do, not are. Say “Do you like spicy food”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "ถามว่าชอบไหม ใช้ Do ไม่ใช่ Are!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "ถามว่าชอบไหม ใช้ Do ไม่ใช่ Are!",
+  "keyword": "Do you like spicy food?",
+  "value": "คนไทยมักขึ้นต้นคำถามด้วย Are แต่ประโยคที่มีกริยา เช่น like ต้องขึ้นต้นด้วย Do: “Do you like spicy food?”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "ถามว่าชอบไหม ใช้ Do ไม่ใช่ Are!",
+    "description": "คนไทยมักขึ้นต้นคำถามด้วย Are แต่ประโยคที่มีกริยา เช่น like ต้องขึ้นต้นด้วย Do: “Do you like spicy food?”\n\nคุณเคยพูดว่า “Are you like spicy food?” ไหม? 😅 ประโยคคำถามที่มีกริยา เช่น like ต้องขึ้นต้นด้วย Do ไม่ใช่ Are: “Do you like spicy food?” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "Do you like spicy food?",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “Are you like spicy food?” ไหม? 😅 ประโยคคำถามที่มีกริยา เช่น like ต้องขึ้นต้นด้วย Do ไม่ใช่ Are: “Do you like spicy food?” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "ถามว่าชอบไหม ใช้ Do ไม่ใช่ Are!\n\nคนไทยมักขึ้นต้นคำถามด้วย Are แต่ประโยคที่มีกริยา เช่น like ต้องขึ้นต้นด้วย Do: “Do you like spicy food?”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ถามว่าชอบไหม ใช้ Do ไม่ใช่ Are! คนไทยมักขึ้นต้นคำถามด้วย Are แต่ประโยคที่มีกริยา เช่น like ต้องขึ้นต้นด้วย Do… #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “Do” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยค แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

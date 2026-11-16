@@ -1,0 +1,129 @@
+{
+ "id": "t2a_mistake_1798babe",
+ "template": "mistake",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Stop saying harmed the roof!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: The storm harmed the roof.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: The storm damaged the roof.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Things get damaged. People get harmed.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Damaged! The flood damaged many houses.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "The storm harmed the roof.",
+  "right": "The storm damaged the roof.",
+  "strike": "harmed the roof",
+  "why": "Things get damaged. People get harmed.",
+  "memory": "things = DAMAGE, people = HARM",
+  "quiz": {
+   "stem": "The flood ___ many houses.",
+   "options": [
+    "damaged",
+    "harmed"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Stop saying “harmed the roof”"
+ },
+ "src": {
+  "gold": "sb_1798babe",
+  "pid": "u:c:damage-harm"
+ },
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Stop saying \"harmed the roof\"? Say this instead",
+  "keyword": "harmed the roof",
+  "value": "Say \"The storm damaged the roof\", not \"The storm harmed the roof\". Things get damaged. People get harmed.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#englishgrammar",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "Stop saying \"harmed the roof\"? Say this instead",
+    "description": "Say \"The storm damaged the roof\", not \"The storm harmed the roof\". Things get damaged. People get harmed.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix\n\nSeries: Stop Saying This · Teacher: Ama\n\n#learnenglish #englishtips #englishgrammar #englishteacher",
+    "tags": [
+     "harmed the roof",
+     "Stop Saying This",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Stop saying \"harmed the roof\"? Say this instead\n\nSay \"The storm damaged the roof\", not \"The storm harmed the roof\". Things get damaged. People get harmed.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Stop saying \"harmed the roof\"? Say this instead\n\nSay \"The storm damaged the roof\", not \"The storm harmed the roof\". Things get damaged. People get harmed.\n\nCheck your grammar: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#englishgrammar",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Stop saying \"harmed the roof\"? Say this instead #learnenglish #englishtips #englishgrammar"
+   }
+  },
+  "first_comment": "Answer: Damaged! The flood damaged many houses. Say \"The storm damaged the roof\", not \"The storm harmed the roof\". Things get damaged. People get harmed. Try the full lesson and quiz here: {link}"
+ }
+}

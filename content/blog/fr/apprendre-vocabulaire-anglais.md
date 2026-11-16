@@ -21,6 +21,8 @@ Le cerveau humain est programmé pour filtrer les données isolées et dénuées
 
 Dans ce guide complet, découvrez 7 méthodes fondées sur les sciences cognitives pour mémoriser rapidement le vocabulaire anglais et l'utiliser avec aisance dans vos conversations quotidiennes et professionnelles.
 
+Pour approfondir la méthode qui rend vos révisions efficaces, lisez [le rappel actif pour mémoriser le vocabulaire anglais](/fr/blog/rappel-actif-apprendre-vocabulaire-anglais/).
+
 ## Pourquoi les listes bilingues traditionnelles échouent
 
 À l'école, l'apprentissage du vocabulaire se résumait le plus souvent à un tableau en deux colonnes : le mot anglais à gauche, sa traduction française à droite. Cette approche présente trois défauts majeurs :
@@ -151,6 +153,8 @@ Accédez directement à notre [Bibliothèque de vocabulaire](/#/library) pour d�
 {{youtube: | Comment mémoriser 500 mots d'anglais par mois avec la répétition espacée}}
 
 {{cta: /#/library | Découvrir la bibliothèque de vocabulaire Lexkite}}
+
+Pour le vocabulaire d'examen, découvrez aussi l'[Academic Word List](/fr/blog/academic-word-list-awl-liste-de-vocabulaire/) et ses 570 familles de mots.
 
 ## Foire aux questions
 

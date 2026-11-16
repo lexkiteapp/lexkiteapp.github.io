@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_remote",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say remote, not remocon!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Where is the remocon?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Where is the remote?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Remocon is not an English word.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Remote! Where is the remote?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Where is the remocon?",
+  "right": "Where is the remote?",
+  "strike": "remocon",
+  "why": "Remocon is not an English word.",
+  "memory": "The remote.",
+  "quiz": {
+   "stem": "Where is the ___?",
+   "options": [
+    "remote",
+    "remocon"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“remocon”이 아니라 remote!",
+   "tip": "‘리모컨’은 한국식 줄임말이에요. 영어로는 remote! 이렇게 말해요 👉 “Where is the remote?”",
+   "caption": "“Where is the remocon”처럼 말하고 있나요? 😅 ‘리모컨’은 한국식 줄임말이라서 영어로는 잘 통하지 않아요. 영어로는 remote라고 해요. 맞는 문장 ✅ “Where is the remote?” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답 ✅ “Where is the remote?” 소리 내어 한 번 말해 보고, 나만의 문장도 하나 써 보세요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say remote, not “remocon”!",
+   "tip": "“Remocon” is not English. Say remote. Say “Where is the remote?”",
+   "caption": "Do you say “Where is the remocon” in English? 😅 Remocon is not an English word, so say remote! “Where is the remote” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“remocon”이 아니라 remote!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“remocon”이 아니라 remote!",
+  "keyword": "Where is the remote?",
+  "value": "‘리모컨’은 한국식 줄임말이에요. 영어로는 remote! 이렇게 말해요 👉 “Where is the remote?”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "“remocon”이 아니라 remote!",
+    "description": "‘리모컨’은 한국식 줄임말이에요. 영어로는 remote! 이렇게 말해요 👉 “Where is the remote?”\n\n“Where is the remocon”처럼 말하고 있나요? 😅 ‘리모컨’은 한국식 줄임말이라서 영어로는 잘 통하지 않아요. 영어로는 remote라고 해요. 맞는 문장 ✅ “Where is the remote?” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "Where is the remote?",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“Where is the remocon”처럼 말하고 있나요? 😅 ‘리모컨’은 한국식 줄임말이라서 영어로는 잘 통하지 않아요. 영어로는 remote라고 해요. 맞는 문장 ✅ “Where is the remote?” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“remocon”이 아니라 remote!\n\n‘리모컨’은 한국식 줄임말이에요. 영어로는 remote! 이렇게 말해요 👉 “Where is the remote?”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“remocon”이 아니라 remote! ‘리모컨’은 한국식 줄임말이에요. 영어로는 remote! 이렇게 말해요 👉 “Where is the remote?” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답 ✅ “Where is the remote?” 소리 내어 한 번 말해 보고, 나만의 문장도 하나 써 보세요: {link}",
+  "lang": "ko"
+ }
+}

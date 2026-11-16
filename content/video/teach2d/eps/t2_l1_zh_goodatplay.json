@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_goodatplay",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Good at playing, not play!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: He is good at play soccer.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: He is good at playing soccer.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After at, use playing.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Speaking! She is good at speaking English.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "He is good at play soccer.",
+  "right": "He is good at playing soccer.",
+  "strike": "play",
+  "why": "After at, use playing.",
+  "memory": "At, then playing.",
+  "quiz": {
+   "stem": "She is good at ___ English.",
+   "options": [
+    "speak",
+    "speaking"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "at 后面要用 ing 形式！",
+   "tip": "中文“擅长踢足球”里，动词直接放在“擅长”后面，形式不变。英语里 at 后面的动词要加 ing：good at playing。",
+   "caption": "你是不是也会说 “He is good at play soccer.”😅 中文动词不变形，英语 at 后要加 ing：“He is good at playing soccer.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“He is good at playing soccer.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "At plus ing!",
+   "tip": "Chinese verbs never change shape, but in English a verb after at needs ing.",
+   "caption": "Do you say “He is good at play soccer.” 😅 A verb after at needs ing: “He is good at playing soccer.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "at 后面要用 ing 形式！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "at 后面要用 ing 形式！",
+  "keyword": "He is good at playing soccer.",
+  "value": "中文“擅长踢足球”里，动词直接放在“擅长”后面，形式不变。英语里 at 后面的动词要加 ing：good at playing。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "at 后面要用 ing 形式！",
+    "description": "中文“擅长踢足球”里，动词直接放在“擅长”后面，形式不变。英语里 at 后面的动词要加 ing：good at playing。\n\n你是不是也会说 “He is good at play soccer.”😅 中文动词不变形，英语 at 后要加 ing：“He is good at playing soccer.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "He is good at playing soccer.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “He is good at play soccer.”😅 中文动词不变形，英语 at 后要加 ing：“He is good at playing soccer.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "at 后面要用 ing 形式！\n\n中文“擅长踢足球”里，动词直接放在“擅长”后面，形式不变。英语里 at 后面的动词要加 ing：good at playing。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "at 后面要用 ing 形式！ 中文“擅长踢足球”里，动词直接放在“擅长”后面，形式不变。英语里 at 后面的动词要加 ing：good at playing。 #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“He is good at playing soccer.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

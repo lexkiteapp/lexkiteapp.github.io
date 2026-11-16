@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "Đừng nói “I am agree” nhé!",
-   "tip": "“Agree” đã là động từ, không cần “am”. Tiếng Việt “đồng ý” dễ khiến ta thêm “là”.",
+   "tip": "“Agree” đã là động từ, không cần “am”: nói “I agree”, giống như “tôi đồng ý.”",
    "caption": "Bạn có hay nói “I am agree with you.” không? 😅 “Agree” là động từ, bỏ “am”: “I agree with you.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-   "comment": "Đáp án: “agree”. Thử nói “I agree” với một ý kiến bạn thích nhé. Luyện thêm miễn phí tại đây: {link}",
+   "comment": "Đáp án: “agree.” Thử nói “I agree” với một ý kiến bạn thích nhé. Luyện thêm miễn phí tại đây: {link}",
    "hashtags": [
     "#hoctienganh",
     "#nguphaptienganh",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "Don't say “I am agree”!",
-   "tip": "“Agree” is already a verb, so no “am”. Easy to slip when thinking in Vietnamese.",
-   "caption": "Do you often say “I am agree with you.”? “Agree” is a verb, so drop “am”: “I agree with you.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
+   "tip": "“Agree” is already a verb, so no “am”: just “I agree.”",
+   "caption": "Do you often say this? “I am agree with you.” “Agree” is a verb, so drop “am”: “I agree with you.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "Đừng nói “I am agree” nhé!",
   "keyword": "I agree with you.",
-  "value": "“Agree” đã là động từ, không cần “am”. Tiếng Việt “đồng ý” dễ khiến ta thêm “là”.",
+  "value": "“Agree” đã là động từ, không cần “am”: nói “I agree”, giống như “tôi đồng ý.”",
   "hashtags": [
    "#hoctienganh",
    "#nguphaptienganh",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "Đừng nói “I am agree” nhé!",
-    "description": "Bạn có hay nói “I am agree with you.” không? 😅 “Agree” là động từ, bỏ “am”: “I agree with you.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #nguphaptienganh #tienganhgiaotiep #lexkite",
+    "description": "“Agree” đã là động từ, không cần “am”: nói “I agree”, giống như “tôi đồng ý.”\n\nBạn có hay nói “I am agree with you.” không? 😅 “Agree” là động từ, bỏ “am”: “I agree with you.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #nguphaptienganh #tienganhgiaotiep #lexkite",
     "tags": [
      "I agree with you.",
      "learn english",
@@ -128,7 +128,7 @@
     "text": "Bạn có hay nói “I am agree with you.” không? 😅 “Agree” là động từ, bỏ “am”: “I agree with you.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Bạn có hay nói “I am agree with you.” không? 😅 “Agree” là động từ, bỏ “am”: “I agree with you.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nlexkite.com",
+    "caption": "Đừng nói “I am agree” nhé!\n\n“Agree” đã là động từ, không cần “am”: nói “I agree”, giống như “tôi đồng ý.”\n\nlexkite.com",
     "hashtags": [
      "#hoctienganh",
      "#nguphaptienganh",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "Đừng nói “I am agree” nhé! #hoctienganh #nguphaptienganh #tienganhgiaotiep"
+    "caption": "Đừng nói “I am agree” nhé! “Agree” đã là động từ, không cần “am”: nói “I agree”, giống như “tôi đồng… #hoctienganh #nguphaptienganh #tienganhgiaotiep"
    }
   },
-  "first_comment": "Đáp án: “agree”. Thử nói “I agree” với một ý kiến bạn thích nhé. Luyện thêm miễn phí tại đây: {link}",
+  "first_comment": "Đáp án: “agree.” Thử nói “I agree” với một ý kiến bạn thích nhé. Luyện thêm miễn phí tại đây: {link}",
   "lang": "vi"
  }
 }

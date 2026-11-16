@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_thank_you",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Thank or thanks, which one?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Thanks you very much.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Thank you very much.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use thank with you.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Thank! Thank you for the gift.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Thanks you very much.",
+  "right": "Thank you very much.",
+  "strike": "Thanks",
+  "why": "Use thank with you.",
+  "memory": "Thank you, or thanks.",
+  "quiz": {
+   "stem": "___ you for the gift.",
+   "options": [
+    "Thank",
+    "Thanks"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Cảm ơn bạn” nói sao đúng?",
+   "tip": "“Cảm ơn bạn” dễ thành “Thanks you”, nhưng “thanks” đứng một mình, còn “thank” mới đi với “you”.",
+   "caption": "Bạn có hay nói “Thanks you very much.” không? 🎁 “Thank” đi với “you”: “Thank you very much.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “thank.” Hãy nói to một lời cảm ơn thật lòng, bắt đầu bằng “Thank you…” nhé. Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#meotienganh",
+    "#tienganhmoingay",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Is it “Thanks you” or “Thank you”?",
+   "tip": "Learners turn the Vietnamese phrase into “Thanks you”, but “thanks” stands alone and “thank” goes with “you”.",
+   "caption": "Do you often say this? “Thanks you very much.” “Thank” goes with “you”: “Thank you very much.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Cảm ơn bạn” nói sao đúng?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“Cảm ơn bạn” nói sao đúng?",
+  "keyword": "Thank you very much.",
+  "value": "“Cảm ơn bạn” dễ thành “Thanks you”, nhưng “thanks” đứng một mình, còn “thank” mới đi với “you”.",
+  "hashtags": [
+   "#hoctienganh",
+   "#meotienganh",
+   "#tienganhmoingay",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "“Cảm ơn bạn” nói sao đúng?",
+    "description": "“Cảm ơn bạn” dễ thành “Thanks you”, nhưng “thanks” đứng một mình, còn “thank” mới đi với “you”.\n\nBạn có hay nói “Thanks you very much.” không? 🎁 “Thank” đi với “you”: “Thank you very much.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #meotienganh #tienganhmoingay #lexkite",
+    "tags": [
+     "Thank you very much.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “Thanks you very much.” không? 🎁 “Thank” đi với “you”: “Thank you very much.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Cảm ơn bạn” nói sao đúng?\n\n“Cảm ơn bạn” dễ thành “Thanks you”, nhưng “thanks” đứng một mình, còn “thank” mới đi với “you”.\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#meotienganh",
+     "#tienganhmoingay",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Cảm ơn bạn” nói sao đúng? “Cảm ơn bạn” dễ thành “Thanks you”, nhưng “thanks” đứng một mình, còn “thank” m… #hoctienganh #meotienganh #tienganhmoingay"
+   }
+  },
+  "first_comment": "Đáp án: “thank.” Hãy nói to một lời cảm ơn thật lòng, bắt đầu bằng “Thank you…” nhé. Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

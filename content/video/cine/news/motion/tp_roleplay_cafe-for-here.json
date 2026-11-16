@@ -1,0 +1,292 @@
+{
+ "id": "mo_tp_roleplay_cafe-for-here",
+ "template": "roleplay",
+ "title": "Motion roleplay – roleplay: cafe-for-here (tp_roleplay_cafe-for-here)",
+ "teacher": "ama",
+ "clips": [
+  "ga11_talk",
+  "ga11_explain",
+  "ga11_happy",
+  "ga11_thinking",
+  "ga11_surprise_3"
+ ],
+ "listen": [
+  "ga11_listen_2"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy2",
+ "active": "mint",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "roleplay",
+  "link": "https://lexkite.com/app/",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Roleplay",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "For here or… to go?",
+   "gap": 0.7
+  },
+  {
+   "id": "s0",
+   "text": "At the cafe.",
+   "gap": 0.7
+  },
+  {
+   "id": "s1",
+   "text": "Drink it here, or take it with you. Your call!",
+   "gap": 0.7
+  },
+  {
+   "id": "s2",
+   "text": "Oh! To go, please. One small latte.",
+   "gap": 0.7
+  },
+  {
+   "id": "s3",
+   "text": "One small latte to go. Coming up!",
+   "gap": 0.7
+  },
+  {
+   "id": "t",
+   "text": "Tip: in the UK, you'll also hear eat in or take away.",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "For here or…",
+      "white"
+     ]
+    ],
+    [
+     [
+      "to go?",
+      "yellow"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Roleplay",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "For here or…"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "to go?"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "sum",
+    "at": [
+     "t",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Tip",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "in the UK, you'll also hear eat in or take away."
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "rules",
+    "at": [
+     "s1",
+     0
+    ],
+    "rows": [
+     {
+      "t": "tile",
+      "tag": "STAFF",
+      "tone": "gold",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "Drink it here, or take it with you. Your call!",
+        "gold"
+       ]
+      ],
+      "ex_at": [
+       "s1",
+       0
+      ],
+      "at": [
+       "s1",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "YOU",
+      "tone": "teal",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "Oh! To go, please. One small latte.",
+        "teal"
+       ]
+      ],
+      "ex_at": [
+       "s2",
+       0
+      ],
+      "at": [
+       "s2",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "STAFF",
+      "tone": "coral",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "One small latte to go. Coming up!",
+        "coral"
+       ]
+      ],
+      "ex_at": [
+       "s3",
+       0
+      ],
+      "at": [
+       "s3",
+       0
+      ]
+     }
+    ]
+   }
+  ],
+  "hook_text": "For here or… to go?",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ },
+ "uses": {
+  "template": "roleplay",
+  "row": "tp_roleplay_cafe-for-here",
+  "teacher": "ama",
+  "accent": "navy2",
+  "active": "mint",
+  "tones": 2
+ }
+}

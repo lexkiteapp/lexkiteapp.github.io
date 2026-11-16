@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_amlive",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Work, not am work!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am work in a bank.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I work in a bank.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Do not put am before work.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Work! We work in a bank.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am work in a bank.",
+  "right": "I work in a bank.",
+  "strike": "am",
+  "why": "Do not put am before work.",
+  "memory": "I work in a bank.",
+  "quiz": {
+   "stem": "We ___ in a bank.",
+   "options": [
+    "work",
+    "are work"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "هل تقول “I am work”؟",
+   "tip": "في العربية نقول «أنا موظف في بنك» بلا فعل، فنضيف am خطأً، لكن work فعل يكفي وحده: “I work in a bank.” وليس “I am work in a bank”",
+   "caption": "هل تقول أحيانًا “I am work in a bank.” 😅 work فعل يكفي وحده بلا am، فالجملة الصحيحة “I work in a bank.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “work”. work فعل يكفي وحده بلا am. اختبار مجاني هنا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “I am work in a bank”?",
+   "tip": "Work is a verb by itself: “I work in a bank.” not “I am work in a bank”.",
+   "caption": "Do you sometimes say “I am work in a bank.” 😅 In English work is a verb by itself, so we do not add am, so the right sentence is “I work in a bank.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “I am work”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "هل تقول “I am work”؟",
+  "keyword": "I work in a bank.",
+  "value": "في العربية نقول «أنا موظف في بنك» بلا فعل، فنضيف am خطأً، لكن work فعل يكفي وحده: “I work in a bank.” وليس “I am work in a bank”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “I am work”؟",
+    "description": "هل تقول أحيانًا “I am work in a bank.” 😅 work فعل يكفي وحده بلا am، فالجملة الصحيحة “I work in a bank.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "I work in a bank.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا “I am work in a bank.” 😅 work فعل يكفي وحده بلا am، فالجملة الصحيحة “I work in a bank.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول أحيانًا “I am work in a bank.” 😅 work فعل يكفي وحده بلا am، فالجملة الصحيحة “I work in a bank.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “I am work”؟ #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “work”. work فعل يكفي وحده بلا am. اختبار مجاني هنا: {link}",
+  "lang": "ar"
+ }
+}

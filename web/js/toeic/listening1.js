@@ -101,6 +101,7 @@ g.TQL = [
 'What will the woman do this afternoon?',
 'Where does the woman most likely work?',
 'What is the speaker mainly discussing?',
+'Questions 35 through 37 refer to the following conversation.',
 ];
 // Hai đoạn lặp ở mọi đề (Part 1 đọc "Number n…" + 4 phương án; Part 2 → câu MCQ A–C) viết MỘT lần ở đây (size-budget); listening2–7 gọi g.TQH.
 g.TQH = {
