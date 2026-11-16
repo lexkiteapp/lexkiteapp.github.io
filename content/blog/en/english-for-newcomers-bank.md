@@ -42,6 +42,7 @@ quiz: [
     explain: "Ending with or not can sound blunt. The other three are polite or neutral ways of asking about cost."
   }
 ]
+publishAt: 2027-01-31T20:21:00+05:30
 ---
 Money is the one area where a small language mistake can cost you something real: a missed payment, a blocked card, a fee you did not expect. The good news is that **English phrases at the bank** are quite fixed, and about thirty sentences cover most visits. This guide takes you through them in the order you will meet them: opening an account, everyday transactions, asking about fees, sending money, and what to say when something goes wrong.
 
