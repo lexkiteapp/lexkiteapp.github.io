@@ -14,7 +14,7 @@
 
   const state = { cards: {}, settings: { ...DEFAULT_SETTINGS }, stats: { days: {}, newToday: { day: '', n: 0 } }, game: null, user: null };
   const allWords = () => TOPICS.flatMap(t => t.words);
-  // Tra bộ từ theo id bằng Map (bản đồ lộ trình gọi hàng nghìn lần/lần vẽ – TOPICS.find tuyến tính từng là tác vụ dài #/path); TOPICS chỉ được push thêm → dựng lại khi đổi độ dài, bản đầu tiên thắng như find()
+  // Tra bộ từ theo id bằng Map (lộ trình gọi hàng nghìn lần/lần vẽ; find tuyến tính từng là tác vụ dài); TOPICS chỉ được push thêm → dựng lại khi đổi độ dài, bản đầu tiên thắng như find()
   let topIx = null;
   const topicOf = id => { if (!topIx || topIx.n !== TOPICS.length) { const m = new Map(); for (const t of TOPICS) if (!m.has(t.id)) m.set(t.id, t); topIx = { n: TOPICS.length, m }; } return topIx.m.get(id) || (App.subTopic && App.subTopic(id)); }; // + bài con lộ trình (path.js)
   const inDeck = w => !!state.cards[String(w).toLowerCase()];
@@ -116,7 +116,7 @@
   function streakLost() { const days = activeDays(), d = new Date(); if (days.has(todayKey(d))) return 0; d.setDate(d.getDate() - 1); if (days.has(todayKey(d))) return 0; let n = 0; d.setDate(d.getDate() - 1); while (days.has(todayKey(d))) { n++; d.setDate(d.getDate() - 1); } return n >= 2 ? n : 0; }
   const masteredCount = () => Object.values(state.cards).filter(c => SRS.mastery(c.srs) === 3).length;
 
-  // Số < 1000 không có dấu phân nhóm → khỏi khởi tạo Intl/ICU (lần đầu ~70 ms ở CPU mobile, tác vụ dài lúc khởi động – TBT). 'ar' dùng chữ số Ả Rập-Ấn → luôn qua Intl.
+  // Số < 1000 không có dấu phân nhóm → khỏi khởi tạo Intl/ICU (~70 ms ở CPU mobile lúc khởi động – TBT). 'ar' dùng chữ số Ả Rập-Ấn → luôn qua Intl.
   const fmtInt = n => (Number.isInteger(n) && n >= 0 && n < 1000 && I18N.lang() !== 'ar' ? String(n) : n.toLocaleString(I18N.lang()));
   function updateChrome() {
     if (!state.game) return; // gọi sớm trước khi nạp xong dữ liệu (vd. đăng nhập gốc trả phiên lúc mở app) – nạp xong sẽ gọi lại
@@ -239,7 +239,7 @@
   const routes = {};
   const App = { enrichLater, ORIGINS, origin, forgetting, state, routes, load, reward, addWord, inDeck, allWords, topicOf, updateChrome, saveSettings, streak, streakLost, activeDays, masteredCount, masteryDots, view, avatarInner }; // avatarInner: stats-page.js (gói lười statsp)
   window.App = App;
-  // Menu tài khoản MỘT bản (đầu trang Stitch điện thoại + avatar thanh trên): đủ mục mà thanh trên hẹp phải ẩn (sáng/tối, kỳ thi, XP) – không mất chức năng ở bất kỳ độ rộng/zoom nào
+  // Menu tài khoản MỘT bản (đầu trang Stitch điện thoại + avatar thanh trên): đủ mục mà thanh trên hẹp phải ẩn (sáng/tối, kỳ thi, XP) – không mất chức năng ở mọi độ rộng/zoom
   App.accountMenu = () => {
     const X = (App.EXAMS || {})[App.exam ? App.exam() : 'ielts'] || {}, sh = String(X.short || '').replace(/[&<>"']/g, '');
     UI.modal(`<div class="ux1-menu"><h2>${t('Tài khoản')}</h2><p class="muted" data-m-xp>${UI.icon('star')} ${t('Tổng XP')}: <b>${fmtInt(state.game.xp)}</b></p><a class="btn" data-m="x" href="#/me">${t('Tài khoản')}</a><button type="button" class="btn ghost" data-m="exam">${t('Kỳ thi')}${sh ? ': ' + sh : ''}</button><button type="button" class="btn ghost" data-m="theme">${t('Đổi giao diện sáng/tối')}</button>${!state.user && window.Sync && Sync.gBtn ? Sync.gBtn() : ''}</div>`); // chưa đăng nhập: nút đăng nhập (avatar thanh trên lúc này mở menu) – sync.js xử lý data-acct
