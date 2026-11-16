@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_wantgo",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Do not forget to!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I want go home.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I want to go home.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Want is followed by to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "To drink! I want to drink more water.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I want go home.",
+  "right": "I want to go home.",
+  "strike": "want go",
+  "why": "Want is followed by to.",
+  "memory": "Want to go.",
+  "quiz": {
+   "stem": "I want ___ more water.",
+   "options": [
+    "drink",
+    "to drink"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "want 后面别漏掉 to！",
+   "tip": "中文“我想回家”中间不需要别的词，英语里 want 后面接动词要加 to。",
+   "caption": "你是不是也会说 “I want go home.”😅 中文说“我想回家”，“想”后面直接接动词；英语里 want 后面的动词前要加 to：“I want to go home.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“I want to go home.”免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Want needs to!",
+   "tip": "After want, use to before a verb.",
+   "caption": "Do you say “I want go home.” 😅 After want, use to before another verb: “I want to go home.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "want 后面别漏掉 to！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "want 后面别漏掉 to！",
+  "keyword": "I want to go home.",
+  "value": "中文“我想回家”中间不需要别的词，英语里 want 后面接动词要加 to。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "want 后面别漏掉 to！",
+    "description": "中文“我想回家”中间不需要别的词，英语里 want 后面接动词要加 to。\n\n你是不是也会说 “I want go home.”😅 中文说“我想回家”，“想”后面直接接动词；英语里 want 后面的动词前要加 to：“I want to go home.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "I want to go home.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “I want go home.”😅 中文说“我想回家”，“想”后面直接接动词；英语里 want 后面的动词前要加 to：“I want to go home.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "want 后面别漏掉 to！\n\n中文“我想回家”中间不需要别的词，英语里 want 后面接动词要加 to。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "want 后面别漏掉 to！ 中文“我想回家”中间不需要别的词，英语里 want 后面接动词要加 to。 #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“I want to go home.”免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_can_swim",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Can swim, not can to swim!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I can to swim well.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I can swim well.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "No to after can.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Run! She can run very fast.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I can to swim well.",
+  "right": "I can swim well.",
+  "strike": "to",
+  "why": "No to after can.",
+  "memory": "I can swim.",
+  "quiz": {
+   "stem": "She can ___ very fast.",
+   "options": [
+    "to run",
+    "run"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Can to swim” değil, “can swim”!",
+   "tip": "Türkçede “yüzebilirim” tek kelimedir; İngilizcede “can”den sonra fiil yalın gelir, “to” eklenmez: “I can swim well.”",
+   "caption": "“I can to swim well” mi diyorsun? 😅 Doğrusu “I can swim well.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “run”. Can’den sonra fiil yalın gelir. Ücretsiz testle pratik yap: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “can to swim”, but “can swim”!",
+   "tip": "After “can”, the verb has no “to”: “I can swim.”",
+   "caption": "Do you say “I can to swim well”? 😅 English has no “to” after can. The right sentence is “I can swim well.” Listen to Carlos and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Can to swim” değil, “can swim”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“Can to swim” değil, “can swim”!",
+  "keyword": "I can swim well.",
+  "value": "Türkçede “yüzebilirim” tek kelimedir; İngilizcede “can”den sonra fiil yalın gelir, “to” eklenmez: “I can swim well.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "“Can to swim” değil, “can swim”!",
+    "description": "Türkçede “yüzebilirim” tek kelimedir; İngilizcede “can”den sonra fiil yalın gelir, “to” eklenmez: “I can swim well.”\n\n“I can to swim well” mi diyorsun? 😅 Doğrusu “I can swim well.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "I can swim well.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“I can to swim well” mi diyorsun? 😅 Doğrusu “I can swim well.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Can to swim” değil, “can swim”!\n\nTürkçede “yüzebilirim” tek kelimedir; İngilizcede “can”den sonra fiil yalın gelir, “to” eklenmez: “I can swim well.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Can to swim” değil, “can swim”! Türkçede “yüzebilirim” tek kelimedir; İngilizcede “can”den sonra fiil y… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “run”. Can’den sonra fiil yalın gelir. Ücretsiz testle pratik yap: {link}",
+  "lang": "tr"
+ }
+}

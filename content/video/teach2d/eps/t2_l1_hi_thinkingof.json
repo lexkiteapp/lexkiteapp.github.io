@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_thinkingof",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Think of, not think to!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am thinking to buy a car.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am thinking of buying a car.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Think of goes with buying, not to buy.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Of buying! I am thinking of buying a bike.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am thinking to buy a car.",
+  "right": "I am thinking of buying a car.",
+  "strike": "to buy",
+  "why": "Think of goes with buying, not to buy.",
+  "memory": "Thinking of buying.",
+  "quiz": {
+   "stem": "I am thinking ___ a bike.",
+   "options": [
+    "to buy",
+    "of buying"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“thinking to” नहीं!",
+   "tip": "हिंदी में “कार खरीदने की सोच रहा हूँ” कहते हैं, पर अंग्रेज़ी में thinking के बाद of और ing वाला शब्द आता है।",
+   "caption": "क्या आप भी बोलते हैं: “I am thinking to buy a car.” 😅 सही वाक्य है: “I am thinking of buying a car.” ध्यान रखें: thinking के बाद of और ing वाला शब्द लगता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “of buying”। याद रखें: thinking के बाद of और ing वाला शब्द लगता है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “thinking to”!",
+   "tip": "Many learners say thinking to buy, but English uses thinking of and an ing word.",
+   "caption": "Do you say: “I am thinking to buy a car.” 😅 The right sentence is: “I am thinking of buying a car.” Remember: After thinking, use of and an ing word. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“thinking to” नहीं!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 56,
+  "seconds": 33.0,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "“thinking to” नहीं!",
+  "keyword": "I am thinking of buying a car.",
+  "value": "हिंदी में “कार खरीदने की सोच रहा हूँ” कहते हैं, पर अंग्रेज़ी में thinking के बाद of और ing वाला शब्द आता है।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 50,
+  "platforms": {
+   "youtube": {
+    "title": "“thinking to” नहीं!",
+    "description": "हिंदी में “कार खरीदने की सोच रहा हूँ” कहते हैं, पर अंग्रेज़ी में thinking के बाद of और ing वाला शब्द आता है।\n\nक्या आप भी बोलते हैं: “I am thinking to buy a car.” 😅 सही वाक्य है: “I am thinking of buying a car.” ध्यान रखें: thinking के बाद of और ing वाला शब्द लगता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "I am thinking of buying a car.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी बोलते हैं: “I am thinking to buy a car.” 😅 सही वाक्य है: “I am thinking of buying a car.” ध्यान रखें: thinking के बाद of और ing वाला शब्द लगता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“thinking to” नहीं!\n\nहिंदी में “कार खरीदने की सोच रहा हूँ” कहते हैं, पर अंग्रेज़ी में thinking के बाद of और ing वाला शब्द आता है।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“thinking to” नहीं! हिंदी में “कार खरीदने की सोच रहा हूँ” कहते हैं, पर अंग्रेज़ी में thinking के बाद of… #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “of buying”। याद रखें: thinking के बाद of और ing वाला शब्द लगता है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

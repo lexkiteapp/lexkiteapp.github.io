@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_thankcalling",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Thank you for calling!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Thank you for call me.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Thank you for calling me.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After for, we say calling.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! Thank you for calling me.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Thank you for call me.",
+  "right": "Thank you for calling me.",
+  "strike": "call",
+  "why": "After for, we say calling.",
+  "memory": "Thank you for calling.",
+  "quiz": {
+   "stem": "Thank you for ___ me.",
+   "options": [
+    "call",
+    "calling"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Diga “Thank you for calling”!",
+   "tip": "Em português dizemos “obrigado por ligar”, com infinitivo; em inglês, depois de “for”, use a forma com ing.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “Thank you for call me.” O certo é “Thank you for calling me.” Em português dizemos “obrigado por ligar”, com infinitivo; em inglês, depois de “for”, use a forma com ing. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “calling”. Agora diga em voz alta “Thank you for calling me.” e treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “Thank you for calling”!",
+   "tip": "In Portuguese we say “obrigado por ligar”, with the infinitive; in English, after “for”, use the ing form.",
+   "caption": "Watch out for this common mistake! Many people say “Thank you for call me.” The right way is “Thank you for calling me.” In Portuguese we say “obrigado por ligar”, with the infinitive; in English, after “for”, use the ing form. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Diga “Thank you for calling”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Diga “Thank you for calling”!",
+  "keyword": "Thank you for calling me.",
+  "value": "Em português dizemos “obrigado por ligar”, com infinitivo; em inglês, depois de “for”, use a forma com ing.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Diga “Thank you for calling”!",
+    "description": "Em português dizemos “obrigado por ligar”, com infinitivo; em inglês, depois de “for”, use a forma com ing.\n\nCuidado com este erro comum! 😬 Muita gente diz “Thank you for call me.” O certo é “Thank you for calling me.” Em português dizemos “obrigado por ligar”, com infinitivo; em inglês, depois de “for”, use a forma com ing. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "Thank you for calling me.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “Thank you for call me.” O certo é “Thank you for calling me.” Em português dizemos “obrigado por ligar”, com infinitivo; em inglês, depois de “for”, use a forma com ing. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Diga “Thank you for calling”!\n\nEm português dizemos “obrigado por ligar”, com infinitivo; em inglês, depois de “for”, use a forma com ing.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Diga “Thank you for calling”! Em português dizemos “obrigado por ligar”, com infinitivo; em inglês, depois… #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “calling”. Agora diga em voz alta “Thank you for calling me.” e treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

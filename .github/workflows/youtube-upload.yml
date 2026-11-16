@@ -5,7 +5,7 @@ name: youtube-upload
 on:
   workflow_dispatch:
     inputs:
-      max: { description: 'Tối đa số video lượt này (≤ 6)', default: '6' }
+      max: { description: 'Tối đa số video lượt này (≤ 30; hẹn giờ gần nhất tải trước)', default: '12' }
       dry_run: { description: 'Chỉ liệt kê hàng chờ + tiêu đề', type: boolean, default: false }
   schedule:
     - cron: '15 1,8,14,20 * * *'
@@ -36,7 +36,7 @@ jobs:
       - name: Lên YouTube (hàng chờ đã duyệt, trong hạn mức)
         if: ${{ steps.lease.outputs.skip != '1' }}
         env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
-        run: node scripts/ci/quota-skip.mjs node scripts/video/yt-upload.mjs --index /tmp/shorts/shorts/index.json --max "${{ github.event.inputs.max || '6' }}" ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }}
+        run: node scripts/ci/quota-skip.mjs node scripts/video/yt-upload.mjs --index /tmp/shorts/shorts/index.json --max "${{ github.event.inputs.max || '12' }}" ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }}
       - name: Trả thuê
         if: ${{ always() && steps.lease.outputs.skip != '1' }}
         env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_live_be",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say have lived, not live!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I live in Bangkok since 2020.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have lived in Bangkok since 2020.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use have lived with since.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Have lived! I have lived here since 2020.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I live in Bangkok since 2020.",
+  "right": "I have lived in Bangkok since 2020.",
+  "strike": "live",
+  "why": "Use have lived with since.",
+  "memory": "Have lived since.",
+  "quiz": {
+   "stem": "I ___ here since 2020.",
+   "options": [
+    "have lived",
+    "live"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "ใช้ since ต้องมี have + V3!",
+   "tip": "ไทยไม่เปลี่ยนรูปกริยา แต่อังกฤษใช้ have lived กับ since: “I have lived in Bangkok since 2020.”",
+   "caption": "คุณเคยพูดว่า “I live in Bangkok since 2020.” ไหม? 😅 ภาษาไทยไม่ต้องเปลี่ยนรูปกริยา แต่ภาษาอังกฤษใช้ have lived เมื่อมี since: “I have lived in Bangkok since 2020.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “have lived” จำไว้ให้ดีนะ! ลองพูดประโยคนี้ออกเสียงดัง ๆ หนึ่งครั้ง แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Use “have” with “since”!",
+   "tip": "Thai does not change the verb here, but English uses have lived with since: “I have lived in Bangkok since 2020.”",
+   "caption": "Do you say “I live in Bangkok since 2020”? 😅 Thai does not change the verb, but English uses have lived with since. Say “I have lived in Bangkok since 2020”! Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "ใช้ since ต้องมี have + V3!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 51,
+  "seconds": 30.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "ใช้ since ต้องมี have + V3!",
+  "keyword": "I have lived in Bangkok since 2020.",
+  "value": "ไทยไม่เปลี่ยนรูปกริยา แต่อังกฤษใช้ have lived กับ since: “I have lived in Bangkok since 2020.”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 45,
+  "platforms": {
+   "youtube": {
+    "title": "ใช้ since ต้องมี have + V3!",
+    "description": "ไทยไม่เปลี่ยนรูปกริยา แต่อังกฤษใช้ have lived กับ since: “I have lived in Bangkok since 2020.”\n\nคุณเคยพูดว่า “I live in Bangkok since 2020.” ไหม? 😅 ภาษาไทยไม่ต้องเปลี่ยนรูปกริยา แต่ภาษาอังกฤษใช้ have lived เมื่อมี since: “I have lived in Bangkok since 2020.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "I have lived in Bangkok since 2020.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “I live in Bangkok since 2020.” ไหม? 😅 ภาษาไทยไม่ต้องเปลี่ยนรูปกริยา แต่ภาษาอังกฤษใช้ have lived เมื่อมี since: “I have lived in Bangkok since 2020.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "ใช้ since ต้องมี have + V3!\n\nไทยไม่เปลี่ยนรูปกริยา แต่อังกฤษใช้ have lived กับ since: “I have lived in Bangkok since 2020.”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ใช้ since ต้องมี have + V3! ไทยไม่เปลี่ยนรูปกริยา แต่อังกฤษใช้ have lived กับ since: “I have lived in Bangkok… #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “have lived” จำไว้ให้ดีนะ! ลองพูดประโยคนี้ออกเสียงดัง ๆ หนึ่งครั้ง แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

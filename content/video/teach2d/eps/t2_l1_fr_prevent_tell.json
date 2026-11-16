@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_prevent_tell",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Not prevent! Say tell me!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Please prevent me when you arrive.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Please tell me when you arrive.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Prevent means stop. Say tell.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second one! Please tell me when you arrive.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Please prevent me when you arrive.",
+  "right": "Please tell me when you arrive.",
+  "strike": "prevent",
+  "why": "Prevent means stop. Say tell.",
+  "memory": "Prevent means stop.",
+  "quiz": {
+   "stem": "Choose the right sentence.",
+   "options": [
+    "Please prevent me when you arrive.",
+    "Please tell me when you arrive."
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "« Prévenir » ≠ “prevent”",
+   "tip": "« Prévenir quelqu’un » se dit “tell” en anglais. “Prevent” veut dire « empêcher ».",
+   "caption": "Vous dites “Please prevent me when you arrive.” ? « Prévenir quelqu’un » se dit “tell” en anglais. “Prevent” veut dire « empêcher ». Dites plutôt “Please tell me when you arrive.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “Please tell me when you arrive.” — « Prévenir quelqu’un » se dit “tell” en anglais. “Prevent” veut dire « empêcher ». À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “prevent”, say “tell”!",
+   "tip": "French « prévenir » means to tell someone ahead of time: say “tell”. “Prevent” means to stop something.",
+   "caption": "Do you say this? “Please prevent me when you arrive.” French « prévenir » means to tell someone ahead of time: say “tell”. “Prevent” means to stop something. Say “Please tell me when you arrive.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "« Prévenir » ≠ “prevent”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 51,
+  "seconds": 30.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "« Prévenir » ≠ “prevent”",
+  "keyword": "Please tell me when you arrive.",
+  "value": "« Prévenir quelqu’un » se dit “tell” en anglais. “Prevent” veut dire « empêcher ».",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 45,
+  "platforms": {
+   "youtube": {
+    "title": "« Prévenir » ≠ “prevent”",
+    "description": "« Prévenir quelqu’un » se dit “tell” en anglais. “Prevent” veut dire « empêcher ».\n\nVous dites “Please prevent me when you arrive.” ? « Prévenir quelqu’un » se dit “tell” en anglais. “Prevent” veut dire « empêcher ». Dites plutôt “Please tell me when you arrive.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "Please tell me when you arrive.",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Vous dites “Please prevent me when you arrive.” ? « Prévenir quelqu’un » se dit “tell” en anglais. “Prevent” veut dire « empêcher ». Dites plutôt “Please tell me when you arrive.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "« Prévenir » ≠ “prevent”\n\n« Prévenir quelqu’un » se dit “tell” en anglais. “Prevent” veut dire « empêcher ».\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "« Prévenir » ≠ “prevent” « Prévenir quelqu’un » se dit “tell” en anglais. “Prevent” veut dire « empê… #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “Please tell me when you arrive.” — « Prévenir quelqu’un » se dit “tell” en anglais. “Prevent” veut dire « empêcher ». À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}

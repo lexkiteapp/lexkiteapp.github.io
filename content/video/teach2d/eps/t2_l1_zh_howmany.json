@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_howmany",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say how many people!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: How much people are in your class?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: How many people are in your class?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "You can count people.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Many! How many students are here?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "How much people are in your class?",
+  "right": "How many people are in your class?",
+  "strike": "much",
+  "why": "You can count people.",
+  "memory": "How many people?",
+  "quiz": {
+   "stem": "How ___ students are here?",
+   "options": [
+    "much",
+    "many"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "问人数要用 how many！",
+   "tip": "中文的“多少”什么都能问，所以容易说 how much people。人可以一个一个数，要用 how many。",
+   "caption": "你是不是也会说 “How much people are in your class?”😅 中文的“多少”通用，但人可以数，英语要用 how many：“How many people are in your class?”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“How many people are in your class?”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Use “how many” for people!",
+   "tip": "Chinese uses one word for how much and how many. English splits them.",
+   "caption": "Do you say “How much people are in your class?” 😅 English splits how much and how many, and people take many: “How many people are in your class?” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "问人数要用 how many！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "问人数要用 how many！",
+  "keyword": "How many people are in your class?",
+  "value": "中文的“多少”什么都能问，所以容易说 how much people。人可以一个一个数，要用 how many。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "问人数要用 how many！",
+    "description": "中文的“多少”什么都能问，所以容易说 how much people。人可以一个一个数，要用 how many。\n\n你是不是也会说 “How much people are in your class?”😅 中文的“多少”通用，但人可以数，英语要用 how many：“How many people are in your class?”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "How many people are in your class?",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “How much people are in your class?”😅 中文的“多少”通用，但人可以数，英语要用 how many：“How many people are in your class?”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "问人数要用 how many！\n\n中文的“多少”什么都能问，所以容易说 how much people。人可以一个一个数，要用 how many。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "问人数要用 how many！ 中文的“多少”什么都能问，所以容易说 how much people。人可以一个一个数，要用 how many。 #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“How many people are in your class?”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

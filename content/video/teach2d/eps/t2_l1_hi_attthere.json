@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_attthere",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say I do, not I like!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Do you like tea? Yes, I like.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Do you like tea? Yes, I do.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "We answer a short question with do.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Do! Yes, I do.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Do you like tea? Yes, I like.",
+  "right": "Do you like tea? Yes, I do.",
+  "strike": "like",
+  "why": "We answer a short question with do.",
+  "memory": "Do you like tea? Yes, I do.",
+  "quiz": {
+   "stem": "Do you like tea? Yes, I ___.",
+   "options": [
+    "like",
+    "do"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“I like” नहीं, “I do” कहें!",
+   "tip": "हिंदी में “हाँ, पसंद है” कहकर वही क्रिया दोहराते हैं, इसलिए I like बोल देते हैं; अंग्रेज़ी में छोटे जवाब में do लगाएँ।",
+   "caption": "क्या आप भी यही कहते हैं? “Do you like tea? Yes, I like.” 😅 सही रूप है “Do you like tea? Yes, I do.” क्योंकि छोटे जवाब में do आता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “do”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “I do”, not “I like”!",
+   "tip": "Many learners repeat like in a short answer, but English uses do.",
+   "caption": "Do you say this? “Do you like tea? Yes, I like.” 😅 The right way is “Do you like tea? Yes, I do.” This is right because a short answer uses do. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“I like” नहीं, “I do” कहें!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 51,
+  "seconds": 30.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“I like” नहीं, “I do” कहें!",
+  "keyword": "Do you like tea? Yes, I do.",
+  "value": "हिंदी में “हाँ, पसंद है” कहकर वही क्रिया दोहराते हैं, इसलिए I like बोल देते हैं; अंग्रेज़ी में छोटे जवाब में do लगाएँ।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 45,
+  "platforms": {
+   "youtube": {
+    "title": "“I like” नहीं, “I do” कहें!",
+    "description": "हिंदी में “हाँ, पसंद है” कहकर वही क्रिया दोहराते हैं, इसलिए I like बोल देते हैं; अंग्रेज़ी में छोटे जवाब में do लगाएँ।\n\nक्या आप भी यही कहते हैं? “Do you like tea? Yes, I like.” 😅 सही रूप है “Do you like tea? Yes, I do.” क्योंकि छोटे जवाब में do आता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "Do you like tea? Yes, I do.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी यही कहते हैं? “Do you like tea? Yes, I like.” 😅 सही रूप है “Do you like tea? Yes, I do.” क्योंकि छोटे जवाब में do आता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“I like” नहीं, “I do” कहें!\n\nहिंदी में “हाँ, पसंद है” कहकर वही क्रिया दोहराते हैं, इसलिए I like बोल देते हैं; अंग्रेज़ी में छोटे जवाब में do लगाएँ।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“I like” नहीं, “I do” कहें! हिंदी में “हाँ, पसंद है” कहकर वही क्रिया दोहराते हैं, इसलिए I like बोल देते… #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “do”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

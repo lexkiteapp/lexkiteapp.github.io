@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_prefer_to",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Prefer to, not prefer than!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I prefer tea than coffee.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I prefer tea to coffee.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use to after prefer.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "To! I prefer cats to dogs.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I prefer tea than coffee.",
+  "right": "I prefer tea to coffee.",
+  "strike": "than",
+  "why": "Use to after prefer.",
+  "memory": "I prefer tea to coffee.",
+  "quiz": {
+   "stem": "I prefer cats ___ dogs.",
+   "options": [
+    "than",
+    "to"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Prefer than” değil, “prefer to”!",
+   "tip": "Türkçede “kahveden çok çayı” deriz; “prefer” ile karşılaştırma “to” ile yapılır: “I prefer tea to coffee.”",
+   "caption": "“I prefer tea than coffee” mi diyorsun? 😅 “Prefer” ile “than” değil, “to” gelir. Doğrusu “I prefer tea to coffee.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “to”. “Kahveden çok çayı” için “prefer … to” de. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “prefer to”, not “than”!",
+   "tip": "After “prefer”, use “to”: “I prefer tea to coffee.”",
+   "caption": "Do you say “I prefer tea than coffee”? 😅 In English we say prefer to, not prefer than. The right sentence is “I prefer tea to coffee.” Listen to Ama and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Prefer than” değil, “prefer to”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“Prefer than” değil, “prefer to”!",
+  "keyword": "I prefer tea to coffee.",
+  "value": "Türkçede “kahveden çok çayı” deriz; “prefer” ile karşılaştırma “to” ile yapılır: “I prefer tea to coffee.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "“Prefer than” değil, “prefer to”!",
+    "description": "Türkçede “kahveden çok çayı” deriz; “prefer” ile karşılaştırma “to” ile yapılır: “I prefer tea to coffee.”\n\n“I prefer tea than coffee” mi diyorsun? 😅 “Prefer” ile “than” değil, “to” gelir. Doğrusu “I prefer tea to coffee.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "I prefer tea to coffee.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“I prefer tea than coffee” mi diyorsun? 😅 “Prefer” ile “than” değil, “to” gelir. Doğrusu “I prefer tea to coffee.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Prefer than” değil, “prefer to”!\n\nTürkçede “kahveden çok çayı” deriz; “prefer” ile karşılaştırma “to” ile yapılır: “I prefer tea to coffee.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Prefer than” değil, “prefer to”! Türkçede “kahveden çok çayı” deriz; “prefer” ile karşılaştırma “to” il… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “to”. “Kahveden çok çayı” için “prefer … to” de. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+  "lang": "tr"
+ }
+}

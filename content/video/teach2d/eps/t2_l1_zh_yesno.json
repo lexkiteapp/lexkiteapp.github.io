@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_yesno",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Don't you like tea? Say no!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Yes, I don't like tea.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: No, I don't like tea.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Yes means you like it.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "No! Don't you like tea? No, I don't.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Yes, I don't like tea.",
+  "right": "No, I don't like tea.",
+  "strike": "Yes",
+  "why": "Yes means you like it.",
+  "memory": "No means no.",
+  "quiz": {
+   "stem": "Don't you like tea? ___, I don't.",
+   "options": [
+    "Yes",
+    "No"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "回答否定问句用 No！",
+   "tip": "中文问“你不喜欢茶吗”，会答“是的，我不喜欢”。英语的 yes 和 no 看的是答案本身：喜欢就是 yes，不喜欢就是 no。",
+   "caption": "你是不是也会说 “Yes, I don't like tea.”😅 中文可答“是”，英语不喜欢就要答 no：“No, I don't like tea.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“No, I don't like tea.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "To answer negative questions use N",
+   "tip": "In Chinese you may say yes here, but in English say no when you don't like it.",
+   "caption": "Do you say “Yes, I don't like tea.” 😅 In English, say no when you don't like it: “No, I don't like tea.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "回答否定问句用 No！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "回答否定问句用 No！",
+  "keyword": "No, I don't like tea.",
+  "value": "中文问“你不喜欢茶吗”，会答“是的，我不喜欢”。英语的 yes 和 no 看的是答案本身：喜欢就是 yes，不喜欢就是 no。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "回答否定问句用 No！",
+    "description": "中文问“你不喜欢茶吗”，会答“是的，我不喜欢”。英语的 yes 和 no 看的是答案本身：喜欢就是 yes，不喜欢就是 no。\n\n你是不是也会说 “Yes, I don't like tea.”😅 中文可答“是”，英语不喜欢就要答 no：“No, I don't like tea.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "No, I don't like tea.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “Yes, I don't like tea.”😅 中文可答“是”，英语不喜欢就要答 no：“No, I don't like tea.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "回答否定问句用 No！\n\n中文问“你不喜欢茶吗”，会答“是的，我不喜欢”。英语的 yes 和 no 看的是答案本身：喜欢就是 yes，不喜欢就是 no。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "回答否定问句用 No！ 中文问“你不喜欢茶吗”，会答“是的，我不喜欢”。英语的 yes 和 no 看的是答案本身：喜欢就是 yes，不喜欢就是 no。 #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“No, I don't like tea.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

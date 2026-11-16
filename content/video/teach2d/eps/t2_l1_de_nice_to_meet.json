@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_nice_to_meet",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Nice to meet you!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Nice to know you.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Nice to meet you.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Meet is for the first time.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Meet! Nice to meet you.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Nice to know you.",
+  "right": "Nice to meet you.",
+  "strike": "know",
+  "why": "Meet is for the first time.",
+  "memory": "Nice to meet you.",
+  "quiz": {
+   "stem": "Nice to ___ you.",
+   "options": [
+    "know",
+    "meet"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "„Kennenlernen“ = „meet“",
+   "tip": "Im Deutschen sagen wir „Schön, Sie kennenzulernen.“ Im Englischen sagen Sie „Nice to meet you“, nicht „know“.",
+   "caption": "Sagen Sie „Nice to know you“? 🤝 Falsch: “Nice to know you.” Richtig: “Nice to meet you.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “meet”. Richtig heißt es: “Nice to meet you.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Kennenlernen” is “meet”!",
+   "tip": "German says “Schön, Sie kennenzulernen.” English says “Nice to meet you”, not “know”.",
+   "caption": "“Kennenlernen” is “meet”! Wrong: “Nice to know you.” Right: “Nice to meet you.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "„Kennenlernen“ = „meet“"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "„Kennenlernen“ = „meet“",
+  "keyword": "Nice to meet you.",
+  "value": "Im Deutschen sagen wir „Schön, Sie kennenzulernen.“ Im Englischen sagen Sie „Nice to meet you“, nicht „know“.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "„Kennenlernen“ = „meet“",
+    "description": "Im Deutschen sagen wir „Schön, Sie kennenzulernen.“ Im Englischen sagen Sie „Nice to meet you“, nicht „know“.\n\nSagen Sie „Nice to know you“? 🤝 Falsch: “Nice to know you.” Richtig: “Nice to meet you.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "Nice to meet you.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Sagen Sie „Nice to know you“? 🤝 Falsch: “Nice to know you.” Richtig: “Nice to meet you.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "„Kennenlernen“ = „meet“\n\nIm Deutschen sagen wir „Schön, Sie kennenzulernen.“ Im Englischen sagen Sie „Nice to meet you“, nicht „know“.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "„Kennenlernen“ = „meet“ Im Deutschen sagen wir „Schön, Sie kennenzulernen.“ Im Englischen sagen Sie „N… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “meet”. Richtig heißt es: “Nice to meet you.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

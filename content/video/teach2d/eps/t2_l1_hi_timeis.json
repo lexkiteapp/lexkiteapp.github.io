@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_timeis",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say the door, not door!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Please close door.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Please close the door.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say the door when we both know which door.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The! Please open the window.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Please close door.",
+  "right": "Please close the door.",
+  "strike": "close door",
+  "why": "Say the door when we both know which door.",
+  "memory": "Please close the door.",
+  "quiz": {
+   "stem": "Please open ___ window.",
+   "options": [
+    "–",
+    "the"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“door” नहीं, “the door”!",
+   "tip": "हिंदी में “दरवाज़ा बंद करो” कहते हैं, इसमें the जैसा कोई शब्द नहीं होता, इसलिए the छूट जाता है; अंग्रेज़ी में the door कहें।",
+   "caption": "क्या आप भी ऐसा बोलते हैं? “Please close door.” 😅 सही वाक्य है: “Please close the door.” क्योंकि जब हम दोनों जानते हैं कि कौन-सा दरवाज़ा, तब the door आता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “the”। याद रखें: जब दोनों जानते हैं कि कौन-सा दरवाज़ा, तब the door बोलें। अब the के साथ अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “the door”, not “door”!",
+   "tip": "Many learners leave out the, but English says the door when we both know which door.",
+   "caption": "Do you say this? “Please close door.” 😅 The right sentence is: “Please close the door.” This is right because we say the door when we both know which door. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“door” नहीं, “the door”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“door” नहीं, “the door”!",
+  "keyword": "Please close the door.",
+  "value": "हिंदी में “दरवाज़ा बंद करो” कहते हैं, इसमें the जैसा कोई शब्द नहीं होता, इसलिए the छूट जाता है; अंग्रेज़ी में the door कहें।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "“door” नहीं, “the door”!",
+    "description": "हिंदी में “दरवाज़ा बंद करो” कहते हैं, इसमें the जैसा कोई शब्द नहीं होता, इसलिए the छूट जाता है; अंग्रेज़ी में the door कहें।\n\nक्या आप भी ऐसा बोलते हैं? “Please close door.” 😅 सही वाक्य है: “Please close the door.” क्योंकि जब हम दोनों जानते हैं कि कौन-सा दरवाज़ा, तब the door आता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "Please close the door.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी ऐसा बोलते हैं? “Please close door.” 😅 सही वाक्य है: “Please close the door.” क्योंकि जब हम दोनों जानते हैं कि कौन-सा दरवाज़ा, तब the door आता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“door” नहीं, “the door”!\n\nहिंदी में “दरवाज़ा बंद करो” कहते हैं, इसमें the जैसा कोई शब्द नहीं होता, इसलिए the छूट जाता है; अंग्रेज़ी में the door कहें।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“door” नहीं, “the door”! हिंदी में “दरवाज़ा बंद करो” कहते हैं, इसमें the जैसा कोई शब्द नहीं होता, इसलिए… #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “the”। याद रखें: जब दोनों जानते हैं कि कौन-सा दरवाज़ा, तब the door बोलें। अब the के साथ अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

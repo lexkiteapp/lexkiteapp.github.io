@@ -1,0 +1,129 @@
+{
+ "id": "t2a_mistake_04105eed",
+ "template": "mistake",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Stop saying rely in!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: We rely in technology.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: We rely on technology.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Rely always takes on.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "On! Small shops rely on local customers.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "We rely in technology.",
+  "right": "We rely on technology.",
+  "strike": "rely in",
+  "why": "Rely always takes on.",
+  "memory": "rely / depend ON",
+  "quiz": {
+   "stem": "Small shops rely ___ local customers.",
+   "options": [
+    "in",
+    "on"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Stop saying “rely in”"
+ },
+ "src": {
+  "gold": "sb_04105eed",
+  "pid": "u:p:rely:m0"
+ },
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "Say \"We rely on technology\", not \"We rely in technology\"",
+  "keyword": "rely in",
+  "value": "Say \"We rely on technology\", not \"We rely in technology\". Rely always takes on.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#englishgrammar",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "Say \"We rely on technology\", not \"We rely in technology\"",
+    "description": "Say \"We rely on technology\", not \"We rely in technology\". Rely always takes on.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix\n\nSeries: Stop Saying This · Teacher: Ama\n\n#learnenglish #englishtips #englishgrammar #englishteacher",
+    "tags": [
+     "rely in",
+     "Stop Saying This",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Say \"We rely on technology\", not \"We rely in technology\"\n\nSay \"We rely on technology\", not \"We rely in technology\". Rely always takes on.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Say \"We rely on technology\", not \"We rely in technology\"\n\nSay \"We rely on technology\", not \"We rely in technology\". Rely always takes on.\n\nCheck your grammar: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#englishgrammar",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Say \"We rely on technology\", not \"We rely in technology\" #learnenglish #englishtips #englishgrammar"
+   }
+  },
+  "first_comment": "Quiz answer: On! Small shops rely on local customers. Say \"We rely on technology\", not \"We rely in technology\". Rely always takes on. Practice it with a free quiz: {link}"
+ }
+}

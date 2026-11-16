@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "Nói về mẹ phải là “she”!",
-   "tip": "Tiếng Việt dùng “ông/bà/cô…” theo ngữ cảnh. Tiếng Anh dùng he/she theo giới tính.",
+   "tip": "Tiếng Việt hay gọi “mẹ/chị/dì” thay cho đại từ, nên dễ nhầm he/she. Mẹ, chị, dì dùng “she.”",
    "caption": "Bạn có hay nói “My mom is nice. He cooks well.” không? 😅 Mẹ, chị, cô dùng “she”: “My mom is nice. She cooks well.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-   "comment": "Đáp án: “She”. Nói về người thân bằng he hoặc she cho đúng nhé. Luyện thêm miễn phí tại đây: {link}",
+   "comment": "Đáp án: “She.” Nói về người thân bằng he hoặc she cho đúng nhé. Luyện thêm miễn phí tại đây: {link}",
    "hashtags": [
     "#hoctienganh",
     "#nguphaptienganh",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "Talking about mom must be “she”!",
-   "tip": "Vietnamese picks words by context. English uses he or she by gender.",
-   "caption": "Do you often say “My mom is nice. He cooks well.”? Mom, sister, aunt take “she”: “My mom is nice. She cooks well.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
+   "hook": "When talking about your mother, yo",
+   "tip": "People often say “mom” or “sister” instead of a pronoun, so he/she gets mixed up. Mom, sister, aunt take “she.”",
+   "caption": "Do you often say this? “My mom is nice. He cooks well.” Mom, sister, aunt take “she”: “My mom is nice. She cooks well.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "Nói về mẹ phải là “she”!",
   "keyword": "My mom is nice. She cooks well.",
-  "value": "Tiếng Việt dùng “ông/bà/cô…” theo ngữ cảnh. Tiếng Anh dùng he/she theo giới tính.",
+  "value": "Tiếng Việt hay gọi “mẹ/chị/dì” thay cho đại từ, nên dễ nhầm he/she. Mẹ, chị, dì dùng “she.”",
   "hashtags": [
    "#hoctienganh",
    "#nguphaptienganh",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "Nói về mẹ phải là “she”!",
-    "description": "Bạn có hay nói “My mom is nice. He cooks well.” không? 😅 Mẹ, chị, cô dùng “she”: “My mom is nice. She cooks well.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #nguphaptienganh #daitu #lexkite",
+    "description": "Tiếng Việt hay gọi “mẹ/chị/dì” thay cho đại từ, nên dễ nhầm he/she. Mẹ, chị, dì dùng “she.”\n\nBạn có hay nói “My mom is nice. He cooks well.” không? 😅 Mẹ, chị, cô dùng “she”: “My mom is nice. She cooks well.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #nguphaptienganh #daitu #lexkite",
     "tags": [
      "My mom is nice. She cooks well.",
      "learn english",
@@ -128,7 +128,7 @@
     "text": "Bạn có hay nói “My mom is nice. He cooks well.” không? 😅 Mẹ, chị, cô dùng “she”: “My mom is nice. She cooks well.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Bạn có hay nói “My mom is nice. He cooks well.” không? 😅 Mẹ, chị, cô dùng “she”: “My mom is nice. She cooks well.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nlexkite.com",
+    "caption": "Nói về mẹ phải là “she”!\n\nTiếng Việt hay gọi “mẹ/chị/dì” thay cho đại từ, nên dễ nhầm he/she. Mẹ, chị, dì dùng “she.”\n\nlexkite.com",
     "hashtags": [
      "#hoctienganh",
      "#nguphaptienganh",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "Nói về mẹ phải là “she”! #hoctienganh #nguphaptienganh #daitu"
+    "caption": "Nói về mẹ phải là “she”! Tiếng Việt hay gọi “mẹ/chị/dì” thay cho đại từ, nên dễ nhầm he/she. Mẹ, chị, dì dùng “s… #hoctienganh #nguphaptienganh #daitu"
    }
   },
-  "first_comment": "Đáp án: “She”. Nói về người thân bằng he hoặc she cho đúng nhé. Luyện thêm miễn phí tại đây: {link}",
+  "first_comment": "Đáp án: “She.” Nói về người thân bằng he hoặc she cho đúng nhé. Luyện thêm miễn phí tại đây: {link}",
   "lang": "vi"
  }
 }

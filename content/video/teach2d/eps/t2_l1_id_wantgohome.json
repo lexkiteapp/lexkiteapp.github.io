@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_wantgohome",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Want to go home!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I want go home.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I want to go home.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Want + to + verb.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "To! I want to eat.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I want go home.",
+  "right": "I want to go home.",
+  "strike": "go",
+  "why": "Want + to + verb.",
+  "memory": "Want to go.",
+  "quiz": {
+   "stem": "I want ___ eat.",
+   "options": [
+    "to",
+    "for"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Want go”? Tambahkan “to”",
+   "tip": "“Mau pulang” tidak butuh kata penghubung, tapi bahasa Inggris butuh to setelah want.",
+   "caption": "Pernah bilang begini? “I want go home.” 😅 Setelah want, pakai to: “I want to go home.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “to”. Bilang “I want to ...” tiga kali hari ini. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#grammaringgris",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Want go”? Add “to”",
+   "tip": "“Mau pulang” needs no linking word, but English needs to after want.",
+   "caption": "Ever say this? “I want go home.” 😅 After want, use to: “I want to go home.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Want go”? Tambahkan “to”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 41,
+  "seconds": 25.6,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "“Want go”? Tambahkan “to”",
+  "keyword": "I want to go home.",
+  "value": "“Mau pulang” tidak butuh kata penghubung, tapi bahasa Inggris butuh to setelah want.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#grammaringgris",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "“Want go”? Tambahkan “to”",
+    "description": "“Mau pulang” tidak butuh kata penghubung, tapi bahasa Inggris butuh to setelah want.\n\nPernah bilang begini? “I want go home.” 😅 Setelah want, pakai to: “I want to go home.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #grammaringgris #bahasainggris #lexkite",
+    "tags": [
+     "I want to go home.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “I want go home.” 😅 Setelah want, pakai to: “I want to go home.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Want go”? Tambahkan “to”\n\n“Mau pulang” tidak butuh kata penghubung, tapi bahasa Inggris butuh to setelah want.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#grammaringgris",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Want go”? Tambahkan “to” “Mau pulang” tidak butuh kata penghubung, tapi bahasa Inggris butuh to… #belajarbahasainggris #grammaringgris #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “to”. Bilang “I want to ...” tiga kali hari ini. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}
