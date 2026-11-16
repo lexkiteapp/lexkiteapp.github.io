@@ -1,6 +1,6 @@
 # CSS-NOTES – chú thích dài của web/css/style.css
 
-> TL;DR: chú thích dài (> 120 ký tự) chuyển từ style.css sang đây để khung app (first-load, trần shellGz) nhẹ hơn mà không mất kiến thức; trong CSS còn `/* CSS-NOTES §n */`. Neo theo selector đứng ngay sau chú thích.
+> TL;DR: chú thích dài (> 120 ký tự) chuyển từ style.css sang đây để khung app (first-load, trần shellGz) nhẹ hơn mà không mất kiến thức; trong CSS còn đầu chú thích + `CSS-NOTES §n`. Neo theo selector đứng ngay sau chú thích.
 > Đọc khi: sửa một khối trong style.css có dấu `CSS-NOTES §n`.
 
 ## §1 – `(đầu khối)`
