@@ -31,7 +31,7 @@
   function on(tl) {
     const r = TABLE[tl]; if (!r || !r.flag) return false;
     if (r.kill && yes(cfgv(r.kill))) return false;
-    if (ls(r.ls) === '1') return true;
+    if (ls(r.ls) === '1' || ls('lk.adm') === '1') return true; // quản trị (App.isAdmin ghi lk.adm) luôn thấy mọi ngôn ngữ beta, như lk.<tl>=1
     const v = cfgv(r.flag); if (yes(v)) return true; if (no(v)) return false;
     const p = r.pct ? cfgv(r.pct) : undefined, n = typeof p === 'string' || typeof p === 'number' ? parseFloat(p) : NaN;
     return n > 0 && bucket() < Math.min(100, n);
