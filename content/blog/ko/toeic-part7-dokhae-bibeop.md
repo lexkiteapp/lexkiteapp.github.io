@@ -130,6 +130,8 @@ Regular dining operations will resume on Thursday, October 23, featuring an expa
 
 {{cta: /#/toeic | 토익 파트7 실전 독해 풀기}}
 
+파트 7을 포함한 리딩 75분의 시간 배분은 [토익 시험 구성 총정리](/ko/blog/toeic-siheom-guseong-part-munhangsu-sigan/)에 표로 정리했습니다.
+
 ## 자주 묻는 질문
 
 ### 파트7을 풀 때 아티클(기사문)이 나오면 유독 시간이 오래 걸리는데 어떻게 하나요?
