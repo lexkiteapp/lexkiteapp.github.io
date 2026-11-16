@@ -13,7 +13,7 @@
       href: '#/review' + (App.ux1On() ? '?hub=1' : ''),
       teacher: Chars.slot('ama', { pose: total ? 'point' : 'happy', size: 's', lazy: false }),
       r: [row('#/path', t('Lộ trình từ vựng'), t('Từng chặng nhỏ, mở khóa dần theo trình độ')), row(lib, t('Thư viện từ'), t('Bộ từ theo chủ đề, kỳ thi và trình độ')), row('#/deck', t('Sổ từ của tôi'), deck.length ? t('{n} từ · {m} từ đã thuộc', { n: deck.length, m: mastered }) : ''), row('#/practice', t('Trò chơi từ vựng'), t('Ghép thẻ, gõ từ, nghe – gõ, trắc nghiệm'))],
-      p: [pill('#/verb', t('Chia động từ')), pill('#/usage', t('Cách dùng từ')), pill('#/phrases', t('Cụm từ & cấu trúc'))],
+      p: [pill('#/verb', t('Chia động từ')), pill('#/irregular', t('Động từ bất quy tắc')), pill('#/usage', t('Cách dùng từ')), pill('#/phrases', t('Cụm từ & cấu trúc'))],
     }, null);
     document.body.classList.remove('st', 'v2on'); // ST2.mount bật st + v2on (ẩn thanh trên chung < 1024 px, #view mất lề): tab này dùng thanh trên, #bnav và lề #view chung như Kỹ năng/Thi
     const f = root.querySelector('[data-vh=search]'), q = root.querySelector('[data-vh=q]');
