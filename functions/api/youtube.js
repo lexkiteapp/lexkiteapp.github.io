@@ -446,7 +446,7 @@ export async function chanForLang(db, lang) {
 }
 /** Clip BẢN NGỮ nhặt cho 1 kênh (hàm thuần, test scripts/test/yt-fill.mjs): đúng ngôn ngữ, qa pass, chưa bị giữ/loại, chưa lên/xếp ở YouTube, có tiêu đề. */
 export function fillPick(items, lang, taken, held, need) {
-  return (items || []).filter(it => it && String(it.lang || 'en').toLowerCase() === lang && it.qa && it.qa.status === 'pass' && !it.rejected && !it.paused && !taken.has(it.id) && CLIP.test(String(it.id)) && (it.title || it.point)
+  return (items || []).filter(it => it && String(it.lang || 'en').toLowerCase() === lang && it.qa && it.qa.status === 'pass' && !it.rejected && !it.paused && it.drive && it.drive.video && !it.drive.video.retired && !taken.has(it.id) && CLIP.test(String(it.id)) && (it.title || it.point)
     && !(held.get(it.id) && (held.get(it.id).deleted || ['rejected', 'paused'].includes(held.get(it.id).state)))).slice(0, Math.min(Math.max(0, need), 100)).map(it => ({ id: it.id, lang }));
 }
 const CLI_OPS = {
@@ -485,14 +485,19 @@ const CLI_OPS = {
     if ((await modeOf(db, env)) !== 'api') return { status: 409, error: 'mode-manual' };
     const days = Math.min(60, Math.max(1, +b.days || 30)), now = Date.now(), iso = new Date(now).toISOString(), items = (await manifest(env)).items || [], out = { channels: [], queued: 0 };
     const taken = new Set((await all(db, "SELECT clip FROM yt_queue WHERE status IN ('queued', 'uploading', 'done') OR video_id IS NOT NULL")).map(r => r.clip));
-    const held = new Map((await all(db, 'SELECT clip, state, deleted FROM clip_review')).map(r => [r.clip, r]));
+    const held = new Map((await all(db, 'SELECT clip, state, deleted FROM clip_review')).map(r => [r.clip, r])), byId = new Map(items.map(it => [it.id, it]));
     for (const ch of await channelsOk(db)) {
       const x = await chanCfg(db, ch.channel_id); if (!x.explicit_lang || x.cfg.active === 0) continue;
       const lang = x.cfg.lang, have = await one(db, "SELECT COUNT(*) AS n FROM yt_queue WHERE channel_id = ? AND status IN ('queued', 'uploading', 'done') AND publish_at > ?", ch.channel_id, iso), need = days - ((have && +have.n) || 0);
       const row = { channel_id: ch.channel_id, title: ch.title, lang, have: days - Math.max(0, need), need: Math.max(0, need), queued: 0, short: 0 };
       if (need > 0) {
         const pick = fillPick(items, lang, taken, held, need);
-        if (pick.length) { const r = await CLI_OPS.autoq(db, { items: pick, per_day: 1 }, who, env); if (r.status) return r; row.queued = (r.queued || []).length; for (const q of r.queued || []) taken.add(q.id); }
+        if (pick.length) { // MỘT lượt D1 cho cả kênh (autoq từng clip = ~6 lượt/clip, 15 kênh × 30 clip vượt 120 s → fetch hết giờ 16/11): giờ hẹn = slotAt nối tiếp sau bài đã xếp, 1 bài/ngày
+          const rot = (ch.id || 0) % YT_SLOTS.length, ins = pick.map((q, k) => { const it = byId.get(q.id), pa = slotAt((have ? +have.n : 0) + k, 1, lang, now, rot);
+            return db.prepare(`INSERT INTO yt_queue (clip, lesson, status, privacy, publish_at, channel_id, approved_by, approved_at, attempts, updated, title) VALUES (?, ?, 'queued', 'private', ?, ?, 'autopub@lexkite.com', ?, 0, ?, ?)
+              ON CONFLICT(clip) DO UPDATE SET status = 'queued', privacy = 'private', publish_at = excluded.publish_at, channel_id = excluded.channel_id, approved_by = excluded.approved_by, approved_at = excluded.approved_at, attempts = 0, err = NULL, upload_url = NULL, updated = excluded.updated
+              WHERE yt_queue.status NOT IN ('done', 'uploading', 'queued')`).bind(q.id, it.lesson || '', pa, ch.channel_id, now, now, String(it.title || '').slice(0, 100)); });
+          await db.batch(ins); row.queued = pick.length; for (const q of pick) taken.add(q.id); }
         row.short = Math.max(0, need - row.queued);
       }
       out.channels.push(row); out.queued += row.queued;
