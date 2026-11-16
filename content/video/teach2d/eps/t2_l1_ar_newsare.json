@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "News takes is!",
+   "text": "Say the news is, not are!",
    "pause": 0.42
   },
   {
@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "هل تقول “The news are”؟",
-   "tip": "كلمة news مفرد: نقول is: “The news is bad.” وليس “The news are bad.”.",
-   "caption": "هل تقول أحيانًا “The news are bad.” 😅 كلمة news مفرد: نقول is، فالجملة الصحيحة “The news is bad.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
-   "comment": "الإجابة: “is”. كلمة news مفرد: نقول is. اختبار مجاني هنا: {link}",
+   "tip": "كلمة news مفرد، لذلك نقول is: “The news is bad.” وليس “The news are bad.”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “The news are bad” 😅 كلمة news مفرد، لذلك نقول is. الجملة الصحيحة “The news is bad.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “is” — كلمة news مفرد، لذلك نقول is. اختبار مجاني هنا: {link}",
    "hashtags": [
     "#تعلم_الانجليزية",
     "#اللغة_الانجليزية",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "Do you say “The news are bad”?",
-   "tip": "News is singular: we say is: “The news is bad.” not “The news are bad.”.",
-   "caption": "Do you sometimes say “The news are bad.” 😅 News is singular: we say is, so the right sentence is “The news is bad.” Listen to Ama and repeat! Practice more in the Lexkite app."
+   "hook": "Do you say “The news are”?",
+   "tip": "News is singular, so we say is: “The news is bad.” not “The news are bad.”",
+   "caption": "Do you sometimes say this? “The news are bad” 😅 News is singular, so we say is. The right sentence is “The news is bad.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -98,14 +98,14 @@
  },
  "lang": "ar",
  "est": {
-  "words": 40,
-  "seconds": 25.1,
-  "wpm": 95
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
  },
  "publish": {
   "title": "هل تقول “The news are”؟",
   "keyword": "The news is bad.",
-  "value": "كلمة news مفرد: نقول is: “The news is bad.” وليس “The news are bad.”.",
+  "value": "كلمة news مفرد، لذلك نقول is: “The news is bad.” وليس “The news are bad.”",
   "hashtags": [
    "#تعلم_الانجليزية",
    "#اللغة_الانجليزية",
@@ -113,11 +113,11 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 34,
+  "script_words": 37,
   "platforms": {
    "youtube": {
     "title": "هل تقول “The news are”؟",
-    "description": "هل تقول أحيانًا “The news are bad.” 😅 كلمة news مفرد: نقول is، فالجملة الصحيحة “The news is bad.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "description": "هل تقول أحيانًا هذه الجملة؟ “The news are bad” 😅 كلمة news مفرد، لذلك نقول is. الجملة الصحيحة “The news is bad.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
     "tags": [
      "The news is bad.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "هل تقول أحيانًا “The news are bad.” 😅 كلمة news مفرد: نقول is، فالجملة الصحيحة “The news is bad.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "هل تقول أحيانًا هذه الجملة؟ “The news are bad” 😅 كلمة news مفرد، لذلك نقول is. الجملة الصحيحة “The news is bad.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "هل تقول أحيانًا “The news are bad.” 😅 كلمة news مفرد: نقول is، فالجملة الصحيحة “The news is bad.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nlexkite.com",
+    "caption": "هل تقول أحيانًا هذه الجملة؟ “The news are bad” 😅 كلمة news مفرد، لذلك نقول is. الجملة الصحيحة “The news is bad.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nlexkite.com",
     "hashtags": [
      "#تعلم_الانجليزية",
      "#اللغة_الانجليزية",
@@ -140,7 +140,7 @@
     "caption": "هل تقول “The news are”؟ #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
    }
   },
-  "first_comment": "الإجابة: “is”. كلمة news مفرد: نقول is. اختبار مجاني هنا: {link}",
+  "first_comment": "الإجابة: “is” — كلمة news مفرد، لذلك نقول is. اختبار مجاني هنا: {link}",
   "lang": "ar"
  }
 }

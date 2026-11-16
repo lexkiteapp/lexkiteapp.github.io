@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "An! My sister is an engineer.",
+   "text": "A doctor! My father is a doctor.",
    "pause": 0.42
   },
   {
@@ -58,18 +58,18 @@
   "why": "Use a before a job.",
   "memory": "I am a teacher.",
   "quiz": {
-   "stem": "My sister is ___ engineer.",
+   "stem": "My father is ___.",
    "options": [
-    "a",
-    "an"
+    "doctor",
+    "a doctor"
    ],
    "answer": 1
   },
   "native": {
    "hook": "Meslekte “a” unutulmasın!",
    "tip": "Türkçede “öğretmenim” deriz; İngilizcede meslekten önce “a/an” gelir.",
-   "caption": "“I am teacher.” mi diyorsun? 😅 İngilizcede mesleklerin önüne a veya an konur. Doğrusu “I am a teacher.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
-   "comment": "Cevap: “an”. Meslekte a/an unutma. Ücretsiz testle pratik yap: {link}",
+   "caption": "“I am teacher” mi diyorsun? 😅 İngilizcede mesleklerin önüne a veya an konur. Doğrusu “I am a teacher.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “a doctor”. Meslekten önce a/an unutma. Ücretsiz testle pratik yap: {link}",
    "hashtags": [
     "#ingilizceöğren",
     "#ingilizcekonuşma",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "Do not forget “a” before a job!",
-   "tip": "Turkish has no article, but English needs “a/an” before a job.",
-   "caption": "Do you say “I am teacher.”? 😅 In English you put a or an before a job. The right sentence is “I am a teacher.”. Listen to Ama and repeat! Open the Lexkite app and practice more."
+   "tip": "English needs “a” or “an” before a job: “I am a teacher.”",
+   "caption": "Do you say “I am teacher”? 😅 In English you put a or an before a job. The right sentence is “I am a teacher.” Listen to Ama and repeat! Open the Lexkite app and practice more."
   }
  },
  "cta": {
@@ -98,9 +98,9 @@
  },
  "lang": "tr",
  "est": {
-  "words": 42,
-  "seconds": 26.1,
-  "wpm": 96
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
  },
  "publish": {
   "title": "Meslekte “a” unutulmasın!",
@@ -113,11 +113,11 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 36,
+  "script_words": 37,
   "platforms": {
    "youtube": {
     "title": "Meslekte “a” unutulmasın!",
-    "description": "“I am teacher.” mi diyorsun? 😅 İngilizcede mesleklerin önüne a veya an konur. Doğrusu “I am a teacher.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "description": "“I am teacher” mi diyorsun? 😅 İngilizcede mesleklerin önüne a veya an konur. Doğrusu “I am a teacher.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
     "tags": [
      "I am a teacher.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "“I am teacher.” mi diyorsun? 😅 İngilizcede mesleklerin önüne a veya an konur. Doğrusu “I am a teacher.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "“I am teacher” mi diyorsun? 😅 İngilizcede mesleklerin önüne a veya an konur. Doğrusu “I am a teacher.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "“I am teacher.” mi diyorsun? 😅 İngilizcede mesleklerin önüne a veya an konur. Doğrusu “I am a teacher.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nlexkite.com",
+    "caption": "“I am teacher” mi diyorsun? 😅 İngilizcede mesleklerin önüne a veya an konur. Doğrusu “I am a teacher.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nlexkite.com",
     "hashtags": [
      "#ingilizceöğren",
      "#ingilizcekonuşma",
@@ -140,7 +140,7 @@
     "caption": "Meslekte “a” unutulmasın! #ingilizceöğren #ingilizcekonuşma #ingilizce"
    }
   },
-  "first_comment": "Cevap: “an”. Meslekte a/an unutma. Ücretsiz testle pratik yap: {link}",
+  "first_comment": "Cevap: “a doctor”. Meslekten önce a/an unutma. Ücretsiz testle pratik yap: {link}",
   "lang": "tr"
  }
 }

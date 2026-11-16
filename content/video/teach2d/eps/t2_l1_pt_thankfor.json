@@ -11,22 +11,22 @@
  "lines": [
   {
    "id": "h",
-   "text": "Thank you by? No, for!",
+   "text": "Think in? No, about!",
    "pause": 0.42
   },
   {
    "id": "w",
-   "text": "Many learners say: Thank you by your help.",
+   "text": "Many learners say: I am thinking in you.",
    "pause": 0.42
   },
   {
    "id": "r",
-   "text": "Better: Thank you for your help.",
+   "text": "Better: I am thinking about you.",
    "pause": 0.42
   },
   {
    "id": "y",
-   "text": "Thank goes with for.",
+   "text": "Think goes with about.",
    "pause": 0.42
   },
   {
@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "For! Thank you for the gift.",
+   "text": "About! I am thinking about you.",
    "pause": 0.42
   },
   {
@@ -52,24 +52,24 @@
   }
  ],
  "data": {
-  "wrong": "Thank you by your help.",
-  "right": "Thank you for your help.",
-  "strike": "by",
-  "why": "Thank goes with for.",
-  "memory": "Thank you for.",
+  "wrong": "I am thinking in you.",
+  "right": "I am thinking about you.",
+  "strike": "in",
+  "why": "Think goes with about.",
+  "memory": "Think about you.",
   "quiz": {
-   "stem": "Thank you ___ the gift.",
+   "stem": "I am thinking ___ you.",
    "options": [
-    "for",
-    "by"
+    "about",
+    "in"
    ],
    "answer": 0
   },
   "native": {
-   "hook": "“Thank you by” está errado!",
-   "tip": "Em português é “obrigado PELA ajuda” (por); em inglês o certo é “thank you FOR”, não “by”.",
-   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “Thank you by your help”. O certo é “Thank you for your help”. O “por” de “obrigado pela ajuda” leva muita gente a escolher “by”. Ouça a Ama e repita! Treine mais no app Lexkite.",
-   "comment": "Resposta: “for”. Treine mais com um quiz grátis aqui: {link}",
+   "hook": "Você diz “thinking in you”?",
+   "tip": "Em português dizemos “pensar em”, mas em inglês usamos “think about”.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I am thinking in you.” O certo é “I am thinking about you.” O “em” de “pensar em” leva muita gente a escolher “in”. Ouça a Ama e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “about”. Treine mais com um quiz grátis aqui: {link}",
    "hashtags": [
     "#inglesonline",
     "#dicasdeingles",
@@ -77,9 +77,9 @@
    ]
   },
   "en": {
-   "hook": "“Thank you by” is wrong!",
-   "tip": "In Portuguese it is “obrigado PELA ajuda” (por); in English it is “thank you FOR”, not “by”.",
-   "caption": "Watch out for this common mistake! Many people say “Thank you by your help”. The right way is “Thank you for your help”. The “por” in “obrigado pela ajuda” makes many people choose “by”. Listen to Ama and repeat! Practice more in the Lexkite app."
+   "hook": "Do you say “thinking in you”?",
+   "tip": "Learners say “pensar em”, but in English we use “think about”.",
+   "caption": "Watch out for this common mistake! Many people say “I am thinking in you.” The right way is “I am thinking about you.” The “em” in “pensar em” makes many learners choose “in”. Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -90,43 +90,43 @@
  },
  "hook": {
   "line": "h",
-  "text": "“Thank you by” está errado!"
+  "text": "Você diz “thinking in you”?"
  },
  "src": {
   "l1": true
  },
  "lang": "pt",
  "est": {
-  "words": 45,
-  "seconds": 27.6,
-  "wpm": 98
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
  },
  "publish": {
-  "title": "“Thank you by” está errado!",
-  "keyword": "Thank you for your help.",
-  "value": "Em português é “obrigado PELA ajuda” (por); em inglês o certo é “thank you FOR”, não “by”.",
+  "title": "Você diz “thinking in you”?",
+  "keyword": "I am thinking about you.",
+  "value": "Em português dizemos “pensar em”, mas em inglês usamos “think about”.",
   "hashtags": [
    "#inglesonline",
    "#dicasdeingles",
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 39,
+  "script_words": 38,
   "platforms": {
    "youtube": {
-    "title": "“Thank you by” está errado!",
-    "description": "Cuidado com este erro comum! 😬 Muita gente diz “Thank you by your help”. O certo é “Thank you for your help”. O “por” de “obrigado pela ajuda” leva muita gente a escolher “by”. Ouça a Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#inglesonline #dicasdeingles #lexkite",
+    "title": "Você diz “thinking in you”?",
+    "description": "Cuidado com este erro comum! 😬 Muita gente diz “I am thinking in you.” O certo é “I am thinking about you.” O “em” de “pensar em” leva muita gente a escolher “in”. Ouça a Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#inglesonline #dicasdeingles #lexkite",
     "tags": [
-     "Thank you for your help.",
+     "I am thinking about you.",
      "learn english",
      "pt"
     ]
    },
    "facebook": {
-    "text": "Cuidado com este erro comum! 😬 Muita gente diz “Thank you by your help”. O certo é “Thank you for your help”. O “por” de “obrigado pela ajuda” leva muita gente a escolher “by”. Ouça a Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “I am thinking in you.” O certo é “I am thinking about you.” O “em” de “pensar em” leva muita gente a escolher “in”. Ouça a Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Cuidado com este erro comum! 😬 Muita gente diz “Thank you by your help”. O certo é “Thank you for your help”. O “por” de “obrigado pela ajuda” leva muita gente a escolher “by”. Ouça a Ama e repita! Treine mais no app Lexkite.\n\nlexkite.com",
+    "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I am thinking in you.” O certo é “I am thinking about you.” O “em” de “pensar em” leva muita gente a escolher “in”. Ouça a Ama e repita! Treine mais no app Lexkite.\n\nlexkite.com",
     "hashtags": [
      "#inglesonline",
      "#dicasdeingles",
@@ -134,10 +134,10 @@
     ]
    },
    "tiktok": {
-    "caption": "“Thank you by” está errado! #inglesonline #dicasdeingles #lexkite"
+    "caption": "Você diz “thinking in you”? #inglesonline #dicasdeingles #lexkite"
    }
   },
-  "first_comment": "Resposta: “for”. Treine mais com um quiz grátis aqui: {link}",
+  "first_comment": "Resposta: “about”. Treine mais com um quiz grátis aqui: {link}",
   "lang": "pt"
  }
 }

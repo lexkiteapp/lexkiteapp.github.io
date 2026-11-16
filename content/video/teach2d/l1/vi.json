@@ -14,19 +14,19 @@
     "why": "Say a before a job.",
     "memory": "A job needs a.",
     "quiz": {
-     "stem": "He is ___ engineer.",
+     "stem": "She is ___.",
      "options": [
-      "a",
-      "an"
+      "a doctor",
+      "doctor"
      ],
-     "answer": 1
+     "answer": 0
     },
-    "answer_say": "An! He is an engineer.",
+    "answer_say": "A doctor! She is a doctor.",
     "native": {
      "hook": "Quên “a” trước nghề của bạn?",
      "tip": "Tiếng Việt không có mạo từ, nhưng tiếng Anh cần “a/an” trước nghề nghiệp.",
      "caption": "Bạn có hay nói “I am teacher.” không? 😅 Nói nghề nghiệp phải có “a/an”: “I am a teacher.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-     "comment": "Đáp án: “an”. Hãy tự giới thiệu nghề của bạn bằng “I am a…” nhé. Luyện thêm miễn phí tại đây: {link}",
+     "comment": "Đáp án: “a doctor.” Hãy tự giới thiệu nghề của bạn bằng “I am a…” nhé. Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
       "#hoctienganh",
       "#nguphaptienganh",
@@ -36,8 +36,8 @@
     },
     "en": {
      "hook": "Forget “a” before your job?",
-     "tip": "Vietnamese has no articles, but English needs “a/an” before a job.",
-     "caption": "Do you often say “I am teacher.”? Before a job you need “a/an”: “I am a teacher.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
+     "tip": "Learners often skip it, but English needs “a/an” before a job.",
+     "caption": "Do you often say this? “I am teacher.” Before a job you need “a/an”: “I am a teacher.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -63,10 +63,10 @@
     },
     "answer_say": "Cats! I have three cats.",
     "native": {
-     "hook": "Hai anh em mà thiếu “s”?",
-     "tip": "Tiếng Việt không chia số nhiều, nhưng tiếng Anh thêm -s sau số từ lớn hơn một.",
+     "hook": "Hai anh trai mà thiếu “s”?",
+     "tip": "Tiếng Việt không thêm -s cho danh từ, nhưng tiếng Anh thêm -s sau số từ lớn hơn một.",
      "caption": "Bạn có hay nói “I have two brother.” không? 😅 Từ hai trở lên phải thêm -s: “I have two brothers.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-     "comment": "Đáp án: “cats”. Đếm đồ vật quanh bạn bằng tiếng Anh, nhớ thêm -s nhé. Luyện thêm miễn phí tại đây: {link}",
+     "comment": "Đáp án: “cats.” Đếm đồ vật quanh bạn bằng tiếng Anh, nhớ thêm -s nhé. Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
       "#hoctienganh",
       "#nguphaptienganh",
@@ -76,8 +76,8 @@
     },
     "en": {
      "hook": "Two brothers but no “s”?",
-     "tip": "Vietnamese has no plural form, but English adds -s after a number above one.",
-     "caption": "Do you often say “I have two brother.”? With two or more, add -s: “I have two brothers.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
+     "tip": "Many learners skip the plural, but English adds -s after a number above one.",
+     "caption": "Do you often say this? “I have two brother.” With two or more, add -s: “I have two brothers.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -106,7 +106,7 @@
      "hook": "“Yesterday I go” sai ở đâu?",
      "tip": "Tiếng Việt không đổi động từ theo thì. Tiếng Anh thì có: hôm qua phải dùng quá khứ.",
      "caption": "Bạn có hay nói “Yesterday I go to school.” không? 😅 Có “yesterday” thì động từ về quá khứ: “Yesterday I went to school.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-     "comment": "Đáp án: “went”. Kể lại ngày hôm qua của bạn bằng 3 câu quá khứ nhé. Luyện thêm miễn phí tại đây: {link}",
+     "comment": "Đáp án: “went.” Kể lại ngày hôm qua của bạn bằng 3 câu quá khứ nhé. Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
       "#hoctienganh",
       "#nguphaptienganh",
@@ -116,8 +116,8 @@
     },
     "en": {
      "hook": "Yesterday, but still saying “go”?",
-     "tip": "Vietnamese verbs do not change with time. In English, “yesterday” needs the past form.",
-     "caption": "Do you often say “Yesterday I go to school.”? With “yesterday”, the verb goes to the past: “Yesterday I went to school.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
+     "tip": "Learners keep the verb the same. In English, “yesterday” needs the past form.",
+     "caption": "Do you often say this? “Yesterday I go to school.” With “yesterday”, the verb goes to the past: “Yesterday I went to school.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -144,9 +144,9 @@
     "answer_say": "Boring! The movie is boring.",
     "native": {
      "hook": "Chán: “boring” hay “bored”?",
-     "tip": "“Bored” là bạn cảm thấy chán, “boring” là thứ gây chán. Tiếng Việt đều nói “chán”.",
+     "tip": "“Bored” là bạn cảm thấy chán, “boring” là thứ gây chán. Tiếng Việt đều nói “chán.”",
      "caption": "Bạn có hay nói “I am boring today.” không? 😅 Cảm giác của bạn dùng “bored”: “I am bored today.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-     "comment": "Đáp án: “boring”. Hôm nay bạn thấy thế nào? Thử nói “I am…” nhé. Luyện thêm miễn phí tại đây: {link}",
+     "comment": "Đáp án: “boring.” Hôm nay bạn thấy thế nào? Thử nói “I am…” nhé. Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
       "#hoctienganh",
       "#tuvungtienganh",
@@ -155,9 +155,9 @@
      ]
     },
     "en": {
-     "hook": "Bạn “boring” hay “bored”?",
-     "tip": "“Bored” is how you feel; “boring” is what causes it. Vietnamese uses one word for both.",
-     "caption": "Do you often say “I am boring today.”? Your feeling is “bored”: “I am bored today.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
+     "hook": "Bored: “boring” or “bored”?",
+     "tip": "“Bored” is how you feel; “boring” is what causes it. Learners often use one word for both.",
+     "caption": "Do you often say this? “I am boring today.” Your feeling is “bored”: “I am bored today.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -184,9 +184,9 @@
     "answer_say": "Agree! I agree with you.",
     "native": {
      "hook": "Đừng nói “I am agree” nhé!",
-     "tip": "“Agree” đã là động từ, không cần “am”. Tiếng Việt “đồng ý” dễ khiến ta thêm “là”.",
+     "tip": "“Agree” đã là động từ, không cần “am”: nói “I agree”, giống như “tôi đồng ý.”",
      "caption": "Bạn có hay nói “I am agree with you.” không? 😅 “Agree” là động từ, bỏ “am”: “I agree with you.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-     "comment": "Đáp án: “agree”. Thử nói “I agree” với một ý kiến bạn thích nhé. Luyện thêm miễn phí tại đây: {link}",
+     "comment": "Đáp án: “agree.” Thử nói “I agree” với một ý kiến bạn thích nhé. Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
       "#hoctienganh",
       "#nguphaptienganh",
@@ -196,8 +196,8 @@
     },
     "en": {
      "hook": "Don't say “I am agree”!",
-     "tip": "“Agree” is already a verb, so no “am”. Easy to slip when thinking in Vietnamese.",
-     "caption": "Do you often say “I am agree with you.”? “Agree” is a verb, so drop “am”: “I agree with you.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
+     "tip": "“Agree” is already a verb, so no “am”: just “I agree.”",
+     "caption": "Do you often say this? “I am agree with you.” “Agree” is a verb, so drop “am”: “I agree with you.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -224,9 +224,9 @@
     "answer_say": "It! It is cold today.",
     "native": {
      "hook": "Tiếng Anh cần “it” cho thời tiết!",
-     "tip": "Tiếng Việt có thể bỏ chủ ngữ (“nóng quá”). Tiếng Anh luôn cần “it”.",
+     "tip": "Tiếng Việt có thể bỏ chủ ngữ (“nóng quá”), nhưng tiếng Anh luôn cần chủ ngữ: nói về thời tiết thì dùng “it.”",
      "caption": "Bạn có hay nói “Is very hot today.” không? 😅 Câu tiếng Anh luôn cần chủ ngữ: “It is very hot today.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-     "comment": "Đáp án: “It”. Nói thời tiết hôm nay bắt đầu bằng “It is…” nhé. Luyện thêm miễn phí tại đây: {link}",
+     "comment": "Đáp án: “It.” Nói thời tiết hôm nay bắt đầu bằng “It is…” nhé. Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
       "#hoctienganh",
       "#nguphaptienganh",
@@ -236,48 +236,48 @@
     },
     "en": {
      "hook": "English needs “it” for weather!",
-     "tip": "Vietnamese can drop the subject. English always needs “it” here.",
-     "caption": "Do you often say “Is very hot today.”? English sentences always need a subject: “It is very hot today.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
+     "tip": "Learners often drop the subject, but English always needs one. For weather, use “it.”",
+     "caption": "Do you often say this? “Is very hot today.” English sentences always need a subject: “It is very hot today.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
     }
    }
   },
   {
-   "id": "t2_l1_vi_much_money",
+   "id": "t2_l1_vi_open_light",
    "lang": "vi",
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Money is not a number word.",
-    "wrong": "I have many money.",
-    "right": "I have a lot of money.",
-    "strike": "many",
-    "why": "Money has no plural. Use a lot of.",
-    "memory": "Money: a lot of.",
+    "hook_say": "Open the light? Not in English!",
+    "wrong": "Please open the light.",
+    "right": "Please turn on the light.",
+    "strike": "open",
+    "why": "Lights turn on. They do not open.",
+    "memory": "Turn on the light.",
     "quiz": {
-     "stem": "I have a lot of ___.",
+     "stem": "Please ___ the computer.",
      "options": [
-      "friend",
-      "water"
+      "turn on",
+      "open"
      ],
-     "answer": 1
+     "answer": 0
     },
-    "answer_say": "Water! I have a lot of water.",
+    "answer_say": "Turn on! Please turn on the computer.",
     "native": {
-     "hook": "“many money” là sai rồi!",
-     "tip": "“Money” không đếm được nên không dùng “many”. Hãy dùng “a lot of”.",
-     "caption": "Bạn có hay nói “I have many money.” không? 😅 Danh từ không đếm được: “a lot of”: “I have a lot of money.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-     "comment": "Đáp án: “water”. Thử đặt câu với “a lot of” cho thứ bạn có nhiều nhé. Luyện thêm miễn phí tại đây: {link}",
+     "hook": "Đừng nói “open the light” nhé!",
+     "tip": "Tiếng Việt nói “mở đèn”, nhưng tiếng Anh dùng “turn on” cho đèn, TV, quạt.",
+     "caption": "Bạn có hay nói “Please open the light.” không? 💡 Đèn, TV, quạt dùng “turn on”: “Please turn on the light.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+     "comment": "Đáp án: “turn on.” Tối nay bật đèn, nhớ nói “turn on the light” nhé! Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
       "#hoctienganh",
-      "#nguphaptienganh",
       "#tuvungtienganh",
+      "#tienganhgiaotiep",
       "#lexkite"
      ]
     },
     "en": {
-     "hook": "Nhiều tiền: “many” hay không?",
-     "tip": "“Money” is uncountable, so no “many”. Use “a lot of”.",
-     "caption": "Do you often say “I have many money.”? For uncountable nouns use “a lot of”: “I have a lot of money.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
+     "hook": "Don't say “open the light”!",
+     "tip": "Many learners say “open” for lights, but English uses “turn on” for lights, TVs, and fans.",
+     "caption": "Do you often say this? “Please open the light.” Say “Please turn on the light.” instead. Listen to Ama, then repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -304,9 +304,9 @@
     "answer_say": "Married! She is married.",
     "native": {
      "hook": "Kết hôn: “marry” hay “married”?",
-     "tip": "Trạng thái đã kết hôn là “married”. “Marry” là hành động cưới ai đó.",
-     "caption": "Bạn có hay nói “I am marry.” không? 😅 Trạng thái đã kết hôn: “married”: “I am married.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-     "comment": "Đáp án: “married”. Nói tình trạng của bạn bằng “I am…” nhé. Luyện thêm miễn phí tại đây: {link}",
+     "tip": "Trạng thái đã kết hôn là “married.” “Marry” là hành động cưới ai đó.",
+     "caption": "Bạn có hay nói “I am marry.” không? 😅 Đã kết hôn thì dùng “married”: “I am married.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+     "comment": "Đáp án: “married.” Nói tình trạng của bạn bằng “I am…” nhé. Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
       "#hoctienganh",
       "#tuvungtienganh",
@@ -315,9 +315,9 @@
      ]
     },
     "en": {
-     "hook": "“I am marry” sai rồi nhé!",
+     "hook": "Married: “marry” or “married”?",
      "tip": "Use “married” for your status. “Marry” is the action of marrying someone.",
-     "caption": "Do you often say “I am marry.”? The status is “married”: “I am married.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
+     "caption": "Do you often say this? “I am marry.” For your status, use “married”: “I am married.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -334,19 +334,19 @@
     "why": "Advice never takes s.",
     "memory": "Advice: no s.",
     "quiz": {
-     "stem": "Can you give me ___ advice?",
+     "stem": "She gave me good ___.",
      "options": [
-      "some",
-      "an"
+      "advices",
+      "advice"
      ],
-     "answer": 0
+     "answer": 1
     },
-    "answer_say": "Some! Give me some advice.",
+    "answer_say": "Advice! She gave me good advice.",
     "native": {
      "hook": "Đừng thêm “s” vào advice!",
-     "tip": "“Advice” là danh từ không đếm được nên không thêm -s và không có “an”.",
+     "tip": "“Advice” là danh từ không đếm được nên không thêm -s và không có “an.”",
      "caption": "Bạn có hay nói “She gave me many advices.” không? 😅 “Advice” không bao giờ thêm -s: “She gave me some advice.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-     "comment": "Đáp án: “some”. Xin một lời khuyên bằng “some advice” nhé. Luyện thêm miễn phí tại đây: {link}",
+     "comment": "Đáp án: “advice.” Xin một lời khuyên bằng “some advice” nhé. Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
       "#hoctienganh",
       "#tuvungtienganh",
@@ -356,8 +356,8 @@
     },
     "en": {
      "hook": "Do not add “s” to advice!",
-     "tip": "“Advice” is uncountable, so no -s and no “an”.",
-     "caption": "Do you often say “She gave me many advices.”? “Advice” never takes -s: “She gave me some advice.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
+     "tip": "“Advice” is uncountable, so no -s and no “an.”",
+     "caption": "Do you often say this? “She gave me many advices.” “Advice” never takes -s: “She gave me some advice.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -367,11 +367,11 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Since needs have.",
+    "hook_say": "With since, say have lived.",
     "wrong": "I live here since 2020.",
     "right": "I have lived here since 2020.",
     "strike": "live",
-    "why": "Since needs have plus a verb.",
+    "why": "Since needs have plus lived.",
     "memory": "Since: have lived.",
     "quiz": {
      "stem": "I have ___ here for years.",
@@ -386,7 +386,7 @@
      "hook": "Nói “since” mà dùng “live”?",
      "tip": "Với “since/for” cần hiện tại hoàn thành: have + quá khứ phân từ.",
      "caption": "Bạn có hay nói “I live here since 2020.” không? 😅 Có “since” thì dùng have + V3: “I have lived here since 2020.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-     "comment": "Đáp án: “lived”. Kể bạn sống ở đâu bao lâu bằng “I have lived…”. Luyện thêm miễn phí tại đây: {link}",
+     "comment": "Đáp án: “lived.” Kể xem bạn đã sống ở đâu và được bao lâu, bắt đầu bằng “I have lived…” nhé. Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
       "#hoctienganh",
       "#nguphaptienganh",
@@ -395,9 +395,9 @@
      ]
     },
     "en": {
-     "hook": "“since” cần “have lived”!",
-     "tip": "With “since” you need the present perfect: have plus past participle.",
-     "caption": "Do you often say “I live here since 2020.”? With “since” use have + past participle: “I have lived here since 2020.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
+     "hook": "Using “live” with “since”?",
+     "tip": "With “since/for” you need the present perfect: have plus past participle.",
+     "caption": "Do you often say this? “I live here since 2020.” With “since” use have + past participle: “I have lived here since 2020.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -424,9 +424,9 @@
     "answer_say": "Do! What do you eat?",
     "native": {
      "hook": "Câu hỏi thiếu “do”!",
-     "tip": "Tiếng Anh cần trợ động từ “do” trong câu hỏi. Tiếng Việt chỉ đổi giọng.",
+     "tip": "Câu hỏi tiếng Anh cần trợ động từ “do”; tiếng Việt chỉ thêm từ hỏi như “ở đâu.”",
      "caption": "Bạn có hay nói “Where you live?” không? 😅 Câu hỏi cần thêm “do”: “Where do you live?” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-     "comment": "Đáp án: “do”. Hỏi bạn bè một câu bắt đầu bằng “Where do you…” nhé. Luyện thêm miễn phí tại đây: {link}",
+     "comment": "Đáp án: “do.” Hỏi bạn bè một câu bắt đầu bằng “Where do you…” nhé. Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
       "#hoctienganh",
       "#nguphaptienganh",
@@ -436,8 +436,8 @@
     },
     "en": {
      "hook": "Questions are missing “do”!",
-     "tip": "English questions need “do”. Vietnamese just changes the tone.",
-     "caption": "Do you often say “Where you live?”? Questions need “do”: “Where do you live?” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
+     "tip": "English questions need “do”; learners often add only a question word like “where.”",
+     "caption": "Do you often say this? “Where you live?” Questions need “do”: “Where do you live?” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -464,9 +464,9 @@
     "answer_say": "Home! I go home now.",
     "native": {
      "hook": "Đừng nói “go to home”!",
-     "tip": "“Home” là trạng từ nên không cần “to”. Tiếng Việt “về nhà” dễ gây nhầm.",
+     "tip": "“Home” là trạng từ nên không cần “to.” Tiếng Việt “về nhà” dễ gây nhầm.",
      "caption": "Bạn có hay nói “I go to home.” không? 😅 “Home” không đi với “to”: “I go home.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-     "comment": "Đáp án: “home”. Nói “I go home” khi bạn tan làm nhé. Luyện thêm miễn phí tại đây: {link}",
+     "comment": "Đáp án: “home.” Nói “I go home” khi bạn tan làm nhé. Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
       "#hoctienganh",
       "#nguphaptienganh",
@@ -476,37 +476,37 @@
     },
     "en": {
      "hook": "Do not say “go to home”!",
-     "tip": "“Home” works like an adverb, so no “to”. Vietnamese “về nhà” is easy to confuse.",
-     "caption": "Do you often say “I go to home.”? “Home” takes no “to”: “I go home.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
+     "tip": "“Home” works like an adverb, so no “to.” It is easy to add “to” by habit.",
+     "caption": "Do you often say this? “I go to home.” “Home” takes no “to”: “I go home.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
     }
    }
   },
   {
-   "id": "t2_l1_vi_depend_on",
+   "id": "t2_l1_vi_listen_to",
    "lang": "vi",
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Depends uses on.",
-    "wrong": "It depends of the weather.",
-    "right": "It depends on the weather.",
-    "strike": "of",
-    "why": "Say depends on.",
-    "memory": "Depends on.",
+    "hook_say": "Listen needs to.",
+    "wrong": "I listen music every day.",
+    "right": "I listen to music every day.",
+    "strike": "listen",
+    "why": "Say listen to music.",
+    "memory": "Listen to.",
     "quiz": {
-     "stem": "It depends ___ you.",
+     "stem": "I ___ the radio.",
      "options": [
-      "on",
-      "of"
+      "listen to",
+      "listen"
      ],
      "answer": 0
     },
-    "answer_say": "On! It depends on you.",
+    "answer_say": "Listen to! I listen to the radio.",
     "native": {
-     "hook": "“depends of” sai giới từ!",
-     "tip": "Động từ “depend” luôn đi với “on”, dù tiếng Việt là “tùy vào/ở”.",
-     "caption": "Bạn có hay nói “It depends of the weather.” không? 😅 “Depend” luôn đi với “on”: “It depends on the weather.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-     "comment": "Đáp án: “on”. Đặt câu với “It depends on…” nhé. Luyện thêm miễn phí tại đây: {link}",
+     "hook": "“Nghe nhạc” mà thiếu “to”?",
+     "tip": "Tiếng Việt nói “nghe nhạc”, nhưng tiếng Anh cần “to”: “listen to music.”",
+     "caption": "Bạn có hay nói “I listen music every day.” không? 😅 “Listen” cần “to”: “I listen to music every day.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+     "comment": "Đáp án: “listen to.” Kể bạn hay nghe gì bằng “I listen to…” nhé. Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
       "#hoctienganh",
       "#gioitu",
@@ -515,9 +515,9 @@
      ]
     },
     "en": {
-     "hook": "Depend + giới từ nào?",
-     "tip": "“Depend” always goes with “on”.",
-     "caption": "Do you often say “It depends of the weather.”? “Depend” always takes “on”: “It depends on the weather.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
+     "hook": "“Listen music”: missing a word!",
+     "tip": "Vietnamese says “nghe nhạc”, but English needs “to”: “listen to music.”",
+     "caption": "Do you often say this? “I listen music every day.” “Listen” needs “to”: “I listen to music every day.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -527,26 +527,26 @@
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Look is not watch.",
-    "wrong": "I look TV every night.",
+    "hook_say": "See TV? No, watch TV!",
+    "wrong": "I see TV every night.",
     "right": "I watch TV every night.",
-    "strike": "look",
-    "why": "You watch TV, not look.",
+    "strike": "see",
+    "why": "You watch TV, not see.",
     "memory": "Watch TV.",
     "quiz": {
      "stem": "I ___ movies at home.",
      "options": [
-      "look",
+      "see",
       "watch"
      ],
      "answer": 1
     },
     "answer_say": "Watch! I watch movies at home.",
     "native": {
-     "hook": "“look TV” hay “watch TV”?",
-     "tip": "Tiếng Việt dùng “xem” cho mọi thứ. Tiếng Anh: “watch” TV, “look at” ảnh.",
-     "caption": "Bạn có hay nói “I look TV every night.” không? 😅 Xem TV: “watch”, không phải “look”: “I watch TV every night.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-     "comment": "Đáp án: “watch”. Bạn xem gì tối nay? Nói “I watch…” nhé. Luyện thêm miễn phí tại đây: {link}",
+     "hook": "“See TV” hay “watch TV”?",
+     "tip": "Tiếng Việt dùng “xem” cho mọi thứ. Tiếng Anh: “watch” TV, phim; “see” là nhìn thấy.",
+     "caption": "Bạn có hay nói “I see TV every night.” không? 😅 Xem TV: “watch”, không phải “see”: “I watch TV every night.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+     "comment": "Đáp án: “watch.” Bạn xem gì tối nay? Nói “I watch…” nhé. Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
       "#hoctienganh",
       "#tuvungtienganh",
@@ -555,9 +555,9 @@
      ]
     },
     "en": {
-     "hook": "“Xem” tivi: look hay watch?",
-     "tip": "Vietnamese uses “xem” for everything. In English you “watch” TV and “look at” photos.",
-     "caption": "Do you often say “I look TV every night.”? You watch TV, not look: “I watch TV every night.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
+     "hook": "“See TV” or “watch TV”?",
+     "tip": "Vietnamese uses “xem” for everything. In English you “watch” TV and movies; “see” means to notice.",
+     "caption": "Do you often say this? “I see TV every night.” You watch TV, not see: “I watch TV every night.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -584,9 +584,9 @@
     "answer_say": "Borrow! Can I borrow your pen?",
     "native": {
      "hook": "Cho mượn: borrow hay lend?",
-     "tip": "Tiếng Việt đều nói “mượn”. Tiếng Anh: “lend” là cho ai mượn, “borrow” là đi mượn.",
+     "tip": "Tiếng Việt đều nói “mượn.” Tiếng Anh: “lend” là cho ai mượn, “borrow” là đi mượn.",
      "caption": "Bạn có hay nói “Can you borrow me a pen?” không? 😅 Cho mượn là “lend”, đi mượn là “borrow”: “Can you lend me a pen?” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-     "comment": "Đáp án: “borrow”. Thử xin mượn đồ bằng “Can I borrow…?” nhé. Luyện thêm miễn phí tại đây: {link}",
+     "comment": "Đáp án: “borrow.” Thử xin mượn đồ bằng “Can I borrow…?” nhé. Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
       "#hoctienganh",
       "#tuvungtienganh",
@@ -595,9 +595,9 @@
      ]
     },
     "en": {
-     "hook": "“borrow” và “lend” lẫn lộn?",
-     "tip": "Vietnamese uses “mượn” for both. “Lend” is to give, “borrow” is to take.",
-     "caption": "Do you often say “Can you borrow me a pen?”? You lend to others, borrow for yourself: “Can you lend me a pen?” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
+     "hook": "Lending: “borrow” or “lend”?",
+     "tip": "Learners use one word for both. “Lend” is to give, “borrow” is to take.",
+     "caption": "Do you often say this? “Can you borrow me a pen?” You lend to others, borrow for yourself: “Can you lend me a pen?” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -626,7 +626,7 @@
      "hook": "Trả lời ngắn thiếu “do”!",
      "tip": "Trả lời ngắn cần trợ động từ: “Yes, I do.” Tiếng Việt chỉ lặp lại động từ.",
      "caption": "Bạn có hay nói “Do you like tea? Yes, I like.” không? 😅 Trả lời ngắn dùng “do”: “Do you like tea? Yes, I do.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-     "comment": "Đáp án: “do”. Trả lời bạn bè bằng “Yes, I do” hoặc “No, I don't”. Luyện thêm miễn phí tại đây: {link}",
+     "comment": "Đáp án: “do.” Trả lời bạn bè bằng “Yes, I do” hoặc “No, I don't.” Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
       "#hoctienganh",
       "#nguphaptienganh",
@@ -636,8 +636,8 @@
     },
     "en": {
      "hook": "Short answers are missing “do”!",
-     "tip": "Short answers need “do”. Vietnamese just repeats the verb.",
-     "caption": "Do you often say “Do you like tea? Yes, I like.”? Short answers use “do”: “Do you like tea? Yes, I do.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
+     "tip": "Short answers need “do.” Learners often just repeat the verb.",
+     "caption": "Do you often say this? “Do you like tea? Yes, I like.” Short answers use “do”: “Do you like tea? Yes, I do.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -666,7 +666,7 @@
      "hook": "“said me” hay “told me”?",
      "tip": "“Tell” đi với người nghe (told me), còn “say” thì không.",
      "caption": "Bạn có hay nói “He said me to wait.” không? 😅 Có người nghe thì dùng “tell”: “He told me to wait.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-     "comment": "Đáp án: “told”. Thử nói “He told me…” để kể lại lời ai đó. Luyện thêm miễn phí tại đây: {link}",
+     "comment": "Đáp án: “told.” Thử nói “He told me…” để kể lại lời ai đó. Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
       "#hoctienganh",
       "#tuvungtienganh",
@@ -675,38 +675,38 @@
      ]
     },
     "en": {
-     "hook": "“Said me” là sai!",
+     "hook": "“Said me” or “told me”?",
      "tip": "“Tell” takes the listener (told me); “say” does not.",
-     "caption": "Do you often say “He said me to wait.”? With a listener, use “tell”: “He told me to wait.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
+     "caption": "Do you often say this? “He said me to wait.” With a listener, use “tell”: “He told me to wait.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
     }
    }
   },
   {
-   "id": "t2_l1_vi_anything",
+   "id": "t2_l1_vi_explain_to",
    "lang": "vi",
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "No double no.",
-    "wrong": "I don't have nothing.",
-    "right": "I don't have anything.",
-    "strike": "nothing",
-    "why": "One no is enough.",
-    "memory": "Not anything.",
+    "hook_say": "Explain needs to.",
+    "wrong": "Can you explain me this word?",
+    "right": "Can you explain this word to me?",
+    "strike": "explain me",
+    "why": "Say explain it to me.",
+    "memory": "Explain to me.",
     "quiz": {
-     "stem": "I don't know ___.",
+     "stem": "Please explain it ___.",
      "options": [
-      "anything",
-      "nothing"
+      "to me",
+      "me"
      ],
      "answer": 0
     },
-    "answer_say": "Anything! I don't know anything.",
+    "answer_say": "To me! Please explain it to me.",
     "native": {
-     "hook": "Phủ định hai lần là sai!",
-     "tip": "Tiếng Anh chỉ cần một từ phủ định: don't + anything, không phải don't + nothing.",
-     "caption": "Bạn có hay nói “I don't have nothing.” không? 😅 Một câu chỉ một phủ định: “I don't have anything.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-     "comment": "Đáp án: “anything”. Thử nói “I don't have anything…” nhé. Luyện thêm miễn phí tại đây: {link}",
+     "hook": "Đừng nói “explain me” nhé!",
+     "tip": "Tiếng Việt nói “giải thích cho tôi”, nhưng tiếng Anh cần “to”: “explain it to me.”",
+     "caption": "Bạn có hay nói “Can you explain me this word?” không? 😅 Phải có “to”: “Can you explain this word to me?” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+     "comment": "Đáp án: “to me.” Nhờ bạn bè giải thích một từ bằng “Can you explain… to me?” nhé. Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
       "#hoctienganh",
       "#nguphaptienganh",
@@ -715,9 +715,9 @@
      ]
     },
     "en": {
-     "hook": "Chỉ cần MỘT từ phủ định!",
-     "tip": "English needs only one negative: don't plus anything.",
-     "caption": "Do you often say “I don't have nothing.”? One negative is enough: “I don't have anything.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
+     "hook": "Do not say “explain me”!",
+     "tip": "Vietnamese says “giải thích cho tôi”, but English needs “to”: “explain it to me.”",
+     "caption": "Do you often say this? “Can you explain me this word?” You need “to”: “Can you explain this word to me?” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -746,7 +746,7 @@
      "hook": "“last year” + “have been”?",
      "tip": "Mốc thời gian đã qua như “last year” dùng quá khứ đơn, không dùng hiện tại hoàn thành.",
      "caption": "Bạn có hay nói “I have been to Japan last year.” không? 😅 Có mốc quá khứ thì dùng quá khứ đơn: “I went to Japan last year.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-     "comment": "Đáp án: “went”. Kể chuyến đi gần nhất bằng “I went…” nhé. Luyện thêm miễn phí tại đây: {link}",
+     "comment": "Đáp án: “went.” Kể chuyến đi gần nhất bằng “I went…” nhé. Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
       "#hoctienganh",
       "#nguphaptienganh",
@@ -755,9 +755,9 @@
      ]
     },
     "en": {
-     "hook": "“last year” phải dùng “went”!",
+     "hook": "“Last year” + “have been”?",
      "tip": "A finished time like “last year” takes the simple past.",
-     "caption": "Do you often say “I have been to Japan last year.”? A past time takes the simple past: “I went to Japan last year.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
+     "caption": "Do you often say this? “I have been to Japan last year.” A past time takes the simple past: “I went to Japan last year.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -784,9 +784,9 @@
     "answer_say": "She! She is a nurse.",
     "native": {
      "hook": "Nói về mẹ phải là “she”!",
-     "tip": "Tiếng Việt dùng “ông/bà/cô…” theo ngữ cảnh. Tiếng Anh dùng he/she theo giới tính.",
+     "tip": "Tiếng Việt hay gọi “mẹ/chị/dì” thay cho đại từ, nên dễ nhầm he/she. Mẹ, chị, dì dùng “she.”",
      "caption": "Bạn có hay nói “My mom is nice. He cooks well.” không? 😅 Mẹ, chị, cô dùng “she”: “My mom is nice. She cooks well.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-     "comment": "Đáp án: “She”. Nói về người thân bằng he hoặc she cho đúng nhé. Luyện thêm miễn phí tại đây: {link}",
+     "comment": "Đáp án: “She.” Nói về người thân bằng he hoặc she cho đúng nhé. Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
       "#hoctienganh",
       "#nguphaptienganh",
@@ -795,9 +795,9 @@
      ]
     },
     "en": {
-     "hook": "Talking about mom must be “she”!",
-     "tip": "Vietnamese picks words by context. English uses he or she by gender.",
-     "caption": "Do you often say “My mom is nice. He cooks well.”? Mom, sister, aunt take “she”: “My mom is nice. She cooks well.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
+     "hook": "For mom, use “she”!",
+     "tip": "People often say “mom” or “sister” instead of a pronoun, so he/she gets mixed up. Mom, sister, aunt take “she.”",
+     "caption": "Do you often say this? “My mom is nice. He cooks well.” Mom, sister, aunt take “she”: “My mom is nice. She cooks well.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -808,8 +808,8 @@
    "theme": "dusk",
    "in": {
     "hook_say": "Left uses on.",
-    "wrong": "The toilet is in the left.",
-    "right": "The toilet is on the left.",
+    "wrong": "The bathroom is in the left.",
+    "right": "The bathroom is on the left.",
     "strike": "in",
     "why": "Left and right use on.",
     "memory": "On the left.",
@@ -824,9 +824,9 @@
     "answer_say": "On! The shop is on the right.",
     "native": {
      "hook": "Bên trái: “in” hay “on”?",
-     "tip": "Chỉ phương hướng trái/phải dùng “on the left/right”, dù tiếng Việt nói “ở bên trái”.",
-     "caption": "Bạn có hay nói “The toilet is in the left.” không? 😅 Trái và phải dùng “on”: “The toilet is on the left.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-     "comment": "Đáp án: “on”. Chỉ đường bằng “on the left/right” nhé. Luyện thêm miễn phí tại đây: {link}",
+     "tip": "Chỉ phương hướng trái/phải dùng “on the left/right”, không dùng “in.”",
+     "caption": "Bạn có hay nói “The bathroom is in the left.” không? 😅 Trái và phải dùng “on”: “The bathroom is on the left.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+     "comment": "Đáp án: “on.” Chỉ đường bằng “on the left/right” nhé. Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
       "#hoctienganh",
       "#gioitu",
@@ -835,49 +835,49 @@
      ]
     },
     "en": {
-     "hook": "“in the left” là sai!",
-     "tip": "For left and right use “on the left/right”, even if Vietnamese says “ở”.",
-     "caption": "Do you often say “The toilet is in the left.”? Left and right use “on”: “The toilet is on the left.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
+     "hook": "The left side: “in” or “on”?",
+     "tip": "For left and right use “on the left/right”, not “in.”",
+     "caption": "Do you often say this? “The bathroom is in the left.” Left and right use “on”: “The bathroom is on the left.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
     }
    }
   },
   {
-   "id": "t2_l1_vi_want_you_to",
+   "id": "t2_l1_vi_discuss_about",
    "lang": "vi",
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Want needs to.",
-    "wrong": "I want that you come.",
-    "right": "I want you to come.",
-    "strike": "that you come",
-    "why": "Say want you to.",
-    "memory": "Want you to.",
+    "hook_say": "Discuss needs no about!",
+    "wrong": "We discuss about the plan.",
+    "right": "We discuss the plan.",
+    "strike": "about",
+    "why": "Discuss takes no about.",
+    "memory": "Discuss it, no about.",
     "quiz": {
-     "stem": "I want her ___ help me.",
+     "stem": "Let's ___ the problem.",
      "options": [
-      "to",
-      "that"
+      "discuss",
+      "discuss about"
      ],
      "answer": 0
     },
-    "answer_say": "To! I want her to help me.",
+    "answer_say": "Discuss! Let's discuss the problem.",
     "native": {
-     "hook": "“want that you” sai cấu trúc!",
-     "tip": "Sau “want” + người là “to + động từ”, không dùng “that”.",
-     "caption": "Bạn có hay nói “I want that you come.” không? 😅 Dùng: want + người + to + V: “I want you to come.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-     "comment": "Đáp án: “to”. Nhờ ai đó bằng “I want you to…” nhé. Luyện thêm miễn phí tại đây: {link}",
+     "hook": "Đừng nói “discuss about” nhé!",
+     "tip": "Tiếng Việt nói “thảo luận về”, nhưng “discuss” không cần “about.”",
+     "caption": "Bạn có hay nói “We discuss about the plan.” không? 😅 “Discuss” không đi với “about”: “We discuss the plan.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+     "comment": "Đáp án: “discuss.” Đặt một câu với “Let's discuss…” nhé! Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
       "#hoctienganh",
-      "#nguphaptienganh",
-      "#cautruc",
+      "#loisaiphobien",
+      "#tienganhgiaotiep",
       "#lexkite"
      ]
     },
     "en": {
-     "hook": "“want that” không có đâu!",
-     "tip": "After “want” plus a person use “to + verb”, not “that”.",
-     "caption": "Do you often say “I want that you come.”? Use want + person + to + verb: “I want you to come.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
+     "hook": "Don't say “discuss about”!",
+     "tip": "“Discuss” needs no “about”, even though you may think “talk about.”",
+     "caption": "Do you often say this? “We discuss about the plan.” Say “We discuss the plan.” instead. Listen to Carlos, then repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -887,26 +887,26 @@
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Do you forget one small word?",
+    "hook_say": "Your name needs one more word!",
     "wrong": "My name Anna.",
     "right": "My name is Anna.",
     "strike": "name",
     "why": "Put is between name and Anna.",
     "memory": "Name plus is.",
     "quiz": {
-     "stem": "My name ___ Anna.",
+     "stem": "Which is right?",
      "options": [
-      "is",
-      "are"
+      "My name is Anna.",
+      "My name Anna."
      ],
      "answer": 0
     },
     "answer_say": "Is! My name is Anna.",
     "native": {
      "hook": "Giới thiệu tên mà thiếu “is”?",
-     "tip": "Tiếng Việt nói “Tôi tên Anna” không cần “là”, nhưng tiếng Anh bắt buộc có “is”.",
+     "tip": "Tiếng Việt nói “Tôi tên Anna” không cần “là”, nhưng tiếng Anh bắt buộc có “is.”",
      "caption": "Bạn có hay nói “My name Anna.” không? 😄 Phải có “is”: “My name is Anna.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-     "comment": "Đáp án: “is”. Thử viết “My name is…” kèm tên bạn ở phần bình luận nhé! Luyện thêm miễn phí tại đây: {link}",
+     "comment": "Đáp án: “is.” Thử viết “My name is…” kèm tên bạn ở phần bình luận nhé! Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
       "#hoctienganh",
       "#nguphaptienganh",
@@ -916,48 +916,48 @@
     },
     "en": {
      "hook": "Missing “is” in your name?",
-     "tip": "Vietnamese says “Tôi tên Anna” with no verb, but English needs “is”.",
-     "caption": "Do you often say “My name Anna.”? Say “My name is Anna.” instead. Listen to Ama, then repeat! Practice more in the Lexkite app."
+     "tip": "Learners often skip the verb, but English needs “is” here.",
+     "caption": "Do you often say this? “My name Anna.” Say “My name is Anna.” instead. Listen to Ama, then repeat! Practice more in the Lexkite app."
     }
    }
   },
   {
-   "id": "t2_l1_vi_yesterday_was",
+   "id": "t2_l1_vi_ago_before",
    "lang": "vi",
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Yesterday needs a past verb!",
-    "wrong": "Yesterday I am tired.",
-    "right": "Yesterday I was tired.",
-    "strike": "am",
-    "why": "Yesterday is past, so use was.",
-    "memory": "Yesterday: was.",
+    "hook_say": "Two years ago, not before!",
+    "wrong": "I came here before two years.",
+    "right": "I came here two years ago.",
+    "strike": "before two years",
+    "why": "Put ago after the time.",
+    "memory": "Two years ago.",
     "quiz": {
-     "stem": "Yesterday she ___ at home.",
+     "stem": "She left ___.",
      "options": [
-      "was",
-      "is"
+      "three days ago",
+      "before three days"
      ],
      "answer": 0
     },
-    "answer_say": "Was! She was at home.",
+    "answer_say": "Three days ago! She left three days ago.",
     "native": {
-     "hook": "Hôm qua mà vẫn nói “am”?",
-     "tip": "Tiếng Việt không chia thì, nhưng có “yesterday” là phải dùng “was”.",
-     "caption": "Bạn có hay nói “Yesterday I am tired.” không? 🙈 Chuyện đã qua thì dùng “was”: “Yesterday I was tired.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-     "comment": "Đáp án: “was”. Kể thử hôm qua bạn làm gì bằng “Yesterday I was…” nhé! Luyện thêm miễn phí tại đây: {link}",
+     "hook": "“Cách đây hai năm” nói sao?",
+     "tip": "Tiếng Việt nói “cách đây hai năm”, nhưng tiếng Anh đặt “ago” sau khoảng thời gian: “two years ago.”",
+     "caption": "Bạn có hay nói “I came here before two years.” không? 🙈 Dùng “ago” sau khoảng thời gian: “I came here two years ago.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+     "comment": "Đáp án: “three days ago.” Kể một việc bạn làm cách đây vài ngày bằng “…ago” nhé! Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
-      "#tuhoctienganh",
-      "#luyennoitienganh",
-      "#loisaiphobien",
+      "#hoctienganh",
+      "#nguphaptienganh",
+      "#tienganhgiaotiep",
       "#lexkite"
      ]
     },
     "en": {
-     "hook": "“Yesterday” and still “am”?",
-     "tip": "Vietnamese has no tenses, but “yesterday” needs “was”.",
-     "caption": "Do you often say “Yesterday I am tired.”? Say “Yesterday I was tired.” instead. Listen to Carlos, then repeat! Practice more in the Lexkite app."
+     "hook": "Two years ago: say it right!",
+     "tip": "English puts “ago” after the time: “two years ago”, not “before two years.”",
+     "caption": "Do you often say this? “I came here before two years.” Say “I came here two years ago.” instead. Listen to Carlos, then repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -984,9 +984,9 @@
     "answer_say": "To drink! I want to drink water.",
     "native": {
      "hook": "“Want go”? Thiếu một chữ đấy!",
-     "tip": "Tiếng Việt nói “muốn đi”, nhưng tiếng Anh phải có “to”: “want to go”.",
+     "tip": "Tiếng Việt nói “muốn đi”, nhưng tiếng Anh phải có “to”: “want to go.”",
      "caption": "Bạn có hay nói “I want go home.” không? 😅 Sau “want” cần “to”: “I want to go home.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-     "comment": "Đáp án: “to drink”. Hãy đặt một câu với “I want to…” ngay bên dưới nhé! Luyện thêm miễn phí tại đây: {link}",
+     "comment": "Đáp án: “to drink.” Hãy đặt một câu với “I want to…” ngay bên dưới nhé! Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
       "#hoctienganh",
       "#nguphaptienganh",
@@ -996,8 +996,8 @@
     },
     "en": {
      "hook": "“Want go”? One word is missing!",
-     "tip": "Vietnamese says “muốn đi”, but English needs “to”: “want to go”.",
-     "caption": "Do you often say “I want go home.”? Say “I want to go home.” instead. Listen to Ama, then repeat! Practice more in the Lexkite app."
+     "tip": "Learners often skip “to”, but English needs “to”: “want to go.”",
+     "caption": "Do you often say this? “I want go home.” Say “I want to go home.” instead. Listen to Ama, then repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1024,9 +1024,9 @@
     "answer_say": "How to! I know how to cook.",
     "native": {
      "hook": "“Biết bơi” nói sao cho đúng?",
-     "tip": "Tiếng Việt nói “biết bơi”, nhưng tiếng Anh cần “how to” sau “know”.",
+     "tip": "Tiếng Việt nói “biết bơi”, nhưng tiếng Anh cần “how to” sau “know.”",
      "caption": "Bạn có hay nói “I know swim.” không? 🏊 Nói về kỹ năng thì dùng “know how to”: “I know how to swim.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-     "comment": "Đáp án: “how to”. Bạn biết làm món gì? Viết “I know how to…” nhé! Luyện thêm miễn phí tại đây: {link}",
+     "comment": "Đáp án: “how to.” Bạn biết làm món gì? Viết “I know how to…” nhé! Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
       "#tuhoctienganh",
       "#luyennoitienganh",
@@ -1035,9 +1035,9 @@
      ]
     },
     "en": {
-     "hook": "How do you say “biết bơi”?",
-     "tip": "Vietnamese says “biết bơi”, but English needs “how to” after “know”.",
-     "caption": "Do you often say “I know swim.”? Say “I know how to swim.” instead. Listen to Carlos, then repeat! Practice more in the Lexkite app."
+     "hook": "“I know swim”: what is missing?",
+     "tip": "English needs “how to” after “know”: “know how to swim.”",
+     "caption": "Do you often say this? “I know swim.” Say “I know how to swim.” instead. Listen to Carlos, then repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1066,7 +1066,7 @@
      "hook": "“My sister she…” thừa chữ rồi!",
      "tip": "Tiếng Việt hay nhắc lại chủ ngữ, nhưng tiếng Anh chỉ nói một lần.",
      "caption": "Bạn có hay nói “My sister she is a nurse.” không? 😄 Chỉ cần nói một lần: “My sister is a nurse.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-     "comment": "Đáp án: “is”. Giới thiệu một người thân của bạn bằng một câu gọn nhé! Luyện thêm miễn phí tại đây: {link}",
+     "comment": "Đáp án: “is.” Giới thiệu một người thân của bạn bằng một câu gọn nhé! Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
       "#hoctienganh",
       "#nguphaptienganh",
@@ -1075,9 +1075,9 @@
      ]
     },
     "en": {
-     "hook": "“My sister she…”: one word too many!",
-     "tip": "Vietnamese often repeats the subject, but English says it only once.",
-     "caption": "Do you often say “My sister she is a nurse.”? Say “My sister is a nurse.” instead. Listen to Ama, then repeat! Practice more in the Lexkite app."
+     "hook": "“My sister she”: extra word!",
+     "tip": "Learners often repeat the subject, but English says it only once.",
+     "caption": "Do you often say this? “My sister she is a nurse.” Say “My sister is a nurse.” instead. Listen to Ama, then repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1104,9 +1104,9 @@
     "answer_say": "Three years older! Say the number first.",
     "native": {
      "hook": "“Hơn hai tuổi” nói thế nào?",
-     "tip": "Tiếng Việt nói “hơn tôi hai tuổi”, nhưng tiếng Anh đặt số tuổi trước “older”.",
+     "tip": "Tiếng Việt nói “hơn tôi hai tuổi”, nhưng tiếng Anh đặt số tuổi trước “older.”",
      "caption": "Bạn có hay nói “He is older than me two years.” không? 🤔 Số tuổi phải đứng trước: “He is two years older than me.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-     "comment": "Đáp án: “three years older”. Bạn hơn hoặc kém bạn thân mấy tuổi? Viết thử nhé! Luyện thêm miễn phí tại đây: {link}",
+     "comment": "Đáp án: “three years older.” Bạn hơn hoặc kém bạn thân mấy tuổi? Viết thử nhé! Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
       "#tuhoctienganh",
       "#luyennoitienganh",
@@ -1115,9 +1115,9 @@
      ]
     },
     "en": {
-     "hook": "How to say “hơn hai tuổi”?",
-     "tip": "Vietnamese says “hơn tôi hai tuổi”, but English puts the number before “older”.",
-     "caption": "Do you often say “He is older than me two years.”? Say “He is two years older than me.” instead. Listen to Carlos, then repeat! Practice more in the Lexkite app."
+     "hook": "“Two years older”: say it right?",
+     "tip": "English puts the number before “older”: “two years older.”",
+     "caption": "Do you often say this? “He is older than me two years.” Say “He is two years older than me.” instead. Listen to Carlos, then repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1144,9 +1144,9 @@
     "answer_say": "More clearly! Please speak more clearly.",
     "native": {
      "hook": "Nhờ nói chậm hơn mà sai thứ tự?",
-     "tip": "Tiếng Việt nói “nói chậm hơn”, nhưng tiếng Anh đặt “more” trước “slowly”.",
+     "tip": "Tiếng Việt nói “nói chậm hơn”, nhưng tiếng Anh đặt “more” trước “slowly.”",
      "caption": "Bạn có hay nói “Can you speak slowly more?” không? 😅 “More” đứng trước: “Can you speak more slowly?” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-     "comment": "Đáp án: “more clearly”. Lưu câu này để nhờ người nước ngoài nói chậm lại nhé! Luyện thêm miễn phí tại đây: {link}",
+     "comment": "Đáp án: “more clearly.” Lưu câu này để nhờ người nước ngoài nói chậm lại nhé! Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
       "#hoctienganh",
       "#nguphaptienganh",
@@ -1155,9 +1155,9 @@
      ]
     },
     "en": {
-     "hook": "“Nói chậm hơn”: right word order?",
-     "tip": "Vietnamese says “nói chậm hơn”, but English puts “more” before “slowly”.",
-     "caption": "Do you often say “Can you speak slowly more?”? Say “Can you speak more slowly?” instead. Listen to Ama, then repeat! Practice more in the Lexkite app."
+     "hook": "“Slowly more”: right word order?",
+     "tip": "English puts “more” before “slowly.”",
+     "caption": "Do you often say this? “Can you speak slowly more?” Say “Can you speak more slowly?” instead. Listen to Ama, then repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1184,9 +1184,9 @@
     "answer_say": "Calling! Thanks for calling me.",
     "native": {
      "hook": "Cảm ơn đã giúp: nói sao cho đúng?",
-     "tip": "Tiếng Việt nói “cảm ơn đã giúp”, nhưng sau “for” tiếng Anh cần “-ing”.",
+     "tip": "Tiếng Việt nói “cảm ơn đã giúp”, nhưng sau “for” tiếng Anh cần “-ing.”",
      "caption": "Bạn có hay nói “Thank you for help me.” không? 🙏 Sau “for” thêm “-ing”: “Thank you for helping me.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-     "comment": "Đáp án: “calling”. Cảm ơn ai đó bằng “Thank you for…ing” ngay nhé! Luyện thêm miễn phí tại đây: {link}",
+     "comment": "Đáp án: “calling.” Cảm ơn ai đó bằng “Thank you for…ing” ngay nhé! Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
       "#tuhoctienganh",
       "#luyennoitienganh",
@@ -1195,9 +1195,9 @@
      ]
     },
     "en": {
-     "hook": "Thanking someone? Mind the “-ing”!",
-     "tip": "Vietnamese says “cảm ơn đã giúp”, but English needs “-ing” after “for”.",
-     "caption": "Do you often say “Thank you for help me.”? Say “Thank you for helping me.” instead. Listen to Carlos, then repeat! Practice more in the Lexkite app."
+     "hook": "Thank someone: mind the “-ing”!",
+     "tip": "After “for”, English needs “-ing”: “for helping.”",
+     "caption": "Do you often say this? “Thank you for help me.” Say “Thank you for helping me.” instead. Listen to Carlos, then repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1224,9 +1224,9 @@
     "answer_say": "The station is! I do not know where the station is.",
     "native": {
      "hook": "“Where is…” trong câu: sai ở đâu?",
-     "tip": "Tiếng Việt nói “ngân hàng ở đâu”, chủ ngữ đứng trước. Khi câu hỏi nằm trong một câu khác, tiếng Anh cũng vậy: “where the bank is”.",
+     "tip": "Tiếng Việt nói “ngân hàng ở đâu”, chủ ngữ đứng trước. Khi câu hỏi nằm trong một câu khác, tiếng Anh cũng vậy: “where the bank is.”",
      "caption": "Bạn có hay nói “I don't know where is the bank.” không? 🤔 Đưa “is” xuống cuối: “I don't know where the bank is.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-     "comment": "Đáp án: “the station is”. Thử viết “I don't know where…” với một câu của bạn nhé! Luyện thêm miễn phí tại đây: {link}",
+     "comment": "Đáp án: “the station is.” Thử viết “I don't know where…” với một câu của bạn nhé! Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
       "#hoctienganh",
       "#nguphaptienganh",
@@ -1236,8 +1236,8 @@
     },
     "en": {
      "hook": "“Where is…” inside a sentence?",
-     "tip": "Vietnamese also says “ngân hàng ở đâu”, subject first; English does the same inside a sentence.",
-     "caption": "Do you often say “I don't know where is the bank.”? Say “I don't know where the bank is.” instead. Listen to Ama, then repeat! Practice more in the Lexkite app."
+     "tip": "Inside a sentence the subject comes first: “where the bank is.”",
+     "caption": "Do you often say this? “I don't know where is the bank.” Say “I don't know where the bank is.” instead. Listen to Ama, then repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1266,7 +1266,7 @@
      "hook": "“Cao bằng chị” mà thiếu một “as”?",
      "tip": "Tiếng Việt nói “cao bằng”, nhưng tiếng Anh cần “as” cả trước lẫn sau.",
      "caption": "Bạn có hay nói “She is tall as her sister.” không? 😄 So sánh bằng cần hai “as”: “She is as tall as her sister.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-     "comment": "Đáp án: “as tall as”. So sánh bạn với một người thân bằng “as…as” nhé! Luyện thêm miễn phí tại đây: {link}",
+     "comment": "Đáp án: “as tall as.” So sánh bạn với một người thân bằng “as…as” nhé! Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
       "#tuhoctienganh",
       "#luyennoitienganh",
@@ -1276,37 +1276,37 @@
     },
     "en": {
      "hook": "“As tall as”: one “as” missing?",
-     "tip": "Vietnamese says “cao bằng”, but English needs “as” before and after.",
-     "caption": "Do you often say “She is tall as her sister.”? Say “She is as tall as her sister.” instead. Listen to Carlos, then repeat! Practice more in the Lexkite app."
+     "tip": "English needs “as” before and after: “as tall as.”",
+     "caption": "Do you often say this? “She is tall as her sister.” Say “She is as tall as her sister.” instead. Listen to Carlos, then repeat! Practice more in the Lexkite app."
     }
    }
   },
   {
-   "id": "t2_l1_vi_go_often",
+   "id": "t2_l1_vi_adj_order",
    "lang": "vi",
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Where does often go?",
-    "wrong": "I go often to the market.",
-    "right": "I often go to the market.",
-    "strike": "often",
-    "why": "Put often before the verb.",
-    "memory": "Often, then verb.",
+    "hook_say": "Where does red go?",
+    "wrong": "I have a car red.",
+    "right": "I have a red car.",
+    "strike": "car red",
+    "why": "Put the color before the noun.",
+    "memory": "Color, then noun.",
     "quiz": {
-     "stem": "She ___ to school.",
+     "stem": "She has a ___.",
      "options": [
-      "often walks",
-      "walks often"
+      "big house",
+      "house big"
      ],
      "answer": 0
     },
-    "answer_say": "Often walks! She often walks to school.",
+    "answer_say": "Big house! She has a big house.",
     "native": {
-     "hook": "“Often” để nhầm chỗ rồi!",
-     "tip": "Lỗi do bắt chước “go there often”. Cứ đặt như “tôi thường đi chợ”: “often” đứng trước động từ.",
-     "caption": "Bạn có hay nói “I go often to the market.” không? 🛒 “Often” đứng trước động từ: “I often go to the market.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-     "comment": "Đáp án: “often walks”. Kể một việc bạn hay làm bằng “I often…” nhé! Luyện thêm miễn phí tại đây: {link}",
+     "hook": "“Xe đỏ” là “car red” à?",
+     "tip": "Tiếng Việt đặt tính từ sau danh từ (“xe đỏ”), nhưng tiếng Anh đặt trước: “a red car.”",
+     "caption": "Bạn có hay nói “I have a car red.” không? 🚗 Tính từ đứng trước danh từ: “I have a red car.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+     "comment": "Đáp án: “big house.” Tả đồ của bạn bằng “a + tính từ + danh từ” nhé. Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
       "#hoctienganh",
       "#nguphaptienganh",
@@ -1315,9 +1315,9 @@
      ]
     },
     "en": {
-     "hook": "“Often” in the wrong place!",
-     "tip": "The error copies “go there often”. Think “tôi thường đi chợ”: “often” goes before the verb.",
-     "caption": "Do you often say “I go often to the market.”? Say “I often go to the market.” instead. Listen to Ama, then repeat! Practice more in the Lexkite app."
+     "hook": "“A car red”? Wrong word order!",
+     "tip": "Vietnamese puts the adjective after the noun (“xe đỏ”), but English puts it before: “a red car.”",
+     "caption": "Do you often say this? “I have a car red.” The adjective goes before the noun: “I have a red car.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1344,9 +1344,9 @@
     "answer_say": "Much! How much time do you have?",
     "native": {
      "hook": "“Thời gian”: many hay much?",
-     "tip": "Tiếng Việt dùng “bao nhiêu” cho mọi thứ, nhưng tiếng Anh dùng “much” với “time”.",
+     "tip": "Tiếng Việt dùng “bao nhiêu” cho mọi thứ, nhưng tiếng Anh dùng “much” với “time.”",
      "caption": "Bạn có hay nói “How many time do you need?” không? ⏰ Với “time” dùng “much”: “How much time do you need?” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-     "comment": "Đáp án: “much”. Hỏi bạn bè bằng “How much time…” thử xem nhé! Luyện thêm miễn phí tại đây: {link}",
+     "comment": "Đáp án: “much.” Hỏi bạn bè bằng “How much time…” thử xem nhé! Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
       "#tuhoctienganh",
       "#luyennoitienganh",
@@ -1356,8 +1356,8 @@
     },
     "en": {
      "hook": "“How many time”? Many or much?",
-     "tip": "Vietnamese uses “bao nhiêu” for everything, but English uses “much” with “time”.",
-     "caption": "Do you often say “How many time do you need?”? Say “How much time do you need?” instead. Listen to Carlos, then repeat! Practice more in the Lexkite app."
+     "tip": "Learners use one word for every amount, but English uses “much” with “time.”",
+     "caption": "Do you often say this? “How many time do you need?” Say “How much time do you need?” instead. Listen to Carlos, then repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1386,7 +1386,7 @@
      "hook": "“Because” mà còn thêm “so”?",
      "tip": "Tiếng Việt nói “vì…nên…”, nhưng tiếng Anh chỉ dùng một từ nối.",
      "caption": "Bạn có hay nói “Because I am tired, so I sleep.” không? 😴 Chỉ dùng một từ nối: “Because I am tired, I sleep.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-     "comment": "Đáp án: “I eat”. Viết một câu với “Because…” về hôm nay của bạn nhé! Luyện thêm miễn phí tại đây: {link}",
+     "comment": "Đáp án: “I eat.” Viết một câu với “Because…” về hôm nay của bạn nhé! Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
       "#hoctienganh",
       "#nguphaptienganh",
@@ -1396,8 +1396,8 @@
     },
     "en": {
      "hook": "“Because” and “so” together?",
-     "tip": "Vietnamese says “vì…nên…”, but English uses only one linking word.",
-     "caption": "Do you often say “Because I am tired, so I sleep.”? Say “Because I am tired, I sleep.” instead. Listen to Ama, then repeat! Practice more in the Lexkite app."
+     "tip": "Some learners use two linking words, but English uses only one.",
+     "caption": "Do you often say this? “Because I am tired, so I sleep.” Say “Because I am tired, I sleep.” instead. Listen to Ama, then repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1424,9 +1424,9 @@
     "answer_say": "What! What do you think about it?",
     "native": {
      "hook": "“Bạn nghĩ thế nào” dịch sao đây?",
-     "tip": "Tiếng Việt hỏi “nghĩ thế nào”, nhưng tiếng Anh hỏi “What do you think”.",
+     "tip": "Tiếng Việt hỏi “nghĩ thế nào”, nhưng tiếng Anh hỏi “What do you think.”",
      "caption": "Bạn có hay nói “How do you think about this?” không? 🤔 Hỏi ý kiến thì dùng “What”: “What do you think about this?” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-     "comment": "Đáp án: “What”. Hỏi ý kiến bạn bè bằng “What do you think…” nhé! Luyện thêm miễn phí tại đây: {link}",
+     "comment": "Đáp án: “What.” Hỏi ý kiến bạn bè bằng “What do you think…” nhé! Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
       "#tuhoctienganh",
       "#luyennoitienganh",
@@ -1435,9 +1435,9 @@
      ]
     },
     "en": {
-     "hook": "“Nghĩ thế nào”: how or what?",
-     "tip": "Vietnamese asks “nghĩ thế nào”, but English asks “What do you think”.",
-     "caption": "Do you often say “How do you think about this?”? Say “What do you think about this?” instead. Listen to Carlos, then repeat! Practice more in the Lexkite app."
+     "hook": "How do you ask for an opinion?",
+     "tip": "English asks “What do you think”, not “How do you think.”",
+     "caption": "Do you often say this? “How do you think about this?” Say “What do you think about this?” instead. Listen to Carlos, then repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1466,7 +1466,7 @@
      "hook": "“From Vietnamese”: có đúng không?",
      "tip": "“Vietnam” là tên nước, “Vietnamese” là người Việt hoặc tiếng Việt. Sau “from” dùng tên nước.",
      "caption": "Bạn có hay nói “I am from Vietnamese.” không? 🇻🇳 Sau “from” là tên nước: “I am from Vietnam.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-     "comment": "Đáp án: “Vietnam”. Giới thiệu quê hương bạn bằng “I am from…” nhé! Luyện thêm miễn phí tại đây: {link}",
+     "comment": "Đáp án: “Vietnam.” Giới thiệu quê hương bạn bằng “I am from…” nhé! Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
       "#hoctienganh",
       "#nguphaptienganh",
@@ -1476,8 +1476,8 @@
     },
     "en": {
      "hook": "“From Vietnamese”: is it right?",
-     "tip": "“Vietnam” is the country; “Vietnamese” is the people or language. Use the country after “from”.",
-     "caption": "Do you often say “I am from Vietnamese.”? Say “I am from Vietnam.” instead. Listen to Ama, then repeat! Practice more in the Lexkite app."
+     "tip": "After “from” use the country name, not the name of the people or language.",
+     "caption": "Do you often say this? “I am from Vietnamese.” Say “I am from Vietnam.” instead. Listen to Ama, then repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1504,9 +1504,9 @@
     "answer_say": "Mine! This bag is mine.",
     "native": {
      "hook": "“Của tôi”: my hay mine?",
-     "tip": "Tiếng Việt dùng “của tôi” cho cả hai, nhưng tiếng Anh có “my” và “mine”.",
+     "tip": "Tiếng Việt dùng “của tôi” cho cả hai, nhưng tiếng Anh có “my” và “mine.”",
      "caption": "Bạn có hay nói “This pen is my.” không? ✏️ Đứng một mình thì dùng “mine”: “This pen is mine.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-     "comment": "Đáp án: “mine”. Nói về đồ của bạn bằng “It is mine” nhé! Luyện thêm miễn phí tại đây: {link}",
+     "comment": "Đáp án: “mine.” Nói về đồ của bạn bằng “It is mine” nhé! Luyện thêm miễn phí tại đây: {link}",
      "hashtags": [
       "#tuhoctienganh",
       "#luyennoitienganh",
@@ -1515,9 +1515,9 @@
      ]
     },
     "en": {
-     "hook": "“Của tôi”: my or mine?",
-     "tip": "Vietnamese uses “của tôi” for both, but English has “my” and “mine”.",
-     "caption": "Do you often say “This pen is my.”? Say “This pen is mine.” instead. Listen to Carlos, then repeat! Practice more in the Lexkite app."
+     "hook": "This pen is “my” or “mine”?",
+     "tip": "English has “my” and “mine”, not one word for both.",
+     "caption": "Do you often say this? “This pen is my.” Say “This pen is mine.” instead. Listen to Carlos, then repeat! Practice more in the Lexkite app."
     }
    }
   }

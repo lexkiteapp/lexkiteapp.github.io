@@ -11,22 +11,22 @@
  "lines": [
   {
    "id": "h",
-   "text": "Let's go shopping!",
+   "text": "Say autograph, not sign!",
    "pause": 0.42
   },
   {
    "id": "w",
-   "text": "Many learners say: Let's do shopping today.",
+   "text": "Many learners say: Can I get your sign?",
    "pause": 0.42
   },
   {
    "id": "r",
-   "text": "Better: Let's go shopping today.",
+   "text": "Better: Can I get your autograph?",
    "pause": 0.42
   },
   {
    "id": "y",
-   "text": "We say go shopping.",
+   "text": "A star's name is an autograph.",
    "pause": 0.42
   },
   {
@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "Go! Let's go shopping.",
+   "text": "Autograph! Can I get your autograph?",
    "pause": 0.42
   },
   {
@@ -52,24 +52,24 @@
   }
  ],
  "data": {
-  "wrong": "Let's do shopping today.",
-  "right": "Let's go shopping today.",
-  "strike": "do",
-  "why": "We say go shopping.",
-  "memory": "Go shopping.",
+  "wrong": "Can I get your sign?",
+  "right": "Can I get your autograph?",
+  "strike": "sign",
+  "why": "A star's name is an autograph.",
+  "memory": "Get an autograph.",
   "quiz": {
-   "stem": "Let's ___ shopping.",
+   "stem": "Can I get your ___, please?",
    "options": [
-    "go",
-    "do"
+    "sign",
+    "autograph"
    ],
-   "answer": 0
+   "answer": 1
   },
   "native": {
-   "hook": "쇼핑하러 갈 땐 go shopping!",
-   "tip": "한국어는 “쇼핑하다”처럼 명사에 “하다”를 붙여서 do를 쓰기 쉬워요. 영어는 쇼핑하러 갈 땐 go shopping이에요!",
-   "caption": "“Let's do shopping today.”라고 말하고 있나요? 😅 한국어 “쇼핑하다”처럼 명사에 “하다”를 붙이면 do shopping이 돼요. 영어는 go shopping이라고 해요. “Let's go shopping today”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-   "comment": "정답: “go”. go shopping으로 외워요! 무료 퀴즈로 더 연습해 보세요: {link}",
+   "hook": "“sign” 아니고 autograph!",
+   "tip": "한국어 ‘사인’은 영어 sign이 아니에요. 유명인의 사인은 autograph예요. “Can I get your autograph?”",
+   "caption": "“Can I get your sign?”처럼 말하고 있나요? 😅 한국어 ‘사인’을 그대로 sign이라고 하면 어색해요. 유명한 사람에게 사인을 부탁할 땐 autograph를 써요. 맞는 문장 ✅ “Can I get your autograph?” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답: “autograph”! 사인은 autograph! 무료 퀴즈로 더 연습해 보세요: {link}",
    "hashtags": [
     "#영어공부",
     "#영어회화",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "Say go shopping!",
-   "tip": "Korean makes verbs with hada, so people say do shopping. English says go shopping. Say “Let's go shopping today”.",
-   "caption": "Do you say “Let's do shopping today”? 😅 We say go shopping, not do shopping. “Let's go shopping today” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
+   "hook": "Sign? Say autograph!",
+   "tip": "A famous name on paper is an autograph. Say “Can I get your autograph?”",
+   "caption": "Do you say “Can I get your sign?” in English? 😅 A sign is a board on the street. A star's name on paper is an autograph. “Can I get your autograph?” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -91,21 +91,21 @@
  },
  "hook": {
   "line": "h",
-  "text": "쇼핑하러 갈 땐 go shopping!"
+  "text": "“sign” 아니고 autograph!"
  },
  "src": {
   "l1": true
  },
  "lang": "ko",
  "est": {
-  "words": 39,
-  "seconds": 24.7,
-  "wpm": 95
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
  },
  "publish": {
-  "title": "쇼핑하러 갈 땐 go shopping!",
-  "keyword": "Let's go shopping today.",
-  "value": "한국어는 “쇼핑하다”처럼 명사에 “하다”를 붙여서 do를 쓰기 쉬워요. 영어는 쇼핑하러 갈 땐 go shopping이에요!",
+  "title": "“sign” 아니고 autograph!",
+  "keyword": "Can I get your autograph?",
+  "value": "한국어 ‘사인’은 영어 sign이 아니에요. 유명인의 사인은 autograph예요. “Can I get your autograph?”",
   "hashtags": [
    "#영어공부",
    "#영어회화",
@@ -113,22 +113,22 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 33,
+  "script_words": 40,
   "platforms": {
    "youtube": {
-    "title": "쇼핑하러 갈 땐 go shopping!",
-    "description": "“Let's do shopping today.”라고 말하고 있나요? 😅 한국어 “쇼핑하다”처럼 명사에 “하다”를 붙이면 do shopping이 돼요. 영어는 go shopping이라고 해요. “Let's go shopping today”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "title": "“sign” 아니고 autograph!",
+    "description": "“Can I get your sign?”처럼 말하고 있나요? 😅 한국어 ‘사인’을 그대로 sign이라고 하면 어색해요. 유명한 사람에게 사인을 부탁할 땐 autograph를 써요. 맞는 문장 ✅ “Can I get your autograph?” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
     "tags": [
-     "Let's go shopping today.",
+     "Can I get your autograph?",
      "learn english",
      "ko"
     ]
    },
    "facebook": {
-    "text": "“Let's do shopping today.”라고 말하고 있나요? 😅 한국어 “쇼핑하다”처럼 명사에 “하다”를 붙이면 do shopping이 돼요. 영어는 go shopping이라고 해요. “Let's go shopping today”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "“Can I get your sign?”처럼 말하고 있나요? 😅 한국어 ‘사인’을 그대로 sign이라고 하면 어색해요. 유명한 사람에게 사인을 부탁할 땐 autograph를 써요. 맞는 문장 ✅ “Can I get your autograph?” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "“Let's do shopping today.”라고 말하고 있나요? 😅 한국어 “쇼핑하다”처럼 명사에 “하다”를 붙이면 do shopping이 돼요. 영어는 go shopping이라고 해요. “Let's go shopping today”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nlexkite.com",
+    "caption": "“Can I get your sign?”처럼 말하고 있나요? 😅 한국어 ‘사인’을 그대로 sign이라고 하면 어색해요. 유명한 사람에게 사인을 부탁할 땐 autograph를 써요. 맞는 문장 ✅ “Can I get your autograph?” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nlexkite.com",
     "hashtags": [
      "#영어공부",
      "#영어회화",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "쇼핑하러 갈 땐 go shopping! #영어공부 #영어회화 #영어독학"
+    "caption": "“sign” 아니고 autograph! #영어공부 #영어회화 #영어독학"
    }
   },
-  "first_comment": "정답: “go”. go shopping으로 외워요! 무료 퀴즈로 더 연습해 보세요: {link}",
+  "first_comment": "정답: “autograph”! 사인은 autograph! 무료 퀴즈로 더 연습해 보세요: {link}",
   "lang": "ko"
  }
 }

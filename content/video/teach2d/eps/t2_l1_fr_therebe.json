@@ -68,8 +68,8 @@
   "native": {
    "hook": "« Il y a » ≠ “it has”",
    "tip": "« Il y a » se dit “there is” ou “there are”, pas “it has”.",
-   "caption": "Tu dis “In my town it has a big park.” ? Pour « il y a », dis “In my town there is a big park.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.",
-   "comment": "Réponse : “there is”. « Il y a » se traduit par “there is”. Teste d'autres pièges avec un quiz gratuit : {link}",
+   "caption": "Vous dites “In my town it has a big park.” ? Pour « il y a », il faut “there is”. Dites plutôt “In my town there is a big park.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “there is” — « Il y a » se traduit par “there is”. Testez d’autres pièges avec un quiz gratuit : {link}",
    "hashtags": [
     "#apprendrelanglais",
     "#anglaisfacile",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "« Il y a » is not “it has”",
-   "tip": "« Il y a » is “there is” or “there are”, never “it has”.",
-   "caption": "Do you say “In my town it has a big park.”? For « il y a », say “In my town there is a big park.”. Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+   "hook": "“It has” is not “there is”",
+   "tip": "To say something exists, use “there is” or “there are”, never “it has”.",
+   "caption": "Do you say this? “In my town it has a big park.” To say something exists, use “there is”. Say “In my town there is a big park.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
   }
  },
  "cta": {
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "« Il y a » ≠ “it has”",
-    "description": "Tu dis “In my town it has a big park.” ? Pour « il y a », dis “In my town there is a big park.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "description": "Vous dites “In my town it has a big park.” ? Pour « il y a », il faut “there is”. Dites plutôt “In my town there is a big park.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
     "tags": [
      "In my town there is a big park.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Tu dis “In my town it has a big park.” ? Pour « il y a », dis “In my town there is a big park.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Vous dites “In my town it has a big park.” ? Pour « il y a », il faut “there is”. Dites plutôt “In my town there is a big park.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Tu dis “In my town it has a big park.” ? Pour « il y a », dis “In my town there is a big park.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.\n\nlexkite.com",
+    "caption": "Vous dites “In my town it has a big park.” ? Pour « il y a », il faut “there is”. Dites plutôt “In my town there is a big park.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nlexkite.com",
     "hashtags": [
      "#apprendrelanglais",
      "#anglaisfacile",
@@ -140,7 +140,7 @@
     "caption": "« Il y a » ≠ “it has” #apprendrelanglais #anglaisfacile #coursdanglais"
    }
   },
-  "first_comment": "Réponse : “there is”. « Il y a » se traduit par “there is”. Teste d'autres pièges avec un quiz gratuit : {link}",
+  "first_comment": "Réponse : “there is” — « Il y a » se traduit par “there is”. Testez d’autres pièges avec un quiz gratuit : {link}",
   "lang": "fr"
  }
 }

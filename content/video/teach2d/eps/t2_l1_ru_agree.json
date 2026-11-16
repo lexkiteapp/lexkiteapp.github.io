@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "“I am agree” — частая ошибка",
-   "tip": "Agree — глагол. Говори просто “I agree”, без “am”.",
-   "caption": "Ты тоже говоришь “I am agree with you.”? 😅 По-русски «я согласен» — это прилагательное, и в английский тянется “am”. Правильно: “I agree with you.”. Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
-   "comment": "Ответ: “agree”. Agree — глагол, без am. Бесплатный тест для практики здесь: {link}",
+   "tip": "Agree — глагол. Говори просто “I agree”, без “am.”",
+   "caption": "Ты тоже говоришь “I am agree with you”? 😅 По-русски «я согласен» звучит как описание, и в английский тянется “am.” Но agree — глагол. Правильно: “I agree with you.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “agree.” Agree — глагол, без am. Бесплатный тест для практики здесь: {link}",
    "hashtags": [
     "#английский",
     "#грамматика",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "Do you say am agree?",
-   "tip": "Agree is a verb. Just say “I agree”, with no “am”.",
-   "caption": "Do you also say “I am agree with you.”? 😅 In Russian “ya soglasen” has a be-word, so “am” sneaks into English. Correct: “I agree with you.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+   "tip": "Agree is a verb. Just say “I agree”, with no “am.”",
+   "caption": "Do you also say “I am agree with you”? 😅 The word agree is a verb, so it needs no “am.” Correct: “I agree with you.” Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "“I am agree” — частая ошибка",
   "keyword": "I agree with you.",
-  "value": "Agree — глагол. Говори просто “I agree”, без “am”.",
+  "value": "Agree — глагол. Говори просто “I agree”, без “am.”",
   "hashtags": [
    "#английский",
    "#грамматика",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "“I am agree” — частая ошибка",
-    "description": "Ты тоже говоришь “I am agree with you.”? 😅 По-русски «я согласен» — это прилагательное, и в английский тянется “am”. Правильно: “I agree with you.”. Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английский #грамматика #английскийонлайн #lexkite",
+    "description": "Ты тоже говоришь “I am agree with you”? 😅 По-русски «я согласен» звучит как описание, и в английский тянется “am.” Но agree — глагол. Правильно: “I agree with you.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английский #грамматика #английскийонлайн #lexkite",
     "tags": [
      "I agree with you.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Ты тоже говоришь “I am agree with you.”? 😅 По-русски «я согласен» — это прилагательное, и в английский тянется “am”. Правильно: “I agree with you.”. Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Ты тоже говоришь “I am agree with you”? 😅 По-русски «я согласен» звучит как описание, и в английский тянется “am.” Но agree — глагол. Правильно: “I agree with you.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Ты тоже говоришь “I am agree with you.”? 😅 По-русски «я согласен» — это прилагательное, и в английский тянется “am”. Правильно: “I agree with you.”. Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nlexkite.com",
+    "caption": "Ты тоже говоришь “I am agree with you”? 😅 По-русски «я согласен» звучит как описание, и в английский тянется “am.” Но agree — глагол. Правильно: “I agree with you.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nlexkite.com",
     "hashtags": [
      "#английский",
      "#грамматика",
@@ -140,7 +140,7 @@
     "caption": "“I am agree” — частая ошибка #английский #грамматика #английскийонлайн"
    }
   },
-  "first_comment": "Ответ: “agree”. Agree — глагол, без am. Бесплатный тест для практики здесь: {link}",
+  "first_comment": "Ответ: “agree.” Agree — глагол, без am. Бесплатный тест для практики здесь: {link}",
   "lang": "ru"
  }
 }

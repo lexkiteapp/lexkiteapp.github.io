@@ -66,7 +66,7 @@
    "answer": 0
   },
   "native": {
-   "hook": "Fahrrad „fahren“",
+   "hook": "Fahrrad „fahren“ = „drive“? Nein!",
    "tip": "Im Deutschen „fährt“ man Auto und Fahrrad. Im Englischen: ein Auto „drive“, ein Fahrrad „ride“.",
    "caption": "Fahrrad fahren = „drive“? 🚲 Falsch: “I drive my bike to work.” Richtig: “I ride my bike to work.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
    "comment": "Lösung: “ride”. Richtig heißt es: “I ride my bike to work.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
@@ -78,8 +78,8 @@
    ]
   },
   "en": {
-   "hook": "Drive a bike?",
-   "tip": "In German you “fahren” both car and bike. In English you drive a car but ride a bike.",
+   "hook": "“Fahrrad fahren” = “drive”? No!",
+   "tip": "“Fahren” covers both car and bike. In English you drive a car but ride a bike.",
    "caption": "Drive a bike? Wrong: “I drive my bike to work.” Right: “I ride my bike to work.” Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
  },
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "Fahrrad „fahren“"
+  "text": "Fahrrad „fahren“ = „drive“? Nein!"
  },
  "src": {
   "l1": true
@@ -103,7 +103,7 @@
   "wpm": 98
  },
  "publish": {
-  "title": "Fahrrad „fahren“",
+  "title": "Fahrrad „fahren“ = „drive“? Nein!",
   "keyword": "I ride my bike to work.",
   "value": "Im Deutschen „fährt“ man Auto und Fahrrad. Im Englischen: ein Auto „drive“, ein Fahrrad „ride“.",
   "hashtags": [
@@ -116,7 +116,7 @@
   "script_words": 40,
   "platforms": {
    "youtube": {
-    "title": "Fahrrad „fahren“",
+    "title": "Fahrrad „fahren“ = „drive“? Nein!",
     "description": "Fahrrad fahren = „drive“? 🚲 Falsch: “I drive my bike to work.” Richtig: “I ride my bike to work.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
     "tags": [
      "I ride my bike to work.",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "Fahrrad „fahren“ #englischlernen #englischtipps #sprachenlernen"
+    "caption": "Fahrrad „fahren“ = „drive“? Nein! #englischlernen #englischtipps #sprachenlernen"
    }
   },
   "first_comment": "Lösung: “ride”. Richtig heißt es: “I ride my bike to work.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",

@@ -67,7 +67,7 @@
   },
   "native": {
    "hook": "Nicht „I am agree“ sagen!",
-   "tip": "Im Englischen ist „agree“ schon das Verb. Sagen Sie einfach „I agree“.",
+   "tip": "Im Deutschen „sind“ Sie einverstanden. Im Englischen ist „agree“ schon das Verb: „I agree“.",
    "caption": "Sagen Sie „I am agree“? 🙈 Falsch: “I am agree with you.” Richtig: “I agree with you.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
    "comment": "Lösung: “agree”. Richtig heißt es: “I agree with you.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
    "hashtags": [
@@ -79,7 +79,7 @@
   },
   "en": {
    "hook": "Do you say “I am agree”?",
-   "tip": "In English “agree” is already the verb. Just say “I agree”.",
+   "tip": "“Einverstanden sein” uses “be”. In English “agree” is already the verb: “I agree”.",
    "caption": "Do you say “I am agree”? Wrong: “I am agree with you.” Right: “I agree with you.” Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
  },
@@ -105,7 +105,7 @@
  "publish": {
   "title": "Nicht „I am agree“ sagen!",
   "keyword": "I agree with you.",
-  "value": "Im Englischen ist „agree“ schon das Verb. Sagen Sie einfach „I agree“.",
+  "value": "Im Deutschen „sind“ Sie einverstanden. Im Englischen ist „agree“ schon das Verb: „I agree“.",
   "hashtags": [
    "#englischlernen",
    "#englischtipps",

@@ -66,8 +66,8 @@
    "answer": 1
   },
   "native": {
-   "hook": "¿“Take a coffee” juntos? Es “have”",
-   "tip": "En español “tomar un café”, pero en inglés se dice “have a coffee” cuando lo tomas con alguien.",
+   "hook": "¿“Take a coffee”? ¡Es “have”!",
+   "tip": "En español “tomar un café”, pero en inglés se dice “have a coffee”, no “take.”",
    "caption": "¿Dices “Let's take a coffee now.”? ☕ En español “tomemos un café”, pero en inglés: “Let's have a coffee now.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
    "comment": "Respuesta: “have”. “Have a coffee”, no “take a coffee”. Practica más con un quiz gratis aquí: {link}",
    "hashtags": [
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "“Take a coffee” together? Say “have”",
-   "tip": "In Spanish “tomar un café”, but English says “have a coffee”.",
-   "caption": "Do you say “Let's take a coffee now.”? In Spanish “tomemos un café”, but in English: “Let's have a coffee now.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+   "hook": "“Take a coffee”? Say “have”",
+   "tip": "Learners say “tomar un café”, but English says “have a coffee.”",
+   "caption": "Do you say “Let's take a coffee now.”? Learners say “tomemos un café”, but in English: “Let's have a coffee now.” Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "¿“Take a coffee” juntos? Es “have”"
+  "text": "¿“Take a coffee”? ¡Es “have”!"
  },
  "src": {
   "l1": true
@@ -103,9 +103,9 @@
   "wpm": 99
  },
  "publish": {
-  "title": "¿“Take a coffee” juntos? Es “have”",
+  "title": "¿“Take a coffee”? ¡Es “have”!",
   "keyword": "Let's have a coffee now.",
-  "value": "En español “tomar un café”, pero en inglés se dice “have a coffee” cuando lo tomas con alguien.",
+  "value": "En español “tomar un café”, pero en inglés se dice “have a coffee”, no “take.”",
   "hashtags": [
    "#aprenderingles",
    "#inglesfacil",
@@ -116,7 +116,7 @@
   "script_words": 41,
   "platforms": {
    "youtube": {
-    "title": "¿“Take a coffee” juntos? Es “have”",
+    "title": "¿“Take a coffee”? ¡Es “have”!",
     "description": "¿Dices “Let's take a coffee now.”? ☕ En español “tomemos un café”, pero en inglés: “Let's have a coffee now.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
     "tags": [
      "Let's have a coffee now.",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "¿“Take a coffee” juntos? Es “have” #aprenderingles #inglesfacil #vocabulario"
+    "caption": "¿“Take a coffee”? ¡Es “have”! #aprenderingles #inglesfacil #vocabulario"
    }
   },
   "first_comment": "Respuesta: “have”. “Have a coffee”, no “take a coffee”. Practica más con un quiz gratis aquí: {link}",

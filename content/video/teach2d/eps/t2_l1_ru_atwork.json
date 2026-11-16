@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Which small word is right?",
+   "text": "On work or at work?",
    "pause": 0.42
   },
   {
@@ -61,15 +61,15 @@
    "stem": "She is ___ work today.",
    "options": [
     "at",
-    "in the"
+    "on"
    ],
    "answer": 0
   },
   "native": {
-   "hook": "Какое маленькое слово верное?",
-   "tip": "Работа — “at work”, без “the” и без “on”.",
-   "caption": "Ты тоже говоришь “I am on the work now.”? 😅 По-русски «на работе», и в английский тянется “on”. Нужно “at work”. Правильно: “I am at work now.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
-   "comment": "Ответ: “at”. На работе — at work. Бесплатный тест для практики здесь: {link}",
+   "hook": "“On the work” — ошибка!",
+   "tip": "Работа — “at work”, без “the” и без “on.”",
+   "caption": "Ты тоже говоришь “I am on the work now”? 😅 По-русски «на работе», и в английский тянется “on.” Нужно “at work.” Правильно: “I am at work now.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “at.” На работе — at work. Бесплатный тест для практики здесь: {link}",
    "hashtags": [
     "#английскийязык",
     "#английский",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "Which small word is right?",
-   "tip": "For your job, say “at work”, with no “the” and no “on”.",
-   "caption": "Do you also say “I am on the work now.”? 😅 In Russian it is “na rabote”, so “on” sneaks in. You need “at work”. Correct: “I am at work now.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+   "hook": "On work or at work?",
+   "tip": "For your job, say “at work”, with no “the” and no “on.”",
+   "caption": "Do you also say “I am on the work now”? 😅 It is easy to say “on”, but you need “at work.” Correct: “I am at work now.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "Какое маленькое слово верное?"
+  "text": "“On the work” — ошибка!"
  },
  "src": {
   "l1": true
@@ -103,9 +103,9 @@
   "wpm": 98
  },
  "publish": {
-  "title": "Какое маленькое слово верное?",
+  "title": "“On the work” — ошибка!",
   "keyword": "I am at work now.",
-  "value": "Работа — “at work”, без “the” и без “on”.",
+  "value": "Работа — “at work”, без “the” и без “on.”",
   "hashtags": [
    "#английскийязык",
    "#английский",
@@ -116,8 +116,8 @@
   "script_words": 39,
   "platforms": {
    "youtube": {
-    "title": "Какое маленькое слово верное?",
-    "description": "Ты тоже говоришь “I am on the work now.”? 😅 По-русски «на работе», и в английский тянется “on”. Нужно “at work”. Правильно: “I am at work now.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #английский #изучениеанглийского #lexkite",
+    "title": "“On the work” — ошибка!",
+    "description": "Ты тоже говоришь “I am on the work now”? 😅 По-русски «на работе», и в английский тянется “on.” Нужно “at work.” Правильно: “I am at work now.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #английский #изучениеанглийского #lexkite",
     "tags": [
      "I am at work now.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Ты тоже говоришь “I am on the work now.”? 😅 По-русски «на работе», и в английский тянется “on”. Нужно “at work”. Правильно: “I am at work now.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Ты тоже говоришь “I am on the work now”? 😅 По-русски «на работе», и в английский тянется “on.” Нужно “at work.” Правильно: “I am at work now.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Ты тоже говоришь “I am on the work now.”? 😅 По-русски «на работе», и в английский тянется “on”. Нужно “at work”. Правильно: “I am at work now.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nlexkite.com",
+    "caption": "Ты тоже говоришь “I am on the work now”? 😅 По-русски «на работе», и в английский тянется “on.” Нужно “at work.” Правильно: “I am at work now.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nlexkite.com",
     "hashtags": [
      "#английскийязык",
      "#английский",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "Какое маленькое слово верное? #английскийязык #английский #изучениеанглийского"
+    "caption": "“On the work” — ошибка! #английскийязык #английский #изучениеанглийского"
    }
   },
-  "first_comment": "Ответ: “at”. На работе — at work. Бесплатный тест для практики здесь: {link}",
+  "first_comment": "Ответ: “at.” На работе — at work. Бесплатный тест для практики здесь: {link}",
   "lang": "ru"
  }
 }

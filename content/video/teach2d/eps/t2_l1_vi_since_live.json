@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Since needs have.",
+   "text": "With since, say have lived.",
    "pause": 0.42
   },
   {
@@ -26,7 +26,7 @@
   },
   {
    "id": "y",
-   "text": "Since needs have plus a verb.",
+   "text": "Since needs have plus lived.",
    "pause": 0.42
   },
   {
@@ -55,7 +55,7 @@
   "wrong": "I live here since 2020.",
   "right": "I have lived here since 2020.",
   "strike": "live",
-  "why": "Since needs have plus a verb.",
+  "why": "Since needs have plus lived.",
   "memory": "Since: have lived.",
   "quiz": {
    "stem": "I have ___ here for years.",
@@ -69,7 +69,7 @@
    "hook": "Nói “since” mà dùng “live”?",
    "tip": "Với “since/for” cần hiện tại hoàn thành: have + quá khứ phân từ.",
    "caption": "Bạn có hay nói “I live here since 2020.” không? 😅 Có “since” thì dùng have + V3: “I have lived here since 2020.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-   "comment": "Đáp án: “lived”. Kể bạn sống ở đâu bao lâu bằng “I have lived…”. Luyện thêm miễn phí tại đây: {link}",
+   "comment": "Đáp án: “lived.” Kể xem bạn đã sống ở đâu và được bao lâu, bắt đầu bằng “I have lived…” nhé. Luyện thêm miễn phí tại đây: {link}",
    "hashtags": [
     "#hoctienganh",
     "#nguphaptienganh",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "“since” cần “have lived”!",
-   "tip": "With “since” you need the present perfect: have plus past participle.",
-   "caption": "Do you often say “I live here since 2020.”? With “since” use have + past participle: “I have lived here since 2020.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
+   "hook": "Using “live” with “since”?",
+   "tip": "With “since/for” you need the present perfect: have plus past participle.",
+   "caption": "Do you often say this? “I live here since 2020.” With “since” use have + past participle: “I have lived here since 2020.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -98,8 +98,8 @@
  },
  "lang": "vi",
  "est": {
-  "words": 47,
-  "seconds": 28.6,
+  "words": 48,
+  "seconds": 29.1,
   "wpm": 99
  },
  "publish": {
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 41,
+  "script_words": 42,
   "platforms": {
    "youtube": {
     "title": "Nói “since” mà dùng “live”?",
@@ -140,7 +140,7 @@
     "caption": "Nói “since” mà dùng “live”? #hoctienganh #nguphaptienganh #hientaihoanthanh"
    }
   },
-  "first_comment": "Đáp án: “lived”. Kể bạn sống ở đâu bao lâu bằng “I have lived…”. Luyện thêm miễn phí tại đây: {link}",
+  "first_comment": "Đáp án: “lived.” Kể xem bạn đã sống ở đâu và được bao lâu, bắt đầu bằng “I have lived…” nhé. Luyện thêm miễn phí tại đây: {link}",
   "lang": "vi"
  }
 }

@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "Đừng nói “go to home”!",
-   "tip": "“Home” là trạng từ nên không cần “to”. Tiếng Việt “về nhà” dễ gây nhầm.",
+   "tip": "“Home” là trạng từ nên không cần “to.” Tiếng Việt “về nhà” dễ gây nhầm.",
    "caption": "Bạn có hay nói “I go to home.” không? 😅 “Home” không đi với “to”: “I go home.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-   "comment": "Đáp án: “home”. Nói “I go home” khi bạn tan làm nhé. Luyện thêm miễn phí tại đây: {link}",
+   "comment": "Đáp án: “home.” Nói “I go home” khi bạn tan làm nhé. Luyện thêm miễn phí tại đây: {link}",
    "hashtags": [
     "#hoctienganh",
     "#nguphaptienganh",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "Do not say “go to home”!",
-   "tip": "“Home” works like an adverb, so no “to”. Vietnamese “về nhà” is easy to confuse.",
-   "caption": "Do you often say “I go to home.”? “Home” takes no “to”: “I go home.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
+   "tip": "“Home” works like an adverb, so no “to.” It is easy to add “to” by habit.",
+   "caption": "Do you often say this? “I go to home.” “Home” takes no “to”: “I go home.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "Đừng nói “go to home”!",
   "keyword": "I go home.",
-  "value": "“Home” là trạng từ nên không cần “to”. Tiếng Việt “về nhà” dễ gây nhầm.",
+  "value": "“Home” là trạng từ nên không cần “to.” Tiếng Việt “về nhà” dễ gây nhầm.",
   "hashtags": [
    "#hoctienganh",
    "#nguphaptienganh",
@@ -140,7 +140,7 @@
     "caption": "Đừng nói “go to home”! #hoctienganh #nguphaptienganh #gioitu"
    }
   },
-  "first_comment": "Đáp án: “home”. Nói “I go home” khi bạn tan làm nhé. Luyện thêm miễn phí tại đây: {link}",
+  "first_comment": "Đáp án: “home.” Nói “I go home” khi bạn tan làm nhé. Luyện thêm miễn phí tại đây: {link}",
   "lang": "vi"
  }
 }

@@ -26,7 +26,7 @@
   },
   {
    "id": "y",
-   "text": "Use swimming, not swim, here.",
+   "text": "When an action is the subject, use swimming, not swim.",
    "pause": 0.42
   },
   {
@@ -55,7 +55,7 @@
   "wrong": "Swim is fun.",
   "right": "Swimming is fun.",
   "strike": "Swim",
-  "why": "Use swimming, not swim, here.",
+  "why": "When an action is the subject, use swimming, not swim.",
   "memory": "Swimming is fun.",
   "quiz": {
    "stem": "___ is fun.",
@@ -68,7 +68,7 @@
   "native": {
    "hook": "¿“Swim is fun”? Usa “-ing”",
    "tip": "Si un verbo es el sujeto, añade “-ing”. En español usamos el infinitivo: “nadar es”.",
-   "caption": "En español “nadar es divertido”, pero en inglés va con -ing 🏊 No “Swim is fun.”, sino “Swimming is fun.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+   "caption": "En español “nadar es divertido”, pero en inglés va con -ing 🏊 No “Swim is fun.”, sino “Swimming is fun.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
    "comment": "Respuesta: “Dancing”. Verbo como sujeto: -ing. Practica más con un quiz gratis aquí: {link}",
    "hashtags": [
     "#aprenderingles",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "“Swim is fun”? Use “-ing”",
-   "tip": "When a verb is the subject, add “-ing”. Spanish uses the infinitive: “nadar es”.",
-   "caption": "In Spanish “nadar es divertido”, but English uses -ing. Not “Swim is fun.”, but “Swimming is fun.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+   "tip": "When a verb is the subject, add “-ing”. The phrase “nadar es” becomes “swimming is” in English.",
+   "caption": "Learners say “nadar es divertido”, but English uses -ing. Not “Swim is fun.”, but “Swimming is fun.” Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -98,9 +98,9 @@
  },
  "lang": "es",
  "est": {
-  "words": 40,
-  "seconds": 25.1,
-  "wpm": 95
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
  },
  "publish": {
   "title": "¿“Swim is fun”? Usa “-ing”",
@@ -113,11 +113,11 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 34,
+  "script_words": 39,
   "platforms": {
    "youtube": {
     "title": "¿“Swim is fun”? Usa “-ing”",
-    "description": "En español “nadar es divertido”, pero en inglés va con -ing 🏊 No “Swim is fun.”, sino “Swimming is fun.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #gramatica #lexkite",
+    "description": "En español “nadar es divertido”, pero en inglés va con -ing 🏊 No “Swim is fun.”, sino “Swimming is fun.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #gramatica #lexkite",
     "tags": [
      "Swimming is fun.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "En español “nadar es divertido”, pero en inglés va con -ing 🏊 No “Swim is fun.”, sino “Swimming is fun.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "En español “nadar es divertido”, pero en inglés va con -ing 🏊 No “Swim is fun.”, sino “Swimming is fun.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "En español “nadar es divertido”, pero en inglés va con -ing 🏊 No “Swim is fun.”, sino “Swimming is fun.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nlexkite.com",
+    "caption": "En español “nadar es divertido”, pero en inglés va con -ing 🏊 No “Swim is fun.”, sino “Swimming is fun.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nlexkite.com",
     "hashtags": [
      "#aprenderingles",
      "#inglesfacil",

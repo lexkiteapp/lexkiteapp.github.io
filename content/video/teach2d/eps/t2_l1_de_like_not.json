@@ -16,7 +16,7 @@
   },
   {
    "id": "w",
-   "text": "Many learners say: I like not coffee.",
+   "text": "Many learners say: I like coffee not.",
    "pause": 0.42
   },
   {
@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "Do not! I do not like coffee.",
+   "text": "Do not! I do not like tea.",
    "pause": 0.42
   },
   {
@@ -52,9 +52,9 @@
   }
  ],
  "data": {
-  "wrong": "I like not coffee.",
+  "wrong": "I like coffee not.",
   "right": "I do not like coffee.",
-  "strike": "like not",
+  "strike": "not",
   "why": "Say do not like.",
   "memory": "Do not like.",
   "quiz": {
@@ -68,7 +68,7 @@
   "native": {
    "hook": "Nicht hinter dem Verb!",
    "tip": "Im Deutschen verneinen Sie direkt: „Ich mag Kaffee nicht“. Im Englischen brauchen Sie das Hilfsverb „do“: „I do not like“.",
-   "caption": "Wo steht „nicht“ im Englischen? 🙅 Falsch: “I like not coffee.” Richtig: “I do not like coffee.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "caption": "Wo steht „nicht“ im Englischen? 🙅 Falsch: “I like coffee not.” Richtig: “I do not like coffee.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
    "comment": "Lösung: “do not”. Richtig heißt es: “I do not like coffee.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
    "hashtags": [
     "#englischlernen",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "Not after the verb!",
-   "tip": "In German “nicht” comes after the verb. In English you need “do not”.",
-   "caption": "Not after the verb! Wrong: “I like not coffee.” Right: “I do not like coffee.” Listen to Ama and repeat! Practice more in the Lexkite app."
+   "tip": "“Ich mag nicht” puts “nicht” after the verb. In English you need “do not”.",
+   "caption": "Not after the verb! Wrong: “I like coffee not.” Right: “I do not like coffee.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "Nicht hinter dem Verb!",
-    "description": "Wo steht „nicht“ im Englischen? 🙅 Falsch: “I like not coffee.” Richtig: “I do not like coffee.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "description": "Wo steht „nicht“ im Englischen? 🙅 Falsch: “I like coffee not.” Richtig: “I do not like coffee.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
     "tags": [
      "I do not like coffee.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Wo steht „nicht“ im Englischen? 🙅 Falsch: “I like not coffee.” Richtig: “I do not like coffee.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Wo steht „nicht“ im Englischen? 🙅 Falsch: “I like coffee not.” Richtig: “I do not like coffee.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Wo steht „nicht“ im Englischen? 🙅 Falsch: “I like not coffee.” Richtig: “I do not like coffee.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nlexkite.com",
+    "caption": "Wo steht „nicht“ im Englischen? 🙅 Falsch: “I like coffee not.” Richtig: “I do not like coffee.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nlexkite.com",
     "hashtags": [
      "#englischlernen",
      "#englischtipps",

@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "Black! I have a black bag.",
+   "text": "Black bag! I have a black bag.",
    "pause": 0.42
   },
   {
@@ -58,18 +58,18 @@
   "why": "Put the color before the noun.",
   "memory": "Color, then thing.",
   "quiz": {
-   "stem": "I have a ___ bag.",
+   "stem": "I have a ___.",
    "options": [
     "bag black",
-    "black"
+    "black bag"
    ],
    "answer": 1
   },
   "native": {
    "hook": "Une voiture rouge ≠ “car red”",
-   "tip": "En français, l'adjectif vient souvent après le nom. En anglais, il se place avant.",
-   "caption": "Tu dis “I have a car red.” ? L'adjectif passe devant ! Dis “I have a red car.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.",
-   "comment": "Réponse : “black”. En anglais, la couleur passe avant le nom. Teste d'autres pièges avec un quiz gratuit : {link}",
+   "tip": "En français, la couleur vient après le nom. En anglais, elle se place avant.",
+   "caption": "Vous dites “I have a car red.” ? En anglais, l’adjectif passe devant le nom ! Dites plutôt “I have a red car.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “black bag” — En anglais, la couleur passe avant le nom. Testez d’autres pièges avec un quiz gratuit : {link}",
    "hashtags": [
     "#apprendrelanglais",
     "#anglaisfacile",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "“A car red”: wrong order!",
-   "tip": "In French the adjective often follows the noun. In English it comes first.",
-   "caption": "Do you say “I have a car red.”? The adjective goes first! Say “I have a red car.”. Listen to Ama and repeat with her! More exercises in the Lexkite app."
+   "tip": "In English, the color comes before the noun, not after it.",
+   "caption": "Do you say this? “I have a car red.” The adjective goes first! Say “I have a red car.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
   }
  },
  "cta": {
@@ -98,14 +98,14 @@
  },
  "lang": "fr",
  "est": {
-  "words": 45,
-  "seconds": 27.6,
+  "words": 46,
+  "seconds": 28.1,
   "wpm": 98
  },
  "publish": {
   "title": "Une voiture rouge ≠ “car red”",
   "keyword": "I have a red car.",
-  "value": "En français, l'adjectif vient souvent après le nom. En anglais, il se place avant.",
+  "value": "En français, la couleur vient après le nom. En anglais, elle se place avant.",
   "hashtags": [
    "#apprendrelanglais",
    "#anglaisfacile",
@@ -113,11 +113,11 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 39,
+  "script_words": 40,
   "platforms": {
    "youtube": {
     "title": "Une voiture rouge ≠ “car red”",
-    "description": "Tu dis “I have a car red.” ? L'adjectif passe devant ! Dis “I have a red car.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "description": "Vous dites “I have a car red.” ? En anglais, l’adjectif passe devant le nom ! Dites plutôt “I have a red car.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
     "tags": [
      "I have a red car.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Tu dis “I have a car red.” ? L'adjectif passe devant ! Dis “I have a red car.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Vous dites “I have a car red.” ? En anglais, l’adjectif passe devant le nom ! Dites plutôt “I have a red car.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Tu dis “I have a car red.” ? L'adjectif passe devant ! Dis “I have a red car.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.\n\nlexkite.com",
+    "caption": "Vous dites “I have a car red.” ? En anglais, l’adjectif passe devant le nom ! Dites plutôt “I have a red car.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nlexkite.com",
     "hashtags": [
      "#apprendrelanglais",
      "#anglaisfacile",
@@ -140,7 +140,7 @@
     "caption": "Une voiture rouge ≠ “car red” #apprendrelanglais #anglaisfacile #coursdanglais"
    }
   },
-  "first_comment": "Réponse : “black”. En anglais, la couleur passe avant le nom. Teste d'autres pièges avec un quiz gratuit : {link}",
+  "first_comment": "Réponse : “black bag” — En anglais, la couleur passe avant le nom. Testez d’autres pièges avec un quiz gratuit : {link}",
   "lang": "fr"
  }
 }

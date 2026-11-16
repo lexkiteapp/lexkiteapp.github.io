@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "“Where is…” trong câu: sai ở đâu?",
-   "tip": "Tiếng Việt nói “ngân hàng ở đâu”, chủ ngữ đứng trước. Khi câu hỏi nằm trong một câu khác, tiếng Anh cũng vậy: “where the bank is”.",
+   "tip": "Tiếng Việt nói “ngân hàng ở đâu”, chủ ngữ đứng trước. Khi câu hỏi nằm trong một câu khác, tiếng Anh cũng vậy: “where the bank is.”",
    "caption": "Bạn có hay nói “I don't know where is the bank.” không? 🤔 Đưa “is” xuống cuối: “I don't know where the bank is.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-   "comment": "Đáp án: “the station is”. Thử viết “I don't know where…” với một câu của bạn nhé! Luyện thêm miễn phí tại đây: {link}",
+   "comment": "Đáp án: “the station is.” Thử viết “I don't know where…” với một câu của bạn nhé! Luyện thêm miễn phí tại đây: {link}",
    "hashtags": [
     "#hoctienganh",
     "#nguphaptienganh",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "“Where is…” inside a sentence?",
-   "tip": "Vietnamese also says “ngân hàng ở đâu”, subject first; English does the same inside a sentence.",
-   "caption": "Do you often say “I don't know where is the bank.”? Say “I don't know where the bank is.” instead. Listen to Ama, then repeat! Practice more in the Lexkite app."
+   "tip": "Inside a sentence the subject comes first: “where the bank is.”",
+   "caption": "Do you often say this? “I don't know where is the bank.” Say “I don't know where the bank is.” instead. Listen to Ama, then repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "“Where is…” trong câu: sai ở đâu?",
   "keyword": "I don't know where the bank is.",
-  "value": "Tiếng Việt nói “ngân hàng ở đâu”, chủ ngữ đứng trước. Khi câu hỏi nằm trong một câu khác, tiếng Anh cũng vậy: “where the bank is”.",
+  "value": "Tiếng Việt nói “ngân hàng ở đâu”, chủ ngữ đứng trước. Khi câu hỏi nằm trong một câu khác, tiếng Anh cũng vậy: “where the bank is.”",
   "hashtags": [
    "#hoctienganh",
    "#nguphaptienganh",
@@ -140,7 +140,7 @@
     "caption": "“Where is…” trong câu: sai ở đâu? #hoctienganh #nguphaptienganh #tienganhgiaotiep"
    }
   },
-  "first_comment": "Đáp án: “the station is”. Thử viết “I don't know where…” với một câu của bạn nhé! Luyện thêm miễn phí tại đây: {link}",
+  "first_comment": "Đáp án: “the station is.” Thử viết “I don't know where…” với một câu của bạn nhé! Luyện thêm miễn phí tại đây: {link}",
   "lang": "vi"
  }
 }

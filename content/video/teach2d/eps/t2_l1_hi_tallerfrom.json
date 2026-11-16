@@ -11,22 +11,22 @@
  "lines": [
   {
    "id": "h",
-   "text": "Taller than, not from!",
+   "text": "Older than, not from!",
    "pause": 0.42
   },
   {
    "id": "w",
-   "text": "Many learners say: He is taller from me.",
+   "text": "Many learners say: He is older from me.",
    "pause": 0.42
   },
   {
    "id": "r",
-   "text": "Better: He is taller than me.",
+   "text": "Better: He is older than me.",
    "pause": 0.42
   },
   {
    "id": "y",
-   "text": "Taller needs than.",
+   "text": "Older needs than, not from.",
    "pause": 0.42
   },
   {
@@ -52,11 +52,11 @@
   }
  ],
  "data": {
-  "wrong": "He is taller from me.",
-  "right": "He is taller than me.",
+  "wrong": "He is older from me.",
+  "right": "He is older than me.",
   "strike": "from",
-  "why": "Taller needs than.",
-  "memory": "He is taller than me.",
+  "why": "Older needs than, not from.",
+  "memory": "He is older than me.",
   "quiz": {
    "stem": "She is older ___ me.",
    "options": [
@@ -66,9 +66,9 @@
    "answer": 1
   },
   "native": {
-   "hook": "“taller from” नहीं, “taller than”!",
-   "tip": "हिंदी में “मुझसे लंबा” का “से” अंग्रेज़ी में from बन जाता है; पर तुलना में than बोलें।",
-   "caption": "क्या आप भी कहते हैं “He is taller from me.”? 😅 अंग्रेज़ी में “He is taller than me.” सही है, क्योंकि हिंदी का “से” यहाँ from नहीं, than बनता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "hook": "“older from” नहीं, “older than”!",
+   "tip": "हिंदी में “मुझसे बड़ा” का “से” अंग्रेज़ी में from बन जाता है; पर तुलना में than बोलें।",
+   "caption": "क्या आप भी कहते हैं “He is older from me”? 😅 अंग्रेज़ी में “He is older than me” सही है, क्योंकि हिंदी का “से” यहाँ from नहीं, than बनता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
    "comment": "उत्तर: “than”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
    "hashtags": [
     "#अंग्रेजीसीखें",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "Say “taller than”!",
-   "tip": "The Hindi “se” in “mujhse lamba” becomes from; in English comparing needs than.",
-   "caption": "Do you say “He is taller from me.”? 😅 In English “He is taller than me.” is right, because comparing needs than, not from. Listen to Carlos and repeat! Practice more in the Lexkite app."
+   "hook": "Say “older than”!",
+   "tip": "Learners often use from when comparing; in English comparing needs than.",
+   "caption": "Do you say “He is older from me”? 😅 In English “He is older than me” is right, because comparing needs than, not from. Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -91,21 +91,21 @@
  },
  "hook": {
   "line": "h",
-  "text": "“taller from” नहीं, “taller than”!"
+  "text": "“older from” नहीं, “older than”!"
  },
  "src": {
   "l1": true
  },
  "lang": "hi",
  "est": {
-  "words": 43,
-  "seconds": 26.6,
-  "wpm": 97
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
  },
  "publish": {
-  "title": "“taller from” नहीं, “taller than”!",
-  "keyword": "He is taller than me.",
-  "value": "हिंदी में “मुझसे लंबा” का “से” अंग्रेज़ी में from बन जाता है; पर तुलना में than बोलें।",
+  "title": "“older from” नहीं, “older than”!",
+  "keyword": "He is older than me.",
+  "value": "हिंदी में “मुझसे बड़ा” का “से” अंग्रेज़ी में from बन जाता है; पर तुलना में than बोलें।",
   "hashtags": [
    "#अंग्रेजीसीखें",
    "#englishspeaking",
@@ -113,22 +113,22 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 37,
+  "script_words": 39,
   "platforms": {
    "youtube": {
-    "title": "“taller from” नहीं, “taller than”!",
-    "description": "क्या आप भी कहते हैं “He is taller from me.”? 😅 अंग्रेज़ी में “He is taller than me.” सही है, क्योंकि हिंदी का “से” यहाँ from नहीं, than बनता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "title": "“older from” नहीं, “older than”!",
+    "description": "क्या आप भी कहते हैं “He is older from me”? 😅 अंग्रेज़ी में “He is older than me” सही है, क्योंकि हिंदी का “से” यहाँ from नहीं, than बनता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
     "tags": [
-     "He is taller than me.",
+     "He is older than me.",
      "learn english",
      "hi"
     ]
    },
    "facebook": {
-    "text": "क्या आप भी कहते हैं “He is taller from me.”? 😅 अंग्रेज़ी में “He is taller than me.” सही है, क्योंकि हिंदी का “से” यहाँ from नहीं, than बनता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+    "text": "क्या आप भी कहते हैं “He is older from me”? 😅 अंग्रेज़ी में “He is older than me” सही है, क्योंकि हिंदी का “से” यहाँ from नहीं, than बनता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "क्या आप भी कहते हैं “He is taller from me.”? 😅 अंग्रेज़ी में “He is taller than me.” सही है, क्योंकि हिंदी का “से” यहाँ from नहीं, than बनता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nlexkite.com",
+    "caption": "क्या आप भी कहते हैं “He is older from me”? 😅 अंग्रेज़ी में “He is older than me” सही है, क्योंकि हिंदी का “से” यहाँ from नहीं, than बनता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nlexkite.com",
     "hashtags": [
      "#अंग्रेजीसीखें",
      "#englishspeaking",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "“taller from” नहीं, “taller than”! #अंग्रेजीसीखें #englishspeaking #learnenglish"
+    "caption": "“older from” नहीं, “older than”! #अंग्रेजीसीखें #englishspeaking #learnenglish"
    }
   },
   "first_comment": "उत्तर: “than”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",

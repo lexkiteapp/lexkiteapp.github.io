@@ -16,7 +16,7 @@
   },
   {
    "id": "w",
-   "text": "Many learners say: Me and my friend went.",
+   "text": "Many learners say: I and my friend went.",
    "pause": 0.42
   },
   {
@@ -26,7 +26,7 @@
   },
   {
    "id": "y",
-   "text": "Say my friend and I.",
+   "text": "Put I last.",
    "pause": 0.42
   },
   {
@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "I! My brother and I are tall.",
+   "text": "My friend and I! My friend and I went to the park.",
    "pause": 0.42
   },
   {
@@ -52,24 +52,24 @@
   }
  ],
  "data": {
-  "wrong": "Me and my friend went.",
+  "wrong": "I and my friend went.",
   "right": "My friend and I went.",
-  "strike": "Me and my friend",
-  "why": "Say my friend and I.",
+  "strike": "I and my friend",
+  "why": "Put I last.",
   "memory": "My friend and I.",
   "quiz": {
-   "stem": "My brother and ___ are tall.",
+   "stem": "___ went to the park.",
    "options": [
-    "I",
-    "me"
+    "I and my friend",
+    "My friend and I"
    ],
-   "answer": 0
+   "answer": 1
   },
   "native": {
-   "hook": "“Me and my friend” demeyelim!",
-   "tip": "Özne olarak “My friend and I” kullan. Kendini sona koy.",
-   "caption": "“Me and my friend went.” mi diyorsun? 😅 İngilizcede özne olan kişi “I” olur, kendin sonra gelir. Doğrusu “My friend and I went.”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
-   "comment": "Cevap: “I”. Özne için I kullan. Ücretsiz testle pratik yap: {link}",
+   "hook": "“I and my friend” değil!",
+   "tip": "Türkçede “ben ve arkadaşım” deriz; İngilizcede “I” sona gelir: “My friend and I went.”",
+   "caption": "“I and my friend went” mi diyorsun? 😅 İngilizcede kibarlık için “I” sona konur. Doğrusu “My friend and I went.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “My friend and I”. I sona gelir. Ücretsiz testle pratik yap: {link}",
    "hashtags": [
     "#ingilizceöğren",
     "#ingilizcekonuşma",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "Do not say “me and my friend”!",
-   "tip": "As the subject, say “My friend and I”. Put yourself last.",
-   "caption": "Do you say “Me and my friend went.”? 😅 As a subject, use “I” and put yourself last. The right sentence is “My friend and I went.”. Listen to Carlos and repeat! Open the Lexkite app and practice more."
+   "hook": "Not “I and my friend”!",
+   "tip": "Put yourself last: “My friend and I went.”",
+   "caption": "Do you say “I and my friend went”? 😅 In English, “I” politely goes last. The right sentence is “My friend and I went.” Listen to Carlos and repeat! Open the Lexkite app and practice more."
   }
  },
  "cta": {
@@ -91,21 +91,21 @@
  },
  "hook": {
   "line": "h",
-  "text": "“Me and my friend” demeyelim!"
+  "text": "“I and my friend” değil!"
  },
  "src": {
   "l1": true
  },
  "lang": "tr",
  "est": {
-  "words": 46,
-  "seconds": 28.1,
-  "wpm": 98
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
  },
  "publish": {
-  "title": "“Me and my friend” demeyelim!",
+  "title": "“I and my friend” değil!",
   "keyword": "My friend and I went.",
-  "value": "Özne olarak “My friend and I” kullan. Kendini sona koy.",
+  "value": "Türkçede “ben ve arkadaşım” deriz; İngilizcede “I” sona gelir: “My friend and I went.”",
   "hashtags": [
    "#ingilizceöğren",
    "#ingilizcekonuşma",
@@ -113,11 +113,11 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 40,
+  "script_words": 43,
   "platforms": {
    "youtube": {
-    "title": "“Me and my friend” demeyelim!",
-    "description": "“Me and my friend went.” mi diyorsun? 😅 İngilizcede özne olan kişi “I” olur, kendin sonra gelir. Doğrusu “My friend and I went.”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "title": "“I and my friend” değil!",
+    "description": "“I and my friend went” mi diyorsun? 😅 İngilizcede kibarlık için “I” sona konur. Doğrusu “My friend and I went.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
     "tags": [
      "My friend and I went.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "“Me and my friend went.” mi diyorsun? 😅 İngilizcede özne olan kişi “I” olur, kendin sonra gelir. Doğrusu “My friend and I went.”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "“I and my friend went” mi diyorsun? 😅 İngilizcede kibarlık için “I” sona konur. Doğrusu “My friend and I went.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "“Me and my friend went.” mi diyorsun? 😅 İngilizcede özne olan kişi “I” olur, kendin sonra gelir. Doğrusu “My friend and I went.”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nlexkite.com",
+    "caption": "“I and my friend went” mi diyorsun? 😅 İngilizcede kibarlık için “I” sona konur. Doğrusu “My friend and I went.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nlexkite.com",
     "hashtags": [
      "#ingilizceöğren",
      "#ingilizcekonuşma",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "“Me and my friend” demeyelim! #ingilizceöğren #ingilizcekonuşma #ingilizce"
+    "caption": "“I and my friend” değil! #ingilizceöğren #ingilizcekonuşma #ingilizce"
    }
   },
-  "first_comment": "Cevap: “I”. Özne için I kullan. Ücretsiz testle pratik yap: {link}",
+  "first_comment": "Cevap: “My friend and I”. I sona gelir. Ücretsiz testle pratik yap: {link}",
   "lang": "tr"
  }
 }

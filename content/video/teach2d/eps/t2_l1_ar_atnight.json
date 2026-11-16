@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_atnight",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say at night!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I study in the night.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I study at night.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say at night, with no the.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "At! I sleep at night.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I study in the night.",
+  "right": "I study at night.",
+  "strike": "in the",
+  "why": "Say at night, with no the.",
+  "memory": "At night.",
+  "quiz": {
+   "stem": "I sleep ___ night.",
+   "options": [
+    "at",
+    "in"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "هل تقول “in the night”؟",
+   "tip": "في العربية نقول «في الليل»، أما في الإنجليزية فنقول at night: “I study at night.” وليس “I study in the night.”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “I study in the night” 😅 نقول at night بلا the، فالجملة الصحيحة “I study at night.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “at” — نقول at night بلا the. اختبار مجاني هنا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “in the night”?",
+   "tip": "We say at night, with no the: “I study at night.” not “I study in the night.”",
+   "caption": "Do you sometimes say this? “I study in the night” 😅 We say at night, with no the, so the right sentence is “I study at night.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “in the night”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "هل تقول “in the night”؟",
+  "keyword": "I study at night.",
+  "value": "في العربية نقول «في الليل»، أما في الإنجليزية فنقول at night: “I study at night.” وليس “I study in the night.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “in the night”؟",
+    "description": "هل تقول أحيانًا هذه الجملة؟ “I study in the night” 😅 نقول at night بلا the، فالجملة الصحيحة “I study at night.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "I study at night.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا هذه الجملة؟ “I study in the night” 😅 نقول at night بلا the، فالجملة الصحيحة “I study at night.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول أحيانًا هذه الجملة؟ “I study in the night” 😅 نقول at night بلا the، فالجملة الصحيحة “I study at night.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “in the night”؟ #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “at” — نقول at night بلا the. اختبار مجاني هنا: {link}",
+  "lang": "ar"
+ }
+}

@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "هل تقول “can to”؟",
-   "tip": "بعد can لا نضع to: “I can swim.” وليس “I can to swim.”.",
-   "caption": "هل تقول أحيانًا “I can to swim.” 😅 بعد can لا نضع to، فالجملة الصحيحة “I can swim.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
-   "comment": "الإجابة: “speak”. بعد can لا نضع to. اختبار مجاني هنا: {link}",
+   "tip": "بعد can لا نضع to: “I can swim.” وليس “I can to swim.”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “I can to swim” 😅 بعد can لا نضع to، فالجملة الصحيحة “I can swim.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “speak” — بعد can لا نضع to. اختبار مجاني هنا: {link}",
    "hashtags": [
     "#تعلم_الانجليزية",
     "#اللغة_الانجليزية",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "Do you say “I can to swim”?",
-   "tip": "After can we do not put to: “I can swim.” not “I can to swim.”.",
-   "caption": "Do you sometimes say “I can to swim.” 😅 After can we do not put to, so the right sentence is “I can swim.” Listen to Ama and repeat! Practice more in the Lexkite app."
+   "hook": "Do you say “can to”?",
+   "tip": "After can we do not put to: “I can swim.” not “I can to swim.”",
+   "caption": "Do you sometimes say this? “I can to swim” 😅 After can we do not put to, so the right sentence is “I can swim.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "هل تقول “can to”؟",
   "keyword": "I can swim.",
-  "value": "بعد can لا نضع to: “I can swim.” وليس “I can to swim.”.",
+  "value": "بعد can لا نضع to: “I can swim.” وليس “I can to swim.”",
   "hashtags": [
    "#تعلم_الانجليزية",
    "#اللغة_الانجليزية",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "هل تقول “can to”؟",
-    "description": "هل تقول أحيانًا “I can to swim.” 😅 بعد can لا نضع to، فالجملة الصحيحة “I can swim.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "description": "هل تقول أحيانًا هذه الجملة؟ “I can to swim” 😅 بعد can لا نضع to، فالجملة الصحيحة “I can swim.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
     "tags": [
      "I can swim.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "هل تقول أحيانًا “I can to swim.” 😅 بعد can لا نضع to، فالجملة الصحيحة “I can swim.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "هل تقول أحيانًا هذه الجملة؟ “I can to swim” 😅 بعد can لا نضع to، فالجملة الصحيحة “I can swim.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "هل تقول أحيانًا “I can to swim.” 😅 بعد can لا نضع to، فالجملة الصحيحة “I can swim.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nlexkite.com",
+    "caption": "هل تقول أحيانًا هذه الجملة؟ “I can to swim” 😅 بعد can لا نضع to، فالجملة الصحيحة “I can swim.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nlexkite.com",
     "hashtags": [
      "#تعلم_الانجليزية",
      "#اللغة_الانجليزية",
@@ -140,7 +140,7 @@
     "caption": "هل تقول “can to”؟ #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
    }
   },
-  "first_comment": "الإجابة: “speak”. بعد can لا نضع to. اختبار مجاني هنا: {link}",
+  "first_comment": "الإجابة: “speak” — بعد can لا نضع to. اختبار مجاني هنا: {link}",
   "lang": "ar"
  }
 }

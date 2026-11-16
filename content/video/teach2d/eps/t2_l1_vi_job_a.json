@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "An! He is an engineer.",
+   "text": "A doctor! She is a doctor.",
    "pause": 0.42
   },
   {
@@ -58,18 +58,18 @@
   "why": "Say a before a job.",
   "memory": "A job needs a.",
   "quiz": {
-   "stem": "He is ___ engineer.",
+   "stem": "She is ___.",
    "options": [
-    "a",
-    "an"
+    "a doctor",
+    "doctor"
    ],
-   "answer": 1
+   "answer": 0
   },
   "native": {
    "hook": "Quên “a” trước nghề của bạn?",
    "tip": "Tiếng Việt không có mạo từ, nhưng tiếng Anh cần “a/an” trước nghề nghiệp.",
    "caption": "Bạn có hay nói “I am teacher.” không? 😅 Nói nghề nghiệp phải có “a/an”: “I am a teacher.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-   "comment": "Đáp án: “an”. Hãy tự giới thiệu nghề của bạn bằng “I am a…” nhé. Luyện thêm miễn phí tại đây: {link}",
+   "comment": "Đáp án: “a doctor.” Hãy tự giới thiệu nghề của bạn bằng “I am a…” nhé. Luyện thêm miễn phí tại đây: {link}",
    "hashtags": [
     "#hoctienganh",
     "#nguphaptienganh",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "Forget “a” before your job?",
-   "tip": "Vietnamese has no articles, but English needs “a/an” before a job.",
-   "caption": "Do you often say “I am teacher.”? Before a job you need “a/an”: “I am a teacher.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
+   "tip": "Learners often skip it, but English needs “a/an” before a job.",
+   "caption": "Do you often say this? “I am teacher.” Before a job you need “a/an”: “I am a teacher.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -98,8 +98,8 @@
  },
  "lang": "vi",
  "est": {
-  "words": 43,
-  "seconds": 26.6,
+  "words": 44,
+  "seconds": 27.1,
   "wpm": 97
  },
  "publish": {
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 37,
+  "script_words": 38,
   "platforms": {
    "youtube": {
     "title": "Quên “a” trước nghề của bạn?",
@@ -140,7 +140,7 @@
     "caption": "Quên “a” trước nghề của bạn? #hoctienganh #nguphaptienganh #tienganhgiaotiep"
    }
   },
-  "first_comment": "Đáp án: “an”. Hãy tự giới thiệu nghề của bạn bằng “I am a…” nhé. Luyện thêm miễn phí tại đây: {link}",
+  "first_comment": "Đáp án: “a doctor.” Hãy tự giới thiệu nghề của bạn bằng “I am a…” nhé. Luyện thêm miễn phí tại đây: {link}",
   "lang": "vi"
  }
 }

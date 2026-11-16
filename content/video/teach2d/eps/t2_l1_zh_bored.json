@@ -11,22 +11,22 @@
  "lines": [
   {
    "id": "h",
-   "text": "Bored is how you feel!",
+   "text": "Say the person only once!",
    "pause": 0.42
   },
   {
    "id": "w",
-   "text": "Many learners say: I am boring.",
+   "text": "Many learners say: My mother she is a teacher.",
    "pause": 0.42
   },
   {
    "id": "r",
-   "text": "Better: I am bored.",
+   "text": "Better: My mother is a teacher.",
    "pause": 0.42
   },
   {
    "id": "y",
-   "text": "Bored is a feeling. Boring is the thing.",
+   "text": "Say the person once. Do not add she.",
    "pause": 0.42
   },
   {
@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "Boring! The film is boring.",
+   "text": "Is! My brother is a doctor.",
    "pause": 0.42
   },
   {
@@ -52,24 +52,24 @@
   }
  ],
  "data": {
-  "wrong": "I am boring.",
-  "right": "I am bored.",
-  "strike": "boring",
-  "why": "Bored is a feeling. Boring is the thing.",
-  "memory": "I am bored.",
+  "wrong": "My mother she is a teacher.",
+  "right": "My mother is a teacher.",
+  "strike": "she",
+  "why": "Say the person once. Do not add she.",
+  "memory": "My mother is a teacher.",
   "quiz": {
-   "stem": "The film is ___. I am tired.",
+   "stem": "My brother ___ a doctor.",
    "options": [
-    "bored",
-    "boring"
+    "he is",
+    "is"
    ],
    "answer": 1
   },
   "native": {
-   "hook": "“我很无聊”别说 boring！",
-   "tip": "bored 表示人的感受，boring 表示事物让人觉得无聊。",
-   "caption": "你是不是也会说 “I am boring.”？😅 说自己无聊要用 bored，boring 描述的是事物：“I am bored.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
-   "comment": "答案：“bored”。自己的感受用 bored！免费测验在这里：{link}",
+   "hook": "主语说一次就够，别加 she！",
+   "tip": "中文常说“我妈妈她是老师”，英语里主语只说一次，后面不要再重复 she/he。",
+   "caption": "你是不是也会说 “My mother she is a teacher.”😅 中文常把主语再说一遍，英语里主语只说一次：“My mother is a teacher.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“is”，主语后面不要再加 he！免费测验在这里：{link}",
    "hashtags": [
     "#学英语",
     "#英语口语",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "“I am bored”, not “boring”!",
-   "tip": "Bored is how you feel. Boring describes the thing that bores you.",
-   "caption": "Do you say “I am boring.”? 😅 Bored is how you feel; boring describes the thing: “I am bored.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+   "hook": "Do not repeat with “she”!",
+   "tip": "Say the person only once: after my mother, do not add she.",
+   "caption": "Do you say “My mother she is a teacher.” 😅 Say the person only once: “My mother is a teacher.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -91,21 +91,21 @@
  },
  "hook": {
   "line": "h",
-  "text": "“我很无聊”别说 boring！"
+  "text": "主语说一次就够，别加 she！"
  },
  "src": {
   "l1": true
  },
  "lang": "zh",
  "est": {
-  "words": 44,
-  "seconds": 27.1,
-  "wpm": 97
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
  },
  "publish": {
-  "title": "“我很无聊”别说 boring！",
-  "keyword": "I am bored.",
-  "value": "bored 表示人的感受，boring 表示事物让人觉得无聊。",
+  "title": "主语说一次就够，别加 she！",
+  "keyword": "My mother is a teacher.",
+  "value": "中文常说“我妈妈她是老师”，英语里主语只说一次，后面不要再重复 she/he。",
   "hashtags": [
    "#学英语",
    "#英语口语",
@@ -113,22 +113,22 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 38,
+  "script_words": 44,
   "platforms": {
    "youtube": {
-    "title": "“我很无聊”别说 boring！",
-    "description": "你是不是也会说 “I am boring.”？😅 说自己无聊要用 bored，boring 描述的是事物：“I am bored.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "title": "主语说一次就够，别加 she！",
+    "description": "你是不是也会说 “My mother she is a teacher.”😅 中文常把主语再说一遍，英语里主语只说一次：“My mother is a teacher.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
     "tags": [
-     "I am bored.",
+     "My mother is a teacher.",
      "learn english",
      "zh"
     ]
    },
    "facebook": {
-    "text": "你是不是也会说 “I am boring.”？😅 说自己无聊要用 bored，boring 描述的是事物：“I am bored.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+    "text": "你是不是也会说 “My mother she is a teacher.”😅 中文常把主语再说一遍，英语里主语只说一次：“My mother is a teacher.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "你是不是也会说 “I am boring.”？😅 说自己无聊要用 bored，boring 描述的是事物：“I am bored.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nlexkite.com",
+    "caption": "你是不是也会说 “My mother she is a teacher.”😅 中文常把主语再说一遍，英语里主语只说一次：“My mother is a teacher.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nlexkite.com",
     "hashtags": [
      "#学英语",
      "#英语口语",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "“我很无聊”别说 boring！ #学英语 #英语口语 #英语学习"
+    "caption": "主语说一次就够，别加 she！ #学英语 #英语口语 #英语学习"
    }
   },
-  "first_comment": "答案：“bored”。自己的感受用 bored！免费测验在这里：{link}",
+  "first_comment": "答案：“is”，主语后面不要再加 he！免费测验在这里：{link}",
   "lang": "zh"
  }
 }

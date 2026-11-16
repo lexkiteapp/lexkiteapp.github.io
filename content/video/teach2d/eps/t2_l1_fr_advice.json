@@ -21,7 +21,7 @@
   },
   {
    "id": "r",
-   "text": "Better: She gave me good advice.",
+   "text": "Better: She gave me a lot of advice.",
    "pause": 0.42
   },
   {
@@ -53,10 +53,10 @@
  ],
  "data": {
   "wrong": "She gave me many advices.",
-  "right": "She gave me good advice.",
+  "right": "She gave me a lot of advice.",
   "strike": "advices",
   "why": "Advice has no plural.",
-  "memory": "One advice, no s.",
+  "memory": "Advice: never with s.",
   "quiz": {
    "stem": "He gave me some ___.",
    "options": [
@@ -66,10 +66,10 @@
    "answer": 1
   },
   "native": {
-   "hook": "“Advices” n'existe pas !",
-   "tip": "En français, « des conseils » prend un s. En anglais, “advice” ne prend jamais de s.",
-   "caption": "Tu dis “She gave me many advices.” ? Ça n'existe pas ! Dis plutôt “She gave me good advice.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.",
-   "comment": "Réponse : “advice”. Ce mot ne se met jamais au pluriel. Teste d'autres pièges avec un quiz gratuit : {link}",
+   "hook": "“Advices” n’existe pas !",
+   "tip": "En français, « des conseils » prend un s. En anglais, “advice” n’en prend jamais.",
+   "caption": "Vous dites “She gave me many advices.” ? Ce mot n’a pas de pluriel ! Dites plutôt “She gave me a lot of advice.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “advice” — Ce mot ne se met jamais au pluriel. Testez d’autres pièges avec un quiz gratuit : {link}",
    "hashtags": [
     "#apprendrelanglais",
     "#anglaisfacile",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "“Advices” does not exist!",
-   "tip": "In French, « des conseils » takes an s. In English, “advice” never does.",
-   "caption": "Do you say “She gave me many advices.”? It does not exist! Say “She gave me good advice.” instead. Listen to Ama and repeat with her! More exercises in the Lexkite app."
+   "tip": "Many learners add an s, but “advice” never takes an s.",
+   "caption": "Do you say this? “She gave me many advices.” This word has no plural! Say “She gave me a lot of advice.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
   }
  },
  "cta": {
@@ -91,21 +91,21 @@
  },
  "hook": {
   "line": "h",
-  "text": "“Advices” n'existe pas !"
+  "text": "“Advices” n’existe pas !"
  },
  "src": {
   "l1": true
  },
  "lang": "fr",
  "est": {
-  "words": 44,
-  "seconds": 27.1,
-  "wpm": 97
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
  },
  "publish": {
-  "title": "“Advices” n'existe pas !",
-  "keyword": "She gave me good advice.",
-  "value": "En français, « des conseils » prend un s. En anglais, “advice” ne prend jamais de s.",
+  "title": "“Advices” n’existe pas !",
+  "keyword": "She gave me a lot of advice.",
+  "value": "En français, « des conseils » prend un s. En anglais, “advice” n’en prend jamais.",
   "hashtags": [
    "#apprendrelanglais",
    "#anglaisfacile",
@@ -113,22 +113,22 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 38,
+  "script_words": 40,
   "platforms": {
    "youtube": {
-    "title": "“Advices” n'existe pas !",
-    "description": "Tu dis “She gave me many advices.” ? Ça n'existe pas ! Dis plutôt “She gave me good advice.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "title": "“Advices” n’existe pas !",
+    "description": "Vous dites “She gave me many advices.” ? Ce mot n’a pas de pluriel ! Dites plutôt “She gave me a lot of advice.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
     "tags": [
-     "She gave me good advice.",
+     "She gave me a lot of advice.",
      "learn english",
      "fr"
     ]
    },
    "facebook": {
-    "text": "Tu dis “She gave me many advices.” ? Ça n'existe pas ! Dis plutôt “She gave me good advice.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Vous dites “She gave me many advices.” ? Ce mot n’a pas de pluriel ! Dites plutôt “She gave me a lot of advice.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Tu dis “She gave me many advices.” ? Ça n'existe pas ! Dis plutôt “She gave me good advice.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.\n\nlexkite.com",
+    "caption": "Vous dites “She gave me many advices.” ? Ce mot n’a pas de pluriel ! Dites plutôt “She gave me a lot of advice.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nlexkite.com",
     "hashtags": [
      "#apprendrelanglais",
      "#anglaisfacile",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "“Advices” n'existe pas ! #apprendrelanglais #anglaisfacile #coursdanglais"
+    "caption": "“Advices” n’existe pas ! #apprendrelanglais #anglaisfacile #coursdanglais"
    }
   },
-  "first_comment": "Réponse : “advice”. Ce mot ne se met jamais au pluriel. Teste d'autres pièges avec un quiz gratuit : {link}",
+  "first_comment": "Réponse : “advice” — Ce mot ne se met jamais au pluriel. Testez d’autres pièges avec un quiz gratuit : {link}",
   "lang": "fr"
  }
 }

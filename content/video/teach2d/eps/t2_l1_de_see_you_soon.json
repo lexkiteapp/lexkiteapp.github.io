@@ -26,7 +26,7 @@
   },
   {
    "id": "y",
-   "text": "Bald means no hair in English.",
+   "text": "In English, bald means no hair.",
    "pause": 0.42
   },
   {
@@ -55,7 +55,7 @@
   "wrong": "See you bald.",
   "right": "See you soon.",
   "strike": "bald",
-  "why": "Bald means no hair in English.",
+  "why": "In English, bald means no hair.",
   "memory": "Soon, not bald.",
   "quiz": {
    "stem": "See you ___!",
@@ -67,7 +67,7 @@
   },
   "native": {
    "hook": "Verabschieden mit „Bis bald“?",
-   "tip": "Das englische „bald“ heißt „kahl“. „Bis bald“ sagen Sie mit „See you soon“.",
+   "tip": "Das englische „bald“ heißt „kahl“, also ohne Haare. „Bis bald“ heißt „See you soon“.",
    "caption": "Wie verabschieden Sie sich mit „Bis bald“? 👋 Falsch: “See you bald.” Richtig: “See you soon.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
    "comment": "Lösung: “soon”. Richtig heißt es: “See you soon.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
    "hashtags": [
@@ -78,7 +78,7 @@
    ]
   },
   "en": {
-   "hook": "How do you say goodbye with “Bis bald”?",
+   "hook": "Goodbye with “Bis bald”?",
    "tip": "The English “bald” means kahl. For “Bis bald” say “See you soon”.",
    "caption": "How do you say goodbye with “Bis bald”? Wrong: “See you bald.” Right: “See you soon.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
@@ -105,7 +105,7 @@
  "publish": {
   "title": "Verabschieden mit „Bis bald“?",
   "keyword": "See you soon.",
-  "value": "Das englische „bald“ heißt „kahl“. „Bis bald“ sagen Sie mit „See you soon“.",
+  "value": "Das englische „bald“ heißt „kahl“, also ohne Haare. „Bis bald“ heißt „See you soon“.",
   "hashtags": [
    "#englischlernen",
    "#englischtipps",

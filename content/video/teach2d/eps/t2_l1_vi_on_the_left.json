@@ -16,12 +16,12 @@
   },
   {
    "id": "w",
-   "text": "Many learners say: The toilet is in the left.",
+   "text": "Many learners say: The bathroom is in the left.",
    "pause": 0.42
   },
   {
    "id": "r",
-   "text": "Better: The toilet is on the left.",
+   "text": "Better: The bathroom is on the left.",
    "pause": 0.42
   },
   {
@@ -52,8 +52,8 @@
   }
  ],
  "data": {
-  "wrong": "The toilet is in the left.",
-  "right": "The toilet is on the left.",
+  "wrong": "The bathroom is in the left.",
+  "right": "The bathroom is on the left.",
   "strike": "in",
   "why": "Left and right use on.",
   "memory": "On the left.",
@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "Bên trái: “in” hay “on”?",
-   "tip": "Chỉ phương hướng trái/phải dùng “on the left/right”, dù tiếng Việt nói “ở bên trái”.",
-   "caption": "Bạn có hay nói “The toilet is in the left.” không? 😅 Trái và phải dùng “on”: “The toilet is on the left.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-   "comment": "Đáp án: “on”. Chỉ đường bằng “on the left/right” nhé. Luyện thêm miễn phí tại đây: {link}",
+   "tip": "Chỉ phương hướng trái/phải dùng “on the left/right”, không dùng “in.”",
+   "caption": "Bạn có hay nói “The bathroom is in the left.” không? 😅 Trái và phải dùng “on”: “The bathroom is on the left.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “on.” Chỉ đường bằng “on the left/right” nhé. Luyện thêm miễn phí tại đây: {link}",
    "hashtags": [
     "#hoctienganh",
     "#gioitu",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "“in the left” là sai!",
-   "tip": "For left and right use “on the left/right”, even if Vietnamese says “ở”.",
-   "caption": "Do you often say “The toilet is in the left.”? Left and right use “on”: “The toilet is on the left.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
+   "hook": "The left side: “in” or “on”?",
+   "tip": "For left and right use “on the left/right”, not “in.”",
+   "caption": "Do you often say this? “The bathroom is in the left.” Left and right use “on”: “The bathroom is on the left.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -104,8 +104,8 @@
  },
  "publish": {
   "title": "Bên trái: “in” hay “on”?",
-  "keyword": "The toilet is on the left.",
-  "value": "Chỉ phương hướng trái/phải dùng “on the left/right”, dù tiếng Việt nói “ở bên trái”.",
+  "keyword": "The bathroom is on the left.",
+  "value": "Chỉ phương hướng trái/phải dùng “on the left/right”, không dùng “in.”",
   "hashtags": [
    "#hoctienganh",
    "#gioitu",
@@ -117,18 +117,18 @@
   "platforms": {
    "youtube": {
     "title": "Bên trái: “in” hay “on”?",
-    "description": "Bạn có hay nói “The toilet is in the left.” không? 😅 Trái và phải dùng “on”: “The toilet is on the left.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #gioitu #tienganhgiaotiep #lexkite",
+    "description": "Bạn có hay nói “The bathroom is in the left.” không? 😅 Trái và phải dùng “on”: “The bathroom is on the left.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #gioitu #tienganhgiaotiep #lexkite",
     "tags": [
-     "The toilet is on the left.",
+     "The bathroom is on the left.",
      "learn english",
      "vi"
     ]
    },
    "facebook": {
-    "text": "Bạn có hay nói “The toilet is in the left.” không? 😅 Trái và phải dùng “on”: “The toilet is on the left.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Bạn có hay nói “The bathroom is in the left.” không? 😅 Trái và phải dùng “on”: “The bathroom is on the left.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Bạn có hay nói “The toilet is in the left.” không? 😅 Trái và phải dùng “on”: “The toilet is on the left.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nlexkite.com",
+    "caption": "Bạn có hay nói “The bathroom is in the left.” không? 😅 Trái và phải dùng “on”: “The bathroom is on the left.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nlexkite.com",
     "hashtags": [
      "#hoctienganh",
      "#gioitu",
@@ -140,7 +140,7 @@
     "caption": "Bên trái: “in” hay “on”? #hoctienganh #gioitu #tienganhgiaotiep"
    }
   },
-  "first_comment": "Đáp án: “on”. Chỉ đường bằng “on the left/right” nhé. Luyện thêm miễn phí tại đây: {link}",
+  "first_comment": "Đáp án: “on.” Chỉ đường bằng “on the left/right” nhé. Luyện thêm miễn phí tại đây: {link}",
   "lang": "vi"
  }
 }

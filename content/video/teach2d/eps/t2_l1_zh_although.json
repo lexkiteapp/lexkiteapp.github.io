@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Only one, not both!",
+   "text": "Use although or but, not both!",
    "pause": 0.42
   },
   {
@@ -68,7 +68,7 @@
   "native": {
    "hook": "although 和 but 只能留一个！",
    "tip": "中文“虽然……但是……”常常连用，英语里 although 和 but 不能在同一句里搭配使用，只留一个。",
-   "caption": "你是不是也会说 “Although I am tired, but I keep working.”？😅 中文可以说“虽然我很累，但是我还要继续工作”，英语里 although 和 but 只能用一个：“Although I am tired, I keep working.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+   "caption": "你是不是也会说 “Although I am tired, but I keep working.”😅 中文可以说“虽然我很累，但是我还要继续工作”，英语里 although 和 but 只能用一个：“Although I am tired, I keep working.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
    "comment": "答案：“Although I am tired, I keep working.”免费测验在这里：{link}",
    "hashtags": [
     "#学英语",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "Not both!",
+   "hook": "Although or but, not both!",
    "tip": "In English, use although or but in one sentence, not both.",
-   "caption": "Do you say “Although I am tired, but I keep working.”? 😅 In English, use although or but, not both: “Although I am tired, I keep working.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+   "caption": "Do you say “Although I am tired, but I keep working.” 😅 In English, use although or but, not both: “Although I am tired, I keep working.” Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -98,8 +98,8 @@
  },
  "lang": "zh",
  "est": {
-  "words": 52,
-  "seconds": 31.0,
+  "words": 54,
+  "seconds": 32.0,
   "wpm": 101
  },
  "publish": {
@@ -113,11 +113,11 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 46,
+  "script_words": 48,
   "platforms": {
    "youtube": {
     "title": "although 和 but 只能留一个！",
-    "description": "你是不是也会说 “Although I am tired, but I keep working.”？😅 中文可以说“虽然我很累，但是我还要继续工作”，英语里 although 和 but 只能用一个：“Although I am tired, I keep working.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "description": "你是不是也会说 “Although I am tired, but I keep working.”😅 中文可以说“虽然我很累，但是我还要继续工作”，英语里 although 和 but 只能用一个：“Although I am tired, I keep working.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
     "tags": [
      "Although I am tired, I keep working.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "你是不是也会说 “Although I am tired, but I keep working.”？😅 中文可以说“虽然我很累，但是我还要继续工作”，英语里 although 和 but 只能用一个：“Although I am tired, I keep working.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+    "text": "你是不是也会说 “Although I am tired, but I keep working.”😅 中文可以说“虽然我很累，但是我还要继续工作”，英语里 although 和 but 只能用一个：“Although I am tired, I keep working.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "你是不是也会说 “Although I am tired, but I keep working.”？😅 中文可以说“虽然我很累，但是我还要继续工作”，英语里 although 和 but 只能用一个：“Although I am tired, I keep working.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nlexkite.com",
+    "caption": "你是不是也会说 “Although I am tired, but I keep working.”😅 中文可以说“虽然我很累，但是我还要继续工作”，英语里 although 和 but 只能用一个：“Although I am tired, I keep working.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nlexkite.com",
     "hashtags": [
      "#学英语",
      "#英语口语",

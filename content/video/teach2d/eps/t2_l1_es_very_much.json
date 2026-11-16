@@ -66,10 +66,10 @@
    "answer": 1
   },
   "native": {
-   "hook": "¿“Like very much pizza”? Orden",
+   "hook": "¿“Like very much pizza”? ¡Ojo!",
    "tip": "En inglés “very much” va al final, no entre el verbo y el objeto.",
-   "caption": "En español “me gusta mucho la pizza”, pero el orden en inglés cambia 🍕 No “I like very much pizza.”, sino “I like pizza very much.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
-   "comment": "Respuesta: “music very much”. “Very much” al final. Practica más con un quiz gratis aquí: {link}",
+   "caption": "En español “me gusta mucho la pizza”, pero el orden en inglés cambia 🍕 No “I like very much pizza.”, sino “I like pizza very much.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “music very much”. “Very much” va al final. Practica más con un quiz gratis aquí: {link}",
    "hashtags": [
     "#aprenderingles",
     "#inglesfacil",
@@ -80,7 +80,7 @@
   "en": {
    "hook": "“Like very much pizza”? Word order",
    "tip": "In English “very much” goes at the end, not between the verb and the object.",
-   "caption": "In Spanish “me gusta mucho la pizza”, but English word order changes. Not “I like very much pizza.”, but “I like pizza very much.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+   "caption": "Learners say “me gusta mucho la pizza”, but English word order changes. Not “I like very much pizza.”, but “I like pizza very much.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "¿“Like very much pizza”? Orden"
+  "text": "¿“Like very much pizza”? ¡Ojo!"
  },
  "src": {
   "l1": true
@@ -103,7 +103,7 @@
   "wpm": 100
  },
  "publish": {
-  "title": "¿“Like very much pizza”? Orden",
+  "title": "¿“Like very much pizza”? ¡Ojo!",
   "keyword": "I like pizza very much.",
   "value": "En inglés “very much” va al final, no entre el verbo y el objeto.",
   "hashtags": [
@@ -116,8 +116,8 @@
   "script_words": 44,
   "platforms": {
    "youtube": {
-    "title": "¿“Like very much pizza”? Orden",
-    "description": "En español “me gusta mucho la pizza”, pero el orden en inglés cambia 🍕 No “I like very much pizza.”, sino “I like pizza very much.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #ordendepalabras #lexkite",
+    "title": "¿“Like very much pizza”? ¡Ojo!",
+    "description": "En español “me gusta mucho la pizza”, pero el orden en inglés cambia 🍕 No “I like very much pizza.”, sino “I like pizza very much.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #ordendepalabras #lexkite",
     "tags": [
      "I like pizza very much.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "En español “me gusta mucho la pizza”, pero el orden en inglés cambia 🍕 No “I like very much pizza.”, sino “I like pizza very much.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "En español “me gusta mucho la pizza”, pero el orden en inglés cambia 🍕 No “I like very much pizza.”, sino “I like pizza very much.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "En español “me gusta mucho la pizza”, pero el orden en inglés cambia 🍕 No “I like very much pizza.”, sino “I like pizza very much.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nlexkite.com",
+    "caption": "En español “me gusta mucho la pizza”, pero el orden en inglés cambia 🍕 No “I like very much pizza.”, sino “I like pizza very much.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nlexkite.com",
     "hashtags": [
      "#aprenderingles",
      "#inglesfacil",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "¿“Like very much pizza”? Orden #aprenderingles #inglesfacil #ordendepalabras"
+    "caption": "¿“Like very much pizza”? ¡Ojo! #aprenderingles #inglesfacil #ordendepalabras"
    }
   },
-  "first_comment": "Respuesta: “music very much”. “Very much” al final. Practica más con un quiz gratis aquí: {link}",
+  "first_comment": "Respuesta: “music very much”. “Very much” va al final. Practica más con un quiz gratis aquí: {link}",
   "lang": "es"
  }
 }

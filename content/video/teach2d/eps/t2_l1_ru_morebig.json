@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Is this word right?",
+   "text": "More tall or taller?",
    "pause": 0.42
   },
   {
@@ -66,10 +66,10 @@
    "answer": 1
   },
   "native": {
-   "hook": "Это слово верное?",
-   "tip": "С короткими словами добавь -er: “taller”, “bigger”.",
-   "caption": "Ты тоже говоришь “He is more tall than me.”? 😅 По-русски «более высокий», вот и хочется сказать “more tall”. Короткие слова берут -er. Правильно: “He is taller than me.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
-   "comment": "Ответ: “taller”. Короткие слова — с -er. Бесплатный тест для практики здесь: {link}",
+   "hook": "More tall или taller?",
+   "tip": "С короткими словами добавь -er: “taller”, “bigger.”",
+   "caption": "Ты тоже говоришь “He is more tall than me”? 😅 По-русски «более высокий», вот и хочется сказать “more tall.” Короткие слова берут -er. Правильно: “He is taller than me.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “taller.” Короткие слова — с -er. Бесплатный тест для практики здесь: {link}",
    "hashtags": [
     "#английский",
     "#грамматика",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "Is this word right?",
-   "tip": "With short words, add -er: “taller”, “bigger”.",
-   "caption": "Do you also say “He is more tall than me.”? 😅 In Russian it is “bolee vysokiy”, so “more tall” appears. Short words take -er. Correct: “He is taller than me.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+   "hook": "More tall or taller?",
+   "tip": "With short words, add -er: “taller”, “bigger.”",
+   "caption": "Do you also say “He is more tall than me”? 😅 Short words take -er. Correct: “He is taller than me.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "Это слово верное?"
+  "text": "More tall или taller?"
  },
  "src": {
   "l1": true
@@ -103,9 +103,9 @@
   "wpm": 98
  },
  "publish": {
-  "title": "Это слово верное?",
+  "title": "More tall или taller?",
   "keyword": "He is taller than me.",
-  "value": "С короткими словами добавь -er: “taller”, “bigger”.",
+  "value": "С короткими словами добавь -er: “taller”, “bigger.”",
   "hashtags": [
    "#английский",
    "#грамматика",
@@ -116,8 +116,8 @@
   "script_words": 39,
   "platforms": {
    "youtube": {
-    "title": "Это слово верное?",
-    "description": "Ты тоже говоришь “He is more tall than me.”? 😅 По-русски «более высокий», вот и хочется сказать “more tall”. Короткие слова берут -er. Правильно: “He is taller than me.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английский #грамматика #английскийонлайн #lexkite",
+    "title": "More tall или taller?",
+    "description": "Ты тоже говоришь “He is more tall than me”? 😅 По-русски «более высокий», вот и хочется сказать “more tall.” Короткие слова берут -er. Правильно: “He is taller than me.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английский #грамматика #английскийонлайн #lexkite",
     "tags": [
      "He is taller than me.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Ты тоже говоришь “He is more tall than me.”? 😅 По-русски «более высокий», вот и хочется сказать “more tall”. Короткие слова берут -er. Правильно: “He is taller than me.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Ты тоже говоришь “He is more tall than me”? 😅 По-русски «более высокий», вот и хочется сказать “more tall.” Короткие слова берут -er. Правильно: “He is taller than me.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Ты тоже говоришь “He is more tall than me.”? 😅 По-русски «более высокий», вот и хочется сказать “more tall”. Короткие слова берут -er. Правильно: “He is taller than me.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nlexkite.com",
+    "caption": "Ты тоже говоришь “He is more tall than me”? 😅 По-русски «более высокий», вот и хочется сказать “more tall.” Короткие слова берут -er. Правильно: “He is taller than me.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nlexkite.com",
     "hashtags": [
      "#английский",
      "#грамматика",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "Это слово верное? #английский #грамматика #английскийонлайн"
+    "caption": "More tall или taller? #английский #грамматика #английскийонлайн"
    }
   },
-  "first_comment": "Ответ: “taller”. Короткие слова — с -er. Бесплатный тест для практики здесь: {link}",
+  "first_comment": "Ответ: “taller.” Короткие слова — с -er. Бесплатный тест для практики здесь: {link}",
   "lang": "ru"
  }
 }

@@ -8,25 +8,25 @@
    "theme": "dusk",
    "in": {
     "hook_say": "Sympathetic is a false friend!",
-    "wrong": "He is very sympathetic.",
-    "right": "He is very nice.",
+    "wrong": "He tells great jokes. He is very sympathetic.",
+    "right": "He tells great jokes. He is very nice.",
     "strike": "sympathetic",
-    "why": "Sympathetic means kind about problems.",
+    "why": "Sympathetic means you feel sorry for someone.",
     "memory": "He is nice.",
     "quiz": {
-     "stem": "My new friend is very ___.",
+     "stem": "He smiles and tells jokes. He is very ___.",
      "options": [
       "sympathetic",
       "nice"
      ],
      "answer": 1
     },
-    "answer_say": "Nice! My friend is very nice.",
+    "answer_say": "Nice! He is very nice.",
     "native": {
      "hook": "Wollen Sie „sympathisch“ sagen?",
      "tip": "„Sympathetic“ heißt „mitfühlend“. Für „sympathisch“ sagen Sie „nice“.",
-     "caption": "Wollen Sie sagen, dass jemand sympathisch ist? 😬 “Sympathetic” heißt mitfühlend. Falsch: “He is very sympathetic.” Richtig: “He is very nice.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
-     "comment": "Lösung: “nice”. Richtig heißt es: “He is very nice.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
+     "caption": "Wollen Sie sagen, dass jemand sympathisch ist? 😬 “Sympathetic” heißt mitfühlend. Falsch: “He tells great jokes. He is very sympathetic.” Richtig: “He tells great jokes. He is very nice.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “nice”. Richtig heißt es: “He tells great jokes. He is very nice.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
      "hashtags": [
       "#englischlernen",
       "#englischtipps",
@@ -35,9 +35,9 @@
      ]
     },
     "en": {
-     "hook": "Do you want to say someone is likeable?",
+     "hook": "Do you want to say “sympathisch”?",
      "tip": "“Sympathetic” means “mitfühlend”. For “sympathisch” you say “nice”.",
-     "caption": "“Sympathetic” means mitfühlend in German, not sympathisch. Wrong: “He is very sympathetic.” Right: “He is very nice.” Listen to Ama and repeat! Practice more in the Lexkite app."
+     "caption": "“Sympathetic” means mitfühlend, not sympathisch. Wrong: “He tells great jokes. He is very sympathetic.” Right: “He tells great jokes. He is very nice.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -63,8 +63,8 @@
     },
     "answer_say": "Poison! It has poison in it.",
     "native": {
-     "hook": "Bekanntes Wort „Gift“ – Vorsicht!",
-     "tip": "Das englische „gift“ ist ein Geschenk. Gift im Wasser heißt „poison“.",
+     "hook": "„Gift“ ist kein „gift“!",
+     "tip": "Das englische „gift“ ist ein Geschenk. Unser „Gift“ heißt „poison“.",
      "caption": "Das Wort „gift“ sieht vertraut aus, aber Vorsicht! 🎁 “Gift” heißt Geschenk. Falsch: “This water has gift in it.” Richtig: “This water has poison in it.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
      "comment": "Lösung: “poison”. Richtig heißt es: “This water has poison in it.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
      "hashtags": [
@@ -75,9 +75,9 @@
      ]
     },
     "en": {
-     "hook": "The word “gift” looks familiar, but be careful!",
-     "tip": "The English “gift” is a present. Poison in the water is “poison”.",
-     "caption": "“Gift” means Geschenk in English, not the German Gift. Wrong: “This water has gift in it.” Right: “This water has poison in it.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "hook": "“Gift” means a present!",
+     "tip": "“Gift” means “Geschenk”. For the German “Gift”, say “poison”.",
+     "caption": "“Gift” means Geschenk, not poison. Wrong: “This water has gift in it.” Right: “This water has poison in it.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -87,26 +87,26 @@
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Actually does not mean now!",
-    "wrong": "Actually, it is raining now.",
-    "right": "Right now, it is raining.",
-    "strike": "Actually",
-    "why": "Actually means in fact, not now.",
-    "memory": "Now is right now.",
+    "hook_say": "Actual does not mean now!",
+    "wrong": "The actual weather is bad.",
+    "right": "The current weather is bad.",
+    "strike": "actual",
+    "why": "Actual means real. Current means now.",
+    "memory": "Current is now.",
     "quiz": {
-     "stem": "It is raining ___.",
+     "stem": "Here is the ___ weather for today.",
      "options": [
-      "actually",
-      "right now"
+      "current",
+      "actual"
      ],
-     "answer": 1
+     "answer": 0
     },
-    "answer_say": "Right now! It is raining right now.",
+    "answer_say": "Current! Here is the current weather for today.",
     "native": {
-     "hook": "Wollen Sie „gerade jetzt“ sagen?",
-     "tip": "„Actually“ heißt „eigentlich“. Für „aktuell“ oder „gerade“ sagen Sie „right now“.",
-     "caption": "Wollen Sie „gerade jetzt“ sagen? 🌧️ Falsch: “Actually, it is raining now.” Richtig: “Right now, it is raining.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
-     "comment": "Lösung: “right now”. Richtig heißt es: “Right now, it is raining.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
+     "hook": "„Aktuell“ heißt nicht „actual“!",
+     "tip": "„Actual“ heißt „tatsächlich“. Für „aktuell“ sagen Sie „current“.",
+     "caption": "Heißt „aktuell“ im Englischen „actual“? 🌧️ Falsch: “The actual weather is bad.” Richtig: “The current weather is bad.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “current”. Richtig heißt es: “The current weather is bad.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
      "hashtags": [
       "#englischlernen",
       "#englischtipps",
@@ -115,9 +115,9 @@
      ]
     },
     "en": {
-     "hook": "Do you want to say “gerade jetzt”?",
-     "tip": "“Actually” means “eigentlich”. For “aktuell” or “gerade” you say “right now”.",
-     "caption": "“Actually” means eigentlich in German, not aktuell. Wrong: “Actually, it is raining now.” Right: “Right now, it is raining.” Listen to Ama and repeat! Practice more in the Lexkite app."
+     "hook": "“Aktuell” is not “actual”!",
+     "tip": "“Actual” means “tatsächlich”. For “aktuell” you say “current”.",
+     "caption": "Does “aktuell” mean “actual”? Wrong: “The actual weather is bad.” Right: “The current weather is bad.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -155,7 +155,7 @@
      ]
     },
     "en": {
-     "hook": "Are you talking about your Chef at the office?",
+     "hook": "Talking about your Chef?",
      "tip": "A “chef” is a cook. Your Vorgesetzter is your “boss”.",
      "caption": "A “chef” is a Koch in English, not your Chef at work. Wrong: “My chef is very kind.” Right: “My boss is very kind.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
@@ -183,7 +183,7 @@
     },
     "answer_say": "Maybe! Maybe I will call you.",
     "native": {
-     "hook": "„Eventuell“ auf Englisch falsch?",
+     "hook": "„Eventuell“ ≠ „eventually“!",
      "tip": "„Eventually“ heißt „schließlich“. Für „eventuell“ nehmen Sie „maybe“ oder „possibly“.",
      "caption": "Sagen Sie „eventuell“ falsch auf Englisch? 🤔 Falsch: “Eventually I will call you.” Richtig: “Maybe I will call you.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
      "comment": "Lösung: “Maybe”. Richtig heißt es: “Maybe I will call you.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
@@ -195,9 +195,9 @@
      ]
     },
     "en": {
-     "hook": "Do you get “eventuell” wrong in English?",
+     "hook": "“Eventuell” is not “eventually”!",
      "tip": "“Eventually” means “schließlich”. For “eventuell” use “maybe” or “possibly”.",
-     "caption": "“Eventually” means schließlich in German, not eventuell. Wrong: “Eventually I will call you.” Right: “Maybe I will call you.” Listen to Ama and repeat! Practice more in the Lexkite app."
+     "caption": "“Eventually” means schließlich, not eventuell. Wrong: “Eventually I will call you.” Right: “Maybe I will call you.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -217,7 +217,7 @@
      "stem": "She is ___ doctor.",
      "options": [
       "a",
-      "the"
+      "no word"
      ],
      "answer": 0
     },
@@ -236,7 +236,7 @@
     },
     "en": {
      "hook": "Do you also say “I am teacher”?",
-     "tip": "In German you say “Ich bin Lehrer”. In English you need “a” or “an”.",
+     "tip": "“Ich bin Lehrer” has no little word. In English you need “a” or “an”.",
      "caption": "Do you also say “I am teacher”? Wrong: “I am teacher.” Right: “I am a teacher.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
@@ -254,19 +254,19 @@
     "why": "Put very much at the end.",
     "memory": "Pizza, then very much.",
     "quiz": {
-     "stem": "I like music ___.",
+     "stem": "I like ___.",
      "options": [
-      "very much",
+      "music very much",
       "very much music"
      ],
      "answer": 0
     },
-    "answer_say": "Very much! I like music very much.",
+    "answer_say": "I like music very much!",
     "native": {
      "hook": "Nichts zwischen Verb und Objekt!",
-     "tip": "Im Deutschen sagen Sie „Ich mag sehr Pizza“. Im Englischen steht „very much“ hinten.",
+     "tip": "Im Deutschen sagen Sie „Ich mag sehr gern Pizza“. Im Englischen steht „very much“ am Ende.",
      "caption": "Zwischen Verb und Objekt darf nichts stehen! 🍕 Falsch: “I like very much pizza.” Richtig: “I like pizza very much.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
-     "comment": "Lösung: “very much”. Richtig heißt es: “I like pizza very much.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
+     "comment": "Lösung: “music very much”. Richtig heißt es: “I like pizza very much.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
      "hashtags": [
       "#englischlernen",
       "#englischtipps",
@@ -275,8 +275,8 @@
      ]
     },
     "en": {
-     "hook": "Nothing can stand between the verb and the object!",
-     "tip": "In English “very much” goes at the end, after the object.",
+     "hook": "Nothing between verb and object!",
+     "tip": "“Ich mag sehr gern Pizza” puts “sehr” early. In English “very much” goes at the end.",
      "caption": "Nothing can stand between the verb and the object! Wrong: “I like very much pizza.” Right: “I like pizza very much.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
@@ -288,24 +288,24 @@
    "theme": "dusk",
    "in": {
     "hook_say": "Which little word is right?",
-    "wrong": "I am interested at art.",
+    "wrong": "I am interested for art.",
     "right": "I am interested in art.",
-    "strike": "at",
+    "strike": "for",
     "why": "Say interested in.",
     "memory": "Interested in.",
     "quiz": {
      "stem": "I am interested ___ music.",
      "options": [
       "in",
-      "at"
+      "for"
      ],
      "answer": 0
     },
     "answer_say": "In! I am interested in music.",
     "native": {
      "hook": "„Interessiert“ = „interested in“",
-     "tip": "„Interessiert an“ heißt im Englischen „interested in“. Merken Sie sich die feste Verbindung.",
-     "caption": "Welche Präposition passt zu „interested“? 🎨 Falsch: “I am interested at art.” Richtig: “I am interested in art.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "tip": "„Sich interessieren für“ heißt im Englischen „interested in“, nicht „for“.",
+     "caption": "Welche Präposition passt zu „interested“? 🎨 Falsch: “I am interested for art.” Richtig: “I am interested in art.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
      "comment": "Lösung: “in”. Richtig heißt es: “I am interested in art.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
      "hashtags": [
       "#englischlernen",
@@ -315,9 +315,9 @@
      ]
     },
     "en": {
-     "hook": "Which preposition goes with “interested”?",
-     "tip": "In German it is “interessiert an”, but in English it is “interested in”.",
-     "caption": "Which preposition goes with “interested”? Wrong: “I am interested at art.” Right: “I am interested in art.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "hook": "“Interessiert” = “interested in”",
+     "tip": "“Sich interessieren für” becomes “interested for”, but English says “interested in”.",
+     "caption": "Which preposition goes with “interested”? Wrong: “I am interested for art.” Right: “I am interested in art.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -355,7 +355,7 @@
      ]
     },
     "en": {
-     "hook": "Do you need “informations”? Better not!",
+     "hook": "“Information” has no “s”!",
      "tip": "In English “information” is uncountable. There is no “informations”.",
      "caption": "Do you need “informations”? Better not! Wrong: “I need some informations.” Right: “I need some information.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
@@ -367,7 +367,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Yesterday needs a simple past!",
+    "hook_say": "Yesterday? Use the past form!",
     "wrong": "Yesterday I have seen a film.",
     "right": "Yesterday I saw a film.",
     "strike": "have seen",
@@ -395,38 +395,38 @@
      ]
     },
     "en": {
-     "hook": "The German Perfekt tricks you here!",
+     "hook": "The Perfekt tricks you here!",
      "tip": "With “yesterday” use the simple past: “I saw”, not the present perfect.",
-     "caption": "The German Perfekt tricks you here! Wrong: “Yesterday I have seen a film.” Right: “Yesterday I saw a film.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "caption": "The Perfekt tricks you here! Wrong: “Yesterday I have seen a film.” Right: “Yesterday I saw a film.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
   {
-   "id": "t2_l1_de_years_old",
+   "id": "t2_l1_de_almost",
    "lang": "de",
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Age needs the verb be!",
-    "wrong": "I have 25 years.",
-    "right": "I am 25 years old.",
-    "strike": "have",
-    "why": "For age, use am and old.",
-    "memory": "I am 25 years old.",
+    "hook_say": "Fast does not mean almost!",
+    "wrong": "I am fast finished.",
+    "right": "I am almost finished.",
+    "strike": "fast",
+    "why": "Fast means quick.",
+    "memory": "Almost done.",
     "quiz": {
-     "stem": "She ___ 30 years old.",
+     "stem": "I am ___ ready. Give me one minute.",
      "options": [
-      "has",
-      "is"
+      "fast",
+      "almost"
      ],
      "answer": 1
     },
-    "answer_say": "Is! She is 30 years old.",
+    "answer_say": "Almost! I am almost ready.",
     "native": {
-     "hook": "Alter: „have“ ist falsch!",
-     "tip": "Im Deutschen „sind“ Sie 25, im Englischen auch: „I am 25 years old“. Nicht „have“.",
-     "caption": "Sagen Sie auch „I have 25 years“? 😬 Falsch: “I have 25 years.” Richtig: “I am 25 years old.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
-     "comment": "Lösung: “is”. Richtig heißt es: “I am 25 years old.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
+     "hook": "„Fast“ heißt „almost“!",
+     "tip": "„Fast“ heißt auf Englisch „almost“. Das englische „fast“ bedeutet „schnell“.",
+     "caption": "Sind Sie „fast“ fertig? ⏳ Falsch: “I am fast finished.” Richtig: “I am almost finished.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “almost”. Richtig heißt es: “I am almost finished.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
      "hashtags": [
       "#englischlernen",
       "#englischtipps",
@@ -435,9 +435,9 @@
      ]
     },
     "en": {
-     "hook": "Do you also say “I have 25 years”?",
-     "tip": "For your age you say “I am 25 years old”, not “have”.",
-     "caption": "Do you also say “I have 25 years”? Wrong: “I have 25 years.” Right: “I am 25 years old.” Listen to Ama and repeat! Practice more in the Lexkite app."
+     "hook": "“Fast” means “almost”!",
+     "tip": "“Fast” means “almost”. The English “fast” means “schnell”.",
+     "caption": "Are you “fast” finished? Wrong: “I am fast finished.” Right: “I am almost finished.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -448,8 +448,8 @@
    "theme": "dusk",
    "in": {
     "hook_say": "Do not make a photo!",
-    "wrong": "Let us make a photo.",
-    "right": "Let us take a photo.",
+    "wrong": "Can you make a photo of us?",
+    "right": "Can you take a photo of us?",
     "strike": "make",
     "why": "Say take a photo.",
     "memory": "Take a photo.",
@@ -465,8 +465,8 @@
     "native": {
      "hook": "Wie sagt man „ein Foto machen“?",
      "tip": "Im Deutschen „machen“ Sie ein Foto, im Englischen „take“: „take a photo“.",
-     "caption": "Wie sagen Sie „ein Foto machen“ richtig? 📸 Falsch: “Let us make a photo.” Richtig: “Let us take a photo.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
-     "comment": "Lösung: “take”. Richtig heißt es: “Let us take a photo.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
+     "caption": "Wie sagen Sie „ein Foto machen“ richtig? 📸 Falsch: “Can you make a photo of us?” Richtig: “Can you take a photo of us?” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “take”. Richtig heißt es: “Can you take a photo of us?” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
      "hashtags": [
       "#englischlernen",
       "#englischtipps",
@@ -475,9 +475,9 @@
      ]
     },
     "en": {
-     "hook": "How do you say “ein Foto machen” correctly?",
-     "tip": "In German you “make” a photo, but in English you “take” a photo.",
-     "caption": "How do you say “ein Foto machen” correctly? Wrong: “Let us make a photo.” Right: “Let us take a photo.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "hook": "“Ein Foto machen” in English?",
+     "tip": "“Ein Foto machen” becomes “take a photo” in English, not “make”.",
+     "caption": "How do you say “ein Foto machen” correctly? Wrong: “Can you make a photo of us?” Right: “Can you take a photo of us?” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -487,7 +487,7 @@
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Want needs a different shape!",
+    "hook_say": "Do not say want that!",
     "wrong": "I want that you come.",
     "right": "I want you to come.",
     "strike": "that you come",
@@ -504,7 +504,7 @@
     "answer_say": "To! I want you to help me.",
     "native": {
      "hook": "Nicht „want that“ sagen!",
-     "tip": "Im Englischen gibt es kein „want that“. Sagen Sie „I want you to come“.",
+     "tip": "Nach „want“ folgt kein „that“-Satz. Sagen Sie „I want you to come“.",
      "caption": "Möchten Sie, dass jemand etwas tut? 💬 Falsch: “I want that you come.” Richtig: “I want you to come.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
      "comment": "Lösung: “to”. Richtig heißt es: “I want you to come.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
      "hashtags": [
@@ -515,8 +515,8 @@
      ]
     },
     "en": {
-     "hook": "Do you want someone to do something?",
-     "tip": "English has no “want that”. You say “I want you to come”.",
+     "hook": "Do not say “want that”!",
+     "tip": "After “want”, do not use a “that” clause. Say “I want you to come”.",
      "caption": "Do you want someone to do something? Wrong: “I want that you come.” Right: “I want you to come.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
@@ -527,25 +527,25 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Than or then?",
-    "wrong": "She is taller then me.",
+    "hook_say": "Not taller as, taller than!",
+    "wrong": "She is taller as me.",
     "right": "She is taller than me.",
-    "strike": "then",
+    "strike": "as",
     "why": "Use than to compare.",
     "memory": "Taller than.",
     "quiz": {
      "stem": "He is older ___ me.",
      "options": [
-      "then",
+      "as",
       "than"
      ],
      "answer": 1
     },
     "answer_say": "Than! He is older than me.",
     "native": {
-     "hook": "„Als“ ist „than“, nicht „then“!",
-     "tip": "„Then“ heißt „dann“. Beim Vergleich sagen Sie „than“: „taller than“.",
-     "caption": "Verwechseln Sie „than“ und „then“? 🤏 Falsch: “She is taller then me.” Richtig: “She is taller than me.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "hook": "„Größer als“ heißt „taller than“!",
+     "tip": "Beim Vergleich wird „als“ zu „than“. „As“ nur in „as tall as“.",
+     "caption": "Sagen Sie „größer als“ mit „as“? 📏 Falsch: “She is taller as me.” Richtig: “She is taller than me.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
      "comment": "Lösung: “than”. Richtig heißt es: “She is taller than me.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
      "hashtags": [
       "#englischlernen",
@@ -555,9 +555,9 @@
      ]
     },
     "en": {
-     "hook": "Do you mix up “than” and “then”?",
-     "tip": "“Then” means “dann”. When you compare, use “than”.",
-     "caption": "Do you mix up “than” and “then”? Wrong: “She is taller then me.” Right: “She is taller than me.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "hook": "“Größer als” is “taller than”!",
+     "tip": "When you compare, “als” is “than”. Use “as” only in “as tall as”.",
+     "caption": "Do you say “größer als” with “as”? Wrong: “She is taller as me.” Right: “She is taller than me.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -567,11 +567,11 @@
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Handy is not English!",
+    "hook_say": "Handy is not a phone!",
     "wrong": "I lost my handy.",
     "right": "I lost my phone.",
     "strike": "handy",
-    "why": "Handy is not a phone in English.",
+    "why": "In English, handy means useful.",
     "memory": "Phone, not handy.",
     "quiz": {
      "stem": "I lost my ___.",
@@ -584,7 +584,7 @@
     "answer_say": "Phone! I lost my phone.",
     "native": {
      "hook": "Ihr „Handy“ heißt „phone“!",
-     "tip": "„Handy“ klingt englisch, ist es aber nicht. Sagen Sie „phone“ oder „mobile“.",
+     "tip": "Auf Englisch heißt „handy“ „praktisch“. Ihr Handy ist ein „phone“ oder „cell phone“.",
      "caption": "Ihr Handy ist kein „handy“! 📱 Falsch: “I lost my handy.” Richtig: “I lost my phone.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
      "comment": "Lösung: “phone”. Richtig heißt es: “I lost my phone.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
      "hashtags": [
@@ -596,7 +596,7 @@
     },
     "en": {
      "hook": "Your Handy is not a “handy”!",
-     "tip": "“Handy” sounds English, but it is not. Say “phone” or “mobile”.",
+     "tip": "In English “handy” means useful. Your Handy is a “phone” or “cell phone”.",
      "caption": "Your Handy is not a “handy”! Wrong: “I lost my handy.” Right: “I lost my phone.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
@@ -607,7 +607,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Beamer is not a projector!",
+    "hook_say": "Say projector, not beamer!",
     "wrong": "Please turn on the beamer.",
     "right": "Please turn on the projector.",
     "strike": "beamer",
@@ -635,7 +635,7 @@
      ]
     },
     "en": {
-     "hook": "Are you in a meeting and need the Beamer?",
+     "hook": "The Beamer is not a “beamer”!",
      "tip": "In English a Beamer is a “projector”. Hardly anyone knows “beamer”.",
      "caption": "Are you in a meeting and need the Beamer? Wrong: “Please turn on the beamer.” Right: “Please turn on the projector.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
@@ -647,7 +647,7 @@
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Rock is not rock!",
+    "hook_say": "A skirt, not a rock!",
     "wrong": "She wears a short rock.",
     "right": "She wears a short skirt.",
     "strike": "rock",
@@ -665,7 +665,7 @@
     "native": {
      "hook": "Ein „Rock“ ist kein „rock“!",
      "tip": "Auf Englisch ist „rock“ Stein oder Musik. Das Kleidungsstück heißt „skirt“.",
-     "caption": "Wie sagen Sie „Rock“ zum Anziehen? 👗 Falsch: “She wears a short rock.” Richtig: “She wears a short skirt.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "caption": "Wie heißt der Rock zum Anziehen auf Englisch? 👗 Falsch: “She wears a short rock.” Richtig: “She wears a short skirt.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
      "comment": "Lösung: “skirt”. Richtig heißt es: “She wears a short skirt.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
      "hashtags": [
       "#englischlernen",
@@ -675,9 +675,9 @@
      ]
     },
     "en": {
-     "hook": "How do you say “Rock” to wear?",
+     "hook": "A “Rock” is not a “rock”!",
      "tip": "In English “rock” is a stone or music. The piece of clothing is a “skirt”.",
-     "caption": "How do you say “Rock” to wear? Wrong: “She wears a short rock.” Right: “She wears a short skirt.” Listen to Ama and repeat! Practice more in the Lexkite app."
+     "caption": "What do you call the Rock you wear? Wrong: “She wears a short rock.” Right: “She wears a short skirt.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -715,7 +715,7 @@
      ]
     },
     "en": {
-     "hook": "Are you writing a Brief in English?",
+     "hook": "Writing a Brief in English?",
      "tip": "“Brief” means “kurz” in English. A paper Brief is a “letter”.",
      "caption": "Are you writing a Brief in English? Wrong: “I wrote a brief to my friend.” Right: “I wrote a letter to my friend.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
@@ -729,24 +729,24 @@
    "in": {
     "hook_say": "Feel, do not be!",
     "wrong": "I am very bad today.",
-    "right": "I feel very bad today.",
-    "strike": "am",
-    "why": "Use feel for how you are.",
-    "memory": "Feel bad.",
+    "right": "I feel sick today.",
+    "strike": "am very bad",
+    "why": "For your health, say I feel sick.",
+    "memory": "I feel sick.",
     "quiz": {
-     "stem": "I ___ tired today.",
+     "stem": "I have a fever. I ___ today.",
      "options": [
-      "am",
-      "feel"
+      "feel sick",
+      "am bad"
      ],
-     "answer": 1
+     "answer": 0
     },
-    "answer_say": "Feel! I feel tired today.",
+    "answer_say": "Feel sick! I feel sick today.",
     "native": {
      "hook": "Nicht „I am bad“ sagen!",
-     "tip": "„I am bad“ heißt „Ich bin böse“. Für Ihr Befinden nehmen Sie „I feel“.",
-     "caption": "„I am bad“ klingt nach Bösewicht! 😅 Falsch: “I am very bad today.” Richtig: “I feel very bad today.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
-     "comment": "Lösung: “feel”. Richtig heißt es: “I feel very bad today.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
+     "tip": "„I am bad“ klingt nach „Ich bin schlecht“. Wenn es Ihnen schlecht geht, sagen Sie „I feel sick“.",
+     "caption": "Geht es Ihnen schlecht? 🤒 Falsch: “I am very bad today.” Richtig: “I feel sick today.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “feel sick”. Richtig heißt es: “I feel sick today.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
      "hashtags": [
       "#englischlernen",
       "#englischtipps",
@@ -755,9 +755,9 @@
      ]
     },
     "en": {
-     "hook": "“I am bad” sounds like a villain!",
-     "tip": "“I am bad” means you are evil. To say how you feel, use “I feel”.",
-     "caption": "“I am bad” sounds like a villain! Wrong: “I am very bad today.” Right: “I feel very bad today.” Listen to Ama and repeat! Practice more in the Lexkite app."
+     "hook": "Do not say “I am bad”!",
+     "tip": "“I am bad” sounds like you are a bad person. For your health, say “I feel sick”.",
+     "caption": "Do you feel unwell? Wrong: “I am very bad today.” Right: “I feel sick today.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -767,26 +767,26 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "After if, no will!",
-    "wrong": "If it will rain, I stay home.",
-    "right": "If it rains, I will stay home.",
-    "strike": "will rain",
-    "why": "After if, use the present.",
-    "memory": "If rains, will stay.",
+    "hook_say": "Sure? Say when, not if!",
+    "wrong": "If I get home, I will call you.",
+    "right": "When I get home, I will call you.",
+    "strike": "If",
+    "why": "For something sure, use when.",
+    "memory": "Sure: when.",
     "quiz": {
-     "stem": "If it ___ tomorrow, I will stay home.",
+     "stem": "___ the film ends, we will go home.",
      "options": [
-      "will rain",
-      "rains"
+      "If",
+      "When"
      ],
      "answer": 1
     },
-    "answer_say": "Rains! If it rains tomorrow, I will stay home.",
+    "answer_say": "When! When the film ends, we will go home.",
     "native": {
-     "hook": "Nach „if“ kein „will“!",
-     "tip": "Im „if“-Satz steht das Present: „If it rains“. Das „will“ kommt in den Hauptsatz.",
-     "caption": "Wann benutzen Sie „will“ im „if“-Satz? ☔ Falsch: “If it will rain, I stay home.” Richtig: “If it rains, I will stay home.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
-     "comment": "Lösung: “rains”. Richtig heißt es: “If it rains, I will stay home.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
+     "hook": "„Wenn“ ist nicht immer „if“!",
+     "tip": "Wenn etwas sicher passiert, sagen Sie „when“, nicht „if“.",
+     "caption": "Ist „wenn“ immer „if“? ☔ Falsch: “If I get home, I will call you.” Richtig: “When I get home, I will call you.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “When”. Richtig heißt es: “When I get home, I will call you.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
      "hashtags": [
       "#englischlernen",
       "#englischtipps",
@@ -795,38 +795,38 @@
      ]
     },
     "en": {
-     "hook": "When do you use “will” in an “if” sentence?",
-     "tip": "In the “if” clause use the present: “If it rains”. “Will” goes in the main clause.",
-     "caption": "When do you use “will” in an “if” sentence? Wrong: “If it will rain, I stay home.” Right: “If it rains, I will stay home.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "hook": "“Wenn” is not always “if”!",
+     "tip": "For something sure, say “when”, not “if”.",
+     "caption": "Is “wenn” always “if”? Wrong: “If I get home, I will call you.” Right: “When I get home, I will call you.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
   {
-   "id": "t2_l1_de_do_you_can",
+   "id": "t2_l1_de_question_for",
    "lang": "de",
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Can is a special verb!",
-    "wrong": "Do you can help me?",
-    "right": "Can you help me?",
-    "strike": "Do you can",
-    "why": "Can needs no do.",
-    "memory": "Can you help?",
+    "hook_say": "A question for you!",
+    "wrong": "I have a question to you.",
+    "right": "I have a question for you.",
+    "strike": "to",
+    "why": "Say a question for someone.",
+    "memory": "A question for you.",
     "quiz": {
-     "stem": "___ you swim?",
+     "stem": "I have a question ___ the teacher.",
      "options": [
-      "Do can",
-      "Can"
+      "for",
+      "to"
      ],
-     "answer": 1
+     "answer": 0
     },
-    "answer_say": "Can! Can you swim?",
+    "answer_say": "For! I have a question for the teacher.",
     "native": {
-     "hook": "Frage mit „can“: kein „do“!",
-     "tip": "Bei „can“ stellen Sie einfach die Wörter um: „Can you help me?“. Kein „do“ nötig.",
-     "caption": "Fragen Sie auch „Do you can …?“ 🤷 Falsch: “Do you can help me?” Richtig: “Can you help me?” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
-     "comment": "Lösung: “Can”. Richtig heißt es: “Can you help me?” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
+     "hook": "„Frage an“ heißt „question for“!",
+     "tip": "Im Deutschen haben Sie eine Frage „an“ jemanden. Im Englischen heißt es „a question for you“.",
+     "caption": "Haben Sie eine Frage an jemanden? ❓ Falsch: “I have a question to you.” Richtig: “I have a question for you.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “for”. Richtig heißt es: “I have a question for you.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
      "hashtags": [
       "#englischlernen",
       "#englischtipps",
@@ -835,9 +835,9 @@
      ]
     },
     "en": {
-     "hook": "Do you also ask “Do you can …?”",
-     "tip": "With “can” just swap the words: “Can you help me?” No “do” needed.",
-     "caption": "Do you also ask “Do you can …?” Wrong: “Do you can help me?” Right: “Can you help me?” Listen to Ama and repeat! Practice more in the Lexkite app."
+     "hook": "“Frage an” is “question for”!",
+     "tip": "“Frage an” is “a question for” in English: “I have a question for you”.",
+     "caption": "Do you have a question for someone? Wrong: “I have a question to you.” Right: “I have a question for you.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -847,7 +847,7 @@
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Art is not art here!",
+    "hook_say": "Say kind of, not art of!",
     "wrong": "What art of music do you like?",
     "right": "What kind of music do you like?",
     "strike": "art",
@@ -863,7 +863,7 @@
     },
     "answer_say": "Kind! What kind of food do you like?",
     "native": {
-     "hook": "Fragen Sie nach der „Art“ Musik?",
+     "hook": "„Welche Art Musik“ auf Englisch?",
      "tip": "„Welche Art von Musik“ sagen Sie auf Englisch mit „kind of“. „Art“ ist Kunst.",
      "caption": "Fragen Sie nach der Art von Musik? 🎵 Falsch: “What art of music do you like?” Richtig: “What kind of music do you like?” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
      "comment": "Lösung: “kind”. Richtig heißt es: “What kind of music do you like?” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
@@ -875,7 +875,7 @@
      ]
     },
     "en": {
-     "hook": "Are you asking about the Art of music?",
+     "hook": "Asking for the Art of music?",
      "tip": "For “Art von” say “kind of”. “Art” means Kunst.",
      "caption": "Are you asking about the Art of music? Wrong: “What art of music do you like?” Right: “What kind of music do you like?” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
@@ -915,38 +915,38 @@
      ]
     },
     "en": {
-     "hook": "Is someone sensibel? Then not “sensible”!",
+     "hook": "Sensibel is not “sensible”!",
      "tip": "“Sensible” means “vernünftig”. “Sensibel” is “sensitive”.",
      "caption": "Is someone sensibel? Then not “sensible”! Wrong: “He is very sensible.” Right: “He is very sensitive.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
   {
-   "id": "t2_l1_de_see_you_soon",
+   "id": "t2_l1_de_hungry",
    "lang": "de",
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Bald is not bald!",
-    "wrong": "See you bald.",
-    "right": "See you soon.",
-    "strike": "bald",
-    "why": "Bald means no hair in English.",
-    "memory": "Soon, not bald.",
+    "hook_say": "Do not say have hunger!",
+    "wrong": "I have hunger.",
+    "right": "I am hungry.",
+    "strike": "have hunger",
+    "why": "Say I am hungry.",
+    "memory": "I am hungry.",
     "quiz": {
-     "stem": "See you ___!",
+     "stem": "I ___. Let us eat!",
      "options": [
-      "bald",
-      "soon"
+      "am hungry",
+      "have hunger"
      ],
-     "answer": 1
+     "answer": 0
     },
-    "answer_say": "Soon! See you soon!",
+    "answer_say": "I am hungry! Let us eat!",
     "native": {
-     "hook": "Verabschieden mit „Bis bald“?",
-     "tip": "Das englische „bald“ heißt „kahl“. „Bis bald“ sagen Sie mit „See you soon“.",
-     "caption": "Wie verabschieden Sie sich mit „Bis bald“? 👋 Falsch: “See you bald.” Richtig: “See you soon.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
-     "comment": "Lösung: “soon”. Richtig heißt es: “See you soon.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
+     "hook": "„Ich habe Hunger“ auf Englisch?",
+     "tip": "Im Englischen „hat“ man keinen Hunger, man „ist“ hungrig: „I am hungry“.",
+     "caption": "Wie sagen Sie „Ich habe Hunger“ auf Englisch? 🍕 Falsch: “I have hunger.” Richtig: “I am hungry.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "comment": "Lösung: “am hungry”. Richtig heißt es: “I am hungry.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
      "hashtags": [
       "#englischlernen",
       "#englischtipps",
@@ -955,9 +955,9 @@
      ]
     },
     "en": {
-     "hook": "How do you say goodbye with “Bis bald”?",
-     "tip": "The English “bald” means kahl. For “Bis bald” say “See you soon”.",
-     "caption": "How do you say goodbye with “Bis bald”? Wrong: “See you bald.” Right: “See you soon.” Listen to Ama and repeat! Practice more in the Lexkite app."
+     "hook": "“Ich habe Hunger” in English?",
+     "tip": "In English you “are” hungry, you do not “have” hunger: “I am hungry”.",
+     "caption": "How do you say “Ich habe Hunger” in English? Wrong: “I have hunger.” Right: “I am hungry.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -974,14 +974,14 @@
     "why": "For height, use tall.",
     "memory": "Tall is high.",
     "quiz": {
-     "stem": "My brother is very ___.",
+     "stem": "My brother is two meters ___.",
      "options": [
       "big",
       "tall"
      ],
      "answer": 1
     },
-    "answer_say": "Tall! My brother is very tall.",
+    "answer_say": "Tall! My brother is two meters tall.",
     "native": {
      "hook": "Wollen Sie sagen, jemand ist groß?",
      "tip": "Für Körpergröße sagen Sie „tall“. „Big“ meint eher dick oder umfangreich.",
@@ -995,7 +995,7 @@
      ]
     },
     "en": {
-     "hook": "Do you want to say someone is tall?",
+     "hook": "Want to say someone is tall?",
      "tip": "For body height you say “tall”. “Big” means large in size.",
      "caption": "Do you want to say someone is tall? Wrong: “I am very big.” Right: “I am very tall.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
@@ -1017,11 +1017,11 @@
      "stem": "I like to listen ___ music.",
      "options": [
       "to",
-      "at"
+      "no word"
      ],
      "answer": 0
     },
-    "answer_say": "To! I listen to music every day.",
+    "answer_say": "To! I like to listen to music.",
     "native": {
      "hook": "Ein Wörtchen fehlt beim Hören!",
      "tip": "Im Deutschen „hören“ Sie Musik. Im Englischen sagen Sie „listen to music“.",
@@ -1035,8 +1035,8 @@
      ]
     },
     "en": {
-     "hook": "A little word is missing when you listen to music!",
-     "tip": "In German there is no extra word. In English you say “listen to music”.",
+     "hook": "A little word is missing here!",
+     "tip": "“Musik hören” has no extra word. In English you say “listen to music”.",
      "caption": "A little word is missing when you listen to music! Wrong: “I listen music every day.” Right: “I listen to music every day.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
@@ -1064,7 +1064,7 @@
     "answer_say": "Agree! I agree with you.",
     "native": {
      "hook": "Nicht „I am agree“ sagen!",
-     "tip": "Im Englischen ist „agree“ schon das Verb. Sagen Sie einfach „I agree“.",
+     "tip": "Im Deutschen „sind“ Sie einverstanden. Im Englischen ist „agree“ schon das Verb: „I agree“.",
      "caption": "Sagen Sie „I am agree“? 🙈 Falsch: “I am agree with you.” Richtig: “I agree with you.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
      "comment": "Lösung: “agree”. Richtig heißt es: “I agree with you.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
      "hashtags": [
@@ -1076,7 +1076,7 @@
     },
     "en": {
      "hook": "Do you say “I am agree”?",
-     "tip": "In English “agree” is already the verb. Just say “I agree”.",
+     "tip": "“Einverstanden sein” uses “be”. In English “agree” is already the verb: “I agree”.",
      "caption": "Do you say “I am agree”? Wrong: “I am agree with you.” Right: “I agree with you.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
@@ -1088,9 +1088,9 @@
    "theme": "dusk",
    "in": {
     "hook_say": "Use do not!",
-    "wrong": "I like not coffee.",
+    "wrong": "I like coffee not.",
     "right": "I do not like coffee.",
-    "strike": "like not",
+    "strike": "not",
     "why": "Say do not like.",
     "memory": "Do not like.",
     "quiz": {
@@ -1101,11 +1101,11 @@
      ],
      "answer": 0
     },
-    "answer_say": "Do not! I do not like coffee.",
+    "answer_say": "Do not! I do not like tea.",
     "native": {
      "hook": "Nicht hinter dem Verb!",
      "tip": "Im Deutschen verneinen Sie direkt: „Ich mag Kaffee nicht“. Im Englischen brauchen Sie das Hilfsverb „do“: „I do not like“.",
-     "caption": "Wo steht „nicht“ im Englischen? 🙅 Falsch: “I like not coffee.” Richtig: “I do not like coffee.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "caption": "Wo steht „nicht“ im Englischen? 🙅 Falsch: “I like coffee not.” Richtig: “I do not like coffee.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
      "comment": "Lösung: “do not”. Richtig heißt es: “I do not like coffee.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
      "hashtags": [
       "#englischlernen",
@@ -1116,8 +1116,8 @@
     },
     "en": {
      "hook": "Not after the verb!",
-     "tip": "In German “nicht” comes after the verb. In English you need “do not”.",
-     "caption": "Not after the verb! Wrong: “I like not coffee.” Right: “I do not like coffee.” Listen to Ama and repeat! Practice more in the Lexkite app."
+     "tip": "“Ich mag nicht” puts “nicht” after the verb. In English you need “do not”.",
+     "caption": "Not after the verb! Wrong: “I like coffee not.” Right: “I do not like coffee.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1156,7 +1156,7 @@
     },
     "en": {
      "hook": "Do you “make” homework?",
-     "tip": "In German you “make” homework. In English you say “do homework”.",
+     "tip": "“Hausaufgaben machen” uses “make”. In English you say “do homework”.",
      "caption": "Do you “make” homework? Wrong: “I make my homework now.” Right: “I do my homework now.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
@@ -1168,24 +1168,24 @@
    "theme": "dusk",
    "in": {
     "hook_say": "Depends needs on!",
-    "wrong": "It depends of the weather.",
+    "wrong": "It depends from the weather.",
     "right": "It depends on the weather.",
-    "strike": "of",
+    "strike": "from",
     "why": "Say depends on.",
     "memory": "Depends on.",
     "quiz": {
-     "stem": "It depends ___ you.",
+     "stem": "It depends ___ the weather.",
      "options": [
       "on",
-      "of"
+      "from"
      ],
      "answer": 0
     },
     "answer_say": "On! It depends on the weather.",
     "native": {
-     "hook": "Depend „of“ oder „on“?",
-     "tip": "Im Deutschen hängt etwas „von“ etwas ab, deshalb sagen viele „of“. Im Englischen heißt es „depend on“.",
-     "caption": "„Abhängen von“ = depend „of“? ☁️ Falsch: “It depends of the weather.” Richtig: “It depends on the weather.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+     "hook": "Depend „from“ oder „on“?",
+     "tip": "Im Deutschen hängt etwas „von“ etwas ab, deshalb sagen viele „from“. Im Englischen heißt es „depend on“.",
+     "caption": "„Abhängen von“ = depend „from“? ☁️ Falsch: “It depends from the weather.” Richtig: “It depends on the weather.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
      "comment": "Lösung: “on”. Richtig heißt es: “It depends on the weather.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
      "hashtags": [
       "#englischlernen",
@@ -1195,9 +1195,9 @@
      ]
     },
     "en": {
-     "hook": "Depend of or on?",
-     "tip": "In German you say “von”. In English it is “depend on”, not “of”.",
-     "caption": "Depend of or on? Wrong: “It depends of the weather.” Right: “It depends on the weather.” Listen to Ama and repeat! Practice more in the Lexkite app."
+     "hook": "Depend from or on?",
+     "tip": "“Abhängen von” makes many say “depend from”. In English it is “depend on”, not “from”.",
+     "caption": "Depend from or on? Wrong: “It depends from the weather.” Right: “It depends on the weather.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1236,7 +1236,7 @@
     },
     "en": {
      "hook": "With the bus?",
-     "tip": "In German you go “mit dem Bus”. In English you say “by bus”.",
+     "tip": "“Mit dem Bus” is “by bus” in English: “by”, not “with”, and no “the”.",
      "caption": "With the bus? Wrong: “I go to work with the bus.” Right: “I go to work by bus.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
@@ -1276,7 +1276,7 @@
     },
     "en": {
      "hook": "News is or are?",
-     "tip": "In German “die Nachrichten” is plural. In English “news” is singular: “the news is”.",
+     "tip": "“Die Nachrichten” is plural, but English “news” is singular: “the news is”.",
      "caption": "News is or are? Wrong: “The news are good today.” Right: “The news is good today.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
@@ -1316,7 +1316,7 @@
     },
     "en": {
      "hook": "Do you say “an advice”?",
-     "tip": "In German “ein Rat” is countable. In English “advice” is not, so no “an”.",
+     "tip": "“Ein Rat” is countable, but English “advice” is not, so no “an”.",
      "caption": "Do you say “an advice”? Wrong: “I need an advice.” Right: “I need advice.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
@@ -1356,7 +1356,7 @@
     },
     "en": {
      "hook": "Not it gives, but there are!",
-     "tip": "In German “es gibt” is “it gives”. In English you say “there is” or “there are”.",
+     "tip": "“Es gibt” literally means “it gives”. In English you say “there is” or “there are”.",
      "caption": "Not it gives, but there are! Wrong: “It gives many shops here.” Right: “There are many shops here.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
@@ -1383,7 +1383,7 @@
     },
     "answer_say": "Ride! I ride my bike to work.",
     "native": {
-     "hook": "Fahrrad „fahren“",
+     "hook": "Fahrrad „fahren“ = „drive“? Nein!",
      "tip": "Im Deutschen „fährt“ man Auto und Fahrrad. Im Englischen: ein Auto „drive“, ein Fahrrad „ride“.",
      "caption": "Fahrrad fahren = „drive“? 🚲 Falsch: “I drive my bike to work.” Richtig: “I ride my bike to work.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
      "comment": "Lösung: “ride”. Richtig heißt es: “I ride my bike to work.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
@@ -1395,8 +1395,8 @@
      ]
     },
     "en": {
-     "hook": "Drive a bike?",
-     "tip": "In German you “fahren” both car and bike. In English you drive a car but ride a bike.",
+     "hook": "“Fahrrad fahren” = “drive”? No!",
+     "tip": "“Fahren” covers both car and bike. In English you drive a car but ride a bike.",
      "caption": "Drive a bike? Wrong: “I drive my bike to work.” Right: “I ride my bike to work.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
@@ -1436,7 +1436,7 @@
     },
     "en": {
      "hook": "We meet, not we meet us!",
-     "tip": "In German it is “wir treffen uns”. In English just say “we meet”.",
+     "tip": "“Wir treffen uns” is reflexive. In English just say “we meet”.",
      "caption": "We meet, not we meet us! Wrong: “We meet us at six.” Right: “We meet at six.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
@@ -1476,7 +1476,7 @@
     },
     "en": {
      "hook": "Afraid before or of?",
-     "tip": "In German you fear “vor” something, so people say “afraid before”. In English you are “afraid of” it.",
+     "tip": "“Angst vor” makes many say “afraid before”. In English you are “afraid of” it.",
      "caption": "Afraid before or of? Wrong: “I am afraid before dogs.” Right: “I am afraid of dogs.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }

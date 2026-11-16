@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "Drive! Can she drive?",
+   "text": "Can she! Can she drive?",
    "pause": 0.42
   },
   {
@@ -58,18 +58,18 @@
   "why": "Can already makes the question.",
   "memory": "Can you…?",
   "quiz": {
-   "stem": "Can she ___?",
+   "stem": "___ drive?",
    "options": [
-    "drives",
-    "drive"
+    "Does she can",
+    "Can she"
    ],
    "answer": 1
   },
   "native": {
    "hook": "¿“Do you can”? Sobra el “do”",
-   "tip": "“Can” ya forma la pregunta solo: “Can you swim?”, sin “do”.",
-   "caption": "¿Mezclas “do” y “can”? 🏊 No digas “Do you can swim?”, sino “Can you swim?”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
-   "comment": "Respuesta: “drive”. Tras “can”, el verbo va sin “s”. Practica más con un quiz gratis aquí: {link}",
+   "tip": "“Can” ya forma la pregunta solo: “Can you swim?”, sin “do.”",
+   "caption": "¿Mezclas “do” y “can”? 🏊 No digas “Do you can swim?”, sino “Can you swim?” ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “Can she”. “Can” no necesita “do” ni “does”. Practica más con un quiz gratis aquí: {link}",
    "hashtags": [
     "#aprenderingles",
     "#inglesfacil",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "“Do you can”? You do not need “do”",
-   "tip": "“Can” makes the question by itself: “Can you swim?”, without “do”.",
-   "caption": "Mixing “do” and “can”? Do not say “Do you can swim?”, say “Can you swim?”. Listen to Ama and repeat! Practice more in the Lexkite app."
+   "tip": "“Can” makes the question by itself: “Can you swim?”, without “do.”",
+   "caption": "Mixing “do” and “can”? Do not say “Do you can swim?”, say “Can you swim?” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -98,14 +98,14 @@
  },
  "lang": "es",
  "est": {
-  "words": 40,
-  "seconds": 25.1,
-  "wpm": 95
+  "words": 41,
+  "seconds": 25.6,
+  "wpm": 96
  },
  "publish": {
   "title": "¿“Do you can”? Sobra el “do”",
   "keyword": "Can you swim?",
-  "value": "“Can” ya forma la pregunta solo: “Can you swim?”, sin “do”.",
+  "value": "“Can” ya forma la pregunta solo: “Can you swim?”, sin “do.”",
   "hashtags": [
    "#aprenderingles",
    "#inglesfacil",
@@ -113,11 +113,11 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 34,
+  "script_words": 35,
   "platforms": {
    "youtube": {
     "title": "¿“Do you can”? Sobra el “do”",
-    "description": "¿Mezclas “do” y “can”? 🏊 No digas “Do you can swim?”, sino “Can you swim?”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #verbosmodales #lexkite",
+    "description": "¿Mezclas “do” y “can”? 🏊 No digas “Do you can swim?”, sino “Can you swim?” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #verbosmodales #lexkite",
     "tags": [
      "Can you swim?",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "¿Mezclas “do” y “can”? 🏊 No digas “Do you can swim?”, sino “Can you swim?”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "¿Mezclas “do” y “can”? 🏊 No digas “Do you can swim?”, sino “Can you swim?” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "¿Mezclas “do” y “can”? 🏊 No digas “Do you can swim?”, sino “Can you swim?”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nlexkite.com",
+    "caption": "¿Mezclas “do” y “can”? 🏊 No digas “Do you can swim?”, sino “Can you swim?” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nlexkite.com",
     "hashtags": [
      "#aprenderingles",
      "#inglesfacil",
@@ -140,7 +140,7 @@
     "caption": "¿“Do you can”? Sobra el “do” #aprenderingles #inglesfacil #verbosmodales"
    }
   },
-  "first_comment": "Respuesta: “drive”. Tras “can”, el verbo va sin “s”. Practica más con un quiz gratis aquí: {link}",
+  "first_comment": "Respuesta: “Can she”. “Can” no necesita “do” ni “does”. Practica más con un quiz gratis aquí: {link}",
   "lang": "es"
  }
 }

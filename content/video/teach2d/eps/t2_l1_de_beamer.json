@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Beamer is not a projector!",
+   "text": "Say projector, not beamer!",
    "pause": 0.42
   },
   {
@@ -78,7 +78,7 @@
    ]
   },
   "en": {
-   "hook": "Are you in a meeting and need the Beamer?",
+   "hook": "The Beamer is not a “beamer”!",
    "tip": "In English a Beamer is a “projector”. Hardly anyone knows “beamer”.",
    "caption": "Are you in a meeting and need the Beamer? Wrong: “Please turn on the beamer.” Right: “Please turn on the projector.” Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
@@ -98,8 +98,8 @@
  },
  "lang": "de",
  "est": {
-  "words": 48,
-  "seconds": 29.1,
+  "words": 47,
+  "seconds": 28.6,
   "wpm": 99
  },
  "publish": {
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 42,
+  "script_words": 41,
   "platforms": {
    "youtube": {
     "title": "Der „Beamer“ ist kein „beamer“!",

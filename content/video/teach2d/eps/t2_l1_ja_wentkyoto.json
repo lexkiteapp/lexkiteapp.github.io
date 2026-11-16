@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "I ate pizza!",
+   "text": "I went to Kyoto!",
    "pause": 0.42
   },
   {
@@ -60,8 +60,8 @@
   "quiz": {
    "stem": "Pick the full sentence.",
    "options": [
-    "Ate pizza.",
-    "I ate pizza."
+    "Went to Kyoto.",
+    "I went to Kyoto."
    ],
    "answer": 1
   },
@@ -69,7 +69,7 @@
    "hook": "「Went to Kyoto」、「I」を忘れてない？",
    "tip": "日本語は主語を省くのが普通。でも英語では I を省かずに言おう。",
    "caption": "“Went to Kyoto yesterday.”と言っていませんか？😅 日本語では「京都に行った」で通じますが、英語では主語の I が必要です。“I went to Kyoto yesterday.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
-   "comment": "答え：“I ate pizza.”。主語の I を忘れずに。無料クイズで練習：{link}",
+   "comment": "答え：“I went to Kyoto yesterday.” 主語の I を忘れずに。無料クイズで練習：{link}",
    "hashtags": [
     "#英語学習",
     "#英会話",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "Do you drop the I in “Went to Kyoto”?",
-   "tip": "Japanese often drops the subject. In English, say I.",
-   "caption": "Do you say “Went to Kyoto yesterday.”? 😅 Japanese can drop the subject, but English needs I. The natural way is “I went to Kyoto yesterday.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+   "hook": "Did you drop the I?",
+   "tip": "Do not drop the subject. Say I went...",
+   "caption": "Do you say this? “Went to Kyoto yesterday.” 😅 English needs the subject I. The natural way is “I went to Kyoto yesterday.” Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -98,8 +98,8 @@
  },
  "lang": "ja",
  "est": {
-  "words": 41,
-  "seconds": 25.6,
+  "words": 42,
+  "seconds": 26.1,
   "wpm": 96
  },
  "publish": {
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 35,
+  "script_words": 36,
   "platforms": {
    "youtube": {
     "title": "「Went to Kyoto」、「I」を忘れてない？",
@@ -140,7 +140,7 @@
     "caption": "「Went to Kyoto」、「I」を忘れてない？ #英語学習 #英会話 #英語勉強"
    }
   },
-  "first_comment": "答え：“I ate pizza.”。主語の I を忘れずに。無料クイズで練習：{link}",
+  "first_comment": "答え：“I went to Kyoto yesterday.” 主語の I を忘れずに。無料クイズで練習：{link}",
   "lang": "ja"
  }
 }

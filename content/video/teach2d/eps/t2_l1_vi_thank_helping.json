@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "Cảm ơn đã giúp: nói sao cho đúng?",
-   "tip": "Tiếng Việt nói “cảm ơn đã giúp”, nhưng sau “for” tiếng Anh cần “-ing”.",
+   "tip": "Tiếng Việt nói “cảm ơn đã giúp”, nhưng sau “for” tiếng Anh cần “-ing.”",
    "caption": "Bạn có hay nói “Thank you for help me.” không? 🙏 Sau “for” thêm “-ing”: “Thank you for helping me.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-   "comment": "Đáp án: “calling”. Cảm ơn ai đó bằng “Thank you for…ing” ngay nhé! Luyện thêm miễn phí tại đây: {link}",
+   "comment": "Đáp án: “calling.” Cảm ơn ai đó bằng “Thank you for…ing” ngay nhé! Luyện thêm miễn phí tại đây: {link}",
    "hashtags": [
     "#tuhoctienganh",
     "#luyennoitienganh",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "Thanking someone? Mind the “-ing”!",
-   "tip": "Vietnamese says “cảm ơn đã giúp”, but English needs “-ing” after “for”.",
-   "caption": "Do you often say “Thank you for help me.”? Say “Thank you for helping me.” instead. Listen to Carlos, then repeat! Practice more in the Lexkite app."
+   "hook": "Thank someone: mind the “-ing”!",
+   "tip": "After “for”, English needs “-ing”: “for helping.”",
+   "caption": "Do you often say this? “Thank you for help me.” Say “Thank you for helping me.” instead. Listen to Carlos, then repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "Cảm ơn đã giúp: nói sao cho đúng?",
   "keyword": "Thank you for helping me.",
-  "value": "Tiếng Việt nói “cảm ơn đã giúp”, nhưng sau “for” tiếng Anh cần “-ing”.",
+  "value": "Tiếng Việt nói “cảm ơn đã giúp”, nhưng sau “for” tiếng Anh cần “-ing.”",
   "hashtags": [
    "#tuhoctienganh",
    "#luyennoitienganh",
@@ -140,7 +140,7 @@
     "caption": "Cảm ơn đã giúp: nói sao cho đúng? #tuhoctienganh #luyennoitienganh #loisaiphobien"
    }
   },
-  "first_comment": "Đáp án: “calling”. Cảm ơn ai đó bằng “Thank you for…ing” ngay nhé! Luyện thêm miễn phí tại đây: {link}",
+  "first_comment": "Đáp án: “calling.” Cảm ơn ai đó bằng “Thank you for…ing” ngay nhé! Luyện thêm miễn phí tại đây: {link}",
   "lang": "vi"
  }
 }

@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "Explain! Please explain it to me.",
+   "text": "The rule to me! He explained the rule to me.",
    "pause": 0.42
   },
   {
@@ -58,18 +58,18 @@
   "why": "With explain, say to before the person.",
   "memory": "Explain it to me.",
   "quiz": {
-   "stem": "Please ___ it to me.",
+   "stem": "He explained ___.",
    "options": [
-    "explain",
-    "explain me"
+    "me the rule",
+    "the rule to me"
    ],
-   "answer": 0
+   "answer": 1
   },
   "native": {
-   "hook": "explain 后面要用 “to”！",
+   "hook": "explain 要说 “to me”！",
    "tip": "explain 后面先说事情，再用 “to + 人”。",
-   "caption": "你是不是也会说 “He explained me the rule.”？😅 explain 后要先说内容，再用 to 引出对象：“He explained the rule to me.”。跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
-   "comment": "答案：“explain ... to me”。explain 要用 to 接人！免费测验在这里：{link}",
+   "caption": "你是不是也会说 “He explained me the rule.”😅 explain 后要先说内容，再用 to 引出对象：“He explained the rule to me.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“explain ... to me”，explain 要用 to 接人！免费测验在这里：{link}",
    "hashtags": [
     "#学英语",
     "#英语口语",
@@ -80,7 +80,7 @@
   "en": {
    "hook": "Explain it “to” me!",
    "tip": "After explain, say the thing first, then “to” the person.",
-   "caption": "Do you say “He explained me the rule.”? 😅 After explain, name the thing first, then use to for the person: “He explained the rule to me.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+   "caption": "Do you say “He explained me the rule.” 😅 After explain, name the thing first, then use to for the person: “He explained the rule to me.” Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -91,19 +91,19 @@
  },
  "hook": {
   "line": "h",
-  "text": "explain 后面要用 “to”！"
+  "text": "explain 要说 “to me”！"
  },
  "src": {
   "l1": true
  },
  "lang": "zh",
  "est": {
-  "words": 47,
-  "seconds": 28.6,
-  "wpm": 99
+  "words": 51,
+  "seconds": 30.5,
+  "wpm": 100
  },
  "publish": {
-  "title": "explain 后面要用 “to”！",
+  "title": "explain 要说 “to me”！",
   "keyword": "He explained the rule to me.",
   "value": "explain 后面先说事情，再用 “to + 人”。",
   "hashtags": [
@@ -113,11 +113,11 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 41,
+  "script_words": 45,
   "platforms": {
    "youtube": {
-    "title": "explain 后面要用 “to”！",
-    "description": "你是不是也会说 “He explained me the rule.”？😅 explain 后要先说内容，再用 to 引出对象：“He explained the rule to me.”。跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "title": "explain 要说 “to me”！",
+    "description": "你是不是也会说 “He explained me the rule.”😅 explain 后要先说内容，再用 to 引出对象：“He explained the rule to me.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
     "tags": [
      "He explained the rule to me.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "你是不是也会说 “He explained me the rule.”？😅 explain 后要先说内容，再用 to 引出对象：“He explained the rule to me.”。跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+    "text": "你是不是也会说 “He explained me the rule.”😅 explain 后要先说内容，再用 to 引出对象：“He explained the rule to me.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "你是不是也会说 “He explained me the rule.”？😅 explain 后要先说内容，再用 to 引出对象：“He explained the rule to me.”。跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nlexkite.com",
+    "caption": "你是不是也会说 “He explained me the rule.”😅 explain 后要先说内容，再用 to 引出对象：“He explained the rule to me.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nlexkite.com",
     "hashtags": [
      "#学英语",
      "#英语口语",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "explain 后面要用 “to”！ #学英语 #英语口语 #英语学习"
+    "caption": "explain 要说 “to me”！ #学英语 #英语口语 #英语学习"
    }
   },
-  "first_comment": "答案：“explain ... to me”。explain 要用 to 接人！免费测验在这里：{link}",
+  "first_comment": "答案：“explain ... to me”，explain 要用 to 接人！免费测验在这里：{link}",
   "lang": "zh"
  }
 }

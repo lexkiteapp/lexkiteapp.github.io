@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "Câu hỏi thiếu “do”!",
-   "tip": "Tiếng Anh cần trợ động từ “do” trong câu hỏi. Tiếng Việt chỉ đổi giọng.",
+   "tip": "Câu hỏi tiếng Anh cần trợ động từ “do”; tiếng Việt chỉ thêm từ hỏi như “ở đâu.”",
    "caption": "Bạn có hay nói “Where you live?” không? 😅 Câu hỏi cần thêm “do”: “Where do you live?” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-   "comment": "Đáp án: “do”. Hỏi bạn bè một câu bắt đầu bằng “Where do you…” nhé. Luyện thêm miễn phí tại đây: {link}",
+   "comment": "Đáp án: “do.” Hỏi bạn bè một câu bắt đầu bằng “Where do you…” nhé. Luyện thêm miễn phí tại đây: {link}",
    "hashtags": [
     "#hoctienganh",
     "#nguphaptienganh",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "Questions are missing “do”!",
-   "tip": "English questions need “do”. Vietnamese just changes the tone.",
-   "caption": "Do you often say “Where you live?”? Questions need “do”: “Where do you live?” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
+   "tip": "English questions need “do”; learners often add only a question word like “where.”",
+   "caption": "Do you often say this? “Where you live?” Questions need “do”: “Where do you live?” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "Câu hỏi thiếu “do”!",
   "keyword": "Where do you live?",
-  "value": "Tiếng Anh cần trợ động từ “do” trong câu hỏi. Tiếng Việt chỉ đổi giọng.",
+  "value": "Câu hỏi tiếng Anh cần trợ động từ “do”; tiếng Việt chỉ thêm từ hỏi như “ở đâu.”",
   "hashtags": [
    "#hoctienganh",
    "#nguphaptienganh",
@@ -140,7 +140,7 @@
     "caption": "Câu hỏi thiếu “do”! #hoctienganh #nguphaptienganh #tienganhgiaotiep"
    }
   },
-  "first_comment": "Đáp án: “do”. Hỏi bạn bè một câu bắt đầu bằng “Where do you…” nhé. Luyện thêm miễn phí tại đây: {link}",
+  "first_comment": "Đáp án: “do.” Hỏi bạn bè một câu bắt đầu bằng “Where do you…” nhé. Luyện thêm miễn phí tại đây: {link}",
   "lang": "vi"
  }
 }

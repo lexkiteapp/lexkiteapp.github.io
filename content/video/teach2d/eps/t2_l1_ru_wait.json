@@ -16,12 +16,12 @@
   },
   {
    "id": "w",
-   "text": "Many learners say: I wait you at the door.",
+   "text": "Many learners say: I am waiting you at the door.",
    "pause": 0.42
   },
   {
    "id": "r",
-   "text": "Better: I wait for you at the door.",
+   "text": "Better: I am waiting for you at the door.",
    "pause": 0.42
   },
   {
@@ -52,9 +52,9 @@
   }
  ],
  "data": {
-  "wrong": "I wait you at the door.",
-  "right": "I wait for you at the door.",
-  "strike": "wait you",
+  "wrong": "I am waiting you at the door.",
+  "right": "I am waiting for you at the door.",
+  "strike": "waiting you",
   "why": "Wait needs for.",
   "memory": "Wait for you.",
   "quiz": {
@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "Wait без “for” — ошибка",
-   "tip": "Ждать — “wait for”: “I wait for you at the door”.",
-   "caption": "Ты тоже говоришь “I wait you at the door.”? 😅 По-русски «жду тебя» — без предлога, а по-английски нужен “for”. Правильно: “I wait for you at the door.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
-   "comment": "Ответ: “for”. Ждём кого-то — wait for. Бесплатный тест для практики здесь: {link}",
+   "tip": "Ждать — “wait for”: “I am waiting for you at the door.”",
+   "caption": "Ты тоже говоришь “I am waiting you at the door”? 😅 По-русски «жду тебя» — без предлога, а по-английски нужен “for.” Правильно: “I am waiting for you at the door.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “for.” Ждём кого-то — wait for. Бесплатный тест для практики здесь: {link}",
    "hashtags": [
     "#английскийязык",
     "#учуанглийский",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "Wait you or wait for you?",
-   "tip": "To wait is “wait for”: “I wait for you at the door”.",
-   "caption": "Do you also say “I wait you at the door.”? 😅 In Russian “zhdu tebya” has no preposition, but English needs “for”. Correct: “I wait for you at the door.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+   "tip": "To wait is “wait for”: “I am waiting for you at the door.”",
+   "caption": "Do you also say “I am waiting you at the door”? 😅 It feels fine without a small word, but English needs “for.” Correct: “I am waiting for you at the door.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -98,14 +98,14 @@
  },
  "lang": "ru",
  "est": {
-  "words": 47,
-  "seconds": 28.6,
+  "words": 49,
+  "seconds": 29.6,
   "wpm": 99
  },
  "publish": {
   "title": "Wait без “for” — ошибка",
-  "keyword": "I wait for you at the door.",
-  "value": "Ждать — “wait for”: “I wait for you at the door”.",
+  "keyword": "I am waiting for you at the door.",
+  "value": "Ждать — “wait for”: “I am waiting for you at the door.”",
   "hashtags": [
    "#английскийязык",
    "#учуанглийский",
@@ -113,22 +113,22 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 41,
+  "script_words": 43,
   "platforms": {
    "youtube": {
     "title": "Wait без “for” — ошибка",
-    "description": "Ты тоже говоришь “I wait you at the door.”? 😅 По-русски «жду тебя» — без предлога, а по-английски нужен “for”. Правильно: “I wait for you at the door.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #учуанглийский #английскийдляначинающих #lexkite",
+    "description": "Ты тоже говоришь “I am waiting you at the door”? 😅 По-русски «жду тебя» — без предлога, а по-английски нужен “for.” Правильно: “I am waiting for you at the door.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #учуанглийский #английскийдляначинающих #lexkite",
     "tags": [
-     "I wait for you at the door.",
+     "I am waiting for you at the door.",
      "learn english",
      "ru"
     ]
    },
    "facebook": {
-    "text": "Ты тоже говоришь “I wait you at the door.”? 😅 По-русски «жду тебя» — без предлога, а по-английски нужен “for”. Правильно: “I wait for you at the door.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Ты тоже говоришь “I am waiting you at the door”? 😅 По-русски «жду тебя» — без предлога, а по-английски нужен “for.” Правильно: “I am waiting for you at the door.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Ты тоже говоришь “I wait you at the door.”? 😅 По-русски «жду тебя» — без предлога, а по-английски нужен “for”. Правильно: “I wait for you at the door.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nlexkite.com",
+    "caption": "Ты тоже говоришь “I am waiting you at the door”? 😅 По-русски «жду тебя» — без предлога, а по-английски нужен “for.” Правильно: “I am waiting for you at the door.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nlexkite.com",
     "hashtags": [
      "#английскийязык",
      "#учуанглийский",
@@ -140,7 +140,7 @@
     "caption": "Wait без “for” — ошибка #английскийязык #учуанглийский #английскийдляначинающих"
    }
   },
-  "first_comment": "Ответ: “for”. Ждём кого-то — wait for. Бесплатный тест для практики здесь: {link}",
+  "first_comment": "Ответ: “for.” Ждём кого-то — wait for. Бесплатный тест для практики здесь: {link}",
   "lang": "ru"
  }
 }

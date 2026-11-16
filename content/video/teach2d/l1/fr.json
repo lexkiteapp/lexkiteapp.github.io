@@ -23,10 +23,10 @@
     },
     "answer_say": "Sensitive! She is very sensitive.",
     "native": {
-     "hook": "« Sensible » n’est pas “sensible”!",
-     "tip": "« Sensible » veut dire raisonnable. Pour « sensible » en français, dis “sensitive”.",
-     "caption": "Tu dis “My brother is very sensible.” ? Faux ami ! Pour parler de quelqu'un de sensible, dis “My brother is very sensitive.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.",
-     "comment": "Réponse : “sensitive”. En anglais, “sensible” veut dire raisonnable. Teste d'autres pièges avec un quiz gratuit : {link}",
+     "hook": "« Sensible » en anglais ? Piège !",
+     "tip": "En anglais, “sensible” veut dire raisonnable. Pour dire « sensible », employez “sensitive”.",
+     "caption": "Vous dites “My brother is very sensible.” ? Faux ami ! “Sensible” veut dire raisonnable. Dites plutôt “My brother is very sensitive.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+     "comment": "Réponse : “sensitive” — Pour quelqu’un qui ressent fortement les choses, on dit “sensitive”. Testez d’autres pièges avec un quiz gratuit : {link}",
      "hashtags": [
       "#apprendrelanglais",
       "#anglaisfacile",
@@ -35,9 +35,9 @@
      ]
     },
     "en": {
-     "hook": "“Sensible” is not sensible!",
-     "tip": "“Sensible” means reasonable. For French “sensible”, say “sensitive”.",
-     "caption": "Do you say “My brother is very sensible.”? False friend! To describe someone who feels deeply, say “My brother is very sensitive.”. Listen to Ama and repeat with her! More exercises in the Lexkite app."
+     "hook": "“Sensible” is a trap!",
+     "tip": "In English, “sensible” means reasonable. For someone who feels deeply, say “sensitive”.",
+     "caption": "Do you say this? “My brother is very sensible.” False friend! “Sensible” means reasonable. Say “My brother is very sensitive.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
     }
    }
   },
@@ -64,9 +64,9 @@
     "answer_say": "Does! She does her homework.",
     "native": {
      "hook": "Les devoirs : « do », pas « make »",
-     "tip": "On ne « fait » pas ses devoirs avec “make” : en anglais, c'est “do my homework”.",
-     "caption": "Tu dis “I make my homework every night.” ? En français on « fait » tout. En anglais, dis “I do my homework every night.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.",
-     "comment": "Réponse : “does”. Les devoirs se disent avec “do”, pas avec “make”. Teste d'autres pièges avec un quiz gratuit : {link}",
+     "tip": "On « fait » ses devoirs en français, mais en anglais : “do my homework”, pas “make”.",
+     "caption": "Vous dites “I make my homework every night.” ? Pour les devoirs, l’anglais n’emploie pas “make”. Dites plutôt “I do my homework every night.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+     "comment": "Réponse : “does” — Les devoirs se disent avec “do”, pas avec “make”. Testez d’autres pièges avec un quiz gratuit : {link}",
      "hashtags": [
       "#apprendrelanglais",
       "#anglaisfacile",
@@ -76,8 +76,8 @@
     },
     "en": {
      "hook": "Homework: “do”, not “make”",
-     "tip": "You do not “make” homework. In English it is “do my homework”.",
-     "caption": "Do you say “I make my homework every night.”? French uses “faire” for everything. In English, say “I do my homework every night.”. Listen to Ama and repeat with her! More exercises in the Lexkite app."
+     "tip": "Learners often say “make my homework”. In English, homework goes with “do”.",
+     "caption": "Do you say this? “I make my homework every night.” With homework, English uses “do”. Say “I do my homework every night.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
     }
    }
   },
@@ -88,7 +88,7 @@
    "theme": "dusk",
    "in": {
     "hook_say": "Since or for? Careful!",
-    "wrong": "I live here since two years.",
+    "wrong": "I have lived here since two years.",
     "right": "I have lived here for two years.",
     "strike": "since",
     "why": "Use for with a length of time.",
@@ -104,9 +104,9 @@
     "answer_say": "For! I have waited for an hour.",
     "native": {
      "hook": "« Depuis deux ans » : pas “since”",
-     "tip": "Avec une durée (deux ans, une heure), on dit “for”. “Since” est pour un point de départ.",
-     "caption": "Tu traduis « depuis » par “since” ? Attention. En anglais, dis “I have lived here for two years.”. Compare : “I live here since two years.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.",
-     "comment": "Réponse : “for”. Une durée se dit avec “for”. Teste d'autres pièges avec un quiz gratuit : {link}",
+     "tip": "Avec une durée (deux ans, une heure), on dit “for”. “Since” sert pour un point de départ.",
+     "caption": "Vous dites “I have lived here since two years.” ? Avec une durée, « depuis » se dit “for”. Dites plutôt “I have lived here for two years.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+     "comment": "Réponse : “for” — Une durée se dit avec “for”. Testez d’autres pièges avec un quiz gratuit : {link}",
      "hashtags": [
       "#apprendrelanglais",
       "#anglaisfacile",
@@ -115,9 +115,9 @@
      ]
     },
     "en": {
-     "hook": "“Depuis 2 ans”: not “since”",
+     "hook": "“For two years”, not “since”",
      "tip": "With a length of time, say “for”. “Since” is for a starting point.",
-     "caption": "Do you translate « depuis » as “since”? Careful. In English, say “I have lived here for two years.”. Compare: “I live here since two years.”. Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+     "caption": "Do you say this? “I have lived here since two years.” With a length of time, use “for”. Say “I have lived here for two years.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
     }
    }
   },
@@ -129,10 +129,10 @@
    "in": {
     "hook_say": "Advice has no plural!",
     "wrong": "She gave me many advices.",
-    "right": "She gave me good advice.",
+    "right": "She gave me a lot of advice.",
     "strike": "advices",
     "why": "Advice has no plural.",
-    "memory": "One advice, no s.",
+    "memory": "Advice: never with s.",
     "quiz": {
      "stem": "He gave me some ___.",
      "options": [
@@ -143,10 +143,10 @@
     },
     "answer_say": "Advice! He gave me some advice.",
     "native": {
-     "hook": "“Advices” n'existe pas !",
-     "tip": "En français, « des conseils » prend un s. En anglais, “advice” ne prend jamais de s.",
-     "caption": "Tu dis “She gave me many advices.” ? Ça n'existe pas ! Dis plutôt “She gave me good advice.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.",
-     "comment": "Réponse : “advice”. Ce mot ne se met jamais au pluriel. Teste d'autres pièges avec un quiz gratuit : {link}",
+     "hook": "“Advices” n’existe pas !",
+     "tip": "En français, « des conseils » prend un s. En anglais, “advice” n’en prend jamais.",
+     "caption": "Vous dites “She gave me many advices.” ? Ce mot n’a pas de pluriel ! Dites plutôt “She gave me a lot of advice.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+     "comment": "Réponse : “advice” — Ce mot ne se met jamais au pluriel. Testez d’autres pièges avec un quiz gratuit : {link}",
      "hashtags": [
       "#apprendrelanglais",
       "#anglaisfacile",
@@ -156,8 +156,8 @@
     },
     "en": {
      "hook": "“Advices” does not exist!",
-     "tip": "In French, « des conseils » takes an s. In English, “advice” never does.",
-     "caption": "Do you say “She gave me many advices.”? It does not exist! Say “She gave me good advice.” instead. Listen to Ama and repeat with her! More exercises in the Lexkite app."
+     "tip": "Many learners add an s, but “advice” never takes an s.",
+     "caption": "Do you say this? “She gave me many advices.” This word has no plural! Say “She gave me a lot of advice.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
     }
    }
   },
@@ -185,8 +185,8 @@
     "native": {
      "hook": "« Ça dépend de » : pas “of”",
      "tip": "On traduit « dépendre de » par “depend on”, jamais “depend of”.",
-     "caption": "Tu dis “It depends of the weather.” ? Ce n'est pas “of” ! Dis “It depends on the weather.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.",
-     "comment": "Réponse : “on”. En anglais, on dit “depend on”. Teste d'autres pièges avec un quiz gratuit : {link}",
+     "caption": "Vous dites “It depends of the weather.” ? Ce n’est pas “of” ! Dites plutôt “It depends on the weather.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+     "comment": "Réponse : “on” — En anglais, on dit “depend on”. Testez d’autres pièges avec un quiz gratuit : {link}",
      "hashtags": [
       "#apprendrelanglais",
       "#anglaisfacile",
@@ -196,8 +196,8 @@
     },
     "en": {
      "hook": "“Depends of”: wrong!",
-     "tip": "“Dépendre de” becomes “depend on”, never “depend of”.",
-     "caption": "Do you say “It depends of the weather.”? It is not “of”! Say “It depends on the weather.”. Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+     "tip": "Learners often say “depend of”. In English, it is always “depend on”.",
+     "caption": "Do you say this? “It depends of the weather.” It is not “of”! Say “It depends on the weather.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
     }
    }
   },
@@ -223,10 +223,10 @@
     },
     "answer_say": "To! I listen to music.",
     "native": {
-     "hook": "« Écouter » : n'oublie pas “to”",
-     "tip": "En français, « écouter » n'a pas de préposition. En anglais, “listen” veut toujours “to”.",
-     "caption": "Tu dis “I listen the radio every morning.” ? Il manque “to” ! Dis “I listen to the radio every morning.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.",
-     "comment": "Réponse : “to”. “Listen” est toujours suivi de “to”. Teste d'autres pièges avec un quiz gratuit : {link}",
+     "hook": "« Écouter » : n’oubliez pas “to”",
+     "tip": "« Écouter » se construit sans préposition en français. En anglais, “listen” veut toujours “to”.",
+     "caption": "Vous dites “I listen the radio every morning.” ? Il manque “to” ! Dites plutôt “I listen to the radio every morning.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+     "comment": "Réponse : “to” — “Listen” est toujours suivi de “to”. Testez d’autres pièges avec un quiz gratuit : {link}",
      "hashtags": [
       "#apprendrelanglais",
       "#anglaisfacile",
@@ -236,8 +236,8 @@
     },
     "en": {
      "hook": "“Listen” needs “to”!",
-     "tip": "French « écouter » has no preposition. English “listen” always needs “to”.",
-     "caption": "Do you say “I listen the radio every morning.”? The word to is missing! Say “I listen to the radio every morning.”. Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+     "tip": "In English, “listen” always needs “to” before the thing you hear.",
+     "caption": "Do you say this? “I listen the radio every morning.” The word “to” is missing! Say “I listen to the radio every morning.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
     }
    }
   },
@@ -254,19 +254,19 @@
     "why": "Put the color before the noun.",
     "memory": "Color, then thing.",
     "quiz": {
-     "stem": "I have a ___ bag.",
+     "stem": "I have a ___.",
      "options": [
       "bag black",
-      "black"
+      "black bag"
      ],
      "answer": 1
     },
-    "answer_say": "Black! I have a black bag.",
+    "answer_say": "Black bag! I have a black bag.",
     "native": {
      "hook": "Une voiture rouge ≠ “car red”",
-     "tip": "En français, l'adjectif vient souvent après le nom. En anglais, il se place avant.",
-     "caption": "Tu dis “I have a car red.” ? L'adjectif passe devant ! Dis “I have a red car.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.",
-     "comment": "Réponse : “black”. En anglais, la couleur passe avant le nom. Teste d'autres pièges avec un quiz gratuit : {link}",
+     "tip": "En français, la couleur vient après le nom. En anglais, elle se place avant.",
+     "caption": "Vous dites “I have a car red.” ? En anglais, l’adjectif passe devant le nom ! Dites plutôt “I have a red car.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+     "comment": "Réponse : “black bag” — En anglais, la couleur passe avant le nom. Testez d’autres pièges avec un quiz gratuit : {link}",
      "hashtags": [
       "#apprendrelanglais",
       "#anglaisfacile",
@@ -276,8 +276,8 @@
     },
     "en": {
      "hook": "“A car red”: wrong order!",
-     "tip": "In French the adjective often follows the noun. In English it comes first.",
-     "caption": "Do you say “I have a car red.”? The adjective goes first! Say “I have a red car.”. Listen to Ama and repeat with her! More exercises in the Lexkite app."
+     "tip": "In English, the color comes before the noun, not after it.",
+     "caption": "Do you say this? “I have a car red.” The adjective goes first! Say “I have a red car.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
     }
    }
   },
@@ -304,9 +304,9 @@
     "answer_say": "Saw! I saw her last week.",
     "native": {
      "hook": "« Hier » : pas de “have seen”",
-     "tip": "Le passé composé français devient “saw” avec hier, la semaine dernière, etc.",
-     "caption": "Tu dis “I have seen him yesterday.” ? Avec « hier », on utilise le passé simple : “I saw him yesterday.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.",
-     "comment": "Réponse : “saw”. Avec une date passée, on utilise le prétérit. Teste d'autres pièges avec un quiz gratuit : {link}",
+     "tip": "Avec « hier » ou « la semaine dernière », l’anglais emploie le prétérit : “saw”, pas “have seen”.",
+     "caption": "Vous dites “I have seen him yesterday.” ? Avec « hier », l’anglais emploie le prétérit. Dites plutôt “I saw him yesterday.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+     "comment": "Réponse : “saw” — Avec un moment passé précis, on emploie le prétérit. Testez d’autres pièges avec un quiz gratuit : {link}",
      "hashtags": [
       "#apprendrelanglais",
       "#anglaisfacile",
@@ -316,8 +316,8 @@
     },
     "en": {
      "hook": "“Have seen yesterday”: no!",
-     "tip": "The French passé composé becomes “saw” with yesterday, last week, and so on.",
-     "caption": "Do you say “I have seen him yesterday.”? With a past time, use the simple past: “I saw him yesterday.”. Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+     "tip": "With “yesterday” or “last week”, English uses the simple past: “saw”.",
+     "caption": "Do you say this? “I have seen him yesterday.” With a finished time, use the simple past. Say “I saw him yesterday.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
     }
    }
   },
@@ -344,9 +344,9 @@
     "answer_say": "Are! The people are happy.",
     "native": {
      "hook": "“People is” : faux !",
-     "tip": "En français, « les gens » est pluriel mais on l'oublie en anglais. Il faut “people are”.",
-     "caption": "Tu dis “People is very nice here.” ? “People” est un pluriel ! Dis “People are very nice here.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.",
-     "comment": "Réponse : “are”. “People” se conjugue toujours au pluriel. Teste d'autres pièges avec un quiz gratuit : {link}",
+     "tip": "Comme « les gens », “people” est toujours pluriel : on dit “people are”.",
+     "caption": "Vous dites “People is very nice here.” ? “People” est un pluriel ! Dites plutôt “People are very nice here.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+     "comment": "Réponse : “are” — “People” se conjugue toujours au pluriel. Testez d’autres pièges avec un quiz gratuit : {link}",
      "hashtags": [
       "#apprendrelanglais",
       "#anglaisfacile",
@@ -357,7 +357,7 @@
     "en": {
      "hook": "“People is”: wrong!",
      "tip": "“People” is always plural in English, so it takes “are”.",
-     "caption": "Do you say “People is very nice here.”? “People” is plural! Say “People are very nice here.”. Listen to Ama and repeat with her! More exercises in the Lexkite app."
+     "caption": "Do you say this? “People is very nice here.” “People” is plural! Say “People are very nice here.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
     }
    }
   },
@@ -367,7 +367,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "It is cold, not makes!",
+    "hook_say": "For weather, say it is!",
     "wrong": "It makes cold today.",
     "right": "It is cold today.",
     "strike": "makes",
@@ -384,9 +384,9 @@
     "answer_say": "Is! It is hot today.",
     "native": {
      "hook": "« Il fait froid » ≠ “it makes”",
-     "tip": "En français, « il fait froid ». En anglais, on dit “it is cold”.",
-     "caption": "Tu traduis « il fait » par “It makes cold today.” ? Non ! Dis “It is cold today.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.",
-     "comment": "Réponse : “is”. Pour la météo, on utilise “it is”. Teste d'autres pièges avec un quiz gratuit : {link}",
+     "tip": "Le français dit « il fait froid ». L’anglais dit “it is cold”, jamais “it makes cold”.",
+     "caption": "Vous dites “It makes cold today.” ? Pour la météo, l’anglais emploie “it is”. Dites plutôt “It is cold today.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+     "comment": "Réponse : “is” — Pour la météo, on utilise “it is”. Testez d’autres pièges avec un quiz gratuit : {link}",
      "hashtags": [
       "#apprendrelanglais",
       "#anglaisfacile",
@@ -396,8 +396,8 @@
     },
     "en": {
      "hook": "“It makes cold”: wrong!",
-     "tip": "French says « il fait froid ». English says “it is cold”.",
-     "caption": "Do you say “It makes cold today.”? No! Say “It is cold today.”. Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+     "tip": "For weather, English says “it is cold”, not “it makes cold”.",
+     "caption": "Do you say this? “It makes cold today.” For weather, use “it is”. Say “It is cold today.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
     }
    }
   },
@@ -408,8 +408,8 @@
    "theme": "dusk",
    "in": {
     "hook_say": "Demand is too strong!",
-    "wrong": "I demanded the price to the seller.",
-    "right": "I asked the seller for the price.",
+    "wrong": "Can I demand you something?",
+    "right": "Can I ask you something?",
     "strike": "demanded",
     "why": "Demand is strong. Ask is normal.",
     "memory": "Just ask.",
@@ -424,9 +424,9 @@
     "answer_say": "Ask! Please ask him for help.",
     "native": {
      "hook": "« Demander » ≠ “demand”",
-     "tip": "« Demander » se dit “ask”. “Demand” veut dire exiger : c'est très fort.",
-     "caption": "Tu dis “I demanded the price to the seller.” ? Faux ami ! Dis “I asked the seller for the price.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.",
-     "comment": "Réponse : “ask”. “Demand” veut dire exiger, c'est trop fort. Teste d'autres pièges avec un quiz gratuit : {link}",
+     "tip": "« Demander » se dit “ask”. “Demand” veut dire exiger : c’est très fort.",
+     "caption": "Vous dites “Can I demand you something?” ? Faux ami ! Dites plutôt “Can I ask you something?” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+     "comment": "Réponse : “ask” — “Demand” veut dire exiger : c’est trop fort. Testez d’autres pièges avec un quiz gratuit : {link}",
      "hashtags": [
       "#apprendrelanglais",
       "#anglaisfacile",
@@ -435,9 +435,9 @@
      ]
     },
     "en": {
-     "hook": "“Demand” is not demander!",
-     "tip": "« Demander » is “ask”. “Demand” means to require, which sounds very strong.",
-     "caption": "Do you say “I demanded the price to the seller.”? False friend! Say “I asked the seller for the price.”. Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+     "hook": "“Demand” is a false friend!",
+     "tip": "“Demand” means to require, which sounds very strong. To ask, say “ask”.",
+     "caption": "Do you say this? “Can I demand you something?” False friend! Say “Can I ask you something?” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
     }
    }
   },
@@ -465,8 +465,8 @@
     "native": {
      "hook": "« D'accord » ≠ “I am agree”",
      "tip": "En français : « je suis d'accord ». En anglais, “agree” est un verbe : “I agree”.",
-     "caption": "Tu dis “I am agree with you.” ? Pas de “am” ! Dis “I agree with you.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.",
-     "comment": "Réponse : “agrees”. “Agree” est un verbe, pas besoin de “be”. Teste d'autres pièges avec un quiz gratuit : {link}",
+     "caption": "Vous dites “I am agree with you.” ? Pas de “am” ! Dites plutôt “I agree with you.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+     "comment": "Réponse : “agrees” — “Agree” est un verbe : pas besoin de “be”. Testez d’autres pièges avec un quiz gratuit : {link}",
      "hashtags": [
       "#apprendrelanglais",
       "#anglaisfacile",
@@ -476,8 +476,8 @@
     },
     "en": {
      "hook": "“I am agree”: no “am”!",
-     "tip": "French says « je suis d'accord ». In English, “agree” is a verb: “I agree”.",
-     "caption": "Do you say “I am agree with you.”? No “am”! Say “I agree with you.”. Listen to Ama and repeat with her! More exercises in the Lexkite app."
+     "tip": "In English, “agree” is a verb: say “I agree”, with no “am”.",
+     "caption": "Do you say this? “I am agree with you.” No “am”! Say “I agree with you.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
     }
    }
   },
@@ -487,26 +487,26 @@
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Work has no plural!",
+    "hook_say": "Much or many? Careful!",
     "wrong": "I have many work today.",
     "right": "I have a lot of work today.",
     "strike": "many",
-    "why": "Work has no plural. Use a lot of.",
+    "why": "Work has no number. Use much or a lot of.",
     "memory": "Work: a lot of.",
     "quiz": {
-     "stem": "I have too ___ homework.",
+     "stem": "I don't have ___ work today.",
      "options": [
       "many",
       "much"
      ],
      "answer": 1
     },
-    "answer_say": "Much! I have too much homework.",
+    "answer_say": "Much! I don't have much work today.",
     "native": {
      "hook": "“Many work” : faux !",
-     "tip": "“Work” ne se compte pas : pas de “many”. Dis “a lot of work” ou “much work”.",
-     "caption": "Tu dis “I have many work today.” ? “Work” ne se compte pas. Dis “I have a lot of work today.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.",
-     "comment": "Réponse : “much”. On ne compte pas “homework”. Teste d'autres pièges avec un quiz gratuit : {link}",
+     "tip": "“Work” ne se compte pas : pas de “many”. Dites “a lot of work”.",
+     "caption": "Vous dites “I have many work today.” ? “Work” ne se compte pas. Dites plutôt “I have a lot of work today.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+     "comment": "Réponse : “much” — “Work” ne se compte pas : on dit “much” ou “a lot of”. Testez d’autres pièges avec un quiz gratuit : {link}",
      "hashtags": [
       "#apprendrelanglais",
       "#anglaisfacile",
@@ -517,7 +517,7 @@
     "en": {
      "hook": "“Many work”: wrong!",
      "tip": "“Work” is not countable, so no “many”. Say “a lot of work”.",
-     "caption": "Do you say “I have many work today.”? “Work” is not countable. Say “I have a lot of work today.”. Listen to Ama and repeat with her! More exercises in the Lexkite app."
+     "caption": "Do you say this? “I have many work today.” “Work” is not countable. Say “I have a lot of work today.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
     }
    }
   },
@@ -527,9 +527,9 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Spend your holiday!",
-    "wrong": "I will pass my holidays in Spain.",
-    "right": "I will spend my holidays in Spain.",
+    "hook_say": "Spend your vacation!",
+    "wrong": "I will pass my vacation in Spain.",
+    "right": "I will spend my vacation in Spain.",
     "strike": "pass",
     "why": "For time, use spend.",
     "memory": "Time: spend it.",
@@ -545,8 +545,8 @@
     "native": {
      "hook": "« Passer » ≠ “pass”",
      "tip": "« Passer ses vacances » se dit “spend”. “Pass” veut dire donner ou réussir.",
-     "caption": "Tu dis “I will pass my holidays in Spain.” ? Faux ami ! Dis “I will spend my holidays in Spain.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.",
-     "comment": "Réponse : “spend”. Pour du temps, on dit “spend”. Teste d'autres pièges avec un quiz gratuit : {link}",
+     "caption": "Vous dites “I will pass my vacation in Spain.” ? Faux ami ! Dites plutôt “I will spend my vacation in Spain.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+     "comment": "Réponse : “spend” — Pour du temps, on dit “spend”. Testez d’autres pièges avec un quiz gratuit : {link}",
      "hashtags": [
       "#apprendrelanglais",
       "#anglaisfacile",
@@ -555,9 +555,9 @@
      ]
     },
     "en": {
-     "hook": "“Passer” is not “pass”!",
-     "tip": "« Passer ses vacances » is “spend”. “Pass” means hand over or succeed.",
-     "caption": "Do you say “I will pass my holidays in Spain.”? False friend! Say “I will spend my holidays in Spain.”. Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+     "hook": "“Pass” is not “spend”!",
+     "tip": "To use time, say “spend”. “Pass” means hand over or succeed.",
+     "caption": "Do you say this? “I will pass my vacation in Spain.” False friend! Say “I will spend my vacation in Spain.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
     }
    }
   },
@@ -568,25 +568,25 @@
    "theme": "dusk",
    "in": {
     "hook_say": "No the for music!",
-    "wrong": "I love the music.",
-    "right": "I love music.",
+    "wrong": "I love the music, especially rock.",
+    "right": "I love music, especially rock.",
     "strike": "the",
     "why": "For things in general, no the.",
     "memory": "General: no the.",
     "quiz": {
-     "stem": "I like ___ coffee.",
+     "stem": "In general, I like ___.",
      "options": [
-      "the",
-      "-"
+      "the coffee",
+      "coffee"
      ],
      "answer": 1
     },
-    "answer_say": "No the! I like coffee.",
+    "answer_say": "Coffee! In general, I like coffee.",
     "native": {
      "hook": "« J'aime la musique » : sans “the”",
      "tip": "En français, on met « la ». En anglais, pour parler en général, on enlève “the”.",
-     "caption": "Tu dis “I love the music.” ? En général, pas de “the” ! Dis “I love music.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.",
-     "comment": "Réponse : Pour parler en général, on n'utilise pas “the”. Teste d'autres pièges avec un quiz gratuit : {link}",
+     "caption": "Vous dites “I love the music, especially rock.” ? Pour parler en général, pas de “the” ! Dites plutôt “I love music, especially rock.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+     "comment": "Réponse : “coffee” — Pour parler en général, on n’utilise pas “the”. Testez d’autres pièges avec un quiz gratuit : {link}",
      "hashtags": [
       "#apprendrelanglais",
       "#anglaisfacile",
@@ -596,8 +596,8 @@
     },
     "en": {
      "hook": "“I love the music”: no “the”",
-     "tip": "French adds « la ». In English, to talk in general, drop “the”.",
-     "caption": "Do you say “I love the music.”? In general, no “the”! Say “I love music.”. Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+     "tip": "In English, to talk in general, drop “the”.",
+     "caption": "Do you say this? “I love the music, especially rock.” In general, no “the”! Say “I love music, especially rock.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
     }
    }
   },
@@ -621,12 +621,12 @@
      ],
      "answer": 1
     },
-    "answer_say": "Football very much! I love football very much.",
+    "answer_say": "I love football very much!",
     "native": {
      "hook": "« J'aime beaucoup » : ordre !",
-     "tip": "En français, « j'aime beaucoup la pizza ». En anglais, “very much” se place à la fin.",
-     "caption": "Tu dis “I like very much pizza.” ? L'ordre change ! Dis “I like pizza very much.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.",
-     "comment": "Réponse : “football very much”. “Very much” se met en fin de phrase. Teste d'autres pièges avec un quiz gratuit : {link}",
+     "tip": "En français, « j’aime beaucoup la pizza ». En anglais, “very much” se place à la fin.",
+     "caption": "Vous dites “I like very much pizza.” ? L’ordre change ! Dites plutôt “I like pizza very much.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+     "comment": "Réponse : “football very much” — “Very much” se met en fin de phrase. Testez d’autres pièges avec un quiz gratuit : {link}",
      "hashtags": [
       "#apprendrelanglais",
       "#anglaisfacile",
@@ -636,37 +636,37 @@
     },
     "en": {
      "hook": "“Like very much pizza”: no!",
-     "tip": "French says « j'aime beaucoup la pizza ». In English, “very much” goes at the end.",
-     "caption": "Do you say “I like very much pizza.”? The order changes! Say “I like pizza very much.”. Listen to Ama and repeat with her! More exercises in the Lexkite app."
+     "tip": "In English, “very much” goes at the end of the sentence.",
+     "caption": "Do you say this? “I like very much pizza.” The order changes! Say “I like pizza very much.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
     }
    }
   },
   {
-   "id": "t2_l1_fr_ifwill",
+   "id": "t2_l1_fr_whenwill",
    "lang": "fr",
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "No will after if!",
-    "wrong": "If it will rain, I stay home.",
-    "right": "If it rains, I will stay home.",
-    "strike": "will",
-    "why": "After if, use the present.",
-    "memory": "If, then present.",
+    "hook_say": "No will after when!",
+    "wrong": "When I will arrive, I will call you.",
+    "right": "When I arrive, I will call you.",
+    "strike": "will arrive",
+    "why": "After when, use the present.",
+    "memory": "When, then present.",
     "quiz": {
-     "stem": "If I ___ time, I will help.",
+     "stem": "When she ___ home, she will call.",
      "options": [
-      "will have",
-      "have"
+      "will get",
+      "gets"
      ],
      "answer": 1
     },
-    "answer_say": "Have! If I have time, I will help.",
+    "answer_say": "Gets! When she gets home, she will call.",
     "native": {
-     "hook": "“If it will rain” : faux !",
-     "tip": "Après “if”, on n'utilise pas “will”. Le futur va dans l'autre moitié de la phrase.",
-     "caption": "Tu dis “If it will rain, I stay home.” ? Pas de “will” après “if” ! Dis “If it rains, I will stay home.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.",
-     "comment": "Réponse : Après “if”, on utilise le présent. “Will” va dans la deuxième partie. Teste d'autres pièges avec un quiz gratuit : {link}",
+     "hook": "« Quand je serai » ≠ “when I will”",
+     "tip": "Le français met le futur après « quand ». En anglais, après “when”, on emploie le présent.",
+     "caption": "Vous dites “When I will arrive, I will call you.” ? Pas de “will” après “when” ! Dites plutôt “When I arrive, I will call you.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+     "comment": "Réponse : “gets” — Après “when”, on emploie le présent, même pour le futur. Testez d’autres pièges avec un quiz gratuit : {link}",
      "hashtags": [
       "#apprendrelanglais",
       "#anglaisfacile",
@@ -675,9 +675,9 @@
      ]
     },
     "en": {
-     "hook": "“If it will rain”: wrong!",
-     "tip": "After “if”, do not use “will”. The future goes in the other half.",
-     "caption": "Do you say “If it will rain, I stay home.”? No “will” after “if”! Say “If it rains, I will stay home.”. Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+     "hook": "“When I will arrive”: no!",
+     "tip": "After “when”, use the present, even for the future.",
+     "caption": "Do you say this? “When I will arrive, I will call you.” No “will” after “when”! Say “When I arrive, I will call you.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
     }
    }
   },
@@ -704,9 +704,9 @@
     "answer_say": "Can! Can you swim?",
     "native": {
      "hook": "“Do you can” : un “do” de trop",
-     "tip": "“Can” se suffit à lui-même : on l'inverse avec le sujet, sans “do”.",
-     "caption": "Tu dis “Do you can help me, please?” ? Pas de “do” ! Dis “Can you help me, please?”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.",
-     "comment": "Réponse : “Can” se place devant le sujet, sans “do”. Teste d'autres pièges avec un quiz gratuit : {link}",
+     "tip": "“Can” se suffit à lui-même : on l’inverse avec le sujet, sans “do”.",
+     "caption": "Vous dites “Do you can help me, please?” ? Pas de “do” ! Dites plutôt “Can you help me, please?” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+     "comment": "Réponse : “Can” — “Can” se place devant le sujet, sans “do”. Testez d’autres pièges avec un quiz gratuit : {link}",
      "hashtags": [
       "#apprendrelanglais",
       "#anglaisfacile",
@@ -717,7 +717,7 @@
     "en": {
      "hook": "“Do you can”: one “do” too many",
      "tip": "“Can” needs no “do”: just put it before the subject.",
-     "caption": "Do you say “Do you can help me, please?”? No “do”! Say “Can you help me, please?”. Listen to Ama and repeat with her! More exercises in the Lexkite app."
+     "caption": "Do you say this? “Do you can help me, please?” No “do”! Say “Can you help me, please?” Listen to Ama and repeat with her! More exercises in the Lexkite app."
     }
    }
   },
@@ -745,8 +745,8 @@
     "native": {
      "hook": "“Said me” : pas de l’anglais !",
      "tip": "Avec une personne, on dit “told me”. “Said me” n'existe pas.",
-     "caption": "Tu dis “He said me the truth.” ? Avec « me », il faut “told”. Dis “He told me the truth.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.",
-     "comment": "Réponse : “told”. Avec une personne, on utilise “tell”. Teste d'autres pièges avec un quiz gratuit : {link}",
+     "caption": "Vous dites “He said me the truth.” ? Avec une personne, il faut “told”. Dites plutôt “He told me the truth.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+     "comment": "Réponse : “told” — Avec une personne, on utilise “tell”. Testez d’autres pièges avec un quiz gratuit : {link}",
      "hashtags": [
       "#apprendrelanglais",
       "#anglaisfacile",
@@ -757,7 +757,7 @@
     "en": {
      "hook": "“Said me”: not English!",
      "tip": "With a person, use “tell”. “Said me” does not exist.",
-     "caption": "Do you say “He said me the truth.”? With “me”, use “told”. Say “He told me the truth.”. Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+     "caption": "Do you say this? “He said me the truth.” With a person, use “told”. Say “He told me the truth.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
     }
    }
   },
@@ -785,8 +785,8 @@
     "native": {
      "hook": "“Taller that” : faux !",
      "tip": "On traduit « que » par “than” dans une comparaison, pas par “that”.",
-     "caption": "Tu dis “She is taller that me.” ? Dans une comparaison, c'est “than” ! Dis “She is taller than me.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.",
-     "comment": "Réponse : “than”. Dans une comparaison, « que » devient “than”. Teste d'autres pièges avec un quiz gratuit : {link}",
+     "caption": "Vous dites “She is taller that me.” ? Dans une comparaison, c’est “than” ! Dites plutôt “She is taller than me.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+     "comment": "Réponse : “than” — Dans une comparaison, « que » devient “than”. Testez d’autres pièges avec un quiz gratuit : {link}",
      "hashtags": [
       "#apprendrelanglais",
       "#anglaisfacile",
@@ -796,8 +796,8 @@
     },
     "en": {
      "hook": "“Taller that”: wrong!",
-     "tip": "In a comparison, « que » becomes “than”, not “that”.",
-     "caption": "Do you say “She is taller that me.”? In a comparison, use “than”! Say “She is taller than me.”. Listen to Ama and repeat with her! More exercises in the Lexkite app."
+     "tip": "In a comparison, say “than”, not “that”.",
+     "caption": "Do you say this? “She is taller that me.” In a comparison, use “than”! Say “She is taller than me.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
     }
    }
   },
@@ -825,8 +825,8 @@
     "native": {
      "hook": "« Il y a » ≠ “it has”",
      "tip": "« Il y a » se dit “there is” ou “there are”, pas “it has”.",
-     "caption": "Tu dis “In my town it has a big park.” ? Pour « il y a », dis “In my town there is a big park.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.",
-     "comment": "Réponse : “there is”. « Il y a » se traduit par “there is”. Teste d'autres pièges avec un quiz gratuit : {link}",
+     "caption": "Vous dites “In my town it has a big park.” ? Pour « il y a », il faut “there is”. Dites plutôt “In my town there is a big park.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+     "comment": "Réponse : “there is” — « Il y a » se traduit par “there is”. Testez d’autres pièges avec un quiz gratuit : {link}",
      "hashtags": [
       "#apprendrelanglais",
       "#anglaisfacile",
@@ -835,9 +835,9 @@
      ]
     },
     "en": {
-     "hook": "« Il y a » is not “it has”",
-     "tip": "« Il y a » is “there is” or “there are”, never “it has”.",
-     "caption": "Do you say “In my town it has a big park.”? For « il y a », say “In my town there is a big park.”. Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+     "hook": "“It has” is not “there is”",
+     "tip": "To say something exists, use “there is” or “there are”, never “it has”.",
+     "caption": "Do you say this? “In my town it has a big park.” To say something exists, use “there is”. Say “In my town there is a big park.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
     }
    }
   },
@@ -863,10 +863,10 @@
     },
     "answer_say": "Disappointment! It was a big disappointment.",
     "native": {
-     "hook": "“Deception”, pas « déception »!",
-     "tip": "“Deception” veut dire tromperie. Pour une déception, dis “disappointment”.",
-     "caption": "Tu dis “The game was a big deception.” ? Faux ami ! Dis plutôt “The game was a big disappointment.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.",
-     "comment": "Réponse : “disappointment”. “Deception” veut dire tromperie. Teste d'autres pièges avec un quiz gratuit : {link}",
+     "hook": "“Deception” ≠ « déception » !",
+     "tip": "“Deception” veut dire tromperie. Pour une déception, dites “disappointment”.",
+     "caption": "Vous dites “The game was a big deception.” ? Faux ami ! Dites plutôt “The game was a big disappointment.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+     "comment": "Réponse : “disappointment” — “Deception” veut dire tromperie. Testez d’autres pièges avec un quiz gratuit : {link}",
      "hashtags": [
       "#apprendrelanglais",
       "#anglaisfacile",
@@ -875,9 +875,9 @@
      ]
     },
     "en": {
-     "hook": "“Deception” is not déception!",
+     "hook": "“Deception” is a false friend!",
      "tip": "“Deception” means a trick. For being let down, say “disappointment”.",
-     "caption": "Do you say “The game was a big deception.”? False friend! Say “The game was a big disappointment.” instead. Listen to Ama and repeat with her! More exercises in the Lexkite app."
+     "caption": "Do you say this? “The game was a big deception.” False friend! Say “The game was a big disappointment.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
     }
    }
   },
@@ -903,10 +903,10 @@
     },
     "answer_say": "To be! I want her to be here.",
     "native": {
-     "hook": "« Je veux que tu » : “want you to”",
-     "tip": "En français, « je veux que tu viennes ». En anglais, on ne met pas “that” : “want you to”.",
-     "caption": "Tu dis “I want that you come tomorrow.” ? Pas de “that” ! Dis “I want you to come tomorrow.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.",
-     "comment": "Réponse : “want you to”. Pas de “that” après “want”. Teste d'autres pièges avec un quiz gratuit : {link}",
+     "hook": "« Je veux que » : “want you to”",
+     "tip": "En français, « je veux que vous veniez ». En anglais, pas de “that” : “want you to”.",
+     "caption": "Vous dites “I want that you come tomorrow.” ? Pas de “that” ! Dites plutôt “I want you to come tomorrow.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+     "comment": "Réponse : “to be” — Pas de “that” après “want” : on dit “want someone to”. Testez d’autres pièges avec un quiz gratuit : {link}",
      "hashtags": [
       "#apprendrelanglais",
       "#anglaisfacile",
@@ -916,8 +916,8 @@
     },
     "en": {
      "hook": "“I want that you come”: no!",
-     "tip": "French says « je veux que tu viennes ». In English, no “that”: “want you to”.",
-     "caption": "Do you say “I want that you come tomorrow.”? No “that”! Say “I want you to come tomorrow.”. Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+     "tip": "In English, no “that” after “want”: say “want you to”.",
+     "caption": "Do you say this? “I want that you come tomorrow.” No “that”! Say “I want you to come tomorrow.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
     }
    }
   },
@@ -956,8 +956,8 @@
     },
     "en": {
      "hook": "Jobs need “a”!",
-     "tip": "In French there is no article before a job. In English, add “a” or “an”.",
-     "caption": "Do you say “My sister is nurse.”? Unlike in French, a job needs “a” or “an” in English. Say “My sister is a nurse.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
+     "tip": "Many learners skip the article before a job. In English, add “a” or “an”.",
+     "caption": "Do you say this? “My sister is nurse.” In English, a job needs “a” or “an”. Say “My sister is a nurse.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
     }
    }
   },
@@ -968,25 +968,25 @@
    "theme": "dusk",
    "in": {
     "hook_say": "No at before home!",
-    "wrong": "We go at home now.",
-    "right": "We go home now.",
-    "strike": "at home",
+    "wrong": "I go at home after work.",
+    "right": "I go home after work.",
+    "strike": "at",
     "why": "After go, say home. Nothing more.",
     "memory": "Go home. No at.",
     "quiz": {
-     "stem": "Class is over. We go ___ now.",
+     "stem": "After class, I go ___.",
      "options": [
       "at home",
       "home"
      ],
      "answer": 1
     },
-    "answer_say": "We go home!",
+    "answer_say": "Home! I go home after class.",
     "native": {
      "hook": "« Aller à la maison » : piège !",
      "tip": "On traduit « à la maison » par “at home”, mais après “go”, “home” se passe de préposition : “go home”.",
-     "caption": "Vous dites “We go at home now.” ? Après “go”, le mot “home” se passe de préposition. Dites plutôt “We go home now.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
-     "comment": "Réponse : “We go home now.” — Après “go”, le mot “home” se passe de préposition. Testez d’autres pièges avec un quiz gratuit : {link}",
+     "caption": "Vous dites “I go at home after work.” ? Après “go”, le mot “home” se passe de préposition. Dites plutôt “I go home after work.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+     "comment": "Réponse : “I go home after work.” — Après “go”, le mot “home” se passe de préposition. Testez d’autres pièges avec un quiz gratuit : {link}",
      "hashtags": [
       "#apprendrelanglais",
       "#anglaisfacile",
@@ -997,7 +997,7 @@
     "en": {
      "hook": "Go home, no “at”!",
      "tip": "“Home” after “go” takes no preposition. Do not say “at home”.",
-     "caption": "Do you say “We go at home now.”? After “go”, “home” needs no preposition. Say “We go home now.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+     "caption": "Do you say this? “I go at home after work.” After “go”, “home” needs no preposition. Say “I go home after work.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
     }
    }
   },
@@ -1007,7 +1007,7 @@
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Explain needs to before me!",
+    "hook_say": "Explain it to me!",
     "wrong": "She explained me the problem.",
     "right": "She explained the problem to me.",
     "strike": "explained me",
@@ -1036,8 +1036,8 @@
     },
     "en": {
      "hook": "“Explain me” is wrong!",
-     "tip": "French says “il m’a expliqué”, but English puts the thing first, then “to me”.",
-     "caption": "Do you say “She explained me the problem.”? With “explain”, put the thing first, then “to” and the person. Say “She explained the problem to me.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
+     "tip": "It sounds natural to say “explain me”, but English puts the thing first, then “to me”.",
+     "caption": "Do you say this? “She explained me the problem.” With “explain”, put the thing first, then “to” and the person. Say “She explained the problem to me.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
     }
    }
   },
@@ -1076,8 +1076,8 @@
     },
     "en": {
      "hook": "Wait for, not just wait!",
-     "tip": "French has no small word after “attendre”. English needs “for” after “wait”.",
-     "caption": "Do you say “I am waiting you at the station.”? English needs “for” after “wait”. Say “I am waiting for you at the station.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+     "tip": "Many learners say “wait” with no small word. English needs “for” after “wait”.",
+     "caption": "Do you say this? “I am waiting you at the station.” English needs “for” after “wait”. Say “I am waiting for you at the station.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
     }
    }
   },
@@ -1117,7 +1117,7 @@
     "en": {
      "hook": "Not “with the bus”!",
      "tip": "English uses “by” and no “the” for transport: “by bus”, “by car”.",
-     "caption": "Do you say “I go to school with the bus.”? English uses “by” and no “the” for transport. Say “I go to school by bus.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
+     "caption": "Do you say this? “I go to school with the bus.” English uses “by” and no “the” for transport. Say “I go to school by bus.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
     }
    }
   },
@@ -1156,8 +1156,8 @@
     },
     "en": {
      "hook": "“Know to” is wrong!",
-     "tip": "French uses “savoir” alone before a verb. English needs “know how to”.",
-     "caption": "Do you say “I know to cook.”? For a skill, “know” needs “how to” before the verb. Say “I know how to cook.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+     "tip": "Learners often say “know to”, but English needs “know how to”.",
+     "caption": "Do you say this? “I know to cook.” For a skill, “know” needs “how to” before the verb. Say “I know how to cook.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
     }
    }
   },
@@ -1196,8 +1196,8 @@
     },
     "en": {
      "hook": "Only one no, please!",
-     "tip": "French says “ne … personne”. English has one no word, so use “anybody”.",
-     "caption": "Do you say “I don't see nobody here.”? One negative word is enough, so use “anybody”. Say “I don't see anybody here.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
+     "tip": "Learners often use two negatives. English has one no word, so use “anybody”.",
+     "caption": "Do you say this? “I don't see nobody here.” One negative word is enough, so use “anybody”. Say “I don't see anybody here.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
     }
    }
   },
@@ -1236,8 +1236,8 @@
     },
     "en": {
      "hook": "“Married with” is wrong!",
-     "tip": "French says “marié avec”. English says “married to” a person.",
-     "caption": "Do you say “He is married with Anna.”? After “married”, the word is “to”, not “with”. Say “He is married to Anna.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+     "tip": "Learners often say “married with”. English says “married to” a person.",
+     "caption": "Do you say this? “He is married with Anna.” After “married”, the word is “to”, not “with”. Say “He is married to Anna.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
     }
    }
   },
@@ -1276,8 +1276,8 @@
     },
     "en": {
      "hook": "Not “interested by”!",
-     "tip": "French says “intéressé par”. English says “interested in”.",
-     "caption": "Do you say “I am interested by history.”? After “interested”, we say “in”, not “by”. Say “I am interested in history.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
+     "tip": "Learners often say “interested by”. English says “interested in”.",
+     "caption": "Do you say this? “I am interested by history.” After “interested”, we say “in”, not “by”. Say “I am interested in history.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
     }
    }
   },
@@ -1316,8 +1316,8 @@
     },
     "en": {
      "hook": "Same as, not same than!",
-     "tip": "French says “le même que”. English uses “the same as”.",
-     "caption": "Do you say “I have the same bag than you.”? To compare two identical things, say “the same as”. Say “I have the same bag as you.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+     "tip": "Learners often say “same than”. English uses “the same as”.",
+     "caption": "Do you say this? “I have the same bag than you.” To compare two identical things, say “the same as”. Say “I have the same bag as you.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
     }
    }
   }

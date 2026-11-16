@@ -69,7 +69,7 @@
    "hook": "“My sister she…” thừa chữ rồi!",
    "tip": "Tiếng Việt hay nhắc lại chủ ngữ, nhưng tiếng Anh chỉ nói một lần.",
    "caption": "Bạn có hay nói “My sister she is a nurse.” không? 😄 Chỉ cần nói một lần: “My sister is a nurse.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-   "comment": "Đáp án: “is”. Giới thiệu một người thân của bạn bằng một câu gọn nhé! Luyện thêm miễn phí tại đây: {link}",
+   "comment": "Đáp án: “is.” Giới thiệu một người thân của bạn bằng một câu gọn nhé! Luyện thêm miễn phí tại đây: {link}",
    "hashtags": [
     "#hoctienganh",
     "#nguphaptienganh",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "“My sister she…”: one word too many!",
-   "tip": "Vietnamese often repeats the subject, but English says it only once.",
-   "caption": "Do you often say “My sister she is a nurse.”? Say “My sister is a nurse.” instead. Listen to Ama, then repeat! Practice more in the Lexkite app."
+   "hook": "“My sister she”: extra word!",
+   "tip": "Learners often repeat the subject, but English says it only once.",
+   "caption": "Do you often say this? “My sister she is a nurse.” Say “My sister is a nurse.” instead. Listen to Ama, then repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -140,7 +140,7 @@
     "caption": "“My sister she…” thừa chữ rồi! #hoctienganh #nguphaptienganh #tienganhgiaotiep"
    }
   },
-  "first_comment": "Đáp án: “is”. Giới thiệu một người thân của bạn bằng một câu gọn nhé! Luyện thêm miễn phí tại đây: {link}",
+  "first_comment": "Đáp án: “is.” Giới thiệu một người thân của bạn bằng một câu gọn nhé! Luyện thêm miễn phí tại đây: {link}",
   "lang": "vi"
  }
 }

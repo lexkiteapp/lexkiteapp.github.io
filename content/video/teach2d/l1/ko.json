@@ -2,31 +2,31 @@
  "_note": "L1 clip rows for ko (daily reels content lane); same schema as ../l1.json",
  "rows": [
   {
-   "id": "t2_l1_ko_depend",
+   "id": "t2_l1_ko_callyou",
    "lang": "ko",
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Depend on, not of!",
-    "wrong": "I depend of my parents.",
-    "right": "I depend on my parents.",
-    "strike": "of",
-    "why": "We say depend on.",
-    "memory": "Depend on.",
+    "hook_say": "Call you, no to!",
+    "wrong": "I will call to you tonight.",
+    "right": "I will call you tonight.",
+    "strike": "to",
+    "why": "Call needs no to.",
+    "memory": "Call me.",
     "quiz": {
-     "stem": "It depends ___ the weather.",
+     "stem": "I will ___ tomorrow.",
      "options": [
-      "on",
-      "of"
+      "call you",
+      "call to you"
      ],
      "answer": 0
     },
-    "answer_say": "On! It depends on the weather.",
+    "answer_say": "Call you! I will call you tomorrow.",
     "native": {
-     "hook": "“depend of” 틀렸어요!",
-     "tip": "depend 뒤에는 of가 아니라 on! “I depend on my parents”예요.",
-     "caption": "“I depend of my parents”라고 말하고 있나요? 😅 depend 뒤에는 of가 아니라 on을 써요. “I depend on my parents”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-     "comment": "정답: “on”. depend on으로 외워요! 무료 퀴즈로 더 연습해 보세요: {link}",
+     "hook": "“call to you” 틀렸어요!",
+     "tip": "‘너에게 전화할게’의 ‘에게’를 to로 옮기기 쉬워요. call 뒤엔 바로 사람! 이렇게 말해요 👉 “I will call you tonight.”",
+     "caption": "“I will call to you tonight”처럼 말하고 있나요? 😅 call은 ‘~에게 전화하다’라서 to 없이 사람을 바로 써요. 맞는 문장 ✅ “I will call you tonight.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+     "comment": "정답: “call you”! call 뒤엔 to 없이! 무료 퀴즈로 더 연습해 보세요: {link}",
      "hashtags": [
       "#영어공부",
       "#영어회화",
@@ -35,9 +35,9 @@
      ]
     },
     "en": {
-     "hook": "“Depend of” is wrong!",
-     "tip": "After depend, use on, not of. Say “I depend on my parents”.",
-     "caption": "Do you say “I depend of my parents”? 😅 After depend you use “on”, not “of”. “I depend on my parents” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "hook": "“Call to you” is wrong!",
+     "tip": "Call needs no to before a person. Say “I will call you tonight.”",
+     "caption": "Do you say “I will call to you tonight” in English? 😅 Call takes the person right after it, with no “to”! “I will call you tonight” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -65,8 +65,8 @@
     "native": {
      "hook": "information에는 s 없어요!",
      "tip": "information은 셀 수 없어서 s를 안 붙여요. “a lot of information”!",
-     "caption": "“She gave me many informations”라고 말하고 있나요? 😅 information은 셀 수 없는 명사라서 many나 s를 쓰지 않아요. “She gave me a lot of information”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-     "comment": "정답: “information”. information에는 s를 안 붙여요! 무료 퀴즈로 더 연습해 보세요: {link}",
+     "caption": "“She gave me many informations”처럼 말하고 있나요? 😅 information은 셀 수 없는 명사라서 many나 s를 쓰지 않아요. 맞는 문장 ✅ “She gave me a lot of information.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+     "comment": "정답: “information”! information에는 s를 안 붙여요! 무료 퀴즈로 더 연습해 보세요: {link}",
      "hashtags": [
       "#영어공부",
       "#영어회화",
@@ -76,8 +76,8 @@
     },
     "en": {
      "hook": "No s on information!",
-     "tip": "Information cannot be counted, so no s. Say “a lot of information”.",
-     "caption": "Do you say “She gave me many informations”? 😅 Information is uncountable, so you do not use “many” or an s. “She gave me a lot of information” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "tip": "Information cannot be counted, so no s. Say “a lot of information”!",
+     "caption": "Do you say “She gave me many informations” in English? 😅 Information is uncountable, so you do not use “many” or an s. “She gave me a lot of information” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -104,9 +104,9 @@
     "answer_say": "To! She is married to a doctor.",
     "native": {
      "hook": "“married with” 틀렸어요!",
-     "tip": "결혼했다는 married to! “I am married to a teacher”예요.",
-     "caption": "“I am married with a teacher”라고 말하고 있나요? 😅 ‘~와 결혼했다’는 with가 아니라 to를 써서 married to라고 해요. “I am married to a teacher”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-     "comment": "정답: “to”. married to로 기억해요! 무료 퀴즈로 더 연습해 보세요: {link}",
+     "tip": "결혼했다는 married to! 이렇게 말해요 👉 “I am married to a teacher.”",
+     "caption": "“I am married with a teacher”처럼 말하고 있나요? 😅 ‘~와 결혼했다’는 with가 아니라 to를 써서 married to라고 해요. 맞는 문장 ✅ “I am married to a teacher.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+     "comment": "정답: “to”! married to로 기억해요! 무료 퀴즈로 더 연습해 보세요: {link}",
      "hashtags": [
       "#영어공부",
       "#영어회화",
@@ -116,8 +116,8 @@
     },
     "en": {
      "hook": "“Married with” is wrong!",
-     "tip": "Say married to, not with. “I am married to a teacher”.",
-     "caption": "Do you say “I am married with a teacher”? 😅 To say who you married, use “to”, not “with”. “I am married to a teacher” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "Say married to, not with. “I am married to a teacher”!",
+     "caption": "Do you say “I am married with a teacher” in English? 😅 To say who you married, use “to”, not “with”! “I am married to a teacher” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -144,9 +144,9 @@
     "answer_say": "To! I listen to the radio.",
     "native": {
      "hook": "“to”를 잊지 마세요!",
-     "tip": "listen 뒤에는 꼭 to! “I listen to music every day”예요.",
-     "caption": "“I listen music every day”라고 말하고 있나요? 😅 listen 바로 뒤에 목적어를 두지 말고 to를 넣어요. “I listen to music every day”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-     "comment": "정답: “to”. listen to 세트로 외워요! 무료 퀴즈로 더 연습해 보세요: {link}",
+     "tip": "listen 뒤에는 꼭 to! 이렇게 말해요 👉 “I listen to music every day.”",
+     "caption": "“I listen music every day”처럼 말하고 있나요? 😅 listen 바로 뒤에 목적어를 두지 말고 to를 넣어요. 맞는 문장 ✅ “I listen to music every day.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+     "comment": "정답: “to”! listen to 세트로 외워요! 무료 퀴즈로 더 연습해 보세요: {link}",
      "hashtags": [
       "#영어공부",
       "#영어회화",
@@ -156,8 +156,8 @@
     },
     "en": {
      "hook": "Do not forget “to”!",
-     "tip": "Always put to after listen. Say “I listen to music every day”.",
-     "caption": "Do you say “I listen music every day”? 😅 Do not put music right after listen. Add “to”. “I listen to music every day” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "tip": "Always put to after listen. Say “I listen to music every day”!",
+     "caption": "Do you say “I listen music every day” in English? 😅 Do not put music right after listen. Add “to”! “I listen to music every day” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -185,8 +185,8 @@
     "native": {
      "hook": "“discuss about” 틀렸어요!",
      "tip": "discuss는 그 자체로 ‘~에 대해 논의하다’예요. about 없이 써요.",
-     "caption": "“We discussed about the plan”라고 말하고 있나요? 😅 discuss에는 이미 ‘~에 대해’라는 뜻이 들어 있어서 about이 필요 없어요. “We discussed the plan”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-     "comment": "정답: “discuss”. discuss 뒤에 about 빼요! 무료 퀴즈로 더 연습해 보세요: {link}",
+     "caption": "“We discussed about the plan”처럼 말하고 있나요? 😅 discuss에는 이미 ‘~에 대해’라는 뜻이 들어 있어서 about이 필요 없어요. 맞는 문장 ✅ “We discussed the plan.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+     "comment": "정답: “discuss”! discuss 뒤에 about 빼요! 무료 퀴즈로 더 연습해 보세요: {link}",
      "hashtags": [
       "#영어공부",
       "#영어회화",
@@ -197,7 +197,7 @@
     "en": {
      "hook": "“Discuss about” is wrong!",
      "tip": "Discuss already means talk about. No about needed.",
-     "caption": "Do you say “We discussed about the plan”? 😅 Discuss already includes “about”, so you do not add it. “We discussed the plan” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "caption": "Do you say “We discussed about the plan” in English? 😅 Discuss already includes “about”, so you do not add it. “We discussed the plan” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -224,9 +224,9 @@
     "answer_say": "To me! Please explain it to me.",
     "native": {
      "hook": "“explain me” 틀렸어요!",
-     "tip": "explain 뒤에 사람이 바로 오지 않아요. “explain this word to me”예요.",
-     "caption": "“Please explain me this word”라고 말하고 있나요? 😅 explain은 사람을 바로 뒤에 쓸 수 없고 ‘to + 사람’으로 말해요. “Please explain this word to me”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-     "comment": "정답: “to me”. explain it to me 통째로! 무료 퀴즈로 더 연습해 보세요: {link}",
+     "tip": "explain 뒤에 사람이 바로 오지 않아요. 이렇게 말해요 👉 “explain this word to me.”",
+     "caption": "“Please explain me this word”처럼 말하고 있나요? 😅 explain은 사람을 바로 뒤에 쓸 수 없고 ‘to + 사람’으로 말해요. 맞는 문장 ✅ “Please explain this word to me.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+     "comment": "정답: “to me”! explain it to me 통째로! 무료 퀴즈로 더 연습해 보세요: {link}",
      "hashtags": [
       "#영어공부",
       "#영어회화",
@@ -236,8 +236,8 @@
     },
     "en": {
      "hook": "“Explain me” is wrong!",
-     "tip": "Do not put a person right after explain. Say “explain it to me”.",
-     "caption": "Do you say “Please explain me this word”? 😅 With explain, the person comes after “to”. “Please explain this word to me” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "tip": "Do not put a person right after explain. Say “explain it to me”!",
+     "caption": "Do you say “Please explain me this word” in English? 😅 With explain, the person comes after “to”! “Please explain this word to me” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -264,9 +264,9 @@
     "answer_say": "Lend! Can you lend me a pen?",
     "native": {
      "hook": "borrow와 lend 헷갈려요!",
-     "tip": "빌려줄 때는 lend! 빌릴 때는 borrow예요. “Can you lend me a pen?”",
-     "caption": "“Can you borrow me a pen?”라고 말하고 있나요? 😅 남에게 빌려 달라고 할 때 “lend me”를 써요. borrow는 내가 빌리는 거예요. “Can you lend me a pen?”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-     "comment": "정답: “lend”. 빌려줘는 lend me! 무료 퀴즈로 더 연습해 보세요: {link}",
+     "tip": "‘빌리다’와 ‘빌려주다’가 비슷해서 헷갈리기 쉬워요. 빌려줄 때는 lend, 빌릴 때는 borrow예요. “Can you lend me a pen?”",
+     "caption": "“Can you borrow me a pen?”처럼 말하고 있나요? 😅 남에게 빌려 달라고 할 때는 “lend me”를 써요. borrow는 내가 빌리는 거예요. 맞는 문장 ✅ “Can you lend me a pen?” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+     "comment": "정답: “lend”! 빌려줘는 lend me! 무료 퀴즈로 더 연습해 보세요: {link}",
      "hashtags": [
       "#영어공부",
       "#영어회화",
@@ -276,8 +276,8 @@
     },
     "en": {
      "hook": "Borrow or lend?",
-     "tip": "Lend means give for a while. Borrow means take. Say “lend me a pen”.",
-     "caption": "Do you say “Can you borrow me a pen?”? 😅 Lend is giving, borrow is taking. Here you want them to give. “Can you lend me a pen?” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "Lend means give for a while. Borrow means take. Say “Can you lend me a pen?”",
+     "caption": "Do you say “Can you borrow me a pen?” 😅 Lend is giving, borrow is taking. Here you want them to give. “Can you lend me a pen?” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -304,9 +304,9 @@
     "answer_say": "Interested! I am interested in art.",
     "native": {
      "hook": "“interesting in” 틀렸어요!",
-     "tip": "내 마음은 interested! “I am interested in music”이에요.",
-     "caption": "“I am interesting in music”라고 말하고 있나요? 😅 내가 느끼는 감정은 interested, 대상의 성질은 interesting이에요. “I am interested in music”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-     "comment": "정답: “interested”. 관심 있다는 interested! 무료 퀴즈로 더 연습해 보세요: {link}",
+     "tip": "내 마음은 interested! 이렇게 말해요 👉 “I am interested in music.”",
+     "caption": "“I am interesting in music”처럼 말하고 있나요? 😅 내가 느끼는 감정은 interested, 대상의 성질은 interesting이에요. 맞는 문장 ✅ “I am interested in music.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+     "comment": "정답: “interested”! 관심 있다는 interested! 무료 퀴즈로 더 연습해 보세요: {link}",
      "hashtags": [
       "#영어공부",
       "#영어회화",
@@ -316,8 +316,8 @@
     },
     "en": {
      "hook": "Not “interesting in”!",
-     "tip": "For your own feeling, say interested. “I am interested in music”.",
-     "caption": "Do you say “I am interesting in music”? 😅 Your own feeling is “interested”. A thing is “interesting”. “I am interested in music” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "tip": "For your own feeling, say interested. “I am interested in music”!",
+     "caption": "Do you say “I am interesting in music” in English? 😅 Your own feeling is “interested”! A thing is “interesting”! “I am interested in music” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -327,7 +327,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Enjoy the thing first!",
+    "hook_say": "Very much goes last!",
     "wrong": "I enjoyed very much the movie.",
     "right": "I enjoyed the movie very much.",
     "strike": "very much",
@@ -336,17 +336,17 @@
     "quiz": {
      "stem": "I enjoyed ___.",
      "options": [
-      "very much the film",
-      "the film very much"
+      "very much the movie",
+      "the movie very much"
      ],
      "answer": 1
     },
-    "answer_say": "The film very much! I enjoyed the film very much.",
+    "answer_say": "The movie very much! I enjoyed the movie very much.",
     "native": {
      "hook": "very much 위치가 틀렸어요!",
-     "tip": "very much는 문장 끝에! “I enjoyed the movie very much”예요.",
-     "caption": "“I enjoyed very much the movie”라고 말하고 있나요? 😅 동사 바로 뒤에는 목적어가 오고, very much는 문장 끝에 둬요. “I enjoyed the movie very much”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-     "comment": "정답: “the film very much”. very much는 맨 뒤로! 무료 퀴즈로 더 연습해 보세요: {link}",
+     "tip": "very much는 문장 끝에! 이렇게 말해요 👉 “I enjoyed the movie very much.”",
+     "caption": "“I enjoyed very much the movie”처럼 말하고 있나요? 😅 동사 바로 뒤에는 목적어가 오고, very much는 문장 끝에 둬요. 맞는 문장 ✅ “I enjoyed the movie very much.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+     "comment": "정답: “the movie very much”! very much는 맨 뒤로! 무료 퀴즈로 더 연습해 보세요: {link}",
      "hashtags": [
       "#영어공부",
       "#영어회화",
@@ -355,38 +355,38 @@
      ]
     },
     "en": {
-     "hook": "very much 자리가 틀렸어요!",
-     "tip": "Put very much at the end. Say “I enjoyed the movie very much”.",
-     "caption": "Do you say “I enjoyed very much the movie”? 😅 The object comes right after the verb, and very much goes last. “I enjoyed the movie very much” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "hook": "Very much goes last!",
+     "tip": "Put very much at the end. Say “I enjoyed the movie very much”!",
+     "caption": "Do you say “I enjoyed very much the movie” in English? 😅 The object comes right after the verb, and very much goes last. “I enjoyed the movie very much” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
   {
-   "id": "t2_l1_ko_yearsold",
+   "id": "t2_l1_ko_nearhere",
    "lang": "ko",
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Say am, not have!",
-    "wrong": "I have 20 years.",
-    "right": "I am 20 years old.",
-    "strike": "have 20 years",
-    "why": "We use am for age.",
-    "memory": "I am 20 years old.",
+    "hook_say": "Near here, no from!",
+    "wrong": "My house is near from here.",
+    "right": "My house is near here.",
+    "strike": "from",
+    "why": "Near needs no from.",
+    "memory": "Near here.",
     "quiz": {
-     "stem": "I ___ 20 years old.",
+     "stem": "The bank is near ___ station.",
      "options": [
-      "have",
-      "am"
+      "the",
+      "from the"
      ],
-     "answer": 1
+     "answer": 0
     },
-    "answer_say": "Am! I am 20 years old.",
+    "answer_say": "The! The bank is near the station.",
     "native": {
-     "hook": "나이는 have 아니에요!",
-     "tip": "나이는 have가 아니라 am! “I am 20 years old”예요.",
-     "caption": "“I have 20 years”라고 말하고 있나요? 😅 영어에서 나이는 have가 아니라 be 동사로 말하고 old를 붙여요. “I am 20 years old”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-     "comment": "정답: “am”. I am 20 years old! 무료 퀴즈로 더 연습해 보세요: {link}",
+     "hook": "“near from” 틀렸어요!",
+     "tip": "‘여기서 가까워요’의 ‘서’ 때문에 from을 넣기 쉬워요. far from은 맞지만 near 뒤엔 바로 장소! 이렇게 말해요 👉 “near here.”",
+     "caption": "“My house is near from here”처럼 말하고 있나요? 😅 near는 그 자체로 ‘~에서 가까운’이라서 from이 필요 없어요. 맞는 문장 ✅ “My house is near here.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+     "comment": "정답: “the”! near 뒤엔 from 없이! 무료 퀴즈로 더 연습해 보세요: {link}",
      "hashtags": [
       "#영어공부",
       "#영어회화",
@@ -395,9 +395,9 @@
      ]
     },
     "en": {
-     "hook": "Age uses “am”, not “have”!",
-     "tip": "For age, use am, not have. Say “I am 20 years old”.",
-     "caption": "Do you say “I have 20 years”? 😅 In English you use “am” for age and add “years old”. “I am 20 years old” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "hook": "“Near from” is wrong!",
+     "tip": "Near needs no from. Say “My house is near here.”",
+     "caption": "Do you say “My house is near from here” in English? 😅 Near already means close to, so you do not add “from”! “My house is near here” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -424,9 +424,9 @@
     "answer_say": "Agree! I agree with you.",
     "native": {
      "hook": "“I am agree” 틀렸어요!",
-     "tip": "agree는 동사라 am이 필요 없어요. “I agree with you”예요.",
-     "caption": "“I am agree with you”라고 말하고 있나요? 😅 agree 자체가 동사라서 be 동사 am을 붙이지 않아요. “I agree with you”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-     "comment": "정답: “agree”. am 빼고 I agree! 무료 퀴즈로 더 연습해 보세요: {link}",
+     "tip": "agree는 동사라 am이 필요 없어요. 이렇게 말해요 👉 “I agree with you.”",
+     "caption": "“I am agree with you”처럼 말하고 있나요? 😅 agree 자체가 동사라서 be 동사 am을 붙이지 않아요. 맞는 문장 ✅ “I agree with you.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+     "comment": "정답: “agree”! am 빼고 I agree! 무료 퀴즈로 더 연습해 보세요: {link}",
      "hashtags": [
       "#영어공부",
       "#영어회화",
@@ -436,8 +436,8 @@
     },
     "en": {
      "hook": "“I am agree” is wrong!",
-     "tip": "Agree is a verb already. No am. Say “I agree with you”.",
-     "caption": "Do you say “I am agree with you”? 😅 Agree is already a verb, so you do not add “am”. “I agree with you” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "Agree is a verb already. No am. Say “I agree with you”!",
+     "caption": "Do you say “I am agree with you” in English? 😅 Agree is already a verb, so you do not add “am”! “I agree with you” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -464,9 +464,9 @@
     "answer_say": "Taller! My brother is taller than me.",
     "native": {
      "hook": "“more taller” 틀렸어요!",
-     "tip": "taller에는 이미 비교의 뜻이 있어요. “She is taller than me”예요.",
-     "caption": "“She is more taller than me”라고 말하고 있나요? 😅 짧은 형용사는 -er만 붙이고 more는 함께 쓰지 않아요. “She is taller than me”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-     "comment": "정답: “taller”. more 빼고 taller! 무료 퀴즈로 더 연습해 보세요: {link}",
+     "tip": "taller에는 이미 비교의 뜻이 있어요. 이렇게 말해요 👉 “She is taller than me.”",
+     "caption": "“She is more taller than me”처럼 말하고 있나요? 😅 짧은 형용사는 -er만 붙이고 more는 함께 쓰지 않아요. 맞는 문장 ✅ “She is taller than me.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+     "comment": "정답: “taller”! more 빼고 taller! 무료 퀴즈로 더 연습해 보세요: {link}",
      "hashtags": [
       "#영어공부",
       "#영어회화",
@@ -476,8 +476,8 @@
     },
     "en": {
      "hook": "“More taller” is wrong!",
-     "tip": "Taller already shows comparison. No more. Say “She is taller than me”.",
-     "caption": "Do you say “She is more taller than me”? 😅 Short adjectives take -er, so you do not add “more”. “She is taller than me” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "tip": "Taller already shows comparison. No more. Say “She is taller than me”!",
+     "caption": "Do you say “She is more taller than me” in English? 😅 Short adjectives take -er, so you do not add “more”! “She is taller than me” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -504,9 +504,9 @@
     "answer_say": "People! Many people came.",
     "native": {
      "hook": "people에는 s 없어요!",
-     "tip": "people은 이미 복수예요. “Many people came”이라고 해요.",
-     "caption": "“Many peoples came to the party”라고 말하고 있나요? 😅 people 자체가 복수형이라서 s를 붙이지 않아요. “Many people came to the party”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-     "comment": "정답: “people”. people은 s 없이! 무료 퀴즈로 더 연습해 보세요: {link}",
+     "tip": "people은 이미 복수예요. 이렇게 말해요 👉 “Many people came.”",
+     "caption": "“Many peoples came to the party”처럼 말하고 있나요? 😅 people 자체가 복수형이라서 s를 붙이지 않아요. 맞는 문장 ✅ “Many people came to the party.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+     "comment": "정답: “people”! people은 s 없이! 무료 퀴즈로 더 연습해 보세요: {link}",
      "hashtags": [
       "#영어공부",
       "#영어회화",
@@ -516,8 +516,8 @@
     },
     "en": {
      "hook": "No s on people!",
-     "tip": "People is already plural. Say “Many people came”.",
-     "caption": "Do you say “Many peoples came to the party”? 😅 People is already plural, so you do not add an s. “Many people came to the party” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "People is already plural. Say “Many people came”!",
+     "caption": "Do you say “Many peoples came to the party” in English? 😅 People is already plural, so you do not add an s. “Many people came to the party” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -534,19 +534,19 @@
     "why": "Jobs need a or an.",
     "memory": "Be a doctor.",
     "quiz": {
-     "stem": "My mother is ___ nurse.",
+     "stem": "My mother is ___.",
      "options": [
-      "a",
-      "no word"
+      "a nurse",
+      "nurse"
      ],
      "answer": 0
     },
-    "answer_say": "A! My mother is a nurse.",
+    "answer_say": "A nurse! My mother is a nurse.",
     "native": {
      "hook": "직업 앞에 a 빠졌어요!",
-     "tip": "직업 앞에는 a나 an을 붙여요. “I want to be a doctor”예요.",
-     "caption": "“I want to be doctor”라고 말하고 있나요? 😅 직업을 말할 때는 셀 수 있는 명사라서 앞에 a나 an을 붙여요. “I want to be a doctor”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-     "comment": "정답: “a”. 직업 앞에는 a! 무료 퀴즈로 더 연습해 보세요: {link}",
+     "tip": "직업 앞에는 a나 an을 붙여요. 이렇게 말해요 👉 “I want to be a doctor.”",
+     "caption": "“I want to be doctor”처럼 말하고 있나요? 😅 직업을 말할 때는 셀 수 있는 명사라서 앞에 a나 an을 붙여요. 맞는 문장 ✅ “I want to be a doctor.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+     "comment": "정답: “a”! 직업 앞에는 a! 무료 퀴즈로 더 연습해 보세요: {link}",
      "hashtags": [
       "#영어공부",
       "#영어회화",
@@ -555,9 +555,9 @@
      ]
     },
     "en": {
-     "hook": "직업 앞에 a를 붙여요!",
-     "tip": "Put a before a job. Say “I want to be a doctor”.",
-     "caption": "Do you say “I want to be doctor”? 😅 A job is a countable noun, so it needs “a” or “an”. “I want to be a doctor” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "hook": "Put a before a job!",
+     "tip": "Put a before a job. Say “I want to be a doctor”!",
+     "caption": "Do you say “I want to be doctor” in English? 😅 A job is a countable noun, so it needs “a” or “an”! “I want to be a doctor” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -584,9 +584,9 @@
     "answer_say": "Ate! Yesterday I ate pizza.",
     "native": {
      "hook": "“eated” 틀렸어요!",
-     "tip": "eat의 과거형은 ate! “I ate rice for lunch”예요.",
-     "caption": "“I eated rice for lunch”라고 말하고 있나요? 😅 eat은 불규칙 동사라서 -ed 대신 ate로 바뀌어요. “I ate rice for lunch”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-     "comment": "정답: “ate”. eat의 과거는 ate! 무료 퀴즈로 더 연습해 보세요: {link}",
+     "tip": "eat의 과거형은 ate! 이렇게 말해요 👉 “I ate rice for lunch.”",
+     "caption": "“I eated rice for lunch”처럼 말하고 있나요? 😅 eat은 불규칙 동사라서 -ed 대신 ate로 바뀌어요. 맞는 문장 ✅ “I ate rice for lunch.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+     "comment": "정답: “ate”! eat의 과거는 ate! 무료 퀴즈로 더 연습해 보세요: {link}",
      "hashtags": [
       "#영어공부",
       "#영어회화",
@@ -596,8 +596,8 @@
     },
     "en": {
      "hook": "“Eated” is wrong!",
-     "tip": "The past of eat is ate. Say “I ate rice for lunch”.",
-     "caption": "Do you say “I eated rice for lunch”? 😅 Eat is irregular, so the past is “ate”, not “eated”. “I ate rice for lunch” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "The past of eat is ate. Say “I ate rice for lunch”!",
+     "caption": "Do you say “I eated rice for lunch” in English? 😅 Eat is irregular, so the past is “ate”, not “eated”! “I ate rice for lunch” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -624,9 +624,9 @@
     "answer_say": "Saw! I saw him yesterday.",
     "native": {
      "hook": "yesterday엔 과거형이에요!",
-     "tip": "yesterday처럼 정해진 과거는 단순 과거로! “I saw him yesterday”예요.",
-     "caption": "“I have seen him yesterday”라고 말하고 있나요? 😅 어제처럼 시간이 정해진 과거에는 현재완료가 아닌 과거형을 써요. “I saw him yesterday”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-     "comment": "정답: “saw”. 어제는 saw로! 무료 퀴즈로 더 연습해 보세요: {link}",
+     "tip": "yesterday처럼 정해진 과거는 단순 과거로! 이렇게 말해요 👉 “I saw him yesterday.”",
+     "caption": "“I have seen him yesterday”처럼 말하고 있나요? 😅 어제처럼 시간이 정해진 과거에는 현재완료가 아닌 과거형을 써요. 맞는 문장 ✅ “I saw him yesterday.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+     "comment": "정답: “saw”! 어제는 saw로! 무료 퀴즈로 더 연습해 보세요: {link}",
      "hashtags": [
       "#영어공부",
       "#영어회화",
@@ -636,8 +636,8 @@
     },
     "en": {
      "hook": "Yesterday needs past tense!",
-     "tip": "With yesterday, use the simple past. Say “I saw him yesterday”.",
-     "caption": "Do you say “I have seen him yesterday”? 😅 A fixed past time like yesterday needs the simple past, not present perfect. “I saw him yesterday” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "tip": "With yesterday, use the simple past. Say “I saw him yesterday”!",
+     "caption": "Do you say “I have seen him yesterday” in English? 😅 A fixed past time like yesterday needs the simple past, not present perfect. “I saw him yesterday” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -651,7 +651,7 @@
     "wrong": "I live here since 2020.",
     "right": "I have lived here since 2020.",
     "strike": "live",
-    "why": "Since needs have plus a verb.",
+    "why": "With since, say have lived.",
     "memory": "Have lived since.",
     "quiz": {
      "stem": "I ___ here since 2020.",
@@ -664,9 +664,9 @@
     "answer_say": "Have lived! I have lived here since 2020.",
     "native": {
      "hook": "since 앞엔 현재완료예요!",
-     "tip": "since와 함께는 현재완료! “I have lived here since 2020”이에요.",
-     "caption": "“I live here since 2020”라고 말하고 있나요? 😅 since가 나오면 과거부터 지금까지를 뜻해서 현재완료를 써요. “I have lived here since 2020”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-     "comment": "정답: “have lived”. since엔 have lived! 무료 퀴즈로 더 연습해 보세요: {link}",
+     "tip": "since와 함께는 현재완료! “I have lived here since 2020.”",
+     "caption": "“I live here since 2020”처럼 말하고 있나요? 😅 since가 나오면 과거부터 지금까지를 뜻해서 현재완료를 써요. 맞는 문장 ✅ “I have lived here since 2020.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+     "comment": "정답: “have lived”! since엔 have lived! 무료 퀴즈로 더 연습해 보세요: {link}",
      "hashtags": [
       "#영어공부",
       "#영어회화",
@@ -676,8 +676,8 @@
     },
     "en": {
      "hook": "Use present perfect with since!",
-     "tip": "Use present perfect with since. Say “I have lived here since 2020”.",
-     "caption": "Do you say “I live here since 2020”? 😅 Since means from then until now, so use the present perfect. “I have lived here since 2020” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "Use present perfect with since. Say “I have lived here since 2020”!",
+     "caption": "Do you say “I live here since 2020” in English? 😅 Since means from then until now, so use the present perfect. “I have lived here since 2020” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -704,9 +704,9 @@
     "answer_say": "At! He is good at sports.",
     "native": {
      "hook": "“good in” 틀렸어요!",
-     "tip": "잘한다는 good at! “She is good at English”예요.",
-     "caption": "“She is good in English”라고 말하고 있나요? 😅 어떤 분야를 잘한다고 할 때는 in이 아니라 at을 써요. “She is good at English”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-     "comment": "정답: “at”. good at으로 기억해요! 무료 퀴즈로 더 연습해 보세요: {link}",
+     "tip": "잘한다는 good at! 이렇게 말해요 👉 “She is good at English.”",
+     "caption": "“She is good in English”처럼 말하고 있나요? 😅 어떤 분야를 잘한다고 할 때는 in이 아니라 at을 써요. 맞는 문장 ✅ “She is good at English.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+     "comment": "정답: “at”! good at으로 기억해요! 무료 퀴즈로 더 연습해 보세요: {link}",
      "hashtags": [
       "#영어공부",
       "#영어회화",
@@ -716,37 +716,37 @@
     },
     "en": {
      "hook": "“Good in” is wrong!",
-     "tip": "Say good at, not good in. “She is good at English”.",
-     "caption": "Do you say “She is good in English”? 😅 To say you are skilled at something, use “at”. “She is good at English” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "tip": "Say good at, not good in. “She is good at English”!",
+     "caption": "Do you say “She is good in English” in English? 😅 To say you are skilled at something, use “at”! “She is good at English” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
   {
-   "id": "t2_l1_ko_turnon",
+   "id": "t2_l1_ko_toldme",
    "lang": "ko",
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Light needs turn on!",
-    "wrong": "Open the light.",
-    "right": "Turn on the light.",
-    "strike": "Open",
-    "why": "Say turn on the light.",
-    "memory": "Turn on the light.",
+    "hook_say": "Told me, not said me!",
+    "wrong": "He said me the news.",
+    "right": "He told me the news.",
+    "strike": "said",
+    "why": "Tell takes a person. Say does not.",
+    "memory": "Tell me.",
     "quiz": {
-     "stem": "Please ___ the light.",
+     "stem": "She ___ me a story.",
      "options": [
-      "open",
-      "turn on"
+      "said",
+      "told"
      ],
      "answer": 1
     },
-    "answer_say": "Turn on! Please turn on the light.",
+    "answer_say": "Told! She told me a story.",
     "native": {
-     "hook": "불은 open 아니에요!",
-     "tip": "불을 켤 때는 open이 아니라 turn on! “Turn on the light”예요.",
-     "caption": "“Open the light”라고 말하고 있나요? 😅 전등이나 TV를 켤 때는 open이 아니라 turn on을 써요. “Turn on the light”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-     "comment": "정답: “turn on”. 불 켜기는 turn on! 무료 퀴즈로 더 연습해 보세요: {link}",
+     "hook": "“said me” 틀렸어요!",
+     "tip": "‘나에게 말했다’를 said me로 옮기기 쉬워요. 사람이 바로 오면 told! 이렇게 말해요 👉 “He told me the news.”",
+     "caption": "“He said me the news”처럼 말하고 있나요? 😅 say 뒤에는 사람을 바로 쓰지 않아요. 사람이 바로 올 때는 tell을 써요. 맞는 문장 ✅ “He told me the news.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+     "comment": "정답: “told”! 사람이 오면 tell! 무료 퀴즈로 더 연습해 보세요: {link}",
      "hashtags": [
       "#영어공부",
       "#영어회화",
@@ -755,9 +755,9 @@
      ]
     },
     "en": {
-     "hook": "불은 open이 아니에요!",
-     "tip": "To switch on a light, say turn on, not open.",
-     "caption": "Do you say “Open the light”? 😅 Open is for doors. For lights and TVs, use “turn on”. “Turn on the light” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "hook": "“Said me” is wrong!",
+     "tip": "Say does not take a person right after it. Use tell: “He told me the news.”",
+     "caption": "Do you say “He said me the news” in English? 😅 Say cannot take a person right after it, so use “tell”! “He told me the news” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -767,7 +767,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Watch TV, do not see!",
+    "hook_say": "Watch TV, not see TV!",
     "wrong": "I see TV every night.",
     "right": "I watch TV every night.",
     "strike": "see",
@@ -784,9 +784,9 @@
     "answer_say": "Watch! I watch TV after dinner.",
     "native": {
      "hook": "TV는 see 아니에요!",
-     "tip": "TV는 see가 아니라 watch! “I watch TV every night”예요.",
-     "caption": "“I see TV every night”라고 말하고 있나요? 😅 움직이는 화면을 볼 때는 see 대신 watch를 써요. “I watch TV every night”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-     "comment": "정답: “watch”. TV는 watch! 무료 퀴즈로 더 연습해 보세요: {link}",
+     "tip": "TV는 see가 아니라 watch! 이렇게 말해요 👉 “I watch TV every night.”",
+     "caption": "“I see TV every night”처럼 말하고 있나요? 😅 TV를 볼 때는 see 대신 watch를 써요. 맞는 문장 ✅ “I watch TV every night.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+     "comment": "정답: “watch”! TV는 watch! 무료 퀴즈로 더 연습해 보세요: {link}",
      "hashtags": [
       "#영어공부",
       "#영어회화",
@@ -795,9 +795,9 @@
      ]
     },
     "en": {
-     "hook": "TV는 see가 아니에요!",
-     "tip": "For TV, say watch, not see. “I watch TV every night”.",
-     "caption": "Do you say “I see TV every night”? 😅 We use “watch” for things that move on a screen. “I watch TV every night” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "hook": "TV? Say watch, not see!",
+     "tip": "For TV, say watch, not see. “I watch TV every night”!",
+     "caption": "Do you say “I see TV every night” in English? 😅 We use “watch” for things that move on a screen. “I watch TV every night” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -814,19 +814,19 @@
     "why": "Say go on a diet.",
     "memory": "Go on a diet.",
     "quiz": {
-     "stem": "I will go ___ a diet.",
+     "stem": "I will ___ a diet.",
      "options": [
-      "on",
-      "in"
+      "do",
+      "go on"
      ],
-     "answer": 0
+     "answer": 1
     },
-    "answer_say": "On! I will go on a diet.",
+    "answer_say": "Go on! I will go on a diet.",
     "native": {
      "hook": "“do diet” 틀렸어요!",
      "tip": "다이어트하다는 do diet가 아니라 go on a diet예요!",
-     "caption": "“I will do diet”라고 말하고 있나요? 😅 ‘다이어트를 하다’는 go on a diet라는 표현으로 말해요. “I will go on a diet”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-     "comment": "정답: “on”. go on a diet로! 무료 퀴즈로 더 연습해 보세요: {link}",
+     "caption": "“I will do diet”처럼 말하고 있나요? 😅 ‘다이어트를 하다’는 go on a diet라는 표현으로 말해요. 맞는 문장 ✅ “I will go on a diet.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+     "comment": "정답: “on”! go on a diet로! 무료 퀴즈로 더 연습해 보세요: {link}",
      "hashtags": [
       "#영어공부",
       "#영어회화",
@@ -835,9 +835,9 @@
      ]
     },
     "en": {
-     "hook": "“Do diet”는 틀렸어요!",
-     "tip": "Do not say do diet. Say “I will go on a diet”.",
-     "caption": "Do you say “I will do diet”? 😅 English says “go on a diet”, not “do diet”. “I will go on a diet” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "hook": "Not “do diet”!",
+     "tip": "Do not say do diet. Say “I will go on a diet”!",
+     "caption": "Do you say “I will do diet” in English? 😅 English says “go on a diet”, not “do diet”! “I will go on a diet” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -864,9 +864,9 @@
     "answer_say": "Cell phone! I lost my cell phone.",
     "native": {
      "hook": "휴대폰, 영어로 뭐라고 해요?",
-     "tip": "휴대폰을 hand phone이라고 하는 건 콩글리시예요. 영어로는 “cell phone”이에요!",
-     "caption": "“I lost my hand phone”라고 말하고 있나요? 😅 우리가 쓰는 핸드폰이라는 말은 영어가 아니에요. 영어에서는 cell phone이나 mobile phone이라고 해요. “I lost my cell phone”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-     "comment": "정답: “cell phone”. 정답은 휴대폰을 뜻하는 cell phone! 무료 퀴즈로 더 연습해 보세요: {link}",
+     "tip": "휴대폰을 hand phone이라고 하는 건 콩글리시예요. 영어로는 이렇게 말해요 👉 “cell phone.”",
+     "caption": "“I lost my hand phone”처럼 말하고 있나요? 😅 우리가 쓰는 핸드폰이라는 말은 영어가 아니에요. 영어에서는 cell phone이나 mobile phone이라고 해요. 맞는 문장 ✅ “I lost my cell phone.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+     "comment": "정답: “cell phone”! 핸드폰은 cell phone! 무료 퀴즈로 더 연습해 보세요: {link}",
      "hashtags": [
       "#영어공부",
       "#영어회화",
@@ -876,8 +876,8 @@
     },
     "en": {
      "hook": "“Hand phone” is not English!",
-     "tip": "Say cell phone, not hand phone. “I lost my cell phone”.",
-     "caption": "Do you say “I lost my hand phone”? 😅 Hand phone is not English. Say cell phone or mobile phone. “I lost my cell phone” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "Say cell phone, not hand phone. “I lost my cell phone”!",
+     "caption": "Do you say “I lost my hand phone” in English? 😅 Hand phone is not English. Say cell phone or mobile phone. “I lost my cell phone” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -904,9 +904,9 @@
     "answer_say": "Took! I took medicine this morning.",
     "native": {
      "hook": "약은 eat 아니에요!",
-     "tip": "약은 eat이 아니라 take! “I took medicine”이에요.",
-     "caption": "“I ate medicine this morning”라고 말하고 있나요? 😅 약을 먹는다고 할 때는 eat 대신 take를 써요. “I took medicine this morning”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-     "comment": "정답: “took”. 약 먹기는 take! 무료 퀴즈로 더 연습해 보세요: {link}",
+     "tip": "약은 eat이 아니라 take! 이렇게 말해요 👉 “I took medicine.”",
+     "caption": "“I ate medicine this morning”처럼 말하고 있나요? 😅 약을 먹는다고 할 때는 eat 대신 take를 써요. 맞는 문장 ✅ “I took medicine this morning.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+     "comment": "정답: “took”! 약 먹기는 take! 무료 퀴즈로 더 연습해 보세요: {link}",
      "hashtags": [
       "#영어공부",
       "#영어회화",
@@ -915,9 +915,9 @@
      ]
     },
     "en": {
-     "hook": "약은 eat이 아니에요!",
-     "tip": "For medicine, use take, not eat. Say “I took medicine”.",
-     "caption": "Do you say “I ate medicine this morning”? 😅 We use “take” for medicine, not “eat”. “I took medicine this morning” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "hook": "Medicine: take, not eat!",
+     "tip": "For medicine, use take, not eat. Say “I took medicine”!",
+     "caption": "Do you say “I ate medicine this morning” in English? 😅 We use “take” for medicine, not “eat”! “I took medicine this morning” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -944,9 +944,9 @@
     "answer_say": "Seeing! I look forward to seeing you.",
     "native": {
      "hook": "to 뒤에는 -ing예요!",
-     "tip": "look forward to 뒤에는 -ing! “looking forward to seeing you”예요.",
-     "caption": "“I am looking forward to see you”라고 말하고 있나요? 😅 이 표현의 to는 전치사라서 뒤에 동사 원형이 아닌 -ing가 와요. “I am looking forward to seeing you”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-     "comment": "정답: “seeing”. look forward to -ing! 무료 퀴즈로 더 연습해 보세요: {link}",
+     "tip": "look forward to 뒤에는 -ing! 이렇게 말해요 👉 “looking forward to seeing you.”",
+     "caption": "“I am looking forward to see you”처럼 말하고 있나요? 😅 이 표현의 to는 전치사라서 뒤에 동사 원형이 아닌 -ing가 와요. 맞는 문장 ✅ “I am looking forward to seeing you.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+     "comment": "정답: “seeing”! look forward to -ing! 무료 퀴즈로 더 연습해 보세요: {link}",
      "hashtags": [
       "#영어공부",
       "#영어회화",
@@ -955,9 +955,9 @@
      ]
     },
     "en": {
-     "hook": "to 뒤에 -ing를 써요!",
-     "tip": "After look forward to, use -ing. Say “looking forward to seeing you”.",
-     "caption": "Do you say “I am looking forward to see you”? 😅 Here “to” is a preposition, so the verb takes -ing. “I am looking forward to seeing you” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "hook": "Look forward to + -ing!",
+     "tip": "After look forward to, use -ing. Say “looking forward to seeing you”!",
+     "caption": "Do you say “I am looking forward to see you” in English? 😅 Here “to” is a preposition, so the verb takes -ing. “I am looking forward to seeing you” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -968,25 +968,25 @@
    "theme": "dusk",
    "in": {
     "hook_say": "Want you to help!",
-    "wrong": "I want that you help me.",
+    "wrong": "I want you help me.",
     "right": "I want you to help me.",
-    "strike": "that you",
+    "strike": "help",
     "why": "Say want you to.",
     "memory": "Want you to help.",
     "quiz": {
-     "stem": "I want ___ come.",
+     "stem": "I want ___ help me.",
      "options": [
-      "that you",
+      "you help",
       "you to"
      ],
      "answer": 1
     },
-    "answer_say": "You to! I want you to come.",
+    "answer_say": "You to! I want you to help me.",
     "native": {
-     "hook": "“want that you” 틀렸어요!",
-     "tip": "want 뒤에 that절 대신 “you to”! “I want you to help me”예요.",
-     "caption": "“I want that you help me”라고 말하고 있나요? 😅 want 뒤에는 that절이 아니라 ‘사람 + to 동사’를 써요. “I want you to help me”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-     "comment": "정답: “you to”. want you to로 말해요! 무료 퀴즈로 더 연습해 보세요: {link}",
+     "hook": "“want you help” 틀렸어요!",
+     "tip": "want you 뒤에 to가 빠졌어요! 이렇게 말해요 👉 “I want you to help me.”",
+     "caption": "“I want you help me”처럼 말하고 있나요? 😅 한국어는 ‘네가 도와줬으면 해’처럼 to 없이 말하지만, 영어는 want you 뒤에 to가 꼭 필요해요. 맞는 문장 ✅ “I want you to help me.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+     "comment": "정답: “you to”! want you to로 말해요! 무료 퀴즈로 더 연습해 보세요: {link}",
      "hashtags": [
       "#영어공부",
       "#영어회화",
@@ -995,9 +995,9 @@
      ]
     },
     "en": {
-     "hook": "“Want that you” is wrong!",
-     "tip": "Do not use that after want. Say “I want you to help me”.",
-     "caption": "Do you say “I want that you help me”? 😅 After want, use a person plus “to”, not a that clause. “I want you to help me” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "hook": "“Want you help” is wrong!",
+     "tip": "Add to after want you. Say “I want you to help me.”",
+     "caption": "Do you say “I want you help me” in English? 😅 After want and a person, English needs “to”. “I want you to help me” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1007,26 +1007,26 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Use do not here!",
-    "wrong": "I am not understand.",
-    "right": "I do not understand.",
-    "strike": "am not",
-    "why": "Understand is a verb.",
-    "memory": "I do not understand.",
+    "hook_say": "Say me neither!",
+    "wrong": "I do not like tea. Me too.",
+    "right": "I do not like tea. Me neither.",
+    "strike": "too",
+    "why": "After a no, say neither.",
+    "memory": "Me neither.",
     "quiz": {
-     "stem": "I ___ understand.",
+     "stem": "I do not like tea. Me ___.",
      "options": [
-      "am not",
-      "do not"
+      "too",
+      "neither"
      ],
      "answer": 1
     },
-    "answer_say": "Do not! I do not understand.",
+    "answer_say": "Neither! I do not like tea. Me neither.",
     "native": {
-     "hook": "“am not understand” 틀렸어요!",
-     "tip": "동사 앞 부정은 do not! “I do not understand”예요.",
-     "caption": "“I am not understand”라고 말하고 있나요? 😅 일반동사를 부정할 때는 am not이 아니라 do not을 써요. “I do not understand”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-     "comment": "정답: “do not”. do not understand! 무료 퀴즈로 더 연습해 보세요: {link}",
+     "hook": "“Me too” 아니고 “me neither”!",
+     "tip": "한국어 ‘나도’는 긍정에도 부정에도 쓰여서 me too가 나오기 쉬워요. 부정문에 맞장구칠 땐 “Me neither.”예요.",
+     "caption": "“I do not like tea. Me too.”처럼 말하고 있나요? 😅 한국어 ‘나도 안 좋아해’는 ‘나도’를 그대로 me too로 옮기기 쉬워요. 부정하는 말에 맞장구칠 땐 neither를 써요. 맞는 문장 ✅ “I do not like tea. Me neither.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+     "comment": "정답: “neither”! 부정에는 me neither! 무료 퀴즈로 더 연습해 보세요: {link}",
      "hashtags": [
       "#영어공부",
       "#영어회화",
@@ -1035,9 +1035,9 @@
      ]
     },
     "en": {
-     "hook": "“am not understand” 틀렸어요!",
-     "tip": "Make a verb negative with do not. Say “I do not understand”.",
-     "caption": "Do you say “I am not understand”? 😅 For a normal verb, the negative is “do not”, not “am not”. “I do not understand” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "hook": "Me too or me neither?",
+     "tip": "After a negative sentence, say me neither. Say “I do not like tea. Me neither.”",
+     "caption": "Do you say “I do not like tea. Me too.” in English? 😅 After a no, we agree with neither, not too. “I do not like tea. Me neither.” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1047,26 +1047,26 @@
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Money is not many!",
-    "wrong": "I have many money.",
-    "right": "I have a lot of money.",
-    "strike": "many",
-    "why": "Money has no plural.",
-    "memory": "A lot of money.",
+    "hook_say": "No, not yes!",
+    "wrong": "Are you not hungry? Yes, I am not.",
+    "right": "Are you not hungry? No, I am not.",
+    "strike": "Yes",
+    "why": "Your answer is no, so say no.",
+    "memory": "No, I am not.",
     "quiz": {
-     "stem": "I do not have ___ money.",
+     "stem": "Are you not hungry? ___, I am not.",
      "options": [
-      "many",
-      "much"
+      "Yes",
+      "No"
      ],
      "answer": 1
     },
-    "answer_say": "Much! I do not have much money.",
+    "answer_say": "No! No, I am not.",
     "native": {
-     "hook": "money 앞엔 many 아니에요!",
-     "tip": "money는 셀 수 없어서 many 대신 a lot of! “I have a lot of money”예요.",
-     "caption": "“I have many money”라고 말하고 있나요? 😅 money는 셀 수 없는 명사라서 many를 쓰지 않고 much나 a lot of를 써요. “I have a lot of money”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-     "comment": "정답: “much”. money엔 a lot of! 무료 퀴즈로 더 연습해 보세요: {link}",
+     "hook": "부정 질문엔 yes 아니고 no!",
+     "tip": "한국어는 ‘안 배고파요?’에 ‘네, 안 배고파요’라고 답해서 yes가 나오기 쉬워요. 영어는 답이 부정이면 no예요. “No, I am not.”",
+     "caption": "“Are you not hungry? Yes, I am not.”처럼 말하고 있나요? 😅 한국어는 ‘네, 안 배고파요’처럼 질문에 동의하는 뜻으로 yes를 쓰지만, 영어는 내 대답이 부정이면 no라고 해요. 맞는 문장 ✅ “Are you not hungry? No, I am not.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+     "comment": "정답: “No”! 대답이 부정이면 no! 무료 퀴즈로 더 연습해 보세요: {link}",
      "hashtags": [
       "#영어공부",
       "#영어회화",
@@ -1075,9 +1075,9 @@
      ]
     },
     "en": {
-     "hook": "Money does not use many!",
-     "tip": "Money cannot be counted. Say “I have a lot of money”.",
-     "caption": "Do you say “I have many money”? 😅 Money is uncountable, so use “a lot of” or “much”, not “many”. “I have a lot of money” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "hook": "Yes or no? Think!",
+     "tip": "If your answer is negative, say no. Say “No, I am not.”",
+     "caption": "Do you say “Are you not hungry? Yes, I am not.” in English? 😅 In English, your own answer decides: if it is negative, say no. “Are you not hungry? No, I am not.” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1105,8 +1105,8 @@
     "native": {
      "hook": "영어는 주어를 빼면 안 돼요!",
      "tip": "한국어는 주어를 자주 생략하지만 영어는 꼭 필요해요. “It is very cold today”!",
-     "caption": "“Is very cold today.”라고 말하고 있나요? 😅 한국어처럼 주어를 생략하면 안 되고, 날씨 얘기에도 “It”이 꼭 필요해요. “It is very cold today”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-     "comment": "정답: “It”. 주어를 꼭 쓰세요! 무료 퀴즈로 더 연습해 보세요: {link}",
+     "caption": "“Is very cold today.”처럼 말하고 있나요? 😅 한국어처럼 주어를 생략하면 안 되고, 날씨 얘기에도 “It”이 꼭 필요해요. 맞는 문장 ✅ “It is very cold today.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+     "comment": "정답: “It”! 주어를 꼭 쓰세요! 무료 퀴즈로 더 연습해 보세요: {link}",
      "hashtags": [
       "#영어공부",
       "#영어회화",
@@ -1116,8 +1116,8 @@
     },
     "en": {
      "hook": "Never drop the subject!",
-     "tip": "Korean often drops the subject, but English needs it. Say “It is very cold today”.",
-     "caption": "Do you say “Is very cold today”? 😅 English needs a subject, even for weather. “It is very cold today” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "English always needs a subject, even for weather. Say “It is very cold today.”",
+     "caption": "Do you say “Is very cold today” in English? 😅 English needs a subject, even for weather. “It is very cold today” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1145,8 +1145,8 @@
     "native": {
      "hook": "둘 이상이면 명사에 s를 붙여요!",
      "tip": "한국어는 “고양이 두 마리”처럼 숫자 뒤엔 ‘-들’을 안 붙이지만, 영어는 둘 이상이면 꼭 s를 붙여요. “two cats”!",
-     "caption": "“I have two cat.”라고 말하고 있나요? 😅 한국어는 숫자 뒤에 복수 표시를 하지 않지만, 영어는 둘 이상이면 명사에 s를 붙여요. “I have two cats”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-     "comment": "정답: “dogs”. 둘 이상엔 s! 무료 퀴즈로 더 연습해 보세요: {link}",
+     "caption": "“I have two cat.”처럼 말하고 있나요? 😅 한국어는 숫자 뒤에 복수 표시를 하지 않지만, 영어는 둘 이상이면 명사에 s를 붙여요. 맞는 문장 ✅ “I have two cats.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+     "comment": "정답: “dogs”! 둘 이상엔 s! 무료 퀴즈로 더 연습해 보세요: {link}",
      "hashtags": [
       "#영어공부",
       "#영어회화",
@@ -1156,8 +1156,8 @@
     },
     "en": {
      "hook": "Two or more? Add s!",
-     "tip": "Korean does not mark plurals after numbers, but English does. Say “I have two cats”.",
-     "caption": "Do you say “I have two cat”? 😅 After a number like two, add s to the noun. “I have two cats” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "tip": "After a number above one, add s to the noun. Say “I have two cats.”",
+     "caption": "Do you say “I have two cat” in English? 😅 After a number like two, add s to the noun. “I have two cats” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1184,9 +1184,9 @@
     "answer_say": "At! We arrived at the station.",
     "native": {
      "hook": "arrive 뒤엔 to 말고 at을 써요!",
-     "tip": "한국어 “~에 도착하다”의 “에”를 to로 옮기기 쉬워요. 영어는 arrive at! “arrived at school”이에요.",
-     "caption": "“I arrived to school late.”라고 말하고 있나요? 😅 한국어 “학교에 도착했다”의 “에”를 to로 옮기면 틀려요. 영어는 arrive at을 써요. “I arrived at school late”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-     "comment": "정답: “at”. arrive at으로 외워요! 무료 퀴즈로 더 연습해 보세요: {link}",
+     "tip": "한국어 “~에 도착하다”의 “에”를 to로 옮기기 쉬워요. 영어는 arrive at! 이렇게 말해요 👉 “arrived at school.”",
+     "caption": "“I arrived to school late.”처럼 말하고 있나요? 😅 한국어 “학교에 도착했다”의 “에”를 to로 옮기면 틀려요. 영어는 arrive at을 써요. 맞는 문장 ✅ “I arrived at school late.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+     "comment": "정답: “at”! arrive at으로 외워요! 무료 퀴즈로 더 연습해 보세요: {link}",
      "hashtags": [
       "#영어공부",
       "#영어회화",
@@ -1196,8 +1196,8 @@
     },
     "en": {
      "hook": "Say arrive at, not to!",
-     "tip": "Korean says “school-e arrive”, so people use to. English says arrive at. Say “I arrived at school late”.",
-     "caption": "Do you say “I arrived to school late”? 😅 After arrive, use at, not to. “I arrived at school late” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "After arrive, use at, not to. Say “I arrived at school late.”",
+     "caption": "Do you say “I arrived to school late” in English? 😅 After arrive, use at, not to. “I arrived at school late” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1225,7 +1225,7 @@
     "native": {
      "hook": "동사가 먼저, 그다음 English!",
      "tip": "한국어는 “영어를 공부해요”처럼 동사가 맨 끝이지만, 영어는 주어 다음에 바로 동사예요. “I study English”!",
-     "caption": "“I English study every day.”라고 말하고 있나요? 😅 한국어는 동사가 문장 끝에 오지만, 영어는 주어 바로 뒤에 동사가 와요. “I study English every day”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+     "caption": "“I English study every day.”처럼 말하고 있나요? 😅 한국어는 동사가 문장 끝에 오지만, 영어는 주어 바로 뒤에 동사가 와요. 맞는 문장 ✅ “I study English every day.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
      "comment": "정답: “I study English.” 동사 먼저! 무료 퀴즈로 더 연습해 보세요: {link}",
      "hashtags": [
       "#영어공부",
@@ -1236,8 +1236,8 @@
     },
     "en": {
      "hook": "Verb goes before English!",
-     "tip": "Korean puts the verb last, but English puts it right after the subject. Say “I study English”.",
-     "caption": "Do you say “I English study every day”? 😅 In English, the action word comes right after I. “I study English every day” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "tip": "In English, the verb comes right after the subject. Say “I study English.”",
+     "caption": "Do you say “I English study every day” in English? 😅 In English, the action word comes right after I. “I study English every day” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1265,8 +1265,8 @@
     "native": {
      "hook": "wait 뒤엔 for가 필요해요!",
      "tip": "한국어 “나를 기다려요”는 목적어를 바로 쓰지만, 영어는 wait for를 써요. “Please wait for me”!",
-     "caption": "“Please wait me here.”라고 말하고 있나요? 😅 한국어 “저를 기다려 주세요”는 목적어에 ‘를’만 붙여서 wait me라고 하기 쉬워요. 영어는 wait for를 써요. “Please wait for me here”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-     "comment": "정답: “for”. wait for로 외워요! 무료 퀴즈로 더 연습해 보세요: {link}",
+     "caption": "“Please wait me here.”처럼 말하고 있나요? 😅 한국어 “저를 기다려 주세요”는 목적어에 ‘를’만 붙여서 wait me라고 하기 쉬워요. 영어는 wait for를 써요. 맞는 문장 ✅ “Please wait for me here.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+     "comment": "정답: “for”! wait for로 외워요! 무료 퀴즈로 더 연습해 보세요: {link}",
      "hashtags": [
       "#영어공부",
       "#영어회화",
@@ -1276,8 +1276,8 @@
     },
     "en": {
      "hook": "Wait for, not wait me!",
-     "tip": "Korean says “me-reul wait”, so people say wait me. English needs for. Say “Please wait for me here”.",
-     "caption": "Do you say “Please wait me here”? 😅 After wait, you need for. “Please wait for me here” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "Wait needs for before the person. Say “Please wait for me here.”",
+     "caption": "Do you say “Please wait me here” in English? 😅 After wait, you need for. “Please wait for me here” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1304,9 +1304,9 @@
     "answer_say": "What! What do you think about it?",
     "native": {
      "hook": "생각을 물을 땐 What이에요!",
-     "tip": "한국어 “어떻게 생각해요?”의 “어떻게”를 How로 옮기기 쉬워요. 영어는 What! “What do you think?”예요.",
-     "caption": "“How do you think about it?”라고 말하고 있나요? 😅 한국어 “어떻게 생각해요?”를 그대로 옮기면 How가 돼요. 영어는 What을 써요. “What do you think about it?”이 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-     "comment": "정답: “What”. What do you think? 무료 퀴즈로 더 연습해 보세요: {link}",
+     "tip": "한국어 “어떻게 생각해요?”의 “어떻게”를 How로 옮기기 쉬워요. 영어는 What! 이렇게 말해요 👉 “What do you think?”",
+     "caption": "“How do you think about it?”처럼 말하고 있나요? 😅 한국어 “어떻게 생각해요?”를 그대로 옮기면 How가 돼요. 영어는 What을 써요. 맞는 문장 ✅ “What do you think about it?” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+     "comment": "정답: “What”! What do you think? 무료 퀴즈로 더 연습해 보세요: {link}",
      "hashtags": [
       "#영어공부",
       "#영어회화",
@@ -1316,8 +1316,8 @@
     },
     "en": {
      "hook": "What, not how!",
-     "tip": "Korean says “how do you think”, so people use how. English uses what. Say “What do you think about it?”",
-     "caption": "Do you say “How do you think about it”? 😅 To ask for an opinion, use what. “What do you think about it?” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "tip": "To ask for an opinion, use what, not how. Say “What do you think about it?”",
+     "caption": "Do you say “How do you think about it” in English? 😅 To ask for an opinion, use what. “What do you think about it?” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1345,8 +1345,8 @@
     "native": {
      "hook": "“너무 맛있다”는 too가 아니에요!",
      "tip": "한국어 “너무 맛있다”의 “너무”는 “아주”라는 뜻으로 쓰이지만, too는 “지나치게”라서 부정적이에요. “very tasty”!",
-     "caption": "“The pizza is too tasty.”라고 말하고 있나요? 😅 한국어 “너무 맛있다”의 “너무”를 too로 옮기면 “지나치게 맛있다”가 돼서 어색해요. 칭찬할 땐 very를 써요. “The pizza is very tasty”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-     "comment": "정답: “very”. 칭찬엔 very! 무료 퀴즈로 더 연습해 보세요: {link}",
+     "caption": "“The pizza is too tasty.”처럼 말하고 있나요? 😅 한국어 “너무 맛있다”의 “너무”를 too로 옮기면 “지나치게 맛있다”가 돼서 어색해요. 칭찬할 땐 very를 써요. 맞는 문장 ✅ “The pizza is very tasty.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+     "comment": "정답: “very”! 칭찬엔 very! 무료 퀴즈로 더 연습해 보세요: {link}",
      "hashtags": [
       "#영어공부",
       "#영어회화",
@@ -1356,8 +1356,8 @@
     },
     "en": {
      "hook": "Too tasty? Say very tasty!",
-     "tip": "Korean “neomu” means very, but English too means more than good. Say “The pizza is very tasty”.",
-     "caption": "Do you say “The pizza is too tasty”? 😅 Too sounds like a problem. To praise, use very. “The pizza is very tasty” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "Too means more than you want, so it sounds like a problem. Say “The pizza is very tasty.”",
+     "caption": "Do you say “The pizza is too tasty” in English? 😅 Too sounds like a problem. To praise, use very. “The pizza is very tasty” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1367,26 +1367,26 @@
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Let's go shopping!",
-    "wrong": "Let's do shopping today.",
-    "right": "Let's go shopping today.",
-    "strike": "do",
-    "why": "We say go shopping.",
-    "memory": "Go shopping.",
+    "hook_say": "Say autograph, not sign!",
+    "wrong": "Can I get your sign?",
+    "right": "Can I get your autograph?",
+    "strike": "sign",
+    "why": "A star's name is an autograph.",
+    "memory": "Get an autograph.",
     "quiz": {
-     "stem": "Let's ___ shopping.",
+     "stem": "Can I get your ___, please?",
      "options": [
-      "go",
-      "do"
+      "sign",
+      "autograph"
      ],
-     "answer": 0
+     "answer": 1
     },
-    "answer_say": "Go! Let's go shopping.",
+    "answer_say": "Autograph! Can I get your autograph?",
     "native": {
-     "hook": "쇼핑하러 갈 땐 go shopping!",
-     "tip": "한국어는 “쇼핑하다”처럼 명사에 “하다”를 붙여서 do를 쓰기 쉬워요. 영어는 쇼핑하러 갈 땐 go shopping이에요!",
-     "caption": "“Let's do shopping today.”라고 말하고 있나요? 😅 한국어 “쇼핑하다”처럼 명사에 “하다”를 붙이면 do shopping이 돼요. 영어는 go shopping이라고 해요. “Let's go shopping today”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-     "comment": "정답: “go”. go shopping으로 외워요! 무료 퀴즈로 더 연습해 보세요: {link}",
+     "hook": "“sign” 아니고 autograph!",
+     "tip": "한국어 ‘사인’은 영어 sign이 아니에요. 유명인의 사인은 autograph예요. “Can I get your autograph?”",
+     "caption": "“Can I get your sign?”처럼 말하고 있나요? 😅 한국어 ‘사인’을 그대로 sign이라고 하면 어색해요. 유명한 사람에게 사인을 부탁할 땐 autograph를 써요. 맞는 문장 ✅ “Can I get your autograph?” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+     "comment": "정답: “autograph”! 사인은 autograph! 무료 퀴즈로 더 연습해 보세요: {link}",
      "hashtags": [
       "#영어공부",
       "#영어회화",
@@ -1395,9 +1395,9 @@
      ]
     },
     "en": {
-     "hook": "Say go shopping!",
-     "tip": "Korean makes verbs with hada, so people say do shopping. English says go shopping. Say “Let's go shopping today”.",
-     "caption": "Do you say “Let's do shopping today”? 😅 We say go shopping, not do shopping. “Let's go shopping today” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "hook": "Sign? Say autograph!",
+     "tip": "A famous name on paper is an autograph. Say “Can I get your autograph?”",
+     "caption": "Do you say “Can I get your sign?” in English? 😅 A sign is a board on the street. A star's name on paper is an autograph. “Can I get your autograph?” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1425,8 +1425,8 @@
     "native": {
      "hook": "know는 진행형으로 안 써요!",
      "tip": "한국어는 “알고 있다”라고 진행형처럼 말하지만, 영어 know는 그냥 “I know”예요. “I know the answer”!",
-     "caption": "“I am knowing the answer.”라고 말하고 있나요? 😅 한국어 “알고 있다”는 “-고 있다” 진행 형태라서 am knowing으로 옮기기 쉬워요. 영어는 “I know”라고 해요. “I know the answer”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-     "comment": "정답: “know”. I know로 말해요! 무료 퀴즈로 더 연습해 보세요: {link}",
+     "caption": "“I am knowing the answer.”처럼 말하고 있나요? 😅 한국어 “알고 있다”는 “-고 있다” 진행 형태라서 am knowing으로 옮기기 쉬워요. 영어는 “I know”라고 해요. 맞는 문장 ✅ “I know the answer.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+     "comment": "정답: “know”! I know로 말해요! 무료 퀴즈로 더 연습해 보세요: {link}",
      "hashtags": [
       "#영어공부",
       "#영어회화",
@@ -1436,8 +1436,8 @@
     },
     "en": {
      "hook": "No am knowing!",
-     "tip": "Korean says “algo itda”, like be knowing. English just says know. Say “I know the answer”.",
-     "caption": "Do you say “I am knowing the answer”? 😅 Do not say am knowing. Just say know. “I know the answer” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "Know is a state, so do not use -ing. Say “I know the answer.”",
+     "caption": "Do you say “I am knowing the answer” in English? 😅 Do not say am knowing. Just say know. “I know the answer” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1465,8 +1465,8 @@
     "native": {
      "hook": "안경은 쓰는 거지만 wear!",
      "tip": "한국어 “쓰다”는 ‘글을 쓰다·사용하다·착용하다’를 모두 뜻해서 use로 옮기기 쉬워요. 안경을 착용할 땐 wear예요!",
-     "caption": "“I use glasses every day.”라고 말하고 있나요? 😅 한국어 “쓰다”는 “글을 쓰다·사용하다·안경을 쓰다”처럼 뜻이 넓어서 use로 옮기기 쉬워요. 안경은 wear를 써요. “I wear glasses every day”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-     "comment": "정답: “wear”. 안경과 모자엔 wear! 무료 퀴즈로 더 연습해 보세요: {link}",
+     "caption": "“I use glasses every day.”처럼 말하고 있나요? 😅 한국어 “쓰다”는 “글을 쓰다·사용하다·안경을 쓰다”처럼 뜻이 넓어서 use로 옮기기 쉬워요. 안경은 wear를 써요. 맞는 문장 ✅ “I wear glasses every day.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+     "comment": "정답: “wear”! 안경과 모자엔 wear! 무료 퀴즈로 더 연습해 보세요: {link}",
      "hashtags": [
       "#영어공부",
       "#영어회화",
@@ -1476,8 +1476,8 @@
     },
     "en": {
      "hook": "Glasses: wear, not use!",
-     "tip": "Korean “sseuda” means write, use and wear, so people say use. English says wear. Say “I wear glasses every day”.",
-     "caption": "Do you say “I use glasses every day”? 😅 For glasses, use wear, not use. “I wear glasses every day” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "tip": "Glasses go on your face, so say wear, not use. Say “I wear glasses every day.”",
+     "caption": "Do you say “I use glasses every day” in English? 😅 For glasses, use wear, not use. “I wear glasses every day” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   }

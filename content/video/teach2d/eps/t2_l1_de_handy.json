@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Handy is not English!",
+   "text": "Handy is not a phone!",
    "pause": 0.42
   },
   {
@@ -26,7 +26,7 @@
   },
   {
    "id": "y",
-   "text": "Handy is not a phone in English.",
+   "text": "In English, handy means useful.",
    "pause": 0.42
   },
   {
@@ -55,7 +55,7 @@
   "wrong": "I lost my handy.",
   "right": "I lost my phone.",
   "strike": "handy",
-  "why": "Handy is not a phone in English.",
+  "why": "In English, handy means useful.",
   "memory": "Phone, not handy.",
   "quiz": {
    "stem": "I lost my ___.",
@@ -67,7 +67,7 @@
   },
   "native": {
    "hook": "Ihr „Handy“ heißt „phone“!",
-   "tip": "„Handy“ klingt englisch, ist es aber nicht. Sagen Sie „phone“ oder „mobile“.",
+   "tip": "Auf Englisch heißt „handy“ „praktisch“. Ihr Handy ist ein „phone“ oder „cell phone“.",
    "caption": "Ihr Handy ist kein „handy“! 📱 Falsch: “I lost my handy.” Richtig: “I lost my phone.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
    "comment": "Lösung: “phone”. Richtig heißt es: “I lost my phone.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
    "hashtags": [
@@ -79,7 +79,7 @@
   },
   "en": {
    "hook": "Your Handy is not a “handy”!",
-   "tip": "“Handy” sounds English, but it is not. Say “phone” or “mobile”.",
+   "tip": "In English “handy” means useful. Your Handy is a “phone” or “cell phone”.",
    "caption": "Your Handy is not a “handy”! Wrong: “I lost my handy.” Right: “I lost my phone.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
@@ -98,14 +98,14 @@
  },
  "lang": "de",
  "est": {
-  "words": 44,
-  "seconds": 27.1,
+  "words": 43,
+  "seconds": 26.6,
   "wpm": 97
  },
  "publish": {
   "title": "Ihr „Handy“ heißt „phone“!",
   "keyword": "I lost my phone.",
-  "value": "„Handy“ klingt englisch, ist es aber nicht. Sagen Sie „phone“ oder „mobile“.",
+  "value": "Auf Englisch heißt „handy“ „praktisch“. Ihr Handy ist ein „phone“ oder „cell phone“.",
   "hashtags": [
    "#englischlernen",
    "#englischtipps",
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 38,
+  "script_words": 37,
   "platforms": {
    "youtube": {
     "title": "Ihr „Handy“ heißt „phone“!",

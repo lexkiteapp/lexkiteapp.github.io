@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Yesterday: past simple!",
+   "text": "Yesterday? Use the simple past!",
    "pause": 0.42
   },
   {
@@ -26,7 +26,7 @@
   },
   {
    "id": "y",
-   "text": "Yesterday needs past simple.",
+   "text": "Yesterday needs the simple past.",
    "pause": 0.42
   },
   {
@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "Saw! We saw a film last night.",
+   "text": "Saw! We saw a movie last night.",
    "pause": 0.42
   },
   {
@@ -55,10 +55,10 @@
   "wrong": "I have seen him yesterday.",
   "right": "I saw him yesterday.",
   "strike": "have seen",
-  "why": "Yesterday needs past simple.",
+  "why": "Yesterday needs the simple past.",
   "memory": "Yesterday, saw.",
   "quiz": {
-   "stem": "We ___ a film last night.",
+   "stem": "We ___ a movie last night.",
    "options": [
     "have seen",
     "saw"
@@ -79,7 +79,7 @@
   },
   "en": {
    "hook": "“have seen” with “yesterday”?",
-   "tip": "With a finished time like yesterday, use the simple past “saw”, not “have seen”.",
+   "tip": "With a finished time like yesterday, use the simple past saw, not have seen.",
    "caption": "Do you say “I have seen him yesterday”? 🤔 In English “I saw him yesterday” is right, because a fixed past time takes the simple past. Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
@@ -98,9 +98,9 @@
  },
  "lang": "hi",
  "est": {
-  "words": 43,
-  "seconds": 26.6,
-  "wpm": 97
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
  },
  "publish": {
   "title": "“yesterday” के साथ “have seen”?",
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 37,
+  "script_words": 40,
   "platforms": {
    "youtube": {
     "title": "“yesterday” के साथ “have seen”?",

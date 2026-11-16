@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Yesterday? Use past!",
+   "text": "Have seen yesterday? No!",
    "pause": 0.42
   },
   {
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "“Yesterday” with have seen? Careful!",
+   "hook": "Have seen with yesterday? Careful!",
    "tip": "With a clear past time like yesterday, use the simple past.",
-   "caption": "Do you say “I have seen him yesterday.”? 😅 With a clear past time such as yesterday, use the simple past, not the present perfect. The natural way is “I saw him yesterday.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+   "caption": "Do you say this? “I have seen him yesterday.” 😅 With a clear past time such as yesterday, use the simple past, not the present perfect. The natural way is “I saw him yesterday.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -98,8 +98,8 @@
  },
  "lang": "ja",
  "est": {
-  "words": 43,
-  "seconds": 26.6,
+  "words": 44,
+  "seconds": 27.1,
   "wpm": 97
  },
  "publish": {
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 37,
+  "script_words": 38,
   "platforms": {
    "youtube": {
     "title": "yesterday と have seen？注意！",

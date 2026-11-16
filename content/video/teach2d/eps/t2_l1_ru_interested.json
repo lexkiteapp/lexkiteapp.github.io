@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "Interested и interesting",
-   "tip": "Ты увлечён — “I am interested in music”.",
-   "caption": "Ты тоже говоришь “I am interesting in music.”? 😅 Ты сам заинтересован — “interested”. Предмет интересный — “interesting”. Правильно: “I am interested in music.”. Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
-   "comment": "Ответ: “interested”. Человек — interested, вещь — interesting. Бесплатный тест для практики здесь: {link}",
+   "tip": "Ты увлечён — “I am interested in music.”",
+   "caption": "Ты тоже говоришь “I am interesting in music”? 😅 Ты сам заинтересован — “interested.” Предмет интересный — “interesting.” Правильно: “I am interested in music.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “interested.” Человек — interested, вещь — interesting. Бесплатный тест для практики здесь: {link}",
    "hashtags": [
     "#английскийязык",
     "#английский",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "Interested or interesting?",
-   "tip": "When you feel it, say “I am interested in music”.",
-   "caption": "Do you also say “I am interesting in music.”? 😅 You feel “interested”. A thing is “interesting”. Correct: “I am interested in music.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+   "tip": "When you feel it, say “I am interested in music.”",
+   "caption": "Do you also say “I am interesting in music”? 😅 You feel “interested.” A thing is “interesting.” Correct: “I am interested in music.” Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "Interested и interesting",
   "keyword": "I am interested in music.",
-  "value": "Ты увлечён — “I am interested in music”.",
+  "value": "Ты увлечён — “I am interested in music.”",
   "hashtags": [
    "#английскийязык",
    "#английский",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "Interested и interesting",
-    "description": "Ты тоже говоришь “I am interesting in music.”? 😅 Ты сам заинтересован — “interested”. Предмет интересный — “interesting”. Правильно: “I am interested in music.”. Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #английский #изучениеанглийского #lexkite",
+    "description": "Ты тоже говоришь “I am interesting in music”? 😅 Ты сам заинтересован — “interested.” Предмет интересный — “interesting.” Правильно: “I am interested in music.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #английский #изучениеанглийского #lexkite",
     "tags": [
      "I am interested in music.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Ты тоже говоришь “I am interesting in music.”? 😅 Ты сам заинтересован — “interested”. Предмет интересный — “interesting”. Правильно: “I am interested in music.”. Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Ты тоже говоришь “I am interesting in music”? 😅 Ты сам заинтересован — “interested.” Предмет интересный — “interesting.” Правильно: “I am interested in music.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Ты тоже говоришь “I am interesting in music.”? 😅 Ты сам заинтересован — “interested”. Предмет интересный — “interesting”. Правильно: “I am interested in music.”. Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nlexkite.com",
+    "caption": "Ты тоже говоришь “I am interesting in music”? 😅 Ты сам заинтересован — “interested.” Предмет интересный — “interesting.” Правильно: “I am interested in music.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nlexkite.com",
     "hashtags": [
      "#английскийязык",
      "#английский",
@@ -140,7 +140,7 @@
     "caption": "Interested и interesting #английскийязык #английский #изучениеанглийского"
    }
   },
-  "first_comment": "Ответ: “interested”. Человек — interested, вещь — interesting. Бесплатный тест для практики здесь: {link}",
+  "first_comment": "Ответ: “interested.” Человек — interested, вещь — interesting. Бесплатный тест для практики здесь: {link}",
   "lang": "ru"
  }
 }

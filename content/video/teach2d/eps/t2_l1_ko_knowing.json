@@ -68,8 +68,8 @@
   "native": {
    "hook": "know는 진행형으로 안 써요!",
    "tip": "한국어는 “알고 있다”라고 진행형처럼 말하지만, 영어 know는 그냥 “I know”예요. “I know the answer”!",
-   "caption": "“I am knowing the answer.”라고 말하고 있나요? 😅 한국어 “알고 있다”는 “-고 있다” 진행 형태라서 am knowing으로 옮기기 쉬워요. 영어는 “I know”라고 해요. “I know the answer”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-   "comment": "정답: “know”. I know로 말해요! 무료 퀴즈로 더 연습해 보세요: {link}",
+   "caption": "“I am knowing the answer.”처럼 말하고 있나요? 😅 한국어 “알고 있다”는 “-고 있다” 진행 형태라서 am knowing으로 옮기기 쉬워요. 영어는 “I know”라고 해요. 맞는 문장 ✅ “I know the answer.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답: “know”! I know로 말해요! 무료 퀴즈로 더 연습해 보세요: {link}",
    "hashtags": [
     "#영어공부",
     "#영어회화",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "No am knowing!",
-   "tip": "Korean says “algo itda”, like be knowing. English just says know. Say “I know the answer”.",
-   "caption": "Do you say “I am knowing the answer”? 😅 Do not say am knowing. Just say know. “I know the answer” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
+   "tip": "Know is a state, so do not use -ing. Say “I know the answer.”",
+   "caption": "Do you say “I am knowing the answer” in English? 😅 Do not say am knowing. Just say know. “I know the answer” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "know는 진행형으로 안 써요!",
-    "description": "“I am knowing the answer.”라고 말하고 있나요? 😅 한국어 “알고 있다”는 “-고 있다” 진행 형태라서 am knowing으로 옮기기 쉬워요. 영어는 “I know”라고 해요. “I know the answer”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "description": "“I am knowing the answer.”처럼 말하고 있나요? 😅 한국어 “알고 있다”는 “-고 있다” 진행 형태라서 am knowing으로 옮기기 쉬워요. 영어는 “I know”라고 해요. 맞는 문장 ✅ “I know the answer.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
     "tags": [
      "I know the answer.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "“I am knowing the answer.”라고 말하고 있나요? 😅 한국어 “알고 있다”는 “-고 있다” 진행 형태라서 am knowing으로 옮기기 쉬워요. 영어는 “I know”라고 해요. “I know the answer”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "“I am knowing the answer.”처럼 말하고 있나요? 😅 한국어 “알고 있다”는 “-고 있다” 진행 형태라서 am knowing으로 옮기기 쉬워요. 영어는 “I know”라고 해요. 맞는 문장 ✅ “I know the answer.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "“I am knowing the answer.”라고 말하고 있나요? 😅 한국어 “알고 있다”는 “-고 있다” 진행 형태라서 am knowing으로 옮기기 쉬워요. 영어는 “I know”라고 해요. “I know the answer”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nlexkite.com",
+    "caption": "“I am knowing the answer.”처럼 말하고 있나요? 😅 한국어 “알고 있다”는 “-고 있다” 진행 형태라서 am knowing으로 옮기기 쉬워요. 영어는 “I know”라고 해요. 맞는 문장 ✅ “I know the answer.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nlexkite.com",
     "hashtags": [
      "#영어공부",
      "#영어회화",
@@ -140,7 +140,7 @@
     "caption": "know는 진행형으로 안 써요! #영어공부 #영어회화 #영어독학"
    }
   },
-  "first_comment": "정답: “know”. I know로 말해요! 무료 퀴즈로 더 연습해 보세요: {link}",
+  "first_comment": "정답: “know”! I know로 말해요! 무료 퀴즈로 더 연습해 보세요: {link}",
   "lang": "ko"
  }
 }

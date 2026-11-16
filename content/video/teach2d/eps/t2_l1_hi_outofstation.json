@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_outofstation",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Out of town!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am out of station.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am out of town.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say out of town.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Out of town! He is out of town this week.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am out of station.",
+  "right": "I am out of town.",
+  "strike": "station",
+  "why": "Say out of town.",
+  "memory": "Out of town.",
+  "quiz": {
+   "stem": "He is ___ this week.",
+   "options": [
+    "out of station",
+    "out of town"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“out of station” नहीं, “town”!",
+   "tip": "भारत में “out of station” आम है, पर अंग्रेज़ी में शहर से बाहर होने के लिए “out of town” कहें।",
+   "caption": "क्या आप भी कहते हैं “I am out of station”? 😉 अंग्रेज़ी में “I am out of town” सही है, क्योंकि शहर से बाहर होने के लिए out of town बोला जाता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “out of town”। station की जगह town बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “out of station”, but “town”",
+   "tip": "To say you are away from your city, say out of town.",
+   "caption": "Do you say “I am out of station”? 😉 In English “I am out of town” is right, because away from your city is out of town. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“out of station” नहीं, “town”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“out of station” नहीं, “town”!",
+  "keyword": "I am out of town.",
+  "value": "भारत में “out of station” आम है, पर अंग्रेज़ी में शहर से बाहर होने के लिए “out of town” कहें।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "“out of station” नहीं, “town”!",
+    "description": "क्या आप भी कहते हैं “I am out of station”? 😉 अंग्रेज़ी में “I am out of town” सही है, क्योंकि शहर से बाहर होने के लिए out of town बोला जाता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "I am out of town.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी कहते हैं “I am out of station”? 😉 अंग्रेज़ी में “I am out of town” सही है, क्योंकि शहर से बाहर होने के लिए out of town बोला जाता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "क्या आप भी कहते हैं “I am out of station”? 😉 अंग्रेज़ी में “I am out of town” सही है, क्योंकि शहर से बाहर होने के लिए out of town बोला जाता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“out of station” नहीं, “town”! #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “out of town”। station की जगह town बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_ago_before",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Two years ago, not before!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I came here before two years.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I came here two years ago.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Put ago after the time.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Three days ago! She left three days ago.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I came here before two years.",
+  "right": "I came here two years ago.",
+  "strike": "before two years",
+  "why": "Put ago after the time.",
+  "memory": "Two years ago.",
+  "quiz": {
+   "stem": "She left ___.",
+   "options": [
+    "three days ago",
+    "before three days"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Cách đây hai năm” nói sao?",
+   "tip": "Tiếng Việt nói “cách đây hai năm”, nhưng tiếng Anh đặt “ago” sau khoảng thời gian: “two years ago.”",
+   "caption": "Bạn có hay nói “I came here before two years.” không? 🙈 Dùng “ago” sau khoảng thời gian: “I came here two years ago.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “three days ago.” Kể một việc bạn làm cách đây vài ngày bằng “…ago” nhé! Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#nguphaptienganh",
+    "#tienganhgiaotiep",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Two years ago: say it right!",
+   "tip": "English puts “ago” after the time: “two years ago”, not “before two years.”",
+   "caption": "Do you often say this? “I came here before two years.” Say “I came here two years ago.” instead. Listen to Carlos, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Cách đây hai năm” nói sao?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“Cách đây hai năm” nói sao?",
+  "keyword": "I came here two years ago.",
+  "value": "Tiếng Việt nói “cách đây hai năm”, nhưng tiếng Anh đặt “ago” sau khoảng thời gian: “two years ago.”",
+  "hashtags": [
+   "#hoctienganh",
+   "#nguphaptienganh",
+   "#tienganhgiaotiep",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "“Cách đây hai năm” nói sao?",
+    "description": "Bạn có hay nói “I came here before two years.” không? 🙈 Dùng “ago” sau khoảng thời gian: “I came here two years ago.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #nguphaptienganh #tienganhgiaotiep #lexkite",
+    "tags": [
+     "I came here two years ago.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “I came here before two years.” không? 🙈 Dùng “ago” sau khoảng thời gian: “I came here two years ago.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Bạn có hay nói “I came here before two years.” không? 🙈 Dùng “ago” sau khoảng thời gian: “I came here two years ago.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#nguphaptienganh",
+     "#tienganhgiaotiep",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Cách đây hai năm” nói sao? #hoctienganh #nguphaptienganh #tienganhgiaotiep"
+   }
+  },
+  "first_comment": "Đáp án: “three days ago.” Kể một việc bạn làm cách đây vài ngày bằng “…ago” nhé! Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

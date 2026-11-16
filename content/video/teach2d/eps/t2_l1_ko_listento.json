@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "“to”를 잊지 마세요!",
-   "tip": "listen 뒤에는 꼭 to! “I listen to music every day”예요.",
-   "caption": "“I listen music every day”라고 말하고 있나요? 😅 listen 바로 뒤에 목적어를 두지 말고 to를 넣어요. “I listen to music every day”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-   "comment": "정답: “to”. listen to 세트로 외워요! 무료 퀴즈로 더 연습해 보세요: {link}",
+   "tip": "listen 뒤에는 꼭 to! 이렇게 말해요 👉 “I listen to music every day.”",
+   "caption": "“I listen music every day”처럼 말하고 있나요? 😅 listen 바로 뒤에 목적어를 두지 말고 to를 넣어요. 맞는 문장 ✅ “I listen to music every day.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답: “to”! listen to 세트로 외워요! 무료 퀴즈로 더 연습해 보세요: {link}",
    "hashtags": [
     "#영어공부",
     "#영어회화",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "Do not forget “to”!",
-   "tip": "Always put to after listen. Say “I listen to music every day”.",
-   "caption": "Do you say “I listen music every day”? 😅 Do not put music right after listen. Add “to”. “I listen to music every day” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
+   "tip": "Always put to after listen. Say “I listen to music every day”!",
+   "caption": "Do you say “I listen music every day” in English? 😅 Do not put music right after listen. Add “to”! “I listen to music every day” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "“to”를 잊지 마세요!",
   "keyword": "I listen to music every day.",
-  "value": "listen 뒤에는 꼭 to! “I listen to music every day”예요.",
+  "value": "listen 뒤에는 꼭 to! 이렇게 말해요 👉 “I listen to music every day.”",
   "hashtags": [
    "#영어공부",
    "#영어회화",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "“to”를 잊지 마세요!",
-    "description": "“I listen music every day”라고 말하고 있나요? 😅 listen 바로 뒤에 목적어를 두지 말고 to를 넣어요. “I listen to music every day”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "description": "“I listen music every day”처럼 말하고 있나요? 😅 listen 바로 뒤에 목적어를 두지 말고 to를 넣어요. 맞는 문장 ✅ “I listen to music every day.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
     "tags": [
      "I listen to music every day.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "“I listen music every day”라고 말하고 있나요? 😅 listen 바로 뒤에 목적어를 두지 말고 to를 넣어요. “I listen to music every day”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "“I listen music every day”처럼 말하고 있나요? 😅 listen 바로 뒤에 목적어를 두지 말고 to를 넣어요. 맞는 문장 ✅ “I listen to music every day.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "“I listen music every day”라고 말하고 있나요? 😅 listen 바로 뒤에 목적어를 두지 말고 to를 넣어요. “I listen to music every day”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nlexkite.com",
+    "caption": "“I listen music every day”처럼 말하고 있나요? 😅 listen 바로 뒤에 목적어를 두지 말고 to를 넣어요. 맞는 문장 ✅ “I listen to music every day.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nlexkite.com",
     "hashtags": [
      "#영어공부",
      "#영어회화",
@@ -140,7 +140,7 @@
     "caption": "“to”를 잊지 마세요! #영어공부 #영어회화 #영어독학"
    }
   },
-  "first_comment": "정답: “to”. listen to 세트로 외워요! 무료 퀴즈로 더 연습해 보세요: {link}",
+  "first_comment": "정답: “to”! listen to 세트로 외워요! 무료 퀴즈로 더 연습해 보세요: {link}",
   "lang": "ko"
  }
 }

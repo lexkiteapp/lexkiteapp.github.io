@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "“Của tôi”: my hay mine?",
-   "tip": "Tiếng Việt dùng “của tôi” cho cả hai, nhưng tiếng Anh có “my” và “mine”.",
+   "tip": "Tiếng Việt dùng “của tôi” cho cả hai, nhưng tiếng Anh có “my” và “mine.”",
    "caption": "Bạn có hay nói “This pen is my.” không? ✏️ Đứng một mình thì dùng “mine”: “This pen is mine.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-   "comment": "Đáp án: “mine”. Nói về đồ của bạn bằng “It is mine” nhé! Luyện thêm miễn phí tại đây: {link}",
+   "comment": "Đáp án: “mine.” Nói về đồ của bạn bằng “It is mine” nhé! Luyện thêm miễn phí tại đây: {link}",
    "hashtags": [
     "#tuhoctienganh",
     "#luyennoitienganh",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "“Của tôi”: my or mine?",
-   "tip": "Vietnamese uses “của tôi” for both, but English has “my” and “mine”.",
-   "caption": "Do you often say “This pen is my.”? Say “This pen is mine.” instead. Listen to Carlos, then repeat! Practice more in the Lexkite app."
+   "hook": "This pen is “my” or “mine”?",
+   "tip": "English has “my” and “mine”, not one word for both.",
+   "caption": "Do you often say this? “This pen is my.” Say “This pen is mine.” instead. Listen to Carlos, then repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "“Của tôi”: my hay mine?",
   "keyword": "This pen is mine.",
-  "value": "Tiếng Việt dùng “của tôi” cho cả hai, nhưng tiếng Anh có “my” và “mine”.",
+  "value": "Tiếng Việt dùng “của tôi” cho cả hai, nhưng tiếng Anh có “my” và “mine.”",
   "hashtags": [
    "#tuhoctienganh",
    "#luyennoitienganh",
@@ -140,7 +140,7 @@
     "caption": "“Của tôi”: my hay mine? #tuhoctienganh #luyennoitienganh #loisaiphobien"
    }
   },
-  "first_comment": "Đáp án: “mine”. Nói về đồ của bạn bằng “It is mine” nhé! Luyện thêm miễn phí tại đây: {link}",
+  "first_comment": "Đáp án: “mine.” Nói về đồ của bạn bằng “It is mine” nhé! Luyện thêm miễn phí tại đây: {link}",
   "lang": "vi"
  }
 }

@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "“Biết bơi” nói sao cho đúng?",
-   "tip": "Tiếng Việt nói “biết bơi”, nhưng tiếng Anh cần “how to” sau “know”.",
+   "tip": "Tiếng Việt nói “biết bơi”, nhưng tiếng Anh cần “how to” sau “know.”",
    "caption": "Bạn có hay nói “I know swim.” không? 🏊 Nói về kỹ năng thì dùng “know how to”: “I know how to swim.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-   "comment": "Đáp án: “how to”. Bạn biết làm món gì? Viết “I know how to…” nhé! Luyện thêm miễn phí tại đây: {link}",
+   "comment": "Đáp án: “how to.” Bạn biết làm món gì? Viết “I know how to…” nhé! Luyện thêm miễn phí tại đây: {link}",
    "hashtags": [
     "#tuhoctienganh",
     "#luyennoitienganh",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "How do you say “biết bơi”?",
-   "tip": "Vietnamese says “biết bơi”, but English needs “how to” after “know”.",
-   "caption": "Do you often say “I know swim.”? Say “I know how to swim.” instead. Listen to Carlos, then repeat! Practice more in the Lexkite app."
+   "hook": "“I know swim”: what is missing?",
+   "tip": "English needs “how to” after “know”: “know how to swim.”",
+   "caption": "Do you often say this? “I know swim.” Say “I know how to swim.” instead. Listen to Carlos, then repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "“Biết bơi” nói sao cho đúng?",
   "keyword": "I know how to swim.",
-  "value": "Tiếng Việt nói “biết bơi”, nhưng tiếng Anh cần “how to” sau “know”.",
+  "value": "Tiếng Việt nói “biết bơi”, nhưng tiếng Anh cần “how to” sau “know.”",
   "hashtags": [
    "#tuhoctienganh",
    "#luyennoitienganh",
@@ -140,7 +140,7 @@
     "caption": "“Biết bơi” nói sao cho đúng? #tuhoctienganh #luyennoitienganh #loisaiphobien"
    }
   },
-  "first_comment": "Đáp án: “how to”. Bạn biết làm món gì? Viết “I know how to…” nhé! Luyện thêm miễn phí tại đây: {link}",
+  "first_comment": "Đáp án: “how to.” Bạn biết làm món gì? Viết “I know how to…” nhé! Luyện thêm miễn phí tại đây: {link}",
   "lang": "vi"
  }
 }

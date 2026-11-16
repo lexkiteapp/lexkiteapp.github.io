@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "“Question to you” — верно?",
-   "tip": "По-русски «вопрос к вам», отсюда “to”. В английском: “a question for you”.",
-   "caption": "Ты тоже говоришь “I have a question to you”? 😅 По-русски «вопрос к вам» тянет за собой “to”, а нужно “for you”. Правильно: “I have a question for you.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
-   "comment": "Ответ: “for”. После question — for you. Бесплатный тест для практики здесь: {link}",
+   "tip": "По-русски «вопрос к вам», отсюда “to.” В английском: “a question for you.”",
+   "caption": "Ты тоже говоришь “I have a question to you”? 😅 По-русски «вопрос к вам» тянет за собой “to”, а нужно “for you.” Правильно: “I have a question for you.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “for.” После question — for you. Бесплатный тест для практики здесь: {link}",
    "hashtags": [
     "#английскийязык",
     "#английский",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "Question to you?",
-   "tip": "In Russian “vopros k vam” pulls in “to”. English says “a question for you”.",
-   "caption": "Do you also say “I have a question to you”? 😅 In Russian “vopros k vam” pulls in “to”, but you need “for you”. Correct: “I have a question for you.” Listen to Ama and repeat! Practice more in the Lexkite app."
+   "hook": "“Question to you” — right?",
+   "tip": "English says “a question for you.”",
+   "caption": "Do you also say “I have a question to you”? 😅 The small word feels right, but you need “for you.” Correct: “I have a question for you.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "“Question to you” — верно?",
   "keyword": "I have a question for you.",
-  "value": "По-русски «вопрос к вам», отсюда “to”. В английском: “a question for you”.",
+  "value": "По-русски «вопрос к вам», отсюда “to.” В английском: “a question for you.”",
   "hashtags": [
    "#английскийязык",
    "#английский",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "“Question to you” — верно?",
-    "description": "Ты тоже говоришь “I have a question to you”? 😅 По-русски «вопрос к вам» тянет за собой “to”, а нужно “for you”. Правильно: “I have a question for you.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #английский #изучениеанглийского #lexkite",
+    "description": "Ты тоже говоришь “I have a question to you”? 😅 По-русски «вопрос к вам» тянет за собой “to”, а нужно “for you.” Правильно: “I have a question for you.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #английский #изучениеанглийского #lexkite",
     "tags": [
      "I have a question for you.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Ты тоже говоришь “I have a question to you”? 😅 По-русски «вопрос к вам» тянет за собой “to”, а нужно “for you”. Правильно: “I have a question for you.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Ты тоже говоришь “I have a question to you”? 😅 По-русски «вопрос к вам» тянет за собой “to”, а нужно “for you.” Правильно: “I have a question for you.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Ты тоже говоришь “I have a question to you”? 😅 По-русски «вопрос к вам» тянет за собой “to”, а нужно “for you”. Правильно: “I have a question for you.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nlexkite.com",
+    "caption": "Ты тоже говоришь “I have a question to you”? 😅 По-русски «вопрос к вам» тянет за собой “to”, а нужно “for you.” Правильно: “I have a question for you.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nlexkite.com",
     "hashtags": [
      "#английскийязык",
      "#английский",
@@ -140,7 +140,7 @@
     "caption": "“Question to you” — верно? #английскийязык #английский #изучениеанглийского"
    }
   },
-  "first_comment": "Ответ: “for”. После question — for you. Бесплатный тест для практики здесь: {link}",
+  "first_comment": "Ответ: “for.” После question — for you. Бесплатный тест для практики здесь: {link}",
   "lang": "ru"
  }
 }

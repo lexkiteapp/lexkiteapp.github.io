@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "약은 eat 아니에요!",
-   "tip": "약은 eat이 아니라 take! “I took medicine”이에요.",
-   "caption": "“I ate medicine this morning”라고 말하고 있나요? 😅 약을 먹는다고 할 때는 eat 대신 take를 써요. “I took medicine this morning”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-   "comment": "정답: “took”. 약 먹기는 take! 무료 퀴즈로 더 연습해 보세요: {link}",
+   "tip": "약은 eat이 아니라 take! 이렇게 말해요 👉 “I took medicine.”",
+   "caption": "“I ate medicine this morning”처럼 말하고 있나요? 😅 약을 먹는다고 할 때는 eat 대신 take를 써요. 맞는 문장 ✅ “I took medicine this morning.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답: “took”! 약 먹기는 take! 무료 퀴즈로 더 연습해 보세요: {link}",
    "hashtags": [
     "#영어공부",
     "#영어회화",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "약은 eat이 아니에요!",
-   "tip": "For medicine, use take, not eat. Say “I took medicine”.",
-   "caption": "Do you say “I ate medicine this morning”? 😅 We use “take” for medicine, not “eat”. “I took medicine this morning” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
+   "hook": "Medicine: take, not eat!",
+   "tip": "For medicine, use take, not eat. Say “I took medicine”!",
+   "caption": "Do you say “I ate medicine this morning” in English? 😅 We use “take” for medicine, not “eat”! “I took medicine this morning” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "약은 eat 아니에요!",
   "keyword": "I took medicine this morning.",
-  "value": "약은 eat이 아니라 take! “I took medicine”이에요.",
+  "value": "약은 eat이 아니라 take! 이렇게 말해요 👉 “I took medicine.”",
   "hashtags": [
    "#영어공부",
    "#영어회화",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "약은 eat 아니에요!",
-    "description": "“I ate medicine this morning”라고 말하고 있나요? 😅 약을 먹는다고 할 때는 eat 대신 take를 써요. “I took medicine this morning”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "description": "“I ate medicine this morning”처럼 말하고 있나요? 😅 약을 먹는다고 할 때는 eat 대신 take를 써요. 맞는 문장 ✅ “I took medicine this morning.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
     "tags": [
      "I took medicine this morning.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "“I ate medicine this morning”라고 말하고 있나요? 😅 약을 먹는다고 할 때는 eat 대신 take를 써요. “I took medicine this morning”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "“I ate medicine this morning”처럼 말하고 있나요? 😅 약을 먹는다고 할 때는 eat 대신 take를 써요. 맞는 문장 ✅ “I took medicine this morning.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "“I ate medicine this morning”라고 말하고 있나요? 😅 약을 먹는다고 할 때는 eat 대신 take를 써요. “I took medicine this morning”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nlexkite.com",
+    "caption": "“I ate medicine this morning”처럼 말하고 있나요? 😅 약을 먹는다고 할 때는 eat 대신 take를 써요. 맞는 문장 ✅ “I took medicine this morning.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nlexkite.com",
     "hashtags": [
      "#영어공부",
      "#영어회화",
@@ -140,7 +140,7 @@
     "caption": "약은 eat 아니에요! #영어공부 #영어회화 #영어독학"
    }
   },
-  "first_comment": "정답: “took”. 약 먹기는 take! 무료 퀴즈로 더 연습해 보세요: {link}",
+  "first_comment": "정답: “took”! 약 먹기는 take! 무료 퀴즈로 더 연습해 보세요: {link}",
   "lang": "ko"
  }
 }

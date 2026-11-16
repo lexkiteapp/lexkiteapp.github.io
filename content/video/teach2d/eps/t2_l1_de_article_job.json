@@ -61,7 +61,7 @@
    "stem": "She is ___ doctor.",
    "options": [
     "a",
-    "the"
+    "no word"
    ],
    "answer": 0
   },
@@ -79,7 +79,7 @@
   },
   "en": {
    "hook": "Do you also say “I am teacher”?",
-   "tip": "In German you say “Ich bin Lehrer”. In English you need “a” or “an”.",
+   "tip": "“Ich bin Lehrer” has no little word. In English you need “a” or “an”.",
    "caption": "Do you also say “I am teacher”? Wrong: “I am teacher.” Right: “I am a teacher.” Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
  },

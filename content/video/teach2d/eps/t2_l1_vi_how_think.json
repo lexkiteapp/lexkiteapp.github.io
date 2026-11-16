@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "“Bạn nghĩ thế nào” dịch sao đây?",
-   "tip": "Tiếng Việt hỏi “nghĩ thế nào”, nhưng tiếng Anh hỏi “What do you think”.",
+   "tip": "Tiếng Việt hỏi “nghĩ thế nào”, nhưng tiếng Anh hỏi “What do you think.”",
    "caption": "Bạn có hay nói “How do you think about this?” không? 🤔 Hỏi ý kiến thì dùng “What”: “What do you think about this?” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-   "comment": "Đáp án: “What”. Hỏi ý kiến bạn bè bằng “What do you think…” nhé! Luyện thêm miễn phí tại đây: {link}",
+   "comment": "Đáp án: “What.” Hỏi ý kiến bạn bè bằng “What do you think…” nhé! Luyện thêm miễn phí tại đây: {link}",
    "hashtags": [
     "#tuhoctienganh",
     "#luyennoitienganh",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "“Nghĩ thế nào”: how or what?",
-   "tip": "Vietnamese asks “nghĩ thế nào”, but English asks “What do you think”.",
-   "caption": "Do you often say “How do you think about this?”? Say “What do you think about this?” instead. Listen to Carlos, then repeat! Practice more in the Lexkite app."
+   "hook": "How do you ask for an opinion?",
+   "tip": "English asks “What do you think”, not “How do you think.”",
+   "caption": "Do you often say this? “How do you think about this?” Say “What do you think about this?” instead. Listen to Carlos, then repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "“Bạn nghĩ thế nào” dịch sao đây?",
   "keyword": "What do you think about this?",
-  "value": "Tiếng Việt hỏi “nghĩ thế nào”, nhưng tiếng Anh hỏi “What do you think”.",
+  "value": "Tiếng Việt hỏi “nghĩ thế nào”, nhưng tiếng Anh hỏi “What do you think.”",
   "hashtags": [
    "#tuhoctienganh",
    "#luyennoitienganh",
@@ -140,7 +140,7 @@
     "caption": "“Bạn nghĩ thế nào” dịch sao đây? #tuhoctienganh #luyennoitienganh #loisaiphobien"
    }
   },
-  "first_comment": "Đáp án: “What”. Hỏi ý kiến bạn bè bằng “What do you think…” nhé! Luyện thêm miễn phí tại đây: {link}",
+  "first_comment": "Đáp án: “What.” Hỏi ý kiến bạn bè bằng “What do you think…” nhé! Luyện thêm miễn phí tại đây: {link}",
   "lang": "vi"
  }
 }

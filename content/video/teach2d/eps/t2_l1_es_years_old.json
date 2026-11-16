@@ -16,7 +16,7 @@
   },
   {
    "id": "w",
-   "text": "Many learners say: I have thirty years old.",
+   "text": "Many learners say: I have thirty years.",
    "pause": 0.42
   },
   {
@@ -52,7 +52,7 @@
   }
  ],
  "data": {
-  "wrong": "I have thirty years old.",
+  "wrong": "I have thirty years.",
   "right": "I am thirty years old.",
   "strike": "have",
   "why": "Say I am for age.",
@@ -67,8 +67,8 @@
   },
   "native": {
    "hook": "¿“I have 30 years”? Es “I am”",
-   "tip": "En español “tengo 30 años” usa “tener”, pero en inglés la edad lleva “am”.",
-   "caption": "¿Dices “I have thirty years old.”? 🎂 En español “tengo treinta años”, pero en inglés: “I am thirty years old.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+   "tip": "En español “tengo 30 años” usa “tener”, pero en inglés la edad lleva “am.”",
+   "caption": "¿Dices “I have thirty years.”? 🎂 En español “tengo treinta años”, pero en inglés: “I am thirty years old.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
    "comment": "Respuesta: “am”. La edad lleva “be”: “I am”, nunca “I have”. Practica más con un quiz gratis aquí: {link}",
    "hashtags": [
     "#aprenderingles",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "“I have 30 years”? Say “I am”",
-   "tip": "In Spanish “tengo 30 años” uses “tener”, but English uses “am” for age.",
-   "caption": "Do you say “I have thirty years old.”? In Spanish “tengo treinta años”, but in English: “I am thirty years old.” Listen to Ama and repeat! Practice more in the Lexkite app."
+   "tip": "The phrase “tengo 30 años” uses “tener”, but English uses “am” for age.",
+   "caption": "Do you say “I have thirty years.”? Learners say “tengo treinta años”, but in English: “I am thirty years old.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -98,14 +98,14 @@
  },
  "lang": "es",
  "est": {
-  "words": 48,
-  "seconds": 29.1,
+  "words": 47,
+  "seconds": 28.6,
   "wpm": 99
  },
  "publish": {
   "title": "¿“I have 30 years”? Es “I am”",
   "keyword": "I am thirty years old.",
-  "value": "En español “tengo 30 años” usa “tener”, pero en inglés la edad lleva “am”.",
+  "value": "En español “tengo 30 años” usa “tener”, pero en inglés la edad lleva “am.”",
   "hashtags": [
    "#aprenderingles",
    "#inglesfacil",
@@ -113,11 +113,11 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 42,
+  "script_words": 41,
   "platforms": {
    "youtube": {
     "title": "¿“I have 30 years”? Es “I am”",
-    "description": "¿Dices “I have thirty years old.”? 🎂 En español “tengo treinta años”, pero en inglés: “I am thirty years old.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #gramatica #lexkite",
+    "description": "¿Dices “I have thirty years.”? 🎂 En español “tengo treinta años”, pero en inglés: “I am thirty years old.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #gramatica #lexkite",
     "tags": [
      "I am thirty years old.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "¿Dices “I have thirty years old.”? 🎂 En español “tengo treinta años”, pero en inglés: “I am thirty years old.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "¿Dices “I have thirty years.”? 🎂 En español “tengo treinta años”, pero en inglés: “I am thirty years old.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "¿Dices “I have thirty years old.”? 🎂 En español “tengo treinta años”, pero en inglés: “I am thirty years old.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nlexkite.com",
+    "caption": "¿Dices “I have thirty years.”? 🎂 En español “tengo treinta años”, pero en inglés: “I am thirty years old.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nlexkite.com",
     "hashtags": [
      "#aprenderingles",
      "#inglesfacil",

@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "“Hơn hai tuổi” nói thế nào?",
-   "tip": "Tiếng Việt nói “hơn tôi hai tuổi”, nhưng tiếng Anh đặt số tuổi trước “older”.",
+   "tip": "Tiếng Việt nói “hơn tôi hai tuổi”, nhưng tiếng Anh đặt số tuổi trước “older.”",
    "caption": "Bạn có hay nói “He is older than me two years.” không? 🤔 Số tuổi phải đứng trước: “He is two years older than me.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-   "comment": "Đáp án: “three years older”. Bạn hơn hoặc kém bạn thân mấy tuổi? Viết thử nhé! Luyện thêm miễn phí tại đây: {link}",
+   "comment": "Đáp án: “three years older.” Bạn hơn hoặc kém bạn thân mấy tuổi? Viết thử nhé! Luyện thêm miễn phí tại đây: {link}",
    "hashtags": [
     "#tuhoctienganh",
     "#luyennoitienganh",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "How to say “hơn hai tuổi”?",
-   "tip": "Vietnamese says “hơn tôi hai tuổi”, but English puts the number before “older”.",
-   "caption": "Do you often say “He is older than me two years.”? Say “He is two years older than me.” instead. Listen to Carlos, then repeat! Practice more in the Lexkite app."
+   "hook": "“Two years older”: say it right?",
+   "tip": "English puts the number before “older”: “two years older.”",
+   "caption": "Do you often say this? “He is older than me two years.” Say “He is two years older than me.” instead. Listen to Carlos, then repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "“Hơn hai tuổi” nói thế nào?",
   "keyword": "He is two years older than me.",
-  "value": "Tiếng Việt nói “hơn tôi hai tuổi”, nhưng tiếng Anh đặt số tuổi trước “older”.",
+  "value": "Tiếng Việt nói “hơn tôi hai tuổi”, nhưng tiếng Anh đặt số tuổi trước “older.”",
   "hashtags": [
    "#tuhoctienganh",
    "#luyennoitienganh",
@@ -140,7 +140,7 @@
     "caption": "“Hơn hai tuổi” nói thế nào? #tuhoctienganh #luyennoitienganh #loisaiphobien"
    }
   },
-  "first_comment": "Đáp án: “three years older”. Bạn hơn hoặc kém bạn thân mấy tuổi? Viết thử nhé! Luyện thêm miễn phí tại đây: {link}",
+  "first_comment": "Đáp án: “three years older.” Bạn hơn hoặc kém bạn thân mấy tuổi? Viết thử nhé! Luyện thêm miễn phí tại đây: {link}",
   "lang": "vi"
  }
 }

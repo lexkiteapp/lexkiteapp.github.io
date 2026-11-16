@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "“Want go”? Thiếu một chữ đấy!",
-   "tip": "Tiếng Việt nói “muốn đi”, nhưng tiếng Anh phải có “to”: “want to go”.",
+   "tip": "Tiếng Việt nói “muốn đi”, nhưng tiếng Anh phải có “to”: “want to go.”",
    "caption": "Bạn có hay nói “I want go home.” không? 😅 Sau “want” cần “to”: “I want to go home.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-   "comment": "Đáp án: “to drink”. Hãy đặt một câu với “I want to…” ngay bên dưới nhé! Luyện thêm miễn phí tại đây: {link}",
+   "comment": "Đáp án: “to drink.” Hãy đặt một câu với “I want to…” ngay bên dưới nhé! Luyện thêm miễn phí tại đây: {link}",
    "hashtags": [
     "#hoctienganh",
     "#nguphaptienganh",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "“Want go”? One word is missing!",
-   "tip": "Vietnamese says “muốn đi”, but English needs “to”: “want to go”.",
-   "caption": "Do you often say “I want go home.”? Say “I want to go home.” instead. Listen to Ama, then repeat! Practice more in the Lexkite app."
+   "tip": "Learners often skip “to”, but English needs “to”: “want to go.”",
+   "caption": "Do you often say this? “I want go home.” Say “I want to go home.” instead. Listen to Ama, then repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "“Want go”? Thiếu một chữ đấy!",
   "keyword": "I want to go home.",
-  "value": "Tiếng Việt nói “muốn đi”, nhưng tiếng Anh phải có “to”: “want to go”.",
+  "value": "Tiếng Việt nói “muốn đi”, nhưng tiếng Anh phải có “to”: “want to go.”",
   "hashtags": [
    "#hoctienganh",
    "#nguphaptienganh",
@@ -140,7 +140,7 @@
     "caption": "“Want go”? Thiếu một chữ đấy! #hoctienganh #nguphaptienganh #tienganhgiaotiep"
    }
   },
-  "first_comment": "Đáp án: “to drink”. Hãy đặt một câu với “I want to…” ngay bên dưới nhé! Luyện thêm miễn phí tại đây: {link}",
+  "first_comment": "Đáp án: “to drink.” Hãy đặt một câu với “I want to…” ngay bên dưới nhé! Luyện thêm miễn phí tại đây: {link}",
   "lang": "vi"
  }
 }

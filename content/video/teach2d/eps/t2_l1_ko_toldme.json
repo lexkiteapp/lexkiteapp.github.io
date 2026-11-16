@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_toldme",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Told me, not said me!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: He said me the news.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: He told me the news.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Tell takes a person. Say does not.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Told! She told me a story.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "He said me the news.",
+  "right": "He told me the news.",
+  "strike": "said",
+  "why": "Tell takes a person. Say does not.",
+  "memory": "Tell me.",
+  "quiz": {
+   "stem": "She ___ me a story.",
+   "options": [
+    "said",
+    "told"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“said me” 틀렸어요!",
+   "tip": "‘나에게 말했다’를 said me로 옮기기 쉬워요. 사람이 바로 오면 told! 이렇게 말해요 👉 “He told me the news.”",
+   "caption": "“He said me the news”처럼 말하고 있나요? 😅 say 뒤에는 사람을 바로 쓰지 않아요. 사람이 바로 올 때는 tell을 써요. 맞는 문장 ✅ “He told me the news.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답: “told”! 사람이 오면 tell! 무료 퀴즈로 더 연습해 보세요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Said me” is wrong!",
+   "tip": "Say does not take a person right after it. Use tell: “He told me the news.”",
+   "caption": "Do you say “He said me the news” in English? 😅 Say cannot take a person right after it, so use “tell”! “He told me the news” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“said me” 틀렸어요!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“said me” 틀렸어요!",
+  "keyword": "He told me the news.",
+  "value": "‘나에게 말했다’를 said me로 옮기기 쉬워요. 사람이 바로 오면 told! 이렇게 말해요 👉 “He told me the news.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "“said me” 틀렸어요!",
+    "description": "“He said me the news”처럼 말하고 있나요? 😅 say 뒤에는 사람을 바로 쓰지 않아요. 사람이 바로 올 때는 tell을 써요. 맞는 문장 ✅ “He told me the news.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "He told me the news.",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“He said me the news”처럼 말하고 있나요? 😅 say 뒤에는 사람을 바로 쓰지 않아요. 사람이 바로 올 때는 tell을 써요. 맞는 문장 ✅ “He told me the news.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“He said me the news”처럼 말하고 있나요? 😅 say 뒤에는 사람을 바로 쓰지 않아요. 사람이 바로 올 때는 tell을 써요. 맞는 문장 ✅ “He told me the news.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“said me” 틀렸어요! #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “told”! 사람이 오면 tell! 무료 퀴즈로 더 연습해 보세요: {link}",
+  "lang": "ko"
+ }
+}

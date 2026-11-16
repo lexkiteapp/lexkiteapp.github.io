@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "“Thời gian”: many hay much?",
-   "tip": "Tiếng Việt dùng “bao nhiêu” cho mọi thứ, nhưng tiếng Anh dùng “much” với “time”.",
+   "tip": "Tiếng Việt dùng “bao nhiêu” cho mọi thứ, nhưng tiếng Anh dùng “much” với “time.”",
    "caption": "Bạn có hay nói “How many time do you need?” không? ⏰ Với “time” dùng “much”: “How much time do you need?” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-   "comment": "Đáp án: “much”. Hỏi bạn bè bằng “How much time…” thử xem nhé! Luyện thêm miễn phí tại đây: {link}",
+   "comment": "Đáp án: “much.” Hỏi bạn bè bằng “How much time…” thử xem nhé! Luyện thêm miễn phí tại đây: {link}",
    "hashtags": [
     "#tuhoctienganh",
     "#luyennoitienganh",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "“How many time”? Many or much?",
-   "tip": "Vietnamese uses “bao nhiêu” for everything, but English uses “much” with “time”.",
-   "caption": "Do you often say “How many time do you need?”? Say “How much time do you need?” instead. Listen to Carlos, then repeat! Practice more in the Lexkite app."
+   "tip": "Learners use one word for every amount, but English uses “much” with “time.”",
+   "caption": "Do you often say this? “How many time do you need?” Say “How much time do you need?” instead. Listen to Carlos, then repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "“Thời gian”: many hay much?",
   "keyword": "How much time do you need?",
-  "value": "Tiếng Việt dùng “bao nhiêu” cho mọi thứ, nhưng tiếng Anh dùng “much” với “time”.",
+  "value": "Tiếng Việt dùng “bao nhiêu” cho mọi thứ, nhưng tiếng Anh dùng “much” với “time.”",
   "hashtags": [
    "#tuhoctienganh",
    "#luyennoitienganh",
@@ -140,7 +140,7 @@
     "caption": "“Thời gian”: many hay much? #tuhoctienganh #luyennoitienganh #loisaiphobien"
    }
   },
-  "first_comment": "Đáp án: “much”. Hỏi bạn bè bằng “How much time…” thử xem nhé! Luyện thêm miễn phí tại đây: {link}",
+  "first_comment": "Đáp án: “much.” Hỏi bạn bè bằng “How much time…” thử xem nhé! Luyện thêm miễn phí tại đây: {link}",
   "lang": "vi"
  }
 }

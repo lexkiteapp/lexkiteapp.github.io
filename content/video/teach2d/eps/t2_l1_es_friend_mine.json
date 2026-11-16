@@ -67,7 +67,7 @@
   },
   "native": {
    "hook": "¿“Friend of me”? Di “of mine”",
-   "tip": "Tras “de” en español usas “mí” (“de mí”), pero en inglés es “a friend of mine”, como “un amigo mío”.",
+   "tip": "En inglés se dice “a friend of mine”, igual que “un amigo mío”, no “of me.”",
    "caption": "¿Dices “He is a friend of me.”? 👋 En español “un amigo mío”, pero en inglés: “He is a friend of mine.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
    "comment": "Respuesta: “mine”. “A friend of mine”, no “of me”. Practica más con un quiz gratis aquí: {link}",
    "hashtags": [
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "“Friend of me”? Say “of mine”",
-   "tip": "After “de”, Spanish uses “mí” (“de mí”), but English says “a friend of mine”, like “un amigo mío”.",
-   "caption": "Do you say “He is a friend of me.”? In Spanish “un amigo mío”, but in English: “He is a friend of mine.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+   "tip": "English says “a friend of mine”, like “un amigo mío”, not “of me.”",
+   "caption": "Do you say “He is a friend of me.”? Learners say “un amigo mío”, but in English: “He is a friend of mine.” Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "¿“Friend of me”? Di “of mine”",
   "keyword": "He is a friend of mine.",
-  "value": "Tras “de” en español usas “mí” (“de mí”), pero en inglés es “a friend of mine”, como “un amigo mío”.",
+  "value": "En inglés se dice “a friend of mine”, igual que “un amigo mío”, no “of me.”",
   "hashtags": [
    "#aprenderingles",
    "#inglesfacil",

@@ -23,10 +23,10 @@
     },
     "answer_say": "On! It depends on you.",
     "native": {
-     "hook": "Какое маленькое слово верное?",
-     "tip": "После depend ставь “on”: “It depends on the weather”.",
-     "caption": "Ты тоже говоришь “It depends from the weather.”? 😅 Русское «зависит от» тянет за собой “from”, а нужно “on”. Правильно: “It depends on the weather.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
-     "comment": "Ответ: “on”. После depend всегда on. Бесплатный тест для практики здесь: {link}",
+     "hook": "Какой предлог нужен с depend?",
+     "tip": "После depend ставь “on”: “It depends on the weather.”",
+     "caption": "Ты тоже говоришь “It depends from the weather”? 😅 Русское «зависит от» тянет за собой “from”, а нужно “on.” Правильно: “It depends on the weather.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
+     "comment": "Ответ: “on.” После depend всегда on. Бесплатный тест для практики здесь: {link}",
      "hashtags": [
       "#английскийязык",
       "#английский",
@@ -35,9 +35,9 @@
      ]
     },
     "en": {
-     "hook": "Which small word is right?",
-     "tip": "After depend, use “on”: “It depends on the weather”.",
-     "caption": "Do you also say “It depends from the weather.”? 😅 Russian “zavisit ot” pulls in “from”, but you need “on”. Correct: “It depends on the weather.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "hook": "Which word goes with depend?",
+     "tip": "After depend, use “on”: “It depends on the weather.”",
+     "caption": "Do you also say “It depends from the weather”? 😅 It feels natural, but depend goes with “on.” Correct: “It depends on the weather.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -64,9 +64,9 @@
     "answer_say": "To! He is married to my sister.",
     "native": {
      "hook": "“Married with” — ошибка!",
-     "tip": "Замужем или женат — всегда “married to”, а не “with”.",
-     "caption": "Ты тоже говоришь “She is married with a doctor.”? 😅 По-русски «замужем за», а по-английски “married to”, не “with”. Правильно: “She is married to a doctor.”. Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
-     "comment": "Ответ: “to”. После married ставим to. Бесплатный тест для практики здесь: {link}",
+     "tip": "Замужем или женат — всегда “married to”, а не “with.”",
+     "caption": "Ты тоже говоришь “She is married with a doctor”? 😅 По-русски «замужем за», а по-английски “married to”, не “with.” Правильно: “She is married to a doctor.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+     "comment": "Ответ: “to.” После married ставим to. Бесплатный тест для практики здесь: {link}",
      "hashtags": [
       "#английский",
       "#грамматика",
@@ -76,8 +76,8 @@
     },
     "en": {
      "hook": "Married to or married with?",
-     "tip": "Married always goes with “to”, never “with”.",
-     "caption": "Do you also say “She is married with a doctor.”? 😅 In Russian it is “zamuzhem za”, but in English it is “married to”, not “with”. Correct: “She is married to a doctor.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "Married always goes with “to”, never “with.”",
+     "caption": "Do you also say “She is married with a doctor”? 😅 In English it is “married to”, not “with.” Correct: “She is married to a doctor.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -87,7 +87,7 @@
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Say it with one small word.",
+    "hook_say": "Explain me or explain to me?",
     "wrong": "Explain me the rule.",
     "right": "Explain the rule to me.",
     "strike": "Explain me",
@@ -103,10 +103,10 @@
     },
     "answer_say": "To! Please explain it to me.",
     "native": {
-     "hook": "Скажи одним маленьким словом",
-     "tip": "Не “explain me”, а “explain to me”: “Explain the rule to me”.",
-     "caption": "Ты тоже говоришь “Explain me the rule.”? 😅 По-русски «объясни мне», вот и получается “explain me”. Нужно “explain … to me”. Правильно: “Explain the rule to me.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
-     "comment": "Ответ: “to”. Объясняем кому-то через to. Бесплатный тест для практики здесь: {link}",
+     "hook": "“Explain me” — ошибка!",
+     "tip": "Не “explain me”, а “explain to me”: “Explain the rule to me.”",
+     "caption": "Ты тоже говоришь “Explain me the rule”? 😅 По-русски «объясни мне», вот и получается “explain me.” Нужно “explain … to me.” Правильно: “Explain the rule to me.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
+     "comment": "Ответ: “to.” Объясняем кому-то через to. Бесплатный тест для практики здесь: {link}",
      "hashtags": [
       "#английскийязык",
       "#учуанглийский",
@@ -115,9 +115,9 @@
      ]
     },
     "en": {
-     "hook": "Say it with one small word.",
-     "tip": "Not “explain me” but “explain to me”: “Explain the rule to me”.",
-     "caption": "Do you also say “Explain me the rule.”? 😅 In Russian we say “ob'yasni mne”, so “explain me” appears. You need “explain … to me”. Correct: “Explain the rule to me.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "hook": "Explain me or explain to me?",
+     "tip": "Not “explain me” but “explain to me”: “Explain the rule to me.”",
+     "caption": "Do you also say “Explain me the rule”? 😅 It sounds close, but you need “explain … to me.” Correct: “Explain the rule to me.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -127,7 +127,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Do you listen or listen to?",
+    "hook_say": "Listen or listen to?",
     "wrong": "I listen music every day.",
     "right": "I listen to music every day.",
     "strike": "listen music",
@@ -144,9 +144,9 @@
     "answer_say": "To! Listen to me.",
     "native": {
      "hook": "Listen без “to” — ошибка",
-     "tip": "Слушать — “listen to”. Без “to” фраза звучит неправильно.",
-     "caption": "Ты тоже говоришь “I listen music every day.”? 😅 По-русски «слушаю музыку» — без предлога, а по-английски нужен “to”. Правильно: “I listen to music every day.”. Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
-     "comment": "Ответ: “to”. Слушаем что-то — listen to. Бесплатный тест для практики здесь: {link}",
+     "tip": "Слушать — “listen to.” Без “to” фраза звучит неправильно.",
+     "caption": "Ты тоже говоришь “I listen music every day”? 😅 По-русски «слушаю музыку» — без предлога, а по-английски нужен “to.” Правильно: “I listen to music every day.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+     "comment": "Ответ: “to.” Слушаем что-то — listen to. Бесплатный тест для практики здесь: {link}",
      "hashtags": [
       "#английскийязык",
       "#английский",
@@ -155,9 +155,9 @@
      ]
     },
     "en": {
-     "hook": "Do you listen or listen to?",
-     "tip": "Listen needs “to”. Without it, the phrase sounds wrong.",
-     "caption": "Do you also say “I listen music every day.”? 😅 In Russian “slushayu muzyku” has no preposition, but English needs “to”. Correct: “I listen to music every day.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "hook": "Listen or listen to?",
+     "tip": "Listen needs “to.” Without it, the phrase sounds wrong.",
+     "caption": "Do you also say “I listen music every day”? 😅 It feels fine without a small word, but English needs “to.” Correct: “I listen to music every day.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -184,9 +184,9 @@
     "answer_say": "Information! I need more information.",
     "native": {
      "hook": "Одно или много?",
-     "tip": "У слова information нет множественного числа: не “informations”.",
-     "caption": "Ты тоже говоришь “Thanks for the informations.”? 😅 По-русски «сведения» бывают во множественном числе, но “information” — нет. Правильно: “Thanks for the information.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
-     "comment": "Ответ: “information”. Information — без множественного числа. Бесплатный тест для практики здесь: {link}",
+     "tip": "У слова information нет множественного числа: не “informations.”",
+     "caption": "Ты тоже говоришь “Thanks for the informations”? 😅 Хочется добавить -s, но “information” не бывает во множественном числе. Правильно: “Thanks for the information.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
+     "comment": "Ответ: “information.” Information — без множественного числа. Бесплатный тест для практики здесь: {link}",
      "hashtags": [
       "#английский",
       "#грамматика",
@@ -196,8 +196,8 @@
     },
     "en": {
      "hook": "Is it one or many?",
-     "tip": "“Information” has no plural: never “informations”.",
-     "caption": "Do you also say “Thanks for the informations.”? 😅 In Russian you can pluralize it, but “information” has no plural. Correct: “Thanks for the information.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "tip": "“Information” has no plural: never “informations.”",
+     "caption": "Do you also say “Thanks for the informations”? 😅 It is easy to add -s, but “information” has no plural. Correct: “Thanks for the information.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -224,9 +224,9 @@
     "answer_say": "Some! Give me some advice.",
     "native": {
      "hook": "“An advice” — ошибка!",
-     "tip": "Advice нельзя посчитать: говори “some advice” или “a piece of advice”.",
-     "caption": "Ты тоже говоришь “He gave me an advice.”? 😅 “Совет” можно посчитать, но “advice” — нет: не “an advice”, а “some advice”. Правильно: “He gave me some advice.”. Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
-     "comment": "Ответ: “some”. Advice — без a и an. Бесплатный тест для практики здесь: {link}",
+     "tip": "Advice нельзя посчитать: говори “some advice” или “a piece of advice.”",
+     "caption": "Ты тоже говоришь “He gave me an advice”? 😅 «Совет» можно посчитать, но “advice” — нет: не “an advice”, а “some advice.” Правильно: “He gave me some advice.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+     "comment": "Ответ: “some.” Advice — без a и an. Бесплатный тест для практики здесь: {link}",
      "hashtags": [
       "#английскийязык",
       "#учуанглийский",
@@ -236,37 +236,37 @@
     },
     "en": {
      "hook": "Do you say an advice?",
-     "tip": "You cannot count advice: say “some advice” or “a piece of advice”.",
-     "caption": "Do you also say “He gave me an advice.”? 😅 You can count “sovet” in Russian, but not “advice”: say “some advice”. Correct: “He gave me some advice.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "You cannot count advice: say “some advice” or “a piece of advice.”",
+     "caption": "Do you also say “He gave me an advice”? 😅 You cannot count “advice”: say “some advice.” Correct: “He gave me some advice.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
   {
-   "id": "t2_l1_ru_people",
+   "id": "t2_l1_ru_thanksgod",
    "lang": "ru",
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Is or are with people?",
-    "wrong": "People is nice here.",
-    "right": "People are nice here.",
-    "strike": "is",
-    "why": "People is plural.",
-    "memory": "People are.",
+    "hook_say": "Thanks God or thank God?",
+    "wrong": "Thanks God you are here.",
+    "right": "Thank God you are here.",
+    "strike": "Thanks",
+    "why": "Say thank God, with no s.",
+    "memory": "Thank God.",
     "quiz": {
-     "stem": "The people ___ happy.",
+     "stem": "___ God, it is over!",
      "options": [
-      "is",
-      "are"
+      "Thanks",
+      "Thank"
      ],
      "answer": 1
     },
-    "answer_say": "Are! The people are happy.",
+    "answer_say": "Thank! Thank God, it is over!",
     "native": {
-     "hook": "People is или people are?",
-     "tip": "После people ставь “are”: “People are nice here”.",
-     "caption": "Ты тоже говоришь “People is nice here.”? 😅 По-русски «люди» — множественное число, а “people” тоже, но многие ставят “is”. Правильно: “People are nice here.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
-     "comment": "Ответ: “are”. People — это множественное число. Бесплатный тест для практики здесь: {link}",
+     "hook": "“Thanks God” — ошибка!",
+     "tip": "«Слава богу» — это “Thank God”, без -s.",
+     "caption": "Ты тоже говоришь “Thanks God”? 😅 «Спасибо» — это “thanks”, вот и тянет добавить -s. Правильно: “Thank God you are here.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
+     "comment": "Ответ: “Thank.” Thank God — без -s. Бесплатный тест для практики здесь: {link}",
      "hashtags": [
       "#английскийязык",
       "#английский",
@@ -275,9 +275,9 @@
      ]
     },
     "en": {
-     "hook": "Is or are with people?",
-     "tip": "After people, use “are”: “People are nice here”.",
-     "caption": "Do you also say “People is nice here.”? 😅 “People” is plural, but many learners say “is” by mistake. Correct: “People are nice here.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "hook": "Thanks God or thank God?",
+     "tip": "Say “Thank God” with no -s.",
+     "caption": "Do you also say “Thanks God”? 😅 “Thanks” is a common word, so the -s sneaks in. Correct: “Thank God you are here.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -304,9 +304,9 @@
     "answer_say": "Agree! I agree with you.",
     "native": {
      "hook": "“I am agree” — частая ошибка",
-     "tip": "Agree — глагол. Говори просто “I agree”, без “am”.",
-     "caption": "Ты тоже говоришь “I am agree with you.”? 😅 По-русски «я согласен» — это прилагательное, и в английский тянется “am”. Правильно: “I agree with you.”. Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
-     "comment": "Ответ: “agree”. Agree — глагол, без am. Бесплатный тест для практики здесь: {link}",
+     "tip": "Agree — глагол. Говори просто “I agree”, без “am.”",
+     "caption": "Ты тоже говоришь “I am agree with you”? 😅 По-русски «я согласен» звучит как описание, и в английский тянется “am.” Но agree — глагол. Правильно: “I agree with you.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+     "comment": "Ответ: “agree.” Agree — глагол, без am. Бесплатный тест для практики здесь: {link}",
      "hashtags": [
       "#английский",
       "#грамматика",
@@ -316,8 +316,8 @@
     },
     "en": {
      "hook": "Do you say am agree?",
-     "tip": "Agree is a verb. Just say “I agree”, with no “am”.",
-     "caption": "Do you also say “I am agree with you.”? 😅 In Russian “ya soglasen” has a be-word, so “am” sneaks into English. Correct: “I agree with you.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "Agree is a verb. Just say “I agree”, with no “am.”",
+     "caption": "Do you also say “I am agree with you”? 😅 The word agree is a verb, so it needs no “am.” Correct: “I agree with you.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -328,9 +328,9 @@
    "theme": "dusk",
    "in": {
     "hook_say": "Wait you or wait for you?",
-    "wrong": "I wait you at the door.",
-    "right": "I wait for you at the door.",
-    "strike": "wait you",
+    "wrong": "I am waiting you at the door.",
+    "right": "I am waiting for you at the door.",
+    "strike": "waiting you",
     "why": "Wait needs for.",
     "memory": "Wait for you.",
     "quiz": {
@@ -344,9 +344,9 @@
     "answer_say": "For! Please wait for me.",
     "native": {
      "hook": "Wait без “for” — ошибка",
-     "tip": "Ждать — “wait for”: “I wait for you at the door”.",
-     "caption": "Ты тоже говоришь “I wait you at the door.”? 😅 По-русски «жду тебя» — без предлога, а по-английски нужен “for”. Правильно: “I wait for you at the door.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
-     "comment": "Ответ: “for”. Ждём кого-то — wait for. Бесплатный тест для практики здесь: {link}",
+     "tip": "Ждать — “wait for”: “I am waiting for you at the door.”",
+     "caption": "Ты тоже говоришь “I am waiting you at the door”? 😅 По-русски «жду тебя» — без предлога, а по-английски нужен “for.” Правильно: “I am waiting for you at the door.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
+     "comment": "Ответ: “for.” Ждём кого-то — wait for. Бесплатный тест для практики здесь: {link}",
      "hashtags": [
       "#английскийязык",
       "#учуанглийский",
@@ -356,37 +356,37 @@
     },
     "en": {
      "hook": "Wait you or wait for you?",
-     "tip": "To wait is “wait for”: “I wait for you at the door”.",
-     "caption": "Do you also say “I wait you at the door.”? 😅 In Russian “zhdu tebya” has no preposition, but English needs “for”. Correct: “I wait for you at the door.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "tip": "To wait is “wait for”: “I am waiting for you at the door.”",
+     "caption": "Do you also say “I am waiting you at the door”? 😅 It feels fine without a small word, but English needs “for.” Correct: “I am waiting for you at the door.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
   {
-   "id": "t2_l1_ru_boring",
+   "id": "t2_l1_ru_verylike",
    "lang": "ru",
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Bored or boring?",
-    "wrong": "The film was very bored.",
-    "right": "The film was very boring.",
-    "strike": "bored",
-    "why": "A boring thing makes you bored.",
-    "memory": "Film: boring.",
+    "hook_say": "Very like or really like?",
+    "wrong": "I very like this song.",
+    "right": "I really like this song.",
+    "strike": "very like",
+    "why": "Use really before like.",
+    "memory": "Really like.",
     "quiz": {
-     "stem": "This book is so ___.",
+     "stem": "I ___ like pizza.",
      "options": [
-      "bored",
-      "boring"
+      "very",
+      "really"
      ],
      "answer": 1
     },
-    "answer_say": "Boring! This book is so boring.",
+    "answer_say": "Really! I really like pizza.",
     "native": {
-     "hook": "Bored и boring — не путай!",
-     "tip": "Фильм скучный — boring. Ты скучаешь — bored.",
-     "caption": "Ты тоже говоришь “The film was very bored.”? 😅 Скучный фильм — “boring”. “Bored” — это ты сам скучаешь. Правильно: “The film was very boring.”. Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
-     "comment": "Ответ: “boring”. Вещь — boring, человек — bored. Бесплатный тест для практики здесь: {link}",
+     "hook": "“I very like” — ошибка!",
+     "tip": "«Очень нравится» — это “really like”, не “very like.”",
+     "caption": "Ты тоже говоришь “I very like this song”? 😅 По-русски «очень нравится», но “very” не ставят перед глаголом. Нужно “really like.” Правильно: “I really like this song.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+     "comment": "Ответ: “really.” Перед like — really. Бесплатный тест для практики здесь: {link}",
      "hashtags": [
       "#английскийязык",
       "#английский",
@@ -395,38 +395,38 @@
      ]
     },
     "en": {
-     "hook": "Bored or boring?",
-     "tip": "A dull film is boring. You feel bored.",
-     "caption": "Do you also say “The film was very bored.”? 😅 A dull film is “boring”. “Bored” is how you feel. Correct: “The film was very boring.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "hook": "Very like or really like?",
+     "tip": "Say “really like”, not “very like.”",
+     "caption": "Do you also say “I very like this song”? 😅 The word very does not go before a verb. Use “really like.” Correct: “I really like this song.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
   {
-   "id": "t2_l1_ru_makedo",
+   "id": "t2_l1_ru_gohome",
    "lang": "ru",
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Make or do homework?",
-    "wrong": "I make homework every day.",
-    "right": "I do homework every day.",
-    "strike": "make",
-    "why": "Homework goes with do.",
-    "memory": "Do homework.",
+    "hook_say": "Go home or go to home?",
+    "wrong": "I go to home after work.",
+    "right": "I go home after work.",
+    "strike": "to",
+    "why": "No to before home.",
+    "memory": "Go home.",
     "quiz": {
-     "stem": "I ___ my homework.",
+     "stem": "We go ___ now.",
      "options": [
-      "make",
-      "do"
+      "to home",
+      "home"
      ],
      "answer": 1
     },
-    "answer_say": "Do! I do my homework.",
+    "answer_say": "Home! We go home now.",
     "native": {
-     "hook": "Make или do — не путай!",
-     "tip": "Уроки не “make”, а “do”: “I do homework every day”.",
-     "caption": "Ты тоже говоришь “I make homework every day.”? 😅 По-русски «делать уроки» — одно слово, а в английском homework идёт с “do”. Правильно: “I do homework every day.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
-     "comment": "Ответ: “do”. Homework — это do. Бесплатный тест для практики здесь: {link}",
+     "hook": "“Go to home” — ошибка!",
+     "tip": "Перед home не нужен “to”: “I go home after work.”",
+     "caption": "Ты тоже говоришь “I go to home after work”? 😅 По-русски «иду домой», и хочется добавить “to.” Но перед home он не нужен. Правильно: “I go home after work.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
+     "comment": "Ответ: “home.” Go home — без to. Бесплатный тест для практики здесь: {link}",
      "hashtags": [
       "#английский",
       "#грамматика",
@@ -435,9 +435,9 @@
      ]
     },
     "en": {
-     "hook": "Make or do homework?",
-     "tip": "Homework is “do”, not “make”: “I do homework every day”.",
-     "caption": "Do you also say “I make homework every day.”? 😅 Russian has one word “delat'”, but English homework goes with “do”. Correct: “I do homework every day.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "hook": "Go home or go to home?",
+     "tip": "No “to” before home: “I go home after work.”",
+     "caption": "Do you also say “I go to home after work”? 😅 It is easy to add “to”, but home needs no “to.” Correct: “I go home after work.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -454,19 +454,19 @@
     "why": "Watch is for TV.",
     "memory": "Watch TV.",
     "quiz": {
-     "stem": "We ___ a film.",
+     "stem": "We ___ a movie.",
      "options": [
       "watch",
       "look"
      ],
      "answer": 0
     },
-    "answer_say": "Watch! We watch a film.",
+    "answer_say": "Watch! We watch a movie.",
     "native": {
      "hook": "Look TV — ошибка!",
      "tip": "Телевизор и фильмы смотрим через watch, а не look.",
-     "caption": "Ты тоже говоришь “I look TV at night.”? 😅 По-русски «смотреть» — одно слово, а в английском TV и фильмы — “watch”. Правильно: “I watch TV at night.”. Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
-     "comment": "Ответ: “watch”. Телевизор — watch, не look. Бесплатный тест для практики здесь: {link}",
+     "caption": "Ты тоже говоришь “I look TV at night”? 😅 По-русски «смотреть» — один глагол, а в английском для TV и фильмов — “watch.” Правильно: “I watch TV at night.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+     "comment": "Ответ: “watch.” Телевизор — watch, не look. Бесплатный тест для практики здесь: {link}",
      "hashtags": [
       "#английскийязык",
       "#учуанглийский",
@@ -476,8 +476,8 @@
     },
     "en": {
      "hook": "Look or watch TV?",
-     "tip": "For TV and films, use watch, not look.",
-     "caption": "Do you also say “I look TV at night.”? 😅 Russian has one verb “smotret'”, but English uses “watch” for TV and films. Correct: “I watch TV at night.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "For TV and movies, use watch, not look.",
+     "caption": "Do you also say “I look TV at night”? 😅 English uses “watch” for TV and movies, not look. Correct: “I watch TV at night.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -487,7 +487,7 @@
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Which small word is right?",
+    "hook_say": "On work or at work?",
     "wrong": "I am on the work now.",
     "right": "I am at work now.",
     "strike": "on the work",
@@ -497,16 +497,16 @@
      "stem": "She is ___ work today.",
      "options": [
       "at",
-      "in the"
+      "on"
      ],
      "answer": 0
     },
     "answer_say": "At! She is at work today.",
     "native": {
-     "hook": "Какое маленькое слово верное?",
-     "tip": "Работа — “at work”, без “the” и без “on”.",
-     "caption": "Ты тоже говоришь “I am on the work now.”? 😅 По-русски «на работе», и в английский тянется “on”. Нужно “at work”. Правильно: “I am at work now.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
-     "comment": "Ответ: “at”. На работе — at work. Бесплатный тест для практики здесь: {link}",
+     "hook": "“On the work” — ошибка!",
+     "tip": "Работа — “at work”, без “the” и без “on.”",
+     "caption": "Ты тоже говоришь “I am on the work now”? 😅 По-русски «на работе», и в английский тянется “on.” Нужно “at work.” Правильно: “I am at work now.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
+     "comment": "Ответ: “at.” На работе — at work. Бесплатный тест для практики здесь: {link}",
      "hashtags": [
       "#английскийязык",
       "#английский",
@@ -515,9 +515,9 @@
      ]
     },
     "en": {
-     "hook": "Which small word is right?",
-     "tip": "For your job, say “at work”, with no “the” and no “on”.",
-     "caption": "Do you also say “I am on the work now.”? 😅 In Russian it is “na rabote”, so “on” sneaks in. You need “at work”. Correct: “I am at work now.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "hook": "On work or at work?",
+     "tip": "For your job, say “at work”, with no “the” and no “on.”",
+     "caption": "Do you also say “I am on the work now”? 😅 It is easy to say “on”, but you need “at work.” Correct: “I am at work now.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -545,8 +545,8 @@
     "native": {
      "hook": "Borrow и lend — не путай!",
      "tip": "Даёшь — lend, берёшь — borrow. Попроси: “Can you lend me a pen?”",
-     "caption": "Ты тоже говоришь “Can you borrow me a pen?”? 😅 По-русски «одолжить» значит и дать, и взять. Давать — “lend”, брать — “borrow”. Правильно: “Can you lend me a pen?”. Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
-     "comment": "Ответ: “borrow”. Дать — lend, взять — borrow. Бесплатный тест для практики здесь: {link}",
+     "caption": "Ты тоже говоришь “Can you borrow me a pen?” 😅 По-русски «одолжить» значит и дать, и взять. Давать — “lend”, брать — “borrow.” Правильно: “Can you lend me a pen?” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+     "comment": "Ответ: “borrow.” Дать — lend, взять — borrow. Бесплатный тест для практики здесь: {link}",
      "hashtags": [
       "#английский",
       "#грамматика",
@@ -557,7 +557,7 @@
     "en": {
      "hook": "Lend or borrow?",
      "tip": "Giving is lend, taking is borrow. Ask: “Can you lend me a pen?”",
-     "caption": "Do you also say “Can you borrow me a pen?”? 😅 Russian “odolzhit'” means both. Giving is “lend”, taking is “borrow”. Correct: “Can you lend me a pen?”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "caption": "Do you also say “Can you borrow me a pen?” 😅 Giving is “lend”, taking is “borrow.” Correct: “Can you lend me a pen?” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -584,9 +584,9 @@
     "answer_say": "Sing! She can sing well.",
     "native": {
      "hook": "Can to — лишнее “to”!",
-     "tip": "После can глагол идёт без “to”: “I can swim”.",
-     "caption": "Ты тоже говоришь “I can to swim.”? 😅 По-русски «я могу плавать» — с инфинитивом, вот и появляется лишнее “to”. Правильно: “I can swim.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
-     "comment": "Ответ: “sing”. После can — без to. Бесплатный тест для практики здесь: {link}",
+     "tip": "После can глагол идёт без “to”: “I can swim.”",
+     "caption": "Ты тоже говоришь “I can to swim”? 😅 По-русски «я могу плавать» — с инфинитивом, вот и появляется лишнее “to.” Правильно: “I can swim.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
+     "comment": "Ответ: “sing.” После can — без to. Бесплатный тест для практики здесь: {link}",
      "hashtags": [
       "#английскийязык",
       "#учуанглийский",
@@ -596,8 +596,8 @@
     },
     "en": {
      "hook": "Do you say can to?",
-     "tip": "After can, the verb goes without “to”: “I can swim”.",
-     "caption": "Do you also say “I can to swim.”? 😅 In Russian the infinitive follows “mogu”, so an extra “to” appears. Correct: “I can swim.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "tip": "After can, the verb goes without “to”: “I can swim.”",
+     "caption": "Do you also say “I can to swim”? 😅 After can, the verb needs no “to.” Correct: “I can swim.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -607,7 +607,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Do you forget a?",
+    "hook_say": "Did you forget a?",
     "wrong": "I have dog.",
     "right": "I have a dog.",
     "strike": "have dog",
@@ -624,9 +624,9 @@
     "answer_say": "A! She is a doctor.",
     "native": {
      "hook": "Ты забываешь “a”?",
-     "tip": "Перед одним предметом ставь a: “I have a dog”.",
-     "caption": "Ты тоже говоришь “I have dog.”? 😅 В русском нет артиклей, поэтому “a” легко потерять: “I have a dog”. Правильно: “I have a dog.”. Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
-     "comment": "Ответ: “a”. Нет артиклей — частая беда. Бесплатный тест для практики здесь: {link}",
+     "tip": "Перед одним предметом ставь “a”: “I have a dog.”",
+     "caption": "Ты тоже говоришь “I have dog”? 😅 В русском нет артиклей, поэтому “a” легко потерять. Правильно: “I have a dog.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+     "comment": "Ответ: “a.” Нет артиклей — частая беда. Бесплатный тест для практики здесь: {link}",
      "hashtags": [
       "#английскийязык",
       "#английский",
@@ -635,9 +635,9 @@
      ]
     },
     "en": {
-     "hook": "Do you forget a?",
-     "tip": "Before one thing, put a: “I have a dog”.",
-     "caption": "Do you also say “I have dog.”? 😅 Russian has no articles, so “a” is easy to lose: “I have a dog”. Correct: “I have a dog.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "hook": "Did you forget a?",
+     "tip": "Before one thing, put “a”: “I have a dog.”",
+     "caption": "Do you also say “I have dog”? 😅 The little word “a” is easy to lose. Correct: “I have a dog.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -664,9 +664,9 @@
     "answer_say": "Have lived! I have lived here since May.",
     "native": {
      "hook": "Since и live — какое время?",
-     "tip": "Со словом since нужно “have lived”, а не “live”.",
-     "caption": "Ты тоже говоришь “I live here since 2020.”? 😅 По-русски «живу с 2020» — настоящее время, а в английском нужно “have lived”. Правильно: “I have lived here since 2020.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
-     "comment": "Ответ: “have lived”. Since — это have lived. Бесплатный тест для практики здесь: {link}",
+     "tip": "Со словом since нужно “have lived”, а не “live.”",
+     "caption": "Ты тоже говоришь “I live here since 2020”? 😅 По-русски «живу с 2020» — настоящее время, а в английском нужно “have lived.” Правильно: “I have lived here since 2020.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
+     "comment": "Ответ: “have lived.” Since — это have lived. Бесплатный тест для практики здесь: {link}",
      "hashtags": [
       "#английский",
       "#грамматика",
@@ -676,8 +676,8 @@
     },
     "en": {
      "hook": "Live or have lived?",
-     "tip": "With since, you need “have lived”, not “live”.",
-     "caption": "Do you also say “I live here since 2020.”? 😅 In Russian we say “zhivu s 2020”, but English needs “have lived”. Correct: “I have lived here since 2020.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "tip": "With since, you need “have lived”, not “live.”",
+     "caption": "Do you also say “I live here since 2020”? 😅 With since, English needs “have lived.” Correct: “I have lived here since 2020.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -688,25 +688,25 @@
    "theme": "dusk",
    "in": {
     "hook_say": "Will or no will after if?",
-    "wrong": "If it will rain, I stay home.",
-    "right": "If it rains, I stay home.",
+    "wrong": "If it will rain, I will stay home.",
+    "right": "If it rains, I will stay home.",
     "strike": "will rain",
     "why": "After if, no will.",
     "memory": "If it rains.",
     "quiz": {
-     "stem": "If I ___ time, I help.",
+     "stem": "If I ___ time, I will help you.",
      "options": [
       "will have",
       "have"
      ],
      "answer": 1
     },
-    "answer_say": "Have! If I have time, I help.",
+    "answer_say": "Have! If I have time, I will help you.",
     "native": {
      "hook": "“If … will” — ошибка!",
-     "tip": "После if ставь простое время: “If it rains, I stay home”.",
-     "caption": "Ты тоже говоришь “If it will rain, I stay home.”? 😅 По-русски «если будет дождь» — будущее время, но в английском после if “will” не нужен. Правильно: “If it rains, I stay home.”. Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
-     "comment": "Ответ: “have”. После if — без will. Бесплатный тест для практики здесь: {link}",
+     "tip": "После if — настоящее время: “If it rains, I will stay home.”",
+     "caption": "Ты тоже говоришь “If it will rain, I will stay home”? 😅 По-русски «если будет дождь» — будущее время, но в английском после if “will” не нужен. Правильно: “If it rains, I will stay home.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+     "comment": "Ответ: “have.” После if — без will. Бесплатный тест для практики здесь: {link}",
      "hashtags": [
       "#английскийязык",
       "#учуанглийский",
@@ -716,8 +716,8 @@
     },
     "en": {
      "hook": "Will or no will after if?",
-     "tip": "After if, use the simple tense: “If it rains, I stay home”.",
-     "caption": "Do you also say “If it will rain, I stay home.”? 😅 In Russian we say “esli budet dozhd'”, but English has no “will” after if. Correct: “If it rains, I stay home.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "After if, use the present: “If it rains, I will stay home.”",
+     "caption": "Do you also say “If it will rain, I will stay home”? 😅 English has no “will” after if. Correct: “If it rains, I will stay home.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -727,26 +727,26 @@
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Is it a shop?",
+    "hook_say": "Is it a store?",
     "wrong": "I bought bread in the magazine.",
-    "right": "I bought bread in the shop.",
+    "right": "I bought bread at the store.",
     "strike": "magazine",
-    "why": "Magazine is a thing to read.",
-    "memory": "Shop: buy things.",
+    "why": "A magazine is a thing to read.",
+    "memory": "Store: buy things.",
     "quiz": {
-     "stem": "I buy milk in a ___.",
+     "stem": "I buy milk at the ___.",
      "options": [
       "magazine",
-      "shop"
+      "store"
      ],
      "answer": 1
     },
-    "answer_say": "Shop! I buy milk in a shop.",
+    "answer_say": "Store! I buy milk at the store.",
     "native": {
-     "hook": "Магазин — это “shop”?",
-     "tip": "“Magazine” — это журнал. Магазин по-английски — “shop”.",
-     "caption": "Ты тоже говоришь “I bought bread in the magazine.”? 😅 “Magazine” похоже на «магазин», но это журнал. Магазин — “shop” или “store”. Правильно: “I bought bread in the shop.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
-     "comment": "Ответ: “shop”. Магазин — shop, журнал — magazine. Бесплатный тест для практики здесь: {link}",
+     "hook": "Магазин — это “store”!",
+     "tip": "“Magazine” — это журнал. Магазин по-английски — “store.”",
+     "caption": "Ты тоже говоришь “I bought bread in the magazine”? 😅 “Magazine” похоже на «магазин», но это журнал. Магазин — “store.” Правильно: “I bought bread at the store.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
+     "comment": "Ответ: “store.” Магазин — store, журнал — magazine. Бесплатный тест для практики здесь: {link}",
      "hashtags": [
       "#английскийязык",
       "#английский",
@@ -755,9 +755,9 @@
      ]
     },
     "en": {
-     "hook": "Is it a shop?",
-     "tip": "“Magazine” means a journal. A store is a “shop”.",
-     "caption": "Do you also say “I bought bread in the magazine.”? 😅 “Magazine” looks like the Russian word for shop, but it means a journal. A store is “shop”. Correct: “I bought bread in the shop.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "hook": "Is it a store?",
+     "tip": "A “magazine” is something you read. A place to buy things is a “store.”",
+     "caption": "Do you also say “I bought bread in the magazine”? 😅 A “magazine” is something you read. Correct: “I bought bread at the store.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -784,9 +784,9 @@
     "answer_say": "Factory! He works in a factory.",
     "native": {
      "hook": "“Fabric” — не фабрика!",
-     "tip": "“Fabric” — это ткань. Фабрика по-английски — “factory”.",
-     "caption": "Ты тоже говоришь “I work at a fabric.”? 😅 “Fabric” похоже на «фабрика», но это ткань. Фабрика — “factory”. Правильно: “I work at a factory.”. Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
-     "comment": "Ответ: “factory”. Фабрика — factory, ткань — fabric. Бесплатный тест для практики здесь: {link}",
+     "tip": "“Fabric” — это ткань. Фабрика по-английски — “factory.”",
+     "caption": "Ты тоже говоришь “I work at a fabric”? 😅 “Fabric” похоже на «фабрика», но это ткань. Фабрика — “factory.” Правильно: “I work at a factory.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+     "comment": "Ответ: “factory.” Фабрика — factory, ткань — fabric. Бесплатный тест для практики здесь: {link}",
      "hashtags": [
       "#английский",
       "#грамматика",
@@ -796,8 +796,8 @@
     },
     "en": {
      "hook": "Is it a factory?",
-     "tip": "“Fabric” means cloth. A plant is a “factory”.",
-     "caption": "Do you also say “I work at a fabric.”? 😅 “Fabric” looks like “fabrika”, but it means cloth. A plant is “factory”. Correct: “I work at a factory.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "“Fabric” means cloth. A place that makes things is a “factory.”",
+     "caption": "Do you also say “I work at a fabric”? 😅 “Fabric” means cloth. A place that makes things is a “factory.” Correct: “I work at a factory.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -824,9 +824,9 @@
     "answer_say": "In! The bus comes in five minutes.",
     "native": {
      "hook": "“After” или “in” — что выбрать?",
-     "tip": "Время от сейчас — “in”: “I will see you in five minutes”.",
-     "caption": "Ты тоже говоришь “I will see you after five minutes.”? 😅 По-русски «через пять минут», но в английском “after” не подходит. Нужно “in”. Правильно: “I will see you in five minutes.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
-     "comment": "Ответ: “in”. Через сколько — in. Бесплатный тест для практики здесь: {link}",
+     "tip": "Время от сейчас — “in”: “I will see you in five minutes.”",
+     "caption": "Ты тоже говоришь “I will see you after five minutes”? 😅 По-русски «через пять минут», но в английском “after” не подходит. Нужно “in.” Правильно: “I will see you in five minutes.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
+     "comment": "Ответ: “in.” Через сколько — in. Бесплатный тест для практики здесь: {link}",
      "hashtags": [
       "#английскийязык",
       "#учуанглийский",
@@ -836,8 +836,8 @@
     },
     "en": {
      "hook": "After or in?",
-     "tip": "For time from now, use “in”: “I will see you in five minutes”.",
-     "caption": "Do you also say “I will see you after five minutes.”? 😅 In Russian we say “cherez pyat' minut”, but English needs “in”, not “after”. Correct: “I will see you in five minutes.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "tip": "For time from now, use “in”: “I will see you in five minutes.”",
+     "caption": "Do you also say “I will see you after five minutes”? 😅 For time from now, English needs “in”, not after. Correct: “I will see you in five minutes.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -847,12 +847,12 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Is the order right?",
+    "hook_say": "What word is missing here?",
     "wrong": "Where you live?",
     "right": "Where do you live?",
     "strike": "you live",
     "why": "Questions need do.",
-    "memory": "Where do you?",
+    "memory": "Where do you live?",
     "quiz": {
      "stem": "Where ___ you work?",
      "options": [
@@ -863,10 +863,10 @@
     },
     "answer_say": "Do! Where do you work?",
     "native": {
-     "hook": "Порядок слов верный?",
+     "hook": "Где тут “do”?",
      "tip": "В вопросе нужно “do”: “Where do you live?”",
-     "caption": "Ты тоже говоришь “Where you live?”? 😅 В русском порядок слов свободный, а в английском вопрос нужен “do”. Правильно: “Where do you live?”. Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
-     "comment": "Ответ: “do”. Вопрос — со словом do. Бесплатный тест для практики здесь: {link}",
+     "caption": "Ты тоже говоришь “Where you live?” 😅 В русском вопрос строится без вспомогательного слова, а в английском нужен “do.” Правильно: “Where do you live?” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+     "comment": "Ответ: “do.” Вопрос — со словом do. Бесплатный тест для практики здесь: {link}",
      "hashtags": [
       "#английскийязык",
       "#английский",
@@ -875,9 +875,9 @@
      ]
     },
     "en": {
-     "hook": "Is the order right?",
+     "hook": "What word is missing here?",
      "tip": "Questions need “do”: “Where do you live?”",
-     "caption": "Do you also say “Where you live?”? 😅 Russian word order is free, but English questions need “do”. Correct: “Where do you live?”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "caption": "Do you also say “Where you live?” 😅 English questions need “do.” Correct: “Where do you live?” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -887,7 +887,7 @@
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Is this word right?",
+    "hook_say": "More tall or taller?",
     "wrong": "He is more tall than me.",
     "right": "He is taller than me.",
     "strike": "more tall",
@@ -903,10 +903,10 @@
     },
     "answer_say": "Taller! He is taller than me.",
     "native": {
-     "hook": "Это слово верное?",
-     "tip": "С короткими словами добавь -er: “taller”, “bigger”.",
-     "caption": "Ты тоже говоришь “He is more tall than me.”? 😅 По-русски «более высокий», вот и хочется сказать “more tall”. Короткие слова берут -er. Правильно: “He is taller than me.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
-     "comment": "Ответ: “taller”. Короткие слова — с -er. Бесплатный тест для практики здесь: {link}",
+     "hook": "More tall или taller?",
+     "tip": "С короткими словами добавь -er: “taller”, “bigger.”",
+     "caption": "Ты тоже говоришь “He is more tall than me”? 😅 По-русски «более высокий», вот и хочется сказать “more tall.” Короткие слова берут -er. Правильно: “He is taller than me.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
+     "comment": "Ответ: “taller.” Короткие слова — с -er. Бесплатный тест для практики здесь: {link}",
      "hashtags": [
       "#английский",
       "#грамматика",
@@ -915,9 +915,9 @@
      ]
     },
     "en": {
-     "hook": "Is this word right?",
-     "tip": "With short words, add -er: “taller”, “bigger”.",
-     "caption": "Do you also say “He is more tall than me.”? 😅 In Russian it is “bolee vysokiy”, so “more tall” appears. Short words take -er. Correct: “He is taller than me.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "hook": "More tall or taller?",
+     "tip": "With short words, add -er: “taller”, “bigger.”",
+     "caption": "Do you also say “He is more tall than me”? 😅 Short words take -er. Correct: “He is taller than me.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -928,8 +928,8 @@
    "theme": "dusk",
    "in": {
     "hook_say": "In or on?",
-    "wrong": "I see him in Monday.",
-    "right": "I see him on Monday.",
+    "wrong": "I will see him in Monday.",
+    "right": "I will see him on Monday.",
     "strike": "in",
     "why": "Days go with on.",
     "memory": "On Monday.",
@@ -944,9 +944,9 @@
     "answer_say": "On! The class is on Monday.",
     "native": {
      "hook": "“In Monday” — ошибка!",
-     "tip": "Перед днём недели ставим on: “on Monday”.",
-     "caption": "Ты тоже говоришь “I see him in Monday.”? 😅 По-русски «в понедельник», и в английском хочется “in”. Но дни недели идут с “on”. Правильно: “I see him on Monday.”. Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
-     "comment": "Ответ: “on”. Дни недели — с on. Бесплатный тест для практики здесь: {link}",
+     "tip": "Перед днём недели ставим on: “on Monday.”",
+     "caption": "Ты тоже говоришь “I will see him in Monday”? 😅 По-русски «в понедельник», и в английском хочется “in.” Но дни недели идут с “on.” Правильно: “I will see him on Monday.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+     "comment": "Ответ: “on.” Дни недели — с on. Бесплатный тест для практики здесь: {link}",
      "hashtags": [
       "#английскийязык",
       "#учуанглийский",
@@ -956,37 +956,37 @@
     },
     "en": {
      "hook": "In or on?",
-     "tip": "Before a day, use “on”: “on Monday”.",
-     "caption": "Do you also say “I see him in Monday.”? 😅 In Russian it is “v ponedel'nik”, so “in” sneaks in. Days go with “on”. Correct: “I see him on Monday.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "Before a day, use “on”: “on Monday.”",
+     "caption": "Do you also say “I will see him in Monday”? 😅 Days of the week go with “on.” Correct: “I will see him on Monday.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
   {
-   "id": "t2_l1_ru_muchmany",
+   "id": "t2_l1_ru_fiveofus",
    "lang": "ru",
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Much or many?",
-    "wrong": "I do not have many money.",
-    "right": "I do not have much money.",
-    "strike": "many",
-    "why": "Money is not counted. Use much.",
-    "memory": "Much money.",
+    "hook_say": "How do you count people?",
+    "wrong": "We were five in the car.",
+    "right": "There were five of us in the car.",
+    "strike": "We were five",
+    "why": "Say there were five of us.",
+    "memory": "Five of us.",
     "quiz": {
-     "stem": "We do not have ___ time.",
+     "stem": "There were three ___ at the table.",
      "options": [
-      "many",
-      "much"
+      "of us",
+      "we"
      ],
-     "answer": 1
+     "answer": 0
     },
-    "answer_say": "Much! We do not have much time.",
+    "answer_say": "Of us! There were three of us at the table.",
     "native": {
-     "hook": "Many или much?",
-     "tip": "Деньги не считаем штуками — говори “much money”.",
-     "caption": "Ты тоже говоришь “I do not have many money.”? 😅 “Деньги” нельзя посчитать по штукам, значит нужно “much”, а не “many”. Правильно: “I do not have much money.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
-     "comment": "Ответ: “much”. Много денег — much money. Бесплатный тест для практики здесь: {link}",
+     "hook": "«Нас было пятеро» — как?",
+     "tip": "«Нас было пятеро» — “There were five of us.”",
+     "caption": "Ты тоже говоришь “We were five in the car”? 😅 По-русски «нас было пятеро», а по-английски “There were five of us.” Правильно: “There were five of us in the car.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
+     "comment": "Ответ: “of us.” Нас было трое — three of us. Бесплатный тест для практики здесь: {link}",
      "hashtags": [
       "#английскийязык",
       "#английский",
@@ -995,9 +995,9 @@
      ]
     },
     "en": {
-     "hook": "Much or many?",
-     "tip": "Money is not counted by pieces — say “much money”.",
-     "caption": "Do you also say “I do not have many money.”? 😅 You cannot count money by pieces, so use “much”, not “many”. Correct: “I do not have much money.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "hook": "How do you count people?",
+     "tip": "Say “There were five of us.”",
+     "caption": "Do you also say “We were five in the car”? 😅 English says “There were five of us.” Correct: “There were five of us in the car.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1014,19 +1014,19 @@
     "why": "English needs is.",
     "memory": "She is.",
     "quiz": {
-     "stem": "He ___ tired.",
+     "stem": "My brother ___ tall.",
      "options": [
       "is",
-      "are"
+      "(no word)"
      ],
      "answer": 0
     },
-    "answer_say": "Is! He is tired.",
+    "answer_say": "Is! My brother is tall.",
     "native": {
      "hook": "Ты забываешь “is”?",
-     "tip": "Не пропускай is: “She is very beautiful”.",
-     "caption": "Ты тоже говоришь “She very beautiful.”? 😅 В русском нет «есть» в настоящем времени: «она красивая». В английском “is” нужен. Правильно: “She is very beautiful.”. Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
-     "comment": "Ответ: “is”. Без is — нельзя. Бесплатный тест для практики здесь: {link}",
+     "tip": "Не пропускай “is”: “She is very beautiful.”",
+     "caption": "Ты тоже говоришь “She very beautiful”? 😅 В русском в настоящем времени нет связки: «она красивая». В английском “is” нужен. Правильно: “She is very beautiful.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+     "comment": "Ответ: “is.” Без is — нельзя. Бесплатный тест для практики здесь: {link}",
      "hashtags": [
       "#английский",
       "#грамматика",
@@ -1036,37 +1036,37 @@
     },
     "en": {
      "hook": "Do you forget is?",
-     "tip": "Do not skip is: “She is very beautiful”.",
-     "caption": "Do you also say “She very beautiful.”? 😅 Russian has no “is” in the present: “ona krasivaya”. English needs “is”. Correct: “She is very beautiful.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "Do not skip “is”: “She is very beautiful.”",
+     "caption": "Do you also say “She very beautiful”? 😅 English needs “is” here. Correct: “She is very beautiful.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
   {
-   "id": "t2_l1_ru_yesterday",
+   "id": "t2_l1_ru_howcall",
    "lang": "ru",
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Go or went?",
-    "wrong": "Yesterday I go to the shop.",
-    "right": "Yesterday I went to the shop.",
-    "strike": "go",
-    "why": "Yesterday needs the past.",
-    "memory": "Go, went.",
+    "hook_say": "Say what, not how!",
+    "wrong": "How do you call this in English?",
+    "right": "What do you call this in English?",
+    "strike": "How",
+    "why": "Use what with call.",
+    "memory": "What do you call it?",
     "quiz": {
-     "stem": "Last week we ___ home.",
+     "stem": "___ do you call this fruit?",
      "options": [
-      "go",
-      "went"
+      "How",
+      "What"
      ],
      "answer": 1
     },
-    "answer_say": "Went! Last week we went home.",
+    "answer_say": "What! What do you call this fruit?",
     "native": {
-     "hook": "“Go” или “went”?",
-     "tip": "Вчера — прошедшее время: “Yesterday I went to the shop”.",
-     "caption": "Ты тоже говоришь “Yesterday I go to the shop.”? 😅 Со словом yesterday нужно прошедшее время: “went”, а не “go”. Правильно: “Yesterday I went to the shop.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
-     "comment": "Ответ: “went”. Вчера — это went. Бесплатный тест для практики здесь: {link}",
+     "hook": "“How do you call” — ошибка!",
+     "tip": "«Как это называется?» — “What do you call this?”",
+     "caption": "Ты тоже говоришь “How do you call this in English”? 😅 По-русски «как», но с call нужно “what.” Правильно: “What do you call this in English?” Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
+     "comment": "Ответ: “What.” What do you call…? Бесплатный тест для практики здесь: {link}",
      "hashtags": [
       "#английскийязык",
       "#учуанглийский",
@@ -1075,9 +1075,9 @@
      ]
     },
     "en": {
-     "hook": "Go or went?",
-     "tip": "Yesterday needs the past: “Yesterday I went to the shop”.",
-     "caption": "Do you also say “Yesterday I go to the shop.”? 😅 With yesterday you need the past: “went”, not “go”. Correct: “Yesterday I went to the shop.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "hook": "How or what with call?",
+     "tip": "Say “What do you call this?”",
+     "caption": "Do you also say “How do you call this in English”? 😅 With call, use “what.” Correct: “What do you call this in English?” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1104,9 +1104,9 @@
     "answer_say": "Interested! She is interested in art.",
     "native": {
      "hook": "Interested и interesting",
-     "tip": "Ты увлечён — “I am interested in music”.",
-     "caption": "Ты тоже говоришь “I am interesting in music.”? 😅 Ты сам заинтересован — “interested”. Предмет интересный — “interesting”. Правильно: “I am interested in music.”. Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
-     "comment": "Ответ: “interested”. Человек — interested, вещь — interesting. Бесплатный тест для практики здесь: {link}",
+     "tip": "Ты увлечён — “I am interested in music.”",
+     "caption": "Ты тоже говоришь “I am interesting in music”? 😅 Ты сам заинтересован — “interested.” Предмет интересный — “interesting.” Правильно: “I am interested in music.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+     "comment": "Ответ: “interested.” Человек — interested, вещь — interesting. Бесплатный тест для практики здесь: {link}",
      "hashtags": [
       "#английскийязык",
       "#английский",
@@ -1116,8 +1116,8 @@
     },
     "en": {
      "hook": "Interested or interesting?",
-     "tip": "When you feel it, say “I am interested in music”.",
-     "caption": "Do you also say “I am interesting in music.”? 😅 You feel “interested”. A thing is “interesting”. Correct: “I am interested in music.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "When you feel it, say “I am interested in music.”",
+     "caption": "Do you also say “I am interesting in music”? 😅 You feel “interested.” A thing is “interesting.” Correct: “I am interested in music.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1144,9 +1144,9 @@
     "answer_say": "Anything! She does not know anything.",
     "native": {
      "hook": "“Not … nothing” — ошибка!",
-     "tip": "По-русски «не вижу ничего» — два отрицания, а в английском одно: “I do not see anything”.",
-     "caption": "Ты тоже говоришь “I do not see nothing”? 😅 В русском «не вижу ничего» — двойное отрицание, а в английском отрицание одно, нужно “anything”. Правильно: “I do not see anything.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
-     "comment": "Ответ: “anything”. После not ставим anything. Бесплатный тест для практики здесь: {link}",
+     "tip": "По-русски «не вижу ничего» — два отрицания, а в английском одно: “I do not see anything.”",
+     "caption": "Ты тоже говоришь “I do not see nothing”? 😅 В русском «не вижу ничего» — двойное отрицание, а в английском отрицание одно, нужно “anything.” Правильно: “I do not see anything.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
+     "comment": "Ответ: “anything.” После not ставим anything. Бесплатный тест для практики здесь: {link}",
      "hashtags": [
       "#английскийязык",
       "#английский",
@@ -1156,8 +1156,8 @@
     },
     "en": {
      "hook": "Which word is right?",
-     "tip": "In Russian “ne vizhu nichego” has two no words, but English needs one: “I do not see anything”.",
-     "caption": "Do you also say “I do not see nothing”? 😅 In Russian “ne vizhu nichego” has a double no, but English has only one, so you need “anything”. Correct: “I do not see anything.” Listen to Ama and repeat! Practice more in the Lexkite app."
+     "tip": "English needs only one no word: “I do not see anything.”",
+     "caption": "Do you also say “I do not see nothing”? 😅 English uses only one no word, so you need “anything.” Correct: “I do not see anything.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1184,9 +1184,9 @@
     "answer_say": "Told! She told me a story.",
     "native": {
      "hook": "“Said me” или “told me”?",
-     "tip": "По-русски «сказал мне», отсюда “said me”. Но say не берёт человека без to: “told me” или “said to me”.",
-     "caption": "Ты тоже говоришь “He said me the truth”? 😅 По-русски «сказал мне» тянет за собой “said me”, а нужно “told me”. Правильно: “He told me the truth.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
-     "comment": "Ответ: “told”. С человеком — told. Бесплатный тест для практики здесь: {link}",
+     "tip": "По-русски «сказал мне», отсюда “said me.” Но say не берёт человека без to: “told me” или “said to me.”",
+     "caption": "Ты тоже говоришь “He said me the truth”? 😅 По-русски «сказал мне» тянет за собой “said me”, а нужно “told me.” Правильно: “He told me the truth.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+     "comment": "Ответ: “told.” С человеком — told. Бесплатный тест для практики здесь: {link}",
      "hashtags": [
       "#английский",
       "#грамматика",
@@ -1196,8 +1196,8 @@
     },
     "en": {
      "hook": "Said or told?",
-     "tip": "In Russian “skazal mne” pulls in “said me”, but with “me” use “told”.",
-     "caption": "Do you also say “He said me the truth”? 😅 In Russian “skazal mne” pulls in “said me”, but you need “told me”. Correct: “He told me the truth.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "With “me”, use “told”: “told me” or “said to me.”",
+     "caption": "Do you also say “He said me the truth”? 😅 With “me”, you need “told me.” Correct: “He told me the truth.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1224,9 +1224,9 @@
     "answer_say": "It is! It is raining now.",
     "native": {
      "hook": "Чего не хватает в “Is cold”?",
-     "tip": "По-русски «Холодно» — без подлежащего. В английском нужно “It”: “It is cold today”.",
-     "caption": "Ты тоже говоришь “Is cold today”? 😅 По-русски «Сегодня холодно» говорят без подлежащего, а в английском нужно “It”. Правильно: “It is cold today.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
-     "comment": "Ответ: “It is”. Нужно “It”. Бесплатный тест для практики здесь: {link}",
+     "tip": "По-русски «Холодно» — без подлежащего. В английском нужно “It”: “It is cold today.”",
+     "caption": "Ты тоже говоришь “Is cold today”? 😅 По-русски «Сегодня холодно» говорят без подлежащего, а в английском нужно “It.” Правильно: “It is cold today.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
+     "comment": "Ответ: “It is.” Нужно “It.” Бесплатный тест для практики здесь: {link}",
      "hashtags": [
       "#английскийязык",
       "#английский",
@@ -1236,8 +1236,8 @@
     },
     "en": {
      "hook": "What word is missing?",
-     "tip": "In Russian “Kholodno” has no subject. English needs “It”: “It is cold today”.",
-     "caption": "Do you also say “Is cold today”? 😅 In Russian “Segodnya kholodno” has no subject, but English needs “It”. Correct: “It is cold today.” Listen to Ama and repeat! Practice more in the Lexkite app."
+     "tip": "English needs “It”: “It is cold today.”",
+     "caption": "Do you also say “Is cold today”? 😅 English needs a subject, so start with “It.” Correct: “It is cold today.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1264,9 +1264,9 @@
     "answer_say": "Made! She made a mistake.",
     "native": {
      "hook": "Did a mistake? Нет!",
-     "tip": "По-русски «сделать ошибку», поэтому тянет на “did”. В английском: “make a mistake”.",
-     "caption": "Ты тоже говоришь “I did a mistake”? 😅 По-русски «сделать ошибку», вот и хочется сказать “did”, а в английском “make a mistake”. Правильно: “I made a mistake.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
-     "comment": "Ответ: “made”. Mistake — make. Бесплатный тест для практики здесь: {link}",
+     "tip": "По-русски «сделать ошибку», поэтому тянет на “did.” В английском: “make a mistake.”",
+     "caption": "Ты тоже говоришь “I did a mistake”? 😅 По-русски «сделать ошибку», вот и хочется сказать “did”, а в английском “make a mistake.” Правильно: “I made a mistake.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+     "comment": "Ответ: “made.” Mistake — make. Бесплатный тест для практики здесь: {link}",
      "hashtags": [
       "#английский",
       "#грамматика",
@@ -1276,8 +1276,8 @@
     },
     "en": {
      "hook": "Did a mistake? No!",
-     "tip": "In Russian it is “sdelat oshibku”, so “did” feels right. English says “make a mistake”.",
-     "caption": "Do you also say “I did a mistake”? 😅 In Russian it is “sdelat oshibku”, so “did” feels natural, but English says “make a mistake”. Correct: “I made a mistake.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "English says “make a mistake”, not “do.”",
+     "caption": "Do you also say “I did a mistake”? 😅 The word did feels natural, but English says “make a mistake.” Correct: “I made a mistake.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1291,7 +1291,7 @@
     "wrong": "She has long hairs.",
     "right": "She has long hair.",
     "strike": "hairs",
-    "why": "Hair on your head has no -s.",
+    "why": "The word hair has no -s here.",
     "memory": "Long hair.",
     "quiz": {
      "stem": "He has short ___.",
@@ -1304,9 +1304,9 @@
     "answer_say": "Hair! He has short hair.",
     "native": {
      "hook": "Волосы: hair или hairs?",
-     "tip": "Русское «волосы» — во множественном числе, а английское “hair” (о причёске) — неисчисляемое: “long hair”.",
+     "tip": "Русское «волосы» — во множественном числе, а английское “hair” (о причёске) — неисчисляемое: “long hair.”",
      "caption": "Ты тоже говоришь “She has long hairs”? 😅 Русское «волосы» — только во множественном числе, а английское “hair” о причёске неисчисляемое, без -s. Правильно: “She has long hair.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
-     "comment": "Ответ: “hair”. Волосы — hair, без -s. Бесплатный тест для практики здесь: {link}",
+     "comment": "Ответ: “hair.” Волосы — hair, без -s. Бесплатный тест для практики здесь: {link}",
      "hashtags": [
       "#английскийязык",
       "#английский",
@@ -1316,8 +1316,8 @@
     },
     "en": {
      "hook": "Hair or hairs?",
-     "tip": "Russian “volosy” is only plural, but English “hair” is singular: “long hair”.",
-     "caption": "Do you also say “She has long hairs”? 😅 Russian “volosy” is only plural, but English “hair” is singular, with no -s. Correct: “She has long hair.” Listen to Ama and repeat! Practice more in the Lexkite app."
+     "tip": "“Hair” on your head has no -s: “long hair.”",
+     "caption": "Do you also say “She has long hairs”? 😅 The word hair has no -s here. Correct: “She has long hair.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1344,9 +1344,9 @@
     "answer_say": "Is! The money is on the table.",
     "native": {
      "hook": "Money: is или are?",
-     "tip": "Русские «деньги» — множественное число, а английское “money” — единственное: “money is”.",
-     "caption": "Ты тоже говоришь “My money are in the bag”? 😅 Русские «деньги» — во множественном числе, вот и хочется сказать “money are”, а нужно “money is”. Правильно: “My money is in the bag.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
-     "comment": "Ответ: “is”. Money — is. Бесплатный тест для практики здесь: {link}",
+     "tip": "Русские «деньги» — множественное число, а английское “money” — единственное: “money is.”",
+     "caption": "Ты тоже говоришь “My money are in the bag”? 😅 Русские «деньги» — во множественном числе, вот и хочется сказать “money are”, а нужно “money is.” Правильно: “My money is in the bag.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+     "comment": "Ответ: “is.” Money — is. Бесплатный тест для практики здесь: {link}",
      "hashtags": [
       "#английский",
       "#грамматика",
@@ -1356,8 +1356,8 @@
     },
     "en": {
      "hook": "Money: is or are?",
-     "tip": "Russian “dengi” is plural, but English “money” is singular: “money is”.",
-     "caption": "Do you also say “My money are in the bag”? 😅 Russian “dengi” is plural, so “money are” feels right, but you need “money is”. Correct: “My money is in the bag.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "“Money” is singular: “money is.”",
+     "caption": "Do you also say “My money are in the bag”? 😅 The wrong verb may feel right, but you need “money is.” Correct: “My money is in the bag.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1384,9 +1384,9 @@
     "answer_say": "For! She has a question for you.",
     "native": {
      "hook": "“Question to you” — верно?",
-     "tip": "По-русски «вопрос к вам», отсюда “to”. В английском: “a question for you”.",
-     "caption": "Ты тоже говоришь “I have a question to you”? 😅 По-русски «вопрос к вам» тянет за собой “to”, а нужно “for you”. Правильно: “I have a question for you.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
-     "comment": "Ответ: “for”. После question — for you. Бесплатный тест для практики здесь: {link}",
+     "tip": "По-русски «вопрос к вам», отсюда “to.” В английском: “a question for you.”",
+     "caption": "Ты тоже говоришь “I have a question to you”? 😅 По-русски «вопрос к вам» тянет за собой “to”, а нужно “for you.” Правильно: “I have a question for you.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
+     "comment": "Ответ: “for.” После question — for you. Бесплатный тест для практики здесь: {link}",
      "hashtags": [
       "#английскийязык",
       "#английский",
@@ -1395,9 +1395,9 @@
      ]
     },
     "en": {
-     "hook": "Question to you?",
-     "tip": "In Russian “vopros k vam” pulls in “to”. English says “a question for you”.",
-     "caption": "Do you also say “I have a question to you”? 😅 In Russian “vopros k vam” pulls in “to”, but you need “for you”. Correct: “I have a question for you.” Listen to Ama and repeat! Practice more in the Lexkite app."
+     "hook": "“Question to you” — right?",
+     "tip": "English says “a question for you.”",
+     "caption": "Do you also say “I have a question to you”? 😅 The small word feels right, but you need “for you.” Correct: “I have a question for you.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1423,10 +1423,10 @@
     },
     "answer_say": "At! She is good at math.",
     "native": {
-     "hook": "«Good in» — это ошибка!",
-     "tip": "Русское «хорошо разбираюсь в математике» подсказывает “in”, но по-английски: “good at math”.",
-     "caption": "Ты тоже говоришь “I am good in math”? 😅 По-русски «силён в математике» — отсюда “good in”, а по-английски “good at”. Правильно: “I am good at math.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
-     "comment": "Ответ: “at”. После good — at. Бесплатный тест для практики здесь: {link}",
+     "hook": "“Good in” — это ошибка!",
+     "tip": "Русское «хорошо разбираюсь в математике» подсказывает “in”, но по-английски: “good at math.”",
+     "caption": "Ты тоже говоришь “I am good in math”? 😅 По-русски «силён в математике» — отсюда “good in”, а по-английски “good at.” Правильно: “I am good at math.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+     "comment": "Ответ: “at.” После good — at. Бесплатный тест для практики здесь: {link}",
      "hashtags": [
       "#английский",
       "#грамматика",
@@ -1436,8 +1436,8 @@
     },
     "en": {
      "hook": "Good in or good at?",
-     "tip": "Russian “silen v matematike” suggests “in”, but English says “good at math”.",
-     "caption": "Do you also say “I am good in math”? 😅 In Russian “silen v matematike” points to “in”, but English says “good at”. Correct: “I am good at math.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "Say “good at math”, not “good in.”",
+     "caption": "Do you also say “I am good in math”? 😅 The small word may feel right, but English says “good at.” Correct: “I am good at math.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1464,9 +1464,9 @@
     "answer_say": "Are! The police are at the door.",
     "native": {
      "hook": "Police: is или are?",
-     "tip": "Русское «полиция» — единственное число, а английское “the police” — множественное: “the police are”.",
-     "caption": "Ты тоже говоришь “The police is here”? 😅 Русское «полиция» — единственное число, вот и хочется сказать “police is”, а нужно “police are”. Правильно: “The police are here.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
-     "comment": "Ответ: “are”. Police — are. Бесплатный тест для практики здесь: {link}",
+     "tip": "Русское «полиция» — единственное число, а английское “the police” — множественное: “the police are.”",
+     "caption": "Ты тоже говоришь “The police is here”? 😅 Русское «полиция» — единственное число, вот и хочется сказать “police is”, а нужно “police are.” Правильно: “The police are here.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
+     "comment": "Ответ: “are.” Police — are. Бесплатный тест для практики здесь: {link}",
      "hashtags": [
       "#английскийязык",
       "#английский",
@@ -1476,8 +1476,8 @@
     },
     "en": {
      "hook": "Police: is or are?",
-     "tip": "Russian “politsiya” is singular, but English “the police” is plural: “the police are”.",
-     "caption": "Do you also say “The police is here”? 😅 Russian “politsiya” is singular, so “police is” feels right, but you need “police are”. Correct: “The police are here.” Listen to Ama and repeat! Practice more in the Lexkite app."
+     "tip": "“The police” is plural: “the police are.”",
+     "caption": "Do you also say “The police is here”? 😅 The wrong verb may feel right, but you need “police are.” Correct: “The police are here.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1504,9 +1504,9 @@
     "answer_say": "To go! She wants to go home.",
     "native": {
      "hook": "“I want go home” — что не так?",
-     "tip": "По-русски «хочу пойти» — инфинитив без частицы. В английском перед глаголом нужно “to”: “I want to go home”.",
-     "caption": "Ты тоже говоришь “I want go home”? 😅 По-русски «хочу пойти» — без частицы, а в английском после want нужно “to”. Правильно: “I want to go home.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
-     "comment": "Ответ: “to go”. После want — to + глагол. Бесплатный тест для практики здесь: {link}",
+     "tip": "По-русски «хочу пойти» — без частицы. В английском перед глаголом нужно “to”: “I want to go home.”",
+     "caption": "Ты тоже говоришь “I want go home”? 😅 По-русски «хочу пойти» — без частицы, а в английском после want нужно “to.” Правильно: “I want to go home.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+     "comment": "Ответ: “to go.” После want — to + глагол. Бесплатный тест для практики здесь: {link}",
      "hashtags": [
       "#английский",
       "#грамматика",
@@ -1516,8 +1516,8 @@
     },
     "en": {
      "hook": "What small word is missing?",
-     "tip": "Russian “khochu poyti” has no “to” before the verb. English needs it: “I want to go home”.",
-     "caption": "Do you also say “I want go home”? 😅 In Russian “khochu poyti” has no extra word, but English needs “to” after want. Correct: “I want to go home.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "After want, put “to” before the verb: “I want to go home.”",
+     "caption": "Do you also say “I want go home”? 😅 After want, English needs “to.” Correct: “I want to go home.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   }

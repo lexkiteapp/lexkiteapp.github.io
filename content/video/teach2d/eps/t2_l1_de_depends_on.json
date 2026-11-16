@@ -16,7 +16,7 @@
   },
   {
    "id": "w",
-   "text": "Many learners say: It depends of the weather.",
+   "text": "Many learners say: It depends from the weather.",
    "pause": 0.42
   },
   {
@@ -52,23 +52,23 @@
   }
  ],
  "data": {
-  "wrong": "It depends of the weather.",
+  "wrong": "It depends from the weather.",
   "right": "It depends on the weather.",
-  "strike": "of",
+  "strike": "from",
   "why": "Say depends on.",
   "memory": "Depends on.",
   "quiz": {
-   "stem": "It depends ___ you.",
+   "stem": "It depends ___ the weather.",
    "options": [
     "on",
-    "of"
+    "from"
    ],
    "answer": 0
   },
   "native": {
-   "hook": "Depend „of“ oder „on“?",
-   "tip": "Im Deutschen hängt etwas „von“ etwas ab, deshalb sagen viele „of“. Im Englischen heißt es „depend on“.",
-   "caption": "„Abhängen von“ = depend „of“? ☁️ Falsch: “It depends of the weather.” Richtig: “It depends on the weather.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "hook": "Depend „from“ oder „on“?",
+   "tip": "Im Deutschen hängt etwas „von“ etwas ab, deshalb sagen viele „from“. Im Englischen heißt es „depend on“.",
+   "caption": "„Abhängen von“ = depend „from“? ☁️ Falsch: “It depends from the weather.” Richtig: “It depends on the weather.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
    "comment": "Lösung: “on”. Richtig heißt es: “It depends on the weather.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
    "hashtags": [
     "#englischlernen",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "Depend of or on?",
-   "tip": "In German you say “von”. In English it is “depend on”, not “of”.",
-   "caption": "Depend of or on? Wrong: “It depends of the weather.” Right: “It depends on the weather.” Listen to Ama and repeat! Practice more in the Lexkite app."
+   "hook": "Depend from or on?",
+   "tip": "“Abhängen von” makes many say “depend from”. In English it is “depend on”, not “from”.",
+   "caption": "Depend from or on? Wrong: “It depends from the weather.” Right: “It depends on the weather.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "Depend „of“ oder „on“?"
+  "text": "Depend „from“ oder „on“?"
  },
  "src": {
   "l1": true
@@ -103,9 +103,9 @@
   "wpm": 96
  },
  "publish": {
-  "title": "Depend „of“ oder „on“?",
+  "title": "Depend „from“ oder „on“?",
   "keyword": "It depends on the weather.",
-  "value": "Im Deutschen hängt etwas „von“ etwas ab, deshalb sagen viele „of“. Im Englischen heißt es „depend on“.",
+  "value": "Im Deutschen hängt etwas „von“ etwas ab, deshalb sagen viele „from“. Im Englischen heißt es „depend on“.",
   "hashtags": [
    "#englischlernen",
    "#englischtipps",
@@ -116,8 +116,8 @@
   "script_words": 36,
   "platforms": {
    "youtube": {
-    "title": "Depend „of“ oder „on“?",
-    "description": "„Abhängen von“ = depend „of“? ☁️ Falsch: “It depends of the weather.” Richtig: “It depends on the weather.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "title": "Depend „from“ oder „on“?",
+    "description": "„Abhängen von“ = depend „from“? ☁️ Falsch: “It depends from the weather.” Richtig: “It depends on the weather.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
     "tags": [
      "It depends on the weather.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "„Abhängen von“ = depend „of“? ☁️ Falsch: “It depends of the weather.” Richtig: “It depends on the weather.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "„Abhängen von“ = depend „from“? ☁️ Falsch: “It depends from the weather.” Richtig: “It depends on the weather.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "„Abhängen von“ = depend „of“? ☁️ Falsch: “It depends of the weather.” Richtig: “It depends on the weather.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nlexkite.com",
+    "caption": "„Abhängen von“ = depend „from“? ☁️ Falsch: “It depends from the weather.” Richtig: “It depends on the weather.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nlexkite.com",
     "hashtags": [
      "#englischlernen",
      "#englischtipps",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "Depend „of“ oder „on“? #englischlernen #englischtipps #sprachenlernen"
+    "caption": "Depend „from“ oder „on“? #englischlernen #englischtipps #sprachenlernen"
    }
   },
   "first_comment": "Lösung: “on”. Richtig heißt es: “It depends on the weather.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",

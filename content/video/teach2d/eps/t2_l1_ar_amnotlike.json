@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Do not use am!",
+   "text": "Say I do not understand!",
    "pause": 0.42
   },
   {
@@ -66,10 +66,10 @@
    "answer": 1
   },
   "native": {
-   "hook": "هل تقول “I am not understand”؟",
-   "tip": "نترجم «أنا» دائمًا إلى “I am”، لكن النفي مع الأفعال يكون بـ do not: “I do not understand the lesson.” وليس “I am not understand the lesson”",
-   "caption": "هل تقول أحيانًا “I am not understand the lesson.” 😅 النفي مع الأفعال يكون بـ do not، فالجملة الصحيحة “I do not understand the lesson.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
-   "comment": "الإجابة: “does not”. النفي مع الأفعال يكون بـ do not. اختبار مجاني هنا: {link}",
+   "hook": "النفي: do not لا am not",
+   "tip": "النفي مع الأفعال في الإنجليزية يكون بـ do not لا بـ am not: “I do not understand the lesson.” وليس “I am not understand the lesson.”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “I am not understand the lesson” 😅 النفي مع الأفعال يكون بـ do not، فالجملة الصحيحة “I do not understand the lesson.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “does not” — النفي مع الأفعال يكون بـ do not. اختبار مجاني هنا: {link}",
    "hashtags": [
     "#تعلم_الانجليزية",
     "#اللغة_الانجليزية",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "Do you say “I am not understand the lesson”?",
-   "tip": "With verbs we use do not: “I do not understand the lesson.” not “I am not understand the lesson”.",
-   "caption": "Do you sometimes say “I am not understand the lesson.” 😅 In English we use do not with verbs, so the right sentence is “I do not understand the lesson.” Listen to Ama and repeat! Practice more in the Lexkite app."
+   "hook": "Negation: do not, not am not",
+   "tip": "With verbs we use do not: “I do not understand the lesson.” not “I am not understand the lesson.”",
+   "caption": "Do you sometimes say this? “I am not understand the lesson” 😅 In English we use do not with verbs, so the right sentence is “I do not understand the lesson.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -91,21 +91,21 @@
  },
  "hook": {
   "line": "h",
-  "text": "هل تقول “I am not understand”؟"
+  "text": "النفي: do not لا am not"
  },
  "src": {
   "l1": true
  },
  "lang": "ar",
  "est": {
-  "words": 48,
-  "seconds": 29.1,
+  "words": 49,
+  "seconds": 29.6,
   "wpm": 99
  },
  "publish": {
-  "title": "هل تقول “I am not understand”؟",
+  "title": "النفي: do not لا am not",
   "keyword": "I do not understand the lesson.",
-  "value": "نترجم «أنا» دائمًا إلى “I am”، لكن النفي مع الأفعال يكون بـ do not: “I do not understand the lesson.” وليس “I am not understand the lesson”",
+  "value": "النفي مع الأفعال في الإنجليزية يكون بـ do not لا بـ am not: “I do not understand the lesson.” وليس “I am not understand the lesson.”",
   "hashtags": [
    "#تعلم_الانجليزية",
    "#اللغة_الانجليزية",
@@ -113,11 +113,11 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 42,
+  "script_words": 43,
   "platforms": {
    "youtube": {
-    "title": "هل تقول “I am not understand”؟",
-    "description": "هل تقول أحيانًا “I am not understand the lesson.” 😅 النفي مع الأفعال يكون بـ do not، فالجملة الصحيحة “I do not understand the lesson.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "title": "النفي: do not لا am not",
+    "description": "هل تقول أحيانًا هذه الجملة؟ “I am not understand the lesson” 😅 النفي مع الأفعال يكون بـ do not، فالجملة الصحيحة “I do not understand the lesson.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
     "tags": [
      "I do not understand the lesson.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "هل تقول أحيانًا “I am not understand the lesson.” 😅 النفي مع الأفعال يكون بـ do not، فالجملة الصحيحة “I do not understand the lesson.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "هل تقول أحيانًا هذه الجملة؟ “I am not understand the lesson” 😅 النفي مع الأفعال يكون بـ do not، فالجملة الصحيحة “I do not understand the lesson.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "هل تقول أحيانًا “I am not understand the lesson.” 😅 النفي مع الأفعال يكون بـ do not، فالجملة الصحيحة “I do not understand the lesson.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nlexkite.com",
+    "caption": "هل تقول أحيانًا هذه الجملة؟ “I am not understand the lesson” 😅 النفي مع الأفعال يكون بـ do not، فالجملة الصحيحة “I do not understand the lesson.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nlexkite.com",
     "hashtags": [
      "#تعلم_الانجليزية",
      "#اللغة_الانجليزية",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "هل تقول “I am not understand”؟ #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+    "caption": "النفي: do not لا am not #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
    }
   },
-  "first_comment": "الإجابة: “does not”. النفي مع الأفعال يكون بـ do not. اختبار مجاني هنا: {link}",
+  "first_comment": "الإجابة: “does not” — النفي مع الأفعال يكون بـ do not. اختبار مجاني هنا: {link}",
   "lang": "ar"
  }
 }

@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "A! She is a teacher.",
+   "text": "A doctor! My sister is a doctor.",
    "pause": 0.42
   },
   {
@@ -58,17 +58,17 @@
   "why": "Say a before the job.",
   "memory": "He is a doctor.",
   "quiz": {
-   "stem": "She is ___ teacher.",
+   "stem": "My sister is ___.",
    "options": [
-    "a",
-    "an"
+    "doctor",
+    "a doctor"
    ],
-   "answer": 0
+   "answer": 1
   },
   "native": {
    "hook": "“is teacher” नहीं, “is a teacher”!",
    "tip": "हिंदी में a/an जैसा शब्द नहीं होता (“वह टीचर है”); अंग्रेज़ी में काम बताते समय a या an ज़रूर लगाएँ।",
-   "caption": "क्या आप भी कहते हैं “My brother is teacher.”? 😅 अंग्रेज़ी में “My brother is a teacher.” सही है, क्योंकि अंग्रेज़ी में काम बताते समय a या an लगता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "caption": "क्या आप भी कहते हैं “My brother is teacher”? 😅 अंग्रेज़ी में “My brother is a teacher” सही है, क्योंकि अंग्रेज़ी में काम बताते समय a या an लगता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
    "comment": "उत्तर: “a”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
    "hashtags": [
     "#अंग्रेजीसीखें",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "Say “is a teacher”!",
-   "tip": "Hindi has no a or an (“woh teacher hai”); English needs a before a job.",
-   "caption": "Do you say “My brother is teacher.”? 😅 In English “My brother is a teacher.” is right, because English puts a or an before a job. Listen to Ama and repeat! Practice more in the Lexkite app."
+   "tip": "Many learners skip a or an before a job; English needs a before a job.",
+   "caption": "Do you say “My brother is teacher”? 😅 In English “My brother is a teacher” is right, because English puts a or an before a job. Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -98,9 +98,9 @@
  },
  "lang": "hi",
  "est": {
-  "words": 43,
-  "seconds": 26.6,
-  "wpm": 97
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
  },
  "publish": {
   "title": "“is teacher” नहीं, “is a teacher”!",
@@ -113,11 +113,11 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 37,
+  "script_words": 39,
   "platforms": {
    "youtube": {
     "title": "“is teacher” नहीं, “is a teacher”!",
-    "description": "क्या आप भी कहते हैं “My brother is teacher.”? 😅 अंग्रेज़ी में “My brother is a teacher.” सही है, क्योंकि अंग्रेज़ी में काम बताते समय a या an लगता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "description": "क्या आप भी कहते हैं “My brother is teacher”? 😅 अंग्रेज़ी में “My brother is a teacher” सही है, क्योंकि अंग्रेज़ी में काम बताते समय a या an लगता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
     "tags": [
      "My brother is a teacher.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "क्या आप भी कहते हैं “My brother is teacher.”? 😅 अंग्रेज़ी में “My brother is a teacher.” सही है, क्योंकि अंग्रेज़ी में काम बताते समय a या an लगता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+    "text": "क्या आप भी कहते हैं “My brother is teacher”? 😅 अंग्रेज़ी में “My brother is a teacher” सही है, क्योंकि अंग्रेज़ी में काम बताते समय a या an लगता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "क्या आप भी कहते हैं “My brother is teacher.”? 😅 अंग्रेज़ी में “My brother is a teacher.” सही है, क्योंकि अंग्रेज़ी में काम बताते समय a या an लगता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nlexkite.com",
+    "caption": "क्या आप भी कहते हैं “My brother is teacher”? 😅 अंग्रेज़ी में “My brother is a teacher” सही है, क्योंकि अंग्रेज़ी में काम बताते समय a या an लगता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nlexkite.com",
     "hashtags": [
      "#अंग्रेजीसीखें",
      "#englishspeaking",

@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "A! He is a teacher.",
+   "text": "A teacher! He is a teacher.",
    "pause": 0.42
   },
   {
@@ -54,16 +54,16 @@
  "data": {
   "wrong": "I am student.",
   "right": "I am a student.",
-  "strike": "am student",
+  "strike": "student",
   "why": "Say a before a job word.",
   "memory": "I am a student.",
   "quiz": {
-   "stem": "He is ___ teacher.",
+   "stem": "He is ___.",
    "options": [
-    "teacher",
-    "a"
+    "a teacher",
+    "teacher"
    ],
-   "answer": 1
+   "answer": 0
   },
   "native": {
    "hook": "「I am student」で止まってない？",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "Do you stop at “I am student”?",
-   "tip": "Put a before a job word. Japanese has no a, so it is easy to forget!",
-   "caption": "Do you say “I am student.”? 😅 Japanese has no articles, so a often goes missing. Put a before a job. The natural way is “I am a student.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+   "hook": "Do you say “I am student”?",
+   "tip": "Put a before a job word. It is easy to forget!",
+   "caption": "Do you say this? “I am student.” 😅 The little word a often goes missing. Put a before a job. The natural way is “I am a student.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -98,9 +98,9 @@
  },
  "lang": "ja",
  "est": {
-  "words": 42,
-  "seconds": 26.1,
-  "wpm": 96
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
  },
  "publish": {
   "title": "「I am student」で止まってない？",
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 36,
+  "script_words": 37,
   "platforms": {
    "youtube": {
     "title": "「I am student」で止まってない？",

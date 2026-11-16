@@ -16,12 +16,12 @@
   },
   {
    "id": "w",
-   "text": "Many learners say: Is a park in my city.",
+   "text": "Many learners say: In my city is a park.",
    "pause": 0.42
   },
   {
    "id": "r",
-   "text": "Better: There is a park in my city.",
+   "text": "Better: In my city, there is a park.",
    "pause": 0.42
   },
   {
@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "There is! There is a bed in my room.",
+   "text": "There is! In my room, there is a bed.",
    "pause": 0.42
   },
   {
@@ -52,24 +52,24 @@
   }
  ],
  "data": {
-  "wrong": "Is a park in my city.",
-  "right": "There is a park in my city.",
-  "strike": "Is",
+  "wrong": "In my city is a park.",
+  "right": "In my city, there is a park.",
+  "strike": "is",
   "why": "Use there is to say it exists.",
   "memory": "There is a park.",
   "quiz": {
-   "stem": "___ a bed in my room.",
+   "stem": "In my room ___ a bed.",
    "options": [
-    "Is",
-    "There is"
+    "is",
+    "there is"
    ],
    "answer": 1
   },
   "native": {
    "hook": "هل تنسى “there”؟",
-   "tip": "نقول بالعربية «في مدينتي حديقة» بلا كلمة مثل there، لكن الإنجليزية تحتاجها: “There is a park in my city.” وليس “Is a park in my city”",
-   "caption": "هل تقول أحيانًا “Is a park in my city.” 😅 نقول there is للدلالة على الوجود ولا نبدأ بـ is وحدها، فالجملة الصحيحة “There is a park in my city.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
-   "comment": "الإجابة: “There is”. نقول there is للدلالة على الوجود ولا نبدأ بـ is وحدها. اختبار مجاني هنا: {link}",
+   "tip": "نقول بالعربية «في مدينتي حديقة» بلا كلمة مثل there، لكن الإنجليزية تحتاجها: “In my city, there is a park.” وليس “In my city is a park.”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “In my city is a park.” 😅 نقول there is للدلالة على الوجود ولا نكتفي بـ is وحدها، فالجملة الصحيحة “In my city, there is a park.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “There is” — نقول there is للدلالة على الوجود ولا نكتفي بـ is وحدها. اختبار مجاني هنا: {link}",
    "hashtags": [
     "#تعلم_الانجليزية",
     "#اللغة_الانجليزية",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "Do you say “Is a park in my city”?",
-   "tip": "To say something exists we start with there is: “There is a park in my city.” not “Is a park in my city”.",
-   "caption": "Do you sometimes say “Is a park in my city.” 😅 In English we say there is to show that something exists, so the right sentence is “There is a park in my city.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+   "hook": "Do you forget “there”?",
+   "tip": "To say something exists we use there is: “In my city, there is a park.” not “In my city is a park.”",
+   "caption": "Do you sometimes say this? “In my city is a park.” 😅 In English we say there is to show that something exists, so the right sentence is “In my city, there is a park.” Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -104,8 +104,8 @@
  },
  "publish": {
   "title": "هل تنسى “there”؟",
-  "keyword": "There is a park in my city.",
-  "value": "نقول بالعربية «في مدينتي حديقة» بلا كلمة مثل there، لكن الإنجليزية تحتاجها: “There is a park in my city.” وليس “Is a park in my city”",
+  "keyword": "In my city, there is a park.",
+  "value": "نقول بالعربية «في مدينتي حديقة» بلا كلمة مثل there، لكن الإنجليزية تحتاجها: “In my city, there is a park.” وليس “In my city is a park.”",
   "hashtags": [
    "#تعلم_الانجليزية",
    "#اللغة_الانجليزية",
@@ -117,18 +117,18 @@
   "platforms": {
    "youtube": {
     "title": "هل تنسى “there”؟",
-    "description": "هل تقول أحيانًا “Is a park in my city.” 😅 نقول there is للدلالة على الوجود ولا نبدأ بـ is وحدها، فالجملة الصحيحة “There is a park in my city.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "description": "هل تقول أحيانًا هذه الجملة؟ “In my city is a park.” 😅 نقول there is للدلالة على الوجود ولا نكتفي بـ is وحدها، فالجملة الصحيحة “In my city, there is a park.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
     "tags": [
-     "There is a park in my city.",
+     "In my city, there is a park.",
      "learn english",
      "ar"
     ]
    },
    "facebook": {
-    "text": "هل تقول أحيانًا “Is a park in my city.” 😅 نقول there is للدلالة على الوجود ولا نبدأ بـ is وحدها، فالجملة الصحيحة “There is a park in my city.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "هل تقول أحيانًا هذه الجملة؟ “In my city is a park.” 😅 نقول there is للدلالة على الوجود ولا نكتفي بـ is وحدها، فالجملة الصحيحة “In my city, there is a park.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "هل تقول أحيانًا “Is a park in my city.” 😅 نقول there is للدلالة على الوجود ولا نبدأ بـ is وحدها، فالجملة الصحيحة “There is a park in my city.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nlexkite.com",
+    "caption": "هل تقول أحيانًا هذه الجملة؟ “In my city is a park.” 😅 نقول there is للدلالة على الوجود ولا نكتفي بـ is وحدها، فالجملة الصحيحة “In my city, there is a park.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nlexkite.com",
     "hashtags": [
      "#تعلم_الانجليزية",
      "#اللغة_الانجليزية",
@@ -140,7 +140,7 @@
     "caption": "هل تنسى “there”؟ #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
    }
   },
-  "first_comment": "الإجابة: “There is”. نقول there is للدلالة على الوجود ولا نبدأ بـ is وحدها. اختبار مجاني هنا: {link}",
+  "first_comment": "الإجابة: “There is” — نقول there is للدلالة على الوجود ولا نكتفي بـ is وحدها. اختبار مجاني هنا: {link}",
   "lang": "ar"
  }
 }

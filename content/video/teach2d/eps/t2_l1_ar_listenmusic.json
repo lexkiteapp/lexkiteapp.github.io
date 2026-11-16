@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "هل تقول “listen music”؟",
-   "tip": "بعد listen نضع to: “I listen to music every day.” وليس “I listen music every day.”.",
-   "caption": "هل تقول أحيانًا “I listen music every day.” 😅 بعد listen نضع to، فالجملة الصحيحة “I listen to music every day.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
-   "comment": "الإجابة: “to”. بعد listen نضع to. اختبار مجاني هنا: {link}",
+   "tip": "بعد listen نضع to: “I listen to music every day.” وليس “I listen music every day.”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “I listen music every day” 😅 بعد listen نضع to، فالجملة الصحيحة “I listen to music every day.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “to” — بعد listen نضع to. اختبار مجاني هنا: {link}",
    "hashtags": [
     "#تعلم_الانجليزية",
     "#اللغة_الانجليزية",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "Do you say “I listen music every day”?",
-   "tip": "After listen we put to: “I listen to music every day.” not “I listen music every day.”.",
-   "caption": "Do you sometimes say “I listen music every day.” 😅 After listen we put to, so the right sentence is “I listen to music every day.” Listen to Ama and repeat! Practice more in the Lexkite app."
+   "hook": "Do you say “listen music”?",
+   "tip": "After listen we put to: “I listen to music every day.” not “I listen music every day.”",
+   "caption": "Do you sometimes say this? “I listen music every day” 😅 After listen we put to, so the right sentence is “I listen to music every day.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "هل تقول “listen music”؟",
   "keyword": "I listen to music every day.",
-  "value": "بعد listen نضع to: “I listen to music every day.” وليس “I listen music every day.”.",
+  "value": "بعد listen نضع to: “I listen to music every day.” وليس “I listen music every day.”",
   "hashtags": [
    "#تعلم_الانجليزية",
    "#اللغة_الانجليزية",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "هل تقول “listen music”؟",
-    "description": "هل تقول أحيانًا “I listen music every day.” 😅 بعد listen نضع to، فالجملة الصحيحة “I listen to music every day.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "description": "هل تقول أحيانًا هذه الجملة؟ “I listen music every day” 😅 بعد listen نضع to، فالجملة الصحيحة “I listen to music every day.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
     "tags": [
      "I listen to music every day.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "هل تقول أحيانًا “I listen music every day.” 😅 بعد listen نضع to، فالجملة الصحيحة “I listen to music every day.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "هل تقول أحيانًا هذه الجملة؟ “I listen music every day” 😅 بعد listen نضع to، فالجملة الصحيحة “I listen to music every day.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "هل تقول أحيانًا “I listen music every day.” 😅 بعد listen نضع to، فالجملة الصحيحة “I listen to music every day.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nlexkite.com",
+    "caption": "هل تقول أحيانًا هذه الجملة؟ “I listen music every day” 😅 بعد listen نضع to، فالجملة الصحيحة “I listen to music every day.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nlexkite.com",
     "hashtags": [
      "#تعلم_الانجليزية",
      "#اللغة_الانجليزية",
@@ -140,7 +140,7 @@
     "caption": "هل تقول “listen music”؟ #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
    }
   },
-  "first_comment": "الإجابة: “to”. بعد listen نضع to. اختبار مجاني هنا: {link}",
+  "first_comment": "الإجابة: “to” — بعد listen نضع to. اختبار مجاني هنا: {link}",
   "lang": "ar"
  }
 }

@@ -14,19 +14,19 @@
     "why": "Jobs need a or an.",
     "memory": "A job needs a.",
     "quiz": {
-     "stem": "He is ___ doctor.",
+     "stem": "Which one is right?",
      "options": [
-      "a",
-      "the"
+      "He is a doctor.",
+      "He is doctor."
      ],
      "answer": 0
     },
-    "answer_say": "A! He is a doctor.",
+    "answer_say": "The first! He is a doctor.",
     "native": {
      "hook": "Você diz “She is teacher”?",
      "tip": "Em inglês, antes de uma profissão usamos “a” ou “an”.",
-     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “She is teacher.”. O certo é “She is a teacher.”. Em português não precisamos do artigo, mas em inglês ele é obrigatório. Ouça o Carlos e repita! Treine mais no app Lexkite.",
-     "comment": "Resposta: “a”. Treine mais com um quiz grátis aqui: {link}",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “She is teacher.” O certo é “She is a teacher.” Em português não precisamos do artigo, mas em inglês ele é obrigatório. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+     "comment": "Resposta: “He is a doctor.” Treine mais com um quiz grátis aqui: {link}",
      "hashtags": [
       "#aprenderingles",
       "#inglesfacil",
@@ -37,7 +37,7 @@
     "en": {
      "hook": "Do you say “She is teacher”?",
      "tip": "In English, before a job we use “a” or “an”.",
-     "caption": "Watch out for this common mistake! Many people say “She is teacher.”. The right way is “She is a teacher.”. In Portuguese the article is not needed, but in English it is a must. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "caption": "Watch out for this common mistake! Many people say “She is teacher.” The right way is “She is a teacher.” Many learners drop the article, but English needs it. Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -48,25 +48,25 @@
    "theme": "dusk",
    "in": {
     "hook_say": "Actually is a false friend!",
-    "wrong": "Actually, I am studying now.",
-    "right": "Right now, I am studying.",
+    "wrong": "Actually, I live in this city.",
+    "right": "Currently, I live in this city.",
     "strike": "Actually",
     "why": "Actually means in fact.",
-    "memory": "Now is right now.",
+    "memory": "Currently means these days.",
     "quiz": {
-     "stem": "___, I am at work.",
+     "stem": "Which word means “at this time”?",
      "options": [
-      "Actually",
-      "Right now"
+      "currently",
+      "actually"
      ],
-     "answer": 1
+     "answer": 0
     },
-    "answer_say": "Right now! Right now, I am at work.",
+    "answer_say": "Currently!",
     "native": {
      "hook": "“Actually” não é “atualmente”!",
-     "tip": "“Actually” quer dizer “na verdade”. Para “agora”, use “right now”.",
-     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “Actually, I am studying now.”. O certo é “Right now, I am studying.”. Cuidado: é um falso cognato clássico. Ouça o Ama e repita! Treine mais no app Lexkite.",
-     "comment": "Resposta: “Right now”. Treine mais com um quiz grátis aqui: {link}",
+     "tip": "“Actually” quer dizer “na verdade”. “Atualmente” é “currently” ou “nowadays”.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “Actually, I live in this city.” O certo é “Currently, I live in this city.” Cuidado: é um falso cognato clássico. Ouça a Ama e repita! Treine mais no app Lexkite.",
+     "comment": "Resposta: “currently”. Treine mais com um quiz grátis aqui: {link}",
      "hashtags": [
       "#inglesonline",
       "#dicasdeingles",
@@ -76,8 +76,8 @@
     },
     "en": {
      "hook": "“Actually” is not “atualmente”!",
-     "tip": "“Actually” means “in fact”. For “now”, use “right now”.",
-     "caption": "Watch out for this common mistake! Many people say “Actually, I am studying now.”. The right way is “Right now, I am studying.”. Careful: it is a classic false friend. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "tip": "“Actually” means “in fact”. For “these days”, use “currently” or “nowadays”.",
+     "caption": "Watch out for this common mistake! Many people say “Actually, I live in this city.” The right way is “Currently, I live in this city.” Careful: it is a classic false friend. Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -94,19 +94,19 @@
     "why": "Say the thing first.",
     "memory": "Like it, then very much.",
     "quiz": {
-     "stem": "I like music ___.",
+     "stem": "Which one is right?",
      "options": [
-      "very much",
-      "much very"
+      "I like music very much.",
+      "I like very much music."
      ],
      "answer": 0
     },
-    "answer_say": "Very much! I like music very much.",
+    "answer_say": "The first! I like music very much.",
     "native": {
-     "hook": "Você diz “I like very much pizza”?",
+     "hook": "Você diz “like very much pizza”?",
      "tip": "Em inglês, o objeto vem logo depois do verbo: “I like pizza very much”.",
-     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I like very much pizza.”. O certo é “I like pizza very much.”. Em português dizemos “gosto muito de pizza”, mas a ordem em inglês é outra. Ouça o Carlos e repita! Treine mais no app Lexkite.",
-     "comment": "Resposta: “very much”. Treine mais com um quiz grátis aqui: {link}",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I like very much pizza.” O certo é “I like pizza very much.” Em português dizemos “gosto muito de pizza”, mas a ordem em inglês é outra. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+     "comment": "Resposta: “I like music very much.” Treine mais com um quiz grátis aqui: {link}",
      "hashtags": [
       "#inglesfacil",
       "#falaringles",
@@ -115,9 +115,9 @@
      ]
     },
     "en": {
-     "hook": "Do you say “I like very much pizza”?",
+     "hook": "Do you say “like very much pizza”?",
      "tip": "In English, the object comes right after the verb: “I like pizza very much”.",
-     "caption": "Watch out for this common mistake! Many people say “I like very much pizza.”. The right way is “I like pizza very much.”. In Portuguese we say it another way, but the English order is different. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "caption": "Watch out for this common mistake! Many people say “I like very much pizza.” The right way is “I like pizza very much.” Many learners copy the word order of their own language, but English puts the object first. Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -145,7 +145,7 @@
     "native": {
      "hook": "Você diz “depends of”?",
      "tip": "O verbo “depend” é sempre seguido de “on”, nunca de “of”.",
-     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “It depends of the weather.”. O certo é “It depends on the weather.”. Aqui o “de” do português atrapalha. Ouça o Ama e repita! Treine mais no app Lexkite.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “It depends of the weather.” O certo é “It depends on the weather.” Aqui o “de” do português atrapalha. Ouça a Ama e repita! Treine mais no app Lexkite.",
      "comment": "Resposta: “on”. Treine mais com um quiz grátis aqui: {link}",
      "hashtags": [
       "#aprenderingles",
@@ -157,7 +157,7 @@
     "en": {
      "hook": "Do you say “depends of”?",
      "tip": "The verb “depend” always goes with “on”, never “of”.",
-     "caption": "Watch out for this common mistake! Many people say “It depends of the weather.”. The right way is “It depends on the weather.”. The Portuguese “de” gets in the way here. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "caption": "Watch out for this common mistake! Many people say “It depends of the weather.” The right way is “It depends on the weather.” Learners often carry over “de” from their own language, but English uses “on”. Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -185,7 +185,7 @@
     "native": {
      "hook": "Você diz “discuss about”?",
      "tip": "“Discuss” já inclui o “sobre”. Não precisa de “about”.",
-     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “We discuss about the plan.”. O certo é “We discuss the plan.”. É o famoso “discutir sobre” do português. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “We discuss about the plan.” O certo é “We discuss the plan.” É o famoso “discutir sobre” do português. Ouça o Carlos e repita! Treine mais no app Lexkite.",
      "comment": "Resposta: “discuss”. Treine mais com um quiz grátis aqui: {link}",
      "hashtags": [
       "#inglesonline",
@@ -197,7 +197,7 @@
     "en": {
      "hook": "Do you say “discuss about”?",
      "tip": "“Discuss” already includes “about”. You do not need it.",
-     "caption": "Watch out for this common mistake! Many people say “We discuss about the plan.”. The right way is “We discuss the plan.”. It comes from the Portuguese “discutir sobre”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "caption": "Watch out for this common mistake! Many people say “We discuss about the plan.” The right way is “We discuss the plan.” It comes from the common “discutir sobre” in the learner's own language. Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -207,12 +207,12 @@
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Live here since when?",
+    "hook_say": "Since needs have!",
     "wrong": "I live here since 2020.",
     "right": "I have lived here since 2020.",
     "strike": "live",
-    "why": "Since needs have plus a past form.",
-    "memory": "Since means have lived.",
+    "why": "With since, use have and the past form.",
+    "memory": "Since 2020: have lived.",
     "quiz": {
      "stem": "I ___ worked here since May.",
      "options": [
@@ -225,7 +225,7 @@
     "native": {
      "hook": "Você diz “I live here since”?",
      "tip": "Com “since” usamos o present perfect: “I have lived”, não “I live”.",
-     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I live here since 2020.”. O certo é “I have lived here since 2020.”. Em português usamos o presente, mas o inglês pede outro tempo. Ouça o Ama e repita! Treine mais no app Lexkite.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I live here since 2020.” O certo é “I have lived here since 2020.” Em português usamos o presente, mas o inglês pede outro tempo. Ouça a Ama e repita! Treine mais no app Lexkite.",
      "comment": "Resposta: “have”. Treine mais com um quiz grátis aqui: {link}",
      "hashtags": [
       "#inglesfacil",
@@ -237,7 +237,7 @@
     "en": {
      "hook": "Do you say “I live here since”?",
      "tip": "With “since” we use the present perfect: “I have lived”, not “I live”.",
-     "caption": "Watch out for this common mistake! Many people say “I live here since 2020.”. The right way is “I have lived here since 2020.”. Portuguese uses the present, but English needs another tense. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "caption": "Watch out for this common mistake! Many people say “I live here since 2020.” The right way is “I have lived here since 2020.” Many learners use the present here, but English needs the present perfect. Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -265,7 +265,7 @@
     "native": {
      "hook": "Você diz “informations”?",
      "tip": "“Information” não tem plural em inglês. Use “a lot of information”.",
-     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “She gave me many informations.”. O certo é “She gave me a lot of information.”. Em português é “informações”, mas inglês não aceita o s. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “She gave me many informations.” O certo é “She gave me a lot of information.” Em português é “informações”, mas o inglês não aceita o s. Ouça o Carlos e repita! Treine mais no app Lexkite.",
      "comment": "Resposta: “information”. Treine mais com um quiz grátis aqui: {link}",
      "hashtags": [
       "#aprenderingles",
@@ -277,7 +277,7 @@
     "en": {
      "hook": "Do you say “informations”?",
      "tip": "“Information” has no plural in English. Say “a lot of information”.",
-     "caption": "Watch out for this common mistake! Many people say “She gave me many informations.”. The right way is “She gave me a lot of information.”. In Portuguese it is plural, but English does not allow the s. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "caption": "Watch out for this common mistake! Many people say “She gave me many informations.” The right way is “She gave me a lot of information.” The plural “informações” feels natural, but English does not allow the s. Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -288,8 +288,8 @@
    "theme": "dusk",
    "in": {
     "hook_say": "Library is a false friend!",
-    "wrong": "I bought a book in the library.",
-    "right": "I bought a book in the bookstore.",
+    "wrong": "I bought a book at the library.",
+    "right": "I bought a book at the bookstore.",
     "strike": "library",
     "why": "A library lends books. It does not sell.",
     "memory": "Buy at a bookstore.",
@@ -305,7 +305,7 @@
     "native": {
      "hook": "“Library” não é “livraria”!",
      "tip": "“Library” é biblioteca. Livraria é “bookstore”.",
-     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I bought a book in the library.”. O certo é “I bought a book in the bookstore.”. Esse falso cognato confunde muita gente. Ouça o Ama e repita! Treine mais no app Lexkite.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I bought a book at the library.” O certo é “I bought a book at the bookstore.” Esse falso cognato confunde muita gente. Ouça a Ama e repita! Treine mais no app Lexkite.",
      "comment": "Resposta: “bookstore”. Treine mais com um quiz grátis aqui: {link}",
      "hashtags": [
       "#inglesonline",
@@ -317,7 +317,7 @@
     "en": {
      "hook": "“Library” is not “livraria”!",
      "tip": "“Library” means a place to borrow books. A shop is a “bookstore”.",
-     "caption": "Watch out for this common mistake! Many people say “I bought a book in the library.”. The right way is “I bought a book in the bookstore.”. This false friend confuses many people. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "caption": "Watch out for this common mistake! Many people say “I bought a book at the library.” The right way is “I bought a book at the bookstore.” This false friend confuses many learners. Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -345,7 +345,7 @@
     "native": {
      "hook": "Você diz “I am exciting”?",
      "tip": "Para sentimentos usamos “-ed”: “excited”. Para coisas, “-ing”.",
-     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I am very exciting about the trip.”. O certo é “I am very excited about the trip.”. Quem sente é “excited”; o que causa a emoção é “exciting”. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I am very exciting about the trip.” O certo é “I am very excited about the trip.” Quem sente é “excited”; o que causa a emoção é “exciting”. Ouça o Carlos e repita! Treine mais no app Lexkite.",
      "comment": "Resposta: “excited”. Treine mais com um quiz grátis aqui: {link}",
      "hashtags": [
       "#inglesfacil",
@@ -357,7 +357,7 @@
     "en": {
      "hook": "Do you say “I am exciting”?",
      "tip": "For feelings we use “-ed”: “excited”. For things, “-ing”.",
-     "caption": "Watch out for this common mistake! Many people say “I am very exciting about the trip.”. The right way is “I am very excited about the trip.”. The person who feels is “excited”; the thing that causes it is “exciting”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "caption": "Watch out for this common mistake! Many people say “I am very exciting about the trip.” The right way is “I am very excited about the trip.” The person who feels is “excited”; the thing that causes it is “exciting”. Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -385,7 +385,7 @@
     "native": {
      "hook": "Você diz “married with”?",
      "tip": "Em inglês, “casado com” é “married to”.",
-     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “My cousin is married with a doctor.”. O certo é “My cousin is married to a doctor.”. O “com” do português não vira “with” aqui. Ouça o Ama e repita! Treine mais no app Lexkite.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “My cousin is married with a doctor.” O certo é “My cousin is married to a doctor.” O “com” do português não vira “with” aqui. Ouça a Ama e repita! Treine mais no app Lexkite.",
      "comment": "Resposta: “to”. Treine mais com um quiz grátis aqui: {link}",
      "hashtags": [
       "#aprenderingles",
@@ -397,7 +397,7 @@
     "en": {
      "hook": "Do you say “married with”?",
      "tip": "In English, “casado com” is “married to”.",
-     "caption": "Watch out for this common mistake! Many people say “My cousin is married with a doctor.”. The right way is “My cousin is married to a doctor.”. The Portuguese “com” does not become “with” here. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "caption": "Watch out for this common mistake! Many people say “My cousin is married with a doctor.” The right way is “My cousin is married to a doctor.” The usual “com” does not become “with” here. Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -425,7 +425,7 @@
     "native": {
      "hook": "Você diz “I am agree”?",
      "tip": "“Agree” já é verbo. Não use “am” antes dele.",
-     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I am agree with you.”. O certo é “I agree with you.”. Em português é “estou de acordo”, mas em inglês é só “agree”. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I am agree with you.” O certo é “I agree with you.” Em português é “estou de acordo”, mas em inglês é só “agree”. Ouça o Carlos e repita! Treine mais no app Lexkite.",
      "comment": "Resposta: “agree”. Treine mais com um quiz grátis aqui: {link}",
      "hashtags": [
       "#inglesonline",
@@ -437,7 +437,7 @@
     "en": {
      "hook": "Do you say “I am agree”?",
      "tip": "“Agree” is already a verb. Do not put “am” before it.",
-     "caption": "Watch out for this common mistake! Many people say “I am agree with you.”. The right way is “I agree with you.”. In Portuguese it is “estou de acordo”, but in English it is just “agree”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "caption": "Watch out for this common mistake! Many people say “I am agree with you.” The right way is “I agree with you.” Learners think of “estou de acordo”, but in English it is just “agree”. Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -447,12 +447,12 @@
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Is it has or there is?",
+    "hook_say": "Has or there are?",
     "wrong": "It has a lot of people here.",
     "right": "There are a lot of people here.",
     "strike": "It has",
-    "why": "Use there are for amounts.",
-    "memory": "Tem is there is.",
+    "why": "To say something exists, use there is or there are.",
+    "memory": "It exists? There is.",
     "quiz": {
      "stem": "___ many people here.",
      "options": [
@@ -465,7 +465,7 @@
     "native": {
      "hook": "“Tem” não é “has” aqui!",
      "tip": "Para dizer que existe algo, use “there is” ou “there are”.",
-     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “It has a lot of people here.”. O certo é “There are a lot of people here.”. O verbo “ter” do português tem dois usos; em inglês são dois verbos. Ouça o Ama e repita! Treine mais no app Lexkite.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “It has a lot of people here.” O certo é “There are a lot of people here.” O verbo “ter” do português tem dois usos; em inglês são dois verbos. Ouça a Ama e repita! Treine mais no app Lexkite.",
      "comment": "Resposta: “There are”. Treine mais com um quiz grátis aqui: {link}",
      "hashtags": [
       "#inglesfacil",
@@ -477,7 +477,7 @@
     "en": {
      "hook": "“Tem” is not “has” here!",
      "tip": "To say that something exists, use “there is” or “there are”.",
-     "caption": "Watch out for this common mistake! Many people say “It has a lot of people here.”. The right way is “There are a lot of people here.”. The Portuguese “ter” has two uses; English uses two different verbs. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "caption": "Watch out for this common mistake! Many people say “It has a lot of people here.” The right way is “There are a lot of people here.” The verb “ter” has two uses; English uses two different verbs. Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -505,7 +505,7 @@
     "native": {
      "hook": "Você diz “Is cold today”?",
      "tip": "Em inglês, a frase precisa de sujeito: “It is cold”.",
-     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “Is cold today.”. O certo é “It is cold today.”. Em português dizemos “está frio”, sem sujeito. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “Is cold today.” O certo é “It is cold today.” Em português dizemos “está frio”, sem sujeito. Ouça o Carlos e repita! Treine mais no app Lexkite.",
      "comment": "Resposta: “It”. Treine mais com um quiz grátis aqui: {link}",
      "hashtags": [
       "#aprenderingles",
@@ -517,7 +517,7 @@
     "en": {
      "hook": "Do you say “Is cold today”?",
      "tip": "In English, the sentence needs a subject: “It is cold”.",
-     "caption": "Watch out for this common mistake! Many people say “Is cold today.”. The right way is “It is cold today.”. In Portuguese we say “está frio” with no subject. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "caption": "Watch out for this common mistake! Many people say “Is cold today.” The right way is “It is cold today.” Learners say “está frio” with no subject, but English needs one. Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -545,7 +545,7 @@
     "native": {
      "hook": "Você diz “go to home”?",
      "tip": "Com “home”, não usamos “to”: “go home”.",
-     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I go to home after work.”. O certo é “I go home after work.”. Home é uma exceção que vale decorar. Ouça o Ama e repita! Treine mais no app Lexkite.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I go to home after work.” O certo é “I go home after work.” Home é uma exceção que vale decorar. Ouça a Ama e repita! Treine mais no app Lexkite.",
      "comment": "Resposta: “go”. Treine mais com um quiz grátis aqui: {link}",
      "hashtags": [
       "#inglesonline",
@@ -557,7 +557,7 @@
     "en": {
      "hook": "Do you say “go to home”?",
      "tip": "With “home”, we do not use “to”: “go home”.",
-     "caption": "Watch out for this common mistake! Many people say “I go to home after work.”. The right way is “I go home after work.”. Home is an exception worth remembering. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "caption": "Watch out for this common mistake! Many people say “I go to home after work.” The right way is “I go home after work.” Home is an exception worth remembering. Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -585,7 +585,7 @@
     "native": {
      "hook": "Você diz “she don't”?",
      "tip": "Com “he”, “she” e “it” usamos “doesn't”.",
-     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “She don't like coffee.”. O certo é “She doesn't like coffee.”. É um erro muito comum, até para quem já estuda há anos. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “She don't like coffee.” O certo é “She doesn't like coffee.” Em português o verbo muda na terminação, mas em inglês “she” pede “doesn't”. Ouça o Carlos e repita! Treine mais no app Lexkite.",
      "comment": "Resposta: “doesn't”. Treine mais com um quiz grátis aqui: {link}",
      "hashtags": [
       "#inglesfacil",
@@ -597,7 +597,7 @@
     "en": {
      "hook": "Do you say “she don't”?",
      "tip": "With “he”, “she” and “it” we use “doesn't”.",
-     "caption": "Watch out for this common mistake! Many people say “She don't like coffee.”. The right way is “She doesn't like coffee.”. A very common mistake, even after years of study. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "caption": "Watch out for this common mistake! Many people say “She don't like coffee.” The right way is “She doesn't like coffee.” In their own language the verb ending changes, but in English “she” needs “doesn't”. Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -625,7 +625,7 @@
     "native": {
      "hook": "Você diz “make homework”?",
      "tip": "Tarefa de casa é “do homework”. Em português usamos “fazer” para tudo.",
-     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I need to make my homework.”. O certo é “I need to do my homework.”. Em inglês, “fazer” se divide em “make” e “do”. Ouça o Ama e repita! Treine mais no app Lexkite.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I need to make my homework.” O certo é “I need to do my homework.” Em inglês, “fazer” se divide em “make” e “do”. Ouça a Ama e repita! Treine mais no app Lexkite.",
      "comment": "Resposta: “do”. Treine mais com um quiz grátis aqui: {link}",
      "hashtags": [
       "#aprenderingles",
@@ -636,8 +636,8 @@
     },
     "en": {
      "hook": "Do you say “make homework”?",
-     "tip": "Homework is “do homework”. In Portuguese we use “fazer” for everything.",
-     "caption": "Watch out for this common mistake! Many people say “I need to make my homework.”. The right way is “I need to do my homework.”. In English, “fazer” splits into “make” and “do”. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "tip": "Homework goes with “do”: “do homework”. “Fazer” is one word, but English splits it into “make” and “do”.",
+     "caption": "Watch out for this common mistake! Many people say “I need to make my homework.” The right way is “I need to do my homework.” In English, “fazer” splits into “make” and “do”. Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -665,7 +665,7 @@
     "native": {
      "hook": "Você diz “when I will arrive”?",
      "tip": "Depois de “when”, usamos o presente, não o futuro.",
-     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I will call you when I will arrive.”. O certo é “I will call you when I arrive.”. Diferente do português, que usa o futuro do subjuntivo. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I will call you when I will arrive.” O certo é “I will call you when I arrive.” Em português usamos o futuro do subjuntivo (“quando eu chegar”), mas em inglês vem o presente. Ouça o Carlos e repita! Treine mais no app Lexkite.",
      "comment": "Resposta: “arrive”. Treine mais com um quiz grátis aqui: {link}",
      "hashtags": [
       "#inglesonline",
@@ -677,7 +677,7 @@
     "en": {
      "hook": "Do you say “when I will arrive”?",
      "tip": "After “when”, we use the present, not the future.",
-     "caption": "Watch out for this common mistake! Many people say “I will call you when I will arrive.”. The right way is “I will call you when I arrive.”. Unlike Portuguese, which uses a future form. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "caption": "Watch out for this common mistake! Many people say “I will call you when I will arrive.” The right way is “I will call you when I arrive.” Learners use a future form (“quando eu chegar”), but English uses the present. Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -705,7 +705,7 @@
     "native": {
      "hook": "Você diz “Where you live?”",
      "tip": "Nas perguntas, precisamos do auxiliar “do” ou “does”.",
-     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “Where you live?”. O certo é “Where do you live?”. Em português basta mudar a entonação; em inglês não. Ouça o Ama e repita! Treine mais no app Lexkite.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “Where you live?” O certo é “Where do you live?” Em português basta mudar a entonação; em inglês não. Ouça a Ama e repita! Treine mais no app Lexkite.",
      "comment": "Resposta: “do”. Treine mais com um quiz grátis aqui: {link}",
      "hashtags": [
       "#inglesfacil",
@@ -717,7 +717,7 @@
     "en": {
      "hook": "Do you say “Where you live?”",
      "tip": "In questions, we need the helper “do” or “does”.",
-     "caption": "Watch out for this common mistake! Many people say “Where you live?”. The right way is “Where do you live?”. In Portuguese the tone is enough; in English it is not. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "caption": "Watch out for this common mistake! Many people say “Where you live?” The right way is “Where do you live?” Learners think the tone is enough, but English needs “do”. Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -745,7 +745,7 @@
     "native": {
      "hook": "Você diz “I want that you”?",
      "tip": "Em inglês dizemos “want you to”, sem “that”.",
-     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I want that you help me.”. O certo é “I want you to help me.”. Em português usamos “quero que você”. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I want that you help me.” O certo é “I want you to help me.” Em português usamos “quero que você”. Ouça o Carlos e repita! Treine mais no app Lexkite.",
      "comment": "Resposta: “to”. Treine mais com um quiz grátis aqui: {link}",
      "hashtags": [
       "#aprenderingles",
@@ -757,7 +757,7 @@
     "en": {
      "hook": "Do you say “I want that you”?",
      "tip": "In English we say “want you to”, with no “that”.",
-     "caption": "Watch out for this common mistake! Many people say “I want that you help me.”. The right way is “I want you to help me.”. In Portuguese we say “quero que você”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "caption": "Watch out for this common mistake! Many people say “I want that you help me.” The right way is “I want you to help me.” Learners copy “quero que você”, but English says “want you to”. Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -785,7 +785,7 @@
     "native": {
      "hook": "“Borrow” ou “lend”?",
      "tip": "Quem empresta é “lend”. Quem pede emprestado é “borrow”.",
-     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “Can you borrow me a pen?”. O certo é “Can you lend me a pen?”. Em português usamos “emprestar” para os dois lados. Ouça o Ama e repita! Treine mais no app Lexkite.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “Can you borrow me a pen?” O certo é “Can you lend me a pen?” Em português usamos “emprestar” para os dois lados. Ouça a Ama e repita! Treine mais no app Lexkite.",
      "comment": "Resposta: “lend”. Treine mais com um quiz grátis aqui: {link}",
      "hashtags": [
       "#inglesonline",
@@ -797,7 +797,7 @@
     "en": {
      "hook": "“Borrow” or “lend”?",
      "tip": "The giver “lends”. The one who asks “borrows”.",
-     "caption": "Watch out for this common mistake! Many people say “Can you borrow me a pen?”. The right way is “Can you lend me a pen?”. In Portuguese “emprestar” works both ways. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "caption": "Watch out for this common mistake! Many people say “Can you borrow me a pen?” The right way is “Can you lend me a pen?” The word “emprestar” works both ways, but English uses two verbs. Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -825,7 +825,7 @@
     "native": {
      "hook": "Você diz “said me”?",
      "tip": "Com a pessoa logo depois do verbo, use “tell”: “told me”.",
-     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “He said me the truth.”. O certo é “He told me the truth.”. “Disse-me” vira “told me”, não “said me”. Ouça o Ama e repita! Treine mais no app Lexkite.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “He said me the truth.” O certo é “He told me the truth.” “Me disse” vira “told me”, não “said me”. Ouça a Ama e repita! Treine mais no app Lexkite.",
      "comment": "Resposta: “told”. Treine mais com um quiz grátis aqui: {link}",
      "hashtags": [
       "#aprenderingles",
@@ -837,7 +837,7 @@
     "en": {
      "hook": "Do you say “said me”?",
      "tip": "When a person comes right after the verb, use “tell”: “told me”.",
-     "caption": "Watch out for this common mistake! Many people say “He said me the truth.”. The right way is “He told me the truth.”. “Disse-me” becomes “told me”, not “said me”. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "caption": "Watch out for this common mistake! Many people say “He said me the truth.” The right way is “He told me the truth.” “Me disse” becomes “told me”, not “said me”. Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -864,8 +864,8 @@
     "answer_say": "Question! I have a question about the test.",
     "native": {
      "hook": "“Doubt” não é “dúvida”!",
-     "tip": "“Doubt” é desconfiar. Para tirar dúvida, tenha uma “question”.",
-     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I have a doubt about this word.”. O certo é “I have a question about this word.”. Na sala de aula, esse erro aparece o tempo todo. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+     "tip": "“Doubt” é incerteza, não ter certeza. Para perguntar algo, diga “I have a question”.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I have a doubt about this word.” O certo é “I have a question about this word.” Na sala de aula, esse erro aparece o tempo todo. Ouça o Carlos e repita! Treine mais no app Lexkite.",
      "comment": "Resposta: “question”. Treine mais com um quiz grátis aqui: {link}",
      "hashtags": [
       "#inglesonline",
@@ -876,8 +876,8 @@
     },
     "en": {
      "hook": "“Doubt” is not “dúvida”!",
-     "tip": "“Doubt” means to distrust. To ask for help, you have a “question”.",
-     "caption": "Watch out for this common mistake! Many people say “I have a doubt about this word.”. The right way is “I have a question about this word.”. This mistake shows up in class all the time. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "“Doubt” means you are not sure. To ask something, say “I have a question”.",
+     "caption": "Watch out for this common mistake! Many people say “I have a doubt about this word.” The right way is “I have a question about this word.” This mistake shows up in class all the time. Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -905,7 +905,7 @@
     "native": {
      "hook": "Você diz “more better”?",
      "tip": "“Better” já é comparativo. Não precisa de “more”.",
-     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “She speaks more better than me.”. O certo é “She speaks better than me.”. É a versão do “mais melhor” do português. Ouça o Ama e repita! Treine mais no app Lexkite.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “She speaks more better than me.” O certo é “She speaks better than me.” É como dizer “mais melhor” em português. Ouça a Ama e repita! Treine mais no app Lexkite.",
      "comment": "Resposta: “better”. Treine mais com um quiz grátis aqui: {link}",
      "hashtags": [
       "#inglesfacil",
@@ -917,7 +917,7 @@
     "en": {
      "hook": "Do you say “more better”?",
      "tip": "“Better” is already a comparative. You do not need “more”.",
-     "caption": "Watch out for this common mistake! Many people say “She speaks more better than me.”. The right way is “She speaks better than me.”. It is the English version of Portuguese “mais melhor”. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "caption": "Watch out for this common mistake! Many people say “She speaks more better than me.” The right way is “She speaks better than me.” It is like saying “mais melhor” in the learner's own language. Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -945,7 +945,7 @@
     "native": {
      "hook": "Você diz “I lost the bus”?",
      "tip": "Quando “perde” o ônibus, use “miss”. “Lose” é para objetos.",
-     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I lost the bus this morning.”. O certo é “I missed the bus this morning.”. Em português “perder” serve para os dois casos. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I lost the bus this morning.” O certo é “I missed the bus this morning.” Em português “perder” serve para os dois casos. Ouça o Carlos e repita! Treine mais no app Lexkite.",
      "comment": "Resposta: “miss”. Treine mais com um quiz grátis aqui: {link}",
      "hashtags": [
       "#aprenderingles",
@@ -956,8 +956,8 @@
     },
     "en": {
      "hook": "Do you say “I lost the bus”?",
-     "tip": "When you “perder” a bus, use “miss”. “Lose” is for objects.",
-     "caption": "Watch out for this common mistake! Many people say “I lost the bus this morning.”. The right way is “I missed the bus this morning.”. Portuguese “perder” covers both cases. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "For a bus or a train, use “miss”. “Lose” is for objects.",
+     "caption": "Watch out for this common mistake! Many people say “I lost the bus this morning.” The right way is “I missed the bus this morning.” The word “perder” covers both cases, but English uses two verbs. Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -983,9 +983,9 @@
     },
     "answer_say": "Was! I was at home last week.",
     "native": {
-     "hook": "Você diz “I have been last year”?",
+     "hook": "Você diz “have been last year”?",
      "tip": "Com “last year” (tempo passado definido), use o passado simples.",
-     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I have been in Paris last year.”. O certo é “I was in Paris last year.”. O “tenho estado” do português engana aqui. Ouça o Ama e repita! Treine mais no app Lexkite.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I have been in Paris last year.” O certo é “I was in Paris last year.” Muita gente traduz “estive” como “have been”, mas com “last year” o inglês pede o passado simples. Ouça a Ama e repita! Treine mais no app Lexkite.",
      "comment": "Resposta: “was”. Treine mais com um quiz grátis aqui: {link}",
      "hashtags": [
       "#inglesonline",
@@ -995,9 +995,9 @@
      ]
     },
     "en": {
-     "hook": "Do you say “I have been last year”?",
+     "hook": "Do you say “have been last year”?",
      "tip": "With “last year” (a finished time), use the simple past.",
-     "caption": "Watch out for this common mistake! Many people say “I have been in Paris last year.”. The right way is “I was in Paris last year.”. The Portuguese “tenho estado” is misleading here. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "caption": "Watch out for this common mistake! Many people say “I have been in Paris last year.” The right way is “I was in Paris last year.” Many learners translate “estive” as “have been”, but with “last year” English needs the simple past. Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1025,7 +1025,7 @@
     "native": {
      "hook": "Você diz “in the bus”?",
      "tip": "Para ônibus, trem e avião, usamos “on”. Para carro, “in”.",
-     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I am in the bus now.”. O certo é “I am on the bus now.”. Em português dizemos “no ônibus”, mas inglês separa. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I am in the bus now.” O certo é “I am on the bus now.” Em português dizemos “no ônibus”, mas o inglês separa “on” e “in”. Ouça o Carlos e repita! Treine mais no app Lexkite.",
      "comment": "Resposta: “on”. Treine mais com um quiz grátis aqui: {link}",
      "hashtags": [
       "#inglesfacil",
@@ -1037,7 +1037,7 @@
     "en": {
      "hook": "Do you say “in the bus”?",
      "tip": "For buses, trains and planes, we use “on”. For cars, “in”.",
-     "caption": "Watch out for this common mistake! Many people say “I am in the bus now.”. The right way is “I am on the bus now.”. In Portuguese it is always “no”, but English splits them. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "caption": "Watch out for this common mistake! Many people say “I am in the bus now.” The right way is “I am on the bus now.” Learners say “no ônibus”, but English splits “on” and “in”. Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1064,8 +1064,8 @@
     "answer_say": "Is! Her hair is long.",
     "native": {
      "hook": "Você diz “my hair are”?",
-     "tip": "“Hair” é singular em inglês: “my hair is”.",
-     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “My hair are brown.”. O certo é “My hair is brown.”. Em português “cabelos” é plural, mas “hair” não é. Ouça o Ama e repita! Treine mais no app Lexkite.",
+     "tip": "“Hair” é incontável em inglês: “my hair is”.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “My hair are brown.” O certo é “My hair is brown.” Às vezes dizemos “cabelos”, mas “hair” é incontável e pede “is”. Ouça a Ama e repita! Treine mais no app Lexkite.",
      "comment": "Resposta: “is”. Treine mais com um quiz grátis aqui: {link}",
      "hashtags": [
       "#aprenderingles",
@@ -1076,8 +1076,8 @@
     },
     "en": {
      "hook": "Do you say “my hair are”?",
-     "tip": "“Hair” is singular in English: “my hair is”.",
-     "caption": "Watch out for this common mistake! Many people say “My hair are brown.”. The right way is “My hair is brown.”. In Portuguese “cabelos” is plural, but “hair” is not. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "tip": "“Hair” is uncountable in English: “my hair is”.",
+     "caption": "Watch out for this common mistake! Many people say “My hair are brown.” The right way is “My hair is brown.” Learners sometimes say “cabelos”, but “hair” is uncountable and takes “is”. Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1105,7 +1105,7 @@
     "native": {
      "hook": "Dois negativos? Em inglês, não!",
      "tip": "Em português “não sei nada” tem dois negativos; em inglês, com “do not”, use “anything”.",
-     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I do not know nothing”. O certo é “I do not know anything”. Em português a dupla negação é normal, mas em inglês um negativo basta. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I do not know nothing.” O certo é “I do not know anything.” Em português a dupla negação é normal, mas em inglês um negativo basta. Ouça o Carlos e repita! Treine mais no app Lexkite.",
      "comment": "Resposta: “any”. Treine mais com um quiz grátis aqui: {link}",
      "hashtags": [
       "#aprenderingles",
@@ -1115,8 +1115,8 @@
     },
     "en": {
      "hook": "Two negatives? Not in English!",
-     "tip": "In Portuguese two negatives are normal. In English, with “do not”, use “anything”.",
-     "caption": "Watch out for this common mistake! Many people say “I do not know nothing”. The right way is “I do not know anything”. In Portuguese a double negative is normal, but in English one negative is enough. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "Double negatives feel normal to many learners. In English, with “do not”, use “anything”.",
+     "caption": "Watch out for this common mistake! Many people say “I do not know nothing.” The right way is “I do not know anything.” A double negative feels normal to many learners, but in English one negative is enough. Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1144,7 +1144,7 @@
     "native": {
      "hook": "“Assistir” não é “assist”!",
      "tip": "Em português “assistir” um filme é ver; em inglês “assist” é ajudar. Para filme, use “watch”.",
-     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I assisted a movie last night”. O certo é “I watched a movie last night”. É um falso cognato: o “assistir” português vira “watch” em inglês. Ouça a Ama e repita! Treine mais no app Lexkite.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I assisted a movie last night.” O certo é “I watched a movie last night.” É um falso cognato: o “assistir” português vira “watch” em inglês. Ouça a Ama e repita! Treine mais no app Lexkite.",
      "comment": "Resposta: “watched”. Treine mais com um quiz grátis aqui: {link}",
      "hashtags": [
       "#inglesonline",
@@ -1154,8 +1154,8 @@
     },
     "en": {
      "hook": "“Assistir” is not “assist”!",
-     "tip": "In Portuguese “assistir” means to watch; in English “assist” means to help. For a movie, use “watch”.",
-     "caption": "Watch out for this common mistake! Many people say “I assisted a movie last night”. The right way is “I watched a movie last night”. It is a false friend: Portuguese “assistir” becomes “watch” in English. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "tip": "“Assistir” a movie means to watch it, but “assist” means to help. For a movie, use “watch”.",
+     "caption": "Watch out for this common mistake! Many people say “I assisted a movie last night.” The right way is “I watched a movie last night.” It is a false friend: “assistir” becomes “watch” in English. Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1172,18 +1172,18 @@
     "why": "Time is spent.",
     "memory": "Spend your time.",
     "quiz": {
-     "stem": "I ___ two days at home.",
+     "stem": "I ___ two hours on this video.",
      "options": [
       "spent",
       "passed"
      ],
      "answer": 0
     },
-    "answer_say": "Spent! I spent two days at home.",
+    "answer_say": "Spent! I spent two hours on it.",
     "native": {
      "hook": "“Passei 2 dias” é “spent”!",
-     "tip": "Em português dizemos “passei dois dias em casa”; em inglês, para quanto tempo, o natural é “spend”.",
-     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I passed two days at home”. O certo é “I spent two days at home”. Aqui o “passar” português não funciona: em inglês o tempo é gasto, “spend”. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+     "tip": "Em português dizemos “passei dois dias em casa”; em inglês, para tempo, o natural é “spend”: “I spent”.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I passed two days at home.” O certo é “I spent two days at home.” Aqui o “passar” não funciona: em inglês o tempo é gasto, “spend”. Ouça o Carlos e repita! Treine mais no app Lexkite.",
      "comment": "Resposta: “spent”. Treine mais com um quiz grátis aqui: {link}",
      "hashtags": [
       "#aprenderingles",
@@ -1193,8 +1193,8 @@
     },
     "en": {
      "hook": "“Passed two days”? Say “spent”!",
-     "tip": "In Portuguese you “pass” days at home; in English, for how long you stay, the natural verb is “spend”.",
-     "caption": "Watch out for this common mistake! Many people say “I passed two days at home”. The right way is “I spent two days at home”. The Portuguese “passar” does not work here: in English time is “spent”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "For time, the natural English verb is “spend”: “I spent two days at home”.",
+     "caption": "Watch out for this common mistake! Many people say “I passed two days at home.” The right way is “I spent two days at home.” Here “passar” does not work: in English time is “spent”. Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1204,26 +1204,26 @@
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Thank you by? No, for!",
-    "wrong": "Thank you by your help.",
-    "right": "Thank you for your help.",
-    "strike": "by",
-    "why": "Thank goes with for.",
-    "memory": "Thank you for.",
+    "hook_say": "Think in? No, about!",
+    "wrong": "I am thinking in you.",
+    "right": "I am thinking about you.",
+    "strike": "in",
+    "why": "Think goes with about.",
+    "memory": "Think about you.",
     "quiz": {
-     "stem": "Thank you ___ the gift.",
+     "stem": "I am thinking ___ you.",
      "options": [
-      "for",
-      "by"
+      "about",
+      "in"
      ],
      "answer": 0
     },
-    "answer_say": "For! Thank you for the gift.",
+    "answer_say": "About! I am thinking about you.",
     "native": {
-     "hook": "“Thank you by” está errado!",
-     "tip": "Em português é “obrigado PELA ajuda” (por); em inglês o certo é “thank you FOR”, não “by”.",
-     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “Thank you by your help”. O certo é “Thank you for your help”. O “por” de “obrigado pela ajuda” leva muita gente a escolher “by”. Ouça a Ama e repita! Treine mais no app Lexkite.",
-     "comment": "Resposta: “for”. Treine mais com um quiz grátis aqui: {link}",
+     "hook": "Você diz “thinking in you”?",
+     "tip": "Em português dizemos “pensar em”, mas em inglês usamos “think about”.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I am thinking in you.” O certo é “I am thinking about you.” O “em” de “pensar em” leva muita gente a escolher “in”. Ouça a Ama e repita! Treine mais no app Lexkite.",
+     "comment": "Resposta: “about”. Treine mais com um quiz grátis aqui: {link}",
      "hashtags": [
       "#inglesonline",
       "#dicasdeingles",
@@ -1231,9 +1231,9 @@
      ]
     },
     "en": {
-     "hook": "“Thank you by” is wrong!",
-     "tip": "In Portuguese it is “obrigado PELA ajuda” (por); in English it is “thank you FOR”, not “by”.",
-     "caption": "Watch out for this common mistake! Many people say “Thank you by your help”. The right way is “Thank you for your help”. The “por” in “obrigado pela ajuda” makes many people choose “by”. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "hook": "Do you say “thinking in you”?",
+     "tip": "Learners say “pensar em”, but in English we use “think about”.",
+     "caption": "Watch out for this common mistake! Many people say “I am thinking in you.” The right way is “I am thinking about you.” The “em” in “pensar em” makes many learners choose “in”. Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1261,7 +1261,7 @@
     "native": {
      "hook": "“Arrive to school”? Não!",
      "tip": "Em português “cheguei à escola” usa “a”, que parece “to”; em inglês, com “arrive”, usa-se “at” ou “in”.",
-     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I arrived to school late”. O certo é “I arrived at school late”. O “a” de “chegar a” parece “to”, mas em inglês o certo é “arrive at”. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I arrived to school late.” O certo é “I arrived at school late.” O “a” de “chegar a” parece “to”, mas em inglês o certo é “arrive at”. Ouça o Carlos e repita! Treine mais no app Lexkite.",
      "comment": "Resposta: “at”. Treine mais com um quiz grátis aqui: {link}",
      "hashtags": [
       "#aprenderingles",
@@ -1271,8 +1271,8 @@
     },
     "en": {
      "hook": "“Arrive to school”? No!",
-     "tip": "In Portuguese “cheguei à escola” uses “a”, which looks like “to”; in English “arrive” takes “at” or “in”.",
-     "caption": "Watch out for this common mistake! Many people say “I arrived to school late”. The right way is “I arrived at school late”. The “a” of “chegar a” looks like “to”, but English says “arrive at”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "“Cheguei à escola” uses “a”, which looks like “to”; in English “arrive” takes “at” or “in”.",
+     "caption": "Watch out for this common mistake! Many people say “I arrived to school late.” The right way is “I arrived at school late.” The “a” of “chegar a” looks like “to”, but English says “arrive at”. Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1300,7 +1300,7 @@
     "native": {
      "hook": "“People is” ou “people are”?",
      "tip": "Em português “gente” e “povo” são singulares, mas em inglês “people” é plural e pede “are”.",
-     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “People is very nice here”. O certo é “People are very nice here”. Palavras como “gente” e “povo” são singulares em português, mas “people” é plural. Ouça a Ama e repita! Treine mais no app Lexkite.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “People is very nice here.” O certo é “People are very nice here.” Palavras como “gente” e “povo” são singulares em português, mas “people” é plural. Ouça a Ama e repita! Treine mais no app Lexkite.",
      "comment": "Resposta: “are”. Treine mais com um quiz grátis aqui: {link}",
      "hashtags": [
       "#inglesonline",
@@ -1310,8 +1310,8 @@
     },
     "en": {
      "hook": "“People is” or “people are”?",
-     "tip": "In Portuguese “gente” and “povo” are singular, but in English “people” is plural and takes “are”.",
-     "caption": "Watch out for this common mistake! Many people say “People is very nice here”. The right way is “People are very nice here”. Words like “gente” and “povo” are singular in Portuguese, but “people” is plural. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "tip": "“Gente” and “povo” are singular, but in English “people” is plural and takes “are”.",
+     "caption": "Watch out for this common mistake! Many people say “People is very nice here.” The right way is “People are very nice here.” Words like “gente” and “povo” are singular, but “people” is plural. Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1338,8 +1338,8 @@
     "answer_say": "Mine! She is a friend of mine.",
     "native": {
      "hook": "“A friend of me” soa estranho!",
-     "tip": "Dizemos “amiga dele” (de + ele); por analogia sai “of me”, mas em inglês usa-se “a friend of mine”.",
-     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “Ana is a friend of me”. O certo é “Ana is a friend of mine”. Por analogia com “amiga dele” (de + ele), muita gente diz “of me”. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+     "tip": "Em português dizemos “uma amiga minha”; em inglês também: “a friend of mine”, nunca “of me”.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “Ana is a friend of me.” O certo é “Ana is a friend of mine.” Pense em “uma amiga minha”: em inglês é “a friend of mine”. Ouça o Carlos e repita! Treine mais no app Lexkite.",
      "comment": "Resposta: “mine”. Treine mais com um quiz grátis aqui: {link}",
      "hashtags": [
       "#aprenderingles",
@@ -1349,8 +1349,8 @@
     },
     "en": {
      "hook": "“A friend of me” sounds odd!",
-     "tip": "Portuguese says “amiga dele” (de + ele), so learners copy it as “of me”; English uses “a friend of mine”.",
-     "caption": "Watch out for this common mistake! Many people say “Ana is a friend of me”. The right way is “Ana is a friend of mine”. By analogy with “amiga dele” (de + ele), many people say “of me”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "Say it like “uma amiga minha”: “a friend of mine”, never “of me”.",
+     "caption": "Watch out for this common mistake! Many people say “Ana is a friend of me.” The right way is “Ana is a friend of mine.” Think of “uma amiga minha”: in English it is “a friend of mine”. Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1360,7 +1360,7 @@
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "After where, say who first!",
+    "hook_say": "After where, the subject comes first!",
     "wrong": "I do not know where is Ali.",
     "right": "I do not know where Ali is.",
     "strike": "is Ali",
@@ -1378,7 +1378,7 @@
     "native": {
      "hook": "“I do not know where is Ali”?",
      "tip": "Em português dizemos “não sei onde está o Ali”; em inglês, depois de “where”, vem o sujeito e depois “is”.",
-     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I do not know where is Ali”. O certo é “I do not know where Ali is”. A ordem “onde está o Ali” é natural em português, mas em inglês a ordem muda. Ouça a Ama e repita! Treine mais no app Lexkite.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I do not know where is Ali.” O certo é “I do not know where Ali is.” A ordem “onde está o Ali” é natural em português, mas em inglês a ordem muda. Ouça a Ama e repita! Treine mais no app Lexkite.",
      "comment": "Resposta: “he is”. Treine mais com um quiz grátis aqui: {link}",
      "hashtags": [
       "#inglesonline",
@@ -1388,8 +1388,8 @@
     },
     "en": {
      "hook": "“I do not know where is Ali”?",
-     "tip": "In Portuguese we say “não sei onde está o Ali”; in English, after “where”, the subject comes before “is”.",
-     "caption": "Watch out for this common mistake! Many people say “I do not know where is Ali”. The right way is “I do not know where Ali is”. “Onde está o Ali” is natural in Portuguese, but the order changes in English. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "tip": "Learners say “onde está o Ali”; in English, after “where”, the subject comes before “is”.",
+     "caption": "Watch out for this common mistake! Many people say “I do not know where is Ali.” The right way is “I do not know where Ali is.” “Onde está o Ali” feels natural to learners, but the order changes in English. Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1417,7 +1417,7 @@
     "native": {
      "hook": "“I am waiting her” está errado!",
      "tip": "Em português “esperar alguém” não leva palavra extra; em inglês, “wait” pede “for”: “wait for her”.",
-     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I am waiting her”. O certo é “I am waiting for her”. O “esperar” português vai direto ao objeto, mas “wait” pede “for”. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I am waiting her.” O certo é “I am waiting for her.” O “esperar” português vai direto ao objeto, mas “wait” pede “for”. Ouça o Carlos e repita! Treine mais no app Lexkite.",
      "comment": "Resposta: “I am waiting for her”. Treine mais com um quiz grátis aqui: {link}",
      "hashtags": [
       "#aprenderingles",
@@ -1427,8 +1427,8 @@
     },
     "en": {
      "hook": "“I am waiting her” is wrong!",
-     "tip": "In Portuguese “esperar alguém” takes no extra word; in English “wait” needs “for”: “wait for her”.",
-     "caption": "Watch out for this common mistake! Many people say “I am waiting her”. The right way is “I am waiting for her”. Portuguese “esperar” goes straight to the object, but “wait” needs “for”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+     "tip": "“Esperar alguém” takes no extra word, but in English “wait” needs “for”: “wait for her”.",
+     "caption": "Watch out for this common mistake! Many people say “I am waiting her.” The right way is “I am waiting for her.” “Esperar” goes straight to the object, but “wait” needs “for”. Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }
   },
@@ -1456,7 +1456,7 @@
     "native": {
      "hook": "Você diz “I like of music”?",
      "tip": "Em português é “gostar DE música”, mas em inglês “like” vem direto com o objeto, sem “of”.",
-     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I like of music”. O certo é “I like music”. Por causa do “gostar de”, muita gente coloca “of” depois de “like”. Ouça a Ama e repita! Treine mais no app Lexkite.",
+     "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I like of music.” O certo é “I like music.” Por causa do “gostar de”, muita gente coloca “of” depois de “like”. Ouça a Ama e repita! Treine mais no app Lexkite.",
      "comment": "Resposta: “I like music”. Treine mais com um quiz grátis aqui: {link}",
      "hashtags": [
       "#aprenderingles",
@@ -1467,8 +1467,8 @@
     },
     "en": {
      "hook": "Do you say “I like of music”?",
-     "tip": "In Portuguese it is “gostar DE música”, but in English “like” goes straight to the object, with no “of”.",
-     "caption": "Watch out for this common mistake! Many people say “I like of music”. The right way is “I like music”. Because of “gostar de”, many people add “of” after “like”. Listen to Ama and repeat! Practice more in the Lexkite app."
+     "tip": "“Gostar DE música” has “de”, but in English “like” goes straight to the object, with no “of”.",
+     "caption": "Watch out for this common mistake! Many people say “I like of music.” The right way is “I like music.” Because of “gostar de”, many learners add “of” after “like”. Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
   }

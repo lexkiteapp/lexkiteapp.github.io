@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "On! I will go on a diet.",
+   "text": "Go on! I will go on a diet.",
    "pause": 0.42
   },
   {
@@ -58,18 +58,18 @@
   "why": "Say go on a diet.",
   "memory": "Go on a diet.",
   "quiz": {
-   "stem": "I will go ___ a diet.",
+   "stem": "I will ___ a diet.",
    "options": [
-    "on",
-    "in"
+    "do",
+    "go on"
    ],
-   "answer": 0
+   "answer": 1
   },
   "native": {
    "hook": "“do diet” 틀렸어요!",
    "tip": "다이어트하다는 do diet가 아니라 go on a diet예요!",
-   "caption": "“I will do diet”라고 말하고 있나요? 😅 ‘다이어트를 하다’는 go on a diet라는 표현으로 말해요. “I will go on a diet”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-   "comment": "정답: “on”. go on a diet로! 무료 퀴즈로 더 연습해 보세요: {link}",
+   "caption": "“I will do diet”처럼 말하고 있나요? 😅 ‘다이어트를 하다’는 go on a diet라는 표현으로 말해요. 맞는 문장 ✅ “I will go on a diet.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답: “on”! go on a diet로! 무료 퀴즈로 더 연습해 보세요: {link}",
    "hashtags": [
     "#영어공부",
     "#영어회화",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "“Do diet”는 틀렸어요!",
-   "tip": "Do not say do diet. Say “I will go on a diet”.",
-   "caption": "Do you say “I will do diet”? 😅 English says “go on a diet”, not “do diet”. “I will go on a diet” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
+   "hook": "Not “do diet”!",
+   "tip": "Do not say do diet. Say “I will go on a diet”!",
+   "caption": "Do you say “I will do diet” in English? 😅 English says “go on a diet”, not “do diet”! “I will go on a diet” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -98,9 +98,9 @@
  },
  "lang": "ko",
  "est": {
-  "words": 46,
-  "seconds": 28.1,
-  "wpm": 98
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
  },
  "publish": {
   "title": "“do diet” 틀렸어요!",
@@ -113,11 +113,11 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 40,
+  "script_words": 41,
   "platforms": {
    "youtube": {
     "title": "“do diet” 틀렸어요!",
-    "description": "“I will do diet”라고 말하고 있나요? 😅 ‘다이어트를 하다’는 go on a diet라는 표현으로 말해요. “I will go on a diet”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "description": "“I will do diet”처럼 말하고 있나요? 😅 ‘다이어트를 하다’는 go on a diet라는 표현으로 말해요. 맞는 문장 ✅ “I will go on a diet.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
     "tags": [
      "I will go on a diet.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "“I will do diet”라고 말하고 있나요? 😅 ‘다이어트를 하다’는 go on a diet라는 표현으로 말해요. “I will go on a diet”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "“I will do diet”처럼 말하고 있나요? 😅 ‘다이어트를 하다’는 go on a diet라는 표현으로 말해요. 맞는 문장 ✅ “I will go on a diet.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "“I will do diet”라고 말하고 있나요? 😅 ‘다이어트를 하다’는 go on a diet라는 표현으로 말해요. “I will go on a diet”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nlexkite.com",
+    "caption": "“I will do diet”처럼 말하고 있나요? 😅 ‘다이어트를 하다’는 go on a diet라는 표현으로 말해요. 맞는 문장 ✅ “I will go on a diet.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nlexkite.com",
     "hashtags": [
      "#영어공부",
      "#영어회화",
@@ -140,7 +140,7 @@
     "caption": "“do diet” 틀렸어요! #영어공부 #영어회화 #영어독학"
    }
   },
-  "first_comment": "정답: “on”. go on a diet로! 무료 퀴즈로 더 연습해 보세요: {link}",
+  "first_comment": "정답: “on”! go on a diet로! 무료 퀴즈로 더 연습해 보세요: {link}",
   "lang": "ko"
  }
 }

@@ -26,7 +26,7 @@
   },
   {
    "id": "y",
-   "text": "Hair on your head has no -s.",
+   "text": "The word hair has no -s here.",
    "pause": 0.42
   },
   {
@@ -55,7 +55,7 @@
   "wrong": "She has long hairs.",
   "right": "She has long hair.",
   "strike": "hairs",
-  "why": "Hair on your head has no -s.",
+  "why": "The word hair has no -s here.",
   "memory": "Long hair.",
   "quiz": {
    "stem": "He has short ___.",
@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "Волосы: hair или hairs?",
-   "tip": "Русское «волосы» — во множественном числе, а английское “hair” (о причёске) — неисчисляемое: “long hair”.",
+   "tip": "Русское «волосы» — во множественном числе, а английское “hair” (о причёске) — неисчисляемое: “long hair.”",
    "caption": "Ты тоже говоришь “She has long hairs”? 😅 Русское «волосы» — только во множественном числе, а английское “hair” о причёске неисчисляемое, без -s. Правильно: “She has long hair.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
-   "comment": "Ответ: “hair”. Волосы — hair, без -s. Бесплатный тест для практики здесь: {link}",
+   "comment": "Ответ: “hair.” Волосы — hair, без -s. Бесплатный тест для практики здесь: {link}",
    "hashtags": [
     "#английскийязык",
     "#английский",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "Hair or hairs?",
-   "tip": "Russian “volosy” is only plural, but English “hair” is singular: “long hair”.",
-   "caption": "Do you also say “She has long hairs”? 😅 Russian “volosy” is only plural, but English “hair” is singular, with no -s. Correct: “She has long hair.” Listen to Ama and repeat! Practice more in the Lexkite app."
+   "tip": "“Hair” on your head has no -s: “long hair.”",
+   "caption": "Do you also say “She has long hairs”? 😅 The word hair has no -s here. Correct: “She has long hair.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "Волосы: hair или hairs?",
   "keyword": "She has long hair.",
-  "value": "Русское «волосы» — во множественном числе, а английское “hair” (о причёске) — неисчисляемое: “long hair”.",
+  "value": "Русское «волосы» — во множественном числе, а английское “hair” (о причёске) — неисчисляемое: “long hair.”",
   "hashtags": [
    "#английскийязык",
    "#английский",
@@ -140,7 +140,7 @@
     "caption": "Волосы: hair или hairs? #английскийязык #английский #изучениеанглийского"
    }
   },
-  "first_comment": "Ответ: “hair”. Волосы — hair, без -s. Бесплатный тест для практики здесь: {link}",
+  "first_comment": "Ответ: “hair.” Волосы — hair, без -s. Бесплатный тест для практики здесь: {link}",
   "lang": "ru"
  }
 }

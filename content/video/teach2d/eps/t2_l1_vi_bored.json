@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "Chán: “boring” hay “bored”?",
-   "tip": "“Bored” là bạn cảm thấy chán, “boring” là thứ gây chán. Tiếng Việt đều nói “chán”.",
+   "tip": "“Bored” là bạn cảm thấy chán, “boring” là thứ gây chán. Tiếng Việt đều nói “chán.”",
    "caption": "Bạn có hay nói “I am boring today.” không? 😅 Cảm giác của bạn dùng “bored”: “I am bored today.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-   "comment": "Đáp án: “boring”. Hôm nay bạn thấy thế nào? Thử nói “I am…” nhé. Luyện thêm miễn phí tại đây: {link}",
+   "comment": "Đáp án: “boring.” Hôm nay bạn thấy thế nào? Thử nói “I am…” nhé. Luyện thêm miễn phí tại đây: {link}",
    "hashtags": [
     "#hoctienganh",
     "#tuvungtienganh",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "Bạn “boring” hay “bored”?",
-   "tip": "“Bored” is how you feel; “boring” is what causes it. Vietnamese uses one word for both.",
-   "caption": "Do you often say “I am boring today.”? Your feeling is “bored”: “I am bored today.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
+   "hook": "Bored: “boring” or “bored”?",
+   "tip": "“Bored” is how you feel; “boring” is what causes it. Learners often use one word for both.",
+   "caption": "Do you often say this? “I am boring today.” Your feeling is “bored”: “I am bored today.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "Chán: “boring” hay “bored”?",
   "keyword": "I am bored today.",
-  "value": "“Bored” là bạn cảm thấy chán, “boring” là thứ gây chán. Tiếng Việt đều nói “chán”.",
+  "value": "“Bored” là bạn cảm thấy chán, “boring” là thứ gây chán. Tiếng Việt đều nói “chán.”",
   "hashtags": [
    "#hoctienganh",
    "#tuvungtienganh",
@@ -140,7 +140,7 @@
     "caption": "Chán: “boring” hay “bored”? #hoctienganh #tuvungtienganh #nguphaptienganh"
    }
   },
-  "first_comment": "Đáp án: “boring”. Hôm nay bạn thấy thế nào? Thử nói “I am…” nhé. Luyện thêm miễn phí tại đây: {link}",
+  "first_comment": "Đáp án: “boring.” Hôm nay bạn thấy thế nào? Thử nói “I am…” nhé. Luyện thêm miễn phí tại đây: {link}",
   "lang": "vi"
  }
 }

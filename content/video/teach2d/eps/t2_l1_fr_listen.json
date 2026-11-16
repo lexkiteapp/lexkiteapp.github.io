@@ -66,10 +66,10 @@
    "answer": 0
   },
   "native": {
-   "hook": "« Écouter » : n'oublie pas “to”",
-   "tip": "En français, « écouter » n'a pas de préposition. En anglais, “listen” veut toujours “to”.",
-   "caption": "Tu dis “I listen the radio every morning.” ? Il manque “to” ! Dis “I listen to the radio every morning.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.",
-   "comment": "Réponse : “to”. “Listen” est toujours suivi de “to”. Teste d'autres pièges avec un quiz gratuit : {link}",
+   "hook": "« Écouter » : n’oubliez pas “to”",
+   "tip": "« Écouter » se construit sans préposition en français. En anglais, “listen” veut toujours “to”.",
+   "caption": "Vous dites “I listen the radio every morning.” ? Il manque “to” ! Dites plutôt “I listen to the radio every morning.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “to” — “Listen” est toujours suivi de “to”. Testez d’autres pièges avec un quiz gratuit : {link}",
    "hashtags": [
     "#apprendrelanglais",
     "#anglaisfacile",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "“Listen” needs “to”!",
-   "tip": "French « écouter » has no preposition. English “listen” always needs “to”.",
-   "caption": "Do you say “I listen the radio every morning.”? The word to is missing! Say “I listen to the radio every morning.”. Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+   "tip": "In English, “listen” always needs “to” before the thing you hear.",
+   "caption": "Do you say this? “I listen the radio every morning.” The word “to” is missing! Say “I listen to the radio every morning.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
   }
  },
  "cta": {
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "« Écouter » : n'oublie pas “to”"
+  "text": "« Écouter » : n’oubliez pas “to”"
  },
  "src": {
   "l1": true
@@ -103,9 +103,9 @@
   "wpm": 98
  },
  "publish": {
-  "title": "« Écouter » : n'oublie pas “to”",
+  "title": "« Écouter » : n’oubliez pas “to”",
   "keyword": "I listen to the radio every morning.",
-  "value": "En français, « écouter » n'a pas de préposition. En anglais, “listen” veut toujours “to”.",
+  "value": "« Écouter » se construit sans préposition en français. En anglais, “listen” veut toujours “to”.",
   "hashtags": [
    "#apprendrelanglais",
    "#anglaisfacile",
@@ -116,8 +116,8 @@
   "script_words": 40,
   "platforms": {
    "youtube": {
-    "title": "« Écouter » : n'oublie pas “to”",
-    "description": "Tu dis “I listen the radio every morning.” ? Il manque “to” ! Dis “I listen to the radio every morning.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "title": "« Écouter » : n’oubliez pas “to”",
+    "description": "Vous dites “I listen the radio every morning.” ? Il manque “to” ! Dites plutôt “I listen to the radio every morning.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
     "tags": [
      "I listen to the radio every morning.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Tu dis “I listen the radio every morning.” ? Il manque “to” ! Dis “I listen to the radio every morning.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Vous dites “I listen the radio every morning.” ? Il manque “to” ! Dites plutôt “I listen to the radio every morning.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Tu dis “I listen the radio every morning.” ? Il manque “to” ! Dis “I listen to the radio every morning.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.\n\nlexkite.com",
+    "caption": "Vous dites “I listen the radio every morning.” ? Il manque “to” ! Dites plutôt “I listen to the radio every morning.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nlexkite.com",
     "hashtags": [
      "#apprendrelanglais",
      "#anglaisfacile",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "« Écouter » : n'oublie pas “to” #apprendrelanglais #anglaisfacile #coursdanglais"
+    "caption": "« Écouter » : n’oubliez pas “to” #apprendrelanglais #anglaisfacile #coursdanglais"
    }
   },
-  "first_comment": "Réponse : “to”. “Listen” est toujours suivi de “to”. Teste d'autres pièges avec un quiz gratuit : {link}",
+  "first_comment": "Réponse : “to” — “Listen” est toujours suivi de “to”. Testez d’autres pièges avec un quiz gratuit : {link}",
   "lang": "fr"
  }
 }

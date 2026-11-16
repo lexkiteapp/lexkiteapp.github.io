@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "Very much! I like music very much.",
+   "text": "I like music very much!",
    "pause": 0.42
   },
   {
@@ -58,18 +58,18 @@
   "why": "Put very much at the end.",
   "memory": "Pizza, then very much.",
   "quiz": {
-   "stem": "I like music ___.",
+   "stem": "I like ___.",
    "options": [
-    "very much",
+    "music very much",
     "very much music"
    ],
    "answer": 0
   },
   "native": {
    "hook": "Nichts zwischen Verb und Objekt!",
-   "tip": "Im Deutschen sagen Sie „Ich mag sehr Pizza“. Im Englischen steht „very much“ hinten.",
+   "tip": "Im Deutschen sagen Sie „Ich mag sehr gern Pizza“. Im Englischen steht „very much“ am Ende.",
    "caption": "Zwischen Verb und Objekt darf nichts stehen! 🍕 Falsch: “I like very much pizza.” Richtig: “I like pizza very much.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
-   "comment": "Lösung: “very much”. Richtig heißt es: “I like pizza very much.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
+   "comment": "Lösung: “music very much”. Richtig heißt es: “I like pizza very much.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
    "hashtags": [
     "#englischlernen",
     "#englischtipps",
@@ -78,8 +78,8 @@
    ]
   },
   "en": {
-   "hook": "Nothing can stand between the verb and the object!",
-   "tip": "In English “very much” goes at the end, after the object.",
+   "hook": "Nothing between verb and object!",
+   "tip": "“Ich mag sehr gern Pizza” puts “sehr” early. In English “very much” goes at the end.",
    "caption": "Nothing can stand between the verb and the object! Wrong: “I like very much pizza.” Right: “I like pizza very much.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
@@ -98,14 +98,14 @@
  },
  "lang": "de",
  "est": {
-  "words": 47,
-  "seconds": 28.6,
-  "wpm": 99
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
  },
  "publish": {
   "title": "Nichts zwischen Verb und Objekt!",
   "keyword": "I like pizza very much.",
-  "value": "Im Deutschen sagen Sie „Ich mag sehr Pizza“. Im Englischen steht „very much“ hinten.",
+  "value": "Im Deutschen sagen Sie „Ich mag sehr gern Pizza“. Im Englischen steht „very much“ am Ende.",
   "hashtags": [
    "#englischlernen",
    "#englischtipps",
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 41,
+  "script_words": 39,
   "platforms": {
    "youtube": {
     "title": "Nichts zwischen Verb und Objekt!",
@@ -140,7 +140,7 @@
     "caption": "Nichts zwischen Verb und Objekt! #englischlernen #englischtipps #sprachenlernen"
    }
   },
-  "first_comment": "Lösung: “very much”. Richtig heißt es: “I like pizza very much.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
+  "first_comment": "Lösung: “music very much”. Richtig heißt es: “I like pizza very much.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
   "lang": "de"
  }
 }

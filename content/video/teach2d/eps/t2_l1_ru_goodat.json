@@ -66,10 +66,10 @@
    "answer": 0
   },
   "native": {
-   "hook": "«Good in» — это ошибка!",
-   "tip": "Русское «хорошо разбираюсь в математике» подсказывает “in”, но по-английски: “good at math”.",
-   "caption": "Ты тоже говоришь “I am good in math”? 😅 По-русски «силён в математике» — отсюда “good in”, а по-английски “good at”. Правильно: “I am good at math.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
-   "comment": "Ответ: “at”. После good — at. Бесплатный тест для практики здесь: {link}",
+   "hook": "“Good in” — это ошибка!",
+   "tip": "Русское «хорошо разбираюсь в математике» подсказывает “in”, но по-английски: “good at math.”",
+   "caption": "Ты тоже говоришь “I am good in math”? 😅 По-русски «силён в математике» — отсюда “good in”, а по-английски “good at.” Правильно: “I am good at math.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “at.” После good — at. Бесплатный тест для практики здесь: {link}",
    "hashtags": [
     "#английский",
     "#грамматика",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "Good in or good at?",
-   "tip": "Russian “silen v matematike” suggests “in”, but English says “good at math”.",
-   "caption": "Do you also say “I am good in math”? 😅 In Russian “silen v matematike” points to “in”, but English says “good at”. Correct: “I am good at math.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+   "tip": "Say “good at math”, not “good in.”",
+   "caption": "Do you also say “I am good in math”? 😅 The small word may feel right, but English says “good at.” Correct: “I am good at math.” Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "«Good in» — это ошибка!"
+  "text": "“Good in” — это ошибка!"
  },
  "src": {
   "l1": true
@@ -103,9 +103,9 @@
   "wpm": 98
  },
  "publish": {
-  "title": "«Good in» — это ошибка!",
+  "title": "“Good in” — это ошибка!",
   "keyword": "I am good at math.",
-  "value": "Русское «хорошо разбираюсь в математике» подсказывает “in”, но по-английски: “good at math”.",
+  "value": "Русское «хорошо разбираюсь в математике» подсказывает “in”, но по-английски: “good at math.”",
   "hashtags": [
    "#английский",
    "#грамматика",
@@ -116,8 +116,8 @@
   "script_words": 39,
   "platforms": {
    "youtube": {
-    "title": "«Good in» — это ошибка!",
-    "description": "Ты тоже говоришь “I am good in math”? 😅 По-русски «силён в математике» — отсюда “good in”, а по-английски “good at”. Правильно: “I am good at math.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английский #грамматика #английскийонлайн #lexkite",
+    "title": "“Good in” — это ошибка!",
+    "description": "Ты тоже говоришь “I am good in math”? 😅 По-русски «силён в математике» — отсюда “good in”, а по-английски “good at.” Правильно: “I am good at math.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английский #грамматика #английскийонлайн #lexkite",
     "tags": [
      "I am good at math.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Ты тоже говоришь “I am good in math”? 😅 По-русски «силён в математике» — отсюда “good in”, а по-английски “good at”. Правильно: “I am good at math.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Ты тоже говоришь “I am good in math”? 😅 По-русски «силён в математике» — отсюда “good in”, а по-английски “good at.” Правильно: “I am good at math.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Ты тоже говоришь “I am good in math”? 😅 По-русски «силён в математике» — отсюда “good in”, а по-английски “good at”. Правильно: “I am good at math.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nlexkite.com",
+    "caption": "Ты тоже говоришь “I am good in math”? 😅 По-русски «силён в математике» — отсюда “good in”, а по-английски “good at.” Правильно: “I am good at math.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nlexkite.com",
     "hashtags": [
      "#английский",
      "#грамматика",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "«Good in» — это ошибка! #английский #грамматика #английскийонлайн"
+    "caption": "“Good in” — это ошибка! #английский #грамматика #английскийонлайн"
    }
   },
-  "first_comment": "Ответ: “at”. После good — at. Бесплатный тест для практики здесь: {link}",
+  "first_comment": "Ответ: “at.” После good — at. Бесплатный тест для практики здесь: {link}",
   "lang": "ru"
  }
 }

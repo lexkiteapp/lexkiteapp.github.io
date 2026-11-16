@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "Some! Give me some advice.",
+   "text": "Advice! She gave me good advice.",
    "pause": 0.42
   },
   {
@@ -58,18 +58,18 @@
   "why": "Advice never takes s.",
   "memory": "Advice: no s.",
   "quiz": {
-   "stem": "Can you give me ___ advice?",
+   "stem": "She gave me good ___.",
    "options": [
-    "some",
-    "an"
+    "advices",
+    "advice"
    ],
-   "answer": 0
+   "answer": 1
   },
   "native": {
    "hook": "Đừng thêm “s” vào advice!",
-   "tip": "“Advice” là danh từ không đếm được nên không thêm -s và không có “an”.",
+   "tip": "“Advice” là danh từ không đếm được nên không thêm -s và không có “an.”",
    "caption": "Bạn có hay nói “She gave me many advices.” không? 😅 “Advice” không bao giờ thêm -s: “She gave me some advice.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-   "comment": "Đáp án: “some”. Xin một lời khuyên bằng “some advice” nhé. Luyện thêm miễn phí tại đây: {link}",
+   "comment": "Đáp án: “advice.” Xin một lời khuyên bằng “some advice” nhé. Luyện thêm miễn phí tại đây: {link}",
    "hashtags": [
     "#hoctienganh",
     "#tuvungtienganh",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "Do not add “s” to advice!",
-   "tip": "“Advice” is uncountable, so no -s and no “an”.",
-   "caption": "Do you often say “She gave me many advices.”? “Advice” never takes -s: “She gave me some advice.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
+   "tip": "“Advice” is uncountable, so no -s and no “an.”",
+   "caption": "Do you often say this? “She gave me many advices.” “Advice” never takes -s: “She gave me some advice.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -98,14 +98,14 @@
  },
  "lang": "vi",
  "est": {
-  "words": 43,
-  "seconds": 26.6,
+  "words": 44,
+  "seconds": 27.1,
   "wpm": 97
  },
  "publish": {
   "title": "Đừng thêm “s” vào advice!",
   "keyword": "She gave me some advice.",
-  "value": "“Advice” là danh từ không đếm được nên không thêm -s và không có “an”.",
+  "value": "“Advice” là danh từ không đếm được nên không thêm -s và không có “an.”",
   "hashtags": [
    "#hoctienganh",
    "#tuvungtienganh",
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 37,
+  "script_words": 38,
   "platforms": {
    "youtube": {
     "title": "Đừng thêm “s” vào advice!",
@@ -140,7 +140,7 @@
     "caption": "Đừng thêm “s” vào advice! #hoctienganh #tuvungtienganh #nguphaptienganh"
    }
   },
-  "first_comment": "Đáp án: “some”. Xin một lời khuyên bằng “some advice” nhé. Luyện thêm miễn phí tại đây: {link}",
+  "first_comment": "Đáp án: “advice.” Xin một lời khuyên bằng “some advice” nhé. Luyện thêm miễn phí tại đây: {link}",
   "lang": "vi"
  }
 }

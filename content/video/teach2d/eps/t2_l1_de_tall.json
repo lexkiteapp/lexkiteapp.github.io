@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "Tall! My brother is very tall.",
+   "text": "Tall! My brother is two meters tall.",
    "pause": 0.42
   },
   {
@@ -58,7 +58,7 @@
   "why": "For height, use tall.",
   "memory": "Tall is high.",
   "quiz": {
-   "stem": "My brother is very ___.",
+   "stem": "My brother is two meters ___.",
    "options": [
     "big",
     "tall"
@@ -78,7 +78,7 @@
    ]
   },
   "en": {
-   "hook": "Do you want to say someone is tall?",
+   "hook": "Want to say someone is tall?",
    "tip": "For body height you say “tall”. “Big” means large in size.",
    "caption": "Do you want to say someone is tall? Wrong: “I am very big.” Right: “I am very tall.” Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
@@ -98,8 +98,8 @@
  },
  "lang": "de",
  "est": {
-  "words": 41,
-  "seconds": 25.6,
+  "words": 42,
+  "seconds": 26.1,
   "wpm": 96
  },
  "publish": {
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 35,
+  "script_words": 36,
   "platforms": {
    "youtube": {
     "title": "Wollen Sie sagen, jemand ist groß?",

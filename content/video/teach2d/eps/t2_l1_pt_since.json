@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Live here since when?",
+   "text": "Since needs have!",
    "pause": 0.42
   },
   {
@@ -26,7 +26,7 @@
   },
   {
    "id": "y",
-   "text": "Since needs have plus a past form.",
+   "text": "With since, use have and the past form.",
    "pause": 0.42
   },
   {
@@ -55,8 +55,8 @@
   "wrong": "I live here since 2020.",
   "right": "I have lived here since 2020.",
   "strike": "live",
-  "why": "Since needs have plus a past form.",
-  "memory": "Since means have lived.",
+  "why": "With since, use have and the past form.",
+  "memory": "Since 2020: have lived.",
   "quiz": {
    "stem": "I ___ worked here since May.",
    "options": [
@@ -68,7 +68,7 @@
   "native": {
    "hook": "Você diz “I live here since”?",
    "tip": "Com “since” usamos o present perfect: “I have lived”, não “I live”.",
-   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I live here since 2020.”. O certo é “I have lived here since 2020.”. Em português usamos o presente, mas o inglês pede outro tempo. Ouça o Ama e repita! Treine mais no app Lexkite.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I live here since 2020.” O certo é “I have lived here since 2020.” Em português usamos o presente, mas o inglês pede outro tempo. Ouça a Ama e repita! Treine mais no app Lexkite.",
    "comment": "Resposta: “have”. Treine mais com um quiz grátis aqui: {link}",
    "hashtags": [
     "#inglesfacil",
@@ -80,7 +80,7 @@
   "en": {
    "hook": "Do you say “I live here since”?",
    "tip": "With “since” we use the present perfect: “I have lived”, not “I live”.",
-   "caption": "Watch out for this common mistake! Many people say “I live here since 2020.”. The right way is “I have lived here since 2020.”. Portuguese uses the present, but English needs another tense. Listen to Ama and repeat! Practice more in the Lexkite app."
+   "caption": "Watch out for this common mistake! Many people say “I live here since 2020.” The right way is “I have lived here since 2020.” Many learners use the present here, but English needs the present perfect. Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "Você diz “I live here since”?",
-    "description": "Cuidado com este erro comum! 😬 Muita gente diz “I live here since 2020.”. O certo é “I have lived here since 2020.”. Em português usamos o presente, mas o inglês pede outro tempo. Ouça o Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#inglesfacil #falaringles #inglesdodia #lexkite",
+    "description": "Cuidado com este erro comum! 😬 Muita gente diz “I live here since 2020.” O certo é “I have lived here since 2020.” Em português usamos o presente, mas o inglês pede outro tempo. Ouça a Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#inglesfacil #falaringles #inglesdodia #lexkite",
     "tags": [
      "I have lived here since 2020.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Cuidado com este erro comum! 😬 Muita gente diz “I live here since 2020.”. O certo é “I have lived here since 2020.”. Em português usamos o presente, mas o inglês pede outro tempo. Ouça o Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “I live here since 2020.” O certo é “I have lived here since 2020.” Em português usamos o presente, mas o inglês pede outro tempo. Ouça a Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I live here since 2020.”. O certo é “I have lived here since 2020.”. Em português usamos o presente, mas o inglês pede outro tempo. Ouça o Ama e repita! Treine mais no app Lexkite.\n\nlexkite.com",
+    "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I live here since 2020.” O certo é “I have lived here since 2020.” Em português usamos o presente, mas o inglês pede outro tempo. Ouça a Ama e repita! Treine mais no app Lexkite.\n\nlexkite.com",
     "hashtags": [
      "#inglesfacil",
      "#falaringles",

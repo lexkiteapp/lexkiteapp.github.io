@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "yesterday엔 과거형이에요!",
-   "tip": "yesterday처럼 정해진 과거는 단순 과거로! “I saw him yesterday”예요.",
-   "caption": "“I have seen him yesterday”라고 말하고 있나요? 😅 어제처럼 시간이 정해진 과거에는 현재완료가 아닌 과거형을 써요. “I saw him yesterday”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-   "comment": "정답: “saw”. 어제는 saw로! 무료 퀴즈로 더 연습해 보세요: {link}",
+   "tip": "yesterday처럼 정해진 과거는 단순 과거로! 이렇게 말해요 👉 “I saw him yesterday.”",
+   "caption": "“I have seen him yesterday”처럼 말하고 있나요? 😅 어제처럼 시간이 정해진 과거에는 현재완료가 아닌 과거형을 써요. 맞는 문장 ✅ “I saw him yesterday.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답: “saw”! 어제는 saw로! 무료 퀴즈로 더 연습해 보세요: {link}",
    "hashtags": [
     "#영어공부",
     "#영어회화",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "Yesterday needs past tense!",
-   "tip": "With yesterday, use the simple past. Say “I saw him yesterday”.",
-   "caption": "Do you say “I have seen him yesterday”? 😅 A fixed past time like yesterday needs the simple past, not present perfect. “I saw him yesterday” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
+   "tip": "With yesterday, use the simple past. Say “I saw him yesterday”!",
+   "caption": "Do you say “I have seen him yesterday” in English? 😅 A fixed past time like yesterday needs the simple past, not present perfect. “I saw him yesterday” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "yesterday엔 과거형이에요!",
   "keyword": "I saw him yesterday.",
-  "value": "yesterday처럼 정해진 과거는 단순 과거로! “I saw him yesterday”예요.",
+  "value": "yesterday처럼 정해진 과거는 단순 과거로! 이렇게 말해요 👉 “I saw him yesterday.”",
   "hashtags": [
    "#영어공부",
    "#영어회화",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "yesterday엔 과거형이에요!",
-    "description": "“I have seen him yesterday”라고 말하고 있나요? 😅 어제처럼 시간이 정해진 과거에는 현재완료가 아닌 과거형을 써요. “I saw him yesterday”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "description": "“I have seen him yesterday”처럼 말하고 있나요? 😅 어제처럼 시간이 정해진 과거에는 현재완료가 아닌 과거형을 써요. 맞는 문장 ✅ “I saw him yesterday.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
     "tags": [
      "I saw him yesterday.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "“I have seen him yesterday”라고 말하고 있나요? 😅 어제처럼 시간이 정해진 과거에는 현재완료가 아닌 과거형을 써요. “I saw him yesterday”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "“I have seen him yesterday”처럼 말하고 있나요? 😅 어제처럼 시간이 정해진 과거에는 현재완료가 아닌 과거형을 써요. 맞는 문장 ✅ “I saw him yesterday.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "“I have seen him yesterday”라고 말하고 있나요? 😅 어제처럼 시간이 정해진 과거에는 현재완료가 아닌 과거형을 써요. “I saw him yesterday”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nlexkite.com",
+    "caption": "“I have seen him yesterday”처럼 말하고 있나요? 😅 어제처럼 시간이 정해진 과거에는 현재완료가 아닌 과거형을 써요. 맞는 문장 ✅ “I saw him yesterday.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nlexkite.com",
     "hashtags": [
      "#영어공부",
      "#영어회화",
@@ -140,7 +140,7 @@
     "caption": "yesterday엔 과거형이에요! #영어공부 #영어회화 #영어독학"
    }
   },
-  "first_comment": "정답: “saw”. 어제는 saw로! 무료 퀴즈로 더 연습해 보세요: {link}",
+  "first_comment": "정답: “saw”! 어제는 saw로! 무료 퀴즈로 더 연습해 보세요: {link}",
   "lang": "ko"
  }
 }

@@ -69,7 +69,7 @@
    "hook": "“From Vietnamese”: có đúng không?",
    "tip": "“Vietnam” là tên nước, “Vietnamese” là người Việt hoặc tiếng Việt. Sau “from” dùng tên nước.",
    "caption": "Bạn có hay nói “I am from Vietnamese.” không? 🇻🇳 Sau “from” là tên nước: “I am from Vietnam.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-   "comment": "Đáp án: “Vietnam”. Giới thiệu quê hương bạn bằng “I am from…” nhé! Luyện thêm miễn phí tại đây: {link}",
+   "comment": "Đáp án: “Vietnam.” Giới thiệu quê hương bạn bằng “I am from…” nhé! Luyện thêm miễn phí tại đây: {link}",
    "hashtags": [
     "#hoctienganh",
     "#nguphaptienganh",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "“From Vietnamese”: is it right?",
-   "tip": "“Vietnam” is the country; “Vietnamese” is the people or language. Use the country after “from”.",
-   "caption": "Do you often say “I am from Vietnamese.”? Say “I am from Vietnam.” instead. Listen to Ama, then repeat! Practice more in the Lexkite app."
+   "tip": "After “from” use the country name, not the name of the people or language.",
+   "caption": "Do you often say this? “I am from Vietnamese.” Say “I am from Vietnam.” instead. Listen to Ama, then repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -140,7 +140,7 @@
     "caption": "“From Vietnamese”: có đúng không? #hoctienganh #nguphaptienganh #tienganhgiaotiep"
    }
   },
-  "first_comment": "Đáp án: “Vietnam”. Giới thiệu quê hương bạn bằng “I am from…” nhé! Luyện thêm miễn phí tại đây: {link}",
+  "first_comment": "Đáp án: “Vietnam.” Giới thiệu quê hương bạn bằng “I am from…” nhé! Luyện thêm miễn phí tại đây: {link}",
   "lang": "vi"
  }
 }

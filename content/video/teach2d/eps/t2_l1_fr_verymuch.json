@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "Football very much! I love football very much.",
+   "text": "I love football very much!",
    "pause": 0.42
   },
   {
@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "« J'aime beaucoup » : ordre !",
-   "tip": "En français, « j'aime beaucoup la pizza ». En anglais, “very much” se place à la fin.",
-   "caption": "Tu dis “I like very much pizza.” ? L'ordre change ! Dis “I like pizza very much.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.",
-   "comment": "Réponse : “football very much”. “Very much” se met en fin de phrase. Teste d'autres pièges avec un quiz gratuit : {link}",
+   "tip": "En français, « j’aime beaucoup la pizza ». En anglais, “very much” se place à la fin.",
+   "caption": "Vous dites “I like very much pizza.” ? L’ordre change ! Dites plutôt “I like pizza very much.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “football very much” — “Very much” se met en fin de phrase. Testez d’autres pièges avec un quiz gratuit : {link}",
    "hashtags": [
     "#apprendrelanglais",
     "#anglaisfacile",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "“Like very much pizza”: no!",
-   "tip": "French says « j'aime beaucoup la pizza ». In English, “very much” goes at the end.",
-   "caption": "Do you say “I like very much pizza.”? The order changes! Say “I like pizza very much.”. Listen to Ama and repeat with her! More exercises in the Lexkite app."
+   "tip": "In English, “very much” goes at the end of the sentence.",
+   "caption": "Do you say this? “I like very much pizza.” The order changes! Say “I like pizza very much.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
   }
  },
  "cta": {
@@ -98,14 +98,14 @@
  },
  "lang": "fr",
  "est": {
-  "words": 48,
-  "seconds": 29.1,
-  "wpm": 99
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
  },
  "publish": {
   "title": "« J'aime beaucoup » : ordre !",
   "keyword": "I like pizza very much.",
-  "value": "En français, « j'aime beaucoup la pizza ». En anglais, “very much” se place à la fin.",
+  "value": "En français, « j’aime beaucoup la pizza ». En anglais, “very much” se place à la fin.",
   "hashtags": [
    "#apprendrelanglais",
    "#anglaisfacile",
@@ -113,11 +113,11 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 42,
+  "script_words": 39,
   "platforms": {
    "youtube": {
     "title": "« J'aime beaucoup » : ordre !",
-    "description": "Tu dis “I like very much pizza.” ? L'ordre change ! Dis “I like pizza very much.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "description": "Vous dites “I like very much pizza.” ? L’ordre change ! Dites plutôt “I like pizza very much.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
     "tags": [
      "I like pizza very much.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Tu dis “I like very much pizza.” ? L'ordre change ! Dis “I like pizza very much.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Vous dites “I like very much pizza.” ? L’ordre change ! Dites plutôt “I like pizza very much.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Tu dis “I like very much pizza.” ? L'ordre change ! Dis “I like pizza very much.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.\n\nlexkite.com",
+    "caption": "Vous dites “I like very much pizza.” ? L’ordre change ! Dites plutôt “I like pizza very much.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nlexkite.com",
     "hashtags": [
      "#apprendrelanglais",
      "#anglaisfacile",
@@ -140,7 +140,7 @@
     "caption": "« J'aime beaucoup » : ordre ! #apprendrelanglais #anglaisfacile #coursdanglais"
    }
   },
-  "first_comment": "Réponse : “football very much”. “Very much” se met en fin de phrase. Teste d'autres pièges avec un quiz gratuit : {link}",
+  "first_comment": "Réponse : “football very much” — “Very much” se met en fin de phrase. Testez d’autres pièges avec un quiz gratuit : {link}",
   "lang": "fr"
  }
 }

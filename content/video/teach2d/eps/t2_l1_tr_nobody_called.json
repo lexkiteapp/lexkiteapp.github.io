@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Nobody called, not didn't!",
+   "text": "Nobody called me, no didn't!",
    "pause": 0.42
   },
   {
@@ -68,7 +68,7 @@
   "native": {
    "hook": "“Nobody didn't” değil!",
    "tip": "Türkçede “Kimse beni aramadı” deriz, fiil de olumsuz olur; İngilizcede nobody zaten olumsuz, fiil olumlu kalır.",
-   "caption": "“Nobody didn't call me.” mi diyorsun? 😅 Doğrusu “Nobody called me.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "caption": "“Nobody didn't call me” mi diyorsun? 😅 Doğrusu “Nobody called me.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
    "comment": "Cevap: “opened”. Nobody ile fiil olumlu kullanılır. Ücretsiz testle pratik yap: {link}",
    "hashtags": [
     "#ingilizceöğren",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "Not “nobody didn't”, but “nobody called”!",
-   "tip": "Turkish negates both nobody and the verb; English negates only once.",
-   "caption": "Do you say “Nobody didn't call me.”? 😅 Nobody is already negative in English. The right sentence is “Nobody called me.” Listen to Carlos and repeat! Open the Lexkite app and practice more."
+   "tip": "“Nobody” is already negative, so the verb stays positive.",
+   "caption": "Do you say “Nobody didn't call me”? 😅 Nobody is already negative in English. The right sentence is “Nobody called me.” Listen to Carlos and repeat! Open the Lexkite app and practice more."
   }
  },
  "cta": {
@@ -98,9 +98,9 @@
  },
  "lang": "tr",
  "est": {
-  "words": 40,
-  "seconds": 25.1,
-  "wpm": 95
+  "words": 41,
+  "seconds": 25.6,
+  "wpm": 96
  },
  "publish": {
   "title": "“Nobody didn't” değil!",
@@ -113,11 +113,11 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 34,
+  "script_words": 35,
   "platforms": {
    "youtube": {
     "title": "“Nobody didn't” değil!",
-    "description": "“Nobody didn't call me.” mi diyorsun? 😅 Doğrusu “Nobody called me.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "description": "“Nobody didn't call me” mi diyorsun? 😅 Doğrusu “Nobody called me.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
     "tags": [
      "Nobody called me.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "“Nobody didn't call me.” mi diyorsun? 😅 Doğrusu “Nobody called me.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "“Nobody didn't call me” mi diyorsun? 😅 Doğrusu “Nobody called me.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "“Nobody didn't call me.” mi diyorsun? 😅 Doğrusu “Nobody called me.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nlexkite.com",
+    "caption": "“Nobody didn't call me” mi diyorsun? 😅 Doğrusu “Nobody called me.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nlexkite.com",
     "hashtags": [
      "#ingilizceöğren",
      "#ingilizcekonuşma",

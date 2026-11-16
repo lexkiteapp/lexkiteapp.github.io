@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_am_coming",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "I come from, not I am coming!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am coming from Izmir.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I come from Izmir.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "For your hometown, say I come from.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Come! I come from a small town.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am coming from Izmir.",
+  "right": "I come from Izmir.",
+  "strike": "am coming",
+  "why": "For your hometown, say I come from.",
+  "memory": "I come from Izmir.",
+  "quiz": {
+   "stem": "I ___ from a small town.",
+   "options": [
+    "am coming",
+    "come"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Am coming” değil, “come from”!",
+   "tip": "Türkçede “İzmir’den geliyorum” deriz; memleket için “I come from” ya da “I am from” denir.",
+   "caption": "“I am coming from Izmir” mi diyorsun? 😅 Türkçede “İzmir’den geliyorum” deriz; memleket için İngilizcede “I come from” denir. Doğrusu “I come from Izmir.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “come”. Memleket için I come from de. Ücretsiz testle pratik yap: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “am coming”, but “come from”!",
+   "tip": "For your hometown, say “I come from”: “I come from Izmir.”",
+   "caption": "Do you say “I am coming from Izmir”? 😅 To say where you are from, English uses “I come from”. The right sentence is “I come from Izmir.” Listen to Carlos and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Am coming” değil, “come from”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“Am coming” değil, “come from”!",
+  "keyword": "I come from Izmir.",
+  "value": "Türkçede “İzmir’den geliyorum” deriz; memleket için “I come from” ya da “I am from” denir.",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "“Am coming” değil, “come from”!",
+    "description": "“I am coming from Izmir” mi diyorsun? 😅 Türkçede “İzmir’den geliyorum” deriz; memleket için İngilizcede “I come from” denir. Doğrusu “I come from Izmir.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "I come from Izmir.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“I am coming from Izmir” mi diyorsun? 😅 Türkçede “İzmir’den geliyorum” deriz; memleket için İngilizcede “I come from” denir. Doğrusu “I come from Izmir.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“I am coming from Izmir” mi diyorsun? 😅 Türkçede “İzmir’den geliyorum” deriz; memleket için İngilizcede “I come from” denir. Doğrusu “I come from Izmir.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Am coming” değil, “come from”! #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “come”. Memleket için I come from de. Ücretsiz testle pratik yap: {link}",
+  "lang": "tr"
+ }
+}

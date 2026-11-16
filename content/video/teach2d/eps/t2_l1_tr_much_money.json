@@ -16,12 +16,12 @@
   },
   {
    "id": "w",
-   "text": "Many learners say: I have many money.",
+   "text": "Many learners say: I don't have many money.",
    "pause": 0.42
   },
   {
    "id": "r",
-   "text": "Better: I have much money.",
+   "text": "Better: I don't have much money.",
    "pause": 0.42
   },
   {
@@ -52,11 +52,11 @@
   }
  ],
  "data": {
-  "wrong": "I have many money.",
-  "right": "I have much money.",
+  "wrong": "I don't have many money.",
+  "right": "I don't have much money.",
   "strike": "many",
   "why": "Money has much, not many.",
-  "memory": "Much money.",
+  "memory": "Not much money.",
   "quiz": {
    "stem": "I do not have ___ time.",
    "options": [
@@ -67,8 +67,8 @@
   },
   "native": {
    "hook": "Para için “many” değil “much”!",
-   "tip": "Sayılamayanlarda “much” kullan: money, time, water.",
-   "caption": "“I have many money.” mi diyorsun? 😅 Sayılamayan kelimelerle “many” kullanılmaz. Doğrusu “I have much money.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "tip": "Sayılamayanlarda “much” kullan: “I don't have much money.”",
+   "caption": "“I don't have many money” mi diyorsun? 😅 Sayılamayan kelimelerle “many” kullanılmaz. Doğrusu “I don't have much money.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
    "comment": "Cevap: “much”. Money ve time için much. Ücretsiz testle pratik yap: {link}",
    "hashtags": [
     "#ingilizceöğren",
@@ -80,7 +80,7 @@
   "en": {
    "hook": "Not “many money”, but “much money”!",
    "tip": "With uncountable words, use “much”: money, time, water.",
-   "caption": "Do you say “I have many money.”? 😅 Do not use “many” with words you cannot count. The right sentence is “I have much money.”. Listen to Ama and repeat! Open the Lexkite app and practice more."
+   "caption": "Do you say “I don't have many money”? 😅 Do not use “many” with words you cannot count. The right sentence is “I don't have much money.” Listen to Ama and repeat! Open the Lexkite app and practice more."
   }
  },
  "cta": {
@@ -98,14 +98,14 @@
  },
  "lang": "tr",
  "est": {
-  "words": 44,
-  "seconds": 27.1,
-  "wpm": 97
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
  },
  "publish": {
   "title": "Para için “many” değil “much”!",
-  "keyword": "I have much money.",
-  "value": "Sayılamayanlarda “much” kullan: money, time, water.",
+  "keyword": "I don't have much money.",
+  "value": "Sayılamayanlarda “much” kullan: “I don't have much money.”",
   "hashtags": [
    "#ingilizceöğren",
    "#ingilizcekonuşma",
@@ -113,22 +113,22 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 38,
+  "script_words": 40,
   "platforms": {
    "youtube": {
     "title": "Para için “many” değil “much”!",
-    "description": "“I have many money.” mi diyorsun? 😅 Sayılamayan kelimelerle “many” kullanılmaz. Doğrusu “I have much money.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "description": "“I don't have many money” mi diyorsun? 😅 Sayılamayan kelimelerle “many” kullanılmaz. Doğrusu “I don't have much money.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
     "tags": [
-     "I have much money.",
+     "I don't have much money.",
      "learn english",
      "tr"
     ]
    },
    "facebook": {
-    "text": "“I have many money.” mi diyorsun? 😅 Sayılamayan kelimelerle “many” kullanılmaz. Doğrusu “I have much money.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "“I don't have many money” mi diyorsun? 😅 Sayılamayan kelimelerle “many” kullanılmaz. Doğrusu “I don't have much money.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "“I have many money.” mi diyorsun? 😅 Sayılamayan kelimelerle “many” kullanılmaz. Doğrusu “I have much money.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nlexkite.com",
+    "caption": "“I don't have many money” mi diyorsun? 😅 Sayılamayan kelimelerle “many” kullanılmaz. Doğrusu “I don't have much money.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nlexkite.com",
     "hashtags": [
      "#ingilizceöğren",
      "#ingilizcekonuşma",

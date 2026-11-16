@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "“Often” để nhầm chỗ rồi!",
-   "tip": "Lỗi do bắt chước “go there often”. Cứ đặt như “tôi thường đi chợ”: “often” đứng trước động từ.",
+   "tip": "Trạng từ tần suất như “often” đứng trước động từ thường: “I often go”, giống “tôi thường đi chợ.”",
    "caption": "Bạn có hay nói “I go often to the market.” không? 🛒 “Often” đứng trước động từ: “I often go to the market.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-   "comment": "Đáp án: “often walks”. Kể một việc bạn hay làm bằng “I often…” nhé! Luyện thêm miễn phí tại đây: {link}",
+   "comment": "Đáp án: “often walks.” Kể một việc bạn hay làm bằng “I often…” nhé! Luyện thêm miễn phí tại đây: {link}",
    "hashtags": [
     "#hoctienganh",
     "#nguphaptienganh",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "“Often” in the wrong place!",
-   "tip": "The error copies “go there often”. Think “tôi thường đi chợ”: “often” goes before the verb.",
-   "caption": "Do you often say “I go often to the market.”? Say “I often go to the market.” instead. Listen to Ama, then repeat! Practice more in the Lexkite app."
+   "tip": "Frequency words like “often” go before the main verb, as in “I often go.”",
+   "caption": "Do you often say this? “I go often to the market.” Say “I often go to the market.” instead. Listen to Ama, then repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "“Often” để nhầm chỗ rồi!",
   "keyword": "I often go to the market.",
-  "value": "Lỗi do bắt chước “go there often”. Cứ đặt như “tôi thường đi chợ”: “often” đứng trước động từ.",
+  "value": "Trạng từ tần suất như “often” đứng trước động từ thường: “I often go”, giống “tôi thường đi chợ.”",
   "hashtags": [
    "#hoctienganh",
    "#nguphaptienganh",
@@ -140,7 +140,7 @@
     "caption": "“Often” để nhầm chỗ rồi! #hoctienganh #nguphaptienganh #tienganhgiaotiep"
    }
   },
-  "first_comment": "Đáp án: “often walks”. Kể một việc bạn hay làm bằng “I often…” nhé! Luyện thêm miễn phí tại đây: {link}",
+  "first_comment": "Đáp án: “often walks.” Kể một việc bạn hay làm bằng “I often…” nhé! Luyện thêm miễn phí tại đây: {link}",
   "lang": "vi"
  }
 }

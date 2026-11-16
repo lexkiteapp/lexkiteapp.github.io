@@ -21,12 +21,12 @@
   },
   {
    "id": "r",
-   "text": "Better: I feel very bad today.",
+   "text": "Better: I feel sick today.",
    "pause": 0.42
   },
   {
    "id": "y",
-   "text": "Use feel for how you are.",
+   "text": "For your health, say I feel sick.",
    "pause": 0.42
   },
   {
@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "Feel! I feel tired today.",
+   "text": "Feel sick! I feel sick today.",
    "pause": 0.42
   },
   {
@@ -53,23 +53,23 @@
  ],
  "data": {
   "wrong": "I am very bad today.",
-  "right": "I feel very bad today.",
-  "strike": "am",
-  "why": "Use feel for how you are.",
-  "memory": "Feel bad.",
+  "right": "I feel sick today.",
+  "strike": "am very bad",
+  "why": "For your health, say I feel sick.",
+  "memory": "I feel sick.",
   "quiz": {
-   "stem": "I ___ tired today.",
+   "stem": "I have a fever. I ___ today.",
    "options": [
-    "am",
-    "feel"
+    "feel sick",
+    "am bad"
    ],
-   "answer": 1
+   "answer": 0
   },
   "native": {
    "hook": "Nicht „I am bad“ sagen!",
-   "tip": "„I am bad“ heißt „Ich bin böse“. Für Ihr Befinden nehmen Sie „I feel“.",
-   "caption": "„I am bad“ klingt nach Bösewicht! 😅 Falsch: “I am very bad today.” Richtig: “I feel very bad today.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
-   "comment": "Lösung: “feel”. Richtig heißt es: “I feel very bad today.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
+   "tip": "„I am bad“ klingt nach „Ich bin schlecht“. Wenn es Ihnen schlecht geht, sagen Sie „I feel sick“.",
+   "caption": "Geht es Ihnen schlecht? 🤒 Falsch: “I am very bad today.” Richtig: “I feel sick today.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “feel sick”. Richtig heißt es: “I feel sick today.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
    "hashtags": [
     "#englischlernen",
     "#englischtipps",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "“I am bad” sounds like a villain!",
-   "tip": "“I am bad” means you are evil. To say how you feel, use “I feel”.",
-   "caption": "“I am bad” sounds like a villain! Wrong: “I am very bad today.” Right: “I feel very bad today.” Listen to Ama and repeat! Practice more in the Lexkite app."
+   "hook": "Do not say “I am bad”!",
+   "tip": "“I am bad” sounds like you are a bad person. For your health, say “I feel sick”.",
+   "caption": "Do you feel unwell? Wrong: “I am very bad today.” Right: “I feel sick today.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -98,14 +98,14 @@
  },
  "lang": "de",
  "est": {
-  "words": 45,
-  "seconds": 27.6,
+  "words": 46,
+  "seconds": 28.1,
   "wpm": 98
  },
  "publish": {
   "title": "Nicht „I am bad“ sagen!",
-  "keyword": "I feel very bad today.",
-  "value": "„I am bad“ heißt „Ich bin böse“. Für Ihr Befinden nehmen Sie „I feel“.",
+  "keyword": "I feel sick today.",
+  "value": "„I am bad“ klingt nach „Ich bin schlecht“. Wenn es Ihnen schlecht geht, sagen Sie „I feel sick“.",
   "hashtags": [
    "#englischlernen",
    "#englischtipps",
@@ -113,22 +113,22 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 39,
+  "script_words": 40,
   "platforms": {
    "youtube": {
     "title": "Nicht „I am bad“ sagen!",
-    "description": "„I am bad“ klingt nach Bösewicht! 😅 Falsch: “I am very bad today.” Richtig: “I feel very bad today.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "description": "Geht es Ihnen schlecht? 🤒 Falsch: “I am very bad today.” Richtig: “I feel sick today.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
     "tags": [
-     "I feel very bad today.",
+     "I feel sick today.",
      "learn english",
      "de"
     ]
    },
    "facebook": {
-    "text": "„I am bad“ klingt nach Bösewicht! 😅 Falsch: “I am very bad today.” Richtig: “I feel very bad today.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Geht es Ihnen schlecht? 🤒 Falsch: “I am very bad today.” Richtig: “I feel sick today.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "„I am bad“ klingt nach Bösewicht! 😅 Falsch: “I am very bad today.” Richtig: “I feel very bad today.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nlexkite.com",
+    "caption": "Geht es Ihnen schlecht? 🤒 Falsch: “I am very bad today.” Richtig: “I feel sick today.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nlexkite.com",
     "hashtags": [
      "#englischlernen",
      "#englischtipps",
@@ -140,7 +140,7 @@
     "caption": "Nicht „I am bad“ sagen! #englischlernen #englischtipps #sprachenlernen"
    }
   },
-  "first_comment": "Lösung: “feel”. Richtig heißt es: “I feel very bad today.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
+  "first_comment": "Lösung: “feel sick”. Richtig heißt es: “I feel sick today.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
   "lang": "de"
  }
 }

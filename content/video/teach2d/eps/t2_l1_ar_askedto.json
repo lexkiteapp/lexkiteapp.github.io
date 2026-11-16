@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "هل تقول “asked from”؟",
-   "tip": "نترجم «طلبتُ من معلمي» حرفيًا، لكن ask يأخذ الشخص بلا from: “I asked my teacher to help me.” وليس “I asked from my teacher”",
-   "caption": "هل تقول أحيانًا “I asked from my teacher to help me.” 😅 مع ask نذكر الشخص مباشرةً بلا from، فالجملة الصحيحة “I asked my teacher to help me.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
-   "comment": "الإجابة: “my”. مع ask نذكر الشخص مباشرةً بلا from. اختبار مجاني هنا: {link}",
+   "tip": "نترجم «طلبتُ من معلمي» حرفيًا، لكن ask يأخذ الشخص بلا from: “I asked my teacher to help me.” وليس “I asked from my teacher.”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “I asked from my teacher to help me.” 😅 مع ask نذكر الشخص مباشرةً بلا from، فالجملة الصحيحة “I asked my teacher to help me.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “my” — مع ask نذكر الشخص مباشرةً بلا from. اختبار مجاني هنا: {link}",
    "hashtags": [
     "#تعلم_الانجليزية",
     "#اللغة_الانجليزية",
@@ -79,9 +79,9 @@
    "ncap": "مع ask نذكر الشخص مباشرةً بلا from"
   },
   "en": {
-   "hook": "Do you say “I asked from my teacher to help me”?",
-   "tip": "Ask takes the person directly, with no from: “I asked my teacher to help me.” not “I asked from my teacher to help me”.",
-   "caption": "Do you sometimes say “I asked from my teacher to help me.” 😅 In English ask needs no from before a person, so the right sentence is “I asked my teacher to help me.” Listen to Ama and repeat! Practice more in the Lexkite app."
+   "hook": "Do you say “asked from”?",
+   "tip": "Ask takes the person directly, with no from: “I asked my teacher to help me.” not “I asked from my teacher to help me.”",
+   "caption": "Do you sometimes say this? “I asked from my teacher to help me.” 😅 In English ask needs no from before a person, so the right sentence is “I asked my teacher to help me.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -106,7 +106,7 @@
  "publish": {
   "title": "هل تقول “asked from”؟",
   "keyword": "I asked my teacher to help me.",
-  "value": "نترجم «طلبتُ من معلمي» حرفيًا، لكن ask يأخذ الشخص بلا from: “I asked my teacher to help me.” وليس “I asked from my teacher”",
+  "value": "نترجم «طلبتُ من معلمي» حرفيًا، لكن ask يأخذ الشخص بلا from: “I asked my teacher to help me.” وليس “I asked from my teacher.”",
   "hashtags": [
    "#تعلم_الانجليزية",
    "#اللغة_الانجليزية",
@@ -118,7 +118,7 @@
   "platforms": {
    "youtube": {
     "title": "هل تقول “asked from”؟",
-    "description": "هل تقول أحيانًا “I asked from my teacher to help me.” 😅 مع ask نذكر الشخص مباشرةً بلا from، فالجملة الصحيحة “I asked my teacher to help me.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "description": "هل تقول أحيانًا هذه الجملة؟ “I asked from my teacher to help me.” 😅 مع ask نذكر الشخص مباشرةً بلا from، فالجملة الصحيحة “I asked my teacher to help me.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
     "tags": [
      "I asked my teacher to help me.",
      "learn english",
@@ -126,10 +126,10 @@
     ]
    },
    "facebook": {
-    "text": "هل تقول أحيانًا “I asked from my teacher to help me.” 😅 مع ask نذكر الشخص مباشرةً بلا from، فالجملة الصحيحة “I asked my teacher to help me.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "هل تقول أحيانًا هذه الجملة؟ “I asked from my teacher to help me.” 😅 مع ask نذكر الشخص مباشرةً بلا from، فالجملة الصحيحة “I asked my teacher to help me.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "هل تقول أحيانًا “I asked from my teacher to help me.” 😅 مع ask نذكر الشخص مباشرةً بلا from، فالجملة الصحيحة “I asked my teacher to help me.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nlexkite.com",
+    "caption": "هل تقول أحيانًا هذه الجملة؟ “I asked from my teacher to help me.” 😅 مع ask نذكر الشخص مباشرةً بلا from، فالجملة الصحيحة “I asked my teacher to help me.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nlexkite.com",
     "hashtags": [
      "#تعلم_الانجليزية",
      "#اللغة_الانجليزية",
@@ -141,7 +141,7 @@
     "caption": "هل تقول “asked from”؟ #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
    }
   },
-  "first_comment": "الإجابة: “my”. مع ask نذكر الشخص مباشرةً بلا from. اختبار مجاني هنا: {link}",
+  "first_comment": "الإجابة: “my” — مع ask نذكر الشخص مباشرةً بلا from. اختبار مجاني هنا: {link}",
   "lang": "ar"
  }
 }

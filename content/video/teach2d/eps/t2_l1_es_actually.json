@@ -11,22 +11,22 @@
  "lines": [
   {
    "id": "h",
-   "text": "Actually does not mean now!",
+   "text": "Actually does not mean currently!",
    "pause": 0.42
   },
   {
    "id": "w",
-   "text": "Many learners say: Actually, I am studying English now.",
+   "text": "Many learners say: Actually, I live in Madrid.",
    "pause": 0.42
   },
   {
    "id": "r",
-   "text": "Better: Right now, I am studying English.",
+   "text": "Better: Currently, I live in Madrid.",
    "pause": 0.42
   },
   {
    "id": "y",
-   "text": "Actually means in fact, not now.",
+   "text": "Actually means in fact. Currently means now.",
    "pause": 0.42
   },
   {
@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "Right now! I am busy right now.",
+   "text": "Currently! Currently, I work at home.",
    "pause": 0.42
   },
   {
@@ -52,24 +52,24 @@
   }
  ],
  "data": {
-  "wrong": "Actually, I am studying English now.",
-  "right": "Right now, I am studying English.",
+  "wrong": "Actually, I live in Madrid.",
+  "right": "Currently, I live in Madrid.",
   "strike": "Actually",
-  "why": "Actually means in fact, not now.",
-  "memory": "Actually = in fact.",
+  "why": "Actually means in fact. Currently means now.",
+  "memory": "Currently = now.",
   "quiz": {
-   "stem": "I am busy ___.",
+   "stem": "___ = now, these days",
    "options": [
-    "actually",
-    "right now"
+    "Actually",
+    "Currently"
    ],
    "answer": 1
   },
   "native": {
    "hook": "“Actually” no es “actualmente”",
-   "tip": "Falso amigo: “actually” significa “en realidad”. Para “ahora” usa “right now”.",
-   "caption": "¡Cuidado con este falso amigo! 😬 No digas “Actually, I am studying English now.”, mejor: “Right now, I am studying English.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
-   "comment": "Respuesta: “right now”. “Actually” es “en realidad”, no “actualmente”. Practica más con un quiz gratis aquí: {link}",
+   "tip": "Falso amigo: “actually” significa “en realidad”. “Actualmente” se dice “currently”.",
+   "caption": "¡Cuidado con este falso amigo! 😬 “Actualmente” no es “actually”: no digas “Actually, I live in Madrid.”, sino “Currently, I live in Madrid.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “Currently”. “Actually” es “en realidad”; “actualmente” es “currently”. Practica más con un quiz gratis aquí: {link}",
    "hashtags": [
     "#aprenderingles",
     "#inglesfacil",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "“Actually” does not mean “actualmente”",
-   "tip": "False friend: “actually” means “en realidad”. For “now”, use “right now”.",
-   "caption": "Careful with this false friend! Do not say “Actually, I am studying English now.”, say: “Right now, I am studying English.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+   "hook": "“Actually” is not “actualmente”",
+   "tip": "False friend: “actually” means “en realidad”. “Actualmente” is “currently”.",
+   "caption": "Careful with this false friend! “Actualmente” is not “actually”: do not say “Actually, I live in Madrid.”, say “Currently, I live in Madrid.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -98,14 +98,14 @@
  },
  "lang": "es",
  "est": {
-  "words": 50,
-  "seconds": 30.0,
-  "wpm": 100
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
  },
  "publish": {
   "title": "“Actually” no es “actualmente”",
-  "keyword": "Right now, I am studying English.",
-  "value": "Falso amigo: “actually” significa “en realidad”. Para “ahora” usa “right now”.",
+  "keyword": "Currently, I live in Madrid.",
+  "value": "Falso amigo: “actually” significa “en realidad”. “Actualmente” se dice “currently”.",
   "hashtags": [
    "#aprenderingles",
    "#inglesfacil",
@@ -113,22 +113,22 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 44,
+  "script_words": 42,
   "platforms": {
    "youtube": {
     "title": "“Actually” no es “actualmente”",
-    "description": "¡Cuidado con este falso amigo! 😬 No digas “Actually, I am studying English now.”, mejor: “Right now, I am studying English.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #falsosamigos #lexkite",
+    "description": "¡Cuidado con este falso amigo! 😬 “Actualmente” no es “actually”: no digas “Actually, I live in Madrid.”, sino “Currently, I live in Madrid.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #falsosamigos #lexkite",
     "tags": [
-     "Right now, I am studying English.",
+     "Currently, I live in Madrid.",
      "learn english",
      "es"
     ]
    },
    "facebook": {
-    "text": "¡Cuidado con este falso amigo! 😬 No digas “Actually, I am studying English now.”, mejor: “Right now, I am studying English.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "¡Cuidado con este falso amigo! 😬 “Actualmente” no es “actually”: no digas “Actually, I live in Madrid.”, sino “Currently, I live in Madrid.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "¡Cuidado con este falso amigo! 😬 No digas “Actually, I am studying English now.”, mejor: “Right now, I am studying English.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nlexkite.com",
+    "caption": "¡Cuidado con este falso amigo! 😬 “Actualmente” no es “actually”: no digas “Actually, I live in Madrid.”, sino “Currently, I live in Madrid.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nlexkite.com",
     "hashtags": [
      "#aprenderingles",
      "#inglesfacil",
@@ -140,7 +140,7 @@
     "caption": "“Actually” no es “actualmente” #aprenderingles #inglesfacil #falsosamigos"
    }
   },
-  "first_comment": "Respuesta: “right now”. “Actually” es “en realidad”, no “actualmente”. Practica más con un quiz gratis aquí: {link}",
+  "first_comment": "Respuesta: “Currently”. “Actually” es “en realidad”; “actualmente” es “currently”. Practica más con un quiz gratis aquí: {link}",
   "lang": "es"
  }
 }

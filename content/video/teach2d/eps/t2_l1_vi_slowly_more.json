@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "Nhờ nói chậm hơn mà sai thứ tự?",
-   "tip": "Tiếng Việt nói “nói chậm hơn”, nhưng tiếng Anh đặt “more” trước “slowly”.",
+   "tip": "Tiếng Việt nói “nói chậm hơn”, nhưng tiếng Anh đặt “more” trước “slowly.”",
    "caption": "Bạn có hay nói “Can you speak slowly more?” không? 😅 “More” đứng trước: “Can you speak more slowly?” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-   "comment": "Đáp án: “more clearly”. Lưu câu này để nhờ người nước ngoài nói chậm lại nhé! Luyện thêm miễn phí tại đây: {link}",
+   "comment": "Đáp án: “more clearly.” Lưu câu này để nhờ người nước ngoài nói chậm lại nhé! Luyện thêm miễn phí tại đây: {link}",
    "hashtags": [
     "#hoctienganh",
     "#nguphaptienganh",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "“Nói chậm hơn”: right word order?",
-   "tip": "Vietnamese says “nói chậm hơn”, but English puts “more” before “slowly”.",
-   "caption": "Do you often say “Can you speak slowly more?”? Say “Can you speak more slowly?” instead. Listen to Ama, then repeat! Practice more in the Lexkite app."
+   "hook": "“Slowly more”: right word order?",
+   "tip": "English puts “more” before “slowly.”",
+   "caption": "Do you often say this? “Can you speak slowly more?” Say “Can you speak more slowly?” instead. Listen to Ama, then repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "Nhờ nói chậm hơn mà sai thứ tự?",
   "keyword": "Can you speak more slowly?",
-  "value": "Tiếng Việt nói “nói chậm hơn”, nhưng tiếng Anh đặt “more” trước “slowly”.",
+  "value": "Tiếng Việt nói “nói chậm hơn”, nhưng tiếng Anh đặt “more” trước “slowly.”",
   "hashtags": [
    "#hoctienganh",
    "#nguphaptienganh",
@@ -140,7 +140,7 @@
     "caption": "Nhờ nói chậm hơn mà sai thứ tự? #hoctienganh #nguphaptienganh #tienganhgiaotiep"
    }
   },
-  "first_comment": "Đáp án: “more clearly”. Lưu câu này để nhờ người nước ngoài nói chậm lại nhé! Luyện thêm miễn phí tại đây: {link}",
+  "first_comment": "Đáp án: “more clearly.” Lưu câu này để nhờ người nước ngoài nói chậm lại nhé! Luyện thêm miễn phí tại đây: {link}",
   "lang": "vi"
  }
 }

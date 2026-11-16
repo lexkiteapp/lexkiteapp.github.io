@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "¿“Go to home”? Di “go home”",
-   "tip": "En español “ir a casa” lleva “a”, pero en inglés “home” va solo: “go home”.",
+   "tip": "En español “ir a casa” lleva “a”, pero en inglés “home” va solo: “go home.”",
    "caption": "¿Dices “I go to home at six.”? 🏠 En español “voy a casa”, pero en inglés “home” no lleva “to”: “I go home at six.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
-   "comment": "Respuesta: “go home”. “Go home”, sin “to”. Practica más con un quiz gratis aquí: {link}",
+   "comment": "Respuesta: “home”. “Go home”, sin “to”. Practica más con un quiz gratis aquí: {link}",
    "hashtags": [
     "#aprenderingles",
     "#inglesfacil",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "“Go to home”? Say “go home”",
-   "tip": "In Spanish “ir a casa” has “a”, but in English “home” stands alone: “go home”.",
-   "caption": "Do you say “I go to home at six.”? In Spanish “voy a casa”, but in English “home” takes no “to”: “I go home at six.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+   "tip": "The phrase “ir a casa” has “a”, but in English “home” stands alone: “go home.”",
+   "caption": "Do you say “I go to home at six.”? Learners say “voy a casa”, but in English “home” takes no “to”: “I go home at six.” Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "¿“Go to home”? Di “go home”",
   "keyword": "I go home at six.",
-  "value": "En español “ir a casa” lleva “a”, pero en inglés “home” va solo: “go home”.",
+  "value": "En español “ir a casa” lleva “a”, pero en inglés “home” va solo: “go home.”",
   "hashtags": [
    "#aprenderingles",
    "#inglesfacil",
@@ -140,7 +140,7 @@
     "caption": "¿“Go to home”? Di “go home” #aprenderingles #inglesfacil #gramatica"
    }
   },
-  "first_comment": "Respuesta: “go home”. “Go home”, sin “to”. Practica más con un quiz gratis aquí: {link}",
+  "first_comment": "Respuesta: “home”. “Go home”, sin “to”. Practica más con un quiz gratis aquí: {link}",
   "lang": "es"
  }
 }

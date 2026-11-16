@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Is it a shop?",
+   "text": "Is it a store?",
    "pause": 0.42
   },
   {
@@ -21,12 +21,12 @@
   },
   {
    "id": "r",
-   "text": "Better: I bought bread in the shop.",
+   "text": "Better: I bought bread at the store.",
    "pause": 0.42
   },
   {
    "id": "y",
-   "text": "Magazine is a thing to read.",
+   "text": "A magazine is a thing to read.",
    "pause": 0.42
   },
   {
@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "Shop! I buy milk in a shop.",
+   "text": "Store! I buy milk at the store.",
    "pause": 0.42
   },
   {
@@ -53,23 +53,23 @@
  ],
  "data": {
   "wrong": "I bought bread in the magazine.",
-  "right": "I bought bread in the shop.",
+  "right": "I bought bread at the store.",
   "strike": "magazine",
-  "why": "Magazine is a thing to read.",
-  "memory": "Shop: buy things.",
+  "why": "A magazine is a thing to read.",
+  "memory": "Store: buy things.",
   "quiz": {
-   "stem": "I buy milk in a ___.",
+   "stem": "I buy milk at the ___.",
    "options": [
     "magazine",
-    "shop"
+    "store"
    ],
    "answer": 1
   },
   "native": {
-   "hook": "Магазин — это “shop”?",
-   "tip": "“Magazine” — это журнал. Магазин по-английски — “shop”.",
-   "caption": "Ты тоже говоришь “I bought bread in the magazine.”? 😅 “Magazine” похоже на «магазин», но это журнал. Магазин — “shop” или “store”. Правильно: “I bought bread in the shop.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
-   "comment": "Ответ: “shop”. Магазин — shop, журнал — magazine. Бесплатный тест для практики здесь: {link}",
+   "hook": "Магазин — это “store”!",
+   "tip": "“Magazine” — это журнал. Магазин по-английски — “store.”",
+   "caption": "Ты тоже говоришь “I bought bread in the magazine”? 😅 “Magazine” похоже на «магазин», но это журнал. Магазин — “store.” Правильно: “I bought bread at the store.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “store.” Магазин — store, журнал — magazine. Бесплатный тест для практики здесь: {link}",
    "hashtags": [
     "#английскийязык",
     "#английский",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "Is it a shop?",
-   "tip": "“Magazine” means a journal. A store is a “shop”.",
-   "caption": "Do you also say “I bought bread in the magazine.”? 😅 “Magazine” looks like the Russian word for shop, but it means a journal. A store is “shop”. Correct: “I bought bread in the shop.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+   "hook": "Is it a store?",
+   "tip": "A “magazine” is something you read. A place to buy things is a “store.”",
+   "caption": "Do you also say “I bought bread in the magazine”? 😅 A “magazine” is something you read. Correct: “I bought bread at the store.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -91,21 +91,21 @@
  },
  "hook": {
   "line": "h",
-  "text": "Магазин — это “shop”?"
+  "text": "Магазин — это “store”!"
  },
  "src": {
   "l1": true
  },
  "lang": "ru",
  "est": {
-  "words": 49,
-  "seconds": 29.6,
-  "wpm": 99
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
  },
  "publish": {
-  "title": "Магазин — это “shop”?",
-  "keyword": "I bought bread in the shop.",
-  "value": "“Magazine” — это журнал. Магазин по-английски — “shop”.",
+  "title": "Магазин — это “store”!",
+  "keyword": "I bought bread at the store.",
+  "value": "“Magazine” — это журнал. Магазин по-английски — “store.”",
   "hashtags": [
    "#английскийязык",
    "#английский",
@@ -113,22 +113,22 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 43,
+  "script_words": 44,
   "platforms": {
    "youtube": {
-    "title": "Магазин — это “shop”?",
-    "description": "Ты тоже говоришь “I bought bread in the magazine.”? 😅 “Magazine” похоже на «магазин», но это журнал. Магазин — “shop” или “store”. Правильно: “I bought bread in the shop.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #английский #изучениеанглийского #lexkite",
+    "title": "Магазин — это “store”!",
+    "description": "Ты тоже говоришь “I bought bread in the magazine”? 😅 “Magazine” похоже на «магазин», но это журнал. Магазин — “store.” Правильно: “I bought bread at the store.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #английский #изучениеанглийского #lexkite",
     "tags": [
-     "I bought bread in the shop.",
+     "I bought bread at the store.",
      "learn english",
      "ru"
     ]
    },
    "facebook": {
-    "text": "Ты тоже говоришь “I bought bread in the magazine.”? 😅 “Magazine” похоже на «магазин», но это журнал. Магазин — “shop” или “store”. Правильно: “I bought bread in the shop.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Ты тоже говоришь “I bought bread in the magazine”? 😅 “Magazine” похоже на «магазин», но это журнал. Магазин — “store.” Правильно: “I bought bread at the store.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Ты тоже говоришь “I bought bread in the magazine.”? 😅 “Magazine” похоже на «магазин», но это журнал. Магазин — “shop” или “store”. Правильно: “I bought bread in the shop.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nlexkite.com",
+    "caption": "Ты тоже говоришь “I bought bread in the magazine”? 😅 “Magazine” похоже на «магазин», но это журнал. Магазин — “store.” Правильно: “I bought bread at the store.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nlexkite.com",
     "hashtags": [
      "#английскийязык",
      "#английский",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "Магазин — это “shop”? #английскийязык #английский #изучениеанглийского"
+    "caption": "Магазин — это “store”! #английскийязык #английский #изучениеанглийского"
    }
   },
-  "first_comment": "Ответ: “shop”. Магазин — shop, журнал — magazine. Бесплатный тест для практики здесь: {link}",
+  "first_comment": "Ответ: “store.” Магазин — store, журнал — magazine. Бесплатный тест для практики здесь: {link}",
   "lang": "ru"
  }
 }

@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Do you forget one small word?",
+   "text": "Your name needs one more word!",
    "pause": 0.42
   },
   {
@@ -58,18 +58,18 @@
   "why": "Put is between name and Anna.",
   "memory": "Name plus is.",
   "quiz": {
-   "stem": "My name ___ Anna.",
+   "stem": "Which is right?",
    "options": [
-    "is",
-    "are"
+    "My name is Anna.",
+    "My name Anna."
    ],
    "answer": 0
   },
   "native": {
    "hook": "Giới thiệu tên mà thiếu “is”?",
-   "tip": "Tiếng Việt nói “Tôi tên Anna” không cần “là”, nhưng tiếng Anh bắt buộc có “is”.",
+   "tip": "Tiếng Việt nói “Tôi tên Anna” không cần “là”, nhưng tiếng Anh bắt buộc có “is.”",
    "caption": "Bạn có hay nói “My name Anna.” không? 😄 Phải có “is”: “My name is Anna.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
-   "comment": "Đáp án: “is”. Thử viết “My name is…” kèm tên bạn ở phần bình luận nhé! Luyện thêm miễn phí tại đây: {link}",
+   "comment": "Đáp án: “is.” Thử viết “My name is…” kèm tên bạn ở phần bình luận nhé! Luyện thêm miễn phí tại đây: {link}",
    "hashtags": [
     "#hoctienganh",
     "#nguphaptienganh",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "Missing “is” in your name?",
-   "tip": "Vietnamese says “Tôi tên Anna” with no verb, but English needs “is”.",
-   "caption": "Do you often say “My name Anna.”? Say “My name is Anna.” instead. Listen to Ama, then repeat! Practice more in the Lexkite app."
+   "tip": "Learners often skip the verb, but English needs “is” here.",
+   "caption": "Do you often say this? “My name Anna.” Say “My name is Anna.” instead. Listen to Ama, then repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "Giới thiệu tên mà thiếu “is”?",
   "keyword": "My name is Anna.",
-  "value": "Tiếng Việt nói “Tôi tên Anna” không cần “là”, nhưng tiếng Anh bắt buộc có “is”.",
+  "value": "Tiếng Việt nói “Tôi tên Anna” không cần “là”, nhưng tiếng Anh bắt buộc có “is.”",
   "hashtags": [
    "#hoctienganh",
    "#nguphaptienganh",
@@ -140,7 +140,7 @@
     "caption": "Giới thiệu tên mà thiếu “is”? #hoctienganh #nguphaptienganh #tienganhgiaotiep"
    }
   },
-  "first_comment": "Đáp án: “is”. Thử viết “My name is…” kèm tên bạn ở phần bình luận nhé! Luyện thêm miễn phí tại đây: {link}",
+  "first_comment": "Đáp án: “is.” Thử viết “My name is…” kèm tên bạn ở phần bình luận nhé! Luyện thêm miễn phí tại đây: {link}",
   "lang": "vi"
  }
 }

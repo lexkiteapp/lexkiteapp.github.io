@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "Money: is или are?",
-   "tip": "Русские «деньги» — множественное число, а английское “money” — единственное: “money is”.",
-   "caption": "Ты тоже говоришь “My money are in the bag”? 😅 Русские «деньги» — во множественном числе, вот и хочется сказать “money are”, а нужно “money is”. Правильно: “My money is in the bag.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
-   "comment": "Ответ: “is”. Money — is. Бесплатный тест для практики здесь: {link}",
+   "tip": "Русские «деньги» — множественное число, а английское “money” — единственное: “money is.”",
+   "caption": "Ты тоже говоришь “My money are in the bag”? 😅 Русские «деньги» — во множественном числе, вот и хочется сказать “money are”, а нужно “money is.” Правильно: “My money is in the bag.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “is.” Money — is. Бесплатный тест для практики здесь: {link}",
    "hashtags": [
     "#английский",
     "#грамматика",
@@ -79,8 +79,8 @@
   },
   "en": {
    "hook": "Money: is or are?",
-   "tip": "Russian “dengi” is plural, but English “money” is singular: “money is”.",
-   "caption": "Do you also say “My money are in the bag”? 😅 Russian “dengi” is plural, so “money are” feels right, but you need “money is”. Correct: “My money is in the bag.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+   "tip": "“Money” is singular: “money is.”",
+   "caption": "Do you also say “My money are in the bag”? 😅 The wrong verb may feel right, but you need “money is.” Correct: “My money is in the bag.” Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "Money: is или are?",
   "keyword": "My money is in the bag.",
-  "value": "Русские «деньги» — множественное число, а английское “money” — единственное: “money is”.",
+  "value": "Русские «деньги» — множественное число, а английское “money” — единственное: “money is.”",
   "hashtags": [
    "#английский",
    "#грамматика",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "Money: is или are?",
-    "description": "Ты тоже говоришь “My money are in the bag”? 😅 Русские «деньги» — во множественном числе, вот и хочется сказать “money are”, а нужно “money is”. Правильно: “My money is in the bag.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английский #грамматика #английскийонлайн #lexkite",
+    "description": "Ты тоже говоришь “My money are in the bag”? 😅 Русские «деньги» — во множественном числе, вот и хочется сказать “money are”, а нужно “money is.” Правильно: “My money is in the bag.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английский #грамматика #английскийонлайн #lexkite",
     "tags": [
      "My money is in the bag.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Ты тоже говоришь “My money are in the bag”? 😅 Русские «деньги» — во множественном числе, вот и хочется сказать “money are”, а нужно “money is”. Правильно: “My money is in the bag.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Ты тоже говоришь “My money are in the bag”? 😅 Русские «деньги» — во множественном числе, вот и хочется сказать “money are”, а нужно “money is.” Правильно: “My money is in the bag.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Ты тоже говоришь “My money are in the bag”? 😅 Русские «деньги» — во множественном числе, вот и хочется сказать “money are”, а нужно “money is”. Правильно: “My money is in the bag.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nlexkite.com",
+    "caption": "Ты тоже говоришь “My money are in the bag”? 😅 Русские «деньги» — во множественном числе, вот и хочется сказать “money are”, а нужно “money is.” Правильно: “My money is in the bag.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nlexkite.com",
     "hashtags": [
      "#английский",
      "#грамматика",
@@ -140,7 +140,7 @@
     "caption": "Money: is или are? #английский #грамматика #английскийонлайн"
    }
   },
-  "first_comment": "Ответ: “is”. Money — is. Бесплатный тест для практики здесь: {link}",
+  "first_comment": "Ответ: “is.” Money — is. Бесплатный тест для практики здесь: {link}",
   "lang": "ru"
  }
 }

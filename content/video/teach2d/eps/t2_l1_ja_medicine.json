@@ -16,7 +16,7 @@
   },
   {
    "id": "w",
-   "text": "Many learners say: I ate medicine.",
+   "text": "Many learners say: I drank medicine.",
    "pause": 0.42
   },
   {
@@ -26,7 +26,7 @@
   },
   {
    "id": "y",
-   "text": "We take medicine, we do not eat it.",
+   "text": "We take medicine. We do not drink it.",
    "pause": 0.42
   },
   {
@@ -52,23 +52,23 @@
   }
  ],
  "data": {
-  "wrong": "I ate medicine.",
+  "wrong": "I drank medicine.",
   "right": "I took medicine.",
-  "strike": "ate",
-  "why": "We take medicine, we do not eat it.",
+  "strike": "drank",
+  "why": "We take medicine. We do not drink it.",
   "memory": "I took medicine.",
   "quiz": {
    "stem": "I ___ medicine every day.",
    "options": [
     "take",
-    "eat"
+    "drink"
    ],
    "answer": 0
   },
   "native": {
-   "hook": "薬を「食べる」は英語で言わない",
-   "tip": "薬は「飲む」でも take を使います。drink や eat は使いません。",
-   "caption": "“I ate medicine.”と言っていませんか？😅 日本語の「薬を飲む」を drink と訳しがちですが、英語では take medicine と言います。 “I took medicine.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "hook": "薬を「飲む」は drink じゃない",
+   "tip": "薬は「飲む」でも take を使います。drink は使いません。",
+   "caption": "“I drank medicine.”と言っていませんか？😅 「薬を飲む」をそのまま drink と訳しがちですが、英語では take medicine と言います。“I took medicine.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
    "comment": "答え：“take”。薬は take。無料クイズで練習：{link}",
    "hashtags": [
     "#英語学習",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "Do you “eat” your medicine?",
-   "tip": "Use take for medicine. Not eat or drink.",
-   "caption": "Do you say “I ate medicine.”? 😅 You may translate kusuri wo nomu as drink, but English says take medicine. The natural way is “I took medicine.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+   "hook": "Do you “drink” your medicine?",
+   "tip": "Use take for medicine, not drink.",
+   "caption": "Do you say this? “I drank medicine.” 😅 English says take medicine. The natural way is “I took medicine.” Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "薬を「食べる」は英語で言わない"
+  "text": "薬を「飲む」は drink じゃない"
  },
  "src": {
   "l1": true
@@ -103,9 +103,9 @@
   "wpm": 97
  },
  "publish": {
-  "title": "薬を「食べる」は英語で言わない",
+  "title": "薬を「飲む」は drink じゃない",
   "keyword": "I took medicine.",
-  "value": "薬は「飲む」でも take を使います。drink や eat は使いません。",
+  "value": "薬は「飲む」でも take を使います。drink は使いません。",
   "hashtags": [
    "#英語学習",
    "#英会話",
@@ -116,8 +116,8 @@
   "script_words": 37,
   "platforms": {
    "youtube": {
-    "title": "薬を「食べる」は英語で言わない",
-    "description": "“I ate medicine.”と言っていませんか？😅 日本語の「薬を飲む」を drink と訳しがちですが、英語では take medicine と言います。 “I took medicine.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "title": "薬を「飲む」は drink じゃない",
+    "description": "“I drank medicine.”と言っていませんか？😅 「薬を飲む」をそのまま drink と訳しがちですが、英語では take medicine と言います。“I took medicine.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
     "tags": [
      "I took medicine.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "“I ate medicine.”と言っていませんか？😅 日本語の「薬を飲む」を drink と訳しがちですが、英語では take medicine と言います。 “I took medicine.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+    "text": "“I drank medicine.”と言っていませんか？😅 「薬を飲む」をそのまま drink と訳しがちですが、英語では take medicine と言います。“I took medicine.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "“I ate medicine.”と言っていませんか？😅 日本語の「薬を飲む」を drink と訳しがちですが、英語では take medicine と言います。 “I took medicine.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nlexkite.com",
+    "caption": "“I drank medicine.”と言っていませんか？😅 「薬を飲む」をそのまま drink と訳しがちですが、英語では take medicine と言います。“I took medicine.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nlexkite.com",
     "hashtags": [
      "#英語学習",
      "#英会話",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "薬を「食べる」は英語で言わない #英語学習 #英会話 #英語勉強"
+    "caption": "薬を「飲む」は drink じゃない #英語学習 #英会話 #英語勉強"
    }
   },
   "first_comment": "答え：“take”。薬は take。無料クイズで練習：{link}",

@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "To! I listen to music every day.",
+   "text": "To! I like to listen to music.",
    "pause": 0.42
   },
   {
@@ -61,7 +61,7 @@
    "stem": "I like to listen ___ music.",
    "options": [
     "to",
-    "at"
+    "no word"
    ],
    "answer": 0
   },
@@ -78,8 +78,8 @@
    ]
   },
   "en": {
-   "hook": "A little word is missing when you listen to music!",
-   "tip": "In German there is no extra word. In English you say “listen to music”.",
+   "hook": "A little word is missing here!",
+   "tip": "“Musik hören” has no extra word. In English you say “listen to music”.",
    "caption": "A little word is missing when you listen to music! Wrong: “I listen music every day.” Right: “I listen to music every day.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },

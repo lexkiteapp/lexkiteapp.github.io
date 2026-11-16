@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Discuss, no about!",
+   "text": "Just discuss, no about!",
    "pause": 0.42
   },
   {
@@ -79,7 +79,7 @@
   },
   "en": {
    "hook": "Do not say “discuss about”!",
-   "tip": "In Hindi “chacha ke baare mein” works, but in English discuss takes no about.",
+   "tip": "Many learners add about after discuss, but in English discuss takes no about.",
    "caption": "Do you say “We discussed about the plan”? 😅 In English “We discussed the plan” is right, because discuss takes no about. Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
@@ -98,9 +98,9 @@
  },
  "lang": "hi",
  "est": {
-  "words": 42,
-  "seconds": 26.1,
-  "wpm": 96
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
  },
  "publish": {
   "title": "“discuss about” न कहें!",
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 36,
+  "script_words": 37,
   "platforms": {
    "youtube": {
     "title": "“discuss about” न कहें!",
