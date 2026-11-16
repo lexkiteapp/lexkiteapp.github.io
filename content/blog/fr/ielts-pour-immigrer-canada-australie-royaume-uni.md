@@ -49,6 +49,8 @@ Une précaution d'abord. Les règles d'immigration changent souvent. Les chiffre
 
 {{youtube: | Vidéo à venir : choisir son test d'anglais pour émigrer}}
 
+Avant de fixer votre objectif, assurez-vous de bien comprendre [le calcul du score IELTS et la règle d'arrondi du band global](/fr/blog/calcul-score-ielts-band-signification/).
+
 ## IELTS General Training ou Academic : le premier piège
 
 L'IELTS existe en deux versions. L'**Academic** sert aux études supérieures. Le **General Training** vise la vie quotidienne et le travail ; c'est celui qu'IRCC (le ministère canadien de l'immigration) accepte pour l'Entrée express. Les épreuves d'écoute et d'expression orale sont identiques ; la lecture et surtout l'écriture diffèrent. En Writing General, la Task 1 est une **lettre** (réclamation, demande, invitation), et non la description d'un graphique.
@@ -122,6 +124,8 @@ Nous ne faisons pas les mêmes fautes qu'un hispanophone ou un japonophone. Voic
 ### Ce que Lexkite fait, et ne fait pas
 
 Lexkite vous aide à fixer un objectif et un planning, à vous entraîner à la lettre General et à l'oral pour l'anglais. L'application n'est ni un centre d'examen ni un organisme lié à l'IELTS, elle ne prédit pas votre band et elle ne prépare pas le TEF ni le TCF. Pour voir comment le vocabulaire s'organise, consultez la [page de vocabulaire en anglais](/en/vocabulary/) (en anglais) et les [exemples de contenu](/en/samples/) (en anglais).
+
+Pour le détail du test exigé par le Royaume-Uni, lisez notre explication de l'[IELTS UKVI et de la différence avec l'IELTS classique](/fr/blog/ielts-ukvi-difference-ielts-classique/).
 
 {{cta: /app/#/goal | Définir mon objectif IELTS et mon plan d'étude}}
 

@@ -327,7 +327,7 @@ def build(scene, tpl, area, point, a, n):
         if not all(opt_fits(o) for o in a['opts']): raise Gate('choice option too wide at 52 px')
         if a['key'] not in norm(a['opts']['ABC'.index(a['ans'])]).split(' '): raise Gate('answer key not verbatim in the answer option (qa5)')
         X.prop(); X.hold('setup', 'B1', 1.6, f'[{CH}]'); X.talk('listen', 'B1', 'B', kl, ov=f'[{CH}]')
-        ring2(X, S, rc_clip, f"[{CH}, ('Ring', 0.0, 3.0, 'Comment A, B or C 👇|')]", 'B2' if rc_clip != 'B2' else 'BREACT', f'[{CH}]')
+        ring2(X, S, rc_clip, f"[{CH}, ('Ring', 0.0, 3.0, 'Pick A, B or C 👇|')]", 'B2' if rc_clip != 'B2' else 'BREACT', f'[{CH}]')
         X.hold('reveal', 'BREACT', 2.0, "[('Choice', 0.0, None, Q, 1)]"); X.talk('replay', 'B2', 'B', kl, opt=True); X.talk('slow', 'B1', 'B', kl, tempo=0.85); X.raw("PUNCH['slow'] = 0.0"); X.hold('react2', 'BREACT', 1.2, pad=True)
         recap = a['recap']; pattern = a['q']; goal = f"Listening: {a['thing']}"; cefr_txt = [a['line']]
     elif tpl == 'quiz':
@@ -336,7 +336,7 @@ def build(scene, tpl, area, point, a, n):
             if len(o) > 26 or not opt_fits(o): raise Gate('quiz option too long')
         X.head += [f'Q = {q!r}', "QA = dict(template='quiz')", f"RING_EXTRA['ring'] = {rc_y}"]; CH = "('Choice', 0.0, None, Q, 0)"
         hook = 'Polite or *rude?*|?' if 'polite' in a['q'].lower() else 'Which one is *correct?*|?'
-        X.prop(); X.hold('setup', 'B1', 2.0, f'[{CH}]'); ring2(X, S, rc_clip, f"[{CH}, ('Ring', 0.0, 3.0, 'Comment A or B 👇|')]", 'B2' if rc_clip != 'B2' else 'BREACT', f'[{CH}]')
+        X.prop(); X.hold('setup', 'B1', 2.0, f'[{CH}]'); ring2(X, S, rc_clip, f"[{CH}, ('Ring', 0.0, 3.0, 'Pick A or B 👇|')]", 'B2' if rc_clip != 'B2' else 'BREACT', f'[{CH}]')
         X.hold('reveal', 'BREACT', 2.0, "[('Choice', 0.0, None, Q, 1)]"); X.talk('right', 'MCU', 'A', kl); X.talk('reply', 'B1', 'B', kr, opt=True); X.talk('slow', 'MCU', 'A', kl, tempo=0.85); X.raw("PUNCH['slow'] = 0.0"); X.hold('react2', 'BREACT', 1.2, pad=True)
         recap = a['line']; pattern = a['line']; goal = 'Polite or rude?' if 'polite' in a['q'].lower() else 'Which is correct?'; cefr_txt = [a['a'], a['b'], a['line']]
     elif tpl == 'gap':
@@ -487,7 +487,7 @@ def emit():
             shot(b['id'], c, n / FPS, (lambda fr: lambda m: fr[:m])(fr), [(c, w, []) for w in ws], [], ov=b['ov'], foley=b['foley'])
         elif b['kind'] == 'prop':
             pc, f0, d, snd, at = PROP; shot('prop', pc, n / FPS, lambda m: list(range(f0, f0 + m)), [], [], foley=[(FD + snd, at / FPS)] if snd else [])
-        else: shot('loop', MASTER, n / FPS, lambda m: list(range(h0 + m - 1, h0 - 1, -1)), [(MASTER, w, []) for w in hws], [], ov=[('Follow', 0.0, None, 'Follow for daily English|lexkite.com')])
+        else: shot('loop', MASTER, n / FPS, lambda m: list(range(h0 + m - 1, h0 - 1, -1)), [(MASTER, w, []) for w in hws], [], ov=[('Follow', 0.0, None, 'Free practice on lexkite.com|lexkite.com')])
 def vend(recap, clip=None):
     hold('recap', clip or BREACT, 2.8, ov=[('Recap', 0.0, 2.5, recap + '|')]); PEND.append(dict(kind='loop', id='loop', d=1.0, opt=False, pad=False, on=True)); fit(); emit()
 '''

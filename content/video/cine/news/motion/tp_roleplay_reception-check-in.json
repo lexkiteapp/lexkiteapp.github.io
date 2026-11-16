@@ -1,0 +1,292 @@
+{
+ "id": "mo_tp_roleplay_reception-check-in",
+ "template": "roleplay",
+ "title": "Motion roleplay – roleplay: reception-check-in (tp_roleplay_reception-check-in)",
+ "teacher": "ama",
+ "clips": [
+  "ga11_talk",
+  "ga11_explain",
+  "ga11_happy",
+  "ga11_thinking",
+  "ga11_surprise_3"
+ ],
+ "listen": [
+  "ga11_listen_2"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy2",
+ "active": "mint",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "roleplay",
+  "link": "https://lexkite.com/app/",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Roleplay",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "Um… where do I go?",
+   "gap": 0.7
+  },
+  {
+   "id": "s0",
+   "text": "At reception.",
+   "gap": 0.7
+  },
+  {
+   "id": "s1",
+   "text": "Good morning! Are you here for an interview?",
+   "gap": 0.7
+  },
+  {
+   "id": "s2",
+   "text": "Hi, I'm Ama Brown. I have an interview with Ms. Park at ten.",
+   "gap": 0.7
+  },
+  {
+   "id": "s3",
+   "text": "Thanks, Ms. Chen. Please have a seat. She'll be out in a minute.",
+   "gap": 0.7
+  },
+  {
+   "id": "t",
+   "text": "Tip: say your name, who you're meeting, and the time. That's all reception needs.",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "Um… where do",
+      "white"
+     ]
+    ],
+    [
+     [
+      "I go?",
+      "yellow"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Roleplay",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "Um… where do"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "I go?"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "sum",
+    "at": [
+     "t",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Tip",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "say your name, who you're meeting, and the time."
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "rules",
+    "at": [
+     "s1",
+     0
+    ],
+    "rows": [
+     {
+      "t": "tile",
+      "tag": "STAFF",
+      "tone": "gold",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "Good morning! Are you here for an interview?",
+        "gold"
+       ]
+      ],
+      "ex_at": [
+       "s1",
+       0
+      ],
+      "at": [
+       "s1",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "YOU",
+      "tone": "teal",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "Hi, I'm Ama Brown. I have an interview with",
+        "teal"
+       ]
+      ],
+      "ex_at": [
+       "s2",
+       0
+      ],
+      "at": [
+       "s2",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "STAFF",
+      "tone": "coral",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "Thanks, Ms. Chen. Please have a seat. She'll",
+        "coral"
+       ]
+      ],
+      "ex_at": [
+       "s3",
+       0
+      ],
+      "at": [
+       "s3",
+       0
+      ]
+     }
+    ]
+   }
+  ],
+  "hook_text": "Um… where do I go?",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ },
+ "uses": {
+  "template": "roleplay",
+  "row": "tp_roleplay_reception-check-in",
+  "teacher": "ama",
+  "accent": "navy2",
+  "active": "mint",
+  "tones": 2
+ }
+}

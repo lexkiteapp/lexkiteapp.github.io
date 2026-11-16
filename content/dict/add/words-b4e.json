@@ -1,0 +1,777 @@
+{
+ "rack": {
+  "ipaUS": "/ræk/",
+  "col": [
+   "coat rack",
+   "luggage rack",
+   "roof rack",
+   "magazine rack",
+   "wine rack",
+   "on the rack"
+  ],
+  "syn": [
+   "shelf",
+   "stand",
+   "holder"
+  ]
+ },
+ "rainfall": {
+  "ipaUS": "/ˈreɪnfɔːl/",
+  "col": [
+   "heavy rainfall",
+   "annual rainfall",
+   "average rainfall",
+   "monthly rainfall",
+   "below-average rainfall",
+   "rainfall figures"
+  ],
+  "syn": [
+   "rain",
+   "precipitation"
+  ]
+ },
+ "receipt": {
+  "ipaUS": "/rɪˈsiːt/",
+  "col": [
+   "keep the receipt",
+   "ask for a receipt",
+   "issue a receipt",
+   "original receipt",
+   "receipt for payment",
+   "on receipt of"
+  ],
+  "syn": [
+   "proof of purchase",
+   "sales slip"
+  ]
+ },
+ "rewrite": {
+  "ipaUS": "/riˈraɪt/",
+  "col": [
+   "rewrite a report",
+   "rewrite the script",
+   "rewrite the code",
+   "completely rewrite",
+   "rewrite from scratch",
+   "rewrite history"
+  ],
+  "syn": [
+   "revise",
+   "redraft",
+   "rework"
+  ]
+ },
+ "rug": {
+  "ipaUS": "/rʌɡ/",
+  "col": [
+   "area rug",
+   "Persian rug",
+   "woven rug",
+   "roll up the rug",
+   "rug on the floor",
+   "sweep under the rug"
+  ],
+  "syn": [
+   "mat",
+   "floor covering"
+  ]
+ },
+ "safely": {
+  "ipaUS": "/ˈseɪfli/",
+  "col": [
+   "arrive safely",
+   "drive safely",
+   "land safely",
+   "handle safely",
+   "safely stored",
+   "safely home"
+  ],
+  "syn": [
+   "securely",
+   "without harm"
+  ]
+ },
+ "salary": {
+  "ipaUS": "/ˈsæləri/",
+  "col": [
+   "monthly salary",
+   "annual salary",
+   "basic salary",
+   "earn a salary",
+   "salary increase",
+   "salary negotiation"
+  ],
+  "syn": [
+   "wage",
+   "pay",
+   "income"
+  ]
+ },
+ "scenery": {
+  "ipaUS": "/ˈsiːnəri/",
+  "col": [
+   "beautiful scenery",
+   "stunning scenery",
+   "mountain scenery",
+   "enjoy the scenery",
+   "coastal scenery",
+   "a change of scenery"
+  ],
+  "syn": [
+   "landscape",
+   "surroundings"
+  ]
+ },
+ "shipment": {
+  "ipaUS": "/ˈʃɪpmənt/",
+  "col": [
+   "a shipment of goods",
+   "track a shipment",
+   "delay a shipment",
+   "receive a shipment",
+   "air shipment",
+   "bulk shipment"
+  ],
+  "syn": [
+   "consignment",
+   "delivery",
+   "cargo"
+  ]
+ },
+ "sidewalk": {
+  "ipaUS": "/ˈsaɪdwɔːk/",
+  "col": [
+   "on the sidewalk",
+   "crowded sidewalk",
+   "wide sidewalk",
+   "sidewalk cafe",
+   "walk along the sidewalk",
+   "sidewalk vendor"
+  ],
+  "syn": [
+   "pavement",
+   "footpath",
+   "walkway"
+  ]
+ },
+ "silently": {
+  "ipaUS": "/ˈsaɪləntli/",
+  "col": [
+   "sit silently",
+   "work silently",
+   "move silently",
+   "read silently",
+   "nod silently",
+   "wait silently"
+  ],
+  "syn": [
+   "quietly",
+   "noiselessly"
+  ]
+ },
+ "sleeve": {
+  "ipaUS": "/sliːv/",
+  "col": [
+   "short sleeves",
+   "long sleeves",
+   "roll up your sleeves",
+   "up your sleeve",
+   "rolled-up sleeves",
+   "laptop sleeve"
+  ],
+  "syn": [
+   "cuff",
+   "cover",
+   "casing"
+  ]
+ },
+ "smoothly": {
+  "ipaUS": "/ˈsmuːðli/",
+  "col": [
+   "run smoothly",
+   "go smoothly",
+   "work smoothly",
+   "operate smoothly",
+   "flow smoothly",
+   "make sure things run smoothly"
+  ],
+  "syn": [
+   "easily",
+   "seamlessly",
+   "without a hitch"
+  ]
+ },
+ "specially": {
+  "ipaUS": "/ˈspeʃəli/",
+  "col": [
+   "specially designed",
+   "specially made",
+   "specially trained",
+   "specially prepared",
+   "specially for you",
+   "specially commissioned"
+  ],
+  "syn": [
+   "expressly",
+   "exclusively"
+  ]
+ },
+ "stack": {
+  "ipaUS": "/stæk/",
+  "col": [
+   "a stack of papers",
+   "a stack of books",
+   "a neat stack",
+   "stack the chairs",
+   "stack boxes",
+   "stacks of work"
+  ],
+  "syn": [
+   "pile",
+   "heap",
+   "mound"
+  ]
+ },
+ "stadium": {
+  "ipaUS": "/ˈsteɪdiəm/",
+  "col": [
+   "football stadium",
+   "national stadium",
+   "packed stadium",
+   "stadium seats",
+   "stadium capacity",
+   "fill the stadium"
+  ],
+  "syn": [
+   "arena",
+   "sports ground"
+  ]
+ },
+ "stripe": {
+  "ipaUS": "/straɪp/",
+  "col": [
+   "a blue stripe",
+   "white stripe",
+   "black and white stripes",
+   "striped shirt",
+   "racing stripe",
+   "earn your stripes"
+  ],
+  "syn": [
+   "band",
+   "streak",
+   "line"
+  ]
+ },
+ "subtract": {
+  "ipaUS": "/səbˈtrækt/",
+  "col": [
+   "subtract A from B",
+   "subtract five from ten",
+   "subtract the discount",
+   "subtract tax",
+   "subtract expenses",
+   "subtract the cost"
+  ],
+  "syn": [
+   "deduct",
+   "take away"
+  ]
+ },
+ "tech": {
+  "ipaUS": "/tek/",
+  "col": [
+   "tech company",
+   "tech support",
+   "tech industry",
+   "tech startup",
+   "tech giant",
+   "tech-savvy"
+  ],
+  "syn": [
+   "technology",
+   "IT"
+  ]
+ },
+ "tile": {
+  "ipaUS": "/taɪl/",
+  "col": [
+   "ceramic tile",
+   "floor tile",
+   "roof tile",
+   "bathroom tiles",
+   "lay tiles",
+   "covered with tiles"
+  ],
+  "syn": [
+   "slab",
+   "paving stone"
+  ]
+ },
+ "tray": {
+  "ipaUS": "/treɪ/",
+  "col": [
+   "serving tray",
+   "breakfast tray",
+   "food tray",
+   "tray of drinks",
+   "baking tray",
+   "paper tray"
+  ],
+  "syn": [
+   "platter",
+   "salver"
+  ]
+ },
+ "vacuum": {
+  "ipaUS": "/ˈvækjuːm/",
+  "col": [
+   "vacuum the carpet",
+   "vacuum the floor",
+   "vacuum cleaner",
+   "vacuum-packed",
+   "vacuum flask",
+   "power vacuum"
+  ],
+  "syn": [
+   "hoover",
+   "vacuum-clean"
+  ]
+ },
+ "wisely": {
+  "ipaUS": "/ˈwaɪzli/",
+  "col": [
+   "spend wisely",
+   "choose wisely",
+   "invest wisely",
+   "use your time wisely",
+   "act wisely",
+   "wisely decided"
+  ],
+  "syn": [
+   "sensibly",
+   "prudently",
+   "shrewdly"
+  ]
+ },
+ "wool": {
+  "ipaUS": "/wʊl/",
+  "col": [
+   "pure wool",
+   "merino wool",
+   "wool sweater",
+   "wool blend",
+   "knitted wool",
+   "steel wool"
+  ],
+  "syn": [
+   "fleece",
+   "yarn"
+  ]
+ },
+ "acute": {
+  "ipaUS": "/əˈkjuːt/",
+  "col": [
+   "acute pain",
+   "acute shortage",
+   "acute angle",
+   "acute illness",
+   "acute awareness",
+   "acute care"
+  ],
+  "syn": [
+   "severe",
+   "intense",
+   "sharp"
+  ]
+ },
+ "algorithm": {
+  "ipaUS": "/ˈælɡərɪðəm/",
+  "col": [
+   "search algorithm",
+   "sorting algorithm",
+   "design an algorithm",
+   "recommendation algorithm",
+   "efficient algorithm",
+   "run an algorithm"
+  ],
+  "syn": [
+   "procedure",
+   "formula"
+  ]
+ },
+ "alloy": {
+  "ipaUS": "/ˈælɔɪ/",
+  "col": [
+   "aluminum alloy",
+   "steel alloy",
+   "copper alloy",
+   "light alloy",
+   "titanium alloy",
+   "alloy wheels"
+  ],
+  "syn": [
+   "mixture",
+   "blend"
+  ]
+ },
+ "anatomy": {
+  "ipaUS": "/əˈnætəmi/",
+  "col": [
+   "human anatomy",
+   "study anatomy",
+   "the anatomy of the heart",
+   "anatomy class",
+   "comparative anatomy",
+   "female anatomy"
+  ],
+  "syn": [
+   "structure",
+   "make-up"
+  ]
+ },
+ "array": {
+  "ipaUS": "/əˈreɪ/",
+  "col": [
+   "an array of options",
+   "a wide array",
+   "a dazzling array",
+   "array of colors",
+   "data array",
+   "array of sensors"
+  ],
+  "syn": [
+   "range",
+   "selection",
+   "variety"
+  ]
+ },
+ "batch": {
+  "ipaUS": "/bætʃ/",
+  "col": [
+   "a batch of cookies",
+   "a batch of samples",
+   "in batches",
+   "batch production",
+   "process in batches",
+   "batch file"
+  ],
+  "syn": [
+   "lot",
+   "group",
+   "set"
+  ]
+ },
+ "beam": {
+  "ipaUS": "/biːm/",
+  "col": [
+   "steel beam",
+   "wooden beam",
+   "roof beam",
+   "load-bearing beam",
+   "beam of light",
+   "laser beam"
+  ],
+  "syn": [
+   "girder",
+   "joist",
+   "rafter"
+  ]
+ },
+ "benign": {
+  "ipaUS": "/bɪˈnaɪn/",
+  "col": [
+   "benign tumor",
+   "benign growth",
+   "benign smile",
+   "benign condition",
+   "benign environment",
+   "relatively benign"
+  ],
+  "syn": [
+   "harmless",
+   "mild",
+   "non-cancerous"
+  ]
+ },
+ "breakdown": {
+  "ipaUS": "/ˈbreɪkdaʊn/",
+  "col": [
+   "nervous breakdown",
+   "mechanical breakdown",
+   "breakdown of talks",
+   "breakdown of costs",
+   "communication breakdown",
+   "breakdown truck"
+  ],
+  "syn": [
+   "failure",
+   "collapse",
+   "analysis"
+  ]
+ },
+ "bribery": {
+  "ipaUS": "/ˈbraɪbəri/",
+  "col": [
+   "charged with bribery",
+   "bribery scandal",
+   "bribery and corruption",
+   "bribery case",
+   "allegations of bribery",
+   "commit bribery"
+  ],
+  "syn": [
+   "corruption",
+   "graft"
+  ]
+ },
+ "cache": {
+  "ipaUS": "/kæʃ/",
+  "col": [
+   "clear the cache",
+   "browser cache",
+   "cache memory",
+   "cache server",
+   "cached copy",
+   "a cache of weapons"
+  ],
+  "syn": [
+   "store",
+   "stash",
+   "hoard"
+  ]
+ },
+ "contagious": {
+  "ipaUS": "/kənˈteɪdʒəs/",
+  "col": [
+   "highly contagious",
+   "contagious disease",
+   "contagious laughter",
+   "contagious enthusiasm",
+   "contagious to others",
+   "remain contagious"
+  ],
+  "syn": [
+   "infectious",
+   "catching",
+   "communicable"
+  ]
+ },
+ "customs": {
+  "ipaUS": "/ˈkʌstəmz/",
+  "col": [
+   "go through customs",
+   "clear customs",
+   "customs officer",
+   "customs duty",
+   "customs declaration",
+   "customs clearance"
+  ],
+  "syn": [
+   "border control",
+   "customs service"
+  ]
+ },
+ "decree": {
+  "ipaUS": "/dɪˈkriː/",
+  "col": [
+   "issue a decree",
+   "government decree",
+   "presidential decree",
+   "royal decree",
+   "sign a decree",
+   "rule by decree"
+  ],
+  "syn": [
+   "order",
+   "edict",
+   "ruling"
+  ]
+ },
+ "defendant": {
+  "ipaUS": "/dɪˈfendənt/",
+  "col": [
+   "the defendant pleaded",
+   "plead not guilty",
+   "convict the defendant",
+   "acquit the defendant",
+   "co-defendant",
+   "the defendant testified"
+  ],
+  "syn": [
+   "the accused",
+   "respondent"
+  ]
+ },
+ "deployment": {
+  "ipaUS": "/dɪˈplɔɪmənt/",
+  "col": [
+   "automated deployment",
+   "deployment pipeline",
+   "software deployment",
+   "continuous deployment",
+   "deployment to production",
+   "troop deployment"
+  ],
+  "syn": [
+   "rollout",
+   "release",
+   "launch"
+  ]
+ },
+ "disinfect": {
+  "ipaUS": "/ˌdɪsɪnˈfekt/",
+  "col": [
+   "disinfect surfaces",
+   "disinfect a wound",
+   "disinfect your hands",
+   "disinfect equipment",
+   "disinfect with bleach",
+   "thoroughly disinfect"
+  ],
+  "syn": [
+   "sterilize",
+   "sanitize",
+   "decontaminate"
+  ]
+ },
+ "drilling": {
+  "ipaUS": "/ˈdrɪlɪŋ/",
+  "col": [
+   "oil drilling",
+   "drilling machine",
+   "drilling rig",
+   "offshore drilling",
+   "drilling a hole",
+   "drilling site"
+  ],
+  "syn": [
+   "boring",
+   "hole-making"
+  ]
+ },
+ "enact": {
+  "ipaUS": "/ɪˈnækt/",
+  "col": [
+   "enact a law",
+   "enact legislation",
+   "enact reforms",
+   "enact a bill",
+   "newly enacted",
+   "enact a scene"
+  ],
+  "syn": [
+   "pass",
+   "legislate",
+   "implement"
+  ]
+ },
+ "fitting": {
+  "ipaUS": "/ˈfɪtɪŋ/",
+  "col": [
+   "pipe fitting",
+   "brass fitting",
+   "light fitting",
+   "bathroom fittings",
+   "fitting room",
+   "fixtures and fittings"
+  ],
+  "syn": [
+   "connector",
+   "coupling",
+   "fixture"
+  ]
+ },
+ "fraud": {
+  "ipaUS": "/frɔːd/",
+  "col": [
+   "commit fraud",
+   "tax fraud",
+   "insurance fraud",
+   "credit card fraud",
+   "fraud investigation",
+   "charged with fraud"
+  ],
+  "syn": [
+   "deception",
+   "swindle",
+   "scam"
+  ]
+ },
+ "grinding": {
+  "ipaUS": "/ˈɡraɪndɪŋ/",
+  "col": [
+   "grinding wheel",
+   "grinding machine",
+   "surface grinding",
+   "precision grinding",
+   "grinding noise",
+   "grinding poverty"
+  ],
+  "syn": [
+   "abrasion",
+   "polishing"
+  ]
+ },
+ "grounding": {
+  "ipaUS": "/ˈɡraʊndɪŋ/",
+  "col": [
+   "electrical grounding",
+   "grounding wire",
+   "grounding system",
+   "proper grounding",
+   "grounding rod",
+   "a good grounding in"
+  ],
+  "syn": [
+   "earthing",
+   "foundation"
+  ]
+ },
+ "immunity": {
+  "ipaUS": "/ɪˈmjuːnəti/",
+  "col": [
+   "build immunity",
+   "herd immunity",
+   "natural immunity",
+   "immunity to a disease",
+   "diplomatic immunity",
+   "legal immunity"
+  ],
+  "syn": [
+   "resistance",
+   "protection",
+   "exemption"
+  ]
+ },
+ "latency": {
+  "ipaUS": "/ˈleɪtənsi/",
+  "col": [
+   "low latency",
+   "high latency",
+   "network latency",
+   "reduce latency",
+   "latency issue",
+   "audio latency"
+  ],
+  "syn": [
+   "delay",
+   "lag"
+  ]
+ },
+ "lathe": {
+  "ipaUS": "/leɪð/",
+  "col": [
+   "operate a lathe",
+   "CNC lathe",
+   "metal lathe",
+   "wood lathe",
+   "lathe operator",
+   "turn on a lathe"
+  ],
+  "syn": [
+   "turning machine",
+   "machine tool"
+  ]
+ }
+}

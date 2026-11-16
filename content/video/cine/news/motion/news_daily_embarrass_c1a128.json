@@ -1,0 +1,230 @@
+{
+ "id": "mo_news_daily_embarrass_c1a128",
+ "template": "mistake",
+ "title": "News Motion – if 2 (news_daily_embarrass_c1a128)",
+ "teacher": "ama",
+ "clips": [
+  "ga11_talk",
+  "ga11_explain",
+  "ga11_happy",
+  "ga11_thinking",
+  "ga11_surprise_3"
+ ],
+ "listen": [
+  "ga11_listen_2"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy2",
+ "active": "mint",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "grammar-check",
+  "link": "",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Grammar Fix",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "Don't embarrass yourself"
+  },
+  {
+   "id": "b0",
+   "text": "Many learners say: If I will be rich, I would travel.",
+   "gap": 0.7
+  },
+  {
+   "id": "b1",
+   "text": "Pause and guess. What sounds right?",
+   "gap": 0.7
+  },
+  {
+   "id": "b2",
+   "text": "Say: If I were rich, I would travel.",
+   "gap": 0.7
+  },
+  {
+   "id": "b3",
+   "text": "For dreams, use if plus past, then would.",
+   "gap": 0.7
+  },
+  {
+   "id": "b4",
+   "text": "Is 'If I will be rich, I would travel' correct? No.",
+   "gap": 0.7
+  },
+  {
+   "id": "b5",
+   "text": "Repeat after me: If I were rich, I would travel.",
+   "gap": 0.7
+  },
+  {
+   "id": "b6",
+   "text": "Now at normal speed: If I were rich, I would travel.",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "If I will be rich, I would travel.",
+      "white"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Common mistake",
+      "tone": "coral"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "If I "
+       ],
+       [
+        "will be",
+        "ink"
+       ],
+       [
+        " rich, I would travel."
+       ]
+      ]
+     }
+    ],
+    "strike": [
+     {
+      "line": 0,
+      "run": 1,
+      "at": [
+       "b0",
+       5
+      ]
+     }
+    ]
+   },
+   {
+    "id": "no",
+    "at": [
+     "b5",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Also say",
+      "tone": "teal"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "If I were rich, I would travel.",
+        "teal"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "better",
+    "at": [
+     "b2",
+     0
+    ],
+    "tone": "green",
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Better",
+      "tone": "green"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "If I were rich, I would travel.",
+        "green"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "hook_text": "If I will be rich, I would travel.",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ }
+}

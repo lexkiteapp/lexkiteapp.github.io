@@ -1,0 +1,752 @@
+{
+ "mediation": {
+  "mis": [
+   {
+    "w": "The two firms agreed to go to a mediation.",
+    "r": "The two firms agreed to go to mediation.",
+    "why": "Mediation chỉ quá trình nói chung nên không đếm được, sau go to không dùng mạo từ a."
+   },
+   {
+    "w": "The dispute was solved by mediation of a neutral lawyer.",
+    "r": "The dispute was settled through the mediation of a neutral lawyer.",
+    "why": "Chỉ phương tiện dùng 'through the mediation of'; 'by mediation of' không tự nhiên."
+   }
+  ],
+  "u": "Mediation là cách giải quyết tranh chấp nhờ một người trung lập gọi là mediator, người dẫn dắt cuộc trao đổi nhưng không tự quyết định kết quả. Vì vậy nó khác arbitration, nơi trọng tài đưa ra phán quyết bắt buộc. Từ này hay gặp trong tranh chấp gia đình, nơi làm việc và thương mại, thường rẻ hơn kiện tụng. Khi nói về quá trình nói chung thì không đếm được: the case went to mediation."
+ },
+ "migration": {
+  "mis": [
+   {
+    "w": "The migration from rural areas to cities are rising.",
+    "r": "The migration from rural areas to cities is rising.",
+    "why": "Migration là danh từ số ít nên động từ phải chia số ít, không dùng are."
+   },
+   {
+    "w": "Many birds make a migration to the south every winter.",
+    "r": "Many birds migrate to the south every winter.",
+    "why": "Động từ migrate tự nhiên hơn make a migration; dùng danh từ ở đây rườm rà."
+   }
+  ],
+  "u": "Migration là sự di chuyển từ nơi này sang nơi khác, dùng cho người, động vật và trong công nghệ thông tin là dữ liệu hay phần mềm. Các cụm như rural-urban migration, seasonal migration, data migration rất phổ biến. Với con người, từ này mang sắc thái trung tính, hơi trang trọng và không nói việc di chuyển hợp pháp hay không. Đừng nhầm với immigration, nghĩa là nhập cư để sống ở một nước mới."
+ },
+ "mold": {
+  "mis": [
+   {
+    "w": "The metal is poured to a mold and left to cool.",
+    "r": "The metal is poured into a mold and left to cool.",
+    "why": "Pour dùng giới từ into cho vật chứa nhận chất lỏng, không dùng to."
+   },
+   {
+    "w": "Bread left in the kitchen got a mold after a week.",
+    "r": "Bread left in the kitchen grew mold after a week.",
+    "why": "Mold nghĩa là nấm mốc thì không đếm được nên không dùng mạo từ a."
+   }
+  ],
+  "u": "Trong tiếng Anh Mỹ, mold có hai nghĩa không liên quan: khuôn rỗng tạo hình cho vật liệu lỏng như nhựa, kim loại, thạch, và nấm mốc mọc trên thức ăn hay tường ẩm. Tiếng Anh Anh viết cả hai là mould. Trong sản xuất, injection mold là dụng cụ nên đếm được; nghĩa nấm mốc thì không đếm được. Thành ngữ break the mold nghĩa là làm điều gì theo cách hoàn toàn mới."
+ },
+ "neurology": {
+  "mis": [
+   {
+    "w": "She is a neurology and works at the city hospital.",
+    "r": "She is a neurologist and works at the city hospital.",
+    "why": "Neurology là ngành; người làm nghề là neurologist."
+   },
+   {
+    "w": "He studied the neurology of Vietnam University.",
+    "r": "He studied neurology at Vietnam University.",
+    "why": "Dùng at với trường đại học, và không thêm the hay of trước tên ngành."
+   }
+  ],
+  "u": "Neurology là chuyên khoa chẩn đoán và điều trị bệnh của não, tủy sống và dây thần kinh, như động kinh, đột quỵ, Parkinson. Bác sĩ là neurologist, còn khoa thường gọi là neurology. Từ này không đếm được và đi với động từ số ít. Đừng nhầm với neuroscience, là nghiên cứu về hệ thần kinh chứ không phải chăm sóc bệnh nhân, hay neurosurgery, nghĩa là phẫu thuật thần kinh."
+ },
+ "notarize": {
+  "mis": [
+   {
+    "w": "I need to notarize my passport copy by a notary.",
+    "r": "I need to have my passport copy notarized by a notary.",
+    "why": "Notarize là chứng thực; nhờ người khác làm thì dùng have/get + tân ngữ + quá khứ phân từ."
+   },
+   {
+    "w": "The notary will notarizing your signature tomorrow.",
+    "r": "The notary will notarize your signature tomorrow.",
+    "why": "Sau will dùng động từ nguyên mẫu, không dùng dạng -ing."
+   }
+  ],
+  "u": "Notarize một văn bản nghĩa là nhờ công chứng viên kiểm tra danh tính người ký rồi chính thức xác nhận chữ ký hoặc bản sao. Người ta thường không tự notarize mà get hoặc have a document notarized. Đây là động từ pháp lý, trang trọng, dùng với hợp đồng, giấy ủy quyền, bản dịch. Tiếng Anh Anh hay viết notarise. Đừng nhầm với việc chỉ ký hay làm chứng đơn giản."
+ },
+ "notary": {
+  "mis": [
+   {
+    "w": "The contract was notary by a lawyer yesterday.",
+    "r": "The contract was notarized by a notary yesterday.",
+    "why": "Notary là danh từ chỉ người; động từ là notarize."
+   },
+   {
+    "w": "Please bring your ID to notary.",
+    "r": "Please bring your ID to the notary.",
+    "why": "Danh từ đếm được số ít cần mạo từ; ở đây cần the."
+   }
+  ],
+  "u": "Notary, hay notary public, là người có thẩm quyền chứng kiến chữ ký, chứng thực bản sao và nhận lời tuyên thệ. Vai trò khác nhau theo nước: ở Mỹ notary chủ yếu xác minh danh tính, còn ở nhiều nước theo luật dân sự, trong đó có Việt Nam, công chứng viên có nhiệm vụ pháp lý rộng hơn và thường cần được đào tạo về luật. Người là a notary; hành động là to notarize. Nói go to the notary hoặc see a notary."
+ },
+ "oncology": {
+  "mis": [
+   {
+    "w": "She works as an oncology in a big hospital.",
+    "r": "She works as an oncologist in a big hospital.",
+    "why": "Oncology là ngành; chuyên gia là oncologist."
+   },
+   {
+    "w": "The oncology are very busy this week.",
+    "r": "The oncology department is very busy this week.",
+    "why": "Oncology là ngành, không phải nhóm người; muốn nói về nhân viên thì dùng oncology department."
+   }
+  ],
+  "u": "Oncology là ngành y nghiên cứu và điều trị ung thư. Bác sĩ trong ngành là oncologist, với các nhánh chính là nội khoa ung bướu, phẫu thuật ung bướu và xạ trị. Từ này không đếm được, trang trọng, thường thấy trong tên khoa như oncology unit và trong tin tức về điều trị. Bệnh nhân thường được nói là điều trị ở oncology hoặc nằm tại oncology ward."
+ },
+ "orthopedics": {
+  "mis": [
+   {
+    "w": "Orthopedics are the study of bones and joints.",
+    "r": "Orthopedics is the study of bones and joints.",
+    "why": "Tên ngành tận cùng -ics như orthopedics dùng động từ số ít."
+   },
+   {
+    "w": "He is an orthopedics and he treats knees.",
+    "r": "He is an orthopedist and he treats knees.",
+    "why": "Orthopedics là ngành; bác sĩ là orthopedist hoặc orthopedic surgeon."
+   }
+  ],
+  "u": "Orthopedics là chuyên khoa về xương, khớp, cơ và dây chằng, gồm gãy xương và thay khớp. Tiếng Anh Mỹ viết orthopedics, tiếng Anh Anh viết orthopaedics. Dù tận cùng bằng -s, từ này là số ít và không đếm được. Bác sĩ là orthopedist hoặc orthopedic surgeon, còn tính từ là orthopedic: giày hay nệm orthopedic, nghĩa là loại hỗ trợ chỉnh hình."
+ },
+ "outpatient": {
+  "mis": [
+   {
+    "w": "He was treated like an outpatient at the hospital.",
+    "r": "He was treated as an outpatient at the hospital.",
+    "why": "Dùng as cho vai trò hay tình trạng, không dùng like."
+   },
+   {
+    "w": "Many outpatient is waiting in the clinic.",
+    "r": "Many outpatients are waiting in the clinic.",
+    "why": "Many cần danh từ số nhiều và động từ số nhiều."
+   }
+  ],
+  "u": "Outpatient là người đến bệnh viện hay phòng khám để điều trị hoặc xét nghiệm nhưng không ở lại qua đêm; trái nghĩa là inpatient. Từ này còn làm tính từ: outpatient surgery, outpatient clinic. Ở Anh, day patient có nghĩa tương tự. Bệnh viện thường báo cáo riêng số outpatient và inpatient."
+ },
+ "overhaul": {
+  "mis": [
+   {
+    "w": "The old engine was overhaul last year.",
+    "r": "The old engine was overhauled last year.",
+    "why": "Câu bị động cần quá khứ phân từ overhauled, không dùng dạng nguyên mẫu."
+   },
+   {
+    "w": "The government will overhaul to the education system.",
+    "r": "The government will overhaul the education system.",
+    "why": "Động từ overhaul đi thẳng với tân ngữ, không có to."
+   }
+  ],
+  "u": "Overhaul vừa là danh từ vừa là động từ. Trong kỹ thuật, nó là việc kiểm tra và sửa chữa toàn diện máy móc, như động cơ máy bay. Nghĩa rộng là cải tổ triệt để một hệ thống, như tax overhaul hay overhaul chương trình học. Từ này mạnh hơn adjust hay tweak và gợi ý thay đổi gần như mọi thứ. Các từ đi kèm thường gặp là major, complete và total."
+ },
+ "pathology": {
+  "mis": [
+   {
+    "w": "The pathology of the patient are serious.",
+    "r": "The pathology of the patient is serious.",
+    "why": "Pathology là danh từ số ít, không đếm được nên dùng động từ số ít."
+   },
+   {
+    "w": "She is a pathology at the hospital.",
+    "r": "She is a pathologist at the hospital.",
+    "why": "Pathology là ngành; bác sĩ là pathologist."
+   }
+  ],
+  "u": "Pathology là ngành nghiên cứu bệnh, nguyên nhân và tác động của bệnh; trong bệnh viện, từ này thường chỉ phòng xét nghiệm kiểm tra mô và máu để chẩn đoán. Pathologist là chuyên gia, pathology report là kết quả sau sinh thiết. Forensic pathology điều tra nguyên nhân tử vong. Từ này cũng chỉ những thay đổi bất thường do bệnh, như pathology of the liver. Đây là từ trang trọng và không đếm được."
+ },
+ "pediatrics": {
+  "mis": [
+   {
+    "w": "Pediatrics are a popular specialty among students.",
+    "r": "Pediatrics is a popular specialty among students.",
+    "why": "Tên ngành tận cùng -ics là số ít nên dùng is."
+   },
+   {
+    "w": "She is a pediatrics and treats babies.",
+    "r": "She is a pediatrician and treats babies.",
+    "why": "Pediatrics là ngành; bác sĩ là pediatrician."
+   }
+  ],
+  "u": "Pediatrics là ngành y dành cho trẻ sơ sinh, trẻ em và thanh thiếu niên. Bác sĩ là pediatrician, tính từ là pediatric: pediatric nurse, pediatric dose (liều cho trẻ). Tiếng Anh Anh viết paediatrics. Từ này là số ít và không đếm được dù tận cùng -s. Người ta nói she works in pediatrics hoặc he is training in pediatrics; khu vực bệnh viện là pediatrics ward hay children's ward."
+ },
+ "peripheral": {
+  "mis": [
+   {
+    "w": "The mouse and printer are peripheral of the computer.",
+    "r": "The mouse and printer are peripherals of the computer.",
+    "why": "Dùng như danh từ thì cần số nhiều -s; peripheral đứng một mình là tính từ."
+   },
+   {
+    "w": "This problem is peripheral with our main goal.",
+    "r": "This problem is peripheral to our main goal.",
+    "why": "Tính từ peripheral đi với to, không phải with."
+   }
+  ],
+  "u": "Peripheral chủ yếu là tính từ nghĩa là ở rìa hoặc ít quan trọng: peripheral vision (thị giác ngoại vi), a peripheral issue. Trong máy tính, nó còn là danh từ chỉ thiết bị gắn vào máy như máy in, chuột, máy quét; khi đó đếm được và thường ở số nhiều. Cấu trúc be peripheral to something hay dùng trong văn trang trọng; ý ngược lại là central hoặc core."
+ },
+ "pharmacology": {
+  "mis": [
+   {
+    "w": "Pharmacology are difficult for many students.",
+    "r": "Pharmacology is difficult for many students.",
+    "why": "Pharmacology là danh từ số ít không đếm được nên dùng is."
+   },
+   {
+    "w": "He studies the pharmacology of the university.",
+    "r": "He studies pharmacology at the university.",
+    "why": "Dùng at cho nơi học và không thêm the...of trước tên môn."
+   }
+  ],
+  "u": "Pharmacology là khoa học về cách thuốc tác động lên cơ thể, gồm liều dùng, tác dụng, tác dụng phụ và tương tác thuốc. Khác với pharmacy là việc bào chế và bán thuốc. Người nghiên cứu là pharmacologist, tính từ là pharmacological. Từ này không đếm được và trang trọng, thường thấy trong khóa học y, tạp chí khoa học và cụm clinical pharmacology."
+ },
+ "physiology": {
+  "mis": [
+   {
+    "w": "The physiology of the heart are complex.",
+    "r": "The physiology of the heart is complex.",
+    "why": "Chủ ngữ là physiology, danh từ số ít nên dùng is."
+   },
+   {
+    "w": "I like physiological because it explains the body.",
+    "r": "I like physiology because it explains the body.",
+    "why": "Physiological là tính từ; làm tân ngữ của like phải dùng danh từ physiology."
+   }
+  ],
+  "u": "Physiology là khoa học về cách cơ thể sống hoạt động: cơ quan, tế bào và hệ thống vận hành ra sao. Nó khác anatomy là ngành nghiên cứu cấu trúc, và khác psychology là ngành nghiên cứu tâm lý. Tính từ là physiological, chuyên gia là physiologist. Từ này không đếm được, dùng cho người, động vật hoặc thực vật. Cụm hay gặp là human physiology, exercise physiology, physiology of sleep."
+ },
+ "physiotherapy": {
+  "mis": [
+   {
+    "w": "He needs a physiotherapy after the operation.",
+    "r": "He needs physiotherapy after the operation.",
+    "why": "Physiotherapy không đếm được nên không dùng a."
+   },
+   {
+    "w": "She is a physiotherapy at the hospital.",
+    "r": "She is a physiotherapist at the hospital.",
+    "why": "Physiotherapy là phương pháp điều trị; người làm là physiotherapist."
+   }
+  ],
+  "u": "Physiotherapy là phương pháp điều trị bằng vận động, xoa bóp để phục hồi sức mạnh và khả năng cử động sau chấn thương, phẫu thuật hay bệnh. Đây là từ thông dụng trong tiếng Anh Anh và Úc; người Mỹ nói physical therapy, người làm nghề là physical therapist. Ở Anh là physiotherapist, khi nói nhanh hay gọi tắt physio. Từ này không đếm được: have physiotherapy, không nói a physiotherapy."
+ },
+ "pipeline": {
+  "mis": [
+   {
+    "w": "A new project is on the pipeline.",
+    "r": "A new project is in the pipeline.",
+    "why": "Thành ngữ đúng là in the pipeline, nghĩa là đang được lên kế hoạch."
+   },
+   {
+    "w": "The oil pipe line runs across the desert.",
+    "r": "The oil pipeline runs across the desert.",
+    "why": "Pipeline là một từ ghép viết liền, không tách thành hai từ."
+   }
+  ],
+  "u": "Pipeline là hệ thống đường ống dài dẫn dầu, khí hoặc nước đi xa. Nghĩa bóng, in the pipeline là đang được chuẩn bị và sắp xuất hiện: new products are in the pipeline. Trong kinh doanh, sales pipeline là các thương vụ ở những giai đoạn khác nhau; trong phần mềm, data pipeline hay CI pipeline là chuỗi bước tự động. Thành ngữ này cần giới từ in, không dùng on."
+ },
+ "plaintiff": {
+  "mis": [
+   {
+    "w": "The defendant filed the lawsuit against the company.",
+    "r": "The plaintiff filed the lawsuit against the company.",
+    "why": "Plaintiff là bên khởi kiện vụ dân sự; defendant là bên bị kiện."
+   },
+   {
+    "w": "The plaintiff sued to the company for damages.",
+    "r": "The plaintiff sued the company for damages.",
+    "why": "Sue đi thẳng với tân ngữ, không có to."
+   }
+  ],
+  "u": "Plaintiff là người hoặc bên khởi kiện một vụ dân sự và yêu cầu tòa án giải quyết, thường là bồi thường tiền. Bên đối lập là defendant. Trong vụ hình sự không có plaintiff vì nhà nước truy tố qua prosecutor. Ở Anh và xứ Wales, thuật ngữ hiện đại là claimant. Đây là danh từ pháp lý, trang trọng, đếm được: the plaintiffs filed a joint complaint."
+ },
+ "pneumatic": {
+  "mis": [
+   {
+    "w": "This tool is pneumatically and very powerful.",
+    "r": "This tool is pneumatic and very powerful.",
+    "why": "Sau is cần tính từ; pneumatic là tính từ, pneumatically là trạng từ."
+   },
+   {
+    "w": "The brakes on this truck are pneumatical.",
+    "r": "The brakes on this truck are pneumatic.",
+    "why": "Tính từ là pneumatic; không có dạng -al."
+   }
+  ],
+  "u": "Pneumatic mô tả thứ vận hành bằng khí nén, như pneumatic drill, pneumatic brakes, pneumatic tire. Đây là tính từ kỹ thuật, gặp nhiều trong cơ khí và nhà máy. Chữ p đầu không đọc nên từ bắt đầu bằng âm /nu/. So sánh với hydraulic là dùng chất lỏng có áp suất. Hệ thống khí nén nhẹ và sạch hơn nhưng tạo lực yếu hơn hệ thống thủy lực."
+ },
+ "precision": {
+  "mis": [
+   {
+    "w": "The machine works with a high precise.",
+    "r": "The machine works with high precision.",
+    "why": "Sau with phải dùng danh từ precision, không dùng tính từ precise."
+   },
+   {
+    "w": "She measured the parts by precision.",
+    "r": "She measured the parts with precision.",
+    "why": "Cách thức diễn đạt bằng with precision, không dùng by precision."
+   }
+  ],
+  "u": "Precision là mức độ chính xác, thường dùng cho dụng cụ, phép đo và công việc cẩn thận. Trong khoa học và kỹ thuật, nó hơi khác accuracy: accuracy là gần giá trị thật, precision là lặp lại được và chi tiết mịn. Tính từ là precise, trạng từ là precisely. Từ này thường không đếm được và làm định ngữ: precision tools, precision engineering. Mẫu thường dùng là with precision, không phải by precision."
+ },
+ "processor": {
+  "mis": [
+   {
+    "w": "My computer has a slow processing.",
+    "r": "My computer has a slow processor.",
+    "why": "Processing là hành động; linh kiện phần cứng là processor."
+   },
+   {
+    "w": "The processor of this phone are very fast.",
+    "r": "The processor of this phone is very fast.",
+    "why": "Chủ ngữ là processor số ít, không phải phone, nên động từ là is."
+   }
+  ],
+  "u": "Processor là bộ phận của máy tính hay điện thoại thực hiện các lệnh; CPU là thuật ngữ thông dụng cho bộ xử lý chính, và một chip có thể chứa nhiều nhân. Tốc độ đo bằng gigahertz và số nhân. Từ này còn xuất hiện trong các từ ghép khác: word processor là phần mềm soạn thảo văn bản, food processor là máy chế biến thực phẩm trong bếp. Processor đếm được: the phone has an eight-core processor."
+ },
+ "procurement": {
+  "mis": [
+   {
+    "w": "The procurements of new laptops took three months.",
+    "r": "The procurement of new laptops took three months.",
+    "why": "Procurement chỉ quá trình nên không đếm được, không thêm -s."
+   },
+   {
+    "w": "We are in charge of the procurement for office supplies.",
+    "r": "We are in charge of the procurement of office supplies.",
+    "why": "Sau procurement dùng of để nêu hàng hóa được mua."
+   }
+  ],
+  "u": "Procurement là quy trình chính thức để một tổ chức có được hàng hóa, dịch vụ hay công trình, gồm tìm nhà cung cấp, so sánh báo giá và ký hợp đồng. Đây là thuật ngữ kinh doanh và nhà nước, trang trọng hơn buying hay purchasing, ngụ ý có quy định và các bước phê duyệt. Public procurement là chi tiêu của nhà nước. Procurement officer hay manager điều hành việc này. Từ không đếm được và thường theo sau bằng of."
+ },
+ "prognosis": {
+  "mis": [
+   {
+    "w": "The doctor made a prognostic for the patient.",
+    "r": "The doctor gave a prognosis for the patient.",
+    "why": "Prognosis là danh từ; prognostic là tính từ. Cụm đúng là give a prognosis."
+   },
+   {
+    "w": "The prognosis for these patients are good.",
+    "r": "The prognosis for these patients is good.",
+    "why": "Chủ ngữ là prognosis số ít, không phải patients, nên dùng is."
+   }
+  ],
+  "u": "Prognosis là nhận định của bác sĩ về diễn tiến có thể xảy ra của bệnh và khả năng hồi phục của người bệnh. Từ này nhìn về phía trước, khác diagnosis là xác định bệnh ở hiện tại. Người ta nói good, poor hoặc uncertain prognosis. Số nhiều là prognoses. Đây là từ y khoa trang trọng, cũng dùng nghĩa bóng cho mọi dự báo: the economic prognosis. Mẫu thường gặp: the prognosis for something."
+ },
+ "prosecution": {
+  "mis": [
+   {
+    "w": "He escaped from prosecution by leaving the country.",
+    "r": "He escaped prosecution by leaving the country.",
+    "why": "Escape đi thẳng với tân ngữ ở đây, không có from."
+   },
+   {
+    "w": "He faces prosecute for stealing.",
+    "r": "He faces prosecution for stealing.",
+    "why": "Sau động từ faces cần danh từ prosecution, không dùng động từ prosecute."
+   }
+  ],
+  "u": "Prosecution có hai nghĩa: hành động truy tố hình sự một người và tiến hành vụ án, và nhóm pháp lý thực hiện việc đó, như the prosecution called three witnesses. Ở nghĩa thứ hai, tiếng Anh Anh có thể dùng động từ số ít hoặc số nhiều. Người làm việc này là prosecutor. Bị cáo có thể face prosecution, escape prosecution hoặc được miễn truy tố. Đây là từ pháp lý trang trọng."
+ },
+ "prosecutor": {
+  "mis": [
+   {
+    "w": "The prosecutor defended the accused in court.",
+    "r": "The defense lawyer defended the accused in court.",
+    "why": "Prosecutor buộc tội thay mặt nhà nước; người bào chữa là defense lawyer."
+   },
+   {
+    "w": "He works as prosecutor in Hanoi.",
+    "r": "He works as a prosecutor in Hanoi.",
+    "why": "Chức danh nghề là danh từ đếm được số ít sau as nên cần a."
+   }
+  ],
+  "u": "Prosecutor là luật sư đưa ra cáo buộc hình sự và trình bày vụ án chống lại bị cáo thay mặt nhà nước. Ở Mỹ chức danh thường là district attorney hay state attorney; ở Anh là Crown prosecutor. Prosecutor làm việc cho nhà nước nên đừng nhầm với defense lawyer là người bảo vệ bị cáo. Động từ là prosecute, còn danh từ chỉ vụ truy tố là prosecution."
+ },
+ "psychiatry": {
+  "mis": [
+   {
+    "w": "He is a psychiatry and works at a hospital.",
+    "r": "He is a psychiatrist and works at a hospital.",
+    "why": "Psychiatry là ngành; bác sĩ là psychiatrist."
+   },
+   {
+    "w": "A psychiatrist can prescribe, but a psychology cannot.",
+    "r": "A psychiatrist can prescribe, but a psychologist cannot.",
+    "why": "So sánh hai người: psychiatrist và psychologist; psychology là môn học."
+   }
+  ],
+  "u": "Psychiatry là chuyên khoa y chẩn đoán và điều trị bệnh tâm thần, như trầm cảm, tâm thần phân liệt và rối loạn lo âu. Psychiatrist là bác sĩ y khoa nên được kê đơn thuốc. Điều này phân biệt với psychologist, người nghiên cứu hành vi và thường trị liệu mà không dùng thuốc. Từ không đếm được, và các cụm psychiatry ward, child psychiatry rất phổ biến ở bệnh viện."
+ },
+ "quarantine": {
+  "mis": [
+   {
+    "w": "He stayed in a quarantine for ten days.",
+    "r": "He stayed in quarantine for ten days.",
+    "why": "Quarantine chỉ tình trạng cách ly nên không đếm được, không dùng a."
+   },
+   {
+    "w": "The travelers were quarantine for two weeks.",
+    "r": "The travelers were quarantined for two weeks.",
+    "why": "Câu bị động cần quá khứ phân từ quarantined."
+   }
+  ],
+  "u": "Quarantine là việc cách ly người hay động vật có thể mang bệnh nhưng chưa biết có ốm hay không, để ngăn bệnh lây lan. Nó khác isolation là tách người đã được xác nhận mắc bệnh. Từ dùng được cả danh từ và động từ: be in quarantine, to quarantine someone. Dùng với in và không có a: go into quarantine. Quarantine period là số ngày cách ly bắt buộc."
+ },
+ "quotation": {
+  "mis": [
+   {
+    "w": "Please send me a quotation about the repair.",
+    "r": "Please send me a quotation for the repair.",
+    "why": "Quotation là bảng báo giá cho một công việc; giới từ là for."
+   },
+   {
+    "w": "The quotation price are valid for 30 days.",
+    "r": "The quotation price is valid for 30 days.",
+    "why": "Chủ ngữ là danh từ số ít price nên dùng is."
+   }
+  ],
+  "u": "Quotation có hai nghĩa: câu trích dẫn từ một văn bản hay người nói, và trong kinh doanh là văn bản nêu giá bạn sẽ tính cho hàng hóa hoặc công việc, có hiệu lực trong một thời hạn. Khi nói người ta hay rút gọn thành quote. Quotation là đề nghị giá chắc chắn, còn estimate chỉ là ước chừng. Cụm thường gặp là get a quotation from a supplier và a quotation for the repair."
+ },
+ "radiotherapy": {
+  "mis": [
+   {
+    "w": "She had a radiotherapy last month.",
+    "r": "She had radiotherapy last month.",
+    "why": "Radiotherapy không đếm được nên không dùng a."
+   },
+   {
+    "w": "She received radiotherapies for six weeks.",
+    "r": "She received radiotherapy for six weeks.",
+    "why": "Radiotherapy không đếm được nên không có số nhiều."
+   }
+  ],
+  "u": "Radiotherapy là phương pháp điều trị ung thư dùng liều bức xạ có kiểm soát để tiêu diệt tế bào u. Thường được kết hợp với phẫu thuật hoặc hóa trị. Tiếng Anh Mỹ hay dùng radiation therapy hơn, và chuyên gia là radiation oncologist. Radiotherapy không đếm được; muốn nói từng lần thì dùng a session hoặc a course of radiotherapy. Bệnh nhân thường xạ trị hằng ngày trong vài tuần."
+ },
+ "refactor": {
+  "mis": [
+   {
+    "w": "Please refactoring this function.",
+    "r": "Please refactor this function.",
+    "why": "Sau please dùng động từ nguyên mẫu."
+   },
+   {
+    "w": "Let's refactor to the old module.",
+    "r": "Let's refactor the old module.",
+    "why": "Refactor là ngoại động từ, đi thẳng với tân ngữ, không có to."
+   }
+  ],
+  "u": "Refactor là cấu trúc lại mã nguồn hiện có cho gọn và dễ bảo trì hơn mà không thay đổi điều nó làm cho người dùng. Nó không phải viết lại hay thêm tính năng, và nên refactor khi đã có test để phát hiện mọi thay đổi hành vi. Danh từ là refactoring: this class needs refactoring. Đây là từ chuyên ngành thân mật, lập trình viên dùng hằng ngày và hầu như luôn là ngoại động từ."
+ },
+ "regression": {
+  "mis": [
+   {
+    "w": "The update caused a regression of the login feature.",
+    "r": "The update caused a regression in the login feature.",
+    "why": "Dùng in cho lỗi nằm trong một tính năng; of không tự nhiên ở đây."
+   },
+   {
+    "w": "The release contains regression.",
+    "r": "The release contains a regression.",
+    "why": "Theo nghĩa phần mềm, regression là lỗi đếm được nên cần mạo từ a."
+   }
+  ],
+  "u": "Trong phần mềm, regression là lỗi ở một tính năng từng chạy tốt, thường do thay đổi gần đây gây ra. Các nhóm chạy regression test sau mỗi bản phát hành để phát hiện chúng. Từ này bắt nguồn từ regress, nghĩa là đi lùi. Ngoài IT, nó có thể là quay lại trạng thái trước, như trong tâm lý học, hoặc statistical regression là phương pháp mô hình hóa quan hệ giữa các đại lượng. Ngữ cảnh quyết định nghĩa."
+ },
+ "repository": {
+  "mis": [
+   {
+    "w": "Please commit your changes on the repository.",
+    "r": "Please commit your changes to the repository.",
+    "why": "Thay đổi được commit vào repository, dùng to chứ không dùng on."
+   },
+   {
+    "w": "Our team has three repository on GitHub.",
+    "r": "Our team has three repositories on GitHub.",
+    "why": "Three cần danh từ số nhiều; repository thành repositories."
+   }
+  ],
+  "u": "Repository là nơi lưu trữ đồ vật. Trong phần mềm, đó là nơi, thường quản lý bằng Git, chứa mã nguồn của dự án cùng toàn bộ lịch sử thay đổi; lập trình viên gọi tắt là repo. Bạn clone, push to và pull from một repository, có thể là cục bộ hoặc từ xa. Trong tiếng Anh thông thường, a repository of knowledge là người hay nơi giữ nhiều thông tin. Trọng âm chính rơi vào âm tiết thứ hai."
+ },
+ "respiratory": {
+  "mis": [
+   {
+    "w": "He has a respiratory of problems.",
+    "r": "He has respiratory problems.",
+    "why": "Respiratory là tính từ, đứng thẳng trước danh từ, không có of."
+   },
+   {
+    "w": "The respiration system is damaged by smoke.",
+    "r": "The respiratory system is damaged by smoke.",
+    "why": "Respiration là danh từ; tính từ đứng trước system là respiratory."
+   }
+  ],
+  "u": "Respiratory là tính từ y khoa trang trọng, nghĩa là liên quan đến hô hấp và các cơ quan dùng để thở, chủ yếu là phổi và đường thở. Từ này xuất hiện trong respiratory system, respiratory infection, respiratory failure, respiratory rate. Danh từ liên quan respiration là hành động thở, và máy trợ thở là respirator. Trong lời nói thường ngày, người ta nói breathing problems thay vì respiratory problems."
+ },
+ "runtime": {
+  "mis": [
+   {
+    "w": "The error appears in runtime, not when we compile.",
+    "r": "The error appears at runtime, not when we compile.",
+    "why": "Cụm cố định là at runtime."
+   },
+   {
+    "w": "A runtime error is a mistake that is found when writing the code.",
+    "r": "A runtime error is a mistake that occurs when the program is running.",
+    "why": "Runtime chỉ lúc chương trình đang chạy, không phải lúc viết mã."
+   }
+  ],
+  "u": "Runtime là khoảng thời gian chương trình đang chạy, hoặc môi trường phần mềm hỗ trợ việc chạy đó, như Java runtime. Runtime error xảy ra khi chương trình đang chạy, khác compile-time error là lỗi bị bắt trước khi chạy. Lập trình viên nói at runtime. Danh từ này viết liền hoặc tách thành run time. Đừng nhầm với running time, là thời lượng của một bộ phim."
+ },
+ "securities": {
+  "mis": [
+   {
+    "w": "He bought securities of a safe company.",
+    "r": "He bought securities in a safe company.",
+    "why": "Chứng khoán được mua trong công ty; dùng in, không dùng of."
+   },
+   {
+    "w": "The securities is traded on the exchange.",
+    "r": "Securities are traded on the exchange.",
+    "why": "Nghĩa chứng khoán là danh từ số nhiều nên dùng are."
+   }
+  ],
+  "u": "Securities là tài sản tài chính có thể giao dịch, chủ yếu là cổ phiếu, trái phiếu và công cụ tương tự, mua bán trên thị trường. Ở nghĩa này từ luôn dùng số nhiều: securities are regulated. Không liên quan đến an ninh cá nhân, nơi security số ít là danh từ không đếm được. Các thuật ngữ như securities exchange, securities fraud, securities firm thuộc lĩnh vực tài chính và luật, và cơ quan quản lý bảo vệ nhà đầu tư."
+ },
+ "shaft": {
+  "mis": [
+   {
+    "w": "The engine's shaft is rotate at high speed.",
+    "r": "The engine's shaft is rotating at high speed.",
+    "why": "Sau is, thì tiếp diễn cần dạng -ing rotating."
+   },
+   {
+    "w": "The workers went down in the mine shaft by elevator.",
+    "r": "The workers went down the mine shaft by elevator.",
+    "why": "Go down đi thẳng với tân ngữ như shaft, không dùng in."
+   }
+  ],
+  "u": "Shaft có nhiều nghĩa. Trong cơ khí, đó là thanh quay truyền lực, như drive shaft. Nó còn chỉ lối đi hẹp thẳng đứng, như mine shaft hay lift shaft (thang máy, tiếng Anh Anh), và một tia sáng: a shaft of sunlight. Cần xem ngữ cảnh vì từ này cũng có nghĩa lóng thô tục."
+ },
+ "sterile": {
+  "mis": [
+   {
+    "w": "The doctor wore a sterilize glove.",
+    "r": "The doctor wore a sterile glove.",
+    "why": "Sau a cần tính từ sterile, không dùng động từ sterilize."
+   },
+   {
+    "w": "The instruments must be sterile by heating.",
+    "r": "The instruments must be sterilized by heating.",
+    "why": "Sterile là trạng thái; quá trình 'by heating' cần bị động sterilized."
+   }
+  ],
+  "u": "Sterile nghĩa là hoàn toàn không còn vi khuẩn và mầm bệnh sống, như dụng cụ phẫu thuật, kim tiêm và băng gạc. Động từ là sterilize, danh từ là sterility. Từ còn có nghĩa thứ hai là không có khả năng sinh sản, và nghĩa bóng chỉ thứ khô khan, thiếu sáng tạo, như a sterile debate. Sterile mạnh hơn clean hay hygienic vì đồ sạch vẫn có thể mang vi khuẩn."
+ },
+ "subsidiary": {
+  "mis": [
+   {
+    "w": "The company is a subsidiary from a Japanese group.",
+    "r": "The company is a subsidiary of a Japanese group.",
+    "why": "Dùng of để nối công ty con với công ty mẹ."
+   },
+   {
+    "w": "They own three subsidiarys abroad.",
+    "r": "They own three subsidiaries abroad.",
+    "why": "Danh từ kết thúc bằng phụ âm + y đổi sang -ies ở số nhiều."
+   }
+  ],
+  "u": "Subsidiary là công ty do một công ty khác kiểm soát, gọi là công ty mẹ, nắm hơn một nửa cổ phần. Wholly owned subsidiary là công ty con sở hữu hoàn toàn. Khác với chi nhánh, subsidiary là pháp nhân riêng có sổ sách riêng. Mẫu hay dùng là subsidiary of the parent group. Subsidiary còn là tính từ nghĩa là phụ, thứ yếu, như a subsidiary question, và khi đó trang trọng hơn."
+ },
+ "suture": {
+  "mis": [
+   {
+    "w": "The nurse sutured with the wound.",
+    "r": "The nurse sutured the wound.",
+    "why": "Suture là động từ có tân ngữ trực tiếp, không cần giới từ."
+   },
+   {
+    "w": "He has ten suture in his arm.",
+    "r": "He has ten sutures in his arm.",
+    "why": "Ten cần danh từ số nhiều."
+   }
+  ],
+  "u": "Suture là mũi khâu hoặc chỉ mà bác sĩ phẫu thuật dùng để đóng vết thương hay nối mô; cũng dùng như động từ. Từ này trang trọng, mang tính lâm sàng, nhân viên y tế dùng, còn bệnh nhân thường nói stitches. Chỉ khâu có thể absorbable, tự tiêu, hoặc non-absorbable, phải cắt chỉ. Bạn được khâu chỉ (get sutures put in) và bác sĩ tháo chỉ sau khoảng một tuần."
+ },
+ "testimony": {
+  "mis": [
+   {
+    "w": "The witness gave a lot of testimonies in court.",
+    "r": "The witness gave a lot of testimony in court.",
+    "why": "Testimony thường không đếm được nên không dùng số nhiều sau a lot of."
+   },
+   {
+    "w": "She made a testimony before the judge.",
+    "r": "She gave testimony before the judge.",
+    "why": "Cụm đúng là give testimony, không phải make a testimony."
+   }
+  ],
+  "u": "Testimony là lời khai chính thức của nhân chứng, thường dưới lời thề trước tòa. Từ này thường không đếm được: give testimony, hear testimony, false testimony. Nghĩa bóng: something is a testimony to a person's skill nghĩa là bằng chứng rõ ràng cho tài năng của người đó. Testimony là bằng chứng bằng lời nói, khác với tài liệu hay vật chứng. Động từ là testify, người đưa lời khai là witness."
+ },
+ "tolerance": {
+  "mis": [
+   {
+    "w": "She has no tolerance of spicy food.",
+    "r": "She has no tolerance for spicy food.",
+    "why": "Tolerance với một thứ hay hành vi dùng giới từ for."
+   },
+   {
+    "w": "The part is outside of tolerance and must be rejected.",
+    "r": "The part is out of tolerance and must be rejected.",
+    "why": "Cụm kỹ thuật chuẩn là out of tolerance."
+   }
+  ],
+  "u": "Tolerance có ba nghĩa thông dụng. Về xã hội, đó là chấp nhận quan điểm hay hành vi mình không chia sẻ: religious tolerance. Trong y học, đó là khả năng cơ thể chịu được thuốc hay chất nào đó, như alcohol tolerance. Trong kỹ thuật, đó là mức sai lệch cho phép của phép đo; trục 20 mm với tolerance 0,1 mm có thể đo từ 19,9 đến 20,1. Tính từ là tolerant, còn zero tolerance nghĩa là không có ngoại lệ."
+ },
+ "torque": {
+  "mis": [
+   {
+    "w": "The engine produces a lot of torques at low speed.",
+    "r": "The engine produces a lot of torque at low speed.",
+    "why": "Torque nghĩa này không đếm được, không dùng số nhiều sau a lot of."
+   },
+   {
+    "w": "Tighten the bolt with the specified torque.",
+    "r": "Tighten the bolt to the specified torque.",
+    "why": "Tighten đi với to trước giá trị torque mục tiêu."
+   }
+  ],
+  "u": "Torque là lực xoắn gây ra chuyển động quay, đo bằng newton-mét hoặc pound-feet. Bu lông phải được siết đến một torque quy định bằng cờ lê lực, và động cơ ô tô được đánh giá bằng torque cực đại. Nó liên quan đến công suất nhưng không giống: torque là lực quay, còn công suất là tốc độ thực hiện công. Từ mang tính kỹ thuật và ở nghĩa này không đếm được. Chữ q đọc như k."
+ },
+ "transformer": {
+  "mis": [
+   {
+    "w": "The transformer change the voltage from 220 to 12.",
+    "r": "The transformer changes the voltage from 220 to 12.",
+    "why": "Chủ ngữ số ít thì động từ hiện tại đơn thêm -s."
+   },
+   {
+    "w": "We need a transformator for this device.",
+    "r": "We need a transformer for this device.",
+    "why": "Từ tiếng Anh là transformer; transformator là dạng vay mượn từ ngôn ngữ khác."
+   }
+  ],
+  "u": "Transformer là thiết bị tăng hoặc giảm điện áp của dòng điện xoay chiều bằng hai cuộn dây. Máy biến áp tăng (step-up) nâng điện áp để truyền tải đường dài, máy biến áp giảm (step-down) hạ điện áp cho hộ gia đình. Nó không hoạt động với dòng một chiều. Trong phim và đồ chơi, từ này còn chỉ người máy biến hình. Từ bắt nguồn từ transform và đếm được."
+ },
+ "troubleshooting": {
+  "mis": [
+   {
+    "w": "We did a lot of troubleshootings yesterday.",
+    "r": "We did a lot of troubleshooting yesterday.",
+    "why": "Troubleshooting không đếm được nên không có số nhiều."
+   },
+   {
+    "w": "He is troubleshooting to the printer.",
+    "r": "He is troubleshooting the printer.",
+    "why": "Động từ troubleshoot đi thẳng với tân ngữ, không có to."
+   }
+  ],
+  "u": "Troubleshooting là quá trình có hệ thống tìm nguyên nhân sự cố và khắc phục, phổ biến trong CNTT, điện tử và kỹ thuật. Động từ là troubleshoot, người làm là troubleshooter. Troubleshooting guide liệt kê triệu chứng và cách sửa. Nó khác debugging chỉ lỗi phần mềm, và khác repair là việc sửa chữa vật lý. Danh từ không đếm được: do some troubleshooting."
+ },
+ "ultrasound": {
+  "mis": [
+   {
+    "w": "She did an ultrasound at the clinic yesterday.",
+    "r": "She had an ultrasound at the clinic yesterday.",
+    "why": "Bệnh nhân have a scan, còn bác sĩ mới do; dùng have."
+   },
+   {
+    "w": "The doctor checked the baby by an ultrasound.",
+    "r": "The doctor checked the baby with an ultrasound.",
+    "why": "Dùng with cho dụng cụ được sử dụng."
+   }
+  ],
+  "u": "Ultrasound là phương pháp chụp hình dùng sóng âm tần số cao để quan sát cơ quan hoặc thai nhi trong bụng mẹ; an toàn và không dùng bức xạ. Cùng từ đó cũng chỉ chính loại âm thanh vượt ngưỡng nghe của người. Ở phòng khám, nó có thể đếm được (she had an ultrasound) hoặc làm tính từ (ultrasound scan). Người thực hiện là sonographer, và hình ảnh là sonogram."
+ },
+ "uptime": {
+  "mis": [
+   {
+    "w": "The server has an uptime of 99.9 percents.",
+    "r": "The server has an uptime of 99.9 percent.",
+    "why": "Percent không thêm -s sau con số trong cách dùng này."
+   },
+   {
+    "w": "The site had a long uptime, so customers could not log in.",
+    "r": "The site had a long downtime, so customers could not log in.",
+    "why": "Uptime là lúc hệ thống chạy; khoảng thời gian người dùng không đăng nhập được là downtime."
+   }
+  ],
+  "u": "Uptime là lượng hoặc tỷ lệ thời gian một hệ thống, website hay máy móc hoạt động và sẵn sàng. Nhà cung cấp cam kết uptime trong hợp đồng dịch vụ, thường 99,9 phần trăm, tức cho phép khoảng chín giờ ngừng hoạt động mỗi năm. Trái nghĩa là downtime. Từ không đếm được và mang tính kỹ thuật thân mật. Nó chỉ khác availability chút ít: uptime là thời gian đo được, còn availability là mức độ sẵn sàng dùng của dịch vụ."
+ },
+ "valuation": {
+  "mis": [
+   {
+    "w": "The valuation of the company are 5 million dollars.",
+    "r": "The valuation of the company is 5 million dollars.",
+    "why": "Chủ ngữ valuation là số ít nên dùng is."
+   },
+   {
+    "w": "We need to valuate the house before selling.",
+    "r": "We need a valuation of the house before selling.",
+    "why": "Valuate hiếm dùng; danh từ chuẩn là valuation, động từ là value."
+   }
+  ],
+  "u": "Valuation là ước tính giá trị của một công ty, bất động sản hay tài sản, thường do chuyên gia thực hiện. Dùng trong đầu tư, bảo hiểm và mua bán nhà đất. Một start-up có thể có valuation cao dựa trên tăng trưởng kỳ vọng chứ không phải lợi nhuận. Động từ là value, không phải valuate; người làm là valuer ở Anh hoặc appraiser ở Mỹ. Đếm được: three different valuations."
+ },
+ "verdict": {
+  "mis": [
+   {
+    "w": "The jury made a verdict of guilty.",
+    "r": "The jury reached a verdict of guilty.",
+    "why": "Cụm đúng là reach hoặc return a verdict, không phải make a verdict."
+   },
+   {
+    "w": "The jury's verdict was announce yesterday.",
+    "r": "The jury's verdict was announced yesterday.",
+    "why": "Câu bị động cần quá khứ phân từ announced."
+   }
+  ],
+  "u": "Verdict là quyết định chính thức của bồi thẩm đoàn, hoặc của thẩm phán trong một số phiên xử, về việc bị cáo có tội hay không. Nó khác sentence là hình phạt, và khác ruling là quyết định của thẩm phán về một điểm luật. Verdict cũng có thể là ý kiến mạnh bất kỳ: the critics' verdict on the film was kind. Cụm thường gặp là reach a verdict và a unanimous verdict."
+ },
+ "virtualization": {
+  "mis": [
+   {
+    "w": "Virtualization let us run many servers on one machine.",
+    "r": "Virtualization lets us run many servers on one machine.",
+    "why": "Chủ ngữ số ít cần động từ hiện tại đơn thêm -s."
+   },
+   {
+    "w": "We use virtualize to run many servers.",
+    "r": "We use virtualization to run many servers.",
+    "why": "Sau use cần danh từ virtualization, không dùng động từ."
+   }
+  ],
+  "u": "Virtualization là công nghệ tạo phiên bản ảo của máy tính, thiết bị lưu trữ hay mạng trên nền phần cứng thật, để một máy có thể chạy nhiều hệ thống tách biệt. Hypervisor là phần mềm quản lý chúng. Công nghệ này giảm chi phí và cho phép sao lưu nhanh. Từ không đếm được; tiếng Anh Anh viết virtualisation. Đừng nhầm với virtual reality, là môi trường mô phỏng cho người dùng."
+ },
+ "voltage": {
+  "mis": [
+   {
+    "w": "The voltage of this cable are very high.",
+    "r": "The voltage of this cable is very high.",
+    "why": "Voltage là danh từ số ít không đếm được nên dùng is."
+   },
+   {
+    "w": "The voltage runs through the wire.",
+    "r": "Current runs through the wire.",
+    "why": "Dòng điện chạy; voltage là lực đẩy nó nên không nói voltage chạy qua dây."
+   }
+  ],
+  "u": "Voltage là áp lực điện đẩy dòng điện qua mạch, đo bằng vôn. Nguồn 230 vôn là điện lưới ở nhiều nơi trên thế giới, và pin có thể cho 1,5 vôn. Người học hay nhầm với current là dòng điện tích đo bằng ampe, và với power đo bằng watt. Voltage không đếm được; bạn đo nó giữa hai đầu một linh kiện và nói high hoặc low voltage."
+ }
+}

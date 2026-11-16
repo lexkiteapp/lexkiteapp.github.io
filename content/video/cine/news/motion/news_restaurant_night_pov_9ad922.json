@@ -1,0 +1,290 @@
+{
+ "id": "mo_news_restaurant_night_pov_9ad922",
+ "template": "tip",
+ "title": "News Motion – ordering food politely: I'll have (news_restaurant_night_pov_9ad922)",
+ "teacher": "ama",
+ "clips": [
+  "ga11_talk",
+  "ga11_explain",
+  "ga11_happy",
+  "ga11_thinking",
+  "ga11_surprise_3"
+ ],
+ "listen": [
+  "ga11_listen_2"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy2",
+ "active": "mint",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "roleplay",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Restaurant English",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "Can you order politely?"
+  },
+  {
+   "id": "t0",
+   "text": "The server asks: Ready to order? Many learners say: I want salmon.",
+   "gap": 0.7
+  },
+  {
+   "id": "t1",
+   "text": "Pause and guess. What sounds more polite?",
+   "gap": 0.7
+  },
+  {
+   "id": "t2",
+   "text": "Say: I'll have the salmon, please.",
+   "gap": 0.7
+  },
+  {
+   "id": "t3",
+   "text": "I want sounds rude here. I'll have sounds friendly.",
+   "gap": 0.7
+  },
+  {
+   "id": "t4",
+   "text": "Is 'I want salmon' polite to a server? No.",
+   "gap": 0.7
+  },
+  {
+   "id": "t5",
+   "text": "Repeat after me: I'll have the salmon, please.",
+   "gap": 0.7
+  },
+  {
+   "id": "t6",
+   "text": "Now at normal speed: I'll have the salmon, please.",
+   "gap": 0.7
+  },
+  {
+   "id": "r",
+   "text": "Teacher's tip: save these lines.",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "ORDER",
+      "white"
+     ]
+    ],
+    [
+     [
+      "POLITELY?",
+      "yellow"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Restaurant English · Ordering food",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "ORDER"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "POLITELY?"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "sum",
+    "at": [
+     "r",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Remember",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "I'll have the salmon, please.",
+        "gold"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "Could I get the pasta, please?",
+        "teal"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "Can I see the menu, please?",
+        "coral"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "rules",
+    "at": [
+     "t1",
+     0
+    ],
+    "rows": [
+     {
+      "t": "tile",
+      "tag": "GUESS",
+      "tone": "gold",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "What sounds right?",
+        "gold"
+       ]
+      ],
+      "ex_at": [
+       "t1",
+       0
+      ],
+      "at": [
+       "t1",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "WHY",
+      "tone": "teal",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "I want sounds rude here. I'll have sounds friendly.",
+        "teal"
+       ]
+      ],
+      "ex_at": [
+       "t3",
+       0
+      ],
+      "at": [
+       "t3",
+       0
+      ]
+     }
+    ]
+   }
+  ],
+  "hook_text": "ORDER POLITELY?",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ }
+}

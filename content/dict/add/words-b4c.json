@@ -1,0 +1,782 @@
+{
+ "mediation": {
+  "ipaUS": "/ˌmiːdiˈeɪʃn/",
+  "col": [
+   "go to mediation",
+   "family mediation",
+   "mediation service",
+   "mediation session",
+   "through mediation",
+   "mediation between the two sides"
+  ],
+  "syn": [
+   "arbitration",
+   "negotiation",
+   "intervention"
+  ]
+ },
+ "migration": {
+  "ipaUS": "/maɪˈɡreɪʃn/",
+  "col": [
+   "data migration",
+   "mass migration",
+   "seasonal migration",
+   "migration of birds",
+   "cloud migration",
+   "migration to the cities"
+  ],
+  "syn": [
+   "relocation",
+   "transfer",
+   "movement"
+  ]
+ },
+ "mold": {
+  "ipaUS": "/moʊld/",
+  "col": [
+   "injection mold",
+   "plastic mold",
+   "steel mold",
+   "pour into a mold",
+   "break the mold",
+   "mold design"
+  ],
+  "syn": [
+   "cast",
+   "form",
+   "template"
+  ]
+ },
+ "neurology": {
+  "ipaUS": "/nʊˈrɑːlədʒi/",
+  "col": [
+   "neurology department",
+   "neurology clinic",
+   "consultant in neurology",
+   "pediatric neurology",
+   "specialize in neurology",
+   "refer to neurology"
+  ],
+  "syn": [
+   "brain medicine",
+   "nervous system medicine"
+  ]
+ },
+ "notarize": {
+  "ipaUS": "/ˈnoʊtəraɪz/",
+  "col": [
+   "notarize a document",
+   "notarize a signature",
+   "get it notarized",
+   "notarize a contract",
+   "notarize a copy",
+   "have a letter notarized"
+  ],
+  "syn": [
+   "certify",
+   "authenticate",
+   "witness"
+  ]
+ },
+ "notary": {
+  "ipaUS": "/ˈnoʊtəri/",
+  "col": [
+   "notary public",
+   "notary office",
+   "go to a notary",
+   "notary fee",
+   "sworn before a notary",
+   "certified by a notary"
+  ],
+  "syn": [
+   "notary public",
+   "commissioner for oaths"
+  ]
+ },
+ "oncology": {
+  "ipaUS": "/ɑːŋˈkɑːlədʒi/",
+  "col": [
+   "oncology department",
+   "oncology ward",
+   "medical oncology",
+   "pediatric oncology",
+   "oncology nurse",
+   "oncology unit"
+  ],
+  "syn": [
+   "cancer medicine",
+   "cancer care"
+  ]
+ },
+ "orthopedics": {
+  "ipaUS": "/ˌɔːrθəˈpiːdɪks/",
+  "col": [
+   "orthopedics department",
+   "orthopedics clinic",
+   "pediatric orthopedics",
+   "work in orthopedics",
+   "orthopedics ward",
+   "orthopedics specialist"
+  ],
+  "syn": [
+   "bone surgery",
+   "orthopaedics"
+  ]
+ },
+ "outpatient": {
+  "ipaUS": "/ˈaʊtpeɪʃnt/",
+  "col": [
+   "outpatient clinic",
+   "outpatient department",
+   "outpatient care",
+   "outpatient surgery",
+   "outpatient treatment",
+   "see as an outpatient"
+  ],
+  "syn": [
+   "day patient",
+   "ambulatory patient"
+  ]
+ },
+ "overhaul": {
+  "ipaUS": "/ˈoʊvərhɔːl/",
+  "col": [
+   "major overhaul",
+   "engine overhaul",
+   "complete overhaul",
+   "overhaul of the system",
+   "undergo an overhaul",
+   "overhaul the tax system"
+  ],
+  "syn": [
+   "revamp",
+   "reform",
+   "refit"
+  ]
+ },
+ "pathology": {
+  "ipaUS": "/pəˈθɑːlədʒi/",
+  "col": [
+   "pathology report",
+   "pathology department",
+   "clinical pathology",
+   "pathology lab",
+   "send to pathology",
+   "forensic pathology"
+  ],
+  "syn": [
+   "disease study",
+   "histology"
+  ]
+ },
+ "pediatrics": {
+  "ipaUS": "/ˌpiːdiˈætrɪks/",
+  "col": [
+   "pediatrics department",
+   "pediatrics ward",
+   "specialize in pediatrics",
+   "pediatrics resident",
+   "chief of pediatrics",
+   "pediatrics clinic"
+  ],
+  "syn": [
+   "child medicine",
+   "paediatrics"
+  ]
+ },
+ "peripheral": {
+  "ipaUS": "/pəˈrɪfərəl/",
+  "col": [
+   "peripheral device",
+   "connect a peripheral",
+   "computer peripherals",
+   "peripheral vision",
+   "peripheral nerve",
+   "peripheral issue"
+  ],
+  "syn": [
+   "accessory",
+   "add-on",
+   "external device"
+  ]
+ },
+ "pharmacology": {
+  "ipaUS": "/ˌfɑːrməˈkɑːlədʒi/",
+  "col": [
+   "clinical pharmacology",
+   "pharmacology course",
+   "pharmacology lecture",
+   "study pharmacology",
+   "pharmacology research",
+   "pharmacology textbook"
+  ],
+  "syn": [
+   "drug science",
+   "pharmaceutics"
+  ]
+ },
+ "physiology": {
+  "ipaUS": "/ˌfɪziˈɑːlədʒi/",
+  "col": [
+   "human physiology",
+   "cardiac physiology",
+   "exercise physiology",
+   "plant physiology",
+   "study physiology",
+   "physiology of the heart"
+  ],
+  "syn": [
+   "body function",
+   "biology"
+  ]
+ },
+ "physiotherapy": {
+  "ipaUS": "/ˌfɪzioʊˈθerəpi/",
+  "col": [
+   "physiotherapy session",
+   "physiotherapy clinic",
+   "receive physiotherapy",
+   "physiotherapy exercises",
+   "need physiotherapy",
+   "physiotherapy after surgery"
+  ],
+  "syn": [
+   "physical therapy",
+   "rehabilitation"
+  ]
+ },
+ "pipeline": {
+  "ipaUS": "/ˈpaɪplaɪn/",
+  "col": [
+   "gas pipeline",
+   "oil pipeline",
+   "in the pipeline",
+   "pipeline project",
+   "build a pipeline",
+   "data pipeline"
+  ],
+  "syn": [
+   "conduit",
+   "duct",
+   "supply line"
+  ]
+ },
+ "plaintiff": {
+  "ipaUS": "/ˈpleɪntɪf/",
+  "col": [
+   "the plaintiff alleges",
+   "plaintiff and defendant",
+   "lead plaintiff",
+   "the plaintiff's lawyer",
+   "plaintiff seeks damages",
+   "on behalf of the plaintiff"
+  ],
+  "syn": [
+   "claimant",
+   "complainant",
+   "litigant"
+  ]
+ },
+ "pneumatic": {
+  "ipaUS": "/nuːˈmætɪk/",
+  "col": [
+   "pneumatic drill",
+   "pneumatic tire",
+   "pneumatic tool",
+   "pneumatic system",
+   "pneumatic cylinder",
+   "pneumatic hammer"
+  ],
+  "syn": [
+   "air-powered",
+   "compressed-air"
+  ]
+ },
+ "precision": {
+  "ipaUS": "/prɪˈsɪʒn/",
+  "col": [
+   "with precision",
+   "great precision",
+   "precision engineering",
+   "precision instrument",
+   "lack of precision",
+   "precision and accuracy"
+  ],
+  "syn": [
+   "exactness",
+   "accuracy",
+   "preciseness"
+  ]
+ },
+ "processor": {
+  "ipaUS": "/ˈprɑːsesər/",
+  "col": [
+   "fast processor",
+   "dual-core processor",
+   "processor speed",
+   "word processor",
+   "food processor",
+   "processor chip"
+  ],
+  "syn": [
+   "CPU",
+   "chip",
+   "microprocessor"
+  ]
+ },
+ "procurement": {
+  "ipaUS": "/proʊˈkjʊrmənt/",
+  "col": [
+   "procurement process",
+   "public procurement",
+   "procurement department",
+   "procurement officer",
+   "procurement contract",
+   "procurement of equipment"
+  ],
+  "syn": [
+   "purchasing",
+   "acquisition",
+   "sourcing"
+  ]
+ },
+ "prognosis": {
+  "ipaUS": "/prɑːɡˈnoʊsɪs/",
+  "col": [
+   "good prognosis",
+   "poor prognosis",
+   "prognosis for recovery",
+   "give a prognosis",
+   "long-term prognosis",
+   "prognosis of the disease"
+  ],
+  "syn": [
+   "outlook",
+   "forecast",
+   "prediction"
+  ]
+ },
+ "prosecution": {
+  "ipaUS": "/ˌprɑːsɪˈkjuːʃn/",
+  "col": [
+   "the prosecution case",
+   "face prosecution",
+   "prosecution witness",
+   "prosecution lawyer",
+   "the prosecution argued",
+   "immunity from prosecution"
+  ],
+  "syn": [
+   "legal action",
+   "indictment",
+   "charges"
+  ]
+ },
+ "prosecutor": {
+  "ipaUS": "/ˈprɑːsɪkjuːtər/",
+  "col": [
+   "public prosecutor",
+   "chief prosecutor",
+   "state prosecutor",
+   "special prosecutor",
+   "prosecutor's office",
+   "the prosecutor argued"
+  ],
+  "syn": [
+   "state attorney",
+   "district attorney",
+   "state's attorney"
+  ]
+ },
+ "psychiatry": {
+  "ipaUS": "/saɪˈkaɪətri/",
+  "col": [
+   "child psychiatry",
+   "psychiatry department",
+   "study psychiatry",
+   "psychiatry ward",
+   "clinical psychiatry",
+   "consultant in psychiatry"
+  ],
+  "syn": [
+   "mental health medicine",
+   "psychological medicine"
+  ]
+ },
+ "quarantine": {
+  "ipaUS": "/ˈkwɔːrəntiːn/",
+  "col": [
+   "in quarantine",
+   "go into quarantine",
+   "quarantine period",
+   "quarantine zone",
+   "place in quarantine",
+   "quarantine rules"
+  ],
+  "syn": [
+   "isolation",
+   "confinement",
+   "containment"
+  ]
+ },
+ "quotation": {
+  "ipaUS": "/kwoʊˈteɪʃn/",
+  "col": [
+   "request a quotation",
+   "detailed quotation",
+   "price quotation",
+   "quotation for the job",
+   "insurance quotation",
+   "give a quotation"
+  ],
+  "syn": [
+   "quote",
+   "estimate",
+   "bid"
+  ]
+ },
+ "radiotherapy": {
+  "ipaUS": "/ˌreɪdioʊˈθerəpi/",
+  "col": [
+   "receive radiotherapy",
+   "course of radiotherapy",
+   "radiotherapy treatment",
+   "undergo radiotherapy",
+   "radiotherapy and chemotherapy",
+   "radiotherapy unit"
+  ],
+  "syn": [
+   "radiation therapy",
+   "radiation treatment"
+  ]
+ },
+ "refactor": {
+  "ipaUS": "/ˌriːˈfæktər/",
+  "col": [
+   "refactor the code",
+   "refactor a module",
+   "refactor legacy code",
+   "refactor without changing behavior",
+   "refactor into smaller functions",
+   "needs refactoring"
+  ],
+  "syn": [
+   "restructure",
+   "clean up",
+   "rework"
+  ]
+ },
+ "regression": {
+  "ipaUS": "/rɪˈɡreʃn/",
+  "col": [
+   "regression bug",
+   "regression test",
+   "regression testing",
+   "cause a regression",
+   "performance regression",
+   "regression in the release"
+  ],
+  "syn": [
+   "relapse",
+   "backslide",
+   "reversion"
+  ]
+ },
+ "repository": {
+  "ipaUS": "/rɪˈpɑːzətɔːri/",
+  "col": [
+   "code repository",
+   "clone a repository",
+   "Git repository",
+   "remote repository",
+   "push to the repository",
+   "repository of knowledge"
+  ],
+  "syn": [
+   "repo",
+   "archive",
+   "storehouse"
+  ]
+ },
+ "respiratory": {
+  "ipaUS": "/ˈrespərətɔːri/",
+  "col": [
+   "respiratory system",
+   "respiratory disease",
+   "respiratory infection",
+   "respiratory failure",
+   "respiratory rate",
+   "respiratory tract"
+  ],
+  "syn": [
+   "breathing",
+   "pulmonary",
+   "lung-related"
+  ]
+ },
+ "runtime": {
+  "ipaUS": "/ˈrʌntaɪm/",
+  "col": [
+   "at runtime",
+   "runtime error",
+   "runtime environment",
+   "runtime library",
+   "runtime performance",
+   "during runtime"
+  ],
+  "syn": [
+   "execution time",
+   "run time"
+  ]
+ },
+ "securities": {
+  "ipaUS": "/sɪˈkjʊrətiz/",
+  "col": [
+   "securities market",
+   "securities fraud",
+   "trade securities",
+   "securities exchange",
+   "government securities",
+   "securities firm"
+  ],
+  "syn": [
+   "stocks and bonds",
+   "financial instruments",
+   "shares"
+  ]
+ },
+ "shaft": {
+  "ipaUS": "/ʃæft/",
+  "col": [
+   "drive shaft",
+   "mine shaft",
+   "lift shaft",
+   "elevator shaft",
+   "shaft of light",
+   "crankshaft"
+  ],
+  "syn": [
+   "rod",
+   "spindle",
+   "axle"
+  ]
+ },
+ "sterile": {
+  "ipaUS": "/ˈsterəl/",
+  "col": [
+   "sterile equipment",
+   "sterile environment",
+   "sterile gloves",
+   "sterile dressing",
+   "completely sterile",
+   "keep it sterile"
+  ],
+  "syn": [
+   "germ-free",
+   "aseptic",
+   "sanitized"
+  ]
+ },
+ "subsidiary": {
+  "ipaUS": "/səbˈsɪdieri/",
+  "col": [
+   "wholly owned subsidiary",
+   "foreign subsidiary",
+   "subsidiary company",
+   "a subsidiary of",
+   "parent company and subsidiary",
+   "set up a subsidiary"
+  ],
+  "syn": [
+   "affiliate",
+   "branch",
+   "daughter company"
+  ]
+ },
+ "suture": {
+  "ipaUS": "/ˈsuːtʃər/",
+  "col": [
+   "remove sutures",
+   "surgical suture",
+   "absorbable suture",
+   "put in a suture",
+   "sutures were removed",
+   "suture a wound"
+  ],
+  "syn": [
+   "stitch",
+   "stitches"
+  ]
+ },
+ "testimony": {
+  "ipaUS": "/ˈtestəmoʊni/",
+  "col": [
+   "give testimony",
+   "witness testimony",
+   "false testimony",
+   "testimony in court",
+   "a testimony to",
+   "expert testimony"
+  ],
+  "syn": [
+   "evidence",
+   "statement",
+   "deposition"
+  ]
+ },
+ "tolerance": {
+  "ipaUS": "/ˈtɑːlərəns/",
+  "col": [
+   "tolerance level",
+   "zero tolerance",
+   "tolerance for",
+   "tolerance to",
+   "religious tolerance",
+   "within tolerance"
+  ],
+  "syn": [
+   "allowance",
+   "forbearance",
+   "acceptance"
+  ]
+ },
+ "torque": {
+  "ipaUS": "/tɔːrk/",
+  "col": [
+   "torque wrench",
+   "high torque",
+   "maximum torque",
+   "apply torque",
+   "engine torque",
+   "torque specification"
+  ],
+  "syn": [
+   "turning force",
+   "rotational force"
+  ]
+ },
+ "transformer": {
+  "ipaUS": "/trænsˈfɔːrmər/",
+  "col": [
+   "power transformer",
+   "step-up transformer",
+   "step-down transformer",
+   "distribution transformer",
+   "transformer station",
+   "transformer oil"
+  ],
+  "syn": [
+   "voltage converter",
+   "step-down unit"
+  ]
+ },
+ "troubleshooting": {
+  "ipaUS": "/ˈtrʌblʃuːtɪŋ/",
+  "col": [
+   "troubleshooting guide",
+   "basic troubleshooting",
+   "network troubleshooting",
+   "troubleshooting steps",
+   "troubleshooting tips",
+   "do some troubleshooting"
+  ],
+  "syn": [
+   "diagnosis",
+   "fault-finding",
+   "debugging"
+  ]
+ },
+ "ultrasound": {
+  "ipaUS": "/ˈʌltrəsaʊnd/",
+  "col": [
+   "ultrasound scan",
+   "have an ultrasound",
+   "ultrasound image",
+   "abdominal ultrasound",
+   "ultrasound machine",
+   "ultrasound examination"
+  ],
+  "syn": [
+   "sonography",
+   "sonogram"
+  ]
+ },
+ "uptime": {
+  "ipaUS": "/ˈʌptaɪm/",
+  "col": [
+   "99.9 percent uptime",
+   "server uptime",
+   "guarantee uptime",
+   "maximize uptime",
+   "uptime monitoring",
+   "uptime and downtime"
+  ],
+  "syn": [
+   "availability",
+   "operational time"
+  ]
+ },
+ "valuation": {
+  "ipaUS": "/væljuˈeɪʃn/",
+  "col": [
+   "company valuation",
+   "property valuation",
+   "valuation of the business",
+   "high valuation",
+   "carry out a valuation",
+   "valuation report"
+  ],
+  "syn": [
+   "appraisal",
+   "assessment",
+   "estimate"
+  ]
+ },
+ "verdict": {
+  "ipaUS": "/ˈvɜːrdɪkt/",
+  "col": [
+   "reach a verdict",
+   "guilty verdict",
+   "jury's verdict",
+   "deliver a verdict",
+   "unanimous verdict",
+   "verdict of not guilty"
+  ],
+  "syn": [
+   "ruling",
+   "judgment",
+   "finding"
+  ]
+ },
+ "virtualization": {
+  "ipaUS": "/ˌvɜːrtʃuələˈzeɪʃn/",
+  "col": [
+   "server virtualization",
+   "virtualization software",
+   "network virtualization",
+   "hardware virtualization",
+   "virtualization platform",
+   "desktop virtualization"
+  ],
+  "syn": [
+   "virtual machines",
+   "abstraction"
+  ]
+ },
+ "voltage": {
+  "ipaUS": "/ˈvoʊltɪdʒ/",
+  "col": [
+   "high voltage",
+   "low voltage",
+   "voltage drop",
+   "mains voltage",
+   "voltage regulator",
+   "voltage across the circuit"
+  ],
+  "syn": [
+   "electric potential",
+   "potential difference",
+   "tension"
+  ]
+ }
+}
