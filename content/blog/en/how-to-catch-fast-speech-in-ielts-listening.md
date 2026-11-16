@@ -177,3 +177,5 @@ Plural '-s' is often acoustically masked by the consonant of the next word. To c
 ### What accents appear most frequently in IELTS Listening?
 
 Standard Southern British (RP) accounts for approximately 60–70% of recordings, followed by Australian (15–20%), North American (10–15%), and occasional Scottish, Irish, or New Zealand voices. Practicing with diverse international accents ensures you are not unsettled on test day.
+
+For the most common Section 1 task, read our guide to [IELTS listening form completion](/en/blog/ielts-listening-form-completion/).

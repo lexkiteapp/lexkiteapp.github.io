@@ -237,3 +237,5 @@ Reply in the same thread so the reader sees the original message, wait a reasona
 ### Is it fine to use email templates?
 
 Yes, as a starting point. Templates help with structure and standard phrases. Always adapt the purpose, details and request to the real situation, because a generic email is easy to ignore.
+
+To sound courteous in every message, use our [polite English phrases for work](/en/blog/polite-english-at-work/).

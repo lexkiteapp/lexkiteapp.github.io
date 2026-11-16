@@ -88,6 +88,10 @@ Para interiorizar este método analítico hasta convertirlo en un acto reflejo, 
 2. **Revisión en el Registro de Fallos:** Cada vez que te equivoques al catalogar una opción, la pregunta quedará archivada en tu [registro de errores](/#/mistakes). Analiza semanalmente si tu debilidad principal es el vocabulario o la interpretación de calificadores.
 3. **Estrategias Complementarias de Lectura:** Combina este entrenamiento con las tácticas de [como mejorar el listening en ingles](/es/blog/como-mejorar-el-listening-en-ingles/) y las pautas para [como parafrasear en ielts tecnicas](/es/blog/como-parafrasear-en-ielts-tecnicas/), ya que la paráfrasis es el núcleo de las preguntas True. Si buscas ampliar tu vocabulario general, consulta [como aprender vocabulario en ingles](/es/blog/como-aprender-vocabulario-en-ingles/) y nuestro compendio de [collocations en ingles para ielts](/es/blog/collocations-en-ingles-para-ielts/). Asimismo, dispones de explicaciones adicionales en la sección [/ngu-phap/](/ngu-phap/).
 
+Muchas paráfrasis de estas preguntas usan vocabulario de la [lista de palabras académicas (AWL)](/es/blog/lista-de-palabras-academicas-awl-ielts/).
+
+Esta tarea es solo una de las familias de preguntas del examen; consulta todos los [tipos de preguntas de IELTS Reading](/es/blog/tipos-de-preguntas-ielts-reading/) para ver cómo encaja con las demás.
+
 ## Preguntas Frecuentes (FAQ)
 
 ### ¿Cuál es la diferencia entre True/False/Not Given y Yes/No/Not Given?

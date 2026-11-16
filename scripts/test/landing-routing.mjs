@@ -137,9 +137,13 @@ async function hint(file, langs, local = {}) {
 
 // ---------- 3b) Nút đổi ngôn ngữ đầu trang (web/js/lang-menu.js – dùng chung mọi trang tĩnh + app) ----------
 {
-  const { landingHref, LANG_NAMES, seoPage } = await import('../lib/site-layout.mjs');
+  const { landingHref, LANG_NAMES, seoPage } = await import('../lib/site-layout.mjs'), { CLONE_JS } = await import('../build-landing.mjs');
   for (const l of LANGS) {
-    const doc = new JSDOM(rd(fileOf(l))).window.document, sw = doc.querySelectorAll('header [data-lsw]'), b = doc.querySelector('[data-lsw] button'), m = doc.querySelector('[data-lsw] [role=menu]');
+    // menu thứ hai nằm rỗng trong HTML (giữ landing ≤ ngân sách gz) và site.js chép từ menu thứ nhất khi nạp: kiểm HTML rỗng + site.js có đoạn chép + chạy đoạn đó rồi so 15 mục
+    const html = rd(fileOf(l)), win = new JSDOM(html, { runScripts: 'outside-only' }).window, doc = win.document;
+    ok(/<ul[^>]*id="lsw-m2"[^>]*><\/ul>/.test(html) && rd('web/js/site.js').includes(CLONE_JS), `${fileOf(l)}: menu ngôn ngữ thứ hai rỗng trong HTML + site.js có đoạn chép`);
+    win.eval(CLONE_JS);
+    const sw = doc.querySelectorAll('header [data-lsw]'), b = doc.querySelector('[data-lsw] button'), m = doc.querySelector('[data-lsw] [role=menu]');
     const items = [...doc.querySelectorAll('header [data-lsw] [role=menuitem]')], foot = [...doc.querySelectorAll('footer [data-lsw] [role=menuitem]')];
     // chân trang v3: nút "Interface" mở menu thứ hai – cùng 15 liên kết hreflang, id riêng
     ok(foot.length === LANGS.length && foot.every((a, i) => a.getAttribute('href') === items[i].getAttribute('href') && a.lang === items[i].lang) && doc.querySelector('footer [data-lsw] [aria-haspopup]').getAttribute('aria-controls') === foot[0].closest('[role=menu]').id, `${fileOf(l)}: menu ngôn ngữ chân trang đủ 15 mục, đúng menu`);

@@ -19,6 +19,7 @@ node scripts/framework/build-functions.mjs --write   # sửa content/framework/f
 node scripts/fmt-stable.mjs | tail -1   # nguồn dịch i18n/ui + registry dài: mỗi mục một dòng, sắp xếp (chống xung đột PR – scripts/test/fmt-stable.mjs)
 node scripts/mediation/build.mjs         # sửa content/mediation/*.json → web/cpack/mediation (màn #/mediate)
 node scripts/lesson/build-path-nodes.mjs   # sửa content/lesson/path-nodes.json → web/cpack/lesson/path-nodes.js (nội dung nút Lộ trình)
+node scripts/build-install-links.mjs      # infra/install-links.json → web/js/ext-config.js, functions/api/_install_data.js
 # extension/app + gói dịch web/js/i18n KHÔNG commit trong PR (CI dựng lại, bot gen-sync commit; scripts/test/gen-pr-clean.mjs) → không dựng/kiểm ở đây
 node scripts/vi-lint.mjs
 node scripts/test/docs-budget.mjs

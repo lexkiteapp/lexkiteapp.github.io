@@ -139,3 +139,7 @@ Flashcards are excellent for remembering, but band descriptors reward the accura
 ### Is it worth learning synonyms for paraphrasing?
 
 Yes, but learn them as phrases with their typical partners rather than as one-to-one swaps. Paraphrasing also uses changes of word form and sentence structure, not only synonyms.
+
+To see how vocabulary is marked, read about [lexical resource in IELTS](/en/blog/lexical-resource-ielts/).
+
+Word parts help you learn faster: see [prefixes and suffixes](/en/blog/prefixes-and-suffixes/).

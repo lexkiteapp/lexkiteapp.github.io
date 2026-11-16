@@ -191,3 +191,5 @@ They can be interesting for comparison during practice, but they often choose sy
 ### Is paraphrasing in Speaking different from Writing?
 
 Yes. In Speaking you mainly paraphrase to avoid repeating the examiner's question word for word and to explain a word you cannot remember. Your language can be simpler and more conversational than in an essay, as long as the meaning stays clear.
+
+For the most common Task 2 question type, read our plan for an [IELTS opinion essay](/en/blog/ielts-opinion-essay/).
