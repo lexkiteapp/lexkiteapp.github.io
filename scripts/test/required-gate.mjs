@@ -79,6 +79,16 @@ ok(!prCapable('name: a\non:\n  push:\n    branches: [main]\n  schedule:\n    - c
 ok(!prCapable('name: a\non:\n  schedule:\n    - cron: \'0 0 * * *\'\n  workflow_dispatch:\njobs:\n  x:\n    if: github.event_name == \'pull_request\'\n'), 'chữ pull_request ngoài khối on: không tính');
 ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 'workflow_run → không');
 
+// 16/11: job bị huỷ của lượt cũ (concurrency nhường lượt) khi lượt MỚI đang chạy → CHỜ, không đỏ (#1427, #1475: Stitch diff)
+{
+  const stitchNew = wr('Stitch diff', 'in_progress', null, 9, { id: 900 });
+  const a = evaluate({ checkRuns: [cr('npm test', 'completed', 'success'), cr('diff', 'completed', 'cancelled', 5)], workflowRuns: [stitchNew] });
+  ok(a.state === 'pending' && a.failed.length === 0 && /diff \(huỷ – chờ lượt mới\)/.test(a.description), 'job bị huỷ + lượt workflow mới đang chạy → CHỜ lượt mới: ' + a.description);
+  const b = evaluate({ checkRuns: [cr('npm test', 'completed', 'success'), cr('diff', 'completed', 'cancelled', 5)], workflowRuns: [wr('Stitch diff', 'completed', 'success', 9, { id: 900 })] });
+  ok(b.state === 'failure' && b.failed.some(x => x.startsWith('diff')), 'huỷ mà KHÔNG còn lượt nào chạy (lượt mới đã xong) → vẫn đỏ, không giấu');
+  const c = evaluate({ checkRuns: [cr('npm test', 'completed', 'success')], workflowRuns: [wr('Stitch diff', 'completed', 'cancelled', 9, { id: 900, run_attempt: MAX_AUTO_RERUN })] });
+  ok(c.state === 'pending' && c.cancelled.length === 1, 'workflow huỷ ở lần chạy lại thứ ' + MAX_AUTO_RERUN + ' vẫn được chạy lại (cap nâng 2→4)');
+}
 // 16/11: wip-guard startup_failure (GitHub brownout pull_request_target) là lỗi hạ tầng, không chặn PR xanh
 {
   const wr2 = (name, conclusion, id = 1) => ({ name, path: `.github/workflows/${name}.yml`, workflow_id: id, status: 'completed', conclusion, run_number: 1, id, run_attempt: 1 });

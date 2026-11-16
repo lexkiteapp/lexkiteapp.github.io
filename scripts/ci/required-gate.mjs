@@ -21,7 +21,7 @@ const OK = new Set(['success', 'skipped', 'neutral']);
 const BAD = new Set(['failure', 'timed_out', 'cancelled', 'startup_failure', 'stale', 'error']);
 // 15/11: 'cancelled' KHÔNG phải lỗi thật – concurrency (cancel-in-progress) / runner mất huỷ lượt chạy mà không có lượt mới hơn cùng sha. Trước đây gate đỏ oan (#1340, #1324…).
 // Lượt workflow mới nhất của sha bị huỷ → CHỜ + bộ canh tự chạy lại (≤ MAX_AUTO_RERUN lần); quá số lần đó mới tính đỏ. Lỗi thật (failure/timed_out…) vẫn đỏ ngay.
-export const MAX_AUTO_RERUN = 2;
+export const MAX_AUTO_RERUN = 4;   // 16/11: 2 → 4 (huỷ do concurrency nhường lượt nhiều lần liền); quá 4 lần vẫn huỷ = vòng lặp thật → đỏ
 export const INFRA_STARTUP = new Set(['wip-guard']);   // workflow chỉ gác/gắn nhãn (không chấm mã PR): startup_failure = lỗi hạ tầng GitHub, không phải lỗi PR
 
 /** Hàm thuần: { checkRuns, statuses, workflowRuns } (dạng REST API) → { state, description, failed, pending, total }. */
@@ -63,12 +63,13 @@ export function evaluate({ checkRuns = [], statuses = [], workflowRuns = [] } = 
   for (const s of st.values()) items.push(s.state === 'pending' ? { name: s.context, status: 'in_progress' } : { name: s.context, status: 'completed', conclusion: s.state });
 
   const failed = [], pending = [], cancelled = [];
+  const active = items.some(i => i.runId && i.status !== 'completed');   // có lượt workflow chưa xong (lượt mới thay lượt bị concurrency huỷ) → job bị huỷ của lượt cũ không phải lỗi
   const retry = items.some(i => i.runId && i.conclusion === 'cancelled' && i.status === 'completed' && (i.attempt || 1) <= MAX_AUTO_RERUN);   // có lượt workflow bị huỷ còn được chạy lại
   for (const i of items) {
     if (i.status !== 'completed') pending.push(i.name);
     else if (OK.has(i.conclusion)) continue;
     else if (i.conclusion === 'cancelled' && i.runId && (i.attempt || 1) <= MAX_AUTO_RERUN) { cancelled.push({ runId: i.runId, attempt: i.attempt || 1, name: i.name }); pending.push(`${i.name} (huỷ – chạy lại)`); }
-    else if (i.conclusion === 'cancelled' && !i.runId && retry) pending.push(`${i.name} (huỷ – chờ lượt chạy lại)`);   // job/check của lượt workflow đang được chạy lại
+    else if (i.conclusion === 'cancelled' && !i.runId && (retry || active)) pending.push(`${i.name} (huỷ – chờ lượt ${retry ? 'chạy lại' : 'mới'})`);   // job/check bị huỷ của lượt workflow đang chạy lại / đã có lượt MỚI hơn đang chạy (concurrency nhường lượt: #1427, #1475 đỏ oan)
     else if (BAD.has(i.conclusion)) failed.push(`${i.name} (${i.conclusion})`);
     else pending.push(`${i.name} (${i.conclusion || 'chưa rõ'})`);   // action_required (PR fork chờ duyệt chạy) … → chờ, không đỏ
   }
