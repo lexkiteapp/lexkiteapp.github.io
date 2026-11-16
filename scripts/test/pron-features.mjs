@@ -1,4 +1,4 @@
-// Bài phát âm 44 âm IPA (web/js/pron/sounds.js) phải khớp bảng đặc trưng ngữ âm chuẩn scripts/pron/features.mjs:
+// Bài phát âm 44 âm IPA (web/cpack/pron/sounds.js) phải khớp bảng đặc trưng ngữ âm chuẩn scripts/pron/features.mjs:
 // 1. mouth (độ cao/vị trí lưỡi, môi, hàm, dài/ngắn, nguyên âm đôi đầu→cuối, vị trí/cách cấu âm, hữu/vô thanh, bật hơi, âm bên) trùng TỪNG trường.
 // 2. Lời giải thích (how/vn/tip) không được nói ngược đặc trưng: vd. /ɪ/ không được "hàm khép" hay "môi dàn rộng"; câu sai cũ (DENY) không quay lại.
 // 3. Chú thích hình khẩu hình (pron.js mouthSvg) lấy từ đặc trưng và nằm DƯỚI hình tròn, không đè mép.
@@ -6,7 +6,7 @@ import fs from 'node:fs'; import vm from 'node:vm'; import assert from 'node:ass
 import { REF, DENY, JAW } from '../pron/features.mjs';
 
 const c = {}; vm.createContext(c);
-vm.runInContext(fs.readFileSync('web/js/pron/sounds.js', 'utf8'), c);
+vm.runInContext(fs.readFileSync('web/cpack/pron/sounds.js', 'utf8'), c);
 const P = c.PRON.filter(x => ['vowels', 'diphthongs', 'consonants'].includes(x.group));
 let n = 0; const errs = [];
 const ok = (v, m) => { n++; if (!v) errs.push(m); };

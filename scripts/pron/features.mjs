@@ -1,6 +1,6 @@
 // Bảng đặc trưng ngữ âm CHUẨN cho 44 âm IPA của bài phát âm (giọng chuẩn Anh hiện đại – SSBE/RP, theo bảng IPA;
 // đối chiếu mô tả nguyên âm/phụ âm trong Roach "English Phonetics and Phonology" và bảng IPA của Cambridge Dictionary).
-// Đây là nguồn đối chiếu ĐỘC LẬP: scripts/test/pron-features.mjs so web/js/pron/sounds.js (mouth + lời giải thích) với bảng này.
+// Đây là nguồn đối chiếu ĐỘC LẬP: scripts/test/pron-features.mjs so web/cpack/pron/sounds.js (mouth + lời giải thích) với bảng này.
 // Sửa bảng này chỉ khi có nguồn ngữ âm học – không sửa cho khớp dữ liệu.
 //
 // Nguyên âm: height close | near-close | close-mid | mid | open-mid | near-open | open
