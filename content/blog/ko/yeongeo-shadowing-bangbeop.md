@@ -102,6 +102,10 @@ qualityScore: 94
 
 {{cta: /#/practice/speak | 스피킹 쉐도잉 훈련 시작}}
 
+쉐도잉으로 익힌 리듬을 시험 답변에 적용하는 방법은 [아이엘츠 스피킹 7점 답변](/ko/blog/ielts-speaking-7jeom-dapbyeon-yesi/) 글의 유창성 부분과 이어서 보면 좋습니다.
+
+쉐도잉으로 익힌 표현을 카페, 병원, 면접 같은 상황에 바로 쓰고 싶다면 [영어 말하기 자신감 키우기](/ko/blog/yeongeo-malhagi-jasingam-sanghwangbyeol-pyohyeon/)를 함께 읽어 보세요.
+
 ## 자주 묻는 질문
 
 ### 쉐도잉은 하루에 몇 시간씩 해야 효과가 있나요?

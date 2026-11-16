@@ -141,6 +141,8 @@ Explora miles de términos de uso cotidiano en la [biblioteca de vocabulario](/a
 
 {{youtube: | Inglés para viajar: frases esenciales en el aeropuerto y hotel}}
 
+Si quieres ganar seguridad al usar estas frases, lee también [cómo hablar inglés con confianza](/es/blog/como-hablar-ingles-con-confianza/) y practícalas en voz alta.
+
 ## Preguntas frecuentes
 
 ### ¿Cómo pedir que alguien hable más despacio si no entiendo su acento?

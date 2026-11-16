@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_same_as",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "The same as, not same like!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: My bag is the same like yours.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My bag is the same as yours.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After the same, use as.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "As! Your phone is the same as mine.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "My bag is the same like yours.",
+  "right": "My bag is the same as yours.",
+  "strike": "like",
+  "why": "After the same, use as.",
+  "memory": "The same as.",
+  "quiz": {
+   "stem": "Your phone is the same ___ mine.",
+   "options": [
+    "as",
+    "like"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "the same ตามด้วย as!",
+   "tip": "ไทยพูด “เหมือน” คำเดียว แต่ the same ต้องตามด้วย as: “the same as yours”",
+   "caption": "คุณเคยพูดว่า “My bag is the same like yours.” ไหม? 😅 ภาษาไทยพูด “เหมือน” คำเดียว แต่ในภาษาอังกฤษ the same ต้องตามด้วย as ไม่ใช่ like: “My bag is the same as yours.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “as” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยค แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“The same” goes with “as”!",
+   "tip": "Thai uses one word for same, but the same needs as: “the same as yours”",
+   "caption": "Do you say “My bag is the same like yours”? 😅 Thai uses one word for same, but the same needs as, not like. Say “My bag is the same as yours”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "the same ตามด้วย as!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 53,
+  "seconds": 31.5,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "the same ตามด้วย as!",
+  "keyword": "My bag is the same as yours.",
+  "value": "ไทยพูด “เหมือน” คำเดียว แต่ the same ต้องตามด้วย as: “the same as yours”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 47,
+  "platforms": {
+   "youtube": {
+    "title": "the same ตามด้วย as!",
+    "description": "ไทยพูด “เหมือน” คำเดียว แต่ the same ต้องตามด้วย as: “the same as yours”\n\nคุณเคยพูดว่า “My bag is the same like yours.” ไหม? 😅 ภาษาไทยพูด “เหมือน” คำเดียว แต่ในภาษาอังกฤษ the same ต้องตามด้วย as ไม่ใช่ like: “My bag is the same as yours.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "My bag is the same as yours.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “My bag is the same like yours.” ไหม? 😅 ภาษาไทยพูด “เหมือน” คำเดียว แต่ในภาษาอังกฤษ the same ต้องตามด้วย as ไม่ใช่ like: “My bag is the same as yours.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "the same ตามด้วย as!\n\nไทยพูด “เหมือน” คำเดียว แต่ the same ต้องตามด้วย as: “the same as yours”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "the same ตามด้วย as! ไทยพูด “เหมือน” คำเดียว แต่ the same ต้องตามด้วย as: “the same as yours” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “as” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยค แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

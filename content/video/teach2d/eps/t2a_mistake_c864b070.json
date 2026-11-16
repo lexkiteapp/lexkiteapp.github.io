@@ -1,0 +1,129 @@
+{
+ "id": "t2a_mistake_c864b070",
+ "template": "mistake",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "You ride a bike.",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: He drives a bike to school.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: He rides a bike to school.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "We drive cars and trucks. We ride bikes and horses.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Rides! He rides a bike to school.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "He drives a bike to school.",
+  "right": "He rides a bike to school.",
+  "strike": "drives a bike",
+  "why": "We drive cars and trucks. We ride bikes and horses.",
+  "memory": "Drive cars, ride bikes",
+  "quiz": {
+   "stem": "He ___ a bike to school.",
+   "options": [
+    "rides",
+    "drives"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "You ride a bike."
+ },
+ "src": {
+  "gold": "sb_c864b070",
+  "pid": "w:drive#v"
+ },
+ "est": {
+  "words": 53,
+  "seconds": 31.5,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "Stop saying \"drives a bike\"? Say this instead",
+  "keyword": "drives a bike",
+  "value": "Say \"He rides a bike to school\", not \"He drives a bike to school\". We drive cars and trucks. We ride bikes and horses.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#englishgrammar",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 47,
+  "platforms": {
+   "youtube": {
+    "title": "Stop saying \"drives a bike\"? Say this instead",
+    "description": "Say \"He rides a bike to school\", not \"He drives a bike to school\". We drive cars and trucks. We ride bikes and horses.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix\n\nSeries: Stop Saying This · Teacher: Ama\n\n#learnenglish #englishtips #englishgrammar #englishteacher",
+    "tags": [
+     "drives a bike",
+     "Stop Saying This",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Stop saying \"drives a bike\"? Say this instead\n\nSay \"He rides a bike to school\", not \"He drives a bike to school\". We drive cars and trucks. We ride bikes and horses.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Stop saying \"drives a bike\"? Say this instead\n\nSay \"He rides a bike to school\", not \"He drives a bike to school\". We drive cars and trucks. We ride bikes and horses.\n\nCheck your grammar: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#englishgrammar",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Stop saying \"drives a bike\"? Say this instead #learnenglish #englishtips #englishgrammar"
+   }
+  },
+  "first_comment": "Quiz answer: Rides! He rides a bike to school. Say \"He rides a bike to school\", not \"He drives a bike to school\". We drive cars and trucks. We ride bikes and horses. Practice it with a free quiz: {link}"
+ }
+}

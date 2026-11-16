@@ -217,3 +217,4 @@ Start with the error that changes meaning or causes the most misunderstandings: 
 
 For reading a short text aloud clearly, see [PTE read aloud pronunciation tips](/en/blog/pte-read-aloud-pronunciation/).
 
+The melody of a sentence matters too: see [English intonation](/en/blog/english-intonation/) for rising and falling patterns.

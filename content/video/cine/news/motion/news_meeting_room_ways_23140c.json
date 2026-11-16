@@ -1,0 +1,312 @@
+{
+ "id": "mo_news_meeting_room_ways_23140c",
+ "template": "tip",
+ "title": "News Motion – disagreeing politely at work (news_meeting_room_ways_23140c)",
+ "teacher": "ama",
+ "clips": [
+  "ga11_talk",
+  "ga11_explain",
+  "ga11_happy",
+  "ga11_thinking",
+  "ga11_surprise_3"
+ ],
+ "listen": [
+  "ga11_listen_2"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy2",
+ "active": "mint",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "toeic",
+  "link": "https://lexkite.com/app/#/toeic",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Work English",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "How do you disagree?"
+  },
+  {
+   "id": "t0",
+   "text": "Polite: I see your point, but I'm not sure.",
+   "gap": 0.7
+  },
+  {
+   "id": "t1",
+   "text": "Neutral: I'm not sure about that.",
+   "gap": 0.7
+  },
+  {
+   "id": "t2",
+   "text": "Casual: Hmm, I don't think so.",
+   "gap": 0.7
+  },
+  {
+   "id": "t3",
+   "text": "In meetings, start with the first one.",
+   "gap": 0.7
+  },
+  {
+   "id": "t4",
+   "text": "With close coworkers, the others are fine.",
+   "gap": 0.7
+  },
+  {
+   "id": "t5",
+   "text": "Repeat after me: I'm not sure about that.",
+   "gap": 0.7
+  },
+  {
+   "id": "r",
+   "text": "Teacher's tip: save all three and pick your style.",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "DISAGREE",
+      "white"
+     ]
+    ],
+    [
+     [
+      "NICELY?",
+      "yellow"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Work English · 3 ways to disagree",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "DISAGREE"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "NICELY?"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "sum",
+    "at": [
+     "r",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Remember",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "I see your point, but...",
+        "gold"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "I'm not sure about that.",
+        "teal"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "I don't think so.",
+        "coral"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "rules",
+    "at": [
+     "t0",
+     0
+    ],
+    "rows": [
+     {
+      "t": "tile",
+      "tag": "POLITE",
+      "tone": "gold",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "I see your point, but...",
+        "gold"
+       ]
+      ],
+      "ex_at": [
+       "t0",
+       0
+      ],
+      "at": [
+       "t0",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "NEUTRAL",
+      "tone": "teal",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "I'm not sure about that.",
+        "teal"
+       ]
+      ],
+      "ex_at": [
+       "t1",
+       0
+      ],
+      "at": [
+       "t1",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "CASUAL",
+      "tone": "coral",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "I don't think so.",
+        "coral"
+       ]
+      ],
+      "ex_at": [
+       "t2",
+       0
+      ],
+      "at": [
+       "t2",
+       0
+      ]
+     }
+    ]
+   }
+  ],
+  "hook_text": "DISAGREE NICELY?",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ }
+}

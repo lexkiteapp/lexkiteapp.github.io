@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_broken",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say my phone is broken!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: My phone is bad.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My phone is broken.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Broken means it does not work.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Broken! My phone is broken.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "My phone is bad.",
+  "right": "My phone is broken.",
+  "strike": "bad",
+  "why": "Broken means it does not work.",
+  "memory": "Phone, broken.",
+  "quiz": {
+   "stem": "My phone does not work. It is ___.",
+   "options": [
+    "bad",
+    "broken"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“手机坏了”要说 broken！",
+   "tip": "中文说“手机坏了”，“坏”容易对应 bad，但东西不能用了要说 broken。",
+   "caption": "你是不是也会说 “My phone is bad.”😅 “坏了”对应 broken，不是 bad：“My phone is broken.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“My phone is broken.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “broken”!",
+   "tip": "Bad means not good, but broken means it does not work.",
+   "caption": "Do you say “My phone is bad.” 😅 Bad means not good, but broken means it does not work: “My phone is broken.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“手机坏了”要说 broken！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“手机坏了”要说 broken！",
+  "keyword": "My phone is broken.",
+  "value": "中文说“手机坏了”，“坏”容易对应 bad，但东西不能用了要说 broken。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "“手机坏了”要说 broken！",
+    "description": "中文说“手机坏了”，“坏”容易对应 bad，但东西不能用了要说 broken。\n\n你是不是也会说 “My phone is bad.”😅 “坏了”对应 broken，不是 bad：“My phone is broken.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "My phone is broken.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “My phone is bad.”😅 “坏了”对应 broken，不是 bad：“My phone is broken.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“手机坏了”要说 broken！\n\n中文说“手机坏了”，“坏”容易对应 bad，但东西不能用了要说 broken。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“手机坏了”要说 broken！ 中文说“手机坏了”，“坏”容易对应 bad，但东西不能用了要说 broken。 #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“My phone is broken.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

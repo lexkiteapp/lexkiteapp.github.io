@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_athome",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "In home? Say at home!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She is in home now.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She is at home now.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "We say at home.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "At! I am at home today.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She is in home now.",
+  "right": "She is at home now.",
+  "strike": "in",
+  "why": "We say at home.",
+  "memory": "At home. At school.",
+  "quiz": {
+   "stem": "I am ___ home today.",
+   "options": [
+    "in",
+    "at"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "هل تقول “in home”؟",
+   "tip": "نقول بالعربية «في البيت»، أما في الإنجليزية فنقول at home: “She is at home now.” وليس “She is in home now.”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “She is in home now.” 😅 نقول بالعربية «في البيت»، أما في الإنجليزية فنقول at home، فالجملة الصحيحة “She is at home now.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “at” — نقول بالعربية «في البيت»، أما في الإنجليزية فنقول at home. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “in home”?",
+   "tip": "In Arabic we say «في البيت», but in English we say at home: “She is at home now.” not “She is in home now.”",
+   "caption": "Do you sometimes say this? “She is in home now.” 😅 In Arabic we say «في البيت», but in English we say at home, so the right sentence is “She is at home now.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “in home”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "هل تقول “in home”؟",
+  "keyword": "She is at home now.",
+  "value": "نقول بالعربية «في البيت»، أما في الإنجليزية فنقول at home: “She is at home now.” وليس “She is in home now.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “in home”؟",
+    "description": "نقول بالعربية «في البيت»، أما في الإنجليزية فنقول at home: “She is at home now.” وليس “She is in home now.”\n\nهل تقول أحيانًا هذه الجملة؟ “She is in home now.” 😅 نقول بالعربية «في البيت»، أما في الإنجليزية فنقول at home، فالجملة الصحيحة “She is at home now.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "She is at home now.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا هذه الجملة؟ “She is in home now.” 😅 نقول بالعربية «في البيت»، أما في الإنجليزية فنقول at home، فالجملة الصحيحة “She is at home now.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول “in home”؟\n\nنقول بالعربية «في البيت»، أما في الإنجليزية فنقول at home: “She is at home now.” وليس “She is in home now.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “in home”؟ نقول بالعربية «في البيت»، أما في الإنجليزية فنقول at home: “She is at home now… #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “at” — نقول بالعربية «في البيت»، أما في الإنجليزية فنقول at home. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+  "lang": "ar"
+ }
+}

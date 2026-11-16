@@ -218,6 +218,10 @@ Si te preparas para un examen, aplica esta dicción en las respuestas cortas de 
 
 ---
 
+Un paso concreto es dominar el [acento de palabra en inglés](/es/blog/acento-de-palabra-en-ingles-reglas/), que cambia el significado de palabras como *record* o *present*.
+
+Cuando tengas más control de los sonidos, aplícalo en situaciones reales con la guía de [cómo hablar inglés con confianza](/es/blog/como-hablar-ingles-con-confianza/).
+
 ## Preguntas frecuentes
 
 ### ¿Es imprescindible eliminar el acento hispano por completo?

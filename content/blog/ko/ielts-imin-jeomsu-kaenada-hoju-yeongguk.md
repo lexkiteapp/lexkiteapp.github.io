@@ -152,6 +152,10 @@ General Training은 리스닝과 스피킹이 Academic과 같고, 리딩과 라�
 4. "I have been waiting for the result since last month." since가 있으면 현재완료(진행)를 씁니다.
 5. 격식 편지에서는 명령문이 무례합니다. "I would be grateful if you could issue a refund." 정도로 바꾸세요.
 
+목표 점수를 정했다면 오버올 반올림과 영역별 하한 규칙을 다룬 [IELTS 밴드 점수 계산법](/ko/blog/ielts-band-jeomsu-gyesan-bangbeop/)과 시험일에 맞춰 일정을 짜는 [IELTS 공부 계획 4주·8주·12주 플랜](/ko/blog/ielts-gongbu-gyehoek-4ju-8ju-12ju/)도 함께 확인해 보세요.
+
+영국 비자 경로에서 요구하는 SELT 방식의 시험은 [아이엘츠 UKVI 신청 가이드](/ko/blog/ielts-ukvi-yeongguk-bija-sineong-gaideu/)에서 일반 시험과 비교해 자세히 설명합니다.
+
 ## 자주 묻는 질문 (FAQ)
 
 ### 이민 IELTS 점수는 한 번 받으면 평생 쓸 수 있나요?

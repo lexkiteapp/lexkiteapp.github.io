@@ -134,6 +134,8 @@ Un buen test para saber si sigues traduciendo: el «me dijo que» y el «me pidi
 
 {{youtube: | Cómo pensar en inglés sin traducir mentalmente: método 4 pasos}}
 
+Para llevar este hábito a la conversación real, practica con la guía de [cómo hablar inglés con confianza](/es/blog/como-hablar-ingles-con-confianza/), que reúne frases listas para doce situaciones cotidianas.
+
 ## Preguntas frecuentes
 
 ### ¿Cuánto tiempo se tarda en empezar a pensar en inglés de forma espontánea?

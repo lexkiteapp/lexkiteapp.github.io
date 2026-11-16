@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_every_day",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Put every day at the end!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I drink every day tea.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I drink tea every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Put every day at the end.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! I drink coffee every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I drink every day tea.",
+  "right": "I drink tea every day.",
+  "strike": "every day",
+  "why": "Put every day at the end.",
+  "memory": "I drink tea every day.",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "I drink every day coffee.",
+    "I drink coffee every day."
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Every day” sona gelir!",
+   "tip": "Türkçede “Her gün çay içerim.” deriz, “her gün” başta durur; İngilizcede “every day” genelde sonda durur: “I drink tea every day.”",
+   "caption": "“I drink every day tea” mi diyorsun? 😅 İngilizcede “every day” fiille nesnenin arasına girmez, cümlenin sonunda durur. Doğrusu “I drink tea every day.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “I drink coffee every day.” “Every day” sonda durur. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Put “every day” at the end!",
+   "tip": "Put “every day” at the end: “I drink tea every day.”",
+   "caption": "Do you say “I drink every day tea”? 😅 In English “every day” does not go between the verb and the thing. It goes at the end. The right sentence is “I drink tea every day.” Listen to Ama and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Every day” sona gelir!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“Every day” sona gelir!",
+  "keyword": "I drink tea every day.",
+  "value": "Türkçede “Her gün çay içerim.” deriz, “her gün” başta durur; İngilizcede “every day” genelde sonda durur: “I drink tea every day.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "“Every day” sona gelir!",
+    "description": "Türkçede “Her gün çay içerim.” deriz, “her gün” başta durur; İngilizcede “every day” genelde sonda durur: “I drink tea every day.”\n\n“I drink every day tea” mi diyorsun? 😅 İngilizcede “every day” fiille nesnenin arasına girmez, cümlenin sonunda durur. Doğrusu “I drink tea every day.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "I drink tea every day.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“I drink every day tea” mi diyorsun? 😅 İngilizcede “every day” fiille nesnenin arasına girmez, cümlenin sonunda durur. Doğrusu “I drink tea every day.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Every day” sona gelir!\n\nTürkçede “Her gün çay içerim.” deriz, “her gün” başta durur; İngilizcede “every day” genelde sonda durur: “I drink tea every day.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Every day” sona gelir! Türkçede “Her gün çay içerim.” deriz, “her gün” başta durur; İngilizcede “every… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “I drink coffee every day.” “Every day” sonda durur. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+  "lang": "tr"
+ }
+}

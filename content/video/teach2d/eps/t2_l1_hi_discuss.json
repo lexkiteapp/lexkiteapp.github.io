@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Discuss, no about!",
+   "text": "Just discuss, no about!",
    "pause": 0.42
   },
   {
@@ -79,7 +79,7 @@
   },
   "en": {
    "hook": "Do not say “discuss about”!",
-   "tip": "In Hindi “chacha ke baare mein” works, but in English discuss takes no about.",
+   "tip": "Many learners add about after discuss, but in English discuss takes no about.",
    "caption": "Do you say “We discussed about the plan”? 😅 In English “We discussed the plan” is right, because discuss takes no about. Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
@@ -98,9 +98,9 @@
  },
  "lang": "hi",
  "est": {
-  "words": 42,
-  "seconds": 26.1,
-  "wpm": 96
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
  },
  "publish": {
   "title": "“discuss about” न कहें!",
@@ -113,11 +113,11 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 36,
+  "script_words": 37,
   "platforms": {
    "youtube": {
     "title": "“discuss about” न कहें!",
-    "description": "क्या आप भी कहते हैं “We discussed about the plan”? 😅 अंग्रेज़ी में “We discussed the plan” सही है, क्योंकि discuss के बाद about नहीं लगता। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "description": "हिंदी में “के बारे में चर्चा” चलता है, पर अंग्रेज़ी में discuss के बाद about नहीं आता।\n\nक्या आप भी कहते हैं “We discussed about the plan”? 😅 अंग्रेज़ी में “We discussed the plan” सही है, क्योंकि discuss के बाद about नहीं लगता। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
     "tags": [
      "We discussed the plan.",
      "learn english",
@@ -128,7 +128,7 @@
     "text": "क्या आप भी कहते हैं “We discussed about the plan”? 😅 अंग्रेज़ी में “We discussed the plan” सही है, क्योंकि discuss के बाद about नहीं लगता। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "क्या आप भी कहते हैं “We discussed about the plan”? 😅 अंग्रेज़ी में “We discussed the plan” सही है, क्योंकि discuss के बाद about नहीं लगता। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nlexkite.com",
+    "caption": "“discuss about” न कहें!\n\nहिंदी में “के बारे में चर्चा” चलता है, पर अंग्रेज़ी में discuss के बाद about नहीं आता।\n\nlexkite.com",
     "hashtags": [
      "#अंग्रेजीसीखें",
      "#englishspeaking",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "“discuss about” न कहें! #अंग्रेजीसीखें #englishspeaking #learnenglish"
+    "caption": "“discuss about” न कहें! हिंदी में “के बारे में चर्चा” चलता है, पर अंग्रेज़ी में discuss के बाद about नह… #अंग्रेजीसीखें #englishspeaking #learnenglish"
    }
   },
   "first_comment": "उत्तर: “discussed”। discuss के बाद सीधे विषय बोलें, about हटा दें। मुफ़्त क्विज़ यहाँ: {link}",

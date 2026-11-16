@@ -42,10 +42,10 @@
   "academic": 200
  },
  "TOEFL Listening": {
-  "response": 81,
-  "conversation": 122,
-  "announcement": 91,
-  "talk": 147
+  "response": 80,
+  "conversation": 132,
+  "announcement": 99,
+  "talk": 159
  },
  "TOEFL Writing": {
   "sentence": 100,

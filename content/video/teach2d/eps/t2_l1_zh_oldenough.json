@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_oldenough",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say old enough!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: He is enough old to drive.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: He is old enough to drive.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Enough goes after old.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Old enough! He is old enough to drive.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "He is enough old to drive.",
+  "right": "He is old enough to drive.",
+  "strike": "enough old",
+  "why": "Enough goes after old.",
+  "memory": "Old enough.",
+  "quiz": {
+   "stem": "He is ___ to drive.",
+   "options": [
+    "enough old",
+    "old enough"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "enough 要放在后面！",
+   "tip": "中文说“够大了”，“够”在前面，所以容易说 enough old。英语的 enough 要放在 old 后面。",
+   "caption": "你是不是也会说 “He is enough old to drive.”😅 中文的“够”放在前面，英语的 enough 要放在 old 后面：“He is old enough to drive.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“He is old enough to drive.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Put “enough” after old!",
+   "tip": "Chinese puts 够 first, but English puts enough after the word.",
+   "caption": "Do you say “He is enough old to drive.” 😅 English puts enough after old: “He is old enough to drive.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "enough 要放在后面！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "enough 要放在后面！",
+  "keyword": "He is old enough to drive.",
+  "value": "中文说“够大了”，“够”在前面，所以容易说 enough old。英语的 enough 要放在 old 后面。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "enough 要放在后面！",
+    "description": "中文说“够大了”，“够”在前面，所以容易说 enough old。英语的 enough 要放在 old 后面。\n\n你是不是也会说 “He is enough old to drive.”😅 中文的“够”放在前面，英语的 enough 要放在 old 后面：“He is old enough to drive.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "He is old enough to drive.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “He is enough old to drive.”😅 中文的“够”放在前面，英语的 enough 要放在 old 后面：“He is old enough to drive.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "enough 要放在后面！\n\n中文说“够大了”，“够”在前面，所以容易说 enough old。英语的 enough 要放在 old 后面。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "enough 要放在后面！ 中文说“够大了”，“够”在前面，所以容易说 enough old。英语的 enough 要放在 old 后面。 #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“He is old enough to drive.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}
