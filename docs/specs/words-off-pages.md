@@ -38,3 +38,6 @@
 - **Thứ tự bật ngôn ngữ mới (bắt buộc):** thêm vào `words-r2.json` + `_routes.json` → dispatch `words-r2-sync.yml` từ nhánh PR (R2 đầy) → mới merge. Merge trước = 404 tới khi đồng bộ xong.
 - Cầu dao: `SEO_WORDS_R2=0` (build ghi lại vào `dist/`; cần N ≤ 650) hoặc revert `words-r2.json` + route; Function tắt riêng bằng biến `WORDS_R2=0` trên Pages.
 - `free-tier` (intraday) cảnh báo khi Pages Functions > 50 % trần ngày.
+
+## 5. Bật 12 ngôn ngữ còn lại (16/11/2026)
+Đo CI 16/11 (`words-r2-measure`): dist 17.981 / 20.000 (còn 2.019), words 10.814 = en 2.500 + vi 2.500 + 12 ngôn ngữ 5.800; blog ≈ +32 file/ngày; lô mở rộng 5–8 mỗi lô +500 file (en/vi). `content/seo/words-r2.json` + `web/_routes.json` thêm 12 ngôn ngữ (es pt fr de id th zh ja hi ar ru tr; ko đã có) → trả ≈ 5.800 file cho Pages, en/vi giữ ở dist (URL, canonical, hreflang, sitemap không đổi). Nhánh `words-r2-all` khớp mẫu `words-r2-**` nên đẩy nhánh = `words-r2-sync` ghi R2 TRƯỚC khi merge (tránh 404). Sau merge: đo lại dist, kiểm 200 + cache header từ R2 và không có đợt 404 trong 1 giờ đầu.

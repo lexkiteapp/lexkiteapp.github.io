@@ -1,0 +1,755 @@
+{
+  "biopsy": {
+    "ipaUS": "/ˈbaɪɑːpsi/",
+    "col": [
+      "perform a biopsy",
+      "take a biopsy",
+      "biopsy result",
+      "needle biopsy",
+      "skin biopsy",
+      "biopsy of the liver"
+    ],
+    "syn": [
+      "tissue sample",
+      "tissue test"
+    ]
+  },
+  "boiler": {
+    "ipaUS": "/ˈbɔɪlər/",
+    "col": [
+      "gas boiler",
+      "install a boiler",
+      "boiler room",
+      "boiler breaks down",
+      "steam boiler",
+      "boiler maintenance"
+    ],
+    "syn": [
+      "water heater",
+      "steam generator"
+    ]
+  },
+  "bolt": {
+    "ipaUS": "/boʊlt/",
+    "col": [
+      "tighten a bolt",
+      "loosen a bolt",
+      "nut and bolt",
+      "steel bolt",
+      "bolt of lightning",
+      "bolt the door"
+    ],
+    "syn": [
+      "screw",
+      "pin",
+      "rivet"
+    ]
+  },
+  "bookkeeping": {
+    "ipaUS": "/ˈbʊkˌkiːpɪŋ/",
+    "col": [
+      "double-entry bookkeeping",
+      "basic bookkeeping",
+      "bookkeeping services",
+      "handle the bookkeeping",
+      "bookkeeping software",
+      "bookkeeping errors"
+    ],
+    "syn": [
+      "record-keeping",
+      "accounts"
+    ]
+  },
+  "brokerage": {
+    "ipaUS": "/ˈbroʊkərɪdʒ/",
+    "col": [
+      "brokerage account",
+      "brokerage firm",
+      "brokerage fee",
+      "online brokerage",
+      "open a brokerage",
+      "brokerage commission"
+    ],
+    "syn": [
+      "broker firm",
+      "agency"
+    ]
+  },
+  "calibration": {
+    "ipaUS": "/ˌkæləˈbreɪʃn/",
+    "col": [
+      "calibration certificate",
+      "regular calibration",
+      "calibration error",
+      "instrument calibration",
+      "calibration of the scale",
+      "calibration procedure"
+    ],
+    "syn": [
+      "adjustment",
+      "tuning"
+    ]
+  },
+  "cardiology": {
+    "ipaUS": "/ˌkɑːrdiˈɑːlədʒi/",
+    "col": [
+      "cardiology department",
+      "consult cardiology",
+      "cardiology clinic",
+      "pediatric cardiology",
+      "cardiology specialist",
+      "cardiology ward"
+    ],
+    "syn": [
+      "heart medicine",
+      "cardiac medicine"
+    ]
+  },
+  "casting": {
+    "ipaUS": "/ˈkæstɪŋ/",
+    "col": [
+      "die casting",
+      "sand casting",
+      "investment casting",
+      "casting process",
+      "aluminum casting",
+      "casting defect"
+    ],
+    "syn": [
+      "moulding",
+      "founding"
+    ]
+  },
+  "chemotherapy": {
+    "ipaUS": "/ˌkiːmoʊˈθerəpi/",
+    "col": [
+      "undergo chemotherapy",
+      "chemotherapy session",
+      "chemotherapy drugs",
+      "receive chemotherapy",
+      "course of chemotherapy",
+      "chemotherapy side effects"
+    ],
+    "syn": [
+      "chemo",
+      "drug therapy"
+    ]
+  },
+  "cholesterol": {
+    "ipaUS": "/kəˈlestərɔːl/",
+    "col": [
+      "high cholesterol",
+      "cholesterol level",
+      "lower cholesterol",
+      "bad cholesterol",
+      "cholesterol test",
+      "cholesterol-lowering"
+    ],
+    "syn": [
+      "blood fat",
+      "lipid"
+    ]
+  },
+  "collateral": {
+    "ipaUS": "/kəˈlætərəl/",
+    "col": [
+      "put up collateral",
+      "provide collateral",
+      "loan secured by collateral",
+      "collateral value",
+      "require collateral",
+      "offer as collateral"
+    ],
+    "syn": [
+      "security",
+      "guarantee"
+    ]
+  },
+  "commissioning": {
+    "ipaUS": "/kəˈmɪʃənɪŋ/",
+    "col": [
+      "commissioning phase",
+      "commissioning engineer",
+      "plant commissioning",
+      "commissioning test",
+      "commissioning schedule",
+      "start commissioning"
+    ],
+    "syn": [
+      "start-up testing",
+      "handover testing"
+    ]
+  },
+  "compiler": {
+    "ipaUS": "/kəmˈpaɪlər/",
+    "col": [
+      "C compiler",
+      "compiler error",
+      "run the compiler",
+      "compiler optimization",
+      "compiler warning",
+      "build with a compiler"
+    ],
+    "syn": [
+      "translator",
+      "code converter"
+    ]
+  },
+  "constitution": {
+    "ipaUS": "/ˌkɑːnstəˈtuːʃn/",
+    "col": [
+      "amend the constitution",
+      "draft a constitution",
+      "violate the constitution",
+      "written constitution",
+      "under the constitution",
+      "constitution of the country"
+    ],
+    "syn": [
+      "charter",
+      "basic law"
+    ]
+  },
+  "convict": {
+    "ipaUS": "/kənˈvɪkt/",
+    "col": [
+      "convict of",
+      "convict someone of murder",
+      "wrongly convicted",
+      "convicted felon",
+      "be convicted",
+      "convict on charges"
+    ],
+    "syn": [
+      "find guilty",
+      "condemn"
+    ]
+  },
+  "cybersecurity": {
+    "ipaUS": "/ˌsaɪbərsɪˈkjʊrəti/",
+    "col": [
+      "cybersecurity measures",
+      "cybersecurity threat",
+      "cybersecurity expert",
+      "strengthen cybersecurity",
+      "cybersecurity breach",
+      "invest in cybersecurity"
+    ],
+    "syn": [
+      "information security",
+      "IT security"
+    ]
+  },
+  "damages": {
+    "ipaUS": "/ˈdæmɪdʒɪz/",
+    "col": [
+      "award damages",
+      "claim damages",
+      "sue for damages",
+      "pay damages",
+      "punitive damages",
+      "damages of five million"
+    ],
+    "syn": [
+      "compensation",
+      "reparation"
+    ]
+  },
+  "debug": {
+    "ipaUS": "/diːˈbʌɡ/",
+    "col": [
+      "debug a program",
+      "debug the code",
+      "debug mode",
+      "hard to debug",
+      "debugging tools",
+      "debug an error"
+    ],
+    "syn": [
+      "troubleshoot",
+      "fix"
+    ]
+  },
+  "default": {
+    "ipaUS": "/dɪˈfɔːlt/",
+    "col": [
+      "default on a loan",
+      "default setting",
+      "by default",
+      "in default",
+      "default option",
+      "loan default"
+    ],
+    "syn": [
+      "fail to pay",
+      "fall behind on payments"
+    ]
+  },
+  "dehydration": {
+    "ipaUS": "/ˌdiːhaɪˈdreɪʃn/",
+    "col": [
+      "severe dehydration",
+      "prevent dehydration",
+      "signs of dehydration",
+      "suffer from dehydration",
+      "dehydration and fatigue",
+      "avoid dehydration"
+    ],
+    "syn": [
+      "fluid loss",
+      "lack of water"
+    ]
+  },
+  "depreciation": {
+    "ipaUS": "/dɪˌpriːʃiˈeɪʃn/",
+    "col": [
+      "depreciation expense",
+      "straight-line depreciation",
+      "accumulated depreciation",
+      "depreciation of assets",
+      "annual depreciation",
+      "currency depreciation"
+    ],
+    "syn": [
+      "decline in value",
+      "write-down"
+    ]
+  },
+  "dermatology": {
+    "ipaUS": "/ˌdɜːrməˈtɑːlədʒi/",
+    "col": [
+      "dermatology clinic",
+      "dermatology department",
+      "consult dermatology",
+      "pediatric dermatology",
+      "see a dermatology specialist",
+      "cosmetic dermatology"
+    ],
+    "syn": [
+      "skin medicine",
+      "skin specialty"
+    ]
+  },
+  "diabetes": {
+    "ipaUS": "/ˌdaɪəˈbiːtiz/",
+    "col": [
+      "type 2 diabetes",
+      "develop diabetes",
+      "diabetes patient",
+      "control diabetes",
+      "gestational diabetes",
+      "diagnosed with diabetes"
+    ],
+    "syn": [
+      "high blood sugar disease",
+      "sugar disease"
+    ]
+  },
+  "diagnosis": {
+    "ipaUS": "/ˌdaɪəɡˈnoʊsɪs/",
+    "col": [
+      "make a diagnosis",
+      "early diagnosis",
+      "confirm a diagnosis",
+      "accurate diagnosis",
+      "diagnosis of cancer",
+      "receive a diagnosis"
+    ],
+    "syn": [
+      "identification",
+      "assessment"
+    ]
+  },
+  "dialysis": {
+    "ipaUS": "/daɪˈæləsəs/",
+    "col": [
+      "kidney dialysis",
+      "undergo dialysis",
+      "dialysis machine",
+      "dialysis patient",
+      "peritoneal dialysis",
+      "go on dialysis"
+    ],
+    "syn": [
+      "blood filtering",
+      "renal treatment"
+    ]
+  },
+  "discharge": {
+    "ipaUS": "/dɪsˈtʃɑːrdʒ/",
+    "col": [
+      "discharge a patient",
+      "discharged from hospital",
+      "discharge summary",
+      "discharge planning",
+      "honorable discharge",
+      "discharge of water"
+    ],
+    "syn": [
+      "release",
+      "let go"
+    ]
+  },
+  "donor": {
+    "ipaUS": "/ˈdoʊnər/",
+    "col": [
+      "blood donor",
+      "organ donor",
+      "donor card",
+      "sperm donor",
+      "donor country",
+      "find a donor"
+    ],
+    "syn": [
+      "giver",
+      "contributor"
+    ]
+  },
+  "dosage": {
+    "ipaUS": "/ˈdoʊsɪdʒ/",
+    "col": [
+      "recommended dosage",
+      "adjust the dosage",
+      "exceed the dosage",
+      "dosage instructions",
+      "daily dosage",
+      "increase the dosage"
+    ],
+    "syn": [
+      "dose",
+      "amount"
+    ]
+  },
+  "encryption": {
+    "ipaUS": "/ɪnˈkrɪpʃn/",
+    "col": [
+      "end-to-end encryption",
+      "data encryption",
+      "encryption key",
+      "strong encryption",
+      "use encryption",
+      "encryption algorithm"
+    ],
+    "syn": [
+      "encoding",
+      "scrambling"
+    ]
+  },
+  "endpoint": {
+    "ipaUS": "/ˈendpɔɪnt/",
+    "col": [
+      "API endpoint",
+      "endpoint security",
+      "endpoint URL",
+      "protect the endpoint",
+      "call an endpoint",
+      "REST endpoint"
+    ],
+    "syn": [
+      "access point",
+      "API address"
+    ]
+  },
+  "equity": {
+    "ipaUS": "/ˈekwəti/",
+    "col": [
+      "shareholder equity",
+      "equity financing",
+      "private equity",
+      "raise equity",
+      "home equity",
+      "equity stake"
+    ],
+    "syn": [
+      "ownership",
+      "stake",
+      "shares"
+    ]
+  },
+  "fastener": {
+    "ipaUS": "/ˈfæsənər/",
+    "col": [
+      "metal fastener",
+      "threaded fastener",
+      "stainless steel fastener",
+      "use fasteners",
+      "secure with a fastener",
+      "nuts and fasteners"
+    ],
+    "syn": [
+      "clip",
+      "fixing"
+    ]
+  },
+  "forging": {
+    "ipaUS": "/ˈfɔːrdʒɪŋ/",
+    "col": [
+      "hot forging",
+      "cold forging",
+      "forging press",
+      "drop forging",
+      "forging process",
+      "forging die"
+    ],
+    "syn": [
+      "hammering",
+      "metalworking"
+    ]
+  },
+  "friction": {
+    "ipaUS": "/ˈfrɪkʃn/",
+    "col": [
+      "reduce friction",
+      "friction between",
+      "coefficient of friction",
+      "friction force",
+      "cause friction",
+      "friction in the team"
+    ],
+    "syn": [
+      "resistance",
+      "rubbing",
+      "conflict"
+    ]
+  },
+  "furnace": {
+    "ipaUS": "/ˈfɜːrnəs/",
+    "col": [
+      "blast furnace",
+      "electric arc furnace",
+      "furnace temperature",
+      "heat in a furnace",
+      "gas furnace",
+      "furnace lining"
+    ],
+    "syn": [
+      "kiln",
+      "oven"
+    ]
+  },
+  "hearing": {
+    "ipaUS": "/ˈhɪrɪŋ/",
+    "col": [
+      "court hearing",
+      "public hearing",
+      "preliminary hearing",
+      "attend a hearing",
+      "hearing date",
+      "hearing aid"
+    ],
+    "syn": [
+      "trial session",
+      "inquiry"
+    ]
+  },
+  "hydraulic": {
+    "ipaUS": "/haɪˈdrɔːlɪk/",
+    "col": [
+      "hydraulic system",
+      "hydraulic pump",
+      "hydraulic press",
+      "hydraulic fluid",
+      "hydraulic cylinder",
+      "hydraulic brake"
+    ],
+    "syn": [
+      "fluid-powered",
+      "liquid-driven"
+    ]
+  },
+  "incision": {
+    "ipaUS": "/ɪnˈsɪʒn/",
+    "col": [
+      "make an incision",
+      "surgical incision",
+      "small incision",
+      "incision site",
+      "close the incision",
+      "incision in the abdomen"
+    ],
+    "syn": [
+      "cut",
+      "opening"
+    ]
+  },
+  "inheritance": {
+    "ipaUS": "/ɪnˈherətəns/",
+    "col": [
+      "receive an inheritance",
+      "inheritance tax",
+      "multiple inheritance",
+      "genetic inheritance",
+      "class inheritance",
+      "leave an inheritance"
+    ],
+    "syn": [
+      "legacy",
+      "bequest"
+    ]
+  },
+  "inpatient": {
+    "ipaUS": "/ˈɪnpeɪʃnt/",
+    "col": [
+      "inpatient care",
+      "inpatient ward",
+      "inpatient treatment",
+      "admitted as an inpatient",
+      "inpatient and outpatient",
+      "inpatient stay"
+    ],
+    "syn": [
+      "hospitalized patient",
+      "admitted patient"
+    ]
+  },
+  "integer": {
+    "ipaUS": "/ˈɪntɪdʒər/",
+    "col": [
+      "positive integer",
+      "integer value",
+      "integer overflow",
+      "negative integer",
+      "integer division",
+      "an integer between"
+    ],
+    "syn": [
+      "whole number",
+      "int"
+    ]
+  },
+  "integration": {
+    "ipaUS": "/ˌɪntəˈɡreɪʃn/",
+    "col": [
+      "system integration",
+      "seamless integration",
+      "integration with",
+      "integration of services",
+      "social integration",
+      "API integration"
+    ],
+    "syn": [
+      "merger",
+      "combination"
+    ]
+  },
+  "intravenous": {
+    "ipaUS": "/ˌɪntrəˈviːnəs/",
+    "col": [
+      "intravenous drip",
+      "intravenous injection",
+      "intravenous fluids",
+      "intravenous therapy",
+      "intravenous antibiotics",
+      "intravenous line"
+    ],
+    "syn": [
+      "IV",
+      "given by vein"
+    ]
+  },
+  "jurisdiction": {
+    "ipaUS": "/ˌdʒʊrəsˈdɪkʃn/",
+    "col": [
+      "fall within the jurisdiction",
+      "outside the jurisdiction",
+      "court jurisdiction",
+      "legal jurisdiction",
+      "have jurisdiction over",
+      "jurisdiction of the court"
+    ],
+    "syn": [
+      "authority",
+      "legal power"
+    ]
+  },
+  "lawsuit": {
+    "ipaUS": "/ˈlɔːsuːt/",
+    "col": [
+      "file a lawsuit",
+      "settle a lawsuit",
+      "lawsuit against",
+      "win a lawsuit",
+      "class action lawsuit",
+      "dismiss a lawsuit"
+    ],
+    "syn": [
+      "legal action",
+      "case"
+    ]
+  },
+  "liquidity": {
+    "ipaUS": "/lɪˈkwɪdəti/",
+    "col": [
+      "market liquidity",
+      "liquidity ratio",
+      "liquidity crisis",
+      "provide liquidity",
+      "lack of liquidity",
+      "liquidity problems"
+    ],
+    "syn": [
+      "cash availability",
+      "solvency"
+    ]
+  },
+  "litigation": {
+    "ipaUS": "/ˌlɪtəˈɡeɪʃn/",
+    "col": [
+      "commercial litigation",
+      "avoid litigation",
+      "litigation costs",
+      "be involved in litigation",
+      "pending litigation",
+      "threaten litigation"
+    ],
+    "syn": [
+      "legal action",
+      "court proceedings"
+    ]
+  },
+  "lubrication": {
+    "ipaUS": "/ˌluːbrɪˈkeɪʃn/",
+    "col": [
+      "regular lubrication",
+      "lubrication system",
+      "lubrication oil",
+      "require lubrication",
+      "lubrication points",
+      "grease lubrication"
+    ],
+    "syn": [
+      "oiling",
+      "greasing"
+    ]
+  },
+  "machining": {
+    "ipaUS": "/məˈʃiːnɪŋ/",
+    "col": [
+      "CNC machining",
+      "precision machining",
+      "machining process",
+      "machining tolerance",
+      "machining center",
+      "machining allowance"
+    ],
+    "syn": [
+      "metal cutting",
+      "milling and turning"
+    ]
+  },
+  "manufacturing": {
+    "ipaUS": "/ˌmænjəˈfæktʃərɪŋ/",
+    "col": [
+      "manufacturing plant",
+      "manufacturing process",
+      "manufacturing sector",
+      "manufacturing industry",
+      "manufacturing cost",
+      "manufacturing base"
+    ],
+    "syn": [
+      "production",
+      "fabrication"
+    ]
+  }
+}

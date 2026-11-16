@@ -518,7 +518,7 @@
   {
    "id": "n_a59145_e",
    "who": "ama",
-   "text": "Quiz: you lost your phone. What do you say? Comment below."
+   "text": "Quiz: you lost your phone. What do you say? Pick your answer first."
   },
   {
    "id": "n_8c570f_h",
@@ -578,7 +578,7 @@
   {
    "id": "n_a76472_3",
    "who": "ama",
-   "text": "Which one is right? Comment below."
+   "text": "Which one is right? Pick your answer first."
   },
   {
    "id": "n_a76472_4",
@@ -618,7 +618,7 @@
   {
    "id": "n_a30db6_3",
    "who": "ama",
-   "text": "Which one sounds natural? Comment below."
+   "text": "Which one sounds natural? Pick your answer first."
   },
   {
    "id": "n_a30db6_4",
@@ -658,7 +658,7 @@
   {
    "id": "n_b20f1c_3",
    "who": "ama",
-   "text": "Which one is right? Comment below."
+   "text": "Which one is right? Pick your answer first."
   },
   {
    "id": "n_b20f1c_4",
@@ -698,7 +698,7 @@
   {
    "id": "n_a843c0_3",
    "who": "ama",
-   "text": "Which one is right? Comment below."
+   "text": "Which one is right? Pick your answer first."
   },
   {
    "id": "n_a843c0_4",
@@ -738,7 +738,7 @@
   {
    "id": "n_4828ed_3",
    "who": "ama",
-   "text": "Which one is right? Comment below."
+   "text": "Which one is right? Pick your answer first."
   },
   {
    "id": "n_4828ed_4",
@@ -778,7 +778,7 @@
   {
    "id": "n_18caee_3",
    "who": "ama",
-   "text": "Which one is right? Comment below."
+   "text": "Which one is right? Pick your answer first."
   },
   {
    "id": "n_18caee_4",
@@ -838,7 +838,7 @@
   {
    "id": "n_7b5d0d_e",
    "who": "ama",
-   "text": "Quiz: how do you ask for a visit at 10? Comment below."
+   "text": "Quiz: how do you ask for a visit at 10? Pick your answer first."
   },
   {
    "id": "n_0b506e_h",
@@ -998,7 +998,7 @@
   {
    "id": "n_9ad922_e",
    "who": "ama",
-   "text": "Quiz: how do you order a coffee? Comment below."
+   "text": "Quiz: how do you order a coffee? Pick your answer first."
   },
   {
    "id": "n_b5dc88_in",
@@ -1213,7 +1213,7 @@
   {
    "id": "n_a59145_e2",
    "who": "carlos",
-   "text": "Quiz: you lost your phone. What do you say? Comment below."
+   "text": "Quiz: you lost your phone. What do you say? Pick your answer first."
   },
   {
    "id": "n_0f9226_r2",
@@ -1373,7 +1373,7 @@
   {
    "id": "n_9ad922_e2",
    "who": "carlos",
-   "text": "Quiz: how do you order a coffee? Comment below."
+   "text": "Quiz: how do you order a coffee? Pick your answer first."
   },
   {
    "id": "n_ee2b2c_r2",
@@ -1413,7 +1413,7 @@
   {
    "id": "n_7b5d0d_e2",
    "who": "carlos",
-   "text": "Quiz: how do you ask for a visit at 10? Comment below."
+   "text": "Quiz: how do you ask for a visit at 10? Pick your answer first."
   },
   {
    "id": "n_7b5d0d_m",
@@ -1577,12 +1577,12 @@
   {
    "id": "n_8cf065_e",
    "who": "ama",
-   "text": "Quiz: I'm considering blank a new phone. Buying or to buy? Comment below."
+   "text": "Quiz: I'm considering blank a new phone. Buying or to buy? Pick your answer first."
   },
   {
    "id": "n_8cf065_e2",
    "who": "carlos",
-   "text": "Quiz: I'm considering blank a new phone. Buying or to buy? Comment below."
+   "text": "Quiz: I'm considering blank a new phone. Buying or to buy? Pick your answer first."
   },
   {
    "id": "n_b3d3f4_h",
@@ -1638,12 +1638,12 @@
   {
    "id": "n_b3d3f4_e",
    "who": "ama",
-   "text": "Quiz: He can't cope blank the noise. With or (nothing)? Comment below."
+   "text": "Quiz: He can't cope blank the noise. With or (nothing)? Pick your answer first."
   },
   {
    "id": "n_b3d3f4_e2",
    "who": "carlos",
-   "text": "Quiz: He can't cope blank the noise. With or (nothing)? Comment below."
+   "text": "Quiz: He can't cope blank the noise. With or (nothing)? Pick your answer first."
   },
   {
    "id": "n_d9514a_h",
@@ -1699,12 +1699,12 @@
   {
    "id": "n_d9514a_e",
    "who": "ama",
-   "text": "Quiz: The number of tourists blank rising. Are or is? Comment below."
+   "text": "Quiz: The number of tourists blank rising. Are or is? Pick your answer first."
   },
   {
    "id": "n_d9514a_e2",
    "who": "carlos",
-   "text": "Quiz: The number of tourists blank rising. Are or is? Comment below."
+   "text": "Quiz: The number of tourists blank rising. Are or is? Pick your answer first."
   },
   {
    "id": "n_fd1239_h",
@@ -1760,12 +1760,12 @@
   {
    "id": "n_fd1239_e",
    "who": "ama",
-   "text": "Quiz: Two friends need two beds. They book a blank room. Double or twin? Comment below."
+   "text": "Quiz: Two friends need two beds. They book a blank room. Double or twin? Pick your answer first."
   },
   {
    "id": "n_fd1239_e2",
    "who": "carlos",
-   "text": "Quiz: Two friends need two beds. They book a blank room. Double or twin? Comment below."
+   "text": "Quiz: Two friends need two beds. They book a blank room. Double or twin? Pick your answer first."
   },
   {
    "id": "n_e5324d_h",
@@ -1821,12 +1821,12 @@
   {
    "id": "n_e5324d_e",
    "who": "ama",
-   "text": "Quiz: Where is the stress in timetable. Time-ta-ble or time-ta-ble? Comment below."
+   "text": "Quiz: Where is the stress in timetable. Time-ta-ble or time-ta-ble? Pick your answer first."
   },
   {
    "id": "n_e5324d_e2",
    "who": "carlos",
-   "text": "Quiz: Where is the stress in timetable. Time-ta-ble or time-ta-ble? Comment below."
+   "text": "Quiz: Where is the stress in timetable. Time-ta-ble or time-ta-ble? Pick your answer first."
   },
   {
    "id": "n_35f2ef_h",
@@ -1882,12 +1882,12 @@
   {
    "id": "n_35f2ef_e",
    "who": "ama",
-   "text": "Quiz: Dinner was great. Let's blank the bill. Divide or split? Comment below."
+   "text": "Quiz: Dinner was great. Let's blank the bill. Divide or split? Pick your answer first."
   },
   {
    "id": "n_35f2ef_e2",
    "who": "carlos",
-   "text": "Quiz: Dinner was great. Let's blank the bill. Divide or split? Comment below."
+   "text": "Quiz: Dinner was great. Let's blank the bill. Divide or split? Pick your answer first."
   },
   {
    "id": "n_c6ce7f_h",
@@ -1943,12 +1943,12 @@
   {
    "id": "n_c6ce7f_e",
    "who": "ama",
-   "text": "Quiz: Most people in the city are middle blank. Class or classy? Comment below."
+   "text": "Quiz: Most people in the city are middle blank. Class or classy? Pick your answer first."
   },
   {
    "id": "n_c6ce7f_e2",
    "who": "carlos",
-   "text": "Quiz: Most people in the city are middle blank. Class or classy? Comment below."
+   "text": "Quiz: Most people in the city are middle blank. Class or classy? Pick your answer first."
   },
   {
    "id": "n_e10d3a_h",
@@ -2004,12 +2004,12 @@
   {
    "id": "n_e10d3a_e",
    "who": "ama",
-   "text": "Quiz: I started this job two years blank. Before or ago? Comment below."
+   "text": "Quiz: I started this job two years blank. Before or ago? Pick your answer first."
   },
   {
    "id": "n_e10d3a_e2",
    "who": "carlos",
-   "text": "Quiz: I started this job two years blank. Before or ago? Comment below."
+   "text": "Quiz: I started this job two years blank. Before or ago? Pick your answer first."
   },
   {
    "id": "n_867e72_h",
@@ -2065,12 +2065,12 @@
   {
    "id": "n_867e72_e",
    "who": "ama",
-   "text": "Quiz: Save the file blank the computer crashes. In case or if? Comment below."
+   "text": "Quiz: Save the file blank the computer crashes. In case or if? Pick your answer first."
   },
   {
    "id": "n_867e72_e2",
    "who": "carlos",
-   "text": "Quiz: Save the file blank the computer crashes. In case or if? Comment below."
+   "text": "Quiz: Save the file blank the computer crashes. In case or if? Pick your answer first."
   },
   {
    "id": "n_c1a128_h",
@@ -2126,12 +2126,12 @@
   {
    "id": "n_c1a128_e",
    "who": "ama",
-   "text": "Quiz: If I blank a car, I would drive to work. Will have or had? Comment below."
+   "text": "Quiz: If I blank a car, I would drive to work. Will have or had? Pick your answer first."
   },
   {
    "id": "n_c1a128_e2",
    "who": "carlos",
-   "text": "Quiz: If I blank a car, I would drive to work. Will have or had? Comment below."
+   "text": "Quiz: If I blank a car, I would drive to work. Will have or had? Pick your answer first."
   },
   {
    "id": "n_867e72_s",

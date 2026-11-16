@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_nothing",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Which word is right?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I do not see nothing.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I do not see anything.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "One no word is enough.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Anything! She does not know anything.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I do not see nothing.",
+  "right": "I do not see anything.",
+  "strike": "nothing",
+  "why": "One no word is enough.",
+  "memory": "Not … anything.",
+  "quiz": {
+   "stem": "She does not know ___.",
+   "options": [
+    "anything",
+    "nothing"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Not … nothing” — ошибка!",
+   "tip": "По-русски «не вижу ничего» — два отрицания, а в английском одно: “I do not see anything.”",
+   "caption": "Ты тоже говоришь “I do not see nothing”? 😅 В русском «не вижу ничего» — двойное отрицание, а в английском отрицание одно, нужно “anything.” Правильно: “I do not see anything.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “anything.” После not ставим anything. Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#изучениеанглийского",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Not... nothing” is an error!",
+   "tip": "English needs only one no word: “I do not see anything.”",
+   "caption": "Do you also say “I do not see nothing”? 😅 English uses only one no word, so you need “anything.” Correct: “I do not see anything.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Not … nothing” — ошибка!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“Not … nothing” — ошибка!",
+  "keyword": "I do not see anything.",
+  "value": "По-русски «не вижу ничего» — два отрицания, а в английском одно: “I do not see anything.”",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#изучениеанглийского",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "“Not … nothing” — ошибка!",
+    "description": "По-русски «не вижу ничего» — два отрицания, а в английском одно: “I do not see anything.”\n\nТы тоже говоришь “I do not see nothing”? 😅 В русском «не вижу ничего» — двойное отрицание, а в английском отрицание одно, нужно “anything.” Правильно: “I do not see anything.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #английский #изучениеанглийского #lexkite",
+    "tags": [
+     "I do not see anything.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “I do not see nothing”? 😅 В русском «не вижу ничего» — двойное отрицание, а в английском отрицание одно, нужно “anything.” Правильно: “I do not see anything.” Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Not … nothing” — ошибка!\n\nПо-русски «не вижу ничего» — два отрицания, а в английском одно: “I do not see anything.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#изучениеанглийского",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Not … nothing” — ошибка! По-русски «не вижу ничего» — два отрицания, а в английском одно: “I do not… #английскийязык #английский #изучениеанглийского"
+   }
+  },
+  "first_comment": "Ответ: “anything.” После not ставим anything. Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

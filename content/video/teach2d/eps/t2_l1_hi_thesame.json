@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_thesame",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Add the before same!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: These two bags are same.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: These two bags are the same.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Same needs the before it.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The same! The two shirts are the same.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "These two bags are same.",
+  "right": "These two bags are the same.",
+  "strike": "are same",
+  "why": "Same needs the before it.",
+  "memory": "The same.",
+  "quiz": {
+   "stem": "The two shirts are ___.",
+   "options": [
+    "same",
+    "the same"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“same” से पहले “the”!",
+   "tip": "हिंदी में “एक जैसे” बिना किसी और शब्द के चलता है, पर अंग्रेज़ी में same से पहले the लगता है।",
+   "caption": "क्या आप भी बोलते हैं: “These two bags are same.” 😅 सही वाक्य है: “These two bags are the same.” ध्यान रखें: same से पहले the लगता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “the same”। याद रखें: same से पहले the लगता है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “the same”!",
+   "tip": "Many learners leave out the, but English puts the before same.",
+   "caption": "Do you say: “These two bags are same.” 😅 The right sentence is: “These two bags are the same.” Remember: Put the before same. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“same” से पहले “the”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“same” से पहले “the”!",
+  "keyword": "These two bags are the same.",
+  "value": "हिंदी में “एक जैसे” बिना किसी और शब्द के चलता है, पर अंग्रेज़ी में same से पहले the लगता है।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "“same” से पहले “the”!",
+    "description": "हिंदी में “एक जैसे” बिना किसी और शब्द के चलता है, पर अंग्रेज़ी में same से पहले the लगता है।\n\nक्या आप भी बोलते हैं: “These two bags are same.” 😅 सही वाक्य है: “These two bags are the same.” ध्यान रखें: same से पहले the लगता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "These two bags are the same.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी बोलते हैं: “These two bags are same.” 😅 सही वाक्य है: “These two bags are the same.” ध्यान रखें: same से पहले the लगता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“same” से पहले “the”!\n\nहिंदी में “एक जैसे” बिना किसी और शब्द के चलता है, पर अंग्रेज़ी में same से पहले the लगता है।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“same” से पहले “the”! हिंदी में “एक जैसे” बिना किसी और शब्द के चलता है, पर अंग्रेज़ी में same से पहले t… #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “the same”। याद रखें: same से पहले the लगता है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

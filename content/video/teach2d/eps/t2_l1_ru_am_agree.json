@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_am_agree",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Am agree or agree?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am agree with you.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I agree with you.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Agree is the verb. Do not add am.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Agree! I agree with you.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am agree with you.",
+  "right": "I agree with you.",
+  "strike": "am",
+  "why": "Agree is the verb. Do not add am.",
+  "memory": "I agree.",
+  "quiz": {
+   "stem": "I ___ with you.",
+   "options": [
+    "am agree",
+    "agree"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "«Я согласен» — не “I am agree”",
+   "tip": "По-английски «согласен» — это глагол: “I agree with you.”",
+   "caption": "Ты тоже говоришь “I am agree with you”? 😅 По-русски «согласен» — краткое прилагательное, поэтому хочется добавить “am.” Но в английском “agree” — это глагол. Правильно: “I agree with you.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “agree.” Здесь “am” не нужно. Скажи вслух: “I agree with you.” Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#учуанглийский",
+    "#английскийдляначинающих",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "I am agree or I agree?",
+   "tip": "Agree is a verb, so say “I agree with you.”",
+   "caption": "Do you also say “I am agree with you”? 😅 In Russian this word comes after “I” with no verb, so “am” slips in, but in English “agree” is the verb. Correct: “I agree with you.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "«Я согласен» — не “I am agree”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "«Я согласен» — не “I am agree”",
+  "keyword": "I agree with you.",
+  "value": "По-английски «согласен» — это глагол: “I agree with you.”",
+  "hashtags": [
+   "#английскийязык",
+   "#учуанглийский",
+   "#английскийдляначинающих",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "«Я согласен» — не “I am agree”",
+    "description": "По-английски «согласен» — это глагол: “I agree with you.”\n\nТы тоже говоришь “I am agree with you”? 😅 По-русски «согласен» — краткое прилагательное, поэтому хочется добавить “am.” Но в английском “agree” — это глагол. Правильно: “I agree with you.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #учуанглийский #английскийдляначинающих #lexkite",
+    "tags": [
+     "I agree with you.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “I am agree with you”? 😅 По-русски «согласен» — краткое прилагательное, поэтому хочется добавить “am.” Но в английском “agree” — это глагол. Правильно: “I agree with you.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "«Я согласен» — не “I am agree”\n\nПо-английски «согласен» — это глагол: “I agree with you.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#учуанглийский",
+     "#английскийдляначинающих",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "«Я согласен» — не “I am agree” По-английски «согласен» — это глагол: “I agree with you.” #английскийязык #учуанглийский #английскийдляначинающих"
+   }
+  },
+  "first_comment": "Ответ: “agree.” Здесь “am” не нужно. Скажи вслух: “I agree with you.” Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

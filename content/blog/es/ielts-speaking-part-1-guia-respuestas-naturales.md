@@ -196,6 +196,8 @@ Cuando quieras ver la estructura completa de la prueba, abre los [simulacros de 
 
 ---
 
+Para ver una respuesta floja y otra mejorada lado a lado, lee los [ejemplos de IELTS Speaking band 7](/es/blog/ielts-speaking-band-7-ejemplos-de-respuestas/).
+
 ## Preguntas frecuentes (FAQ)
 
 ### ¿Cuánto debe durar cada respuesta en IELTS Speaking Part 1?

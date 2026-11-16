@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_everyoneis",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Everyone is one person!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Everyone are happy today.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Everyone is happy today.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Everyone is like one person.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! Everybody is at home.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Everyone are happy today.",
+  "right": "Everyone is happy today.",
+  "strike": "Everyone are",
+  "why": "Everyone is like one person.",
+  "memory": "Everyone is.",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "Everybody are at home.",
+    "Everybody is at home."
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Você diz “Everyone are”?",
+   "tip": "“Everyone” e “everybody” pedem “is”, mesmo quando falamos de muita gente.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “Everyone are happy today.” O certo é “Everyone is happy today.” Em português “todos são” vai para o plural, mas em inglês “everyone” é um grupo tratado como uma pessoa. Ouça a Ama e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “Everybody is at home.” Agora escreva uma frase sua com esse ponto e treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “Everyone are”?",
+   "tip": "“Everyone” and “everybody” take “is”, even when it means many people.",
+   "caption": "Watch out for this common mistake! Many people say “Everyone are happy today.” The right way is “Everyone is happy today.” In Portuguese “todos são” is plural, but English “everyone” works like one person. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Você diz “Everyone are”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "Você diz “Everyone are”?",
+  "keyword": "Everyone is happy today.",
+  "value": "“Everyone” e “everybody” pedem “is”, mesmo quando falamos de muita gente.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "Você diz “Everyone are”?",
+    "description": "“Everyone” e “everybody” pedem “is”, mesmo quando falamos de muita gente.\n\nCuidado com este erro comum! 😬 Muita gente diz “Everyone are happy today.” O certo é “Everyone is happy today.” Em português “todos são” vai para o plural, mas em inglês “everyone” é um grupo tratado como uma pessoa. Ouça a Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "Everyone is happy today.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “Everyone are happy today.” O certo é “Everyone is happy today.” Em português “todos são” vai para o plural, mas em inglês “everyone” é um grupo tratado como uma pessoa. Ouça a Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Você diz “Everyone are”?\n\n“Everyone” e “everybody” pedem “is”, mesmo quando falamos de muita gente.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Você diz “Everyone are”? “Everyone” e “everybody” pedem “is”, mesmo quando falamos de muita gente. #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “Everybody is at home.” Agora escreva uma frase sua com esse ponto e treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

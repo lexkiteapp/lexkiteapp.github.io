@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_who_which",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Which or who for people?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: The woman which lives next door is a doctor.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: The woman who lives next door is a doctor.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use who for people.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Who! The man who called you is my uncle.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "The woman which lives next door is a doctor.",
+  "right": "The woman who lives next door is a doctor.",
+  "strike": "which",
+  "why": "Use who for people.",
+  "memory": "The woman who.",
+  "quiz": {
+   "stem": "The man ___ called you is my uncle.",
+   "options": [
+    "which",
+    "who"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Женщина, которая — which или who?",
+   "tip": "О человеке говорим “who”: “The woman who lives next door is a doctor.”",
+   "caption": "Ты тоже говоришь “The woman which lives next door is a doctor”? 😅 По-русски «которая» подходит и для людей, и для вещей, поэтому рука тянется к “which”, но о человеке нужно “who.” Правильно: “The woman who lives next door is a doctor.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “who.” О человеке — who. Напиши своё предложение с “The man who.” Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#изучениеанглийского",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Which or who for people?",
+   "tip": "For a person, use “who”: “The woman who lives next door is a doctor.”",
+   "caption": "Do you also say “The woman which lives next door is a doctor”? 😅 In Russian one word covers people and things, so “which” feels fine, but for a person you need “who.” Correct: “The woman who lives next door is a doctor.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Женщина, которая — which или who?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 56,
+  "seconds": 33.0,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "Женщина, которая — which или who?",
+  "keyword": "The woman who lives next door is a doctor.",
+  "value": "О человеке говорим “who”: “The woman who lives next door is a doctor.”",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#изучениеанглийского",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 50,
+  "platforms": {
+   "youtube": {
+    "title": "Женщина, которая — which или who?",
+    "description": "О человеке говорим “who”: “The woman who lives next door is a doctor.”\n\nТы тоже говоришь “The woman which lives next door is a doctor”? 😅 По-русски «которая» подходит и для людей, и для вещей, поэтому рука тянется к “which”, но о человеке нужно “who.” Правильно: “The woman who lives next door is a doctor.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #английский #изучениеанглийского #lexkite",
+    "tags": [
+     "The woman who lives next door is a doctor.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “The woman which lives next door is a doctor”? 😅 По-русски «которая» подходит и для людей, и для вещей, поэтому рука тянется к “which”, но о человеке нужно “who.” Правильно: “The woman who lives next door is a doctor.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Женщина, которая — which или who?\n\nО человеке говорим “who”: “The woman who lives next door is a doctor.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#изучениеанглийского",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Женщина, которая — which или who? О человеке говорим “who”: “The woman who lives next door is a doct… #английскийязык #английский #изучениеанглийского"
+   }
+  },
+  "first_comment": "Ответ: “who.” О человеке — who. Напиши своё предложение с “The man who.” Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

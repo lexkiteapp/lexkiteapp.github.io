@@ -160,6 +160,12 @@ Todas las partes y los exámenes completos están en la [página de práctica TO
 
 {{cta: /#/toeic | Haz un simulacro TOEIC y mira tu puntaje estimado de 10 a 990}}
 
+Para entrenar las seis primeras preguntas del Listening, mira [TOEIC parte 1 fotografías](/es/blog/toeic-parte-1-fotografias-trucos-y-practica/).
+
+Si necesitas repasar cuántas preguntas tiene cada parte y cómo se puntúa, mira el [formato del examen TOEIC](/es/blog/formato-del-examen-toeic-partes-y-puntuacion/).
+
+Para la sección de Listening, dedica semanas concretas a [TOEIC parte 3 y 4](/es/blog/toeic-parte-3-y-4-estrategias/), el bloque más grande de preguntas.
+
 ## Preguntas frecuentes sobre el autoestudio del TOEIC
 
 ### ¿Cuántos meses se necesitan para pasar de 500 a 750?

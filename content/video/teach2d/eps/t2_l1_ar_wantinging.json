@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_wantinging",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say I want, not I am wanting!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am wanting a coffee.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I want a coffee.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say want, not am wanting.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! I want a coffee.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am wanting a coffee.",
+  "right": "I want a coffee.",
+  "strike": "am wanting",
+  "why": "Say want, not am wanting.",
+  "memory": "I want a coffee.",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "I am wanting a coffee.",
+    "I want a coffee."
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "هل تقول “I am wanting”؟",
+   "tip": "نستعمل -ing للكلام عن الآن، لكن want لا تأخذ -ing أبدًا، مثل «أريد» تمامًا. قل: “I want a coffee.”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “I am wanting a coffee.” 😅 نستعمل -ing للكلام عن الآن، لكن want لا تأخذ -ing أبدًا، مثل «أريد» تمامًا. الجملة الصحيحة: “I want a coffee.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “I want a coffee.” — نقول want بلا -ing. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “I am wanting”?",
+   "tip": "We use -ing for now, but want never takes -ing, just like «أريد». Say: “I want a coffee.”",
+   "caption": "Do you sometimes say this? “I am wanting a coffee.” 😅 We use -ing for now, but want never takes -ing, just like «أريد». The right sentence is “I want a coffee.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “I am wanting”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "هل تقول “I am wanting”؟",
+  "keyword": "I want a coffee.",
+  "value": "نستعمل -ing للكلام عن الآن، لكن want لا تأخذ -ing أبدًا، مثل «أريد» تمامًا. قل: “I want a coffee.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “I am wanting”؟",
+    "description": "نستعمل -ing للكلام عن الآن، لكن want لا تأخذ -ing أبدًا، مثل «أريد» تمامًا. قل: “I want a coffee.”\n\nهل تقول أحيانًا هذه الجملة؟ “I am wanting a coffee.” 😅 نستعمل -ing للكلام عن الآن، لكن want لا تأخذ -ing أبدًا، مثل «أريد» تمامًا. الجملة الصحيحة: “I want a coffee.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "I want a coffee.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا هذه الجملة؟ “I am wanting a coffee.” 😅 نستعمل -ing للكلام عن الآن، لكن want لا تأخذ -ing أبدًا، مثل «أريد» تمامًا. الجملة الصحيحة: “I want a coffee.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول “I am wanting”؟\n\nنستعمل -ing للكلام عن الآن، لكن want لا تأخذ -ing أبدًا، مثل «أريد» تمامًا. قل: “I want a coffee.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “I am wanting”؟ نستعمل -ing للكلام عن الآن، لكن want لا تأخذ -ing أبدًا، مثل «أريد» تمامً… #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “I want a coffee.” — نقول want بلا -ing. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+  "lang": "ar"
+ }
+}

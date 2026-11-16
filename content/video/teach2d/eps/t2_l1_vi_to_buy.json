@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_to_buy",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Why do you go to the market?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I went to the market for buy fruit.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I went to the market to buy fruit.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say to before buy.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "To buy! I went out to buy some milk.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I went to the market for buy fruit.",
+  "right": "I went to the market to buy fruit.",
+  "strike": "for buy",
+  "why": "Say to before buy.",
+  "memory": "To buy.",
+  "quiz": {
+   "stem": "I went out ___ some milk.",
+   "options": [
+    "to buy",
+    "for buy"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Để mua” ≠ “for buy”",
+   "tip": "Tiếng Việt dùng “để” cho mục đích, nên dễ nói “for buy.” Trước động từ, tiếng Anh dùng “to.”",
+   "caption": "Bạn có hay nói “I went to the market for buy fruit.” không? 😅 Trước động từ chỉ mục đích, hãy dùng “to”: “I went to the market to buy fruit.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “to buy.” Hãy viết một câu về nơi bạn đi và lý do, dùng “to buy.” Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#nguphaptienganh",
+    "#tienganhgiaotiep",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “for buy”!",
+   "tip": "Before a verb of purpose, use “to”: “to buy.”",
+   "caption": "Do you often say this? “I went to the market for buy fruit.” Before a verb of purpose, use “to”: “I went to the market to buy fruit.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Để mua” ≠ “for buy”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 56,
+  "seconds": 33.0,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "“Để mua” ≠ “for buy”",
+  "keyword": "I went to the market to buy fruit.",
+  "value": "Tiếng Việt dùng “để” cho mục đích, nên dễ nói “for buy.” Trước động từ, tiếng Anh dùng “to.”",
+  "hashtags": [
+   "#hoctienganh",
+   "#nguphaptienganh",
+   "#tienganhgiaotiep",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 50,
+  "platforms": {
+   "youtube": {
+    "title": "“Để mua” ≠ “for buy”",
+    "description": "Tiếng Việt dùng “để” cho mục đích, nên dễ nói “for buy.” Trước động từ, tiếng Anh dùng “to.”\n\nBạn có hay nói “I went to the market for buy fruit.” không? 😅 Trước động từ chỉ mục đích, hãy dùng “to”: “I went to the market to buy fruit.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #nguphaptienganh #tienganhgiaotiep #lexkite",
+    "tags": [
+     "I went to the market to buy fruit.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “I went to the market for buy fruit.” không? 😅 Trước động từ chỉ mục đích, hãy dùng “to”: “I went to the market to buy fruit.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Để mua” ≠ “for buy”\n\nTiếng Việt dùng “để” cho mục đích, nên dễ nói “for buy.” Trước động từ, tiếng Anh dùng “to.”\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#nguphaptienganh",
+     "#tienganhgiaotiep",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Để mua” ≠ “for buy” Tiếng Việt dùng “để” cho mục đích, nên dễ nói “for buy.” Trước động từ, tiếng An… #hoctienganh #nguphaptienganh #tienganhgiaotiep"
+   }
+  },
+  "first_comment": "Đáp án: “to buy.” Hãy viết một câu về nơi bạn đi và lý do, dùng “to buy.” Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

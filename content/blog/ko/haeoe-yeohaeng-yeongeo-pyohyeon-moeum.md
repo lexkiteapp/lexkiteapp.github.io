@@ -171,6 +171,8 @@ quiz: [
 
 {{youtube: | 해외여행 영어회화 필수표현과 상황별 생존 영어 회화 총정리}}
 
+여행 밖의 일상 상황에서도 입이 먼저 움직이게 하려면 [영어 말하기 자신감 키우기](/ko/blog/yeongeo-malhagi-jasingam-sanghwangbyeol-pyohyeon/)를 이어서 읽어 보세요.
+
 ## 자주 묻는 질문 (FAQ)
 
 ### 미국과 유럽의 팁(Tipping) 문화 차이는 어떻게 구별하나요?

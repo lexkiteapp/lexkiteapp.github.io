@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Exams: take, not give!",
+   "text": "Passed, not gave the exam!",
    "pause": 0.42
   },
   {
@@ -21,12 +21,12 @@
   },
   {
    "id": "r",
-   "text": "Better: I took the exam yesterday.",
+   "text": "Better: I passed the exam yesterday.",
    "pause": 0.42
   },
   {
    "id": "y",
-   "text": "You take an exam. Teachers give it.",
+   "text": "Passed means you did well.",
    "pause": 0.42
   },
   {
@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "Take! I will take an exam next week.",
+   "text": "Passed! I studied hard and passed the test.",
    "pause": 0.42
   },
   {
@@ -53,23 +53,23 @@
  ],
  "data": {
   "wrong": "I gave the exam yesterday.",
-  "right": "I took the exam yesterday.",
+  "right": "I passed the exam yesterday.",
   "strike": "gave",
-  "why": "You take an exam. Teachers give it.",
-  "memory": "Take an exam.",
+  "why": "Passed means you did well.",
+  "memory": "I passed the exam.",
   "quiz": {
-   "stem": "I will ___ an exam next week.",
+   "stem": "I studied hard and ___ the test.",
    "options": [
-    "give",
-    "take"
+    "gave",
+    "passed"
    ],
    "answer": 1
   },
   "native": {
-   "hook": "Sınav “give” değil, “take”!",
-   "tip": "Türkçede “sınav vermek” deriz ama İngilizcede sınava “take” ile girilir.",
-   "caption": "“I gave the exam yesterday” mi diyorsun? 🙈 İngilizcede sınavı öğrenci “take” eder, öğretmen “give” eder. Doğrusu “I took the exam yesterday”. Carlos’u dinle ve tekrar et! Lexkite uygulamasında daha çok pratik yap.",
-   "comment": "Cevap: “take”. Sınava giren kişi take der. Ücretsiz testle pratik yap: {link}",
+   "hook": "Sınavı “gave” değil, “passed”!",
+   "tip": "Türkçede “sınavı verdim” deriz ama İngilizcede “I passed the exam” denir.",
+   "caption": "“I gave the exam yesterday” mi diyorsun? 🙈 Sınavı geçtiysen İngilizcede “passed” denir. Doğrusu “I passed the exam yesterday.” Carlos’u dinle ve tekrar et! Lexkite uygulamasında daha çok pratik yap.",
+   "comment": "Cevap: “passed”. Sınavı geçtiysen passed de. Ücretsiz testle pratik yap: {link}",
    "hashtags": [
     "#ingilizceöğren",
     "#ingilizcekonuşma",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "Exams: “take”, not “give”!",
-   "tip": "In Turkish you “give” an exam, but in English you “take” it.",
-   "caption": "Do you say “I gave the exam yesterday”? 🙈 In English the student takes an exam, and the teacher gives it. The right sentence is “I took the exam yesterday”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+   "hook": "Not “gave the exam”, but “passed”!",
+   "tip": "If you did well on a test, say “passed”: “I passed the exam.”",
+   "caption": "Do you say “I gave the exam yesterday”? 🙈 If you did well, English says “passed”. The right sentence is “I passed the exam yesterday.” Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -91,21 +91,21 @@
  },
  "hook": {
   "line": "h",
-  "text": "Sınav “give” değil, “take”!"
+  "text": "Sınavı “gave” değil, “passed”!"
  },
  "src": {
   "l1": true
  },
  "lang": "tr",
  "est": {
-  "words": 49,
-  "seconds": 29.6,
+  "words": 48,
+  "seconds": 29.1,
   "wpm": 99
  },
  "publish": {
-  "title": "Sınav “give” değil, “take”!",
-  "keyword": "I took the exam yesterday.",
-  "value": "Türkçede “sınav vermek” deriz ama İngilizcede sınava “take” ile girilir.",
+  "title": "Sınavı “gave” değil, “passed”!",
+  "keyword": "I passed the exam yesterday.",
+  "value": "Türkçede “sınavı verdim” deriz ama İngilizcede “I passed the exam” denir.",
   "hashtags": [
    "#ingilizceöğren",
    "#ingilizcekonuşma",
@@ -113,22 +113,22 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 43,
+  "script_words": 42,
   "platforms": {
    "youtube": {
-    "title": "Sınav “give” değil, “take”!",
-    "description": "“I gave the exam yesterday” mi diyorsun? 🙈 İngilizcede sınavı öğrenci “take” eder, öğretmen “give” eder. Doğrusu “I took the exam yesterday”. Carlos’u dinle ve tekrar et! Lexkite uygulamasında daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "title": "Sınavı “gave” değil, “passed”!",
+    "description": "Türkçede “sınavı verdim” deriz ama İngilizcede “I passed the exam” denir.\n\n“I gave the exam yesterday” mi diyorsun? 🙈 Sınavı geçtiysen İngilizcede “passed” denir. Doğrusu “I passed the exam yesterday.” Carlos’u dinle ve tekrar et! Lexkite uygulamasında daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
     "tags": [
-     "I took the exam yesterday.",
+     "I passed the exam yesterday.",
      "learn english",
      "tr"
     ]
    },
    "facebook": {
-    "text": "“I gave the exam yesterday” mi diyorsun? 🙈 İngilizcede sınavı öğrenci “take” eder, öğretmen “give” eder. Doğrusu “I took the exam yesterday”. Carlos’u dinle ve tekrar et! Lexkite uygulamasında daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "“I gave the exam yesterday” mi diyorsun? 🙈 Sınavı geçtiysen İngilizcede “passed” denir. Doğrusu “I passed the exam yesterday.” Carlos’u dinle ve tekrar et! Lexkite uygulamasında daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "“I gave the exam yesterday” mi diyorsun? 🙈 İngilizcede sınavı öğrenci “take” eder, öğretmen “give” eder. Doğrusu “I took the exam yesterday”. Carlos’u dinle ve tekrar et! Lexkite uygulamasında daha çok pratik yap.\n\nlexkite.com",
+    "caption": "Sınavı “gave” değil, “passed”!\n\nTürkçede “sınavı verdim” deriz ama İngilizcede “I passed the exam” denir.\n\nlexkite.com",
     "hashtags": [
      "#ingilizceöğren",
      "#ingilizcekonuşma",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "Sınav “give” değil, “take”! #ingilizceöğren #ingilizcekonuşma #ingilizce"
+    "caption": "Sınavı “gave” değil, “passed”! Türkçede “sınavı verdim” deriz ama İngilizcede “I passed the exam” denir. #ingilizceöğren #ingilizcekonuşma #ingilizce"
    }
   },
-  "first_comment": "Cevap: “take”. Sınava giren kişi take der. Ücretsiz testle pratik yap: {link}",
+  "first_comment": "Cevap: “passed”. Sınavı geçtiysen passed de. Ücretsiz testle pratik yap: {link}",
   "lang": "tr"
  }
 }

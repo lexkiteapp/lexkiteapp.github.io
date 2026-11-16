@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_what_does_mean",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "What does it mean?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: What means this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: What does this word mean?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use does and mean.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Does! What does this word mean?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "What means this word?",
+  "right": "What does this word mean?",
+  "strike": "means",
+  "why": "Use does and mean.",
+  "memory": "What does it mean?",
+  "quiz": {
+   "stem": "What ___ this word mean?",
+   "options": [
+    "does",
+    "means"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "„Was bedeutet das?“ auf Englisch?",
+   "tip": "Im Deutschen fragen Sie: „Was bedeutet das Wort?“ Im Englischen brauchen Sie „does“ und „mean“.",
+   "caption": "Wie fragen Sie nach einem Wort? 🤔 Falsch: “What means this word?” Richtig: “What does this word mean?” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “does”. Richtig heißt es: “What does this word mean?” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Was bedeutet das?” in English?",
+   "tip": "German asks: “Was bedeutet das Wort?” English needs “does” and “mean”.",
+   "caption": "“Was bedeutet das?” in English? Wrong: “What means this word?” Right: “What does this word mean?” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "„Was bedeutet das?“ auf Englisch?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "„Was bedeutet das?“ auf Englisch?",
+  "keyword": "What does this word mean?",
+  "value": "Im Deutschen fragen Sie: „Was bedeutet das Wort?“ Im Englischen brauchen Sie „does“ und „mean“.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "„Was bedeutet das?“ auf Englisch?",
+    "description": "Im Deutschen fragen Sie: „Was bedeutet das Wort?“ Im Englischen brauchen Sie „does“ und „mean“.\n\nWie fragen Sie nach einem Wort? 🤔 Falsch: “What means this word?” Richtig: “What does this word mean?” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "What does this word mean?",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Wie fragen Sie nach einem Wort? 🤔 Falsch: “What means this word?” Richtig: “What does this word mean?” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "„Was bedeutet das?“ auf Englisch?\n\nIm Deutschen fragen Sie: „Was bedeutet das Wort?“ Im Englischen brauchen Sie „does“ und „mean“.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "„Was bedeutet das?“ auf Englisch? Im Deutschen fragen Sie: „Was bedeutet das Wort?“ Im Englischen brau… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “does”. Richtig heißt es: “What does this word mean?” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

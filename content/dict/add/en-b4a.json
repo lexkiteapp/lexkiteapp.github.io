@@ -1,0 +1,752 @@
+{
+  "reopen": {
+    "mis": [
+      {
+        "w": "The shop will reopen again next week.",
+        "r": "The shop will reopen next week.",
+        "why": "The prefix re- already means again, so adding 'again' is redundant."
+      },
+      {
+        "w": "The store will be reopen on Monday.",
+        "r": "The store will reopen on Monday.",
+        "why": "After 'will be' you need a past participle; use 'will reopen' or 'will be reopened'."
+      }
+    ],
+    "u": "Reopen is used for places, cases and discussions that start again after a pause. A shop or border reopens (to the public, for business); a court or police inquiry reopens a case; people reopen a debate or old wounds. It works both with and without an object. Resume is wider and covers any activity, while reopen needs something that was closed."
+  },
+  "repairperson": {
+    "mis": [
+      {
+        "w": "Please call repairperson to fix the sink.",
+        "r": "Please call a repairperson to fix the sink.",
+        "why": "A singular countable noun needs an article or determiner such as a, the or your."
+      },
+      {
+        "w": "I asked the repairperson fix the heater.",
+        "r": "I asked the repairperson to fix the heater.",
+        "why": "Ask someone is followed by 'to' plus a base verb, not a bare verb."
+      }
+    ],
+    "u": "Repairperson is a gender-neutral noun for someone who fixes household or office equipment, used in business and customer-service writing instead of repairman. It is mainly American and a little formal; in speech people often name the trade instead, such as plumber or electrician. A repairperson usually visits a home or office, so common patterns are call, book, send and wait for a repairperson."
+  },
+  "reschedule": {
+    "mis": [
+      {
+        "w": "We rescheduled the meeting at Friday.",
+        "r": "We rescheduled the meeting to Friday.",
+        "why": "Use 'to' or 'for' with the new day; 'at' is for clock times or points."
+      },
+      {
+        "w": "I need to reschedule with you the appointment.",
+        "r": "I need to reschedule the appointment with you.",
+        "why": "Keep the object right after the verb; put 'with you' after it."
+      }
+    ],
+    "u": "Reschedule means to change the time of an event that is already planned, to an earlier or later time. It is neutral and very common in work emails: Can we reschedule? Unlike postpone, it does not say the new time is later, and unlike cancel, it keeps the event. The new time follows to or for. In the US it is pronounced with a sk sound."
+  },
+  "reservation": {
+    "mis": [
+      {
+        "w": "I did a reservation for dinner.",
+        "r": "I made a reservation for dinner.",
+        "why": "The collocation is make a reservation, not do a reservation."
+      },
+      {
+        "w": "I want to reservation a table.",
+        "r": "I want to reserve a table.",
+        "why": "After 'to' you need the verb reserve; reservation is a noun."
+      }
+    ],
+    "u": "Reservation is the American word for booking a table, room or seat in advance: make, confirm, change or cancel one. British speakers say booking more often, though reservation is also understood. It has a second meaning: if you have reservations about a plan, you have doubts. Reserve is the verb and reservation the noun, so keep the two forms apart."
+  },
+  "resume": {
+    "mis": [
+      {
+        "w": "Please read this resume of the meeting.",
+        "r": "Please read this summary of the meeting.",
+        "why": "In English a resume is a job document; a short account of a text is a summary."
+      },
+      {
+        "w": "Please submit your resume in the HR department.",
+        "r": "Please submit your resume to the HR department.",
+        "why": "Submit something to a person or department, not 'in' it."
+      }
+    ],
+    "u": "As a noun, resume (stress on the first syllable) is the American word for a short document listing your education, jobs and skills; British English prefers CV. The verb resume, meaning to begin again, is stressed on the second syllable and sounds different. Do not use the noun to mean a summary, as the French word does; in English that meaning is summary."
+  },
+  "reunion": {
+    "mis": [
+      {
+        "w": "I will go to the reunion of high school.",
+        "r": "I will go to my high school reunion.",
+        "why": "Name the group before 'reunion' as a noun modifier, instead of using 'of'."
+      },
+      {
+        "w": "The two friends were reunion after ten years.",
+        "r": "The two friends were reunited after ten years.",
+        "why": "Reunion is a noun; the verb form meaning meet again is reunite."
+      }
+    ],
+    "u": "A reunion is a planned meeting of people who have been apart a long time, such as old classmates, relatives or former colleagues. Modifiers come first: a family reunion, a ten-year class reunion. It can also describe an emotional moment, as when a lost pet is reunited with its owner. It is warmer than meeting and suggests a shared past."
+  },
+  "rider": {
+    "mis": [
+      {
+        "w": "The rider of the car stopped at the light.",
+        "r": "The driver of the car stopped at the light.",
+        "why": "A rider sits on or travels in a vehicle; the person controlling a car is the driver."
+      },
+      {
+        "w": "All motorbike riders must wear helmet.",
+        "r": "All motorbike riders must wear a helmet.",
+        "why": "Helmet is countable, so it needs 'a' or must be plural."
+      }
+    ],
+    "u": "Rider means a person who rides something: a bicycle, motorbike or horse. In American English it also means a passenger on public transport, so you hear bus riders and subway riders, where British English says passengers. The person in control of a car, taxi or truck is a driver, not a rider."
+  },
+  "salespeople": {
+    "mis": [
+      {
+        "w": "Our salespeoples work hard.",
+        "r": "Our salespeople work hard.",
+        "why": "Salespeople is already plural; it takes no extra -s."
+      },
+      {
+        "w": "Each salespeople must submit a report.",
+        "r": "Each salesperson must submit a report.",
+        "why": "After each, use the singular salesperson."
+      }
+    ],
+    "u": "Salespeople is the plural of salesperson, a gender-neutral replacement for salesman and saleswoman. It takes a plural verb and no final s: the salespeople are meeting today. Salesperson is for one individual. In many companies sales staff or the sales team is preferred when talking about the group, while salespeople stresses the individual workers."
+  },
+  "salesperson": {
+    "mis": [
+      {
+        "w": "She works as salesperson at a bookstore.",
+        "r": "She works as a salesperson at a bookstore.",
+        "why": "A job title as a singular countable noun needs a or an."
+      },
+      {
+        "w": "The salesperson explained me the warranty.",
+        "r": "The salesperson explained the warranty to me.",
+        "why": "Explain takes the thing directly and the listener after 'to'."
+      }
+    ],
+    "u": "A salesperson is someone whose job is selling goods or services, in a shop or by visiting clients. It replaced salesman in modern business writing because it fits any gender. For a shop worker, sales assistant is common in British English and sales clerk in American English. Pay is often tied to commission, so you may read salesperson on commission in job adverts."
+  },
+  "sender": {
+    "mis": [
+      {
+        "w": "I don't know who is the sender of this package.",
+        "r": "I don't know who the sender of this package is.",
+        "why": "In an embedded question, keep statement word order: subject before verb."
+      },
+      {
+        "w": "Please write the name of sender on the envelope.",
+        "r": "Please write the name of the sender on the envelope.",
+        "why": "A specific person needs the definite article 'the'."
+      }
+    ],
+    "u": "Sender is the person or organization that sends a letter, parcel or message, as opposed to the recipient who receives it. Mail has a sender's address and email shows the sender's name; return to sender is printed on rejected post. For emails, security advice often warns about unknown senders. The word is neutral and common in both everyday and business settings."
+  },
+  "shopper": {
+    "mis": [
+      {
+        "w": "She is a shopper in a clothing store.",
+        "r": "She is a sales assistant in a clothing store.",
+        "why": "A shopper buys things; the person who sells in a shop is a sales assistant."
+      },
+      {
+        "w": "Online shoppers often compare price before buying.",
+        "r": "Online shoppers often compare prices before buying.",
+        "why": "Compare needs a plural noun when many prices are looked at."
+      }
+    ],
+    "u": "A shopper is someone who is buying things, or who regularly goes shopping, in stores or online. Unlike customer, it does not need a relationship with one seller: shoppers in a mall may buy from many shops. It often takes a describing word: bargain shopper, online shopper. A shopper is on the buying side, so it never means the person working in the shop."
+  },
+  "shorten": {
+    "mis": [
+      {
+        "w": "Please shorter the report to two pages.",
+        "r": "Please shorten the report to two pages.",
+        "why": "Shorter is an adjective; the verb is shorten."
+      },
+      {
+        "w": "We shortened the meeting for thirty minutes.",
+        "r": "We shortened the meeting by thirty minutes.",
+        "why": "Use 'by' for the amount of change, and 'to' for the new length."
+      }
+    ],
+    "u": "Shorten is a transitive verb meaning to make something shorter in length or time: shorten a report, a visit, a skirt. Use by for the amount removed and to for the new length, so shorten the talk by ten minutes and shorten it to fifteen minutes both work. Abbreviate is for words and names, while cut and trim are less formal."
+  },
+  "shuttle": {
+    "mis": [
+      {
+        "w": "Take shuttle to the hotel.",
+        "r": "Take the shuttle to the hotel.",
+        "why": "A specific service known to both speakers needs the article 'the'."
+      },
+      {
+        "w": "The shuttle departs in every twenty minutes.",
+        "r": "The shuttle departs every twenty minutes.",
+        "why": "Do not use a preposition before every in frequency phrases."
+      }
+    ],
+    "u": "A shuttle is a bus, van or train that goes back and forth over a short fixed route, such as between an airport and a hotel. Hotels often advertise a free shuttle. It is also a verb: to shuttle between two places means to travel back and forth. Compared with a normal bus, a shuttle usually serves one destination, and the word comes from weaving."
+  },
+  "sightsee": {
+    "mis": [
+      {
+        "w": "We sightseed in Hue last summer.",
+        "r": "We went sightseeing in Hue last summer.",
+        "why": "Sightsee is rarely used with tenses; say go sightseeing instead."
+      },
+      {
+        "w": "We visited many sightseeings in Rome.",
+        "r": "We visited many sights in Rome.",
+        "why": "Sightseeing is uncountable; the places you see are called sights."
+      }
+    ],
+    "u": "Sightsee is a verb, but it is almost always used in the pattern go sightseeing, with the -ing form acting like a noun for the activity of visiting famous places as a tourist. Sightseeing is uncountable, so you cannot say a sightseeing; the places themselves are sights or attractions. Typical phrases are a sightseeing tour and a day of sightseeing."
+  },
+  "similarity": {
+    "mis": [
+      {
+        "w": "There are many similarity between the two plans.",
+        "r": "There are many similarities between the two plans.",
+        "why": "Many needs a plural noun; the plural of similarity is similarities."
+      },
+      {
+        "w": "There is a similarity of these two designs.",
+        "r": "There is a similarity between these two designs.",
+        "why": "Compare two things with 'between' (or 'to' one thing), not 'of'."
+      }
+    ],
+    "u": "Similarity is the noun for a way in which two or more things are alike; its adjective is similar. It is usually plural when you list points of comparison: the similarities and differences. Prepositions matter: a similarity between A and B, or A bears a similarity to B. Resemblance is close, but often about looks, while similarity is broader."
+  },
+  "sincerely": {
+    "mis": [
+      {
+        "w": "I sincerely thank to you for your help.",
+        "r": "I sincerely thank you for your help.",
+        "why": "Thank is transitive; it takes the person directly without 'to'."
+      },
+      {
+        "w": "I am sincere sorry for the mistake.",
+        "r": "I am sincerely sorry for the mistake.",
+        "why": "An adverb is needed to modify the adjective sorry."
+      }
+    ],
+    "u": "Sincerely is an adverb meaning honestly and without pretending. It strengthens feelings and verbs: sincerely apologize, sincerely hope. It also closes a formal letter, where American English writes Sincerely or Sincerely yours and British English writes Yours sincerely when you know the name of the person (Yours faithfully if you do not). Sincere is the adjective: a sincere apology."
+  },
+  "stationery": {
+    "mis": [
+      {
+        "w": "I bought some stationary for the office.",
+        "r": "I bought some stationery for the office.",
+        "why": "Stationary with an a means not moving; the writing materials are stationery with an e."
+      },
+      {
+        "w": "We ordered two stationeries.",
+        "r": "We ordered some stationery.",
+        "why": "Stationery is uncountable and has no plural form."
+      }
+    ],
+    "u": "Stationery means paper, pens, envelopes and other writing materials, often sold together as office supplies. It is uncountable and takes a singular verb: the stationery is in the cupboard. Do not confuse it with stationary, an adjective meaning not moving. A helpful memory trick is that stationEry has an E like envelope. A stationery shop is a UK term for a store selling such goods."
+  },
+  "storeroom": {
+    "mis": [
+      {
+        "w": "Put the boxes to the storeroom.",
+        "r": "Put the boxes in the storeroom.",
+        "why": "Use 'in' or 'into' for putting something inside a place; 'to' only shows direction."
+      },
+      {
+        "w": "The cleaning supplies are kept at storeroom.",
+        "r": "The cleaning supplies are kept in the storeroom.",
+        "why": "A specific room needs the article 'the' and 'in' for inside it."
+      }
+    ],
+    "u": "A storeroom is a room where goods, tools or supplies are kept until needed, in a shop, office, hotel or school. Staff usually need a key, so you hear locked storeroom. The words stockroom and storage room are close; stockroom is common behind a shop, and storage room is wider. It is written as one word or two, but one word is more standard."
+  },
+  "surname": {
+    "mis": [
+      {
+        "w": "Please write your sur name on the form.",
+        "r": "Please write your surname on the form.",
+        "why": "Surname is a single word, not two separate words."
+      },
+      {
+        "w": "Could you spell your surname with me?",
+        "r": "Could you spell your surname for me?",
+        "why": "Use 'for' to say who the action is done for."
+      }
+    ],
+    "u": "Surname is the name you share with your family. British English prefers it, while American English more often says last name; family name is neutral and international. In English-language forms the surname usually goes after the first name, though some cultures, including Vietnam, put it first, so asking Is that your surname? avoids confusion. People may also spell it out on the phone."
+  },
+  "technician": {
+    "mis": [
+      {
+        "w": "She works as a technology at the lab.",
+        "r": "She works as a technician at the lab.",
+        "why": "The person is a technician; technology is the subject area."
+      },
+      {
+        "w": "The technician fixed me the printer.",
+        "r": "The technician fixed the printer for me.",
+        "why": "Fix cannot take the beneficiary directly; use 'for me' after the object."
+      }
+    ],
+    "u": "A technician is a skilled worker who installs, maintains or repairs equipment, or runs tests in a laboratory. The word is more specific than engineer: an engineer usually designs systems, while a technician keeps them working. It is common in compounds such as lab technician and computer technician. Service companies often tell customers that a technician will call to arrange a visit."
+  },
+  "teller": {
+    "mis": [
+      {
+        "w": "She works as a teller in bank.",
+        "r": "She works as a teller in a bank.",
+        "why": "A bank in general needs the article a, since it is a singular countable noun."
+      },
+      {
+        "w": "The teller said me the balance.",
+        "r": "The teller told me the balance.",
+        "why": "Say needs 'to' before the listener; tell takes the listener directly."
+      }
+    ],
+    "u": "A teller is a bank employee who deals with customers at the counter, taking deposits and handing out cash. The word is most often heard in bank teller, and in American English the counter is called the teller window. It also appears as the second part of compounds: fortune teller and storyteller, where it means a person who tells. A cashier usually works in shops rather than banks."
+  },
+  "tow": {
+    "mis": [
+      {
+        "w": "Illegally parked cars will tow.",
+        "r": "Illegally parked cars will be towed.",
+        "why": "The cars receive the action, so use the passive 'will be towed'."
+      },
+      {
+        "w": "They towed the car until the garage.",
+        "r": "They towed the car to the garage.",
+        "why": "Use 'to' for the destination; 'until' is for time."
+      }
+    ],
+    "u": "Tow is a verb meaning to pull a vehicle with another vehicle, usually because it is broken down or parked illegally. A tow truck does the job, and drivers say their car was towed away. Notices warn that vehicles will be towed at the owner's expense. As a noun, a tow is the act itself; the verb rhymes with go, not with now."
+  },
+  "translator": {
+    "mis": [
+      {
+        "w": "She works as translator for a law firm.",
+        "r": "She works as a translator for a law firm.",
+        "why": "Job titles are singular countable nouns and need a or an."
+      },
+      {
+        "w": "The translator translated me the contract.",
+        "r": "The translator translated the contract for me.",
+        "why": "Translate does not take the person directly; add 'for me' after the object."
+      }
+    ],
+    "u": "A translator converts written text from one language into another, such as contracts, books or websites. Spoken words are handled by an interpreter, so the two jobs are not the same, though people often mix them up. Translators usually work into their native language and often specialize: legal, medical or technical. The phrase translator from Japanese into English names both languages clearly."
+  },
+  "troubleshoot": {
+    "mis": [
+      {
+        "w": "Can you troubleshoot for the printer?",
+        "r": "Can you troubleshoot the printer?",
+        "why": "Troubleshoot is transitive and takes its object directly, with no preposition."
+      },
+      {
+        "w": "I troubleshooted the router yesterday.",
+        "r": "I troubleshot the router yesterday.",
+        "why": "Troubleshoot is irregular, like shoot: its past form is troubleshot."
+      }
+    ],
+    "u": "Troubleshoot means to search for the cause of a fault and fix it, especially in computers, networks and machines. It is a business and technical verb used with the faulty thing as object: troubleshoot the network. It is formed from trouble and shoot, so its past form follows shoot: troubleshot. A troubleshooter is the person, and a troubleshooting guide lists steps."
+  },
+  "unavailable": {
+    "mis": [
+      {
+        "w": "He is unavailable to attend the meeting.",
+        "r": "He is unable to attend the meeting.",
+        "why": "Unavailable describes being free to meet; ability to do something is unable."
+      },
+      {
+        "w": "The manager is unavailable on this moment.",
+        "r": "The manager is unavailable at the moment.",
+        "why": "The fixed phrase for now is 'at the moment'."
+      }
+    ],
+    "u": "Unavailable describes a thing you cannot get or a person you cannot reach, so it fits stock, rooms, products and busy staff: the manager is unavailable until Friday. It is polite and common in emails and phone messages. When the reason is lack of ability, use unable. A website may show a page temporarily unavailable, and a person can be unavailable for comment."
+  },
+  "uncomfortable": {
+    "mis": [
+      {
+        "w": "I feel uncomfortably in this chair.",
+        "r": "I feel uncomfortable in this chair.",
+        "why": "After feel, use an adjective, not an adverb."
+      },
+      {
+        "w": "This sofa is uncomfortable to sit.",
+        "r": "This sofa is uncomfortable to sit on.",
+        "why": "The infinitive needs its preposition: sit on the sofa."
+      }
+    ],
+    "u": "Uncomfortable has two uses. Physically, it describes things or positions that cause pain or little rest: an uncomfortable chair. Socially, it describes embarrassment or unease: an uncomfortable silence, or feeling uncomfortable with a question. The adjective is often followed by with or in. The noun is discomfort, and the opposite, comfortable, is often pronounced with only three syllables in speech."
+  },
+  "underline": {
+    "mis": [
+      {
+        "w": "Please underline on the key words.",
+        "r": "Please underline the key words.",
+        "why": "Underline is transitive; do not add 'on' before the object."
+      },
+      {
+        "w": "Underline the important word with red pen.",
+        "r": "Underline the important word with a red pen.",
+        "why": "A singular countable noun like pen needs an article."
+      }
+    ],
+    "u": "Underline has a literal meaning, to draw a line below a word or sentence, and a figurative one, to stress that something is important. Reports and speeches underline a need, a risk or a point: The study underlines the need for training. The figurative sense is more formal and close to emphasize. As a noun, an underline is the line itself."
+  },
+  "unemployed": {
+    "mis": [
+      {
+        "w": "The unemployeds need support.",
+        "r": "The unemployed need support.",
+        "why": "The unemployed is a plural group expression and takes no -s."
+      },
+      {
+        "w": "He has been unemployed since three months.",
+        "r": "He has been unemployed for three months.",
+        "why": "Use 'for' with a length of time and 'since' with a starting point."
+      }
+    ],
+    "u": "Unemployed describes a person who has no job but is able and willing to work, and is often looking for one. It differs from retired or from a student. With the, it names a group: the unemployed. It is the neutral official word in statistics and news, while out of work and jobless are more casual. The noun is unemployment."
+  },
+  "unload": {
+    "mis": [
+      {
+        "w": "They unloaded the truck from boxes.",
+        "r": "They unloaded the boxes from the truck.",
+        "why": "Goods come out from the vehicle; the vehicle itself is emptied."
+      },
+      {
+        "w": "Please unload down the boxes.",
+        "r": "Please unload the boxes.",
+        "why": "Unload takes its object directly and needs no extra particle."
+      }
+    ],
+    "u": "Unload is the opposite of load: to take goods out of a vehicle, ship or machine. Either the goods or the container can be the object: unload the boxes or unload the truck. It also works for domestic machines: unload the dishwasher. Informally, to unload on someone means to tell them your problems. In logistics, workers unload cargo at a dock."
+  },
+  "unnecessary": {
+    "mis": [
+      {
+        "w": "It is unnecessary to you to wait.",
+        "r": "It is unnecessary for you to wait.",
+        "why": "Use 'for' to introduce the person in an adjective plus infinitive pattern."
+      },
+      {
+        "w": "Don't spend unnecessary money for decorations.",
+        "r": "Don't spend unnecessary money on decorations.",
+        "why": "Spend money on something, not for it."
+      }
+    ],
+    "u": "Unnecessary means not needed, and it often carries a mild criticism: unnecessary expenses, unnecessary delay. In business it appears in advice to avoid waste. A common pattern is it is unnecessary for someone to do something. It is stronger and more formal than not needed, while needless is almost literary, and superfluous means more than is required."
+  },
+  "unpaid": {
+    "mis": [
+      {
+        "w": "Unpaid invoices must be settled until Friday.",
+        "r": "Unpaid invoices must be settled by Friday.",
+        "why": "'By' marks a deadline; 'until' means continuing up to a time."
+      },
+      {
+        "w": "I did an unpaid work at the shelter.",
+        "r": "I did some unpaid work at the shelter.",
+        "why": "Work meaning a job is uncountable and cannot take 'an'."
+      }
+    ],
+    "u": "Unpaid has two main meanings. For money, it means still owed: unpaid bills, an unpaid invoice. For work, it means done without a salary: unpaid leave, an unpaid internship, unpaid overtime. Context shows which sense applies. Overdue and outstanding are close to the first sense and sound more formal in accounting, while voluntary describes the second sense when people choose to work free."
+  },
+  "unpleasant": {
+    "mis": [
+      {
+        "w": "The room smells unpleasantly.",
+        "r": "The room smells unpleasant.",
+        "why": "After a sense verb like smell, use an adjective, not an adverb."
+      },
+      {
+        "w": "I felt unpleasant when he shouted.",
+        "r": "I felt uncomfortable when he shouted.",
+        "why": "Unpleasant describes things and people, not your own feelings; use uncomfortable or upset."
+      }
+    ],
+    "u": "Unpleasant describes something or someone that gives you a disagreeable feeling: an unpleasant smell, an unpleasant surprise, an unpleasant person. It is milder than disgusting and more formal than nasty. It is used about the cause of a feeling, not the feeling itself, so you do not say I feel unpleasant. Customer complaints often mention an unpleasant experience."
+  },
+  "unplug": {
+    "mis": [
+      {
+        "w": "I unplugged the lights before leaving.",
+        "r": "I turned off the lights before leaving.",
+        "why": "Unplug means removing a plug; lights are switched off or turned off."
+      },
+      {
+        "w": "Unplug off the heater before cleaning it.",
+        "r": "Unplug the heater before cleaning it.",
+        "why": "Unplug already includes the idea of removal; do not add 'off'."
+      }
+    ],
+    "u": "Unplug means to disconnect a device from the electricity supply by pulling out its plug: unplug the kettle before cleaning. It is the opposite of plug in. It is not a general word for switching things off, because turn off applies to lights and machines without a plug. Informally, unplug can also mean to stop using screens, as in a digital detox."
+  },
+  "unsure": {
+    "mis": [
+      {
+        "w": "I am unsure to attend.",
+        "r": "I am unsure whether to attend.",
+        "why": "Unsure needs a question word like whether before an infinitive."
+      },
+      {
+        "w": "She is unsure with the answer.",
+        "r": "She is unsure about the answer.",
+        "why": "The usual preposition after unsure is 'about' (or 'of')."
+      }
+    ],
+    "u": "Unsure means not certain, and it is about your own feelings or knowledge: I am unsure about the date. It is followed by about, of, whether or a question word: unsure what to do. It is less formal than uncertain, which also describes situations (an uncertain future), while unsure is mostly used for people. Unsure of yourself means lacking confidence."
+  },
+  "unused": {
+    "mis": [
+      {
+        "w": "He is unused of the cold weather.",
+        "r": "He is unused to the cold weather.",
+        "why": "The preposition after unused to is 'to', and it means not accustomed."
+      },
+      {
+        "w": "I am unused to wake up early.",
+        "r": "I am unused to waking up early.",
+        "why": "After unused to, the 'to' is a preposition, so use the -ing form."
+      }
+    ],
+    "u": "Unused has two forms. Pronounced with a z, it means not yet used or not being used: unused tickets, unused vacation days, unused space. Pronounced with an s, it means not accustomed: I am unused to the cold, usually followed by a noun or an -ing form. The second meaning is close to not used to and slightly more formal, and it needs the preposition to."
+  },
+  "walkway": {
+    "mis": [
+      {
+        "w": "Don't park your bikes on walkway.",
+        "r": "Don't park your bikes on the walkway.",
+        "why": "A specific place known to both speakers needs the article 'the'."
+      },
+      {
+        "w": "The walkway of the two buildings is covered.",
+        "r": "The walkway between the two buildings is covered.",
+        "why": "'Between' links two places; 'of' does not express a connection."
+      }
+    ],
+    "u": "A walkway is a path or passage meant for people on foot, often inside or between buildings, over a road or through a factory floor. Safety signs say keep the walkway clear. A covered walkway protects from rain. It differs from sidewalk or pavement, which run beside a road, and from corridor, which is inside a building."
+  },
+  "wheelchair": {
+    "mis": [
+      {
+        "w": "He is on a wheelchair.",
+        "r": "He is in a wheelchair.",
+        "why": "Use 'in' for a person sitting inside a wheelchair."
+      },
+      {
+        "w": "The elevator is wheelchair accessibility.",
+        "r": "The elevator is wheelchair accessible.",
+        "why": "The adjective accessible is needed here, not the noun accessibility."
+      }
+    ],
+    "u": "A wheelchair is a chair on wheels for someone who cannot walk or walks with difficulty. It is a neutral term; people say wheelchair user or a person who uses a wheelchair, which many consider more respectful than wheelchair-bound. The adjective wheelchair accessible describes a building with ramps or lifts. The preposition is in: she is in a wheelchair."
+  },
+  "wireless": {
+    "mis": [
+      {
+        "w": "The hotel has a free wirelessly internet connection.",
+        "r": "The hotel has a free wireless internet connection.",
+        "why": "Before a noun, use the adjective wireless; wirelessly is an adverb."
+      },
+      {
+        "w": "Connect to the wireless network by the password.",
+        "r": "Connect to the wireless network with the password.",
+        "why": "Use 'with' or 'using' for the tool or key you use."
+      }
+    ],
+    "u": "Wireless describes technology that works without cables: wireless internet, a wireless mouse, wireless headphones. It is the usual hotel-sign word for Wi-Fi, which is the common name for the wireless network itself. A device can be cordless when it works without a power cord, such as a phone, while wireless stresses data. The adverb is wirelessly, as in connect wirelessly."
+  },
+  "worldwide": {
+    "mis": [
+      {
+        "w": "The company sells its products in worldwide.",
+        "r": "The company sells its products worldwide.",
+        "why": "Worldwide is an adverb here; it takes no preposition."
+      },
+      {
+        "w": "The singer is worldwide famous.",
+        "r": "The singer is world-famous.",
+        "why": "The compound adjective is world-famous; worldwide is for reach or spread."
+      }
+    ],
+    "u": "Worldwide can be an adjective before a noun (a worldwide trend) or an adverb after a verb (sold worldwide). It means in or across the whole world and is usually about reach: worldwide shipping, worldwide sales. It is similar to global, which is often more formal and business-like. For fame, English uses the compound world-famous rather than worldwide famous."
+  },
+  "yearly": {
+    "mis": [
+      {
+        "w": "The fee is paid by yearly.",
+        "r": "The fee is paid yearly.",
+        "why": "Yearly is an adverb here and needs no 'by'."
+      },
+      {
+        "w": "The contract is renewed yearly basis.",
+        "r": "The contract is renewed on a yearly basis.",
+        "why": "The fixed phrase is 'on a yearly basis'."
+      }
+    ],
+    "u": "Yearly means happening once a year and works as an adjective or an adverb: a yearly review, paid yearly. It is plain and everyday, while annual is more formal and common in reports and law: annual report. Yearly can also describe amounts calculated for a year, such as a yearly salary. Compare monthly and weekly, which follow the same pattern."
+  },
+  "agile": {
+    "mis": [
+      {
+        "w": "The agile of the team is impressive.",
+        "r": "The agility of the team is impressive.",
+        "why": "The noun form is agility; agile is only an adjective."
+      },
+      {
+        "w": "Our team is working in an agile.",
+        "r": "Our team is working in an agile way.",
+        "why": "Agile is an adjective and needs a noun after it."
+      }
+    ],
+    "u": "In software, agile describes a way of working in short cycles called sprints, with frequent feedback and changing plans, as opposed to a single long plan. It is used as an adjective: an agile team, agile methods. In everyday English, agile also means able to move quickly and easily, or to think quickly. It is often capitalised only in the Agile Manifesto."
+  },
+  "anesthesia": {
+    "mis": [
+      {
+        "w": "He was under an anesthesia for two hours.",
+        "r": "He was under anesthesia for two hours.",
+        "why": "Anesthesia is uncountable here and takes no article after 'under'."
+      },
+      {
+        "w": "The patient was anesthesia for the operation.",
+        "r": "The patient was under anesthesia for the operation.",
+        "why": "Anesthesia is a noun; use 'under' or the verb anesthetized."
+      }
+    ],
+    "u": "Anesthesia is the medical state or process of being made unable to feel pain, usually for surgery. It is uncountable and appears in under anesthesia, general anesthesia (asleep) and local anesthesia (only one area numb). American English spells it anesthesia and British English anaesthesia. The doctor who gives it is an anesthesiologist, and the drug is an anesthetic."
+  },
+  "antibiotic": {
+    "mis": [
+      {
+        "w": "I drank antibiotics for the infection.",
+        "r": "I took antibiotics for the infection.",
+        "why": "Medicine collocates with take, even when it is liquid."
+      },
+      {
+        "w": "I took antibiotic for a week.",
+        "r": "I took antibiotics for a week.",
+        "why": "The general course of medicine is normally plural: antibiotics."
+      }
+    ],
+    "u": "An antibiotic is a drug that kills bacteria or stops them growing. Doctors prescribe antibiotics for bacterial infections, and a course of antibiotics is the full set you must finish. They do not work on viruses such as colds. As a plural noun it is more common than the singular. The adjective use appears in antibiotic resistance, a growing public health concern."
+  },
+  "antibody": {
+    "mis": [
+      {
+        "w": "The body produces antibodys.",
+        "r": "The body produces antibodies.",
+        "why": "Nouns ending in consonant plus y change y to ies in the plural."
+      },
+      {
+        "w": "The vaccine makes antibodies against to the virus.",
+        "r": "The vaccine makes antibodies against the virus.",
+        "why": "Against is already a preposition; do not add 'to' after it."
+      }
+    ],
+    "u": "An antibody is a protein made by the immune system that attaches to a germ or foreign substance and helps destroy it. Vaccines train the body to produce antibodies, and an antibody test checks a blood sample for them. It is normally countable: the plural is antibodies. Do not confuse it with antibiotic, which is a drug, whereas antibodies are made inside the body."
+  },
+  "arbitration": {
+    "mis": [
+      {
+        "w": "The dispute was resolved by arbitrator.",
+        "r": "The dispute was resolved by arbitration.",
+        "why": "Arbitration is the process; an arbitrator is the person who decides."
+      },
+      {
+        "w": "The two firms went to the arbitration.",
+        "r": "The two firms went to arbitration.",
+        "why": "Arbitration is uncountable in this sense and takes no article after 'to'."
+      }
+    ],
+    "u": "Arbitration is a way of settling a dispute outside court: an independent person or panel, the arbitrator, hears both sides and decides. Contracts often contain an arbitration clause, and binding arbitration means the decision must be accepted. It differs from mediation, where a mediator only helps the parties agree. In this sense the noun is uncountable: go to arbitration."
+  },
+  "authentication": {
+    "mis": [
+      {
+        "w": "Two-factor authenticate protects your account.",
+        "r": "Two-factor authentication protects your account.",
+        "why": "A noun is needed as the subject; authenticate is a verb."
+      },
+      {
+        "w": "The authentication of users are required.",
+        "r": "The authentication of users is required.",
+        "why": "The subject is authentication, not users, so the verb is singular."
+      }
+    ],
+    "u": "Authentication is the process of checking that a user or device is who or what it claims to be, such as with a password, a code or a fingerprint. Two-factor authentication uses two different proofs. It is an uncountable technical noun; the verb is authenticate. Authentication confirms identity, while authorization decides what that user may access."
+  },
+  "backlog": {
+    "mis": [
+      {
+        "w": "We have a large backlog about unanswered emails.",
+        "r": "We have a large backlog of unanswered emails.",
+        "why": "Backlog takes 'of' before what has piled up."
+      },
+      {
+        "w": "I have a backlog of works to finish.",
+        "r": "I have a backlog of work to finish.",
+        "why": "Work meaning tasks is uncountable and has no plural."
+      }
+    ],
+    "u": "A backlog is an accumulation of work or orders still waiting to be dealt with, such as a backlog of emails. In general business use it suggests delay and pressure; you clear or reduce it. In agile software teams it has a specific meaning: a prioritized list of work items, called the product backlog, that the team plans to build. Both meanings use the pattern backlog of."
+  },
+  "bearing": {
+    "mis": [
+      {
+        "w": "That has no bearing to the case.",
+        "r": "That has no bearing on the case.",
+        "why": "The idiom is have a bearing on something."
+      },
+      {
+        "w": "The bearings in this machine is worn.",
+        "r": "The bearings in this machine are worn.",
+        "why": "The subject is plural bearings, so the verb must be plural."
+      }
+    ],
+    "u": "In engineering, a bearing is a part that supports a moving shaft and reduces friction, as in a ball bearing in a wheel or motor. A worn bearing causes noise and heat. The same word has other meanings: in the idiom have a bearing on something it means influence or relevance, and a ship's bearing is its direction. Context tells which sense is meant."
+  },
+  "benchmark": {
+    "mis": [
+      {
+        "w": "We benchmark our results with competitors.",
+        "r": "We benchmark our results against competitors.",
+        "why": "Benchmark takes 'against' when comparing with a standard."
+      },
+      {
+        "w": "We set a new benchmark on customer service.",
+        "r": "We set a new benchmark for customer service.",
+        "why": "Use 'for' to say what the benchmark applies to."
+      }
+    ],
+    "u": "A benchmark is a standard or reference point against which things are compared. Companies compare costs or speed to an industry benchmark, and a high-performing firm may set a new benchmark. It is also a verb: benchmark against competitors. In computing, a benchmark test measures how fast a system runs. It is more measurable than a goal and more specific than standard."
+  },
+  "binary": {
+    "mis": [
+      {
+        "w": "A computer stores data in binaries.",
+        "r": "A computer stores data in binary.",
+        "why": "Binary is used as an uncountable noun or adjective, not made plural here."
+      },
+      {
+        "w": "Computers use binary system to store data.",
+        "r": "Computers use the binary system to store data.",
+        "why": "A specific system needs the article 'the'."
+      }
+    ],
+    "u": "Binary means made of two parts or states. In computing, it describes the base-two system that uses only 0 and 1, which is how digital devices store text, images and programs: binary code, binary numbers. As a noun it appears in the phrase in binary. Outside computing, a binary choice has just two options, such as yes or no."
+  }
+}

@@ -158,3 +158,5 @@ All in all, I would say that persuasion works best when it is paired with infras
 公式問題集のトピックに対して自分の音声をスマートフォンで録音し、言い淀みや論理の飛躍がないかを客観的にチェックして改善版を再録音する練習が有効です。[Lexkite Speaking練習](/#/speaking)や[発音トレーニング機能](/#/practice/speak)を活用して、説得力ある英語発話を鍛え上げましょう。
 
 {{cta: /#/speaking | LexkiteでIELTSスピーキングPart 3の論理的回答力を徹底トレーニング}}
+
+Part 1・2・3 全体で Band 7 に近い回答がどう違うかは、[IELTS Speaking Band 7 回答例](/ja/blog/ielts-speaking-band7-kaitourei/)で比較しています。

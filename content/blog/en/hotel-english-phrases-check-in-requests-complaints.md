@@ -22,6 +22,7 @@ diagrams: [
   {id: d1, type: compare, title: 'Hotel words: American vs British', cols: ['US / Canada', 'UK / Australia'], rows: [['elevator', 'lift'], ['front desk', 'reception'], ['first floor = ground level', 'ground floor (first floor is one up)'], ['check', 'bill'], ['restroom', 'toilet, bathroom'], ['faucet', 'tap'], ['vacancy / no vacancy', 'rooms available / fully booked']]},
   {id: d2, type: boxes, title: 'A polite complaint in four parts', parts: [{t: 'Greet and name the room', r: 'Hi, room 412 here'}, {t: 'State the problem', r: 'the air conditioning is not working'}, {t: 'Add detail', r: 'it worked this morning and the room is very warm'}, {t: 'Ask for a fix', r: 'could someone take a look, or could we change rooms?'}]}
 ]
+publishAt: 2027-02-05T09:59:00+05:30
 ---
 
 At a hotel, most conversations are short and predictable, and a few ready **hotel English phrases** carry you from booking to check-out. Learn the polite openers (*I'd like to…*, *Could I…?*, *Would it be possible to…?*), the key nouns, and how to raise a problem without sounding angry, and you will manage almost any stay in English.

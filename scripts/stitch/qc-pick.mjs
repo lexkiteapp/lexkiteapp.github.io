@@ -6,7 +6,9 @@ import fs from 'node:fs';
 const [REP, OUT = 'out/stitch/v3/qc.json'] = process.argv.slice(2);
 const rep = JSON.parse(fs.readFileSync(REP, 'utf8')), qc = {};
 const score = r => 1000 * r.fails.length + ['light', 'dark'].reduce((a, m) => a + (r.info[m]?.contrastMiss?.length || 0) + (r.info[m + 'Layout']?.smallTapCount || 0) + Math.max(0, r.info[m + 'Layout']?.overflowPx || 0), 0);
-for (const r of rep) qc[`${r.surface}/${r.page}`] = { fails: r.fails, score: score(r) };
+// detail: từng phần tử máy bắt (≤ 12 chữ thiếu tương phản + ≤ 12 vùng chạm nhỏ mỗi chế độ) → queue-fix.mjs liệt kê đủ cho Stitch, không chỉ 1 ví dụ.
+const detail = r => Object.fromEntries(['light', 'dark'].map(m => [m, { contrast: (r.info[m]?.contrastMiss || []).map(c => `"${c.t.replace(/\s+/g, ' ').slice(0, 40)}" ${c.r}:1`), taps: (r.info[m + 'Layout']?.smallTaps || []).map(t => t.replace(/\s+/g, ' ')), overflowPx: r.info[m + 'Layout']?.overflowPx || 0 }]));
+for (const r of rep) qc[`${r.surface}/${r.page}`] = { fails: r.fails, score: score(r), detail: detail(r) };
 const groups = {};
 for (const r of rep) { const m = r.page.match(/^(.*)-v[1-9]$/); if (m) (groups[`${r.surface}/${m[1]}`] ??= []).push(`${r.surface}/${r.page}`); }
 for (const [base, vs] of Object.entries(groups)) {

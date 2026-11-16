@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_decision",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Make a decision, not take!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I need to take a decision today.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I need to make a decision today.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "We make a decision.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! I need to make a decision.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I need to take a decision today.",
+  "right": "I need to make a decision today.",
+  "strike": "take",
+  "why": "We make a decision.",
+  "memory": "Make a decision.",
+  "quiz": {
+   "stem": "I need to ___ a decision today.",
+   "options": [
+    "take",
+    "make"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Diga “make a decision”!",
+   "tip": "Em português dizemos “tomar uma decisão”; em inglês, use “make a decision”.",
+   "caption": "Você também diz isso? “I need to take a decision today.” 😅 O certo é “I need to make a decision today.” Em português dizemos “tomar uma decisão”; em inglês, use “make a decision”. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “make”. Agora diga em voz alta “I need to make a decision today.” e treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “make a decision”!",
+   "tip": "In Portuguese we say “tomar uma decisão”; in English, use “make a decision”.",
+   "caption": "Do you say this too? “I need to take a decision today.” 😅 The right way is “I need to make a decision today.” In Portuguese we say “tomar uma decisão”; in English, use “make a decision”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Diga “make a decision”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 51,
+  "seconds": 30.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Diga “make a decision”!",
+  "keyword": "I need to make a decision today.",
+  "value": "Em português dizemos “tomar uma decisão”; em inglês, use “make a decision”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 45,
+  "platforms": {
+   "youtube": {
+    "title": "Diga “make a decision”!",
+    "description": "Em português dizemos “tomar uma decisão”; em inglês, use “make a decision”.\n\nVocê também diz isso? “I need to take a decision today.” 😅 O certo é “I need to make a decision today.” Em português dizemos “tomar uma decisão”; em inglês, use “make a decision”. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "I need to make a decision today.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Você também diz isso? “I need to take a decision today.” 😅 O certo é “I need to make a decision today.” Em português dizemos “tomar uma decisão”; em inglês, use “make a decision”. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Diga “make a decision”!\n\nEm português dizemos “tomar uma decisão”; em inglês, use “make a decision”.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Diga “make a decision”! Em português dizemos “tomar uma decisão”; em inglês, use “make a decision”. #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “make”. Agora diga em voz alta “I need to make a decision today.” e treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

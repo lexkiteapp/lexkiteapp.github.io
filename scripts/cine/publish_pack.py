@@ -25,6 +25,10 @@ BROAD = ['#learnenglish', '#englishtips', '#travelenglish']
 PLAT = {'tiktok': dict(tags=6, cap=150), 'reels': dict(tags=8, cap=300), 'shorts': dict(tags=5, cap=500)}
 SLOTS = ['11:30', '20:00']; TZ = 'Asia/Ho_Chi_Minh'   # lunch + evening peak for the main (Asian) learner audience
 
+def install_line(platform, clip):  # link cài ngắn đo theo nền tảng: nguồn infra/install-links.json (docs/VIDEO.md)
+    d = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'infra', 'install-links.json'), encoding='utf-8'))
+    return f"Get the app free: {d['site']}{d['short']['path']}?src={platform}&c={clip}"
+
 def lesson(sc, lid):
     src = open(f'{AUTO}/{sc}/{lid}.py').read(); g = lambda k: (re.search(rf"^{k} = (.+)$", src, re.M) or [None, None])[1]
     meta = ast.literal_eval(g('META')); tpl = re.search(r'template (\w+)', src)[1]; point = re.search(r'point "(.*)"', src)[1]
@@ -65,7 +69,7 @@ def desc_lines(sc, x):
              'pov': f'You are {where}. One natural answer: "{x["recap"]}"',
              'speak': f'Say it out loud with Ama {where}: "{x["recap"]}"',
              'series': f'A real mini conversation {where}. Ama says: "{x["recap"]}"'}[t]
-    return [first, f'Comment your answer below and follow for daily English ({x["series"]}).']
+    return [first, 'Practice free on lexkite.com.']
 
 def utm(link, plat, sc, lid):
     base, _, frag = link.partition('#'); q = f'utm_source={plat}&utm_medium=social&utm_campaign=cine_{sc}&utm_content={lid}'
@@ -84,18 +88,18 @@ def news_pack(p):
     hook = sp['hook']['card'].rstrip('?!.').title()
     ti = {'three': fit(f'{hook}? 3 phrases you need', f'3 phrases you need: {sp["series"][1]}'),
           'fix': fit(f'Stop saying "{c[0]["text"].rstrip(".")}"', f'Common mistake: {sp["series"][1]}'),
-          'ab': fit(f'"{c[0]["text"]}" or "{c[1]["text"]}"? Comment A or B', f'A or B? {sp["series"][1]}'),
+          'ab': fit(f'"{c[0]["text"]}" or "{c[1]["text"]}"? A or B', f'A or B? {sp["series"][1]}'),
           'ways': fit(f'3 ways to say it: polite to casual ({sp["series"][1]})', f'{hook}? Polite vs casual English'),
           'pov': fit(f'POV: {c[0]["text"]} What do you say?', f'POV: {hook}? What do you say?')}[t]
-    ans = sp['recap']['rows']; dl = [f'{sp["point"][0].upper() + sp["point"][1:]}. Save this: ' + ' / '.join(ans), 'Comment your answer below and follow for daily English.']
+    ans = sp['recap']['rows']; dl = [f'{sp["point"][0].upper() + sp["point"][1:]}. Save this: ' + ' / '.join(ans), 'Practice free on lexkite.com.']
     eco = ECO[sp['area']]; name = f'cine-{lid.replace("_", "-")}-en'; plats = {}
     tg0 = ['#learnenglish', '#englishtips'] + NEWS_TAGS[t] + ['#americanenglish', '#esl', '#englishlearning']
     for pl, cfg in PLAT.items():
         link = utm(eco['link'], {'reels': 'instagram', 'shorts': 'youtube'}.get(pl, pl), 'news', lid); tg = tg0[:max(5, min(8, cfg['tags']))]
         if pl == 'shorts': tg = ['#shorts'] + tg[:4]
         d = dl if pl != 'tiktok' else dl[:1]
-        plats[pl] = dict(title=ti if pl != 'shorts' else fit(ti + ' #shorts', ti), caption='\n'.join(d + ['Practice free on lexkite.com', link]), link=link, hashtags=tg,
-                         caption_with_tags='\n'.join(d + ['Practice free on lexkite.com', link, ' '.join(tg)]))
+        plats[pl] = dict(title=ti if pl != 'shorts' else fit(ti + ' #shorts', ti), caption='\n'.join(d + ['Practice free on lexkite.com', link, install_line(pl, lid)]), link=link, hashtags=tg,
+                         caption_with_tags='\n'.join(d + ['Practice free on lexkite.com', link, install_line(pl, lid), ' '.join(tg)]))
     return dict(id=lid, scene='news', template=t, area=sp['area'], cefr=sp['cefr'], point=sp['point'], series=' / '.join(sp['series']), bg=sp['bg'],
                 title=ti, description='\n'.join(dl + ['Practice free on lexkite.com', utm(eco['link'], 'social', 'news', lid)]), hashtags=tg0[:7],
                 store='github:lexkiteapp/lexkite-shorts', video=f'shorts/news/{lid}/{name}.mp4', cover=f'shorts/news/{lid}/{name}.jpg',
@@ -114,8 +118,8 @@ def main():
             link = utm(eco['link'], {'reels': 'instagram', 'shorts': 'youtube'}.get(pl, pl), sc, lid); tg = tags(sc, x, cfg['tags'])
             if pl == 'shorts': tg = ['#shorts'] + tg[:4]
             d = dl if pl != 'tiktok' else dl[:1]
-            plats[pl] = dict(title=ti if pl != 'shorts' else fit(ti + ' #shorts', ti), caption='\n'.join(d + ['Practice free on lexkite.com', link]), link=link, hashtags=tg,
-                             caption_with_tags='\n'.join(d + ['Practice free on lexkite.com', link, ' '.join(tg)]))
+            plats[pl] = dict(title=ti if pl != 'shorts' else fit(ti + ' #shorts', ti), caption='\n'.join(d + ['Practice free on lexkite.com', link, install_line(pl, lid)]), link=link, hashtags=tg,
+                             caption_with_tags='\n'.join(d + ['Practice free on lexkite.com', link, install_line(pl, lid), ' '.join(tg)]))
         packs[lid] = dict(id=lid, scene=sc, template=x['tpl'], area=x['meta']['area'], cefr=x['meta']['cefr'], point=x['point'], series=x['series'],
                           title=ti, description='\n'.join(dl + ['Practice free on lexkite.com', utm(eco['link'], 'social', sc, lid)]), hashtags=tags(sc, x, 7),
                           store='github:lexkiteapp/lexkite-shorts', video=f'shorts/{sc}/{lid}/{name}.mp4', cover=f'shorts/{sc}/{lid}/{name}.jpg', ci_artifact=art,   # durable copy (store_shorts.py); artifact expires after 14 days

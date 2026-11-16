@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_eithercoffee",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Too or either?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I don't like coffee, too.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I don't like coffee, either.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use either after not.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Either! I don't like tea, either.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I don't like coffee, too.",
+  "right": "I don't like coffee, either.",
+  "strike": "too",
+  "why": "Use either after not.",
+  "memory": "I don't like coffee, either.",
+  "quiz": {
+   "stem": "I don't like tea, ___.",
+   "options": [
+    "too",
+    "either"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "「not 〜, too」と言ってない？",
+   "tip": "否定のあとの「〜も」は either。too は使いません。",
+   "caption": "“I don't like coffee, too.”と言っていませんか？😅 日本語は「も」だけなので、否定でも too を使いがちです。“I don't like coffee, either.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“either”。“I don't like coffee, either.” を声に出して言ってみよう。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “not … too”?",
+   "tip": "After not, say either, not too.",
+   "caption": "Do you say this? “I don't like coffee, too.” 😅 Japanese uses one word も for both, but English changes too to either after not. The natural way is “I don't like coffee, either.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "「not 〜, too」と言ってない？"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "「not 〜, too」と言ってない？",
+  "keyword": "I don't like coffee, either.",
+  "value": "否定のあとの「〜も」は either。too は使いません。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "「not 〜, too」と言ってない？",
+    "description": "否定のあとの「〜も」は either。too は使いません。\n\n“I don't like coffee, too.”と言っていませんか？😅 日本語は「も」だけなので、否定でも too を使いがちです。“I don't like coffee, either.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "I don't like coffee, either.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“I don't like coffee, too.”と言っていませんか？😅 日本語は「も」だけなので、否定でも too を使いがちです。“I don't like coffee, either.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "「not 〜, too」と言ってない？\n\n否定のあとの「〜も」は either。too は使いません。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「not 〜, too」と言ってない？ 否定のあとの「〜も」は either。too は使いません。 #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“either”。“I don't like coffee, either.” を声に出して言ってみよう。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

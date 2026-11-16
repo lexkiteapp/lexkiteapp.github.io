@@ -140,6 +140,8 @@ Pour progresser vers un anglais courant et naturel, reliez votre travail phonét
 
 {{youtube: | Gợi ý video hướng dẫn phát âm chuẩn bảng phiên âm quốc tế IPA tiếng Anh cho người nói tiếng Pháp}}
 
+Le signe ˈ de l'API marque la syllabe accentuée : apprenez à la prévoir avec nos [règles d'accent tonique en anglais](/fr/blog/accent-tonique-anglais-regles-et-exemples/).
+
 {{cta: /#/pron | Ouvrez la table phonétique interactive Lexkite pour écouter les 44 sons de l'anglais}}
 
 ## Foire aux questions sur l'alphabet phonétique (FAQ)

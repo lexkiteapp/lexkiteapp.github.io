@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_born_year",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "1995 year or 1995?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I was born in 1995 year.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I was born in 1995.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say the number only.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "No word! He was born in 2001.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I was born in 1995 year.",
+  "right": "I was born in 1995.",
+  "strike": "year",
+  "why": "Say the number only.",
+  "memory": "In 1995.",
+  "quiz": {
+   "stem": "He was born in 2001 ___.",
+   "options": [
+    "year",
+    "no word"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "«1995 год» — year не нужно",
+   "tip": "Год называем без “year”: “I was born in 1995.”",
+   "caption": "Ты тоже говоришь “I was born in 1995 year”? 😅 По-русски «в 1995 году» мы добавляем слово «году», и хочется добавить “year”, но по-английски называют только число. Правильно: “I was born in 1995.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “no word.” Год — только число. Напиши, в каком году ты родился: “I was born in …” Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#учуанглийский",
+    "#английскийдляначинающих",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "1995 year? Drop “year”",
+   "tip": "Say the year without “year”: “I was born in 1995.”",
+   "caption": "Do you also say “I was born in 1995 year”? 😅 In Russian «году» follows the number, so “year” slips in, but English says the number alone. Correct: “I was born in 1995.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "«1995 год» — year не нужно"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "«1995 год» — year не нужно",
+  "keyword": "I was born in 1995.",
+  "value": "Год называем без “year”: “I was born in 1995.”",
+  "hashtags": [
+   "#английскийязык",
+   "#учуанглийский",
+   "#английскийдляначинающих",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "«1995 год» — year не нужно",
+    "description": "Год называем без “year”: “I was born in 1995.”\n\nТы тоже говоришь “I was born in 1995 year”? 😅 По-русски «в 1995 году» мы добавляем слово «году», и хочется добавить “year”, но по-английски называют только число. Правильно: “I was born in 1995.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #учуанглийский #английскийдляначинающих #lexkite",
+    "tags": [
+     "I was born in 1995.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “I was born in 1995 year”? 😅 По-русски «в 1995 году» мы добавляем слово «году», и хочется добавить “year”, но по-английски называют только число. Правильно: “I was born in 1995.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "«1995 год» — year не нужно\n\nГод называем без “year”: “I was born in 1995.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#учуанглийский",
+     "#английскийдляначинающих",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "«1995 год» — year не нужно Год называем без “year”: “I was born in 1995.” #английскийязык #учуанглийский #английскийдляначинающих"
+   }
+  },
+  "first_comment": "Ответ: “no word.” Год — только число. Напиши, в каком году ты родился: “I was born in …” Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}
