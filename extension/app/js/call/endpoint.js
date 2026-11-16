@@ -3,7 +3,7 @@
  * create({ mode: 'turn'|'barge', long, minWords }) → { push(p, tMs) → 'start'|'end'|null, hint(interimText), state() }
  * turn: nói ≥ 3 khung > 0,5 → 'start'; im (< 0,35) kéo dài hangover → 'end'. hangover thích nghi theo chữ tạm (interim):
  *   câu dở ("and", "because", "the", "um"…) → 1000 ms · đã đủ minWords và câu trọn → 350 ms · mặc định 550 ms · Part 2 (long) 1200 ms.
- * barge (giáo viên đang nói): chặt hơn – 3 khung liền > 0,8 → 'start' (≈ 96 ms), không có 'end'. */
+ * barge (giáo viên đang nói): chặt hơn – 1 khung > 0,8 bắt đầu cụm, 3 khung liền (các khung sau ≥ 0,5, < 0,5 thì về 0) → 'start' (≈ 96 ms), không có 'end'. */
 (function (g) {
   const POS = 0.5, NEG = 0.35, BARGE = 0.8, MIN_FR = 3;
   const HOLD = { base: 550, quick: 350, open: 1000, long: 1200 };
@@ -27,7 +27,9 @@
       push(p, t) {
         if (fired && barge) return null;
         if (!on) {
-          run = p > (barge ? BARGE : POS) ? run + 1 : 0;
+          // nói chen (16/11, vết khung CI): Silero tụt xuống 0,59–0,79 giữa chừng dù giọng vẫn còn (97→79→79→85→100) → luật cũ "3 khung LIỀN > 0,8" bị đặt về 0 và chỉ hush ở 220–290 ms (≫ 200 ms).
+          // Nay giống 'turn': khung > 0,8 BẮT ĐẦU cụm (tiếng vọng nhỏ 0,6 không bao giờ bắt đầu), các khung sau chỉ cần ≥ 0,5 để cụm không đứt; < 0,5 là về 0.
+          run = barge ? (p > BARGE ? run + 1 : (run > 0 && p >= POS ? run + 1 : 0)) : (p > POS ? run + 1 : 0);
           if (run >= MIN_FR) { on = true; t0 = t; lastVoice = t; run = 0; if (barge) fired = true; return 'start'; }
           return null;
         }

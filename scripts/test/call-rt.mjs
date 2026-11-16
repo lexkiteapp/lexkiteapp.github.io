@@ -28,6 +28,15 @@ const run = (ep, seq, hints = {}) => { let t = 0; const ev = []; for (const [p, 
 // 6. nói chen: tiếng vọng nhỏ (0,6) không kích hoạt, tiếng thật > 0,8 → 'start' trong ≤ 3 khung (≈ 96 ms ≪ 200 ms), chỉ 1 lần
 { const ev = run(EP.create({ mode: 'barge' }), [[0.6, 1000], [0.95, 600], [0.1, 300], [0.95, 300]]);
   ok(ev.length === 1 && ev[0][0] === 'start' && ev[0][1] - 1024 <= 3 * F, 'barge: ' + JSON.stringify(ev)); }
+// 6b. nói chen – vết khung THẬT từ CI (call-rt 16/11): xác suất Silero rớt giữa chừng nhưng giọng vẫn còn → hush ≤ 3 khung sau khung > 0,8 đầu tiên (luật cũ: 220–290 ms)
+{ const seq = p => p.map(x => [x, F]); const at = (ps) => { const ev = run(EP.create({ mode: 'barge' }), seq(ps)); return ev.length ? ev[0][1] / F : -1; };
+  ok(at([0, 0.57, 0.69, 0.97, 0.79, 0.79, 0.85, 1, 1]) === 5, 'barge mẫu 251 ms (97→79→79→85): hush ở khung thứ 3 của cụm, không đợi 3 khung > 0,8 liền: ' + at([0, 0.57, 0.69, 0.97, 0.79, 0.79, 0.85, 1, 1]));
+  ok(at([0, 0.12, 0.6, 0.87, 0.72, 0.77, 0.59, 0.95, 1, 1]) === 5, 'barge mẫu 293 ms (87→72→77→59→95): hush ở khung thứ 3 của cụm');
+  ok(at([0, 0.96, 1, 1]) === 3, 'barge giọng rõ: vẫn đúng 3 khung (≈ 96 ms)');
+  ok(at([0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6]) === -1, 'barge: tiếng vọng/nền 0,6 kéo dài KHÔNG bao giờ kích (cần khung > 0,8 bắt đầu)');
+  ok(at([0.9, 0.3, 0.9, 0.3, 0.9, 0.3]) === -1, 'barge: xung lẻ > 0,8 xen khung < 0,5 KHÔNG kích (cụm đứt khi < 0,5)');
+  ok(at([0.9, 0.6, 0.4, 0.9, 0.6, 0.4]) === -1, 'barge: cụm bị đứt bởi khung 0,4 → đếm lại từ 0');
+  ok(at([0.9, 0.5, 0.5]) === 2, 'barge: biên – 0,9 rồi hai khung đúng 0,5 vẫn là một cụm'); }
 // 7. tiếng lách cách 1–2 khung không phải lời
 { ok(run(EP.create({ mode: 'turn' }), [[0.9, 64], [0.05, 500], [0.9, 32], [0.05, 500]]).length === 0, 'nháy ngắn bị bỏ'); }
 // 8. năng lượng dự phòng: nền ồn ổn định → p≈0; tiếng to gấp 8 lần → p≈1; nền ồn tăng chậm không thành lời
