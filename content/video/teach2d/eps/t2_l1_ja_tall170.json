@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_tall170",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Height or tall?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am 170 cm height.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am 170 cm tall.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "For people, say tall.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Tall! I am 170 cm tall.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am 170 cm height.",
+  "right": "I am 170 cm tall.",
+  "strike": "height",
+  "why": "For people, say tall.",
+  "memory": "I am 170 cm tall.",
+  "quiz": {
+   "stem": "I am 170 cm ___.",
+   "options": [
+    "height",
+    "tall"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "「身長170cm」は height？",
+   "tip": "「身長が〜cm」は I am 170 cm tall. と tall を使います。",
+   "caption": "“I am 170 cm height.”と言っていませんか？😅 「身長」を height と覚えているので、そのまま入れがちです。“I am 170 cm tall.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“tall”。“I am 170 cm tall.” を声に出して言ってみよう。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Is it “170 cm height”?",
+   "tip": "Say 170 cm tall.",
+   "caption": "Do you say this? “I am 170 cm height.” 😅 Height is a noun, but here English uses tall. The natural way is “I am 170 cm tall.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "「身長170cm」は height？"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "「身長170cm」は height？",
+  "keyword": "I am 170 cm tall.",
+  "value": "「身長が〜cm」は I am 170 cm tall. と tall を使います。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "「身長170cm」は height？",
+    "description": "「身長が〜cm」は I am 170 cm tall. と tall を使います。\n\n“I am 170 cm height.”と言っていませんか？😅 「身長」を height と覚えているので、そのまま入れがちです。“I am 170 cm tall.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "I am 170 cm tall.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“I am 170 cm height.”と言っていませんか？😅 「身長」を height と覚えているので、そのまま入れがちです。“I am 170 cm tall.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "「身長170cm」は height？\n\n「身長が〜cm」は I am 170 cm tall. と tall を使います。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「身長170cm」は height？ 「身長が〜cm」は I am 170 cm tall. と tall を使います。 #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“tall”。“I am 170 cm tall.” を声に出して言ってみよう。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_there_are",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "There is or there are?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: There is a lot of people in the park.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: There are a lot of people in the park.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "People means many: use are.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Are! There are a lot of cars.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "There is a lot of people in the park.",
+  "right": "There are a lot of people in the park.",
+  "strike": "is",
+  "why": "People means many: use are.",
+  "memory": "There are people.",
+  "quiz": {
+   "stem": "There ___ a lot of cars.",
+   "options": [
+    "is",
+    "are"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "There is или there are?",
+   "tip": "Много людей — “there are”: “There are a lot of people in the park.”",
+   "caption": "Ты тоже говоришь “There is a lot of people in the park”? 😅 По-русски после «много» глагол стоит в единственном числе («в парке было много людей»), поэтому тянет сказать “is.” Но people — это много человек, и нужно “are.” Правильно: “There are a lot of people in the park.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “are.” Много людей — there are. Скажи вслух: “There are a lot of … in my city.” Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#изучениеанглийского",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "There is or there are?",
+   "tip": "For many people, use “there are”: “There are a lot of people in the park.”",
+   "caption": "Do you also say “There is a lot of people in the park”? 😅 In Russian the verb after the word for many stays the same as for one thing, so is slips in. But people means many, so you need are. Correct: “There are a lot of people in the park.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "There is или there are?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 55,
+  "seconds": 32.5,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "There is или there are?",
+  "keyword": "There are a lot of people in the park.",
+  "value": "Много людей — “there are”: “There are a lot of people in the park.”",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#изучениеанглийского",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 49,
+  "platforms": {
+   "youtube": {
+    "title": "There is или there are?",
+    "description": "Много людей — “there are”: “There are a lot of people in the park.”\n\nТы тоже говоришь “There is a lot of people in the park”? 😅 По-русски после «много» глагол стоит в единственном числе («в парке было много людей»), поэтому тянет сказать “is.” Но people — это много человек, и нужно “are.” Правильно: “There are a lot of people in the park.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #английский #изучениеанглийского #lexkite",
+    "tags": [
+     "There are a lot of people in the park.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “There is a lot of people in the park”? 😅 По-русски после «много» глагол стоит в единственном числе («в парке было много людей»), поэтому тянет сказать “is.” Но people — это много человек, и нужно “are.” Правильно: “There are a lot of people in the park.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "There is или there are?\n\nМного людей — “there are”: “There are a lot of people in the park.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#изучениеанглийского",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "There is или there are? Много людей — “there are”: “There are a lot of people in the park.” #английскийязык #английский #изучениеанглийского"
+   }
+  },
+  "first_comment": "Ответ: “are.” Много людей — there are. Скажи вслух: “There are a lot of … in my city.” Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

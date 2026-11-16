@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_toldme",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Told me, not said me!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: He said me the news.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: He told me the news.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say told me. Said needs no me.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Told me! She told me the answer.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "He said me the news.",
+  "right": "He told me the news.",
+  "strike": "said me",
+  "why": "Say told me. Said needs no me.",
+  "memory": "Tell me, told me.",
+  "quiz": {
+   "stem": "She ___ the answer.",
+   "options": [
+    "said me",
+    "told me"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“告诉我”不是 said me！",
+   "tip": "say 后面不能直接接人；“告诉某人”要用 tell/told + 人。",
+   "caption": "你是不是也会说 “He said me the news.”😅 say 后面不能直接接人，“告诉我”要用 told me：“He told me the news.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“He told me the news.”免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Told me, not said me!",
+   "tip": "Say cannot take a person right after it. Use tell: told me.",
+   "caption": "Do you say “He said me the news.” 😅 Say cannot take a person right after it, so use told: “He told me the news.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“告诉我”不是 said me！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“告诉我”不是 said me！",
+  "keyword": "He told me the news.",
+  "value": "say 后面不能直接接人；“告诉某人”要用 tell/told + 人。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "“告诉我”不是 said me！",
+    "description": "say 后面不能直接接人；“告诉某人”要用 tell/told + 人。\n\n你是不是也会说 “He said me the news.”😅 say 后面不能直接接人，“告诉我”要用 told me：“He told me the news.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "He told me the news.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “He said me the news.”😅 say 后面不能直接接人，“告诉我”要用 told me：“He told me the news.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“告诉我”不是 said me！\n\nsay 后面不能直接接人；“告诉某人”要用 tell/told + 人。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“告诉我”不是 said me！ say 后面不能直接接人；“告诉某人”要用 tell/told + 人。 #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“He told me the news.”免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

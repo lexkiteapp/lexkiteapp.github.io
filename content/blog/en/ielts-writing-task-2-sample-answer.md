@@ -9,7 +9,7 @@ tags: [ielts, writing, task-2, sample-answer]
 keyword: "ielts writing task 2 sample answer"
 cover: write
 coverAlt: "Lexkite Writing practice room with essay prompts grouped by topic and an essay frame"
-publishAt:
+publishAt: 2027-02-22T20:55:00+05:30
 factChecked: 2026-11-15
 author: Lexkite
 status: ready

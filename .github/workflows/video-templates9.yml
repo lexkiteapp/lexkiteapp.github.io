@@ -12,6 +12,7 @@ on:
       plan: { description: 'true = dry run: voices + layout/timing plan JSON only (no frames, no render)', default: 'false' }
       shards: { description: 'frame shards per template (1 = single-process render, default: 4 shards only ~17 % faster wall-clock and 4x the jobs; proven equivalent, see PR)', default: '1' }
 permissions: { contents: read }
+# ci-policy: group-inputs – templates mặc định 6 mẫu, dispatch lẻ ≤ 6 (nhóm serial theo input; danh sách dài thì dùng github.run_id như video-motion.yml)
 concurrency: { group: 'video-templates9-${{ github.event.inputs.dir }}-${{ github.event.inputs.templates }}-${{ github.event.inputs.shards }}', cancel-in-progress: false }
 env:
   DIR: ${{ github.event.inputs.dir || 'templates-v1' }}

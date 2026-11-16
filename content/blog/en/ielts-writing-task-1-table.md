@@ -9,7 +9,7 @@ tags: [ielts, writing, task-1, table, pie-chart]
 keyword: "ielts writing task 1 table"
 cover: write
 coverAlt: "Lexkite Writing room with prompts and a planning frame for a report"
-publishAt:
+publishAt: 2027-02-21T21:00:00+05:30
 factChecked: 2026-11-15
 author: Lexkite
 status: ready

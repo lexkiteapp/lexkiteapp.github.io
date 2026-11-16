@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_very_much",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "I like tea very much!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I like very much tea.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I like tea very much.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Put very much at the end.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! I like music very much.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I like very much tea.",
+  "right": "I like tea very much.",
+  "strike": "very much",
+  "why": "Put very much at the end.",
+  "memory": "I like tea very much.",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "I like very much music.",
+    "I like music very much."
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Very much” sona gelir!",
+   "tip": "Türkçede “çok” fiilden önce gelir (“çok severim”); İngilizcede “very much” nesneden sonra gelir.",
+   "caption": "“I like very much tea” mi diyorsun? 😅 İngilizcede “very much” nesneden önce değil, sonra gelir. Doğrusu “I like tea very much.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “I like music very much”. “Very much” sonda durur. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Very much” goes after the thing!",
+   "tip": "“Very much” comes after the thing you like.",
+   "caption": "Do you say “I like very much tea”? 😅 In English “very much” goes after the thing, not before it. The right sentence is “I like tea very much.” Listen to Carlos and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Very much” sona gelir!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“Very much” sona gelir!",
+  "keyword": "I like tea very much.",
+  "value": "Türkçede “çok” fiilden önce gelir (“çok severim”); İngilizcede “very much” nesneden sonra gelir.",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "“Very much” sona gelir!",
+    "description": "Türkçede “çok” fiilden önce gelir (“çok severim”); İngilizcede “very much” nesneden sonra gelir.\n\n“I like very much tea” mi diyorsun? 😅 İngilizcede “very much” nesneden önce değil, sonra gelir. Doğrusu “I like tea very much.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "I like tea very much.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“I like very much tea” mi diyorsun? 😅 İngilizcede “very much” nesneden önce değil, sonra gelir. Doğrusu “I like tea very much.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Very much” sona gelir!\n\nTürkçede “çok” fiilden önce gelir (“çok severim”); İngilizcede “very much” nesneden sonra gelir.\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Very much” sona gelir! Türkçede “çok” fiilden önce gelir (“çok severim”); İngilizcede “very much” nesne… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “I like music very much”. “Very much” sonda durur. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+  "lang": "tr"
+ }
+}

@@ -172,6 +172,8 @@ vi. How hot water is produced
 
 {{youtube: | 영상 아이디어: 5문단 매칭 헤딩 문제를 소리 내어 생각하며 단계별로 풀기}}
 
+제목 매칭 외의 유형도 궁금하다면 [아이엘츠 리딩 문제 유형 총정리](/ko/blog/ielts-reading-munje-yuhyeong-jeollyak/)에서 유형별 풀이와 함정을 한눈에 정리해 두었습니다.
+
 ## 자주 묻는 질문
 
 ### 헤딩을 먼저 읽을까요, 문단을 먼저 읽을까요?

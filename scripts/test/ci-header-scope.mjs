@@ -17,4 +17,9 @@ for (const f of walk('scripts')) {
   const s = fs.readFileSync(f, 'utf8');
   for (const m of s.matchAll(/extraHTTPHeaders\s*:\s*([^,}\n]+)/g)) ok(!/\bCI\b|lexkite-ci|ciHeader/i.test(m[1]), `${f}: header CI qua extraHTTPHeaders (gửi mọi origin) – dùng routeCiHeader`);
 }
+{ // 16/11: /human* có CSP thật chỉ cho Turnstile → beacon Cloudflare (tự chèn) bị chặn, add-on E2E đỏ "Refused to load the script beacon.min.js" (#1348 cho add-on nhúng human.html).
+  // Giữ CSP chặt, chặn chèn bằng Cache-Control: no-transform (Cloudflare không chèn beacon khi có no-transform).
+  const h = fs.readFileSync('web/_headers', 'utf8'), blk = (h.match(/^\/human\*\n((?:  .*\n)+)/m) || [])[1] || '';
+  ok(/Content-Security-Policy: [^\n]*script-src 'unsafe-inline' https:\/\/challenges\.cloudflare\.com;/.test(blk) && !/cloudflareinsights/.test(blk), '/human*: CSP thật chỉ cho Turnstile (không nới cho beacon)');
+  ok(/Cache-Control: [^\n]*no-transform/.test(blk), '/human*: Cache-Control phải có no-transform (không để Cloudflare chèn beacon vào human.html)'); }
 console.log(fails ? `ci-header-scope: ${fails} lỗi` : 'ci-header-scope: OK'); process.exit(fails ? 1 : 0);

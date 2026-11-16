@@ -9,7 +9,7 @@ tags: [ielts, study-plan, schedule, mock-test]
 keyword: "ielts study schedule"
 cover: path
 coverAlt: "Lexkite learning path screen with lessons arranged as a step-by-step route"
-publishAt:
+publishAt: 2027-02-14T19:40:00+05:30
 factChecked: 2026-11-15
 author: Lexkite
 status: ready

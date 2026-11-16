@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_in_the_morning",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "At or in?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I drink coffee at the morning.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I drink coffee in the morning.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say in the morning.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "In! I run in the morning.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I drink coffee at the morning.",
+  "right": "I drink coffee in the morning.",
+  "strike": "at",
+  "why": "Say in the morning.",
+  "memory": "In the morning.",
+  "quiz": {
+   "stem": "I run ___ the morning.",
+   "options": [
+    "at",
+    "in"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Утром: “at” или “in”?",
+   "tip": "Говори “in the morning”: “I drink coffee in the morning.”",
+   "caption": "Ты тоже говоришь “I drink coffee at the morning”? 😅 По-русски «утром» — без предлога, и хочется выбрать “at”, а нужно “in.” Правильно: “I drink coffee in the morning.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “in.” Утром — in the morning. Скажи вслух: “I drink coffee in the morning.” Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#изучениеанглийского",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "At or in?",
+   "tip": "Say “in the morning”: “I drink coffee in the morning.”",
+   "caption": "Do you also say “I drink coffee at the morning”? 😅 In Russian “in the morning” is one word with no small word, so “at” slips in, but English needs “in.” Correct: “I drink coffee in the morning.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Утром: “at” или “in”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Утром: “at” или “in”?",
+  "keyword": "I drink coffee in the morning.",
+  "value": "Говори “in the morning”: “I drink coffee in the morning.”",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#изучениеанглийского",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "Утром: “at” или “in”?",
+    "description": "Говори “in the morning”: “I drink coffee in the morning.”\n\nТы тоже говоришь “I drink coffee at the morning”? 😅 По-русски «утром» — без предлога, и хочется выбрать “at”, а нужно “in.” Правильно: “I drink coffee in the morning.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #английский #изучениеанглийского #lexkite",
+    "tags": [
+     "I drink coffee in the morning.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “I drink coffee at the morning”? 😅 По-русски «утром» — без предлога, и хочется выбрать “at”, а нужно “in.” Правильно: “I drink coffee in the morning.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Утром: “at” или “in”?\n\nГовори “in the morning”: “I drink coffee in the morning.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#изучениеанглийского",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Утром: “at” или “in”? Говори “in the morning”: “I drink coffee in the morning.” #английскийязык #английский #изучениеанглийского"
+   }
+  },
+  "first_comment": "Ответ: “in.” Утром — in the morning. Скажи вслух: “I drink coffee in the morning.” Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

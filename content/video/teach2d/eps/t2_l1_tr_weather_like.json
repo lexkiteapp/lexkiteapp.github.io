@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_weather_like",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "What is it like, not how!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: How is the weather like today?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: What is the weather like today?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say what with like.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "What! What is your new school like?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "How is the weather like today?",
+  "right": "What is the weather like today?",
+  "strike": "How",
+  "why": "Say what with like.",
+  "memory": "What is the weather like today?",
+  "quiz": {
+   "stem": "___ is your new school like?",
+   "options": [
+    "How",
+    "What"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“How” değil, “what ... like”!",
+   "tip": "Türkçede “Hava nasıl?” deriz; “like” varsa İngilizcede “how” değil “what” kullanılır: “What is the weather like today?”",
+   "caption": "“How is the weather like today” mi diyorsun? 😅 İngilizcede “like” ile soruyorsan “how” değil “what” gelir. Doğrusu “What is the weather like today?” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “What”. “Like” ile “what” gelir. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “what ... like”!",
+   "tip": "With “like,” use “what”: “What is the weather like today?”",
+   "caption": "Do you say “How is the weather like today”? 😅 When the question has “like” in it, we use “what” and not “how” there. The right sentence is “What is the weather like today?” Listen to Carlos and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“How” değil, “what ... like”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“How” değil, “what ... like”!",
+  "keyword": "What is the weather like today?",
+  "value": "Türkçede “Hava nasıl?” deriz; “like” varsa İngilizcede “how” değil “what” kullanılır: “What is the weather like today?”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "“How” değil, “what ... like”!",
+    "description": "Türkçede “Hava nasıl?” deriz; “like” varsa İngilizcede “how” değil “what” kullanılır: “What is the weather like today?”\n\n“How is the weather like today” mi diyorsun? 😅 İngilizcede “like” ile soruyorsan “how” değil “what” gelir. Doğrusu “What is the weather like today?” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "What is the weather like today?",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“How is the weather like today” mi diyorsun? 😅 İngilizcede “like” ile soruyorsan “how” değil “what” gelir. Doğrusu “What is the weather like today?” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“How” değil, “what ... like”!\n\nTürkçede “Hava nasıl?” deriz; “like” varsa İngilizcede “how” değil “what” kullanılır: “What is the weather like today?”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“How” değil, “what ... like”! Türkçede “Hava nasıl?” deriz; “like” varsa İngilizcede “how” değil “what”… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “What”. “Like” ile “what” gelir. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+  "lang": "tr"
+ }
+}

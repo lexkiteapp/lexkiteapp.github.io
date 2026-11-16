@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_tookexam",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Did you realize it?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I realized the test yesterday.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I took the test yesterday.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Realize means notice.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! She took the exam today.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I realized the test yesterday.",
+  "right": "I took the test yesterday.",
+  "strike": "realized the test",
+  "why": "Realize means notice.",
+  "memory": "Take a test.",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "She realized the exam today.",
+    "She took the exam today."
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Você diz “realized the test”?",
+   "tip": "“Realize” em inglês é “perceber”. Para fazer uma prova, use “take a test”.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I realized the test yesterday.” O certo é “I took the test yesterday.” Em português “realizar uma prova” é comum, mas “realize” em inglês quer dizer notar algo. Ouça a Ama e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “She took the exam today.” Agora escreva uma frase sua com esse ponto e treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “realized the test”?",
+   "tip": "English “realize” means to notice. To do a test, use “take a test”.",
+   "caption": "Watch out for this common mistake! Many people say “I realized the test yesterday.” The right way is “I took the test yesterday.” In Portuguese “realizar uma prova” is common, but English “realize” means to notice. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Você diz “realized the test”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "Você diz “realized the test”?",
+  "keyword": "I took the test yesterday.",
+  "value": "“Realize” em inglês é “perceber”. Para fazer uma prova, use “take a test”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "Você diz “realized the test”?",
+    "description": "“Realize” em inglês é “perceber”. Para fazer uma prova, use “take a test”.\n\nCuidado com este erro comum! 😬 Muita gente diz “I realized the test yesterday.” O certo é “I took the test yesterday.” Em português “realizar uma prova” é comum, mas “realize” em inglês quer dizer notar algo. Ouça a Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "I took the test yesterday.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “I realized the test yesterday.” O certo é “I took the test yesterday.” Em português “realizar uma prova” é comum, mas “realize” em inglês quer dizer notar algo. Ouça a Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Você diz “realized the test”?\n\n“Realize” em inglês é “perceber”. Para fazer uma prova, use “take a test”.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Você diz “realized the test”? “Realize” em inglês é “perceber”. Para fazer uma prova, use “take a test”. #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “She took the exam today.” Agora escreva uma frase sua com esse ponto e treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

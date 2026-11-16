@@ -146,6 +146,8 @@ Para consolidar tu ritmo y entonación, revisa nuestras lecciones sobre [acento 
 
 ---
 
+Además, compara más respuestas de las tres partes en los [ejemplos de IELTS Speaking band 7](/es/blog/ielts-speaking-band-7-ejemplos-de-respuestas/).
+
 ## Preguntas frecuentes sobre IELTS Speaking Part 3
 
 ### 1. ¿Cuánto tiempo exacto debe durar cada respuesta en el Part 3?

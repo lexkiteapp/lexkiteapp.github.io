@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_am_writing",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Emails start with I am writing!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I write to you to ask about the job.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am writing to you to ask about the job.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "For now, use am writing.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Am writing! I am writing to ask about a job.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I write to you to ask about the job.",
+  "right": "I am writing to you to ask about the job.",
+  "strike": "write",
+  "why": "For now, use am writing.",
+  "memory": "I am writing.",
+  "quiz": {
+   "stem": "Hello, I ___ to ask about a job.",
+   "options": [
+    "write",
+    "am writing"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "¿“I write to you”? Mejor así.",
+   "tip": "En español “le escribo para…” va en presente, pero en un correo en inglés se dice “I am writing to you.”",
+   "caption": "Muchos dicen “I write to you to ask about the job.” 🙈 En español “le escribo para…” va en presente simple, pero en un correo en inglés se dice: “I am writing to you to ask about the job.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “am writing”. En un correo, “I am writing to…” suena natural. Escribe una frase tuya con “am writing”. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#escritura",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“I write to you”? Say it better.",
+   "tip": "In Spanish “le escribo para…” uses the simple present, but in an English email we say “I am writing to you.”",
+   "caption": "Many learners say “I write to you to ask about the job.” In Spanish “le escribo para…” uses the simple present, but in an English email we say: “I am writing to you to ask about the job.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿“I write to you”? Mejor así."
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 60,
+  "seconds": 35.0,
+  "wpm": 103
+ },
+ "publish": {
+  "title": "¿“I write to you”? Mejor así.",
+  "keyword": "I am writing to you to ask about the job.",
+  "value": "En español “le escribo para…” va en presente, pero en un correo en inglés se dice “I am writing to you.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#escritura",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 54,
+  "platforms": {
+   "youtube": {
+    "title": "¿“I write to you”? Mejor así.",
+    "description": "En español “le escribo para…” va en presente, pero en un correo en inglés se dice “I am writing to you.”\n\nMuchos dicen “I write to you to ask about the job.” 🙈 En español “le escribo para…” va en presente simple, pero en un correo en inglés se dice: “I am writing to you to ask about the job.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #escritura #lexkite",
+    "tags": [
+     "I am writing to you to ask about the job.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "Muchos dicen “I write to you to ask about the job.” 🙈 En español “le escribo para…” va en presente simple, pero en un correo en inglés se dice: “I am writing to you to ask about the job.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "¿“I write to you”? Mejor así.\n\nEn español “le escribo para…” va en presente, pero en un correo en inglés se dice “I am writing to you.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#escritura",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿“I write to you”? Mejor así. En español “le escribo para…” va en presente, pero en un correo en inglés se di… #aprenderingles #inglesfacil #escritura"
+   }
+  },
+  "first_comment": "Respuesta: “am writing”. En un correo, “I am writing to…” suena natural. Escribe una frase tuya con “am writing”. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}
