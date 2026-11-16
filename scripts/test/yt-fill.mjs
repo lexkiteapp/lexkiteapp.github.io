@@ -24,6 +24,9 @@ ok(vr.status.privacyStatus === 'public' && !vr.status.publishAt && vp.status.pri
 ok(videoResource({ clip: 'x', privacy: 'bogus' }, {}).status.privacyStatus === 'private', 'giá trị lạ → private');
 ok(/async probe\(db, b, who, env\)/.test(yt) && /async probe_status/.test(yt) && /yt-probe\.mjs/.test(wf) && /driveSign/.test(fs.readFileSync('scripts/social/yt-probe.mjs', 'utf8')), 'op probe + probe_status trong CLI_OPS, workflow gọi yt-probe');
 // uploader: clip không có kịch bản cine-news vẫn tải được (metadata từ manifest), thiếu tiêu đề thì nêu lý do
+import { pickNext } from '../../functions/api/youtube.js';
+{ const now = Date.now(), iso = d => new Date(now + d * 864e5).toISOString(), rows = [{ clip: 'far', status: 'queued', publish_at: iso(20), approved_at: 1 }, { clip: 'tomorrow', status: 'queued', publish_at: iso(1), approved_at: 9 }, { clip: 'probe', status: 'queued', publish_at: null, approved_at: 1 }, { clip: 'day2', status: 'queued', publish_at: iso(2), approved_at: 5 }, { clip: 'old', status: 'queued', approved_at: 3 }];
+  ok(pickNext(rows, 0, now, 30).map(r => r.clip).join() === 'probe,old,tomorrow,day2,far', 'pickNext: không hẹn giờ (probe/tải ngay) trước, rồi hẹn giờ gần nhất trước (bài ngày mai không đứng sau bài 3 tuần nữa)'); }
 const { metaFromItem } = await import('../video/yt-upload.mjs');
 const mi = metaFromItem({ id: 't2-l1-de-since', lang: 'de', point: 'since', publish: { title: 'Since oder for?', value: 'Seit = since.', keyword: 'since', hashtags: ['#learnenglish', 'Deutsch'] }, link: 'https://lexkite.com/de/' });
 ok(mi && mi.title === 'Since oder for?' && mi.lang === 'de' && /#shorts/.test(mi.description) && /#learnenglish/.test(mi.description) && /lexkite\.com\/de\//.test(mi.description) && /AI-generated/.test(mi.description) && mi.tags[0] === 'since', 'metaFromItem: tiêu đề/mô tả/hashtag/ngôn ngữ từ publish của manifest');
