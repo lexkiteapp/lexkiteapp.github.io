@@ -462,7 +462,6 @@
 "Ngày đóng băng vẫn được tính vào chuỗi nên chuỗi không bị đứt.":"保护日仍会计入连胜，所以连胜不会中断。",
 "Ngân hàng ý tưởng Task 2":"Task 2 观点素材库",
 "Ngôn ngữ mẹ đẻ của bạn?":"您的母语是什么？",
-"Ngôn ngữ đang học":"正在学习的语言",
 "Ngôn ngữ được tiếp thu qua nội dung có ý nghĩa, hơi vượt trình độ hiện tại.":"语言是通过高于您当前水平的有意义的内容获得的。",
 "Người bản ngữ nói bằng các cụm có sẵn; học collocation giúp nói & viết tự nhiên và nhanh hơn.":"母语人士用现成的语块说话；学习搭配让你的口语和写作更加自然和流利。",
 "Người học chỉ tiếp thu được những gì họ để ý thấy – tô sáng cấu trúc giúp “nhìn ra” ngôn ngữ.":"学习者只会学到他们注意到的内容——突出显示结构可以帮助你“看到”语言。",

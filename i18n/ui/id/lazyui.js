@@ -462,7 +462,6 @@
 "Ngày đóng băng vẫn được tính vào chuỗi nên chuỗi không bị đứt.":"Hari pembekuan tetap dihitung dalam rentetan, jadi rentetanmu tidak terputus.",
 "Ngân hàng ý tưởng Task 2":"Tugas 2 Bank Ide",
 "Ngôn ngữ mẹ đẻ của bạn?":"Apa bahasa ibumu?",
-"Ngôn ngữ đang học":"Bahasa yang dipelajari",
 "Ngôn ngữ được tiếp thu qua nội dung có ý nghĩa, hơi vượt trình độ hiện tại.":"Bahasa diperoleh melalui konten bermakna tepat di atas level Anda saat ini.",
 "Người bản ngữ nói bằng các cụm có sẵn; học collocation giúp nói & viết tự nhiên và nhanh hơn.":"Penutur asli berbicara dalam potongan-potongan yang sudah jadi; kolokasi pembelajaran membuat berbicara dan menulis Anda lebih alami dan lancar.",
 "Người học chỉ tiếp thu được những gì họ để ý thấy – tô sáng cấu trúc giúp “nhìn ra” ngôn ngữ.":"Pembelajar hanya memperoleh apa yang mereka perhatikan – menyorot struktur membantu Anda “melihat” bahasanya.",

@@ -462,7 +462,6 @@
 "Ngày đóng băng vẫn được tính vào chuỗi nên chuỗi không bị đứt.":"يوم التجميد يُحتسب ضمن السلسلة، لذلك لا تنقطع أبدًا.",
 "Ngân hàng ý tưởng Task 2":"المهمة 2 بنك الأفكار",
 "Ngôn ngữ mẹ đẻ của bạn?":"ما هي لغتك الأم؟",
-"Ngôn ngữ đang học":"اللغة التي تتعلمها",
 "Ngôn ngữ được tiếp thu qua nội dung có ý nghĩa, hơi vượt trình độ hiện tại.":"يتم اكتساب اللغة من خلال محتوى ذي معنى أعلى بقليل من مستواك الحالي.",
 "Người bản ngữ nói bằng các cụm có sẵn; học collocation giúp nói & viết tự nhiên và nhanh hơn.":"يتحدث المتحدثون الأصليون في أجزاء جاهزة؛ تجميعات التعلم تجعل تحدثك وكتابتك أكثر طبيعية وطلاقة.",
 "Người học chỉ tiếp thu được những gì họ để ý thấy – tô sáng cấu trúc giúp “nhìn ra” ngôn ngữ.":"لا يكتسب المتعلمون إلا ما يلاحظونه - حيث يساعدك تسليط الضوء على الهياكل على \"رؤية\" اللغة.",

@@ -462,7 +462,6 @@
 "Ngày đóng băng vẫn được tính vào chuỗi nên chuỗi không bị đứt.":"Ein Schutztag zählt weiterhin zu Ihrer Serie, sie bricht also nie ab.",
 "Ngân hàng ý tưởng Task 2":"Aufgabe 2 Ideenbank",
 "Ngôn ngữ mẹ đẻ của bạn?":"Was ist Ihre Muttersprache?",
-"Ngôn ngữ đang học":"Lernsprache",
 "Ngôn ngữ được tiếp thu qua nội dung có ý nghĩa, hơi vượt trình độ hiện tại.":"Der Spracherwerb erfolgt durch sinnvolle Inhalte, die knapp über Ihrem aktuellen Niveau liegen.",
 "Người bản ngữ nói bằng các cụm có sẵn; học collocation giúp nói & viết tự nhiên và nhanh hơn.":"Muttersprachler sprechen in vorgefertigten Abschnitten; Das Erlernen von Kollokationen macht Ihr Sprechen und Schreiben natürlicher und flüssiger.",
 "Người học chỉ tiếp thu được những gì họ để ý thấy – tô sáng cấu trúc giúp “nhìn ra” ngôn ngữ.":"Lernende erwerben nur das, was ihnen auffällt – die Hervorhebung von Strukturen hilft dabei, die Sprache zu „sehen“.",

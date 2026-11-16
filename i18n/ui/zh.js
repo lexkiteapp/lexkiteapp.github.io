@@ -762,6 +762,7 @@
 "Ngôi":"主题",
 "Ngôn ngữ & Giao tiếp":"语言与交流",
 "Ngôn ngữ giao diện":"界面语言",
+"Ngôn ngữ đang học":"正在学习的语言",
 "Người dùng":"用户",
 "Người dùng, hộp thư, phân tích, chất lượng, Gemini API":"用户、收件箱、分析、质量、Gemini API",
 "Người mới":"新手",

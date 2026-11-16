@@ -462,7 +462,6 @@
 "Ngày đóng băng vẫn được tính vào chuỗi nên chuỗi không bị đứt.":"Dondurma günü seriye yine de sayılır, bu yüzden seri asla bozulmaz.",
 "Ngân hàng ý tưởng Task 2":"Görev 2 Fikir Bankası",
 "Ngôn ngữ mẹ đẻ của bạn?":"Ana diliniz nedir?",
-"Ngôn ngữ đang học":"Öğrenilen dil",
 "Ngôn ngữ được tiếp thu qua nội dung có ý nghĩa, hơi vượt trình độ hiện tại.":"Dil, mevcut seviyenizin hemen üzerindeki anlamlı içerik yoluyla edinilir.",
 "Người bản ngữ nói bằng các cụm có sẵn; học collocation giúp nói & viết tự nhiên và nhanh hơn.":"Anadili konuşanlar hazır parçalar halinde konuşur; Eşdizimleri öğrenmek, konuşmanızı ve yazmanızı daha doğal ve akıcı hale getirir.",
 "Người học chỉ tiếp thu được những gì họ để ý thấy – tô sáng cấu trúc giúp “nhìn ra” ngôn ngữ.":"Öğrenciler yalnızca fark ettiklerini elde ederler; yapıları vurgulamak dili “görmenize” yardımcı olur.",

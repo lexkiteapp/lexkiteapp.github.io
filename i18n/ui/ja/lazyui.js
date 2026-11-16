@@ -462,7 +462,6 @@
 "Ngày đóng băng vẫn được tính vào chuỗi nên chuỗi không bị đứt.":"フリーズ日もストリークに数えられるため、ストリークは途切れません。",
 "Ngân hàng ý tưởng Task 2":"タスク 2 アイデアバンク",
 "Ngôn ngữ mẹ đẻ của bạn?":"あなたの母国語は何ですか?",
-"Ngôn ngữ đang học":"学習中の言語",
 "Ngôn ngữ được tiếp thu qua nội dung có ý nghĩa, hơi vượt trình độ hiện tại.":"言語は、現在のレベルより少し上の有意義なコンテンツを通じて習得されます。",
 "Người bản ngữ nói bằng các cụm có sẵn; học collocation giúp nói & viết tự nhiên và nhanh hơn.":"ネイティブスピーカーは既製の塊で話します。コロケーションを学ぶと、話したり書いたりすることがより自然で流暢になります。",
 "Người học chỉ tiếp thu được những gì họ để ý thấy – tô sáng cấu trúc giúp “nhìn ra” ngôn ngữ.":"学習者は気づいたことだけを習得します。構造を強調表示することで言語を「見る」ことができます。",

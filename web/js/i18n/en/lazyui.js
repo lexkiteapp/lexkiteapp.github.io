@@ -386,7 +386,6 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
 'Đang chuẩn bị bộ thẻ…': 'Preparing your deck…',
 'Chế độ màu': 'Colour mode',
 'Nghĩa từ hiển thị bằng': 'Show word meanings in',
-'Ngôn ngữ đang học': 'Learning language',
 'Thêm ngôn ngữ': 'Add a language',
 'Sắp ra mắt': 'Coming soon',
 'Thêm 30 từ cơ bản': 'Add 30 core words',

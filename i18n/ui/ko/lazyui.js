@@ -462,7 +462,6 @@
 "Ngày đóng băng vẫn được tính vào chuỗi nên chuỗi không bị đứt.":"보호일도 연속 기록에 포함되므로 기록이 끊기지 않아요.",
 "Ngân hàng ý tưởng Task 2":"과제 2 아이디어 뱅크",
 "Ngôn ngữ mẹ đẻ của bạn?":"당신의 모국어는 무엇입니까?",
-"Ngôn ngữ đang học":"학습 중인 언어",
 "Ngôn ngữ được tiếp thu qua nội dung có ý nghĩa, hơi vượt trình độ hiện tại.":"언어는 현재 수준 바로 위의 의미 있는 콘텐츠를 통해 습득됩니다.",
 "Người bản ngữ nói bằng các cụm có sẵn; học collocation giúp nói & viết tự nhiên và nhanh hơn.":"원어민은 미리 만들어진 덩어리로 이야기합니다. 연어를 배우면 말하기와 쓰기가 더욱 자연스럽고 유창해집니다.",
 "Người học chỉ tiếp thu được những gì họ để ý thấy – tô sáng cấu trúc giúp “nhìn ra” ngôn ngữ.":"학습자는 자신이 알아차린 것만 습득합니다. 구조를 강조 표시하면 언어를 \"볼\" 수 있습니다.",

@@ -462,7 +462,6 @@
 "Ngày đóng băng vẫn được tính vào chuỗi nên chuỗi không bị đứt.":"Um dia de congelamento ainda conta na sua sequência, então ela nunca é quebrada.",
 "Ngân hàng ý tưởng Task 2":"Tarefa 2 Banco de Ideias",
 "Ngôn ngữ mẹ đẻ của bạn?":"Qual é a sua língua nativa?",
-"Ngôn ngữ đang học":"Idioma que você aprende",
 "Ngôn ngữ được tiếp thu qua nội dung có ý nghĩa, hơi vượt trình độ hiện tại.":"O idioma é adquirido por meio de conteúdo significativo logo acima do seu nível atual.",
 "Người bản ngữ nói bằng các cụm có sẵn; học collocation giúp nói & viết tự nhiên và nhanh hơn.":"Os falantes nativos falam em partes prontas; aprender colocações torna sua fala e escrita mais naturais e fluentes.",
 "Người học chỉ tiếp thu được những gì họ để ý thấy – tô sáng cấu trúc giúp “nhìn ra” ngôn ngữ.":"Os alunos só adquirem o que percebem – destacar estruturas ajuda você a “ver” o idioma.",

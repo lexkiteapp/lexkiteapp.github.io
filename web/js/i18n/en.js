@@ -884,6 +884,7 @@
 'Tổng XP': 'Total XP',
 'Đổi giao diện sáng/tối': 'Toggle light/dark theme',
 'Tài khoản': 'Account',
+'Ngôn ngữ đang học': 'Learning language',
 
 // ---- Word origins ----
 'Từ YouTube & video': 'From YouTube & videos',
