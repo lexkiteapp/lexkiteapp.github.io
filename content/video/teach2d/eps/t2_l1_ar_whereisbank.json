@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_whereisbank",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Near here, not just near!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Is there a bank near?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Is there a bank near here?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say near here.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! Is there a bank near here?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Is there a bank near?",
+  "right": "Is there a bank near here?",
+  "strike": "near",
+  "why": "Say near here.",
+  "memory": "Near here.",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "Is there a bank near?",
+    "Is there a bank near here?"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "هل تقول “a bank near”؟",
+   "tip": "في العربية نقول «هل يوجد بنك قريب؟» بـ«قريب» فقط، أما بالإنجليزية فنقول near here: “Is there a bank near here?” وليس “Is there a bank near?”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “Is there a bank near?” 😅 في العربية نقول «هل يوجد بنك قريب؟» بكلمة «قريب» وحدها، أما في الإنجليزية فنقول near here، فالجملة الصحيحة “Is there a bank near here?” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “near here” — نقول: “Is there a bank near here?” قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “a bank near”?",
+   "tip": "In Arabic we say «هل يوجد بنك قريب؟» with just «قريب», but in English we say near here: “Is there a bank near here?” not “Is there a bank near?”",
+   "caption": "Do you sometimes say this? “Is there a bank near?” 😅 In Arabic we say «هل يوجد بنك قريب؟» with just «قريب», but in English we say near here, so the right sentence is “Is there a bank near here?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “a bank near”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "هل تقول “a bank near”؟",
+  "keyword": "Is there a bank near here?",
+  "value": "في العربية نقول «هل يوجد بنك قريب؟» بـ«قريب» فقط، أما بالإنجليزية فنقول near here: “Is there a bank near here?” وليس “Is there a bank near?”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “a bank near”؟",
+    "description": "في العربية نقول «هل يوجد بنك قريب؟» بـ«قريب» فقط، أما بالإنجليزية فنقول near here: “Is there a bank near here?” وليس “Is there a bank near?”\n\nهل تقول أحيانًا هذه الجملة؟ “Is there a bank near?” 😅 في العربية نقول «هل يوجد بنك قريب؟» بكلمة «قريب» وحدها، أما في الإنجليزية فنقول near here، فالجملة الصحيحة “Is there a bank near here?” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "Is there a bank near here?",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا هذه الجملة؟ “Is there a bank near?” 😅 في العربية نقول «هل يوجد بنك قريب؟» بكلمة «قريب» وحدها، أما في الإنجليزية فنقول near here، فالجملة الصحيحة “Is there a bank near here?” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول “a bank near”؟\n\nفي العربية نقول «هل يوجد بنك قريب؟» بـ«قريب» فقط، أما بالإنجليزية فنقول near here: “Is there a bank near here?” وليس “Is there a bank near?”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “a bank near”؟ في العربية نقول «هل يوجد بنك قريب؟» بـ«قريب» فقط، أما بالإنجليزية فنقول ne… #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “near here” — نقول: “Is there a bank near here?” قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+  "lang": "ar"
+ }
+}

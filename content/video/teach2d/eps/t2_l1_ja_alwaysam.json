@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_alwaysam",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "I always am late?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I always am late.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am always late.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Put always after am, is, or are.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Is always! I am always late.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I always am late.",
+  "right": "I am always late.",
+  "strike": "always am",
+  "why": "Put always after am, is, or are.",
+  "memory": "I am always late.",
+  "quiz": {
+   "stem": "She ___ happy.",
+   "options": [
+    "is always",
+    "always is"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "always の位置、合ってる？",
+   "tip": "be動詞のときは、always は be動詞の後ろに置きます。",
+   "caption": "“I always am late.”と言っていませんか？😅 「いつも遅れる」と日本語の順に always を前に置きがちです。“I am always late.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“is always”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Where does always go?",
+   "tip": "With am, is, are, put always after it.",
+   "caption": "Do you say this? “I always am late.” 😅 Put always after am, is, or are. The natural way is “I am always late.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "always の位置、合ってる？"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "always の位置、合ってる？",
+  "keyword": "I am always late.",
+  "value": "be動詞のときは、always は be動詞の後ろに置きます。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "always の位置、合ってる？",
+    "description": "be動詞のときは、always は be動詞の後ろに置きます。\n\n“I always am late.”と言っていませんか？😅 「いつも遅れる」と日本語の順に always を前に置きがちです。“I am always late.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "I am always late.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“I always am late.”と言っていませんか？😅 「いつも遅れる」と日本語の順に always を前に置きがちです。“I am always late.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "always の位置、合ってる？\n\nbe動詞のときは、always は be動詞の後ろに置きます。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "always の位置、合ってる？ be動詞のときは、always は be動詞の後ろに置きます。 #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“is always”。同じ形で自分の文を1つ書いてみよう。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

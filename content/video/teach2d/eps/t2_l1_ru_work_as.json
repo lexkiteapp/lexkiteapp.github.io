@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_work_as",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Like or as a driver?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: He works like a driver.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: He works as a driver.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use as for a job.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "As! She works as a nurse.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "He works like a driver.",
+  "right": "He works as a driver.",
+  "strike": "like",
+  "why": "Use as for a job.",
+  "memory": "Work as a ...",
+  "quiz": {
+   "stem": "She works ___ a nurse.",
+   "options": [
+    "like",
+    "as"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Работает кем-то — like или as?",
+   "tip": "О профессии говорим через “as”: “He works as a driver.”",
+   "caption": "Ты тоже говоришь “He works like a driver”? 😅 По-русски «работает водителем» — без предлога, и многие подставляют “like”, ведь это «как». Но о профессии по-английски говорят через “as.” Правильно: “He works as a driver.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “as.” О профессии — as. Напиши одно предложение о себе: “I work as a …” Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#учуанглийский",
+    "#английскийдляначинающих",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Like or as a driver?",
+   "tip": "For a job, use “as”: “He works as a driver.”",
+   "caption": "Do you also say “He works like a driver”? 😅 Russian needs no small word here, so many learners add “like,” but for a job English uses “as.” Correct: “He works as a driver.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Работает кем-то — like или as?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Работает кем-то — like или as?",
+  "keyword": "He works as a driver.",
+  "value": "О профессии говорим через “as”: “He works as a driver.”",
+  "hashtags": [
+   "#английскийязык",
+   "#учуанглийский",
+   "#английскийдляначинающих",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Работает кем-то — like или as?",
+    "description": "О профессии говорим через “as”: “He works as a driver.”\n\nТы тоже говоришь “He works like a driver”? 😅 По-русски «работает водителем» — без предлога, и многие подставляют “like”, ведь это «как». Но о профессии по-английски говорят через “as.” Правильно: “He works as a driver.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #учуанглийский #английскийдляначинающих #lexkite",
+    "tags": [
+     "He works as a driver.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “He works like a driver”? 😅 По-русски «работает водителем» — без предлога, и многие подставляют “like”, ведь это «как». Но о профессии по-английски говорят через “as.” Правильно: “He works as a driver.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Работает кем-то — like или as?\n\nО профессии говорим через “as”: “He works as a driver.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#учуанглийский",
+     "#английскийдляначинающих",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Работает кем-то — like или as? О профессии говорим через “as”: “He works as a driver.” #английскийязык #учуанглийский #английскийдляначинающих"
+   }
+  },
+  "first_comment": "Ответ: “as.” О профессии — as. Напиши одно предложение о себе: “I work as a …” Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_years_old",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "I am twenty years old!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am twenty years.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am twenty years old.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Add old after years.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Old! My brother is 6 years old.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am twenty years.",
+  "right": "I am twenty years old.",
+  "strike": "years",
+  "why": "Add old after years.",
+  "memory": "I am twenty years old.",
+  "quiz": {
+   "stem": "My brother is 6 years ___.",
+   "options": [
+    "age",
+    "old"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Years” yetmez, “years old” de!",
+   "tip": "Türkçede “yirmi yaşındayım” deriz, “old” gibi ayrı bir sözcük yoktur; İngilizcede “years” sonrası “old” gelir: “I am twenty years old.”",
+   "caption": "“I am twenty years” mi diyorsun? 😅 Yaşı söylerken “years” sözcüğünden sonra “old” gelir. Doğrusu “I am twenty years old.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “old”. Yaşını söylerken “years old” de. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “years old”!",
+   "tip": "Put “old” after “years”: “I am twenty years old.”",
+   "caption": "Do you say “I am twenty years”? 😅 In English we say “old” after “years” when we give an age. The right sentence is “I am twenty years old.” Listen to Ama and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Years” yetmez, “years old” de!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“Years” yetmez, “years old” de!",
+  "keyword": "I am twenty years old.",
+  "value": "Türkçede “yirmi yaşındayım” deriz, “old” gibi ayrı bir sözcük yoktur; İngilizcede “years” sonrası “old” gelir: “I am twenty years old.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "“Years” yetmez, “years old” de!",
+    "description": "Türkçede “yirmi yaşındayım” deriz, “old” gibi ayrı bir sözcük yoktur; İngilizcede “years” sonrası “old” gelir: “I am twenty years old.”\n\n“I am twenty years” mi diyorsun? 😅 Yaşı söylerken “years” sözcüğünden sonra “old” gelir. Doğrusu “I am twenty years old.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "I am twenty years old.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“I am twenty years” mi diyorsun? 😅 Yaşı söylerken “years” sözcüğünden sonra “old” gelir. Doğrusu “I am twenty years old.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Years” yetmez, “years old” de!\n\nTürkçede “yirmi yaşındayım” deriz, “old” gibi ayrı bir sözcük yoktur; İngilizcede “years” sonrası “old” gelir: “I am twenty years old.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Years” yetmez, “years old” de! Türkçede “yirmi yaşındayım” deriz, “old” gibi ayrı bir sözcük yoktur; İn… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “old”. Yaşını söylerken “years old” de. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+  "lang": "tr"
+ }
+}

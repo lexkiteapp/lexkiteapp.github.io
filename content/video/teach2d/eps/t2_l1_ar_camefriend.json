@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_camefriend",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Came first? Say who first!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Came my friend yesterday.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My friend came yesterday.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say who first, then what.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! He went home.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Came my friend yesterday.",
+  "right": "My friend came yesterday.",
+  "strike": "Came my friend",
+  "why": "Say who first, then what.",
+  "memory": "My friend came.",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "Went he home.",
+    "He went home."
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "هل تبدأ بالفعل؟",
+   "tip": "في العربية نبدأ بالفعل «جاء صديقي»، أما في الإنجليزية فنبدأ بمن قام بالفعل: “My friend came yesterday.” وليس “Came my friend yesterday.”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “Came my friend yesterday.” 😅 في العربية نبدأ بالفعل «جاء صديقي»، أما في الإنجليزية فنبدأ بمن قام بالفعل، فالجملة الصحيحة “My friend came yesterday.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “My friend came” — في العربية نبدأ بالفعل «جاء صديقي»، أما في الإنجليزية فنبدأ بمن قام بالفعل. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you start with the verb?",
+   "tip": "In Arabic we can start with the verb «جاء صديقي», but in English we start with who did it: “My friend came yesterday.” not “Came my friend yesterday.”",
+   "caption": "Do you sometimes say this? “Came my friend yesterday.” 😅 In Arabic we can start with the verb «جاء صديقي», but in English we start with who did it, so the right sentence is “My friend came yesterday.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تبدأ بالفعل؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "هل تبدأ بالفعل؟",
+  "keyword": "My friend came yesterday.",
+  "value": "في العربية نبدأ بالفعل «جاء صديقي»، أما في الإنجليزية فنبدأ بمن قام بالفعل: “My friend came yesterday.” وليس “Came my friend yesterday.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "هل تبدأ بالفعل؟",
+    "description": "في العربية نبدأ بالفعل «جاء صديقي»، أما في الإنجليزية فنبدأ بمن قام بالفعل: “My friend came yesterday.” وليس “Came my friend yesterday.”\n\nهل تقول أحيانًا هذه الجملة؟ “Came my friend yesterday.” 😅 في العربية نبدأ بالفعل «جاء صديقي»، أما في الإنجليزية فنبدأ بمن قام بالفعل، فالجملة الصحيحة “My friend came yesterday.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "My friend came yesterday.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا هذه الجملة؟ “Came my friend yesterday.” 😅 في العربية نبدأ بالفعل «جاء صديقي»، أما في الإنجليزية فنبدأ بمن قام بالفعل، فالجملة الصحيحة “My friend came yesterday.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تبدأ بالفعل؟\n\nفي العربية نبدأ بالفعل «جاء صديقي»، أما في الإنجليزية فنبدأ بمن قام بالفعل: “My friend came yesterday.” وليس “Came my friend yesterday.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تبدأ بالفعل؟ في العربية نبدأ بالفعل «جاء صديقي»، أما في الإنجليزية فنبدأ بمن قام بالفعل: “My f… #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “My friend came” — في العربية نبدأ بالفعل «جاء صديقي»، أما في الإنجليزية فنبدأ بمن قام بالفعل. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+  "lang": "ar"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_goodat",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Good in? Say good at!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She is good in English.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She is good at English.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use at after good.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "At! He is good at singing.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She is good in English.",
+  "right": "She is good at English.",
+  "strike": "in",
+  "why": "Use at after good.",
+  "memory": "Good at. Bad at.",
+  "quiz": {
+   "stem": "He is good ___ singing.",
+   "options": [
+    "in",
+    "at"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "هل تقول “good in”؟",
+   "tip": "نقول بالعربية «جيدة في»، لكن مع good نستخدم at: “She is good at English.” وليس “She is good in English.”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “She is good in English.” 😅 نقول بالعربية «جيدة في»، لكن مع good نستخدم at، فالجملة الصحيحة “She is good at English.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “at” — نقول بالعربية «جيدة في»، لكن مع good نستخدم at. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “good in”?",
+   "tip": "In Arabic we say «جيدة في», but after good we use at: “She is good at English.” not “She is good in English.”",
+   "caption": "Do you sometimes say this? “She is good in English.” 😅 In Arabic we say «جيدة في», but after good we use at, so the right sentence is “She is good at English.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “good in”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "هل تقول “good in”؟",
+  "keyword": "She is good at English.",
+  "value": "نقول بالعربية «جيدة في»، لكن مع good نستخدم at: “She is good at English.” وليس “She is good in English.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “good in”؟",
+    "description": "نقول بالعربية «جيدة في»، لكن مع good نستخدم at: “She is good at English.” وليس “She is good in English.”\n\nهل تقول أحيانًا هذه الجملة؟ “She is good in English.” 😅 نقول بالعربية «جيدة في»، لكن مع good نستخدم at، فالجملة الصحيحة “She is good at English.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "She is good at English.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا هذه الجملة؟ “She is good in English.” 😅 نقول بالعربية «جيدة في»، لكن مع good نستخدم at، فالجملة الصحيحة “She is good at English.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول “good in”؟\n\nنقول بالعربية «جيدة في»، لكن مع good نستخدم at: “She is good at English.” وليس “She is good in English.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “good in”؟ نقول بالعربية «جيدة في»، لكن مع good نستخدم at: “She is good at English.” وليس… #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “at” — نقول بالعربية «جيدة في»، لكن مع good نستخدم at. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+  "lang": "ar"
+ }
+}

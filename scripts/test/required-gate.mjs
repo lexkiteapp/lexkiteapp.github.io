@@ -218,7 +218,7 @@ ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 
 // ---------- 1c) preqc của teach-video: trần ≥ 8 phút (đo 15/11: 87–300 s, 5 phút cắt → 'cancelled' đỏ oan) + các kiểm độc lập vẫn đủ 4 nhóm, chạy song song ----------
 {
   const y = fs.readFileSync(new URL('../../.github/workflows/teach-video.yml', import.meta.url), 'utf8'), pre = y.slice(y.indexOf('\n  preqc:'), y.indexOf('\n  voice:'));
-  ok(/timeout-minutes: (8|9|10)\b/.test(pre), 'preqc timeout-minutes >= 8');
+  ok(/timeout-minutes: (8|9|1\d|20)\b/.test(pre), 'preqc timeout-minutes >= 8');
   for (const need of ['teach2d-gen.py', 'teach2d-autopub.py', 'teach2d-store.py', 'mix.py --check', 'teach2d-mix.py', 'native-qa.mjs --online', 'publish.py --check']) ok(pre.includes(need), 'preqc vẫn chạy ' + need);
   ok(/wait "\$\{pids\[\$i\]\}"/.test(pre) && /\[ "\$bad" = 0 \] \|\| exit 1/.test(pre), 'preqc đợi mọi nhóm song song và đỏ nếu bất kỳ nhóm nào đỏ');
 }

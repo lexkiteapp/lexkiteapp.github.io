@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_nolike",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say “don’t”, not “no”!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I no like spicy food.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I don't like spicy food.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use don't before a verb.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Don't! I don't like fish.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I no like spicy food.",
+  "right": "I don't like spicy food.",
+  "strike": "no",
+  "why": "Use don't before a verb.",
+  "memory": "I don't like spicy food.",
+  "quiz": {
+   "stem": "I ___ like fish.",
+   "options": [
+    "no",
+    "don't"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Don't, bukan no",
+   "tip": "Kita bilang “saya tidak suka” atau “nggak suka”. Di bahasa Inggris, “tidak” sebelum kata kerja adalah don't, bukan no.",
+   "caption": "Pernah bilang begini? “I no like spicy food.” 😅 Sebelum kata kerja, pakai don't: “I don't like spicy food.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “don't”. Ucapkan dengan lantang: “I don't like spicy food.” lalu tulis satu makanan yang tidak kamu suka. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#kalimatnegatif",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Don't, not no",
+   "tip": "We say “saya tidak suka”. In English, “tidak” before a verb is don't, not no.",
+   "caption": "Ever say this? “I no like spicy food.” 😅 Before a verb, use don't: “I don't like spicy food.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Don't, bukan no"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "Don't, bukan no",
+  "keyword": "I don't like spicy food.",
+  "value": "Kita bilang “saya tidak suka” atau “nggak suka”. Di bahasa Inggris, “tidak” sebelum kata kerja adalah don't, bukan no.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#kalimatnegatif",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "Don't, bukan no",
+    "description": "Kita bilang “saya tidak suka” atau “nggak suka”. Di bahasa Inggris, “tidak” sebelum kata kerja adalah don't, bukan no.\n\nPernah bilang begini? “I no like spicy food.” 😅 Sebelum kata kerja, pakai don't: “I don't like spicy food.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #kalimatnegatif #bahasainggris #lexkite",
+    "tags": [
+     "I don't like spicy food.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “I no like spicy food.” 😅 Sebelum kata kerja, pakai don't: “I don't like spicy food.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Don't, bukan no\n\nKita bilang “saya tidak suka” atau “nggak suka”. Di bahasa Inggris, “tidak” sebelum kata kerja adalah don't, bukan no.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#kalimatnegatif",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Don't, bukan no Kita bilang “saya tidak suka” atau “nggak suka”. Di bahasa Inggris, “tidak” sebe… #belajarbahasainggris #kalimatnegatif #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “don't”. Ucapkan dengan lantang: “I don't like spicy food.” lalu tulis satu makanan yang tidak kamu suka. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

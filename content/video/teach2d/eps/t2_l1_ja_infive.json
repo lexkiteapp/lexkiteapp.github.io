@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_infive",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "After five minutes?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I will come back after five minutes.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I will come back in five minutes.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "For a time from now, use in.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "In! I will come back in five minutes.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I will come back after five minutes.",
+  "right": "I will come back in five minutes.",
+  "strike": "after",
+  "why": "For a time from now, use in.",
+  "memory": "I will come back in five minutes.",
+  "quiz": {
+   "stem": "The bus comes ___ five minutes.",
+   "options": [
+    "after",
+    "in"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "「5分後」は after？ in？",
+   "tip": "今から先の「〜後」は in。after は過去から見た後のときに使います。",
+   "caption": "“I will come back after five minutes.”と言っていませんか？😅 「5分後」を after にそのまま訳しがちです。“I will come back in five minutes.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“in”。“I will come back in five minutes.” を声に出して言ってみよう。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "After five minutes?",
+   "tip": "From now, use in five minutes.",
+   "caption": "Do you say this? “I will come back after five minutes.” 😅 From now, use in, not after. The natural way is “I will come back in five minutes.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "「5分後」は after？ in？"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "「5分後」は after？ in？",
+  "keyword": "I will come back in five minutes.",
+  "value": "今から先の「〜後」は in。after は過去から見た後のときに使います。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 46,
+  "platforms": {
+   "youtube": {
+    "title": "「5分後」は after？ in？",
+    "description": "今から先の「〜後」は in。after は過去から見た後のときに使います。\n\n“I will come back after five minutes.”と言っていませんか？😅 「5分後」を after にそのまま訳しがちです。“I will come back in five minutes.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "I will come back in five minutes.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“I will come back after five minutes.”と言っていませんか？😅 「5分後」を after にそのまま訳しがちです。“I will come back in five minutes.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "「5分後」は after？ in？\n\n今から先の「〜後」は in。after は過去から見た後のときに使います。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「5分後」は after？ in？ 今から先の「〜後」は in。after は過去から見た後のときに使います。 #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“in”。“I will come back in five minutes.” を声に出して言ってみよう。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

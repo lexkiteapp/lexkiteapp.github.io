@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_roomhas",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "No in before my room!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: In my room has a big desk.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My room has a big desk.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "My room is what has the desk.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "My room! My room has a big desk.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "In my room has a big desk.",
+  "right": "My room has a big desk.",
+  "strike": "In",
+  "why": "My room is what has the desk.",
+  "memory": "My room has.",
+  "quiz": {
+   "stem": "___ has a big desk.",
+   "options": [
+    "In my room",
+    "My room"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“In my room has” 틀렸어요!",
+   "tip": "‘내 방에 큰 책상이 있어요’의 ‘에’를 in으로 옮기기 쉬워요. has 앞에는 in 없이! 이렇게 말해요 👉 “My room has a big desk.”",
+   "caption": "“In my room has a big desk”처럼 말하고 있나요? 😅 has 앞에는 주어가 와야 해서 in 없이 My room has라고 해요. ‘~에 있다’를 in으로 옮기면 어색해져요. 맞는 문장 ✅ “My room has a big desk.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답 ✅ “My room has a big desk.” 소리 내어 한 번 말해 보고, 나만의 문장도 하나 써 보세요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“In my room has” is wrong!",
+   "tip": "Has needs a subject, so say my room has. Say “My room has a big desk.”",
+   "caption": "Do you say “In my room has a big desk” in English? 😅 The word “has” needs a subject before it, so you do not add “in”! “My room has a big desk” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“In my room has” 틀렸어요!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 53,
+  "seconds": 31.5,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "“In my room has” 틀렸어요!",
+  "keyword": "My room has a big desk.",
+  "value": "‘내 방에 큰 책상이 있어요’의 ‘에’를 in으로 옮기기 쉬워요. has 앞에는 in 없이! 이렇게 말해요 👉 “My room has a big desk.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 47,
+  "platforms": {
+   "youtube": {
+    "title": "“In my room has” 틀렸어요!",
+    "description": "‘내 방에 큰 책상이 있어요’의 ‘에’를 in으로 옮기기 쉬워요. has 앞에는 in 없이! 이렇게 말해요 👉 “My room has a big desk.”\n\n“In my room has a big desk”처럼 말하고 있나요? 😅 has 앞에는 주어가 와야 해서 in 없이 My room has라고 해요. ‘~에 있다’를 in으로 옮기면 어색해져요. 맞는 문장 ✅ “My room has a big desk.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "My room has a big desk.",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“In my room has a big desk”처럼 말하고 있나요? 😅 has 앞에는 주어가 와야 해서 in 없이 My room has라고 해요. ‘~에 있다’를 in으로 옮기면 어색해져요. 맞는 문장 ✅ “My room has a big desk.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“In my room has” 틀렸어요!\n\n‘내 방에 큰 책상이 있어요’의 ‘에’를 in으로 옮기기 쉬워요. has 앞에는 in 없이! 이렇게 말해요 👉 “My room has a big desk.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“In my room has” 틀렸어요! ‘내 방에 큰 책상이 있어요’의 ‘에’를 in으로 옮기기 쉬워요. has 앞에는 in 없이! 이렇게 말해요 👉 “My room has a big desk.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답 ✅ “My room has a big desk.” 소리 내어 한 번 말해 보고, 나만의 문장도 하나 써 보세요: {link}",
+  "lang": "ko"
+ }
+}

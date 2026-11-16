@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_onepizza",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say one pizza, please!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Pizza one, please.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: One pizza, please.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say the number first.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "One pizza! One pizza, please.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Pizza one, please.",
+  "right": "One pizza, please.",
+  "strike": "one",
+  "why": "Say the number first.",
+  "memory": "One pizza.",
+  "quiz": {
+   "stem": "___, please.",
+   "options": [
+    "Pizza one",
+    "One pizza"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Pizza one” 틀렸어요!",
+   "tip": "한국어는 ‘피자 하나’처럼 숫자가 뒤에 와서 그대로 옮기기 쉬워요. 영어는 숫자가 앞! 이렇게 말해요 👉 “One pizza, please.”",
+   "caption": "“Pizza one, please”처럼 말하고 있나요? 😅 한국어는 ‘피자 하나 주세요’처럼 숫자가 뒤에 오지만, 영어는 숫자가 앞에 와요. 맞는 문장 ✅ “One pizza, please.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답 ✅ “One pizza, please.” 소리 내어 한 번 말해 보고, 나만의 문장도 하나 써 보세요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Pizza one” is wrong!",
+   "tip": "Put the number first. Say one pizza. Say “One pizza, please.”",
+   "caption": "Do you say “Pizza one, please” in English? 😅 Korean puts the number after the word, but English puts it first! “One pizza, please” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Pizza one” 틀렸어요!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 39,
+  "seconds": 24.7,
+  "wpm": 95
+ },
+ "publish": {
+  "title": "“Pizza one” 틀렸어요!",
+  "keyword": "One pizza, please.",
+  "value": "한국어는 ‘피자 하나’처럼 숫자가 뒤에 와서 그대로 옮기기 쉬워요. 영어는 숫자가 앞! 이렇게 말해요 👉 “One pizza, please.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 33,
+  "platforms": {
+   "youtube": {
+    "title": "“Pizza one” 틀렸어요!",
+    "description": "한국어는 ‘피자 하나’처럼 숫자가 뒤에 와서 그대로 옮기기 쉬워요. 영어는 숫자가 앞! 이렇게 말해요 👉 “One pizza, please.”\n\n“Pizza one, please”처럼 말하고 있나요? 😅 한국어는 ‘피자 하나 주세요’처럼 숫자가 뒤에 오지만, 영어는 숫자가 앞에 와요. 맞는 문장 ✅ “One pizza, please.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "One pizza, please.",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“Pizza one, please”처럼 말하고 있나요? 😅 한국어는 ‘피자 하나 주세요’처럼 숫자가 뒤에 오지만, 영어는 숫자가 앞에 와요. 맞는 문장 ✅ “One pizza, please.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Pizza one” 틀렸어요!\n\n한국어는 ‘피자 하나’처럼 숫자가 뒤에 와서 그대로 옮기기 쉬워요. 영어는 숫자가 앞! 이렇게 말해요 👉 “One pizza, please.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Pizza one” 틀렸어요! 한국어는 ‘피자 하나’처럼 숫자가 뒤에 와서 그대로 옮기기 쉬워요. 영어는 숫자가 앞! 이렇게 말해요 👉 “One pizza, please.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답 ✅ “One pizza, please.” 소리 내어 한 번 말해 보고, 나만의 문장도 하나 써 보세요: {link}",
+  "lang": "ko"
+ }
+}
