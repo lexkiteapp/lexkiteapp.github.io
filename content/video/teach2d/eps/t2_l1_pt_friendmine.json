@@ -1,0 +1,143 @@
+{
+ "id": "t2_l1_pt_friendmine",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Friend of me? Say mine!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Ana is a friend of me.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Ana is a friend of mine.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say mine, not me.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Mine! She is a friend of mine.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Ana is a friend of me.",
+  "right": "Ana is a friend of mine.",
+  "strike": "me",
+  "why": "Say mine, not me.",
+  "memory": "Friend of mine.",
+  "quiz": {
+   "stem": "She is a friend of ___.",
+   "options": [
+    "mine",
+    "me"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“A friend of me” soa estranho!",
+   "tip": "Dizemos “amiga dele” (de + ele); por analogia sai “of me”, mas em inglês usa-se “a friend of mine”.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “Ana is a friend of me”. O certo é “Ana is a friend of mine”. Por analogia com “amiga dele” (de + ele), muita gente diz “of me”. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “mine”. Treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“A friend of me” sounds odd!",
+   "tip": "Portuguese says “amiga dele” (de + ele), so learners copy it as “of me”; English uses “a friend of mine”.",
+   "caption": "Watch out for this common mistake! Many people say “Ana is a friend of me”. The right way is “Ana is a friend of mine”. By analogy with “amiga dele” (de + ele), many people say “of me”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“A friend of me” soa estranho!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“A friend of me” soa estranho!",
+  "keyword": "Ana is a friend of mine.",
+  "value": "Dizemos “amiga dele” (de + ele); por analogia sai “of me”, mas em inglês usa-se “a friend of mine”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "“A friend of me” soa estranho!",
+    "description": "Cuidado com este erro comum! 😬 Muita gente diz “Ana is a friend of me”. O certo é “Ana is a friend of mine”. Por analogia com “amiga dele” (de + ele), muita gente diz “of me”. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #lexkite",
+    "tags": [
+     "Ana is a friend of mine.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “Ana is a friend of me”. O certo é “Ana is a friend of mine”. Por analogia com “amiga dele” (de + ele), muita gente diz “of me”. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Cuidado com este erro comum! 😬 Muita gente diz “Ana is a friend of me”. O certo é “Ana is a friend of mine”. Por analogia com “amiga dele” (de + ele), muita gente diz “of me”. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“A friend of me” soa estranho! #aprenderingles #inglesfacil #lexkite"
+   }
+  },
+  "first_comment": "Resposta: “mine”. Treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

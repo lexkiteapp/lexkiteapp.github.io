@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_on_monday",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "On Monday, not in!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I work in Monday.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I work on Monday.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use on with days.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "On! We meet on Monday.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I work in Monday.",
+  "right": "I work on Monday.",
+  "strike": "in",
+  "why": "Use on with days.",
+  "memory": "On Monday.",
+  "quiz": {
+   "stem": "We meet ___ Monday.",
+   "options": [
+    "in",
+    "on"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "on Monday ไม่ใช่ in Monday!",
+   "tip": "ไทยพูด “ในวันจันทร์” เลยติดใช้ in แต่อังกฤษใช้ on กับวัน: “on Monday”",
+   "caption": "คุณเคยพูดว่า “I work in Monday.” ไหม? 😅 ภาษาไทยพูดว่า “ในวันจันทร์” จึงมักใช้ in แต่ภาษาอังกฤษใช้ on กับวัน: “I work on Monday.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “on” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Days take “on”, not “in”!",
+   "tip": "Thai says “in Monday”, so people use in, but English uses on with days: “on Monday”",
+   "caption": "Do you say “I work in Monday”? 😅 Thai says “in Monday”, so people use in, but English uses on with days. Say “I work on Monday”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "on Monday ไม่ใช่ in Monday!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 41,
+  "seconds": 25.6,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "on Monday ไม่ใช่ in Monday!",
+  "keyword": "I work on Monday.",
+  "value": "ไทยพูด “ในวันจันทร์” เลยติดใช้ in แต่อังกฤษใช้ on กับวัน: “on Monday”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "on Monday ไม่ใช่ in Monday!",
+    "description": "คุณเคยพูดว่า “I work in Monday.” ไหม? 😅 ภาษาไทยพูดว่า “ในวันจันทร์” จึงมักใช้ in แต่ภาษาอังกฤษใช้ on กับวัน: “I work on Monday.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "I work on Monday.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “I work in Monday.” ไหม? 😅 ภาษาไทยพูดว่า “ในวันจันทร์” จึงมักใช้ in แต่ภาษาอังกฤษใช้ on กับวัน: “I work on Monday.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "คุณเคยพูดว่า “I work in Monday.” ไหม? 😅 ภาษาไทยพูดว่า “ในวันจันทร์” จึงมักใช้ in แต่ภาษาอังกฤษใช้ on กับวัน: “I work on Monday.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "on Monday ไม่ใช่ in Monday! #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “on” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

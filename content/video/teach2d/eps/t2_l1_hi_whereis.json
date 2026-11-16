@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_whereis",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Where the bank is!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I do not know where is the bank.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I do not know where the bank is.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say where, the bank, then is.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "It is! I do not know where it is.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I do not know where is the bank.",
+  "right": "I do not know where the bank is.",
+  "strike": "where is",
+  "why": "Say where, the bank, then is.",
+  "memory": "I know where he is.",
+  "quiz": {
+   "stem": "I do not know where ___.",
+   "options": [
+    "it is",
+    "is it"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“where is the bank” नहीं!",
+   "tip": "हिंदी में “कहाँ है” का क्रम हर जगह वही रहता है; अंग्रेज़ी के छिपे सवाल में is आख़िर में जाता है।",
+   "caption": "क्या आप भी कहते हैं “I do not know where is the bank.”? 😅 अंग्रेज़ी में “I do not know where the bank is.” सही है, क्योंकि वाक्य के अंदर आए where वाले सवाल में is आख़िर में जाता है, सीधे सवाल की तरह आगे नहीं। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “it is”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “where the bank is”!",
+   "tip": "In Hindi the order stays the same, “bank kahaan hai”; in English a hidden question puts is last.",
+   "caption": "Do you say “I do not know where is the bank.”? 😅 In English “I do not know where the bank is.” is right, because in a hidden question, is goes last. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“where is the bank” नहीं!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 55,
+  "seconds": 32.5,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "“where is the bank” नहीं!",
+  "keyword": "I do not know where the bank is.",
+  "value": "हिंदी में “कहाँ है” का क्रम हर जगह वही रहता है; अंग्रेज़ी के छिपे सवाल में is आख़िर में जाता है।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 49,
+  "platforms": {
+   "youtube": {
+    "title": "“where is the bank” नहीं!",
+    "description": "क्या आप भी कहते हैं “I do not know where is the bank.”? 😅 अंग्रेज़ी में “I do not know where the bank is.” सही है, क्योंकि वाक्य के अंदर आए where वाले सवाल में is आख़िर में जाता है, सीधे सवाल की तरह आगे नहीं। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "I do not know where the bank is.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी कहते हैं “I do not know where is the bank.”? 😅 अंग्रेज़ी में “I do not know where the bank is.” सही है, क्योंकि वाक्य के अंदर आए where वाले सवाल में is आख़िर में जाता है, सीधे सवाल की तरह आगे नहीं। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "क्या आप भी कहते हैं “I do not know where is the bank.”? 😅 अंग्रेज़ी में “I do not know where the bank is.” सही है, क्योंकि वाक्य के अंदर आए where वाले सवाल में is आख़िर में जाता है, सीधे सवाल की तरह आगे नहीं। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“where is the bank” नहीं! #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “it is”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

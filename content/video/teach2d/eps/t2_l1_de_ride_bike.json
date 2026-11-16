@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_ride_bike",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "You ride a bike!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I drive my bike to work.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I ride my bike to work.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Ride a bike.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Ride! I ride my bike to work.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I drive my bike to work.",
+  "right": "I ride my bike to work.",
+  "strike": "drive",
+  "why": "Ride a bike.",
+  "memory": "Ride a bike.",
+  "quiz": {
+   "stem": "I ___ my bike to work.",
+   "options": [
+    "ride",
+    "drive"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Fahrrad „fahren“",
+   "tip": "Im Deutschen „fährt“ man Auto und Fahrrad. Im Englischen: ein Auto „drive“, ein Fahrrad „ride“.",
+   "caption": "Fahrrad fahren = „drive“? 🚲 Falsch: “I drive my bike to work.” Richtig: “I ride my bike to work.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “ride”. Richtig heißt es: “I ride my bike to work.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Drive a bike?",
+   "tip": "In German you “fahren” both car and bike. In English you drive a car but ride a bike.",
+   "caption": "Drive a bike? Wrong: “I drive my bike to work.” Right: “I ride my bike to work.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Fahrrad „fahren“"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Fahrrad „fahren“",
+  "keyword": "I ride my bike to work.",
+  "value": "Im Deutschen „fährt“ man Auto und Fahrrad. Im Englischen: ein Auto „drive“, ein Fahrrad „ride“.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Fahrrad „fahren“",
+    "description": "Fahrrad fahren = „drive“? 🚲 Falsch: “I drive my bike to work.” Richtig: “I ride my bike to work.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "I ride my bike to work.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Fahrrad fahren = „drive“? 🚲 Falsch: “I drive my bike to work.” Richtig: “I ride my bike to work.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Fahrrad fahren = „drive“? 🚲 Falsch: “I drive my bike to work.” Richtig: “I ride my bike to work.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Fahrrad „fahren“ #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “ride”. Richtig heißt es: “I ride my bike to work.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

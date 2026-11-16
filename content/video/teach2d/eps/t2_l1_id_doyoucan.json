@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_doyoucan",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Can you, not do you can!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Do you can speak English?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Can you speak English?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Can comes first.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Can you! Can you speak English?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Do you can speak English?",
+  "right": "Can you speak English?",
+  "strike": "Do",
+  "why": "Can comes first.",
+  "memory": "Can you...?",
+  "quiz": {
+   "stem": "___ speak English?",
+   "options": [
+    "Can you",
+    "Do you can"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Do you can”? Pakai “Can you”",
+   "tip": "“Apakah kamu bisa” tampak cocok dengan do you can, tapi di bahasa Inggris can sendiri yang dipindah ke depan.",
+   "caption": "Pernah bilang begini? “Do you can speak English?” 😅 Untuk bertanya bisa, mulai dengan can: “Can you speak English?” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “Can you”. Tanya temanmu: “Can you ...?” Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#grammaringgris",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Do you can”? Say “Can you”",
+   "tip": "“Apakah kamu bisa” seems to fit do you can, but English moves can to the front by itself.",
+   "caption": "Ever say this? “Do you can speak English?” 😅 To ask about ability, start with can: “Can you speak English?” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Do you can”? Pakai “Can you”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“Do you can”? Pakai “Can you”",
+  "keyword": "Can you speak English?",
+  "value": "“Apakah kamu bisa” tampak cocok dengan do you can, tapi di bahasa Inggris can sendiri yang dipindah ke depan.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#grammaringgris",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "“Do you can”? Pakai “Can you”",
+    "description": "Pernah bilang begini? “Do you can speak English?” 😅 Untuk bertanya bisa, mulai dengan can: “Can you speak English?” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #grammaringgris #bahasainggris #lexkite",
+    "tags": [
+     "Can you speak English?",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “Do you can speak English?” 😅 Untuk bertanya bisa, mulai dengan can: “Can you speak English?” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Pernah bilang begini? “Do you can speak English?” 😅 Untuk bertanya bisa, mulai dengan can: “Can you speak English?” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#grammaringgris",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Do you can”? Pakai “Can you” #belajarbahasainggris #grammaringgris #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “Can you”. Tanya temanmu: “Can you ...?” Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

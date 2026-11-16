@@ -66,10 +66,10 @@
    "answer": 1
   },
   "native": {
-   "hook": "Das deutsche Perfekt täuscht dich!",
-   "tip": "Mit „yesterday“ nimmst du das Simple Past: „I saw“. Nicht das Present Perfect.",
-   "caption": "Das deutsche Perfekt führt dich hier in die Falle! 🎬 Falsch: “Yesterday I have seen a film.” Richtig: “Yesterday I saw a film.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.",
-   "comment": "Lösung: “saw”. Richtig heißt es: “Yesterday I saw a film.” Übe mehr mit einem kostenlosen Quiz: {link}",
+   "hook": "Das deutsche Perfekt täuscht Sie!",
+   "tip": "Mit „yesterday“ nehmen Sie das Simple Past: „I saw“. Nicht das Present Perfect.",
+   "caption": "Das deutsche Perfekt führt Sie hier in die Falle! 🎬 Falsch: “Yesterday I have seen a film.” Richtig: “Yesterday I saw a film.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “saw”. Richtig heißt es: “Yesterday I saw a film.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
    "hashtags": [
     "#englischlernen",
     "#englischtipps",
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "Das deutsche Perfekt täuscht dich!"
+  "text": "Das deutsche Perfekt täuscht Sie!"
  },
  "src": {
   "l1": true
@@ -103,9 +103,9 @@
   "wpm": 99
  },
  "publish": {
-  "title": "Das deutsche Perfekt täuscht dich!",
+  "title": "Das deutsche Perfekt täuscht Sie!",
   "keyword": "Yesterday I saw a film.",
-  "value": "Mit „yesterday“ nimmst du das Simple Past: „I saw“. Nicht das Present Perfect.",
+  "value": "Mit „yesterday“ nehmen Sie das Simple Past: „I saw“. Nicht das Present Perfect.",
   "hashtags": [
    "#englischlernen",
    "#englischtipps",
@@ -116,8 +116,8 @@
   "script_words": 41,
   "platforms": {
    "youtube": {
-    "title": "Das deutsche Perfekt täuscht dich!",
-    "description": "Das deutsche Perfekt führt dich hier in die Falle! 🎬 Falsch: “Yesterday I have seen a film.” Richtig: “Yesterday I saw a film.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "title": "Das deutsche Perfekt täuscht Sie!",
+    "description": "Das deutsche Perfekt führt Sie hier in die Falle! 🎬 Falsch: “Yesterday I have seen a film.” Richtig: “Yesterday I saw a film.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
     "tags": [
      "Yesterday I saw a film.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Das deutsche Perfekt führt dich hier in die Falle! 🎬 Falsch: “Yesterday I have seen a film.” Richtig: “Yesterday I saw a film.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Das deutsche Perfekt führt Sie hier in die Falle! 🎬 Falsch: “Yesterday I have seen a film.” Richtig: “Yesterday I saw a film.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Das deutsche Perfekt führt dich hier in die Falle! 🎬 Falsch: “Yesterday I have seen a film.” Richtig: “Yesterday I saw a film.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.\n\nlexkite.com",
+    "caption": "Das deutsche Perfekt führt Sie hier in die Falle! 🎬 Falsch: “Yesterday I have seen a film.” Richtig: “Yesterday I saw a film.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nlexkite.com",
     "hashtags": [
      "#englischlernen",
      "#englischtipps",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "Das deutsche Perfekt täuscht dich! #englischlernen #englischtipps #sprachenlernen"
+    "caption": "Das deutsche Perfekt täuscht Sie! #englischlernen #englischtipps #sprachenlernen"
    }
   },
-  "first_comment": "Lösung: “saw”. Richtig heißt es: “Yesterday I saw a film.” Übe mehr mit einem kostenlosen Quiz: {link}",
+  "first_comment": "Lösung: “saw”. Richtig heißt es: “Yesterday I saw a film.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
   "lang": "de"
  }
 }

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_goodin",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Good at cooking!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am good in cooking.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am good at cooking.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say good at.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "At! He is good at football.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am good in cooking.",
+  "right": "I am good at cooking.",
+  "strike": "in",
+  "why": "Say good at.",
+  "memory": "Good at.",
+  "quiz": {
+   "stem": "He is good ___ football.",
+   "options": [
+    "at",
+    "in"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Good in”? Pakai “at”",
+   "tip": "Kita bilang “jago dalam”, tapi di bahasa Inggris pakai good at.",
+   "caption": "Pernah bilang begini? “I am good in cooking.” 😅 Untuk keahlian, pakai at: “I am good at cooking.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “at”. Bilang “I am good at ...” untuk kemampuanmu. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#grammaringgris",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Good in”? Use “at”",
+   "tip": "We say “jago dalam”, but English uses good at.",
+   "caption": "Ever say this? “I am good in cooking.” 😅 For a skill, use at: “I am good at cooking.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Good in”? Pakai “at”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "“Good in”? Pakai “at”",
+  "keyword": "I am good at cooking.",
+  "value": "Kita bilang “jago dalam”, tapi di bahasa Inggris pakai good at.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#grammaringgris",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "“Good in”? Pakai “at”",
+    "description": "Pernah bilang begini? “I am good in cooking.” 😅 Untuk keahlian, pakai at: “I am good at cooking.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #grammaringgris #bahasainggris #lexkite",
+    "tags": [
+     "I am good at cooking.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “I am good in cooking.” 😅 Untuk keahlian, pakai at: “I am good at cooking.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Pernah bilang begini? “I am good in cooking.” 😅 Untuk keahlian, pakai at: “I am good at cooking.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#grammaringgris",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Good in”? Pakai “at” #belajarbahasainggris #grammaringgris #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “at”. Bilang “I am good at ...” untuk kemampuanmu. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

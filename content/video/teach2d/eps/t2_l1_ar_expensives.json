@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_expensives",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Describing words stay single!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: My brothers are talls.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My brothers are tall.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Describing words never take s.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Happy! The girls are happy.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "My brothers are talls.",
+  "right": "My brothers are tall.",
+  "strike": "talls",
+  "why": "Describing words never take s.",
+  "memory": "Brothers are tall.",
+  "quiz": {
+   "stem": "The girls are ___.",
+   "options": [
+    "happy",
+    "happys"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "هل تجمع الصفة؟",
+   "tip": "في العربية تُجمع الصفة مع جمع العاقل «إخوتي طِوال»، لكن في الإنجليزية لا تُجمع أبدًا: “My brothers are tall.” وليس “talls”",
+   "caption": "هل تقول أحيانًا “My brothers are talls.” 😅 الصفة في الإنجليزية لا تُجمع ولا تأخذ s، فالجملة الصحيحة “My brothers are tall.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “happy”. الصفة في الإنجليزية لا تُجمع ولا تأخذ s. اختبار مجاني هنا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “My brothers are talls”?",
+   "tip": "Describing words never take plural s: “My brothers are tall.” not “My brothers are talls”.",
+   "caption": "Do you sometimes say “My brothers are talls.” 😅 In English describing words never take plural s, so the right sentence is “My brothers are tall.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تجمع الصفة؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "هل تجمع الصفة؟",
+  "keyword": "My brothers are tall.",
+  "value": "في العربية تُجمع الصفة مع جمع العاقل «إخوتي طِوال»، لكن في الإنجليزية لا تُجمع أبدًا: “My brothers are tall.” وليس “talls”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "هل تجمع الصفة؟",
+    "description": "هل تقول أحيانًا “My brothers are talls.” 😅 الصفة في الإنجليزية لا تُجمع ولا تأخذ s، فالجملة الصحيحة “My brothers are tall.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "My brothers are tall.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا “My brothers are talls.” 😅 الصفة في الإنجليزية لا تُجمع ولا تأخذ s، فالجملة الصحيحة “My brothers are tall.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول أحيانًا “My brothers are talls.” 😅 الصفة في الإنجليزية لا تُجمع ولا تأخذ s، فالجملة الصحيحة “My brothers are tall.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تجمع الصفة؟ #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “happy”. الصفة في الإنجليزية لا تُجمع ولا تأخذ s. اختبار مجاني هنا: {link}",
+  "lang": "ar"
+ }
+}

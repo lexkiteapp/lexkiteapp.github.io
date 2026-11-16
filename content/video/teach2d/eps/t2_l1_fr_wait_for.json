@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_wait_for",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Wait needs for!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am waiting you at the station.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am waiting for you at the station.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "We wait for people.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "I'm waiting for you!",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am waiting you at the station.",
+  "right": "I am waiting for you at the station.",
+  "strike": "waiting you",
+  "why": "We wait for people.",
+  "memory": "Wait for you.",
+  "quiz": {
+   "stem": "Which one is correct?",
+   "options": [
+    "I'm waiting you.",
+    "I'm waiting for you."
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Attendre = “wait for” !",
+   "tip": "« Attendre quelqu’un » n’a pas de préposition en français, mais pour dire qui on attend, “wait” demande “for”.",
+   "caption": "Vous dites “I am waiting you at the station.” ? Pour dire qui ou ce qu’on attend, “wait” demande “for”. Dites plutôt “I am waiting for you at the station.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “I am waiting for you at the station.” — Pour dire qui ou ce qu’on attend, “wait” demande “for”. Testez d’autres pièges avec un quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Wait for, not just wait!",
+   "tip": "French has no small word after “attendre”. English needs “for” after “wait”.",
+   "caption": "Do you say “I am waiting you at the station.”? English needs “for” after “wait”. Say “I am waiting for you at the station.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Attendre = “wait for” !"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Attendre = “wait for” !",
+  "keyword": "I am waiting for you at the station.",
+  "value": "« Attendre quelqu’un » n’a pas de préposition en français, mais pour dire qui on attend, “wait” demande “for”.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Attendre = “wait for” !",
+    "description": "Vous dites “I am waiting you at the station.” ? Pour dire qui ou ce qu’on attend, “wait” demande “for”. Dites plutôt “I am waiting for you at the station.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "I am waiting for you at the station.",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Vous dites “I am waiting you at the station.” ? Pour dire qui ou ce qu’on attend, “wait” demande “for”. Dites plutôt “I am waiting for you at the station.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Vous dites “I am waiting you at the station.” ? Pour dire qui ou ce qu’on attend, “wait” demande “for”. Dites plutôt “I am waiting for you at the station.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Attendre = “wait for” ! #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “I am waiting for you at the station.” — Pour dire qui ou ce qu’on attend, “wait” demande “for”. Testez d’autres pièges avec un quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_saidme",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Tell me, not say me!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She said me to wait.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She told me to wait.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say has no me. Use told me.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Told! He told me to sit.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She said me to wait.",
+  "right": "She told me to wait.",
+  "strike": "said",
+  "why": "Say has no me. Use told me.",
+  "memory": "She told me.",
+  "quiz": {
+   "stem": "He ___ me to sit.",
+   "options": [
+    "said",
+    "told"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“said me” नहीं, “told me”!",
+   "tip": "हिंदी में “मुझसे कहा” के लिए एक ही क्रिया “कहना” चलती है; अंग्रेज़ी में “me” के साथ told आता है, said नहीं।",
+   "caption": "क्या आप भी कहते हैं “She said me to wait.”? 😅 अंग्रेज़ी में “She told me to wait.” सही है, क्योंकि said के बाद सीधे me नहीं आता, “told me” आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “told”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “said me”, but “told me”!",
+   "tip": "Hindi uses one verb “kehna” for both; in English “me” goes with told, not said.",
+   "caption": "Do you say “She said me to wait.”? 😅 In English “She told me to wait.” is right, because said does not take me directly, but told me does. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“said me” नहीं, “told me”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“said me” नहीं, “told me”!",
+  "keyword": "She told me to wait.",
+  "value": "हिंदी में “मुझसे कहा” के लिए एक ही क्रिया “कहना” चलती है; अंग्रेज़ी में “me” के साथ told आता है, said नहीं।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "“said me” नहीं, “told me”!",
+    "description": "क्या आप भी कहते हैं “She said me to wait.”? 😅 अंग्रेज़ी में “She told me to wait.” सही है, क्योंकि said के बाद सीधे me नहीं आता, “told me” आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "She told me to wait.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी कहते हैं “She said me to wait.”? 😅 अंग्रेज़ी में “She told me to wait.” सही है, क्योंकि said के बाद सीधे me नहीं आता, “told me” आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "क्या आप भी कहते हैं “She said me to wait.”? 😅 अंग्रेज़ी में “She told me to wait.” सही है, क्योंकि said के बाद सीधे me नहीं आता, “told me” आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“said me” नहीं, “told me”! #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “told”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

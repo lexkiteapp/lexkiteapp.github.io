@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_my_name",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Do you forget one small word?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: My name Anna.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My name is Anna.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Put is between name and Anna.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Is! My name is Anna.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "My name Anna.",
+  "right": "My name is Anna.",
+  "strike": "name",
+  "why": "Put is between name and Anna.",
+  "memory": "Name plus is.",
+  "quiz": {
+   "stem": "My name ___ Anna.",
+   "options": [
+    "is",
+    "are"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Giới thiệu tên mà thiếu “is”?",
+   "tip": "Tiếng Việt nói “Tôi tên Anna” không cần “là”, nhưng tiếng Anh bắt buộc có “is”.",
+   "caption": "Bạn có hay nói “My name Anna.” không? 😄 Phải có “is”: “My name is Anna.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “is”. Thử viết “My name is…” kèm tên bạn ở phần bình luận nhé! Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#nguphaptienganh",
+    "#tienganhgiaotiep",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Missing “is” in your name?",
+   "tip": "Vietnamese says “Tôi tên Anna” with no verb, but English needs “is”.",
+   "caption": "Do you often say “My name Anna.”? Say “My name is Anna.” instead. Listen to Ama, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Giới thiệu tên mà thiếu “is”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "Giới thiệu tên mà thiếu “is”?",
+  "keyword": "My name is Anna.",
+  "value": "Tiếng Việt nói “Tôi tên Anna” không cần “là”, nhưng tiếng Anh bắt buộc có “is”.",
+  "hashtags": [
+   "#hoctienganh",
+   "#nguphaptienganh",
+   "#tienganhgiaotiep",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "Giới thiệu tên mà thiếu “is”?",
+    "description": "Bạn có hay nói “My name Anna.” không? 😄 Phải có “is”: “My name is Anna.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #nguphaptienganh #tienganhgiaotiep #lexkite",
+    "tags": [
+     "My name is Anna.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “My name Anna.” không? 😄 Phải có “is”: “My name is Anna.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Bạn có hay nói “My name Anna.” không? 😄 Phải có “is”: “My name is Anna.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#nguphaptienganh",
+     "#tienganhgiaotiep",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Giới thiệu tên mà thiếu “is”? #hoctienganh #nguphaptienganh #tienganhgiaotiep"
+   }
+  },
+  "first_comment": "Đáp án: “is”. Thử viết “My name is…” kèm tên bạn ở phần bình luận nhé! Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

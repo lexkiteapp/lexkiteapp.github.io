@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_teacher",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Add a before teacher!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: My brother is teacher.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My brother is a teacher.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say a before the job.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "A! She is a teacher.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "My brother is teacher.",
+  "right": "My brother is a teacher.",
+  "strike": "is teacher",
+  "why": "Say a before the job.",
+  "memory": "He is a doctor.",
+  "quiz": {
+   "stem": "She is ___ teacher.",
+   "options": [
+    "a",
+    "an"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“is teacher” नहीं, “is a teacher”!",
+   "tip": "हिंदी में a/an जैसा शब्द नहीं होता (“वह टीचर है”); अंग्रेज़ी में काम बताते समय a या an ज़रूर लगाएँ।",
+   "caption": "क्या आप भी कहते हैं “My brother is teacher.”? 😅 अंग्रेज़ी में “My brother is a teacher.” सही है, क्योंकि अंग्रेज़ी में काम बताते समय a या an लगता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “a”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “is a teacher”!",
+   "tip": "Hindi has no a or an (“woh teacher hai”); English needs a before a job.",
+   "caption": "Do you say “My brother is teacher.”? 😅 In English “My brother is a teacher.” is right, because English puts a or an before a job. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“is teacher” नहीं, “is a teacher”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“is teacher” नहीं, “is a teacher”!",
+  "keyword": "My brother is a teacher.",
+  "value": "हिंदी में a/an जैसा शब्द नहीं होता (“वह टीचर है”); अंग्रेज़ी में काम बताते समय a या an ज़रूर लगाएँ।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "“is teacher” नहीं, “is a teacher”!",
+    "description": "क्या आप भी कहते हैं “My brother is teacher.”? 😅 अंग्रेज़ी में “My brother is a teacher.” सही है, क्योंकि अंग्रेज़ी में काम बताते समय a या an लगता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "My brother is a teacher.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी कहते हैं “My brother is teacher.”? 😅 अंग्रेज़ी में “My brother is a teacher.” सही है, क्योंकि अंग्रेज़ी में काम बताते समय a या an लगता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "क्या आप भी कहते हैं “My brother is teacher.”? 😅 अंग्रेज़ी में “My brother is a teacher.” सही है, क्योंकि अंग्रेज़ी में काम बताते समय a या an लगता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“is teacher” नहीं, “is a teacher”! #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “a”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

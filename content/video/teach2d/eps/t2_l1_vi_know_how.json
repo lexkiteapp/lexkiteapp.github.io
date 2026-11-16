@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_know_how",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Can you swim? Say it right!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I know swim.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I know how to swim.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "For a skill, say know how to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "How to! I know how to cook.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I know swim.",
+  "right": "I know how to swim.",
+  "strike": "know",
+  "why": "For a skill, say know how to.",
+  "memory": "Skill: know how to.",
+  "quiz": {
+   "stem": "I know ___ cook.",
+   "options": [
+    "how to",
+    "to"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Biết bơi” nói sao cho đúng?",
+   "tip": "Tiếng Việt nói “biết bơi”, nhưng tiếng Anh cần “how to” sau “know”.",
+   "caption": "Bạn có hay nói “I know swim.” không? 🏊 Nói về kỹ năng thì dùng “know how to”: “I know how to swim.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “how to”. Bạn biết làm món gì? Viết “I know how to…” nhé! Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#tuhoctienganh",
+    "#luyennoitienganh",
+    "#loisaiphobien",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "How do you say “biết bơi”?",
+   "tip": "Vietnamese says “biết bơi”, but English needs “how to” after “know”.",
+   "caption": "Do you often say “I know swim.”? Say “I know how to swim.” instead. Listen to Carlos, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Biết bơi” nói sao cho đúng?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“Biết bơi” nói sao cho đúng?",
+  "keyword": "I know how to swim.",
+  "value": "Tiếng Việt nói “biết bơi”, nhưng tiếng Anh cần “how to” sau “know”.",
+  "hashtags": [
+   "#tuhoctienganh",
+   "#luyennoitienganh",
+   "#loisaiphobien",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "“Biết bơi” nói sao cho đúng?",
+    "description": "Bạn có hay nói “I know swim.” không? 🏊 Nói về kỹ năng thì dùng “know how to”: “I know how to swim.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#tuhoctienganh #luyennoitienganh #loisaiphobien #lexkite",
+    "tags": [
+     "I know how to swim.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “I know swim.” không? 🏊 Nói về kỹ năng thì dùng “know how to”: “I know how to swim.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Bạn có hay nói “I know swim.” không? 🏊 Nói về kỹ năng thì dùng “know how to”: “I know how to swim.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#tuhoctienganh",
+     "#luyennoitienganh",
+     "#loisaiphobien",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Biết bơi” nói sao cho đúng? #tuhoctienganh #luyennoitienganh #loisaiphobien"
+   }
+  },
+  "first_comment": "Đáp án: “how to”. Bạn biết làm món gì? Viết “I know how to…” nhé! Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

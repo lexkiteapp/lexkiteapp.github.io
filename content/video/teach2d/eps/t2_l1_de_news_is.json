@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_news_is",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "News is one!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: The news are good today.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: The news is good today.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "News is one thing.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Is! The news is good today.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "The news are good today.",
+  "right": "The news is good today.",
+  "strike": "are",
+  "why": "News is one thing.",
+  "memory": "News is good.",
+  "quiz": {
+   "stem": "The news ___ good.",
+   "options": [
+    "is",
+    "are"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "„News“ ist Singular!",
+   "tip": "Im Deutschen sind „die Nachrichten“ Plural. Im Englischen ist „news“ Einzahl: „the news is“.",
+   "caption": "Sind die Nachrichten Plural? 📰 Falsch: “The news are good today.” Richtig: “The news is good today.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “is”. Richtig heißt es: “The news is good today.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "News is or are?",
+   "tip": "In German “die Nachrichten” is plural. In English “news” is singular: “the news is”.",
+   "caption": "News is or are? Wrong: “The news are good today.” Right: “The news is good today.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "„News“ ist Singular!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "„News“ ist Singular!",
+  "keyword": "The news is good today.",
+  "value": "Im Deutschen sind „die Nachrichten“ Plural. Im Englischen ist „news“ Einzahl: „the news is“.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "„News“ ist Singular!",
+    "description": "Sind die Nachrichten Plural? 📰 Falsch: “The news are good today.” Richtig: “The news is good today.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "The news is good today.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Sind die Nachrichten Plural? 📰 Falsch: “The news are good today.” Richtig: “The news is good today.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Sind die Nachrichten Plural? 📰 Falsch: “The news are good today.” Richtig: “The news is good today.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "„News“ ist Singular! #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “is”. Richtig heißt es: “The news is good today.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

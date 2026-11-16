@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_whyyou",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Questions need new order!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Why you are late?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Why are you late?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "In questions, put are before you.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Are you! Why are you so tired?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Why you are late?",
+  "right": "Why are you late?",
+  "strike": "you are",
+  "why": "In questions, put are before you.",
+  "memory": "Why are you late?",
+  "quiz": {
+   "stem": "Why ___ so tired?",
+   "options": [
+    "you are",
+    "are you"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "疑问句里，are 要放在 you 前面！",
+   "tip": "中文“你为什么迟到”语序不变，英语疑问句要把 are 提到 you 前面。",
+   "caption": "你是不是也会说 “Why you are late?”？😅 中文问“你为什么迟到了”，语序和陈述句一样；英语的疑问句要把 are 放到 you 前面：“Why are you late?”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“Why are you late?”免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Are goes before you!",
+   "tip": "In an English question, put are before you.",
+   "caption": "Do you say “Why you are late?”? 😅 In an English question, put are before you: “Why are you late?”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "疑问句里，are 要放在 you 前面！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "疑问句里，are 要放在 you 前面！",
+  "keyword": "Why are you late?",
+  "value": "中文“你为什么迟到”语序不变，英语疑问句要把 are 提到 you 前面。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "疑问句里，are 要放在 you 前面！",
+    "description": "你是不是也会说 “Why you are late?”？😅 中文问“你为什么迟到了”，语序和陈述句一样；英语的疑问句要把 are 放到 you 前面：“Why are you late?”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "Why are you late?",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “Why you are late?”？😅 中文问“你为什么迟到了”，语序和陈述句一样；英语的疑问句要把 are 放到 you 前面：“Why are you late?”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "你是不是也会说 “Why you are late?”？😅 中文问“你为什么迟到了”，语序和陈述句一样；英语的疑问句要把 are 放到 you 前面：“Why are you late?”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "疑问句里，are 要放在 you 前面！ #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“Why are you late?”免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

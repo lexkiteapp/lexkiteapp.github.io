@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_same_as",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Same needs as, not than!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have the same bag than you.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have the same bag as you.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After the same, say as.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The same as yours!",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have the same bag than you.",
+  "right": "I have the same bag as you.",
+  "strike": "than",
+  "why": "After the same, say as.",
+  "memory": "Same as.",
+  "quiz": {
+   "stem": "My phone is the same ___ yours.",
+   "options": [
+    "than",
+    "as"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "« Le même que » : “same as”",
+   "tip": "Le français dit « le même que ». En anglais, après “same”, on emploie “as”.",
+   "caption": "Vous dites “I have the same bag than you.” ? Pour comparer deux choses identiques, dites “the same as”. Dites plutôt “I have the same bag as you.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “I have the same bag as you.” — Pour comparer deux choses identiques, dites “the same as”. Testez d’autres pièges avec un quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Same as, not same than!",
+   "tip": "French says “le même que”. English uses “the same as”.",
+   "caption": "Do you say “I have the same bag than you.”? To compare two identical things, say “the same as”. Say “I have the same bag as you.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "« Le même que » : “same as”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "« Le même que » : “same as”",
+  "keyword": "I have the same bag as you.",
+  "value": "Le français dit « le même que ». En anglais, après “same”, on emploie “as”.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "« Le même que » : “same as”",
+    "description": "Vous dites “I have the same bag than you.” ? Pour comparer deux choses identiques, dites “the same as”. Dites plutôt “I have the same bag as you.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "I have the same bag as you.",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Vous dites “I have the same bag than you.” ? Pour comparer deux choses identiques, dites “the same as”. Dites plutôt “I have the same bag as you.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Vous dites “I have the same bag than you.” ? Pour comparer deux choses identiques, dites “the same as”. Dites plutôt “I have the same bag as you.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "« Le même que » : “same as” #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “I have the same bag as you.” — Pour comparer deux choses identiques, dites “the same as”. Testez d’autres pièges avec un quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}

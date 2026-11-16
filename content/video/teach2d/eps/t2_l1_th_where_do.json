@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_where_do",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Where do you live?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Where you live?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Where do you live?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Questions need do or does.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Do! Where do you work?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Where you live?",
+  "right": "Where do you live?",
+  "strike": "Where you live",
+  "why": "Questions need do or does.",
+  "memory": "Question word, then do.",
+  "quiz": {
+   "stem": "Where ___ you work?",
+   "options": [
+    "do",
+    "are"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "ถามต้องมี do/does!",
+   "tip": "ไทยถาม “คุณอยู่ที่ไหน” ได้เลย แต่อังกฤษต้องมี do: “Where do you live?”",
+   "caption": "คุณเคยพูดว่า “Where you live?” ไหม? 😅 ภาษาไทยถามได้โดยเรียงคำตรง ๆ แต่ภาษาอังกฤษคำถามต้องมี do หรือ does ช่วย: “Where do you live?” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “do” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Questions need “do”!",
+   "tip": "Thai can ask “where you live”, but English questions need do or does: “Where do you live”",
+   "caption": "Do you say “Where you live”? 😅 Thai can ask with the same word order as a statement, but English questions need a helper: do or does. Say “Where do you live”! Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "ถามต้องมี do/does!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 41,
+  "seconds": 25.6,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "ถามต้องมี do/does!",
+  "keyword": "Where do you live?",
+  "value": "ไทยถาม “คุณอยู่ที่ไหน” ได้เลย แต่อังกฤษต้องมี do: “Where do you live?”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "ถามต้องมี do/does!",
+    "description": "คุณเคยพูดว่า “Where you live?” ไหม? 😅 ภาษาไทยถามได้โดยเรียงคำตรง ๆ แต่ภาษาอังกฤษคำถามต้องมี do หรือ does ช่วย: “Where do you live?” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "Where do you live?",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “Where you live?” ไหม? 😅 ภาษาไทยถามได้โดยเรียงคำตรง ๆ แต่ภาษาอังกฤษคำถามต้องมี do หรือ does ช่วย: “Where do you live?” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "คุณเคยพูดว่า “Where you live?” ไหม? 😅 ภาษาไทยถามได้โดยเรียงคำตรง ๆ แต่ภาษาอังกฤษคำถามต้องมี do หรือ does ช่วย: “Where do you live?” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ถามต้องมี do/does! #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “do” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

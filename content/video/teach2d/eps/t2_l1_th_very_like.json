@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_very_like",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Very much goes last!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I like very much music.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I like music very much.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Put very much after the thing you like.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Very much! I like pizza very much.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I like very much music.",
+  "right": "I like music very much.",
+  "strike": "very much music",
+  "why": "Put very much after the thing you like.",
+  "memory": "Like music very much.",
+  "quiz": {
+   "stem": "I like pizza ___.",
+   "options": [
+    "very",
+    "very much"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "very much ไว้ท้ายประโยค!",
+   "tip": "ไทยพูด “ชอบดนตรีมาก” เลยติดวาง very much ไว้กลาง แต่อังกฤษวางหลังสิ่งที่ชอบ: “I like music very much”",
+   "caption": "คุณเคยพูดว่า “I like very much music.” ไหม? 😅 ภาษาไทยพูดว่า “ชอบดนตรีมาก” เลยติดวาง very much ไว้กลางประโยค แต่ภาษาอังกฤษวางไว้หลังสิ่งที่ชอบ: “I like music very much.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “very much” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Very much goes at the end!",
+   "tip": "Thai puts “very” at the end, so learners say “like very much music”. English says “like music very much”",
+   "caption": "Do you say “I like very much music”? 😅 Thai puts “very” at the end, so learners say “like very much music”. English says “like music very much”. Say “I like music very much”! Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "very much ไว้ท้ายประโยค!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "very much ไว้ท้ายประโยค!",
+  "keyword": "I like music very much.",
+  "value": "ไทยพูด “ชอบดนตรีมาก” เลยติดวาง very much ไว้กลาง แต่อังกฤษวางหลังสิ่งที่ชอบ: “I like music very much”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "very much ไว้ท้ายประโยค!",
+    "description": "คุณเคยพูดว่า “I like very much music.” ไหม? 😅 ภาษาไทยพูดว่า “ชอบดนตรีมาก” เลยติดวาง very much ไว้กลางประโยค แต่ภาษาอังกฤษวางไว้หลังสิ่งที่ชอบ: “I like music very much.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "I like music very much.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “I like very much music.” ไหม? 😅 ภาษาไทยพูดว่า “ชอบดนตรีมาก” เลยติดวาง very much ไว้กลางประโยค แต่ภาษาอังกฤษวางไว้หลังสิ่งที่ชอบ: “I like music very much.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "คุณเคยพูดว่า “I like very much music.” ไหม? 😅 ภาษาไทยพูดว่า “ชอบดนตรีมาก” เลยติดวาง very much ไว้กลางประโยค แต่ภาษาอังกฤษวางไว้หลังสิ่งที่ชอบ: “I like music very much.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "very much ไว้ท้ายประโยค! #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “very much” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_raining",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Who is raining?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Is raining now.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: It is raining now.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "English needs a subject, even for weather.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "It! It is sunny today.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Is raining now.",
+  "right": "It is raining now.",
+  "strike": "Is raining",
+  "why": "English needs a subject, even for weather.",
+  "memory": "It is raining now.",
+  "quiz": {
+   "stem": "___ is sunny today.",
+   "options": [
+    "There",
+    "It"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "「Is raining」、主語が抜けてない？",
+   "tip": "天気でも主語の it が必要。日本語は主語を省けるけど、英語は省けない！",
+   "caption": "“Is raining now.”と言っていませんか？😅 日本語では主語を省けますが、英語は天気の話でも主語が必要です。“It is raining now.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“It”。天気の文には it を。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “Is raining now”?",
+   "tip": "English needs a subject, even for weather. Use it.",
+   "caption": "Do you say “Is raining now.”? 😅 Japanese can drop the subject, but English cannot, even for weather. The natural way is “It is raining now.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "「Is raining」、主語が抜けてない？"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "「Is raining」、主語が抜けてない？",
+  "keyword": "It is raining now.",
+  "value": "天気でも主語の it が必要。日本語は主語を省けるけど、英語は省けない！",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "「Is raining」、主語が抜けてない？",
+    "description": "“Is raining now.”と言っていませんか？😅 日本語では主語を省けますが、英語は天気の話でも主語が必要です。“It is raining now.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "It is raining now.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“Is raining now.”と言っていませんか？😅 日本語では主語を省けますが、英語は天気の話でも主語が必要です。“It is raining now.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Is raining now.”と言っていませんか？😅 日本語では主語を省けますが、英語は天気の話でも主語が必要です。“It is raining now.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「Is raining」、主語が抜けてない？ #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“It”。天気の文には it を。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

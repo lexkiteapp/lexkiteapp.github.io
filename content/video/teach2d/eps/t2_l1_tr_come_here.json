@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_come_here",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Come here, not come to here!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Come to here, please.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Come here, please.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Here has no to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Come here! Please come here.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Come to here, please.",
+  "right": "Come here, please.",
+  "strike": "to",
+  "why": "Here has no to.",
+  "memory": "Come here.",
+  "quiz": {
+   "stem": "Please ___ now.",
+   "options": [
+    "come to here",
+    "come here"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Come to here” değil, “come here”!",
+   "tip": "Türkçede “buraya” deriz; İngilizcede “here” zaten yönü gösterir, “to” gelmez.",
+   "caption": "“Come to here, please.” mi diyorsun? 😅 Doğrusu “Come here, please.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “come here”. Here kelimesinin önüne to konmaz. Ücretsiz testle pratik yap: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “come to here”, but “come here”!",
+   "tip": "Turkish says “buraya”, but English needs no “to”.",
+   "caption": "Do you say “Come to here, please.”? 😅 English says “here” without “to”. The right sentence is “Come here, please.” Listen to Ama and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Come to here” değil, “come here”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "“Come to here” değil, “come here”!",
+  "keyword": "Come here, please.",
+  "value": "Türkçede “buraya” deriz; İngilizcede “here” zaten yönü gösterir, “to” gelmez.",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "“Come to here” değil, “come here”!",
+    "description": "“Come to here, please.” mi diyorsun? 😅 Doğrusu “Come here, please.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "Come here, please.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“Come to here, please.” mi diyorsun? 😅 Doğrusu “Come here, please.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Come to here, please.” mi diyorsun? 😅 Doğrusu “Come here, please.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Come to here” değil, “come here”! #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “come here”. Here kelimesinin önüne to konmaz. Ücretsiz testle pratik yap: {link}",
+  "lang": "tr"
+ }
+}

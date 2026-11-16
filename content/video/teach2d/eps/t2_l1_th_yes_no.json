@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_yes_no",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Yes or no? Be careful!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Yes, I don't like fish.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: No, I don't like fish.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "If you don't, say no.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "No! No, I don't.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Yes, I don't like fish.",
+  "right": "No, I don't like fish.",
+  "strike": "Yes",
+  "why": "If you don't, say no.",
+  "memory": "No, I don't like fish.",
+  "quiz": {
+   "stem": "You don't like fish? ___, I don't.",
+   "options": [
+    "Yes",
+    "No"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Yes หรือ No? ระวังกับดัก!",
+   "tip": "อังกฤษตอบตามความจริง ถ้าไม่ชอบ ต้องตอบ No",
+   "caption": "คุณเคยพูดว่า “Yes, I don't like fish.” ไหม? 😅 ภาษาไทยตอบ “ใช่” เพื่อยืนยันประโยคปฏิเสธได้ แต่ภาษาอังกฤษตอบตามความจริง ถ้าไม่ชอบต้องตอบ No: “No, I don't like fish.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “No” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Yes or No? Watch the trap!",
+   "tip": "Thai can say yes to agree with a negative question, but English answers by the fact: say No",
+   "caption": "Do you say “Yes, I don't like fish”? 😅 In Thai you can say yes to agree, but English answers by the fact. If it is negative, say No. Say “No, I don't like fish”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Yes หรือ No? ระวังกับดัก!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "Yes หรือ No? ระวังกับดัก!",
+  "keyword": "No, I don't like fish.",
+  "value": "อังกฤษตอบตามความจริง ถ้าไม่ชอบ ต้องตอบ No",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "Yes หรือ No? ระวังกับดัก!",
+    "description": "คุณเคยพูดว่า “Yes, I don't like fish.” ไหม? 😅 ภาษาไทยตอบ “ใช่” เพื่อยืนยันประโยคปฏิเสธได้ แต่ภาษาอังกฤษตอบตามความจริง ถ้าไม่ชอบต้องตอบ No: “No, I don't like fish.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "No, I don't like fish.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “Yes, I don't like fish.” ไหม? 😅 ภาษาไทยตอบ “ใช่” เพื่อยืนยันประโยคปฏิเสธได้ แต่ภาษาอังกฤษตอบตามความจริง ถ้าไม่ชอบต้องตอบ No: “No, I don't like fish.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "คุณเคยพูดว่า “Yes, I don't like fish.” ไหม? 😅 ภาษาไทยตอบ “ใช่” เพื่อยืนยันประโยคปฏิเสธได้ แต่ภาษาอังกฤษตอบตามความจริง ถ้าไม่ชอบต้องตอบ No: “No, I don't like fish.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Yes หรือ No? ระวังกับดัก! #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “No” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

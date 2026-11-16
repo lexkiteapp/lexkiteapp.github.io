@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_gasstand",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Gas stand? Not English!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I went to a gas stand.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I went to a gas station.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say gas station in American English.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Station! We need a gas station.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I went to a gas stand.",
+  "right": "I went to a gas station.",
+  "strike": "gas stand",
+  "why": "Say gas station in American English.",
+  "memory": "I went to a gas station.",
+  "quiz": {
+   "stem": "We need a gas ___.",
+   "options": [
+    "stand",
+    "station"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "「ガソリンスタンド」は和製英語って知ってた？",
+   "tip": "stand は英語では「屋台」のようなイメージ。ガソリンスタンドは gas station と言う。",
+   "caption": "“I went to a gas stand.”と言っていませんか？😅 「ガソリンスタンド」は和製英語で、英語では gas station です。“I went to a gas station.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“station”。gas station が正しい言い方。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Gas stand” is not English!",
+   "tip": "Use gas station. Gas stand is Japanese-English.",
+   "caption": "Do you say “I went to a gas stand.”? 😅 Gas stand is a Japanese-made English word. In American English, say gas station. The natural way is “I went to a gas station.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "「ガソリンスタンド」は和製英語って知ってた？"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "「ガソリンスタンド」は和製英語って知ってた？",
+  "keyword": "I went to a gas station.",
+  "value": "stand は英語では「屋台」のようなイメージ。ガソリンスタンドは gas station と言う。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "「ガソリンスタンド」は和製英語って知ってた？",
+    "description": "“I went to a gas stand.”と言っていませんか？😅 「ガソリンスタンド」は和製英語で、英語では gas station です。“I went to a gas station.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "I went to a gas station.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“I went to a gas stand.”と言っていませんか？😅 「ガソリンスタンド」は和製英語で、英語では gas station です。“I went to a gas station.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“I went to a gas stand.”と言っていませんか？😅 「ガソリンスタンド」は和製英語で、英語では gas station です。“I went to a gas station.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「ガソリンスタンド」は和製英語って知ってた？ #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“station”。gas station が正しい言い方。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

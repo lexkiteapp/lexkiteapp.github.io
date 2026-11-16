@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_sister_she",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Do you say the subject twice?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: My sister she is a nurse.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My sister is a nurse.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say the person once, not twice.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Is! My dad is tall.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "My sister she is a nurse.",
+  "right": "My sister is a nurse.",
+  "strike": "she",
+  "why": "Say the person once, not twice.",
+  "memory": "One person, one word.",
+  "quiz": {
+   "stem": "My dad ___ tall.",
+   "options": [
+    "is",
+    "he is"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“My sister she…” thừa chữ rồi!",
+   "tip": "Tiếng Việt hay nhắc lại chủ ngữ, nhưng tiếng Anh chỉ nói một lần.",
+   "caption": "Bạn có hay nói “My sister she is a nurse.” không? 😄 Chỉ cần nói một lần: “My sister is a nurse.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “is”. Giới thiệu một người thân của bạn bằng một câu gọn nhé! Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#nguphaptienganh",
+    "#tienganhgiaotiep",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“My sister she…”: one word too many!",
+   "tip": "Vietnamese often repeats the subject, but English says it only once.",
+   "caption": "Do you often say “My sister she is a nurse.”? Say “My sister is a nurse.” instead. Listen to Ama, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“My sister she…” thừa chữ rồi!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“My sister she…” thừa chữ rồi!",
+  "keyword": "My sister is a nurse.",
+  "value": "Tiếng Việt hay nhắc lại chủ ngữ, nhưng tiếng Anh chỉ nói một lần.",
+  "hashtags": [
+   "#hoctienganh",
+   "#nguphaptienganh",
+   "#tienganhgiaotiep",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "“My sister she…” thừa chữ rồi!",
+    "description": "Bạn có hay nói “My sister she is a nurse.” không? 😄 Chỉ cần nói một lần: “My sister is a nurse.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #nguphaptienganh #tienganhgiaotiep #lexkite",
+    "tags": [
+     "My sister is a nurse.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “My sister she is a nurse.” không? 😄 Chỉ cần nói một lần: “My sister is a nurse.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Bạn có hay nói “My sister she is a nurse.” không? 😄 Chỉ cần nói một lần: “My sister is a nurse.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#nguphaptienganh",
+     "#tienganhgiaotiep",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“My sister she…” thừa chữ rồi! #hoctienganh #nguphaptienganh #tienganhgiaotiep"
+   }
+  },
+  "first_comment": "Đáp án: “is”. Giới thiệu một người thân của bạn bằng một câu gọn nhé! Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

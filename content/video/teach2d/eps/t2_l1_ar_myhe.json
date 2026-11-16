@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_myhe",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say it only once!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: My brother he is a doctor.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My brother is a doctor.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "One subject is enough.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Is! My sister is a nurse.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "My brother he is a doctor.",
+  "right": "My brother is a doctor.",
+  "strike": "he",
+  "why": "One subject is enough.",
+  "memory": "My brother is.",
+  "quiz": {
+   "stem": "My sister ___ a nurse.",
+   "options": [
+    "she is",
+    "is"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "هل تكرّر الفاعل؟",
+   "tip": "في العربية نقول «أخي هو طبيب»، أما في الإنجليزية فلا نكرّر الفاعل بضمير: “My brother is a doctor.” وليس “My brother he is a doctor”",
+   "caption": "هل تقول أحيانًا “My brother he is a doctor.” 😅 لا نكرّر الفاعل بضمير بعد ذكره، فالجملة الصحيحة “My brother is a doctor.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “is”. لا نكرّر الفاعل بضمير بعد ذكره. اختبار مجاني هنا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “My brother he is a doctor”?",
+   "tip": "We do not repeat the subject with a pronoun: “My brother is a doctor.” not “My brother he is a doctor”.",
+   "caption": "Do you sometimes say “My brother he is a doctor.” 😅 In English we do not repeat the subject with a pronoun, so the right sentence is “My brother is a doctor.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تكرّر الفاعل؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "هل تكرّر الفاعل؟",
+  "keyword": "My brother is a doctor.",
+  "value": "في العربية نقول «أخي هو طبيب»، أما في الإنجليزية فلا نكرّر الفاعل بضمير: “My brother is a doctor.” وليس “My brother he is a doctor”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "هل تكرّر الفاعل؟",
+    "description": "هل تقول أحيانًا “My brother he is a doctor.” 😅 لا نكرّر الفاعل بضمير بعد ذكره، فالجملة الصحيحة “My brother is a doctor.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "My brother is a doctor.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا “My brother he is a doctor.” 😅 لا نكرّر الفاعل بضمير بعد ذكره، فالجملة الصحيحة “My brother is a doctor.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول أحيانًا “My brother he is a doctor.” 😅 لا نكرّر الفاعل بضمير بعد ذكره، فالجملة الصحيحة “My brother is a doctor.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تكرّر الفاعل؟ #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “is”. لا نكرّر الفاعل بضمير بعد ذكره. اختبار مجاني هنا: {link}",
+  "lang": "ar"
+ }
+}

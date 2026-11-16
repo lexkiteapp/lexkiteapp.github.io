@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_weather",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "A weather? No!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: It was a nice weather today.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: It was nice weather today.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Weather has no a or an.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Good weather! We had good weather.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "It was a nice weather today.",
+  "right": "It was nice weather today.",
+  "strike": "a nice weather",
+  "why": "Weather has no a or an.",
+  "memory": "It was nice weather today.",
+  "quiz": {
+   "stem": "We had ___ at the beach.",
+   "options": [
+    "a good weather",
+    "good weather"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "weather に a をつけていませんか？",
+   "tip": "weather は数えられない名詞。a はつけず、nice weather と言う。",
+   "caption": "“It was a nice weather today.”と言っていませんか？😅 weather は数えられない名詞なので、a はつきません。“It was nice weather today.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“good weather”。weather に a は不要。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you put a before “weather”?",
+   "tip": "Weather is uncountable, so do not use a.",
+   "caption": "Do you say “It was a nice weather today.”? 😅 Weather is a noun you cannot count, so it takes no a. The natural way is “It was nice weather today.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "weather に a をつけていませんか？"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "weather に a をつけていませんか？",
+  "keyword": "It was nice weather today.",
+  "value": "weather は数えられない名詞。a はつけず、nice weather と言う。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "weather に a をつけていませんか？",
+    "description": "“It was a nice weather today.”と言っていませんか？😅 weather は数えられない名詞なので、a はつきません。“It was nice weather today.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "It was nice weather today.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“It was a nice weather today.”と言っていませんか？😅 weather は数えられない名詞なので、a はつきません。“It was nice weather today.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“It was a nice weather today.”と言っていませんか？😅 weather は数えられない名詞なので、a はつきません。“It was nice weather today.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "weather に a をつけていませんか？ #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“good weather”。weather に a は不要。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

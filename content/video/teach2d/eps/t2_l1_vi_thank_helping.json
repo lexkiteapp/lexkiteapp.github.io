@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_thank_helping",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Thank you for what?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Thank you for help me.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Thank you for helping me.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say helping, not help.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Calling! Thanks for calling me.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Thank you for help me.",
+  "right": "Thank you for helping me.",
+  "strike": "help",
+  "why": "Say helping, not help.",
+  "memory": "For plus ing.",
+  "quiz": {
+   "stem": "Thanks for ___ me.",
+   "options": [
+    "call",
+    "calling"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Cảm ơn đã giúp: nói sao cho đúng?",
+   "tip": "Tiếng Việt nói “cảm ơn đã giúp”, nhưng sau “for” tiếng Anh cần “-ing”.",
+   "caption": "Bạn có hay nói “Thank you for help me.” không? 🙏 Sau “for” thêm “-ing”: “Thank you for helping me.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “calling”. Cảm ơn ai đó bằng “Thank you for…ing” ngay nhé! Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#tuhoctienganh",
+    "#luyennoitienganh",
+    "#loisaiphobien",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Thanking someone? Mind the “-ing”!",
+   "tip": "Vietnamese says “cảm ơn đã giúp”, but English needs “-ing” after “for”.",
+   "caption": "Do you often say “Thank you for help me.”? Say “Thank you for helping me.” instead. Listen to Carlos, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Cảm ơn đã giúp: nói sao cho đúng?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "Cảm ơn đã giúp: nói sao cho đúng?",
+  "keyword": "Thank you for helping me.",
+  "value": "Tiếng Việt nói “cảm ơn đã giúp”, nhưng sau “for” tiếng Anh cần “-ing”.",
+  "hashtags": [
+   "#tuhoctienganh",
+   "#luyennoitienganh",
+   "#loisaiphobien",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "Cảm ơn đã giúp: nói sao cho đúng?",
+    "description": "Bạn có hay nói “Thank you for help me.” không? 🙏 Sau “for” thêm “-ing”: “Thank you for helping me.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#tuhoctienganh #luyennoitienganh #loisaiphobien #lexkite",
+    "tags": [
+     "Thank you for helping me.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “Thank you for help me.” không? 🙏 Sau “for” thêm “-ing”: “Thank you for helping me.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Bạn có hay nói “Thank you for help me.” không? 🙏 Sau “for” thêm “-ing”: “Thank you for helping me.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#tuhoctienganh",
+     "#luyennoitienganh",
+     "#loisaiphobien",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Cảm ơn đã giúp: nói sao cho đúng? #tuhoctienganh #luyennoitienganh #loisaiphobien"
+   }
+  },
+  "first_comment": "Đáp án: “calling”. Cảm ơn ai đó bằng “Thank you for…ing” ngay nhé! Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

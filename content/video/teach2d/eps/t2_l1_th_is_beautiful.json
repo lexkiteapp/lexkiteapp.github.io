@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_is_beautiful",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Don't forget is!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She very beautiful.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She is very beautiful.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "English needs is.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "She is very tired!",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She very beautiful.",
+  "right": "She is very beautiful.",
+  "strike": "She very",
+  "why": "English needs is.",
+  "memory": "She is.",
+  "quiz": {
+   "stem": "Pick the right sentence.",
+   "options": [
+    "She very tired.",
+    "She is very tired."
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "อย่าลืม is!",
+   "tip": "ไทยพูด “เธอสวยมาก” ไม่ต้องมี “เป็น” แต่อังกฤษต้องมี is: “She is very beautiful”",
+   "caption": "คุณเคยพูดว่า “She very beautiful.” ไหม? 😅 ภาษาไทยพูดว่า “เธอสวยมาก” ได้โดยไม่ต้องมีกริยา แต่ภาษาอังกฤษต้องมี is: “She is very beautiful.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “She is very tired.” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Don't forget “is”!",
+   "tip": "Thai says “she very beautiful” with no verb, but English needs is: “She is very beautiful”",
+   "caption": "Do you say “She very beautiful”? 😅 Thai can say this sentence without a verb, but English needs is. Say “She is very beautiful”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "อย่าลืม is!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 37,
+  "seconds": 23.7,
+  "wpm": 94
+ },
+ "publish": {
+  "title": "อย่าลืม is!",
+  "keyword": "She is very beautiful.",
+  "value": "ไทยพูด “เธอสวยมาก” ไม่ต้องมี “เป็น” แต่อังกฤษต้องมี is: “She is very beautiful”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 31,
+  "platforms": {
+   "youtube": {
+    "title": "อย่าลืม is!",
+    "description": "คุณเคยพูดว่า “She very beautiful.” ไหม? 😅 ภาษาไทยพูดว่า “เธอสวยมาก” ได้โดยไม่ต้องมีกริยา แต่ภาษาอังกฤษต้องมี is: “She is very beautiful.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "She is very beautiful.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “She very beautiful.” ไหม? 😅 ภาษาไทยพูดว่า “เธอสวยมาก” ได้โดยไม่ต้องมีกริยา แต่ภาษาอังกฤษต้องมี is: “She is very beautiful.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "คุณเคยพูดว่า “She very beautiful.” ไหม? 😅 ภาษาไทยพูดว่า “เธอสวยมาก” ได้โดยไม่ต้องมีกริยา แต่ภาษาอังกฤษต้องมี is: “She is very beautiful.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "อย่าลืม is! #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “She is very tired.” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_watch_tv",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Watch TV, not look TV!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I look TV every night.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I watch TV every night.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "We watch TV.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Watch! I watch TV after dinner.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I look TV every night.",
+  "right": "I watch TV every night.",
+  "strike": "look",
+  "why": "We watch TV.",
+  "memory": "Watch TV.",
+  "quiz": {
+   "stem": "I ___ TV after dinner.",
+   "options": [
+    "look",
+    "watch"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "ดูทีวี ใช้ watch ไม่ใช่ look!",
+   "tip": "ไทยใช้ “ดู” ทั้ง look และ watch แต่ดูทีวีต้องใช้ “watch”",
+   "caption": "คุณเคยพูดว่า “I look TV every night.” ไหม? 😅 ภาษาไทยใช้ “ดู” ทั้ง look และ watch แต่ภาษาอังกฤษดูทีวีต้องใช้ watch ไม่ใช่ look: “I watch TV every night.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “watch” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Watch TV, not “look TV”!",
+   "tip": "Thai uses one verb for look and watch, but for TV English uses watch: “I watch TV”",
+   "caption": "Do you say “I look TV every night”? 😅 Thai uses one verb for look and watch, but for TV English uses watch. Say “I watch TV every night”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "ดูทีวี ใช้ watch ไม่ใช่ look!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "ดูทีวี ใช้ watch ไม่ใช่ look!",
+  "keyword": "I watch TV every night.",
+  "value": "ไทยใช้ “ดู” ทั้ง look และ watch แต่ดูทีวีต้องใช้ “watch”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "ดูทีวี ใช้ watch ไม่ใช่ look!",
+    "description": "คุณเคยพูดว่า “I look TV every night.” ไหม? 😅 ภาษาไทยใช้ “ดู” ทั้ง look และ watch แต่ภาษาอังกฤษดูทีวีต้องใช้ watch ไม่ใช่ look: “I watch TV every night.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "I watch TV every night.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “I look TV every night.” ไหม? 😅 ภาษาไทยใช้ “ดู” ทั้ง look และ watch แต่ภาษาอังกฤษดูทีวีต้องใช้ watch ไม่ใช่ look: “I watch TV every night.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "คุณเคยพูดว่า “I look TV every night.” ไหม? 😅 ภาษาไทยใช้ “ดู” ทั้ง look และ watch แต่ภาษาอังกฤษดูทีวีต้องใช้ watch ไม่ใช่ look: “I watch TV every night.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ดูทีวี ใช้ watch ไม่ใช่ look! #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “watch” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

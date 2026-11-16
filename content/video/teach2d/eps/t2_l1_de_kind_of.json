@@ -66,10 +66,10 @@
    "answer": 1
   },
   "native": {
-   "hook": "Fragst du nach der „Art“ Musik?",
-   "tip": "„Welche Art von Musik“ sagst du auf Englisch mit „kind of“. „Art“ ist Kunst.",
-   "caption": "Fragst du nach der Art von Musik? 🎵 Falsch: “What art of music do you like?” Richtig: “What kind of music do you like?” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.",
-   "comment": "Lösung: “kind”. Richtig heißt es: “What kind of music do you like?” Übe mehr mit einem kostenlosen Quiz: {link}",
+   "hook": "Fragen Sie nach der „Art“ Musik?",
+   "tip": "„Welche Art von Musik“ sagen Sie auf Englisch mit „kind of“. „Art“ ist Kunst.",
+   "caption": "Fragen Sie nach der Art von Musik? 🎵 Falsch: “What art of music do you like?” Richtig: “What kind of music do you like?” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “kind”. Richtig heißt es: “What kind of music do you like?” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
    "hashtags": [
     "#englischlernen",
     "#englischtipps",
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "Fragst du nach der „Art“ Musik?"
+  "text": "Fragen Sie nach der „Art“ Musik?"
  },
  "src": {
   "l1": true
@@ -103,9 +103,9 @@
   "wpm": 101
  },
  "publish": {
-  "title": "Fragst du nach der „Art“ Musik?",
+  "title": "Fragen Sie nach der „Art“ Musik?",
   "keyword": "What kind of music do you like?",
-  "value": "„Welche Art von Musik“ sagst du auf Englisch mit „kind of“. „Art“ ist Kunst.",
+  "value": "„Welche Art von Musik“ sagen Sie auf Englisch mit „kind of“. „Art“ ist Kunst.",
   "hashtags": [
    "#englischlernen",
    "#englischtipps",
@@ -116,8 +116,8 @@
   "script_words": 47,
   "platforms": {
    "youtube": {
-    "title": "Fragst du nach der „Art“ Musik?",
-    "description": "Fragst du nach der Art von Musik? 🎵 Falsch: “What art of music do you like?” Richtig: “What kind of music do you like?” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "title": "Fragen Sie nach der „Art“ Musik?",
+    "description": "Fragen Sie nach der Art von Musik? 🎵 Falsch: “What art of music do you like?” Richtig: “What kind of music do you like?” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
     "tags": [
      "What kind of music do you like?",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Fragst du nach der Art von Musik? 🎵 Falsch: “What art of music do you like?” Richtig: “What kind of music do you like?” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Fragen Sie nach der Art von Musik? 🎵 Falsch: “What art of music do you like?” Richtig: “What kind of music do you like?” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Fragst du nach der Art von Musik? 🎵 Falsch: “What art of music do you like?” Richtig: “What kind of music do you like?” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.\n\nlexkite.com",
+    "caption": "Fragen Sie nach der Art von Musik? 🎵 Falsch: “What art of music do you like?” Richtig: “What kind of music do you like?” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nlexkite.com",
     "hashtags": [
      "#englischlernen",
      "#englischtipps",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "Fragst du nach der „Art“ Musik? #englischlernen #englischtipps #sprachenlernen"
+    "caption": "Fragen Sie nach der „Art“ Musik? #englischlernen #englischtipps #sprachenlernen"
    }
   },
-  "first_comment": "Lösung: “kind”. Richtig heißt es: “What kind of music do you like?” Übe mehr mit einem kostenlosen Quiz: {link}",
+  "first_comment": "Lösung: “kind”. Richtig heißt es: “What kind of music do you like?” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
   "lang": "de"
  }
 }

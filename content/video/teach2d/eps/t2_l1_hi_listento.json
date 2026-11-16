@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_listento",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Listen to songs!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I listen songs every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I listen to songs every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Listen needs to before songs.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "To! I listen to music.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I listen songs every day.",
+  "right": "I listen to songs every day.",
+  "strike": "listen songs",
+  "why": "Listen needs to before songs.",
+  "memory": "Listen to music.",
+  "quiz": {
+   "stem": "I listen ___ music.",
+   "options": [
+    "to",
+    "at"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“listen songs” नहीं, “listen to”!",
+   "tip": "हिंदी में “गाने सुनता हूँ” सीधा चलता है, बीच में कुछ नहीं लगता; अंग्रेज़ी में listen के बाद to ज़रूरी है।",
+   "caption": "क्या आप भी कहते हैं “I listen songs every day.”? 😅 अंग्रेज़ी में “I listen to songs every day.” सही है, क्योंकि listen के बाद to ज़रूरी है, जबकि हिंदी में “गाने सुनना” सीधा चलता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “to”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “listen to songs”!",
+   "tip": "Hindi says “gaane sunna” with nothing in between; English needs to after listen.",
+   "caption": "Do you say “I listen songs every day.”? 😅 In English “I listen to songs every day.” is right, because listen needs to before what you hear. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“listen songs” नहीं, “listen to”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“listen songs” नहीं, “listen to”!",
+  "keyword": "I listen to songs every day.",
+  "value": "हिंदी में “गाने सुनता हूँ” सीधा चलता है, बीच में कुछ नहीं लगता; अंग्रेज़ी में listen के बाद to ज़रूरी है।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "“listen songs” नहीं, “listen to”!",
+    "description": "क्या आप भी कहते हैं “I listen songs every day.”? 😅 अंग्रेज़ी में “I listen to songs every day.” सही है, क्योंकि listen के बाद to ज़रूरी है, जबकि हिंदी में “गाने सुनना” सीधा चलता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "I listen to songs every day.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी कहते हैं “I listen songs every day.”? 😅 अंग्रेज़ी में “I listen to songs every day.” सही है, क्योंकि listen के बाद to ज़रूरी है, जबकि हिंदी में “गाने सुनना” सीधा चलता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "क्या आप भी कहते हैं “I listen songs every day.”? 😅 अंग्रेज़ी में “I listen to songs every day.” सही है, क्योंकि listen के बाद to ज़रूरी है, जबकि हिंदी में “गाने सुनना” सीधा चलता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“listen songs” नहीं, “listen to”! #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “to”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

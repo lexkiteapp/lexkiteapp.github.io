@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_morecheaper",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Cheaper, not more cheaper!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: This bag is more cheaper.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: This bag is cheaper.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Cheaper has no more.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Cheaper! My bag is cheaper.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "This bag is more cheaper.",
+  "right": "This bag is cheaper.",
+  "strike": "more",
+  "why": "Cheaper has no more.",
+  "memory": "Cheaper, no more.",
+  "quiz": {
+   "stem": "My bag is ___.",
+   "options": [
+    "cheaper",
+    "more cheaper"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“More cheaper”? Cukup “cheaper”",
+   "tip": "“Lebih murah” jadi more cheaper, padahal -er sudah berarti lebih.",
+   "caption": "Pernah bilang begini? “This bag is more cheaper.” 😅 Cukup cheaper, tanpa more: “This bag is cheaper.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “cheaper”. Bandingkan dua barang dengan -er. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#grammaringgris",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“More cheaper”? Just “cheaper”",
+   "tip": "“Lebih murah” turns into more cheaper, but -er already means more.",
+   "caption": "Ever say this? “This bag is more cheaper.” 😅 Just cheaper, without more: “This bag is cheaper.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“More cheaper”? Cukup “cheaper”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "“More cheaper”? Cukup “cheaper”",
+  "keyword": "This bag is cheaper.",
+  "value": "“Lebih murah” jadi more cheaper, padahal -er sudah berarti lebih.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#grammaringgris",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "“More cheaper”? Cukup “cheaper”",
+    "description": "Pernah bilang begini? “This bag is more cheaper.” 😅 Cukup cheaper, tanpa more: “This bag is cheaper.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #grammaringgris #bahasainggris #lexkite",
+    "tags": [
+     "This bag is cheaper.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “This bag is more cheaper.” 😅 Cukup cheaper, tanpa more: “This bag is cheaper.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Pernah bilang begini? “This bag is more cheaper.” 😅 Cukup cheaper, tanpa more: “This bag is cheaper.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#grammaringgris",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“More cheaper”? Cukup “cheaper” #belajarbahasainggris #grammaringgris #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “cheaper”. Bandingkan dua barang dengan -er. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

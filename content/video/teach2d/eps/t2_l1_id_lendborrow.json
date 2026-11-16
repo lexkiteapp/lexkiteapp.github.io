@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_lendborrow",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Lend, not borrow!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Can you borrow me your pen?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Can you lend me your pen?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "You give it: lend.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Lend! Can you lend me some money?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Can you borrow me your pen?",
+  "right": "Can you lend me your pen?",
+  "strike": "borrow",
+  "why": "You give it: lend.",
+  "memory": "Give: lend.",
+  "quiz": {
+   "stem": "Can you ___ me some money?",
+   "options": [
+    "lend",
+    "borrow"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Borrow me”? Pakai “lend”",
+   "tip": "“Pinjam” bisa berarti borrow atau lend. Minta orang meminjamkan? Pakai lend.",
+   "caption": "Pernah bilang begini? “Can you borrow me your pen?” 😅 Minta orang meminjamkan? Pakai lend: “Can you lend me your pen?” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “lend”. Minta temanmu meminjamkan sesuatu dengan lend. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#grammaringgris",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Borrow me”? Use “lend”",
+   "tip": "“Pinjam” can mean borrow or lend. Asking someone to lend you something? Use lend.",
+   "caption": "Ever say this? “Can you borrow me your pen?” 😅 Asking someone to lend? Use lend: “Can you lend me your pen?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Borrow me”? Pakai “lend”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“Borrow me”? Pakai “lend”",
+  "keyword": "Can you lend me your pen?",
+  "value": "“Pinjam” bisa berarti borrow atau lend. Minta orang meminjamkan? Pakai lend.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#grammaringgris",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "“Borrow me”? Pakai “lend”",
+    "description": "Pernah bilang begini? “Can you borrow me your pen?” 😅 Minta orang meminjamkan? Pakai lend: “Can you lend me your pen?” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #grammaringgris #bahasainggris #lexkite",
+    "tags": [
+     "Can you lend me your pen?",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “Can you borrow me your pen?” 😅 Minta orang meminjamkan? Pakai lend: “Can you lend me your pen?” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Pernah bilang begini? “Can you borrow me your pen?” 😅 Minta orang meminjamkan? Pakai lend: “Can you lend me your pen?” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#grammaringgris",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Borrow me”? Pakai “lend” #belajarbahasainggris #grammaringgris #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “lend”. Minta temanmu meminjamkan sesuatu dengan lend. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

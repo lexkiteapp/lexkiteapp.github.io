@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_wait_for",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Wait for me!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Please wait me here.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Please wait for me here.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "We say wait for.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Wait for me! Please wait for me here.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Please wait me here.",
+  "right": "Please wait for me here.",
+  "strike": "wait me",
+  "why": "We say wait for.",
+  "memory": "Wait for me.",
+  "quiz": {
+   "stem": "Please ___ here.",
+   "options": [
+    "wait for me",
+    "wait me"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "รอฉัน = wait for me!",
+   "tip": "ไทยพูด “รอฉัน” ได้เลย แต่อังกฤษต้องมี for: “wait for me”",
+   "caption": "คุณเคยพูดว่า “Please wait me here.” ไหม? 😅 ภาษาไทยพูดว่า “รอฉัน” ได้เลย แต่ภาษาอังกฤษหลัง wait ต้องมี for: “Please wait for me here.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “wait for me” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Wait for, not “wait me”!",
+   "tip": "Thai says “wait me”, so people drop for, but English needs it: “wait for me”",
+   "caption": "Do you say “Please wait me here”? 😅 In Thai you can say “wait me”, but English needs for after wait. Say “Please wait for me here”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "รอฉัน = wait for me!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "รอฉัน = wait for me!",
+  "keyword": "Please wait for me here.",
+  "value": "ไทยพูด “รอฉัน” ได้เลย แต่อังกฤษต้องมี for: “wait for me”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "รอฉัน = wait for me!",
+    "description": "คุณเคยพูดว่า “Please wait me here.” ไหม? 😅 ภาษาไทยพูดว่า “รอฉัน” ได้เลย แต่ภาษาอังกฤษหลัง wait ต้องมี for: “Please wait for me here.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "Please wait for me here.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “Please wait me here.” ไหม? 😅 ภาษาไทยพูดว่า “รอฉัน” ได้เลย แต่ภาษาอังกฤษหลัง wait ต้องมี for: “Please wait for me here.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "คุณเคยพูดว่า “Please wait me here.” ไหม? 😅 ภาษาไทยพูดว่า “รอฉัน” ได้เลย แต่ภาษาอังกฤษหลัง wait ต้องมี for: “Please wait for me here.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "รอฉัน = wait for me! #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “wait for me” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

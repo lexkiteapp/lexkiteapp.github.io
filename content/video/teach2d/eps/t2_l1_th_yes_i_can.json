@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_yes_i_can",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Answer with a full yes!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Can you swim? Can.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Can you swim? Yes, I can.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Answer with yes and a subject.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Yes, I can! Can you cook? Yes, I can.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Can you swim? Can.",
+  "right": "Can you swim? Yes, I can.",
+  "strike": "Can.",
+  "why": "Answer with yes and a subject.",
+  "memory": "Yes, I can.",
+  "quiz": {
+   "stem": "Can you cook? ___",
+   "options": [
+    "Can.",
+    "Yes, I can."
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "ตอบ “ได้” ≠ Can.!",
+   "tip": "ไทยตอบ “ได้” คำเดียวพอ แต่อังกฤษควรตอบเต็มประโยค: “Yes, I can”",
+   "caption": "คุณเคยพูดว่า “Can you swim? Can.” ไหม? 😅 ภาษาไทยตอบว่า “ได้” คำเดียวก็พอ แต่ภาษาอังกฤษควรตอบ yes พร้อมประธาน: “Can you swim? Yes, I can.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “Yes, I can.” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Don't just answer “Can”!",
+   "tip": "Thai can answer with one word, but English usually answers with yes plus a subject: “Yes, I can”",
+   "caption": "Do you say “Can you swim? Can”? 😅 Thai can answer with one word, but English usually answers with yes plus a subject. Say “Can you swim? Yes, I can”! Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "ตอบ “ได้” ≠ Can.!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "ตอบ “ได้” ≠ Can.!",
+  "keyword": "Can you swim? Yes, I can.",
+  "value": "ไทยตอบ “ได้” คำเดียวพอ แต่อังกฤษควรตอบเต็มประโยค: “Yes, I can”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "ตอบ “ได้” ≠ Can.!",
+    "description": "คุณเคยพูดว่า “Can you swim? Can.” ไหม? 😅 ภาษาไทยตอบว่า “ได้” คำเดียวก็พอ แต่ภาษาอังกฤษควรตอบ yes พร้อมประธาน: “Can you swim? Yes, I can.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "Can you swim? Yes, I can.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “Can you swim? Can.” ไหม? 😅 ภาษาไทยตอบว่า “ได้” คำเดียวก็พอ แต่ภาษาอังกฤษควรตอบ yes พร้อมประธาน: “Can you swim? Yes, I can.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "คุณเคยพูดว่า “Can you swim? Can.” ไหม? 😅 ภาษาไทยตอบว่า “ได้” คำเดียวก็พอ แต่ภาษาอังกฤษควรตอบ yes พร้อมประธาน: “Can you swim? Yes, I can.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ตอบ “ได้” ≠ Can.! #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “Yes, I can.” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

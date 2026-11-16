@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_good_time",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Passed or had a good time?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I passed a good time there.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I had a good time there.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say had a good time.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Had! We had a good time.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I passed a good time there.",
+  "right": "I had a good time there.",
+  "strike": "passed",
+  "why": "Say had a good time.",
+  "memory": "Had a good time.",
+  "quiz": {
+   "stem": "We ___ a good time.",
+   "options": [
+    "passed",
+    "had"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "¿“Passed a good time”? Es “had”",
+   "tip": "En español “pasé un buen rato”, pero en inglés “have a good time”, no “pass”.",
+   "caption": "¿Dices “I passed a good time there.”? 😄 En español “pasé un buen rato”, pero en inglés: “I had a good time there.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “had”. “Have a good time”, no “pass a good time”. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#vocabulario",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Passed a good time”? Say “had”",
+   "tip": "In Spanish “pasé un buen rato”, but English says “have a good time”.",
+   "caption": "Do you say “I passed a good time there.”? In Spanish “pasé un buen rato”, but in English: “I had a good time there.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿“Passed a good time”? Es “had”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "¿“Passed a good time”? Es “had”",
+  "keyword": "I had a good time there.",
+  "value": "En español “pasé un buen rato”, pero en inglés “have a good time”, no “pass”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#vocabulario",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "¿“Passed a good time”? Es “had”",
+    "description": "¿Dices “I passed a good time there.”? 😄 En español “pasé un buen rato”, pero en inglés: “I had a good time there.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
+    "tags": [
+     "I had a good time there.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "¿Dices “I passed a good time there.”? 😄 En español “pasé un buen rato”, pero en inglés: “I had a good time there.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "¿Dices “I passed a good time there.”? 😄 En español “pasé un buen rato”, pero en inglés: “I had a good time there.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#vocabulario",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿“Passed a good time”? Es “had” #aprenderingles #inglesfacil #vocabulario"
+   }
+  },
+  "first_comment": "Respuesta: “had”. “Have a good time”, no “pass a good time”. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}

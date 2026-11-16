@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_mymotherhe",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Mother? Say she!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: My mother is a nurse. He works hard.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My mother is a nurse. She works hard.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "A woman? Use she.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "He! My father is tall. He is 40.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "My mother is a nurse. He works hard.",
+  "right": "My mother is a nurse. She works hard.",
+  "strike": "He",
+  "why": "A woman? Use she.",
+  "memory": "Mother: she.",
+  "quiz": {
+   "stem": "My father is tall. ___ is 40.",
+   "options": [
+    "He",
+    "She"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Ibu itu “she”, bukan “he”",
+   "tip": "Bahasa Indonesia pakai “dia” untuk semua, tapi bahasa Inggris membedakan he dan she.",
+   "caption": "Pernah bilang begini? “My mother is a nurse. He works hard.” 😅 Untuk perempuan pakai she, untuk laki-laki he: “My mother is a nurse. She works hard.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “He”. Ceritakan keluargamu dengan he dan she yang tepat. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#grammaringgris",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Mother is “she”, not “he”",
+   "tip": "Indonesian uses “dia” for everyone, but English separates he and she.",
+   "caption": "Ever say this? “My mother is a nurse. He works hard.” 😅 For a woman use she, for a man he: “My mother is a nurse. She works hard.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Ibu itu “she”, bukan “he”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 51,
+  "seconds": 30.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Ibu itu “she”, bukan “he”",
+  "keyword": "My mother is a nurse. She works hard.",
+  "value": "Bahasa Indonesia pakai “dia” untuk semua, tapi bahasa Inggris membedakan he dan she.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#grammaringgris",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 45,
+  "platforms": {
+   "youtube": {
+    "title": "Ibu itu “she”, bukan “he”",
+    "description": "Pernah bilang begini? “My mother is a nurse. He works hard.” 😅 Untuk perempuan pakai she, untuk laki-laki he: “My mother is a nurse. She works hard.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #grammaringgris #bahasainggris #lexkite",
+    "tags": [
+     "My mother is a nurse. She works hard.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “My mother is a nurse. He works hard.” 😅 Untuk perempuan pakai she, untuk laki-laki he: “My mother is a nurse. She works hard.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Pernah bilang begini? “My mother is a nurse. He works hard.” 😅 Untuk perempuan pakai she, untuk laki-laki he: “My mother is a nurse. She works hard.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#grammaringgris",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Ibu itu “she”, bukan “he” #belajarbahasainggris #grammaringgris #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “He”. Ceritakan keluargamu dengan he dan she yang tepat. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

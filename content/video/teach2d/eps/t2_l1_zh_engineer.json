@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_engineer",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Do not forget a!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: My father is engineer.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My father is an engineer.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "A job word needs a or an.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "A nurse! She is a nurse.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "My father is engineer.",
+  "right": "My father is an engineer.",
+  "strike": "is engineer",
+  "why": "A job word needs a or an.",
+  "memory": "He is an engineer.",
+  "quiz": {
+   "stem": "She is ___.",
+   "options": [
+    "nurse",
+    "a nurse"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "说职业，前面别漏掉 a/an！",
+   "tip": "中文“他是工程师”不用冠词，英语里说职业，前面要加 a 或 an。",
+   "caption": "你是不是也会说 “My father is engineer.”？😅 中文说“我爸爸是工程师”，职业前面什么都不用加；英语却要有 a/an：“My father is an engineer.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“My father is an engineer.”免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "A job needs a or an!",
+   "tip": "In English, a job word needs a or an before it.",
+   "caption": "Do you say “My father is engineer.”? 😅 In English, a job word needs a or an: “My father is an engineer.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "说职业，前面别漏掉 a/an！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "说职业，前面别漏掉 a/an！",
+  "keyword": "My father is an engineer.",
+  "value": "中文“他是工程师”不用冠词，英语里说职业，前面要加 a 或 an。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "说职业，前面别漏掉 a/an！",
+    "description": "你是不是也会说 “My father is engineer.”？😅 中文说“我爸爸是工程师”，职业前面什么都不用加；英语却要有 a/an：“My father is an engineer.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "My father is an engineer.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “My father is engineer.”？😅 中文说“我爸爸是工程师”，职业前面什么都不用加；英语却要有 a/an：“My father is an engineer.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "你是不是也会说 “My father is engineer.”？😅 中文说“我爸爸是工程师”，职业前面什么都不用加；英语却要有 a/an：“My father is an engineer.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "说职业，前面别漏掉 a/an！ #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“My father is an engineer.”免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

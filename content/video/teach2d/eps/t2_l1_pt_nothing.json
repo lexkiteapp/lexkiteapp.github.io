@@ -1,0 +1,143 @@
+{
+ "id": "t2_l1_pt_nothing",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Two no words? Not in English!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I do not know nothing.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I do not know anything.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "One no word is enough.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Any! I do not have any money.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I do not know nothing.",
+  "right": "I do not know anything.",
+  "strike": "nothing",
+  "why": "One no word is enough.",
+  "memory": "No plus no is wrong.",
+  "quiz": {
+   "stem": "I do not have ___ money.",
+   "options": [
+    "any",
+    "no"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Dois negativos? Em inglês, não!",
+   "tip": "Em português “não sei nada” tem dois negativos; em inglês, com “do not”, use “anything”.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I do not know nothing”. O certo é “I do not know anything”. Em português a dupla negação é normal, mas em inglês um negativo basta. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “any”. Treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Two negatives? Not in English!",
+   "tip": "In Portuguese two negatives are normal. In English, with “do not”, use “anything”.",
+   "caption": "Watch out for this common mistake! Many people say “I do not know nothing”. The right way is “I do not know anything”. In Portuguese a double negative is normal, but in English one negative is enough. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Dois negativos? Em inglês, não!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Dois negativos? Em inglês, não!",
+  "keyword": "I do not know anything.",
+  "value": "Em português “não sei nada” tem dois negativos; em inglês, com “do not”, use “anything”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "Dois negativos? Em inglês, não!",
+    "description": "Cuidado com este erro comum! 😬 Muita gente diz “I do not know nothing”. O certo é “I do not know anything”. Em português a dupla negação é normal, mas em inglês um negativo basta. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #lexkite",
+    "tags": [
+     "I do not know anything.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “I do not know nothing”. O certo é “I do not know anything”. Em português a dupla negação é normal, mas em inglês um negativo basta. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I do not know nothing”. O certo é “I do not know anything”. Em português a dupla negação é normal, mas em inglês um negativo basta. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Dois negativos? Em inglês, não! #aprenderingles #inglesfacil #lexkite"
+   }
+  },
+  "first_comment": "Resposta: “any”. Treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}
