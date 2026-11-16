@@ -52,6 +52,8 @@ Pour savoir quel niveau demandent le Canada, l'Australie ou le Royaume-Uni, voye
 
 En France, le CECRL est partout : programmes du lycée, offres d'emploi, conditions d'admission des écoles, certifications universitaires. Si vous avez déjà croisé le DELF ou le DALF, vous connaissez l'échelle : ces diplômes de français langue étrangère utilisent exactement les mêmes niveaux. Voici ce que signifie chaque niveau en anglais, comment il se compare aux examens internationaux et comment estimer le vôtre en cinq minutes.
 
+Pour relier ces niveaux à un examen, lisez [le calcul du score IELTS et la signification des bands](/fr/blog/calcul-score-ielts-band-signification/).
+
 ## Niveaux d'anglais CECRL : six étapes en trois paires
 
 {{diagram: d1 | Six niveaux en trois paires : A élémentaire, B indépendant, C expérimenté}}
@@ -147,6 +149,8 @@ Associez chaque description à un niveau CECRL (A1, A2, B1, B2, C1, C2).
 ![](media:@s2 "Le parcours IELTS de Lexkite est découpé en étapes par band")
 
 Pour reprendre l'anglais de façon autonome, l'article [apprendre l'anglais seul](/fr/blog/apprendre-anglais-seul/) propose une méthode complète. Une page en anglais rassemble aussi des listes de vocabulaire par thème : la [page Vocabulary](/en/vocabulary/).
+
+Si vous visez un visa britannique qui exige un niveau B2, voyez comment fonctionne l'[IELTS UKVI](/fr/blog/ielts-ukvi-difference-ielts-classique/).
 
 {{cta: /app/#/placement | Estimer votre niveau d'anglais en cinq minutes}}
 

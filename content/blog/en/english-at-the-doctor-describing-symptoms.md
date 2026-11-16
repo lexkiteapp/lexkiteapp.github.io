@@ -22,6 +22,7 @@ diagrams: [
   {id: d1, type: compare, title: 'Health words by country', cols: ['US / Canada', 'UK', 'Australia / NZ'], rows: [['primary care doctor, family doctor', 'GP (general practitioner)', 'GP'], ['pharmacy, drugstore', 'pharmacy, chemist', 'pharmacy, chemist'], ['prescription', 'prescription', 'script, prescription'], ['walk-in clinic, urgent care', 'walk-in centre', 'medical centre, after-hours clinic'], ['emergency room (ER)', 'A&E', 'emergency department (ED)'], ['over-the-counter medicine', 'medicine from a pharmacy', 'over-the-counter medicine']]},
   {id: d2, type: boxes, title: 'Describe a symptom in four parts', parts: [{t: 'Where', r: 'my lower back'}, {t: 'What kind', r: 'a sharp pain'}, {t: 'How long', r: 'for three days'}, {t: 'How bad and when', r: 'about 6 out of 10, worse at night'}]}
 ]
+publishAt: 2027-01-30T12:33:00+05:30
 ---
 
 To **describe symptoms in English**, answer four questions in order: *where* does it hurt, *what* does it feel like, *how long* has it lasted and *how bad* is it. For example: *I have a sharp pain in my lower back. It started three days ago, and it is worse at night.* Add your allergies and medicines, and a doctor or pharmacist can understand you quickly.

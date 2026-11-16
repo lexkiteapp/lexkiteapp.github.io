@@ -1,0 +1,270 @@
+{
+ "id": "mo_tp_confusing_pair_affect-effect",
+ "template": "confusing-pair",
+ "title": "Motion confusing-pair – confusing-pair: affect-effect (tp_confusing_pair_affect-effect)",
+ "teacher": "ama",
+ "clips": [
+  "ga11_talk",
+  "ga11_explain",
+  "ga11_happy",
+  "ga11_thinking",
+  "ga11_surprise_3"
+ ],
+ "listen": [
+  "ga11_listen_2"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy2",
+ "active": "yellow",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "confusing-pair",
+  "link": "https://lexkite.com/app/",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Confusing Pair",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "I mix them up in every essay.",
+   "gap": 0.7
+  },
+  {
+   "id": "s0",
+   "text": "Affect is the verb: stress can affect your sleep.",
+   "gap": 0.7
+  },
+  {
+   "id": "s1",
+   "text": "Effect is the noun: the effect of stress is bad sleep.",
+   "gap": 0.7
+  },
+  {
+   "id": "t",
+   "text": "Tip: think RAVEN. Remember, affect is a verb, effect is a noun.",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "I mix them",
+      "white"
+     ]
+    ],
+    [
+     [
+      "up in every",
+      "yellow"
+     ]
+    ],
+    [
+     [
+      "essay.",
+      "yellow"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "A or B?",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "I mix them"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "up in every"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "essay."
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "sum",
+    "at": [
+     "t",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Tip",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "think RAVEN. Remember, affect is a verb, effect is"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "rules",
+    "at": [
+     "s0",
+     0
+    ],
+    "rows": [
+     {
+      "t": "tile",
+      "tag": "AFFECT",
+      "tone": "gold",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "affect",
+        "gold"
+       ]
+      ],
+      "ex_at": [
+       "s0",
+       0
+      ],
+      "at": [
+       "s0",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "EFFECT",
+      "tone": "teal",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "effect",
+        "teal"
+       ]
+      ],
+      "ex_at": [
+       "s1",
+       0
+      ],
+      "at": [
+       "s1",
+       0
+      ]
+     }
+    ]
+   }
+  ],
+  "hook_text": "I mix them up in every essay.",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ },
+ "uses": {
+  "template": "confusing-pair",
+  "row": "tp_confusing_pair_affect-effect",
+  "teacher": "ama",
+  "accent": "navy2",
+  "active": "yellow",
+  "tones": 1
+ }
+}

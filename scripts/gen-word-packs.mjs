@@ -9,6 +9,7 @@
 // App đọc gói khi giao diện không phải vi/en (App.nativeGloss) → nghĩa hiện tức thì, offline; thiếu thì mới dịch lúc chạy.
 import fs from 'fs';
 import { FLAG, pickGloss } from './lib/pack-gloss.mjs';
+import { loadAllPlus } from './lexicon/lib.mjs';
 const R = new URL('../', import.meta.url);
 const LANGS = fs.readFileSync(new URL('scripts/i18n-langs.txt', R), 'utf8').split('\n').map(s => s.trim()).filter(s => s && !s.startsWith('#'));
 const arg = process.argv[2] || 'all', ri = process.argv.indexOf('--refine'), REFINE = ri > 0 ? +process.argv[ri + 1] || 300 : 0;
@@ -26,6 +27,8 @@ const rank = f => (CORE.indexOf(f) + 1) || 99;
 for (const f of fs.readdirSync(new URL('web/js/lib/', R)).sort((a, b) => rank(a) - rank(b) || a.localeCompare(b))) if (/\.js$/.test(f) && !/^notes/.test(f)) { try { new Function('self', fs.readFileSync(new URL('web/js/lib/' + f, R), 'utf8'))(g); } catch (e) { console.warn('bỏ qua', f, e.message); } }
 const WORDS = new Map();
 for (const tp of g.IELTS_DATA.TOPICS) for (const w of tp.words || []) { const k = String(w.word || '').toLowerCase().trim(); if (k && !WORDS.has(k) && k.length < 60) WORDS.set(k, String(w.pos || '').toLowerCase()); }
+// Kho từ vựng (content/lexicon, nguồn chuẩn của điểm 'Kho từ') – đủ mọi từ gốc, không chỉ web/js/data: gói nghĩa phủ cả từ mới của kho (i18n: gói nghĩa từ theo ngôn ngữ)
+for (const e of await loadAllPlus()) { const k = String(e.row?.[0] || '').toLowerCase().trim(); if (k && k.length < 60 && !WORDS.has(k)) WORDS.set(k, String(e.row[2] || '').toLowerCase()); }
 console.log(`${WORDS.size} từ`);
 
 const tl = l => (l === 'zh' ? 'zh-CN' : l);
