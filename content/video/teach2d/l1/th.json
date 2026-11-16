@@ -567,7 +567,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "Two child? Fix it!",
+    "hook_say": "Two child? Say two children!",
     "wrong": "I have two child.",
     "right": "I have two children.",
     "strike": "child",
@@ -585,7 +585,7 @@
     "native": {
      "hook": "สองขึ้นไป ต้องเป็นพหูพจน์!",
      "tip": "ภาษาไทยไม่มีรูปพหูพจน์ แต่อังกฤษต้องมี: child → children",
-     "caption": "คุณเคยพูดว่า “I have two child.” ไหม? 😅 ภาษาไทยไม่เติมพหูพจน์หลังตัวเลข แต่ภาษาอังกฤษต้องใช้พหูพจน์ child จึงเป็น children: “I have two children.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+     "caption": "คุณเคยพูดว่า “I have two child.” ไหม? 😅 ภาษาไทยไม่เปลี่ยนคำนามหลังตัวเลข แต่ภาษาอังกฤษต้องใช้พหูพจน์ และ child มีรูปพิเศษคือ children: “I have two children.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
      "comment": "เฉลย: “children” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
      "hashtags": [
       "#เรียนภาษาอังกฤษ",
@@ -1104,7 +1104,7 @@
     "answer_say": "Yes, I can! Can you cook? Yes, I can.",
     "native": {
      "hook": "ตอบ “ได้” อย่าพูดแค่ Can!",
-     "tip": "ไทยตอบ “ได้” คำเดียวพอ แต่อังกฤษควรตอบเต็มประโยค: “Yes, I can”",
+     "tip": "ไทยตอบ “ได้” คำเดียวพอ แต่อังกฤษมักตอบ yes พร้อมประธาน: “Yes, I can”",
      "caption": "คุณเคยพูดว่า “Can you swim? Can.” ไหม? 😅 ภาษาไทยตอบว่า “ได้” คำเดียวก็พอ แต่ภาษาอังกฤษควรตอบ yes พร้อมประธาน: “Can you swim? Yes, I can.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
      "comment": "เฉลย: “Yes, I can.” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
      "hashtags": [
@@ -1264,7 +1264,7 @@
     "answer_say": "Bored! There is nothing to do. I'm bored.",
     "native": {
      "hook": "ความรู้สึก ใช้ bored!",
-     "tip": "bored คือเรารู้สึกเบื่อ boring คือสิ่งที่น่าเบื่อ",
+     "tip": "bored คือเรารู้สึกเบื่อ ส่วน boring คือสิ่งที่น่าเบื่อ: “I am bored today”",
      "caption": "คุณเคยพูดว่า “I am boring today.” ไหม? 😅 ภาษาอังกฤษความรู้สึกเบื่อของเราต้องใช้ bored ส่วน boring ใช้กับสิ่งที่น่าเบื่อ: “I am bored today.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
      "comment": "เฉลย: “bored” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
      "hashtags": [
@@ -1275,7 +1275,7 @@
      ]
     },
     "en": {
-     "hook": "Boring or bored?",
+     "hook": "For feelings, use “bored”!",
      "tip": "Bored is how you feel, boring is what makes you feel it: “I am bored today”",
      "caption": "Do you say “I am boring today”? 😅 Your feeling is bored, and the thing that causes it is boring. Say “I am bored today”! Listen to Ama and repeat! Practice more in the Lexkite app."
     }
