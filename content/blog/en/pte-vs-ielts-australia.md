@@ -42,6 +42,7 @@ quiz: [
     explain: "Because the level depends on each skill, your weakest result decides the outcome, so compare by that."
   }
 ]
+publishAt: 2027-02-26T08:19:00+05:30
 ---
 Australia accepts both Pearson Test of English (PTE) Academic and IELTS for many visa applications, so **PTE vs IELTS for Australia** is a choice between two formats, not between a good test and a bad one. The better choice is the one in which your weakest skill scores highest. This guide explains how the Department of Home Affairs describes English levels, what changed on 7 August 2025, how the two tests differ in format and scoring, and how to decide with your own evidence.
 

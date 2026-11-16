@@ -441,3 +441,4 @@ node scripts/test/ai-task.mjs
 node scripts/test/video-junk.mjs
 node scripts/test/dict-add.mjs
 node scripts/test/css-notes.mjs
+node scripts/test/ci-portable.mjs

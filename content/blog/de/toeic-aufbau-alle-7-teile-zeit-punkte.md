@@ -9,7 +9,7 @@ tags: [toeic, test-format, listening, reading]
 keyword: "toeic aufbau"
 cover: toeic
 coverAlt: "Lexkite TOEIC-Bereich mit Listening- und Reading-Training, sieben automatisch bewerteten Probetests, Übung nach Teilen und TOEIC-Wortschatz"
-publishAt:
+publishAt: 2027-01-16T20:49:00+01:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

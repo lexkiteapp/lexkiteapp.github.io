@@ -9,7 +9,7 @@ tags: [ielts, writing, task-1, bar-chart, academic]
 keyword: "ielts writing task 1 bar chart"
 cover: write
 coverAlt: "Lexkite Writing practice room with prompts and a frame for planning a report"
-publishAt:
+publishAt: 2027-02-18T12:42:00+05:30
 factChecked: 2026-11-15
 author: Lexkite
 status: ready
