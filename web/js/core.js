@@ -108,6 +108,8 @@
   const todayKey = (d = new Date()) =>
     `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
   const startOfToday = () => { const d = new Date(); d.setHours(0, 0, 0, 0); return d.getTime(); };
+  // Số ngày LỊCH địa phương từ hôm nay tới 'YYYY-MM-DD' (0 = hôm nay, âm = đã qua). `new Date('YYYY-MM-DD')` là nửa đêm UTC → đếm ngược thi lệch 1 ngày vài giờ mỗi ngày ở mọi múi giờ ≠ UTC.
+  const daysTo = ds => { const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(String(ds || '')); if (!m) return NaN; const t = new Date(); return Math.round((new Date(+m[1], +m[2] - 1, +m[3]) - new Date(t.getFullYear(), t.getMonth(), t.getDate())) / DAY); };
   const endOfToday = () => { const d = new Date(); d.setHours(24, 0, 0, 0); return d.getTime() - 1; }; // 23:59:59.999 địa phương – KHÔNG phải đầu ngày + 24 h (ngày đổi giờ mùa hè dài 23/25 h → lệch 1 giờ thẻ đến hạn)
 
   // ---------- SRS: FSRS-5 (Free Spaced Repetition Scheduler – thuật toán Anki dùng từ 2023) + bước học ----------
@@ -446,5 +448,5 @@
     freezeInfo(g) { g = g || {}; return { left: +g.freezes || 0, max: 2, used: Object.keys(g.frozen || {}).sort().slice(-7), lastSave: g.freezeSaved || '' }; },
   };
 
-  g.Core = { keyOf, tlKey, cardKey, Golden, Store, SRS, Cards, Stats, DEFAULT_SETTINGS, todayKey, startOfToday, endOfToday, DAY, ensurePersist };
+  g.Core = { keyOf, tlKey, cardKey, Golden, Store, SRS, Cards, Stats, DEFAULT_SETTINGS, todayKey, startOfToday, endOfToday, daysTo, DAY, ensurePersist };
 })(typeof self !== 'undefined' ? self : this);

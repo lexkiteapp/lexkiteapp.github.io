@@ -982,7 +982,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     const name = state.user ? (state.user.displayName || '').split(' ').pop() : '';
     const ex = App.exam ? App.exam() : 'ielts', X = (App.EXAMS || {})[ex] || { ic: 'graduation-cap', short: 'IELTS' };
     const g = state.settings.goal;
-    const left = g && g.date ? Math.ceil((new Date(g.date) - now) / DAY) : null;
+    const left = g && g.date ? Core.daysTo(g.date) : null;
     const chip = g && g.target ? `<a class="goal-chip" href="#/goal">${UI.icon(X.ic)} ${esc(X.short)} ${esc(g.exam === 'general' ? ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'][g.target - 1] || '' : String(g.target))}${left > 0 ? ' · ' + t('còn {n} ngày', { n: left }) : ''}</a>` : `<a class="goal-chip" href="#/goal">🚩 ${t('Đặt mục tiêu')}</a>`;
     const late = h >= 19 && !todayReviews && cards.length;
     const seed = allWords(), w = seed[Math.floor(Date.now() / DAY) % seed.length];

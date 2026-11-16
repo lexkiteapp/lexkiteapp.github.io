@@ -47,5 +47,11 @@ for (const TZ of ['America/New_York', 'Pacific/Auckland', 'Asia/Kolkata', 'Asia/
   const a = core(at('Asia/Ho_Chi_Minh', 2026, 11, 16, 23, 59)), b = core(at('Asia/Ho_Chi_Minh', 2026, 11, 17, 0, 0));
   ok(a.todayKey() === '2026-11-16' && b.todayKey() === '2026-11-17', 'VN: 23:59 → 00:00 đổi ngày đúng');
 }
+// Đếm ngược ngày thi: ngày LỊCH địa phương (trước: new Date('YYYY-MM-DD') = nửa đêm UTC → sai 1 ngày vài giờ mỗi ngày)
+for (const [TZ, h, mi, want, label] of [['America/Los_Angeles', 17, 0, 1, 'LA 17:00 hôm trước ngày thi'], ['America/Los_Angeles', 10, 0, 1, 'LA 10:00 hôm trước'], ['Asia/Ho_Chi_Minh', 3, 0, 1, 'VN 03:00 hôm trước (cũ báo 1 khi ngày thi đã là hôm nay)'], ['Pacific/Auckland', 23, 59, 1, 'Auckland 23:59 hôm trước']]) {
+  const C = core(at(TZ, 2026, 12, 16, h, mi));
+  ok(C.daysTo('2026-12-17') === want && C.daysTo('2026-12-16') === 0 && C.daysTo('2026-12-15') === -1 && C.daysTo('2026-12-26') === 10, `${label}: còn ${C.daysTo('2026-12-17')} ngày (đúng ${want}), hôm nay = 0, hôm qua = -1`);
+}
+{ const C = core(at('America/New_York', 2026, 11, 1, 12, 0)); ok(C.daysTo('2026-11-08') === 7 && C.daysTo('2026-11-02') === 1, 'NY bắc qua ngày lùi giờ: 7 ngày = 7, không thành 6,96'); ok(Number.isNaN(C.daysTo('xyz')), 'ngày hỏng → NaN'); }
 console.log(bad ? `\n${bad} lỗi` : '\nOK');
 process.exit(bad ? 1 : 0);
