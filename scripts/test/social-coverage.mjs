@@ -27,19 +27,19 @@ const ext = [
 ];
 const cfgs = [{ channel_id: 'e', cfg: JSON.stringify({ active: 0 }) }, { channel_id: 'b', cfg: JSON.stringify({ tz: 'UTC' }) }];
 const slots = [...full.map(ms => ({ channel_id: 'b', slot_ms: ms })), { channel_id: 'a', slot_ms: NOW + 2 * D }];
-const ytc = [{ channel_id: 'UCa', title: 'Lexkite English' }, { channel_id: 'UCh', title: 'Lexkite Hindi' }], plans = [{ channel_id: 'UCh', slot_ms: NOW + 3 * D }];
-const db = { prepare: sql => ({ bind: (...p) => ({ all: async () => ({ results: /FROM yt_channel/.test(sql) ? ytc : /FROM yt_plan/.test(sql) ? plans.filter(r => r.slot_ms >= p[0] && r.slot_ms <= p[1]) : /FROM dist_ext/.test(sql) ? ext.filter(x => x.status === 'ok') : /FROM yt_chan_cfg/.test(sql) ? cfgs : /FROM dist_social/.test(sql) ? slots.filter(r => r.slot_ms >= p[0] && r.slot_ms <= p[1]) : [] }) }) }) };
+const ytc = [{ channel_id: 'UCa', title: 'Lexkite English' }, { channel_id: 'UCh', title: 'Lexkite Hindi' }], plans = [{ channel_id: 'UCh', slot_ms: NOW + 3 * D }], ytq = [{ channel_id: 'UCa', publish_at: new Date(NOW + 5 * D).toISOString() }]; // ytq = bài xếp hàng tải trực tiếp (op fill)
+const db = { prepare: sql => ({ bind: (...p) => ({ all: async () => ({ results: /FROM yt_channel/.test(sql) ? ytc : /SELECT channel_id, publish_at FROM yt_queue/.test(sql) ? ytq : /FROM yt_plan/.test(sql) ? plans.filter(r => r.slot_ms >= p[0] && r.slot_ms <= p[1]) : /FROM dist_ext/.test(sql) ? ext.filter(x => x.status === 'ok') : /FROM yt_chan_cfg/.test(sql) ? cfgs : /FROM dist_social/.test(sql) ? slots.filter(r => r.slot_ms >= p[0] && r.slot_ms <= p[1]) : [] }) }) }) };
 const c = await coverage(db, NOW);
 ok(c.channels === 3 && c.rows.map(r => r.channel_id).sort().join() === 'UCa,UCh,b', 'YouTube trực tiếp gộp với GrabCast cùng tên (không đếm đôi); chỉ kênh đang bật, không Grabcast, không gone');
 const by = Object.fromEntries(c.rows.map(r => [r.channel_id, r]));
-ok(by.UCa.have === 1 && by.UCh.have === 1, 'lịch của đường API trực tiếp (yt_plan) và GrabCast (dist_social) cộng chung 1 kênh');
-ok(by.b.missing.length === 0 && by.UCa.missing.length === 29 && c.short === 2, 'đếm có/thiếu đúng');
+ok(by.UCa.have === 2 && by.UCh.have === 1, 'lịch của đường API trực tiếp (yt_plan + yt_queue.publish_at) và GrabCast (dist_social) cộng chung 1 kênh');
+ok(by.b.missing.length === 0 && by.UCa.missing.length === 28 && c.short === 2, 'đếm có/thiếu đúng');
 const r = report(c);
 ok(r.bad.length === 2 && /Lexkite English/.test(r.text) && /1\/3 kênh đủ/.test(r.text) && /17\.\.|2026-11-17/.test(r.text), 'báo cáo nêu kênh và khoảng trống');
 
 const yt = c.platforms.find(p => p.platform === 'youtube'), fb = c.platforms.find(p => p.platform === 'facebook_page');
 ok(yt.want === 15 && yt.channels === 2 && yt.unconnected === 13 && yt.total === 450 && fb.total === 450 && fb.unconnected === 15, 'mẫu số 15 kênh × 30 ngày = 450 trang-ngày mỗi nền tảng, kênh chưa nối được tính là thiếu');
-ok(/youtube: mới nối 2\/15 kênh → thiếu 13/.test(r.text) && r.miss.length === 3 && /\| youtube \| 2\/15 \| 2\/450 \|/.test(r.table), 'báo cáo nêu kênh chưa nối + bảng tuần có mẫu số 450');
+ok(/youtube: mới nối 2\/15 kênh → thiếu 13/.test(r.text) && r.miss.length === 3 && /\| youtube \| 2\/15 \| 3\/450 \|/.test(r.table), 'báo cáo nêu kênh chưa nối + bảng tuần có mẫu số 450');
 ok(c.idle24 === 3 && c.rows.every(x => x.last24h === 0) && /KHÔNG có bài nào/.test(r.text) && r.idle.length === 3, 'kênh 24 giờ không có bài đẩy/đăng → báo (đỏ)');
 ok(/channel-idle-24h/.test(fs.readFileSync('scripts/social/coverage.mjs', 'utf8')) && /process\.exit\(1\)/.test(fs.readFileSync('scripts/social/coverage.mjs', 'utf8')), 'máy gác mở issue + làm đỏ CI khi có kênh 24 giờ im lặng');
 // ngôn ngữ + múi giờ kênh (16/11): tên bản ngữ nhận đúng ngôn ngữ, mỗi ngôn ngữ có múi giờ bản địa hợp lệ (kênh chưa lưu cfg.tz không còn theo New York)
