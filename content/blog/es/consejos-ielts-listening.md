@@ -151,6 +151,12 @@ Corrige estas respuestas escritas en una hoja de Listening:
 
 Si fallaste la 4 o la 5, dedica unos minutos diarios a dictados de números y plurales.
 
+Si harás el examen para un visado británico, aquí tienes la guía de [IELTS UKVI](/es/blog/ielts-ukvi-que-es-y-como-reservar/).
+
+Si quieres ver cómo encajar el Listening en un calendario semanal, consulta el [plan IELTS de 4, 8 y 12 semanas](/es/blog/plan-ielts-4-8-12-semanas/).
+
+Cuando quieras una estrategia concreta para cada formato de pregunta, sigue con [los tipos de preguntas IELTS Listening y cómo resolverlos](/es/blog/tipos-de-preguntas-ielts-listening/).
+
 ## Preguntas frecuentes
 
 ### ¿En IELTS Listening se puede escuchar el audio dos veces?
