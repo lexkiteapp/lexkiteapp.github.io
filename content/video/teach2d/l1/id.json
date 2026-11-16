@@ -464,7 +464,7 @@
     "answer_say": "For! I have worked here for three years.",
     "native": {
      "hook": "“Since two years”? Pakai “for”",
-     "tip": "“Sejak dua tahun” bukan since two years. Untuk lamanya waktu pakai for; since untuk titik awal (since 2020).",
+     "tip": "“Sejak dua tahun (lalu)” bukan since two years. Untuk lamanya waktu pakai for; since untuk titik awal (since 2020).",
      "caption": "Pernah bilang begini? “I have lived here since two years.” 😅 Untuk lamanya waktu, pakai for: “I have lived here for two years.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
      "comment": "Jawaban: “for”. Ceritakan sudah berapa lama kamu belajar bahasa Inggris dengan for. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
@@ -647,7 +647,7 @@
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Age? Say old!",
+    "hook_say": "Your age? Add old!",
     "wrong": "I am 25 years.",
     "right": "I am 25 years old.",
     "strike": "years",
@@ -664,7 +664,7 @@
     "answer_say": "Old! I am 30 years old.",
     "native": {
      "hook": "“25 years” kurang “old”",
-     "tip": "“25 tahun” saja belum cukup. Untuk umur, bilang I am 25 atau I am 25 years old, dua-duanya benar.",
+     "tip": "“Umur saya 25 tahun” jangan jadi I am 25 years. Bilang I am 25 atau I am 25 years old, dua-duanya benar.",
      "caption": "Pernah bilang begini? “I am 25 years.” 😅 Untuk umur, tambahkan old: “I am 25 years old.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
      "comment": "Jawaban: “old”. Sebutkan umurmu lengkap: “I am ... years old.” Latihan gratis lainnya di sini: {link}",
      "hashtags": [
@@ -676,7 +676,7 @@
     },
     "en": {
      "hook": "“25 years” needs “old”",
-     "tip": "“25 tahun” alone is not enough. For age, say I am 25 or I am 25 years old, both are right.",
+     "tip": "“Umur saya 25 tahun” is not I am 25 years. Say I am 25 or I am 25 years old, both are right.",
      "caption": "Ever say this? “I am 25 years.” 😅 For your age, add old: “I am 25 years old.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
@@ -756,7 +756,7 @@
     },
     "en": {
      "hook": "“I and my friend”? Flip the order",
-     "tip": "We say “saya dan teman saya”, so “I and my friend” appears. In English, name yourself last: my friend and I.",
+     "tip": "We say “saya dan teman saya”, so “I and my friend” often comes out. In English, name yourself last: my friend and I.",
      "caption": "Ever say this? “I and my friend are late.” 😅 Name yourself last: “My friend and I are late.” Listen to Ama and repeat! Practice more in the Lexkite app."
     }
    }
@@ -1104,7 +1104,7 @@
     "answer_say": "Fluently! She speaks English fluently.",
     "native": {
      "hook": "“Speak fluent”? Pakai “fluently”",
-     "tip": "Di bahasa Indonesia “lancar” tetap, tapi bahasa Inggris pakai -ly untuk kata kerja: fluently. (Bisa: I speak fluent English.)",
+     "tip": "Di bahasa Indonesia “lancar” tak berubah, tapi bahasa Inggris menambah -ly untuk kata kerja: fluently. (Bisa juga: I speak fluent English.)",
      "caption": "Pernah bilang begini? “I speak English fluent.” 😅 Untuk menjelaskan kata kerja, pakai fluently: “I speak English fluently.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
      "comment": "Jawaban: “fluently”. Coba bilang “I speak English slowly”, lalu fluently. Latihan gratis lainnya di sini: {link}",
      "hashtags": [
@@ -1116,7 +1116,7 @@
     },
     "en": {
      "hook": "“Speak fluent”? Use “fluently”",
-     "tip": "In Indonesian “lancar” stays the same, but English uses -ly for verbs: fluently. (Also OK: I speak fluent English.)",
+     "tip": "In Indonesian “lancar” never changes, but English adds -ly to describe a verb: fluently. (Also OK: I speak fluent English.)",
      "caption": "Ever say this? “I speak English fluent.” 😅 To describe a verb, use fluently: “I speak English fluently.” Listen to Carlos and repeat! Practice more in the Lexkite app."
     }
    }

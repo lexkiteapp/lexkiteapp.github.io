@@ -16157,7 +16157,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "Age? Say old!",
+    "h": "Your age? Add old!",
     "w": "Many learners say: I am 25 years.",
     "r": "Better: I am 25 years old.",
     "y": "Add old after years.",
@@ -16701,7 +16701,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "Two child? Fix it!",
+    "h": "Two child? Say two children!",
     "w": "Many learners say: I have two child.",
     "r": "Better: I have two children.",
     "y": "Child has a special plural: children.",
