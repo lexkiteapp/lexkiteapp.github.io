@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_attend",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Assist is a false friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I assisted the concert last night.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I attended the concert last night.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Assist means help. Attend means go to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Attended! I attended the party.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I assisted the concert last night.",
+  "right": "I attended the concert last night.",
+  "strike": "assisted",
+  "why": "Assist means help. Attend means go to.",
+  "memory": "Go to: attend.",
+  "quiz": {
+   "stem": "I went to the party. I ___ the party.",
+   "options": [
+    "assisted",
+    "attended"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "« Assister à » ≠ “assist”",
+   "tip": "En anglais, “assist” veut dire « aider ». Pour « assister à » un concert, employez “attend”.",
+   "caption": "Vous dites “I assisted the concert last night.” ? Le mot “assist” veut dire « aider », pas « assister à ». Pour dire que vous étiez présent, employez “attend”. Dites plutôt “I attended the concert last night.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “I attended the concert last night.” — “assist” veut dire « aider », pas « assister à ». Pour dire que vous étiez présent, employez “attend”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Assist” is a trap!",
+   "tip": "In English, “assist” means help. To say you were at an event, use “attend”.",
+   "caption": "Do you say this? “I assisted the concert last night.” In English, “assist” means help. To say you were at an event, use “attend”. Say “I attended the concert last night.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "« Assister à » ≠ “assist”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "« Assister à » ≠ “assist”",
+  "keyword": "I attended the concert last night.",
+  "value": "En anglais, “assist” veut dire « aider ». Pour « assister à » un concert, employez “attend”.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "« Assister à » ≠ “assist”",
+    "description": "En anglais, “assist” veut dire « aider ». Pour « assister à » un concert, employez “attend”.\n\nVous dites “I assisted the concert last night.” ? Le mot “assist” veut dire « aider », pas « assister à ». Pour dire que vous étiez présent, employez “attend”. Dites plutôt “I attended the concert last night.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "I attended the concert last night.",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Vous dites “I assisted the concert last night.” ? Le mot “assist” veut dire « aider », pas « assister à ». Pour dire que vous étiez présent, employez “attend”. Dites plutôt “I attended the concert last night.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "« Assister à » ≠ “assist”\n\nEn anglais, “assist” veut dire « aider ». Pour « assister à » un concert, employez “attend”.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "« Assister à » ≠ “assist” En anglais, “assist” veut dire « aider ». Pour « assister à » un concert,… #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “I attended the concert last night.” — “assist” veut dire « aider », pas « assister à ». Pour dire que vous étiez présent, employez “attend”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}

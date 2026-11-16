@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_lendme",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Borrow me a pen?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Can you borrow me a pen?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Can you lend me a pen?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "You lend to others. You borrow from others.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Borrow! Can you lend me a pen?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Can you borrow me a pen?",
+  "right": "Can you lend me a pen?",
+  "strike": "borrow",
+  "why": "You lend to others. You borrow from others.",
+  "memory": "Can you lend me a pen?",
+  "quiz": {
+   "stem": "I want to ___ your pen.",
+   "options": [
+    "lend",
+    "borrow"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "borrow と lend、どっち？",
+   "tip": "「貸す」は lend、「借りる」は borrow。方向が逆なので注意しましょう。",
+   "caption": "“Can you borrow me a pen?”と言っていませんか？😅 「貸して」と言いたいときに borrow を使ってしまいがちです。“Can you lend me a pen?” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“borrow”。“Can you lend me a pen?” を声に出して言ってみよう。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Borrow or lend?",
+   "tip": "Lend means you give it. Borrow means you take it.",
+   "caption": "Do you say this? “Can you borrow me a pen?” 😅 The two words go in opposite directions. The natural way is “Can you lend me a pen?” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "borrow と lend、どっち？"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 51,
+  "seconds": 30.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "borrow と lend、どっち？",
+  "keyword": "Can you lend me a pen?",
+  "value": "「貸す」は lend、「借りる」は borrow。方向が逆なので注意しましょう。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 45,
+  "platforms": {
+   "youtube": {
+    "title": "borrow と lend、どっち？",
+    "description": "「貸す」は lend、「借りる」は borrow。方向が逆なので注意しましょう。\n\n“Can you borrow me a pen?”と言っていませんか？😅 「貸して」と言いたいときに borrow を使ってしまいがちです。“Can you lend me a pen?” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "Can you lend me a pen?",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“Can you borrow me a pen?”と言っていませんか？😅 「貸して」と言いたいときに borrow を使ってしまいがちです。“Can you lend me a pen?” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "borrow と lend、どっち？\n\n「貸す」は lend、「借りる」は borrow。方向が逆なので注意しましょう。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "borrow と lend、どっち？ 「貸す」は lend、「借りる」は borrow。方向が逆なので注意しましょう。 #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“borrow”。“Can you lend me a pen?” を声に出して言ってみよう。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

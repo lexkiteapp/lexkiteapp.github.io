@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_actually",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Actually is a false friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Actually, I work in Paris.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Currently, I work in Paris.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Actually means in fact. Now is currently.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Currently! I currently live in Paris.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Actually, I work in Paris.",
+  "right": "Currently, I work in Paris.",
+  "strike": "Actually",
+  "why": "Actually means in fact. Now is currently.",
+  "memory": "Now: currently.",
+  "quiz": {
+   "stem": "Right now, I live in Paris. I ___ live in Paris.",
+   "options": [
+    "actually",
+    "currently"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Actually” ≠ « actuellement »",
+   "tip": "En anglais, “actually” veut dire « en fait ». Pour « actuellement », employez “currently”.",
+   "caption": "Vous dites “Actually, I work in Paris.” ? Le mot “actually” veut dire « en fait », pas « actuellement ». Pour parler de maintenant, employez “currently”. Dites plutôt “Currently, I work in Paris.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “Currently, I work in Paris.” — “actually” veut dire « en fait », pas « actuellement ». Pour parler de maintenant, employez “currently”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Actually” is a trap!",
+   "tip": "In English, “actually” means in fact. For right now, say “currently”.",
+   "caption": "Do you say this? “Actually, I work in Paris.” In English, “actually” means in fact. For right now, say “currently”. Say “Currently, I work in Paris.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Actually” ≠ « actuellement »"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“Actually” ≠ « actuellement »",
+  "keyword": "Currently, I work in Paris.",
+  "value": "En anglais, “actually” veut dire « en fait ». Pour « actuellement », employez “currently”.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "“Actually” ≠ « actuellement »",
+    "description": "En anglais, “actually” veut dire « en fait ». Pour « actuellement », employez “currently”.\n\nVous dites “Actually, I work in Paris.” ? Le mot “actually” veut dire « en fait », pas « actuellement ». Pour parler de maintenant, employez “currently”. Dites plutôt “Currently, I work in Paris.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "Currently, I work in Paris.",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Vous dites “Actually, I work in Paris.” ? Le mot “actually” veut dire « en fait », pas « actuellement ». Pour parler de maintenant, employez “currently”. Dites plutôt “Currently, I work in Paris.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Actually” ≠ « actuellement »\n\nEn anglais, “actually” veut dire « en fait ». Pour « actuellement », employez “currently”.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Actually” ≠ « actuellement » En anglais, “actually” veut dire « en fait ». Pour « actuellement », e… #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “Currently, I work in Paris.” — “actually” veut dire « en fait », pas « actuellement ». Pour parler de maintenant, employez “currently”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}

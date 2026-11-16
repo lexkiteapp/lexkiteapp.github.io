@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_saidme",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Told me, not said me!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: He said me he is late.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: He told me he is late.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Said me? Say told me.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Told! She told me her name.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "He said me he is late.",
+  "right": "He told me he is late.",
+  "strike": "said",
+  "why": "Said me? Say told me.",
+  "memory": "Told me.",
+  "quiz": {
+   "stem": "She ___ me her name.",
+   "options": [
+    "said",
+    "told"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Bilang ke saya” = “told me”",
+   "tip": "Kita bilang “dia bilang ke saya”, tapi bahasa Inggris pakai told me, bukan said me.",
+   "caption": "Pernah bilang begini? “He said me he is late.” 😅 Kalau ada me sesudahnya, pakai told: “He told me he is late.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “told”. Ucapkan dengan lantang: “He told me.” Lalu buat kalimat dengan told me tentang temanmu. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#katasehari",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Said me”? Use “told me”",
+   "tip": "We say “dia bilang ke saya”, but English uses told me, not said me.",
+   "caption": "Ever say this? “He said me he is late.” 😅 When me comes next, use told: “He told me he is late.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Bilang ke saya” = “told me”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“Bilang ke saya” = “told me”",
+  "keyword": "He told me he is late.",
+  "value": "Kita bilang “dia bilang ke saya”, tapi bahasa Inggris pakai told me, bukan said me.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#katasehari",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "“Bilang ke saya” = “told me”",
+    "description": "Kita bilang “dia bilang ke saya”, tapi bahasa Inggris pakai told me, bukan said me.\n\nPernah bilang begini? “He said me he is late.” 😅 Kalau ada me sesudahnya, pakai told: “He told me he is late.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #katasehari #bahasainggris #lexkite",
+    "tags": [
+     "He told me he is late.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “He said me he is late.” 😅 Kalau ada me sesudahnya, pakai told: “He told me he is late.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Bilang ke saya” = “told me”\n\nKita bilang “dia bilang ke saya”, tapi bahasa Inggris pakai told me, bukan said me.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#katasehari",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Bilang ke saya” = “told me” Kita bilang “dia bilang ke saya”, tapi bahasa Inggris pakai told me, bu… #belajarbahasainggris #katasehari #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “told”. Ucapkan dengan lantang: “He told me.” Lalu buat kalimat dengan told me tentang temanmu. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

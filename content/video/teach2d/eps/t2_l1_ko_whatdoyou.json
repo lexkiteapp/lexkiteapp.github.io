@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_whatdoyou",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Add do in questions!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: What you want to eat?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: What do you want to eat?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Questions need do.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Do! Where do you live?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "What you want to eat?",
+  "right": "What do you want to eat?",
+  "strike": "What you",
+  "why": "Questions need do.",
+  "memory": "What do you want?",
+  "quiz": {
+   "stem": "Where ___ you live?",
+   "options": [
+    "do",
+    "are"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "질문엔 do가 필요해요!",
+   "tip": "한국어는 “뭐 먹고 싶어?”처럼 어순을 바꾸지 않고 억양만 올려서, 영어도 do 없이 말하기 쉬워요. 이렇게 말해요 👉 “What do you want to eat?”",
+   "caption": "“What you want to eat?”처럼 말하고 있나요? 😅 한국어는 “뭐 먹고 싶어?”처럼 어순을 바꾸지 않고 억양만 올려서, 영어도 do 없이 말하기 쉬워요. 맞는 문장 ✅ “What do you want to eat?” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답: “do”! 이 표현을 넣어 소리 내어 한 문장 말해 보세요. 무료 퀴즈로 더 연습해요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Questions need do!",
+   "tip": "In a question, put do before you. Say “What do you want to eat?”",
+   "caption": "Do you say it like this? 😅 “What you want to eat?” In a question, put do before you. Right: “What do you want to eat?” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "질문엔 do가 필요해요!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "질문엔 do가 필요해요!",
+  "keyword": "What do you want to eat?",
+  "value": "한국어는 “뭐 먹고 싶어?”처럼 어순을 바꾸지 않고 억양만 올려서, 영어도 do 없이 말하기 쉬워요. 이렇게 말해요 👉 “What do you want to eat?”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "질문엔 do가 필요해요!",
+    "description": "한국어는 “뭐 먹고 싶어?”처럼 어순을 바꾸지 않고 억양만 올려서, 영어도 do 없이 말하기 쉬워요. 이렇게 말해요 👉 “What do you want to eat?”\n\n“What you want to eat?”처럼 말하고 있나요? 😅 한국어는 “뭐 먹고 싶어?”처럼 어순을 바꾸지 않고 억양만 올려서, 영어도 do 없이 말하기 쉬워요. 맞는 문장 ✅ “What do you want to eat?” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "What do you want to eat?",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“What you want to eat?”처럼 말하고 있나요? 😅 한국어는 “뭐 먹고 싶어?”처럼 어순을 바꾸지 않고 억양만 올려서, 영어도 do 없이 말하기 쉬워요. 맞는 문장 ✅ “What do you want to eat?” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "질문엔 do가 필요해요!\n\n한국어는 “뭐 먹고 싶어?”처럼 어순을 바꾸지 않고 억양만 올려서, 영어도 do 없이 말하기 쉬워요. 이렇게 말해요 👉 “What do you want to eat?”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "질문엔 do가 필요해요! 한국어는 “뭐 먹고 싶어?”처럼 어순을 바꾸지 않고 억양만 올려서, 영어도 do 없이 말하기 쉬워요. 이렇게 말해요 👉 “What do you want to eat?” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “do”! 이 표현을 넣어 소리 내어 한 문장 말해 보세요. 무료 퀴즈로 더 연습해요: {link}",
+  "lang": "ko"
+ }
+}

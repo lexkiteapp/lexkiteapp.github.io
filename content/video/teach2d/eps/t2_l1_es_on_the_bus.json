@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_on_the_bus",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "On the bus, not in the bus!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am in the bus now.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am on the bus now.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "For bus and train, say on.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "On! She is on the train.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am in the bus now.",
+  "right": "I am on the bus now.",
+  "strike": "in",
+  "why": "For bus and train, say on.",
+  "memory": "On the bus.",
+  "quiz": {
+   "stem": "She is ___ the train.",
+   "options": [
+    "in",
+    "on"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "¿“In the bus”? ¡Cuidado!",
+   "tip": "En español “en el autobús”, pero en inglés se dice “on the bus” y “on the train.”",
+   "caption": "Muchos dicen “I am in the bus now.” 🙈 En español “en el autobús”, pero en inglés para el autobús y el tren se usa “on”: “I am on the bus now.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “on”. Con autobús, tren y avión se usa “on”, no “in”. Escribe una frase tuya con “on”. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#preposiciones",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“In the bus”? Careful!",
+   "tip": "In Spanish it is “en el autobús”, but English says “on the bus” and “on the train.”",
+   "caption": "Many learners say “I am in the bus now.” In Spanish it is “en el autobús”, but for bus and train English uses “on”: “I am on the bus now.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿“In the bus”? ¡Cuidado!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 51,
+  "seconds": 30.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "¿“In the bus”? ¡Cuidado!",
+  "keyword": "I am on the bus now.",
+  "value": "En español “en el autobús”, pero en inglés se dice “on the bus” y “on the train.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#preposiciones",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 45,
+  "platforms": {
+   "youtube": {
+    "title": "¿“In the bus”? ¡Cuidado!",
+    "description": "En español “en el autobús”, pero en inglés se dice “on the bus” y “on the train.”\n\nMuchos dicen “I am in the bus now.” 🙈 En español “en el autobús”, pero en inglés para el autobús y el tren se usa “on”: “I am on the bus now.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #preposiciones #lexkite",
+    "tags": [
+     "I am on the bus now.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "Muchos dicen “I am in the bus now.” 🙈 En español “en el autobús”, pero en inglés para el autobús y el tren se usa “on”: “I am on the bus now.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "¿“In the bus”? ¡Cuidado!\n\nEn español “en el autobús”, pero en inglés se dice “on the bus” y “on the train.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#preposiciones",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿“In the bus”? ¡Cuidado! En español “en el autobús”, pero en inglés se dice “on the bus” y “on the train.” #aprenderingles #inglesfacil #preposiciones"
+   }
+  },
+  "first_comment": "Respuesta: “on”. Con autobús, tren y avión se usa “on”, no “in”. Escribe una frase tuya con “on”. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}

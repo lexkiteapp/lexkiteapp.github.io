@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_tag_isnt_it",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She is nice, isn't she?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She is nice, isn't it?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She is nice, isn't she?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "She goes with isn't she.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Isn't he. He is tired, isn't he?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She is nice, isn't it?",
+  "right": "She is nice, isn't she?",
+  "strike": "isn't it",
+  "why": "She goes with isn't she.",
+  "memory": "She is nice, isn't she?",
+  "quiz": {
+   "stem": "He is tired, ___?",
+   "options": [
+    "isn't it",
+    "isn't he"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Hep “isn't it?” deme!",
+   "tip": "Türkçede hep “değil mi?” deriz; İngilizcede sondaki soru cümlenin öznesine uyar: “She is nice, isn't she?”",
+   "caption": "“She is nice, isn't it?” mi diyorsun? 😅 Sondaki soru özneye uyar: “she” ile “isn't she” gelir. Doğrusu “She is nice, isn't she?” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “isn't he”. “Değil mi?” yerine özneye uyan soruyu kur. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do not always say “isn't it?”!",
+   "tip": "The short question at the end matches the subject: “She is nice, isn't she?”",
+   "caption": "Do you say “She is nice, isn't it?” 😅 In English the short question at the end matches the subject: she goes with isn't she. The right sentence is “She is nice, isn't she?” Listen to Ama and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Hep “isn't it?” deme!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Hep “isn't it?” deme!",
+  "keyword": "She is nice, isn't she?",
+  "value": "Türkçede hep “değil mi?” deriz; İngilizcede sondaki soru cümlenin öznesine uyar: “She is nice, isn't she?”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "Hep “isn't it?” deme!",
+    "description": "Türkçede hep “değil mi?” deriz; İngilizcede sondaki soru cümlenin öznesine uyar: “She is nice, isn't she?”\n\n“She is nice, isn't it?” mi diyorsun? 😅 Sondaki soru özneye uyar: “she” ile “isn't she” gelir. Doğrusu “She is nice, isn't she?” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "She is nice, isn't she?",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“She is nice, isn't it?” mi diyorsun? 😅 Sondaki soru özneye uyar: “she” ile “isn't she” gelir. Doğrusu “She is nice, isn't she?” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Hep “isn't it?” deme!\n\nTürkçede hep “değil mi?” deriz; İngilizcede sondaki soru cümlenin öznesine uyar: “She is nice, isn't she?”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Hep “isn't it?” deme! Türkçede hep “değil mi?” deriz; İngilizcede sondaki soru cümlenin öznesine uyar: “… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “isn't he”. “Değil mi?” yerine özneye uyan soruyu kur. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+  "lang": "tr"
+ }
+}

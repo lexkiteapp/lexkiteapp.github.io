@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_reallylike",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Really like, not very like!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I very like pizza.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I really like pizza.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Very does not go before like.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Really! I really like this song.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I very like pizza.",
+  "right": "I really like pizza.",
+  "strike": "very",
+  "why": "Very does not go before like.",
+  "memory": "I really like it.",
+  "quiz": {
+   "stem": "I ___ like this song.",
+   "options": [
+    "very",
+    "really"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "like 앞에 very 안 돼요!",
+   "tip": "한국어 “매우 좋아해요”는 부사 ‘매우’가 동사 앞에 와서 very like로 옮기기 쉬워요. 영어에선 really like나 like it very much라고 해요. 이렇게 말해요 👉 “I really like pizza.”",
+   "caption": "“I very like pizza.”처럼 말하고 있나요? 😅 한국어 “매우 좋아해요”는 부사 ‘매우’가 동사 앞에 와서 very like로 옮기기 쉬워요. 영어에선 really like나 like it very much라고 해요. 맞는 문장 ✅ “I really like pizza.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답: “really”! 이 표현으로 나만의 문장을 하나 써 보세요. 무료 퀴즈로 더 연습해요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do not say “very like”!",
+   "tip": "Use really before like, not very. Say “I really like pizza.”",
+   "caption": "Do you say it like this? 😅 “I very like pizza.” Use really before like, not very. Right: “I really like pizza.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "like 앞에 very 안 돼요!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "like 앞에 very 안 돼요!",
+  "keyword": "I really like pizza.",
+  "value": "한국어 “매우 좋아해요”는 부사 ‘매우’가 동사 앞에 와서 very like로 옮기기 쉬워요. 영어에선 really like나 like it very much라고 해요. 이렇게 말해요 👉 “I really like pizza.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "like 앞에 very 안 돼요!",
+    "description": "한국어 “매우 좋아해요”는 부사 ‘매우’가 동사 앞에 와서 very like로 옮기기 쉬워요. 영어에선 really like나 like it very much라고 해요. 이렇게 말해요 👉 “I really like pizza.”\n\n“I very like pizza.”처럼 말하고 있나요? 😅 한국어 “매우 좋아해요”는 부사 ‘매우’가 동사 앞에 와서 very like로 옮기기 쉬워요. 영어에선 really like나 like it very much라고 해요. 맞는 문장 ✅ “I really like pizza.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "I really like pizza.",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“I very like pizza.”처럼 말하고 있나요? 😅 한국어 “매우 좋아해요”는 부사 ‘매우’가 동사 앞에 와서 very like로 옮기기 쉬워요. 영어에선 really like나 like it very much라고 해요. 맞는 문장 ✅ “I really like pizza.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "like 앞에 very 안 돼요!\n\n한국어 “매우 좋아해요”는 부사 ‘매우’가 동사 앞에 와서 very like로 옮기기 쉬워요. 영어에선 really like나 like it very much라고 해요. 이렇게 말해요 👉 “I really like pizza.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "like 앞에 very 안 돼요! 한국어 “매우 좋아해요”는 부사 ‘매우’가 동사 앞에 와서 very like로 옮기기 쉬워요. 영어에선 really like나 like it very much라고 해요. 이렇게 말해요 👉 “I real… #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “really”! 이 표현으로 나만의 문장을 하나 써 보세요. 무료 퀴즈로 더 연습해요: {link}",
+  "lang": "ko"
+ }
+}

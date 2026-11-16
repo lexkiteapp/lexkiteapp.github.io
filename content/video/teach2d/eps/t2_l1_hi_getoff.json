@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_getoff",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Get off, not get down!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I will get down at the next stop.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I will get off at the next stop.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "We get off a bus.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Get off! I will get off at this stop.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I will get down at the next stop.",
+  "right": "I will get off at the next stop.",
+  "strike": "get down",
+  "why": "We get off a bus.",
+  "memory": "Get off the bus.",
+  "quiz": {
+   "stem": "I will ___ at this stop.",
+   "options": [
+    "get down",
+    "get off"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“get down” नहीं, “get off”!",
+   "tip": "हिंदी में “यहाँ उतरूँगा” को get down कह देते हैं; बस या ट्रेन से उतरने के लिए get off बोलें।",
+   "caption": "क्या आप भी यही कहते हैं? “I will get down at the next stop.” 😅 सही रूप है “I will get off at the next stop.” क्योंकि बस से उतरने के लिए get off आता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “get off”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “get off”, not “get down”!",
+   "tip": "Many learners say get down for a bus, but English says get off.",
+   "caption": "Do you say this? “I will get down at the next stop.” 😅 The right way is “I will get off at the next stop.” This is right because we get off a bus. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“get down” नहीं, “get off”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 55,
+  "seconds": 32.5,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "“get down” नहीं, “get off”!",
+  "keyword": "I will get off at the next stop.",
+  "value": "हिंदी में “यहाँ उतरूँगा” को get down कह देते हैं; बस या ट्रेन से उतरने के लिए get off बोलें।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 49,
+  "platforms": {
+   "youtube": {
+    "title": "“get down” नहीं, “get off”!",
+    "description": "हिंदी में “यहाँ उतरूँगा” को get down कह देते हैं; बस या ट्रेन से उतरने के लिए get off बोलें।\n\nक्या आप भी यही कहते हैं? “I will get down at the next stop.” 😅 सही रूप है “I will get off at the next stop.” क्योंकि बस से उतरने के लिए get off आता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "I will get off at the next stop.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी यही कहते हैं? “I will get down at the next stop.” 😅 सही रूप है “I will get off at the next stop.” क्योंकि बस से उतरने के लिए get off आता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“get down” नहीं, “get off”!\n\nहिंदी में “यहाँ उतरूँगा” को get down कह देते हैं; बस या ट्रेन से उतरने के लिए get off बोलें।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“get down” नहीं, “get off”! हिंदी में “यहाँ उतरूँगा” को get down कह देते हैं; बस या ट्रेन से उतरने के ल… #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “get off”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

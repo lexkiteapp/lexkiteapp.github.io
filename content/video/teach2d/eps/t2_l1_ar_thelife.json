@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "هل تقول “The life is”؟",
-   "tip": "مع الأشياء العامة لا نضع the: “Life is beautiful.” وليس “The life is beautiful.”.",
-   "caption": "هل تقول أحيانًا “The life is beautiful.” 😅 مع الأشياء العامة لا نضع the، فالجملة الصحيحة “Life is beautiful.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
-   "comment": "الإجابة: “Life”. مع الأشياء العامة لا نضع the. اختبار مجاني هنا: {link}",
+   "tip": "مع الأشياء العامة لا نضع the: “Life is beautiful.” وليس “The life is beautiful.”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “The life is beautiful” 😅 مع الأشياء العامة لا نضع the، فالجملة الصحيحة “Life is beautiful.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “Life” — مع الأشياء العامة لا نضع the. اختبار مجاني هنا: {link}",
    "hashtags": [
     "#تعلم_الانجليزية",
     "#اللغة_الانجليزية",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "Do you say “The life is beautiful”?",
-   "tip": "With general things we do not use the: “Life is beautiful.” not “The life is beautiful.”.",
-   "caption": "Do you sometimes say “The life is beautiful.” 😅 With general things we do not use the, so the right sentence is “Life is beautiful.” Listen to Ama and repeat! Practice more in the Lexkite app."
+   "hook": "Do you say “The life is”?",
+   "tip": "With general things we do not use the: “Life is beautiful.” not “The life is beautiful.”",
+   "caption": "Do you sometimes say this? “The life is beautiful” 😅 With general things we do not use the, so the right sentence is “Life is beautiful.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "هل تقول “The life is”؟",
   "keyword": "Life is beautiful.",
-  "value": "مع الأشياء العامة لا نضع the: “Life is beautiful.” وليس “The life is beautiful.”.",
+  "value": "مع الأشياء العامة لا نضع the: “Life is beautiful.” وليس “The life is beautiful.”",
   "hashtags": [
    "#تعلم_الانجليزية",
    "#اللغة_الانجليزية",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "هل تقول “The life is”؟",
-    "description": "هل تقول أحيانًا “The life is beautiful.” 😅 مع الأشياء العامة لا نضع the، فالجملة الصحيحة “Life is beautiful.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "description": "مع الأشياء العامة لا نضع the: “Life is beautiful.” وليس “The life is beautiful.”\n\nهل تقول أحيانًا هذه الجملة؟ “The life is beautiful” 😅 مع الأشياء العامة لا نضع the، فالجملة الصحيحة “Life is beautiful.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
     "tags": [
      "Life is beautiful.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "هل تقول أحيانًا “The life is beautiful.” 😅 مع الأشياء العامة لا نضع the، فالجملة الصحيحة “Life is beautiful.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "هل تقول أحيانًا هذه الجملة؟ “The life is beautiful” 😅 مع الأشياء العامة لا نضع the، فالجملة الصحيحة “Life is beautiful.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "هل تقول أحيانًا “The life is beautiful.” 😅 مع الأشياء العامة لا نضع the، فالجملة الصحيحة “Life is beautiful.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nlexkite.com",
+    "caption": "هل تقول “The life is”؟\n\nمع الأشياء العامة لا نضع the: “Life is beautiful.” وليس “The life is beautiful.”\n\nlexkite.com",
     "hashtags": [
      "#تعلم_الانجليزية",
      "#اللغة_الانجليزية",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "هل تقول “The life is”؟ #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+    "caption": "هل تقول “The life is”؟ مع الأشياء العامة لا نضع the: “Life is beautiful.” وليس “The life is beaut… #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
    }
   },
-  "first_comment": "الإجابة: “Life”. مع الأشياء العامة لا نضع the. اختبار مجاني هنا: {link}",
+  "first_comment": "الإجابة: “Life” — مع الأشياء العامة لا نضع the. اختبار مجاني هنا: {link}",
   "lang": "ar"
  }
 }

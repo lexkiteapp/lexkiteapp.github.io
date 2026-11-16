@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_dress",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One-piece is a dress!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I bought a one-piece for the party.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I bought a dress for the party.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say dress in English.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Dress! She has a blue dress.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I bought a one-piece for the party.",
+  "right": "I bought a dress for the party.",
+  "strike": "one-piece",
+  "why": "Say dress in English.",
+  "memory": "A dress.",
+  "quiz": {
+   "stem": "She has a blue ___.",
+   "options": [
+    "one-piece",
+    "dress"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "원피스는 dress예요!",
+   "tip": "한국어 ‘원피스’를 그대로 one-piece로 옮기기 쉬워요. 영어에서 원피스 옷은 dress라고 해요. 이렇게 말해요 👉 “I bought a dress for the party.”",
+   "caption": "“I bought a one-piece for the party.”처럼 말하고 있나요? 😅 한국어 ‘원피스’를 그대로 one-piece로 옮기기 쉬워요. 영어에서 원피스 옷은 dress라고 해요. 맞는 문장 ✅ “I bought a dress for the party.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답: “dress”! 이 표현으로 나만의 문장을 하나 써 보세요. 무료 퀴즈로 더 연습해요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say dress, not one-piece!",
+   "tip": "A one-piece dress is just a dress in English. Say “I bought a dress for the party.”",
+   "caption": "Do you say it like this? 😅 “I bought a one-piece for the party.” A one-piece dress is just a dress in English. Right: “I bought a dress for the party.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "원피스는 dress예요!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "원피스는 dress예요!",
+  "keyword": "I bought a dress for the party.",
+  "value": "한국어 ‘원피스’를 그대로 one-piece로 옮기기 쉬워요. 영어에서 원피스 옷은 dress라고 해요. 이렇게 말해요 👉 “I bought a dress for the party.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "원피스는 dress예요!",
+    "description": "한국어 ‘원피스’를 그대로 one-piece로 옮기기 쉬워요. 영어에서 원피스 옷은 dress라고 해요. 이렇게 말해요 👉 “I bought a dress for the party.”\n\n“I bought a one-piece for the party.”처럼 말하고 있나요? 😅 한국어 ‘원피스’를 그대로 one-piece로 옮기기 쉬워요. 영어에서 원피스 옷은 dress라고 해요. 맞는 문장 ✅ “I bought a dress for the party.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "I bought a dress for the party.",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“I bought a one-piece for the party.”처럼 말하고 있나요? 😅 한국어 ‘원피스’를 그대로 one-piece로 옮기기 쉬워요. 영어에서 원피스 옷은 dress라고 해요. 맞는 문장 ✅ “I bought a dress for the party.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "원피스는 dress예요!\n\n한국어 ‘원피스’를 그대로 one-piece로 옮기기 쉬워요. 영어에서 원피스 옷은 dress라고 해요. 이렇게 말해요 👉 “I bought a dress for the party.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "원피스는 dress예요! 한국어 ‘원피스’를 그대로 one-piece로 옮기기 쉬워요. 영어에서 원피스 옷은 dress라고 해요. 이렇게 말해요 👉 “I bought a dress for the party.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “dress”! 이 표현으로 나만의 문장을 하나 써 보세요. 무료 퀴즈로 더 연습해요: {link}",
+  "lang": "ko"
+ }
+}
