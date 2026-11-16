@@ -145,7 +145,11 @@ Poursuivez votre préparation en associant syntaxe et méthodologie :
 
 {{youtube: | Gợi ý video hướng dẫn cách viết câu phức Complex Sentences trong IELTS Writing Band 7+}}
 
+Pour savoir quelles fautes de grammaire coûtent le plus de points, lisez aussi les [erreurs IELTS Writing classées par critère](/fr/blog/erreurs-ielts-writing-task-1-et-2/).
+
 {{cta: /#/write | Rédigez et peaufinez vos phrases complexes dans l'atelier d'écriture Lexkite}}
+
+Pour placer ces structures dans un essai où l'on vous demande votre avis, voyez l'exemple commenté de l'[IELTS opinion essay](/fr/blog/ielts-opinion-essay-exprimer-son-avis/).
 
 ## Foire aux questions (FAQ)
 

@@ -28,10 +28,10 @@ export const AUTO_PLATS = ['facebook_page', 'instagram', 'tiktok', 'youtube', 't
 /** on = kill switch (TẮT → không gọi GrabCast gì cả) · auto_approve mặc định TẮT · TikTok BẬT (Direct Post duyệt 03/11/2026) · YouTube qua GrabCast tự bật khi workspace có kênh YouTube ok (yt_gc_auto; GrabCast qua audit YouTube 10/11/2026), plats.youtube = đường API trực tiếp. plan_daily BẬT: lịch tự xếp mỗi ngày (chỉ D1, không đăng gì khi chưa duyệt). */
 export const AUTO_DEFAULT = { on: true, auto_approve: false, auto_queue: false, manual_first: 1, plats: { facebook_page: true, instagram: true, tiktok: true, youtube: false, threads: false }, max_per_run: 3, lookahead_h: 30, lead_min: 20, sync_h: 3, daily_calls: 60, plan_daily: true, provider: 'auto', meta_daily: 80, meta_map: {}, yt_gc_auto: true, fc: FC_DEFAULT };
 export const PROVIDERS = ['auto', 'grabcast', 'meta'];
-/** Chủ 10/11/2026: "e tự duyệt tự đăng luôn … lên lịch sẵn … vài tháng". Áp MỘT lần lên cấu hình đang lưu (live có thể còn manual_first 1, autopub tắt):
- *  bỏ duyệt tay bài đầu, tự vào hàng, tự duyệt, autopub YouTube bật. Sau đó cấu hình mang policy → anh đổi gì ở Quản trị thì giữ nguyên. Công tắc khẩn `on` không đụng. */
-export const POLICY = 'owner-1011';
-export const ownerPolicy = a => { a = a && typeof a === 'object' ? a : {}; return a.policy === POLICY ? a : { ...a, policy: POLICY, auto_approve: true, auto_queue: true, manual_first: 0, autopub: { ...(a.autopub && typeof a.autopub === 'object' ? a.autopub : {}), youtube: true } }; };
+/** Chủ 10/11 + 16/11/2026: "tự duyệt tự đăng luôn … lên lịch sẵn" – fanpage 4–5 ngày không có video vì autopub chỉ bật YouTube: FB/IG/TikTok tạo bài nháp ở GrabCast rồi chờ duyệt mãi (log 16/11: tạo 3 · lên lịch 0 · chờ duyệt 3).
+ *  Áp MỘT lần lên cấu hình đang lưu (policy khác POLICY): bỏ duyệt tay bài đầu, tự vào hàng, tự duyệt, autopub BẬT cho FB + IG + TikTok + YouTube (cổng QC/policy ở autoQueue/approve giữ nguyên). Sau đó cấu hình mang policy → anh đổi gì ở Quản trị thì giữ nguyên. Công tắc khẩn `on` không đụng. */
+export const POLICY = 'owner-1116';
+export const ownerPolicy = a => { a = a && typeof a === 'object' ? a : {}; return a.policy === POLICY ? a : { ...a, policy: POLICY, auto_approve: true, auto_queue: true, manual_first: 0, autopub: { ...(a.autopub && typeof a.autopub === 'object' ? a.autopub : {}), facebook_page: true, instagram: true, tiktok: true, youtube: true } }; };
 const loadAuto = async db => cleanAuto(ownerPolicy(await getMeta(db, 'auto', AUTO_DEFAULT)));
 const clamp = (v, lo, hi, d) => { const n = Math.round(+v); return Number.isFinite(n) ? Math.max(lo, Math.min(hi, n)) : d; };
 export function cleanAuto(a) {

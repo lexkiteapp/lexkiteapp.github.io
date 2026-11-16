@@ -22,6 +22,7 @@ diagrams: [
   {id: d1, type: boxes, title: 'Present - Past - Future in about 75 seconds', parts: [{t: 'Present (20 sec)', r: 'what you do now and one strength'}, {t: 'Past (30 sec)', r: 'two or three steps that led here'}, {t: 'Future (20 sec)', r: 'why this role and this company'}]},
   {id: d2, type: compare, title: 'Same question, different wording', cols: ['Question you hear', 'What they really want', 'Start with'], rows: [['Tell me about yourself.', 'A short professional story', 'Currently, I work as...'], ['Can you introduce yourself?', 'Name, role, a little personality', 'Thanks for having me. I am...'], ['Walk me through your resume.', 'The path and your choices', 'I started out in...'], ['What brings you here today?', 'Your motivation for this role', 'I am looking for a role where...']]}
 ]
+publishAt: 2027-02-28T07:27:00+05:30
 ---
 
 A strong **tell me about yourself interview answer** has three parts: what you do now (present), how you got here (past), and why you want this job (future). Aim for about 60 to 90 seconds, keep it professional, and finish by linking your story to the role. You are not reading your whole CV aloud; you are choosing the three or four facts that make a hiring manager think "this person fits".
