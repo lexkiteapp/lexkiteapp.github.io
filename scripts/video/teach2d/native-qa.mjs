@@ -6,10 +6,16 @@ import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { VI, BAD } from '../../lib/i18n-rules.mjs';
 import { has } from '../../i18n-english.mjs';
+import { changedIds, rowsAt } from './qa-scope.mjs';
 
 const ROOT = fileURLToPath(new URL('../../../', import.meta.url)), J = f => JSON.parse(fs.readFileSync(ROOT + f, 'utf8'));
 const A = process.argv.slice(2), ONLINE = A.includes('--online'), WRITE = A.includes('--write'), ONLY = A.filter(x => !x.startsWith('--'));
-const rows = [J('content/video/teach2d/l1.json'), ...(fs.existsSync(ROOT + 'content/video/teach2d/l1') ? fs.readdirSync(ROOT + 'content/video/teach2d/l1').filter(f => f.endsWith('.json')).sort().map(f => J('content/video/teach2d/l1/' + f)) : [])].flatMap(x => x.rows).filter(r => !ONLY.length || ONLY.includes(r.id));
+const FILES = ['content/video/teach2d/l1.json', ...(fs.existsSync(ROOT + 'content/video/teach2d/l1') ? fs.readdirSync(ROOT + 'content/video/teach2d/l1').filter(f => f.endsWith('.json')).sort().map(f => 'content/video/teach2d/l1/' + f) : [])];
+const rows = FILES.flatMap(f => J(f).rows).filter(r => !ONLY.length || ONLY.includes(r.id));
+// --online-changed=<ref>: dịch ngược online CHỈ cho hàng thêm/sửa so với <ref> (PR); kiểm tĩnh vẫn chạy mọi hàng. Không đọc được <ref> → dịch ngược hết (không bỏ sót). Xem lib qa-scope.mjs.
+const REF = (A.find(x => x.startsWith('--online-changed=')) || '').split('=')[1];
+let SCOPE = null;
+if (REF && ONLINE) { SCOPE = new Set(); for (const f of FILES) { const c = changedIds(rowsAt(REF, f), J(f).rows); if (c === null) { SCOPE = null; console.log(`  (không đọc được ${REF}:${f} – dịch ngược TẤT CẢ hàng)`); break; } c.forEach(id => SCOPE.add(id)); } if (SCOPE) console.log(`  dịch ngược online: ${SCOPE.size}/${rows.length} hàng đổi so với ${REF}; còn lại chỉ kiểm tĩnh (kiểm đủ chạy ở main + lịch đêm)`); }
 const WN = J('content/dict/wordnet.json').words, senses = s => String(s).split(/[;；]/).map(x => x.split(/[,、，]/)[0].trim()).filter(Boolean);
 let lex = null;
 async function gloss(L, w, n) {
@@ -45,7 +51,7 @@ for (const r of rows) {
     not_english: L !== 'en' && sim(caption, enCap) < 0.6,   // bản địa phải thật sự khác bản tiếng Anh gốc
   };
   let bt = null;
-  if (ONLINE) {
+  if (ONLINE && (!SCOPE || SCOPE.has(r.id))) {
     bt = await back(L, [hook, tip, caption, ...used.map(u => u.gloss || '')]); const [bh, btip, bc] = bt || [], bg = (bt || []).slice(3);
     if (!bt) console.log(`  (${r.id}: gtx không trả lời – bỏ qua dịch ngược, các cổng tĩnh vẫn áp dụng)`);
     else g.backcheck_meaning = !!bc && sim(bc, enCap) >= 0.3 && sim(bh, E.hook) >= 0.2 && sim(btip, E.tip) >= 0.2;

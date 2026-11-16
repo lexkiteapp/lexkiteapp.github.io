@@ -144,6 +144,10 @@ Si te identificaste con la frase 5 pero no con la 2, estás en la franja B1–B2
 
 {{youtube: | Idea de video: la misma pregunta respondida en A2, B1, B2 y C1 para oír la diferencia}}
 
+Para conocer un examen concreto de nivel B2, consulta el [formato del Cambridge B2 First](/es/blog/cambridge-b2-first-formato-del-examen/).
+
+Si necesitas un nivel B2 para un trámite migratorio, la guía de [IELTS para inmigrar](/es/blog/ielts-para-inmigrar-version-y-nota/) explica qué versión y qué nota piden varios países.
+
 ## Preguntas frecuentes
 
 ### ¿Qué nivel de inglés se considera "nivel medio" en un CV?

@@ -164,3 +164,9 @@ IELTS Task 1は、以下の4つの評価項目（各25%）に基づいて厳格�
 | **単語を丸写しする** | 問題文の言い回しをそのままコピー | 同義語や品詞転換で高度にパラフレーズする |
 
 ライティング全体の総合力を高めるためには、[IELTS Writing複文の書き方](/ja/blog/ielts-writing-fukubun-complex-sentences-koutsu/)を学び、文章の滑らかな接続を助ける[英語の繋ぎ言葉（linking words）一覧](/ja/blog/eigo-tsunagikotoba-linking-words-ichiran/)や、客観的描写に不可欠な[英語の受動態（passive voice）](/ja/blog/eigo-judoutai-passive-voice-tsukaikata/)を習得しましょう。さらに[IELTSパラフレーズ言い換えのコツ](/ja/blog/ielts-paraphrase-iikae-koubun-kotsu/)を取り入れることで、目標バンドスコアの突破が現実のものとなります。語彙の補強には[/tu-vung/](/en/vocabulary/)もご活用ください。
+
+Task 1や Task 2で減点されやすい間違いを一覧で見たい人は、[IELTS ライティングのミス20選](/ja/blog/ielts-writing-miss-genten-taisaku/)も参考にしてください。
+
+棒グラフのレポートを、自作データの模範解答つきで確認したい方は、[IELTS ライティング 棒グラフの書き方](/ja/blog/ielts-writing-bougraph-kakikata-mohan-kaitou/)も合わせて読んでみてください。
+
+なお、数値データのないプロセス図（工程図）が出た場合の書き方は、[IELTS プロセス図の書き方](/ja/blog/ielts-process-diagram-kakikata/)で、受動態と順序表現を中心に解説しています。
