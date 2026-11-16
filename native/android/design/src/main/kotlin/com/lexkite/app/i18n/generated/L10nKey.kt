@@ -902,6 +902,8 @@ enum class L10nKey(val id: String) {
     verbTypeAVerbE("verb.typeAVerbE"),
     verbSearchForAVerb("verb.searchForAVerb"),
     verbConjugate("verb.conjugate"),
+    verbIrregularVerbs("verb.irregularVerbs"),
+    verbOpenIrregularTable("verb.openIrregularTable"),
     verbVerbSuggestions("verb.verbSuggestions"),
     verbIrregular("verb.irregular"),
     verbEnglishVerbConjugator("verb.englishVerbConjugator"),
