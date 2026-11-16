@@ -1,0 +1,129 @@
+{
+ "id": "t2a_mistake_30c60846",
+ "template": "mistake",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Stop saying your listening!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Thank you for your listening.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Thank you all for listening.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say thank you for listening, without your.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Listening! Thank you all for listening.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Thank you for your listening.",
+  "right": "Thank you all for listening.",
+  "strike": "your listening",
+  "why": "Say thank you for listening, without your.",
+  "memory": "THANK YOU FOR + -ING",
+  "quiz": {
+   "stem": "Thank you all for ___.",
+   "options": [
+    "your listening",
+    "listening"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Stop saying “your listening”"
+ },
+ "src": {
+  "gold": "sb_30c60846",
+  "pid": "cf:presenting:thanks-for-listening:x"
+ },
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Stop saying \"your listening\"? Say this instead",
+  "keyword": "your listening",
+  "value": "Say \"Thank you all for listening\", not \"Thank you for your listening\". Say thank you for listening, without your.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#englishgrammar",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "Stop saying \"your listening\"? Say this instead",
+    "description": "Say \"Thank you all for listening\", not \"Thank you for your listening\". Say thank you for listening, without your.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix\n\nSeries: Stop Saying This · Teacher: Ama\n\n#learnenglish #englishtips #englishgrammar #englishteacher",
+    "tags": [
+     "your listening",
+     "Stop Saying This",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Stop saying \"your listening\"? Say this instead\n\nSay \"Thank you all for listening\", not \"Thank you for your listening\". Say thank you for listening, without your.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Stop saying \"your listening\"? Say this instead\n\nSay \"Thank you all for listening\", not \"Thank you for your listening\". Say thank you for listening, without your.\n\nCheck your grammar: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#englishgrammar",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Stop saying \"your listening\"? Say this instead #learnenglish #englishtips #englishgrammar"
+   }
+  },
+  "first_comment": "Quiz answer: Listening! Thank you all for listening. Say \"Thank you all for listening\", not \"Thank you for your listening\". Say thank you for listening, without your. Practice it with a free quiz: {link}"
+ }
+}

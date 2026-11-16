@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_letswego",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Just say let's go!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Let's we go!",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Let's go!",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Let's already has us.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Let's! Let's eat now!",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Let's we go!",
+  "right": "Let's go!",
+  "strike": "we",
+  "why": "Let's already has us.",
+  "memory": "Let's = let us.",
+  "quiz": {
+   "stem": "___ eat now!",
+   "options": [
+    "Let's",
+    "Let's we"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Let's we go”? Buang “we”",
+   "tip": "“Ayo kita pergi” jadi let's we go, padahal let's = let us, sudah ada “kita”.",
+   "caption": "Pernah bilang begini? “Let's we go!” 😅 Let's sudah berarti let us, jadi cukup: “Let's go!” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “Let's”. Ajak temanmu dengan “Let's ...!” Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#grammaringgris",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Let's we go”? Drop “we”",
+   "tip": "“Ayo kita pergi” becomes let's we go, but let's = let us, so “we” is already inside.",
+   "caption": "Ever say this? “Let's we go!” 😅 Let's already means let us, so just say: “Let's go!” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Let's we go”? Buang “we”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 37,
+  "seconds": 23.7,
+  "wpm": 94
+ },
+ "publish": {
+  "title": "“Let's we go”? Buang “we”",
+  "keyword": "Let's go!",
+  "value": "“Ayo kita pergi” jadi let's we go, padahal let's = let us, sudah ada “kita”.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#grammaringgris",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 31,
+  "platforms": {
+   "youtube": {
+    "title": "“Let's we go”? Buang “we”",
+    "description": "“Ayo kita pergi” jadi let's we go, padahal let's = let us, sudah ada “kita”.\n\nPernah bilang begini? “Let's we go!” 😅 Let's sudah berarti let us, jadi cukup: “Let's go!” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #grammaringgris #bahasainggris #lexkite",
+    "tags": [
+     "Let's go!",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “Let's we go!” 😅 Let's sudah berarti let us, jadi cukup: “Let's go!” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Let's we go”? Buang “we”\n\n“Ayo kita pergi” jadi let's we go, padahal let's = let us, sudah ada “kita”.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#grammaringgris",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Let's we go”? Buang “we” “Ayo kita pergi” jadi let's we go, padahal let's = let us, sudah ada “… #belajarbahasainggris #grammaringgris #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “Let's”. Ajak temanmu dengan “Let's ...!” Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

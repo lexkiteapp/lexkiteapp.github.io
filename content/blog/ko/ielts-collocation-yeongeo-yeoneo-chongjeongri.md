@@ -124,6 +124,10 @@ IELTS Writing Task 2에서 가장 높은 출제 빈도를 자랑하는 핵심 �
 3. **간격 반복 알고리즘으로 장기 기억화하기:** Lexkite의 [Smart Learn](/#/practice/learn) 모듈을 이용하면, [gangeok banbok daneo amgi fsrs](/ko/blog/gangeok-banbok-daneo-amgi-fsrs/) 주기에 맞춰 망각 직전에 퀴즈를 제시해 기억을 고착화시켜 줍니다.
 4. **실전 에세이 작성 및 패러프레이징 훈련:** [ielts writing bokhabmun complex sentences](/ko/blog/ielts-writing-bokhabmun-complex-sentences/) 구조와 [ielts paraphrasing mandeulgi bibeop](/ko/blog/ielts-paraphrasing-mandeulgi-bibeop/) 기술을 접목하여 자신만의 문장을 직접 만들어 보세요. 체계적인 문법 정리가 필요할 때는 당사 사이트의 [/ngu-phap/](/ngu-phap/) 문법 자료실을 활용하실 수 있습니다.
 
+have an effect on, be affected by 같은 짝은 [affect effect 차이](/ko/blog/affect-effect-chai-gubunbeop/) 글에서 예문과 함께 다시 정리했습니다.
+
+콜로케이션과 함께 외울 학술 어휘 목록이 필요하다면 [아카데믹 워드 리스트(AWL) 공부법](/ko/blog/awl-akademik-weodeu-riseuteu-gongbubeop/)에서 서브리스트별 학습 순서를 확인해 보세요.
+
 ## 자주 묻는 질문 (FAQ)
 
 ### Task 2 에세이 한 편에 콜로케이션을 몇 개나 써야 하나요?

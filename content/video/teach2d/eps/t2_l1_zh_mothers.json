@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_mothers",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "He, she, it needs s!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: My mother like tea.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My mother likes tea.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "With he or she, add s.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Likes! My brother likes coffee.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "My mother like tea.",
+  "right": "My mother likes tea.",
+  "strike": "mother like",
+  "why": "With he or she, add s.",
+  "memory": "My mother likes tea.",
+  "quiz": {
+   "stem": "My brother ___ coffee.",
+   "options": [
+    "like",
+    "likes"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "第三人称单数，动词加 s！",
+   "tip": "中文动词不变形；英语一般现在时，主语是 he/she/it 或单数名词（如 my mother）时，动词要加 s。",
+   "caption": "你是不是也会说 “My mother like tea.”？😅 中文里“我妈妈喜欢喝茶”动词不会变，英语一般现在时，主语是单数第三人称，动词要加 s：“My mother likes tea.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“My mother likes tea.”免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "One person, likes!",
+   "tip": "With he, she or one person, the verb needs s.",
+   "caption": "Do you say “My mother like tea.”? 😅 With one person like my mother, the verb needs s: “My mother likes tea.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "第三人称单数，动词加 s！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "第三人称单数，动词加 s！",
+  "keyword": "My mother likes tea.",
+  "value": "中文动词不变形；英语一般现在时，主语是 he/she/it 或单数名词（如 my mother）时，动词要加 s。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "第三人称单数，动词加 s！",
+    "description": "你是不是也会说 “My mother like tea.”？😅 中文里“我妈妈喜欢喝茶”动词不会变，英语一般现在时，主语是单数第三人称，动词要加 s：“My mother likes tea.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "My mother likes tea.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “My mother like tea.”？😅 中文里“我妈妈喜欢喝茶”动词不会变，英语一般现在时，主语是单数第三人称，动词要加 s：“My mother likes tea.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "你是不是也会说 “My mother like tea.”？😅 中文里“我妈妈喜欢喝茶”动词不会变，英语一般现在时，主语是单数第三人称，动词要加 s：“My mother likes tea.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "第三人称单数，动词加 s！ #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“My mother likes tea.”免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

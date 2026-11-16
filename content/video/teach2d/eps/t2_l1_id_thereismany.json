@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_thereismany",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "There ARE many people!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: There is many people here.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: There are many people here.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Many people? Use are.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Are! There are many cars.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "There is many people here.",
+  "right": "There are many people here.",
+  "strike": "is",
+  "why": "Many people? Use are.",
+  "memory": "Many: there are.",
+  "quiz": {
+   "stem": "There ___ many cars.",
+   "options": [
+    "is",
+    "are"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Banyak orang → “are”!",
+   "tip": "Bahasa Indonesia pakai “ada” untuk satu atau banyak, tapi bahasa Inggris pakai there are untuk jamak.",
+   "caption": "Pernah bilang begini? “There is many people here.” 😅 Untuk banyak, pakai there are: “There are many people here.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “are”. Lihat sekitarmu dan bilang “There are ...” Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#grammaringgris",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Many people: say “are”!",
+   "tip": "Indonesian uses “ada” for one or many, but English uses there are for plural.",
+   "caption": "Ever say this? “There is many people here.” 😅 For many, use there are: “There are many people here.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Banyak orang → “are”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "Banyak orang → “are”!",
+  "keyword": "There are many people here.",
+  "value": "Bahasa Indonesia pakai “ada” untuk satu atau banyak, tapi bahasa Inggris pakai there are untuk jamak.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#grammaringgris",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "Banyak orang → “are”!",
+    "description": "Bahasa Indonesia pakai “ada” untuk satu atau banyak, tapi bahasa Inggris pakai there are untuk jamak.\n\nPernah bilang begini? “There is many people here.” 😅 Untuk banyak, pakai there are: “There are many people here.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #grammaringgris #bahasainggris #lexkite",
+    "tags": [
+     "There are many people here.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “There is many people here.” 😅 Untuk banyak, pakai there are: “There are many people here.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Banyak orang → “are”!\n\nBahasa Indonesia pakai “ada” untuk satu atau banyak, tapi bahasa Inggris pakai there are untuk jamak.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#grammaringgris",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Banyak orang → “are”! Bahasa Indonesia pakai “ada” untuk satu atau banyak, tapi bahasa Inggris p… #belajarbahasainggris #grammaringgris #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “are”. Lihat sekitarmu dan bilang “There are ...” Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

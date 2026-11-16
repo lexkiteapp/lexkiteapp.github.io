@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_be_right",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Have reason? You are right!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: You have reason.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: You are right.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say you are right.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Are! You are right.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "You have reason.",
+  "right": "You are right.",
+  "strike": "have reason",
+  "why": "Say you are right.",
+  "memory": "Be right.",
+  "quiz": {
+   "stem": "You ___ right.",
+   "options": [
+    "have",
+    "are"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Tener razón” = “be right”",
+   "tip": "En español “tienes razón”, pero en inglés no se dice “have reason”: se dice “you are right.”",
+   "caption": "🙈 Error común: “You have reason.” “Tener razón” se traduce con el verbo “be”: “You are right.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “are”. Para “tener razón” usa “be right”, nunca “have reason”. Escribe una frase tuya con “are” o dila en voz alta: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#vocabulario",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Tener razón” = “be right”",
+   "tip": "Learners say “tienes razón” with have, but English says “you are right.”",
+   "caption": "Common mistake: “You have reason.” “Tener razón” uses “be” in English: “You are right.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Tener razón” = “be right”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 39,
+  "seconds": 24.7,
+  "wpm": 95
+ },
+ "publish": {
+  "title": "“Tener razón” = “be right”",
+  "keyword": "You are right.",
+  "value": "En español “tienes razón”, pero en inglés no se dice “have reason”: se dice “you are right.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#vocabulario",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 33,
+  "platforms": {
+   "youtube": {
+    "title": "“Tener razón” = “be right”",
+    "description": "En español “tienes razón”, pero en inglés no se dice “have reason”: se dice “you are right.”\n\n🙈 Error común: “You have reason.” “Tener razón” se traduce con el verbo “be”: “You are right.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
+    "tags": [
+     "You are right.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "🙈 Error común: “You have reason.” “Tener razón” se traduce con el verbo “be”: “You are right.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Tener razón” = “be right”\n\nEn español “tienes razón”, pero en inglés no se dice “have reason”: se dice “you are right.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#vocabulario",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Tener razón” = “be right” En español “tienes razón”, pero en inglés no se dice “have reason”: se dice “you… #aprenderingles #inglesfacil #vocabulario"
+   }
+  },
+  "first_comment": "Respuesta: “are”. Para “tener razón” usa “be right”, nunca “have reason”. Escribe una frase tuya con “are” o dila en voz alta: {link}",
+  "lang": "es"
+ }
+}

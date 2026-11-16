@@ -1,0 +1,290 @@
+{
+ "id": "mo_bm_native_sb_033d190d",
+ "template": "native",
+ "title": "Motion native – tracking number (n): a number used to follow the progress of a shipmen (sb_033d190d)",
+ "teacher": "ama",
+ "clips": [
+  "ga11_talk",
+  "ga11_explain",
+  "ga11_happy",
+  "ga11_thinking",
+  "ga11_surprise_3"
+ ],
+ "listen": [
+  "ga11_listen_2"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy",
+ "active": "mint",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "situational",
+  "link": "https://lexkite.com/app/",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Shopping",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "Natives never say 'follow number",
+   "gap": 0.7
+  },
+  {
+   "id": "x",
+   "text": "Textbook: What is my follow number?",
+   "gap": 0.7
+  },
+  {
+   "id": "b",
+   "text": "Natural: What is my tracking number?",
+   "gap": 0.7
+  },
+  {
+   "id": "w",
+   "text": "You track a package with a tracking number.",
+   "gap": 0.7
+  },
+  {
+   "id": "a",
+   "text": "Track means follow the path of something!",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "Natives",
+      "white"
+     ]
+    ],
+    [
+     [
+      "never say",
+      "yellow"
+     ]
+    ],
+    [
+     [
+      "'follow",
+      "yellow"
+     ]
+    ],
+    [
+     [
+      "number",
+      "yellow"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Sound natural",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "Natives"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "never say"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "'follow"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "number"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "sum",
+    "at": [
+     "w",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Why",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "You track a package with a tracking number."
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "rules",
+    "at": [
+     "x",
+     0
+    ],
+    "rows": [
+     {
+      "t": "tile",
+      "tag": "TEXTBOOK",
+      "tone": "gold",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "What is my follow number?",
+        "gold"
+       ]
+      ],
+      "ex_at": [
+       "x",
+       1
+      ],
+      "at": [
+       "x",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "NATURAL",
+      "tone": "teal",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "What is my tracking number?",
+        "teal"
+       ]
+      ],
+      "ex_at": [
+       "b",
+       1
+      ],
+      "at": [
+       "b",
+       0
+      ]
+     }
+    ]
+   }
+  ],
+  "hook_text": "Natives never say 'follow number",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ },
+ "uses": {
+  "template": "native",
+  "row": "sb_033d190d",
+  "teacher": "ama",
+  "accent": "navy",
+  "active": "mint",
+  "tones": 2
+ }
+}

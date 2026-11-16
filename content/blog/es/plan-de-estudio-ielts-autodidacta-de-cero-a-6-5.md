@@ -90,6 +90,12 @@ Al mantener este ritmo durante 16 a 24 semanas consecutivas, tu capacidad de res
 
 {{youtube: | Plan de estudio IELTS autodidacta de cero a 6.5 paso a paso}}
 
+Para un visado del Reino Unido, comprueba también si te piden [IELTS UKVI](/es/blog/ielts-ukvi-que-es-y-como-reservar/) antes de fijar tu fecha de examen.
+
+Si tu examen está cerca, el [plan IELTS de 4, 8 y 12 semanas](/es/blog/plan-ielts-4-8-12-semanas/) adapta este calendario a un plazo fijo. Y si tu meta es un trámite migratorio, empieza por [IELTS para inmigrar](/es/blog/ielts-para-inmigrar-version-y-nota/).
+
+Antes de fijar tu calendario, entiende [cómo se calcula la nota de IELTS](/es/blog/como-se-calcula-la-nota-de-ielts-band/) para calcular qué destreza necesita más horas y no malgastar tu tiempo de estudio.
+
 ## Preguntas frecuentes sobre la preparación autodidacta del IELTS
 
 ### ¿Cuántos meses se necesitan para pasar de nivel básico a band 6.5?

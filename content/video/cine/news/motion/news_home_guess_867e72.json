@@ -1,0 +1,230 @@
+{
+ "id": "mo_news_home_guess_867e72",
+ "template": "mistake",
+ "title": "News Motion – in case (news_home_guess_867e72)",
+ "teacher": "ama",
+ "clips": [
+  "ga11_talk",
+  "ga11_explain",
+  "ga11_happy",
+  "ga11_thinking",
+  "ga11_surprise_3"
+ ],
+ "listen": [
+  "ga11_listen_2"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy2",
+ "active": "mint",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "grammar-check",
+  "link": "",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Grammar Fix",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "Guess before I tell you"
+  },
+  {
+   "id": "b0",
+   "text": "Many learners say: Take an umbrella if it rains.",
+   "gap": 0.7
+  },
+  {
+   "id": "b1",
+   "text": "Pause and guess. What sounds right?",
+   "gap": 0.7
+  },
+  {
+   "id": "b2",
+   "text": "Say: Take an umbrella in case it rains.",
+   "gap": 0.7
+  },
+  {
+   "id": "b3",
+   "text": "In case means: be ready, just to be safe.",
+   "gap": 0.7
+  },
+  {
+   "id": "b4",
+   "text": "Is 'Take an umbrella if it rains' correct? No.",
+   "gap": 0.7
+  },
+  {
+   "id": "b5",
+   "text": "Repeat after me: Take an umbrella in case it rains.",
+   "gap": 0.7
+  },
+  {
+   "id": "b6",
+   "text": "Now at normal speed: Take an umbrella in case it rains.",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "Take an umbrella if it rains.",
+      "white"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Common mistake",
+      "tone": "coral"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "Take an umbrella "
+       ],
+       [
+        "if",
+        "ink"
+       ],
+       [
+        " it rains."
+       ]
+      ]
+     }
+    ],
+    "strike": [
+     {
+      "line": 0,
+      "run": 1,
+      "at": [
+       "b0",
+       6
+      ]
+     }
+    ]
+   },
+   {
+    "id": "no",
+    "at": [
+     "b5",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Also say",
+      "tone": "teal"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "Take an umbrella in case it rains.",
+        "teal"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "better",
+    "at": [
+     "b2",
+     0
+    ],
+    "tone": "green",
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Better",
+      "tone": "green"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "Take an umbrella in case it rains.",
+        "green"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "hook_text": "Take an umbrella if it rains.",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ }
+}

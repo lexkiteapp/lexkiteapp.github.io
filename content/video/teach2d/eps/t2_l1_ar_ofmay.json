@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_ofmay",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say the month, then the day!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I was born on 5 of May.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I was born on May 5.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say the month, then the day.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! My birthday is May 5.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I was born on 5 of May.",
+  "right": "I was born on May 5.",
+  "strike": "5 of May",
+  "why": "Say the month, then the day.",
+  "memory": "May 5. May 1.",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "My birthday is 5 of May.",
+    "My birthday is May 5."
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "هل تقول “5 of May”؟",
+   "tip": "نقول «الخامس من مايو»، أما في الإنجليزية الأمريكية فنقول الشهر ثم اليوم: “I was born on May 5.” وليس “I was born on 5 of May.”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “I was born on 5 of May.” 😅 نقول «الخامس من مايو»، أما في الإنجليزية الأمريكية فنقول الشهر ثم اليوم، فالجملة الصحيحة “I was born on May 5.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “My birthday is May 5.” — نقول «الخامس من مايو»، أما في الإنجليزية الأمريكية فنقول الشهر ثم اليوم. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “5 of May”?",
+   "tip": "In Arabic we say «الخامس من مايو», but in American English we say the month first, then the day: “I was born on May 5.” not “I was born on 5 of May.”",
+   "caption": "Do you sometimes say this? “I was born on 5 of May.” 😅 In Arabic we say «الخامس من مايو», but in American English we say the month first, then the day, so the right sentence is “I was born on May 5.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “5 of May”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "هل تقول “5 of May”؟",
+  "keyword": "I was born on May 5.",
+  "value": "نقول «الخامس من مايو»، أما في الإنجليزية الأمريكية فنقول الشهر ثم اليوم: “I was born on May 5.” وليس “I was born on 5 of May.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 46,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “5 of May”؟",
+    "description": "نقول «الخامس من مايو»، أما في الإنجليزية الأمريكية فنقول الشهر ثم اليوم: “I was born on May 5.” وليس “I was born on 5 of May.”\n\nهل تقول أحيانًا هذه الجملة؟ “I was born on 5 of May.” 😅 نقول «الخامس من مايو»، أما في الإنجليزية الأمريكية فنقول الشهر ثم اليوم، فالجملة الصحيحة “I was born on May 5.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "I was born on May 5.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا هذه الجملة؟ “I was born on 5 of May.” 😅 نقول «الخامس من مايو»، أما في الإنجليزية الأمريكية فنقول الشهر ثم اليوم، فالجملة الصحيحة “I was born on May 5.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول “5 of May”؟\n\nنقول «الخامس من مايو»، أما في الإنجليزية الأمريكية فنقول الشهر ثم اليوم: “I was born on May 5.” وليس “I was born on 5 of May.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “5 of May”؟ نقول «الخامس من مايو»، أما في الإنجليزية الأمريكية فنقول الشهر ثم اليوم: “I w… #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “My birthday is May 5.” — نقول «الخامس من مايو»، أما في الإنجليزية الأمريكية فنقول الشهر ثم اليوم. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+  "lang": "ar"
+ }
+}

@@ -196,6 +196,12 @@ Para organizar tus semanas, consulta el [plan de autoestudio TOEIC](/es/blog/pla
 
 {{youtube: | Estrategias de TOEIC Part 5 para responder en 20 segundos}}
 
+Para trabajar la pasiva que aparece también en las fotografías del Listening, consulta [TOEIC parte 1 fotografías](/es/blog/toeic-parte-1-fotografias-trucos-y-practica/).
+
+Para situar la Parte 5 dentro del conjunto, repasa el [formato del examen TOEIC: siete partes y puntuación](/es/blog/formato-del-examen-toeic-partes-y-puntuacion/).
+
+Si también quieres mejorar tu puntuación de Listening, consulta las estrategias para [TOEIC parte 3 y 4](/es/blog/toeic-parte-3-y-4-estrategias/).
+
 ## Preguntas frecuentes
 
 ### ¿Qué debo hacer si no conozco ninguna de las cuatro palabras en una pregunta de vocabulario?

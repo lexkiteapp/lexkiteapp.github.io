@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_thanksfor",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Thank you, not thanks you!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Thanks you very much.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Thank you very much.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say thank you.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Thank you! Thank you very much.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Thanks you very much.",
+  "right": "Thank you very much.",
+  "strike": "Thanks",
+  "why": "Say thank you.",
+  "memory": "Thank you.",
+  "quiz": {
+   "stem": "___ very much.",
+   "options": [
+    "Thanks you",
+    "Thank you"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "谢谢你要说 Thank you！",
+   "tip": "中文说“谢谢你”，很多人就直译成 thanks you。英语要说 Thank you，或者只说 Thanks。",
+   "caption": "你是不是也会说 “Thanks you very much.”😅 中文说“谢谢你”，但英语要说 Thank you：“Thank you very much.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“Thank you very much.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say thank you!",
+   "tip": "In Chinese, you say “thanks” and “you,” so many learners say “thanks you.” English says “thank you” or just “thanks.”",
+   "caption": "Do you say “Thanks you very much.” 😅 English says thank you: “Thank you very much.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "谢谢你要说 Thank you！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "谢谢你要说 Thank you！",
+  "keyword": "Thank you very much.",
+  "value": "中文说“谢谢你”，很多人就直译成 thanks you。英语要说 Thank you，或者只说 Thanks。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "谢谢你要说 Thank you！",
+    "description": "中文说“谢谢你”，很多人就直译成 thanks you。英语要说 Thank you，或者只说 Thanks。\n\n你是不是也会说 “Thanks you very much.”😅 中文说“谢谢你”，但英语要说 Thank you：“Thank you very much.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "Thank you very much.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “Thanks you very much.”😅 中文说“谢谢你”，但英语要说 Thank you：“Thank you very much.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "谢谢你要说 Thank you！\n\n中文说“谢谢你”，很多人就直译成 thanks you。英语要说 Thank you，或者只说 Thanks。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "谢谢你要说 Thank you！ 中文说“谢谢你”，很多人就直译成 thanks you。英语要说 Thank you，或者只说 Thanks。 #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“Thank you very much.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

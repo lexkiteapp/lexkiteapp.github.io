@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_have_never_been",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "I have never been there!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I never have been to the sea.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have never been to the sea.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Never goes after have.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Has never! She has never seen snow.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I never have been to the sea.",
+  "right": "I have never been to the sea.",
+  "strike": "never have",
+  "why": "Never goes after have.",
+  "memory": "Have never.",
+  "quiz": {
+   "stem": "She ___ seen snow.",
+   "options": [
+    "never has",
+    "has never"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "¿“I never have been”? ¡Ojo!",
+   "tip": "En español “nunca he estado”, pero en inglés “never” va después de “have”: “have never been.”",
+   "caption": "Muchos dicen “I never have been to the sea.” 🙈 En español “nunca he estado” pone “nunca” antes, pero en inglés “never” va después de “have”: “I have never been to the sea.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “have never”. “Never” va entre “have” y el verbo: “have never been”. Di en voz alta una frase tuya con “have never”. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#gramatica",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“I never have been”? Careful!",
+   "tip": "In Spanish “nunca he estado” puts “nunca” first, but in English “never” goes after “have”: “have never been.”",
+   "caption": "Many learners say “I never have been to the sea.” In Spanish “nunca he estado” puts “nunca” first, but in English “never” goes after “have”: “I have never been to the sea.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿“I never have been”? ¡Ojo!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "¿“I never have been”? ¡Ojo!",
+  "keyword": "I have never been to the sea.",
+  "value": "En español “nunca he estado”, pero en inglés “never” va después de “have”: “have never been.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#gramatica",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "¿“I never have been”? ¡Ojo!",
+    "description": "En español “nunca he estado”, pero en inglés “never” va después de “have”: “have never been.”\n\nMuchos dicen “I never have been to the sea.” 🙈 En español “nunca he estado” pone “nunca” antes, pero en inglés “never” va después de “have”: “I have never been to the sea.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #gramatica #lexkite",
+    "tags": [
+     "I have never been to the sea.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "Muchos dicen “I never have been to the sea.” 🙈 En español “nunca he estado” pone “nunca” antes, pero en inglés “never” va después de “have”: “I have never been to the sea.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "¿“I never have been”? ¡Ojo!\n\nEn español “nunca he estado”, pero en inglés “never” va después de “have”: “have never been.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#gramatica",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿“I never have been”? ¡Ojo! En español “nunca he estado”, pero en inglés “never” va después de “have”: “have… #aprenderingles #inglesfacil #gramatica"
+   }
+  },
+  "first_comment": "Respuesta: “have never”. “Never” va entre “have” y el verbo: “have never been”. Di en voz alta una frase tuya con “have never”. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}

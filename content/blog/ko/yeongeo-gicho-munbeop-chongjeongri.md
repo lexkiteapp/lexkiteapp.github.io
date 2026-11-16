@@ -164,6 +164,8 @@ publishAt: 2026-10-23T09:09:00+09:00
 4. **C. has worked:** *since last month*(지난달 이래로)라는 기준 시점 표현이 있으므로 과거부터 지금까지 이어지는 현재완료가 적절합니다.
 5. **A. easier:** *make*가 5형식 사역동사로 쓰여 목적어 *the difficult situation* 뒤에 형용사 보어인 비교급 형용사 *easier*가 들어갑니다.
 
+기초 문법을 시험에서 어떻게 묻는지 궁금하다면 [케임브리지 B2 First 시험 구성](/ko/blog/cambridge-b2-first-sihom-guseong-fce/) 글에서 Use of English 파트별 문제 유형을 확인해 보세요.
+
 ## 자주 묻는 질문 (FAQ)
 
 ### 문법 용어(보어, 수여동사, 분사구문 등)를 전부 외워야 하나요?

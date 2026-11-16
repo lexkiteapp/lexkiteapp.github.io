@@ -106,6 +106,8 @@ node scripts/test/social-proxy.mjs
 node scripts/test/social-ui.mjs
 node scripts/test/social-mgr.mjs
 node scripts/test/social-auto.mjs
+node scripts/test/social-coverage.mjs
+node scripts/test/yt-fill.mjs
 node scripts/test/social-preview.mjs
 node scripts/test/dist-channels.mjs
 node scripts/test/social-admin.mjs
@@ -169,6 +171,8 @@ node scripts/test/ai-local.mjs
 node scripts/test/admin-prefs.mjs
 node scripts/test/mail-prefs.mjs
 node scripts/test/admin-ui.mjs
+node scripts/test/admin-plat.mjs
+node scripts/test/admin-series.mjs
 node scripts/test/admin-tabs.mjs
 node scripts/test/admin-gh.mjs
 node scripts/test/admin-metrics.mjs
@@ -254,6 +258,7 @@ node scripts/test/landing-v3.mjs
 node scripts/test/sw-cache-fixed.mjs
 node scripts/test/sw-storage.mjs
 node scripts/test/get-app.mjs
+node scripts/test/install-links.mjs
 node scripts/test/brand-check.mjs
 node scripts/test/token-contrast.mjs
 node scripts/stitch-sync-palette.mjs --check
@@ -386,6 +391,10 @@ node scripts/test/ci-guards.mjs
 node scripts/test/workflow-cd-paths.mjs
 node scripts/test/apt-install.mjs
 node scripts/test/perf-median.mjs
+node scripts/test/perf-calibrate.mjs
+node scripts/test/perf-flake.mjs
+node scripts/test/gate-relevance.mjs
+node scripts/test/native-qa-scope.mjs
 node scripts/test/pr-unconflict.mjs
 node scripts/test/regen-conflicts.mjs
 node scripts/test/gen-pr-clean.mjs
@@ -393,6 +402,7 @@ node scripts/test/main-red-sweep.mjs
 node scripts/test/ci-queue-gate.mjs
 node scripts/test/android-xml-comments.mjs
 node scripts/test/retry5xx.mjs
+node scripts/test/gh-tree.mjs
 node scripts/test/sparse-imports.mjs
 node scripts/test/stitch-today-contrast.mjs
 node scripts/test/is-main-guard.mjs

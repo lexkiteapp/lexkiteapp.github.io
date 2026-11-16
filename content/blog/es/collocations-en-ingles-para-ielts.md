@@ -116,6 +116,10 @@ Para incorporar estas unidades léxicas a tu vocabulario productivo, sigue un pr
 3. **Practica con Repetición Espaciada:** Accede a [Smart Learn](/#/practice/learn) en Lexkite. Mediante algoritmos adaptativos, el sistema te evaluará sobre la combinación exacta en los intervalos ideales para consolidar el recuerdo a largo plazo.
 4. **Perfecciona tu Técnica de Redacción:** Integra estas combinaciones al estructurar tus ensayos siguiendo los [consejos ielts writing task 2](/es/blog/consejos-ielts-writing-task-2/) y las estrategias de [como parafrasear en ielts tecnicas](/es/blog/como-parafrasear-en-ielts-tecnicas/). Para enriquecer la variedad sintáctica de tus textos, revisa los recursos de nuestra biblioteca de gramática en [/ngu-phap/](/ngu-phap/). Si necesitas preparar tu expresión oral, pon en práctica el hábito de [como pensar en ingles sin traducir](/es/blog/como-pensar-en-ingles-sin-traducir/).
 
+Para elegir qué palabras merece la pena aprender con sus colocaciones, mira la [lista de palabras académicas (AWL)](/es/blog/lista-de-palabras-academicas-awl-ielts/).
+
+Si quieres practicar con una pareja de palabras que los hispanohablantes confunden a menudo, lee [la diferencia entre affect y effect](/es/blog/diferencia-entre-affect-y-effect-en-ingles/), y revisa además los [errores comunes en IELTS Writing](/es/blog/errores-comunes-en-ielts-writing/) para detectar qué colocaciones fallan en tus ensayos.
+
 ## Preguntas Frecuentes (FAQ)
 
 ### ¿Cuántas collocations debo usar en un ensayo de Writing Task 2?

@@ -1,0 +1,275 @@
+{
+ "id": "mo_bm_pair_sb_e2289c4f",
+ "template": "pair",
+ "title": "Motion pair – quality vs quantity (sb_e2289c4f)",
+ "teacher": "carlos",
+ "clips": [
+  "gc11_talk",
+  "gc11_explain",
+  "gc11_happy",
+  "gc11_thinking",
+  "gc11_surprise_2"
+ ],
+ "listen": [
+  "gc11_listen"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy",
+ "active": "mint",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "misunderstanding",
+  "link": "https://lexkite.com/app/",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Work",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "Stop mixing up quality and quantity",
+   "gap": 0.7
+  },
+  {
+   "id": "w",
+   "text": "Quantity is how many or how much. Quality is how good something is.",
+   "gap": 0.7
+  },
+  {
+   "id": "e0",
+   "text": "The quality of the food was excellent.",
+   "gap": 0.7
+  },
+  {
+   "id": "e1",
+   "text": "We bought a large quantity of rice.",
+   "gap": 0.7
+  },
+  {
+   "id": "m",
+   "text": "So remember: quaNtity = Number, quaLity = how good.",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "Stop mixing",
+      "white"
+     ]
+    ],
+    [
+     [
+      "up quality",
+      "yellow"
+     ]
+    ],
+    [
+     [
+      "and quantity",
+      "yellow"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "A or B?",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "Stop mixing"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "up quality"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "and quantity"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "sum",
+    "at": [
+     "m",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Remember",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "quaNtity = Number, quaLity = how good"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "rules",
+    "at": [
+     "e0",
+     0
+    ],
+    "rows": [
+     {
+      "t": "tile",
+      "tag": "QUALITY",
+      "tone": "teal",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "The quality of the food was excellent.",
+        "teal"
+       ]
+      ],
+      "ex_at": [
+       "e0",
+       0
+      ],
+      "at": [
+       "e0",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "QUANTITY",
+      "tone": "gold",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "We bought a large quantity of rice.",
+        "gold"
+       ]
+      ],
+      "ex_at": [
+       "e1",
+       0
+      ],
+      "at": [
+       "e1",
+       0
+      ]
+     }
+    ]
+   }
+  ],
+  "hook_text": "Stop mixing up quality and quantity",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ },
+ "uses": {
+  "template": "pair",
+  "row": "sb_e2289c4f",
+  "teacher": "carlos",
+  "accent": "navy",
+  "active": "mint",
+  "tones": 1
+ }
+}

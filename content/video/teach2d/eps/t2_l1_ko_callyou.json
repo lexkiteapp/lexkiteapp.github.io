@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_callyou",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Call you, no to!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I will call to you tonight.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I will call you tonight.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Call needs no to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Call you! I will call you tomorrow.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I will call to you tonight.",
+  "right": "I will call you tonight.",
+  "strike": "to",
+  "why": "Call needs no to.",
+  "memory": "Call me.",
+  "quiz": {
+   "stem": "I will ___ tomorrow.",
+   "options": [
+    "call you",
+    "call to you"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“call to you” 틀렸어요!",
+   "tip": "‘너에게 전화할게’의 ‘에게’를 to로 옮기기 쉬워요. call 뒤엔 바로 사람! 이렇게 말해요 👉 “I will call you tonight.”",
+   "caption": "“I will call to you tonight”처럼 말하고 있나요? 😅 call은 ‘~에게 전화하다’라서 to 없이 사람을 바로 써요. 맞는 문장 ✅ “I will call you tonight.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답: “call you”! call 뒤엔 to 없이! 무료 퀴즈로 더 연습해 보세요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Call to you” is wrong!",
+   "tip": "Call needs no to before a person. Say “I will call you tonight.”",
+   "caption": "Do you say “I will call to you tonight” in English? 😅 Call takes the person right after it, with no “to”! “I will call you tonight” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“call to you” 틀렸어요!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“call to you” 틀렸어요!",
+  "keyword": "I will call you tonight.",
+  "value": "‘너에게 전화할게’의 ‘에게’를 to로 옮기기 쉬워요. call 뒤엔 바로 사람! 이렇게 말해요 👉 “I will call you tonight.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "“call to you” 틀렸어요!",
+    "description": "‘너에게 전화할게’의 ‘에게’를 to로 옮기기 쉬워요. call 뒤엔 바로 사람! 이렇게 말해요 👉 “I will call you tonight.”\n\n“I will call to you tonight”처럼 말하고 있나요? 😅 call은 ‘~에게 전화하다’라서 to 없이 사람을 바로 써요. 맞는 문장 ✅ “I will call you tonight.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "I will call you tonight.",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“I will call to you tonight”처럼 말하고 있나요? 😅 call은 ‘~에게 전화하다’라서 to 없이 사람을 바로 써요. 맞는 문장 ✅ “I will call you tonight.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“call to you” 틀렸어요!\n\n‘너에게 전화할게’의 ‘에게’를 to로 옮기기 쉬워요. call 뒤엔 바로 사람! 이렇게 말해요 👉 “I will call you tonight.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“call to you” 틀렸어요! ‘너에게 전화할게’의 ‘에게’를 to로 옮기기 쉬워요. call 뒤엔 바로 사람! 이렇게 말해요 👉 “I will call you tonight.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “call you”! call 뒤엔 to 없이! 무료 퀴즈로 더 연습해 보세요: {link}",
+  "lang": "ko"
+ }
+}

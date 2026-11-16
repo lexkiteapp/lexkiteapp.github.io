@@ -145,6 +145,10 @@ Sigue este cronograma en tus sesiones de estudio:
 
 Para expandir tu repertorio de términos clave antes de la fecha oficial de la prueba, explora nuestra colección organizada de [vocabulario temático de inglés](/en/vocabulary/) (las listas están en inglés).
 
+Para repartir tus semanas de estudio antes del examen, mira el [plan IELTS de 4, 8 y 12 semanas](/es/blog/plan-ielts-4-8-12-semanas/).
+
+Para ajustar el ritmo a cada tarea, revisa los [tipos de preguntas de IELTS Reading](/es/blog/tipos-de-preguntas-ielts-reading/) y, si quieres saber cuánto suma Reading en tu resultado, mira [cómo se calcula la nota de IELTS](/es/blog/como-se-calcula-la-nota-de-ielts-band/).
+
 ## Preguntas frecuentes sobre la gestión del tiempo en IELTS Reading
 
 ### ¿Debo leer todo el pasaje antes de las preguntas?

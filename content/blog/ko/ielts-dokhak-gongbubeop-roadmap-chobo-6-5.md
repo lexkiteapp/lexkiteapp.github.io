@@ -112,6 +112,12 @@ Band 6.5 이상을 안정적으로 확보하기 위해서는 학습 과정을 4�
 이민이나 워킹홀리데이 때문에 시험을 준비한다면 나라별 [이민 IELTS 점수 기준](/ko/blog/ielts-imin-jeomsu-kaenada-hoju-yeongguk/)부터 확인하고 목표 밴드를 정하세요.
 {{youtube: | IELTS dokhak gongbubeop roadmap chobo 6.5}}
 
+점수가 어떻게 계산되는지는 [IELTS 밴드 점수 계산법](/ko/blog/ielts-band-jeomsu-gyesan-bangbeop/)에서, 시험일이 정해져 있다면 기간별 일정은 [IELTS 공부 계획 4주·8주·12주 플랜](/ko/blog/ielts-gongbu-gyehoek-4ju-8ju-12ju/)에서 이어서 볼 수 있습니다.
+
+영국 비자용으로 시험을 준비한다면 접수 전 확인 사항을 [아이엘츠 UKVI 신청 가이드](/ko/blog/ielts-ukvi-yeongguk-bija-sineong-gaideu/)에서 먼저 점검한 뒤 학습 계획을 세우십시오.
+
+리스닝 계획을 더 구체적으로 세우고 싶다면 [IELTS 리스닝 문제 유형 총정리](/ko/blog/ielts-listening-munje-yuhyeong-gongryak/)의 10일 연습표를 로드맵에 넣어 보세요.
+
 ## 자주 묻는 질문 (FAQ)
 
 ### 노베이스나 B1 수준에서 6.5까지 몇 개월이 걸리나요?

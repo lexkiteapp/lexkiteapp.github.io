@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_the_best",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Best or the best?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She is best student in our class.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She is the best student in our class.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use the before best.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The! He is the best player.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She is best student in our class.",
+  "right": "She is the best student in our class.",
+  "strike": "best student",
+  "why": "Use the before best.",
+  "memory": "The best.",
+  "quiz": {
+   "stem": "He is ___ best player.",
+   "options": [
+    "the",
+    "no word"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Best или the best?",
+   "tip": "Перед “best” нужен “the”: “She is the best student in our class.”",
+   "caption": "Ты тоже говоришь “She is best student in our class”? 😅 По-русски артиклей нет: «она лучшая ученица в классе», поэтому “the” легко пропустить, но перед “best” он нужен. Правильно: “She is the best student in our class.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “the.” Перед best — the. Скажи вслух о своём друге: “He is the best …” Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#учуанглийский",
+    "#английскийдляначинающих",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Best or the best?",
+   "tip": "Before “best”, use “the”: “She is the best student in our class.”",
+   "caption": "Do you also say “She is best student in our class”? 😅 Russian has no articles, so the little word before best is easy to drop, but English needs it. Correct: “She is the best student in our class.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Best или the best?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Best или the best?",
+  "keyword": "She is the best student in our class.",
+  "value": "Перед “best” нужен “the”: “She is the best student in our class.”",
+  "hashtags": [
+   "#английскийязык",
+   "#учуанглийский",
+   "#английскийдляначинающих",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "Best или the best?",
+    "description": "Перед “best” нужен “the”: “She is the best student in our class.”\n\nТы тоже говоришь “She is best student in our class”? 😅 По-русски артиклей нет: «она лучшая ученица в классе», поэтому “the” легко пропустить, но перед “best” он нужен. Правильно: “She is the best student in our class.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #учуанглийский #английскийдляначинающих #lexkite",
+    "tags": [
+     "She is the best student in our class.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “She is best student in our class”? 😅 По-русски артиклей нет: «она лучшая ученица в классе», поэтому “the” легко пропустить, но перед “best” он нужен. Правильно: “She is the best student in our class.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Best или the best?\n\nПеред “best” нужен “the”: “She is the best student in our class.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#учуанглийский",
+     "#английскийдляначинающих",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Best или the best? Перед “best” нужен “the”: “She is the best student in our class.” #английскийязык #учуанглийский #английскийдляначинающих"
+   }
+  },
+  "first_comment": "Ответ: “the.” Перед best — the. Скажи вслух о своём друге: “He is the best …” Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

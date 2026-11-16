@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_id_like",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Be polite: say I'd like.",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I want a coffee, please.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I'd like a coffee, please.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "I'd like sounds kinder than I want.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Would like! I would like a tea, please.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I want a coffee, please.",
+  "right": "I'd like a coffee, please.",
+  "strike": "want",
+  "why": "I'd like sounds kinder than I want.",
+  "memory": "I'd like...",
+  "quiz": {
+   "stem": "Politely: I ___ a tea, please.",
+   "options": [
+    "want",
+    "would like"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "สุภาพต้องใช้ I'd like!",
+   "tip": "ไทยเติม ค่ะ/ครับ ให้สุภาพ แต่อังกฤษ I want ฟังตรงเกินไป ใช้ I'd like: “I'd like a coffee, please”",
+   "caption": "คุณเคยพูดว่า “I want a coffee, please.” ไหม? 😅 ภาษาไทยเติม ค่ะ/ครับ ก็สุภาพแล้ว แต่ในภาษาอังกฤษ I want ฟังตรงเกินไป ให้ใช้ I'd like: “I'd like a coffee, please.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “would like” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยค แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “I'd like” to be polite!",
+   "tip": "Thai adds a polite word, but English I want sounds too direct. Say I'd like: “I'd like a coffee, please”",
+   "caption": "Do you say “I want a coffee, please”? 😅 Thai adds a polite word at the end, but in English I want sounds too direct. Say “I'd like a coffee, please”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "สุภาพต้องใช้ I'd like!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "สุภาพต้องใช้ I'd like!",
+  "keyword": "I'd like a coffee, please.",
+  "value": "ไทยเติม ค่ะ/ครับ ให้สุภาพ แต่อังกฤษ I want ฟังตรงเกินไป ใช้ I'd like: “I'd like a coffee, please”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "สุภาพต้องใช้ I'd like!",
+    "description": "ไทยเติม ค่ะ/ครับ ให้สุภาพ แต่อังกฤษ I want ฟังตรงเกินไป ใช้ I'd like: “I'd like a coffee, please”\n\nคุณเคยพูดว่า “I want a coffee, please.” ไหม? 😅 ภาษาไทยเติม ค่ะ/ครับ ก็สุภาพแล้ว แต่ในภาษาอังกฤษ I want ฟังตรงเกินไป ให้ใช้ I'd like: “I'd like a coffee, please.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "I'd like a coffee, please.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “I want a coffee, please.” ไหม? 😅 ภาษาไทยเติม ค่ะ/ครับ ก็สุภาพแล้ว แต่ในภาษาอังกฤษ I want ฟังตรงเกินไป ให้ใช้ I'd like: “I'd like a coffee, please.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "สุภาพต้องใช้ I'd like!\n\nไทยเติม ค่ะ/ครับ ให้สุภาพ แต่อังกฤษ I want ฟังตรงเกินไป ใช้ I'd like: “I'd like a coffee, please”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "สุภาพต้องใช้ I'd like! ไทยเติม ค่ะ/ครับ ให้สุภาพ แต่อังกฤษ I want ฟังตรงเกินไป ใช้ I'd like: “I'd like a coff… #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “would like” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยค แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

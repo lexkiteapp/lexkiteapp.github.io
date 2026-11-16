@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_shebeautiful",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Don't forget is!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She beautiful.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She is beautiful.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Add is after she.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "He is tall! Yes!",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She beautiful.",
+  "right": "She is beautiful.",
+  "strike": "She beautiful",
+  "why": "Add is after she.",
+  "memory": "She + is.",
+  "quiz": {
+   "stem": "Which is right?",
+   "options": [
+    "He is tall.",
+    "He tall."
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "She beautiful… kurang “is”!",
+   "tip": "Di bahasa Indonesia “dia cantik” tanpa kata kerja, tapi bahasa Inggris butuh is/am/are.",
+   "caption": "Pernah bilang begini? “She beautiful.” 😅 Jangan lupa is setelah she: “She is beautiful.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “He is tall.” Buat tiga kalimat pendek dengan is hari ini. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#grammaringgris",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "She beautiful… no “is”!",
+   "tip": "In Indonesian “dia cantik” has no verb, but English needs is, am or are.",
+   "caption": "Ever say this? “She beautiful.” 😅 Don't forget is after she: “She is beautiful.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She beautiful… kurang “is”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 36,
+  "seconds": 23.2,
+  "wpm": 93
+ },
+ "publish": {
+  "title": "She beautiful… kurang “is”!",
+  "keyword": "She is beautiful.",
+  "value": "Di bahasa Indonesia “dia cantik” tanpa kata kerja, tapi bahasa Inggris butuh is/am/are.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#grammaringgris",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 30,
+  "platforms": {
+   "youtube": {
+    "title": "She beautiful… kurang “is”!",
+    "description": "Di bahasa Indonesia “dia cantik” tanpa kata kerja, tapi bahasa Inggris butuh is/am/are.\n\nPernah bilang begini? “She beautiful.” 😅 Jangan lupa is setelah she: “She is beautiful.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #grammaringgris #bahasainggris #lexkite",
+    "tags": [
+     "She is beautiful.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “She beautiful.” 😅 Jangan lupa is setelah she: “She is beautiful.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "She beautiful… kurang “is”!\n\nDi bahasa Indonesia “dia cantik” tanpa kata kerja, tapi bahasa Inggris butuh is/am/are.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#grammaringgris",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "She beautiful… kurang “is”! Di bahasa Indonesia “dia cantik” tanpa kata kerja, tapi bahasa Inggr… #belajarbahasainggris #grammaringgris #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “He is tall.” Buat tiga kalimat pendek dengan is hari ini. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

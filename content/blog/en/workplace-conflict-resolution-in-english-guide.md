@@ -157,3 +157,5 @@ Workplace disagreements are not failures of collaboration; they are opportunitie
 1. **Leverage the Thomas-Kilmann model** to balance assertiveness with collaboration for genuine Win-Win outcomes.
 2. **Utilize diplomatic hedging and objective data** to reframe personal clashes into shared problem-solving endeavors.
 3. **Cultivate calm, articulate speech habits** that project composure and authority during high-pressure corporate negotiations.
+
+To sound courteous in every message, use our [polite English phrases for work](/en/blog/polite-english-at-work/).

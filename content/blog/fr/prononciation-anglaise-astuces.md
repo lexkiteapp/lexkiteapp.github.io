@@ -136,6 +136,8 @@ Entraînez-vous avec notre [Entraîneur de prononciation](/#/pron) pour analyser
 
 {{youtube: | Améliorer sa prononciation anglaise : exercices pour effacer l'accent français}}
 
+Pour aller plus loin sur l'un de ces obstacles, notre guide des [règles d'accent tonique en anglais](/fr/blog/accent-tonique-anglais-regles-et-exemples/) donne les schémas qui prédisent la syllabe accentuée.
+
 {{cta: /#/pron | Tester sa prononciation gratuitement sur Lexkite}}
 
 ## Foire aux questions
