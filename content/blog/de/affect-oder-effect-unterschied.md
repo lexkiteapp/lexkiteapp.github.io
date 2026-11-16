@@ -42,6 +42,7 @@ quiz: [
     explain: "Hier bedeutet effect herbeiführen, das Objekt ist real change. In den anderen Sätzen ist effect ein Nomen, oder es steht affect als Verb."
   }
 ]
+publishAt: 2026-12-29T21:07:00+01:00
 ---
 
 **Affect oder effect?** Die kurze Antwort lautet: **Affect ist meistens ein Verb mit der Bedeutung „beeinflussen“, effect ist meistens ein Nomen mit der Bedeutung „Wirkung“.** *Music affects how we feel. Music has an effect on how we feel.* Dieselbe Idee, zwei verschiedene Aufgaben im Satz. Diese eine Regel stimmt in den allermeisten Fällen. Der Rest dieses Leitfadens behandelt die übrigen, die zwei Ausnahmen, die dir wirklich begegnen, und die Wendungen, bei denen Lernende in E-Mails, Aufsätzen und Prüfungen am häufigsten danebenliegen.
