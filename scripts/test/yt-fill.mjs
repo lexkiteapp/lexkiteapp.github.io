@@ -31,4 +31,5 @@ ok(metaFromItem({ id: 'x' }) === null && metaFromItem({ id: 'x', title: 'Só tí
 const ytsrc = fs.readFileSync('scripts/video/yt-upload.mjs', 'utf8');
 ok(/Hàng đợi tải trống/.test(ytsrc) && /bỏ qua \$\{q\.id\}/.test(ytsrc), 'uploader in lý do khi hàng đợi trống / bỏ qua từng clip (không im 0)');
 ok(videoResource({ clip: 'x', privacy: 'private' }, { lang: 'de' }).snippet.defaultLanguage === 'de' && videoResource({ clip: 'x', privacy: 'private' }, { lang: 'zz!' }).snippet.defaultLanguage === 'en', 'ngôn ngữ video theo clip, giá trị lạ → en');
+ok(/approved_by = 'probe', approved_at = 1/.test(yt), 'probe có approved_at nhỏ nhất → được tải trước hàng fill');
 console.log(`✓ yt-fill: ${n} kiểm`);
