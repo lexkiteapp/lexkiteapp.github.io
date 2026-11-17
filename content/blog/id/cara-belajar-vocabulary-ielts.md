@@ -136,6 +136,10 @@ Collocation dasar seperti *make a mistake* dan *do homework* sering salah dipaka
 - **Hanya belajar satu arah, Inggris → Indonesia.** Latih juga arah Indonesia → Inggris sebagai persiapan Writing dan Speaking.
 - **Mengabaikan tata bahasa di sekitar kata.** Kata yang tepat bisa tetap terdengar salah kalau bentuk kata kerjanya keliru. Contohnya pilihan antara *have used* dan *used*, yang dibahas di [perbedaan present perfect dan simple past](/id/blog/perbedaan-present-perfect-dan-simple-past/), atau pola *avoid doing* vs *refuse to do* di [gerund dan to infinitive](/id/blog/gerund-dan-to-infinitive/).
 
+Untuk daftar kata akademik yang terstruktur per sublist, lihat [Academic Word List (AWL) untuk IELTS](/id/blog/academic-word-list-awl-untuk-ielts/).
+
+Agar kata tidak sekadar akrab, terapkan [active recall adalah cara menghafal kosakata](/id/blog/active-recall-adalah-cara-menghafal-kosakata/).
+
 ## Pertanyaan yang sering diajukan
 
 ### Berapa banyak vocabulary IELTS yang sebaiknya dipelajari per hari?

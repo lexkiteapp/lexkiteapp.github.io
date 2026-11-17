@@ -13,7 +13,7 @@ const browser = await chromium.launch();
 const report = { shots: [], errors: [], overflow: [] };
 async function pass(tag, base, routes, vn, lang) {
   const vp = VIEWS[vn];
-  const ctx = await browser.newContext({ viewport: { width: vp.width, height: vp.height }, deviceScaleFactor: vp.deviceScaleFactor || 1, isMobile: !!vp.isMobile, colorScheme: 'light' });
+  const ctx = await browser.newContext({ bypassCSP: true, viewport: { width: vp.width, height: vp.height }, deviceScaleFactor: vp.deviceScaleFactor || 1, isMobile: !!vp.isMobile, colorScheme: 'light' });
   const page = await ctx.newPage();
   if (tag === 'after') page.on('pageerror', e => report.errors.push(`${vn}-${lang}: ${e.message}`));
   const url = r => `${base}/app/?sandbox=1&hl=${lang}#/${r}`;

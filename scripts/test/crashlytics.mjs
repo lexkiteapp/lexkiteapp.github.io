@@ -31,7 +31,7 @@ ok(fs.existsSync('mobile/android/app/google-services.json'), 'thiếu mobile/and
 if (/minifyEnabled true/.test(app)) ok(!/mappingFileUploadEnabled false/.test(app), 'đã bật minify → không được tắt tải mapping Crashlytics');
 
 // 3. iOS
-const tf = rd('.github/workflows/ios-testflight.yml');
+const tf = rd('.github/workflows/ios-testflight.yml') + '\n' + rd('.github/workflows/store-build-ios.yml'); // bản dựng iOS nằm ở workflow dùng chung store-build-ios.yml (testflight/store-submit/native-release cùng gọi)
 ok(/DEBUG_INFORMATION_FORMAT=dwarf-with-dsym/.test(tf), 'ios-testflight: archive phải có DEBUG_INFORMATION_FORMAT=dwarf-with-dsym');
 ok(/firebase-ios-sdk\/Crashlytics\/upload-symbols/.test(tf) && /-gsp mobile\/ios\/App\/App\/GoogleService-Info\.plist -p ios/.test(tf), 'ios-testflight: thiếu bước upload-symbols dSYM lên Crashlytics');
 ok(fs.existsSync('mobile/ios/App/App/GoogleService-Info.plist'), 'thiếu GoogleService-Info.plist → Crashlytics iOS không cấu hình được');

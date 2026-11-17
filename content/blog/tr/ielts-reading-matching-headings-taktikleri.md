@@ -162,6 +162,8 @@ Bu dört haftayı genel [IELTS çalışma planınızın](/tr/blog/ielts-calisma-
 - Boşluk kalmasın: cevap kâğıdına her soru numarası için bir roma rakamı yazın.
 - Cevap kâğıdına roma rakamlarını (i, ii, iii, iv, v, vi, vii, viii, ix, x) okunaklı yazın. iv ile vi birbirine karışırsa cevabınız yanlış değerlendirilebilir.
 
+Matching headings'in ötesindeki tüm görevler için [IELTS Reading soru tipleri](/tr/blog/ielts-reading-soru-tipleri-ve-cozum-yontemleri/) yazısına bakın.
+
 ## Sık Sorulan Sorular
 
 ### Bir başlık birden fazla paragraf için kullanılabilir mi?

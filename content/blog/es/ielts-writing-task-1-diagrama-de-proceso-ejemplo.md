@@ -9,7 +9,7 @@ tags: [ielts, writing, task-1, process-diagram, passive-voice]
 keyword: "ielts writing task 1 diagrama de proceso"
 cover: write
 coverAlt: "Sala de escritura de Lexkite con enunciados y un esquema de planificación para un informe"
-publishAt:
+publishAt: 2027-01-15T21:27:00-06:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

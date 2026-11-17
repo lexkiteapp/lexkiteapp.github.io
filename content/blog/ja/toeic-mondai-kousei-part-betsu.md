@@ -9,7 +9,7 @@ tags: [toeic, test-format, listening, reading]
 keyword: "toeic 問題構成"
 cover: toeic
 coverAlt: "LexkiteのTOEIC画面。Part別練習と模擬テスト、TOEIC頻出語彙が並ぶ"
-publishAt:
+publishAt: 2027-01-25T08:10:00+09:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

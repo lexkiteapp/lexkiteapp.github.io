@@ -149,6 +149,12 @@ quiz: [
 
 ---
 
+ถ้าโจทย์ของคุณเป็นแผนภาพแสดงขั้นตอนการผลิต ให้อ่านวิธีเขียนโดยเฉพาะใน [IELTS Writing Task 1 Process: เทคนิคและรายงานตัวอย่าง](/th/blog/ielts-writing-task-1-process-diagram/) ซึ่งมีรายงานตัวอย่างและคำเชื่อมลำดับขั้นตอนครบถ้วน
+
+ตรวจทานรายงานกราฟของคุณกับ[ข้อผิดพลาด IELTS Writing](/th/blog/khopitphlat-ielts-writing-thi-sia-khanaen/)เพื่อหาจุดที่ยังพลาด
+
+ถ้าโจทย์ของคุณเป็นกราฟแท่งแทนกราฟเส้น ดูรายงานตัวอย่างและวิธีจัดกลุ่มข้อมูลได้ที่[IELTS Writing Task 1 Bar Chart](/th/blog/ielts-writing-task-1-bar-chart-tuayang-raingan/)
+
 ## คำถามที่พบบ่อย (FAQ)
 
 ### 1. หากเขียนไม่ถึง 150 คำ จะถูกหักคะแนนอย่างไร?

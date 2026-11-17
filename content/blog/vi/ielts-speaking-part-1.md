@@ -120,6 +120,8 @@ Khi đã quen trả lời ngắn ở Part 1, hãy luyện tiếp kiểu câu h�
 
 {{youtube: | Gợi ý video: So sánh câu trả lời Part 1 một chữ và câu trả lời 3 câu theo công thức Trả lời – Lý do – Chi tiết}}
 
+Để thấy bản yếu và bản mạnh của cùng một câu trả lời, xem [bài mẫu IELTS Speaking band 7](/vi/blog/ielts-speaking-band-7-bai-mau/).
+
 ## Câu hỏi thường gặp
 
 ### Mỗi câu trả lời IELTS Speaking Part 1 nên dài bao nhiêu?

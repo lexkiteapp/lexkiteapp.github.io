@@ -7,7 +7,7 @@
   const VER = 'v1.0-1939ad2'; // = commit Hugging Face onnx-community/Kokoro-82M-v1.0-ONNX được chép lên R2 (scripts/cdn/kokoro-model.mjs)
   const HOSTS = [`https://audio.lexkite.com/kokoro/${VER}/`];
   const SHA = { 'onnx/model_quantized.onnx': 'fbae9257e1e05ffc727e951ef9b9c98418e6d79f1c9b6b13bd59f5c9028a1478' };
-  const RTF_MAX = 0.6, FREE_MIN = 300 * 2 ** 20, MODEL_MB = 92, CACHES = ['transformers-cache', 'kokoro-voices', 'lk-kl-audio'], IDLE_MS = 10 * 60e3, GEN_TIMEOUT = 8000, PROBE_DAYS = 30, LRU = 300, AUDIO_CACHE = 'lk-kl-audio';
+  const RTF_MAX = 0.6, FREE_MIN = 300 * 2 ** 20, MODEL_MB = 92, CACHES = ['transformers-cache', 'kokoro-voices', 'lk-kl-audio'], IDLE_MS = 10 * 60e3, GEN_TIMEOUT = 8000, WARM_TIMEOUT = 30000, PROBE_DAYS = 30, LRU = 300, AUDIO_CACHE = 'lk-kl-audio';
   const P = {
     // Cấp máy: 'wasm' | 'off'. e = { ios, mem, cores, probe, user, iosFlag }
     tier(e) {
@@ -39,6 +39,10 @@
     // ms từ lúc nạp klocal.js tới khi xin nạp nền: phiên đầu 60 s (để màn chào/học thử trôi mượt, không tranh mạng), sau đó 20 s
     idleDelay: sessions => (sessions < 2 ? 60e3 : 20e3),
     rtfOk: (genMs, durMs) => durMs > 0 && genMs / durMs <= RTF_MAX,
+    // Hồ sơ đo thử ghi vào lk.kl.probe. Timeout = máy quá chậm (cùng nhánh RTF > RTF_MAX) → tắt Kokoro PROBE_DAYS ngày, hết nạp lại mỗi phiên (LX-1004).
+    // Lỗi khác (crash/worker) → null: không đánh dấu máy yếu.
+    probeRecord(genMs, durMs, now) { const rtf = +(genMs / durMs).toFixed(2); return { v: VER, at: now, off: !P.rtfOk(genMs, durMs), rtf }; },
+    probeFail(err, now) { return err && err.message === 'timeout' ? { v: VER, at: now, off: true, rtf: null, why: 'timeout' } : null; },
     // PCM float32 → WAV 16-bit, đỉnh chuẩn về −1 dBFS (đồng mức file dựng sẵn)
     wav(pcm, sr) {
       let peak = 0; for (let i = 0; i < pcm.length; i++) { const a = Math.abs(pcm[i]); if (a > peak) peak = a; }
@@ -71,9 +75,9 @@
   const allowed = () => P.remote(cfg(), bucket()) && P.tier(env()) !== 'off';
   const kill = why => { if (worker) { try { worker.terminate(); } catch (e) { /* bỏ qua */ } } worker = null; for (const [, w] of waits) w.rej(new Error(why)); waits.clear(); if (state !== 'off') state = 'idle'; };
   const touch = () => { clearTimeout(idleT); idleT = setTimeout(() => kill('idle'), IDLE_MS); };
-  function gen(text, voice, speed) {
+  function gen(text, voice, speed, timeout) {
     return new Promise((res, rej) => {
-      const id = ++seq, t = setTimeout(() => { waits.delete(id); rej(new Error('timeout')); }, GEN_TIMEOUT);
+      const id = ++seq, t = setTimeout(() => { waits.delete(id); rej(new Error('timeout')); }, timeout || GEN_TIMEOUT);
       waits.set(id, { res: v => { clearTimeout(t); res(v); }, rej: e => { clearTimeout(t); rej(e); } });
       worker.postMessage({ type: 'gen', id, text, voice, speed }); touch();
     });
@@ -100,14 +104,19 @@
       if (d.type === 'loaded') {
         if (navigator.storage && navigator.storage.persist && P.persistOk(navigator.userAgent)) navigator.storage.persist().catch(() => {});
         state = 'probe'; stat('kl_load_ms', Date.now() - t0);
-        const t1 = performance.now();
-        gen('This is a quick check of the voice on your device.', 'af_heart', 1).then(a => {
-          const genMs = performance.now() - t1, durMs = 1000 * new Float32Array(a.pcm).length / a.sr, ok = P.rtfOk(genMs, durMs);
-          ls.set('lk.kl.probe', JSON.stringify({ v: VER, at: Date.now(), off: !ok, rtf: +(genMs / durMs).toFixed(2) }));
-          stat('kl_rtf', +(genMs / durMs).toFixed(2));
+        // Lần sinh đầu gồm khởi động phiên ONNX → làm nóng 1 câu ngắn (timeout rộng) rồi mới đo RTF công bằng; vượt = máy quá chậm
+        const t1 = { v: 0 };
+        gen('Hi.', 'af_heart', 1, WARM_TIMEOUT).then(() => { t1.v = performance.now(); return gen('This is a quick check of the voice on your device.', 'af_heart', 1); }).then(a => {
+          const genMs = performance.now() - t1.v, durMs = 1000 * new Float32Array(a.pcm).length / a.sr, rec = P.probeRecord(genMs, durMs, Date.now()), ok = !rec.off;
+          ls.set('lk.kl.probe', JSON.stringify(rec));
+          stat('kl_rtf', rec.rtf);
           if (ok) { state = 'ready'; cached = true; ls.set('lk.kl.ok', VER); stat('kl_tier', 'wasm'); } else { kill('slow'); state = 'off'; stat('kl_tier', 'off'); }
           emit();
-        }).catch(e => { note('kl', 'probe ' + e.message); kill('probe'); state = 'off'; emit(); });
+        }).catch(e => {
+          const rec = P.probeFail(e, Date.now());
+          if (rec) { ls.set('lk.kl.probe', JSON.stringify(rec)); stat('kl_tier', 'off'); } else note('kl', 'probe ' + e.message);
+          kill('probe'); state = 'off'; emit();
+        });
       }
     };
     worker.postMessage({ type: 'load', hosts: HOSTS, sha: SHA });

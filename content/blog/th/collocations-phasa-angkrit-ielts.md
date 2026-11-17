@@ -116,6 +116,8 @@ Collocation คือการจับคู่กันของคำสอ�
 3. **ฝึกทำแบบฝึกหัดอย่างสม่ำเสมอ:** ใช้ระบบ [Smart Learn](/#/practice/learn) ในการทบทวนคำศัพท์ ระบบจะช่วยจัดตารางเวลาเตือนความจำก่อนที่คุณจะลืม
 4. **นำมาประยุกต์ใช้ในการเขียนจริง:** ฝึกนำคำเหล่านี้ไปแต่งประโยคใน [ielts writing task 2 khrongsang](/th/blog/ielts-writing-task-2-khrongsang/) และฝึกฝนการใช้ [kham chueam phasa angkrit linking words](/th/blog/kham-chueam-phasa-angkrit-linking-words/) ควบคู่กัน นอกจากนี้ยังสามารถศึกษาไวยากรณ์เพิ่มเติมได้ที่หน้า [/ngu-phap/](/ngu-phap/) หรือเรียนรู้ [kham sap phasa angkrit chai boi](/th/blog/kham-sap-phasa-angkrit-chai-boi/) เพื่อเสริมความมั่นใจ
 
+ถ้าอยากต่อยอดไปสู่คำศัพท์วิชาการ ลองเรียนรายการ AWL ใน [Academic Word List (AWL) คืออะไร: 570 กลุ่มคำสำหรับ IELTS](/th/blog/academic-word-list-khue-arai-570-kham/) และถ้าเตรียมสอบ Cambridge ให้ดู [Cambridge B2 First รูปแบบข้อสอบ](/th/blog/cambridge-b2-first-rupbaep-khosop/) ที่ใช้ collocation หนักในพาร์ต 1
+
 ## คำถามที่พบบ่อย (FAQ)
 
 ### ควรใส่ collocation กี่คำในบทความ Writing Task 2?

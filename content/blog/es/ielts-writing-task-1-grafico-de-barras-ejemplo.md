@@ -9,7 +9,7 @@ tags: [ielts, writing, task-1, bar-chart, academic]
 keyword: "ielts writing task 1 gráfico de barras"
 cover: write
 coverAlt: "Sala de escritura de Lexkite con enunciados y un esquema para planificar un informe"
-publishAt:
+publishAt: 2027-01-16T08:45:00-06:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

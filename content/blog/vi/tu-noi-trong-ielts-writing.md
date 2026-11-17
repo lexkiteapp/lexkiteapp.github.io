@@ -105,6 +105,12 @@ Một cách viết lại:
 
 Từ nối cần đi cùng collocation chính xác để bài viết thực sự tự nhiên. Xem thêm bài [collocation IELTS](/vi/blog/collocation-ielts/).
 
+Với bài mô tả số liệu, từ nối còn đi cùng từ vựng xu hướng; xem [bài mẫu IELTS Writing Task 1 bar chart](/vi/blog/ielts-writing-task-1-bar-chart-bai-mau/) để thấy cách nối câu trong một báo cáo hoàn chỉnh.
+
+Từ chỉ trình tự như *next* hay *subsequently* còn được dùng nhiều trong dạng sơ đồ quy trình, xem bài [IELTS Writing Task 1 process](/vi/blog/ielts-writing-task-1-process/).
+
+Với dạng bài đồng ý hay phản đối, bạn có thể xem [cách viết IELTS opinion essay](/vi/blog/ielts-opinion-essay-dong-y-hay-phan-doi/) kèm bài mẫu có chú thích.
+
 ## Câu hỏi thường gặp
 
 ### Một bài Task 2 nên có bao nhiêu từ nối?

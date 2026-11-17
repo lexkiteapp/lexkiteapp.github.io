@@ -164,6 +164,8 @@ quiz: [
 
 ---
 
+Связки последовательности (*first, next, subsequently, finally*) отдельно разобраны в статье [IELTS Writing Task 1 процесс](/ru/blog/ielts-writing-task-1-process-opisanie-protsessa/).
+
 ## Часто задаваемые вопросы (FAQ)
 
 ### Сколько слов-связок должно быть в одном абзаце эссе?
