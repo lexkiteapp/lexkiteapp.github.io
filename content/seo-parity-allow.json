@@ -17,15 +17,9 @@
   },
   {
    "page": "phat-am/index.html",
-   "reason": "Thêm 6 bài phát âm nâng cao B2–C1 (CQ4): tiêu đề/mô tả/mục lục tăng 56 → 62 bài. · Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "reason": "Thêm 6 bài phát âm nâng cao B2–C1 (CQ4): tiêu đề/mô tả/mục lục tăng 56 → 62 bài.",
    "words": [
-    "56",
-    "dứt",
-    "gọn",
-    "khoát",
-    "ma",
-    "suỵt",
-    "sát"
+    "56"
    ],
    "replace": [
     [
@@ -88,20 +82,9 @@
   },
   {
    "page": "en/pronunciation/index.html",
-   "reason": "Thêm 6 bài phát âm nâng cao B2–C1 (CQ4): tiêu đề/mô tả/mục lục tăng 56 → 62 bài. · Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "reason": "Thêm 6 bài phát âm nâng cao B2–C1 (CQ4): tiêu đề/mô tả/mục lục tăng 56 → 62 bài.",
    "words": [
-    "56",
-    "bee",
-    "blocking",
-    "closed",
-    "comes",
-    "compact",
-    "giving",
-    "like",
-    "make",
-    "nearly",
-    "opening",
-    "throat"
+    "56"
    ],
    "itemList": true
   },
@@ -142,6 +125,90 @@
     "emploˈyee",
     "vietnaˈmese"
    ]
+  },
+  {
+   "page": "samples/index.html",
+   "reason": "Đợt 2 nội dung (#1368): thêm 20 đề IELTS Task 2 (80 → 100) và 14 đề Task 1 Academic (38 → 52); số đếm trong title/mô tả/mục lục tăng theo.",
+   "words": [
+    "80",
+    "527"
+   ],
+   "replace": [
+    [
+     "80 bài mẫu",
+     "100 bài mẫu"
+    ],
+    [
+     "numberOfItems\":80",
+     "numberOfItems\":100"
+    ]
+   ],
+   "itemList": true
+  },
+  {
+   "page": "en/samples/index.html",
+   "reason": "Đợt 2 nội dung (#1368): thêm 20 đề IELTS Task 2 (80 → 100) và 14 đề Task 1 Academic (38 → 52); số đếm trong title/mô tả/mục lục tăng theo.",
+   "words": [
+    "80",
+    "527",
+    "14"
+   ],
+   "replace": [
+    [
+     "80 band 8 IELTS",
+     "100 band 8 IELTS"
+    ],
+    [
+     "80 IELTS Writing",
+     "100 IELTS Writing"
+    ],
+    [
+     "numberOfItems\":80",
+     "numberOfItems\":100"
+    ]
+   ],
+   "itemList": true
+  },
+  {
+   "page": "en/ielts-writing/index.html",
+   "reason": "Đợt 2 nội dung (#1368): thêm 20 đề IELTS Task 2 (80 → 100) và 14 đề Task 1 Academic (38 → 52); số đếm trong title/mô tả/mục lục tăng theo.",
+   "words": [
+    "38",
+    "80"
+   ],
+   "replace": [
+    [
+     "38 Academic Task 1",
+     "52 Academic Task 1"
+    ],
+    [
+     "80 Task 2",
+     "100 Task 2"
+    ]
+   ]
+  },
+  {
+   "page": "en/ielts-writing/task-1/index.html",
+   "reason": "Đợt 2 nội dung (#1368): thêm 20 đề IELTS Task 2 (80 → 100) và 14 đề Task 1 Academic (38 → 52); số đếm trong title/mô tả/mục lục tăng theo.",
+   "words": [
+    "38",
+    "4"
+   ],
+   "replace": [
+    [
+     "38 IELTS",
+     "52 IELTS"
+    ],
+    [
+     "38 band 8",
+     "52 band 8"
+    ],
+    [
+     "numberOfItems\":38",
+     "numberOfItems\":52"
+    ]
+   ],
+   "itemList": true
   },
   {
    "page": "phat-am/air-diphthong.html",

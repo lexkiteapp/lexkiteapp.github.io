@@ -1,0 +1,22 @@
+// Test flake-tracker: đỏ rồi xanh trên cùng (workflow, sha) = chập chờn; huỷ/đang chạy không tính; testOf đọc chú thích run-suite.
+import { groupFlakes, tally, testOf, render, MARK } from '../ci/flake-tracker.mjs';
+let bad = 0; const ok = (c, m) => { console.log(`${c ? '✓' : '✗'} ${m}`); if (!c) bad++; };
+const R = (name, sha, conclusion, id = 1, run_attempt = 1) => ({ name, head_sha: sha + '0'.repeat(40 - sha.length), conclusion, id, run_attempt });
+const T = (runs, conf = [], ver = []) => tally(groupFlakes(runs), new Set(conf), new Set(ver));
+let g = T([R('npm test', 'aaa', 'failure', 1), R('npm test', 'aaa', 'success', 2), R('npm test', 'bbb', 'failure', 3), R('mqa', 'aaa', 'success', 4)]);
+ok(g.total === 1 && g.byWorkflow[0].name === 'npm test' && g.byWorkflow[0].flakes === 1 && g.byWorkflow[0].shas === 2, 'đỏ rồi xanh cùng sha = 1 chập chờn; đỏ thuần không tính');
+g = T([R('npm test', 'aaa', 'cancelled', 1), R('npm test', 'aaa', 'success', 2), R('npm test', 'ccc', 'failure', 5), R('npm test', 'ccc', 'failure', 6)]);
+ok(g.total === 0, 'huỷ + xanh, hoặc đỏ lặp không xanh → không phải chập chờn');
+g = T([R('a', 'x', 'failure', 1), R('a', 'x', 'success', 2), R('b', 'y', 'timed_out', 3), R('b', 'y', 'success', 4), R('b', 'z', 'failure', 5), R('b', 'z', 'success', 6)]);
+ok(g.byWorkflow[0].name === 'b' && g.byWorkflow[0].flakes === 2 && g.total === 3, 'sắp theo số chập chờn giảm dần, timed_out tính là đỏ');
+ok(testOf('node scripts/test/keys.mjs: ✗ API list tìm theo last4') === 'scripts/test/keys.mjs' && testOf('rác') === null, 'testOf đọc tên test từ chú thích');
+g = T([R('npm test', 'ddd', 'success', 9, 2)]);
+ok(g.total === 0 && g.unverified === 1, 'xanh sau chạy lại chưa kiểm lần trước → chưa tính, báo chưa kiểm');
+g = T([R('npm test', 'ddd', 'success', 9, 2)], ['9:1'], ['9:1']);
+ok(g.total === 1 && g.byWorkflow[0].sample[0].attempt === 1 && g.byWorkflow[0].sample[0].failedRun === 9, 'lần trước đỏ thật (đã xác minh) = chập chờn');
+g = T([R('npm test', 'ddd', 'success', 9, 2)], [], ['9:1']);
+ok(g.total === 0 && g.unverified === 0, 'đã kiểm: lần trước huỷ/hạ tầng → không phải chập chờn');
+const md = render(T([R('b', 'y', 'timed_out', 3), R('b', 'y', 'success', 4)]), new Map([['scripts/test/keys.mjs', 2]]), 3);
+ok(md.includes(MARK) && md.includes('keys.mjs') && md.includes('| b |'), 'render có bảng + theo từng test');
+ok(render(T([])).includes('Không có chập chờn'), 'render rỗng');
+if (bad) process.exit(1);
