@@ -9,7 +9,7 @@ tags: [ielts, band-score, scoring, strategy]
 keyword: "雅思总分怎么算"
 cover: mock
 coverAlt: "Lexkite雅思模拟考试设置页：听力、阅读、写作、口语四项以及历史成绩记录"
-publishAt:
+publishAt: 2027-01-19T07:47:00+08:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

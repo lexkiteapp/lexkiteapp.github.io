@@ -10,7 +10,7 @@ keyword: "雅思观点类作文"
 cover: write
 coverAlt: "Lexkite 写作房间：按话题分组的作文题、思路提示和文章框架"
 coverArt: {mood: think, icon: pen}
-publishAt:
+publishAt: 2027-01-10T09:21:00+08:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

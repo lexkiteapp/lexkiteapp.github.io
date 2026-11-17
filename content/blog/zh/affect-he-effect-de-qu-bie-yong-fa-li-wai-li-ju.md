@@ -13,7 +13,7 @@ coverArt: {mood: think, icon: book}
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
-publishAt:
+publishAt: 2026-12-31T20:46:00+08:00
 qualityScore: 91
 shots: [
   {id: s1, route: '#/dict/affect', crop: main},

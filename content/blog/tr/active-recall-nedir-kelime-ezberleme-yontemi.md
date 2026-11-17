@@ -9,7 +9,7 @@ tags: [active-recall, vocabulary, memory, flashcards]
 keyword: "active recall nedir"
 cover: practice-test
 coverAlt: "Lexkite çoktan seçmeli kelime testi: run out of ifadesinin doğru anlamı"
-publishAt:
+publishAt: 2027-01-04T21:26:00+03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

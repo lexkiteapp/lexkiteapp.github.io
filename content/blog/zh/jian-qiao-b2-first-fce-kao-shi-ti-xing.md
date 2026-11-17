@@ -9,7 +9,7 @@ tags: [cambridge, b2-first, fce, exam-format]
 keyword: "剑桥b2 first"
 cover: practice
 coverAlt: "Lexkite 练习页：包含测验与写作室等游戏和练习"
-publishAt:
+publishAt: 2027-01-05T12:16:00+08:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

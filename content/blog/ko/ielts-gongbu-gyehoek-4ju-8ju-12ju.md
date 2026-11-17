@@ -9,7 +9,7 @@ tags: [ielts, study-plan, schedule, mock-test]
 keyword: "ielts 공부 계획"
 cover: path
 coverAlt: "Lexkite 학습 경로 화면: 레슨이 단계별 경로로 배열되어 있습니다"
-publishAt:
+publishAt: 2027-01-06T08:42:00+09:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

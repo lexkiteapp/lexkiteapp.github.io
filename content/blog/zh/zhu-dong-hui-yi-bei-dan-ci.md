@@ -9,7 +9,7 @@ tags: [active-recall, vocabulary, memory, flashcards]
 keyword: "主动回忆背单词"
 cover: practice-test
 coverAlt: "Lexkite选择题测试：询问 run out of 的正确含义"
-publishAt:
+publishAt: 2027-01-22T08:17:00+08:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

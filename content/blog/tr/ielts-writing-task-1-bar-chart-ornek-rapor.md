@@ -9,7 +9,7 @@ tags: [ielts, writing, task-1, bar-chart, academic]
 keyword: "ielts writing task 1 bar chart"
 cover: write
 coverAlt: "Lexkite Yazma odası: rapor yazmadan önce plan yapmak için ipuçları ve çerçeve"
-publishAt:
+publishAt: 2027-01-17T21:28:00+03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

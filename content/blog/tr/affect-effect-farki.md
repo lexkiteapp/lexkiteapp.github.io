@@ -9,7 +9,7 @@ tags: [confusing-words, affect-effect, vocabulary, writing]
 keyword: "affect effect farkı"
 cover: dict
 coverAlt: "Lexkite sözlüğünde affect kelimesinin girişi: telaffuz, örnek cümleler ve eşdizimler"
-publishAt:
+publishAt: 2027-01-05T12:00:00+03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

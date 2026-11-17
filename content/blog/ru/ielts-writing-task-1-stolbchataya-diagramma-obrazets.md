@@ -9,7 +9,7 @@ tags: [ielts, writing, task-1, bar-chart, academic]
 keyword: "ielts writing task 1 столбчатая диаграмма"
 cover: write
 coverAlt: "Комната Writing в Lexkite с заданиями и рамкой для планирования отчёта"
-publishAt:
+publishAt: 2027-01-10T19:24:00+03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

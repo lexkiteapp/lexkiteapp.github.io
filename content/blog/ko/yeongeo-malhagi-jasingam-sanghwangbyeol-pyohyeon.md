@@ -9,7 +9,7 @@ tags: [speaking, confidence, everyday-english, phrases]
 keyword: "영어 말하기 자신감"
 cover: practice-speak
 coverAlt: "Lexkite 발음 연습 화면: cut down on 문장의 점수와 말하기용 마이크 버튼"
-publishAt:
+publishAt: 2027-01-17T12:41:00+09:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

@@ -9,7 +9,7 @@ tags: [word-stress, pronunciation, ipa, speaking]
 keyword: "英语单词重音规则"
 cover: pron
 coverAlt: "Lexkite 音标库：元音、双元音和辅音的发音练习"
-publishAt:
+publishAt: 2027-01-20T08:54:00+08:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

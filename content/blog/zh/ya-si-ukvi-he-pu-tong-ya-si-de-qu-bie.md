@@ -9,7 +9,7 @@ tags: [ielts, ukvi, selt, uk-visa, exam-guide]
 keyword: "雅思ukvi"
 cover: goal
 coverAlt: "Lexkite 目标设置页：设置考试类型、目标分数、考试日期与每周学习时间"
-publishAt:
+publishAt: 2027-01-13T19:26:00+08:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

@@ -9,7 +9,7 @@ tags: [word-stress, pronunciation, ipa, speaking]
 keyword: "правила ударения в английском"
 cover: pron
 coverAlt: "Библиотека IPA в Lexkite: гласные, дифтонги и согласные для практики"
-publishAt:
+publishAt: 2027-01-15T07:57:00+03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

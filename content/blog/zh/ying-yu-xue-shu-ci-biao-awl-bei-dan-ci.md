@@ -9,7 +9,7 @@ tags: [awl, ielts, academic-vocabulary, toefl]
 keyword: "awl学术词汇表"
 cover: library
 coverAlt: "Lexkite 词库页面：全部单词、NGSL 核心词汇、雅思话题、写作、口语与托业分类"
-publishAt:
+publishAt: 2027-01-21T21:40:00+08:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

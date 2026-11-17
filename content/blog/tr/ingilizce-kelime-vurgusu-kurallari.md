@@ -9,7 +9,7 @@ tags: [word-stress, pronunciation, ipa, speaking]
 keyword: "ingilizce kelime vurgusu kuralları"
 cover: pron
 coverAlt: "Lexkite IPA telaffuz kütüphanesi: ünlüler, çift ünlüler ve ünsüzler"
-publishAt:
+publishAt: 2027-01-18T12:56:00+03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

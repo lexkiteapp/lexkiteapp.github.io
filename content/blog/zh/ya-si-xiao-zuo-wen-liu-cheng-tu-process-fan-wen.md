@@ -9,7 +9,7 @@ tags: [ielts, writing, task-1, process-diagram, passive-voice]
 keyword: "雅思小作文流程图"
 cover: write
 coverAlt: "Lexkite 写作练习页：题目提示与报告写作的规划框架"
-publishAt:
+publishAt: 2027-01-15T07:07:00+08:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

@@ -9,7 +9,7 @@ tags: [toeic, listening, part-3, part-4]
 keyword: "托业听力 part 3 part 4 技巧"
 cover: toeic
 coverAlt: "Lexkite托业练习中心：模拟考试与分Part练习"
-publishAt:
+publishAt: 2027-01-08T20:42:00+08:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

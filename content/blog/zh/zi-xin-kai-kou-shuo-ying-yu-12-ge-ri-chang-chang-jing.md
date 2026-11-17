@@ -13,7 +13,7 @@ coverArt: {mood: cheer, icon: chat}
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
-publishAt:
+publishAt: 2027-01-23T08:55:00+08:00
 qualityScore: 91
 shots: [
   {id: s1, route: '#/confidence', crop: main}

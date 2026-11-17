@@ -9,7 +9,7 @@ tags: [toeic, listening, part-3, part-4]
 keyword: "toeic part 3 ve part 4"
 cover: toeic
 coverAlt: "Lexkite TOEIC merkezi: deneme sınavları ve bölüm bazlı pratik"
-publishAt:
+publishAt: 2027-01-21T09:36:00+03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

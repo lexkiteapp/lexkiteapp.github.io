@@ -9,7 +9,7 @@ tags: [ielts, speaking, band-7, sample-answers]
 keyword: "雅思口语7分"
 cover: speaking
 coverAlt: "Lexkite 口语练习页：可选择雅思口语 Part 1、2、3"
-publishAt:
+publishAt: 2027-01-11T08:34:00+08:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

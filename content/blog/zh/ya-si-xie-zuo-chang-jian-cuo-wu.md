@@ -9,7 +9,7 @@ tags: [ielts, writing, mistakes, grammar, task-2]
 keyword: "雅思写作常见错误"
 cover: write
 coverAlt: "Lexkite写作室：作文题目、思路提示和作文框架"
-publishAt:
+publishAt: 2027-01-16T21:53:00+08:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

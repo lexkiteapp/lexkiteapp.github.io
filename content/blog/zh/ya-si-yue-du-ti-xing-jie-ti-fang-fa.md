@@ -9,7 +9,7 @@ tags: [ielts, reading, question-types, strategy]
 keyword: "雅思阅读题型"
 cover: reading
 coverAlt: "Lexkite阅读列表：从A2到C1分级的文章"
-publishAt:
+publishAt: 2027-01-18T07:22:00+08:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

@@ -9,7 +9,7 @@ tags: [toeic, test-format, listening, reading]
 keyword: "托业考试题型"
 cover: toeic
 coverAlt: "Lexkite 托业练习：按 Part 练习、带估分的模拟考试和托业词汇"
-publishAt:
+publishAt: 2027-01-06T12:21:00+08:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
