@@ -2,17 +2,17 @@
 
 Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipeline/score.budget.json` · kế hoạch `docs/CONTENT-WORLD-PLAN.md` §3.5. Điểm = độ phủ so với chuẩn × tỉ lệ qua cổng.
 
-**Tổng: 78.2 / 100**
+**Tổng: 79 / 100**
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
 | Kho từ | **59.2** | 58.5 | 59.2% | 100% | 0 |
 | Ngữ pháp | **72.8** | 72.8 | 72.8% | 100% | 0 |
 | Giao tiếp | **89.7** | 68.3 | 89.7% | 100% | 0 |
-| 4 kỹ năng | **87.7** | 62.9 | 87.7% | 100% | 0 |
+| 4 kỹ năng | **93** | 62.9 | 93% | 100% | 0 |
 | Đề thi | **61.6** | 31.7 | 61.6% | 100% | 0 |
-| Khung Can-do | **82** | 81.3 | 82% | 100% | 0 |
-| Dễ học – dễ nhớ | **91.9** | 91.7 | 91.9% | 100% | 0 |
+| Khung Can-do | **82.5** | 81.3 | 82.5% | 100% | 0 |
+| Dễ học – dễ nhớ | **91.8** | 91.7 | 91.8% | 100% | 0 |
 | i18n | **81** | 62.7 | 81% | 100% | 0 |
 
 ## Kho từ
@@ -58,13 +58,13 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
 | Nghe: bộ bài | 80 / 80 | 100% | 15 |
-| Đọc: bài | 486 / 600 | 81% | 15 |
+| Đọc: bài | 576 / 600 | 96% | 15 |
 | Đọc ngắn A1 (chưa làm) | 128 / 80 | 100% | 3 |
 | Đọc ngắn A2 | 65 / 80 | 81% | 3 |
 | Đọc ngắn B1 | 75 / 80 | 94% | 3 |
 | Đọc ngắn B2 | 75 / 80 | 94% | 3 |
 | Đọc ngắn C1 | 70 / 80 | 88% | 3 |
-| Đọc ngắn C2 (chưa làm) | 0 / 80 | 0% | 3 |
+| Đọc ngắn C2 (chưa làm) | 80 / 80 | 100% | 3 |
 | Nói: chủ đề | 70 / 60 | 100% | 10 |
 | Nói: câu trả lời mẫu | 680 / 600 | 100% | 10 |
 | Viết: bài mẫu | 286 / 400 | 72% | 18 |
@@ -98,8 +98,8 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 |---|---|---|---|
 | mục tiêu LKF tự soạn | 585 / 600 | 98% | 25 |
 | ô kỹ năng × cấp đủ ≥ 15 | 36 / 36 | 100% | 15 |
-| nội dung có lo hợp lệ | 11547 / 11547 | 100% | 35 |
-| mục tiêu đã có nội dung luyện | 184 / 600 | 31% | 25 |
+| nội dung có lo hợp lệ | 11557 / 11557 | 100% | 35 |
+| mục tiêu đã có nội dung luyện | 196 / 600 | 33% | 25 |
 
 ## Dễ học – dễ nhớ
 
@@ -108,7 +108,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | Ngữ pháp | 96.9 / 100 | 97% | 25 |
 | Bài lộ trình | 100 / 100 | 100% | 25 |
 | Bộ từ | 74.2 / 100 | 74% | 25 |
-| Kỹ năng | 96.5 / 100 | 97% | 25 |
+| Kỹ năng | 96.1 / 100 | 96% | 25 |
 
 ## i18n
 

@@ -359,7 +359,17 @@
    "my-town": "R.A1.11",
    "a-train-trip": "R.A1.09",
    "my-favourite-food": "R.A1.07",
-   "my-weekend": "R.A1.05"
+   "my-weekend": "R.A1.05",
+   "falsification-limits": ["R.C2.10", "R.C2.13"],
+   "language-and-thought": ["R.C2.10", "R.C2.12"],
+   "goodhart-metrics": ["R.C2.07", "R.C2.13"],
+   "aura-of-original": ["R.C2.02", "R.C2.03"],
+   "precedent-dead-hand": ["R.C2.14", "R.C2.05"],
+   "invention-of-progress": ["R.C2.12", "R.C2.01"],
+   "shifting-baselines": ["R.C2.11", "R.C2.07"],
+   "predictive-brain": ["R.C2.11", "R.C2.13"],
+   "algorithmic-responsibility": ["R.C2.15", "R.C2.12"],
+   "eyes-on-the-street": ["R.C2.09", "R.C2.05"]
   },
   "ielts-reading": {
    "gt1": ["R.B1p.05", "R.B1.04"],

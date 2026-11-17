@@ -3,7 +3,7 @@
  "cells": 36,
  "cellsOk": 36,
  "minCell": 16,
- "objectivesUsed": 184,
+ "objectivesUsed": 196,
  "coverage": {
   "grammar": {
    "items": 102,
@@ -11,8 +11,8 @@
    "pct": 100
   },
   "reading": {
-   "items": 73,
-   "tagged": 73,
+   "items": 83,
+   "tagged": 83,
    "pct": 100
   },
   "ielts-reading": {
@@ -102,8 +102,8 @@
   }
  },
  "total": {
-  "items": 11547,
-  "tagged": 11547,
+  "items": 11557,
+  "tagged": 11557,
   "pct": 100
  },
  "errors": 0

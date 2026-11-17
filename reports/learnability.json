@@ -1,5 +1,5 @@
 {
- "total": 91.9,
+ "total": 91.8,
  "areas": {
   "grammar": {
    "name": "Ngữ pháp",
@@ -60,19 +60,19 @@
   },
   "skills": {
    "name": "Kỹ năng",
-   "units": 385,
-   "score": 96.5,
+   "units": 395,
+   "score": 96.1,
    "crit": {
-    "a": 88.6,
+    "a": 89.1,
     "b": null,
     "c": 98.8,
-    "d": 99.5,
+    "d": 99.6,
     "e": 99.5,
-    "f": 95.5,
+    "f": 91.4,
     "g": 99.3,
     "h": null,
     "i": 100,
-    "j": 88,
+    "j": 86.8,
     "k": null,
     "l": 100
    }
@@ -9181,6 +9181,256 @@
     "l": 1
    },
    "fix": [
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:falsification-limits",
+   "title": "The Limits of Falsification",
+   "level": "C2",
+   "score": 80.6,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 0,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "audio 0%",
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:language-and-thought",
+   "title": "Does Language Shape Thought?",
+   "level": "C2",
+   "score": 80.6,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 0,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "audio 0%",
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:goodhart-metrics",
+   "title": "When a Measure Becomes a Target",
+   "level": "C2",
+   "score": 80.6,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 0,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "audio 0%",
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:aura-of-original",
+   "title": "The Aura of the Original",
+   "level": "C2",
+   "score": 80.6,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 0,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "audio 0%",
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:precedent-dead-hand",
+   "title": "The Dead Hand and the Living Law",
+   "level": "C2",
+   "score": 80.6,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 0,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "audio 0%",
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:invention-of-progress",
+   "title": "The Invention of Progress",
+   "level": "C2",
+   "score": 80.6,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 0,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "audio 0%",
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:shifting-baselines",
+   "title": "Shifting Baselines",
+   "level": "C2",
+   "score": 80.6,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 0,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "audio 0%",
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:predictive-brain",
+   "title": "The Brain as Prediction Machine",
+   "level": "C2",
+   "score": 80.6,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 0,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "audio 0%",
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:algorithmic-responsibility",
+   "title": "Who Answers for the Algorithm?",
+   "level": "C2",
+   "score": 80.6,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 0,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "audio 0%",
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:eyes-on-the-street",
+   "title": "Eyes on the Street",
+   "level": "C2",
+   "score": 80.6,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 0,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "audio 0%",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
