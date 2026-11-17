@@ -132,6 +132,10 @@ Para aplicar esses sons em respostas mais longas, treine com as [IELTS Speaking 
 
 {{youtube: | Os sons mais difíceis do inglês para brasileiros e como dominá-los}}
 
+Além dos sons, o stress também pesa: veja as regras de [sílaba tônica em inglês](/pt/blog/silaba-tonica-em-ingles-regras-word-stress/), principalmente para palavras parecidas com o português.
+
+Depois de treinar os sons, junte tudo em situações reais com [como falar inglês com confiança](/pt/blog/como-falar-ingles-com-confianca-situacoes-do-dia-a-dia/).
+
 ## Perguntas frequentes
 
 ### Ter sotaque brasileiro é considerado um defeito ao falar inglês?
