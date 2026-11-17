@@ -157,3 +157,5 @@ Pearson's article says that if you took the test before 7 August 2025, the previ
 Do not assume so. Home Affairs did not accept fully online tests on the pages we reviewed for IELTS, and the rules can change, so confirm that your chosen format is accepted for your visa.
 
 Lexkite is an independent practice tool; it is not connected with Pearson, IELTS or the Australian Government.
+
+For the IELTS bands behind each Australian English level, read [IELTS score for Australia PR](/en/blog/ielts-score-australia-pr/).
