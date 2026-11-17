@@ -1,5 +1,5 @@
 {
- "_doc": "Khung bài tập chung (#/lesson/go, cờ ux1) – mẫu Stitch 'Arrange the sentence' 4/11 (key1, screen e923905b…, bản sáng = scripts/stitch/retheme-light.mjs). Đầu trang nằm TRONG cột nội dung, giáo viên đứng cạnh bong bóng (không thẻ nào che), thẻ đề bài, #lsnBody, nút chính + 2 link phụ. web/js/lesson/ui.js + ex.js gắn dữ liệu; khuôn thẻ A–D vẫn lấy từ lesson-question.",
+ "_doc": "Khung bài tập chung (#/lesson/go, cờ ux1) – mẫu Stitch 'Arrange the sentence' 4/11 (key1, screen e923905b…, bản sáng = scripts/stitch/retheme-light.mjs). Đầu trang nằm TRONG cột nội dung, giáo viên = sân khấu chuẩn (LessonTeacher.stage: người to, thẻ đề đè hông, bong bóng có đuôi, KHÔNG bệ – cùng .ex-seat + .lsn-qcard như lesson-question), thẻ đề bài, #lsnBody, nút chính + 2 link phụ. web/js/lesson/ui.js + ex.js gắn dữ liệu; khuôn thẻ A–D vẫn lấy từ lesson-question.",
  "i18n": {
   "Available Words": "Từ có sẵn",
   "Report": "Báo lỗi",
@@ -50,7 +50,7 @@
   ":scope > main > header > div > button": "lsn-x no-underline",
   ":scope > main > header > div > div > div:nth-child(1) > div": "relative min-h-[44px] min-w-[44px] justify-center -my-3 bg-transparent border-0 cursor-pointer",
   ":scope > main > header > div > div > div:nth-child(2)": "lsn-bar",
-  ":scope > main > div > section:nth-child(1)": "lsn-xhead",
+  ":scope > main > div > section:nth-child(1)": "lsn-xmeta",
   ":scope > main > div > section:nth-child(1) > div:nth-child(2) > div:nth-child(2)": "lsn-qchips",
   ":scope > main > div > section:nth-child(1) > div:nth-child(2) > div:nth-child(2) > span": "lsn-xchip",
   ":scope > main > div > section:nth-child(2)": "isolate lsn-qcard",
@@ -68,7 +68,7 @@
  "after": {
   ":scope > main > header > div > div > div:nth-child(1) > span": "'<b class=\"sr-only\" id=\"lsnPct\" dir=\"ltr\"></b><h1 class=\"sr-only\">' + e(d.title) + '</h1>'",
   ":scope > main > header > div > div > div:nth-child(1) > div": "'<button type=\"button\" id=\"lkTheme\" data-lk-theme=\"\" aria-label=\"' + e(t('Đổi giao diện sáng/tối')) + '\" class=\"w-11 h-11 -my-3 shrink-0 flex items-center justify-center rounded-[0.75rem] bg-transparent border-0 cursor-pointer lt:text-[#3f4947] dk:text-[#A3B9B7]\"><span class=\"material-symbols-outlined text-[24px]\">dark_mode</span></button>'",
-  ":scope > main > div > section:nth-child(1) > div:nth-child(1)": "d.teacher",
+  ":scope > main > div > section:nth-child(1)": "'<div class=\"w-full h-[150px] pb-[4px] relative z-0 flex justify-center items-end pointer-events-none lsn-tchw ex-seat\" aria-hidden=\"true\">' + d.teacher + '</div>'",
   ":scope > main > div > section:nth-child(1) > div:nth-child(2) > div:nth-child(2) > span": "'<span class=\"lsn-xcombo\" id=\"lsnComboT\"></span>'"
  },
  "remove": [

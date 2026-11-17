@@ -11,8 +11,8 @@
   const pic = (src, ic) => (src ? `<img class="w-full h-full object-cover block" src="${g.ST.esc(src)}" alt="" loading="lazy" decoding="async" data-ic="${ic}">` : icon(ic));
   const css = () => {}; // CSS khung nằm ở css/lesson-ex.css (js/app.js BCSS nạp cùng gói lesson)
   const usable = () => !!(g.ST2 && g.ST2.P && g.ST2.P['ex-match'] && g.ST2.P['ex-frame'] && g.ST2['ex-frame']);
-  // Chỗ giáo viên: đứng trên bệ cạnh bong bóng – bệ che đường cắt hông (docs/CHARACTERS.md §Chỗ giáo viên), không thẻ nào đè lên người
-  const teacher = () => { css(); return '<div class="lsn-tchw ex-seat" aria-hidden="true"><div id="lsnTch"></div><i class="ss-floor" aria-hidden="true"></i></div>'; };
+  // Chỗ giáo viên: sân khấu chuẩn của main (LessonTeacher.stage – người to, thẻ đề đè hông, bong bóng có đuôi, không bệ); khung .lsn-tchw.ex-seat do mẫu ex-frame (bind) bọc
+  const teacher = () => { css(); return g.LessonTeacher ? g.LessonTeacher.stage('lsnTch') : '<div id="lsnTch"></div>'; };
   // Mục tiêu chỉ hiện khi đúng thang của kỳ thi (TOEIC 10–990, TOEFL 0–120, IELTS 1–9): settings cũ đổi kỳ thi vẫn giữ "7.0" → "TOEIC · Mục tiêu 7.0" sai
   const targetOk = (ex, tg) => { const n = parseFloat(tg); if (!tg) return false; if (/^ielts/.test(ex)) return n >= 1 && n <= 9; if (ex === 'toeic') return n >= 100 && n <= 990; if (ex === 'toefl') return n >= 10 && n <= 120; return true; };
   const KIND = it => ({ match: 'Từ vựng', mean: 'Từ vựng', pic: 'Từ vựng', gap: 'Từ vựng', type: 'Từ vựng', build: 'Ngữ pháp', tr: 'Ngữ pháp', say: 'Nói', q: 'Đọc' }[it.type] || '');
