@@ -4,7 +4,7 @@
 (function (g) {
   const DAY = 864e5;
   const norm = s => String(s || '').toLowerCase().replace(/[’‘]/g, "'").replace(/[^a-z0-9' -]+/g, ' ').replace(/-/g, ' ').replace(/\s+/g, ' ').trim();
-  const toks = s => String(s || '').replace(/[“”"]/g, '').split(/\s+/).map(x => x.replace(/^[^A-Za-z0-9']+|[^A-Za-z0-9']+$/g, '')).filter(Boolean);
+  const toks = s => String(s || '').replace(/[“”"]/g, '').split(/\s+/).map(x => x.replace(/^[^\p{L}\p{N}']+|[^\p{L}\p{N}']+$/gu, '')).filter(Boolean);
   const same = (a, b) => norm(a) === norm(b);
   // Bộ sinh ngẫu nhiên có hạt giống (test/demo lặp lại được)
   const rng = seed => { let s = (seed >>> 0) || 1; return () => { s ^= s << 13; s ^= s >>> 17; s ^= s << 5; return ((s >>> 0) % 1e6) / 1e6; }; };
@@ -24,11 +24,11 @@
   }
 
   // Câu luyện của một thẻ: câu người học gặp trên web (add-on) → câu song ngữ → ví dụ thư viện. Chỉ câu chứa từ, 3–14 từ.
-  function sentenceOf(c) {
+  function sentenceOf(c, viOk) {
     const cands = [];
     if (c.ctx) cands.push({ text: c.ctx, own: true });
     (c.contexts || []).forEach(x => x && x.text && cands.push({ text: x.text, own: true }));
-    (c.sentences || []).forEach(x => x && x.en && cands.push({ text: x.en, tr: x.vi || '', own: false }));
+    (c.sentences || []).forEach(x => x && x.en && cands.push({ text: x.en, tr: viOk === false ? '' : x.vi || '', own: false })); // .vi = tiếng Việt: chỉ người học vi (viOk=false → không bao giờ lộ tiếng Việt ở ngôn ngữ khác)
     if (c.ex) cands.push({ text: c.ex, own: false });
     for (const s of cands) { const n = toks(s.text).length, f = findWord(s.text, c.word); if (f && n >= 3 && n <= 14) return Object.assign({}, s, { at: f }); }
     return null;
@@ -73,12 +73,13 @@
    *  Luật nội dung: đề luôn khớp dữ liệu – xếp câu cần bản dịch CÂU (hoặc âm thanh), không bao giờ lấy định nghĩa của TỪ làm đề câu.
    *  → [{ id, type, word, card, why, sent?, answer, options?, tiles?, prompt?, tr?, mean?, def?, len?, first?, bank?, hints }] */
   function build(picks, opts = {}) {
-    const r = rng(opts.seed || Date.now()), pool = (opts.pool || []).concat(picks.map(p => p.card)), off = opts.off || {}, per = opts.perWord || 2;
+    const viOk = opts.vi !== false, r = rng(opts.seed || Date.now()), pool = (opts.pool || []).concat(picks.map(p => p.card)), off = opts.off || {}, per = opts.perWord || 2;
     const byWord = picks.map(p => {
-      const c = p.card, s = sentenceOf(c), types = [];
+      const c = p.card, s = sentenceOf(c, viOk), types = [];
       // câu song ngữ riêng cho dạng dịch (câu add-on thường không có bản dịch)
-      // bản dịch phải theo ngôn ngữ người học: gloss(câu EN) trước; x.vi chỉ khi người học dùng tiếng Việt (opts.viOk) – không bao giờ hiện tiếng Việt cho es/en/…
-      const pair = (c.sentences || []).map(x => { const tr = x && x.en && ((opts.viOk && x.vi) || (opts.gloss && opts.gloss(c, x.en)) || ''); return tr && findWord(x.en, c.word) && toks(x.en).length >= 3 && toks(x.en).length <= 10 ? { text: x.en, tr, own: false, at: findWord(x.en, c.word) } : null; }).find(Boolean);
+      // dạng dịch cần bản dịch CÂU đúng ngôn ngữ người học: vi → x.vi; ngôn ngữ khác → gloss(thẻ, câu EN) (gói sent), không có → không sinh dạng 'tr'
+      const trOf = x => (viOk ? x.vi : opts.gloss && opts.gloss(c, x.en)) || '';
+      const pair = (c.sentences || []).map(x => { const tr = x && x.en && findWord(x.en, c.word) && toks(x.en).length >= 3 && toks(x.en).length <= 10 ? trOf(x) : ''; return tr ? { text: x.en, tr, own: false, at: findWord(x.en, c.word) } : null; }).find(Boolean);
       if (s && !s.tr && opts.gloss) s.tr = opts.gloss(c, s.text) || ''; // bản dịch câu (gói web/packs/sent) – câu add-on thường không có
       if (s) types.push('gap');
       if (s && s.at && s.at.toks.length <= 10 && (s.tr || !off.listen)) types.push('build'); // không nghe được + không có bản dịch câu → không có đề → không sinh
