@@ -42,8 +42,8 @@ if (total > budget.totalJs) errs.push(`Byte người học (nền + gói ${LB.to
 for (const [l, n] of Object.entries(LB.packs)) if (n > budget.langPackMax) errs.push(`Gói ngôn ngữ ${l} ${n} B > ${budget.langPackMax} B (budget.langPackMax) – rà khóa dịch thừa/trùng trước`);
 if (LB.total > budget.totalAll) errs.push(`Tổng cả kho web/js ${LB.total} B > ${budget.totalAll} B (budget.totalAll) – rà dữ liệu thừa, không tăng vô hạn`);
 // 3b) Trần chỉ đi xuống: tổng thực tế thấp hơn trần ≥ 200 KB → ĐỎ, nhắc hạ trần (nâng tạm 3/11 cho #284, về ≤ 19,97 MB sau tái cấu trúc i18n)
-const SLACK = Math.max(200 * 1024, Math.round(budget.totalJs * 0.04));   // 17/11: chừa ≥ 3 % trống (headroom.mjs TARGET) nên giới hạn 'trần quá cao' = max(200 KB, 4 %)
-if (budget.totalJs - total >= SLACK) errs.push(`Tổng web/js ${total} B thấp hơn trần ${budget.totalJs} B ≥ ${(SLACK / 1024).toFixed(0)} KB – hạ "totalJs" trong ${B} về ≤ ${total + 50000} (trần chỉ đi xuống)`);
+const SLACK = 200 * 1024;
+if (budget.totalJs - total >= SLACK) errs.push(`Tổng web/js ${total} B thấp hơn trần ${budget.totalJs} B ≥ 200 KB – hạ "totalJs" trong ${B} về ≤ ${total + 50000} (trần chỉ đi xuống)`);
 // 3c) Tải lần đầu theo route (người dùng thật, gzip chuẩn): JS gói + CSS gói (app.js BUNDLES/BCSS) không vượt mốc main – chỉ số chính, tổng trên đĩa là phụ
 const APP = fs.readFileSync('web/js/app.js', 'utf8');
 const list = (obj, k) => { const m = APP.match(new RegExp(`\\b${obj} = \\{[\\s\\S]*?\\b${k}: *(\\[[^\\]]*\\])`)); return m ? [...m[1].matchAll(/'([^']+)'/g)].map(x => x[1]) : null; };
