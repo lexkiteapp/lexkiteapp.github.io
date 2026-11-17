@@ -459,3 +459,4 @@ node scripts/test/sr-only.mjs
 node scripts/test/sw-reminder-day.mjs
 node scripts/test/core-day.mjs
 node scripts/test/home-words.mjs
+node scripts/test/run-suite-annotate.mjs
