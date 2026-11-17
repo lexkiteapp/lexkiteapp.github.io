@@ -48,13 +48,13 @@
   "talk": 159
  },
  "TOEFL Writing": {
-  "sentence": 100,
-  "email": 30,
-  "discussion": 30
+  "sentence": 140,
+  "email": 36,
+  "discussion": 36
  },
  "TOEFL Speaking": {
-  "repeat": 175,
-  "interview": 96
+  "repeat": 196,
+  "interview": 100
  },
  "Ngữ pháp – trắc nghiệm": {
   "A2": 168,
@@ -75,10 +75,10 @@
  "Bài đọc ngắn": {
   "B1": 75,
   "B2": 75,
-  "C1": 70,
-  "A2": 65,
+  "C1": 80,
+  "A2": 80,
   "A1": 128,
-  "C2": 80
+  "C2": 165
  },
  "Từ vựng (mục)": {
   "B2": 2948,
