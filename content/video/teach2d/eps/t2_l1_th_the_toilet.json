@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_the_toilet",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Don't forget the word the!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Where is bathroom?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Where is the bathroom?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say the before the place.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The bathroom! Where is the bathroom?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Where is bathroom?",
+  "right": "Where is the bathroom?",
+  "strike": "bathroom",
+  "why": "Say the before the place.",
+  "memory": "The bathroom.",
+  "quiz": {
+   "stem": "Where is ___?",
+   "options": [
+    "the bathroom",
+    "bathroom"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "ห้องน้ำ ต้องมี the นะ!",
+   "tip": "ภาษาไทยไม่มีคำ the แต่ภาษาอังกฤษต้องมี: “Where is the bathroom?”",
+   "caption": "คุณเคยพูดว่า “Where is bathroom?” ไหม? 😅 ภาษาไทยพูดว่า “ห้องน้ำอยู่ไหน” โดยไม่มีคำเทียบกับ the แต่ภาษาอังกฤษต้องมี the: “Where is the bathroom?” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “the bathroom” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยค แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “the bathroom”!",
+   "tip": "Thai has no word like the, but English needs it: “Where is the bathroom?”",
+   "caption": "Do you say “Where is bathroom”? 😅 Thai has no word like the, but English needs it here. Say “Where is the bathroom”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "ห้องน้ำ ต้องมี the นะ!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "ห้องน้ำ ต้องมี the นะ!",
+  "keyword": "Where is the bathroom?",
+  "value": "ภาษาไทยไม่มีคำ the แต่ภาษาอังกฤษต้องมี: “Where is the bathroom?”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "ห้องน้ำ ต้องมี the นะ!",
+    "description": "ภาษาไทยไม่มีคำ the แต่ภาษาอังกฤษต้องมี: “Where is the bathroom?”\n\nคุณเคยพูดว่า “Where is bathroom?” ไหม? 😅 ภาษาไทยพูดว่า “ห้องน้ำอยู่ไหน” โดยไม่มีคำเทียบกับ the แต่ภาษาอังกฤษต้องมี the: “Where is the bathroom?” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "Where is the bathroom?",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “Where is bathroom?” ไหม? 😅 ภาษาไทยพูดว่า “ห้องน้ำอยู่ไหน” โดยไม่มีคำเทียบกับ the แต่ภาษาอังกฤษต้องมี the: “Where is the bathroom?” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "ห้องน้ำ ต้องมี the นะ!\n\nภาษาไทยไม่มีคำ the แต่ภาษาอังกฤษต้องมี: “Where is the bathroom?”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ห้องน้ำ ต้องมี the นะ! ภาษาไทยไม่มีคำ the แต่ภาษาอังกฤษต้องมี: “Where is the bathroom?” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “the bathroom” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยค แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

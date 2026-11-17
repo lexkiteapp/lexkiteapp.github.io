@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_ignore",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Ignore is a false friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Sorry, I ignore his name.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Sorry, I don't know his name.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Ignore means not to listen. No idea is don't know.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Don't know! I don't know his name.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Sorry, I ignore his name.",
+  "right": "Sorry, I don't know his name.",
+  "strike": "ignore",
+  "why": "Ignore means not to listen. No idea is don't know.",
+  "memory": "No idea: don't know.",
+  "quiz": {
+   "stem": "I have no idea. I ___ his name.",
+   "options": [
+    "ignore",
+    "don't know"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Ignore” ≠ « ignorer »",
+   "tip": "En français, « j’ignore » veut dire « je ne sais pas ». En anglais, “ignore” veut dire « faire exprès de ne pas écouter ».",
+   "caption": "Vous dites “Sorry, I ignore his name.” ? En français, « j’ignore » veut dire « je ne sais pas ». En anglais, “ignore” veut dire « faire exprès de ne pas écouter ». Dites plutôt “Sorry, I don't know his name.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “Sorry, I don't know his name.” — En français, « j’ignore » veut dire « je ne sais pas ». En anglais, “ignore” veut dire « faire exprès de ne pas écouter ». À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Ignore” is a trap!",
+   "tip": "In French, « j’ignore » means « je ne sais pas ». In English, “ignore” means to not listen on purpose.",
+   "caption": "Do you say this? “Sorry, I ignore his name.” In French, « j’ignore » means « je ne sais pas ». In English, “ignore” means to not listen on purpose. Say “Sorry, I don't know his name.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Ignore” ≠ « ignorer »"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 53,
+  "seconds": 31.5,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "“Ignore” ≠ « ignorer »",
+  "keyword": "Sorry, I don't know his name.",
+  "value": "En français, « j’ignore » veut dire « je ne sais pas ». En anglais, “ignore” veut dire « faire exprès de ne pas écouter ».",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 47,
+  "platforms": {
+   "youtube": {
+    "title": "“Ignore” ≠ « ignorer »",
+    "description": "En français, « j’ignore » veut dire « je ne sais pas ». En anglais, “ignore” veut dire « faire exprès de ne pas écouter ».\n\nVous dites “Sorry, I ignore his name.” ? En français, « j’ignore » veut dire « je ne sais pas ». En anglais, “ignore” veut dire « faire exprès de ne pas écouter ». Dites plutôt “Sorry, I don't know his name.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "Sorry, I don't know his name.",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Vous dites “Sorry, I ignore his name.” ? En français, « j’ignore » veut dire « je ne sais pas ». En anglais, “ignore” veut dire « faire exprès de ne pas écouter ». Dites plutôt “Sorry, I don't know his name.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Ignore” ≠ « ignorer »\n\nEn français, « j’ignore » veut dire « je ne sais pas ». En anglais, “ignore” veut dire « faire exprès de ne pas écouter ».\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Ignore” ≠ « ignorer » En français, « j’ignore » veut dire « je ne sais pas ». En anglais, “ignore”… #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “Sorry, I don't know his name.” — En français, « j’ignore » veut dire « je ne sais pas ». En anglais, “ignore” veut dire « faire exprès de ne pas écouter ». À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}

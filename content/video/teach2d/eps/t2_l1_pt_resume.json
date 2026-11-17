@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_resume",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Resume, not curriculum!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I attached my curriculum to the email.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I attached my resume to the email.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Your paper for a job is a resume.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! I need a resume for the job.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I attached my curriculum to the email.",
+  "right": "I attached my resume to the email.",
+  "strike": "curriculum",
+  "why": "Your paper for a job is a resume.",
+  "memory": "Send a resume.",
+  "quiz": {
+   "stem": "I need a ___ for the job.",
+   "options": [
+    "curriculum",
+    "resume"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Em inglês, currículo é “resume”!",
+   "tip": "Em português “currículo” é o documento para pedir emprego; em inglês, ele é o “resume”.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I attached my curriculum to the email.” O certo é “I attached my resume to the email.” Em português “currículo” é o documento para pedir emprego; em inglês, ele é o “resume”. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “resume”. Agora diga em voz alta “I attached my resume to the email.” e treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Currículo” is “resume”!",
+   "tip": "In Portuguese “currículo” is the paper you send for a job; in English, it is a “resume”.",
+   "caption": "Watch out for this common mistake! Many people say “I attached my curriculum to the email.” The right way is “I attached my resume to the email.” In Portuguese “currículo” is the paper you send for a job; in English, it is a “resume”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Em inglês, currículo é “resume”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 54,
+  "seconds": 32.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "Em inglês, currículo é “resume”!",
+  "keyword": "I attached my resume to the email.",
+  "value": "Em português “currículo” é o documento para pedir emprego; em inglês, ele é o “resume”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 48,
+  "platforms": {
+   "youtube": {
+    "title": "Em inglês, currículo é “resume”!",
+    "description": "Em português “currículo” é o documento para pedir emprego; em inglês, ele é o “resume”.\n\nCuidado com este erro comum! 😬 Muita gente diz “I attached my curriculum to the email.” O certo é “I attached my resume to the email.” Em português “currículo” é o documento para pedir emprego; em inglês, ele é o “resume”. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "I attached my resume to the email.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “I attached my curriculum to the email.” O certo é “I attached my resume to the email.” Em português “currículo” é o documento para pedir emprego; em inglês, ele é o “resume”. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Em inglês, currículo é “resume”!\n\nEm português “currículo” é o documento para pedir emprego; em inglês, ele é o “resume”.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Em inglês, currículo é “resume”! Em português “currículo” é o documento para pedir emprego; em inglês, ele… #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “resume”. Agora diga em voz alta “I attached my resume to the email.” e treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

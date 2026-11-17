@@ -143,6 +143,10 @@ Baskı altında zamanı yönetmek için adım adım çalışın:
 
 Sınav öncesinde en sık çıkan kavramları düzenli olarak tazelemek için tematik [İngilizce kelime listeleri](/en/vocabulary/) arşivimizi (listeler İngilizcedir) inceleyebilirsiniz.
 
+Her görev tipi için ayrı yöntemi [IELTS Reading soru tipleri](/tr/blog/ielts-reading-soru-tipleri-ve-cozum-yontemleri/) rehberinde, Listening ve Reading bandının genel puana etkisini [IELTS puanı nasıl hesaplanır](/tr/blog/ielts-puani-nasil-hesaplanir-band-skorlari/) yazısında bulabilirsiniz.
+
+Sınava kalan süreye göre Reading çalışmasını plana yerleştirmek için [IELTS hazırlık programı: 4, 8 ve 12 haftalık planlar](/tr/blog/ielts-hazirlik-programi-4-8-12-haftalik/) yazısına bakın.
+
 ## IELTS Reading zaman yönetimi hakkında sık sorulan sorular
 
 ### Sorulardan önce metnin tamamını okumalı mıyım?

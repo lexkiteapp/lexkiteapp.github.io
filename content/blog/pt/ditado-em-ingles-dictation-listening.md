@@ -144,6 +144,8 @@ Esse exercício cirúrgico de um único período gramatical ensina mais ao cére
 
 {{cta: /#/listening | Comece sua primeira sessão de ditado no módulo de listening do Lexkite}}
 
+Depois de treinar o ouvido com ditado, aplique-o às provas com os [tipos de questões do IELTS Listening](/pt/blog/tipos-de-questoes-ielts-listening-estrategias/), onde a ortografia exata decide o ponto.
+
 ## Perguntas Frequentes (FAQ)
 
 ### Quantas vezes por semana devo praticar ditado em inglês?

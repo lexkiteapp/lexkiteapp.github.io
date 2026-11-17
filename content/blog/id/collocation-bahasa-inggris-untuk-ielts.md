@@ -116,6 +116,12 @@ Agar perbendaharaan kolokasi Anda aktif dan dapat dipanggil kapan saja saat ujia
 3. **Latih Daya Ingat dengan Spaced Repetition:** Buka menu [Smart Learn](/#/practice/learn) di aplikasi Lexkite. Algoritma pengulangan berkala akan menguji memori Anda tentang pasangan kata tersebut sebelum otak sempat melupakannya.
 4. **Terapkan pada Latihan Esai Nyata:** Tulis esai dengan memadukan variasi [kalimat kompleks ielts writing task 2](/id/blog/kalimat-kompleks-ielts-writing-task-2/) dan teknik [cara paraphrase ielts writing reading](/id/blog/cara-paraphrase-ielts-writing-reading/). Jangan lupa menjelajahi modul tata bahasa di direktori [/ngu-phap/](/ngu-phap/) kami. Bagi Anda yang juga ingin mengasah kelancaran berbicara, pelajari panduan [cara lancar berbicara bahasa inggris](/id/blog/cara-lancar-berbicara-bahasa-inggris/).
 
+Collocation juga diuji di ujian Cambridge; lihat [format Cambridge B2 First](/id/blog/format-cambridge-b2-first-fce/) untuk contoh soal Part 1 dan Part 3.
+
+Pasangan kata paling berguna dipelajari bersama keluarga katanya; lihat [Academic Word List (AWL) untuk IELTS](/id/blog/academic-word-list-awl-untuk-ielts/).
+
+Untuk satu pasangan yang sangat sering tertukar, baca [perbedaan affect dan effect](/id/blog/perbedaan-affect-dan-effect/).
+
 ## Pertanyaan yang Sering Diajukan (FAQ)
 
 ### Berapa banyak collocation yang sebaiknya dimasukkan dalam satu esai IELTS?

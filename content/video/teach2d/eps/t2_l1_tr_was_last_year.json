@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_was_last_year",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Use visited with last year!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have visited my aunt last year.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I visited my aunt last year.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Last year is over, so use visited.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! I saw him last year.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have visited my aunt last year.",
+  "right": "I visited my aunt last year.",
+  "strike": "have visited",
+  "why": "Last year is over, so use visited.",
+  "memory": "I visited my aunt last year.",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "I have seen him last year.",
+    "I saw him last year."
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Last year” varsa “visited” de!",
+   "tip": "“-mış” eki çoğu zaman “have visited” gibi düşünülür; ama “last year” gibi bitmiş bir zamanla “visited” denir: “I visited my aunt last year.”",
+   "caption": "“I have visited my aunt last year” mı diyorsun? 😅 “Last year” gibi bitmiş bir zaman varsa “have visited” değil, “visited” kullanılır. Doğrusu: “I visited my aunt last year.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “I saw him last year.” “Last year” gibi bitmiş bir zamanla “saw” gibi geçmiş biçimi kullan. Şimdi geçen yıl yaptığın bir şeyi yaz ve sesli söyle: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “visited” with “last year”!",
+   "tip": "“-mış” is often thought of as “have visited,” but with a finished time like “last year,” English says “visited”: “I visited my aunt last year.”",
+   "caption": "Do you say “I have visited my aunt last year”? 😅 With a finished time like “last year,” we say “visited,” not “have visited,” here. The right sentence is “I visited my aunt last year.” Listen to Carlos and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Last year” varsa “visited” de!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "“Last year” varsa “visited” de!",
+  "keyword": "I visited my aunt last year.",
+  "value": "“-mış” eki çoğu zaman “have visited” gibi düşünülür; ama “last year” gibi bitmiş bir zamanla “visited” denir: “I visited my aunt last year.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 46,
+  "platforms": {
+   "youtube": {
+    "title": "“Last year” varsa “visited” de!",
+    "description": "“-mış” eki çoğu zaman “have visited” gibi düşünülür; ama “last year” gibi bitmiş bir zamanla “visited” denir: “I visited my aunt last year.”\n\n“I have visited my aunt last year” mı diyorsun? 😅 “Last year” gibi bitmiş bir zaman varsa “have visited” değil, “visited” kullanılır. Doğrusu: “I visited my aunt last year.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "I visited my aunt last year.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“I have visited my aunt last year” mı diyorsun? 😅 “Last year” gibi bitmiş bir zaman varsa “have visited” değil, “visited” kullanılır. Doğrusu: “I visited my aunt last year.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Last year” varsa “visited” de!\n\n“-mış” eki çoğu zaman “have visited” gibi düşünülür; ama “last year” gibi bitmiş bir zamanla “visited” denir: “I visited my aunt last year.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Last year” varsa “visited” de! “-mış” eki çoğu zaman “have visited” gibi düşünülür; ama “last year” gib… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “I saw him last year.” “Last year” gibi bitmiş bir zamanla “saw” gibi geçmiş biçimi kullan. Şimdi geçen yıl yaptığın bir şeyi yaz ve sesli söyle: {link}",
+  "lang": "tr"
+ }
+}

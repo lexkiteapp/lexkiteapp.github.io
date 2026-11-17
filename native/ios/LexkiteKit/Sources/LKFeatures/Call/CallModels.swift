@@ -9,7 +9,7 @@ import LKStrings
 // (CallCore, CallSession, tested against vectors/call.json); this file adds the device: the voice + teacher face, the recogniser, the stored choices
 // (`vb.call.*`, device-only like the web's localStorage), timers. Everything heavy is injected, so fixtures need no sound, no microphone and no clock.
 
-/// The pack in use: the bundled starter (8 calls) until https://lexkite.com/data/call-pack.json (35 calls) is fetched and cached on disk by `LessonRemote`.
+/// The pack in use: the bundled starter (8 calls) until https://lexkite.com/data/call-pack.json (60 calls) is fetched and cached on disk by `LessonRemote`.
 @MainActor
 enum CallContentStore {
     struct Content {

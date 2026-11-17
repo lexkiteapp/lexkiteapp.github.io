@@ -4,7 +4,7 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { evaluate, gateDrift, applyDrift, rerunCancelled, MAX_AUTO_RERUN, prCapable, checkWorkflow, dirtyShas, run, paceDue, PACED, chainAlive, CHAIN_CHECK_MS, CHAIN_RETRIES, CONTEXT, SELF_JOB, SELF_PATH } from '../ci/required-gate.mjs';
+import { api, evaluate, gateDrift, applyDrift, rerunCancelled, MAX_AUTO_RERUN, prCapable, checkWorkflow, dirtyShas, run, paceDue, PACED, chainAlive, CHAIN_CHECK_MS, CHAIN_RETRIES, CONTEXT, SELF_JOB, SELF_PATH } from '../ci/required-gate.mjs';
 let fails = 0, n = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log('✗', m); } };
 
 const cr = (name, status, conclusion, id = 1) => ({ name, status, conclusion, id });
@@ -12,6 +12,8 @@ const wr = (name, status, conclusion, run_number = 1, extra = {}) => ({ name, st
 const st = (context, state, updated_at = '2026-11-01T00:00:00Z') => ({ context, state, updated_at });
 
 // ---------- 1) đánh giá ----------
+ok(evaluate({ checkRuns: [{ name: 'npm test', status: 'in_progress', conclusion: 'success', completed_at: '2026-11-16T07:49:05Z' }] }).state === 'success', 'check ma: in_progress nhưng đã có conclusion+completed_at → xong (#1448 treo 1h20)');
+ok(evaluate({ checkRuns: [{ name: 'npm test', status: 'in_progress', conclusion: 'success' }, cr('lint', 'completed', 'success')] }).state === 'pending', 'in_progress chưa có completed_at → vẫn CHỜ');
 ok(evaluate({}).state === 'pending', 'không có check nào → CHỜ (CI chưa chạy), không xanh');
 ok(evaluate({ workflowRuns: [wr('report-autofix', 'completed', 'skipped')] }).state === 'pending', 'chỉ có lượt skipped → CHỜ, không xanh (sự cố #584 ngày 05/11)');
 ok(evaluate({ checkRuns: [cr('lint', 'completed', 'neutral')] }).state === 'pending', 'chỉ neutral → CHỜ, không xanh');
@@ -76,6 +78,27 @@ ok(prCapable('name: a\non:\n  push:\n    paths: [x]\njobs: {}\n'), 'push không 
 ok(!prCapable('name: a\non:\n  push:\n    branches: [main]\n  schedule:\n    - cron: \'0 0 * * *\'\njobs: {}\n'), 'chỉ push main + lịch → không');
 ok(!prCapable('name: a\non:\n  schedule:\n    - cron: \'0 0 * * *\'\n  workflow_dispatch:\njobs:\n  x:\n    if: github.event_name == \'pull_request\'\n'), 'chữ pull_request ngoài khối on: không tính');
 ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 'workflow_run → không');
+
+// 16/11: job bị huỷ của lượt cũ (concurrency nhường lượt) khi lượt MỚI đang chạy → CHỜ, không đỏ (#1427, #1475: Stitch diff)
+{
+  const stitchNew = wr('Stitch diff', 'in_progress', null, 9, { id: 900 });
+  const a = evaluate({ checkRuns: [cr('npm test', 'completed', 'success'), cr('diff', 'completed', 'cancelled', 5)], workflowRuns: [stitchNew] });
+  ok(a.state === 'pending' && a.failed.length === 0 && /diff \(huỷ – chờ lượt mới\)/.test(a.description), 'job bị huỷ + lượt workflow mới đang chạy → CHỜ lượt mới: ' + a.description);
+  const b = evaluate({ checkRuns: [cr('npm test', 'completed', 'success'), cr('diff', 'completed', 'cancelled', 5)], workflowRuns: [wr('Stitch diff', 'completed', 'success', 9, { id: 900 })] });
+  ok(b.state === 'failure' && b.failed.some(x => x.startsWith('diff')), 'huỷ mà KHÔNG còn lượt nào chạy (lượt mới đã xong) → vẫn đỏ, không giấu');
+  const c = evaluate({ checkRuns: [cr('npm test', 'completed', 'success')], workflowRuns: [wr('Stitch diff', 'completed', 'cancelled', 9, { id: 900, run_attempt: MAX_AUTO_RERUN })] });
+  ok(c.state === 'pending' && c.cancelled.length === 1, 'workflow huỷ ở lần chạy lại thứ ' + MAX_AUTO_RERUN + ' vẫn được chạy lại (cap nâng 2→4)');
+}
+// 16/11: wip-guard startup_failure (GitHub brownout pull_request_target) là lỗi hạ tầng, không chặn PR xanh
+{
+  const wr2 = (name, conclusion, id = 1) => ({ name, path: `.github/workflows/${name}.yml`, workflow_id: id, status: 'completed', conclusion, run_number: 1, id, run_attempt: 1 });
+  const base = [cr('npm test', 'completed', 'success')];
+  const g = evaluate({ checkRuns: base, workflowRuns: [wr2('wip-guard', 'startup_failure', 7), wr2('npm test', 'success', 8)] });
+  ok(g.state === 'success' && g.infra.join() === 'wip-guard' && /bỏ qua wip-guard/.test(g.description) && g.description.length <= 140, 'wip-guard startup_failure → xanh, ghi chú hạ tầng: ' + g.description);
+  ok(evaluate({ checkRuns: base, workflowRuns: [wr2('wip-guard', 'failure', 7)] }).state === 'failure', 'wip-guard FAILURE thật vẫn đỏ');
+  ok(evaluate({ checkRuns: base, workflowRuns: [wr2('npm test', 'startup_failure', 8)] }).state === 'failure', 'workflow KHÁC startup_failure vẫn đỏ (không bỏ qua bừa)');
+  ok(evaluate({ workflowRuns: [wr2('wip-guard', 'startup_failure', 7)] }).state === 'pending', 'chỉ có wip-guard hỏng, chưa có check thật nào → vẫn CHỜ, không xanh');
+}
 
 // ---------- 3) workflow: bộ canh lịch, không quay lại ~20 runner/commit (3/11) ----------
 {
@@ -216,7 +239,7 @@ ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 
 // ---------- 1c) preqc của teach-video: trần ≥ 8 phút (đo 15/11: 87–300 s, 5 phút cắt → 'cancelled' đỏ oan) + các kiểm độc lập vẫn đủ 4 nhóm, chạy song song ----------
 {
   const y = fs.readFileSync(new URL('../../.github/workflows/teach-video.yml', import.meta.url), 'utf8'), pre = y.slice(y.indexOf('\n  preqc:'), y.indexOf('\n  voice:'));
-  ok(/timeout-minutes: (8|9|10)\b/.test(pre), 'preqc timeout-minutes >= 8');
+  ok(/timeout-minutes: (8|9|1\d|20)\b/.test(pre), 'preqc timeout-minutes >= 8');
   for (const need of ['teach2d-gen.py', 'teach2d-autopub.py', 'teach2d-store.py', 'mix.py --check', 'teach2d-mix.py', 'native-qa.mjs --online', 'publish.py --check']) ok(pre.includes(need), 'preqc vẫn chạy ' + need);
   ok(/wait "\$\{pids\[\$i\]\}"/.test(pre) && /\[ "\$bad" = 0 \] \|\| exit 1/.test(pre), 'preqc đợi mọi nhóm song song và đỏ nếu bất kỳ nhóm nào đỏ');
 }
@@ -225,8 +248,52 @@ ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 
 {
   const F = (filename, status = 'modified') => ({ filename, status });
   ok(gateDrift([F('scripts/i18n-qa.mjs')]).length === 1 && gateDrift([F('scripts/lib/i18n-rules.mjs')]).length === 1 && gateDrift([F('.github/workflows/npm-test.yml', 'added')]).length === 1, 'i18n-qa / bộ luật / workflow đổi → cổng đổi (mọi trạng thái)');
-  ok(gateDrift([F('scripts/test/ci-policy.mjs')]).length === 1 && gateDrift([F('scripts/test/old.mjs', 'removed')]).length === 1 && gateDrift([F('scripts/test/x.mjs', 'renamed')]).length === 1, 'test SỬA/XOÁ/ĐỔI TÊN → cổng đổi');
+  ok(gateDrift([F('scripts/test/ci-policy.mjs')]).length === 1 && gateDrift([F('scripts/test/x.mjs', 'renamed')]).length === 1, 'test SỬA/ĐỔI TÊN (chưa biết nguồn/PR) → cổng đổi');
+  ok(gateDrift([F('scripts/test/old.mjs', 'removed')]).length === 0, 'test bị XOÁ không làm PR đỏ → không bắt gộp lại');
   ok(gateDrift([F('scripts/test/brand-new.mjs', 'added'), F('web/js/app.js'), F('docs/CODEMAP.md')]).length === 0, 'test MỚI thêm + mã/tài liệu thường → không đổi cổng');
+  // 16/11: workflow main đổi chỉ tính khi PR cũng sửa đúng file đó; luật/policy vẫn mọi PR
+  { const wf = [F('.github/workflows/audio.yml'), F('.github/workflows/call-rt.yml', 'added'), F('.github/workflows/x.yml')];
+    ok(gateDrift(wf, ['web/js/app.js']).length === 0, 'PR không chạm workflow → main đổi workflow KHÔNG bắt gộp lại');
+    ok(gateDrift(wf, ['.github/workflows/audio.yml', 'web/js/app.js']).join() === '.github/workflows/audio.yml', 'PR cũng sửa audio.yml → chỉ file đó tính');
+    ok(gateDrift([F('scripts/test/ci-policy.mjs'), F('scripts/ci/required-gate.mjs'), F('scripts/i18n-qa.mjs'), ...wf], []).join() === 'scripts/test/ci-policy.mjs,scripts/i18n-qa.mjs', 'chưa biết nguồn → ci-policy / i18n-qa vẫn bắt; required-gate.mjs (tự chấm bằng bản main) thì không');
+    ok(gateDrift([F('.github/workflows/(>300 tệp đổi)')], ['a']).length === 1, 'main đổi >300 tệp → vẫn chờ (không đo được)'); }
+  // 16/11 liên quan: tệp cổng main đổi chỉ bắt PR khi CÓ THỂ đổi kết quả PR này (#1397 rebase 3 lần 28/28 xanh vẫn kẹt)
+  { const wfSrc = "on:\n  pull_request:\n    paths: ['web/js/call.js', 'web/js/call/**', '!web/js/call/old/**']\n  workflow_dispatch:\n";
+    const testSrc = "const rd = f => fs.readFileSync('web/js/' + f); // đọc web/js/study.js\nconst css = 'web/css/study.css';";
+    const src = { 'scripts/test/learn-flow.mjs': testSrc, 'scripts/test/dict-only.mjs': "readdirSync('web/dict')", '.github/workflows/call-rt.yml': wfSrc, '.github/workflows/cron.yml': 'on:\n  schedule:\n    - cron: "1 * * * *"\n', '.github/workflows/all.yml': 'on:\n  pull_request:\njobs: {}\n' };
+    const fl = [F('scripts/test/learn-flow.mjs'), F('scripts/test/dict-only.mjs'), F('.github/workflows/call-rt.yml'), F('.github/workflows/cron.yml'), F('.github/workflows/all.yml'), F('scripts/ci/required-gate.mjs')];
+    ok(gateDrift(fl, ['docs/CODEMAP.md'], src).join() === '.github/workflows/all.yml', 'PR chỉ đổi docs: test/workflow không liên quan → chấp nhận check xanh; workflow chạy cho MỌI PR (không bộ lọc) vẫn bắt');
+    ok(gateDrift(fl, ['web/js/study.js'], src).join() === 'scripts/test/learn-flow.mjs,.github/workflows/all.yml', 'PR đổi web/js/study.js → learn-flow (nhắc web/js/) bắt; call-rt (paths không khớp) không');
+    ok(gateDrift(fl, ['web/js/call/rt.js'], src).includes('.github/workflows/call-rt.yml'), 'paths của call-rt NAY khớp PR → bắt gộp lại (workflow sẽ chạy với PR này)');
+    ok(!gateDrift(fl, ['web/js/call/old/x.js'], src).includes('.github/workflows/call-rt.yml'), 'tệp bị loại bởi !paths → không bắt');
+    ok(gateDrift(fl, ['web/dict/a.json'], src).includes('scripts/test/dict-only.mjs') && !gateDrift(fl, ['web/js/app.js'], src).includes('scripts/test/dict-only.mjs'), 'test đọc thư mục web/dict: PR đụng web/dict → bắt, PR khác → không');
+    ok(gateDrift([F('scripts/test/learn-flow.mjs')], ['web/js/app.js'], {}).length === 1, 'không tải được nguồn → giữ cách cũ (bắt), không mở cổng oan');
+    ok(gateDrift([F('scripts/test/learn-flow.mjs')], ['scripts/test/learn-flow.mjs'], src).length === 1, 'PR cũng sửa đúng test đó → bắt (xung đột kết quả)'); }
+  // 16/11: compare chỉ liệt kê 300 tệp/lần → phân trang, không còn mặc định "(>300 tệp đổi)" = luôn chờ gộp lại (#1478 tự kẹt)
+  { const mk = n => Array.from({ length: n }, (_, i) => ({ filename: `docs/f${i}.md`, status: 'modified' }));
+    const b64 = t => Buffer.from(t).toString('base64');
+    const fake = ({ mainFiles, prFiles, src = {} }) => async u => {
+      const url = new URL(u), pth = url.pathname.replace('/repos/o/r', ''), pg = +(url.searchParams.get('page') || 1), page = a => a.slice((pg - 1) * 100, pg * 100);
+      const res = b => ({ ok: true, status: 200, headers: { get: () => null }, json: async () => b, text: async () => '' });
+      if (pth.startsWith('/compare/main...')) return res({ merge_base_commit: { sha: 'mb' }, files: page(prFiles) });
+      if (pth.startsWith('/compare/mb...main')) return res({ total_commits: 3, files: page(mainFiles) });
+      const m = pth.match(/^\/contents\/(.+)$/); if (m && src[decodeURIComponent(m[1])] != null) return res({ encoding: 'base64', content: b64(src[decodeURIComponent(m[1])]) });
+      return { ok: false, status: 404, headers: { get: () => null }, json: async () => ({}), text: async () => 'nf' };
+    };
+    const learn = { filename: 'scripts/test/learn-flow.mjs', status: 'modified' }, srcs = { 'scripts/test/learn-flow.mjs': "rd('web/js/study.js')" };
+    const big = [...mk(399), learn];   // 400 tệp main đổi (> 300), gồm 1 test cổng
+    ok((await api('t', 'o/r', fake({ mainFiles: big, prFiles: [{ filename: 'docs/CODEMAP.md', status: 'modified' }], src: srcs })).drift('sha')).length === 0, 'main đổi 400 tệp nhưng test cổng không nhắc tệp PR → KHÔNG chờ (phân trang, không còn dấu >300)');
+    ok((await api('t', 'o/r', fake({ mainFiles: big, prFiles: [{ filename: 'web/js/study.js', status: 'modified' }], src: srcs })).drift('sha')).join() === 'scripts/test/learn-flow.mjs', 'cùng 400 tệp nhưng PR đụng web/js/study.js → bắt đúng test cổng liên quan');
+    const huge = mk(1200);   // quá 10 trang → vẫn cắt cụt → dấu hiệu chờ (không đo được, không mở cổng oan)
+    ok((await api('t', 'o/r', fake({ mainFiles: huge, prFiles: [{ filename: 'a.md', status: 'modified' }] })).drift('sha')).join() === '.github/workflows/(>300 tệp đổi)', 'main đổi > 1000 tệp (cắt cụt) → vẫn chờ');
+    ok((await api('t', 'o/r', fake({ mainFiles: [learn], prFiles: mk(1200), src: srcs })).drift('sha')).join() === 'scripts/test/learn-flow.mjs', 'PR > 1000 tệp (không biết đủ) → tính hết như cách cũ'); }
+  // 16/11: suite.txt (danh sách test) đổi → chỉ bắt PR đụng đúng test có trong danh sách
+  { const suite = 'node scripts/test/learn-flow.mjs\nnode scripts/test/required-gate.mjs\n', src = { 'scripts/test/suite.txt': suite };
+    const f = [F('scripts/test/suite.txt')];
+    ok(gateDrift(f, ['web/js/app.js', 'scripts/test/not-in-suite.mjs'], src).length === 0, 'suite.txt đổi, PR không đụng test nào trong danh sách → KHÔNG bắt gộp lại');
+    ok(gateDrift(f, ['scripts/test/learn-flow.mjs'], src).length === 1, 'PR đụng một test có trong danh sách → bắt');
+    ok(gateDrift(f, ['scripts/test/suite.txt'], src).length === 1, 'PR tự sửa suite.txt → bắt');
+    ok(gateDrift(f, ['web/js/app.js'], {}).length === 1, 'không tải được nguồn suite.txt → giữ cách cũ (bắt)'); }
   const green = { state: 'success', description: 'Xanh: 5 check đều đạt', failed: [], pending: [], total: 5, cancelled: [] };
   const w = applyDrift(green, ['scripts/i18n-qa.mjs', 'scripts/lib/i18n-rules.mjs', '.github/workflows/a.yml']);
   ok(w.state === 'pending' && /gộp lại main/.test(w.description) && w.description.length <= 140 && /\+1/.test(w.description), 'xanh + cổng đổi → CHỜ, mô tả ≤140 ký tự: ' + w.description);
@@ -237,6 +304,17 @@ ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 
   await run(['--sha', 'abc'], {}, { ...base, drift: async () => { throw new Error('502'); } }, () => {});
   await run(['--sha', 'abc'], {}, { ...base, drift: async () => [] }, () => {});
   ok(posted.join() === 'pending,success,success', 'cổng đổi → pending; lỗi API đo → xanh (không chặn oan); không đổi → xanh: ' + posted.join());
+  // 16/11 gate-retest: drift toàn test trong suite → chạy thật trên đầu PR thay vì bắt gộp main
+  { const out = [], mk = r => ({ ...base, post: async (sha, x) => out.push(x), drift: async () => ['scripts/test/story-stage.mjs'], retest: async () => r });
+    await run(['--sha', 'abc'], {}, mk({ clear: true }), () => {});
+    await run(['--sha', 'abc'], {}, mk({ wait: true, note: 'Chạy lại 1 test cổng đổi trên head PR (gate-retest, main@abcd1234)' }), () => {});
+    await run(['--sha', 'abc'], {}, mk({}), () => {});
+    await run(['--sha', 'abc'], {}, { ...mk({}), retest: async () => { throw new Error('502'); } }, () => {});
+    ok(out[0].state === 'success', 'gate-retest ĐẠT cho main hiện tại → drift giải, KHÔNG bắt gộp main');
+    ok(out[1].state === 'pending' && /gate-retest/.test(out[1].description) && !/gộp lại main/.test(out[1].description), 'đang chạy lại → CHỜ với lý do gate-retest (không bảo gộp main): ' + out[1].description);
+    ok(out[2].state === 'pending' && /gộp lại main/.test(out[2].description), 'bất định / đỏ / lỗi thời ({}) → cách cũ: đòi gộp main');
+    ok(out[3].state === 'pending' && /gộp lại main/.test(out[3].description), 'retest ném lỗi → cách cũ (không mở cổng, không đỏ oan)'); }
+
 }
 
 // ---------- 1e) bộ canh KHÔNG chết khi API lỗi 1 lần (15/11: #1355/#1376 kẹt pending, phải dispatch tay) ----------

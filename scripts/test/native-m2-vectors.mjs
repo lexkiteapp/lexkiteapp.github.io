@@ -222,6 +222,14 @@ const RV = T1.vectorJson, RD = T1.rigJson;
   for (const f of ['web/js/listening.js', 'web/js/reading.js', 'web/js/qengine.js', 'web/js/qtips.js', 'web/js/choice-kit.js', 'web/js/lexis.js']) for (const ln of rd(f).split('\n')) for (const m of ln.matchAll(/\bt\('((?:[^'\\]|\\.)*)'/g)) keys8.add(m[1].replace(/\\(['\\])/g, '$1'));
   const miss8 = [...keys8].filter(k => !have8.has(k));
   ok(miss8.length === 0, `M4 strings: ${keys8.size} t() keys of the P06 screens are mapped in native/shared/strings.json${miss8.length ? ' – missing: ' + miss8.slice(0, 3).join(' | ') : ''}`);
+  { // Kotlin L10nKey: KHÔNG enum (JVM 64 KB/method: <clinit> của enum 1 hằng/chuỗi vỡ ở ~3450 chuỗi) → lớp chia khúc, mỗi lớp ≤ 700 hằng (≈ 9 KB constructor), tổng khớp strings.json
+    const kt = fs.readFileSync(R('native/android/design/src/main/kotlin/com/lexkite/app/i18n/generated/L10nKey.kt'), 'utf8'), ids = Object.keys(JSON.parse(fs.readFileSync(R('native/shared/strings.json'), 'utf8'))).filter(k => !k.startsWith('_')), bk = [];
+    if (/enum\s+class\s+L10nKey/.test(kt)) bk.push('L10nKey lại là enum (vượt 64 KB <clinit> khi nhiều chuỗi)');
+    const per = kt.split(/^open class /m).slice(1).map(b => (b.match(/^    val \w+ = L10nKey\(/gm) || []).length);
+    if (per.some(n => n > 700)) bk.push('có lớp L10nKeys > 700 hằng: ' + per.join(','));
+    if (per.reduce((a, b) => a + b, 0) !== ids.length) bk.push(`số hằng ${per.reduce((a, b) => a + b, 0)} ≠ số chuỗi ${ids.length}`);
+    ok(bk.length === 0, `L10nKey.kt: ${ids.length} chuỗi chia ${per.length} lớp (≤ 700 hằng/lớp), không enum – dưới giới hạn method 64 KB${bk.length ? ' – ' + bk.join('; ') : ''}`);
+  }
 }
 
 // ---- 9) M4 speak vectors (P07 speaking & pronunciation: #/speak #/speaking #/pron #/say #/reflex #/rtype #/roleplay #/handsfree) ----
@@ -318,7 +326,7 @@ const RV = T1.vectorJson, RD = T1.rigJson;
     const nat = Object.fromEntries(E.asrModeNative.map(c => [c.id, c.out])); if (nat['native-none-11'] !== 'local' || nat['native-tap-11'] !== 'tap' || nat['native-cloud-01'] !== 'cloud' || nat['native-none-01'] !== 'ask' || nat['native-none-00'] !== 'tap') b10.push('asrModeNative'); }
   { const d = byId(E.depth, 'depth-all-calls').out; if (d.coffee !== 6 || Object.keys(d).length < 30 || V.data.calls.some(c => !(c.id in d))) b10.push('depth table'); }
   { const l0 = byId(V.list, 'list-default').out.steps[0].out, g = id => byId(V.list, id).out.steps.at(-1).out.cardIds;
-    if (l0.cards.length < 30 || l0.filter.buttons.map(b => b.group).join() !== 'all,ielts,toeic,everyday' || !l0.filter.buttons[0].pressed || l0.cards.find(c => c.id === 'coffee').name.k !== 'Mua cà phê cho cả nhóm' || l0.cards.find(c => c.id === 'hobbies').name.k !== l0.cards.find(c => c.id === 'hobbies').title || g('list-filter-ielts').some(i => !/^ielts/.test(i)) || J(g('list-filter-toeic')) !== '["toeic-reschedule"]' || g('list-filter-everyday').some(i => /^ielts|^toeic/.test(i)) || g('list-filter-all').length !== l0.cards.length) b10.push('list groups / names');
+    if (l0.cards.length < 30 || l0.filter.buttons.map(b => b.group).join() !== 'all,ielts,toeic,everyday' || !l0.filter.buttons[0].pressed || l0.cards.find(c => c.id === 'coffee').name.k !== 'Mua cà phê cho cả nhóm' || l0.cards.find(c => c.id === 'hobbies').name.k !== l0.cards.find(c => c.id === 'hobbies').title || g('list-filter-ielts').some(i => !/^ielts/.test(i)) || J(g('list-filter-toeic')) !== J(JSON.parse(fs.readFileSync('web/data/call-pack.json', 'utf8')).calls.filter(c => c.exam === 'toeic').map(c => c.id)) || g('list-filter-everyday').some(i => /^ielts|^toeic/.test(i)) || g('list-filter-all').length !== l0.cards.length) b10.push('list groups / names');
     if (byId(V.list, 'list-filter-ielts').out.steps[1].writes[0].key !== 'vb.call.flt' || byId(V.list, 'list-asr-change').out.steps[1].asrPrefAfter !== null || byId(V.list, 'list-asr-change').out.steps[1].out.changeAsr) b10.push('list persist'); }
   { const f = flowOf('tap-through-coffee'), say = f.steps[1].say, last = f.steps.find(s => s.summary); if (J(say) !== J(['Great choice!', 'Do you want it hot or iced?']) || J(f.steps[1].phases) !== '["think","talk","you"]' || f.steps[1].progress !== '17%' || !last || last.rewards[0].xp !== 17 || last.rewards[0].spoken !== 0 || last.progress !== '100%' || f.teacher.voice !== 'af_heart') b10.push('flow tap-through say order / phases / progress / xp'); }
   { const f = flowOf('unsafe-reask'), s = steps(f, 'type'); if (s[0].say[0] !== "Let's keep our chat friendly and on topic!" || s[0].say[1] !== f.steps[0].say[0] || s[0].state.logged !== 0 || s[0].state.node !== f.steps[0].state.node || s[2].state.node === s[0].state.node || s[2].state.logged !== 1) b10.push('flow unsafe keeps node and re-asks'); }
@@ -341,7 +349,7 @@ const RV = T1.vectorJson, RD = T1.rigJson;
   {
     const zlib = await import('node:zlib'), K1 = await CL.callPack(), K2 = await CL.callPack(), S1 = await CL.callStarter(), PK = JSON.parse(K1), ST = JSON.parse(S1), gz = zlib.gzipSync(K1, { level: 9 }).length, bp = [], JS = x => JSON.stringify(x);
     ok(K1 === K2 && same(CL.CALL_PACK_PATH, K1), 'call-pack.json: two runs identical and equal to the committed file (else: node scripts/native/gen.mjs)');
-    ok(Buffer.byteLength(K1) < 200 * 1024 && gz < 60 * 1024, `call-pack.json size: ${(Buffer.byteLength(K1) / 1024) | 0} KB raw (< 200) / ${(gz / 1024) | 0} KB gzip (< 60); not in the extension or app shell, no audio`);
+    ok(Buffer.byteLength(K1) < 260 * 1024 && gz < 85 * 1024, `call-pack.json size: ${(Buffer.byteLength(K1) / 1024) | 0} KB raw (< 260) / ${(gz / 1024) | 0} KB gzip (< 85); not in the extension or app shell, no audio`);
     ok(S1 === (await CL.callStarter()) && same(CL.CALL_STARTER_PATH, S1) && same('native/ios/LexkiteKit/Sources/LKStore/Resources/call-content.json', S1) && Buffer.byteLength(S1) < 48 * 1024, `call-starter.json: deterministic, equal to the committed copies (shared content-pack = Android assets + iOS resource), ${(Buffer.byteLength(S1) / 1024) | 0} KB < 48`);
     ok(/Resources\/call-content\.json/.test(fs.readFileSync(R('native/ios/LexkiteKit/Package.swift'), 'utf8')), 'Package.swift copies Resources/call-content.json (iOS bundle) – Android reads content-pack/call-starter.json from assets (srcDirs shared/gen)');
     if (!/^[0-9a-f]{12}$/.test(PK.v) || PK.schema !== 1) bp.push('v/schema');

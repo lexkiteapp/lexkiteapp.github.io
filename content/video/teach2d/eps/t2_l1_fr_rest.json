@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_rest",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Rest is a false friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: How long will you rest in this city?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: How long will you stay in this city?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Rest means sleep or relax. Stay means be in a place.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Stay! How long will you stay?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "How long will you rest in this city?",
+  "right": "How long will you stay in this city?",
+  "strike": "rest",
+  "why": "Rest means sleep or relax. Stay means be in a place.",
+  "memory": "Be in a place: stay.",
+  "quiz": {
+   "stem": "How long will you ___ in this city?",
+   "options": [
+    "rest",
+    "stay"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "« Rester » ≠ “rest”",
+   "tip": "En anglais, “rest” veut dire « se reposer ». Pour « rester » quelque part, dites “stay”.",
+   "caption": "Vous dites “How long will you rest in this city?” ? “Rest” veut dire « se reposer », pas « rester ». Pour rester dans un lieu, dites “stay”. Dites plutôt “How long will you stay in this city?” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “How long will you stay in this city?” — “Rest” veut dire « se reposer », pas « rester ». Pour rester dans un lieu, dites “stay”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Rest” is a trap!",
+   "tip": "In English, “rest” means to relax. To be in a place for a time, say “stay”.",
+   "caption": "Do you say this? “How long will you rest in this city?” In English, “rest” means to relax. To be in a place for a time, say “stay”. Say “How long will you stay in this city?” Listen to Ama and repeat with her! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "« Rester » ≠ “rest”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 58,
+  "seconds": 34.0,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "« Rester » ≠ “rest”",
+  "keyword": "How long will you stay in this city?",
+  "value": "En anglais, “rest” veut dire « se reposer ». Pour « rester » quelque part, dites “stay”.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 52,
+  "platforms": {
+   "youtube": {
+    "title": "« Rester » ≠ “rest”",
+    "description": "En anglais, “rest” veut dire « se reposer ». Pour « rester » quelque part, dites “stay”.\n\nVous dites “How long will you rest in this city?” ? “Rest” veut dire « se reposer », pas « rester ». Pour rester dans un lieu, dites “stay”. Dites plutôt “How long will you stay in this city?” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "How long will you stay in this city?",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Vous dites “How long will you rest in this city?” ? “Rest” veut dire « se reposer », pas « rester ». Pour rester dans un lieu, dites “stay”. Dites plutôt “How long will you stay in this city?” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "« Rester » ≠ “rest”\n\nEn anglais, “rest” veut dire « se reposer ». Pour « rester » quelque part, dites “stay”.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "« Rester » ≠ “rest” En anglais, “rest” veut dire « se reposer ». Pour « rester » quelque part, dites… #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “How long will you stay in this city?” — “Rest” veut dire « se reposer », pas « rester ». Pour rester dans un lieu, dites “stay”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}

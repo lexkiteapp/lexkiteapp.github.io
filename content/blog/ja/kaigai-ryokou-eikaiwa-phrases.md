@@ -133,6 +133,8 @@ quiz: [
 
 {{youtube: | Travel English Essential Phrases Guide}}
 
+旅行以外の日常や仕事の場面にも広げるなら、[英語 自信を持って話す方法](/ja/blog/eigo-jishin-motte-hanasu/)が参考になります。
+
 ## よくある質問（FAQ）
 
 ### Q1. 英語がうまく通じないときはどうすればいいですか？

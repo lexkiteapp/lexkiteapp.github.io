@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Very goes after!",
+   "text": "Very much goes at the end!",
    "pause": 0.42
   },
   {
@@ -37,7 +37,7 @@
   },
   {
    "id": "a",
-   "text": "Much! I like cats very much.",
+   "text": "I like cats very much!",
    "pause": 0.42
   },
   {
@@ -58,10 +58,10 @@
   "why": "Put very much after the thing.",
   "memory": "I like pizza very much.",
   "quiz": {
-   "stem": "I like cats very ___.",
+   "stem": "Pick the right sentence.",
    "options": [
-    "much",
-    "many"
+    "I like cats very much.",
+    "I very like cats."
    ],
    "answer": 0
   },
@@ -69,7 +69,7 @@
    "hook": "「とても好き」は very like？",
    "tip": "very は動詞の前に置けません。like ～ very much の順にします。",
    "caption": "“I very like pizza.”と言っていませんか？😅 「とても好き」を I very like と言いたくなりますが、英語では very much を文の後ろに置きます。 “I like pizza very much.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
-   "comment": "答え：“much”。very much は後ろに置きます。無料クイズで練習：{link}",
+   "comment": "答え：“I like cats very much.” very much は後ろに置きます。無料クイズで練習：{link}",
    "hashtags": [
     "#英語学習",
     "#英会話",
@@ -80,7 +80,7 @@
   "en": {
    "hook": "“I very like”? Try another order!",
    "tip": "Very cannot go before a verb. Say like it very much.",
-   "caption": "Do you say “I very like pizza.”? 😅 I very like is tempting, but English puts very much after the object. The natural way is “I like pizza very much.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+   "caption": "Do you say this? “I very like pizza.” 😅 English puts very much after the object. The natural way is “I like pizza very much.” Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -98,9 +98,9 @@
  },
  "lang": "ja",
  "est": {
-  "words": 44,
-  "seconds": 27.1,
-  "wpm": 97
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
  },
  "publish": {
   "title": "「とても好き」は very like？",
@@ -113,11 +113,11 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 38,
+  "script_words": 40,
   "platforms": {
    "youtube": {
     "title": "「とても好き」は very like？",
-    "description": "“I very like pizza.”と言っていませんか？😅 「とても好き」を I very like と言いたくなりますが、英語では very much を文の後ろに置きます。 “I like pizza very much.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "description": "very は動詞の前に置けません。like ～ very much の順にします。\n\n“I very like pizza.”と言っていませんか？😅 「とても好き」を I very like と言いたくなりますが、英語では very much を文の後ろに置きます。 “I like pizza very much.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
     "tags": [
      "I like pizza very much.",
      "learn english",
@@ -128,7 +128,7 @@
     "text": "“I very like pizza.”と言っていませんか？😅 「とても好き」を I very like と言いたくなりますが、英語では very much を文の後ろに置きます。 “I like pizza very much.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "“I very like pizza.”と言っていませんか？😅 「とても好き」を I very like と言いたくなりますが、英語では very much を文の後ろに置きます。 “I like pizza very much.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nlexkite.com",
+    "caption": "「とても好き」は very like？\n\nvery は動詞の前に置けません。like ～ very much の順にします。\n\nlexkite.com",
     "hashtags": [
      "#英語学習",
      "#英会話",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "「とても好き」は very like？ #英語学習 #英会話 #英語勉強"
+    "caption": "「とても好き」は very like？ very は動詞の前に置けません。like ～ very much の順にします。 #英語学習 #英会話 #英語勉強"
    }
   },
-  "first_comment": "答え：“much”。very much は後ろに置きます。無料クイズで練習：{link}",
+  "first_comment": "答え：“I like cats very much.” very much は後ろに置きます。無料クイズで練習：{link}",
   "lang": "ja"
  }
 }

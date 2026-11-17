@@ -1,0 +1,233 @@
+{
+ "id": "mo_news_living_room_fix_8c570f",
+ "template": "mistake",
+ "title": "News Motion – L1 mistake: I really like it, not I very like it (news_living_room_fix_8c570f)",
+ "teacher": "ama",
+ "clips": [
+  "ga11_talk",
+  "ga11_explain",
+  "ga11_happy",
+  "ga11_thinking",
+  "ga11_surprise_3"
+ ],
+ "listen": [
+  "ga11_listen_2"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy2",
+ "active": "mint",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "grammar-check",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Common Mistakes",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "Do you say very like?"
+  },
+  {
+   "id": "b0",
+   "text": "A lot of learners say: I very like it.",
+   "gap": 0.7
+  },
+  {
+   "id": "b1",
+   "text": "Say: I really like it.",
+   "gap": 0.7
+  },
+  {
+   "id": "b2",
+   "text": "Or: I like it a lot.",
+   "gap": 0.7
+  },
+  {
+   "id": "b3",
+   "text": "Very goes with adjectives: very good.",
+   "gap": 0.7
+  },
+  {
+   "id": "b4",
+   "text": "Really before verbs, very before adjectives.",
+   "gap": 0.7
+  },
+  {
+   "id": "b5",
+   "text": "Repeat after me: I really like it.",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "I very like it.",
+      "white"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Common mistake",
+      "tone": "coral"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "I "
+       ],
+       [
+        "very",
+        "ink"
+       ],
+       [
+        " like it."
+       ]
+      ]
+     }
+    ],
+    "strike": [
+     {
+      "line": 0,
+      "run": 1,
+      "at": [
+       "b0",
+       6
+      ]
+     }
+    ]
+   },
+   {
+    "id": "no",
+    "at": [
+     "b3",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Also say",
+      "tone": "teal"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "very good / very nice",
+        "teal"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "better",
+    "at": [
+     "b1",
+     0
+    ],
+    "tone": "green",
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Better",
+      "tone": "green"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "I really like it.",
+        "green"
+       ]
+      ]
+     },
+     {
+      "t": "sub",
+      "runs": [
+       [
+        "very can't go before a verb"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "hook_text": "I very like it.",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ }
+}

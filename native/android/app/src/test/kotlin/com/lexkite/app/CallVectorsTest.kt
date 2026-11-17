@@ -90,7 +90,7 @@ class CallVectorsTest {
     // ====================================================== pack + wiring ======================================================
     /** P08: the downloaded pack and the bundled starter parse and carry the contract numbers; the real calls of the vector data are the pack's; the route is wired. */
     @Test fun parity_P08() {
-        assertEquals(35, pack.english.size); assertEquals(8, starter.english.size)
+        assertEquals(60, pack.english.size); assertEquals(8, starter.english.size)
         assertEquals(listOf("all", "ielts", "toeic", "everyday"), e.groups); assertEquals(120, e.longSeconds); assertEquals(95, e.pctMax); assertEquals(11, e.names.size)
         for (c in data.a("calls").map { it.jsonObject }) { val p = pack.call(c.s("id"))!!; assertEquals(c.s("id"), Js.stringify(c, true), Js.stringify(JsonObject(p.raw.filterKeys { it != "_ok" }), true)) }
         for (c in starter.english) assertNotNull(c.id, pack.call(c.id))

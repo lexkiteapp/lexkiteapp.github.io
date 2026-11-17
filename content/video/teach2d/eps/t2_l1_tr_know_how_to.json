@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_know_how_to",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "I know how to swim!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I know swimming.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I know how to swim.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say know how to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "How to! I know how to drive.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I know swimming.",
+  "right": "I know how to swim.",
+  "strike": "know swimming",
+  "why": "Say know how to.",
+  "memory": "I know how to swim.",
+  "quiz": {
+   "stem": "I know ___ drive.",
+   "options": [
+    "to",
+    "how to"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Know swimming” değil, “how to”!",
+   "tip": "Türkçede “yüzmeyi biliyorum” deriz; İngilizcede “know how to swim” denir: “I know how to swim.”",
+   "caption": "“I know swimming” mi diyorsun? 😅 “Know” sözcüğünden sonra “how to” ve fiil gelir. Doğrusu “I know how to swim.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “how to”. “Yüzmeyi biliyorum” için “I know how to swim” de. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “know how to swim”!",
+   "tip": "Put “how to” after “know”: “I know how to swim.”",
+   "caption": "Do you say “I know swimming”? 😅 In English you need how to after know before another verb. The right sentence is “I know how to swim.” Listen to Carlos and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Know swimming” değil, “how to”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“Know swimming” değil, “how to”!",
+  "keyword": "I know how to swim.",
+  "value": "Türkçede “yüzmeyi biliyorum” deriz; İngilizcede “know how to swim” denir: “I know how to swim.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "“Know swimming” değil, “how to”!",
+    "description": "Türkçede “yüzmeyi biliyorum” deriz; İngilizcede “know how to swim” denir: “I know how to swim.”\n\n“I know swimming” mi diyorsun? 😅 “Know” sözcüğünden sonra “how to” ve fiil gelir. Doğrusu “I know how to swim.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "I know how to swim.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“I know swimming” mi diyorsun? 😅 “Know” sözcüğünden sonra “how to” ve fiil gelir. Doğrusu “I know how to swim.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Know swimming” değil, “how to”!\n\nTürkçede “yüzmeyi biliyorum” deriz; İngilizcede “know how to swim” denir: “I know how to swim.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Know swimming” değil, “how to”! Türkçede “yüzmeyi biliyorum” deriz; İngilizcede “know how to swim” deni… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “how to”. “Yüzmeyi biliyorum” için “I know how to swim” de. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+  "lang": "tr"
+ }
+}

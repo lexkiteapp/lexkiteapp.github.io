@@ -154,6 +154,8 @@ Treine a articulação e receba pontuação precisa em tempo real no [treinador 
 
 {{cta: /#/pron | Pratique todos os 44 fonemas do IPA com áudio nativo no Lexkite}}
 
+Com a tabela em mãos, use o símbolo ˈ para conferir a [sílaba tônica em inglês](/pt/blog/silaba-tonica-em-ingles-regras-word-stress/) de cada palavra nova.
+
 ## Perguntas Frequentes (FAQ)
 
 ### Vale a pena memorizar todos os 44 símbolos do IPA?

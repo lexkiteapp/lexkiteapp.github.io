@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_helpwith",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Help me with this!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Can you help me in this?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Can you help me with this?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use with after help me.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "With! Please help me with my homework.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Can you help me in this?",
+  "right": "Can you help me with this?",
+  "strike": "in",
+  "why": "Use with after help me.",
+  "memory": "Help me with this.",
+  "quiz": {
+   "stem": "Please help me ___ my homework.",
+   "options": [
+    "in",
+    "with"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“help in” नहीं, “help with”!",
+   "tip": "हिंदी में “इसमें मदद करो” कहते हैं, इसलिए लोग in बोल देते हैं। अंग्रेज़ी में help me with बोलें।",
+   "caption": "क्या आप भी बोलते हैं: “Can you help me in this?” 😅 सही वाक्य है: “Can you help me with this?” ध्यान रखें: help me के बाद with लगता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “with”। याद रखें: help me के बाद with लगता है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “help me with”!",
+   "tip": "Many learners say help me in, but English says help me with.",
+   "caption": "Do you say: “Can you help me in this?” 😅 The right sentence is: “Can you help me with this?” Remember: After help me, use with. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“help in” नहीं, “help with”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“help in” नहीं, “help with”!",
+  "keyword": "Can you help me with this?",
+  "value": "हिंदी में “इसमें मदद करो” कहते हैं, इसलिए लोग in बोल देते हैं। अंग्रेज़ी में help me with बोलें।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "“help in” नहीं, “help with”!",
+    "description": "हिंदी में “इसमें मदद करो” कहते हैं, इसलिए लोग in बोल देते हैं। अंग्रेज़ी में help me with बोलें।\n\nक्या आप भी बोलते हैं: “Can you help me in this?” 😅 सही वाक्य है: “Can you help me with this?” ध्यान रखें: help me के बाद with लगता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "Can you help me with this?",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी बोलते हैं: “Can you help me in this?” 😅 सही वाक्य है: “Can you help me with this?” ध्यान रखें: help me के बाद with लगता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“help in” नहीं, “help with”!\n\nहिंदी में “इसमें मदद करो” कहते हैं, इसलिए लोग in बोल देते हैं। अंग्रेज़ी में help me with बोलें।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“help in” नहीं, “help with”! हिंदी में “इसमें मदद करो” कहते हैं, इसलिए लोग in बोल देते हैं। अंग्रेज़ी म… #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “with”। याद रखें: help me के बाद with लगता है। अब अपना एक वाक्य ज़ोर से बोलिए। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

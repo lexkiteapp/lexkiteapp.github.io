@@ -68,8 +68,8 @@
   "native": {
    "hook": "„Information“ hat kein „s“!",
    "tip": "„Information“ ist im Englischen nicht zählbar. Es gibt kein „informations“.",
-   "caption": "Brauchst du „informations“? Besser nicht! 😉 Falsch: “I need some informations.” Richtig: “I need some information.” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.",
-   "comment": "Lösung: “information”. Richtig heißt es: “I need some information.” Übe mehr mit einem kostenlosen Quiz: {link}",
+   "caption": "Brauchen Sie „informations“? Besser nicht! 😉 Falsch: “I need some informations.” Richtig: “I need some information.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “information”. Richtig heißt es: “I need some information.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
    "hashtags": [
     "#englischlernen",
     "#englischtipps",
@@ -78,7 +78,7 @@
    ]
   },
   "en": {
-   "hook": "Do you need “informations”? Better not!",
+   "hook": "“Information” has no “s”!",
    "tip": "In English “information” is uncountable. There is no “informations”.",
    "caption": "Do you need “informations”? Better not! Wrong: “I need some informations.” Right: “I need some information.” Listen to Ama and repeat! Practice more in the Lexkite app."
   }
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "„Information“ hat kein „s“!",
-    "description": "Brauchst du „informations“? Besser nicht! 😉 Falsch: “I need some informations.” Richtig: “I need some information.” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "description": "„Information“ ist im Englischen nicht zählbar. Es gibt kein „informations“.\n\nBrauchen Sie „informations“? Besser nicht! 😉 Falsch: “I need some informations.” Richtig: “I need some information.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
     "tags": [
      "I need some information.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Brauchst du „informations“? Besser nicht! 😉 Falsch: “I need some informations.” Richtig: “I need some information.” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "Brauchen Sie „informations“? Besser nicht! 😉 Falsch: “I need some informations.” Richtig: “I need some information.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "Brauchst du „informations“? Besser nicht! 😉 Falsch: “I need some informations.” Richtig: “I need some information.” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.\n\nlexkite.com",
+    "caption": "„Information“ hat kein „s“!\n\n„Information“ ist im Englischen nicht zählbar. Es gibt kein „informations“.\n\nlexkite.com",
     "hashtags": [
      "#englischlernen",
      "#englischtipps",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "„Information“ hat kein „s“! #englischlernen #englischtipps #sprachenlernen"
+    "caption": "„Information“ hat kein „s“! „Information“ ist im Englischen nicht zählbar. Es gibt kein „informations“. #englischlernen #englischtipps #sprachenlernen"
    }
   },
-  "first_comment": "Lösung: “information”. Richtig heißt es: “I need some information.” Übe mehr mit einem kostenlosen Quiz: {link}",
+  "first_comment": "Lösung: “information”. Richtig heißt es: “I need some information.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
   "lang": "de"
  }
 }

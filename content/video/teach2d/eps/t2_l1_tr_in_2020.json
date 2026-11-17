@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_in_2020",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "In 2020, not at 2020!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: We moved here at 2020.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: We moved here in 2020.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use in with a year.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "In! I came here in 1990.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "We moved here at 2020.",
+  "right": "We moved here in 2020.",
+  "strike": "at 2020",
+  "why": "Use in with a year.",
+  "memory": "We moved here in 2020.",
+  "quiz": {
+   "stem": "I came here ___ 1990.",
+   "options": [
+    "at",
+    "in"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“At 2020” değil, “in 2020”!",
+   "tip": "Türkçede “2020’de” deriz; yıl için İngilizcede “in” kullanılır: “We moved here in 2020.”",
+   "caption": "“We moved here at 2020” mi diyorsun? 😅 Yıllarla “at” değil, “in” kullanılır. Doğrusu “We moved here in 2020.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “in”. Yıl söylerken “in” kullan. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “in 2020”, not “at 2020”!",
+   "tip": "Use “in” with a year: “We moved here in 2020.”",
+   "caption": "Do you say “We moved here at 2020”? 😅 In English with a year we say in, not at. The right sentence is “We moved here in 2020.” Listen to Ama and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“At 2020” değil, “in 2020”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“At 2020” değil, “in 2020”!",
+  "keyword": "We moved here in 2020.",
+  "value": "Türkçede “2020’de” deriz; yıl için İngilizcede “in” kullanılır: “We moved here in 2020.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "“At 2020” değil, “in 2020”!",
+    "description": "Türkçede “2020’de” deriz; yıl için İngilizcede “in” kullanılır: “We moved here in 2020.”\n\n“We moved here at 2020” mi diyorsun? 😅 Yıllarla “at” değil, “in” kullanılır. Doğrusu “We moved here in 2020.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "We moved here in 2020.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“We moved here at 2020” mi diyorsun? 😅 Yıllarla “at” değil, “in” kullanılır. Doğrusu “We moved here in 2020.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“At 2020” değil, “in 2020”!\n\nTürkçede “2020’de” deriz; yıl için İngilizcede “in” kullanılır: “We moved here in 2020.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“At 2020” değil, “in 2020”! Türkçede “2020’de” deriz; yıl için İngilizcede “in” kullanılır: “We moved he… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “in”. Yıl söylerken “in” kullan. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+  "lang": "tr"
+ }
+}

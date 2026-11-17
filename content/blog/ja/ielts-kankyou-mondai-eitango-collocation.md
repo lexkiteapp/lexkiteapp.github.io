@@ -161,6 +161,8 @@ Band 7.5以上の高得点を獲得するためには、学術的で自然な英
 
 {{cta: /#/library | Lexkite単語ライブラリでIELTSアカデミック語彙を今すぐ学習する}}
 
+トピックを問わず使える学術語彙は、[AWL（Academic Word List）の覚え方](/ja/blog/awl-academic-word-list-ielts-tango/)で語族ごとに整理しています。
+
 ## よくある質問（FAQ）
 
 ### エッセイで 'eco-friendly' や 'green' と書いても良いですか？

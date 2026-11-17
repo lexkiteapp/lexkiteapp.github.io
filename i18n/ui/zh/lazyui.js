@@ -724,6 +724,7 @@
 "khả năng nhớ trung bình":"平均记忆率",
 "so với cả tuần trước":"与上周全年相比",
 "từ đang nhớ":"记住的词",
+"{a}/{b} bài":"{a}/{b} 节课",
 "{a}/{b} đúng":"答对 {a}/{b}",
 "{done}/{n} từ":"{done}/{n} 个字",
 "{due} thẻ đến hạn · {total} lượt ôn đã làm":"{due} 卡到期 · {total} 审核已完成",

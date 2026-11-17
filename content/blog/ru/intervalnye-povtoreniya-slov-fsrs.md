@@ -138,6 +138,10 @@ FSRS анализирует ваш индивидуальный темп отв�
 
 {{youtube: | Spaced Repetition FSRS Memory Algorithm Explained}}
 
+Как именно вспоминать слово при каждом повторении, объясняет статья про [активное припоминание](/ru/blog/aktivnoe-pripominanie-dlya-zapominaniya-slov/).
+
+Для проверки метода возьмите пару, которую легко путать, например [affect и effect](/ru/blog/affect-ili-effect-raznitsa-pravilo/), и вернитесь к ней через день и через неделю.
+
 ## Часто Задаваемые Вопросы (FAQ)
 
 ### Q1. Можно ли пропустить день повторений и сделать двойную норму завтра?
