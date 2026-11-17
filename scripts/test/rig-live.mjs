@@ -21,7 +21,7 @@ const ENGINES = [['chromium', chromium, { args: ['--use-fake-ui-for-media-stream
 const VPS = [{ id: '390', width: 390, height: 844, isMobile: true, hasTouch: true }, { id: '1280', width: 1280, height: 800 }];
 
 async function open(browser, vp, scheme, reduce) {
-  const ctx = await browser.newContext({ viewport: { width: vp.width, height: vp.height }, isMobile: !!vp.isMobile, hasTouch: !!vp.hasTouch, colorScheme: scheme, reducedMotion: reduce ? 'reduce' : 'no-preference', permissions: browser.browserType().name() === 'chromium' ? ['microphone'] : [] }); // WebKit không có quyền 'microphone' (newPage ném lỗi)
+  const ctx = await browser.newContext({ bypassCSP: true, viewport: { width: vp.width, height: vp.height }, isMobile: !!vp.isMobile, hasTouch: !!vp.hasTouch, colorScheme: scheme, reducedMotion: reduce ? 'reduce' : 'no-preference', permissions: browser.browserType().name() === 'chromium' ? ['microphone'] : [] }); // WebKit không có quyền 'microphone' (newPage ném lỗi)
   await routeCiHeader(ctx, BASE, CI);
   const page = await ctx.newPage(), errs = [];
   const same = u => { try { return new URL(u).origin === ORIGIN; } catch (e) { return false; } };
