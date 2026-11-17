@@ -7,6 +7,21 @@ export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '
 export const SUITE = path.join(ROOT, 'scripts/test/suite.txt');
 export const readSuite = (file = SUITE) => fs.readFileSync(file, 'utf8').split('\n').map(l => l.trim()).filter(l => l && !l.startsWith('#'));
 export const FAST_RE = /^node scripts\/(vi-lint|ext-syntax|i18n-missing|test\/(ci-policy|ci-triage|syntax-check|comment-code|unit|suite-shards|workflow-yaml))\.m?js\b/;
+// Chú thích lỗi CI: mỗi test đỏ in `::error file=…::<test>: <lý do ngắn>` + ghi bảng tóm tắt vào job summary (không chỉ "exit 1").
+export const TAIL_MAX = 6000;
+export const scriptOf = c => (c.match(/(?:^|\s)((?:\.\/)?[\w./-]+\.(?:m?js|py|sh|cjs|ts))\b/) || [])[1]?.replace(/^\.\//, '') || 'package.json';
+export const reasonOf = (tail, status) => {
+  const lines = String(tail).replace(/\u001b\[[0-9;]*m/g, '').split('\n').map(l => l.trim()).filter(Boolean);
+  const hit = [...lines].reverse().find(l => /(✗|✘|\bnot ok\b|\bFAIL(ED)?\b|\b(Assertion|Type|Reference|Syntax)?Error\b|\bassert|\bExpected\b|\bđỏ\b|\bthiếu\b|\blỗi\b)/i.test(l));
+  return (hit || lines[lines.length - 1] || `thoát mã ${status}`).slice(0, 300);
+};
+export const esc = s => String(s).replace(/%/g, '%25').replace(/\r/g, '%0D').replace(/\n/g, '%0A');
+export const annotate = (c, tail, status) => {
+  const reason = reasonOf(tail, status), file = scriptOf(c);
+  console.error(`::error file=${esc(file)},title=${esc('npm test đỏ')}::${esc(`${c}: ${reason}`)}`);
+  if (process.env.GITHUB_STEP_SUMMARY) { try { fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `### ✗ npm test đỏ\n\n- Lệnh: \`${c}\`\n- Mã thoát: ${status}\n- Lý do: ${reason.replace(/`/g, "'")}\n\n<details><summary>Đuôi output</summary>\n\n\`\`\`\n${String(tail).slice(-2000)}\n\`\`\`\n</details>\n`); } catch {} }
+  return reason;
+};
 export const split = (cmds, n, weights = {}) => {   // LPT: lệnh nặng trước vào shard nhẹ nhất; thứ tự gốc giữ trong shard; tất định
   const W = c => weights[c] ?? 3, bins = Array.from({ length: n }, () => ({ t: 0, idx: [] }));
   cmds.map((c, i) => [c, i]).sort((a, b) => W(b[0]) - W(a[0]) || a[1] - b[1]).forEach(([c, i]) => { const b = bins.reduce((m, x) => x.t < m.t ? x : m); b.t += W(c); b.idx.push(i); });
@@ -23,9 +38,11 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   for (let i = from - 1; i < cmds.length; i++) {
     const c = cmds[i], t = Date.now();
     console.log(`\n▶ [${i + 1}/${cmds.length}] ${c}`);
-    const r = spawnSync(c, { cwd: ROOT, shell: '/bin/sh', stdio: 'inherit', env: process.env });
+    const r = spawnSync(c, { cwd: ROOT, shell: '/bin/sh', stdio: ['inherit', 'pipe', 'pipe'], env: process.env, encoding: 'utf8', maxBuffer: 1 << 28 });
+    process.stdout.write(r.stdout || ''); process.stderr.write(r.stderr || '');
     const s = (Date.now() - t) / 1000; times.push([s, c]);
     if (r.status !== 0) {
+      annotate(c, ((r.stderr || '') + '\n' + (r.stdout || '')).slice(-TAIL_MAX), r.status ?? r.signal);
       console.error(`\n✗ [${i + 1}/${cmds.length}] ${c} – đỏ (mã ${r.status ?? r.signal}) sau ${s.toFixed(1)}s. Chạy lại từ đây: node scripts/test/run-suite.mjs --from=${i + 1}`);
       process.exit(r.status || 1);
     }

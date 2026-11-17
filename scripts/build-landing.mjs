@@ -74,6 +74,12 @@ const HOME_T = rd('brand/stitch/web/gen/home.js'), RES_H = (HOME_T.match(/<secti
 // Cùng khuôn với href() của js/get-app.js (scripts/test/install-links.mjs đối chiếu)
 export const installSection = (c, D = INSTALL) => { const phone = esc(c.install.phone).replace('{url}', `<bdi dir="ltr"><a href="${D.short.path}">${esc(D.short.label)}</a></bdi>`);
   return `<section id="install" data-install class="w-full mb-20"><div class="mb-8"><h2 class="${RES_H}">${esc(c.install.h)}</h2><p class="${RES_P}">${esc(c.install.p)}</p></div><div class="inst">${liveChannels(D).filter(ch => ch.id !== 'cws').map(ch => `<a class="${GA_V3}" href="${esc(storeHref(ch, 'inst', D))}" target="_blank" data-ch="${ch.id}">${SLIM(/^(ios|play)$/.test(ch.id) ? PHONE : DESK)}<span class="inst-t"><small>${esc(ch.devices)}</small><b>${esc(ch.name)}</b></span></a>`).join('')}</div><p class="inst-n ${RES_P}">${phone}</p><p class="inst-m" lang="en">${esc(D.trademarks)}</p></section>`; };
+// Từ nổi bật → trang từ /<lang>/words/<từ> (liên kết sâu từ trang chủ, 13 ngôn ngữ; nguồn content/seo/home-words.json do scripts/seo/home-words.mjs chọn, test kiểm còn index được).
+const HW = fs.existsSync(new URL('content/seo/home-words.json', R)) ? JSON.parse(rd('content/seo/home-words.json')) : {};
+const HW_H = { es: 'Palabras en inglés más consultadas', pt: 'Palavras em inglês mais pesquisadas', fr: 'Mots anglais les plus recherchés', de: 'Meistgesuchte englische Wörter', id: 'Kata bahasa Inggris yang paling sering dicari', th: 'คำศัพท์ภาษาอังกฤษที่คนค้นหามากที่สุด', zh: '最常查询的英语单词', ja: 'よく調べられる英単語', ko: '많이 찾는 영어 단어', hi: 'सबसे ज़्यादा खोजे जाने वाले अंग्रेज़ी शब्द', ar: 'أكثر الكلمات الإنجليزية بحثًا', ru: 'Популярные английские слова', tr: 'En çok aranan İngilizce kelimeler' };
+const TW_CSS = '.tw{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;padding:0;margin:0 0 1rem}.tw a{display:inline-flex;align-items:center;min-height:44px;padding:0 .9rem;border:1px solid color-mix(in srgb,currentColor 25%,transparent);border-radius:999px;text-decoration:none;color:inherit}';
+export const wordsSection = lang => { const L = (HW[lang] || []); if (!L.length) return '';
+  return `<section id="top-words" class="w-full mb-20"><div class="mb-8"><h2 class="${RES_H}">${esc(HW_H[lang])}</h2></div><ul class="tw">${L.map(([sl, w, g]) => `<li><a href="/${lang}/words/${sl}"><span lang="en"${lang === 'ar' ? ' dir="ltr"' : ''}>${esc(w)}</span>${g ? ` · ${esc(g)}` : ''}</a></li>`).join('')}</ul></section>`; };
 // ----- Script 2: gợi ý trang đúng ngôn ngữ (chỉ người dùng thật, đóng được, nhớ lựa chọn) -----
 const SUG = Object.fromEntries(LANGS.map(l => [l, copyOf(l).suggest]));
 // Gói chữ bỏ chính ngôn ngữ của trang (n===P không bao giờ hiện gợi ý) và URL suy từ mã (= landingHref) → nhẹ hơn, cùng hành vi
@@ -134,7 +140,13 @@ const PSEUDO_DYN = /:(?:hover|focus(?:-visible|-within)?|active|visited|link|any
 // Luật chỉ có tác dụng khi người dùng tương tác (rê/chạm/focus) không ảnh hưởng lần vẽ đầu → để ở CSS đầy đủ (nạp ngay sau), không nhân đôi trong CSS tới hạn
 const INTERACT = /:(?:hover|active|focus|focus-visible|focus-within|visited)(?![\w-])/;
 const LAYOUT = /^(display|grid(-[\w-]+)?|gap|row-gap|column-gap|flex(-[\w-]+)?|order|(min-|max-)?(width|height)|aspect-ratio|margin(-[\w-]+)?|padding(-[\w-]+)?|(align|justify|place)-[\w-]+|font-size|line-height|letter-spacing|white-space|box-sizing|border(-(top|right|bottom|left))?-width)$/;
+// Ký tự hiển thị của trang (bỏ script/style/thẻ/menu ẩn) và kiểm một @font-face có ký tự nào của trang trong unicode-range không (không có range = dùng cho mọi ký tự)
+export const pageText = html => html.replace(/<(script|style)[\s\S]*?<\/\1>/g, ' ').replace(/<(ul|div)\b[^>]*\shidden[\s>][^>]*>[\s\S]*?<\/\1>/g, ' ') /* menu ngôn ngữ ẩn: nhãn "Tiếng Việt" chỉ cần phông khi mở menu → tải lười từ CSS ngoài */.replace(/<[^>]+>/g, ' ').replace(/&(?:#(\d+)|#x([0-9a-f]+));/gi, (_, d, x) => String.fromCodePoint(d ? +d : parseInt(x, 16)));
+export const faceUnused = (face, text) => { const m = /unicode-range:([^;}]+)/.exec(face); if (!m || !/Plus Jakarta Sans"/.test(face) || /Fallback/.test(face)) return false;
+  const R = m[1].split(',').map(x => x.trim().replace(/^U\+/i, '').split('-').map(h => parseInt(h, 16)));
+  for (const ch of text) { const c = ch.codePointAt(0); if (R.some(([a, b]) => c >= a && c <= (b ?? a))) return false; } return true; };
 export function criticalCss(css, html) {
+  const TEXT = pageText(html);
   const doc = new JSDOM(html.replace(/<script[^>]*>[\s\S]*?<\/script>/g, '')).window.document;
   doc.documentElement.classList.add(...HEAD_CLS);
   // vùng đầu trang = tới hết section thứ 2 (hero + dải tin cậy hiện trọn ở 1280×900 của mẫu v3) – CSS tới muộn cho phần đã hiện = CLS (CI 3/11: 0,12–0,18)
@@ -149,6 +161,7 @@ export function criticalCss(css, html) {
     memo.set(sel, r); return r; };
   const pick = c => blocks(c).map(b => { const j = b.indexOf('{'), sel = b.slice(0, j).trim();
     if (/^@(media|supports|layer|container)/.test(sel)) { const inner = pick(b.slice(j + 1, -1)); return inner ? sel + '{' + inner + '}' : ''; }
+    if (sel.startsWith('@font-face') && faceUnused(b, TEXT)) return ''; // mặt phông (latin-ext, vietnamese…) mà trang không có ký tự nào thuộc unicode-range → để ở CSS ngoài (nạp ngay sau, chỉ tải khi gặp ký tự), bớt byte nội tuyến
     if (sel.startsWith('@')) return /^@(-\w+-)?keyframes/.test(sel) ? '\u0001' + b : b;
     const ss = splitSel(sel).filter(x => !INTERACT.test(x)), k = ss.filter(x => hit(x) === true), l = ss.filter(x => hit(x) === 'lay');
     const lb = l.length ? b.slice(j + 1, -1).split(';').filter(d => LAYOUT.test(d.split(':')[0].trim())).join(';') : '';
@@ -208,7 +221,7 @@ function renderFull(lang) {
     ama: teacherIdle('ama', { w: 260, cls: 'relative z-10 -mb-5 w-[220px] sm:w-[260px] h-auto', eager: true }),
     carlos: teacherIdle('carlos', { w: 240, cls: 'relative z-10 -mb-5 w-[200px] sm:w-[240px] h-auto' }) };
   const page = stRender('home', d, { lang, chrome });
-  { let a = 0; for (let i = 0; i < 3; i++) { a = page.body.indexOf('</section>', a); if (a < 0) throw new Error('build-landing: không thấy chỗ chèn khu Cài'); a += 10; } page.body = page.body.slice(0, a) + installSection(c) + page.body.slice(a); } // dưới hero + dải tin cậy + 6 tính năng: phần trên giữ đúng nhịp mẫu Stitch (stitch-web-diff); hero + đầu trang có lối tới #install
+  { let a = 0; for (let i = 0; i < 3; i++) { a = page.body.indexOf('</section>', a); if (a < 0) throw new Error('build-landing: không thấy chỗ chèn khu Cài'); a += 10; } page.body = page.body.slice(0, a) + installSection(c) + wordsSection(lang) + page.body.slice(a); } // dưới hero + dải tin cậy + 6 tính năng: phần trên giữ đúng nhịp mẫu Stitch (stitch-web-diff); hero + đầu trang có lối tới #install
   const faqLd = { '@type': 'FAQPage', mainEntity: c.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) };
   const graph = { '@context': 'https://schema.org', '@graph': [
     orgNode(),
@@ -238,7 +251,7 @@ ${alt}
 <meta name="apple-itunes-app" content="app-id=6824714708">
 <link rel="icon" href="/icons/icon.svg?v=3" type="image/svg+xml"><link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=3">
 <style>${page.css}
-${LCSS}</style>
+${LCSS}${TW_CSS}</style>
 ${ld(graph)}
 </head>
 <body class="stw st" data-lhint="lhint btn tsp tsb">
