@@ -233,7 +233,7 @@ def appdata(files, expr):   # the app's own content files (web/js/...), evaluate
     js = ("const vm=require('vm'),fs=require('fs');const c={};c.window=c;c.self=c;c.g=c;vm.createContext(c);"
           "for(const f of JSON.parse(process.argv[1]))vm.runInContext(fs.readFileSync(f,'utf8'),c);"
           "console.log(JSON.stringify(vm.runInContext(process.argv[2],c)))")
-    return json.loads(subprocess.run(['node', '-e', js, json.dumps([f'{ROOT}/web/js/{f}' for f in files]), expr], capture_output=True, text=True, check=True).stdout)
+    return json.loads(subprocess.run(['node', '-e', js, json.dumps([next((q for q in (f'{ROOT}/web/js/{f}', f'{ROOT}/web/cpack/{f}') if os.path.exists(q)), f'{ROOT}/web/js/{f}') for f in files]), expr], capture_output=True, text=True, check=True).stdout)
 
 
 def two(opts, ans, pick):   # 4-option bank item -> [right, chosen distractor] in the data's order

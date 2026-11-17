@@ -2,6 +2,7 @@
 // avif: 1 → có .avif cùng tên, nhỏ hơn .jpg, và câu phải khai w/h. Ghi công ảnh ở web/img/toeic/CREDITS.md.
 import fs from 'node:fs';
 import vm from 'node:vm';
+import { dataFiles } from '../lib/scan-roots.mjs';
 
 const errs = [];
 const jpgSize = f => { // đọc SOF của JPEG → [w, h]
@@ -14,7 +15,7 @@ let n = 0, avif = 0, jpgB = 0, avifB = 0;
 {
   // một ngữ cảnh chung theo thứ tự listening1..N: listening2–7 dùng g.TQL do listening1 dựng
   const g = {}; g.self = g; vm.createContext(g);
-  for (const f of fs.readdirSync('web/js/toeic').filter(f => /^listening\d+\.js$/.test(f)).sort((a, b) => parseInt(a.slice(9)) - parseInt(b.slice(9)))) vm.runInContext(fs.readFileSync('web/js/toeic/' + f, 'utf8'), g);
+  for (const f of dataFiles('toeic', /^listening\d+\.js$/)) vm.runInContext(fs.readFileSync(f, 'utf8'), g);   // đề 1–4 ở web/js, 5+ ở web/cpack (dời lười 17/11)
   for (const p of (g.TOEIC.listening || []).filter(p => p.part === 1)) for (const gr of p.groups) for (const it of gr.items || []) {
     if (!it.img) continue; n++;
     const file = 'web/' + it.img, id = `${p.id} câu ${it.n}`;
