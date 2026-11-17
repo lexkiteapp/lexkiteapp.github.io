@@ -1,0 +1,28 @@
+# Kiểm LIVE lesson/go ở lexkite.com (en/fr/zh/es): không chữ Việt, có "Tôi không biết", bài xếp từ đủ ô. Chạy tay sau khi deploy hotfix bài học.
+name: Live bài học – ngôn ngữ
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: live-lesson-lang
+  cancel-in-progress: true
+jobs:
+  live:
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Cài Playwright (Chromium)
+        timeout-minutes: 8
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          bash scripts/ci/pw-install.sh --with-deps chromium
+      - name: Lái lesson/go trên lexkite.com
+        timeout-minutes: 6
+        run: node scripts/test/live-lesson-lang.mjs https://lexkite.com out/live-lesson-lang
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: live-lesson-lang, path: out/live-lesson-lang, retention-days: 14 }
