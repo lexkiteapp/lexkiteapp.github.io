@@ -16,7 +16,7 @@ from nltk.corpus import wordnet as wn
 
 ap = argparse.ArgumentParser()
 ap.add_argument('--existing', required=True); ap.add_argument('--cmu', required=True); ap.add_argument('--bad', required=True)
-ap.add_argument('--demand', nargs='*', default=[]); ap.add_argument('--cefrj'); ap.add_argument('--octanove'); ap.add_argument('--target', type=int, default=20000); ap.add_argument('--sec-min', type=int, default=int(os.environ.get('LX_SEC_MIN', 1))); ap.add_argument('--want', nargs='*', default=[]); ap.add_argument('--sec-share', type=float, default=0.1); ap.add_argument('--top', type=int, default=int(os.environ.get('LX_TOP', 200000))); ap.add_argument('--out', default='content/lexicon/expand/candidates.json')
+ap.add_argument('--demand', nargs='*', default=[]); ap.add_argument('--cefrj'); ap.add_argument('--octanove'); ap.add_argument('--target', type=int, default=20000); ap.add_argument('--sec-min', type=int, default=int(os.environ.get('LX_SEC_MIN', 1))); ap.add_argument('--want', nargs='*', default=[]); ap.add_argument('--sec-share', type=float, default=0.1); ap.add_argument('--top', type=int, default=int(os.environ.get('LX_TOP', 320000))); ap.add_argument('--out', default='content/lexicon/expand/candidates.json')
 a = ap.parse_args()
 SEC_MIN, SEC_SHARE = a.sec_min, a.sec_share
 # mục retry (content/lexicon/expand/retry/words.json) luôn có ứng viên đúng từ#loại kể cả dưới ngưỡng từ loại phụ – không kẹt retry mãi
@@ -24,6 +24,7 @@ FORCE = {k for f in a.want if os.path.exists(f) for k in json.load(open(f))['ite
 FORCE_W = {k.split('#')[0] for k in FORCE}
 # 17/11 (ứng viên mới cạn: 3,3k mục gần hết C2 hiếm): (1) từ loại phụ nhận từ SemCor ≥ LX_SEC_MIN=1 (trước 3: +~600 từ#loại của từ ĐÃ phổ biến, share ≥ 10 % giữ nguyên);
 # (2) CẦU: từ người dùng thật tra (GSC dictQueue, reports/seo/gsc-*.json) xếp ĐẦU hàng ứng viên – chỉ đổi THỨ TỰ, mọi lọc/giám khảo/ngưỡng giữ nguyên.
+CMU_FREE = os.environ.get('LX_CMU_FREE', '1') == '1'; CMU_FREE_Z = float(os.environ.get('LX_CMU_FREE_Z', 1.5))
 DEMAND = {}
 for f in a.demand:
     try:
@@ -123,7 +124,8 @@ for w in top_n_list('en', a.top):
     if nfreq >= need * 3 and w not in OLPW and not lists.get(w) and w not in FORCE_W and w not in DEMAND: continue  # ×3 (29/10): cổng chặt hơn → sản lượng pilot ~0,3–0,5; cần đủ ứng viên tới 20k
     if w in seen: continue
     if not re.fullmatch(r'[a-z]{3,}(-[a-z]+)?', w): drop['form'] += 1; continue
-    if w not in cmu and '-' not in w: drop['cmu'] += 1; continue
+    # 17/11 (cần ≥ 15k ứng viên): từ ngoài CMUdict nhưng có lemma WordNet (đã lọc ở dưới) vẫn là ứng viên khi LX_CMU_FREE=1 – IPA do cổng gateEntry/espeak quyết, thiếu IPA → hàng duyệt/retry như cũ
+    if w not in cmu and '-' not in w and not (CMU_FREE and zipf_frequency(w, 'en') >= CMU_FREE_Z): drop['cmu'] += 1; continue
     if w in bad or any(b in bad for b in w.split('-')): drop['bad'] += 1; continue
     syn = wn.synsets(w)
     lem = [l for s in syn for l in s.lemmas() if l.name() == w]  # lemma viết thường đúng chữ → không phải tên riêng

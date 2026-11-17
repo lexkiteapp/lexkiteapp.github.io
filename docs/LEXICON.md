@@ -111,3 +111,4 @@ Cấp độ do người soạn; `content/wordlists/cefr-oxford.json` chỉ có c
 
 ## Bảng động từ bất quy tắc (#/irregular)
 Dạng V1/V2/V3 chỉ ở IRR của `web/js/verbs-core.js`; nội dung `content/verbs/`; cách thêm và đối chiếu nguồn: đầu `scripts/verbs/build-irregular.mjs` (rồi chạy `scripts/native/gen.mjs`).
+- **Nguồn ứng viên mở rộng (17/11):** `LX_TOP` 200k → 320k, từ ngoài CMUdict có lemma WordNet vào pool khi Zipf ≥ 1,5 (`LX_CMU_FREE`), từ loại phụ SemCor ≥ 1, cầu GSC `dictQueue` lên đầu. Pool: 3.370 → ~14.300 ứng viên (mới ~12.800; phần thêm gần hết từ Zipf 1,5–3 hiếm). Tần suất lọc ở lọc trước AI; **chặn thật = nguồn vi + 2 câu NGƯỜI VIẾT** (≈1 % ứng viên qua), nên ~14k ứng viên ≈ vài trăm từ đạt, không đủ 11.800 còn thiếu.
