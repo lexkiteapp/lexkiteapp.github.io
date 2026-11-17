@@ -78,7 +78,8 @@ export const installSection = (c, D = INSTALL) => { const phone = esc(c.install.
 const HW = fs.existsSync(new URL('content/seo/home-words.json', R)) ? JSON.parse(rd('content/seo/home-words.json')) : {};
 const HW_H = { es: 'Palabras en inglés más consultadas', pt: 'Palavras em inglês mais pesquisadas', fr: 'Mots anglais les plus recherchés', de: 'Meistgesuchte englische Wörter', id: 'Kata bahasa Inggris yang paling sering dicari', th: 'คำศัพท์ภาษาอังกฤษที่คนค้นหามากที่สุด', zh: '最常查询的英语单词', ja: 'よく調べられる英単語', ko: '많이 찾는 영어 단어', hi: 'सबसे ज़्यादा खोजे जाने वाले अंग्रेज़ी शब्द', ar: 'أكثر الكلمات الإنجليزية بحثًا', ru: 'Популярные английские слова', tr: 'En çok aranan İngilizce kelimeler' };
 const TW_CSS = '.tw{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;padding:0;margin:0 0 1rem}.tw a{display:inline-block;padding:.4rem .8rem;border:1px solid color-mix(in srgb,currentColor 25%,transparent);border-radius:999px;text-decoration:none;color:inherit}';
-export const wordsSection = lang => { const L = HW[lang]; if (!L || !L.length) return '';
+export const NW = { ru: 4, hi: 8 }; // số từ theo ngôn ngữ: chữ dài → ít từ để trang chủ giữ ≥ 2 % dưới trần 16 KB gzip (zlib Node 22 trên CI nén kém ~0,7 %)
+export const wordsSection = lang => { const L = (HW[lang] || []).slice(0, NW[lang] ?? 10); if (!L.length) return '';
   return `<section id="top-words" class="w-full mb-20"><div class="mb-8"><h2 class="${RES_H}">${esc(HW_H[lang])}</h2></div><ul class="tw">${L.map(([sl, w, g]) => `<li><a href="/${lang}/words/${sl}"><span lang="en" dir="ltr">${esc(w)}</span>${g ? ` · ${esc(g)}` : ''}</a></li>`).join('')}</ul></section>`; };
 // ----- Script 2: gợi ý trang đúng ngôn ngữ (chỉ người dùng thật, đóng được, nhớ lựa chọn) -----
 const SUG = Object.fromEntries(LANGS.map(l => [l, copyOf(l).suggest]));
