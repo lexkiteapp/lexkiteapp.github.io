@@ -119,6 +119,18 @@ qualityScore: 94
 
 - [IELTS राइटिंग टास्क 1 ग्राफ विश्लेषण गाइड](/hi/blog/ielts-writing-task-1-graph-description-hindi/)
 
+Task 1 में प्रक्रिया वाला चित्र आए तो उसके लिए अलग रणनीति चाहिए; वह [IELTS process diagram कैसे लिखें](/hi/blog/ielts-process-diagram-kaise-likhe/) में समझाई गई है।
+
+अगर आपके सवाल में "सहमत या असहमत" पूछा गया है, तो पक्ष चुनने और टिके रहने के लिए [IELTS opinion essay कैसे लिखें](/hi/blog/ielts-opinion-essay-kaise-likhe/) पढ़ें।
+
+यूके वीज़ा के लिए IELTS देना हो तो [IELTS UKVI क्या है](/hi/blog/ielts-ukvi-kya-hai/) में Academic और General Training का फ़र्क़ और बुकिंग की जाँच-सूची मिलेगी।
+
+निबंध का स्कोर ओवरऑल बैंड में कितना असर डालता है, यह जानने के लिए [IELTS band score कैसे निकालें](/hi/blog/ielts-band-score-kaise-nikale/) देखना काम आएगा।
+
+निबंध लिखने के बाद अपनी चूकें पकड़ने का तरीका [IELTS Writing में आम गलतियाँ](/hi/blog/ielts-writing-common-mistakes-in-hindi/) में परतों वाले सेल्फ-एडिट के साथ दिया है।
+
+Task 1 की तैयारी भी साथ चल रही हो तो [IELTS bar chart कैसे लिखें](/hi/blog/ielts-bar-chart-kaise-likhe-hindi/) में चार स्टेप का तरीका मिलेगा।
+
 ## अक्सर पूछे जाने वाले प्रश्न (FAQ)
 
 ### क्या टास्क 2 में 250 शब्दों से कम लिखने पर पेनल्टी लगती है?

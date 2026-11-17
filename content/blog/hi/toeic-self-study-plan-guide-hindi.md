@@ -160,6 +160,14 @@ Lexkite आपके गलत प्रश्न, Part-वार अभ्य�
 
 {{cta: /#/toeic | TOEIC मॉक टेस्ट दें और 10 से 990 का अनुमानित स्कोर देखें}}
 
+TOEIC के बजाय प्रमाणपत्र-शैली की परीक्षा चाहिए तो [Cambridge B2 First exam pattern](/hi/blog/cambridge-b2-first-exam-pattern-hindi/) देखिए; उसमें आठ हफ़्तों की योजना भी है।
+
+सातों पार्ट की बनावट, समय और स्कोरिंग एक जगह देखनी हो तो [TOEIC Exam Pattern in Hindi](/hi/blog/toeic-exam-pattern-in-hindi/) पढ़ें।
+
+Listening के 69 प्रश्नों वाले हिस्से की अलग रणनीति [TOEIC Part 3 और 4 की तैयारी](/hi/blog/toeic-part-3-and-4-ki-taiyari-kaise-kare/) में दी गई है।
+
+Listening के पहले पार्ट के लिए अलग से [TOEIC Part 1 Tips in Hindi](/hi/blog/toeic-part-1-photographs-tips-hindi/) उपयोगी रहेगी।
+
 ## TOEIC की self study के बारे में अक्सर पूछे जाने वाले प्रश्न
 
 ### 500 से 750 तक पहुँचने में कितने महीने लगते हैं?

@@ -42,7 +42,7 @@ const AUDIT = () => { const OWN = /^https?:\/\/(([a-z0-9-]+\.)?lexkite\.com|127\
 
 const browser = await chromium.launch(), res = {}, bad = [], sheets = [];
 async function shot(url, vp, scheme, file) {
-  const ctx = await browser.newContext({ viewport: vp, deviceScaleFactor: 1, reducedMotion: 'reduce', colorScheme: scheme }), page = await ctx.newPage();
+  const ctx = await browser.newContext({ bypassCSP: true, viewport: vp, deviceScaleFactor: 1, reducedMotion: 'reduce', colorScheme: scheme }), page = await ctx.newPage();
   await page.addInitScript(() => { window.__cls = 0; new PerformanceObserver(l => { for (const e of l.getEntries()) if (!e.hadRecentInput) window.__cls += e.value; }).observe({ type: 'layout-shift', buffered: true }); });
   await page.route(/^https?:\/\/(?!127\.0\.0\.1|([a-z0-9-]+\.)?lexkite\.com\/|i\.ytimg\.com\/)/, r => /fonts\.(googleapis|gstatic)\.com|cdn\.tailwindcss\.com/.test(r.request().url()) && url.startsWith('file:') ? r.continue() : r.abort()); // mẫu Stitch cần CDN của nó; trang thật: 0 request ra ngoài
   await page.goto(url, { waitUntil: 'networkidle', timeout: 60000 }).catch(() => {}); await page.addStyleTag({ content: STILL }).catch(() => {}); await page.evaluate(() => document.fonts && document.fonts.ready).catch(() => {}); await page.waitForTimeout(400);

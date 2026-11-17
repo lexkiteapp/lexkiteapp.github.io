@@ -78,7 +78,7 @@ const fails = [], ok = (cond, msg) => { console.log(`${cond ? '✓' : '✗'} ${m
 const shot = async (page, name) => { await page.waitForTimeout(250); await page.screenshot({ path: path.join(OUT, name + '.png') }); };
 
 async function open(o = {}) {
-  const ctx = await browser.newContext({ locale: 'vi', permissions: ['microphone'], serviceWorkers: 'block', viewport: o.vp || { width: 1280, height: 800 }, deviceScaleFactor: 1, ...(o.video ? { recordVideo: { dir: path.join(OUT, 'video'), size: o.vp || { width: 1280, height: 800 } } } : {}) });
+  const ctx = await browser.newContext({ bypassCSP: true, locale: 'vi', permissions: ['microphone'], serviceWorkers: 'block', viewport: o.vp || { width: 1280, height: 800 }, deviceScaleFactor: 1, ...(o.video ? { recordVideo: { dir: path.join(OUT, 'video'), size: o.vp || { width: 1280, height: 800 } } } : {}) });
   await ctx.route(BASE + '**', serve);
   // tiếng: KHÔNG gọi kho media/audio thật trên CI – o.audio: tiếng GIẢ đúng độ dài + độ lớn của mốc CI (fixtureAudio) → mặt vẽ chạy chế độ pre như máy thật
   await ctx.route(/audio\.lexkite\.com|github\.io\/(lexkite-media|audio)|lexkite-media/, r => o.audio ? fixtureAudio(r) : r.abort());

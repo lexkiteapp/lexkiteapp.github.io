@@ -53,7 +53,7 @@ const browser = await chromium.launch({ args: ['--use-fake-ui-for-media-stream',
 const report = {};
 
 async function open({ vp, theme, who }) {
-  const ctx = await browser.newContext({ locale: 'vi', permissions: ['microphone'], serviceWorkers: 'block', viewport: vp, deviceScaleFactor: 1, colorScheme: theme });
+  const ctx = await browser.newContext({ bypassCSP: true, locale: 'vi', permissions: ['microphone'], serviceWorkers: 'block', viewport: vp, deviceScaleFactor: 1, colorScheme: theme });
   await ctx.route('**/*', r => r.abort()); // mọi host ngoài: chặn (đăng ký TRƯỚC – route sau thắng)
   await ctx.route(BASE + '**', serve);
   await ctx.route(/audio\.lexkite\.com|github\.io\/(lexkite-media|audio)|lexkite-media/, fixtureAudio);
