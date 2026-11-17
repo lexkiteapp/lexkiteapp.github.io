@@ -8,7 +8,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 ## Khu vực
 - `web/` (3024 file): App (SPA) + landing: shell web/app/index.html nạp web/js/*.js bằng <script> (toàn cục App/UI/Chars, KHÔNG import); lazy bundle: BUNDLES trong web/js/app.js; css web/css; trang tĩnh sinh bởi scripts/build-*.mjs → dist
 - `extension/` (2286 file): Add-on Chrome/Edge (background/content/popup/newtab). extension/app là BẢN SAO dựng từ web/ (scripts/build-extension.sh) – KHÔNG sửa tay, bị bỏ khỏi map
-- `functions/` (111 file): Cloudflare Pages Functions = backend /api/* (file _*.js là helper dùng chung)
+- `functions/` (112 file): Cloudflare Pages Functions = backend /api/* (file _*.js là helper dùng chung)
 - `workers/` (19 file): Cloudflare Workers riêng: audio, dict, gemini (AI), mail, media; workers/lib dùng chung
 - `scripts/` (1514 file): Công cụ build/gen/ops (mjs); scripts/test = chuỗi `npm test`; thư mục con theo mảng (video, lexicon, dict, ops, jobs, ci, social, seo…)
 - `.github/workflows/` (233 file): CI/CD + việc nền theo lịch (xem mục Workflows)
@@ -18,7 +18,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `mobile/` (216 file): Capacitor iOS/Android (ios/ android/ bỏ khỏi map)
 - `store/` (47 file): Hồ sơ listing Chrome/Edge/Apple/Play
 - `docs/` (252 file): Luật + tài liệu chủ đề (docs/README.md → INDEX.md); lịch sử ở docs/archive
-- API `/api/*` (49): account,admin,admin-accounts,admin-clips,admin-prefs,admin-shared,admin-shorts,ads-report,ads-reward,ai,aiearn,backlinks,capacity,class,community,config,contact,cron-kick,dictlookup,distribution,drive,duel,funnel-digest,growth…
+- API `/api/*` (50): account,admin,admin-accounts,admin-clips,admin-prefs,admin-shared,admin-shorts,ads-report,ads-reward,ai,aiearn,backlinks,capacity,class,community,config,contact,cron-kick,dictlookup,distribution,drive,duel,funnel-digest,growth…
 - Thư mục con (số file; js/=web/js, s/=scripts): js/i18n:744 s/test:636 s/video:124 s/stitch:92 s/lib:66 js/vimg:64 s/cine:54 s/ci:47 js/st:42 s/lexicon:38 s/vocab-img:33 s/native:30 js/notes:27 js/readtest:21 js/lib:20 s/pron:19 s/target:17 s/lesson:15 js/get-app:15 js/irv:15 js/toeic:15 js/call:14 s/ops:13 s/word-audio:13 s/lipsync:12
 
 ## Sửa ở đâu (tác vụ → file)
@@ -39,7 +39,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 1. `web/js/app.js` ←104 · App,LK_GETAPP_T,accountMenu,retArm…
 2. `web/js/st/common.js` ←54 · ST
 3. `functions/api/_body.js` ←39 · BodyError,readBytes,readText,readJSON…
-4. `functions/api/sync.js` ←38 · SHRINK_MIN,cors,json,claims…
+4. `functions/api/sync.js` ←39 · SHRINK_MIN,cors,json,claims…
 5. `scripts/lexicon/lib.mjs` ←27 · ROOT,rd,wr,PRIORITY…
 6. `scripts/video/library.mjs` ←25 · ROOT,LIB,CAND,MANIFEST…
 7. `functions/api/_d1guard.js` ←21 · D1_LIMITS,GUARD_PCT,WARN_PCTS,GQL_TIMEOUT_MS…
@@ -208,7 +208,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `workers/mail`: mail-prefs
 - `workers/push`: fcm-push
 
-## Mô-đun JS chính (7/2432, ngoài god nodes; phần còn lại trong json) – tên: export →nạp/import ←số nơi dùng
+## Mô-đun JS chính (7/2433, ngoài god nodes; phần còn lại trong json) – tên: export →nạp/import ←số nơi dùng
 - `scripts/lib/` ai-pool.mjs: modelInfo,familyOf,pickModels,judgeKey,TASKS… →lexai.js,cf-pool.mjs,key-pool.mjs ←15 (judge.mjs,lib.mjs,job.mjs) · blog-content.mjs: ROOT,CATEGORIES,config,parse,setField… →blog-images.mjs,url-guard.mjs ←14 (blog-captions.mjs,blog-check.mjs,blog-due.mjs) · i18n-pack.mjs: ROOT,SRC,OUT,LANGS,LAZY… →- ←14 (preview-resolve.mjs,regen-generated.mjs,build.mjs) · is-main.mjs: isMain →- ←15 (build-hash.mjs,creds.mjs,cutover.mjs)
 - `scripts/native/` gen-vocab.mjs: NOW,slice,miniData,mkEnv,mkApp… →fake-idb.mjs,gen-teach.mjs,web-ref.mjs ←4 (gen-call.mjs,gen-skills.mjs,gen-speak.mjs)
 - `scripts/target/` lib.mjs: ROOT,MEAN_LANGS,POS,seedPath,coreFiles… →i18n-rules.mjs ←14 (grammar-map-check.mjs,build.mjs,calls-check.mjs)
