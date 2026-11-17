@@ -112,6 +112,12 @@ Lexkite có chế độ thi thử bốn kỹ năng mô phỏng một buổi thi 
 
 Nếu Listening là phần mất điểm nhiều nhất, hãy đọc thêm [mẹo làm bài IELTS Listening](/vi/blog/meo-lam-bai-ielts-listening/) trước buổi thi thử tiếp theo.
 
+Với bài thi dành cho hồ sơ visa Anh, đọc [IELTS UKVI là gì](/vi/blog/ielts-ukvi-la-gi/) để biết cách đăng ký đúng bài.
+
+Sau khi có kết quả thi thử, hãy dùng [lịch học IELTS 4, 8, 12 tuần](/vi/blog/lich-hoc-ielts-4-8-12-tuan/) để chọn kế hoạch hợp với khoảng cách còn lại.
+
+Sau khi có kết quả thi thử, hãy đối chiếu với bài giải thích [cách tính điểm IELTS](/vi/blog/cach-tinh-diem-ielts-band-score/) để đọc đúng từng band. Nếu mục tiêu của bạn là định cư, đọc [IELTS định cư: chọn bài thi nào, cần band bao nhiêu](/vi/blog/ielts-dinh-cu-chon-bai-thi-va-band/) trước khi đăng ký thi.
+
 ## Câu hỏi thường gặp
 
 ### Điểm thi thử IELTS online có chính xác không?

@@ -7,7 +7,7 @@ const ROUTES = ['home', 'vocab', 'skills', 'skill/listening', 'tests', 'me', 'gr
 const VIEWS = { mobile: { width: 390, height: 844, isMobile: true, deviceScaleFactor: 2 }, desktop: { width: 1366, height: 860 } };
 const browser = await chromium.launch();
 for (const [vn, vp] of Object.entries(VIEWS)) for (const scheme of ['light', 'dark']) for (const lang of ['vi', 'en']) {
-  const ctx = await browser.newContext({ viewport: { width: vp.width, height: vp.height }, deviceScaleFactor: vp.deviceScaleFactor || 1, isMobile: !!vp.isMobile, colorScheme: scheme });
+  const ctx = await browser.newContext({ bypassCSP: true, viewport: { width: vp.width, height: vp.height }, deviceScaleFactor: vp.deviceScaleFactor || 1, isMobile: !!vp.isMobile, colorScheme: scheme });
   const page = await ctx.newPage();
   await page.goto(BASE + lang + '#/welcome/setup', { waitUntil: 'networkidle' });
   await page.waitForSelector('#obNext, #go', { timeout: 8000 }).catch(() => {}); for (let i = 0; i < 8 && !(await page.$('#go')) && (await page.$('#obNext')); i++) { await page.click('#obNext').catch(() => {}); await page.waitForTimeout(150); } const go = await page.$('#go'); if (go) { await go.click(); await page.waitForTimeout(2500); } // thiết lập từng bước (onboard.js): Tiếp tục tới màn cuối rồi Bắt đầu
