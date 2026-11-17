@@ -70,3 +70,16 @@ export function landStats(rows) {
   const countries = sorted(by.country);
   return { total, src: sorted(by.src).slice(0, 12), countries: countries.slice(0, 20), kinds: sorted(by.kind), langs: sorted(by.lang), tiers: tierShare(countries) };
 }
+
+/** Công cụ tìm kiếm cổ điển (không tính AI/mạng xã hội) – "khách từ tìm kiếm". */
+export const SEARCH_SRC = new Set(['google.com', 'bing.com', 'yahoo.com', 'duckduckgo.com', 'yandex.com', 'naver.com', 'daum.net', 'baidu.com', 'ecosia.org', 'brave.com', 'coccoc.com']);
+/** rows [{day, kind:'land:<nguồn>:<nước>:…', n}] → [{day, search, google, high, vn, other}] mỗi ngày có số, tăng dần: khách thật từ tìm kiếm theo nhóm CPM (nhóm theo nước của khách). */
+export function searchDaily(rows) {
+  const m = new Map();
+  for (const r of rows || []) {
+    const a = String(r.kind).split(':'); if (a[0] !== 'land' || a.length !== 5 || !SEARCH_SRC.has(a[1])) continue;
+    const d = m.get(r.day) || m.set(r.day, { day: r.day, search: 0, google: 0, high: 0, vn: 0, other: 0 }).get(r.day), n = +r.n || 0;
+    d.search += n; if (a[1] === 'google.com') d.google += n; d[tierOf(a[2])] += n;
+  }
+  return [...m.values()].sort((x, y) => (x.day < y.day ? -1 : 1));
+}
