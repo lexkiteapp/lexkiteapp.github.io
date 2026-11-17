@@ -53,6 +53,7 @@
 @media (max-width:359px){.hb-c>span{padding:0 6px;gap:4px}}
 @media (min-width:1024px){.hb{display:none!important}}
 @media (max-width:1023px){#view>.hb{margin:-1rem -1rem 12px;width:auto}}
+@media (max-width:1023px){.v2s-vocab-hub main>.hb{width:100vw;max-width:100vw;margin-inline:calc(50% - 50vw)}}
 @media (max-width:1023px){.hb~header{display:none!important}.hb~main.pt-14{padding-top:8px!important}body.hb-on .topbar{display:none!important}body.hb-on.v2-gs .topbar{display:flex!important;position:fixed;inset:0 0 auto;z-index:60;padding:.5rem .75rem}body.hb-on.v2-gs .topbar>:not(.gsearch){display:none}body.hb-on.v2-gs .gsearch{max-width:none}}`;
     document.head.appendChild(s); };
   S.hubbar = (d, chips = true) => { S.hubCss(); const h = d.hdr || S.hdr(), u = (self.App && App.state && App.state.user) || null, nm = (u && (u.displayName || u.email)) || '', L = (self.I18N && I18N.lang ? I18N.lang() : 'vi').toUpperCase();
