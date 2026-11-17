@@ -20,7 +20,8 @@ export const LANGS = ['vi', 'en', 'es', 'ja', 'id', 'pt', 'fr', 'de', 'tr', 'ru'
 const TOKEN_URL = 'https://oauth2.googleapis.com/token';
 const API = 'https://searchconsole.googleapis.com/webmasters/v3/sites/';
 const SCOPE = 'https://www.googleapis.com/auth/webmasters.readonly';
-// Ngưỡng (chỉ được chặt hơn khi có đủ dữ liệu – không nới để "ra nhiều việc").
+// Ngưỡng cho site lớn (≥ 50k hiển thị/28 ngày). Site nhỏ: effThresholds() co ngưỡng hiển thị theo tổng hiển thị (sàn 20/5) – dữ liệu ~10k hiển thị toàn đuôi dài
+// (mỗi cặp truy vấn×trang 1–5 hiển thị) nên ngưỡng 100/50 cố định làm cả 4 phần ra 0. Chỉ co theo quy mô dữ liệu, không nới chất lượng (CTR/hạng/khớp giữ nguyên).
 export const T = {
   days: 28, lagDays: 3, rowLimit: 25000, maxPages: 20,
   gapMinImpr: 50, matchKw: 0.8, matchQ: 0.5, weakPos: 30,          // (a)
@@ -29,6 +30,11 @@ export const T = {
   decPrevMin: 100, decDrop: 0.4, decAbsMin: 50,                      // (d)
   keepDays: 182, titleMax: 60, titleMaxCjk: 32, descMin: 70, descMax: 160,
 };
+export const effThresholds = total => {
+  const k = Math.min(1, Math.max(0.2, total / 50000)), f = (v, floor) => Math.max(floor, Math.round(v * k));
+  return { scale: r2(k), gapMinImpr: f(T.gapMinImpr, 20), sdMinImpr: f(T.sdMinImpr, 20), canMinImpr: f(T.canMinImpr, 20), canPageMin: f(T.canPageMin, 5), decPrevMin: f(T.decPrevMin, 30), decAbsMin: f(T.decAbsMin, 15) };
+};
+const r2 = x => Math.round(x * 100) / 100;
 export const expectedCtr = p => 0.30 / Math.pow(Math.max(1, p), 1.25); // đường CTR tự nhiên ước lượng (hạng 8 ≈ 2,2 %, 10 ≈ 1,7 %, 20 ≈ 0,7 %)
 
 // ---------- chuẩn hoá & đặc trưng truy vấn ----------
@@ -51,7 +57,9 @@ export function matches(q, kw) {
   if (!A.size || !B.size) return false;
   const n = inter(A, B); return n / B.size >= T.matchKw && n / A.size >= T.matchQ;
 }
-export const clusterKey = q => [...feats(q)].sort().join(' ');
+// Từ "tra nghĩa" (meaning/definition/แปลว่า…) không tính vào khoá cụm → "X meaning" + "define X" + "X definition" gộp một cụm.
+const LOOKUP_W = new Set(['meaning', 'definition', 'define', 'significado', 'signification', 'bedeutung', 'artinya', 'arti', 'nghia', 'translation', 'แปลว่า', 'معنى', '意味', '뜻']);
+export const clusterKey = q => [...feats(q)].filter(x => !LOOKUP_W.has(x)).sort().join(' ');
 
 const VI = /[ăâđêôơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i;
 const COUNTRY = {
@@ -154,7 +162,7 @@ export function analyze(data, content, opts = {}) {
   const maxPosts = Math.max(1, ...Object.values(perLang));
   const langW = l => 1 + 0.5 * (1 - (perLang[l] || 0) / maxPosts);
   const covering = (q, qf, lang) => postFeat.filter(x => x.p.lang === lang && (matches(qf, x.kw) || (qf.size >= 2 && inter(qf, x.ti) === qf.size)));
-  const targetCtr = expectedCtr(5);
+  const total = sum(pageCur.length ? pageCur : qpc, r => r.impressions), E = effThresholds(total), targetCtr = expectedCtr(5);
 
   // (a) truy vấn có hiển thị chưa có bài khớp – gom cụm theo ngôn ngữ + đặc trưng đã chuẩn hoá
   const cl = new Map();
@@ -172,7 +180,7 @@ export function analyze(data, content, opts = {}) {
     const ctr = c.impressions ? c.clicks / c.impressions : 0, position = c.pw / c.impressions;
     const term = lookupTerm(q);
     if (term) { const d = dictQueue.get(term) || { term, impressions: 0, clicks: 0, queries: [] }; d.impressions += c.impressions; d.clicks += c.clicks; if (d.queries.length < 5) d.queries.push(q); dictQueue.set(term, d); }
-    if (c.impressions < T.gapMinImpr || intent === 'brand') continue;
+    if (c.impressions < E.gapMinImpr || intent === 'brand') continue;
     if (term && intent === 'lookup') continue; // "X là gì / แปลว่า": việc của trang từ điển (dictQueue), không viết blog mỏng ăn thịt trang từ
     const qf = feats(q), cov = covering(q, qf, c.lang);
     const topPage = [...c.pages].sort((a, b) => b[1] - a[1])[0][0];
@@ -190,14 +198,16 @@ export function analyze(data, content, opts = {}) {
   // (b) striking distance: (trang, truy vấn) hạng 8–30, đủ hiển thị, CTR thấp so với đường CTR tự nhiên
   const striking = [];
   const qpRows = qp.length ? qp : [...agg(qpc, r => `${r.keys[0]}\u0000${cleanUrl(r.keys[1])}`).values()].map(a => ({ ...a, keys: [a.keys[0], cleanUrl(a.keys[1])] }));
+  // Gộp theo TRANG: trang hạng 8–30 gồm nhiều truy vấn đuôi dài (mỗi cái vài hiển thị) vẫn đáng sửa khi cộng lại đủ ngưỡng; CTR so với đường kỳ vọng theo hiển thị.
   const byPage = new Map();
   for (const r of qpRows) {
-    const [q, page] = r.keys, exp = expectedCtr(r.position);
-    if (r.position < T.sdMin || r.position > T.sdMax || r.impressions < T.sdMinImpr || r.ctr >= exp * T.lowCtrRatio || intentOf(q) === 'brand') continue;
-    const u = cleanUrl(page), e = byPage.get(u) || { page: u, queries: [], impressions: 0, gain: 0 };
+    const [q, page] = r.keys;
+    if (r.position < T.sdMin || r.position > T.sdMax || intentOf(q) === 'brand') continue;
+    const u = cleanUrl(page), e = byPage.get(u) || { page: u, queries: [], impressions: 0, clicks: 0, exp: 0, gain: 0 }, exp = expectedCtr(r.position);
     e.queries.push({ query: q, impressions: r.impressions, clicks: r.clicks, ctr: r4(r.ctr), position: r1(r.position), expectedCtr: r4(exp) });
-    e.impressions += r.impressions; e.gain += r.impressions * exp - r.clicks; byPage.set(u, e);
+    e.impressions += r.impressions; e.clicks += r.clicks; e.exp += r.impressions * exp; byPage.set(u, e);
   }
+  for (const [u, e] of byPage) { if (e.impressions < E.sdMinImpr || e.clicks / e.impressions >= (e.exp / e.impressions) * T.lowCtrRatio) byPage.delete(u); else e.gain = e.exp - e.clicks; }
   for (const e of byPage.values()) {
     e.queries.sort((a, b) => b.impressions - a.impressions);
     const post = byUrl.get(e.page), lang = post ? post.lang : pageLang(e.page) || 'en';
@@ -210,8 +220,8 @@ export function analyze(data, content, opts = {}) {
   const cannibal = [], qGroups = new Map();
   for (const r of qpRows) { const g = qGroups.get(r.keys[0]) || []; g.push(r); qGroups.set(r.keys[0], g); }
   for (const [q, rows] of qGroups) {
-    const total = sum(rows, r => r.impressions); if (total < T.canMinImpr || intentOf(q) === 'brand') continue;
-    const pages = rows.filter(r => r.impressions >= Math.max(T.canPageMin, total * T.canPageShare)).map(r => ({ page: cleanUrl(r.keys[1]), impressions: r.impressions, clicks: r.clicks, position: r1(r.position) }))
+    const total = sum(rows, r => r.impressions); if (total < E.canMinImpr || intentOf(q) === 'brand') continue;
+    const pages = rows.filter(r => r.impressions >= Math.max(E.canPageMin, total * T.canPageShare)).map(r => ({ page: cleanUrl(r.keys[1]), impressions: r.impressions, clicks: r.clicks, position: r1(r.position) }))
       .sort((a, b) => b.clicks - a.clicks || a.position - b.position);
     if (pages.length < 2) continue;
     const langs = new Set(pages.map(p => pageLang(p.page) || 'en')), sameLang = langs.size === 1, win = pages[0];
@@ -226,7 +236,7 @@ export function analyze(data, content, opts = {}) {
   const cur = agg(pageCur, r => cleanUrl(r.keys[0])), prev = agg(pagePrev, r => cleanUrl(r.keys[0])), declines = [];
   for (const [u, p] of prev) {
     const c = cur.get(u) || { impressions: 0, clicks: 0, position: 0, ctr: 0 };
-    if (p.impressions < T.decPrevMin || c.impressions > p.impressions * (1 - T.decDrop) || p.impressions - c.impressions < T.decAbsMin) continue;
+    if (p.impressions < E.decPrevMin || c.impressions > p.impressions * (1 - T.decDrop) || p.impressions - c.impressions < E.decAbsMin) continue;
     const post = byUrl.get(u);
     declines.push({ page: u, lang: post ? post.lang : pageLang(u) || 'en', slug: post ? post.slug : null, prevImpressions: p.impressions, impressions: c.impressions,
       change: r4(c.impressions / p.impressions - 1), prevPosition: r1(p.position), position: r1(c.position), prevClicks: p.clicks, clicks: c.clicks, gain: r1(Math.max(p.clicks - c.clicks, (p.impressions - c.impressions) * p.ctr)),
@@ -253,7 +263,8 @@ export function analyze(data, content, opts = {}) {
     totals: { current: tot(pageCur.length ? pageCur : qpc), previous: tot(pagePrev) },
     gaps: gaps.slice(0, 200), striking: striking.slice(0, 200), cannibal: cannibal.slice(0, 100), declines: declines.slice(0, 100), dictQueue: dq.slice(0, 200), priority,
     pages: [...cur].sort((a, b) => b[1].impressions - a[1].impressions).slice(0, 500).map(([u, a]) => ({ page: u, clicks: a.clicks, impressions: a.impressions, position: r1(a.position) })),
-    cpm: cpmReport(data),
+    cpm: cpmReport(data), thresholdsEffective: E,
+    noBaseline: sum(pagePrev, r => r.impressions) < E.decPrevMin,
   };
 }
 
@@ -315,6 +326,7 @@ export function markdown(rep) {
   rep.cannibal.slice(0, 10).forEach((c, i) => L.push(`| ${i + 1} | ${esc(c.query)} | ${c.impressions} | ${c.pages.map(p => `${esc(short(p.page))} (${p.position})`).join('<br>')} | ${esc(c.action)} |`));
   L.push('', `## (d) Trang tụt hiển thị mạnh (${rep.declines.length})`, '', '| # | Trang | Hiển thị trước → nay | Hạng trước → nay | Gợi ý |', '|---|---|---|---|---|');
   rep.declines.slice(0, 10).forEach((d, i) => L.push(`| ${i + 1} | ${esc(short(d.page))} | ${d.prevImpressions} → ${d.impressions} (${pct(d.change)}) | ${d.prevPosition} → ${d.position} | ${esc(d.hint)} |`));
+  if (rep.noBaseline) L.push('', '> (d) 0 mục là đúng, không phải lỗi: 28 ngày trước gần như không có dữ liệu (site mới) nên chưa có mốc so sánh; phần này tự có mục khi kỳ trước đủ dữ liệu.');
   if (rep.dictQueue.length) L.push('', `## Từ người ta tra (hàng đợi trang từ điển, ${rep.dictQueue.length})`, '', rep.dictQueue.slice(0, 20).map(d => `\`${d.term}\` ${d.impressions}`).join(' · '));
   L.push('', `_Tự sinh bởi \`scripts/seo/gsc.mjs\` – số liệu chi tiết: \`reports/seo/gsc-${rep.date}.json\`._`, '');
   return L.join('\n');
