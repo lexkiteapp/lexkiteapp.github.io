@@ -2,6 +2,9 @@
 name: Live bài học – ngôn ngữ
 on:
   workflow_dispatch:
+  push:
+    branches: ['test/live-lesson-lang']
+    paths: ['.github/workflows/live-lesson-lang.yml', 'scripts/test/live-lesson-lang.mjs']
 permissions:
   contents: read
 concurrency:
