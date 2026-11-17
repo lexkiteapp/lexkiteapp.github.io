@@ -210,7 +210,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 
 ## Mô-đun JS chính (9/2410, ngoài god nodes; phần còn lại trong json) – tên: export →nạp/import ←số nơi dùng
 - `scripts/lexicon/` ipa.mjs: ALLOWED,badChars,ukStyle,ukStyleBad,fixBroken… →- ←12 (build-lexicon.mjs,gate.mjs,gen-wordlist.mjs)
-- `scripts/lib/` ai-pool.mjs: modelInfo,familyOf,pickModels,judgeKey,TASKS… →lexai.js,cf-pool.mjs,key-pool.mjs ←15 (judge.mjs,lib.mjs,job.mjs) · blog-content.mjs: ROOT,CATEGORIES,config,parse,setField… →blog-images.mjs,url-guard.mjs ←14 (blog-captions.mjs,blog-check.mjs,blog-due.mjs) · i18n-pack.mjs: ROOT,SRC,OUT,LANGS,LAZY… →- ←13 (preview-resolve.mjs,build.mjs,fmt-stable.mjs) · is-main.mjs: isMain →- ←14 (build-hash.mjs,creds.mjs,cutover.mjs)
+- `scripts/lib/` ai-pool.mjs: modelInfo,familyOf,pickModels,judgeKey,TASKS… →lexai.js,cf-pool.mjs,key-pool.mjs ←15 (judge.mjs,lib.mjs,job.mjs) · blog-content.mjs: ROOT,CATEGORIES,config,parse,setField… →blog-images.mjs,url-guard.mjs ←14 (blog-captions.mjs,blog-check.mjs,blog-due.mjs) · i18n-pack.mjs: ROOT,SRC,OUT,LANGS,LAZY… →- ←14 (preview-resolve.mjs,regen-generated.mjs,build.mjs) · is-main.mjs: isMain →- ←14 (build-hash.mjs,creds.mjs,cutover.mjs)
 - `scripts/native/` gen-vocab.mjs: NOW,slice,miniData,mkEnv,mkApp… →fake-idb.mjs,gen-teach.mjs,web-ref.mjs ←4 (gen-call.mjs,gen-skills.mjs,gen-speak.mjs)
 - `scripts/target/` lib.mjs: ROOT,MEAN_LANGS,POS,seedPath,coreFiles… →i18n-rules.mjs ←14 (grammar-map-check.mjs,build.mjs,calls-check.mjs)
 - `web/cpack/mediation/` index.js →m01.js,m02.js,m03.js ←1 (app.js)
