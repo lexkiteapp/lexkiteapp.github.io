@@ -17,7 +17,7 @@ const DAILY = ['#/home', '#/review', '#/lesson/go', '#/path', '#/train', '#/voca
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 const b = await chromium.launch();
-const ctx = await b.newContext({ viewport: { width: 412, height: 823 }, isMobile: true, hasTouch: true, locale: 'vi-VN', serviceWorkers: 'allow' });
+const ctx = await b.newContext({ bypassCSP: true, viewport: { width: 412, height: 823 }, isMobile: true, hasTouch: true, locale: 'vi-VN', serviceWorkers: 'allow' });
 await ctx.addInitScript(() => { try { localStorage.setItem('lk.noTrack', '1'); } catch (e) { /* bỏ qua */ } });
 const pg = await ctx.newPage();
 const T0 = Date.parse('2026-11-01T08:00:00');

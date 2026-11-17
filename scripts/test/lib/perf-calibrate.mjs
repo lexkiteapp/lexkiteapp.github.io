@@ -30,8 +30,7 @@ let cache;   // đo 1 lần mỗi tiến trình (≈2 s): các bài đo gọi nh
 /** Hệ số giảm tốc đã hiệu chuẩn cho `nominal`, dùng trực tiếp: await send('Emulation.setCPUThrottlingRate', { rate: (await rateFor(browser, 4)).rate }). Lỗi đo → giữ nguyên hệ số. */
 export async function rateFor(browser, nominal) {
   if (cache === undefined) {
-    const p = await browser.newPage();
-    try { cache = await benchMs(p); } catch { cache = NaN; } finally { await p.close().catch(() => {}); }
+    let p; try { p = await browser.newPage(); cache = await benchMs(p); } catch { cache = NaN; } finally { if (p) await p.close().catch(() => {}); }   // trình duyệt đã đóng/lỗi → NaN = giữ nguyên hệ số
     const c = calibratedRate(nominal, cache);
     console.log(`  ⚙ hiệu chuẩn CPU: benchMs ${Math.round(cache)} ms (chuẩn ${REF_MS}) → hệ số ${nominal}× ${c.scaled ? `giảm còn ${c.rate}× để tương đương ${nominal}× trên runner chuẩn` : 'giữ nguyên'}`);
   }

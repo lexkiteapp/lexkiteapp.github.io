@@ -130,6 +130,10 @@ Para quem tem um nível intermediário (B1/B2) e busca a nota 7.0 ou superior, u
 
 {{youtube: | Guia completo de preparação para o IELTS General Training}}
 
+Quem precisa do General Training para um visto deve conferir [qual teste e qual nota cada país pede](/pt/blog/ielts-para-imigracao-qual-teste-e-nota/).
+
+Se o General Training for para um visto britânico, confira antes o guia de [IELTS UKVI](/pt/blog/ielts-ukvi-o-que-e-quem-precisa-como-agendar/), que explica o que é um SELT e como agendar.
+
 ## Perguntas frequentes
 
 ### O resultado do IELTS General Training pode ser usado para ingressar em universidades no exterior?

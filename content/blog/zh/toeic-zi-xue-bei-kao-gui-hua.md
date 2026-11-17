@@ -167,6 +167,12 @@ Lexkite会把你做错的题连同解析一起收进错题本，无论是按Part
 
 {{cta: /#/toeic | 做一套托业模拟考试，查看10到990的估算分数}}
 
+如果你想先弄清七个 Part 分别考什么、每部分用多少时间，请先读[托业考试题型与结构](/zh/blog/tuo-ye-kao-shi-ti-xing-jie-gou-7-part/)。
+
+听力部分占分最大的 Part 3 和 Part 4，有专门的[托业听力 Part 3 Part 4 技巧](/zh/blog/tuo-ye-ting-li-part-3-part-4-ji-qiao/)可以对照练习。
+
+整体规划里别忘了听力开头的 6 道照片题，具体练法见[托业 Part 1 照片题技巧](/zh/blog/tuo-ye-part-1-zhao-pian-ti-ji-qiao-xian-jing/)。
+
 ## 关于托业自学的常见问题
 
 ### 从500分提到750分需要几个月？

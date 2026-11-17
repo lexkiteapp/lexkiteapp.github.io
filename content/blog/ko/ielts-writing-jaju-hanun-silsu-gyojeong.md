@@ -9,7 +9,7 @@ tags: [ielts, writing, mistakes, grammar, task-2]
 keyword: "아이엘츠 라이팅 실수"
 cover: write
 coverAlt: "Lexkite 라이팅 연습실: 에세이 주제, 아이디어 힌트, 에세이 틀"
-publishAt:
+publishAt: 2027-01-11T07:52:00+09:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

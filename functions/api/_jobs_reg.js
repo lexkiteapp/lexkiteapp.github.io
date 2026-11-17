@@ -1472,6 +1472,20 @@ export const REG = {
     "d1_main_writes": 150
    },
    "lease": false
+  },
+  {
+   "id": "store-rollout",
+   "workflow": "store-rollout.yml",
+   "cron": [
+    "23 3 * * *"
+   ],
+   "priority": "publishing",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 2,
+   "est": {},
+   "lease": false
   }
  ]
 };

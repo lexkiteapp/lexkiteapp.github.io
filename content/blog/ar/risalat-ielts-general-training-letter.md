@@ -170,6 +170,10 @@ quiz: [
 
 {{youtube: | فكرة فيديو: كتابة رسالة شكوى رسمية لمتجر أثاث في عشرين دقيقة من التخطيط إلى التدقيق}}
 
+ولمن يحتاج الاختبار لأغراض الهجرة، يشرح [اختبار IELTS UKVI](/ar/blog/ikhtibar-ielts-ukvi-man-yahtajuhu-wa-kayfa-tahjiz/) متى يُشترط اختبار لغة آمن وكيف تحجز نسخة General Training المناسبة.
+
+وإن كنت تتساءل لماذا تحتاج نسخة General Training أصلًا فاقرأ [ielts للهجرة: أي اختبار تختار](/ar/blog/ielts-lil-hijra-ay-ikhtibar-wa-kam-darajah/).
+
 ## أسئلة شائعة
 
 ### هل أكتب العنوان والتاريخ في رسالة IELTS؟

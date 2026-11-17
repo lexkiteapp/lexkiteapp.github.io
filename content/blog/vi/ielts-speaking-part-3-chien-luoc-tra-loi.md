@@ -146,6 +146,8 @@ Therefore, in my assessment, modern technology has not extinguished the appetite
 
 ---
 
+Để thấy bản yếu và bản mạnh của cùng một câu trả lời, xem [bài mẫu IELTS Speaking band 7](/vi/blog/ielts-speaking-band-7-bai-mau/).
+
 ## Câu hỏi thường gặp về IELTS Speaking Part 3
 
 ### 1. Trả lời mỗi câu trong Part 3 nên kéo dài bao nhiêu giây?

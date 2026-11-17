@@ -42,6 +42,7 @@ quiz: [
     explain: "Repeating the same words shows limited range; paraphrasing and using synonyms or related phrases helps."
   }
 ]
+publishAt: 2027-03-08T21:43:00+05:30
 ---
 When people say "I need a bigger vocabulary for IELTS," they usually mean a list of difficult words. But **lexical resource IELTS** scoring is more than hard words. It is one of the four marking criteria in both Writing and Speaking, and it measures how well you can use words and phrases to say what you mean. Learning to improve this one criterion can raise your overall band, and it often needs a smarter method, not more hours.
 

@@ -130,6 +130,10 @@ quiz: [
 
 {{youtube: | Spaced Repetition FSRS Vocabulary Strategy}}
 
+ตัวอย่างชุดคำที่เหมาะกับการทบทวนแบบเว้นระยะคือ AWL ทั้ง 10 Sublist ดูแผนในบทความ [Academic Word List (AWL) คืออะไร: 570 กลุ่มคำสำหรับ IELTS](/th/blog/academic-word-list-khue-arai-570-kham/)
+
+การเว้นระยะทบทวนได้ผลดีที่สุดเมื่อใช้ร่วมกับ[Active Recall ท่องศัพท์](/th/blog/active-recall-thong-sap-phasa-angkrit/)
+
 ## คำถามที่พบบ่อย (FAQ)
 
 ### Q1. ควรทบทวนคำศัพท์วันละกี่ใบเพื่อไม่ให้รู้สึกเหนื่อยล้าจนเกินไป?

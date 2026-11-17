@@ -132,6 +132,10 @@ quiz: [
 
 {{youtube: | Spaced Repetition and FSRS Vocabulary Guide in Hindi}}
 
+अंतराल वाली समीक्षा किसी सूची पर लगाना चाहें तो [Academic Word List क्या है](/hi/blog/academic-word-list-kya-hai/) की sublist-दर-sublist योजना आज़माइए।
+
+दोहराव का समय तय होने के बाद याद *कैसे* की जाए, यह [Active Recall क्या है](/hi/blog/active-recall-kya-hai-english-vocabulary/) में बताया गया है।
+
 ## अक्सर पूछे जाने वाले प्रश्न (FAQ)
 
 ### Q1. यदि किसी व्यस्तता के कारण मैं 10 दिन तक समीक्षा न कर पाऊँ तो क्या सारा डेटा खराब हो जाएगा?

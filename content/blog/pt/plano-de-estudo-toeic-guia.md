@@ -160,6 +160,12 @@ Todas as partes e as provas completas estão na [página de prática TOEIC](/#/t
 
 {{cta: /#/toeic | Faça um simulado TOEIC e veja sua pontuação estimada de 10 a 990}}
 
+Para treinar a parte mais curta do Listening, veja [TOEIC Part 1 fotografias](/pt/blog/toeic-part-1-fotografias-dicas-armadilhas/).
+
+Antes de montar o cronograma, confira o [formato do TOEIC](/pt/blog/formato-do-toeic-partes-tempo-pontuacao/): as sete partes, o tempo de cada uma e como a nota é calculada.
+
+Para detalhar a fase de Listening do seu plano, veja o [TOEIC Part 3 e 4](/pt/blog/toeic-part-3-e-4-estrategias-conversas-e-talks/).
+
 ## Perguntas frequentes sobre estudar sozinho para o TOEIC
 
 ### Quantos meses leva para ir de 500 a 750?

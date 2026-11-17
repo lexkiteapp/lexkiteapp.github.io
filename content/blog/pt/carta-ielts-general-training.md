@@ -155,6 +155,10 @@ Se você ainda está planejando a prova, o guia de [como se preparar para o IELT
 
 {{youtube: | Ideia de vídeo: carta do IELTS General em 20 minutos – formal, semi-formal e informal com exemplos}}
 
+Antes de investir semanas nas cartas, confirme se o seu processo exige esta versão em [IELTS para imigração](/pt/blog/ielts-para-imigracao-qual-teste-e-nota/).
+
+Para saber se o seu visto exige a versão UKVI do General Training, leia [IELTS UKVI: o que é, quem precisa e como agendar](/pt/blog/ielts-ukvi-o-que-e-quem-precisa-como-agendar/).
+
 ## Perguntas frequentes
 
 ### Quantas palavras deve ter a carta do IELTS General Training?

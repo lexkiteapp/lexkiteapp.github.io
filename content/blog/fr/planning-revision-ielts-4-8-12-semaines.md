@@ -9,7 +9,7 @@ tags: [ielts, study-plan, schedule, mock-test]
 keyword: "planning de révision ielts"
 cover: path
 coverAlt: "Écran du parcours d'apprentissage Lexkite avec des leçons disposées comme un itinéraire pas à pas"
-publishAt:
+publishAt: 2027-01-10T07:00:00+01:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

@@ -172,6 +172,8 @@ Sau đó mở [Phòng viết](/#/write), chọn một đề Task 2 và viết ha
 
 {{cta: /#/write | Luyện viết đoạn thân bài có hedging trong Phòng viết}}
 
+Khi viết về nguyên nhân và kết quả, hãy dùng đúng từ, xem bài [phân biệt affect và effect](/vi/blog/phan-biet-affect-va-effect/).
+
 ## Câu hỏi thường gặp
 
 ### Hedging có làm bài viết yếu đi không?

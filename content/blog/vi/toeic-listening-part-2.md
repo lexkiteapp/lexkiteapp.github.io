@@ -129,6 +129,10 @@ Quy tắc kinh nghiệm: **nếu một đáp án lặp lại âm của câu hỏ
 
 {{youtube: | Gợi ý video: 10 câu Part 2 tự soạn, dừng sau mỗi câu để chỉ ra bẫy âm giống và câu trả lời gián tiếp}}
 
+Khi đã quen Part 2, bạn có thể chuyển sang [TOEIC Part 3 và Part 4](/vi/blog/toeic-part-3-part-4-meo-lam-bai/) với cùng thói quen đọc trước và đoán ý.
+
+Phần mô tả tranh ở đầu bài nghe có hướng dẫn riêng trong [TOEIC Part 1: mẹo mô tả tranh](/vi/blog/toeic-part-1-mo-ta-tranh/).
+
 ## Câu hỏi thường gặp
 
 ### TOEIC Part 2 có bao nhiêu câu?
