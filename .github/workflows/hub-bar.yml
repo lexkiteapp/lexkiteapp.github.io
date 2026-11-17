@@ -35,6 +35,7 @@ jobs:
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
+      - uses: ./.github/actions/gen-if-needed   # luật 18
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Cài trình duyệt
@@ -96,6 +97,7 @@ jobs:
           - { tag: se, device: 'iPhone SE' }
     steps:
       - uses: actions/checkout@v4
+      - uses: ./.github/actions/gen-if-needed   # luật 18
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Chọn Xcode 26
