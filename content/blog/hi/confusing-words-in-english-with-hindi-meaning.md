@@ -161,6 +161,8 @@ IELTS/TOEFL के निबंध लेखन, प्रतियोगी प
 
 व्यावसायिक संचार कौशल को निखारने के लिए हमारे लेख [प्रोफेशनल ईमेल राइटिंग गाइड](/hi/blog/professional-email-writing-in-hindi/) और [बिजनेस मीटिंग अंग्रेजी वाक्यांश](/hi/blog/business-english-meeting-phrases-in-hindi/) भी अवश्य पढ़ें।
 
+इनमें से सबसे आम जोड़े पर अलग से विस्तार चाहिए तो [Affect और effect में अंतर](/hi/blog/affect-aur-effect-me-antar-hindi/) पढ़िए।
+
 ## अभ्यास प्रश्न: अपनी समझ का परीक्षण करें
 
 सही विकल्प चुनकर वाक्य पूरा करें:

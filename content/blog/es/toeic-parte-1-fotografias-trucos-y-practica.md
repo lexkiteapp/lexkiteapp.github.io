@@ -9,7 +9,7 @@ tags: [toeic, listening, part-1, photographs]
 keyword: "toeic parte 1 fotografías"
 cover: toeic
 coverAlt: "Centro TOEIC de Lexkite con simulacros y práctica por partes"
-publishAt:
+publishAt: 2027-01-22T09:11:00-06:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

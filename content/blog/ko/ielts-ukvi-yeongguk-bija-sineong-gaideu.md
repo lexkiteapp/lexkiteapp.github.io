@@ -10,7 +10,7 @@ keyword: "아이엘츠 ukvi"
 cover: goal
 coverAlt: "Lexkite 목표 화면: 시험 종류, 목표 점수, 시험 날짜, 주당 학습 시간 선택"
 coverArt: {mood: think, icon: target}
-publishAt:
+publishAt: 2027-01-10T08:32:00+09:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

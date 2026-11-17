@@ -9,7 +9,7 @@ tags: [word-stress, pronunciation, ipa, speaking]
 keyword: "영어 단어 강세"
 cover: pron
 coverAlt: "Lexkite IPA 발음 라이브러리: 모음, 이중모음, 자음 연습"
-publishAt:
+publishAt: 2027-01-16T12:02:00+09:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

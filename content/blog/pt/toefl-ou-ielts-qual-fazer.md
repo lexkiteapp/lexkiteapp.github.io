@@ -134,6 +134,10 @@ Antes de escolher a prova, vale entender os [níveis de inglês CEFR](/pt/blog/n
 
 {{youtube: | Comparativo TOEFL iBT vs IELTS: qual exame é o melhor para você}}
 
+Se o objetivo é migrar, leia antes [IELTS para imigração: qual teste e qual nota pedem](/pt/blog/ielts-para-imigracao-qual-teste-e-nota/); e, com a data da prova definida, o [cronograma IELTS de 4, 8 e 12 semanas](/pt/blog/cronograma-ielts-4-8-12-semanas/) ajuda a distribuir as semanas.
+
+Se a sua meta é um visto do Reino Unido, o exame pode ser outro: veja [IELTS UKVI: o que é, quem precisa e como agendar](/pt/blog/ielts-ukvi-o-que-e-quem-precisa-como-agendar/).
+
 ## Perguntas frequentes
 
 ### O TOEFL iBT é considerado mais difícil que o IELTS?

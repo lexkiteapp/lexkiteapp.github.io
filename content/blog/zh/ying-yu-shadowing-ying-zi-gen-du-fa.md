@@ -142,6 +142,8 @@ publishAt: 2026-12-08T07:38:00+08:00
 
 {{cta: /#/practice/speak | 进入Lexkite发音实训中心，即刻开启影子跟读与智能声学评测}}
 
+跟读可以直接用在日常场景的短语上，示例见[自信开口说英语：12个日常场景](/zh/blog/zi-xin-kai-kou-shuo-ying-yu-12-ge-ri-chang-chang-jing/)。
+
 ## 常见问题解答 (FAQ)
 
 ### 零基础或初学者适合直接练习影子跟读吗？

@@ -94,4 +94,5 @@ const bad = report.filter(r => r.fails.length);
 fs.writeFileSync(path.join(OUT, 'report.json'), JSON.stringify(report, null, 1));
 const md = `### Stitch refs QC – ${report.length - bad.length}/${report.length} màn đạt\n\n` + (bad.length ? '| màn | lỗi |\n|---|---|\n' + bad.map(r => `| ${r.surface}/${r.page} | ${r.fails.join('<br>')} |`).join('\n') : 'Tất cả đạt.') + '\n';
 fs.writeFileSync(path.join(OUT, 'SUMMARY.md'), md); if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, md);
+for (const r of bad.slice(0, 10)) console.log(`::error title=stitch-refs-qc::${(r.surface || '') + '/' + r.page}: ${r.fails.join(' · ').replace(/[\r\n%]/g, ' ').slice(0, 280)}`); // chú thích lỗi: đọc được qua API annotations khi không có log
 console.log(md); process.exit(bad.length ? 1 : 0);

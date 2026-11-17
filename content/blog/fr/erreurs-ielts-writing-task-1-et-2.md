@@ -9,7 +9,7 @@ tags: [ielts, writing, mistakes, grammar, task-2]
 keyword: "erreurs ielts writing"
 cover: write
 coverAlt: "Salle d'écriture Lexkite avec sujets de rédaction, pistes d'idées et plan d'essai"
-publishAt:
+publishAt: 2026-12-29T07:33:00+01:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

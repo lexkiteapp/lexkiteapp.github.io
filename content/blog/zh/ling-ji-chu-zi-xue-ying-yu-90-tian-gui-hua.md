@@ -120,6 +120,8 @@ publishAt: 2026-12-02T07:40:00+08:00
 
 若后续有求职或晋升需求，可在90天打牢根基后，进一步进阶学习 [英文简历制作模板](/zh/blog/ying-wen-jian-li-cv-resume-mo-ban/) 以及 [英语面试常见问题应对技巧](/zh/blog/ying-yu-mian-shi-chang-jian-wen-ti/)。
 
+完成基础阶段之后，如果想挑战一个有证书的目标，可以了解 [剑桥B2 First（FCE）考试题型详解](/zh/blog/jian-qiao-b2-first-fce-kao-shi-ti-xing/)。
+
 ## 90天后的自检清单：评估你的真实蜕变
 
 完成三个月的系统自学后，请对照以下四条标准进行自评：

@@ -10,7 +10,7 @@ keyword: "ielts ukvi"
 cover: goal
 coverAlt: "Écran d'objectif Lexkite pour choisir un examen, une note visée, une date d'examen et des heures d'étude par semaine"
 coverArt: {mood: think, icon: target}
-publishAt:
+publishAt: 2027-01-07T12:39:00+01:00
 factChecked: 2026-11-16
 qualityScore: 90
 author: Lexkite

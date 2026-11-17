@@ -9,7 +9,7 @@ tags: [ielts, writing, task-1, bar-chart, academic]
 keyword: "아이엘츠 라이팅 task 1 막대 그래프"
 cover: write
 coverAlt: "Lexkite 라이팅 연습실에서 문제를 고르고 리포트 작성 틀을 확인하는 화면"
-publishAt:
+publishAt: 2027-01-12T20:06:00+09:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

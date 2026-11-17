@@ -159,6 +159,10 @@ Task 2 essay की संरचना के लिए [IELTS Writing Task 2 fo
 
 {{youtube: | वीडियो आइडिया: Canada के मकान-मालिक को semi-formal पत्र – 20 मिनट में योजना से अंतिम जाँच तक}}
 
+General Training का पत्र UKVI वाले संस्करण में भी आता है; कौन-सा रूप किस वीज़ा में लगता है, यह [IELTS UKVI क्या है](/hi/blog/ielts-ukvi-kya-hai/) में देखिए।
+
+अगर आप विदेश जाने के लिए General Training दे रहे हैं, तो [Immigration के लिए IELTS](/hi/blog/immigration-ke-liye-ielts-guide-hindi/) में बताया है कि किस देश को कौन-सा रूप चाहिए।
+
 ## अक्सर पूछे जाने वाले प्रश्न
 
 ### क्या IELTS पत्र में पता और तारीख़ लिखनी होती है?

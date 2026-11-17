@@ -198,3 +198,5 @@ Untuk ujian dan tulisan formal, gunakan *If I were*. *If I was* terdengar dalam 
 ### Apa itu inversion dalam conditional?
 
 Bentuk formal yang menghilangkan *if* dan membalik urutan subjek dan kata kerja bantu: *Had I known* (= *If I had known*), *Were she here* (= *If she were here*), *Should you need help* (= *If you need help*). Sering muncul di TOEFL ITP.
+
+Conditional sering muncul di soal key word transformation; lihat contohnya di [format Cambridge B2 First (FCE)](/id/blog/format-cambridge-b2-first-fce/).

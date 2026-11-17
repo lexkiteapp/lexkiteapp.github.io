@@ -98,6 +98,10 @@ qualityScore: 94
 
 Сколько минут отвести на каждый текст, подскажет [стратегия тайм-менеджмента в IELTS Reading](/ru/blog/taym-menedzhment-v-ielts-reading-strategiya-60-minut/).
 
+Остальные форматы вопросов собраны в обзоре [типы заданий IELTS Reading](/ru/blog/tipy-zadaniy-ielts-reading-strategii/).
+
+Задания True / False / Not Given есть и в General Training; какую версию выбирать для визы, объясняет статья [IELTS для иммиграции](/ru/blog/ielts-dlya-immigratsii-general-ili-academic/).
+
 ## Часто задаваемые вопросы (FAQ)
 
 ### Чем True/False/Not Given отличается от Yes/No/Not Given?

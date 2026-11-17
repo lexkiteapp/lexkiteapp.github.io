@@ -121,6 +121,12 @@ Lexkite có sẵn các công cụ cho ba bước quan trọng nhất của lộ 
 
 {{youtube: | Gợi ý video: hướng dẫn tự lập lịch học IELTS một tuần cho người đi làm có 1 giờ mỗi ngày}}
 
+Nếu bạn thi IELTS để xin visa Anh, xem thêm [IELTS UKVI là gì](/vi/blog/ielts-ukvi-la-gi/) trước khi đăng ký.
+
+Nếu bạn đã có ngày thi cụ thể, bài [lịch học IELTS 4, 8, 12 tuần](/vi/blog/lich-hoc-ielts-4-8-12-tuan/) giúp nén lộ trình này vào số tuần còn lại.
+
+Khi đặt mục tiêu theo tuần, bạn nên hiểu rõ [cách tính điểm IELTS](/vi/blog/cach-tinh-diem-ielts-band-score/) để biết kỹ năng nào đáng ưu tiên. Nếu mục tiêu của bạn là định cư, đọc [IELTS định cư: chọn bài thi nào, cần band bao nhiêu](/vi/blog/ielts-dinh-cu-chon-bai-thi-va-band/) trước khi đăng ký thi.
+
 ## Câu hỏi thường gặp
 
 ### Tự học IELTS từ mất gốc mất bao lâu để đạt 6.5?

@@ -153,6 +153,8 @@ quiz: [
 
 - [IELTS राइटिंग टास्क 1 ग्राफ विश्लेषण गाइड](/hi/blog/ielts-writing-task-1-graph-description-hindi/)
 
+स्कैनिंग हर प्रश्न-प्रकार में कैसे काम आती है, यह [IELTS Reading Question Types in Hindi](/hi/blog/ielts-reading-question-types-in-hindi/) में टास्क-दर-टास्क बताया गया है।
+
 ## अक्सर पूछे जाने वाले प्रश्न (FAQ)
 
 ### Q1. क्या मुझे प्रश्नों से पहले पूरा पैसेज पढ़ना चाहिए?

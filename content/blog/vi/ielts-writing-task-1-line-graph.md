@@ -143,6 +143,10 @@ Khi đề là sơ đồ quy trình thay vì biểu đồ, câu bị động tr�
 
 {{youtube: | Gợi ý video: Viết overview cho biểu đồ đường trong 3 phút, từ đọc biểu đồ đến câu hoàn chỉnh}}
 
+Nếu đề của bạn là biểu đồ cột thay vì đường, xem thêm [bài mẫu IELTS Writing Task 1 bar chart](/vi/blog/ielts-writing-task-1-bar-chart-bai-mau/) với dữ liệu giả định và bài báo cáo hoàn chỉnh.
+
+Nếu đề của bạn là sơ đồ quy trình thay vì biểu đồ, hãy xem bài [IELTS Writing Task 1 process](/vi/blog/ielts-writing-task-1-process/) để biết cách mô tả các công đoạn bằng câu bị động.
+
 ## Câu hỏi thường gặp
 
 ### Overview nên đặt ở đầu hay cuối bài?

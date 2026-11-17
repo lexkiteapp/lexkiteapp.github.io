@@ -112,6 +112,14 @@ Examiner จะตรวจให้คะแนนโดยพิจารณ�
 
 หากสนใจข้อสอบเขียนของ TOEFL ด้วย อ่าน[TOEFL ใหม่ 2026 งานทดสอบและคะแนน](/th/blog/toefl-mai-2026-khu-mue-triam-tua/)เพื่อเปรียบเทียบ
 
+ผู้ที่สอบ IELTS เพื่อวีซ่าอังกฤษควรตรวจว่าต้องจองแบบ UKVI หรือไม่ ดู [IELTS UKVI คืออะไร: ใครต้องสอบ ต่างจาก IELTS ปกติอย่างไร](/th/blog/ielts-ukvi-khue-arai-khrai-tong-sop/)
+
+หากโจทย์ของคุณเป็นแบบถามความเห็น ลองอ่านต่อที่ [IELTS Opinion Essay เขียนยังไง](/th/blog/ielts-opinion-essay-khian-yangngai/) เพื่อดู 3 วิธีตอบและเรียงความตัวอย่างพร้อมคำอธิบาย
+
+หลังเขียนเสร็จ ลองตรวจตาม[ข้อผิดพลาด IELTS Writing ที่ทำให้เสียคะแนน](/th/blog/khopitphlat-ielts-writing-thi-sia-khanaen/)เพื่อดูว่ายังพลาดเกณฑ์ไหนซ้ำ
+
+ส่วน Task 1 ซึ่งมีน้ำหนักคะแนนน้อยกว่าแต่ควรทำให้เสร็จใน 20 นาที ดูวิธีเขียนรายงานกราฟแท่งแบบ 4 ย่อหน้าได้ที่[IELTS Writing Task 1 Bar Chart](/th/blog/ielts-writing-task-1-bar-chart-tuayang-raingan/)
+
 ## คำถามที่พบบ่อย (FAQ)
 
 ### หากเขียนไม่ถึง 250 คำ จะถูกหักคะแนนหนักแค่ไหน?

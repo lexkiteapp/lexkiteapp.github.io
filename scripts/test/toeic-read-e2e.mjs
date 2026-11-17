@@ -77,7 +77,7 @@ const browser = await chromium.launch({ args });
 const fails = [], out = {}, ok = (cond, msg) => { console.log(`${cond ? '✓' : '✗'} ${msg}`); if (!cond) fails.push(msg); };
 
 async function run(name, cfg) {
-  const ctx = await browser.newContext({ locale: 'vi', permissions: ['microphone'], serviceWorkers: 'block' });
+  const ctx = await browser.newContext({ bypassCSP: true, locale: 'vi', permissions: ['microphone'], serviceWorkers: 'block' });
   await ctx.route(BASE + '**', serve);
   // Khép kín: app trên lexkite.localhost gọi API thật https://lexkite.com/api/* (notices…) – CORS production không (và không nên) mở cho origin thử nghiệm này → giả lập
   await ctx.route('https://lexkite.com/api/**', r => r.request().method() === 'OPTIONS' ? r.fulfill({ status: 204, headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': '*' } })

@@ -9,7 +9,7 @@ tags: [active-recall, vocabulary, memory, flashcards]
 keyword: "アクティブリコール 英単語"
 cover: practice-test
 coverAlt: "Lexkiteの4択テスト画面。run out of の正しい意味を選ぶ問題が表示されている"
-publishAt:
+publishAt: 2027-01-06T09:51:00+09:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

@@ -832,7 +832,7 @@ button, .btn, .option, .tabs, .bottom-nav { -webkit-user-select: none; user-sele
 .wn-slot:empty { display: none; }
 .wn-slot { margin-top: 1rem; }
 /* 🧠 Thẻ từ: chip cụm từ + khối "Hiểu sâu" (web/js/wordcard.js) */
-.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0; }
 .wc-hd .wc-wrow { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
 .wc-hd .wc-word { font-size: 2rem; line-height: 1.15; word-break: break-word; }
 .wc-hd .wi-pron { margin-top: .3rem; } .wc-hd .wi-vi { margin-top: .5rem; }
