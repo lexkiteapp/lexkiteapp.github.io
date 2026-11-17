@@ -150,6 +150,8 @@ Bireysel çalışırken ilerlemenizi objektif biçimde takip etmek ve motivasyon
 
 {{cta: /#/practice/speak | Lexkite telaffuz pratik alanına katılın ve konuşmanızı anında değerlendiren akıllı sistemi deneyin}}
 
+Gölgelemeyi günlük durumlara uygulamak için [İngilizce konuşma özgüveni: 12 günlük durum](/tr/blog/ingilizce-konusma-ozguveni-kazanma/) yazısındaki kalıplarla çalışabilirsiniz.
+
 ## Sıkça Sorulan Sorular (FAQ)
 
 ### Shadowing tekniği sıfırdan başlayanlar için uygun mudur?

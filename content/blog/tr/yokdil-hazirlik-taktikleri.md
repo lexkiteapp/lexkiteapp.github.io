@@ -143,6 +143,8 @@ Aşağıdaki örnek YÖKDİL soru kalıplarında boş bırakılan yerlere en uyg
 4. **B. had already submitted:** *By the time ... gathered* (toplandığı zamana kadar) ifadesi geçmişte bir zaman sınırı çizer. Rapor daha önce teslim edildiğinden Past Perfect (*had + V3*) kullanılır.
 5. **A. due to:** Boşluktan sonra bir isim öbeği (*prolonged exposure to high pressure*) gelmektedir ve yapının zayıflamasının "sebebi" açıklanmaktadır. Bu yüzden "-den dolayı" anlamına gelen edat öbeği *due to* doğru cevaptır (*in spite of* ve *despite* zıtlık bildirir, *whereas* ise tam cümle ister).
 
+YÖKDİL ve IELTS Academic'in ortak akademik kelime havuzunu sistemli çalışmak için [Academic Word List (AWL)](/tr/blog/academic-word-list-awl-akademik-kelime-listesi/) rehberine göz atın.
+
 ## Sıkça Sorulan Sorular (FAQ)
 
 ### YÖKDİL mi daha kolay yoksa YDS mi?

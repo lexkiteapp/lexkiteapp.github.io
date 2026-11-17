@@ -116,6 +116,8 @@ Kelimeleri yalnızca okuyarak pasif hafızada bırakmak yerine aktif kullanıma 
 3. **Aralıklı Tekrar ile Pekiştirin:** Lexkite içindeki [Smart Learn](/#/practice/learn) modülünden faydalanın. [aralikli tekrar kelime ezberleme fsrs](/tr/blog/aralikli-tekrar-kelime-ezberleme-fsrs/) algoritmaları sayesinde tam unutma eşiğindeyken karşınıza çıkan sorular, kelime eşleşmelerini uzun süreli hafızanıza kazır.
 4. **Yazı ve Paraphrase Pratiği Yapın:** Öğrendiğiniz eşdizimleri [ielts writing task 2 ornekleri](/tr/blog/ielts-writing-task-2-ornekleri/) ve [ielts paraphrase yapma teknikleri ornekler](/tr/blog/ielts-paraphrase-yapma-teknikleri-ornekler/) rehberlerindeki taktiklerle harmanlayarak kendi cümlelerinizde uygulayın. Dilbilgisi temellerinizi tazelemek için zengin kaynaklar sunan [/ngu-phap/](/ngu-phap/) sayfamızı da inceleyebilirsiniz. Ayrıca cümle bağlama yeteneğinizi geliştirmek için [ingilizce baglaclar ve linking words tablosu](/tr/blog/ingilizce-baglaclar-ve-linking-words-tablosu/) kılavuzundan yararlanabilirsiniz.
 
+Eşdizim çalışmasını akademik bir listeyle birleştirmek için [Academic Word List (AWL)](/tr/blog/academic-word-list-awl-akademik-kelime-listesi/) rehberine, Cambridge sınavlarında eşdizimin nasıl sorulduğunu görmek için [B2 First sınav formatı](/tr/blog/b2-first-fce-sinav-formati-bolumler/) yazısına göz atın.
+
 ## Sıkça Sorulan Sorular (FAQ)
 
 ### Bir IELTS Task 2 essay'inde kaç tane collocation kullanmalıyım?

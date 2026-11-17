@@ -143,6 +143,8 @@ Para manter o controle do tempo sob a pressão do teste, treine por etapas:
 
 Para revisar sistematicamente os termos mais frequentes antes do grande dia, explore nossa lista selecionada de [vocabulário temático em inglês](/en/vocabulary/) (as listas estão em inglês).
 
+Para ver um método de resolução para cada tarefa, consulte os [tipos de questões do IELTS Reading](/pt/blog/tipos-de-questoes-ielts-reading-estrategias/); e para entender como a banda de Reading entra na média, veja [como a nota do IELTS é calculada](/pt/blog/como-calcular-a-nota-do-ielts-bandas/).
+
 ## Perguntas frequentes sobre gestão do tempo no IELTS Reading
 
 ### Devo ler o texto inteiro antes das questões?
