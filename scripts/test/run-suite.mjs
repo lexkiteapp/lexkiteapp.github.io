@@ -11,9 +11,13 @@ export const FAST_RE = /^node scripts\/(vi-lint|ext-syntax|i18n-missing|test\/(c
 export const TAIL_MAX = 6000;
 export const scriptOf = c => (c.match(/(?:^|\s)((?:\.\/)?[\w./-]+\.(?:m?js|py|sh|cjs|ts))\b/) || [])[1]?.replace(/^\.\//, '') || 'package.json';
 export const reasonOf = (tail, status) => {
+  // 17/11: nhiều test in "✗ chi tiết" rồi dòng tổng "✗ test: N lỗi" – chú thích phải mang CHI TIẾT (tối đa 2 dòng), không chỉ dòng tổng (landing-v3 "1 lỗi" không nói gì)
   const lines = String(tail).replace(/\u001b\[[0-9;]*m/g, '').split('\n').map(l => l.trim()).filter(Boolean);
-  const hit = [...lines].reverse().find(l => /(✗|✘|\bnot ok\b|\bFAIL(ED)?\b|\b(Assertion|Type|Reference|Syntax)?Error\b|\bassert|\bExpected\b|\bđỏ\b|\bthiếu\b|\blỗi\b)/i.test(l));
-  return (hit || lines[lines.length - 1] || `thoát mã ${status}`).slice(0, 300);
+  const hits = lines.filter(l => /(✗|✘|\bnot ok\b|\bFAIL(ED)?\b|\b(Assertion|Type|Reference|Syntax)?Error\b|\bassert|\bExpected\b|\bđỏ\b|\bthiếu\b|\blỗi\b)/i.test(l));
+  const summary = l => /^[✗✘]?\s*[\w./-]+:\s*\d+(\/\d+)?\s+(lỗi|loi|fail(ed|ures)?|errors?)\b/i.test(l);
+  const detail = hits.filter(l => !summary(l));
+  const pick = detail.length ? detail.slice(0, 2) : hits.slice(-1);
+  return ((pick.length ? pick.join(' | ') : lines[lines.length - 1]) || `thoát mã ${status}`).slice(0, 300);
 };
 export const esc = s => String(s).replace(/%/g, '%25').replace(/\r/g, '%0D').replace(/\n/g, '%0A');
 export const annotate = (c, tail, status) => {
