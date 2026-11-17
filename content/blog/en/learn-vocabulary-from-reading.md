@@ -155,3 +155,5 @@ Save phrases whenever the word comes with a natural partner, like *meet a deadli
 ### What if the sentence I saved is very hard?
 
 Keep it if the word is useful, but add a simple meaning on the card. Over time the sentence will feel easier, which is also a nice way to see your progress.
+
+Word parts help you learn faster: see [prefixes and suffixes](/en/blog/prefixes-and-suffixes/).

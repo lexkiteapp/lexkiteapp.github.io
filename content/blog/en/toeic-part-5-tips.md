@@ -192,3 +192,5 @@ Guess. The TOEIC Listening and Reading test does not deduct points for wrong ans
 ### What grammar topics appear most often in Part 5?
 
 Word forms (parts of speech), verb tense and voice, connectors and prepositions, pronouns, and vocabulary collocations come up again and again. Training to recognise these types from the options is the fastest way to improve.
+
+Word parts help you learn faster: see [prefixes and suffixes](/en/blog/prefixes-and-suffixes/).

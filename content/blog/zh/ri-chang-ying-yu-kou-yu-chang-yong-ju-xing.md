@@ -137,6 +137,8 @@ publishAt: 2026-12-03T19:30:00+08:00
 
 如果你想在职场办公与正式邮件沟通中也写出专业地道的英文，欢迎深入阅读我们的 [商务英语邮件标准格式与范例](/zh/blog/shang-wu-ying-yu-you-jian-ge-shi/)，以及 [出境旅游常用英语口语大全](/zh/blog/chu-jing-lv-you-ying-yu-chang-yong-kou-yu/)。
 
+想把这些句型练成“自动反应”，可以读[自信开口说英语：12个日常场景](/zh/blog/zi-xin-kai-kou-shuo-ying-yu-12-ge-ri-chang-chang-jing/)。
+
 ## 场景模拟与自测小练笔
 
 请根据语境选择最得体自然的情境回应：

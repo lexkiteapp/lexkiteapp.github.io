@@ -126,6 +126,8 @@ Aşağıdaki çiftlerden hangisinde sesler birbirinden farklıdır?
 4. **Farklıdır:** *PHO-tograph* ilk hecede, *pho-TO-graphy* ikinci hecede vurgulanır.
 5. **Evet:** Sert /k/ sesinden sonra gelen -ed eki /t/ olarak telaffuz edilir (*wôkt*).
 
+Kelime vurgusunun kurallarını ek gruplarıyla öğrenmek için [İngilizce kelime vurgusu kuralları](/tr/blog/ingilizce-kelime-vurgusu-kurallari/) rehberine bakın.
+
 ## Sıkça Sorulan Sorular (FAQ)
 
 ### İngiliz aksanı mı Amerikan aksanı mı öğrenmeliyim?

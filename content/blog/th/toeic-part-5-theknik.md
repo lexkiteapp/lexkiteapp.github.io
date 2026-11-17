@@ -172,6 +172,8 @@ Part 5 หรือ Incomplete Sentences เป็นส่วนแรกขอ
 
 ถ้าทำ Part 5 ได้เร็วขึ้น จะมีเวลาเหลือไปทำ Part 7 โดยดู[เทคนิคการอ่านและบริหารเวลา TOEIC Part 7](/th/blog/theknik-toeic-part-7-kan-an-borihan-wela/)ต่อได้
 
+ดูว่าพาร์ต 5 อยู่ตรงไหนของข้อสอบทั้งชุดและควรใช้เวลาเท่าไรใน [โครงสร้างข้อสอบ TOEIC ครบ 7 พาร์ต](/th/blog/khrongsang-khosop-toeic-7-part-wela-khanaen/)
+
 ## คำถามที่พบบ่อย
 
 ### TOEIC Part 5 มีกี่ข้อ

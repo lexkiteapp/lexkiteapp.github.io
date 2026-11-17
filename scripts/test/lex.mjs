@@ -111,6 +111,11 @@ delete globalThis.IELTS_DATA; delete globalThis.LK_VERBS;
 Lex._reset(); Lex._setFetch(fakeFetch);
 const AU = fs.readFileSync(path.join(ROOT, 'web/audio/w/index.txt'), 'utf8').split('\n').filter(Boolean);
 eq((await Lex.get(AU[0])).au, true, `au: "${AU[0]}" có file`);
+{ // index chỉ có từ đạt cả 2 giọng (s3.tsv: bf_emma + af_heart) → en-GB mặc định không 404
+  const S3 = new Map(fs.readFileSync(path.join(ROOT, 'web/audio/w/s3.tsv'), 'utf8').split('\n').filter(Boolean).map(l => { const [w, ...s] = l.split('\t'); return [w, s]; }));
+  const bad = AU.filter(w => !(S3.get(w) || []).length || S3.get(w).some(x => x !== 'ok'));
+  eq(bad.length, 0, `index.txt chỉ từ đạt cả 2 giọng (lệch: ${bad.slice(0, 5).join(',')})`);
+}
 const noAu = Object.keys(INDEX).find(k => !AU.includes(k) && /^[a-z]+$/.test(k)); eq((await Lex.get(noAu)).au, false, `au: "${noAu}" không có file`);
 const ui = fs.readFileSync(path.join(ROOT, 'web/js/ui.js'), 'utf8');
 ok(/Lex\.peekAu/.test(ui), 'UI.speak hỏi cờ âm thanh Lex trước khi tải file từ (không 404 rồi mới đổi giọng máy)');

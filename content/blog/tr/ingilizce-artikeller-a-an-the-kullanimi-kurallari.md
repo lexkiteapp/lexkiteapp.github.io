@@ -169,6 +169,8 @@ Bahsettiğiniz varlık karşı tarafça kesin olarak biliniyor mu?
                └── HAYIR (çoğul veya sayılamayan genel kavram) ➔ SIFIR ARTİKEL (Ø)
 ```
 
+Artikel eksikliğinin IELTS Writing puanına etkisini [IELTS Writing hataları ve çözümleri](/tr/blog/ielts-writing-hatalari-ve-cozumleri/) yazısında örneklerle görebilirsiniz.
+
 ## Türk Öğrencilerin En Sık Yaptığı 5 Hata
 
 | Sık Yapılan Hatalı Cümle | Hatanın Sebebi | Doğru Cümle Yapısı |

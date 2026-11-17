@@ -149,6 +149,8 @@ Bir soru tipini seçin ve bir haftada o tip için üç soru cevaplayıp kaydedin
 
 Cevabı nasıl genişleteceğinizi ayrıca görmek isterseniz [cevap genişletme stratejileri](/tr/blog/ielts-speaking-part-3-cevap-genisletme-stratejileri/) yazısına, haftalık düzene oturtmak için [IELTS çalışma planına](/tr/blog/ielts-calisma-plani-sifirdan-6-5-seviyesine/) bakabilirsiniz.
 
+Part 3 cevaplarınızın band 7 seviyesinde nasıl duyulduğunu üç bölümün özgün örnekleriyle karşılaştırmak için [IELTS Speaking band 7 örnek cevaplar](/tr/blog/ielts-speaking-band-7-ornek-cevaplar/) yazısını okuyun.
+
 ## Sık Sorulan Sorular
 
 ### Sınav görevlisinin görüşüne zıt bir fikir savunursam puanım düşer mi?

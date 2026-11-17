@@ -45,7 +45,7 @@ ice-cream, breakfast × 2 giọng = 48 (từ, giọng). Tỉ lệ đạt (Whispe
 - Khóa file: `fnv(giọng|từ|s3)` (`scripts/word-audio-strong.mjs` `WAV`). CDN đệm 1 năm → đổi cách tạo thì đổi hậu tố, không ghi đè khóa cũ.
   App (`web/js/ui.js`), add-on (`extension/newtab.js`) chỉ giữ hằng `WAV` – không có danh sách từ.
 - Trạng thái: `web/audio/w/s3.tsv` (`từ \t bf_emma \t af_heart`, `ok` hoặc lý do trượt) = danh sách dùng giọng máy, xem được;
-  `web/audio/w/index.txt` = từ có ≥ 1 giọng đạt (cờ "có file" cho Lex/newtab); `web/audio/w/s3-stats.json` = cộng dồn trước/sau.
+  `web/audio/w/index.txt` = từ đạt cả 2 giọng (cờ "có file" cho Lex/newtab); `web/audio/w/s3-stats.json` = cộng dồn trước/sau.
 - `word-audio.yml`: cron mỗi 4 giờ, 5 shard song song, mỗi shard ≤ 400 từ, tiếp tục được (từ chưa có kết quả cuối cho cả 2 giọng được làm lại).
   Vòng 1 = phương án đầu của `METHODS`; vòng 2 = các phương án còn lại cho (từ, giọng) trượt.
 - ci-triage không bao giờ "Re-run" lượt đã bị thay thế (có lượt mới hơn hoặc workflow/script/module đã đổi) – `supersededWhy` trong `scripts/ci/triage.mjs`.
