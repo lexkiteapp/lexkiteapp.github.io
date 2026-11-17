@@ -24,3 +24,5 @@
 **Tổng quát (03/11/2026, khóa es W0).** Mỗi ngôn ngữ đích = 1 dòng bảng `Target.TABLE` (cờ riêng `flag`/`ls`, `label`, `fallback`); lượt mẫu giọng chung `word-audio-tl.yml` + `scripts/word-audio/tl-voices.json` (biến môi trường `TL_*` thay `PT_*`). Khóa tiếng TBN: `docs/specs/spanish-course.md`.
 
 **Trạng thái.** Lát 1: PR "Học tiếng Bồ Đào Nha (thử) – lát 1". Lượt mẫu giọng: xem PR.
+
+**Chọn ngôn ngữ ngay trên giao diện (17/11/2026).** Nút cờ ở thanh trên (desktop `#tlBtn`; điện thoại cạnh nút ngôn ngữ giao diện ở đầu Hôm nay/Tôi) → bảng dưới `web/js/tl-pick.js` (lazy, `css/tl-pick.css`): danh sách `Target.avail()` kèm tiến độ (thẻ/đã thuộc), ngôn ngữ chưa bật có spec (fr) = "Sắp ra mắt" + "Báo tôi khi có" (`lk.tlnotify`, một dòng toast nhẹ đúng 1 lần khi bật). Chọn → `Target.set` → `Target.homeOf` hoặc `#/home`. Thẻ "Khóa học khác" ở tab Tôi. Onboarding: bước `lang` đã có (onboard.js). Mẫu Stitch: project 14998838784556418143, màn `ffec224c45fe4750ae8976dc1f481d9f` (sáng; tối sinh từ bảng token). Test: `scripts/test/tl-picker.mjs`.

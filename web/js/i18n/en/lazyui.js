@@ -913,4 +913,14 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
   'Không lưu được – thử lại sau': 'Couldn’t save – please try again later',
   // ← en/core.js
   '{a}/{b} bài': '{a}/{b} lessons',
+  // ← en/tlpick (chọn ngôn ngữ đang học)
+  'Bạn muốn học ngôn ngữ nào?': 'Which language do you want to learn?',
+  'Sắp ra mắt': 'Coming soon',
+  'Báo tôi khi có': 'Notify me',
+  'Sẽ báo bạn khi có': 'We’ll let you know',
+  'Khóa học khác': 'Other courses',
+  'Đổi ngôn ngữ học': 'Change study language',
+  '{n} từ đã học': '{n} words learned',
+  'Tiếng Pháp chuẩn · A1–C2': 'Standard French · A1–C2',
+  'Khóa mới đã có: {name}': 'New course available: {name}',
 }); })(typeof self !== 'undefined' ? self : this);
