@@ -173,5 +173,13 @@ t('blog-check: tiêu đề ru/ar/zh/ja/ko/th phiên âm Latin → lỗi; tên k�
   for (const [l, s] of [['ru', 'Шаблон ответа IELTS Speaking Part 2: монолог на Band 8.0'], ['ru', 'Relative clauses в английском: who, which, that и запятые'], ['ar', 'كتابة Academic Discussion في التوفل TOEFL iBT: درجة 5/5'], ['zh', '英语连读规则 (Connected Speech) 解析：连读、弱读与发音'], ['ja', 'TOEFL Complete the Words 対策：新形式リーディングの解き方'], ['th', 'Modal Verbs Can Could Should Must: กฎการใช้และข้อควรระวัง'], ['hi', 'English Presentation Phrases in Hindi: Pro Tips'], ['en', 'Shadowing Technique']])
     assert.equal(latinTitle(l, s), null, `${l}: "${s}" không được bắt`);
 });
+{ // fitAvif: ảnh dày chữ còn >60 KB ở q30 vẫn phải xuống ≤ trần nhờ sàn thấp hơn; trần không đổi
+  const size = q => Math.round(q * 3500), calls = []; // giả lập: q27 ≈ 94 KB, q17 ≈ 59.5 KB
+  const r = await BI.fitAvif(async q => { calls.push(q); return { length: size(q) }; }, 60 * 1024);
+  assert.ok(r.buf.length <= 60 * 1024 && r.q < 30 && r.q >= 10, 'hạ dưới q30 tới khi ≤ 60 KB: q=' + r.q);
+  const hard = await BI.fitAvif(async () => ({ length: 90000 }), 60 * 1024);
+  assert.equal(hard.q, 10, 'sàn q10 – không vòng vô hạn, không nới trần'); assert.ok(hard.buf.length > 60 * 1024);
+  const easy = await BI.fitAvif(async () => ({ length: 1000 }), 60 * 1024); assert.equal(easy.q, 55); n++;
+}
 fs.rmSync(tmp, { recursive: true, force: true });
 console.log(`✓ blog-images: ${n} nhóm test đạt`);

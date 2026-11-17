@@ -286,6 +286,11 @@ export function altUntruths(alt, rec, lang) {
 }
 
 // ---------- Trần dung lượng + schema sổ ảnh ----------
+// Hạ chất lượng AVIF từng nấc tới khi ≤ trần (không nới trần). Màn dày chữ (#/letters, #/read/…) còn >60 KB ở q30 → sàn thấp hơn.
+export async function fitAvif(enc, budgetBytes, { start = 55, step = 5, floor = 10 } = {}) {
+  let q = start, buf;
+  for (;;) { buf = await enc(q); if (buf.length <= budgetBytes || q <= floor) return { buf, q }; q = Math.max(floor, q - step); }
+}
 export function overBudget(bytes, budgetKB = 60) { // bytes: { "1440.avif": n, … } → các bản AVIF lớn nhất vượt trần
   const av = Object.entries(bytes || {}).filter(([k]) => k.endsWith('.avif')).map(([k, v]) => [parseInt(k, 10), v]).sort((a, b) => b[0] - a[0]);
   return av.length && av[0][1] > budgetKB * 1024 ? [`AVIF ${av[0][0]} px = ${(av[0][1] / 1024).toFixed(1)} KB > ${budgetKB} KB`] : [];
