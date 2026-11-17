@@ -102,6 +102,10 @@ qualityScore: 94
 
 เมื่อต้องบริหารเวลาในส่วนอ่าน ให้ดู[เทคนิคอ่าน TOEIC Part 7 ให้ทันเวลา](/th/blog/theknik-toeic-part-7-kan-an-borihan-wela/)
 
+ส่วน Listening ช่วงกลางข้อสอบดูรายละเอียดที่[เทคนิค TOEIC Part 3 Part 4](/th/blog/theknik-toeic-part-3-part-4-bot-sonthana/)
+
+ส่วน 6 ข้อแรกของ Listening ที่เป็นข้อดูภาพมีรายละเอียดเต็มใน[TOEIC Part 1](/th/blog/toeic-part-1-duphap-theknik-kapdak/)
+
 ## คำถามที่พบบ่อย
 
 ### ตอบข้อสอบผิดใน TOEIC มีการติดลบคะแนนไหม?
