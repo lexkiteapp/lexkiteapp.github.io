@@ -167,6 +167,8 @@ Kalau kamu belajar mandiri, susun jadwal latihan reading dengan panduan [belajar
 
 {{youtube: | Ide video: mengerjakan satu soal matching headings lima paragraf sambil berpikir keras di tiap langkah}}
 
+Kalau ingin mengenal semua format soal sebelum berlatih, lihat [tipe soal IELTS Reading dan strategi tiap tugas](/id/blog/tipe-soal-ielts-reading-strategi/).
+
 ## Pertanyaan yang sering diajukan
 
 ### Baca heading dulu atau paragraf dulu?

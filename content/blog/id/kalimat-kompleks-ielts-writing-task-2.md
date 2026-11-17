@@ -168,6 +168,12 @@ Latihan paling efektif untuk mengasah fleksibilitas sintaksis adalah mengambil b
 
 {{cta: /#/write | Latih penulisan esai dan kalimat kompleks Anda di simulator Lexkite}}
 
+Untuk melihat kalimat bertahap dan penghubung urutan dipakai di Task 1, lihat [panduan process diagram IELTS Writing Task 1](/id/blog/ielts-writing-task-1-process-diagram/).
+
+Untuk melihat kalimat kompleks bekerja di dalam satu esai utuh, baca contoh di [esai opini IELTS](/id/blog/esai-opini-ielts-setuju-atau-tidak-setuju/).
+
+Kesalahan yang berulang di esai bisa dipetakan per kriteria penilaian di [kesalahan IELTS Writing yang sering terjadi](/id/blog/kesalahan-ielts-writing-yang-sering-terjadi/).
+
 ## Pertanyaan yang Sering Diajukan (FAQ)
 
 ### Apakah semua kalimat dalam esai IELTS Writing saya harus berupa kalimat kompleks?
