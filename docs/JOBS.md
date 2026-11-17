@@ -59,6 +59,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 01:05 | `funnel-digest` | `5 1 * * *` | reports | gh_minutes | 1 | — | — |
 | 01:15 | `youtube-upload` | `15 1,8,14,20 * * *` | publishing | youtube_api, drive_pool, d1_internal | 20 | d1_internal_reads≈200, d1_main_reads≈100, drive_calls≈60 | ✓ |
 | 01:20 | `store-reviews` | `20 1 * * 1` | reports | gh_minutes | 1 | — | — |
+| 01:23 | `health-board` | `23 1 * * *` | reports | gh_minutes | 5 | — | — |
 | 01:25 | `capacity-watch` | `25 1 * * *` | reports | d1_main, gh_minutes | 2 | d1_main_reads≈40 | — |
 | 01:30 | `pr-check` | `30 1 * * *` | publishing | gh_minutes | 10 | — | — |
 | 01:30 | `screens` | `30 1 * * *` | render | gh_minutes | 25 | — | — |

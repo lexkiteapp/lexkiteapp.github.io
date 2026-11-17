@@ -574,6 +574,20 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "health-board",
+   "workflow": "health-board.yml",
+   "cron": [
+    "23 1 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 5,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "i18n",
    "workflow": "i18n.yml",
    "cron": [
