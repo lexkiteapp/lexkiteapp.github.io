@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_lendme",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Lend me, not borrow me!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Can you borrow me your pen?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Can you lend me your pen?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Lend means give for a short time.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Lend! Please lend me your pen.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Can you borrow me your pen?",
+  "right": "Can you lend me your pen?",
+  "strike": "borrow",
+  "why": "Lend means give for a short time.",
+  "memory": "Lend me your pen.",
+  "quiz": {
+   "stem": "Please ___ me your pen.",
+   "options": [
+    "borrow",
+    "lend"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“borrow me” नहीं, “lend me”!",
+   "tip": "हिंदी में “उधार दो” और “उधार लो” में एक ही शब्द आता है, इसलिए borrow/lend उलझ जाते हैं; देने के लिए lend बोलें।",
+   "caption": "क्या आप भी यही कहते हैं? “Can you borrow me your pen?” 😅 सही रूप है “Can you lend me your pen?” क्योंकि देने के लिए lend आता है, borrow नहीं। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “lend”। अब इसी तरह अपना एक वाक्य लिखिए। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “lend me”, not “borrow me”!",
+   "tip": "One Hindi word covers both, so learners mix them; use lend when you give.",
+   "caption": "Do you say this? “Can you borrow me your pen?” 😅 The right way is “Can you lend me your pen?” This is right because lend means to give for a short time. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“borrow me” नहीं, “lend me”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“borrow me” नहीं, “lend me”!",
+  "keyword": "Can you lend me your pen?",
+  "value": "हिंदी में “उधार दो” और “उधार लो” में एक ही शब्द आता है, इसलिए borrow/lend उलझ जाते हैं; देने के लिए lend बोलें।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "“borrow me” नहीं, “lend me”!",
+    "description": "हिंदी में “उधार दो” और “उधार लो” में एक ही शब्द आता है, इसलिए borrow/lend उलझ जाते हैं; देने के लिए lend बोलें।\n\nक्या आप भी यही कहते हैं? “Can you borrow me your pen?” 😅 सही रूप है “Can you lend me your pen?” क्योंकि देने के लिए lend आता है, borrow नहीं। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "Can you lend me your pen?",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी यही कहते हैं? “Can you borrow me your pen?” 😅 सही रूप है “Can you lend me your pen?” क्योंकि देने के लिए lend आता है, borrow नहीं। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“borrow me” नहीं, “lend me”!\n\nहिंदी में “उधार दो” और “उधार लो” में एक ही शब्द आता है, इसलिए borrow/lend उलझ जाते हैं; देने के लिए lend बोलें।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“borrow me” नहीं, “lend me”! हिंदी में “उधार दो” और “उधार लो” में एक ही शब्द आता है, इसलिए borrow/lend… #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “lend”। अब इसी तरह अपना एक वाक्य लिखिए। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

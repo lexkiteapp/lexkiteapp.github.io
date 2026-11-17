@@ -135,6 +135,8 @@ IPA(국제음성기호, International Phonetic Alphabet)는 전 세계 모든 �
 
 {{cta: /#/pron | Lexkite의 IPA 발음 라이브러리에서 모든 음소를 듣고 직접 발음해 보기}}
 
+발음 기호의 강세 표시(ˈ)를 읽는 법과 단어별 강세 예측 규칙은 [영어 단어 강세 규칙](/ko/blog/yeongeo-daneo-gangse-gyuchik-ipa/)에서 이어서 다룹니다.
+
 ## IPA 발음기호에 관한 자주 묻는 질문 (FAQ)
 
 ### 미국식 발음과 영국식 발음 기호는 어떻게 다른가요?

@@ -1,5 +1,6 @@
 // Cổng sân khấu Truyện + khung bài tập (docs/specs/story-stage.md). Phần TĨNH chạy trong npm test; phần TRÌNH DUYỆT (playwright) chạy khi có + cờ --browser (story-stage.yml).
 //   node scripts/test/story-stage.mjs [--browser] [--out out/story-stage]
+import { rateFor } from './lib/perf-calibrate.mjs';
 import fs from 'node:fs'; import path from 'node:path'; import { createRequire } from 'node:module';
 const FPS_MIN = 50; // ngưỡng fps – KHÔNG hạ (scripts/test/ci-policy.mjs chặn); phép đo bền hơn thay vì nới ngưỡng
 const A = process.argv.slice(2), BROWSER = A.includes('--browser'), OUT = A.includes('--out') ? A[A.indexOf('--out') + 1] : 'out/story-stage';
@@ -92,9 +93,12 @@ async function browser() {
       const rgb = s => '#' + s.match(/\d+/g).slice(0, 3).map(n => (+n).toString(16).padStart(2, '0')).join('');
       ok(col.dis && ratio(rgb(col.bg), rgb(col.fg)) >= 4.5, `${tag}: nút Kiểm tra (tắt) tương phản ${ratio(rgb(col.bg), rgb(col.fg)).toFixed(2)}`);
       ok(!col.chip, `${tag}: chip mục tiêu còn ở màn bài tập`);
-      { const fl = await p2.evaluate(() => { const f = document.querySelector('.lsn-fx .ex-seat .ss-floor'); if (!f) return null; const cs = getComputedStyle(f), b = f.getBoundingClientRect(), s = f.parentElement.getBoundingClientRect(); return { dis: cs.display, vis: cs.visibility, op: +cs.opacity, bg: cs.backgroundColor, h: b.height, w: b.width, inSeat: b.left >= s.left - 1 && b.right <= s.right + 1 && b.top >= s.top - 1 && b.bottom <= s.bottom + 1, inVp: b.right > 0 && b.left < innerWidth }; });
-        ok(fl && fl.dis !== 'none' && fl.vis !== 'hidden' && fl.op > 0 && fl.h > 0 && fl.w > 0 && fl.bg !== 'rgba(0, 0, 0, 0)', `${tag}: bệ .ss-floor dưới Ama ở bài tập phải hiển thị ${JSON.stringify(fl)}`);
-        ok(fl && fl.inSeat && fl.inVp, `${tag}: bệ .ss-floor ở bài tập bị khung .ex-seat cắt hoặc ngoài màn hình ${JSON.stringify(fl)}`); }
+      { // sân khấu giáo viên (chủ 10/11): người cao ≥ 120 px thấy được, đáy khung (hông + dải mờ) khuất sau thẻ đề bài đục ≥ 28 px, không bệ giả, bong bóng có đuôi cạnh người, trong màn hình
+        const sg = await p2.evaluate(() => { const t = document.querySelector('.lsn-fx .ex-seat #lsnTch'), q = document.querySelector('.lsn-fx .ex-seat + .lsn-qcard'), b = document.querySelector('.lsn-fx .tstage-bub'); if (!t || !q || !b) return { miss: [!t && 'tch', !q && 'qcard', !b && 'bub'].filter(Boolean) };
+          const tr = t.getBoundingClientRect(), qr = q.getBoundingClientRect(), br = b.getBoundingClientRect(), tail = getComputedStyle(b, '::before');
+          return { h: Math.round(qr.top - tr.top - tr.height * 0.08), hid: Math.round(tr.bottom - qr.top), floor: !!document.querySelector('.lsn-fx .ex-seat .ss-floor'), bub: !b.hidden && br.width > 80 && b.textContent.trim().length > 1, tail: tail.content !== 'none' && tail.content !== 'normal',
+            beside: br.left >= tr.left + tr.width * 0.4 && br.top > tr.top && br.top < tr.top + tr.height * 0.45, inVp: tr.left > -24 && br.right <= innerWidth + 1 && document.documentElement.scrollWidth <= innerWidth + 1 }; });
+        ok(!sg.miss && sg.h >= 120 && sg.hid >= 28 && !sg.floor && sg.bub && sg.tail && sg.beside && sg.inVp, `${tag}: sân khấu giáo viên sai chuẩn (≥120 px, che hông ≥28 px, không bệ, bong bóng có đuôi cạnh người) ${JSON.stringify(sg)}`); }
       ok(col.skip && /rgba\(0, 0, 0, 0\)|transparent/.test(col.skip.bg) && col.skip.size <= 13, `${tag}: Bỏ qua/Báo lỗi chưa lặng (${JSON.stringify(col.skip)})`);
       const rules = await p2.evaluate(() => { const a = document.querySelector('#lsnAns'); const s = getComputedStyle(a); return { img: s.backgroundImage.includes('gradient'), h: a.getBoundingClientRect().height }; });
       ok(rules.img && rules.h >= 100, `${tag}: không thấy dòng kẻ trả lời`);
@@ -121,7 +125,7 @@ async function browser() {
     }
     // hiệu năng: Chromium CPU 4× – tác vụ dài > 50 ms ≤ 2 khi dòng hiện, fps ≥ 50, CLS 0
     if (eng === 'chromium') {
-      const ctx = await boot(br, 'dark', { width: 360, height: 780 }), page = await ctx.newPage(), cdp = await ctx.newCDPSession(page); await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
+      const ctx = await boot(br, 'dark', { width: 360, height: 780 }), page = await ctx.newPage(), cdp = await ctx.newCDPSession(page); const cpu4 = (await rateFor(br, 4)).rate; await cdp.send('Emulation.setCPUThrottlingRate', { rate: cpu4 }); // hiệu chuẩn theo runner
       await ctx.addInitScript(() => { window.__lt = 0; window.__cls = 0; new PerformanceObserver(l => l.getEntries().forEach(e => { if (e.duration > 50) window.__lt++; })).observe({ type: 'longtask', buffered: true }); new PerformanceObserver(l => l.getEntries().forEach(e => { if (!e.hadRecentInput) { window.__cls += e.value; (window.__clsSrc = window.__clsSrc || []).push(e.value.toFixed(4) + ' ' + (e.sources || []).map(s => (s.node && (s.node.id || s.node.className || s.node.nodeName)) + ':' + Math.round(s.previousRect.y) + '>' + Math.round(s.currentRect.y)).join(',').slice(0, 200)); } })).observe({ type: 'layout-shift', buffered: true }); });
       // 09/11 phép đo ổn định hơn: 1 cửa sổ 3 s duy nhất (gồm cú bấm + chuyển cảnh) dao động 38–60 fps trên runner chung dù fps nhàn rỗi luôn ~61 (22 lượt CI hôm nay, mã y hệt
       // lúc xanh lúc đỏ) → đo 5 LẦN trên 5 trang mới cùng máy, cổng lấy TRUNG VỊ (ngưỡng giữ nguyên fps ≥ 50, tác vụ dài ≤ 2); CLS phải = 0 ở MỌI lần. Không thử lại cho tới khi xanh.
@@ -135,7 +139,7 @@ async function browser() {
       // 13/11 bền hơn nữa (điều phối): 2 lượt khởi động bỏ đi + 15 mẫu, lấy TRUNG VỊ, tự đo lại đúng 1 lần nếu trượt (runner chung dao động ±10 fps cùng mã: 58/56/47); ngưỡng KHÔNG đổi
       // (FPS_MIN – ci-policy giữ ≥ 50); mọi mẫu ghi vào ${OUT}/fps-samples.json (artifact) để xem xu hướng.
       const runSet = async n => { const out = [];
-        for (let k = 0; k < n + 2; k++) { const pg = k === 0 ? page : await ctx.newPage(); if (k) { const c = await ctx.newCDPSession(pg); await c.send('Emulation.setCPUThrottlingRate', { rate: 4 }); }
+        for (let k = 0; k < n + 2; k++) { const pg = k === 0 ? page : await ctx.newPage(); if (k) { const c = await ctx.newCDPSession(pg); await c.send('Emulation.setCPUThrottlingRate', { rate: cpu4 }); }
           const r = await measure(pg); if (k) await pg.close(); if (k >= 2) out.push(r); }
         return out; };
       const stat = a => { const med = k => [...a].map(x => x[k]).sort((x, y) => x - y)[a.length >> 1]; return { lt: med('lt'), fps: med('fps'), cls: Math.max(...a.map(x => x.cls)) }; };

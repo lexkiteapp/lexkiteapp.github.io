@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_caughtcold",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Have cold or a cold?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have cold.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have a cold.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say a cold when you are sick.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "A cold! I have a cold.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have cold.",
+  "right": "I have a cold.",
+  "strike": "cold",
+  "why": "Say a cold when you are sick.",
+  "memory": "I have a cold.",
+  "quiz": {
+   "stem": "She has ___ today.",
+   "options": [
+    "cold",
+    "a cold"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "「風邪をひいた」は have cold？",
+   "tip": "「風邪をひいている」は have a cold。cold の前に a を入れます。",
+   "caption": "“I have cold.”と言っていませんか？😅 日本語には「a」がないので、つい抜けがちです。“I have a cold.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“a cold”。“I have a cold.” を声に出して言ってみよう。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “I have cold”?",
+   "tip": "Say a cold: I have a cold.",
+   "caption": "Do you say this? “I have cold.” 😅 Japanese has no a, so it is easy to drop. The natural way is “I have a cold.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "「風邪をひいた」は have cold？"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "「風邪をひいた」は have cold？",
+  "keyword": "I have a cold.",
+  "value": "「風邪をひいている」は have a cold。cold の前に a を入れます。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "「風邪をひいた」は have cold？",
+    "description": "「風邪をひいている」は have a cold。cold の前に a を入れます。\n\n“I have cold.”と言っていませんか？😅 日本語には「a」がないので、つい抜けがちです。“I have a cold.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "I have a cold.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“I have cold.”と言っていませんか？😅 日本語には「a」がないので、つい抜けがちです。“I have a cold.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "「風邪をひいた」は have cold？\n\n「風邪をひいている」は have a cold。cold の前に a を入れます。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「風邪をひいた」は have cold？ 「風邪をひいている」は have a cold。cold の前に a を入れます。 #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“a cold”。“I have a cold.” を声に出して言ってみよう。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

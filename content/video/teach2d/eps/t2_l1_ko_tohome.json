@@ -67,9 +67,9 @@
   },
   "native": {
    "hook": "“go to home” 틀렸어요!",
-   "tip": "home 앞에는 to를 쓰지 않아요. “I will go home”이 맞아요.",
-   "caption": "“I will go to home”이라고 말하고 있나요? 🙈 home 앞에는 to가 필요 없어요. “I will go home”이 자연스러운 문장이에요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
-   "comment": "정답: “home”. go home처럼 to 없이 써요! 무료 퀴즈로 연습해 보세요: {link}",
+   "tip": "home 앞에는 to를 쓰지 않아요. 이렇게 말해요 👉 “I will go home.”",
+   "caption": "“I will go to home”처럼 말하고 있나요? 🙈 home 앞에는 to가 필요 없어요. 자연스러운 문장 ✅ “I will go home.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답: “home”! go home처럼 to 없이 써요! 무료 퀴즈로 연습해 보세요: {link}",
    "hashtags": [
     "#영어공부",
     "#영어회화",
@@ -80,7 +80,7 @@
   "en": {
    "hook": "“Go to home” is wrong!",
    "tip": "Do not put “to” before home. “I will go home” is right.",
-   "caption": "Do you say “I will go to home”? 🙈 You do not need “to” before home. “I will go home” sounds natural. Repeat with Ama! Practice more in the Lexkite app."
+   "caption": "Do you say “I will go to home” in English? 🙈 You do not need “to” before home. “I will go home” sounds natural. Repeat with Ama! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "“go to home” 틀렸어요!",
   "keyword": "I will go home.",
-  "value": "home 앞에는 to를 쓰지 않아요. “I will go home”이 맞아요.",
+  "value": "home 앞에는 to를 쓰지 않아요. 이렇게 말해요 👉 “I will go home.”",
   "hashtags": [
    "#영어공부",
    "#영어회화",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "“go to home” 틀렸어요!",
-    "description": "“I will go to home”이라고 말하고 있나요? 🙈 home 앞에는 to가 필요 없어요. “I will go home”이 자연스러운 문장이에요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "description": "home 앞에는 to를 쓰지 않아요. 이렇게 말해요 👉 “I will go home.”\n\n“I will go to home”처럼 말하고 있나요? 🙈 home 앞에는 to가 필요 없어요. 자연스러운 문장 ✅ “I will go home.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
     "tags": [
      "I will go home.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "“I will go to home”이라고 말하고 있나요? 🙈 home 앞에는 to가 필요 없어요. “I will go home”이 자연스러운 문장이에요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "“I will go to home”처럼 말하고 있나요? 🙈 home 앞에는 to가 필요 없어요. 자연스러운 문장 ✅ “I will go home.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "“I will go to home”이라고 말하고 있나요? 🙈 home 앞에는 to가 필요 없어요. “I will go home”이 자연스러운 문장이에요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nlexkite.com",
+    "caption": "“go to home” 틀렸어요!\n\nhome 앞에는 to를 쓰지 않아요. 이렇게 말해요 👉 “I will go home.”\n\nlexkite.com",
     "hashtags": [
      "#영어공부",
      "#영어회화",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "“go to home” 틀렸어요! #영어공부 #영어회화 #영어독학"
+    "caption": "“go to home” 틀렸어요! home 앞에는 to를 쓰지 않아요. 이렇게 말해요 👉 “I will go home.” #영어공부 #영어회화 #영어독학"
    }
   },
-  "first_comment": "정답: “home”. go home처럼 to 없이 써요! 무료 퀴즈로 연습해 보세요: {link}",
+  "first_comment": "정답: “home”! go home처럼 to 없이 써요! 무료 퀴즈로 연습해 보세요: {link}",
   "lang": "ko"
  }
 }

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_fan",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Fan, not pan!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am a pan of this singer.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am a fan of this singer.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "A fan loves a singer.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Fan! I am a fan of this singer.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am a pan of this singer.",
+  "right": "I am a fan of this singer.",
+  "strike": "pan",
+  "why": "A fan loves a singer.",
+  "memory": "Fan of.",
+  "quiz": {
+   "stem": "I am a ___ of this singer.",
+   "options": [
+    "fan",
+    "pan"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“pan”이 아니라 fan!",
+   "tip": "한국어에는 f 소리가 없어서 fan을 pan처럼 말하기 쉬워요. 팬은 fan! 이렇게 말해요 👉 “I am a fan of this singer.”",
+   "caption": "“I am a pan of this singer”처럼 말하고 있나요? 😅 한국어에는 f 소리가 없어서 fan을 pan으로 쓰기 쉬워요. pan은 프라이팬이고, 좋아하는 팬은 fan이에요. 맞는 문장 ✅ “I am a fan of this singer.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답 ✅ “I am a fan of this singer.” 소리 내어 한 번 말해 보고, 나만의 문장도 하나 써 보세요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say fan, not “pan”!",
+   "tip": "A pan is for cooking. A fan loves a singer. Say “I am a fan of this singer.”",
+   "caption": "Do you say “I am a pan of this singer” in English? 😅 A pan is for cooking, and a fan loves a singer! “I am a fan of this singer” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“pan”이 아니라 fan!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“pan”이 아니라 fan!",
+  "keyword": "I am a fan of this singer.",
+  "value": "한국어에는 f 소리가 없어서 fan을 pan처럼 말하기 쉬워요. 팬은 fan! 이렇게 말해요 👉 “I am a fan of this singer.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "“pan”이 아니라 fan!",
+    "description": "한국어에는 f 소리가 없어서 fan을 pan처럼 말하기 쉬워요. 팬은 fan! 이렇게 말해요 👉 “I am a fan of this singer.”\n\n“I am a pan of this singer”처럼 말하고 있나요? 😅 한국어에는 f 소리가 없어서 fan을 pan으로 쓰기 쉬워요. pan은 프라이팬이고, 좋아하는 팬은 fan이에요. 맞는 문장 ✅ “I am a fan of this singer.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "I am a fan of this singer.",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“I am a pan of this singer”처럼 말하고 있나요? 😅 한국어에는 f 소리가 없어서 fan을 pan으로 쓰기 쉬워요. pan은 프라이팬이고, 좋아하는 팬은 fan이에요. 맞는 문장 ✅ “I am a fan of this singer.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“pan”이 아니라 fan!\n\n한국어에는 f 소리가 없어서 fan을 pan처럼 말하기 쉬워요. 팬은 fan! 이렇게 말해요 👉 “I am a fan of this singer.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“pan”이 아니라 fan! 한국어에는 f 소리가 없어서 fan을 pan처럼 말하기 쉬워요. 팬은 fan! 이렇게 말해요 👉 “I am a fan of this singer.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답 ✅ “I am a fan of this singer.” 소리 내어 한 번 말해 보고, 나만의 문장도 하나 써 보세요: {link}",
+  "lang": "ko"
+ }
+}

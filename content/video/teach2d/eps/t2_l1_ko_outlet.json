@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_outlet",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Outlet, not consent!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Where is the consent for my phone?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Where is the outlet for my phone?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Consent means yes. An outlet gives power.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Outlet! Where is the outlet for my phone?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Where is the consent for my phone?",
+  "right": "Where is the outlet for my phone?",
+  "strike": "consent",
+  "why": "Consent means yes. An outlet gives power.",
+  "memory": "Power outlet.",
+  "quiz": {
+   "stem": "Where is the ___ for my phone?",
+   "options": [
+    "outlet",
+    "consent"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“consent”가 아니라 outlet!",
+   "tip": "‘콘센트’는 한국식 영어예요. 영어 consent는 ‘동의’라는 뜻이에요! 이렇게 말해요 👉 “Where is the outlet for my phone?”",
+   "caption": "“Where is the consent for my phone?”처럼 말하고 있나요? 😅 ‘콘센트’는 한국식 영어예요. 영어 consent는 ‘동의’라는 뜻이라서 전기 콘센트는 outlet이라고 해요. 맞는 문장 ✅ “Where is the outlet for my phone?” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답 ✅ “Where is the outlet for my phone?” 소리 내어 한 번 말해 보고, 나만의 문장도 하나 써 보세요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say outlet, not “consent”!",
+   "tip": "Consent means agreement. A power socket is an outlet. Say “Where is the outlet for my phone?”",
+   "caption": "Do you say “Where is the consent for my phone?” in English? 😅 Consent means agreement in English, and the place on the wall for a plug is an outlet! “Where is the outlet for my phone?” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“consent”가 아니라 outlet!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "“consent”가 아니라 outlet!",
+  "keyword": "Where is the outlet for my phone?",
+  "value": "‘콘센트’는 한국식 영어예요. 영어 consent는 ‘동의’라는 뜻이에요! 이렇게 말해요 👉 “Where is the outlet for my phone?”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 46,
+  "platforms": {
+   "youtube": {
+    "title": "“consent”가 아니라 outlet!",
+    "description": "‘콘센트’는 한국식 영어예요. 영어 consent는 ‘동의’라는 뜻이에요! 이렇게 말해요 👉 “Where is the outlet for my phone?”\n\n“Where is the consent for my phone?”처럼 말하고 있나요? 😅 ‘콘센트’는 한국식 영어예요. 영어 consent는 ‘동의’라는 뜻이라서 전기 콘센트는 outlet이라고 해요. 맞는 문장 ✅ “Where is the outlet for my phone?” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "Where is the outlet for my phone?",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“Where is the consent for my phone?”처럼 말하고 있나요? 😅 ‘콘센트’는 한국식 영어예요. 영어 consent는 ‘동의’라는 뜻이라서 전기 콘센트는 outlet이라고 해요. 맞는 문장 ✅ “Where is the outlet for my phone?” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“consent”가 아니라 outlet!\n\n‘콘센트’는 한국식 영어예요. 영어 consent는 ‘동의’라는 뜻이에요! 이렇게 말해요 👉 “Where is the outlet for my phone?”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“consent”가 아니라 outlet! ‘콘센트’는 한국식 영어예요. 영어 consent는 ‘동의’라는 뜻이에요! 이렇게 말해요 👉 “Where is the outlet for my phone?” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답 ✅ “Where is the outlet for my phone?” 소리 내어 한 번 말해 보고, 나만의 문장도 하나 써 보세요: {link}",
+  "lang": "ko"
+ }
+}

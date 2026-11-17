@@ -163,6 +163,8 @@ Contar o que outra pessoa disse (*My grandmother always told me that…*) enriqu
 
 Para ganhar confiança logo no início da prova, treine também as [respostas naturais do Speaking Part 1](/pt/blog/ielts-speaking-part-1-guia-respostas-naturais/).
 
+Para comparar respostas mais fracas e mais fortes, veja também [IELTS Speaking band 7: respostas modelo](/pt/blog/ielts-speaking-band-7-respostas-modelo-partes-1-2-3/), que analisa as Partes 1, 2 e 3.
+
 ## Perguntas frequentes
 
 ### Quanto tempo devo falar em cada resposta da Part 3?

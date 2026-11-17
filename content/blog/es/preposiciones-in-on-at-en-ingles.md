@@ -164,6 +164,8 @@ Para enriquecer tu dominio de estructuras gramaticales avanzadas, revisa las dif
 
 {{youtube: | Domina las preposiciones in on at en inglés de forma definitiva}}
 
+Las preposiciones son clave en la Parte 2 del [Cambridge B2 First](/es/blog/cambridge-b2-first-formato-del-examen/), donde rellenas huecos sin opciones.
+
 ## Preguntas frecuentes
 
 ### ¿Por qué nunca se usa preposición antes de 'next', 'last', 'this' y 'every'?

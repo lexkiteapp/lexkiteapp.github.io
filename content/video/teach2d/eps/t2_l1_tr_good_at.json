@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_good_at",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Good at, not good in!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am good in cooking.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am good at cooking.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say good at a skill.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "At! He is good at drawing.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am good in cooking.",
+  "right": "I am good at cooking.",
+  "strike": "in",
+  "why": "Say good at a skill.",
+  "memory": "Good at cooking.",
+  "quiz": {
+   "stem": "He is good ___ drawing.",
+   "options": [
+    "in",
+    "at"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Good in” değil, “good at”!",
+   "tip": "Türkçede “yemek yapmakta iyiyim” deriz (-de); İngilizcede “good at” kullanılır.",
+   "caption": "“I am good in cooking” mi diyorsun? 😅 İngilizcede iyi olduğun konudan önce “in” değil “at” gelir. Doğrusu “I am good at cooking.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “at”. Bir konuda iyi olmak için good at denir. Ücretsiz testle pratik yap: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “good in”, but “good at”!",
+   "tip": "For a skill, say “good at”: “I am good at cooking.”",
+   "caption": "Do you say “I am good in cooking”? 😅 English uses “at”, not “in”, after good. The right sentence is “I am good at cooking.” Listen to Carlos and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Good in” değil, “good at”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“Good in” değil, “good at”!",
+  "keyword": "I am good at cooking.",
+  "value": "Türkçede “yemek yapmakta iyiyim” deriz (-de); İngilizcede “good at” kullanılır.",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "“Good in” değil, “good at”!",
+    "description": "Türkçede “yemek yapmakta iyiyim” deriz (-de); İngilizcede “good at” kullanılır.\n\n“I am good in cooking” mi diyorsun? 😅 İngilizcede iyi olduğun konudan önce “in” değil “at” gelir. Doğrusu “I am good at cooking.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "I am good at cooking.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“I am good in cooking” mi diyorsun? 😅 İngilizcede iyi olduğun konudan önce “in” değil “at” gelir. Doğrusu “I am good at cooking.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Good in” değil, “good at”!\n\nTürkçede “yemek yapmakta iyiyim” deriz (-de); İngilizcede “good at” kullanılır.\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Good in” değil, “good at”! Türkçede “yemek yapmakta iyiyim” deriz (-de); İngilizcede “good at” kullanıl… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “at”. Bir konuda iyi olmak için good at denir. Ücretsiz testle pratik yap: {link}",
+  "lang": "tr"
+ }
+}

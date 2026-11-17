@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_as_old_as",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say as old as me!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: He is old as me.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: He is as old as me.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say as old as.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! She is as tall as me.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "He is old as me.",
+  "right": "He is as old as me.",
+  "strike": "old",
+  "why": "Say as old as.",
+  "memory": "He is as old as me.",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "She is tall as me.",
+    "She is as tall as me."
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“As” iki kez gelir!",
+   "tip": "Türkçede “benim kadar yaşlı” deriz, “kadar” bir kez gelir; İngilizcede “as” iki kez gerekir: “He is as old as me.”",
+   "caption": "“He is old as me” mi diyorsun? 😅 İngilizcede eşitlik için “as” iki kez söylenir: “as old as”. Doğrusu “He is as old as me.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “She is as tall as me.” “As” iki kez gelir. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Ace” comes twice!",
+   "tip": "In Turkish we say “as old as me”, “until” comes once; In English, “as” is needed twice: “He is as old as me.”",
+   "caption": "Do you say “He is old as me”? 😅 In English we say “as” two times, like “as old as” in this sentence. The right sentence is “He is as old as me.” Listen to Carlos and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“As” iki kez gelir!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“As” iki kez gelir!",
+  "keyword": "He is as old as me.",
+  "value": "Türkçede “benim kadar yaşlı” deriz, “kadar” bir kez gelir; İngilizcede “as” iki kez gerekir: “He is as old as me.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "“As” iki kez gelir!",
+    "description": "Türkçede “benim kadar yaşlı” deriz, “kadar” bir kez gelir; İngilizcede “as” iki kez gerekir: “He is as old as me.”\n\n“He is old as me” mi diyorsun? 😅 İngilizcede eşitlik için “as” iki kez söylenir: “as old as”. Doğrusu “He is as old as me.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "He is as old as me.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“He is old as me” mi diyorsun? 😅 İngilizcede eşitlik için “as” iki kez söylenir: “as old as”. Doğrusu “He is as old as me.” Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“As” iki kez gelir!\n\nTürkçede “benim kadar yaşlı” deriz, “kadar” bir kez gelir; İngilizcede “as” iki kez gerekir: “He is as old as me.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“As” iki kez gelir! Türkçede “benim kadar yaşlı” deriz, “kadar” bir kez gelir; İngilizcede “as” iki kez… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “She is as tall as me.” “As” iki kez gelir. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+  "lang": "tr"
+ }
+}

@@ -160,6 +160,8 @@ Buka [pertanyaan Speaking Part 3](/app/#/speaking/p3), pilih satu topik, dan jaw
 
 {{youtube: | Ide video: rumus A-R-E-A untuk IELTS Speaking Part 3 dengan tiga contoh pertanyaan}}
 
+Banyak calon migran juga melatih bagian ini; pilihan versi tes dan skor per skill dibahas di [IELTS untuk imigrasi](/id/blog/ielts-untuk-imigrasi-panduan/).
+
 ## Pertanyaan yang sering diajukan
 
 ### Berapa lama jawaban Part 3 yang ideal?

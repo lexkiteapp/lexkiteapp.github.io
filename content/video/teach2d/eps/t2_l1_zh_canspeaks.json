@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_canspeaks",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "After can, no s!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She can speaks English.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She can speak English.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After can, use the short verb.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Speak! He can speak English.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She can speaks English.",
+  "right": "She can speak English.",
+  "strike": "speaks",
+  "why": "After can, use the short verb.",
+  "memory": "She can speak.",
+  "quiz": {
+   "stem": "He can ___ English.",
+   "options": [
+    "speaks",
+    "speak"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "can 后面不加 s！",
+   "tip": "中文的动词从不加 s，但英语 she 后面的动词常要加 s。可是 can 后面一律用原形。",
+   "caption": "你是不是也会说 “She can speaks English.”😅 can 后面的动词不加 s，要用原形 speak：“She can speak English.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“She can speak English.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "No s after can!",
+   "tip": "After can, the verb never gets an s.",
+   "caption": "Do you say “She can speaks English.” 😅 After can, the verb never gets an s: “She can speak English.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "can 后面不加 s！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "can 后面不加 s！",
+  "keyword": "She can speak English.",
+  "value": "中文的动词从不加 s，但英语 she 后面的动词常要加 s。可是 can 后面一律用原形。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "can 后面不加 s！",
+    "description": "中文的动词从不加 s，但英语 she 后面的动词常要加 s。可是 can 后面一律用原形。\n\n你是不是也会说 “She can speaks English.”😅 can 后面的动词不加 s，要用原形 speak：“She can speak English.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "She can speak English.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “She can speaks English.”😅 can 后面的动词不加 s，要用原形 speak：“She can speak English.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "can 后面不加 s！\n\n中文的动词从不加 s，但英语 she 后面的动词常要加 s。可是 can 后面一律用原形。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "can 后面不加 s！ 中文的动词从不加 s，但英语 she 后面的动词常要加 s。可是 can 后面一律用原形。 #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“She can speak English.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

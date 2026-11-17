@@ -74,7 +74,7 @@ public final class LessonModel {
     @ObservationIgnored public var autoPlay = true
     @ObservationIgnored var mood: TeacherMood?
     /// Persist the results (FSRS, XP) – set by the screen that owns the store.
-    @ObservationIgnored public var saved: @MainActor (_ results: [LessonEngine.Result], _ xp: Int, _ now: Date) async -> Void = { _, _, _ in }
+    @ObservationIgnored public var saved: @MainActor (_ results: [LessonEngine.Result], _ xp: Int, _ spoken: Int, _ perfect: Bool, _ now: Date) async -> Void = { _, _, _, _, _ in }
     @ObservationIgnored let uiLang: String
     @ObservationIgnored public var calendar = Calendar.current
 
@@ -248,7 +248,7 @@ public final class LessonModel {
     }
     /// match: all pairs done (`ok` = no wrong pair); say: recognition score.
     public func submit(matched ok: Bool) { commit(ok: ok, picked: nil) }
-    public func submit(score: Double, heard h: String) { if let it = cur { spoke += 1; commit(ok: LessonEngine.check(it, .score(score)), picked: nil) } }
+    public func submit(score: Double, heard h: String) { if let it = cur { commit(ok: LessonEngine.check(it, .score(score)), picked: nil) } }
     /// story line / video step: progress only.
     public func continueLine() { voice.stop(); _ = session.answer(true); present() }
 
@@ -277,7 +277,7 @@ public final class LessonModel {
             self.listening = false; self.teacher.listen(false)
             switch o {
             case .heard(let text, let score):
-                self.heard = text; self.micErrors = 0
+                self.heard = text; self.micErrors = 0; self.spoke += 1 // web L.spoken++ per recognizer result (retries too)
                 if score >= LessonEngine.speechPass { self.submit(score: Double(score) / 100, heard: text) }
                 else { self.tries += 1; if self.tries >= LessonEngine.speechRetries { self.tries = 0; self.submit(score: Double(score) / 100, heard: text) } }
             case .noSpeech: self.micErrors += 0; self.speechError = true
@@ -304,7 +304,7 @@ public final class LessonModel {
         teacher.pose(m?.pose ?? (s.accuracy >= 80 ? "cheer" : "encourage"))
         doneTick += 1
         let res = LessonEngine.results(s, items, cards: source.cards, now: now.timeIntervalSince1970 * 1000, calendar: calendar)
-        let save = saved
-        Task { await save(res, xp, now) }
+        let save = saved, spokenN = spoke, perfect = s.wrong.isEmpty
+        Task { await save(res, xp, spokenN, perfect, now) }
     }
 }

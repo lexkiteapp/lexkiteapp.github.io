@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_called",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say called, not call!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: What is this call in English?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: What is this called in English?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say is called when you ask a name.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Called! A baby dog is called a puppy.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "What is this call in English?",
+  "right": "What is this called in English?",
+  "strike": "call",
+  "why": "Say is called when you ask a name.",
+  "memory": "Is called.",
+  "quiz": {
+   "stem": "A baby dog is ___ a puppy.",
+   "options": [
+    "call",
+    "called"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "ใช้ called ไม่ใช่ call!",
+   "tip": "ภาษาไทยกริยาไม่เปลี่ยนรูป (เรียกว่า) แต่ภาษาอังกฤษต้องใช้ called: “What is this called?”",
+   "caption": "คุณเคยพูดว่า “What is this call in English?” ไหม? 😅 ภาษาไทยพูดว่า “อันนี้เรียกว่าอะไร” กริยาไม่เปลี่ยนรูป แต่ภาษาอังกฤษต้องใช้ called: “What is this called in English?” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “called” จำไว้ให้ดีนะ! ลองพูดประโยคนี้ออกเสียงดัง ๆ หนึ่งครั้ง แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “is called”!",
+   "tip": "Thai verbs do not change, but English needs called: “What is this called?”",
+   "caption": "Do you say “What is this call in English”? 😅 Thai verbs do not change, but English needs called here. Say “What is this called in English”! Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "ใช้ called ไม่ใช่ call!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "ใช้ called ไม่ใช่ call!",
+  "keyword": "What is this called in English?",
+  "value": "ภาษาไทยกริยาไม่เปลี่ยนรูป (เรียกว่า) แต่ภาษาอังกฤษต้องใช้ called: “What is this called?”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 46,
+  "platforms": {
+   "youtube": {
+    "title": "ใช้ called ไม่ใช่ call!",
+    "description": "ภาษาไทยกริยาไม่เปลี่ยนรูป (เรียกว่า) แต่ภาษาอังกฤษต้องใช้ called: “What is this called?”\n\nคุณเคยพูดว่า “What is this call in English?” ไหม? 😅 ภาษาไทยพูดว่า “อันนี้เรียกว่าอะไร” กริยาไม่เปลี่ยนรูป แต่ภาษาอังกฤษต้องใช้ called: “What is this called in English?” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "What is this called in English?",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “What is this call in English?” ไหม? 😅 ภาษาไทยพูดว่า “อันนี้เรียกว่าอะไร” กริยาไม่เปลี่ยนรูป แต่ภาษาอังกฤษต้องใช้ called: “What is this called in English?” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "ใช้ called ไม่ใช่ call!\n\nภาษาไทยกริยาไม่เปลี่ยนรูป (เรียกว่า) แต่ภาษาอังกฤษต้องใช้ called: “What is this called?”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ใช้ called ไม่ใช่ call! ภาษาไทยกริยาไม่เปลี่ยนรูป (เรียกว่า) แต่ภาษาอังกฤษต้องใช้ called: “What is this calle… #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “called” จำไว้ให้ดีนะ! ลองพูดประโยคนี้ออกเสียงดัง ๆ หนึ่งครั้ง แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

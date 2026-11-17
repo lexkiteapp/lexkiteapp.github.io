@@ -1,0 +1,273 @@
+{
+ "id": "mo_bm_phrasal_sb_0994b0f5",
+ "template": "phrasal",
+ "title": "Motion phrasal – contribute to (phr v): to be one of the causes of something (sb_0994b0f5)",
+ "teacher": "carlos",
+ "clips": [
+  "gc11_talk",
+  "gc11_explain",
+  "gc11_happy",
+  "gc11_thinking",
+  "gc11_surprise_2"
+ ],
+ "listen": [
+  "gc11_listen"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy",
+ "active": "yellow",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "idiom-phrasal",
+  "link": "https://lexkite.com/app/",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Health",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say this instead",
+   "gap": 0.7
+  },
+  {
+   "id": "m",
+   "text": "contribute to means: to be one of the causes of something.",
+   "gap": 0.7
+  },
+  {
+   "id": "e0",
+   "text": "Stress can contribute to illness.",
+   "gap": 0.7
+  },
+  {
+   "id": "e1",
+   "text": "Everyone contributed to the project.",
+   "gap": 0.7
+  },
+  {
+   "id": "w",
+   "text": "Contribute to means be one of the causes.",
+   "gap": 0.7
+  },
+  {
+   "id": "a",
+   "text": "It also means give, like money to a charity!",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "Say this",
+      "white"
+     ]
+    ],
+    [
+     [
+      "instead",
+      "yellow"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Phrase of the day",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "Say this"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "instead"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "mean",
+    "at": [
+     "m",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Meaning",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "contribute to"
+       ]
+      ]
+     },
+     {
+      "t": "sub",
+      "runs": [
+       [
+        "to be one of the causes of something"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "rules",
+    "at": [
+     "e0",
+     0
+    ],
+    "rows": [
+     {
+      "t": "tile",
+      "tag": "EXAMPLE 1",
+      "tone": "gold",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "Stress can contribute to illness.",
+        "gold"
+       ]
+      ],
+      "ex_at": [
+       "e0",
+       0
+      ],
+      "at": [
+       "e0",
+       0
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "EXAMPLE 2",
+      "tone": "teal",
+      "lines": [
+       [
+        [
+         " ",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "Everyone contributed to the project.",
+        "teal"
+       ]
+      ],
+      "ex_at": [
+       "e1",
+       0
+      ],
+      "at": [
+       "e1",
+       0
+      ]
+     }
+    ]
+   }
+  ],
+  "hook_text": "Say this instead",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ },
+ "uses": {
+  "template": "phrasal",
+  "row": "sb_0994b0f5",
+  "teacher": "carlos",
+  "accent": "navy",
+  "active": "yellow",
+  "tones": 2
+ }
+}

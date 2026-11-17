@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_comma_that",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Nothing between think and that!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I think, that you are right.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I think that you are right.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Write that right after think, with nothing between.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second one! I think that you are right.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I think, that you are right.",
+  "right": "I think that you are right.",
+  "strike": "think,",
+  "why": "Write that right after think, with nothing between.",
+  "memory": "No comma before that.",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "I think, that you are right.",
+    "I think that you are right."
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Kein Komma vor „that“!",
+   "tip": "Im Deutschen steht vor „dass“ ein Komma. Im Englischen schreiben Sie „I think that“ ohne Komma.",
+   "caption": "Setzen Sie ein Komma vor „that“? ✍️ Falsch: “I think, that you are right.” Richtig: “I think that you are right.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Richtig heißt es: “I think that you are right.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "No comma before “that”!",
+   "tip": "German uses a comma before “dass.” In English you write “I think that” without a comma.",
+   "caption": "No comma before “that”! Wrong: “I think, that you are right.” Right: “I think that you are right.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Kein Komma vor „that“!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 54,
+  "seconds": 32.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "Kein Komma vor „that“!",
+  "keyword": "I think that you are right.",
+  "value": "Im Deutschen steht vor „dass“ ein Komma. Im Englischen schreiben Sie „I think that“ ohne Komma.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 48,
+  "platforms": {
+   "youtube": {
+    "title": "Kein Komma vor „that“!",
+    "description": "Im Deutschen steht vor „dass“ ein Komma. Im Englischen schreiben Sie „I think that“ ohne Komma.\n\nSetzen Sie ein Komma vor „that“? ✍️ Falsch: “I think, that you are right.” Richtig: “I think that you are right.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "I think that you are right.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Setzen Sie ein Komma vor „that“? ✍️ Falsch: “I think, that you are right.” Richtig: “I think that you are right.” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Kein Komma vor „that“!\n\nIm Deutschen steht vor „dass“ ein Komma. Im Englischen schreiben Sie „I think that“ ohne Komma.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Kein Komma vor „that“! Im Deutschen steht vor „dass“ ein Komma. Im Englischen schreiben Sie „I think t… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Richtig heißt es: “I think that you are right.” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

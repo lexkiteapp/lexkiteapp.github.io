@@ -164,6 +164,8 @@ Apakah kata bendanya sudah spesifik bagi pembicara dan pendengar?
                └── TIDAK (jamak atau uncountable) ➔ Gunakan ZERO ARTICLE (Ø)
 ```
 
+Kesalahan yang berulang di esai bisa dipetakan per kriteria penilaian di [kesalahan IELTS Writing yang sering terjadi](/id/blog/kesalahan-ielts-writing-yang-sering-terjadi/).
+
 ## Ringkasan kesalahan umum pembelajar Indonesia
 
 | Kesalahan umum | Alasan kekeliruan | Bentuk yang benar |

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_play_the",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Play on or play the?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: He plays on the guitar.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: He plays the guitar.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "No on before an instrument.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The! She plays the piano.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "He plays on the guitar.",
+  "right": "He plays the guitar.",
+  "strike": "on",
+  "why": "No on before an instrument.",
+  "memory": "Play the guitar.",
+  "quiz": {
+   "stem": "She plays ___ piano.",
+   "options": [
+    "on the",
+    "the"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Играть на — лишнее “on”",
+   "tip": "Об инструменте: “play the”, без “on”: “He plays the guitar.”",
+   "caption": "Ты тоже говоришь “He plays on the guitar”? 😅 По-русски «играет на гитаре» — с предлогом «на», и хочется поставить “on”, но по-английски перед инструментом нужно только “the.” Правильно: “He plays the guitar.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “the.” Инструмент — play the. Скажи вслух: “I play the …” Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#учуанглийский",
+    "#английскийдляначинающих",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Play on: drop the “on”",
+   "tip": "For an instrument, no “on”: “He plays the guitar.”",
+   "caption": "Do you also say “He plays on the guitar”? 😅 In Russian you play “on” an instrument, so “on” slips in, but English uses only “the.” Correct: “He plays the guitar.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Играть на — лишнее “on”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "Играть на — лишнее “on”",
+  "keyword": "He plays the guitar.",
+  "value": "Об инструменте: “play the”, без “on”: “He plays the guitar.”",
+  "hashtags": [
+   "#английскийязык",
+   "#учуанглийский",
+   "#английскийдляначинающих",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "Играть на — лишнее “on”",
+    "description": "Об инструменте: “play the”, без “on”: “He plays the guitar.”\n\nТы тоже говоришь “He plays on the guitar”? 😅 По-русски «играет на гитаре» — с предлогом «на», и хочется поставить “on”, но по-английски перед инструментом нужно только “the.” Правильно: “He plays the guitar.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #учуанглийский #английскийдляначинающих #lexkite",
+    "tags": [
+     "He plays the guitar.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “He plays on the guitar”? 😅 По-русски «играет на гитаре» — с предлогом «на», и хочется поставить “on”, но по-английски перед инструментом нужно только “the.” Правильно: “He plays the guitar.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Играть на — лишнее “on”\n\nОб инструменте: “play the”, без “on”: “He plays the guitar.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#учуанглийский",
+     "#английскийдляначинающих",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Играть на — лишнее “on” Об инструменте: “play the”, без “on”: “He plays the guitar.” #английскийязык #учуанглийский #английскийдляначинающих"
+   }
+  },
+  "first_comment": "Ответ: “the.” Инструмент — play the. Скажи вслух: “I play the …” Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_lookforward",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Forward to seeing, not see!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I look forward to see you.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I look forward to seeing you.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Here to goes with seeing.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Meeting! I look forward to meeting you.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I look forward to see you.",
+  "right": "I look forward to seeing you.",
+  "strike": "see",
+  "why": "Here to goes with seeing.",
+  "memory": "To seeing you.",
+  "quiz": {
+   "stem": "I look forward to ___ you.",
+   "options": [
+    "meet",
+    "meeting"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "look forward to 后面用 ing！",
+   "tip": "中文“期待见到你”里，动词形式不变。英语的 look forward to 里，to 是介词，后面要用 ing 形式。",
+   "caption": "你是不是也会说 “I look forward to see you.”😅 中文动词不变形，英语这里的 to 后要加 ing：“I look forward to seeing you.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“I look forward to seeing you.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Look forward to plus ing!",
+   "tip": "Chinese verbs stay the same, but in English look forward to needs ing.",
+   "caption": "Do you say “I look forward to see you.” 😅 Look forward to needs ing: “I look forward to seeing you.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "look forward to 后面用 ing！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "look forward to 后面用 ing！",
+  "keyword": "I look forward to seeing you.",
+  "value": "中文“期待见到你”里，动词形式不变。英语的 look forward to 里，to 是介词，后面要用 ing 形式。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "look forward to 后面用 ing！",
+    "description": "中文“期待见到你”里，动词形式不变。英语的 look forward to 里，to 是介词，后面要用 ing 形式。\n\n你是不是也会说 “I look forward to see you.”😅 中文动词不变形，英语这里的 to 后要加 ing：“I look forward to seeing you.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "I look forward to seeing you.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “I look forward to see you.”😅 中文动词不变形，英语这里的 to 后要加 ing：“I look forward to seeing you.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "look forward to 后面用 ing！\n\n中文“期待见到你”里，动词形式不变。英语的 look forward to 里，to 是介词，后面要用 ing 形式。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "look forward to 后面用 ing！ 中文“期待见到你”里，动词形式不变。英语的 look forward to 里，to 是介词，后面要用 ing 形式。 #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“I look forward to seeing you.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

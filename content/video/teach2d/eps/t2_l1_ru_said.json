@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_said",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Said or told?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: He said me the truth.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: He told me the truth.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Tell takes the person; say does not.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Told! She told me a story.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "He said me the truth.",
+  "right": "He told me the truth.",
+  "strike": "said",
+  "why": "Tell takes the person; say does not.",
+  "memory": "Tell me.",
+  "quiz": {
+   "stem": "She ___ me a story.",
+   "options": [
+    "told",
+    "said"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Said me” или “told me”?",
+   "tip": "По-русски «сказал мне», отсюда “said me.” Но say не берёт человека без to: “told me” или “said to me.”",
+   "caption": "Ты тоже говоришь “He said me the truth”? 😅 По-русски «сказал мне» тянет за собой “said me”, а нужно “told me.” Правильно: “He told me the truth.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “told.” С человеком — told. Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английский",
+    "#грамматика",
+    "#английскийонлайн",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Said or told?",
+   "tip": "In Russian, “told me,” hence “said me.” But say does not take a person without to: “told me” or “said to me.”",
+   "caption": "Do you also say “He said me the truth”? 😅 With “me”, you need “told me.” Correct: “He told me the truth.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Said me” или “told me”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“Said me” или “told me”?",
+  "keyword": "He told me the truth.",
+  "value": "По-русски «сказал мне», отсюда “said me.” Но say не берёт человека без to: “told me” или “said to me.”",
+  "hashtags": [
+   "#английский",
+   "#грамматика",
+   "#английскийонлайн",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "“Said me” или “told me”?",
+    "description": "По-русски «сказал мне», отсюда “said me.” Но say не берёт человека без to: “told me” или “said to me.”\n\nТы тоже говоришь “He said me the truth”? 😅 По-русски «сказал мне» тянет за собой “said me”, а нужно “told me.” Правильно: “He told me the truth.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английский #грамматика #английскийонлайн #lexkite",
+    "tags": [
+     "He told me the truth.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “He said me the truth”? 😅 По-русски «сказал мне» тянет за собой “said me”, а нужно “told me.” Правильно: “He told me the truth.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Said me” или “told me”?\n\nПо-русски «сказал мне», отсюда “said me.” Но say не берёт человека без to: “told me” или “said to me.”\n\nlexkite.com",
+    "hashtags": [
+     "#английский",
+     "#грамматика",
+     "#английскийонлайн",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Said me” или “told me”? По-русски «сказал мне», отсюда “said me.” Но say не берёт человека без to: “told m… #английский #грамматика #английскийонлайн"
+   }
+  },
+  "first_comment": "Ответ: “told.” С человеком — told. Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

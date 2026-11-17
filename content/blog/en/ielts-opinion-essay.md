@@ -9,7 +9,7 @@ tags: [ielts, writing, task-2, opinion-essay]
 keyword: "ielts opinion essay"
 cover: write
 coverAlt: "Lexkite Writing room with essay questions grouped by topic, idea prompts and an essay frame"
-publishAt:
+publishAt: 2027-02-10T19:52:00+05:30
 factChecked: 2026-11-15
 author: Lexkite
 status: ready

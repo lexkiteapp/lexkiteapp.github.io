@@ -39,8 +39,8 @@ jobs:
       - uses: ./.github/actions/setup-ffmpeg
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
-      - name: Dựng bản sao add-on từ nguồn (extension/app là bản sinh, PR không commit – #1383)
-        run: bash scripts/build-extension.sh
+      - name: Dựng lại extension/app từ nguồn (bản sinh không commit trong PR – scripts/ci/regen-generated.mjs)
+        run: node scripts/ci/regen-generated.mjs
       - name: Tĩnh – cụm ký tự, tốc độ, không tự đọc, giọng nữ, bản sao add-on, 15 ngôn ngữ
         run: node scripts/test/teacher-bubble.mjs --static
       - name: Playwright

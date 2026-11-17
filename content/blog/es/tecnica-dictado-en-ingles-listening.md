@@ -114,6 +114,8 @@ Para reforzar la producción oral complementaria a este entrenamiento auditivo, 
 
 {{cta: /#/listening | Pon a prueba tu comprensión auditiva con exámenes de dictado interactivos}}
 
+Para ver dónde se pierden puntos en cada formato del examen, repasa los [tipos de preguntas IELTS Listening](/es/blog/tipos-de-preguntas-ielts-listening/).
+
 ## Preguntas frecuentes sobre el dictado en inglés
 
 ### ¿Debo parar el audio cada pocas palabras o escribir de continuo?

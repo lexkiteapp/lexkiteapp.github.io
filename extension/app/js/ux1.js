@@ -76,7 +76,7 @@
   const MOCK = { ielts: '#/mock', ieltsgt: '#/mock', toeic: '#/toeic', toefl: '#/toefl', general: '#/placement' };
   function examCard(cls) {
     const ex = exam(), X = (App.EXAMS || {})[ex] || { short: 'IELTS', ic: 'graduation-cap' }, tg = target(), cur = current(ex), p = pctOf(ex, cur, tg);
-    const g = (state.settings || {}).goal, left = g && g.date ? Math.ceil((new Date(g.date) - Date.now()) / 864e5) : 0;
+    const g = (state.settings || {}).goal, left = g && g.date ? Core.daysTo(g.date) : 0;
     const C = 2 * Math.PI * 20, ring = p != null ? `<svg class="ux1-ring" viewBox="0 0 48 48" role="img" aria-label="${p}%"><circle cx="24" cy="24" r="20"/><circle cx="24" cy="24" r="20" class="fg" style="stroke-dasharray:${C};stroke-dashoffset:${C * (1 - p / 100)}"/></svg>` : `<span class="ux1-ring ic">${ic(X.ic)}</span>`;
     const sub = [cur ? t('Dự đoán ~{s}', { s: cur }) : t('Chưa có điểm dự đoán'), left > 0 ? t('còn {n} ngày', { n: left }) : ''].filter(Boolean).join(' · ');
     return `<section class="card ux1-exam ${cls || ''}" data-ux1-exam>${ring}<a class="ux1-exam-tx" href="#/goal"><b>${esc(X.short)}${tg ? ' · ' + esc(tg) : ''}</b><small>${esc(sub)}</small></a><a class="btn sm ux1-mock" href="${MOCK[ex] || '#/tests'}">${ic('flag')} ${t('Thi thử')}</a></section>`;
@@ -178,7 +178,7 @@
       const label = cp ? cp.name : KNAME(p.kind);
       return { st, no: i + 1, label, cp: !!cp && st === 'lock', ms: t('Mốc'), stars: st === 'done' ? k || 0 : 0, href: `#/lesson/go${Q}`, start: t('Bắt đầu'), sub: [cp ? t('Kiểm tra nhanh') : '', t('{n} phút', { n: KMIN[p.kind] || 4 })].filter(Boolean).join(' • '), tch: st === 'next' ? Chars.slot(who, { pose: 'point', size: 'l', lazy: false, clip: true, loop: true, cls: 'absolute right-full mr-3 -bottom-2' }) : '', icon: cp ? ({ headphones: 'headphones', newspaper: 'menu_book', mic: 'mic', 'pen-line': 'edit', mail: 'edit', ruler: 'menu_book', phone: 'call' }[cp.icon] || 'emoji_events') : ({ lesson: 'star', listen: 'headphones', speak: 'mic', review: 'replay', story: 'auto_stories', radio: 'radio', call: 'call', write: 'edit' }[p.kind] || 'star') };
     });
-    const ex = exam(), Xe = (App.EXAMS || {})[ex] || { short: 'IELTS', ic: 'graduation-cap' }, tg = target(), cur = current(ex), pc = pctOf(ex, cur, tg), g = (state.settings || {}).goal, left = g && g.date ? Math.ceil((new Date(g.date) - Date.now()) / 864e5) : 0, C = 2 * Math.PI * 20;
+    const ex = exam(), Xe = (App.EXAMS || {})[ex] || { short: 'IELTS', ic: 'graduation-cap' }, tg = target(), cur = current(ex), pc = pctOf(ex, cur, tg), g = (state.settings || {}).goal, left = g && g.date ? Core.daysTo(g.date) : 0, C = 2 * Math.PI * 20;
     const examH = ST.exam({ cls: 'ux1-exam-top', p: pc, C, off: pc != null ? C * (1 - pc / 100) : 0, icon: { briefcase: 'work', landmark: 'account_balance', 'message-circle': 'forum' }[Xe.ic] || 'school', title: Xe.short + (tg ? ' · ' + tg : ''), sub: [cur ? t('Dự đoán ~{s}', { s: cur }) : t('Chưa có điểm dự đoán'), left > 0 ? t('còn {n} ngày', { n: left }) : ''].filter(Boolean).join(' · '), href: MOCK[ex] || '#/tests', mock: t('Thi thử') });
     const coach = who === 'ama' ? 'Carlos' : 'Ama', placed = !!(state.settings || {}).placement;
     const chips = [u.words.length ? { icon: 'local_library', text: `${have}/${u.words.length}`, title: t('Kiến thức đã có') } : null, placed ? null : { href: '#/placement', icon: 'explore', text: t('Kiểm tra trình độ') }].filter(Boolean);
@@ -226,7 +226,7 @@
   // Dữ liệu dùng chung cho Hôm nay + cột phải: số liệu đầu trang, kỳ thi, kế hoạch hôm nay, chuỗi 7 ngày, giải đấu (bộ nhớ đệm lần trước)
   async function homeBase() {
     const st = state, se = st.settings || {}, g = st.game || {}, k = window.Core && Core.todayKey ? Core.todayKey() : '', rv = ((st.stats || {}).days || {})[k] || 0, goal = se.dailyGoal || 20;
-    const ex = exam(), Xe = (App.EXAMS || {})[ex] || { short: 'IELTS' }, tg = target(), cur = (await mockOverall()) || current(ex), pc = pctOf(ex, cur, tg), left = se.goal && se.goal.date ? Math.ceil((new Date(se.goal.date) - Date.now()) / 864e5) : 0;
+    const ex = exam(), Xe = (App.EXAMS || {})[ex] || { short: 'IELTS' }, tg = target(), cur = (await mockOverall()) || current(ex), pc = pctOf(ex, cur, tg), left = se.goal && se.goal.date ? Core.daysTo(se.goal.date) : 0;
     const streak = App.streak ? App.streak() : 0, gp = Math.min(100, Math.round(rv / goal * 100)), lang = I18N.lang();
     const plan = await planOf(), tot = plan.length, dn = plan.filter(x => x.done).length, first = plan.findIndex(x => !x.done);
     const items = plan.map((x, i) => ({ v: i === first ? 'cur' : /listen/.test(x.href || '') ? 'lis' : 'row', t: x.t, sub: x.done ? '✓ ' + t('Đã xong') : i === first ? t('Đang làm') + ' · ' + t('{n} phút', { n: x.mins || 5 }) : x.sub || '', tag: x.done ? '✓' : i === first ? t('Việc hiện tại') : t('{n} phút', { n: x.mins || 5 }), href: x.href || '#/home' }));
@@ -353,7 +353,7 @@
   const FOCUS = ['#/skill/listening', '#/skill/reading', '#/skill/writing', '#/skill/speaking', '#/grammar', '#/pron', '#/call']; // 7 ô đầu = mục có sẵn của nhóm Kỹ năng; ô 8 = Truyện
   async function trainV2() {
     const tok = location.hash, ex = exam(), Xe = (App.EXAMS || {})[ex] || { short: 'IELTS' }, tg = target(), cur = current(ex), g = state.game || {}, k = window.Core && Core.todayKey ? Core.todayKey() : '';
-    const left = (state.settings || {}).goal && state.settings.goal.date ? Math.ceil((new Date(state.settings.goal.date) - Date.now()) / 864e5) : 0, hrs = Math.max(1, Math.ceil((new Date().setHours(24, 0, 0, 0) - Date.now()) / 36e5));
+    const left = (state.settings || {}).goal && state.settings.goal.date ? Core.daysTo(state.settings.goal.date) : 0, hrs = Math.max(1, Math.ceil((new Date().setHours(24, 0, 0, 0) - Date.now()) / 36e5));
     const leftT = left > 0 ? t('còn {n} ngày', { n: left }) : t('còn {n} giờ', { n: hrs });
     let plan = []; try { plan = (App.todayPlan ? await App.todayPlan() : []) || []; } catch (e) { plan = []; }
     if (location.hash !== tok) return; // đã sang trang khác trong lúc tải kế hoạch

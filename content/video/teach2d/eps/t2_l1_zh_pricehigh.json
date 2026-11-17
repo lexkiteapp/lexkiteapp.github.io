@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_pricehigh",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "The price is high!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: The price is very expensive.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: The price is very high.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "A price is high or low.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "High! The price is too high.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "The price is very expensive.",
+  "right": "The price is very high.",
+  "strike": "expensive",
+  "why": "A price is high or low.",
+  "memory": "High price, expensive shirt.",
+  "quiz": {
+   "stem": "The price is too ___.",
+   "options": [
+    "expensive",
+    "high"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "价格贵要说 high！",
+   "tip": "中文说“价格很贵”。英语里 expensive 用来说东西，说价格要用 high 或 low。",
+   "caption": "你是不是也会说 “The price is very expensive.”😅 中文说“价格很贵”，英语说价格要用 high：“The price is very high.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“The price is very high.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "A price is high, not expensive!",
+   "tip": "Chinese says a price is expensive. In English, expensive is for things, and a price is high or low.",
+   "caption": "Do you say “The price is very expensive.” 😅 For a price, use high or low: “The price is very high.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "价格贵要说 high！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "价格贵要说 high！",
+  "keyword": "The price is very high.",
+  "value": "中文说“价格很贵”。英语里 expensive 用来说东西，说价格要用 high 或 low。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "价格贵要说 high！",
+    "description": "中文说“价格很贵”。英语里 expensive 用来说东西，说价格要用 high 或 low。\n\n你是不是也会说 “The price is very expensive.”😅 中文说“价格很贵”，英语说价格要用 high：“The price is very high.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "The price is very high.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “The price is very expensive.”😅 中文说“价格很贵”，英语说价格要用 high：“The price is very high.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "价格贵要说 high！\n\n中文说“价格很贵”。英语里 expensive 用来说东西，说价格要用 high 或 low。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "价格贵要说 high！ 中文说“价格很贵”。英语里 expensive 用来说东西，说价格要用 high 或 low。 #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“The price is very high.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

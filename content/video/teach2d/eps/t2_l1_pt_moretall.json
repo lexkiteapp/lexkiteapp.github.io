@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_moretall",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Small word, big mistake!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She is more tall than me.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She is taller than me.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Tall becomes taller.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The first! My brother is taller than me.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She is more tall than me.",
+  "right": "She is taller than me.",
+  "strike": "more tall",
+  "why": "Tall becomes taller.",
+  "memory": "Tall, taller.",
+  "quiz": {
+   "stem": "Which one is right?",
+   "options": [
+    "My brother is taller than me.",
+    "My brother is more tall than me."
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Você diz “more tall”?",
+   "tip": "Com palavras curtas como “tall”, acrescente “-er”: “taller”, sem “more”.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “She is more tall than me.” O certo é “She is taller than me.” Em português dizemos “mais alta”, mas em inglês palavras curtas pedem “-er”. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “My brother is taller than me.” Agora diga em voz alta uma frase sua com esse ponto e treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “more tall”?",
+   "tip": "With short words like “tall”, add “-er”: “taller”, without “more”.",
+   "caption": "Watch out for this common mistake! Many people say “She is more tall than me.” The right way is “She is taller than me.” In Portuguese we say “mais alta”, but short English words take “-er”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Você diz “more tall”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Você diz “more tall”?",
+  "keyword": "She is taller than me.",
+  "value": "Com palavras curtas como “tall”, acrescente “-er”: “taller”, sem “more”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Você diz “more tall”?",
+    "description": "Com palavras curtas como “tall”, acrescente “-er”: “taller”, sem “more”.\n\nCuidado com este erro comum! 😬 Muita gente diz “She is more tall than me.” O certo é “She is taller than me.” Em português dizemos “mais alta”, mas em inglês palavras curtas pedem “-er”. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "She is taller than me.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “She is more tall than me.” O certo é “She is taller than me.” Em português dizemos “mais alta”, mas em inglês palavras curtas pedem “-er”. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Você diz “more tall”?\n\nCom palavras curtas como “tall”, acrescente “-er”: “taller”, sem “more”.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Você diz “more tall”? Com palavras curtas como “tall”, acrescente “-er”: “taller”, sem “more”. #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “My brother is taller than me.” Agora diga em voz alta uma frase sua com esse ponto e treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

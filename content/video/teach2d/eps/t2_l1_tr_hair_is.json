@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_hair_is",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "My hair is long!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: My hairs are long.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My hair is long.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say hair. Then is.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! Her hair is black.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "My hairs are long.",
+  "right": "My hair is long.",
+  "strike": "hairs are",
+  "why": "Say hair. Then is.",
+  "memory": "My hair is long.",
+  "quiz": {
+   "stem": "Her ___ black.",
+   "options": [
+    "hairs are",
+    "hair is"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Hairs” değil, “hair is”!",
+   "tip": "Türkçede “saçlarım uzun” deriz; İngilizcede saç için “hair” kullanılır ve “is” gelir: “My hair is long.”",
+   "caption": "“My hairs are long” mi diyorsun? 😅 Saç için “hairs” değil, “hair” deriz ve “is” kullanırız. Doğrusu “My hair is long.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “hair is”. “Saçlarım uzun” için “My hair is long” de. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “hair is”, not “hairs are”!",
+   "tip": "Use “hair” with “is”: “My hair is long.”",
+   "caption": "Do you say “My hairs are long”? 😅 In English we say hair is, not hairs are. The right sentence is “My hair is long.” Listen to Ama and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Hairs” değil, “hair is”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "“Hairs” değil, “hair is”!",
+  "keyword": "My hair is long.",
+  "value": "Türkçede “saçlarım uzun” deriz; İngilizcede saç için “hair” kullanılır ve “is” gelir: “My hair is long.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "“Hairs” değil, “hair is”!",
+    "description": "Türkçede “saçlarım uzun” deriz; İngilizcede saç için “hair” kullanılır ve “is” gelir: “My hair is long.”\n\n“My hairs are long” mi diyorsun? 😅 Saç için “hairs” değil, “hair” deriz ve “is” kullanırız. Doğrusu “My hair is long.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "My hair is long.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“My hairs are long” mi diyorsun? 😅 Saç için “hairs” değil, “hair” deriz ve “is” kullanırız. Doğrusu “My hair is long.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Hairs” değil, “hair is”!\n\nTürkçede “saçlarım uzun” deriz; İngilizcede saç için “hair” kullanılır ve “is” gelir: “My hair is long.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Hairs” değil, “hair is”! Türkçede “saçlarım uzun” deriz; İngilizcede saç için “hair” kullanılır ve “is”… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “hair is”. “Saçlarım uzun” için “My hair is long” de. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+  "lang": "tr"
+ }
+}
