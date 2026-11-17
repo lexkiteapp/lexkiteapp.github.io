@@ -47,7 +47,7 @@ async function main() {
     const nxt = []; red = false;
     for (const { n, want } of pending) {
       let pr, gate = null;
-      try { const r = await gh(`/pulls/${n}`); if (r.status >= 400) throw 0; pr = r.body; if (!pr.merged && pr.state !== 'closed') gate = gateOf((await gh(`/commits/${pr.head.sha}/status`)).body); } catch { nxt.push({ n, want }); continue; }
+      try { const r = await gh(`/pulls/${n}`); if (r.status >= 400) throw 0; pr = r.body; if (!pr.merged && pr.state !== 'closed') gate = gateOf((await gh(`/commits/${pr.head.sha}/status`)).body); } catch (e) { console.error(`${new Date().toISOString().slice(11, 16)} #${n} lỗi API: ${e?.cause?.code || e?.message || e}`); nxt.push({ n, want }); continue; }
       const d = decide(pr, gate, want);
       if (d.act === 'done') { log(n, d.why); continue; }
       if (d.act === 'merge') {
