@@ -8,6 +8,7 @@ import { seoPic } from '../lexicon/img.mjs';
 import { loadVocab } from './seo-data.mjs';
 import { esc, appHref } from './site-layout.mjs';
 import { LANGS, S, POS, fill } from './seo-pages-i18n.mjs';
+import { QZ } from './seo-quiz-i18n.mjs';
 import { toolPath, toolStrings } from './tools-links.mjs';
 import { copyOf as goCopy } from '../build-go.mjs';
 import { loadSources, enrich } from '../dict/build.mjs';
@@ -110,6 +111,23 @@ const sec = (id, d, h, inner) => `<section aria-labelledby="h-${id}"${d ? ` data
 const hiW = (s, k) => esc(s).replace(new RegExp(`\\b(${k.replace(/[^a-z' -]/g, '')}[a-z]*)`, 'i'), '<b>$1</b>');
 const posIn = {}; for (const l of LANGS) posIn[l] = new Map(setOf[l].map((e, i) => [e, i]));
 const built = {}; // l → Map(mục → { body, faq, m }) – dựng một lần, build-seo-pages và build-blog dùng chung
+// Mini-quiz 0 JS (<details>): 1) nghĩa 4 lựa chọn (cùng từ loại, bỏ nghĩa dịch máy), 2) điền chỗ trống từ ví dụ có sẵn. Tất định theo từ (không ngẫu nhiên → build lặp lại byte-giống). Không phải <section data-d> → không tính độ dày.
+const hash = s => { let h = 2166136261; for (const c of String(s)) h = Math.imul(h ^ c.charCodeAt(0), 16777619); return h >>> 0; };
+const quizOf = (l, e, m, list, g0, exs, k) => {
+  const q = QZ[l]; if (!q) return ''; const w = e.word, pos = gpos(e.pos), items = [];
+  const same = list.filter(x => x !== e && gpos(x.pos) === pos);
+  const pick = (n, key) => { const out = [], seen = new Set(), st = hash(w + key); for (let i = 0; i < same.length && out.length < n; i++) { const x = same[(st + i * 7919) % same.length]; if (!seen.has(x)) { seen.add(x); out.push(x); } } return out; };
+  const meanOf = x => l === 'en' ? x.def : l === 'vi' ? x.vi : (() => { const g = gloss(l, x); return g && g[1] !== 0 ? g[0] : null; })();
+  const mine = m && !(g0 && g0[1] === 0) ? m : null;
+  if (mine) { const seenM = new Set([mine]), d = pick(24, 'm').map(x => meanOf(x)).filter(v => v && !seenM.has(v) && seenM.add(v)).slice(0, 3);
+    if (d.length === 3) { const o = [...d]; o.splice(hash(w + 'a') % 4, 0, mine); items.push([fill(q[2], { w }), '', o, o.indexOf(mine), l === 'en']); } }
+  const gap = exs.map(s => [s, s.match(new RegExp(`\\b(${k.replace(/[^a-z' -]/g, '')}(?:s|es|ed|d|ing)?)\\b`, 'i'))]).find(([, mm]) => mm);
+  if (gap) { const form = gap[1][1].toLowerCase(), suf = form.slice(k.length), ds = pick(12, 'g').map(x => x.word.toLowerCase() + suf).filter(v => !/\s/.test(v)).slice(0, 3);
+    if (ds.length === 3) { const o = [...ds]; o.splice(hash(w + 'b') % 4, 0, form); items.push([q[3], gap[0].replace(gap[1][0], '_____'), o, o.indexOf(form), true]); } }
+  if (!items.length) return '';
+  const L = 'ABCD';
+  return `<section class="qz" aria-labelledby="h-qz"><h2 id="h-qz">${esc(q[0])}</h2><ol>${items.map(([qq, sent, o, a, enO]) => `<li><p><b>${esc(qq)}</b></p>${sent ? `<p lang="en" dir="ltr"><i>${esc(sent)}</i></p>` : ''}<ul class="opts">${o.map((x, i) => `<li>${L[i]}. ${enO ? `<span lang="en" dir="ltr">${esc(x)}</span>` : esc(x)}</li>`).join('')}</ul><details><summary>${esc(q[1])}</summary><p><b>${L[a]}.</b> ${enO ? `<span lang="en" dir="ltr">${esc(o[a])}</span>` : esc(o[a])}</p></details></li>`).join('')}</ol></section>`;
+};
 // Câu trả lời ngắn (~40 chữ) ngay dưới tiêu đề – nhắm đoạn trích nổi bật + speakable (docs/SEO-DICT-PAGES.md §Chiến lược). Không phải <section data-d> → không tính vào độ dày.
 // Chỉ dùng dữ liệu đã hiện trên trang: nghĩa theo ngôn ngữ trang + định nghĩa tiếng Anh dễ hiểu (en: chỉ định nghĩa) + IPA Anh.
 const clipWords = (s, n) => { const a = String(s).split(/\s+/); return a.length <= n ? a.join(' ') : a.slice(0, n).join(' ').replace(/[,;:–-]$/, '') + '…'; };
@@ -170,6 +188,7 @@ ${mis.length ? sec('x', 'mis', t.mis, `<ul class="mis">${mis.map(x => `<li><span
 ${ENR[l][k] ? sec('u', 'tip', t.ux, `<p class="note">${esc(ENR[l][k].n)}</p>${(ENR[l][k].x || []).length ? `<ul class="xt">${ENR[l][k].x.map(([s, tr]) => `<li><i lang="en" dir="ltr">${hiW(s, k)}</i>${tr ? `<br>${esc(tr)}` : ''}</li>`).join('')}</ul>` : ''}`) : ''}
 ${n ? sec('n', 'notes', t.notes, [['m', t.nm], ['e', t.ne], ['u', t.nu], ['f', t.nf]].filter(([q]) => n[q] && !(q === 'f' && famN.length)).map(([q, lb]) => `<p class="note"><b>${esc(lb)}:</b> ${esc(n[q])}</p>`).join('')) : ''}
 ${wnS.length ? sec('o', 'wn', t.wn, `<ol lang="en" dir="ltr">${wnS.map(x => `<li>${esc(x.g)}${x.x ? `<br><i>“${esc(x.x)}”</i>` : ''}</li>`).join('')}</ol><p class="mt">${esc(t.wnSrc)}: <a href="https://en-word.net/" rel="noopener">Open English WordNet</a> (<a href="https://creativecommons.org/licenses/by/4.0/" rel="license noopener">CC BY 4.0</a>)</p>`) : ''}
+${quizOf(l, e, m, list, g, exs, k)}
 ${faq.length >= 2 ? sec('q', 'faq', t.fq, faq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')) : ''}
 ${cta(fill(t.ctaW, { w }), t.ctaWn, appLink(l, 'dict/' + encodeURIComponent(w)), t.ctaB)}${goLine(l, 'word')}
 ${tools.length ? sec('t', '', t.tools, `<ul>${tools.map(([h, x]) => `<li><a href="${h}">${esc(x)}</a></li>`).join('')}</ul>`) : ''}

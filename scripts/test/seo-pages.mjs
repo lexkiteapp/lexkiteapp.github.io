@@ -48,6 +48,9 @@ for (const f of files) {
   if (!noindex && /^\/[a-z]{2}\/words\/(?!index\.html)[^/]+\.html$/.test(rel)) {
     { const am = h.match(/<p class="ans" data-ans>([\s\S]*?)<\/p>/); // câu trả lời ngắn: có, ≤ 50 chữ, speakable trỏ đúng .ans
       if (!am) B(`${rel}: thiếu câu trả lời ngắn (.ans)`); else { const n = am[1].replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length; if (n > 50) B(`${rel}: câu trả lời ngắn ${n} chữ > 50`); if (!h.includes('"SpeakableSpecification"')) B(`${rel}: thiếu speakable cho .ans`); } }
+    for (const m of h.matchAll(/<section class="qz"[\s\S]*?<\/section>/g)) for (const li of m[0].split('<li><p><b>').slice(1)) { // mini-quiz: 4 lựa chọn A–D khác nhau, đáp án trỏ đúng 1 lựa chọn
+      const o = [...li.matchAll(/<li>([A-D])\. (.*?)<\/li>/g)].map(x => x[2].replace(/<[^>]+>/g, '')), ans = li.match(/<details><summary>[^<]*<\/summary><p><b>([A-D])\.<\/b> (.*?)<\/p>/);
+      if (o.length !== 4 || new Set(o).size !== 4) B(`${rel}: quiz cần 4 lựa chọn khác nhau`); else if (!ans || o['ABCD'.indexOf(ans[1])] !== ans[2].replace(/<[^>]+>/g, '')) B(`${rel}: đáp án quiz không khớp lựa chọn`); }
     const d = measure(h); if (!deep(d)) B(`${rel}: dưới ngưỡng độ dày (${d.blocks} khối/${d.words} chữ < ${DEPTH_MIN.blocks}/${DEPTH_MIN.words}) mà vẫn index`);
     const un = s => String(s).replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
     const shown = new Map([...h.matchAll(/<details><summary>([^<]*)<\/summary><p>([^<]*)<\/p><\/details>/g)].map(m => [un(m[1]), un(m[2])]));
