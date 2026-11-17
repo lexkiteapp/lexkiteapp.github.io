@@ -2,17 +2,17 @@
 
 Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipeline/score.budget.json` · kế hoạch `docs/CONTENT-WORLD-PLAN.md` §3.5. Điểm = độ phủ so với chuẩn × tỉ lệ qua cổng.
 
-**Tổng: 75.4 / 100**
+**Tổng: 78.2 / 100**
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
 | Kho từ | **59.2** | 58.5 | 59.2% | 100% | 0 |
 | Ngữ pháp | **72.8** | 72.8 | 72.8% | 100% | 0 |
 | Giao tiếp | **89.7** | 68.3 | 89.7% | 100% | 0 |
-| 4 kỹ năng | **69.5** | 62.9 | 69.5% | 100% | 0 |
-| Đề thi | **57.1** | 31.7 | 57.1% | 100% | 0 |
+| 4 kỹ năng | **87.7** | 62.9 | 87.7% | 100% | 0 |
+| Đề thi | **61.6** | 31.7 | 61.6% | 100% | 0 |
 | Khung Can-do | **82** | 81.3 | 82% | 100% | 0 |
-| Dễ học – dễ nhớ | **91.8** | 91.7 | 91.8% | 100% | 0 |
+| Dễ học – dễ nhớ | **91.9** | 91.7 | 91.9% | 100% | 0 |
 | i18n | **81** | 62.7 | 81% | 100% | 0 |
 
 ## Kho từ
@@ -57,7 +57,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
-| Nghe: bộ bài | 40 / 80 | 50% | 15 |
+| Nghe: bộ bài | 80 / 80 | 100% | 15 |
 | Đọc: bài | 486 / 600 | 81% | 15 |
 | Đọc ngắn A1 (chưa làm) | 128 / 80 | 100% | 3 |
 | Đọc ngắn A2 | 65 / 80 | 81% | 3 |
@@ -65,19 +65,19 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | Đọc ngắn B2 | 75 / 80 | 94% | 3 |
 | Đọc ngắn C1 | 70 / 80 | 88% | 3 |
 | Đọc ngắn C2 (chưa làm) | 0 / 80 | 0% | 3 |
-| Nói: chủ đề | 32 / 60 | 53% | 10 |
-| Nói: câu trả lời mẫu | 343 / 600 | 57% | 10 |
-| Viết: bài mẫu | 246 / 400 | 62% | 18 |
+| Nói: chủ đề | 70 / 60 | 100% | 10 |
+| Nói: câu trả lời mẫu | 680 / 600 | 100% | 10 |
+| Viết: bài mẫu | 286 / 400 | 72% | 18 |
 | trung gian (mediation) (chưa làm) | 30 / 30 | 100% | 14 |
 
 ## Đề thi
 
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
-| IELTS Listening | 400 / 800 | 50% | 5 |
-| IELTS Reading AC | 400 / 800 | 50% | 5 |
-| IELTS Reading GT | 200 / 400 | 50% | 5 |
-| IELTS Writing Task 2 | 80 / 200 | 40% | 5 |
+| IELTS Listening | 800 / 800 | 100% | 5 |
+| IELTS Reading AC | 480 / 800 | 60% | 5 |
+| IELTS Reading GT | 280 / 400 | 70% | 5 |
+| IELTS Writing Task 2 | 100 / 200 | 50% | 5 |
 | IELTS Writing Task 1 Academic | 38 / 80 | 48% | 5 |
 | TOEIC Listening | 1000 / 1000 | 100% | 5 |
 | TOEIC Reading | 1000 / 1000 | 100% | 5 |
@@ -98,7 +98,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 |---|---|---|---|
 | mục tiêu LKF tự soạn | 585 / 600 | 98% | 25 |
 | ô kỹ năng × cấp đủ ≥ 15 | 36 / 36 | 100% | 15 |
-| nội dung có lo hợp lệ | 11425 / 11425 | 100% | 35 |
+| nội dung có lo hợp lệ | 11547 / 11547 | 100% | 35 |
 | mục tiêu đã có nội dung luyện | 184 / 600 | 31% | 25 |
 
 ## Dễ học – dễ nhớ
@@ -108,13 +108,13 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | Ngữ pháp | 96.9 / 100 | 97% | 25 |
 | Bài lộ trình | 100 / 100 | 100% | 25 |
 | Bộ từ | 74.2 / 100 | 74% | 25 |
-| Kỹ năng | 96.1 / 100 | 96% | 25 |
+| Kỹ năng | 96.5 / 100 | 97% | 25 |
 
 ## i18n
 
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
 | ngôn ngữ đạt i18n-qa | 13 / 13 | 100% | 45 |
-| nhãn ngắn dịch tay | 12.4 / 13 | 95% | 10 |
+| nhãn ngắn dịch tay | 12.3 / 13 | 95% | 10 |
 | gói nghĩa từ theo ngôn ngữ | 5.3 / 13 | 41% | 20 |
 | điểm bản xứ (native-score/5) (chưa làm) | 3.7 / 5 | 74% | 25 |

@@ -119,6 +119,10 @@ Ngoài ra, bạn có thể tham khảo thêm các [bài mẫu IELTS Writing](/sa
 
 {{youtube: | Gợi ý video: Lập dàn ý một đề Opinion trong 5 phút, từ phân tích đề đến câu mở bài}}
 
+Khi đã có dàn ý, hãy rà [những lỗi sai IELTS Writing thường gặp](/vi/blog/loi-sai-ielts-writing-thuong-gap/) để biết điểm nào hay làm mất điểm trong bài luận.
+
+Với dạng bài đồng ý hay phản đối, bạn có thể xem [cách viết IELTS opinion essay](/vi/blog/ielts-opinion-essay-dong-y-hay-phan-doi/) kèm bài mẫu có chú thích.
+
 ## Câu hỏi thường gặp
 
 ### Task 2 nên viết bao nhiêu từ là đủ?

@@ -140,6 +140,10 @@ quiz: [
 
 {{youtube: | TOEIC Part 7 रीडिंग और टाइम मैनेजमेंट के मास्टर नियम}}
 
+Reading के 75 मिनट का बँटवारा और स्कोरिंग का सार [TOEIC Exam Pattern in Hindi](/hi/blog/toeic-exam-pattern-in-hindi/) में देखें।
+
+Reading की तरह Listening में भी प्रश्न पहले पढ़ने की आदत काम आती है; इसका रूटीन [TOEIC Part 3 और 4 की तैयारी](/hi/blog/toeic-part-3-and-4-ki-taiyari-kaise-kare/) में है।
+
 ## सामान्य प्रश्न (FAQ)
 
 ### क्या मुझे पहले पूरे पैसेज को पढ़ना चाहिए या पहले प्रश्नों को?

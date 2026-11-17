@@ -168,6 +168,8 @@ Mục [ngữ pháp](/ngu-phap/) trên trang web có các bài liên quan. Câu b
 
 {{youtube: | Gợi ý video: một bản tin kể hai lần, chủ động và bị động, để thấy trọng tâm câu thay đổi}}
 
+Thể bị động xuất hiện dày đặc khi mô tả sơ đồ quy trình, bạn có thể thấy cách dùng thực tế trong bài [IELTS Writing Task 1 process](/vi/blog/ielts-writing-task-1-process/).
+
 ## Câu hỏi thường gặp
 
 ### Câu bị động có luôn cần "by" không?

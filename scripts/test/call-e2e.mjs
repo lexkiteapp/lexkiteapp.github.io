@@ -11,6 +11,7 @@ import { chromium } from 'playwright';
 import fs from 'fs';
 import path from 'path';
 import zlib from 'zlib';
+import { rateFor } from './lib/perf-calibrate.mjs';
 
 const arg = k => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : null; };
 const OUT = path.resolve(arg('--out') || 'qa-call'), BEFORE = process.argv.includes('--before'), WAV = arg('--whisper');
@@ -77,7 +78,7 @@ const fails = [], ok = (cond, msg) => { console.log(`${cond ? '✓' : '✗'} ${m
 const shot = async (page, name) => { await page.waitForTimeout(250); await page.screenshot({ path: path.join(OUT, name + '.png') }); };
 
 async function open(o = {}) {
-  const ctx = await browser.newContext({ locale: 'vi', permissions: ['microphone'], serviceWorkers: 'block', viewport: o.vp || { width: 1280, height: 800 }, deviceScaleFactor: 1, ...(o.video ? { recordVideo: { dir: path.join(OUT, 'video'), size: o.vp || { width: 1280, height: 800 } } } : {}) });
+  const ctx = await browser.newContext({ bypassCSP: true, locale: 'vi', permissions: ['microphone'], serviceWorkers: 'block', viewport: o.vp || { width: 1280, height: 800 }, deviceScaleFactor: 1, ...(o.video ? { recordVideo: { dir: path.join(OUT, 'video'), size: o.vp || { width: 1280, height: 800 } } } : {}) });
   await ctx.route(BASE + '**', serve);
   // tiếng: KHÔNG gọi kho media/audio thật trên CI – o.audio: tiếng GIẢ đúng độ dài + độ lớn của mốc CI (fixtureAudio) → mặt vẽ chạy chế độ pre như máy thật
   await ctx.route(/audio\.lexkite\.com|github\.io\/(lexkite-media|audio)|lexkite-media/, r => o.audio ? fixtureAudio(r) : r.abort());
@@ -287,7 +288,7 @@ if (BEFORE) { // bản cũ: chỉ chụp ảnh để so sánh
   ok(await page.evaluate(() => { const l = window.__callState().lip; return !!(l && l.frames > 0 && 'mode' in l && 'open' in l); }), 'TeacherRig: số khung + chế độ (live/pre/idle) + độ mở miệng đo được');
   ok(!(await page.$('.tch-cv')) && !(await page.$('.tch-rig video')), 'mặt vẽ: không tải clip WebGL');
   if (!rec) {
-  const cdp = await ctx.newCDPSession(page); await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
+  const cdp = await ctx.newCDPSession(page); await cdp.send('Emulation.setCPUThrottlingRate', { rate: (await rateFor(browser, 4)).rate });
   const mut = await page.evaluate(() => { window.__mut = 0; const v = document.querySelector('#view') || document.body; new MutationObserver(l => { for (const m of l) if (m.target.closest && m.target.closest('.tch-rig')) window.__mut++; }).observe(v, { subtree: true, childList: true, attributes: true }); return 1; });
   const a = (await state(page)).lip;
   for (let i = 0; i < 15; i++) { await page.waitForTimeout(200); const l = (await state(page)).lip; if (l) modes.add(l.mode); }
