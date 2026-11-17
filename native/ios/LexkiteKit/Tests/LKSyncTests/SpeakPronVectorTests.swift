@@ -79,6 +79,7 @@ final class SpeakPronVectorTests: XCTestCase {
     func testPronMouth() throws {
         var r = PronR()
         for (i, c) in P(try vec()).list("mouth").enumerated() {
+            if (c["out"]?.object ?? [:]).isEmpty { r.check(PronLessonRules.mouth(c["input"] ?? .null) == nil, "mouth[\(i)] no diagram"); continue }
             guard let m = PronLessonRules.mouth(c["input"] ?? .null) else { r.check(false, "mouth[\(i)] nil"); continue }
             let o = c["out"] ?? .null
             for (name, got) in [("outerLip", m.outer), ("innerMouth", m.inner), ("tongue", m.tongue)] {
