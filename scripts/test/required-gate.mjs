@@ -4,7 +4,7 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { api, evaluate, gateDrift, applyDrift, rerunCancelled, MAX_AUTO_RERUN, prCapable, checkWorkflow, dirtyShas, run, paceDue, PACED, chainAlive, CHAIN_CHECK_MS, CHAIN_RETRIES, CONTEXT, SELF_JOB, SELF_PATH } from '../ci/required-gate.mjs';
+import { api, evaluate, gateDrift, applyDrift, applyWindow, gateFilesOf, inMergeWindow, rerunCancelled, MAX_AUTO_RERUN, prCapable, checkWorkflow, dirtyShas, run, paceDue, PACED, chainAlive, CHAIN_CHECK_MS, CHAIN_RETRIES, CONTEXT, SELF_JOB, SELF_PATH } from '../ci/required-gate.mjs';
 let fails = 0, n = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log('✗', m); } };
 
 const cr = (name, status, conclusion, id = 1) => ({ name, status, conclusion, id });
@@ -297,6 +297,14 @@ ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 
   const green = { state: 'success', description: 'Xanh: 5 check đều đạt', failed: [], pending: [], total: 5, cancelled: [] };
   const w = applyDrift(green, ['scripts/i18n-qa.mjs', 'scripts/lib/i18n-rules.mjs', '.github/workflows/a.yml']);
   ok(w.state === 'pending' && /gộp lại main/.test(w.description) && w.description.length <= 140 && /\+1/.test(w.description), 'xanh + cổng đổi → CHỜ, mô tả ≤140 ký tự: ' + w.description);
+  { const at = h => Date.UTC(2026, 10, 17, h, 30), gf = gateFilesOf([F('.github/workflows/x.yml', 'added'), F('scripts/test/old.mjs', 'removed'), F('scripts/test/brand-new.mjs', 'added'), F('scripts/test/ci.mjs'), F('web/js/app.js')]);
+    ok(gf.length === 2 && gf.includes('.github/workflows/x.yml') && gf.includes('scripts/test/ci.mjs'), 'khung merge: tệp cổng của PR = workflow + test sửa; bỏ xoá/test mới/mã thường');
+    ok(inMergeWindow(at(2)) && !inMergeWindow(at(1)) && !inMergeWindow(at(3)) && !inMergeWindow(at(14)), 'khung merge = 02:00–03:00Z (09–10 VN)');
+    const w = applyWindow(green, gf, at(14));
+    ok(w.state === 'pending' && /khung merge cổng 09–10 VN/.test(w.description), 'PR đổi tệp cổng, gate xanh, ngoài khung → pending "chờ khung merge cổng 09–10 VN"');
+    ok(applyWindow(green, gf, at(2)).state === 'success', 'trong khung → vẫn xanh');
+    ok(applyWindow(green, [], at(14)).state === 'success' && applyWindow({ ...green, state: 'failure' }, gf, at(14)).state === 'failure', 'PR thường / gate đỏ → không đụng');
+  }
   ok(applyDrift(green, []).state === 'success' && applyDrift({ ...green, state: 'failure' }, ['scripts/i18n-qa.mjs']).state === 'failure' && applyDrift({ ...green, state: 'pending' }, ['x']).state === 'pending', 'không đổi cổng → vẫn xanh; đỏ/chờ không bị đụng');
   // --sha: đăng pending khi cổng đổi; lỗi đo → mở cổng (xanh)
   const posted = [], base = { gather: async () => ({ workflowRuns: [wr('npm-test', 'completed', 'success', 3)] }), post: async (sha, r) => posted.push(r.state) };

@@ -122,6 +122,13 @@ export const gateDrift = (files = [], prFiles = null, srcs = {}) => files.filter
 export const applyDrift = (res, drift) => res.state === 'success' && drift.length
   ? { ...res, state: 'pending', description: `Main đã đổi tệp cổng (${drift.slice(0, 2).map(f => f.split('/').pop()).join(', ')}${drift.length > 2 ? ` +${drift.length - 2}` : ''}): gộp lại main rồi chờ CI`.slice(0, 140), drift }
   : res;
+/** 17/11 (điều phối): khung merge cổng 02:00–03:00Z (= 09–10 VN). PR TỰ đổi tệp cổng (cùng vị từ với gateDrift: workflow mọi trạng thái, luật, test sửa/đổi tên; bỏ tệp xoá) mà gate xanh ngoài khung → CHỜ, để main không đổi cổng cả ngày làm mọi PR khác phải gộp lại. */
+export const MERGE_WINDOW_UTC = [2, 3];
+export const inMergeWindow = (now = Date.now()) => { const h = new Date(now).getUTCHours(); return h >= MERGE_WINDOW_UTC[0] && h < MERGE_WINDOW_UTC[1]; };
+export const gateFilesOf = (files = []) => files.filter(f => f.status !== 'removed' && (GATE_WORKFLOW.test(f.filename) || GATE_ANY.some(r => r.test(f.filename)) || (GATE_CHANGED.some(r => r.test(f.filename)) && f.status !== 'added'))).map(f => f.filename);
+export const applyWindow = (res, gateFiles = [], now = Date.now()) => res.state === 'success' && gateFiles.length && !inMergeWindow(now)
+  ? { ...res, state: 'pending', description: `Chờ khung merge cổng 09–10 VN (PR đổi tệp cổng: ${gateFiles.slice(0, 2).map(f => f.split('/').pop()).join(', ')}${gateFiles.length > 2 ? ` +${gateFiles.length - 2}` : ''})`.slice(0, 140), window: true }
+  : res;
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const WF = path.join(ROOT, '.github/workflows');
 
@@ -229,6 +236,8 @@ export function api(token, repo, fetchImpl = globalThis.fetch) {
     // tệp main đã đổi kể từ merge-base với sha (2 lệnh, chỉ gọi cho sha sắp xanh); lỗi API → [] (mở cổng, không chặn oan)
     // 16/11 (điều phối): compare chỉ liệt kê 300 tệp/lần → trước đây ≥300 tệp = "(>300 tệp đổi)" = LUÔN chờ gộp lại (#1478 tự kẹt). Nay phân trang tới 10×100 tệp; chỉ khi vẫn cắt cụt mới dùng dấu hiệu chờ.
     // PR: cắt cụt → prFiles = null (chưa biết → tính hết, cách cũ). Tệp cổng: tải nguồn bản main để xét liên quan (≤ 40 tệp), lỗi/quá lớn → không có nguồn → giữ cách cũ.
+    // tệp cổng mà CHÍNH PR đổi (khung merge cổng); lỗi API → [] (mở cổng)
+    prGateFiles: async sha => { const files = []; for (let pg = 1; pg <= 10; pg++) { const r = await call(`/compare/main...${sha}?per_page=100&page=${pg}`); const f = r.files || []; files.push(...f); if (f.length < 100) break; } return gateFilesOf(files); },
     drift: async sha => {
       const cmp = async (spec, max = 10) => { let first, files = []; for (let pg = 1; pg <= max; pg++) { const r = await call(`/compare/${spec}?per_page=100&page=${pg}`); first ??= r; const f = r.files || []; files.push(...f); if (f.length < 100) return { first, files, truncated: false }; } return { first, files, truncated: true }; };
       const pc = await cmp(`main...${sha}`), mb = pc.first.merge_base_commit?.sha; if (!mb) return [];
@@ -292,7 +301,9 @@ export async function run(argv, env = process.env, A = null, log = console.log, 
   A = A || api(env.GITHUB_TOKEN, env.GITHUB_REPOSITORY);
   const reran = new Set();
   const withDrift = async (res, sha) => {
-    if (res.state !== 'success' || !A.drift) return res;
+    if (res.state !== 'success') return res;
+    if (A.prGateFiles && !inMergeWindow(clock.now())) { try { const w = applyWindow(res, await A.prGateFiles(sha), clock.now()); if (w.window) return w; } catch (e) { log('::warning::đo tệp cổng của PR lỗi (mở cổng): ' + e.message); } }
+    if (!A.drift) return res;
     try {
       let d = await A.drift(sha);
       if (d.length && A.retest) {

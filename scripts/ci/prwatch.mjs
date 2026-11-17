@@ -20,7 +20,7 @@ export function decide(pr, gate, want) {
     return { act: 'merge', why: 'required-gate xanh' };
   }
   if (st === 'failure' || st === 'error') return { act: 'red', why: `required-gate ${st}: ${(gate.description || '').slice(0, 110)}` };
-  return { act: 'wait', why: `required-gate ${st}` };
+  return { act: 'wait', why: `required-gate ${st}${gate?.description && /khung merge/i.test(gate.description) ? ' – ' + gate.description.slice(0, 90) : ''}` };
 }
 /** Đọc required-gate từ commit status (thuần theo dữ liệu /status). */
 export function gateOf(combined) { return (combined?.statuses || []).find(s => s.context === 'required-gate') || null; }

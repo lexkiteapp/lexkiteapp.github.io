@@ -11,6 +11,7 @@ ok(decide(pr({ mergeable_state: 'blocked' }), g('success')).act === 'wait', 'gat
 ok(decide(pr(), g('failure', 'npm test')).act === 'red', 'gate failure → đỏ kèm lý do');
 ok(/npm test/.test(decide(pr(), g('failure', 'npm test')).why), 'lý do đỏ có mô tả gate');
 ok(decide(pr(), g('pending')).act === 'wait' && decide(pr(), null).act === 'wait', 'pending / chưa có status → chờ');
+ok(decide(pr(), g('pending', 'Chờ khung merge cổng 09–10 VN (x.yml)')).act === 'wait' && /khung merge/.test(decide(pr(), g('pending', 'Chờ khung merge cổng 09–10 VN (x.yml)')).why), 'gate chờ khung merge → watcher chờ, nêu lý do');
 ok(decide(pr(), g('success'), 'ffffff0').act === 'wait', 'head chưa khớp sha chờ → chờ, không xét commit cũ');
 ok(decide(pr(), g('success'), 'abcdef1').act === 'merge', 'head khớp tiền tố sha → xét');
 ok(decide(pr({ merged: true }), null).act === 'done' && decide(pr({ state: 'closed' }), null).act === 'done', 'đã merge/đóng → done');
