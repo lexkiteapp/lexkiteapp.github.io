@@ -170,6 +170,14 @@ publishAt: 2026-11-24T20:54:00+03:00
 
 {{cta: /#/write | Напишите тренировочное эссе и проверьте сложные предложения в тренажере Lexkite}}
 
+Сложные предложения с целью и условием нужны и при описании схем, о чём подробнее в статье [IELTS Writing Task 1 процесс](/ru/blog/ielts-writing-task-1-process-opisanie-protsessa/).
+
+Сложные предложения особенно пригодятся, когда вы объясняете причины в эссе с мнением; пример разбора есть в статье [IELTS opinion essay](/ru/blog/ielts-opinion-essay-kak-pisat/).
+
+Чтобы не потерять баллы на грамматике, просмотрите список [типичных ошибок в IELTS Writing](/ru/blog/oshibki-v-ielts-writing-kak-ispravit/).
+
+Сложные предложения полезны и в Task 1: посмотрите, как они работают в [отчёте по столбчатой диаграмме](/ru/blog/ielts-writing-task-1-stolbchataya-diagramma-obrazets/).
+
 ## Часто задаваемые вопросы (FAQ)
 
 ### Сколько сложных предложений должно быть в эссе IELTS Writing Task 2?

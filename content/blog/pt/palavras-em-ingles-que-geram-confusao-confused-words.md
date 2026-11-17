@@ -179,3 +179,5 @@ Escolha a opção correta para cada frase:
 5. **dessert**: Trata-se da sobremesa doce após a refeição (grafada com dois **s**).
 
 Eliminar a insegurança ao usar vocabulário em inglês exige prática espaçada e contextualizada. Pratique diariamente com o [algoritmo de repetição espaçada FSRS do Lexkite](/pt/blog/repeticao-espacada-para-aprender-ingles/) e transforme termos confusos em ferramentas de comunicação sólida e confiável.
+
+Se quiser um estudo mais aprofundado de um dos pares mais cobrados, leia [a diferença entre affect e effect](/pt/blog/diferenca-entre-affect-e-effect/).

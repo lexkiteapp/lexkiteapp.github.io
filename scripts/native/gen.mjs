@@ -161,12 +161,28 @@ public enum L10nLangs {
     public static let rtl: Set<String> = ["ar"]
 }
 `);
+// L10nKey (Android): KHÔNG dùng enum – một enum 1 hằng/chuỗi đẩy <clinit> vượt giới hạn 64 KB/method của JVM (MethodTooLargeException khi ~3450 chuỗi, 15/11).
+// Giữ nguyên API cho code gọi (L10nKey.todayGoal, L10nKey?, key.id, L10nKey.entries): lớp L10nKey + companion kế thừa chuỗi lớp con, mỗi lớp ≤ L10N_CHUNK hằng
+// (mỗi lớp = 1 constructor ≈ 13 byte/hằng → 700 hằng ≈ 9 KB, dư rất nhiều; thêm chuỗi chỉ thêm lớp). Test native-m2-vectors chặn tái phạm.
+const L10N_CHUNK = 700, kt = [];
+for (let i = 0; i < ids.length; i += L10N_CHUNK) kt.push(ids.slice(i, i + L10N_CHUNK));
+const ktName = n => `L10nKeys${n}`;
 put(`${AND}/main/kotlin/com/lexkite/app/i18n/generated/L10nKey.kt`, HEAD('native/shared/strings.json') + `package com.lexkite.app.i18n.generated
 
-/** Typed string IDs. Text comes from the generated per-language JSON (15 languages), never from literals in composables. */
-enum class L10nKey(val id: String) {
-${ids.map(([id]) => `    ${keyId(id)}("${id}")`).join(',\n')};
+/** Typed string IDs. Text comes from the generated per-language JSON (15 languages), never from literals in composables.
+ *  Not an enum: see scripts/native/gen.mjs (JVM 64 KB method limit). Instances are singletons held by the companion, so == / Map keys behave like enum constants. */
+class L10nKey internal constructor(val id: String) {
+    override fun toString() = id
+    companion object : ${ktName(kt.length - 1)}() {
+        /** Every key, in strings.json order. */
+        val entries: List<L10nKey> by lazy { ${kt.map((_, n) => `keys${n}()`).join(' + ')} }
+    }
 }
+
+${kt.map((ch, n) => `open class ${ktName(n)}${n ? ` : ${ktName(n - 1)}()` : ''} {
+${ch.map(([id]) => `    val ${keyId(id)} = L10nKey("${id}")`).join('\n')}
+    protected fun keys${n}(): List<L10nKey> = listOf(${ch.map(([id]) => keyId(id)).join(', ')})
+}`).join('\n\n')}
 
 object L10nLangs {
     val ALL = listOf(${LANGS.map(l => `"${l}"`).join(', ')})

@@ -11,6 +11,12 @@ ok(workflowMatches("on:\n  pull_request:\n    paths: ['web/**', '!web/audio/**']
 ok(workflowMatches("on:\n  schedule: []\n", ['a']) === false, 'không có pull_request → false');
 ok(readsAny("x('web/js/study.js')", ['web/js/study.js']) && readsAny("rd('web/js/' + f)", ['web/js/app.js']), 'nhắc tệp / thư mục 2 cấp');
 ok(!readsAny("rd('web/js/' + f)", ['docs/CODEMAP.md']) && !readsAny("rd('web/js/')", ['web/blog/a.md']), 'không nhắc → false');
-ok(readsAny("readdirSync('docs')", ['docs/CODEMAP.md']) && readsAny("const D = 'web/'", ['web/x.css']), 'thư mục gốc dạng chuỗi riêng');
+ok(readsAny("readdirSync('docs/')", ['docs/CODEMAP.md']) && readsAny("const D = 'web/'", ['web/x.css']) && readsAny("const D = './docs/'", ['docs/a.md']), 'thư mục gốc dạng chuỗi CÓ gạch chéo vẫn tính');
+ok(!readsAny("const o = { content: 1, type: 'content', web: 'web', k: \"scripts\" }", ['content/blog/pt/a.md', 'web/x.css', 'scripts/a.mjs']), 'chuỗi gốc TRẦN (content/web/scripts) KHÔNG tính: PR chỉ đổi content/blog không bị đòi gộp vì test có khoá \'content\'');
 ok(!readsAny("", ['a/b.js']) && !readsAny("x", []), 'rỗng');
+ok(prFilter("on:\n  pull_request:\n    paths: ['scripts/test/learn-flow.mjs', '.github/workflows/x.yml']   # chú thích sau danh sách\n  workflow_dispatch:\n").paths.length === 2, 'paths 1 dòng có chú thích "# …" phía sau vẫn đọc được (learn-flow-stress.yml)');
+ok(workflowMatches("on:\n  pull_request:\n    paths: ['scripts/test/learn-flow.mjs']   # note\n", ['scripts/test/lib/perf-calibrate.mjs', 'docs/CI-RUNNERS.md']) === false, 'workflow có chú thích sau paths: PR không khớp → KHÔNG bắt (trước đây coi như mọi PR)');
+ok(!readsAny("spawnSync('node', ['scripts/test/other.mjs'])", ['scripts/test/lib/perf-calibrate.mjs', 'scripts/test/mobile-qa.mjs']), 'test chỉ nhắc \'scripts/test\' chung KHÔNG liên quan PR chỉ sửa tệp trong scripts/test');
+ok(readsAny("import { rateFor } from './lib/perf-calibrate.mjs';", ['scripts/test/lib/perf-calibrate.mjs']), 'test nhập lib bằng đường dẫn tương đối vẫn liên quan khi PR sửa lib đó');
+ok(readsAny("const w = '.github/workflows'", ['.github/workflows/a.yml']) && readsAny("rd('web/js/study.js')", ['web/js/app.js']), 'thư mục tổ tiên khác (workflows, web/js) vẫn tính');
 if (bad) { console.error(`✗ gate-relevance: ${bad} lỗi`); process.exit(1); } console.log('✓ gate-relevance: đạt');

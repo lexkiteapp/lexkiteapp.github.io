@@ -160,6 +160,12 @@ Tüm Part'lar ve tam sınavlar [TOEIC çalışma sayfasında](/#/toeic) yer alı
 
 {{cta: /#/toeic | TOEIC deneme sınavı çözün ve 10–990 arası tahmini puanınızı görün}}
 
+Planınıza başlamadan önce yedi bölümün yapısını ve puanlamasını [TOEIC sınav formatı](/tr/blog/toeic-sinav-formati-bolumler-sure-puanlama/) rehberinden gözden geçirin.
+
+Planınızdaki Listening saatlerini verimli kullanmak için [TOEIC Part 3 ve Part 4 stratejileri](/tr/blog/toeic-part-3-ve-part-4-stratejileri/) rehberini inceleyin.
+
+Planın ilk haftalarında fotoğraf sorularını ısınma olarak çözmek için [TOEIC Part 1 fotoğraf taktikleri](/tr/blog/toeic-part-1-fotograf-tanimlama-taktikleri/) yazısına bakın.
+
 ## TOEIC için bireysel çalışma hakkında sık sorulan sorular
 
 ### 500'den 750'ye çıkmak kaç ay sürer?

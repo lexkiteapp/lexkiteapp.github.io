@@ -9,6 +9,7 @@ import fs from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
+import { rateFor } from './lib/perf-calibrate.mjs';
 import { noProd } from './lib/no-prod.mjs';
 
 const BASE = process.argv[2] || 'http://localhost:8080', OUT = process.argv[3] || 'out/mobile-qa';
@@ -192,12 +193,12 @@ for (const vp of VPS) {
       if (!learn) { const l = await langSwitch(page); if (l) errs.push(`${vp.w} #/${route}: nút ngôn ngữ ${l}`); }
       else { const x = await page.evaluate(() => { const b = document.querySelector('#view [data-exit]'); if (!b) return 'không có'; const q = b.getBoundingClientRect(); if (q.width < 20 || q.height < 20) return 'bị ẩn'; const h = document.elementFromPoint(q.left + q.width / 2, q.top + q.height / 2); return h && (h === b || b.contains(h)) ? '' : 'bị che'; }).catch(e => 'lỗi ' + String(e.message).slice(0, 60)); if (x) errs.push(`${vp.w} #/${route}: nút Thoát màn học ${x}`); }
       if (route.startsWith('practice/') || route === 'review') {
-        await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
+        await cdp.send('Emulation.setCPUThrottlingRate', { rate: (await rateFor(browser, 4)).rate }); // hiệu chuẩn theo tốc độ thật của runner (lib/perf-calibrate.mjs)
         await page.evaluate(() => { window.__ev = []; });
         let done = false;
         if (route === 'review') {
           for (let i = 0; i < 6; i++) { const b = page.locator('#view .flash, #view .btn.primary').first(); if (!(await b.count())) break; await b.tap().catch(() => {}); await page.waitForTimeout(500); const g = page.locator('#view [data-grade="2"], #view .option').first(); if (await g.count()) { await g.tap().catch(() => {}); await page.waitForTimeout(500); } }
-        } else done = await playQuiz(page, async () => { await cdp.send('Emulation.setCPUThrottlingRate', { rate: 1 }); add(vp.w, route + ' [đáp án]', await page.evaluate(detect)); await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 }); });
+        } else done = await playQuiz(page, async () => { await cdp.send('Emulation.setCPUThrottlingRate', { rate: 1 }); add(vp.w, route + ' [đáp án]', await page.evaluate(detect)); await cdp.send('Emulation.setCPUThrottlingRate', { rate: (await rateFor(browser, 4)).rate }); });
         await cdp.send('Emulation.setCPUThrottlingRate', { rate: 1 });
         const m = await page.evaluate(() => ({ cls: window.__cls, ev: window.__ev, sh: window.__sh }));
         perf.push({ vp: vp.w, route, cls: +m.cls.toFixed(4), shifts: m.sh.sort((a, b) => b[0] - a[0]).slice(0, 3), inp: Math.round(inpOf(m.ev)), n: new Set(m.ev.map(e => e[0])).size, worst: m.ev.sort((a, b) => b[1] - a[1])[0] || null });
@@ -238,11 +239,13 @@ await browser.close();
 
 // ---- Lighthouse mobile (giả lập 4G chậm + CPU 4×) cho từng route – lần tải lạnh
 const lh = [];
+// 16/11: TBT 202 > 200 ms đỏ #552/#362/#1427 (PR không đụng trang) – Lighthouse giả lập CPU 4× trên số đo THẬT của runner; runner EPYC chậm gấp ~2,2× nên TBT phình. Hiệu chuẩn như INP (ngưỡng KHÔNG đổi)
+const cpuLh = LH ? (await rateFor(browser, 4)).rate : 4;
 if (LH) for (const route of ['home', 'path', 'review', 'dict/hello', 'me', 'practice/mcq?src=topic:education']) {
   const f = `${OUT}/lh-${route.replace(/[^a-z]+/g, '_')}.json`;
   const runs = [];
   for (let i = 0; i < 3; i++) {
-    try { execFileSync('npx', ['-y', 'lighthouse@12.2.1', `${BASE}/app/?sandbox=1&hl=en#/${route}`, '--form-factor=mobile', '--only-categories=performance,accessibility', '--chrome-flags=--headless=new --no-sandbox', '--output=json', `--output-path=${f}`, '--quiet'], { stdio: 'ignore', timeout: 180e3 }); } catch (e) { continue; }
+    try { execFileSync('npx', ['-y', 'lighthouse@12.2.1', `${BASE}/app/?sandbox=1&hl=en#/${route}`, '--form-factor=mobile', '--only-categories=performance,accessibility', '--chrome-flags=--headless=new --no-sandbox', '--output=json', `--output-path=${f}`, `--throttling.cpuSlowdownMultiplier=${cpuLh}`, '--quiet'], { stdio: 'ignore', timeout: 180e3 }); } catch (e) { continue; }
     const d = JSON.parse(fs.readFileSync(f, 'utf8')), a = d.audits;
     runs.push({ route, perf: Math.round(d.categories.performance.score * 100), a11y: Math.round(d.categories.accessibility.score * 100), lcp: Math.round(a['largest-contentful-paint'].numericValue), cls: +a['cumulative-layout-shift'].numericValue.toFixed(4), tbt: Math.round(a['total-blocking-time'].numericValue), fcp: Math.round(a['first-contentful-paint'].numericValue), tap: a['target-size'] ? a['target-size'].score : null });
   }

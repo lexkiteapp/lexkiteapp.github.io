@@ -181,6 +181,8 @@ Acertou 5 ou 6? Sua base está sólida. Errou a 2 e a 4? São os erros mais “b
 
 {{youtube: | Ideia de vídeo: aluga-se, cortei o cabelo, nasci — a voz passiva para brasileiros em 5 minutos}}
 
+Para ver a passiva em ação num exame, leia também o guia de [IELTS Writing Task 1 process](/pt/blog/ielts-writing-task-1-process-como-descrever-um-processo/), em que quase todas as etapas de um diagrama usam essa estrutura.
+
 ## Perguntas frequentes
 
 ### A voz passiva é mais formal?

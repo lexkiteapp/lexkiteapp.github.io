@@ -9290,8 +9290,16 @@
    "refix": 1
   },
   "boar#n": {
-   "e4bad": 1,
-   "badAt": "2026-11-15T23:50:07.121Z"
+   "ex": "Wild boars were coming to eat our produce.",
+   "ps": "a large brown wild boar with tusks sniffs near a garden of vegetables",
+   "sc": "a large brown wild boar with tusks sniffs near a garden of vegetables",
+   "check": "Is there a wild pig with large tusks approaching crops?",
+   "cap": "a brown wild pig sniffing a vegetable garden",
+   "key": "large tusks on the animal; the animal's snout near vegetables",
+   "who": 0,
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b"
   },
   "board of directors#n": {
    "ex": "The board of directors approved the expansion plan unanimously.",
@@ -9560,8 +9568,8 @@
    "draw": 4,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 6,
-   "badAt": "2026-11-14T00:29:26.505Z"
+   "e4bad": 7,
+   "badAt": "2026-11-17T03:01:44.249Z"
   },
   "boolean#n": {
    "ex": "The flag is stored as a boolean in the settings table.",
@@ -14219,8 +14227,8 @@
    "by": "openai/gpt-oss-120b"
   },
   "clef#n": {
-   "e4bad": 1,
-   "badAt": "2026-11-15T23:52:18.015Z"
+   "e4bad": 2,
+   "badAt": "2026-11-17T02:13:38.261Z"
   },
   "clergy#n": {
    "ex": "The clergy also had become more powerful.",
@@ -17816,8 +17824,18 @@
    "by": "@cf/openai/gpt-oss-120b"
   },
   "consular#adj": {
-   "e4bad": 4,
-   "badAt": "2026-11-14T00:29:12.537Z"
+   "ex": "In addition, some diplomatic missions may include consular services.",
+   "ps": "a man in a formal diplomatic sash stands behind a desk beside a casually dressed man",
+   "sc": "a man in a formal diplomatic sash stands behind a desk beside a casually dressed man",
+   "check": "Is one of the people shown in a diplomatic role?",
+   "cap": "a formally dressed man at a desk next to a casually dressed man",
+   "key": "a man wearing a formal diplomatic sash; a desk behind the formally dressed man",
+   "who": 2,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
   },
   "consult#v": {
    "ex": "You should consult a doctor before taking this medicine.",
@@ -25985,16 +26003,17 @@
   },
   "disenfranchise#v": {
    "ex": "As a result, the borough constituency was disenfranchised for corruption.",
-   "ps": "a man holds a blank sheet with a big red cross while a stern official turns away",
-   "sc": "a man holds a blank sheet with a big red cross while a stern official turns away",
-   "check": "Is the person being prevented from voting?",
-   "cap": "a voter denied by an official with a crossed paper",
-   "key": "big red cross on a blank sheet; the official turning away the person",
+   "ps": "a stern man blocks a voting box with a large red cross while a sad citizen watches",
+   "sc": "a stern man blocks a voting box with a large red cross while a sad citizen watches",
+   "check": "Is a person's ability to vote being denied in the picture?",
+   "cap": "a stern official prevents voting by covering the ballot box",
+   "key": "a large red cross over a voting box; the citizen's sad face",
    "who": 2,
    "draw": 4,
    "v": "e6",
    "by": "openai/gpt-oss-120b",
-   "tries": 2
+   "tries": 3,
+   "refix": 1
   },
   "disguise#n": {
    "ex": "The price increase was a cut in quality in disguise.",
@@ -35935,17 +35954,17 @@
   },
   "follow-up#n": {
    "ex": "I sent a follow-up after the interview.",
-   "ps": "a man hands a second small box to a woman while a first box sits on a table",
-   "sc": "a man hands a second small box to a woman while a first box sits on a table",
-   "check": "Is the person giving a second item after an earlier one?",
-   "cap": "a person handing a second box while another box remains on a table",
-   "key": "a second box being handed to a person; a first box already on a table",
-   "who": 2,
+   "ps": "a man places a second plain box into a mailbox while a first box already sits inside",
+   "sc": "a man places a second plain box into a mailbox while a first box already sits inside",
+   "check": "Is there an action that continues or repeats a previous message or task?",
+   "cap": "A man adds another box to a mailbox that already contains one",
+   "key": "a second plain box placed into a mailbox; a first box already inside the mailbox",
+   "who": 1,
    "draw": 4,
    "v": "e6",
    "by": "openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "follower#n": {
    "skip": "the concept relies on abstract numbers and social‑media symbols that cannot be d",
@@ -48264,8 +48283,16 @@
    "by": "@cf/openai/gpt-oss-120b"
   },
   "isomer#n": {
-   "e4bad": 1,
-   "badAt": "2026-11-15T23:53:03.824Z"
+   "ex": "There may also be two isomers.",
+   "ps": "a balance scale shows a pile of small balls balanced with one large ball",
+   "sc": "a balance scale shows a pile of small balls balanced with one large ball",
+   "check": "Is there a balance where two different arrangements have the same weight?",
+   "cap": "a scale balancing small balls with one big ball",
+   "key": "a pile of small balls on one pan; a single large ball on the other pan",
+   "who": 0,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b"
   },
   "isothermal#adj": {
    "ex": "In contrast, free expansion is an isothermal process for an ideal gas.",
@@ -48458,17 +48485,17 @@
   },
   "jawbone#n": {
    "ex": "In the fossil record, isolated teeth and bits of jawbones are found.",
-   "ps": "a large white curved bone resembling a lower jaw, shown alone on a plain surface",
-   "sc": "a large white curved bone resembling a lower jaw, shown alone on a plain surface",
-   "check": "Is there a lower facial bone that moves to open the mouth?",
-   "cap": "a single curved bone resembling a human lower jaw",
-   "key": "a large curved bone shaped like a lower jaw; the bone's hinge joint at the back",
+   "ps": "a large white lower jaw bone, curved, showing the chin area",
+   "sc": "a large white lower jaw bone, curved, showing the chin area",
+   "check": "Is there a curved white bone from the lower part of a mouth?",
+   "cap": "a curved white bone from the lower part of a mouth",
+   "key": "the curved lower jaw bone shape; the bone's chin connection",
    "who": 0,
    "draw": 5,
    "v": "e6",
    "by": "openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "jazz#n": {
    "ex": "A jazz band will play at the company dinner.",
@@ -54924,8 +54951,8 @@
    "refix": 2
   },
   "microcomputer#n": {
-   "e4bad": 1,
-   "badAt": "2026-11-15T23:52:16.765Z"
+   "e4bad": 2,
+   "badAt": "2026-11-17T02:13:38.260Z"
   },
   "microeconomics#n": {
    "ex": "Microeconomics applies to small elements of an economy.",
