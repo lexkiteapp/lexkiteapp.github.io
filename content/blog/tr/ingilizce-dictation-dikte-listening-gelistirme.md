@@ -160,6 +160,8 @@ Bu tek cümlelik analiz, dikkatsizce dinlenen iki saatlik podcastten çok daha f
 
 Dikteyi TOEIC'e uyarlamak isterseniz [TOEIC Listening Part 2 stratejileri](/tr/blog/toeic-listening-part-2-stratejileri-soru-cevap/) yazısında kısa soru-cevap tuzaklarını bulabilirsiniz.
 
+Dikteyle çalıştığınız kayıtlarda soru tipine göre hangi hataların çıktığını [IELTS listening soru tipleri](/tr/blog/ielts-listening-soru-tipleri-cozum-yontemleri/) yazısındaki tuzak tablosuyla karşılaştırabilirsiniz.
+
 ## Sıkça Sorulan Sorular (FAQ)
 
 ### Haftada kaç gün dikte (dictation) yapmalıyım?

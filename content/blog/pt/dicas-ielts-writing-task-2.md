@@ -99,6 +99,14 @@ Não se esqueça de treinar também a outra metade da prova acessando o [módulo
 
 {{youtube: | Estrutura de redação nota 7 ou mais no IELTS Writing Task 2}}
 
+Para a primeira tarefa da prova, leia o guia de [gráfico de barras IELTS no Task 1](/pt/blog/grafico-de-barras-ielts-writing-task-1-modelo/) e divida bem os 60 minutos.
+
+Se o seu Task 1 trouxer um diagrama em vez de um gráfico, veja como [descrever um processo no IELTS Writing Task 1](/pt/blog/ielts-writing-task-1-process-como-descrever-um-processo/), com um relatório modelo.
+
+Se a sua pergunta pedir que você tome posição, veja o guia da [redação de opinião IELTS](/pt/blog/redacao-de-opiniao-ielts-concordo-ou-discordo/), com três formas de responder a concordo ou discordo.
+
+Para entender o peso de cada critério na banda final, veja [como a nota do IELTS é calculada](/pt/blog/como-calcular-a-nota-do-ielts-bandas/); e para revisar o que você escreve, leia sobre [erros comuns no IELTS Writing](/pt/blog/erros-comuns-no-ielts-writing-como-corrigir/).
+
 ## Perguntas frequentes
 
 ### O que acontece se eu escrever menos de 250 palavras na Task 2?

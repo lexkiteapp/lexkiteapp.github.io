@@ -144,9 +144,9 @@ public struct LessonView: View {
             src.story = st; kind = st.kind
         }
         let repo = services.repo, services = services
-        m.saved = { results, xp, date in
+        m.saved = { results, xp, spoken, perfect, date in
             LessonStore.finished(accuracy: m.summary.accuracy, story: storyID != nil)
-            if let repo { await LessonStore.save(results, xp: xp, now: date, repo: repo); services.localChange() }
+            if let repo { await LessonStore.save(results, xp: xp, spoken: spoken, perfect: perfect, now: date, repo: repo); services.localChange() }
         }
         let remote = services.remote
         let index = PictureIndex(flag: remote.value(.vocabImg)?.string, pct: remote.value(.vocabImgPct)?.double.map { Int($0) }, bucket: PictureIndex.deviceBucket())
