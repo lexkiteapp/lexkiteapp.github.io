@@ -304,6 +304,17 @@ ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 
   await run(['--sha', 'abc'], {}, { ...base, drift: async () => { throw new Error('502'); } }, () => {});
   await run(['--sha', 'abc'], {}, { ...base, drift: async () => [] }, () => {});
   ok(posted.join() === 'pending,success,success', 'cổng đổi → pending; lỗi API đo → xanh (không chặn oan); không đổi → xanh: ' + posted.join());
+  // 16/11 gate-retest: drift toàn test trong suite → chạy thật trên đầu PR thay vì bắt gộp main
+  { const out = [], mk = r => ({ ...base, post: async (sha, x) => out.push(x), drift: async () => ['scripts/test/story-stage.mjs'], retest: async () => r });
+    await run(['--sha', 'abc'], {}, mk({ clear: true }), () => {});
+    await run(['--sha', 'abc'], {}, mk({ wait: true, note: 'Chạy lại 1 test cổng đổi trên head PR (gate-retest, main@abcd1234)' }), () => {});
+    await run(['--sha', 'abc'], {}, mk({}), () => {});
+    await run(['--sha', 'abc'], {}, { ...mk({}), retest: async () => { throw new Error('502'); } }, () => {});
+    ok(out[0].state === 'success', 'gate-retest ĐẠT cho main hiện tại → drift giải, KHÔNG bắt gộp main');
+    ok(out[1].state === 'pending' && /gate-retest/.test(out[1].description) && !/gộp lại main/.test(out[1].description), 'đang chạy lại → CHỜ với lý do gate-retest (không bảo gộp main): ' + out[1].description);
+    ok(out[2].state === 'pending' && /gộp lại main/.test(out[2].description), 'bất định / đỏ / lỗi thời ({}) → cách cũ: đòi gộp main');
+    ok(out[3].state === 'pending' && /gộp lại main/.test(out[3].description), 'retest ném lỗi → cách cũ (không mở cổng, không đỏ oan)'); }
+
 }
 
 // ---------- 1e) bộ canh KHÔNG chết khi API lỗi 1 lần (15/11: #1355/#1376 kẹt pending, phải dispatch tay) ----------
