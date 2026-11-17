@@ -74,6 +74,12 @@ const HOME_T = rd('brand/stitch/web/gen/home.js'), RES_H = (HOME_T.match(/<secti
 // Cùng khuôn với href() của js/get-app.js (scripts/test/install-links.mjs đối chiếu)
 export const installSection = (c, D = INSTALL) => { const phone = esc(c.install.phone).replace('{url}', `<bdi dir="ltr"><a href="${D.short.path}">${esc(D.short.label)}</a></bdi>`);
   return `<section id="install" data-install class="w-full mb-20"><div class="mb-8"><h2 class="${RES_H}">${esc(c.install.h)}</h2><p class="${RES_P}">${esc(c.install.p)}</p></div><div class="inst">${liveChannels(D).filter(ch => ch.id !== 'cws').map(ch => `<a class="${GA_V3}" href="${esc(storeHref(ch, 'inst', D))}" target="_blank" data-ch="${ch.id}">${SLIM(/^(ios|play)$/.test(ch.id) ? PHONE : DESK)}<span class="inst-t"><small>${esc(ch.devices)}</small><b>${esc(ch.name)}</b></span></a>`).join('')}</div><p class="inst-n ${RES_P}">${phone}</p><p class="inst-m" lang="en">${esc(D.trademarks)}</p></section>`; };
+// Từ nổi bật → trang từ /<lang>/words/<từ> (liên kết sâu từ trang chủ, 13 ngôn ngữ; nguồn content/seo/home-words.json do scripts/seo/home-words.mjs chọn, test kiểm còn index được).
+const HW = fs.existsSync(new URL('content/seo/home-words.json', R)) ? JSON.parse(rd('content/seo/home-words.json')) : {};
+const HW_H = { es: 'Palabras en inglés más consultadas', pt: 'Palavras em inglês mais pesquisadas', fr: 'Mots anglais les plus recherchés', de: 'Meistgesuchte englische Wörter', id: 'Kata bahasa Inggris yang paling sering dicari', th: 'คำศัพท์ภาษาอังกฤษที่คนค้นหามากที่สุด', zh: '最常查询的英语单词', ja: 'よく調べられる英単語', ko: '많이 찾는 영어 단어', hi: 'सबसे ज़्यादा खोजे जाने वाले अंग्रेज़ी शब्द', ar: 'أكثر الكلمات الإنجليزية بحثًا', ru: 'Популярные английские слова', tr: 'En çok aranan İngilizce kelimeler' };
+const TW_CSS = '.tw{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;padding:0;margin:0 0 1rem}.tw a{display:inline-block;padding:.4rem .8rem;border:1px solid color-mix(in srgb,currentColor 25%,transparent);border-radius:999px;text-decoration:none;color:inherit}';
+export const wordsSection = lang => { const L = HW[lang]; if (!L || !L.length) return '';
+  return `<section id="top-words" class="w-full mb-20"><div class="mb-8"><h2 class="${RES_H}">${esc(HW_H[lang])}</h2></div><ul class="tw">${L.map(([sl, w, g]) => `<li><a href="/${lang}/words/${sl}"><span lang="en" dir="ltr">${esc(w)}</span>${g ? ` · ${esc(g)}` : ''}</a></li>`).join('')}</ul></section>`; };
 // ----- Script 2: gợi ý trang đúng ngôn ngữ (chỉ người dùng thật, đóng được, nhớ lựa chọn) -----
 const SUG = Object.fromEntries(LANGS.map(l => [l, copyOf(l).suggest]));
 // Gói chữ bỏ chính ngôn ngữ của trang (n===P không bao giờ hiện gợi ý) và URL suy từ mã (= landingHref) → nhẹ hơn, cùng hành vi
@@ -208,7 +214,7 @@ function renderFull(lang) {
     ama: teacherIdle('ama', { w: 260, cls: 'relative z-10 -mb-5 w-[220px] sm:w-[260px] h-auto', eager: true }),
     carlos: teacherIdle('carlos', { w: 240, cls: 'relative z-10 -mb-5 w-[200px] sm:w-[240px] h-auto' }) };
   const page = stRender('home', d, { lang, chrome });
-  { let a = 0; for (let i = 0; i < 3; i++) { a = page.body.indexOf('</section>', a); if (a < 0) throw new Error('build-landing: không thấy chỗ chèn khu Cài'); a += 10; } page.body = page.body.slice(0, a) + installSection(c) + page.body.slice(a); } // dưới hero + dải tin cậy + 6 tính năng: phần trên giữ đúng nhịp mẫu Stitch (stitch-web-diff); hero + đầu trang có lối tới #install
+  { let a = 0; for (let i = 0; i < 3; i++) { a = page.body.indexOf('</section>', a); if (a < 0) throw new Error('build-landing: không thấy chỗ chèn khu Cài'); a += 10; } page.body = page.body.slice(0, a) + installSection(c) + wordsSection(lang) + page.body.slice(a); } // dưới hero + dải tin cậy + 6 tính năng: phần trên giữ đúng nhịp mẫu Stitch (stitch-web-diff); hero + đầu trang có lối tới #install
   const faqLd = { '@type': 'FAQPage', mainEntity: c.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) };
   const graph = { '@context': 'https://schema.org', '@graph': [
     orgNode(),
@@ -238,7 +244,7 @@ ${alt}
 <meta name="apple-itunes-app" content="app-id=6824714708">
 <link rel="icon" href="/icons/icon.svg?v=3" type="image/svg+xml"><link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=3">
 <style>${page.css}
-${LCSS}</style>
+${LCSS}${TW_CSS}</style>
 ${ld(graph)}
 </head>
 <body class="stw st" data-lhint="lhint btn tsp tsb">

@@ -161,6 +161,8 @@ quiz: [
 
 {{youtube: | Prepositions IN ON AT for Time and Place Full Guide}}
 
+ومن الأخطاء المرتبطة بحروف الجر كتابة affect on بدل affect، وهذا مشروح في [الفرق بين affect و effect](/ar/blog/al-farq-bayna-affect-wa-effect/).
+
 ## الأسئلة الشائعة (FAQ)
 
 ### Q1. ما الفرق بين At the end و In the end؟

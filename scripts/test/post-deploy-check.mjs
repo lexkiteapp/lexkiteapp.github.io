@@ -39,7 +39,7 @@ const PAGES = [
 const VPS = [{ id: 'm390', width: 390, height: 844, isMobile: true, hasTouch: true }, { id: 'd1440', width: 1440, height: 900 }];
 
 async function visit(browser, vp, pg, url) {
-  const ctx = await browser.newContext({ viewport: { width: vp.width, height: vp.height }, isMobile: !!vp.isMobile, hasTouch: !!vp.hasTouch });
+  const ctx = await browser.newContext({ bypassCSP: true, viewport: { width: vp.width, height: vp.height }, isMobile: !!vp.isMobile, hasTouch: !!vp.hasTouch });
   await routeCiHeader(ctx, BASE, CI['X-Lexkite-CI']);
   const page = await ctx.newPage(), errs = [], add = (t, m) => { m = String(m).replace(/\s+/g, ' ').slice(0, 300); if (!IGNORE.test(m) && !errs.some(e => e.t === t && e.m === m)) errs.push({ t, m }); };
   const same = u => { try { return new URL(u).origin === ORIGIN; } catch (e) { return false; } };

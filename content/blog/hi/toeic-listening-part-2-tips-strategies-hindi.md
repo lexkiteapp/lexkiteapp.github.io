@@ -196,6 +196,12 @@ TOEIC के दूसरे खंडों के लिए [Part 5 की व
 
 ---
 
+बाकी तीन Listening पार्ट और पूरे टेस्ट की बनावट [TOEIC Exam Pattern in Hindi](/hi/blog/toeic-exam-pattern-in-hindi/) में है।
+
+Part 2 के बाद अगला कदम बातचीत और भाषण हैं, जिनकी तैयारी [TOEIC Part 3 और 4 की तैयारी](/hi/blog/toeic-part-3-and-4-ki-taiyari-kaise-kare/) में समझाई गई है।
+
+Part 2 से पहले आने वाले फोटो सवालों की तैयारी के लिए [TOEIC Part 1 Tips in Hindi](/hi/blog/toeic-part-1-photographs-tips-hindi/) पढ़िए।
+
 ## अक्सर पूछे जाने वाले प्रश्न (FAQ)
 
 ### अपने लक्ष्य स्कोर के लिए Part 2 में कितने प्रश्न सही होने चाहिए?

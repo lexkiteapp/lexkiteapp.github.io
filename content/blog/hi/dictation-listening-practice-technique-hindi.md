@@ -164,6 +164,8 @@ publishAt: 2026-11-24T07:44:00+05:30
 
 {{cta: /#/listening | अभी Lexkite लिसनिंग लैब में जाएं और अपना पहला 15 मिनट का डिक्टेशन सत्र शुरू करें}}
 
+Listening के अलग-अलग प्रश्न प्रकारों पर इसी अभ्यास को कैसे लगाएँ, यह [IELTS Listening Question Types in Hindi](/hi/blog/ielts-listening-question-types-in-hindi/) में देखें।
+
 ## अक्सर पूछे जाने वाले प्रश्न (FAQ)
 
 ### क्या अंग्रेजी गाने सुनकर डिक्टेशन का अभ्यास किया जा सकता है?
