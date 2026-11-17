@@ -1,0 +1,173 @@
+{
+ "id": "t2a_roots_dict_1",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Dict! Predict, dictate.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Dict is Latin for say.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Predict: before plus say.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Dictate: say words for someone to write down.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means before plus say?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Predict! Before plus say.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "DICT",
+  "rid": "dict",
+  "say": "say",
+  "src": "dicere",
+  "src_lang": "Latin",
+  "src_mean": "to say",
+  "words": [
+   {
+    "w": "predict",
+    "ipa": "/prɪˈdɪkt/",
+    "mean": "say before it happens",
+    "seg": "pre-|dict",
+    "parts": [
+     [
+      "pre",
+      "pre"
+     ],
+     [
+      "dict",
+      "root"
+     ]
+    ],
+    "pre": "pre",
+    "pm": "before",
+    "pms": "before",
+    "ex": "It is hard to predict the weather in the mountains.",
+    "em": "🔮"
+   },
+   {
+    "w": "dictate",
+    "ipa": "/dɪkˈteɪt/",
+    "mean": "say words for someone to write down",
+    "seg": "dict|-ate",
+    "parts": [
+     [
+      "dict",
+      "root"
+     ],
+     [
+      "ate",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "Your budget will dictate where you can stay.",
+    "em": ""
+   }
+  ],
+  "quiz": {
+   "stem": "before plus say",
+   "options": [
+    "dictate",
+    "predict"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/predict",
+  "link": "https://lexkite.com/app/#/dict/predict",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "dict"
+ },
+ "est": {
+  "words": 44,
+  "seconds": 26.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Dict root: predict and dictate",
+  "keyword": "dict root",
+  "value": "Dict comes from Latin \"dicere\" (to say). Words: predict and dictate. predict = pre + dict.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/predict",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "Dict root: predict and dictate",
+    "description": "Dict comes from Latin \"dicere\" (to say). Words: predict and dictate. predict = pre + dict.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/predict\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "dict root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Dict root: predict and dictate\n\nDict comes from Latin \"dicere\" (to say). Words: predict and dictate. predict = pre + dict.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/predict"
+   },
+   "instagram": {
+    "caption": "Dict root: predict and dictate\n\nDict comes from Latin \"dicere\" (to say). Words: predict and dictate. predict = pre + dict.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Dict root: predict and dictate #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Predict! Before plus say. Dict comes from Latin \"dicere\" (to say). Words: predict and dictate. predict = pre + dict. Practice it with a free quiz: {link}"
+ }
+}

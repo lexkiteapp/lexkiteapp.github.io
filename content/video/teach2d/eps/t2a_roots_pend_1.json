@@ -1,0 +1,199 @@
+{
+ "id": "t2a_roots_pend_1",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, three words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Pend! Depend, suspend, expense.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Pend is Latin for hang.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Depend: down plus hang.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Suspend: up from under plus hang.",
+   "pause": 0.3
+  },
+  {
+   "id": "w2",
+   "text": "Expense: out plus hang.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means out plus hang?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Expense! Out plus hang.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "PEND",
+  "rid": "pend",
+  "say": "hang",
+  "src": "pendere",
+  "src_lang": "Latin",
+  "src_mean": "to hang, to weigh",
+  "words": [
+   {
+    "w": "depend",
+    "ipa": "/dɪˈpend/",
+    "mean": "hang from",
+    "seg": "de-|pend",
+    "parts": [
+     [
+      "de",
+      "pre"
+     ],
+     [
+      "pend",
+      "root"
+     ]
+    ],
+    "pre": "de",
+    "pm": "down or away",
+    "pms": "down",
+    "ex": "Our plans depend on the weather.",
+    "em": "🔗"
+   },
+   {
+    "w": "suspend",
+    "ipa": "/səˈspend/",
+    "mean": "hang up, stop for now",
+    "seg": "sus-|pend",
+    "parts": [
+     [
+      "sus",
+      "pre"
+     ],
+     [
+      "pend",
+      "root"
+     ]
+    ],
+    "pre": "sus",
+    "pm": "up from under",
+    "pms": "up from under",
+    "ex": "The match was suspended because of the rain.",
+    "em": "⏸️"
+   },
+   {
+    "w": "expense",
+    "ipa": "/ɪkˈspens/",
+    "mean": "money weighed out",
+    "seg": "ex-|pense",
+    "parts": [
+     [
+      "ex",
+      "pre"
+     ],
+     [
+      "pense",
+      "root"
+     ]
+    ],
+    "pre": "ex",
+    "pm": "out",
+    "pms": "out",
+    "ex": "Travel expenses will be paid by the company.",
+    "em": "💸"
+   }
+  ],
+  "quiz": {
+   "stem": "out plus hang",
+   "options": [
+    "depend",
+    "expense"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/depend",
+  "link": "https://lexkite.com/app/#/dict/depend",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, three words"
+ },
+ "src": {
+  "root": "pend"
+ },
+ "est": {
+  "words": 47,
+  "seconds": 28.3,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Pend root: depend, suspend and expense",
+  "keyword": "pend root",
+  "value": "Pend comes from Latin \"pendere\" (to hang, to weigh). Words: depend, suspend and expense. depend = de + pend; suspend = sus + pend; expense = ex + pense.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/depend",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "Pend root: depend, suspend and expense",
+    "description": "Pend comes from Latin \"pendere\" (to hang, to weigh). Words: depend, suspend and expense. depend = de + pend; suspend = sus + pend; expense = ex + pense.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/depend\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "pend root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Pend root: depend, suspend and expense\n\nPend comes from Latin \"pendere\" (to hang, to weigh). Words: depend, suspend and expense. depend = de + pend; suspend = sus + pend; expense = ex + pense.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/depend"
+   },
+   "instagram": {
+    "caption": "Pend root: depend, suspend and expense\n\nPend comes from Latin \"pendere\" (to hang, to weigh). Words: depend, suspend and expense. depend = de + pend; suspend = sus + pend; expense = ex + pense.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Pend root: depend, suspend and expense #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Expense! Out plus hang. Pend comes from Latin \"pendere\" (to hang, to weigh). Words: depend, suspend and expense. depend = de + pend; suspend = sus + pend; expense = ex + pense. Practice it with a free quiz: {link}"
+ }
+}

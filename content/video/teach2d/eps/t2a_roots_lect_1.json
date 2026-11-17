@@ -1,0 +1,173 @@
+{
+ "id": "t2a_roots_lect_1",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Lect! Collect, select.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Lect is Latin for gather or choose.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Collect: together plus gather or choose.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Select: apart plus gather or choose.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means apart plus gather or choose?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Select! Apart plus gather or choose.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "LECT",
+  "rid": "lect",
+  "say": "gather or choose",
+  "src": "legere",
+  "src_lang": "Latin",
+  "src_mean": "to gather, to read, to choose",
+  "words": [
+   {
+    "w": "collect",
+    "ipa": "/kəˈlekt/",
+    "mean": "gather together",
+    "seg": "col-|lect",
+    "parts": [
+     [
+      "col",
+      "pre"
+     ],
+     [
+      "lect",
+      "root"
+     ]
+    ],
+    "pre": "col",
+    "pm": "together",
+    "pms": "together",
+    "ex": "I'll collect you from the airport.",
+    "em": "🧺"
+   },
+   {
+    "w": "select",
+    "ipa": "/səˈlekt/",
+    "mean": "choose apart",
+    "seg": "se-|lect",
+    "parts": [
+     [
+      "se",
+      "pre"
+     ],
+     [
+      "lect",
+      "root"
+     ]
+    ],
+    "pre": "se",
+    "pm": "apart",
+    "pms": "apart",
+    "ex": "Select your seat when you book the flight.",
+    "em": "☑️"
+   }
+  ],
+  "quiz": {
+   "stem": "apart plus gather or choose",
+   "options": [
+    "collect",
+    "select"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/collect",
+  "link": "https://lexkite.com/app/#/dict/collect",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "lect"
+ },
+ "est": {
+  "words": 50,
+  "seconds": 29.4,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "Lect root: collect and select",
+  "keyword": "lect root",
+  "value": "Lect comes from Latin \"legere\" (to gather, to read, to choose). Words: collect and select. collect = col + lect; select = se + lect.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/collect",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Lect root: collect and select",
+    "description": "Lect comes from Latin \"legere\" (to gather, to read, to choose). Words: collect and select. collect = col + lect; select = se + lect.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/collect\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "lect root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Lect root: collect and select\n\nLect comes from Latin \"legere\" (to gather, to read, to choose). Words: collect and select. collect = col + lect; select = se + lect.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/collect"
+   },
+   "instagram": {
+    "caption": "Lect root: collect and select\n\nLect comes from Latin \"legere\" (to gather, to read, to choose). Words: collect and select. collect = col + lect; select = se + lect.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Lect root: collect and select #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? Select! Apart plus gather or choose. Lect comes from Latin \"legere\" (to gather, to read, to choose). Words: collect and select. collect = col + lect; select = se + lect. More practice like this (free): {link}"
+ }
+}

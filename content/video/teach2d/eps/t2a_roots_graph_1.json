@@ -1,0 +1,173 @@
+{
+ "id": "t2a_roots_graph_1",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Graph! Photograph, paragraph.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Graph is Greek for write or draw.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Photograph: light plus write or draw.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Paragraph: beside plus write or draw.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means beside plus write or draw?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Paragraph! Beside plus write or draw.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "GRAPH",
+  "rid": "graph",
+  "say": "write or draw",
+  "src": "graphein",
+  "src_lang": "Greek",
+  "src_mean": "to write, to draw",
+  "words": [
+   {
+    "w": "photograph",
+    "ipa": "/ˈfoʊtəɡræf/",
+    "mean": "a drawing with light",
+    "seg": "photo-|graph",
+    "parts": [
+     [
+      "photo",
+      "pre"
+     ],
+     [
+      "graph",
+      "root"
+     ]
+    ],
+    "pre": "photo",
+    "pm": "light",
+    "pms": "light",
+    "ex": "She took a photograph of the old bridge.",
+    "em": "📷"
+   },
+   {
+    "w": "paragraph",
+    "ipa": "/ˈpærəɡræf/",
+    "mean": "a mark written beside the text",
+    "seg": "para-|graph",
+    "parts": [
+     [
+      "para",
+      "pre"
+     ],
+     [
+      "graph",
+      "root"
+     ]
+    ],
+    "pre": "para",
+    "pm": "beside",
+    "pms": "beside",
+    "ex": "Each paragraph should have one main idea.",
+    "em": "📄"
+   }
+  ],
+  "quiz": {
+   "stem": "beside plus write or draw",
+   "options": [
+    "photograph",
+    "paragraph"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/photograph",
+  "link": "https://lexkite.com/app/#/dict/photograph",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "graph"
+ },
+ "est": {
+  "words": 50,
+  "seconds": 29.4,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "Graph root: photograph and paragraph",
+  "keyword": "graph root",
+  "value": "Graph comes from Greek \"graphein\" (to write, to draw). Words: photograph and paragraph. photograph = photo + graph; paragraph = para + graph.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/photograph",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Graph root: photograph and paragraph",
+    "description": "Graph comes from Greek \"graphein\" (to write, to draw). Words: photograph and paragraph. photograph = photo + graph; paragraph = para + graph.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/photograph\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "graph root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Graph root: photograph and paragraph\n\nGraph comes from Greek \"graphein\" (to write, to draw). Words: photograph and paragraph. photograph = photo + graph; paragraph = para + graph.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/photograph"
+   },
+   "instagram": {
+    "caption": "Graph root: photograph and paragraph\n\nGraph comes from Greek \"graphein\" (to write, to draw). Words: photograph and paragraph. photograph = photo + graph; paragraph = para + graph.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Graph root: photograph and paragraph #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Paragraph! Beside plus write or draw. Graph comes from Greek \"graphein\" (to write, to draw). Words: photograph and paragraph. photograph = photo + graph; paragraph = para + graph. Try the full lesson and quiz here: {link}"
+ }
+}

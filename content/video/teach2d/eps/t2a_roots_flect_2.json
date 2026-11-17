@@ -1,0 +1,203 @@
+{
+ "id": "t2a_roots_flect_2",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, three words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Flect! Deflect, reflection, flexibility.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Flect is Latin for bend.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Deflect: down plus bend.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Reflection: back plus bend.",
+   "pause": 0.3
+  },
+  {
+   "id": "w2",
+   "text": "Flexibility: how well something bends.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means back plus bend?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Reflection! Back plus bend.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "FLECT",
+  "rid": "flect",
+  "say": "bend",
+  "src": "flectere",
+  "src_lang": "Latin",
+  "src_mean": "to bend",
+  "words": [
+   {
+    "w": "deflect",
+    "ipa": "/dɪˈflekt/",
+    "mean": "bend away",
+    "seg": "de-|flect",
+    "parts": [
+     [
+      "de",
+      "pre"
+     ],
+     [
+      "flect",
+      "root"
+     ]
+    ],
+    "pre": "de",
+    "pm": "down or away",
+    "pms": "down",
+    "ex": "The ball must be deflected before its path will change.",
+    "em": ""
+   },
+   {
+    "w": "reflection",
+    "ipa": "/rɪˈflekʃn/",
+    "mean": "light or thought bent back",
+    "seg": "re-|flect|-ion",
+    "parts": [
+     [
+      "re",
+      "pre"
+     ],
+     [
+      "flect",
+      "root"
+     ],
+     [
+      "ion",
+      "suf"
+     ]
+    ],
+    "pre": "re",
+    "pm": "back or again",
+    "pms": "back",
+    "ex": "We saw our reflection in the water.",
+    "em": "🪞"
+   },
+   {
+    "w": "flexibility",
+    "ipa": "/ˌfleksəˈbɪləti/",
+    "mean": "how well something bends",
+    "seg": "flex|-ibility",
+    "parts": [
+     [
+      "flex",
+      "root"
+     ],
+     [
+      "ibility",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "The job offers flexibility in working hours and the option to work remotely.",
+    "em": "🤸"
+   }
+  ],
+  "quiz": {
+   "stem": "back plus bend",
+   "options": [
+    "deflect",
+    "reflection"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/deflect",
+  "link": "https://lexkite.com/app/#/dict/deflect",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, three words"
+ },
+ "src": {
+  "root": "flect"
+ },
+ "est": {
+  "words": 46,
+  "seconds": 27.8,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Flect root: deflect, reflection and flexibility",
+  "keyword": "flect root",
+  "value": "Flect comes from Latin \"flectere\" (to bend). Words: deflect, reflection and flexibility. deflect = de + flect; reflection = re + flect.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/deflect",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "Flect root: deflect, reflection and flexibility",
+    "description": "Flect comes from Latin \"flectere\" (to bend). Words: deflect, reflection and flexibility. deflect = de + flect; reflection = re + flect.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/deflect\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "flect root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Flect root: deflect, reflection and flexibility\n\nFlect comes from Latin \"flectere\" (to bend). Words: deflect, reflection and flexibility. deflect = de + flect; reflection = re + flect.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/deflect"
+   },
+   "instagram": {
+    "caption": "Flect root: deflect, reflection and flexibility\n\nFlect comes from Latin \"flectere\" (to bend). Words: deflect, reflection and flexibility. deflect = de + flect; reflection = re + flect.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Flect root: deflect, reflection and flexibility #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Reflection! Back plus bend. Flect comes from Latin \"flectere\" (to bend). Words: deflect, reflection and flexibility. deflect = de + flect; reflection = re + flect. Try the full lesson and quiz here: {link}"
+ }
+}

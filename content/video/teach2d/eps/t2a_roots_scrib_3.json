@@ -1,0 +1,181 @@
+{
+ "id": "t2a_roots_scrib_3",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Scrib! Description, subscription.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Scrib is Latin for write.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Description: down plus write.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Subscription: under plus write.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means under plus write?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Subscription! Under plus write.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "SCRIB",
+  "rid": "scrib",
+  "say": "write",
+  "src": "scribere",
+  "src_lang": "Latin",
+  "src_mean": "to write",
+  "words": [
+   {
+    "w": "description",
+    "ipa": "/dɪˈskrɪpʃn/",
+    "mean": "a written picture",
+    "seg": "de-|script|-ion",
+    "parts": [
+     [
+      "de",
+      "pre"
+     ],
+     [
+      "script",
+      "root"
+     ],
+     [
+      "ion",
+      "suf"
+     ]
+    ],
+    "pre": "de",
+    "pm": "down or away",
+    "pms": "down",
+    "ex": "The website gives a full description of the course.",
+    "em": "📝"
+   },
+   {
+    "w": "subscription",
+    "ipa": "/səbˈskrɪpʃn/",
+    "mean": "a signing up in writing",
+    "seg": "sub-|script|-ion",
+    "parts": [
+     [
+      "sub",
+      "pre"
+     ],
+     [
+      "script",
+      "root"
+     ],
+     [
+      "ion",
+      "suf"
+     ]
+    ],
+    "pre": "sub",
+    "pm": "under",
+    "pms": "under",
+    "ex": "Your monthly subscription will renew automatically unless you cancel it.",
+    "em": "🔔"
+   }
+  ],
+  "quiz": {
+   "stem": "under plus write",
+   "options": [
+    "description",
+    "subscription"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/description",
+  "link": "https://lexkite.com/app/#/dict/description",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "scrib"
+ },
+ "est": {
+  "words": 40,
+  "seconds": 24.5,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Scrib root: description and subscription",
+  "keyword": "scrib root",
+  "value": "Scrib comes from Latin \"scribere\" (to write). Words: description and subscription. description = de + script; subscription = sub + script.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/description",
+  "script_words": 32,
+  "platforms": {
+   "youtube": {
+    "title": "Scrib root: description and subscription",
+    "description": "Scrib comes from Latin \"scribere\" (to write). Words: description and subscription. description = de + script; subscription = sub + script.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/description\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "scrib root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Scrib root: description and subscription\n\nScrib comes from Latin \"scribere\" (to write). Words: description and subscription. description = de + script; subscription = sub + script.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/description"
+   },
+   "instagram": {
+    "caption": "Scrib root: description and subscription\n\nScrib comes from Latin \"scribere\" (to write). Words: description and subscription. description = de + script; subscription = sub + script.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Scrib root: description and subscription #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Subscription! Under plus write. Scrib comes from Latin \"scribere\" (to write). Words: description and subscription. description = de + script; subscription = sub + script. Try the full lesson and quiz here: {link}"
+ }
+}

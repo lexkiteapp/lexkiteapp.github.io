@@ -1,0 +1,199 @@
+{
+ "id": "t2a_roots_cede_1",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, three words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Cede! Proceed, succeed, exceed.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Cede is Latin for go.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Proceed: forward plus go.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Succeed: up after plus go.",
+   "pause": 0.3
+  },
+  {
+   "id": "w2",
+   "text": "Exceed: out plus go.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means out plus go?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Exceed! Out plus go.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "CEDE",
+  "rid": "cede",
+  "say": "go",
+  "src": "cedere",
+  "src_lang": "Latin",
+  "src_mean": "to go, to yield",
+  "words": [
+   {
+    "w": "proceed",
+    "ipa": "/prəˈsiːd/",
+    "mean": "go forward",
+    "seg": "pro-|ceed",
+    "parts": [
+     [
+      "pro",
+      "pre"
+     ],
+     [
+      "ceed",
+      "root"
+     ]
+    ],
+    "pre": "pro",
+    "pm": "forward",
+    "pms": "forward",
+    "ex": "Please proceed to gate twelve.",
+    "em": "⏩"
+   },
+   {
+    "w": "succeed",
+    "ipa": "/səkˈsiːd/",
+    "mean": "go up after, reach a goal",
+    "seg": "suc-|ceed",
+    "parts": [
+     [
+      "suc",
+      "pre"
+     ],
+     [
+      "ceed",
+      "root"
+     ]
+    ],
+    "pre": "suc",
+    "pm": "up after",
+    "pms": "up after",
+    "ex": "If you work hard, you will succeed.",
+    "em": "🏆"
+   },
+   {
+    "w": "exceed",
+    "ipa": "/ɪkˈsiːd/",
+    "mean": "go out beyond",
+    "seg": "ex-|ceed",
+    "parts": [
+     [
+      "ex",
+      "pre"
+     ],
+     [
+      "ceed",
+      "root"
+     ]
+    ],
+    "pre": "ex",
+    "pm": "out",
+    "pms": "out",
+    "ex": "Do not exceed the speed limit.",
+    "em": "📈"
+   }
+  ],
+  "quiz": {
+   "stem": "out plus go",
+   "options": [
+    "proceed",
+    "exceed"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/proceed",
+  "link": "https://lexkite.com/app/#/dict/proceed",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, three words"
+ },
+ "src": {
+  "root": "cede"
+ },
+ "est": {
+  "words": 46,
+  "seconds": 27.8,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Cede root: proceed, succeed and exceed",
+  "keyword": "cede root",
+  "value": "Cede comes from Latin \"cedere\" (to go, to yield). Words: proceed, succeed and exceed. proceed = pro + ceed; succeed = suc + ceed; exceed = ex + ceed.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/proceed",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "Cede root: proceed, succeed and exceed",
+    "description": "Cede comes from Latin \"cedere\" (to go, to yield). Words: proceed, succeed and exceed. proceed = pro + ceed; succeed = suc + ceed; exceed = ex + ceed.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/proceed\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "cede root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Cede root: proceed, succeed and exceed\n\nCede comes from Latin \"cedere\" (to go, to yield). Words: proceed, succeed and exceed. proceed = pro + ceed; succeed = suc + ceed; exceed = ex + ceed.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/proceed"
+   },
+   "instagram": {
+    "caption": "Cede root: proceed, succeed and exceed\n\nCede comes from Latin \"cedere\" (to go, to yield). Words: proceed, succeed and exceed. proceed = pro + ceed; succeed = suc + ceed; exceed = ex + ceed.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Cede root: proceed, succeed and exceed #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Exceed! Out plus go. Cede comes from Latin \"cedere\" (to go, to yield). Words: proceed, succeed and exceed. proceed = pro + ceed; succeed = suc + ceed; exceed = ex + ceed. Try the full lesson and quiz here: {link}"
+ }
+}

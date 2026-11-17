@@ -1,0 +1,173 @@
+{
+ "id": "t2a_roots_sens_2",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Sens! Consent, sentiment.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Sens is Latin for feel.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Consent: together plus feel.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Sentiment: a feeling or opinion.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means together plus feel?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Consent! Together plus feel.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "SENS",
+  "rid": "sens",
+  "say": "feel",
+  "src": "sentire",
+  "src_lang": "Latin",
+  "src_mean": "to feel",
+  "words": [
+   {
+    "w": "consent",
+    "ipa": "/kənˈsent/",
+    "mean": "feel together, agree",
+    "seg": "con-|sent",
+    "parts": [
+     [
+      "con",
+      "pre"
+     ],
+     [
+      "sent",
+      "root"
+     ]
+    ],
+    "pre": "con",
+    "pm": "together",
+    "pms": "together",
+    "ex": "All participants gave written consent before the study.",
+    "em": "✍️"
+   },
+   {
+    "w": "sentiment",
+    "ipa": "/ˈsentəmənt/",
+    "mean": "a feeling or opinion",
+    "seg": "sent|-iment",
+    "parts": [
+     [
+      "sent",
+      "root"
+     ],
+     [
+      "iment",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "Consumer sentiment improved in the second quarter as unemployment fell.",
+    "em": ""
+   }
+  ],
+  "quiz": {
+   "stem": "together plus feel",
+   "options": [
+    "sentiment",
+    "consent"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/consent",
+  "link": "https://lexkite.com/app/#/dict/consent",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "sens"
+ },
+ "est": {
+  "words": 41,
+  "seconds": 25.0,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Sens root: consent and sentiment",
+  "keyword": "sens root",
+  "value": "Sens comes from Latin \"sentire\" (to feel). Words: consent and sentiment. consent = con + sent.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/consent",
+  "script_words": 33,
+  "platforms": {
+   "youtube": {
+    "title": "Sens root: consent and sentiment",
+    "description": "Sens comes from Latin \"sentire\" (to feel). Words: consent and sentiment. consent = con + sent.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/consent\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "sens root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Sens root: consent and sentiment\n\nSens comes from Latin \"sentire\" (to feel). Words: consent and sentiment. consent = con + sent.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/consent"
+   },
+   "instagram": {
+    "caption": "Sens root: consent and sentiment\n\nSens comes from Latin \"sentire\" (to feel). Words: consent and sentiment. consent = con + sent.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Sens root: consent and sentiment #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? Consent! Together plus feel. Sens comes from Latin \"sentire\" (to feel). Words: consent and sentiment. consent = con + sent. More practice like this (free): {link}"
+ }
+}

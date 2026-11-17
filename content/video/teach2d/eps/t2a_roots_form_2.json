@@ -1,0 +1,199 @@
+{
+ "id": "t2a_roots_form_2",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, three words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Form! Transform, uniform, conform.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Form is Latin for shape.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Transform: across plus shape.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Uniform: one plus shape.",
+   "pause": 0.3
+  },
+  {
+   "id": "w2",
+   "text": "Conform: together plus shape.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means together plus shape?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Conform! Together plus shape.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "FORM",
+  "rid": "form",
+  "say": "shape",
+  "src": "forma",
+  "src_lang": "Latin",
+  "src_mean": "shape, form",
+  "words": [
+   {
+    "w": "transform",
+    "ipa": "/trænsˈfɔːrm/",
+    "mean": "change the shape across",
+    "seg": "trans-|form",
+    "parts": [
+     [
+      "trans",
+      "pre"
+     ],
+     [
+      "form",
+      "root"
+     ]
+    ],
+    "pre": "trans",
+    "pm": "across",
+    "pms": "across",
+    "ex": "The old factory was transformed into an art centre.",
+    "em": "🦋"
+   },
+   {
+    "w": "uniform",
+    "ipa": "/ˈjuːnəfɔːrm/",
+    "mean": "one shape",
+    "seg": "uni-|form",
+    "parts": [
+     [
+      "uni",
+      "pre"
+     ],
+     [
+      "form",
+      "root"
+     ]
+    ],
+    "pre": "uni",
+    "pm": "one",
+    "pms": "one",
+    "ex": "Students must wear a uniform at this school.",
+    "em": "👔"
+   },
+   {
+    "w": "conform",
+    "ipa": "/kənˈfɔːrm/",
+    "mean": "take the same shape",
+    "seg": "con-|form",
+    "parts": [
+     [
+      "con",
+      "pre"
+     ],
+     [
+      "form",
+      "root"
+     ]
+    ],
+    "pre": "con",
+    "pm": "together",
+    "pms": "together",
+    "ex": "All products must conform to safety standards.",
+    "em": "📏"
+   }
+  ],
+  "quiz": {
+   "stem": "together plus shape",
+   "options": [
+    "transform",
+    "conform"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/transform",
+  "link": "https://lexkite.com/app/#/dict/transform",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, three words"
+ },
+ "src": {
+  "root": "form"
+ },
+ "est": {
+  "words": 45,
+  "seconds": 27.3,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Form root: transform, uniform and conform",
+  "keyword": "form root",
+  "value": "Form comes from Latin \"forma\" (shape, form). Words: transform, uniform and conform. transform = trans + form; uniform = uni + form; conform = con + form.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/transform",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "Form root: transform, uniform and conform",
+    "description": "Form comes from Latin \"forma\" (shape, form). Words: transform, uniform and conform. transform = trans + form; uniform = uni + form; conform = con + form.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/transform\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "form root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Form root: transform, uniform and conform\n\nForm comes from Latin \"forma\" (shape, form). Words: transform, uniform and conform. transform = trans + form; uniform = uni + form; conform = con + form.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/transform"
+   },
+   "instagram": {
+    "caption": "Form root: transform, uniform and conform\n\nForm comes from Latin \"forma\" (shape, form). Words: transform, uniform and conform. transform = trans + form; uniform = uni + form; conform = con + form.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Form root: transform, uniform and conform #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Conform! Together plus shape. Form comes from Latin \"forma\" (shape, form). Words: transform, uniform and conform. transform = trans + form; uniform = uni + form; conform = con + form. Try the full lesson and quiz here: {link}"
+ }
+}

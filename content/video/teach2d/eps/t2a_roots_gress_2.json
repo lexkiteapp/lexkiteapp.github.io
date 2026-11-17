@@ -1,0 +1,195 @@
+{
+ "id": "t2a_roots_gress_2",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, three words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Gress! Graduate, grade, upgrade.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Gress is Latin for step.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Graduate: step up to a degree.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Grade: a step in a scale.",
+   "pause": 0.3
+  },
+  {
+   "id": "w2",
+   "text": "Upgrade: up plus step.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means up plus step?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Upgrade! Up plus step.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "GRESS",
+  "rid": "gress",
+  "say": "step",
+  "src": "gradi",
+  "src_lang": "Latin",
+  "src_mean": "to step, to walk",
+  "words": [
+   {
+    "w": "graduate",
+    "ipa": "/ˈɡrædʒueɪt/",
+    "mean": "step up to a degree",
+    "seg": "grad|-uate",
+    "parts": [
+     [
+      "grad",
+      "root"
+     ],
+     [
+      "uate",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "She graduated from university in 2022.",
+    "em": "🎓"
+   },
+   {
+    "w": "grade",
+    "ipa": "/ɡreɪd/",
+    "mean": "a step in a scale",
+    "seg": "grade",
+    "parts": [
+     [
+      "grade",
+      "root"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "She got a good grade in her history exam.",
+    "em": "📊"
+   },
+   {
+    "w": "upgrade",
+    "ipa": "/əpˈɡreɪd/",
+    "mean": "a step up",
+    "seg": "up-|grade",
+    "parts": [
+     [
+      "up",
+      "pre"
+     ],
+     [
+      "grade",
+      "root"
+     ]
+    ],
+    "pre": "up",
+    "pm": "up",
+    "pms": "up",
+    "ex": "We need to upgrade our computer software before the end of the year.",
+    "em": "⬆️"
+   }
+  ],
+  "quiz": {
+   "stem": "up plus step",
+   "options": [
+    "graduate",
+    "upgrade"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/graduate",
+  "link": "https://lexkite.com/app/#/dict/graduate",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, three words"
+ },
+ "src": {
+  "root": "gress"
+ },
+ "est": {
+  "words": 49,
+  "seconds": 29.3,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Gress root: graduate, grade and upgrade",
+  "keyword": "gress root",
+  "value": "Gress comes from Latin \"gradi\" (to step, to walk). Words: graduate, grade and upgrade. upgrade = up + grade.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/graduate",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "Gress root: graduate, grade and upgrade",
+    "description": "Gress comes from Latin \"gradi\" (to step, to walk). Words: graduate, grade and upgrade. upgrade = up + grade.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/graduate\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "gress root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Gress root: graduate, grade and upgrade\n\nGress comes from Latin \"gradi\" (to step, to walk). Words: graduate, grade and upgrade. upgrade = up + grade.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/graduate"
+   },
+   "instagram": {
+    "caption": "Gress root: graduate, grade and upgrade\n\nGress comes from Latin \"gradi\" (to step, to walk). Words: graduate, grade and upgrade. upgrade = up + grade.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Gress root: graduate, grade and upgrade #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Upgrade! Up plus step. Gress comes from Latin \"gradi\" (to step, to walk). Words: graduate, grade and upgrade. upgrade = up + grade. Practice it with a free quiz: {link}"
+ }
+}

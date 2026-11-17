@@ -1,0 +1,199 @@
+{
+ "id": "t2a_roots_vert_2",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, three words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Vert! Invert, version, universe.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Vert is Latin for turn.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Invert: into plus turn.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Version: a turn, one form of a thing.",
+   "pause": 0.3
+  },
+  {
+   "id": "w2",
+   "text": "Universe: one plus turn.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means one plus turn?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Universe! One plus turn.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "VERT",
+  "rid": "vert",
+  "say": "turn",
+  "src": "vertere",
+  "src_lang": "Latin",
+  "src_mean": "to turn",
+  "words": [
+   {
+    "w": "invert",
+    "ipa": "/ɪnˈvɜːrt/",
+    "mean": "turn inside out",
+    "seg": "in-|vert",
+    "parts": [
+     [
+      "in",
+      "pre"
+     ],
+     [
+      "vert",
+      "root"
+     ]
+    ],
+    "pre": "in",
+    "pm": "into",
+    "pms": "into",
+    "ex": "Invert the cake onto a plate once it has cooled.",
+    "em": ""
+   },
+   {
+    "w": "version",
+    "ipa": "/ˈvɜːrʒn/",
+    "mean": "a turn, one form of a thing",
+    "seg": "vers|-ion",
+    "parts": [
+     [
+      "vers",
+      "root"
+     ],
+     [
+      "ion",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "The new version of the app is much faster.",
+    "em": "🔢"
+   },
+   {
+    "w": "universe",
+    "ipa": "/ˈjuːnəvɜːrs/",
+    "mean": "all turned into one",
+    "seg": "uni-|verse",
+    "parts": [
+     [
+      "uni",
+      "pre"
+     ],
+     [
+      "verse",
+      "root"
+     ]
+    ],
+    "pre": "uni",
+    "pm": "one",
+    "pms": "one",
+    "ex": "The universe is about fourteen billion years old.",
+    "em": "🌌"
+   }
+  ],
+  "quiz": {
+   "stem": "one plus turn",
+   "options": [
+    "invert",
+    "universe"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/invert",
+  "link": "https://lexkite.com/app/#/dict/invert",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, three words"
+ },
+ "src": {
+  "root": "vert"
+ },
+ "est": {
+  "words": 49,
+  "seconds": 29.3,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Vert root: invert, version and universe",
+  "keyword": "vert root",
+  "value": "Vert comes from Latin \"vertere\" (to turn). Words: invert, version and universe. invert = in + vert; universe = uni + verse.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/invert",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "Vert root: invert, version and universe",
+    "description": "Vert comes from Latin \"vertere\" (to turn). Words: invert, version and universe. invert = in + vert; universe = uni + verse.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/invert\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "vert root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Vert root: invert, version and universe\n\nVert comes from Latin \"vertere\" (to turn). Words: invert, version and universe. invert = in + vert; universe = uni + verse.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/invert"
+   },
+   "instagram": {
+    "caption": "Vert root: invert, version and universe\n\nVert comes from Latin \"vertere\" (to turn). Words: invert, version and universe. invert = in + vert; universe = uni + verse.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Vert root: invert, version and universe #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Universe! One plus turn. Vert comes from Latin \"vertere\" (to turn). Words: invert, version and universe. invert = in + vert; universe = uni + verse. Practice it with a free quiz: {link}"
+ }
+}

@@ -1,0 +1,173 @@
+{
+ "id": "t2a_roots_log_1",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Log! Biology, psychology.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Log is Greek for word or study.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Biology: life plus word or study.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Psychology: mind plus word or study.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means mind plus word or study?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Psychology! Mind plus word or study.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "LOG",
+  "rid": "log",
+  "say": "word or study",
+  "src": "logos",
+  "src_lang": "Greek",
+  "src_mean": "word, speech, study",
+  "words": [
+   {
+    "w": "biology",
+    "ipa": "/baɪˈɑːlədʒi/",
+    "mean": "the study of life",
+    "seg": "bio-|logy",
+    "parts": [
+     [
+      "bio",
+      "pre"
+     ],
+     [
+      "logy",
+      "root"
+     ]
+    ],
+    "pre": "bio",
+    "pm": "life",
+    "pms": "life",
+    "ex": "The lab hires graduates with a biology degree.",
+    "em": "🧬"
+   },
+   {
+    "w": "psychology",
+    "ipa": "/saɪˈkɑːlədʒi/",
+    "mean": "the study of the mind",
+    "seg": "psycho-|logy",
+    "parts": [
+     [
+      "psycho",
+      "pre"
+     ],
+     [
+      "logy",
+      "root"
+     ]
+    ],
+    "pre": "psycho",
+    "pm": "mind",
+    "pms": "mind",
+    "ex": "Research in psychology shows that rewards boost motivation.",
+    "em": "🧠"
+   }
+  ],
+  "quiz": {
+   "stem": "mind plus word or study",
+   "options": [
+    "biology",
+    "psychology"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/biology",
+  "link": "https://lexkite.com/app/#/dict/biology",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "log"
+ },
+ "est": {
+  "words": 50,
+  "seconds": 29.4,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "Log root: biology and psychology",
+  "keyword": "log root",
+  "value": "Log comes from Greek \"logos\" (word, speech, study). Words: biology and psychology. biology = bio + logy; psychology = psycho + logy.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/biology",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Log root: biology and psychology",
+    "description": "Log comes from Greek \"logos\" (word, speech, study). Words: biology and psychology. biology = bio + logy; psychology = psycho + logy.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/biology\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "log root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Log root: biology and psychology\n\nLog comes from Greek \"logos\" (word, speech, study). Words: biology and psychology. biology = bio + logy; psychology = psycho + logy.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/biology"
+   },
+   "instagram": {
+    "caption": "Log root: biology and psychology\n\nLog comes from Greek \"logos\" (word, speech, study). Words: biology and psychology. biology = bio + logy; psychology = psycho + logy.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Log root: biology and psychology #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? Psychology! Mind plus word or study. Log comes from Greek \"logos\" (word, speech, study). Words: biology and psychology. biology = bio + logy; psychology = psycho + logy. More practice like this (free): {link}"
+ }
+}

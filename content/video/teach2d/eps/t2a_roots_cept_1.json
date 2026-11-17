@@ -1,0 +1,199 @@
+{
+ "id": "t2a_roots_cept_1",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, three words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Cept! Accept, concept, except.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Cept is Latin for take.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Accept: toward plus take.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Concept: together plus take.",
+   "pause": 0.3
+  },
+  {
+   "id": "w2",
+   "text": "Except: out plus take.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means out plus take?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Except! Out plus take.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "CEPT",
+  "rid": "cept",
+  "say": "take",
+  "src": "capere",
+  "src_lang": "Latin",
+  "src_mean": "to take, to seize",
+  "words": [
+   {
+    "w": "accept",
+    "ipa": "/ækˈsept/",
+    "mean": "take what is offered",
+    "seg": "ac-|cept",
+    "parts": [
+     [
+      "ac",
+      "pre"
+     ],
+     [
+      "cept",
+      "root"
+     ]
+    ],
+    "pre": "ac",
+    "pm": "toward",
+    "pms": "toward",
+    "ex": "Do you accept credit cards?",
+    "em": "👌"
+   },
+   {
+    "w": "concept",
+    "ipa": "/ˈkɑːnsept/",
+    "mean": "an idea taken together in the mind",
+    "seg": "con-|cept",
+    "parts": [
+     [
+      "con",
+      "pre"
+     ],
+     [
+      "cept",
+      "root"
+     ]
+    ],
+    "pre": "con",
+    "pm": "together",
+    "pms": "together",
+    "ex": "The concept of time is different in some cultures.",
+    "em": "💡"
+   },
+   {
+    "w": "except",
+    "ipa": "/ɪkˈsept/",
+    "mean": "taken out, not included",
+    "seg": "ex-|cept",
+    "parts": [
+     [
+      "ex",
+      "pre"
+     ],
+     [
+      "cept",
+      "root"
+     ]
+    ],
+    "pre": "ex",
+    "pm": "out",
+    "pms": "out",
+    "ex": "The shop is open every day except Sunday.",
+    "em": "🚫"
+   }
+  ],
+  "quiz": {
+   "stem": "out plus take",
+   "options": [
+    "accept",
+    "except"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/accept",
+  "link": "https://lexkite.com/app/#/dict/accept",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, three words"
+ },
+ "src": {
+  "root": "cept"
+ },
+ "est": {
+  "words": 45,
+  "seconds": 27.3,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Cept root: accept, concept and except",
+  "keyword": "cept root",
+  "value": "Cept comes from Latin \"capere\" (to take, to seize). Words: accept, concept and except. accept = ac + cept; concept = con + cept; except = ex + cept.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/accept",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "Cept root: accept, concept and except",
+    "description": "Cept comes from Latin \"capere\" (to take, to seize). Words: accept, concept and except. accept = ac + cept; concept = con + cept; except = ex + cept.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/accept\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "cept root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Cept root: accept, concept and except\n\nCept comes from Latin \"capere\" (to take, to seize). Words: accept, concept and except. accept = ac + cept; concept = con + cept; except = ex + cept.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/accept"
+   },
+   "instagram": {
+    "caption": "Cept root: accept, concept and except\n\nCept comes from Latin \"capere\" (to take, to seize). Words: accept, concept and except. accept = ac + cept; concept = con + cept; except = ex + cept.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Cept root: accept, concept and except #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Except! Out plus take. Cept comes from Latin \"capere\" (to take, to seize). Words: accept, concept and except. accept = ac + cept; concept = con + cept; except = ex + cept. Try the full lesson and quiz here: {link}"
+ }
+}

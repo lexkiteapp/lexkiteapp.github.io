@@ -1,0 +1,207 @@
+{
+ "id": "t2a_roots_rupt_2",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, three words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Rupt! Disrupt, eruption, interruption.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Rupt is Latin for break.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Disrupt: apart plus break.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Eruption: out plus break.",
+   "pause": 0.3
+  },
+  {
+   "id": "w2",
+   "text": "Interruption: between plus break.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means between plus break?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Interruption! Between plus break.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "RUPT",
+  "rid": "rupt",
+  "say": "break",
+  "src": "rumpere",
+  "src_lang": "Latin",
+  "src_mean": "to break",
+  "words": [
+   {
+    "w": "disrupt",
+    "ipa": "/dɪsˈrʌpt/",
+    "mean": "break apart",
+    "seg": "dis-|rupt",
+    "parts": [
+     [
+      "dis",
+      "pre"
+     ],
+     [
+      "rupt",
+      "root"
+     ]
+    ],
+    "pre": "dis",
+    "pm": "apart",
+    "pms": "apart",
+    "ex": "The strike disrupted rail services across the country.",
+    "em": "⛔"
+   },
+   {
+    "w": "eruption",
+    "ipa": "/iˈrʌpʃn/",
+    "mean": "a breaking out",
+    "seg": "e-|rupt|-ion",
+    "parts": [
+     [
+      "e",
+      "pre"
+     ],
+     [
+      "rupt",
+      "root"
+     ],
+     [
+      "ion",
+      "suf"
+     ]
+    ],
+    "pre": "e",
+    "pm": "out",
+    "pms": "out",
+    "ex": "More eruptions have followed since.",
+    "em": ""
+   },
+   {
+    "w": "interruption",
+    "ipa": "/ˌɪntəˈrʌpʃn/",
+    "mean": "a break in the flow",
+    "seg": "inter-|rupt|-ion",
+    "parts": [
+     [
+      "inter",
+      "pre"
+     ],
+     [
+      "rupt",
+      "root"
+     ],
+     [
+      "ion",
+      "suf"
+     ]
+    ],
+    "pre": "inter",
+    "pm": "between",
+    "pms": "between",
+    "ex": "We're sorry for the interruption.",
+    "em": ""
+   }
+  ],
+  "quiz": {
+   "stem": "between plus break",
+   "options": [
+    "disrupt",
+    "interruption"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/disrupt",
+  "link": "https://lexkite.com/app/#/dict/disrupt",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, three words"
+ },
+ "src": {
+  "root": "rupt"
+ },
+ "est": {
+  "words": 45,
+  "seconds": 27.3,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Rupt root: disrupt, eruption and interruption",
+  "keyword": "rupt root",
+  "value": "Rupt comes from Latin \"rumpere\" (to break). Words: disrupt, eruption and interruption. disrupt = dis + rupt; eruption = e + rupt; interruption = inter + rupt.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/disrupt",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "Rupt root: disrupt, eruption and interruption",
+    "description": "Rupt comes from Latin \"rumpere\" (to break). Words: disrupt, eruption and interruption. disrupt = dis + rupt; eruption = e + rupt; interruption = inter + rupt.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/disrupt\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "rupt root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Rupt root: disrupt, eruption and interruption\n\nRupt comes from Latin \"rumpere\" (to break). Words: disrupt, eruption and interruption. disrupt = dis + rupt; eruption = e + rupt; interruption = inter + rupt.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/disrupt"
+   },
+   "instagram": {
+    "caption": "Rupt root: disrupt, eruption and interruption\n\nRupt comes from Latin \"rumpere\" (to break). Words: disrupt, eruption and interruption. disrupt = dis + rupt; eruption = e + rupt; interruption = inter + rupt.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Rupt root: disrupt, eruption and interruption #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? Interruption! Between plus break. Rupt comes from Latin \"rumpere\" (to break). Words: disrupt, eruption and interruption. disrupt = dis + rupt; eruption = e + rupt; interruption = inter + rupt. More practice like this (free): {link}"
+ }
+}

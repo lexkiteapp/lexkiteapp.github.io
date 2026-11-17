@@ -1,0 +1,173 @@
+{
+ "id": "t2a_roots_port_2",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Port! Support, report.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Port is Latin for carry.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Support: under plus carry.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Report: back plus carry.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means back plus carry?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Report! Back plus carry.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "PORT",
+  "rid": "port",
+  "say": "carry",
+  "src": "portare",
+  "src_lang": "Latin",
+  "src_mean": "to carry",
+  "words": [
+   {
+    "w": "support",
+    "ipa": "/səˈpɔːrt/",
+    "mean": "carry from under",
+    "seg": "sup-|port",
+    "parts": [
+     [
+      "sup",
+      "pre"
+     ],
+     [
+      "port",
+      "root"
+     ]
+    ],
+    "pre": "sup",
+    "pm": "under",
+    "pms": "under",
+    "ex": "My parents have always supported my decisions.",
+    "em": "🤝"
+   },
+   {
+    "w": "report",
+    "ipa": "/rɪˈpɔːrt/",
+    "mean": "carry back news",
+    "seg": "re-|port",
+    "parts": [
+     [
+      "re",
+      "pre"
+     ],
+     [
+      "port",
+      "root"
+     ]
+    ],
+    "pre": "re",
+    "pm": "back or again",
+    "pms": "back",
+    "ex": "The manager asked me to write a report on the project.",
+    "em": "📄"
+   }
+  ],
+  "quiz": {
+   "stem": "back plus carry",
+   "options": [
+    "support",
+    "report"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/support",
+  "link": "https://lexkite.com/app/#/dict/support",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "port"
+ },
+ "est": {
+  "words": 40,
+  "seconds": 24.5,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Port root: support and report",
+  "keyword": "port root",
+  "value": "Port comes from Latin \"portare\" (to carry). Words: support and report. support = sup + port; report = re + port.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/support",
+  "script_words": 32,
+  "platforms": {
+   "youtube": {
+    "title": "Port root: support and report",
+    "description": "Port comes from Latin \"portare\" (to carry). Words: support and report. support = sup + port; report = re + port.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/support\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "port root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Port root: support and report\n\nPort comes from Latin \"portare\" (to carry). Words: support and report. support = sup + port; report = re + port.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/support"
+   },
+   "instagram": {
+    "caption": "Port root: support and report\n\nPort comes from Latin \"portare\" (to carry). Words: support and report. support = sup + port; report = re + port.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Port root: support and report #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? Report! Back plus carry. Port comes from Latin \"portare\" (to carry). Words: support and report. support = sup + port; report = re + port. More practice like this (free): {link}"
+ }
+}

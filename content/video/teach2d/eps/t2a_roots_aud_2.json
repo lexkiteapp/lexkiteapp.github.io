@@ -1,0 +1,173 @@
+{
+ "id": "t2a_roots_aud_2",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Aud! Auditorium, audit.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Aud is Latin for hear.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Auditorium: a place for hearing.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Audit: a hearing of accounts.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means a hearing of accounts?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Audit! It means a hearing of accounts.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "AUD",
+  "rid": "aud",
+  "say": "hear",
+  "src": "audire",
+  "src_lang": "Latin",
+  "src_mean": "to hear",
+  "words": [
+   {
+    "w": "auditorium",
+    "ipa": "/ˌɔːdəˈtɔːriəm/",
+    "mean": "a place for hearing",
+    "seg": "aud|-itorium",
+    "parts": [
+     [
+      "aud",
+      "root"
+     ],
+     [
+      "itorium",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "The keynote speech will be in the main auditorium.",
+    "em": "🎭"
+   },
+   {
+    "w": "audit",
+    "ipa": "/ˈɔːdɪt/",
+    "mean": "a hearing of accounts",
+    "seg": "aud|-it",
+    "parts": [
+     [
+      "aud",
+      "root"
+     ],
+     [
+      "it",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "If you just want to learn the material, you could audit the class instead.",
+    "em": "👂"
+   }
+  ],
+  "quiz": {
+   "stem": "a hearing of accounts",
+   "options": [
+    "auditorium",
+    "audit"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/auditorium",
+  "link": "https://lexkite.com/app/#/dict/auditorium",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "aud"
+ },
+ "est": {
+  "words": 46,
+  "seconds": 27.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Aud root: auditorium and audit",
+  "keyword": "aud root",
+  "value": "Aud comes from Latin \"audire\" (to hear). Words: auditorium and audit.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/auditorium",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "Aud root: auditorium and audit",
+    "description": "Aud comes from Latin \"audire\" (to hear). Words: auditorium and audit.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/auditorium\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "aud root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Aud root: auditorium and audit\n\nAud comes from Latin \"audire\" (to hear). Words: auditorium and audit.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/auditorium"
+   },
+   "instagram": {
+    "caption": "Aud root: auditorium and audit\n\nAud comes from Latin \"audire\" (to hear). Words: auditorium and audit.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Aud root: auditorium and audit #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Audit! It means a hearing of accounts. Aud comes from Latin \"audire\" (to hear). Words: auditorium and audit. Practice it with a free quiz: {link}"
+ }
+}

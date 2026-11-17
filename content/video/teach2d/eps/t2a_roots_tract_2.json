@@ -1,0 +1,173 @@
+{
+ "id": "t2a_roots_tract_2",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Tract! Contract, subtract.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Tract is Latin for pull.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Contract: together plus pull.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Subtract: under plus pull.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means under plus pull?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Subtract! Under plus pull.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "TRACT",
+  "rid": "tract",
+  "say": "pull",
+  "src": "trahere",
+  "src_lang": "Latin",
+  "src_mean": "to pull, to drag",
+  "words": [
+   {
+    "w": "contract",
+    "ipa": "/ˈkɑːntrækt/",
+    "mean": "pull together",
+    "seg": "con-|tract",
+    "parts": [
+     [
+      "con",
+      "pre"
+     ],
+     [
+      "tract",
+      "root"
+     ]
+    ],
+    "pre": "con",
+    "pm": "together",
+    "pms": "together",
+    "ex": "She signed a two-year contract with the company.",
+    "em": "📝"
+   },
+   {
+    "w": "subtract",
+    "ipa": "/səbˈtrækt/",
+    "mean": "pull away from below",
+    "seg": "sub-|tract",
+    "parts": [
+     [
+      "sub",
+      "pre"
+     ],
+     [
+      "tract",
+      "root"
+     ]
+    ],
+    "pre": "sub",
+    "pm": "under",
+    "pms": "under",
+    "ex": "Subtract the ten percent discount from the total price on the invoice.",
+    "em": "➖"
+   }
+  ],
+  "quiz": {
+   "stem": "under plus pull",
+   "options": [
+    "contract",
+    "subtract"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/contract",
+  "link": "https://lexkite.com/app/#/dict/contract",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "tract"
+ },
+ "est": {
+  "words": 40,
+  "seconds": 24.5,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Tract root: contract and subtract",
+  "keyword": "tract root",
+  "value": "Tract comes from Latin \"trahere\" (to pull, to drag). Words: contract and subtract. contract = con + tract; subtract = sub + tract.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/contract",
+  "script_words": 32,
+  "platforms": {
+   "youtube": {
+    "title": "Tract root: contract and subtract",
+    "description": "Tract comes from Latin \"trahere\" (to pull, to drag). Words: contract and subtract. contract = con + tract; subtract = sub + tract.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/contract\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "tract root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Tract root: contract and subtract\n\nTract comes from Latin \"trahere\" (to pull, to drag). Words: contract and subtract. contract = con + tract; subtract = sub + tract.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/contract"
+   },
+   "instagram": {
+    "caption": "Tract root: contract and subtract\n\nTract comes from Latin \"trahere\" (to pull, to drag). Words: contract and subtract. contract = con + tract; subtract = sub + tract.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Tract root: contract and subtract #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Subtract! Under plus pull. Tract comes from Latin \"trahere\" (to pull, to drag). Words: contract and subtract. contract = con + tract; subtract = sub + tract. Practice it with a free quiz: {link}"
+ }
+}

@@ -1,0 +1,203 @@
+{
+ "id": "t2a_roots_vac_2",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, three words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Vac! Evacuate, vacancy, vacate.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Vac is Latin for empty.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Evacuate: out plus empty.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Vacancy: an empty room or job.",
+   "pause": 0.3
+  },
+  {
+   "id": "w2",
+   "text": "Vacate: make empty, leave.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means out plus empty?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Evacuate! Out plus empty.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "VAC",
+  "rid": "vac",
+  "say": "empty",
+  "src": "vacare",
+  "src_lang": "Latin",
+  "src_mean": "to be empty",
+  "words": [
+   {
+    "w": "evacuate",
+    "ipa": "/ɪˈvækjəeɪt/",
+    "mean": "empty out a place",
+    "seg": "e-|vac|-uate",
+    "parts": [
+     [
+      "e",
+      "pre"
+     ],
+     [
+      "vac",
+      "root"
+     ],
+     [
+      "uate",
+      "suf"
+     ]
+    ],
+    "pre": "e",
+    "pm": "out",
+    "pms": "out",
+    "ex": "When the alarm sounds, evacuate the building by the nearest exit.",
+    "em": "🏃"
+   },
+   {
+    "w": "vacancy",
+    "ipa": "/ˈveɪkənsi/",
+    "mean": "an empty room or job",
+    "seg": "vac|-ancy",
+    "parts": [
+     [
+      "vac",
+      "root"
+     ],
+     [
+      "ancy",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "Sorry, we have no vacancies for the weekend of the festival.",
+    "em": "🛏️"
+   },
+   {
+    "w": "vacate",
+    "ipa": "/ˈveɪkeɪt/",
+    "mean": "make empty, leave",
+    "seg": "vac|-ate",
+    "parts": [
+     [
+      "vac",
+      "root"
+     ],
+     [
+      "ate",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "Hotel guests must vacate their rooms by noon on the day of departure.",
+    "em": "🚪"
+   }
+  ],
+  "quiz": {
+   "stem": "out plus empty",
+   "options": [
+    "vacancy",
+    "evacuate"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/evacuate",
+  "link": "https://lexkite.com/app/#/dict/evacuate",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, three words"
+ },
+ "src": {
+  "root": "vac"
+ },
+ "est": {
+  "words": 47,
+  "seconds": 28.3,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Vac root: evacuate, vacancy and vacate",
+  "keyword": "vac root",
+  "value": "Vac comes from Latin \"vacare\" (to be empty). Words: evacuate, vacancy and vacate. evacuate = e + vac.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/evacuate",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "Vac root: evacuate, vacancy and vacate",
+    "description": "Vac comes from Latin \"vacare\" (to be empty). Words: evacuate, vacancy and vacate. evacuate = e + vac.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/evacuate\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "vac root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Vac root: evacuate, vacancy and vacate\n\nVac comes from Latin \"vacare\" (to be empty). Words: evacuate, vacancy and vacate. evacuate = e + vac.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/evacuate"
+   },
+   "instagram": {
+    "caption": "Vac root: evacuate, vacancy and vacate\n\nVac comes from Latin \"vacare\" (to be empty). Words: evacuate, vacancy and vacate. evacuate = e + vac.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Vac root: evacuate, vacancy and vacate #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Evacuate! Out plus empty. Vac comes from Latin \"vacare\" (to be empty). Words: evacuate, vacancy and vacate. evacuate = e + vac. Practice it with a free quiz: {link}"
+ }
+}

@@ -1,0 +1,181 @@
+{
+ "id": "t2a_roots_press_3",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Press! Impression, expression.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Press is Latin for press.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Impression: into plus press.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Expression: out plus press.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means out plus press?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Expression! Out plus press.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "PRESS",
+  "rid": "press",
+  "say": "press",
+  "src": "premere",
+  "src_lang": "Latin",
+  "src_mean": "to press",
+  "words": [
+   {
+    "w": "impression",
+    "ipa": "/ɪmˈpreʃn/",
+    "mean": "a mark pressed in the mind",
+    "seg": "im-|press|-ion",
+    "parts": [
+     [
+      "im",
+      "pre"
+     ],
+     [
+      "press",
+      "root"
+     ],
+     [
+      "ion",
+      "suf"
+     ]
+    ],
+    "pre": "im",
+    "pm": "into",
+    "pms": "into",
+    "ex": "She made a good impression at the interview.",
+    "em": "🌟"
+   },
+   {
+    "w": "expression",
+    "ipa": "/ɪkˈspreʃn/",
+    "mean": "a pressing out of feeling",
+    "seg": "ex-|press|-ion",
+    "parts": [
+     [
+      "ex",
+      "pre"
+     ],
+     [
+      "press",
+      "root"
+     ],
+     [
+      "ion",
+      "suf"
+     ]
+    ],
+    "pre": "ex",
+    "pm": "out",
+    "pms": "out",
+    "ex": "There was a worried expression on her face.",
+    "em": "😀"
+   }
+  ],
+  "quiz": {
+   "stem": "out plus press",
+   "options": [
+    "impression",
+    "expression"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/impression",
+  "link": "https://lexkite.com/app/#/dict/impression",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "press"
+ },
+ "est": {
+  "words": 40,
+  "seconds": 24.5,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Press root: impression and expression",
+  "keyword": "press root",
+  "value": "Press comes from Latin \"premere\" (to press). Words: impression and expression. impression = im + press; expression = ex + press.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/impression",
+  "script_words": 32,
+  "platforms": {
+   "youtube": {
+    "title": "Press root: impression and expression",
+    "description": "Press comes from Latin \"premere\" (to press). Words: impression and expression. impression = im + press; expression = ex + press.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/impression\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "press root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Press root: impression and expression\n\nPress comes from Latin \"premere\" (to press). Words: impression and expression. impression = im + press; expression = ex + press.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/impression"
+   },
+   "instagram": {
+    "caption": "Press root: impression and expression\n\nPress comes from Latin \"premere\" (to press). Words: impression and expression. impression = im + press; expression = ex + press.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Press root: impression and expression #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? Expression! Out plus press. Press comes from Latin \"premere\" (to press). Words: impression and expression. impression = im + press; expression = ex + press. More practice like this (free): {link}"
+ }
+}

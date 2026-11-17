@@ -1,0 +1,199 @@
+{
+ "id": "t2a_roots_mit_1",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, three words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Mit! Permit, admit, submit.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Mit is Latin for send.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Permit: through plus send.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Admit: toward plus send.",
+   "pause": 0.3
+  },
+  {
+   "id": "w2",
+   "text": "Submit: under plus send.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means under plus send?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Submit! Under plus send.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "MIT",
+  "rid": "mit",
+  "say": "send",
+  "src": "mittere",
+  "src_lang": "Latin",
+  "src_mean": "to send",
+  "words": [
+   {
+    "w": "permit",
+    "ipa": "/pərˈmɪt/",
+    "mean": "let go through",
+    "seg": "per-|mit",
+    "parts": [
+     [
+      "per",
+      "pre"
+     ],
+     [
+      "mit",
+      "root"
+     ]
+    ],
+    "pre": "per",
+    "pm": "through",
+    "pms": "through",
+    "ex": "Smoking is not permitted inside the building.",
+    "em": "✅"
+   },
+   {
+    "w": "admit",
+    "ipa": "/ədˈmɪt/",
+    "mean": "let in",
+    "seg": "ad-|mit",
+    "parts": [
+     [
+      "ad",
+      "pre"
+     ],
+     [
+      "mit",
+      "root"
+     ]
+    ],
+    "pre": "ad",
+    "pm": "toward",
+    "pms": "toward",
+    "ex": "He admitted that he had made a mistake.",
+    "em": "🙋"
+   },
+   {
+    "w": "submit",
+    "ipa": "/səbˈmɪt/",
+    "mean": "send under, hand in",
+    "seg": "sub-|mit",
+    "parts": [
+     [
+      "sub",
+      "pre"
+     ],
+     [
+      "mit",
+      "root"
+     ]
+    ],
+    "pre": "sub",
+    "pm": "under",
+    "pms": "under",
+    "ex": "Please submit your essay by Friday.",
+    "em": "📤"
+   }
+  ],
+  "quiz": {
+   "stem": "under plus send",
+   "options": [
+    "permit",
+    "submit"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/permit",
+  "link": "https://lexkite.com/app/#/dict/permit",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, three words"
+ },
+ "src": {
+  "root": "mit"
+ },
+ "est": {
+  "words": 45,
+  "seconds": 27.3,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Mit root: permit, admit and submit",
+  "keyword": "mit root",
+  "value": "Mit comes from Latin \"mittere\" (to send). Words: permit, admit and submit. permit = per + mit; admit = ad + mit; submit = sub + mit.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/permit",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "Mit root: permit, admit and submit",
+    "description": "Mit comes from Latin \"mittere\" (to send). Words: permit, admit and submit. permit = per + mit; admit = ad + mit; submit = sub + mit.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/permit\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "mit root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Mit root: permit, admit and submit\n\nMit comes from Latin \"mittere\" (to send). Words: permit, admit and submit. permit = per + mit; admit = ad + mit; submit = sub + mit.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/permit"
+   },
+   "instagram": {
+    "caption": "Mit root: permit, admit and submit\n\nMit comes from Latin \"mittere\" (to send). Words: permit, admit and submit. permit = per + mit; admit = ad + mit; submit = sub + mit.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Mit root: permit, admit and submit #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Submit! Under plus send. Mit comes from Latin \"mittere\" (to send). Words: permit, admit and submit. permit = per + mit; admit = ad + mit; submit = sub + mit. Practice it with a free quiz: {link}"
+ }
+}

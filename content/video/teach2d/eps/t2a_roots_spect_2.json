@@ -1,0 +1,199 @@
+{
+ "id": "t2a_roots_spect_2",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, three words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Spect! Suspect, prospect, aspect.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Spect is Latin for look.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Suspect: up from under plus look.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Prospect: forward plus look.",
+   "pause": 0.3
+  },
+  {
+   "id": "w2",
+   "text": "Aspect: toward plus look.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means toward plus look?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Aspect! Toward plus look.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "SPECT",
+  "rid": "spect",
+  "say": "look",
+  "src": "specere",
+  "src_lang": "Latin",
+  "src_mean": "to look",
+  "words": [
+   {
+    "w": "suspect",
+    "ipa": "/səˈspekt/",
+    "mean": "look up from under, so doubt",
+    "seg": "su-|spect",
+    "parts": [
+     [
+      "su",
+      "pre"
+     ],
+     [
+      "spect",
+      "root"
+     ]
+    ],
+    "pre": "su",
+    "pm": "up from under",
+    "pms": "up from under",
+    "ex": "I suspect he forgot about the meeting.",
+    "em": "🕵️"
+   },
+   {
+    "w": "prospect",
+    "ipa": "/ˈprɑːspekt/",
+    "mean": "a look forward",
+    "seg": "pro-|spect",
+    "parts": [
+     [
+      "pro",
+      "pre"
+     ],
+     [
+      "spect",
+      "root"
+     ]
+    ],
+    "pre": "pro",
+    "pm": "forward",
+    "pms": "forward",
+    "ex": "The prospect of a long journey didn't excite me.",
+    "em": "🔭"
+   },
+   {
+    "w": "aspect",
+    "ipa": "/ˈæspekt/",
+    "mean": "a look toward, a side",
+    "seg": "a-|spect",
+    "parts": [
+     [
+      "a",
+      "pre"
+     ],
+     [
+      "spect",
+      "root"
+     ]
+    ],
+    "pre": "a",
+    "pm": "toward",
+    "pms": "toward",
+    "ex": "Technology has changed almost every aspect of modern life.",
+    "em": "💠"
+   }
+  ],
+  "quiz": {
+   "stem": "toward plus look",
+   "options": [
+    "suspect",
+    "aspect"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/suspect",
+  "link": "https://lexkite.com/app/#/dict/suspect",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, three words"
+ },
+ "src": {
+  "root": "spect"
+ },
+ "est": {
+  "words": 47,
+  "seconds": 28.3,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Spect root: suspect, prospect and aspect",
+  "keyword": "spect root",
+  "value": "Spect comes from Latin \"specere\" (to look). Words: suspect, prospect and aspect. suspect = su + spect; prospect = pro + spect; aspect = a + spect.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/suspect",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "Spect root: suspect, prospect and aspect",
+    "description": "Spect comes from Latin \"specere\" (to look). Words: suspect, prospect and aspect. suspect = su + spect; prospect = pro + spect; aspect = a + spect.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/suspect\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "spect root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Spect root: suspect, prospect and aspect\n\nSpect comes from Latin \"specere\" (to look). Words: suspect, prospect and aspect. suspect = su + spect; prospect = pro + spect; aspect = a + spect.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/suspect"
+   },
+   "instagram": {
+    "caption": "Spect root: suspect, prospect and aspect\n\nSpect comes from Latin \"specere\" (to look). Words: suspect, prospect and aspect. suspect = su + spect; prospect = pro + spect; aspect = a + spect.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Spect root: suspect, prospect and aspect #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? Aspect! Toward plus look. Spect comes from Latin \"specere\" (to look). Words: suspect, prospect and aspect. suspect = su + spect; prospect = pro + spect; aspect = a + spect. More practice like this (free): {link}"
+ }
+}

@@ -1,0 +1,177 @@
+{
+ "id": "t2a_roots_vent_3",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Vent! Intervene, revenue.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Vent is Latin for come.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Intervene: between plus come.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Revenue: back plus come.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means back plus come?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Revenue! Back plus come.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "VENT",
+  "rid": "vent",
+  "say": "come",
+  "src": "venire",
+  "src_lang": "Latin",
+  "src_mean": "to come",
+  "words": [
+   {
+    "w": "intervene",
+    "ipa": "/ˌɪntərˈviːn/",
+    "mean": "come between",
+    "seg": "inter-|vene",
+    "parts": [
+     [
+      "inter",
+      "pre"
+     ],
+     [
+      "vene",
+      "root"
+     ]
+    ],
+    "pre": "inter",
+    "pm": "between",
+    "pms": "between",
+    "ex": "Governments should intervene to control rising rents.",
+    "em": "✋"
+   },
+   {
+    "w": "revenue",
+    "ipa": "/ˈrevənuː/",
+    "mean": "money that comes back",
+    "seg": "re-|ven|-ue",
+    "parts": [
+     [
+      "re",
+      "pre"
+     ],
+     [
+      "ven",
+      "root"
+     ],
+     [
+      "ue",
+      "suf"
+     ]
+    ],
+    "pre": "re",
+    "pm": "back or again",
+    "pms": "back",
+    "ex": "The company's revenue grew by ten percent.",
+    "em": "💰"
+   }
+  ],
+  "quiz": {
+   "stem": "back plus come",
+   "options": [
+    "intervene",
+    "revenue"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/intervene",
+  "link": "https://lexkite.com/app/#/dict/intervene",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "vent"
+ },
+ "est": {
+  "words": 40,
+  "seconds": 24.5,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Vent root: intervene and revenue",
+  "keyword": "vent root",
+  "value": "Vent comes from Latin \"venire\" (to come). Words: intervene and revenue. intervene = inter + vene; revenue = re + ven.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/intervene",
+  "script_words": 32,
+  "platforms": {
+   "youtube": {
+    "title": "Vent root: intervene and revenue",
+    "description": "Vent comes from Latin \"venire\" (to come). Words: intervene and revenue. intervene = inter + vene; revenue = re + ven.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/intervene\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "vent root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Vent root: intervene and revenue\n\nVent comes from Latin \"venire\" (to come). Words: intervene and revenue. intervene = inter + vene; revenue = re + ven.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/intervene"
+   },
+   "instagram": {
+    "caption": "Vent root: intervene and revenue\n\nVent comes from Latin \"venire\" (to come). Words: intervene and revenue. intervene = inter + vene; revenue = re + ven.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Vent root: intervene and revenue #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Revenue! Back plus come. Vent comes from Latin \"venire\" (to come). Words: intervene and revenue. intervene = inter + vene; revenue = re + ven. Practice it with a free quiz: {link}"
+ }
+}

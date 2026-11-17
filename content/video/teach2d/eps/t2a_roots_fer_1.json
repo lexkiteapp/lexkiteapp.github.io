@@ -1,0 +1,199 @@
+{
+ "id": "t2a_roots_fer_1",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, three words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Fer! Transfer, refer, prefer.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Fer is Latin for carry.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Transfer: across plus carry.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Refer: back plus carry.",
+   "pause": 0.3
+  },
+  {
+   "id": "w2",
+   "text": "Prefer: before plus carry.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means before plus carry?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Prefer! Before plus carry.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "FER",
+  "rid": "fer",
+  "say": "carry",
+  "src": "ferre",
+  "src_lang": "Latin",
+  "src_mean": "to carry, to bring",
+  "words": [
+   {
+    "w": "transfer",
+    "ipa": "/trænsˈfɜːr/",
+    "mean": "carry across",
+    "seg": "trans-|fer",
+    "parts": [
+     [
+      "trans",
+      "pre"
+     ],
+     [
+      "fer",
+      "root"
+     ]
+    ],
+    "pre": "trans",
+    "pm": "across",
+    "pms": "across",
+    "ex": "I'll transfer the money to your account today.",
+    "em": "🔁"
+   },
+   {
+    "w": "refer",
+    "ipa": "/rɪˈfɜːr/",
+    "mean": "carry back to",
+    "seg": "re-|fer",
+    "parts": [
+     [
+      "re",
+      "pre"
+     ],
+     [
+      "fer",
+      "root"
+     ]
+    ],
+    "pre": "re",
+    "pm": "back or again",
+    "pms": "back",
+    "ex": "Please refer to page ten for more details.",
+    "em": "👉"
+   },
+   {
+    "w": "prefer",
+    "ipa": "/prɪˈfɜːr/",
+    "mean": "carry before, choose first",
+    "seg": "pre-|fer",
+    "parts": [
+     [
+      "pre",
+      "pre"
+     ],
+     [
+      "fer",
+      "root"
+     ]
+    ],
+    "pre": "pre",
+    "pm": "before",
+    "pms": "before",
+    "ex": "I prefer tea to coffee.",
+    "em": "👍"
+   }
+  ],
+  "quiz": {
+   "stem": "before plus carry",
+   "options": [
+    "transfer",
+    "prefer"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/transfer",
+  "link": "https://lexkite.com/app/#/dict/transfer",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, three words"
+ },
+ "src": {
+  "root": "fer"
+ },
+ "est": {
+  "words": 45,
+  "seconds": 27.3,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Fer root: transfer, refer and prefer",
+  "keyword": "fer root",
+  "value": "Fer comes from Latin \"ferre\" (to carry, to bring). Words: transfer, refer and prefer. transfer = trans + fer; refer = re + fer; prefer = pre + fer.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/transfer",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "Fer root: transfer, refer and prefer",
+    "description": "Fer comes from Latin \"ferre\" (to carry, to bring). Words: transfer, refer and prefer. transfer = trans + fer; refer = re + fer; prefer = pre + fer.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/transfer\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "fer root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Fer root: transfer, refer and prefer\n\nFer comes from Latin \"ferre\" (to carry, to bring). Words: transfer, refer and prefer. transfer = trans + fer; refer = re + fer; prefer = pre + fer.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/transfer"
+   },
+   "instagram": {
+    "caption": "Fer root: transfer, refer and prefer\n\nFer comes from Latin \"ferre\" (to carry, to bring). Words: transfer, refer and prefer. transfer = trans + fer; refer = re + fer; prefer = pre + fer.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Fer root: transfer, refer and prefer #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Prefer! Before plus carry. Fer comes from Latin \"ferre\" (to carry, to bring). Words: transfer, refer and prefer. transfer = trans + fer; refer = re + fer; prefer = pre + fer. Try the full lesson and quiz here: {link}"
+ }
+}

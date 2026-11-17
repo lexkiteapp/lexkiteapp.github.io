@@ -1,0 +1,169 @@
+{
+ "id": "t2a_roots_graph_3",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Graph! Telegraph, graph.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Graph is Greek for write or draw.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Telegraph: far plus write or draw.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Graph: a drawing of data.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means far plus write or draw?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Telegraph! Far plus write or draw.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "GRAPH",
+  "rid": "graph",
+  "say": "write or draw",
+  "src": "graphein",
+  "src_lang": "Greek",
+  "src_mean": "to write, to draw",
+  "words": [
+   {
+    "w": "telegraph",
+    "ipa": "/ˈteləɡræf/",
+    "mean": "a far writing",
+    "seg": "tele-|graph",
+    "parts": [
+     [
+      "tele",
+      "pre"
+     ],
+     [
+      "graph",
+      "root"
+     ]
+    ],
+    "pre": "tele",
+    "pm": "far",
+    "pms": "far",
+    "ex": "Do you know who invented the telegraph?",
+    "em": ""
+   },
+   {
+    "w": "graph",
+    "ipa": "/ɡræf/",
+    "mean": "a drawing of data",
+    "seg": "graph",
+    "parts": [
+     [
+      "graph",
+      "root"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "The graph shows sales over the last five years.",
+    "em": "📈"
+   }
+  ],
+  "quiz": {
+   "stem": "far plus write or draw",
+   "options": [
+    "graph",
+    "telegraph"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/telegraph",
+  "link": "https://lexkite.com/app/#/dict/telegraph",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "graph"
+ },
+ "est": {
+  "words": 49,
+  "seconds": 29.0,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "Graph root: telegraph and graph",
+  "keyword": "graph root",
+  "value": "Graph comes from Greek \"graphein\" (to write, to draw). Words: telegraph and graph. telegraph = tele + graph.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/telegraph",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "Graph root: telegraph and graph",
+    "description": "Graph comes from Greek \"graphein\" (to write, to draw). Words: telegraph and graph. telegraph = tele + graph.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/telegraph\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "graph root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Graph root: telegraph and graph\n\nGraph comes from Greek \"graphein\" (to write, to draw). Words: telegraph and graph. telegraph = tele + graph.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/telegraph"
+   },
+   "instagram": {
+    "caption": "Graph root: telegraph and graph\n\nGraph comes from Greek \"graphein\" (to write, to draw). Words: telegraph and graph. telegraph = tele + graph.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Graph root: telegraph and graph #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? Telegraph! Far plus write or draw. Graph comes from Greek \"graphein\" (to write, to draw). Words: telegraph and graph. telegraph = tele + graph. More practice like this (free): {link}"
+ }
+}

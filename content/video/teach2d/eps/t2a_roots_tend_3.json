@@ -1,0 +1,173 @@
+{
+ "id": "t2a_roots_tend_3",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Tend! Intense, extent.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Tend is Latin for stretch.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Intense: into plus stretch.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Extent: out plus stretch.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means out plus stretch?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Extent! Out plus stretch.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "TEND",
+  "rid": "tend",
+  "say": "stretch",
+  "src": "tendere",
+  "src_lang": "Latin",
+  "src_mean": "to stretch",
+  "words": [
+   {
+    "w": "intense",
+    "ipa": "/ɪnˈtens/",
+    "mean": "stretched very tight",
+    "seg": "in-|tense",
+    "parts": [
+     [
+      "in",
+      "pre"
+     ],
+     [
+      "tense",
+      "root"
+     ]
+    ],
+    "pre": "in",
+    "pm": "into",
+    "pms": "into",
+    "ex": "The heat in the afternoon was intense.",
+    "em": "🔥"
+   },
+   {
+    "w": "extent",
+    "ipa": "/ɪkˈstent/",
+    "mean": "how far something stretches",
+    "seg": "ex-|tent",
+    "parts": [
+     [
+      "ex",
+      "pre"
+     ],
+     [
+      "tent",
+      "root"
+     ]
+    ],
+    "pre": "ex",
+    "pm": "out",
+    "pms": "out",
+    "ex": "To some extent, I agree with your opinion.",
+    "em": "📏"
+   }
+  ],
+  "quiz": {
+   "stem": "out plus stretch",
+   "options": [
+    "intense",
+    "extent"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/intense",
+  "link": "https://lexkite.com/app/#/dict/intense",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "tend"
+ },
+ "est": {
+  "words": 40,
+  "seconds": 24.5,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Tend root: intense and extent",
+  "keyword": "tend root",
+  "value": "Tend comes from Latin \"tendere\" (to stretch). Words: intense and extent. intense = in + tense; extent = ex + tent.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/intense",
+  "script_words": 32,
+  "platforms": {
+   "youtube": {
+    "title": "Tend root: intense and extent",
+    "description": "Tend comes from Latin \"tendere\" (to stretch). Words: intense and extent. intense = in + tense; extent = ex + tent.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/intense\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "tend root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Tend root: intense and extent\n\nTend comes from Latin \"tendere\" (to stretch). Words: intense and extent. intense = in + tense; extent = ex + tent.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/intense"
+   },
+   "instagram": {
+    "caption": "Tend root: intense and extent\n\nTend comes from Latin \"tendere\" (to stretch). Words: intense and extent. intense = in + tense; extent = ex + tent.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Tend root: intense and extent #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Extent! Out plus stretch. Tend comes from Latin \"tendere\" (to stretch). Words: intense and extent. intense = in + tense; extent = ex + tent. Practice it with a free quiz: {link}"
+ }
+}

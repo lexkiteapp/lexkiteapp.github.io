@@ -1,0 +1,181 @@
+{
+ "id": "t2a_roots_struct_2",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Struct! Destruction, construction.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Struct is Latin for build.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Destruction: down plus build.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Construction: together plus build.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means together plus build?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Construction! Together plus build.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "STRUCT",
+  "rid": "struct",
+  "say": "build",
+  "src": "struere",
+  "src_lang": "Latin",
+  "src_mean": "to build",
+  "words": [
+   {
+    "w": "destruction",
+    "ipa": "/dɪˈstrʌkʃn/",
+    "mean": "a building down",
+    "seg": "de-|struct|-ion",
+    "parts": [
+     [
+      "de",
+      "pre"
+     ],
+     [
+      "struct",
+      "root"
+     ],
+     [
+      "ion",
+      "suf"
+     ]
+    ],
+    "pre": "de",
+    "pm": "down or away",
+    "pms": "down",
+    "ex": "The storm caused widespread destruction.",
+    "em": "💥"
+   },
+   {
+    "w": "construction",
+    "ipa": "/kənˈstrʌkʃn/",
+    "mean": "the work of putting up a building",
+    "seg": "con-|struct|-ion",
+    "parts": [
+     [
+      "con",
+      "pre"
+     ],
+     [
+      "struct",
+      "root"
+     ],
+     [
+      "ion",
+      "suf"
+     ]
+    ],
+    "pre": "con",
+    "pm": "together",
+    "pms": "together",
+    "ex": "The construction of the new metro line will take five years.",
+    "em": "🏗️"
+   }
+  ],
+  "quiz": {
+   "stem": "together plus build",
+   "options": [
+    "destruction",
+    "construction"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/destruction",
+  "link": "https://lexkite.com/app/#/dict/destruction",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "struct"
+ },
+ "est": {
+  "words": 40,
+  "seconds": 24.5,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Struct root: destruction and construction",
+  "keyword": "struct root",
+  "value": "Struct comes from Latin \"struere\" (to build). Words: destruction and construction. destruction = de + struct; construction = con + struct.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/destruction",
+  "script_words": 32,
+  "platforms": {
+   "youtube": {
+    "title": "Struct root: destruction and construction",
+    "description": "Struct comes from Latin \"struere\" (to build). Words: destruction and construction. destruction = de + struct; construction = con + struct.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/destruction\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "struct root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Struct root: destruction and construction\n\nStruct comes from Latin \"struere\" (to build). Words: destruction and construction. destruction = de + struct; construction = con + struct.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/destruction"
+   },
+   "instagram": {
+    "caption": "Struct root: destruction and construction\n\nStruct comes from Latin \"struere\" (to build). Words: destruction and construction. destruction = de + struct; construction = con + struct.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Struct root: destruction and construction #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Construction! Together plus build. Struct comes from Latin \"struere\" (to build). Words: destruction and construction. destruction = de + struct; construction = con + struct. Practice it with a free quiz: {link}"
+ }
+}

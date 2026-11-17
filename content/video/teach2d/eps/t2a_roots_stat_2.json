@@ -1,0 +1,207 @@
+{
+ "id": "t2a_roots_stat_2",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, three words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Stat! Institute, establish, distance.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Stat is Latin for stand.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Institute: into plus stand.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Establish: out plus stand.",
+   "pause": 0.3
+  },
+  {
+   "id": "w2",
+   "text": "Distance: apart plus stand.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means apart plus stand?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Distance! Apart plus stand.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "STAT",
+  "rid": "stat",
+  "say": "stand",
+  "src": "stare",
+  "src_lang": "Latin",
+  "src_mean": "to stand",
+  "words": [
+   {
+    "w": "institute",
+    "ipa": "/ˈɪnstətuːt/",
+    "mean": "set up, made to stand",
+    "seg": "in-|stit|-ute",
+    "parts": [
+     [
+      "in",
+      "pre"
+     ],
+     [
+      "stit",
+      "root"
+     ],
+     [
+      "ute",
+      "suf"
+     ]
+    ],
+    "pre": "in",
+    "pm": "into",
+    "pms": "into",
+    "ex": "She works at a national institute for health research.",
+    "em": "🏫"
+   },
+   {
+    "w": "establish",
+    "ipa": "/ɪˈstæblɪʃ/",
+    "mean": "make stand firmly",
+    "seg": "e-|stab|-lish",
+    "parts": [
+     [
+      "e",
+      "pre"
+     ],
+     [
+      "stab",
+      "root"
+     ],
+     [
+      "lish",
+      "suf"
+     ]
+    ],
+    "pre": "e",
+    "pm": "out",
+    "pms": "out",
+    "ex": "The school was established in 1950.",
+    "em": "🏗️"
+   },
+   {
+    "w": "distance",
+    "ipa": "/ˈdɪstəns/",
+    "mean": "standing apart",
+    "seg": "dis-|tance",
+    "parts": [
+     [
+      "dis",
+      "pre"
+     ],
+     [
+      "tance",
+      "root"
+     ]
+    ],
+    "pre": "dis",
+    "pm": "apart",
+    "pms": "apart",
+    "ex": "What is the distance between Hanoi and Hue?",
+    "em": "📏"
+   }
+  ],
+  "quiz": {
+   "stem": "apart plus stand",
+   "options": [
+    "institute",
+    "distance"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/institute",
+  "link": "https://lexkite.com/app/#/dict/institute",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, three words"
+ },
+ "src": {
+  "root": "stat"
+ },
+ "est": {
+  "words": 45,
+  "seconds": 27.3,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Stat root: institute, establish and distance",
+  "keyword": "stat root",
+  "value": "Stat comes from Latin \"stare\" (to stand). Words: institute, establish and distance. institute = in + stit; establish = e + stab; distance = dis + tance.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/institute",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "Stat root: institute, establish and distance",
+    "description": "Stat comes from Latin \"stare\" (to stand). Words: institute, establish and distance. institute = in + stit; establish = e + stab; distance = dis + tance.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/institute\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "stat root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Stat root: institute, establish and distance\n\nStat comes from Latin \"stare\" (to stand). Words: institute, establish and distance. institute = in + stit; establish = e + stab; distance = dis + tance.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/institute"
+   },
+   "instagram": {
+    "caption": "Stat root: institute, establish and distance\n\nStat comes from Latin \"stare\" (to stand). Words: institute, establish and distance. institute = in + stit; establish = e + stab; distance = dis + tance.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Stat root: institute, establish and distance #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? Distance! Apart plus stand. Stat comes from Latin \"stare\" (to stand). Words: institute, establish and distance. institute = in + stit; establish = e + stab; distance = dis + tance. More practice like this (free): {link}"
+ }
+}

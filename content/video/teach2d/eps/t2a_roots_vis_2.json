@@ -1,0 +1,203 @@
+{
+ "id": "t2a_roots_vis_2",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, three words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Vis! Evidence, provide, revise.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Vis is Latin for see.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Evidence: out plus see.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Provide: forward plus see.",
+   "pause": 0.3
+  },
+  {
+   "id": "w2",
+   "text": "Revise: back plus see.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means back plus see?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Revise! Back plus see.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "VIS",
+  "rid": "vis",
+  "say": "see",
+  "src": "videre",
+  "src_lang": "Latin",
+  "src_mean": "to see",
+  "words": [
+   {
+    "w": "evidence",
+    "ipa": "/ˈevədəns/",
+    "mean": "what is clearly seen",
+    "seg": "e-|vid|-ence",
+    "parts": [
+     [
+      "e",
+      "pre"
+     ],
+     [
+      "vid",
+      "root"
+     ],
+     [
+      "ence",
+      "suf"
+     ]
+    ],
+    "pre": "e",
+    "pm": "out",
+    "pms": "out",
+    "ex": "There is no evidence that the drug is harmful.",
+    "em": "🔎"
+   },
+   {
+    "w": "provide",
+    "ipa": "/prəˈvaɪd/",
+    "mean": "see ahead, supply",
+    "seg": "pro-|vide",
+    "parts": [
+     [
+      "pro",
+      "pre"
+     ],
+     [
+      "vide",
+      "root"
+     ]
+    ],
+    "pre": "pro",
+    "pm": "forward",
+    "pms": "forward",
+    "ex": "The school provides free lunches for all pupils.",
+    "em": "📦"
+   },
+   {
+    "w": "revise",
+    "ipa": "/rɪˈvaɪz/",
+    "mean": "see again",
+    "seg": "re-|vise",
+    "parts": [
+     [
+      "re",
+      "pre"
+     ],
+     [
+      "vise",
+      "root"
+     ]
+    ],
+    "pre": "re",
+    "pm": "back or again",
+    "pms": "back",
+    "ex": "I need to revise for my history exam.",
+    "em": "📝"
+   }
+  ],
+  "quiz": {
+   "stem": "back plus see",
+   "options": [
+    "evidence",
+    "revise"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/evidence",
+  "link": "https://lexkite.com/app/#/dict/evidence",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, three words"
+ },
+ "src": {
+  "root": "vis"
+ },
+ "est": {
+  "words": 45,
+  "seconds": 27.3,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Vis root: evidence, provide and revise",
+  "keyword": "vis root",
+  "value": "Vis comes from Latin \"videre\" (to see). Words: evidence, provide and revise. evidence = e + vid; provide = pro + vide; revise = re + vise.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/evidence",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "Vis root: evidence, provide and revise",
+    "description": "Vis comes from Latin \"videre\" (to see). Words: evidence, provide and revise. evidence = e + vid; provide = pro + vide; revise = re + vise.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/evidence\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "vis root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Vis root: evidence, provide and revise\n\nVis comes from Latin \"videre\" (to see). Words: evidence, provide and revise. evidence = e + vid; provide = pro + vide; revise = re + vise.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/evidence"
+   },
+   "instagram": {
+    "caption": "Vis root: evidence, provide and revise\n\nVis comes from Latin \"videre\" (to see). Words: evidence, provide and revise. evidence = e + vid; provide = pro + vide; revise = re + vise.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Vis root: evidence, provide and revise #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Revise! Back plus see. Vis comes from Latin \"videre\" (to see). Words: evidence, provide and revise. evidence = e + vid; provide = pro + vide; revise = re + vise. Practice it with a free quiz: {link}"
+ }
+}

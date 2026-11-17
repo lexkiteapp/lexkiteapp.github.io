@@ -1,0 +1,173 @@
+{
+ "id": "t2a_roots_sens_1",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Sens! Sense, sensitive.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Sens is Latin for feel.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Sense: the power to feel.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Sensitive: quick to feel.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means quick to feel?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Sensitive! It means quick to feel.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "SENS",
+  "rid": "sens",
+  "say": "feel",
+  "src": "sentire",
+  "src_lang": "Latin",
+  "src_mean": "to feel",
+  "words": [
+   {
+    "w": "sense",
+    "ipa": "/sens/",
+    "mean": "the power to feel",
+    "seg": "sens|-e",
+    "parts": [
+     [
+      "sens",
+      "root"
+     ],
+     [
+      "e",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "Dogs have a very strong sense of smell.",
+    "em": "👃"
+   },
+   {
+    "w": "sensitive",
+    "ipa": "/ˈsensətɪv/",
+    "mean": "quick to feel",
+    "seg": "sens|-itive",
+    "parts": [
+     [
+      "sens",
+      "root"
+     ],
+     [
+      "itive",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "My skin is very sensitive to the sun.",
+    "em": "🌡️"
+   }
+  ],
+  "quiz": {
+   "stem": "quick to feel",
+   "options": [
+    "sense",
+    "sensitive"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/sense",
+  "link": "https://lexkite.com/app/#/dict/sense",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "sens"
+ },
+ "est": {
+  "words": 43,
+  "seconds": 26.0,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Sens root: sense and sensitive",
+  "keyword": "sens root",
+  "value": "Sens comes from Latin \"sentire\" (to feel). Words: sense and sensitive.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/sense",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "Sens root: sense and sensitive",
+    "description": "Sens comes from Latin \"sentire\" (to feel). Words: sense and sensitive.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/sense\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "sens root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Sens root: sense and sensitive\n\nSens comes from Latin \"sentire\" (to feel). Words: sense and sensitive.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/sense"
+   },
+   "instagram": {
+    "caption": "Sens root: sense and sensitive\n\nSens comes from Latin \"sentire\" (to feel). Words: sense and sensitive.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Sens root: sense and sensitive #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Sensitive! It means quick to feel. Sens comes from Latin \"sentire\" (to feel). Words: sense and sensitive. Practice it with a free quiz: {link}"
+ }
+}

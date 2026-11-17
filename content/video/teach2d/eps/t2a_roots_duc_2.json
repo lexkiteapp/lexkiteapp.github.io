@@ -1,0 +1,199 @@
+{
+ "id": "t2a_roots_duc_2",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, three words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Duc! Conduct, product, deduce.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Duc is Latin for lead.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Conduct: together plus lead.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Product: forward plus lead.",
+   "pause": 0.3
+  },
+  {
+   "id": "w2",
+   "text": "Deduce: down plus lead.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means down plus lead?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Deduce! Down plus lead.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "DUC",
+  "rid": "duc",
+  "say": "lead",
+  "src": "ducere",
+  "src_lang": "Latin",
+  "src_mean": "to lead",
+  "words": [
+   {
+    "w": "conduct",
+    "ipa": "/kənˈdʌkt/",
+    "mean": "lead together",
+    "seg": "con-|duct",
+    "parts": [
+     [
+      "con",
+      "pre"
+     ],
+     [
+      "duct",
+      "root"
+     ]
+    ],
+    "pre": "con",
+    "pm": "together",
+    "pms": "together",
+    "ex": "The researchers conducted a survey of five hundred families.",
+    "em": "🎼"
+   },
+   {
+    "w": "product",
+    "ipa": "/ˈprɑːdəkt/",
+    "mean": "something led forward, made",
+    "seg": "pro-|duct",
+    "parts": [
+     [
+      "pro",
+      "pre"
+     ],
+     [
+      "duct",
+      "root"
+     ]
+    ],
+    "pre": "pro",
+    "pm": "forward",
+    "pms": "forward",
+    "ex": "The company launched three new products this year.",
+    "em": "📦"
+   },
+   {
+    "w": "deduce",
+    "ipa": "/dɪˈduːs/",
+    "mean": "lead away a conclusion",
+    "seg": "de-|duce",
+    "parts": [
+     [
+      "de",
+      "pre"
+     ],
+     [
+      "duce",
+      "root"
+     ]
+    ],
+    "pre": "de",
+    "pm": "down or away",
+    "pms": "down",
+    "ex": "From the evidence, we can deduce that the site was abandoned suddenly.",
+    "em": "🕵️"
+   }
+  ],
+  "quiz": {
+   "stem": "down plus lead",
+   "options": [
+    "conduct",
+    "deduce"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/conduct",
+  "link": "https://lexkite.com/app/#/dict/conduct",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, three words"
+ },
+ "src": {
+  "root": "duc"
+ },
+ "est": {
+  "words": 45,
+  "seconds": 27.3,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Duc root: conduct, product and deduce",
+  "keyword": "duc root",
+  "value": "Duc comes from Latin \"ducere\" (to lead). Words: conduct, product and deduce. conduct = con + duct; product = pro + duct; deduce = de + duce.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/conduct",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "Duc root: conduct, product and deduce",
+    "description": "Duc comes from Latin \"ducere\" (to lead). Words: conduct, product and deduce. conduct = con + duct; product = pro + duct; deduce = de + duce.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/conduct\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "duc root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Duc root: conduct, product and deduce\n\nDuc comes from Latin \"ducere\" (to lead). Words: conduct, product and deduce. conduct = con + duct; product = pro + duct; deduce = de + duce.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/conduct"
+   },
+   "instagram": {
+    "caption": "Duc root: conduct, product and deduce\n\nDuc comes from Latin \"ducere\" (to lead). Words: conduct, product and deduce. conduct = con + duct; product = pro + duct; deduce = de + duce.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Duc root: conduct, product and deduce #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Deduce! Down plus lead. Duc comes from Latin \"ducere\" (to lead). Words: conduct, product and deduce. conduct = con + duct; product = pro + duct; deduce = de + duce. Try the full lesson and quiz here: {link}"
+ }
+}

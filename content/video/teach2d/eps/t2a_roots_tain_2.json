@@ -1,0 +1,173 @@
+{
+ "id": "t2a_roots_tain_2",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Tain! Sustain, entertain.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Tain is Latin for hold.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Sustain: up from under plus hold.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Entertain: between plus hold.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means between plus hold?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Entertain! Between plus hold.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "TAIN",
+  "rid": "tain",
+  "say": "hold",
+  "src": "tenere",
+  "src_lang": "Latin",
+  "src_mean": "to hold",
+  "words": [
+   {
+    "w": "sustain",
+    "ipa": "/səˈsteɪn/",
+    "mean": "hold up",
+    "seg": "sus-|tain",
+    "parts": [
+     [
+      "sus",
+      "pre"
+     ],
+     [
+      "tain",
+      "root"
+     ]
+    ],
+    "pre": "sus",
+    "pm": "up from under",
+    "pms": "up from under",
+    "ex": "It's hard to sustain your energy during a long day.",
+    "em": "♻️"
+   },
+   {
+    "w": "entertain",
+    "ipa": "/ˌentərˈteɪn/",
+    "mean": "hold between, keep amused",
+    "seg": "enter-|tain",
+    "parts": [
+     [
+      "enter",
+      "pre"
+     ],
+     [
+      "tain",
+      "root"
+     ]
+    ],
+    "pre": "enter",
+    "pm": "between",
+    "pms": "between",
+    "ex": "The clown entertained the children for an hour.",
+    "em": "🎪"
+   }
+  ],
+  "quiz": {
+   "stem": "between plus hold",
+   "options": [
+    "sustain",
+    "entertain"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/sustain",
+  "link": "https://lexkite.com/app/#/dict/sustain",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "tain"
+ },
+ "est": {
+  "words": 42,
+  "seconds": 25.5,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Tain root: sustain and entertain",
+  "keyword": "tain root",
+  "value": "Tain comes from Latin \"tenere\" (to hold). Words: sustain and entertain. sustain = sus + tain; entertain = enter + tain.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/sustain",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "Tain root: sustain and entertain",
+    "description": "Tain comes from Latin \"tenere\" (to hold). Words: sustain and entertain. sustain = sus + tain; entertain = enter + tain.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/sustain\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "tain root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Tain root: sustain and entertain\n\nTain comes from Latin \"tenere\" (to hold). Words: sustain and entertain. sustain = sus + tain; entertain = enter + tain.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/sustain"
+   },
+   "instagram": {
+    "caption": "Tain root: sustain and entertain\n\nTain comes from Latin \"tenere\" (to hold). Words: sustain and entertain. sustain = sus + tain; entertain = enter + tain.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Tain root: sustain and entertain #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Entertain! Between plus hold. Tain comes from Latin \"tenere\" (to hold). Words: sustain and entertain. sustain = sus + tain; entertain = enter + tain. Practice it with a free quiz: {link}"
+ }
+}

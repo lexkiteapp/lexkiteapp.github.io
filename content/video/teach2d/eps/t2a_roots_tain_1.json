@@ -1,0 +1,199 @@
+{
+ "id": "t2a_roots_tain_1",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, three words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Tain! Contain, obtain, retain.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Tain is Latin for hold.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Contain: together plus hold.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Obtain: against plus hold.",
+   "pause": 0.3
+  },
+  {
+   "id": "w2",
+   "text": "Retain: back plus hold.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means back plus hold?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Retain! Back plus hold.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "TAIN",
+  "rid": "tain",
+  "say": "hold",
+  "src": "tenere",
+  "src_lang": "Latin",
+  "src_mean": "to hold",
+  "words": [
+   {
+    "w": "contain",
+    "ipa": "/kənˈteɪn/",
+    "mean": "hold together",
+    "seg": "con-|tain",
+    "parts": [
+     [
+      "con",
+      "pre"
+     ],
+     [
+      "tain",
+      "root"
+     ]
+    ],
+    "pre": "con",
+    "pm": "together",
+    "pms": "together",
+    "ex": "This drink contains a lot of sugar.",
+    "em": "📦"
+   },
+   {
+    "w": "obtain",
+    "ipa": "/əbˈteɪn/",
+    "mean": "hold on to, get",
+    "seg": "ob-|tain",
+    "parts": [
+     [
+      "ob",
+      "pre"
+     ],
+     [
+      "tain",
+      "root"
+     ]
+    ],
+    "pre": "ob",
+    "pm": "against",
+    "pms": "against",
+    "ex": "Permission must be obtained before the research begins.",
+    "em": "📥"
+   },
+   {
+    "w": "retain",
+    "ipa": "/rɪˈteɪn/",
+    "mean": "hold back",
+    "seg": "re-|tain",
+    "parts": [
+     [
+      "re",
+      "pre"
+     ],
+     [
+      "tain",
+      "root"
+     ]
+    ],
+    "pre": "re",
+    "pm": "back or again",
+    "pms": "back",
+    "ex": "The town has retained its traditional charm.",
+    "em": "🔒"
+   }
+  ],
+  "quiz": {
+   "stem": "back plus hold",
+   "options": [
+    "contain",
+    "retain"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/contain",
+  "link": "https://lexkite.com/app/#/dict/contain",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, three words"
+ },
+ "src": {
+  "root": "tain"
+ },
+ "est": {
+  "words": 45,
+  "seconds": 27.3,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Tain root: contain, obtain and retain",
+  "keyword": "tain root",
+  "value": "Tain comes from Latin \"tenere\" (to hold). Words: contain, obtain and retain. contain = con + tain; obtain = ob + tain; retain = re + tain.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/contain",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "Tain root: contain, obtain and retain",
+    "description": "Tain comes from Latin \"tenere\" (to hold). Words: contain, obtain and retain. contain = con + tain; obtain = ob + tain; retain = re + tain.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/contain\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "tain root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Tain root: contain, obtain and retain\n\nTain comes from Latin \"tenere\" (to hold). Words: contain, obtain and retain. contain = con + tain; obtain = ob + tain; retain = re + tain.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/contain"
+   },
+   "instagram": {
+    "caption": "Tain root: contain, obtain and retain\n\nTain comes from Latin \"tenere\" (to hold). Words: contain, obtain and retain. contain = con + tain; obtain = ob + tain; retain = re + tain.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Tain root: contain, obtain and retain #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Retain! Back plus hold. Tain comes from Latin \"tenere\" (to hold). Words: contain, obtain and retain. contain = con + tain; obtain = ob + tain; retain = re + tain. Try the full lesson and quiz here: {link}"
+ }
+}

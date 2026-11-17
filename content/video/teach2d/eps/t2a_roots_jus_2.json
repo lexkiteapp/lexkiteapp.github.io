@@ -1,0 +1,177 @@
+{
+ "id": "t2a_roots_jus_2",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Jus! Injury, justify.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Jus is Latin for law or right.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Injury: into plus law or right.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Justify: show it is right.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means into plus law or right?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Injury! Into plus law or right.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "JUS",
+  "rid": "jus",
+  "say": "law or right",
+  "src": "jus",
+  "src_lang": "Latin",
+  "src_mean": "law, right",
+  "words": [
+   {
+    "w": "injury",
+    "ipa": "/ˈɪndʒəri/",
+    "mean": "a wrong, not right",
+    "seg": "in-|jur|-y",
+    "parts": [
+     [
+      "in",
+      "pre"
+     ],
+     [
+      "jur",
+      "root"
+     ],
+     [
+      "y",
+      "suf"
+     ]
+    ],
+    "pre": "in",
+    "pm": "into",
+    "pms": "into",
+    "ex": "He missed the match because of a knee injury.",
+    "em": "🩹"
+   },
+   {
+    "w": "justify",
+    "ipa": "/ˈdʒʌstəfaɪ/",
+    "mean": "show it is right",
+    "seg": "just|-ify",
+    "parts": [
+     [
+      "just",
+      "root"
+     ],
+     [
+      "ify",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "Can you justify such a high price?",
+    "em": "⚖️"
+   }
+  ],
+  "quiz": {
+   "stem": "into plus law or right",
+   "options": [
+    "justify",
+    "injury"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/injury",
+  "link": "https://lexkite.com/app/#/dict/injury",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "jus"
+ },
+ "est": {
+  "words": 49,
+  "seconds": 29.0,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "Jus root: injury and justify",
+  "keyword": "jus root",
+  "value": "Jus comes from Latin \"jus\" (law, right). Words: injury and justify. injury = in + jur.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/injury",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "Jus root: injury and justify",
+    "description": "Jus comes from Latin \"jus\" (law, right). Words: injury and justify. injury = in + jur.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/injury\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "jus root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Jus root: injury and justify\n\nJus comes from Latin \"jus\" (law, right). Words: injury and justify. injury = in + jur.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/injury"
+   },
+   "instagram": {
+    "caption": "Jus root: injury and justify\n\nJus comes from Latin \"jus\" (law, right). Words: injury and justify. injury = in + jur.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Jus root: injury and justify #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Injury! Into plus law or right. Jus comes from Latin \"jus\" (law, right). Words: injury and justify. injury = in + jur. Practice it with a free quiz: {link}"
+ }
+}

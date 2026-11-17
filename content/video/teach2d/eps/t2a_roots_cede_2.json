@@ -1,0 +1,199 @@
+{
+ "id": "t2a_roots_cede_2",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, three words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Cede! Precede, concede, process.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Cede is Latin for go.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Precede: before plus go.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Concede: together plus go.",
+   "pause": 0.3
+  },
+  {
+   "id": "w2",
+   "text": "Process: forward plus go.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means forward plus go?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Process! Forward plus go.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "CEDE",
+  "rid": "cede",
+  "say": "go",
+  "src": "cedere",
+  "src_lang": "Latin",
+  "src_mean": "to go, to yield",
+  "words": [
+   {
+    "w": "precede",
+    "ipa": "/prɪˈsiːd/",
+    "mean": "go before",
+    "seg": "pre-|cede",
+    "parts": [
+     [
+      "pre",
+      "pre"
+     ],
+     [
+      "cede",
+      "root"
+     ]
+    ],
+    "pre": "pre",
+    "pm": "before",
+    "pms": "before",
+    "ex": "The crisis was preceded by a period of rapid growth.",
+    "em": "⏮️"
+   },
+   {
+    "w": "concede",
+    "ipa": "/kənˈsiːd/",
+    "mean": "yield completely",
+    "seg": "con-|cede",
+    "parts": [
+     [
+      "con",
+      "pre"
+     ],
+     [
+      "cede",
+      "root"
+     ]
+    ],
+    "pre": "con",
+    "pm": "together",
+    "pms": "together",
+    "ex": "The report concedes that the costs were higher than predicted.",
+    "em": "🏳️"
+   },
+   {
+    "w": "process",
+    "ipa": "/ˈprɑːses/",
+    "mean": "a going forward in steps",
+    "seg": "pro-|cess",
+    "parts": [
+     [
+      "pro",
+      "pre"
+     ],
+     [
+      "cess",
+      "root"
+     ]
+    ],
+    "pre": "pro",
+    "pm": "forward",
+    "pms": "forward",
+    "ex": "Applying for a visa can be a long process.",
+    "em": "⚙️"
+   }
+  ],
+  "quiz": {
+   "stem": "forward plus go",
+   "options": [
+    "precede",
+    "process"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/precede",
+  "link": "https://lexkite.com/app/#/dict/precede",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, three words"
+ },
+ "src": {
+  "root": "cede"
+ },
+ "est": {
+  "words": 45,
+  "seconds": 27.3,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Cede root: precede, concede and process",
+  "keyword": "cede root",
+  "value": "Cede comes from Latin \"cedere\" (to go, to yield). Words: precede, concede and process. precede = pre + cede; concede = con + cede; process = pro + cess.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/precede",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "Cede root: precede, concede and process",
+    "description": "Cede comes from Latin \"cedere\" (to go, to yield). Words: precede, concede and process. precede = pre + cede; concede = con + cede; process = pro + cess.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/precede\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "cede root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Cede root: precede, concede and process\n\nCede comes from Latin \"cedere\" (to go, to yield). Words: precede, concede and process. precede = pre + cede; concede = con + cede; process = pro + cess.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/precede"
+   },
+   "instagram": {
+    "caption": "Cede root: precede, concede and process\n\nCede comes from Latin \"cedere\" (to go, to yield). Words: precede, concede and process. precede = pre + cede; concede = con + cede; process = pro + cess.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Cede root: precede, concede and process #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Process! Forward plus go. Cede comes from Latin \"cedere\" (to go, to yield). Words: precede, concede and process. precede = pre + cede; concede = con + cede; process = pro + cess. Practice it with a free quiz: {link}"
+ }
+}

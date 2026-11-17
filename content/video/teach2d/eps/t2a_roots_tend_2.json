@@ -1,0 +1,199 @@
+{
+ "id": "t2a_roots_tend_2",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, three words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Tend! Pretend, tension, tendency.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Tend is Latin for stretch.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Pretend: before plus stretch.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Tension: a stretched feeling.",
+   "pause": 0.3
+  },
+  {
+   "id": "w2",
+   "text": "Tendency: a stretch toward something.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means before plus stretch?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Pretend! Before plus stretch.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "TEND",
+  "rid": "tend",
+  "say": "stretch",
+  "src": "tendere",
+  "src_lang": "Latin",
+  "src_mean": "to stretch",
+  "words": [
+   {
+    "w": "pretend",
+    "ipa": "/prɪˈtend/",
+    "mean": "stretch in front, to act",
+    "seg": "pre-|tend",
+    "parts": [
+     [
+      "pre",
+      "pre"
+     ],
+     [
+      "tend",
+      "root"
+     ]
+    ],
+    "pre": "pre",
+    "pm": "before",
+    "pms": "before",
+    "ex": "The children pretended to be pirates.",
+    "em": "🎭"
+   },
+   {
+    "w": "tension",
+    "ipa": "/ˈtenʃn/",
+    "mean": "a stretched feeling",
+    "seg": "tens|-ion",
+    "parts": [
+     [
+      "tens",
+      "root"
+     ],
+     [
+      "ion",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "There was tension between the two teams before the match.",
+    "em": "😬"
+   },
+   {
+    "w": "tendency",
+    "ipa": "/ˈtendənsi/",
+    "mean": "a stretch toward something",
+    "seg": "tend|-ency",
+    "parts": [
+     [
+      "tend",
+      "root"
+     ],
+     [
+      "ency",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "He has a tendency to talk too fast.",
+    "em": "📈"
+   }
+  ],
+  "quiz": {
+   "stem": "before plus stretch",
+   "options": [
+    "tension",
+    "pretend"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/pretend",
+  "link": "https://lexkite.com/app/#/dict/pretend",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, three words"
+ },
+ "src": {
+  "root": "tend"
+ },
+ "est": {
+  "words": 46,
+  "seconds": 27.8,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Tend root: pretend, tension and tendency",
+  "keyword": "tend root",
+  "value": "Tend comes from Latin \"tendere\" (to stretch). Words: pretend, tension and tendency. pretend = pre + tend.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/pretend",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "Tend root: pretend, tension and tendency",
+    "description": "Tend comes from Latin \"tendere\" (to stretch). Words: pretend, tension and tendency. pretend = pre + tend.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/pretend\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "tend root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Tend root: pretend, tension and tendency\n\nTend comes from Latin \"tendere\" (to stretch). Words: pretend, tension and tendency. pretend = pre + tend.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/pretend"
+   },
+   "instagram": {
+    "caption": "Tend root: pretend, tension and tendency\n\nTend comes from Latin \"tendere\" (to stretch). Words: pretend, tension and tendency. pretend = pre + tend.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Tend root: pretend, tension and tendency #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Pretend! Before plus stretch. Tend comes from Latin \"tendere\" (to stretch). Words: pretend, tension and tendency. pretend = pre + tend. Try the full lesson and quiz here: {link}"
+ }
+}

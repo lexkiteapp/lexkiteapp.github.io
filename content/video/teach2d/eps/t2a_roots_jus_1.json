@@ -1,0 +1,173 @@
+{
+ "id": "t2a_roots_jus_1",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Jus! Judge, justice.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Jus is Latin for law or right.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Judge: a person who speaks the law.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Justice: what is right by law.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means what is right by law?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Justice! It means what is right by law.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "JUS",
+  "rid": "jus",
+  "say": "law or right",
+  "src": "jus",
+  "src_lang": "Latin",
+  "src_mean": "law, right",
+  "words": [
+   {
+    "w": "judge",
+    "ipa": "/dʒʌdʒ/",
+    "mean": "a person who speaks the law",
+    "seg": "jud|-ge",
+    "parts": [
+     [
+      "jud",
+      "root"
+     ],
+     [
+      "ge",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "The judges gave her the highest score.",
+    "em": "⚖️"
+   },
+   {
+    "w": "justice",
+    "ipa": "/ˈdʒʌstəs/",
+    "mean": "what is right by law",
+    "seg": "just|-ice",
+    "parts": [
+     [
+      "just",
+      "root"
+     ],
+     [
+      "ice",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "The family wants justice for their son.",
+    "em": "⚖️"
+   }
+  ],
+  "quiz": {
+   "stem": "what is right by law",
+   "options": [
+    "judge",
+    "justice"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/judge",
+  "link": "https://lexkite.com/app/#/dict/judge",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "jus"
+ },
+ "est": {
+  "words": 53,
+  "seconds": 30.9,
+  "wpm": 103
+ },
+ "publish": {
+  "title": "Jus root: judge and justice",
+  "keyword": "jus root",
+  "value": "Jus comes from Latin \"jus\" (law, right). Words: judge and justice.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/judge",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "Jus root: judge and justice",
+    "description": "Jus comes from Latin \"jus\" (law, right). Words: judge and justice.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/judge\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "jus root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Jus root: judge and justice\n\nJus comes from Latin \"jus\" (law, right). Words: judge and justice.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/judge"
+   },
+   "instagram": {
+    "caption": "Jus root: judge and justice\n\nJus comes from Latin \"jus\" (law, right). Words: judge and justice.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Jus root: judge and justice #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Justice! It means what is right by law. Jus comes from Latin \"jus\" (law, right). Words: judge and justice. Try the full lesson and quiz here: {link}"
+ }
+}

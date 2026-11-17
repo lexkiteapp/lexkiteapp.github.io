@@ -1,0 +1,199 @@
+{
+ "id": "t2a_roots_pend_2",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, three words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Pend! Pension, append, pending.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Pend is Latin for hang.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Pension: a payment, once weighed out.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Append: toward plus hang.",
+   "pause": 0.3
+  },
+  {
+   "id": "w2",
+   "text": "Pending: hanging, not decided yet.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means toward plus hang?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Append! Toward plus hang.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "PEND",
+  "rid": "pend",
+  "say": "hang",
+  "src": "pendere",
+  "src_lang": "Latin",
+  "src_mean": "to hang, to weigh",
+  "words": [
+   {
+    "w": "pension",
+    "ipa": "/ˈpenʃn/",
+    "mean": "a payment, once weighed out",
+    "seg": "pens|-ion",
+    "parts": [
+     [
+      "pens",
+      "root"
+     ],
+     [
+      "ion",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "My grandfather lives on a small pension.",
+    "em": "👵"
+   },
+   {
+    "w": "append",
+    "ipa": "/əˈpend/",
+    "mean": "hang on, add",
+    "seg": "ap-|pend",
+    "parts": [
+     [
+      "ap",
+      "pre"
+     ],
+     [
+      "pend",
+      "root"
+     ]
+    ],
+    "pre": "ap",
+    "pm": "toward",
+    "pms": "toward",
+    "ex": "A list of references is appended to the report.",
+    "em": "📎"
+   },
+   {
+    "w": "pending",
+    "ipa": "/ˈpendɪŋ/",
+    "mean": "hanging, not decided yet",
+    "seg": "pend|-ing",
+    "parts": [
+     [
+      "pend",
+      "root"
+     ],
+     [
+      "ing",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "Your loan application is still pending approval from the bank.",
+    "em": "⏳"
+   }
+  ],
+  "quiz": {
+   "stem": "toward plus hang",
+   "options": [
+    "pension",
+    "append"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/pension",
+  "link": "https://lexkite.com/app/#/dict/pension",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, three words"
+ },
+ "src": {
+  "root": "pend"
+ },
+ "est": {
+  "words": 48,
+  "seconds": 28.8,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Pend root: pension, append and pending",
+  "keyword": "pend root",
+  "value": "Pend comes from Latin \"pendere\" (to hang, to weigh). Words: pension, append and pending. append = ap + pend.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/pension",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Pend root: pension, append and pending",
+    "description": "Pend comes from Latin \"pendere\" (to hang, to weigh). Words: pension, append and pending. append = ap + pend.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/pension\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "pend root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Pend root: pension, append and pending\n\nPend comes from Latin \"pendere\" (to hang, to weigh). Words: pension, append and pending. append = ap + pend.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/pension"
+   },
+   "instagram": {
+    "caption": "Pend root: pension, append and pending\n\nPend comes from Latin \"pendere\" (to hang, to weigh). Words: pension, append and pending. append = ap + pend.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Pend root: pension, append and pending #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? Append! Toward plus hang. Pend comes from Latin \"pendere\" (to hang, to weigh). Words: pension, append and pending. append = ap + pend. More practice like this (free): {link}"
+ }
+}

@@ -1,0 +1,177 @@
+{
+ "id": "t2a_roots_fer_3",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Fer! Infer, conference.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Fer is Latin for carry.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Infer: into plus carry.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Conference: together plus carry.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means together plus carry?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Conference! Together plus carry.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "FER",
+  "rid": "fer",
+  "say": "carry",
+  "src": "ferre",
+  "src_lang": "Latin",
+  "src_mean": "to carry, to bring",
+  "words": [
+   {
+    "w": "infer",
+    "ipa": "/ɪnˈfɜːr/",
+    "mean": "carry into a conclusion",
+    "seg": "in-|fer",
+    "parts": [
+     [
+      "in",
+      "pre"
+     ],
+     [
+      "fer",
+      "root"
+     ]
+    ],
+    "pre": "in",
+    "pm": "into",
+    "pms": "into",
+    "ex": "It can be inferred from the data that sales will continue to fall.",
+    "em": "🕵️"
+   },
+   {
+    "w": "conference",
+    "ipa": "/ˈkɑːnfərəns/",
+    "mean": "a bringing together",
+    "seg": "con-|fer|-ence",
+    "parts": [
+     [
+      "con",
+      "pre"
+     ],
+     [
+      "fer",
+      "root"
+     ],
+     [
+      "ence",
+      "suf"
+     ]
+    ],
+    "pre": "con",
+    "pm": "together",
+    "pms": "together",
+    "ex": "She is speaking at a conference in Seoul.",
+    "em": "🎤"
+   }
+  ],
+  "quiz": {
+   "stem": "together plus carry",
+   "options": [
+    "infer",
+    "conference"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/infer",
+  "link": "https://lexkite.com/app/#/dict/infer",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "fer"
+ },
+ "est": {
+  "words": 40,
+  "seconds": 24.5,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Fer root: infer and conference",
+  "keyword": "fer root",
+  "value": "Fer comes from Latin \"ferre\" (to carry, to bring). Words: infer and conference. infer = in + fer; conference = con + fer.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/infer",
+  "script_words": 32,
+  "platforms": {
+   "youtube": {
+    "title": "Fer root: infer and conference",
+    "description": "Fer comes from Latin \"ferre\" (to carry, to bring). Words: infer and conference. infer = in + fer; conference = con + fer.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/infer\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "fer root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Fer root: infer and conference\n\nFer comes from Latin \"ferre\" (to carry, to bring). Words: infer and conference. infer = in + fer; conference = con + fer.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/infer"
+   },
+   "instagram": {
+    "caption": "Fer root: infer and conference\n\nFer comes from Latin \"ferre\" (to carry, to bring). Words: infer and conference. infer = in + fer; conference = con + fer.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Fer root: infer and conference #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? Conference! Together plus carry. Fer comes from Latin \"ferre\" (to carry, to bring). Words: infer and conference. infer = in + fer; conference = con + fer. More practice like this (free): {link}"
+ }
+}

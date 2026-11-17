@@ -1,0 +1,173 @@
+{
+ "id": "t2a_roots_stat_3",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Stat! Substance, circumstance.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Stat is Latin for stand.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Substance: under plus stand.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Circumstance: around plus stand.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means around plus stand?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Circumstance! Around plus stand.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "STAT",
+  "rid": "stat",
+  "say": "stand",
+  "src": "stare",
+  "src_lang": "Latin",
+  "src_mean": "to stand",
+  "words": [
+   {
+    "w": "substance",
+    "ipa": "/ˈsʌbstəns/",
+    "mean": "what stands under",
+    "seg": "sub-|stance",
+    "parts": [
+     [
+      "sub",
+      "pre"
+     ],
+     [
+      "stance",
+      "root"
+     ]
+    ],
+    "pre": "sub",
+    "pm": "under",
+    "pms": "under",
+    "ex": "Water is the most common substance on Earth.",
+    "em": "🧪"
+   },
+   {
+    "w": "circumstance",
+    "ipa": "/ˈsɜːrkəmstæns/",
+    "mean": "what stands around",
+    "seg": "circum-|stance",
+    "parts": [
+     [
+      "circum",
+      "pre"
+     ],
+     [
+      "stance",
+      "root"
+     ]
+    ],
+    "pre": "circum",
+    "pm": "around",
+    "pms": "around",
+    "ex": "In some circumstances, you can get a full refund.",
+    "em": "🌦️"
+   }
+  ],
+  "quiz": {
+   "stem": "around plus stand",
+   "options": [
+    "substance",
+    "circumstance"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/substance",
+  "link": "https://lexkite.com/app/#/dict/substance",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "stat"
+ },
+ "est": {
+  "words": 40,
+  "seconds": 24.5,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Stat root: substance and circumstance",
+  "keyword": "stat root",
+  "value": "Stat comes from Latin \"stare\" (to stand). Words: substance and circumstance. substance = sub + stance; circumstance = circum + stance.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/substance",
+  "script_words": 32,
+  "platforms": {
+   "youtube": {
+    "title": "Stat root: substance and circumstance",
+    "description": "Stat comes from Latin \"stare\" (to stand). Words: substance and circumstance. substance = sub + stance; circumstance = circum + stance.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/substance\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "stat root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Stat root: substance and circumstance\n\nStat comes from Latin \"stare\" (to stand). Words: substance and circumstance. substance = sub + stance; circumstance = circum + stance.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/substance"
+   },
+   "instagram": {
+    "caption": "Stat root: substance and circumstance\n\nStat comes from Latin \"stare\" (to stand). Words: substance and circumstance. substance = sub + stance; circumstance = circum + stance.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Stat root: substance and circumstance #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Circumstance! Around plus stand. Stat comes from Latin \"stare\" (to stand). Words: substance and circumstance. substance = sub + stance; circumstance = circum + stance. Try the full lesson and quiz here: {link}"
+ }
+}

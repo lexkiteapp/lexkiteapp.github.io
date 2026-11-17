@@ -1,0 +1,173 @@
+{
+ "id": "t2a_roots_mit_3",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Mit! Omit, mission.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Mit is Latin for send.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Omit: against plus send.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Mission: a task you are sent on.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means against plus send?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Omit! Against plus send.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "MIT",
+  "rid": "mit",
+  "say": "send",
+  "src": "mittere",
+  "src_lang": "Latin",
+  "src_mean": "to send",
+  "words": [
+   {
+    "w": "omit",
+    "ipa": "/oʊˈmɪt/",
+    "mean": "leave out",
+    "seg": "o-|mit",
+    "parts": [
+     [
+      "o",
+      "pre"
+     ],
+     [
+      "mit",
+      "root"
+     ]
+    ],
+    "pre": "o",
+    "pm": "against",
+    "pms": "against",
+    "ex": "Do not omit any details from the expense report.",
+    "em": "✂️"
+   },
+   {
+    "w": "mission",
+    "ipa": "/ˈmɪʃn/",
+    "mean": "a task you are sent on",
+    "seg": "miss|-ion",
+    "parts": [
+     [
+      "miss",
+      "root"
+     ],
+     [
+      "ion",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "The mission of the charity is to help children read.",
+    "em": "🚀"
+   }
+  ],
+  "quiz": {
+   "stem": "against plus send",
+   "options": [
+    "mission",
+    "omit"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/omit",
+  "link": "https://lexkite.com/app/#/dict/omit",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "mit"
+ },
+ "est": {
+  "words": 43,
+  "seconds": 26.0,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Mit root: omit and mission",
+  "keyword": "mit root",
+  "value": "Mit comes from Latin \"mittere\" (to send). Words: omit and mission. omit = o + mit.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/omit",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "Mit root: omit and mission",
+    "description": "Mit comes from Latin \"mittere\" (to send). Words: omit and mission. omit = o + mit.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/omit\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "mit root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Mit root: omit and mission\n\nMit comes from Latin \"mittere\" (to send). Words: omit and mission. omit = o + mit.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/omit"
+   },
+   "instagram": {
+    "caption": "Mit root: omit and mission\n\nMit comes from Latin \"mittere\" (to send). Words: omit and mission. omit = o + mit.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Mit root: omit and mission #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Omit! Against plus send. Mit comes from Latin \"mittere\" (to send). Words: omit and mission. omit = o + mit. Try the full lesson and quiz here: {link}"
+ }
+}

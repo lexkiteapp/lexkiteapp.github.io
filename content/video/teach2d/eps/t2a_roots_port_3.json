@@ -1,0 +1,177 @@
+{
+ "id": "t2a_roots_port_3",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Port! Portable, important.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Port is Latin for carry.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Portable: able to be carried.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Important: into plus carry.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means into plus carry?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Important! Into plus carry.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "PORT",
+  "rid": "port",
+  "say": "carry",
+  "src": "portare",
+  "src_lang": "Latin",
+  "src_mean": "to carry",
+  "words": [
+   {
+    "w": "portable",
+    "ipa": "/ˈpɔːrtəbl/",
+    "mean": "able to be carried",
+    "seg": "port|-able",
+    "parts": [
+     [
+      "port",
+      "root"
+     ],
+     [
+      "able",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "The sales team uses portable projectors for client visits.",
+    "em": "💼"
+   },
+   {
+    "w": "important",
+    "ipa": "/ɪmˈpɔːrtənt/",
+    "mean": "carrying weight, so it matters",
+    "seg": "im-|port|-ant",
+    "parts": [
+     [
+      "im",
+      "pre"
+     ],
+     [
+      "port",
+      "root"
+     ],
+     [
+      "ant",
+      "suf"
+     ]
+    ],
+    "pre": "im",
+    "pm": "into",
+    "pms": "into",
+    "ex": "It is important to drink enough water.",
+    "em": "⭐"
+   }
+  ],
+  "quiz": {
+   "stem": "into plus carry",
+   "options": [
+    "portable",
+    "important"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/portable",
+  "link": "https://lexkite.com/app/#/dict/portable",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "port"
+ },
+ "est": {
+  "words": 41,
+  "seconds": 25.0,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Port root: portable and important",
+  "keyword": "port root",
+  "value": "Port comes from Latin \"portare\" (to carry). Words: portable and important. important = im + port.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/portable",
+  "script_words": 33,
+  "platforms": {
+   "youtube": {
+    "title": "Port root: portable and important",
+    "description": "Port comes from Latin \"portare\" (to carry). Words: portable and important. important = im + port.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/portable\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "port root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Port root: portable and important\n\nPort comes from Latin \"portare\" (to carry). Words: portable and important. important = im + port.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/portable"
+   },
+   "instagram": {
+    "caption": "Port root: portable and important\n\nPort comes from Latin \"portare\" (to carry). Words: portable and important. important = im + port.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Port root: portable and important #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Important! Into plus carry. Port comes from Latin \"portare\" (to carry). Words: portable and important. important = im + port. Try the full lesson and quiz here: {link}"
+ }
+}

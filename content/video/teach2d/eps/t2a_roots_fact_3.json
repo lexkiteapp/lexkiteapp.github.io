@@ -1,0 +1,177 @@
+{
+ "id": "t2a_roots_fact_3",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Fact! Infect, efficient.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Fact is Latin for make or do.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Infect: into plus make or do.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Efficient: out plus make or do.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means out plus make or do?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Efficient! Out plus make or do.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "FACT",
+  "rid": "fact",
+  "say": "make or do",
+  "src": "facere",
+  "src_lang": "Latin",
+  "src_mean": "to make, to do",
+  "words": [
+   {
+    "w": "infect",
+    "ipa": "/ɪnˈfekt/",
+    "mean": "make sick, put into",
+    "seg": "in-|fect",
+    "parts": [
+     [
+      "in",
+      "pre"
+     ],
+     [
+      "fect",
+      "root"
+     ]
+    ],
+    "pre": "in",
+    "pm": "into",
+    "pms": "into",
+    "ex": "The virus can infect both people and animals.",
+    "em": ""
+   },
+   {
+    "w": "efficient",
+    "ipa": "/ɪˈfɪʃənt/",
+    "mean": "making well without waste",
+    "seg": "ef-|fic|-ient",
+    "parts": [
+     [
+      "ef",
+      "pre"
+     ],
+     [
+      "fic",
+      "root"
+     ],
+     [
+      "ient",
+      "suf"
+     ]
+    ],
+    "pre": "ef",
+    "pm": "out",
+    "pms": "out",
+    "ex": "Trains are an efficient way to travel between cities.",
+    "em": "⚙️"
+   }
+  ],
+  "quiz": {
+   "stem": "out plus make or do",
+   "options": [
+    "infect",
+    "efficient"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/infect",
+  "link": "https://lexkite.com/app/#/dict/infect",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "fact"
+ },
+ "est": {
+  "words": 50,
+  "seconds": 29.4,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "Fact root: infect and efficient",
+  "keyword": "fact root",
+  "value": "Fact comes from Latin \"facere\" (to make, to do). Words: infect and efficient. infect = in + fect; efficient = ef + fic.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/infect",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Fact root: infect and efficient",
+    "description": "Fact comes from Latin \"facere\" (to make, to do). Words: infect and efficient. infect = in + fect; efficient = ef + fic.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/infect\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "fact root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Fact root: infect and efficient\n\nFact comes from Latin \"facere\" (to make, to do). Words: infect and efficient. infect = in + fect; efficient = ef + fic.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/infect"
+   },
+   "instagram": {
+    "caption": "Fact root: infect and efficient\n\nFact comes from Latin \"facere\" (to make, to do). Words: infect and efficient. infect = in + fect; efficient = ef + fic.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Fact root: infect and efficient #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Efficient! Out plus make or do. Fact comes from Latin \"facere\" (to make, to do). Words: infect and efficient. infect = in + fect; efficient = ef + fic. Try the full lesson and quiz here: {link}"
+ }
+}

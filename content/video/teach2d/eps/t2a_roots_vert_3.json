@@ -1,0 +1,177 @@
+{
+ "id": "t2a_roots_vert_3",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Vert! Advertise, introvert.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Vert is Latin for turn.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Advertise: toward plus turn.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Introvert: inside plus turn.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means inside plus turn?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Introvert! Inside plus turn.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "VERT",
+  "rid": "vert",
+  "say": "turn",
+  "src": "vertere",
+  "src_lang": "Latin",
+  "src_mean": "to turn",
+  "words": [
+   {
+    "w": "advertise",
+    "ipa": "/ˈædvərtaɪz/",
+    "mean": "turn attention toward",
+    "seg": "ad-|vert|-ise",
+    "parts": [
+     [
+      "ad",
+      "pre"
+     ],
+     [
+      "vert",
+      "root"
+     ],
+     [
+      "ise",
+      "suf"
+     ]
+    ],
+    "pre": "ad",
+    "pm": "toward",
+    "pms": "toward",
+    "ex": "The company advertises its products on social media.",
+    "em": "📣"
+   },
+   {
+    "w": "introvert",
+    "ipa": "/ˈɪntroʊvɜːrt/",
+    "mean": "turned inward",
+    "seg": "intro-|vert",
+    "parts": [
+     [
+      "intro",
+      "pre"
+     ],
+     [
+      "vert",
+      "root"
+     ]
+    ],
+    "pre": "intro",
+    "pm": "inside",
+    "pms": "inside",
+    "ex": "As an introvert, I recharge by reading alone in a quiet café.",
+    "em": "🤫"
+   }
+  ],
+  "quiz": {
+   "stem": "inside plus turn",
+   "options": [
+    "advertise",
+    "introvert"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/advertise",
+  "link": "https://lexkite.com/app/#/dict/advertise",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "vert"
+ },
+ "est": {
+  "words": 40,
+  "seconds": 24.5,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Vert root: advertise and introvert",
+  "keyword": "vert root",
+  "value": "Vert comes from Latin \"vertere\" (to turn). Words: advertise and introvert. advertise = ad + vert; introvert = intro + vert.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/advertise",
+  "script_words": 32,
+  "platforms": {
+   "youtube": {
+    "title": "Vert root: advertise and introvert",
+    "description": "Vert comes from Latin \"vertere\" (to turn). Words: advertise and introvert. advertise = ad + vert; introvert = intro + vert.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/advertise\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "vert root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Vert root: advertise and introvert\n\nVert comes from Latin \"vertere\" (to turn). Words: advertise and introvert. advertise = ad + vert; introvert = intro + vert.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/advertise"
+   },
+   "instagram": {
+    "caption": "Vert root: advertise and introvert\n\nVert comes from Latin \"vertere\" (to turn). Words: advertise and introvert. advertise = ad + vert; introvert = intro + vert.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Vert root: advertise and introvert #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? Introvert! Inside plus turn. Vert comes from Latin \"vertere\" (to turn). Words: advertise and introvert. advertise = ad + vert; introvert = intro + vert. More practice like this (free): {link}"
+ }
+}

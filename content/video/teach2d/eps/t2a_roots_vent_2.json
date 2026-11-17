@@ -1,0 +1,207 @@
+{
+ "id": "t2a_roots_vent_2",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, three words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Vent! Adventure, convention, venue.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Vent is Latin for come.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Adventure: toward plus come.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Convention: together plus come.",
+   "pause": 0.3
+  },
+  {
+   "id": "w2",
+   "text": "Venue: a place people come to.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means together plus come?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Convention! Together plus come.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "VENT",
+  "rid": "vent",
+  "say": "come",
+  "src": "venire",
+  "src_lang": "Latin",
+  "src_mean": "to come",
+  "words": [
+   {
+    "w": "adventure",
+    "ipa": "/ædˈventʃər/",
+    "mean": "something about to come",
+    "seg": "ad-|vent|-ure",
+    "parts": [
+     [
+      "ad",
+      "pre"
+     ],
+     [
+      "vent",
+      "root"
+     ],
+     [
+      "ure",
+      "suf"
+     ]
+    ],
+    "pre": "ad",
+    "pm": "toward",
+    "pms": "toward",
+    "ex": "Our trip to the jungle was a real adventure.",
+    "em": "🗺️"
+   },
+   {
+    "w": "convention",
+    "ipa": "/kənˈvenʃn/",
+    "mean": "a coming together",
+    "seg": "con-|vent|-ion",
+    "parts": [
+     [
+      "con",
+      "pre"
+     ],
+     [
+      "vent",
+      "root"
+     ],
+     [
+      "ion",
+      "suf"
+     ]
+    ],
+    "pre": "con",
+    "pm": "together",
+    "pms": "together",
+    "ex": "The city hosts a large book convention every year.",
+    "em": "📜"
+   },
+   {
+    "w": "venue",
+    "ipa": "/ˈvenjuː/",
+    "mean": "a place people come to",
+    "seg": "ven|-ue",
+    "parts": [
+     [
+      "ven",
+      "root"
+     ],
+     [
+      "ue",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "The venue for this year's conference has not yet been announced.",
+    "em": "🏟️"
+   }
+  ],
+  "quiz": {
+   "stem": "together plus come",
+   "options": [
+    "adventure",
+    "convention"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/adventure",
+  "link": "https://lexkite.com/app/#/dict/adventure",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, three words"
+ },
+ "src": {
+  "root": "vent"
+ },
+ "est": {
+  "words": 47,
+  "seconds": 28.3,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Vent root: adventure, convention and venue",
+  "keyword": "vent root",
+  "value": "Vent comes from Latin \"venire\" (to come). Words: adventure, convention and venue. adventure = ad + vent; convention = con + vent.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/adventure",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "Vent root: adventure, convention and venue",
+    "description": "Vent comes from Latin \"venire\" (to come). Words: adventure, convention and venue. adventure = ad + vent; convention = con + vent.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/adventure\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "vent root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Vent root: adventure, convention and venue\n\nVent comes from Latin \"venire\" (to come). Words: adventure, convention and venue. adventure = ad + vent; convention = con + vent.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/adventure"
+   },
+   "instagram": {
+    "caption": "Vent root: adventure, convention and venue\n\nVent comes from Latin \"venire\" (to come). Words: adventure, convention and venue. adventure = ad + vent; convention = con + vent.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Vent root: adventure, convention and venue #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Convention! Together plus come. Vent comes from Latin \"venire\" (to come). Words: adventure, convention and venue. adventure = ad + vent; convention = con + vent. Try the full lesson and quiz here: {link}"
+ }
+}

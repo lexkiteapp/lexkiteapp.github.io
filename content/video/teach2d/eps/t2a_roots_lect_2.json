@@ -1,0 +1,173 @@
+{
+ "id": "t2a_roots_lect_2",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Lect! Lecture, legend.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Lect is Latin for gather or choose.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Lecture: a talk given to a class.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Legend: a story to be read.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means a story to be read?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Legend! It means a story to be read.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "LECT",
+  "rid": "lect",
+  "say": "gather or choose",
+  "src": "legere",
+  "src_lang": "Latin",
+  "src_mean": "to gather, to read, to choose",
+  "words": [
+   {
+    "w": "lecture",
+    "ipa": "/ˈlektʃər/",
+    "mean": "a talk given to a class",
+    "seg": "lect|-ure",
+    "parts": [
+     [
+      "lect",
+      "root"
+     ],
+     [
+      "ure",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "The lecture starts at ten in Room 3.",
+    "em": "🎓"
+   },
+   {
+    "w": "legend",
+    "ipa": "/ˈledʒənd/",
+    "mean": "a story to be read",
+    "seg": "leg|-end",
+    "parts": [
+     [
+      "leg",
+      "root"
+     ],
+     [
+      "end",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "According to legend, a dragon lived in the lake.",
+    "em": ""
+   }
+  ],
+  "quiz": {
+   "stem": "a story to be read",
+   "options": [
+    "lecture",
+    "legend"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/lecture",
+  "link": "https://lexkite.com/app/#/dict/lecture",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "lect"
+ },
+ "est": {
+  "words": 53,
+  "seconds": 30.9,
+  "wpm": 103
+ },
+ "publish": {
+  "title": "Lect root: lecture and legend",
+  "keyword": "lect root",
+  "value": "Lect comes from Latin \"legere\" (to gather, to read, to choose). Words: lecture and legend.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/lecture",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "Lect root: lecture and legend",
+    "description": "Lect comes from Latin \"legere\" (to gather, to read, to choose). Words: lecture and legend.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/lecture\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "lect root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Lect root: lecture and legend\n\nLect comes from Latin \"legere\" (to gather, to read, to choose). Words: lecture and legend.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/lecture"
+   },
+   "instagram": {
+    "caption": "Lect root: lecture and legend\n\nLect comes from Latin \"legere\" (to gather, to read, to choose). Words: lecture and legend.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Lect root: lecture and legend #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Legend! It means a story to be read. Lect comes from Latin \"legere\" (to gather, to read, to choose). Words: lecture and legend. Try the full lesson and quiz here: {link}"
+ }
+}

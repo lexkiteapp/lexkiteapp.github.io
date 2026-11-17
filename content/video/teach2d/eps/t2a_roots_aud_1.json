@@ -1,0 +1,199 @@
+{
+ "id": "t2a_roots_aud_1",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, three words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Aud! Audience, audio, audible.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Aud is Latin for hear.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Audience: people who hear.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Audio: sound you hear.",
+   "pause": 0.3
+  },
+  {
+   "id": "w2",
+   "text": "Audible: able to be heard.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means able to be heard?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Audible! It means able to be heard.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "AUD",
+  "rid": "aud",
+  "say": "hear",
+  "src": "audire",
+  "src_lang": "Latin",
+  "src_mean": "to hear",
+  "words": [
+   {
+    "w": "audience",
+    "ipa": "/ˈɑːdiəns/",
+    "mean": "people who hear",
+    "seg": "aud|-ience",
+    "parts": [
+     [
+      "aud",
+      "root"
+     ],
+     [
+      "ience",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "The audience clapped loudly at the end of the show.",
+    "em": "👏"
+   },
+   {
+    "w": "audio",
+    "ipa": "/ˈɑːdioʊ/",
+    "mean": "sound you hear",
+    "seg": "aud|-io",
+    "parts": [
+     [
+      "aud",
+      "root"
+     ],
+     [
+      "io",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "The museum offers an audio guide in five languages.",
+    "em": ""
+   },
+   {
+    "w": "audible",
+    "ipa": "/ˈɑːdəbl/",
+    "mean": "able to be heard",
+    "seg": "aud|-ible",
+    "parts": [
+     [
+      "aud",
+      "root"
+     ],
+     [
+      "ible",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "The sound wasn't very audible.",
+    "em": ""
+   }
+  ],
+  "quiz": {
+   "stem": "able to be heard",
+   "options": [
+    "audience",
+    "audible"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/audience",
+  "link": "https://lexkite.com/app/#/dict/audience",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, three words"
+ },
+ "src": {
+  "root": "aud"
+ },
+ "est": {
+  "words": 50,
+  "seconds": 29.7,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "Aud root: audience, audio and audible",
+  "keyword": "aud root",
+  "value": "Aud comes from Latin \"audire\" (to hear). Words: audience, audio and audible.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/audience",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "Aud root: audience, audio and audible",
+    "description": "Aud comes from Latin \"audire\" (to hear). Words: audience, audio and audible.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/audience\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "aud root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Aud root: audience, audio and audible\n\nAud comes from Latin \"audire\" (to hear). Words: audience, audio and audible.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/audience"
+   },
+   "instagram": {
+    "caption": "Aud root: audience, audio and audible\n\nAud comes from Latin \"audire\" (to hear). Words: audience, audio and audible.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Aud root: audience, audio and audible #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Audible! It means able to be heard. Aud comes from Latin \"audire\" (to hear). Words: audience, audio and audible. Try the full lesson and quiz here: {link}"
+ }
+}

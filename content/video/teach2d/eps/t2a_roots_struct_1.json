@@ -1,0 +1,199 @@
+{
+ "id": "t2a_roots_struct_1",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, three words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Struct! Construct, instruct, structure.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Struct is Latin for build.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Construct: together plus build.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Instruct: into plus build.",
+   "pause": 0.3
+  },
+  {
+   "id": "w2",
+   "text": "Structure: a thing that is put together.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means into plus build?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Instruct! Into plus build.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "STRUCT",
+  "rid": "struct",
+  "say": "build",
+  "src": "struere",
+  "src_lang": "Latin",
+  "src_mean": "to build",
+  "words": [
+   {
+    "w": "construct",
+    "ipa": "/kənˈstrʌkt/",
+    "mean": "build together",
+    "seg": "con-|struct",
+    "parts": [
+     [
+      "con",
+      "pre"
+     ],
+     [
+      "struct",
+      "root"
+     ]
+    ],
+    "pre": "con",
+    "pm": "together",
+    "pms": "together",
+    "ex": "The bridge was constructed in only two years.",
+    "em": "🏗️"
+   },
+   {
+    "w": "instruct",
+    "ipa": "/ɪnˈstrʌkt/",
+    "mean": "build knowledge in someone",
+    "seg": "in-|struct",
+    "parts": [
+     [
+      "in",
+      "pre"
+     ],
+     [
+      "struct",
+      "root"
+     ]
+    ],
+    "pre": "in",
+    "pm": "into",
+    "pms": "into",
+    "ex": "Participants were instructed to keep a daily diary.",
+    "em": "📋"
+   },
+   {
+    "w": "structure",
+    "ipa": "/ˈstrʌktʃər/",
+    "mean": "a thing that is put together",
+    "seg": "struct|-ure",
+    "parts": [
+     [
+      "struct",
+      "root"
+     ],
+     [
+      "ure",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "The essay has a clear structure.",
+    "em": "🏗️"
+   }
+  ],
+  "quiz": {
+   "stem": "into plus build",
+   "options": [
+    "construct",
+    "instruct"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/construct",
+  "link": "https://lexkite.com/app/#/dict/construct",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, three words"
+ },
+ "src": {
+  "root": "struct"
+ },
+ "est": {
+  "words": 48,
+  "seconds": 28.8,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Struct root: construct, instruct and structure",
+  "keyword": "struct root",
+  "value": "Struct comes from Latin \"struere\" (to build). Words: construct, instruct and structure. construct = con + struct; instruct = in + struct.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/construct",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Struct root: construct, instruct and structure",
+    "description": "Struct comes from Latin \"struere\" (to build). Words: construct, instruct and structure. construct = con + struct; instruct = in + struct.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/construct\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "struct root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Struct root: construct, instruct and structure\n\nStruct comes from Latin \"struere\" (to build). Words: construct, instruct and structure. construct = con + struct; instruct = in + struct.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/construct"
+   },
+   "instagram": {
+    "caption": "Struct root: construct, instruct and structure\n\nStruct comes from Latin \"struere\" (to build). Words: construct, instruct and structure. construct = con + struct; instruct = in + struct.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Struct root: construct, instruct and structure #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Instruct! Into plus build. Struct comes from Latin \"struere\" (to build). Words: construct, instruct and structure. construct = con + struct; instruct = in + struct. Try the full lesson and quiz here: {link}"
+ }
+}
