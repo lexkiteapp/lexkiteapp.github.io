@@ -106,6 +106,12 @@ qualityScore: 94
 
 {{youtube: | Khittat dirasat IELTS dhatiyyan min al sifr ila 6 5}}
 
+ولكي تحدد هدفك قبل البدء، افهم أولاً [كيف تحسب درجة الآيلتس](/ar/blog/kayfa-tuhsab-daraja-al-ielts-band-score/)، ثم تعرّف على [أنواع أسئلة القراءة في الآيلتس](/ar/blog/anwa-asilat-al-qiraa-fi-al-ielts-reading/) لتوزع أسابيعك بحكمة.
+
+وإذا كان هدفك من الآيلتس تأشيرة بريطانية فاقرأ أولاً [اختبار IELTS UKVI: من يحتاجه وكيف تحجزه](/ar/blog/ikhtibar-ielts-ukvi-man-yahtajuhu-wa-kayfa-tahjiz/) قبل أن تثبّت موعد الاختبار.
+
+وإن كان موعد اختبارك محددًا فاختر خطتك بحسب الأسابيع المتبقية من [جدول مذاكرة ielts لمدة 4 و8 و12 أسبوعًا](/ar/blog/jadwal-mudhakara-ielts-4-8-12-usbua/)، وإن كان هدفك الهجرة فاقرأ [ielts للهجرة](/ar/blog/ielts-lil-hijra-ay-ikhtibar-wa-kam-darajah/) لتعرف النسخة والدرجة المطلوبتين.
+
 ## الأسئلة الشائعة (FAQ)
 
 ### كم شهراً أحتاج للوصول إلى درجة 6.5 إذا كان مستواي متوسطاً؟
