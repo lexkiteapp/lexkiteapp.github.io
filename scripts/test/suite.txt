@@ -451,3 +451,4 @@ node scripts/test/ai-task.mjs
 node scripts/test/video-junk.mjs
 node scripts/test/dict-add.mjs
 node scripts/test/ci-portable.mjs
+node scripts/test/sr-only.mjs
