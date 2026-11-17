@@ -55,7 +55,7 @@ jobs:
         continue-on-error: true   # lỗi hạ tầng → thiếu kết quả của PR này (báo 'không đo được'), không làm đỏ PR cổng
         env: { GATE_SHA: '${{ github.event.pull_request.head.sha }}' }
         run: |
-          git fetch --no-tags --depth=1 origin "$GATE_SHA"
+          git fetch --no-tags origin "$GATE_SHA"
           git show FETCH_HEAD:scripts/ci/gate-impact.mjs > "$RUNNER_TEMP/gate-impact.mjs"
           node "$RUNNER_TEMP/gate-impact.mjs" run --pr ${{ matrix.pr }} --sha ${{ matrix.sha }} --gate ${{ github.event.pull_request.head.sha }} --files-file gate-impact-files.txt --cmds-file gate-impact-cmds.txt --out result-${{ matrix.pr }}.json
       - if: always()
