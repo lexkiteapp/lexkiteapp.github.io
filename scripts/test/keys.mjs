@@ -28,7 +28,7 @@ const tok = async (email, extra = {}) => { const h = b64u(JSON.stringify({ alg: 
 
 // ---------- Khóa giả (KHÔNG BAO GIỜ được xuất hiện trong phản hồi) ----------
 const G1 = 'AIzaSyA_TEST_gemini_key_number_one_1111', G2 = 'AIzaSyB_TEST_gemini_key_number_two_2222', G3 = 'AIzaSyC_TEST_gemini_key_number_three_33';
-const GROQ = 'gsk_TESTgroqKey0123456789abcdefXYZ', RESEND = 're_TEST_resend_key_abcdef123456', BREVO = 'xkeysib-' + 'a1'.repeat(32) + '-TESTbrevo99', OR = 'sk-or-v1-' + 'ab12'.repeat(12);
+const GROQ = 'gsk_TESTgroqKey0123456789abcdefXYZ', RESEND = 're_TEST_resend_key_abcdef12Qz9'   // 17/11: last4 có chữ ngoài hex – id khoá ngẫu nhiên (k_ + 12 hex) không thể chứa nó nên 'list tìm theo last4' hết chập chờn (trước: '3456' trùng id ngẫu nhiên ~1/700 lượt), BREVO = 'xkeysib-' + 'a1'.repeat(32) + '-TESTbrevo99', OR = 'sk-or-v1-' + 'ab12'.repeat(12);
 const ENVG = 'AIzaSyENV_gemini_env_secret_key_000000', LEGACY = 'AIzaSyLEGACY_old_config_list_key_99999', CFTOK = 'cfTESTtoken_abcdefghijklmnopqrstuvwxyz0123';
 const ENCK = Buffer.alloc(32, 5).toString('base64');
 const SECRETS = [G1, G2, G3, GROQ, RESEND, BREVO, OR, ENVG, LEGACY, CFTOK, ENCK];
