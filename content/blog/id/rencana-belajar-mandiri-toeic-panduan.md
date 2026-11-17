@@ -160,6 +160,12 @@ Semua part dan ujian lengkap ada di [halaman latihan TOEIC](/#/toeic). Untuk mel
 
 {{cta: /#/toeic | Coba simulasi TOEIC dan lihat perkiraan skor 10 sampai 990}}
 
+Bagian Listening paling pendek, Part 1, dibahas khusus di [tips TOEIC Part 1 photographs](/id/blog/tips-toeic-part-1-photographs/).
+
+Kalau kamu ingin melihat rincian ketujuh part lebih dulu, baca [format tes TOEIC](/id/blog/format-tes-toeic-listening-reading/).
+
+Setelah Part 2, lanjutkan ke bagian yang jumlah soalnya paling besar lewat [strategi TOEIC Listening Part 3 dan 4](/id/blog/strategi-toeic-listening-part-3-dan-4/).
+
 ## Pertanyaan umum tentang belajar mandiri TOEIC
 
 ### Berapa bulan untuk naik dari 500 ke 750?

@@ -14,6 +14,7 @@ import { driveApi, driveUpload } from './library.mjs';
 import { fetchFromDrive } from './drive-fetch.mjs';
 import { ytApi, metaFor } from './yt-upload.mjs';
 import { readJSON } from '../lib/video-web.mjs';
+import { withInstall } from '../../functions/api/_install_links.js';
 import { pathToFileURL } from 'node:url';
 
 export const SETTINGS = [
@@ -37,6 +38,7 @@ export function packTexts(clip, meta = {}) {
   const title = clean(meta.title, 100).replace(/\s+/g, ' ') || 'English in 30 seconds';
   let desc = clean(meta.description, 4700).replace(/(^|\n)lk:[a-z0-9-]+\s*$/gm, '').trim();
   if (!/https:\/\/lexkite\.com\//.test(desc)) desc += `\n\nPractice it free: ${meta.url || 'https://lexkite.com/'}`;
+  desc = withInstall(desc, 'youtube', clip, 4800);
   if (!/#shorts\b/i.test(desc)) desc += '\n#shorts';
   desc += `\n\nlk:${clip}`;
   let total = 0;

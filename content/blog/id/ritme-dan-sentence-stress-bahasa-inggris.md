@@ -161,6 +161,8 @@ Luangkan lima menit setiap hari untuk mempraktikkan alur bicara alami:
 
 ---
 
+Tekanan pada tingkat kata dibahas di [word stress bahasa Inggris](/id/blog/word-stress-bahasa-inggris-aturan-tekanan-kata/).
+
 ## Tingkatkan Keterampilan Bicara Bahasa Inggris Bersama Lexkite
 
 Membiasakan ritme bicara baru membutuhkan alat bantu interaktif yang mampu memberi umpan balik objektif:

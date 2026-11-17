@@ -9,7 +9,7 @@ tags: [active-recall, vocabulary, memory, flashcards]
 keyword: "액티브 리콜 영어 단어"
 cover: practice-test
 coverAlt: "Lexkite 객관식 테스트: run out of의 올바른 뜻 고르기"
-publishAt:
+publishAt: 2026-12-26T08:27:00+09:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

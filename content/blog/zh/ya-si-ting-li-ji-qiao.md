@@ -88,6 +88,12 @@ Section 2通常为公共广播、旅游导览或活动策划的独白，其中**
 
 {{cta: /#/listening | 开始雅思听力强化训练}}
 
+想按题型逐个击破，可以接着读[雅思听力题型详解](/zh/blog/ya-si-ting-li-ti-xing-xiang-jie/)，里面对填空、选择、匹配和地图题各有一套方法。
+
+听力答对题数如何换算成小分、再如何并入总分，在[雅思总分怎么算](/zh/blog/ya-si-zong-fen-zen-me-suan/)里有清楚的说明。
+
+如果你是为移民申请备考，先确认版本和分数要求，再回来练听力，详见[移民雅思考什么](/zh/blog/ya-si-yi-min-kao-shi-xuan-ze-ya-si-g-lei-a-lei-yao-qiu/)。
+
 ## 常见问题
 
 ### 雅思听力答案全部大写可以吗？

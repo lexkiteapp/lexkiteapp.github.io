@@ -194,6 +194,8 @@ Mendengar suara sendiri sering bias, karena kita cenderung menganggap ucapan kit
 
 {{youtube: | Cara latihan pelafalan bahasa Inggris mandiri 15 menit sehari}}
 
+Latih tekanan kata dengan aturan di [word stress bahasa Inggris](/id/blog/word-stress-bahasa-inggris-aturan-tekanan-kata/).
+
 ## Pertanyaan yang sering diajukan (FAQ)
 
 ### Apakah saya harus menghilangkan aksen daerah saya sepenuhnya?

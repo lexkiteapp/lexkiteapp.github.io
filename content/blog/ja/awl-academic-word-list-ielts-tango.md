@@ -9,7 +9,7 @@ tags: [awl, ielts, academic-vocabulary, toefl]
 keyword: "awl 単語 ielts"
 cover: library
 coverAlt: "Lexkiteの単語ライブラリ。すべて・NGSL基礎語彙・IELTSトピック・ライティング・スピーキング・TOEICのタブ"
-publishAt:
+publishAt: 2027-01-08T09:37:00+09:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

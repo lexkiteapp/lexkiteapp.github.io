@@ -189,6 +189,8 @@ Yalnızca 20 dakikanız varsa kelime tekrarını ve dinleme–okumayı koruyun. 
 
 {{cta: /#/placement | 5 dakikalık seviye tespit sınavını çözün}}
 
+Kelime çalışmanızı kendini sınama ile güçlendirmek için [active recall nedir](/tr/blog/active-recall-nedir-kelime-ezberleme-yontemi/) rehberine bakın.
+
 ## Sıkça sorulan sorular
 
 ### Sıfırdan başlayan biri ne kadar sürede konuşabilir?

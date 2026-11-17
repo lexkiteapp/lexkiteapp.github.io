@@ -9,7 +9,7 @@ tags: [ielts, speaking, band-7, sample-answers]
 keyword: "ielts speaking band 7"
 cover: speaking
 coverAlt: "LexkiteのスピーキングルームでIELTSのPart 1・2・3を選べる画面"
-publishAt:
+publishAt: 2027-01-21T12:41:00+09:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
