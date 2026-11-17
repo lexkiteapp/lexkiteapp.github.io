@@ -60,9 +60,16 @@
     const s = document.createElement('section'); s.className = 'tlp-card'; s.setAttribute('aria-label', tr('Khóa học khác'));
     s.innerHTML = `<h3>${esc(tr('Khóa học khác'))}</h3><ul>${others.map(c => `<li><button type="button" class="tlp-open" data-tl="${c.id}">${flag(c.id)}<span class="tlp-body"><span class="tlp-name" translate="no" lang="${c.id}">${esc(T().table(c.id).name)}</span><span class="tlp-sub">${esc(c.on ? SUB()[c.id] : tr('Sắp ra mắt'))}</span></span><svg class="i i-dir" aria-hidden="true"><use href="#i-chevron-right"/></svg></button></li>`).join('')}</ul>`;
     s.querySelectorAll('.tlp-open').forEach(b => b.onclick = open);
-    const m = root.querySelector('main') || root; m.appendChild(s); }
+    const m = root.querySelector('main') || root; m.appendChild(s); return s; }
   // người đã bấm "Báo tôi khi có" → một dòng thông báo nhẹ, đúng 1 lần, khi khóa bật (không popup)
   function announce() { if (!show()) return; const a = list(AKEY), on = T().avail(); list(NKEY).filter(id => on.includes(id) && !a.includes(id)).slice(0, 1).forEach(id => { a.push(id); ls(AKEY, JSON.stringify(a)); if (g.UI && UI.toast) UI.toast(tr('Khóa mới đã có: {name}', { name: T().table(id).name })); }); }
-  function boot() { top(); announce(); if (!boot.w) { boot.w = 1; addEventListener('lk:tl', paint); } }
+  // Trang của ngôn ngữ đích (vd. #/practice/esd): nhãn Target.chip() = nút cờ mở bảng chọn (một chỗ đổi về English ngay tại trang; chưa tải xong thì liên kết Cài đặt như cũ)
+  const onChip = e => { const a = e.target.closest && e.target.closest('a.tl-chip[href]'); if (a) { e.preventDefault(); open(); } };
+  // Explore (Khóa học / Kỹ năng): thẻ "Khóa học khác" ở cuối trang, chờ trang vẽ xong (tối đa 3 s)
+  const EXPLORE = /^(courses|course|skills)$/;
+  function explore(name) { if (!EXPLORE.test(name || '')) return; const v = document.getElementById('view'); if (!v) return; const go = () => { if (v.querySelector('.tlp-card') || !v.firstElementChild) return !!v.querySelector('.tlp-card'); card(v); return true; };
+    if (go()) return; const mo = new MutationObserver(() => { if (go()) mo.disconnect(); }); mo.observe(v, { childList: true }); setTimeout(() => mo.disconnect(), 3000); }
+  function boot() { top(); announce(); if (!boot.w) { boot.w = 1; addEventListener('lk:tl', paint); document.addEventListener('click', onChip);
+    const A = g.App; if (A) { const prev = A.afterRoute; A.afterRoute = name => { if (prev) prev(name); try { explore(name); } catch (e) { /* bỏ qua */ } }; explore((location.hash.match(/^#\/?([a-z-]+)/) || [])[1]); } } }
   g.TLPick = { open, head, card, boot, top, paint, courses, notify, choose };
 })(typeof self !== 'undefined' ? self : this);

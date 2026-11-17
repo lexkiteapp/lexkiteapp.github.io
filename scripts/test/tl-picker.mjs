@@ -6,7 +6,7 @@ import fs from 'node:fs'; import { JSDOM } from 'jsdom';
 let n = 0, fails = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log('✗', m); } };
 const rd = f => fs.readFileSync(f, 'utf8');
 function mk(cfg = {}, lsInit = {}) {
-  const dom = new JSDOM('<!doctype html><body><div class="top-stats"><button id="examChip"></button></div><div id="modal" hidden><div id="modalBox"></div></div><div id="root"><div><button data-act="lang"></button></div></div></body>', { url: 'https://lexkite.test/app/#/home', runScripts: 'outside-only' });
+  const dom = new JSDOM('<!doctype html><body><div class="top-stats"><button id="examChip"></button></div><div id="modal" hidden><div id="modalBox"></div></div><main id="view"><a class="chip tl-chip" href="#/settings" data-tl="es">x</a><p>c</p></main><div id="root"><div><button data-act="lang"></button></div></div></body>', { url: 'https://lexkite.test/app/#/home', runScripts: 'outside-only' });
   const w = dom.window; w.self = w; w.localStorage.setItem('lk.cfg', JSON.stringify({ v: cfg }));
   Object.entries(lsInit).forEach(([k, v]) => w.localStorage.setItem(k, v));
   const toasts = []; w.t = (k, v) => String(k).replace(/\{(\w+)\}/g, (_, x) => (v && v[x] != null ? v[x] : '{' + x + '}'));
@@ -44,6 +44,11 @@ const tick = () => new Promise(r => setTimeout(r, 20));
   w.TLPick.head(d.getElementById('root')); ok(d.querySelectorAll('#root [data-act="tl"]').length === 1, 'điện thoại: 1 nút cờ'); w.TLPick.head(d.getElementById('root')); ok(d.querySelectorAll('#root [data-act="tl"]').length === 1, 'không nhân đôi nút');
   w.Target.set('es'); w.TLPick.paint(); ok(/Español/.test(b.getAttribute('aria-label')) && b.textContent.includes('🇪🇸'), 'nút cờ đổi theo ngôn ngữ đang học');
   w.TLPick.card(d.getElementById('root')); ok(/Khóa học khác/.test(d.querySelector('.tlp-card').textContent) && d.querySelectorAll('.tlp-open').length === 2, 'thẻ Khóa học khác: en + fr(sắp)'); }
+// 4b) chip trang ngôn ngữ đích mở bảng chọn; Explore có thẻ Khóa học khác
+{ const { w, d } = mk({ es_course: true }); w.App = {}; w.TLPick.boot(); d.querySelector('a.tl-chip').click(); await tick();
+  ok(!d.getElementById('modal').hidden && d.querySelector('.tlp-sheet'), 'bấm chip ngôn ngữ → mở bảng chọn (không rời trang)');
+  w.App.afterRoute('courses'); ok(d.querySelectorAll('#view .tlp-card').length === 1, 'Explore (courses): thẻ Khóa học khác'); w.App.afterRoute('courses'); ok(d.querySelectorAll('#view .tlp-card').length === 1, 'không nhân đôi thẻ');
+  d.querySelector('.tlp-card').remove(); w.App.afterRoute('review'); ok(!d.querySelector('.tlp-card'), 'trang khác: không thẻ'); }
 // 5) thông báo nhẹ đúng 1 lần khi fr bật và người dùng đã bấm "Báo tôi"
 { const { w, toasts } = mk({}, { 'lk.tlnotify': '["fr"]' }); w.TLPick.boot(); ok(toasts.length === 0, 'fr còn tắt → im lặng');
   w.localStorage.setItem('lk.fr', '1'); w.TLPick.boot(); ok(toasts.length === 1 && /Français/.test(toasts[0]), 'fr bật → 1 dòng báo'); w.TLPick.boot(); ok(toasts.length === 1, 'không báo lại'); }

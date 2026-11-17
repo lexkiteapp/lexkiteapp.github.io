@@ -19,3 +19,4 @@ button.tlp-row{cursor:pointer}button.tlp-row:active{transform:translateY(1px);bo
 .tlp-card{margin:1rem 0}.tlp-card h3{margin:0 0 .5rem;font-size:var(--fs-md);color:var(--heading)}
 .tlp-open{display:flex;align-items:center;gap:.75rem;width:100%;min-height:56px;padding:.5rem .85rem;background:var(--surface);color:var(--text);border:1px solid var(--line);border-radius:var(--r-card,18px);font:inherit;text-align:start;cursor:pointer}
 @media (prefers-reduced-motion:reduce){button.tlp-row{transition:none}}
+a.tl-chip[href]{display:inline-flex;align-items:center;gap:.35rem;min-height:44px;padding-inline:.8rem;cursor:pointer}a.tl-chip[href]::after{content:"▾";font-size:.8rem;opacity:.8}
