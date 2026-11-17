@@ -13,11 +13,11 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `scripts/` (1484 file): Công cụ build/gen/ops (mjs); scripts/test = chuỗi `npm test`; thư mục con theo mảng (video, lexicon, dict, ops, jobs, ci, social, seo…)
 - `.github/workflows/` (225 file): CI/CD + việc nền theo lịch (xem mục Workflows)
 - `infra/` (12 file): Sổ hạ tầng JSON: resources, jobs (nguồn của docs/JOBS.md), media-repos, schema.lock
-- `brand/` (1908 file): tokens.json (màu), logo, stitch/ (ref + DTCG), library/ (kho cảnh/clip video)
+- `brand/` (1913 file): tokens.json (màu), logo, stitch/ (ref + DTCG), library/ (kho cảnh/clip video)
 - `content/` (5573 file): Nội dung nguồn: blog, authority, dict, confidence, explain, brand (dữ liệu lớn – bỏ khỏi map)
 - `mobile/` (216 file): Capacitor iOS/Android (ios/ android/ bỏ khỏi map)
 - `store/` (46 file): Hồ sơ listing Chrome/Edge/Apple/Play
-- `docs/` (249 file): Luật + tài liệu chủ đề (docs/README.md → INDEX.md); lịch sử ở docs/archive
+- `docs/` (250 file): Luật + tài liệu chủ đề (docs/README.md → INDEX.md); lịch sử ở docs/archive
 - API `/api/*` (49): account,admin,admin-accounts,admin-clips,admin-prefs,admin-shared,admin-shorts,ads-report,ads-reward,ai,aiearn,backlinks,capacity,class,community,config,contact,cron-kick,dictlookup,distribution,drive,duel,funnel-digest,growth…
 - Thư mục con (số file; js/=web/js, s/=scripts): js/i18n:730 s/test:618 s/video:124 s/stitch:92 s/lib:65 js/vimg:64 s/cine:54 js/st:42 s/ci:41 s/lexicon:38 s/vocab-img:33 s/native:30 js/notes:27 js/readtest:21 js/lib:20 s/pron:19 s/target:17 s/lesson:15 js/get-app:15 js/irv:15 js/toeic:15 js/call:14 s/ops:13 s/word-audio:13 s/lipsync:12
 
