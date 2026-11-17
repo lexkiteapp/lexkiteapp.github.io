@@ -3,6 +3,7 @@
 // node scripts/test/profile-route.mjs http://localhost:8080 path [lần=2]
 // TAP=1: thêm hồ sơ TƯƠNG TÁC (INP) – chạm đáp án quiz như mobile-qa (CPU 4×), in Event Timing (trễ/xử lý/vẽ) + việc tự thân trong từng lượt chạm.
 import { chromium } from 'playwright';
+import { rateFor } from './lib/perf-calibrate.mjs';
 const BASE = process.argv[2] || 'http://localhost:8080', ROUTE = process.argv[3] || 'path', N = +process.argv[4] || 1;
 const UA = 'Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36';
 const short = u => (u || '').replace(/^https?:\/\/[^/]+\//, '');
@@ -10,7 +11,7 @@ const browser = await chromium.launch();
 for (let run = 0; run < N; run++) {
   const ctx = await browser.newContext({ viewport: { width: 412, height: 823 }, deviceScaleFactor: 1.75, isMobile: true, hasTouch: true, userAgent: UA });
   const page = await ctx.newPage(), cdp = await ctx.newCDPSession(page);
-  await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
+  await cdp.send('Emulation.setCPUThrottlingRate', { rate: (await rateFor(browser, 4)).rate });
   // Mạng như Lighthouse mobile (4G chậm: RTT 150 ms, 1,6 Mbps) → script về rải rác, thứ tự task giống lúc đo thật
   await cdp.send('Network.enable'); await cdp.send('Network.emulateNetworkConditions', { offline: false, latency: 150, downloadThroughput: 1.6e6 / 8 * 0.9, uploadThroughput: 750e3 / 8 * 0.9 });
   await cdp.send('Profiler.enable'); await cdp.send('Profiler.setSamplingInterval', { interval: 200 }); await cdp.send('Profiler.start');
@@ -50,7 +51,7 @@ for (let run = 0; run < N; run++) {
 {
   const ctx = await browser.newContext({ viewport: { width: 412, height: 823 }, deviceScaleFactor: 1.75, isMobile: true, hasTouch: true, userAgent: UA });
   const page = await ctx.newPage(), cdp = await ctx.newCDPSession(page);
-  await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
+  await cdp.send('Emulation.setCPUThrottlingRate', { rate: (await rateFor(browser, 4)).rate });
   await cdp.send('Network.enable'); await cdp.send('Network.emulateNetworkConditions', { offline: false, latency: 150, downloadThroughput: 1.6e6 / 8 * 0.9, uploadThroughput: 750e3 / 8 * 0.9 });
   const ev = []; cdp.on('Tracing.dataCollected', d => ev.push(...d.value));
   const done = new Promise(r => cdp.once('Tracing.tracingComplete', r));
@@ -82,7 +83,7 @@ if (process.env.TAP) {
   await page.addInitScript(() => { window.__et = []; new PerformanceObserver(l => { for (const e of l.getEntries()) if (e.interactionId) window.__et.push([e.name, Math.round(e.startTime), Math.round(e.processingStart - e.startTime), Math.round(e.processingEnd - e.processingStart), Math.round(e.startTime + e.duration - e.processingEnd), Math.round(e.duration), (e.target && e.target.className) || '']); }).observe({ type: 'event', durationThreshold: 16, buffered: true }); });
   await page.goto(`${BASE}/app/?sandbox=1&hl=en#/home`, { waitUntil: 'load' }); await page.waitForTimeout(4000);
   await page.evaluate(h => { location.hash = h; }, '#/' + ROUTE); await page.waitForTimeout(3000);
-  await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
+  await cdp.send('Emulation.setCPUThrottlingRate', { rate: (await rateFor(browser, 4)).rate });
   const ev = []; cdp.on('Tracing.dataCollected', d => ev.push(...d.value));
   const done = new Promise(r => cdp.once('Tracing.tracingComplete', r));
   await cdp.send('Tracing.start', { categories: 'devtools.timeline,disabled-by-default-devtools.timeline,v8.execute,toplevel,blink.user_timing', transferMode: 'ReportEvents' });
