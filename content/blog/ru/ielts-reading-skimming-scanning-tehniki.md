@@ -137,6 +137,8 @@ quiz: [
 
 Чтобы уложиться во время, разберите [тайм-менеджмент в IELTS Reading: стратегию на 60 минут](/ru/blog/taym-menedzhment-v-ielts-reading-strategiya-60-minut/).
 
+Как применять эти приёмы к разным форматам вопросов, показано в материале про [типы заданий IELTS Reading](/ru/blog/tipy-zadaniy-ielts-reading-strategii/).
+
 ## Часто Задаваемые Вопросы (FAQ)
 
 ### Q1. Стоит ли читать вопросы до текста или текст до вопросов?

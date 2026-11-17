@@ -141,6 +141,10 @@ Variasikan kalimat aktif dan pasif agar grammar-mu terlihat beragam; aturannya a
 
 {{youtube: | Ide video: langkah menyusun outline esai IELTS Task 2 dalam 5 menit pertama}}
 
+Kalau soalmu bertipe setuju atau tidak setuju, lanjutkan dengan [esai opini IELTS: cara setuju atau tidak setuju dengan jelas](/id/blog/esai-opini-ielts-setuju-atau-tidak-setuju/) yang memuat contoh esai lengkap dengan catatannya.
+
+Untuk memahami bagaimana skor akhirmu terbentuk, baca juga [cara menghitung skor IELTS dan band score](/id/blog/cara-menghitung-skor-ielts-band-score/). Kesalahan yang berulang di esai bisa dipetakan per kriteria penilaian di [kesalahan IELTS Writing yang sering terjadi](/id/blog/kesalahan-ielts-writing-yang-sering-terjadi/).
+
 ## Pertanyaan yang Sering Diajukan
 
 ### Apakah boleh menulis esai IELTS Task 2 dengan 5 paragraf?
