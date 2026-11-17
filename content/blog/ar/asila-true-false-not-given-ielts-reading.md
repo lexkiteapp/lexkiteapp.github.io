@@ -97,6 +97,8 @@ qualityScore: 94
 2. **مراجعة الأخطاء في السجل الذكي:** راجع إجاباتك غير الصحيحة المحفوظة تلقائياً في [سجل الأخطاء](/#/mistakes)، لتحديد ما إذا كان سبب الخطأ قصوراً في المفردات أم تسرعاً في الاستنتاج.
 3. **تطوير مهارات الفهم اللغوي:** ادمج تدريبك مع دراسة [al mutalazimat al lafziyyah ielts collocations](/ar/blog/al-mutalazimat-al-lafziyyah-ielts-collocations/) وتعرف على استراتيجيات حفظ الكلمات في [hifz al kalimat al injliziya](/ar/blog/hifz-al-kalimat-al-injliziya/). كما يمكنك الاستفادة من مراجعة الروابط اللغوية في [adawat al rabt fi al injliziyyah linking words](/ar/blog/adawat-al-rabt-fi-al-injliziyyah-linking-words/) وشروحات القواعد المتنوعة في قسمنا المخصص [/ngu-phap/](/ngu-phap/). ولإتقان تراكيب الجمل المتقدمة، طالع أيضاً مقالنا حول [al jumal al muaqqadah complex sentences ielts writing](/ar/blog/al-jumal-al-muaqqadah-complex-sentences-ielts-writing/).
 
+وللنظرة الشاملة على بقية المهام، راجع [أنواع أسئلة القراءة في الآيلتس](/ar/blog/anwa-asilat-al-qiraa-fi-al-ielts-reading/) وطريقة كل نوع.
+
 ## أسئلة شائعة (FAQ)
 
 ### ما الفرق بين True/False/Not Given و Yes/No/Not Given؟

@@ -1,3 +1,4 @@
+# ci-policy: no-gen – chỉ thăm dò giấy phép từ điển (luật 18)
 # ĐO THỬ nguồn vi GPL (11/11 – chủ duyệt nguyên văn "Đo thử, không vào app").
 # Nguồn: từ điển Anh–Việt Hồ Ngọc Đức (OVDP, StarDict AnhViet.zip) – GIẤY PHÉP GPL.
 # PHẠM VI: chỉ tải TRONG job vào $RUNNER_TEMP, xoá cuối job; KHÔNG commit, KHÔNG artifact, KHÔNG đưa chữ nào vào app/kho/dữ liệu xuất.
