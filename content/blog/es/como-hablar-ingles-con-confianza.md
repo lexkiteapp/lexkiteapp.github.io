@@ -17,7 +17,7 @@ shots: [
 diagrams: [
   {id: d1, type: compare, title: 'Mejor di esto', cols: ["Rígido o torpe", "Natural"], rows: [["I want a latte.", "Can I get a latte, please?"], ["No, I don't need help.", "I'm just looking, thanks."], ["Can we be friends?", "We should grab a coffee sometime."], ["You are wrong.", "That's a fair point. However..."]]}
 ]
-publishAt:
+publishAt: 2026-12-30T09:01:00-06:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

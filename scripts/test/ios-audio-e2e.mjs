@@ -42,7 +42,7 @@ const check = (c, msg) => { if (c) { passes++; console.log('  ✓ ' + msg); } el
 const URL0 = '/app/?sandbox=1&hl=vi';
 
 async function open(browser, opts, flags = {}) {
-  const ctx = await browser.newContext({ ...opts, locale: 'vi-VN', serviceWorkers: 'block', reducedMotion: 'reduce' });
+  const ctx = await browser.newContext({ bypassCSP: true, ...opts, locale: 'vi-VN', serviceWorkers: 'block', reducedMotion: 'reduce' });
   await serve(ctx, ROOT);
   // đăng ký SAU → ưu tiên: file âm thanh (mọi host) → WAV; host ngoài đã bị serve() chặn
   await ctx.route(/\.(mp3|wav)(\?|$)/, r => r.fulfill({ contentType: 'audio/wav', body: WAV, headers: { 'access-control-allow-origin': '*' } }));

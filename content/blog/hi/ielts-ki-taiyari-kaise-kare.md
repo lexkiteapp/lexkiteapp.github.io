@@ -92,6 +92,16 @@ Speaking के कठिन हिस्से की तैयारी के
 
 {{cta: /#/path | IELTS स्टडी पाथ शुरू करें}}
 
+अगर आप UK वीज़ा के लिए परीक्षा दे रहे हैं, तो पहले [IELTS UKVI क्या है](/hi/blog/ielts-ukvi-kya-hai/) पढ़कर जान लीजिए कि आपको कौन-सा संस्करण बुक करना है।
+
+IELTS के साथ-साथ ऊपरी-मध्यम स्तर की प्रमाणपत्र-परीक्षा पर विचार हो, तो [Cambridge B2 First exam pattern](/hi/blog/cambridge-b2-first-exam-pattern-hindi/) का प्रारूप देखिए।
+
+Listening में हर प्रश्न प्रकार की तैयारी के लिए [IELTS Listening Question Types in Hindi](/hi/blog/ielts-listening-question-types-in-hindi/) पढ़ें।
+
+टारगेट तय करने से पहले यह देख लीजिए कि चारों स्किल का औसत और राउंडिंग कैसे चलती है; यह गणित [IELTS band score कैसे निकालें](/hi/blog/ielts-band-score-kaise-nikale/) में उदाहरणों के साथ है।
+
+कम समय बचा हो तो [IELTS Study Plan in Hindi](/hi/blog/ielts-study-plan-4-8-12-hafte-hindi/) में 4, 8 और 12 हफ्ते के अलग शेड्यूल दिए हैं।
+
 ## अक्सर पूछे जाने वाले सवाल
 
 ### क्या घर बैठे सेल्फ-स्टडी से 7.5 बैंड लाना संभव है?

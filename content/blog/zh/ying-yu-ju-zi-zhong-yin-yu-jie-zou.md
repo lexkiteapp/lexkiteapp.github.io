@@ -159,6 +159,8 @@ qualityScore: 95
 
 ---
 
+句子重音以单词重音为基础，先打牢这一步请看[英语单词重音规则](/zh/blog/ying-yu-dan-ci-zhong-yin-gui-ze/)。
+
 ## 使用 Lexkite 全面突破口语节奏
 
 将重音知识转化为脱口而出的自然直觉，离不开高效工具的持续辅助：

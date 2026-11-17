@@ -9,7 +9,7 @@ tags: [ielts, writing, task-1, bar-chart, academic]
 keyword: "gráfico de barras ielts"
 cover: write
 coverAlt: "Sala de Writing do Lexkite com temas de prova e uma estrutura para planejar o relatório"
-publishAt:
+publishAt: 2027-01-21T19:02:00-03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

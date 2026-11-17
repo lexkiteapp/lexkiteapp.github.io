@@ -9,7 +9,7 @@ tags: [ielts, writing, task-2, opinion-essay]
 keyword: "redação de opinião ielts"
 cover: write
 coverAlt: "Sala de redação do Lexkite com perguntas de redação por tema, sugestões de ideias e modelo de estrutura"
-publishAt:
+publishAt: 2027-01-26T09:03:00-03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

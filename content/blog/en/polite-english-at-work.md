@@ -42,6 +42,7 @@ quiz: [
     explain: "Acknowledging the other view first, then adding an idea, keeps the discussion open and respectful."
   }
 ]
+publishAt: 2027-03-10T12:18:00+05:30
 ---
 In most English-speaking workplaces, how you say something matters almost as much as what you say. A message that is correct but too direct can sound cold or even rude, and an overly long apology can sound unsure. The skill is in the middle, and the right **polite English phrases for work** are small, learnable chunks. This guide shows you how to make requests, say no, disagree, ask people to repeat themselves and deliver bad news, in speech and in email.
 

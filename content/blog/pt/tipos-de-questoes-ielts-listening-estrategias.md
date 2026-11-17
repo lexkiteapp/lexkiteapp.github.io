@@ -9,7 +9,7 @@ tags: [ielts, listening, question-types, strategy]
 keyword: "tipos de questões do ielts listening"
 cover: listening
 coverAlt: "Tela de listening do Lexkite com 10 testes de quatro seções e os modos de prática, primeira escuta e ditado"
-publishAt:
+publishAt: 2027-01-28T20:22:00-03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

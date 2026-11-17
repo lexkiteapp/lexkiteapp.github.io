@@ -105,6 +105,8 @@ qualityScore: 94
 
 Применить этот метод на экзамене поможет разбор [TOEIC Listening Part 2](/ru/blog/toeic-listening-part-2-strategii-voprosy-otvety/).
 
+Когда техника слушания уже налажена, переходите к экзаменационным форматам: [типы вопросов IELTS Listening](/ru/blog/tipy-voprosov-ielts-listening/).
+
 ## Часто задаваемые вопросы (FAQ)
 
 ### Через сколько недель регулярных занятий появится заметный результат?

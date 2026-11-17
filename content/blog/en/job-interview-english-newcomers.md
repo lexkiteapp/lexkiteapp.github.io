@@ -42,6 +42,7 @@ quiz: [
     explain: "Questions about success and the team show interest in doing the job well. Pay and holidays are better saved for the offer stage."
   }
 ]
+publishAt: 2027-03-07T12:10:00+05:30
 ---
 Many newcomers arrive with strong experience and still feel stuck in the first **job interview**. The problem is rarely skill. It is usually a mix of unfamiliar customs, fast questions and the pressure of speaking a second language. This guide covers job interview English for newcomers: what interviewers in countries such as Canada, the UK, Australia and the US usually expect, the phrases that sound natural, and how to handle the awkward questions about gaps, accents and local experience.
 

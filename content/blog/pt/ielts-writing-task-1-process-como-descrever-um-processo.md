@@ -9,7 +9,7 @@ tags: [ielts, writing, task-1, process-diagram, passive-voice]
 keyword: "ielts writing task 1 process"
 cover: write
 coverAlt: "Sala de Writing do Lexkite com temas de redação e um modelo de estrutura para planejar o texto"
-publishAt:
+publishAt: 2027-01-25T08:51:00-03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

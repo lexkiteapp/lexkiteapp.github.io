@@ -176,6 +176,8 @@ publishAt: 2026-12-08T19:02:00+07:00
 
 {{cta: /#/write | ฝึกซ้อม Paraphrase หัวข้อ IELTS Task 2 ในห้องฝึกเขียน Lexkite พร้อมระบบตรวจคำศัพท์ทันที}}
 
+อยากลองใช้เทคนิคนี้กับประโยคแรกของรายงาน Task 1 ดูตัวอย่างใน[IELTS Writing Task 1 Bar Chart](/th/blog/ielts-writing-task-1-bar-chart-tuayang-raingan/)
+
 ## คำถามที่พบบ่อย (FAQ)
 
 ### จำเป็นต้องเปลี่ยนคำศัพท์ทุกคำในโจทย์หรือไม่?

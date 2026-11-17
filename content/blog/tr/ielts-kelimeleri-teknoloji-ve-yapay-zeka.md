@@ -157,6 +157,8 @@ Sözlü sınavda teknoloji soruları sorulduğunda akıcı ve doğal konuşabilm
 
 {{cta: /#/reading | Lexkite ile akademik teknoloji ve yapay zeka makalelerini okumaya başlayın}}
 
+Konu kelimelerinin altına ortak akademik katmanı eklemek için [Academic Word List (AWL)](/tr/blog/academic-word-list-awl-akademik-kelime-listesi/) çalışma planını inceleyebilirsiniz.
+
 ## Sıkça Sorulan Sorular (FAQ)
 
 ### IELTS Writing sınavında "AI" kısaltmasını kullanmak puan kırılmasına yol açar mı?

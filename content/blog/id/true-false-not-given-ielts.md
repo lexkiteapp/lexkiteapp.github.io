@@ -170,6 +170,8 @@ Kalau nomor 3 menjebak Anda, perhatikan bagaimana satu kata keterangan (*later*)
 
 Latihan menulis juga membantu membaca: kalau Anda terbiasa menyusun argumen dengan pembatas yang jelas, seperti dibahas di [struktur writing task 2 IELTS](/id/blog/struktur-writing-task-2-ielts/), Anda akan lebih cepat melihat kapan pernyataan soal melebih-lebihkan isi teks.
 
+Kalau ingin mengenal semua format soal sebelum berlatih, lihat [tipe soal IELTS Reading dan strategi tiap tugas](/id/blog/tipe-soal-ielts-reading-strategi/).
+
 ## Pertanyaan yang sering diajukan
 
 ### Apa cara tercepat membedakan False dan Not Given?

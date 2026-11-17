@@ -9,7 +9,7 @@ tags: [toeic, listening, part-3, part-4]
 keyword: "toeic part 3 e 4"
 cover: toeic
 coverAlt: "Central TOEIC do Lexkite com simulados e prática por parte"
-publishAt:
+publishAt: 2027-01-31T20:28:00-03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

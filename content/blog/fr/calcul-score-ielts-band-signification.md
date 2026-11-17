@@ -9,7 +9,7 @@ tags: [ielts, band-score, scoring, strategy]
 keyword: "score ielts"
 cover: mock
 coverAlt: "Écran de test blanc IELTS de Lexkite avec les quatre épreuves Listening, Reading, Writing et Speaking et l'historique des tentatives"
-publishAt:
+publishAt: 2026-12-28T21:22:00+01:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

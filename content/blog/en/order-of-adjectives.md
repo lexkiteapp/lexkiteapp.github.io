@@ -42,6 +42,7 @@ quiz: [
     explain: "A comma (or and) joins adjectives that describe the noun separately and could swap places."
   }
 ]
+publishAt: 2027-03-09T19:29:00+05:30
 ---
 Native speakers rarely think about the **order of adjectives**, yet they notice at once when it is wrong. *A wooden old table* is understood, but it sounds off, while *an old wooden table* sounds natural. The good news is that the order is not random: English follows a fairly stable sequence, and a short chart plus a few tests will cover almost every sentence you write.
 

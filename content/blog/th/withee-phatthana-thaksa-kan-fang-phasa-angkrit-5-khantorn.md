@@ -94,6 +94,8 @@ qualityScore: 95
 
 {{youtube: | Withee phatthana thaksa kan fang phasa angkrit 5 khantorn}}
 
+หากเตรียมสอบ IELTS ให้ดูวิธีทำโจทย์แต่ละแบบใน [IELTS Listening รูปแบบข้อสอบ](/th/blog/ielts-listening-rupbaep-khosop-thuk-baep/)
+
 ## คำถามที่พบบ่อย (FAQ)
 
 ### การดูภาพยนตร์โดยเปิดซับไตเติลภาษาไทยช่วยพัฒนาการฟังหรือไม่?

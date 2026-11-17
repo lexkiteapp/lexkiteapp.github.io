@@ -130,6 +130,12 @@ publishAt: 2026-10-25T09:32:00+07:00
 
 ส่วน Part 2 ที่เป็นคำถามสั้นและคำตอบสั้นมี[เทคนิค TOEIC Listening Part 2](/th/blog/theknik-toeic-listening-part-2-kham-tham-kham-top/)แยกไว้ให้โดยเฉพาะ
 
+หากอยากเห็นภาพรวมของทั้งเจ็ดพาร์ตก่อน อ่าน [โครงสร้างข้อสอบ TOEIC ครบ 7 พาร์ต เวลา และการคิดคะแนน](/th/blog/khrongsang-khosop-toeic-7-part-wela-khanaen/)
+
+อยากเจาะลึกสองพาร์ตที่ยาวที่สุด อ่าน[เทคนิค TOEIC Part 3 Part 4](/th/blog/theknik-toeic-part-3-part-4-bot-sonthana/)
+
+ถ้าต้องการลงลึกเฉพาะข้อดูภาพ ดู[TOEIC Part 1 ดูภาพ](/th/blog/toeic-part-1-duphap-theknik-kapdak/)
+
 ## คำถามที่พบบ่อย (FAQ)
 
 ### ถ้าฟังข้อสอบ TOEIC Listening ข้อใดข้อหนึ่งไม่ทัน ควรทำอย่างไร?
