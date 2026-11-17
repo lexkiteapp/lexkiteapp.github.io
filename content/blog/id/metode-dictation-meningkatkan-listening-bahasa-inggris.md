@@ -145,6 +145,8 @@ Hanya dari satu kalimat ini, pembelajar mendapatkan pemahaman fonetik yang menda
 
 {{cta: /#/listening | Mulai sesi latihan dictation pertama Anda di modul listening Lexkite}}
 
+Dikte juga membantu pada soal completion yang menuntut ejaan; lihat [jenis soal IELTS Listening](/id/blog/jenis-soal-ielts-listening/).
+
 ## Pertanyaan yang Sering Diajukan (FAQ)
 
 ### Berapa kali seminggu saya sebaiknya melakukan latihan dictation?

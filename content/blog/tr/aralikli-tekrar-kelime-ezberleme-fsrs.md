@@ -153,6 +153,10 @@ Ayrıca okuyun: [IELTS Writing Task 1 Grafik: Rapor Yazma ve Analiz Taktikleri](
 
 {{youtube: | Spaced Repetition FSRS Memory Algorithm Explained}}
 
+Tekrarın ne zaman değil nasıl yapılacağını [active recall nedir](/tr/blog/active-recall-nedir-kelime-ezberleme-yontemi/) yazısında okuyabilirsiniz.
+
+Aralıklı tekrarı akademik kelime çalışmasına uygulamak için [Academic Word List (AWL)](/tr/blog/academic-word-list-awl-akademik-kelime-listesi/) rehberindeki alt liste planı iyi bir örnektir.
+
 ## Sıkça Sorulan Sorular (FAQ)
 
 ### Q1. FSRS ile Anki SM-2 arasındaki en büyük fark nedir?

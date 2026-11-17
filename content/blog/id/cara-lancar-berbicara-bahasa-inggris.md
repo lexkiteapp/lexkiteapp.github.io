@@ -169,6 +169,8 @@ Salah satu kesalahan yang paling sering terdengar saat berbicara adalah *do a mi
 
 **Jawaban:** (1) Kuat di ketepatan, lemah di kelancaran; ia perlu sesi yang hanya fokus bicara mengalir, misalnya 4/3/2. (2) Agar tidak perlu mencari ide dan kata baru, sehingga perhatian tercurah ke kelancaran. (3) (a), karena jedanya berada di batas dua klausa. (4) Misalnya *It's the small thing you keep your money and cards in.* (5) *Yesterday I went to the office and met three clients.* Ucapkan /t/ di *went* dan *met* serta /s/ di *clients* dengan jelas.
 
+Kalau kamu sering membeku justru saat harus bicara, coba [cara percaya diri berbicara bahasa Inggris di 10 situasi nyata](/id/blog/cara-percaya-diri-berbicara-bahasa-inggris/).
+
 ## Pertanyaan yang sering diajukan
 
 ### Bisakah lancar berbicara bahasa Inggris tanpa lingkungan berbahasa Inggris?

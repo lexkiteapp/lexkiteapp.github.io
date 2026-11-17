@@ -81,6 +81,8 @@ Para transformar essas duas habilidades em um reflexo condicionado antes do dia 
 
 Depois de dominar a leitura rápida, organize os 60 minutos da prova com o guia de [gestão do tempo no IELTS Reading](/pt/blog/gestao-do-tempo-no-ielts-reading-estrategia-60-minutos/).
 
+Para saber qual técnica aplicar a cada tarefa, veja os [tipos de questões do IELTS Reading](/pt/blog/tipos-de-questoes-ielts-reading-estrategias/).
+
 ## Perguntas Frequentes (FAQ)
 
 ### Posso usar skimming em todos os tipos de questões de Reading?

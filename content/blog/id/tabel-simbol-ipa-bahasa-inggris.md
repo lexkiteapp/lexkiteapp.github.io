@@ -156,6 +156,8 @@ Uji ketepatan pelafalan Anda dan peroleh skor akurasi langsung di [latihan berbi
 
 {{cta: /#/pron | Latih pelafalan 44 simbol IPA dengan audio native speaker di Lexkite}}
 
+Tanda tekanan dalam IPA dibahas di [word stress bahasa Inggris](/id/blog/word-stress-bahasa-inggris-aturan-tekanan-kata/).
+
 ## Pertanyaan yang Sering Diajukan (FAQ)
 
 ### Apakah wajib menghafal semua 44 simbol IPA luar kepala?

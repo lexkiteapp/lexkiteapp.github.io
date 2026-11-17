@@ -82,8 +82,17 @@ Sau #1448 `required-gate` vẫn bắt gộp lại vì test/luật đổi trên m
 ## call-rt nói chen: mẫu lẻ ≈ 300 ms là lỗi độ trễ THẬT của VAD, không phải nhiễu (16/11)
 Vết xác suất từng khung (`__callRtTrace`, in vào log CI) trên runner EPYC: giọng đã có nhưng Silero tụt xuống 0,59–0,79 giữa chừng (`97→79→79→85→100`, `87→72→77→59→95`); luật cũ cần 3 khung LIỀN > 0,8 nên bộ đếm về 0 → hush ở 220–290 ms. Sửa gốc trong `web/js/call/endpoint.js`: 1 khung > 0,8 bắt đầu cụm, các khung sau chỉ cần ≥ 0,5 (< 0,5 về 0); tiếng vọng 0,6 kéo dài vẫn không kích. Ngưỡng e2e KHÔNG đổi: mọi mẫu nói chen ≤ 200 ms. Test: `scripts/test/call-rt.mjs` mục 6b (vết thật + ca âm tính).
 
+**Mobile QA (16/11, vòng 2):** `mobile-qa.mjs` cũng dùng hiệu chuẩn (`rateFor`): INP (CPU 4×) và Lighthouse (`--throttling.cpuSlowdownMultiplier`) – `TBT 202 ms > 200` đỏ #552/#362/#1427 (PR không đụng trang) là do runner EPYC chậm ~2,2×. Ngưỡng không đổi.
+
+## wip-guard startup_failure = hạ tầng GitHub, không chặn PR (16/11)
+GitHub chạy thử "brownout" chặn `pull_request_target` mặc định cho repo public (16:00–18:00 UTC): `wip-guard` (workflow duy nhất dùng sự kiện này) `startup_failure` trên mọi PR mở lúc đó, KHÔNG rerun được (HTTP 403) và chỉ chạy lại khi PR đóng→mở. `required-gate` nay coi `startup_failure` của `wip-guard` là hạ tầng: bỏ qua (neutral) + ghi chú trong mô tả, không đỏ; vì wip-guard chỉ gắn nhãn `frozen` (cảnh báo WIP), không chấm mã PR. `failure` thật của wip-guard và startup_failure của workflow KHÁC vẫn đỏ. Lâu dài GitHub sẽ chặn vĩnh viễn → cần chuyển wip-guard sang `pull_request` (chỉ PR cùng repo) hoặc admin cho phép `pull_request_target` trong chính sách Actions. Test: mục "wip-guard startup_failure" của `scripts/test/required-gate.mjs`.
+
+**Check bị huỷ do concurrency nhường lượt (16/11, vòng 2):** job `cancelled` của lượt workflow CŨ khi đã có lượt MỚI đang chạy → CHỜ lượt mới (trước đây đỏ oan #1427/#1475: Stitch diff); huỷ mà không còn lượt nào chạy vẫn đỏ. Số lần tự chạy lại workflow bị huỷ nâng 2 → 4; quá 4 = vòng lặp thật → đỏ. Test: mục "job bị huỷ của lượt cũ" của `scripts/test/required-gate.mjs`.
+
 ## teach-video preqc: dịch ngược gtx chỉ trên hàng PR đổi (16/11)
 `native-qa --online` dịch ngược chữ bản địa L1 bằng gtx (Google Translate miễn phí); gtx đổi bản dịch giữa các lần chạy nên hàng sát ngưỡng lúc đạt lúc trượt – `t2_l1_ja_hard` (sim hook 0,17–0,25 so với ngưỡng 0,2) làm đỏ main và mọi PR chạm `scripts/video/teach2d`. Sửa: lớp `en.hook/tip` của hàng đó khớp nghĩa bản Nhật (sim ≥ 0,33 mọi biến thể dịch ngược); trên PR `--online-changed=origin/<base>` (`scripts/video/teach2d/qa-scope.mjs`) chỉ dịch ngược hàng PR thêm/sửa – kiểm TĨNH vẫn chạy mọi hàng; main/dispatch + `native-qa-nightly.yml` (03:40 UTC) chạy đủ 1330 hàng. Không đọc được base → dịch ngược tất cả. Test: `scripts/test/native-qa-scope.mjs`.
+
+`scripts/test/suite.txt` (danh sách test) đổi → chỉ bắt PR đụng ĐÚNG một test có trong danh sách (khớp nguyên đường dẫn); PR tự sửa suite.txt hoặc không tải được nguồn → giữ cách cũ. Test: mục "suite.txt" của `scripts/test/required-gate.mjs`.
 
 **Chuỗi gốc trần không còn tính liên quan (16/11, vòng 3):** `readsAny` bỏ cách khớp thư mục gốc dạng chuỗi trần (`'content'`, `'web'`, `'scripts'`) – quá chung (khoá JSON, thuộc tính HTML) nên PR chỉ đổi `content/blog/**` vẫn bị đòi gộp lại vì `admin-guard.mjs` có chuỗi `'content'`; chỉ còn dạng có gạch chéo (`'content/'`) hoặc đường dẫn/thư mục từ 2 cấp. Test: `scripts/test/gate-relevance.mjs`.
 

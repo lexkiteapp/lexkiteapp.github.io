@@ -195,6 +195,10 @@ Na [Pronúncia](/#/practice/speak) você diz uma frase do seu baralho no microfo
 
 ---
 
+Depois da Parte 1, veja como as respostas crescem nas três partes em [IELTS Speaking band 7: respostas modelo](/pt/blog/ielts-speaking-band-7-respostas-modelo-partes-1-2-3/), com versões fraca e forte lado a lado.
+
+Antes de treinar respostas de prova, vale ler [como falar inglês com confiança](/pt/blog/como-falar-ingles-com-confianca-situacoes-do-dia-a-dia/) para ganhar frases que soam naturais.
+
 ## Perguntas frequentes (FAQ)
 
 ### Quanto tempo deve durar cada resposta no IELTS Speaking Part 1?
