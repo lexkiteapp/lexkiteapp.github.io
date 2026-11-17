@@ -118,6 +118,8 @@ Band 7 的核心要求明确指出：*“Uses a variety of complex structures wi
 
 ![词典查询界面：单词 resilient 的英美音标、发音、释义、例句、搭配、同义词与保存闪卡按钮](media:dict "在词典中确认高阶学术动词的介词搭配与从句用法，防止长句构建中出现词性搭配错误")
 
+复合句同样能让图表报告读起来更紧凑，例子见[雅思小作文柱状图怎么写](/zh/blog/ya-si-xiao-zuo-wen-bar-chart-zhu-zhuang-tu/)中的细节段。
+
 ## 雅思写作复合句构建常见 4 大致命扣分雷区
 
 很多考生的作文之所以停留在 5.5 到 6.0，往往并不是因为没有写复合句，而是写了带有硬伤的复合句：
@@ -151,6 +153,10 @@ Band 7 的核心要求明确指出：*“Uses a variety of complex structures wi
 {{youtube: | Gợi ý video hướng dẫn cách viết câu phức Complex Sentences trong IELTS Writing Task 2}}
 
 {{cta: /#/write | 立即进入 Lexkite 雅思写作训练室，实战演练你的复合句写作能力}}
+
+复合句用在观点题里，要先有清楚的立场，相关做法见[雅思观点类作文怎么写](/zh/blog/ya-si-guan-dian-lei-zuo-wen-agree-disagree/)。
+
+如果想看复合句如何在流程图小作文里把两个步骤合并成一句，可以读 [雅思小作文流程图 process 写法](/zh/blog/ya-si-xiao-zuo-wen-liu-cheng-tu-process-fan-wen/)。
 
 ## 雅思写作复合句备考常见疑问解答（FAQ）
 

@@ -131,6 +131,12 @@ qualityScore: 94
 
 如果你同时在比较雅思和托福，可以看看[托福新题型2026备考指南](/zh/blog/toefl-xin-ti-xing-2026-bei-kao-zhi-nan/)了解新版考试结构。
 
+如果你遇到的是 agree or disagree 类题目，可以继续读[雅思观点类作文怎么写](/zh/blog/ya-si-guan-dian-lei-zuo-wen-agree-disagree/)，里面有三种立场写法和一篇带点评的范文。
+
+写完一篇 Task 2 以后，可以对照[雅思写作常见错误](/zh/blog/ya-si-xie-zuo-chang-jian-cuo-wu/)里的清单自查：冠词、单复数、逗号连接句有没有漏网。
+
+如果你要考移民用的培训类雅思，大作文结构同样适用，选考细节见[移民雅思考什么](/zh/blog/ya-si-yi-min-kao-shi-xuan-ze-ya-si-g-lei-a-lei-yao-qiu/)。
+
 ## 常见问题解答
 
 ### 写作字数写得越多，分数就会越高吗？

@@ -168,6 +168,10 @@ publishAt: 2026-12-07T12:30:00+08:00
 
 {{cta: /#/write | 立即进入Lexkite写作室，实战演练雅思大作文同义替换}}
 
+改写题干之后，怎样让立场始终清楚，可以参考[雅思观点类作文怎么写](/zh/blog/ya-si-guan-dian-lei-zuo-wen-agree-disagree/)。
+
+想看同义替换在小作文里的实际用法，可以对照[雅思小作文柱状图怎么写](/zh/blog/ya-si-xiao-zuo-wen-bar-chart-zhu-zhuang-tu/)里引言段的改写示范。
+
 ## 常见问题解答 (FAQ)
 
 ### 题干中的所有词都必须被替换掉吗？
