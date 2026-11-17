@@ -244,5 +244,6 @@ console.log(`ratchet: hiện ${dev.length} lệch / baseline ${known.total}`);
 if (worse.length) console.log('✗ lệch MỚI hoặc tăng (sửa gốc, không nâng baseline):\n  ' + worse.slice(0, 80).join('\n  '));
 if (better.length) console.log('✗ đã giảm – hạ baseline: node scripts/test/frame-consistency.mjs --write-known rồi commit known.json:\n  ' + better.slice(0, 80).join('\n  '));
 if (!worse.length && !better.length) console.log('✓ frame-consistency khớp baseline');
+for (const l of [`tổng ${dev.length} / baseline ${known.total}`, ...worse.map(x => 'MỚI ' + x), ...better.map(x => 'GIẢM ' + x)].slice(0, 60)) console.log(`::error title=frame-consistency::${l.replace(/[\r\n%]/g, ' ')}`); // đọc được qua API annotations
 fs.writeFileSync(OUT + '/known-now.json', JSON.stringify({ total: dev.length, keys: sorted(cur) }));
 process.exit(worse.length || better.length ? 1 : 0);
