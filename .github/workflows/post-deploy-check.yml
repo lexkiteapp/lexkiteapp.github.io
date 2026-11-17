@@ -45,6 +45,11 @@ jobs:
         if: ${{ !cancelled() }}
         timeout-minutes: 25
         run: node scripts/test/rig-live.mjs "$BASE" out/post-deploy
+      - name: Bài học live en/fr/zh/es (live-lesson-lang.mjs – không chữ Việt ở giao diện không-vi, có "Tôi không biết", bài xếp từ đủ ô; hồi quy báo lỗi #5–#13)
+        id: lessonlang
+        if: ${{ !cancelled() }}
+        timeout-minutes: 8
+        run: node scripts/test/live-lesson-lang.mjs "$BASE" out/post-deploy/lesson-lang
       - name: Cổng CSP (csp-probe.mjs --strict, tuyến chính + thư viện lười, Chromium + WebKit, có đối chứng new Function)
         id: csp
         if: ${{ !cancelled() }}
