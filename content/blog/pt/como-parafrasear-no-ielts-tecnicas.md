@@ -176,6 +176,12 @@ Para parafrasear qualquer tema em menos de 2 minutos durante o exame:
 
 {{cta: /#/write | Acesse o Laboratório de Escrita Lexkite e pratique a paráfrase de redações com feedback instantâneo}}
 
+Na introdução do Task 1 você aplica a mesma técnica; há um exemplo completo no [gráfico de barras IELTS](/pt/blog/grafico-de-barras-ielts-writing-task-1-modelo/).
+
+A paráfrase da pergunta é o primeiro passo da [redação de opinião IELTS](/pt/blog/redacao-de-opiniao-ielts-concordo-ou-discordo/), onde a introdução precisa reescrever o enunciado e já declarar a sua posição.
+
+Para ver onde a paráfrase malfeita custa pontos na escrita, leia [erros comuns no IELTS Writing](/pt/blog/erros-comuns-no-ielts-writing-como-corrigir/).
+
 ## Perguntas Frequentes (FAQ)
 
 ### Devo parafrasear absolutamente todas as palavras do enunciado?

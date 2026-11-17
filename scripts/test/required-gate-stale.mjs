@@ -1,5 +1,5 @@
 // Test thuần: bộ canh required-gate không được bỏ sót job sau / rerun / ETag 304 (PR #710 05/11, #602 04/11).
-import { dirtyShas, probeOf, evaluate } from '../ci/required-gate.mjs';
+import { dirtyShas, probeOf, evaluate, MAX_AUTO_RERUN } from '../ci/required-gate.mjs';
 let bad = 0; const ok = (c, m) => { if (!c) { bad++; console.log('✗ ' + m); } else console.log('✓ ' + m); };
 const iso = ms => new Date(ms).toISOString();
 const run = (o) => ({ head_sha: 'a', path: '.github/workflows/qa.yml', name: 'QA bot', ...o });
@@ -39,8 +39,8 @@ const T0 = 1_000_000e3;
   const cancelled = [other, { ...cr(1, 'completed', 'cancelled', T0 + 10e3), name: 'e2e' }];
   const red = evaluate({ checkRuns: cancelled, workflowRuns: [e2e(100, 1, 'completed', 'cancelled', T0 + 10e3)] });
   ok(red.state === 'pending' && red.cancelled.length === 1, '(d) lượt e2e bị hủy lần đầu → CHỜ + chạy lại (15/11: huỷ ≠ lỗi thật)');
-  const dead = evaluate({ checkRuns: cancelled, workflowRuns: [{ ...e2e(100, 1, 'completed', 'cancelled', T0 + 10e3), run_attempt: 3 }] });
-  ok(dead.state === 'failure', '(d) lượt e2e vẫn bị hủy sau 2 lần chạy lại → gate đỏ');
+  const dead = evaluate({ checkRuns: cancelled, workflowRuns: [{ ...e2e(100, 1, 'completed', 'cancelled', T0 + 10e3), run_attempt: MAX_AUTO_RERUN + 1 }] });
+  ok(dead.state === 'failure', `(d) lượt e2e vẫn bị hủy sau ${MAX_AUTO_RERUN} lần chạy lại → gate đỏ`);
   // lượt mới bắt đầu: sha đã đánh giá "failure" nên phải được đánh giá lại ngay (không kẹt đỏ)
   const seen = new Map([['a', { at: T0 + 20e3, state: 'failure', attempts: { 100: 1 }, sig: probeOf(cancelled).sig }]]);
   const running = [e2e(100, 1, 'completed', 'cancelled', T0 + 10e3), e2e(101, 2, 'in_progress', null, T0 + 30e3)];
