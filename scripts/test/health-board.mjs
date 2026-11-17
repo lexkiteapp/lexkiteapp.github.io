@@ -1,6 +1,6 @@
 // Test logic phân loại health-board (scripts/lib/health-board.mjs) + record-yield.
 import assert from 'node:assert/strict';
-import { classify, cronPeriodHours, crons, minPeriod, rank, render, redCount } from '../lib/health-board.mjs';
+import { ownerOf, classify, cronPeriodHours, crons, minPeriod, rank, render, redCount } from '../lib/health-board.mjs';
 import { addYield } from '../ci/record-yield.mjs';
 const now = Date.parse('2026-11-17T12:00:00Z'), H = 36e5, ago = h => new Date(now - h * H).toISOString();
 const run = (c, h, id = 1) => ({ conclusion: c, created_at: ago(h), id, event: 'schedule' });
@@ -41,7 +41,8 @@ assert.deepEqual(kinds(classify({ wf: wf(), runs: [], floor: fl, yieldRuns: unde
 // xếp hạng + render + số đỏ
 const all = [...classify({ wf: wf(), runs: [run('failure', 1)], now }), ...classify({ wf: { ...wf(), file: 'a.yml' }, runs: ok, floor: fl, yieldRuns: [{ t: ago(1), n: 0 }], now })];
 assert.equal(rank(all)[0].sev, 'critical'); assert.equal(redCount(all), 1);
-assert.match(render(all, { total: 2 }), /\| 🔴 critical \| sản lượng \| `a\.yml`/);
+assert.match(render(all, { total: 2 }), /\| 🔴 critical \| sản lượng \| `a\.yml` \| — · 1 ngày \|/);
+const cfg = { rules: [{ match: '^video', owner: 'v' }], default: 'd' }; assert.equal(ownerOf('video-auto.yml', cfg), 'v'); assert.equal(ownerOf('zzz.yml', cfg), 'd');
 assert.match(render([], { total: 5 }), /không mục đỏ/);
 // record-yield
 const d1 = addYield(null, { n: 3.4, t: 'T' }, 'w'); assert.deepEqual(d1.runs, [{ t: 'T', n: 3 }]);

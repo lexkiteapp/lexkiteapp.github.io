@@ -7,7 +7,7 @@ import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { ghApi, REPO } from '../ci/gh-api.mjs';
-import { classify, crons, rank, render, redCount } from '../lib/health-board.mjs';
+import { classify, crons, rank, render, redCount, ownerOf } from '../lib/health-board.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const TITLE = 'Sức khoẻ hệ thống';
@@ -20,21 +20,25 @@ function yieldRuns(id) {
   return fl.length ? fl.flatMap(f => (readJson(`reports/yield/${f}`, {}).runs) || []) : undefined;
 }
 export async function collect() {
-  const floors = readJson('infra/yield-floors.json', {}), offs = readJson('infra/health-expected-off.json', {});
+  const owners = readJson('infra/health-owners.json', {}), floors = readJson('infra/yield-floors.json', {}), offs = readJson('infra/health-expected-off.json', {});
   const wfs = []; for (let p = 1; ; p++) { const b = await api(`/actions/workflows?per_page=100&page=${p}`); wfs.push(...b.workflows); if (b.workflows.length < 100) break; }
   const own = wfs.filter(w => w.path.startsWith('.github/workflows/') && !/dynamic/.test(w.path));
   const findings = []; let i = 0;
   const work = async () => {
     for (; i < own.length;) {
       const w = own[i++], file = path.basename(w.path), id = file.replace(/\.yml$/, '');
+      if (!fs.existsSync(path.join(ROOT, w.path))) continue;   // workflow đã xoá khỏi main: mục ma trong danh sách GitHub (puppet, voice-adhoc, store-art…), không phải hỏng
       let runs = [];
       try { runs = (await api(`/actions/workflows/${w.id}/runs?per_page=15&exclude_pull_requests=true`)).workflow_runs.filter(r => r.event !== 'pull_request' && r.event !== 'pull_request_target' && r.status === 'completed'); } catch (e) { findings.push({ sev: 'warn', kind: 'đọc lỗi', wf: file, name: w.name, msg: e.message }); continue; }
-      let src = ''; try { src = fs.readFileSync(path.join(ROOT, w.path), 'utf8'); } catch { /* workflow đã xoá khỏi cây */ }
+      const src = fs.readFileSync(path.join(ROOT, w.path), 'utf8');
+      // workflow có cron mà 15 lượt gần nhất toàn lượt PR (visual-qa, font-audit…): hỏi riêng lượt theo lịch gần nhất, tránh báo quá hạn giả
+      if (crons(src).length && !runs.length) { try { runs = (await api(`/actions/workflows/${w.id}/runs?per_page=3&event=schedule`)).workflow_runs.filter(r => r.status === 'completed'); } catch { /* giữ rỗng */ } }
       const yr = yieldRuns(id);
       findings.push(...classify({ wf: { name: w.name, file, state: w.state }, runs, cronList: crons(src), floor: floors[id], yieldRuns: yr, off: offs[id] }));
     }
   };
   await Promise.all(Array.from({ length: 6 }, work));
+  for (const f of findings) f.owner = ownerOf(f.wf, owners);
   return { findings: rank(findings), total: own.length };
 }
 

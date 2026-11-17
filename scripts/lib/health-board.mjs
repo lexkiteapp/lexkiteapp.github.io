@@ -61,13 +61,20 @@ export function classify({ wf, runs = [], cronList = [], floor, yieldRuns, off, 
 /** Sắp xếp theo mức nghiêm trọng rồi tên (thuần). */
 export const rank = list => [...list].sort((a, b) => SEV[b.sev] - SEV[a.sev] || a.wf.localeCompare(b.wf) || a.kind.localeCompare(b.kind));
 
+/** Chủ + hạn theo luật infra/health-owners.json (thuần). */
+export const SLA_DAYS = { critical: 1, high: 3, warn: 7 };
+export function ownerOf(file, cfg = {}) {
+  const id = String(file).replace(/\.yml$/, '');
+  for (const r of cfg.rules || []) if (new RegExp(r.match).test(id)) return r.owner;
+  return cfg.default || 'điều phối';
+}
 const ICON = { critical: '🔴', high: '🟠', warn: '🟡' };
 /** Thân issue Markdown (thuần). redCount = số mục critical/high → job đỏ. */
 export function render(findings, { total = 0, when = new Date().toISOString(), run = '' } = {}) {
   const list = rank(findings), reds = list.filter(f => SEV[f.sev] >= SEV.high).length;
   const head = `# Sức khoẻ hệ thống\n\n_Cập nhật ${when} · ${total} workflow · ${reds ? `**${reds} mục đỏ**` : '✅ không mục đỏ'}${list.length - reds ? ` · ${list.length - reds} cảnh báo` : ''}${run ? ` · [lượt chạy](${run})` : ''}_\n\nLuật: [docs/HEALTH-BOARD.md](../blob/main/docs/HEALTH-BOARD.md). Mục tắt có chủ: \`infra/health-expected-off.json\`. Sàn sản lượng: \`infra/yield-floors.json\`.\n\n`;
   if (!list.length) return head + 'Mọi workflow xanh, đang bật, đúng lịch và có sản lượng.\n';
-  const rows = list.map(f => `| ${ICON[f.sev]} ${f.sev} | ${f.kind} | \`${f.wf}\` | ${f.msg} |`);
-  return head + '| Mức | Loại | Workflow | Chi tiết |\n|---|---|---|---|\n' + rows.join('\n') + '\n';
+  const rows = list.map(f => `| ${ICON[f.sev]} ${f.sev} | ${f.kind} | \`${f.wf}\` | ${f.owner || '—'} · ${SLA_DAYS[f.sev]} ngày | ${f.msg} |`);
+  return head + '| Mức | Loại | Workflow | Chủ · hạn | Chi tiết |\n|---|---|---|---|---|\n' + rows.join('\n') + '\n';
 }
 export const redCount = findings => findings.filter(f => SEV[f.sev] >= SEV.high).length;
