@@ -674,6 +674,7 @@ body.u-bulk-on .adm-main { padding-bottom: 6.5rem; }
 .ach-empty { display: grid; place-items: center; min-height: 140px; border: 1px dashed var(--line); border-radius: 10px; color: var(--muted); font-size: .88rem; text-align: center; padding: 1rem; margin-top: .4rem; }
 @container (max-width: 520px) { .ach-v.f:not(.k) { display: none; } .ach-x.xw { visibility: hidden; } .ach-x.xn { visibility: visible; } .ach-p { height: min(var(--ach-h, 200px), 170px); } }
 .ach.line .ach-cs { gap: 0; justify-content: stretch; } .ach.line .ach-c { max-width: none; }
+.adm .sr-only { overflow: hidden; } /* .sr-only chung (style.css) thiếu overflow:hidden: chữ nowrap của nút ⋯ ("Thêm"/"More") ở mép phải đầu trang thò khỏi hộp 1 px → trang điện thoại rộng 374>360 / 401>390 (admin-plat-shots 360/390) */
 .tbl-x { position: relative; overflow-x: auto; max-width: 100%; -webkit-overflow-scrolling: touch; } /* bảng rộng cuộn trong khung; relative = giữ cả .sr-only định vị tuyệt đối bên trong (không làm trang tràn ngang) */
 
 /* Khung cuộn ngang (bảng rộng) – gợi ý còn nội dung: mép mờ dần phía còn cuộn được (js/admin.js fitTables gắn .sx-l/.sx-r; bảng trần tự được bọc .tbl-x) */
