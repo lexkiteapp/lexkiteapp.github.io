@@ -1,4 +1,4 @@
-// Test lời giải "Vì sao?" theo câu (web/js/lesson/why.js, docs/specs/sentence-builder.md): so câu người học ↔ đáp án, luật trật tự, từ nhiễu, ví dụ MỚI không trùng câu bài tập.
+// Test lời giải "Vì sao?" theo câu (web/cpack/lesson/why.js, docs/specs/sentence-builder.md): so câu người học ↔ đáp án, luật trật tự, từ nhiễu, ví dụ MỚI không trùng câu bài tập.
 // Chạy: node scripts/test/lesson-why.mjs
 import fs from 'node:fs';
 import vm from 'node:vm';
@@ -6,7 +6,7 @@ import vm from 'node:vm';
 let total = 0, fails = 0;
 const ok = (c, m) => { total++; if (!c) { fails++; console.error('✗', m); } else console.log('✓', m); };
 const ctx = { self: {} }; ctx.globalThis = ctx.self; vm.createContext(ctx);
-vm.runInContext(fs.readFileSync('web/js/lesson/why.js', 'utf8'), ctx);
+vm.runInContext(fs.readFileSync('web/cpack/lesson/why.js', 'utf8'), ctx);
 const W = ctx.self.LessonWhy;
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
 const t = (s, v) => s.replace(/\{(\w+)\}/g, (m, k) => (v && k in v ? v[k] : m));

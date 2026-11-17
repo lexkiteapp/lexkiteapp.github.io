@@ -9,7 +9,7 @@ import path from 'path';
 import { pathToFileURL, fileURLToPath } from 'url';
 const R = fileURLToPath(new URL('../..', import.meta.url));
 const SRC = path.join(R, 'content/lesson/card'), OUT = path.join(R, 'web/packs/lcard');
-await import(pathToFileURL(path.join(R, 'web/js/lesson/card.js')).href);
+await import(pathToFileURL(path.join(R, 'web/cpack/lesson/card.js')).href);
 const C = globalThis.LearnCard;
 export const LANGS = ['vi'].concat(fs.readFileSync(path.join(R, 'scripts/i18n-langs.txt'), 'utf8').split('\n').map(s => s.trim()).filter(s => s && !s.startsWith('#')));
 const NEST = /\((?:[^()\\]|\\.)*[+*](?:[^()\\]|\\.)*\)[+*]/; // lượng từ lồng nhau = dễ treo regex

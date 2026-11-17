@@ -1,4 +1,4 @@
-/* Thẻ kết quả theo câu (web/js/lesson/card.js, gói lười lcard) – màu theo panel lsn-dict của khuôn Stitch feedback */
+/* Thẻ kết quả theo câu (web/cpack/lesson/card.js, gói lười lcard) – màu theo panel lsn-dict của khuôn Stitch feedback */
 :root{--lkc-bg:#FFF4D4;--lkc-fg:#422006;--lkc-bd:transparent;--lkc-sh:0 1px 2px rgba(0,0,0,.05);--lkc-r:4px;--lkc-f11:11px;--lkc-f13:13px;--lkc-f15:15px;--lkc-f17:17px;--lkc-f18:18px}
 :root[data-theme=dark]{--lkc-bg:#102220;--lkc-fg:#EEF6F7;--lkc-bd:#1e453e;--lkc-sh:none}@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--lkc-bg:#102220;--lkc-fg:#EEF6F7;--lkc-bd:#1e453e;--lkc-sh:none}}
 .lkc{display:flex;flex-direction:column;gap:var(--sp-2);border-radius:var(--r-sm);padding:var(--sp-3);background:var(--lkc-bg);color:var(--lkc-fg);border:1px solid var(--lkc-bd);box-shadow:var(--lkc-sh)}

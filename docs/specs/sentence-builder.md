@@ -13,7 +13,7 @@
 | 5 | Kéo-thả (pointer events: chuột + cảm ứng) chèn vào vị trí bất kỳ, đổi chỗ, kéo ra để gỡ; chạm vẫn như cũ; bàn phím (←/→ đổi chỗ, Delete gỡ) + aria-live; prefers-reduced-motion | test jsdom + ảnh trước/sau → owner duyệt |
 
 ## Thiết kế
-- `web/js/lesson/why.js` (`self.LessonWhy`, thuần, không DOM): `diff(ans, answer)` (LCS → sai chỗ/thừa/thiếu) · `rules(toks)` (từ điển nhỏ: tần suất, động từ + to-V, modal) · `explain(it, ans, deps)` → dữ liệu · `html(r, t, esc)` → HTML. ui.js chỉ gọi.
+- `web/cpack/lesson/why.js` (`self.LessonWhy`, thuần, không DOM): `diff(ans, answer)` (LCS → sai chỗ/thừa/thiếu) · `rules(toks)` (từ điển nhỏ: tần suất, động từ + to-V, modal) · `explain(it, ans, deps)` → dữ liệu · `html(r, t, esc)` → HTML. ui.js chỉ gọi.
 - Ví dụ: kho mẫu theo luật (câu tiếng Anh viết tay) + `LESSON_GOLD.ex` + câu khác của thẻ; lọc trùng câu bài tập.
 - Tiết kiệm token: không AI lúc dùng. Bước sau (PR riêng): bộ `build` trong `scripts/explain/sets.mjs` sinh lô trên CI (`explain.yml`, cache theo câu) cho mẫu/ví dụ phong phú hơn.
 

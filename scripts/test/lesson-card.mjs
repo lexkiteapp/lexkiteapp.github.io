@@ -1,7 +1,7 @@
 // Test thuần thẻ kết quả (docs/specs/learn-card.md): kho mẫu câu, chấm xếp câu khi câu có dấu, nối lại câu từ token, regex nhanh. Phần giao diện: lesson.mjs mục G.
 import fs from 'node:fs';
 import { execFileSync } from 'node:child_process';
-await import('../../web/js/lesson/engine.js'); await import('../../web/js/lesson/card.js');
+await import('../../web/js/lesson/engine.js'); await import('../../web/cpack/lesson/card.js');
 const E = globalThis.LessonEngine, C = globalThis.LearnCard;
 let total = 0, fails = 0;
 const ok = (c, m) => { total++; if (!c) { fails++; console.error('✗', m); } };

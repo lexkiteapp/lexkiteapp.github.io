@@ -16,7 +16,7 @@
 | 8 | Shell ≤ 377 KB gz, `web/js` không vượt `totalJs`, không nới trần | `size-budget.mjs` |
 
 ## Thiết kế
-- `web/js/lesson/card.js` (`self.LearnCard`, gói lười `lcard` cùng `why.js` của #336): phần thuần `match(sent, frames)`, `sentenceTokens`, `saveAllowed`; phần vẽ `html(spec)`, `wire(root, spec, deps)`. Không phụ thuộc màn bài học: `spec = { en, tr, ok, word?, hard?, why?() }`, nên mọi màn gọi được.
+- `web/cpack/lesson/card.js` (`self.LearnCard`, gói lười `lcard` cùng `why.js` của #336): phần thuần `match(sent, frames)`, `sentenceTokens`, `saveAllowed`; phần vẽ `html(spec)`, `wire(root, spec, deps)`. Không phụ thuộc màn bài học: `spec = { en, tr, ok, word?, hard?, why?() }`, nên mọi màn gọi được.
 - **Dữ liệu ngoài `web/js`** (`scripts/lesson/build-card.mjs`, nguồn `content/lesson/card/`):
   - `web/packs/lcard/frames.json`: mẫu câu (regex, chữ mẫu, câu đổi từ, cờ thành ngữ).
   - `web/packs/lcard/<lang>.json`: `{ s: {câu đã chuẩn hoá: bản dịch}, i: {mã thành ngữ: nghĩa} }` cho câu truyện/radio.

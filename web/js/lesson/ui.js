@@ -548,7 +548,7 @@
     if (c) booster(it);
   }
 
-  // 🎓 Thẻ kết quả theo câu (js/lesson/card.js, gói lười lcard, docs/specs/learn-card.md): câu đủ dấu · nghĩa · mẫu câu · nói theo · chạm từ · tự lưu mẫu. Tiếp tục không bao giờ chờ thẻ.
+  // 🎓 Thẻ kết quả theo câu (cpack/lesson/card.js, gói lười lcard, docs/specs/learn-card.md): câu đủ dấu · nghĩa · mẫu câu · nói theo · chạm từ · tự lưu mẫu. Tiếp tục không bao giờ chờ thẻ.
   const sentOf = it => (it.type === 'gap' || it.type === 'build' || it.type === 'tr' ? it.sent || '' : it.type === 'q' ? it.prompt || '' : it.type === 'say' && /\s/.test(it.answer || '') ? it.answer : '');
   const cardOn = () => { try { return ls.get('lk.lcard') !== '0'; } catch (e) { return true; } };
   let CARDP = null;

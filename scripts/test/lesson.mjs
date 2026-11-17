@@ -156,7 +156,7 @@ const errors = [];
 w.Audio = class { constructor(u) { this.src = u; setTimeout(() => this.onerror && this.onerror(), 2); } play() { return Promise.resolve(); } pause() {} }; // mp3 giọng giáo viên chưa có cho câu động (404) → onerror → giọng máy dự phòng
 for (const f of scripts) { try { w.eval(fs.readFileSync(path.join(WEB, f), 'utf8')); } catch (e) { errors.push(f + ': ' + e.message); } }
 require('./lazyfix.js')(w, fs, path, WEB, errors);
-w.eval(fs.readFileSync(path.join(WEB, 'js/lesson/why.js'), 'utf8')); { const n0 = w.App.need; w.App.need = n => (n === 'lcard' ? Promise.resolve() : n0(n)); } // gói lười lcard: LessonWhy dùng ngay, LearnCard nạp ở phần G
+w.eval(fs.readFileSync(path.join(WEB, 'cpack/lesson/why.js'), 'utf8')); { const n0 = w.App.need; w.App.need = n => (n === 'lcard' ? Promise.resolve() : n0(n)); } // gói lười lcard: LessonWhy dùng ngay, LearnCard nạp ở phần G
 const tick = (ms = 30) => new Promise(r => setTimeout(r, ms));
 await tick(200);
 ok(!errors.length, 'nạp mã + bundle lesson không lỗi' + (errors.length ? ': ' + errors.join(' | ') : ''));
@@ -446,7 +446,7 @@ ok(micFailDone, 'đã chạy kịch bản micro hỏng ở bước nói');
 {
   const PK = u => { const m = /packs\/(lcard\/[\w-]+|lesson\/gold)\.json/.exec(String(u)); const f = m && path.join(WEB, 'packs', m[1] + '.json'); return f && fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')) : null; };
   const f0 = w.fetch; w.fetch = async u => { const j = PK(u); return j ? { ok: true, json: async () => j } : f0(u); };
-  w.eval(fs.readFileSync(path.join(WEB, 'js/lesson/card.js'), 'utf8')); const C = w.LearnCard;
+  w.eval(fs.readFileSync(path.join(WEB, 'cpack/lesson/card.js'), 'utf8')); const C = w.LearnCard;
   w.localStorage.setItem('lk.lsn.path.demo', '0');
   w.location.hash = '#/lesson/go?demo=1&story=s-cafe'; await App.routes.lesson('go'); await tick(120);
   let seenCard = 0;
