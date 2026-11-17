@@ -24,6 +24,12 @@ if (!swShell().includes('/app/index.html')) errs.push('SHELL trong web/sw.js thi
 const LAND_GZ = budget.landingGz || 16384; let landMax = 0;
 for (const f of ['web/index.html', ...fs.readdirSync('web').filter(d => /^[a-z]{2}$/.test(d) && fs.existsSync(`web/${d}/index.html`)).map(d => `web/${d}/index.html`)]) { const g = gz(f); landMax = Math.max(landMax, g); if (g > LAND_GZ) errs.push(`Trang giới thiệu ${f} ${kb(g)} gzip > ${kb(LAND_GZ)}`); }
 if (shellGz > budget.shellGz) errs.push(`Khung app ${kb(shellGz)} gzip > ngân sách ${kb(budget.shellGz)} – chuyển dữ liệu sang tải lười (App lazy) thay vì nạp lúc mở app; xem từng module: node scripts/test/shell-size.mjs`);
+// 1c) Trần khung CHỈ ĐI XUỐNG: PR không được nâng budget.shellGz so với nhánh gốc (thêm byte vào khung ⇒ phải gọt bằng nhau, vd chú thích/CSS chết trong web/css/style.css)
+for (const base of [process.env.SHELL_BASE, 'origin/main', 'real/main'].filter(Boolean)) {
+  let b; try { b = JSON.parse(execFileSync('git', ['show', `${base}:${B}`], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] })); } catch (e) { continue; }
+  if (b.shellGz && budget.shellGz > b.shellGz) errs.push(`budget.shellGz ${budget.shellGz} > ${b.shellGz} của ${base} – trần khung không được nâng; gọt byte khỏi khung (PR thêm vào khung phải gọt bằng nhau)`);
+  break;
+}
 // 2) + 3) File JS
 const LB = learnerBytes('.'), total = LB.learner, big = []; // 5/11: nền + gói ngôn ngữ LỚN NHẤT (người học thật tải)
 const walk = d => { for (const e of fs.readdirSync(d, { withFileTypes: true })) { const p = path.join(d, e.name); if (e.isDirectory()) walk(p); else if (p.endsWith('.js')) {
