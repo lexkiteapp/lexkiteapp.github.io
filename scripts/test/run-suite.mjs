@@ -26,6 +26,9 @@ export const annotate = (c, tail, status) => {
   if (process.env.GITHUB_STEP_SUMMARY) { try { fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `### ✗ npm test đỏ\n\n- Lệnh: \`${c}\`\n- Mã thoát: ${status}\n- Lý do: ${reason.replace(/`/g, "'")}\n\n<details><summary>Đuôi output</summary>\n\n\`\`\`\n${String(tail).slice(-2000)}\n\`\`\`\n</details>\n`); } catch {} }
   return reason;
 };
+// jsdom không nạp được (thiếu module phụ thuộc…) thì test dùng nó chỉ văng lỗi lúc import – dễ bị đọc nhầm là "pass" khi chỉ lọc ✗. Kiểm sớm: cần mà hỏng → ĐỎ ngay với lý do rõ.
+export const needsJsdom = (cmds, read = f => fs.readFileSync(path.join(ROOT, f), 'utf8')) => cmds.some(c => { const f = scriptOf(c); try { return f !== 'package.json' && /\bjsdom\b/.test(read(f)); } catch { return false; } });
+export const jsdomError = (load = () => import('jsdom')) => load().then(() => '', e => String((e && e.message) || e).split('\n')[0].slice(0, 200));
 export const split = (cmds, n, weights = {}) => {   // LPT: lệnh nặng trước vào shard nhẹ nhất; thứ tự gốc giữ trong shard; tất định
   const W = c => weights[c] ?? 3, bins = Array.from({ length: n }, () => ({ t: 0, idx: [] }));
   cmds.map((c, i) => [c, i]).sort((a, b) => W(b[0]) - W(a[0]) || a[1] - b[1]).forEach(([c, i]) => { const b = bins.reduce((m, x) => x.t < m.t ? x : m); b.t += W(c); b.idx.push(i); });
@@ -38,6 +41,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   if (process.argv.includes('--fast')) cmds = cmds.filter(c => FAST_RE.test(c));
   else if (arg('shard')) { const [i, n] = arg('shard').split('/').map(Number); cmds = lanes(cmds, n, readWeights()).shards[i - 1].cmds; console.log(`shard ${i}/${n}: ${cmds.length} lệnh`); }
   if (process.argv.includes('--list')) { cmds.forEach((c, i) => console.log(`${i + 1}\t${c}`)); process.exit(0); }
+  if (needsJsdom(cmds)) { const je = await jsdomError(); if (je) { console.error(`::error file=package.json,title=${esc('jsdom không nạp được')}::npm ci chưa đủ hoặc Node không khớp (CI dùng Node 22): ${esc(je)}`); process.exit(1); } }
   const from = Math.max(1, Number(arg('from')) || 1), t0 = Date.now(), times = [];
   for (let i = from - 1; i < cmds.length; i++) {
     const c = cmds[i], t = Date.now();
