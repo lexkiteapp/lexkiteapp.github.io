@@ -53,6 +53,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 ## 2b. Chống xung đột PR (chi tiết: `docs/specs/merge-queue.md`)
 - Nguồn dịch `i18n/ui` + registry (`REGISTRIES` ở `scripts/lib/fmt-registry.mjs`): mỗi mục một dòng, sắp xếp – `node scripts/fmt-stable.mjs` (prepush chạy).
 - Không sửa tay tệp sinh (`web/js/i18n/<lang>`, `extension/app`, `st-*.css`, CODEMAP) hay `i18n-fixed.json`/trang pháp lý: PR dirty → bot `pr-unconflict` hoặc `node scripts/ci/regen-conflicts.mjs` (`docs/specs/merge-queue.md`). Gác: `fmt-stable.mjs`, `gen-guard.mjs`.
+- **Watcher merge chuẩn (17/11)**: `node scripts/ci/prwatch.mjs 1551@<sha> 1552 [--every 150] [--max-min 180] [--keep-on-red] [--dry]` – squash-merge khi **commit status** `required-gate` xanh + `mergeable_state` sạch; `PR@sha` chờ head khớp sau push; đỏ → in lý do gate, thoát 2; hết giờ → thoát 3. Không tự viết watcher riêng (lỗi 17/11: đọc required-gate như check-run → 3 giờ chỉ báo "none"). Test: `scripts/test/prwatch.mjs`.
 
 ## 3. Ngân sách dung lượng
 - Khung app (SHELL ∪ file nạp ngay của /app/) ≤ 374 KB gz chuẩn (`scripts/lib/gz-canon.mjs`; không nâng) → tính năng mới lười; khóa: `shell-lazy.mjs`. Trần chỉ đi xuống: thêm byte phải gọt bằng nhau; ý dài → CSS-NOTES.md. Từng module: `node scripts/test/shell-size.mjs`; khóa i18n chỉ trang lười → `--move` sang `en/lazyui.js`. `web/js` ≤ `totalJs` trong `scripts/test/budget.json` (trừ `admin-*.js`, nguồn dựng en.js – `scripts/lib/js-budget.mjs`).
