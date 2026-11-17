@@ -6,6 +6,7 @@
 //     với 2 chỗ giáo viên + mặt vẽ đang nói. 4. Lệch miệng: chỗ giáo viên im lặng không phát clip nhép miệng (0 video). Khớp miệng có tiếng: lip-clock.mjs (±33 ms).
 // Chạy: node scripts/test/teacher-quality.mjs [--static]   (trình duyệt: cần playwright; thiếu → chỉ phần tĩnh)
 import assert from 'node:assert/strict'; import fs from 'node:fs'; import path from 'node:path'; import http from 'node:http'; import { fileURLToPath } from 'node:url';
+import { rateFor } from './lib/perf-calibrate.mjs';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..'), WEB = path.join(ROOT, 'web');
 const errs = [], R = JSON.parse(fs.readFileSync(path.join(WEB, 'teach/characters.json'), 'utf8'));
 const CAP = { clip: 260 * 1024, webm: 150 * 1024, still: 48 * 1024, page: 120 * 1024 };
@@ -89,7 +90,7 @@ for (const name of ['chromium', 'webkit']) {
   res.slow1x = await page.evaluate(() => [...document.querySelectorAll('#row .tslot')].filter(s => s.lkSlow).length);
   if (played && res.slow1x) errs.push(`${name}: máy thường (1×) đã hạ cấp ${res.slow1x} clip về ảnh tĩnh – tải texture quá chậm`);
   const u0 = await page.evaluate(() => [...document.querySelectorAll('#row .tslot')].map(s => [s.lkSum || 0, s.lkFrames || 0]));
-  const cdp = name === 'chromium' ? await page.context().newCDPSession(page) : null; if (cdp) await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
+  const cdp = name === 'chromium' ? await page.context().newCDPSession(page) : null; if (cdp) await cdp.send('Emulation.setCPUThrottlingRate', { rate: (await rateFor(br, 4)).rate });
   await page.evaluate(() => { window.__lt = LessonTeacher.mount(document.getElementById('lt'), 'ama', { lip: true }); });
   await page.waitForFunction(() => window.__lt.lip() && window.__lt.lip().frames > 10, null, { timeout: 15000 }).catch(() => {});
   const perf = await page.evaluate(() => new Promise(r => { let lt = 0; try { new PerformanceObserver(l => { lt += l.getEntries().filter(e => e.duration > 50).length; }).observe({ type: 'longtask' }); } catch (e) { /* WebKit không có longtask */ }
