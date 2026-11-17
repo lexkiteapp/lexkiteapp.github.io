@@ -9,7 +9,7 @@ tags: [cambridge, b2-first, fce, exam-format]
 keyword: "b2 first sınav formatı"
 cover: practice
 coverAlt: "Lexkite Practice sayfasında oyunlar ve alıştırmalar, bir test ve bir yazma odası"
-publishAt:
+publishAt: 2027-01-06T09:08:00+03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

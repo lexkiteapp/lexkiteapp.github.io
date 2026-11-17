@@ -10,7 +10,7 @@ keyword: "ielts 리스닝 문제 유형"
 cover: listening
 coverAlt: "Lexkite 리스닝 연습 목록: 수준별로 묶인 녹음 자료"
 coverArt: {mood: think, icon: ear}
-publishAt:
+publishAt: 2027-01-07T19:32:00+09:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

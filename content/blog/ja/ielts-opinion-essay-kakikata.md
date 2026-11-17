@@ -9,7 +9,7 @@ tags: [ielts, writing, task-2, opinion-essay]
 keyword: "ielts opinion essay 書き方"
 cover: write
 coverAlt: "Lexkiteのライティング画面。トピック別の設問、アイデアのヒント、エッセイの型が並んでいる"
-publishAt:
+publishAt: 2027-01-18T21:31:00+09:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

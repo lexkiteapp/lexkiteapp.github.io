@@ -9,7 +9,7 @@ tags: [ielts, band-score, scoring, strategy]
 keyword: "как рассчитывается балл ielts"
 cover: mock
 coverAlt: "Экран настройки пробного теста IELTS в Lexkite с четырьмя частями и историей прошлых попыток"
-publishAt:
+publishAt: 2027-01-12T07:41:00+03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

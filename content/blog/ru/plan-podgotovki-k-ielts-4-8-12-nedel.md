@@ -9,7 +9,7 @@ tags: [ielts, study-plan, schedule, mock-test]
 keyword: "подготовка к ielts за 2 месяца"
 cover: path
 coverAlt: "Экран учебного маршрута Lexkite с уроками, расставленными по шагам"
-publishAt:
+publishAt: 2027-01-14T19:50:00+03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

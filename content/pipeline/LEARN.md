@@ -26,8 +26,8 @@ a = Truy hồi chủ động · b = Lặp lại giãn cách · c = Tải nhận 
 | 7 | Bộ từ | ngsl2 | A2 | 61 | mẹo nhớ cho từ dễ nhầm (gold "why"): 27% · ví dụ: thiếu collocation/đồng nghĩa |
 | 8 | Bộ từ | ngsl7 | B1 | 61 | mẹo nhớ cho từ dễ nhầm (gold "why"): 3% · ví dụ: thiếu collocation/đồng nghĩa |
 | 9 | Bộ từ | ngsl8 | B1 | 61.1 | mẹo nhớ cho từ dễ nhầm (gold "why"): 6% · ví dụ: thiếu collocation/đồng nghĩa |
-| 10 | Bộ từ | ngsl10 | B2 | 61.1 | mẹo nhớ cho từ dễ nhầm (gold "why"): 4% · ví dụ: thiếu collocation/đồng nghĩa |
-| 11 | Bộ từ | ngsl4 | A2 | 61.2 | mẹo nhớ cho từ dễ nhầm (gold "why"): 16% · ví dụ: thiếu collocation/đồng nghĩa |
+| 10 | Bộ từ | ngsl4 | A2 | 61.2 | mẹo nhớ cho từ dễ nhầm (gold "why"): 16% · ví dụ: thiếu collocation/đồng nghĩa |
+| 11 | Bộ từ | ngsl10 | B2 | 61.2 | mẹo nhớ cho từ dễ nhầm (gold "why"): 4% · ví dụ: thiếu collocation/đồng nghĩa |
 | 12 | Bộ từ | bsl3 | B2 | 61.2 | mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
 | 13 | Bộ từ | ngsl6 | B1 | 61.3 | mẹo nhớ cho từ dễ nhầm (gold "why"): 7% · ví dụ: thiếu collocation/đồng nghĩa |
 | 14 | Bộ từ | ngsl9 | B2 | 61.3 | mẹo nhớ cho từ dễ nhầm (gold "why"): 3% · ví dụ: thiếu collocation/đồng nghĩa |
@@ -46,7 +46,7 @@ a = Truy hồi chủ động · b = Lặp lại giãn cách · c = Tải nhận 
 | 27 | Bộ từ | xw-everyday | B2 | 64.8 | mã hoá kép 63% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
 | 28 | Bộ từ | xw-actions | B2 | 64.8 | mã hoá kép 63% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
 | 29 | Bộ từ | bộ lẻ (< 10 từ) | C1 | 65.4 | mã hoá kép 62% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 20% · ví dụ: thiếu collocation/đồng nghĩa |
-| 30 | Bộ từ | science | C1 | 65.8 | mã hoá kép 68% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
+| 30 | Bộ từ | science | C1 | 65.9 | mã hoá kép 68% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
 
 ## Lỗi theo tiêu chí (số đơn vị < 60 điểm ở tiêu chí đó)
 

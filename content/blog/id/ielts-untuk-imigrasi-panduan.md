@@ -9,7 +9,7 @@ tags: [ielts, immigration, ielts-general, canada, australia]
 keyword: "ielts untuk imigrasi"
 cover: goal
 coverAlt: "Layar tujuan Lexkite untuk memilih ujian, skor target, tanggal ujian, dan jam belajar mingguan"
-publishAt:
+publishAt: 2027-01-12T07:08:00+07:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

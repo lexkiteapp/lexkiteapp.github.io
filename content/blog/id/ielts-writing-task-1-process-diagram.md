@@ -12,7 +12,7 @@ coverAlt: "Ruang Writing Lexkite dengan soal dan kerangka perencanaan laporan"
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
-publishAt:
+publishAt: 2027-01-13T08:29:00+07:00
 qualityScore: 92
 coverArt: {mood: think, icon: blocks}
 shots: [

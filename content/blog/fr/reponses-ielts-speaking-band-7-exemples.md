@@ -13,7 +13,7 @@ coverArt: {mood: happy, icon: mic}
 factChecked: 2026-11-16
 qualityScore: 92
 author: Lexkite
-publishAt:
+publishAt: 2027-01-12T09:32:00+01:00
 status: ready
 shots: [
   {id: s1, route: '#/speaking', crop: main}

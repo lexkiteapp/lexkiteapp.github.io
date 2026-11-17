@@ -9,7 +9,7 @@ tags: [ielts, reading, question-types, strategy]
 keyword: "типы заданий ielts reading"
 cover: reading
 coverAlt: "Список текстов для чтения в Lexkite с материалами уровней от A2 до C1"
-publishAt:
+publishAt: 2027-01-18T08:04:00+03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

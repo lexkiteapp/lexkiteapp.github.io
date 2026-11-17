@@ -97,6 +97,8 @@ qualityScore: 94
 
 หากกำลังฝึกทำข้อสอบแบบจับเวลา ให้อ่าน[เคล็ดลับการจัดสรรเวลา IELTS Reading ใน 60 นาที](/th/blog/kan-chatsan-wela-ielts-reading-klayut-60-nathi/)ควบคู่กันไป
 
+เมื่อเข้าใจข้อนี้แล้ว ไปต่อที่[ประเภทคำถาม IELTS Reading](/th/blog/prapheet-khamtham-ielts-reading-withi-tham/)ที่เหลือ
+
 ## คำถามที่พบบ่อย (FAQ)
 
 ### True/False/Not Given ต่างจาก Yes/No/Not Given อย่างไร?

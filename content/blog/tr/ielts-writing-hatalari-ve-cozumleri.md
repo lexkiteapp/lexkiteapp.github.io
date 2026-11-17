@@ -9,7 +9,7 @@ tags: [ielts, writing, mistakes, grammar, task-2]
 keyword: "ielts writing hataları"
 cover: write
 coverAlt: "Lexkite Writing odası: essay soruları, fikir ipuçları ve essay iskeleti"
-publishAt:
+publishAt: 2027-01-16T20:58:00+03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

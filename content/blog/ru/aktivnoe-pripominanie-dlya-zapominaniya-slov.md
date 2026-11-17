@@ -9,7 +9,7 @@ tags: [active-recall, vocabulary, memory, flashcards]
 keyword: "активное припоминание"
 cover: practice-test
 coverAlt: "Тест с выбором ответа в Lexkite: нужно выбрать верное значение выражения run out of"
-publishAt:
+publishAt: 2027-01-04T08:55:00+03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

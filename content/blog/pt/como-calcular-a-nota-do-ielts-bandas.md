@@ -9,7 +9,7 @@ tags: [ielts, band-score, scoring, strategy]
 keyword: "nota do ielts"
 cover: mock
 coverAlt: "Tela de configuração do simulado de IELTS do Lexkite com as quatro habilidades e o histórico de tentativas anteriores"
-publishAt:
+publishAt: 2027-01-15T19:11:00-03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

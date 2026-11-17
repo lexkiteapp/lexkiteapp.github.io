@@ -9,7 +9,7 @@ tags: [ielts, immigration, ielts-general, canada, australia]
 keyword: "göçmenlik için ielts"
 cover: goal
 coverAlt: "Lexkite hedef ekranı: sınav, hedef puan, sınav tarihi ve haftalık çalışma saatini seçme"
-publishAt:
+publishAt: 2027-01-07T09:25:00+03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

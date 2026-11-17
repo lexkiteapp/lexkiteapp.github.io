@@ -33,7 +33,7 @@
   const LABEL = () => ({ words: ['📌', t('Từ mới học'), '#/review'], listens: ['🎧', t('Phần nghe'), '#/listening'], readings: ['📖', t('Bài đọc'), '#/reading'], writes: ['✍️', t('Bài viết'), '#/write'], spoken: ['🗣️', t('Lượt nói (điểm)'), '#/speaking'], grammar: ['📐', t('Bài ngữ pháp'), '#/grammar'] });
 
   const goal = () => state.settings.goal || null;
-  const weeksLeft = g => Math.max(1, Math.ceil((new Date(g.date) - Date.now()) / (7 * DAY)));
+  const weeksLeft = g => Math.max(1, Math.ceil(Core.daysTo(g.date) / 7));
   // Điểm hiện tại: lần thi thử gần nhất → bài kiểm tra đầu vào → mặc định
   async function current(exam) {
     if (exam === 'toeic') { const t = (state.game.toeicTests || []).slice(-1)[0]; return t ? t.total : 450; }
@@ -63,7 +63,7 @@
     if (!g) return `<div class="card goal-mini"><div class="row between"><div><b>🎯 ${t('Đặt mục tiêu điểm & ngày thi')}</b><div class="small muted">${t('Lexkite sẽ chia kế hoạch học từng tuần cho bạn')}</div></div><a class="btn sm primary" href="#/goal">${t('Đặt mục tiêu')}</a></div></div>`;
     const cur = await current(g.exam), { t: tg } = weeklyTargets(g, cur), { out, dow } = thisWeek();
     const keys = Object.keys(tg), pct = Math.round(keys.reduce((a, k) => a + Math.min(1, out[k] / tg[k]), 0) / keys.length * 100);
-    const exp = Math.round((dow + 1) / 7 * 100), days = Math.max(0, Math.ceil((new Date(g.date) - Date.now()) / DAY));
+    const exp = Math.round((dow + 1) / 7 * 100), days = Math.max(0, Core.daysTo(g.date));
     return `<a class="card goal-mini" href="#/goal" style="color:var(--text)"><div class="row between nowrap"><div><b>🎯 ${NAME[g.exam] || 'IELTS'} ${App.goalLabel(g)}</b> <span class="small muted">· ${t('còn {days} ngày · hiện ~{cur}', { days, cur: App.goalLabel({ exam: g.exam, target: cur }) })}</span></div><span class="chip ${pct >= exp ? 'ok' : ''}">${t('Tuần này {pct}%', { pct })}</span></div>
       <div class="progress" style="margin-top:.5rem"><i style="width:${pct}%"></i></div><div class="tiny muted" style="margin-top:.3rem">${pct >= exp ? t('Đúng tiến độ') + ' 👍' : t('Nên đạt ~{exp}% vào hôm nay – xem chỉ tiêu còn thiếu →', { exp })}</div></a>`;
   };
@@ -84,7 +84,7 @@
     else if (ex === 'toeic') { const x = (state.game.toeicTests || []).slice(-1)[0]; if (x) { real = true; bands = { listening: x.ls, reading: x.rs }; hist = (state.game.toeicTests || []).slice().reverse().map(y => ({ bands: { listening: y.ls, reading: y.rs } })); } }
     else if (ex === 'general') real = !!state.settings.placement;
     const pct = real ? Math.max(4, Math.min(100, Math.round((cur - mn) / Math.max(.1, g.target - mn) * 100))) : 0;
-    const days = Math.max(0, Math.ceil((new Date(g.date) - Date.now()) / DAY)), BAND = v => (ex === 'toeic' ? String(v) : t('Band {b}', { b: v }));
+    const days = Math.max(0, Core.daysTo(g.date)), BAND = v => (ex === 'toeic' ? String(v) : t('Band {b}', { b: v }));
     const sk = bands ? SK().filter(([k]) => bands[k] != null) : [];
     const skills = sk.map(([k, , n]) => { const v = +bands[k], weak = ex === 'toeic' ? v < g.target / 2 - 25 : v < g.target - .25, top = ex === 'toeic' ? 495 : 9;
       return { k, name: n, v, top, band: BAND(v), weak, href: `#/skill/${k}`, status: weak ? t('Cần luyện thêm') : t('Đạt nhịp mục tiêu'), faLabel: t('Trọng tâm:'), focus: FOCUS()[k], bars: hist.slice(0, 5).map(m => +((m.bands || {})[k] || 0)).reverse().map(b => Math.max(12, Math.round(b / top * 100))) }; });

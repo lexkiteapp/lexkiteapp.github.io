@@ -12,7 +12,7 @@ coverAlt: "Pustaka IPA Lexkite berisi vokal, diftong, dan konsonan untuk dilatih
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
-publishAt:
+publishAt: 2027-01-21T09:34:00+07:00
 qualityScore: 93
 coverArt: {mood: think, icon: mic}
 shots: [

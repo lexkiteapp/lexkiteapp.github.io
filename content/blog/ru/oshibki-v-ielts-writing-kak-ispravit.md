@@ -9,7 +9,7 @@ tags: [ielts, writing, mistakes, grammar, task-2]
 keyword: "ошибки в ielts writing"
 cover: write
 coverAlt: "Комната Writing в Lexkite с темами эссе, подсказками идей и каркасом эссе"
-publishAt:
+publishAt: 2027-01-13T19:26:00+03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

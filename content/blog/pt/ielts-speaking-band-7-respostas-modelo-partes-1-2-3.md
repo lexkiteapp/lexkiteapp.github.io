@@ -9,7 +9,7 @@ tags: [ielts, speaking, band-7, sample-answers]
 keyword: "ielts speaking band 7"
 cover: speaking
 coverAlt: "Prática de Speaking do Lexkite com as partes 1, 2 e 3 do IELTS para escolher"
-publishAt:
+publishAt: 2027-01-23T09:34:00-03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

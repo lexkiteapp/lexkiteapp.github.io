@@ -146,6 +146,8 @@ publishAt: 2026-11-24T09:46:00+07:00
 
 {{cta: /#/listening | เริ่มต้นฝึกฟังและเขียนตามคำบอกในห้อง Dictation ของ Lexkite ตอนนี้}}
 
+เมื่อฝึกแกะเสียงได้แล้ว ลองนำไปใช้กับโจทย์กรอกคำใน [IELTS Listening รูปแบบข้อสอบ](/th/blog/ielts-listening-rupbaep-khosop-thuk-baep/)
+
 ## คำถามที่พบบ่อย (FAQ)
 
 ### ควรเลือกคลิปเสียงประเภทไหนมาฝึก Dictation สำหรับผู้เริ่มต้น?

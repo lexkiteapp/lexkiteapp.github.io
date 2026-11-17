@@ -9,7 +9,7 @@ tags: [ielts, study-plan, schedule, mock-test]
 keyword: "ielts hazırlık programı"
 cover: path
 coverAlt: "Lexkite IELTS yolu ekranı: band aşamaları; kelime, pratik, dinleme ve test adımları"
-publishAt:
+publishAt: 2027-01-08T21:49:00+03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
