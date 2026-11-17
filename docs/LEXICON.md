@@ -111,10 +111,11 @@ Cấp độ do người soạn; `content/wordlists/cefr-oxford.json` chỉ có c
 
 ## Bảng động từ bất quy tắc (#/irregular)
 Dạng V1/V2/V3 chỉ ở IRR của `web/js/verbs-core.js`; nội dung `content/verbs/`; cách thêm và đối chiếu nguồn: đầu `scripts/verbs/build-irregular.mjs` (rồi chạy `scripts/native/gen.mjs`).
-- **Nguồn ứng viên mở rộng (17/11):** `LX_TOP` 200k → 320k, từ ngoài CMUdict có lemma WordNet vào pool khi Zipf ≥ 1,5 (`LX_CMU_FREE`), từ loại phụ SemCor ≥ 1, cầu GSC `dictQueue` lên đầu. Pool: 3.370 → ~14.300 ứng viên (mới ~12.800; phần thêm gần hết từ Zipf 1,5–3 hiếm). Tần suất lọc ở lọc trước AI; **chặn thật = nguồn vi + 2 câu NGƯỜI VIẾT** (≈1 % ứng viên qua), nên ~14k ứng viên ≈ vài trăm từ đạt, không đủ 11.800 còn thiếu.
 
-## Tầng 2 (AI soạn nghĩa vi + câu) – pilot 17/11: KHÔNG ĐẠT, đã đóng
-- Pilot ngoài luồng (cổng main + kho live không đổi): 200 mục bị chặn ở cổng nguồn người viết; AI họ gpt-oss soạn, qwen dịch ngược + chấm. AI tự chấm nhận 171/200 (85,5 %).
-- Chấm tay độc lập (2 agent che nhãn, từ điển chuẩn): **tầng 2 sai 15–17/50 (30–34 %)**, đối chứng đường người viết sai 2/50 (4 %); ngưỡng cần ≤ 1/50 và không kém đối chứng → **không bật**. Lỗi chính: nghĩa vi lệch/không tự nhiên (13/50), câu ví dụ sai nghĩa/từ loại (6/50). Giám khảo AI bỏ lọt (nhận 85 %, thật ~68 %).
-- Tệp kết quả: thư mục ghi chú phiên điều phối (`tier2-pilot-result.md`, `grade-*.json`); mã: nhánh `claude/tier2-pilot` (`tier2-pilot.mjs`, mẫu `content/lexicon/expand/pilot/tier2-200.json`). Kết luận: muốn lên 20k phải mở nguồn người viết, không dùng AI thay.
-- **Phễu lọc trước AI (run 13/11, 2.379 quét):** thiếu vi người viết 1.612 (68 %) · có vi nhưng thiếu 2 câu người viết 723 (30 %) · qua 22. Cả hai nguồn nghẽn; nguồn vi Wiktionary vi/en (kaikki), Wikidata, Tatoeba đã dùng sẵn; Hồ Ngọc Đức = GPL (chỉ đo thử `lexicon-gpl-probe.yml`).
+## Mở rộng kho 17/11: nguồn ứng viên, tầng 2, phiếu GPL, mốc quý
+- **Vì sao idle từ 13/11:** cầu dao `laneEmpty` đúng; ứng viên mới cạn (pool 3,3k gần hết C2 hiếm). Phễu 13/11 (2.379 quét): 68 % thiếu nghĩa vi NGƯỜI VIẾT · 30 % có vi nhưng thiếu 2 câu người viết · qua 22.
+- **Nguồn ứng viên (`pick_words.py`):** `LX_TOP` 320k, từ ngoài CMUdict có lemma WordNet khi Zipf ≥ 1,5 (`LX_CMU_FREE`), từ loại phụ SemCor ≥ 1 (`LX_SEC_MIN`), cầu GSC `dictQueue` lên đầu (chỉ đổi thứ tự). Pool 3.370 → ~14.300; phần thêm gần hết từ Zipf 1,5–3 hiếm.
+- **Tầng 2 (AI soạn vi + câu) – pilot KHÔNG ĐẠT, đóng:** 200 mục chặn ở cổng nguồn; AI tự chấm nhận 85 %, chấm tay độc lập (2 agent che nhãn): tầng 2 sai 30–34 % (vi lệch 13/50, câu 6/50), đối chứng đường người viết sai 4 % (ngưỡng ≤ 1/50). Mã: nhánh `claude/tier2-pilot`; kết quả: ghi chú phiên điều phối (`tier2-pilot-result.md`).
+- **Hồ Ngọc Đức (GPL):** chỉ đo thử (`lexicon-gpl-probe.yml`, run 44115474061, cận trên: q2 1.006 → 892 đủ 2 nguồn, retry +297); dùng làm phiếu đối chiếu CHỜ chủ duyệt giấy phép (mã giữ nhánh cục bộ, chưa vào repo).
+- **Nguồn câu xoay:** `LX_ENWIKI_EXTRA` (mặc định 1) phần dump enwiki ngoài 3 phần đầu, theo ngày trong năm (73 phần).
+- **Mốc quý: ~12–13k word#pos đạt chuẩn** (17/11: 10.288; +450–900 một lần từ q2, +300–400 từ retry). **20k vẫn là đích**, cần nguồn vi/câu mới cho từ hiếm. Nhịp: `node scripts/lexicon/expand/pace.mjs`; sàn health-board ≥ 40 mục đạt/48 h (`infra/yield-floors.json`).
