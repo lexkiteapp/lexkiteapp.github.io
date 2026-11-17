@@ -14,6 +14,11 @@ const TITLE = 'Sức khoẻ hệ thống';
 const readJson = (f, d) => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, f), 'utf8')); } catch { return d; } };
 const api = async p => { const r = await ghApi('GET', `/repos/${REPO}${p}`); if (r.status >= 400 || !r.body) throw new Error(`GET ${p} → ${r.status}${r.rateLimited ? ' (hạn mức)' : ''}`); return r.body; };
 
+/** Bản ghi sản lượng của workflow: reports/yield/<id>.json + <id>.<phần>.json (mỗi shard một file, không xung đột khi gộp). Không có file nào → undefined. */
+function yieldRuns(id) {
+  const dir = path.join(ROOT, 'reports/yield'); let fl = []; try { fl = fs.readdirSync(dir).filter(f => f === `${id}.json` || (f.startsWith(id + '.') && f.endsWith('.json'))); } catch { /* chưa có thư mục */ }
+  return fl.length ? fl.flatMap(f => (readJson(`reports/yield/${f}`, {}).runs) || []) : undefined;
+}
 export async function collect() {
   const floors = readJson('infra/yield-floors.json', {}), offs = readJson('infra/health-expected-off.json', {});
   const wfs = []; for (let p = 1; ; p++) { const b = await api(`/actions/workflows?per_page=100&page=${p}`); wfs.push(...b.workflows); if (b.workflows.length < 100) break; }
@@ -25,8 +30,8 @@ export async function collect() {
       let runs = [];
       try { runs = (await api(`/actions/workflows/${w.id}/runs?per_page=15&exclude_pull_requests=true`)).workflow_runs.filter(r => r.event !== 'pull_request' && r.event !== 'pull_request_target' && r.status === 'completed'); } catch (e) { findings.push({ sev: 'warn', kind: 'đọc lỗi', wf: file, name: w.name, msg: e.message }); continue; }
       let src = ''; try { src = fs.readFileSync(path.join(ROOT, w.path), 'utf8'); } catch { /* workflow đã xoá khỏi cây */ }
-      const y = readJson(`reports/yield/${id}.json`, null);
-      findings.push(...classify({ wf: { name: w.name, file, state: w.state }, runs, cronList: crons(src), floor: floors[id], yieldRuns: y && y.runs, off: offs[id] }));
+      const yr = yieldRuns(id);
+      findings.push(...classify({ wf: { name: w.name, file, state: w.state }, runs, cronList: crons(src), floor: floors[id], yieldRuns: yr, off: offs[id] }));
     }
   };
   await Promise.all(Array.from({ length: 6 }, work));
