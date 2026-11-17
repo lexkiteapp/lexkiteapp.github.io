@@ -143,6 +143,10 @@ quiz: [
 
 {{youtube: | استراتيجيات إدارة الوقت والتعامل مع النصوص الثلاثية في TOEIC Part 7}}
 
+وللصورة الكاملة عن الأجزاء السبعة والدرجات راجع [هيكل اختبار TOEIC](/ar/blog/haykal-ikhtibar-toeic-al-ajza-al-sabaa/).
+
+ولا تهمل الاستماع، ففيه [TOEIC Part 3 وPart 4](/ar/blog/toeic-part-3-wa-part-4-istratijiyat-al-muhadathat/) وهما أكبر كتلة درجات في ذلك القسم.
+
 ## الأسئلة الشائعة
 
 ### هل أقرأ النص أولاً أم الأسئلة؟

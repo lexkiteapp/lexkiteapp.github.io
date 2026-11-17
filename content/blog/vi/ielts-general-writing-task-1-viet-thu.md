@@ -131,6 +131,8 @@ Khi đã quen thư, bạn có thể chuyển sang phần chiếm nhiều điểm
 
 {{youtube: | Gợi ý video: Viết một thư bán trang trọng trong 20 phút, từ đọc đề đến kiểm tra lỗi}}
 
+Nếu mục tiêu của bạn là định cư, đọc [IELTS định cư: chọn bài thi nào, cần band bao nhiêu](/vi/blog/ielts-dinh-cu-chon-bai-thi-va-band/) trước khi đăng ký thi.
+
 ## Câu hỏi thường gặp
 
 ### IELTS General Writing Task 1 có cần viết địa chỉ và ngày tháng không?

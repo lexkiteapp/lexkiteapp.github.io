@@ -146,6 +146,8 @@ Khi đã quen, chuyển sang [bài kiểm tra trắc nghiệm](/#/practice/test)
 
 Muốn đi xa hơn từng cặp từ, đọc tiếp bài [collocation IELTS](/vi/blog/collocation-ielts/) để học cách từ kết hợp với nhau, và bài [lỗi sai tiếng Anh người Việt hay mắc](/vi/blog/loi-sai-tieng-anh-nguoi-viet-hay-mac/) để soát các lỗi ngữ pháp đi kèm. Với kỳ thi TOEIC, nhiều cặp trong bài này xuất hiện ở Part 5 – xem [mẹo làm TOEIC Part 5](/vi/blog/toeic-part-5-meo-lam-bai/).
 
+Riêng cặp này có bài phân tích kỹ hơn: [phân biệt affect và effect](/vi/blog/phan-biet-affect-va-effect/).
+
 ## Câu hỏi thường gặp
 
 ### Nên học các cặp từ dễ nhầm theo danh sách hay theo ngữ cảnh?
