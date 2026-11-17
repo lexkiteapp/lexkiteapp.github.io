@@ -113,6 +113,12 @@ qualityScore: 94
 
 Если вы сравниваете письменную часть IELTS и TOEFL, посмотрите [новый формат TOEFL 2026: изменения и план подготовки](/ru/blog/novyy-format-toefl-2026-podgotovka/).
 
+Если в вашем задании нужно выразить собственное мнение, посмотрите отдельный разбор: [IELTS opinion essay: как писать эссе с вашим мнением](/ru/blog/ielts-opinion-essay-kak-pisat/).
+
+Посмотрите также, какие [ошибки в IELTS Writing](/ru/blog/oshibki-v-ielts-writing-kak-ispravit/) чаще всего снижают оценку, и как работает [расчёт итогового балла IELTS](/ru/blog/kak-rasschityvaetsya-ball-ielts/).
+
+Структура эссе одинакова в Academic и General Training, поэтому она пригодится и тем, кому тест нужен для визы: см. [IELTS для иммиграции](/ru/blog/ielts-dlya-immigratsii-general-ili-academic/).
+
 ## Часто задаваемые вопросы (FAQ)
 
 ### Сколько слов считается идеальным объемом для Task 2?
