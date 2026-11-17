@@ -8,7 +8,7 @@
 // Công cụ (CI cài): LEXKITE_TOOLS/node_modules/{@resvg/resvg-js,sharp,playwright-core}; phông Noto (apt fonts-noto-core fonts-noto-cjk) + brand/social/src/fonts.
 import fs from 'node:fs'; import path from 'node:path'; import { createRequire } from 'node:module'; import { execFileSync } from 'node:child_process';
 import { loadPosts, loadMedia, config, ROOT, isLive, publishTime } from './lib/blog-content.mjs';
-import { wantedItems, specOf, coverSvg, autoAlt, sha, overBudget, fitAvif, mediaId, appRoutes, routeName } from './lib/blog-images.mjs';
+import { wantedItems, specOf, coverSvg, autoAlt, sha, overBudget, fitAvif, ssimGray, mediaId, appRoutes, routeName } from './lib/blog-images.mjs';
 import { pushDir, r2Config, r2List, r2Delete } from './lib/media-store.mjs';
 
 const args = process.argv.slice(2), cmd = args[0] || 'status';
@@ -49,10 +49,20 @@ function tools() {
   return createRequire(T + '/');
 }
 async function encode(sharp, png, { og = false } = {}) {
-  const meta = await sharp(png).metadata(), maxW = Math.min(meta.width, 1440), hash = sha(png, 16);
-  const widths = [...new Set([...IMG.widths.filter(w => w < maxW), maxW])].sort((a, b) => a - b), bytes = {}, budget = IMG.budgetKB * 1024;
+  const meta = await sharp(png).metadata(), natW = Math.min(meta.width, 1440), hash = sha(png, 16), budget = IMG.budgetKB * 1024;
   fs.mkdirSync(OUT, { recursive: true });
-  const { buf: top, q } = await fitAvif(q => sharp(png).resize({ width: maxW }).avif({ quality: q, effort: 6, chromaSubsampling: '4:2:0' }).toBuffer(), budget); // giảm chất lượng tới khi ≤ trần
+  // Ảnh chụp chữ nhỏ: chất lượng dừng ở sàn SSIM; vẫn > trần → giảm kích thước hiển thị 1440→1200→1080 (srcset giữ đủ bậc), không hạ q tiếp.
+  const tries = [...new Set([natW, 1200, 1080].filter(w => w <= natW))], minScore = IMG.minSsim ?? 0.95;
+  let fit = null, maxW = natW;
+  for (const W of tries) {
+    maxW = W;
+    const ref = await sharp(png).resize({ width: W }).greyscale().raw().toBuffer({ resolveWithObject: true });
+    fit = await fitAvif(q => sharp(png).resize({ width: W }).avif({ quality: q, effort: 6, chromaSubsampling: '4:2:0' }).toBuffer(), budget, {
+      minScore, score: async buf => ssimGray(ref.data, await sharp(buf).greyscale().raw().toBuffer(), ref.info.width, ref.info.height) });
+    if (fit.ok) break;
+  }
+  const { buf: top, q } = fit; console.log(`  · AVIF ${maxW}px q${q} SSIM ${fit.score.toFixed(3)} ${(top.length / 1024).toFixed(1)} KB${maxW < natW ? ` (hạ kích thước từ ${natW})` : ''}`);
+  const widths = [...new Set([...IMG.widths.filter(w => w < maxW), maxW])].sort((a, b) => a - b), bytes = {};
   for (const w of widths) {
     const av = w === maxW ? top : await sharp(png).resize({ width: w }).avif({ quality: q, effort: 6 }).toBuffer();
     let wq = 78, wb; for (;;) { wb = await sharp(png).resize({ width: w }).webp({ quality: wq, effort: 5 }).toBuffer(); if (wb.length <= budget * 2.5 || wq <= 60) break; wq -= 8; }

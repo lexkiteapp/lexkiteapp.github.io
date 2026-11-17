@@ -173,13 +173,17 @@ t('blog-check: tiêu đề ru/ar/zh/ja/ko/th phiên âm Latin → lỗi; tên k�
   for (const [l, s] of [['ru', 'Шаблон ответа IELTS Speaking Part 2: монолог на Band 8.0'], ['ru', 'Relative clauses в английском: who, which, that и запятые'], ['ar', 'كتابة Academic Discussion في التوفل TOEFL iBT: درجة 5/5'], ['zh', '英语连读规则 (Connected Speech) 解析：连读、弱读与发音'], ['ja', 'TOEFL Complete the Words 対策：新形式リーディングの解き方'], ['th', 'Modal Verbs Can Could Should Must: กฎการใช้และข้อควรระวัง'], ['hi', 'English Presentation Phrases in Hindi: Pro Tips'], ['en', 'Shadowing Technique']])
     assert.equal(latinTitle(l, s), null, `${l}: "${s}" không được bắt`);
 });
-{ // fitAvif: ảnh dày chữ còn >60 KB ở q30 vẫn phải xuống ≤ trần nhờ sàn thấp hơn; trần không đổi
-  const size = q => Math.round(q * 3500), calls = []; // giả lập: q27 ≈ 94 KB, q17 ≈ 59.5 KB
-  const r = await BI.fitAvif(async q => { calls.push(q); return { length: size(q) }; }, 60 * 1024);
-  assert.ok(r.buf.length <= 60 * 1024 && r.q < 30 && r.q >= 10, 'hạ dưới q30 tới khi ≤ 60 KB: q=' + r.q);
-  const hard = await BI.fitAvif(async () => ({ length: 90000 }), 60 * 1024);
-  assert.equal(hard.q, 10, 'sàn q10 – không vòng vô hạn, không nới trần'); assert.ok(hard.buf.length > 60 * 1024);
-  const easy = await BI.fitAvif(async () => ({ length: 1000 }), 60 * 1024); assert.equal(easy.q, 55); n++;
+{ // fitAvif + SSIM: hạ q tới ≤ trần, nhưng dừng ở sàn SSIM (không nhòe chữ); trần 60 KB không đổi
+  const B = 60 * 1024, size = q => Math.round(q * 3500), sc = q => 1 - (55 - q) * 0.002; // q15≈52 KB (≤ trần); SSIM giảm khi q giảm
+  const a = await BI.fitAvif(async q => ({ q, length: size(q) }), B, { score: async b => sc(b.q), minScore: 0.9 });
+  assert.ok(a.ok && a.buf.length <= B && a.q < 30 && a.score >= 0.9, 'hạ tới ≤ 60 KB khi SSIM còn đạt: q=' + a.q);
+  const f = await BI.fitAvif(async q => ({ q, length: 90000 }), B, { score: async b => sc(b.q), minScore: 0.95 });
+  assert.equal(f.ok, false); assert.ok(f.score >= 0.95 && f.q >= 30, 'chạm sàn SSIM → dừng, giữ bản tốt nhất đạt sàn (q=' + f.q + ')');
+  const h = await BI.fitAvif(async () => ({ length: 90000 }), B); assert.equal(h.q, 10, 'sàn cứng q10, không vòng vô hạn'); assert.equal(h.ok, false);
+  const e = await BI.fitAvif(async () => ({ length: 1000 }), B); assert.ok(e.ok && e.q === 55);
+  const w = 32, h8 = 16, A = new Uint8Array(w * h8).map((_, i) => (i * 37) % 251), N = A.map((v, i) => (i % 5 ? v : 255 - v));
+  assert.equal(BI.ssimGray(A, A, w, h8), 1); assert.ok(BI.ssimGray(A, N, w, h8) < 0.9, 'ảnh khác → SSIM thấp');
+  assert.ok(IMG.minSsim >= 0.9 && IMG.minSsim < 1, 'config.images.minSsim'); n++;
 }
 fs.rmSync(tmp, { recursive: true, force: true });
 console.log(`✓ blog-images: ${n} nhóm test đạt`);
