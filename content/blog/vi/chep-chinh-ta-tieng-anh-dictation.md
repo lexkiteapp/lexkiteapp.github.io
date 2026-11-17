@@ -108,6 +108,8 @@ Mở [Trò chơi & bài tập](/#/practice), chọn Nghe & chép với nguồn t
 
 Nếu cần thêm từ để kiểm tra tai mình, hãy chọn vài từ trong [từ vựng theo chủ đề](/tu-vung/) rồi tự nghe và viết lại.
 
+Thói quen chép chính tả giúp ích trực tiếp cho dạng điền chỗ trống trong Listening; xem [các dạng câu hỏi IELTS Listening](/vi/blog/cac-dang-cau-hoi-ielts-listening/).
+
 ## Câu hỏi thường gặp
 
 ### Chép chính tả tiếng Anh có phù hợp với người mới bắt đầu không?
