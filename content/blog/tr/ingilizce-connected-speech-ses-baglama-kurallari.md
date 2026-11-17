@@ -185,6 +185,8 @@ Düzenli olarak gerçekleştireceğiniz bu fonetik pratikler, İngilizce anlama 
 
 ---
 
+Bağlı konuşmayı gerçek durumlarda denemek için [İngilizce konuşma özgüveni](/tr/blog/ingilizce-konusma-ozguveni-kazanma/) yazısındaki kalıplarla pratik yapabilirsiniz.
+
 ## Sıkça Sorulan Sorular (FAQ)
 
 ### 1. Connected Speech kullanmadan konuşursam karşımdakiler beni anlar mı?

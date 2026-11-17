@@ -163,6 +163,12 @@ O melhor exercício para internalizar essas estruturas é pegar frases curtas e 
 
 {{cta: /#/write | Escreva sua redação e pratique frases complexas no simulador do Lexkite}}
 
+Quer treinar a voz passiva num relatório curto? O guia de [IELTS Writing Task 1 process](/pt/blog/ielts-writing-task-1-process-como-descrever-um-processo/) mostra isso passo a passo.
+
+Para usar essas estruturas em uma pergunta de concordo ou discordo, treine com a [redação de opinião IELTS](/pt/blog/redacao-de-opiniao-ielts-concordo-ou-discordo/), que traz um texto-modelo comentado.
+
+Depois de escrever frases mais longas, vale conferir os [erros comuns no IELTS Writing](/pt/blog/erros-comuns-no-ielts-writing-como-corrigir/) para não trocar variedade por imprecisão.
+
 ## Perguntas Frequentes (FAQ)
 
 ### Todas as frases da minha redação do IELTS precisam ser complexas?

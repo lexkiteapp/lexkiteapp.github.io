@@ -149,6 +149,8 @@ Se você se reconheceu na frase 5 mas ainda não na 2, está na faixa B1–B2: o
 
 {{youtube: | Ideia de vídeo: a mesma pergunta respondida em A2, B1, B2 e C1 para ouvir a diferença}}
 
+Quer ver o nível B2 num exame de certificado? Veja o formato do [Cambridge B2 First](/pt/blog/cambridge-b2-first-formato-da-prova-partes-e-dicas/), com todas as partes de cada paper.
+
 ## Perguntas frequentes
 
 ### “Inglês intermediário” equivale a qual nível?

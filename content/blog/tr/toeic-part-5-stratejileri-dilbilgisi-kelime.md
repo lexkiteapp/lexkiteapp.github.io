@@ -135,6 +135,8 @@ Edilgen çatının kuruluşunu hatırlamak için [İngilizce edilgen çatı kura
 
 ---
 
+Listening tarafında en kısa bölüm olan [TOEIC Part 1 fotoğraf soruları](/tr/blog/toeic-part-1-fotograf-tanimlama-taktikleri/) için ayrı bir taktik yazımız var.
+
 ## Türk adayların en sık düştüğü tuzaklar
 
 - **Tanımlık unutmak**: Türkçede *a/an/the* karşılığı yoktur, bu yüzden *presented comprehensive proposal* gibi eksik yapılar gözden kaçar. Tekil sayılabilir bir isim gördüğünüzde önünde bir belirleyici arayın.
@@ -238,6 +240,10 @@ Deneyin: [TOEIC sayfasını](/#/toeic) açın, bir deneme sınavı seçin, Part 
 {{youtube: | TOEIC Part 5: dilbilgisi ve kelime taktikleri}}
 
 ---
+
+Part 5'in sınavın tamamındaki zaman payını [TOEIC sınav formatı](/tr/blog/toeic-sinav-formati-bolumler-sure-puanlama/) rehberinde görebilirsiniz.
+
+Listening tarafındaki en büyük puan bloğu için [TOEIC Part 3 ve Part 4 stratejileri](/tr/blog/toeic-part-3-ve-part-4-stratejileri/) yazısını okuyun.
 
 ## TOEIC Part 5 hakkında sık sorulan sorular
 
