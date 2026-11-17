@@ -255,6 +255,7 @@ node scripts/test/late-insert.mjs
 node scripts/build-landing.mjs --check
 node scripts/test/landing-routing.mjs
 node scripts/test/landing-v3.mjs
+node scripts/test/landing-fonts.mjs
 node scripts/test/sw-cache-fixed.mjs
 node scripts/test/sw-storage.mjs
 node scripts/test/get-app.mjs
@@ -458,5 +459,7 @@ node scripts/test/ci-portable.mjs
 node scripts/test/sr-only.mjs
 node scripts/test/sw-reminder-day.mjs
 node scripts/test/core-day.mjs
+node scripts/test/home-words.mjs
+node scripts/test/red-report.mjs
 node scripts/test/run-suite-annotate.mjs
 node scripts/test/gate-impact.mjs
