@@ -289,6 +289,7 @@
     roleplay: ['js/i18n/en/rpbasic.js', 'js/roleplay/data-everyday.js', 'js/roleplay/data-a.js', 'js/roleplay/data-b.js', 'cpack/roleplay/data-lot1.js', 'cpack/roleplay/data-lot2.js', 'js/roleplay.js'], // Roleplay: 6 tình huống hằng ngày A1–A2 + 10 kịch bản công sở
     say: ['js/i18n/en/v2.js', 'js/i18n/en/say.js', 'js/i18n/en/share.js', 'js/st/v2/runtime.js', 'js/st/v2/shell.js', 'js/st/v2/say-front.js', 'js/st/v2/say-back.js', 'js/say.js'], // 🗣️ Say it like a native: thẻ phản xạ 2 mặt, khung Stitch v2 say-front/back (docs/SAY-NATIVE.md)
     call: ['js/i18n/en/v2.js', 'js/st/v2/runtime.js', 'js/st/v2/teacher-call.js', 'js/pron/pairs.js', 'js/listen/kvoice.js', 'js/lesson/engine.js', 'js/say-text.js', 'js/lesson/teacher.js', 'js/call/calls.js', 'js/call/calls-exam.js', 'js/call/calls-lot1.js', 'js/call/calls-lot2.js', 'cpack/call/calls-lot3.js', 'cpack/call/calls-lot4.js', 'js/call/engine.js', 'js/call/endpoint.js', 'js/call/fillers.js', 'js/call/rt.js', 'js/call.js'], // Call Ama/Carlos: cuộc gọi luyện nói rẽ nhánh, giáo viên khớp môi (docs/CALL.md); khung Stitch v2 teacher-call
+    ai: ['js/ai.js'], // AI chấm bài/giải thích (15 KB gz) – tải lười ngay lần gọi AI đầu tiên; shim window.AI ở dưới giữ mọi chỗ dò `window.AI`
     struct: ['js/structures.js'], // VBStruct cho popup dịch (phrases.js) – thiếu khóa này App.need('struct') ném TypeError
     // Mục tiêu & kế hoạch: tải lười (khung app chạm trần 380 KB)
     courses: ['js/courses.js'],
@@ -532,6 +533,12 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
   const need1 = n => bundleP[n] || (inflight++, bundleP[n] = Promise.all(BUNDLES[n].map(loadScript).concat([].concat(BCSS[n] || [], n === 'ux1' ? UX1X() : [], LZCSS(n)).map(loadCss))).finally(() => { inflight--; }));
   App.need = (...names) => Promise.all([...(window.I18N && I18N.lang() !== 'vi' ? ['i18nx', 'i18nl'].map(need1) : []), ...names.map(need1)]);
   App.loaded = n => !!bundleP[n];
+  // 17/11 (mục 4 ngân sách khung, chừa chỗ ≥ 3 %): ai.js KHÔNG còn trong khung. window.AI là shim: hàm bất đồng bộ tải gói 'ai' rồi gọi bản thật (ai.js tự ghi đè window.AI);
+  // hàm đồng bộ trả giá trị an toàn khi chưa tải (chỉ gọi sau một lần gọi AI nên bản thật đã có). `window.AI &&` ở mọi nơi vẫn đúng như trước. Test: scripts/test/ai-shim.mjs
+  { const real = m => (...a) => App.need('ai').then(() => { if (window.AI._shim) throw new Error('AI_LOAD'); return window.AI[m](...a); });
+    window.AI = { _shim: true, ask: real('ask'), askLocal: real('askLocal'), explain: real('explain'), localGrade: real('localGrade'), grade: real('grade'), getKey: real('getKey'), nanoStatus: real('nanoStatus'), keyDialog: real('keyDialog'),
+      settingsHtml: real('settingsHtml'), bindSettings: real('bindSettings'), onNanoProgress: f => { real('onNanoProgress')(f).catch(() => {}); },
+      attach: (el, f) => { real('attach')(el, f).catch(() => {}); }, errText: e => (e && e.message) || String(e), badge: () => '', renderExplain: () => '', localOn: () => false }; }
   App.reneed = n => { delete bundleP[n]; return App.need(n); }; // tải lại gói đã báo xong mà thiếu dữ liệu (loadScript nuốt lỗi mạng) → bấm thử lại được
   App.loadScript = src => Promise.all([loadScript(src), loadCss('css/lazy-ui.css')]).then(() => {}); // 1 tệp lười theo nhu cầu (vd. tình huống Play & Speak)
   App.anki = async (tab, opts) => { try { await App.need('anki'); if (!window.AnkiUI) throw new Error('anki'); await AnkiUI.open(tab, opts || {}); } catch (e) { toast(t('Không tải được – thử lại sau')); } };
