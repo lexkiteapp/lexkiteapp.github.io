@@ -1,5 +1,5 @@
 {
- "total": 91.9,
+ "total": 91.8,
  "areas": {
   "grammar": {
    "name": "Ngữ pháp",
@@ -60,19 +60,19 @@
   },
   "skills": {
    "name": "Kỹ năng",
-   "units": 385,
-   "score": 96.5,
+   "units": 441,
+   "score": 96.2,
    "crit": {
-    "a": 88.6,
+    "a": 86.3,
     "b": null,
     "c": 98.8,
-    "d": 99.5,
-    "e": 99.5,
-    "f": 95.5,
-    "g": 99.3,
+    "d": 99.6,
+    "e": 99.4,
+    "f": 95.9,
+    "g": 99.4,
     "h": null,
     "i": 100,
-    "j": 88,
+    "j": 86.8,
     "k": null,
     "l": 100
    }
@@ -9186,6 +9186,556 @@
   },
   {
    "area": "skills",
+   "id": "read:c2-linguistic-relativity",
+   "title": "Does Language Shape Thought?",
+   "level": "C2",
+   "score": 85.1,
+   "crit": {
+    "a": 0.63,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "truy hồi: 5 câu hỏi (cần ≥ 8)",
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:c2-tragedy-commons",
+   "title": "The Commons Revisited",
+   "level": "C2",
+   "score": 85.1,
+   "crit": {
+    "a": 0.63,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "truy hồi: 5 câu hỏi (cần ≥ 8)",
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:c2-neuroplasticity",
+   "title": "The Brain That Rewires Itself",
+   "level": "C2",
+   "score": 85.1,
+   "crit": {
+    "a": 0.63,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "truy hồi: 5 câu hỏi (cần ≥ 8)",
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:c2-translation-untranslatable",
+   "title": "The Myth of the Untranslatable Word",
+   "level": "C2",
+   "score": 85.1,
+   "crit": {
+    "a": 0.63,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "truy hồi: 5 câu hỏi (cần ≥ 8)",
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:c2-medieval-plague",
+   "title": "After the Black Death",
+   "level": "C2",
+   "score": 85.1,
+   "crit": {
+    "a": 0.63,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "truy hồi: 5 câu hỏi (cần ≥ 8)",
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:c2-modern-architecture",
+   "title": "Form, Function and the Fate of Concrete",
+   "level": "C2",
+   "score": 85.1,
+   "crit": {
+    "a": 0.63,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "truy hồi: 5 câu hỏi (cần ≥ 8)",
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:c2-moral-luck",
+   "title": "Moral Luck",
+   "level": "C2",
+   "score": 85.1,
+   "crit": {
+    "a": 0.63,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "truy hồi: 5 câu hỏi (cần ≥ 8)",
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:c2-antibiotic-resistance",
+   "title": "The Slow Failure of Antibiotics",
+   "level": "C2",
+   "score": 85.1,
+   "crit": {
+    "a": 0.63,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "truy hồi: 5 câu hỏi (cần ≥ 8)",
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:c2-novel-form",
+   "title": "Why We Still Read Novels",
+   "level": "C2",
+   "score": 85.1,
+   "crit": {
+    "a": 0.63,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "truy hồi: 5 câu hỏi (cần ≥ 8)",
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:c2-gig-economy",
+   "title": "Flexibility at a Price",
+   "level": "C2",
+   "score": 85.1,
+   "crit": {
+    "a": 0.63,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "truy hồi: 5 câu hỏi (cần ≥ 8)",
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:c2-dead-languages",
+   "title": "The Last Speakers",
+   "level": "C2",
+   "score": 85.1,
+   "crit": {
+    "a": 0.63,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "truy hồi: 5 câu hỏi (cần ≥ 8)",
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:c2-music-cognition",
+   "title": "Why Music Moves Us",
+   "level": "C2",
+   "score": 85.1,
+   "crit": {
+    "a": 0.63,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "truy hồi: 5 câu hỏi (cần ≥ 8)",
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:c2-urban-heat",
+   "title": "Cities Under Heat",
+   "level": "C2",
+   "score": 85.1,
+   "crit": {
+    "a": 0.63,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "truy hồi: 5 câu hỏi (cần ≥ 8)",
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:c2-scientific-method",
+   "title": "Falsification and Its Discontents",
+   "level": "C2",
+   "score": 85.1,
+   "crit": {
+    "a": 0.63,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "truy hồi: 5 câu hỏi (cần ≥ 8)",
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:c2-attention-economy",
+   "title": "The Price of Attention",
+   "level": "C2",
+   "score": 85.1,
+   "crit": {
+    "a": 0.63,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "truy hồi: 5 câu hỏi (cần ≥ 8)",
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:c2-memory-reliability",
+   "title": "The Unreliable Witness",
+   "level": "C2",
+   "score": 85.1,
+   "crit": {
+    "a": 0.63,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "truy hồi: 5 câu hỏi (cần ≥ 8)",
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:c2-economic-growth",
+   "title": "Is Growth Everything?",
+   "level": "C2",
+   "score": 85.1,
+   "crit": {
+    "a": 0.63,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "truy hồi: 5 câu hỏi (cần ≥ 8)",
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:a2-lost-phone",
+   "title": "A Lost Phone",
+   "level": "A2",
+   "score": 85.1,
+   "crit": {
+    "a": 0.63,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "truy hồi: 5 câu hỏi (cần ≥ 8)",
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:a2-new-neighbours",
+   "title": "Meeting the New Neighbours",
+   "level": "A2",
+   "score": 85.1,
+   "crit": {
+    "a": 0.63,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "truy hồi: 5 câu hỏi (cần ≥ 8)",
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:a2-weekend-market",
+   "title": "A Saturday at the Market",
+   "level": "A2",
+   "score": 85.1,
+   "crit": {
+    "a": 0.63,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "truy hồi: 5 câu hỏi (cần ≥ 8)",
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:c1-remote-work",
+   "title": "The Office Reconsidered",
+   "level": "C1",
+   "score": 85.1,
+   "crit": {
+    "a": 0.63,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "truy hồi: 5 câu hỏi (cần ≥ 8)",
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:c1-microplastics",
+   "title": "The Particles We Cannot See",
+   "level": "C1",
+   "score": 85.1,
+   "crit": {
+    "a": 0.63,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "truy hồi: 5 câu hỏi (cần ≥ 8)",
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
    "id": "speak:architecture",
    "title": "Quê hương & Nơi ở",
    "level": null,
@@ -14066,6 +14616,314 @@
   },
   {
    "area": "skills",
+   "id": "write:t1-smartwatch",
+   "title": "t1-smartwatch",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t1-cinema",
+   "title": "t1-cinema",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t1-commuting",
+   "title": "t1-commuting",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t1-studyabroad",
+   "title": "t1-studyabroad",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t1-budget",
+   "title": "t1-budget",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t1-library",
+   "title": "t1-library",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t1-rentcity",
+   "title": "t1-rentcity",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t1-sportsgender",
+   "title": "t1-sportsgender",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t1-recycling",
+   "title": "t1-recycling",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t1-rainwater",
+   "title": "t1-rainwater",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t1-bricks",
+   "title": "t1-bricks",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t1-harbour",
+   "title": "t1-harbour",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t1-townsquare",
+   "title": "t1-townsquare",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t1-schoolsite",
+   "title": "t1-schoolsite",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
    "id": "write:t2-p31",
    "title": "t2-p31",
    "level": null,
@@ -14310,6 +15168,448 @@
    "area": "skills",
    "id": "write:t2-p57",
    "title": "t2-p57",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t2-p81",
+   "title": "t2-p81",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t2-p82",
+   "title": "t2-p82",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t2-p83",
+   "title": "t2-p83",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t2-p84",
+   "title": "t2-p84",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t2-p85",
+   "title": "t2-p85",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t2-p86",
+   "title": "t2-p86",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t2-p87",
+   "title": "t2-p87",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t2-p88",
+   "title": "t2-p88",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t2-p89",
+   "title": "t2-p89",
+   "level": null,
+   "score": 88.9,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 0.67,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": [
+    "ví dụ: 4 cụm có chú nghĩa (cần ≥ 6)"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "write:t2-p90",
+   "title": "t2-p90",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t2-p91",
+   "title": "t2-p91",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t2-p92",
+   "title": "t2-p92",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t2-p93",
+   "title": "t2-p93",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t2-p94",
+   "title": "t2-p94",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t2-p95",
+   "title": "t2-p95",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t2-p96",
+   "title": "t2-p96",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t2-p97",
+   "title": "t2-p97",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t2-p98",
+   "title": "t2-p98",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t2-p99",
+   "title": "t2-p99",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t2-p100",
+   "title": "t2-p100",
    "level": null,
    "score": 100,
    "crit": {
