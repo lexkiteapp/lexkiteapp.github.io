@@ -9,7 +9,7 @@ tags: [toeic, listening, part-1, photographs]
 keyword: "toeic part1 写真描写問題"
 cover: toeic
 coverAlt: "LexkiteのTOEIC対策画面。模試とPart別練習"
-publishAt:
+publishAt: 2027-01-26T21:27:00+09:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

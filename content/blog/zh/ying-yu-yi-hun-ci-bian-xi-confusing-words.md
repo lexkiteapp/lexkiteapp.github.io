@@ -144,6 +144,8 @@ publishAt: 2026-12-06T12:20:00+08:00
 - **Economical**：节俭省钱的，划算的，低耗高效的（*cost-saving*）
   - *Buying groceries in bulk is often far more economical.*（批量采购生活杂货通常要经济实惠得多。）
 
+想专门看 affect 和 effect 的例外和搭配，可以接着读[affect和effect的区别](/zh/blog/affect-he-effect-de-qu-bie-yong-fa-li-wai-li-ju/)。
+
 ## 常见易混词速查与辨析对比表
 
 | 易混词对 | 词性分类 | 核心含义与判断标准 |

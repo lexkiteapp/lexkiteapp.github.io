@@ -144,6 +144,12 @@ Untuk melatih telinga pada bunyi yang sering lolos, [perpustakaan pelafalan IPA 
 
 ![Perpustakaan pelafalan IPA Lexkite: vokal tunggal, vokal ganda, dan konsonan dengan contoh kata serta latihan per bunyi](media:pron "Latih bunyi tertentu, misalnya yang tertukar dalam jebakan bunyi")
 
+Bagian sebelumnya, enam soal foto, dibahas di [tips TOEIC Part 1 photographs](/id/blog/tips-toeic-part-1-photographs/).
+
+Posisi Part 2 di antara tujuh part dijelaskan di [format tes TOEIC](/id/blog/format-tes-toeic-listening-reading/).
+
+Setelah Part 2, lanjutkan ke bagian yang jumlah soalnya paling besar lewat [strategi TOEIC Listening Part 3 dan 4](/id/blog/strategi-toeic-listening-part-3-dan-4/).
+
 ## Pertanyaan yang sering diajukan seputar TOEIC Listening Part 2
 
 ### Apa yang harus saya lakukan jika sama sekali tidak memahami pertanyaan yang dibacakan?

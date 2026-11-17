@@ -231,6 +231,12 @@ Experimente: abra a [página TOEIC](/#/toeic), escolha um simulado, entre na Par
 
 ---
 
+A gramática dos passivos também cai na escuta; veja as armadilhas em [TOEIC Part 1 fotografias](/pt/blog/toeic-part-1-fotografias-dicas-armadilhas/).
+
+Para ver onde a Parte 5 se encaixa na prova inteira e quanto tempo reservar para ela, leia o [formato do TOEIC](/pt/blog/formato-do-toeic-partes-tempo-pontuacao/).
+
+Se você também treina Listening, leia sobre o [TOEIC Part 3 e 4](/pt/blog/toeic-part-3-e-4-estrategias-conversas-e-talks/), que são 69 das 100 questões dessa seção.
+
 ## Perguntas frequentes sobre o TOEIC Part 5
 
 ### Preciso ler toda a oração para responder a cada questão?

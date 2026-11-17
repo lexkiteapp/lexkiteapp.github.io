@@ -123,6 +123,8 @@ qualityScore: 94
 
 {{cta: /#/grammar | 立即开始语法时态专项练习}}
 
+时态转换也是剑桥 B2 First 关键词转换的常见考点，例题可以看 [剑桥B2 First（FCE）考试题型详解](/zh/blog/jian-qiao-b2-first-fce-kao-shi-ti-xing/)。
+
 ## 常见问题解答
 
 ### 为什么在口语中美式英语常常用过去时代替现在完成时？

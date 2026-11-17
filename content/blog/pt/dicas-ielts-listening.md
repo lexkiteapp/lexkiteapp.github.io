@@ -106,6 +106,12 @@ Para quem dispõe de 45 a 60 minutos diários, este plano organiza o foco de evo
 
 Complemente as sessões com [exercícios de vocabulário](/#/practice/learn) para revisar os termos de maior incidência e anotar à parte a grafia dos que você errar.
 
+Para encaixar o treino de escuta em um prazo fixo, veja o [cronograma IELTS de 4, 8 e 12 semanas](/pt/blog/cronograma-ielts-4-8-12-semanas/).
+
+Para saber como atacar cada formato de pergunta, de formulário a mapa, veja os [tipos de questões do IELTS Listening](/pt/blog/tipos-de-questoes-ielts-listening-estrategias/).
+
+Se você quer saber como o resultado de Listening entra na média final, leia [como a nota do IELTS é calculada](/pt/blog/como-calcular-a-nota-do-ielts-bandas/).
+
 ## Perguntas frequentes
 
 ### Devo usar letras maiúsculas ou minúsculas na folha de respostas?

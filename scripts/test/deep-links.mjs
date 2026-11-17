@@ -59,7 +59,7 @@ ok(/cp -R web dist/.test(bw) && !/rm -rf dist\/\.well-known/.test(bw), 'build-we
 // 4. Native
 const ent = rd('mobile/ios/App/App/App.entitlements');
 ok(/<key>com\.apple\.developer\.associated-domains<\/key>\s*<array>[\s\S]*?<string>applinks:lexkite\.com<\/string>[\s\S]*?<\/array>/.test(ent), 'App.entitlements thiếu associated-domains applinks:lexkite.com');
-const tf = rd('.github/workflows/ios-testflight.yml');
+const tf = rd('.github/workflows/ios-testflight.yml') + '\n' + rd('.github/workflows/store-build-ios.yml'); // bản dựng iOS nằm ở workflow dùng chung store-build-ios.yml (testflight/store-submit/native-release cùng gọi)
 ok(/applinks:lexkite\.com/.test(tf), 'ios-testflight.yml phải kiểm bản archive có applinks:lexkite.com');
 const man = rd('mobile/android/app/src/main/AndroidManifest.xml');
 const filters = man.match(/<intent-filter[^>]*>[\s\S]*?<\/intent-filter>/g) || [];

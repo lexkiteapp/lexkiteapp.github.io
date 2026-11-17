@@ -134,6 +134,8 @@ En sinsi olanı **kahvaltı yapmak**: *make breakfast* yanlış değildir ama "k
 4. **Nesne belirsiz bir kelime mi (something, anything)?** *do*.
 5. **İkisi de kulağa garip mi geliyor?** *have, take, go, give* dene. Yemekler, fotoğraflar, sınavlar, aralar ve partiler genelde buraya düşer.
 
+Benzer şekilde fiil ve isim çiftinden doğan bir karışıklık için [affect effect farkı](/tr/blog/affect-effect-farki/) yazısına bak.
+
 ## Türk öğrencilerin en sık hataları
 
 | ✗ Hatalı | ✓ Doğru |
@@ -182,6 +184,8 @@ Eşdizimler ancak kendi cümlelerinde kullanınca ve doğru aralıklarla tekrar 
 {{cta: /app/#/usage/make | Make ve do kalıplarını çalış}}
 
 {{youtube: | Video fikri: "I gave a decision" neden yanlış? Türklerin make ve do ile yaptığı 10 hata}}
+
+Make ve do ayrımı Cambridge B2 First'ün Reading and Use of English bölümünde çoktan seçmeli boşluklarda sıkça sınanır; bölümün tamamı için [B2 First sınav formatı](/tr/blog/b2-first-fce-sinav-formati-bolumler/) rehberine bakın.
 
 ## Sıkça sorulan sorular
 
