@@ -51,8 +51,13 @@ jobs:
       - run: npm ci --no-audit --no-fund
       - uses: actions/download-artifact@v4
         with: { name: gate-impact-plan }
-      - name: Chạy cổng mới trên head PR #${{ matrix.pr }} (không token)
-        run: node scripts/ci/gate-impact.mjs run --pr ${{ matrix.pr }} --sha ${{ matrix.sha }} --gate ${{ github.event.pull_request.head.sha }} --files-file gate-impact-files.txt --cmds-file gate-impact-cmds.txt --out result-${{ matrix.pr }}.json
+      - name: Chạy cổng mới trên head PR #${{ matrix.pr }} (không token; mã chạy lấy từ PR cổng vì head PR này có thể chưa có tệp)
+        continue-on-error: true   # lỗi hạ tầng → thiếu kết quả của PR này (báo 'không đo được'), không làm đỏ PR cổng
+        env: { GATE_SHA: '${{ github.event.pull_request.head.sha }}' }
+        run: |
+          git fetch --no-tags --depth=1 origin "$GATE_SHA"
+          git show FETCH_HEAD:scripts/ci/gate-impact.mjs > "$RUNNER_TEMP/gate-impact.mjs"
+          node "$RUNNER_TEMP/gate-impact.mjs" run --pr ${{ matrix.pr }} --sha ${{ matrix.sha }} --gate ${{ github.event.pull_request.head.sha }} --files-file gate-impact-files.txt --cmds-file gate-impact-cmds.txt --out result-${{ matrix.pr }}.json
       - if: always()
         uses: actions/upload-artifact@v4
         with: { name: 'gate-impact-result-${{ matrix.pr }}', path: 'result-${{ matrix.pr }}.json', retention-days: 3, if-no-files-found: ignore }
