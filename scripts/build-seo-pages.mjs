@@ -75,7 +75,8 @@ for (const l of LANGS) {
     const w = e.word, k = w.toLowerCase(), idx = idxW[l].has(e), { body, faq, m } = built[l].get(e);
     const alts = idx ? withDefault(LANGS.filter(x => idxW[x].has(e)).map(x => [x, wPath(x, e)]), idxW.en.has(e) ? wPath('en', e) : '') : [];
     const p = wPath(l, e), W = cap(w);
-    const title = fill(t.wTitle, { w: W }) + ' | Lexkite', desc = uniq(usedD, l, clip(fill(t.wDesc, { w: W, m, ipa: e.ipa || '' })), clip(`${W} – ${m}: “${e.ex}”`));
+    // Có nghĩa ngay trong tiêu đề (th/ar/id/ko, hạng 8–12 mà 0 bấm: người tìm "X แปลว่า/معنى X/arti X/X 뜻" thấy luôn đáp án) – chỉ dùng khi vừa ≤ 60 ký tự, không thì tiêu đề cũ.
+    const tM = t.wTitleM && m ? fill(t.wTitleM, { w: W, m }) : '', title = (tM && [...tM].length <= 50 ? tM : fill(t.wTitle, { w: W })) + ' | Lexkite', desc = uniq(usedD, l, clip(fill(t.wDesc, { w: W, m, ipa: e.ipa || '' })), clip(`${W} – ${m}: “${e.ex}”`));
     const jl = { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: w, description: m, inLanguage: l, url: url(p), inDefinedTermSet: { '@type': 'DefinedTermSet', name: t.words, url: `${SITE}/${l}/words/` } };
     const fq = faq && { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }; // chữ = đúng <details> trên trang (cổng seo-pages kiểm)
     const langHref = x => (idxW[x] && idxW[x].has(e) ? wPath(x, e) : `/${x}/words/`);
