@@ -10,7 +10,7 @@ const esc = s => s.replace(/[.+^${}()|[\]\\]/g, '\\$&');
 export const globRe = g => new RegExp('^' + esc(g).replace(/\*\*\//g, '\u0001').replace(/\*\*/g, '\u0002').replace(/\*/g, '[^/]*').replace(/\?/g, '[^/]').replace(/\u0001/g, '(?:.*/)?').replace(/\u0002/g, '.*') + '$');
 
 const listOf = (block, key) => {
-  const m = block.match(new RegExp(`^( *)${key}:\\s*(\\[.*\\])?\\s*$`, 'm'));
+  const m = block.match(new RegExp(`^( *)${key}:\\s*(\\[[^\\]]*\\])?\\s*(?:#.*)?$`, 'm'));   // 16/11: cho phép chú thích '# …' sau danh sách 1 dòng (learn-flow-stress.yml bị đọc thành "không bộ lọc" → đòi gộp oan)
   if (!m) return null;
   if (m[2]) return [...m[2].matchAll(/'([^']*)'|"([^"]*)"|([^\s,\[\]]+)/g)].map(x => x[1] ?? x[2] ?? x[3]);
   const out = [], rest = block.slice(m.index + m[0].length).split('\n').slice(1), ind = m[1].length;
@@ -46,8 +46,12 @@ export function readsAny(src = '', prFiles = []) {
   for (const f of prFiles) {
     if (src.includes(f)) return true;
     const seg = f.split('/');
-    for (let d = seg.length - 1; d >= 2; d--) if (src.includes(seg.slice(0, d).join('/'))) return true;
-    if (seg.length >= 2 && (q.has(seg[0]) || q.has(seg[0] + '/') || q.has('./' + seg[0]))) return true;
+    // thư mục tổ tiên ≥ 2 cấp, TRỪ scripts/test (+ /lib): mã nguồn gần như mọi test nhắc 'scripts/test' → PR chỉ sửa 1 test bị coi liên quan tới MỌI test (#1481: 3 tệp vẫn bị lex.mjs đòi gộp)
+    for (let d = seg.length - 1; d >= 2; d--) { const dir = seg.slice(0, d).join('/'); if (dir !== 'scripts/test' && dir !== 'scripts/test/lib' && src.includes(dir)) return true; }
+    // tệp script/lib được nhập bằng đường dẫn tương đối ('./lib/perf-calibrate.mjs') → không có chuỗi đường dẫn đầy đủ: khớp theo '/<tên tệp>' khi tên đủ riêng (≥ 10 ký tự)
+    if (seg[0] === 'scripts' && seg[seg.length - 1].length >= 10 && src.includes('/' + seg[seg.length - 1])) return true;
+    // 16/11: chuỗi gốc TRẦN ('content', 'web', 'scripts') bỏ – xuất hiện khắp nơi (khoá JSON, thuộc tính HTML…) nên PR chỉ đổi content/blog vẫn bị đòi gộp lại vì admin-guard.mjs có chuỗi 'content'; chỉ nhận dạng có gạch chéo ('content/', './docs/')
+    if (seg.length >= 2 && (q.has(seg[0] + '/') || q.has('./' + seg[0] + '/'))) return true;
   }
   return false;
 }
