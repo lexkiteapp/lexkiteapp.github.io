@@ -9,7 +9,7 @@ tags: [ielts, listening, question-types, strategy]
 keyword: "ielts listening soru tipleri"
 cover: listening
 coverAlt: "Lexkite dinleme pratiği listesi: seviyeye göre gruplanmış kayıtlar"
-publishAt:
+publishAt: 2027-01-09T09:52:00+03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

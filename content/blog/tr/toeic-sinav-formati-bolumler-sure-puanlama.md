@@ -9,7 +9,7 @@ tags: [toeic, test-format, listening, reading]
 keyword: "toeic sınav formatı"
 cover: toeic
 coverAlt: "Lexkite TOEIC Listening ve Reading pratiği: yedi otomatik puanlı deneme sınavı, bölüme göre çalışma ve TOEIC kelimeleri"
-publishAt:
+publishAt: 2027-01-22T07:12:00+03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

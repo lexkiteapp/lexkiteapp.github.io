@@ -9,7 +9,7 @@ tags: [toeic, test-format, listening, reading]
 keyword: "format du toeic"
 cover: toeic
 coverAlt: "Entraînement TOEIC Listening and Reading de Lexkite avec sept tests blancs corrigés automatiquement, un entraînement par partie et le vocabulaire TOEIC"
-publishAt:
+publishAt: 2026-12-30T21:07:00+01:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

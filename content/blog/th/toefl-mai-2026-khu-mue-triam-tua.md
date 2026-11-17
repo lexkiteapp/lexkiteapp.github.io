@@ -188,6 +188,8 @@ ETS รายงานคะแนนรายพาร์ต 4 คะแนน�
 
 ---
 
+ถ้าเทียบกับข้อสอบใบรับรองอีกแบบ ดู [Cambridge B2 First รูปแบบข้อสอบ: ครบทุกพาร์ตและเทคนิค](/th/blog/cambridge-b2-first-rupbaep-khosop/) และคำศัพท์วิชาการที่ใช้ร่วมกันใน [Academic Word List (AWL) คืออะไร](/th/blog/academic-word-list-khue-arai-570-kham/)
+
 ## คำถามที่พบบ่อย (FAQ)
 
 ### ข้อสอบ TOEFL โฉมใหม่เริ่มสอบจริงเมื่อไร?
