@@ -1,0 +1,24 @@
+// Test gate-impact: chọn PR + chọn lệnh + overlay + báo cáo (thuần, không mạng).
+import { isGateFile, gateFiles, impactCmds, selectPrs, overlayOf, render, MAX_PRS, MARK } from '../ci/gate-impact.mjs';
+let bad = 0; const ok = (c, m) => { console.log(`${c ? '✓' : '✗'} ${m}`); if (!c) bad++; };
+ok(['scripts/test/a.mjs', 'scripts/lib/x-rules.mjs', '.github/workflows/w.yml', 'web/size-baseline.json'].every(isGateFile), 'nhận diện tệp cổng');
+ok(!isGateFile('web/js/app.js') && !isGateFile('docs/a.md'), 'tệp thường không phải cổng');
+ok(gateFiles(['web/a.js', 'scripts/test/a.mjs']).length === 1, 'gateFiles lọc');
+const suite = 'node scripts/test/a.mjs\nnode scripts/test/ci-policy.mjs\nnode scripts/test/uses-rules.mjs\n# c\n';
+let r = impactCmds(['scripts/test/a.mjs', 'web/x.js'], suite);
+ok(r.cmds.length === 1 && r.cmds[0] === 'node scripts/test/a.mjs', 'tệp test → lệnh của nó');
+r = impactCmds(['.github/workflows/w.yml'], suite);
+ok(r.cmds.join() === 'node scripts/test/ci-policy.mjs', 'workflow → ci-policy');
+r = impactCmds(['scripts/lib/x-rules.mjs'], suite, f => f.includes('uses-rules') ? "import '../lib/x-rules.mjs'" : '');
+ok(r.cmds.join() === 'node scripts/test/uses-rules.mjs', 'lib rules → test nhắc tới nó');
+ok(impactCmds(['web/x.js'], suite).cmds.length === 0, 'không đổi cổng → không lệnh');
+const repo = 'o/r', P = (n, o = {}) => ({ number: n, state: 'open', draft: false, head: { sha: 's' + n, repo: { full_name: repo } }, ...o });
+let s = selectPrs([P(5), P(1), P(2, { draft: true }), P(3, { head: { sha: 'x', repo: { full_name: 'f/r' } } }), P(9)], 9, repo);
+ok(s.prs.map(p => p.pr).join() === '1,5' && s.forks === 1, 'chọn PR: bỏ nháp, fork, chính nó; sắp theo số');
+s = selectPrs(Array.from({ length: 30 }, (_, i) => P(i + 1)), 99, repo);
+ok(s.prs.length === MAX_PRS && s.skipped === 10 && s.prs[0].pr === 11, 'trần số PR + báo phần vượt');
+ok(overlayOf(['scripts/test/a.mjs', 'scripts/test/b.mjs', 'web/z.js'], ['scripts/test/b.mjs']).join() === 'scripts/test/a.mjs', 'overlay giữ tệp PR kia đã đổi');
+const m = render([{ pr: 1, ok: true, bad: [] }, { pr: 2, ok: false, bad: [{ cmd: 'node scripts/test/a.mjs', tail: '✗ x' }] }, { pr: 3, ok: false, error: 'mạng', bad: [] }], { self: 7, cmds: ['c'], skipped: 0 });
+ok(!m.ok && m.red.length === 1 && m.md.includes(MARK) && m.md.includes('#2') && m.md.includes('Không đo được') && /#3/.test(m.md), 'báo cáo: đỏ + không đo được tách riêng');
+ok(render([{ pr: 1, ok: true, bad: [] }], { self: 7 }).ok, 'tất cả xanh → ok');
+if (bad) process.exit(1);

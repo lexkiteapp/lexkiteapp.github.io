@@ -1,0 +1,80 @@
+# gate-impact (17/11, điều phối): PR đổi tệp CỔNG → chạy cổng MỚI trên head các PR đang mở, comment danh sách PR sẽ đỏ (xem scripts/ci/gate-impact.mjs, docs/CI-RUNNERS.md § gate-impact).
+# Chỉ chạy khi PR đụng tệp cổng (path filter); song song ≤ 4, mỗi PR 1 job nhẹ; concurrency huỷ lượt cũ của cùng PR. Bước chạy test của PR khác KHÔNG có token; token chỉ ở job report (mã từ main).
+name: gate-impact
+on:
+  pull_request:
+    paths:
+      - 'scripts/test/**'
+      - 'scripts/lib/*rules*'
+      - 'scripts/ci/required-gate.mjs'
+      - 'scripts/ci/gate-*.mjs'
+      - '**/*baseline*.json'
+      - '.github/workflows/**'
+permissions:
+  contents: read
+concurrency:
+  group: gate-impact-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+jobs:
+  select:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions: { contents: read, pull-requests: read }
+    outputs:
+      run: ${{ steps.s.outputs.run }}
+      matrix: ${{ steps.s.outputs.matrix }}
+      skipped: ${{ steps.s.outputs.skipped }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0, persist-credentials: false }
+      - id: s
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: node scripts/ci/gate-impact.mjs select --self ${{ github.event.pull_request.number }} --base ${{ github.event.pull_request.base.sha }} --head ${{ github.event.pull_request.head.sha }}
+      - uses: actions/upload-artifact@v4
+        with: { name: gate-impact-plan, path: 'gate-impact-*.txt', retention-days: 3 }
+  check:
+    needs: select
+    if: needs.select.outputs.run == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix: ${{ fromJSON(needs.select.outputs.matrix) }}
+    name: check #${{ matrix.pr }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: '${{ matrix.sha }}', fetch-depth: 0, persist-credentials: false }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci --no-audit --no-fund
+      - uses: actions/download-artifact@v4
+        with: { name: gate-impact-plan }
+      - name: Chạy cổng mới trên head PR #${{ matrix.pr }} (không token; mã chạy lấy từ PR cổng vì head PR này có thể chưa có tệp)
+        continue-on-error: true   # lỗi hạ tầng → thiếu kết quả của PR này (báo 'không đo được'), không làm đỏ PR cổng
+        env: { GATE_SHA: '${{ github.event.pull_request.head.sha }}' }
+        run: |
+          git fetch --no-tags origin "$GATE_SHA"
+          git show FETCH_HEAD:scripts/ci/gate-impact.mjs > "$RUNNER_TEMP/gate-impact.mjs"
+          node "$RUNNER_TEMP/gate-impact.mjs" run --pr ${{ matrix.pr }} --sha ${{ matrix.sha }} --gate ${{ github.event.pull_request.head.sha }} --files-file gate-impact-files.txt --cmds-file gate-impact-cmds.txt --out result-${{ matrix.pr }}.json
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: 'gate-impact-result-${{ matrix.pr }}', path: 'result-${{ matrix.pr }}.json', retention-days: 3, if-no-files-found: ignore }
+  report:
+    needs: [select, check]
+    if: ${{ !cancelled() && needs.select.outputs.run == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions: { contents: read, pull-requests: write, issues: write }
+    steps:
+      # mã báo cáo lấy từ main, không phải từ PR
+      - uses: actions/checkout@v4
+        with: { ref: '${{ github.event.repository.default_branch }}', sparse-checkout: 'scripts/ci', persist-credentials: false }
+      - uses: actions/download-artifact@v4
+        with: { path: artifacts }
+      - run: cp artifacts/gate-impact-plan/gate-impact-cmds.txt . || true
+      - env: { GH_TOKEN: '${{ github.token }}', GITHUB_REPOSITORY: '${{ github.repository }}' }
+        run: |
+          [ -f scripts/ci/gate-impact.mjs ] || { echo "gate-impact.mjs chưa có trên main (PR đang thêm nó) – bỏ qua comment"; exit 0; }
+          node scripts/ci/gate-impact.mjs report --self ${{ github.event.pull_request.number }} --dir artifacts --skipped '${{ needs.select.outputs.skipped }}'
