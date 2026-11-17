@@ -75,4 +75,6 @@ jobs:
         with: { path: artifacts }
       - run: cp artifacts/gate-impact-plan/gate-impact-cmds.txt . || true
       - env: { GH_TOKEN: '${{ github.token }}', GITHUB_REPOSITORY: '${{ github.repository }}' }
-        run: node scripts/ci/gate-impact.mjs report --self ${{ github.event.pull_request.number }} --dir artifacts --skipped '${{ needs.select.outputs.skipped }}'
+        run: |
+          [ -f scripts/ci/gate-impact.mjs ] || { echo "gate-impact.mjs chưa có trên main (PR đang thêm nó) – bỏ qua comment"; exit 0; }
+          node scripts/ci/gate-impact.mjs report --self ${{ github.event.pull_request.number }} --dir artifacts --skipped '${{ needs.select.outputs.skipped }}'
