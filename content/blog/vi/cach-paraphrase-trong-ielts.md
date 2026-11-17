@@ -131,6 +131,10 @@ Paraphrase phụ thuộc rất nhiều vào vốn collocation; xem thêm bài [c
 
 {{cta: /#/write | Paraphrase một đề Task 2 ngay bây giờ}}
 
+Bạn có thể thực hành paraphrase ngay ở câu mở bài của Task 1 qua [bài mẫu IELTS Writing Task 1 bar chart](/vi/blog/ielts-writing-task-1-bar-chart-bai-mau/).
+
+Với dạng bài đồng ý hay phản đối, bạn có thể xem [cách viết IELTS opinion essay](/vi/blog/ielts-opinion-essay-dong-y-hay-phan-doi/) kèm bài mẫu có chú thích.
+
 ## Câu hỏi thường gặp
 
 ### Paraphrase có được giữ lại một số từ của đề không?

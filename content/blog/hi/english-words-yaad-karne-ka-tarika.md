@@ -71,6 +71,12 @@ qualityScore: 94
 
 {{cta: /#/library | वोकैबुलरी लाइब्रेरी देखें}}
 
+परीक्षा की शब्दावली के लिए एक व्यवस्थित सूची चाहिए तो [Academic Word List क्या है](/hi/blog/academic-word-list-kya-hai/) में Sublist 1 से शुरू होने वाली योजना है।
+
+शब्द पढ़ने की जगह याद से निकालने के चार स्तर [Active Recall क्या है](/hi/blog/active-recall-kya-hai-english-vocabulary/) में उदाहरणों सहित दिए गए हैं।
+
+मिलते-जुलते शब्दों का एक उदाहरण [Affect और effect में अंतर](/hi/blog/affect-aur-effect-me-antar-hindi/) में है, जहां शब्द साथियों के साथ सिखाए गए हैं।
+
 ## अक्सर पूछे जाने वाले सवाल
 
 ### रोज़ाना कितने नए शब्द याद करना सबसे सही रहता है?

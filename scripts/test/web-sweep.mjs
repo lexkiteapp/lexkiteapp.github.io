@@ -69,7 +69,7 @@ const extSt = new Map();   // url → trạng thái HTTP (HEAD, mỗi URL hỏi 
 const extStatus = u => { if (!extSt.has(u)) extSt.set(u, fetch(u, { method: 'HEAD', signal: AbortSignal.timeout(10000) }).then(r => r.status, () => 0)); return extSt.get(u); };
 const report = [], extDown = new Map();   // host ngoài trả 429/5xx → lỗi CORS kèm theo không tính err, nhưng in cảnh báo rõ ở cuối
 async function run(j) {
-  const ctx = await browser.newContext({ viewport: { width: VPS[j.vp].width, height: VPS[j.vp].height }, isMobile: !!VPS[j.vp].isMobile, hasTouch: !!VPS[j.vp].hasTouch, colorScheme: j.scheme });
+  const ctx = await browser.newContext({ bypassCSP: true, viewport: { width: VPS[j.vp].width, height: VPS[j.vp].height }, isMobile: !!VPS[j.vp].isMobile, hasTouch: !!VPS[j.vp].hasTouch, colorScheme: j.scheme });
   await noProd(ctx); // CI: media/audio → GitHub, /api → offline (0 lượt prod)
   const page = await ctx.newPage(); const cons = [], pgErrs = [], http = [];
   page.on('console', m => m.type() === 'error' && !/favicon|ERR_CONNECTION|net::ERR|\/api\/|Failed to load resource/.test(m.text()) && cons.push(m.text()));
@@ -101,7 +101,7 @@ async function run(j) {
 }
 // Làm nóng ảnh CDN là phần tử LCP (poster video, og:image trên CDN) TRƯỚC khi đo: đồng hồ LCP chỉ đo trang, không đo độ trễ đuôi của GitHub Release (sweep đỏ /L/video/*/ LCP 8-10 s dù ngưỡng 2500 giữ nguyên).
 { const urls = new Set(); for (const j of jobs) { const h = fs.readFileSync(path.join(DIST, j.f), 'utf8').slice(0, 60000); for (const m of h.matchAll(/(?:poster="|property="og:image" content=")(https:\/\/media\.lexkite\.com\/[^"]+)/g)) urls.add(m[1].replace(/&amp;/g, '&')); }
-  const wctx = await noProd(await browser.newContext()); console.log(`warm CDN: ${await warm(wctx, [...urls])} ảnh`); await wctx.close(); }
+  const wctx = await noProd(await browser.newContext({ bypassCSP: true })); console.log(`warm CDN: ${await warm(wctx, [...urls])} ảnh`); await wctx.close(); }
 const q = [...jobs]; await Promise.all(Array.from({ length: 4 }, async () => { while (q.length) await run(q.shift()); }));
 await browser.close();
 

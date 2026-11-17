@@ -196,6 +196,8 @@ publishAt: 2026-11-18T12:11:00+08:00
 
 整体备考节奏可以看[TOEIC自学备考规划指南](/zh/blog/toeic-zi-xue-bei-kao-gui-hua/)。
 
+Part 5 里的被动语态和时态，在照片题里同样高频，可以对照[托业 Part 1 照片题技巧](/zh/blog/tuo-ye-part-1-zhao-pian-ti-ji-qiao-xian-jing/)。
+
 ## 常见问题
 
 ### 托业 Part 5 每题应该花多少时间？

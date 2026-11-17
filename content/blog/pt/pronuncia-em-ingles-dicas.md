@@ -93,6 +93,8 @@ Uma boa dicção também é um diferencial competitivo decisivo para quem busca 
 
 {{youtube: | Guia prático de pronúncia em inglês para brasileiros sem sotaque carregado}}
 
+Quando as vogais e consoantes estiverem mais firmes, aprenda onde cai a [sílaba tônica em inglês](/pt/blog/silaba-tonica-em-ingles-regras-word-stress/), porque o stress errado atrapalha mais do que um som levemente errado.
+
 ## Perguntas frequentes
 
 ### Ter sotaque brasileiro é considerado um defeito ao falar inglês?

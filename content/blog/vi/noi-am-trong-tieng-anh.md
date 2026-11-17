@@ -156,6 +156,8 @@ Muốn củng cố từng âm trước khi ghép, mở [thư viện phát âm IP
 
 {{youtube: | Gợi ý video: 5 hiện tượng nối âm khiến bạn nghe không ra – phân tích từng câu}}
 
+Nối âm cũng là lý do nhiều đáp án Listening bị nghe sót; xem [các dạng câu hỏi IELTS Listening](/vi/blog/cac-dang-cau-hoi-ielts-listening/) để biết các bẫy khác.
+
 ## Câu hỏi thường gặp
 
 ### Có cần nối âm khi nói để được điểm cao IELTS Speaking không?

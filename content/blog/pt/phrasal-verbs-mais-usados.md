@@ -137,6 +137,8 @@ Para praticar essas combinações através de exercícios inteligentes com repet
 
 {{cta: /#/practice/learn | Praticar phrasal verbs agora}}
 
+Phrasal verbs caem bastante no Reading and Use of English; veja onde no guia do [Cambridge B2 First](/pt/blog/cambridge-b2-first-formato-da-prova-partes-e-dicas/).
+
 ## Perguntas frequentes
 
 ### É realmente necessário aprender phrasal verbs para ser fluente em inglês?

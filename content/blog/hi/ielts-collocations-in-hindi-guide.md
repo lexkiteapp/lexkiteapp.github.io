@@ -116,6 +116,10 @@ IELTS परीक्षा में उच्च बैंड स्कोर,
 3. **स्पेस्ड रिपीटिशन से अभ्यास करें:** लेक्सकाइट के [Smart Learn](/#/practice/learn) का उपयोग करें। यह वैज्ञानिक प्रणाली आपके भूलने से ठीक पहले शब्द युग्मों का परीक्षण करती है।
 4. **लेखन में नियमित प्रयोग करें:** अपने निबंधों में [complex sentences for ielts writing task 2 hindi](/hi/blog/complex-sentences-for-ielts-writing-task-2-hindi/) का अभ्यास करें और अनुवाद की आदत से बचने के लिए [english me kaise soche without translation](/hi/blog/english-me-kaise-soche-without-translation/) के नियमों को अपनाएं। अधिक व्याकरण संबंधी जानकारी के लिए हमारे [/ngu-phap/](/ngu-phap/) पृष्ठ को देखें। इसके अलावा अपनी उच्चारण गुणवत्ता सुधारने हेतु [english ipa chart pronunciation guide hindi](/hi/blog/english-ipa-chart-pronunciation-guide-hindi/) का अध्ययन भी करें और वाक्यों की शुद्धता के लिए [english grammar rules in hindi](/hi/blog/english-grammar-rules-in-hindi/) के नियम दोहराएं।
 
+AWL की हर family के साथ एक collocation सीखने की विधि [Academic Word List क्या है](/hi/blog/academic-word-list-kya-hai/) में दी गई है।
+
+नए collocation को पक्का करने के लिए अपना वाक्य बनाने वाला तरीका [Active Recall क्या है](/hi/blog/active-recall-kya-hai-english-vocabulary/) में मिलेगा।
+
 ## अक्सर पूछे जाने वाले प्रश्न (FAQ)
 
 ### क्या टास्क 2 के निबंध में बहुत अधिक कोलोकेशन होने चाहिए?

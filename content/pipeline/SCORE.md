@@ -2,16 +2,16 @@
 
 Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipeline/score.budget.json` · kế hoạch `docs/CONTENT-WORLD-PLAN.md` §3.5. Điểm = độ phủ so với chuẩn × tỉ lệ qua cổng.
 
-**Tổng: 74.3 / 100**
+**Tổng: 75.4 / 100**
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
 | Kho từ | **59.2** | 58.5 | 59.2% | 100% | 0 |
 | Ngữ pháp | **72.8** | 72.8 | 72.8% | 100% | 0 |
-| Giao tiếp | **81.3** | 68.3 | 81.3% | 100% | 0 |
+| Giao tiếp | **89.7** | 68.3 | 89.7% | 100% | 0 |
 | 4 kỹ năng | **69.5** | 62.9 | 69.5% | 100% | 0 |
 | Đề thi | **57.1** | 31.7 | 57.1% | 100% | 0 |
-| Khung Can-do | **81.7** | 81.3 | 81.7% | 100% | 0 |
+| Khung Can-do | **82** | 81.3 | 82% | 100% | 0 |
 | Dễ học – dễ nhớ | **91.8** | 91.7 | 91.8% | 100% | 0 |
 | i18n | **81** | 62.7 | 81% | 100% | 0 |
 
@@ -24,7 +24,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | collocation | 5019 / 20000 | 25% | 12 |
 | đồng nghĩa | 3106 / 20000 | 16% | 8 |
 | IPA Mỹ | 6884 / 20000 | 34% | 5 |
-| ảnh theo nghĩa | 8014 / 20000 | 40% | 15 |
+| ảnh theo nghĩa | 8026 / 20000 | 40% | 15 |
 | C2 | 1022 / 1000 | 100% | 10 |
 | A1 | 869 / 1000 | 87% | 5 |
 
@@ -47,7 +47,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
-| cuộc gọi Ama/Carlos | 35 / 60 | 58% | 20 |
+| cuộc gọi Ama/Carlos | 60 / 60 | 100% | 20 |
 | roleplay | 60 / 60 | 100% | 20 |
 | tình huống Play & Speak | 40 / 40 | 100% | 20 |
 | mục gold (giải thích cách dùng) | 484 / 1000 | 48% | 20 |
@@ -98,8 +98,8 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 |---|---|---|---|
 | mục tiêu LKF tự soạn | 585 / 600 | 98% | 25 |
 | ô kỹ năng × cấp đủ ≥ 15 | 36 / 36 | 100% | 15 |
-| nội dung có lo hợp lệ | 11400 / 11400 | 100% | 35 |
-| mục tiêu đã có nội dung luyện | 176 / 600 | 29% | 25 |
+| nội dung có lo hợp lệ | 11425 / 11425 | 100% | 35 |
+| mục tiêu đã có nội dung luyện | 184 / 600 | 31% | 25 |
 
 ## Dễ học – dễ nhớ
 

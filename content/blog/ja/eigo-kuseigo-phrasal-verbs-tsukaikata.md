@@ -136,3 +136,5 @@ IELTSスピーキングテストでは、*run into* や *come across* などの�
 {{youtube: | 英語の句動詞（Phrasal Verbs）を前置詞のイメージで完全マスターする講義}}
 
 {{cta: /#/practice/learn | LexkiteのSmart Learnで重要句動詞のマスターを開始する}}
+
+句動詞は語彙問題でも頻出です。出題の形式は[ケンブリッジ英検 B2 First の試験内容](/ja/blog/cambridge-eiken-b2-first-shiken-naiyou/)のパート1で確認できます。

@@ -13,7 +13,7 @@ coverArt: {mood: think, icon: ear}
 factChecked: 2026-11-16
 qualityScore: 91
 author: Lexkite
-publishAt:
+publishAt: 2027-01-13T21:42:00+01:00
 status: ready
 shots: [
   {id: s1, route: '#/toeic', crop: main}

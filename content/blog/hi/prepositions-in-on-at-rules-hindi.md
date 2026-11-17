@@ -157,6 +157,10 @@ quiz: [
 
 {{youtube: | Prepositions IN ON AT Rules in Hindi with Examples}}
 
+Prepositions की सबसे सीधी परीक्षा Cambridge की open cloze में होती है; उसका प्रारूप [Cambridge B2 First exam pattern](/hi/blog/cambridge-b2-first-exam-pattern-hindi/) में देखिए।
+
+एक और आम उलझन, affect के बाद on न लगाना, [Affect और effect में अंतर](/hi/blog/affect-aur-effect-me-antar-hindi/) में समझाई गई है।
+
 ## अक्सर पूछे जाने वाले प्रश्न (FAQ)
 
 ### Q1. In time और On time में क्या अंतर है?

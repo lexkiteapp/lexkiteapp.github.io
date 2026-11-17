@@ -108,6 +108,8 @@ Bảy bước trên có thể làm bằng giấy bút, nhưng phần chọn từ
 - **Bỏ ôn vài ngày rồi bỏ luôn.** Nếu lỡ nghỉ, hãy quay lại và ôn phần đến hạn trước, đừng cố học bù từ mới.
 - **Chỉ học một chiều Anh → Việt.** Hãy luyện cả chiều Việt → Anh để chuẩn bị cho Writing và Speaking.
 
+Để xếp việc ôn từ vựng vào một tuần học trọn vẹn, xem thêm [lịch học IELTS 4, 8, 12 tuần](/vi/blog/lich-hoc-ielts-4-8-12-tuan/).
+
 ## Câu hỏi thường gặp
 
 ### Mỗi ngày nên học bao nhiêu từ vựng IELTS?
