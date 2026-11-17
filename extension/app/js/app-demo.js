@@ -16,7 +16,7 @@
     const days = {}, gdays = {};
     for (let i = 0; i < 120; i++) { if (i > 2 && (i * 13) % 7 === 0) continue; const k = todayKey(new Date(now - i * DAY)); days[k] = 10 + (i * 17) % 45; gdays[k] = { xp: 60 + (i * 31) % 160, reviews: days[k] }; }
     await Store.set('stats', { days, newToday: { day: todayKey(), n: 3 } });
-    await Store.set('game', { xp: 6840, days: gdays, total: { reviews: 3120, newWords: 412, quizzes: 96, perfect: 21, matches: 34, spoken: 188, readings: 7, lookups: 260 }, best: { match: 21.4 }, badges: { first: 1, words50: 1, master10: 1, streak3: 1, streak7: 1, rev500: 1, perfect5: 1, speaker: 1, reader: 1, speed: 1, level5: 1 }, questsDone: {} });
+    await Store.set('game', { xp: 6840, days: gdays, total: { reviews: 3120, newWords: 412, quizzes: 96, perfect: 21, matches: 34, spoken: 188, readings: 7, lookups: 260 }, best: { match: 21.4 }, freezes: 1, freezeAt: 7, badges: { first: 1, words50: 1, master10: 1, streak3: 1, streak7: 1, rev500: 1, perfect5: 1, speaker: 1, reader: 1, speed: 1, level5: 1 }, questsDone: {} });
     await Store.set('settings', { ...DEFAULT_SETTINGS, onboarded: true, autoSpeak: false, sfx: false });
   };
 })();

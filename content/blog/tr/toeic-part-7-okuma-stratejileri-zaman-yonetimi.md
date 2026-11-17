@@ -131,6 +131,10 @@ Düzenli bir antrenmanla okuma dayanıklılığınızı zirveye çıkarın:
 
 Haftalık programınızı kurmak için [TOEIC bireysel çalışma planı rehberine](/tr/blog/toeic-bireysel-calisma-plani-rehber/) bakın.
 
+Reading bölümünün toplam zaman planı için [TOEIC sınav formatı](/tr/blog/toeic-sinav-formati-bolumler-sure-puanlama/) rehberine de göz atın.
+
+Listening'de aynı derecede büyük bir blok için [TOEIC Part 3 ve Part 4 stratejileri](/tr/blog/toeic-part-3-ve-part-4-stratejileri/) yazısına göz atın.
+
 ## Lexkite ile TOEIC Hedefinize Güvenle Ulaşın
 
 Sınavda 850 üzeri elit bir puan elde etmek, keskin bir okuma hızını geniş bir sözcük hazinesiyle birleştirmeyi gerektirir:

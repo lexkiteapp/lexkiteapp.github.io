@@ -144,6 +144,12 @@ Para treinar o ouvido nos sons que escapam, a [biblioteca de pronúncia IPA do L
 
 ![Biblioteca de pronúncia IPA do Lexkite: vogais simples, ditongos e consoantes com palavras de exemplo e prática por som](media:pron "Pratique sons específicos, como os que se confundem nas armadilhas sonoras")
 
+Antes da Part 2, aquece-se o ouvido com as seis questões de [TOEIC Part 1 fotografias](/pt/blog/toeic-part-1-fotografias-dicas-armadilhas/).
+
+Veja também o [formato do TOEIC](/pt/blog/formato-do-toeic-partes-tempo-pontuacao/) para entender como a Parte 2 se relaciona com as outras seis partes da prova.
+
+Quando dominar a Part 2, avance para o [TOEIC Part 3 e 4](/pt/blog/toeic-part-3-e-4-estrategias-conversas-e-talks/), em que você aplica a mesma habilidade de previsão a conversas e falas mais longas.
+
 ## Perguntas frequentes sobre o TOEIC Listening Part 2
 
 ### O que devo fazer se eu não entender absolutamente nada da pergunta pronunciada?

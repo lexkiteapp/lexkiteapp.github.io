@@ -10,7 +10,7 @@ keyword: "아카데믹 워드 리스트"
 cover: library
 coverAlt: "Lexkite 어휘 라이브러리: 전체 단어, NGSL 핵심 어휘, IELTS 주제, 라이팅, 스피킹, 토익 탭"
 coverArt: {mood: think, icon: book}
-publishAt:
+publishAt: 2026-12-28T08:31:00+09:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

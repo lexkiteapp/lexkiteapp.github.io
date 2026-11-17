@@ -101,6 +101,12 @@ Part 3 讨论题的四步答题法和六类题型，详见 [雅思口语 Part 3 
 
 {{cta: /#/practice/speak | 开启雅思口语模拟训练}}
 
+口语只是四项小分之一，想知道它怎样影响最终成绩，可以看[雅思总分怎么算](/zh/blog/ya-si-zong-fen-zen-me-suan/)里的进位例子。
+
+想看每个部分更具体的弱版与强版答案对照，可以读 [雅思口语7分答案范例](/zh/blog/ya-si-kou-yu-7-fen-da-an-fan-li/)。
+
+口语每周练几次、什么时候模考，可以参考[雅思备考时间表：4周、8周、12周计划](/zh/blog/ya-si-bei-kao-shi-jian-biao-4-zhou-8-zhou-12-zhou/)。
+
 ## 常见问题解答
 
 ### 遇到完全不了解的生僻题目该怎么办？

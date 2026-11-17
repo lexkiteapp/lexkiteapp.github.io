@@ -62,6 +62,8 @@ qualityScore: 95
 
 ---
 
+听力部分最开头的照片题，同样需要提前热身，见[托业 Part 1 照片题技巧](/zh/blog/tuo-ye-part-1-zhao-pian-ti-ji-qiao-xian-jing/)。
+
 ## 常见题型解剖与快速定位策略
 
 面对Part 7的考题，切忌采用“从头通读全文再看题”的低效做法。根据题干特征切换定位策略才是提速核心：
@@ -127,6 +129,8 @@ qualityScore: 95
 ---
 
 想把阅读练习排进每周计划，可以参考[TOEIC自学备考规划](/zh/blog/toeic-zi-xue-bei-kao-gui-hua/)。
+
+阅读 75 分钟在 Part 5、6、7 之间怎样分配，整体说明见[托业考试题型与结构](/zh/blog/tuo-ye-kao-shi-ti-xing-jie-gou-7-part/)。
 
 ## 携手 Lexkite 稳步斩获托业阅读高分
 

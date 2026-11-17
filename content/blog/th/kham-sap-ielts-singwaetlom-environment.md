@@ -161,6 +161,8 @@ publishAt: 2026-12-07T09:40:00+07:00
 
 {{cta: /#/library | เข้าสู่คลังคำศัพท์ Lexkite ตอนนี้เพื่อฝึกฝน Collocations วิชาการสำหรับ IELTS}}
 
+คำศัพท์วิชาการทั่วไปที่ใช้ร่วมกับหัวข้อนี้ได้แก่คำใน AWL ดูรายการและวิธีท่องใน [Academic Word List (AWL) คืออะไร: 570 กลุ่มคำสำหรับ IELTS](/th/blog/academic-word-list-khue-arai-570-kham/)
+
 ## คำถามที่พบบ่อย (FAQ)
 
 ### สามารถใช้คำว่า 'green' หรือ 'eco-friendly' ในเรียงความได้หรือไม่?

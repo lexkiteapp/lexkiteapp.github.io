@@ -92,6 +92,8 @@ qualityScore: 93
 * **Strain public services:** 使公共交通、医疗医疗等基础设施承受巨大承载负荷。
   * *例句:* "An uncontrolled population boom can **strain public services**, notably emergency medical care."
 
+像 have an effect on 这样的介词搭配，更多例子见[affect和effect的区别](/zh/blog/affect-he-effect-de-qu-bie-yong-fa-li-wai-li-ju/)。
+
 ## 中国考生常见的中式英语硬翻陷阱
 
 在紧张的限时考试环境下，很多同学习惯于逐字对照中文词典进行拼凑翻译，极易踩雷：
@@ -115,6 +117,10 @@ qualityScore: 93
 2. **善用权威英英词典验证搭配:** 遇到不确定的介词搭配时，及时查阅 [Lexkite智能词典](/#/dict)，观察例句中的介词习惯与修饰规律。
 3. **结合间隔重复算法强化记忆:** 打开 Lexkite 的 [Smart Learn](/#/practice/learn) 模块，依托 [jian-ge-chong-fu-bei-dan-ci-fsrs](/zh/blog/jian-ge-chong-fu-bei-dan-ci-fsrs/) 的科学遗忘曲线算法，在遗忘临界点反复重现测试，将短期记忆固化为长期肌肉记忆。
 4. **与写作范文与同义替换结合:** 学习 [ya-si-tong-yi-ti-huan-paraphrase-ji-qiao](/zh/blog/ya-si-tong-yi-ti-huan-paraphrase-ji-qiao/)，将搭配灵活运用于段落改写中，同时借鉴 [ru-he-yong-ying-yu-si-wei-bu-fan-yi](/zh/blog/ru-he-yong-ying-yu-si-wei-bu-fan-yi/) 的思维模式。需要系统夯实语法体系时，可随时访问我们丰富的 [/ngu-phap/](/ngu-phap/) 语法专题库。
+
+学会的搭配要靠提取才能记牢，方法见[主动回忆背单词](/zh/blog/zhu-dong-hui-yi-bei-dan-ci/)。
+
+学术类搭配可以和词表一起积累，见 [AWL学术词汇表怎么背](/zh/blog/ying-yu-xue-shu-ci-biao-awl-bei-dan-ci/)，里面按词族整理了常见搭配和词形。
 
 ## 常见问题解答（FAQ）
 

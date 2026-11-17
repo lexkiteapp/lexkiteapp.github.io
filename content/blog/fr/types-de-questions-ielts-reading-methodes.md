@@ -9,7 +9,7 @@ tags: [ielts, reading, question-types, strategy]
 keyword: "types de questions ielts reading"
 cover: reading
 coverAlt: "Liste de lecture Lexkite avec des textes classés du niveau A2 au niveau C1"
-publishAt:
+publishAt: 2027-01-15T08:45:00+01:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

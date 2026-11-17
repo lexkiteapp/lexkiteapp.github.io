@@ -42,8 +42,8 @@ public enum LessonStore {
         defaults.set(Double(accuracy), forKey: accKey)
     }
 
-    /// FSRS review for each result (wrong → Again, due + right first time → Good), unknown wrong words become new cards, XP → game.
-    public static func save(_ results: [LessonEngine.Result], xp: Int, now: Date, repo: LKRepository, calendar: Calendar = .current) async {
+    /// FSRS review for each result (wrong → Again, due + right first time → Good), unknown wrong words become new cards, XP + counters → game (= Android LessonWriter.apply).
+    public static func save(_ results: [LessonEngine.Result], xp: Int, spoken: Int, perfect: Bool, now: Date, repo: LKRepository, calendar: Calendar = .current) async {
         let ms = (now.timeIntervalSince1970 * 1000).rounded()
         let day = TodaySnapshot.dayKey(now, calendar)
         try? await repo.mutate { doc in
@@ -62,12 +62,23 @@ public enum LessonStore {
                 card["srs"] = j; card["mod"] = .number(ms)
                 doc.cards[key] = card
             }
-            var g = doc.game ?? .object([:])
-            g["xp"] = .number(JSON.orZero(g["xp"]) + Double(xp))
-            var days = JSON.spread(g["days"])
-            var d = JSON.spread(days[day]); d["xp"] = .number(JSON.orZero(d["xp"]) + Double(xp))
-            days[day] = .object(d); g["days"] = .object(days)
-            doc.game = g
+            doc.game = reward(doc.game, xp: xp, spoken: spoken, perfect: perfect, day: day)
         }
+    }
+
+    /// Game.track({quizzes:1, spoken, perfect, xp}) without quests/badges (= Android LessonWriter.reward): day + total counters (total only when the key exists), xp.
+    static func reward(_ game: JSON?, xp: Int, spoken: Int, perfect: Bool, day: String) -> JSON {
+        var g = game ?? .object([:])
+        var days = JSON.spread(g["days"]); var d = JSON.spread(days[day]); var total = JSON.spread(g["total"])
+        func add(_ m: String, _ v: Int) {
+            if v == 0 { return }
+            d[m] = .number(JSON.orZero(d[m]) + Double(v))
+            if total[m] != nil { total[m] = .number(JSON.orZero(total[m]) + Double(v)) }
+        }
+        add("quizzes", 1); add("spoken", spoken); add("perfect", perfect ? 1 : 0)
+        d["xp"] = .number(JSON.orZero(d["xp"]) + Double(xp))
+        days[day] = .object(d); g["days"] = .object(days); g["total"] = .object(total)
+        g["xp"] = .number(JSON.orZero(g["xp"]) + Double(xp))
+        return g
     }
 }

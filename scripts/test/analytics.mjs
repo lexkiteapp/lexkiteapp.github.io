@@ -121,6 +121,13 @@ ok(ex.ci === 1 && ex.ua === 3 && ex.dc === 1 && ex.admin === 2, '"đã loại" t
 ok(L.tz === 'Asia/Ho_Chi_Minh' && L.day === today, 'trả kèm múi giờ & ngày đang tính');
 ok(!L.viewing.some(v => v.k === 'admin'), '"Đang xem" không có #/admin');
 ok(L.online === 5, '"Đang online" chỉ đếm người thật (5 phút) – được ' + L.online);
+// Thẻ Nền tảng: web và PWA cùng origin dùng chung vid → máy h1 mở thêm bản đã cài nằm ở 2 dòng plat, nhưng Tổng thiết bị chỉ tính 1 lần
+ok(L.devToday && L.devToday.v === L.today.visitors && L.devToday.multi === 0 && L.dev30 && L.dev30.v >= L.devToday.v, 'live: devToday.v = khách hôm nay, dev30.v ≥ devToday.v – ' + JSON.stringify([L.devToday, L.dev30]));
+await hit(S('hum1pwaaaaa', 'h1humanaaa', { plat: 'pwa' })); R._resetRollup();
+const L2 = (await api('live', { days: 7 })).j, pt2 = Object.fromEntries(L2.platsToday.map(r => [r.k, r.n])), p302 = Object.fromEntries(L2.plats30.map(r => [r.k, r.n]));
+ok(pt2.pwa === 1 && L2.devToday.v === L.devToday.v && L2.devToday.multi === 1 && L2.platsToday.reduce((a, r) => a + r.n, 0) === L2.devToday.v + 1, 'live: 1 máy web + PWA → dòng PWA = 1, Tổng hôm nay không đổi, multi = 1 (cộng dòng = Tổng + 1) – ' + JSON.stringify([L2.platsToday, L2.devToday]));
+ok(p302.pwa === 1 && L2.dev30.multi === 1 && L2.dev30.v === L.dev30.v, 'live: 30 ngày cùng nguồn – PWA = 1, Tổng 30 ngày không đếm trùng, multi = 1 – ' + JSON.stringify(L2.dev30));
+sql.prepare("DELETE FROM sessions WHERE sid = 'hum1pwaaaaa'").run(); R._resetRollup(); // trả lại dữ liệu nền cho các kiểm tra sau
 const an = await api('analytics', { days: 7 });
 ok(an.status === 200 && an.j.sum.v === 7, 'op analytics: 7 khách thật từ 11/10 (5 hôm nay + phiên cũ 15/10 + phiên 18/10 giờ VN) – được ' + (an.j.sum && an.j.sum.v));
 ok(an.j.excluded.s >= 8, 'op analytics trả số phiên đã loại (≥ 8: 3 ci-app + ci + 3 ua + dc + admin…)');
