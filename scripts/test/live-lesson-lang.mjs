@@ -3,12 +3,13 @@
 import fs from 'node:fs'; import { chromium } from 'playwright';
 const ORIGIN = process.argv[2] || 'https://lexkite.com', OUT = process.argv[3] || 'out/live-lesson-lang'; fs.mkdirSync(OUT, { recursive: true });
 let fails = 0; const ok = (c, m) => { if (!c) { fails++; console.error('✗', m); } else console.log('✓', m); };
-const VI = /[ăâđêôơưàáảãạằắẳẵặầấẩẫậèéẻẽẹềếểễệìíỉĩịòóỏõọồốổỗộờớởỡợùúủũụừứửữựỳýỷỹỵ]/i;
+// chỉ ký tự RIÊNG của tiếng Việt (không có trong fr/es/pt: â ê ô à è é ò ù ú í ó á ñ ç… dùng chung nên không tính)
+const VI = /[ăđơưảẳẩẻểỉỏổởủửỷạặậẹệịọộợụựỵẵẫẽễĩõỗỡũữỹắằấầếềốồớờứừ]/i;
 const SEED = async () => { localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.onb', '1'); App.state.settings.onboarded = true; App.state.settings.exam = 'ielts'; await App.saveSettings(); };
 const browser = await chromium.launch();
 for (const lang of ['en', 'fr', 'zh', 'es']) {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: 'block', locale: lang }), page = await ctx.newPage(), errs = [];
-  page.on('pageerror', e => errs.push(e.message));
+  page.on('pageerror', e => errs.push(e.message + ' @ ' + String(e.stack || '').split('\n').slice(1, 3).join(' ').trim()));
   const url = h => `${ORIGIN}/app/?sandbox=1&hl=${lang}#/${h}`;
   await page.goto(url('home'), { waitUntil: 'load' }); await page.waitForFunction(() => window.App && App.state && App.saveSettings, null, { timeout: 45000 }); await page.evaluate(SEED);
   await page.goto(url('lesson/go?demo=1'), { waitUntil: 'load' }); await page.reload({ waitUntil: 'load' });
